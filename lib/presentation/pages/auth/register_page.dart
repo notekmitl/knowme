@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-import '../profile/profile_setup_page.dart';
+import '../home/home_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -18,16 +19,19 @@ class _RegisterPageState extends State<RegisterPage> {
   bool isLoading = false;
 
   Future<void> register() async {
-    if (emailController.text.trim().isEmpty ||
-        passwordController.text.trim().isEmpty ||
-        confirmPasswordController.text.trim().isEmpty) {
+    final email = emailController.text.trim();
+    final password = passwordController.text.trim();
+
+    if (email.isEmpty ||
+        password.isEmpty ||
+        confirmPasswordController.text.isEmpty) {
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(const SnackBar(content: Text("Please fill all fields")));
       return;
     }
 
-    if (passwordController.text != confirmPasswordController.text) {
+    if (password != confirmPasswordController.text) {
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(const SnackBar(content: Text("Passwords do not match")));
@@ -38,17 +42,23 @@ class _RegisterPageState extends State<RegisterPage> {
 
     try {
       final credential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-            email: emailController.text.trim(),
-            password: passwordController.text.trim(),
-          );
+          .createUserWithEmailAndPassword(email: email, password: password);
+
+      final user = credential.user;
+
+      // 🔥 SAVE FIRESTORE
+      if (user != null) {
+        await FirebaseFirestore.instance.collection("users").doc(user.uid).set({
+          "email": user.email,
+          "createdAt": FieldValue.serverTimestamp(),
+        });
+      }
 
       if (!mounted) return;
 
-      // สมัครเสร็จ → ไป Setup Profile ทันที
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (_) => const ProfileSetupPage()),
+        MaterialPageRoute(builder: (_) => const HomePage()),
       );
     } on FirebaseAuthException catch (e) {
       String message = "Register failed";
@@ -56,18 +66,12 @@ class _RegisterPageState extends State<RegisterPage> {
       if (e.code == 'email-already-in-use') {
         message = "Email already in use";
       } else if (e.code == 'weak-password') {
-        message = "Password should be at least 6 characters";
-      } else if (e.code == 'invalid-email') {
-        message = "Invalid email format";
+        message = "Password too weak";
       }
 
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(SnackBar(content: Text(message)));
-    } catch (e) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text("Error: $e")));
     }
 
     setState(() => isLoading = false);
@@ -83,51 +87,27 @@ class _RegisterPageState extends State<RegisterPage> {
           children: [
             TextField(
               controller: emailController,
-              decoration: InputDecoration(
-                labelText: "Email",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
+              decoration: const InputDecoration(labelText: "Email"),
             ),
-
             const SizedBox(height: 16),
-
             TextField(
               controller: passwordController,
               obscureText: true,
-              decoration: InputDecoration(
-                labelText: "Password",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
+              decoration: const InputDecoration(labelText: "Password"),
             ),
-
             const SizedBox(height: 16),
-
             TextField(
               controller: confirmPasswordController,
               obscureText: true,
-              decoration: InputDecoration(
-                labelText: "Confirm Password",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-              ),
+              decoration: const InputDecoration(labelText: "Confirm Password"),
             ),
-
             const SizedBox(height: 30),
 
-            SizedBox(
-              width: double.infinity,
-              height: 50,
-              child: ElevatedButton(
-                onPressed: isLoading ? null : register,
-                child: isLoading
-                    ? const CircularProgressIndicator(color: Colors.white)
-                    : const Text("Register"),
-              ),
+            ElevatedButton(
+              onPressed: register,
+              child: isLoading
+                  ? const CircularProgressIndicator()
+                  : const Text("Register"),
             ),
           ],
         ),

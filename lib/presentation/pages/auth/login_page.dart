@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:knowme/presentation/pages/home/home_page.dart';
+
+import 'register_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -19,10 +20,7 @@ class _LoginPageState extends State<LoginPage> {
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
 
-    // 🔥 DEBUG INPUT
-    print("EMAIL: $email");
-    print("PASSWORD: $password");
-
+    // validation
     if (email.isEmpty || password.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Please enter email and password")),
@@ -33,44 +31,51 @@ class _LoginPageState extends State<LoginPage> {
     setState(() => isLoading = true);
 
     try {
-      final userCredential = await FirebaseAuth.instance
-          .signInWithEmailAndPassword(email: email, password: password);
-
-      print("LOGIN SUCCESS: ${userCredential.user?.uid}");
-
-      if (!mounted) return;
-
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => const HomePage()),
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: email,
+        password: password,
       );
-    } on FirebaseAuthException catch (e) {
-      print("🔥 FIREBASE ERROR: ${e.code}");
 
+      // ✅ ไม่ต้อง Navigator แล้ว
+      // AuthGate จะ handle redirect ให้เอง
+    } on FirebaseAuthException catch (e) {
       String message = "Login failed";
 
-      if (e.code == 'user-not-found') {
-        message = "User not found";
-      } else if (e.code == 'wrong-password') {
-        message = "Wrong password";
-      } else if (e.code == 'invalid-email') {
-        message = "Invalid email format";
-      } else if (e.code == 'invalid-credential') {
-        message = "Email or password incorrect";
+      switch (e.code) {
+        case 'user-not-found':
+          message = "User not found";
+          break;
+        case 'wrong-password':
+          message = "Wrong password";
+          break;
+        case 'invalid-credential':
+          message = "Email or password incorrect";
+          break;
+        case 'invalid-email':
+          message = "Invalid email format";
+          break;
+        case 'too-many-requests':
+          message = "Too many attempts. Try again later";
+          break;
+        default:
+          message = e.message ?? "Login failed";
       }
 
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(SnackBar(content: Text(message)));
-    } catch (e) {
-      print("🔥 UNKNOWN ERROR: $e");
-
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(const SnackBar(content: Text("Something went wrong")));
     }
 
-    setState(() => isLoading = false);
+    if (mounted) {
+      setState(() => isLoading = false);
+    }
+  }
+
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -90,7 +95,9 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               children: [
                 const Icon(Icons.psychology, size: 80, color: Colors.white),
+
                 const SizedBox(height: 16),
+
                 const Text(
                   "KnowMe",
                   style: TextStyle(
@@ -99,11 +106,13 @@ class _LoginPageState extends State<LoginPage> {
                     color: Colors.white,
                   ),
                 ),
+
                 const SizedBox(height: 40),
 
-                /// EMAIL
+                // Email
                 TextField(
                   controller: emailController,
+                  keyboardType: TextInputType.emailAddress,
                   decoration: InputDecoration(
                     hintText: "Email",
                     filled: true,
@@ -117,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 const SizedBox(height: 16),
 
-                /// PASSWORD
+                // Password
                 TextField(
                   controller: passwordController,
                   obscureText: true,
@@ -134,7 +143,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 const SizedBox(height: 24),
 
-                /// LOGIN BUTTON
+                // Login Button
                 SizedBox(
                   width: double.infinity,
                   height: 50,
@@ -155,11 +164,12 @@ class _LoginPageState extends State<LoginPage> {
 
                 const SizedBox(height: 16),
 
-                /// CREATE ACCOUNT
+                // Register
                 TextButton(
                   onPressed: () {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(content: Text("Go to Register Page")),
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => const RegisterPage()),
                     );
                   },
                   child: const Text(

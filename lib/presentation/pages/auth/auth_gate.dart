@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import '../home/home_page.dart';
 import 'login_page.dart';
+import '../home/home_page.dart';
 
 class AuthGate extends StatelessWidget {
   const AuthGate({super.key});
@@ -12,19 +12,19 @@ class AuthGate extends StatelessWidget {
     return StreamBuilder<User?>(
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
-        // Loading
+        // loading
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const Scaffold(
             body: Center(child: CircularProgressIndicator()),
           );
         }
 
-        // มี user → ไป Home
+        // login แล้ว
         if (snapshot.hasData) {
           return const HomePage();
         }
 
-        // ไม่มี user → ไป Login
+        // ยังไม่ login
         return const LoginPage();
       },
     );
