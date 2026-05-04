@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "239840538753",
+    "project_id": "knowme-app-694e1",
+    "storage_bucket": "knowme-app-694e1.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:239840538753:android:f017669821e0e8f09c9d80",
+        "android_client_info": {
+          "package_name": "com.example.knowme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "239840538753-soahjmliurefpqev2h8bnjss65mbe3cp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.knowme",
+            "certificate_hash": "409b4a2889ffa7708d32f86f6e0e9c1483018691"
+          }
+        },
+        {
+          "client_id": "239840538753-89irlm1gtf859ln6bv907jb5rr2oclkp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0-EUV5b9IiSSTeI06gU93we7E_UBYAeA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "239840538753-89irlm1gtf859ln6bv907jb5rr2oclkp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,13 @@
+{
+  "@@locale": "th",
+  "app_title": "KnowMe",
+
+  "mbti_p1_q1": "คุณรู้สึกมีพลังหลังจากอยู่กับคนเยอะ ๆ",
+  "mbti_p1_q2": "คุณชอบอยู่คนเดียว",
+
+  "mbti_option_strongly_agree": "เห็นด้วยมาก",
+  "mbti_option_agree": "เห็นด้วย",
+  "mbti_option_neutral": "เฉย ๆ",
+  "mbti_option_disagree": "ไม่เห็นด้วย",
+  "mbti_option_strongly_disagree": "ไม่เห็นด้วยมาก"
+}

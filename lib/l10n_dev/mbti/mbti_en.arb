@@ -1,0 +1,97 @@
+{
+  "mbti_p1_q1": "You feel energized when you are around many people",
+  "mbti_p1_q2": "You need time alone to recharge your energy",
+  "mbti_p1_q3": "You usually start conversations",
+  "mbti_p1_q4": "You feel drained after long social interactions",
+  "mbti_p1_q5": "You enjoy doing activities with others",
+  "mbti_p1_q6": "You prefer spending time alone rather than going out",
+  "mbti_p1_q7": "You find it easy to talk to strangers",
+  "mbti_p1_q8": "You feel comfortable being alone in silence",
+  "mbti_p1_q9": "You enjoy social gatherings",
+  "mbti_p1_q10": "You tend to avoid crowded situations",
+
+  "mbti_p1_q11": "You like to express your thoughts to others",
+  "mbti_p1_q12": "You think before you speak rather than speaking first",
+  "mbti_p1_q13": "You feel energized being in a group",
+  "mbti_p1_q14": "You prefer spending time alone rather than with others",
+  "mbti_p1_q15": "You enjoy activities with many people",
+  "mbti_p1_q16": "You feel comfortable being alone",
+  "mbti_p1_q17": "You can easily start conversations",
+  "mbti_p1_q18": "You tend to keep your thoughts to yourself",
+  "mbti_p1_q19": "You enjoy lively and energetic environments",
+  "mbti_p1_q20": "You need personal space to think",
+
+  "mbti_p1_q21": "You pay attention to small details in what you do",
+  "mbti_p1_q22": "You often think about future possibilities",
+  "mbti_p1_q23": "You trust things that can be proven",
+  "mbti_p1_q24": "You enjoy imagining new ideas",
+  "mbti_p1_q25": "You value direct experience",
+  "mbti_p1_q26": "You focus on the big picture rather than details",
+  "mbti_p1_q27": "You prefer clear and tangible information",
+  "mbti_p1_q28": "You are more interested in ideas than facts",
+  "mbti_p1_q29": "You follow proven methods",
+  "mbti_p1_q30": "You like trying new approaches",
+
+  "mbti_p1_q31": "You prefer factual information over interpretation",
+  "mbti_p1_q32": "You often see hidden meanings",
+  "mbti_p1_q33": "You focus on what is happening in the present",
+  "mbti_p1_q34": "You think about what could happen in the future",
+  "mbti_p1_q35": "You trust direct experience more than intuition",
+  "mbti_p1_q36": "You often rely on intuition when making decisions",
+  "mbti_p1_q37": "You prefer clear and structured processes",
+  "mbti_p1_q38": "You enjoy abstract concepts",
+  "mbti_p1_q39": "You focus more on details than the big picture",
+  "mbti_p1_q40": "You focus more on the big picture than details",
+
+
+  "mbti_p2_q41": "You make decisions based on logic",
+  "mbti_p2_q42": "You consider others' feelings before making decisions",
+  "mbti_p2_q43": "You value correctness over relationships",
+  "mbti_p2_q44": "You value people's feelings",
+  "mbti_p2_q45": "You analyze problems systematically",
+  "mbti_p2_q46": "You often decide based on your inner feelings",
+  "mbti_p2_q47": "You seek truth over harmony",
+  "mbti_p2_q48": "You prioritize relationships over winning",
+  "mbti_p2_q49": "You rely more on logic than emotions when deciding",
+  "mbti_p2_q50": "You value understanding others",
+
+
+  "mbti_p2_q51": "You value facts over feelings",
+  "mbti_p2_q52": "You try to understand others' emotions",
+  "mbti_p2_q53": "You look for the most logical solution",
+  "mbti_p2_q54": "You value relationships over correctness",
+  "mbti_p2_q55": "You make decisions without letting emotions interfere",
+  "mbti_p2_q56": "You consider the impact on others when deciding",
+  "mbti_p2_q57": "You prioritize fairness and logic",
+  "mbti_p2_q58": "You value compassion and understanding",
+  "mbti_p2_q59": "You prefer analyzing over feeling",
+  "mbti_p2_q60": "You prefer understanding feelings over analyzing",
+
+  "mbti_p2_q61": "You like to plan ahead",
+  "mbti_p2_q62": "You prefer to go with the flow",
+  "mbti_p2_q63": "You feel comfortable with clear plans",
+  "mbti_p2_q64": "You adapt easily to situations",
+  "mbti_p2_q65": "You like setting goals in advance",
+  "mbti_p2_q66": "You dislike being restricted by plans",
+  "mbti_p2_q67": "You manage your time in a structured way",
+  "mbti_p2_q68": "You act based on mood or situation",
+  "mbti_p2_q69": "You prefer finishing tasks step by step",
+  "mbti_p2_q70": "You like to keep options open",
+
+  "mbti_p2_q71": "You feel good when everything is organized",
+  "mbti_p2_q72": "You are comfortable with uncertainty",
+  "mbti_p2_q73": "You like to make decisions quickly",
+  "mbti_p2_q74": "You prefer to keep multiple options open",
+  "mbti_p2_q75": "You plan before taking action",
+  "mbti_p2_q76": "You take action first and adjust later",
+  "mbti_p2_q77": "You follow your plans closely",
+  "mbti_p2_q78": "You change plans easily",
+  "mbti_p2_q79": "You feel comfortable when in control",
+  "mbti_p2_q80": "You prefer letting things flow naturally"
+
+
+
+
+
+
+}

@@ -1,0 +1,13 @@
+{
+  "@@locale": "en",
+  "app_title": "KnowMe",
+
+  "mbti_p1_q1": "You feel energized after being around people",
+  "mbti_p1_q2": "You prefer being alone",
+
+  "mbti_option_strongly_agree": "Strongly Agree",
+  "mbti_option_agree": "Agree",
+  "mbti_option_neutral": "Neutral",
+  "mbti_option_disagree": "Disagree",
+  "mbti_option_strongly_disagree": "Strongly Disagree"
+}
