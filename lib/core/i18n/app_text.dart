@@ -58,6 +58,33 @@ class AppText {
     "category_mbti": {"en": "MBTI Personality Type", "th": "บุคลิกภาพแบบ MBTI"},
 
     /// =========================
+    /// TEST MODULE TITLES
+    /// =========================
+    "mbti_mini_title": {"en": "Quick MBTI Test", "th": "MBTI แบบสั้น"},
+
+    "mbti_mini_description": {
+      "en": "Quick overview of your personality type",
+      "th": "ค้นหาประเภทบุคลิกภาพอย่างรวดเร็ว",
+    },
+
+    "mbti_short_title": {"en": "Standard MBTI Test", "th": "MBTI มาตรฐาน"},
+
+    "mbti_short_description": {
+      "en": "Standard MBTI personality analysis",
+      "th": "วิเคราะห์ MBTI แบบมาตรฐาน",
+    },
+
+    "mbti_accurate_title": {
+      "en": "Advanced MBTI Test",
+      "th": "MBTI แบบละเอียด",
+    },
+
+    "mbti_accurate_description": {
+      "en": "Highly accurate personality analysis",
+      "th": "วิเคราะห์บุคลิกภาพเชิงลึก",
+    },
+
+    /// =========================
     /// BIG FIVE TESTS
     /// =========================
     "bigfive_mini": {

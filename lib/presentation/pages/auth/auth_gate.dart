@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'login_page.dart';
-import '../home/home_page.dart';
+import '../profile/profile_gate.dart';
 
 class AuthGate extends StatelessWidget {
   const AuthGate({super.key});
@@ -21,7 +21,7 @@ class AuthGate extends StatelessWidget {
 
         // login แล้ว
         if (snapshot.hasData) {
-          return const HomePage();
+          return const ProfileGate();
         }
 
         // ยังไม่ login

@@ -4,8 +4,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:knowme/core/i18n/app_text.dart';
 import 'package:knowme/data/test_modules.dart';
+
 import 'package:knowme/domain/models/test_category.dart';
 import 'package:knowme/domain/models/test_module.dart';
+
 import 'universal_test_page.dart';
 
 class TestModuleListPage extends StatelessWidget {
@@ -30,8 +32,9 @@ class TestModuleListPage extends StatelessWidget {
 
       body: ListView.builder(
         itemCount: modules.length,
+
         itemBuilder: (context, index) {
-          final module = modules[index];
+          final TestModule module = modules[index];
 
           return StreamBuilder<DocumentSnapshot>(
             stream: FirebaseFirestore.instance
@@ -40,34 +43,43 @@ class TestModuleListPage extends StatelessWidget {
                 .collection("tests")
                 .doc(module.id)
                 .snapshots(),
+
             builder: (context, snapshot) {
               int answered = 0;
+
               int total = module.questionCount;
+
               bool completed = false;
 
               if (snapshot.hasData && snapshot.data!.exists) {
                 final data = snapshot.data!.data() as Map<String, dynamic>;
 
                 answered = data["answered"] ?? 0;
+
                 total = data["total"] ?? module.questionCount;
+
                 completed = data["completed"] ?? false;
               }
 
-              double percent = total == 0 ? 0 : (answered / total);
+              final double percent = total == 0 ? 0 : answered / total;
 
-              /// STATUS TEXT (2 LANGUAGE)
+              /// STATUS
 
-              String status;
-              Color statusColor;
+              late String status;
+
+              late Color statusColor;
 
               if (completed) {
                 status = lang == "th" ? "✓ ทำเสร็จแล้ว" : "✓ Completed";
+
                 statusColor = Colors.green;
               } else if (answered > 0) {
                 status = lang == "th" ? "▶ ทำต่อ" : "▶ Continue";
+
                 statusColor = Colors.orange;
               } else {
                 status = lang == "th" ? "○ ยังไม่เริ่ม" : "○ Not started";
+
                 statusColor = Colors.grey;
               }
 
@@ -76,13 +88,17 @@ class TestModuleListPage extends StatelessWidget {
                   horizontal: 16,
                   vertical: 8,
                 ),
+
                 child: Card(
+                  elevation: 2,
+
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  elevation: 2,
+
                   child: InkWell(
                     borderRadius: BorderRadius.circular(16),
+
                     onTap: () {
                       Navigator.push(
                         context,
@@ -91,39 +107,59 @@ class TestModuleListPage extends StatelessWidget {
                         ),
                       );
                     },
+
                     child: Padding(
                       padding: const EdgeInsets.all(16),
+
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
+
                         children: [
                           /// TITLE
                           Text(
-                            module.title[lang] ?? module.title["en"] ?? "",
+                            AppText.t(module.titleKey),
+
                             style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
 
-                          const SizedBox(height: 10),
+                          const SizedBox(height: 8),
+
+                          /// DESCRIPTION
+                          Text(
+                            AppText.t(module.descriptionKey),
+
+                            style: TextStyle(
+                              color: Colors.grey.shade700,
+
+                              fontSize: 13,
+                            ),
+                          ),
+
+                          const SizedBox(height: 14),
 
                           /// PROGRESS BAR
                           ClipRRect(
                             borderRadius: BorderRadius.circular(10),
+
                             child: LinearProgressIndicator(
                               value: percent,
                               minHeight: 8,
                             ),
                           ),
 
-                          const SizedBox(height: 8),
+                          const SizedBox(height: 10),
 
-                          /// INFO ROW
+                          /// FOOTER
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
                             children: [
                               Text(
                                 "$answered / $total ${lang == "th" ? "ข้อ" : "questions"}",
+
                                 style: const TextStyle(fontSize: 13),
                               ),
 
@@ -132,15 +168,21 @@ class TestModuleListPage extends StatelessWidget {
                                   horizontal: 10,
                                   vertical: 4,
                                 ),
+
                                 decoration: BoxDecoration(
                                   color: statusColor.withOpacity(0.15),
+
                                   borderRadius: BorderRadius.circular(20),
                                 ),
+
                                 child: Text(
                                   status,
+
                                   style: TextStyle(
                                     color: statusColor,
+
                                     fontWeight: FontWeight.w600,
+
                                     fontSize: 12,
                                   ),
                                 ),

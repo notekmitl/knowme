@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+
 import '../../widgets/location_picker.dart';
-import '../home/home_page.dart';
 
 class ProfileSetupPage extends StatefulWidget {
   const ProfileSetupPage({super.key});
 
   @override
-  State<ProfileSetupPage> createState() => _SetupProfilePageState();
+  State<ProfileSetupPage> createState() => _ProfileSetupPageState();
 }
 
-class _SetupProfilePageState extends State<ProfileSetupPage> {
+class _ProfileSetupPageState extends State<ProfileSetupPage> {
   final nameController = TextEditingController();
   final birthPlaceController = TextEditingController();
 
@@ -19,33 +19,54 @@ class _SetupProfilePageState extends State<ProfileSetupPage> {
   TimeOfDay? birthTime;
 
   String gender = "male";
+
   double? latitude;
   double? longitude;
 
   bool isLoading = false;
 
   Future<void> pickBirthDate() async {
-    final date = await showDatePicker(
+    final picked = await showDatePicker(
       context: context,
       initialDate: DateTime(2000),
       firstDate: DateTime(1900),
       lastDate: DateTime.now(),
     );
 
-    if (date != null) {
-      setState(() => birthDate = date);
+    if (picked != null) {
+      setState(() {
+        birthDate = picked;
+      });
     }
   }
 
   Future<void> pickBirthTime() async {
-    final time = await showTimePicker(
+    final picked = await showTimePicker(
       context: context,
       initialTime: const TimeOfDay(hour: 12, minute: 0),
     );
 
-    if (time != null) {
-      setState(() => birthTime = time);
+    if (picked != null) {
+      setState(() {
+        birthTime = picked;
+      });
     }
+  }
+
+  String formatDate(DateTime? date) {
+    if (date == null) {
+      return "Select Birth Date";
+    }
+
+    return "${date.day}/${date.month}/${date.year}";
+  }
+
+  String formatTime(TimeOfDay? time) {
+    if (time == null) {
+      return "Select Birth Time";
+    }
+
+    return "${time.hour.toString().padLeft(2, '0')}:${time.minute.toString().padLeft(2, '0')}";
   }
 
   Future<void> saveProfile() async {
@@ -59,45 +80,62 @@ class _SetupProfilePageState extends State<ProfileSetupPage> {
       return;
     }
 
-    setState(() => isLoading = true);
+    setState(() {
+      isLoading = true;
+    });
 
     try {
-      final user = FirebaseAuth.instance.currentUser!;
-      final uid = user.uid;
+      final user = FirebaseAuth.instance.currentUser;
 
-      await FirebaseFirestore.instance.collection("users").doc(uid).set({
-        "uid": uid,
-        "name": nameController.text.trim(),
-        "gender": gender,
-        "birthDate": birthDate!.toIso8601String(),
-        "birthTime": "${birthTime!.hour}:${birthTime!.minute}",
-        "birthPlace": birthPlaceController.text.trim(),
-        "latitude": latitude,
-        "longitude": longitude,
-        "timezone": "Asia/Bangkok",
-      });
+      if (user == null) {
+        throw Exception("User not found");
+      }
 
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => const HomePage()),
+      await FirebaseFirestore.instance
+          .collection("users")
+          .doc(user.uid)
+          .collection("profile")
+          .doc("main")
+          .set({
+            "name": nameController.text.trim(),
+            "gender": gender,
+            "birthDate": birthDate!.toIso8601String(),
+            "birthTime": "${birthTime!.hour}:${birthTime!.minute}",
+            "birthPlace": birthPlaceController.text.trim(),
+            "latitude": latitude,
+            "longitude": longitude,
+            "timezone": "Asia/Bangkok",
+          });
+
+      // ❌ ไม่ต้อง Navigator
+      // ProfileGate จะ detect profile/main แล้วเข้า HomePage เอง
+
+      if (!mounted) return;
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text("Profile saved successfully")),
       );
     } catch (e) {
+      if (!mounted) return;
+
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(SnackBar(content: Text("Error: $e")));
     }
 
-    setState(() => isLoading = false);
+    if (mounted) {
+      setState(() {
+        isLoading = false;
+      });
+    }
   }
 
-  String formatDate(DateTime? date) {
-    if (date == null) return "Select Birth Date";
-    return "${date.day}/${date.month}/${date.year}";
-  }
+  @override
+  void dispose() {
+    nameController.dispose();
+    birthPlaceController.dispose();
 
-  String formatTime(TimeOfDay? time) {
-    if (time == null) return "Select Birth Time";
-    return "${time.hour.toString().padLeft(2, '0')}:${time.minute.toString().padLeft(2, '0')}";
+    super.dispose();
   }
 
   @override
@@ -108,6 +146,7 @@ class _SetupProfilePageState extends State<ProfileSetupPage> {
         padding: const EdgeInsets.all(24),
         child: Column(
           children: [
+            // NAME
             TextField(
               controller: nameController,
               decoration: InputDecoration(
@@ -120,6 +159,7 @@ class _SetupProfilePageState extends State<ProfileSetupPage> {
 
             const SizedBox(height: 16),
 
+            // GENDER
             DropdownButtonFormField<String>(
               value: gender,
               decoration: InputDecoration(
@@ -133,12 +173,17 @@ class _SetupProfilePageState extends State<ProfileSetupPage> {
                 DropdownMenuItem(value: "female", child: Text("Female")),
               ],
               onChanged: (value) {
-                setState(() => gender = value!);
+                if (value != null) {
+                  setState(() {
+                    gender = value;
+                  });
+                }
               },
             ),
 
             const SizedBox(height: 16),
 
+            // BIRTH DATE
             GestureDetector(
               onTap: pickBirthDate,
               child: Container(
@@ -157,6 +202,7 @@ class _SetupProfilePageState extends State<ProfileSetupPage> {
 
             const SizedBox(height: 16),
 
+            // BIRTH TIME
             GestureDetector(
               onTap: pickBirthTime,
               child: Container(
@@ -175,6 +221,7 @@ class _SetupProfilePageState extends State<ProfileSetupPage> {
 
             const SizedBox(height: 16),
 
+            // LOCATION
             GestureDetector(
               onTap: () async {
                 final result = await LocationPicker.pick(context);
@@ -207,6 +254,7 @@ class _SetupProfilePageState extends State<ProfileSetupPage> {
 
             const SizedBox(height: 30),
 
+            // SAVE BUTTON
             SizedBox(
               width: double.infinity,
               height: 50,

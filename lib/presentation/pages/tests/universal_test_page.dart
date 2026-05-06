@@ -41,6 +41,7 @@ class _UniversalTestPageState extends State<UniversalTestPage> {
   @override
   void initState() {
     super.initState();
+
     initTest();
   }
 
@@ -67,7 +68,9 @@ class _UniversalTestPageState extends State<UniversalTestPage> {
 
     loading = false;
 
-    if (mounted) setState(() {});
+    if (mounted) {
+      setState(() {});
+    }
   }
 
   Future<void> checkExistingProgress() async {
@@ -86,19 +89,23 @@ class _UniversalTestPageState extends State<UniversalTestPage> {
             title: Text(
               language == "th" ? "ทำแบบทดสอบอีกครั้ง?" : "Restart Test?",
             ),
+
             content: Text(
               language == "th"
                   ? "คุณทำแบบทดสอบนี้เสร็จแล้ว ต้องการทำใหม่หรือไม่"
                   : "You already completed this test. Restart?",
             ),
+
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(context, false),
+
                 child: Text(language == "th" ? "ไม่" : "No"),
               ),
 
               ElevatedButton(
                 onPressed: () => Navigator.pop(context, true),
+
                 child: Text(language == "th" ? "ทำใหม่" : "Restart"),
               ),
             ],
@@ -112,7 +119,9 @@ class _UniversalTestPageState extends State<UniversalTestPage> {
         answers = {};
         index = 0;
       } else {
-        if (mounted) Navigator.pop(context);
+        if (mounted) {
+          Navigator.pop(context);
+        }
       }
 
       return;
@@ -163,9 +172,8 @@ class _UniversalTestPageState extends State<UniversalTestPage> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          widget.module.title[language] ?? widget.module.title["en"] ?? "",
-        ),
+        title: Text(AppText.t(widget.module.titleKey)),
+
         backgroundColor: Colors.deepPurple,
       ),
 
@@ -182,6 +190,7 @@ class _UniversalTestPageState extends State<UniversalTestPage> {
                 language == "th"
                     ? "คำถาม ${index + 1} / ${questions.length}"
                     : "Question ${index + 1} / ${questions.length}",
+
                 textAlign: TextAlign.center,
               ),
 
@@ -193,8 +202,10 @@ class _UniversalTestPageState extends State<UniversalTestPage> {
 
               /// question
               Text(
-                question.text[language] ?? question.text["en"]!,
+                question.text[language] ?? question.text["en"] ?? "",
+
                 textAlign: TextAlign.center,
+
                 style: const TextStyle(
                   fontSize: 22,
                   fontWeight: FontWeight.w500,
@@ -205,8 +216,8 @@ class _UniversalTestPageState extends State<UniversalTestPage> {
 
               /// options
               ...question.options.map((option) {
-                print(option);
                 final textMap = Map<String, dynamic>.from(option["text"] ?? {});
+
                 final score = option["score"] ?? 0;
 
                 return answerButton(

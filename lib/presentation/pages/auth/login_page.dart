@@ -36,8 +36,8 @@ class _LoginPageState extends State<LoginPage> {
         password: password,
       );
 
-      // ✅ ไม่ต้อง Navigator แล้ว
-      // AuthGate จะ handle redirect ให้เอง
+      // ❌ ไม่ต้อง Navigator หลัง login
+      // AuthGate จะ handle redirect อัตโนมัติ
     } on FirebaseAuthException catch (e) {
       String message = "Login failed";
 
@@ -45,18 +45,23 @@ class _LoginPageState extends State<LoginPage> {
         case 'user-not-found':
           message = "User not found";
           break;
+
         case 'wrong-password':
           message = "Wrong password";
           break;
+
         case 'invalid-credential':
           message = "Email or password incorrect";
           break;
+
         case 'invalid-email':
           message = "Invalid email format";
           break;
+
         case 'too-many-requests':
           message = "Too many attempts. Try again later";
           break;
+
         default:
           message = e.message ?? "Login failed";
       }
@@ -75,6 +80,7 @@ class _LoginPageState extends State<LoginPage> {
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+
     super.dispose();
   }
 
@@ -109,7 +115,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 const SizedBox(height: 40),
 
-                // Email
+                // EMAIL
                 TextField(
                   controller: emailController,
                   keyboardType: TextInputType.emailAddress,
@@ -126,7 +132,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 const SizedBox(height: 16),
 
-                // Password
+                // PASSWORD
                 TextField(
                   controller: passwordController,
                   obscureText: true,
@@ -143,7 +149,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 const SizedBox(height: 24),
 
-                // Login Button
+                // LOGIN BUTTON
                 SizedBox(
                   width: double.infinity,
                   height: 50,
@@ -164,7 +170,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 const SizedBox(height: 16),
 
-                // Register
+                // REGISTER
                 TextButton(
                   onPressed: () {
                     Navigator.push(

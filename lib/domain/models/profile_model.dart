@@ -1,14 +1,18 @@
-class UserProfile {
+class ProfileModel {
   final String name;
   final String gender;
-  final DateTime birthDate;
+
+  final String birthDate;
   final String birthTime;
+
   final String birthPlace;
+
   final double latitude;
   final double longitude;
+
   final String timezone;
 
-  UserProfile({
+  const ProfileModel({
     required this.name,
     required this.gender,
     required this.birthDate,
@@ -19,29 +23,37 @@ class UserProfile {
     required this.timezone,
   });
 
+  factory ProfileModel.fromMap(Map<String, dynamic> map) {
+    return ProfileModel(
+      name: map["name"] ?? "",
+      gender: map["gender"] ?? "",
+
+      birthDate: map["birthDate"] ?? "",
+      birthTime: map["birthTime"] ?? "",
+
+      birthPlace: map["birthPlace"] ?? "",
+
+      latitude: (map["latitude"] ?? 0).toDouble(),
+      longitude: (map["longitude"] ?? 0).toDouble(),
+
+      timezone: map["timezone"] ?? "",
+    );
+  }
+
   Map<String, dynamic> toMap() {
     return {
       "name": name,
       "gender": gender,
-      "birthDate": birthDate.toIso8601String(),
+
+      "birthDate": birthDate,
       "birthTime": birthTime,
+
       "birthPlace": birthPlace,
+
       "latitude": latitude,
       "longitude": longitude,
+
       "timezone": timezone,
     };
-  }
-
-  factory UserProfile.fromMap(Map<String, dynamic> map) {
-    return UserProfile(
-      name: map['name'] ?? '',
-      gender: map['gender'] ?? '',
-      birthDate: DateTime.parse(map['birthDate']),
-      birthTime: map['birthTime'] ?? '',
-      birthPlace: map['birthPlace'] ?? '',
-      latitude: (map['latitude'] ?? 0).toDouble(),
-      longitude: (map['longitude'] ?? 0).toDouble(),
-      timezone: map['timezone'] ?? 'Asia/Bangkok',
-    );
   }
 }

@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
 
-import '../home/home_page.dart';
+import '../../providers/auth_provider.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -16,100 +15,171 @@ class _RegisterPageState extends State<RegisterPage> {
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
 
-  bool isLoading = false;
-
   Future<void> register() async {
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
+    final confirmPassword = confirmPasswordController.text.trim();
 
-    if (email.isEmpty ||
-        password.isEmpty ||
-        confirmPasswordController.text.isEmpty) {
+    // VALIDATION
+    if (email.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(const SnackBar(content: Text("Please fill all fields")));
       return;
     }
 
-    if (password != confirmPasswordController.text) {
+    if (password != confirmPassword) {
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(const SnackBar(content: Text("Passwords do not match")));
       return;
     }
 
-    setState(() => isLoading = true);
-
     try {
-      final credential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(email: email, password: password);
-
-      final user = credential.user;
-
-      // 🔥 SAVE FIRESTORE
-      if (user != null) {
-        await FirebaseFirestore.instance.collection("users").doc(user.uid).set({
-          "email": user.email,
-          "createdAt": FieldValue.serverTimestamp(),
-        });
-      }
-
-      if (!mounted) return;
-
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (_) => const HomePage()),
+      await context.read<AuthProvider>().register(
+        email: email,
+        password: password,
       );
-    } on FirebaseAuthException catch (e) {
-      String message = "Register failed";
 
-      if (e.code == 'email-already-in-use') {
-        message = "Email already in use";
-      } else if (e.code == 'weak-password') {
-        message = "Password too weak";
+      // ปิด RegisterPage
+      if (mounted) {
+        Navigator.pop(context);
       }
-
+    } catch (e) {
       ScaffoldMessenger.of(
         context,
-      ).showSnackBar(SnackBar(content: Text(message)));
+      ).showSnackBar(SnackBar(content: Text(e.toString())));
     }
+  }
 
-    setState(() => isLoading = false);
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    confirmPasswordController.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text("Create Account")),
-      body: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          children: [
-            TextField(
-              controller: emailController,
-              decoration: const InputDecoration(labelText: "Email"),
-            ),
-            const SizedBox(height: 16),
-            TextField(
-              controller: passwordController,
-              obscureText: true,
-              decoration: const InputDecoration(labelText: "Password"),
-            ),
-            const SizedBox(height: 16),
-            TextField(
-              controller: confirmPasswordController,
-              obscureText: true,
-              decoration: const InputDecoration(labelText: "Confirm Password"),
-            ),
-            const SizedBox(height: 30),
+    final authProvider = context.watch<AuthProvider>();
 
-            ElevatedButton(
-              onPressed: register,
-              child: isLoading
-                  ? const CircularProgressIndicator()
-                  : const Text("Register"),
+    return Scaffold(
+      body: Container(
+        padding: const EdgeInsets.all(24),
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Color(0xFF6A11CB), Color(0xFF2575FC)],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child: Center(
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                const Icon(Icons.person_add, size: 80, color: Colors.white),
+
+                const SizedBox(height: 16),
+
+                const Text(
+                  "Create Account",
+                  style: TextStyle(
+                    fontSize: 32,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+
+                const SizedBox(height: 40),
+
+                // EMAIL
+                TextField(
+                  controller: emailController,
+                  keyboardType: TextInputType.emailAddress,
+                  decoration: InputDecoration(
+                    hintText: "Email",
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide.none,
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 16),
+
+                // PASSWORD
+                TextField(
+                  controller: passwordController,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    hintText: "Password",
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide.none,
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 16),
+
+                // CONFIRM PASSWORD
+                TextField(
+                  controller: confirmPasswordController,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    hintText: "Confirm Password",
+                    filled: true,
+                    fillColor: Colors.white,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(12),
+                      borderSide: BorderSide.none,
+                    ),
+                  ),
+                ),
+
+                const SizedBox(height: 24),
+
+                // BUTTON
+                SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton(
+                    onPressed: authProvider.isLoading ? null : register,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.deepPurple,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    child: authProvider.isLoading
+                        ? const CircularProgressIndicator()
+                        : const Text(
+                            "Register",
+                            style: TextStyle(fontSize: 18),
+                          ),
+                  ),
+                ),
+
+                const SizedBox(height: 16),
+
+                TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    "Already have an account? Login",
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ],
             ),
-          ],
+          ),
         ),
       ),
     );

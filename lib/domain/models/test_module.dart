@@ -1,16 +1,15 @@
 class TestModule {
   final String id;
 
-  final Map<String, String> title;
-
-  final Map<String, String> description;
+  final String titleKey;
+  final String descriptionKey;
 
   final int questionCount;
 
   const TestModule({
     required this.id,
-    required this.title,
-    required this.description,
+    required this.titleKey,
+    required this.descriptionKey,
     required this.questionCount,
   });
 }
