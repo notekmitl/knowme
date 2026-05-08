@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_auth/firebase_auth.dart' hide AuthProvider;
+import 'package:provider/provider.dart';
 
+import '../../providers/auth_provider.dart';
 import 'register_page.dart';
+
+import 'package:google_sign_in/google_sign_in.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -20,7 +24,6 @@ class _LoginPageState extends State<LoginPage> {
     final email = emailController.text.trim();
     final password = passwordController.text.trim();
 
-    // validation
     if (email.isEmpty || password.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Please enter email and password")),
@@ -35,9 +38,6 @@ class _LoginPageState extends State<LoginPage> {
         email: email,
         password: password,
       );
-
-      // ❌ ไม่ต้อง Navigator หลัง login
-      // AuthGate จะ handle redirect อัตโนมัติ
     } on FirebaseAuthException catch (e) {
       String message = "Login failed";
 
@@ -73,6 +73,26 @@ class _LoginPageState extends State<LoginPage> {
 
     if (mounted) {
       setState(() => isLoading = false);
+    }
+  }
+
+  Future<void> loginWithGoogle() async {
+    try {
+      await context.read<AuthProvider>().loginWithGoogle();
+    } catch (e) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(e.toString())));
+    }
+  }
+
+  Future<void> loginWithFacebook() async {
+    try {
+      await context.read<AuthProvider>().loginWithFacebook();
+    } catch (e) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(SnackBar(content: Text(e.toString())));
     }
   }
 
@@ -165,6 +185,46 @@ class _LoginPageState extends State<LoginPage> {
                     child: isLoading
                         ? const CircularProgressIndicator()
                         : const Text("Login", style: TextStyle(fontSize: 18)),
+                  ),
+                ),
+
+                const SizedBox(height: 16),
+
+                // GOOGLE LOGIN
+                SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton.icon(
+                    onPressed: loginWithGoogle,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.white,
+                      foregroundColor: Colors.black87,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    icon: const Icon(Icons.login),
+                    label: const Text("Continue with Google"),
+                  ),
+                ),
+
+                const SizedBox(height: 16),
+
+                // FACEBOOK LOGIN
+                SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton.icon(
+                    onPressed: loginWithFacebook,
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF1877F2),
+                      foregroundColor: Colors.white,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(12),
+                      ),
+                    ),
+                    icon: const Icon(Icons.facebook),
+                    label: const Text("Continue with Facebook"),
                   ),
                 ),
 

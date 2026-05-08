@@ -26,6 +26,7 @@ dependencies:
   geocoding: ^3.0.0
   http: ^1.6.0
   fl_chart: ^0.66.2
+  
 
 dev_dependencies:
   flutter_test:
