@@ -2,16 +2,26 @@ from datetime import datetime
 import swisseph as swe
 
 from app.services.astrology.calculators.planet_calculator import calculate_planets
+
 from app.services.astrology.calculators.house_calculator import (
     calculate_houses,
     get_house,
 )
-from app.services.astrology.calculators.aspect_calculator import calculate_aspects
 
-from app.services.astrology.utils.astrology_utils import get_sign
+from app.services.astrology.calculators.aspect_calculator import (
+    calculate_aspects
+)
+
+from app.services.astrology.utils.astrology_utils import (
+    get_sign
+)
 
 from app.services.astrology.interpretations.interpretation_engine import (
     generate_interpretations
+)
+
+from app.services.astrology.insight.insight_engine import (
+    generate_personality_summary
 )
 
 
@@ -64,6 +74,20 @@ def build_chart(
         planets
     )
 
+    insight = generate_personality_summary(
+        {
+            "big3": {
+                "sun": planets["sun"]["sign"],
+                "moon": planets["moon"]["sign"],
+                "rising": get_sign(
+                    houses["ascendant"]
+                )
+            },
+
+            "interpretations": interpretations
+        }
+    )
+
     return {
 
         "big3": {
@@ -83,5 +107,7 @@ def build_chart(
 
         "aspects": aspects,
 
-        "interpretations": interpretations
+        "interpretations": interpretations,
+
+        "insight": insight
     }
