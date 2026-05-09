@@ -1,0 +1,16 @@
+# Firebase
+firebase/serviceAccountKey.json
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Environment
+.env
+
+# VSCode
+.vscode/
+
+# Mac
+.DS_Store
