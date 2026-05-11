@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:provider/provider.dart';
 
 import '../../providers/profile_provider.dart';
+
+import '../astrology/astrology_result_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -16,9 +20,11 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("KnowMe Home"),
+
         actions: [
           IconButton(
             icon: const Icon(Icons.logout),
+
             onPressed: () async {
               context.read<ProfileProvider>().clear();
 
@@ -27,12 +33,36 @@ class HomePage extends StatelessWidget {
           ),
         ],
       ),
+
       body: Center(
         child: profileProvider.isLoading
             ? const CircularProgressIndicator()
-            : Text(
-                "Welcome ${profile?.name ?? ''}",
-                style: const TextStyle(fontSize: 20),
+            : Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+
+                children: [
+                  Text(
+                    "Welcome ${profile?.name ?? ''}",
+
+                    style: const TextStyle(fontSize: 20),
+                  ),
+
+                  const SizedBox(height: 32),
+
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+
+                        MaterialPageRoute(
+                          builder: (_) => const AstrologyResultPage(),
+                        ),
+                      );
+                    },
+
+                    child: const Text('Open Astrology Result'),
+                  ),
+                ],
               ),
       ),
     );
