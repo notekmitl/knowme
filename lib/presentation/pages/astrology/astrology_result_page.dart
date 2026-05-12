@@ -345,7 +345,53 @@ class _AstrologyResultPageState extends State<AstrologyResultPage> {
                         ),
                       ),
                     ),
+                    const SizedBox(height: 32),
 
+                    Text(
+                      isThai
+                          ? 'ภาพรวมตัวตนเชิงลึก'
+                          : 'Deep Personality Summary',
+
+                      style: const TextStyle(
+                        color: Colors.white,
+
+                        fontSize: 28,
+
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+
+                    const SizedBox(height: 20),
+
+                    Container(
+                      width: double.infinity,
+
+                      padding: const EdgeInsets.all(24),
+
+                      decoration: BoxDecoration(
+                        color: Colors.white.withOpacity(0.08),
+
+                        borderRadius: BorderRadius.circular(24),
+                      ),
+
+                      child: Text(
+                        isThai
+                            ? (chart.overallSummary['th'] ??
+                                  chart.overallSummary['en'] ??
+                                  '')
+                            : (chart.overallSummary['en'] ?? ''),
+
+                        style: const TextStyle(
+                          color: Colors.white,
+
+                          fontSize: 18,
+
+                          height: 1.9,
+                        ),
+                      ),
+                    ),
+
+                    const SizedBox(height: 40),
                     const SizedBox(height: 40),
 
                     Text(
