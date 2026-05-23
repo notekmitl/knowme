@@ -8,8 +8,6 @@ import '../../services/auth_service.dart';
 
 import '../../services/user_service.dart';
 
-import '../../services/astrology_api_service.dart';
-
 class AuthProvider extends ChangeNotifier {
   final AuthService _authService = AuthService();
 
@@ -29,14 +27,6 @@ class AuthProvider extends ChangeNotifier {
     required String email,
 
     required String password,
-
-    required String birthDate,
-
-    required String birthTime,
-
-    required double latitude,
-
-    required double longitude,
   }) async {
     try {
       _setLoading(true);
@@ -52,20 +42,6 @@ class AuthProvider extends ChangeNotifier {
       }
 
       await _userService.saveUser(user);
-
-      /// GENERATE ASTROLOGY
-
-      await AstrologyApiService.generateChart(
-        uid: user.uid,
-
-        birthDate: birthDate,
-
-        birthTime: birthTime,
-
-        latitude: latitude,
-
-        longitude: longitude,
-      );
     } on FirebaseAuthException catch (e) {
       _error = e.message;
 

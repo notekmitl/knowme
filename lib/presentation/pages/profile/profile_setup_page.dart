@@ -73,7 +73,9 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
     if (nameController.text.isEmpty ||
         birthDate == null ||
         birthTime == null ||
-        birthPlaceController.text.isEmpty) {
+        birthPlaceController.text.isEmpty ||
+        latitude == null ||
+        longitude == null) {
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(const SnackBar(content: Text("Please fill all fields")));

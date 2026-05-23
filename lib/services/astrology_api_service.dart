@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
+import 'package:knowme/core/config/api_config.dart';
 
 class AstrologyApiService {
   static Future<void> generateChart({
@@ -11,7 +12,7 @@ class AstrologyApiService {
     required double longitude,
   }) async {
     final response = await http.post(
-      Uri.parse('http://127.0.0.1:8000/generate-chart'),
+      ApiConfig.astrologyGenerateChartUri(),
 
       headers: {'Content-Type': 'application/json'},
 
