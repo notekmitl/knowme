@@ -6,6 +6,11 @@ import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
 
+import 'package:knowme/features/tests/eq/eq_routes.dart';
+import 'package:knowme/features/tests/mbti/mbti_routes.dart';
+import 'package:knowme/features/tests/mbti_cognitive/mbti_cognitive_routes.dart';
+import 'package:knowme/features/tests/mbti_summary/mbti_summary_routes.dart';
+
 import 'presentation/pages/auth/auth_gate.dart';
 
 import 'presentation/providers/auth_provider.dart';
@@ -63,6 +68,31 @@ class KnowMeApp extends StatelessWidget {
           ],
 
           home: const AuthGate(),
+
+          onGenerateRoute: (settings) {
+            final eqRoute = EqRoutes.onGenerateRoute(settings);
+            if (eqRoute != null) {
+              return eqRoute;
+            }
+            final mbtiRoute = MbtiRoutes.onGenerateRoute(settings);
+            if (mbtiRoute != null) {
+              return mbtiRoute;
+            }
+            final cognitiveRoute =
+                MbtiCognitiveRoutes.onGenerateRoute(settings);
+            if (cognitiveRoute != null) {
+              return cognitiveRoute;
+            }
+            final summaryRoute = MbtiSummaryRoutes.onGenerateRoute(settings);
+            if (summaryRoute != null) {
+              return summaryRoute;
+            }
+
+            return MaterialPageRoute<void>(
+              settings: const RouteSettings(name: '/'),
+              builder: (_) => const AuthGate(),
+            );
+          },
         );
       },
     );

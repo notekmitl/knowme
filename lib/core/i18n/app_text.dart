@@ -14,6 +14,368 @@ class AppText {
       "en": "View my chart",
       "th": "ดูดวงของฉัน",
     },
+    "home_journey_title": {
+      "en": "Explore another side of you",
+      "th": "สำรวจอีกมุมของตัวคุณ",
+    },
+    "home_hub_body": {
+      "en":
+          "Choose a test or lens you are curious about — at your own pace.",
+      "th": "เลือกแบบทดสอบหรือมุมมองที่คุณสนใจได้ตามใจ",
+    },
+    "home_journey_astro_body": {
+      "en":
+          "Your natal chart can be a gentle mirror — explore it when you feel curious.",
+      "th":
+          "ดวงกำเนิดอาจเป็นกระจกเบาๆ ของตัวคุณ — ลองดูเมื่อคุณอยากรู้จักตัวเองมากขึ้น",
+    },
+    "home_journey_mbti_body": {
+      "en":
+          "A short MBTI lens may add another angle to how you see yourself — only if you feel like it.",
+      "th":
+          "มุม MBTI สั้นๆ อาจช่วยให้เห็นตัวเองอีกแบบ — ลองเมื่อคุณสนใจ",
+    },
+    "home_journey_mbti_cta": {
+      "en": "Try MBTI",
+      "th": "ลอง MBTI",
+    },
+    "home_journey_cognitive_body": {
+      "en":
+          "MBTI Cognitive looks at how your mind tends to process things — another optional lens.",
+      "th":
+          "MBTI Cognitive สำรวจว่าคุณมักประมวลผลอย่างไร — อีกมุมหนึ่งที่ลองได้ตามใจ",
+    },
+    "home_journey_cognitive_cta": {
+      "en": "Try MBTI Cognitive",
+      "th": "ลอง MBTI Cognitive",
+    },
+    "home_journey_summary_body": {
+      "en":
+          "You have MBTI and Cognitive results. You can see how they read together — whenever you like.",
+      "th":
+          "คุณมีผล MBTI และ Cognitive แล้ว ลองดูภาพรวมที่ผสานกันได้เมื่อพร้อม",
+    },
+    "home_journey_summary_cta": {
+      "en": "View MBTI Summary",
+      "th": "ดู MBTI Summary",
+    },
+    "home_journey_eq_body": {
+      "en":
+          "EQ mini tests look at emotional patterns — one small lens at a time, at your pace.",
+      "th":
+          "แบบทดสอบ EQ สั้นๆ สำรวจมุมอารมณ์ — ทีละเล็กน้อย ตามจังหวะของคุณ",
+    },
+    "home_journey_eq_cta": {
+      "en": "Explore EQ",
+      "th": "สำรวจ EQ",
+    },
+    "home_journey_fusion_body": {
+      "en":
+          "You already have a few lenses in play. Fusion weaves what you have into one reflective overview.",
+      "th":
+          "คุณมีหลายมุมแล้ว ลองดู Fusion ที่รวมสิ่งที่คุณมีอยู่เป็นภาพสะท้อนเดียว",
+    },
+    "home_journey_fusion_cta": {
+      "en": "See your overview",
+      "th": "ดูภาพรวมของคุณ",
+    },
+    "home_journey_reflect_body": {
+      "en":
+          "You have explored several sides of yourself already. You might gently notice how those sides relate to each other.",
+      "th":
+          "คุณได้สำรวจตัวเองมาหลายด้านแล้ว ลองดูว่าด้านต่าง ๆ เชื่อมโยงกันอย่างไร",
+    },
+    "home_journey_reflect_cta": {
+      "en": "Explore the connections",
+      "th": "สำรวจความเชื่อมโยง",
+    },
+    "home_journey_discover_body": {
+      "en":
+          "Pick another lens to explore whenever you feel curious — at your own pace.",
+      "th":
+          "เลือกสำรวจอีกด้านที่คุณสนใจได้ตามใจคุณ",
+    },
+    "home_journey_discover_cta": {
+      "en": "Try MBTI",
+      "th": "ลอง MBTI",
+    },
+    "home_explore_all_tests": {
+      "en": "Explore all tests",
+      "th": "สำรวจแบบทดสอบทั้งหมด",
+    },
+
+    "fusion_v11_title": {
+      "en": "How your lenses connect",
+      "th": "หลายมุมของคุณเชื่อมกันอย่างไร",
+    },
+    "fusion_v11_reload": {
+      "en": "Reload",
+      "th": "โหลดใหม่",
+    },
+    "fusion_v11_load_error": {
+      "en": "Could not load your lens overview",
+      "th": "โหลดภาพรวมหลายมุมไม่สำเร็จ",
+    },
+    "fusion_v11_empty": {
+      "en":
+          "There are not enough results yet to weave your lenses together. Try completing at least two areas first.",
+      "th":
+          "ยังมีผลลัพธ์ไม่พอที่จะเชื่อมหลายมุมเข้าด้วยกัน ลองทำอย่างน้อยสองด้านก่อน",
+    },
+    "fusion_v11_true_empty_title": {
+      "en": "Not enough data for Fusion yet",
+      "th": "ยังไม่มีข้อมูลมากพอสำหรับ Fusion",
+    },
+    "fusion_v11_true_empty_body": {
+      "en":
+          "Fusion helps you see how different lenses connect as you begin exploring yourself more.",
+      "th":
+          "Fusion จะช่วยให้เห็นว่าหลายมุมของคุณเชื่อมโยงกันอย่างไร เมื่อคุณเริ่มสำรวจตัวเองมากขึ้น",
+    },
+    "fusion_v11_astro_first_title": {
+      "en": "What astrology reflects right now",
+      "th": "สิ่งที่โหราสะท้อนในตอนนี้",
+    },
+    "fusion_v11_astro_first_intro": {
+      "en":
+          "This is a starting reflection from the lens you already have today.",
+      "th": "นี่คือมุมเริ่มต้นที่คุณมีอยู่แล้วในตอนนี้",
+    },
+    "fusion_v11_astro_fallback": {
+      "en":
+          "From your birth details, several threads may reflect how you see yourself, your relationships, and what matters in this season of life.",
+      "th":
+          "จากข้อมูลวันเวลาเกิด หลายด้านอาจสะท้อนวิธีที่คุณมองตัวเอง ความสัมพันธ์ และสิ่งที่ให้ความสำคัญในช่วงชีวิตนี้",
+    },
+    "fusion_v11_next_lens_title": {
+      "en": "When more lenses are added",
+      "th": "เมื่อมีมุมอื่นเพิ่มขึ้น",
+    },
+    "fusion_v11_next_lens_body": {
+      "en":
+          "Your overview still draws mainly from astrology. As you explore other areas, you may gradually see how different parts of you connect more clearly.",
+      "th":
+          "ตอนนี้ภาพรวมยังอ้างอิงจากโหราเป็นหลัก เมื่อคุณลองสำรวจตัวเองในด้านอื่นเพิ่มขึ้น คุณอาจเริ่มเห็นว่าหลายมุมของตัวเองค่อย ๆ เชื่อมโยงกันมากขึ้น",
+    },
+    "fusion_v11_agreement_title": {
+      "en": "What several lenses seem to share",
+      "th": "สิ่งที่หลายมุมเห็นร่วมกัน",
+    },
+    "fusion_v11_tension_title": {
+      "en": "An interesting nuance",
+      "th": "จุดที่น่าสนใจ",
+    },
+    "fusion_v11_synthesis_title": {
+      "en": "When viewed together",
+      "th": "เมื่อนำมาดูร่วมกัน",
+    },
+    "fusion_v11_synthesis_together_title": {
+      "en": "Overall picture",
+      "th": "ภาพรวม",
+    },
+    "fusion_v11_foundation_title": {
+      "en": "Base information for your overview",
+      "th": "ข้อมูลพื้นฐานที่ใช้ในการมองตัวคุณ",
+    },
+    "fusion_v11_foundation_subtitle": {
+      "en": "Base inputs for your overview",
+      "th": "ข้อมูลพื้นฐานที่ใช้ในการมองตัวคุณ",
+    },
+    "fusion_v11_foundation_hint": {
+      "en": "Base details for your multi-lens overview",
+      "th": "ข้อมูลที่ใช้เป็นพื้นฐานในการมองหลายมุมของคุณ",
+    },
+    "fusion_v11_birth_label": {
+      "en": "Born",
+      "th": "เกิด",
+    },
+    "fusion_v11_birth_place_label": {
+      "en": "Place",
+      "th": "สถานที่",
+    },
+    "fusion_v11_status_title": {
+      "en": "Self-discovery",
+      "th": "การสำรวจตัวเอง",
+    },
+    "fusion_v11_status_done": {
+      "en": "Explored:",
+      "th": "สำรวจแล้ว:",
+    },
+    "fusion_v11_status_done_item": {
+      "en": "{lens} — done",
+      "th": "{lens} — ทำแล้ว",
+    },
+    "fusion_v11_status_none_done": {
+      "en": "—",
+      "th": "—",
+    },
+    "fusion_v11_status_empty_explored": {
+      "en": "No self-discovery tests completed yet",
+      "th": "ยังไม่ได้สำรวจแบบทดสอบในตอนนี้",
+    },
+    "fusion_v11_status_pending": {
+      "en": "Not explored yet:",
+      "th": "ยังไม่ได้สำรวจ:",
+    },
+    "fusion_v11_status_pending_item": {
+      "en": "{lens} — not yet",
+      "th": "{lens} — ยังไม่ได้ทำ",
+    },
+    "fusion_v11_status_none": {
+      "en": "No completed lens yet",
+      "th": "ยังไม่มีมุมที่สำรวจเสร็จ",
+    },
+    "fusion_v11_status_complete": {
+      "en": "All listed lenses explored",
+      "th": "สำรวจครบตามรายการแล้ว",
+    },
+    "fusion_v11_snapshots_title": {
+      "en": "Reflections from each lens",
+      "th": "ภาพสะท้อนจากแต่ละมุม",
+    },
+    "fusion_v11_pending_lenses_title": {
+      "en": "Not explored yet",
+      "th": "ยังไม่ได้สำรวจในตอนนี้",
+    },
+    "fusion_v11_lens_astrology": {
+      "en": "Astrology lens",
+      "th": "มุมมองจากโหรา",
+    },
+    "fusion_v11_lens_mbti": {
+      "en": "MBTI",
+      "th": "MBTI",
+    },
+    "fusion_v11_lens_eq": {
+      "en": "EQ",
+      "th": "EQ",
+    },
+    "fusion_v11_lens_cognitive": {
+      "en": "Cognitive",
+      "th": "Cognitive",
+    },
+    "fusion_v11_lens_love_style": {
+      "en": "Love Style",
+      "th": "Love Style",
+    },
+    "fusion_v11_not_done": {
+      "en": "Test not completed yet.",
+      "th": "ยังไม่ได้ทำแบบทดสอบ",
+    },
+    "fusion_v11_mbti_fallback": {
+      "en": "This lens is ready, but summary is not available right now.",
+      "th": "มุมนี้พร้อมแล้ว แต่ยังไม่มีข้อความสรุปในตอนนี้",
+    },
+    "fusion_v11_cognitive_fallback": {
+      "en": "This lens is ready, but summary is not available right now.",
+      "th": "มุมนี้พร้อมแล้ว แต่ยังไม่มีข้อความสรุปในตอนนี้",
+    },
+    "fusion_v11_love_style_done": {
+      "en": "This lens reflects your attachment pattern from completed results.",
+      "th": "มุมนี้สะท้อนแนวโน้มความสัมพันธ์จากผลที่คุณทำไว้แล้ว",
+    },
+    "fusion_v11_disclosure": {
+      "en":
+          "This Fusion view weaves together the lenses you have completed so far. Many aspects may shift with experience, life season, and context.",
+      "th":
+          "Fusion นี้เป็นการมองหลายมุมของคุณร่วมกันจากข้อมูลที่มีในปัจจุบัน หลายด้านอาจเปลี่ยนแปลงได้ตามประสบการณ์ ช่วงชีวิต และบริบทในแต่ละเวลา",
+    },
+    "fusion_v11_agreement_reflection": {
+      "en":
+          "Several lenses may point toward someone who often pauses to notice inner signals before responding or choosing.",
+      "th":
+          "หลายมุมสะท้อนว่าคุณอาจมักหยุดสังเกตสิ่งที่เกิดขึ้นภายในก่อนตอบสนองหรือเลือกตัดสินใจ",
+    },
+    "fusion_v11_agreement_relationship": {
+      "en":
+          "Several lenses may suggest you tend to weigh people and connection when you read a situation.",
+      "th":
+          "หลายมุมสะท้อนว่าคุณอาจให้ความสำคัญกับคนและความสัมพันธ์เมื่อมองสถานการณ์รอบตัว",
+    },
+    "fusion_v11_agreement_logic": {
+      "en":
+          "Several lenses may reflect a tendency to look for clarity, structure, or reason before moving forward.",
+      "th":
+          "หลายมุมสะท้อนว่าคุณอาจมักมองหาความชัดเจน โครงสร้าง หรือเหตุผลก่อนลงมือ",
+    },
+    "fusion_v11_agreement_emotion": {
+      "en":
+          "Several lenses may echo a fairly attentive read of feelings — yours or others' — in how you move through life.",
+      "th":
+          "หลายมุมสะท้อนว่าคุณอาจค่อนข้างไวต่อความรู้สึก — ของตัวเองหรือของคนรอบตัว — ในการใช้ชีวิต",
+    },
+    "fusion_v11_agreement_exploration": {
+      "en":
+          "Several lenses may lean toward curiosity — room to explore ideas or paths before settling.",
+      "th":
+          "หลายมุมสะท้อนว่าคุณอาจมีแนวโน้มอยากสำรวจ เปิดรับไอเดียหรือทางเลือกก่อนตัดสินใจ",
+    },
+    "fusion_v11_agreement_general": {
+      "en":
+          "Several lenses may point toward someone who tries to balance understanding, feeling, and how they relate to others — rather than rushing to a single label.",
+      "th":
+          "หลายมุมสะท้อนว่าคุณอาจพยายามให้ความสำคัญกับความเข้าใจ ความรู้สึก และความสัมพันธ์ มากกว่าการตัดสินใจอย่างเร่งรีบ",
+    },
+    "fusion_v11_tension_logic_emotion": {
+      "en":
+          "In some lenses you may read as reason-forward and careful; in others, feeling and attunement may show up more strongly — and that mix can be interesting rather than contradictory.",
+      "th":
+          "ในบางมุม คุณอาจดูเป็นคนที่ใช้เหตุผลและคิดอย่างรอบคอบ ขณะเดียวกันบางด้านก็สะท้อนความไวต่อความรู้สึกของตัวเองและคนรอบตัวค่อนข้างมาก",
+    },
+    "fusion_v11_tension_head_heart": {
+      "en":
+          "One lens may describe how you tend to show up outwardly, while another may highlight a different rhythm inside — a tension that many people recognize without it being a flaw.",
+      "th":
+          "บางมุมอาจสะท้อนว่าคุณมักแสดงออกอย่างไร ขณะที่อีกมุมอาจเน้นจังหวะภายในที่ต่างออกไป — แรงดึงที่หลายคนรู้สึกคุ้น โดยไม่จำเป็นต้องเป็นข้อบกพร่อง",
+    },
+    "fusion_v11_tension_pace": {
+      "en":
+          "Some lenses may favor reflection and depth, while others lean toward movement and exploration — you may shift between those modes depending on the moment.",
+      "th":
+          "บางมุมอาจเอื้อให้ไตร่ตรองและลึก ขณะที่อีกมุมอาจโน้มไปทางการเคลื่อนไหวและการสำรวจ — คุณอาจสลับระหว่างสองแบบนี้ตามช่วงเวลา",
+    },
+    "fusion_v11_tension_general": {
+      "en":
+          "Not every lens pulls in the same direction — and that unevenness may be part of what makes your picture feel human rather than flat.",
+      "th":
+          "ไม่ใช่ทุกมุมที่ดึงไปทางเดียวกัน — และความไม่สม่ำเสมอนั้นอาจเป็นส่วนหนึ่งที่ทำให้ภาพของคุณรู้สึกเป็นคน มากกว่าแบบแผนเดียว",
+    },
+    "fusion_v11_synthesis_integrator": {
+      "en":
+          "Taken together, the picture may not name one fixed type — but it may reflect someone trying to integrate head, heart, and relationship in how they live.",
+      "th":
+          "เมื่อนำหลายมุมมาดูร่วมกัน ภาพรวมอาจไม่ได้ชี้ว่าคุณเป็นคนแบบใดแบบหนึ่งชัดเจน แต่สะท้อนแนวโน้มของคนที่พยายามหาสมดุลระหว่างเหตุผล ความรู้สึก และความสัมพันธ์",
+    },
+    "fusion_v11_synthesis_connector": {
+      "en":
+          "Viewed together, several lenses may suggest you often navigate life through people — reading the room, caring how things land, and adjusting as you go.",
+      "th":
+          "เมื่อนำหลายมุมมาดูร่วมกัน หลายผลอาจสะท้อนว่าคุณมักใช้ชีวิตผ่านคน — อ่านบรรยากาศ ใส่ใจว่าสิ่งต่าง ๆ กระทบอย่างไร และปรับตัวไปเรื่อย ๆ",
+    },
+    "fusion_v11_synthesis_heart_mind": {
+      "en":
+          "Together, the lenses may paint someone who tries to honor both inner feeling and outer sense-making — without always getting them to agree first.",
+      "th":
+          "เมื่อนำหลายมุมมาดูร่วมกัน ภาพอาจเป็นคนที่พยายามให้เกียรติทั้งความรู้สึกภายในและการทำความเข้าใจภายนอก — แม้ทั้งสองอย่างอาจไม่ลงรอยกันเสมอ",
+    },
+    "fusion_v11_synthesis_thinker": {
+      "en":
+          "Woven together, the lenses may suggest a mind that likes clarity and workable structure — with room for feeling when it matters.",
+      "th":
+          "เมื่อเชื่อมหลายมุมเข้าด้วยกัน ภาพอาจสะท้อนคนที่ชอบความชัดเจนและโครงสร้างที่ใช้ได้จริง — พร้อมพื้นที่ให้ความรู้สึกเมื่อมันสำคัญ",
+    },
+    "fusion_v11_synthesis_explorer": {
+      "en":
+          "Combined, the lenses may lean toward someone who keeps options open, tests ideas, and learns by moving — not only by deciding once.",
+      "th":
+          "เมื่อรวมหลายมุม ภาพอาจโน้มไปทางคนที่เปิดทางเลือก ลองไอเดีย และเรียนรู้จากการเคลื่อนไหว — ไม่ใช่แค่ตัดสินใจครั้งเดียว",
+    },
+    "fusion_v11_synthesis_general": {
+      "en":
+          "Taken together, the lenses may offer a layered picture — several honest angles that connect without forcing one simple answer.",
+      "th":
+          "เมื่อนำหลายมุมมาดูร่วมกัน ภาพอาจเป็นหลายมุมที่ซ้อนกัน — เชื่อมโยงกันได้โดยไม่ต้องบังคับให้มีคำตอบเดียว",
+    },
+
     "astro_app_bar_title": {
       "en": "Your chart",
       "th": "ดวงของคุณ",
@@ -2035,8 +2397,875 @@ class AppText {
     },
 
     /// =========================
-    /// EQ TESTS
+    /// EQ TESTS (feature module)
     /// =========================
+    "eq_home_title": {
+      "en": "Emotional Intelligence",
+      "th": "ความฉลาดทางอารมณ์ (EQ)",
+    },
+    "eq_home_subtitle": {
+      "en": "Understand yourself one area at a time.",
+      "th": "เข้าใจตัวเองทีละด้าน — แต่ละแบบทดสอบสะท้อนด้านหนึ่งของคุณ",
+    },
+    "eq_home_status_completed": {
+      "en": "Completed",
+      "th": "ทำเสร็จแล้ว",
+    },
+    "eq_home_status_continue": {
+      "en": "Continue",
+      "th": "ทำต่อ",
+    },
+    "eq_home_status_continue_progress": {
+      "en": "Continue • {answered}/{total} questions",
+      "th": "ทำต่อ • {answered}/{total} ข้อ",
+    },
+    "eq_home_status_start": {
+      "en": "Not started",
+      "th": "ยังไม่เริ่ม",
+    },
+    "eq_home_status_loading": {
+      "en": "Loading…",
+      "th": "กำลังโหลด...",
+    },
+    "eq_home_cta_view_result": {
+      "en": "View result",
+      "th": "ดูผลลัพธ์",
+    },
+    "eq_home_cta_continue": {
+      "en": "Continue test",
+      "th": "ทำต่อ",
+    },
+    "eq_home_cta_start": {
+      "en": "Start test",
+      "th": "เริ่มทำแบบทดสอบ",
+    },
+    "eq_home_retry": {
+      "en": "Try again",
+      "th": "ลองใหม่",
+    },
+    "eq_awareness_title": {
+      "en": "EQ Awareness",
+      "th": "ความตระหนักรู้อารมณ์",
+    },
+    "eq_awareness_description": {
+      "en": "20 questions about noticing and understanding your feelings",
+      "th": "20 ข้อเกี่ยวกับการสังเกตและเข้าใจความรู้สึกของตัวเอง",
+    },
+    "eq_test_question_progress": {
+      "en": "Question {current} / {total}",
+      "th": "คำถาม {current} / {total}",
+    },
+    "eq_test_back": {"en": "Back", "th": "ย้อนกลับ"},
+    "eq_test_next": {"en": "Next", "th": "ถัดไป"},
+    "eq_test_see_result": {"en": "See result", "th": "ดูผล"},
+    "eq_test_empty": {
+      "en": "No questions available for this test.",
+      "th": "ยังไม่มีคำถามในแบบทดสอบนี้",
+    },
+    "eq_result_title": {
+      "en": "Your EQ Awareness",
+      "th": "ความตระหนักรู้อารมณ์ของคุณ",
+    },
+    "eq_awareness_result_title": {
+      "en": "Your EQ Awareness",
+      "th": "ความตระหนักรู้อารมณ์ของคุณ",
+    },
+    "eq_regulation_title": {
+      "en": "EQ Regulation",
+      "th": "การควบคุมอารมณ์",
+    },
+    "eq_regulation_description": {
+      "en": "20 questions about managing and calming your emotions",
+      "th": "20 ข้อเกี่ยวกับการจัดการและคลายอารมณ์ของตัวเอง",
+    },
+    "eq_regulation_result_title": {
+      "en": "Your EQ Regulation",
+      "th": "การควบคุมอารมณ์ของคุณ",
+    },
+    "eq_empathy_title": {
+      "en": "EQ Empathy",
+      "th": "ความเห็นอกเห็นใจ",
+    },
+    "eq_empathy_description": {
+      "en": "20 questions about understanding how others feel",
+      "th": "20 ข้อเกี่ยวกับการเข้าใจความรู้สึกของผู้อื่น",
+    },
+    "eq_empathy_result_title": {
+      "en": "Your EQ Empathy",
+      "th": "ความเห็นอกเห็นใจของคุณ",
+    },
+    "eq_social_title": {
+      "en": "EQ Social Skills",
+      "th": "ทักษะทางสังคม",
+    },
+    "eq_social_description": {
+      "en": "20 questions about relating and communicating with people",
+      "th": "20 ข้อเกี่ยวกับการเข้าหาและสื่อสารกับผู้คน",
+    },
+    "eq_social_result_title": {
+      "en": "Your EQ Social Skills",
+      "th": "ทักษะทางสังคมของคุณ",
+    },
+    "eq_decision_title": {
+      "en": "EQ & Decisions",
+      "th": "อารมณ์กับการตัดสินใจ",
+    },
+    "eq_decision_description": {
+      "en": "20 questions about feelings and the choices you make",
+      "th": "20 ข้อเกี่ยวกับความรู้สึกกับการเลือกของคุณ",
+    },
+    "eq_decision_result_title": {
+      "en": "Your EQ & Decisions",
+      "th": "อารมณ์กับการตัดสินใจของคุณ",
+    },
+    "eq_stress_title": {
+      "en": "EQ & Stress",
+      "th": "อารมณ์กับความเครียด",
+    },
+    "eq_stress_description": {
+      "en": "20 questions about coping when life feels heavy",
+      "th": "20 ข้อเกี่ยวกับการรับมือเมื่อชีวิตหนักใจ",
+    },
+    "eq_stress_result_title": {
+      "en": "Your EQ & Stress",
+      "th": "การรับมือความเครียดของคุณ",
+    },
+    "eq_result_tendency_heading": {
+      "en": "How this may show up for you",
+      "th": "คุณมีแนวโน้มแบบไหน",
+    },
+    "eq_result_guidance_heading": {
+      "en": "What might help",
+      "th": "สิ่งที่อาจช่วยได้",
+    },
+    "eq_result_disclosure_heading": {
+      "en": "About this result",
+      "th": "เกี่ยวกับผลนี้",
+    },
+    "eq_awareness_level_emerging": {
+      "en": "Still building awareness",
+      "th": "กำลังสร้างความตระหนัก",
+    },
+    "eq_awareness_level_moderate": {
+      "en": "Moderate awareness",
+      "th": "ความตระหนักปานกลาง",
+    },
+    "eq_awareness_level_strong": {
+      "en": "Strong awareness",
+      "th": "ความตระหนักค่อนข้างชัด",
+    },
+    "eq_awareness_hero_emerging": {
+      "en":
+          "Noticing your feelings right away can still be hard sometimes—and that is normal.",
+      "th":
+          "บางครั้งการรู้ตัวทางอารมณ์ทันทีอาจยังไม่ชัด —และนั่นก็เป็นเรื่องปกติ",
+    },
+    "eq_awareness_hero_moderate": {
+      "en":
+          "You may often notice how you feel when you have a moment to pause.",
+      "th":
+          "หลายครั้งคุณอาจสังเกตความรู้สึกของตัวเองได้พอสมควร เมื่อมีเวลาหยุดนิ่ง",
+    },
+    "eq_awareness_hero_strong": {
+      "en":
+          "You may often notice your emotions or inner reactions fairly quickly. "
+              "That can help you see why you respond the way you do.",
+      "th":
+          "คุณมักสังเกตอารมณ์หรือสิ่งที่เกิดขึ้นในใจตัวเองได้ค่อนข้างเร็ว "
+              "หลายครั้งอาจช่วยให้คุณเข้าใจว่าทำไมตัวเองถึงตอบสนองแบบนั้น",
+    },
+    "eq_awareness_tendency_emerging": {
+      "en":
+          "When pressure is high, feelings may show up faster than you can name them.",
+      "th":
+          "ในช่วงที่กดดันมาก ความรู้สึกอาจเกิดเร็วเกินกว่าจะทันสังเกตตัวเอง",
+    },
+    "eq_awareness_tendency_moderate": {
+      "en":
+          "You may sense when your mood shifts, though it can take a little time to understand why.",
+      "th":
+          "คุณอาจรู้สึกได้เมื่ออารมณ์เปลี่ยน แต่บางครั้งอาจต้องใช้เวลาสักพักถึงจะเข้าใจว่าทำไม",
+    },
+    "eq_awareness_tendency_strong": {
+      "en":
+          "You may pick up on your emotions quickly and often see what situation they connect to.",
+      "th":
+          "คุณมักจับอารมณ์ของตัวเองได้เร็ว และหลายครั้งอาจเห็นว่ามันเกี่ยวข้องกับสถานการณ์อะไร",
+    },
+    "eq_awareness_guidance_emerging_1": {
+      "en":
+          "If feelings hit fast, a short pause before you react may help you name what is there.",
+      "th":
+          "ถ้ารู้สึกว่าอารมณ์มาเร็ว การหยุดสั้นๆ ก่อนตอบสนองอาจช่วยให้เห็นว่าตัวเองกำลังรู้สึกอะไร",
+    },
+    "eq_awareness_guidance_emerging_2": {
+      "en":
+          "You might notice how your mood shifts after something ends—that can be a gentle place to start.",
+      "th":
+          "ลองสังเกตว่าหลังเหตุการณ์จบ ความรู้สึกของคุณเปลี่ยนไปอย่างไร —อาจเป็นจุดเริ่มที่อ่อนโยน",
+    },
+    "eq_awareness_guidance_moderate_1": {
+      "en":
+          "Sometimes putting a simple name on a feeling (tired, tense, glad) may make the next step clearer.",
+      "th":
+          "บางครั้งการตั้งชื่อความรู้สึกให้ชัด (เหนื่อย ตึงเครียด โล่ง) อาจช่วยให้เห็นทางถัดไปชัดขึ้น",
+    },
+    "eq_awareness_guidance_moderate_2": {
+      "en": "If you feel mixed, a few lines about your day may help you sort it.",
+      "th": "ถ้ายังสับสน การเขียนสั้นๆ ว่าวันนี้รู้สึกอะไรบ้างอาจช่วยจัดเรื่องได้",
+    },
+    "eq_awareness_guidance_strong_1": {
+      "en":
+          "Your sensitivity can be useful—yet a brief pause before you act may still protect what matters.",
+      "th":
+          "ความไวทางอารมณ์อาจช่วยคุณได้มาก —แต่การพักสั้นๆ ก่อนลงมืออาจยังมีประโยชน์",
+    },
+    "eq_awareness_guidance_strong_2": {
+      "en":
+          "You might use what you notice to choose a better moment to talk or decide.",
+      "th":
+          "ลองใช้สิ่งที่คุณสังเกตได้ เพื่อเลือกเวลาที่เหมาะกับการคุยหรือตัดสินใจ",
+    },
+    "eq_disclosure_count": {
+      "en": "Based on {count} answered questions in this mini test.",
+      "th": "อิงจากคำตอบ {count} ข้อในแบบทดสอบนี้",
+    },
+    "eq_regulation_level_emerging": {
+      "en": "Still building regulation",
+      "th": "กำลังเรียนรู้การจัดการอารมณ์",
+    },
+    "eq_regulation_level_moderate": {
+      "en": "Moderate regulation",
+      "th": "การจัดการอารมณ์ปานกลาง",
+    },
+    "eq_regulation_level_strong": {
+      "en": "Strong regulation",
+      "th": "การจัดการอารมณ์ค่อนข้างชัด",
+    },
+    "eq_regulation_hero_emerging": {
+      "en":
+          "Calming yourself when emotions spike can still take effort—and that is normal.",
+      "th":
+          "บางครั้งการทำให้ตัวเองสงบลงเมื่ออารมณ์พุ่งอาจยังต้องใช้แรง —และนั่นก็เป็นเรื่องปกติ",
+    },
+    "eq_regulation_hero_moderate": {
+      "en": "You may often find ways to settle yourself when feelings run high.",
+      "th": "หลายครั้งคุณอาจหาทางทำให้ตัวเองสงบลงได้เมื่ออารมณ์รุนแรง",
+    },
+    "eq_regulation_hero_strong": {
+      "en":
+          "You may often steady yourself when emotions rise, and recover without staying stuck long.",
+      "th":
+          "คุณมักทำให้ตัวเองสงบลงได้เมื่ออารมณ์ขึ้น และหลายครั้งไม่ค้างอยู่กับมันนาน",
+    },
+    "eq_regulation_tendency_emerging": {
+      "en": "Under stress, reactions may outpace how fast you can calm down.",
+      "th": "เมื่อเครียด ปฏิกิริยาอาจเร็วกว่าที่ตัวเองจะคลายได้",
+    },
+    "eq_regulation_tendency_moderate": {
+      "en":
+          "You may calm down eventually, though it can take a little time after the peak.",
+      "th": "คุณอาจคลายลงได้ในที่สุด แต่บางครั้งต้องใช้เวลาหลังจุดพีค",
+    },
+    "eq_regulation_tendency_strong": {
+      "en": "You may recover from strong moods without letting them steer the whole day.",
+      "th": "คุณมักฟื้นจากอารมณ์แรงได้โดยไม่ปล่อยให้มันพาทั้งวัน",
+    },
+    "eq_regulation_guidance_emerging_1": {
+      "en": "A slow breath or short walk may help before you reply when heat is up.",
+      "th": "หายใจช้าๆ หรือเดินสั้นๆ อาจช่วยก่อนตอบเมื่ออารมณ์ร้อน",
+    },
+    "eq_regulation_guidance_emerging_2": {
+      "en": "You might notice what usually helps you cool down—even a small ritual.",
+      "th": "ลองสังเกตว่าอะไรมักช่วยให้คุณเย็นลง แม้เป็นนิสัยเล็กๆ",
+    },
+    "eq_regulation_guidance_moderate_1": {
+      "en": "Sometimes naming the feeling (angry, tight, drained) may make it easier to ease.",
+      "th": "บางครั้งการเรียกชื่อความรู้สึก (โกรธ ตึง เหนื่อย) อาจช่วยให้คลายง่ายขึ้น",
+    },
+    "eq_regulation_guidance_moderate_2": {
+      "en": "If you can, stepping away briefly before acting may protect what you care about.",
+      "th": "ถ้าทำได้ การถอยออกมาสั้นๆ ก่อนลงมืออาจช่วยเรื่องที่คุณใส่ใจ",
+    },
+    "eq_regulation_guidance_strong_1": {
+      "en": "Your steadiness can help others too—yet rest still matters when you are spent.",
+      "th": "ความสงบของคุณอาจช่วยคนอื่นได้ —แต่การพักยังสำคัญเมื่อคุณหมดแรง",
+    },
+    "eq_regulation_guidance_strong_2": {
+      "en": "You might keep one small reset habit for days when pressure stacks up.",
+      "th": "ลองมีนิสัยรีเซ็ตเล็กๆ สำหรับวันที่ความกดดันซ้อนกัน",
+    },
+    "eq_regulation_disclosure_emerging": {
+      "en":
+          "This mirror is based on your answers—not a diagnosis or a fixed label.",
+      "th":
+          "ภาพนี้มาจากคำตอบของคุณ —ไม่ใช่การวินิจฉัยหรือป้ายติดถาวร",
+    },
+    "eq_regulation_disclosure_moderate": {
+      "en":
+          "This mirror is based on your answers—not a diagnosis or a fixed label.",
+      "th":
+          "ภาพนี้มาจากคำตอบของคุณ —ไม่ใช่การวินิจฉัยหรือป้ายติดถาวร",
+    },
+    "eq_regulation_disclosure_strong": {
+      "en":
+          "This mirror is based on your answers—not a diagnosis or a fixed label.",
+      "th":
+          "ภาพนี้มาจากคำตอบของคุณ —ไม่ใช่การวินิจฉัยหรือป้ายติดถาวร",
+    },
+    "eq_empathy_level_emerging": {
+      "en": "Still building empathy",
+      "th": "กำลังเรียนรู้การเข้าใจผู้อื่น",
+    },
+    "eq_empathy_level_moderate": {
+      "en": "Moderate empathy",
+      "th": "ความเห็นอกเห็นใจปานกลาง",
+    },
+    "eq_empathy_level_strong": {
+      "en": "Strong empathy",
+      "th": "ความเห็นอกเห็นใจค่อนข้างชัด",
+    },
+    "eq_empathy_hero_emerging": {
+      "en": "Reading what others feel can still be fuzzy at times—and that is normal.",
+      "th": "บางครั้งการอ่านความรู้สึกคนอื่นอาจยังไม่ชัด —และนั่นก็เป็นเรื่องปกติ",
+    },
+    "eq_empathy_hero_moderate": {
+      "en": "You may often sense when someone is off, even if they do not say much.",
+      "th": "หลายครั้งคุณอาจรู้สึกได้เมื่อใครบางคนไม่ค่อยสบาย แม้เขาไม่พูดมาก",
+    },
+    "eq_empathy_hero_strong": {
+      "en":
+          "You may often pick up on others' moods and adjust how you show up with them.",
+      "th":
+          "คุณมักจับอารมณ์คนอื่นได้ และหลายครั้งปรับวิธีอยู่กับเขาตามนั้น",
+    },
+    "eq_empathy_tendency_emerging": {
+      "en": "You may focus on facts first when emotions in the room are unclear.",
+      "th": "เมื่อบรรยากาศไม่ชัด คุณอาจโฟกัสที่ข้อเท็จจริงก่อน",
+    },
+    "eq_empathy_tendency_moderate": {
+      "en": "You may care about others' feelings, though you might not always name them aloud.",
+      "th": "คุณอาจใส่ใจความรู้สึกคนอื่น แม้บางครั้งไม่ได้พูดออกมา",
+    },
+    "eq_empathy_tendency_strong": {
+      "en": "Others may feel that you notice what they carry, not only what they say.",
+      "th": "คนอื่นอาจรู้สึกว่าคุณสังเกตสิ่งที่พวกเขาแบก ไม่ใช่แค่คำพูด",
+    },
+    "eq_empathy_guidance_emerging_1": {
+      "en": "You might ask one gentle question before assuming what someone means.",
+      "th": "ลองถามคำถามอ่อนๆ หนึ่งข้อ ก่อนตีความว่าเขาหมายถึงอะไร",
+    },
+    "eq_empathy_guidance_emerging_2": {
+      "en": "Listening without fixing right away may already help the other person.",
+      "th": "การฟังโดยยังไม่รีบแก้ อาจช่วยอีกฝ่ายได้แล้ว",
+    },
+    "eq_empathy_guidance_moderate_1": {
+      "en": "Sometimes reflecting back what you heard may show you are with them.",
+      "th": "บางครั้งการสะท้อนสิ่งที่ฟังได้ อาจบอกว่าคุณอยู่ข้างๆ",
+    },
+    "eq_empathy_guidance_moderate_2": {
+      "en": "If you feel drained, a short boundary may keep your care sustainable.",
+      "th": "ถ้ารู้สึกหมดแรง การตั้งขอบเขตสั้นๆ อาจทำให้ดูแลได้ยาว",
+    },
+    "eq_empathy_guidance_strong_1": {
+      "en": "Your attunement is a gift—remember you do not have to carry everyone alone.",
+      "th": "ความไวของคุณเป็นของดี —แต่ไม่จำเป็นต้องแบกทุกคนคนเดียว",
+    },
+    "eq_empathy_guidance_strong_2": {
+      "en": "You might check what you need too after heavy conversations.",
+      "th": "หลังบทสนทนาหนักๆ ลองถามตัวเองว่าคุณต้องการอะไรบ้าง",
+    },
+    "eq_empathy_disclosure_emerging": {
+      "en":
+          "This mirror is based on your answers—not a diagnosis or a fixed label.",
+      "th":
+          "ภาพนี้มาจากคำตอบของคุณ —ไม่ใช่การวินิจฉัยหรือป้ายติดถาวร",
+    },
+    "eq_empathy_disclosure_moderate": {
+      "en":
+          "This mirror is based on your answers—not a diagnosis or a fixed label.",
+      "th":
+          "ภาพนี้มาจากคำตอบของคุณ —ไม่ใช่การวินิจฉัยหรือป้ายติดถาวร",
+    },
+    "eq_empathy_disclosure_strong": {
+      "en":
+          "This mirror is based on your answers—not a diagnosis or a fixed label.",
+      "th":
+          "ภาพนี้มาจากคำตอบของคุณ —ไม่ใช่การวินิจฉัยหรือป้ายติดถาวร",
+    },
+    "eq_social_level_emerging": {
+      "en": "Still building social ease",
+      "th": "กำลังสร้างความสบายทางสังคม",
+    },
+    "eq_social_level_moderate": {
+      "en": "Moderate social ease",
+      "th": "ความสบายทางสังคมปานกลาง",
+    },
+    "eq_social_level_strong": {
+      "en": "Strong social ease",
+      "th": "ความสบายทางสังคมค่อนข้างชัด",
+    },
+    "eq_social_hero_emerging": {
+      "en": "Feeling at ease with groups can still take energy—and that is normal.",
+      "th": "บางครั้งการอยู่กับกลุ่มอาจยังใช้พลัง —และนั่นก็เป็นเรื่องปกติ",
+    },
+    "eq_social_hero_moderate": {
+      "en": "You may connect well in some settings, and need more space in others.",
+      "th": "คุณอาจเข้ากับบางบรรยากาศได้ดี และต้องการพื้นที่มากกว่าในบางที่",
+    },
+    "eq_social_hero_strong": {
+      "en":
+          "You may often read the room and adjust how you join in without forcing it.",
+      "th":
+          "คุณมักอ่านบรรยากาศได้ และหลายครั้งปรับวิธีเข้าร่วมโดยไม่ฝืน",
+    },
+    "eq_social_tendency_emerging": {
+      "en": "You may prefer smaller circles when things feel socially loud.",
+      "th": "เมื่อบรรยากาศวุ่นทางสังคม คุณอาจสบายกับวงเล็กกว่า",
+    },
+    "eq_social_tendency_moderate": {
+      "en": "You may warm up slowly, then show more of yourself once trust builds.",
+      "th": "คุณอาจค่อยๆ เปิดขึ้นเมื่อความไว้ใจเพิ่ม",
+    },
+    "eq_social_tendency_strong": {
+      "en": "People may find you easy to talk with when the tone feels open.",
+      "th": "หลายคนอาจรู้สึกคุยกับคุณง่ายเมื่อบรรยากาศเปิด",
+    },
+    "eq_social_guidance_emerging_1": {
+      "en": "One-on-one time may feel easier than big rooms when you need to recharge.",
+      "th": "การคุยตัวต่อตัวอาจเบากว่าห้องใหญ่เมื่อคุณต้องการเติมพลัง",
+    },
+    "eq_social_guidance_emerging_2": {
+      "en": "You might prepare one honest line before a hard conversation.",
+      "th": "ลองเตรียมประโยคตรงๆ หนึ่งประโยคก่อนคุยเรื่องยาก",
+    },
+    "eq_social_guidance_moderate_1": {
+      "en": "Sometimes asking a simple question may keep the exchange flowing.",
+      "th": "บางครั้งคำถามสั้นๆ อาจช่วยให้บทสนทนาลื่นขึ้น",
+    },
+    "eq_social_guidance_moderate_2": {
+      "en": "If you feel overextended, saying no early may protect your energy.",
+      "th": "ถ้ารู้สึกรับมากเกิน การปฏิเสธเร็วอาจช่วยเก็บพลัง",
+    },
+    "eq_social_guidance_strong_1": {
+      "en": "Your social sense can help groups—leave room for quiet when you need it.",
+      "th": "ความไวทางสังคมของคุณช่วยกลุ่มได้ —แต่ให้เวลาเงียบกับตัวเองด้วย",
+    },
+    "eq_social_guidance_strong_2": {
+      "en": "You might notice when you are performing versus being yourself.",
+      "th": "ลองสังเกตว่าตอนไหนคุณกำลังเล่นบทบาท แทนที่จะเป็นตัวเอง",
+    },
+    "eq_social_disclosure_emerging": {
+      "en":
+          "This mirror is based on your answers—not a diagnosis or a fixed label.",
+      "th":
+          "ภาพนี้มาจากคำตอบของคุณ —ไม่ใช่การวินิจฉัยหรือป้ายติดถาวร",
+    },
+    "eq_social_disclosure_moderate": {
+      "en":
+          "This mirror is based on your answers—not a diagnosis or a fixed label.",
+      "th":
+          "ภาพนี้มาจากคำตอบของคุณ —ไม่ใช่การวินิจฉัยหรือป้ายติดถาวร",
+    },
+    "eq_social_disclosure_strong": {
+      "en":
+          "This mirror is based on your answers—not a diagnosis or a fixed label.",
+      "th":
+          "ภาพนี้มาจากคำตอบของคุณ —ไม่ใช่การวินิจฉัยหรือป้ายติดถาวร",
+    },
+    "eq_decision_level_emerging": {
+      "en": "Still building emotional clarity in choices",
+      "th": "กำลังเรียนรู้การตัดสินใจกับอารมณ์",
+    },
+    "eq_decision_level_moderate": {
+      "en": "Moderate balance in decisions",
+      "th": "สมดุลในการตัดสินใจปานกลาง",
+    },
+    "eq_decision_level_strong": {
+      "en": "Strong balance in decisions",
+      "th": "สมดุลในการตัดสินใจค่อนข้างชัด",
+    },
+    "eq_decision_hero_emerging": {
+      "en": "Feelings and logic may pull different ways when choices matter—and that is normal.",
+      "th": "เมื่อการเลือกสำคัญ ความรู้สึกกับเหตุผลอาจดึงคนละทาง —และนั่นก็เป็นเรื่องปกติ",
+    },
+    "eq_decision_hero_moderate": {
+      "en": "You may weigh both heart and head before you commit to a path.",
+      "th": "หลายครั้งคุณอาจชั่งทั้งใจและเหตุผลก่อนตัดสินใจ",
+    },
+    "eq_decision_hero_strong": {
+      "en":
+          "You may often notice how mood colors a choice, and still look for what is fair.",
+      "th":
+          "คุณมักเห็นว่าอารมณ์หลอกสีการเลือก และยังหาสิ่งที่รู้สึกยุติธรรม",
+    },
+    "eq_decision_tendency_emerging": {
+      "en": "You may decide quickly when stressed, then rethink later.",
+      "th": "เมื่อเครียด คุณอาจตัดสินใจเร็วแล้วค่อยย้อนคิดทีหลัง",
+    },
+    "eq_decision_tendency_moderate": {
+      "en": "You may delay a call until your feelings and reasons line up a bit.",
+      "th": "คุณอาจรอจนใจกับเหตุผลเข้าใกล้กันพอสมควร",
+    },
+    "eq_decision_tendency_strong": {
+      "en": "You may separate impulse from what you truly want before you act.",
+      "th": "คุณมักแยกแรงกระตุ้นออกจากสิ่งที่อยากได้จริงก่อนลงมือ",
+    },
+    "eq_decision_guidance_emerging_1": {
+      "en": "Sleeping on a big choice may help when emotions are loud.",
+      "th": "การพักคืนหนึ่งคืนก่อนเรื่องใหญ่อาจช่วยเมื่ออารมณ์ดัง",
+    },
+    "eq_decision_guidance_emerging_2": {
+      "en": "You might write two lines: what you feel, and what you know.",
+      "th": "ลองเขียนสองบรรทัด: รู้สึกอะไร และรู้อะไร",
+    },
+    "eq_decision_guidance_moderate_1": {
+      "en": "Sometimes a small test step may show more than guessing.",
+      "th": "บางครั้งการลองขั้นเล็กๆ อาจบอกมากกว่าการเดา",
+    },
+    "eq_decision_guidance_moderate_2": {
+      "en": "If guilt is loud, checking your values may steady the choice.",
+      "th": "ถ้าความรู้สึกผิดดัง การเช็คค่าที่ยึดอาจทำให้มั่นขึ้น",
+    },
+    "eq_decision_guidance_strong_1": {
+      "en": "Your balance is useful—still leave room to change your mind with new facts.",
+      "th": "สมดุลของคุณมีค่า —แต่ยังมีที่ให้เปลี่ยนใจเมื่อมีข้อมูลใหม่",
+    },
+    "eq_decision_guidance_strong_2": {
+      "en": "You might ask whether this choice still fits you in a week.",
+      "th": "ลองถามว่าอีกสัปดาห์ทางนี้ยังเข้ากับคุณไหม",
+    },
+    "eq_decision_disclosure_emerging": {
+      "en":
+          "This mirror is based on your answers—not a diagnosis or a fixed label.",
+      "th":
+          "ภาพนี้มาจากคำตอบของคุณ —ไม่ใช่การวินิจฉัยหรือป้ายติดถาวร",
+    },
+    "eq_decision_disclosure_moderate": {
+      "en":
+          "This mirror is based on your answers—not a diagnosis or a fixed label.",
+      "th":
+          "ภาพนี้มาจากคำตอบของคุณ —ไม่ใช่การวินิจฉัยหรือป้ายติดถาวร",
+    },
+    "eq_decision_disclosure_strong": {
+      "en":
+          "This mirror is based on your answers—not a diagnosis or a fixed label.",
+      "th":
+          "ภาพนี้มาจากคำตอบของคุณ —ไม่ใช่การวินิจฉัยหรือป้ายติดถาวร",
+    },
+    "eq_stress_level_emerging": {
+      "en": "Still building stress coping",
+      "th": "กำลังเรียนรู้การรับมือความเครียด",
+    },
+    "eq_stress_level_moderate": {
+      "en": "Moderate stress coping",
+      "th": "การรับมือความเครียดปานกลาง",
+    },
+    "eq_stress_level_strong": {
+      "en": "Strong stress coping",
+      "th": "การรับมือความเครียดค่อนข้างชัด",
+    },
+    "eq_stress_hero_emerging": {
+      "en": "When life piles on, stress may feel bigger than your tools—and that is normal.",
+      "th": "เมื่อชีวิตซ้อนกัน ความเครียดอาจใหญ่กว่าเครื่องมือที่มี —และนั่นก็เป็นเรื่องปกติ",
+    },
+    "eq_stress_hero_moderate": {
+      "en": "You may find ways to cope, though some seasons still wear you down.",
+      "th": "คุณอาจหาทางรับมือได้ แม้บางช่วงยังหนัก",
+    },
+    "eq_stress_hero_strong": {
+      "en":
+          "You may often notice stress early and reach for habits that help you recover.",
+      "th":
+          "คุณมักสังเกตความเครียดได้เร็ว และหลายครั้งหยิบนิสัยที่ช่วยฟื้น",
+    },
+    "eq_stress_tendency_emerging": {
+      "en": "Pressure may show up in your body or sleep before you name it stress.",
+      "th": "ความกดดันอาจโผล่ที่ร่างกายหรือการนอนก่อนที่คุณจะเรียกว่าเครียด",
+    },
+    "eq_stress_tendency_moderate": {
+      "en": "You may push through, then need quiet time to come back to yourself.",
+      "th": "คุณอาจฝืนผ่าน แล้วต้องการเวลาเงียบเพื่อกลับมาเป็นตัวเอง",
+    },
+    "eq_stress_tendency_strong": {
+      "en": "You may recover faster when you honor limits instead of ignoring them.",
+      "th": "คุณมักฟื้นเร็วขึ้นเมื่อเคารพขีดจำกัดแทนการเมิน",
+    },
+    "eq_stress_guidance_emerging_1": {
+      "en": "One small break (water, air, stretch) may lower the volume a notch.",
+      "th": "พักเล็กๆ (น้ำ อากาศ ยืด) อาจลดความดันลงนิดหนึ่ง",
+    },
+    "eq_stress_guidance_emerging_2": {
+      "en": "You might list what is in your control today versus what is not.",
+      "th": "ลองแยกว่าวันนี้ควบคุมได้อะไร กับอะไรที่ควบคุมไม่ได้",
+    },
+    "eq_stress_guidance_moderate_1": {
+      "en": "Sometimes saying not now may protect tomorrow's energy.",
+      "th": "บางครั้งการบอกว่ายังไม่ใช่ตอนนี้อาจเก็บพลังวันพรุ่งนี้",
+    },
+    "eq_stress_guidance_moderate_2": {
+      "en": "If you can, move your body lightly when thoughts loop.",
+      "th": "ถ้าทำได้ ขยับร่างกายเบาๆ เมื่อความคิดวน",
+    },
+    "eq_stress_guidance_strong_1": {
+      "en": "Your coping skills help—still watch for running on empty too long.",
+      "th": "ทักษะรับมือของคุณช่วยได้ —แต่ระวังวิ่งจนแบตหมดนานเกิน",
+    },
+    "eq_stress_guidance_strong_2": {
+      "en": "You might schedule recovery like you schedule work.",
+      "th": "ลองจัดเวลาพักฟื้นเหมือนจัดงาน",
+    },
+    "eq_stress_disclosure_emerging": {
+      "en":
+          "This mirror is based on your answers—not a diagnosis or a fixed label.",
+      "th":
+          "ภาพนี้มาจากคำตอบของคุณ —ไม่ใช่การวินิจฉัยหรือป้ายติดถาวร",
+    },
+    "eq_stress_disclosure_moderate": {
+      "en":
+          "This mirror is based on your answers—not a diagnosis or a fixed label.",
+      "th":
+          "ภาพนี้มาจากคำตอบของคุณ —ไม่ใช่การวินิจฉัยหรือป้ายติดถาวร",
+    },
+    "eq_stress_disclosure_strong": {
+      "en":
+          "This mirror is based on your answers—not a diagnosis or a fixed label.",
+      "th":
+          "ภาพนี้มาจากคำตอบของคุณ —ไม่ใช่การวินิจฉัยหรือป้ายติดถาวร",
+    },
+    "eq_awareness_disclosure_emerging": {
+      "en":
+          "This mirror is based on your answers—not a diagnosis or a fixed label.",
+      "th":
+          "ภาพนี้มาจากคำตอบของคุณ —ไม่ใช่การวินิจฉัยหรือป้ายติดถาวร",
+    },
+    "eq_awareness_disclosure_moderate": {
+      "en":
+          "This mirror is based on your answers—not a diagnosis or a fixed label.",
+      "th":
+          "ภาพนี้มาจากคำตอบของคุณ —ไม่ใช่การวินิจฉัยหรือป้ายติดถาวร",
+    },
+    "eq_awareness_disclosure_strong": {
+      "en":
+          "This mirror is based on your answers—not a diagnosis or a fixed label.",
+      "th":
+          "ภาพนี้มาจากคำตอบของคุณ —ไม่ใช่การวินิจฉัยหรือป้ายติดถาวร",
+    },
+    "eq_awareness_disclosure_count": {
+      "en": "Based on {count} answered questions in this mini test.",
+      "th": "อิงจากคำตอบ {count} ข้อในแบบทดสอบนี้",
+    },
+    "eq_retake_dialog_title": {
+      "en": "Start again?",
+      "th": "เริ่มใหม่?",
+    },
+    "eq_retake_dialog_body": {
+      "en":
+          "Your in-progress answers will be cleared. Your last result stays until you finish again.",
+      "th":
+          "คำตอบที่กำลังทำจะถูกลบ ผลล่าสุดยังอยู่จนกว่าคุณทำแบบทดสอบจบอีกครั้ง",
+    },
+    "eq_retake_cancel": {"en": "Cancel", "th": "ยกเลิก"},
+    "eq_retake_confirm": {"en": "Start again", "th": "เริ่มใหม่"},
+    "eq_retake_button": {"en": "Start again", "th": "ทำใหม่"},
+
+    "eq_summary_title": {
+      "en": "Your EQ overview",
+      "th": "ภาพรวม EQ ของคุณ",
+    },
+    "eq_summary_locked_title": {
+      "en": "EQ Summary",
+      "th": "EQ Summary",
+    },
+    "eq_summary_locked_description": {
+      "en": "Complete all EQ mini tests to see your overall EQ picture.",
+      "th": "ทำ EQ ให้ครบก่อน เพื่อดูภาพรวม EQ ของคุณ",
+    },
+    "eq_summary_available_description": {
+      "en": "See your overall EQ picture",
+      "th": "ดูภาพรวม EQ ของคุณ",
+    },
+    "eq_summary_status_locked": {
+      "en": "Locked",
+      "th": "ล็อกอยู่",
+    },
+    "eq_summary_cta_locked": {
+      "en": "Locked",
+      "th": "ล็อกอยู่",
+    },
+    "eq_summary_guidance_title": {
+      "en": "What may help things flow a little easier",
+      "th": "สิ่งที่อาจช่วยให้ลื่นขึ้น",
+    },
+    "eq_summary_disclosure": {
+      "en":
+          "This result reflects trends from your EQ assessments at this time. Many aspects may shift with experience, environment, and life season.",
+      "th":
+          "ผลลัพธ์นี้สะท้อนแนวโน้มจากแบบประเมิน EQ ของคุณในช่วงเวลานี้ หลายด้านอาจเปลี่ยนแปลงได้ตามประสบการณ์ สภาพแวดล้อม และช่วงชีวิต",
+    },
+    "eq_summary_opening_balanced_emerging": {
+      "en":
+          "You may often try to make sense of both your inner world and what happens around you, even when it takes a moment to find your footing.",
+      "th":
+          "หลายครั้งคุณอาจพยายามเข้าใจทั้งตัวเองและสิ่งที่เกิดขึ้นรอบตัว แม้บางช่วงยังต้องใช้เวลาปรับตัวเล็กน้อย",
+    },
+    "eq_summary_opening_balanced_moderate": {
+      "en":
+          "Often you may try to understand yourself and the people around you at once, and you may take a moment to reflect before you respond or choose on matters that matter.",
+      "th":
+          "หลายครั้งคุณอาจเป็นคนที่พยายามเข้าใจทั้งตัวเองและคนรอบตัวไปพร้อมกัน และมักใช้เวลาไตร่ตรองก่อนตอบสนองหรือเลือกตัดสินใจในเรื่องสำคัญ",
+    },
+    "eq_summary_opening_balanced_strong": {
+      "en":
+          "You often hold a fairly clear picture of your feelings, your relationships, and the pressure in your life—and you may bring that into how you live day to day.",
+      "th":
+          "คุณมักรู้ว่าตัวเองรู้สึกอย่างไร คนรอบตัวเป็นอย่างไร และช่วงไหนชีวิตกดดัน แล้วหลายครั้งนำสิ่งนี้มาใช้ในการใช้ชีวิต",
+    },
+    "eq_summary_opening_a_emerging": {
+      "en":
+          "You may notice how pressure touches your mood, and you often try to find your calm again once the peak passes.",
+      "th":
+          "คุณอาจสังเกตได้ว่าความกดดันส่งผลต่ออารมณ์ และหลายครั้งพยายามให้ตัวเองกลับมาสงบเมื่อผ่านช่วงนั้นไป",
+    },
+    "eq_summary_opening_a_moderate": {
+      "en":
+          "Often you may find a workable pace with pressure—enough room to settle and keep moving on what matters.",
+      "th":
+          "หลายครั้งคุณอาจหาจังหวะรับมือความกดดันได้พอดี พอให้ตัวเองสงบลงและก้าวต่อในเรื่องที่สำคัญ",
+    },
+    "eq_summary_opening_a_strong": {
+      "en":
+          "You often weather emotional pressure with a steadiness that lets you recover and return to what you care about.",
+      "th":
+          "คุณมักรับมือแรงกดดันได้ค่อนข้างมั่นคง พอให้ฟื้นตัวและกลับมาทำสิ่งที่ใส่ใจต่อได้",
+    },
+    "eq_summary_opening_b_emerging": {
+      "en":
+          "You may care about the people around you even when reading their feelings costs a little extra energy.",
+      "th":
+          "คุณอาจใส่ใจคนรอบตัว แม้บางช่วงการอ่านความรู้สึกของผู้อื่นอาจใช้พลังงานมากกว่าที่คิด",
+    },
+    "eq_summary_opening_b_moderate": {
+      "en":
+          "Often you may tune into others and keep relationships in a way that feels natural enough to rely on.",
+      "th":
+          "หลายครั้งคุณอาจเข้าใจคนอื่นและดูแลความสัมพันธ์ได้ในแบบที่รู้สึกเป็นตัวเอง",
+    },
+    "eq_summary_opening_b_strong": {
+      "en":
+          "You often read people and the mood around you well, which may deepen how you connect and respond.",
+      "th":
+          "คุณมักอ่านคนและบรรยากาศรอบตัวได้ดี ทำให้เข้าใจและตอบสนองคนรอบตัวได้ลึกขึ้น",
+    },
+    "eq_summary_opening_c_emerging": {
+      "en":
+          "You may try to notice what you feel and what you need, even when clarity arrives a little after the moment.",
+      "th":
+          "คุณอาจพยายามสังเกตว่าตัวเองรู้สึกอะไรและต้องการอะไร แม้บางครั้งความชัดเจนอาจมาช้ากว่าช่วงนั้นเล็กน้อย",
+    },
+    "eq_summary_opening_c_moderate": {
+      "en":
+          "Often you may know what moves you inside and use both feeling and reason when you choose your next step.",
+      "th":
+          "หลายครั้งคุณอาจรู้ว่าอะไรกระทบใจ และใช้ทั้งความรู้สึกกับเหตุผลเมื่อเลือกก้าวถัดไป",
+    },
+    "eq_summary_opening_c_strong": {
+      "en":
+          "You often notice inner signals quickly and may bring that awareness into the choices you make.",
+      "th":
+          "คุณมักรับรู้สิ่งที่เกิดขึ้นภายในได้เร็ว และหลายครั้งนำความเข้าใจนั้นมาใช้กับการตัดสินใจ",
+    },
+    "eq_summary_contrast_a_emerging": {
+      "en":
+          "Yet when pressure stacks or several things land at once, you may spend more emotional energy than you notice, or need a little time to feel steady again.",
+      "th":
+          "แต่ในบางช่วงที่มีแรงกดดันหรือหลายเรื่องเข้ามาพร้อมกัน คุณอาจใช้พลังงานทางอารมณ์มากกว่าที่ตัวเองสังเกตเห็น หรืออาจใช้เวลาเล็กน้อยเพื่อกลับมารู้สึกนิ่งอีกครั้ง",
+    },
+    "eq_summary_contrast_a_moderate": {
+      "en":
+          "Yet on heavier days, pressure may still ask more of you than usual before you feel back in rhythm.",
+      "th":
+          "แต่ในบางวันที่หนักเป็นพิเศษ คุณอาจใช้พลังงานทางอารมณ์มากขึ้น หรือรู้สึกเหนื่อยกว่าที่คิดก่อนกลับมารู้สึกนิ่งอีกครั้ง",
+    },
+    "eq_summary_contrast_a_strong": {
+      "en":
+          "Even so, when many demands arrive together, you may still appreciate a brief pause before you respond.",
+      "th":
+          "ถึงอย่างนั้น เมื่อหลายเรื่องมาพร้อมกัน การหยุดสั้น ๆ ก่อนตอบสนองอาจช่วยให้ทุกอย่างลื่นขึ้น",
+    },
+    "eq_summary_contrast_b_emerging": {
+      "en":
+          "Yet in some stretches, reading what others need may take more effort, or you may pull back until you have room to engage again.",
+      "th":
+          "แต่ในบางช่วง การเข้าใจว่าคนอื่นต้องการอะไรอาจใช้ความพยายามมากขึ้น หรือคุณอาจถอยออกมาจนกว่าจะมีพื้นที่พอจะเชื่อมต่ออีกครั้ง",
+    },
+    "eq_summary_contrast_b_moderate": {
+      "en":
+          "Yet when relationships feel dense, you may need a beat before you know how much to give or say.",
+      "th":
+          "แต่เมื่อความสัมพันธ์รู้สึกแน่น คุณอาจใช้เวลาสักครู่ก่อนรู้ว่าจะให้หรือพูดมากแค่ไหน",
+    },
+    "eq_summary_contrast_b_strong": {
+      "en":
+          "Even so, on crowded days you may still benefit from checking what the person in front of you needs most.",
+      "th":
+          "ถึงอย่างนั้น ในวันที่คนรอบตัวเยอะ การสังเกตว่าคนตรงหน้าต้องการอะไรมากที่สุดอาจช่วยให้ทุกอย่างลื่นขึ้น",
+    },
+    "eq_summary_contrast_c_emerging": {
+      "en":
+          "Yet when decisions or strong feelings arrive fast, you may need a moment before you know what you truly feel or want.",
+      "th":
+          "แต่เมื่อการตัดสินใจหรือความรู้สึกเข้ามาเร็ว คุณอาจต้องใช้เวลาสักครู่ก่อนรู้ว่าตัวเองรู้สึกหรือต้องการอะไรจริง ๆ",
+    },
+    "eq_summary_contrast_c_moderate": {
+      "en":
+          "Yet on busy days, naming your feeling before you act may not always come first—and that is understandable.",
+      "th":
+          "แต่ในวันที่ยุ่ง คุณอาจยังไม่ทันสังเกตความรู้สึกของตัวเองก่อนลงมือ และนั่นก็เป็นเรื่องที่เข้าใจได้",
+    },
+    "eq_summary_contrast_c_strong": {
+      "en":
+          "Even so, when stakes are high, you may still welcome one quiet check-in with yourself before you commit.",
+      "th":
+          "ถึงอย่างนั้น เมื่อเรื่องสำคัญ การหยุดสังเกตความรู้สึกของตัวเองสักครู่ก่อนตัดสินใจอาจช่วยได้",
+    },
+    "eq_summary_closing_emerging": {
+      "en":
+          "Overall, you may be someone who tries to live with both heart and sense—and noticing your emotional energy in heavier stretches may help many things flow a little more easily for you.",
+      "th":
+          "โดยรวมแล้ว คุณอาจเป็นคนที่พยายามใช้ทั้งความเข้าใจ ความรู้สึก และเหตุผลไปพร้อมกันในการใช้ชีวิต เพียงแต่การสังเกตตัวเองในบางช่วง อาจช่วยให้หลายอย่างลื่นขึ้นสำหรับคุณ",
+    },
+    "eq_summary_closing_moderate": {
+      "en":
+          "Overall, you may blend understanding, feeling, and reason in how you move through life—and small pauses to notice yourself may keep that balance working for you.",
+      "th":
+          "โดยรวมแล้ว คุณอาจเป็นคนที่พยายามผสมทั้งความเข้าใจ ความรู้สึก และเหตุผลไปพร้อมกันในการใช้ชีวิต เพียงแต่การสังเกตตัวเองในบางช่วง อาจช่วยให้หลายอย่างลื่นขึ้นสำหรับคุณ",
+    },
+    "eq_summary_closing_strong": {
+      "en":
+          "Overall, you may carry a fairly integrated way of living—with feeling, people, and pressure woven into choices that still feel like yours.",
+      "th":
+          "โดยรวมแล้ว คุณอาจใช้ชีวิตโดยผสมความรู้สึก ความสัมพันธ์ และแรงกดดันเข้ากับการตัดสินใจในแบบที่ยังรู้สึกเป็นตัวเอง",
+    },
+    "eq_summary_guidance_a": {
+      "en":
+          "When pressure runs high, giving yourself a beat before you respond—or a short rest—may help you feel more balanced.",
+      "th":
+          "เวลามีแรงกดดันมาก การให้เวลาตัวเองได้หยุดสั้น ๆ ก่อนตอบสนอง หรือกลับมาสังเกตว่าตัวเองกำลังรู้สึกอย่างไร อาจช่วยให้หลายอย่างรู้สึกบาลานซ์ขึ้น",
+    },
+    "eq_summary_guidance_b": {
+      "en":
+          "At times, noticing whether someone needs space or listening may help relationships feel a little smoother.",
+      "th":
+          "ในบางช่วง การสังเกตว่าคนตรงหน้าต้องการพื้นที่หรือการรับฟังแบบไหน อาจช่วยให้ความสัมพันธ์ลื่นขึ้น",
+    },
+    "eq_summary_guidance_c": {
+      "en":
+          "Sometimes pausing to ask what you feel right now, before you decide, may help you see things more clearly.",
+      "th":
+          "บางครั้ง การหยุดทบทวนว่าตัวเองกำลังรู้สึกอะไรอยู่ก่อนตัดสินใจ อาจช่วยให้มองสิ่งต่าง ๆ ได้ชัดขึ้น",
+    },
+
     "eq_awareness": {
       "en": "Understanding Your Emotions",
       "th": "การเข้าใจอารมณ์ของตัวเอง",

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
 
+import '../../providers/astrology_provider.dart';
 import '../../widgets/location_picker.dart';
 
 class ProfileSetupPage extends StatefulWidget {
@@ -69,6 +71,13 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
     return "${time.hour.toString().padLeft(2, '0')}:${time.minute.toString().padLeft(2, '0')}";
   }
 
+  String _apiBirthDate(DateTime date) {
+    final y = date.year;
+    final m = date.month.toString().padLeft(2, '0');
+    final d = date.day.toString().padLeft(2, '0');
+    return '$y-$m-$d';
+  }
+
   Future<void> saveProfile() async {
     if (nameController.text.isEmpty ||
         birthDate == null ||
@@ -93,6 +102,9 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
         throw Exception("User not found");
       }
 
+      final astrologyProvider = context.read<AstrologyProvider>();
+      final birthTimeStr = formatTime(birthTime);
+
       await FirebaseFirestore.instance
           .collection("users")
           .doc(user.uid)
@@ -102,17 +114,36 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
             "name": nameController.text.trim(),
             "gender": gender,
             "birthDate": birthDate!.toIso8601String(),
-            "birthTime": "${birthTime!.hour}:${birthTime!.minute}",
+            "birthTime": birthTimeStr,
             "birthPlace": birthPlaceController.text.trim(),
             "latitude": latitude,
             "longitude": longitude,
             "timezone": "Asia/Bangkok",
           });
 
-      // ❌ ไม่ต้อง Navigator
+      await astrologyProvider.generateChart(
+        uid: user.uid,
+        birthDate: _apiBirthDate(birthDate!),
+        birthTime: birthTimeStr,
+        latitude: latitude!,
+        longitude: longitude!,
+      );
+
       // ProfileGate จะ detect profile/main แล้วเข้า HomePage เอง
 
       if (!mounted) return;
+
+      final astroError = astrologyProvider.error;
+      if (astroError != null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Profile saved, but chart could not be generated: $astroError',
+            ),
+          ),
+        );
+        return;
+      }
 
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Profile saved successfully")),

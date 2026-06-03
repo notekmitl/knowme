@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../data/models/astrology_chart_model.dart';
 
+import 'package:knowme/features/tests/fusion/application/fusion_astrology_mirror.dart';
+
 import '../../services/astrology_firestore_service.dart';
 
 import '../../services/astrology_api_service.dart';
@@ -65,6 +67,11 @@ class AstrologyProvider extends ChangeNotifier {
       );
 
       _chart = await _firestoreService.getWesternNatalChart(uid);
+
+      final chart = _chart;
+      if (chart != null) {
+        await FusionAstrologyMirror.mirrorFromChart(uid: uid, chart: chart);
+      }
     } catch (e) {
       _error = e.toString();
     } finally {

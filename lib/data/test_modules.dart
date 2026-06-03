@@ -91,6 +91,30 @@ final List<TestModule> testModules = [
   /// =========================
   /// MBTI
   /// =========================
+  /// Primary KnowMe progressive MBTI (`MbtiMiniTestPage`). Firestore paths remain `mbti_mini`.
+  TestModule(
+    id: 'mbti_progressive',
+    titleKey: 'mbti_progressive_title',
+    descriptionKey: 'mbti_progressive_description',
+    questionCount: 80,
+  ),
+
+  TestModule(
+    id: 'mbti_cognitive',
+    titleKey: 'mbti_cognitive_title',
+    descriptionKey: 'mbti_cognitive_description',
+    questionCount: 80,
+  ),
+
+  /// Fusion layer — no questions; opens derived summary when both results exist.
+  TestModule(
+    id: 'mbti_summary',
+    titleKey: 'mbti_summary_title',
+    descriptionKey: 'mbti_summary_description',
+    questionCount: 0,
+  ),
+
+  /// Retired from catalog — kept for rollback / [QuestionService] / legacy routes.
   TestModule(
     id: 'mbti_mini',
 

@@ -286,7 +286,8 @@ final List<TestQuestion> mbtiBank = [
     reverse: true,
     text: {
       "en": "I like exploring abstract concepts.",
-      "th": "ฉันชอบสำรวจแนวคิดหรือไอเดียเชิงนามธรรม",
+      "th":
+          "ฉันชอบมองภาพรวมและคิดต่อยอดไอเดียใหม่ๆ มากกว่าลงรายละเอียดเล็กๆ น้อยๆ",
     },
     options: likert5,
   ),
