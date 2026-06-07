@@ -8,6 +8,10 @@ from app.routes.astrology import (
     router as astrology_router
 )
 
+from app.routes.bazi import (
+    router as bazi_router
+)
+
 app = FastAPI()
 
 app.add_middleware(
@@ -32,6 +36,10 @@ app.add_middleware(
 
 app.include_router(
     astrology_router
+)
+
+app.include_router(
+    bazi_router
 )
 
 
