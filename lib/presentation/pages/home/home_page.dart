@@ -9,6 +9,7 @@ import 'package:knowme/features/tests/fusion/fusion_routes.dart';
 import '../../providers/auth_provider.dart';
 import '../astrology/astrology_result_page.dart';
 import '../bazi/bazi_result_page.dart';
+import '../profile/edit_profile_page_v1.dart';
 import '../tests/test_center_page.dart';
 
 /// Neutral discovery hub (hotfix — no journey suggestion until Home redesign).
@@ -40,6 +41,13 @@ class HomePage extends StatelessWidget {
     await FusionRoutes.openResult(context);
   }
 
+  void _openEditProfilePage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => const EditProfilePageV1()),
+    );
+  }
+
   Future<void> _logout(BuildContext context) async {
     await context.read<AuthProvider>().logout();
   }
@@ -56,6 +64,10 @@ class HomePage extends StatelessWidget {
         scrolledUnderElevation: 0,
         automaticallyImplyLeading: false,
         actions: [
+          TextButton(
+            onPressed: () => _openEditProfilePage(context),
+            child: const Text('Edit Profile'),
+          ),
           TextButton(
             onPressed: () => _logout(context),
             child: const Text('Logout'),
