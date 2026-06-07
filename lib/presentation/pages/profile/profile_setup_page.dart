@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/astrology_provider.dart';
+import '../../providers/bazi_provider.dart';
 import '../../widgets/location_picker.dart';
 
 class ProfileSetupPage extends StatefulWidget {
@@ -105,6 +106,8 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
       final astrologyProvider = context.read<AstrologyProvider>();
       final birthTimeStr = formatTime(birthTime);
 
+      const timezone = 'Asia/Bangkok';
+
       await FirebaseFirestore.instance
           .collection("users")
           .doc(user.uid)
@@ -118,29 +121,40 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
             "birthPlace": birthPlaceController.text.trim(),
             "latitude": latitude,
             "longitude": longitude,
-            "timezone": "Asia/Bangkok",
+            "timezone": timezone,
           });
 
-      await astrologyProvider.generateChart(
-        uid: user.uid,
-        birthDate: _apiBirthDate(birthDate!),
-        birthTime: birthTimeStr,
-        latitude: latitude!,
-        longitude: longitude!,
-      );
+      final baziProvider = context.read<BaziProvider>();
+      final apiBirthDate = _apiBirthDate(birthDate!);
+
+      await Future.wait([
+        astrologyProvider.generateChart(
+          uid: user.uid,
+          birthDate: apiBirthDate,
+          birthTime: birthTimeStr,
+          latitude: latitude!,
+          longitude: longitude!,
+        ),
+        baziProvider.generateBazi(
+          uid: user.uid,
+          birthDate: apiBirthDate,
+          birthTime: birthTimeStr,
+          timezone: timezone,
+          latitude: latitude,
+          longitude: longitude,
+        ),
+      ]);
 
       // ProfileGate จะ detect profile/main แล้วเข้า HomePage เอง
 
       if (!mounted) return;
 
-      final astroError = astrologyProvider.error;
-      if (astroError != null) {
+      final westernError = astrologyProvider.error;
+      final baziError = baziProvider.error;
+
+      if (westernError == null && baziError == null) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              'Profile saved, but chart could not be generated: $astroError',
-            ),
-          ),
+          const SnackBar(content: Text("Profile saved successfully")),
         );
         return;
       }
@@ -148,6 +162,26 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text("Profile saved successfully")),
       );
+
+      if (westernError != null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Western chart could not be generated: $westernError',
+            ),
+          ),
+        );
+      }
+
+      if (baziError != null) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Chinese BaZi chart could not be generated: $baziError',
+            ),
+          ),
+        );
+      }
     } catch (e) {
       if (!mounted) return;
 

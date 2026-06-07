@@ -19,6 +19,8 @@ import 'presentation/providers/profile_provider.dart';
 
 import 'presentation/providers/astrology_provider.dart';
 
+import 'presentation/providers/bazi_provider.dart';
+
 import 'presentation/providers/locale_provider.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -36,6 +38,8 @@ void main() async {
         ChangeNotifierProvider(create: (_) => ProfileProvider()),
 
         ChangeNotifierProvider(create: (_) => AstrologyProvider()),
+
+        ChangeNotifierProvider(create: (_) => BaziProvider()),
 
         ChangeNotifierProvider(create: (_) => LocaleProvider()),
       ],

@@ -11,4 +11,8 @@ class ApiConfig {
   static Uri astrologyGenerateChartUri() {
     return Uri.parse('$astrologyBaseUrl/generate-chart');
   }
+
+  static Uri baziGenerateUri() {
+    return Uri.parse('$astrologyBaseUrl/generate-bazi');
+  }
 }

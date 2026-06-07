@@ -8,6 +8,7 @@ import 'package:knowme/features/tests/fusion/fusion_routes.dart';
 
 import '../../providers/auth_provider.dart';
 import '../astrology/astrology_result_page.dart';
+import '../bazi/bazi_result_page.dart';
 import '../tests/test_center_page.dart';
 
 /// Neutral discovery hub (hotfix — no journey suggestion until Home redesign).
@@ -25,6 +26,13 @@ class HomePage extends StatelessWidget {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (_) => const AstrologyResultPage()),
+    );
+  }
+
+  void _openBaziResultPage(BuildContext context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (_) => const BaziResultPage()),
     );
   }
 
@@ -85,6 +93,11 @@ class HomePage extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () => _openFusionResultPage(context),
                   child: const Text('Open Fusion (QA)'),
+                ),
+                const SizedBox(height: 12),
+                ElevatedButton(
+                  onPressed: () => _openBaziResultPage(context),
+                  child: const Text('Open BaZi Result (QA)'),
                 ),
               ],
             ],
