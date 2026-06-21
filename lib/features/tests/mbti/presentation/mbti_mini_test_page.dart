@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:knowme/features/funnel_telemetry/funnel_telemetry.dart';
 import 'package:knowme/core/i18n/app_text.dart';
 import 'package:knowme/domain/models/test_question.dart';
 
 import '../application/mbti_session_state.dart';
+import 'mbti_narrative_preview_page.dart';
 import 'mbti_result_page.dart';
 
 /// MBTI mini test flow (first 16 of [mbtiProgressiveQuestions]).
@@ -59,6 +61,8 @@ class _MbtiMiniTestPageState extends State<MbtiMiniTestPage> {
       return;
     }
 
+    await FunnelTelemetry.track(FunnelTelemetryEvent.mbtiStart);
+
     final existing = _session.existingCompletedResult;
     if (existing != null) {
       final displaySummary = _session.resultForDisplay(existing);
@@ -103,10 +107,12 @@ class _MbtiMiniTestPageState extends State<MbtiMiniTestPage> {
       return;
     }
 
+    await FunnelTelemetry.track(FunnelTelemetryEvent.mbtiComplete);
+
     Navigator.pushReplacement(
       context,
       MaterialPageRoute(
-        builder: (_) => MbtiResultPage(
+        builder: (_) => MbtiNarrativePreviewPage(
           summary: summary,
           canContinueToStandard: _session.canOfferStandardContinue,
           canContinueToAccurate: _session.canOfferAccurateContinue,

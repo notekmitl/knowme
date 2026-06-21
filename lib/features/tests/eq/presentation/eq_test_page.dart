@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:knowme/core/i18n/app_text.dart';
 import 'package:knowme/domain/models/test_question.dart';
+import 'package:knowme/features/funnel_telemetry/funnel_telemetry.dart';
 
 import '../application/eq_test_session_state.dart';
 import '../domain/eq_models.dart';
@@ -80,6 +81,8 @@ class _EqTestPageState extends State<EqTestPage> {
       }
       return;
     }
+
+    await FunnelTelemetry.track(FunnelTelemetryEvent.eqComplete);
 
     Navigator.pushReplacement(
       context,

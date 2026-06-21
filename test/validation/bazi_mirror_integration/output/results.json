@@ -1,0 +1,135 @@
+{
+  "before": {
+    "themeCount": 43,
+    "astrologyEvidenceRows": 30,
+    "mirrorFindingCount": 36,
+    "fusionFindingCount": 4,
+    "humanPatternCount": 6,
+    "activatedPatternCount": 15,
+    "narrativeParagraphCount": 11,
+    "astroAgreements": 0,
+    "astroTensions": 2
+  },
+  "after": {
+    "themeCount": 51,
+    "astrologyEvidenceRows": 38,
+    "mirrorFindingCount": 46,
+    "fusionFindingCount": 13,
+    "humanPatternCount": 11,
+    "activatedPatternCount": 18,
+    "narrativeParagraphCount": 11,
+    "astroAgreements": 5,
+    "astroTensions": 5
+  },
+  "signalAudit": {
+    "thaiSignalCount": 30,
+    "baziSignalCount": 11,
+    "mergedSignalCount": 38,
+    "newSignals": [
+      {
+        "classification": "new",
+        "themeId": "responsive",
+        "mirrorKey": "MIRROR_EMOTIONAL_PATTERN",
+        "confidence": 0.85,
+        "sourceLensKey": "chinese_bazi",
+        "evidenceCount": 1
+      },
+      {
+        "classification": "new",
+        "themeId": "passionate",
+        "mirrorKey": "MIRROR_EMOTIONAL_PATTERN",
+        "confidence": 0.7,
+        "sourceLensKey": "chinese_bazi",
+        "evidenceCount": 1
+      },
+      {
+        "classification": "new",
+        "themeId": "reliable",
+        "mirrorKey": "MIRROR_STRUCTURE_PATTERN",
+        "confidence": 0.7,
+        "sourceLensKey": "chinese_bazi",
+        "evidenceCount": 1
+      },
+      {
+        "classification": "new",
+        "themeId": "persistent",
+        "mirrorKey": "MIRROR_GROWTH_ORIENTATION",
+        "confidence": 0.7,
+        "sourceLensKey": "chinese_bazi",
+        "evidenceCount": 1
+      },
+      {
+        "classification": "new",
+        "themeId": "flexible",
+        "mirrorKey": "MIRROR_THINKING_PATTERN",
+        "confidence": 0.55,
+        "sourceLensKey": "chinese_bazi",
+        "evidenceCount": 1
+      },
+      {
+        "classification": "new",
+        "themeId": "impatience",
+        "mirrorKey": "MIRROR_GROWTH_ORIENTATION",
+        "confidence": 0.55,
+        "sourceLensKey": "chinese_bazi",
+        "evidenceCount": 1
+      },
+      {
+        "classification": "new",
+        "themeId": "creative",
+        "mirrorKey": "MIRROR_SELF_EXPRESSION",
+        "confidence": 0.55,
+        "sourceLensKey": "chinese_bazi",
+        "evidenceCount": 1
+      },
+      {
+        "classification": "new",
+        "themeId": "independent_connection",
+        "mirrorKey": "MIRROR_RELATIONAL_PATTERN",
+        "confidence": 0.45,
+        "sourceLensKey": "chinese_bazi",
+        "evidenceCount": 1
+      }
+    ],
+    "reinforcedSignals": [],
+    "duplicateSignals": [
+      {
+        "classification": "duplicate_tie",
+        "themeId": "expressive",
+        "mirrorKey": "MIRROR_SELF_EXPRESSION",
+        "confidence": 0.85,
+        "sourceLensKey": "chinese_bazi",
+        "evidenceCount": 1,
+        "keptSource": "thai_astrology"
+      },
+      {
+        "classification": "duplicate_suppressed",
+        "themeId": "adaptable",
+        "mirrorKey": "MIRROR_SELF_IDENTITY",
+        "confidence": 0.55,
+        "sourceLensKey": "chinese_bazi",
+        "evidenceCount": 1,
+        "keptConfidence": 0.65
+      },
+      {
+        "classification": "duplicate_suppressed",
+        "themeId": "independent",
+        "mirrorKey": "MIRROR_SELF_IDENTITY",
+        "confidence": 0.45,
+        "sourceLensKey": "chinese_bazi",
+        "evidenceCount": 1,
+        "keptConfidence": 0.65
+      }
+    ],
+    "ignoredSignals": [],
+    "netNewCount": 8,
+    "collisionCount": 3
+  },
+  "integrationFlow": [
+    "RuntimeThaiThemeLoader → KnowMeMirrorAstrologyAdapter",
+    "RuntimeBaziChartLoader → BaziRealAdapter → KnowMeMirrorBaziAdapter",
+    "RuntimeAstrologyMirrorSignalMerger",
+    "KnowMeMirrorEngine → KnowMeMirrorSnapshot",
+    "GlobalFusionFoundationBuilder → HumanModel → HumanPattern → NarrativeRuntime"
+  ]
+}

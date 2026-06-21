@@ -1,0 +1,249 @@
+# Thai Lunar Reference Cases — citations only, NOT a bulk dataset.
+# Each entry is a manually verified published worked example.
+# Mirror: lib/.../validation/thai_golden_cases.dart
+
+- id: GC-01
+  source: horoscope.dooasia.com/phommachat/phommachath014c001 — ตัวอย่างที่ 1
+  type: chart_input
+  birthDate: null
+  wd: 1
+  lm: 2
+  zy: 3
+  row4: [6, 9, 12, 15, 18, 14, 10]
+  row4Source: published
+  boundaryTags: [january, ordinary]
+  notes: อาทิตย์ เดือนยี่(มกราคม) ปีขาด(3)
+
+- id: GC-02
+  source: horoscope.dooasia.com/phommachat/phommachath014c001 — ตัวอย่างที่ 2
+  type: chart_input
+  birthDate: null
+  wd: 2
+  lm: 5
+  zy: 1
+  row4: [8, 11, 14, 10, 13, 16, 12]
+  row4Source: published
+  boundaryTags: [april, zodiac_year_boundary, ordinary]
+  notes: จันทร์ เดือน 5 ปีชวด
+
+- id: GC-03
+  source: horoscope.dooasia.com/phommachat/phommachath014c001 — ตัวอย่างที่ 3
+  type: chart_input
+  birthDate: null
+  wd: 5
+  lm: 9
+  zy: 12
+  row4: [12, 15, 18, 7, 10, 13, 9]
+  row4Source: published
+  boundaryTags: [september, ordinary]
+  notes: พฤหัส เดือน 9 ปีกุน
+
+- id: GC-04
+  source: https://www.horawej.com/_m/article/content/content.php?aid=538981149
+  type: gregorian
+  birthDate: "1949-09-11 00:15"
+  lookup: "1949-09-11 00:15"
+  wd: 7
+  lm: 10
+  zy: 2
+  row4: [12, 8, 11, 14, 17, 13, 9]
+  row4Source: published
+  boundaryTags: [september, before_0600, ordinary]
+  notes: เสาร์ แรม 3 ค่ำ เดือน 10 ปีฉลู
+  verifiedBy: domain-validation-v1
+  verifiedAt: "2026-06-01"
+
+- id: GC-05
+  source: sinsaehwang.com — 4 เม.ย. 2515 02:00
+  type: gregorian
+  birthDate: "1972-04-04 02:00"
+  lookup: "1972-04-04 02:00"
+  wd: 2
+  lm: 5
+  zy: 1
+  row4: [8, 11, 14, 10, 13, 16, 12]
+  row4Source: arithmeticFromPublishedInputs
+  boundaryTags: [april, songkran_season, before_0600, zodiac_year_boundary]
+  notes: จันทร์ แรม 5 ค่ำ เดือน 5 ปีชวด
+  verifiedBy: domain-validation-v1
+  verifiedAt: "2026-06-01"
+
+- id: GC-06
+  source: horawej.com aid=538977480 — ตัวอย่างดวงครู
+  type: chart_input
+  birthDate: null
+  wd: 1
+  lm: 1
+  zy: 1
+  row4: [3, 6, 9, 12, 15, 18, 21]
+  row4Source: published
+  boundaryTags: [december, lunar_month_boundary, ordinary]
+  notes: อาทิตย์ เดือนอ้าย ปีชวด — uniform bases
+
+- id: GC-07
+  source: horoscope.dooasia.com/phommachat/phommachath016c004 — อังคาร เดือน 1 ปีชวด
+  type: chart_input
+  birthDate: null
+  wd: 3
+  lm: 1
+  zy: 1
+  row4: [5, 8, 11, 14, 17, 13, 16]
+  row4Source: arithmeticFromPublishedInputs
+  boundaryTags: [december, lunar_month_boundary, ordinary]
+  notes: อังคาร เดือน 1 (ธันวา) ปีชวด
+
+- id: GC-08
+  source: horoscope.dooasia.com/phommachat/phommachath016c004 — อังคาร เดือน 6 ปีชวด
+  type: chart_input
+  birthDate: null
+  wd: 3
+  lm: 6
+  zy: 1
+  row4: [10, 13, 9, 12, 15, 11, 14]
+  row4Source: arithmeticFromPublishedInputs
+  boundaryTags: [june, ordinary]
+  notes: อังคาร เดือน 6 (พฤษภาคม) ปีชวด
+
+- id: GC-09
+  source: sinsaehwang.com — 22 ก.ย. 2510
+  type: gregorian_chart_only
+  birthDate: "1967-09-22"
+  wd: 6
+  lm: 10
+  zy: 8
+  row4: [10, 13, 9, 12, 15, 11, 14]
+  row4Source: arithmeticFromPublishedInputs
+  boundaryTags: [september, ordinary]
+  notes: ศุกร์ แรม 4 ค่ำ เดือน 10 ปีมะแม — time not published; chart test only
+
+- id: GC-10
+  source: horawej.com Id=420241 — ตัวอย่างที่ 1
+  type: chart_input
+  birthDate: null
+  wd: 5
+  lm: 2
+  zy: 1
+  row4: [8, 11, 14, 10, 13, 16, 12]
+  row4Source: arithmeticFromPublishedInputs
+  boundaryTags: [ordinary]
+  notes: พฤหัส เดือน 2 ปีชวด — Myanmar-adapted 4-base
+
+- id: GC-11
+  source: horawej.com Id=420241 — ตัวอย่างที่ 2
+  type: gregorian_chart_only
+  birthDate: "1964-04-25 09:00"
+  wd: 7
+  lm: 6
+  zy: 5
+  row4: [18, 14, 10, 6, 9, 12, 15]
+  row4Source: arithmeticFromPublishedInputs
+  boundaryTags: [april, songkran_season, ordinary]
+  notes: เสาร์ เดือน 6 ปีมะโรง — 25 เม.ย. 2507 09:00
+
+- id: GC-12
+  source: phommachath014c001 — อาทิตย์ + เดือน 5 + ชวด
+  type: chart_input
+  birthDate: null
+  wd: 1
+  lm: 5
+  zy: 1
+  row4: [7, 10, 13, 9, 12, 15, 18]
+  row4Source: arithmeticFromPublishedInputs
+  boundaryTags: [ordinary]
+  notes: weekday table + ตย.2 inputs same source
+
+- id: GC-13
+  source: phommachath014c001 — อังคาร + เดือน 5 + ชวด
+  type: chart_input
+  birthDate: null
+  wd: 3
+  lm: 5
+  zy: 1
+  row4: [9, 12, 15, 11, 14, 10, 13]
+  row4Source: arithmeticFromPublishedInputs
+  boundaryTags: [ordinary]
+  notes: weekday table + ตย.2 inputs same source
+
+- id: GC-14
+  source: phommachath014c001 — พุธ + เดือน 5 + ชวด
+  type: chart_input
+  birthDate: null
+  wd: 4
+  lm: 5
+  zy: 1
+  row4: [10, 13, 16, 12, 8, 11, 14]
+  row4Source: arithmeticFromPublishedInputs
+  boundaryTags: [ordinary]
+  notes: weekday table + ตย.2 inputs same source
+
+- id: GC-15
+  source: phommachath014c001 — ศุกร์ + เดือน 5 + ชวด
+  type: chart_input
+  birthDate: null
+  wd: 6
+  lm: 5
+  zy: 1
+  row4: [12, 15, 11, 7, 10, 13, 16]
+  row4Source: arithmeticFromPublishedInputs
+  boundaryTags: [ordinary]
+  notes: weekday table + ตย.2 inputs same source
+
+- id: GC-16
+  source: phommachath014c001 — เสาร์ + เดือน 5 + ชวด
+  type: chart_input
+  birthDate: null
+  wd: 7
+  lm: 5
+  zy: 1
+  row4: [13, 9, 12, 8, 11, 14, 17]
+  row4Source: arithmeticFromPublishedInputs
+  boundaryTags: [ordinary]
+  notes: weekday table + ตย.2 inputs same source
+
+- id: GC-17
+  source: phommachath014c001 — พุธ เดือน 12 ปีกุน
+  type: chart_input
+  birthDate: null
+  wd: 4
+  lm: 12
+  zy: 12
+  row4: [14, 17, 20, 9, 5, 8, 11]
+  row4Source: arithmeticFromPublishedInputs
+  boundaryTags: [december, zodiac_year_boundary]
+  notes: lunar month 12 + year 12 bases
+
+- id: GC-18
+  source: phommachath016c004 — อังคาร เดือน 7 ปีมะเส็ง
+  type: chart_input
+  birthDate: null
+  wd: 3
+  lm: 7
+  zy: 6
+  row4: [16, 12, 8, 11, 14, 10, 13]
+  row4Source: arithmeticFromPublishedInputs
+  boundaryTags: [june, ordinary]
+  notes: อังคาร เดือน 7 (มิถุนายน) ปีมะเส็ง
+
+- id: GC-19
+  source: phommachath014c001 — จันทร์ เดือน 3 ปีขาล
+  type: chart_input
+  birthDate: null
+  wd: 2
+  lm: 3
+  zy: 3
+  row4: [8, 11, 14, 17, 20, 9, 5]
+  row4Source: arithmeticFromPublishedInputs
+  boundaryTags: [january, ordinary]
+  notes: เดือน 3 (กุมภาพันธ์) ปีขาล
+
+- id: GC-20
+  source: phommachath014c001 — พฤหัส เดือน 11 ปีจอ
+  type: chart_input
+  birthDate: null
+  wd: 5
+  lm: 11
+  zy: 11
+  row4: [13, 16, 19, 15, 4, 7, 10]
+  row4Source: arithmeticFromPublishedInputs
+  boundaryTags: [ordinary]
+  notes: เดือน 11 (ตุลาคม) ปีจอ

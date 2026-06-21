@@ -1,0 +1,479 @@
+{
+  "generatedAt": "2026-06-21T08:18:33.884095Z",
+  "exportSource": "test/validation/real_user_runtime_v1/output/firestore_user_export.json",
+  "exportMetadata": {
+    "exportedAt": "2026-06-21T08:18:33.635884+00:00",
+    "populationSize": 38
+  },
+  "runtimeFunnel": {
+    "totalUsers": 38,
+    "withProfile": 31,
+    "withThaiBirthInput": 31,
+    "withBaziChart": 25,
+    "withWesternChart": 33,
+    "withMbti": 1,
+    "withBigFive": 0,
+    "withEq": 2,
+    "reachingMirror": 2,
+    "reachingGf1": 2,
+    "reachingGf2": 2,
+    "reachingHumanModel": 2,
+    "reachingHumanPattern": 1,
+    "reachingNarrative": 1
+  },
+  "patternDistribution": {
+    "totalActivations": 8,
+    "activePatternCount": 8,
+    "deadPatternCount": 33,
+    "patternFamilyDistribution": {
+      "theme_coverage_pattern": 2,
+      "decision_style": 3,
+      "meaning_style": 1,
+      "growth_style": 1,
+      "identity_style": 1
+    },
+    "patternConcentration": {
+      "topPatternShare": 0.125,
+      "activePatternSlots": 8
+    },
+    "topPatterns": [
+      {
+        "id": "accountable_operator",
+        "count": 1
+      },
+      {
+        "id": "decisive_actor",
+        "count": 1
+      },
+      {
+        "id": "directional_meaning",
+        "count": 1
+      },
+      {
+        "id": "independent_decision_maker",
+        "count": 1
+      },
+      {
+        "id": "progressive_builder",
+        "count": 1
+      },
+      {
+        "id": "self_directed_identity",
+        "count": 1
+      },
+      {
+        "id": "stable_accountability",
+        "count": 1
+      },
+      {
+        "id": "structured_operator",
+        "count": 1
+      }
+    ]
+  },
+  "narrativeDiversity": {
+    "pipelineRunsWithNarrative": 1,
+    "uniqueNarratives": 1,
+    "duplicateNarratives": 37,
+    "profilesInCollapse": 0,
+    "maxClusterSize": 1,
+    "uniqueEvidenceFingerprints": 1,
+    "uniqueTopologyFingerprints": 1,
+    "deterministicReplayRate": 1.0
+  },
+  "lensContribution": {
+    "mirror": {
+      "thaiAstrology": 193,
+      "bazi": 229,
+      "chineseZodiac": 23,
+      "mbti": 4,
+      "bigFive": 0,
+      "eq": 5
+    },
+    "fusion": {
+      "thaiAstrology": 6,
+      "bazi": 0,
+      "chineseZodiac": 0,
+      "mbti": 2,
+      "bigFive": 0,
+      "eq": 0
+    },
+    "humanModel": {
+      "thaiAstrology": 7,
+      "bazi": 0,
+      "chineseZodiac": 0,
+      "mbti": 0,
+      "bigFive": 0,
+      "eq": 0
+    },
+    "humanPattern": {
+      "thaiAstrology": 6,
+      "bazi": 9,
+      "chineseZodiac": 0,
+      "mbti": 0,
+      "bigFive": 0,
+      "eq": 0
+    },
+    "narrative": {
+      "thaiAstrology": 13,
+      "bazi": 0,
+      "chineseZodiac": 0,
+      "mbti": 0,
+      "bigFive": 0,
+      "eq": 0
+    }
+  },
+  "failureAudit": {
+    "pipelineBlockedMissingInputs": 36,
+    "emptyNarrative": 0,
+    "lowPatternCoverage": 0,
+    "noGf2Benefit": 0,
+    "missingLineage": 0,
+    "abnormalConcentration": 0
+  },
+  "syntheticComparison": {
+    "syntheticPopulation": 1000,
+    "realPopulation": 38,
+    "narrativeReachRateReal": 0.02631578947368421,
+    "patternReachRateReal": 0.02631578947368421,
+    "uniqueNarrativesPerCapitaSynthetic": 1.0,
+    "uniqueNarrativesPerCapitaReal": 0.02631578947368421,
+    "synthetic": {
+      "populationSize": 1000,
+      "uniqueNarratives": 1000,
+      "profilesInCollapse": 0,
+      "maxClusterSize": 1,
+      "uniqueEvidenceFingerprints": 999,
+      "activePatterns": 30,
+      "totalActivations": 13732
+    },
+    "real": {
+      "uniqueNarratives": 1,
+      "profilesInCollapse": 0,
+      "maxClusterSize": 1,
+      "uniqueEvidenceFingerprints": 1,
+      "activePatternCount": 8,
+      "totalActivations": 8,
+      "reachingNarrative": 1,
+      "reachingHumanPattern": 1
+    },
+    "delta": {
+      "uniqueNarratives": -999,
+      "profilesInCollapse": 0,
+      "maxClusterSize": 0
+    }
+  },
+  "perUserSummary": [
+    {
+      "uid": "0IlOpXJolQdaRaDu0n8hsRoVYvi2",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "0egwMCMqEmWEm3VEWRmpggVr8N23",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "6hMSm2JtAfVlzZMPQSnMkOxLmHq1",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "9XicH7D34DQjEWySbuBNFGzaPw32",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "Da493VA68ffA4P4R02zkoPXThRl1",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "HCasCaSJciP7cBKbuASlam0XyNT2",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "NcM5OvDSHHhcyW5wcCUkej9UNVh1",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "PyHaEhbAmJMYUvKoYe3Hkf49qRB2",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "Q3lJdyApTKR7dZTPEV6wbujzqXx2",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "R0JnKioJqgbI6mahgQbzQZ85EUI2",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "Rvl2j6lbsPhwuU7VF0i1dGpLDEB3",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "TsSpDISi3LU8L8GprxUG8Ij4IuM2",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "UjMOOFe56oO05SMKcvfTZeoPLJq2",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "XfoMYQ78m7fCzgmlimHbmYzplrw2",
+      "automationAccount": false,
+      "reachedNarrative": true,
+      "activatedPatternCount": 8,
+      "narrativeParagraphCount": 6,
+      "gf2Agreements": 4,
+      "gf2Reinforcements": 0,
+      "errors": []
+    },
+    {
+      "uid": "ZmegNbcUvxZOjNzJ4NJ8FdJtlqF2",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "bazi-runtime-verify-1780816863",
+      "automationAccount": true,
+      "reachedNarrative": false,
+      "errors": [
+        "missing astrology input (profile birth data required)",
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "bazi-runtime-verify-1780816933",
+      "automationAccount": true,
+      "reachedNarrative": false,
+      "errors": [
+        "missing astrology input (profile birth data required)",
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "bazi-runtime-verify-1780816933-western",
+      "automationAccount": true,
+      "reachedNarrative": false,
+      "errors": [
+        "missing astrology input (profile birth data required)",
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "cors-post-test",
+      "automationAccount": true,
+      "reachedNarrative": false,
+      "errors": [
+        "missing astrology input (profile birth data required)",
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "cors-test",
+      "automationAccount": true,
+      "reachedNarrative": false,
+      "errors": [
+        "missing astrology input (profile birth data required)",
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "dl5XivHVUDfF54iidlxrPvHkkBA2",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "e2e-cors-final",
+      "automationAccount": true,
+      "reachedNarrative": false,
+      "errors": [
+        "missing astrology input (profile birth data required)",
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "e2e-post-cors-1780476171",
+      "automationAccount": true,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "env-audit-test-uid",
+      "automationAccount": true,
+      "reachedNarrative": false,
+      "errors": [
+        "missing astrology input (profile birth data required)",
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "fMdVDBQomEWwANzodfxUAJbeTQn1",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "i4jfGtUoNsT7ecNzkYzivVZRaMk2",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "k80ff6ciZPUwXicboeOFtWNRgCm1",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": []
+    },
+    {
+      "uid": "p1Uu9SjNYCcUuI7kFDI7p6EcH1y1",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "pUt2yX7D0wYSD1wmsM3ERKcvFw32",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "prXlfp5s01YgZTuku3bmWEsKuTp2",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "profile-hook-verify-1780820516",
+      "automationAccount": true,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "runtime-verify-1780474924",
+      "automationAccount": true,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "runtime-verify-1780475167",
+      "automationAccount": true,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "runtime-verify-1780475167-postfix",
+      "automationAccount": true,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "siFsa4sJVqWYnEXT08b0JOWI1RF3",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "t7o74ySlSbWoW5WhDqTfEoQi8ph1",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "wy6U2fFJkHhmwmb43VpCrzTMN2B2",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    },
+    {
+      "uid": "zTXxwDJNkcNxMtJ4FeksrAHAXi62",
+      "automationAccount": false,
+      "reachedNarrative": false,
+      "errors": [
+        "missing personality input (no completed personality tests)"
+      ]
+    }
+  ]
+}

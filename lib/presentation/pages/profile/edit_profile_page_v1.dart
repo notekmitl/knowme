@@ -2,6 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'package:knowme/features/narrative_runtime/integration/narrative_runtime_loader.dart';
+import 'package:knowme/features/narrative_runtime/integration/profile_narrative_mapper.dart';
+import 'package:knowme/features/narrative_runtime/presentation/profile_narrative_section.dart';
 import '../../../domain/models/profile_model.dart';
 import '../../../services/profile_service.dart';
 import '../../providers/astrology_provider.dart';
@@ -18,6 +21,7 @@ class EditProfilePageV1 extends StatefulWidget {
 
 class _EditProfilePageV1State extends State<EditProfilePageV1> {
   final _profileService = ProfileService();
+  final _narrativeLoader = NarrativeRuntimeLoader();
   final nameController = TextEditingController();
   final birthPlaceController = TextEditingController();
 
@@ -35,6 +39,7 @@ class _EditProfilePageV1State extends State<EditProfilePageV1> {
   bool _isLoading = true;
   bool _isSaving = false;
   String? _loadError;
+  ProfileNarrativeData? _narrativeData;
 
   @override
   void initState() {
@@ -73,12 +78,33 @@ class _EditProfilePageV1State extends State<EditProfilePageV1> {
       setState(() {
         _isLoading = false;
       });
+
+      _loadNarrative();
+
     } catch (e) {
       if (!mounted) return;
       setState(() {
         _isLoading = false;
         _loadError = e.toString();
       });
+    }
+  }
+
+  Future<void> _loadNarrative() async {
+    try {
+      final uid = FirebaseAuth.instance.currentUser?.uid ?? '';
+      if (uid.isEmpty) return;
+
+      final narrative = await _narrativeLoader.loadForUser(
+        uid,
+        generatedAt: DateTime.now().toUtc(),
+      );
+      if (!mounted || narrative == null) return;
+      setState(() {
+        _narrativeData = ProfileNarrativeMapper.fromResult(narrative);
+      });
+    } catch (_) {
+      // Narrative is additive — profile edit remains usable without it.
     }
   }
 
@@ -436,6 +462,10 @@ class _EditProfilePageV1State extends State<EditProfilePageV1> {
             ),
           ),
           const SizedBox(height: 30),
+          if (_narrativeData != null) ...[
+            ProfileNarrativeSection(data: _narrativeData!),
+            const SizedBox(height: 24),
+          ],
           SizedBox(
             width: double.infinity,
             height: 50,

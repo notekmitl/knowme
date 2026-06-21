@@ -1,0 +1,523 @@
+{
+  "version": "synthetic_human_population_v1",
+  "generatedAt": "2026-06-21T06:41:35.755307Z",
+  "populationSize": 200,
+  "archetypeCount": 50,
+  "diversity": {
+    "populationSize": 200,
+    "uniqueMirrorOutcomes": 200,
+    "uniqueFusionOutcomes": 200,
+    "uniquePatternSets": 77,
+    "uniqueNarrativeFingerprints": 82,
+    "mirrorDiversityRatio": 1.0,
+    "fusionDiversityRatio": 1.0,
+    "patternDiversityRatio": 0.385,
+    "narrativeDiversityRatio": 0.41
+  },
+  "coverage": {
+    "populationSize": 200,
+    "totalMirrorSignals": 5818,
+    "signalCountsBySystem": {
+      "mbti": 1096,
+      "big_five": 1361,
+      "eq": 199,
+      "thai": 965,
+      "bazi_zodiac": 2197,
+      "attachment_style": 200
+    },
+    "signalShareBySystem": {
+      "mbti": 0.1883808869027157,
+      "big_five": 0.2339291852870402,
+      "eq": 0.03420419388105878,
+      "thai": 0.16586455826744587,
+      "bazi_zodiac": 0.3776211756617394
+    },
+    "dominantSystems": [
+      "bazi_zodiac",
+      "big_five"
+    ],
+    "weakSystems": [
+      "eq"
+    ],
+    "attachmentStyleDistribution": {
+      "secure": 120,
+      "anxious": 16,
+      "avoidant": 40,
+      "fearful": 24
+    }
+  },
+  "narrativeDuplication": {
+    "populationSize": 200,
+    "uniqueNarratives": 82,
+    "maxDuplicationClusterSize": 14,
+    "duplicationRate": 0.775,
+    "collapseZoneCount": 22,
+    "topDuplicateClusters": [
+      {
+        "clusterSize": 14,
+        "profileIds": [
+          "analyst_variantd",
+          "catalyst_varianta",
+          "catalyst_variantc",
+          "creator_variantd",
+          "empath_variantd",
+          "healer_variantd",
+          "investigator_variantc",
+          "observer_variantc",
+          "sage_variantd",
+          "scholar_variantd",
+          "sentinel_variantb",
+          "specialist_variantb",
+          "specialist_variantc",
+          "visionary_varianta"
+        ]
+      },
+      {
+        "clusterSize": 13,
+        "profileIds": [
+          "creator_variantb",
+          "creator_variantc",
+          "dreamer_varianta",
+          "dreamer_variantd",
+          "empath_varianta",
+          "healer_varianta",
+          "healer_variantb",
+          "healer_variantc",
+          "idealist_varianta",
+          "peacemaker_varianta",
+          "peacemaker_variantb",
+          "peacemaker_variantc",
+          "steward_variantd"
+        ]
+      },
+      {
+        "clusterSize": 9,
+        "profileIds": [
+          "architect_variantb",
+          "architect_variantc",
+          "dreamer_variantc",
+          "empath_variantc",
+          "idealist_variantc",
+          "investigator_variantd",
+          "mediator_variantb",
+          "pioneer_variantc",
+          "scholar_variantb"
+        ]
+      },
+      {
+        "clusterSize": 9,
+        "profileIds": [
+          "connector_varianta",
+          "dreamer_variantb",
+          "explorer_variantc",
+          "generalist_variantb",
+          "idealist_variantb",
+          "innovator_varianta",
+          "maverick_variantb",
+          "maverick_variantc",
+          "pathfinder_varianta"
+        ]
+      },
+      {
+        "clusterSize": 8,
+        "profileIds": [
+          "analyst_varianta",
+          "analyst_variantc",
+          "architect_varianta",
+          "builder_variantb",
+          "commander_variantb",
+          "curator_variantb",
+          "executor_variantb",
+          "pragmatist_variantc"
+        ]
+      },
+      {
+        "clusterSize": 7,
+        "profileIds": [
+          "caregiver_variantb",
+          "empath_variantb",
+          "explorer_variantd",
+          "idealist_variantd",
+          "peacemaker_variantd",
+          "protector_variantc",
+          "sage_variantc"
+        ]
+      },
+      {
+        "clusterSize": 6,
+        "profileIds": [
+          "craftsman_variantd",
+          "entrepreneur_variantd",
+          "investigator_varianta",
+          "investigator_variantb",
+          "observer_variantb",
+          "rebel_variantd"
+        ]
+      },
+      {
+        "clusterSize": 6,
+        "profileIds": [
+          "caregiver_varianta",
+          "protector_variantb",
+          "sage_varianta",
+          "sage_variantb",
+          "stabilizer_varianta",
+          "stabilizer_variantb"
+        ]
+      },
+      {
+        "clusterSize": 4,
+        "profileIds": [
+          "advocate_varianta",
+          "advocate_variantc",
+          "teacher_varianta",
+          "teacher_variantc"
+        ]
+      },
+      {
+        "clusterSize": 4,
+        "profileIds": [
+          "advisor_varianta",
+          "builder_varianta",
+          "observer_variantd",
+          "specialist_variantd"
+        ]
+      }
+    ]
+  },
+  "patternDistribution": {
+    "populationSize": 200,
+    "registryPatternCount": 41,
+    "everActivatedPatternCount": 21,
+    "neverActivatedCount": 20,
+    "neverActivatedPatternIds": [
+      "adaptive_creator",
+      "adaptive_growth",
+      "asymmetric_identity_development",
+      "belief_architect",
+      "belief_meaning",
+      "emotional_depth",
+      "identity_dual_signal",
+      "internal_conflict_thinker",
+      "meaning_seeker",
+      "progressive_builder",
+      "purpose_driven_motivation",
+      "reflective_builder",
+      "reinforced_strength",
+      "relationship_stabilizer",
+      "resource_oriented_motivation",
+      "stable_orientation",
+      "structured_explorer",
+      "structured_operator",
+      "transformation_seeker",
+      "visible_identity"
+    ],
+    "deadZonePatternIds": [
+      "adaptive_creator",
+      "adaptive_growth",
+      "asymmetric_identity_development",
+      "belief_architect",
+      "belief_meaning",
+      "emotional_depth",
+      "identity_dual_signal",
+      "internal_conflict_thinker",
+      "meaning_seeker",
+      "progressive_builder",
+      "purpose_driven_motivation",
+      "reflective_builder",
+      "reinforced_strength",
+      "relationship_stabilizer",
+      "resource_oriented_motivation",
+      "stable_orientation",
+      "structured_explorer",
+      "structured_operator",
+      "transformation_seeker",
+      "visible_identity"
+    ],
+    "topActivatedPatterns": [
+      {
+        "patternId": "directional_meaning",
+        "count": 195
+      },
+      {
+        "patternId": "diplomatic_binder",
+        "count": 186
+      },
+      {
+        "patternId": "calm_regulator",
+        "count": 184
+      },
+      {
+        "patternId": "self_directed_identity",
+        "count": 180
+      },
+      {
+        "patternId": "responsive_feeler",
+        "count": 166
+      },
+      {
+        "patternId": "decisive_actor",
+        "count": 163
+      },
+      {
+        "patternId": "analytical_thinker",
+        "count": 132
+      },
+      {
+        "patternId": "ignored_emotional_dimension",
+        "count": 117
+      },
+      {
+        "patternId": "expressive_identity",
+        "count": 71
+      },
+      {
+        "patternId": "supportive_connector",
+        "count": 69
+      },
+      {
+        "patternId": "accountable_operator",
+        "count": 60
+      },
+      {
+        "patternId": "dual_nature_actor",
+        "count": 60
+      },
+      {
+        "patternId": "stable_accountability",
+        "count": 60
+      },
+      {
+        "patternId": "growth_edge_builder",
+        "count": 34
+      },
+      {
+        "patternId": "growth_edge_from_tension",
+        "count": 34
+      }
+    ],
+    "patternFamilyFrequency": {
+      "emotional_style": 350,
+      "relationship_style": 255,
+      "identity_style": 251,
+      "meaning_style": 195,
+      "theme_coverage_pattern": 188,
+      "decision_style": 180,
+      "blind_spot_pattern": 144,
+      "thinking_style": 132,
+      "growth_edge_pattern": 68,
+      "conflict_pattern": 60
+    },
+    "dominantPatternFrequency": [
+      {
+        "patternId": "analytical_thinker",
+        "count": 99
+      },
+      {
+        "patternId": "accountable_operator",
+        "count": 60
+      },
+      {
+        "patternId": "calm_regulator",
+        "count": 39
+      },
+      {
+        "patternId": "directional_meaning",
+        "count": 2
+      }
+    ]
+  },
+  "fusionDistribution": {
+    "populationSize": 200,
+    "uniqueFusionHashes": 200,
+    "fusionDiversityRatio": 1.0,
+    "agreementTypeFrequency": {
+      "MIRROR_SELF_IDENTITY": 119,
+      "MIRROR_EMOTIONAL_PATTERN": 49,
+      "MIRROR_THINKING_PATTERN": 40,
+      "MIRROR_ACTION_STYLE": 17,
+      "MIRROR_SELF_EXPRESSION": 5
+    },
+    "tensionTypeFrequency": {
+      "MIRROR_ACTION_STYLE": 196,
+      "MIRROR_SUPPORT_PATTERN": 158,
+      "MIRROR_RELATIONAL_PATTERN": 56
+    },
+    "blindSpotFrequency": {
+      "MIRROR_EMOTIONAL_PATTERN": 117,
+      "MIRROR_THINKING_PATTERN": 92,
+      "MIRROR_SELF_EXPRESSION": 66,
+      "MIRROR_SELF_IDENTITY": 61,
+      "MIRROR_RELATIONAL_PATTERN": 27,
+      "MIRROR_ACTION_STYLE": 24,
+      "MIRROR_SUPPORT_PATTERN": 19
+    },
+    "reinforcementFrequency": {
+      "MIRROR_SELF_IDENTITY": 119,
+      "MIRROR_EMOTIONAL_PATTERN": 49,
+      "MIRROR_THINKING_PATTERN": 40,
+      "MIRROR_ACTION_STYLE": 17,
+      "MIRROR_SELF_EXPRESSION": 5
+    },
+    "fusionDeadZoneCount": 3
+  },
+  "recommendations": [
+    "Dominant mirror contributors: bazi_zodiac, big_five — review whether downstream fusion/pattern layers over-index these signals.",
+    "Weak mirror contributors: eq — validate mapping coverage or increase theme differentiation.",
+    "Narrative diversity ratio 0.41 indicates narrative collapse risk across realistic humans.",
+    "22 narrative collapse zones detected (clusters of ≥3 identical narratives).",
+    "20 human patterns never activated across 200 profiles.",
+    "3 mirror keys present in inputs but never surfaced in fusion findings."
+  ],
+  "sampleRecords": [
+    {
+      "profileId": "architect_varianta",
+      "archetypeId": "architect",
+      "variant": "A",
+      "mirrorFingerprint": "dffee9e91072ca281c7964303b38536f3d912bf19f3ca90f352c476f71df38b4|2257cc9266bd2373e8e185e605f0e9df35d9d27bdb9517437bad8c3b1cd4c0ae",
+      "fusionFingerprint": "c88b56bb",
+      "activatedPatternCount": 9,
+      "activatedPatternIds": [
+        "analytical_thinker",
+        "calm_regulator",
+        "decisive_actor",
+        "diplomatic_binder",
+        "directional_meaning",
+        "ignored_emotional_dimension",
+        "relational_hidden_potential",
+        "responsive_feeler",
+        "self_directed_identity"
+      ],
+      "narrativeParagraphCount": 6,
+      "mirrorSignalCounts": {
+        "bazi_zodiac": 12,
+        "thai": 3,
+        "mbti": 5,
+        "big_five": 7,
+        "eq": 1
+      },
+      "fusionAgreements": 0,
+      "fusionTensions": 0,
+      "fusionBlindSpots": 4,
+      "fusionReinforcements": 0
+    },
+    {
+      "profileId": "architect_variantb",
+      "archetypeId": "architect",
+      "variant": "B",
+      "mirrorFingerprint": "169ff2ea4c2226930f7dfdc1b1f3191f227d41afedb7a1ced17c6c583b40c452|35ba401fc6e1dce7a5a249ffa783799899dd85f126bda97fb16fae1baaedd5cd",
+      "fusionFingerprint": "d83de0f0",
+      "activatedPatternCount": 7,
+      "activatedPatternIds": [
+        "analytical_thinker",
+        "calm_regulator",
+        "decisive_actor",
+        "diplomatic_binder",
+        "directional_meaning",
+        "responsive_feeler",
+        "self_directed_identity"
+      ],
+      "narrativeParagraphCount": 6,
+      "mirrorSignalCounts": {
+        "thai": 5,
+        "bazi_zodiac": 13,
+        "mbti": 5,
+        "big_five": 7,
+        "eq": 1
+      },
+      "fusionAgreements": 2,
+      "fusionTensions": 0,
+      "fusionBlindSpots": 1,
+      "fusionReinforcements": 2
+    },
+    {
+      "profileId": "architect_variantc",
+      "archetypeId": "architect",
+      "variant": "C",
+      "mirrorFingerprint": "d136e0b41f4232ed8f91ac8ec3726c05ed8b9ccc3173713438f6ce2f5cc5de33|3373cd8f1969cf63d4c23cc56a5fdb55205f6690007b9be9145f4fce38ff5410",
+      "fusionFingerprint": "f9e1e2fd",
+      "activatedPatternCount": 7,
+      "activatedPatternIds": [
+        "analytical_thinker",
+        "calm_regulator",
+        "decisive_actor",
+        "diplomatic_binder",
+        "directional_meaning",
+        "responsive_feeler",
+        "self_directed_identity"
+      ],
+      "narrativeParagraphCount": 6,
+      "mirrorSignalCounts": {
+        "bazi_zodiac": 13,
+        "thai": 6,
+        "mbti": 5,
+        "big_five": 7,
+        "eq": 1
+      },
+      "fusionAgreements": 3,
+      "fusionTensions": 0,
+      "fusionBlindSpots": 0,
+      "fusionReinforcements": 3
+    },
+    {
+      "profileId": "architect_variantd",
+      "archetypeId": "architect",
+      "variant": "D",
+      "mirrorFingerprint": "768af47f1470f7f58a4f34b3a93eb7ebb9b43dacfc8ea2f62c61f0bf5e70e70d|2257cc9266bd2373e8e185e605f0e9df35d9d27bdb9517437bad8c3b1cd4c0ae",
+      "fusionFingerprint": "87a1d131",
+      "activatedPatternCount": 4,
+      "activatedPatternIds": [
+        "analytical_thinker",
+        "decisive_actor",
+        "directional_meaning",
+        "self_directed_identity"
+      ],
+      "narrativeParagraphCount": 3,
+      "mirrorSignalCounts": {
+        "bazi_zodiac": 10,
+        "thai": 3,
+        "mbti": 5,
+        "big_five": 7,
+        "eq": 1
+      },
+      "fusionAgreements": 2,
+      "fusionTensions": 0,
+      "fusionBlindSpots": 0,
+      "fusionReinforcements": 2
+    },
+    {
+      "profileId": "builder_varianta",
+      "archetypeId": "builder",
+      "variant": "A",
+      "mirrorFingerprint": "f99a92773a1dbb1d35dda1fb8bc4b0bb6f1a66d783220384d4f3481c3adcb2e3|b3caf32ccae68ff04cfbce2bcb8ea60b8122e6dde5555c9d97b0e40860a8b89c",
+      "fusionFingerprint": "ec960c3b",
+      "activatedPatternCount": 12,
+      "activatedPatternIds": [
+        "accountable_operator",
+        "analytical_thinker",
+        "calm_regulator",
+        "decisive_actor",
+        "diplomatic_binder",
+        "directional_meaning",
+        "dual_nature_actor",
+        "ignored_emotional_dimension",
+        "independent_decision_maker",
+        "responsive_feeler",
+        "self_directed_identity",
+        "stable_accountability"
+      ],
+      "narrativeParagraphCount": 8,
+      "mirrorSignalCounts": {
+        "bazi_zodiac": 9,
+        "thai": 5,
+        "mbti": 6,
+        "big_five": 6,
+        "eq": 1
+      },
+      "fusionAgreements": 2,
+      "fusionTensions": 6,
+      "fusionBlindSpots": 2,
+      "fusionReinforcements": 2
+    }
+  ]
+}

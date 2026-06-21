@@ -96,7 +96,7 @@ void main() {
     expect(find.textContaining('No BaZi chart saved'), findsOneWidget);
   });
 
-  testWidgets('renders hero and four pillars when chart loaded', (tester) async {
+  testWidgets('renders insight-first sections when chart loaded', (tester) async {
     final provider = BaziProvider(loadChartFn: (_) async => _sampleChart());
 
     await tester.pumpWidget(
@@ -104,10 +104,43 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('Yin Fire'), findsWidgets);
-    expect(find.text('丁丑'), findsWidgets);
-    expect(find.text('庚午'), findsOneWidget);
+    expect(find.text('Yin Fire'), findsOneWidget);
+    expect(find.text('Through the Chinese chart lens'), findsOneWidget);
+    expect(find.text('Core Self'), findsOneWidget);
+    expect(find.text('Chart emphasis'), findsOneWidget);
+    expect(find.text('Prominent Fire'), findsOneWidget);
+    expect(find.text('Strengths'), findsWidgets);
+    expect(find.text('Growth Areas'), findsOneWidget);
+    expect(find.text('Year Zodiac Personality'), findsOneWidget);
+    expect(find.text('Horse'), findsWidgets);
+    expect(find.text('Core Traits'), findsOneWidget);
+    expect(find.text('Work Style'), findsOneWidget);
+    expect(find.text('Overall Chinese Lens Summary'), findsOneWidget);
+    expect(find.text('In-depth data'), findsOneWidget);
+
+    await tester.scrollUntilVisible(
+      find.text('In-depth data'),
+      120,
+      scrollable: find.byType(Scrollable),
+    );
+    await tester.tap(find.text('In-depth data'));
+    await tester.pumpAndSettle();
+
     expect(find.text('Four Pillars'), findsOneWidget);
-    expect(find.text('version'), findsOneWidget);
+    expect(find.textContaining('Pillar code:'), findsWidgets);
+    expect(find.textContaining('Heavenly Stem:'), findsWidgets);
+    expect(find.textContaining('Earthly Branch:'), findsWidgets);
+    expect(find.textContaining('Day (core self)'), findsOneWidget);
+    expect(
+      find.textContaining('Core starting points in Chinese chart reading'),
+      findsOneWidget,
+    );
+    expect(
+      find.textContaining('This is the structural basis'),
+      findsOneWidget,
+    );
+    expect(find.text('What the elements mean'), findsOneWidget);
+    expect(find.textContaining('⚔️ Metal / 🔥 Fire'), findsWidgets);
+    expect(find.text('Data Version'), findsOneWidget);
   });
 }

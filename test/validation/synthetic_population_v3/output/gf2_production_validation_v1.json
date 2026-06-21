@@ -1,0 +1,30 @@
+{
+  "generatedAt": "2026-06-21T08:08:05.247575Z",
+  "populationSize": 1000,
+  "featureFlagEnabled": true,
+  "metrics": {
+    "activePatterns": 30,
+    "uniqueNarratives": 1000,
+    "uniquePatternSets": 436,
+    "profilesInCollapse": 0,
+    "maxClusterSize": 1,
+    "stable_orientation": 258,
+    "reinforced_strength": 939,
+    "totalActivations": 13732
+  },
+  "gates": {
+    "activePatternsGte30": true,
+    "uniqueNarrativesGte550": true,
+    "profilesInCollapseLte450": true,
+    "maxClusterLte20": true,
+    "stableOrientationGt0": true,
+    "reinforcedStrengthGt0": true
+  },
+  "allGatesPass": true,
+  "regressionAudit": {
+    "mirrorUnchanged": true,
+    "gf1FoundationPreserved": true,
+    "humanModelDeterministicOnGf1": true,
+    "baselineNarrativePresent": true
+  }
+}

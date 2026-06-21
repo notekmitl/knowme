@@ -1,0 +1,351 @@
+{
+  "version": "global_fusion_foundation_validation_v2",
+  "generatedAt": "2026-06-21T06:58:39.995502Z",
+  "populationSize": 200,
+  "deadZoneTraceReport": {
+    "MIRROR_LIFE_DIRECTION": {
+      "mirrorKey": "MIRROR_LIFE_DIRECTION",
+      "layerCounts": {
+        "mirror_input_signals": 253,
+        "astro_mirror_agreements": 47,
+        "personality_mirror_agreements": 0,
+        "astro_mirror_reinforcements": 0,
+        "personality_mirror_reinforcements": 0,
+        "astro_mirror_evidence": 253,
+        "personality_mirror_evidence": 0,
+        "fusion_agreements": 0,
+        "fusion_reinforcements": 0,
+        "fusion_tensions": 0,
+        "fusion_blind_spots": 0,
+        "human_model_patterns": 0,
+        "human_model_evidence": 0,
+        "human_pattern_activations": 0,
+        "narrative_references": 0
+      },
+      "profileReach": {
+        "withInputSignal": 172,
+        "withAnyMirrorFinding": 47,
+        "withFusionFinding": 0,
+        "withHumanModelSignal": 0,
+        "withPatternActivation": 0,
+        "withNarrativeReference": 0
+      },
+      "rolesObserved": {
+        "astroMirrorAgreementRoles": [
+          "astrology"
+        ],
+        "personalityMirrorAgreementRoles": [],
+        "fusionAgreementRoles": []
+      },
+      "exactBoundaryFailure": "mirror_snapshot→global_fusion",
+      "fusionFindingCountTotal": 0
+    },
+    "MIRROR_GROWTH_ORIENTATION": {
+      "mirrorKey": "MIRROR_GROWTH_ORIENTATION",
+      "layerCounts": {
+        "mirror_input_signals": 732,
+        "astro_mirror_agreements": 167,
+        "personality_mirror_agreements": 0,
+        "astro_mirror_reinforcements": 47,
+        "personality_mirror_reinforcements": 0,
+        "astro_mirror_evidence": 732,
+        "personality_mirror_evidence": 0,
+        "fusion_agreements": 0,
+        "fusion_reinforcements": 0,
+        "fusion_tensions": 0,
+        "fusion_blind_spots": 0,
+        "human_model_patterns": 0,
+        "human_model_evidence": 0,
+        "human_pattern_activations": 0,
+        "narrative_references": 0
+      },
+      "profileReach": {
+        "withInputSignal": 200,
+        "withAnyMirrorFinding": 200,
+        "withFusionFinding": 0,
+        "withHumanModelSignal": 0,
+        "withPatternActivation": 0,
+        "withNarrativeReference": 0
+      },
+      "rolesObserved": {
+        "astroMirrorAgreementRoles": [
+          "astrology"
+        ],
+        "personalityMirrorAgreementRoles": [],
+        "fusionAgreementRoles": []
+      },
+      "exactBoundaryFailure": "mirror_snapshot→global_fusion",
+      "fusionFindingCountTotal": 0
+    },
+    "MIRROR_STRUCTURE_PATTERN": {
+      "mirrorKey": "MIRROR_STRUCTURE_PATTERN",
+      "layerCounts": {
+        "mirror_input_signals": 304,
+        "astro_mirror_agreements": 0,
+        "personality_mirror_agreements": 0,
+        "astro_mirror_reinforcements": 0,
+        "personality_mirror_reinforcements": 0,
+        "astro_mirror_evidence": 184,
+        "personality_mirror_evidence": 120,
+        "fusion_agreements": 0,
+        "fusion_reinforcements": 0,
+        "fusion_tensions": 0,
+        "fusion_blind_spots": 0,
+        "human_model_patterns": 0,
+        "human_model_evidence": 0,
+        "human_pattern_activations": 0,
+        "narrative_references": 0
+      },
+      "profileReach": {
+        "withInputSignal": 195,
+        "withAnyMirrorFinding": 0,
+        "withFusionFinding": 0,
+        "withHumanModelSignal": 0,
+        "withPatternActivation": 0,
+        "withNarrativeReference": 0
+      },
+      "rolesObserved": {
+        "astroMirrorAgreementRoles": [],
+        "personalityMirrorAgreementRoles": [],
+        "fusionAgreementRoles": []
+      },
+      "exactBoundaryFailure": "mirror_input→mirror_findings",
+      "fusionFindingCountTotal": 0
+    }
+  },
+  "reachabilityMatrix": {
+    "dependentPatternCount": 6,
+    "classifications": [
+      {
+        "patternId": "purpose_driven_motivation",
+        "requiredMirrorKey": "MIRROR_LIFE_DIRECTION",
+        "requiredFusionFindingType": null,
+        "sourceHumanPatternKey": null,
+        "status": "Structurally Blocked",
+        "activatedProfiles": 0,
+        "noSourceProfiles": 200,
+        "fusionTypeMismatchProfiles": 0,
+        "strengthOrDimensionFailProfiles": 0,
+        "populationSize": 200
+      },
+      {
+        "patternId": "adaptive_creator",
+        "requiredMirrorKey": "MIRROR_GROWTH_ORIENTATION",
+        "requiredFusionFindingType": "reinforcement",
+        "sourceHumanPatternKey": "adaptive_creator",
+        "status": "Structurally Blocked",
+        "activatedProfiles": 0,
+        "noSourceProfiles": 200,
+        "fusionTypeMismatchProfiles": 0,
+        "strengthOrDimensionFailProfiles": 0,
+        "populationSize": 200
+      },
+      {
+        "patternId": "structured_operator",
+        "requiredMirrorKey": "MIRROR_STRUCTURE_PATTERN",
+        "requiredFusionFindingType": null,
+        "sourceHumanPatternKey": null,
+        "status": "Structurally Blocked",
+        "activatedProfiles": 0,
+        "noSourceProfiles": 200,
+        "fusionTypeMismatchProfiles": 0,
+        "strengthOrDimensionFailProfiles": 0,
+        "populationSize": 200
+      },
+      {
+        "patternId": "progressive_builder",
+        "requiredMirrorKey": "MIRROR_GROWTH_ORIENTATION",
+        "requiredFusionFindingType": null,
+        "sourceHumanPatternKey": null,
+        "status": "Structurally Blocked",
+        "activatedProfiles": 0,
+        "noSourceProfiles": 200,
+        "fusionTypeMismatchProfiles": 0,
+        "strengthOrDimensionFailProfiles": 0,
+        "populationSize": 200
+      },
+      {
+        "patternId": "meaning_seeker",
+        "requiredMirrorKey": "MIRROR_LIFE_DIRECTION",
+        "requiredFusionFindingType": null,
+        "sourceHumanPatternKey": null,
+        "status": "Structurally Blocked",
+        "activatedProfiles": 0,
+        "noSourceProfiles": 200,
+        "fusionTypeMismatchProfiles": 0,
+        "strengthOrDimensionFailProfiles": 0,
+        "populationSize": 200
+      },
+      {
+        "patternId": "stable_orientation",
+        "requiredMirrorKey": "MIRROR_LIFE_DIRECTION",
+        "requiredFusionFindingType": "reinforcement",
+        "sourceHumanPatternKey": null,
+        "status": "Structurally Blocked",
+        "activatedProfiles": 0,
+        "noSourceProfiles": 200,
+        "fusionTypeMismatchProfiles": 0,
+        "strengthOrDimensionFailProfiles": 0,
+        "populationSize": 200
+      }
+    ]
+  },
+  "boundaryFailureAnalysis": {
+    "MIRROR_LIFE_DIRECTION": {
+      "primaryCauseCode": "fusion_filtering",
+      "exactBoundaryFailure": "mirror_snapshot→global_fusion",
+      "evidence": {
+        "inputSignals": 253,
+        "mirrorAgreementTotal": 47,
+        "fusionFindingsTotal": 0,
+        "profilesWithInput": 172,
+        "profilesWithMirrorFinding": 47,
+        "profilesWithFusionFinding": 0,
+        "filterRule": "crossMirrorAgreementRequiresTwoRoles (GF3 CrossMirrorAgreementEngine)"
+      }
+    },
+    "MIRROR_GROWTH_ORIENTATION": {
+      "primaryCauseCode": "fusion_filtering",
+      "exactBoundaryFailure": "mirror_snapshot→global_fusion",
+      "evidence": {
+        "inputSignals": 732,
+        "mirrorAgreementTotal": 167,
+        "fusionFindingsTotal": 0,
+        "profilesWithInput": 200,
+        "profilesWithMirrorFinding": 200,
+        "profilesWithFusionFinding": 0,
+        "filterRule": "crossMirrorAgreementRequiresTwoRoles (GF3 CrossMirrorAgreementEngine)"
+      }
+    },
+    "MIRROR_STRUCTURE_PATTERN": {
+      "primaryCauseCode": "mirror_emission_failure",
+      "exactBoundaryFailure": "mirror_input→mirror_findings",
+      "evidence": {
+        "inputSignals": 304,
+        "mirrorAgreementTotal": 0,
+        "fusionFindingsTotal": 0,
+        "profilesWithInput": 195,
+        "profilesWithMirrorFinding": 0,
+        "profilesWithFusionFinding": 0,
+        "filterRule": "crossMirrorAgreementRequiresTwoRoles (GF3 CrossMirrorAgreementEngine)"
+      }
+    }
+  },
+  "recoverySimulation": {
+    "simulationEngine": "GlobalFusionCoverageRecoveryBuilder + RecoveryComposer (V2, read-only)",
+    "populationSize": 200,
+    "baseline": {
+      "totalActivations": 1823,
+      "uniquePatternSets": 77,
+      "uniqueNarratives": 82,
+      "avgActivationsPerProfile": 9.115
+    },
+    "simulatedAfterRecovery": {
+      "totalActivations": 2391,
+      "uniquePatternSets": 125,
+      "uniqueNarratives": 130,
+      "avgActivationsPerProfile": 11.955,
+      "additionalActivations": 568,
+      "additionalUniquePatternSets": 48,
+      "additionalUniqueNarratives": 48
+    },
+    "deadZoneKeyRecovery": {
+      "MIRROR_LIFE_DIRECTION": {
+        "profilesWithRecoveredFusionFinding": 47,
+        "totalRecoveredFusionFindings": 47
+      },
+      "MIRROR_GROWTH_ORIENTATION": {
+        "profilesWithRecoveredFusionFinding": 167,
+        "totalRecoveredFusionFindings": 167
+      },
+      "MIRROR_STRUCTURE_PATTERN": {
+        "profilesWithRecoveredFusionFinding": 0,
+        "totalRecoveredFusionFindings": 0
+      }
+    },
+    "newlyActivatedPatterns": [
+      {
+        "patternId": "progressive_builder",
+        "baselineActivations": 0,
+        "simulatedActivations": 167,
+        "delta": 167
+      },
+      {
+        "patternId": "meaning_seeker",
+        "baselineActivations": 0,
+        "simulatedActivations": 47,
+        "delta": 47
+      },
+      {
+        "patternId": "purpose_driven_motivation",
+        "baselineActivations": 0,
+        "simulatedActivations": 43,
+        "delta": 43
+      },
+      {
+        "patternId": "adaptive_creator",
+        "baselineActivations": 0,
+        "simulatedActivations": 0,
+        "delta": 0
+      },
+      {
+        "patternId": "structured_operator",
+        "baselineActivations": 0,
+        "simulatedActivations": 0,
+        "delta": 0
+      },
+      {
+        "patternId": "stable_orientation",
+        "baselineActivations": 0,
+        "simulatedActivations": 0,
+        "delta": 0
+      }
+    ],
+    "collapseZoneReduction": {
+      "baselineUniqueNarratives": 82,
+      "simulatedUniqueNarratives": 130,
+      "baselineCollapseZones": 22,
+      "simulatedCollapseZones": 14,
+      "baselineDuplicationRate": 0.5900000000000001,
+      "simulatedDuplicationRate": 0.35
+    }
+  },
+  "severityRanking": [
+    {
+      "mirrorKey": "MIRROR_LIFE_DIRECTION",
+      "severity": "High",
+      "userImpact": "None today (validation pipeline only; not Home-integrated)",
+      "architectureImpact": "Blocks 6 dependent registry patterns at human-model source",
+      "profilesWithMirrorInput": 172,
+      "profilesWithFusionFinding": 0,
+      "simulatedProfilesRecovered": 47,
+      "simulatedPatternActivationDelta": 90,
+      "shouldFixNow": "No",
+      "why": "Confirmed fusion contract gate (cross-mirror two-role requirement). Fix belongs to Global Fusion Foundation program, not V1 frozen surfaces."
+    },
+    {
+      "mirrorKey": "MIRROR_GROWTH_ORIENTATION",
+      "severity": "High",
+      "userImpact": "None today (validation pipeline only; not Home-integrated)",
+      "architectureImpact": "Blocks 6 dependent registry patterns at human-model source",
+      "profilesWithMirrorInput": 200,
+      "profilesWithFusionFinding": 0,
+      "simulatedProfilesRecovered": 167,
+      "simulatedPatternActivationDelta": 167,
+      "shouldFixNow": "No",
+      "why": "Confirmed fusion contract gate (cross-mirror two-role requirement). Fix belongs to Global Fusion Foundation program, not V1 frozen surfaces."
+    },
+    {
+      "mirrorKey": "MIRROR_STRUCTURE_PATTERN",
+      "severity": "High",
+      "userImpact": "None today (validation pipeline only; not Home-integrated)",
+      "architectureImpact": "Blocks 6 dependent registry patterns at human-model source",
+      "profilesWithMirrorInput": 195,
+      "profilesWithFusionFinding": 0,
+      "simulatedProfilesRecovered": 0,
+      "simulatedPatternActivationDelta": 0,
+      "shouldFixNow": "No",
+      "why": "Confirmed fusion contract gate (cross-mirror two-role requirement). Fix belongs to Global Fusion Foundation program, not V1 frozen surfaces."
+    }
+  ]
+}

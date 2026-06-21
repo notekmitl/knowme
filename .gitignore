@@ -142,6 +142,12 @@ yarn-error.log*
 # Environment
 .env
 
+# Repository Survival V1 — local QA artifacts (screenshots, not source)
+.e2e_verify_output/
+
+# Real user Firestore export (PII — regenerate locally)
+test/validation/real_user_runtime_v1/output/firestore_user_export.json
+
 # Exceptions to above rules.
 !**/ios/**/default.mode1v3
 !**/ios/**/default.mode2v3

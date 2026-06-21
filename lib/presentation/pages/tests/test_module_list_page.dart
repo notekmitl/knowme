@@ -8,6 +8,9 @@ import 'package:knowme/data/test_modules.dart';
 import 'package:knowme/domain/models/test_category.dart';
 import 'package:knowme/domain/models/test_module.dart';
 
+import 'package:knowme/features/tests/big_five/big_five_routes.dart';
+import 'package:knowme/features/tests/big_five/domain/big_five_depth_tier.dart';
+import 'package:knowme/features/tests/big_five/domain/big_five_models.dart';
 import 'package:knowme/features/tests/eq/eq_routes.dart';
 import 'package:knowme/features/tests/mbti/domain/mbti_models.dart';
 import 'package:knowme/features/tests/mbti/mbti_routes.dart';
@@ -25,6 +28,11 @@ const String _mbtiProgressiveModuleId = 'mbti_progressive';
 const String _mbtiMiniLegacyModuleId = 'mbti_mini';
 const String _mbtiCognitiveModuleId = 'mbti_cognitive';
 const String _mbtiSummaryModuleId = 'mbti_summary';
+const String _bigFiveProgressiveModuleId = 'bigfive_mini';
+const Set<String> _bigFiveLegacyDepthModuleIds = {
+  'bigfive_short',
+  'bigfive_accurate',
+};
 const Set<String> _eqFeatureModuleIds = {
   'eq_awareness',
   'eq_regulation',
@@ -39,6 +47,10 @@ bool _moduleIdOpensProgressiveMbti(String id) =>
 
 void _openProgressiveMbtiTest(BuildContext context) {
   Navigator.push(context, MbtiRoutes.miniTestRoute());
+}
+
+void _openProgressiveBigFiveTest(BuildContext context) {
+  Navigator.push(context, BigFiveRoutes.testRoute());
 }
 
 void _openCognitiveMbtiTest(BuildContext context) {
@@ -101,6 +113,17 @@ class TestModuleListPage extends StatelessWidget {
         itemBuilder: (context, index) {
           final TestModule module = modules[index];
 
+          if (_bigFiveLegacyDepthModuleIds.contains(module.id)) {
+            return const SizedBox.shrink();
+          }
+
+          if (module.id == _bigFiveProgressiveModuleId) {
+            return Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              child: _BigFiveProgressiveCatalogCard(uid: uid),
+            );
+          }
+
           if (module.id == _mbtiProgressiveModuleId) {
             return Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
@@ -120,6 +143,128 @@ class TestModuleListPage extends StatelessWidget {
             child: _LegacyModuleCatalogCard(module: module, uid: uid),
           );
         },
+      ),
+    );
+  }
+}
+
+/// Catalog tile for progressive Big Five (`tests/big_five`, 10 → 44 → 80).
+class _BigFiveProgressiveCatalogCard extends StatelessWidget {
+  final String? uid;
+
+  const _BigFiveProgressiveCatalogCard({required this.uid});
+
+  @override
+  Widget build(BuildContext context) {
+    final lang = AppText.lang;
+
+    if (uid == null) {
+      return _buildCard(
+        context,
+        lang: lang,
+        answered: 0,
+        total: bigFiveDeepCheckpoint,
+        completed: false,
+      );
+    }
+
+    return StreamBuilder<DocumentSnapshot<Map<String, dynamic>>>(
+      stream: FirebaseFirestore.instance
+          .collection('users')
+          .doc(uid)
+          .collection('tests')
+          .doc(bigFiveTestId)
+          .snapshots(),
+      builder: (context, snapshot) {
+        int answered = 0;
+        int total = bigFiveQuickCheckpoint;
+        var completed = false;
+
+        if (snapshot.hasData && snapshot.data!.exists) {
+          final data = snapshot.data!.data();
+          if (data != null) {
+            answered = (data['answered'] as num?)?.toInt() ?? 0;
+            total = (data['total'] as num?)?.toInt() ?? bigFiveQuickCheckpoint;
+            completed = data['completed'] == true;
+          }
+        }
+
+        return _buildCard(
+          context,
+          lang: lang,
+          answered: answered,
+          total: total,
+          completed: completed,
+        );
+      },
+    );
+  }
+
+  Widget _buildCard(
+    BuildContext context, {
+    required String lang,
+    required int answered,
+    required int total,
+    required bool completed,
+  }) {
+    final percent = total == 0 ? 0.0 : answered / total;
+    final status = completed
+        ? (lang == 'th' ? '✓ ทำเสร็จแล้ว' : '✓ Completed')
+        : answered > 0
+            ? (lang == 'th' ? '▶ ทำต่อ' : '▶ Continue')
+            : (lang == 'th' ? '○ ยังไม่เริ่ม' : '○ Not started');
+    final statusColor = completed
+        ? Colors.green
+        : answered > 0
+            ? Colors.orange
+            : Colors.grey;
+
+    return Card(
+      elevation: 2,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16),
+        onTap: () => _openProgressiveBigFiveTest(context),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                AppText.t('bigfive_mini'),
+                style: const TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                AppText.t('category_bigfive'),
+                style: TextStyle(
+                  color: Colors.grey.shade700,
+                  fontSize: 13,
+                ),
+              ),
+              const SizedBox(height: 14),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: LinearProgressIndicator(
+                  value: percent.clamp(0.0, 1.0),
+                  minHeight: 10,
+                ),
+              ),
+              const SizedBox(height: 8),
+              Text(
+                status,
+                style: TextStyle(
+                  color: statusColor,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 13,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
@@ -609,7 +754,9 @@ class _LegacyModuleCatalogCard extends StatelessWidget {
       child: InkWell(
         borderRadius: BorderRadius.circular(16),
         onTap: () {
-          if (_moduleIdOpensProgressiveMbti(module.id)) {
+          if (module.id == _bigFiveProgressiveModuleId) {
+            _openProgressiveBigFiveTest(context);
+          } else if (_moduleIdOpensProgressiveMbti(module.id)) {
             _openProgressiveMbtiTest(context);
           } else if (module.id == _mbtiCognitiveModuleId) {
             _openCognitiveMbtiTest(context);

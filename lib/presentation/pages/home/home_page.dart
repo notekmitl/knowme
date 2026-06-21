@@ -1,73 +1,139 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart' hide AuthProvider;
+import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
 
-import 'package:knowme/core/i18n/app_text.dart';
+import 'package:knowme/features/funnel_telemetry/funnel_telemetry.dart';
+import 'package:knowme/features/astrology/fusion/presentation/astrology_fusion_routes.dart';
+import 'package:knowme/features/home_cohesion/application/home_v3_loader.dart';
+import 'package:knowme/features/home_cohesion/presentation/home_screen_v2_models.dart';
+import 'package:knowme/features/home_cohesion/presentation/home_screen_v3.dart';
+import 'package:knowme/features/home_cohesion/presentation/home_v35_design.dart';
+import 'package:knowme/features/home_cohesion/presentation/home_screen_v3_models.dart';
+import 'package:knowme/features/tests/big_five/big_five_routes.dart';
+import 'package:knowme/features/tests/eq/eq_routes.dart';
 import 'package:knowme/features/tests/fusion/fusion_routes.dart';
+import 'package:knowme/features/tests/mbti/mbti_routes.dart';
 
 import '../../providers/auth_provider.dart';
 import '../astrology/astrology_result_page.dart';
 import '../bazi/bazi_result_page.dart';
 import '../profile/edit_profile_page_v1.dart';
-import '../tests/test_center_page.dart';
 
-/// Neutral discovery hub (hotfix — no journey suggestion until Home redesign).
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
-  void _openTestCenter(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (_) => const TestCenterPage()),
-    );
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  late Future<HomeScreenV3Data> _homeDataFuture;
+  final _homeLoader = HomeV3Loader();
+
+  @override
+  void initState() {
+    super.initState();
+    final uid = FirebaseAuth.instance.currentUser?.uid ?? '';
+    _homeDataFuture = _homeLoader.load(uid);
+    FunnelTelemetry.track(FunnelTelemetryEvent.homeView);
   }
 
-  void _openAstrologyResultPage(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (_) => const AstrologyResultPage()),
-    );
-  }
-
-  void _openBaziResultPage(BuildContext context) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (_) => const BaziResultPage()),
-    );
-  }
-
-  Future<void> _openFusionResultPage(BuildContext context) async {
-    await FusionRoutes.openResult(context);
+  void _reloadHome() {
+    final uid = FirebaseAuth.instance.currentUser?.uid ?? '';
+    setState(() {
+      _homeDataFuture = _homeLoader.load(uid);
+    });
   }
 
   void _openEditProfilePage(BuildContext context) {
     Navigator.push(
       context,
       MaterialPageRoute(builder: (_) => const EditProfilePageV1()),
-    );
+    ).then((_) {
+      if (mounted) _reloadHome();
+    });
   }
 
   Future<void> _logout(BuildContext context) async {
     await context.read<AuthProvider>().logout();
   }
 
+  void _openAstrologyResult(BuildContext context) {
+    AstrologyFusionRoutes.openResult(context);
+  }
+
+  void _openFullInsight(BuildContext context) {
+    FusionRoutes.openResult(context);
+  }
+
+  void _openUnlockDeepProfile(BuildContext context) {
+    FunnelTelemetry.track(FunnelTelemetryEvent.mbtiStart);
+    Navigator.of(context).push(MbtiRoutes.miniTestRoute()).then((_) {
+      if (mounted) _reloadHome();
+    });
+  }
+
+  void _openContinueDiscovering(BuildContext context) {
+    FusionRoutes.openResult(context);
+  }
+
+  void _openPsychologyTest(
+    BuildContext context,
+    HomePsychologyTestItemData test,
+  ) {
+    switch (test.id) {
+      case 'mbti':
+        FunnelTelemetry.track(FunnelTelemetryEvent.mbtiStart);
+        Navigator.of(context).push(MbtiRoutes.miniTestRoute()).then((_) {
+          if (mounted) _reloadHome();
+        });
+      case 'eq':
+        FunnelTelemetry.track(FunnelTelemetryEvent.eqStart);
+        if (test.status == HomePsychologyTestStatus.completed) {
+          Navigator.of(context).push(EqRoutes.summary());
+        } else {
+          Navigator.of(context).push(EqRoutes.home());
+        }
+      case 'big_five':
+        FunnelTelemetry.track(FunnelTelemetryEvent.bigFiveStart);
+        BigFiveRoutes.openTest(context);
+      default:
+        break;
+    }
+  }
+
+  void _openMoreItem(BuildContext context, HomeMoreItemData item) {
+    switch (item.id) {
+      case 'astrology':
+        _openAstrologyResult(context);
+      case 'fusion':
+        _openFullInsight(context);
+      case 'profile':
+        _openEditProfilePage(context);
+      case 'settings':
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('การตั้งค่าจะเปิดใช้งานเร็ว ๆ นี้')),
+        );
+      default:
+        break;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
-    final user = FirebaseAuth.instance.currentUser;
-
     return Scaffold(
-      backgroundColor: const Color(0xFFF5F0F8),
+      backgroundColor: HomeV35Design.background,
       appBar: AppBar(
-        backgroundColor: const Color(0xFFF5F0F8),
+        backgroundColor: HomeV35Design.background,
         elevation: 0,
         scrolledUnderElevation: 0,
         automaticallyImplyLeading: false,
+        title: const Text(
+          'KnowMe',
+          style: TextStyle(fontWeight: FontWeight.w700),
+        ),
         actions: [
-          TextButton(
-            onPressed: () => _openEditProfilePage(context),
-            child: const Text('Edit Profile'),
-          ),
           TextButton(
             onPressed: () => _logout(context),
             child: const Text('Logout'),
@@ -75,76 +141,62 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 32),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Text(
-                'Welcome ${user?.email ?? ''}',
-                style: const TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.w600,
-                ),
-                textAlign: TextAlign.center,
-              ),
-              const SizedBox(height: 32),
-              _buildNeutralHeroCard(),
-              const SizedBox(height: 20),
-              TextButton(
-                onPressed: () => _openTestCenter(context),
-                child: Text(AppText.t('home_explore_all_tests')),
-              ),
-              if (kDebugMode) ...[
-                const SizedBox(height: 28),
-                ElevatedButton(
-                  onPressed: () => _openAstrologyResultPage(context),
-                  child: const Text('Open Astrology Result'),
-                ),
-                const SizedBox(height: 12),
-                ElevatedButton(
-                  onPressed: () => _openFusionResultPage(context),
-                  child: const Text('Open Fusion (QA)'),
-                ),
-                const SizedBox(height: 12),
-                ElevatedButton(
-                  onPressed: () => _openBaziResultPage(context),
-                  child: const Text('Open BaZi Result (QA)'),
-                ),
-              ],
-            ],
-          ),
-        ),
-      ),
-    );
-  }
+        child: FutureBuilder<HomeScreenV3Data>(
+          future: _homeDataFuture,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState != ConnectionState.done) {
+              return const Center(child: CircularProgressIndicator());
+            }
 
-  Widget _buildNeutralHeroCard() {
-    return Card(
-      elevation: 1,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      child: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Text(
-              AppText.t('home_journey_title'),
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.w700,
+            final data = snapshot.data ?? HomeScreenV3Data.empty();
+
+            return SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  HomeScreenV3(
+                    data: data,
+                    callbacks: HomeScreenV3Callbacks(
+                      onViewAstrologyResult: () =>
+                          _openAstrologyResult(context),
+                      onViewFullInsight: () => _openFullInsight(context),
+                      onEditProfile: () => _openEditProfilePage(context),
+                      onPsychologyTest: (test) =>
+                          _openPsychologyTest(context, test),
+                      onMoreItem: (item) => _openMoreItem(context, item),
+                      onUnlockDeepProfile: () =>
+                          _openUnlockDeepProfile(context),
+                      onContinueDiscovering: () =>
+                          _openContinueDiscovering(context),
+                    ),
+                  ),
+                  if (kDebugMode) ...[
+                    const SizedBox(height: 28),
+                    ElevatedButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const AstrologyResultPage(),
+                        ),
+                      ),
+                      child: const Text('Open Astrology Result (QA)'),
+                    ),
+                    const SizedBox(height: 12),
+                    ElevatedButton(
+                      onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => const BaziResultPage(),
+                        ),
+                      ),
+                      child: const Text('Open BaZi Result (QA)'),
+                    ),
+                  ],
+                ],
               ),
-            ),
-            const SizedBox(height: 12),
-            Text(
-              AppText.t('home_hub_body'),
-              style: TextStyle(
-                fontSize: 15,
-                height: 1.45,
-                color: Colors.grey.shade800,
-              ),
-            ),
-          ],
+            );
+          },
         ),
       ),
     );

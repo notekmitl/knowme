@@ -1,0 +1,247 @@
+{
+  "generatedAt": "2026-06-21T07:28:21.759730Z",
+  "patternId": "stable_orientation",
+  "mirrorKey": "MIRROR_LIFE_DIRECTION",
+  "stageCounts": {
+    "totalProfiles": 1000,
+    "lensLifeSignal": 774,
+    "mirrorSignalEligible": 774,
+    "mirrorReinforcementFinding": 774,
+    "mp001Promotion": 755,
+    "gf2R002Agreement": 258,
+    "gf2R004Recovery": 526,
+    "gf2ComposedLifeReinforcement": 258,
+    "humanModelReinforcementPattern": 258,
+    "hpSourceResolved": 258,
+    "hpSourceIsReinforcementType": 0,
+    "hpRuleMatches": 0,
+    "hpLineageEvidence": 258,
+    "hpActivated": 0
+  },
+  "terminationCounts": {
+    "GF2_NO_LIFE_AGREEMENT": 516,
+    "HP_SOURCE_WRONG_FUSION_FINDING_TYPE": 258,
+    "LENS_NO_LIFE_SIGNAL": 226
+  },
+  "eligibleProfileCount": 258,
+  "eligibleTerminationCounts": {
+    "HP_SOURCE_WRONG_FUSION_FINDING_TYPE": 258
+  },
+  "sampleTraces": [
+    {
+      "profileId": "pop2_001_variantc",
+      "terminationPoint": "HP_SOURCE_WRONG_FUSION_FINDING_TYPE",
+      "lensLifeSignal": true,
+      "mirrorSignalEligible": true,
+      "mirrorReinforcementFinding": true,
+      "mp001Promotion": true,
+      "gf2R002Agreement": true,
+      "gf2R004Recovery": true,
+      "gf2ComposedLifeReinforcement": true,
+      "humanModelReinforcementPattern": true,
+      "hpSourceResolved": true,
+      "hpSourceFusionFindingType": "agreement",
+      "hpSourcePatternKey": "agreement_life_direction_shared_signal",
+      "hpSourceIsReinforcementType": false,
+      "hpRuleMatches": false,
+      "hpLineageEvidence": true,
+      "hpActivated": false,
+      "humanModelLifePatterns": [
+        {
+          "patternKey": "agreement_life_direction_shared_signal",
+          "fusionFindingType": "agreement",
+          "patternStrength": 0.55
+        },
+        {
+          "patternKey": "reinforcement_life_direction_core_strength",
+          "fusionFindingType": "reinforcement",
+          "patternStrength": 0.35
+        }
+      ]
+    },
+    {
+      "profileId": "pop2_002_variantd",
+      "terminationPoint": "HP_SOURCE_WRONG_FUSION_FINDING_TYPE",
+      "lensLifeSignal": true,
+      "mirrorSignalEligible": true,
+      "mirrorReinforcementFinding": true,
+      "mp001Promotion": true,
+      "gf2R002Agreement": true,
+      "gf2R004Recovery": true,
+      "gf2ComposedLifeReinforcement": true,
+      "humanModelReinforcementPattern": true,
+      "hpSourceResolved": true,
+      "hpSourceFusionFindingType": "agreement",
+      "hpSourcePatternKey": "agreement_life_direction_shared_signal",
+      "hpSourceIsReinforcementType": false,
+      "hpRuleMatches": false,
+      "hpLineageEvidence": true,
+      "hpActivated": false,
+      "humanModelLifePatterns": [
+        {
+          "patternKey": "agreement_life_direction_shared_signal",
+          "fusionFindingType": "agreement",
+          "patternStrength": 0.65
+        },
+        {
+          "patternKey": "reinforcement_life_direction_core_strength",
+          "fusionFindingType": "reinforcement",
+          "patternStrength": 0.35
+        }
+      ]
+    },
+    {
+      "profileId": "pop2_004_variantd",
+      "terminationPoint": "HP_SOURCE_WRONG_FUSION_FINDING_TYPE",
+      "lensLifeSignal": true,
+      "mirrorSignalEligible": true,
+      "mirrorReinforcementFinding": true,
+      "mp001Promotion": false,
+      "gf2R002Agreement": true,
+      "gf2R004Recovery": true,
+      "gf2ComposedLifeReinforcement": true,
+      "humanModelReinforcementPattern": true,
+      "hpSourceResolved": true,
+      "hpSourceFusionFindingType": "agreement",
+      "hpSourcePatternKey": "agreement_life_direction_shared_signal",
+      "hpSourceIsReinforcementType": false,
+      "hpRuleMatches": false,
+      "hpLineageEvidence": true,
+      "hpActivated": false,
+      "humanModelLifePatterns": [
+        {
+          "patternKey": "agreement_life_direction_shared_signal",
+          "fusionFindingType": "agreement",
+          "patternStrength": 0.55
+        },
+        {
+          "patternKey": "reinforcement_life_direction_core_strength",
+          "fusionFindingType": "reinforcement",
+          "patternStrength": 0.35
+        }
+      ]
+    },
+    {
+      "profileId": "pop2_005_variantb",
+      "terminationPoint": "HP_SOURCE_WRONG_FUSION_FINDING_TYPE",
+      "lensLifeSignal": true,
+      "mirrorSignalEligible": true,
+      "mirrorReinforcementFinding": true,
+      "mp001Promotion": true,
+      "gf2R002Agreement": true,
+      "gf2R004Recovery": true,
+      "gf2ComposedLifeReinforcement": true,
+      "humanModelReinforcementPattern": true,
+      "hpSourceResolved": true,
+      "hpSourceFusionFindingType": "agreement",
+      "hpSourcePatternKey": "agreement_life_direction_shared_signal",
+      "hpSourceIsReinforcementType": false,
+      "hpRuleMatches": false,
+      "hpLineageEvidence": true,
+      "hpActivated": false,
+      "humanModelLifePatterns": [
+        {
+          "patternKey": "agreement_life_direction_shared_signal",
+          "fusionFindingType": "agreement",
+          "patternStrength": 0.55
+        },
+        {
+          "patternKey": "reinforcement_life_direction_core_strength",
+          "fusionFindingType": "reinforcement",
+          "patternStrength": 0.35
+        }
+      ]
+    },
+    {
+      "profileId": "pop2_005_variantd",
+      "terminationPoint": "HP_SOURCE_WRONG_FUSION_FINDING_TYPE",
+      "lensLifeSignal": true,
+      "mirrorSignalEligible": true,
+      "mirrorReinforcementFinding": true,
+      "mp001Promotion": true,
+      "gf2R002Agreement": true,
+      "gf2R004Recovery": true,
+      "gf2ComposedLifeReinforcement": true,
+      "humanModelReinforcementPattern": true,
+      "hpSourceResolved": true,
+      "hpSourceFusionFindingType": "agreement",
+      "hpSourcePatternKey": "agreement_life_direction_shared_signal",
+      "hpSourceIsReinforcementType": false,
+      "hpRuleMatches": false,
+      "hpLineageEvidence": true,
+      "hpActivated": false,
+      "humanModelLifePatterns": [
+        {
+          "patternKey": "agreement_life_direction_shared_signal",
+          "fusionFindingType": "agreement",
+          "patternStrength": 0.55
+        },
+        {
+          "patternKey": "reinforcement_life_direction_core_strength",
+          "fusionFindingType": "reinforcement",
+          "patternStrength": 0.35
+        }
+      ]
+    }
+  ],
+  "layerOwnership": [
+    {
+      "layer": "MV1 Mirror Engine",
+      "sourceExists": true,
+      "evidenceExists": true,
+      "lineageExists": true,
+      "outputExists": true,
+      "verdict": "PASS"
+    },
+    {
+      "layer": "MV2 Promotion (MP-001)",
+      "sourceExists": true,
+      "evidenceExists": true,
+      "lineageExists": true,
+      "outputExists": true,
+      "verdict": "PASS",
+      "note": "Not LIFE target — N/A for stable_orientation"
+    },
+    {
+      "layer": "GF1 Foundation",
+      "sourceExists": true,
+      "evidenceExists": true,
+      "lineageExists": true,
+      "outputExists": true,
+      "verdict": "PASS",
+      "note": "Frozen pass-through — LIFE blocked at GF1 by design"
+    },
+    {
+      "layer": "GF2 Recovery",
+      "sourceExists": true,
+      "evidenceExists": true,
+      "lineageExists": true,
+      "outputExists": true,
+      "verdict": "PASS"
+    },
+    {
+      "layer": "Human Model",
+      "sourceExists": true,
+      "evidenceExists": true,
+      "lineageExists": true,
+      "outputExists": true,
+      "verdict": "PASS"
+    },
+    {
+      "layer": "Human Pattern Activation",
+      "sourceExists": true,
+      "evidenceExists": true,
+      "lineageExists": true,
+      "outputExists": false,
+      "verdict": "FAIL"
+    }
+  ],
+  "vg002Scope": {
+    "gf2SourceFindingsCreated": true,
+    "gf2RecoveriesCreated": true,
+    "gf2LineageComplete": true,
+    "downstreamEligibilityCreated": true,
+    "patternActivated": false,
+    "conclusion": "VG-002 measures Human Pattern activation consumption, not GF2 recovery failure"
+  }
+}

@@ -1,0 +1,348 @@
+{
+  "generatedAt": "2026-06-21T08:02:56.219862Z",
+  "populationSize": 1000,
+  "beforeV4": {
+    "uniqueNarratives": 875,
+    "profilesInCollapse": 76,
+    "maxClusterSize": 6,
+    "uniqueSelectionFingerprints": 860,
+    "uniqueTopologyFingerprints": 0
+  },
+  "metrics": {
+    "activePatterns": 30,
+    "uniqueNarratives": 969,
+    "uniqueSelectionFingerprints": 967,
+    "uniqueTopologyFingerprints": 1000,
+    "uniqueTopologyShapes": 610,
+    "uniquePatternSets": 436,
+    "profilesInCollapse": 12,
+    "maxClusterSize": 3,
+    "totalActivations": 13732,
+    "patternCoverage": 1.0,
+    "deltaUniqueNarratives": 94,
+    "deltaProfilesInCollapse": -64,
+    "deltaMaxCluster": -3,
+    "deltaTopologyFingerprints": 1000
+  },
+  "gates": {
+    "uniqueNarrativesGte930": true,
+    "profilesInCollapseLte40": true,
+    "maxClusterLte4": true,
+    "topologyFingerprintsGte920": true,
+    "activePatternsGte30": true,
+    "deterministicReplay": true
+  },
+  "allGatesPass": true,
+  "topologyAudit": {
+    "topTopologyFingerprints": [
+      {
+        "topologyFingerprint": "identity:evidenceDense:single:self_directed_identity,evidenceDense:single:directional_meaning|relationship:blindSpotAnchor:blind_spot:ignored_emotional_dimension,blindSpotAnchor:single:supportive_connector,blindSpotAncho...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:evidenceDense:single:self_directed_identity,evidenceDense:single:directional_meaning|relationship:anchorSingles:single:calm_regulator,anchorSingles:single:diplomatic_binder,anchorSingles:single:supportive_connec...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:tensionAnchor:single:self_directed_identity,tensionAnchor:single:directional_meaning,tensionAnchor:single:meaning_seeker|relationship:anchorSingles:single:calm_regulator,anchorSingles:single:diplomatic_binder,an...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:anchorSingles:single:self_directed_identity,anchorSingles:single:directional_meaning|relationship:blindSpotAnchor:single:calm_regulator,blindSpotAnchor:single:diplomatic_binder,blindSpotAnchor:single:responsive_...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:tensionAnchor:single:self_directed_identity,tensionAnchor:single:directional_meaning|relationship:evidenceDense:single:ignored_emotional_dimension,evidenceDense:single:calm_regulator,evidenceDense:single:respons...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:evidenceDense:single:self_directed_identity,evidenceDense:single:directional_meaning|relationship:tensionAnchor:blind_spot:ignored_emotional_dimension,tensionAnchor:single:relationship_stabilizer,tensionAnchor:s...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:evidenceDense:single:self_directed_identity,evidenceDense:single:directional_meaning|relationship:standard:blind_spot:ignored_emotional_dimension,standard:single:relationship_stabilizer,standard:single:calm_regu...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:standard:single:self_directed_identity,standard:single:directional_meaning,standard:single:meaning_seeker|relationship:standard:single:calm_regulator,standard:single:responsive_feeler,standard:single:diplomatic_...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:tensionAnchor:single:self_directed_identity,tensionAnchor:single:directional_meaning|relationship:blindSpotAnchor:single:responsive_feeler,blindSpotAnchor:single:diplomatic_binder,blindSpotAnchor:single:calm_reg...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:tensionAnchor:single:self_directed_identity,tensionAnchor:single:expressive_identity,tensionAnchor:single:directional_meaning|relationship:standard:blind_spot:ignored_emotional_dimension,standard:single:diplomat...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:interactionFirst:single:self_directed_identity,interactionFirst:single:directional_meaning|relationship:standard:single:calm_regulator,standard:single:diplomatic_binder,standard:single:responsive_feeler|decision...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:interactionFirst:single:self_directed_identity,interactionFirst:single:directional_meaning|relationship:standard:blind_spot:relational_hidden_potential,standard:blind_spot:ignored_emotional_dimension,standard:si...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:standard:single:self_directed_identity,standard:single:directional_meaning|relationship:standard:single:calm_regulator,standard:single:supportive_connector,standard:single:diplomatic_binder|decision:evidenceDens...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:standard:single:self_directed_identity,standard:single:directional_meaning|relationship:tensionAnchor:blind_spot:ignored_emotional_dimension,tensionAnchor:single:calm_regulator,tensionAnchor:single:diplomatic_bi...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:anchorSingles:single:self_directed_identity,anchorSingles:single:directional_meaning|relationship:anchorSingles:single:calm_regulator,anchorSingles:single:ignored_emotional_dimension,anchorSingles:single:respons...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:standard:single:meaning_seeker,standard:single:self_directed_identity,standard:single:directional_meaning|relationship:interactionFirst:single:responsive_feeler,interactionFirst:single:calm_regulator,interaction...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:tensionAnchor:single:self_directed_identity,tensionAnchor:single:directional_meaning|relationship:anchorSingles:single:responsive_feeler,anchorSingles:single:diplomatic_binder,anchorSingles:single:calm_regulator...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:interactionFirst:single:self_directed_identity,interactionFirst:single:meaning_seeker,interactionFirst:single:stable_orientation|relationship:interactionFirst:single:calm_regulator,interactionFirst:single:respon...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:anchorSingles:single:self_directed_identity,anchorSingles:single:directional_meaning|relationship:standard:single:responsive_feeler,standard:single:calm_regulator,standard:single:diplomatic_binder|decision:ancho...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:interactionFirst:single:self_directed_identity,interactionFirst:single:meaning_seeker,interactionFirst:single:stable_orientation|relationship:tensionAnchor:single:responsive_feeler,tensionAnchor:single:calm_regu...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:blindSpotAnchor:single:self_directed_identity,blindSpotAnchor:single:directional_meaning|relationship:interactionFirst:single:calm_regulator,interactionFirst:single:responsive_feeler,interactionFirst:single:dipl...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:tensionAnchor:single:self_directed_identity,tensionAnchor:single:directional_meaning|relationship:tensionAnchor:blind_spot:relational_hidden_potential,tensionAnchor:blind_spot:ignored_emotional_dimension,tension...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:tensionAnchor:single:self_directed_identity,tensionAnchor:single:directional_meaning|relationship:tensionAnchor:blind_spot:relational_hidden_potential,tensionAnchor:blind_spot:ignored_emotional_dimension,tension...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:tensionAnchor:single:directional_meaning,tensionAnchor:single:stable_orientation,tensionAnchor:single:meaning_seeker|relationship:evidenceDense:single:responsive_feeler,evidenceDense:single:diplomatic_binder,evi...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:standard:single:self_directed_identity,standard:single:directional_meaning|relationship:evidenceDense:single:responsive_feeler,evidenceDense:single:diplomatic_binder,evidenceDense:single:calm_regulator|decision:...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:evidenceDense:single:self_directed_identity,evidenceDense:single:stable_orientation,evidenceDense:single:directional_meaning|relationship:interactionFirst:single:diplomatic_binder,interactionFirst:single:respons...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:anchorSingles:single:self_directed_identity,anchorSingles:single:expressive_identity,anchorSingles:single:directional_meaning|relationship:tensionAnchor:blind_spot:ignored_emotional_dimension,tensionAnchor:singl...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:evidenceDense:single:self_directed_identity,evidenceDense:single:directional_meaning|relationship:standard:blind_spot:ignored_emotional_dimension,standard:single:diplomatic_binder,standard:single:relationship_st...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:blindSpotAnchor:single:self_directed_identity,blindSpotAnchor:single:meaning_seeker,blindSpotAnchor:single:expressive_identity|relationship:anchorSingles:single:responsive_feeler,anchorSingles:single:calm_regula...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:evidenceDense:single:self_directed_identity,evidenceDense:single:directional_meaning,evidenceDense:single:meaning_seeker|relationship:interactionFirst:single:calm_regulator,interactionFirst:single:diplomatic_bin...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:interactionFirst:single:self_directed_identity,interactionFirst:single:directional_meaning|relationship:blindSpotAnchor:blind_spot:ignored_emotional_dimension,blindSpotAnchor:single:calm_regulator,blindSpotAncho...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:interactionFirst:single:self_directed_identity,interactionFirst:single:directional_meaning|relationship:standard:blind_spot:ignored_emotional_dimension,standard:single:diplomatic_binder,standard:single:calm_regu...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:anchorSingles:single:self_directed_identity,anchorSingles:single:directional_meaning|relationship:anchorSingles:single:calm_regulator,anchorSingles:single:responsive_feeler,anchorSingles:single:ignored_emotional...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:tensionAnchor:single:self_directed_identity,tensionAnchor:single:directional_meaning|relationship:evidenceDense:single:calm_regulator,evidenceDense:single:diplomatic_binder,evidenceDense:single:responsive_feeler...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:blindSpotAnchor:single:expressive_identity,blindSpotAnchor:single:purpose_guide,blindSpotAnchor:single:directional_meaning|relationship:interactionFirst:single:calm_regulator,interactionFirst:single:diplomatic_b...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:anchorSingles:single:self_directed_identity,anchorSingles:single:directional_meaning|relationship:anchorSingles:single:calm_regulator,anchorSingles:single:responsive_feeler,anchorSingles:single:diplomatic_binder...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:interactionFirst:single:self_directed_identity,interactionFirst:single:directional_meaning|relationship:evidenceDense:single:responsive_feeler,evidenceDense:single:ignored_emotional_dimension,evidenceDense:singl...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:interactionFirst:single:self_directed_identity,interactionFirst:single:directional_meaning|relationship:anchorSingles:single:relationship_stabilizer,anchorSingles:single:ignored_emotional_dimension,anchorSingles...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:evidenceDense:single:self_directed_identity,evidenceDense:single:directional_meaning|relationship:blindSpotAnchor:blind_spot:ignored_emotional_dimension,blindSpotAnchor:single:responsive_feeler,blindSpotAnchor:s...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:interactionFirst:single:self_directed_identity,interactionFirst:single:directional_meaning|relationship:anchorSingles:single:calm_regulator,anchorSingles:single:responsive_feeler,anchorSingles:single:diplomatic_...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:evidenceDense:single:self_directed_identity,evidenceDense:single:stable_orientation,evidenceDense:single:directional_meaning|relationship:blindSpotAnchor:blind_spot:ignored_emotional_dimension,blindSpotAnchor:si...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:standard:single:self_directed_identity,standard:single:directional_meaning|relationship:tensionAnchor:single:responsive_feeler,tensionAnchor:single:diplomatic_binder,tensionAnchor:single:calm_regulator|decision:...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:standard:single:self_directed_identity,standard:single:directional_meaning,standard:single:stable_orientation|relationship:tensionAnchor:single:responsive_feeler,tensionAnchor:single:diplomatic_binder,tensionAnc...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:anchorSingles:single:self_directed_identity,anchorSingles:single:directional_meaning|relationship:anchorSingles:single:relationship_stabilizer,anchorSingles:single:diplomatic_binder,anchorSingles:single:relation...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:tensionAnchor:single:self_directed_identity,tensionAnchor:single:directional_meaning|relationship:tensionAnchor:blind_spot:ignored_emotional_dimension,tensionAnchor:single:calm_regulator,tensionAnchor:single:dip...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:anchorSingles:single:self_directed_identity,anchorSingles:single:directional_meaning|relationship:standard:blind_spot:ignored_emotional_dimension,standard:single:diplomatic_binder,standard:single:calm_regulator|...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:interactionFirst:single:self_directed_identity,interactionFirst:single:purpose_guide,interactionFirst:single:stable_orientation|relationship:standard:blind_spot:ignored_emotional_dimension,standard:single:respon...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:interactionFirst:single:expressive_identity,interactionFirst:single:self_directed_identity,interactionFirst:single:directional_meaning|relationship:standard:single:responsive_feeler,standard:single:diplomatic_bi...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:evidenceDense:single:self_directed_identity,evidenceDense:single:directional_meaning|relationship:standard:blind_spot:ignored_emotional_dimension,standard:single:calm_regulator,standard:single:diplomatic_binder|...",
+        "profileCount": 1
+      },
+      {
+        "topologyFingerprint": "identity:anchorSingles:single:self_directed_identity,anchorSingles:single:directional_meaning|relationship:tensionAnchor:single:calm_regulator,tensionAnchor:single:responsive_feeler,tensionAnchor:single:diplomatic_binder...",
+        "profileCount": 1
+      }
+    ],
+    "topTopologyShapes": [
+      {
+        "topologyShape": "identity:tensionAnchor|relationship:tensionAnchor|decision:tensionAnchor|growth:growthFirst",
+        "profileCount": 6
+      },
+      {
+        "topologyShape": "identity:evidenceDense|relationship:interactionFirst|decision:anchorSingles|growth:anchorSingles",
+        "profileCount": 6
+      },
+      {
+        "topologyShape": "identity:tensionAnchor|relationship:standard|decision:interactionFirst|growth:evidenceDense",
+        "profileCount": 5
+      },
+      {
+        "topologyShape": "identity:interactionFirst|relationship:standard|decision:standard|growth:interactionFirst",
+        "profileCount": 5
+      },
+      {
+        "topologyShape": "identity:anchorSingles|relationship:anchorSingles|decision:anchorSingles|growth:growthFirst",
+        "profileCount": 5
+      },
+      {
+        "topologyShape": "identity:tensionAnchor|relationship:blindSpotAnchor|decision:tensionAnchor|growth:interactionFirst",
+        "profileCount": 5
+      },
+      {
+        "topologyShape": "identity:interactionFirst|relationship:anchorSingles|decision:blindSpotAnchor|growth:growthFirst",
+        "profileCount": 5
+      },
+      {
+        "topologyShape": "identity:interactionFirst|relationship:anchorSingles|decision:interactionFirst|growth:evidenceDense",
+        "profileCount": 5
+      },
+      {
+        "topologyShape": "identity:standard|relationship:tensionAnchor|decision:standard|growth:tensionAnchor",
+        "profileCount": 5
+      },
+      {
+        "topologyShape": "identity:interactionFirst|relationship:standard|decision:interactionFirst|growth:evidenceDense",
+        "profileCount": 5
+      },
+      {
+        "topologyShape": "identity:standard|relationship:anchorSingles|decision:standard|growth:tensionAnchor",
+        "profileCount": 5
+      },
+      {
+        "topologyShape": "identity:standard|relationship:standard|decision:standard|growth:tensionAnchor",
+        "profileCount": 5
+      },
+      {
+        "topologyShape": "identity:standard|relationship:anchorSingles|decision:standard|growth:anchorSingles",
+        "profileCount": 4
+      },
+      {
+        "topologyShape": "identity:standard|relationship:evidenceDense|decision:tensionAnchor|growth:anchorSingles",
+        "profileCount": 4
+      },
+      {
+        "topologyShape": "identity:evidenceDense|relationship:interactionFirst|decision:evidenceDense|growth:evidenceDense",
+        "profileCount": 4
+      },
+      {
+        "topologyShape": "identity:tensionAnchor|relationship:interactionFirst|decision:tensionAnchor|growth:growthFirst",
+        "profileCount": 4
+      },
+      {
+        "topologyShape": "identity:interactionFirst|relationship:evidenceDense|decision:blindSpotAnchor|growth:growthFirst",
+        "profileCount": 4
+      },
+      {
+        "topologyShape": "identity:tensionAnchor|relationship:standard|decision:anchorSingles|growth:standard",
+        "profileCount": 4
+      },
+      {
+        "topologyShape": "identity:anchorSingles|relationship:interactionFirst|decision:blindSpotAnchor|growth:tensionAnchor",
+        "profileCount": 4
+      },
+      {
+        "topologyShape": "identity:interactionFirst|relationship:interactionFirst|decision:interactionFirst|growth:growthFirst",
+        "profileCount": 4
+      }
+    ]
+  },
+  "topRemainingCollapseClusters": [
+    {
+      "clusterSize": 3,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณไวต่ออ..."
+    },
+    {
+      "clusterSize": 3,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณแสดงตัวตนผ่านการสื่อสารและการปรากฏตัวอย่างชัดเจน — สิ่งที่คุณเป็นมักเห็นได้จากภา..."
+    },
+    {
+      "clusterSize": 3,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณมักให้..."
+    },
+    {
+      "clusterSize": 3,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณมักให้..."
+    }
+  ],
+  "regressionAudit": {
+    "mirrorUnchanged": true,
+    "gf1FoundationPreserved": true,
+    "humanModelDeterministicOnGf1": true,
+    "patternActivationsStable": true,
+    "activePatternsStable": true,
+    "narrativeDeterministicReplay": true
+  }
+}

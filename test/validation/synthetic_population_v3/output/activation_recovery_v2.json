@@ -1,0 +1,205 @@
+{
+  "generatedAt": "2026-06-21T07:41:12.347198Z",
+  "populationSize": 1000,
+  "registryPatternCount": 41,
+  "beforeRecovery": {
+    "source": "dead_zone_forensics_v1",
+    "baselineQuality": {
+      "uniqueNarratives": 176,
+      "profilesInCollapse": 865,
+      "maxClusterSize": 118
+    },
+    "gf2Quality": {
+      "uniqueNarratives": 407,
+      "profilesInCollapse": 617,
+      "maxClusterSize": 25
+    },
+    "gf2DeadFromV1Set": 13,
+    "patternCountsGf2": {
+      "stable_orientation": 0,
+      "identity_dual_signal": 0,
+      "internal_conflict_thinker": 0,
+      "adaptive_creator": 235,
+      "adaptive_growth": 235,
+      "meaning_seeker": 258,
+      "progressive_builder": 829,
+      "purpose_driven_motivation": 216,
+      "reinforced_strength": 0,
+      "relationship_stabilizer": 185,
+      "structured_operator": 755
+    }
+  },
+  "afterWave1": {
+    "note": "Category E patterns on GF2-composed pipeline with HP source-selection fix",
+    "patternActivations": [
+      {
+        "patternId": "stable_orientation",
+        "before": 0,
+        "afterGf2": 258
+      },
+      {
+        "patternId": "identity_dual_signal",
+        "before": 0,
+        "afterGf2": 0
+      },
+      {
+        "patternId": "internal_conflict_thinker",
+        "before": 0,
+        "afterGf2": 0
+      }
+    ],
+    "totalWave1ActivationsGf2": 258
+  },
+  "afterWave2": {
+    "note": "Category B patterns — reinforced_strength on V1 baseline; others require GF2 composed fusion",
+    "patternActivations": [
+      {
+        "patternId": "adaptive_creator",
+        "beforeBaseline": 0,
+        "afterBaseline": 0,
+        "beforeGf2": 235,
+        "afterGf2": 235
+      },
+      {
+        "patternId": "adaptive_growth",
+        "beforeBaseline": 0,
+        "afterBaseline": 0,
+        "beforeGf2": 235,
+        "afterGf2": 235
+      },
+      {
+        "patternId": "meaning_seeker",
+        "beforeBaseline": 0,
+        "afterBaseline": 0,
+        "beforeGf2": 258,
+        "afterGf2": 258
+      },
+      {
+        "patternId": "progressive_builder",
+        "beforeBaseline": 0,
+        "afterBaseline": 0,
+        "beforeGf2": 829,
+        "afterGf2": 829
+      },
+      {
+        "patternId": "purpose_driven_motivation",
+        "beforeBaseline": 0,
+        "afterBaseline": 0,
+        "beforeGf2": 216,
+        "afterGf2": 216
+      },
+      {
+        "patternId": "reinforced_strength",
+        "beforeBaseline": 0,
+        "afterBaseline": 801,
+        "beforeGf2": 0,
+        "afterGf2": 939
+      },
+      {
+        "patternId": "relationship_stabilizer",
+        "beforeBaseline": 0,
+        "afterBaseline": 0,
+        "beforeGf2": 185,
+        "afterGf2": 185
+      },
+      {
+        "patternId": "structured_operator",
+        "beforeBaseline": 0,
+        "afterBaseline": 0,
+        "beforeGf2": 755,
+        "afterGf2": 755
+      }
+    ],
+    "reinforcedStrengthBaselineRecovery": 801
+  },
+  "finalCombined": {
+    "baselineQuality": {
+      "uniqueNarratives": 220,
+      "uniquePatternSets": 180,
+      "profilesInCollapse": 816,
+      "maxClusterSize": 94,
+      "totalActivations": 8949
+    },
+    "gf2Quality": {
+      "uniqueNarratives": 554,
+      "uniquePatternSets": 436,
+      "profilesInCollapse": 441,
+      "maxClusterSize": 16,
+      "totalActivations": 13732
+    },
+    "activePatternCountBaseline": 22,
+    "activePatternCountGf2": 30,
+    "v1PreviouslyDeadStillDeadOnGf2": 11,
+    "v1PreviouslyDeadRecoveredOnGf2": 9,
+    "patternCountsBaseline": {
+      "adaptive_creator": 0,
+      "adaptive_growth": 0,
+      "asymmetric_identity_development": 0,
+      "belief_architect": 0,
+      "belief_meaning": 0,
+      "emotional_depth": 0,
+      "identity_dual_signal": 0,
+      "internal_conflict_thinker": 0,
+      "meaning_seeker": 0,
+      "progressive_builder": 0,
+      "purpose_driven_motivation": 0,
+      "reflective_builder": 0,
+      "reinforced_strength": 801,
+      "relationship_stabilizer": 0,
+      "resource_oriented_motivation": 0,
+      "stable_orientation": 0,
+      "structured_explorer": 0,
+      "structured_operator": 0,
+      "transformation_seeker": 0,
+      "visible_identity": 0
+    },
+    "patternCountsGf2": {
+      "adaptive_creator": 235,
+      "adaptive_growth": 235,
+      "asymmetric_identity_development": 0,
+      "belief_architect": 0,
+      "belief_meaning": 0,
+      "emotional_depth": 0,
+      "identity_dual_signal": 0,
+      "internal_conflict_thinker": 0,
+      "meaning_seeker": 258,
+      "progressive_builder": 829,
+      "purpose_driven_motivation": 216,
+      "reflective_builder": 0,
+      "reinforced_strength": 939,
+      "relationship_stabilizer": 185,
+      "resource_oriented_motivation": 0,
+      "stable_orientation": 258,
+      "structured_explorer": 0,
+      "structured_operator": 755,
+      "transformation_seeker": 0,
+      "visible_identity": 0
+    }
+  },
+  "regressionAudit": {
+    "profilesChecked": 1000,
+    "mirrorUnchanged": true,
+    "gf1FusionUnchanged": true,
+    "humanModelUnchangedOnGf2Input": true,
+    "narrativeServiceDeterministic": true,
+    "onlyHumanPatternActivationChanged": true
+  },
+  "remainingDeadOnGf2": [
+    "asymmetric_identity_development",
+    "belief_architect",
+    "belief_meaning",
+    "emotional_depth",
+    "identity_dual_signal",
+    "internal_conflict_thinker",
+    "reflective_builder",
+    "resource_oriented_motivation",
+    "structured_explorer",
+    "transformation_seeker",
+    "visible_identity"
+  ],
+  "registryUtilization": {
+    "totalPatterns": 41,
+    "activeBaseline": 22,
+    "activeGf2": 30
+  }
+}

@@ -17,7 +17,42 @@ abstract final class BaziResultCopy {
       lang == 'th' ? 'ธาตุทั้งห้า · Element Balance' : 'Element Balance';
 
   static String metadataTitle(String lang) =>
-      lang == 'th' ? 'ข้อมูลการคำนวณ' : 'Metadata';
+      lang == 'th' ? 'รายละเอียดทางเทคนิค' : 'Technical details';
+
+  static String metadataVersionLabel(String lang) =>
+      lang == 'th' ? 'เวอร์ชันข้อมูล' : 'Data Version';
+
+  static String metadataEngineLabel(String lang) =>
+      lang == 'th' ? 'เวอร์ชันระบบคำนวณ' : 'Engine Version';
+
+  static String metadataGeneratedAtLabel(String lang) =>
+      lang == 'th' ? 'วันที่สร้างผลลัพธ์' : 'Generated At';
+
+  static String coreSelfTitle(String lang) =>
+      lang == 'th' ? 'แก่นในตัวคุณ' : 'Core Self';
+
+  static String strengthsTitle(String lang) =>
+      lang == 'th' ? 'จุดแข็งที่มักเห็นในตัวคุณ' : 'Strengths';
+
+  static String growthAreasTitle(String lang) =>
+      lang == 'th' ? 'มุมที่อาจอยากสังเกต' : 'Growth Areas';
+
+  static String summaryCardTitle(String lang) =>
+      lang == 'th' ? 'ภาพรวมจากมุมมองดวงจีน' : 'Overall Chinese Lens Summary';
+
+  static String detailedDataTitle(String lang) =>
+      lang == 'th' ? 'ข้อมูลเชิงลึก' : 'In-depth data';
+
+  static String dominantHighlightTitle(String lang) =>
+      lang == 'th' ? 'สิ่งที่โดดเด่นในดวงนี้' : 'Chart emphasis';
+
+  static String chineseTraditionLabel(String lang) =>
+      lang == 'th' ? 'ในศาสตร์จีน' : 'In Chinese tradition';
+
+  static String chineseElementAssociation(String lang) =>
+      lang == 'th'
+          ? 'ธาตุนี้มักเกี่ยวข้องกับ'
+          : 'This element is often associated with';
 
   static String dayMasterLabel(String lang) =>
       lang == 'th' ? 'Day Master' : 'Day Master';
@@ -91,4 +126,25 @@ abstract final class BaziResultCopy {
   static String disclosure(String lang) => lang == 'th'
       ? 'นี่เป็นมุมมองหนึ่งจากปาจื้อ ไม่ใช่ข้อสรุปสุดท้ายเกี่ยวกับตัวคุณ'
       : 'This is one BaZi perspective — not a final verdict about you.';
+
+  static String zodiacPersonalityTitle(String lang) =>
+      lang == 'th' ? 'บุคลิกจากปีนักษัตร' : 'Year Zodiac Personality';
+
+  static String zodiacCoreTraitsTitle(String lang) =>
+      lang == 'th' ? 'ลักษณะเด่น' : 'Core Traits';
+
+  static String zodiacWorkStyleTitle(String lang) =>
+      lang == 'th' ? 'รูปแบบการทำงาน' : 'Work Style';
+
+  static String zodiacRelationshipStyleTitle(String lang) =>
+      lang == 'th' ? 'รูปแบบความสัมพันธ์' : 'Relationship Style';
+
+  static String zodiacStrengthsTitle(String lang) =>
+      lang == 'th' ? 'จุดแข็ง' : 'Strengths';
+
+  static String zodiacChallengesTitle(String lang) =>
+      lang == 'th' ? 'จุดที่ควรระวัง' : 'Challenges';
+
+  static String zodiacGrowthSuggestionsTitle(String lang) =>
+      lang == 'th' ? 'แนวทางเติบโต' : 'Growth Suggestions';
 }

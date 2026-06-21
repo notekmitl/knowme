@@ -1,0 +1,560 @@
+{
+  "version": "gf2_pre_implementation_calibration_v3",
+  "generatedAt": "2026-06-21T07:26:11.981716Z",
+  "populationQuality": {
+    "populationSize": 1000,
+    "archetypeCount": 250,
+    "maxArchetypeShare": 0.004,
+    "maxArchetypeSharePass": true,
+    "mbtiDistribution": {
+      "INTJ": 64,
+      "INTP": 64,
+      "ENTJ": 64,
+      "ENTP": 64,
+      "INFJ": 64,
+      "INFP": 64,
+      "ENFJ": 64,
+      "ENFP": 64,
+      "ISTJ": 64,
+      "ISTP": 64,
+      "ISFJ": 64,
+      "ISFP": 64,
+      "ESTJ": 64,
+      "ESTP": 64,
+      "ESFJ": 58,
+      "ESFP": 46
+    },
+    "attachmentDistribution": {
+      "secure": 252,
+      "fearful": 252,
+      "anxious": 248,
+      "avoidant": 248
+    },
+    "eqAwarenessDistribution": {
+      "emerging": 416,
+      "moderate": 335,
+      "strong": 249
+    },
+    "eqRegulationDistribution": {
+      "emerging": 415,
+      "moderate": 333,
+      "strong": 252
+    },
+    "yearAnimalDistribution": {
+      "rat": 168,
+      "horse": 168,
+      "tiger": 167,
+      "dragon": 167,
+      "monkey": 165,
+      "dog": 165
+    }
+  },
+  "lifeDirectionCoverage": {
+    "populationSize": 1000,
+    "coverageProfiles": 774,
+    "mirrorReinforcementCounts": {
+      "totalLifeReinforcements": 1203,
+      "profilesWithLifeReinforcement": 774
+    },
+    "stableOrientation": {
+      "baselineActivations": 0,
+      "simulatedActivations": 0,
+      "validated": false
+    },
+    "recoveryPipelineReach": {
+      "profilesWithFusionLifeReinforcement": 258,
+      "profilesWithHumanModelLifeReinforcementPattern": 258,
+      "profilesWithAgreementShadowBlock": 258,
+      "blocker": "HP2 PatternActivationEngine resolves first LIFE human pattern (agreement) before reinforcement pattern; stable_orientation requires reinforcement source."
+    },
+    "r004LifeReinforcementsApplied": 901,
+    "evidenceLineageSamples": [],
+    "overlayRuleId": "validation.v3.life_direction_reinforcement_coverage"
+  },
+  "deadZoneRevalidation": {
+    "populationSize": 1000,
+    "traces": {
+      "MIRROR_LIFE_DIRECTION": {
+        "mirrorKey": "MIRROR_LIFE_DIRECTION",
+        "inputSignals": 1203,
+        "profilesWithInput": 774,
+        "mirrorFindings": 1461,
+        "fusionFindings": 0,
+        "profilesWithFusionFinding": 0,
+        "humanModelMappings": 0,
+        "patternActivations": 0
+      },
+      "MIRROR_GROWTH_ORIENTATION": {
+        "mirrorKey": "MIRROR_GROWTH_ORIENTATION",
+        "inputSignals": 3354,
+        "profilesWithInput": 1000,
+        "mirrorFindings": 1064,
+        "fusionFindings": 0,
+        "profilesWithFusionFinding": 0,
+        "humanModelMappings": 0,
+        "patternActivations": 0
+      },
+      "MIRROR_STRUCTURE_PATTERN": {
+        "mirrorKey": "MIRROR_STRUCTURE_PATTERN",
+        "inputSignals": 1020,
+        "profilesWithInput": 755,
+        "mirrorFindings": 0,
+        "fusionFindings": 0,
+        "profilesWithFusionFinding": 0,
+        "humanModelMappings": 0,
+        "patternActivations": 0
+      }
+    },
+    "summary": {
+      "MIRROR_LIFE_DIRECTION": "partially_alive",
+      "MIRROR_GROWTH_ORIENTATION": "partially_alive",
+      "MIRROR_STRUCTURE_PATTERN": "still_dead"
+    }
+  },
+  "v2Simulation": {
+    "populationSize": 1000,
+    "baseline": {
+      "totalActivations": 8148,
+      "uniquePatternSets": 134,
+      "uniqueNarratives": 176,
+      "deadPatternCount": 20,
+      "avgActivationsPerProfile": 8.148,
+      "narrativeQuality": {
+        "uniqueNarratives": 176,
+        "profilesInCollapse": 865,
+        "maxClusterSize": 118,
+        "narrativeDiversityRatio": 0.176
+      }
+    },
+    "simulatedAfterRecovery": {
+      "totalActivations": 11956,
+      "uniquePatternSets": 316,
+      "uniqueNarratives": 407,
+      "deadPatternCount": 14,
+      "avgActivationsPerProfile": 11.956,
+      "additionalActivations": 3808,
+      "additionalUniquePatternSets": 182,
+      "additionalUniqueNarratives": 231,
+      "mp001PromotionsApplied": 1020,
+      "r004ReinforcementsApplied": 1011,
+      "narrativeQuality": {
+        "uniqueNarratives": 407,
+        "profilesInCollapse": 617,
+        "maxClusterSize": 25,
+        "narrativeDiversityRatio": 0.407
+      }
+    },
+    "dependentPatternActivations": [
+      {
+        "patternId": "progressive_builder",
+        "simulatedActivations": 829,
+        "validated": true
+      },
+      {
+        "patternId": "adaptive_creator",
+        "simulatedActivations": 235,
+        "validated": true
+      },
+      {
+        "patternId": "meaning_seeker",
+        "simulatedActivations": 258,
+        "validated": true
+      },
+      {
+        "patternId": "purpose_driven_motivation",
+        "simulatedActivations": 216,
+        "validated": true
+      },
+      {
+        "patternId": "stable_orientation",
+        "simulatedActivations": 0,
+        "validated": false
+      },
+      {
+        "patternId": "structured_operator",
+        "simulatedActivations": 755,
+        "validated": true
+      }
+    ],
+    "deadZoneSimRecovery": {
+      "MIRROR_GROWTH_ORIENTATION": 829,
+      "MIRROR_LIFE_DIRECTION": 258,
+      "MIRROR_STRUCTURE_PATTERN": 755
+    },
+    "vg005NarrativeQuality": {
+      "baseline": {
+        "uniqueNarratives": 176,
+        "profilesInCollapse": 865,
+        "maxClusterSize": 118,
+        "narrativeDiversityRatio": 0.176
+      },
+      "simulated": {
+        "uniqueNarratives": 407,
+        "profilesInCollapse": 617,
+        "maxClusterSize": 25,
+        "narrativeDiversityRatio": 0.407
+      },
+      "delta": {
+        "uniqueNarratives": 231,
+        "profilesInCollapse": -248,
+        "maxClusterSize": -93
+      }
+    },
+    "eqSurvival": {
+      "baseline": {
+        "mirror_input": 1.0,
+        "mirror_snapshot": 1.0,
+        "fusion": 0.5180180180180181,
+        "human_model": 0.5180180180180181,
+        "human_pattern": 0.6846846846846847,
+        "narrative": 0.6524024024024024
+      },
+      "simulatedPatternEvidenceCount": 3449,
+      "simulatedRetentionVsMirrorInput": 2.589339339339339
+    },
+    "fusionDiversity": {
+      "baselineUniqueFusion": 1000,
+      "simulatedUniqueFusion": 1000
+    }
+  },
+  "patternRecovery": {
+    "recoveryRulesEnabled": {
+      "MP-001": true,
+      "GF2-R001": true,
+      "GF2-R002": true,
+      "GF2-R003": true,
+      "GF2-R004": true
+    },
+    "recoveryCounts": {
+      "mp001Promotions": 1020,
+      "gf2SupplementalAgreements_R002": 5153,
+      "gf2SupplementalReinforcements_R001_R003": 105,
+      "gf2R004Reinforcements": 1011
+    },
+    "adaptiveCreator": {
+      "baselineActivations": 0,
+      "simulatedActivations": 235,
+      "validated": true,
+      "lineageSamples": [
+        {
+          "profileId": "pop2_001_variantd",
+          "patternId": "adaptive_creator",
+          "sourceHumanPatternKey": "adaptive_creator",
+          "sourceHumanPatternId": "hm_pattern_1f275514",
+          "composedFusionFindingCount": 11,
+          "lineageComplete": true,
+          "evidenceSample": [
+            {
+              "systemId": "knowme_mirror",
+              "mirrorKey": "MIRROR_GROWTH_ORIENTATION",
+              "mirrorRoleId": "astrology_mirror",
+              "fusionFindingId": "val_r004_cf6a590c",
+              "mirrorFindingId": "reinforcement:MIRROR_GROWTH_ORIENTATION:thai_astrology:leadership"
+            },
+            {
+              "systemId": "thai_astrology",
+              "mirrorKey": "MIRROR_GROWTH_ORIENTATION",
+              "mirrorRoleId": "astrology_mirror",
+              "fusionFindingId": "val_r004_cf6a590c",
+              "mirrorFindingId": "reinforcement:MIRROR_GROWTH_ORIENTATION:thai_astrology:leadership"
+            },
+            {
+              "systemId": "knowme_mirror",
+              "mirrorKey": "MIRROR_GROWTH_ORIENTATION",
+              "mirrorRoleId": "astrology_mirror",
+              "fusionFindingId": "val_r004_cf6a590c",
+              "mirrorFindingId": "reinforcement:MIRROR_GROWTH_ORIENTATION:thai_astrology:leadership"
+            }
+          ]
+        },
+        {
+          "profileId": "pop2_003_varianta",
+          "patternId": "adaptive_creator",
+          "sourceHumanPatternKey": "adaptive_creator",
+          "sourceHumanPatternId": "hm_pattern_1f275514",
+          "composedFusionFindingCount": 10,
+          "lineageComplete": true,
+          "evidenceSample": [
+            {
+              "systemId": "knowme_mirror",
+              "mirrorKey": "MIRROR_GROWTH_ORIENTATION",
+              "mirrorRoleId": "astrology_mirror",
+              "fusionFindingId": "val_r004_cf6a590c",
+              "mirrorFindingId": "reinforcement:MIRROR_GROWTH_ORIENTATION:thai_astrology:leadership"
+            },
+            {
+              "systemId": "thai_astrology",
+              "mirrorKey": "MIRROR_GROWTH_ORIENTATION",
+              "mirrorRoleId": "astrology_mirror",
+              "fusionFindingId": "val_r004_cf6a590c",
+              "mirrorFindingId": "reinforcement:MIRROR_GROWTH_ORIENTATION:thai_astrology:leadership"
+            },
+            {
+              "systemId": "knowme_mirror",
+              "mirrorKey": "MIRROR_GROWTH_ORIENTATION",
+              "mirrorRoleId": "astrology_mirror",
+              "fusionFindingId": "val_r004_cf6a590c",
+              "mirrorFindingId": "reinforcement:MIRROR_GROWTH_ORIENTATION:thai_astrology:leadership"
+            }
+          ]
+        },
+        {
+          "profileId": "pop2_004_variantb",
+          "patternId": "adaptive_creator",
+          "sourceHumanPatternKey": "adaptive_creator",
+          "sourceHumanPatternId": "hm_pattern_1f275514",
+          "composedFusionFindingCount": 8,
+          "lineageComplete": true,
+          "evidenceSample": [
+            {
+              "systemId": "knowme_mirror",
+              "mirrorKey": "MIRROR_GROWTH_ORIENTATION",
+              "mirrorRoleId": "astrology_mirror",
+              "fusionFindingId": "val_r004_cf6a590c",
+              "mirrorFindingId": "reinforcement:MIRROR_GROWTH_ORIENTATION:thai_astrology:leadership"
+            },
+            {
+              "systemId": "thai_astrology",
+              "mirrorKey": "MIRROR_GROWTH_ORIENTATION",
+              "mirrorRoleId": "astrology_mirror",
+              "fusionFindingId": "val_r004_cf6a590c",
+              "mirrorFindingId": "reinforcement:MIRROR_GROWTH_ORIENTATION:thai_astrology:leadership"
+            }
+          ]
+        }
+      ]
+    },
+    "stableOrientation": {
+      "baselineActivations": 0,
+      "simulatedActivations": 0,
+      "validated": false,
+      "lineageSamples": []
+    }
+  },
+  "vg006Calibration": {
+    "scale200": {
+      "populationSize": 200,
+      "baseline": {
+        "uniqueNarratives": 82,
+        "profilesInCollapse": 125,
+        "maxClusterSize": 14,
+        "narrativeDiversityRatio": 0.41
+      },
+      "simulated": {
+        "uniqueNarratives": 141,
+        "profilesInCollapse": 51,
+        "maxClusterSize": 8,
+        "narrativeDiversityRatio": 0.705,
+        "narrativeDiversityImprovementRatio": 1.7195121951219512
+      }
+    },
+    "scale1000": {
+      "populationSize": 1000,
+      "baseline": {
+        "uniqueNarratives": 176,
+        "profilesInCollapse": 865,
+        "maxClusterSize": 118,
+        "narrativeDiversityRatio": 0.176
+      },
+      "simulated": {
+        "uniqueNarratives": 407,
+        "profilesInCollapse": 617,
+        "maxClusterSize": 25,
+        "narrativeDiversityRatio": 0.407,
+        "narrativeDiversityImprovementRatio": 2.3125
+      }
+    },
+    "metricComparison": [
+      {
+        "metric": "uniqueNarratives",
+        "baseline200": 82,
+        "simulated200": 141,
+        "baseline1000": 176,
+        "simulated1000": 407,
+        "scaleInvariantImprovementDirection": true
+      },
+      {
+        "metric": "profilesInCollapse",
+        "baseline200": 125,
+        "simulated200": 51,
+        "baseline1000": 865,
+        "simulated1000": 617,
+        "scaleInvariantImprovementDirection": true
+      },
+      {
+        "metric": "maxClusterSize",
+        "baseline200": 14,
+        "simulated200": 8,
+        "baseline1000": 118,
+        "simulated1000": 25,
+        "scaleInvariantImprovementDirection": true
+      },
+      {
+        "metric": "narrativeDiversityRatio",
+        "baseline200": 0.41,
+        "simulated200": 0.705,
+        "baseline1000": 0.176,
+        "simulated1000": 0.407,
+        "scaleInvariantImprovementDirection": true
+      }
+    ],
+    "recommendedPrimaryMetric": "uniqueNarrativesWithVg005Composite",
+    "legacyVg006RatioAssessment": {
+      "passAt200": true,
+      "passAt1000": false,
+      "conclusion": "Absolute uniqueNarrativeRatio is scale-dependent and inversely correlated with population size at fixed archetype diversity."
+    },
+    "calibratedVg006Proposal": {
+      "metric": "narrativeDiversityImprovementRatio",
+      "formula": "simulated.uniqueNarratives / baseline.uniqueNarratives",
+      "threshold": 1.5,
+      "passAt200": 1.7195121951219512,
+      "passAt1000": 2.3125,
+      "pass200": true,
+      "pass1000": true
+    }
+  },
+  "validationGates": {
+    "populationSize": 1000,
+    "gates": {
+      "VG-001": {
+        "id": "VG-001",
+        "name": "Dead-zone fusion findings recoverable",
+        "pass": true,
+        "baseline": "0 for all 3 keys",
+        "target": "> 0 for all 3 keys",
+        "measured": {
+          "MIRROR_GROWTH_ORIENTATION": 829,
+          "MIRROR_LIFE_DIRECTION": 258,
+          "MIRROR_STRUCTURE_PATTERN": 755
+        }
+      },
+      "VG-002": {
+        "id": "VG-002",
+        "name": "Dependent pattern reachability",
+        "pass": false,
+        "baseline": "0 / 6",
+        "target": "6 / 6",
+        "measured": {
+          "validatedCount": 5,
+          "requiredCount": 6,
+          "patterns": [
+            {
+              "patternId": "progressive_builder",
+              "simulatedActivations": 829,
+              "validated": true
+            },
+            {
+              "patternId": "adaptive_creator",
+              "simulatedActivations": 235,
+              "validated": true
+            },
+            {
+              "patternId": "meaning_seeker",
+              "simulatedActivations": 258,
+              "validated": true
+            },
+            {
+              "patternId": "purpose_driven_motivation",
+              "simulatedActivations": 216,
+              "validated": true
+            },
+            {
+              "patternId": "stable_orientation",
+              "simulatedActivations": 0,
+              "validated": false
+            },
+            {
+              "patternId": "structured_operator",
+              "simulatedActivations": 755,
+              "validated": true
+            }
+          ]
+        }
+      },
+      "VG-003": {
+        "id": "VG-003",
+        "name": "Unique pattern sets",
+        "pass": true,
+        "baseline": 134,
+        "target": ">= 125",
+        "measured": 316
+      },
+      "VG-004": {
+        "id": "VG-004",
+        "name": "Unique narratives",
+        "pass": true,
+        "baseline": 176,
+        "target": ">= 130",
+        "measured": 407
+      },
+      "VG-005": {
+        "id": "VG-005",
+        "name": "Narrative quality (redefined)",
+        "pass": true,
+        "baseline": {
+          "uniqueNarratives": 176,
+          "profilesInCollapse": 865,
+          "maxClusterSize": 118,
+          "narrativeDiversityRatio": 0.176
+        },
+        "target": {
+          "uniqueNarratives": "simulated > baseline",
+          "profilesInCollapse": "simulated < baseline",
+          "maxClusterSize": "simulated < baseline"
+        },
+        "measured": {
+          "uniqueNarratives": 407,
+          "profilesInCollapse": 617,
+          "maxClusterSize": 25,
+          "narrativeDiversityRatio": 0.407
+        },
+        "delta": {
+          "uniqueNarratives": 231,
+          "profilesInCollapse": -248,
+          "maxClusterSize": -93
+        }
+      },
+      "VG-006": {
+        "id": "VG-006",
+        "name": "Narrative diversity improvement (calibrated)",
+        "pass": true,
+        "baseline": 176,
+        "target": ">= 1.5x baseline unique narratives",
+        "measured": {
+          "improvementRatio": 2.3125,
+          "simulatedUniqueNarratives": 407,
+          "legacyRatio": 0.407
+        },
+        "delta": {
+          "metric": "narrativeDiversityImprovementRatio",
+          "formula": "simulated.uniqueNarratives / baseline.uniqueNarratives",
+          "threshold": 1.5,
+          "passAt200": 1.7195121951219512,
+          "passAt1000": 2.3125,
+          "pass200": true,
+          "pass1000": true
+        }
+      }
+    },
+    "allGatesPass": false,
+    "r004ReinforcementsApplied": 1011,
+    "adaptiveCreatorValidated": true,
+    "stableOrientationValidated": false,
+    "failedGates": [
+      "VG-002"
+    ],
+    "vg006CalibrationApplied": true
+  },
+  "finalDecision": {
+    "recommendation": "REJECT GF2",
+    "allGatesPass": false,
+    "failedGates": [
+      "VG-002"
+    ],
+    "adaptiveCreatorValidated": true,
+    "stableOrientationValidated": false,
+    "lifeDirectionCoverageProfiles": 774,
+    "r004Applied": 1011
+  }
+}

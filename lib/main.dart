@@ -6,10 +6,18 @@ import 'package:provider/provider.dart';
 
 import 'firebase_options.dart';
 
+import 'package:knowme/features/tests/big_five/big_five_routes.dart';
 import 'package:knowme/features/tests/eq/eq_routes.dart';
 import 'package:knowme/features/tests/mbti/mbti_routes.dart';
 import 'package:knowme/features/tests/mbti_cognitive/mbti_cognitive_routes.dart';
 import 'package:knowme/features/tests/mbti_summary/mbti_summary_routes.dart';
+import 'package:knowme/features/personality_mirror/personality_mirror_routes.dart';
+import 'package:knowme/features/astrology/fusion/presentation/astrology_fusion_demo_routes.dart';
+import 'package:knowme/features/astrology/fusion/presentation/astrology_fusion_routes.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/thai_mirror_routes.dart';
+import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_demo_routes.dart';
+import 'package:knowme/features/astrology/thai/qa/population/thai_mirror_population_qa_routes.dart';
+import 'package:knowme/features/astrology/thai/qa/thai_mirror_qa_routes.dart';
 
 import 'presentation/pages/auth/auth_gate.dart';
 
@@ -74,6 +82,10 @@ class KnowMeApp extends StatelessWidget {
           home: const AuthGate(),
 
           onGenerateRoute: (settings) {
+            final bigFiveRoute = BigFiveRoutes.onGenerateRoute(settings);
+            if (bigFiveRoute != null) {
+              return bigFiveRoute;
+            }
             final eqRoute = EqRoutes.onGenerateRoute(settings);
             if (eqRoute != null) {
               return eqRoute;
@@ -90,6 +102,39 @@ class KnowMeApp extends StatelessWidget {
             final summaryRoute = MbtiSummaryRoutes.onGenerateRoute(settings);
             if (summaryRoute != null) {
               return summaryRoute;
+            }
+            final personalityMirrorRoute =
+                PersonalityMirrorRoutes.onGenerateRoute(settings);
+            if (personalityMirrorRoute != null) {
+              return personalityMirrorRoute;
+            }
+            final thaiMirrorRoute = ThaiMirrorRoutes.onGenerateRoute(settings);
+            if (thaiMirrorRoute != null) {
+              return thaiMirrorRoute;
+            }
+            final thaiMirrorDemoRoute =
+                ThaiMirrorDemoRoutes.onGenerateRoute(settings);
+            if (thaiMirrorDemoRoute != null) {
+              return thaiMirrorDemoRoute;
+            }
+            final astrologyFusionRoute =
+                AstrologyFusionRoutes.onGenerateRoute(settings);
+            if (astrologyFusionRoute != null) {
+              return astrologyFusionRoute;
+            }
+            final astrologyFusionDemoRoute =
+                AstrologyFusionDemoRoutes.onGenerateRoute(settings);
+            if (astrologyFusionDemoRoute != null) {
+              return astrologyFusionDemoRoute;
+            }
+            final thaiMirrorQaRoute = ThaiMirrorQaRoutes.onGenerateRoute(settings);
+            if (thaiMirrorQaRoute != null) {
+              return thaiMirrorQaRoute;
+            }
+            final thaiMirrorPopulationQaRoute =
+                ThaiMirrorPopulationQaRoutes.onGenerateRoute(settings);
+            if (thaiMirrorPopulationQaRoute != null) {
+              return thaiMirrorPopulationQaRoute;
             }
 
             return MaterialPageRoute<void>(

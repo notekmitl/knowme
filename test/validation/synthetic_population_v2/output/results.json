@@ -1,0 +1,1391 @@
+{
+  "version": "synthetic_population_v2_1000",
+  "generatedAt": "2026-06-21T07:20:37.847556Z",
+  "populationQuality": {
+    "populationSize": 1000,
+    "archetypeCount": 250,
+    "maxArchetypeShare": 0.004,
+    "maxArchetypeSharePass": true,
+    "mbtiDistribution": {
+      "INTJ": 64,
+      "INTP": 64,
+      "ENTJ": 64,
+      "ENTP": 64,
+      "INFJ": 64,
+      "INFP": 64,
+      "ENFJ": 64,
+      "ENFP": 64,
+      "ISTJ": 64,
+      "ISTP": 64,
+      "ISFJ": 64,
+      "ISFP": 64,
+      "ESTJ": 64,
+      "ESTP": 64,
+      "ESFJ": 58,
+      "ESFP": 46
+    },
+    "attachmentDistribution": {
+      "secure": 252,
+      "fearful": 252,
+      "anxious": 248,
+      "avoidant": 248
+    },
+    "eqAwarenessDistribution": {
+      "emerging": 416,
+      "moderate": 335,
+      "strong": 249
+    },
+    "eqRegulationDistribution": {
+      "emerging": 415,
+      "moderate": 333,
+      "strong": 252
+    },
+    "yearAnimalDistribution": {
+      "rat": 168,
+      "horse": 168,
+      "tiger": 167,
+      "dragon": 167,
+      "monkey": 165,
+      "dog": 165
+    }
+  },
+  "diversity": {
+    "populationSize": 1000,
+    "uniqueMirrorOutcomes": 1000,
+    "uniqueFusionOutcomes": 1000,
+    "uniquePatternSets": 134,
+    "uniqueNarrativeFingerprints": 176,
+    "mirrorDiversityRatio": 1.0,
+    "fusionDiversityRatio": 1.0,
+    "patternDiversityRatio": 0.134,
+    "narrativeDiversityRatio": 0.176
+  },
+  "coverage": {
+    "populationSize": 1000,
+    "totalMirrorSignals": 27907,
+    "signalCountsBySystem": {
+      "mbti": 5488,
+      "big_five": 6026,
+      "eq": 1332,
+      "thai": 4802,
+      "bazi_zodiac": 10259,
+      "attachment_style": 1000
+    },
+    "signalShareBySystem": {
+      "mbti": 0.1966531694556921,
+      "big_five": 0.21593148672376106,
+      "eq": 0.04772996022503315,
+      "thai": 0.1720715232737306,
+      "bazi_zodiac": 0.36761386032178306
+    },
+    "dominantSystems": [
+      "bazi_zodiac"
+    ],
+    "weakSystems": [
+      "eq"
+    ],
+    "attachmentStyleDistribution": {
+      "secure": 252,
+      "anxious": 248,
+      "avoidant": 248,
+      "fearful": 252
+    }
+  },
+  "narrativeDuplication": {
+    "populationSize": 1000,
+    "uniqueNarratives": 176,
+    "maxDuplicationClusterSize": 118,
+    "duplicationRate": 0.921,
+    "collapseZoneCount": 69,
+    "topDuplicateClusters": [
+      {
+        "clusterSize": 118,
+        "profileIds": [
+          "pop2_002_varianta",
+          "pop2_002_variantb",
+          "pop2_004_variantb",
+          "pop2_004_variantc",
+          "pop2_004_variantd",
+          "pop2_008_variantb",
+          "pop2_008_variantc",
+          "pop2_008_variantd",
+          "pop2_009_varianta",
+          "pop2_010_varianta",
+          "pop2_010_variantc",
+          "pop2_011_varianta",
+          "pop2_014_varianta",
+          "pop2_014_variantd",
+          "pop2_016_variantb",
+          "pop2_016_variantd",
+          "pop2_017_varianta",
+          "pop2_019_variantb",
+          "pop2_019_variantd",
+          "pop2_020_variantc",
+          "pop2_023_variantb",
+          "pop2_023_variantc",
+          "pop2_025_varianta",
+          "pop2_028_variantc",
+          "pop2_029_varianta",
+          "pop2_029_variantd",
+          "pop2_031_varianta",
+          "pop2_032_variantc",
+          "pop2_034_varianta",
+          "pop2_034_variantc",
+          "pop2_035_variantb",
+          "pop2_040_variantd",
+          "pop2_046_variantb",
+          "pop2_065_variantc",
+          "pop2_065_variantd",
+          "pop2_066_varianta",
+          "pop2_070_variantb",
+          "pop2_070_variantd",
+          "pop2_071_variantc",
+          "pop2_072_varianta",
+          "pop2_074_variantb",
+          "pop2_074_variantd",
+          "pop2_075_variantd",
+          "pop2_078_variantb",
+          "pop2_078_variantc",
+          "pop2_079_variantb",
+          "pop2_080_varianta",
+          "pop2_080_variantc",
+          "pop2_081_variantb",
+          "pop2_083_varianta",
+          "pop2_085_variantc",
+          "pop2_086_variantd",
+          "pop2_088_varianta",
+          "pop2_089_variantd",
+          "pop2_090_variantb",
+          "pop2_092_varianta",
+          "pop2_092_variantc",
+          "pop2_093_variantb",
+          "pop2_095_varianta",
+          "pop2_096_varianta",
+          "pop2_096_variantc",
+          "pop2_130_varianta",
+          "pop2_134_variantd",
+          "pop2_137_variantb",
+          "pop2_137_variantc",
+          "pop2_140_variantb",
+          "pop2_140_variantc",
+          "pop2_143_variantd",
+          "pop2_144_variantb",
+          "pop2_145_variantd",
+          "pop2_148_variantb",
+          "pop2_148_variantc",
+          "pop2_149_variantd",
+          "pop2_151_variantb",
+          "pop2_151_variantd",
+          "pop2_153_varianta",
+          "pop2_156_variantb",
+          "pop2_159_variantb",
+          "pop2_160_variantc",
+          "pop2_163_variantb",
+          "pop2_173_variantb",
+          "pop2_181_variantc",
+          "pop2_186_variantb",
+          "pop2_191_variantb",
+          "pop2_191_variantd",
+          "pop2_193_varianta",
+          "pop2_193_variantb",
+          "pop2_194_variantb",
+          "pop2_194_variantd",
+          "pop2_195_variantb",
+          "pop2_198_variantb",
+          "pop2_198_variantc",
+          "pop2_199_variantc",
+          "pop2_199_variantd",
+          "pop2_200_varianta",
+          "pop2_201_variantb",
+          "pop2_201_variantc",
+          "pop2_203_variantd",
+          "pop2_204_variantd",
+          "pop2_205_variantc",
+          "pop2_205_variantd",
+          "pop2_206_varianta",
+          "pop2_208_varianta",
+          "pop2_208_variantd",
+          "pop2_209_varianta",
+          "pop2_210_varianta",
+          "pop2_211_variantd",
+          "pop2_215_varianta",
+          "pop2_216_variantb",
+          "pop2_216_variantc",
+          "pop2_216_variantd",
+          "pop2_217_varianta",
+          "pop2_220_varianta",
+          "pop2_221_variantb",
+          "pop2_221_variantd",
+          "pop2_226_varianta",
+          "pop2_238_variantc",
+          "pop2_241_varianta"
+        ]
+      },
+      {
+        "clusterSize": 66,
+        "profileIds": [
+          "pop2_003_variantb",
+          "pop2_033_variantb",
+          "pop2_033_variantd",
+          "pop2_036_variantd",
+          "pop2_038_varianta",
+          "pop2_038_variantd",
+          "pop2_042_varianta",
+          "pop2_043_variantb",
+          "pop2_046_variantd",
+          "pop2_048_varianta",
+          "pop2_049_variantb",
+          "pop2_049_variantd",
+          "pop2_050_variantc",
+          "pop2_051_varianta",
+          "pop2_051_variantb",
+          "pop2_052_variantc",
+          "pop2_053_variantb",
+          "pop2_056_variantb",
+          "pop2_057_varianta",
+          "pop2_059_variantd",
+          "pop2_061_variantc",
+          "pop2_064_variantd",
+          "pop2_099_varianta",
+          "pop2_104_varianta",
+          "pop2_104_variantc",
+          "pop2_109_variantd",
+          "pop2_112_varianta",
+          "pop2_115_variantc",
+          "pop2_119_variantb",
+          "pop2_122_variantd",
+          "pop2_124_variantd",
+          "pop2_125_varianta",
+          "pop2_125_variantc",
+          "pop2_126_varianta",
+          "pop2_135_varianta",
+          "pop2_161_variantb",
+          "pop2_164_variantd",
+          "pop2_166_variantb",
+          "pop2_166_variantc",
+          "pop2_169_variantb",
+          "pop2_172_variantc",
+          "pop2_172_variantd",
+          "pop2_174_varianta",
+          "pop2_175_variantb",
+          "pop2_176_variantd",
+          "pop2_177_varianta",
+          "pop2_177_variantb",
+          "pop2_179_variantd",
+          "pop2_187_variantc",
+          "pop2_188_variantc",
+          "pop2_190_variantc",
+          "pop2_203_variantb",
+          "pop2_226_variantd",
+          "pop2_227_variantd",
+          "pop2_228_varianta",
+          "pop2_232_variantd",
+          "pop2_233_varianta",
+          "pop2_234_variantd",
+          "pop2_235_varianta",
+          "pop2_236_variantb",
+          "pop2_236_variantc",
+          "pop2_237_varianta",
+          "pop2_238_variantd",
+          "pop2_239_varianta",
+          "pop2_245_variantb",
+          "pop2_249_variantb"
+        ]
+      },
+      {
+        "clusterSize": 50,
+        "profileIds": [
+          "pop2_001_variantb",
+          "pop2_005_variantb",
+          "pop2_005_variantc",
+          "pop2_010_variantd",
+          "pop2_017_variantc",
+          "pop2_019_varianta",
+          "pop2_021_variantc",
+          "pop2_025_variantb",
+          "pop2_027_varianta",
+          "pop2_045_variantd",
+          "pop2_065_varianta",
+          "pop2_076_variantd",
+          "pop2_080_variantd",
+          "pop2_083_variantb",
+          "pop2_083_variantd",
+          "pop2_085_varianta",
+          "pop2_089_varianta",
+          "pop2_091_variantd",
+          "pop2_093_varianta",
+          "pop2_093_variantd",
+          "pop2_095_variantb",
+          "pop2_095_variantd",
+          "pop2_129_variantc",
+          "pop2_132_varianta",
+          "pop2_132_variantb",
+          "pop2_133_varianta",
+          "pop2_133_variantb",
+          "pop2_134_variantb",
+          "pop2_134_variantc",
+          "pop2_141_variantb",
+          "pop2_141_variantc",
+          "pop2_144_varianta",
+          "pop2_146_variantd",
+          "pop2_153_variantb",
+          "pop2_157_variantb",
+          "pop2_163_varianta",
+          "pop2_168_varianta",
+          "pop2_176_variantb",
+          "pop2_196_variantc",
+          "pop2_200_variantb",
+          "pop2_200_variantd",
+          "pop2_202_varianta",
+          "pop2_205_varianta",
+          "pop2_209_variantd",
+          "pop2_211_variantb",
+          "pop2_216_varianta",
+          "pop2_217_variantc",
+          "pop2_219_variantc",
+          "pop2_222_variantd",
+          "pop2_246_variantc"
+        ]
+      },
+      {
+        "clusterSize": 44,
+        "profileIds": [
+          "pop2_001_variantc",
+          "pop2_006_variantd",
+          "pop2_009_variantb",
+          "pop2_013_variantb",
+          "pop2_013_variantc",
+          "pop2_017_variantd",
+          "pop2_021_variantb",
+          "pop2_023_varianta",
+          "pop2_024_variantc",
+          "pop2_028_varianta",
+          "pop2_030_variantd",
+          "pop2_035_varianta",
+          "pop2_046_varianta",
+          "pop2_068_variantb",
+          "pop2_070_varianta",
+          "pop2_081_varianta",
+          "pop2_082_variantd",
+          "pop2_083_variantc",
+          "pop2_087_variantb",
+          "pop2_091_variantb",
+          "pop2_100_variantd",
+          "pop2_135_variantd",
+          "pop2_138_variantb",
+          "pop2_140_varianta",
+          "pop2_145_variantb",
+          "pop2_149_variantb",
+          "pop2_150_variantd",
+          "pop2_151_varianta",
+          "pop2_153_variantc",
+          "pop2_155_varianta",
+          "pop2_157_variantd",
+          "pop2_160_variantb",
+          "pop2_164_variantc",
+          "pop2_186_varianta",
+          "pop2_196_variantb",
+          "pop2_198_varianta",
+          "pop2_208_variantb",
+          "pop2_208_variantc",
+          "pop2_211_variantc",
+          "pop2_219_variantb",
+          "pop2_221_varianta",
+          "pop2_223_variantb",
+          "pop2_223_variantc",
+          "pop2_238_varianta"
+        ]
+      },
+      {
+        "clusterSize": 43,
+        "profileIds": [
+          "pop2_015_variantb",
+          "pop2_025_variantc",
+          "pop2_036_varianta",
+          "pop2_039_variantc",
+          "pop2_041_varianta",
+          "pop2_044_variantd",
+          "pop2_049_varianta",
+          "pop2_049_variantc",
+          "pop2_051_variantc",
+          "pop2_055_varianta",
+          "pop2_056_variantc",
+          "pop2_058_variantd",
+          "pop2_059_varianta",
+          "pop2_061_varianta",
+          "pop2_063_variantc",
+          "pop2_064_variantc",
+          "pop2_095_variantc",
+          "pop2_117_varianta",
+          "pop2_117_variantb",
+          "pop2_119_varianta",
+          "pop2_119_variantc",
+          "pop2_124_varianta",
+          "pop2_124_variantc",
+          "pop2_143_variantb",
+          "pop2_162_variantb",
+          "pop2_167_variantc",
+          "pop2_177_variantc",
+          "pop2_180_variantb",
+          "pop2_185_variantb",
+          "pop2_185_variantc",
+          "pop2_187_varianta",
+          "pop2_187_variantb",
+          "pop2_192_variantb",
+          "pop2_207_varianta",
+          "pop2_209_variantb",
+          "pop2_211_varianta",
+          "pop2_229_varianta",
+          "pop2_229_variantc",
+          "pop2_231_variantd",
+          "pop2_234_varianta",
+          "pop2_236_varianta",
+          "pop2_236_variantd",
+          "pop2_249_variantc"
+        ]
+      },
+      {
+        "clusterSize": 37,
+        "profileIds": [
+          "pop2_002_variantc",
+          "pop2_005_varianta",
+          "pop2_007_variantd",
+          "pop2_010_variantb",
+          "pop2_015_varianta",
+          "pop2_022_variantd",
+          "pop2_026_variantd",
+          "pop2_027_variantc",
+          "pop2_030_varianta",
+          "pop2_065_variantb",
+          "pop2_075_variantb",
+          "pop2_080_variantb",
+          "pop2_088_variantc",
+          "pop2_090_variantd",
+          "pop2_093_variantc",
+          "pop2_129_variantb",
+          "pop2_133_variantc",
+          "pop2_138_variantd",
+          "pop2_142_variantb",
+          "pop2_146_varianta",
+          "pop2_156_varianta",
+          "pop2_158_variantd",
+          "pop2_164_variantb",
+          "pop2_181_variantb",
+          "pop2_197_varianta",
+          "pop2_200_variantc",
+          "pop2_201_varianta",
+          "pop2_202_variantc",
+          "pop2_209_variantc",
+          "pop2_212_variantd",
+          "pop2_214_variantd",
+          "pop2_219_varianta",
+          "pop2_219_variantd",
+          "pop2_221_variantc",
+          "pop2_224_varianta",
+          "pop2_224_variantb",
+          "pop2_224_variantc"
+        ]
+      },
+      {
+        "clusterSize": 32,
+        "profileIds": [
+          "pop2_025_variantd",
+          "pop2_036_variantb",
+          "pop2_039_varianta",
+          "pop2_044_variantc",
+          "pop2_056_variantd",
+          "pop2_059_variantc",
+          "pop2_060_variantd",
+          "pop2_099_variantb",
+          "pop2_104_variantd",
+          "pop2_110_variantb",
+          "pop2_113_varianta",
+          "pop2_114_variantc",
+          "pop2_117_variantd",
+          "pop2_128_variantd",
+          "pop2_138_variantc",
+          "pop2_167_varianta",
+          "pop2_167_variantb",
+          "pop2_172_varianta",
+          "pop2_175_varianta",
+          "pop2_185_variantd",
+          "pop2_190_varianta",
+          "pop2_190_variantb",
+          "pop2_192_variantd",
+          "pop2_194_varianta",
+          "pop2_231_variantb",
+          "pop2_231_variantc",
+          "pop2_235_variantb",
+          "pop2_239_variantc",
+          "pop2_241_variantc",
+          "pop2_243_variantc",
+          "pop2_250_variantb",
+          "pop2_250_variantc"
+        ]
+      },
+      {
+        "clusterSize": 31,
+        "profileIds": [
+          "pop2_001_variantd",
+          "pop2_005_variantd",
+          "pop2_007_varianta",
+          "pop2_009_variantd",
+          "pop2_018_varianta",
+          "pop2_022_varianta",
+          "pop2_024_variantd",
+          "pop2_028_variantd",
+          "pop2_030_variantc",
+          "pop2_043_variantd",
+          "pop2_075_varianta",
+          "pop2_086_variantb",
+          "pop2_086_variantc",
+          "pop2_090_variantc",
+          "pop2_096_variantd",
+          "pop2_099_variantd",
+          "pop2_129_variantd",
+          "pop2_135_variantb",
+          "pop2_135_variantc",
+          "pop2_141_variantd",
+          "pop2_146_variantc",
+          "pop2_156_variantd",
+          "pop2_158_varianta",
+          "pop2_158_variantc",
+          "pop2_186_variantd",
+          "pop2_195_variantc",
+          "pop2_203_variantc",
+          "pop2_207_variantc",
+          "pop2_214_variantb",
+          "pop2_222_variantc",
+          "pop2_246_variantd"
+        ]
+      },
+      {
+        "clusterSize": 30,
+        "profileIds": [
+          "pop2_036_variantc",
+          "pop2_041_variantd",
+          "pop2_044_variantb",
+          "pop2_048_variantb",
+          "pop2_048_variantd",
+          "pop2_052_variantd",
+          "pop2_055_variantb",
+          "pop2_058_varianta",
+          "pop2_062_varianta",
+          "pop2_091_variantc",
+          "pop2_103_variantb",
+          "pop2_114_variantb",
+          "pop2_126_variantb",
+          "pop2_126_variantc",
+          "pop2_130_variantd",
+          "pop2_155_variantb",
+          "pop2_159_varianta",
+          "pop2_159_variantc",
+          "pop2_170_variantd",
+          "pop2_179_varianta",
+          "pop2_198_variantd",
+          "pop2_213_variantb",
+          "pop2_227_variantc",
+          "pop2_230_variantb",
+          "pop2_234_variantc",
+          "pop2_240_variantd",
+          "pop2_242_varianta",
+          "pop2_243_variantb",
+          "pop2_245_varianta",
+          "pop2_247_variantd"
+        ]
+      },
+      {
+        "clusterSize": 23,
+        "profileIds": [
+          "pop2_039_variantb",
+          "pop2_047_variantb",
+          "pop2_053_varianta",
+          "pop2_053_variantc",
+          "pop2_055_variantc",
+          "pop2_058_variantc",
+          "pop2_062_variantc",
+          "pop2_115_varianta",
+          "pop2_117_variantc",
+          "pop2_127_variantd",
+          "pop2_162_varianta",
+          "pop2_162_variantd",
+          "pop2_169_variantd",
+          "pop2_171_varianta",
+          "pop2_172_variantb",
+          "pop2_182_varianta",
+          "pop2_183_variantb",
+          "pop2_183_variantc",
+          "pop2_183_variantd",
+          "pop2_185_varianta",
+          "pop2_230_variantc",
+          "pop2_245_variantd",
+          "pop2_250_varianta"
+        ]
+      }
+    ]
+  },
+  "patternDistribution": {
+    "populationSize": 1000,
+    "registryPatternCount": 41,
+    "everActivatedPatternCount": 21,
+    "neverActivatedCount": 20,
+    "neverActivatedPatternIds": [
+      "adaptive_creator",
+      "adaptive_growth",
+      "asymmetric_identity_development",
+      "belief_architect",
+      "belief_meaning",
+      "emotional_depth",
+      "identity_dual_signal",
+      "internal_conflict_thinker",
+      "meaning_seeker",
+      "progressive_builder",
+      "purpose_driven_motivation",
+      "reflective_builder",
+      "reinforced_strength",
+      "relationship_stabilizer",
+      "resource_oriented_motivation",
+      "stable_orientation",
+      "structured_explorer",
+      "structured_operator",
+      "transformation_seeker",
+      "visible_identity"
+    ],
+    "deadZonePatternIds": [
+      "adaptive_creator",
+      "adaptive_growth",
+      "asymmetric_identity_development",
+      "belief_architect",
+      "belief_meaning",
+      "emotional_depth",
+      "identity_dual_signal",
+      "internal_conflict_thinker",
+      "meaning_seeker",
+      "progressive_builder",
+      "purpose_driven_motivation",
+      "reflective_builder",
+      "reinforced_strength",
+      "relationship_stabilizer",
+      "resource_oriented_motivation",
+      "stable_orientation",
+      "structured_explorer",
+      "structured_operator",
+      "transformation_seeker",
+      "visible_identity"
+    ],
+    "topActivatedPatterns": [
+      {
+        "patternId": "directional_meaning",
+        "count": 997
+      },
+      {
+        "patternId": "self_directed_identity",
+        "count": 969
+      },
+      {
+        "patternId": "diplomatic_binder",
+        "count": 897
+      },
+      {
+        "patternId": "calm_regulator",
+        "count": 892
+      },
+      {
+        "patternId": "responsive_feeler",
+        "count": 840
+      },
+      {
+        "patternId": "decisive_actor",
+        "count": 723
+      },
+      {
+        "patternId": "ignored_emotional_dimension",
+        "count": 579
+      },
+      {
+        "patternId": "analytical_thinker",
+        "count": 539
+      },
+      {
+        "patternId": "expressive_identity",
+        "count": 431
+      },
+      {
+        "patternId": "supportive_connector",
+        "count": 196
+      },
+      {
+        "patternId": "accountable_operator",
+        "count": 176
+      },
+      {
+        "patternId": "dual_nature_actor",
+        "count": 176
+      },
+      {
+        "patternId": "stable_accountability",
+        "count": 176
+      },
+      {
+        "patternId": "growth_edge_builder",
+        "count": 113
+      },
+      {
+        "patternId": "growth_edge_from_tension",
+        "count": 113
+      }
+    ],
+    "patternFamilyFrequency": {
+      "emotional_style": 1732,
+      "identity_style": 1400,
+      "relationship_style": 1093,
+      "meaning_style": 997,
+      "decision_style": 749,
+      "blind_spot_pattern": 658,
+      "theme_coverage_pattern": 578,
+      "thinking_style": 539,
+      "growth_edge_pattern": 226,
+      "conflict_pattern": 176
+    },
+    "dominantPatternFrequency": [
+      {
+        "patternId": "analytical_thinker",
+        "count": 481
+      },
+      {
+        "patternId": "calm_regulator",
+        "count": 315
+      },
+      {
+        "patternId": "accountable_operator",
+        "count": 176
+      },
+      {
+        "patternId": "directional_meaning",
+        "count": 21
+      },
+      {
+        "patternId": "decisive_actor",
+        "count": 7
+      }
+    ]
+  },
+  "fusionDistribution": {
+    "populationSize": 1000,
+    "uniqueFusionHashes": 1000,
+    "fusionDiversityRatio": 1.0,
+    "agreementTypeFrequency": {
+      "MIRROR_SELF_IDENTITY": 650,
+      "MIRROR_EMOTIONAL_PATTERN": 261,
+      "MIRROR_THINKING_PATTERN": 105,
+      "MIRROR_SELF_EXPRESSION": 48,
+      "MIRROR_ACTION_STYLE": 26
+    },
+    "tensionTypeFrequency": {
+      "MIRROR_ACTION_STYLE": 410,
+      "MIRROR_SUPPORT_PATTERN": 358,
+      "MIRROR_RELATIONAL_PATTERN": 188
+    },
+    "blindSpotFrequency": {
+      "MIRROR_EMOTIONAL_PATTERN": 579,
+      "MIRROR_THINKING_PATTERN": 434,
+      "MIRROR_SELF_EXPRESSION": 383,
+      "MIRROR_SELF_IDENTITY": 319,
+      "MIRROR_ACTION_STYLE": 195,
+      "MIRROR_RELATIONAL_PATTERN": 79,
+      "MIRROR_SUPPORT_PATTERN": 54
+    },
+    "reinforcementFrequency": {
+      "MIRROR_SELF_IDENTITY": 650,
+      "MIRROR_EMOTIONAL_PATTERN": 261,
+      "MIRROR_THINKING_PATTERN": 105,
+      "MIRROR_SELF_EXPRESSION": 48,
+      "MIRROR_ACTION_STYLE": 26
+    },
+    "fusionDeadZoneCount": 3
+  },
+  "architectureDiversity": {
+    "mirrorLayer": {
+      "uniqueMirrorFingerprints": 1000,
+      "mirrorKeyUtilization": {
+        "MIRROR_SELF_IDENTITY": 5236,
+        "MIRROR_THINKING_PATTERN": 5016,
+        "MIRROR_EMOTIONAL_PATTERN": 3778,
+        "MIRROR_GROWTH_ORIENTATION": 3354,
+        "MIRROR_SELF_EXPRESSION": 2878,
+        "MIRROR_ACTION_STYLE": 1908,
+        "MIRROR_RELATIONAL_PATTERN": 1789,
+        "MIRROR_SUPPORT_PATTERN": 1725,
+        "MIRROR_LIFE_DIRECTION": 1203,
+        "MIRROR_STRUCTURE_PATTERN": 1020
+      },
+      "totalEvidenceRows": 27907
+    },
+    "fusionLayer": {
+      "uniqueFusionFingerprints": 1000,
+      "agreementKeyDistribution": {
+        "MIRROR_SELF_IDENTITY": 650,
+        "MIRROR_EMOTIONAL_PATTERN": 261,
+        "MIRROR_THINKING_PATTERN": 105,
+        "MIRROR_SELF_EXPRESSION": 48,
+        "MIRROR_ACTION_STYLE": 26
+      },
+      "tensionCountTotal": 956,
+      "reinforcementKeyDistribution": {
+        "MIRROR_SELF_IDENTITY": 650,
+        "MIRROR_EMOTIONAL_PATTERN": 261,
+        "MIRROR_THINKING_PATTERN": 105,
+        "MIRROR_SELF_EXPRESSION": 48,
+        "MIRROR_ACTION_STYLE": 26
+      },
+      "blindSpotKeyDistribution": {
+        "MIRROR_EMOTIONAL_PATTERN": 579,
+        "MIRROR_THINKING_PATTERN": 434,
+        "MIRROR_SELF_EXPRESSION": 383,
+        "MIRROR_SELF_IDENTITY": 319,
+        "MIRROR_ACTION_STYLE": 195,
+        "MIRROR_RELATIONAL_PATTERN": 79,
+        "MIRROR_SUPPORT_PATTERN": 54
+      }
+    },
+    "humanModelLayer": {
+      "uniqueModelFingerprints": 1000,
+      "dimensionUtilization": {
+        "action": 1000,
+        "emotion": 1000,
+        "growth": 1000,
+        "identity": 1000,
+        "meaning": 1000,
+        "motivation": 1000,
+        "relationship": 1000,
+        "thinking": 1000
+      }
+    },
+    "humanPatternLayer": {
+      "populationSize": 1000,
+      "registryPatternCount": 41,
+      "everActivatedPatternCount": 21,
+      "neverActivatedCount": 20,
+      "neverActivatedPatternIds": [
+        "adaptive_creator",
+        "adaptive_growth",
+        "asymmetric_identity_development",
+        "belief_architect",
+        "belief_meaning",
+        "emotional_depth",
+        "identity_dual_signal",
+        "internal_conflict_thinker",
+        "meaning_seeker",
+        "progressive_builder",
+        "purpose_driven_motivation",
+        "reflective_builder",
+        "reinforced_strength",
+        "relationship_stabilizer",
+        "resource_oriented_motivation",
+        "stable_orientation",
+        "structured_explorer",
+        "structured_operator",
+        "transformation_seeker",
+        "visible_identity"
+      ],
+      "deadZonePatternIds": [
+        "adaptive_creator",
+        "adaptive_growth",
+        "asymmetric_identity_development",
+        "belief_architect",
+        "belief_meaning",
+        "emotional_depth",
+        "identity_dual_signal",
+        "internal_conflict_thinker",
+        "meaning_seeker",
+        "progressive_builder",
+        "purpose_driven_motivation",
+        "reflective_builder",
+        "reinforced_strength",
+        "relationship_stabilizer",
+        "resource_oriented_motivation",
+        "stable_orientation",
+        "structured_explorer",
+        "structured_operator",
+        "transformation_seeker",
+        "visible_identity"
+      ],
+      "topActivatedPatterns": [
+        {
+          "patternId": "directional_meaning",
+          "count": 997
+        },
+        {
+          "patternId": "self_directed_identity",
+          "count": 969
+        },
+        {
+          "patternId": "diplomatic_binder",
+          "count": 897
+        },
+        {
+          "patternId": "calm_regulator",
+          "count": 892
+        },
+        {
+          "patternId": "responsive_feeler",
+          "count": 840
+        },
+        {
+          "patternId": "decisive_actor",
+          "count": 723
+        },
+        {
+          "patternId": "ignored_emotional_dimension",
+          "count": 579
+        },
+        {
+          "patternId": "analytical_thinker",
+          "count": 539
+        },
+        {
+          "patternId": "expressive_identity",
+          "count": 431
+        },
+        {
+          "patternId": "supportive_connector",
+          "count": 196
+        },
+        {
+          "patternId": "accountable_operator",
+          "count": 176
+        },
+        {
+          "patternId": "dual_nature_actor",
+          "count": 176
+        },
+        {
+          "patternId": "stable_accountability",
+          "count": 176
+        },
+        {
+          "patternId": "growth_edge_builder",
+          "count": 113
+        },
+        {
+          "patternId": "growth_edge_from_tension",
+          "count": 113
+        }
+      ],
+      "patternFamilyFrequency": {
+        "emotional_style": 1732,
+        "identity_style": 1400,
+        "relationship_style": 1093,
+        "meaning_style": 997,
+        "decision_style": 749,
+        "blind_spot_pattern": 658,
+        "theme_coverage_pattern": 578,
+        "thinking_style": 539,
+        "growth_edge_pattern": 226,
+        "conflict_pattern": 176
+      },
+      "dominantPatternFrequency": [
+        {
+          "patternId": "analytical_thinker",
+          "count": 481
+        },
+        {
+          "patternId": "calm_regulator",
+          "count": 315
+        },
+        {
+          "patternId": "accountable_operator",
+          "count": 176
+        },
+        {
+          "patternId": "directional_meaning",
+          "count": 21
+        },
+        {
+          "patternId": "decisive_actor",
+          "count": 7
+        }
+      ]
+    },
+    "narrativeLayer": {
+      "uniqueNarratives": 176,
+      "collapseZones": 69,
+      "confidenceDistribution": {
+        "low": 67,
+        "medium": 933
+      }
+    }
+  },
+  "deadZoneRevalidation": {
+    "populationSize": 1000,
+    "traces": {
+      "MIRROR_LIFE_DIRECTION": {
+        "mirrorKey": "MIRROR_LIFE_DIRECTION",
+        "inputSignals": 1203,
+        "profilesWithInput": 774,
+        "mirrorFindings": 258,
+        "fusionFindings": 0,
+        "profilesWithFusionFinding": 0,
+        "humanModelMappings": 0,
+        "patternActivations": 0
+      },
+      "MIRROR_GROWTH_ORIENTATION": {
+        "mirrorKey": "MIRROR_GROWTH_ORIENTATION",
+        "inputSignals": 3354,
+        "profilesWithInput": 1000,
+        "mirrorFindings": 1064,
+        "fusionFindings": 0,
+        "profilesWithFusionFinding": 0,
+        "humanModelMappings": 0,
+        "patternActivations": 0
+      },
+      "MIRROR_STRUCTURE_PATTERN": {
+        "mirrorKey": "MIRROR_STRUCTURE_PATTERN",
+        "inputSignals": 1020,
+        "profilesWithInput": 755,
+        "mirrorFindings": 0,
+        "fusionFindings": 0,
+        "profilesWithFusionFinding": 0,
+        "humanModelMappings": 0,
+        "patternActivations": 0
+      }
+    },
+    "summary": {
+      "MIRROR_LIFE_DIRECTION": "partially_alive",
+      "MIRROR_GROWTH_ORIENTATION": "partially_alive",
+      "MIRROR_STRUCTURE_PATTERN": "still_dead"
+    }
+  },
+  "v2Simulation": {
+    "populationSize": 1000,
+    "baseline": {
+      "totalActivations": 8148,
+      "uniquePatternSets": 134,
+      "uniqueNarratives": 176,
+      "deadPatternCount": 20,
+      "avgActivationsPerProfile": 8.148,
+      "narrativeQuality": {
+        "uniqueNarratives": 176,
+        "profilesInCollapse": 865,
+        "maxClusterSize": 118,
+        "narrativeDiversityRatio": 0.176
+      }
+    },
+    "simulatedAfterRecovery": {
+      "totalActivations": 11956,
+      "uniquePatternSets": 316,
+      "uniqueNarratives": 426,
+      "deadPatternCount": 14,
+      "avgActivationsPerProfile": 11.956,
+      "additionalActivations": 3808,
+      "additionalUniquePatternSets": 182,
+      "additionalUniqueNarratives": 250,
+      "mp001PromotionsApplied": 1020,
+      "r004ReinforcementsApplied": 411,
+      "narrativeQuality": {
+        "uniqueNarratives": 426,
+        "profilesInCollapse": 597,
+        "maxClusterSize": 25,
+        "narrativeDiversityRatio": 0.426
+      }
+    },
+    "dependentPatternActivations": [
+      {
+        "patternId": "progressive_builder",
+        "simulatedActivations": 829,
+        "validated": true
+      },
+      {
+        "patternId": "adaptive_creator",
+        "simulatedActivations": 235,
+        "validated": true
+      },
+      {
+        "patternId": "meaning_seeker",
+        "simulatedActivations": 258,
+        "validated": true
+      },
+      {
+        "patternId": "purpose_driven_motivation",
+        "simulatedActivations": 216,
+        "validated": true
+      },
+      {
+        "patternId": "stable_orientation",
+        "simulatedActivations": 0,
+        "validated": false
+      },
+      {
+        "patternId": "structured_operator",
+        "simulatedActivations": 755,
+        "validated": true
+      }
+    ],
+    "deadZoneSimRecovery": {
+      "MIRROR_GROWTH_ORIENTATION": 829,
+      "MIRROR_LIFE_DIRECTION": 258,
+      "MIRROR_STRUCTURE_PATTERN": 755
+    },
+    "vg005NarrativeQuality": {
+      "baseline": {
+        "uniqueNarratives": 176,
+        "profilesInCollapse": 865,
+        "maxClusterSize": 118,
+        "narrativeDiversityRatio": 0.176
+      },
+      "simulated": {
+        "uniqueNarratives": 426,
+        "profilesInCollapse": 597,
+        "maxClusterSize": 25,
+        "narrativeDiversityRatio": 0.426
+      },
+      "delta": {
+        "uniqueNarratives": 250,
+        "profilesInCollapse": -268,
+        "maxClusterSize": -93
+      }
+    },
+    "eqSurvival": {
+      "baseline": {
+        "mirror_input": 1.0,
+        "mirror_snapshot": 1.0,
+        "fusion": 0.5180180180180181,
+        "human_model": 0.5180180180180181,
+        "human_pattern": 0.6846846846846847,
+        "narrative": 0.6524024024024024
+      },
+      "simulatedPatternEvidenceCount": 3449,
+      "simulatedRetentionVsMirrorInput": 2.589339339339339
+    },
+    "fusionDiversity": {
+      "baselineUniqueFusion": 1000,
+      "simulatedUniqueFusion": 1000
+    }
+  },
+  "validationGates": {
+    "populationSize": 1000,
+    "gates": {
+      "VG-001": {
+        "id": "VG-001",
+        "name": "Dead-zone fusion findings recoverable",
+        "pass": true,
+        "baseline": "0 for all 3 keys",
+        "target": "> 0 for all 3 keys",
+        "measured": {
+          "MIRROR_GROWTH_ORIENTATION": 829,
+          "MIRROR_LIFE_DIRECTION": 258,
+          "MIRROR_STRUCTURE_PATTERN": 755
+        }
+      },
+      "VG-002": {
+        "id": "VG-002",
+        "name": "Dependent pattern reachability",
+        "pass": false,
+        "baseline": "0 / 6",
+        "target": "6 / 6",
+        "measured": {
+          "validatedCount": 5,
+          "requiredCount": 6,
+          "patterns": [
+            {
+              "patternId": "progressive_builder",
+              "simulatedActivations": 829,
+              "validated": true
+            },
+            {
+              "patternId": "adaptive_creator",
+              "simulatedActivations": 235,
+              "validated": true
+            },
+            {
+              "patternId": "meaning_seeker",
+              "simulatedActivations": 258,
+              "validated": true
+            },
+            {
+              "patternId": "purpose_driven_motivation",
+              "simulatedActivations": 216,
+              "validated": true
+            },
+            {
+              "patternId": "stable_orientation",
+              "simulatedActivations": 0,
+              "validated": false
+            },
+            {
+              "patternId": "structured_operator",
+              "simulatedActivations": 755,
+              "validated": true
+            }
+          ]
+        }
+      },
+      "VG-003": {
+        "id": "VG-003",
+        "name": "Unique pattern sets",
+        "pass": true,
+        "baseline": 134,
+        "target": ">= 125",
+        "measured": 316
+      },
+      "VG-004": {
+        "id": "VG-004",
+        "name": "Unique narratives",
+        "pass": true,
+        "baseline": 176,
+        "target": ">= 130",
+        "measured": 426
+      },
+      "VG-005": {
+        "id": "VG-005",
+        "name": "Narrative quality (redefined)",
+        "pass": true,
+        "baseline": {
+          "uniqueNarratives": 176,
+          "profilesInCollapse": 865,
+          "maxClusterSize": 118,
+          "narrativeDiversityRatio": 0.176
+        },
+        "target": {
+          "uniqueNarratives": "simulated > baseline",
+          "profilesInCollapse": "simulated < baseline",
+          "maxClusterSize": "simulated < baseline"
+        },
+        "measured": {
+          "uniqueNarratives": 426,
+          "profilesInCollapse": 597,
+          "maxClusterSize": 25,
+          "narrativeDiversityRatio": 0.426
+        },
+        "delta": {
+          "uniqueNarratives": 250,
+          "profilesInCollapse": -268,
+          "maxClusterSize": -93
+        }
+      },
+      "VG-006": {
+        "id": "VG-006",
+        "name": "Narrative diversity ratio",
+        "pass": false,
+        "baseline": 0.176,
+        "target": ">= 0.55",
+        "measured": 0.426
+      }
+    },
+    "allGatesPass": false,
+    "r004ReinforcementsApplied": 411,
+    "adaptiveCreatorValidated": true,
+    "stableOrientationValidated": false,
+    "failedGates": [
+      "VG-002",
+      "VG-006"
+    ]
+  },
+  "stabilityAnalysis": {
+    "baselinePopulation": 200,
+    "scalePopulation": 1000,
+    "metrics": [
+      {
+        "metric": "deadPatternCountBaseline",
+        "baseline200": 20,
+        "scale1000": 20,
+        "absoluteGain": 0,
+        "percentageGain": 0.0,
+        "stability": "Stable"
+      },
+      {
+        "metric": "fusionDeadZoneCount",
+        "baseline200": 3,
+        "scale1000": 3,
+        "absoluteGain": 0,
+        "percentageGain": 0.0,
+        "stability": "Strongly Stable"
+      },
+      {
+        "metric": "v2ActivationGainAbsolute",
+        "baseline200": 568,
+        "scale1000": 3808,
+        "absoluteGain": 3240,
+        "percentageGain": 570.4225352112676,
+        "stability": "Strongly Stable"
+      },
+      {
+        "metric": "v2ActivationGainPercent",
+        "baseline200": 31.15743280307186,
+        "scale1000": 46.735395189003434,
+        "absoluteGain": 15.577962385931574,
+        "percentageGain": 49.997579981607856,
+        "stability": "Unstable"
+      },
+      {
+        "metric": "v2NarrativeGainAbsolute",
+        "baseline200": 48,
+        "scale1000": 250,
+        "absoluteGain": 202,
+        "percentageGain": 420.8333333333333,
+        "stability": "Strongly Stable"
+      },
+      {
+        "metric": "v2PatternSetGainAbsolute",
+        "baseline200": 48,
+        "scale1000": 182,
+        "absoluteGain": 134,
+        "percentageGain": 279.16666666666663,
+        "stability": "Stable"
+      },
+      {
+        "metric": "vg005ProfilesInCollapseReduction",
+        "baseline200": 48,
+        "scale1000": 268,
+        "absoluteGain": 220,
+        "percentageGain": 458.3333333333333,
+        "stability": "Strongly Stable"
+      },
+      {
+        "metric": "vg005MaxClusterReduction",
+        "baseline200": 4,
+        "scale1000": 93,
+        "absoluteGain": 89,
+        "percentageGain": 2225.0,
+        "stability": "Strongly Stable"
+      }
+    ],
+    "overallStability": "Uncertain"
+  },
+  "decisionGate": {
+    "gf2V2StillJustified": "YES",
+    "architectureStillBPlusC": "YES",
+    "newDeadZonesDetected": "NO",
+    "newDeadZoneKeys": [],
+    "hiddenRegressionsDetected": "NO",
+    "implementationShouldBeginNow": "NO",
+    "finalDecision": "DO NOT IMPLEMENT GF2",
+    "evidence": {
+      "populationQualityPass": true,
+      "maxArchetypeShare": 0.004,
+      "baselineDeadPatterns": 20,
+      "simulatedDeadPatterns": 14,
+      "activationGain": 3808,
+      "narrativeGain": 250,
+      "r004ReinforcementsApplied": 411,
+      "adaptiveCreatorValidated": true,
+      "stableOrientationValidated": false,
+      "validationGatesPass": false,
+      "failedGates": [
+        "VG-002",
+        "VG-006"
+      ],
+      "deadZoneStatus": {
+        "MIRROR_LIFE_DIRECTION": "partially_alive",
+        "MIRROR_GROWTH_ORIENTATION": "partially_alive",
+        "MIRROR_STRUCTURE_PATTERN": "still_dead"
+      },
+      "overallStability": "Uncertain",
+      "knownFusionDeadZonesAt1000": [
+        "MIRROR_GROWTH_ORIENTATION",
+        "MIRROR_LIFE_DIRECTION",
+        "MIRROR_STRUCTURE_PATTERN"
+      ]
+    }
+  }
+}

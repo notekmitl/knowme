@@ -1,0 +1,41 @@
+{
+  "beforeV1": {
+    "paragraphCount": 12,
+    "evidenceCount": 66,
+    "uniquePatternsReferenced": 12,
+    "uniquePatternsCoverage": 12,
+    "uniqueFindingsReferenced": 7,
+    "confidence": 0.6312265172371032
+  },
+  "afterV2": {
+    "paragraphCount": 12,
+    "evidenceCount": 66,
+    "uniquePatternsReferenced": 12,
+    "uniquePatternsCoverage": 15,
+    "uniqueFindingsReferenced": 6,
+    "confidence": 0.6110618724578373,
+    "interactionPlanCount": 2,
+    "insightDensityScore": 1.4166666666666667
+  },
+  "interactionExamples": [
+    {
+      "mode": "decision",
+      "type": "tension",
+      "theme": "analysis_vs_action",
+      "patterns": [
+        "analytical_thinker",
+        "decisive_actor"
+      ]
+    },
+    {
+      "mode": "decision",
+      "type": "compressed",
+      "theme": "family_theme_coverage_pattern",
+      "patterns": [
+        "constructive_builder",
+        "guiding_teacher",
+        "structured_builder_thinker"
+      ]
+    }
+  ]
+}

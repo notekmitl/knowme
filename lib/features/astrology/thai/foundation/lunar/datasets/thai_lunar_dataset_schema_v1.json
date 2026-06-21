@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "knowme://thai-astrology/lunar/dataset-schema/v1",
+  "title": "Thai Lunar Dataset Schema V1",
+  "description": "Schema specification for thai_lunar_1900_2100.json. NO DATA ROWS — populate only from licensed source.",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "datasetVersion",
+    "infrastructureVersion",
+    "primarySource",
+    "domainStandard",
+    "coverage",
+    "fieldDefinitions",
+    "days"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "type": "integer",
+      "const": 1
+    },
+    "datasetVersion": {
+      "type": "string",
+      "pattern": "^[0-9]{4}\\.[0-9]{2}\\.[0-9]+$"
+    },
+    "infrastructureVersion": {
+      "type": "string"
+    },
+    "primarySource": {
+      "type": "object",
+      "required": ["id", "name", "licenseRef"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "edition": { "type": "string" },
+        "licenseRef": {
+          "type": "string",
+          "description": "Path to license document in repo or legal vault"
+        }
+      }
+    },
+    "domainStandard": {
+      "type": "string",
+      "const": "phrommachat-seven-number-v1.1"
+    },
+    "coverage": {
+      "type": "object",
+      "required": ["start", "end", "timezone"],
+      "properties": {
+        "start": { "type": "string", "format": "date" },
+        "end": { "type": "string", "format": "date" },
+        "timezone": { "type": "string", "const": "Asia/Bangkok" }
+      }
+    },
+    "fieldDefinitions": {
+      "type": "object",
+      "required": ["wd", "lm", "zy", "d15", "ph", "i8"]
+    },
+    "recordCount": { "type": "integer", "minimum": 0 },
+    "checksumSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "days": {
+      "type": "object",
+      "description": "Map of YYYY-MM-DD to compact day record",
+      "additionalProperties": {
+        "$ref": "#/$defs/dayRecord"
+      }
+    }
+  },
+  "$defs": {
+    "dayRecord": {
+      "type": "object",
+      "required": ["wd", "lm", "zy", "d15", "ph", "i8"],
+      "properties": {
+        "wd": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 7,
+          "description": "Thai weekday อาทิตย์=1 … เสาร์=7"
+        },
+        "lm": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 12,
+          "description": "Lunar month ธันวา=1 per พรหมชาติ"
+        },
+        "zy": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 12,
+          "description": "Zodiac year ชวด=1 … กุน=12 after ขึ้น 1 ค่ำ เดือน 5"
+        },
+        "d15": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 15,
+          "description": "Waxing day number (ค่ำ)"
+        },
+        "ph": {
+          "type": "string",
+          "enum": ["w", "x"],
+          "description": "w=waning(แรม), x=waxing(ขึ้น)"
+        },
+        "i8": {
+          "type": "boolean",
+          "description": "True if date falls in intercalary month 8 (เดือน 8 สองหน)"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "examples": [
+    {
+      "schemaVersion": 1,
+      "datasetVersion": "2026.06.0",
+      "infrastructureVersion": "v1.2",
+      "primarySource": {
+        "id": "kasem-bannakij-150",
+        "name": "ปฏิทิน 150 ปี เขษมบรรณกิจ",
+        "edition": "EXAMPLE_ONLY",
+        "licenseRef": "docs/legal/TBD"
+      },
+      "domainStandard": "phrommachat-seven-number-v1.1",
+      "coverage": {
+        "start": "1900-01-01",
+        "end": "2100-12-31",
+        "timezone": "Asia/Bangkok"
+      },
+      "fieldDefinitions": {
+        "wd": "weekdayNumber",
+        "lm": "lunarMonthNumber",
+        "zy": "zodiacYearIndex",
+        "d15": "waxingDay",
+        "ph": "phase",
+        "i8": "intercalaryMonth8"
+      },
+      "recordCount": 0,
+      "checksumSha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "days": {}
+    }
+  ]
+}

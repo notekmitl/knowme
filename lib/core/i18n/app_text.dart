@@ -23,6 +23,48 @@ class AppText {
           "Choose a test or lens you are curious about — at your own pace.",
       "th": "เลือกแบบทดสอบหรือมุมมองที่คุณสนใจได้ตามใจ",
     },
+    "home_hub_mirror_families_line": {
+      "en":
+          "Astrology and personality tests are different mirrors — explore each at your own pace.",
+      "th":
+          "โหราและแบบทดสอบเป็นกระจกคนละแบบ — ลองสำรวจทีละมุมตามใจคุณ",
+    },
+    "home_discovery_astrology_section_desc": {
+      "en":
+          "Symbolic tendencies from your birth chart — reflection, not prediction.",
+      "th":
+          "แนวโน้มและภาพเชิงสัญลักษณ์จากดวงกำเนิด — สะท้อน ไม่ใช่ทำนาย",
+    },
+    "home_discovery_tests_section_desc": {
+      "en":
+          "Patterns from tests you have completed — reflection, not a fixed label.",
+      "th":
+          "รูปแบบที่คุณมักแสดงออกจากแบบทดสอบที่ทำแล้ว — สะท้อน ไม่ใช่ป้ายกำกับถาวร",
+    },
+    "home_big_five_discovery_body": {
+      "en":
+          "A behavioral lens — one of three primary inputs for your Personality Mirror.",
+      "th":
+          "มุมพฤติกรรมจากแบบทดสอบ — หนึ่งในมุมหลักของกระจกบุคลิกภาพ",
+    },
+    "cross_mirror_bridge_astrology_to_personality_body": {
+      "en":
+          "Curious how your completed tests reflect you? Explore your Personality Mirror.",
+      "th": "อยากดูว่าแบบทดสอบสะท้อนอะไรบ้าง? สำรวจกระจกบุคลิกภาพ",
+    },
+    "cross_mirror_bridge_astrology_to_personality_cta": {
+      "en": "Explore Personality Mirror",
+      "th": "สำรวจกระจกบุคลิกภาพ",
+    },
+    "cross_mirror_bridge_personality_to_astrology_body": {
+      "en":
+          "Curious what your chart reflects symbolically? Explore Astrology Fusion.",
+      "th": "อยากดูว่าดวงสะท้อนแนวโน้มอะไรบ้าง? สำรวจมุมมองจากโหรา",
+    },
+    "cross_mirror_bridge_personality_to_astrology_cta": {
+      "en": "Explore astrology lens",
+      "th": "สำรวจมุมมองจากโหรา",
+    },
     "home_journey_astro_body": {
       "en":
           "Your natal chart can be a gentle mirror — explore it when you feel curious.",
@@ -102,6 +144,18 @@ class AppText {
     "home_explore_all_tests": {
       "en": "Explore all tests",
       "th": "สำรวจแบบทดสอบทั้งหมด",
+    },
+    "home_discovery_tests_title": {
+      "en": "From personality tests",
+      "th": "มุมมองจากแบบทดสอบ",
+    },
+    "home_discovery_overview_title": {
+      "en": "Overview from many lenses",
+      "th": "ภาพรวมจากหลายมุม",
+    },
+    "home_discovery_mbti_summary_title": {
+      "en": "MBTI Summary",
+      "th": "MBTI Summary",
     },
 
     "fusion_v11_title": {
@@ -2375,6 +2429,657 @@ class AppText {
     "bigfive_accurate": {
       "en": "In-Depth Personality Test",
       "th": "แบบทดสอบบุคลิกภาพแบบละเอียด",
+    },
+
+    /// =========================
+    /// BIG FIVE RESULT V1
+    /// =========================
+    "big_five_test_title": {
+      "en": "Big Five",
+      "th": "Big Five",
+    },
+    "big_five_test_question_progress": {
+      "en": "Question {current} / {total}",
+      "th": "คำถาม {current} / {total}",
+    },
+    "big_five_test_back": {
+      "en": "Back",
+      "th": "ย้อนกลับ",
+    },
+    "big_five_test_next": {
+      "en": "Next",
+      "th": "ถัดไป",
+    },
+    "big_five_test_see_result": {
+      "en": "See result",
+      "th": "ดูผล",
+    },
+    "big_five_test_empty": {
+      "en": "No questions available",
+      "th": "ยังไม่มีคำถามในแบบทดสอบนี้",
+    },
+
+    "big_five_result_title": {
+      "en": "Your behavioral mirror",
+      "th": "ภาพสะท้อนพฤติกรรมของคุณ",
+    },
+    "big_five_result_hero_title": {
+      "en": "How you may show up day to day",
+      "th": "แนวโน้มที่อาจปรากฏในชีวิตประจำวัน",
+    },
+    "big_five_result_traits_title": {
+      "en": "Five behavioral lenses",
+      "th": "ห้ามิติของแนวโน้มพฤติกรรม",
+    },
+    "big_five_trait_openness_name": {
+      "en": "Openness & imagination",
+      "th": "ความเปิดรับและจินตนาการ",
+    },
+    "big_five_trait_conscientiousness_name": {
+      "en": "Discipline & consistency",
+      "th": "วินัยและความสม่ำเสมอ",
+    },
+    "big_five_trait_extraversion_name": {
+      "en": "Social energy",
+      "th": "พลังงานทางสังคม",
+    },
+    "big_five_trait_agreeableness_name": {
+      "en": "Warmth in relationships",
+      "th": "ความอ่อนโยนในมิตรสัมพันธ์",
+    },
+    "big_five_trait_neuroticism_name": {
+      "en": "Sensitivity to stress",
+      "th": "ความไวต่อความเครียด",
+    },
+    "big_five_band_emerging": {
+      "en": "Gentle tendency",
+      "th": "แนวโน้มอ่อน",
+    },
+    "big_five_band_moderate": {
+      "en": "Balanced tendency",
+      "th": "แนวโน้มสมดุล",
+    },
+    "big_five_band_strong": {
+      "en": "Clear tendency",
+      "th": "แนวโน้มชัด",
+    },
+    "big_five_trait_reflection_fallback": {
+      "en": "This dimension may still be forming in your reflection.",
+      "th": "มิตินี้อาจยังค่อย ๆ ปรากฏในภาพสะท้อนของคุณ",
+    },
+    "big_five_hero_balanced": {
+      "en":
+          "Several behavioral tendencies may appear in balance — you might move between focus, curiosity, and rest without one side dominating every day.",
+      "th":
+          "หลายแนวโน้มพฤติกรรมอาจอยู่ในจุดสมดุล — คุณอาจสลับระหว่างการโฟกัส ความอยากรู้ และการพักผ่อน โดยไม่มีด้านใดครอบงำตลอดเวลา",
+    },
+    "big_five_hero_support_balanced": {
+      "en":
+          "This is a starting mirror — patterns may feel clearer as you explore more.",
+      "th": "นี่เป็นเพียงภาพเริ่มต้น — รูปแบบอาจชัดขึ้นเมื่อคุณสำรวจเพิ่ม",
+    },
+    "big_five_hero_social": {
+      "en":
+          "You may often draw energy from people and interaction — social moments might help you feel more alive and connected.",
+      "th":
+          "คุณอาจดึงพลังจากผู้คนและการปฏิสัมพันธ์บ่อยครั้ง — ช่วงเวลาที่ได้พบปะอาจทำให้รู้สึกมีชีวิตชีวาและเชื่อมโยงมากขึ้น",
+    },
+    "big_five_hero_support_social": {
+      "en": "Quiet time may still matter — it can help you recharge between social waves.",
+      "th": "เวลาสงบก็ยังมีความหมาย — อาจช่วยเติมพลังระหว่างช่วงที่คุณเข้าสังคม",
+    },
+    "big_five_hero_steady": {
+      "en":
+          "Structure and follow-through may feel natural to you — you might prefer knowing the plan before moving forward.",
+      "th":
+          "โครงสร้างและการทำตามแผนอาจรู้สึกเป็นธรรมชาติ — คุณอาจชอบเห็นภาพชัดก่อนลงมือ",
+    },
+    "big_five_hero_support_steady": {
+      "en": "Flexibility can still appear when the situation asks for a lighter touch.",
+      "th": "ความยืดหยุ่นก็อาจโผล่มาเมื่อสถานการณ์ต้องการจังหวะที่เบากว่า",
+    },
+    "big_five_hero_curious": {
+      "en":
+          "New ideas and experiences may pull your attention — you might enjoy exploring before settling on one path.",
+      "th":
+          "ไอเดียและประสบการณ์ใหม่อาจดึงดูดความสนใจ — คุณอาจชอบสำรวจก่อนตัดสินใจเส้นทางเดียว",
+    },
+    "big_five_hero_support_curious": {
+      "en": "Grounding routines may help when curiosity spreads in many directions.",
+      "th": "กิจวัตรที่มั่นคงอาจช่วยเมื่อความอยากรู้กระจายไปหลายทาง",
+    },
+    "big_five_hero_curious_warm": {
+      "en":
+          "You may combine openness with care for others — curious about people as much as ideas.",
+      "th":
+          "คุณอาจผสานความเปิดรับกับการใส่ใจผู้อื่น — อยากรู้อยากเห็นทั้งคนและไอเดีย",
+    },
+    "big_five_hero_support_curious_warm": {
+      "en": "Boundaries may help you stay energized while staying connected.",
+      "th": "ขอบเขตที่ชัดอาจช่วยให้มีพลังโดยยังรักษาความใกล้ชิด",
+    },
+    "big_five_hero_drive": {
+      "en":
+          "Drive and outward energy may show up together — you might push goals forward while staying visible to others.",
+      "th":
+          "แรงขับเคลื่อนและพลังภายนอกอาจมาคู่กัน — คุณอาจผลักเป้าหมายไปข้างหน้าพร้อมเปิดเผยตัวตนกับผู้อื่น",
+    },
+    "big_five_hero_support_drive": {
+      "en": "Pause moments may protect long-term stamina, not slow you down.",
+      "th": "ช่วงหยุดพักอาจช่วยรักษาพลังระยะยาว ไม่ใช่ทำให้ช้าลง",
+    },
+    "big_five_hero_grounded": {
+      "en":
+          "You may recover from stress with relative steadiness — emotional waves might pass without pulling you off course for long.",
+      "th":
+          "คุณอาจฟื้นจากความเครียดได้ค่อนข้างมั่นคง — คลื่นอารมณ์อาจผ่านไปโดยไม่พาคุณหลุดจากทิศทางนาน",
+    },
+    "big_five_hero_support_grounded": {
+      "en": "Naming feelings early can still deepen self-understanding.",
+      "th": "การตั้งชื่อความรู้สึกตั้งแต่เนิ่น ๆ อาจช่วยเข้าใจตัวเองลึกขึ้น",
+    },
+    "big_five_pattern_title_quick": {
+      "en": "A light pattern",
+      "th": "รูปแบบเบา ๆ",
+    },
+    "big_five_pattern_title_standard": {
+      "en": "Pattern insight",
+      "th": "มุมมองเชิงรูปแบบ",
+    },
+    "big_five_pattern_title_deep": {
+      "en": "Pattern synthesis",
+      "th": "ภาพรวมเชิงรูปแบบ",
+    },
+    "big_five_pattern_quick_balanced": {
+      "en": "No single trait may stand out yet — the picture can sharpen with more questions.",
+      "th": "ยังไม่มีมิติใดเด่นชัด — ภาพอาจคมขึ้นเมื่อมีคำถามเพิ่ม",
+    },
+    "big_five_pattern_quick_social": {
+      "en": "Social energy may be the first thread you notice in this quick mirror.",
+      "th": "พลังทางสังคมอาจเป็นเส้นด้ายแรกที่คุณสังเกตได้ในมุมมองสั้นนี้",
+    },
+    "big_five_pattern_quick_steady": {
+      "en": "Discipline may already be visible as a recurring theme.",
+      "th": "วินัยอาจปรากฏเป็นแนวซ้ำ ๆ ที่สังเกตได้แล้ว",
+    },
+    "big_five_pattern_quick_curious": {
+      "en": "Curiosity may be the earliest signal in your behavioral mirror.",
+      "th": "ความอยากรู้อาจเป็นสัญญาณแรกในกระจกพฤติกรรมของคุณ",
+    },
+    "big_five_pattern_quick_curious_warm": {
+      "en": "Warmth and openness may appear together even in this short view.",
+      "th": "ความอบอุ่นและความเปิดรับอาจมาคู่กันแม้ในภาพสั้นนี้",
+    },
+    "big_five_pattern_quick_drive": {
+      "en": "Drive and connection may both show early in how you answer.",
+      "th": "แรงขับเคลื่อนและการเชื่อมโยงอาจปรากฏเร็วในคำตอบของคุณ",
+    },
+    "big_five_pattern_quick_grounded": {
+      "en": "Steadiness under pressure may be one of the first themes here.",
+      "th": "ความมั่นคงภายใต้แรงกดดันอาจเป็นหนึ่งในธีมแรกที่เห็น",
+    },
+    "big_five_pattern_standard_general": {
+      "en":
+          "Across traits, you may notice both consistency and flexibility — different situations could call out different sides of you.",
+      "th":
+          "เมื่อมองหลายมิติ คุณอาจเห็นทั้งความสม่ำเสมอและความยืดหยุ่น — สถานการณ์ต่าง ๆ อาจเรียกด้านต่าง ๆ ของคุณออกมา",
+    },
+    "big_five_pattern_standard_builder_explorer": {
+      "en":
+          "Planning and exploration may both feel natural — you might build structure while still leaving room for new paths.",
+      "th":
+          "การวางแผนและการสำรวจอาจรู้สึกเป็นธรรมชาติพร้อมกัน — คุณอาจสร้างโครงสร้างโดยยังเปิดทางใหม่ไว้",
+    },
+    "big_five_pattern_standard_driver_connector": {
+      "en":
+          "Goal focus and people energy may reinforce each other — momentum might grow when others are involved.",
+      "th":
+          "การมุ่งเป้าหมายและพลังจากผู้คนอาจเสริมกัน — แรงขับเคลื่อนอาจมากขึ้นเมื่อมีคนร่วมด้วย",
+    },
+    "big_five_pattern_standard_open_calm": {
+      "en":
+          "Openness may pair with emotional steadiness — you could explore widely while keeping an even keel.",
+      "th":
+          "ความเปิดรับอาจมาคู่ความสงบทางอารมณ์ — คุณอาจสำรวจกว้างโดยยังรักษาจังหวะที่มั่นคง",
+    },
+    "big_five_pattern_standard_quiet_discipline": {
+      "en":
+          "Quiet focus and discipline may define much of your day-to-day rhythm.",
+      "th": "การโฟกัสอย่างเงียบและวินัยอาจกำหนดจังหวะชีวิตประจำวันของคุณ",
+    },
+    "big_five_pattern_deep_general": {
+      "en":
+          "With more data, a fuller behavioral portrait may emerge — still a mirror, not a verdict.",
+      "th":
+          "เมื่อมีข้อมูลมากขึ้น ภาพพฤติกรรมที่สมบูรณ์ขึ้นอาจปรากฏ — ยังคงเป็นกระจก ไม่ใช่คำตัดสิน",
+    },
+    "big_five_pattern_deep_builder_explorer": {
+      "en":
+          "You may be someone who plans carefully yet keeps curiosity alive — structure and wonder can coexist in your habits.",
+      "th":
+          "คุณอาจเป็นคนที่วางแผนรอบคอบแต่ยังคงความอยากรู้ — โครงสร้างกับความสงสัยอาจอยู่ร่วมกันในพฤติกรรมประจำวัน",
+    },
+    "big_five_pattern_deep_driver_connector": {
+      "en":
+          "Ambition and relational energy may weave together — progress might feel most meaningful when shared or visible.",
+      "th":
+          "ความทะเยอทะยานและพลังในมิตรสัมพันธ์อาจถักทอเข้าด้วยกัน — ความก้าวหน้าอาจมีความหมายเมื่อได้แบ่งปันหรือเห็นชัด",
+    },
+    "big_five_pattern_deep_open_calm": {
+      "en":
+          "A wide inner world with steady nerves may be your signature — ideas can flow without constant turbulence.",
+      "th":
+          "โลกภายในที่กว้างคู่ความนิ่งทางอารมณ์อาจเป็นลายเซ็นของคุณ — ไอเดียไหลได้โดยไม่ปั่นป่วนตลอด",
+    },
+    "big_five_pattern_deep_quiet_discipline": {
+      "en":
+          "Depth may come from quiet persistence — you might prefer fewer distractions and steady follow-through.",
+      "th":
+          "ความลึกอาจมาจากความต่อเนื่องอย่างเงียบ ๆ — คุณอาจชอบสิ่งรบกวนน้อยลงและทำจนจบ",
+    },
+    "big_five_depth_title": {
+      "en": "Exploration depth",
+      "th": "ระดับความลึกของการสำรวจ",
+    },
+    "big_five_depth_subtitle": {
+      "en": "More questions can add nuance — only if you want to continue.",
+      "th": "คำถามเพิ่มอาจให้รายละเอียดมากขึ้น — หากคุณอยากสำรวจต่อ",
+    },
+    "big_five_depth_hint_quick": {
+      "en": "This mirror draws on a quick lens (10 questions). You may explore deeper tiers when curious.",
+      "th": "ภาพนี้อ้างอิงจากมุมสั้น (10 คำถาม) คุณอาจสำรวจระดับที่ลึกขึ้นได้เมื่ออยากรู้เพิ่ม",
+    },
+    "big_five_depth_hint_standard": {
+      "en": "This reflection uses the standard lens (44 questions). A deeper tier remains optional.",
+      "th": "ภาพสะท้อนนี้ใช้มุมมาตรฐาน (44 คำถาม) ระดับลึกยังเป็นทางเลือก",
+    },
+    "big_five_depth_hint_deep": {
+      "en": "This portrait uses the deep lens (80 questions) — the fullest behavioral mirror in this flow.",
+      "th": "ภาพนี้ใช้มุมลึก (80 คำถาม) — กระจกพฤติกรรมที่สมบูรณ์ที่สุดในเส้นทางนี้",
+    },
+    "big_five_timeline_quick": {
+      "en": "Quick",
+      "th": "มุมสั้น",
+    },
+    "big_five_timeline_standard": {
+      "en": "Standard",
+      "th": "มาตรฐาน",
+    },
+    "big_five_timeline_deep": {
+      "en": "Deep",
+      "th": "ลึก",
+    },
+    "big_five_continue_standard": {
+      "en": "Explore the standard lens",
+      "th": "สำรวจมุมมาตรฐาน",
+    },
+    "big_five_continue_deep": {
+      "en": "Explore the deep lens",
+      "th": "สำรวจมุมลึก",
+    },
+    "big_five_result_disclosure": {
+      "en":
+          "This is reflective interpretation based on {count} questions — not a diagnosis or fixed personality label.",
+      "th":
+          "นี่คือการตีความเชิงสะท้อนจาก {count} คำถาม — ไม่ใช่การวินิจฉัยหรือป้ายกำกับบุคลิกภาพถาวร",
+    },
+
+    /// =========================
+    /// PERSONALITY MIRROR NARRATIVE V1
+    /// =========================
+    "personality_mirror_disclosure": {
+      "en":
+          "This is reflective interpretation from personality lenses — not a diagnosis or fixed personality label.",
+      "th":
+          "นี่คือการตีความเชิงสะท้อนจากมุมแบบทดสอบบุคลิกภาพ — ไม่ใช่การวินิจฉัยหรือป้ายกำกับบุคลิกภาพถาวร",
+    },
+    "personality_mirror_depth_hint": {
+      "en": "Based on {count} lens perspectives completed so far.",
+      "th": "จากมุมมองแบบทดสอบที่ทำแล้ว {count} มุม ณ ตอนนี้",
+    },
+    "personality_mirror_hero_opener_low": {
+      "en":
+          "This is an early personality snapshot from one lens — a starting point, not the full picture.",
+      "th":
+          "นี่คือภาพเบื้องต้นจากมุมเดียว — เป็นจุดเริ่มต้น ไม่ใช่ภาพทั้งหมด",
+    },
+    "personality_mirror_hero_opener_medium": {
+      "en":
+          "A clearer picture is beginning to form from the personality lenses you have explored.",
+      "th": "ภาพที่เริ่มชัดขึ้นจากมุมแบบทดสอบที่คุณสำรวจแล้ว",
+    },
+    "personality_mirror_hero_opener_high": {
+      "en":
+          "Several personality lenses are reflecting similar tendencies in how you tend to show up.",
+      "th": "หลายมุมจากแบบทดสอบสะท้อนแนวโน้มคล้ายกันในวิธีที่คุณมักแสดงออก",
+    },
+    "personality_mirror_hero_opener_very_high": {
+      "en":
+          "Multiple personality lenses align on several themes — a coherent reflection is emerging.",
+      "th":
+          "หลายมุมจากแบบทดสอบสอดคล้องกันหลายธีม — ภาพสะท้อนที่เชื่อมกันกำลังปรากฏ",
+    },
+    "personality_mirror_hero_nuance_perspective": {
+      "en":
+          "You may also show different shades in different contexts — both can be part of how you navigate life.",
+      "th":
+          "คุณอาจแสดงออกต่างกันในบริบทต่างๆ — ทั้งสองด้านอาจเป็นส่วนหนึ่งของวิธีที่คุณใช้ชีวิต",
+    },
+    "personality_mirror_hero_agreement_fallback": {
+      "en": "Several lenses reflect a tendency toward {theme}.",
+      "th": "หลายมุมสะท้อนแนวโน้มด้าน{theme}",
+    },
+    "personality_mirror_hero_agreement_structured": {
+      "en":
+          "Across your tests, a tendency toward structure and planning before action comes through.",
+      "th":
+          "จากหลายแบบทดสอบ มีแนวโน้มที่คุณมักชอบความเป็นระเบียบและวางแผนก่อนลงมือ",
+    },
+    "personality_mirror_hero_agreement_responsible": {
+      "en":
+          "Your results suggest you often honor commitments and follow through reliably.",
+      "th": "ผลลัพธ์สะท้อนว่าคุณมักรักษาสัญญาและทำตามสิ่งที่ตกลงไว้อย่างสม่ำเสมอ",
+    },
+    "personality_mirror_hero_agreement_supportive": {
+      "en":
+          "Multiple lenses point to warmth and care in how you relate to others.",
+      "th": "หลายมุมชี้ว่าคุณมักแสดงความอ่อนโยนและใส่ใจในการเข้าหาผู้อื่น",
+    },
+    "personality_mirror_pattern_body_fallback": {
+      "en":
+          "Several personality lenses independently reflect {theme} — a recurring tendency worth noticing.",
+      "th":
+          "หลายมุมสะท้อน{theme}อย่างเป็นอิสระ — เป็นแนวโน้มที่ปรากฏซ้ำและน่าสังเกต",
+    },
+    "personality_mirror_pattern_title_structured": {
+      "en": "Structure and planning",
+      "th": "ความเป็นระเบียบและการวางแผน",
+    },
+    "personality_mirror_pattern_body_structured": {
+      "en":
+          "You may feel more comfortable when goals become clear steps you can act on.",
+      "th":
+          "คุณอาจรู้สึกสบายใจเมื่อเป้าหมายกลายเป็นขั้นตอนที่ชัดและลงมือทำได้",
+    },
+    "personality_mirror_pattern_title_responsible": {
+      "en": "Reliability and follow-through",
+      "th": "ความรับผิดชอบและการทำตามสัญญา",
+    },
+    "personality_mirror_pattern_body_responsible": {
+      "en":
+          "You tend to take commitments seriously and see tasks through to completion.",
+      "th": "คุณมักให้ความสำคัญกับสิ่งที่ตกลงและพยายามทำให้เสร็จ",
+    },
+    "personality_mirror_pattern_title_supportive": {
+      "en": "Warmth toward others",
+      "th": "ความอ่อนโยนต่อผู้อื่น",
+    },
+    "personality_mirror_pattern_body_supportive": {
+      "en":
+          "You may naturally offer care and encouragement when people around you need it.",
+      "th":
+          "คุณอาจให้ความใส่ใจและกำลังใจกับคนรอบข้างได้อย่างเป็นธรรมชาติ",
+    },
+    "personality_mirror_pattern_title_diplomatic": {
+      "en": "Tact in relationships",
+      "th": "ความยืดหยุ่นในการเข้าหาผู้อื่น",
+    },
+    "personality_mirror_pattern_body_diplomatic": {
+      "en":
+          "You may navigate differences with balance and seek harmony in group dynamics.",
+      "th":
+          "คุณอาจจัดการความต่างด้วยความสมดุลและแสวงหาความลงตัวในบรรยากาศกลุ่ม",
+    },
+    "personality_mirror_pattern_family_title_structure": {
+      "en": "Shared structure theme",
+      "th": "ธีมความเป็นระเบียบร่วม",
+    },
+    "personality_mirror_pattern_family_body_structure": {
+      "en":
+          "Different tests highlight structure in how you organize thought and action.",
+      "th":
+          "แบบทดสอบต่างๆ เน้นแนวโน้มด้านความเป็นระเบียบในความคิดและการลงมือ",
+    },
+    "personality_mirror_pattern_category_title_thinkingStyle": {
+      "en": "Thinking style alignment",
+      "th": "ความสอดคล้องด้านวิธีคิด",
+    },
+    "personality_mirror_pattern_category_body_thinkingStyle": {
+      "en":
+          "Your personality lenses agree on how you tend to process and decide.",
+      "th": "มุมแบบทดสอบสอดคล้องกันในวิธีที่คุณมักรับและตัดสินใจ",
+    },
+    "personality_mirror_pattern_category_title_coreSelf": {
+      "en": "Core self alignment",
+      "th": "ความสอดคล้องด้านตัวตน",
+    },
+    "personality_mirror_pattern_category_body_coreSelf": {
+      "en":
+          "Several lenses reflect similar themes in how you express your inner orientation.",
+      "th":
+          "หลายมุมสะท้อนธีมคล้ายกันในวิธีที่คุณแสดงทิศทางภายใน",
+    },
+    "personality_mirror_pattern_category_title_relationships": {
+      "en": "Relationship alignment",
+      "th": "ความสอดคล้องด้านความสัมพันธ์",
+    },
+    "personality_mirror_pattern_category_body_relationships": {
+      "en":
+          "Your tests align on how you tend to connect and relate to others.",
+      "th":
+          "แบบทดสอบสอดคล้องกันในวิธีที่คุณมักเชื่อมต่อและเข้าหาผู้อื่น",
+    },
+    "personality_mirror_perspective_title_expression_reflection": {
+      "en": "Expression and reflection",
+      "th": "การแสดงออกและการเก็บตัว",
+    },
+    "personality_mirror_perspective_body_expression_reflection": {
+      "en":
+          "You may open up when you feel safe, while other contexts invite more inward reflection — neither is wrong.",
+      "th":
+          "คุณอาจเปิดรับเมื่อรู้สึกปลอดภัย ในขณะที่บริบทอื่นอาจชวนให้เก็บพลังงานไว้ก่อน — ไม่มีฝ่ายไหนผิด",
+    },
+    "personality_mirror_perspective_title_structure_adaptation": {
+      "en": "Structure and flexibility",
+      "th": "ความเป็นระเบียบและความยืดหยุ่น",
+    },
+    "personality_mirror_perspective_body_structure_adaptation": {
+      "en":
+          "You may prefer clear plans in some areas while staying adaptable in others.",
+      "th":
+          "คุณอาจชอบแผนที่ชัดในบางเรื่อง แต่ยืดหยุ่นในอีกบางด้าน",
+    },
+    "personality_mirror_perspective_title_general": {
+      "en": "Different shades",
+      "th": "มุมมองที่ต่างกัน",
+    },
+    "personality_mirror_perspective_body_general": {
+      "en":
+          "Your lenses highlight different facets — together they suggest nuance rather than a single label.",
+      "th":
+          "แต่ละมุมเน้นด้านที่ต่างกัน — รวมกันแล้วชี้ความซับซ้อนมากกว่าป้ายเดียว",
+    },
+    "personality_mirror_contribution_mbti": {
+      "en": "MBTI — included in this reflection",
+      "th": "MBTI — รวมในภาพสะท้อนนี้",
+    },
+    "personality_mirror_contribution_big_five": {
+      "en": "Big Five — included in this reflection",
+      "th": "Big Five — รวมในภาพสะท้อนนี้",
+    },
+    "personality_mirror_contribution_eq_partial": {
+      "en": "EQ — {completed} of {total} modules explored",
+      "th": "EQ — สำรวจแล้ว {completed} จาก {total} โมดูล",
+    },
+    "personality_mirror_contribution_eq_full": {
+      "en": "EQ — included across modules",
+      "th": "EQ — รวมจากทุกโมดูล",
+    },
+    "personality_mirror_lens_mbti": {
+      "en": "MBTI",
+      "th": "MBTI",
+    },
+    "personality_mirror_lens_big_five": {
+      "en": "Big Five",
+      "th": "Big Five",
+    },
+    "personality_mirror_lens_eq": {
+      "en": "EQ",
+      "th": "EQ",
+    },
+    "personality_mirror_lenses_mbti_big_five": {
+      "en": "Reflected from MBTI and Big Five",
+      "th": "สะท้อนจาก MBTI และ Big Five",
+    },
+    "personality_mirror_lenses_big_five_eq": {
+      "en": "Reflected from Big Five and EQ",
+      "th": "สะท้อนจาก Big Five และ EQ",
+    },
+    "personality_mirror_lenses_mbti_eq": {
+      "en": "Reflected from MBTI and EQ",
+      "th": "สะท้อนจาก MBTI และ EQ",
+    },
+    "personality_mirror_lenses_mbti_big_five_eq": {
+      "en": "Reflected from MBTI, Big Five, and EQ",
+      "th": "สะท้อนจาก MBTI, Big Five และ EQ",
+    },
+    "personality_mirror_lenses_joined": {
+      "en": "Reflected from {lenses}",
+      "th": "สะท้อนจาก {lenses}",
+    },
+    "personality_mirror_theme_structured": {
+      "en": "structure",
+      "th": "ความเป็นระเบียบ",
+    },
+    "personality_mirror_theme_responsible": {
+      "en": "responsibility",
+      "th": "ความรับผิดชอบ",
+    },
+    "personality_mirror_theme_supportive": {
+      "en": "supportiveness",
+      "th": "ความอ่อนโยน",
+    },
+    "personality_mirror_theme_diplomatic": {
+      "en": "tact",
+      "th": "ความยืดหยุ่นทางสังคม",
+    },
+    "personality_mirror_theme_expressive": {
+      "en": "expressiveness",
+      "th": "การแสดงออก",
+    },
+    "personality_mirror_theme_reserved": {
+      "en": "reserve",
+      "th": "การเก็บตัว",
+    },
+    "personality_mirror_theme_intuitive": {
+      "en": "intuition",
+      "th": "สัญชาตญาณ",
+    },
+    "personality_mirror_theme_analytical": {
+      "en": "analysis",
+      "th": "การวิเคราะห์",
+    },
+    "personality_mirror_theme_flexible": {
+      "en": "flexibility",
+      "th": "ความยืดหยุ่น",
+    },
+    "personality_mirror_theme_responsive": {
+      "en": "emotional responsiveness",
+      "th": "การตอบสนองทางอารมณ์",
+    },
+    "personality_mirror_theme_calm": {
+      "en": "calm",
+      "th": "ความสงบ",
+    },
+    "personality_mirror_theme_reliable": {
+      "en": "reliability",
+      "th": "ความน่าเชื่อถือ",
+    },
+    "personality_mirror_theme_adaptable": {
+      "en": "adaptability",
+      "th": "การปรับตัว",
+    },
+    "personality_mirror_theme_grounded": {
+      "en": "groundedness",
+      "th": "ความมั่นคง",
+    },
+    "personality_mirror_theme_creative": {
+      "en": "creativity",
+      "th": "ความคิดสร้างสรรค์",
+    },
+
+    /// =========================
+    /// PERSONALITY MIRROR UI V1 (PF-7)
+    /// =========================
+    "personality_mirror_title": {
+      "en": "Personality Mirror",
+      "th": "กระจกบุคลิกภาพ",
+    },
+    "personality_mirror_gate_title": {
+      "en": "Not enough lenses yet",
+      "th": "ยังมีมุมมองไม่พอ",
+    },
+    "personality_mirror_gate_body": {
+      "en":
+          "Complete at least two personality lenses — MBTI, Big Five, or EQ — to open your mirror reflection.",
+      "th":
+          "ทำแบบทดสอบอย่างน้อยสองมุม — MBTI, Big Five หรือ EQ — เพื่อเปิดภาพสะท้อนบุคลิกภาพ",
+    },
+    "personality_mirror_gate_missing": {
+      "en": "Still missing: {missing}",
+      "th": "ยังขาด: {missing}",
+    },
+    "personality_mirror_gate_guest": {
+      "en": "Sign in and complete personality tests to unlock this reflection.",
+      "th": "เข้าสู่ระบบและทำแบบทดสอบบุคลิกภาพเพื่อปลดล็อกภาพสะท้อนนี้",
+    },
+    "personality_mirror_gate_back": {
+      "en": "Go back",
+      "th": "กลับ",
+    },
+    "personality_mirror_result_hero_title": {
+      "en": "Your reflection",
+      "th": "ภาพสะท้อนของคุณ",
+    },
+    "personality_mirror_result_contributions_title": {
+      "en": "Lens contributions",
+      "th": "มุมที่รวมในภาพนี้",
+    },
+    "personality_mirror_result_patterns_title": {
+      "en": "Strong patterns",
+      "th": "แพทเทิร์นที่ชัด",
+    },
+    "personality_mirror_result_perspectives_title": {
+      "en": "Different perspectives",
+      "th": "มุมมองที่ต่างกัน",
+    },
+    "personality_mirror_result_partial_hint": {
+      "en":
+          "Add another primary lens (MBTI, Big Five, or EQ) to deepen this reflection.",
+      "th":
+          "เพิ่มมุมหลักอีกหนึ่ง (MBTI, Big Five หรือ EQ) เพื่อให้ภาพสะท้อนลึกขึ้น",
+    },
+    "personality_mirror_home_title": {
+      "en": "Personality Mirror",
+      "th": "กระจกบุคลิกภาพ",
+    },
+    "personality_mirror_home_subtitle_locked": {
+      "en":
+          "Explore at least two personality lenses — MBTI, Big Five, or EQ — to begin your mirror reflection.",
+      "th":
+          "สำรวจอย่างน้อยสองมุม — MBTI, Big Five หรือ EQ — เพื่อเริ่มภาพสะท้อนบุคลิกภาพ",
+    },
+    "personality_mirror_home_subtitle_partial": {
+      "en":
+          "A reflection is taking shape from the lenses you have explored — open to see what emerges.",
+      "th":
+          "ภาพสะท้อนเริ่มก่อตัวจากมุมที่คุณสำรวจแล้ว — เปิดดูสิ่งที่ค่อยๆ ชัดขึ้น",
+    },
+    "personality_mirror_home_subtitle_ready": {
+      "en":
+          "All three primary lenses are in view — a fuller personality reflection awaits.",
+      "th":
+          "ครบทั้งสามมุมหลักแล้ว — ภาพสะท้อนบุคลิกภาพที่สมบูรณ์ขึ้นรอให้คุณเปิดดู",
     },
 
     /// =========================

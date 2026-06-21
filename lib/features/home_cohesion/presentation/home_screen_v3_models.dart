@@ -1,0 +1,380 @@
+import 'home_screen_v2_models.dart';
+
+import '../domain/home_profile_completion.dart';
+
+
+
+/// Visual icon family for insight / badge rendering (Home V3.5+).
+
+enum HomeThemeVisualKind {
+
+  autonomy,
+
+  growth,
+
+  adaptability,
+
+  reflection,
+
+  structure,
+
+  relationships,
+
+  expression,
+
+  generic,
+
+}
+
+
+
+/// Astrology hero — Section 1 (Home V3.8 identity statement).
+
+class HomeHeroSectionData {
+
+  const HomeHeroSectionData({
+
+    required this.isAvailable,
+
+    required this.identity,
+
+    required this.supportingReflection,
+
+    required this.emptyHint,
+
+    required this.canOpenFullResult,
+
+    this.showUnlockCta = false,
+
+    this.unlockCtaTitle = '',
+
+    this.unlockCtaSubtitle = '',
+
+    this.unlockProgressLabel = '',
+
+  });
+
+
+
+  final bool isAvailable;
+
+  final String identity;
+
+  final String supportingReflection;
+
+  final String emptyHint;
+
+  final bool canOpenFullResult;
+
+  final bool showUnlockCta;
+
+  final String unlockCtaTitle;
+
+  final String unlockCtaSubtitle;
+
+  final String unlockProgressLabel;
+
+}
+
+
+
+/// Meaning-first insight card — Home V3.8.
+
+class HomeInsightCardData {
+
+  const HomeInsightCardData({
+
+    required this.humanMeaning,
+
+    required this.supportingExplanation,
+
+    required this.visualKind,
+
+  });
+
+
+
+  final String humanMeaning;
+
+  final String supportingExplanation;
+
+  final HomeThemeVisualKind visualKind;
+
+}
+
+
+
+/// KnowMe Signature — Section 2 (Home V3.8).
+
+class HomeKnowMeSignatureSectionData {
+
+  const HomeKnowMeSignatureSectionData({
+
+    required this.themeLabels,
+
+    required this.emptyHint,
+
+    required this.isVisible,
+
+  });
+
+
+
+  final List<String> themeLabels;
+
+  final String emptyHint;
+
+  final bool isVisible;
+
+}
+
+
+
+/// KnowMe insight cards — Section 3 (Home V3.8).
+
+class HomeKnowMeInsightSectionData {
+
+  const HomeKnowMeInsightSectionData({
+
+    required this.cards,
+
+    required this.emptyHint,
+
+    required this.canOpenFullInsight,
+
+  });
+
+
+
+  final List<HomeInsightCardData> cards;
+
+  final String emptyHint;
+
+  final bool canOpenFullInsight;
+
+}
+
+
+
+/// Compact profile — Section 4 (Home V3).
+
+class HomeCompactProfileSectionData {
+
+  const HomeCompactProfileSectionData({
+
+    required this.name,
+
+    required this.birthDate,
+
+    required this.birthPlace,
+
+    required this.completenessLabel,
+
+    required this.completenessRatio,
+
+    required this.isEmpty,
+
+  });
+
+
+
+  final String name;
+
+  final String birthDate;
+
+  final String birthPlace;
+
+  final String completenessLabel;
+
+  final double completenessRatio;
+
+  final bool isEmpty;
+
+}
+
+
+
+/// Narrative preview card — funnel recovery V2.
+class HomeNarrativePreviewSectionData {
+  const HomeNarrativePreviewSectionData({
+    required this.isVisible,
+    required this.previewText,
+    required this.lockedSectionCount,
+    required this.ctaLabel,
+  });
+
+  final bool isVisible;
+  final String previewText;
+  final int lockedSectionCount;
+  final String ctaLabel;
+}
+
+/// Full Home V3.8 emotional product bundle.
+class HomeScreenV3Data {
+
+  const HomeScreenV3Data({
+
+    required this.hero,
+
+    required this.signature,
+
+    required this.insight,
+
+    required this.profile,
+
+    required this.psychologyTests,
+
+    required this.more,
+
+    required this.completion,
+
+    required this.showRecoveryBanner,
+
+    required this.narrativePreview,
+
+  });
+
+
+
+  static HomeScreenV3Data empty() {
+
+    return HomeScreenV3Data(
+
+      hero: const HomeHeroSectionData(
+
+        isAvailable: false,
+
+        identity: '',
+
+        supportingReflection: '',
+
+        emptyHint: '',
+
+        canOpenFullResult: false,
+
+      ),
+
+      signature: const HomeKnowMeSignatureSectionData(
+
+        themeLabels: [],
+
+        emptyHint: '',
+
+        isVisible: false,
+
+      ),
+
+      insight: const HomeKnowMeInsightSectionData(
+
+        cards: [],
+
+        emptyHint: '',
+
+        canOpenFullInsight: false,
+
+      ),
+
+      profile: const HomeCompactProfileSectionData(
+
+        name: '',
+
+        birthDate: '',
+
+        birthPlace: '',
+
+        completenessLabel: '',
+
+        completenessRatio: 0,
+
+        isEmpty: true,
+
+      ),
+
+      psychologyTests: const HomePsychologyTestsSectionData(tests: []),
+
+      more: const HomeMoreSectionData(items: []),
+
+      completion: HomeProfileCompletion.fromCoverage(
+        astrologyComplete: false,
+        coverage: null,
+        narrativeUnlocked: false,
+      ),
+
+      showRecoveryBanner: false,
+
+      narrativePreview: const HomeNarrativePreviewSectionData(
+        isVisible: false,
+        previewText: '',
+        lockedSectionCount: 0,
+        ctaLabel: '',
+      ),
+
+    );
+
+  }
+
+
+
+  final HomeHeroSectionData hero;
+
+  final HomeKnowMeSignatureSectionData signature;
+
+  final HomeKnowMeInsightSectionData insight;
+
+  final HomeCompactProfileSectionData profile;
+
+  final HomePsychologyTestsSectionData psychologyTests;
+
+  final HomeMoreSectionData more;
+
+  final HomeProfileCompletion completion;
+
+  final bool showRecoveryBanner;
+
+  final HomeNarrativePreviewSectionData narrativePreview;
+
+}
+
+
+
+/// Navigation callbacks for Home V3.
+
+class HomeScreenV3Callbacks {
+
+  const HomeScreenV3Callbacks({
+
+    required this.onViewAstrologyResult,
+
+    required this.onViewFullInsight,
+
+    required this.onEditProfile,
+
+    required this.onPsychologyTest,
+
+    required this.onMoreItem,
+
+    required this.onUnlockDeepProfile,
+
+    required this.onContinueDiscovering,
+
+  });
+
+
+
+  final void Function() onViewAstrologyResult;
+
+  final void Function() onViewFullInsight;
+
+  final void Function() onEditProfile;
+
+  final void Function(HomePsychologyTestItemData test) onPsychologyTest;
+
+  final void Function(HomeMoreItemData item) onMoreItem;
+
+  final void Function() onUnlockDeepProfile;
+
+  final void Function() onContinueDiscovering;
+
+}
+
+
