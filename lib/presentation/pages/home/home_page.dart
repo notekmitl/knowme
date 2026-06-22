@@ -136,7 +136,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           TextButton(
             onPressed: () => _logout(context),
-            child: const Text('Logout'),
+            child: const Text('ออกจากระบบ'),
           ),
         ],
       ),

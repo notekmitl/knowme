@@ -52,6 +52,12 @@ class HomeHeroSectionData {
 
     this.unlockProgressLabel = '',
 
+    this.unlockEyebrow = '',
+
+    this.unlockRewardLine = '',
+
+    this.showSecondaryAstrologyLink = false,
+
   });
 
 
@@ -73,6 +79,12 @@ class HomeHeroSectionData {
   final String unlockCtaSubtitle;
 
   final String unlockProgressLabel;
+
+  final String unlockEyebrow;
+
+  final String unlockRewardLine;
+
+  final bool showSecondaryAstrologyLink;
 
 }
 
@@ -201,12 +213,18 @@ class HomeNarrativePreviewSectionData {
     required this.previewText,
     required this.lockedSectionCount,
     required this.ctaLabel,
+    this.rewardLine = '',
+    this.title = '',
+    this.lockedSectionLabels = const [],
   });
 
   final bool isVisible;
   final String previewText;
   final int lockedSectionCount;
   final String ctaLabel;
+  final String rewardLine;
+  final String title;
+  final List<String> lockedSectionLabels;
 }
 
 /// Full Home V3.8 emotional product bundle.
@@ -307,6 +325,9 @@ class HomeScreenV3Data {
         previewText: '',
         lockedSectionCount: 0,
         ctaLabel: '',
+        rewardLine: '',
+        title: '',
+        lockedSectionLabels: [],
       ),
 
     );

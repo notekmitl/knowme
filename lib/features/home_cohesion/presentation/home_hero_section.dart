@@ -106,7 +106,7 @@ class _HeroContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final heroLabel = data.showUnlockCta
-        ? '🔓 Unlock'
+        ? data.unlockEyebrow
         : HomeV3Copy.heroTitle.replaceFirst('🔮 ', '');
 
     return Padding(
@@ -122,12 +122,14 @@ class _HeroContent extends StatelessWidget {
                 style: const TextStyle(fontSize: 18),
               ),
               const SizedBox(width: 8),
-              Text(
-                heroLabel,
-                style: TextStyle(
-                  fontSize: 15,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.white.withValues(alpha: 0.82),
+              Expanded(
+                child: Text(
+                  heroLabel,
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white.withValues(alpha: 0.82),
+                  ),
                 ),
               ),
             ],
@@ -164,6 +166,28 @@ class _HeroContent extends StatelessWidget {
                 ),
               ),
             ],
+            if (data.showUnlockCta && data.unlockRewardLine.isNotEmpty) ...[
+              const SizedBox(height: 14),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.12),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(
+                    color: HomeV35Design.goldCta.withValues(alpha: 0.35),
+                  ),
+                ),
+                child: Text(
+                  data.unlockRewardLine,
+                  style: TextStyle(
+                    fontSize: 13,
+                    height: 1.45,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.white.withValues(alpha: 0.92),
+                  ),
+                ),
+              ),
+            ],
           ],
           if (data.showUnlockCta) ...[
             const SizedBox(height: 22),
@@ -172,6 +196,18 @@ class _HeroContent extends StatelessWidget {
               subtitle: data.unlockCtaSubtitle,
               onPressed: onUnlockCta,
             ),
+            if (data.showSecondaryAstrologyLink) ...[
+              const SizedBox(height: 12),
+              Center(
+                child: TextButton(
+                  onPressed: onAstrologyCta,
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.white.withValues(alpha: 0.85),
+                  ),
+                  child: Text(HomeV3Copy.viewFullAstrology),
+                ),
+              ),
+            ],
           ] else if (data.canOpenFullResult) ...[
             const SizedBox(height: 22),
             _GoldCta(onPressed: onAstrologyCta),

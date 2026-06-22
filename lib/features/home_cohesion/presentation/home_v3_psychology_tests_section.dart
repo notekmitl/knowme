@@ -4,7 +4,7 @@ import 'home_screen_v2_models.dart';
 import 'home_v3_copy.dart';
 import 'home_v35_design.dart';
 
-/// Psychology test cards — Home V3.5 Section 4.
+/// Psychology test cards — UX Conversion Sprint V1.
 class HomeV3PsychologyTestsSection extends StatelessWidget {
   const HomeV3PsychologyTestsSection({
     super.key,
@@ -42,10 +42,10 @@ class HomeV3PsychologyTestsSection extends StatelessWidget {
           children: [
             const Text('🧠', style: TextStyle(fontSize: 17)),
             const SizedBox(width: 8),
-            const Expanded(
+            Expanded(
               child: Text(
-                'แบบทดสอบบุคลิกภาพ',
-                style: TextStyle(
+                HomeV3Copy.psychologyTitle,
+                style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w700,
                   color: HomeV35Design.textPrimary,
@@ -120,6 +120,7 @@ class _PsychologyCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final completed = test.status == HomePsychologyTestStatus.completed;
     final inProgress = test.status == HomePsychologyTestStatus.inProgress;
+    final isNext = test.isNextStep && !completed;
 
     return Material(
       color: style.tint,
@@ -128,8 +129,14 @@ class _PsychologyCard extends StatelessWidget {
         onTap: onPressed,
         borderRadius: BorderRadius.circular(HomeV35Design.cardRadius),
         child: Container(
-          height: 148,
+          height: 188,
           padding: const EdgeInsets.all(18),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(HomeV35Design.cardRadius),
+            border: isNext
+                ? Border.all(color: style.accent, width: 2)
+                : null,
+          ),
           child: Stack(
             children: [
               Positioned(
@@ -157,28 +164,54 @@ class _PsychologyCard extends StatelessWidget {
                       ),
                       const Spacer(),
                       if (completed)
-                        Icon(Icons.check_circle_rounded, color: style.accent, size: 22)
+                        Icon(
+                          Icons.check_circle_rounded,
+                          color: style.accent,
+                          size: 22,
+                        )
                       else if (inProgress)
-                        Icon(Icons.play_circle_outline_rounded, color: style.accent, size: 22)
+                        Icon(
+                          Icons.play_circle_outline_rounded,
+                          color: style.accent,
+                          size: 22,
+                        )
                       else
-                        Icon(Icons.arrow_forward_rounded, color: style.accent, size: 20),
+                        Icon(
+                          Icons.arrow_forward_rounded,
+                          color: style.accent,
+                          size: 20,
+                        ),
                     ],
                   ),
                   const Spacer(),
                   Text(
                     test.title,
                     style: const TextStyle(
-                      fontSize: 18,
+                      fontSize: 16,
                       fontWeight: FontWeight.w700,
                       color: HomeV35Design.textPrimary,
                     ),
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    HomeV3Copy.psychologyStatusLabel(test.status),
+                    test.description,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      fontSize: 12,
+                      height: 1.35,
+                      color: HomeV35Design.textSecondary,
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    HomeV3Copy.psychologyStatusLabel(
+                      test.status,
+                      isNextStep: test.isNextStep,
+                    ),
                     style: TextStyle(
                       fontSize: 12,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w700,
                       color: style.accent,
                     ),
                   ),

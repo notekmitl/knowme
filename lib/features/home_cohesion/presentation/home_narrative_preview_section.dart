@@ -6,7 +6,7 @@ import 'home_screen_v3_models.dart';
 import 'home_v3_copy.dart';
 import 'home_v35_design.dart';
 
-/// Narrative preview card with blurred locked sections — funnel recovery V2.
+/// Narrative preview card — UX Conversion Sprint V1.
 class HomeNarrativePreviewSection extends StatelessWidget {
   const HomeNarrativePreviewSection({
     super.key,
@@ -21,12 +21,19 @@ class HomeNarrativePreviewSection extends StatelessWidget {
   Widget build(BuildContext context) {
     if (!data.isVisible) return const SizedBox.shrink();
 
+    final title = data.title.isNotEmpty
+        ? data.title
+        : HomeV3Copy.narrativePreviewTitle(1, data.lockedSectionCount + 1);
+
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: HomeV35Design.surface,
         borderRadius: BorderRadius.circular(HomeV35Design.cardRadius),
         boxShadow: [HomeV35Design.cardShadow],
+        border: Border.all(
+          color: HomeV35Design.goldCta.withValues(alpha: 0.35),
+        ),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -34,22 +41,16 @@ class HomeNarrativePreviewSection extends StatelessWidget {
           Row(
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
                 decoration: BoxDecoration(
                   color: HomeV35Design.goldCta.withValues(alpha: 0.25),
                   borderRadius: BorderRadius.circular(999),
                 ),
-                child: const Text(
-                  '✨',
-                  style: TextStyle(fontSize: 14),
-                ),
-              ),
-              const SizedBox(width: 10),
-              Expanded(
                 child: Text(
-                  HomeV3Copy.narrativePreviewTitle,
+                  '🎁 ${HomeV3Copy.narrativePreviewBadge}',
                   style: const TextStyle(
-                    fontSize: 16,
+                    fontSize: 12,
                     fontWeight: FontWeight.w700,
                     color: HomeV35Design.textPrimary,
                   ),
@@ -57,6 +58,27 @@ class HomeNarrativePreviewSection extends StatelessWidget {
               ),
             ],
           ),
+          const SizedBox(height: 12),
+          Text(
+            title,
+            style: const TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.w700,
+              color: HomeV35Design.textPrimary,
+            ),
+          ),
+          if (data.rewardLine.isNotEmpty) ...[
+            const SizedBox(height: 8),
+            Text(
+              data.rewardLine,
+              style: const TextStyle(
+                fontSize: 13,
+                height: 1.45,
+                fontWeight: FontWeight.w600,
+                color: HomeV35Design.purpleAccent,
+              ),
+            ),
+          ],
           const SizedBox(height: 14),
           Text(
             data.previewText,
@@ -72,6 +94,13 @@ class HomeNarrativePreviewSection extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(bottom: 10),
                 child: _BlurredLockedSection(
+                  label: i < data.lockedSectionLabels.length
+                      ? data.lockedSectionLabels[i]
+                      : HomeV3Copy.narrativeLockedSectionLabels[
+                          i.clamp(
+                            0,
+                            HomeV3Copy.narrativeLockedSectionLabels.length - 1,
+                          )],
                   hint: HomeV3Copy.narrativePreviewLockedHint,
                 ),
               ),
@@ -99,8 +128,12 @@ class HomeNarrativePreviewSection extends StatelessWidget {
 }
 
 class _BlurredLockedSection extends StatelessWidget {
-  const _BlurredLockedSection({required this.hint});
+  const _BlurredLockedSection({
+    required this.label,
+    required this.hint,
+  });
 
+  final String label;
   final String hint;
 
   @override
@@ -116,7 +149,7 @@ class _BlurredLockedSection extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 14),
             alignment: Alignment.centerLeft,
             child: Text(
-              'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+              label,
               style: TextStyle(
                 fontSize: 13,
                 color: HomeV35Design.textSecondary.withValues(alpha: 0.8),

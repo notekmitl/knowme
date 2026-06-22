@@ -36,6 +36,8 @@ class _MbtiNarrativePreviewPageState extends State<MbtiNarrativePreviewPage> {
   final _loader = NarrativeRuntimeLoader();
   String? _previewText;
   int _lockedSections = 3;
+  String _title = '';
+  String _rewardLine = '';
   bool _loading = true;
   bool _telemetrySent = false;
 
@@ -56,6 +58,9 @@ class _MbtiNarrativePreviewPageState extends State<MbtiNarrativePreviewPage> {
 
     var preview = '';
     var locked = 3;
+    var total = 4;
+    var title = HomeV3Copy.narrativePreviewTitle(1, 4);
+    var rewardLine = HomeV3Copy.narrativePreviewRewardLine(3);
 
     if (narrative != null && narrative.paragraphCount > 0) {
       final identity = narrative.sectionFor(NarrativeMode.identity);
@@ -65,14 +70,18 @@ class _MbtiNarrativePreviewPageState extends State<MbtiNarrativePreviewPage> {
         preview = narrative.sections.first.paragraphs.first.text;
       }
       locked = (narrative.sections.length - 1).clamp(1, 4);
+      total = narrative.sections.length.clamp(1, 5);
+      title = HomeV3Copy.narrativePreviewTitle(total - locked, total);
+      rewardLine = HomeV3Copy.narrativePreviewRewardLine(locked);
     } else {
-      preview =
-          'Your personality lens is now connected. Complete more tests to reveal your full narrative.';
+      preview = HomeV3Copy.narrativePreviewFallback;
     }
 
     setState(() {
       _previewText = preview;
       _lockedSections = locked;
+      _title = title;
+      _rewardLine = rewardLine;
       _loading = false;
     });
 
@@ -103,7 +112,7 @@ class _MbtiNarrativePreviewPageState extends State<MbtiNarrativePreviewPage> {
       appBar: AppBar(
         backgroundColor: HomeV35Design.background,
         elevation: 0,
-        title: Text(HomeV3Copy.narrativePreviewTitle),
+        title: Text('🎁 ${HomeV3Copy.narrativePreviewBadge}'),
       ),
       body: SafeArea(
         child: _loading
@@ -120,18 +129,33 @@ class _MbtiNarrativePreviewPageState extends State<MbtiNarrativePreviewPage> {
                         borderRadius:
                             BorderRadius.circular(HomeV35Design.cardRadius),
                         boxShadow: [HomeV35Design.cardShadow],
+                        border: Border.all(
+                          color: HomeV35Design.goldCta.withValues(alpha: 0.35),
+                        ),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
                           Text(
-                            HomeV3Copy.narrativePreviewTitle,
+                            _title,
                             style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w700,
                               color: HomeV35Design.textPrimary,
                             ),
                           ),
+                          if (_rewardLine.isNotEmpty) ...[
+                            const SizedBox(height: 8),
+                            Text(
+                              _rewardLine,
+                              style: const TextStyle(
+                                fontSize: 13,
+                                height: 1.45,
+                                fontWeight: FontWeight.w600,
+                                color: HomeV35Design.purpleAccent,
+                              ),
+                            ),
+                          ],
                           const SizedBox(height: 14),
                           Text(
                             _previewText ?? '',
@@ -146,13 +170,32 @@ class _MbtiNarrativePreviewPageState extends State<MbtiNarrativePreviewPage> {
                             Padding(
                               padding: const EdgeInsets.only(bottom: 10),
                               child: _BlurredSection(
+                                label: HomeV3Copy.narrativeLockedSectionLabels[
+                                    i.clamp(
+                                      0,
+                                      HomeV3Copy
+                                              .narrativeLockedSectionLabels
+                                              .length -
+                                          1,
+                                    )],
                                 hint: HomeV3Copy.narrativePreviewLockedHint,
                               ),
                             ),
                         ],
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 16),
+                    Text(
+                      HomeV3Copy.mbtiPreviewNextStep,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 13,
+                        height: 1.45,
+                        fontWeight: FontWeight.w600,
+                        color: HomeV35Design.textSecondary,
+                      ),
+                    ),
+                    const SizedBox(height: 16),
                     FilledButton(
                       onPressed: () => Navigator.of(context).popUntil(
                         (route) => route.isFirst,
@@ -165,12 +208,12 @@ class _MbtiNarrativePreviewPageState extends State<MbtiNarrativePreviewPage> {
                           borderRadius: BorderRadius.circular(999),
                         ),
                       ),
-                      child: Text(HomeV3Copy.narrativePreviewCta),
+                      child: Text(HomeV3Copy.mbtiPreviewBackHome),
                     ),
                     const SizedBox(height: 12),
                     TextButton(
                       onPressed: _openMbtiResult,
-                      child: const Text('View MBTI result'),
+                      child: Text(HomeV3Copy.mbtiPreviewViewResult),
                     ),
                   ],
                 ),
@@ -181,8 +224,12 @@ class _MbtiNarrativePreviewPageState extends State<MbtiNarrativePreviewPage> {
 }
 
 class _BlurredSection extends StatelessWidget {
-  const _BlurredSection({required this.hint});
+  const _BlurredSection({
+    required this.label,
+    required this.hint,
+  });
 
+  final String label;
   final String hint;
 
   @override
@@ -197,7 +244,7 @@ class _BlurredSection extends StatelessWidget {
             alignment: Alignment.centerLeft,
             padding: const EdgeInsets.symmetric(horizontal: 14),
             child: Text(
-              'Additional insight awaits when you complete more tests.',
+              label,
               style: TextStyle(
                 fontSize: 13,
                 color: HomeV35Design.textSecondary.withValues(alpha: 0.8),

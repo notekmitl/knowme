@@ -75,12 +75,14 @@ class HomePsychologyTestItemData {
     required this.title,
     required this.description,
     required this.status,
+    this.isNextStep = false,
   });
 
   final String id;
   final String title;
   final String description;
   final HomePsychologyTestStatus status;
+  final bool isNextStep;
 }
 
 class HomePsychologyTestsSectionData {

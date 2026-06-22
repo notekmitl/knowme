@@ -36,7 +36,8 @@ abstract final class HomeV3Assembler {
       psychologyTests: _psychologyTests(sources.personalityCoverage),
       more: _more(sources),
       completion: completion,
-      showRecoveryBanner: completion.showRecoveryBanner,
+      showRecoveryBanner:
+          completion.showRecoveryBanner && !completion.showUnlockHero,
       narrativePreview: _narrativePreview(
         sources.personalityCoverage,
         narrativeResult,
@@ -79,19 +80,32 @@ abstract final class HomeV3Assembler {
         previewText: '',
         lockedSectionCount: 0,
         ctaLabel: '',
+        rewardLine: '',
+        title: '',
+        lockedSectionLabels: [],
       );
     }
 
     final preview = _previewText(narrativeResult);
+    final totalSections = narrativeResult.sections.length.clamp(1, 5);
     final locked = completion.narrativeUnlocked
         ? 0
         : (narrativeResult.sections.length - 1).clamp(1, 4);
+    final readSections = totalSections - locked;
+    final lockedLabels = List<String>.generate(
+      locked,
+      (index) => HomeV3Copy.narrativeLockedSectionLabels[
+          index.clamp(0, HomeV3Copy.narrativeLockedSectionLabels.length - 1)],
+    );
 
     return HomeNarrativePreviewSectionData(
       isVisible: preview.isNotEmpty,
       previewText: preview,
       lockedSectionCount: locked,
       ctaLabel: HomeV3Copy.narrativePreviewCta,
+      rewardLine: HomeV3Copy.narrativePreviewRewardLine(locked),
+      title: HomeV3Copy.narrativePreviewTitle(readSections, totalSections),
+      lockedSectionLabels: lockedLabels,
     );
   }
 
@@ -122,17 +136,15 @@ abstract final class HomeV3Assembler {
       return HomeHeroSectionData(
         isAvailable: true,
         identity: HomeV3Copy.unlockHeroTitle,
-        supportingReflection: HomeV3Copy.unlockHeroBody.replaceFirst(
-          '35%',
-          '${completion.progressPercent}%',
-        ),
+        supportingReflection: HomeV3Copy.unlockHeroBody,
         emptyHint: '',
-        canOpenFullResult: false,
+        canOpenFullResult: sources.astrologyEntry.canOpen,
         showUnlockCta: true,
         unlockCtaTitle: HomeV3Copy.unlockCtaTitle,
         unlockCtaSubtitle: HomeV3Copy.unlockCtaSubtitle,
-        unlockProgressLabel:
-            'Your profile is only ${completion.progressPercent}% discovered.',
+        unlockEyebrow: HomeV3Copy.unlockHeroEyebrow,
+        unlockRewardLine: HomeV3Copy.unlockHeroReward,
+        showSecondaryAstrologyLink: sources.astrologyEntry.canOpen,
       );
     }
 
@@ -289,28 +301,40 @@ abstract final class HomeV3Assembler {
       return HomePsychologyTestStatus.notStarted;
     }
 
+    final nextStepId = _psychologyNextStepId(c);
+
     return HomePsychologyTestsSectionData(
       tests: [
         HomePsychologyTestItemData(
           id: 'mbti',
-          title: 'MBTI',
-          description: 'สำรวจแนวโน้มบุคลิกภาพของคุณ',
+          title: HomeV3Copy.mbtiCardTitle,
+          description: HomeV3Copy.mbtiCardDescription,
           status: mbtiStatus(),
-        ),
-        HomePsychologyTestItemData(
-          id: 'eq',
-          title: 'EQ',
-          description: 'สำรวจความฉลาดทางอารมณ์ของคุณ',
-          status: eqStatus(),
+          isNextStep: nextStepId == 'mbti',
         ),
         HomePsychologyTestItemData(
           id: 'big_five',
-          title: 'Big Five',
-          description: 'สำรวจลักษณะบุคลิกหลักของคุณ',
+          title: HomeV3Copy.bigFiveCardTitle,
+          description: HomeV3Copy.bigFiveCardDescription,
           status: bigFiveStatus(),
+          isNextStep: nextStepId == 'big_five',
+        ),
+        HomePsychologyTestItemData(
+          id: 'eq',
+          title: HomeV3Copy.eqCardTitle,
+          description: HomeV3Copy.eqCardDescription,
+          status: eqStatus(),
+          isNextStep: nextStepId == 'eq',
         ),
       ],
     );
+  }
+
+  static String? _psychologyNextStepId(PersonalityCoverage c) {
+    if (!c.hasMbti) return 'mbti';
+    if (!c.hasBigFive) return 'big_five';
+    if (!c.hasAnyEq) return 'eq';
+    return null;
   }
 
   static HomeMoreSectionData _more(HomeV2SourceBundle sources) {

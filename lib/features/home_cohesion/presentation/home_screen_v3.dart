@@ -12,7 +12,7 @@ import 'home_v3_more_section.dart';
 import 'home_v3_psychology_tests_section.dart';
 import 'home_v35_design.dart';
 
-/// Emotional Home surface — Home V3.8 signature refinement.
+/// Emotional Home surface — UX Conversion Sprint V1 hierarchy.
 class HomeScreenV3 extends StatelessWidget {
   const HomeScreenV3({
     super.key,
@@ -35,6 +35,15 @@ class HomeScreenV3 extends StatelessWidget {
           onViewFullResult: callbacks.onViewAstrologyResult,
           onUnlockDeepProfile: callbacks.onUnlockDeepProfile,
         ),
+        if (data.showRecoveryBanner) ...[
+          const SizedBox(height: HomeV35Design.sectionGap),
+          HomeRecoveryBanner(onStartTest: callbacks.onUnlockDeepProfile),
+        ],
+        const SizedBox(height: HomeV35Design.sectionGap),
+        HomeV3PsychologyTestsSection(
+          data: data.psychologyTests,
+          onTestAction: callbacks.onPsychologyTest,
+        ),
         if (data.narrativePreview.isVisible) ...[
           const SizedBox(height: HomeV35Design.sectionGap),
           HomeNarrativePreviewSection(
@@ -53,15 +62,6 @@ class HomeScreenV3 extends StatelessWidget {
         HomeCompactProfileSection(
           data: data.profile,
           onEditProfile: callbacks.onEditProfile,
-        ),
-        if (data.showRecoveryBanner) ...[
-          const SizedBox(height: HomeV35Design.sectionGap),
-          HomeRecoveryBanner(onStartTest: callbacks.onUnlockDeepProfile),
-        ],
-        const SizedBox(height: HomeV35Design.sectionGap),
-        HomeV3PsychologyTestsSection(
-          data: data.psychologyTests,
-          onTestAction: callbacks.onPsychologyTest,
         ),
         const SizedBox(height: HomeV35Design.sectionGap),
         HomeV3MoreSection(

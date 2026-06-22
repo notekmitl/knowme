@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../domain/home_profile_completion.dart';
+import 'home_v3_copy.dart';
 import 'home_v35_design.dart';
 
-/// Profile completion funnel bar — Production Funnel Recovery V2.
+/// Profile completion funnel bar — UX Conversion Sprint V1.
 class HomeProfileCompletionBar extends StatelessWidget {
   const HomeProfileCompletionBar({
     super.key,
@@ -26,15 +27,16 @@ class HomeProfileCompletionBar extends StatelessWidget {
         children: [
           Row(
             children: [
-              const Text(
-                'Progress',
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w700,
-                  color: HomeV35Design.textPrimary,
+              Expanded(
+                child: Text(
+                  HomeV3Copy.profileCompletionTitle,
+                  style: const TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.w700,
+                    color: HomeV35Design.textPrimary,
+                  ),
                 ),
               ),
-              const Spacer(),
               Text(
                 '${completion.progressPercent}%',
                 style: const TextStyle(
@@ -45,6 +47,17 @@ class HomeProfileCompletionBar extends StatelessWidget {
               ),
             ],
           ),
+          if (completion.progressSubtitle.isNotEmpty) ...[
+            const SizedBox(height: 6),
+            Text(
+              completion.progressSubtitle,
+              style: const TextStyle(
+                fontSize: 12,
+                height: 1.4,
+                color: HomeV35Design.textSecondary,
+              ),
+            ),
+          ],
           const SizedBox(height: 10),
           ClipRRect(
             borderRadius: BorderRadius.circular(999),
@@ -57,7 +70,7 @@ class HomeProfileCompletionBar extends StatelessWidget {
           ),
           const SizedBox(height: 14),
           Wrap(
-            spacing: 10,
+            spacing: 8,
             runSpacing: 8,
             children: [
               for (final step in completion.steps) _StepChip(step: step),
@@ -82,28 +95,45 @@ class _StepChip extends StatelessWidget {
       HomeCompletionStepStatus.locked => '🔒',
     };
 
+    final isCurrent = step.isCurrent && step.status != HomeCompletionStepStatus.complete;
+
     final color = switch (step.status) {
       HomeCompletionStepStatus.complete => HomeV35Design.purpleAccent,
-      HomeCompletionStepStatus.pending => HomeV35Design.textSecondary,
+      HomeCompletionStepStatus.pending =>
+        isCurrent ? HomeV35Design.purpleAccent : HomeV35Design.textSecondary,
       HomeCompletionStepStatus.locked => HomeV35Design.textMuted,
     };
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
       decoration: BoxDecoration(
-        color: HomeV35Design.purpleSoft.withValues(alpha: 0.55),
+        color: isCurrent
+            ? HomeV35Design.purpleSoft
+            : HomeV35Design.purpleSoft.withValues(alpha: 0.55),
         borderRadius: BorderRadius.circular(999),
+        border: isCurrent
+            ? Border.all(color: HomeV35Design.purpleAccent, width: 1.5)
+            : null,
       ),
       child: Row(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Text(icon, style: const TextStyle(fontSize: 12)),
-          const SizedBox(width: 6),
+          Text(
+            '${step.stepNumber}',
+            style: TextStyle(
+              fontSize: 11,
+              fontWeight: FontWeight.w800,
+              color: color,
+            ),
+          ),
+          const SizedBox(width: 4),
+          Text(icon, style: const TextStyle(fontSize: 11)),
+          const SizedBox(width: 4),
           Text(
             step.label,
             style: TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w600,
+              fontSize: 11,
+              fontWeight: isCurrent ? FontWeight.w700 : FontWeight.w600,
               color: color,
             ),
           ),

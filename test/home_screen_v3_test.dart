@@ -5,6 +5,7 @@ import 'package:knowme/features/home_cohesion/presentation/home_compact_profile_
 import 'package:knowme/features/home_cohesion/presentation/home_hero_section.dart';
 import 'package:knowme/features/home_cohesion/presentation/home_knowme_insight_section.dart';
 import 'package:knowme/features/home_cohesion/presentation/home_knowme_signature_section.dart';
+import 'package:knowme/features/home_cohesion/presentation/home_profile_completion_bar.dart';
 import 'package:knowme/features/home_cohesion/presentation/home_screen_v3.dart';
 import 'package:knowme/features/home_cohesion/presentation/home_screen_v3_models.dart';
 import 'package:knowme/features/home_cohesion/presentation/home_v3_copy.dart';
@@ -76,12 +77,16 @@ void main() {
   });
 
   group('HomeScreenV3.8 visual hierarchy', () {
-    testWidgets('hero → signature → insight → profile order', (tester) async {
+    testWidgets('hero → psychology → signature → insight → profile order',
+        (tester) async {
       final data =
           HomeV3Assembler.fromGolden(HomeV2GoldenScenario.advancedUser);
       await tester.pumpWidget(wrap(data));
 
       final heroTop = tester.getTopLeft(find.byType(HomeHeroSection)).dy;
+      final psychologyTop = tester
+          .getTopLeft(find.byType(HomeV3PsychologyTestsSection))
+          .dy;
       final signatureTop =
           tester.getTopLeft(find.byType(HomeKnowMeSignatureSection)).dy;
       final insightTop =
@@ -89,7 +94,8 @@ void main() {
       final profileTop =
           tester.getTopLeft(find.byType(HomeCompactProfileSection)).dy;
 
-      expect(heroTop, lessThan(signatureTop));
+      expect(heroTop, lessThan(psychologyTop));
+      expect(psychologyTop, lessThan(signatureTop));
       expect(signatureTop, lessThan(insightTop));
       expect(insightTop, lessThan(profileTop));
     });
@@ -144,10 +150,12 @@ void main() {
       await tester.pumpWidget(wrap(data));
 
       expect(find.byType(HomeV3PsychologyTestsSection), findsOneWidget);
+      expect(find.byType(HomeProfileCompletionBar), findsOneWidget);
+      expect(find.text(HomeV3Copy.profileCompletionTitle), findsOneWidget);
       expect(
         find.descendant(
           of: find.byType(HomeV3PsychologyTestsSection),
-          matching: find.text('MBTI'),
+          matching: find.text(HomeV3Copy.mbtiCardTitle),
         ),
         findsOneWidget,
       );
