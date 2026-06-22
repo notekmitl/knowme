@@ -142,6 +142,9 @@ yarn-error.log*
 # Environment
 .env
 
+# Firebase local deploy cache
+.firebase/
+
 # Repository Survival V1 — local QA artifacts (screenshots, not source)
 .e2e_verify_output/
 
