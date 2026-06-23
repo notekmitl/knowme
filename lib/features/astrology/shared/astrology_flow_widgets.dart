@@ -202,6 +202,11 @@ class AstrologyFlowStateBody extends StatelessWidget {
           AstrologyFlowCopy.incompleteProfileBody,
           Icons.person_outline_rounded,
         ),
+      AstrologyFlowState.failed => (
+          AstrologyFlowCopy.failedTitle,
+          AstrologyFlowCopy.failedBody,
+          Icons.error_outline_rounded,
+        ),
       AstrologyFlowState.ready => (
           '',
           '',

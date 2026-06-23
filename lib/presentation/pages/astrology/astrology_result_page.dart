@@ -9,9 +9,9 @@ import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:knowme/core/i18n/app_text.dart';
+import 'package:knowme/features/astrology/application/astrology_generation_coordinator.dart';
 import 'package:knowme/features/astrology/shared/astrology_flow_state.dart';
 import 'package:knowme/features/astrology/shared/astrology_flow_widgets.dart';
-import 'package:knowme/presentation/pages/profile/edit_profile_page_v1.dart';
 import 'package:knowme/data/models/astrology_chart_model.dart';
 
 import 'package:knowme/features/tests/mbti/mbti_routes.dart';
@@ -45,33 +45,45 @@ class AstrologyResultPage extends StatefulWidget {
 
 
 class _AstrologyResultPageState extends State<AstrologyResultPage> {
+  final _coordinator = AstrologyGenerationCoordinator();
+  bool _autoGenerating = false;
 
   @override
-
   void initState() {
-
     super.initState();
+    Future.microtask(() => _bootstrap());
+  }
 
+  Future<void> _bootstrap() async {
+    if (!mounted) return;
+    final uid = FirebaseAuth.instance.currentUser?.uid;
+    if (uid == null || uid.isEmpty) return;
 
+    AstrologyResultLocale.apply(
+      context.read<LocaleProvider>().locale.languageCode,
+    );
 
-    Future.microtask(() {
+    final provider = context.read<AstrologyProvider>();
+    await provider.loadChart(uid);
+    if (!mounted || provider.chart != null) return;
 
-      if (!mounted) return;
+    setState(() => _autoGenerating = true);
+    await _coordinator.ensureGenerated(uid, retrySystemId: 'western');
+    if (!mounted) return;
+    await provider.loadChart(uid);
+    if (mounted) setState(() => _autoGenerating = false);
+  }
 
-      AstrologyResultLocale.apply(
+  Future<void> _retryGeneration() async {
+    if (!mounted) return;
+    final uid = FirebaseAuth.instance.currentUser?.uid;
+    if (uid == null || uid.isEmpty) return;
 
-        context.read<LocaleProvider>().locale.languageCode,
-
-      );
-
-
-
-      final uid = FirebaseAuth.instance.currentUser!.uid;
-
-      context.read<AstrologyProvider>().loadChart(uid);
-
-    });
-
+    setState(() => _autoGenerating = true);
+    await _coordinator.ensureGenerated(uid, retrySystemId: 'western');
+    if (!mounted) return;
+    await context.read<AstrologyProvider>().loadChart(uid);
+    if (mounted) setState(() => _autoGenerating = false);
   }
 
 
@@ -288,29 +300,22 @@ class _AstrologyResultPageState extends State<AstrologyResultPage> {
 
       ),
 
-      body: provider.isLoading
+      body: provider.isLoading || _autoGenerating
           ? AstrologyGenerationBody(
               title: AstrologyFlowCopy.generationTitle('ดวงตะวันตก'),
               body: AstrologyFlowCopy.generationBody('ดวงตะวันตก'),
             )
           : provider.error != null
               ? AstrologyFlowStateBody(
-                  state: AstrologyFlowState.firstGeneration,
-                  onPrimaryAction: () {
-                    final uid = FirebaseAuth.instance.currentUser!.uid;
-                    context.read<AstrologyProvider>().loadChart(uid);
-                  },
+                  state: AstrologyFlowState.failed,
+                  onPrimaryAction: _retryGeneration,
                   primaryActionLabel: AstrologyFlowCopy.retryCta,
                 )
               : chart == null
                   ? AstrologyFlowStateBody(
-                      state: AstrologyFlowState.firstGeneration,
-                      onPrimaryAction: () => Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (_) => const EditProfilePageV1(),
-                        ),
-                      ),
-                      primaryActionLabel: AstrologyFlowCopy.generateCta,
+                      state: AstrologyFlowState.failed,
+                      onPrimaryAction: _retryGeneration,
+                      primaryActionLabel: AstrologyFlowCopy.retryCta,
                     )
                   : Container(
 

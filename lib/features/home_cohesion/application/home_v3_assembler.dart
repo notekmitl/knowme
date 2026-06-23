@@ -1,4 +1,6 @@
 import 'package:knowme/core/profile/birth_profile_format.dart';
+import 'package:knowme/features/astrology/application/astrology_generation_presentation.dart';
+import 'package:knowme/features/astrology/domain/astrology_generation_status.dart';
 import 'package:knowme/features/astrology/fusion/domain/entities/astrology_lens.dart';
 import 'package:knowme/features/narrative_runtime/integration/home_narrative_mapper.dart';
 import 'package:knowme/features/narrative_runtime/domain/narrative_mode.dart';
@@ -21,6 +23,8 @@ abstract final class HomeV3Assembler {
   static HomeScreenV3Data fromSources(
     HomeV2SourceBundle sources, {
     NarrativeResult? narrativeResult,
+    AstrologyGenerationSnapshot? generation,
+    bool astrologySummaryLoading = false,
   }) {
     final themeIds = _recurringThemeIds(sources);
     final narrativeOverlay = HomeNarrativeMapper.overlay(narrativeResult);
@@ -36,7 +40,11 @@ abstract final class HomeV3Assembler {
       insight: insight,
       profile: _profile(sources.profileInput, sources.profileFields),
       psychologyTests: _psychologyTests(sources.personalityCoverage),
-      astrologySummary: astrologySummary(sources),
+      astrologySummary: astrologySummaryFromGeneration(
+        sources,
+        generation: generation,
+        isLoading: astrologySummaryLoading,
+      ),
       more: _more(sources),
       completion: completion,
       showRecoveryBanner:
@@ -276,96 +284,115 @@ abstract final class HomeV3Assembler {
     );
   }
 
-  static HomeAstrologySummaryCardData astrologySummary(
+  static HomeAstrologySummaryCardData astrologySummaryFromGeneration(
     HomeV2SourceBundle sources, {
+    AstrologyGenerationSnapshot? generation,
     bool isLoading = false,
   }) {
     if (isLoading) {
       return const HomeAstrologySummaryCardData(
         isLoading: true,
         statusLine: '',
+        progressLine: '',
         ctaLabel: HomeV3Copy.viewFullAstrology,
         canOpen: false,
       );
     }
 
-    final hub = astrologyHubFrom(sources);
-    final readySystems = hub.systems
-        .where((s) => s.state == HomeAstrologySystemState.hasResult)
-        .length;
-    final fusionReady =
-        hub.fusionState == HomeAstrologySystemState.hasResult;
-    final totalReady = readySystems + (fusionReady ? 1 : 0);
+    final snapshot = generation ?? _generationFromBundle(sources);
+    final total = AstrologyGenerationSnapshot.totalSystems;
+    final completed = snapshot.completedCount;
     final birthReady = sources.profileInput.isBirthProfileComplete;
 
-    final statusLine = !birthReady
+    final statusLine = !birthReady && !snapshot.birthProfileComplete
         ? HomeV3Copy.profileCompletenessEmpty
-        : totalReady == 0
-            ? 'พร้อมสร้างดวงโหราศาสตร์ครั้งแรก'
-            : 'มีผลโหราศาสตร์แล้ว $totalReady ระบบ';
+        : HomeV3Copy.astrologySummaryLine(completed, total);
+
+    final progressLine = snapshot.isGenerating
+        ? HomeV3Copy.astrologySummaryProgress
+        : '';
 
     return HomeAstrologySummaryCardData(
       isLoading: false,
       statusLine: statusLine,
+      progressLine: progressLine,
       ctaLabel: HomeV3Copy.viewFullAstrology,
-      canOpen: true,
+      canOpen: birthReady || snapshot.birthProfileComplete,
     );
   }
 
   static HomeAstrologyHubSectionData astrologyHubFrom(
-    HomeV2SourceBundle sources,
-  ) =>
-      _astrologyHub(sources);
+    HomeV2SourceBundle sources, {
+    AstrologyGenerationSnapshot? generation,
+  }) =>
+      _astrologyHub(sources, generation: generation);
 
-  static HomeAstrologyHubSectionData _astrologyHub(HomeV2SourceBundle sources) {
+  static AstrologyGenerationSnapshot _generationFromBundle(
+    HomeV2SourceBundle sources,
+  ) {
     final completed = sources.astrologyEntry.readiness.completedLensIds;
     final birthReady = sources.profileInput.isBirthProfileComplete;
+    if (!birthReady) {
+      return AstrologyGenerationSnapshot(
+        birthProfileComplete: false,
+        systems: {
+          for (final id in AstrologyGenerationSnapshot.systemIds)
+            id: AstrologySystemSnapshot(
+              systemId: id,
+              status: AstrologyGenerationStatus.notReady,
+            ),
+        },
+      );
+    }
 
-    bool hasLens(String lensId) => completed.contains(lensId);
+    AstrologySystemSnapshot forLens(String systemId, String lensId) {
+      return AstrologySystemSnapshot(
+        systemId: systemId,
+        status: completed.contains(lensId)
+            ? AstrologyGenerationStatus.completed
+            : AstrologyGenerationStatus.queued,
+      );
+    }
+
+    return AstrologyGenerationSnapshot(
+      birthProfileComplete: true,
+      systems: {
+        'thai': forLens('thai', AstrologyLens.thaiAstrology.lensId),
+        'bazi': forLens('bazi', AstrologyLens.chineseBazi.lensId),
+        'western': forLens('western', AstrologyLens.westernNatal.lensId),
+        'fusion': AstrologySystemSnapshot(
+          systemId: 'fusion',
+          status: sources.astrologyEntry.canOpen
+              ? AstrologyGenerationStatus.completed
+              : AstrologyGenerationStatus.queued,
+        ),
+      },
+    );
+  }
+
+  static HomeAstrologyHubSectionData _astrologyHub(
+    HomeV2SourceBundle sources, {
+    AstrologyGenerationSnapshot? generation,
+  }) {
+    final snapshot = generation ?? _generationFromBundle(sources);
 
     HomeAstrologySystemItemData systemItem({
       required String id,
       required String title,
       required String description,
-      required String lensId,
-      required String emptyMessage,
-      required String createAction,
     }) {
-      if (hasLens(lensId)) {
-        return HomeAstrologySystemItemData(
-          id: id,
-          title: title,
-          description: description,
-          state: HomeAstrologySystemState.hasResult,
-          statusMessage: description,
-          actionLabel: HomeV3Copy.astrologyViewResultAction,
-        );
-      }
-      if (birthReady) {
-        return HomeAstrologySystemItemData(
-          id: id,
-          title: title,
-          description: description,
-          state: HomeAstrologySystemState.missingChart,
-          statusMessage: emptyMessage,
-          actionLabel: createAction,
-        );
-      }
+      final system = snapshot.system(id);
       return HomeAstrologySystemItemData(
         id: id,
         title: title,
         description: description,
-        state: HomeAstrologySystemState.missingProfile,
-        statusMessage: HomeV3Copy.profileCompletenessEmpty,
-        actionLabel: HomeV3Copy.astrologyCompleteProfileAction,
+        generationStatus: system.status,
+        statusMessage: AstrologyGenerationPresentation.statusMessage(system),
+        actionLabel: AstrologyGenerationPresentation.actionLabel(system),
       );
     }
 
-    final fusionState = sources.astrologyEntry.canOpen
-        ? HomeAstrologySystemState.hasResult
-        : birthReady
-            ? HomeAstrologySystemState.missingChart
-            : HomeAstrologySystemState.missingProfile;
+    final fusionSystem = snapshot.system('fusion');
 
     return HomeAstrologyHubSectionData(
       systems: [
@@ -373,42 +400,25 @@ abstract final class HomeV3Assembler {
           id: 'thai',
           title: HomeV3Copy.thaiAstrologyTitle,
           description: HomeV3Copy.thaiAstrologyDescription,
-          lensId: AstrologyLens.thaiAstrology.lensId,
-          emptyMessage: HomeV3Copy.thaiAstrologyEmpty,
-          createAction: HomeV3Copy.astrologyCreateChartAction,
         ),
         systemItem(
           id: 'bazi',
           title: HomeV3Copy.baziTitle,
           description: HomeV3Copy.baziDescription,
-          lensId: AstrologyLens.chineseBazi.lensId,
-          emptyMessage: HomeV3Copy.baziEmpty,
-          createAction: HomeV3Copy.astrologyCreateChartAction,
         ),
         systemItem(
           id: 'western',
           title: HomeV3Copy.westernAstrologyTitle,
           description: HomeV3Copy.westernAstrologyDescription,
-          lensId: AstrologyLens.westernNatal.lensId,
-          emptyMessage: HomeV3Copy.westernAstrologyEmpty,
-          createAction: HomeV3Copy.astrologyCreateChartAction,
         ),
       ],
-      fusionState: fusionState,
+      fusionGenerationStatus: fusionSystem.status,
       fusionTitle: HomeV3Copy.crossSystemFusionTitle,
       fusionDescription: HomeV3Copy.crossSystemFusionDescription,
-      fusionStatusMessage: fusionState == HomeAstrologySystemState.hasResult
-          ? HomeV3Copy.crossSystemFusionDescription
-          : fusionState == HomeAstrologySystemState.missingChart
-              ? HomeV3Copy.fusionEmpty
-              : HomeV3Copy.profileCompletenessEmpty,
-      fusionActionLabel: switch (fusionState) {
-        HomeAstrologySystemState.hasResult => HomeV3Copy.astrologyViewResultAction,
-        HomeAstrologySystemState.missingChart =>
-          HomeV3Copy.astrologyOpenFusionAction,
-        HomeAstrologySystemState.missingProfile =>
-          HomeV3Copy.astrologyCompleteProfileAction,
-      },
+      fusionStatusMessage:
+          AstrologyGenerationPresentation.statusMessage(fusionSystem),
+      fusionActionLabel:
+          AstrologyGenerationPresentation.actionLabel(fusionSystem),
     );
   }
 

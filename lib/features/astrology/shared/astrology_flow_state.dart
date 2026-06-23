@@ -3,6 +3,7 @@ enum AstrologyFlowState {
   computing,
   firstGeneration,
   incompleteProfile,
+  failed,
   ready,
 }
 
@@ -15,9 +16,11 @@ abstract final class AstrologyFlowCopy {
   static const incompleteProfileTitle = 'ข้อมูลเกิดไม่ครบ';
   static const incompleteProfileBody =
       'กรอกวันเกิด เวลาเกิด และสถานที่เกิดเพื่อเริ่มสร้างดวง';
+  static const failedTitle = 'สร้างไม่สำเร็จ';
+  static const failedBody = 'ไม่สามารถสร้างผลได้ในขณะนี้';
   static const completeProfileCta = 'กรอกข้อมูลเกิด';
   static const generateCta = 'สร้างดวง';
-  static const retryCta = 'ลองอีกครั้ง';
+  static const retryCta = 'ลองใหม่';
 
   static String generationTitle(String systemName) => 'กำลังสร้าง$systemName';
   static String generationBody(String systemName) =>

@@ -58,10 +58,9 @@ class _ThaiMirrorEntryPageState extends State<ThaiMirrorEntryPage> {
           final result = snapshot.data;
           if (result == null) {
             return AstrologyFlowStateBody(
-              state: AstrologyFlowState.firstGeneration,
-              onPrimaryAction: _reload,
-              primaryActionLabel: AstrologyFlowCopy.generateCta,
-              onRetry: _reload,
+              state: AstrologyFlowState.incompleteProfile,
+              onPrimaryAction: _openEditProfile,
+              primaryActionLabel: AstrologyFlowCopy.completeProfileCta,
             );
           }
 
@@ -69,22 +68,21 @@ class _ThaiMirrorEntryPageState extends State<ThaiMirrorEntryPage> {
             final message = result.errorMessage ?? '';
             final incompleteProfile = message.contains('birth') ||
                 message.contains('profile') ||
-                message.contains('เกิด');
+                message.contains('เกิด') ||
+                message.contains('not available');
 
             if (incompleteProfile) {
               return AstrologyFlowStateBody(
                 state: AstrologyFlowState.incompleteProfile,
                 onPrimaryAction: _openEditProfile,
                 primaryActionLabel: AstrologyFlowCopy.completeProfileCta,
-                onRetry: _reload,
               );
             }
 
             return AstrologyFlowStateBody(
-              state: AstrologyFlowState.firstGeneration,
+              state: AstrologyFlowState.failed,
               onPrimaryAction: _reload,
-              primaryActionLabel: AstrologyFlowCopy.generateCta,
-              onRetry: _reload,
+              primaryActionLabel: AstrologyFlowCopy.retryCta,
             );
           }
 

@@ -3,13 +3,13 @@ import 'package:knowme/core/profile/birth_profile_format.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import 'package:knowme/features/astrology/application/astrology_generation_coordinator.dart';
+import 'package:knowme/features/astrology/application/birth_profile_readiness.dart';
 import 'package:knowme/features/narrative_runtime/integration/narrative_runtime_loader.dart';
 import 'package:knowme/features/narrative_runtime/integration/profile_narrative_mapper.dart';
 import 'package:knowme/features/narrative_runtime/presentation/profile_narrative_section.dart';
 import '../../../domain/models/profile_model.dart';
 import '../../../services/profile_service.dart';
-import '../../providers/astrology_provider.dart';
-import '../../providers/bazi_provider.dart';
 import '../../providers/profile_provider.dart';
 import '../../widgets/location_picker.dart';
 
@@ -228,70 +228,18 @@ class _EditProfilePageV1State extends State<EditProfilePageV1> {
       if (!mounted) return;
 
       final birthChanged = _birthDataChanged(original, updated);
+      final wasComplete = BirthProfileReadiness.isComplete(original);
+      final isComplete = BirthProfileReadiness.isComplete(updated);
 
-      if (birthChanged) {
-        final astrologyProvider = context.read<AstrologyProvider>();
-        final baziProvider = context.read<BaziProvider>();
-        final apiBirthDate = _apiBirthDate(birthDate!);
-        final birthTimeStr = _formatTime(birthTime);
-
-        await Future.wait([
-          astrologyProvider.generateChart(
-            uid: user.uid,
-            birthDate: apiBirthDate,
-            birthTime: birthTimeStr,
-            latitude: latitude!,
-            longitude: longitude!,
-          ),
-          baziProvider.generateBazi(
-            uid: user.uid,
-            birthDate: apiBirthDate,
-            birthTime: birthTimeStr,
-            timezone: timezone,
-            latitude: latitude,
-            longitude: longitude,
-          ),
-        ]);
-
-        if (!mounted) return;
-
-        final westernError = astrologyProvider.error;
-        final baziError = baziProvider.error;
-
-        if (westernError == null && baziError == null) {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Profile saved successfully')),
-          );
-        } else {
-          ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Profile saved successfully')),
-          );
-
-          if (westernError != null) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(
-                  'Western chart could not be generated: $westernError',
-                ),
-              ),
-            );
-          }
-
-          if (baziError != null) {
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Text(
-                  'Chinese BaZi chart could not be generated: $baziError',
-                ),
-              ),
-            );
-          }
-        }
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Profile saved successfully')),
-        );
+      if (isComplete && (birthChanged || !wasComplete)) {
+        await AstrologyGenerationCoordinator().ensureGenerated(user.uid);
       }
+
+      if (!mounted) return;
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Profile saved successfully')),
+      );
 
       _originalProfile = updated;
       context.read<ProfileProvider>().refreshProfile();

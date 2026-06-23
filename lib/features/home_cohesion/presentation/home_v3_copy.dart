@@ -136,6 +136,15 @@ abstract final class HomeV3Copy {
   static const astrologyViewResultAction = 'ดูผล';
   static const astrologyCreateChartAction = 'สร้างดวง';
   static const astrologyCompleteProfileAction = 'กรอกข้อมูลเกิด';
+  static const astrologyRetryAction = 'ลองใหม่';
+  static const astrologySystemReady = 'พร้อมแล้ว';
+  static const astrologySystemGenerating = 'กำลังสร้าง...';
+  static const astrologySystemFailed = 'สร้างไม่สำเร็จ';
+  static const astrologySummaryProgress = 'กำลังสร้างดวงเพิ่มเติม...';
+
+  static String astrologySummaryLine(int completed, int total) =>
+      'มีผลโหราศาสตร์แล้ว $completed จาก $total ระบบ';
+
   static const astrologyOpenFusionAction = 'เปิดดวงรวม';
   static const psychologyExpansionTitle = 'เสริมความเข้าใจตัวเอง';
   static const psychologyExpansionSubtitle =

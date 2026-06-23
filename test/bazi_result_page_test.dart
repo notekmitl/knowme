@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/data/models/bazi_chart_model.dart';
+import 'package:knowme/features/astrology/application/astrology_generation_coordinator.dart';
+import 'package:knowme/features/astrology/domain/astrology_generation_status.dart';
+import 'package:knowme/features/astrology/shared/astrology_flow_state.dart';
 import 'package:knowme/presentation/pages/bazi/bazi_result_page.dart';
+import 'package:knowme/features/astrology/fusion/application/astrology_fusion_lens_probe.dart';
+import 'package:knowme/features/astrology/fusion/application/astrology_fusion_regeneration_service.dart';
+import 'package:knowme/features/astrology/fusion/application/astrology_fusion_repository.dart';
+import 'package:knowme/features/astrology/fusion/domain/models/astrology_fusion_real_input.dart';
+import 'package:knowme/features/astrology/fusion/domain/models/astrology_fusion_snapshot.dart';
+import 'package:knowme/services/profile_service.dart';
 import 'package:knowme/presentation/providers/bazi_provider.dart';
 import 'package:knowme/presentation/providers/locale_provider.dart';
 import 'package:provider/provider.dart';
@@ -72,7 +81,11 @@ BaziChartModel _sampleChart() {
   });
 }
 
-Widget _wrap(Widget child, BaziProvider provider) {
+Widget _wrap(
+  Widget child,
+  BaziProvider provider, {
+  AstrologyGenerationCoordinator? coordinator,
+}) {
   return MultiProvider(
     providers: [
       ChangeNotifierProvider<BaziProvider>.value(value: provider),
@@ -84,23 +97,70 @@ Widget _wrap(Widget child, BaziProvider provider) {
   );
 }
 
+class _NoopLensProbe implements AstrologyFusionLensProbe {
+  @override
+  Future<AstrologyFusionLensProbeResult> probe(String uid) async {
+    return AstrologyFusionLensProbeResult(
+      completedLensIds: [],
+      input: AstrologyFusionRealInput(),
+    );
+  }
+}
+
+class _NoopFusionRepository implements AstrologyFusionRepository {
+  @override
+  Future<void> deleteFusion(String uid) async {}
+
+  @override
+  Future<AstrologyFusionSnapshot?> loadFusion(String uid) async => null;
+
+  @override
+  Future<void> saveFusion(String uid, AstrologyFusionSnapshot snapshot) async {}
+}
+
+AstrologyGenerationCoordinator _noopCoordinator() {
+  return AstrologyGenerationCoordinator(
+    profileService: ProfileService.testing((_) async => null),
+    lensProbe: _NoopLensProbe(),
+    fusionRepository: _NoopFusionRepository(),
+    fusionService: AstrologyFusionRegenerationService(
+      repository: InMemoryAstrologyFusionRepository(),
+    ),
+    generateBazi: (_, __) async {},
+    generateWestern: (_, __) async {},
+  );
+}
+
 void main() {
-  testWidgets('shows empty state when chart is null', (tester) async {
+  testWidgets('shows failed state when chart is null', (tester) async {
     final provider = BaziProvider(loadChartFn: (_) async => null);
 
     await tester.pumpWidget(
-      _wrap(const BaziResultPage(userId: 'test-uid'), provider),
+      _wrap(
+        BaziResultPage(
+          userId: 'test-uid',
+          generationCoordinator: _noopCoordinator(),
+        ),
+        provider,
+      ),
     );
     await tester.pumpAndSettle();
 
-    expect(find.textContaining('No BaZi chart saved'), findsOneWidget);
+    expect(find.text(AstrologyFlowCopy.failedTitle), findsOneWidget);
+    expect(find.text(AstrologyFlowCopy.retryCta), findsOneWidget);
   });
 
   testWidgets('renders insight-first sections when chart loaded', (tester) async {
     final provider = BaziProvider(loadChartFn: (_) async => _sampleChart());
 
     await tester.pumpWidget(
-      _wrap(const BaziResultPage(userId: 'test-uid'), provider),
+      _wrap(
+        BaziResultPage(
+          userId: 'test-uid',
+          generationCoordinator: _noopCoordinator(),
+        ),
+        provider,
+      ),
     );
     await tester.pumpAndSettle();
 

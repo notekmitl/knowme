@@ -8,46 +8,69 @@ import 'package:knowme/features/bazi/application/bazi_summary_engine.dart';
 import 'package:knowme/features/bazi/application/bazi_theme_engine.dart';
 import 'package:knowme/features/bazi/domain/bazi_summary.dart';
 import 'package:knowme/features/bazi/domain/bazi_theme.dart';
+import 'package:provider/provider.dart';
+
+import 'package:knowme/features/astrology/application/astrology_generation_coordinator.dart';
 import 'package:knowme/features/astrology/shared/astrology_flow_state.dart';
 import 'package:knowme/features/astrology/shared/astrology_flow_widgets.dart';
-import 'package:knowme/presentation/pages/profile/edit_profile_page_v1.dart';
-import 'package:provider/provider.dart';
 
 import '../../providers/bazi_provider.dart';
 import '../../providers/locale_provider.dart';
 import 'bazi_result_copy.dart';
 
 class BaziResultPage extends StatefulWidget {
-  const BaziResultPage({super.key, this.userId});
+  const BaziResultPage({super.key, this.userId, this.generationCoordinator});
 
   /// When set (e.g. tests), skips [FirebaseAuth] lookup.
   final String? userId;
+
+  /// Optional coordinator for tests — avoids Firebase in widget tests.
+  final AstrologyGenerationCoordinator? generationCoordinator;
 
   @override
   State<BaziResultPage> createState() => _BaziResultPageState();
 }
 
 class _BaziResultPageState extends State<BaziResultPage> {
+  AstrologyGenerationCoordinator? _coordinator;
+  bool _autoGenerating = false;
+
+  AstrologyGenerationCoordinator get _generationCoordinator =>
+      widget.generationCoordinator ??
+      (_coordinator ??= AstrologyGenerationCoordinator());
+
   @override
   void initState() {
     super.initState();
-    Future.microtask(() {
-      if (!mounted) return;
-      final uid = widget.userId ?? FirebaseAuth.instance.currentUser?.uid;
-      if (uid == null || uid.isEmpty) return;
-      context.read<BaziProvider>().loadChart(uid);
-    });
+    Future.microtask(() => _bootstrap());
   }
 
-  void _openEditProfile(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(builder: (_) => const EditProfilePageV1()),
-    ).then((_) {
-      if (!mounted) return;
-      final uid = widget.userId ?? FirebaseAuth.instance.currentUser?.uid;
-      if (uid == null || uid.isEmpty) return;
-      context.read<BaziProvider>().loadChart(uid);
-    });
+  Future<void> _bootstrap() async {
+    if (!mounted) return;
+    final uid = widget.userId ?? FirebaseAuth.instance.currentUser?.uid;
+    if (uid == null || uid.isEmpty) return;
+
+    final provider = context.read<BaziProvider>();
+    await provider.loadChart(uid);
+    if (!mounted || provider.chart != null) return;
+
+    setState(() => _autoGenerating = true);
+    await _generationCoordinator.ensureGenerated(uid, retrySystemId: 'bazi');
+    if (!mounted) return;
+    await provider.loadChart(uid);
+    if (mounted) setState(() => _autoGenerating = false);
+  }
+
+  Future<void> _retryGeneration() async {
+    if (!mounted) return;
+    final uid = widget.userId ?? FirebaseAuth.instance.currentUser?.uid;
+    if (uid == null || uid.isEmpty) return;
+
+    setState(() => _autoGenerating = true);
+    await _generationCoordinator.ensureGenerated(uid, retrySystemId: 'bazi');
+    if (!mounted) return;
+    await context.read<BaziProvider>().loadChart(uid);
+    if (mounted) setState(() => _autoGenerating = false);
   }
 
   @override
@@ -64,7 +87,7 @@ class _BaziResultPageState extends State<BaziResultPage> {
       ),
       body: Consumer<BaziProvider>(
         builder: (context, provider, _) {
-          if (provider.isLoading) {
+          if (provider.isLoading || _autoGenerating) {
             return AstrologyGenerationBody(
               title: AstrologyFlowCopy.generationTitle('ดวงปาจื้อ'),
               body: AstrologyFlowCopy.generationBody('ดวงปาจื้อ'),
@@ -73,23 +96,18 @@ class _BaziResultPageState extends State<BaziResultPage> {
 
           if (provider.error != null) {
             return AstrologyFlowStateBody(
-              state: AstrologyFlowState.firstGeneration,
-              onPrimaryAction: () => provider.loadChart(
-                widget.userId ?? FirebaseAuth.instance.currentUser?.uid ?? '',
-              ),
+              state: AstrologyFlowState.failed,
+              onPrimaryAction: _retryGeneration,
               primaryActionLabel: AstrologyFlowCopy.retryCta,
-              onRetry: () => provider.loadChart(
-                widget.userId ?? FirebaseAuth.instance.currentUser?.uid ?? '',
-              ),
             );
           }
 
           final chart = provider.chart;
           if (chart == null) {
             return AstrologyFlowStateBody(
-              state: AstrologyFlowState.firstGeneration,
-              onPrimaryAction: () => _openEditProfile(context),
-              primaryActionLabel: AstrologyFlowCopy.generateCta,
+              state: AstrologyFlowState.failed,
+              onPrimaryAction: _retryGeneration,
+              primaryActionLabel: AstrologyFlowCopy.retryCta,
             );
           }
 

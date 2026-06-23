@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:knowme/core/profile/birth_profile_format.dart';
+import 'package:knowme/core/profile/canonical_profile_resolver.dart';
 import 'package:knowme/features/astrology/thai/foundation/models/thai_birth_data.dart';
 
 /// Loads birth input from `users/{uid}/profile/main`.
@@ -7,16 +8,10 @@ abstract final class UserProfileBirthLoader {
   static Future<ThaiBirthData?> load(String uid, {FirebaseFirestore? firestore}) async {
     if (uid.isEmpty) return null;
 
-    final db = firestore ?? FirebaseFirestore.instance;
-    final doc = await db
-        .collection('users')
-        .doc(uid)
-        .collection('profile')
-        .doc('main')
-        .get();
-
-    if (!doc.exists || doc.data() == null) return null;
-    return fromMap(doc.data()!);
+    final profile = await CanonicalProfileResolver(firestore: firestore)
+        .loadCanonicalProfile(uid);
+    if (profile == null) return null;
+    return fromMap(profile.toMap());
   }
 
   static ThaiBirthData? fromMap(Map<String, dynamic> profile) {

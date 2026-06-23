@@ -1,5 +1,7 @@
 import 'home_screen_v2_models.dart';
 
+import 'package:knowme/features/astrology/domain/astrology_generation_status.dart';
+
 import '../domain/home_profile_completion.dart';
 
 
@@ -231,7 +233,7 @@ class HomeNarrativePreviewSectionData {
   final List<String> lockedSectionLabels;
 }
 
-/// Readiness of a single astrology system on Home.
+/// Legacy readiness — derived from [generationStatus].
 enum HomeAstrologySystemState {
   hasResult,
   missingChart,
@@ -244,7 +246,7 @@ class HomeAstrologySystemItemData {
     required this.id,
     required this.title,
     required this.description,
-    required this.state,
+    required this.generationStatus,
     required this.statusMessage,
     required this.actionLabel,
   });
@@ -252,11 +254,20 @@ class HomeAstrologySystemItemData {
   final String id;
   final String title;
   final String description;
-  final HomeAstrologySystemState state;
+  final AstrologyGenerationStatus generationStatus;
   final String statusMessage;
   final String actionLabel;
 
-  bool get isAvailable => state == HomeAstrologySystemState.hasResult;
+  HomeAstrologySystemState get state => switch (generationStatus) {
+        AstrologyGenerationStatus.completed =>
+          HomeAstrologySystemState.hasResult,
+        AstrologyGenerationStatus.notReady =>
+          HomeAstrologySystemState.missingProfile,
+        _ => HomeAstrologySystemState.missingChart,
+      };
+
+  bool get isAvailable =>
+      generationStatus == AstrologyGenerationStatus.completed;
 }
 
 /// Compact astrology summary on Home.
@@ -264,12 +275,14 @@ class HomeAstrologySummaryCardData {
   const HomeAstrologySummaryCardData({
     required this.isLoading,
     required this.statusLine,
+    required this.progressLine,
     required this.ctaLabel,
     required this.canOpen,
   });
 
   final bool isLoading;
   final String statusLine;
+  final String progressLine;
   final String ctaLabel;
   final bool canOpen;
 }
@@ -278,7 +291,7 @@ class HomeAstrologySummaryCardData {
 class HomeAstrologyHubSectionData {
   const HomeAstrologyHubSectionData({
     required this.systems,
-    required this.fusionState,
+    required this.fusionGenerationStatus,
     required this.fusionTitle,
     required this.fusionDescription,
     required this.fusionStatusMessage,
@@ -286,13 +299,22 @@ class HomeAstrologyHubSectionData {
   });
 
   final List<HomeAstrologySystemItemData> systems;
-  final HomeAstrologySystemState fusionState;
+  final AstrologyGenerationStatus fusionGenerationStatus;
   final String fusionTitle;
   final String fusionDescription;
   final String fusionStatusMessage;
   final String fusionActionLabel;
 
-  bool get fusionAvailable => fusionState == HomeAstrologySystemState.hasResult;
+  HomeAstrologySystemState get fusionState => switch (fusionGenerationStatus) {
+        AstrologyGenerationStatus.completed =>
+          HomeAstrologySystemState.hasResult,
+        AstrologyGenerationStatus.notReady =>
+          HomeAstrologySystemState.missingProfile,
+        _ => HomeAstrologySystemState.missingChart,
+      };
+
+  bool get fusionAvailable =>
+      fusionGenerationStatus == AstrologyGenerationStatus.completed;
 }
 
 /// Full Home V3.8 emotional product bundle.
@@ -385,6 +407,7 @@ class HomeScreenV3Data {
       astrologySummary: const HomeAstrologySummaryCardData(
         isLoading: true,
         statusLine: '',
+        progressLine: '',
         ctaLabel: '',
         canOpen: false,
       ),

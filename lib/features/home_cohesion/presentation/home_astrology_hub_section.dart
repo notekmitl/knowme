@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:knowme/features/astrology/application/astrology_generation_presentation.dart';
+import 'package:knowme/features/astrology/domain/astrology_generation_status.dart';
+
 import 'home_screen_v3_models.dart';
 import 'home_v3_copy.dart';
 import 'home_v35_design.dart';
@@ -12,12 +15,14 @@ class HomeAstrologyHubSection extends StatelessWidget {
     required this.onOpenSystem,
     required this.onOpenFusion,
     required this.onEditProfile,
+    this.onRetrySystem,
   });
 
   final HomeAstrologyHubSectionData hub;
   final void Function(String systemId) onOpenSystem;
   final VoidCallback onOpenFusion;
   final VoidCallback onEditProfile;
+  final void Function(String systemId)? onRetrySystem;
 
   static const _systemVisuals = <String, ({IconData icon, Color color, Color tint})>{
     'thai': (
@@ -124,18 +129,44 @@ class HomeAstrologyHubSection extends StatelessWidget {
   }
 
   void _handleSystemTap(HomeAstrologySystemItemData system) {
-    if (system.state == HomeAstrologySystemState.missingProfile) {
+    if (system.generationStatus == AstrologyGenerationStatus.notReady) {
       onEditProfile();
+      return;
+    }
+    if (AstrologyGenerationPresentation.canRetry(
+      AstrologySystemSnapshot(
+        systemId: system.id,
+        status: system.generationStatus,
+      ),
+    )) {
+      onRetrySystem?.call(system.id);
+      return;
+    }
+    if (!AstrologyGenerationPresentation.canOpen(
+      AstrologySystemSnapshot(
+        systemId: system.id,
+        status: system.generationStatus,
+      ),
+    )) {
       return;
     }
     onOpenSystem(system.id);
   }
 
   void _handleFusionTap() {
-    if (hub.fusionState == HomeAstrologySystemState.missingProfile) {
+    final fusion = AstrologySystemSnapshot(
+      systemId: 'fusion',
+      status: hub.fusionGenerationStatus,
+    );
+    if (fusion.status == AstrologyGenerationStatus.notReady) {
       onEditProfile();
       return;
     }
+    if (AstrologyGenerationPresentation.canRetry(fusion)) {
+      onRetrySystem?.call('fusion');
+      return;
+    }
+    if (!AstrologyGenerationPresentation.canOpen(fusion)) return;
     onOpenFusion();
   }
 }
@@ -153,16 +184,24 @@ class _AstrologySystemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ready = system.state == HomeAstrologySystemState.hasResult;
+    final ready = system.generationStatus == AstrologyGenerationStatus.completed;
+    final busy = AstrologyGenerationPresentation.isBusy(
+      AstrologySystemSnapshot(
+        systemId: system.id,
+        status: system.generationStatus,
+      ),
+    );
+    final failed =
+        system.generationStatus == AstrologyGenerationStatus.failed;
     final accent = visual?.color ?? HomeV35Design.goldAccent;
     final tint = visual?.tint ?? HomeV35Design.purpleSoft;
-    final subtitle = ready ? system.description : system.statusMessage;
+    final subtitle = system.statusMessage;
 
     return Material(
       color: Colors.white,
       borderRadius: BorderRadius.circular(HomeV35Design.cardRadius),
       child: InkWell(
-        onTap: onTap,
+        onTap: busy ? null : onTap,
         borderRadius: BorderRadius.circular(HomeV35Design.cardRadius),
         child: Container(
           padding: const EdgeInsets.all(16),
@@ -193,7 +232,18 @@ class _AstrologySystemCard extends StatelessWidget {
                   ),
                   const Spacer(),
                   if (ready)
-                    Icon(Icons.check_circle_rounded, color: accent, size: 22),
+                    Icon(Icons.check_circle_rounded, color: accent, size: 22)
+                  else if (busy)
+                    SizedBox(
+                      width: 22,
+                      height: 22,
+                      child: CircularProgressIndicator(
+                        strokeWidth: 2,
+                        color: accent,
+                      ),
+                    )
+                  else if (failed)
+                    Icon(Icons.error_outline_rounded, color: accent, size: 22),
                 ],
               ),
               const SizedBox(height: 12),
@@ -240,15 +290,21 @@ class _FusionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ready = hub.fusionState == HomeAstrologySystemState.hasResult;
-    final subtitle =
-        ready ? hub.fusionDescription : hub.fusionStatusMessage;
+    final ready =
+        hub.fusionGenerationStatus == AstrologyGenerationStatus.completed;
+    final busy = AstrologyGenerationPresentation.isBusy(
+      AstrologySystemSnapshot(
+        systemId: 'fusion',
+        status: hub.fusionGenerationStatus,
+      ),
+    );
+    final subtitle = hub.fusionStatusMessage;
 
     return Material(
       color: HomeV35Design.goldCta.withValues(alpha: 0.14),
       borderRadius: BorderRadius.circular(HomeV35Design.cardRadius),
       child: InkWell(
-        onTap: onTap,
+        onTap: busy ? null : onTap,
         borderRadius: BorderRadius.circular(HomeV35Design.cardRadius),
         child: Container(
           padding: const EdgeInsets.all(18),

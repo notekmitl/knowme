@@ -1,4 +1,5 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:knowme/core/profile/canonical_profile_resolver.dart';
+import 'package:knowme/domain/models/profile_model.dart';
 import 'package:knowme/features/astrology/fusion/application/astrology_fusion_entry_service.dart';
 import 'package:knowme/features/astrology/fusion/application/astrology_fusion_lens_probe.dart';
 import 'package:knowme/features/astrology/fusion/application/astrology_fusion_repository.dart';
@@ -28,19 +29,19 @@ import 'home_v2_assembler.dart';
 /// Loads live Home source data — widgets never read Firestore directly.
 class HomeV2Loader {
   HomeV2Loader({
-    FirebaseFirestore? firestore,
     AstrologyFusionRepository? fusionRepository,
     PersonalityLensLoader? personalityLoader,
     AstrologyFusionLensProbe? lensProbe,
-  })  : _firestore = firestore ?? FirebaseFirestore.instance,
-        _fusionRepository = fusionRepository ?? AstrologyFusionRepositoryImpl(),
+    CanonicalProfileResolver? profileResolver,
+  })  : _fusionRepository = fusionRepository ?? AstrologyFusionRepositoryImpl(),
         _personalityLoader = personalityLoader ?? PersonalityLensLoader(),
-        _lensProbe = lensProbe ?? FirestoreAstrologyFusionLensProbe();
+        _lensProbe = lensProbe ?? FirestoreAstrologyFusionLensProbe(),
+        _profileResolver = profileResolver ?? CanonicalProfileResolver();
 
-  final FirebaseFirestore _firestore;
   final AstrologyFusionRepository _fusionRepository;
   final PersonalityLensLoader _personalityLoader;
   final AstrologyFusionLensProbe _lensProbe;
+  final CanonicalProfileResolver _profileResolver;
 
   Future<HomeScreenV2Data> load(String uid) async {
     return HomeV2Assembler.fromSources(await loadBundle(uid));
@@ -54,36 +55,25 @@ class HomeV2Loader {
       return _emptyBundle();
     }
 
-    final profileMainFuture = _firestore
-        .collection('users')
-        .doc(uid)
-        .collection('profile')
-        .doc('main')
-        .get();
-    final profileRootFuture = _firestore.collection('users').doc(uid).get();
+    final profileFuture = _profileResolver.loadCanonicalProfile(uid);
     final fusionSnapshotFuture = _fusionRepository.loadFusion(uid);
     final personalityLoadFuture = _personalityLoader.loadAll(uid);
     final lensProbeFuture = _lensProbe.probe(uid);
 
     final results = await Future.wait([
-      profileMainFuture,
-      profileRootFuture,
+      profileFuture,
       fusionSnapshotFuture,
       personalityLoadFuture,
       lensProbeFuture,
     ]);
 
-    final profileMainDoc = results[0] as DocumentSnapshot<Map<String, dynamic>>;
-    final profileDoc = results[1] as DocumentSnapshot<Map<String, dynamic>>;
-    final fusionSnapshot = results[2] as AstrologyFusionSnapshot?;
-    final personalityLoad = results[3] as PersonalityLensLoadResult;
-    final lensProbe = results[4] as AstrologyFusionLensProbeResult;
+    final profile = results[0] as ProfileModel?;
+    final fusionSnapshot = results[1] as AstrologyFusionSnapshot?;
+    final personalityLoad = results[2] as PersonalityLensLoadResult;
+    final lensProbe = results[3] as AstrologyFusionLensProbeResult;
 
-    final profileData = profileMainDoc.exists && profileMainDoc.data() != null
-        ? profileMainDoc.data()
-        : profileDoc.data();
-    final profileFields = _profileFields(profileData);
-    final profileInput = _profileInput(profileData);
+    final profileFields = CanonicalProfileResolver.profileFields(profile);
+    final profileInput = CanonicalProfileResolver.explorationInput(profile);
     final fusionResult = fusionSnapshot?.toResult();
 
     final astrologyEntry = _astrologyEntryFromProbe(lensProbe);
@@ -214,35 +204,6 @@ class HomeV2Loader {
       personalityNarrative: null,
       personalityCoverage: null,
       globalReflections: const [],
-    );
-  }
-
-  static Map<String, String> _profileFields(Map<String, dynamic>? data) {
-    if (data == null) return const {};
-    return {
-      'name': '${data['name'] ?? ''}',
-      'birthDate': '${data['birthDate'] ?? ''}',
-      'birthTime': '${data['birthTime'] ?? ''}',
-      'birthPlace': '${data['birthPlace'] ?? ''}',
-    };
-  }
-
-  static ExplorationProfileInput _profileInput(Map<String, dynamic>? data) {
-    if (data == null) return ExplorationProfileInput.empty;
-
-    final name = '${data['name'] ?? ''}'.trim();
-    final birthDate = '${data['birthDate'] ?? ''}'.trim();
-    final birthTime = '${data['birthTime'] ?? ''}'.trim();
-    final birthPlace = '${data['birthPlace'] ?? ''}'.trim();
-    final latitude = (data['latitude'] as num?)?.toDouble() ?? 0;
-    final longitude = (data['longitude'] as num?)?.toDouble() ?? 0;
-
-    return ExplorationProfileInput(
-      hasName: name.isNotEmpty,
-      hasBirthDate: birthDate.isNotEmpty,
-      hasBirthTime: birthTime.isNotEmpty,
-      hasBirthPlace: birthPlace.isNotEmpty,
-      hasCoordinates: latitude != 0 && longitude != 0,
     );
   }
 }

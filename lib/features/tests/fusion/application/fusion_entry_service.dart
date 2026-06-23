@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import 'package:knowme/core/profile/canonical_profile_resolver.dart';
+import 'package:knowme/features/astrology/application/birth_profile_readiness.dart';
 import 'package:knowme/services/astrology_firestore_service.dart';
+import 'package:knowme/services/profile_service.dart';
 
 import 'fusion_lens_loader.dart';
 import 'fusion_loader.dart';
@@ -54,23 +57,10 @@ class FusionEntryService {
 
   Future<bool> _isAstrologyReadyFromProfile(String uid) async {
     try {
-      final doc = await _firestore
-          .collection('users')
-          .doc(uid)
-          .collection('profile')
-          .doc('main')
-          .get();
-      final data = doc.data();
-      if (data == null) return false;
-
-      final hasBirthDate =
-          (data['birthDate'] as String?)?.trim().isNotEmpty == true;
-      final hasBirthTime =
-          (data['birthTime'] as String?)?.trim().isNotEmpty == true;
-      final latitude = data['latitude'];
-      final longitude = data['longitude'];
-      final hasLocation = latitude is num && longitude is num;
-      return hasBirthDate && hasBirthTime && hasLocation;
+      final profile = await ProfileService(
+        resolver: CanonicalProfileResolver(firestore: _firestore),
+      ).loadProfileForUid(uid);
+      return BirthProfileReadiness.isComplete(profile);
     } catch (_) {
       return false;
     }

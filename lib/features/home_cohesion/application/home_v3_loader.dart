@@ -1,6 +1,7 @@
 import 'package:knowme/features/home_cohesion/application/home_v2_assembler.dart';
 import 'package:knowme/features/home_cohesion/application/home_v2_loader.dart';
 import 'package:knowme/features/home_cohesion/application/home_v3_assembler.dart';
+import 'package:knowme/features/home_cohesion/application/home_v3_load_result.dart';
 import 'package:knowme/features/narrative_runtime/domain/narrative_result.dart';
 import 'package:knowme/features/narrative_runtime/integration/narrative_runtime_loader.dart';
 
@@ -26,19 +27,23 @@ class HomeV3Loader {
   /// Full load — shell + enrich + narrative (legacy single await).
   Future<HomeScreenV3Data> load(String uid) async {
     final timing = HomeLoadTiming();
-    final data = await loadProgressive(uid, timing: timing);
+    final result = await loadProgressive(uid, timing: timing);
     timing.markTotal();
-    return data;
+    return result.data;
   }
 
   /// Fast shell first, then narrative + enrich in background.
-  Future<HomeScreenV3Data> loadProgressive(
+  Future<HomeV3LoadResult> loadProgressive(
     String uid, {
     HomeShellReadyCallback? onShellReady,
     HomeLoadTiming? timing,
   }) async {
     if (uid.isEmpty) {
-      return HomeScreenV3Data.empty();
+      final emptyBundle = await _loader.loadBundle('');
+      return HomeV3LoadResult(
+        data: HomeScreenV3Data.empty(),
+        bundle: emptyBundle,
+      );
     }
 
     final bundleFast =
@@ -59,9 +64,13 @@ class HomeV3Loader {
     timing?.markNarrative();
     timing?.markEnrich();
 
-    return HomeV3Assembler.fromSources(
-      bundleFull,
-      narrativeResult: narrative,
+    return HomeV3LoadResult(
+      data: HomeV3Assembler.fromSources(
+        bundleFull,
+        narrativeResult: narrative,
+      ),
+      bundle: bundleFull,
+      narrative: narrative,
     );
   }
 

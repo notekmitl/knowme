@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:provider/provider.dart';
 
+import 'package:knowme/features/astrology/application/astrology_generation_coordinator.dart';
 import 'package:knowme/core/profile/birth_profile_format.dart';
-import '../../providers/astrology_provider.dart';
-import '../../providers/bazi_provider.dart';
 import '../../widgets/location_picker.dart';
 
 class ProfileSetupPage extends StatefulWidget {
@@ -104,85 +102,32 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
         throw Exception("User not found");
       }
 
-      final astrologyProvider = context.read<AstrologyProvider>();
+      const timezone = 'Asia/Bangkok';
       final birthTimeStr = formatTime(birthTime);
 
-      const timezone = 'Asia/Bangkok';
-
       await FirebaseFirestore.instance
-          .collection("users")
+          .collection('users')
           .doc(user.uid)
-          .collection("profile")
-          .doc("main")
+          .collection('profile')
+          .doc('main')
           .set({
-            "name": nameController.text.trim(),
-            "gender": gender,
-            "birthDate": BirthProfileFormat.storageDate(birthDate!),
-            "birthTime": birthTimeStr,
-            "birthPlace": birthPlaceController.text.trim(),
-            "latitude": latitude,
-            "longitude": longitude,
-            "timezone": timezone,
-          });
+        'name': nameController.text.trim(),
+        'gender': gender,
+        'birthDate': BirthProfileFormat.storageDate(birthDate!),
+        'birthTime': birthTimeStr,
+        'birthPlace': birthPlaceController.text.trim(),
+        'latitude': latitude,
+        'longitude': longitude,
+        'timezone': timezone,
+      });
 
-      final baziProvider = context.read<BaziProvider>();
-      final apiBirthDate = _apiBirthDate(birthDate!);
-
-      await Future.wait([
-        astrologyProvider.generateChart(
-          uid: user.uid,
-          birthDate: apiBirthDate,
-          birthTime: birthTimeStr,
-          latitude: latitude!,
-          longitude: longitude!,
-        ),
-        baziProvider.generateBazi(
-          uid: user.uid,
-          birthDate: apiBirthDate,
-          birthTime: birthTimeStr,
-          timezone: timezone,
-          latitude: latitude,
-          longitude: longitude,
-        ),
-      ]);
-
-      // ProfileGate จะ detect profile/main แล้วเข้า HomePage เอง
+      await AstrologyGenerationCoordinator().ensureGenerated(user.uid);
 
       if (!mounted) return;
 
-      final westernError = astrologyProvider.error;
-      final baziError = baziProvider.error;
-
-      if (westernError == null && baziError == null) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("Profile saved successfully")),
-        );
-        return;
-      }
-
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Profile saved successfully")),
+        const SnackBar(content: Text('Profile saved successfully')),
       );
-
-      if (westernError != null) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              'Western chart could not be generated: $westernError',
-            ),
-          ),
-        );
-      }
-
-      if (baziError != null) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(
-              'Chinese BaZi chart could not be generated: $baziError',
-            ),
-          ),
-        );
-      }
     } catch (e) {
       if (!mounted) return;
 

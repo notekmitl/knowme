@@ -99,6 +99,18 @@ class HomeAstrologySummaryCard extends StatelessWidget {
                             color: HomeV35Design.textSecondary,
                           ),
                         ),
+                        if (data.progressLine.isNotEmpty) ...[
+                          const SizedBox(height: 4),
+                          Text(
+                            data.progressLine,
+                            style: const TextStyle(
+                              fontSize: 13,
+                              height: 1.35,
+                              fontWeight: FontWeight.w600,
+                              color: HomeV35Design.purpleAccent,
+                            ),
+                          ),
+                        ],
                       ],
                     ),
                   ),

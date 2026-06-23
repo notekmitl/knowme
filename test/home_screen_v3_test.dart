@@ -43,7 +43,7 @@ void main() {
           HomeV3Assembler.fromGolden(HomeV2GoldenScenario.advancedUser);
 
       expect(data.astrologySummary.isLoading, isFalse);
-      expect(data.astrologySummary.statusLine, contains('ระบบ'));
+      expect(data.astrologySummary.statusLine, contains('จาก 4 ระบบ'));
       expect(data.astrologySummary.ctaLabel, HomeV3Copy.viewFullAstrology);
     });
 

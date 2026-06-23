@@ -6,6 +6,7 @@ class ExplorationProfileInput {
     this.hasBirthTime = false,
     this.hasBirthPlace = false,
     this.hasCoordinates = false,
+    this.birthProfileComplete = false,
   });
 
   final bool hasName;
@@ -13,6 +14,7 @@ class ExplorationProfileInput {
   final bool hasBirthTime;
   final bool hasBirthPlace;
   final bool hasCoordinates;
+  final bool birthProfileComplete;
 
   static const empty = ExplorationProfileInput();
 
@@ -24,10 +26,10 @@ class ExplorationProfileInput {
     hasBirthTime: true,
     hasBirthPlace: true,
     hasCoordinates: true,
+    birthProfileComplete: true,
   );
 
-  bool get isBirthProfileComplete =>
-      hasBirthDate && hasBirthTime && hasBirthPlace && hasCoordinates;
+  bool get isBirthProfileComplete => birthProfileComplete;
 
   bool get hasAnyProfileData =>
       hasName ||
