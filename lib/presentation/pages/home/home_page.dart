@@ -37,16 +37,17 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
+    _homeData = HomeScreenV3Data.empty();
     _loadHome();
     FunnelTelemetry.track(FunnelTelemetryEvent.homeView);
   }
 
   Future<void> _loadHome() async {
     final uid = FirebaseAuth.instance.currentUser?.uid ?? '';
+    final preserveVisibleShell = _homeData != null;
     setState(() {
-      _shellLoading = true;
+      _shellLoading = !preserveVisibleShell;
       _narrativeLoading = uid.isNotEmpty;
-      _homeData = null;
     });
 
     final data = await _homeLoader.loadProgressive(
@@ -188,10 +189,6 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildBody(BuildContext context) {
-    if (_shellLoading && _homeData == null) {
-      return const Center(child: CircularProgressIndicator());
-    }
-
     final data = _homeData ?? HomeScreenV3Data.empty();
 
     return SingleChildScrollView(

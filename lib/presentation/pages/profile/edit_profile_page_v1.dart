@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:knowme/core/profile/birth_profile_format.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
