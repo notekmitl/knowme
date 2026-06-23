@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:knowme/features/astrology/fusion/application/astrology_fusion_entry_service.dart';
+import 'package:knowme/features/astrology/fusion/application/astrology_fusion_lens_probe.dart';
 import 'package:knowme/features/astrology/fusion/application/astrology_fusion_repository.dart';
 import 'package:knowme/features/astrology/fusion/domain/entities/astrology_fusion_entry_status.dart';
+import 'package:knowme/features/astrology/fusion/domain/models/astrology_fusion_lens_catalog.dart';
 import 'package:knowme/features/astrology/fusion/domain/models/astrology_fusion_readiness.dart';
 import 'package:knowme/features/astrology/fusion/domain/models/astrology_fusion_snapshot.dart';
 import 'package:knowme/features/exploration_overview/domain/exploration_profile_input.dart';
@@ -13,6 +15,7 @@ import 'package:knowme/features/global_fusion/domain/global_reflection_unit.dart
 import 'package:knowme/features/personality_mirror/application/mirror/personality_confidence_composer.dart';
 import 'package:knowme/features/personality_mirror/application/mirror/personality_mirror_engine.dart';
 import 'package:knowme/features/personality_mirror/application/narrative/personality_mirror_narrative_builder.dart';
+import 'package:knowme/features/personality_mirror/application/personality_lens_load_result.dart';
 import 'package:knowme/features/personality_mirror/application/personality_lens_loader.dart';
 import 'package:knowme/features/personality_mirror/application/personality_mirror_entry_service.dart';
 import 'package:knowme/features/personality_mirror/domain/personality_mirror_narrative_view.dart';
@@ -28,107 +31,163 @@ class HomeV2Loader {
     FirebaseFirestore? firestore,
     AstrologyFusionRepository? fusionRepository,
     PersonalityLensLoader? personalityLoader,
-    AstrologyFusionEntryService? astrologyEntryService,
-    FusionEntryService? fusionEntryService,
-    PersonalityMirrorEntryService? personalityEntryService,
+    AstrologyFusionLensProbe? lensProbe,
   })  : _firestore = firestore ?? FirebaseFirestore.instance,
         _fusionRepository = fusionRepository ?? AstrologyFusionRepositoryImpl(),
         _personalityLoader = personalityLoader ?? PersonalityLensLoader(),
-        _astrologyEntryService =
-            astrologyEntryService ?? AstrologyFusionEntryService(),
-        _fusionEntryService = fusionEntryService ?? FusionEntryService(),
-        _personalityEntryService =
-            personalityEntryService ?? PersonalityMirrorEntryService();
+        _lensProbe = lensProbe ?? FirestoreAstrologyFusionLensProbe();
 
   final FirebaseFirestore _firestore;
   final AstrologyFusionRepository _fusionRepository;
   final PersonalityLensLoader _personalityLoader;
-  final AstrologyFusionEntryService _astrologyEntryService;
-  final FusionEntryService _fusionEntryService;
-  final PersonalityMirrorEntryService _personalityEntryService;
+  final AstrologyFusionLensProbe _lensProbe;
 
   Future<HomeScreenV2Data> load(String uid) async {
     return HomeV2Assembler.fromSources(await loadBundle(uid));
   }
 
-  Future<HomeV2SourceBundle> loadBundle(String uid) async {
+  Future<HomeV2SourceBundle> loadBundle(
+    String uid, {
+    bool includeHeavyDerivations = true,
+  }) async {
     if (uid.isEmpty) {
       return _emptyBundle();
     }
 
-    final profileDocFuture = _firestore.collection('users').doc(uid).get();
-    final fusionSnapshotFuture = _fusionRepository.loadFusion(uid);
-    final personalityLoadFuture = _personalityLoader.loadAll(uid);
-    final entriesFuture = Future.wait([
-      _astrologyEntryService.evaluate(uid),
-      _fusionEntryService.evaluate(uid),
-      _personalityEntryService.evaluate(uid),
-    ]);
-
-    final profileDoc = await profileDocFuture;
-    final profileMainDoc = await _firestore
+    final profileMainFuture = _firestore
         .collection('users')
         .doc(uid)
         .collection('profile')
         .doc('main')
         .get();
+    final profileRootFuture = _firestore.collection('users').doc(uid).get();
+    final fusionSnapshotFuture = _fusionRepository.loadFusion(uid);
+    final personalityLoadFuture = _personalityLoader.loadAll(uid);
+    final lensProbeFuture = _lensProbe.probe(uid);
+
+    final results = await Future.wait([
+      profileMainFuture,
+      profileRootFuture,
+      fusionSnapshotFuture,
+      personalityLoadFuture,
+      lensProbeFuture,
+    ]);
+
+    final profileMainDoc = results[0] as DocumentSnapshot<Map<String, dynamic>>;
+    final profileDoc = results[1] as DocumentSnapshot<Map<String, dynamic>>;
+    final fusionSnapshot = results[2] as AstrologyFusionSnapshot?;
+    final personalityLoad = results[3] as PersonalityLensLoadResult;
+    final lensProbe = results[4] as AstrologyFusionLensProbeResult;
+
     final profileData = profileMainDoc.exists && profileMainDoc.data() != null
         ? profileMainDoc.data()
         : profileDoc.data();
     final profileFields = _profileFields(profileData);
     final profileInput = _profileInput(profileData);
-
-    final fusionSnapshot = await fusionSnapshotFuture;
     final fusionResult = fusionSnapshot?.toResult();
 
-    final personalityLoad = await personalityLoadFuture;
-    final entries = await entriesFuture;
-    final astrologyEntry = entries[0] as AstrologyFusionEntryState;
-    final globalFusionEntry = entries[1] as FusionEntryState;
-    final personalityEntry = entries[2] as PersonalityMirrorEntryState;
+    final astrologyEntry = _astrologyEntryFromProbe(lensProbe);
+    final personalityEntry =
+        PersonalityMirrorEntryState.fromCoverage(personalityLoad.coverage);
+    final globalFusionEntry = FusionEntryState(
+      canOpen: fusionSnapshot != null &&
+          (personalityLoad.coverage.hasMbti ||
+              personalityLoad.coverage.hasBigFive ||
+              personalityLoad.coverage.hasAnyEq),
+    );
 
-    PersonalityMirrorNarrativeView? personalityNarrative;
-    PersonalityMirrorSnapshot? personalitySnapshot;
-    GlobalFusionSnapshot? globalFusionSnapshot;
-    final globalReflections = <GlobalReflectionUnit>[];
-
-    if (PersonalityMirrorEntryService.canOpenMirror(personalityLoad.coverage)) {
-      personalitySnapshot = PersonalityMirrorEngine.build(personalityLoad);
-      final confidence = PersonalityConfidenceComposer.analyze(
-        load: personalityLoad,
-        agreements: personalitySnapshot.agreements,
-        tensions: personalitySnapshot.tensions,
-      );
-      personalityNarrative = PersonalityMirrorNarrativeBuilder.build(
-        personalitySnapshot,
-        confidenceBreakdown: confidence,
-      );
-
-      if (fusionSnapshot != null) {
-        final globalInput = const GlobalFusionInputLoader().load(
-          astrologySnapshot: fusionSnapshot,
-          personalitySnapshot: personalitySnapshot,
-        );
-        globalFusionSnapshot = GlobalFusionBuilder.build(globalInput);
-        globalReflections.addAll(
-          GlobalNarrativeBuilder.fromSnapshot(globalFusionSnapshot),
-        );
-      }
-    }
-
-    return HomeV2SourceBundle(
+    var bundle = HomeV2SourceBundle(
       profileInput: profileInput,
       profileFields: profileFields,
       astrologyFusion: fusionResult,
       astrologyEntry: astrologyEntry,
       personalityEntry: personalityEntry,
       globalFusionEntry: globalFusionEntry,
-      personalityNarrative: personalityNarrative,
+      personalityNarrative: null,
       personalityCoverage: personalityLoad.coverage,
-      globalReflections: globalReflections,
+      globalReflections: const [],
       astrologySnapshot: fusionSnapshot,
+      personalitySnapshot: null,
+      globalFusionSnapshot: null,
+    );
+
+    if (includeHeavyDerivations) {
+      bundle = enrichBundle(bundle, personalityLoad: personalityLoad);
+    }
+
+    return bundle;
+  }
+
+  /// Adds mirror / global-fusion derivations without extra Firestore reads.
+  HomeV2SourceBundle enrichBundle(
+    HomeV2SourceBundle bundle, {
+    PersonalityLensLoadResult? personalityLoad,
+  }) {
+    final load = personalityLoad;
+    if (load == null ||
+        !PersonalityMirrorEntryService.canOpenMirror(load.coverage)) {
+      return bundle;
+    }
+
+    final personalitySnapshot = PersonalityMirrorEngine.build(load);
+    final confidence = PersonalityConfidenceComposer.analyze(
+      load: load,
+      agreements: personalitySnapshot.agreements,
+      tensions: personalitySnapshot.tensions,
+    );
+    final personalityNarrative = PersonalityMirrorNarrativeBuilder.build(
+      personalitySnapshot,
+      confidenceBreakdown: confidence,
+    );
+
+    GlobalFusionSnapshot? globalFusionSnapshot;
+    final globalReflections = <GlobalReflectionUnit>[];
+    final fusionSnapshot = bundle.astrologySnapshot;
+    if (fusionSnapshot != null) {
+      final globalInput = const GlobalFusionInputLoader().load(
+        astrologySnapshot: fusionSnapshot,
+        personalitySnapshot: personalitySnapshot,
+      );
+      globalFusionSnapshot = GlobalFusionBuilder.build(globalInput);
+      globalReflections.addAll(
+        GlobalNarrativeBuilder.fromSnapshot(globalFusionSnapshot),
+      );
+    }
+
+    return HomeV2SourceBundle(
+      profileInput: bundle.profileInput,
+      profileFields: bundle.profileFields,
+      astrologyFusion: bundle.astrologyFusion,
+      astrologyEntry: bundle.astrologyEntry,
+      personalityEntry: bundle.personalityEntry,
+      globalFusionEntry: bundle.globalFusionEntry,
+      personalityNarrative: personalityNarrative,
+      personalityCoverage: bundle.personalityCoverage,
+      globalReflections: globalReflections,
+      astrologySnapshot: bundle.astrologySnapshot,
       personalitySnapshot: personalitySnapshot,
       globalFusionSnapshot: globalFusionSnapshot,
+    );
+  }
+
+  static AstrologyFusionEntryState _astrologyEntryFromProbe(
+    AstrologyFusionLensProbeResult probe,
+  ) {
+    final completed = probe.completedLensIds.length;
+    final total = AstrologyFusionLensCatalog.totalLensCount;
+    final readiness = AstrologyFusionReadiness(
+      completedLensCount: completed,
+      totalLensCount: total,
+      status: AstrologyFusionReadiness.statusForCount(
+        completedLensCount: completed,
+        totalLensCount: total,
+      ),
+      completedLensIds: List.unmodifiable(probe.completedLensIds),
+    );
+
+    return AstrologyFusionEntryState(
+      readiness: readiness,
+      canOpen: readiness.canOpenFusion,
     );
   }
 

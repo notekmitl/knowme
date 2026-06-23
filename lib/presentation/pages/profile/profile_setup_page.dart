@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
 
+import 'package:knowme/core/profile/birth_profile_format.dart';
 import '../../providers/astrology_provider.dart';
 import '../../providers/bazi_provider.dart';
 import '../../widgets/location_picker.dart';
@@ -116,7 +117,7 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
           .set({
             "name": nameController.text.trim(),
             "gender": gender,
-            "birthDate": birthDate!.toIso8601String(),
+            "birthDate": BirthProfileFormat.storageDate(birthDate!),
             "birthTime": birthTimeStr,
             "birthPlace": birthPlaceController.text.trim(),
             "latitude": latitude,

@@ -10,10 +10,12 @@ class HomeV3PsychologyTestsSection extends StatelessWidget {
     super.key,
     required this.data,
     required this.onTestAction,
+    this.showSectionHeader = true,
   });
 
   final HomePsychologyTestsSectionData data;
   final void Function(HomePsychologyTestItemData test) onTestAction;
+  final bool showSectionHeader;
 
   static const _cardStyles = <String, _PsychologyCardStyle>{
     'mbti': _PsychologyCardStyle(
@@ -38,32 +40,34 @@ class HomeV3PsychologyTestsSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
-        Row(
-          children: [
-            const Text('🧠', style: TextStyle(fontSize: 17)),
-            const SizedBox(width: 8),
-            Expanded(
-              child: Text(
-                HomeV3Copy.psychologyTitle,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w700,
-                  color: HomeV35Design.textPrimary,
+        if (showSectionHeader) ...[
+          Row(
+            children: [
+              const Text('🧠', style: TextStyle(fontSize: 17)),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  HomeV3Copy.psychologyTitle,
+                  style: const TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: HomeV35Design.textPrimary,
+                  ),
                 ),
               ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 4),
-        Text(
-          HomeV3Copy.psychologySubtitle,
-          style: const TextStyle(
-            fontSize: 13,
-            height: 1.45,
-            color: HomeV35Design.textSecondary,
+            ],
           ),
-        ),
-        const SizedBox(height: 14),
+          const SizedBox(height: 4),
+          Text(
+            HomeV3Copy.psychologySubtitle,
+            style: const TextStyle(
+              fontSize: 13,
+              height: 1.45,
+              color: HomeV35Design.textSecondary,
+            ),
+          ),
+          const SizedBox(height: 14),
+        ],
         LayoutBuilder(
           builder: (context, constraints) {
             final isWide = constraints.maxWidth >= 600;

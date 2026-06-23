@@ -1,4 +1,4 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:knowme/core/profile/birth_profile_format.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -109,12 +109,7 @@ class _EditProfilePageV1State extends State<EditProfilePageV1> {
   }
 
   DateTime? _parseBirthDate(String raw) {
-    if (raw.isEmpty) return null;
-    try {
-      return DateTime.parse(raw);
-    } catch (_) {
-      return null;
-    }
+    return BirthProfileFormat.parseStoredDate(raw);
   }
 
   TimeOfDay? _parseBirthTime(String raw) {
@@ -188,7 +183,7 @@ class _EditProfilePageV1State extends State<EditProfilePageV1> {
     return ProfileModel(
       name: nameController.text.trim(),
       gender: gender,
-      birthDate: birthDate!.toIso8601String(),
+      birthDate: BirthProfileFormat.storageDate(birthDate!),
       birthTime: _formatTime(birthTime),
       birthPlace: birthPlaceController.text.trim(),
       latitude: latitude!,

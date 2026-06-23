@@ -3,8 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart' hide AuthProvider;
 import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
 
-import 'package:knowme/features/funnel_telemetry/funnel_telemetry.dart';
 import 'package:knowme/features/astrology/fusion/presentation/astrology_fusion_routes.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/thai_mirror_routes.dart';
+import 'package:knowme/features/funnel_telemetry/funnel_telemetry.dart';
 import 'package:knowme/features/home_cohesion/application/home_v3_loader.dart';
 import 'package:knowme/features/home_cohesion/presentation/home_screen_v2_models.dart';
 import 'package:knowme/features/home_cohesion/presentation/home_screen_v3.dart';
@@ -28,22 +29,47 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  late Future<HomeScreenV3Data> _homeDataFuture;
   final _homeLoader = HomeV3Loader();
+  HomeScreenV3Data? _homeData;
+  bool _shellLoading = true;
+  bool _narrativeLoading = false;
 
   @override
   void initState() {
     super.initState();
-    final uid = FirebaseAuth.instance.currentUser?.uid ?? '';
-    _homeDataFuture = _homeLoader.load(uid);
+    _loadHome();
     FunnelTelemetry.track(FunnelTelemetryEvent.homeView);
   }
 
-  void _reloadHome() {
+  Future<void> _loadHome() async {
     final uid = FirebaseAuth.instance.currentUser?.uid ?? '';
     setState(() {
-      _homeDataFuture = _homeLoader.load(uid);
+      _shellLoading = true;
+      _narrativeLoading = uid.isNotEmpty;
+      _homeData = null;
     });
+
+    final data = await _homeLoader.loadProgressive(
+      uid,
+      onShellReady: (shell, _) {
+        if (!mounted) return;
+        setState(() {
+          _homeData = shell;
+          _shellLoading = false;
+        });
+      },
+    );
+
+    if (!mounted) return;
+    setState(() {
+      _homeData = data;
+      _shellLoading = false;
+      _narrativeLoading = false;
+    });
+  }
+
+  void _reloadHome() {
+    _loadHome();
   }
 
   void _openEditProfilePage(BuildContext context) {
@@ -78,6 +104,23 @@ class _HomePageState extends State<HomePage> {
     FusionRoutes.openResult(context);
   }
 
+  void _openAstrologySystem(BuildContext context, String systemId) {
+    switch (systemId) {
+      case 'thai':
+        ThaiMirrorRoutes.openResult(context);
+      case 'bazi':
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => const BaziResultPage()),
+        );
+      case 'western':
+        Navigator.of(context).push(
+          MaterialPageRoute(builder: (_) => const AstrologyResultPage()),
+        );
+      default:
+        break;
+    }
+  }
+
   void _openPsychologyTest(
     BuildContext context,
     HomePsychologyTestItemData test,
@@ -105,8 +148,6 @@ class _HomePageState extends State<HomePage> {
 
   void _openMoreItem(BuildContext context, HomeMoreItemData item) {
     switch (item.id) {
-      case 'astrology':
-        _openAstrologyResult(context);
       case 'fusion':
         _openFullInsight(context);
       case 'profile':
@@ -141,63 +182,61 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: SafeArea(
-        child: FutureBuilder<HomeScreenV3Data>(
-          future: _homeDataFuture,
-          builder: (context, snapshot) {
-            if (snapshot.connectionState != ConnectionState.done) {
-              return const Center(child: CircularProgressIndicator());
-            }
+        child: _buildBody(context),
+      ),
+    );
+  }
 
-            final data = snapshot.data ?? HomeScreenV3Data.empty();
+  Widget _buildBody(BuildContext context) {
+    if (_shellLoading && _homeData == null) {
+      return const Center(child: CircularProgressIndicator());
+    }
 
-            return SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  HomeScreenV3(
-                    data: data,
-                    callbacks: HomeScreenV3Callbacks(
-                      onViewAstrologyResult: () =>
-                          _openAstrologyResult(context),
-                      onViewFullInsight: () => _openFullInsight(context),
-                      onEditProfile: () => _openEditProfilePage(context),
-                      onPsychologyTest: (test) =>
-                          _openPsychologyTest(context, test),
-                      onMoreItem: (item) => _openMoreItem(context, item),
-                      onUnlockDeepProfile: () =>
-                          _openUnlockDeepProfile(context),
-                      onContinueDiscovering: () =>
-                          _openContinueDiscovering(context),
-                    ),
-                  ),
-                  if (kDebugMode) ...[
-                    const SizedBox(height: 28),
-                    ElevatedButton(
-                      onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const AstrologyResultPage(),
-                        ),
-                      ),
-                      child: const Text('Open Astrology Result (QA)'),
-                    ),
-                    const SizedBox(height: 12),
-                    ElevatedButton(
-                      onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const BaziResultPage(),
-                        ),
-                      ),
-                      child: const Text('Open BaZi Result (QA)'),
-                    ),
-                  ],
-                ],
+    final data = _homeData ?? HomeScreenV3Data.empty();
+
+    return SingleChildScrollView(
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          HomeScreenV3(
+            data: data,
+            callbacks: HomeScreenV3Callbacks(
+              onViewAstrologyResult: () => _openAstrologyResult(context),
+              onViewFullInsight: () => _openFullInsight(context),
+              onEditProfile: () => _openEditProfilePage(context),
+              onPsychologyTest: (test) => _openPsychologyTest(context, test),
+              onMoreItem: (item) => _openMoreItem(context, item),
+              onUnlockDeepProfile: () => _openUnlockDeepProfile(context),
+              onContinueDiscovering: () => _openContinueDiscovering(context),
+              narrativeLoading: _narrativeLoading,
+              onOpenAstrologySystem: (id) => _openAstrologySystem(context, id),
+              onOpenCrossSystemFusion: () => _openAstrologyResult(context),
+            ),
+          ),
+          if (kDebugMode) ...[
+            const SizedBox(height: 28),
+            ElevatedButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const AstrologyResultPage(),
+                ),
               ),
-            );
-          },
-        ),
+              child: const Text('Open Astrology Result (QA)'),
+            ),
+            const SizedBox(height: 12),
+            ElevatedButton(
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (_) => const BaziResultPage(),
+                ),
+              ),
+              child: const Text('Open BaZi Result (QA)'),
+            ),
+          ],
+        ],
       ),
     );
   }

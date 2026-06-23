@@ -1,3 +1,4 @@
+import 'package:knowme/core/profile/birth_profile_format.dart';
 import 'package:flutter/material.dart';
 
 import 'home_screen_v3_models.dart';
@@ -54,7 +55,7 @@ class HomeCompactProfileSection extends StatelessWidget {
                 ),
                 const SizedBox(height: 3),
                 Text(
-                  '${data.birthDate} • ${data.birthPlace}',
+                  _profileSubtitle(),
                   style: const TextStyle(
                     fontSize: 13,
                     color: HomeV35Design.textSecondary,
@@ -84,5 +85,15 @@ class HomeCompactProfileSection extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  String _profileSubtitle() {
+    final dateTime = data.birthTime.isNotEmpty
+        ? '${data.birthDate} • ${data.birthTime}'
+        : data.birthDate;
+    if (data.birthPlace.isEmpty || data.birthPlace == HomeV3Copy.profileEmptyField) {
+      return dateTime;
+    }
+    return '$dateTime • ${data.birthPlace}';
   }
 }

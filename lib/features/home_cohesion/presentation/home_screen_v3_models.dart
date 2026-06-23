@@ -178,6 +178,8 @@ class HomeCompactProfileSectionData {
 
     required this.birthDate,
 
+    required this.birthTime,
+
     required this.birthPlace,
 
     required this.completenessLabel,
@@ -193,6 +195,8 @@ class HomeCompactProfileSectionData {
   final String name;
 
   final String birthDate;
+
+  final String birthTime;
 
   final String birthPlace;
 
@@ -227,6 +231,36 @@ class HomeNarrativePreviewSectionData {
   final List<String> lockedSectionLabels;
 }
 
+/// Single astrology system entry in the hub.
+class HomeAstrologySystemItemData {
+  const HomeAstrologySystemItemData({
+    required this.id,
+    required this.title,
+    required this.description,
+    required this.isAvailable,
+  });
+
+  final String id;
+  final String title;
+  final String description;
+  final bool isAvailable;
+}
+
+/// Astrology-first hub — systems, cross-system fusion, psychology expansion.
+class HomeAstrologyHubSectionData {
+  const HomeAstrologyHubSectionData({
+    required this.systems,
+    required this.fusionAvailable,
+    required this.fusionTitle,
+    required this.fusionDescription,
+  });
+
+  final List<HomeAstrologySystemItemData> systems;
+  final bool fusionAvailable;
+  final String fusionTitle;
+  final String fusionDescription;
+}
+
 /// Full Home V3.8 emotional product bundle.
 class HomeScreenV3Data {
 
@@ -241,6 +275,8 @@ class HomeScreenV3Data {
     required this.profile,
 
     required this.psychologyTests,
+
+    required this.astrologyHub,
 
     required this.more,
 
@@ -298,6 +334,8 @@ class HomeScreenV3Data {
 
         birthDate: '',
 
+        birthTime: '',
+
         birthPlace: '',
 
         completenessLabel: '',
@@ -309,6 +347,13 @@ class HomeScreenV3Data {
       ),
 
       psychologyTests: const HomePsychologyTestsSectionData(tests: []),
+
+      astrologyHub: const HomeAstrologyHubSectionData(
+        systems: [],
+        fusionAvailable: false,
+        fusionTitle: '',
+        fusionDescription: '',
+      ),
 
       more: const HomeMoreSectionData(items: []),
 
@@ -346,6 +391,8 @@ class HomeScreenV3Data {
 
   final HomePsychologyTestsSectionData psychologyTests;
 
+  final HomeAstrologyHubSectionData astrologyHub;
+
   final HomeMoreSectionData more;
 
   final HomeProfileCompletion completion;
@@ -378,6 +425,12 @@ class HomeScreenV3Callbacks {
 
     required this.onContinueDiscovering,
 
+    this.narrativeLoading = false,
+
+    required this.onOpenAstrologySystem,
+
+    required this.onOpenCrossSystemFusion,
+
   });
 
 
@@ -396,6 +449,11 @@ class HomeScreenV3Callbacks {
 
   final void Function() onContinueDiscovering;
 
+  final bool narrativeLoading;
+
+  final void Function(String systemId) onOpenAstrologySystem;
+
+  final void Function() onOpenCrossSystemFusion;
 }
 
 

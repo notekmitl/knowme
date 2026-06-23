@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/features/home_cohesion/application/home_v2_assembler.dart';
 import 'package:knowme/features/home_cohesion/application/home_v3_assembler.dart';
+import 'package:knowme/features/home_cohesion/presentation/home_astrology_hub_section.dart';
 import 'package:knowme/features/home_cohesion/presentation/home_compact_profile_section.dart';
 import 'package:knowme/features/home_cohesion/presentation/home_hero_section.dart';
 import 'package:knowme/features/home_cohesion/presentation/home_knowme_insight_section.dart';
@@ -29,6 +31,8 @@ void main() {
               onMoreItem: (_) {},
               onUnlockDeepProfile: () {},
               onContinueDiscovering: () {},
+              onOpenAstrologySystem: (_) {},
+              onOpenCrossSystemFusion: () {},
             ),
           ),
         ),
@@ -77,16 +81,15 @@ void main() {
   });
 
   group('HomeScreenV3.8 visual hierarchy', () {
-    testWidgets('hero → psychology → signature → insight → profile order',
+    testWidgets('hero → astrology hub → signature → insight → profile order',
         (tester) async {
       final data =
           HomeV3Assembler.fromGolden(HomeV2GoldenScenario.advancedUser);
       await tester.pumpWidget(wrap(data));
 
       final heroTop = tester.getTopLeft(find.byType(HomeHeroSection)).dy;
-      final psychologyTop = tester
-          .getTopLeft(find.byType(HomeV3PsychologyTestsSection))
-          .dy;
+      final hubTop =
+          tester.getTopLeft(find.byType(HomeAstrologyHubSection)).dy;
       final signatureTop =
           tester.getTopLeft(find.byType(HomeKnowMeSignatureSection)).dy;
       final insightTop =
@@ -94,8 +97,8 @@ void main() {
       final profileTop =
           tester.getTopLeft(find.byType(HomeCompactProfileSection)).dy;
 
-      expect(heroTop, lessThan(psychologyTop));
-      expect(psychologyTop, lessThan(signatureTop));
+      expect(heroTop, lessThan(hubTop));
+      expect(hubTop, lessThan(signatureTop));
       expect(signatureTop, lessThan(insightTop));
       expect(insightTop, lessThan(profileTop));
     });
@@ -134,6 +137,77 @@ void main() {
       expect(find.text('จากดวงของคุณ'), findsNothing);
     });
 
+    test('advanced user exposes astrology hub systems', () {
+      final data =
+          HomeV3Assembler.fromGolden(HomeV2GoldenScenario.advancedUser);
+
+      expect(data.astrologyHub.systems.length, 3);
+      expect(
+        data.astrologyHub.systems.any((s) => s.id == 'thai' && s.isAvailable),
+        isTrue,
+      );
+    });
+
+    test('profile formats birth date and preserves birth time field', () {
+      final data =
+          HomeV3Assembler.fromGolden(HomeV2GoldenScenario.partialUser);
+
+      expect(data.profile.birthDate, '15/5/1990');
+      expect(data.profile.birthTime, '09:30');
+    });
+
+    test('profile formats legacy ISO birthDate without losing birthTime', () {
+      final base =
+          HomeV2Assembler.bundleFromGolden(HomeV2GoldenScenario.partialUser);
+      final data = HomeV3Assembler.fromSources(
+        HomeV2SourceBundle(
+          profileInput: base.profileInput,
+          profileFields: {
+            'name': 'Test',
+            'birthDate': '1982-06-06T00:00:00.000',
+            'birthTime': '00:35',
+            'birthPlace': 'Bangkok',
+          },
+          astrologyFusion: base.astrologyFusion,
+          astrologyEntry: base.astrologyEntry,
+          personalityEntry: base.personalityEntry,
+          globalFusionEntry: base.globalFusionEntry,
+          personalityNarrative: base.personalityNarrative,
+          personalityCoverage: base.personalityCoverage,
+          globalReflections: base.globalReflections,
+          astrologySnapshot: base.astrologySnapshot,
+          personalitySnapshot: base.personalitySnapshot,
+          globalFusionSnapshot: base.globalFusionSnapshot,
+        ),
+      );
+
+      expect(data.profile.birthDate, '6/6/1982');
+      expect(data.profile.birthTime, '00:35');
+    });
+
+    testWidgets('profile strip shows birth time when available', (
+      tester,
+    ) async {
+      final data =
+          HomeV3Assembler.fromGolden(HomeV2GoldenScenario.partialUser);
+      await tester.pumpWidget(wrap(data));
+
+      expect(find.textContaining('09:30'), findsOneWidget);
+      expect(find.textContaining('T00:00:00'), findsNothing);
+    });
+
+    testWidgets('astrology hub renders Thai BaZi Western titles', (
+      tester,
+    ) async {
+      final data =
+          HomeV3Assembler.fromGolden(HomeV2GoldenScenario.advancedUser);
+      await tester.pumpWidget(wrap(data));
+
+      expect(find.text(HomeV3Copy.thaiAstrologyTitle), findsOneWidget);
+      expect(find.text(HomeV3Copy.baziTitle), findsOneWidget);
+      expect(find.text(HomeV3Copy.westernAstrologyTitle), findsOneWidget);
+    });
+
     testWidgets('profile strip is compact without birth time row', (
       tester,
     ) async {
@@ -142,7 +216,6 @@ void main() {
       await tester.pumpWidget(wrap(data));
 
       expect(find.byType(HomeCompactProfileSection), findsOneWidget);
-      expect(find.text('เวลาเกิด'), findsNothing);
     });
 
     testWidgets('psychology uses card layout section', (tester) async {

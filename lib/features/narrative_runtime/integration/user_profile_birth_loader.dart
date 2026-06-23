@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:knowme/core/profile/birth_profile_format.dart';
 import 'package:knowme/features/astrology/thai/foundation/models/thai_birth_data.dart';
 
 /// Loads birth input from `users/{uid}/profile/main`.
@@ -22,7 +23,7 @@ abstract final class UserProfileBirthLoader {
     final birthDateRaw = profile['birthDate']?.toString().trim() ?? '';
     if (birthDateRaw.isEmpty) return null;
 
-    final parsedDate = DateTime.tryParse(birthDateRaw);
+    final parsedDate = BirthProfileFormat.parseStoredDate(birthDateRaw);
     if (parsedDate == null) return null;
 
     final birthTimeRaw = profile['birthTime']?.toString().trim() ?? '';

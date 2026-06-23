@@ -1,3 +1,5 @@
+import 'package:knowme/core/profile/birth_profile_format.dart';
+import 'package:knowme/features/astrology/fusion/domain/entities/astrology_lens.dart';
 import 'package:knowme/features/narrative_runtime/integration/home_narrative_mapper.dart';
 import 'package:knowme/features/narrative_runtime/domain/narrative_mode.dart';
 import 'package:knowme/features/narrative_runtime/domain/narrative_result.dart';
@@ -34,6 +36,7 @@ abstract final class HomeV3Assembler {
       insight: insight,
       profile: _profile(sources.profileInput, sources.profileFields),
       psychologyTests: _psychologyTests(sources.personalityCoverage),
+      astrologyHub: _astrologyHub(sources),
       more: _more(sources),
       completion: completion,
       showRecoveryBanner:
@@ -258,13 +261,51 @@ abstract final class HomeV3Assembler {
     };
 
     final name = fields['name']?.trim();
+    final storedDate = fields['birthDate'] ?? '';
+    final birthTime = fields['birthTime'] ?? '';
     return HomeCompactProfileSectionData(
       name: (name == null || name.isEmpty) ? HomeV3Copy.profileEmptyName : name,
-      birthDate: _fieldOrPlaceholder(fields['birthDate']),
+      birthDate: storedDate.isEmpty
+          ? HomeV3Copy.profileEmptyField
+          : BirthProfileFormat.displayDate(storedDate),
+      birthTime: BirthProfileFormat.displayTime(birthTime),
       birthPlace: _fieldOrPlaceholder(fields['birthPlace']),
       completenessLabel: label,
       completenessRatio: ratio,
       isEmpty: !input.hasAnyProfileData,
+    );
+  }
+
+  static HomeAstrologyHubSectionData _astrologyHub(HomeV2SourceBundle sources) {
+    final completed = sources.astrologyEntry.readiness.completedLensIds;
+    final birthReady = sources.profileInput.isBirthProfileComplete;
+
+    bool hasLens(String lensId) => completed.contains(lensId);
+
+    return HomeAstrologyHubSectionData(
+      systems: [
+        HomeAstrologySystemItemData(
+          id: 'thai',
+          title: HomeV3Copy.thaiAstrologyTitle,
+          description: HomeV3Copy.thaiAstrologyDescription,
+          isAvailable: birthReady || hasLens(AstrologyLens.thaiAstrology.lensId),
+        ),
+        HomeAstrologySystemItemData(
+          id: 'bazi',
+          title: HomeV3Copy.baziTitle,
+          description: HomeV3Copy.baziDescription,
+          isAvailable: hasLens(AstrologyLens.chineseBazi.lensId),
+        ),
+        HomeAstrologySystemItemData(
+          id: 'western',
+          title: HomeV3Copy.westernAstrologyTitle,
+          description: HomeV3Copy.westernAstrologyDescription,
+          isAvailable: hasLens(AstrologyLens.westernNatal.lensId),
+        ),
+      ],
+      fusionAvailable: sources.astrologyEntry.canOpen,
+      fusionTitle: HomeV3Copy.crossSystemFusionTitle,
+      fusionDescription: HomeV3Copy.crossSystemFusionDescription,
     );
   }
 
@@ -341,22 +382,16 @@ abstract final class HomeV3Assembler {
     return HomeMoreSectionData(
       items: [
         HomeMoreItemData(
-          id: 'astrology',
-          title: 'ดวงชะตา',
-          description: 'ดวงรายวัน รายสัปดาห์ รายเดือน',
-          enabled: sources.astrologyEntry.canOpen,
+          id: 'profile',
+          title: 'โปรไฟล์',
+          description: 'ข้อมูลส่วนตัวและการตั้งค่า',
+          enabled: true,
         ),
         HomeMoreItemData(
           id: 'fusion',
           title: 'ภาพรวมหลายมุมมอง',
           description: 'ข้อมูลรวมจากทุกศาสตร์',
           enabled: sources.globalFusionEntry.canOpen,
-        ),
-        HomeMoreItemData(
-          id: 'profile',
-          title: 'โปรไฟล์',
-          description: 'ข้อมูลส่วนตัวและการตั้งค่า',
-          enabled: true,
         ),
         HomeMoreItemData(
           id: 'settings',

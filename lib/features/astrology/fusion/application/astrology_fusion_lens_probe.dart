@@ -1,3 +1,4 @@
+import 'package:knowme/core/profile/birth_profile_format.dart';
 import 'package:knowme/domain/models/profile_model.dart';
 import 'package:knowme/features/astrology/thai/foundation/models/thai_birth_data.dart';
 import 'package:knowme/features/astrology/thai/mirror/models/thai_mirror_result.dart';
@@ -77,7 +78,7 @@ class FirestoreAstrologyFusionLensProbe extends AstrologyFusionLensProbe {
     if (profile == null) return null;
     if (profile.birthDate.trim().isEmpty) return null;
 
-    final date = DateTime.tryParse(profile.birthDate.trim());
+    final date = BirthProfileFormat.parseStoredDate(profile.birthDate.trim());
     if (date == null) return null;
 
     final timeParts = profile.birthTime.split(':');

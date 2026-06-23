@@ -115,6 +115,22 @@ abstract final class HomeV3Copy {
   static const continueTest = 'ทำต่อ';
   static const moreTitle = 'เพิ่มเติม';
 
+  // --- Astrology hub ---
+  static const astrologyHubTitle = 'ดวงของคุณ';
+  static const thaiAstrologyTitle = 'โหราศาสตร์ไทย';
+  static const thaiAstrologyDescription = 'ดวงชะตาและธีมหลักจากศาสตร์ไทย';
+  static const baziTitle = 'ปาจื้อ (BaZi)';
+  static const baziDescription = 'เสาชะตาจีนและสมดุลธาตุ';
+  static const westernAstrologyTitle = 'โหราศาสตร์ตะวันตก';
+  static const westernAstrologyDescription = 'แผนภูมิเกิดและ Big 3';
+  static const crossSystemSectionTitle = 'ภาพรวมข้ามศาสตร์';
+  static const crossSystemFusionTitle = 'ดวงรวมหลายศาสตร์';
+  static const crossSystemFusionDescription =
+      'มุมมองที่เชื่อมโหราศาสตร์ไทย ปาจื้อ และตะวันตก';
+  static const psychologyExpansionTitle = 'เสริมความเข้าใจตัวเอง';
+  static const psychologyExpansionSubtitle =
+      'แบบทดสอบบุคลิกภาพ — ชั้นเสริมหลังดวงชะตา';
+
   static String psychologyStatusLabel(
     HomePsychologyTestStatus status, {
     bool isNextStep = false,
