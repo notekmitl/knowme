@@ -2,7 +2,7 @@
 
 **Canonical project reference.**  
 **Last updated:** June 2026  
-**Supersedes:** `KNOWME MASTER CONTEXT vNEXT (FULL STRUCTURED v2).txt` (repo root — same authority, this file is the maintained `/docs/` entry point)
+**Documentation system:** This file + [`CURRENT_STATUS.md`](CURRENT_STATUS.md), [`ARCHITECTURE.md`](ARCHITECTURE.md), [`ROADMAP.md`](ROADMAP.md), [`HANDOFF.md`](HANDOFF.md). Supplementary specs in `/docs/*.md` — see §11.
 
 ---
 
@@ -70,6 +70,54 @@ Output should feel human and personally relevant — not an engineering report o
 Prioritize **believable reflection**, **emotional usefulness**, **product cohesion**, and **progressive personalization** over scientific over-complexity, excessive psychometric detail, feature quantity, or endless UI polishing.
 
 **Rule before polishing:** *Does this meaningfully improve user understanding or product value?* If no, move forward.
+
+---
+
+## 2.1 UX Writing & Copy Rules
+
+### Global phrasing (TH-first)
+
+**Prefer:**
+
+- คุณมัก… / มีแนวโน้ม… / หลายครั้ง… / อาจ… / ดูเหมือนว่า…
+- อาจสะท้อน… / แนวโน้ม… / ในบางช่วง… / หลายมุม…
+
+**Avoid:**
+
+- คุณคือ… / คุณเป็นแบบนี้เสมอ…
+- คุณเกิดมาเพื่อ… / คุณต้อง… / ดวงกำหนด…
+- สิ่งนี้พิสูจน์ว่า… / วิเคราะห์ได้ว่า… (authority / certainty tone)
+
+**Reason:** maintain trust, psychological plausibility, avoid overclaiming.
+
+**Example rewrite:**
+
+| Bad | Good |
+|-----|------|
+| คุณเกิดมาเพื่อขับเคลื่อนเป้าหมาย | คุณมักรู้สึกสบายใจกว่าเมื่อเป้าหมายถูกเปลี่ยนเป็นแผนที่ลงมือทำได้จริง |
+
+### Tone targets
+
+Grounded, reflective, emotionally resonant, psychologically plausible — not fate claims, destiny language, or deterministic identity.
+
+### User-facing language vs architecture
+
+Speak the user's language on product surfaces:
+
+| Good (user) | Bad (architecture exposed) |
+|-------------|----------------------------|
+| ดวงของคุณ | Journey / Exploration Overview |
+| แบบทดสอบบุคลิกภาพ | Mirror Platform |
+| ภาพรวมจากหลายมุม | Global Fusion Foundation |
+
+Architecture terminology belongs in developer docs, not Home copy.
+
+### Anti-patterns in copy
+
+- False precision (`78.4%` when relative ranking suffices)
+- Horoscope destiny (`you were born to lead`)
+- Over-therapy tone (`healing`, `inner child`, `trauma` unless intentional)
+- Report language (`dimension score = 71` → human interpretation)
 
 ---
 
@@ -199,6 +247,8 @@ Intelligence layers (validated on 1000-human synthetic population):
 
 **Loader:** `HomeV3Loader` → `HomeV2Loader` + `NarrativeRuntimeLoader` → `HomeV3Assembler`
 
+**Home philosophy:** Personal space (not architecture dashboard). Astrology value before psychology; soft guidance only. Funnel Recovery V2 adds unlock path — see `PRODUCTION_FUNNEL_RECOVERY_V1.md`.
+
 ### Runtime Integration
 
 **Location:** `lib/features/runtime_integration/`  
@@ -222,18 +272,23 @@ Intelligence layers (validated on 1000-human synthetic population):
 
 Changes limited to blocker fixes, serious usability issues, analytics-driven improvements, and production incidents. Avoid architecture rewrites.
 
+**Full operational registry:** [`GOVERNANCE.md`](GOVERNANCE.md)
+
 | System | Status | Notes |
 |--------|--------|-------|
-| Fusion Result V1 presentation | **Frozen v1** | Polish passes 1–4 complete. See master context §50.2 |
+| Fusion Result V1 presentation | **Frozen v1** | [`FUSION_RESULT_V1_SPEC.md`](FUSION_RESULT_V1_SPEC.md) |
 | MBTI Summary V1.3 | **Stable / frozen-ish** | Deterministic synthesis only |
 | EQ MVP | **Usable+ / frozen-ish** | Maintenance mode |
 | Thai Astrology V2 Core | **Conditional freeze v0.1.0** | Production structural ready |
 | Thai Fusion V2 | **Conditional freeze v0.1.0** | Lineage, agreement, coverage, confidence engines validated |
 | Western Natal V1 | **Temporary freeze** | E2E verified June 2026 |
 | Chinese BaZi V1 | **Temporary freeze** | Backend + Flutter verified |
+| Edit Profile V1 | **Temporary freeze** | Conditional regeneration verified |
 | Astrology Fusion V6 | **Temporary freeze candidate** | Narrative pass complete |
+| Personality Mirror V1 | **Temporary freeze** | Production integrated |
 | MV1 Mirror Engine | **Conditional freeze v0.1.0** | Core gates unchanged when recovery disabled |
 | GF1 Foundation | **Conditional freeze v1.0.0** | Consumes mirror snapshots |
+| GF2 Recovery | **Implemented + validated** | 1000-human gate PASS |
 
 **Maintenance-only rule:** Do not reopen frozen architecture without strong reason.
 
@@ -340,13 +395,32 @@ See `docs/HANDOFF.md` for runner commands.
 
 ## 10. Source Documents
 
+### Core set (start here)
+
 | Document | Purpose |
 |----------|---------|
-| `KNOWME MASTER CONTEXT vNEXT (FULL STRUCTURED v2).txt` | Full historical context (~11k lines) |
+| `docs/KNOWME_MASTER_CONTEXT.md` | Vision, philosophy, subsystems (this file) |
+| `docs/CURRENT_STATUS.md` | What's done, active focus, risks, deployment |
+| `docs/ARCHITECTURE.md` | Pipeline layers, code organization |
+| `docs/ROADMAP.md` | Evidence-based completed / active / future |
+| `docs/HANDOFF.md` | Setup, routing, validation, agent rules |
+
+### Operational supplements
+
+| Document | Purpose |
+|----------|---------|
+| `docs/GOVERNANCE.md` | Full freeze registry + active/deferred programs |
+| `docs/FIRESTORE_SCHEMA.md` | `tests/*` vs `results/*`, legacy compatibility |
+| `docs/MBTI_ARCHITECTURE.md` | MBTI progressive system, session/result contracts |
+| `docs/FUSION_RESULT_V1_SPEC.md` | Frozen Fusion V1 presentation spec |
+| `docs/DEPLOYMENT.md` | Public URLs, Firebase project, deploy commands |
+
+### Domain specs
+
+| Document | Purpose |
+|----------|---------|
 | `docs/GLOBAL_FUSION_FOUNDATION_V2_SPECIFICATION.md` | GF2 architecture spec |
 | `docs/THAI_MIRROR_SPECIFICATION_V1.md` | Thai Mirror domain contract |
 | `docs/NARRATIVE_EVIDENCE_BRANCHING_V5.md` | Narrative V5 validation |
 | `docs/REAL_USER_RUNTIME_VALIDATION_V1.md` | Production user funnel audit |
 | `docs/PRODUCTION_FUNNEL_RECOVERY_V1.md` | Funnel recovery strategy |
-
-For current status and roadmap, see `CURRENT_STATUS.md` and `ROADMAP.md`.

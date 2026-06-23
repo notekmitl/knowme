@@ -1,7 +1,7 @@
 # GF2 Root Cause Isolation Report
 
 **Program:** GF2 Root Cause Isolation  
-**Authority:** KNOWME MASTER CONTEXT vNEXT (FULL STRUCTURED v2)  
+**Authority:** [`docs/KNOWME_MASTER_CONTEXT.md`](KNOWME_MASTER_CONTEXT.md), [`docs/GOVERNANCE.md`](GOVERNANCE.md)  
 **Generated:** 2026-06-21  
 **Scope:** Evidence and ownership only — no implementation, no redesign  
 **Primary evidence:** `test/validation/synthetic_population_v3/output/stable_orientation_trace.json`

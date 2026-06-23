@@ -1,7 +1,7 @@
 # Narrative Intelligence Selection V3
 
 **Program:** Narrative Intelligence Selection V3  
-**Authority:** KNOWME MASTER CONTEXT vNEXT (FULL STRUCTURED v2)  
+**Authority:** [`docs/KNOWME_MASTER_CONTEXT.md`](KNOWME_MASTER_CONTEXT.md), [`docs/GOVERNANCE.md`](GOVERNANCE.md)  
 **Scope:** Narrative intelligence layer only — no Mirror, GF1, GF2, Human Model, or Human Pattern changes  
 **Status:** PASS — all validation gates met  
 **Date:** 2026-06-21

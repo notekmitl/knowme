@@ -1,7 +1,7 @@
 # Human Pattern Dead Zone Forensics V1
 
 **Program:** Human Pattern Dead Zone Forensics  
-**Authority:** KNOWME MASTER CONTEXT vNEXT (FULL STRUCTURED v2)  
+**Authority:** [`docs/KNOWME_MASTER_CONTEXT.md`](KNOWME_MASTER_CONTEXT.md), [`docs/GOVERNANCE.md`](GOVERNANCE.md)  
 **Generated:** 2026-06-21  
 **Scope:** Evidence only — no implementation, no redesign, no production changes
 

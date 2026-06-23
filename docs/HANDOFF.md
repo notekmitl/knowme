@@ -174,7 +174,7 @@ flutter test test/home_screen_v3_test.dart
 - **Preserve production flow** — AuthGate → ProfileGate → HomePage.
 - **Protect secrets** — never commit `serviceAccountKey.json`, `.env`, or Firestore user exports.
 - **Run validation** for any engine-layer change.
-- **Check frozen status** before modifying Fusion V1 UI, BaZi V1, Thai V2 core, MBTI Summary.
+- **Check frozen status** — [`GOVERNANCE.md`](GOVERNANCE.md) before modifying Fusion V1 UI, BaZi V1, Thai V2 core, MBTI Summary
 
 ### Do not
 
@@ -197,7 +197,7 @@ Stability > Correctness > Architecture purity > Speed
 
 | System | Reason |
 |--------|--------|
-| Fusion Result V1 presentation | Frozen v1 — maintenance only |
+| Fusion Result V1 presentation | Frozen v1 — see [`FUSION_RESULT_V1_SPEC.md`](FUSION_RESULT_V1_SPEC.md) |
 | GF1 / MV1 core gates | Conditional freeze — use GF2/MV2 recovery instead of weakening gates |
 | Thai Theme Resolver / Engine / Presenter | Existing pipeline — read-only in Thai Mirror spec |
 | `backend/firebase/serviceAccountKey.json` | Secret — local only |
@@ -212,10 +212,13 @@ Stability > Correctness > Architecture purity > Speed
 
 ## 7. Firestore Quick Reference
 
+**Full semantics:** [`FIRESTORE_SCHEMA.md`](FIRESTORE_SCHEMA.md) — `tests/*` vs `results/*`, legacy compatibility, MBTI contracts.
+
 | Path | Content |
 |------|---------|
 | `users/{uid}/profile/main` | Birth profile (name, date, time, place, coords) |
-| `users/{uid}/results/mbti*` | MBTI test results |
+| `users/{uid}/tests/mbti_mini` | MBTI session/progress (**not** fusion input) |
+| `users/{uid}/results/mbti*` | MBTI deterministic snapshots (**fusion input**) |
 | `users/{uid}/results/eq*` | EQ module results |
 | `users/{uid}/results/big_five*` | Big Five results |
 | `users/{uid}/astrology/western_natal` | Western chart |
@@ -226,23 +229,108 @@ BaZi UI reads `astrology/chinese_bazi` — **not** `results/chinese_bazi`.
 
 ---
 
-## 8. Documentation Map
+## 8. Routing Rules
+
+Routing is **hybrid** — legacy and feature-specific routes coexist. **Do not aggressively unify.**
+
+| System | Route helper | Entry page | Notes |
+|--------|--------------|------------|-------|
+| MBTI Progressive | `MbtiRoutes.miniTestRoute()` | `MbtiMiniTestPage` | Still named `mini` for backward compatibility — **do not rename casually** |
+| MBTI Cognitive | `MbtiCognitiveRoutes` | `MbtiCognitiveTestPage` | Dedicated route |
+| MBTI Summary | `MbtiSummaryRoutes` | `MbtiSummaryFusionPage` | Dedicated route |
+| Universal tests | — | `UniversalTestPage` | Legacy — still active for simple quizzes |
+
+**Production app flow:**
+
+```
+main.dart → AuthGate → ProfileGate → HomePage
+```
+
+**When to use UniversalTestPage vs feature architecture:** see [`MBTI_ARCHITECTURE.md`](MBTI_ARCHITECTURE.md) and §Code Organization in [`ARCHITECTURE.md`](ARCHITECTURE.md).
+
+---
+
+## 9. Naming Conventions
+
+| Area | Convention | Example |
+|------|------------|---------|
+| Route classes | `FeatureRoutes` | `MbtiRoutes`, `MbtiCognitiveRoutes` |
+| Feature folders | `snake_case` | `mbti_summary` |
+| Models | `FeatureResult`, `FeatureSessionState` | `MbtiResultSummary`, `MbtiMiniSessionState` |
+| Widgets | `FeatureSpecificWidget` | `MbtiResultHero`, `MbtiSummarySectionCard` |
+| AppText keys | `feature_context_action` | `mbti_result_progress_title`, `fusion_v11_*` |
+
+Avoid: `Widget1`, `title1`, `mbtiSummary` (camelCase folders).
+
+---
+
+## 10. AI Agent Workflow
+
+### Roles
+
+| Tool | Role |
+|------|------|
+| ChatGPT (or similar) | Product architect, UX critic, system designer, strategy |
+| Cursor | Implementation engine, code execution, focused diffs |
+
+**Pattern:** design/review → implement in Cursor → validate → iterate. Avoid blind implementation without tracing callers.
+
+### Expected change report
+
+After non-trivial edits, report:
+
+1. Files changed
+2. Behavior changes
+3. Architecture impact
+4. Blast radius
+5. Validation run (if engine layer)
+
+### Collaboration rules
+
+- Challenge assumptions — detect architectural risk, prevent fantasy engineering
+- Prefer: *this works because… / risk is… / better option is…*
+- Do not blindly agree or validate without evidence
+
+### Anti-patterns
+
+| Never | Prefer |
+|-------|--------|
+| Giant rewrite of working systems | Additive folder, presentation-only change |
+| Premature mega-framework abstraction | Duplication until pattern repeats |
+| Rename core routes casually | Keep `mini` naming for MBTI backward compat |
+| Fusion reads `tests/*` | Fusion reads `results/*` |
+| Bypass pipeline layers | HM consumes fusion; Narrative consumes patterns |
+| Polish frozen systems without product reason | Blocker fixes only — see [`GOVERNANCE.md`](GOVERNANCE.md) |
+
+### Priority order
+
+```
+Stability > Correctness > Architecture purity > Speed
+```
+
+---
+
+## 11. Documentation Map
 
 | Need | Read |
 |------|------|
 | Product vision + rules | `docs/KNOWME_MASTER_CONTEXT.md` |
-| What's done now | `docs/CURRENT_STATUS.md` |
-| Pipeline architecture | `docs/ARCHITECTURE.md` |
+| What's done now + deployment | `docs/CURRENT_STATUS.md` |
+| Pipeline + code organization | `docs/ARCHITECTURE.md` |
 | What's next (evidence-based) | `docs/ROADMAP.md` |
+| Freeze registry | `docs/GOVERNANCE.md` |
+| Firestore semantics | `docs/FIRESTORE_SCHEMA.md` |
+| MBTI architecture | `docs/MBTI_ARCHITECTURE.md` |
+| Fusion V1 frozen UI spec | `docs/FUSION_RESULT_V1_SPEC.md` |
+| Public deploy | `docs/DEPLOYMENT.md` |
 | GF2 implementation detail | `docs/GF2_PRODUCTION_IMPLEMENTATION_V1.md` |
 | Narrative V5 proof | `docs/NARRATIVE_EVIDENCE_BRANCHING_V5.md` |
 | Real user funnel data | `docs/REAL_USER_RUNTIME_VALIDATION_V1.md` |
-| Full historical context | `KNOWME MASTER CONTEXT vNEXT (FULL STRUCTURED v2).txt` (repo root) |
 | Deep spec per domain | Other `docs/*.md` validation and spec files |
 
 ---
 
-## 9. Getting Help from the Codebase
+## 12. Getting Help from the Codebase
 
 When debugging "why doesn't narrative appear for this user?":
 
@@ -259,7 +347,7 @@ When debugging Home display:
 
 ---
 
-## 10. First Task Suggestions
+## 13. First Task Suggestions
 
 For a new developer joining today:
 

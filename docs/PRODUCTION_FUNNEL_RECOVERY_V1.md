@@ -1,7 +1,7 @@
 # Production Funnel Recovery V1
 
 **Program:** Production Funnel Recovery V1  
-**Authority:** KNOWME MASTER CONTEXT vNEXT (FULL STRUCTURED v2)  
+**Authority:** [`docs/KNOWME_MASTER_CONTEXT.md`](KNOWME_MASTER_CONTEXT.md), [`docs/GOVERNANCE.md`](GOVERNANCE.md)  
 **Scope:** Product strategy only — no code, no implementation, no engine changes  
 **Status:** COMPLETE  
 **Date:** 2026-06-21  

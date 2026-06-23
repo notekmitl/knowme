@@ -1,7 +1,7 @@
 # Real User Runtime Validation V1
 
 **Program:** Real User Runtime Validation V1  
-**Authority:** KNOWME MASTER CONTEXT vNEXT (FULL STRUCTURED v2)  
+**Authority:** [`docs/KNOWME_MASTER_CONTEXT.md`](KNOWME_MASTER_CONTEXT.md), [`docs/GOVERNANCE.md`](GOVERNANCE.md)  
 **Scope:** Validation only — no production code changes, no synthetic users, no fixtures  
 **Status:** COMPLETE — real Firestore population audited  
 **Date:** 2026-06-21

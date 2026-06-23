@@ -727,7 +727,7 @@ Big Five/BaZi reliable signals
 | [`GLOBAL_FUSION_FOUNDATION_VALIDATION_V2.md`](GLOBAL_FUSION_FOUNDATION_VALIDATION_V2.md) | Dead-zone evidence |
 | [`SYNTHETIC_HUMAN_POPULATION_V1.md`](SYNTHETIC_HUMAN_POPULATION_V1.md) | Population harness |
 | [`HUMAN_PATTERN_ACTIVATION_AUDIT_V1.md`](HUMAN_PATTERN_ACTIVATION_AUDIT_V1.md) | HP2 baseline |
-| KNOWME MASTER CONTEXT vNEXT §50.3.6, Priority 2 | Program authority |
+| [`KNOWME_MASTER_CONTEXT.md`](KNOWME_MASTER_CONTEXT.md), [`GOVERNANCE.md`](GOVERNANCE.md) | Program authority |
 | `lib/features/global_fusion/v2/` | GF2 prototype (upgrade target) |
 
 ---

@@ -54,9 +54,39 @@ Real users (38 Firestore accounts): **2.6% reach Narrative**. Blocker is persona
 | Firebase service account local-only | **High** | `backend/firebase/serviceAccountKey.json` gitignored |
 | Legacy + new architecture coexist | **Medium** | Parallel scoring, navigation, and module IDs — trace before editing |
 | Funnel Recovery V2 unvalidated in production | **Medium** | Implemented and on GitHub; conversion metrics not yet measured post-deploy |
-| Master context drift | **Low** | Root `.txt` file and `/docs/` may diverge — this doc set is now canonical entry |
 
 ---
+
+## Technical Debt Register
+
+Accepted debt — do not hide; trace before editing.
+
+| Item | Severity | Detail | Rule |
+|------|----------|--------|------|
+| Hybrid test architecture | Medium | `UniversalTestPage` + feature-specific systems coexist | Low blast radius migration only — do not aggressively unify |
+| Repeated session patterns | Low | MBTI + Cognitive duplicate session state patterns | Duplication > bad abstraction until justified |
+| AppText monolith | Low | `lib/core/i18n/app_text.dart` large | ARB/codegen future; acceptable for now |
+| Fusion outlier coverage | Low | Special-case copy for ESTJ, ENTJ, INTJ, ENFP only | Quality > coverage — expand carefully |
+| Dual astrology providers | Medium | `presentation/providers/astrology_provider.dart` + `lib/astrology/providers/astrology_provider.dart` | Do not aggressively merge — duplicate path risk |
+| `origin/main` behind feature branch | High | 357 vs 1,534 tracked files | Merge when release-ready |
+| Real user PII export local-only | High | `firestore_user_export.json` gitignored | Regenerate locally |
+| Firebase service account local-only | High | `backend/firebase/serviceAccountKey.json` gitignored | Never commit |
+
+---
+
+## Deployment
+
+| Item | Value |
+|------|-------|
+| **Status** | Public beta live on Firebase Hosting (June 2026) |
+| **Primary URL** | https://knowme-app-694e1.web.app |
+| **Firebase project** | `knowme-app-694e1` |
+| **Branch deployed from** | `feature/fusion-result` |
+| **Full guide** | [`docs/DEPLOYMENT.md`](DEPLOYMENT.md) |
+
+Deploy: `.\scripts\deploy_web.ps1` or `firebase deploy --only hosting --project knowme-app-694e1`
+
+**Governance / freeze detail:** [`docs/GOVERNANCE.md`](GOVERNANCE.md)
 
 ## Next Priority
 

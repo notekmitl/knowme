@@ -1,7 +1,16 @@
+================================================================================
+DEPRECATED — Documentation migrated to /docs
+================================================================================
+Canonical entry: docs/KNOWME_MASTER_CONTEXT.md
+Also read: docs/CURRENT_STATUS.md, docs/ARCHITECTURE.md, docs/ROADMAP.md, docs/HANDOFF.md
+Supplements: docs/GOVERNANCE.md, docs/FIRESTORE_SCHEMA.md, docs/MBTI_ARCHITECTURE.md,
+             docs/FUSION_RESULT_V1_SPEC.md, docs/DEPLOYMENT.md
+Do not use this file as source of truth for active priorities or architecture.
+================================================================================
 
 MASTER CONTEXT — LAST UPDATED: June 2026
 Fusion Result V1: frozen v1 (presentation polish passes 1–4 complete)
-See section 50.2 for as-built Fusion presentation spec.
+See docs/FUSION_RESULT_V1_SPEC.md for as-built Fusion presentation spec.
 
 1. PROJECT OVERVIEW
 Project Name

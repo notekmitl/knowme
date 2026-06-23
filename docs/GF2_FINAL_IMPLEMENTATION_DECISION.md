@@ -1,7 +1,7 @@
 # GF2 Final Implementation Decision
 
 **Program:** GF2 Pre-Implementation Calibration  
-**Authority:** KNOWME MASTER CONTEXT vNEXT (FULL STRUCTURED v2)  
+**Authority:** [`docs/KNOWME_MASTER_CONTEXT.md`](KNOWME_MASTER_CONTEXT.md), [`docs/GOVERNANCE.md`](GOVERNANCE.md)  
 **Generated:** 2026-06-21  
 **Scope:** Validation calibration only — all foundation architecture frozen  
 **Evidence:** `test/validation/synthetic_population_v3/output/calibration_results.json`

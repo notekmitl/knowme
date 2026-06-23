@@ -3,7 +3,7 @@
 **Last updated:** June 2026  
 **Rule:** Items listed here are backed by repository evidence only. Nothing invented.
 
-Sources: `KNOWME MASTER CONTEXT vNEXT (FULL STRUCTURED v2).txt`, `docs/*.md`, `lib/features/*`, validation outputs.
+Sources: `docs/*.md`, `lib/features/*`, validation outputs.
 
 ---
 
@@ -29,6 +29,7 @@ Sources: `KNOWME MASTER CONTEXT vNEXT (FULL STRUCTURED v2).txt`, `docs/*.md`, `l
 | Home V3.8 emotional surface | `lib/features/home_cohesion/` |
 | Funnel Recovery V2 (product implementation) | Home unlock, completion bar, MBTI preview loop, telemetry — `lib/features/home_cohesion/`, `lib/features/funnel_telemetry/` |
 | Repository Survival V1 | Architecture snapshot on GitHub (`780a4c1`, 1,534 tracked files) |
+| Public Deployment V1 | [`DEPLOYMENT.md`](DEPLOYMENT.md) — https://knowme-app-694e1.web.app |
 | Production Funnel Recovery V1 (strategy) | `docs/PRODUCTION_FUNNEL_RECOVERY_V1.md` |
 
 ### Test ecosystem (implemented)
@@ -60,8 +61,8 @@ Sources: `KNOWME MASTER CONTEXT vNEXT (FULL STRUCTURED v2).txt`, `docs/*.md`, `l
 |------|------------|----------|
 | **Funnel conversion (astrology → personality → narrative)** | Real users: 2.6% narrative reach; 97% drop-off before MBTI | `REAL_USER_RUNTIME_VALIDATION_V1.md`, Funnel Recovery V2 code |
 | **Funnel telemetry measurement** | Track MBTI adoption, narrative preview, completion funnel | `lib/features/funnel_telemetry/` |
-| **Home experience refinement** | Primary post-astrology product surface | Master context §3 — "Home / Discovery: active refinement" |
-| **Chinese Zodiac Personality Expansion** | Approved additive program, low blast radius | Master context §58 exception programs |
+| **Home experience refinement** | Primary post-astrology product surface | `lib/features/home_cohesion/`, `PRODUCTION_FUNNEL_RECOVERY_V1.md` |
+| **Chinese Zodiac Personality Expansion** | Approved additive program, low blast radius | [`GOVERNANCE.md`](GOVERNANCE.md) exception programs |
 | **Real-user validation re-runs** | Measure funnel changes against 38-user baseline | `test/validation/real_user_runtime_v1/` |
 
 **Active rule (from master context):** Maintenance only on frozen systems. Prefer depth over breadth. Do not reopen frozen architecture without strong reason.
@@ -74,21 +75,14 @@ Items documented as future in master context or specs — **not yet active prior
 
 | Item | Source | Dependency / note |
 |------|--------|-----------------|
-| **AI Narrative Layer** | Master context §58 — "Future Program" | Depends on Mirror + Global Fusion + Validation Layer |
-| **Big Five as primary MVP lens** | Master context §3 — "Status: future MVP" | Code exists; not current funnel path |
+| **AI Narrative Layer** | [`GOVERNANCE.md`](GOVERNANCE.md) — deferred | Depends on Mirror + Global Fusion + Validation Layer |
+| **Big Five as primary MVP lens** | [`GOVERNANCE.md`](GOVERNANCE.md) | Code exists; MBTI mini is recovery path |
 | **Thai Mirror UI full Firestore hydrate** | `docs/THAI_MIRROR_UI_SPECIFICATION_V1.md` — UI-V2 milestone | Spec complete; full UI integration deferred |
-| **Thai Astrology V3** | Master context §58 — listed as current priority over Thai Fusion expansion | Scope not yet defined in `/docs/` |
-| **Merge `feature/fusion-result` → `main`** | Repository state — operational, not product | Required for production recovery from default branch |
+| **Thai Astrology V3** | Deferred — scope not defined in `/docs/` | Do not invent scope |
+| **Merge `feature/fusion-result` → `main`** | Repository state — operational | Required for production recovery from default branch |
 | **GF1 tension reaching Human Model** | `HUMAN_PATTERN_ACTIVATION_RECOVERY_V2.md` — 2 patterns await GF1 tension | `identity_dual_signal`, `internal_conflict_thinker` |
 
-**Explicitly not active (master context §58):**
-
-- Astrology Fusion Redesign
-- Personality Mirror Redesign
-- MBTI Summary Expansion
-- EQ Expansion (beyond maintenance)
-- Chinese BaZi architecture rewrite
-- Thai astrology architecture rewrite
+**Explicitly not active:** see [`GOVERNANCE.md`](GOVERNANCE.md) §Not Active
 
 ---
 
@@ -97,4 +91,4 @@ Items documented as future in master context or specs — **not yet active prior
 1. **Evidence before expansion** — synthetic validation gates before production claims.
 2. **Funnel before features** — real-user conversion is the current bottleneck, not engine diversity.
 3. **Freeze what works** — Fusion V1 UI, BaZi V1, Thai V2, MBTI Summary are maintenance-only.
-4. **No invented work** — if it is not in master context, `/docs/`, or code, it is not on this roadmap.
+4. **No invented work** — if it is not in `/docs/` or code, it is not on this roadmap.

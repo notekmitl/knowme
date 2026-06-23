@@ -1,7 +1,7 @@
 # GF2 Production Implementation V1
 
 **Program:** GF2 Production Implementation V1  
-**Authority:** KNOWME MASTER CONTEXT vNEXT (FULL STRUCTURED v2)  
+**Authority:** [`docs/KNOWME_MASTER_CONTEXT.md`](KNOWME_MASTER_CONTEXT.md), [`docs/GOVERNANCE.md`](GOVERNANCE.md)  
 **Generated:** 2026-06-21  
 **Specification:** [`GLOBAL_FUSION_FOUNDATION_V2_SPECIFICATION.md`](GLOBAL_FUSION_FOUNDATION_V2_SPECIFICATION.md)
 

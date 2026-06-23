@@ -289,7 +289,50 @@ test/validation/synthetic_population_v3/pipeline/synthetic_human_pipeline_runner
 
 ---
 
-## Package Ownership Map
+## What This Document Does Not Cover
+
+- UI polish specs for Fusion V1 (frozen — see [`FUSION_RESULT_V1_SPEC.md`](FUSION_RESULT_V1_SPEC.md))
+- Thai astrology foundation engine internals (see `docs/THAI_FOUNDATION_ENGINE_V1_1_NOTES.md`)
+- Scoring algorithms for individual tests (see [`MBTI_ARCHITECTURE.md`](MBTI_ARCHITECTURE.md) and respective `lib/features/tests/` packages)
+- Firestore session semantics (see [`FIRESTORE_SCHEMA.md`](FIRESTORE_SCHEMA.md))
+- Backend BaZi API (`backend/` — separate from Flutter architecture)
+
+---
+
+## Code Organization
+
+**Preferred layout under `lib/`:**
+
+```
+lib/
+  core/           # Shared app logic (i18n, theme, constants) — no feature business logic
+  data/           # Shared static data (question banks, test_modules.dart)
+  features/       # Feature-owned logic (preferred architecture)
+  presentation/   # Legacy/general UI — coexistence expected
+  services/       # App-wide services (profile, question_service)
+```
+
+### Feature pattern
+
+```
+lib/features/<feature>/
+  domain/
+  application/
+  data/
+  presentation/
+  widgets/
+```
+
+**Test features:** `lib/features/tests/mbti/`, `mbti_cognitive/`, `mbti_summary/`, etc.
+
+**Rules:**
+
+- Feature owns its logic — avoid cross-feature leakage
+- Small focused files; deterministic helpers; presentation isolation
+- Avoid 1000-line god files
+- Prefer **additive** new folders over rewriting existing systems
+
+### Package ownership (runtime)
 
 | Concern | Owns |
 |---------|------|
@@ -304,11 +347,6 @@ test/validation/synthetic_population_v3/pipeline/synthetic_human_pipeline_runner
 | Funnel analytics | `lib/features/funnel_telemetry/` |
 | Validation harnesses | `test/validation/` |
 
----
+### Hybrid architecture note
 
-## What This Document Does Not Cover
-
-- UI polish specs for Fusion V1 (frozen — see master context §50.2)
-- Thai astrology foundation engine internals (see `docs/THAI_FOUNDATION_ENGINE_V1_1_NOTES.md`)
-- Scoring algorithms for individual tests (see respective `lib/features/tests/` packages)
-- Backend BaZi API (`backend/` — separate from Flutter architecture)
+Legacy `UniversalTestPage` + feature-specific test architecture coexist intentionally. Do not aggressively unify — see [`CURRENT_STATUS.md`](CURRENT_STATUS.md) technical debt.

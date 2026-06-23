@@ -1,7 +1,7 @@
 # Human Pattern Activation Recovery V2
 
 **Program:** Human Pattern Activation Recovery V2  
-**Authority:** KNOWME MASTER CONTEXT vNEXT (FULL STRUCTURED v2)  
+**Authority:** [`docs/KNOWME_MASTER_CONTEXT.md`](KNOWME_MASTER_CONTEXT.md), [`docs/GOVERNANCE.md`](GOVERNANCE.md)  
 **Generated:** 2026-06-21  
 **Scope:** Implementation — Human Pattern Activation layer only
 
