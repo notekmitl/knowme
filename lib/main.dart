@@ -13,6 +13,7 @@ import 'package:knowme/features/tests/mbti_cognitive/mbti_cognitive_routes.dart'
 import 'package:knowme/features/tests/mbti_summary/mbti_summary_routes.dart';
 import 'package:knowme/features/personality_mirror/personality_mirror_routes.dart';
 import 'package:knowme/features/astrology/fusion/presentation/astrology_fusion_demo_routes.dart';
+import 'package:knowme/features/astrology/presentation/astrology_center_routes.dart';
 import 'package:knowme/features/astrology/fusion/presentation/astrology_fusion_routes.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/thai_mirror_routes.dart';
 import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_demo_routes.dart';
@@ -121,6 +122,11 @@ class KnowMeApp extends StatelessWidget {
                 AstrologyFusionRoutes.onGenerateRoute(settings);
             if (astrologyFusionRoute != null) {
               return astrologyFusionRoute;
+            }
+            final astrologyCenterRoute =
+                AstrologyCenterRoutes.onGenerateRoute(settings);
+            if (astrologyCenterRoute != null) {
+              return astrologyCenterRoute;
             }
             final astrologyFusionDemoRoute =
                 AstrologyFusionDemoRoutes.onGenerateRoute(settings);

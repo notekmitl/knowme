@@ -8,6 +8,9 @@ import 'package:knowme/features/bazi/application/bazi_summary_engine.dart';
 import 'package:knowme/features/bazi/application/bazi_theme_engine.dart';
 import 'package:knowme/features/bazi/domain/bazi_summary.dart';
 import 'package:knowme/features/bazi/domain/bazi_theme.dart';
+import 'package:knowme/features/astrology/shared/astrology_flow_state.dart';
+import 'package:knowme/features/astrology/shared/astrology_flow_widgets.dart';
+import 'package:knowme/presentation/pages/profile/edit_profile_page_v1.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/bazi_provider.dart';
@@ -36,6 +39,17 @@ class _BaziResultPageState extends State<BaziResultPage> {
     });
   }
 
+  void _openEditProfile(BuildContext context) {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => const EditProfilePageV1()),
+    ).then((_) {
+      if (!mounted) return;
+      final uid = widget.userId ?? FirebaseAuth.instance.currentUser?.uid;
+      if (uid == null || uid.isEmpty) return;
+      context.read<BaziProvider>().loadChart(uid);
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final lang = context.watch<LocaleProvider>().locale.languageCode;
@@ -51,21 +65,31 @@ class _BaziResultPageState extends State<BaziResultPage> {
       body: Consumer<BaziProvider>(
         builder: (context, provider, _) {
           if (provider.isLoading) {
-            return const Center(child: CircularProgressIndicator());
+            return AstrologyGenerationBody(
+              title: AstrologyFlowCopy.generationTitle('ดวงปาจื้อ'),
+              body: AstrologyFlowCopy.generationBody('ดวงปาจื้อ'),
+            );
           }
 
           if (provider.error != null) {
-            return _messageBody(
-              title: BaziResultCopy.errorTitle(lang),
-              body: provider.error!,
+            return AstrologyFlowStateBody(
+              state: AstrologyFlowState.firstGeneration,
+              onPrimaryAction: () => provider.loadChart(
+                widget.userId ?? FirebaseAuth.instance.currentUser?.uid ?? '',
+              ),
+              primaryActionLabel: AstrologyFlowCopy.retryCta,
+              onRetry: () => provider.loadChart(
+                widget.userId ?? FirebaseAuth.instance.currentUser?.uid ?? '',
+              ),
             );
           }
 
           final chart = provider.chart;
           if (chart == null) {
-            return _messageBody(
-              title: BaziResultCopy.pageTitle(lang),
-              body: BaziResultCopy.emptyMessage(lang),
+            return AstrologyFlowStateBody(
+              state: AstrologyFlowState.firstGeneration,
+              onPrimaryAction: () => _openEditProfile(context),
+              primaryActionLabel: AstrologyFlowCopy.generateCta,
             );
           }
 

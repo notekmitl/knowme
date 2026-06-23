@@ -36,7 +36,7 @@ abstract final class HomeV3Assembler {
       insight: insight,
       profile: _profile(sources.profileInput, sources.profileFields),
       psychologyTests: _psychologyTests(sources.personalityCoverage),
-      astrologyHub: _astrologyHub(sources),
+      astrologySummary: astrologySummary(sources),
       more: _more(sources),
       completion: completion,
       showRecoveryBanner:
@@ -275,6 +275,47 @@ abstract final class HomeV3Assembler {
       isEmpty: !input.hasAnyProfileData,
     );
   }
+
+  static HomeAstrologySummaryCardData astrologySummary(
+    HomeV2SourceBundle sources, {
+    bool isLoading = false,
+  }) {
+    if (isLoading) {
+      return const HomeAstrologySummaryCardData(
+        isLoading: true,
+        statusLine: '',
+        ctaLabel: HomeV3Copy.viewFullAstrology,
+        canOpen: false,
+      );
+    }
+
+    final hub = astrologyHubFrom(sources);
+    final readySystems = hub.systems
+        .where((s) => s.state == HomeAstrologySystemState.hasResult)
+        .length;
+    final fusionReady =
+        hub.fusionState == HomeAstrologySystemState.hasResult;
+    final totalReady = readySystems + (fusionReady ? 1 : 0);
+    final birthReady = sources.profileInput.isBirthProfileComplete;
+
+    final statusLine = !birthReady
+        ? HomeV3Copy.profileCompletenessEmpty
+        : totalReady == 0
+            ? 'พร้อมสร้างดวงโหราศาสตร์ครั้งแรก'
+            : 'มีผลโหราศาสตร์แล้ว $totalReady ระบบ';
+
+    return HomeAstrologySummaryCardData(
+      isLoading: false,
+      statusLine: statusLine,
+      ctaLabel: HomeV3Copy.viewFullAstrology,
+      canOpen: true,
+    );
+  }
+
+  static HomeAstrologyHubSectionData astrologyHubFrom(
+    HomeV2SourceBundle sources,
+  ) =>
+      _astrologyHub(sources);
 
   static HomeAstrologyHubSectionData _astrologyHub(HomeV2SourceBundle sources) {
     final completed = sources.astrologyEntry.readiness.completedLensIds;

@@ -12,7 +12,8 @@ class ThaiMirrorSectionCard extends StatefulWidget {
 
   final ThaiMirrorSectionCardState state;
 
-  static const emptySummaryMessage = 'ยังไม่มีข้อมูลเพียงพอในส่วนนี้';
+  static const emptySummaryMessage =
+      'กำลังเตรียมข้อมูลในส่วนนี้ — แตะเพื่อดูรายละเอียดเมื่อพร้อม';
 
   @override
   State<ThaiMirrorSectionCard> createState() => _ThaiMirrorSectionCardState();

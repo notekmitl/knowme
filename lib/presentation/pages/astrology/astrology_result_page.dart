@@ -9,6 +9,9 @@ import 'package:provider/provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:knowme/core/i18n/app_text.dart';
+import 'package:knowme/features/astrology/shared/astrology_flow_state.dart';
+import 'package:knowme/features/astrology/shared/astrology_flow_widgets.dart';
+import 'package:knowme/presentation/pages/profile/edit_profile_page_v1.dart';
 import 'package:knowme/data/models/astrology_chart_model.dart';
 
 import 'package:knowme/features/tests/mbti/mbti_routes.dart';
@@ -286,27 +289,29 @@ class _AstrologyResultPageState extends State<AstrologyResultPage> {
       ),
 
       body: provider.isLoading
-
-          ? const Center(child: CircularProgressIndicator())
-
+          ? AstrologyGenerationBody(
+              title: AstrologyFlowCopy.generationTitle('ดวงตะวันตก'),
+              body: AstrologyFlowCopy.generationBody('ดวงตะวันตก'),
+            )
           : provider.error != null
-
-              ? Center(child: Text(provider.error!))
-
+              ? AstrologyFlowStateBody(
+                  state: AstrologyFlowState.firstGeneration,
+                  onPrimaryAction: () {
+                    final uid = FirebaseAuth.instance.currentUser!.uid;
+                    context.read<AstrologyProvider>().loadChart(uid);
+                  },
+                  primaryActionLabel: AstrologyFlowCopy.retryCta,
+                )
               : chart == null
-
-                  ? Center(
-
-                      child: Text(
-
-                        AppText.t('astro_no_data'),
-
-                        style: const TextStyle(color: Colors.white),
-
+                  ? AstrologyFlowStateBody(
+                      state: AstrologyFlowState.firstGeneration,
+                      onPrimaryAction: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => const EditProfilePageV1(),
+                        ),
                       ),
-
+                      primaryActionLabel: AstrologyFlowCopy.generateCta,
                     )
-
                   : Container(
 
                       decoration: const BoxDecoration(

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:knowme/features/astrology/shared/thai_content_key_human_label.dart';
+
 import '../../models/thai_mirror_evidence_explorer_state.dart';
 import 'thai_mirror_lens_badge.dart';
 
@@ -34,7 +36,10 @@ class ThaiMirrorEvidenceRow extends StatelessWidget {
           ThaiMirrorLensBadge(lensSource: state.lensSource),
           const SizedBox(height: 10),
           Text(
-            state.contentKey,
+            ThaiContentKeyHumanLabel.label(
+              state.contentKey,
+              contentTitle: state.contentTitle,
+            ),
             style: TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w500,

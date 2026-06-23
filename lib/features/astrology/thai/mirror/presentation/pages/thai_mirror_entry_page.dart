@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+import 'package:knowme/features/astrology/shared/astrology_flow_state.dart';
+import 'package:knowme/features/astrology/shared/astrology_flow_widgets.dart';
+import 'package:knowme/presentation/pages/profile/edit_profile_page_v1.dart';
+
 import '../../application/thai_mirror_entry_service.dart';
 import '../../runtime/thai_mirror_pipeline_result.dart';
 import '../ui/pages/thai_mirror_result_page.dart';
@@ -29,76 +33,63 @@ class _ThaiMirrorEntryPageState extends State<ThaiMirrorEntryPage> {
     await _pipelineFuture;
   }
 
+  void _openEditProfile() {
+    Navigator.of(context).push(
+      MaterialPageRoute(builder: (_) => const EditProfilePageV1()),
+    ).then((_) => _reload());
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Thai'),
+        title: const Text('โหราศาสตร์ไทย'),
       ),
       body: FutureBuilder<ThaiMirrorPipelineResult>(
         future: _pipelineFuture,
         builder: (context, snapshot) {
           if (snapshot.connectionState != ConnectionState.done) {
-            return const Center(child: CircularProgressIndicator());
+            return AstrologyGenerationBody(
+              title: AstrologyFlowCopy.generationTitle('ดวงไทย'),
+              body: AstrologyFlowCopy.generationBody('ดวงไทย'),
+            );
           }
 
           final result = snapshot.data;
           if (result == null) {
-            return _ErrorBody(
-              message: 'Thai Astrology could not be loaded.',
+            return AstrologyFlowStateBody(
+              state: AstrologyFlowState.firstGeneration,
+              onPrimaryAction: _reload,
+              primaryActionLabel: AstrologyFlowCopy.generateCta,
               onRetry: _reload,
             );
           }
 
           if (result.isFailure) {
-            return _ErrorBody(
-              message: result.errorMessage ?? 'Unknown error',
+            final message = result.errorMessage ?? '';
+            final incompleteProfile = message.contains('birth') ||
+                message.contains('profile') ||
+                message.contains('เกิด');
+
+            if (incompleteProfile) {
+              return AstrologyFlowStateBody(
+                state: AstrologyFlowState.incompleteProfile,
+                onPrimaryAction: _openEditProfile,
+                primaryActionLabel: AstrologyFlowCopy.completeProfileCta,
+                onRetry: _reload,
+              );
+            }
+
+            return AstrologyFlowStateBody(
+              state: AstrologyFlowState.firstGeneration,
+              onPrimaryAction: _reload,
+              primaryActionLabel: AstrologyFlowCopy.generateCta,
               onRetry: _reload,
             );
           }
 
           return ThaiMirrorResultPage(viewState: result.viewState!);
         },
-      ),
-    );
-  }
-}
-
-class _ErrorBody extends StatelessWidget {
-  const _ErrorBody({
-    required this.message,
-    required this.onRetry,
-  });
-
-  final String message;
-  final VoidCallback onRetry;
-
-  @override
-  Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-
-    return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(24),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              message,
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 15,
-                height: 1.5,
-                color: scheme.onSurfaceVariant,
-              ),
-            ),
-            const SizedBox(height: 16),
-            FilledButton(
-              onPressed: onRetry,
-              child: const Text('ลองอีกครั้ง'),
-            ),
-          ],
-        ),
       ),
     );
   }

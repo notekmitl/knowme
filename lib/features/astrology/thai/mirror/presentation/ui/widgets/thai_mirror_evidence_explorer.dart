@@ -17,7 +17,7 @@ class ThaiMirrorEvidenceExplorer extends StatefulWidget {
   static const titleTh = 'แหล่งที่มาของผลลัพธ์';
   static const subtitleTh =
       'คุณสามารถตรวจสอบได้ว่าผลลัพธ์แต่ละส่วนมาจากข้อมูลใด';
-  static const emptyMessage = 'ยังไม่มีข้อมูลอ้างอิง';
+  static const emptyMessage = 'แหล่งอ้างอิงจะปรากฏเมื่อมีผลวิเคราะห์พร้อม';
 
   /// Sort rows by supported-theme count (desc), then content key (asc).
   static List<ThaiMirrorEvidenceRowState> sortedRows(

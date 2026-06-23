@@ -5,11 +5,11 @@ import '../../models/thai_mirror_section_card_state.dart';
 import '../../thai_mirror_view_state.dart';
 import '../widgets/thai_mirror_evidence_explorer.dart';
 import '../widgets/thai_mirror_hero_section.dart';
+import '../widgets/thai_mirror_insight_summary_section.dart';
 import '../widgets/thai_mirror_profile_context_card.dart';
 import '../widgets/thai_mirror_section_card.dart';
-import '../widgets/thai_mirror_top_themes_section.dart';
 
-/// Thai Mirror Result Page — pure consumer of [ThaiMirrorViewState] only.
+/// Thai Mirror Result Page — insight-first product surface.
 class ThaiMirrorResultPage extends StatelessWidget {
   const ThaiMirrorResultPage({
     super.key,
@@ -18,19 +18,18 @@ class ThaiMirrorResultPage extends StatelessWidget {
 
   final ThaiMirrorViewState viewState;
 
-  static const sectionIds = <ThaiMirrorSectionId>[
-    ThaiMirrorSectionId.coreSelf,
+  static const _insightSectionOrder = <ThaiMirrorSectionId>[
+    ThaiMirrorSectionId.strengths,
     ThaiMirrorSectionId.thinkingStyle,
     ThaiMirrorSectionId.emotionalWorld,
     ThaiMirrorSectionId.relationships,
     ThaiMirrorSectionId.workAndAmbition,
-    ThaiMirrorSectionId.strengths,
     ThaiMirrorSectionId.growthAreas,
     ThaiMirrorSectionId.growthPath,
   ];
 
   static const expandedDefaults = <ThaiMirrorSectionId>{
-    ThaiMirrorSectionId.coreSelf,
+    ThaiMirrorSectionId.strengths,
     ThaiMirrorSectionId.thinkingStyle,
     ThaiMirrorSectionId.emotionalWorld,
   };
@@ -44,11 +43,9 @@ class ThaiMirrorResultPage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ThaiMirrorHeroSection(state: viewState.hero),
-              const SizedBox(height: 28),
-              ThaiMirrorTopThemesSection(themes: viewState.topThemes),
-              const SizedBox(height: 28),
-              ...sectionIds.map(
+              ThaiMirrorInsightSummarySection(state: viewState.hero),
+              const SizedBox(height: 24),
+              ..._insightSectionOrder.map(
                 (id) => Padding(
                   padding: const EdgeInsets.only(bottom: 12),
                   child: ThaiMirrorSectionCard(

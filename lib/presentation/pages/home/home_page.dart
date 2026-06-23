@@ -3,8 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart' hide AuthProvider;
 import 'package:flutter/foundation.dart';
 import 'package:provider/provider.dart';
 
-import 'package:knowme/features/astrology/fusion/presentation/astrology_fusion_routes.dart';
-import 'package:knowme/features/astrology/thai/mirror/presentation/thai_mirror_routes.dart';
+import 'package:knowme/features/astrology/presentation/astrology_center_routes.dart';
 import 'package:knowme/features/funnel_telemetry/funnel_telemetry.dart';
 import 'package:knowme/features/home_cohesion/application/home_v3_loader.dart';
 import 'package:knowme/features/home_cohesion/presentation/home_screen_v2_models.dart';
@@ -86,8 +85,8 @@ class _HomePageState extends State<HomePage> {
     await context.read<AuthProvider>().logout();
   }
 
-  void _openAstrologyResult(BuildContext context) {
-    AstrologyFusionRoutes.openResult(context);
+  void _openAstrologyCenter(BuildContext context) {
+    AstrologyCenterRoutes.open(context);
   }
 
   void _openFullInsight(BuildContext context) {
@@ -103,23 +102,6 @@ class _HomePageState extends State<HomePage> {
 
   void _openContinueDiscovering(BuildContext context) {
     FusionRoutes.openResult(context);
-  }
-
-  void _openAstrologySystem(BuildContext context, String systemId) {
-    switch (systemId) {
-      case 'thai':
-        ThaiMirrorRoutes.openResult(context);
-      case 'bazi':
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => const BaziResultPage()),
-        );
-      case 'western':
-        Navigator.of(context).push(
-          MaterialPageRoute(builder: (_) => const AstrologyResultPage()),
-        );
-      default:
-        break;
-    }
   }
 
   void _openPsychologyTest(
@@ -199,16 +181,14 @@ class _HomePageState extends State<HomePage> {
           HomeScreenV3(
             data: data,
             callbacks: HomeScreenV3Callbacks(
-              onViewAstrologyResult: () => _openAstrologyResult(context),
+              onViewAstrologyResult: () => _openAstrologyCenter(context),
               onViewFullInsight: () => _openFullInsight(context),
               onEditProfile: () => _openEditProfilePage(context),
               onPsychologyTest: (test) => _openPsychologyTest(context, test),
-              onMoreItem: (item) => _openMoreItem(context, item),
               onUnlockDeepProfile: () => _openUnlockDeepProfile(context),
               onContinueDiscovering: () => _openContinueDiscovering(context),
               narrativeLoading: _narrativeLoading,
-              onOpenAstrologySystem: (id) => _openAstrologySystem(context, id),
-              onOpenCrossSystemFusion: () => _openAstrologyResult(context),
+              onOpenAstrologyCenter: () => _openAstrologyCenter(context),
             ),
           ),
           if (kDebugMode) ...[

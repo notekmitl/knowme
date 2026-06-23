@@ -259,7 +259,22 @@ class HomeAstrologySystemItemData {
   bool get isAvailable => state == HomeAstrologySystemState.hasResult;
 }
 
-/// Astrology-first hub — systems and cross-system fusion.
+/// Compact astrology summary on Home.
+class HomeAstrologySummaryCardData {
+  const HomeAstrologySummaryCardData({
+    required this.isLoading,
+    required this.statusLine,
+    required this.ctaLabel,
+    required this.canOpen,
+  });
+
+  final bool isLoading;
+  final String statusLine;
+  final String ctaLabel;
+  final bool canOpen;
+}
+
+/// Astrology Center — systems and cross-system fusion.
 class HomeAstrologyHubSectionData {
   const HomeAstrologyHubSectionData({
     required this.systems,
@@ -295,7 +310,7 @@ class HomeScreenV3Data {
 
     required this.psychologyTests,
 
-    required this.astrologyHub,
+    required this.astrologySummary,
 
     required this.more,
 
@@ -367,13 +382,11 @@ class HomeScreenV3Data {
 
       psychologyTests: const HomePsychologyTestsSectionData(tests: []),
 
-      astrologyHub: const HomeAstrologyHubSectionData(
-        systems: [],
-        fusionState: HomeAstrologySystemState.missingProfile,
-        fusionTitle: '',
-        fusionDescription: '',
-        fusionStatusMessage: '',
-        fusionActionLabel: '',
+      astrologySummary: const HomeAstrologySummaryCardData(
+        isLoading: true,
+        statusLine: '',
+        ctaLabel: '',
+        canOpen: false,
       ),
 
       more: const HomeMoreSectionData(items: []),
@@ -412,7 +425,7 @@ class HomeScreenV3Data {
 
   final HomePsychologyTestsSectionData psychologyTests;
 
-  final HomeAstrologyHubSectionData astrologyHub;
+  final HomeAstrologySummaryCardData astrologySummary;
 
   final HomeMoreSectionData more;
 
@@ -440,17 +453,13 @@ class HomeScreenV3Callbacks {
 
     required this.onPsychologyTest,
 
-    required this.onMoreItem,
-
     required this.onUnlockDeepProfile,
 
     required this.onContinueDiscovering,
 
     this.narrativeLoading = false,
 
-    required this.onOpenAstrologySystem,
-
-    required this.onOpenCrossSystemFusion,
+    required this.onOpenAstrologyCenter,
 
   });
 
@@ -464,17 +473,13 @@ class HomeScreenV3Callbacks {
 
   final void Function(HomePsychologyTestItemData test) onPsychologyTest;
 
-  final void Function(HomeMoreItemData item) onMoreItem;
-
   final void Function() onUnlockDeepProfile;
 
   final void Function() onContinueDiscovering;
 
   final bool narrativeLoading;
 
-  final void Function(String systemId) onOpenAstrologySystem;
-
-  final void Function() onOpenCrossSystemFusion;
+  final void Function() onOpenAstrologyCenter;
 }
 
 
