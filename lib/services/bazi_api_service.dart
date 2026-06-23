@@ -1,7 +1,5 @@
-import 'dart:convert';
-
-import 'package:http/http.dart' as http;
 import 'package:knowme/core/config/api_config.dart';
+import 'package:knowme/core/network/astrology_api_client.dart';
 
 class BaziApiService {
   static Future<void> generateBazi({
@@ -26,14 +24,10 @@ class BaziApiService {
       body['longitude'] = longitude;
     }
 
-    final response = await http.post(
-      ApiConfig.baziGenerateUri(),
-      headers: {'Content-Type': 'application/json'},
-      body: jsonEncode(body),
+    await AstrologyApiClient.postJson(
+      endpoint: ApiConfig.baziGenerateUri(),
+      body: body,
+      failureLabel: 'Failed to generate BaZi chart',
     );
-
-    if (response.statusCode != 200) {
-      throw Exception('Failed to generate BaZi chart');
-    }
   }
 }

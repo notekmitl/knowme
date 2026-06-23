@@ -196,6 +196,28 @@ void main() {
       expect(westernCalls, 1);
     });
 
+    test('API failure preserves error details on failed systems', () async {
+      final coordinator = AstrologyGenerationCoordinator(
+        profileService: ProfileService.testing((_) async => _completeProfile()),
+        lensProbe: _FakeLensProbe([AstrologyLens.thaiAstrology.lensId]),
+        fusionRepository: _StubFusionRepository(hasFusion: false),
+        fusionService: noopFusionService(),
+        generateBazi: (_, __) async {
+          throw Exception('AstrologyApiFailure(/generate-bazi): network down');
+        },
+        generateWestern: (_, __) async {
+          throw Exception('AstrologyApiFailure(/generate-chart): network down');
+        },
+      );
+
+      final snapshot = await coordinator.ensureGenerated('uid-fail');
+
+      expect(snapshot.system('bazi').status, AstrologyGenerationStatus.failed);
+      expect(snapshot.system('western').status, AstrologyGenerationStatus.failed);
+      expect(snapshot.system('bazi').errorMessage, contains('generate-bazi'));
+      expect(snapshot.system('western').errorMessage, contains('generate-chart'));
+    });
+
     test('retry fusion regenerates only fusion', () async {
       var baziCalls = 0;
       var westernCalls = 0;

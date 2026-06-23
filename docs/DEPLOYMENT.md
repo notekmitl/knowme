@@ -44,7 +44,24 @@ Firebase Console: https://console.firebase.google.com/project/knowme-app-694e1/o
 
 ## Build & Deploy
 
-### One command (Windows)
+### Full production deploy (astrology API + web)
+
+```powershell
+.\scripts\deploy_astrology_api.ps1
+.\scripts\deploy_web.ps1
+```
+
+`deploy_web.ps1` reads `config/astrology_api_base_url.txt` (written by API deploy) and injects:
+
+`--dart-define=ASTROLOGY_API_BASE_URL=<Cloud Run URL>`
+
+### Web only (after API URL is configured)
+
+```powershell
+.\scripts\deploy_web.ps1
+```
+
+### One command (Windows) — legacy alias
 
 ```powershell
 .\scripts\deploy_web.ps1
@@ -53,7 +70,8 @@ Firebase Console: https://console.firebase.google.com/project/knowme-app-694e1/o
 ### Manual steps
 
 ```powershell
-flutter build web --release --no-wasm-dry-run
+# Read URL from config/astrology_api_base_url.txt
+flutter build web --release --no-wasm-dry-run --dart-define=ASTROLOGY_API_BASE_URL=<cloud-run-url>
 firebase deploy --only hosting --project knowme-app-694e1
 ```
 
@@ -65,6 +83,9 @@ Build output: `build/web/` (gitignored; generated on each deploy)
 
 | File | Role |
 |------|------|
+| `config/astrology_api_base_url.txt` | Production Cloud Run API base URL (no trailing slash) |
+| `scripts/deploy_astrology_api.ps1` | Build + deploy FastAPI backend to Cloud Run |
+| `scripts/verify_astrology_api.ps1` | Health + generate endpoint smoke check |
 | `.firebaserc` | Default Firebase project |
 | `firebase.json` | Hosting `public`, SPA rewrites, cache headers |
 | `web/index.html` | Web shell (viewport, PWA meta) |

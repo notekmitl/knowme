@@ -1,7 +1,5 @@
-import 'dart:convert';
-
-import 'package:http/http.dart' as http;
 import 'package:knowme/core/config/api_config.dart';
+import 'package:knowme/core/network/astrology_api_client.dart';
 
 class AstrologyApiService {
   static Future<void> generateChart({
@@ -11,22 +9,16 @@ class AstrologyApiService {
     required double latitude,
     required double longitude,
   }) async {
-    final response = await http.post(
-      ApiConfig.astrologyGenerateChartUri(),
-
-      headers: {'Content-Type': 'application/json'},
-
-      body: jsonEncode({
+    await AstrologyApiClient.postJson(
+      endpoint: ApiConfig.astrologyGenerateChartUri(),
+      body: {
         'uid': uid,
         'birth_date': birthDate,
         'birth_time': birthTime,
         'latitude': latitude,
         'longitude': longitude,
-      }),
+      },
+      failureLabel: 'Failed to generate chart',
     );
-
-    if (response.statusCode != 200) {
-      throw Exception('Failed to generate chart');
-    }
   }
 }

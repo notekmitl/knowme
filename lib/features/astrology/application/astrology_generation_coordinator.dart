@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:knowme/domain/models/profile_model.dart';
 import 'package:knowme/features/astrology/application/birth_profile_readiness.dart';
 import 'package:knowme/features/astrology/domain/astrology_generation_status.dart';
@@ -115,8 +116,10 @@ class AstrologyGenerationCoordinator {
       emit(snapshot);
       try {
         await _generateBaziFn(uid, profile);
-      } catch (e) {
+      } catch (e, stack) {
         failures['bazi'] = e.toString();
+        debugPrint('[AstrologyGeneration] bazi failed: $e');
+        debugPrint('[AstrologyGeneration] $stack');
       }
     }
 
@@ -131,25 +134,16 @@ class AstrologyGenerationCoordinator {
       emit(snapshot);
       try {
         await _generateWesternFn(uid, profile);
-      } catch (e) {
+      } catch (e, stack) {
         failures['western'] = e.toString();
+        debugPrint('[AstrologyGeneration] western failed: $e');
+        debugPrint('[AstrologyGeneration] $stack');
       }
     }
 
     await Future.wait([runBazi(), runWestern()]);
 
-    snapshot = await _buildProbeSnapshot(uid);
-    for (final entry in failures.entries) {
-      if (!snapshot.system(entry.key).isReady) {
-        snapshot = snapshot.withSystem(
-          AstrologySystemSnapshot(
-            systemId: entry.key,
-            status: AstrologyGenerationStatus.failed,
-            errorMessage: entry.value,
-          ),
-        );
-      }
-    }
+    snapshot = _mergeFailures(await _buildProbeSnapshot(uid), failures);
     emit(snapshot);
 
     if (_shouldGenerateFusion(snapshot, retrySystemId)) {
@@ -165,8 +159,10 @@ class AstrologyGenerationCoordinator {
         if (probe.completedLensIds.isNotEmpty) {
           await _fusionService.loadOrGenerate(uid: uid, input: probe.input);
         }
-        snapshot = await _buildProbeSnapshot(uid);
-      } catch (e) {
+        snapshot = _mergeFailures(await _buildProbeSnapshot(uid), failures);
+      } catch (e, stack) {
+        debugPrint('[AstrologyGeneration] fusion failed: $e');
+        debugPrint('[AstrologyGeneration] $stack');
         snapshot = snapshot.withSystem(
           AstrologySystemSnapshot(
             systemId: 'fusion',
@@ -213,6 +209,25 @@ class AstrologyGenerationCoordinator {
   Future<bool> _hasFusionSnapshot(String uid) async {
     final snap = await _fusionRepository.loadFusion(uid);
     return snap != null;
+  }
+
+  static AstrologyGenerationSnapshot _mergeFailures(
+    AstrologyGenerationSnapshot snapshot,
+    Map<String, String> failures,
+  ) {
+    var result = snapshot;
+    for (final entry in failures.entries) {
+      if (!result.system(entry.key).isReady) {
+        result = result.withSystem(
+          AstrologySystemSnapshot(
+            systemId: entry.key,
+            status: AstrologyGenerationStatus.failed,
+            errorMessage: entry.value,
+          ),
+        );
+      }
+    }
+    return result;
   }
 
   static Future<void> _defaultGenerateBazi(String uid, ProfileModel profile) async {
