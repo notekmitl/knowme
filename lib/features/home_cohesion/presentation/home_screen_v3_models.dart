@@ -231,34 +231,53 @@ class HomeNarrativePreviewSectionData {
   final List<String> lockedSectionLabels;
 }
 
+/// Readiness of a single astrology system on Home.
+enum HomeAstrologySystemState {
+  hasResult,
+  missingChart,
+  missingProfile,
+}
+
 /// Single astrology system entry in the hub.
 class HomeAstrologySystemItemData {
   const HomeAstrologySystemItemData({
     required this.id,
     required this.title,
     required this.description,
-    required this.isAvailable,
+    required this.state,
+    required this.statusMessage,
+    required this.actionLabel,
   });
 
   final String id;
   final String title;
   final String description;
-  final bool isAvailable;
+  final HomeAstrologySystemState state;
+  final String statusMessage;
+  final String actionLabel;
+
+  bool get isAvailable => state == HomeAstrologySystemState.hasResult;
 }
 
-/// Astrology-first hub — systems, cross-system fusion, psychology expansion.
+/// Astrology-first hub — systems and cross-system fusion.
 class HomeAstrologyHubSectionData {
   const HomeAstrologyHubSectionData({
     required this.systems,
-    required this.fusionAvailable,
+    required this.fusionState,
     required this.fusionTitle,
     required this.fusionDescription,
+    required this.fusionStatusMessage,
+    required this.fusionActionLabel,
   });
 
   final List<HomeAstrologySystemItemData> systems;
-  final bool fusionAvailable;
+  final HomeAstrologySystemState fusionState;
   final String fusionTitle;
   final String fusionDescription;
+  final String fusionStatusMessage;
+  final String fusionActionLabel;
+
+  bool get fusionAvailable => fusionState == HomeAstrologySystemState.hasResult;
 }
 
 /// Full Home V3.8 emotional product bundle.
@@ -350,9 +369,11 @@ class HomeScreenV3Data {
 
       astrologyHub: const HomeAstrologyHubSectionData(
         systems: [],
-        fusionAvailable: false,
+        fusionState: HomeAstrologySystemState.missingProfile,
         fusionTitle: '',
         fusionDescription: '',
+        fusionStatusMessage: '',
+        fusionActionLabel: '',
       ),
 
       more: const HomeMoreSectionData(items: []),

@@ -7,6 +7,7 @@ import 'home_knowme_insight_section.dart';
 import 'home_knowme_signature_section.dart';
 import 'home_narrative_preview_section.dart';
 import 'home_profile_completion_bar.dart';
+import 'home_psychology_enhancement_section.dart';
 import 'home_recovery_banner.dart';
 import 'home_screen_v3_models.dart';
 import 'home_v3_more_section.dart';
@@ -38,9 +39,13 @@ class HomeScreenV3 extends StatelessWidget {
         const SizedBox(height: HomeV35Design.sectionGap),
         HomeAstrologyHubSection(
           hub: data.astrologyHub,
-          psychologyTests: data.psychologyTests,
           onOpenSystem: callbacks.onOpenAstrologySystem,
           onOpenFusion: callbacks.onOpenCrossSystemFusion,
+          onEditProfile: callbacks.onEditProfile,
+        ),
+        const SizedBox(height: HomeV35Design.sectionGap),
+        HomePsychologyEnhancementSection(
+          data: data.psychologyTests,
           onPsychologyTest: callbacks.onPsychologyTest,
         ),
         if (data.showRecoveryBanner) ...[

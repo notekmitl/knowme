@@ -38,8 +38,6 @@ import '../widgets/fusion_life_pattern_section.dart';
 
 import '../widgets/fusion_peak_potential_section.dart';
 
-import '../widgets/fusion_psychology_discovery_section.dart';
-
 import '../widgets/fusion_result_hero_section.dart';
 
 import '../widgets/fusion_strengths_warnings_section.dart';
@@ -346,10 +344,6 @@ class _AstrologyFusionResultPageState extends State<AstrologyFusionResultPage> {
               if (viewModel.futureDirection != null)
                 const SizedBox(height: FusionResultDesign.sectionGap),
 
-              const FusionPsychologyDiscoverySection(),
-
-              const SizedBox(height: FusionResultDesign.sectionGap),
-
               if (viewModel.surprisingInsight != null)
                 FusionSurprisingInsightSection(
                   data: viewModel.surprisingInsight!,
@@ -541,10 +535,6 @@ class _EmptyBody extends StatelessWidget {
               ),
 
             ),
-
-            const SizedBox(height: 24),
-
-            const FusionPsychologyDiscoverySection(),
 
           ],
 

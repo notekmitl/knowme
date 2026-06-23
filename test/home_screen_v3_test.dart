@@ -12,6 +12,7 @@ import 'package:knowme/features/home_cohesion/presentation/home_screen_v3.dart';
 import 'package:knowme/features/home_cohesion/presentation/home_screen_v3_models.dart';
 import 'package:knowme/features/home_cohesion/presentation/home_v3_copy.dart';
 import 'package:knowme/features/home_cohesion/presentation/home_v38_identity_copy.dart';
+import 'package:knowme/features/home_cohesion/presentation/home_psychology_enhancement_section.dart';
 import 'package:knowme/features/home_cohesion/presentation/home_v3_psychology_tests_section.dart';
 import 'package:knowme/features/home_cohesion/validation/home_v2_golden_scenario.dart';
 
@@ -81,7 +82,7 @@ void main() {
   });
 
   group('HomeScreenV3.8 visual hierarchy', () {
-    testWidgets('hero → astrology hub → signature → insight → profile order',
+    testWidgets('hero → astrology hub → psychology → signature → insight → profile order',
         (tester) async {
       final data =
           HomeV3Assembler.fromGolden(HomeV2GoldenScenario.advancedUser);
@@ -90,6 +91,9 @@ void main() {
       final heroTop = tester.getTopLeft(find.byType(HomeHeroSection)).dy;
       final hubTop =
           tester.getTopLeft(find.byType(HomeAstrologyHubSection)).dy;
+      final psychologyTop = tester
+          .getTopLeft(find.byType(HomePsychologyEnhancementSection))
+          .dy;
       final signatureTop =
           tester.getTopLeft(find.byType(HomeKnowMeSignatureSection)).dy;
       final insightTop =
@@ -98,7 +102,8 @@ void main() {
           tester.getTopLeft(find.byType(HomeCompactProfileSection)).dy;
 
       expect(heroTop, lessThan(hubTop));
-      expect(hubTop, lessThan(signatureTop));
+      expect(hubTop, lessThan(psychologyTop));
+      expect(psychologyTop, lessThan(signatureTop));
       expect(signatureTop, lessThan(insightTop));
       expect(insightTop, lessThan(profileTop));
     });
@@ -137,15 +142,16 @@ void main() {
       expect(find.text('จากดวงของคุณ'), findsNothing);
     });
 
-    test('advanced user exposes astrology hub systems', () {
+    test('advanced user exposes astrology hub systems with fusion ready', () {
       final data =
           HomeV3Assembler.fromGolden(HomeV2GoldenScenario.advancedUser);
 
       expect(data.astrologyHub.systems.length, 3);
-      expect(
-        data.astrologyHub.systems.any((s) => s.id == 'thai' && s.isAvailable),
-        isTrue,
-      );
+      expect(data.astrologyHub.fusionState, HomeAstrologySystemState.hasResult);
+      for (final system in data.astrologyHub.systems) {
+        expect(system.actionLabel, isNotEmpty);
+        expect(system.statusMessage, isNotEmpty);
+      }
     });
 
     test('profile formats birth date and preserves birth time field', () {
@@ -196,16 +202,24 @@ void main() {
       expect(find.textContaining('T00:00:00'), findsNothing);
     });
 
-    testWidgets('astrology hub renders Thai BaZi Western titles', (
+    testWidgets('astrology hub renders primary systems and fusion', (
       tester,
     ) async {
       final data =
           HomeV3Assembler.fromGolden(HomeV2GoldenScenario.advancedUser);
       await tester.pumpWidget(wrap(data));
 
+      expect(
+        find.descendant(
+          of: find.byType(HomeAstrologyHubSection),
+          matching: find.text(HomeV3Copy.astrologyHubTitle),
+        ),
+        findsOneWidget,
+      );
       expect(find.text(HomeV3Copy.thaiAstrologyTitle), findsOneWidget);
       expect(find.text(HomeV3Copy.baziTitle), findsOneWidget);
       expect(find.text(HomeV3Copy.westernAstrologyTitle), findsOneWidget);
+      expect(find.text(HomeV3Copy.crossSystemFusionTitle), findsOneWidget);
     });
 
     testWidgets('profile strip is compact without birth time row', (
@@ -218,16 +232,23 @@ void main() {
       expect(find.byType(HomeCompactProfileSection), findsOneWidget);
     });
 
-    testWidgets('psychology uses card layout section', (tester) async {
+    testWidgets('psychology is separated below astrology hub', (tester) async {
       final data = HomeV3Assembler.fromGolden(HomeV2GoldenScenario.emptyUser);
       await tester.pumpWidget(wrap(data));
 
+      expect(find.byType(HomePsychologyEnhancementSection), findsOneWidget);
       expect(find.byType(HomeV3PsychologyTestsSection), findsOneWidget);
-      expect(find.byType(HomeProfileCompletionBar), findsOneWidget);
-      expect(find.text(HomeV3Copy.profileCompletionTitle), findsOneWidget);
+      expect(find.text(HomeV3Copy.psychologyExpansionTitle), findsOneWidget);
       expect(
         find.descendant(
-          of: find.byType(HomeV3PsychologyTestsSection),
+          of: find.byType(HomeAstrologyHubSection),
+          matching: find.text(HomeV3Copy.mbtiCardTitle),
+        ),
+        findsNothing,
+      );
+      expect(
+        find.descendant(
+          of: find.byType(HomePsychologyEnhancementSection),
           matching: find.text(HomeV3Copy.mbtiCardTitle),
         ),
         findsOneWidget,

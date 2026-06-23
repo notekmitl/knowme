@@ -117,6 +117,8 @@ abstract final class HomeV3Copy {
 
   // --- Astrology hub ---
   static const astrologyHubTitle = 'ดวงของคุณ';
+  static const astrologyHubSubtitle =
+      'โหราศาสตร์คือจุดเริ่มต้น — เลือกศาสตร์เพื่อดูผลหรือสร้างดวง';
   static const thaiAstrologyTitle = 'โหราศาสตร์ไทย';
   static const thaiAstrologyDescription = 'ดวงชะตาและธีมหลักจากศาสตร์ไทย';
   static const baziTitle = 'ปาจื้อ (BaZi)';
@@ -127,6 +129,14 @@ abstract final class HomeV3Copy {
   static const crossSystemFusionTitle = 'ดวงรวมหลายศาสตร์';
   static const crossSystemFusionDescription =
       'มุมมองที่เชื่อมโหราศาสตร์ไทย ปาจื้อ และตะวันตก';
+  static const thaiAstrologyEmpty = 'ยังไม่ได้สร้างดวงไทย';
+  static const baziEmpty = 'ยังไม่ได้สร้างปาจื้อ';
+  static const westernAstrologyEmpty = 'ยังไม่ได้สร้างดวงตะวันตก';
+  static const fusionEmpty = 'ยังไม่ได้สร้างดวงรวมหลายศาสตร์';
+  static const astrologyViewResultAction = 'ดูผล';
+  static const astrologyCreateChartAction = 'สร้างดวง';
+  static const astrologyCompleteProfileAction = 'กรอกข้อมูลเกิด';
+  static const astrologyOpenFusionAction = 'เปิดดวงรวม';
   static const psychologyExpansionTitle = 'เสริมความเข้าใจตัวเอง';
   static const psychologyExpansionSubtitle =
       'แบบทดสอบบุคลิกภาพ — ชั้นเสริมหลังดวงชะตา';

@@ -282,30 +282,92 @@ abstract final class HomeV3Assembler {
 
     bool hasLens(String lensId) => completed.contains(lensId);
 
+    HomeAstrologySystemItemData systemItem({
+      required String id,
+      required String title,
+      required String description,
+      required String lensId,
+      required String emptyMessage,
+      required String createAction,
+    }) {
+      if (hasLens(lensId)) {
+        return HomeAstrologySystemItemData(
+          id: id,
+          title: title,
+          description: description,
+          state: HomeAstrologySystemState.hasResult,
+          statusMessage: description,
+          actionLabel: HomeV3Copy.astrologyViewResultAction,
+        );
+      }
+      if (birthReady) {
+        return HomeAstrologySystemItemData(
+          id: id,
+          title: title,
+          description: description,
+          state: HomeAstrologySystemState.missingChart,
+          statusMessage: emptyMessage,
+          actionLabel: createAction,
+        );
+      }
+      return HomeAstrologySystemItemData(
+        id: id,
+        title: title,
+        description: description,
+        state: HomeAstrologySystemState.missingProfile,
+        statusMessage: HomeV3Copy.profileCompletenessEmpty,
+        actionLabel: HomeV3Copy.astrologyCompleteProfileAction,
+      );
+    }
+
+    final fusionState = sources.astrologyEntry.canOpen
+        ? HomeAstrologySystemState.hasResult
+        : birthReady
+            ? HomeAstrologySystemState.missingChart
+            : HomeAstrologySystemState.missingProfile;
+
     return HomeAstrologyHubSectionData(
       systems: [
-        HomeAstrologySystemItemData(
+        systemItem(
           id: 'thai',
           title: HomeV3Copy.thaiAstrologyTitle,
           description: HomeV3Copy.thaiAstrologyDescription,
-          isAvailable: birthReady || hasLens(AstrologyLens.thaiAstrology.lensId),
+          lensId: AstrologyLens.thaiAstrology.lensId,
+          emptyMessage: HomeV3Copy.thaiAstrologyEmpty,
+          createAction: HomeV3Copy.astrologyCreateChartAction,
         ),
-        HomeAstrologySystemItemData(
+        systemItem(
           id: 'bazi',
           title: HomeV3Copy.baziTitle,
           description: HomeV3Copy.baziDescription,
-          isAvailable: hasLens(AstrologyLens.chineseBazi.lensId),
+          lensId: AstrologyLens.chineseBazi.lensId,
+          emptyMessage: HomeV3Copy.baziEmpty,
+          createAction: HomeV3Copy.astrologyCreateChartAction,
         ),
-        HomeAstrologySystemItemData(
+        systemItem(
           id: 'western',
           title: HomeV3Copy.westernAstrologyTitle,
           description: HomeV3Copy.westernAstrologyDescription,
-          isAvailable: hasLens(AstrologyLens.westernNatal.lensId),
+          lensId: AstrologyLens.westernNatal.lensId,
+          emptyMessage: HomeV3Copy.westernAstrologyEmpty,
+          createAction: HomeV3Copy.astrologyCreateChartAction,
         ),
       ],
-      fusionAvailable: sources.astrologyEntry.canOpen,
+      fusionState: fusionState,
       fusionTitle: HomeV3Copy.crossSystemFusionTitle,
       fusionDescription: HomeV3Copy.crossSystemFusionDescription,
+      fusionStatusMessage: fusionState == HomeAstrologySystemState.hasResult
+          ? HomeV3Copy.crossSystemFusionDescription
+          : fusionState == HomeAstrologySystemState.missingChart
+              ? HomeV3Copy.fusionEmpty
+              : HomeV3Copy.profileCompletenessEmpty,
+      fusionActionLabel: switch (fusionState) {
+        HomeAstrologySystemState.hasResult => HomeV3Copy.astrologyViewResultAction,
+        HomeAstrologySystemState.missingChart =>
+          HomeV3Copy.astrologyOpenFusionAction,
+        HomeAstrologySystemState.missingProfile =>
+          HomeV3Copy.astrologyCompleteProfileAction,
+      },
     );
   }
 

@@ -71,13 +71,6 @@ void main() {
     expect(find.byType(FusionDirectionSection), findsOneWidget);
 
     await tester.scrollUntilVisible(
-      find.text('อยากรู้จักตัวเองมากขึ้น?'),
-      250,
-      scrollable: find.byType(Scrollable).first,
-    );
-    expect(find.byType(FusionPsychologyDiscoverySection), findsOneWidget);
-
-    await tester.scrollUntilVisible(
       find.textContaining(FusionResultV4Copy.surprisingInsightTitle),
       250,
       scrollable: find.byType(Scrollable).first,
@@ -97,5 +90,8 @@ void main() {
       scrollable: find.byType(Scrollable).first,
     );
     expect(find.byType(FusionFinalMessageSection), findsOneWidget);
+
+    expect(find.byType(FusionPsychologyDiscoverySection), findsNothing);
+    expect(find.text('บุคลิก MBTI'), findsNothing);
   });
 }
