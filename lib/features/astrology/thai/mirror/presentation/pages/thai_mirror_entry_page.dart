@@ -6,6 +6,7 @@ import 'package:knowme/presentation/pages/profile/edit_profile_page_v1.dart';
 
 import '../../application/thai_mirror_entry_service.dart';
 import '../../runtime/thai_mirror_pipeline_result.dart';
+import '../thai_mirror_consumer_presenter.dart';
 import '../ui/pages/thai_mirror_result_page.dart';
 
 /// Production entry — loads profile birth data and renders [ThaiMirrorResultPage].
@@ -86,7 +87,11 @@ class _ThaiMirrorEntryPageState extends State<ThaiMirrorEntryPage> {
             );
           }
 
-          return ThaiMirrorResultPage(viewState: result.viewState!);
+          return ThaiMirrorResultPage(
+            consumerState: ThaiMirrorConsumerPresenter.present(
+              result.mirrorResult!,
+            ),
+          );
         },
       ),
     );

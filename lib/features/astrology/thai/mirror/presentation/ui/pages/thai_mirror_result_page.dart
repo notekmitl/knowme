@@ -1,105 +1,104 @@
 import 'package:flutter/material.dart';
 
-import '../../../models/thai_mirror_section_id.dart';
-import '../../models/thai_mirror_section_card_state.dart';
-import '../../thai_mirror_view_state.dart';
-import '../widgets/thai_mirror_evidence_explorer.dart';
-import '../widgets/thai_mirror_hero_section.dart';
-import '../widgets/thai_mirror_insight_summary_section.dart';
-import '../widgets/thai_mirror_profile_context_card.dart';
-import '../widgets/thai_mirror_section_card.dart';
+import '../../models/thai_mirror_consumer_view_state.dart';
+import '../widgets/thai_mirror_advice_section.dart';
+import '../widgets/thai_mirror_birth_data_confidence_banner.dart';
+import '../widgets/thai_mirror_consumer_hero_section.dart';
+import '../widgets/thai_mirror_insight_cards_section.dart';
+import '../widgets/thai_mirror_life_dashboard_section.dart';
+import '../widgets/thai_mirror_source_transparency_section.dart';
 
-/// Thai Mirror Result Page — insight-first product surface.
+/// Thai Mirror Result Page — consumer-facing personality insight experience.
 class ThaiMirrorResultPage extends StatelessWidget {
   const ThaiMirrorResultPage({
     super.key,
-    required this.viewState,
+    required this.consumerState,
   });
 
-  final ThaiMirrorViewState viewState;
-
-  static const _insightSectionOrder = <ThaiMirrorSectionId>[
-    ThaiMirrorSectionId.strengths,
-    ThaiMirrorSectionId.thinkingStyle,
-    ThaiMirrorSectionId.emotionalWorld,
-    ThaiMirrorSectionId.relationships,
-    ThaiMirrorSectionId.workAndAmbition,
-    ThaiMirrorSectionId.growthAreas,
-    ThaiMirrorSectionId.growthPath,
-  ];
-
-  static const expandedDefaults = <ThaiMirrorSectionId>{
-    ThaiMirrorSectionId.strengths,
-    ThaiMirrorSectionId.thinkingStyle,
-    ThaiMirrorSectionId.emotionalWorld,
-  };
+  final ThaiMirrorConsumerViewState consumerState;
 
   @override
   Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(16, 20, 16, 32),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ThaiMirrorInsightSummarySection(state: viewState.hero),
-              const SizedBox(height: 24),
-              ..._insightSectionOrder.map(
-                (id) => Padding(
-                  padding: const EdgeInsets.only(bottom: 12),
-                  child: ThaiMirrorSectionCard(
-                    state: _sectionStateFor(id),
-                  ),
+          child: RepaintBoundary(
+            key: const Key('thai_consumer_full_page'),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+              RepaintBoundary(
+                key: const Key('thai_consumer_hero'),
+                child: ThaiMirrorConsumerHeroSection(state: consumerState.hero),
+              ),
+              const SizedBox(height: 16),
+              RepaintBoundary(
+                child: ThaiMirrorBirthDataConfidenceBanner(
+                  state: consumerState.birthDataConfidence,
                 ),
               ),
-              const SizedBox(height: 16),
-              ThaiMirrorEvidenceExplorer(
-                state: viewState.evidenceExplorer,
+              const SizedBox(height: 28),
+              RepaintBoundary(
+                key: const Key('thai_consumer_strengths'),
+                child: ThaiMirrorInsightCardsSection(state: consumerState.strengths),
               ),
-              const SizedBox(height: 16),
-              ThaiMirrorProfileContextCard(
-                state: viewState.profileContext,
+              const SizedBox(height: 28),
+              RepaintBoundary(
+                key: const Key('thai_consumer_cautions'),
+                child: ThaiMirrorInsightCardsSection(state: consumerState.cautions),
               ),
-              if (viewState.disclaimers.isNotEmpty) ...[
+              const SizedBox(height: 28),
+              RepaintBoundary(
+                key: const Key('thai_consumer_advice'),
+                child: ThaiMirrorAdviceSection(state: consumerState.advice),
+              ),
+              const SizedBox(height: 28),
+              RepaintBoundary(
+                key: const Key('thai_consumer_life_dashboard'),
+                child: ThaiMirrorLifeDashboardSection(
+                  items: consumerState.lifeDashboard,
+                  secretTip: consumerState.secretTip,
+                ),
+              ),
+              const SizedBox(height: 28),
+              RepaintBoundary(
+                key: const Key('thai_consumer_source'),
+                child: ThaiMirrorSourceTransparencySection(
+                  state: consumerState.sourceTransparency,
+                ),
+              ),
+              if (consumerState.disclaimers.isNotEmpty) ...[
                 const SizedBox(height: 20),
-                ...viewState.disclaimers.map(
-                  (disclaimer) => Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: Text(
-                      disclaimer,
-                      style: TextStyle(
-                        fontSize: 12.5,
-                        height: 1.5,
-                        color: Theme.of(context)
-                            .colorScheme
-                            .onSurfaceVariant
-                            .withValues(alpha: 0.9),
-                      ),
-                    ),
+                RepaintBoundary(
+                  key: const Key('thai_consumer_footer'),
+                  child: Column(
+                    children: consumerState.disclaimers
+                      .map(
+                        (disclaimer) => Padding(
+                          padding: const EdgeInsets.only(bottom: 10),
+                          child: Text(
+                            disclaimer,
+                            style: TextStyle(
+                              fontSize: 12.5,
+                              height: 1.5,
+                              color: scheme.onSurfaceVariant
+                                  .withValues(alpha: 0.9),
+                            ),
+                          ),
+                        ),
+                      )
+                      .toList(),
                   ),
                 ),
               ],
             ],
+            ),
           ),
         ),
       ),
-    );
-  }
-
-  ThaiMirrorSectionCardState _sectionStateFor(ThaiMirrorSectionId id) {
-    for (final section in viewState.sections) {
-      if (section.id == id) return section;
-    }
-
-    return ThaiMirrorSectionCardState(
-      id: id,
-      titleTh: id.titleTh,
-      titleEn: id.titleEn,
-      summary: null,
-      themeChips: const [],
-      evidenceCount: 0,
-      isExpandedDefault: expandedDefaults.contains(id),
     );
   }
 }

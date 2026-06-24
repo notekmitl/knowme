@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../foundation/models/thai_birth_data.dart';
+import '../presentation/thai_mirror_consumer_presenter.dart';
 import '../presentation/ui/pages/thai_mirror_result_page.dart';
 import 'thai_mirror_pipeline.dart';
 import 'thai_mirror_pipeline_result.dart';
@@ -53,7 +54,11 @@ class _ThaiMirrorDemoScreenState extends State<ThaiMirrorDemoScreen> {
             return _ErrorBody(message: result.errorMessage ?? 'Unknown error');
           }
 
-          return ThaiMirrorResultPage(viewState: result.viewState!);
+          return ThaiMirrorResultPage(
+            consumerState: ThaiMirrorConsumerPresenter.present(
+              result.mirrorResult!,
+            ),
+          );
         },
       ),
     );

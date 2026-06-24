@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../mirror/presentation/thai_mirror_consumer_presenter.dart';
 import '../mirror/presentation/ui/pages/thai_mirror_result_page.dart';
 import '../mirror/runtime/thai_mirror_pipeline.dart';
 import '../mirror/runtime/thai_mirror_pipeline_result.dart';
@@ -190,7 +191,11 @@ class _ThaiMirrorQaScreenState extends State<ThaiMirrorQaScreen> {
                   );
                 }
 
-                return ThaiMirrorResultPage(viewState: result.viewState!);
+                return ThaiMirrorResultPage(
+                  consumerState: ThaiMirrorConsumerPresenter.present(
+                    result.mirrorResult!,
+                  ),
+                );
               },
             ),
           ),
