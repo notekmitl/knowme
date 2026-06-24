@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mirror_consumer_copy.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/ui/pages/thai_mirror_result_page.dart';
 
 import 'thai_mirror_consumer_fixtures.dart';
@@ -19,9 +20,10 @@ void main() {
       await tester.pumpWidget(wrapConsumerResultPage(sampleConsumerViewState()));
 
       expect(
-        find.textContaining('คุณเป็นคน'),
+        find.textContaining('คุณรับผิดชอบ'),
         findsOneWidget,
       );
+      expect(find.text('ดวงไทยของคุณ'), findsOneWidget);
       expect(find.textContaining('หลายครั้ง'), findsNothing);
       expect(find.text('มีวินัย'), findsNothing);
       expect(find.text('รับผิดชอบ'), findsOneWidget);
@@ -40,8 +42,8 @@ void main() {
     testWidgets('renders insight card sections', (tester) async {
       await tester.pumpWidget(wrapConsumerResultPage(sampleConsumerViewState()));
 
-      expect(find.text('จุดเด่นของคุณ'), findsOneWidget);
-      expect(find.text('สิ่งที่ควรระวัง'), findsOneWidget);
+      expect(find.text(ThaiMirrorConsumerCopy.strengthsSectionTitle), findsOneWidget);
+      expect(find.text(ThaiMirrorConsumerCopy.cautionsSectionTitle), findsOneWidget);
       expect(find.text('คำแนะนำสำหรับช่วงนี้'), findsOneWidget);
       expect(find.text('ทำจริงจังเมื่อให้คำมั่น'), findsOneWidget);
       expect(find.text('อย่าคิดวนมากเกินไป'), findsOneWidget);
@@ -55,7 +57,7 @@ void main() {
       );
 
       expect(find.byType(ThaiMirrorResultPage), findsOneWidget);
-      expect(find.text('จุดเด่นของคุณ'), findsOneWidget);
+      expect(find.text(ThaiMirrorConsumerCopy.strengthsSectionTitle), findsOneWidget);
     });
 
     testWidgets('wraps long summary text', (tester) async {
@@ -87,7 +89,7 @@ void main() {
       );
       await tester.pump();
 
-      expect(find.text('ชีวิตของคุณในด้านต่าง ๆ'), findsOneWidget);
+      expect(find.text(ThaiMirrorConsumerCopy.dashboardSectionTitle), findsOneWidget);
     });
   });
 }

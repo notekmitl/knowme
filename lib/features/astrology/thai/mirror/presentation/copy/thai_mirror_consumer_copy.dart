@@ -40,8 +40,6 @@ abstract final class ThaiMirrorConsumerCopy {
 
     'แพทเทิร์น',
 
-    'แนวโน้ม',
-
     'ลัคนา',
 
     'เจ้าเรือน',
@@ -65,6 +63,12 @@ abstract final class ThaiMirrorConsumerCopy {
   ];
 
 
+
+  static const strengthsSectionTitle = 'สิ่งที่ดวงไทยสะท้อน';
+
+  static const cautionsSectionTitle = 'แนวโน้มที่ปรากฏในดวง';
+
+  static const dashboardSectionTitle = 'ภาพรวมชีวิตจากดวงไทย';
 
   static const consumerDisclaimers = <String>[
 
@@ -125,83 +129,39 @@ abstract final class ThaiMirrorConsumerCopy {
   }) {
 
     if (themeIds.isEmpty) {
-
-      return 'คุณมีสไตล์เป็นของตัวเอง — ลองอ่านด้านล่างดูว่าตรงไหน';
-
+      return 'คุณมีดวงที่เป็นเอกลักษณ์ — ลองอ่านด้านล่าง';
     }
 
-
-
     final context = ctx ??
-
         ThaiMirrorContentContext(
-
           allThemeIds: themeIds,
-
           topThemeIds: themeIds,
-
           profileSeed: profileSeed,
-
           lagnaKey: lagnaKey,
-
         );
 
-
-
     final rotated = _rotateThemeIds(themeIds, context.profileSeed);
-
     final lead = rotated[(context.profileSeed.abs() + 3) % rotated.length];
-
-    final restPool = rotated.where((id) => id != lead).toList(growable: false);
-
-    final rest = _pickSpacedThemes(restPool, context.profileSeed + 1, 2);
-
-    final picked = [lead, ...rest];
-
-    final phrases = picked.map(ThaiMirrorThemePhrases.phrase).toList();
-
-
+    final second = rotated.length > 1
+        ? rotated[(context.profileSeed.abs() + 5) % rotated.length]
+        : lead;
+    final leadPhrase = ThaiMirrorThemePhrases.phrase(lead);
+    final secondPhrase = ThaiMirrorThemePhrases.phrase(second);
 
     final pattern = _headlinePattern(context.profileSeed, context.lagnaKey);
 
-
-
-    final base = switch (pattern) {
-
-      _HeadlinePattern.decisionMoment => _headlineDecision(phrases),
-
-      _HeadlinePattern.othersSee => _headlineOthersSee(phrases),
-
-      _HeadlinePattern.priorityFocus => _headlinePriority(phrases),
-
-      _HeadlinePattern.personLabel => _headlinePerson(phrases),
-
+    final raw = switch (pattern) {
+      _HeadlinePattern.decisionMoment =>
+        'เวลาตัดสินใจ คุณมัก${leadPhrase.headlinePart}',
+      _HeadlinePattern.othersSee =>
+        'คนรอบตัวเห็นคุณเป็น${leadPhrase.headlinePart}',
+      _HeadlinePattern.priorityFocus =>
+        'คุณให้ความสำคัญกับ${leadPhrase.headlinePart}',
+      _HeadlinePattern.personLabel =>
+        'คุณ${leadPhrase.heroDetail} และ${secondPhrase.headlinePart}',
     };
 
-
-
-    final lagnaTail = ThaiMirrorContentEngine.heroHeadlineTail(context);
-
-    final sigTheme = rotated[(context.profileSeed.abs() + 7) % rotated.length];
-
-    final sigPhrase = ThaiMirrorThemePhrases.phrase(sigTheme);
-
-    final primaryTag =
-        ThaiMirrorThemePhrases.phrase(context.allThemeIds.first).tag;
-
-    var signature = '$primaryTag · ${sigPhrase.tag} · ${sigPhrase.heroDetail}';
-
-    final altTheme = context.allThemeIds[
-        (context.profileSeed.abs() + 11) % context.allThemeIds.length];
-    final altTag = ThaiMirrorThemePhrases.phrase(altTheme).tag;
-    signature = '$signature · $altTag';
-
-
-
-    if (lagnaTail.isEmpty) return '$base · $signature';
-
-    return '$base — $lagnaTail · $signature';
-
+    return enforceHeadlineLength(raw);
   }
 
 
@@ -321,7 +281,7 @@ abstract final class ThaiMirrorConsumerCopy {
 
 
 
-    final maxDetails = 2 + (context.profileSeed.abs() % 3);
+    final maxDetails = 1 + (context.profileSeed.abs() % 2);
 
     for (var i = 0; i < rotated.length && details.length < maxDetails; i++) {
 
@@ -448,6 +408,130 @@ abstract final class ThaiMirrorConsumerCopy {
       ThaiMirrorThemePhrases.phrase(themeId).cautionBody;
 
 
+
+  static String truncateInsightBody(String text, {int maxChars = 60}) {
+    final cleaned = sanitizeDisplayText(text);
+    if (cleaned.length <= maxChars) return cleaned;
+    return '${cleaned.substring(0, maxChars - 1).trim()}…';
+  }
+
+  static String enforceHeadlineLength(String text, {int minWords = 8, int maxWords = 15}) {
+    var cleaned = sanitizeDisplayText(text);
+    if (cleaned.isEmpty) return cleaned;
+
+    final segments = cleaned
+        .split(RegExp(r'[\s—·]+'))
+        .where((part) => part.trim().isNotEmpty)
+        .toList();
+
+    if (segments.length > maxWords) {
+      cleaned = segments.take(maxWords).join(' ');
+    } else if (segments.length < minWords && cleaned.length > 72) {
+      cleaned = '${cleaned.substring(0, 69).trim()}…';
+    } else if (cleaned.length > 72) {
+      cleaned = '${cleaned.substring(0, 69).trim()}…';
+    }
+
+    return cleaned;
+  }
+
+  static ({String currentState, String whyItAppears, String suggestedAction})
+      lifeAspectDashboardParts({
+    required String aspect,
+    required List<String> priorityThemeIds,
+    required List<String> allThemeIds,
+    required int profileSeed,
+    Set<String> usedCurrentStates = const {},
+    String? lagnaKey,
+    List<String> growthPathIds = const [],
+  }) {
+    final ctx = ThaiMirrorContentContext(
+      allThemeIds: allThemeIds,
+      topThemeIds: priorityThemeIds.isNotEmpty ? priorityThemeIds : allThemeIds,
+      profileSeed: profileSeed,
+      lagnaKey: lagnaKey,
+      growthPathIds: growthPathIds,
+    );
+
+    final candidates = <String>[];
+    final seen = <String>{};
+
+    void addCandidates(List<String> ids) {
+      for (final id in ids) {
+        if (seen.add(id)) candidates.add(id);
+      }
+    }
+
+    final secondaryThemes =
+        allThemeIds.where((id) => !priorityThemeIds.contains(id)).toList();
+    addCandidates(_rotateThemeIds(secondaryThemes, profileSeed));
+    addCandidates(_rotateThemeIds(priorityThemeIds, profileSeed + 7));
+    addCandidates(_rotateThemeIds(allThemeIds, profileSeed + 13));
+
+    final aspectOffset = switch (aspect) {
+      'work' => 0,
+      'money' => 1,
+      'love' => 2,
+      'health' => 3,
+      'luck' => 4,
+      _ => 0,
+    };
+
+    final themeId = candidates.isEmpty
+        ? 'independent'
+        : candidates[(profileSeed.abs() + aspectOffset) % candidates.length];
+    final phrase = ThaiMirrorThemePhrases.phrase(themeId);
+    final hints = ThaiMirrorThemeVariants.aspectHintVariants(themeId, aspect);
+    final advice = ThaiMirrorThemeVariants.adviceVariants(themeId);
+
+    final hintIndex = (profileSeed.abs() + aspectOffset * 3) %
+        (hints.isEmpty ? 1 : hints.length);
+    final adviceIndex = (profileSeed.abs() + aspectOffset * 5) %
+        (advice.isEmpty ? 1 : advice.length);
+
+  var currentState = hints.isNotEmpty
+        ? hints[hintIndex]
+        : 'ด้าน${_aspectLabelTh(aspect)} — ${phrase.tag}';
+    if (usedCurrentStates.contains(currentState) && hints.length > 1) {
+      currentState = hints[(hintIndex + 1) % hints.length];
+    }
+
+    final whyItAppears =
+        'ดวงสะท้อน${phrase.tag} — ${truncateInsightBody(phrase.heroDetail, maxChars: 80)}';
+
+    var suggestedAction = advice.isNotEmpty
+        ? advice[adviceIndex]
+        : (growthPathIds.isNotEmpty
+            ? ThaiMirrorThemePhrases.phrase(
+                growthPathIds[
+                    (profileSeed.abs() + aspectOffset) % growthPathIds.length],
+              ).heroDetail
+            : 'ลองปรับทีละขั้นในด้าน${_aspectLabelTh(aspect)}');
+
+    final lagna = ThaiMirrorLagnaInfluence.dashboardVariant(
+      lagnaKey,
+      aspect,
+      profileSeed + aspectOffset,
+    );
+    if (lagna.isNotEmpty && profileSeed.isEven) {
+      suggestedAction = lagna;
+    }
+
+    return (
+      currentState: truncateInsightBody(currentState, maxChars: 70),
+      whyItAppears: truncateInsightBody(whyItAppears, maxChars: 90),
+      suggestedAction: truncateInsightBody(suggestedAction, maxChars: 70),
+    );
+  }
+
+  static String _aspectLabelTh(String aspect) => switch (aspect) {
+        'work' => 'การงาน',
+        'money' => 'การเงิน',
+        'love' => 'ความรัก',
+        'health' => 'สุขภาพ',
+        'luck' => 'โชคและโอกาส',
+        _ => 'ชีวิต',
+      };
 
   static String lifeAspectSummary({
 

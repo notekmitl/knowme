@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mirror_consumer_copy.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_mirror_consumer_view_state.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/ui/pages/thai_mirror_result_page.dart';
 
@@ -10,7 +11,7 @@ void main() {
     testWidgets('renders life dashboard areas', (tester) async {
       await tester.pumpWidget(wrapConsumerResultPage(sampleConsumerViewState()));
 
-      expect(find.text('ชีวิตของคุณในด้านต่าง ๆ'), findsOneWidget);
+      expect(find.text(ThaiMirrorConsumerCopy.dashboardSectionTitle), findsOneWidget);
       expect(find.text('การงาน'), findsOneWidget);
       expect(find.text('การเงิน'), findsOneWidget);
       expect(find.text('ความรัก'), findsOneWidget);
@@ -60,7 +61,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('แหล่งที่มาของผลลัพธ์'), findsOneWidget);
-      expect(find.text('สิ่งที่ควรระวัง'), findsOneWidget);
+      expect(find.text(ThaiMirrorConsumerCopy.cautionsSectionTitle), findsOneWidget);
     });
 
     testWidgets('consumes ThaiMirrorConsumerViewState only', (tester) async {

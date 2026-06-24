@@ -56,11 +56,15 @@ class ThaiMirrorConsumerHeroState {
     required this.headline,
     required this.summary,
     required this.tags,
+    this.identityBadge = 'ดวงไทยของคุณ',
+    this.identitySubtitle = 'จากดวงไทยตามวันเกิดของคุณ',
   });
 
   final String headline;
   final String summary;
   final List<String> tags;
+  final String identityBadge;
+  final String identitySubtitle;
 
   static const fallbackHeadline = 'คุณมีบุคลิกที่น่าสนใจในแบบของตัวเอง';
 
@@ -110,12 +114,16 @@ class ThaiMirrorAdviceState {
 class ThaiMirrorLifeDashboardItemState {
   const ThaiMirrorLifeDashboardItemState({
     required this.label,
-    required this.summary,
+    required this.currentState,
+    required this.whyItAppears,
+    required this.suggestedAction,
     required this.status,
   });
 
   final String label;
-  final String summary;
+  final String currentState;
+  final String whyItAppears;
+  final String suggestedAction;
   final ThaiMirrorLifeStatus status;
 }
 

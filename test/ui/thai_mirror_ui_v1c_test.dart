@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mirror_consumer_copy.dart';
 import 'package:knowme/features/astrology/thai/mirror/models/thai_mirror_lens_source.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_mirror_evidence_explorer_state.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/ui/pages/thai_mirror_result_page.dart';
@@ -100,8 +101,8 @@ void main() {
         ),
       );
 
-      expect(find.textContaining('คุณเป็นคน'), findsOneWidget);
-      expect(find.text('จุดเด่นของคุณ'), findsOneWidget);
+      expect(find.textContaining('คุณรับผิดชอบ'), findsOneWidget);
+      expect(find.text(ThaiMirrorConsumerCopy.strengthsSectionTitle), findsOneWidget);
       expect(find.text(ThaiMirrorSourceTransparencySection.titleTh), findsOneWidget);
       expect(find.text('ข้อจำกัดความรับผิดชอบ'), findsOneWidget);
 

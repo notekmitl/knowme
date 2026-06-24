@@ -314,7 +314,9 @@ abstract final class ConsumerUxValidationRunner {
       'lifeDashboard': consumer.lifeDashboard
           .map((item) => {
                 'label': item.label,
-                'summary': item.summary,
+                'currentState': item.currentState,
+                'whyItAppears': item.whyItAppears,
+                'suggestedAction': item.suggestedAction,
                 'status': item.status.labelTh,
               })
           .toList(),
@@ -476,7 +478,9 @@ abstract final class ConsumerUxValidationRunner {
       ...c.strengths.cards.expand((card) => [card.title, card.body]),
       ...c.cautions.cards.expand((card) => [card.title, card.body]),
       c.advice.body,
-      ...c.lifeDashboard.map((item) => item.summary),
+      ...c.lifeDashboard.expand(
+        (item) => [item.currentState, item.whyItAppears, item.suggestedAction],
+      ),
       c.birthDataConfidence.title,
       c.birthDataConfidence.body,
       c.sourceTransparency.dataUsed,

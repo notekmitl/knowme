@@ -12,7 +12,10 @@ class ThaiMirrorInsightCardsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (state.cards.isEmpty) return const SizedBox.shrink();
+
     final scheme = Theme.of(context).colorScheme;
+    final isMobile = MediaQuery.sizeOf(context).width < 600;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -27,49 +30,43 @@ class ThaiMirrorInsightCardsSection extends StatelessWidget {
               ),
               const SizedBox(width: 8),
             ],
-            Text(
-              state.title,
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w700,
-                color: scheme.onSurface,
+            Expanded(
+              child: Text(
+                state.title,
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w700,
+                  color: scheme.onSurface,
+                ),
               ),
             ),
           ],
         ),
         const SizedBox(height: 14),
-        LayoutBuilder(
-          builder: (context, constraints) {
-            final isWide = constraints.maxWidth >= 720;
-            if (isWide) {
-              return Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: _spacedCards(state.cards, horizontal: true),
-              );
-            }
-
-            return SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: _spacedCards(state.cards, horizontal: true),
-              ),
-            );
-          },
-        ),
+        if (isMobile)
+          Column(
+            children: [
+              for (var index = 0; index < state.cards.length; index++) ...[
+                if (index > 0) const SizedBox(height: 10),
+                _InsightCard(state: state.cards[index]),
+              ],
+            ],
+          )
+        else
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: _spacedCards(state.cards),
+          ),
       ],
     );
   }
 
-  List<Widget> _spacedCards(
-    List<ThaiMirrorInsightCardState> cards, {
-    required bool horizontal,
-  }) {
+  List<Widget> _spacedCards(List<ThaiMirrorInsightCardState> cards) {
     final widgets = <Widget>[];
     for (var index = 0; index < cards.length; index++) {
       if (index > 0) widgets.add(const SizedBox(width: 12));
       widgets.add(
-        SizedBox(
-          width: 220,
+        Expanded(
           child: _InsightCard(state: cards[index]),
         ),
       );
@@ -89,7 +86,7 @@ class _InsightCard extends StatelessWidget {
     final icon = state.icon ?? state.accent.defaultIcon;
 
     return Container(
-      padding: const EdgeInsets.all(16),
+      padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: scheme.surface,
         borderRadius: BorderRadius.circular(16),
@@ -102,35 +99,44 @@ class _InsightCard extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
+      child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
-            width: 40,
-            height: 40,
+            width: 36,
+            height: 36,
             decoration: BoxDecoration(
               color: state.accent.iconBackground,
-              borderRadius: BorderRadius.circular(12),
+              borderRadius: BorderRadius.circular(10),
             ),
-            child: Icon(icon, color: state.accent.iconColor, size: 22),
+            child: Icon(icon, color: state.accent.iconColor, size: 20),
           ),
-          const SizedBox(height: 12),
-          Text(
-            state.title,
-            style: TextStyle(
-              fontSize: 15.5,
-              fontWeight: FontWeight.w700,
-              height: 1.35,
-              color: scheme.onSurface,
-            ),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            state.body,
-            style: TextStyle(
-              fontSize: 13.5,
-              height: 1.55,
-              color: scheme.onSurfaceVariant,
+          const SizedBox(width: 12),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  state.title,
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    height: 1.3,
+                    color: scheme.onSurface,
+                  ),
+                ),
+                const SizedBox(height: 6),
+                Text(
+                  state.body,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    fontSize: 13,
+                    height: 1.45,
+                    color: scheme.onSurfaceVariant,
+                  ),
+                ),
+              ],
             ),
           ),
         ],

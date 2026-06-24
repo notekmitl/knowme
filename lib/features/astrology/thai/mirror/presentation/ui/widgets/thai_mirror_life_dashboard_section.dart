@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../copy/thai_mirror_consumer_copy.dart';
 import '../../models/thai_mirror_consumer_view_state.dart';
 
 class ThaiMirrorLifeDashboardSection extends StatelessWidget {
@@ -15,17 +16,18 @@ class ThaiMirrorLifeDashboardSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final isMobile = MediaQuery.sizeOf(context).width < 600;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
           children: [
-            Icon(Icons.lightbulb_outline_rounded, size: 22, color: scheme.primary),
+            Icon(Icons.grid_view_rounded, size: 22, color: scheme.primary),
             const SizedBox(width: 8),
             Expanded(
               child: Text(
-                'ชีวิตของคุณในด้านต่าง ๆ',
+                ThaiMirrorConsumerCopy.dashboardSectionTitle,
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w700,
@@ -36,17 +38,24 @@ class ThaiMirrorLifeDashboardSection extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 14),
-        SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
+        if (isMobile)
+          Column(
             children: [
               for (var index = 0; index < items.length; index++) ...[
-                if (index > 0) const SizedBox(width: 10),
+                if (index > 0) const SizedBox(height: 10),
                 _LifeCard(item: items[index]),
               ],
             ],
+          )
+        else
+          Wrap(
+            spacing: 10,
+            runSpacing: 10,
+            children: items.map((item) => SizedBox(
+                  width: 280,
+                  child: _LifeCard(item: item),
+                )).toList(),
           ),
-        ),
         const SizedBox(height: 14),
         Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,7 +93,7 @@ class _LifeCard extends StatelessWidget {
     final scheme = Theme.of(context).colorScheme;
 
     return Container(
-      width: 148,
+      width: double.infinity,
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
         color: scheme.surface,
@@ -94,28 +103,18 @@ class _LifeCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            item.label,
-            style: TextStyle(
-              fontSize: 14.5,
-              fontWeight: FontWeight.w700,
-              color: scheme.onSurface,
-            ),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            item.summary,
-            maxLines: 4,
-            overflow: TextOverflow.ellipsis,
-            style: TextStyle(
-              fontSize: 12.5,
-              height: 1.45,
-              color: scheme.onSurfaceVariant,
-            ),
-          ),
-          const SizedBox(height: 10),
           Row(
             children: [
+              Expanded(
+                child: Text(
+                  item.label,
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w700,
+                    color: scheme.onSurface,
+                  ),
+                ),
+              ),
               Container(
                 width: 8,
                 height: 8,
@@ -135,8 +134,71 @@ class _LifeCard extends StatelessWidget {
               ),
             ],
           ),
+          const SizedBox(height: 10),
+          _DashboardRow(
+            label: 'สถานะปัจจุบัน',
+            value: item.currentState,
+            scheme: scheme,
+          ),
+          const SizedBox(height: 8),
+          _DashboardRow(
+            label: 'ทำไมถึงปรากฏ',
+            value: item.whyItAppears,
+            scheme: scheme,
+          ),
+          const SizedBox(height: 8),
+          _DashboardRow(
+            label: 'สิ่งที่ควรทำ',
+            value: item.suggestedAction,
+            scheme: scheme,
+            emphasized: true,
+          ),
         ],
       ),
+    );
+  }
+}
+
+class _DashboardRow extends StatelessWidget {
+  const _DashboardRow({
+    required this.label,
+    required this.value,
+    required this.scheme,
+    this.emphasized = false,
+  });
+
+  final String label;
+  final String value;
+  final ColorScheme scheme;
+  final bool emphasized;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: TextStyle(
+            fontSize: 11.5,
+            fontWeight: FontWeight.w700,
+            letterSpacing: 0.15,
+            color: scheme.primary.withValues(alpha: 0.85),
+          ),
+        ),
+        const SizedBox(height: 2),
+        Text(
+          value,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontSize: emphasized ? 13 : 12.5,
+            height: 1.45,
+            fontWeight: emphasized ? FontWeight.w600 : FontWeight.w400,
+            color: emphasized ? scheme.onSurface : scheme.onSurfaceVariant,
+          ),
+        ),
+      ],
     );
   }
 }

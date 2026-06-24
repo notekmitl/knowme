@@ -12,6 +12,7 @@ import '../models/thai_mirror_theme_ref.dart';
 
 import 'copy/thai_mirror_consumer_copy.dart';
 import 'copy/thai_mirror_content_context.dart';
+import 'copy/thai_mirror_theme_phrases.dart';
 
 import 'models/thai_mirror_consumer_view_state.dart';
 
@@ -59,7 +60,7 @@ abstract final class ThaiMirrorConsumerPresenter {
     return ThaiMirrorConsumerViewState(
       hero: _buildHero(ctx),
       strengths: _buildStrengths(result, allThemeIds, ctx),
-      cautions: _buildCautions(result),
+      cautions: _buildCautions(result, allThemeIds, ctx),
       advice: _buildAdvice(result, ctx),
       lifeDashboard: _buildLifeDashboard(result, ctx),
 
@@ -136,7 +137,7 @@ abstract final class ThaiMirrorConsumerPresenter {
     }
 
     return ThaiMirrorInsightSectionState(
-      title: 'จุดเด่นของคุณ',
+      title: ThaiMirrorConsumerCopy.strengthsSectionTitle,
       sectionIcon: Icons.auto_awesome_rounded,
       cards: _strengthCards(_rotateThemeIds(extended, ctx.profileSeed * 41), ctx),
     );
@@ -145,26 +146,20 @@ abstract final class ThaiMirrorConsumerPresenter {
 
 
 
-  static ThaiMirrorInsightSectionState _buildCautions(ThaiMirrorResult result) {
-
-    final themeIds = _themeIdsFromSection(
-
+  static ThaiMirrorInsightSectionState _buildCautions(
+    ThaiMirrorResult result,
+    List<String> allThemeIds,
+    ThaiMirrorContentContext ctx,
+  ) {
+    final growthAreaIds = _themeIdsFromSection(
       result.sectionById(ThaiMirrorSectionId.growthAreas),
-
     );
-
-
 
     return ThaiMirrorInsightSectionState(
-
-      title: 'สิ่งที่ควรระวัง',
-
+      title: ThaiMirrorConsumerCopy.cautionsSectionTitle,
       sectionIcon: Icons.terrain_rounded,
-
-      cards: _cautionCards(themeIds),
-
+      cards: _cautionCards(growthAreaIds, allThemeIds, ctx),
     );
-
   }
 
 
@@ -191,7 +186,7 @@ abstract final class ThaiMirrorConsumerPresenter {
     ThaiMirrorResult result,
     ThaiMirrorContentContext ctx,
   ) {
-    final usedSummaries = <String>{};
+    final usedCurrentStates = <String>{};
     final topThemeIds = ctx.topThemeIds;
     final allThemeIds = ctx.allThemeIds;
     final profileSeed = ctx.profileSeed;
@@ -222,7 +217,7 @@ abstract final class ThaiMirrorConsumerPresenter {
         ctx: ctx,
         aspect: 'work',
         profileSeed: profileSeed,
-        usedSummaries: usedSummaries,
+        usedCurrentStates: usedCurrentStates,
       ),
       _dashboardItem(
         label: 'การเงิน',
@@ -230,7 +225,7 @@ abstract final class ThaiMirrorConsumerPresenter {
         ctx: ctx,
         aspect: 'money',
         profileSeed: profileSeed + 1,
-        usedSummaries: usedSummaries,
+        usedCurrentStates: usedCurrentStates,
       ),
       _dashboardItem(
         label: 'ความรัก',
@@ -238,7 +233,7 @@ abstract final class ThaiMirrorConsumerPresenter {
         ctx: ctx,
         aspect: 'love',
         profileSeed: profileSeed + 2,
-        usedSummaries: usedSummaries,
+        usedCurrentStates: usedCurrentStates,
       ),
       _dashboardItem(
         label: 'สุขภาพ',
@@ -246,7 +241,7 @@ abstract final class ThaiMirrorConsumerPresenter {
         ctx: ctx,
         aspect: 'health',
         profileSeed: profileSeed + 3,
-        usedSummaries: usedSummaries,
+        usedCurrentStates: usedCurrentStates,
       ),
       _dashboardItem(
         label: 'โชคและโอกาส',
@@ -254,7 +249,7 @@ abstract final class ThaiMirrorConsumerPresenter {
         ctx: ctx,
         aspect: 'luck',
         profileSeed: profileSeed + 4,
-        usedSummaries: usedSummaries,
+        usedCurrentStates: usedCurrentStates,
       ),
     ];
   }
@@ -265,32 +260,27 @@ abstract final class ThaiMirrorConsumerPresenter {
     required ThaiMirrorContentContext ctx,
     required String aspect,
     required int profileSeed,
-    required Set<String> usedSummaries,
+    required Set<String> usedCurrentStates,
   }) {
-    final summary = ThaiMirrorConsumerCopy.lifeAspectSummary(
+    final parts = ThaiMirrorConsumerCopy.lifeAspectDashboardParts(
       aspect: aspect,
       priorityThemeIds: priorityThemeIds,
       allThemeIds: ctx.allThemeIds,
       profileSeed: profileSeed,
-      usedSummaries: usedSummaries,
+      usedCurrentStates: usedCurrentStates,
       lagnaKey: ctx.lagnaKey,
       growthPathIds: ctx.growthPathIds,
     );
 
-    usedSummaries.add(summary);
-
-
+    usedCurrentStates.add(parts.currentState);
 
     return ThaiMirrorLifeDashboardItemState(
-
       label: label,
-
-      summary: summary,
-
+      currentState: parts.currentState,
+      whyItAppears: parts.whyItAppears,
+      suggestedAction: parts.suggestedAction,
       status: _lifeStatus(priorityThemeIds.length),
-
     );
-
   }
 
 
@@ -545,7 +535,7 @@ abstract final class ThaiMirrorConsumerPresenter {
       cards.add(
         ThaiMirrorInsightCardState(
           title: variant.title,
-          body: variant.body,
+          body: ThaiMirrorConsumerCopy.truncateInsightBody(variant.body),
           accent: ThaiMirrorInsightAccent.strength,
           icon: icons[cards.length % icons.length],
         ),
@@ -564,7 +554,7 @@ abstract final class ThaiMirrorConsumerPresenter {
         cards.add(
           ThaiMirrorInsightCardState(
             title: variant.title,
-            body: variant.body,
+            body: ThaiMirrorConsumerCopy.truncateInsightBody(variant.body),
             accent: ThaiMirrorInsightAccent.strength,
             icon: icons[cards.length % icons.length],
           ),
@@ -600,60 +590,62 @@ abstract final class ThaiMirrorConsumerPresenter {
     return picks;
   }
 
-  static List<ThaiMirrorInsightCardState> _cautionCards(List<String> themeIds) {
-
+  static List<ThaiMirrorInsightCardState> _cautionCards(
+    List<String> themeIds,
+    List<String> allThemeIds,
+    ThaiMirrorContentContext ctx,
+  ) {
     final cards = <ThaiMirrorInsightCardState>[];
-
     const icons = [
-
       Icons.warning_amber_rounded,
-
       Icons.info_outline_rounded,
-
       Icons.schedule_rounded,
-
     ];
 
+    final seenTitles = <String>{};
+    final pool = <String>[
+      ...themeIds,
+      ..._rotateThemeIds(allThemeIds, ctx.profileSeed + 19),
+    ];
 
-
-    for (final themeId in themeIds) {
-
+    for (final themeId in pool) {
       if (cards.length >= _maxCards) break;
 
-
-
       final title = ThaiMirrorConsumerCopy.cautionTitle(themeId);
-
       final body = ThaiMirrorConsumerCopy.cautionBody(themeId);
-
       if (title == null || body == null) continue;
-
-
+      if (!seenTitles.add(title)) continue;
 
       cards.add(
-
         ThaiMirrorInsightCardState(
-
           title: title,
-
-          body: body,
-
+          body: ThaiMirrorConsumerCopy.truncateInsightBody(body),
           accent: ThaiMirrorInsightAccent.caution,
-
           icon: icons[cards.length % icons.length],
-
         ),
-
       );
-
     }
 
-
+    if (cards.length < _maxCards) {
+      for (final themeId in allThemeIds) {
+        if (cards.length >= _maxCards) break;
+        final phrase = ThaiMirrorThemePhrases.phrase(themeId);
+        final title = 'ระวัง${phrase.tag}เกินไป';
+        final body = 'เมื่อ${phrase.headlinePart} ลองสังเกตผลกระทบก่อนตัดสินใจ';
+        if (!seenTitles.add(title)) continue;
+        cards.add(
+          ThaiMirrorInsightCardState(
+            title: title,
+            body: ThaiMirrorConsumerCopy.truncateInsightBody(body),
+            accent: ThaiMirrorInsightAccent.caution,
+            icon: icons[cards.length % icons.length],
+          ),
+        );
+      }
+    }
 
     return cards;
-
   }
-
 }
 
 

@@ -39,7 +39,14 @@ List<String> _allVisibleStrings(consumer) {
     ...consumer.cautions.cards.expand((c) => [c.title, c.body]),
     consumer.advice.title,
     consumer.advice.body,
-    ...consumer.lifeDashboard.expand((item) => [item.label, item.summary]),
+    ...consumer.lifeDashboard.expand(
+      (item) => [
+        item.label,
+        item.currentState,
+        item.whyItAppears,
+        item.suggestedAction,
+      ],
+    ),
     consumer.sourceTransparency.dataUsed,
     consumer.sourceTransparency.calculation,
     consumer.sourceTransparency.meaning,
@@ -78,8 +85,9 @@ void main() {
       expect(consumer.strengths.cards.length, greaterThanOrEqualTo(1));
       expect(consumer.hero.summary, isNot(contains('หลายครั้ง')));
       expect(consumer.disclaimers, ThaiMirrorConsumerCopy.consumerDisclaimers);
-      expect(consumer.strengths.title, 'จุดเด่นของคุณ');
-      expect(consumer.cautions.title, 'สิ่งที่ควรระวัง');
+      expect(consumer.strengths.title, ThaiMirrorConsumerCopy.strengthsSectionTitle);
+      expect(consumer.cautions.title, ThaiMirrorConsumerCopy.cautionsSectionTitle);
+      expect(consumer.cautions.cards.length, greaterThanOrEqualTo(1));
       expect(consumer.lifeDashboard, hasLength(5));
 
       for (final text in _allVisibleStrings(consumer)) {

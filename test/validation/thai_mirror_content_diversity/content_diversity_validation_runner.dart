@@ -265,9 +265,11 @@ abstract final class ContentDiversityValidationRunner {
       }
 
       for (final item in consumer.lifeDashboard) {
-        if (bannedDashboardLines.contains(item.summary)) {
-          bannedDashboardUsage[item.summary] =
-              (bannedDashboardUsage[item.summary] ?? 0) + 1;
+        final dashboardLine =
+            '${item.currentState} ${item.whyItAppears} ${item.suggestedAction}';
+        if (bannedDashboardLines.contains(dashboardLine)) {
+          bannedDashboardUsage[dashboardLine] =
+              (bannedDashboardUsage[dashboardLine] ?? 0) + 1;
         }
       }
     }
@@ -283,8 +285,12 @@ abstract final class ContentDiversityValidationRunner {
           b.strengths.cards.map((c) => '${c.title} ${c.body}').join(' '),
         );
         final dashboardSim = _similarity(
-          a.lifeDashboard.map((d) => d.summary).join(' '),
-          b.lifeDashboard.map((d) => d.summary).join(' '),
+          a.lifeDashboard
+              .map((d) => '${d.currentState} ${d.whyItAppears} ${d.suggestedAction}')
+              .join(' '),
+          b.lifeDashboard
+              .map((d) => '${d.currentState} ${d.whyItAppears} ${d.suggestedAction}')
+              .join(' '),
         );
         final adviceSim = _similarity(a.advice.body, b.advice.body);
 
