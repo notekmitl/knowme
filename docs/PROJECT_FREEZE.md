@@ -46,6 +46,7 @@ understanding or product value?*
 | Thai Astrology — Question Reasoning Foundation | **Active (additive, V12)** | V12 | `lib/features/astrology/thai/core/question/` |
 | Thai Astrology — Unified Reasoning Runtime | **Active (additive, V13)** | V13 | `lib/features/astrology/thai/core/runtime/` |
 | Thai Astrology — Scenario Simulation Foundation | **Active (additive, V14)** | V14 | `lib/features/astrology/thai/core/simulation/` |
+| Thai Astrology — Transit Intelligence Integration | **Active (additive, V15)** | V15 | `lib/features/astrology/thai/core/transit/` |
 | Thai Astrology — Evidence Composer | **Active (additive, V7)** | V7 | `presentation/copy/thai_mirror_evidence_composer.dart` |
 | Thai Fusion V2 | Conditional freeze | v0.1.0 | `lib/features/astrology/thai/fusion_v2/` |
 | Astrology Fusion V6 | Temporary freeze candidate | v6 | `lib/features/astrology/fusion/` |
@@ -207,6 +208,20 @@ understanding or product value?*
 | **Architecture exceptions** | Reusable hypothetical decision-path substrate (Act now/Best window/Alternative window/Do nothing → outcome/opportunity/risk/tradeoffs/timing/confidence/evidence + ranked comparison) intended for reuse by Transit, Compatibility and AI Conversation |
 | **Future replacement plan** | A later presentation/AI layer renders simulation results → copy; engine stays evidence-only and runtime-only |
 | **Reference** | `THAI_SCENARIO_SIMULATION_V14.md`, `DECISION_LOG.md` D-025 |
+
+### Thai Astrology — Transit Intelligence Integration (V15)
+
+| Field | Detail |
+|-------|--------|
+| **Status** | **Active (additive, V15 — engine + wrapper + tests + docs only)** |
+| **Frozen version** | V15 |
+| **Owner** | `lib/features/astrology/thai/core/transit/` (enhancement layer: deterministic evidence only) |
+| **Modification policy** | Evidence only — no copy, no AI, no presenter, no UI, no Firestore, no routing. Transit **contributes evidence only** (never decides/predicts/answers). Derives its context from a runtime response and **never bypasses the runtime**; the V13 runtime, V14 simulation and the four engines are not modified. Reuses the shared V9 relationship engine (no duplicate scoring) |
+| **When allowed** | Additive: new transit events/signals, new influence mappings, new Enhanced Runtime consumers |
+| **Bug-only exceptions** | Day-ruler derivation, relationship reuse, evidence merge and determinism correctness |
+| **Architecture exceptions** | Enhancement layer (Runtime + Transit → Enhanced Runtime) intended for reuse by Compatibility and AI Conversation, which consume the Enhanced Runtime |
+| **Future replacement plan** | A later presentation/AI layer renders transit/merged evidence → copy; engine stays evidence-only and runtime-grounded |
+| **Reference** | `THAI_TRANSIT_INTEGRATION_V15.md`, `DECISION_LOG.md` D-026 |
 
 ### Thai Astrology — Evidence Composer (V7)
 

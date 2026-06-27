@@ -571,6 +571,45 @@ sessions and developers should consult this before reopening any settled decisio
 - **Related implementation:** `lib/features/astrology/thai/core/simulation/`,
   `test/validation/thai_mirror_v14_simulation/`.
 
+## D-026 — Thai Transit Intelligence Integration V15
+
+- **Date:** 2026-06 · **Status:** Accepted
+- **Context:** The platform reasons on the age/life-period axis. Adding *transit*
+  risked spawning a parallel astrology stack. The requirement was to integrate
+  transit as an **enhancement layer** that contributes evidence only, with
+  reasoning staying inside the V13 runtime and the runtime itself unmodified.
+- **Decision:** Add the **Transit Intelligence Integration** as a new core
+  package `lib/features/astrology/thai/core/transit/`. The transiting planet is
+  the Thai **day-of-week ruler** of the evaluation date (the calendar signal the
+  age/period pipeline does not capture), assessed against the natal ruler and the
+  current life-period planet via the **shared V9 `PlanetRelationshipEngine`**
+  (reused, no duplicate scoring). `TransitIntelligenceEngine` converts this into
+  a `TransitAssessment` (events, influences, impact, evidence). An
+  `EnhancedReasoningRuntime` **wraps** the frozen `ThaiReasoningRuntime`: it runs
+  the runtime unchanged, builds the `TransitContext` **from the runtime response**
+  (never bypassing it), and merges transit evidence into a single
+  `EnhancedReasoningResponse` pool. Transit never decides, predicts or answers,
+  and never alters confidence or a base snapshot.
+- **Reason:** Keep one reasoning entry point, avoid a parallel transit
+  architecture, preserve determinism and evidence provenance, reuse existing
+  relationship logic, and keep the copy boundary (no Thai prose, presenter, UI,
+  Firestore or AI).
+- **Alternatives considered:** A standalone transit reasoning stack; modifying
+  the runtime to inject transit internally (rejected — runtime is frozen);
+  extending the `ReasoningLayer` enum (rejected — would modify the runtime).
+- **Tradeoffs:** A thin wrapper + a normalised merged-evidence shape (transit
+  atoms carry a literal `transit` layer) vs. touching the frozen runtime.
+- **Impact:** **No runtime-behaviour, UI, Firestore or routing changes** —
+  additive engine + wrapper + tests + docs only. The runtime, simulation and the
+  four engines are untouched. Determinism, transit-stability, evidence-merge and
+  runtime-compatibility tests pass.
+- **Related documents:** `THAI_TRANSIT_INTEGRATION_V15.md`,
+  `THAI_REASONING_RUNTIME_V13.md`, `THAI_SCENARIO_SIMULATION_V14.md`,
+  `EXECUTIVE_SUMMARY.md`, `ROADMAP.md`, `CURRENT_STATUS.md`, `DOMAIN_MODEL.md`,
+  `PROJECT_INDEX.md`, `PROJECT_FREEZE.md`.
+- **Related implementation:** `lib/features/astrology/thai/core/transit/`,
+  `test/validation/thai_mirror_v15_transit/`.
+
 ---
 
 ## Related documents
