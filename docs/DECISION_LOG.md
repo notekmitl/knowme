@@ -610,6 +610,47 @@ sessions and developers should consult this before reopening any settled decisio
 - **Related implementation:** `lib/features/astrology/thai/core/transit/`,
   `test/validation/thai_mirror_v15_transit/`.
 
+## D-027 — Mirror Conversation Experience Foundation V16
+
+- **Date:** 2026-06 · **Status:** Accepted
+- **Context:** The reasoning platform (V9–V15) is complete but only reachable as
+  structured engine/runtime calls. The product needs a *conversational* surface
+  without introducing an AI/LLM/parser, and without modifying any frozen engine,
+  the runtime, simulation or transit.
+- **Decision:** Add the **Mirror Conversation Experience Foundation** as a new
+  package `lib/features/astrology/thai/conversation/` (an experience layer, **not**
+  under `core/`). The conversation is a **deterministic guided graph**: a fixed
+  `ConversationCatalog` of predefined, selectable `ConversationQuestion`s, each
+  mapping to a single `ThaiReasoningRuntime` call (`evaluate`/`predict`/`decide`/
+  `question`) plus a curated set of follow-up ids. `ConversationFlow` (`openTopic`
+  + `ask`) is the only driver: it consumes the **runtime only**, wraps the runtime
+  output in a structured `ConversationAnswer`, records it in `ConversationMemory`,
+  and emits `ConversationSuggestion`s (curated follow-ups, then unasked siblings,
+  capped at three). Eight `ConversationTopic`s (Current Life, Career, Money,
+  Relationship, Family, Health, Growth, Future) anchor the catalog.
+- **Reason:** Deliver a conversational experience with zero AI/LLM/parser, full
+  determinism and reproducibility, a single reasoning entry point (the runtime),
+  and the freeze intact. There is no free text — the user only ever picks from the
+  predefined catalog.
+- **Alternatives considered:** A chat model / LLM front-end (rejected — explicitly
+  out of scope); a natural-language parser mapping typed text to intents (rejected
+  — non-deterministic, out of scope); calling the decision/question engines
+  directly (rejected — must consume the runtime only).
+- **Tradeoffs:** Question/suggestion *labels* are English structural strings in
+  the foundation (a later presenter localises them to Thai consumer copy), keeping
+  the engine copy boundary intact while still giving the foundation a usable shape.
+- **Impact:** **No runtime-behaviour, UI, Firestore or routing changes** —
+  additive experience foundation + tests + docs only. The runtime, simulation,
+  transit and the four engines are untouched. Catalog-integrity, guided-flow
+  (example reproduction), runtime-only-consistency, suggestion-logic and
+  determinism tests pass. No deploy (foundation only).
+- **Related documents:** `THAI_MIRROR_CONVERSATION_V16.md`,
+  `THAI_REASONING_RUNTIME_V13.md`, `THAI_QUESTION_REASONING_FOUNDATION_V12.md`,
+  `EXECUTIVE_SUMMARY.md`, `ROADMAP.md`, `CURRENT_STATUS.md`, `DOMAIN_MODEL.md`,
+  `PROJECT_INDEX.md`, `PROJECT_FREEZE.md`.
+- **Related implementation:** `lib/features/astrology/thai/conversation/`,
+  `test/validation/thai_mirror_v16_conversation/`.
+
 ---
 
 ## Related documents

@@ -47,6 +47,7 @@ understanding or product value?*
 | Thai Astrology — Unified Reasoning Runtime | **Active (additive, V13)** | V13 | `lib/features/astrology/thai/core/runtime/` |
 | Thai Astrology — Scenario Simulation Foundation | **Active (additive, V14)** | V14 | `lib/features/astrology/thai/core/simulation/` |
 | Thai Astrology — Transit Intelligence Integration | **Active (additive, V15)** | V15 | `lib/features/astrology/thai/core/transit/` |
+| Thai Astrology — Mirror Conversation Experience | **Active (additive, V16)** | V16 | `lib/features/astrology/thai/conversation/` |
 | Thai Astrology — Evidence Composer | **Active (additive, V7)** | V7 | `presentation/copy/thai_mirror_evidence_composer.dart` |
 | Thai Fusion V2 | Conditional freeze | v0.1.0 | `lib/features/astrology/thai/fusion_v2/` |
 | Astrology Fusion V6 | Temporary freeze candidate | v6 | `lib/features/astrology/fusion/` |
@@ -222,6 +223,20 @@ understanding or product value?*
 | **Architecture exceptions** | Enhancement layer (Runtime + Transit → Enhanced Runtime) intended for reuse by Compatibility and AI Conversation, which consume the Enhanced Runtime |
 | **Future replacement plan** | A later presentation/AI layer renders transit/merged evidence → copy; engine stays evidence-only and runtime-grounded |
 | **Reference** | `THAI_TRANSIT_INTEGRATION_V15.md`, `DECISION_LOG.md` D-026 |
+
+### Thai Astrology — Mirror Conversation Experience (V16)
+
+| Field | Detail |
+|-------|--------|
+| **Status** | **Active (additive, V16 — experience foundation + tests + docs only)** |
+| **Frozen version** | V16 |
+| **Owner** | `lib/features/astrology/thai/conversation/` (deterministic guided conversation; experience layer, not under `core/`) |
+| **Modification policy** | No AI, no LLM, no chat model, no parser, no free text. Deterministic guided graph only. Consumes the **V13 runtime only** (never the engines, simulation or transit directly). No Firestore, no routing. Question/suggestion labels are structural English (a later presenter localizes to Thai copy); answers are structured runtime output, not rendered prose |
+| **When allowed** | Additive: new catalog questions/topics, new follow-up edges, new runtime-backed answer shapes |
+| **Bug-only exceptions** | Catalog integrity, suggestion de-duplication, runtime-only consumption and determinism correctness |
+| **Architecture exceptions** | Experience foundation intended for reuse by the Mirror UI / consumer presenter and future Compatibility / AI Conversation surfaces, all via this foundation + the runtime |
+| **Future replacement plan** | A later presentation layer renders conversation answers/suggestions → Thai copy; foundation stays deterministic and runtime-only |
+| **Reference** | `THAI_MIRROR_CONVERSATION_V16.md`, `DECISION_LOG.md` D-027 |
 
 ### Thai Astrology — Evidence Composer (V7)
 
