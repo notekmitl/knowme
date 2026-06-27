@@ -68,6 +68,7 @@ separate from the global narrative pipeline.
 | **Thai prediction foundation** (deterministic predictions per category × window over V9) | `lib/features/astrology/thai/core/prediction/` | **V10**, active (evidence only) |
 | **Thai future prediction presentation** (consumer-report Future Prediction section) | `lib/features/astrology/thai/mirror/presentation/prediction/` + `…/ui/widgets/thai_mirror_future_prediction_section.dart` | **V10.5**, production (consumes `PredictionIntelligence` only; tendency copy; D-021) |
 | **Thai decision foundation** (deterministic per-scenario decision guidance over V10) | `lib/features/astrology/thai/core/decision/` | **V11**, active (evidence only; D-022) |
+| **Thai question foundation** (deterministic structured-intent → decision-query resolver over V11) | `lib/features/astrology/thai/core/question/` | **V12**, active (evidence only; no LLM/parser; D-023) |
 | **Thai V2 structural stack** (signal → interpretation → theme_v2 → mirror_v2 → fusion_v2) | `lib/features/astrology/thai/…/v2` | Built for validation; **not** wired into the report |
 | **Western Natal V1** | astrology services + `astrology/western_natal` | Temporary freeze; fusion input |
 | **Chinese BaZi V1** | `lib/features/bazi/` + backend API | Temporary freeze; source of truth `astrology/chinese_bazi` |
@@ -108,7 +109,11 @@ intelligence + current-age analysis + future-period preview, evidence only)** ·
 Prediction Intelligence release)** · **V11 Decision Intelligence Foundation
 (deterministic per-scenario decision guidance over V10 — verdict/confidence/
 reasons/evidence/timing/tradeoffs for ten scenarios; evidence only; not AI, not
-transit, not compatibility; no presenter)**.
+transit, not compatibility; no presenter)** · **V12 Question Reasoning
+Foundation (deterministic structured-intent → decision-query resolver over V11 —
+ten topics × six intents → resolved scenario, relevant windows/evidence,
+priority reasons, structured answer, confidence; evidence only; no AI, no LLM, no
+parser; no presenter)**.
 
 **Copy boundary:** engines emit structure + evidence; only the consumer presenter and
 copy composers emit Thai prose — this keeps the engine frozen while UX iterates.
@@ -182,7 +187,7 @@ Full detail: [`PROJECT_FREEZE.md`](PROJECT_FREEZE.md); policy: [`GOVERNANCE.md`]
 |--------|--------|
 | Western Natal V1 / Chinese BaZi V1 | Temporary freeze |
 | Thai engine (foundation/theme/assembler) | Conditional freeze v0.1.0 |
-| **Thai Consumer Report / Timeline (V9 Intelligence) / Prediction Foundation (V10) / Decision Foundation (V11) / Evidence Composer** | **Active (additive on frozen engine)** |
+| **Thai Consumer Report / Timeline (V9 Intelligence) / Prediction Foundation (V10) / Decision Foundation (V11) / Question Foundation (V12) / Evidence Composer** | **Active (additive on frozen engine)** |
 | Thai Fusion V2 | Conditional freeze v0.1.0 |
 | Astrology Fusion V6 | Freeze candidate |
 | QA Harness | Active (additive) |
@@ -242,7 +247,8 @@ Full rationale (context, alternatives, tradeoffs) for each is in [`DECISION_LOG.
 Thai engine V1.1 + Consumer Report V3–V8 + **Life Timeline Intelligence V9** +
 **Prediction Intelligence Foundation V10** + **Future Prediction Presentation
 V10.5 (first production Prediction Intelligence release)** + **Decision
-Intelligence Foundation V11 (engine only)** + QA
+Intelligence Foundation V11 (engine only)** + **Question Reasoning Foundation
+V12 (engine only)** + QA
 Harness V1 · Western Natal V1 · BaZi V1 ·
 Astrology Fusion V6 · MV1/MV2 · GF1 · **GF2 (1000-human PASS)** · Human Model · Human
 Pattern Recovery V2 · **Narrative V2–V5 (1000/1000 unique)** · Funnel Recovery V2
@@ -303,6 +309,7 @@ sits *on top of* the deterministic core — never replacing it.
 | Prediction Intelligence Foundation (V10) | `lib/features/astrology/thai/core/prediction/` |
 | Future Prediction presentation (V10.5) | `lib/features/astrology/thai/mirror/presentation/prediction/` + `…/ui/widgets/thai_mirror_future_prediction_section.dart` |
 | Decision Intelligence Foundation (V11) | `lib/features/astrology/thai/core/decision/` |
+| Question Reasoning Foundation (V12) | `lib/features/astrology/thai/core/question/` |
 | Theme scoring | `lib/features/astrology/thai/theme/` |
 | Mirror assembler | `lib/features/astrology/thai/mirror/thai_mirror_assembler.dart` |
 | Consumer presenter | `lib/features/astrology/thai/mirror/presentation/thai_mirror_consumer_presenter.dart` |

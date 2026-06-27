@@ -43,6 +43,7 @@ understanding or product value?*
 | Thai Astrology — Timeline Engine + Intelligence | **Active (additive, V9)** | V9 | `lib/features/astrology/thai/core/life_period/` |
 | Thai Astrology — Prediction Intelligence Foundation | **Active (additive, V10)** | V10 | `lib/features/astrology/thai/core/prediction/` |
 | Thai Astrology — Decision Intelligence Foundation | **Active (additive, V11)** | V11 | `lib/features/astrology/thai/core/decision/` |
+| Thai Astrology — Question Reasoning Foundation | **Active (additive, V12)** | V12 | `lib/features/astrology/thai/core/question/` |
 | Thai Astrology — Evidence Composer | **Active (additive, V7)** | V7 | `presentation/copy/thai_mirror_evidence_composer.dart` |
 | Thai Fusion V2 | Conditional freeze | v0.1.0 | `lib/features/astrology/thai/fusion_v2/` |
 | Astrology Fusion V6 | Temporary freeze candidate | v6 | `lib/features/astrology/fusion/` |
@@ -162,6 +163,20 @@ understanding or product value?*
 | **Architecture exceptions** | Reusable decision substrate (per-scenario verdict with confidence, reasons, supporting/conflicting evidence, best/worst timing, tradeoffs, outcome) intended for reuse by Transit, Compatibility, AI Conversation and Future Chat |
 | **Future replacement plan** | A later presentation/feature layer maps `DecisionReasonCode`s → copy; engine stays evidence-only |
 | **Reference** | `THAI_DECISION_INTELLIGENCE_V11.md`, `DECISION_LOG.md` D-022 |
+
+### Thai Astrology — Question Reasoning Foundation (V12)
+
+| Field | Detail |
+|-------|--------|
+| **Status** | **Active (additive, V12 — engine + tests + docs only)** |
+| **Frozen version** | V12 |
+| **Owner** | `lib/features/astrology/thai/core/question/` (engine: deterministic evidence only) |
+| **Modification policy** | Evidence only — no copy, no LLM, no parser, no presenter, no UI, no Firestore, no routing. Consumes V11 (`core/decision/`) without modifying it; recomputes nothing |
+| **When allowed** | Additive: new topics/intents, new constraint kinds, new emphasis maps, new downstream consumers |
+| **Bug-only exceptions** | Intent→scenario routing, evidence/reason ranking and determinism correctness |
+| **Architecture exceptions** | Reusable question-reasoning substrate (structured intent → resolved scenario + relevant windows/evidence/reasons + structured answer + confidence) intended for reuse by Transit, Compatibility, Future AI and Voice Assistant |
+| **Future replacement plan** | A later presentation/AI layer maps stances/codes → copy; engine stays evidence-only and parser-free |
+| **Reference** | `THAI_QUESTION_REASONING_FOUNDATION_V12.md`, `DECISION_LOG.md` D-023 |
 
 ### Thai Astrology — Evidence Composer (V7)
 

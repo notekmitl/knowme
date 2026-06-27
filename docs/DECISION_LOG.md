@@ -456,6 +456,41 @@ sessions and developers should consult this before reopening any settled decisio
 - **Related implementation:** `lib/features/astrology/thai/core/decision/`,
   `test/validation/thai_mirror_v11_decision/`.
 
+## D-023 — Thai Question Reasoning Foundation V12
+
+- **Date:** 2026-06 · **Status:** Accepted
+- **Context:** V11 (D-022) produces per-scenario decision guidance. The next
+  reasoning step is to let a caller ask concrete questions ("Should I…?", "When
+  should I…?", "What is the biggest risk…?") and get a structured answer —
+  without an LLM, a natural-language parser, or any copy — so the same substrate
+  can power a future AI front-end or voice assistant deterministically.
+- **Decision:** Add the **Question Reasoning Foundation** as a new reusable core
+  package `lib/features/astrology/thai/core/question/`. It consumes **structured
+  intent objects** (`QuestionIntent` = kind + topic + optional constraint), never
+  parsed text. Each of ten Supported Topics routes 1:1 onto a V11
+  `DecisionScenario`; the engine reads that recommendation and **re-projects the
+  existing decision evidence** (it recomputes nothing) into a `QuestionResult`:
+  a structured answer (stance from the verdict, or informational), relevant
+  windows (focus/best/worst), relevant evidence (the original V11 atoms
+  re-ranked by intent, provenance preserved), priority reasons (re-ordered by the
+  intent's emphasis axis) and confidence (= the underlying decision confidence).
+- **Reason:** Keep the copy boundary intact (codes/stances only, no Thai prose,
+  no presenter, no UI), avoid an LLM/parser in the deterministic core, and make
+  every answer fully traceable to V11 evidence so it is testable and reusable.
+- **Alternatives considered:** Parsing free-text questions; folding question
+  routing into the decision engine or a presenter; recomputing scenario-specific
+  scores per question.
+- **Tradeoffs:** Another small vocabulary (intents/stances) to maintain vs. a
+  clean, testable, reusable query surface with zero engine risk.
+- **Impact:** **No runtime, UI, Firestore or routing changes** — engine + tests
+  + docs only. Determinism, intent-mapping, scenario-resolution,
+  evidence-traceability and confidence-stability tests pass.
+- **Related documents:** `THAI_QUESTION_REASONING_FOUNDATION_V12.md`,
+  `THAI_DECISION_INTELLIGENCE_V11.md`, `EXECUTIVE_SUMMARY.md`, `ROADMAP.md`,
+  `CURRENT_STATUS.md`, `DOMAIN_MODEL.md`, `PROJECT_INDEX.md`, `PROJECT_FREEZE.md`.
+- **Related implementation:** `lib/features/astrology/thai/core/question/`,
+  `test/validation/thai_mirror_v12_question/`.
+
 ---
 
 ## Related documents

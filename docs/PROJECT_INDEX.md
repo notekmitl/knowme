@@ -73,6 +73,7 @@ everything below links from here.
 | [`THAI_LIFE_TIMELINE_INTELLIGENCE_V9.md`](THAI_LIFE_TIMELINE_INTELLIGENCE_V9.md) | V9 Life Timeline Intelligence (planet relationship engine + per-period/current/future intelligence, evidence only) | Devs, validation | CURRENT (engine layer) | EXECUTIVE_SUMMARY, DECISION_LOG, PROJECT_FREEZE |
 | [`THAI_PREDICTION_INTELLIGENCE_FOUNDATION_V10.md`](THAI_PREDICTION_INTELLIGENCE_FOUNDATION_V10.md) | V10 Prediction Intelligence Foundation (deterministic prediction substrate over V9; category × window evidence; no AI, no presenter). V10.5 (D-021) adds the consumer-report Future Prediction presentation surface | Devs, validation | CURRENT (engine + V10.5 presentation) | THAI_LIFE_TIMELINE_INTELLIGENCE_V9, DECISION_LOG, PROJECT_FREEZE |
 | [`THAI_DECISION_INTELLIGENCE_V11.md`](THAI_DECISION_INTELLIGENCE_V11.md) | V11 Decision Intelligence Foundation (deterministic per-scenario decision substrate over V10; verdict/confidence/reasons/evidence/timing/tradeoffs; no AI, no presenter) | Devs, validation | CURRENT (engine layer) | THAI_PREDICTION_INTELLIGENCE_FOUNDATION_V10, DECISION_LOG, PROJECT_FREEZE |
+| [`THAI_QUESTION_REASONING_FOUNDATION_V12.md`](THAI_QUESTION_REASONING_FOUNDATION_V12.md) | V12 Question Reasoning Foundation (deterministic structured-intent → decision-query resolver over V11; resolved scenario, relevant windows/evidence, priority reasons, structured answer, confidence; no AI, no LLM, no parser, no presenter) | Devs, validation | CURRENT (engine layer) | THAI_DECISION_INTELLIGENCE_V11, DECISION_LOG, PROJECT_FREEZE |
 
 ---
 
@@ -86,6 +87,7 @@ everything below links from here.
 | [`THAI_LIFE_TIMELINE_INTELLIGENCE_V9.md`](THAI_LIFE_TIMELINE_INTELLIGENCE_V9.md) | V9 Life Timeline Intelligence engine + presentation | CURRENT (engine) | Additive on the frozen Thai engine; D-019 |
 | [`THAI_PREDICTION_INTELLIGENCE_FOUNDATION_V10.md`](THAI_PREDICTION_INTELLIGENCE_FOUNDATION_V10.md) | V10 Prediction Intelligence Foundation (engine) + V10.5 consumer-report presentation | CURRENT (engine + presentation) | Additive reusable core over V9; V10.5 Future Prediction section; D-020, D-021 |
 | [`THAI_DECISION_INTELLIGENCE_V11.md`](THAI_DECISION_INTELLIGENCE_V11.md) | V11 Decision Intelligence Foundation (engine) | CURRENT (engine) | Additive reusable core over V10; per-scenario decision guidance; D-022 |
+| [`THAI_QUESTION_REASONING_FOUNDATION_V12.md`](THAI_QUESTION_REASONING_FOUNDATION_V12.md) | V12 Question Reasoning Foundation (engine) | CURRENT (engine) | Additive reusable core over V11; structured-intent → decision-query resolver; D-023 |
 | [`THAI_MIRROR_SPECIFICATION_V1.md`](THAI_MIRROR_SPECIFICATION_V1.md) | Original domain/contract spec | HISTORICAL | Engine contract still accurate; consumer IA evolved → EXECUTIVE_SUMMARY |
 | [`THAI_MIRROR_UI_SPECIFICATION_V1.md`](THAI_MIRROR_UI_SPECIFICATION_V1.md) | Original analyst-style UI spec | SUPERSEDED | by consumer report → EXECUTIVE_SUMMARY |
 | [`THAI_ASTROLOGY_DOMAIN_VALIDATION_V1.md`](THAI_ASTROLOGY_DOMAIN_VALIDATION_V1.md) | Pre-impl calculation-standards research | HISTORICAL | Standards later locked in V1.1 |
