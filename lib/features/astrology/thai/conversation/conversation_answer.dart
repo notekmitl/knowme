@@ -1,15 +1,17 @@
 import 'package:knowme/features/astrology/thai/core/decision/decision_action.dart';
 import 'package:knowme/features/astrology/thai/core/question/question_answer.dart';
 import 'package:knowme/features/astrology/thai/core/question/question_result.dart';
-import 'package:knowme/features/astrology/thai/core/runtime/reasoning_response.dart';
+import 'package:knowme/features/runtime/reasoning_response.dart';
 
 import 'conversation_question.dart';
 
 /// V16 — the answer to a conversation question.
 ///
-/// It is a thin, structured wrapper over the runtime output (evidence only — no
-/// rendered prose). For `question` API calls it also exposes the V12
-/// [QuestionResult] so a presenter can render stance/evidence later.
+/// Since V17 the conversation consumes the **global** `ReasoningRuntime`, so
+/// [response] is the system-agnostic `ReasoningResponse`. For `question` API
+/// calls the V12 [questionResult] is extracted from the response's native Thai
+/// payload so a presenter can render stance/evidence later. Evidence only — no
+/// rendered prose.
 class ConversationAnswer {
   const ConversationAnswer({
     required this.questionId,
@@ -21,7 +23,7 @@ class ConversationAnswer {
   final String questionId;
   final ConversationRuntimeApi api;
 
-  /// The untouched runtime response that produced this answer.
+  /// The system-agnostic runtime response that produced this answer.
   final ReasoningResponse response;
 
   /// The V12 question result (only for `question` API calls; null otherwise).

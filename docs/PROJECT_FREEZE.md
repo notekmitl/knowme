@@ -48,6 +48,7 @@ understanding or product value?*
 | Thai Astrology — Scenario Simulation Foundation | **Active (additive, V14)** | V14 | `lib/features/astrology/thai/core/simulation/` |
 | Thai Astrology — Transit Intelligence Integration | **Active (additive, V15)** | V15 | `lib/features/astrology/thai/core/transit/` |
 | Thai Astrology — Mirror Conversation Experience | **Active (additive, V16)** | V16 | `lib/features/astrology/thai/conversation/` |
+| Global Reasoning Runtime | **Active (additive, V17)** | V17 | `lib/features/runtime/` |
 | Thai Astrology — Evidence Composer | **Active (additive, V7)** | V7 | `presentation/copy/thai_mirror_evidence_composer.dart` |
 | Thai Fusion V2 | Conditional freeze | v0.1.0 | `lib/features/astrology/thai/fusion_v2/` |
 | Astrology Fusion V6 | Temporary freeze candidate | v6 | `lib/features/astrology/fusion/` |
@@ -237,6 +238,20 @@ understanding or product value?*
 | **Architecture exceptions** | Experience foundation intended for reuse by the Mirror UI / consumer presenter and future Compatibility / AI Conversation surfaces, all via this foundation + the runtime |
 | **Future replacement plan** | A later presentation layer renders conversation answers/suggestions → Thai copy; foundation stays deterministic and runtime-only |
 | **Reference** | `THAI_MIRROR_CONVERSATION_V16.md`, `DECISION_LOG.md` D-027 |
+
+### Global Reasoning Runtime (V17)
+
+| Field | Detail |
+|-------|--------|
+| **Status** | **Active (additive, V17 — architecture + adapter + tests + docs only)** |
+| **Frozen version** | V17 |
+| **Owner** | `lib/features/runtime/` (system-agnostic provider/dispatch runtime; the Thai V13 runtime is the reference implementation) |
+| **Modification policy** | The runtime core imports **no** concrete system (no hard-coded Thai dependency); providers are discovered via the registry. Does not merge or rewrite any system. Thai stays untouched and is wrapped by `ThaiRuntimeAdapter` (the only V17 implementation). No AI, no UI, no presenter, no routing, no Firestore. System-specific inputs travel in `ReasoningRequest.parameters`; native outputs in `ReasoningResponse.raw` |
+| **When allowed** | Additive: new `ReasoningProvider` implementations (Western, BaZi, MBTI, Big Five, EQ, Compatibility) + registration, new capabilities/modules, new consumers |
+| **Bug-only exceptions** | Dispatch, capability detection, evidence aggregation, provider discovery correctness |
+| **Architecture exceptions** | Cross-system entry point intended for reuse by all future systems and consumers (Simulation, Transit, Compatibility, AI Conversation) |
+| **Future replacement plan** | Additional providers register without runtime changes; a later presentation/AI layer renders merged cross-system evidence → copy |
+| **Reference** | `GLOBAL_REASONING_RUNTIME_V17.md`, `DECISION_LOG.md` D-028 |
 
 ### Thai Astrology — Evidence Composer (V7)
 

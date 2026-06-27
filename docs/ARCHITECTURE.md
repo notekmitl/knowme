@@ -56,7 +56,7 @@ Lens systems convert raw user data into **domain-specific signals and snapshots*
 
 | Lens | Package | Output |
 |------|---------|--------|
-| Thai Astrology | `lib/features/astrology/thai/` | Theme bundles, Thai mirror sections |
+| Thai Astrology | `lib/features/astrology/thai/` | Theme bundles, Thai mirror sections, full consumer report (see sub-stack below) |
 | Western Natal | Astrology services + providers | Chart model for fusion |
 | Chinese BaZi | `lib/features/bazi/` | Four pillars, element balance |
 | MBTI | `lib/features/tests/mbti/` | Personality type + dimensions |
@@ -67,6 +67,73 @@ Lens systems convert raw user data into **domain-specific signals and snapshots*
 **Loader:** `PersonalityLensLoader` aggregates available personality snapshots for a user.
 
 **Astrology-specific fusion (within lens tier):** `lib/features/astrology/fusion/` — Astrology Fusion V6 for multi-system astrology reflection (separate from global cross-mirror fusion).
+
+### Thai Astrology Consumer Report (self-contained sub-stack)
+
+The Thai lens ships an end-to-end **consumer report** that runs independently of the
+global narrative pipeline above. It has its own deterministic pipeline, presentation
+layer, and QA harness. Full detail: [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md).
+
+```
+ThaiBirthData (Firestore profile or QA harness)
+  → ThaiFoundationEngine            (lagna, Myanmar Seven, Mahabhuta)
+  → ThaiMirrorProfileEnrichment     (fallback lens keys)
+  → Theme scoring (resolver → engine → presenter)
+  → ThaiMirrorAssembler             (V1 "Truth Lock": structural sections/evidence, no copy)
+  → ThaiMirrorNarrativeGenerator    (internal section summaries)
+  → LifePeriodEngine.fromBirthDate  (V8: traditional 8-planet life-period sequence)
+  → ThaiMirrorConsumerPresenter     (all user-facing Thai copy)
+  → ThaiMirrorResultPage            (article-style consumer page)
+```
+
+| Concern | Owner |
+|---------|-------|
+| Birth → profile foundation | `lib/features/astrology/thai/foundation/` |
+| Life-period engine (V8) | `lib/features/astrology/thai/core/life_period/` |
+| Pipeline orchestration | `lib/features/astrology/thai/mirror/runtime/thai_mirror_pipeline.dart` |
+| Structural assembly | `lib/features/astrology/thai/mirror/` |
+| Consumer copy + timeline | `lib/features/astrology/thai/mirror/presentation/` (copy/, timeline/) |
+| QA harness + preview route | `lib/features/astrology/thai/qa/harness/`, `lib/core/web/` |
+
+A parallel **V2 structural stack** (`foundation/v2/` → `signal/` → `interpretation/`
+→ `theme_v2/` → `mirror_v2/` → `fusion_v2/`) exists for validation/fusion work and
+is **not** wired into the consumer pipeline today.
+
+The Thai lens also exposes a **deterministic reasoning stack** built additively on
+the life-period engine: Timeline Intelligence (V9) → Prediction (V10) → Decision
+(V11) → Question (V12) → **Thai Reasoning Runtime (V13)**, the single Thai entry
+point, with Scenario Simulation (V14) and Transit (V15) layered on top, and the
+deterministic **Mirror Conversation** (V16) as the first guided experience. See
+`THAI_REASONING_RUNTIME_V13.md` and `THAI_MIRROR_CONVERSATION_V16.md`.
+
+### Global Reasoning Runtime (V17 — cross-system foundation)
+
+**Owner:** `lib/features/runtime/`
+
+The Thai Reasoning Runtime (V13) is now the **reference implementation** for a
+system-agnostic runtime architecture. V17 generalizes it **without merging or
+rewriting Thai** — Thai remains the first and only implementation, wrapped by an
+adapter.
+
+```
+ReasoningRuntime  (discovers providers; no hard-coded system dependency)
+        ↓ dispatch by ReasoningModule + ReasoningCapability
+ReasoningProvider  →  ThaiRuntimeAdapter  →  Thai Reasoning Runtime (V13, frozen)
+        ↓
+ReasoningResponse  (module-tagged ReasoningEvidence + ReasoningTrace + confidence + raw)
+```
+
+| Concern | Owner |
+|---------|-------|
+| Contracts (`ReasoningProvider`/`Request`/`Response`/`Evidence`/`Trace`/`Module`/`Capability`) | `lib/features/runtime/` |
+| Dispatch + capability detection + evidence aggregation | `lib/features/runtime/reasoning_runtime.dart` |
+| Provider discovery (no system import) | `lib/features/runtime/reasoning_provider_registry.dart` |
+| Thai provider (the only V17 implementation) | `lib/features/runtime/adapters/thai_runtime_adapter.dart` |
+
+Future systems (Western, BaZi, MBTI, Big Five, EQ, Compatibility) add their own
+`ReasoningProvider` and register it — the runtime needs no change. The Mirror
+Conversation (V16) consumes the **`ReasoningRuntime`** (Thai provider only) rather
+than the Thai runtime directly. See `GLOBAL_REASONING_RUNTIME_V17.md`.
 
 ---
 

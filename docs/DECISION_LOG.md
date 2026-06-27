@@ -651,6 +651,51 @@ sessions and developers should consult this before reopening any settled decisio
 - **Related implementation:** `lib/features/astrology/thai/conversation/`,
   `test/validation/thai_mirror_v16_conversation/`.
 
+## D-028 — Global Reasoning Runtime Foundation V17
+
+- **Date:** 2026-06 · **Status:** Accepted
+- **Context:** The Thai Reasoning Runtime (V13) had proven itself as a clean,
+  deterministic orchestration entry point. Other systems (Western, BaZi, MBTI,
+  Big Five, EQ, Compatibility) will need the same shape, but we must not merge
+  implementations, rewrite Thai, or bind a cross-system runtime to Thai.
+- **Decision:** Promote the Thai runtime to the **reference implementation** and
+  add a system-agnostic **Global Reasoning Runtime** as a new package
+  `lib/features/runtime/`. It defines `ReasoningProvider`, `ReasoningRuntime`,
+  `ReasoningModule`, `ReasoningCapability`, `ReasoningRequest`,
+  `ReasoningResponse`, `ReasoningEvidence`, `ReasoningTrace`. The runtime
+  dispatches a request to the provider that owns the requested `ReasoningModule`,
+  detects capabilities, and aggregates module-tagged evidence. Providers are
+  **discovered** via `ReasoningProviderRegistry` — the runtime imports no concrete
+  system. The **only** implementation is `ThaiRuntimeAdapter`, which wraps the
+  frozen `ThaiReasoningRuntime`, builds a Thai request from the generic request's
+  common fields + `parameters`, and maps the Thai response into a
+  `ReasoningResponse` (native response preserved in `raw`). The V16 Mirror
+  Conversation now consumes the **`ReasoningRuntime`** (Thai provider only) instead
+  of `ThaiReasoningRuntime` directly.
+- **Reason:** One cross-system entry point, no parallel runtimes, no hard-coded
+  Thai dependency, Thai untouched, and a clean extension path (new system = new
+  provider + registration, zero runtime change).
+- **Alternatives considered:** Merging all systems into one runtime (rejected —
+  couples unrelated systems, rewrites Thai); making the generic runtime import
+  Thai directly (rejected — hard-coded dependency); generics/type-parameterised
+  requests per system (rejected for the foundation — a `parameters` map + opaque
+  `raw` keeps the core system-agnostic).
+- **Tradeoffs:** System-specific inputs travel in an untyped `parameters` map and
+  rich outputs via an opaque `raw` (each provider/consumer casts what it knows) —
+  in exchange for a runtime core with no system imports.
+- **Impact:** **No runtime-behaviour, UI, Firestore or routing changes** —
+  additive architecture + adapter + tests + docs only. Thai (V9–V16), simulation
+  and transit are untouched; the V16 conversation was rewired to the global
+  runtime with behaviour preserved. Provider-registration, runtime-dispatch,
+  capability-detection and evidence-aggregation tests pass; the V16 suite still
+  passes. No deploy (architecture only).
+- **Related documents:** `GLOBAL_REASONING_RUNTIME_V17.md`,
+  `THAI_REASONING_RUNTIME_V13.md`, `THAI_MIRROR_CONVERSATION_V16.md`,
+  `ARCHITECTURE.md`, `ROADMAP.md`, `EXECUTIVE_SUMMARY.md`, `PROJECT_FREEZE.md`,
+  `PROJECT_INDEX.md`.
+- **Related implementation:** `lib/features/runtime/`,
+  `test/validation/global_runtime_v17/`.
+
 ---
 
 ## Related documents

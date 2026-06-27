@@ -73,6 +73,7 @@ separate from the global narrative pipeline.
 | **Thai scenario simulation** (hypothetical decision-path evaluation over the runtime) | `lib/features/astrology/thai/core/simulation/` | **V14**, active (evidence only; runtime-only; no AI/presenter/UI; D-025) |
 | **Thai transit integration** (day-ruler transit as evidence; Enhanced Runtime wrapper) | `lib/features/astrology/thai/core/transit/` | **V15**, active (evidence only; enhancement layer; runtime untouched; D-026) |
 | **Mirror conversation experience** (deterministic guided conversation over the runtime) | `lib/features/astrology/thai/conversation/` | **V16**, active (foundation; runtime-only; no AI/LLM/parser/UI; D-027) |
+| **Global reasoning runtime** (system-agnostic provider/dispatch runtime; Thai V13 = reference impl) | `lib/features/runtime/` | **V17**, active (architecture; only `ThaiRuntimeAdapter`; no hard-coded Thai dependency; D-028) |
 | **Thai V2 structural stack** (signal → interpretation → theme_v2 → mirror_v2 → fusion_v2) | `lib/features/astrology/thai/…/v2` | Built for validation; **not** wired into the report |
 | **Western Natal V1** | astrology services + `astrology/western_natal` | Temporary freeze; fusion input |
 | **Chinese BaZi V1** | `lib/features/bazi/` + backend API | Temporary freeze; source of truth `astrology/chinese_bazi` |
@@ -133,7 +134,12 @@ evidence only — never decides/predicts/answers; runtime untouched; evidence on
 not AI, no presenter)** · **V16 Mirror Conversation Experience Foundation
 (deterministic guided conversation over the V13 runtime; 8 topics, predefined
 question catalog → runtime → structured answer → suggested follow-ups; consumes
-the runtime only; no AI, no LLM, no chat model, no parser, no free text)**.
+the runtime only; no AI, no LLM, no chat model, no parser, no free text)** ·
+**V17 Global Reasoning Runtime Foundation (system-agnostic provider/dispatch
+runtime generalizing the V13 Thai runtime — now the reference implementation;
+provider discovery, capability detection, evidence aggregation; only
+`ThaiRuntimeAdapter` implemented; no hard-coded Thai dependency; Mirror
+Conversation consumes the global runtime)**.
 
 **Copy boundary:** engines emit structure + evidence; only the consumer presenter and
 copy composers emit Thai prose — this keeps the engine frozen while UX iterates.
@@ -271,7 +277,8 @@ Intelligence Foundation V11 (engine only)** + **Question Reasoning Foundation
 V12 (engine only)** + **Unified Reasoning Runtime V13 (engine only)** +
 **Scenario Simulation Foundation V14 (engine only)** + **Transit Intelligence
 Integration V15 (engine only)** + **Mirror Conversation Experience Foundation
-V16 (foundation only)** + QA
+V16 (foundation only)** + **Global Reasoning Runtime Foundation V17
+(architecture only)** + QA
 Harness V1 · Western Natal V1 · BaZi V1 ·
 Astrology Fusion V6 · MV1/MV2 · GF1 · **GF2 (1000-human PASS)** · Human Model · Human
 Pattern Recovery V2 · **Narrative V2–V5 (1000/1000 unique)** · Funnel Recovery V2
@@ -337,6 +344,7 @@ sits *on top of* the deterministic core — never replacing it.
 | Scenario Simulation Foundation (V14) | `lib/features/astrology/thai/core/simulation/` |
 | Transit Intelligence Integration (V15) | `lib/features/astrology/thai/core/transit/` |
 | Mirror Conversation Experience (V16) | `lib/features/astrology/thai/conversation/` |
+| Global Reasoning Runtime (V17) | `lib/features/runtime/` |
 | Theme scoring | `lib/features/astrology/thai/theme/` |
 | Mirror assembler | `lib/features/astrology/thai/mirror/thai_mirror_assembler.dart` |
 | Consumer presenter | `lib/features/astrology/thai/mirror/presentation/thai_mirror_consumer_presenter.dart` |

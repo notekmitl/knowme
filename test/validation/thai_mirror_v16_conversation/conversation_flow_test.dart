@@ -5,10 +5,16 @@ import 'package:knowme/features/astrology/thai/conversation/conversation_questio
 import 'package:knowme/features/astrology/thai/conversation/conversation_session.dart';
 import 'package:knowme/features/astrology/thai/conversation/conversation_suggestion.dart';
 import 'package:knowme/features/astrology/thai/conversation/conversation_topic.dart';
-import 'package:knowme/features/astrology/thai/core/runtime/reasoning_request.dart';
-import 'package:knowme/features/astrology/thai/core/runtime/thai_reasoning_runtime.dart';
+import 'package:knowme/features/astrology/thai/core/runtime/reasoning_request.dart'
+    as thai;
+import 'package:knowme/features/astrology/thai/core/runtime/thai_reasoning_runtime.dart'
+    as thai;
+import 'package:knowme/features/runtime/adapters/thai_runtime_adapter.dart';
+import 'package:knowme/features/runtime/reasoning_capability.dart';
+import 'package:knowme/features/runtime/reasoning_runtime.dart';
 
-const _runtime = ThaiReasoningRuntime();
+const _runtime = ReasoningRuntime([ThaiRuntimeAdapter()]);
+const _thaiRuntime = thai.ThaiReasoningRuntime();
 final _asOf = DateTime(2026, 6, 27);
 
 final _birthDates = <DateTime>[
@@ -86,7 +92,7 @@ void main() {
   });
 
   group('V16 — runtime-only consistency', () {
-    test('a question answer equals the runtime called directly', () {
+    test('a question answer equals the Thai runtime called directly', () {
       for (final b in _birthDates) {
         final s = ConversationFlow.ask(
           _session(b),
@@ -94,7 +100,7 @@ void main() {
           runtime: _runtime,
         );
         final q = ConversationCatalog.byId('career_change');
-        final direct = _runtime.question(ReasoningRequest(
+        final direct = _thaiRuntime.question(thai.ReasoningRequest(
           birthDate: b,
           asOf: _asOf,
           question: q.intent,
@@ -106,15 +112,18 @@ void main() {
       }
     });
 
-    test('overview questions use evaluate/predict depth', () {
+    test('overview questions use evaluate/predict capability', () {
       final b = _birthDates.first;
       final overview = ConversationFlow.ask(_session(b), 'cl_overview',
           runtime: _runtime);
       expect(overview.state.lastAnswer!.questionResult, isNull);
+      expect(overview.state.lastAnswer!.response.capability,
+          ReasoningCapability.evaluate);
 
       final future =
           ConversationFlow.ask(_session(b), 'future_outlook', runtime: _runtime);
-      expect(future.state.lastAnswer!.response.depth, ReasoningDepth.prediction);
+      expect(future.state.lastAnswer!.response.capability,
+          ReasoningCapability.predict);
     });
   });
 

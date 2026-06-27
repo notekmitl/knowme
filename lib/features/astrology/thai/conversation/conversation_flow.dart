@@ -1,6 +1,10 @@
-import 'package:knowme/features/astrology/thai/core/runtime/reasoning_request.dart';
-import 'package:knowme/features/astrology/thai/core/runtime/reasoning_response.dart';
-import 'package:knowme/features/astrology/thai/core/runtime/thai_reasoning_runtime.dart';
+import 'package:knowme/features/astrology/thai/core/runtime/reasoning_response.dart'
+    as thai;
+import 'package:knowme/features/runtime/adapters/thai_runtime_adapter.dart';
+import 'package:knowme/features/runtime/reasoning_capability.dart';
+import 'package:knowme/features/runtime/reasoning_module.dart';
+import 'package:knowme/features/runtime/reasoning_request.dart';
+import 'package:knowme/features/runtime/reasoning_runtime.dart';
 
 import 'conversation_answer.dart';
 import 'conversation_catalog.dart';
@@ -13,14 +17,18 @@ import 'conversation_topic.dart';
 
 /// V16 — the deterministic guided-conversation engine.
 ///
-/// It drives the experience entirely through the V13 [ThaiReasoningRuntime]
-/// (never calling a lower engine, never the simulation/transit layers): the user
-/// opens a topic, picks a predefined question, the runtime answers, and the flow
-/// suggests the next questions. No free text, no parser, no LLM, no AI — every
-/// step is a pure function of the session, the chosen question id and the
-/// runtime output.
+/// Since V17 it drives the experience through the **global** [ReasoningRuntime]
+/// (defaulting to a runtime that hosts only the Thai provider), never calling a
+/// system runtime or a lower engine directly: the user opens a topic, picks a
+/// predefined question, the runtime answers, and the flow suggests the next
+/// questions. No free text, no parser, no LLM, no AI — every step is a pure
+/// function of the session, the chosen question id and the runtime output.
 abstract final class ConversationFlow {
   static const int maxSuggestions = 3;
+
+  /// The default global runtime for the conversation: Thai is the only provider.
+  static const ReasoningRuntime defaultRuntime =
+      ReasoningRuntime([ThaiRuntimeAdapter()]);
 
   /// Opens [topic], listing its selectable questions. No runtime call.
   static ConversationSession openTopic(
@@ -39,17 +47,17 @@ abstract final class ConversationFlow {
   static ConversationSession ask(
     ConversationSession session,
     String questionId, {
-    ThaiReasoningRuntime runtime = const ThaiReasoningRuntime(),
+    ReasoningRuntime runtime = defaultRuntime,
   }) {
     final question = ConversationCatalog.byId(questionId);
-    final response = _run(runtime, session, question);
+    final response = runtime.run(_request(session, question));
 
     final answer = ConversationAnswer(
       questionId: question.id,
       api: question.api,
       response: response,
       questionResult: question.api == ConversationRuntimeApi.question
-          ? response.question!.result
+          ? (response.raw as thai.ReasoningResponse).question!.result
           : null,
     );
 
@@ -70,27 +78,32 @@ abstract final class ConversationFlow {
 
   // --- Internals -----------------------------------------------------------
 
-  static ReasoningResponse _run(
-    ThaiReasoningRuntime runtime,
+  static ReasoningRequest _request(
     ConversationSession session,
     ConversationQuestion question,
-  ) {
-    final request = ReasoningRequest(
-      birthDate: session.birthDate,
-      lagnaLord: session.lagnaLord,
-      asOf: session.asOf,
-      question: question.intent,
-      scenarioFocus: question.scenarioFocus,
-    );
-    switch (question.api) {
+  ) =>
+      ReasoningRequest(
+        module: ReasoningModule.thaiAstrology,
+        capability: _capability(question.api),
+        birthDate: session.birthDate,
+        asOf: session.asOf,
+        parameters: {
+          'lagnaLord': session.lagnaLord,
+          'questionIntent': question.intent,
+          'scenarioFocus': question.scenarioFocus,
+        },
+      );
+
+  static ReasoningCapability _capability(ConversationRuntimeApi api) {
+    switch (api) {
       case ConversationRuntimeApi.evaluate:
-        return runtime.evaluate(request);
+        return ReasoningCapability.evaluate;
       case ConversationRuntimeApi.predict:
-        return runtime.predict(request);
+        return ReasoningCapability.predict;
       case ConversationRuntimeApi.decide:
-        return runtime.decide(request);
+        return ReasoningCapability.decide;
       case ConversationRuntimeApi.question:
-        return runtime.question(request);
+        return ReasoningCapability.question;
     }
   }
 
