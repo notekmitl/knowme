@@ -17,6 +17,8 @@ Sources: `docs/*.md`, `lib/features/*`, validation outputs.
 | Thai Mirror domain + pipeline | `docs/THAI_MIRROR_SPECIFICATION_V1.md`, mirror assembler + presenter implemented |
 | Thai Consumer Report V3–V8 — production deployed | `docs/EXECUTIVE_SUMMARY.md` — evidence-driven narrative (V7), article-style result page (V4), Life Timeline + life-period engine (V8) |
 | Thai Life Timeline Intelligence V9 — engine + presentation | `docs/THAI_LIFE_TIMELINE_INTELLIGENCE_V9.md` — planet relationship engine (friend/enemy + element + bond), per-period intelligence, current-age analysis, future-period preview (evidence only) |
+| Thai Prediction Intelligence Foundation V10 — engine only | `docs/THAI_PREDICTION_INTELLIGENCE_FOUNDATION_V10.md` — deterministic prediction substrate over V9 (category × window evidence, strength/confidence, opportunity/risk, reasons); reusable by Future Prediction/Transit/Compatibility/AI; no AI, no transit, no presenter |
+| Thai Future Prediction Presentation V10.5 — first production release | D-021 — Future Prediction section inside the existing consumer report (Life Timeline → Future Prediction → Signature Insight); `PredictionComposer`/`PredictionReasonCopy`/`ThaiMirrorFuturePredictionSection`; consumes `PredictionIntelligence` only, tendency copy, copy boundary preserved; story-coverage + screenshot gates extended |
 | Thai Astrology QA Harness V1 | `docs/ASTROLOGY_QA_HARNESS_V1.md` — consumer-preview route, profiles A–H, screenshot regression + story-coverage CI, service-worker freshness fix |
 | Western Natal V1 — verified E2E | Master context §45.1, Firestore `western_natal` |
 | Chinese BaZi V1 — backend + Flutter verified | Master context §58, `lib/features/bazi/` |
@@ -82,6 +84,7 @@ Items documented as future in master context or specs — **not yet active prior
 | **Big Five as primary MVP lens** | [`GOVERNANCE.md`](GOVERNANCE.md) | Code exists; MBTI mini is recovery path |
 | **Thai Mirror UI full Firestore hydrate** | `docs/THAI_MIRROR_UI_SPECIFICATION_V1.md` — UI-V2 milestone | Consumer Report renders from the live pipeline; persisting/caching the assembled report to Firestore is still deferred |
 | **Thai lunar dataset full coverage** | `docs/THAI_LUNAR_DATASET_ACQUISITION_V1.md` | License-blocked; repository currently ships limited verified entries, so arbitrary Gregorian birth dates fall back gracefully |
+| **Prediction surfaces beyond the consumer report** | `docs/THAI_PREDICTION_INTELLIGENCE_FOUNDATION_V10.md`, D-021 | Engine (V10) + the consumer-report Future Prediction surface (V10.5) shipped; dedicated Future Prediction / Transit / Compatibility / AI Conversation surfaces reusing the same `PredictionIntelligence` substrate remain future work |
 | **Reuse QA Harness for other report domains** | `docs/ASTROLOGY_QA_HARNESS_V1.md` §6 | Pattern is generic; Western / Chinese / Fusion / Compatibility harnesses not yet built |
 | **Merge `feature/fusion-result` → `main`** | Repository state — operational | Required for production recovery from default branch |
 | **GF1 tension reaching Human Model** | `HUMAN_PATTERN_ACTIVATION_RECOVERY_V2.md` — 2 patterns await GF1 tension | `identity_dual_signal`, `internal_conflict_thinker` |

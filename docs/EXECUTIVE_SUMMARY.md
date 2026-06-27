@@ -65,6 +65,8 @@ separate from the global narrative pipeline.
 | **Thai foundation** (lagna, Myanmar Seven, Mahabhuta, lunar calendar) | `lib/features/astrology/thai/foundation/` | Engine **V1.1**, conditional freeze |
 | **Thai theme scoring** (resolver → engine → presenter) | `lib/features/astrology/thai/theme/` | V1 production path |
 | **Thai life-period engine** (8-planet life cycle + V9 Life Timeline Intelligence) | `lib/features/astrology/thai/core/life_period/` | **V9**, active (evidence only) |
+| **Thai prediction foundation** (deterministic predictions per category × window over V9) | `lib/features/astrology/thai/core/prediction/` | **V10**, active (evidence only) |
+| **Thai future prediction presentation** (consumer-report Future Prediction section) | `lib/features/astrology/thai/mirror/presentation/prediction/` + `…/ui/widgets/thai_mirror_future_prediction_section.dart` | **V10.5**, production (consumes `PredictionIntelligence` only; tendency copy; D-021) |
 | **Thai V2 structural stack** (signal → interpretation → theme_v2 → mirror_v2 → fusion_v2) | `lib/features/astrology/thai/…/v2` | Built for validation; **not** wired into the report |
 | **Western Natal V1** | astrology services + `astrology/western_natal` | Temporary freeze; fusion input |
 | **Chinese BaZi V1** | `lib/features/bazi/` + backend API | Temporary freeze; source of truth `astrology/chinese_bazi` |
@@ -97,7 +99,12 @@ long-form narrative · V4 article-style page + closing · V5 storytelling polish
 contradiction observations · **V7 evidence-combination personalization (evidence
 composer + signature insight)** · **V8 life-period engine + Life Timeline** ·
 **V9 Life Timeline Intelligence (planet relationship engine + per-period
-intelligence + current-age analysis + future-period preview, evidence only)**.
+intelligence + current-age analysis + future-period preview, evidence only)** ·
+**V10 Prediction Intelligence Foundation (deterministic predictions per category
+× window over V9 — evidence only; not AI, not transit; no presenter)** ·
+**V10.5 Future Prediction presentation (consumer-report section: current · next
+12 months · next life period; tendency copy; the first production Thai
+Prediction Intelligence release)**.
 
 **Copy boundary:** engines emit structure + evidence; only the consumer presenter and
 copy composers emit Thai prose — this keeps the engine frozen while UX iterates.
@@ -171,7 +178,7 @@ Full detail: [`PROJECT_FREEZE.md`](PROJECT_FREEZE.md); policy: [`GOVERNANCE.md`]
 |--------|--------|
 | Western Natal V1 / Chinese BaZi V1 | Temporary freeze |
 | Thai engine (foundation/theme/assembler) | Conditional freeze v0.1.0 |
-| **Thai Consumer Report / Timeline (V9 Intelligence) / Evidence Composer** | **Active (additive on frozen engine)** |
+| **Thai Consumer Report / Timeline (V9 Intelligence) / Prediction Foundation (V10) / Evidence Composer** | **Active (additive on frozen engine)** |
 | Thai Fusion V2 | Conditional freeze v0.1.0 |
 | Astrology Fusion V6 | Freeze candidate |
 | QA Harness | Active (additive) |
@@ -228,7 +235,9 @@ Full rationale (context, alternatives, tradeoffs) for each is in [`DECISION_LOG.
 ## 11. Roadmap
 
 ### Completed
-Thai engine V1.1 + Consumer Report V3–V8 + **Life Timeline Intelligence V9** + QA
+Thai engine V1.1 + Consumer Report V3–V8 + **Life Timeline Intelligence V9** +
+**Prediction Intelligence Foundation V10** + **Future Prediction Presentation
+V10.5 (first production Prediction Intelligence release)** + QA
 Harness V1 · Western Natal V1 · BaZi V1 ·
 Astrology Fusion V6 · MV1/MV2 · GF1 · **GF2 (1000-human PASS)** · Human Model · Human
 Pattern Recovery V2 · **Narrative V2–V5 (1000/1000 unique)** · Funnel Recovery V2
@@ -286,6 +295,8 @@ sits *on top of* the deterministic core — never replacing it.
 | Pipeline | `lib/features/astrology/thai/mirror/runtime/thai_mirror_pipeline.dart` |
 | Foundation engine | `lib/features/astrology/thai/foundation/thai_foundation_engine.dart` |
 | Life-period engine (V8) + Timeline Intelligence (V9) | `lib/features/astrology/thai/core/life_period/` |
+| Prediction Intelligence Foundation (V10) | `lib/features/astrology/thai/core/prediction/` |
+| Future Prediction presentation (V10.5) | `lib/features/astrology/thai/mirror/presentation/prediction/` + `…/ui/widgets/thai_mirror_future_prediction_section.dart` |
 | Theme scoring | `lib/features/astrology/thai/theme/` |
 | Mirror assembler | `lib/features/astrology/thai/mirror/thai_mirror_assembler.dart` |
 | Consumer presenter | `lib/features/astrology/thai/mirror/presentation/thai_mirror_consumer_presenter.dart` |

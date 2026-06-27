@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart' show IconData, Icons;
+import 'package:flutter/material.dart' show Icons;
 
 
 
@@ -12,9 +12,20 @@ import '../models/thai_mirror_theme_ref.dart';
 
 import 'copy/thai_mirror_consumer_copy.dart';
 import 'copy/thai_mirror_content_context.dart';
+import 'copy/thai_mirror_report_copy.dart';
 import 'copy/thai_mirror_theme_phrases.dart';
 
+import 'package:knowme/features/astrology/thai/core/life_period/life_period_engine.dart';
+import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart';
+import 'package:knowme/features/astrology/thai/core/life_period/life_timeline_intelligence.dart';
+import 'package:knowme/features/astrology/thai/core/prediction/prediction_intelligence_engine.dart';
+
 import 'models/thai_mirror_consumer_view_state.dart';
+
+import 'prediction/prediction_composer.dart';
+import 'prediction/prediction_section_model.dart';
+
+import 'timeline/timeline_presenter.dart';
 
 
 
@@ -28,9 +39,20 @@ abstract final class ThaiMirrorConsumerPresenter {
 
   static const _maxCards = 3;
 
+  /// Insight card bodies allow a full short sentence (≈3 lines) rather than the
+  /// older 60-char hard cut that left mid-word ellipses across every card.
+  static const _cardBodyMaxChars = 104;
 
 
-  static ThaiMirrorConsumerViewState present(ThaiMirrorResult result) {
+
+  /// [lifePeriods] (when available) powers the V8 Life Timeline. It is engine
+  /// *evidence* produced by [LifePeriodEngine] from the canonical birth profile
+  /// upstream — the presenter never receives a raw birth date, so birth-profile
+  /// resolution is never duplicated here.
+  static ThaiMirrorConsumerViewState present(
+    ThaiMirrorResult result, {
+    LifeTimeline? lifePeriods,
+  }) {
 
     final topThemeIds =
 
@@ -57,12 +79,59 @@ abstract final class ThaiMirrorConsumerPresenter {
       growthPathIds: growthPathIds,
     );
 
+    // Up to 3 distinct strongest-pattern tags so the timeline can cite a
+    // *different* strength per period instead of echoing the same word in
+    // every card.
+    final topThemeTags = <String>[];
+    for (final id in topThemeIds.isNotEmpty ? topThemeIds : allThemeIds) {
+      final tag = ThaiMirrorThemePhrases.phrase(id).tag.trim();
+      if (tag.isNotEmpty && !topThemeTags.contains(tag)) {
+        topThemeTags.add(tag);
+      }
+      if (topThemeTags.length >= 3) break;
+    }
+    final lifeTimeline = TimelinePresenter.build(
+      lifePeriods: lifePeriods,
+      lagnaLordKey: result.profileContext.lagnaLordKey,
+      orderedThemeIds: allThemeIds.isNotEmpty ? allThemeIds : topThemeIds,
+      topThemeTags: topThemeTags,
+      profileSeed: profileSeed,
+    );
+
+    final futurePrediction = _buildFuturePrediction(
+      lifePeriods: lifePeriods,
+      lagnaLordKey: result.profileContext.lagnaLordKey,
+      profileSeed: profileSeed,
+    );
+
     return ThaiMirrorConsumerViewState(
+      lifeTimeline: lifeTimeline,
+      futurePrediction: futurePrediction,
       hero: _buildHero(ctx),
       strengths: _buildStrengths(result, allThemeIds, ctx),
       cautions: _buildCautions(result, allThemeIds, ctx),
       advice: _buildAdvice(result, ctx),
       lifeDashboard: _buildLifeDashboard(result, ctx),
+
+      narrativeSections: ThaiMirrorReportCopy.buildNarrativeSections(
+        ctx: ctx,
+        aspectThemeIds: _aspectThemeIds(result),
+      ),
+
+      signatureInsight: ThaiMirrorReportCopy.buildSignatureInsight(
+        ctx: ctx,
+        coreThemeIds: ctx.coreThemeIds,
+      ),
+
+      reflectionSummary: ThaiMirrorReportCopy.buildReflectionSummary(
+        ctx: ctx,
+        coreThemeIds: ctx.coreThemeIds,
+      ),
+
+      closingMessage: ThaiMirrorReportCopy.buildClosingMessage(
+        ctx: ctx,
+        coreThemeIds: ctx.coreThemeIds,
+      ),
 
       sourceTransparency: _buildSourceTransparency(result),
 
@@ -90,27 +159,78 @@ abstract final class ThaiMirrorConsumerPresenter {
 
 
 
+  /// V10.5 — builds the Future Prediction section from the same life-period
+  /// *evidence* the timeline uses. The V10 prediction engine is deterministic
+  /// and copy-free; [PredictionComposer] turns its evidence into consumer copy
+  /// here (copy boundary preserved). Returns null when no timeline evidence is
+  /// available (e.g. some preview/QA states).
+  static PredictionSectionModel? _buildFuturePrediction({
+    required LifeTimeline? lifePeriods,
+    required String? lagnaLordKey,
+    required int profileSeed,
+  }) {
+    if (lifePeriods == null) return null;
+    final intelligence = LifeTimelineIntelligenceEngine.fromTimeline(
+      lifePeriods,
+      lagnaLord: LifePlanets.fromLagnaLordKey(lagnaLordKey),
+    );
+    final prediction = PredictionIntelligenceEngine.fromIntelligence(
+      intelligence,
+    );
+    return PredictionComposer.compose(
+      intelligence: prediction,
+      seed: profileSeed,
+    );
+  }
+
   static ThaiMirrorConsumerHeroState _buildHero(ThaiMirrorContentContext ctx) {
     final themeIds =
         ctx.allThemeIds.isNotEmpty ? ctx.allThemeIds : ctx.topThemeIds;
 
     return ThaiMirrorConsumerHeroState(
-      headline: ThaiMirrorConsumerCopy.buildHeadline(
-        themeIds,
-        profileSeed: ctx.profileSeed,
-        lagnaKey: ctx.lagnaKey,
+      headline: ThaiMirrorReportCopy.buildEmotionalHeadline(
         ctx: ctx,
+        coreThemeIds: themeIds,
       ),
-      summary: ThaiMirrorConsumerCopy.buildHeroSummary(
-        themeIds,
-        profileSeed: ctx.profileSeed,
+      summary: ThaiMirrorReportCopy.buildHeroSummary(
         ctx: ctx,
+        coreThemeIds: ctx.coreThemeIds,
       ),
       tags: ctx.topThemeIds
           .take(5)
           .map(ThaiMirrorConsumerCopy.tagLabel)
           .toList(growable: false),
     );
+  }
+
+  /// Maps each long-form report aspect to a priority list of theme ids drawn
+  /// from the relevant result sections. Presentation-only grouping — no engine
+  /// data is altered.
+  static Map<String, List<String>> _aspectThemeIds(ThaiMirrorResult result) {
+    List<String> from(ThaiMirrorSectionId id) =>
+        _themeIdsFromSection(result.sectionById(id));
+
+    final core = from(ThaiMirrorSectionId.coreSelf);
+    final thinking = from(ThaiMirrorSectionId.thinkingStyle);
+    final emotional = from(ThaiMirrorSectionId.emotionalWorld);
+    final relationships = from(ThaiMirrorSectionId.relationships);
+    final work = from(ThaiMirrorSectionId.workAndAmbition);
+    final growthPath = from(ThaiMirrorSectionId.growthPath);
+    final growthAreas = from(ThaiMirrorSectionId.growthAreas);
+    final top = result.topThemes.map((t) => t.themeId).toList();
+
+    return {
+      'work': [...work, ...core],
+      'money': [...core, ...work],
+      'love': [...relationships, ...emotional],
+      'family': [...relationships, ...core],
+      'social': [...relationships, ...thinking],
+      'health': [...emotional, ...core],
+      'rhythm': [...growthPath, ...top],
+      'pressure': [...emotional, ...core],
+      'compatibility': [...relationships, ...emotional],
+      'growth': [...growthPath, ...growthAreas],
+    };
   }
 
 
@@ -187,8 +307,9 @@ abstract final class ThaiMirrorConsumerPresenter {
     ThaiMirrorContentContext ctx,
   ) {
     final usedCurrentStates = <String>{};
+    final usedThemeIds = <String>{};
+    final usedActions = <String>{};
     final topThemeIds = ctx.topThemeIds;
-    final allThemeIds = ctx.allThemeIds;
     final profileSeed = ctx.profileSeed;
 
     final workIds = _themeIdsFromSection(
@@ -218,6 +339,8 @@ abstract final class ThaiMirrorConsumerPresenter {
         aspect: 'work',
         profileSeed: profileSeed,
         usedCurrentStates: usedCurrentStates,
+        usedThemeIds: usedThemeIds,
+        usedActions: usedActions,
       ),
       _dashboardItem(
         label: 'การเงิน',
@@ -226,6 +349,8 @@ abstract final class ThaiMirrorConsumerPresenter {
         aspect: 'money',
         profileSeed: profileSeed + 1,
         usedCurrentStates: usedCurrentStates,
+        usedThemeIds: usedThemeIds,
+        usedActions: usedActions,
       ),
       _dashboardItem(
         label: 'ความรัก',
@@ -234,6 +359,8 @@ abstract final class ThaiMirrorConsumerPresenter {
         aspect: 'love',
         profileSeed: profileSeed + 2,
         usedCurrentStates: usedCurrentStates,
+        usedThemeIds: usedThemeIds,
+        usedActions: usedActions,
       ),
       _dashboardItem(
         label: 'สุขภาพ',
@@ -242,6 +369,8 @@ abstract final class ThaiMirrorConsumerPresenter {
         aspect: 'health',
         profileSeed: profileSeed + 3,
         usedCurrentStates: usedCurrentStates,
+        usedThemeIds: usedThemeIds,
+        usedActions: usedActions,
       ),
       _dashboardItem(
         label: 'โชคและโอกาส',
@@ -250,6 +379,8 @@ abstract final class ThaiMirrorConsumerPresenter {
         aspect: 'luck',
         profileSeed: profileSeed + 4,
         usedCurrentStates: usedCurrentStates,
+        usedThemeIds: usedThemeIds,
+        usedActions: usedActions,
       ),
     ];
   }
@@ -261,6 +392,8 @@ abstract final class ThaiMirrorConsumerPresenter {
     required String aspect,
     required int profileSeed,
     required Set<String> usedCurrentStates,
+    required Set<String> usedThemeIds,
+    required Set<String> usedActions,
   }) {
     final parts = ThaiMirrorConsumerCopy.lifeAspectDashboardParts(
       aspect: aspect,
@@ -268,11 +401,15 @@ abstract final class ThaiMirrorConsumerPresenter {
       allThemeIds: ctx.allThemeIds,
       profileSeed: profileSeed,
       usedCurrentStates: usedCurrentStates,
+      usedThemeIds: usedThemeIds,
+      usedActions: usedActions,
       lagnaKey: ctx.lagnaKey,
       growthPathIds: ctx.growthPathIds,
     );
 
     usedCurrentStates.add(parts.currentState);
+    usedThemeIds.add(parts.themeId);
+    usedActions.add(parts.suggestedAction);
 
     return ThaiMirrorLifeDashboardItemState(
       label: label,
@@ -535,9 +672,16 @@ abstract final class ThaiMirrorConsumerPresenter {
       cards.add(
         ThaiMirrorInsightCardState(
           title: variant.title,
-          body: ThaiMirrorConsumerCopy.truncateInsightBody(variant.body),
+          body: ThaiMirrorConsumerCopy.truncateInsightBody(
+            variant.body,
+            maxChars: _cardBodyMaxChars,
+          ),
           accent: ThaiMirrorInsightAccent.strength,
           icon: icons[cards.length % icons.length],
+          expandedBody: ThaiMirrorReportCopy.buildExpandedStrength(
+            themeId: themeId,
+            ctx: ctx,
+          ),
         ),
       );
     }
@@ -554,9 +698,16 @@ abstract final class ThaiMirrorConsumerPresenter {
         cards.add(
           ThaiMirrorInsightCardState(
             title: variant.title,
-            body: ThaiMirrorConsumerCopy.truncateInsightBody(variant.body),
+            body: ThaiMirrorConsumerCopy.truncateInsightBody(
+              variant.body,
+              maxChars: _cardBodyMaxChars,
+            ),
             accent: ThaiMirrorInsightAccent.strength,
             icon: icons[cards.length % icons.length],
+            expandedBody: ThaiMirrorReportCopy.buildExpandedStrength(
+              themeId: themeId,
+              ctx: ctx,
+            ),
           ),
         );
       }
@@ -619,7 +770,10 @@ abstract final class ThaiMirrorConsumerPresenter {
       cards.add(
         ThaiMirrorInsightCardState(
           title: title,
-          body: ThaiMirrorConsumerCopy.truncateInsightBody(body),
+          body: ThaiMirrorConsumerCopy.truncateInsightBody(
+            body,
+            maxChars: _cardBodyMaxChars,
+          ),
           accent: ThaiMirrorInsightAccent.caution,
           icon: icons[cards.length % icons.length],
         ),
@@ -630,13 +784,29 @@ abstract final class ThaiMirrorConsumerPresenter {
       for (final themeId in allThemeIds) {
         if (cards.length >= _maxCards) break;
         final phrase = ThaiMirrorThemePhrases.phrase(themeId);
-        final title = 'ระวัง${phrase.tag}เกินไป';
-        final body = 'เมื่อ${phrase.headlinePart} ลองสังเกตผลกระทบก่อนตัดสินใจ';
+        // Vary the fallback caution so two generated cards never share the same
+        // "ระวัง…เกินไป / ลองสังเกตผลกระทบ" template.
+        final v = cards.length;
+        final titles = <String>[
+          'จุด${phrase.tag}อาจกลายเป็นดาบสองคม',
+          'ระวัง${phrase.tag}จนเผลอกดดันตัวเอง',
+          'เมื่อ${phrase.tag}มากไปในบางจังหวะ',
+        ];
+        final bodies = <String>[
+          'เวลา${phrase.headlinePart} ลองถอยมามองภาพรวมสักนิดก่อนทุ่มสุดตัว',
+          'ข้อดีข้อนี้จะยิ่งดี ถ้าคุณรู้ว่าเมื่อไหร่ควรพอ',
+          'ลองสังเกตว่ามันเริ่มกินพลังคุณตอนไหน แล้วอนุญาตให้ตัวเองผ่อนได้',
+        ];
+        final title = titles[v % titles.length];
+        final body = bodies[v % bodies.length];
         if (!seenTitles.add(title)) continue;
         cards.add(
           ThaiMirrorInsightCardState(
             title: title,
-            body: ThaiMirrorConsumerCopy.truncateInsightBody(body),
+            body: ThaiMirrorConsumerCopy.truncateInsightBody(
+              body,
+              maxChars: _cardBodyMaxChars,
+            ),
             accent: ThaiMirrorInsightAccent.caution,
             icon: icons[cards.length % icons.length],
           ),

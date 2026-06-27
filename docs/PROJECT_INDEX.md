@@ -71,6 +71,7 @@ everything below links from here.
 | [`GLOBAL_FUSION_FOUNDATION_V2_SPECIFICATION.md`](GLOBAL_FUSION_FOUNDATION_V2_SPECIFICATION.md) | MV2 + GF2 architecture/design spec (now implemented) | Devs | CURRENT (design ref; implemented) | GF2_PRODUCTION_IMPLEMENTATION_V1 |
 | [`THAI_FOUNDATION_ENGINE_V1_1_NOTES.md`](THAI_FOUNDATION_ENGINE_V1_1_NOTES.md) | Thai foundation engine V1.1 implementation notes | Devs | CURRENT (engine layer) | THAI_MIRROR_SPECIFICATION_V1, EXECUTIVE_SUMMARY |
 | [`THAI_LIFE_TIMELINE_INTELLIGENCE_V9.md`](THAI_LIFE_TIMELINE_INTELLIGENCE_V9.md) | V9 Life Timeline Intelligence (planet relationship engine + per-period/current/future intelligence, evidence only) | Devs, validation | CURRENT (engine layer) | EXECUTIVE_SUMMARY, DECISION_LOG, PROJECT_FREEZE |
+| [`THAI_PREDICTION_INTELLIGENCE_FOUNDATION_V10.md`](THAI_PREDICTION_INTELLIGENCE_FOUNDATION_V10.md) | V10 Prediction Intelligence Foundation (deterministic prediction substrate over V9; category × window evidence; no AI, no presenter). V10.5 (D-021) adds the consumer-report Future Prediction presentation surface | Devs, validation | CURRENT (engine + V10.5 presentation) | THAI_LIFE_TIMELINE_INTELLIGENCE_V9, DECISION_LOG, PROJECT_FREEZE |
 
 ---
 
@@ -82,6 +83,7 @@ everything below links from here.
 | [`ASTROLOGY_QA_HARNESS_V1.md`](ASTROLOGY_QA_HARNESS_V1.md) | QA harness for the consumer report | CURRENT | |
 | [`THAI_FOUNDATION_ENGINE_V1_1_NOTES.md`](THAI_FOUNDATION_ENGINE_V1_1_NOTES.md) | Foundation engine V1.1 | CURRENT (engine) | |
 | [`THAI_LIFE_TIMELINE_INTELLIGENCE_V9.md`](THAI_LIFE_TIMELINE_INTELLIGENCE_V9.md) | V9 Life Timeline Intelligence engine + presentation | CURRENT (engine) | Additive on the frozen Thai engine; D-019 |
+| [`THAI_PREDICTION_INTELLIGENCE_FOUNDATION_V10.md`](THAI_PREDICTION_INTELLIGENCE_FOUNDATION_V10.md) | V10 Prediction Intelligence Foundation (engine) + V10.5 consumer-report presentation | CURRENT (engine + presentation) | Additive reusable core over V9; V10.5 Future Prediction section; D-020, D-021 |
 | [`THAI_MIRROR_SPECIFICATION_V1.md`](THAI_MIRROR_SPECIFICATION_V1.md) | Original domain/contract spec | HISTORICAL | Engine contract still accurate; consumer IA evolved → EXECUTIVE_SUMMARY |
 | [`THAI_MIRROR_UI_SPECIFICATION_V1.md`](THAI_MIRROR_UI_SPECIFICATION_V1.md) | Original analyst-style UI spec | SUPERSEDED | by consumer report → EXECUTIVE_SUMMARY |
 | [`THAI_ASTROLOGY_DOMAIN_VALIDATION_V1.md`](THAI_ASTROLOGY_DOMAIN_VALIDATION_V1.md) | Pre-impl calculation-standards research | HISTORICAL | Standards later locked in V1.1 |

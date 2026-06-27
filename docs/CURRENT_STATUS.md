@@ -13,6 +13,8 @@
 | **Thai Mirror (engine + structural)** | Production structural ready | `docs/THAI_MIRROR_SPECIFICATION_V1.md`, `lib/features/astrology/thai/mirror/` |
 | **Thai Consumer Report (V3–V8)** | Production deployed | `docs/EXECUTIVE_SUMMARY.md`, consumer presenter + result page, evidence narrative (V7), Life Timeline (V8) |
 | **Thai Life Timeline Intelligence (V9)** | Implemented (engine + presentation, tests + gates pass) | `docs/THAI_LIFE_TIMELINE_INTELLIGENCE_V9.md` — planet relationship engine, per-period intelligence, current-age analysis, future-period preview (evidence only) |
+| **Thai Prediction Intelligence Foundation (V10)** | Implemented (engine + tests; no presentation) | `docs/THAI_PREDICTION_INTELLIGENCE_FOUNDATION_V10.md` — deterministic predictions per category × window over V9 (evidence only; not AI, not transit) |
+| **Thai Future Prediction Presentation (V10.5)** | Production deployed — first Thai Prediction Intelligence release | Future Prediction section inside the existing consumer report (Life Timeline → Future Prediction → Signature Insight); `PredictionComposer`/`PredictionReasonCopy`/`ThaiMirrorFuturePredictionSection`; tendency copy, copy boundary preserved; story-coverage + screenshot gates extended (D-021) |
 | **Thai Astrology QA Harness V1** | Implemented | `docs/ASTROLOGY_QA_HARNESS_V1.md` — preview route, profiles A–H, screenshot regression + story coverage CI |
 | **GF2** | Implemented + validated | `docs/GF2_PRODUCTION_IMPLEMENTATION_V1.md`, 1000-human gate PASS |
 | **Human Model** | Implemented | `lib/features/human_model/`, synthetic pipeline validated |

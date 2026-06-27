@@ -347,6 +347,78 @@ sessions and developers should consult this before reopening any settled decisio
   (V9 modules), `presentation/timeline/period_intelligence_composer.dart`,
   `test/validation/thai_mirror_v9_intelligence/`.
 
+## D-020 — Thai Prediction Intelligence Foundation V10
+
+- **Date:** 2026-06 · **Status:** Accepted
+- **Context:** V9 made the Thai engine *interpret* who a person is and where they
+  are in their life-period timeline, but produced no structured *reasoning about
+  what tends to happen* per life area. The next step is a prediction substrate —
+  explicitly **not AI and not Transit** — that several future features (Future
+  Prediction, Transit, Compatibility, AI Conversation) can all reuse.
+- **Decision:** Add a V10 **Prediction Intelligence Foundation** as a new,
+  additive, reusable core package (`core/prediction/`) that consumes the V9
+  `LifeTimelineIntelligence` bundle (current-age analysis, future preview,
+  per-period planet relationships, natal context) and emits **deterministic
+  evidence only**: a `Prediction` per `PredictionCategory` (Career, Finance,
+  Relationship, Health, Learning, Personal Growth, Family) × `PredictionWindow`
+  (Current, Next 12 months, Next Life Period), each carrying a `PredictionScore`
+  (strength + confidence), typed `PredictionEvidence`, `PredictionOpportunity`/
+  `PredictionRisk` lists and three `PredictionReason`s (timing, planet, life
+  period). Reasons are emitted as **codes**, never prose.
+- **Reason:** Establish one deterministic reasoning layer rather than letting
+  each downstream feature re-derive predictions, while preserving the frozen
+  engines, the copy boundary (D-001, D-004, D-007, D-009) and reproducibility.
+- **Alternatives considered:** Generate forecasts with an LLM; fold prediction
+  into the timeline presenter; introduce transit math now.
+- **Tradeoffs:** Another evidence vocabulary to maintain vs. a single shared,
+  testable substrate with zero engine/UI risk.
+- **Impact:** **No runtime, UI, Firestore or routing changes** — engine + tests
+  + docs only. Nothing consumes it yet; it is the foundation a later
+  presentation/feature layer will build on. Determinism, evidence-integrity,
+  stability and window-calculation tests pass.
+- **Related documents:** `THAI_PREDICTION_INTELLIGENCE_FOUNDATION_V10.md`,
+  `THAI_LIFE_TIMELINE_INTELLIGENCE_V9.md`, `EXECUTIVE_SUMMARY.md`,
+  `PROJECT_FREEZE.md`, `DOMAIN_MODEL.md`.
+- **Related implementation:** `lib/features/astrology/thai/core/prediction/`,
+  `test/validation/thai_mirror_v10_prediction/`.
+
+## D-021 — Thai Future Prediction Presentation V10.5 (first production release)
+
+- **Date:** 2026-06 · **Status:** Accepted
+- **Context:** The V10 Prediction Intelligence Foundation (D-020) shipped as a
+  deterministic, copy-free engine that nothing consumed yet. The product needed
+  to surface those predictions to users **inside the existing Thai Consumer
+  Report** — without a new result page, route or pipeline — to make V10 the
+  first production release of Thai Prediction Intelligence.
+- **Decision:** Add an **additive presentation layer** that consumes
+  `PredictionIntelligence` only and renders a new **Future Prediction** section
+  between the Life Timeline and the Signature Insight. New presentation-only
+  components: `PredictionReasonCopy` (the sole place `PredictionReasonCode`s
+  become Thai prose), `PredictionSectionModel` (UI view state),
+  `PredictionComposer` (evidence → tendency copy, deterministic by seed) and
+  `ThaiMirrorFuturePredictionSection` (the `PredictionWidget`). Each horizon
+  (Current · Next 12 Months · Next Life Period) shows a top opportunity, top
+  risk, a qualitative confidence meter (no number), and Why / Why Now / What To
+  Watch plus technical planet evidence behind an expandable detail.
+- **Reason:** Preserve the copy boundary (engine stays code-only; the presenter
+  translates), keep the production flow/page/pipeline untouched, and honour the
+  UX rules — tendency language, no astrology terminology or planet names in the
+  headline copy, article style readable in under two minutes.
+- **Alternatives considered:** A standalone prediction page/route; letting the
+  timeline presenter emit predictions; showing raw confidence percentages.
+- **Tradeoffs:** A second composer/view-state to maintain vs. a clean,
+  testable, reusable surface with zero engine risk.
+- **Impact:** Engine unchanged; one optional view-state field, one new section
+  in the existing page. Story-coverage and screenshot-regression gates extended
+  to cover the new section (goldens regenerated). Deployed to production as the
+  first Thai Prediction Intelligence release.
+- **Related documents:** `THAI_PREDICTION_INTELLIGENCE_FOUNDATION_V10.md`,
+  `EXECUTIVE_SUMMARY.md`, `ROADMAP.md`, `CURRENT_STATUS.md`, `PROJECT_INDEX.md`.
+- **Related implementation:**
+  `lib/features/astrology/thai/mirror/presentation/prediction/`,
+  `lib/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_future_prediction_section.dart`,
+  `test/validation/thai_mirror_v10_prediction_presentation/`.
+
 ---
 
 ## Related documents
