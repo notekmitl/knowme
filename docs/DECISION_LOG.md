@@ -491,6 +491,47 @@ sessions and developers should consult this before reopening any settled decisio
 - **Related implementation:** `lib/features/astrology/thai/core/question/`,
   `test/validation/thai_mirror_v12_question/`.
 
+## D-024 — Thai Unified Reasoning Runtime V13
+
+- **Date:** 2026-06 · **Status:** Accepted
+- **Context:** V9–V12 produced four separate reasoning layers (Timeline,
+  Prediction, Decision, Question), each chained onto the one beneath it. Any
+  caller (and especially future features — Transit, Compatibility, AI
+  Conversation) had to know that wiring: which engine builds which, in what
+  order, and how to thread results through. That couples every consumer to the
+  internal pipeline and risks inconsistent wiring.
+- **Decision:** Add the **Unified Reasoning Runtime** as a new core package
+  `lib/features/astrology/thai/core/runtime/`. `ThaiReasoningRuntime` is the
+  single public reasoning entry point. It exposes `evaluate()`, `predict()`,
+  `decide()`, `question()` and `answer()`, taking one structured
+  `ReasoningRequest` (chart anchors + optional question intent + optional
+  scenario focus) and returning one `ReasoningResponse`: per-layer snapshots
+  (Timeline/Prediction/Decision/Question — deeper ones null when not reached),
+  flattened cross-layer `ReasoningEvidence`, a `ReasoningTrace` of ordered
+  `ReasoningStep`s, and an overall confidence drawn from the deepest layer that
+  ran. The runtime orchestrates the existing engines unchanged and recomputes
+  nothing of their internal logic.
+- **Reason:** Give every present and future consumer one stable surface, hide
+  the orchestration wiring, keep determinism and full evidence traceability, and
+  preserve the copy boundary (codes/snapshots only — no Thai prose, presenter,
+  UI, Firestore, parser or LLM).
+- **Alternatives considered:** Letting each feature wire the four engines
+  itself; exposing the raw engine results without snapshots/trace; folding
+  orchestration into the question engine.
+- **Tradeoffs:** A thin orchestration + snapshot layer to maintain vs. removing
+  duplicated, drift-prone wiring from every consumer.
+- **Impact:** **No runtime-behaviour, UI, Firestore or routing changes** —
+  additive engine + tests + docs only. The four underlying engines are
+  untouched. Determinism, runtime-consistency, trace-integrity and
+  evidence-integrity tests pass.
+- **Related documents:** `THAI_REASONING_RUNTIME_V13.md`,
+  `THAI_QUESTION_REASONING_FOUNDATION_V12.md`,
+  `THAI_DECISION_INTELLIGENCE_V11.md`, `EXECUTIVE_SUMMARY.md`, `ROADMAP.md`,
+  `CURRENT_STATUS.md`, `DOMAIN_MODEL.md`, `PROJECT_INDEX.md`,
+  `PROJECT_FREEZE.md`.
+- **Related implementation:** `lib/features/astrology/thai/core/runtime/`,
+  `test/validation/thai_mirror_v13_runtime/`.
+
 ---
 
 ## Related documents

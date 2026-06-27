@@ -44,6 +44,7 @@ understanding or product value?*
 | Thai Astrology — Prediction Intelligence Foundation | **Active (additive, V10)** | V10 | `lib/features/astrology/thai/core/prediction/` |
 | Thai Astrology — Decision Intelligence Foundation | **Active (additive, V11)** | V11 | `lib/features/astrology/thai/core/decision/` |
 | Thai Astrology — Question Reasoning Foundation | **Active (additive, V12)** | V12 | `lib/features/astrology/thai/core/question/` |
+| Thai Astrology — Unified Reasoning Runtime | **Active (additive, V13)** | V13 | `lib/features/astrology/thai/core/runtime/` |
 | Thai Astrology — Evidence Composer | **Active (additive, V7)** | V7 | `presentation/copy/thai_mirror_evidence_composer.dart` |
 | Thai Fusion V2 | Conditional freeze | v0.1.0 | `lib/features/astrology/thai/fusion_v2/` |
 | Astrology Fusion V6 | Temporary freeze candidate | v6 | `lib/features/astrology/fusion/` |
@@ -177,6 +178,20 @@ understanding or product value?*
 | **Architecture exceptions** | Reusable question-reasoning substrate (structured intent → resolved scenario + relevant windows/evidence/reasons + structured answer + confidence) intended for reuse by Transit, Compatibility, Future AI and Voice Assistant |
 | **Future replacement plan** | A later presentation/AI layer maps stances/codes → copy; engine stays evidence-only and parser-free |
 | **Reference** | `THAI_QUESTION_REASONING_FOUNDATION_V12.md`, `DECISION_LOG.md` D-023 |
+
+### Thai Astrology — Unified Reasoning Runtime (V13)
+
+| Field | Detail |
+|-------|--------|
+| **Status** | **Active (additive, V13 — engine + tests + docs only)** |
+| **Frozen version** | V13 |
+| **Owner** | `lib/features/astrology/thai/core/runtime/` (orchestration: deterministic evidence only) |
+| **Modification policy** | Orchestration only — no copy, no presenter, no UI, no Firestore, no parser, no LLM. Coordinates V9–V12 (`core/life_period/`, `core/prediction/`, `core/decision/`, `core/question/`) without modifying them; recomputes none of their internal logic |
+| **When allowed** | Additive: new APIs, new snapshot fields, new request foci, new downstream consumers |
+| **Bug-only exceptions** | Layer chaining, depth/trace/evidence assembly and determinism correctness |
+| **Architecture exceptions** | The single public reasoning entry point (`ThaiReasoningRuntime`) intended to be the only surface Transit, Compatibility and AI Conversation consume |
+| **Future replacement plan** | A later presentation/AI layer reads runtime snapshots/codes → copy; runtime stays evidence-only, presenter-free and LLM-free |
+| **Reference** | `THAI_REASONING_RUNTIME_V13.md`, `DECISION_LOG.md` D-024 |
 
 ### Thai Astrology — Evidence Composer (V7)
 
