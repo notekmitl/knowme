@@ -174,6 +174,7 @@ flowchart TD
 | Chinese BaZi | `lib/features/bazi/` + backend | Birth profile | Four pillars + elements | Frozen V1 |
 | Thai Life Period Engine + Timeline Intelligence | `lib/features/astrology/thai/core/life_period/` | Birth weekday/date + natal context (lagna lord) | Life-period + relationship/element/current/future intelligence evidence | Active V9 (evidence only) |
 | Thai Prediction Intelligence Foundation | `lib/features/astrology/thai/core/prediction/` | V9 `LifeTimelineIntelligence` (timeline + natal + current/future intelligence) | Deterministic predictions per category × window (strength/confidence, evidence, opportunity/risk, reasons) | Active V10 (evidence only; no presenter) |
+| Thai Decision Intelligence Foundation | `lib/features/astrology/thai/core/decision/` | V10 `PredictionIntelligence` (predictions per category × window) | Deterministic per-scenario recommendation (verdict, confidence, reasons, supporting/conflicting evidence, best/worst timing, tradeoffs, outcome) | Active V11 (evidence only; no presenter) |
 | Thai Consumer presentation | `lib/features/astrology/thai/mirror/presentation/` | Mirror result + life periods | Consumer report copy + timeline | Active V3–V8 |
 | Astrology Fusion V6 | `lib/features/astrology/fusion/` | Thai/Western/BaZi | Multi-system astrology reflection | Freeze candidate |
 | Mirror MV1/MV2 | `lib/features/mirror_v3/` | Lens signals | `KnowMeMirrorSnapshot` | Frozen / additive |

@@ -419,6 +419,43 @@ sessions and developers should consult this before reopening any settled decisio
   `lib/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_future_prediction_section.dart`,
   `test/validation/thai_mirror_v10_prediction_presentation/`.
 
+## D-022 — Thai Decision Intelligence Foundation V11
+
+- **Date:** 2026-06 · **Status:** Accepted
+- **Context:** V10 (D-020) predicts strength/risk/confidence per life area and
+  horizon, and V10.5 (D-021) surfaces those predictions. The next reasoning step
+  is to convert predictions into **actionable decision guidance** for concrete
+  life choices (career change, marriage, investment, …) — still deterministic,
+  still evidence-only, and reusable by future Transit / Compatibility / AI Chat.
+- **Decision:** Add the **Decision Intelligence Foundation** as a new reusable
+  core package `lib/features/astrology/thai/core/decision/`. It consumes V10
+  `PredictionIntelligence` (via a read-only `DecisionContext`) and, for each of
+  ten Supported Scenarios (V1), emits a `DecisionRecommendation`: a verdict
+  (`shouldAct` / `shouldPrepare` / `shouldWait` / `shouldAvoid`), confidence,
+  four reasons (favourability/timing/risk/natal), supporting & conflicting
+  evidence traceable to six input families, best/worst timing, tradeoffs and a
+  projected outcome. Each scenario maps onto weighted V10 categories and a
+  `stakes` level (1–3) that derives its risk weighting and act/avoid thresholds.
+- **Reason:** Keep the copy boundary intact (codes only, no Thai prose, no
+  presenter, no UI), reuse the V9/V10 evidence rather than re-deriving anything,
+  and make the verdict reconstructable from its reasons/evidence so it is fully
+  testable and reusable by later features.
+- **Alternatives considered:** Folding decision logic into the V10 engine or the
+  presenter; emitting per-scenario copy now; introducing transit/compatibility
+  inputs early.
+- **Tradeoffs:** Another evidence vocabulary to maintain vs. a single shared,
+  testable substrate with zero engine/UI risk.
+- **Impact:** **No runtime, UI, Firestore or routing changes** — engine + tests
+  + docs only. Nothing consumes it yet; it is the foundation a later
+  presentation/feature layer will build on. Determinism, consistency,
+  evidence-traceability, scenario-stability and timing-stability tests pass.
+- **Related documents:** `THAI_DECISION_INTELLIGENCE_V11.md`,
+  `THAI_PREDICTION_INTELLIGENCE_FOUNDATION_V10.md`, `EXECUTIVE_SUMMARY.md`,
+  `ROADMAP.md`, `CURRENT_STATUS.md`, `DOMAIN_MODEL.md`, `PROJECT_INDEX.md`,
+  `PROJECT_FREEZE.md`.
+- **Related implementation:** `lib/features/astrology/thai/core/decision/`,
+  `test/validation/thai_mirror_v11_decision/`.
+
 ---
 
 ## Related documents

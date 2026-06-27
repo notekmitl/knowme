@@ -42,6 +42,7 @@ understanding or product value?*
 | Thai Astrology — Consumer Report | **Active (additive on frozen engine)** | V3–V8 | `lib/features/astrology/thai/mirror/presentation/` |
 | Thai Astrology — Timeline Engine + Intelligence | **Active (additive, V9)** | V9 | `lib/features/astrology/thai/core/life_period/` |
 | Thai Astrology — Prediction Intelligence Foundation | **Active (additive, V10)** | V10 | `lib/features/astrology/thai/core/prediction/` |
+| Thai Astrology — Decision Intelligence Foundation | **Active (additive, V11)** | V11 | `lib/features/astrology/thai/core/decision/` |
 | Thai Astrology — Evidence Composer | **Active (additive, V7)** | V7 | `presentation/copy/thai_mirror_evidence_composer.dart` |
 | Thai Fusion V2 | Conditional freeze | v0.1.0 | `lib/features/astrology/thai/fusion_v2/` |
 | Astrology Fusion V6 | Temporary freeze candidate | v6 | `lib/features/astrology/fusion/` |
@@ -147,6 +148,20 @@ understanding or product value?*
 | **Architecture exceptions** | Reusable prediction substrate (category × window predictions with strength/confidence, evidence, opportunity/risk, timing/planet/life-period reasons) intended for reuse by Future Prediction, Transit, Compatibility and AI Conversation |
 | **Future replacement plan** | A later presentation/feature layer maps `PredictionReasonCode`s → copy; engine stays evidence-only |
 | **Reference** | `THAI_PREDICTION_INTELLIGENCE_FOUNDATION_V10.md`, `DECISION_LOG.md` D-020 |
+
+### Thai Astrology — Decision Intelligence Foundation (V11)
+
+| Field | Detail |
+|-------|--------|
+| **Status** | **Active (additive, V11 — engine + tests + docs only)** |
+| **Frozen version** | V11 |
+| **Owner** | `lib/features/astrology/thai/core/decision/` (engine: deterministic evidence only) |
+| **Modification policy** | Evidence only — no copy, no AI, no presenter, no UI, no Firestore, no routing. Consumes V10 (`core/prediction/`) without modifying it |
+| **When allowed** | Additive: new scenarios, scenario→category/stakes refinements, new reason/evidence sources, new downstream consumers |
+| **Bug-only exceptions** | Verdict/confidence/timing/evidence correctness and determinism |
+| **Architecture exceptions** | Reusable decision substrate (per-scenario verdict with confidence, reasons, supporting/conflicting evidence, best/worst timing, tradeoffs, outcome) intended for reuse by Transit, Compatibility, AI Conversation and Future Chat |
+| **Future replacement plan** | A later presentation/feature layer maps `DecisionReasonCode`s → copy; engine stays evidence-only |
+| **Reference** | `THAI_DECISION_INTELLIGENCE_V11.md`, `DECISION_LOG.md` D-022 |
 
 ### Thai Astrology — Evidence Composer (V7)
 
