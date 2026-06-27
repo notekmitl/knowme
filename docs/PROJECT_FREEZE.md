@@ -45,6 +45,7 @@ understanding or product value?*
 | Thai Astrology — Decision Intelligence Foundation | **Active (additive, V11)** | V11 | `lib/features/astrology/thai/core/decision/` |
 | Thai Astrology — Question Reasoning Foundation | **Active (additive, V12)** | V12 | `lib/features/astrology/thai/core/question/` |
 | Thai Astrology — Unified Reasoning Runtime | **Active (additive, V13)** | V13 | `lib/features/astrology/thai/core/runtime/` |
+| Thai Astrology — Scenario Simulation Foundation | **Active (additive, V14)** | V14 | `lib/features/astrology/thai/core/simulation/` |
 | Thai Astrology — Evidence Composer | **Active (additive, V7)** | V7 | `presentation/copy/thai_mirror_evidence_composer.dart` |
 | Thai Fusion V2 | Conditional freeze | v0.1.0 | `lib/features/astrology/thai/fusion_v2/` |
 | Astrology Fusion V6 | Temporary freeze candidate | v6 | `lib/features/astrology/fusion/` |
@@ -192,6 +193,20 @@ understanding or product value?*
 | **Architecture exceptions** | The single public reasoning entry point (`ThaiReasoningRuntime`) intended to be the only surface Transit, Compatibility and AI Conversation consume |
 | **Future replacement plan** | A later presentation/AI layer reads runtime snapshots/codes → copy; runtime stays evidence-only, presenter-free and LLM-free |
 | **Reference** | `THAI_REASONING_RUNTIME_V13.md`, `DECISION_LOG.md` D-024 |
+
+### Thai Astrology — Scenario Simulation Foundation (V14)
+
+| Field | Detail |
+|-------|--------|
+| **Status** | **Active (additive, V14 — engine + tests + docs only)** |
+| **Frozen version** | V14 |
+| **Owner** | `lib/features/astrology/thai/core/simulation/` (engine: deterministic evidence only) |
+| **Modification policy** | Evidence only — no copy, no AI, no presenter, no parser, no UI, no Firestore, no routing. Consumes the V13 runtime (`core/runtime/`) **only** — never calls the Timeline/Prediction/Decision/Question engines directly; recomputes no decision logic |
+| **When allowed** | Additive: new scenarios, new option kinds, new comparison metrics, new downstream consumers |
+| **Bug-only exceptions** | Option timing derivation, comparison ranking, evidence projection and determinism correctness |
+| **Architecture exceptions** | Reusable hypothetical decision-path substrate (Act now/Best window/Alternative window/Do nothing → outcome/opportunity/risk/tradeoffs/timing/confidence/evidence + ranked comparison) intended for reuse by Transit, Compatibility and AI Conversation |
+| **Future replacement plan** | A later presentation/AI layer renders simulation results → copy; engine stays evidence-only and runtime-only |
+| **Reference** | `THAI_SCENARIO_SIMULATION_V14.md`, `DECISION_LOG.md` D-025 |
 
 ### Thai Astrology — Evidence Composer (V7)
 

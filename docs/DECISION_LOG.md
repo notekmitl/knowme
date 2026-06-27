@@ -532,6 +532,45 @@ sessions and developers should consult this before reopening any settled decisio
 - **Related implementation:** `lib/features/astrology/thai/core/runtime/`,
   `test/validation/thai_mirror_v13_runtime/`.
 
+## D-025 — Thai Scenario Simulation Foundation V14
+
+- **Date:** 2026-06 · **Status:** Accepted
+- **Context:** V13 (D-024) gave one orchestration entry point. The next reasoning
+  step is to let a caller weigh **hypothetical decision paths** ("what if I act
+  now vs at the best window vs not at all?") and compare them — deterministically,
+  with no AI, and without re-implementing decision logic.
+- **Decision:** Add the **Scenario Simulation Foundation** as a new reusable core
+  package `lib/features/astrology/thai/core/simulation/`.
+  `ScenarioSimulationEngine.simulate(...)` evaluates four paths per scenario —
+  **Act now**, **Act at the best window**, **Act at an alternative (worst)
+  window** and **Do nothing** — by re-querying the V13 runtime
+  (`ThaiReasoningRuntime.decide`) at the relevant hypothetical `asOf`. It reads
+  each runtime recommendation's outcome/windows/tradeoffs/evidence and produces a
+  `SimulationResult`: per-option expected outcome, potential opportunity,
+  potential risk, tradeoffs, timing, confidence and supporting evidence, plus a
+  ranked `SimulationComparison` (best/worst + value-of-acting vs Do Nothing). Do
+  Nothing is a neutral baseline whose risk is the opportunity cost of inaction.
+- **Reason:** Treat options as *timing paths* evaluated through the runtime so
+  the simulation is genuinely "evaluate the hypothetical via the existing
+  runtime," stays deterministic, preserves evidence provenance (atoms are the
+  runtime's `ReasoningEvidence`, unchanged), and keeps the copy boundary intact
+  (no Thai prose, presenter, parser, UI, Firestore or AI).
+- **Alternatives considered:** Defining options as different sub-scenarios;
+  computing window outcomes from cached decision windows without re-querying;
+  calling the decision/prediction engines directly.
+- **Tradeoffs:** A few extra runtime evaluations per simulation vs. a faithful,
+  fully traceable "what-if at time T" model with zero engine risk.
+- **Impact:** **No runtime-behaviour, UI, Firestore or routing changes** —
+  additive engine + tests + docs only. The runtime and the four engines beneath
+  it are untouched. Determinism, scenario-consistency, comparison-stability and
+  evidence-traceability (incl. runtime-only consumption) tests pass.
+- **Related documents:** `THAI_SCENARIO_SIMULATION_V14.md`,
+  `THAI_REASONING_RUNTIME_V13.md`, `THAI_DECISION_INTELLIGENCE_V11.md`,
+  `EXECUTIVE_SUMMARY.md`, `ROADMAP.md`, `CURRENT_STATUS.md`, `DOMAIN_MODEL.md`,
+  `PROJECT_INDEX.md`, `PROJECT_FREEZE.md`.
+- **Related implementation:** `lib/features/astrology/thai/core/simulation/`,
+  `test/validation/thai_mirror_v14_simulation/`.
+
 ---
 
 ## Related documents
