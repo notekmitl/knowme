@@ -15,6 +15,9 @@ Sources: `docs/*.md`, `lib/features/*`, validation outputs.
 |------|----------|
 | Thai Astrology V2 Core — production structural ready | `docs/THAI_ASTROLOGY_DOMAIN_VALIDATION_V1.md`, `lib/features/astrology/thai/` |
 | Thai Mirror domain + pipeline | `docs/THAI_MIRROR_SPECIFICATION_V1.md`, mirror assembler + presenter implemented |
+| Thai Consumer Report V3–V8 — production deployed | `docs/EXECUTIVE_SUMMARY.md` — evidence-driven narrative (V7), article-style result page (V4), Life Timeline + life-period engine (V8) |
+| Thai Life Timeline Intelligence V9 — engine + presentation | `docs/THAI_LIFE_TIMELINE_INTELLIGENCE_V9.md` — planet relationship engine (friend/enemy + element + bond), per-period intelligence, current-age analysis, future-period preview (evidence only) |
+| Thai Astrology QA Harness V1 | `docs/ASTROLOGY_QA_HARNESS_V1.md` — consumer-preview route, profiles A–H, screenshot regression + story-coverage CI, service-worker freshness fix |
 | Western Natal V1 — verified E2E | Master context §45.1, Firestore `western_natal` |
 | Chinese BaZi V1 — backend + Flutter verified | Master context §58, `lib/features/bazi/` |
 | Mirror Platform V3 (MV1) | `lib/features/mirror_v3/` — agreement, tension, reinforcement, blind spot |
@@ -77,8 +80,9 @@ Items documented as future in master context or specs — **not yet active prior
 |------|--------|-----------------|
 | **AI Narrative Layer** | [`GOVERNANCE.md`](GOVERNANCE.md) — deferred | Depends on Mirror + Global Fusion + Validation Layer |
 | **Big Five as primary MVP lens** | [`GOVERNANCE.md`](GOVERNANCE.md) | Code exists; MBTI mini is recovery path |
-| **Thai Mirror UI full Firestore hydrate** | `docs/THAI_MIRROR_UI_SPECIFICATION_V1.md` — UI-V2 milestone | Spec complete; full UI integration deferred |
-| **Thai Astrology V3** | Deferred — scope not defined in `/docs/` | Do not invent scope |
+| **Thai Mirror UI full Firestore hydrate** | `docs/THAI_MIRROR_UI_SPECIFICATION_V1.md` — UI-V2 milestone | Consumer Report renders from the live pipeline; persisting/caching the assembled report to Firestore is still deferred |
+| **Thai lunar dataset full coverage** | `docs/THAI_LUNAR_DATASET_ACQUISITION_V1.md` | License-blocked; repository currently ships limited verified entries, so arbitrary Gregorian birth dates fall back gracefully |
+| **Reuse QA Harness for other report domains** | `docs/ASTROLOGY_QA_HARNESS_V1.md` §6 | Pattern is generic; Western / Chinese / Fusion / Compatibility harnesses not yet built |
 | **Merge `feature/fusion-result` → `main`** | Repository state — operational | Required for production recovery from default branch |
 | **GF1 tension reaching Human Model** | `HUMAN_PATTERN_ACTIVATION_RECOVERY_V2.md` — 2 patterns await GF1 tension | `identity_dual_signal`, `internal_conflict_thinker` |
 

@@ -10,7 +10,10 @@
 
 | Program | Status | Evidence |
 |---------|--------|----------|
-| **Thai Mirror** | Production structural ready | `docs/THAI_MIRROR_SPECIFICATION_V1.md`, `lib/features/astrology/thai/mirror/` |
+| **Thai Mirror (engine + structural)** | Production structural ready | `docs/THAI_MIRROR_SPECIFICATION_V1.md`, `lib/features/astrology/thai/mirror/` |
+| **Thai Consumer Report (V3–V8)** | Production deployed | `docs/EXECUTIVE_SUMMARY.md`, consumer presenter + result page, evidence narrative (V7), Life Timeline (V8) |
+| **Thai Life Timeline Intelligence (V9)** | Implemented (engine + presentation, tests + gates pass) | `docs/THAI_LIFE_TIMELINE_INTELLIGENCE_V9.md` — planet relationship engine, per-period intelligence, current-age analysis, future-period preview (evidence only) |
+| **Thai Astrology QA Harness V1** | Implemented | `docs/ASTROLOGY_QA_HARNESS_V1.md` — preview route, profiles A–H, screenshot regression + story coverage CI |
 | **GF2** | Implemented + validated | `docs/GF2_PRODUCTION_IMPLEMENTATION_V1.md`, 1000-human gate PASS |
 | **Human Model** | Implemented | `lib/features/human_model/`, synthetic pipeline validated |
 | **Human Pattern** | Recovery V2 complete | `docs/HUMAN_PATTERN_ACTIVATION_RECOVERY_V2.md` — 9/20 dead patterns recovered |
@@ -22,6 +25,7 @@
 - Narrative V3 selection, V4 plan topology (`docs/NARRATIVE_INTELLIGENCE_SELECTION_V3.md`, `docs/NARRATIVE_PLAN_TOPOLOGY_V4.md`)
 - Synthetic population validation V1–V3 (`docs/SYNTHETIC_HUMAN_POPULATION_V1.md`, `docs/SYNTHETIC_POPULATION_V2_1000_REPORT.md`)
 - Real User Runtime Validation V1 (`docs/REAL_USER_RUNTIME_VALIDATION_V1.md`)
+- Thai Astrology Consumer Report evolution V3→V8 — long-form narrative (V3–V5), article-style result page (V4), evidence-combination personalization (V7), and the Life Timeline / life-period engine (V8). See `docs/EXECUTIVE_SUMMARY.md`.
 - Repository Survival V1 — architecture snapshot pushed to GitHub
 
 ---
