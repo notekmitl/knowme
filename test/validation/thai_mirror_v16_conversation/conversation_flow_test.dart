@@ -10,10 +10,11 @@ import 'package:knowme/features/astrology/thai/core/runtime/reasoning_request.da
 import 'package:knowme/features/astrology/thai/core/runtime/thai_reasoning_runtime.dart'
     as thai;
 import 'package:knowme/features/runtime/adapters/thai_runtime_adapter.dart';
+import 'package:knowme/features/runtime/fusion/fusion_runtime.dart';
 import 'package:knowme/features/runtime/reasoning_capability.dart';
 import 'package:knowme/features/runtime/reasoning_runtime.dart';
 
-const _runtime = ReasoningRuntime([ThaiRuntimeAdapter()]);
+const _runtime = FusionRuntime(ReasoningRuntime([ThaiRuntimeAdapter()]));
 const _thaiRuntime = thai.ThaiReasoningRuntime();
 final _asOf = DateTime(2026, 6, 27);
 

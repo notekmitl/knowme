@@ -696,6 +696,46 @@ sessions and developers should consult this before reopening any settled decisio
 - **Related implementation:** `lib/features/runtime/`,
   `test/validation/global_runtime_v17/`.
 
+## D-029 — Cross-System Fusion Runtime P2
+
+- **Date:** 2026-06 · **Status:** Accepted
+- **Context:** The Global Runtime (V17) dispatches one request to one provider.
+  The platform needs to **combine** multiple systems (Thai, Western, BaZi, MBTI,
+  EQ, Big Five, Compatibility) into a single reasoning result — but only Thai
+  exists today, so the layer must also work with one provider.
+- **Decision:** Add the **Fusion Runtime** as a new package
+  `lib/features/runtime/fusion/`. It sits **above** the Global Runtime (composes,
+  does not replace it). `FusionRuntime.fuse(FusionContext)` fans a capability out
+  across every supporting provider via `ReasoningRuntime.run`, collects each as a
+  `FusionObservation`, then detects **agreement**, **conflict**, **missing
+  evidence** and **priority** on a shared `domain` axis, merges per-domain
+  evidence (`FusionEvidence`), computes a fused `FusionConfidence` (provider
+  average ± agreement/conflict adjustments, banded by `FusionRule`), and returns
+  one `FusionResult`. With one provider it sets `singleProviderMode` and passes
+  confidence through unchanged. The Mirror Conversation (V16) now consumes the
+  **`FusionRuntime`** instead of the Global Runtime.
+- **Reason:** A single unified reasoning surface above the runtime, ready for
+  multi-system fusion, that already works with one provider and keeps all
+  arithmetic deterministic and tunable (via `FusionRule`).
+- **Alternatives considered:** Putting fusion inside the Global Runtime (rejected —
+  V17 dispatch is one-provider-per-module and frozen); fusing on raw layer
+  evidence rather than the cross-system `domain` axis (rejected — `domain` is the
+  only semantic axis shared across systems); special-casing single-provider mode
+  in consumers (rejected — fusion returns the same shape for 1..N providers).
+- **Tradeoffs:** Fusion compares on `domain` net magnitudes (a coarse but
+  cross-system-stable signal); richer per-source fusion is deferred. System inputs
+  still travel via the untyped `parameters` map.
+- **Impact:** **No runtime-behaviour, UI, Firestore or routing changes** —
+  additive fusion layer + tests + docs only. The Global Runtime, the Thai stack,
+  simulation and transit are untouched; the V16 conversation was rewired to fusion
+  with behaviour preserved. Agreement, conflict, single-provider, priority and
+  evidence-merge tests pass; the V16 and V17 suites still pass. No deploy.
+- **Related documents:** `GLOBAL_FUSION_RUNTIME_P2.md`,
+  `GLOBAL_REASONING_RUNTIME_V17.md`, `THAI_MIRROR_CONVERSATION_V16.md`,
+  `ARCHITECTURE.md`, `ROADMAP.md`, `EXECUTIVE_SUMMARY.md`.
+- **Related implementation:** `lib/features/runtime/fusion/`,
+  `test/validation/fusion_runtime_p2/`.
+
 ---
 
 ## Related documents

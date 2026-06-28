@@ -49,6 +49,7 @@ understanding or product value?*
 | Thai Astrology — Transit Intelligence Integration | **Active (additive, V15)** | V15 | `lib/features/astrology/thai/core/transit/` |
 | Thai Astrology — Mirror Conversation Experience | **Active (additive, V16)** | V16 | `lib/features/astrology/thai/conversation/` |
 | Global Reasoning Runtime | **Active (additive, V17)** | V17 | `lib/features/runtime/` |
+| Cross-System Fusion Runtime | **Active (additive, P2)** | P2 | `lib/features/runtime/fusion/` |
 | Thai Astrology — Evidence Composer | **Active (additive, V7)** | V7 | `presentation/copy/thai_mirror_evidence_composer.dart` |
 | Thai Fusion V2 | Conditional freeze | v0.1.0 | `lib/features/astrology/thai/fusion_v2/` |
 | Astrology Fusion V6 | Temporary freeze candidate | v6 | `lib/features/astrology/fusion/` |
@@ -252,6 +253,20 @@ understanding or product value?*
 | **Architecture exceptions** | Cross-system entry point intended for reuse by all future systems and consumers (Simulation, Transit, Compatibility, AI Conversation) |
 | **Future replacement plan** | Additional providers register without runtime changes; a later presentation/AI layer renders merged cross-system evidence → copy |
 | **Reference** | `GLOBAL_REASONING_RUNTIME_V17.md`, `DECISION_LOG.md` D-028 |
+
+### Cross-System Fusion Runtime (P2)
+
+| Field | Detail |
+|-------|--------|
+| **Status** | **Active (additive, P2 — fusion layer + tests + docs only)** |
+| **Frozen version** | P2 |
+| **Owner** | `lib/features/runtime/fusion/` (sits above the Global Runtime; composes, never replaces it) |
+| **Modification policy** | Deterministic structure only — no AI, no presenter, no UI, no Firestore, no routing. Consumes the Global `ReasoningRuntime` (never a system directly). Fuses on the cross-system `domain` axis; all arithmetic reads thresholds from `FusionRule`. Must keep single-provider mode working (same result shape for 1..N providers) |
+| **When allowed** | Additive: new fusion detections, new rule thresholds, new consumers; providers fuse automatically once registered with the Global Runtime |
+| **Bug-only exceptions** | Agreement/conflict/missing detection, evidence merge, priority ordering, confidence banding, single-provider correctness |
+| **Architecture exceptions** | Unified reasoning surface intended for reuse by Conversation and future AI |
+| **Future replacement plan** | Richer per-source fusion and a presentation/AI layer over the unified `FusionResult` |
+| **Reference** | `GLOBAL_FUSION_RUNTIME_P2.md`, `DECISION_LOG.md` D-029 |
 
 ### Thai Astrology — Evidence Composer (V7)
 

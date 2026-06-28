@@ -131,9 +131,31 @@ ReasoningResponse  (module-tagged ReasoningEvidence + ReasoningTrace + confidenc
 | Thai provider (the only V17 implementation) | `lib/features/runtime/adapters/thai_runtime_adapter.dart` |
 
 Future systems (Western, BaZi, MBTI, Big Five, EQ, Compatibility) add their own
-`ReasoningProvider` and register it — the runtime needs no change. The Mirror
-Conversation (V16) consumes the **`ReasoningRuntime`** (Thai provider only) rather
-than the Thai runtime directly. See `GLOBAL_REASONING_RUNTIME_V17.md`.
+`ReasoningProvider` and register it — the runtime needs no change. See
+`GLOBAL_REASONING_RUNTIME_V17.md`.
+
+### Cross-System Fusion Runtime (P2)
+
+**Owner:** `lib/features/runtime/fusion/`
+
+The Fusion Runtime sits **above** the Global Runtime (it composes, never replaces
+it). It fans one capability out across every supporting provider, then detects
+agreement / conflict / missing evidence / priority and merges everything into one
+`FusionResult`.
+
+```
+Global Runtime
+        ↓ fan out a capability across providers
+Fusion Runtime  (agreement · conflict · missing · priority · merged evidence · fused confidence)
+        ↓
+Conversation  →  Future AI
+```
+
+With only the Thai provider registered, fusion runs in **single-provider mode**:
+one observation, no agreement/conflict, confidence passed through — same result
+shape as multi-provider fusion. The Mirror Conversation (V16) now consumes the
+**`FusionRuntime`** (which hosts the Global Runtime with the Thai provider) rather
+than the Global Runtime directly. See `GLOBAL_FUSION_RUNTIME_P2.md`.
 
 ---
 

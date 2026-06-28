@@ -1,9 +1,12 @@
 import 'package:knowme/features/astrology/thai/core/runtime/reasoning_response.dart'
     as thai;
 import 'package:knowme/features/runtime/adapters/thai_runtime_adapter.dart';
+import 'package:knowme/features/runtime/fusion/fusion_context.dart';
+import 'package:knowme/features/runtime/fusion/fusion_observation.dart';
+import 'package:knowme/features/runtime/fusion/fusion_result.dart';
+import 'package:knowme/features/runtime/fusion/fusion_runtime.dart';
 import 'package:knowme/features/runtime/reasoning_capability.dart';
 import 'package:knowme/features/runtime/reasoning_module.dart';
-import 'package:knowme/features/runtime/reasoning_request.dart';
 import 'package:knowme/features/runtime/reasoning_runtime.dart';
 
 import 'conversation_answer.dart';
@@ -17,18 +20,19 @@ import 'conversation_topic.dart';
 
 /// V16 — the deterministic guided-conversation engine.
 ///
-/// Since V17 it drives the experience through the **global** [ReasoningRuntime]
-/// (defaulting to a runtime that hosts only the Thai provider), never calling a
-/// system runtime or a lower engine directly: the user opens a topic, picks a
-/// predefined question, the runtime answers, and the flow suggests the next
-/// questions. No free text, no parser, no LLM, no AI — every step is a pure
-/// function of the session, the chosen question id and the runtime output.
+/// Since P2 it drives the experience through the **Fusion Runtime** (which sits
+/// above the global [ReasoningRuntime]; default hosts only the Thai provider),
+/// never calling a system runtime or a lower engine directly: the user opens a
+/// topic, picks a predefined question, the fusion runtime answers, and the flow
+/// suggests the next questions. No free text, no parser, no LLM, no AI — every
+/// step is a pure function of the session, the chosen question id and the fusion
+/// output.
 abstract final class ConversationFlow {
   static const int maxSuggestions = 3;
 
-  /// The default global runtime for the conversation: Thai is the only provider.
-  static const ReasoningRuntime defaultRuntime =
-      ReasoningRuntime([ThaiRuntimeAdapter()]);
+  /// The default fusion runtime for the conversation: Thai is the only provider.
+  static const FusionRuntime defaultRuntime =
+      FusionRuntime(ReasoningRuntime([ThaiRuntimeAdapter()]));
 
   /// Opens [topic], listing its selectable questions. No runtime call.
   static ConversationSession openTopic(
@@ -47,17 +51,19 @@ abstract final class ConversationFlow {
   static ConversationSession ask(
     ConversationSession session,
     String questionId, {
-    ReasoningRuntime runtime = defaultRuntime,
+    FusionRuntime runtime = defaultRuntime,
   }) {
     final question = ConversationCatalog.byId(questionId);
-    final response = runtime.run(_request(session, question));
+    final fusion = runtime.fuse(_context(session, question));
+    final primary = _primary(fusion);
 
     final answer = ConversationAnswer(
       questionId: question.id,
       api: question.api,
-      response: response,
+      fusion: fusion,
+      primary: primary,
       questionResult: question.api == ConversationRuntimeApi.question
-          ? (response.raw as thai.ReasoningResponse).question!.result
+          ? (primary.response.raw as thai.ReasoningResponse).question!.result
           : null,
     );
 
@@ -78,12 +84,19 @@ abstract final class ConversationFlow {
 
   // --- Internals -----------------------------------------------------------
 
-  static ReasoningRequest _request(
+  /// The provider observation the conversation reads from — Thai today, with a
+  /// safe fallback to the first observation if Thai is ever absent.
+  static FusionObservation _primary(FusionResult fusion) =>
+      fusion.observations.firstWhere(
+        (o) => o.module == ReasoningModule.thaiAstrology,
+        orElse: () => fusion.observations.first,
+      );
+
+  static FusionContext _context(
     ConversationSession session,
     ConversationQuestion question,
   ) =>
-      ReasoningRequest(
-        module: ReasoningModule.thaiAstrology,
+      FusionContext(
         capability: _capability(question.api),
         birthDate: session.birthDate,
         asOf: session.asOf,
