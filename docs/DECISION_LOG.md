@@ -736,6 +736,44 @@ sessions and developers should consult this before reopening any settled decisio
 - **Related implementation:** `lib/features/runtime/fusion/`,
   `test/validation/fusion_runtime_p2/`.
 
+## D-030 — Global Mirror Experience P3
+
+- **Date:** 2026-06 · **Status:** Accepted
+- **Context:** The Runtime Platform is complete (Timeline → … → Fusion Runtime)
+  but had **no product surface**. The platform needed its first real, human
+  experience — a UX milestone, not another engine.
+- **Decision:** Add the **Global Mirror Experience** as a new feature
+  `lib/features/mirror_experience/`. It consumes the **`FusionRuntime` only**
+  (never a provider, never a system runtime). `MirrorExperienceService` turns a
+  `FusionResult` into plain-language view models from the cross-system fields
+  (`priorities`, `mergedEvidence`, `confidence`) — so it touches no Thai types.
+  `MirrorJourney` guides the user through Home → Current Life → Prediction →
+  Decision → Ask More → Conversation → Reflection. The conversation **starts from
+  cards** (driving the V16 flow over fusion), never an empty chat. Copy is
+  governed by one rule — **explain life, not astrology** — with all numbers behind
+  an expandable "evidence" section.
+- **Reason:** Ship the platform's first production experience while keeping the
+  reasoning boundary intact: a presentation layer that depends only on the fused,
+  system-agnostic result and would render future providers unchanged.
+- **Alternatives considered:** Reading the Thai `raw` payload for richer stance
+  copy (rejected — couples the experience to a provider and to astrology
+  semantics); rewiring HomePage to host the experience (rejected — the production
+  AuthGate → ProfileGate → HomePage flow stays untouched; the experience is an
+  additive `/mirror-experience` route + a standalone preview entrypoint).
+- **Tradeoffs:** Decision/answer framing uses the fused direction + clarity (a
+  coarse but cross-system-stable signal) rather than the Thai stance enum; richer
+  per-provider phrasing is deferred to a future presenter.
+- **Impact:** **No engine, runtime, provider or fusion changes** — additive
+  feature + tests + docs, plus one additive route hook in `main.dart`. The frozen
+  reasoning stack and the production boot flow are untouched. Service (fusion-only,
+  deterministic, astrology-free copy) and widget-walkthrough tests pass; V16/V17/P2
+  suites still pass. **Deploy: yes — first platform-level production release.**
+- **Related documents:** `GLOBAL_MIRROR_EXPERIENCE_P3.md`,
+  `GLOBAL_FUSION_RUNTIME_P2.md`, `THAI_MIRROR_CONVERSATION_V16.md`,
+  `ARCHITECTURE.md`, `ROADMAP.md`, `EXECUTIVE_SUMMARY.md`.
+- **Related implementation:** `lib/features/mirror_experience/`,
+  `test/validation/mirror_experience_p3/`.
+
 ---
 
 ## Related documents

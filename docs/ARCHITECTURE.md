@@ -157,6 +157,31 @@ shape as multi-provider fusion. The Mirror Conversation (V16) now consumes the
 **`FusionRuntime`** (which hosts the Global Runtime with the Thai provider) rather
 than the Global Runtime directly. See `GLOBAL_FUSION_RUNTIME_P2.md`.
 
+### Global Mirror Experience (P3 — first product experience)
+
+**Owner:** `lib/features/mirror_experience/`
+
+The platform's first real product surface — a **UX milestone, not an engine**. It
+consumes the **`FusionRuntime` only** (never a provider, never a system runtime):
+`MirrorExperienceService` reads the cross-system fields of a `FusionResult`
+(`priorities`, `mergedEvidence`, `confidence`) and turns them into plain-language
+view models, so it touches no Thai types.
+
+```
+MirrorHome
+        ↓ Begin
+MirrorJourney  (Current Life → Prediction → Decision → Ask More → Conversation → Reflection)
+        ↓ each stage
+MirrorExperienceService → FusionRuntime.fuse(evaluate | predict | decide)
+```
+
+Principles: **explain life, not astrology** (no planet/engine terminology on the
+surface), **emotion first, evidence second** (numbers behind an expandable
+section), and **conversation starts from cards** (driving the V16 flow over
+fusion). Wired additively at `/mirror-experience`; the production AuthGate →
+ProfileGate → HomePage boot flow is unchanged. A standalone preview boots from
+`lib/main_mirror_experience.dart`. See `GLOBAL_MIRROR_EXPERIENCE_P3.md`.
+
 ---
 
 ## Layer 3 — Mirror
