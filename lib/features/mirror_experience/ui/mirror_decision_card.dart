@@ -47,7 +47,11 @@ class MirrorDecisionCard extends StatelessWidget {
           MirrorAreasWrap(areas: [decision.focus]),
           const SizedBox(height: 14),
           MirrorClarityPill(label: decision.clarity.label),
-          MirrorWhyTile(areas: [decision.focus], clarity: decision.clarity),
+          MirrorWhyTile(
+            areas: [decision.focus],
+            clarity: decision.clarity,
+            cardId: 'decision',
+          ),
         ],
       ),
     );

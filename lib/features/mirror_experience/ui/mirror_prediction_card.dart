@@ -31,7 +31,11 @@ class MirrorPredictionCard extends StatelessWidget {
           MirrorAreasWrap(areas: prediction.areas),
           const SizedBox(height: 14),
           MirrorClarityPill(label: prediction.clarity.label),
-          MirrorWhyTile(areas: prediction.areas, clarity: prediction.clarity),
+          MirrorWhyTile(
+            areas: prediction.areas,
+            clarity: prediction.clarity,
+            cardId: 'prediction',
+          ),
         ],
       ),
     );

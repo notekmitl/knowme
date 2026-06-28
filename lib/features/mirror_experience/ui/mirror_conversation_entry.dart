@@ -6,6 +6,7 @@ import 'package:knowme/features/astrology/thai/conversation/conversation_questio
 import 'package:knowme/features/astrology/thai/conversation/conversation_session.dart';
 import 'package:knowme/features/astrology/thai/conversation/conversation_suggestion.dart';
 import 'package:knowme/features/astrology/thai/conversation/conversation_topic.dart';
+import 'package:knowme/features/product_validation/product_validation.dart';
 import 'package:knowme/features/runtime/fusion/fusion_result.dart';
 import 'package:knowme/features/runtime/fusion/fusion_runtime.dart';
 
@@ -49,16 +50,25 @@ class _MirrorConversationEntryState extends State<MirrorConversationEntry> {
   }
 
   void _openTopic(ConversationTopic topic) {
+    ProductValidation.tracker.conversationTopicOpened(topic.name);
     setState(() {
       _session = ConversationFlow.openTopic(_session, topic);
     });
   }
 
   void _ask(String questionId) {
+    ProductValidation.tracker.conversationQuestionAsked(questionId);
     setState(() {
       _session =
           ConversationFlow.ask(_session, questionId, runtime: widget.runtime);
     });
+    // The fusion answer resolves synchronously and is now in state.
+    ProductValidation.tracker.conversationAnswerViewed(questionId);
+  }
+
+  void _askFromSuggestion(String questionId) {
+    ProductValidation.tracker.conversationSuggestionTapped(questionId);
+    _ask(questionId);
   }
 
   void _backToTopics() {
@@ -109,7 +119,7 @@ class _MirrorConversationEntryState extends State<MirrorConversationEntry> {
                 title: s.label,
                 subtitle: _suggestionReason(s.reason),
                 icon: Icons.subdirectory_arrow_right_rounded,
-                onTap: () => _ask(s.questionId),
+                onTap: () => _askFromSuggestion(s.questionId),
               ),
             ));
           }

@@ -182,6 +182,29 @@ fusion). Wired additively at `/mirror-experience`; the production AuthGate →
 ProfileGate → HomePage boot flow is unchanged. A standalone preview boots from
 `lib/main_mirror_experience.dart`. See `GLOBAL_MIRROR_EXPERIENCE_P3.md`.
 
+### Product Validation (Phase A — measurement only)
+
+**Owner:** `lib/features/product_validation/`
+
+Instrumentation that **observes** the P3 experience to answer "do users WOW, and
+where do they stop?" — no engine/provider/AI, no UI redesign, no runtime change.
+The P3 widgets call `ProductValidation.tracker.<event>()` at the measurable
+moments; a deterministic `ProductInsightsEngine` turns sessions into per-session
+`ProductMetrics`, an engagement `ProductFunnel` and `ProductInsights` (WOW /
+curiosity / engagement / drop-off).
+
+```
+P3 experience  → ProductValidation.tracker (additive track calls)
+                         ↓ in-memory recorder
+ProductInsightsEngine → funnel + metrics + insights
+                         ↓
+Internal dashboard  (/internal/product-validation — not linked from any user surface)
+```
+
+Events are in-memory (read by the internal dashboard in-session); a persistent
+sink can be added behind the tracker without changing callers. See
+`PRODUCT_VALIDATION.md`.
+
 ---
 
 ## Layer 3 — Mirror

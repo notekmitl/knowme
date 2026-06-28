@@ -774,6 +774,46 @@ sessions and developers should consult this before reopening any settled decisio
 - **Related implementation:** `lib/features/mirror_experience/`,
   `test/validation/mirror_experience_p3/`.
 
+## D-031 — Product Validation Phase A
+
+- **Date:** 2026-06 · **Status:** Accepted
+- **Context:** The platform and its first product surface (P3) shipped, but there
+  was **no measurement** of whether users actually experience WOW or where they
+  stall. Phase A needs to measure that without building engines/providers/AI or
+  redesigning the UI.
+- **Decision:** Add a measurement-only feature `lib/features/product_validation/`.
+  A `ProductValidationTracker` (with `Noop` + in-memory `Recorder`
+  implementations) records typed `ProductEvent`s at the experience's measurable
+  moments; a pure, deterministic `ProductInsightsEngine` turns sessions into
+  `ProductMetrics`, a `ProductFunnel` (Home → Current Life → Prediction →
+  Decision → Conversation → Reflection) and `ProductInsights` grouped as WOW /
+  curiosity / engagement / drop-off. An **internal-only** dashboard
+  (`/internal/product-validation`, not linked from any user surface) renders them.
+  The P3 widgets are instrumented with **additive** `ProductValidation.tracker`
+  calls only.
+- **Reason:** Answer "do users WOW, and where do they stop?" with a deterministic,
+  testable instrumentation layer that observes the experience without changing it.
+- **Alternatives considered:** Adding `firebase_analytics`/`shared_preferences`
+  (rejected for now — new deps; kept dependency-free with a pluggable sink seam);
+  writing events to Firestore (rejected — backend schema change, against the
+  no-runtime-change constraint); building the dashboard into the user flow
+  (rejected — measurement must be internal-only).
+- **Tradeoffs:** Events are in-memory for the running app (read by the internal
+  dashboard in-session); cross-device/persistent aggregation and per-provider
+  breakdowns are deferred behind the tracker seam. "Return visit" is detected at
+  the session level within a process until a persistent sink is added.
+- **Impact:** **No engine, runtime, provider, fusion or user-flow changes** —
+  additive feature + additive `track*` calls in P3 widgets + one additive
+  internal route hook in `main.dart`. Recorder/engine/funnel/insight determinism
+  and dashboard-smoke tests pass; the P3 walkthrough still passes. **Deploy: yes**
+  (ships with the platform release; measurement can be disabled via
+  `ProductValidation.recorder.enabled`).
+- **Related documents:** `PRODUCT_VALIDATION.md`,
+  `GLOBAL_MIRROR_EXPERIENCE_P3.md`, `ARCHITECTURE.md`, `ROADMAP.md`,
+  `EXECUTIVE_SUMMARY.md`.
+- **Related implementation:** `lib/features/product_validation/`,
+  `test/validation/product_validation_phase_a/`.
+
 ---
 
 ## Related documents

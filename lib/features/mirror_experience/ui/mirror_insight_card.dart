@@ -25,7 +25,11 @@ class MirrorInsightCard extends StatelessWidget {
           MirrorAreasWrap(areas: insight.areas),
           const SizedBox(height: 14),
           MirrorClarityPill(label: insight.clarity.label),
-          MirrorWhyTile(areas: insight.areas, clarity: insight.clarity),
+          MirrorWhyTile(
+            areas: insight.areas,
+            clarity: insight.clarity,
+            cardId: 'currentLife',
+          ),
         ],
       ),
     );

@@ -76,6 +76,7 @@ separate from the global narrative pipeline.
 | **Global reasoning runtime** (system-agnostic provider/dispatch runtime; Thai V13 = reference impl) | `lib/features/runtime/` | **V17**, active (architecture; only `ThaiRuntimeAdapter`; no hard-coded Thai dependency; D-028) |
 | **Cross-system fusion runtime** (fuses providers above the global runtime; agreement/conflict/priority) | `lib/features/runtime/fusion/` | **P2**, active (architecture; single-provider mode; Conversation consumes it; D-029) |
 | **Global Mirror Experience** (first product experience over the fusion runtime; emotion-first cards; conversation from cards) | `lib/features/mirror_experience/` | **P3**, active (UX; `FusionRuntime` only; explain-life-not-astrology; `/mirror-experience`; deployed; D-030) |
+| **Product Validation** (measurement over the P3 experience: WOW/funnel/engagement; internal dashboard) | `lib/features/product_validation/` | **Phase A**, active (measurement only; additive instrumentation; `/internal/product-validation`; deployed; D-031) |
 | **Thai V2 structural stack** (signal → interpretation → theme_v2 → mirror_v2 → fusion_v2) | `lib/features/astrology/thai/…/v2` | Built for validation; **not** wired into the report |
 | **Western Natal V1** | astrology services + `astrology/western_natal` | Temporary freeze; fusion input |
 | **Chinese BaZi V1** | `lib/features/bazi/` + backend API | Temporary freeze; source of truth `astrology/chinese_bazi` |
@@ -289,7 +290,8 @@ V12 (engine only)** + **Unified Reasoning Runtime V13 (engine only)** +
 Integration V15 (engine only)** + **Mirror Conversation Experience Foundation
 V16 (foundation only)** + **Global Reasoning Runtime Foundation V17
 (architecture only)** + **Cross-System Fusion Runtime P2 (architecture only)** +
-**Global Mirror Experience P3 (first product release)** + QA
+**Global Mirror Experience P3 (first product release)** + **Product Validation
+Phase A (measurement only)** + QA
 Harness V1 · Western Natal V1 · BaZi V1 ·
 Astrology Fusion V6 · MV1/MV2 · GF1 · **GF2 (1000-human PASS)** · Human Model · Human
 Pattern Recovery V2 · **Narrative V2–V5 (1000/1000 unique)** · Funnel Recovery V2
@@ -358,6 +360,7 @@ sits *on top of* the deterministic core — never replacing it.
 | Global Reasoning Runtime (V17) | `lib/features/runtime/` |
 | Cross-System Fusion Runtime (P2) | `lib/features/runtime/fusion/` |
 | Global Mirror Experience (P3) | `lib/features/mirror_experience/` |
+| Product Validation (Phase A) | `lib/features/product_validation/` |
 | Theme scoring | `lib/features/astrology/thai/theme/` |
 | Mirror assembler | `lib/features/astrology/thai/mirror/thai_mirror_assembler.dart` |
 | Consumer presenter | `lib/features/astrology/thai/mirror/presentation/thai_mirror_consumer_presenter.dart` |

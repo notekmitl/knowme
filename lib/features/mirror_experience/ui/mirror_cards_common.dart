@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:knowme/features/product_validation/product_validation.dart';
+
 import '../mirror_copy.dart';
 import '../mirror_view_models.dart';
 import 'mirror_theme.dart';
@@ -28,10 +30,14 @@ class MirrorWhyTile extends StatelessWidget {
     super.key,
     required this.areas,
     required this.clarity,
+    this.cardId = 'card',
   });
 
   final List<MirrorLifeArea> areas;
   final MirrorClarity clarity;
+
+  /// Identifies which card's evidence was opened (Phase A measurement).
+  final String cardId;
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +47,9 @@ class MirrorWhyTile extends StatelessWidget {
       child: ExpansionTile(
         tilePadding: EdgeInsets.zero,
         childrenPadding: const EdgeInsets.only(bottom: 8),
+        onExpansionChanged: (expanded) {
+          if (expanded) ProductValidation.tracker.evidenceExpanded(cardId);
+        },
         title: Text(
           MirrorCopy.whyLabel,
           style: TextStyle(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:knowme/features/product_validation/product_validation.dart';
 import 'package:knowme/features/runtime/fusion/fusion_runtime.dart';
 
 import '../mirror_copy.dart';
@@ -11,7 +12,7 @@ import 'mirror_journey.dart';
 /// The first real product screen powered by the Runtime Platform. Warm, calm,
 /// emotion-first; no astrology terminology, no engine names. From here the user
 /// steps into the guided [MirrorJourney].
-class MirrorHome extends StatelessWidget {
+class MirrorHome extends StatefulWidget {
   const MirrorHome({
     super.key,
     required this.input,
@@ -21,10 +22,25 @@ class MirrorHome extends StatelessWidget {
   final MirrorExperienceInput input;
   final FusionRuntime runtime;
 
+  @override
+  State<MirrorHome> createState() => _MirrorHomeState();
+}
+
+class _MirrorHomeState extends State<MirrorHome> {
+  @override
+  void initState() {
+    super.initState();
+    // Phase A — a new experience session begins when the entry surface shows.
+    ProductValidation.tracker.sessionStarted();
+    ProductValidation.tracker.homeViewed();
+  }
+
   void _begin(BuildContext context) {
+    ProductValidation.tracker.journeyStarted();
     Navigator.of(context).push(
       MaterialPageRoute<void>(
-        builder: (_) => MirrorJourney(input: input, runtime: runtime),
+        builder: (_) =>
+            MirrorJourney(input: widget.input, runtime: widget.runtime),
       ),
     );
   }

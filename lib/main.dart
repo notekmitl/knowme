@@ -13,6 +13,7 @@ import 'package:knowme/features/tests/mbti_cognitive/mbti_cognitive_routes.dart'
 import 'package:knowme/features/tests/mbti_summary/mbti_summary_routes.dart';
 import 'package:knowme/features/personality_mirror/personality_mirror_routes.dart';
 import 'package:knowme/features/mirror_experience/mirror_experience_routes.dart';
+import 'package:knowme/features/product_validation/product_validation_routes.dart';
 import 'package:knowme/features/astrology/fusion/presentation/astrology_fusion_demo_routes.dart';
 import 'package:knowme/features/astrology/presentation/astrology_center_routes.dart';
 import 'package:knowme/features/astrology/fusion/presentation/astrology_fusion_routes.dart';
@@ -122,6 +123,11 @@ class KnowMeApp extends StatelessWidget {
                 MirrorExperienceRoutes.onGenerateRoute(settings);
             if (mirrorExperienceRoute != null) {
               return mirrorExperienceRoute;
+            }
+            final productValidationRoute =
+                ProductValidationRoutes.onGenerateRoute(settings);
+            if (productValidationRoute != null) {
+              return productValidationRoute;
             }
             final thaiMirrorRoute = ThaiMirrorRoutes.onGenerateRoute(settings);
             if (thaiMirrorRoute != null) {

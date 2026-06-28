@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:knowme/features/product_validation/product_validation.dart';
 import 'package:knowme/features/runtime/fusion/fusion_runtime.dart';
 
 import '../mirror_copy.dart';
@@ -49,6 +50,7 @@ class _MirrorJourneyState extends State<MirrorJourney> {
   void initState() {
     super.initState();
     _service = MirrorExperienceService(widget.runtime);
+    _track(_stage);
   }
 
   _Stage get _stage => _stages[_index];
@@ -56,6 +58,7 @@ class _MirrorJourneyState extends State<MirrorJourney> {
   void _next() {
     if (_index < _stages.length - 1) {
       setState(() => _index++);
+      _track(_stage);
     } else {
       Navigator.of(context).maybePop();
     }
@@ -63,6 +66,29 @@ class _MirrorJourneyState extends State<MirrorJourney> {
 
   void _restart() {
     setState(() => _index = 0);
+    ProductValidation.tracker.journeyRestarted();
+    _track(_stage);
+  }
+
+  /// Phase A — record the stage the user just reached.
+  void _track(_Stage stage) {
+    switch (stage) {
+      case _Stage.currentLife:
+        ProductValidation.tracker.insightViewed();
+        break;
+      case _Stage.prediction:
+        ProductValidation.tracker.predictionViewed();
+        break;
+      case _Stage.decision:
+        ProductValidation.tracker.decisionViewed();
+        break;
+      case _Stage.conversation:
+        ProductValidation.tracker.askMoreViewed();
+        break;
+      case _Stage.reflection:
+        ProductValidation.tracker.reflectionViewed();
+        break;
+    }
   }
 
   @override
