@@ -57,6 +57,7 @@ sessions and developers should consult this before reopening any settled decisio
 | D-057 | Canon Provenance Policy — reference-only citations (book = Canon Reference; never store copyrighted narrative; extraction stops seeding verbatim quote; `missing_citation`/`hasCitation` require a book reference not a quote; DB warns only on no-provenance; checklist "verbatim"→"faithful structured knowledge"; no model redesign; engine frozen; no deploy) | 2026-06 | Accepted |
 | D-058 | Canon Atomic Knowledge Foundation V2 (Statement→Atomic Knowledge; pure-Dart `canon/atomic/`: `AtomicKnowledgeUnit` one-fact subject→relation→object + condition/effect/strength/confidence + reference evidence; relation/entity/domain vocabulary; `AtomicExtractionRules` reject narrative & enforce atomicity; `AtomicKnowledgeGraph` first-class relationships; deterministic `CanonCompletenessReport` domain coverage; no redesign/engine/UI/runtime change; no deploy) | 2026-06 | Accepted |
 | D-059 | Canon Ontology Foundation V3 (Canonical Ontology Layer; pure-Dart `canon/ontology/`: `CanonicalEntity` id/canonicalName/category/aliases/description/parentId/status, id convention `<category>.<slug>`; `CanonicalOntology` deterministic alias resolution (unknown/ambiguous unresolved), relationship registry superset of V2 `AtomicRelation`, domain taxonomy; deterministic `OntologyValidationReport` dup ids/alias collisions/unregistered rel/category mismatch/orphans/cycles; seeded `CanonOntologyData.standard` vocabulary only; graph logic untouched; no redesign/engine/UI/runtime change; no deploy) | 2026-06 | Accepted |
+| D-060 | Canon Knowledge Extraction Workspace V4 (only supported Canon ingestion path; pure-Dart `canon/workspace/`: `KnowledgeExtractionSession` deterministic lifecycle Draft→Extracting→Validated→Reviewed→Approved→Imported→Archived; `ExtractionSource` provenance-only page tracking; `WorkspaceValidator` catches every failure class (atomicity/ontology/relationship/evidence/duplicate/graph+baseline conflict/coverage); `KnowledgeDiff` NEW/UPDATED/UNCHANGED/CONFLICT/DEPRECATED; `CompletenessDelta` before/after report (conflicts not applied); `ReviewReport` deterministic structured non-narrative gate; consumes atomic+ontology read-only, no engine depends on it; no redesign/engine/UI/runtime change; no deploy) | 2026-06 | Accepted |
 
 ---
 
@@ -1846,6 +1847,43 @@ sessions and developers should consult this before reopening any settled decisio
   analyze` clean.
 - **Related documents:** `THAI_CANON_ONTOLOGY_V3.md`,
   `THAI_CANON_ATOMIC_KNOWLEDGE_V2.md`, `THAI_MAHABHUT_CANON_STYLE_GUIDE.md`.
+
+---
+
+## D-060 — Canon Knowledge Extraction Workspace V4
+
+- **Date:** 2026-06 · **Status:** Accepted · Workspace only · Engine frozen · **No deploy**
+- **Context:** Atomic Knowledge (D-058) + Canonical Ontology (D-059) needed a
+  production workflow. The workspace becomes the **only supported path** for
+  adding Canon knowledge: Book Page → Extraction Workspace → Atomic Knowledge
+  Units → Ontology Validation → Knowledge Graph Validation → Review → Canon
+  Database. Nothing enters Canon directly.
+- **Decision:** Add a pure-Dart workspace package
+  (`lib/features/astrology/thai/knowledge/canon/workspace/`):
+  `KnowledgeExtractionSession` with a deterministic lifecycle (Draft → Extracting
+  → Validated → Reviewed → Approved → Imported → Archived); `ExtractionSource`
+  (provenance only: book/edition/chapter/page range/reviewer/date/progress);
+  `WorkspaceValidator` → deterministic report catching every failure class
+  (atomicity, ontology-unresolved subject/object, relationship registration,
+  evidence reference, duplicate knowledge, graph conflicts incl. baseline
+  conflict, coverage impact); `KnowledgeDiff` (NEW/UPDATED/UNCHANGED/CONFLICT/
+  DEPRECATED — never overwrite Canon blindly); `CompletenessDelta` (before/after
+  `CanonCompletenessReport`, conflicts not applied); and `ReviewReport` (a
+  deterministic, structured, non-narrative decision surface gating
+  `readyForImport`).
+- **Reason:** A single auditable, deterministic ingestion path keeps Canon
+  consistent and reviewable, and prevents direct/blind writes.
+- **Boundary:** No architecture redesign, no new engine, no UI, no runtime
+  behaviour change. The workspace consumes the atomic + ontology layers
+  read-only; no engine may depend on it. Untouched: Ontology, Knowledge Graph
+  logic, Atomic Knowledge, Rule Engine, Timeline, Prediction, Decision, Runtime,
+  Mirror, Conversation, Fusion, `PlanetRelationshipMatrix`. Not deployed.
+- **Impact:** Additive `workspace/` layer + 14 tests
+  (`thai_canon_workspace_test.dart`); full canon suite (109) green; `flutter
+  analyze` clean.
+- **Related documents:** `THAI_CANON_KNOWLEDGE_EXTRACTION_WORKSPACE_V4.md`,
+  `THAI_CANON_ONTOLOGY_V3.md`, `THAI_CANON_ATOMIC_KNOWLEDGE_V2.md`,
+  `THAI_MAHABHUT_CANON_EXTRACTION_V2_RUNBOOK.md`.
 
 ---
 

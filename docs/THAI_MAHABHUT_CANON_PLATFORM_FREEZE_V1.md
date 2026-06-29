@@ -131,13 +131,19 @@ without redesigning that platform or touching any frozen engine:
   (`canon/ontology/`) — stable entity ids, deterministic alias resolution, a
   relationship registry (superset of the V2 graph relations) and a domain
   taxonomy. No package may invent entity or relationship names.
+- **Knowledge Extraction Workspace V4 (D-060):** the **only supported path** for
+  adding Canon knowledge (`canon/workspace/`) — `KnowledgeExtractionSession`
+  lifecycle, `WorkspaceValidator`, `KnowledgeDiff`, `CompletenessDelta` and
+  `ReviewReport`. Consumes the atomic + ontology layers read-only; no engine
+  depends on it.
 
-Both are additive, pure-Dart knowledge-layer packages with no engine/runtime/UI
-dependency. See `THAI_CANON_ATOMIC_KNOWLEDGE_V2.md` and
-`THAI_CANON_ONTOLOGY_V3.md`.
+These are additive, pure-Dart knowledge-layer packages with no engine/runtime/UI
+dependency. See `THAI_CANON_ATOMIC_KNOWLEDGE_V2.md`, `THAI_CANON_ONTOLOGY_V3.md`
+and `THAI_CANON_KNOWLEDGE_EXTRACTION_WORKSPACE_V4.md`.
 
 ---
 
 **Conclusion:** Canon Platform = Production Ready and **FROZEN**. Subsequent work
-is Content Engineering only, under the reference-only provenance policy (D-057),
-the Atomic Knowledge model (D-058) and the Canonical Ontology vocabulary (D-059).
+is Content Engineering only, performed through the Knowledge Extraction Workspace
+(D-060), under the reference-only provenance policy (D-057), the Atomic Knowledge
+model (D-058) and the Canonical Ontology vocabulary (D-059).

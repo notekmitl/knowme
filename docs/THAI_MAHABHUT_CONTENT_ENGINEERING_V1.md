@@ -26,6 +26,15 @@ every unit traceable to the book.
 > resolution; unknown/ambiguous terms stay unresolved (never guessed) and signal a
 > missing ontology entry. No new entity or relationship names may be invented
 > outside the ontology. See `THAI_CANON_ONTOLOGY_V3.md`.
+>
+> **Updated by Extraction Workspace V4 (D-060):** the **only supported path** for
+> adding Canon knowledge is now the Knowledge Extraction Workspace
+> (`canon/workspace/`). Work happens inside a `KnowledgeExtractionSession`
+> (Draft→Extracting→Validated→Reviewed→Approved→Imported→Archived); the
+> `WorkspaceValidator`, `KnowledgeDiff` (NEW/UPDATED/UNCHANGED/CONFLICT/DEPRECATED)
+> and `ReviewReport` (with `CompletenessDelta`) are the review surface, and
+> `readyForImport` gates entry into the Canon database. Nothing enters Canon
+> directly. See `THAI_CANON_KNOWLEDGE_EXTRACTION_WORKSPACE_V4.md`.
 
 ---
 
