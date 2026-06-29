@@ -57,6 +57,14 @@ every unit traceable to the book.
 > outcomes verified through the real Workspace pipeline. Treat a golden mismatch
 > as a behavioural regression: investigate before changing fixtures. See
 > `THAI_CANON_GOLDEN_DATASET_V1.md`.
+>
+> **Working Source Adapter V1 (D-064):** the source no longer has to be a pre-made
+> TXT file. Load PDF / page images / OCR text / plain text through the **Working
+> Source Adapter** (`canon/working_source/`) — a *temporary* layer that supplies
+> deterministic Working Pages to the reviewer and a provenance-only
+> `ExtractionSource` per page. It is never Canon (only book/edition/chapter/page
+> survive) and is discarded after authoring. No automatic extraction, no AI. See
+> `THAI_CANON_WORKING_SOURCE_ADAPTER_V1.md`.
 
 ---
 

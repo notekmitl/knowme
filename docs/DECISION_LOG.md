@@ -61,6 +61,7 @@ sessions and developers should consult this before reopening any settled decisio
 | D-061 | Canon Knowledge Production V1 (production begins; source book absent so facts left **Unknown**, none fabricated; ontology seeded 12 houses + `meaning`/`role`/`keyword` categories; Canon-compatible fix adds `element`/`keyword`/`role` to `AtomicEntityKind`; content-tier deterministic `KnowledgeProductionReport` `canon/production/` over imported atomic units (6 V1 domains, all-atomic/provenance/coverage); empty `foundation_v1.knowme.json`; knowledge enters only via workspace; no engine/runtime/matrix/UI change; no deploy) | 2026-06 | Accepted |
 | D-062 | Canon Knowledge Authoring Studio V1 (human editing layer before the Workspace; pure-Dart `canon/authoring/`: `DraftKnowledgeUnit` editable atomic mirror (no narrative); `OntologyAssist` resolved/missingOntology/unknown, never auto-creates; `AuthoringStudio` deterministic batch edit add/duplicate/split/merge/delete/reorder (stays atomic), deterministic ids, validation **preview reuses `WorkspaceValidator`/`ReviewReport`**, export/import reproduces identical draft; authoring only, consumes workspace+ontology+atomic read-only; no engine/runtime/matrix/UI change; no deploy) | 2026-06 | Accepted |
 | D-063 | Golden Canon Dataset V1 (QA regression suite; pure-Dart `canon/golden/`: `GoldenDataset`+`GoldenExpectation` declared deterministic outcome, deterministic `versionTag`+FNV-1a `fingerprint`; `GoldenVerifier` drives the **real** pipeline (`WorkspaceValidator`/`KnowledgeDiff`/`CompletenessDelta`/`ReviewReport`, no logic reimplemented) and reports field mismatches; 10 fixtures (minimal/single planet/single house/planet+house/conflict/duplicate/ontology failure/relationship failure/coverage increase/deprecated); deterministic `GoldenReport`; QA only, synthetic structural fixtures, no copyrighted text, no invented facts; no engine/runtime/matrix/UI change; no deploy) | 2026-06 | Accepted |
+| D-064 | Canon Working Source Adapter V1 (temporary source material for the Authoring Studio; pure-Dart `canon/working_source/`: one `WorkingSource` interface over `Txt`/`Ocr`/`Pdf`/`Image` adapters normalised to identical `WorkingPage`s by one deterministic paginator; studio consumes only the interface via provenance-only `ExtractionSource`; **temporary/never Canon** — only book/edition/chapter/page survive, `dispose` discards prose and Canon stays intact; no automatic extraction, no AI, no runtime/engine/ontology change, no workspace redesign; no deploy) | 2026-06 | Accepted |
 
 ---
 
@@ -1989,6 +1990,40 @@ sessions and developers should consult this before reopening any settled decisio
 - **Related documents:** `THAI_CANON_GOLDEN_DATASET_V1.md`,
   `THAI_CANON_KNOWLEDGE_EXTRACTION_WORKSPACE_V4.md`,
   `THAI_CANON_KNOWLEDGE_AUTHORING_STUDIO_V1.md`.
+
+---
+
+## D-064 — Canon Working Source Adapter V1 (temporary source material)
+
+- **Date:** 2026-06 · **Status:** Accepted · Adapter layer only · Engine + platform frozen · **No deploy**
+- **Context:** Knowledge production required Canon sources to already exist as TXT
+  files. Reviewers also have PDFs, page images and OCR output. We need to feed
+  that temporary material to the Authoring Studio without persisting copyrighted
+  prose and without redesigning any frozen layer.
+- **Decision:** Add a pure-Dart **Working Source** layer
+  (`lib/features/astrology/thai/knowledge/canon/working_source/`): one common
+  `WorkingSource` interface (`pages()`, `page()`, `extractionSourceForPage()`,
+  `dispose()`) over four adapters — `TxtWorkingSource`, `OcrWorkingSource`,
+  `PdfWorkingSource`, `ImageWorkingSource` — all normalised to identical
+  `WorkingPage`s by one deterministic paginator. The Authoring Studio consumes
+  only the interface (via a provenance-only `ExtractionSource`), never a concrete
+  file type.
+- **Reason:** Removes the TXT-only constraint while keeping the platform frozen
+  and provenance reference-only.
+- **Boundary:** Adapter only — no automatic extraction, no AI, no runtime/engine/
+  ontology change, no workspace redesign, no deploy. Working Sources are
+  **temporary**: only book/edition/chapter/page references survive (D-057);
+  `ExtractionSource` has no text field, so prose cannot cross into Canon; `dispose`
+  discards everything and Canon stays intact. Untouched: Atomic Knowledge,
+  Ontology, Knowledge Graph, Workspace, Authoring Studio, Golden Dataset, Rule
+  Engine, Prediction, Timeline, Decision, Runtime, Mirror, Conversation, Fusion,
+  `PlanetRelationshipMatrix`.
+- **Impact:** Additive `working_source/` layer + 10 tests
+  (`thai_canon_working_source_test.dart`); full canon suite (158) green; `flutter
+  analyze` clean.
+- **Related documents:** `THAI_CANON_WORKING_SOURCE_ADAPTER_V1.md`,
+  `THAI_CANON_KNOWLEDGE_AUTHORING_STUDIO_V1.md`,
+  `THAI_MAHABHUT_CANON_EXTRACTION_V2_RUNBOOK.md`.
 
 ---
 
