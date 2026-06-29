@@ -50,6 +50,48 @@ Each layer consumes the output of the layer above. Downstream layers do not bypa
 
 ---
 
+## Layer 1.5 — Birth Normalization (single birth-input layer)
+
+**Owner:** `lib/features/birth_normalization/`
+
+Sits **before** every astrology engine. Turns raw user birth information into one
+normalized artifact so all systems share resolved location/timezone/calendar and
+(for Thai) a real sunrise day boundary.
+
+```
+RawBirthInput
+      ↓ BirthNormalizer (pure, deterministic)
+NormalizedBirth
+  ├─ location (BirthLocation)        explicit coords → province → country → Bangkok
+  ├─ timeZone (BirthTimeZone)        id → fixed UTC offset (no-DST region)
+  ├─ calendar (BirthCalendar)        Gregorian
+  ├─ sunrise  (SunriseCalculator)    location-, season-, timezone-aware (no 06:00)
+  ├─ thai     (ThaiBirthContext)     astrologicalDate = prev day if before sunrise
+  ├─ western  (WesternBirthContext)  exact instant, no day shift
+  ├─ bazi     (BaZiBirthContext)     placeholder, not implemented
+  └─ reasons  (BirthNormalizationReason[])  every choice, traceable
+```
+
+**Contract:** engines consume `NormalizedBirth`, never `RawBirthInput`. The
+**Thai pipeline is migrated** (D-036) and **cleaned up** (D-037):
+
+```
+RawBirthInput → BirthNormalizer → NormalizedBirth → ThaiEngineAdapter → ThaiBirthData → Thai Engine
+```
+
+**Ownership:** Birth Normalization owns **all** adapters — including
+`ThaiEngineAdapter` (`.../birth_normalization/application/adapters/`), the single
+seam that maps a `ThaiBirthContext` / profile to the engine model. Thai owns
+**only** its engine model `ThaiBirthData` (a pure data class with no knowledge of
+normalization). Both production loaders (`UserProfileBirthLoader`,
+`FirestoreAstrologyFusionLensProbe`) route through `ThaiEngineAdapter` — no
+duplicated parsing/timezone logic. `localDateTime` keeps the exact civil instant
+(lagna + verified-lunar lookup); `astrologicalDate` carries the sunrise boundary.
+`ThaiDayBoundary` is a deprecated shim over `SunriseCalculator` (no hardcoded
+06:00). Western/BaZi paths are documented follow-up. See `BIRTH_NORMALIZATION.md`.
+
+---
+
 ## Layer 2 — Lens Systems
 
 Lens systems convert raw user data into **domain-specific signals and snapshots**. Each lens is independently usable; none is authoritative alone.
@@ -90,6 +132,20 @@ ThaiBirthData (Firestore profile or QA harness)
 |---------|-------|
 | Birth → profile foundation | `lib/features/astrology/thai/foundation/` |
 | Life-period engine (V8) | `lib/features/astrology/thai/core/life_period/` |
+| Knowledge foundation (read-only evidence over the frozen rules) | `lib/features/astrology/thai/knowledge/` |
+| Knowledge data (data-driven, V2) | `knowledge/planet_relationships/` (JSON; Flutter asset) |
+| Knowledge research (V3, engine/matrix-independent) | `lib/features/astrology/thai/knowledge/research/`, data `knowledge/research/` |
+| Knowledge evidence + linking (V4) | `lib/features/astrology/thai/knowledge/evidence/`, data `knowledge/evidence/` |
+| Source collection (V7) | `lib/features/astrology/thai/knowledge/sources/`, data `knowledge/sources/` |
+| Consensus engine (V8) | `lib/features/astrology/thai/knowledge/consensus/` |
+| Matrix review proposal (V9) | `lib/features/astrology/thai/knowledge/review/` |
+| Canonical knowledge layer (Canon V1) | `lib/features/astrology/thai/knowledge/canon/`, data `knowledge/canon/` — Tier ladder + "Canon always wins" + `หลักมหาภูต` book-ingestion skeleton |
+| Mahabhut Canon Database (Canon Extraction V1) | `lib/features/astrology/thai/knowledge/canon/database/`, data `knowledge/canon/` — multi-book Book→Chapter→Section→Topic→Unit DB + manifest system + extraction pipeline + traceability + validation layer (structure only) |
+| Mahabhut Ingestion Toolchain (V1) | `lib/features/astrology/thai/knowledge/canon/ingestion/` + CLI `tool/canon_ingest.dart` — pure-Dart import/extract(Candidates)/validate/approve/diff/QA/metrics; restructures provided text only, promotes to the Canon Database |
+| Mahabhut Content Engineering (V1) | reviewer aids in `ingestion/` (review assistant + checklist, coverage analysis, consistency checker) + Reviewer Workspace `lib/features/knowledge_workspace/canon_review/` (route `/internal/knowledge/canon-review`, admin-guarded); read-only, composes the toolchain |
+| Canon shared util | `canon/canon_json.dart` — single decode-helper leaf (`canonEnumByName`/`canonStringList`), no imports; used by root engine + database + ingestion |
+| **Canon Platform Freeze (V1)** | `docs/THAI_MAHABHUT_CANON_PLATFORM_FREEZE_V1.md`, D-056 — platform **FROZEN**/Production Ready; deps verified (leaf → database → ingestion, no cycles/leakage); future work = Content Engineering only |
+| Canon Atomic Knowledge (V2) | `canon/atomic/` (D-058) — `AtomicKnowledgeUnit` (one fact: subject→relation→object + condition/effect/strength/confidence + reference evidence), relation/entity/domain vocabulary, `AtomicExtractionRules` (reject narrative), `AtomicKnowledgeGraph` (first-class relations), deterministic `CanonCompletenessReport`; pure Dart, no engine/runtime |
 | Pipeline orchestration | `lib/features/astrology/thai/mirror/runtime/thai_mirror_pipeline.dart` |
 | Structural assembly | `lib/features/astrology/thai/mirror/` |
 | Consumer copy + timeline | `lib/features/astrology/thai/mirror/presentation/` (copy/, timeline/) |
@@ -98,6 +154,91 @@ ThaiBirthData (Firestore profile or QA harness)
 A parallel **V2 structural stack** (`foundation/v2/` → `signal/` → `interpretation/`
 → `theme_v2/` → `mirror_v2/` → `fusion_v2/`) exists for validation/fusion work and
 is **not** wired into the consumer pipeline today.
+
+The **knowledge foundation** (`lib/.../thai/knowledge/`, D-043) is a read-only
+evidence layer that records the provenance of the frozen rules. V1 covered Planet
+Relationship only. As of **V2** (D-044) it is **data-driven**: records are loaded
+from JSON (`knowledge/planet_relationships/`, a registered Flutter asset) by
+`PlanetRelationshipKnowledgeImporter`, which validates the data (schema, missing
+fields, unknown enums, duplicates, broken references, matrix-consistency,
+coverage) and produces a Knowledge Import Report — no hardcoded records. It
+changes no engine behaviour and is not in any runtime/consumer path — see
+[`THAI_KNOWLEDGE_IMPORTER_V2.md`](THAI_KNOWLEDGE_IMPORTER_V2.md).
+
+The **knowledge research** layer (`knowledge/research/`, V3/D-045) collects
+primary-source references (books/authors/schools/quotes) that support planet
+relationships, via `KnowledgeResearchEngine` (group/evidence/conflict/coverage).
+It is deliberately **independent of the engine and the matrix** (planets/relations
+are plain strings) — see [`THAI_KNOWLEDGE_RESEARCH_V3.md`](THAI_KNOWLEDGE_RESEARCH_V3.md).
+**V4** (D-046) adds `EvidenceRecord` + `KnowledgeEvidenceEngine`
+(`knowledge/evidence/`): research records reference citable evidence by
+`evidenceIds` (many-to-many) instead of embedding source fields; the engine
+links the corpora and audits duplicates/broken-links/orphans/coverage — see
+[`THAI_KNOWLEDGE_EVIDENCE_LINKING_V4.md`](THAI_KNOWLEDGE_EVIDENCE_LINKING_V4.md).
+
+#### Thai Astrology Research (public validation surface, `lib/features/thai_beta/`)
+
+A standalone product-validation surface that **reuses** the consumer report above —
+it adds no astrology pipeline and no runtime/reasoning change:
+
+```
+ThaiBetaInput (public form, /beta/thai)
+  → RawBirthInput → BirthNormalizer → ThaiEngineAdapter   (the normalization seam)
+  → ThaiMirrorPipeline → ThaiMirrorResultPage             (the existing report)
+  → "ข้อมูลที่ใช้คำนวณ" debug panel + structured feedback
+  → ThaiBetaStore.save → thai_beta_feedback               (with researchId, hashes, timing)
+```
+
+| Concern | Owner |
+|---------|-------|
+| Input → report runner | `thai_beta/application/thai_beta_analysis.dart` |
+| Firestore persistence + sequential research id | `thai_beta/application/thai_beta_store.dart` |
+| Dashboard aggregates (pure) | `thai_beta/application/thai_beta_dashboard.dart` |
+| Admin gate (fail-closed) | `thai_beta/application/thai_research_admin_access.dart`, `thai_beta/presentation/admin/thai_research_admin_guard.dart` |
+| Report fingerprint (SHA-256) | `thai_beta/domain/thai_beta_report_hash.dart` |
+
+**Security model (repo-managed, see `firestore.rules`):** existing data stays
+owner-only under `users/{uid}/**`; `thai_beta_feedback` allows public, validated
+**create** but **admin-only read**; a bounded `counters/thai_research` (+1-only)
+backs sequential `researchId`s (`TH-00000001`); admins are an explicit
+`admins/{uid}` allow-list, enforced both by the rules and by
+`ThaiResearchAdminGuard` on `/internal/thai-beta`. Saves never fail silently — the
+store returns a success/error result and the UI shows the Reference ID or a retry.
+
+The same `ThaiResearchAdminGuard` gates the **Knowledge Workspace**
+(`/internal/knowledge`, V5/D-047, `lib/features/knowledge_workspace/`) — a
+read-only researcher surface that browses the knowledge/research/evidence layers
+(V1–V4), filters by school/author/book/relationship/status/planet, and shows
+per-relationship detail (current matrix · research · evidence · conflicts). It
+depends on the knowledge layer only (no runtime/prediction) — see
+[`THAI_KNOWLEDGE_WORKSPACE_V5.md`](THAI_KNOWLEDGE_WORKSPACE_V5.md).
+
+The same guard gates the **Knowledge Acquisition Dashboard**
+(`/internal/knowledge/acquire`, V6/D-048,
+`lib/features/knowledge_workspace/acquisition/`) — a JSON-only workbench to
+populate the platform gradually. `KnowledgeAcquisitionEngine`/`Session` validate
+→ preview → apply → rollback batches (`evidence[]` + `research[]`), classify each
+record (imported/updated/skipped/error) and detect conflicts, emitting an Import
+Report; `toAssetJson()` exports the merged corpus to commit back to the repo. It
+**never modifies the `PlanetRelationshipMatrix`** (merges only the research +
+evidence corpora) — see
+[`THAI_KNOWLEDGE_ACQUISITION_V6.md`](THAI_KNOWLEDGE_ACQUISITION_V6.md).
+
+On top of the knowledge platform sits an **evidence → consensus → review**
+pipeline, all knowledge-layer and matrix-independent: **V7** (D-049) collects
+real sources (`knowledge/sources/`, one JSON per source with cited
+`from→to→relation→page→quote` assertions; `KnowledgeSourceEngine` validates and
+reports source coverage); **V8** (D-050) `KnowledgeConsensusEngine` counts
+friend/enemy/neutral votes per directed relationship and classifies agreement
+(consensus/majority/split/disputed) with a source-count confidence; **V9**
+(D-051) `MatrixReviewEngine` produces a **proposal only** — per relationship the
+current matrix value (read from the V2 mirror, never the engine), consensus,
+supporting/conflicting sources, user research, and a Keep/Review/Replace
+recommendation plus an engine-impact estimate. None of these read or modify the
+`PlanetRelationshipMatrix`; acting on a review is a separate human-gated step.
+See [`THAI_SOURCE_COLLECTION_V7.md`](THAI_SOURCE_COLLECTION_V7.md),
+[`THAI_CONSENSUS_ENGINE_V8.md`](THAI_CONSENSUS_ENGINE_V8.md),
+[`THAI_MATRIX_REVIEW_V9.md`](THAI_MATRIX_REVIEW_V9.md).
 
 The Thai lens also exposes a **deterministic reasoning stack** built additively on
 the life-period engine: Timeline Intelligence (V9) → Prediction (V10) → Decision
@@ -204,6 +345,95 @@ Internal dashboard  (/internal/product-validation — not linked from any user s
 Events are in-memory (read by the internal dashboard in-session); a persistent
 sink can be added behind the tracker without changing callers. See
 `PRODUCT_VALIDATION.md`.
+
+### Home V4 (Phase B — Mirror Experience as the emotional entry)
+
+**Owner:** `lib/features/mirror_experience/ui/mirror_home_section.dart` (+
+wiring in `lib/features/home_cohesion/presentation/home_screen_v3.dart` and
+`lib/presentation/pages/home/home_page.dart`)
+
+Phase B makes the Mirror Experience the **default emotional entry of Home** —
+not a hidden route. An embeddable `MirrorHomeSection` reuses the exact P3 cards
+(no duplicated UI) and reveals them inline inside the Home scroll:
+
+```
+HomePage (→ HomeScreenV3)
+        ↓ birth date available?
+  yes → MirrorHomeSection  (Current Life → Prediction → Decision → Conversation → Reflection, revealed inline)
+  no  → HomeHeroSection    (legacy hero / unlock onboarding preserved)
+        ↓ below the entry (unchanged)
+  HomeAstrologySummaryCard → Psychology → Compact Profile
+```
+
+`HomePage` derives the birth date from its already-loaded source bundle
+(`profileFields['birthDate']`) — no new loader, no extra Firestore read. The
+section consumes the **`FusionRuntime` only** (via `MirrorExperienceRuntime`)
+and still emits the Phase A telemetry (session/home/journey + per-stage views),
+so Product Validation continues to work. The frozen Runtime and the full-page
+`MirrorJourney`/`/mirror-experience` route are untouched. See `HOME_V4.md`.
+
+### Daily Mirror (Phase C — Home becomes "Today")
+
+**Owner:** `lib/features/mirror_experience/ui/daily_mirror_section.dart`
+(+ `MirrorExperienceService.daily()`)
+
+Phase C turns the Home emotional entry into a **daily life read** rather than a
+stage tour. `DailyMirrorSection` replaces the Phase B `MirrorHomeSection` and
+shows "Today": three life-guidance messages, one suggested step, one
+conversation entry — Prediction / Decision / Timeline never appear as concepts.
+
+```
+HomeScreenV3 (birth date present)
+        ↓
+DailyMirrorSection
+        ↓  MirrorExperienceService.daily()  (reuses evaluate + predict + decide reads)
+   Today · clarity
+   ├─ Today's opening   (opportunity ← strongest forward area)
+   ├─ Go gently with    (caution    ← most tender area)
+   ├─ Worth your focus  (focus      ← decision focus + lean)
+   ├─ One small step     (action     ← decision lean)
+   ├─ What this is based on  (expandable evidence — MirrorWhyTile)
+   ├─ Something on your mind? → MirrorConversationEntry (inline)
+   └─ See the fuller reflection → MirrorHome (secondary, full journey)
+```
+
+`daily()` composes the **existing** current-life / forward / decision fusion
+reads — no new runtime, provider, capability or AI. Telemetry adds
+`dailyMirrorOpened`, `dailyActionClicked`, `dailyConversationStarted` and reuses
+`evidenceExpanded`; the section also fires the internal stage events so the
+Phase A funnel stays coherent. See `DAILY_MIRROR_PHASE_C.md`.
+
+### Daily Habit Loop (Phase D — make it a daily habit)
+
+**Owner:** `lib/features/mirror_habit/`
+
+Phase D closes the daily loop — **Open → Read → Take Action → Reflect → Return
+Tomorrow** — without any new reasoning, AI or astrology. It persists a compact,
+non-astrology snapshot of each day (tones + area keys + clarity + the loop flags)
+and derives the habit views deterministically.
+
+```
+DailyMirrorSection  (Open / Read / Take Action / Reflect)
+        ↓ records open → action → reflect
+MirrorHabitStore          (users/{uid}/mirror_daily/{dateKey}; lazy + null-uid no-op)
+        ↓ MirrorDayRecord[]
+MirrorHabitEngine  →  MirrorHabitSnapshot
+        ├─ MirrorStreak            (consecutive days, grace day, longest)
+        ├─ MirrorComparison        (Yesterday vs Today: focus + clarity shift)
+        ├─ MirrorPeriodReflection  (Weekly / Monthly: opens, reflections, tone, area)
+        └─ LifeTrend               (rising / steady / easing over ~30d)
+        ↓
+MirrorHabitSection  (streak · last-7 strip · yesterday · reflect · weekly/monthly · trend · return-tomorrow)
+
+MirrorHabitEngine.metrics()  →  internal dashboard Daily-Habit panel
+   (current/longest streak, 7-/30-day retention, sessions/week, reflection rate)
+```
+
+The engine is pure (`MirrorHabitEngine` over `MirrorDayRecord`); persistence is a
+swappable seam (`MirrorHabitStore` → `FirestoreMirrorHabitStore` /
+`InMemoryMirrorHabitStore`, default `MirrorHabit.store`). The Daily Mirror read
+itself is unchanged — Phase D only adds a store hook and a section. One new
+telemetry event, `dailyReflectionSaved`. See `DAILY_HABIT_PHASE_D.md`.
 
 ---
 

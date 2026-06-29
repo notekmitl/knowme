@@ -36,6 +36,26 @@ sessions and developers should consult this before reopening any settled decisio
 | D-017 | Documentation governance (index + classification + alignment) | 2026-06 | Accepted |
 | D-018 | Freeze policy (maintenance-only + additive exceptions) | 2026-06 | Accepted |
 | D-019 | Thai Life Timeline Intelligence V9 (evidence-only relationship/period intelligence) | 2026-06 | Accepted |
+| D-035 | Birth Normalization Foundation (single birth-input layer; sunrise boundary) | 2026-06 | Accepted |
+| D-036 | Thai pipeline consumes Birth Normalization (migration; single source of truth) | 2026-06 | Accepted |
+| D-037 | Birth architecture cleanup (Normalization owns adapters; Thai owns engine models) | 2026-06 | Accepted |
+| D-042 | Thai astrological date consistency + 77-province database | 2026-06 | Accepted |
+| D-043 | Thai Astrology Knowledge Foundation V1 (traceable evidence over the frozen matrix) | 2026-06 | Accepted |
+| D-044 | Thai Astrology Knowledge Importer V2 (data-driven knowledge; JSON + importer) | 2026-06 | Accepted |
+| D-045 | Thai Astrology Knowledge Research Infrastructure V3 (primary-source research layer; engine/matrix-independent) | 2026-06 | Accepted |
+| D-046 | Thai Astrology Knowledge Evidence Linking V4 (evidence records; research references evidenceIds) | 2026-06 | Accepted |
+| D-047 | Thai Astrology Research Workspace V5 (read-only admin knowledge workspace; deployed) | 2026-06 | Accepted |
+| D-048 | Thai Astrology Knowledge Acquisition V6 (admin JSON-import workbench: validate/preview/apply/rollback + Import Report; matrix never modified; no deploy) | 2026-06 | Accepted |
+| D-049 | Thai Astrology Source Collection V7 (one JSON per real source with cited assertions; validation + Source Coverage Report; knowledge only) | 2026-06 | Accepted |
+| D-050 | Thai Astrology Consensus Engine V8 (vote-count agreement between sources; consensus/majority/split/disputed + confidence; matrix never read/modified) | 2026-06 | Accepted |
+| D-051 | Thai Astrology Matrix Review V9 (proposal-only review of the frozen matrix vs evidence; Keep/Review/Replace + engine-impact estimate; no code change) | 2026-06 | Accepted |
+| D-052 | Thai Astrology Canon V1 (Canonical Knowledge Architecture: Tier ladder + canonical-knowledge nodes + "Canon always wins" resolver + หลักมหาภูต book-ingestion skeleton; engine/matrix frozen; no deploy) | 2026-06 | Accepted |
+| D-053 | Thai Astrology Mahabhut Canon Extraction V1 (multi-book Canon Database: Book→Chapter→Section→Topic→Unit + Evidence/CrossRef/SourceRef + manifest system + extraction pipeline + traceability + validation layer; structure only, no extraction; V1-compatible; engine frozen; no deploy) | 2026-06 | Accepted |
+| D-054 | Thai Astrology Mahabhut Ingestion Toolchain V1 (pure-Dart toolchain + CLI: import pipeline OCR/txt/md → extraction to Candidates → validation → approval workflow → promote to Canon DB; diff/QA/metrics; restructures provided text only, no fabricated knowledge; engine frozen; no deploy) | 2026-06 | Accepted |
+| D-055 | Thai Astrology Mahabhut Content Engineering V1 (human-review layer: reviewer workspace `/internal/knowledge/canon-review` behind admin guard + review assistant/highlights + checklist + coverage analysis + consistency checker + style guide + review checklist; read-only aids, compose existing toolchain, no fabricated knowledge; engine frozen; no deploy) | 2026-06 | Accepted |
+| D-056 | Thai Astrology Canon Platform Freeze V1 (platform FROZEN + Production Ready; full audit; behaviour-preserving fixes only: fixed `canon_json.dart` import build break + consolidated duplicate `_enumByName`/`_stringList` helpers; verified no circular deps / layer leakage; future work = Content Engineering only; engine frozen; no deploy) | 2026-06 | Accepted |
+| D-057 | Canon Provenance Policy — reference-only citations (book = Canon Reference; never store copyrighted narrative; extraction stops seeding verbatim quote; `missing_citation`/`hasCitation` require a book reference not a quote; DB warns only on no-provenance; checklist "verbatim"→"faithful structured knowledge"; no model redesign; engine frozen; no deploy) | 2026-06 | Accepted |
+| D-058 | Canon Atomic Knowledge Foundation V2 (Statement→Atomic Knowledge; pure-Dart `canon/atomic/`: `AtomicKnowledgeUnit` one-fact subject→relation→object + condition/effect/strength/confidence + reference evidence; relation/entity/domain vocabulary; `AtomicExtractionRules` reject narrative & enforce atomicity; `AtomicKnowledgeGraph` first-class relationships; deterministic `CanonCompletenessReport` domain coverage; no redesign/engine/UI/runtime change; no deploy) | 2026-06 | Accepted |
 
 ---
 
@@ -813,6 +833,983 @@ sessions and developers should consult this before reopening any settled decisio
   `EXECUTIVE_SUMMARY.md`.
 - **Related implementation:** `lib/features/product_validation/`,
   `test/validation/product_validation_phase_a/`.
+
+## D-032 — Home V4 (Mirror Experience as the emotional entry)
+
+- **Date:** 2026-06 · **Status:** Accepted
+- **Context:** The Mirror Experience (P3) shipped behind a hidden route
+  (`/mirror-experience`). Production Home (V3: `HomePage` → `HomeScreenV3`) still
+  led with the legacy `HomeHeroSection`. Phase B needs to make the Mirror
+  Experience the default emotional entry of Home **without redesigning the
+  Runtime or the Mirror Experience**, reusing the existing Mirror widgets and
+  keeping Phase A telemetry working.
+- **Decision:** Add an **embeddable** `MirrorHomeSection`
+  (`lib/features/mirror_experience/ui/`) that reuses the exact P3 cards
+  (`MirrorInsightCard`, `MirrorPredictionCard`, `MirrorDecisionCard`,
+  `MirrorConversationEntry`, `MirrorReflection`) and reveals them inline
+  (Current Life → Prediction → Decision → Conversation → Reflection) inside the
+  Home scroll. `HomeScreenV3` takes an optional `mirrorBirthDate`: when present,
+  the section **replaces** `HomeHeroSection` as the emotional entry; when absent
+  (incomplete profile), the legacy hero / unlock onboarding is preserved.
+  `HomePage` derives the date from its already-loaded source bundle
+  (`profileFields['birthDate']`) — no new loader, no new Firestore read.
+- **Reason:** Make Mirror first-class on Home with the smallest possible change:
+  one new container widget + two optional wiring points. No widget UI is
+  duplicated; the full-page `MirrorJourney`/`MirrorHome` and the
+  `/mirror-experience` route stay intact.
+- **Alternatives considered:** Pushing the full-page `MirrorJourney` from Home
+  (rejected — keeps Mirror "hidden" behind a Begin gate, not on Home);
+  refactoring `MirrorJourney` to render inline (rejected — would redesign the
+  frozen P3 experience and risk its tests); rebuilding Home from scratch as a
+  new page (rejected — large refactor, against minimal-safe-change rule).
+- **Tradeoffs:** `MirrorHomeSection` re-implements the small stage/telemetry
+  orchestration of `MirrorJourney` (the cards themselves are reused), so the two
+  share intent but not the container. Reveal is in-place (cards accumulate on
+  the Home scroll) rather than paged.
+- **Impact:** **No engine, runtime, provider, fusion or Mirror-widget changes.**
+  Additive: one new widget, an optional `mirrorBirthDate` param on
+  `HomeScreenV3`, and a birth-date helper on `HomePage`. Telemetry continues
+  (session/home/journey + per-stage events fire from the section). Home V4,
+  Mirror P3, Phase A, and `HomeScreenV3` tests all pass. **Deploy: yes.**
+- **Related documents:** `HOME_V4.md`, `GLOBAL_MIRROR_EXPERIENCE_P3.md`,
+  `PRODUCT_VALIDATION.md`, `ARCHITECTURE.md`, `ROADMAP.md`.
+- **Related implementation:**
+  `lib/features/mirror_experience/ui/mirror_home_section.dart` (Phase B;
+  superseded by the Daily Mirror in D-033),
+  `lib/features/home_cohesion/presentation/home_screen_v3.dart`,
+  `lib/presentation/pages/home/home_page.dart`,
+  `test/validation/home_v4/`.
+
+## D-033 — Daily Mirror (Home becomes "Today")
+
+- **Date:** 2026-06 · **Status:** Accepted
+- **Context:** Home V4 (D-032) placed the Mirror Experience on Home as a staged
+  walkthrough (`MirrorHomeSection`: Current Life → Prediction → Decision →
+  Conversation → Reflection). Phase C wants Home to feel like a **daily life
+  read**, not a tour of engine stages: a "Today" surface with three key messages
+  (opportunity, caution, focus), one suggested action and one conversation
+  entry — with Prediction / Decision / Timeline hidden as concepts. No new
+  Runtime, Provider or AI.
+- **Decision:** Add a `MirrorDaily` view model + a `MirrorExperienceService.daily()`
+  composer that reuses the existing current-life / forward / decision fusion
+  reads and reframes them as life guidance (no new capability, no new reasoning).
+  A new `DailyMirrorSection` (`lib/features/mirror_experience/ui/`) is the Home
+  emotional entry: today's date + clarity, the three labelled messages, one
+  suggested step, an expandable "what this is based on" (reusing `MirrorWhyTile`),
+  one conversation entry (reusing `MirrorConversationEntry`), and a **secondary**
+  link into the full guided `MirrorHome` journey. `HomeScreenV3` now renders
+  `DailyMirrorSection` in place of `MirrorHomeSection` when a birth date is
+  present; the legacy hero is still the fallback. `MirrorHomeSection` (Phase B)
+  is removed as dead code.
+- **Reason:** Deliver "experience life guidance, not engine outputs" with the
+  smallest change: a composer over existing reads + one new section widget, and
+  a one-line swap on Home.
+- **Alternatives considered:** Keeping the staged `MirrorHomeSection` and just
+  relabelling (rejected — still a stage tour, not a daily read); a new
+  reasoning/daily-forecast engine (rejected — violates no-new-runtime/AI);
+  computing the daily read in the widget (rejected — keep it deterministic and
+  testable in the service).
+- **Tradeoffs:** The Daily Mirror surfaces today's read all at once rather than
+  as a funnel of stages; internally the section still fires the stage telemetry
+  (`insightViewed`/`predictionViewed`/`decisionViewed`) so the Phase A funnel
+  stays coherent, plus four new Daily Mirror signals.
+- **Telemetry:** new `dailyMirrorOpened`, `dailyActionClicked`,
+  `dailyConversationStarted`; evidence expand reuses `evidenceExpanded`. Phase A
+  recorder/engine/dashboard are unchanged (additive events only).
+- **Impact:** **No engine, runtime, provider, fusion or capability changes.**
+  Additive view model + service method + copy + one new widget + a one-line Home
+  swap + three additive telemetry events. Phase C, Home V4, Mirror P3, Phase A,
+  and `HomeScreenV3` tests all pass. **Deploy: yes.**
+- **Related documents:** `DAILY_MIRROR_PHASE_C.md`, `HOME_V4.md`,
+  `GLOBAL_MIRROR_EXPERIENCE_P3.md`, `PRODUCT_VALIDATION.md`, `ARCHITECTURE.md`,
+  `ROADMAP.md`.
+- **Related implementation:**
+  `lib/features/mirror_experience/ui/daily_mirror_section.dart`,
+  `lib/features/mirror_experience/mirror_experience_service.dart` (`daily()`),
+  `lib/features/home_cohesion/presentation/home_screen_v3.dart`,
+  `test/validation/daily_mirror_phase_c/`.
+
+## D-034 — Daily Habit Loop
+
+- **Date:** 2026-06 · **Status:** Accepted
+- **Context:** The Daily Mirror (D-033) gives a daily read but nothing makes it a
+  **habit**: no streak, no history, no sense of return. Phase D wants Mirror
+  Streak, Mirror History, Yesterday-vs-Today, Weekly/Monthly Reflection and a
+  Life Trend, and to measure 7-/30-day retention, average sessions, streak and
+  reflection rate — **without new reasoning, AI or astrology**.
+- **Decision:** Add a self-contained `lib/features/mirror_habit/` package:
+  deterministic domain (`MirrorDayRecord` + streak/comparison/period/trend/
+  metrics value objects), a pure `MirrorHabitEngine` (+ `MirrorHabitSnapshot`),
+  and a `MirrorHabitStore` seam with a per-user `FirestoreMirrorHabitStore`
+  (`users/{uid}/mirror_daily/{dateKey}`, established conventions, lazy + guarded,
+  null-uid no-op) and an `InMemoryMirrorHabitStore`. The Daily Mirror records the
+  loop (open → action → **reflect**) and renders a `MirrorHabitSection` (streak,
+  last-7 strip, Yesterday-vs-Today, one-tap reflection, weekly/monthly, life
+  trend, return-tomorrow nudge). The internal dashboard gains an async
+  Daily-Habit metrics panel. One new telemetry event, `dailyReflectionSaved`.
+- **Reason:** Close the daily loop with a deterministic, testable habit layer
+  over the day records — the Daily Mirror only gains a store + a section; the
+  read itself is unchanged.
+- **Alternatives considered:** `shared_preferences`/localStorage (rejected — new
+  dep, single-device, no cross-device retention; `cloud_firestore` already
+  present and per-user); a streak/forecast "engine" with predictive logic
+  (rejected — that would be new reasoning); storing the read text (rejected —
+  only tones/area-keys/clarity are persisted, never astrology data).
+- **Tradeoffs:** Persistence is best-effort and degrades to in-session-only when
+  Firebase is unavailable or a write is denied (the loop UI still works from the
+  locally-merged today record). Retention here is **per-user** (history old
+  enough + active in window), not a population cohort metric.
+- **Firestore:** new owner-scoped subcollection `users/{uid}/mirror_daily`,
+  covered by the same recursive owner rule the app already relies on for
+  `profile` / `tests` / `funnel_telemetry`; rules are not in-repo (console-managed)
+  and a denied write simply no-ops.
+- **Impact:** **No reasoning/runtime/provider/fusion/AI changes, no astrology.**
+  Additive package + a store hook + a section in `DailyMirrorSection` + one
+  dashboard panel + one telemetry event. Phase D, C, Home V4, P3, Phase A and
+  `HomeScreenV3` tests all pass. **Deploy: yes.**
+- **Related documents:** `DAILY_HABIT_PHASE_D.md`, `DAILY_MIRROR_PHASE_C.md`,
+  `PRODUCT_VALIDATION.md`, `ARCHITECTURE.md`, `ROADMAP.md`.
+- **Related implementation:** `lib/features/mirror_habit/`,
+  `lib/features/mirror_experience/ui/daily_mirror_section.dart`,
+  `lib/features/product_validation/ui/product_validation_dashboard.dart`,
+  `test/validation/daily_habit_phase_d/`.
+
+## D-035 — Birth Normalization Foundation
+
+- **Date:** 2026-06 · **Status:** Accepted · Architecture only (no deploy)
+- **Context:** Each astrology system needs birth data resolved consistently
+  (location, timezone, calendar) and Thai specifically needs the astrological day
+  to start at **local sunrise**, not the legacy hardcoded 06:00 (`ThaiDayBoundary`,
+  frozen V1.1). Birth resolution was scattered (e.g. `UserProfileBirthLoader`
+  builds `ThaiBirthData` and the engine re-applies 06:00).
+- **Decision:** Add `lib/features/birth_normalization/` as the **single
+  birth-input layer** before every engine. `RawBirthInput` → `BirthNormalizer`
+  (pure/deterministic) → `NormalizedBirth` bundling resolved `BirthLocation` /
+  `BirthTimeZone` / `BirthCalendar`, a computed local sunrise, and one context per
+  system: `ThaiBirthContext` (sunrise-based `thaiAstrologicalDate`),
+  `WesternBirthContext` (exact instant, no shift), `BaZiBirthContext`
+  (placeholder). A self-contained `SunriseCalculator` (Almanac algorithm, zenith
+  90.833°) makes the Thai boundary **location-, season- and timezone-aware** — no
+  hardcoded 06:00. Every choice is recorded in `BirthNormalizationReason`.
+- **Reason:** One deterministic, traceable place to turn raw input into per-system
+  birth data; correct Thai day boundary; stable contract for future Western/BaZi.
+- **Scope boundary (stability > architecture purity):** This milestone ships the
+  **layer + contract + tests + docs only**. The frozen Thai/foundation engines are
+  **not rewired** here; migrating them to consume `NormalizedBirth` (and read
+  `thaiAstrologicalDate` instead of `ThaiDayBoundary`) is documented follow-up.
+  The stated rule ("no engine consumes `RawBirthInput`") is the target end-state.
+- **Alternatives considered:** adding a tz-database (`timezone`) and an astronomy/
+  ephemeris package (rejected — new deps; fixed offsets are correct for the
+  no-DST supported region and the Almanac sunrise is accurate enough and
+  dependency-free); rewiring the frozen engine now (rejected — violates freeze /
+  stability for an architecture-only milestone).
+- **Impact:** Additive new package only. No engine/runtime/UI/Firestore changes,
+  no deploy. 15 tests pass (sunrise location/season/timezone awareness, Thai
+  day boundary, Western/BaZi, resolution, determinism).
+- **Related documents:** `BIRTH_NORMALIZATION.md`, `ARCHITECTURE.md`,
+  `DOMAIN_MODEL.md`, `ROADMAP.md`, `THAI_FOUNDATION_ENGINE_V1_1_NOTES.md`.
+- **Related implementation:** `lib/features/birth_normalization/`,
+  `test/validation/birth_normalization/`.
+
+---
+
+## D-036 — Thai pipeline consumes Birth Normalization
+
+- **Date:** 2026-06 · **Status:** Accepted · Migration only (no deploy) · Completes the D-035 follow-up
+- **Context:** D-035 shipped the Birth Normalization layer but left the frozen Thai
+  pipeline still parsing raw `birthDate`/`birthTime` (in two places —
+  `UserProfileBirthLoader` and `FirestoreAstrologyFusionLensProbe`) and each
+  duplicating its own timezone logic. The sunrise day boundary
+  (`ThaiBirthContext.astrologicalDate`) was unused.
+- **Decision:** Make `ThaiBirthData` the adapter target of `ThaiBirthContext`:
+  add `ThaiBirthData.fromThaiContext` (+ an `astrologicalDate` field) and a single
+  seam `ThaiBirthContextAdapter.fromProfileMap` that runs
+  `BirthNormalizer.normalizeProfileMap`. Both production loaders route through it;
+  their duplicated `_offsetForTimezone`/`_timeZoneOffset` is deleted. `ThaiDayBoundary`
+  becomes a deprecated shim that delegates to `SunriseCalculator` (no hardcoded
+  06:00) and points callers at `astrologicalDate`.
+- **Scope boundary:** The frozen sub-engines are **not** rewritten. `localDateTime`
+  still carries the exact civil instant (lagna astronomy + the exact-datetime
+  verified-lunar lookup must not shift a day); `astrologicalDate` carries the
+  sunrise boundary. The verified lunar dataset is keyed on the exact civil datetime
+  with the boundary-adjusted weekday baked into the data, so that lookup is left
+  unchanged — golden cases GC-04/GC-05 still pass. Prediction/Timeline/Decision/
+  Runtime/Mirror/Conversation are untouched.
+- **Reason:** Birth Normalization is now the **single source of truth** for
+  timezone, coordinates and the sunrise day boundary; no parsing or timezone logic
+  is duplicated in the Thai pipeline.
+- **Behaviour:** Preserved for the Asia/Bangkok user base. One intentional
+  correctness fix: non-Bangkok timezones now resolve to their real offset instead
+  of the fusion probe's previous UTC/ICT default.
+- **Impact:** No feature change, no deploy. All existing Thai engine tests pass;
+  added `thai_birth_normalization_migration_test.dart` (before/after sunrise,
+  regression). The full suite's 22 pre-existing failures (golden screenshots,
+  app-boot, narrative-coverage audits, env-gated repair export) are unrelated and
+  unchanged (verified against baseline).
+- **Related documents:** `BIRTH_NORMALIZATION.md`, `ARCHITECTURE.md`,
+  `THAI_FOUNDATION_ENGINE_V1_1_NOTES.md`.
+- **Related implementation:**
+  `lib/features/astrology/thai/foundation/integration/thai_birth_context_adapter.dart`,
+  `lib/features/astrology/thai/foundation/models/thai_birth_data.dart`,
+  `lib/features/astrology/thai/foundation/calendar/thai_day_boundary.dart`,
+  `lib/features/narrative_runtime/integration/user_profile_birth_loader.dart`,
+  `lib/features/astrology/fusion/application/astrology_fusion_lens_probe.dart`.
+
+---
+
+## D-037 — Birth architecture cleanup
+
+- **Date:** 2026-06 · **Status:** Accepted · Architecture cleanup only (no runtime/UI/deploy) · Refines D-036
+- **Context:** After D-036 the Thai→engine conversion existed in **two** places, both
+  on the Thai side: `ThaiBirthData.fromThaiContext` (a converter on the engine
+  model) and `ThaiBirthContextAdapter` (a separate adapter in
+  `thai/foundation/integration/`). This duplicated converter logic and gave the
+  engine model knowledge of Birth Normalization.
+- **Decision:** Establish a single ownership boundary:
+  - **Birth Normalization owns all adapters.** One bridge, `ThaiEngineAdapter`
+    (`birth_normalization/application/adapters/thai_engine_adapter.dart`), maps
+    `ThaiBirthContext` / `NormalizedBirth` / profile → `ThaiBirthData`
+    (`fromContext` / `fromNormalized` / `fromProfileMap`).
+  - **Thai owns only engine models.** `ThaiBirthData` is now a pure data class —
+    `fromThaiContext` removed, no import of Birth Normalization. The
+    `ThaiBirthContextAdapter` file is deleted.
+  - Both loaders (`UserProfileBirthLoader`, `FirestoreAstrologyFusionLensProbe`)
+    call `ThaiEngineAdapter`.
+- **Dependency direction:** The `adapters/` ring is the designated bridge and is
+  the one place allowed to import an engine model (`ThaiBirthData`). The generic
+  normalization barrel does **not** export it, so the core normalization layer
+  stays engine-agnostic; the deprecated `ThaiDayBoundary` still consumes only
+  `SunriseCalculator`. No import cycle.
+- **Reason:** One adapter, one converter, one source of truth; clear ownership.
+- **Impact:** No runtime/feature/UI change, no deploy. Pure rename/move + delete.
+  All Thai + normalization tests pass (the migration test was updated for the new
+  symbol names).
+- **Related documents:** `BIRTH_NORMALIZATION.md`, `ARCHITECTURE.md`.
+- **Related implementation:**
+  `lib/features/birth_normalization/application/adapters/thai_engine_adapter.dart`,
+  `lib/features/astrology/thai/foundation/models/thai_birth_data.dart` (pure model),
+  `lib/features/narrative_runtime/integration/user_profile_birth_loader.dart`,
+  `lib/features/astrology/fusion/application/astrology_fusion_lens_probe.dart`.
+
+---
+
+## D-038 — Thai Astrology Research (production validation + hardening)
+
+- **Date:** 2026-06 · **Status:** Accepted · Product-validation milestone (deployed to production)
+- **Context:** A standalone, public Thai Astrology experience was launched at
+  `/beta/thai` to collect real-world validation feedback, reusing the completed
+  Birth Normalization pipeline and the production Thai Engine (no new astrology
+  pipeline, no runtime/reasoning change). Hardening then prepared it for external
+  users.
+- **Decision (pipeline):** `ThaiBetaInput → RawBirthInput → BirthNormalizer →
+  ThaiEngineAdapter → ThaiMirrorPipeline → existing ThaiMirrorResultPage`. The
+  feature lives in `lib/features/thai_beta/` and never bypasses the normalization
+  seam. Submissions persist to the `thai_beta_feedback` collection.
+- **Decision (security):**
+  - **Rules in-repo.** `firestore.rules` + `firestore.indexes.json` are now
+    version-controlled and registered in `firebase.json` (deploy with
+    `firebase deploy --only firestore:rules`). No console-only configuration.
+    Model: existing data stays owner-only under `users/{uid}/**`;
+    `thai_beta_feedback` allows public **create** (validated) but **admin-only
+    read**; a bounded `counters/{id}` (+1-only) backs research ids; default deny.
+  - **Admin gate.** `/internal/thai-beta` is wrapped by `ThaiResearchAdminGuard`,
+    which reuses FirebaseAuth and an explicit `admins/{uid}` allow-list (the same
+    source of truth the rules enforce). It **fails closed** — signed-out users see
+    login, non-admins get access-denied, only allow-listed admins see the
+    dashboard / detail / statistics. (No admin-role system existed previously; this
+    introduces the minimal, rules-enforceable one.)
+- **Decision (data quality):**
+  - **No silent save failures.** `ThaiBetaStore.save` returns a
+    `ThaiBetaSaveResult`; the UI shows Success (with Reference ID) → Thank you, or
+    Error → “please try again”.
+  - **Sequential `researchId`** (`TH-00000001`) allocated atomically with the
+    write via a Firestore transaction on `counters/thai_research`; shown to the user
+    as a Reference ID and stored.
+  - **Provenance:** stores `startedAt`, `submittedAt`, `durationSeconds`, and a
+    deterministic SHA-256 `reportHash` of the report snapshot (order-independent
+    canonical JSON) as a tamper-evident fingerprint of exactly what the user saw.
+  - **Feedback** gains “Why would you recommend this system to a friend?”.
+- **Rename:** all user-facing copy uses **Thai Astrology Research** (no “Beta”).
+  Routes (`/beta/thai`, `/internal/thai-beta`) and the `thai_beta_feedback`
+  collection are intentionally unchanged to avoid breaking deployed links / orphaning
+  data (stability > purity); internal Dart identifiers keep the `ThaiBeta*` prefix.
+- **Impact:** Deployed to production (hosting + Firestore rules). New tests cover
+  research-id formatting, duration clamping, hash determinism, save-failure
+  surfacing, and the admin guard's three states. Provisioning note: an admin must be
+  added out-of-band by creating `admins/{uid}` (CLI/console) — `write: if false`
+  blocks client writes by design.
+- **Related documents:** `PRODUCT_VALIDATION.md`, `ARCHITECTURE.md`, `ROADMAP.md`.
+- **Related implementation:** `lib/features/thai_beta/**`, `firestore.rules`,
+  `firestore.indexes.json`, `firebase.json`,
+  `lib/core/web/web_launch_router.dart`, `lib/main.dart`.
+
+---
+
+## D-039 — Thai Astrology Research UX improvements V1
+
+- **Date:** 2026-06 · **Status:** Accepted · UX only (deployed) · Builds on D-038
+- **Context:** Before inviting real external users, the Research experience needed
+  clearer usability and transparency. Engine and Birth Normalization are **not**
+  touched.
+- **Decision:**
+  - **No navigation controls.** Every step in the flow sets
+    `automaticallyImplyLeading: false` (the report page has no app bar) — it is a
+    standalone research experience.
+  - **True 24-hour birth-time picker** (`showThaiBeta24HourTimePicker`), replacing
+    the AM/PM `showTimePicker`; a `00:00–23:59` wheel, never AM/PM (users misread
+    12 AM / 12 PM around midnight).
+  - **Research summary before the report** (`ThaiBetaSummaryPage`): an
+    “ข้อมูลที่ใช้วิเคราะห์” card (name, birth date/time, province, gender, sunrise,
+    Thai astrological date, timezone; Thai Buddhist-era dates) + a transparency
+    banner explaining the sunrise day-boundary shift (or “ใช้วันเกิดตามปฏิทิน”) +
+    the collapsible technical panel (lat/lng/coordinates/timezone/sunrise/hash/
+    research id). The shared production `ThaiMirrorResultPage` is left **unchanged**
+    (it is covered by golden/screenshot tests and reused by Home), so the summary
+    is a preceding screen rather than an injected header.
+  - The technical debug panel moved off the feedback page to the summary screen.
+- **Reason:** Reassure users about exactly what was used to analyze them before they
+  read, and remove ambiguity in time entry — without risking the engine, the
+  normalization layer, or the shared report widget.
+- **Impact:** UX only; deployed to production. New tests assert Thai date
+  formatting, weekday mapping, and that the **displayed** Thai astrological date
+  equals Birth Normalization for birth times 00:00 / 03:00 / 05:47 / 05:48 / 12:00 /
+  23:59. Existing Thai-research tests still pass.
+- **Related documents:** `THAI_RESEARCH.md`, `PRODUCT_VALIDATION.md`.
+- **Related implementation:** `lib/features/thai_beta/presentation/**`
+  (`pages/thai_beta_summary_page.dart`, `widgets/thai_beta_time_picker.dart`,
+  `widgets/thai_beta_summary_card.dart`, `widgets/thai_beta_transparency_banner.dart`,
+  `widgets/thai_beta_debug_panel.dart`, `thai_beta_thai_date_format.dart`).
+
+---
+
+## D-040 — Thai Astrology Research UX polish
+
+- **Date:** 2026-06 · **Status:** Accepted · UX only (deployed) · Builds on D-039
+- **Context:** Before inviting real users at scale, increase trust, completion
+  rate, and feedback quality. No engine, runtime, report, normalization, or mirror
+  change.
+- **Decision:**
+  - **Landing screen** before the form (`ThaiBetaLandingPage`) setting
+    expectations — purpose, estimated time, privacy, research participation, and a
+    best-effort participant count (`counters/thai_research.seq`, omitted when
+    unavailable) — with primary CTA “เริ่มการวิเคราะห์”.
+  - **4-step progress indicator** (`ThaiBetaProgressBar`) on every step:
+    กรอกข้อมูล · ตรวจสอบข้อมูล · อ่านผล · ส่งความคิดเห็น.
+  - **Clearer CTA copy:** input “เริ่มวิเคราะห์”, summary “ยืนยันข้อมูลและดูผล”,
+    feedback “ส่งความคิดเห็น”.
+  - **Completion screen** (`ThaiBetaCompletionPage`) replaces the post-save dialog:
+    thank-you, prominent Reference ID, and an invitation to return after future
+    improvements (restart returns to the landing screen).
+- **Reason:** A guided, expectation-setting funnel with visible progress and a
+  satisfying close improves completion and the quality/credibility of feedback —
+  without touching any frozen system.
+- **Impact:** UX only; deployed to production. Widget smoke tests cover the
+  landing CTA, the progress bar labels, and the completion screen; all existing
+  Thai-research tests still pass.
+- **Related documents:** `THAI_RESEARCH.md`, `PRODUCT_VALIDATION.md`.
+- **Related implementation:** `lib/features/thai_beta/presentation/pages/`
+  (`thai_beta_landing_page.dart`, `thai_beta_completion_page.dart`) and
+  `presentation/widgets/thai_beta_progress_bar.dart`; routing in
+  `presentation/thai_beta_routes.dart` and `lib/core/web/web_launch_router.dart`.
+
+---
+
+## D-041 — Thai Astrology Research desktop/web UX fixes
+
+- **Date:** 2026-06 · **Status:** Accepted · UX only (deployed) · Builds on D-040
+- **Context:** The V1 controls worked on mobile but were awkward on web/desktop:
+  the scrolling birth-time wheel was hard to operate with a mouse/keyboard, and the
+  plain province dropdown was slow to navigate. No engine/runtime/report change.
+- **Decision:**
+  - **Birth time** → two inline controls (`ThaiBetaTimeField`): hour `00–23` +
+    minute `00–59` Material 3 `DropdownMenu`s supporting click, type, and keyboard
+    navigation; the scrolling wheel (and its bottom sheet) is removed. Menu height
+    is bounded so the popup never goes off-screen.
+  - **Province** → searchable type-ahead autocomplete (`ThaiBetaProvinceField`):
+    filter while typing, keyboard navigation, mouse selection, touch support, clear
+    button, height-bounded options list. Resolver keys are preserved so sunrise
+    accuracy is unchanged.
+  - Birth **date** keeps the centered `showDatePicker` dialog; with time inline
+    there is no off-screen picker.
+- **Reason:** Desktop is a primary surface for real participants; click/type/
+  keyboard parity and on-screen popups reduce friction and input errors.
+- **Impact:** UX only; deployed to production. New widget tests cover autocomplete
+  filtering + selection (`เชียง`, `อุดร`) and the two-control time field; all
+  existing Thai-research tests still pass.
+- **Related documents:** `THAI_RESEARCH.md`, `PRODUCT_VALIDATION.md`.
+- **Related implementation:**
+  `lib/features/thai_beta/presentation/widgets/thai_beta_time_picker.dart`
+  (now `ThaiBetaTimeField`), `.../widgets/thai_beta_province_field.dart`, and
+  `.../pages/thai_beta_input_page.dart`.
+
+---
+
+## D-042 — Thai astrological date consistency + 77-province database
+
+- **Date:** 2026-06 · **Status:** Accepted · Consistency fix (deployed) · No new features
+- **Context:** Two production-grade consistency bugs surfaced in Thai Research:
+  1. **Province coverage** — Birth Normalization's province table held only ~15
+     entries, so most provinces fell back to the Bangkok default coordinate
+     (wrong sunrise → potentially wrong Thai day), and the Research picker list
+     could drift from the resolvable set.
+  2. **Thai date drift** — the Consumer/Mirror runtime fed the **civil** date
+     into the Life Timeline (`LifePeriodEngine.fromBirthDate(birthData.dateOnly)`)
+     and the Mirror enrichment derived its weekday from `localDateTime`. For a
+     before-sunrise birth the Summary correctly showed the previous day (e.g.
+     Saturday) while the Life Timeline started from the civil day (Sunday) — the
+     layers disagreed on the Thai day.
+- **Decision:**
+  - **Province DB:** one canonical 77-province table
+    (`birth_normalization/application/thai_provinces.dart`) — name, latitude,
+    longitude, timezone (`Asia/Bangkok`), source (provincial-capital WGS84). The
+    resolver builds its coordinate map from it (+ common aliases), and the
+    Research picker (`thai_beta_province_options.dart`) derives from the same
+    table, so selectable ≡ resolvable. Birth Normalization resolves every
+    province.
+  - **One Thai date for every layer:** `ThaiBirthData.astrologicalDate` is the
+    single normalized Thai date and `ThaiBirthData.thaiWeekdayNumber`
+    (อาทิตย์=1…เสาร์=7, derived from it) is the only Thai weekday source. No layer
+    recomputes the weekday or reads the civil date for the Thai day. The pipeline
+    now uses `LifePeriodEngine.fromBirthData(birthData)` and the enrichment uses
+    `astrologicalDate`. `localDateTime` remains only the lagna time and the
+    verified-lunar lookup key (the dataset already bakes the sunrise-adjusted
+    weekday in — GC-04/GC-05 unchanged). Added consistency-safe `fromBirthData`
+    entry points on `LifePeriodEngine` and `LifeTimelineIntelligenceEngine`
+    (V10–V13 inherit the timeline they build).
+- **Reason:** Trust depends on the whole report agreeing with the Thai day it
+  shows; a complete province database keeps the sunrise boundary (and therefore
+  the Thai day) accurate nationwide. Minimal, additive change — no engine rewrite,
+  no frozen-contract change.
+- **Impact:** Consumer/Research correctness; deployed to production. New
+  regression `test/validation/thai/thai_astrological_date_consistency_test.dart`
+  proves birth Sunday 00:30 → Saturday across normalization, Foundation
+  enrichment, Life Timeline, Timeline Intelligence, Prediction, Decision,
+  Question, Runtime and the Consumer pipeline. All existing Thai / birth /
+  research suites still pass.
+- **Related documents:** `BIRTH_NORMALIZATION.md`, `THAI_RESEARCH.md`.
+- **Related implementation:**
+  `lib/features/birth_normalization/application/thai_provinces.dart`,
+  `.../application/birth_location_resolver.dart`,
+  `lib/features/thai_beta/presentation/thai_beta_province_options.dart`,
+  `lib/features/astrology/thai/foundation/models/thai_birth_data.dart`,
+  `.../mirror/runtime/thai_mirror_pipeline.dart`,
+  `.../mirror/thai_mirror_profile_enrichment.dart`,
+  `.../core/life_period/life_period_engine.dart`,
+  `.../core/life_period/life_timeline_intelligence.dart`.
+
+---
+
+## D-043 — Thai Astrology Knowledge Foundation V1
+
+- **Date:** 2026-06 · **Status:** Accepted · Architecture/knowledge only · No engine change · No deploy
+- **Context:** The frozen `PlanetRelationshipMatrix` (D-009/V8) encodes
+  friend/enemy/neutral rules that drive Life Period, Prediction, Decision and
+  Mirror reasoning, but the prior Knowledge Audit found **no documented source**
+  in the repository for any of those rules. There was no traceable place to
+  record *why* a relationship value is what it is, or its provenance/confidence.
+- **Decision:** Add a read-only **knowledge layer**
+  (`lib/features/astrology/thai/knowledge/`). V1 implements the **Planet
+  Relationship** domain only: `planet_relationship_knowledge.dart` exposes one
+  `PlanetRelationshipRecord` per directed inter-planet pair (8 × 7 = 56), with
+  `from`, `to`, current matrix value, source school, source name, reference,
+  page, confidence, verified flag and notes, plus a coverage report. Each
+  record's value is read from the frozen matrix at build time, so the knowledge
+  base can never drift from the engine. Self-pairs are excluded (identity guard,
+  not a relationship). The remaining five domains (Element, Dignity, Weekday
+  Lords, Life Period Ring, Lagna Rules) are deferred to later versions.
+- **Reason:** Future engine decisions must rest on traceable evidence rather
+  than undocumented constants. Capturing the honest state — every value
+  currently `Unknown` / `verified = false` — makes the provenance gap explicit
+  and gives a single place to attach real Thai/Vedic sources later, without ever
+  touching the engine.
+- **No invented references:** Where a source is undocumented the record stores
+  `Unknown` with `verified = false`. V1 coverage is therefore: 56 records
+  (Friend 22 · Enemy 16 · Neutral 18), Verified 0, Unknown 56 — record coverage
+  100%, verified coverage 0%.
+- **Impact:** Purely additive; no behaviour change to Matrix, Relationship
+  Engine, Prediction, Timeline, Runtime or Consumer. New validation
+  `test/validation/thai/thai_planet_relationship_knowledge_test.dart` proves
+  every frozen-matrix relationship has exactly one record whose value matches
+  the matrix. Not deployed.
+- **Related documents:** `THAI_KNOWLEDGE_FOUNDATION_V1.md`, `DOMAIN_MODEL.md`,
+  `ARCHITECTURE.md`, `ROADMAP.md`.
+- **Related implementation:**
+  `lib/features/astrology/thai/knowledge/planet_relationship_knowledge.dart`,
+  `test/validation/thai/thai_planet_relationship_knowledge_test.dart`.
+
+---
+
+## D-044 — Thai Astrology Knowledge Importer V2
+
+- **Date:** 2026-06 · **Status:** Accepted · Architecture/knowledge only · No engine change · No deploy
+- **Context:** Knowledge Foundation V1 (D-043) recorded Planet Relationship
+  evidence, but the records were built in Dart (derived from the frozen matrix).
+  Knowledge that lives in source code cannot be reviewed, sourced or edited as
+  data, which is what future engine decisions need.
+- **Decision:** Move the Planet Relationship knowledge **out of code into JSON**
+  and add an import pipeline:
+  - Data: `knowledge/planet_relationships/` with `*.schema.json` (contract),
+    `*.knowme.json` (the canonical 56 records) and `*.template.json` (blank
+    shape for adding a sourced record). Registered as a Flutter asset.
+  - Model: `planet_relationship_knowledge.dart` becomes a data-driven model
+    (record adds `status`; source adds author/edition/publisher/year/quote;
+    coverage adds the status split). `PlanetRelationshipKnowledge` is now an
+    instance holding imported records — **no hardcoded records**.
+  - Importer: `PlanetRelationshipKnowledgeImporter` parses + validates (schema,
+    missing fields, unknown enums, duplicates, broken/self references,
+    matrix-consistency warning, coverage) and produces a Knowledge Import
+    Report.
+- **Reason:** Data-driven knowledge is reviewable and editable without code
+  changes, while matrix-consistency validation guarantees the knowledge can
+  never silently diverge from the frozen engine.
+- **No invented references:** the canonical data seeds every relation from the
+  frozen matrix with provenance `Unknown` / `status = unknown` /
+  `verified = false`. Import report: 56 records (Friend 22 · Enemy 16 ·
+  Neutral 18), 0 errors, 0 warnings, 0% verified coverage.
+- **Impact:** Purely additive; Matrix/Engine/Prediction/Timeline/Runtime/
+  Consumer untouched. The V1 validation test is replaced by an importer test
+  (`thai_planet_relationship_knowledge_test.dart`) proving clean import, full
+  56-pair coverage, matrix agreement, the honest seeded state, and that the
+  importer flags each error/warning class. Not deployed.
+- **Related documents:** `THAI_KNOWLEDGE_IMPORTER_V2.md`,
+  `THAI_KNOWLEDGE_FOUNDATION_V1.md`.
+- **Related implementation:**
+  `knowledge/planet_relationships/*.json`,
+  `lib/features/astrology/thai/knowledge/planet_relationship_knowledge.dart`,
+  `lib/features/astrology/thai/knowledge/planet_relationship_knowledge_importer.dart`,
+  `test/validation/thai/thai_planet_relationship_knowledge_test.dart`.
+
+---
+
+## D-045 — Thai Astrology Knowledge Research Infrastructure V3
+
+- **Date:** 2026-06 · **Status:** Accepted · Architecture/knowledge only · No engine change · No deploy
+- **Context:** Knowledge Importer V2 (D-044) made the engine's relationship
+  rules data-driven, but they are all `Unknown` / unverified — there was no
+  place to collect the *primary-source research* (books, authors, schools,
+  quotes) needed to verify them. This is knowledge research, not software
+  research.
+- **Decision:** Add a **knowledge-research layer** for documented sources:
+  - Data: `knowledge/research/` with `research.schema.json` and
+    `research.template.json` (registered as a Flutter asset).
+  - Model: `KnowledgeResearchRecord` (id, topic, entity, school, author, book,
+    edition, publisher, year, page, language, quote, interpretation,
+    relationship[], confidence, reviewedBy, status, notes) where **one record
+    may support multiple relationships**, with status
+    `draft/candidate/reviewed/verified/disputed/rejected`.
+  - Engine: `KnowledgeResearchEngine` with `load`, `groupBySource`,
+    `groupBySchool`, `findSupportingEvidence`, `findConflicts`, `coverage`,
+    producing a Research Coverage Report (Books, Authors, Schools, Verified/
+    Pending sources, Relationships supported, Relationships without evidence).
+- **Reason:** Verifying the matrix needs an independent corpus of references; a
+  research layer with status/conflict tracking is the substrate for that, and
+  keeping it engine-/matrix-independent ensures sources are recorded as written
+  rather than reverse-justified from engine values.
+- **Hard boundary:** the research layer has **no engine and no matrix
+  dependency** — planets/relations are plain strings, the source files import
+  none of `core/life_period/*`, `planet_relationship_matrix`, or `life_planet`
+  (enforced by a test), and the 56-pair universe is sized from a layer-local
+  planet list.
+- **No invented references / no data yet:** V3 ships the infrastructure only.
+  The baseline Research Coverage Report is 0 books / 0 authors / 0 verified and
+  56 relationships without evidence — the honest starting point.
+- **Impact:** Purely additive; Matrix/Engine/Prediction/Timeline/Runtime/
+  Consumer untouched. New tests
+  (`test/validation/thai/thai_knowledge_research_test.dart`) cover load,
+  grouping, evidence, conflicts, coverage and the decoupling guard. Not
+  deployed.
+- **Related documents:** `THAI_KNOWLEDGE_RESEARCH_V3.md`,
+  `THAI_KNOWLEDGE_IMPORTER_V2.md`.
+- **Related implementation:**
+  `knowledge/research/*.json`,
+  `lib/features/astrology/thai/knowledge/research/knowledge_research_record.dart`,
+  `lib/features/astrology/thai/knowledge/research/knowledge_research_engine.dart`,
+  `test/validation/thai/thai_knowledge_research_test.dart`.
+
+---
+
+## D-046 — Thai Astrology Knowledge Evidence Linking V4
+
+- **Date:** 2026-06 · **Status:** Accepted · Architecture/knowledge only · No engine change · No deploy
+- **Context:** Research records (V3) embedded bibliographic source fields, so the
+  same book/author would be re-typed across records and could drift. Evidence
+  needs to be a first-class, de-duplicated, citable entity.
+- **Decision:** Introduce `EvidenceRecord` (`knowledge/evidence/` data +
+  `lib/.../knowledge/evidence/`) with review status
+  `draft/reviewed/verified/disputed/deprecated`, and **replace the bibliographic
+  fields on `KnowledgeResearchRecord` with `evidenceIds[]`** (many-to-many).
+  Add `KnowledgeEvidenceEngine` (`loadEvidence`, `findEvidence`, `findResearch`,
+  `findRelationships`, `findOrphans`, `coverage`, `validate`) that links the two
+  corpora and audits the linkage (duplicate evidence, broken links, missing/
+  unused evidence, circular references) and produces an Evidence Coverage Report.
+- **Reason:** One source backing many interpretations (and vice-versa) is the
+  natural shape of citations; centralising it removes duplication and lets the
+  workspace (V5) browse by source/author/school.
+- **Boundary:** still knowledge-layer only — no engine, matrix, runtime or
+  prediction dependency (enforced by test). No invented references; ships no
+  data (baseline coverage all zero).
+- **Impact:** Additive + a contained model change to the V3 research record
+  (V3 test updated). New test
+  `test/validation/thai/thai_knowledge_evidence_linking_test.dart`. Not deployed.
+- **Related documents:** `THAI_KNOWLEDGE_EVIDENCE_LINKING_V4.md`.
+- **Related implementation:** `knowledge/evidence/*.json`,
+  `lib/features/astrology/thai/knowledge/evidence/*.dart`,
+  `lib/features/astrology/thai/knowledge/research/*.dart`.
+
+---
+
+## D-047 — Thai Astrology Research Workspace V5
+
+- **Date:** 2026-06 · **Status:** Accepted · Admin-only internal tool · **Deployed**
+- **Context:** The knowledge/evidence/research layers (V1–V4) had no human
+  surface; researchers need to browse and audit them.
+- **Decision:** Add a **read-only** internal workspace (`/internal/knowledge`,
+  `lib/features/knowledge_workspace/`) behind the existing admin guard. It
+  browses evidence, research and relationships; filters by school/author/book/
+  relationship/status/planet; shows coverage (unknown/candidate/verified/
+  disputed) and, per relationship, the current matrix value, research records,
+  evidence and conflicts.
+- **Reason:** A safe, read-only auditing surface accelerates the actual
+  knowledge research without risking any engine/runtime behaviour.
+- **Boundary / validation:** depends only on the knowledge layer (V1–V4) — **no
+  runtime, no prediction** dependency. Read-only (no editing). The relationship
+  detail reads the frozen matrix value for display only.
+- **Impact:** Additive feature + one internal route; production boot flow
+  unchanged. Deployed (admin only).
+- **Related documents:** `THAI_KNOWLEDGE_WORKSPACE_V5.md`.
+- **Related implementation:** `lib/features/knowledge_workspace/`.
+
+---
+
+## D-048 — Thai Astrology Knowledge Acquisition V6
+
+- **Date:** 2026-06 · **Status:** Accepted · Internal admin tool · No engine/runtime change · **No deploy**
+- **Context:** The Knowledge Platform (V1–V5) could store, link and browse
+  knowledge, but there was no safe way to *populate* it. Real Thai astrology
+  research needs to be added gradually without hand-editing Dart and without any
+  risk to the engine or the frozen matrix.
+- **Decision:** Add a **JSON-only acquisition** layer — `knowledge/acquisition/`
+  (schema + template) and `lib/features/knowledge_workspace/acquisition/`
+  (`KnowledgeAcquisitionEngine` + `KnowledgeAcquisitionSession` + dashboard at
+  `/internal/knowledge/acquire`, admin-guarded). A batch carries `evidence[]` +
+  `research[]`; the engine validates and previews (dry-run), classifying each
+  record **imported / updated / skipped / error** and detecting **conflicts**
+  for touched pairs; `apply()` advances an in-session corpus, `rollback()` undoes
+  the last import; every import yields an **Import Report**
+  (imported/updated/skipped/conflicts/errors). `toAssetJson()` exports the merged
+  corpus for committing back into the repo asset files.
+- **Reason:** Decouples *collecting* knowledge from *shipping* it. Researchers
+  can paste sources, see exactly what would change, apply/undo safely, then
+  commit the resulting JSON — no Dart edits, no engine exposure.
+- **Boundary / validation:** the layer merges only the research + evidence
+  corpora; it **never imports or modifies the `PlanetRelationshipMatrix`** or the
+  engine (asserted by test). The "current matrix" shown is read from the frozen
+  V2 knowledge record for display only. No runtime/prediction dependency.
+- **Impact:** Additive feature + one internal route; production flow unchanged.
+  New engine + test exposed a small additive change to V4
+  (`KnowledgeEvidenceEngine.evidenceRecordFromMap` made public for reuse). Not
+  deployed.
+- **Related documents:** `THAI_KNOWLEDGE_ACQUISITION_V6.md`.
+- **Related implementation:** `knowledge/acquisition/*.json`,
+  `lib/features/knowledge_workspace/acquisition/*.dart`.
+
+---
+
+## D-049 — Thai Astrology Source Collection V7
+
+- **Date:** 2026-06 · **Status:** Accepted · Knowledge only · No engine/matrix change · **No deploy**
+- **Context:** The platform could store/link/browse/import knowledge (V1–V6) but
+  held no actual astrology sources. Collecting real sources is the point.
+- **Decision:** Add `knowledge/sources/` (one JSON **per source**: id/title/
+  author/edition/publisher/year/language/school/isbn/url/license/notes + cited
+  `assertions` of `from→to→relation→page→quote`) with schema, template and an
+  `sources.index.json`. Add `SourceRecord`/`SourceAssertion` +
+  `KnowledgeSourceEngine` (load, `validate()` for duplicate/conflicting/
+  missing-page/missing-quote/broken-reference/duplicate-source, and a Source
+  Coverage Report: books/schools/authors/assertions/relationships-covered/
+  -missing).
+- **Reason:** The output is *knowledge, not software*. Every assertion keeps its
+  original quote + page and points back to one source, so claims are auditable.
+- **Boundary:** pure knowledge layer; plain strings; **no engine/matrix
+  dependency** (test-enforced). Adding sources never changes the matrix.
+- **Impact:** Additive; ships no fabricated sources (baseline coverage 0/56).
+  New test `thai_source_consensus_review_test.dart`. Not deployed.
+- **Related documents:** `THAI_SOURCE_COLLECTION_V7.md`.
+
+---
+
+## D-050 — Thai Astrology Consensus Engine V8
+
+- **Date:** 2026-06 · **Status:** Accepted · Knowledge only · **No deploy**
+- **Context:** Multiple sources (V7) will assert the same relationship
+  differently; agreement needs to be measured before any review.
+- **Decision:** Add `KnowledgeConsensusEngine` — for every directed relationship
+  count friend/enemy/neutral votes and distinct sources, classify
+  `consensus/majority/split/disputed/uncovered`, and estimate confidence from
+  source count (1–2 low, 3–7 medium, 8+ high; downgraded one level for split/
+  disputed). Produces a Consensus Report.
+- **Reason:** Turns raw source votes into a single, explainable agreement signal
+  that the Matrix Review (V9) can reason about.
+- **Boundary:** reads only source assertions; **does not read or modify the
+  `PlanetRelationshipMatrix`** (test-enforced).
+- **Impact:** Additive engine + tests (incl. the brief's worked example,
+  4/2/1 → majority/medium). Not deployed.
+- **Related documents:** `THAI_CONSENSUS_ENGINE_V8.md`.
+
+---
+
+## D-051 — Thai Astrology Matrix Review V9
+
+- **Date:** 2026-06 · **Status:** Accepted · **Proposal only** · No engine/matrix change · **No deploy**
+- **Context:** With sources (V7) and consensus (V8) in place, the frozen matrix
+  can be reviewed against evidence — but this is a *knowledge decision, not a
+  code decision*.
+- **Decision:** Add `MatrixReviewEngine` producing a **proposal** per
+  relationship: current matrix (read from the V2 knowledge mirror, not the
+  engine), consensus, supporting/conflicting sources, user research, and a
+  recommendation **Keep / Review / Replace** with rationale, plus a qualitative
+  **engine-impact estimate** over timeline/prediction/decision/compatibility/
+  conversation (only Replace rows would change behaviour).
+- **Reason:** Makes matrix changes evidence-driven, auditable and human-gated.
+- **Boundary:** **changes no code**; never reads or writes the engine matrix.
+  Acting on any Replace/Review is a separate, explicitly-approved future step.
+- **Impact:** Additive analysis engine + tests; baseline proposal is 56 Keep /
+  0 Review / 0 Replace (no sources yet). Not deployed.
+- **Related documents:** `THAI_MATRIX_REVIEW_V9.md`.
+
+---
+
+## D-052 — Thai Astrology Canon V1 (Canonical Knowledge Architecture)
+
+- **Date:** 2026-06 · **Status:** Accepted · Knowledge layer only · Engine frozen · **No deploy**
+- **Context:** The knowledge platform (V1–V9) treated every source as equal. Real
+  Thai astrology has a hierarchy of authority. An audit
+  (`THAI_ASTROLOGY_CANON_AUDIT_V1.md`) confirmed the 56 relationships are seeded
+  from the frozen matrix with no documented source, that calculation-source
+  hierarchies were never bridged with the knowledge `school` vocabulary, and that
+  `หลักมหาภูต` / `ส. หยกฟ้า` did not yet appear anywhere in the repo.
+- **Decision:** Add a **Canonical Knowledge Layer**
+  (`lib/features/astrology/thai/knowledge/canon/`): a **Source Priority ladder**
+  (`KnowledgeTier`: Tier 0 calculation engine → Tier 1 Canon `หลักมหาภูต` → Tier 2
+  Thai classical → Tier 3 research → Tier 4 internet), a `CanonicalKnowledgeNode`
+  carrying Source/Tier/Canonical/Confidence/Evidence/References/Conditions/
+  Exceptions (authority **derived from the source registry, never self-declared**),
+  a `CanonConflictResolver` encoding **"Canon always wins"** (supporting sources
+  add detail or are overruled, canon-vs-canon flagged for human review, no-canon
+  is provisional), a `CanonKnowledgeEngine` (load/validate/resolve/coverage), and a
+  `CanonBookManifest` + `knowledge/canon/mahabhut.*` skeleton as the **architecture
+  to extract `หลักมหาภูต` later** (no extraction yet).
+- **Reason:** Establishes a permanent, auditable foundation where a canonical
+  interpretive source can win over supporting texts — without altering anything
+  that runs.
+- **Boundary:** **No engine / Swiss Ephemeris / formula / day / lagna / bhava /
+  planet / Runtime / Provider / Mirror / Fusion / Narrative change.**
+  `PlanetRelationshipMatrix` never imported, read, or written (decoupling test).
+  No fabricated knowledge — baseline ships an empty node corpus and a not-started
+  book skeleton; sources register identities only. Not deployed.
+- **Impact:** Additive `canon/` layer + `knowledge/canon/` data + 20 tests
+  (`thai_canon_knowledge_test.dart`).
+- **Related documents:** `THAI_ASTROLOGY_CANON_V1.md`,
+  `THAI_ASTROLOGY_CANON_AUDIT_V1.md`.
+
+---
+
+## D-053 — Thai Astrology Mahabhut Canon Extraction V1 (Canon Database)
+
+- **Date:** 2026-06 · **Status:** Accepted · Knowledge layer only · Engine frozen · **No deploy**
+- **Context:** Canon V1 (D-052) established the tier ladder, node, resolver and a
+  single book skeleton. To ingest `หลักมหาภูต` (and future texts) we need a
+  normalized, multi-book database with full traceability — **structure only, no
+  extraction yet**.
+- **Decision:** Add the **Mahabhut Canon Database**
+  (`lib/features/astrology/thai/knowledge/canon/database/`): normalized entities
+  Book→Chapter→Section→Topic→`CanonKnowledgeUnit` (type ∈ topic/concept/rule/
+  formula/interpretation/meaning/example/exception/condition) plus first-class
+  Evidence, CrossReference, SourceReference and Location; a multi-book
+  **Manifest System** (`CanonLibraryManifest`: metadata/extraction-state/
+  validation-state/version/progress); an auditable **Extraction Pipeline**
+  (Book→…→Validation→Canon Database→Knowledge Index→Reasoning Engine) with
+  error-gating; a **Traceability System** (`CanonDatabase.trace` → book/chapter/
+  section/topic/page/source citation); a **Cross-Reference System**; and a
+  **Validation Layer** (`draft→extracted→reviewed→validated→canonApproved`). A
+  read-only `CanonKnowledgeIndex` is the reasoning-engine query seam.
+- **Reason:** A permanent, extensible foundation so books enter the system one
+  chapter at a time without further architecture change, every insight traceable
+  to its page.
+- **Boundary:** Compatible with V1–V9, runtime, provider, mirror, fusion,
+  narrative and the evidence layer. **No calculation-engine / Swiss-Ephemeris /
+  formula change.** `PlanetRelationshipMatrix` never imported/read/written
+  (decoupling test). No fabricated content — DB baseline and book manifest ship
+  empty/not-started. Canon V1 bridge converts approved assertive units into
+  `CanonicalKnowledgeNode`s so the existing resolver/engine are unchanged. Not
+  deployed.
+- **Impact:** Additive `canon/database/` layer + `knowledge/canon/` data (db
+  schema/template/baseline + library manifest) + 21 tests
+  (`thai_canon_database_test.dart`); Canon V1's 20 tests stay green.
+- **Related documents:** `THAI_MAHABHUT_CANON_EXTRACTION_V1.md`,
+  `THAI_ASTROLOGY_CANON_V1.md`.
+
+---
+
+## D-054 — Thai Astrology Mahabhut Ingestion Toolchain V1
+
+- **Date:** 2026-06 · **Status:** Accepted · Knowledge tooling only · Engine frozen · **No deploy**
+- **Context:** The Canon Database (D-053) is ready but the book text is not yet
+  available. Rather than fabricate canon (forbidden), build the toolchain that
+  turns prepared text into canon-approved knowledge once a chapter is supplied.
+- **Decision:** Add a pure-Dart ingestion toolchain
+  (`lib/features/astrology/thai/knowledge/canon/ingestion/`) + CLI
+  (`tool/canon_ingest.dart`): **Import Pipeline** (OCR/plain/Markdown/TXT →
+  pages/chapters/sections/paragraphs, no PDF); **Extraction Engine** (verbatim
+  Candidate units, semantics left to a human, never auto-approved); a
+  **Candidate Layer** (`CanonCandidateStore`, kept separate from the database);
+  a **Validation Engine** (required fields, duplicate, broken reference, missing
+  citation, missing page, invalid cross-reference, empty rule, empty concept);
+  an **Approval Workflow** state machine (candidate→validated→reviewed→
+  canonApproved) with `promote()` → `CanonDatabasePatch`; a **Diff Engine**
+  (rule/citation change detection across OCR versions); **QA Tools**
+  (missing-citation/duplicate-rule/orphan-rule/broken-xref/empty-concept); and
+  **Extraction Metrics** (counts/coverage/progress).
+- **Reason:** Makes book ingestion near-automatic and code-free, while keeping the
+  no-fabrication and full-traceability guarantees.
+- **Boundary:** Restructures only user-provided text — no invented knowledge, no
+  internet, no memory-sourced content, no guessing. Reasoning Engine reads only
+  canon-approved units. **No change** to Swiss Ephemeris, calculation engine,
+  matrix, runtime, provider, mirror, fusion, narrative, or the existing Thai
+  engine; ingestion layer imports none of them and stays Flutter-free (CLI runs
+  under plain `dart run`). Not deployed.
+- **Impact:** Additive `canon/ingestion/` layer + CLI + 15 tests
+  (`thai_canon_ingestion_toolchain_test.dart`); Canon V1 (20) and Canon Database
+  (21) tests stay green.
+- **Related documents:** `THAI_MAHABHUT_INGESTION_TOOLCHAIN_V1.md`,
+  `THAI_MAHABHUT_CANON_EXTRACTION_V1.md`, `THAI_MAHABHUT_CANON_EXTRACTION_V2_RUNBOOK.md`.
+
+---
+
+## D-055 — Thai Astrology Mahabhut Content Engineering V1
+
+- **Date:** 2026-06 · **Status:** Accepted · Reviewer tooling only · Engine frozen · **No deploy**
+- **Context:** With the ingestion toolchain (D-054) in place, the remaining cost
+  of converting "หลักมหาภูต" is human review. Reduce it without adding new
+  architecture or fabricating content.
+- **Decision:** Add a human-review layer that composes the existing toolchain:
+  **Reviewer Workspace** (`lib/features/knowledge_workspace/canon_review/`,
+  route `/internal/knowledge/canon-review` behind the existing
+  `ThaiResearchAdminGuard`) showing source text + candidate + citation + cross
+  references + validation errors together, with Coverage and Consistency tabs and
+  a per-unit checklist; **Review Assistant** (`ingestion/canon_review_assistant.dart`,
+  highlights + `CanonReviewChecklist`, composing the Validation Engine + QA
+  Tools); **Coverage Analysis** (`canon_coverage_analysis.dart`:
+  chapter/section/knowledge-density/citation/validation coverage); **Consistency
+  Checker** (`canon_consistency_checker.dart`: concept naming, duplicate
+  rule-id, duplicate formula, citation/metadata gaps); a **Canon Style Guide**
+  and a **Content Review Checklist** doc.
+- **Reason:** Lets a human read/review/approve efficiently with mechanical aids,
+  while preserving no-fabrication and full traceability.
+- **Boundary:** Aids are read-only and never create/alter knowledge; no parallel
+  checker (analyzers reuse existing engines). No fabricated knowledge, no
+  internet, no guessing. **No change** to engine, runtime, Swiss Ephemeris,
+  matrix, provider, mirror, fusion, narrative; workspace reuses the existing
+  admin guard + route chain. Not deployed.
+- **Impact:** Additive analyzers + reviewer UI + route + 9 tests
+  (`thai_canon_content_engineering_test.dart`); Toolchain (15), Canon V1 (20) and
+  Canon Database (21) suites stay green.
+- **Related documents:** `THAI_MAHABHUT_CONTENT_ENGINEERING_V1.md`,
+  `THAI_MAHABHUT_CANON_STYLE_GUIDE.md`, `THAI_MAHABHUT_CONTENT_REVIEW_CHECKLIST.md`,
+  `THAI_MAHABHUT_INGESTION_TOOLCHAIN_V1.md`.
+
+---
+
+## D-056 — Thai Astrology Canon Platform Freeze V1
+
+- **Date:** 2026-06 · **Status:** Accepted · **Platform FROZEN** · Engine frozen · **No deploy**
+- **Context:** The Canon Platform (D-052 → D-055) is complete. Declare a freeze so
+  future work is canonical *content*, not platform changes.
+- **Decision:** Ratify the platform as Production Ready and **frozen**. Full audit
+  performed (architecture, database, manifest, knowledge model, validation,
+  approval workflow, toolchain, CLI, reviewer workspace, QA, metrics, docs).
+  Behaviour-preserving fixes only: (1) fixed a build break — added the missing
+  `canon/canon_json.dart` import to `canon_knowledge_engine.dart`; (2)
+  consolidated duplicate `_enumByName`/`_stringList` helpers in
+  `database/canon_entities.dart` and `ingestion/canon_candidate.dart` to the
+  shared `canon_json.dart`. Verified no circular dependencies, no layer leakage
+  (leaf → database → ingestion; root reasoning pillar independent), consistent
+  data/schema namespacing, and that the two manifests (`CanonBookManifest` per-book
+  vs `CanonLibraryManifest` multi-book) are complementary, not duplicate.
+- **Reason:** Lock a stable foundation; reduce risk; direct effort to Content
+  Engineering.
+- **Boundary:** From now, **no new platform features/layers/schemas/workflows or
+  architecture changes** without a new explicit decision; bug fixes that block
+  real usage are allowed. No fabricated knowledge; engine and all frozen surfaces
+  untouched. Not deployed.
+- **Impact:** Build break removed; duplicate logic eliminated; 65 canon tests stay
+  green; `flutter analyze` clean.
+- **Related documents:** `THAI_MAHABHUT_CANON_PLATFORM_FREEZE_V1.md` (+ all canon
+  platform docs).
+
+---
+
+## D-057 — Canon Provenance Policy: reference-only citations (copyright)
+
+- **Date:** 2026-06 · **Status:** Accepted · Implementation mode · Engine frozen · **No deploy**
+- **Context:** Implementation-mode directive reframes the book as a **Canon
+  Reference**: extract structured knowledge, **never store copyrighted narrative
+  text**. This is a *real inconsistency* with the frozen platform, which was
+  quote-first and **required** a verbatim quote to approve a unit — the one
+  condition under which the freeze permits change.
+- **Decision:** Provenance is by **reference**, not stored text. Minimal,
+  behaviour-preserving changes: (1) extraction no longer seeds `evidenceQuote`
+  with the verbatim paragraph; (2) `CanonCandidateUnit.hasCitation` and the
+  validator's `missing_citation` now require a **book reference** (page /
+  chapter / section), not a quote; `missing_page` still requires a page; (3) the
+  Canon Database warns only when evidence has **no provenance at all** (no quote
+  *and* no page), not merely a missing quote; (4) the review checklist's
+  "verbatim" item becomes "faithful structured knowledge (not copied paragraph
+  text)". The verbatim paragraph remains only as local working material and is
+  never promoted to `canon_database.knowme.json`. Canon V1's `hasEvidence`
+  already accepted a page-only reference, so no model redesign was needed.
+- **Reason:** Comply with the copyright principle (Knowledge → Rules → Narrative;
+  narrative generated from the knowledge layer, never hardcoded book text) while
+  preserving Canon compatibility.
+- **Boundary:** No new layers/schemas/workflows; no fabricated knowledge; engine
+  and all frozen surfaces untouched. Not deployed.
+- **Impact:** Canon suite stays green (66 tests after splitting one DB test);
+  `flutter analyze` clean.
+- **Related documents:** `THAI_MAHABHUT_CANON_STYLE_GUIDE.md` (§0 Provenance),
+  `THAI_MAHABHUT_CONTENT_REVIEW_CHECKLIST.md`,
+  `THAI_MAHABHUT_CANON_PLATFORM_FREEZE_V1.md`.
+
+---
+
+## D-058 — Canon Atomic Knowledge Foundation V2
+
+- **Date:** 2026-06 · **Status:** Accepted · Knowledge platform only · Engine frozen · **No deploy**
+- **Context:** Implementation-mode refinement: move Canon from a Statement-based
+  model to an **Atomic Knowledge** model and make Canon a **knowledge graph**, so
+  the flow is Book → Atomic Knowledge → Knowledge Graph → Rule Engine → Reasoning
+  → Narrative (never Book → Statement → Narrative).
+- **Decision:** Add a pure-Dart atomic layer
+  (`lib/features/astrology/thai/knowledge/canon/atomic/`): `AtomicKnowledgeUnit`
+  (one atomic fact = subject `--relation-->` object + condition/effect/strength/
+  confidence + reference-only evidence); a controlled vocabulary
+  (`AtomicRelation`, `AtomicEntityKind`, `AtomicStrength`, `KnowledgeDomain`);
+  `AtomicExtractionRules` (one fact/meaning/rule; rejects paragraphs, summaries,
+  rewritten narrative, interpretation, prediction); `AtomicKnowledgeGraph`
+  (entities = nodes, relations = first-class edges; validation + queries); and a
+  deterministic `CanonCompletenessReport` (domain-based coverage + evidence/
+  verified/unknown-relationship metrics). The free-text `statement` is demoted to
+  working material; the atomic unit is the canonical object.
+- **Reason:** Atomic, graph-shaped knowledge is reusable and reason-able; narrative
+  is generated from it and never stored as Canon.
+- **Boundary:** No architecture redesign, no new engine, no UI, no runtime
+  behaviour change. Untouched: `PlanetRelationshipMatrix`, Rule Engine, Timeline,
+  Prediction, Decision, Runtime, Mirror, Conversation, Fusion, Narrative. No
+  fabricated knowledge; provenance by reference only (D-057). Not deployed.
+- **Impact:** Additive `atomic/` layer + 12 tests
+  (`thai_canon_atomic_knowledge_test.dart`); full canon suite (78) green;
+  `flutter analyze` clean.
+- **Related documents:** `THAI_CANON_ATOMIC_KNOWLEDGE_V2.md`,
+  `THAI_MAHABHUT_CANON_STYLE_GUIDE.md`, `THAI_MAHABHUT_CANON_PLATFORM_FREEZE_V1.md`.
 
 ---
 
