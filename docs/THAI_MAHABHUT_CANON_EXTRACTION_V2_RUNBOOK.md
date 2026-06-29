@@ -26,6 +26,13 @@ Builds on D-052 (Canon V1) and D-053 (Canon Database).
 > to the **Canonical Ontology** (D-059); the `WorkspaceValidator`, `KnowledgeDiff`
 > and `ReviewReport` gate import. Steps below map onto: Draft → Extracting →
 > Validated → Reviewed → Approved → Imported → Archived.
+>
+> **QA gate (D-063):** the Canon pipeline is regression-tested by the **Golden
+> Canon Dataset** (`canon/golden/`, `THAI_CANON_GOLDEN_DATASET_V1.md`) — synthetic
+> fixtures with declared deterministic outcomes verified through the real
+> `WorkspaceValidator`/`KnowledgeDiff`/`CompletenessDelta`/`ReviewReport`. Run
+> `thai_canon_golden_test.dart` after any change to extraction, validation or the
+> ontology; a golden mismatch means the change altered pipeline behaviour.
 
 ---
 

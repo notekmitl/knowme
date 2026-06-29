@@ -51,6 +51,12 @@ every unit traceable to the book.
 > Workspace validator**, and export/import drafts to resume later. Nothing is
 > Canon until imported via the Workspace. See
 > `THAI_CANON_KNOWLEDGE_AUTHORING_STUDIO_V1.md`.
+>
+> **Golden Dataset V1 (D-063):** the Canon pipeline has a deterministic
+> **regression suite** (`canon/golden/`) — synthetic fixtures with declared
+> outcomes verified through the real Workspace pipeline. Treat a golden mismatch
+> as a behavioural regression: investigate before changing fixtures. See
+> `THAI_CANON_GOLDEN_DATASET_V1.md`.
 
 ---
 

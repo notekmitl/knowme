@@ -60,6 +60,7 @@ sessions and developers should consult this before reopening any settled decisio
 | D-060 | Canon Knowledge Extraction Workspace V4 (only supported Canon ingestion path; pure-Dart `canon/workspace/`: `KnowledgeExtractionSession` deterministic lifecycle Draft→Extracting→Validated→Reviewed→Approved→Imported→Archived; `ExtractionSource` provenance-only page tracking; `WorkspaceValidator` catches every failure class (atomicity/ontology/relationship/evidence/duplicate/graph+baseline conflict/coverage); `KnowledgeDiff` NEW/UPDATED/UNCHANGED/CONFLICT/DEPRECATED; `CompletenessDelta` before/after report (conflicts not applied); `ReviewReport` deterministic structured non-narrative gate; consumes atomic+ontology read-only, no engine depends on it; no redesign/engine/UI/runtime change; no deploy) | 2026-06 | Accepted |
 | D-061 | Canon Knowledge Production V1 (production begins; source book absent so facts left **Unknown**, none fabricated; ontology seeded 12 houses + `meaning`/`role`/`keyword` categories; Canon-compatible fix adds `element`/`keyword`/`role` to `AtomicEntityKind`; content-tier deterministic `KnowledgeProductionReport` `canon/production/` over imported atomic units (6 V1 domains, all-atomic/provenance/coverage); empty `foundation_v1.knowme.json`; knowledge enters only via workspace; no engine/runtime/matrix/UI change; no deploy) | 2026-06 | Accepted |
 | D-062 | Canon Knowledge Authoring Studio V1 (human editing layer before the Workspace; pure-Dart `canon/authoring/`: `DraftKnowledgeUnit` editable atomic mirror (no narrative); `OntologyAssist` resolved/missingOntology/unknown, never auto-creates; `AuthoringStudio` deterministic batch edit add/duplicate/split/merge/delete/reorder (stays atomic), deterministic ids, validation **preview reuses `WorkspaceValidator`/`ReviewReport`**, export/import reproduces identical draft; authoring only, consumes workspace+ontology+atomic read-only; no engine/runtime/matrix/UI change; no deploy) | 2026-06 | Accepted |
+| D-063 | Golden Canon Dataset V1 (QA regression suite; pure-Dart `canon/golden/`: `GoldenDataset`+`GoldenExpectation` declared deterministic outcome, deterministic `versionTag`+FNV-1a `fingerprint`; `GoldenVerifier` drives the **real** pipeline (`WorkspaceValidator`/`KnowledgeDiff`/`CompletenessDelta`/`ReviewReport`, no logic reimplemented) and reports field mismatches; 10 fixtures (minimal/single planet/single house/planet+house/conflict/duplicate/ontology failure/relationship failure/coverage increase/deprecated); deterministic `GoldenReport`; QA only, synthetic structural fixtures, no copyrighted text, no invented facts; no engine/runtime/matrix/UI change; no deploy) | 2026-06 | Accepted |
 
 ---
 
@@ -1953,6 +1954,41 @@ sessions and developers should consult this before reopening any settled decisio
 - **Related documents:** `THAI_CANON_KNOWLEDGE_AUTHORING_STUDIO_V1.md`,
   `THAI_CANON_KNOWLEDGE_EXTRACTION_WORKSPACE_V4.md`,
   `THAI_CANON_KNOWLEDGE_PRODUCTION_V1.md`.
+
+---
+
+## D-063 — Golden Canon Dataset V1 (QA regression suite)
+
+- **Date:** 2026-06 · **Status:** Accepted · QA assets only · Engine frozen · **No deploy**
+- **Context:** With the platform complete, Canon development needs a deterministic
+  regression suite so future extraction / validation / pipeline changes can be
+  verified against fixed, known-good outcomes — without any astrology engine
+  consuming the data.
+- **Decision:** Add a pure-Dart QA package
+  (`lib/features/astrology/thai/knowledge/canon/golden/`): `GoldenDataset` +
+  `GoldenExpectation` (declared deterministic outcome: units, ontology coverage,
+  graph shape, validation result + error codes, diff counts + readiness,
+  completeness deltas) with deterministic `versionTag` and FNV-1a `fingerprint`;
+  `GoldenVerifier` that runs the **real** pipeline (`WorkspaceValidator`,
+  `KnowledgeDiff`, `CompletenessDelta`, `ReviewReport` — no logic reimplemented)
+  and reports field-level mismatches; a catalog of **10 fixtures** (minimal,
+  single planet, single house, planet+house, conflict, duplicate, ontology
+  failure, relationship failure, coverage increase, deprecated); and deterministic
+  reports (`GoldenReport`).
+- **Reason:** A fixed, deterministic regression contract for the whole Canon
+  pipeline, built on the existing validator rather than a parallel one.
+- **Boundary:** QA only — no UI, no runtime/engine/matrix change, no deploy. No
+  copyrighted text and no invented astrology facts (synthetic structural fixtures;
+  the relationship-failure case uses a *custom* ontology missing a relationship
+  rather than mutating shared data). Untouched: Authoring Studio, Workspace,
+  Ontology, Knowledge Graph, Atomic Knowledge, Rule Engine, Timeline, Prediction,
+  Decision, Runtime, Mirror, Conversation, Fusion, `PlanetRelationshipMatrix`.
+- **Impact:** Additive `golden/` layer + 18 tests
+  (`thai_canon_golden_test.dart`); full canon suite (149) green; `flutter analyze`
+  clean.
+- **Related documents:** `THAI_CANON_GOLDEN_DATASET_V1.md`,
+  `THAI_CANON_KNOWLEDGE_EXTRACTION_WORKSPACE_V4.md`,
+  `THAI_CANON_KNOWLEDGE_AUTHORING_STUDIO_V1.md`.
 
 ---
 
