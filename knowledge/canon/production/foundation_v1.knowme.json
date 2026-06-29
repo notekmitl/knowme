@@ -1,0 +1,18 @@
+{
+  "$comment": "Canon Knowledge Production V1 — foundational domains. STATE: empty / Unknown. No facts have been produced because the canonical source text (หลักมหาภูต, ส. หยกฟ้า) is not present in the repository (see knowledge/canon/sources/mahabhut/README.md). Per the Canon rules, facts are NEVER invented from memory or the internet — unsupported knowledge stays Unknown. When the source arrives, units are produced ONLY through the Knowledge Extraction Workspace (canon/workspace/), resolved against the Canonical Ontology (canon/ontology/), and imported after review.",
+  "version": 1,
+  "source": {
+    "bookId": "mahabhut",
+    "title": "หลักมหาภูต (ส. หยกฟ้า)",
+    "status": "source_not_in_repository"
+  },
+  "provenancePolicy": "reference-only (D-057): store Book, Edition, Page, Section, Reviewer, Extraction Date. Never store copyrighted paragraphs or prose.",
+  "domains": [
+    { "id": "planet_library", "label": "Planet Library", "status": "unknown", "units": [] },
+    { "id": "house_library", "label": "House Library", "status": "unknown", "units": [] },
+    { "id": "planet_meanings", "label": "Planet → Natural Meaning", "status": "unknown", "units": [] },
+    { "id": "planet_keywords", "label": "Planet → Keywords", "status": "unknown", "units": [] },
+    { "id": "planet_domains", "label": "Planet → Domain", "status": "unknown", "units": [] },
+    { "id": "planet_elements", "label": "Planet → Element", "status": "unknown", "units": [] }
+  ]
+}

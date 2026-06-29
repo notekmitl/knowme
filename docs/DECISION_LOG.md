@@ -58,6 +58,7 @@ sessions and developers should consult this before reopening any settled decisio
 | D-058 | Canon Atomic Knowledge Foundation V2 (Statement→Atomic Knowledge; pure-Dart `canon/atomic/`: `AtomicKnowledgeUnit` one-fact subject→relation→object + condition/effect/strength/confidence + reference evidence; relation/entity/domain vocabulary; `AtomicExtractionRules` reject narrative & enforce atomicity; `AtomicKnowledgeGraph` first-class relationships; deterministic `CanonCompletenessReport` domain coverage; no redesign/engine/UI/runtime change; no deploy) | 2026-06 | Accepted |
 | D-059 | Canon Ontology Foundation V3 (Canonical Ontology Layer; pure-Dart `canon/ontology/`: `CanonicalEntity` id/canonicalName/category/aliases/description/parentId/status, id convention `<category>.<slug>`; `CanonicalOntology` deterministic alias resolution (unknown/ambiguous unresolved), relationship registry superset of V2 `AtomicRelation`, domain taxonomy; deterministic `OntologyValidationReport` dup ids/alias collisions/unregistered rel/category mismatch/orphans/cycles; seeded `CanonOntologyData.standard` vocabulary only; graph logic untouched; no redesign/engine/UI/runtime change; no deploy) | 2026-06 | Accepted |
 | D-060 | Canon Knowledge Extraction Workspace V4 (only supported Canon ingestion path; pure-Dart `canon/workspace/`: `KnowledgeExtractionSession` deterministic lifecycle Draft→Extracting→Validated→Reviewed→Approved→Imported→Archived; `ExtractionSource` provenance-only page tracking; `WorkspaceValidator` catches every failure class (atomicity/ontology/relationship/evidence/duplicate/graph+baseline conflict/coverage); `KnowledgeDiff` NEW/UPDATED/UNCHANGED/CONFLICT/DEPRECATED; `CompletenessDelta` before/after report (conflicts not applied); `ReviewReport` deterministic structured non-narrative gate; consumes atomic+ontology read-only, no engine depends on it; no redesign/engine/UI/runtime change; no deploy) | 2026-06 | Accepted |
+| D-061 | Canon Knowledge Production V1 (production begins; source book absent so facts left **Unknown**, none fabricated; ontology seeded 12 houses + `meaning`/`role`/`keyword` categories; Canon-compatible fix adds `element`/`keyword`/`role` to `AtomicEntityKind`; content-tier deterministic `KnowledgeProductionReport` `canon/production/` over imported atomic units (6 V1 domains, all-atomic/provenance/coverage); empty `foundation_v1.knowme.json`; knowledge enters only via workspace; no engine/runtime/matrix/UI change; no deploy) | 2026-06 | Accepted |
 
 ---
 
@@ -1884,6 +1885,41 @@ sessions and developers should consult this before reopening any settled decisio
 - **Related documents:** `THAI_CANON_KNOWLEDGE_EXTRACTION_WORKSPACE_V4.md`,
   `THAI_CANON_ONTOLOGY_V3.md`, `THAI_CANON_ATOMIC_KNOWLEDGE_V2.md`,
   `THAI_MAHABHUT_CANON_EXTRACTION_V2_RUNBOOK.md`.
+
+---
+
+## D-061 — Canon Knowledge Production V1 (production begins; facts stay Unknown)
+
+- **Date:** 2026-06 · **Status:** Accepted · Content production · Engine frozen · **No deploy**
+- **Context:** With the platform foundation complete (D-052…D-060), V1 shifts to
+  producing real Canon knowledge for six foundational domains (Planet Library,
+  House Library, Planet→Meaning, Planet→Keywords, Planet→Domain, Planet→Element)
+  using `หลักมหาภูต` as Canon.
+- **Decision / outcome:** The canonical **source text is not in the repository**
+  (only `knowledge/canon/sources/mahabhut/README.md`). Per the absolute Canon rule
+  ("no speculative astrology; if unsupported, leave it Unknown; never invent from
+  memory/internet"), **no facts were fabricated** — substantive knowledge is left
+  Unknown. Delivered the maximum compliant value: (a) ontology expansion — seeded
+  the 12 houses and added `meaning`/`role`/`keyword` categories (structural
+  vocabulary, no claims); (b) a Canon-compatible fix adding `element`/`keyword`/
+  `role` to `AtomicEntityKind`; (c) a content-tier `KnowledgeProductionReport`
+  (`canon/production/`) — deterministic per-domain produced/verified/coverage/
+  status over imported atomic units, with all-atomic + provenance checks; (d) the
+  empty `foundation_v1.knowme.json` dataset + a one-step unblock.
+- **Reason:** Inventing planet/house meanings would violate the project's core
+  principle; the honest deliverable is a ready production pipeline + truthful
+  Unknown reports.
+- **Boundary:** No runtime/engine/matrix change, no UI, no deploy, no new platform
+  infrastructure beyond the structural ontology + atomic-kind fix + report
+  aggregator. Knowledge enters only via the workspace; provenance reference-only
+  (D-057). `PlanetRelationshipMatrix`, Rule Engine, Timeline, Prediction,
+  Decision, Runtime, Mirror, Conversation, Fusion untouched.
+- **Impact:** `canon/production/` + ontology/atomic vocabulary additions + 11 tests
+  (`thai_canon_production_test.dart`); full canon suite (120) green; `flutter
+  analyze` clean.
+- **Related documents:** `THAI_CANON_KNOWLEDGE_PRODUCTION_V1.md`,
+  `THAI_CANON_KNOWLEDGE_EXTRACTION_WORKSPACE_V4.md`, `THAI_CANON_ONTOLOGY_V3.md`,
+  `knowledge/canon/sources/mahabhut/README.md`.
 
 ---
 

@@ -89,6 +89,19 @@ abstract final class CanonOntologyData {
     ),
   ];
 
+  /// The twelve houses (bhāva). Structural enumeration only — the *meaning* of
+  /// each house is Canon knowledge and is NOT encoded here (it comes from the
+  /// book via the extraction workspace). Labels are positional, not claims.
+  static List<CanonicalEntity> houses() => [
+        for (var n = 1; n <= 12; n++)
+          CanonicalEntity(
+            id: 'house.$n',
+            canonicalName: 'House $n',
+            category: OntologyCategory.house,
+            aliases: ['Bhava $n', 'ภพที่ $n', 'เรือนที่ $n'],
+          ),
+      ];
+
   static const List<CanonicalEntity> elements = [
     CanonicalEntity(
       id: 'element.fire',
@@ -194,6 +207,7 @@ abstract final class CanonOntologyData {
   /// Every seeded entity, deterministically ordered.
   static List<CanonicalEntity> allEntities() => [
         ...planets,
+        ...houses(),
         ...elements,
         ...domains,
         ...relationshipEntities(),

@@ -35,6 +35,13 @@ every unit traceable to the book.
 > and `ReviewReport` (with `CompletenessDelta`) are the review surface, and
 > `readyForImport` gates entry into the Canon database. Nothing enters Canon
 > directly. See `THAI_CANON_KNOWLEDGE_EXTRACTION_WORKSPACE_V4.md`.
+>
+> **Production V1 (D-061):** the platform foundation is complete; work is now
+> *content production* for six foundational domains, tracked by the deterministic
+> `KnowledgeProductionReport` (`canon/production/`). The Canon book is not yet in
+> the repo, so all domains read **Unknown** — facts are never invented; drop the
+> source text and run the workspace to produce them. See
+> `THAI_CANON_KNOWLEDGE_PRODUCTION_V1.md`.
 
 ---
 
