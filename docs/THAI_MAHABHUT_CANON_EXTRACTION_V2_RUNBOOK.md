@@ -15,15 +15,17 @@ Builds on D-052 (Canon V1) and D-053 (Canon Database).
 > material and is never promoted to the canon database. Where this runbook says
 > "verbatim", treat it as *read the source faithfully*, not *store the paragraph*.
 >
-> **Extraction path (D-058 / D-059 / D-060):** when the source is available,
-> extraction runs through the **Knowledge Extraction Workspace**
-> (`canon/workspace/`, `THAI_CANON_KNOWLEDGE_EXTRACTION_WORKSPACE_V4.md`) — the
-> only supported Canon ingestion path. Each chapter becomes a
-> `KnowledgeExtractionSession`; pages are decomposed into **Atomic Knowledge
-> Units** (D-058) whose subjects/objects/relations resolve to the **Canonical
-> Ontology** (D-059); the `WorkspaceValidator`, `KnowledgeDiff` and `ReviewReport`
-> gate import. Steps below map onto: Draft → Extracting → Validated → Reviewed →
-> Approved → Imported → Archived.
+> **Extraction path (D-058 / D-059 / D-060 / D-062):** when the source is
+> available, a reviewer authors each page in the **Knowledge Authoring Studio**
+> (`canon/authoring/`, `THAI_CANON_KNOWLEDGE_AUTHORING_STUDIO_V1.md`) — draft
+> Atomic Knowledge Units with live ontology assistance and batch editing — then
+> hands the session to the **Knowledge Extraction Workspace** (`canon/workspace/`,
+> `THAI_CANON_KNOWLEDGE_EXTRACTION_WORKSPACE_V4.md`), the only supported ingestion
+> path. Each chapter becomes a `KnowledgeExtractionSession`; pages are decomposed
+> into **Atomic Knowledge Units** (D-058) whose subjects/objects/relations resolve
+> to the **Canonical Ontology** (D-059); the `WorkspaceValidator`, `KnowledgeDiff`
+> and `ReviewReport` gate import. Steps below map onto: Draft → Extracting →
+> Validated → Reviewed → Approved → Imported → Archived.
 
 ---
 

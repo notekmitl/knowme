@@ -59,6 +59,7 @@ sessions and developers should consult this before reopening any settled decisio
 | D-059 | Canon Ontology Foundation V3 (Canonical Ontology Layer; pure-Dart `canon/ontology/`: `CanonicalEntity` id/canonicalName/category/aliases/description/parentId/status, id convention `<category>.<slug>`; `CanonicalOntology` deterministic alias resolution (unknown/ambiguous unresolved), relationship registry superset of V2 `AtomicRelation`, domain taxonomy; deterministic `OntologyValidationReport` dup ids/alias collisions/unregistered rel/category mismatch/orphans/cycles; seeded `CanonOntologyData.standard` vocabulary only; graph logic untouched; no redesign/engine/UI/runtime change; no deploy) | 2026-06 | Accepted |
 | D-060 | Canon Knowledge Extraction Workspace V4 (only supported Canon ingestion path; pure-Dart `canon/workspace/`: `KnowledgeExtractionSession` deterministic lifecycle Draft→Extracting→Validated→Reviewed→Approved→Imported→Archived; `ExtractionSource` provenance-only page tracking; `WorkspaceValidator` catches every failure class (atomicity/ontology/relationship/evidence/duplicate/graph+baseline conflict/coverage); `KnowledgeDiff` NEW/UPDATED/UNCHANGED/CONFLICT/DEPRECATED; `CompletenessDelta` before/after report (conflicts not applied); `ReviewReport` deterministic structured non-narrative gate; consumes atomic+ontology read-only, no engine depends on it; no redesign/engine/UI/runtime change; no deploy) | 2026-06 | Accepted |
 | D-061 | Canon Knowledge Production V1 (production begins; source book absent so facts left **Unknown**, none fabricated; ontology seeded 12 houses + `meaning`/`role`/`keyword` categories; Canon-compatible fix adds `element`/`keyword`/`role` to `AtomicEntityKind`; content-tier deterministic `KnowledgeProductionReport` `canon/production/` over imported atomic units (6 V1 domains, all-atomic/provenance/coverage); empty `foundation_v1.knowme.json`; knowledge enters only via workspace; no engine/runtime/matrix/UI change; no deploy) | 2026-06 | Accepted |
+| D-062 | Canon Knowledge Authoring Studio V1 (human editing layer before the Workspace; pure-Dart `canon/authoring/`: `DraftKnowledgeUnit` editable atomic mirror (no narrative); `OntologyAssist` resolved/missingOntology/unknown, never auto-creates; `AuthoringStudio` deterministic batch edit add/duplicate/split/merge/delete/reorder (stays atomic), deterministic ids, validation **preview reuses `WorkspaceValidator`/`ReviewReport`**, export/import reproduces identical draft; authoring only, consumes workspace+ontology+atomic read-only; no engine/runtime/matrix/UI change; no deploy) | 2026-06 | Accepted |
 
 ---
 
@@ -1920,6 +1921,38 @@ sessions and developers should consult this before reopening any settled decisio
 - **Related documents:** `THAI_CANON_KNOWLEDGE_PRODUCTION_V1.md`,
   `THAI_CANON_KNOWLEDGE_EXTRACTION_WORKSPACE_V4.md`, `THAI_CANON_ONTOLOGY_V3.md`,
   `knowledge/canon/sources/mahabhut/README.md`.
+
+---
+
+## D-062 — Canon Knowledge Authoring Studio V1 (human editing layer)
+
+- **Date:** 2026-06 · **Status:** Accepted · Authoring layer only · Engine frozen · **No deploy**
+- **Context:** Production V1 (D-061) showed the need to make page-by-page
+  conversion practical for a human reviewer. The studio is the official editing
+  layer that sits *before* the Workspace: Reference Book Page → Authoring Studio →
+  Draft Knowledge Units → Workspace Validation → Diff → Review → Canon Import.
+- **Decision:** Add a pure-Dart authoring package
+  (`lib/features/astrology/thai/knowledge/canon/authoring/`): `DraftKnowledgeUnit`
+  (editable, atomic mirror of `AtomicKnowledgeUnit` — no narrative fields);
+  `OntologyAssist` (classifies each subject/object as resolved / missingOntology /
+  unknown; never auto-creates entries); `AuthoringStudio` with deterministic batch
+  editing (add/duplicate/split/merge/delete/reorder; output stays atomic),
+  deterministic id generation, ontology assistance, validation **preview that
+  reuses `WorkspaceValidator`/`ReviewReport` (no duplicated logic)**, and
+  export/import that reproduces the identical draft state.
+- **Reason:** Efficient human authoring with the same validation guarantees as the
+  Workspace, without forking validation logic or touching any frozen layer.
+- **Boundary:** Authoring only — no UI, no runtime/engine/matrix change, no deploy.
+  Consumes Workspace + ontology + atomic read-only. Untouched: Workspace, Ontology,
+  Knowledge Graph, Atomic Knowledge, Rule Engine, Timeline, Prediction, Decision,
+  Runtime, Mirror, Conversation, Fusion, `PlanetRelationshipMatrix`. Nothing here
+  is Canon until imported via the Workspace; provenance reference-only (D-057).
+- **Impact:** Additive `authoring/` layer + 11 tests
+  (`thai_canon_authoring_test.dart`); full canon suite (131) green; `flutter
+  analyze` clean.
+- **Related documents:** `THAI_CANON_KNOWLEDGE_AUTHORING_STUDIO_V1.md`,
+  `THAI_CANON_KNOWLEDGE_EXTRACTION_WORKSPACE_V4.md`,
+  `THAI_CANON_KNOWLEDGE_PRODUCTION_V1.md`.
 
 ---
 

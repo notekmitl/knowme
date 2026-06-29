@@ -42,6 +42,15 @@ every unit traceable to the book.
 > the repo, so all domains read **Unknown** — facts are never invented; drop the
 > source text and run the workspace to produce them. See
 > `THAI_CANON_KNOWLEDGE_PRODUCTION_V1.md`.
+>
+> **Authoring Studio V1 (D-062):** reviewers author a page using the
+> **Knowledge Authoring Studio** (`canon/authoring/`) — the official editing layer
+> *before* the Workspace. Create draft Atomic Knowledge Units, get live ontology
+> assistance (resolved / missing-ontology / unknown), batch-edit
+> (duplicate/split/merge/delete/reorder), preview validation **using the exact
+> Workspace validator**, and export/import drafts to resume later. Nothing is
+> Canon until imported via the Workspace. See
+> `THAI_CANON_KNOWLEDGE_AUTHORING_STUDIO_V1.md`.
 
 ---
 
