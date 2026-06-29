@@ -13,6 +13,13 @@ Status: **CURRENT** · Decision Log **D-055**, **D-057**, **D-058** · paired wi
 > *entities, relationships, conditions, effects, exceptions* — never paragraphs,
 > summaries, interpretation or prediction. A paragraph with N ideas becomes N
 > units. See `THAI_CANON_ATOMIC_KNOWLEDGE_V2.md`.
+>
+> **Canonical Ontology (V3, D-059):** subjects, objects, domains and relationships
+> MUST come from the **Canonical Ontology Layer** (`canon/ontology/`). Identify
+> entities by their stable id (`planet.jupiter`, `domain.finance`,
+> `relationship.owns`) — never by display text — and resolve surface forms via
+> alias resolution (unknown/ambiguous stays unresolved; never guess). No package
+> may invent entity or relationship names. See `THAI_CANON_ONTOLOGY_V3.md`.
 
 > Golden rule: **extract knowledge, cite by reference**. Record the book's
 > *concepts, relationships, logic and rules* as structured knowledge — **never

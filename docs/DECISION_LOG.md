@@ -56,6 +56,7 @@ sessions and developers should consult this before reopening any settled decisio
 | D-056 | Thai Astrology Canon Platform Freeze V1 (platform FROZEN + Production Ready; full audit; behaviour-preserving fixes only: fixed `canon_json.dart` import build break + consolidated duplicate `_enumByName`/`_stringList` helpers; verified no circular deps / layer leakage; future work = Content Engineering only; engine frozen; no deploy) | 2026-06 | Accepted |
 | D-057 | Canon Provenance Policy — reference-only citations (book = Canon Reference; never store copyrighted narrative; extraction stops seeding verbatim quote; `missing_citation`/`hasCitation` require a book reference not a quote; DB warns only on no-provenance; checklist "verbatim"→"faithful structured knowledge"; no model redesign; engine frozen; no deploy) | 2026-06 | Accepted |
 | D-058 | Canon Atomic Knowledge Foundation V2 (Statement→Atomic Knowledge; pure-Dart `canon/atomic/`: `AtomicKnowledgeUnit` one-fact subject→relation→object + condition/effect/strength/confidence + reference evidence; relation/entity/domain vocabulary; `AtomicExtractionRules` reject narrative & enforce atomicity; `AtomicKnowledgeGraph` first-class relationships; deterministic `CanonCompletenessReport` domain coverage; no redesign/engine/UI/runtime change; no deploy) | 2026-06 | Accepted |
+| D-059 | Canon Ontology Foundation V3 (Canonical Ontology Layer; pure-Dart `canon/ontology/`: `CanonicalEntity` id/canonicalName/category/aliases/description/parentId/status, id convention `<category>.<slug>`; `CanonicalOntology` deterministic alias resolution (unknown/ambiguous unresolved), relationship registry superset of V2 `AtomicRelation`, domain taxonomy; deterministic `OntologyValidationReport` dup ids/alias collisions/unregistered rel/category mismatch/orphans/cycles; seeded `CanonOntologyData.standard` vocabulary only; graph logic untouched; no redesign/engine/UI/runtime change; no deploy) | 2026-06 | Accepted |
 
 ---
 
@@ -1810,6 +1811,41 @@ sessions and developers should consult this before reopening any settled decisio
   `flutter analyze` clean.
 - **Related documents:** `THAI_CANON_ATOMIC_KNOWLEDGE_V2.md`,
   `THAI_MAHABHUT_CANON_STYLE_GUIDE.md`, `THAI_MAHABHUT_CANON_PLATFORM_FREEZE_V1.md`.
+
+---
+
+## D-059 — Canon Ontology Foundation V3 (Canonical Ontology Layer)
+
+- **Date:** 2026-06 · **Status:** Accepted · Knowledge platform only · Engine frozen · **No deploy**
+- **Context:** Atomic units (D-058) needed a single controlled vocabulary so no
+  Canon package invents entity or relationship names. Flow becomes Book → Atomic
+  Knowledge → **Canonical Ontology** → Knowledge Graph → Rule Engine → Reasoning →
+  Narrative.
+- **Decision:** Add a pure-Dart ontology layer
+  (`lib/features/astrology/thai/knowledge/canon/ontology/`): `CanonicalEntity`
+  (stable `id`, `canonicalName`, `category`, `aliases`, structured `description`,
+  `parentId`, `status`) with id convention `<category>.<slug>`; `CanonicalOntology`
+  registry with **deterministic alias resolution** (unknown/ambiguous stays
+  unresolved — never guesses), a **relationship registry** (the only legal graph
+  relationships; a superset of every V2 `AtomicRelation` wire) and a **domain
+  taxonomy** (`domain.life` root + children); `validate()` → deterministic
+  `OntologyValidationReport` (duplicate ids, alias collisions, unregistered
+  relationship, category/id mismatch, orphan entities, taxonomy cycles); and a
+  seeded `CanonOntologyData.standard()` (9 grahas, 4 elements, life domains,
+  relationship entities) — **vocabulary only, no astrological claims**.
+- **Reason:** A mandatory vocabulary layer makes extraction consistent and
+  reason-able and prevents drift; entities are identified by id, never display
+  text.
+- **Boundary:** No architecture redesign, no new engine, no UI, no runtime
+  behaviour change. **Knowledge Graph logic untouched** — relationship coverage is
+  proved by a read-only test against `AtomicRelation`. Untouched:
+  `PlanetRelationshipMatrix`, Rule Engine, Prediction, Timeline, Decision,
+  Runtime, Mirror, Conversation, Fusion, Narrative. Not deployed.
+- **Impact:** Additive `ontology/` layer + 17 tests
+  (`thai_canon_ontology_test.dart`); full canon suite (95) green; `flutter
+  analyze` clean.
+- **Related documents:** `THAI_CANON_ONTOLOGY_V3.md`,
+  `THAI_CANON_ATOMIC_KNOWLEDGE_V2.md`, `THAI_MAHABHUT_CANON_STYLE_GUIDE.md`.
 
 ---
 

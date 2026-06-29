@@ -19,6 +19,13 @@ every unit traceable to the book.
 > condition / effect / exception) feeding the knowledge graph; the completeness
 > picture is now domain-based (`CanonCompletenessReport`). See
 > `THAI_CANON_ATOMIC_KNOWLEDGE_V2.md`.
+>
+> **Updated by Ontology V3 (D-059):** every entity, domain and relationship in an
+> atomic unit MUST resolve to the **Canonical Ontology** (`canon/ontology/`).
+> Reviewers map surface forms (any language) to canonical ids via alias
+> resolution; unknown/ambiguous terms stay unresolved (never guessed) and signal a
+> missing ontology entry. No new entity or relationship names may be invented
+> outside the ontology. See `THAI_CANON_ONTOLOGY_V3.md`.
 
 ---
 
