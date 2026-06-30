@@ -170,6 +170,83 @@ void main() {
     });
   });
 
+  group('Applicability scope — context (D-068)', () {
+    AtomicKnowledgeUnit scoped(AtomicContext? context) => AtomicKnowledgeUnit(
+          id: 'ctx',
+          subject: 'moon',
+          subjectKind: AtomicEntityKind.planet,
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.marana',
+          objectKind: AtomicEntityKind.other,
+          domain: KnowledgeDomain.planetLibrary,
+          confidence: KnowledgeConfidence.high,
+          context: context,
+          evidence: const AtomicEvidenceRef(bookId: 'mahabhut', page: '222'),
+        );
+
+    test('context is optional — a unit without it stays a general fact', () {
+      final u = scoped(null);
+      expect(u.context, isNull);
+      expect(AtomicExtractionRules.isAtomic(u), isTrue);
+      expect(u.label, 'moon located_in mahabhutPosition.marana');
+    });
+
+    test('a scoped fact keeps the same subject/relation/object identity', () {
+      final general = scoped(null);
+      final inChart = scoped(
+          const AtomicContext(type: AtomicContextType.archetypeChart, value: 'scholar'));
+      expect(inChart.subject, general.subject);
+      expect(inChart.relation, general.relation);
+      expect(inChart.object, general.object);
+      // Only applicability scope is added.
+      expect(inChart.context!.key, 'archetype_chart:scholar');
+      expect(inChart.label, 'moon located_in mahabhutPosition.marana @archetype_chart:scholar');
+      expect(AtomicExtractionRules.isAtomic(inChart), isTrue);
+    });
+
+    test('every documented context type is supported', () {
+      const cases = {
+        AtomicContextType.archetypeChart: 'archetype_chart',
+        AtomicContextType.taksaChart: 'taksa_chart',
+        AtomicContextType.lagna: 'lagna',
+        AtomicContextType.lifePeriod: 'life_period',
+      };
+      cases.forEach((type, wire) {
+        expect(type.wire, wire);
+        expect(AtomicContextType.fromWire(wire), type);
+      });
+    });
+
+    test('an empty context value is rejected', () {
+      final bad = scoped(
+          const AtomicContext(type: AtomicContextType.lagna, value: '  '));
+      expect(AtomicExtractionRules.validateUnit(bad).map((i) => i.code),
+          contains('empty_context_value'));
+    });
+
+    test('a prose context value is rejected as non-atomic', () {
+      final bad = scoped(const AtomicContext(
+          type: AtomicContextType.archetypeChart,
+          value: 'the chart of a wandering scholar who travels'));
+      expect(AtomicExtractionRules.validateUnit(bad).map((i) => i.code),
+          contains('non_atomic_context'));
+    });
+
+    test('context round-trips through JSON; absent context stays absent', () {
+      final scopedBack = AtomicKnowledgeUnit.fromJson(scoped(
+              const AtomicContext(
+                  type: AtomicContextType.lifePeriod, value: 'saturn'))
+          .toJson());
+      expect(scopedBack!.context, isNotNull);
+      expect(scopedBack.context!.type, AtomicContextType.lifePeriod);
+      expect(scopedBack.context!.value, 'saturn');
+
+      final generalJson = scoped(null).toJson();
+      expect(generalJson.containsKey('context'), isFalse);
+      expect(AtomicKnowledgeUnit.fromJson(generalJson)!.context, isNull);
+    });
+  });
+
   group('Decoupling — no runtime dependency', () {
     test('atomic layer imports no engine/runtime/matrix/mirror/fusion/flutter', () {
       final dir = Directory(

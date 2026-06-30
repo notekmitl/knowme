@@ -70,6 +70,35 @@ enum AtomicEntityKind {
   }
 }
 
+/// The *kind of scope* under which an atomic fact is true (the `type` of an
+/// `AtomicContext`). A fact with no context is a general/unconditional Canon
+/// fact; a fact with a context is true **only within that scope** (e.g. within
+/// one archetype chart, one lagna, or one life period). `other` keeps the
+/// vocabulary open without inventing a fixed taxonomy. Stable snake_case wire.
+enum AtomicContextType {
+  archetypeChart, // a named example/archetype chart in the source (e.g. ดวงนักวิชาการ)
+  taksaChart, // a tāksā configuration the source names
+  lagna, // ascendant the source states
+  lifePeriod, // a life-period / dasha the source states
+  other; // last resort — still deterministic, never guessed
+
+  String get wire => switch (this) {
+        AtomicContextType.archetypeChart => 'archetype_chart',
+        AtomicContextType.taksaChart => 'taksa_chart',
+        AtomicContextType.lagna => 'lagna',
+        AtomicContextType.lifePeriod => 'life_period',
+        AtomicContextType.other => 'other',
+      };
+
+  static AtomicContextType fromWire(String? wire) {
+    if (wire == null) return AtomicContextType.other;
+    for (final t in AtomicContextType.values) {
+      if (t.wire == wire || t.name == wire) return t;
+    }
+    return AtomicContextType.other;
+  }
+}
+
 /// Strength of an atomic effect/relation when the source states one.
 enum AtomicStrength {
   none,

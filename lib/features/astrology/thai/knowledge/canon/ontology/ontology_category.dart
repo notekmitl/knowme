@@ -30,6 +30,15 @@ enum OntologyCategory {
   book,
   author,
   knowledgeStatus,
+
+  /// Mahabhut Named Position — the book's own system of named planetary
+  /// positions (`เรือนธงชัย`, `อธิบดี`, `ขุมทรัพย์`, …). Controlled vocabulary
+  /// only (identifier + Thai aliases); the *meaning* of each position is Canon
+  /// knowledge extracted from the book, never encoded here. Added by D-067 to
+  /// unblock Mahabhut knowledge production (D-065 Ontology Expansion). Every
+  /// existing category keeps its same `wire` identifier (the only persisted
+  /// form); `other` stays the resolution fallback.
+  mahabhutPosition,
   other;
 
   /// Stable wire name used in ids and JSON.

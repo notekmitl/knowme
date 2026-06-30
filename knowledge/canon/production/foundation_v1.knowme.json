@@ -1,18 +1,101 @@
 {
-  "$comment": "Canon Knowledge Production V1 — foundational domains. STATE: empty / Unknown. No facts have been produced because the canonical source text (หลักมหาภูต, ส. หยกฟ้า) is not present in the repository (see knowledge/canon/sources/mahabhut/README.md). Per the Canon rules, facts are NEVER invented from memory or the internet — unsupported knowledge stays Unknown. When the source arrives, units are produced ONLY through the Knowledge Extraction Workspace (canon/workspace/), resolved against the Canonical Ontology (canon/ontology/), and imported after review.",
+  "$comment": "Canon Knowledge Production V1 — foundational domains. STATE: production IN PROGRESS (Sprint 2A + 2B + 2C). The canonical source หลักมหาภูต (ส. หยกฟ้า) is available as OCR; D-067 added the book's Named Positions; D-068 added the optional `context` applicability qualifier so chart-scoped facts are representable faithfully. Units are produced FROM the source pages (reference-only provenance, D-057) — never invented (D-066: extraction allowed, generation forbidden) — and validated through the real platform by test/validation/thai/thai_canon_production_sprint2_test.dart. CONVENTION: a unit WITHOUT context is a general/unconditional fact (e.g. natural significations jupiter→learning/career, moon→finance, recurring identically across charts); a unit WITH context {type, value} is true ONLY within that scope (here archetype_chart:<verbatim Thai chart heading from the page>). The context value is the source's own chart name (verbatim, not translated) so no inference/external knowledge is introduced.",
   "version": 1,
   "source": {
     "bookId": "mahabhut",
     "title": "หลักมหาภูต (ส. หยกฟ้า)",
-    "status": "source_not_in_repository"
+    "status": "production_started"
   },
   "provenancePolicy": "reference-only (D-057): store Book, Edition, Page, Section, Reviewer, Extraction Date. Never store copyrighted paragraphs or prose.",
+  "producedUnits": [
+    {
+      "id": "mahabhut.p220.jupiter_owns_learning",
+      "subject": "planet.jupiter", "subjectKind": "planet",
+      "relation": "owns",
+      "object": "domain.learning", "objectKind": "domain",
+      "domain": "planetLibrary", "strength": "none", "confidence": "high",
+      "evidence": { "bookId": "mahabhut", "page": "220" }
+    },
+    {
+      "id": "mahabhut.p220.jupiter_owns_career",
+      "subject": "planet.jupiter", "subjectKind": "planet",
+      "relation": "owns",
+      "object": "domain.career", "objectKind": "domain",
+      "domain": "planetLibrary", "strength": "none", "confidence": "high",
+      "evidence": { "bookId": "mahabhut", "page": "220" }
+    },
+    {
+      "$note": "Sprint 2B — general natural signification (ดาวจันทร์อันเป็นดาวแห่งการเงิน); recurs identically across charts (p47, p83, p222).",
+      "id": "mahabhut.p83.moon_owns_finance",
+      "subject": "planet.moon", "subjectKind": "planet",
+      "relation": "owns",
+      "object": "domain.finance", "objectKind": "domain",
+      "domain": "planetLibrary", "strength": "none", "confidence": "high",
+      "evidence": { "bookId": "mahabhut", "page": "83" }
+    },
+    {
+      "$note": "Sprint 2C — chart-scoped placement (D-068 context). ดวงนักวิชาการ p.220: ดาวพฤหัส...สถิตเรือนธงชัย...เข้มแข็ง.",
+      "id": "mahabhut.p220.jupiter_in_thongchai",
+      "subject": "planet.jupiter", "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai", "objectKind": "other",
+      "domain": "planetLibrary", "strength": "high", "confidence": "high",
+      "context": { "type": "archetype_chart", "value": "ดวงนักวิชาการ" },
+      "evidence": { "bookId": "mahabhut", "page": "220" }
+    },
+    {
+      "id": "mahabhut.p220.jupiter_in_khumsap",
+      "subject": "planet.jupiter", "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap", "objectKind": "other",
+      "domain": "planetLibrary", "strength": "high", "confidence": "high",
+      "context": { "type": "archetype_chart", "value": "ดวงนักวิชาการ" },
+      "evidence": { "bookId": "mahabhut", "page": "220" }
+    },
+    {
+      "id": "mahabhut.p220.mars_in_athibodi",
+      "subject": "planet.mars", "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi", "objectKind": "other",
+      "domain": "planetLibrary", "strength": "none", "confidence": "high",
+      "context": { "type": "archetype_chart", "value": "ดวงนักวิชาการ" },
+      "evidence": { "bookId": "mahabhut", "page": "220" }
+    },
+    {
+      "$note": "Sprint 2C — p.222 ดวงนักวิชาการ: ...ตกอยู่ในเรือนมรณะ คือดาวจันทร์(๒)...อยู่เรือนมรณะ.",
+      "id": "mahabhut.p222.moon_in_marana",
+      "subject": "planet.moon", "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana", "objectKind": "other",
+      "domain": "planetLibrary", "strength": "none", "confidence": "high",
+      "context": { "type": "archetype_chart", "value": "ดวงนักวิชาการ" },
+      "evidence": { "bookId": "mahabhut", "page": "222" }
+    },
+    {
+      "id": "mahabhut.p150.jupiter_in_puti",
+      "subject": "planet.jupiter", "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti", "objectKind": "other",
+      "domain": "planetLibrary", "strength": "low", "confidence": "high",
+      "context": { "type": "archetype_chart", "value": "ดวงมนุษย์เจ้าสําราญ" },
+      "evidence": { "bookId": "mahabhut", "page": "150" }
+    },
+    {
+      "id": "mahabhut.p50.jupiter_in_athibodi",
+      "subject": "planet.jupiter", "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi", "objectKind": "other",
+      "domain": "planetLibrary", "strength": "none", "confidence": "high",
+      "context": { "type": "archetype_chart", "value": "ดวงกําพร้า" },
+      "evidence": { "bookId": "mahabhut", "page": "50" }
+    }
+  ],
   "domains": [
-    { "id": "planet_library", "label": "Planet Library", "status": "unknown", "units": [] },
+    { "id": "planet_library", "label": "Planet Library", "status": "partial", "units": [] },
     { "id": "house_library", "label": "House Library", "status": "unknown", "units": [] },
     { "id": "planet_meanings", "label": "Planet → Natural Meaning", "status": "unknown", "units": [] },
     { "id": "planet_keywords", "label": "Planet → Keywords", "status": "unknown", "units": [] },
-    { "id": "planet_domains", "label": "Planet → Domain", "status": "unknown", "units": [] },
+    { "id": "planet_domains", "label": "Planet → Domain", "status": "partial", "units": [] },
     { "id": "planet_elements", "label": "Planet → Element", "status": "unknown", "units": [] }
   ]
 }

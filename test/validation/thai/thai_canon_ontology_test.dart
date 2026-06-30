@@ -33,6 +33,54 @@ void main() {
     });
   });
 
+  group('Mahabhut Named Positions (D-067 Ontology Expansion)', () {
+    final ont = CanonOntologyData.standard();
+
+    test('the seven Canon positions resolve from both surface forms', () {
+      const expected = {
+        'ธงชัย': 'mahabhutPosition.thongchai',
+        'เรือนธงชัย': 'mahabhutPosition.thongchai',
+        'อธิบดี': 'mahabhutPosition.athibodi',
+        'เรือนอธิบดี': 'mahabhutPosition.athibodi',
+        'ขุมทรัพย์': 'mahabhutPosition.khumsap',
+        'เรือนขุมทรัพย์': 'mahabhutPosition.khumsap',
+        'ราชา': 'mahabhutPosition.racha',
+        'เรือนราชา': 'mahabhutPosition.racha',
+        'ปูติ': 'mahabhutPosition.puti',
+        'เรือนปูติ': 'mahabhutPosition.puti',
+        'มรณะ': 'mahabhutPosition.marana',
+        'เรือนมรณะ': 'mahabhutPosition.marana',
+        'ภังคะ': 'mahabhutPosition.phangkha',
+        'เรือนภังคะ': 'mahabhutPosition.phangkha',
+      };
+      expected.forEach((surface, id) {
+        expect(ont.resolveId(surface), id, reason: 'resolve "$surface"');
+      });
+    });
+
+    test('exactly seven positions are seeded, all with valid prefix', () {
+      final positions = ont.entitiesOf(OntologyCategory.mahabhutPosition);
+      expect(positions.length, 7);
+      expect(positions.every((e) => e.hasValidPrefix), isTrue);
+    });
+
+    test('positions add no meaning/relationship and do not collide', () {
+      // Adding the positions keeps the whole ontology valid (no alias collision
+      // with planets/houses/domains; no relationships or parents introduced).
+      expect(ont.validate().isValid, isTrue);
+      for (final e in ont.entitiesOf(OntologyCategory.mahabhutPosition)) {
+        expect(e.parentId, isNull);
+        expect(e.description, isNull);
+      }
+    });
+
+    test('existing identifiers are preserved', () {
+      expect(ont.resolveId('ดาวพฤหัส'), 'planet.jupiter');
+      expect(ont.resolveId('เรือนที่ 5'), 'house.5');
+      expect(ont.resolveId('การศึกษา'), 'domain.learning');
+    });
+  });
+
   group('Validation', () {
     test('the standard ontology is valid', () {
       final report = CanonOntologyData.standard().validate();

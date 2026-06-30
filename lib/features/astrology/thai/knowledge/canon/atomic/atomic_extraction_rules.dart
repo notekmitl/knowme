@@ -130,6 +130,18 @@ abstract final class AtomicExtractionRules {
       bad('non_atomic_effect', 'Effect is not an atomic token.');
     }
 
+    // Optional applicability scope (D-068). When present it must be a real,
+    // atomic scope value — never empty, never prose. The unit's (subject,
+    // relation, object) identity is unchanged; this only scopes applicability.
+    if (u.context != null) {
+      final value = u.context!.value.trim();
+      if (value.isEmpty) {
+        bad('empty_context_value', 'Context is present but its value is empty.');
+      } else if (!isAtomicToken(value)) {
+        bad('non_atomic_context', 'Context value is not an atomic token.');
+      }
+    }
+
     // Traceability by reference (D-057).
     if (!u.evidence.hasReference) {
       bad('missing_reference', 'No book reference (page/chapter/section).');

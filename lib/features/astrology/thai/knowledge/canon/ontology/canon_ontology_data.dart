@@ -129,6 +129,68 @@ abstract final class CanonOntologyData {
     ),
   ];
 
+  /// **Mahabhut Named Positions** (D-067 Ontology Expansion).
+  ///
+  /// The book `หลักมหาภูต` (ส. หยกฟ้า) expresses planetary placement through its
+  /// own system of *named positions* (`เรือน…`) rather than the numbered bhāva.
+  /// **Creation criterion: required for Canon representation** — these positions
+  /// are the placement vocabulary the Canon text uses, so its statements cannot be
+  /// represented without them. OCR frequency is *supporting evidence for
+  /// prioritization only, never the reason an entity exists* (for reference these
+  /// seven also recur often: `มรณะ` 74× · `ภังคะ` 71× · `ขุมทรัพย์` 58× · `ธงชัย`
+  /// 55× · `อธิบดี` 51× · `ราชา` 50× · `ปูติ` 48×).
+  ///
+  /// Controlled **vocabulary only**: a stable id + the Thai surface forms that
+  /// appear in the text (`เรือน…` and the bare term). The `canonicalName` is a
+  /// phonetic romanisation of the Thai term — **not a translation** — so no
+  /// meaning, interpretation, strength polarity, bhāva-number mapping or
+  /// relationship is implied here. What each position *means* is Canon knowledge
+  /// produced from the book through the extraction pipeline, never encoded here.
+  static const List<CanonicalEntity> mahabhutPositions = [
+    CanonicalEntity(
+      id: 'mahabhutPosition.thongchai',
+      canonicalName: 'Thongchai',
+      category: OntologyCategory.mahabhutPosition,
+      aliases: ['ธงชัย', 'เรือนธงชัย'],
+    ),
+    CanonicalEntity(
+      id: 'mahabhutPosition.athibodi',
+      canonicalName: 'Athibodi',
+      category: OntologyCategory.mahabhutPosition,
+      aliases: ['อธิบดี', 'เรือนอธิบดี'],
+    ),
+    CanonicalEntity(
+      id: 'mahabhutPosition.khumsap',
+      canonicalName: 'Khumsap',
+      category: OntologyCategory.mahabhutPosition,
+      aliases: ['ขุมทรัพย์', 'เรือนขุมทรัพย์'],
+    ),
+    CanonicalEntity(
+      id: 'mahabhutPosition.racha',
+      canonicalName: 'Racha',
+      category: OntologyCategory.mahabhutPosition,
+      aliases: ['ราชา', 'เรือนราชา'],
+    ),
+    CanonicalEntity(
+      id: 'mahabhutPosition.puti',
+      canonicalName: 'Puti',
+      category: OntologyCategory.mahabhutPosition,
+      aliases: ['ปูติ', 'เรือนปูติ'],
+    ),
+    CanonicalEntity(
+      id: 'mahabhutPosition.marana',
+      canonicalName: 'Marana',
+      category: OntologyCategory.mahabhutPosition,
+      aliases: ['มรณะ', 'เรือนมรณะ'],
+    ),
+    CanonicalEntity(
+      id: 'mahabhutPosition.phangkha',
+      canonicalName: 'Phangkha',
+      category: OntologyCategory.mahabhutPosition,
+      aliases: ['ภังคะ', 'เรือนภังคะ'],
+    ),
+  ];
+
   /// Hierarchical life domains. Root `domain.life`; the rest are its children.
   static const List<CanonicalEntity> domains = [
     CanonicalEntity(
@@ -208,6 +270,7 @@ abstract final class CanonOntologyData {
   static List<CanonicalEntity> allEntities() => [
         ...planets,
         ...houses(),
+        ...mahabhutPositions,
         ...elements,
         ...domains,
         ...relationshipEntities(),

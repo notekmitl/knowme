@@ -8,6 +8,11 @@
 Status: **CURRENT** · Knowledge production only · Engine + platform frozen ·
 No code changes · No deploy.
 
+> **Update (Sprint 2):** the source text is now present (OCR, 308 pages), so this
+> missing-source blocker is resolved. Production then hit a **different** blocker —
+> an Ontology Gap — documented in
+> [`THAI_CANON_KNOWLEDGE_PRODUCTION_SPRINT_2.md`](THAI_CANON_KNOWLEDGE_PRODUCTION_SPRINT_2.md).
+
 ---
 
 ## 1 · Blocker — Canon source text is not present

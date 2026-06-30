@@ -155,7 +155,9 @@ When extraction cannot proceed without changing the frozen model, produce a
 | **Ontology Gap Report** | repeated Missing Ontology entities during extraction | collect entities; human decides whether to add to ontology |
 | **Knowledge Modeling Gap Report** | a Canon statement cannot be represented as an Atomic Knowledge Unit | page + statement + why + suggested future modeling; human review decides |
 
-See `THAI_CANON_KNOWLEDGE_PRODUCTION_SPRINT_1.md` for the sprint-1 gap pattern.
+See `THAI_CANON_KNOWLEDGE_PRODUCTION_SPRINT_1.md` (missing-source gap) and
+`THAI_CANON_KNOWLEDGE_PRODUCTION_SPRINT_2.md` (Ontology Gap — the book's named
+Thai position system is not yet representable) for worked gap-report examples.
 
 ---
 

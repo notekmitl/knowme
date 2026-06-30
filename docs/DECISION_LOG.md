@@ -63,6 +63,8 @@ sessions and developers should consult this before reopening any settled decisio
 | D-063 | Golden Canon Dataset V1 (QA regression suite; pure-Dart `canon/golden/`: `GoldenDataset`+`GoldenExpectation` declared deterministic outcome, deterministic `versionTag`+FNV-1a `fingerprint`; `GoldenVerifier` drives the **real** pipeline (`WorkspaceValidator`/`KnowledgeDiff`/`CompletenessDelta`/`ReviewReport`, no logic reimplemented) and reports field mismatches; 10 fixtures (minimal/single planet/single house/planet+house/conflict/duplicate/ontology failure/relationship failure/coverage increase/deprecated); deterministic `GoldenReport`; QA only, synthetic structural fixtures, no copyrighted text, no invented facts; no engine/runtime/matrix/UI change; no deploy) | 2026-06 | Accepted |
 | D-064 | Canon Working Source Adapter V1 (temporary source material for the Authoring Studio; pure-Dart `canon/working_source/`: one `WorkingSource` interface over `Txt`/`Ocr`/`Pdf`/`Image` adapters normalised to identical `WorkingPage`s by one deterministic paginator; studio consumes only the interface via provenance-only `ExtractionSource`; **temporary/never Canon** — only book/edition/chapter/page survive, `dispose` discards prose and Canon stays intact; no automatic extraction, no AI, no runtime/engine/ontology change, no workspace redesign; no deploy) | 2026-06 | Accepted |
 | D-065 | Canon Platform Production Mode (platform **COMPLETE** and **FROZEN**; transition from Platform Development to Knowledge Production; official pipeline Working Source→Authoring→Atomic Knowledge→Ontology→Workspace→Review→Import→Canon DB→Rule Engine→Reasoning→Narrative is the **only supported production workflow**; future work limited to Knowledge Production / Ontology Expansion (when extraction requires) / Bug Fixes / Performance-without-behaviour-change; platform change only on proven inconsistency or unrepresentable Canon knowledge; gaps via Ontology Gap Report or Knowledge Modeling Gap Report — not platform redesign; success metric = Knowledge Coverage increase, not LOC or new modules; no runtime/engine/workspace redesign; no deploy unless requested) | 2026-06 | Accepted |
+| D-068 | Atomic applicability scope — **`context` qualifier** (resolves Sprint 2B Knowledge Modeling Gap). Adds **one** optional `AtomicContext {type, value}` to `AtomicKnowledgeUnit` (type ∈ archetype_chart/taksa_chart/lagna/life_period/other; value = atomic token from the source). A unit without context = general fact; with context = true only within that scope. The (subject, relation, object) identity is **unchanged** — applicability only. Validation extended (value must be atomic + non-empty; provenance unchanged). **No** Runtime/Rule-Engine/Workspace/Authoring/Canon-DB/ontology redesign. Unblocks chart-scoped production (Sprint 2C) | 2026-06 | Accepted |
+| D-067 | Ontology Expansion — **Mahabhut Named Positions** (D-065 cat. 2; Canon knowledge could not be represented). Adds one ontology category `mahabhutPosition` + 7 entities (`thongchai/athibodi/khumsap/racha/puti/marana/phangkha`). **Creation criterion = required by Canon representation** (the book expresses placement through these named positions, so its statements cannot be represented without them); ids + Thai aliases come **only** from the Canon source; OCR frequency is **supporting evidence for prioritization only, never the creation criterion**. **No meanings/interpretations/relationships/strength/bhāva-mapping** encoded. Ontology-only: no Runtime/Workspace/Authoring/Atomic/Canon-DB/Rule-Engine change; existing ids preserved; ontology validates clean. Unblocks Mahabhut production; first real batch produced (Sprint 2A) | 2026-06 | Accepted |
 | D-066 | Knowledge Rule clarification — **Extraction allowed, Generation forbidden** (clarifies D-065; AI MAY perform deterministic information extraction FROM the Canon source text — read the page, identify atomic facts stated there, restructure into atomic triples, resolve ontology terms — but MUST NOT hallucinate, infer beyond the text, interpret, summarize, or use external knowledge; every unit traces to a page; workflow Book→OCR→Working Source→AI-assisted Atomic Extraction→Human Review→Workspace Validation→Canon Import; Human Review mandatory; reference-only provenance unchanged; documentation/policy only, no code/runtime/engine/platform change) | 2026-06 | Accepted |
 
 ---
@@ -2068,6 +2070,86 @@ sessions and developers should consult this before reopening any settled decisio
   no code changes; supersedes D-056 scope classification for future work.
 - **Related documents:** `THAI_CANON_PLATFORM_PRODUCTION_MODE_V1.md`,
   `THAI_MAHABHUT_CANON_PLATFORM_FREEZE_V1.md`, `THAI_CANON_KNOWLEDGE_PRODUCTION_V1.md`.
+
+---
+
+## D-068 — Atomic applicability scope: the `context` qualifier
+
+- **Date:** 2026-06-30 · **Status:** Accepted · Resolves the Sprint 2B Knowledge
+  Modeling Gap · Atomic-model extension (additive) · **No deploy**
+- **Context:** Sprint 2B (`THAI_CANON_KNOWLEDGE_PRODUCTION_SPRINT_2B.md`) showed the
+  book's life-period / archetype readings are **chart-scoped**: a placement such as
+  `moon --located_in--> marana` is true **within ดวงนักวิชาการ**, not as a general
+  rule. The atomic unit had no way to record *the scope under which a fact is
+  true*, so bulk extraction would have to either stop or misstate Canon.
+- **Decision:** Add **one** optional qualifier — `AtomicContext { type, value }` —
+  to `AtomicKnowledgeUnit`. **Not** separate `archetypeChart`/`lifePeriod` fields;
+  a single generalized scope object whose `type` is one of
+  `archetype_chart` / `taksa_chart` / `lagna` / `life_period` / `other` and whose
+  `value` is an atomic token taken **from the source** (e.g. the chart's own name).
+  Examples: `{archetype_chart, ดวงนักวิชาการ}`, `{lagna, aries}`,
+  `{life_period, saturn}`.
+- **Semantics:** A unit **without** context is a general/unconditional fact. A unit
+  **with** context asserts the *same* `(subject, relation, object)` fact, applicable
+  **only within that scope**. The unit's identity is unchanged — this only extends
+  applicability.
+- **Rules honoured:** optional · deterministic (enum-typed scope + atomic value) ·
+  provenance still required (the unit's evidence reference is unchanged) · no
+  inference · no external knowledge (the project's first batch uses the source's
+  **verbatim Thai chart headings** as values, never translated). **No** Runtime,
+  Rule Engine, Workspace, Authoring, Canon Database or ontology redesign.
+- **Validation:** `AtomicExtractionRules.validateUnit` now rejects an empty
+  context value (`empty_context_value`) or a prose value (`non_atomic_context`).
+- **Impact:** `atomic_relation.dart` (+`AtomicContextType`), `atomic_knowledge_unit.dart`
+  (+`AtomicContext`, optional field, JSON, label), `atomic_extraction_rules.dart`
+  (+2 checks); 236 thai tests green; analyze clean. Production resumed (Sprint 2C):
+  chart-scoped placements now carry context; coverage 8 → 9 units.
+- **Related documents:** `THAI_CANON_KNOWLEDGE_PRODUCTION_SPRINT_2B.md` (the gap),
+  `THAI_CANON_KNOWLEDGE_PRODUCTION_SPRINT_2C.md` (this resolution + resumed batch),
+  `THAI_CANON_ATOMIC_KNOWLEDGE_V2.md`.
+
+---
+
+## D-067 — Ontology Expansion: Mahabhut Named Positions
+
+- **Date:** 2026-06-30 · **Status:** Accepted · D-065 category 2 (Ontology Expansion) · Ontology-only · **No deploy**
+- **Context:** Sprint 2 (`THAI_CANON_KNOWLEDGE_PRODUCTION_SPRINT_2.md`) proved that
+  `หลักมหาภูต` expresses planetary placement through its own system of **named
+  positions** (`เรือนธงชัย`, `อธิบดี`, `ขุมทรัพย์`, `ราชา`, `ปูติ`, `มรณะ`,
+  `ภังคะ`) rather than the numbered bhāva. The Canonical Ontology (planets +
+  houses 1–12 + elements + domains) could not represent them, so Canon knowledge
+  could not be expressed — the one condition under which D-065 permits a platform
+  change.
+- **Decision:** Extend **only** `CanonOntology`. Add one category
+  `OntologyCategory.mahabhutPosition` and seven `CanonicalEntity`s
+  (`mahabhutPosition.thongchai/athibodi/khumsap/racha/puti/marana/phangkha`).
+- **Creation criterion (corrected, Sprint 2B):** an entity is introduced **because
+  it is required for Canon representation** — the book expresses planetary
+  placement through these named positions, so its statements cannot be represented
+  without them. **OCR frequency is supporting evidence for prioritization only,
+  never the criterion for creating an entity.** (For the record, the seven also
+  occur with high frequency — มรณะ 74 · ภังคะ 71 · ขุมทรัพย์ 58 · ธงชัย 55 · อธิบดี
+  51 · ราชา 50 · ปูติ 48 — but that frequency merely confirms priority; the
+  entities exist because the Canon text uses them as placement vocabulary.) No
+  external Thai-astrology terminology was introduced. Each entity carries only an
+  id, a phonetic-romanisation `canonicalName` (not a translation) and the Thai
+  surface forms (`เรือน…` + bare term) as aliases.
+- **Reason:** Make the book's core vocabulary representable so production can
+  proceed faithfully, without inventing meaning.
+- **Boundary — vocabulary only:** **No meanings, interpretations, relationships,
+  strength polarities or bhāva-number mappings** are encoded (those are Canon
+  knowledge produced from the book under human review). **No** change to Runtime,
+  Workspace, Authoring, Atomic Knowledge, Canon Database, Rule Engine or the
+  `PlanetRelationshipMatrix`. All existing ontology ids are preserved (`other`
+  remains the fallback). The atomic model represents a position via its existing
+  `objectKind: other` escape hatch + the ontology id — no atomic change required.
+- **Impact:** `ontology_category.dart` (+1 category), `canon_ontology_data.dart`
+  (+7 entities, included in `allEntities()`); ontology validates clean; 174 canon
+  tests green; analyze clean. First real production batch produced and validated
+  (`thai_canon_production_sprint2_test.dart`; `foundation_v1.knowme.json`).
+- **Related documents:** `THAI_CANON_KNOWLEDGE_PRODUCTION_SPRINT_2.md` (gap),
+  `THAI_CANON_KNOWLEDGE_PRODUCTION_SPRINT_2A.md` (this expansion + first batch),
+  `THAI_CANON_PLATFORM_PRODUCTION_MODE_V1.md` (D-065/D-066).
 
 ---
 

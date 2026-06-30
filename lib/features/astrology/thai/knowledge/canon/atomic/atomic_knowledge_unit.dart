@@ -64,6 +64,43 @@ class AtomicEvidenceRef {
   }
 }
 
+/// The **scope under which an atomic fact is true** (D-068).
+///
+/// A single, optional qualifier — *not* a set of separate fields. A unit with no
+/// context is a general/unconditional Canon fact. A unit with a context asserts
+/// the *same* atomic fact, but applicable **only within that scope** (e.g. inside
+/// one archetype chart, one lagna, or one life period). It is purely additive:
+/// the (subject, relation, object) identity of the unit is unchanged.
+///
+/// Both [type] and [value] come **from the source page** (e.g. the archetype
+/// chart's own name); never inferred and never sourced from external knowledge.
+/// [value] is an atomic token, never prose.
+class AtomicContext {
+  const AtomicContext({required this.type, required this.value});
+
+  final AtomicContextType type;
+
+  /// The specific scope token, e.g. `scholar`, `aries`, `saturn`. Atomic, not
+  /// prose; stated by the source (often the chart/section name on the page).
+  final String value;
+
+  /// Deterministic key, e.g. `archetype_chart:scholar`.
+  String get key => '${type.wire}:${value.trim()}';
+
+  Map<String, dynamic> toJson() => {'type': type.wire, 'value': value};
+
+  /// Returns null when no usable scope value is present (so an empty/blank
+  /// context is treated as "no context", never a malformed one).
+  static AtomicContext? fromJson(Map<String, dynamic> m) {
+    final value = (m['value'] as String?)?.trim();
+    if (value == null || value.isEmpty) return null;
+    return AtomicContext(
+      type: AtomicContextType.fromWire(m['type'] as String?),
+      value: value,
+    );
+  }
+}
+
 /// One atomic fact of canonical knowledge.
 class AtomicKnowledgeUnit {
   AtomicKnowledgeUnit({
@@ -79,6 +116,7 @@ class AtomicKnowledgeUnit {
     this.effect,
     this.strength = AtomicStrength.none,
     this.confidence = KnowledgeConfidence.none,
+    this.context,
     this.notes,
   });
 
@@ -104,6 +142,10 @@ class AtomicKnowledgeUnit {
 
   final AtomicStrength strength;
   final KnowledgeConfidence confidence;
+
+  /// Optional applicability scope (D-068). `null` ⇒ a general/unconditional fact.
+  final AtomicContext? context;
+
   final String? notes;
 
   final AtomicEvidenceRef evidence;
@@ -111,7 +153,8 @@ class AtomicKnowledgeUnit {
   /// A deterministic, structured rendering of the fact (a label, NOT narrative).
   String get label {
     final base = '$subject ${relation.wire} $object';
-    return condition == null ? base : '$base [if $condition]';
+    final withCond = condition == null ? base : '$base [if $condition]';
+    return context == null ? withCond : '$withCond @${context!.key}';
   }
 
   /// A unit is "verified" for completeness purposes when it has a source
@@ -138,6 +181,7 @@ class AtomicKnowledgeUnit {
         if (effect != null) 'effect': effect,
         'strength': strength.name,
         'confidence': confidence.name,
+        if (context != null) 'context': context!.toJson(),
         if (notes != null) 'notes': notes,
         'evidence': evidence.toJson(),
       };
@@ -174,6 +218,9 @@ class AtomicKnowledgeUnit {
       confidence: canonEnumByName(
               KnowledgeConfidence.values, m['confidence'] as String?) ??
           KnowledgeConfidence.none,
+      context: m['context'] is Map<String, dynamic>
+          ? AtomicContext.fromJson(m['context'] as Map<String, dynamic>)
+          : null,
       notes: (m['notes'] as String?)?.trim(),
       evidence: evidence,
     );
