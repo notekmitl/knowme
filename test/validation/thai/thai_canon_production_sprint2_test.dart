@@ -439,9 +439,34 @@ void main() {
           chart: 'ดวงนักบริหาร',
           page: '119',
         ),
+
+        // Production Batch 6 — remaining natal Sun seats. Each is a clean 2:2
+        // ตามลำดับ group anchored by an already-recorded Mercury placement.
+        // ดวงนักภาษา p77: อาทิตย์/พุธ → ธงชัย/ขุมทรัพย์ (Mercury→ขุมทรัพย์ p87).
+        unit(
+          id: 'mahabhut.p77.sun_in_thongchai',
+          subject: 'planet.sun',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.thongchai',
+          strength: AtomicStrength.high,
+          chart: 'ดวงนักภาษา',
+          page: '77',
+        ),
+        // ดวงนักวิชาการ p219: อาทิตย์/พุธ → ขุมทรัพย์/ราชา (Mercury→ราชา p225).
+        // Co-exists with the prior jupiter_in_khumsap (p220 การงาน) as a faithful
+        // source-internal tension; injectivity is NOT asserted for this chart.
+        unit(
+          id: 'mahabhut.p219.sun_in_khumsap',
+          subject: 'planet.sun',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.khumsap',
+          strength: AtomicStrength.high,
+          chart: 'ดวงนักวิชาการ',
+          page: '219',
+        ),
       ];
 
-  group('Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4-5)', () {
+  group('Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4-6)', () {
     final ontology = CanonOntologyData.standard();
     final units = batch();
 
@@ -642,7 +667,7 @@ void main() {
 
     test('coverage by planet (all units)', () {
       expect(countBy(units, (u) => u.subject), {
-        'planet.sun': 2,
+        'planet.sun': 4,
         'planet.moon': 8,
         'planet.mars': 7,
         'planet.mercury': 7,
@@ -655,10 +680,10 @@ void main() {
 
     test('coverage by archetype (placements only)', () {
       expect(countBy(placements, (u) => u.context!.value), {
-        'ดวงนักวิชาการ': 6,
+        'ดวงนักวิชาการ': 7,
         'ดวงมนุษย์เจ้าสําราญ': 5,
         'ดวงกําพร้า': 6,
-        'ดวงนักภาษา': 5,
+        'ดวงนักภาษา': 6,
         'ดวงเศรษฐี': 5,
         'ดวงมหาเศรษฐี': 5,
         'ดวงนักบริหาร': 6,
@@ -667,8 +692,8 @@ void main() {
 
     test('coverage by position (placements only)', () {
       expect(countBy(placements, (u) => u.object), {
-        'mahabhutPosition.thongchai': 5,
-        'mahabhutPosition.khumsap': 6,
+        'mahabhutPosition.thongchai': 6,
+        'mahabhutPosition.khumsap': 7,
         'mahabhutPosition.athibodi': 5,
         'mahabhutPosition.racha': 6,
         'mahabhutPosition.puti': 5,
@@ -683,12 +708,12 @@ void main() {
         final key = u.context == null ? 'general' : u.context!.type.wire;
         byContext[key] = (byContext[key] ?? 0) + 1;
       }
-      expect(byContext, {'archetype_chart': 38, 'general': 3});
+      expect(byContext, {'archetype_chart': 40, 'general': 3});
     });
 
     test('metrics totals reconcile with the batch', () {
-      expect(units.length, 41);
-      expect(placements.length, 38);
+      expect(units.length, 43);
+      expect(placements.length, 40);
     });
   });
 }

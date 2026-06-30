@@ -1,5 +1,5 @@
 {
-  "$comment": "Canon Knowledge Production V1 — foundational domains. STATE: production IN PROGRESS (Sprints 2A-2C + 3 + Production Batch 4 + 5; 41 units). The canonical source หลักมหาภูต (ส. หยกฟ้า) is available as OCR; D-067 added the book's Named Positions; D-068 added the optional `context` applicability qualifier so chart-scoped facts are representable faithfully. Units are produced FROM the source pages (reference-only provenance, D-057) — never invented (D-066: extraction allowed, generation forbidden) — and validated through the real platform by test/validation/thai/thai_canon_production_sprint2_test.dart. CONVENTION: a unit WITHOUT context is a general/unconditional fact (e.g. natural significations jupiter→learning/career, moon→finance, recurring identically across charts); a unit WITH context {type, value} is true ONLY within that scope (here archetype_chart:<verbatim Thai chart heading from the page>). The context value is the source's own chart name (verbatim, not translated) so no inference/external knowledge is introduced.",
+  "$comment": "Canon Knowledge Production V1 — foundational domains. STATE: production IN PROGRESS (Sprints 2A-2C + 3 + Production Batch 4 + 5 + 6; 43 units). The canonical source หลักมหาภูต (ส. หยกฟ้า) is available as OCR; D-067 added the book's Named Positions; D-068 added the optional `context` applicability qualifier so chart-scoped facts are representable faithfully. Units are produced FROM the source pages (reference-only provenance, D-057) — never invented (D-066: extraction allowed, generation forbidden) — and validated through the real platform by test/validation/thai/thai_canon_production_sprint2_test.dart. CONVENTION: a unit WITHOUT context is a general/unconditional fact (e.g. natural significations jupiter→learning/career, moon→finance, recurring identically across charts); a unit WITH context {type, value} is true ONLY within that scope (here archetype_chart:<verbatim Thai chart heading from the page>). The context value is the source's own chart name (verbatim, not translated) so no inference/external knowledge is introduced.",
   "version": 1,
   "source": {
     "bookId": "mahabhut",
@@ -390,6 +390,27 @@
       "domain": "planetLibrary", "strength": "low", "confidence": "high",
       "context": { "type": "archetype_chart", "value": "ดวงนักบริหาร" },
       "evidence": { "bookId": "mahabhut", "page": "119" }
+    },
+
+    { "$note": "Production Batch 6 — remaining natal Sun seats completing two charts. ดวงนักภาษา p77: 'ดาวอาทิตย์(๑) และดาวพุธ(๕)... สถิตอยู่เรือนธงชัยและขุมทรัพย์ตามลําดับ ... มีกําลังมาก' — clean 2:2 group anchored by Mercury→ขุมทรัพย์ (p87, already in Canon)." },
+    {
+      "id": "mahabhut.p77.sun_in_thongchai",
+      "subject": "planet.sun", "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai", "objectKind": "other",
+      "domain": "planetLibrary", "strength": "high", "confidence": "high",
+      "context": { "type": "archetype_chart", "value": "ดวงนักภาษา" },
+      "evidence": { "bookId": "mahabhut", "page": "77" }
+    },
+    { "$note": "Production Batch 6 — ดวงนักวิชาการ p219 (เหตุที่ชื่อว่า): 'ดาวอาทิตย์(๑) ดาวพุธ(๕)... สถิตเสถียรอยู่เรือนขุมทรัพย์ และราชา' — clean 2:2 group anchored by Mercury→ราชา (p225, already in Canon). NOTE: the chart's p220 การงาน line also states ดาวพฤหัส...เรือนขุมทรัพย์ (jupiter_in_khumsap, already in Canon), while the intro + p220 การเรียน/line38 state Jupiter→ธงชัย. Both placements are verbatim; recorded faithfully as a source-internal tension (resolved downstream by CanonConflictResolver), never deleted or inferred away." },
+    {
+      "id": "mahabhut.p219.sun_in_khumsap",
+      "subject": "planet.sun", "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap", "objectKind": "other",
+      "domain": "planetLibrary", "strength": "high", "confidence": "high",
+      "context": { "type": "archetype_chart", "value": "ดวงนักวิชาการ" },
+      "evidence": { "bookId": "mahabhut", "page": "219" }
     }
   ],
   "domains": [

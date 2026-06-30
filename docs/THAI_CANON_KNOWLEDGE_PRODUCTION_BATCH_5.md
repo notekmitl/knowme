@@ -5,8 +5,8 @@
 > also adds a **production metric report** (reporting only — Batch 5 request). No
 > platform, ontology, engine, or runtime change.
 
-Status: **CURRENT** · Knowledge production only · Platform frozen (D-065) ·
-D-066 / D-067 / D-068 / D-069 unchanged · No deploy.
+Status: **RESOLVED → Batch 6** · Knowledge production only · Platform frozen
+(D-065) · D-066 / D-067 / D-068 / D-069 unchanged · No deploy.
 
 ---
 
