@@ -1,5 +1,5 @@
 {
-  "$comment": "Canon Knowledge Production V1 — foundational domains. STATE: production IN PROGRESS (Sprints 2A-2C + 3 + Production Batch 4; 30 units). The canonical source หลักมหาภูต (ส. หยกฟ้า) is available as OCR; D-067 added the book's Named Positions; D-068 added the optional `context` applicability qualifier so chart-scoped facts are representable faithfully. Units are produced FROM the source pages (reference-only provenance, D-057) — never invented (D-066: extraction allowed, generation forbidden) — and validated through the real platform by test/validation/thai/thai_canon_production_sprint2_test.dart. CONVENTION: a unit WITHOUT context is a general/unconditional fact (e.g. natural significations jupiter→learning/career, moon→finance, recurring identically across charts); a unit WITH context {type, value} is true ONLY within that scope (here archetype_chart:<verbatim Thai chart heading from the page>). The context value is the source's own chart name (verbatim, not translated) so no inference/external knowledge is introduced.",
+  "$comment": "Canon Knowledge Production V1 — foundational domains. STATE: production IN PROGRESS (Sprints 2A-2C + 3 + Production Batch 4 + 5; 41 units). The canonical source หลักมหาภูต (ส. หยกฟ้า) is available as OCR; D-067 added the book's Named Positions; D-068 added the optional `context` applicability qualifier so chart-scoped facts are representable faithfully. Units are produced FROM the source pages (reference-only provenance, D-057) — never invented (D-066: extraction allowed, generation forbidden) — and validated through the real platform by test/validation/thai/thai_canon_production_sprint2_test.dart. CONVENTION: a unit WITHOUT context is a general/unconditional fact (e.g. natural significations jupiter→learning/career, moon→finance, recurring identically across charts); a unit WITH context {type, value} is true ONLY within that scope (here archetype_chart:<verbatim Thai chart heading from the page>). The context value is the source's own chart name (verbatim, not translated) so no inference/external knowledge is introduced.",
   "version": 1,
   "source": {
     "bookId": "mahabhut",
@@ -287,6 +287,109 @@
       "domain": "planetLibrary", "strength": "low", "confidence": "high",
       "context": { "type": "archetype_chart", "value": "ดวงเศรษฐี" },
       "evidence": { "bookId": "mahabhut", "page": "186" }
+    },
+
+    { "$note": "Production Batch 5 — ดวงมหาเศรษฐี natal assignment (pages 254-262). The benefic group จันทร์/พุธ/พฤหัส/ศุกร์ → ขุมทรัพย์/อธิบดี/ราชา/ธงชัย ตามลำดับ is stated verbatim (pp.255,258) and each is cross-confirmed by its own domain section. Mars→มรณะ (p259). Sun/Saturn natal seats not stated; NOT recorded." },
+    {
+      "id": "mahabhut.p258.moon_in_khumsap",
+      "subject": "planet.moon", "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap", "objectKind": "other",
+      "domain": "planetLibrary", "strength": "none", "confidence": "high",
+      "context": { "type": "archetype_chart", "value": "ดวงมหาเศรษฐี" },
+      "evidence": { "bookId": "mahabhut", "page": "258" }
+    },
+    {
+      "id": "mahabhut.p261.mercury_in_athibodi",
+      "subject": "planet.mercury", "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi", "objectKind": "other",
+      "domain": "planetLibrary", "strength": "high", "confidence": "high",
+      "context": { "type": "archetype_chart", "value": "ดวงมหาเศรษฐี" },
+      "evidence": { "bookId": "mahabhut", "page": "261" }
+    },
+    {
+      "id": "mahabhut.p256.jupiter_in_racha",
+      "subject": "planet.jupiter", "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha", "objectKind": "other",
+      "domain": "planetLibrary", "strength": "high", "confidence": "high",
+      "context": { "type": "archetype_chart", "value": "ดวงมหาเศรษฐี" },
+      "evidence": { "bookId": "mahabhut", "page": "256" }
+    },
+    {
+      "id": "mahabhut.p260.venus_in_thongchai",
+      "subject": "planet.venus", "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai", "objectKind": "other",
+      "domain": "planetLibrary", "strength": "high", "confidence": "high",
+      "context": { "type": "archetype_chart", "value": "ดวงมหาเศรษฐี" },
+      "evidence": { "bookId": "mahabhut", "page": "260" }
+    },
+    {
+      "id": "mahabhut.p259.mars_in_marana",
+      "subject": "planet.mars", "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana", "objectKind": "other",
+      "domain": "planetLibrary", "strength": "low", "confidence": "high",
+      "context": { "type": "archetype_chart", "value": "ดวงมหาเศรษฐี" },
+      "evidence": { "bookId": "mahabhut", "page": "259" }
+    },
+
+    { "$note": "Production Batch 5 — ดวงนักบริหาร natal assignment (pages 113-119). The คู่มิตร group อาทิตย์/พฤหัส → ราชา/ขุมทรัพย์ ตามลำดับ is stated verbatim (p113); other planets confirmed by their own domain sections. Saturn natal seat not stated; NOT recorded." },
+    {
+      "id": "mahabhut.p113.sun_in_racha",
+      "subject": "planet.sun", "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha", "objectKind": "other",
+      "domain": "planetLibrary", "strength": "high", "confidence": "high",
+      "context": { "type": "archetype_chart", "value": "ดวงนักบริหาร" },
+      "evidence": { "bookId": "mahabhut", "page": "113" }
+    },
+    {
+      "id": "mahabhut.p114.jupiter_in_khumsap",
+      "subject": "planet.jupiter", "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap", "objectKind": "other",
+      "domain": "planetLibrary", "strength": "high", "confidence": "high",
+      "context": { "type": "archetype_chart", "value": "ดวงนักบริหาร" },
+      "evidence": { "bookId": "mahabhut", "page": "114" }
+    },
+    {
+      "id": "mahabhut.p116.moon_in_thongchai",
+      "subject": "planet.moon", "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai", "objectKind": "other",
+      "domain": "planetLibrary", "strength": "high", "confidence": "high",
+      "context": { "type": "archetype_chart", "value": "ดวงนักบริหาร" },
+      "evidence": { "bookId": "mahabhut", "page": "116" }
+    },
+    {
+      "id": "mahabhut.p116.mars_in_phangkha",
+      "subject": "planet.mars", "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha", "objectKind": "other",
+      "domain": "planetLibrary", "strength": "low", "confidence": "high",
+      "context": { "type": "archetype_chart", "value": "ดวงนักบริหาร" },
+      "evidence": { "bookId": "mahabhut", "page": "116" }
+    },
+    {
+      "id": "mahabhut.p118.venus_in_marana",
+      "subject": "planet.venus", "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana", "objectKind": "other",
+      "domain": "planetLibrary", "strength": "low", "confidence": "high",
+      "context": { "type": "archetype_chart", "value": "ดวงนักบริหาร" },
+      "evidence": { "bookId": "mahabhut", "page": "118" }
+    },
+    {
+      "id": "mahabhut.p119.mercury_in_puti",
+      "subject": "planet.mercury", "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti", "objectKind": "other",
+      "domain": "planetLibrary", "strength": "low", "confidence": "high",
+      "context": { "type": "archetype_chart", "value": "ดวงนักบริหาร" },
+      "evidence": { "bookId": "mahabhut", "page": "119" }
     }
   ],
   "domains": [

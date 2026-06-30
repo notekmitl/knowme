@@ -6,8 +6,8 @@
 > for three more archetype charts. **Canon coverage increased 19 → 30 units.**
 > No platform, ontology, engine, or runtime change.
 
-Status: **CURRENT** · Knowledge production only · Platform frozen (D-065) ·
-D-066 / D-067 / D-068 unchanged · No deploy.
+Status: **RESOLVED → Batch 5** · Knowledge production only · Platform frozen
+(D-065) · D-066 / D-067 / D-068 unchanged · No deploy.
 
 ---
 

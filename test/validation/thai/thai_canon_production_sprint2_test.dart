@@ -333,9 +333,115 @@ void main() {
           chart: 'ดวงเศรษฐี',
           page: '186',
         ),
+
+        // Production Batch 5 — ดวงมหาเศรษฐี (pp.254-262). Benefic group
+        // จันทร์/พุธ/พฤหัส/ศุกร์ → ขุมทรัพย์/อธิบดี/ราชา/ธงชัย ตามลำดับ (verbatim);
+        // mars→มรณะ. Sun/Saturn not stated → not recorded.
+        unit(
+          id: 'mahabhut.p258.moon_in_khumsap',
+          subject: 'planet.moon',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.khumsap',
+          chart: 'ดวงมหาเศรษฐี',
+          page: '258',
+        ),
+        unit(
+          id: 'mahabhut.p261.mercury_in_athibodi',
+          subject: 'planet.mercury',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.athibodi',
+          strength: AtomicStrength.high,
+          chart: 'ดวงมหาเศรษฐี',
+          page: '261',
+        ),
+        unit(
+          id: 'mahabhut.p256.jupiter_in_racha',
+          subject: 'planet.jupiter',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.racha',
+          strength: AtomicStrength.high,
+          chart: 'ดวงมหาเศรษฐี',
+          page: '256',
+        ),
+        unit(
+          id: 'mahabhut.p260.venus_in_thongchai',
+          subject: 'planet.venus',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.thongchai',
+          strength: AtomicStrength.high,
+          chart: 'ดวงมหาเศรษฐี',
+          page: '260',
+        ),
+        unit(
+          id: 'mahabhut.p259.mars_in_marana',
+          subject: 'planet.mars',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.marana',
+          strength: AtomicStrength.low,
+          chart: 'ดวงมหาเศรษฐี',
+          page: '259',
+        ),
+
+        // Production Batch 5 — ดวงนักบริหาร (pp.113-119). คู่มิตร group
+        // อาทิตย์/พฤหัส → ราชา/ขุมทรัพย์ ตามลำดับ (verbatim p113); others by
+        // their own domain sections. Saturn not stated → not recorded.
+        unit(
+          id: 'mahabhut.p113.sun_in_racha',
+          subject: 'planet.sun',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.racha',
+          strength: AtomicStrength.high,
+          chart: 'ดวงนักบริหาร',
+          page: '113',
+        ),
+        unit(
+          id: 'mahabhut.p114.jupiter_in_khumsap',
+          subject: 'planet.jupiter',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.khumsap',
+          strength: AtomicStrength.high,
+          chart: 'ดวงนักบริหาร',
+          page: '114',
+        ),
+        unit(
+          id: 'mahabhut.p116.moon_in_thongchai',
+          subject: 'planet.moon',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.thongchai',
+          strength: AtomicStrength.high,
+          chart: 'ดวงนักบริหาร',
+          page: '116',
+        ),
+        unit(
+          id: 'mahabhut.p116.mars_in_phangkha',
+          subject: 'planet.mars',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.phangkha',
+          strength: AtomicStrength.low,
+          chart: 'ดวงนักบริหาร',
+          page: '116',
+        ),
+        unit(
+          id: 'mahabhut.p118.venus_in_marana',
+          subject: 'planet.venus',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.marana',
+          strength: AtomicStrength.low,
+          chart: 'ดวงนักบริหาร',
+          page: '118',
+        ),
+        unit(
+          id: 'mahabhut.p119.mercury_in_puti',
+          subject: 'planet.mercury',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.puti',
+          strength: AtomicStrength.low,
+          chart: 'ดวงนักบริหาร',
+          page: '119',
+        ),
       ];
 
-  group('Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4)', () {
+  group('Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4-5)', () {
     final ontology = CanonOntologyData.standard();
     final units = batch();
 
@@ -403,6 +509,7 @@ void main() {
         'planet.jupiter|archetype_chart:ดวงกําพร้า',
         'planet.venus|archetype_chart:ดวงนักภาษา',
         'planet.moon|archetype_chart:ดวงเศรษฐี',
+        'planet.mercury|archetype_chart:ดวงมหาเศรษฐี',
       });
     });
 
@@ -446,6 +553,45 @@ void main() {
       });
     });
 
+    test('a chart natal assignment maps positions injectively (ดวงมหาเศรษฐี)', () {
+      final tycoon = units.where((u) =>
+          u.relation == AtomicRelation.locatedIn &&
+          u.context?.value == 'ดวงมหาเศรษฐี');
+      final byPosition = <String, String>{};
+      for (final u in tycoon) {
+        expect(byPosition.containsKey(u.object), isFalse,
+            reason: '${u.object} assigned twice in ดวงมหาเศรษฐี');
+        byPosition[u.object] = u.subject;
+      }
+      expect(byPosition, {
+        'mahabhutPosition.khumsap': 'planet.moon',
+        'mahabhutPosition.athibodi': 'planet.mercury',
+        'mahabhutPosition.racha': 'planet.jupiter',
+        'mahabhutPosition.thongchai': 'planet.venus',
+        'mahabhutPosition.marana': 'planet.mars',
+      });
+    });
+
+    test('a chart natal assignment maps positions injectively (ดวงนักบริหาร)', () {
+      final exec = units.where((u) =>
+          u.relation == AtomicRelation.locatedIn &&
+          u.context?.value == 'ดวงนักบริหาร');
+      final byPosition = <String, String>{};
+      for (final u in exec) {
+        expect(byPosition.containsKey(u.object), isFalse,
+            reason: '${u.object} assigned twice in ดวงนักบริหาร');
+        byPosition[u.object] = u.subject;
+      }
+      expect(byPosition, {
+        'mahabhutPosition.racha': 'planet.sun',
+        'mahabhutPosition.khumsap': 'planet.jupiter',
+        'mahabhutPosition.thongchai': 'planet.moon',
+        'mahabhutPosition.phangkha': 'planet.mars',
+        'mahabhutPosition.marana': 'planet.venus',
+        'mahabhutPosition.puti': 'planet.mercury',
+      });
+    });
+
     test('production report shows real coverage increase from zero', () {
       final empty = KnowledgeProductionReport.build(const [], ontology);
       expect(empty.totalUnits, 0);
@@ -473,6 +619,76 @@ void main() {
       final a = KnowledgeProductionReport.build(batch(), ontology).render();
       final b = KnowledgeProductionReport.build(batch(), ontology).render();
       expect(a, b);
+    });
+  });
+
+  // Production metrics are REPORTING ONLY (Batch 5 request). They are derived
+  // from the produced units here; they do not affect Canon knowledge or runtime
+  // and add no platform/ontology code. The numbers mirror the Batch 5 report.
+  group('Production metrics (reporting only)', () {
+    final units = batch();
+    final placements =
+        units.where((u) => u.relation == AtomicRelation.locatedIn).toList();
+
+    Map<String, int> countBy(Iterable<AtomicKnowledgeUnit> source,
+        String Function(AtomicKnowledgeUnit) key) {
+      final counts = <String, int>{};
+      for (final u in source) {
+        final k = key(u);
+        counts[k] = (counts[k] ?? 0) + 1;
+      }
+      return counts;
+    }
+
+    test('coverage by planet (all units)', () {
+      expect(countBy(units, (u) => u.subject), {
+        'planet.sun': 2,
+        'planet.moon': 8,
+        'planet.mars': 7,
+        'planet.mercury': 7,
+        'planet.jupiter': 10,
+        'planet.venus': 7,
+      });
+      // Saturn remains uncovered — never inferred.
+      expect(units.any((u) => u.subject == 'planet.saturn'), isFalse);
+    });
+
+    test('coverage by archetype (placements only)', () {
+      expect(countBy(placements, (u) => u.context!.value), {
+        'ดวงนักวิชาการ': 6,
+        'ดวงมนุษย์เจ้าสําราญ': 5,
+        'ดวงกําพร้า': 6,
+        'ดวงนักภาษา': 5,
+        'ดวงเศรษฐี': 5,
+        'ดวงมหาเศรษฐี': 5,
+        'ดวงนักบริหาร': 6,
+      });
+    });
+
+    test('coverage by position (placements only)', () {
+      expect(countBy(placements, (u) => u.object), {
+        'mahabhutPosition.thongchai': 5,
+        'mahabhutPosition.khumsap': 6,
+        'mahabhutPosition.athibodi': 5,
+        'mahabhutPosition.racha': 6,
+        'mahabhutPosition.puti': 5,
+        'mahabhutPosition.marana': 5,
+        'mahabhutPosition.phangkha': 6,
+      });
+    });
+
+    test('coverage by context (all units)', () {
+      final byContext = <String, int>{};
+      for (final u in units) {
+        final key = u.context == null ? 'general' : u.context!.type.wire;
+        byContext[key] = (byContext[key] ?? 0) + 1;
+      }
+      expect(byContext, {'archetype_chart': 38, 'general': 3});
+    });
+
+    test('metrics totals reconcile with the batch', () {
+      expect(units.length, 41);
+      expect(placements.length, 38);
     });
   });
 }
