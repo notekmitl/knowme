@@ -145,6 +145,83 @@ void main() {
     });
   });
 
+  group('Folder intake (one txt = one page; D-064 extension)', () {
+    test('pages come from filenames, in numeric order, one file = one page', () {
+      final pages = WorkingSourceFolder.pagesFromFiles([
+        (filename: 'page_010.txt', rawText: 'ten'),
+        (filename: 'page_002.txt', rawText: 'two'),
+        (filename: 'page_001.txt', rawText: 'one'),
+      ]);
+      expect(pages.map((p) => p.pageRef).toList(), ['1', '2', '10']);
+      expect(pages.length, 3); // never merged
+      expect(pages[0].text, 'one');
+      expect(pages[2].text, 'ten');
+    });
+
+    test('OCR text is preserved verbatim; only UTF-8/line-endings normalised',
+        () {
+      const thai = 'ดาวอาทิตย์\r\n  ธาตุไฟ  \r\n\r\nบรรทัดสาม';
+      final pages = WorkingSourceFolder.pagesFromFiles([
+        (filename: 'page_001.txt', rawText: '\uFEFF$thai'),
+      ]);
+      // BOM stripped, CRLF -> LF, but NOTHING else changed (spacing/blank lines
+      // kept; not re-paragraphed or trimmed).
+      expect(pages.single.text, 'ดาวอาทิตย์\n  ธาตุไฟ  \n\nบรรทัดสาม');
+      // Single verbatim paragraph (no re-flow).
+      expect(pages.single.paragraphs.length, 1);
+    });
+
+    test('filename page-number parsing', () {
+      expect(WorkingSourceFolder.pageNumberFromFilename('page_001.txt'), 1);
+      expect(WorkingSourceFolder.pageNumberFromFilename('page_308.txt'), 308);
+      expect(WorkingSourceFolder.pageNumberFromFilename('no_number.txt'), isNull);
+    });
+
+    test('missing page number and duplicate pages are surfaced, not merged', () {
+      expect(
+          () => WorkingSourceFolder.pagesFromFiles(
+              [(filename: 'cover.txt', rawText: 'x')]),
+          throwsArgumentError);
+      expect(
+          () => WorkingSourceFolder.pagesFromFiles([
+                (filename: 'page_1.txt', rawText: 'a'),
+                (filename: 'page_001.txt', rawText: 'b'),
+              ]),
+          throwsArgumentError);
+    });
+
+    test('deterministic across loads', () {
+      List<String> sigs() => WorkingSourceFolder.pagesFromFiles([
+            (filename: 'page_003.txt', rawText: 'c'),
+            (filename: 'page_001.txt', rawText: 'a'),
+            (filename: 'page_002.txt', rawText: 'b'),
+          ]).map((p) => p.signature).toList();
+      expect(sigs(), sigs());
+    });
+
+    test('loadTxt reads a real folder and feeds the unchanged pipeline', () {
+      final dir = Directory.systemTemp.createTempSync('ws_folder_test');
+      try {
+        File('${dir.path}/page_002.txt').writeAsStringSync('page two text');
+        File('${dir.path}/page_001.txt').writeAsStringSync('page one text\r\n');
+        File('${dir.path}/notes.md').writeAsStringSync('ignore me');
+
+        final src =
+            WorkingSourceFolder.loadTxt(ref: _ref, folderPath: dir.path);
+        expect(src.type, WorkingSourceType.txt);
+        expect(src.pages().map((p) => p.pageRef).toList(), ['1', '2']);
+        expect(src.page('1')!.text, 'page one text\n');
+
+        // Provenance bridge → ExtractionSource carries the page ref, no prose.
+        final es = src.extractionSourceForPage(src.page('1')!, reviewer: 'qa');
+        expect(es.pageStart, 1);
+        expect(jsonEncode(es.toJson()).contains('page one text'), isFalse);
+      } finally {
+        dir.deleteSync(recursive: true);
+      }
+    });
+  });
+
   group('Decoupling — no runtime dependency', () {
     test('working_source imports no engine/runtime/matrix/mirror/fusion/canon-db',
         () {

@@ -81,6 +81,15 @@ class TxtWorkingSource with _WorkingSourceCore {
     _init(WorkingSourcePaginator.parseMarkedText(text));
   }
 
+  /// Build a TXT working source from pages that were already separated upstream
+  /// (e.g. one OCR file per page from `WorkingSourceFolder`). The pages are used
+  /// verbatim and in the given order — no merging, no marker parsing.
+  TxtWorkingSource.fromPages(
+      {required WorkingSourceRef ref, required List<WorkingPage> pages})
+      : _ref = ref {
+    _init(pages);
+  }
+
   final WorkingSourceRef _ref;
 
   @override
@@ -187,6 +196,18 @@ abstract final class WorkingSourcePaginator {
   /// Normalise already-paginated inputs (PDF/Image). Deterministic.
   static List<WorkingPage> pagesFromInputs(List<WorkingPageInput> inputs) =>
       [for (final i in inputs) paginate(i.pageRef, i.text)];
+
+  /// Build one page that **preserves [text] verbatim** — the whole page is a
+  /// single paragraph. Used when one source file already represents exactly one
+  /// page (folder intake): the OCR text is not re-paragraphed, re-flowed,
+  /// trimmed or otherwise rewritten. Callers normalise UTF-8 / line endings
+  /// before calling. An empty page has no paragraphs.
+  static WorkingPage pageVerbatim(String pageRef, String text) => WorkingPage(
+        pageRef: pageRef.trim(),
+        paragraphs: text.isEmpty
+            ? const []
+            : [WorkingParagraph(index: 0, text: text)],
+      );
 
   /// Split [text] into trimmed, non-empty paragraphs (blank-line separated).
   static WorkingPage paginate(String pageRef, String text) {

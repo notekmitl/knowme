@@ -62,6 +62,7 @@ sessions and developers should consult this before reopening any settled decisio
 | D-062 | Canon Knowledge Authoring Studio V1 (human editing layer before the Workspace; pure-Dart `canon/authoring/`: `DraftKnowledgeUnit` editable atomic mirror (no narrative); `OntologyAssist` resolved/missingOntology/unknown, never auto-creates; `AuthoringStudio` deterministic batch edit add/duplicate/split/merge/delete/reorder (stays atomic), deterministic ids, validation **preview reuses `WorkspaceValidator`/`ReviewReport`**, export/import reproduces identical draft; authoring only, consumes workspace+ontology+atomic read-only; no engine/runtime/matrix/UI change; no deploy) | 2026-06 | Accepted |
 | D-063 | Golden Canon Dataset V1 (QA regression suite; pure-Dart `canon/golden/`: `GoldenDataset`+`GoldenExpectation` declared deterministic outcome, deterministic `versionTag`+FNV-1a `fingerprint`; `GoldenVerifier` drives the **real** pipeline (`WorkspaceValidator`/`KnowledgeDiff`/`CompletenessDelta`/`ReviewReport`, no logic reimplemented) and reports field mismatches; 10 fixtures (minimal/single planet/single house/planet+house/conflict/duplicate/ontology failure/relationship failure/coverage increase/deprecated); deterministic `GoldenReport`; QA only, synthetic structural fixtures, no copyrighted text, no invented facts; no engine/runtime/matrix/UI change; no deploy) | 2026-06 | Accepted |
 | D-064 | Canon Working Source Adapter V1 (temporary source material for the Authoring Studio; pure-Dart `canon/working_source/`: one `WorkingSource` interface over `Txt`/`Ocr`/`Pdf`/`Image` adapters normalised to identical `WorkingPage`s by one deterministic paginator; studio consumes only the interface via provenance-only `ExtractionSource`; **temporary/never Canon** — only book/edition/chapter/page survive, `dispose` discards prose and Canon stays intact; no automatic extraction, no AI, no runtime/engine/ontology change, no workspace redesign; no deploy) | 2026-06 | Accepted |
+| D-065 | Canon Platform Production Mode (platform **COMPLETE** and **FROZEN**; transition from Platform Development to Knowledge Production; official pipeline Working Source→Authoring→Atomic Knowledge→Ontology→Workspace→Review→Import→Canon DB→Rule Engine→Reasoning→Narrative is the **only supported production workflow**; future work limited to Knowledge Production / Ontology Expansion (when extraction requires) / Bug Fixes / Performance-without-behaviour-change; platform change only on proven inconsistency or unrepresentable Canon knowledge; gaps via Ontology Gap Report or Knowledge Modeling Gap Report — not platform redesign; success metric = Knowledge Coverage increase, not LOC or new modules; no runtime/engine/workspace redesign; no deploy unless requested) | 2026-06 | Accepted |
 
 ---
 
@@ -2018,12 +2019,54 @@ sessions and developers should consult this before reopening any settled decisio
   Ontology, Knowledge Graph, Workspace, Authoring Studio, Golden Dataset, Rule
   Engine, Prediction, Timeline, Decision, Runtime, Mirror, Conversation, Fusion,
   `PlanetRelationshipMatrix`.
-- **Impact:** Additive `working_source/` layer + 10 tests
-  (`thai_canon_working_source_test.dart`); full canon suite (158) green; `flutter
+- **Impact:** Additive `working_source/` layer + tests
+  (`thai_canon_working_source_test.dart`); full canon suite green; `flutter
   analyze` clean.
+- **Folder intake (2026-06-30, Knowledge Production Sprint 2):** extended the TXT
+  working source (no platform redesign) with `WorkingSourceFolder.loadTxt` +
+  `TxtWorkingSource.fromPages` + `WorkingSourcePaginator.pageVerbatim`. Reads a
+  folder of per-page OCR `.txt` files (one file = one page; page number from the
+  filename; numeric order; verbatim text with only UTF-8/BOM + line-ending
+  normalisation; missing/duplicate page numbers raise, never merge). Smoke-verified
+  on the real OCR drop (`D:\MahabhutOCR\txt`, 308 pages → refs 1…308). Implementation
+  improvement only — no runtime/Canon/ontology/workspace change. 164 canon tests
+  green; analyze clean.
 - **Related documents:** `THAI_CANON_WORKING_SOURCE_ADAPTER_V1.md`,
   `THAI_CANON_KNOWLEDGE_AUTHORING_STUDIO_V1.md`,
   `THAI_MAHABHUT_CANON_EXTRACTION_V2_RUNBOOK.md`.
+
+---
+
+## D-065 — Canon Platform Production Mode (platform complete; knowledge production only)
+
+- **Date:** 2026-06 · **Status:** Accepted · Platform **FROZEN** · Production mode active · **No deploy unless requested**
+- **Context:** With D-056…D-064 the Canon Platform is complete: Working Source
+  intake, Authoring Studio, Atomic Knowledge, Ontology, Workspace, Golden QA, and
+  the production tracker. Further platform layers would add complexity without
+  increasing Canon knowledge coverage.
+- **Decision:** Ratify **Production Mode** — stop creating platform layers,
+  infrastructure and framework abstractions. The official pipeline (Working Source →
+  Authoring Studio → Atomic Knowledge → Ontology Resolution → Workspace
+  Validation → Review → Canon Import → Canon Database → Rule Engine → Reasoning
+  → Narrative) is the **only supported production workflow**. Future work is
+  limited to: (1) Knowledge Production, (2) Ontology Expansion only when
+  extraction genuinely requires it, (3) Bug Fixes (implementation inconsistencies
+  only), (4) Performance without behaviour change. Platform changes permitted
+  only when a real inconsistency is proven or Canon knowledge cannot be
+  represented — otherwise produce an Ontology Gap Report or Knowledge Modeling
+  Gap Report. Success is measured by **Knowledge Coverage increase**, not LOC or
+  new modules.
+- **Reason:** Lock the completed architecture and redirect all effort to verified
+  Canon knowledge from the official source.
+- **Boundary:** No runtime/engine/workspace redesign; no ontology redesign unless
+  extraction requires it; no deploy unless requested; no architecture experiments.
+  Knowledge rule unchanged: never invent/summarize/interpret during extraction;
+  knowledge enters only through Working Source → Authoring → Workspace → Review →
+  Import.
+- **Impact:** Governance documentation only (`THAI_CANON_PLATFORM_PRODUCTION_MODE_V1.md`);
+  no code changes; supersedes D-056 scope classification for future work.
+- **Related documents:** `THAI_CANON_PLATFORM_PRODUCTION_MODE_V1.md`,
+  `THAI_MAHABHUT_CANON_PLATFORM_FREEZE_V1.md`, `THAI_CANON_KNOWLEDGE_PRODUCTION_V1.md`.
 
 ---
 
