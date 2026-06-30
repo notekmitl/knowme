@@ -49,7 +49,7 @@ void main() {
         evidence: AtomicEvidenceRef(bookId: book, page: page),
       );
 
-  /// The cumulative production batch (Sprints 2A-2C + 3), produced page-by-page.
+  /// The cumulative production batch (Sprints 2A-2C + 3 + Production Batch 4).
   List<AtomicKnowledgeUnit> batch() => [
         // p.220 ดวงนักวิชาการ — Jupiter as significator of learning / career.
         unit(
@@ -229,9 +229,113 @@ void main() {
           chart: 'ดวงนักภาษา',
           page: '87',
         ),
+
+        // Production Batch 4 — ดวงมนุษย์เจ้าสำราญ (pp.153-155). Jupiter→ปูติ
+        // already in Canon (p150). Sun/Saturn not stated → not recorded.
+        unit(
+          id: 'mahabhut.p153.moon_in_racha',
+          subject: 'planet.moon',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.racha',
+          strength: AtomicStrength.high,
+          chart: 'ดวงมนุษย์เจ้าสําราญ',
+          page: '153',
+        ),
+        unit(
+          id: 'mahabhut.p153.mars_in_thongchai',
+          subject: 'planet.mars',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.thongchai',
+          strength: AtomicStrength.high,
+          chart: 'ดวงมนุษย์เจ้าสําราญ',
+          page: '153',
+        ),
+        unit(
+          id: 'mahabhut.p155.venus_in_khumsap',
+          subject: 'planet.venus',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.khumsap',
+          strength: AtomicStrength.high,
+          chart: 'ดวงมนุษย์เจ้าสําราญ',
+          page: '155',
+        ),
+        unit(
+          id: 'mahabhut.p155.mercury_in_phangkha',
+          subject: 'planet.mercury',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.phangkha',
+          chart: 'ดวงมนุษย์เจ้าสําราญ',
+          page: '155',
+        ),
+
+        // Production Batch 4 — ดวงนักวิชาการ additions (pp.224-225).
+        unit(
+          id: 'mahabhut.p224.venus_in_phangkha',
+          subject: 'planet.venus',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.phangkha',
+          chart: 'ดวงนักวิชาการ',
+          page: '224',
+        ),
+        unit(
+          id: 'mahabhut.p225.mercury_in_racha',
+          subject: 'planet.mercury',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.racha',
+          strength: AtomicStrength.high,
+          chart: 'ดวงนักวิชาการ',
+          page: '225',
+        ),
+
+        // Production Batch 4 — ดวงเศรษฐี (pp.181-187). Sun/Saturn not stated.
+        unit(
+          id: 'mahabhut.p181.moon_in_athibodi',
+          subject: 'planet.moon',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.athibodi',
+          strength: AtomicStrength.high,
+          chart: 'ดวงเศรษฐี',
+          page: '181',
+        ),
+        unit(
+          id: 'mahabhut.p181.mercury_in_thongchai',
+          subject: 'planet.mercury',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.thongchai',
+          strength: AtomicStrength.high,
+          chart: 'ดวงเศรษฐี',
+          page: '181',
+        ),
+        unit(
+          id: 'mahabhut.p182.jupiter_in_phangkha',
+          subject: 'planet.jupiter',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.phangkha',
+          strength: AtomicStrength.low,
+          chart: 'ดวงเศรษฐี',
+          page: '182',
+        ),
+        unit(
+          id: 'mahabhut.p185.mars_in_racha',
+          subject: 'planet.mars',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.racha',
+          strength: AtomicStrength.high,
+          chart: 'ดวงเศรษฐี',
+          page: '185',
+        ),
+        unit(
+          id: 'mahabhut.p186.venus_in_puti',
+          subject: 'planet.venus',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.puti',
+          strength: AtomicStrength.low,
+          chart: 'ดวงเศรษฐี',
+          page: '186',
+        ),
       ];
 
-  group('Mahabhut production batch (Sprint 2A–2C)', () {
+  group('Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4)', () {
     final ontology = CanonOntologyData.standard();
     final units = batch();
 
@@ -298,6 +402,26 @@ void main() {
         'planet.mars|archetype_chart:ดวงนักวิชาการ',
         'planet.jupiter|archetype_chart:ดวงกําพร้า',
         'planet.venus|archetype_chart:ดวงนักภาษา',
+        'planet.moon|archetype_chart:ดวงเศรษฐี',
+      });
+    });
+
+    test('a chart natal assignment maps positions injectively (ดวงเศรษฐี)', () {
+      final wealthy = units.where((u) =>
+          u.relation == AtomicRelation.locatedIn &&
+          u.context?.value == 'ดวงเศรษฐี');
+      final byPosition = <String, String>{};
+      for (final u in wealthy) {
+        expect(byPosition.containsKey(u.object), isFalse,
+            reason: '${u.object} assigned twice in ดวงเศรษฐี');
+        byPosition[u.object] = u.subject;
+      }
+      expect(byPosition, {
+        'mahabhutPosition.athibodi': 'planet.moon',
+        'mahabhutPosition.thongchai': 'planet.mercury',
+        'mahabhutPosition.phangkha': 'planet.jupiter',
+        'mahabhutPosition.racha': 'planet.mars',
+        'mahabhutPosition.puti': 'planet.venus',
       });
     });
 

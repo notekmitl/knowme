@@ -111,3 +111,7 @@ chart-scoped *placement* (`moon → phangkha @ ดวงนักภาษา`) 
 
 Production continues on the next archetype chapters' natal sections until a
 genuine stop condition.
+
+> **Superseded naming:** Sprint 3 was the last **Sprint** milestone. Ongoing
+> production milestones are **Production Batch N** (D-069). See
+> [`THAI_CANON_KNOWLEDGE_PRODUCTION_BATCH_4.md`](THAI_CANON_KNOWLEDGE_PRODUCTION_BATCH_4.md).
