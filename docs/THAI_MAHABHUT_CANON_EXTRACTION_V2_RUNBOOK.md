@@ -23,8 +23,12 @@ Builds on D-052 (Canon V1) and D-053 (Canon Database).
 > Working Sources are never Canon (only book/edition/chapter/page survive) and are
 > discarded after authoring.
 >
-> **Extraction path (D-058 / D-059 / D-060 / D-062 / D-064):** for each page from
-> the Working Source, a reviewer authors in the **Knowledge Authoring Studio**
+> **Extraction path (D-058 / D-059 / D-060 / D-062 / D-064 / D-066):** for each
+> page from the Working Source, **AI-assisted deterministic extraction** reads the
+> page and produces draft Atomic Knowledge Units for the facts **stated on that
+> page** — *extraction only, never generation* (D-066: no hallucination,
+> inference, interpretation, summarization or external knowledge). A reviewer
+> then confirms/edits them in the **Knowledge Authoring Studio**
 > (`canon/authoring/`, `THAI_CANON_KNOWLEDGE_AUTHORING_STUDIO_V1.md`) — draft
 > Atomic Knowledge Units with live ontology assistance and batch editing — then
 > hands the session to the **Knowledge Extraction Workspace** (`canon/workspace/`,
@@ -41,6 +45,11 @@ Builds on D-052 (Canon V1) and D-053 (Canon Database).
 > `WorkspaceValidator`/`KnowledgeDiff`/`CompletenessDelta`/`ReviewReport`. Run
 > `thai_canon_golden_test.dart` after any change to extraction, validation or the
 > ontology; a golden mismatch means the change altered pipeline behaviour.
+>
+> **Production Mode (D-065):** the Canon Platform is **COMPLETE** and **FROZEN**.
+> This runbook is the **only supported production workflow**. Future milestones are
+> evaluated by **Knowledge Coverage increase**, not new platform code. See
+> `THAI_CANON_PLATFORM_PRODUCTION_MODE_V1.md`.
 
 ---
 

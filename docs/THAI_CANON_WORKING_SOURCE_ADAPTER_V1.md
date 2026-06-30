@@ -51,9 +51,12 @@ paginator (`WorkingSourcePaginator`):
 | `PdfWorkingSource` | per-page text extracted from the PDF **externally** |
 | `ImageWorkingSource` | per-page text the reviewer transcribed from images |
 
-There is **no automatic extraction and no AI**: PDF/Image adapters consume text
-the reviewer/tooling already obtained per page; the adapter only *supplies*
-temporary text. Given equivalent content, **every adapter yields identical
+There is **no automatic extraction and no AI _in the adapter_**: PDF/Image
+adapters consume text the reviewer/tooling already obtained per page; the adapter
+only *supplies* temporary text. (This is an adapter-scope statement, not a
+platform-wide ban — **AI-assisted deterministic extraction is allowed downstream**
+at the authoring/atomic step under human review; extraction allowed, generation
+forbidden — D-066.) Given equivalent content, **every adapter yields identical
 pages** (verified by test). Page markers and paragraph splitting are
 deterministic; text before the first page marker is treated as front matter and
 ignored, and marker-free text becomes a single page `"1"`.

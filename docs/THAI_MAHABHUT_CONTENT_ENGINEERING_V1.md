@@ -1,5 +1,10 @@
 # Thai Astrology — Mahabhut Content Engineering V1
 
+> **Production Mode (D-065):** the Canon Platform is **COMPLETE** and **FROZEN**.
+> No new platform layers. Expected output = **verified Canon knowledge** or
+> **documented gaps** (Ontology Gap / Knowledge Modeling Gap reports). See
+> `THAI_CANON_PLATFORM_PRODUCTION_MODE_V1.md`.
+>
 > The Canon architecture and ingestion toolchain are complete. This milestone
 > adds the **human-review layer** that turns book candidates into Canon-approved
 > knowledge with the least manual effort — a reviewer workspace, review assistant,
@@ -63,8 +68,18 @@ every unit traceable to the book.
 > Source Adapter** (`canon/working_source/`) — a *temporary* layer that supplies
 > deterministic Working Pages to the reviewer and a provenance-only
 > `ExtractionSource` per page. It is never Canon (only book/edition/chapter/page
-> survive) and is discarded after authoring. No automatic extraction, no AI. See
+> survive) and is discarded after authoring. The adapter itself performs no OCR
+> and no extraction — it only supplies page text. AI-assisted *extraction* happens
+> later, at the authoring/atomic step, under mandatory human review (D-066:
+> extraction allowed, generation forbidden). See
 > `THAI_CANON_WORKING_SOURCE_ADAPTER_V1.md`.
+>
+> **Production Mode (D-065):** the Canon Platform is **COMPLETE** and **FROZEN**.
+> Stop creating platform layers. All work is **Knowledge Production** through the
+> official pipeline (Working Source → Authoring → Workspace → Review → Import),
+> measured by **Coverage increase**. Unrepresentable statements → Knowledge
+> Modeling Gap Report; repeated missing entities → Ontology Gap Report — never
+> platform redesign. See `THAI_CANON_PLATFORM_PRODUCTION_MODE_V1.md`.
 
 ---
 
