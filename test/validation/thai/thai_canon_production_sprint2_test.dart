@@ -49,7 +49,7 @@ void main() {
         evidence: AtomicEvidenceRef(bookId: book, page: page),
       );
 
-  /// The cumulative production batch (Sprint 2A + 2B), produced page-by-page.
+  /// The cumulative production batch (Sprints 2A-2C + 3), produced page-by-page.
   List<AtomicKnowledgeUnit> batch() => [
         // p.220 ดวงนักวิชาการ — Jupiter as significator of learning / career.
         unit(
@@ -134,6 +134,101 @@ void main() {
           chart: 'ดวงกําพร้า',
           page: '50',
         ),
+
+        // Sprint 3 — ดวงกําพร้า natal assignment (pages 43-50). Strength from
+        // stated dignity. Saturn's natal position is not stated → not recorded.
+        unit(
+          id: 'mahabhut.p43.sun_in_phangkha',
+          subject: 'planet.sun',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.phangkha',
+          strength: AtomicStrength.low,
+          chart: 'ดวงกําพร้า',
+          page: '43',
+        ),
+        unit(
+          id: 'mahabhut.p43.moon_in_puti',
+          subject: 'planet.moon',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.puti',
+          strength: AtomicStrength.low,
+          chart: 'ดวงกําพร้า',
+          page: '43',
+        ),
+        unit(
+          id: 'mahabhut.p47.mars_in_khumsap',
+          subject: 'planet.mars',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.khumsap',
+          strength: AtomicStrength.high,
+          chart: 'ดวงกําพร้า',
+          page: '47',
+        ),
+        unit(
+          id: 'mahabhut.p47.mercury_in_marana',
+          subject: 'planet.mercury',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.marana',
+          strength: AtomicStrength.low,
+          chart: 'ดวงกําพร้า',
+          page: '47',
+        ),
+        unit(
+          id: 'mahabhut.p48.venus_in_racha',
+          subject: 'planet.venus',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.racha',
+          strength: AtomicStrength.high,
+          chart: 'ดวงกําพร้า',
+          page: '48',
+        ),
+
+        // Sprint 3 — ดวงนักภาษา natal assignment (pages 83-88). Sun & Saturn
+        // natal positions not stated in natal sections → not recorded.
+        unit(
+          id: 'mahabhut.p83.moon_in_phangkha',
+          subject: 'planet.moon',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.phangkha',
+          strength: AtomicStrength.low,
+          chart: 'ดวงนักภาษา',
+          page: '83',
+        ),
+        unit(
+          id: 'mahabhut.p83.jupiter_in_marana',
+          subject: 'planet.jupiter',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.marana',
+          chart: 'ดวงนักภาษา',
+          page: '83',
+        ),
+        unit(
+          id: 'mahabhut.p84.mars_in_puti',
+          subject: 'planet.mars',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.puti',
+          strength: AtomicStrength.low,
+          chart: 'ดวงนักภาษา',
+          page: '84',
+        ),
+        unit(
+          id: 'mahabhut.p85.venus_in_athibodi',
+          subject: 'planet.venus',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.athibodi',
+          strength: AtomicStrength.high,
+          chart: 'ดวงนักภาษา',
+          page: '85',
+        ),
+        unit(
+          id: 'mahabhut.p87.mercury_in_khumsap',
+          subject: 'planet.mercury',
+          relation: AtomicRelation.locatedIn,
+          object: 'mahabhutPosition.khumsap',
+          strength: AtomicStrength.high,
+          chart: 'ดวงนักภาษา',
+          page: '87',
+        ),
       ];
 
   group('Mahabhut production batch (Sprint 2A–2C)', () {
@@ -173,6 +268,8 @@ void main() {
         'mahabhutPosition.athibodi',
         'mahabhutPosition.puti',
         'mahabhutPosition.marana',
+        'mahabhutPosition.phangkha',
+        'mahabhutPosition.racha',
       });
     });
 
@@ -191,17 +288,37 @@ void main() {
       }
     });
 
-    test('the same fact can be scoped to different charts without collision', () {
+    test('the same position is scoped to different charts without collision', () {
       final scopedAthibodi = units
           .where((u) => u.object == 'mahabhutPosition.athibodi')
-          .toList();
-      // mars@scholar (p220) and jupiter@orphan (p50) are distinct scoped facts.
-      final keys = scopedAthibodi
           .map((u) => '${u.subject}|${u.context!.key}')
           .toSet();
-      expect(keys, {
+      // athibodi holds different planets in different archetype charts.
+      expect(scopedAthibodi, {
         'planet.mars|archetype_chart:ดวงนักวิชาการ',
         'planet.jupiter|archetype_chart:ดวงกําพร้า',
+        'planet.venus|archetype_chart:ดวงนักภาษา',
+      });
+    });
+
+    test('a chart natal assignment maps positions injectively (ดวงกําพร้า)', () {
+      final orphan = units.where((u) =>
+          u.relation == AtomicRelation.locatedIn &&
+          u.context?.value == 'ดวงกําพร้า');
+      final byPosition = <String, String>{};
+      for (final u in orphan) {
+        // No position holds two different planets within one chart.
+        expect(byPosition.containsKey(u.object), isFalse,
+            reason: '${u.object} assigned twice in ดวงกําพร้า');
+        byPosition[u.object] = u.subject;
+      }
+      expect(byPosition, {
+        'mahabhutPosition.phangkha': 'planet.sun',
+        'mahabhutPosition.puti': 'planet.moon',
+        'mahabhutPosition.khumsap': 'planet.mars',
+        'mahabhutPosition.marana': 'planet.mercury',
+        'mahabhutPosition.racha': 'planet.venus',
+        'mahabhutPosition.athibodi': 'planet.jupiter',
       });
     });
 
@@ -214,14 +331,15 @@ void main() {
       expect(report.allAtomic, isTrue, reason: report.render());
       expect(report.provenanceComplete, isTrue);
 
-      // Planet Library covers Jupiter, Mars and Moon (was 0).
+      // Planet Library now covers 6 of 9 planets (Sun, Moon, Mars, Mercury,
+      // Jupiter, Venus) after Sprint 3; was 0.
       final planetLib = report.domain(ProductionDomain.planetLibrary)!;
       expect(planetLib.produced, units.length);
-      expect(planetLib.subjectsCovered, 3);
+      expect(planetLib.subjectsCovered, 6);
       expect(planetLib.status, ProductionStatus.partial);
 
-      // Planet → Domain natural significators: Jupiter → learning/career,
-      // Moon → finance (Sprint 2B).
+      // Planet → Domain natural significators (general): Jupiter → learning/
+      // career, Moon → finance. Placements are not domain facts.
       final planetDomains = report.domain(ProductionDomain.planetDomains)!;
       expect(planetDomains.produced, 3);
       expect(planetDomains.subjectsCovered, 2);
