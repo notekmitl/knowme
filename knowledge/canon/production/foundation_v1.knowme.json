@@ -1,5 +1,5 @@
 {
-  "$comment": "Canon Knowledge Production V1 — foundational domains. STATE: production IN PROGRESS (Sprints 2A-2C + 3 + Production Batch 4 + 5 + 6; 43 units). The canonical source หลักมหาภูต (ส. หยกฟ้า) is available as OCR; D-067 added the book's Named Positions; D-068 added the optional `context` applicability qualifier so chart-scoped facts are representable faithfully. Units are produced FROM the source pages (reference-only provenance, D-057) — never invented (D-066: extraction allowed, generation forbidden) — and validated through the real platform by test/validation/thai/thai_canon_production_sprint2_test.dart. CONVENTION: a unit WITHOUT context is a general/unconditional fact (e.g. natural significations jupiter→learning/career, moon→finance, recurring identically across charts); a unit WITH context {type, value} is true ONLY within that scope (here archetype_chart:<verbatim Thai chart heading from the page>). The context value is the source's own chart name (verbatim, not translated) so no inference/external knowledge is introduced.",
+  "$comment": "Canon Knowledge Production V1 — foundational domains. STATE: production IN PROGRESS (Sprints 2A-2C + 3 + Production Batch 4 + 5 + 6 + 7; 56 units). The canonical source หลักมหาภูต (ส. หยกฟ้า) is available as OCR; D-067 added the book's Named Positions; D-068 added the optional `context` applicability qualifier so chart-scoped facts are representable faithfully. Units are produced FROM the source pages (reference-only provenance, D-057) — never invented (D-066: extraction allowed, generation forbidden) — and validated through the real platform by test/validation/thai/thai_canon_production_sprint2_test.dart. CONVENTION: a unit WITHOUT context is a general/unconditional fact (e.g. natural significations jupiter→learning/career, moon→finance, recurring identically across charts); a unit WITH context {type, value} is true ONLY within that scope (here archetype_chart:<verbatim Thai chart heading from the page>). Optional `condition` (verbatim from source) scopes a general signification without chart context (Batch 7, p16). The context value is the source's own chart name (verbatim, not translated) so no inference/external knowledge is introduced.",
   "version": 1,
   "source": {
     "bookId": "mahabhut",
@@ -411,6 +411,116 @@
       "domain": "planetLibrary", "strength": "high", "confidence": "high",
       "context": { "type": "archetype_chart", "value": "ดวงนักวิชาการ" },
       "evidence": { "bookId": "mahabhut", "page": "219" }
+    },
+
+    { "$note": "Production Batch 7 — front-matter general significations (pp.1–41). p28 คุรหจินดา family-role table (หมายถึง …)." },
+    {
+      "id": "mahabhut.p28.sun_owns_family",
+      "subject": "planet.sun", "subjectKind": "planet",
+      "relation": "owns",
+      "object": "domain.family", "objectKind": "domain",
+      "domain": "planetLibrary", "strength": "none", "confidence": "high",
+      "evidence": { "bookId": "mahabhut", "page": "28" }
+    },
+    {
+      "id": "mahabhut.p28.moon_owns_family",
+      "subject": "planet.moon", "subjectKind": "planet",
+      "relation": "owns",
+      "object": "domain.family", "objectKind": "domain",
+      "domain": "planetLibrary", "strength": "none", "confidence": "high",
+      "evidence": { "bookId": "mahabhut", "page": "28" }
+    },
+    {
+      "id": "mahabhut.p28.mars_owns_relationship",
+      "subject": "planet.mars", "subjectKind": "planet",
+      "relation": "owns",
+      "object": "domain.relationship", "objectKind": "domain",
+      "domain": "planetLibrary", "strength": "none", "confidence": "high",
+      "evidence": { "bookId": "mahabhut", "page": "28" }
+    },
+    {
+      "id": "mahabhut.p28.mercury_owns_family",
+      "subject": "planet.mercury", "subjectKind": "planet",
+      "relation": "owns",
+      "object": "domain.family", "objectKind": "domain",
+      "domain": "planetLibrary", "strength": "none", "confidence": "high",
+      "evidence": { "bookId": "mahabhut", "page": "28" }
+    },
+    {
+      "id": "mahabhut.p28.jupiter_owns_learning",
+      "subject": "planet.jupiter", "subjectKind": "planet",
+      "relation": "owns",
+      "object": "domain.learning", "objectKind": "domain",
+      "domain": "planetLibrary", "strength": "none", "confidence": "high",
+      "evidence": { "bookId": "mahabhut", "page": "28" }
+    },
+    {
+      "id": "mahabhut.p28.venus_owns_relationship",
+      "subject": "planet.venus", "subjectKind": "planet",
+      "relation": "owns",
+      "object": "domain.relationship", "objectKind": "domain",
+      "domain": "planetLibrary", "strength": "none", "confidence": "high",
+      "evidence": { "bookId": "mahabhut", "page": "28" }
+    },
+    {
+      "id": "mahabhut.p28.saturn_owns_family",
+      "subject": "planet.saturn", "subjectKind": "planet",
+      "relation": "owns",
+      "object": "domain.family", "objectKind": "domain",
+      "domain": "planetLibrary", "strength": "none", "confidence": "high",
+      "evidence": { "bookId": "mahabhut", "page": "28" }
+    },
+    { "$note": "Production Batch 7 — p29 concise lookup (ดู … ให้ดู …)." },
+    {
+      "id": "mahabhut.p29.moon_owns_personality",
+      "subject": "planet.moon", "subjectKind": "planet",
+      "relation": "owns",
+      "object": "domain.personality", "objectKind": "domain",
+      "domain": "planetLibrary", "strength": "none", "confidence": "high",
+      "evidence": { "bookId": "mahabhut", "page": "29" }
+    },
+    {
+      "id": "mahabhut.p29.mars_owns_personality",
+      "subject": "planet.mars", "subjectKind": "planet",
+      "relation": "owns",
+      "object": "domain.personality", "objectKind": "domain",
+      "domain": "planetLibrary", "strength": "none", "confidence": "high",
+      "evidence": { "bookId": "mahabhut", "page": "29" }
+    },
+    {
+      "id": "mahabhut.p29.jupiter_owns_learning",
+      "subject": "planet.jupiter", "subjectKind": "planet",
+      "relation": "owns",
+      "object": "domain.learning", "objectKind": "domain",
+      "domain": "planetLibrary", "strength": "none", "confidence": "high",
+      "evidence": { "bookId": "mahabhut", "page": "29" }
+    },
+    {
+      "id": "mahabhut.p29.jupiter_owns_career",
+      "subject": "planet.jupiter", "subjectKind": "planet",
+      "relation": "owns",
+      "object": "domain.career", "objectKind": "domain",
+      "domain": "planetLibrary", "strength": "none", "confidence": "high",
+      "evidence": { "bookId": "mahabhut", "page": "29" }
+    },
+    { "$note": "Production Batch 7 — p16 gender-conditional spouse significators (condition verbatim from source)." },
+    {
+      "id": "mahabhut.p16.mars_owns_relationship_female",
+      "subject": "planet.mars", "subjectKind": "planet",
+      "relation": "owns",
+      "object": "domain.relationship", "objectKind": "domain",
+      "domain": "planetLibrary", "strength": "none", "confidence": "high",
+      "condition": "เจ้าชะตาเป็นผู้หญิง",
+      "evidence": { "bookId": "mahabhut", "page": "16" }
+    },
+    {
+      "id": "mahabhut.p16.venus_owns_relationship_male",
+      "subject": "planet.venus", "subjectKind": "planet",
+      "relation": "owns",
+      "object": "domain.relationship", "objectKind": "domain",
+      "domain": "planetLibrary", "strength": "none", "confidence": "high",
+      "condition": "เจ้าชะตาเป็นผู้ชาย",
+      "evidence": { "bookId": "mahabhut", "page": "16" }
     }
   ],
   "domains": [

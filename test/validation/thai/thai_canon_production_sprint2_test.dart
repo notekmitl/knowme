@@ -30,6 +30,7 @@ void main() {
     AtomicEntityKind objectKind = AtomicEntityKind.other,
     AtomicStrength strength = AtomicStrength.none,
     String? chart,
+    String? condition,
     required String page,
   }) =>
       AtomicKnowledgeUnit(
@@ -42,6 +43,7 @@ void main() {
         domain: KnowledgeDomain.planetLibrary,
         strength: strength,
         confidence: KnowledgeConfidence.high,
+        condition: condition,
         context: chart == null
             ? null
             : AtomicContext(
@@ -464,9 +466,120 @@ void main() {
           chart: 'ดวงนักวิชาการ',
           page: '219',
         ),
+
+        // Production Batch 7 — front-matter general significations (pp.1–41).
+        // p28 คุรหจินดา family-role table (หมายถึง …).
+        unit(
+          id: 'mahabhut.p28.sun_owns_family',
+          subject: 'planet.sun',
+          relation: AtomicRelation.owns,
+          object: 'domain.family',
+          objectKind: AtomicEntityKind.domain,
+          page: '28',
+        ),
+        unit(
+          id: 'mahabhut.p28.moon_owns_family',
+          subject: 'planet.moon',
+          relation: AtomicRelation.owns,
+          object: 'domain.family',
+          objectKind: AtomicEntityKind.domain,
+          page: '28',
+        ),
+        unit(
+          id: 'mahabhut.p28.mars_owns_relationship',
+          subject: 'planet.mars',
+          relation: AtomicRelation.owns,
+          object: 'domain.relationship',
+          objectKind: AtomicEntityKind.domain,
+          page: '28',
+        ),
+        unit(
+          id: 'mahabhut.p28.mercury_owns_family',
+          subject: 'planet.mercury',
+          relation: AtomicRelation.owns,
+          object: 'domain.family',
+          objectKind: AtomicEntityKind.domain,
+          page: '28',
+        ),
+        unit(
+          id: 'mahabhut.p28.jupiter_owns_learning',
+          subject: 'planet.jupiter',
+          relation: AtomicRelation.owns,
+          object: 'domain.learning',
+          objectKind: AtomicEntityKind.domain,
+          page: '28',
+        ),
+        unit(
+          id: 'mahabhut.p28.venus_owns_relationship',
+          subject: 'planet.venus',
+          relation: AtomicRelation.owns,
+          object: 'domain.relationship',
+          objectKind: AtomicEntityKind.domain,
+          page: '28',
+        ),
+        unit(
+          id: 'mahabhut.p28.saturn_owns_family',
+          subject: 'planet.saturn',
+          relation: AtomicRelation.owns,
+          object: 'domain.family',
+          objectKind: AtomicEntityKind.domain,
+          page: '28',
+        ),
+        // p29 concise lookup (ดู … ให้ดู …).
+        unit(
+          id: 'mahabhut.p29.moon_owns_personality',
+          subject: 'planet.moon',
+          relation: AtomicRelation.owns,
+          object: 'domain.personality',
+          objectKind: AtomicEntityKind.domain,
+          page: '29',
+        ),
+        unit(
+          id: 'mahabhut.p29.mars_owns_personality',
+          subject: 'planet.mars',
+          relation: AtomicRelation.owns,
+          object: 'domain.personality',
+          objectKind: AtomicEntityKind.domain,
+          page: '29',
+        ),
+        unit(
+          id: 'mahabhut.p29.jupiter_owns_learning',
+          subject: 'planet.jupiter',
+          relation: AtomicRelation.owns,
+          object: 'domain.learning',
+          objectKind: AtomicEntityKind.domain,
+          page: '29',
+        ),
+        unit(
+          id: 'mahabhut.p29.jupiter_owns_career',
+          subject: 'planet.jupiter',
+          relation: AtomicRelation.owns,
+          object: 'domain.career',
+          objectKind: AtomicEntityKind.domain,
+          page: '29',
+        ),
+        // p16 gender-conditional spouse significators (condition verbatim from source).
+        unit(
+          id: 'mahabhut.p16.mars_owns_relationship_female',
+          subject: 'planet.mars',
+          relation: AtomicRelation.owns,
+          object: 'domain.relationship',
+          objectKind: AtomicEntityKind.domain,
+          condition: 'เจ้าชะตาเป็นผู้หญิง',
+          page: '16',
+        ),
+        unit(
+          id: 'mahabhut.p16.venus_owns_relationship_male',
+          subject: 'planet.venus',
+          relation: AtomicRelation.owns,
+          object: 'domain.relationship',
+          objectKind: AtomicEntityKind.domain,
+          condition: 'เจ้าชะตาเป็นผู้ชาย',
+          page: '16',
+        ),
       ];
 
-  group('Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4-6)', () {
+  group('Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4-7)', () {
     final ontology = CanonOntologyData.standard();
     final units = batch();
 
@@ -626,18 +739,17 @@ void main() {
       expect(report.allAtomic, isTrue, reason: report.render());
       expect(report.provenanceComplete, isTrue);
 
-      // Planet Library now covers 6 of 9 planets (Sun, Moon, Mars, Mercury,
-      // Jupiter, Venus) after Sprint 3; was 0.
+      // Planet Library now covers all 7 classical planets after Batch 7.
       final planetLib = report.domain(ProductionDomain.planetLibrary)!;
       expect(planetLib.produced, units.length);
-      expect(planetLib.subjectsCovered, 6);
+      expect(planetLib.subjectsCovered, 7);
       expect(planetLib.status, ProductionStatus.partial);
 
       // Planet → Domain natural significators (general): Jupiter → learning/
-      // career, Moon → finance. Placements are not domain facts.
+      // career, Moon → finance, plus front-matter family/relationship/personality.
       final planetDomains = report.domain(ProductionDomain.planetDomains)!;
-      expect(planetDomains.produced, 3);
-      expect(planetDomains.subjectsCovered, 2);
+      expect(planetDomains.produced, 16);
+      expect(planetDomains.subjectsCovered, 7);
     });
 
     test('the batch is deterministic', () {
@@ -667,15 +779,14 @@ void main() {
 
     test('coverage by planet (all units)', () {
       expect(countBy(units, (u) => u.subject), {
-        'planet.sun': 4,
-        'planet.moon': 8,
-        'planet.mars': 7,
-        'planet.mercury': 7,
-        'planet.jupiter': 10,
-        'planet.venus': 7,
+        'planet.sun': 5,
+        'planet.moon': 10,
+        'planet.mars': 10,
+        'planet.mercury': 8,
+        'planet.jupiter': 13,
+        'planet.venus': 9,
+        'planet.saturn': 1,
       });
-      // Saturn remains uncovered — never inferred.
-      expect(units.any((u) => u.subject == 'planet.saturn'), isFalse);
     });
 
     test('coverage by archetype (placements only)', () {
@@ -708,11 +819,11 @@ void main() {
         final key = u.context == null ? 'general' : u.context!.type.wire;
         byContext[key] = (byContext[key] ?? 0) + 1;
       }
-      expect(byContext, {'archetype_chart': 40, 'general': 3});
+      expect(byContext, {'archetype_chart': 40, 'general': 16});
     });
 
     test('metrics totals reconcile with the batch', () {
-      expect(units.length, 43);
+      expect(units.length, 56);
       expect(placements.length, 40);
     });
   });

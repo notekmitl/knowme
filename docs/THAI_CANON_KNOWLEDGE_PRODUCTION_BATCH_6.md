@@ -5,8 +5,7 @@
 > coverage increased 41 → 43 units.** Adds a new **Coverage by Source Page**
 > reporting layer (D-071). No platform, ontology, engine, or runtime change.
 
-Status: **CURRENT** · Knowledge production only · Platform frozen (D-065) ·
-D-066 / D-067 / D-068 / D-069 / D-070 unchanged · No deploy.
+Status: **RESOLVED → Batch 7** · Knowledge production only · Platform frozen
 
 ---
 
