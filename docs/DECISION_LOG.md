@@ -2232,6 +2232,29 @@ sessions and developers should consult this before reopening any settled decisio
 
 ---
 
+## D-074 — Mahabhut Taksa role ontology (Phase C)
+
+- **Date:** 2026-07-01 · **Status:** Accepted · Ontology expansion only · **No
+  platform/runtime/engine change**
+- **Context:** D-073 Phase C requires representing ทักษา dignity roles from
+  `หลักมหาภูต` pp.38–41 and per-chart `ดาวแห่ง…` assignments. Sprint 2B
+  identified missing `taksaRole` vocabulary. Eight roles appear explicitly in
+  Canon text on p38–39.
+- **Decision:** Add `OntologyCategory.taksaRole` and eight entities:
+  `taksaRole.boriwan`, `.ayu`, `.det`, `.sri`, `.mula`, `.utsaha`, `.montri`,
+  `.kalakini` — Thai aliases verbatim from source; **no meaning, polarity,
+  strength, or prediction fields**.
+- **Reason:** Minimum vocabulary required to represent explicit Canon Taksa
+  assignments without inventing roles.
+- **Boundary:** Vocabulary only. Role meanings use existing `domain.*` via `owns`
+  only where atomic (four roles on p39). Compound meanings remain modeling gaps.
+- **Impact:** `canon_ontology_data.dart`, `ontology_category.dart`,
+  `thai_canon_ontology_test.dart`; production Phase C (+95 units).
+- **Related documents:** `THAI_CANON_KNOWLEDGE_PRODUCTION_PHASE_C.md`,
+  `THAI_MAHABHUT_CANON_COMPLETION_PROGRAM.md` (D-073).
+
+---
+
 ## Related documents
 
 - [`AI_ALIGNMENT_CONTEXT.md`](AI_ALIGNMENT_CONTEXT.md) — rules, reading order, Documentation Policy.

@@ -9,6 +9,7 @@ import 'package:knowme/features/astrology/thai/knowledge/canon/production/produc
 
 import 'generated/batch8_planet_library_units.dart';
 import 'generated/batch9_direction_units.dart';
+import 'generated/phase_c_taksa_units.dart';
 
 /// Canon Knowledge Production — Sprint 2A first batch.
 ///
@@ -33,10 +34,20 @@ void main() {
     AtomicEntityKind objectKind = AtomicEntityKind.other,
     AtomicStrength strength = AtomicStrength.none,
     String? chart,
+    AtomicContextType? contextType,
+    String? contextValue,
     String? condition,
     required String page,
-  }) =>
-      AtomicKnowledgeUnit(
+  }) {
+    final AtomicContext? ctx;
+    if (contextValue != null && contextType != null) {
+      ctx = AtomicContext(type: contextType, value: contextValue);
+    } else if (chart != null) {
+      ctx = AtomicContext(type: AtomicContextType.archetypeChart, value: chart);
+    } else {
+      ctx = null;
+    }
+    return AtomicKnowledgeUnit(
         id: id,
         subject: subject,
         subjectKind: subjectKind,
@@ -47,12 +58,10 @@ void main() {
         strength: strength,
         confidence: KnowledgeConfidence.high,
         condition: condition,
-        context: chart == null
-            ? null
-            : AtomicContext(
-                type: AtomicContextType.archetypeChart, value: chart),
+        context: ctx,
         evidence: AtomicEvidenceRef(bookId: book, page: page),
       );
+  }
 
   /// The cumulative production batch (Sprints 2A-2C + 3 + Production Batch 4).
   List<AtomicKnowledgeUnit> batch() => [
@@ -582,9 +591,10 @@ void main() {
         ),
         ...batch8PlanetLibraryUnits(unit: unit),
         ...batch9DirectionUnits(unit: unit),
+        ...phaseCTaksaUnits(unit: unit),
       ];
 
-  group('Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4-9)', () {
+  group('Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4-9 + Phase C)', () {
     final ontology = CanonOntologyData.standard();
     final units = batch();
 
@@ -626,19 +636,68 @@ void main() {
       });
     });
 
-    test('placements are chart-scoped; significations stay general (D-068)', () {
+    test('mahabhut position placements are archetype-chart scoped (D-068)', () {
       for (final u in units) {
-        final isPlacement = u.relation == AtomicRelation.locatedIn;
-        if (isPlacement) {
-          // Every named-position placement is scoped to an archetype chart.
+        if (u.relation == AtomicRelation.locatedIn &&
+            u.object.startsWith('mahabhutPosition.')) {
           expect(u.context, isNotNull, reason: '${u.id} must carry context');
           expect(u.context!.type, AtomicContextType.archetypeChart);
           expect(u.context!.value.trim(), isNotEmpty);
-        } else {
-          // Natural significations (planet --owns--> domain) are general facts.
+        }
+      }
+    });
+
+    test('taksa role assignments are context-scoped (Phase C)', () {
+      for (final u in units) {
+        if (u.relation == AtomicRelation.locatedIn &&
+            u.object.startsWith('taksaRole.')) {
+          expect(u.context, isNotNull, reason: '${u.id} must carry context');
+          expect(u.context!.value.trim(), isNotEmpty);
+          expect(
+            u.context!.type,
+            isIn([
+              AtomicContextType.archetypeChart,
+              AtomicContextType.lifePeriod,
+              AtomicContextType.other,
+            ]),
+          );
+        }
+      }
+    });
+
+    test('taksa roles resolve from Thai aliases (D-074)', () {
+      const expected = {
+        'บริวาร': 'taksaRole.boriwan',
+        'อายุ': 'taksaRole.ayu',
+        'เดช': 'taksaRole.det',
+        'ศรี': 'taksaRole.sri',
+        'มูละ': 'taksaRole.mula',
+        'อุตสาหะ': 'taksaRole.utsaha',
+        'มนตรี': 'taksaRole.montri',
+        'กาฬกิณี': 'taksaRole.kalakini',
+      };
+      for (final entry in expected.entries) {
+        expect(ontology.resolveId(entry.key), entry.value,
+            reason: 'resolve "${entry.key}"');
+      }
+    });
+
+    test('planet domain significations stay general; taksa meanings too', () {
+      for (final u in units) {
+        if (u.relation != AtomicRelation.owns) continue;
+        if (u.subject.startsWith('planet.') ||
+            u.subject.startsWith('taksaRole.')) {
           expect(u.context, isNull, reason: '${u.id} must stay general');
         }
       }
+    });
+
+    test('no inferred taksa assignment without context', () {
+      final unscopedTaksa = units.where((u) =>
+          u.object.startsWith('taksaRole.') &&
+          u.relation == AtomicRelation.locatedIn &&
+          u.context == null);
+      expect(unscopedTaksa, isEmpty);
     });
 
     test('the same position is scoped to different charts without collision', () {
@@ -659,6 +718,7 @@ void main() {
     test('a chart natal assignment maps positions injectively (ดวงเศรษฐี)', () {
       final wealthy = units.where((u) =>
           u.relation == AtomicRelation.locatedIn &&
+          u.object.startsWith('mahabhutPosition.') &&
           u.context?.value == 'ดวงเศรษฐี');
       final byPosition = <String, String>{};
       for (final u in wealthy) {
@@ -678,6 +738,7 @@ void main() {
     test('a chart natal assignment maps positions injectively (ดวงกําพร้า)', () {
       final orphan = units.where((u) =>
           u.relation == AtomicRelation.locatedIn &&
+          u.object.startsWith('mahabhutPosition.') &&
           u.context?.value == 'ดวงกําพร้า');
       final byPosition = <String, String>{};
       for (final u in orphan) {
@@ -699,6 +760,7 @@ void main() {
     test('a chart natal assignment maps positions injectively (ดวงมหาเศรษฐี)', () {
       final tycoon = units.where((u) =>
           u.relation == AtomicRelation.locatedIn &&
+          u.object.startsWith('mahabhutPosition.') &&
           u.context?.value == 'ดวงมหาเศรษฐี');
       final byPosition = <String, String>{};
       for (final u in tycoon) {
@@ -718,6 +780,7 @@ void main() {
     test('a chart natal assignment maps positions injectively (ดวงนักบริหาร)', () {
       final exec = units.where((u) =>
           u.relation == AtomicRelation.locatedIn &&
+          u.object.startsWith('mahabhutPosition.') &&
           u.context?.value == 'ดวงนักบริหาร');
       final byPosition = <String, String>{};
       for (final u in exec) {
@@ -744,9 +807,12 @@ void main() {
       expect(report.allAtomic, isTrue, reason: report.render());
       expect(report.provenanceComplete, isTrue);
 
-      // Planet Library covers all 8 planets in pp.30–36 (incl. Rahu) after Batch 8.
+      // Planet Library counts planet-subject units (taksaRole subjects excluded).
       final planetLib = report.domain(ProductionDomain.planetLibrary)!;
-      expect(planetLib.produced, units.length);
+      expect(
+        planetLib.produced,
+        units.where((u) => u.subjectKind == AtomicEntityKind.planet).length,
+      );
       expect(planetLib.subjectsCovered, 8);
       expect(planetLib.status, ProductionStatus.partial);
 
@@ -773,8 +839,16 @@ void main() {
   // and add no platform/ontology code. The numbers mirror the Batch 5 report.
   group('Production metrics (reporting only)', () {
     final units = batch();
-    final placements =
-        units.where((u) => u.relation == AtomicRelation.locatedIn).toList();
+    final mahabhutPlacements = units
+        .where((u) =>
+            u.relation == AtomicRelation.locatedIn &&
+            u.object.startsWith('mahabhutPosition.'))
+        .toList();
+    final taksaPlacements = units
+        .where((u) =>
+            u.relation == AtomicRelation.locatedIn &&
+            u.object.startsWith('taksaRole.'))
+        .toList();
 
     Map<String, int> countBy(Iterable<AtomicKnowledgeUnit> source,
         String Function(AtomicKnowledgeUnit) key) {
@@ -788,19 +862,25 @@ void main() {
 
     test('coverage by planet (all units)', () {
       expect(countBy(units, (u) => u.subject), {
-        'planet.sun': 49,
-        'planet.moon': 58,
-        'planet.mars': 60,
-        'planet.mercury': 50,
-        'planet.jupiter': 41,
-        'planet.venus': 45,
-        'planet.saturn': 33,
-        'planet.rahu': 21,
+        'planet.sun': 60,
+        'planet.moon': 71,
+        'planet.mars': 68,
+        'planet.mercury': 54,
+        'planet.jupiter': 58,
+        'planet.venus': 62,
+        'planet.saturn': 41,
+        'planet.rahu': 34,
+        'taksaRole.ayu': 1,
+        'taksaRole.det': 1,
+        'taksaRole.sri': 1,
+        'taksaRole.montri': 1,
       });
     });
 
-    test('coverage by archetype (placements only)', () {
-      expect(countBy(placements, (u) => u.context!.value), {
+    test('coverage by archetype (mahabhut placements only)', () {
+      final chartPlacements = mahabhutPlacements
+          .where((u) => u.context?.type == AtomicContextType.archetypeChart);
+      expect(countBy(chartPlacements, (u) => u.context!.value), {
         'ดวงนักวิชาการ': 7,
         'ดวงมนุษย์เจ้าสําราญ': 5,
         'ดวงกําพร้า': 6,
@@ -811,8 +891,8 @@ void main() {
       });
     });
 
-    test('coverage by position (placements only)', () {
-      expect(countBy(placements, (u) => u.object), {
+    test('coverage by mahabhut position (natal placements only)', () {
+      expect(countBy(mahabhutPlacements, (u) => u.object), {
         'mahabhutPosition.thongchai': 6,
         'mahabhutPosition.khumsap': 7,
         'mahabhutPosition.athibodi': 5,
@@ -823,18 +903,37 @@ void main() {
       });
     });
 
+    test('coverage by taksa role (Phase C assignments)', () {
+      expect(countBy(taksaPlacements, (u) => u.object), {
+        'taksaRole.boriwan': 21,
+        'taksaRole.ayu': 14,
+        'taksaRole.det': 18,
+        'taksaRole.sri': 17,
+        'taksaRole.mula': 15,
+        'taksaRole.utsaha': 4,
+        'taksaRole.montri': 1,
+        'taksaRole.kalakini': 1,
+      });
+    });
+
     test('coverage by context (all units)', () {
       final byContext = <String, int>{};
       for (final u in units) {
         final key = u.context == null ? 'general' : u.context!.type.wire;
         byContext[key] = (byContext[key] ?? 0) + 1;
       }
-      expect(byContext, {'archetype_chart': 40, 'general': 317});
+      expect(byContext, {
+        'archetype_chart': 43,
+        'general': 321,
+        'other': 8,
+        'life_period': 80,
+      });
     });
 
     test('metrics totals reconcile with the batch', () {
-      expect(units.length, 357);
-      expect(placements.length, 40);
+      expect(units.length, 452);
+      expect(mahabhutPlacements.length, 40);
+      expect(taksaPlacements.length, 91);
     });
   });
 }

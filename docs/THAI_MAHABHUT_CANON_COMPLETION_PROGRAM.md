@@ -134,6 +134,8 @@ hit.
 
 ### Phase C — Taksa
 
+**Status:** **CLOSED** — see [`THAI_CANON_KNOWLEDGE_PRODUCTION_PHASE_C.md`](THAI_CANON_KNOWLEDGE_PRODUCTION_PHASE_C.md).
+
 **Canon scope:** ทักษา dignity-role vocabulary and chart-scoped role assignments.
 
 | Source (approx.) | Content |
