@@ -1,0 +1,342 @@
+[
+  {
+    "page": "18",
+    "reason": "OCR_BLOCKED",
+    "planet": "sun",
+    "note": "dasha age digits ambiguous in OCR"
+  },
+  {
+    "page": "18",
+    "reason": "OCR_BLOCKED",
+    "planet": "jupiter",
+    "note": "dasha age digits ambiguous in OCR"
+  },
+  {
+    "page": "18",
+    "reason": "OCR_BLOCKED",
+    "planet": "venus",
+    "note": "dasha age digits ambiguous in OCR"
+  },
+  {
+    "page": "53",
+    "line": 12,
+    "text": "ดาวแห่งอายุ ซึงสถิตอยู่เรือนปูติ ยังส่งผลให้เจ้าชะตามีชีวิตความเป็นอยู่",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "54",
+    "line": 6,
+    "text": "พธ(๕) อันเป็นดาวแห่งศรี สถิตเสถียรอยู่เรือนมรณะ ท่านว่าเป็นระยะ",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "59",
+    "line": 14,
+    "text": "อิทธิพลข องตาวเตาร์(5) ดาวแห่งศรี สถิตเรือนธงชัย เป็นระยะที่เจ้าชะตา",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "60",
+    "line": 9,
+    "text": "พธอันเป็นดาวแห่งบริวาร สถิตอยู่เรือนขุมทรัพย์ ก็แลบุคคลผู้เกิดมาใน",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "62",
+    "line": 3,
+    "text": "อายุในเรือนมรณะ  ดังนั้นชีวิตและทรัพย์สินของเจ้าชะตาอาจมีอันตราย",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "79",
+    "line": 19,
+    "text": "โบราณาจารย์ท่านกล่าวว่าการเรียนอยู่เรือนมรณะนั้น  เจ้าชะตา",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "90",
+    "line": 38,
+    "text": "ธิพลของดาวพธ ดาวแห่งศรี สถิตเรือนขุมทรัพย์ อายุ ๕ซ ถึง ๕๒",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "94",
+    "line": 18,
+    "text": "ธิพลของดาวพธ ดาวแห่งศรี สถิตเรือนขุมทรัพย์ เป็นระยะที่เจ้าชะตา",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "96",
+    "line": 10,
+    "text": "องคาร ดาวแห่งบริวาร สถิตเรือนปูติ ก็แลบุคคลผู้เกิดมาในเรือนปตินั้น",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "96",
+    "line": 26,
+    "text": "อิทธิพลของดาวพธ ดาวแห่งอายุ สถิตเรือนขุมทรัพย์ ดังนั้นสุขภาพที่",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "99",
+    "line": 11,
+    "text": "พธ ดาวแห่งบริวาร  สถิตเรือนขุมทรัพย์ ก็แลบคคลผู้เกิดมาในเรือน",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "100",
+    "line": 3,
+    "text": "ดาวแห่งอายุ สถิตเรือนราชา ดังนันถ้าเจ้าชะตาเป็นฆราวาสก็จะได้งาน",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "109",
+    "line": 5,
+    "text": "แรกเกิต (เกิดในเรือนราชา)",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "113",
+    "line": 10,
+    "text": "สถิตเสถียรเรือนราชาและขุมทรัพย์ตามลําดับ เป็นดาวทีมีกําลังมากมีแสง",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "132",
+    "line": 8,
+    "text": "ดาวพูธ ดาวแห่งบริวาร สถิตเรือนปูติ ก็แลบุคคลผู้เกิดมาในเรือนปูตินั้น",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "140",
+    "line": 10,
+    "text": "ANT ดาวแห่งบริวาร สถิตเรือนมรณะ ก็แลบูคคลผู้เกิดมาในเรือน มรณะ",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "143",
+    "line": 23,
+    "text": "ของดาวพธ ดาวแห่งมูละ สถิตเรือนปูติ ดังนั้น ในอายุ ๕๐ ย่าง ๕๑",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "145",
+    "line": 21,
+    "text": "ในเรือนอธิบดี",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "145",
+    "line": 37,
+    "text": "เสาร ดาวแหงบวรวาวร สถิตเรือนอธิบดี ก็แลบคคลผู้เกิดมา",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "147",
+    "line": 14,
+    "text": "จากเกิดมาในเรือนอธิบดี ซึ่งสูงมาก จึงไม่ค่อยหนักหนาสาหัสเท่าใดนัก",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "159",
+    "line": 18,
+    "text": "อิทธิพลของดาวพธ ดาวแห่งศรี สถิตเรือนภังคะ ดังนั้นในอายุ ๓๐ ย่าง",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "163",
+    "line": 11,
+    "text": "อิทธิพลของดาวพธ ดาวแห่งเดช สถิตเรือนภังคะ ดังนั้น อายุ ๒๓ ย่าง ๒๕",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "165",
+    "line": 42,
+    "text": "ดาวแห่งบริวาร สถิตเรือนธงชัย ก็แลผู้เกิดมา",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "175",
+    "line": 12,
+    "text": "อิทธิพลของดาวพธ ดาวแห่งมูละ สถิตเรือนภังคะ ดังนั้น ตั้งแต่อายุ ๕๑",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "193",
+    "line": 4,
+    "text": "อิทธิพลของดาวพธ ดาวแห่งเดช สถิตเรือนธงชัย ทังเป็นดาวคู่มิตรกับ",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "197",
+    "line": 5,
+    "text": "อิทธิพลของดาวพธ ดาวแห่งอายุ สถิตเรือนธงชัย",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "200",
+    "line": 10,
+    "text": "ดาวแห่งบริวาร สถิตเรือนธงชัย ก็แลบุคคิสีผู้เกิดมาในเรือนธงชัยนั้น",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "212",
+    "line": 11,
+    "text": "ดาวแห่งบริวาร สถิตเรือนขุมทรัพย์ ก็แลบุคคลผู้เกิตมาในเรือนขุมทรัพย์",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "222",
+    "line": 28,
+    "text": "อนึง ด้านการค้าขายนัน ตามดวงชะตาแล้วตกอยู่ในเรือนมรณะ",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "225",
+    "line": 34,
+    "text": "ดาวพธ (๕)อันเป็นดาวแห่งบุตรธิดา สถิตเรือนราชา ดาวพธมี",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "228",
+    "line": 8,
+    "text": "แรกเกิต แกิดในเรือนขุมทรัพย์)",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "232",
+    "line": 5,
+    "text": "แรกเกิต (เกิดในเรือนมรณะ]",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "235",
+    "line": 3,
+    "text": "แรกเกิต (เกิดในเรือนอธิบดีา                                         .",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "235",
+    "line": 10,
+    "text": "ดาวแห่งบริวาร สถิตเรือนอธิบดี ก็แลบุคคลผู้เกิดมาในเรือนอธิบดีนัน",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "238",
+    "line": 10,
+    "text": "WD ดาวแห่งบริวาร  สถิตเรือนราชา ก็แลบูคคลผู้เกิดมาในเรือนราชานัน",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "241",
+    "line": 21,
+    "text": "ดาวแห่งบริวาร สถิตเรือนธงชัย    ก็แลบูคคลผู้เกิดมาในเรือนธงชัยนัน",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "264",
+    "line": 5,
+    "text": "ดาวแห่งอายุ สถิตเรือนขุมทรัพย์ ซึงระยะนีอยู่ในวัยเรียนหนังสือ  ดังนัน",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "273",
+    "line": 3,
+    "text": "ดาวแห่งอายุ สถิตเรือนอธิบดีระยะนีเป็นวัยเรียนหนังสือ ดังนันการเรียน",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "277",
+    "line": 9,
+    "text": "ดาวแหงบรวาร สถดตเรอนอธบด ก็แลบูคคลผู้เกิดมาในเรือนอธิบดีนัน",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "282",
+    "line": 39,
+    "text": "แต่เนื่องจากดาวแห่งศรีไปอยู่ในตําแหน่งมัวหมองคือในเรือนปูติ เจ้าชะตา",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "286",
+    "line": 14,
+    "text": "ดาวแห่งอายุ สถิตเรือนปูติ ดังนั้นเป็นระยะที่เจ้าชะตามักมีอาการง่วงเหงา",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "287",
+    "line": 23,
+    "text": "แต่เนื่องจากดาวแห่งศรีไปอยู่ในตําแหน่งมัวหมองคือในเรือนมรณะเจ้า",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "288",
+    "line": 3,
+    "text": "ดาวแห่งศรี สถิตเรือนมรณะ ดังนั้น จึงเป็นระยะที่เจ้าชะตามักมีอาการ",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "305",
+    "line": 12,
+    "text": "ดาว ๑-๒-๓-๕-๕-๒-๓-๕ สถิตเรือนธงชัย",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "305",
+    "line": 14,
+    "text": "ดาว ๑-๒-๓-๕-๕-๒-๕-๕ สถิตเรือนราชา",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  },
+  {
+    "page": "305",
+    "line": 15,
+    "text": "ANI ๑-๒-ต-๕-๕-๒-๕ซ-๕   สถิตเรือนปูติ",
+    "reason": "OCR_BLOCKED",
+    "note": "position stated but planet not resolvable"
+  }
+]

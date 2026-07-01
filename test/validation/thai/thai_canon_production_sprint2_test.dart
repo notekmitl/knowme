@@ -10,6 +10,7 @@ import 'package:knowme/features/astrology/thai/knowledge/canon/production/produc
 import 'generated/batch8_planet_library_units.dart';
 import 'generated/batch9_direction_units.dart';
 import 'generated/phase_c_taksa_units.dart';
+import 'generated/phase_d_life_period_units.dart';
 
 /// Canon Knowledge Production — Sprint 2A first batch.
 ///
@@ -36,6 +37,7 @@ void main() {
     String? chart,
     AtomicContextType? contextType,
     String? contextValue,
+    KnowledgeDomain domain = KnowledgeDomain.planetLibrary,
     String? condition,
     required String page,
   }) {
@@ -54,7 +56,7 @@ void main() {
         relation: relation,
         object: object,
         objectKind: objectKind,
-        domain: KnowledgeDomain.planetLibrary,
+        domain: domain,
         strength: strength,
         confidence: KnowledgeConfidence.high,
         condition: condition,
@@ -592,9 +594,12 @@ void main() {
         ...batch8PlanetLibraryUnits(unit: unit),
         ...batch9DirectionUnits(unit: unit),
         ...phaseCTaksaUnits(unit: unit),
+        ...phaseDLifePeriodUnits(unit: unit),
       ];
 
-  group('Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4-9 + Phase C)', () {
+  group(
+      'Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4-9 + Phase C + Phase D)',
+      () {
     final ontology = CanonOntologyData.standard();
     final units = batch();
 
@@ -636,15 +641,58 @@ void main() {
       });
     });
 
-    test('mahabhut position placements are archetype-chart scoped (D-068)', () {
+    test('mahabhut position placements are context-scoped (D-068)', () {
       for (final u in units) {
         if (u.relation == AtomicRelation.locatedIn &&
             u.object.startsWith('mahabhutPosition.')) {
           expect(u.context, isNotNull, reason: '${u.id} must carry context');
-          expect(u.context!.type, AtomicContextType.archetypeChart);
           expect(u.context!.value.trim(), isNotEmpty);
+          expect(
+            u.context!.type,
+            isIn([
+              AtomicContextType.archetypeChart,
+              AtomicContextType.lifePeriod,
+            ]),
+          );
         }
       }
+    });
+
+    test('life period placements are life_period scoped (Phase D)', () {
+      final phaseDPlacements = units.where((u) =>
+          u.id.startsWith('mahabhut.p') &&
+          u.relation == AtomicRelation.locatedIn &&
+          u.object.startsWith('mahabhutPosition.') &&
+          u.context?.type == AtomicContextType.lifePeriod);
+      expect(phaseDPlacements.length, 215);
+      for (final u in phaseDPlacements) {
+        expect(u.context!.value.trim(), isNotEmpty);
+        expect(u.evidence.page, isNotNull);
+      }
+    });
+
+    test('no unscoped life-period placement without universal rule', () {
+      final unscoped = units.where((u) =>
+          u.relation == AtomicRelation.locatedIn &&
+          u.object.startsWith('mahabhutPosition.') &&
+          u.context == null);
+      expect(unscoped, isEmpty);
+    });
+
+    test('period status and dasha rules stay general (Phase D)', () {
+      for (final u in units) {
+        if (u.subject.startsWith('periodStatus.') ||
+            (u.relation == AtomicRelation.relatesTo &&
+                u.object.startsWith('agePeriod.'))) {
+          expect(u.context, isNull, reason: '${u.id} is a universal rule');
+        }
+      }
+    });
+
+    test('period status vocabulary resolves (D-075)', () {
+      expect(ontology.resolveId('ดวงขึ้น'), 'periodStatus.duengKhuen');
+      expect(ontology.resolveId('ดวงตก'), 'periodStatus.duengTok');
+      expect(ontology.resolveId('เสวยอายุ ๑๕ ปี'), 'agePeriod.dasha15y');
     });
 
     test('taksa role assignments are context-scoped (Phase C)', () {
@@ -702,7 +750,9 @@ void main() {
 
     test('the same position is scoped to different charts without collision', () {
       final scopedAthibodi = units
-          .where((u) => u.object == 'mahabhutPosition.athibodi')
+          .where((u) =>
+              u.object == 'mahabhutPosition.athibodi' &&
+              u.context?.type == AtomicContextType.archetypeChart)
           .map((u) => '${u.subject}|${u.context!.key}')
           .toSet();
       // athibodi holds different planets in different archetype charts.
@@ -862,18 +912,20 @@ void main() {
 
     test('coverage by planet (all units)', () {
       expect(countBy(units, (u) => u.subject), {
-        'planet.sun': 60,
-        'planet.moon': 71,
-        'planet.mars': 68,
-        'planet.mercury': 54,
-        'planet.jupiter': 58,
-        'planet.venus': 62,
-        'planet.saturn': 41,
-        'planet.rahu': 34,
+        'planet.sun': 84,
+        'planet.moon': 93,
+        'planet.mars': 101,
+        'planet.mercury': 68,
+        'planet.jupiter': 99,
+        'planet.venus': 90,
+        'planet.saturn': 78,
+        'planet.rahu': 54,
         'taksaRole.ayu': 1,
         'taksaRole.det': 1,
         'taksaRole.sri': 1,
         'taksaRole.montri': 1,
+        'periodStatus.duengKhuen': 4,
+        'periodStatus.duengTok': 3,
       });
     });
 
@@ -892,7 +944,9 @@ void main() {
     });
 
     test('coverage by mahabhut position (natal placements only)', () {
-      expect(countBy(mahabhutPlacements, (u) => u.object), {
+      final natalPlacements = mahabhutPlacements
+          .where((u) => u.context?.type == AtomicContextType.archetypeChart);
+      expect(countBy(natalPlacements, (u) => u.object), {
         'mahabhutPosition.thongchai': 6,
         'mahabhutPosition.khumsap': 7,
         'mahabhutPosition.athibodi': 5,
@@ -901,6 +955,12 @@ void main() {
         'mahabhutPosition.marana': 5,
         'mahabhutPosition.phangkha': 6,
       });
+    });
+
+    test('coverage by mahabhut position (life-period placements)', () {
+      final lifePlacements = mahabhutPlacements
+          .where((u) => u.context?.type == AtomicContextType.lifePeriod);
+      expect(lifePlacements.length, 215);
     });
 
     test('coverage by taksa role (Phase C assignments)', () {
@@ -924,15 +984,15 @@ void main() {
       }
       expect(byContext, {
         'archetype_chart': 43,
-        'general': 321,
+        'general': 332,
         'other': 8,
-        'life_period': 80,
+        'life_period': 295,
       });
     });
 
     test('metrics totals reconcile with the batch', () {
-      expect(units.length, 452);
-      expect(mahabhutPlacements.length, 40);
+      expect(units.length, 678);
+      expect(mahabhutPlacements.length, 255);
       expect(taksaPlacements.length, 91);
     });
   });

@@ -2255,6 +2255,25 @@ sessions and developers should consult this before reopening any settled decisio
 
 ---
 
+## D-075 — Mahabhut Life Period ontology (Phase D)
+
+- **Date:** 2026-07-01 · **Status:** Accepted · Ontology expansion only · **No
+  platform/runtime/engine change**
+- **Context:** D-073 Phase D requires vocabulary for `ดวงขึ้น` / `ดวงตก`
+  classification and recoverable `เสวยอายุ` dasha durations on p18, plus life-period
+  scoped production using existing `life_period` context (D-068).
+- **Decision:** Add `OntologyCategory.periodStatus` with `periodStatus.duengKhuen`
+  and `periodStatus.duengTok`; add four `agePeriod.dasha*y` entities for OCR-clean
+  dasha lines. **No meanings, prediction, or polarity encoded.**
+- **Reason:** Minimum vocabulary for p17–18 universal rules and dasha duration facts.
+- **Boundary:** Per-period tokens remain verbatim in `context.value`; no per-chart
+  `agePeriod` entity explosion. Narrative life effects remain modeling gaps.
+- **Impact:** `canon_ontology_data.dart`, `ontology_category.dart`, ontology and
+  production tests; Phase D +226 units (678 cumulative).
+- **Related documents:** `THAI_CANON_KNOWLEDGE_PRODUCTION_PHASE_D.md`.
+
+---
+
 ## Related documents
 
 - [`AI_ALIGNMENT_CONTEXT.md`](AI_ALIGNMENT_CONTEXT.md) — rules, reading order, Documentation Policy.

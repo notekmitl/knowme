@@ -1,5 +1,5 @@
 {
-  "$comment": "Canon Knowledge Production V1 — foundational domains. STATE: production IN PROGRESS (Sprints 2A-2C + 3 + Production Batch 4 + 5 + 6 + 7 + 8 + 9; 452 units). The canonical source หลักมหาภูต (ส. หยกฟ้า) is available as OCR; D-067 added the book's Named Positions; D-068 added the optional `context` applicability qualifier so chart-scoped facts are representable faithfully. Units are produced FROM the source pages (reference-only provenance, D-057) — never invented (D-066: extraction allowed, generation forbidden) — and validated through the real platform by test/validation/thai/thai_canon_production_sprint2_test.dart. CONVENTION: a unit WITHOUT context is a general/unconditional fact (e.g. natural significations jupiter→learning/career, moon→finance, recurring identically across charts); a unit WITH context {type, value} is true ONLY within that scope (here archetype_chart:<verbatim Thai chart heading from the page>). Optional `condition` (verbatim from source) scopes a general signification without chart context (Batch 7, p16). Planet Library attributes use `relates_to` → `attribute.*` value tokens (Batch 8, D-072). The context value is the source's own chart name (verbatim, not translated) so no inference/external knowledge is introduced.",
+  "$comment": "Canon Knowledge Production V1 — foundational domains. STATE: production IN PROGRESS (Sprints 2A-2C + 3 + Production Batch 4 + 5 + 6 + 7 + 8 + 9; 678 units). The canonical source หลักมหาภูต (ส. หยกฟ้า) is available as OCR; D-067 added the book's Named Positions; D-068 added the optional `context` applicability qualifier so chart-scoped facts are representable faithfully. Units are produced FROM the source pages (reference-only provenance, D-057) — never invented (D-066: extraction allowed, generation forbidden) — and validated through the real platform by test/validation/thai/thai_canon_production_sprint2_test.dart. CONVENTION: a unit WITHOUT context is a general/unconditional fact (e.g. natural significations jupiter→learning/career, moon→finance, recurring identically across charts); a unit WITH context {type, value} is true ONLY within that scope (here archetype_chart:<verbatim Thai chart heading from the page>). Optional `condition` (verbatim from source) scopes a general signification without chart context (Batch 7, p16). Planet Library attributes use `relates_to` → `attribute.*` value tokens (Batch 8, D-072). The context value is the source's own chart name (verbatim, not translated) so no inference/external knowledge is introduced.",
   "version": 1,
   "source": {
     "bookId": "mahabhut",
@@ -7360,6 +7360,4259 @@
       "context": {
         "type": "life_period",
         "value": "อายุ ๓๐"
+      }
+    },
+    {
+      "$note": "Phase D Life Period — pp.17–18 rise/fall + dasha rules; per-period mahabhut placements (life_period context). Narrative effects, remedies, and pp.40–41 prediction rules excluded."
+    },
+    {
+      "id": "mahabhut.p17.dueng_khuen_relates_thongchai",
+      "subject": "periodStatus.duengKhuen",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "lifePeriodRules",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "17"
+      }
+    },
+    {
+      "id": "mahabhut.p17.dueng_khuen_relates_khumsap",
+      "subject": "periodStatus.duengKhuen",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "lifePeriodRules",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "17"
+      }
+    },
+    {
+      "id": "mahabhut.p17.dueng_khuen_relates_racha",
+      "subject": "periodStatus.duengKhuen",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "lifePeriodRules",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "17"
+      }
+    },
+    {
+      "id": "mahabhut.p17.dueng_khuen_relates_athibodi",
+      "subject": "periodStatus.duengKhuen",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "lifePeriodRules",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "17"
+      }
+    },
+    {
+      "id": "mahabhut.p17.dueng_tok_relates_phangkha",
+      "subject": "periodStatus.duengTok",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "lifePeriodRules",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "17"
+      }
+    },
+    {
+      "id": "mahabhut.p17.dueng_tok_relates_marana",
+      "subject": "periodStatus.duengTok",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "lifePeriodRules",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "17"
+      }
+    },
+    {
+      "id": "mahabhut.p17.dueng_tok_relates_puti",
+      "subject": "periodStatus.duengTok",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "lifePeriodRules",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "17"
+      }
+    },
+    {
+      "id": "mahabhut.p18.moon_relates_dasha15y",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "relates_to",
+      "object": "agePeriod.dasha15y",
+      "objectKind": "other",
+      "domain": "lifePeriodRules",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "18"
+      }
+    },
+    {
+      "id": "mahabhut.p18.mars_relates_dasha5y",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "relates_to",
+      "object": "agePeriod.dasha5y",
+      "objectKind": "other",
+      "domain": "lifePeriodRules",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "18"
+      }
+    },
+    {
+      "id": "mahabhut.p18.saturn_relates_dasha10y",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "relates_to",
+      "object": "agePeriod.dasha10y",
+      "objectKind": "other",
+      "domain": "lifePeriodRules",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "18"
+      }
+    },
+    {
+      "id": "mahabhut.p18.rahu_relates_dasha12y",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "relates_to",
+      "object": "agePeriod.dasha12y",
+      "objectKind": "other",
+      "domain": "lifePeriodRules",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "18"
+      }
+    },
+    {
+      "id": "mahabhut.p52.sun_in_phangkha_แรกเกิด",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "52"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p53.mars_in_khumsap_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "53"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p55.saturn_in_thongchai_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "55"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p55.jupiter_in_athibodi_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "55"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p56.moon_in_puti_แรกเกิด",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "56"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p57.mars_in_khumsap_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "57"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p57.mercury_in_marana_แรกเกิด",
+      "subject": "planet.mercury",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "57"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p60.mars_in_khumsap_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "60"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p61.mercury_in_marana_อาย_๓_ขวบ_ดวงตก_",
+      "subject": "planet.mercury",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "61"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓ ขวบ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p61.jupiter_in_athibodi_อาย_๓_ขวบ_ดวงตก_",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "61"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓ ขวบ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p63.mercury_in_marana_แรกเกิด",
+      "subject": "planet.mercury",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "63"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p64.jupiter_in_athibodi_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "64"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p64.rahu_in_marana_แรกเกิด",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "64"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p65.jupiter_in_athibodi_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "65"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p65.rahu_in_marana_อายุ_๑๑_ย่าง_๒๐",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "65"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อายุ ๑๑ ย่าง ๒๐"
+      }
+    },
+    {
+      "id": "mahabhut.p66.venus_in_racha_อาย_๓๒_ถึง_๕๒",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "66"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓๒ ถึง ๕๒"
+      }
+    },
+    {
+      "id": "mahabhut.p67.sun_in_phangkha_อาย_๓๒_ถึง_๕๒",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "67"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓๒ ถึง ๕๒"
+      }
+    },
+    {
+      "id": "mahabhut.p67.moon_in_puti_อาย_๓๒_ถึง_๕๒",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "67"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓๒ ถึง ๕๒"
+      }
+    },
+    {
+      "id": "mahabhut.p68.venus_in_racha_แรกเกิด",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "68"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p68.sun_in_phangkha_แรกเกิด",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "68"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p69.moon_in_puti_แรกเกิด",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "69"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p70.mars_in_khumsap_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "70"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p70.mercury_in_marana_แรกเกิด",
+      "subject": "planet.mercury",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "70"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p72.saturn_in_thongchai_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "72"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p73.jupiter_in_athibodi_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "73"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p73.rahu_in_marana_แรกเกิด",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "73"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p74.venus_in_racha_แรกเกิด",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "74"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p75.sun_in_phangkha_แรกเกิด",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "75"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p89.sun_in_thongchai_แรกเกิด",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "89"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p90.moon_in_phangkha_แรกเกิด",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "90"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p90.mars_in_puti_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "90"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p91.saturn_in_racha_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "91"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p91.jupiter_in_marana_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "91"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p93.moon_in_phangkha_แรกเกิด",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "93"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p93.mars_in_puti_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "93"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p94.saturn_in_racha_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "94"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p94.jupiter_in_marana_อาย_๕๓_ถึง_๒๓๕_ดวงตก_",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "94"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๕๓ ถึง ๒๓๕ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p96.mars_in_puti_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "96"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p97.jupiter_in_marana_อาย_๓_ขวบ",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "97"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓ ขวบ"
+      }
+    },
+    {
+      "id": "mahabhut.p100.jupiter_in_marana_อาย_๒๓๕_ถึง_๕๒_ดวงตก_",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "100"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๒๓๕ ถึง ๕๒ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p101.rahu_in_khumsap_อายุ_๕_ถึง_๕๕",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "101"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อายุ ๕ ถึง ๕๕"
+      }
+    },
+    {
+      "id": "mahabhut.p102.jupiter_in_marana_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "102"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p105.venus_in_athibodi_แรกเกิด",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "105"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p105.sun_in_thongchai_แรกเกิด",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "105"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p106.moon_in_phangkha_แรกเกิด",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "106"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p106.mars_in_puti_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "106"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p107.mercury_in_khumsap_แรกเกิด",
+      "subject": "planet.mercury",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "107"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p108.saturn_in_racha_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "108"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p109.saturn_in_racha_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "109"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p109.jupiter_in_marana_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "109"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p110.rahu_in_khumsap_แรกเกิด",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "110"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p111.venus_in_athibodi_แรกเกิด",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "111"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p122.sun_in_racha_แรกเกิด",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "122"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p123.mars_in_phangkha_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "123"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p125.saturn_in_athibodi_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "125"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p126.moon_in_thongchai_แรกเกิด",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "126"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p126.mars_in_phangkha_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "126"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p127.mercury_in_puti_แรกเกิด",
+      "subject": "planet.mercury",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "127"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p127.saturn_in_athibodi_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "127"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p128.jupiter_in_khumsap_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "128"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p129.mars_in_phangkha_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "129"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p129.mercury_in_puti_แรกเกิด",
+      "subject": "planet.mercury",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "129"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p130.saturn_in_athibodi_อาย_๒๒_ถึง_๕๕",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "130"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๒๒ ถึง ๕๕"
+      }
+    },
+    {
+      "id": "mahabhut.p130.mars_in_khumsap_อาย_๒๒_ถึง_๕๕",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "130"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๒๒ ถึง ๕๕"
+      }
+    },
+    {
+      "id": "mahabhut.p131.rahu_in_puti_อาย_๒๒_ถึง_๕๕",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "131"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๒๒ ถึง ๕๕"
+      }
+    },
+    {
+      "id": "mahabhut.p132.saturn_in_athibodi_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "132"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p133.saturn_in_athibodi_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "133"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p133.jupiter_in_khumsap_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "133"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p133.rahu_in_puti_แรกเกิด",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "133"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p134.venus_in_marana_แรกเกิด",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "134"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p135.venus_in_marana_แรกเกิด",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "135"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p136.jupiter_in_khumsap_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "136"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p136.saturn_in_athibodi_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "136"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p137.rahu_in_puti_แรกเกิด",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "137"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p138.venus_in_marana_แรกเกิด",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "138"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p139.sun_in_racha_แรกเกิด",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "139"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p139.moon_in_thongchai_แรกเกิด",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "139"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p141.sun_in_racha_แรกเกิด",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "141"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p141.moon_in_thongchai_แรกเกิด",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "141"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p146.rahu_in_puti_อาย_๓๓_ถึง_๒๒_ดวงตก_",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "146"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓๓ ถึง ๒๒ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p149.venus_in_athibodi_อาย_๓๓_ถึง_๒๒_ดวงตก_",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "149"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓๓ ถึง ๒๒ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p149.jupiter_in_puti_อาย_๓๓_ถึง_๒๒_ดวงตก_",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "149"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓๓ ถึง ๒๒ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p158.sun_in_athibodi_แรกเกิด",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "158"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p158.moon_in_racha_แรกเกิด",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "158"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p159.mars_in_thongchai_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "159"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p160.saturn_in_marana_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "160"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p160.jupiter_in_puti_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "160"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p167.mercury_in_phangkha_แรกเกิด",
+      "subject": "planet.mercury",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "167"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p167.saturn_in_marana_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "167"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p168.jupiter_in_puti_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "168"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p168.rahu_in_phangkha_แรกเกิด",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "168"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p168.saturn_in_marana_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "168"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p169.rahu_in_phangkha_แรกเกิด",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "169"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p169.venus_in_khumsap_แรกเกิด",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "169"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p170.jupiter_in_puti_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "170"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p170.rahu_in_phangkha_แรกเกิด",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "170"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p171.sun_in_athibodi_อาย_๓๒_ถึง_๕๓",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "171"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓๒ ถึง ๕๓"
+      }
+    },
+    {
+      "id": "mahabhut.p171.moon_in_racha_อาย_๓๒_ถึง_๕๓",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "171"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓๒ ถึง ๕๓"
+      }
+    },
+    {
+      "id": "mahabhut.p171.mars_in_thongchai_อาย_๓๒_ถึง_๕๓",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "171"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓๒ ถึง ๕๓"
+      }
+    },
+    {
+      "id": "mahabhut.p173.venus_in_khumsap_แรกเกิด",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "173"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p173.sun_in_athibodi_แรกเกิด",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "173"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p175.mars_in_thongchai_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "175"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p176.saturn_in_marana_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "176"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p177.jupiter_in_puti_อายุ_๑๐_ขวบ",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "177"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อายุ ๑๐ ขวบ"
+      }
+    },
+    {
+      "id": "mahabhut.p178.venus_in_khumsap_อายุ_๒๐_ถึง_๕๑",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "178"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อายุ ๒๐ ถึง ๕๑"
+      }
+    },
+    {
+      "id": "mahabhut.p181.moon_in_athibodi_อายุ_๒๐_ถึง_๕๑",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "181"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อายุ ๒๐ ถึง ๕๑"
+      }
+    },
+    {
+      "id": "mahabhut.p181.jupiter_in_phangkha_อายุ_๒๐_ถึง_๕๑",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "181"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อายุ ๒๐ ถึง ๕๑"
+      }
+    },
+    {
+      "id": "mahabhut.p188.sun_in_marana_แรกเกิด",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "188"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p189.moon_in_athibodi_แรกเกิด",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "189"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p189.mars_in_racha_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "189"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p189.mars_in_thongchai_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "189"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p189.saturn_in_khumsap_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "189"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p190.saturn_in_khumsap_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "190"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p190.jupiter_in_phangkha_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "190"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p192.moon_in_athibodi_แรกเกิด",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "192"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p192.mars_in_racha_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "192"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p193.saturn_in_khumsap_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "193"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p193.mars_in_racha_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "193"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p194.saturn_in_khumsap_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "194"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p194.jupiter_in_phangkha_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "194"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p195.jupiter_in_phangkha_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "195"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p196.mars_in_racha_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "196"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p197.saturn_in_khumsap_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "197"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p198.jupiter_in_phangkha_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "198"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p199.mars_in_thongchai_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "199"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p200.saturn_in_khumsap_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "200"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p202.jupiter_in_phangkha_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "202"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p203.rahu_in_thongchai_แรกเกิด",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "203"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p203.jupiter_in_phangkha_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "203"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p205.jupiter_in_phangkha_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "205"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p206.rahu_in_thongchai_แรกเกิด",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "206"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p206.sun_in_marana_แรกเกิด",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "206"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p206.venus_in_phangkha_แรกเกิด",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "206"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p207.mars_in_racha_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "207"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p207.sun_in_marana_แรกเกิด",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "207"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p208.venus_in_puti_แรกเกิด",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "208"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p209.moon_in_athibodi_แรกเกิด",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "209"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p209.mercury_in_thongchai_แรกเกิด",
+      "subject": "planet.mercury",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "209"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p209.venus_in_khumsap_แรกเกิด",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "209"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p210.saturn_in_khumsap_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "210"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p213.jupiter_in_phangkha_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "213"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p213.saturn_in_thongchai_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "213"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p214.venus_in_puti_อาย_๕๒_ถึง_๒๕_ดวงตก_",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "214"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๕๒ ถึง ๒๕ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p214.sun_in_marana_อาย_๕๒_ถึง_๒๕_ดวงตก_",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "214"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๕๒ ถึง ๒๕ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p215.venus_in_puti_อาย_๕๒_ถึง_๒๕_ดวงตก_",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "215"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๕๒ ถึง ๒๕ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p219.jupiter_in_khumsap_อาย_๕๒_ถึง_๒๕_ดวงตก_",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "219"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๕๒ ถึง ๒๕ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p219.jupiter_in_thongchai_อาย_๕๒_ถึง_๒๕_ดวงตก_",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "219"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๕๒ ถึง ๒๕ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p235.mercury_in_racha_อาย_๓_ขวบ",
+      "subject": "planet.mercury",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "235"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓ ขวบ"
+      }
+    },
+    {
+      "id": "mahabhut.p236.saturn_in_puti_อาย_๒๒_ถึง_๓๕",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "236"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๒๒ ถึง ๓๕"
+      }
+    },
+    {
+      "id": "mahabhut.p237.jupiter_in_thongchai_อาย_๒๒_ถึง_๓๕",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "237"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๒๒ ถึง ๓๕"
+      }
+    },
+    {
+      "id": "mahabhut.p237.saturn_in_puti_อาย_๒๒_ถึง_๓๕",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "237"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๒๒ ถึง ๓๕"
+      }
+    },
+    {
+      "id": "mahabhut.p239.mercury_in_puti_แรกเกิด",
+      "subject": "planet.mercury",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "239"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p239.jupiter_in_thongchai_อาย_๒๓๐_ถึง_๕๕",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "239"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๒๓๐ ถึง ๕๕"
+      }
+    },
+    {
+      "id": "mahabhut.p240.rahu_in_racha_อาย_๒๓๐_ถึง_๕๕",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "240"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๒๓๐ ถึง ๕๕"
+      }
+    },
+    {
+      "id": "mahabhut.p241.jupiter_in_thongchai_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "241"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p242.rahu_in_racha_แรกเกิด",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "242"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p242.venus_in_phangkha_แรกเกิด",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "242"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p243.jupiter_in_khumsap_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "243"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p243.jupiter_in_marana_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "243"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p244.venus_in_phangkha_แรกเกิด",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "244"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p245.venus_in_phangkha_แรกเกิด",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "245"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p246.venus_in_khumsap_แรกเกิด",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "246"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p246.moon_in_marana_แรกเกิด",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "246"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p247.moon_in_marana_แรกเกิด",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "247"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p247.mercury_in_racha_แรกเกิด",
+      "subject": "planet.mercury",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "247"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p248.moon_in_marana_แรกเกิด",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "248"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p249.saturn_in_puti_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "249"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p250.jupiter_in_thongchai_อาย_๓๓_ขวบ",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "250"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓๓ ขวบ"
+      }
+    },
+    {
+      "id": "mahabhut.p250.rahu_in_racha_อาย_๓๓_ขวบ",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "250"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓๓ ขวบ"
+      }
+    },
+    {
+      "id": "mahabhut.p251.saturn_in_phangkha_อาย_๓๓_ขวบ",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "251"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓๓ ขวบ"
+      }
+    },
+    {
+      "id": "mahabhut.p252.venus_in_phangkha_อาย_๓๓_ขวบ",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "252"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓๓ ขวบ"
+      }
+    },
+    {
+      "id": "mahabhut.p255.venus_in_khumsap_อาย_๓๓_ขวบ",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "255"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓๓ ขวบ"
+      }
+    },
+    {
+      "id": "mahabhut.p263.sun_in_puti_แรกเกิด",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "263"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p264.sun_in_marana_อาย_๒๒_ถึง_๒๓๕_ดวงตก_",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "264"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๒๒ ถึง ๒๓๕ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p264.mars_in_marana_อาย_๒๒_ถึง_๒๓๕_ดวงตก_",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "264"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๒๒ ถึง ๒๓๕ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p265.mercury_in_athibodi_อาย_๒๒_ถึง_๒๓๕_ดวงตก_",
+      "subject": "planet.mercury",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "265"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๒๒ ถึง ๒๓๕ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p265.sun_in_phangkha_อาย_๒๒_ถึง_๒๓๕_ดวงตก_",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "265"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๒๒ ถึง ๒๓๕ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p266.saturn_in_phangkha_อาย_๒๒_ถึง_๒๓๕_ดวงตก_",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "266"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๒๒ ถึง ๒๓๕ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p266.sun_in_racha_อาย_๒๒_ถึง_๒๓๕_ดวงตก_",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "266"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๒๒ ถึง ๒๓๕ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p267.mars_in_marana_อาย_๒๒_ถึง_๒๓๕_ดวงตก_",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "267"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๒๒ ถึง ๒๓๕ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p268.moon_in_khumsap_แรกเกิด",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "268"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p268.mars_in_marana_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "268"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p269.mars_in_marana_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "269"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p269.sun_in_athibodi_แรกเกิด",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "269"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p270.saturn_in_phangkha_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "270"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p271.saturn_in_phangkha_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "271"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p271.jupiter_in_thongchai_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "271"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p272.mars_in_marana_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "272"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p273.saturn_in_phangkha_อาย_๓_ขวบ_ดวงขึ้น_",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "273"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓ ขวบ [ดวงขึ้น]"
+      }
+    },
+    {
+      "id": "mahabhut.p274.saturn_in_phangkha_อาย_๓_ขวบ_ดวงขึ้น_",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "274"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓ ขวบ [ดวงขึ้น]"
+      }
+    },
+    {
+      "id": "mahabhut.p274.jupiter_in_racha_อาย_๓_ขวบ_ดวงขึ้น_",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "274"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓ ขวบ [ดวงขึ้น]"
+      }
+    },
+    {
+      "id": "mahabhut.p275.mars_in_marana_อาย_๓_ขวบ_ดวงขึ้น_",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "275"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓ ขวบ [ดวงขึ้น]"
+      }
+    },
+    {
+      "id": "mahabhut.p276.saturn_in_phangkha_อาย_๓_ขวบ_ดวงขึ้น_",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "276"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓ ขวบ [ดวงขึ้น]"
+      }
+    },
+    {
+      "id": "mahabhut.p277.mercury_in_phangkha_แรกเกิด",
+      "subject": "planet.mercury",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "277"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p278.saturn_in_phangkha_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "278"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p278.jupiter_in_racha_อายุ_๒๓๕_ถึง_๓๕",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "278"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อายุ ๒๓๕ ถึง ๓๕"
+      }
+    },
+    {
+      "id": "mahabhut.p279.rahu_in_athibodi_อายุ_๒๓๕_ถึง_๓๕",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "279"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อายุ ๒๓๕ ถึง ๓๕"
+      }
+    },
+    {
+      "id": "mahabhut.p279.venus_in_thongchai_อายุ_๒๓๕_ถึง_๓๕",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "279"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อายุ ๒๓๕ ถึง ๓๕"
+      }
+    },
+    {
+      "id": "mahabhut.p281.jupiter_in_racha_แรกเกิด",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "281"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p282.rahu_in_athibodi_แรกเกิด",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "282"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p282.venus_in_thongchai_แรกเกิด",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "282"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p283.sun_in_puti_อาย_๕๓_ถึง_๕๕_ดวงตก_",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "283"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๕๓ ถึง ๕๕ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p284.sun_in_puti_อาย_๕๓_ถึง_๕๕_ดวงตก_",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "284"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๕๓ ถึง ๕๕ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p284.moon_in_khumsap_อาย_๕๓_ถึง_๕๕_ดวงตก_",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "284"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๕๓ ถึง ๕๕ [ดวงตก]"
+      }
+    },
+    {
+      "id": "mahabhut.p285.venus_in_thongchai_แรกเกิด",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "285"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p286.sun_in_puti_แรกเกิด",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.puti",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "286"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p287.moon_in_khumsap_แรกเกิด",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.khumsap",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "287"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p288.mars_in_marana_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "288"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p288.venus_in_athibodi_แรกเกิด",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.athibodi",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "288"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p289.mars_in_marana_แรกเกิด",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "289"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p290.saturn_in_phangkha_แรกเกิด",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "290"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "แรกเกิด"
+      }
+    },
+    {
+      "id": "mahabhut.p290.jupiter_in_racha_อาย_๓๓_ขวบ",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.racha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "290"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓๓ ขวบ"
+      }
+    },
+    {
+      "id": "mahabhut.p291.venus_in_thongchai_อาย_๓๓_ขวบ",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.thongchai",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "291"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓๓ ขวบ"
+      }
+    },
+    {
+      "id": "mahabhut.p305.mars_in_phangkha_อาย_๓๓_ขวบ",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.phangkha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "305"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓๓ ขวบ"
+      }
+    },
+    {
+      "id": "mahabhut.p305.mars_in_marana_อาย_๓๓_ขวบ",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "mahabhutPosition.marana",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "305"
+      },
+      "context": {
+        "type": "life_period",
+        "value": "อาย ๓๓ ขวบ"
       }
     }
   ],

@@ -157,6 +157,8 @@ or blocked by a documented gap/OCR report.
 
 ### Phase D — Life Period
 
+**Status:** **CLOSED** — see [`THAI_CANON_KNOWLEDGE_PRODUCTION_PHASE_D.md`](THAI_CANON_KNOWLEDGE_PRODUCTION_PHASE_D.md).
+
 **Canon scope:** Per-archetype life-period readings — planet placements, dignity,
 and stated effects scoped to life-period context.
 
