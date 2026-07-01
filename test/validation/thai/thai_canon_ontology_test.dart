@@ -81,6 +81,29 @@ void main() {
     });
   });
 
+  group('Planet Library attribute categories (D-072 Ontology Expansion)', () {
+    final ont = CanonOntologyData.standard();
+
+    test('eleven attribute categories are seeded with valid prefix', () {
+      final cats = ont.entitiesOf(OntologyCategory.attributeCategory);
+      expect(cats.length, 11);
+      expect(cats.every((e) => e.hasValidPrefix), isTrue);
+      expect(cats.every((e) => e.parentId == null), isTrue);
+      expect(cats.every((e) => e.description == null), isTrue);
+    });
+
+    test('section headings resolve to attribute categories', () {
+      expect(ont.resolveId('แสดงถึงสี'), 'attributeCategory.color');
+      expect(ont.resolveId('เกี่ยวกับบุคคล'), 'attributeCategory.profession');
+      expect(ont.resolveId('เกี่ยวกับสถานที่'), 'attributeCategory.place');
+      expect(ont.resolveId('แสดงถึงแร่ธาตุ'), 'attributeCategory.metal');
+    });
+
+    test('adding categories keeps the ontology valid', () {
+      expect(ont.validate().isValid, isTrue, reason: ont.validate().summary);
+    });
+  });
+
   group('Validation', () {
     test('the standard ontology is valid', () {
       final report = CanonOntologyData.standard().validate();

@@ -256,6 +256,81 @@ abstract final class CanonOntologyData {
     ),
   ];
 
+  /// Planet Library attribute **categories** (D-072 Ontology Expansion).
+  ///
+  /// Controlled vocabulary only: stable ids + Thai section headings from
+  /// `หลักมหาภูต` pp.30–36 (`แสดงถึงสี`, `เกี่ยวกับบุคคล`, …). No meanings,
+  /// relationships, or Canon claims. Attribute *values* are separate
+  /// [attribute] entities produced during knowledge extraction.
+  static const List<CanonicalEntity> attributeCategories = [
+    CanonicalEntity(
+      id: 'attributeCategory.color',
+      canonicalName: 'Color',
+      category: OntologyCategory.attributeCategory,
+      aliases: ['สี', 'แสดงถึงสี'],
+    ),
+    CanonicalEntity(
+      id: 'attributeCategory.gemstone',
+      canonicalName: 'Gemstone',
+      category: OntologyCategory.attributeCategory,
+      aliases: ['อัญมณี', 'เพชรพลอย'],
+    ),
+    CanonicalEntity(
+      id: 'attributeCategory.metal',
+      canonicalName: 'Metal',
+      category: OntologyCategory.attributeCategory,
+      aliases: ['แร่ธาตุ', 'แสดงถึงแร่ธาตุ', 'ธาตุ'],
+    ),
+    CanonicalEntity(
+      id: 'attributeCategory.taste',
+      canonicalName: 'Taste',
+      category: OntologyCategory.attributeCategory,
+      aliases: ['รส', 'แสดงถึงรส'],
+    ),
+    CanonicalEntity(
+      id: 'attributeCategory.disease',
+      canonicalName: 'Disease',
+      category: OntologyCategory.attributeCategory,
+      aliases: ['โรค', 'เกี่ยวกับโรค', 'โรคที่เกิดจาก'],
+    ),
+    CanonicalEntity(
+      id: 'attributeCategory.bodyPart',
+      canonicalName: 'Body part',
+      category: OntologyCategory.attributeCategory,
+      aliases: ['ส่วนร่างกาย', 'อวัยวะ'],
+    ),
+    CanonicalEntity(
+      id: 'attributeCategory.place',
+      canonicalName: 'Place',
+      category: OntologyCategory.attributeCategory,
+      aliases: ['สถานที่', 'เกี่ยวกับสถานที่'],
+    ),
+    CanonicalEntity(
+      id: 'attributeCategory.profession',
+      canonicalName: 'Person type',
+      category: OntologyCategory.attributeCategory,
+      aliases: ['บุคคล', 'เกี่ยวกับบุคคล'],
+    ),
+    CanonicalEntity(
+      id: 'attributeCategory.direction',
+      canonicalName: 'Direction',
+      category: OntologyCategory.attributeCategory,
+      aliases: ['ทิศ', 'ทิศทาง'],
+    ),
+    CanonicalEntity(
+      id: 'attributeCategory.season',
+      canonicalName: 'Season',
+      category: OntologyCategory.attributeCategory,
+      aliases: ['ฤดู', 'ฤดูกาล'],
+    ),
+    CanonicalEntity(
+      id: 'attributeCategory.gender',
+      canonicalName: 'Gender',
+      category: OntologyCategory.attributeCategory,
+      aliases: ['เพศ', 'แสดงถึงเพศ'],
+    ),
+  ];
+
   /// Relationship entities (one per registered relationship wire).
   static List<CanonicalEntity> relationshipEntities() => [
         for (final wire in relationships)
@@ -271,6 +346,7 @@ abstract final class CanonOntologyData {
         ...planets,
         ...houses(),
         ...mahabhutPositions,
+        ...attributeCategories,
         ...elements,
         ...domains,
         ...relationshipEntities(),

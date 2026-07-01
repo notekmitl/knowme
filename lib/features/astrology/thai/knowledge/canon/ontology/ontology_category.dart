@@ -39,6 +39,17 @@ enum OntologyCategory {
   /// existing category keeps its same `wire` identifier (the only persisted
   /// form); `other` stays the resolution fallback.
   mahabhutPosition,
+
+  /// Planet Library attribute **category** (D-072 Ontology Expansion).
+  /// Structural slot only — e.g. color, taste, metal, disease, place,
+  /// profession. No meanings, relationships, or Canon claims encoded here.
+  attributeCategory,
+
+  /// Planet Library attribute **value token** (D-072). A stable id + verbatim
+  /// Thai surface form(s) from the Canon source; parentId points at an
+  /// [attributeCategory]. What a planet *signifies* is Canon knowledge produced
+  /// through extraction, never encoded in the ontology layer.
+  attribute,
   other;
 
   /// Stable wire name used in ids and JSON.
