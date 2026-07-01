@@ -102,6 +102,7 @@ Sources: `docs/*.md`, `lib/features/*`, validation outputs.
 
 | Item | Why active | Evidence |
 |------|------------|----------|
+| **Mahabhut Canon Completion Program (D-073)** | Complete `หลักมหาภูต` extraction — Phases C→I through Canon Freeze; supersedes foundation-only charter | `THAI_MAHABHUT_CANON_COMPLETION_PROGRAM.md`, `foundation_v1.knowme.json` (357 units baseline) |
 | **Funnel conversion (astrology → personality → narrative)** | Real users: 2.6% narrative reach; 97% drop-off before MBTI | `REAL_USER_RUNTIME_VALIDATION_V1.md`, Funnel Recovery V2 code |
 | **Funnel telemetry measurement** | Track MBTI adoption, narrative preview, completion funnel | `lib/features/funnel_telemetry/` |
 | **Home experience refinement** | Primary post-astrology product surface | `lib/features/home_cohesion/`, `PRODUCTION_FUNNEL_RECOVERY_V1.md` |
