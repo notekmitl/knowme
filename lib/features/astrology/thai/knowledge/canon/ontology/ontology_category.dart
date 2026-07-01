@@ -64,6 +64,14 @@ enum OntologyCategory {
   /// Canon-stated **prediction effect tokens** (D-076 Phase E). Verbatim Thai
   /// surface forms only (`อ่อนแอ`, `เข้มแข็ง`) — no interpretation encoded.
   predictionEffect,
+
+  /// Remedy **material / object** tokens (D-077 Phase F). Verbatim Canon names
+  /// only (`แจกัน ๓ ลูก`, `เทียนขี้ผึ้ง`, …) — no ritual prose encoded.
+  remedyItem,
+
+  /// Remedy **worship target / symbol** tokens (D-077 Phase F). Verbatim Canon
+  /// names only (`พระปางนาคปรก`, `พญาครุฑ`, …) — no interpretation encoded.
+  ritualTarget,
   other;
 
   /// Stable wire name used in ids and JSON.

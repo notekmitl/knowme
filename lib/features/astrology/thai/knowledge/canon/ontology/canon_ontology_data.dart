@@ -309,6 +309,144 @@ abstract final class CanonOntologyData {
     ),
   ];
 
+  /// Remedy procedure token (D-077 Phase F). Vocabulary only.
+  static const List<CanonicalEntity> remedies = [
+    CanonicalEntity(
+      id: 'remedy.sadoeKhroh',
+      canonicalName: 'Sadoe Khroh',
+      category: OntologyCategory.remedy,
+      aliases: ['สะเดาะเคราะห์', 'แก้ดวง', 'แก้ตวง'],
+    ),
+  ];
+
+  /// Remedy material / object tokens (D-077 Phase F). Vocabulary only.
+  static const List<CanonicalEntity> remedyItems = [
+    CanonicalEntity(
+      id: 'remedyItem.buddhaDayImage',
+      canonicalName: 'Buddha day image',
+      category: OntologyCategory.remedyItem,
+      aliases: ['พระประจำวัน', 'พระประธานประจำวัน', 'พระเจดีย์ประจำวัน'],
+    ),
+    CanonicalEntity(
+      id: 'remedyItem.vase3',
+      canonicalName: 'Three vases',
+      category: OntologyCategory.remedyItem,
+      aliases: ['แจกัน ๓ ลูก', 'แจกัน ๓'],
+    ),
+    CanonicalEntity(
+      id: 'remedyItem.flowersPerVase',
+      canonicalName: 'Flowers per vase',
+      category: OntologyCategory.remedyItem,
+      aliases: [
+        'ดอกไม้เกินอายุหนึ่งดอก/แจกัน',
+        'ดอกไม้เกินอายุดอกหนึ่ง',
+      ],
+    ),
+    CanonicalEntity(
+      id: 'remedyItem.incensePerAge',
+      canonicalName: 'Incense per age',
+      category: OntologyCategory.remedyItem,
+      aliases: [
+        'เทียนขี้ผึ้งจำนวนเกินอายุหนึ่งเล่ม',
+        'เทียนขี้ผึ้งจำนวนเท่าอายุ',
+      ],
+    ),
+    CanonicalEntity(
+      id: 'remedyItem.jasmineRose',
+      canonicalName: 'Jasmine and rose',
+      category: OntologyCategory.remedyItem,
+      aliases: ['ดอกมะลิซ้อนและดอกกุหลาบ', 'ดอกมะลิ', 'ดอกกุหลาบ'],
+    ),
+    CanonicalEntity(
+      id: 'remedyItem.tropicaShoot',
+      canonicalName: 'Tropica shoot',
+      category: OntologyCategory.remedyItem,
+      aliases: ['ยอดหน้าว', 'ยอดหว้า', 'ยอดมะพร้าว'],
+    ),
+  ];
+
+  /// Remedy worship target / symbol tokens (D-077 Phase F). Vocabulary only.
+  static const List<CanonicalEntity> ritualTargets = [
+    CanonicalEntity(
+      id: 'ritualTarget.garuda',
+      canonicalName: 'Garuda symbol',
+      category: OntologyCategory.ritualTarget,
+      aliases: ['พญาครุฑ'],
+    ),
+    CanonicalEntity(
+      id: 'ritualTarget.tiger',
+      canonicalName: 'Tiger symbol',
+      category: OntologyCategory.ritualTarget,
+      aliases: ['เสือ'],
+    ),
+    CanonicalEntity(
+      id: 'ritualTarget.lion',
+      canonicalName: 'Lion symbol',
+      category: OntologyCategory.ritualTarget,
+      aliases: ['สิงห์'],
+    ),
+    CanonicalEntity(
+      id: 'ritualTarget.elephant',
+      canonicalName: 'Elephant symbol',
+      category: OntologyCategory.ritualTarget,
+      aliases: ['ช้างฉัทรันต์', 'ช้างฉัททันต์'],
+    ),
+    CanonicalEntity(
+      id: 'ritualTarget.rat',
+      canonicalName: 'Rat symbol',
+      category: OntologyCategory.ritualTarget,
+      aliases: ['หนู'],
+    ),
+    CanonicalEntity(
+      id: 'ritualTarget.ratPhao',
+      canonicalName: 'Rat phao symbol',
+      category: OntologyCategory.ritualTarget,
+      aliases: ['หนูตะเภา'],
+    ),
+    CanonicalEntity(
+      id: 'ritualTarget.naga',
+      canonicalName: 'Naga symbol',
+      category: OntologyCategory.ritualTarget,
+      aliases: ['พญานาค'],
+    ),
+    CanonicalEntity(
+      id: 'ritualTarget.buddhaThawaiNet',
+      canonicalName: 'Buddha Thawai Net',
+      category: OntologyCategory.ritualTarget,
+      aliases: ['พระปางถวายเนตร'],
+    ),
+    CanonicalEntity(
+      id: 'ritualTarget.buddhaHamSamut',
+      canonicalName: 'Buddha Ham Samut',
+      category: OntologyCategory.ritualTarget,
+      aliases: ['พระปางห้ามสมุทร'],
+    ),
+    CanonicalEntity(
+      id: 'ritualTarget.buddhaUmbat',
+      canonicalName: 'Buddha Umbat',
+      category: OntologyCategory.ritualTarget,
+      aliases: ['พระปางอัมบาตร'],
+    ),
+    CanonicalEntity(
+      id: 'ritualTarget.buddhaSamathi',
+      canonicalName: 'Buddha Samathi',
+      category: OntologyCategory.ritualTarget,
+      aliases: ['พระปางสมาธิ', 'พระปางสมาชธิ'],
+    ),
+    CanonicalEntity(
+      id: 'ritualTarget.buddhaRampooeng',
+      canonicalName: 'Buddha Rampooeng',
+      category: OntologyCategory.ritualTarget,
+      aliases: ['พระปางรำพึง', 'พระปางรําพึง'],
+    ),
+    CanonicalEntity(
+      id: 'ritualTarget.buddhaNakProk',
+      canonicalName: 'Buddha Nak Prok',
+      category: OntologyCategory.ritualTarget,
+      aliases: ['พระปางนาคปรก'],
+    ),
+  ];
+
   /// Hierarchical life domains. Root `domain.life`; the rest are its children.
   static const List<CanonicalEntity> domains = [
     CanonicalEntity(
@@ -468,6 +606,9 @@ abstract final class CanonOntologyData {
         ...agePeriods,
         ...periodStatuses,
         ...predictionEffects,
+        ...remedies,
+        ...remedyItems,
+        ...ritualTargets,
         ...attributeCategories,
         ...CanonOntologyAttributeValues.all,
         ...elements,

@@ -2292,6 +2292,25 @@ sessions and developers should consult this before reopening any settled decisio
 
 ---
 
+## D-077 — Mahabhut remedy ontology (Phase F)
+
+- **Date:** 2026-07-01 · **Status:** Accepted · Ontology expansion only · **No
+  platform/runtime/engine change**
+- **Context:** D-073 Phase F requires representing สะเดาะเคราะห์ procedure facts
+  (items, targets, directions, triggers) without user-facing advice or ritual prose.
+- **Decision:** Add `OntologyCategory.remedyItem` and `OntologyCategory.ritualTarget`;
+  seed `remedy.sadoeKhroh`, six remedy-item tokens, and thirteen ritual-target
+  tokens — Thai aliases verbatim from the Canon. **No meanings, efficacy, or safety
+  claims encoded.**
+- **Reason:** Minimum vocabulary for pp.294–308 remedy chapter and embedded
+  `วิธีแก้` blocks using existing `requires` / `relates_to` relations.
+- **Boundary:** Mantra paragraphs and compound multi-step procedures remain a
+  modeling gap; `AtomicRelation` enum unchanged.
+- **Impact:** Phase F +87 units (770 cumulative); ontology and production tests.
+- **Related documents:** `THAI_CANON_KNOWLEDGE_PRODUCTION_PHASE_F.md`.
+
+---
+
 ## Related documents
 
 - [`AI_ALIGNMENT_CONTEXT.md`](AI_ALIGNMENT_CONTEXT.md) — rules, reading order, Documentation Policy.

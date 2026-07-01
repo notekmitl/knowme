@@ -168,6 +168,42 @@ void main() {
     });
   });
 
+  group('Mahabhut Remedy vocabulary (D-077 Phase F Ontology Expansion)', () {
+    final ont = CanonOntologyData.standard();
+
+    test('remedy, remedyItem, and ritualTarget tokens resolve from Thai aliases', () {
+      const expected = {
+        'สะเดาะเคราะห์': 'remedy.sadoeKhroh',
+        'แจกัน ๓ ลูก': 'remedyItem.vase3',
+        'เทียนขี้ผึ้งจำนวนเท่าอายุ': 'remedyItem.incensePerAge',
+        'พระปางนาคปรก': 'ritualTarget.buddhaNakProk',
+        'พญาครุฑ': 'ritualTarget.garuda',
+        'หนูตะเภา': 'ritualTarget.ratPhao',
+      };
+      expected.forEach((surface, id) {
+        expect(ont.resolveId(surface), id, reason: 'resolve "$surface"');
+      });
+    });
+
+    test('remedy vocabulary counts are seeded with valid prefix', () {
+      expect(ont.entitiesOf(OntologyCategory.remedy).length, 1);
+      expect(ont.entitiesOf(OntologyCategory.remedyItem).length, 6);
+      expect(ont.entitiesOf(OntologyCategory.ritualTarget).length, 13);
+      for (final e in [
+        ...ont.entitiesOf(OntologyCategory.remedy),
+        ...ont.entitiesOf(OntologyCategory.remedyItem),
+        ...ont.entitiesOf(OntologyCategory.ritualTarget),
+      ]) {
+        expect(e.hasValidPrefix, isTrue);
+        expect(e.description, isNull);
+      }
+    });
+
+    test('adding remedy vocabulary keeps the ontology valid', () {
+      expect(ont.validate().isValid, isTrue, reason: ont.validate().summary);
+    });
+  });
+
   group('Planet Library attribute categories (D-072 Ontology Expansion)', () {
     final ont = CanonOntologyData.standard();
 
