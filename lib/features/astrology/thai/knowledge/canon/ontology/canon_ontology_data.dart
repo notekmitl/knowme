@@ -10,6 +10,7 @@
 library;
 
 import 'package:knowme/features/astrology/thai/knowledge/canon/ontology/canonical_entity.dart';
+import 'package:knowme/features/astrology/thai/knowledge/canon/ontology/canon_ontology_attribute_values.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/ontology/canonical_ontology.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/ontology/ontology_category.dart';
 
@@ -347,6 +348,7 @@ abstract final class CanonOntologyData {
         ...houses(),
         ...mahabhutPositions,
         ...attributeCategories,
+        ...CanonOntologyAttributeValues.all,
         ...elements,
         ...domains,
         ...relationshipEntities(),

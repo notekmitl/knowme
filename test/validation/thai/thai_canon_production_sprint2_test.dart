@@ -7,6 +7,8 @@ import 'package:knowme/features/astrology/thai/knowledge/canon/canonical_knowled
 import 'package:knowme/features/astrology/thai/knowledge/canon/ontology/ontology.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/production/production.dart';
 
+import 'generated/batch8_planet_library_units.dart';
+
 /// Canon Knowledge Production — Sprint 2A first batch.
 ///
 /// Real Canon knowledge extracted **from** `หลักมหาภูต` (ส. หยกฟ้า), produced
@@ -577,9 +579,10 @@ void main() {
           condition: 'เจ้าชะตาเป็นผู้ชาย',
           page: '16',
         ),
+        ...batch8PlanetLibraryUnits(unit: unit),
       ];
 
-  group('Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4-7)', () {
+  group('Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4-8)', () {
     final ontology = CanonOntologyData.standard();
     final units = batch();
 
@@ -739,10 +742,10 @@ void main() {
       expect(report.allAtomic, isTrue, reason: report.render());
       expect(report.provenanceComplete, isTrue);
 
-      // Planet Library now covers all 7 classical planets after Batch 7.
+      // Planet Library covers all 8 planets in pp.30–36 (incl. Rahu) after Batch 8.
       final planetLib = report.domain(ProductionDomain.planetLibrary)!;
       expect(planetLib.produced, units.length);
-      expect(planetLib.subjectsCovered, 7);
+      expect(planetLib.subjectsCovered, 8);
       expect(planetLib.status, ProductionStatus.partial);
 
       // Planet → Domain natural significators (general): Jupiter → learning/
@@ -750,6 +753,10 @@ void main() {
       final planetDomains = report.domain(ProductionDomain.planetDomains)!;
       expect(planetDomains.produced, 16);
       expect(planetDomains.subjectsCovered, 7);
+
+      final planetKeywords = report.domain(ProductionDomain.planetKeywords)!;
+      expect(planetKeywords.produced, 293);
+      expect(planetKeywords.subjectsCovered, 8);
     });
 
     test('the batch is deterministic', () {
@@ -779,13 +786,14 @@ void main() {
 
     test('coverage by planet (all units)', () {
       expect(countBy(units, (u) => u.subject), {
-        'planet.sun': 5,
-        'planet.moon': 10,
-        'planet.mars': 10,
-        'planet.mercury': 8,
-        'planet.jupiter': 13,
-        'planet.venus': 9,
-        'planet.saturn': 1,
+        'planet.sun': 48,
+        'planet.moon': 57,
+        'planet.mars': 59,
+        'planet.mercury': 49,
+        'planet.jupiter': 40,
+        'planet.venus': 44,
+        'planet.saturn': 32,
+        'planet.rahu': 20,
       });
     });
 
@@ -819,11 +827,11 @@ void main() {
         final key = u.context == null ? 'general' : u.context!.type.wire;
         byContext[key] = (byContext[key] ?? 0) + 1;
       }
-      expect(byContext, {'archetype_chart': 40, 'general': 16});
+      expect(byContext, {'archetype_chart': 40, 'general': 309});
     });
 
     test('metrics totals reconcile with the batch', () {
-      expect(units.length, 56);
+      expect(units.length, 349);
       expect(placements.length, 40);
     });
   });

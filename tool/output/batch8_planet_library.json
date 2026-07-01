@@ -1,0 +1,4060 @@
+{
+  "entities": [
+    {
+      "id": "attribute.color.สีขาว",
+      "thai": "สีขาว",
+      "parentId": "attributeCategory.color",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.color.สีดำ",
+      "thai": "สีดำ",
+      "parentId": "attributeCategory.color",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.color.สีเขียวใบไม้",
+      "thai": "สีเขียวใบไม้",
+      "parentId": "attributeCategory.color",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.color.สีเหลืองแก่",
+      "thai": "สีเหลืองแก่",
+      "parentId": "attributeCategory.color",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.color.สีแดงสด",
+      "thai": "สีแดงสด",
+      "parentId": "attributeCategory.color",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.color.สีแดงแก่_ชมพู",
+      "thai": "สีแดงแก่ (ชมพู)",
+      "parentId": "attributeCategory.color",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.กระดูกขัดในข้อเท้า",
+      "thai": "กระดูกขัดในข้อเท้า",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.กามโรค",
+      "thai": "กามโรค",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.ขัดข้อเท้า",
+      "thai": "ขัดข้อเท้า",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.ความดันโลหิต",
+      "thai": "ความดันโลหิต",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.ความเจ็บป่วยอันเนื่องมาจากร่างกายไม่ได้รับการพักผ่อน",
+      "thai": "ความเจ็บป่วยอันเนื่องมาจากร่างกายไม่ได้รับการพักผ่อน",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.ต่อมบวม",
+      "thai": "ต่อมบวม",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.น้ำเหลืองเสีย",
+      "thai": "น้ำเหลืองเสีย",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.พิการ",
+      "thai": "พิการ",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.พิการ_มีความจำเลอะเลือน",
+      "thai": "พิการ มีความจำเลอะเลือน",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.มดลูกพิการ",
+      "thai": "มดลูกพิการ",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.มีอารมณ์หงอยเหงาเศร้าทุกข์",
+      "thai": "มีอารมณ์หงอยเหงาเศร้าทุกข์",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.หน้าร้อนลวก",
+      "thai": "หน้าร้อนลวก",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.เจ็บขาและลำข้อ",
+      "thai": "เจ็บขาและลำข้อ",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.เช่นโรคตับพิการ",
+      "thai": "เช่นโรคตับพิการ",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.เส้นประสาทหวาดสะดุ้ง",
+      "thai": "เส้นประสาทหวาดสะดุ้ง",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.แผลฟกช้ำ",
+      "thai": "แผลฟกช้ำ",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคขัดข้อเท้า",
+      "thai": "โรคขัดข้อเท้า",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคขัดเบา",
+      "thai": "โรคขัดเบา",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคจิต",
+      "thai": "โรคจิต",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคจิตวิปลาส",
+      "thai": "โรคจิตวิปลาส",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคดีซ่าน",
+      "thai": "โรคดีซ่าน",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคติดอ่าง",
+      "thai": "โรคติดอ่าง",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคที่บันทอนสติปัญญา",
+      "thai": "โรคที่บันทอนสติปัญญา",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคที่เกี่ยวกับกระเพาะอาหาร",
+      "thai": "โรคที่เกี่ยวกับกระเพาะอาหาร",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคที่เกี่ยวกับภายในปาก",
+      "thai": "โรคที่เกี่ยวกับภายในปาก",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคที่เกี่ยวกับสมอง",
+      "thai": "โรคที่เกี่ยวกับสมอง",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคที่เกี่ยวกับเท้า_ต้นขาและโคนขา",
+      "thai": "โรคที่เกี่ยวกับเท้า-ต้นขาและโคนขา",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคที่เกี่ยวกับโรคมีเมาเป็นมูลเหตุ",
+      "thai": "โรคที่เกี่ยวกับโรคมีเมาเป็นมูลเหตุ",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคปวดบ่าเอว",
+      "thai": "โรคปวดบ่าเอว",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคปวดศีรษะ",
+      "thai": "โรคปวดศีรษะ",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคผิวหนัง",
+      "thai": "โรคผิวหนัง",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคพิษสุราเรื้อรัง",
+      "thai": "โรคพิษสุราเรื้อรัง",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคภัยไข้เจ็บเกี่ยวกับคอ_และคอหอย",
+      "thai": "โรคภัยไข้เจ็บเกี่ยวกับคอ และคอหอย",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคมานํา",
+      "thai": "โรคมานํา",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคลมปัจจุบัน",
+      "thai": "โรคลมปัจจุบัน",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคลำไส้",
+      "thai": "โรคลำไส้",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรควัณโรค",
+      "thai": "โรควัณโรค",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรควิกลจริต",
+      "thai": "โรควิกลจริต",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคหัวใจ",
+      "thai": "โรคหัวใจ",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคอักเสบอื่นๆ",
+      "thai": "โรคอักเสบอื่นๆ",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคอันเนื่องมาจากเหงื่อเย็นและออกไม่สะดวก",
+      "thai": "โรคอันเนื่องมาจากเหงื่อเย็นและออกไม่สะดวก",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคเกี่ยวกับตะคิวชซัก",
+      "thai": "โรคเกี่ยวกับตะคิวชซัก",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคเกี่ยวกับท้องและลำไส้",
+      "thai": "โรคเกี่ยวกับท้องและลำไส้",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคเกี่ยวกับม้าม",
+      "thai": "โรคเกี่ยวกับม้าม",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคเกี่ยวกับยีสีอ่อนเหลือง",
+      "thai": "โรคเกี่ยวกับยีสีอ่อนเหลือง",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคเกี่ยวกับศีรษะ",
+      "thai": "โรคเกี่ยวกับศีรษะ",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคเกี่ยวกับสันหลัง_บั้นเอว",
+      "thai": "โรคเกี่ยวกับสันหลัง บั้นเอว",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคเกี่ยวกับสายตา",
+      "thai": "โรคเกี่ยวกับสายตา",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคเกี่ยวกับหัวใจ",
+      "thai": "โรคเกี่ยวกับหัวใจ",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคเกี่ยวด้วยจมูก",
+      "thai": "โรคเกี่ยวด้วยจมูก",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคเกี่ยวด้วยสายตา",
+      "thai": "โรคเกี่ยวด้วยสายตา",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.โรคเบาหวาน",
+      "thai": "โรคเบาหวาน",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.disease.ไข้พิษ",
+      "thai": "ไข้พิษ",
+      "parentId": "attributeCategory.disease",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.gemstone.เพชรพลอยที่สีขาว",
+      "thai": "เพชรพลอยที่สีขาว",
+      "parentId": "attributeCategory.gemstone",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.gender.เพศกลางๆ_ไม่จำกัดแน่นอน_คือเป็นได้ทั้งหญิงและชาย_สุดแล้ว",
+      "thai": "เพศกลางๆ ไม่จำกัดแน่นอน คือเป็นได้ทั้งหญิงและชาย สุดแล้วแต่รูปการณ์",
+      "parentId": "attributeCategory.gender",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.gender.เพศชาย",
+      "thai": "เพศชาย",
+      "parentId": "attributeCategory.gender",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.gender.เพศหญิง",
+      "thai": "เพศหญิง",
+      "parentId": "attributeCategory.gender",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.metal.ธาตุตะกั่ว",
+      "thai": "ธาตุตะกั่ว",
+      "parentId": "attributeCategory.metal",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.metal.ธาตุเหล็ก",
+      "thai": "ธาตุเหล็ก",
+      "parentId": "attributeCategory.metal",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.metal.ปรอท",
+      "thai": "ปรอท",
+      "parentId": "attributeCategory.metal",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.metal.สังกะสี",
+      "thai": "สังกะสี",
+      "parentId": "attributeCategory.metal",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.metal.แร่ธาตุทองคำ",
+      "thai": "แร่ธาตุทองคำ",
+      "parentId": "attributeCategory.metal",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.metal.แร่เงิน",
+      "thai": "แร่เงิน",
+      "parentId": "attributeCategory.metal",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.กรมป่าไม้",
+      "thai": "กรมป่าไม้",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.กระโจมไฟ",
+      "thai": "กระโจมไฟ",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.คลินิกรักษาโรค",
+      "thai": "คลินิกรักษาโรค",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ค่ายทหาร",
+      "thai": "ค่ายทหาร",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ซ่องโสเภณี",
+      "thai": "ซ่องโสเภณี",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ตลาดมืด",
+      "thai": "ตลาดมืด",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ถ้ำที่เงียบสงบ",
+      "thai": "ถ้ำที่เงียบสงบ",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ทำเนียบ",
+      "thai": "ทำเนียบ",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ที่ทำการของรัฐบาล",
+      "thai": "ที่ทำการของรัฐบาล",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ที่ทำการไปรษณีย์",
+      "thai": "ที่ทำการไปรษณีย์",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ที่ทิ้งขยะมูลฝอย",
+      "thai": "ที่ทิ้งขยะมูลฝอย",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ที่อยู่อาศัย",
+      "thai": "ที่อยู่อาศัย",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ที่อ่านหนังสือสาธารณะ",
+      "thai": "ที่อ่านหนังสือสาธารณะ",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ที่ใหญ่โตหรูหรา",
+      "thai": "ที่ใหญ่โตหรูหรา",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ทุ่งนา",
+      "thai": "ทุ่งนา",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ท่าเรือ",
+      "thai": "ท่าเรือ",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ธนาคาร",
+      "thai": "ธนาคาร",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ธนาคารแห่งชาติ",
+      "thai": "ธนาคารแห่งชาติ",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.บ้านเรือน",
+      "thai": "บ้านเรือน",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ปั๊มน้ำมัน",
+      "thai": "ปั๊มน้ำมัน",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ป่า",
+      "thai": "ป่า",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.พระราชวัง",
+      "thai": "พระราชวัง",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.พุทธสถาน",
+      "thai": "พุทธสถาน",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ฟาร์มหมู",
+      "thai": "ฟาร์มหมู",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ฟาร์มโค",
+      "thai": "ฟาร์มโค",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.มหาวิทยาลัย",
+      "thai": "มหาวิทยาลัย",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ยวดยานพาหนะทางน้ำทุกชนิด",
+      "thai": "ยวดยานพาหนะทางน้ำทุกชนิด",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ร้านขายที่นอน_หมอน_มู้ง",
+      "thai": "ร้านขายที่นอน-หมอน-มู้ง",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ร้านขายหนังสือ",
+      "thai": "ร้านขายหนังสือ",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ร้านค้าเครื่องสำอาง",
+      "thai": "ร้านค้าเครื่องสำอาง",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ร้านตัด_เย็บ_ส่ง_ขายเสื้อผ้า",
+      "thai": "ร้านตัด-เย็บ-ส่ง-ขายเสื้อผ้า",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ร้านทอง",
+      "thai": "ร้านทอง",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ร้านอาหาร",
+      "thai": "ร้านอาหาร",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ร้านเพชร",
+      "thai": "ร้านเพชร",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ร้านเสริมสวย",
+      "thai": "ร้านเสริมสวย",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ร้านเหล้า",
+      "thai": "ร้านเหล้า",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.วิหาร",
+      "thai": "วิหาร",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ศาล",
+      "thai": "ศาล",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.สถานที่ชุมนุมมหรสพ",
+      "thai": "สถานที่ชุมนุมมหรสพ",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.สถานที่ผลิตเครื่องดื่ม_เช่นโรงกลั่นสุรา",
+      "thai": "สถานที่ผลิตเครื่องดื่ม เช่นโรงกลั่นสุรา",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.สถานที่อันเกี่ยวกับศาสนา",
+      "thai": "สถานที่อันเกี่ยวกับศาสนา",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.สถานที่เต้นรำ",
+      "thai": "สถานที่เต้นรำ",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.สถานที่เผาศพ",
+      "thai": "สถานที่เผาศพ",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.สถานที่ให้ความบันเทิงสนุกสนาน_เช่นบาร์",
+      "thai": "สถานที่ให้ความบันเทิงสนุกสนาน เช่นบาร์",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.สถานที่ๆตั้งอยู่ใกล้กับน้ำ",
+      "thai": "สถานที่ๆตั้งอยู่ใกล้กับน้ำ",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.สถานที่ๆติดต่อกันด้วยความรัก",
+      "thai": "สถานที่ๆติดต่อกันด้วยความรัก",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.สถานที่ๆทำธุรกิจด้านการทำไม้",
+      "thai": "สถานที่ๆทำธุรกิจด้านการทำไม้",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.สถานที่ๆร้างปรักหักพัง",
+      "thai": "สถานที่ๆร้างปรักหักพัง",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.สถานที่ๆหลับนอน",
+      "thai": "สถานที่ๆหลับนอน",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.สถานีอนามัย",
+      "thai": "สถานีอนามัย",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.สถานเสริมความงาม",
+      "thai": "สถานเสริมความงาม",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.สถาบันการเงินทุกประเภท",
+      "thai": "สถาบันการเงินทุกประเภท",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.สนามรบ",
+      "thai": "สนามรบ",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.สภาแห่งชาติ",
+      "thai": "สภาแห่งชาติ",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.สุขศาลา",
+      "thai": "สุขศาลา",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.หอสมุด",
+      "thai": "หอสมุด",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.เขา",
+      "thai": "เขา",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.เตาที่เผาอิฐและถ่าน",
+      "thai": "เตาที่เผาอิฐและถ่าน",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.เทวสถาน",
+      "thai": "เทวสถาน",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.เรือ",
+      "thai": "เรือ",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.แผงลอยขายข้าวแกง_บะหมี่_ก๋วยเตี๋ยว",
+      "thai": "แผงลอยขายข้าวแกง-บะหมี่-ก๋วยเตี๋ยว",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.และมีด_พร้าชนิดต่างๆ",
+      "thai": "และมีด-พร้าชนิดต่างๆ",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.และศิลปกรรมทั้งหลาย",
+      "thai": "และศิลปกรรมทั้งหลาย",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.แหล่งขายของหนีภาษี",
+      "thai": "แหล่งขายของหนีภาษี",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.แหล่งชุมนุมอันธพาล",
+      "thai": "แหล่งชุมนุมอันธพาล",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โบสถ์",
+      "thai": "โบสถ์",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงกลั่นน้ำมัน",
+      "thai": "โรงกลั่นน้ำมัน",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงกษาปณ์",
+      "thai": "โรงกษาปณ์",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงงานฆ่าสัตว์",
+      "thai": "โรงงานฆ่าสัตว์",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงงานช่างเหล็ก",
+      "thai": "โรงงานช่างเหล็ก",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงงานทอผ้า",
+      "thai": "โรงงานทอผ้า",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงงานทำหม้อ_โอ่ง_ไหทุกชนิด",
+      "thai": "โรงงานทำหม้อ-โอ่ง-ไหทุกชนิด",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงงานทำอิฐ",
+      "thai": "โรงงานทำอิฐ",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงงานผลิตที่นอน_หมอน_มู้ง",
+      "thai": "โรงงานผลิตที่นอน-หมอน-มู้ง",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงงานผลิตภัณฑ์มะพร้าว",
+      "thai": "โรงงานผลิตภัณฑ์มะพร้าว",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงงานผลิตภัณฑ์เกี่ยวกับเนื้อหมู",
+      "thai": "โรงงานผลิตภัณฑ์เกี่ยวกับเนื้อหมู",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงงานผลิตภัณฑ์เกี่ยวกับเนื้อโค",
+      "thai": "โรงงานผลิตภัณฑ์เกี่ยวกับเนื้อโค",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงงานผลิตยา",
+      "thai": "โรงงานผลิตยา",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงงานผลิตร่ม",
+      "thai": "โรงงานผลิตร่ม",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงงานผลิตสารเคมี",
+      "thai": "โรงงานผลิตสารเคมี",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงงานผลิตอาวุธ",
+      "thai": "โรงงานผลิตอาวุธ",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงงานยาสูบ",
+      "thai": "โรงงานยาสูบ",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงจำนำ",
+      "thai": "โรงจำนำ",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงทำน้ำหวานทุกชนิด",
+      "thai": "โรงทำน้ำหวานทุกชนิด",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงพยาบาล",
+      "thai": "โรงพยาบาล",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงพิมพ์",
+      "thai": "โรงพิมพ์",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงมหรสพ",
+      "thai": "โรงมหรสพ",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงยาฝิ่น",
+      "thai": "โรงยาฝิ่น",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงเพาะชำพันธุ์ไม้ทุกชนิด",
+      "thai": "โรงเพาะชำพันธุ์ไม้ทุกชนิด",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงเรียน",
+      "thai": "โรงเรียน",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรงเลื่อย_ไม้",
+      "thai": "โรงเลื่อย(ไม้)",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.โรดังเก็บครุภัณฑ์_เช่นโรดังข้าวเปลือก_ข้าวสาร",
+      "thai": "โรดังเก็บครุภัณฑ์ เช่นโรดังข้าวเปลือก-ข้าวสาร",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.place.ไร่นา",
+      "thai": "ไร่นา",
+      "parentId": "attributeCategory.place",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.กรรมกร",
+      "thai": "กรรมกร",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.กรรมการ",
+      "thai": "กรรมการ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.กลาสี",
+      "thai": "กลาสี",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.กษัตริย์",
+      "thai": "กษัตริย์",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.กำนัน",
+      "thai": "กำนัน",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ข้าราชการชั้นหัวหน้าทุกตำแหน่ง",
+      "thai": "ข้าราชการชั้นหัวหน้าทุกตำแหน่ง",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.คนขับรถ",
+      "thai": "คนขับรถ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.คนขับเรือ",
+      "thai": "คนขับเรือ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.คนขายหนังสือ",
+      "thai": "คนขายหนังสือ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.คนฆ่าสัตว์",
+      "thai": "คนฆ่าสัตว์",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.คนนำส่งข่าวสาร",
+      "thai": "คนนำส่งข่าวสาร",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.คนส่งของ",
+      "thai": "คนส่งของ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.คนหาบเร่",
+      "thai": "คนหาบเร่",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.คนเดินเรือ",
+      "thai": "คนเดินเรือ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.คนเฝ้าโบสถ์",
+      "thai": "คนเฝ้าโบสถ์",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.คนเลี้ยงสัตว์",
+      "thai": "คนเลี้ยงสัตว์",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.คนแจวเรือจ้าง",
+      "thai": "คนแจวเรือจ้าง",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ครู",
+      "thai": "ครู",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ชาวประมง",
+      "thai": "ชาวประมง",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ช่างดอกไม้",
+      "thai": "ช่างดอกไม้",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ช่างตัดผม",
+      "thai": "ช่างตัดผม",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ช่างทำอาวุธ",
+      "thai": "ช่างทำอาวุธ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ช่างทำเครื่องประดับเกี่ยวกับอัญมณี",
+      "thai": "ช่างทำเครื่องประดับเกี่ยวกับอัญมณี",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ช่างเย็บปักถักร้อย",
+      "thai": "ช่างเย็บปักถักร้อย",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ช่างเสริมสวย",
+      "thai": "ช่างเสริมสวย",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ทนายความ",
+      "thai": "ทนายความ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ทหาร",
+      "thai": "ทหาร",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ทันตแพทย์",
+      "thai": "ทันตแพทย์",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ที่ปรึกษา",
+      "thai": "ที่ปรึกษา",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นักการทูต",
+      "thai": "นักการทูต",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นักกีฬา",
+      "thai": "นักกีฬา",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นักคมนาคม",
+      "thai": "นักคมนาคม",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นักดนตรี",
+      "thai": "นักดนตรี",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นักตุมตุ๋น",
+      "thai": "นักตุมตุ๋น",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นักท่องเที่ยว",
+      "thai": "นักท่องเที่ยว",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นักบวช",
+      "thai": "นักบวช",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นักประพันธ์",
+      "thai": "นักประพันธ์",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นักพูด",
+      "thai": "นักพูด",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นักร้อง",
+      "thai": "นักร้อง",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นักศึกษามหาวิทยาลัย",
+      "thai": "นักศึกษามหาวิทยาลัย",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นักหนังสือพิมพ์",
+      "thai": "นักหนังสือพิมพ์",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นักเคมี",
+      "thai": "นักเคมี",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นักเลงการพนันทุกชนิด",
+      "thai": "นักเลงการพนันทุกชนิด",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นักเลงสุรา",
+      "thai": "นักเลงสุรา",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นักเลงสูบฟิ่น",
+      "thai": "นักเลงสูบฟิ่น",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นักแต่งเพลงและโคลงฉันท์กาพย์กลอน",
+      "thai": "นักแต่งเพลงและโคลงฉันท์กาพย์กลอน",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นักแสดงหนังและละคร",
+      "thai": "นักแสดงหนังและละคร",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นางพยาบาล",
+      "thai": "นางพยาบาล",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นางพระยา",
+      "thai": "นางพระยา",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นายกรัฐมนตรี",
+      "thai": "นายกรัฐมนตรี",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นายกเทศมนตรี",
+      "thai": "นายกเทศมนตรี",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นายช่าง",
+      "thai": "นายช่าง",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.นายอำเภอ",
+      "thai": "นายอำเภอ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.บุคคลที่มีแนวทางตรงกันข้ามกับกฎหมาย",
+      "thai": "บุคคลที่มีแนวทางตรงกันข้ามกับกฎหมาย",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.บุรุษไปรษณีย์",
+      "thai": "บุรุษไปรษณีย์",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ประชาสัมพันธ์",
+      "thai": "ประชาสัมพันธ์",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ประธานาธิบดี",
+      "thai": "ประธานาธิบดี",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ผู้คุมนักโทษ",
+      "thai": "ผู้คุมนักโทษ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ผู้ค้าของปลอม",
+      "thai": "ผู้ค้าของปลอม",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ผู้ค้าเครื่องสำอาง",
+      "thai": "ผู้ค้าเครื่องสำอาง",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ผู้จัดการ",
+      "thai": "ผู้จัดการ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ผู้ชำนาญทางเครื่องจักรกล",
+      "thai": "ผู้ชำนาญทางเครื่องจักรกล",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ผู้ดูแล",
+      "thai": "ผู้ดูแล",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ผู้ดูแลฝ่ายหญิง",
+      "thai": "ผู้ดูแลฝ่ายหญิง",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ผู้ทำการขนส่งทางน้ำ",
+      "thai": "ผู้ทำการขนส่งทางน้ำ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ผู้ปกครอง",
+      "thai": "ผู้ปกครอง",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ผู้พิพากษา",
+      "thai": "ผู้พิพากษา",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ผู้ว่าราชการจังหวัด",
+      "thai": "ผู้ว่าราชการจังหวัด",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ผู้หญิง_ที่ไม่ใช่แม่หรือภรรยา",
+      "thai": "ผู้หญิง(ที่ไม่ใช่แม่หรือภรรยา)",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ผู้หลัก",
+      "thai": "ผู้หลัก",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ผู้อยู่ในฐานะเหมือนบิดา",
+      "thai": "ผู้อยู่ในฐานะเหมือนบิดา",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ผู้อยู่ในฐานะเหมือนแม่",
+      "thai": "ผู้อยู่ในฐานะเหมือนแม่",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ผู้อำนวยการโรงงานหรือองค์การต่างๆ",
+      "thai": "ผู้อำนวยการโรงงานหรือองค์การต่างๆ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ผู้แทนราษฎร",
+      "thai": "ผู้แทนราษฎร",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ผู้ใหญ่",
+      "thai": "ผู้ใหญ่",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ผู้ใหญ่บ้าน",
+      "thai": "ผู้ใหญ่บ้าน",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.พวกอันธพาล",
+      "thai": "พวกอันธพาล",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.พ่อค้าทอง",
+      "thai": "พ่อค้าทอง",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.พ่อค้าหมู",
+      "thai": "พ่อค้าหมู",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.พ่อค้าเครื่องอุปโภคบริโภค_เช่นข้าวเปลือก_ข้าวสาร_น้ำมัน_",
+      "thai": "พ่อค้าเครื่องอุปโภคบริโภค เช่นข้าวเปลือก ข้าวสาร น้ำมัน เกลือ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.พ่อค้าเพชร",
+      "thai": "พ่อค้าเพชร",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.พ่อค้าไม้",
+      "thai": "พ่อค้าไม้",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.พ่อตา",
+      "thai": "พ่อตา",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.พ่อบ้านที่ปกครองบ้านเรือน_บิดา",
+      "thai": "พ่อบ้านที่ปกครองบ้านเรือน(บิดา)",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.พ่อเลี้ยง",
+      "thai": "พ่อเลี้ยง",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ภรรยาของข้าราชการที่มีตำแหน่งสูงๆ",
+      "thai": "ภรรยาของข้าราชการที่มีตำแหน่งสูงๆ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ภรรยาผู้เป็นประมุขของประเทศ",
+      "thai": "ภรรยาผู้เป็นประมุขของประเทศ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.มารดา_แม่",
+      "thai": "มารดา(แม่)",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ยาฝิ่น",
+      "thai": "ยาฝิ่น",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ยารักษาโรค",
+      "thai": "ยารักษาโรค",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ยาสูบ",
+      "thai": "ยาสูบ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ลูกน้อง",
+      "thai": "ลูกน้อง",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ลูกศิษย์",
+      "thai": "ลูกศิษย์",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.ศัลยแพทย์",
+      "thai": "ศัลยแพทย์",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.สตรีที่สูงศักดิ์_สูงเกียรติยศ_และสูงด้วยฐานะ",
+      "thai": "สตรีที่สูงศักดิ์ สูงเกียรติยศ และสูงด้วยฐานะ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.สมาชิกสภาสูงสุด",
+      "thai": "สมาชิกสภาสูงสุด",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.สมุห์บัญชี",
+      "thai": "สมุห์บัญชี",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.สัปเหร่อ",
+      "thai": "สัปเหร่อ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.หมอ",
+      "thai": "หมอ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.หมอตำแย",
+      "thai": "หมอตำแย",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.หัวหน้าซ่อง",
+      "thai": "หัวหน้าซ่อง",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.หัวหน้าองค์การ",
+      "thai": "หัวหน้าองค์การ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.อาจารย์",
+      "thai": "อาจารย์",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.อาจารย์แห่งศิลปะทุกชนิด",
+      "thai": "อาจารย์แห่งศิลปะทุกชนิด",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.เจ้าของฟาร์มหมู",
+      "thai": "เจ้าของฟาร์มหมู",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.เจ้าของโรงงานอุตสาหกรรมต่างๆ",
+      "thai": "เจ้าของโรงงานอุตสาหกรรมต่างๆ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.เจ้าหน้าที่งานฝ่ายหญิง",
+      "thai": "เจ้าหน้าที่งานฝ่ายหญิง",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.เจ้าหน้าที่ผู้ดูแลรักษาป่าไม้",
+      "thai": "เจ้าหน้าที่ผู้ดูแลรักษาป่าไม้",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.เพชรฆาต",
+      "thai": "เพชรฆาต",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.เพื่อนสนิทมิตรสหาย",
+      "thai": "เพื่อนสนิทมิตรสหาย",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.เภสัชกร",
+      "thai": "เภสัชกร",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.เลขานุการ",
+      "thai": "เลขานุการ",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.แม่นม",
+      "thai": "แม่นม",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.แม่ยาย",
+      "thai": "แม่ยาย",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.แม่เลี้ยง",
+      "thai": "แม่เลี้ยง",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.และช่าง",
+      "thai": "และช่าง",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.profession.และผู้ที่ปฏิบัติเกี่ยวกับการพิมพ์ทุกชนิด",
+      "thai": "และผู้ที่ปฏิบัติเกี่ยวกับการพิมพ์ทุกชนิด",
+      "parentId": "attributeCategory.profession",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.taste.รสขม",
+      "thai": "รสขม",
+      "parentId": "attributeCategory.taste",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.taste.รสผสมหลายชนิด",
+      "thai": "รสผสมหลายชนิด",
+      "parentId": "attributeCategory.taste",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.taste.รสหวาน",
+      "thai": "รสหวาน",
+      "parentId": "attributeCategory.taste",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.taste.รสเค็ม",
+      "thai": "รสเค็ม",
+      "parentId": "attributeCategory.taste",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.taste.รสเปรี้ยว",
+      "thai": "รสเปรี้ยว",
+      "parentId": "attributeCategory.taste",
+      "category": "attribute"
+    },
+    {
+      "id": "attribute.taste.รสเผ็ดร้อน",
+      "thai": "รสเผ็ดร้อน",
+      "parentId": "attributeCategory.taste",
+      "category": "attribute"
+    }
+  ],
+  "units": [
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_profession_กษัตริย์",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.profession.กษัตริย์",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_profession_ประธานาธิบดี",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.profession.ประธานาธิบดี",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_profession_นายกรัฐมนตรี",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.profession.นายกรัฐมนตรี",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_profession_นายกเทศมนตรี",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.profession.นายกเทศมนตรี",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_profession_ผู้ว่าราชการจังหวัด",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้ว่าราชการจังหวัด",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_profession_ข้าราชการชั้นหัวหน้าทุกตำแหน่ง",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.profession.ข้าราชการชั้นหัวหน้าทุกตำแหน่ง",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_profession_นายอำเภอ",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.profession.นายอำเภอ",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_profession_กำนัน",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.profession.กำนัน",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_profession_ผู้ใหญ่บ้าน",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้ใหญ่บ้าน",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_profession_หัวหน้าองค์การ",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.profession.หัวหน้าองค์การ",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_profession_ผู้จัดการ",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้จัดการ",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_profession_พ่อค้าทอง",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.profession.พ่อค้าทอง",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_profession_พ่อบ้านที่ปกครองบ้านเรือน_บิดา",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.profession.พ่อบ้านที่ปกครองบ้านเรือน_บิดา",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_profession_ผู้หลัก",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้หลัก",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_profession_ผู้ใหญ่",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้ใหญ่",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_profession_ผู้ปกครอง",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้ปกครอง",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_profession_ผู้ดูแล",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้ดูแล",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_profession_พ่อเลี้ยง",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.profession.พ่อเลี้ยง",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_profession_พ่อตา",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.profession.พ่อตา",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_profession_ผู้อยู่ในฐานะเหมือนบิดา",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้อยู่ในฐานะเหมือนบิดา",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_disease_โรคเกี่ยวกับหัวใจ",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคเกี่ยวกับหัวใจ",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_disease_โรคเกี่ยวกับศีรษะ",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคเกี่ยวกับศีรษะ",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_disease_โรคเกี่ยวกับสายตา",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคเกี่ยวกับสายตา",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_disease_โรคเกี่ยวกับตะคิวชซัก",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคเกี่ยวกับตะคิวชซัก",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_disease_โรคเกี่ยวกับสันหลัง_บั้นเอว",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคเกี่ยวกับสันหลัง_บั้นเอว",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_place_ที่ทำการของรัฐบาล",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.place.ที่ทำการของรัฐบาล",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_place_พระราชวัง",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.place.พระราชวัง",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_place_ทำเนียบ",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.place.ทำเนียบ",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_place_โรงมหรสพ",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงมหรสพ",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_place_ที่ใหญ่โตหรูหรา",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.place.ที่ใหญ่โตหรูหรา",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_place_ธนาคารแห่งชาติ",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.place.ธนาคารแห่งชาติ",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_place_โรงกษาปณ์",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงกษาปณ์",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_place_บ้านเรือน",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.place.บ้านเรือน",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_place_ที่อยู่อาศัย",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.place.ที่อยู่อาศัย",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_place_โรงงานทำหม้อ_โอ่ง_ไหทุกชนิด",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงงานทำหม้อ_โอ่ง_ไหทุกชนิด",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_place_โรงงานผลิตที่นอน_หมอน_มู้ง",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงงานผลิตที่นอน_หมอน_มู้ง",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_place_ร้านขายที่นอน_หมอน_มู้ง",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.place.ร้านขายที่นอน_หมอน_มู้ง",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_place_โรงงานผลิตภัณฑ์มะพร้าว",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงงานผลิตภัณฑ์มะพร้าว",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p30.sun_relates_attribute_place_โรงงานทำอิฐ",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงงานทำอิฐ",
+      "objectKind": "keyword",
+      "page": "30"
+    },
+    {
+      "id": "mahabhut.p31.sun_relates_attribute_color_สีแดงสด",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.color.สีแดงสด",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.sun_relates_attribute_taste_รสเผ็ดร้อน",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.taste.รสเผ็ดร้อน",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.sun_relates_attribute_metal_แร่ธาตุทองคำ",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.metal.แร่ธาตุทองคำ",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.sun_relates_attribute_gender_เพศชาย",
+      "subject": "planet.sun",
+      "relation": "relates_to",
+      "object": "attribute.gender.เพศชาย",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_นางพระยา",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.นางพระยา",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_ภรรยาผู้เป็นประมุขของประเทศ",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.ภรรยาผู้เป็นประมุขของประเทศ",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_ภรรยาของข้าราชการที่มีตำแหน่งสูงๆ",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.ภรรยาของข้าราชการที่มีตำแหน่งสูงๆ",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_สตรีที่สูงศักดิ์_สูงเกียรติยศ_และสูงด้วยฐานะ",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.สตรีที่สูงศักดิ์_สูงเกียรติยศ_และสูงด้วยฐานะ",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_เจ้าหน้าที่งานฝ่ายหญิง",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.เจ้าหน้าที่งานฝ่ายหญิง",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_นางพยาบาล",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.นางพยาบาล",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_หมอตำแย",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.หมอตำแย",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_มารดา_แม่",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.มารดา_แม่",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_ผู้ใหญ่",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้ใหญ่",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_ผู้ปกครอง",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้ปกครอง",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_ผู้ดูแลฝ่ายหญิง",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้ดูแลฝ่ายหญิง",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_ผู้อยู่ในฐานะเหมือนแม่",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้อยู่ในฐานะเหมือนแม่",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_แม่นม",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.แม่นม",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_แม่เลี้ยง",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.แม่เลี้ยง",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_แม่ยาย",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.แม่ยาย",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_กลาสี",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.กลาสี",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_ชาวประมง",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.ชาวประมง",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_ผู้ทำการขนส่งทางน้ำ",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้ทำการขนส่งทางน้ำ",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_คนขับเรือ",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.คนขับเรือ",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_นักคมนาคม",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.นักคมนาคม",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_คนขับรถ",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.คนขับรถ",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_คนเดินเรือ",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.คนเดินเรือ",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_คนแจวเรือจ้าง",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.คนแจวเรือจ้าง",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_profession_คนหาบเร่",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.profession.คนหาบเร่",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_disease_โรคที่เกี่ยวกับกระเพาะอาหาร",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคที่เกี่ยวกับกระเพาะอาหาร",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_disease_โรคลำไส้",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคลำไส้",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_disease_โรควัณโรค",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรควัณโรค",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_disease_โรคจิต",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคจิต",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_disease_โรคมานํา",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคมานํา",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_disease_ต่อมบวม",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.disease.ต่อมบวม",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_disease_โรคเกี่ยวด้วยสายตา",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคเกี่ยวด้วยสายตา",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_disease_น้ำเหลืองเสีย",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.disease.น้ำเหลืองเสีย",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_disease_ขัดข้อเท้า",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.disease.ขัดข้อเท้า",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_place_ธนาคาร",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.place.ธนาคาร",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_place_สถาบันการเงินทุกประเภท",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.place.สถาบันการเงินทุกประเภท",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_place_โรงจำนำ",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงจำนำ",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_place_ท่าเรือ",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.place.ท่าเรือ",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_place_เรือ",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.place.เรือ",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_place_ยวดยานพาหนะทางน้ำทุกชนิด",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.place.ยวดยานพาหนะทางน้ำทุกชนิด",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_place_สถานที่ๆตั้งอยู่ใกล้กับน้ำ",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.place.สถานที่ๆตั้งอยู่ใกล้กับน้ำ",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_place_สถานที่ผลิตเครื่องดื่ม_เช่นโรงกลั่นสุรา",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.place.สถานที่ผลิตเครื่องดื่ม_เช่นโรงกลั่นสุรา",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_place_โรงทำน้ำหวานทุกชนิด",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงทำน้ำหวานทุกชนิด",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p31.moon_relates_attribute_color_สีขาว",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.color.สีขาว",
+      "objectKind": "keyword",
+      "page": "31"
+    },
+    {
+      "id": "mahabhut.p32.moon_relates_attribute_taste_รสเค็ม",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.taste.รสเค็ม",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.moon_relates_attribute_metal_แร่เงิน",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.metal.แร่เงิน",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.moon_relates_attribute_gemstone_เพชรพลอยที่สีขาว",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.gemstone.เพชรพลอยที่สีขาว",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.moon_relates_attribute_gender_เพศหญิง",
+      "subject": "planet.moon",
+      "relation": "relates_to",
+      "object": "attribute.gender.เพศหญิง",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_profession_ทหาร",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.profession.ทหาร",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_profession_ศัลยแพทย์",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.profession.ศัลยแพทย์",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_profession_ทันตแพทย์",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.profession.ทันตแพทย์",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_profession_เภสัชกร",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.profession.เภสัชกร",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_profession_นักเคมี",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.profession.นักเคมี",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_profession_นายช่าง",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.profession.นายช่าง",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_profession_ผู้ชำนาญทางเครื่องจักรกล",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้ชำนาญทางเครื่องจักรกล",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_profession_ช่างทำอาวุธ",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.profession.ช่างทำอาวุธ",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_profession_ลูกน้อง",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.profession.ลูกน้อง",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_profession_ลูกศิษย์",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.profession.ลูกศิษย์",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_profession_พ่อค้าเครื่องอุปโภคบริโภค_เช่นข้าวเปลือก_ข้าวสาร_น้ำมัน_",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.profession.พ่อค้าเครื่องอุปโภคบริโภค_เช่นข้าวเปลือก_ข้าวสาร_น้ำมัน_",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_profession_ยารักษาโรค",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.profession.ยารักษาโรค",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_profession_ยาสูบ",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.profession.ยาสูบ",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_profession_ยาฝิ่น",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.profession.ยาฝิ่น",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_profession_พ่อค้าเพชร",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.profession.พ่อค้าเพชร",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_profession_ช่างตัดผม",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.profession.ช่างตัดผม",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_profession_คนฆ่าสัตว์",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.profession.คนฆ่าสัตว์",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_disease_โรคขัดเบา",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคขัดเบา",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_disease_โรคดีซ่าน",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคดีซ่าน",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_disease_โรคเบาหวาน",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคเบาหวาน",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_disease_หน้าร้อนลวก",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.disease.หน้าร้อนลวก",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_disease_แผลฟกช้ำ",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.disease.แผลฟกช้ำ",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_disease_ไข้พิษ",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.disease.ไข้พิษ",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_disease_โรคอักเสบอื่นๆ",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคอักเสบอื่นๆ",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_disease_โรคเกี่ยวด้วยจมูก",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคเกี่ยวด้วยจมูก",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_place_โรงพยาบาล",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงพยาบาล",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_place_สถานีอนามัย",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.place.สถานีอนามัย",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_place_คลินิกรักษาโรค",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.place.คลินิกรักษาโรค",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_place_โรงงานช่างเหล็ก",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงงานช่างเหล็ก",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_place_โรดังเก็บครุภัณฑ์_เช่นโรดังข้าวเปลือก_ข้าวสาร",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.place.โรดังเก็บครุภัณฑ์_เช่นโรดังข้าวเปลือก_ข้าวสาร",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_place_ค่ายทหาร",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.place.ค่ายทหาร",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_place_สนามรบ",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.place.สนามรบ",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_place_โรงงานผลิตสารเคมี",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงงานผลิตสารเคมี",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_place_โรงงานผลิตยา",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงงานผลิตยา",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_place_โรงงานยาสูบ",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงงานยาสูบ",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_place_โรงกลั่นน้ำมัน",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงกลั่นน้ำมัน",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_place_ปั๊มน้ำมัน",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.place.ปั๊มน้ำมัน",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_place_โรงงานฆ่าสัตว์",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงงานฆ่าสัตว์",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_place_ร้านเพชร",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.place.ร้านเพชร",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_place_โรงงานทอผ้า",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงงานทอผ้า",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_place_ร้านตัด_เย็บ_ส่ง_ขายเสื้อผ้า",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.place.ร้านตัด_เย็บ_ส่ง_ขายเสื้อผ้า",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_place_ร้านอาหาร",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.place.ร้านอาหาร",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_place_แผงลอยขายข้าวแกง_บะหมี่_ก๋วยเตี๋ยว",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.place.แผงลอยขายข้าวแกง_บะหมี่_ก๋วยเตี๋ยว",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_place_กระโจมไฟ",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.place.กระโจมไฟ",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_place_เตาที่เผาอิฐและถ่าน",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.place.เตาที่เผาอิฐและถ่าน",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_color_สีแดงแก่_ชมพู",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.color.สีแดงแก่_ชมพู",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p32.mars_relates_attribute_taste_รสขม",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.taste.รสขม",
+      "objectKind": "keyword",
+      "page": "32"
+    },
+    {
+      "id": "mahabhut.p33.mars_relates_attribute_metal_ธาตุเหล็ก",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.metal.ธาตุเหล็ก",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mars_relates_attribute_gender_เพศชาย",
+      "subject": "planet.mars",
+      "relation": "relates_to",
+      "object": "attribute.gender.เพศชาย",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_profession_นักบวช",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.profession.นักบวช",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_profession_นักประพันธ์",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.profession.นักประพันธ์",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_profession_นักพูด",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.profession.นักพูด",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_profession_ประชาสัมพันธ์",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.profession.ประชาสัมพันธ์",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_profession_เลขานุการ",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.profession.เลขานุการ",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_profession_สมุห์บัญชี",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.profession.สมุห์บัญชี",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_profession_นักการทูต",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.profession.นักการทูต",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_profession_ผู้แทนราษฎร",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้แทนราษฎร",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_profession_ครู",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.profession.ครู",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_profession_อาจารย์",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.profession.อาจารย์",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_profession_คนขายหนังสือ",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.profession.คนขายหนังสือ",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_profession_คนนำส่งข่าวสาร",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.profession.คนนำส่งข่าวสาร",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_profession_คนส่งของ",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.profession.คนส่งของ",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_profession_บุรุษไปรษณีย์",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.profession.บุรุษไปรษณีย์",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_profession_นักหนังสือพิมพ์",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.profession.นักหนังสือพิมพ์",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_profession_และผู้ที่ปฏิบัติเกี่ยวกับการพิมพ์ทุกชนิด",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.profession.และผู้ที่ปฏิบัติเกี่ยวกับการพิมพ์ทุกชนิด",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_profession_เจ้าของฟาร์มหมู",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.profession.เจ้าของฟาร์มหมู",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_profession_พ่อค้าหมู",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.profession.พ่อค้าหมู",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_disease_โรคที่เกี่ยวกับสมอง",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคที่เกี่ยวกับสมอง",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_disease_พิการ_มีความจำเลอะเลือน",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.disease.พิการ_มีความจำเลอะเลือน",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_disease_โรคปวดศีรษะ",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคปวดศีรษะ",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_disease_โรคติดอ่าง",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคติดอ่าง",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_disease_โรคที่บันทอนสติปัญญา",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคที่บันทอนสติปัญญา",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_disease_โรคเกี่ยวกับยีสีอ่อนเหลือง",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคเกี่ยวกับยีสีอ่อนเหลือง",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_disease_กระดูกขัดในข้อเท้า",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.disease.กระดูกขัดในข้อเท้า",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_disease_โรคเกี่ยวกับท้องและลำไส้",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคเกี่ยวกับท้องและลำไส้",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_disease_โรคที่เกี่ยวกับภายในปาก",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคที่เกี่ยวกับภายในปาก",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_place_โรงเรียน",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงเรียน",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_place_โรงพิมพ์",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงพิมพ์",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_place_ร้านขายหนังสือ",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.place.ร้านขายหนังสือ",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_place_ร้านทอง",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.place.ร้านทอง",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_place_ที่ทำการไปรษณีย์",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.place.ที่ทำการไปรษณีย์",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_place_หอสมุด",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.place.หอสมุด",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_place_ที่อ่านหนังสือสาธารณะ",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.place.ที่อ่านหนังสือสาธารณะ",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_place_ไร่นา",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.place.ไร่นา",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_place_ฟาร์มหมู",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.place.ฟาร์มหมู",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_place_โรงงานผลิตภัณฑ์เกี่ยวกับเนื้อหมู",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงงานผลิตภัณฑ์เกี่ยวกับเนื้อหมู",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_color_สีเขียวใบไม้",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.color.สีเขียวใบไม้",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_taste_รสผสมหลายชนิด",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.taste.รสผสมหลายชนิด",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_metal_ปรอท",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.metal.ปรอท",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p33.mercury_relates_attribute_gender_เพศกลางๆ_ไม่จำกัดแน่นอน_คือเป็นได้ทั้งหญิงและชาย_สุดแล้ว",
+      "subject": "planet.mercury",
+      "relation": "relates_to",
+      "object": "attribute.gender.เพศกลางๆ_ไม่จำกัดแน่นอน_คือเป็นได้ทั้งหญิงและชาย_สุดแล้ว",
+      "objectKind": "keyword",
+      "page": "33"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_profession_นักบวช",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.profession.นักบวช",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_profession_ผู้พิพากษา",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้พิพากษา",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_profession_สมาชิกสภาสูงสุด",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.profession.สมาชิกสภาสูงสุด",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_profession_ที่ปรึกษา",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.profession.ที่ปรึกษา",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_profession_ทนายความ",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.profession.ทนายความ",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_profession_หมอ",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.profession.หมอ",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_profession_นักศึกษามหาวิทยาลัย",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.profession.นักศึกษามหาวิทยาลัย",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_profession_ผู้หญิง_ที่ไม่ใช่แม่หรือภรรยา",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้หญิง_ที่ไม่ใช่แม่หรือภรรยา",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_profession_เพื่อนสนิทมิตรสหาย",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.profession.เพื่อนสนิทมิตรสหาย",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_disease_โรควิกลจริต",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรควิกลจริต",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_disease_โรคหัวใจ",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคหัวใจ",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_disease_ความดันโลหิต",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.disease.ความดันโลหิต",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_disease_โรคที่เกี่ยวกับเท้า_ต้นขาและโคนขา",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคที่เกี่ยวกับเท้า_ต้นขาและโคนขา",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_place_สถานที่อันเกี่ยวกับศาสนา",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.place.สถานที่อันเกี่ยวกับศาสนา",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_place_โบสถ์",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.place.โบสถ์",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_place_วิหาร",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.place.วิหาร",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_place_พุทธสถาน",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.place.พุทธสถาน",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_place_เทวสถาน",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.place.เทวสถาน",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_place_ศาล",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.place.ศาล",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_place_สภาแห่งชาติ",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.place.สภาแห่งชาติ",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_place_มหาวิทยาลัย",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.place.มหาวิทยาลัย",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_place_โรงพยาบาล",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงพยาบาล",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_place_สุขศาลา",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.place.สุขศาลา",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_color_สีเหลืองแก่",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.color.สีเหลืองแก่",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_taste_รสหวาน",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.taste.รสหวาน",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_metal_สังกะสี",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.metal.สังกะสี",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.jupiter_relates_attribute_gender_เพศชาย",
+      "subject": "planet.jupiter",
+      "relation": "relates_to",
+      "object": "attribute.gender.เพศชาย",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.venus_relates_attribute_profession_อาจารย์แห่งศิลปะทุกชนิด",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.profession.อาจารย์แห่งศิลปะทุกชนิด",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.venus_relates_attribute_profession_เจ้าหน้าที่ผู้ดูแลรักษาป่าไม้",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.profession.เจ้าหน้าที่ผู้ดูแลรักษาป่าไม้",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.venus_relates_attribute_profession_พ่อค้าไม้",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.profession.พ่อค้าไม้",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.venus_relates_attribute_profession_นักดนตรี",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.profession.นักดนตรี",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.venus_relates_attribute_profession_นักร้อง",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.profession.นักร้อง",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.venus_relates_attribute_profession_นักแต่งเพลงและโคลงฉันท์กาพย์กลอน",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.profession.นักแต่งเพลงและโคลงฉันท์กาพย์กลอน",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.venus_relates_attribute_profession_นักแสดงหนังและละคร",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.profession.นักแสดงหนังและละคร",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.venus_relates_attribute_profession_นักกีฬา",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.profession.นักกีฬา",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.venus_relates_attribute_profession_นักท่องเที่ยว",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.profession.นักท่องเที่ยว",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.venus_relates_attribute_profession_ช่างตัดผม",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.profession.ช่างตัดผม",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.venus_relates_attribute_profession_ช่างเย็บปักถักร้อย",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.profession.ช่างเย็บปักถักร้อย",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.venus_relates_attribute_profession_ช่างดอกไม้",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.profession.ช่างดอกไม้",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.venus_relates_attribute_profession_ช่างทำเครื่องประดับเกี่ยวกับอัญมณี",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.profession.ช่างทำเครื่องประดับเกี่ยวกับอัญมณี",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.venus_relates_attribute_profession_ผู้ค้าเครื่องสำอาง",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้ค้าเครื่องสำอาง",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p34.venus_relates_attribute_profession_ช่างเสริมสวย",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.profession.ช่างเสริมสวย",
+      "objectKind": "keyword",
+      "page": "34"
+    },
+    {
+      "id": "mahabhut.p35.venus_relates_attribute_disease_โรคปวดบ่าเอว",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคปวดบ่าเอว",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.venus_relates_attribute_disease_พิการ",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.disease.พิการ",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.venus_relates_attribute_disease_ความเจ็บป่วยอันเนื่องมาจากร่างกายไม่ได้รับการพักผ่อน",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.disease.ความเจ็บป่วยอันเนื่องมาจากร่างกายไม่ได้รับการพักผ่อน",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.venus_relates_attribute_disease_โรคภัยไข้เจ็บเกี่ยวกับคอ_และคอหอย",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคภัยไข้เจ็บเกี่ยวกับคอ_และคอหอย",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.venus_relates_attribute_disease_กามโรค",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.disease.กามโรค",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.venus_relates_attribute_disease_มดลูกพิการ",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.disease.มดลูกพิการ",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.venus_relates_attribute_place_กรมป่าไม้",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.place.กรมป่าไม้",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.venus_relates_attribute_place_ร้านค้าเครื่องสำอาง",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.place.ร้านค้าเครื่องสำอาง",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.venus_relates_attribute_place_ร้านเสริมสวย",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.place.ร้านเสริมสวย",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.venus_relates_attribute_place_สถานเสริมความงาม",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.place.สถานเสริมความงาม",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.venus_relates_attribute_place_สถานที่ให้ความบันเทิงสนุกสนาน_เช่นบาร์",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.place.สถานที่ให้ความบันเทิงสนุกสนาน_เช่นบาร์",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.venus_relates_attribute_place_สถานที่เต้นรำ",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.place.สถานที่เต้นรำ",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.venus_relates_attribute_place_สถานที่ชุมนุมมหรสพ",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.place.สถานที่ชุมนุมมหรสพ",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.venus_relates_attribute_place_และศิลปกรรมทั้งหลาย",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.place.และศิลปกรรมทั้งหลาย",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.venus_relates_attribute_place_สถานที่ๆหลับนอน",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.place.สถานที่ๆหลับนอน",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.venus_relates_attribute_place_สถานที่ๆติดต่อกันด้วยความรัก",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.place.สถานที่ๆติดต่อกันด้วยความรัก",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.venus_relates_attribute_place_สถานที่ๆทำธุรกิจด้านการทำไม้",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.place.สถานที่ๆทำธุรกิจด้านการทำไม้",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.venus_relates_attribute_place_โรงเลื่อย_ไม้",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงเลื่อย_ไม้",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.venus_relates_attribute_place_โรงเพาะชำพันธุ์ไม้ทุกชนิด",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงเพาะชำพันธุ์ไม้ทุกชนิด",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.venus_relates_attribute_gender_เพศหญิง",
+      "subject": "planet.venus",
+      "relation": "relates_to",
+      "object": "attribute.gender.เพศหญิง",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.saturn_relates_attribute_profession_เจ้าของโรงงานอุตสาหกรรมต่างๆ",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.profession.เจ้าของโรงงานอุตสาหกรรมต่างๆ",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.saturn_relates_attribute_profession_ผู้อำนวยการโรงงานหรือองค์การต่างๆ",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้อำนวยการโรงงานหรือองค์การต่างๆ",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.saturn_relates_attribute_profession_กรรมการ",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.profession.กรรมการ",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.saturn_relates_attribute_profession_กรรมกร",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.profession.กรรมกร",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.saturn_relates_attribute_profession_และช่าง",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.profession.และช่าง",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.saturn_relates_attribute_profession_คนเฝ้าโบสถ์",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.profession.คนเฝ้าโบสถ์",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.saturn_relates_attribute_profession_สัปเหร่อ",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.profession.สัปเหร่อ",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.saturn_relates_attribute_profession_ผู้คุมนักโทษ",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้คุมนักโทษ",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.saturn_relates_attribute_disease_โรคผิวหนัง",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคผิวหนัง",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.saturn_relates_attribute_disease_โรคขัดข้อเท้า",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคขัดข้อเท้า",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.saturn_relates_attribute_disease_เจ็บขาและลำข้อ",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.disease.เจ็บขาและลำข้อ",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.saturn_relates_attribute_disease_โรคอันเนื่องมาจากเหงื่อเย็นและออกไม่สะดวก",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคอันเนื่องมาจากเหงื่อเย็นและออกไม่สะดวก",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.saturn_relates_attribute_disease_เส้นประสาทหวาดสะดุ้ง",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.disease.เส้นประสาทหวาดสะดุ้ง",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.saturn_relates_attribute_disease_โรคจิตวิปลาส",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคจิตวิปลาส",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.saturn_relates_attribute_disease_มีอารมณ์หงอยเหงาเศร้าทุกข์",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.disease.มีอารมณ์หงอยเหงาเศร้าทุกข์",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p35.saturn_relates_attribute_disease_โรคเกี่ยวกับม้าม",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคเกี่ยวกับม้าม",
+      "objectKind": "keyword",
+      "page": "35"
+    },
+    {
+      "id": "mahabhut.p36.saturn_relates_attribute_place_โรงงานผลิตร่ม",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงงานผลิตร่ม",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.saturn_relates_attribute_place_โรงงานผลิตอาวุธ",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงงานผลิตอาวุธ",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.saturn_relates_attribute_place_และมีด_พร้าชนิดต่างๆ",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.place.และมีด_พร้าชนิดต่างๆ",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.saturn_relates_attribute_place_โรงงานผลิตภัณฑ์เกี่ยวกับเนื้อโค",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงงานผลิตภัณฑ์เกี่ยวกับเนื้อโค",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.saturn_relates_attribute_place_ฟาร์มโค",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.place.ฟาร์มโค",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.saturn_relates_attribute_place_สถานที่ๆร้างปรักหักพัง",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.place.สถานที่ๆร้างปรักหักพัง",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.saturn_relates_attribute_place_สถานที่เผาศพ",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.place.สถานที่เผาศพ",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.saturn_relates_attribute_place_ที่ทิ้งขยะมูลฝอย",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.place.ที่ทิ้งขยะมูลฝอย",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.saturn_relates_attribute_place_ทุ่งนา",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.place.ทุ่งนา",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.saturn_relates_attribute_place_ป่า",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.place.ป่า",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.saturn_relates_attribute_place_เขา",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.place.เขา",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.saturn_relates_attribute_place_ถ้ำที่เงียบสงบ",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.place.ถ้ำที่เงียบสงบ",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.saturn_relates_attribute_color_สีดำ",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.color.สีดำ",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.saturn_relates_attribute_taste_รสเปรี้ยว",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.taste.รสเปรี้ยว",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.saturn_relates_attribute_metal_ธาตุตะกั่ว",
+      "subject": "planet.saturn",
+      "relation": "relates_to",
+      "object": "attribute.metal.ธาตุตะกั่ว",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.rahu_relates_attribute_profession_บุคคลที่มีแนวทางตรงกันข้ามกับกฎหมาย",
+      "subject": "planet.rahu",
+      "relation": "relates_to",
+      "object": "attribute.profession.บุคคลที่มีแนวทางตรงกันข้ามกับกฎหมาย",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.rahu_relates_attribute_profession_นักเลงสุรา",
+      "subject": "planet.rahu",
+      "relation": "relates_to",
+      "object": "attribute.profession.นักเลงสุรา",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.rahu_relates_attribute_profession_นักเลงสูบฟิ่น",
+      "subject": "planet.rahu",
+      "relation": "relates_to",
+      "object": "attribute.profession.นักเลงสูบฟิ่น",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.rahu_relates_attribute_profession_นักเลงการพนันทุกชนิด",
+      "subject": "planet.rahu",
+      "relation": "relates_to",
+      "object": "attribute.profession.นักเลงการพนันทุกชนิด",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.rahu_relates_attribute_profession_เพชรฆาต",
+      "subject": "planet.rahu",
+      "relation": "relates_to",
+      "object": "attribute.profession.เพชรฆาต",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.rahu_relates_attribute_profession_คนเลี้ยงสัตว์",
+      "subject": "planet.rahu",
+      "relation": "relates_to",
+      "object": "attribute.profession.คนเลี้ยงสัตว์",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.rahu_relates_attribute_profession_พวกอันธพาล",
+      "subject": "planet.rahu",
+      "relation": "relates_to",
+      "object": "attribute.profession.พวกอันธพาล",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.rahu_relates_attribute_profession_นักตุมตุ๋น",
+      "subject": "planet.rahu",
+      "relation": "relates_to",
+      "object": "attribute.profession.นักตุมตุ๋น",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.rahu_relates_attribute_profession_หัวหน้าซ่อง",
+      "subject": "planet.rahu",
+      "relation": "relates_to",
+      "object": "attribute.profession.หัวหน้าซ่อง",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.rahu_relates_attribute_profession_ผู้ค้าของปลอม",
+      "subject": "planet.rahu",
+      "relation": "relates_to",
+      "object": "attribute.profession.ผู้ค้าของปลอม",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.rahu_relates_attribute_disease_โรคที่เกี่ยวกับโรคมีเมาเป็นมูลเหตุ",
+      "subject": "planet.rahu",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคที่เกี่ยวกับโรคมีเมาเป็นมูลเหตุ",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.rahu_relates_attribute_disease_เช่นโรคตับพิการ",
+      "subject": "planet.rahu",
+      "relation": "relates_to",
+      "object": "attribute.disease.เช่นโรคตับพิการ",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.rahu_relates_attribute_disease_โรคพิษสุราเรื้อรัง",
+      "subject": "planet.rahu",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคพิษสุราเรื้อรัง",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.rahu_relates_attribute_disease_โรคลมปัจจุบัน",
+      "subject": "planet.rahu",
+      "relation": "relates_to",
+      "object": "attribute.disease.โรคลมปัจจุบัน",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.rahu_relates_attribute_place_แหล่งชุมนุมอันธพาล",
+      "subject": "planet.rahu",
+      "relation": "relates_to",
+      "object": "attribute.place.แหล่งชุมนุมอันธพาล",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.rahu_relates_attribute_place_ซ่องโสเภณี",
+      "subject": "planet.rahu",
+      "relation": "relates_to",
+      "object": "attribute.place.ซ่องโสเภณี",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.rahu_relates_attribute_place_โรงยาฝิ่น",
+      "subject": "planet.rahu",
+      "relation": "relates_to",
+      "object": "attribute.place.โรงยาฝิ่น",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.rahu_relates_attribute_place_ร้านเหล้า",
+      "subject": "planet.rahu",
+      "relation": "relates_to",
+      "object": "attribute.place.ร้านเหล้า",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.rahu_relates_attribute_place_ตลาดมืด",
+      "subject": "planet.rahu",
+      "relation": "relates_to",
+      "object": "attribute.place.ตลาดมืด",
+      "objectKind": "keyword",
+      "page": "36"
+    },
+    {
+      "id": "mahabhut.p36.rahu_relates_attribute_place_แหล่งขายของหนีภาษี",
+      "subject": "planet.rahu",
+      "relation": "relates_to",
+      "object": "attribute.place.แหล่งขายของหนีภาษี",
+      "objectKind": "keyword",
+      "page": "36"
+    }
+  ]
+}

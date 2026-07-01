@@ -5,8 +5,7 @@
 > significations). Natal-analysis production remains complete from Batch 6.
 > No platform, ontology, engine, or runtime change.
 
-Status: **CURRENT** · Knowledge production only · Platform frozen (D-065) ·
-D-066 / D-067 / D-068 / D-069 / D-070 / D-071 unchanged · No deploy.
+Status: **RESOLVED → Batch 8** · Knowledge production only · Platform frozen
 
 ---
 
