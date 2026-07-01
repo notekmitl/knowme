@@ -2007,5 +2007,62 @@ abstract final class CanonOntologyAttributeValues {
       parentId: "attributeCategory.taste",
       aliases: ["รสเผ็ดร้อน"],
     ),
+    // Production Batch 9 — planet directions (p37).
+    CanonicalEntity(
+      id: "attribute.direction.ตะวันออกเฉียงเหนือ",
+      canonicalName: "Northeast",
+      category: OntologyCategory.attribute,
+      parentId: "attributeCategory.direction",
+      aliases: ["ตะวันออกเฉียงเหนือ"],
+    ),
+    CanonicalEntity(
+      id: "attribute.direction.ตะวันออก",
+      canonicalName: "East",
+      category: OntologyCategory.attribute,
+      parentId: "attributeCategory.direction",
+      aliases: ["ตะวันออก"],
+    ),
+    CanonicalEntity(
+      id: "attribute.direction.ตะวันออกเฉียงใต้",
+      canonicalName: "Southeast",
+      category: OntologyCategory.attribute,
+      parentId: "attributeCategory.direction",
+      aliases: ["ตะวันออกเฉียงใต้"],
+    ),
+    CanonicalEntity(
+      id: "attribute.direction.ใต้",
+      canonicalName: "South",
+      category: OntologyCategory.attribute,
+      parentId: "attributeCategory.direction",
+      aliases: ["ใต้"],
+    ),
+    CanonicalEntity(
+      id: "attribute.direction.ตะวันตกเฉียงใต้",
+      canonicalName: "Southwest",
+      category: OntologyCategory.attribute,
+      parentId: "attributeCategory.direction",
+      aliases: ["ตะวันตกเฉียงใต้"],
+    ),
+    CanonicalEntity(
+      id: "attribute.direction.ตะวันตก",
+      canonicalName: "West",
+      category: OntologyCategory.attribute,
+      parentId: "attributeCategory.direction",
+      aliases: ["ตะวันตก"],
+    ),
+    CanonicalEntity(
+      id: "attribute.direction.ตะวันตกเฉียงเหนือ",
+      canonicalName: "Northwest",
+      category: OntologyCategory.attribute,
+      parentId: "attributeCategory.direction",
+      aliases: ["ตะวันตกเฉียงเหนือ"],
+    ),
+    CanonicalEntity(
+      id: "attribute.direction.เหนือ",
+      canonicalName: "North",
+      category: OntologyCategory.attribute,
+      parentId: "attributeCategory.direction",
+      aliases: ["เหนือ"],
+    ),
   ];
 }

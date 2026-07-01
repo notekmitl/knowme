@@ -8,6 +8,7 @@ import 'package:knowme/features/astrology/thai/knowledge/canon/ontology/ontology
 import 'package:knowme/features/astrology/thai/knowledge/canon/production/production.dart';
 
 import 'generated/batch8_planet_library_units.dart';
+import 'generated/batch9_direction_units.dart';
 
 /// Canon Knowledge Production — Sprint 2A first batch.
 ///
@@ -580,9 +581,10 @@ void main() {
           page: '16',
         ),
         ...batch8PlanetLibraryUnits(unit: unit),
+        ...batch9DirectionUnits(unit: unit),
       ];
 
-  group('Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4-8)', () {
+  group('Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4-9)', () {
     final ontology = CanonOntologyData.standard();
     final units = batch();
 
@@ -755,7 +757,7 @@ void main() {
       expect(planetDomains.subjectsCovered, 7);
 
       final planetKeywords = report.domain(ProductionDomain.planetKeywords)!;
-      expect(planetKeywords.produced, 293);
+      expect(planetKeywords.produced, 301);
       expect(planetKeywords.subjectsCovered, 8);
     });
 
@@ -786,14 +788,14 @@ void main() {
 
     test('coverage by planet (all units)', () {
       expect(countBy(units, (u) => u.subject), {
-        'planet.sun': 48,
-        'planet.moon': 57,
-        'planet.mars': 59,
-        'planet.mercury': 49,
-        'planet.jupiter': 40,
-        'planet.venus': 44,
-        'planet.saturn': 32,
-        'planet.rahu': 20,
+        'planet.sun': 49,
+        'planet.moon': 58,
+        'planet.mars': 60,
+        'planet.mercury': 50,
+        'planet.jupiter': 41,
+        'planet.venus': 45,
+        'planet.saturn': 33,
+        'planet.rahu': 21,
       });
     });
 
@@ -827,11 +829,11 @@ void main() {
         final key = u.context == null ? 'general' : u.context!.type.wire;
         byContext[key] = (byContext[key] ?? 0) + 1;
       }
-      expect(byContext, {'archetype_chart': 40, 'general': 309});
+      expect(byContext, {'archetype_chart': 40, 'general': 317});
     });
 
     test('metrics totals reconcile with the batch', () {
-      expect(units.length, 349);
+      expect(units.length, 357);
       expect(placements.length, 40);
     });
   });

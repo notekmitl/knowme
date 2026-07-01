@@ -5,8 +5,7 @@
 > `planet --relates_to--> attribute.*` facts). Ontology expansion committed
 > separately (`cc3f728`). No platform, engine, or runtime change.
 
-Status: **CURRENT** · Knowledge production only · Platform frozen (D-065) ·
-D-066–D-071 unchanged · No deploy.
+Status: **RESOLVED → Batch 9** · Knowledge production only · Platform frozen
 
 ---
 
