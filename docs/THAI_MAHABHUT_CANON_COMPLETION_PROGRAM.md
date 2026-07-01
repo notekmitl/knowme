@@ -185,6 +185,8 @@ for representable atomic facts.
 
 ### Phase E — Prediction Rules
 
+**Status:** **CLOSED** — see [`THAI_CANON_KNOWLEDGE_PRODUCTION_PHASE_E.md`](THAI_CANON_KNOWLEDGE_PRODUCTION_PHASE_E.md).
+
 **Canon scope:** Explicit weak/strong position rules and prediction criteria stated
 in the Canon (not interpretive narrative).
 

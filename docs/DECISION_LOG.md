@@ -2274,6 +2274,24 @@ sessions and developers should consult this before reopening any settled decisio
 
 ---
 
+## D-076 — Mahabhut prediction effect ontology (Phase E)
+
+- **Date:** 2026-07-01 · **Status:** Accepted · Ontology expansion only · **No
+  platform/runtime/engine change**
+- **Context:** D-073 Phase E requires representing pp.40–41 universal rise/fall
+  prediction vocabulary (`อ่อนแอ`, `เข้มแข็ง`) without inferring domain mappings.
+- **Decision:** Add `OntologyCategory.predictionEffect` with
+  `predictionEffect.weak` and `predictionEffect.strong` — Thai aliases verbatim
+  from the Canon. **No meanings or polarity encoded.**
+- **Reason:** Minimum vocabulary for universal position-strength prediction rules
+  on pp.40–41 without domain inference.
+- **Boundary:** Per-period narrative effects remain a modeling gap; `AtomicRelation`
+  enum unchanged (`produces` / `opposes` used).
+- **Impact:** Phase E +5 units (683 cumulative); ontology and production tests.
+- **Related documents:** `THAI_CANON_KNOWLEDGE_PRODUCTION_PHASE_E.md`.
+
+---
+
 ## Related documents
 
 - [`AI_ALIGNMENT_CONTEXT.md`](AI_ALIGNMENT_CONTEXT.md) — rules, reading order, Documentation Policy.

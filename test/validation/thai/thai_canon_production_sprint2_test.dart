@@ -11,6 +11,7 @@ import 'generated/batch8_planet_library_units.dart';
 import 'generated/batch9_direction_units.dart';
 import 'generated/phase_c_taksa_units.dart';
 import 'generated/phase_d_life_period_units.dart';
+import 'generated/phase_e_prediction_units.dart';
 
 /// Canon Knowledge Production — Sprint 2A first batch.
 ///
@@ -595,10 +596,11 @@ void main() {
         ...batch9DirectionUnits(unit: unit),
         ...phaseCTaksaUnits(unit: unit),
         ...phaseDLifePeriodUnits(unit: unit),
+        ...phaseEPredictionUnits(unit: unit),
       ];
 
   group(
-      'Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4-9 + Phase C + Phase D)',
+      'Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4-9 + Phase C–E)',
       () {
     final ontology = CanonOntologyData.standard();
     final units = batch();
@@ -693,6 +695,42 @@ void main() {
       expect(ontology.resolveId('ดวงขึ้น'), 'periodStatus.duengKhuen');
       expect(ontology.resolveId('ดวงตก'), 'periodStatus.duengTok');
       expect(ontology.resolveId('เสวยอายุ ๑๕ ปี'), 'agePeriod.dasha15y');
+    });
+
+    test('prediction rules are universal or context-scoped (Phase E)', () {
+      final rules = units.where((u) => u.domain == KnowledgeDomain.lifePeriodRules &&
+          (u.relation == AtomicRelation.produces ||
+              u.relation == AtomicRelation.opposes) &&
+          u.subject.startsWith('periodStatus.') == false &&
+          u.object.startsWith('predictionEffect.'));
+      for (final u in rules) {
+        if (u.condition != null) {
+          expect(u.context, isNull, reason: '${u.id} conditional universal rule');
+        } else if (u.subject.startsWith('planet.')) {
+          // Chart-scoped prediction examples use condition, not context.
+          expect(u.condition ?? u.context, isNotNull,
+              reason: '${u.id} must be scoped');
+        }
+      }
+      final universal = units.where((u) =>
+          u.id.startsWith('mahabhut.p40.dueng') ||
+          u.id.startsWith('mahabhut.p41.dueng'));
+      expect(universal.length, 2);
+      for (final u in universal) {
+        expect(u.context, isNull);
+      }
+    });
+
+    test('no remedy instruction is imported (Phase E)', () {
+      final remedies = units.where((u) =>
+          u.condition?.contains('สะเดาะ') == true ||
+          u.context?.value.contains('สะเดาะ') == true);
+      expect(remedies, isEmpty);
+    });
+
+    test('prediction effect vocabulary resolves (D-076)', () {
+      expect(ontology.resolveId('อ่อนแอ'), 'predictionEffect.weak');
+      expect(ontology.resolveId('เข้มแข็ง'), 'predictionEffect.strong');
     });
 
     test('taksa role assignments are context-scoped (Phase C)', () {
@@ -869,7 +907,7 @@ void main() {
       // Planet → Domain natural significators (general): Jupiter → learning/
       // career, Moon → finance, plus front-matter family/relationship/personality.
       final planetDomains = report.domain(ProductionDomain.planetDomains)!;
-      expect(planetDomains.produced, 16);
+      expect(planetDomains.produced, 17);
       expect(planetDomains.subjectsCovered, 7);
 
       final planetKeywords = report.domain(ProductionDomain.planetKeywords)!;
@@ -916,7 +954,7 @@ void main() {
         'planet.moon': 93,
         'planet.mars': 101,
         'planet.mercury': 68,
-        'planet.jupiter': 99,
+        'planet.jupiter': 100,
         'planet.venus': 90,
         'planet.saturn': 78,
         'planet.rahu': 54,
@@ -924,8 +962,9 @@ void main() {
         'taksaRole.det': 1,
         'taksaRole.sri': 1,
         'taksaRole.montri': 1,
-        'periodStatus.duengKhuen': 4,
-        'periodStatus.duengTok': 3,
+        'periodStatus.duengKhuen': 5,
+        'periodStatus.duengTok': 4,
+        'taksaRole.kalakini': 2,
       });
     });
 
@@ -984,14 +1023,14 @@ void main() {
       }
       expect(byContext, {
         'archetype_chart': 43,
-        'general': 332,
+        'general': 337,
         'other': 8,
         'life_period': 295,
       });
     });
 
     test('metrics totals reconcile with the batch', () {
-      expect(units.length, 678);
+      expect(units.length, 683);
       expect(mahabhutPlacements.length, 255);
       expect(taksaPlacements.length, 91);
     });
