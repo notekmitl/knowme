@@ -1,0 +1,14 @@
+[
+  {
+    "material": "pp.295–297 คำอธิษฐาน per weekday",
+    "reason": "Multi-clause ritual prose / mantra text — not splittable without losing meaning"
+  },
+  {
+    "material": "p293 remedy intro",
+    "reason": "OCR_BLOCKED — page text unreadable"
+  },
+  {
+    "material": "Embedded remedy multi-step fallback procedures",
+    "reason": "Compound instructions (e.g. alternate direction if image missing) — not atomic"
+  }
+]

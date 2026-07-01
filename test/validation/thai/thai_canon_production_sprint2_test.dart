@@ -12,6 +12,7 @@ import 'generated/batch9_direction_units.dart';
 import 'generated/phase_c_taksa_units.dart';
 import 'generated/phase_d_life_period_units.dart';
 import 'generated/phase_e_prediction_units.dart';
+import 'generated/phase_f_remedy_units.dart';
 
 /// Canon Knowledge Production — Sprint 2A first batch.
 ///
@@ -597,10 +598,11 @@ void main() {
         ...phaseCTaksaUnits(unit: unit),
         ...phaseDLifePeriodUnits(unit: unit),
         ...phaseEPredictionUnits(unit: unit),
+        ...phaseFRemedyUnits(unit: unit),
       ];
 
   group(
-      'Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4-9 + Phase C–E)',
+      'Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4-9 + Phase C–F)',
       () {
     final ontology = CanonOntologyData.standard();
     final units = batch();
@@ -722,10 +724,67 @@ void main() {
     });
 
     test('no remedy instruction is imported (Phase E)', () {
-      final remedies = units.where((u) =>
+      final rulesOnly = units.where((u) => u.domain == KnowledgeDomain.lifePeriodRules);
+      final remedies = rulesOnly.where((u) =>
           u.condition?.contains('สะเดาะ') == true ||
           u.context?.value.contains('สะเดาะ') == true);
       expect(remedies, isEmpty);
+    });
+
+    test('every Phase F remedy unit has page provenance', () {
+      final remedies = units.where((u) => u.domain == KnowledgeDomain.remedies);
+      expect(remedies.length, 87);
+      for (final u in remedies) {
+        expect(u.evidence.page, isNotNull, reason: u.id);
+        expect(u.evidence.page!, isNotEmpty, reason: u.id);
+        expect(int.tryParse(u.evidence.page!), isNotNull, reason: u.id);
+      }
+    });
+
+    test('remedy units are context-scoped unless universal procedure (Phase F)', () {
+      final remedies = units.where((u) => u.domain == KnowledgeDomain.remedies);
+      final universal = remedies.where((u) => u.context == null);
+      expect(universal.length, 5);
+      expect(
+        universal.map((u) => u.id).toSet(),
+        {
+          'mahabhut.p294.sadoe_trigger_dueng_tok',
+          'mahabhut.p294.requires_buddha_day_image',
+          'mahabhut.p294.requires_vase3',
+          'mahabhut.p294.requires_flowers_per_vase',
+          'mahabhut.p294.requires_incense_per_age',
+        },
+      );
+      for (final u in remedies.where((u) => u.context != null)) {
+        expect(u.context!.value.trim(), isNotEmpty, reason: u.id);
+      }
+    });
+
+    test('no user-facing remedy advice is imported (Phase F)', () {
+      final adviceMarkers = ['ควร', 'จง', 'ระวัง', 'อย่า', 'ไม่ควร'];
+      for (final u in units.where((u) => u.domain == KnowledgeDomain.remedies)) {
+        final text = '${u.condition ?? ''} ${u.context?.value ?? ''}';
+        for (final marker in adviceMarkers) {
+          expect(text.contains(marker), isFalse, reason: '${u.id} contains $marker');
+        }
+      }
+    });
+
+    test('no medical-treatment claim is imported as remedy advice (Phase F)', () {
+      final medical = ['รักษา', 'ยา', 'โรค', 'หมอ', 'ทานยา'];
+      for (final u in units.where((u) => u.domain == KnowledgeDomain.remedies)) {
+        final text = '${u.condition ?? ''} ${u.context?.value ?? ''}';
+        for (final marker in medical) {
+          expect(text.contains(marker), isFalse, reason: '${u.id} contains $marker');
+        }
+      }
+    });
+
+    test('remedy vocabulary resolves (D-077)', () {
+      expect(ontology.resolveId('สะเดาะเคราะห์'), 'remedy.sadoeKhroh');
+      expect(ontology.resolveId('แจกัน ๓ ลูก'), 'remedyItem.vase3');
+      expect(ontology.resolveId('พระปางนาคปรก'), 'ritualTarget.buddhaNakProk');
+      expect(ontology.resolveId('พญาครุฑ'), 'ritualTarget.garuda');
     });
 
     test('prediction effect vocabulary resolves (D-076)', () {
@@ -965,6 +1024,7 @@ void main() {
         'periodStatus.duengKhuen': 5,
         'periodStatus.duengTok': 4,
         'taksaRole.kalakini': 2,
+        'remedy.sadoeKhroh': 87,
       });
     });
 
@@ -1023,14 +1083,14 @@ void main() {
       }
       expect(byContext, {
         'archetype_chart': 43,
-        'general': 337,
-        'other': 8,
-        'life_period': 295,
+        'general': 342,
+        'other': 86,
+        'life_period': 299,
       });
     });
 
     test('metrics totals reconcile with the batch', () {
-      expect(units.length, 683);
+      expect(units.length, 770);
       expect(mahabhutPlacements.length, 255);
       expect(taksaPlacements.length, 91);
     });

@@ -208,6 +208,8 @@ or gap-documented.
 
 ### Phase F — Remedies
 
+**Status:** **CLOSED** — see [`THAI_CANON_KNOWLEDGE_PRODUCTION_PHASE_F.md`](THAI_CANON_KNOWLEDGE_PRODUCTION_PHASE_F.md).
+
 **Canon scope:** แก้ดวง / สะเดาะเคราะห์ — remedy procedures and prescriptions.
 
 | Source (approx.) | Content |
