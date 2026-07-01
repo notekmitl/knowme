@@ -56,6 +56,10 @@ enum OntologyCategory {
   /// Role *meanings* and planet assignments are Canon knowledge, never encoded
   /// here.
   taksaRole,
+
+  /// Life-period **rise/fall classification** (D-075 Phase D). Vocabulary only
+  /// for `ดวงขึ้น` / `ดวงตก` as stated in the Canon — no prediction encoded.
+  periodStatus,
   other;
 
   /// Stable wire name used in ids and JSON.

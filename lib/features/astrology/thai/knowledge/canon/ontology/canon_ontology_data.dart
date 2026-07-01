@@ -248,6 +248,51 @@ abstract final class CanonOntologyData {
     ),
   ];
 
+  /// Planet **เสวยอายุ** dasha durations stated on p18 (D-075 Phase D).
+  /// Vocabulary only — verbatim Thai aliases from recoverable OCR lines.
+  static const List<CanonicalEntity> agePeriods = [
+    CanonicalEntity(
+      id: 'agePeriod.dasha5y',
+      canonicalName: 'Dasha 5y',
+      category: OntologyCategory.agePeriod,
+      aliases: ['เสวยอายุ ๕ ปี'],
+    ),
+    CanonicalEntity(
+      id: 'agePeriod.dasha10y',
+      canonicalName: 'Dasha 10y',
+      category: OntologyCategory.agePeriod,
+      aliases: ['เสวยอายุ ๑๐ ปี', 'เสวยอาย ๑๐ ปี'],
+    ),
+    CanonicalEntity(
+      id: 'agePeriod.dasha12y',
+      canonicalName: 'Dasha 12y',
+      category: OntologyCategory.agePeriod,
+      aliases: ['เสวยอายุ ๑๒ ปี', 'เสวยอาย ๑๒ ปี'],
+    ),
+    CanonicalEntity(
+      id: 'agePeriod.dasha15y',
+      canonicalName: 'Dasha 15y',
+      category: OntologyCategory.agePeriod,
+      aliases: ['เสวยอายุ ๑๕ ปี'],
+    ),
+  ];
+
+  /// Rise/fall period classification (D-075 Phase D).
+  static const List<CanonicalEntity> periodStatuses = [
+    CanonicalEntity(
+      id: 'periodStatus.duengKhuen',
+      canonicalName: 'Dueng Khuen',
+      category: OntologyCategory.periodStatus,
+      aliases: ['ดวงขึ้น'],
+    ),
+    CanonicalEntity(
+      id: 'periodStatus.duengTok',
+      canonicalName: 'Dueng Tok',
+      category: OntologyCategory.periodStatus,
+      aliases: ['ดวงตก'],
+    ),
+  ];
+
   /// Hierarchical life domains. Root `domain.life`; the rest are its children.
   static const List<CanonicalEntity> domains = [
     CanonicalEntity(
@@ -404,6 +449,8 @@ abstract final class CanonOntologyData {
         ...houses(),
         ...mahabhutPositions,
         ...taksaRoles,
+        ...agePeriods,
+        ...periodStatuses,
         ...attributeCategories,
         ...CanonOntologyAttributeValues.all,
         ...elements,

@@ -115,6 +115,40 @@ void main() {
     });
   });
 
+  group('Mahabhut Life Period vocabulary (D-075 Phase D Ontology Expansion)', () {
+    final ont = CanonOntologyData.standard();
+
+    test('period status and dasha age periods resolve from Thai aliases', () {
+      const expected = {
+        'ดวงขึ้น': 'periodStatus.duengKhuen',
+        'ดวงตก': 'periodStatus.duengTok',
+        'เสวยอายุ ๕ ปี': 'agePeriod.dasha5y',
+        'เสวยอายุ ๑๕ ปี': 'agePeriod.dasha15y',
+        'เสวยอาย ๑๐ ปี': 'agePeriod.dasha10y',
+        'เสวยอาย ๑๒ ปี': 'agePeriod.dasha12y',
+      };
+      expected.forEach((surface, id) {
+        expect(ont.resolveId(surface), id, reason: 'resolve "$surface"');
+      });
+    });
+
+    test('exactly two period statuses and four dasha ages are seeded', () {
+      expect(ont.entitiesOf(OntologyCategory.periodStatus).length, 2);
+      expect(ont.entitiesOf(OntologyCategory.agePeriod).length, 4);
+      for (final e in [
+        ...ont.entitiesOf(OntologyCategory.periodStatus),
+        ...ont.entitiesOf(OntologyCategory.agePeriod),
+      ]) {
+        expect(e.hasValidPrefix, isTrue);
+        expect(e.description, isNull);
+      }
+    });
+
+    test('adding life period vocabulary keeps the ontology valid', () {
+      expect(ont.validate().isValid, isTrue, reason: ont.validate().summary);
+    });
+  });
+
   group('Planet Library attribute categories (D-072 Ontology Expansion)', () {
     final ont = CanonOntologyData.standard();
 
