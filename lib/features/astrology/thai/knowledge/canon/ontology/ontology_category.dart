@@ -50,6 +50,12 @@ enum OntologyCategory {
   /// [attributeCategory]. What a planet *signifies* is Canon knowledge produced
   /// through extraction, never encoded in the ontology layer.
   attribute,
+
+  /// Mahabhut **ทักษา** dignity role (D-074 Phase C). Controlled vocabulary
+  /// only — stable id + Thai aliases from the Canon text (`บริวาร`, `อายุ`, …).
+  /// Role *meanings* and planet assignments are Canon knowledge, never encoded
+  /// here.
+  taksaRole,
   other;
 
   /// Stable wire name used in ids and JSON.

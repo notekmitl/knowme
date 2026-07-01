@@ -192,6 +192,62 @@ abstract final class CanonOntologyData {
     ),
   ];
 
+  /// Mahabhut **ทักษา** dignity roles (D-074 Phase C Ontology Expansion).
+  ///
+  /// The book assigns planets to these named roles per birth-day rotation and
+  /// per archetype-chart life-period readings. **Vocabulary only** — no
+  /// meanings, polarity, or planet links encoded here.
+  static const List<CanonicalEntity> taksaRoles = [
+    CanonicalEntity(
+      id: 'taksaRole.boriwan',
+      canonicalName: 'Boriwan',
+      category: OntologyCategory.taksaRole,
+      aliases: ['บริวาร'],
+    ),
+    CanonicalEntity(
+      id: 'taksaRole.ayu',
+      canonicalName: 'Ayu',
+      category: OntologyCategory.taksaRole,
+      aliases: ['อายุ', 'อาย'],
+    ),
+    CanonicalEntity(
+      id: 'taksaRole.det',
+      canonicalName: 'Det',
+      category: OntologyCategory.taksaRole,
+      aliases: ['เดช'],
+    ),
+    CanonicalEntity(
+      id: 'taksaRole.sri',
+      canonicalName: 'Sri',
+      category: OntologyCategory.taksaRole,
+      aliases: ['ศรี'],
+    ),
+    CanonicalEntity(
+      id: 'taksaRole.mula',
+      canonicalName: 'Mula',
+      category: OntologyCategory.taksaRole,
+      aliases: ['มูละ'],
+    ),
+    CanonicalEntity(
+      id: 'taksaRole.utsaha',
+      canonicalName: 'Utsaha',
+      category: OntologyCategory.taksaRole,
+      aliases: ['อุตสาหะ', 'อุสสาหะ'],
+    ),
+    CanonicalEntity(
+      id: 'taksaRole.montri',
+      canonicalName: 'Montri',
+      category: OntologyCategory.taksaRole,
+      aliases: ['มนตรี'],
+    ),
+    CanonicalEntity(
+      id: 'taksaRole.kalakini',
+      canonicalName: 'Kalakini',
+      category: OntologyCategory.taksaRole,
+      aliases: ['กาฬกิณี'],
+    ),
+  ];
+
   /// Hierarchical life domains. Root `domain.life`; the rest are its children.
   static const List<CanonicalEntity> domains = [
     CanonicalEntity(
@@ -347,6 +403,7 @@ abstract final class CanonOntologyData {
         ...planets,
         ...houses(),
         ...mahabhutPositions,
+        ...taksaRoles,
         ...attributeCategories,
         ...CanonOntologyAttributeValues.all,
         ...elements,

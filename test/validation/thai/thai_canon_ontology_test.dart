@@ -81,6 +81,40 @@ void main() {
     });
   });
 
+  group('Mahabhut Taksa roles (D-074 Phase C Ontology Expansion)', () {
+    final ont = CanonOntologyData.standard();
+
+    test('the eight Canon taksa roles resolve from Thai aliases', () {
+      const expected = {
+        'บริวาร': 'taksaRole.boriwan',
+        'อายุ': 'taksaRole.ayu',
+        'เดช': 'taksaRole.det',
+        'ศรี': 'taksaRole.sri',
+        'มูละ': 'taksaRole.mula',
+        'อุตสาหะ': 'taksaRole.utsaha',
+        'มนตรี': 'taksaRole.montri',
+        'กาฬกิณี': 'taksaRole.kalakini',
+      };
+      expected.forEach((surface, id) {
+        expect(ont.resolveId(surface), id, reason: 'resolve "$surface"');
+      });
+    });
+
+    test('exactly eight taksa roles are seeded, vocabulary only', () {
+      final roles = ont.entitiesOf(OntologyCategory.taksaRole);
+      expect(roles.length, 8);
+      expect(roles.every((e) => e.hasValidPrefix), isTrue);
+      for (final e in roles) {
+        expect(e.parentId, isNull);
+        expect(e.description, isNull);
+      }
+    });
+
+    test('adding taksa roles keeps the ontology valid', () {
+      expect(ont.validate().isValid, isTrue, reason: ont.validate().summary);
+    });
+  });
+
   group('Planet Library attribute categories (D-072 Ontology Expansion)', () {
     final ont = CanonOntologyData.standard();
 
