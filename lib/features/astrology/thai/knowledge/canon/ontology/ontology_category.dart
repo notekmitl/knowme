@@ -60,6 +60,10 @@ enum OntologyCategory {
   /// Life-period **rise/fall classification** (D-075 Phase D). Vocabulary only
   /// for `ดวงขึ้น` / `ดวงตก` as stated in the Canon — no prediction encoded.
   periodStatus,
+
+  /// Canon-stated **prediction effect tokens** (D-076 Phase E). Verbatim Thai
+  /// surface forms only (`อ่อนแอ`, `เข้มแข็ง`) — no interpretation encoded.
+  predictionEffect,
   other;
 
   /// Stable wire name used in ids and JSON.

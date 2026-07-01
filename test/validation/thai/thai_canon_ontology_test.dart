@@ -149,6 +149,25 @@ void main() {
     });
   });
 
+  group('Mahabhut Prediction effect tokens (D-076 Phase E Ontology Expansion)', () {
+    final ont = CanonOntologyData.standard();
+
+    test('weak and strong effect tokens resolve from Thai aliases', () {
+      expect(ont.resolveId('อ่อนแอ'), 'predictionEffect.weak');
+      expect(ont.resolveId('เข้มแข็ง'), 'predictionEffect.strong');
+    });
+
+    test('exactly two prediction effect tokens are seeded', () {
+      final effects = ont.entitiesOf(OntologyCategory.predictionEffect);
+      expect(effects.length, 2);
+      expect(effects.every((e) => e.hasValidPrefix), isTrue);
+    });
+
+    test('adding prediction effect tokens keeps the ontology valid', () {
+      expect(ont.validate().isValid, isTrue, reason: ont.validate().summary);
+    });
+  });
+
   group('Planet Library attribute categories (D-072 Ontology Expansion)', () {
     final ont = CanonOntologyData.standard();
 

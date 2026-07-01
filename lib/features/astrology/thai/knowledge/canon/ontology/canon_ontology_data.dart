@@ -293,6 +293,22 @@ abstract final class CanonOntologyData {
     ),
   ];
 
+  /// Prediction effect tokens from pp.40–41 (D-076 Phase E). Vocabulary only.
+  static const List<CanonicalEntity> predictionEffects = [
+    CanonicalEntity(
+      id: 'predictionEffect.weak',
+      canonicalName: 'Weak',
+      category: OntologyCategory.predictionEffect,
+      aliases: ['อ่อนแอ', 'อ่อนกำลัง'],
+    ),
+    CanonicalEntity(
+      id: 'predictionEffect.strong',
+      canonicalName: 'Strong',
+      category: OntologyCategory.predictionEffect,
+      aliases: ['เข้มแข็ง'],
+    ),
+  ];
+
   /// Hierarchical life domains. Root `domain.life`; the rest are its children.
   static const List<CanonicalEntity> domains = [
     CanonicalEntity(
@@ -451,6 +467,7 @@ abstract final class CanonOntologyData {
         ...taksaRoles,
         ...agePeriods,
         ...periodStatuses,
+        ...predictionEffects,
         ...attributeCategories,
         ...CanonOntologyAttributeValues.all,
         ...elements,
