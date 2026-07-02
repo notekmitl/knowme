@@ -72,6 +72,18 @@ enum OntologyCategory {
   /// Remedy **worship target / symbol** tokens (D-077 Phase F). Verbatim Canon
   /// names only (`พระปางนาคปรก`, `พญาครุฑ`, …) — no interpretation encoded.
   ritualTarget,
+
+  /// Lookup **remainder index** tokens (D-078 Phase G). `เศษ 0`–`เศษ 6` only.
+  rotationIndex,
+
+  /// Named **archetype chart** tokens from the Canon (D-078 Phase G).
+  archetypeChart,
+
+  /// House **placement digit** tokens 0–6 (D-078 Phase G). Vocabulary only.
+  placementDigit,
+
+  /// Lookup **table identifier** (D-078 Phase G). Structural id only.
+  lookupTable,
   other;
 
   /// Stable wire name used in ids and JSON.

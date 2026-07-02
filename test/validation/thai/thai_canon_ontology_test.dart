@@ -204,6 +204,27 @@ void main() {
     });
   });
 
+  group('Mahabhut Lookup table vocabulary (D-078 Phase G Ontology Expansion)', () {
+    final ont = CanonOntologyData.standard();
+
+    test('rotation, chart, digit, and table tokens resolve', () {
+      expect(ont.resolveId('เศษ 3'), 'rotationIndex.remainder3');
+      expect(ont.resolveId('ดวงนักวิชาการ'), 'archetypeChart.nakwichakan');
+      expect(ont.resolveId('คำนวณสำเร็จรูป'), 'lookupTable.birthDateChart');
+    });
+
+    test('lookup vocabulary counts are seeded with valid prefix', () {
+      expect(ont.entitiesOf(OntologyCategory.rotationIndex).length, 7);
+      expect(ont.entitiesOf(OntologyCategory.archetypeChart).length, 7);
+      expect(ont.entitiesOf(OntologyCategory.placementDigit).length, 7);
+      expect(ont.entitiesOf(OntologyCategory.lookupTable).length, 1);
+    });
+
+    test('adding lookup vocabulary keeps the ontology valid', () {
+      expect(ont.validate().isValid, isTrue, reason: ont.validate().summary);
+    });
+  });
+
   group('Planet Library attribute categories (D-072 Ontology Expansion)', () {
     final ont = CanonOntologyData.standard();
 

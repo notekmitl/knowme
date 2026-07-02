@@ -125,6 +125,7 @@ enum KnowledgeDomain {
   aspects,
   remedies,
   lifePeriodRules,
+  lookupTables,
   other;
 
   String get label => switch (this) {
@@ -135,6 +136,7 @@ enum KnowledgeDomain {
         KnowledgeDomain.aspects => 'Aspects',
         KnowledgeDomain.remedies => 'Remedies',
         KnowledgeDomain.lifePeriodRules => 'Life Period Rules',
+        KnowledgeDomain.lookupTables => 'Lookup Tables',
         KnowledgeDomain.other => 'Other',
       };
 

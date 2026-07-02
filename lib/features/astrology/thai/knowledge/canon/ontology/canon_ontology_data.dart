@@ -447,6 +447,154 @@ abstract final class CanonOntologyData {
     ),
   ];
 
+  /// Remainder index tokens (D-078 Phase G).
+  static const List<CanonicalEntity> rotationIndices = [
+    CanonicalEntity(
+      id: 'rotationIndex.remainder0',
+      canonicalName: 'Remainder 0',
+      category: OntologyCategory.rotationIndex,
+      aliases: ['เศษ 0'],
+    ),
+    CanonicalEntity(
+      id: 'rotationIndex.remainder1',
+      canonicalName: 'Remainder 1',
+      category: OntologyCategory.rotationIndex,
+      aliases: ['เศษ 1'],
+    ),
+    CanonicalEntity(
+      id: 'rotationIndex.remainder2',
+      canonicalName: 'Remainder 2',
+      category: OntologyCategory.rotationIndex,
+      aliases: ['เศษ 2'],
+    ),
+    CanonicalEntity(
+      id: 'rotationIndex.remainder3',
+      canonicalName: 'Remainder 3',
+      category: OntologyCategory.rotationIndex,
+      aliases: ['เศษ 3'],
+    ),
+    CanonicalEntity(
+      id: 'rotationIndex.remainder4',
+      canonicalName: 'Remainder 4',
+      category: OntologyCategory.rotationIndex,
+      aliases: ['เศษ 4'],
+    ),
+    CanonicalEntity(
+      id: 'rotationIndex.remainder5',
+      canonicalName: 'Remainder 5',
+      category: OntologyCategory.rotationIndex,
+      aliases: ['เศษ 5'],
+    ),
+    CanonicalEntity(
+      id: 'rotationIndex.remainder6',
+      canonicalName: 'Remainder 6',
+      category: OntologyCategory.rotationIndex,
+      aliases: ['เศษ 6'],
+    ),
+  ];
+
+  /// Archetype chart names (D-078 Phase G).
+  static const List<CanonicalEntity> archetypeCharts = [
+    CanonicalEntity(
+      id: 'archetypeChart.kamphra',
+      canonicalName: 'Kamphra chart',
+      category: OntologyCategory.archetypeChart,
+      aliases: ['ดวงกำพร้า', 'ดวงกําพร้า', 'กำพร้า', 'กําพร้า'],
+    ),
+    CanonicalEntity(
+      id: 'archetypeChart.naksas',
+      canonicalName: 'Naksas chart',
+      category: OntologyCategory.archetypeChart,
+      aliases: ['ดวงนักภาษา', 'นักภาษา', 'พนักภาษา'],
+    ),
+    CanonicalEntity(
+      id: 'archetypeChart.nakbarihan',
+      canonicalName: 'Nakbarihan chart',
+      category: OntologyCategory.archetypeChart,
+      aliases: ['ดวงนักบริหาร', 'นักบริหาร', 'นกบริหาร', 'นกบรวริหาร'],
+    ),
+    CanonicalEntity(
+      id: 'archetypeChart.manussachaosamran',
+      canonicalName: 'Manussachaosamran chart',
+      category: OntologyCategory.archetypeChart,
+      aliases: ['ดวงมนุษย์เจ้าสำราญ', 'มนุษย์เจ้าสำราญ', 'มมนุษย์เจ้าสำราญ'],
+    ),
+    CanonicalEntity(
+      id: 'archetypeChart.sethi',
+      canonicalName: 'Sethi chart',
+      category: OntologyCategory.archetypeChart,
+      aliases: ['ดวงเศรษฐี', 'เศรษฐี', 'เศรษนรฐี', 'เศรษฐจี'],
+    ),
+    CanonicalEntity(
+      id: 'archetypeChart.nakwichakan',
+      canonicalName: 'Nakwichakan chart',
+      category: OntologyCategory.archetypeChart,
+      aliases: ['ดวงนักวิชาการ', 'นักวิชาการ', 'นกวิชาการ'],
+    ),
+    CanonicalEntity(
+      id: 'archetypeChart.mahasethi',
+      canonicalName: 'Mahasethi chart',
+      category: OntologyCategory.archetypeChart,
+      aliases: ['ดวงมหาเศรษฐี', 'มหาเศรษฐี'],
+    ),
+  ];
+
+  /// Placement digit tokens 0–6 (D-078 Phase G).
+  static const List<CanonicalEntity> placementDigits = [
+    CanonicalEntity(
+      id: 'placementDigit.d0',
+      canonicalName: 'Digit 0',
+      category: OntologyCategory.placementDigit,
+      aliases: ['0'],
+    ),
+    CanonicalEntity(
+      id: 'placementDigit.d1',
+      canonicalName: 'Digit 1',
+      category: OntologyCategory.placementDigit,
+      aliases: ['1'],
+    ),
+    CanonicalEntity(
+      id: 'placementDigit.d2',
+      canonicalName: 'Digit 2',
+      category: OntologyCategory.placementDigit,
+      aliases: ['2'],
+    ),
+    CanonicalEntity(
+      id: 'placementDigit.d3',
+      canonicalName: 'Digit 3',
+      category: OntologyCategory.placementDigit,
+      aliases: ['3'],
+    ),
+    CanonicalEntity(
+      id: 'placementDigit.d4',
+      canonicalName: 'Digit 4',
+      category: OntologyCategory.placementDigit,
+      aliases: ['4'],
+    ),
+    CanonicalEntity(
+      id: 'placementDigit.d5',
+      canonicalName: 'Digit 5',
+      category: OntologyCategory.placementDigit,
+      aliases: ['5'],
+    ),
+    CanonicalEntity(
+      id: 'placementDigit.d6',
+      canonicalName: 'Digit 6',
+      category: OntologyCategory.placementDigit,
+      aliases: ['6'],
+    ),
+  ];
+
+  /// Lookup table identifiers (D-078 Phase G).
+  static const List<CanonicalEntity> lookupTables = [
+    CanonicalEntity(
+      id: 'lookupTable.birthDateChart',
+      canonicalName: 'Birth date chart lookup',
+      category: OntologyCategory.lookupTable,
+      aliases: ['คำนวณสำเร็จรูป', 'เศษ/ดวง'],
+    ),
+  ];
+
   /// Hierarchical life domains. Root `domain.life`; the rest are its children.
   static const List<CanonicalEntity> domains = [
     CanonicalEntity(
@@ -609,6 +757,10 @@ abstract final class CanonOntologyData {
         ...remedies,
         ...remedyItems,
         ...ritualTargets,
+        ...rotationIndices,
+        ...archetypeCharts,
+        ...placementDigits,
+        ...lookupTables,
         ...attributeCategories,
         ...CanonOntologyAttributeValues.all,
         ...elements,
