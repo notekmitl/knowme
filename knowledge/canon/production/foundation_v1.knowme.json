@@ -1,5 +1,5 @@
 {
-  "$comment": "Canon Knowledge Production V1 — foundational domains. STATE: production IN PROGRESS (Sprints 2A-2C + 3 + Production Batch 4 + 5 + 6 + 7 + 8 + 9; 770 units). The canonical source หลักมหาภูต (ส. หยกฟ้า) is available as OCR; D-067 added the book's Named Positions; D-068 added the optional `context` applicability qualifier so chart-scoped facts are representable faithfully. Units are produced FROM the source pages (reference-only provenance, D-057) — never invented (D-066: extraction allowed, generation forbidden) — and validated through the real platform by test/validation/thai/thai_canon_production_sprint2_test.dart. CONVENTION: a unit WITHOUT context is a general/unconditional fact (e.g. natural significations jupiter→learning/career, moon→finance, recurring identically across charts); a unit WITH context {type, value} is true ONLY within that scope (here archetype_chart:<verbatim Thai chart heading from the page>). Optional `condition` (verbatim from source) scopes a general signification without chart context (Batch 7, p16). Planet Library attributes use `relates_to` → `attribute.*` value tokens (Batch 8, D-072). The context value is the source's own chart name (verbatim, not translated) so no inference/external knowledge is introduced.",
+  "$comment": "Canon Knowledge Production V1 — foundational domains. STATE: production IN PROGRESS (Sprints 2A-2C + 3 + Production Batch 4 + 5 + 6 + 7 + 8 + 9; 825 units). The canonical source หลักมหาภูต (ส. หยกฟ้า) is available as OCR; D-067 added the book's Named Positions; D-068 added the optional `context` applicability qualifier so chart-scoped facts are representable faithfully. Units are produced FROM the source pages (reference-only provenance, D-057) — never invented (D-066: extraction allowed, generation forbidden) — and validated through the real platform by test/validation/thai/thai_canon_production_sprint2_test.dart. CONVENTION: a unit WITHOUT context is a general/unconditional fact (e.g. natural significations jupiter→learning/career, moon→finance, recurring identically across charts); a unit WITH context {type, value} is true ONLY within that scope (here archetype_chart:<verbatim Thai chart heading from the page>). Optional `condition` (verbatim from source) scopes a general signification without chart context (Batch 7, p16). Planet Library attributes use `relates_to` → `attribute.*` value tokens (Batch 8, D-072). The context value is the source's own chart name (verbatim, not translated) so no inference/external knowledge is introduced.",
   "version": 1,
   "source": {
     "bookId": "mahabhut",
@@ -13387,6 +13387,1158 @@
         "type": "other",
         "value": "ว่าด้วยการแก้ดวง=สะเดาะเคราะห์"
       }
+    },
+    {
+      "$note": "Phase G Lookup Tables — p19 remainder/chart + adjustment, p20 house-digit placement (42 cells), atomic only. p18 dasha OCR + p20 เศษ 4 excluded."
+    },
+    {
+      "id": "mahabhut.p19.remainder_1_chart",
+      "subject": "rotationIndex.remainder1",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "archetypeChart.kamphra",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "19",
+        "locator": "เศษ/ดวง"
+      },
+      "context": {
+        "type": "other",
+        "value": "เศษ/ดวง"
+      }
+    },
+    {
+      "id": "mahabhut.p19.remainder_2_chart",
+      "subject": "rotationIndex.remainder2",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "archetypeChart.naksas",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "19",
+        "locator": "เศษ/ดวง"
+      },
+      "context": {
+        "type": "other",
+        "value": "เศษ/ดวง"
+      }
+    },
+    {
+      "id": "mahabhut.p19.remainder_3_chart",
+      "subject": "rotationIndex.remainder3",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "archetypeChart.nakbarihan",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "19",
+        "locator": "เศษ/ดวง"
+      },
+      "context": {
+        "type": "other",
+        "value": "เศษ/ดวง"
+      }
+    },
+    {
+      "id": "mahabhut.p19.remainder_4_chart",
+      "subject": "rotationIndex.remainder4",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "archetypeChart.manussachaosamran",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "19",
+        "locator": "เศษ/ดวง"
+      },
+      "context": {
+        "type": "other",
+        "value": "เศษ/ดวง"
+      }
+    },
+    {
+      "id": "mahabhut.p19.remainder_5_chart",
+      "subject": "rotationIndex.remainder5",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "archetypeChart.sethi",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "19",
+        "locator": "เศษ/ดวง"
+      },
+      "context": {
+        "type": "other",
+        "value": "เศษ/ดวง"
+      }
+    },
+    {
+      "id": "mahabhut.p19.remainder_0_chart",
+      "subject": "rotationIndex.remainder0",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "archetypeChart.mahasethi",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "19",
+        "locator": "เศษ/ดวง"
+      },
+      "context": {
+        "type": "other",
+        "value": "เศษ/ดวง"
+      }
+    },
+    {
+      "id": "mahabhut.p19.adjust_remainder_1_to_0",
+      "subject": "rotationIndex.remainder1",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "rotationIndex.remainder0",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "19",
+        "locator": "หมายเหตุ"
+      },
+      "condition": "ลดหนึ่งแต้ม",
+      "context": {
+        "type": "other",
+        "value": "1 ม.ค.–15 เม.ย."
+      }
+    },
+    {
+      "id": "mahabhut.p19.adjust_remainder_2_to_1",
+      "subject": "rotationIndex.remainder2",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "rotationIndex.remainder1",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "19",
+        "locator": "หมายเหตุ"
+      },
+      "condition": "ลดหนึ่งแต้ม",
+      "context": {
+        "type": "other",
+        "value": "1 ม.ค.–15 เม.ย."
+      }
+    },
+    {
+      "id": "mahabhut.p19.adjust_remainder_3_to_2",
+      "subject": "rotationIndex.remainder3",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "rotationIndex.remainder2",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "19",
+        "locator": "หมายเหตุ"
+      },
+      "condition": "ลดหนึ่งแต้ม",
+      "context": {
+        "type": "other",
+        "value": "1 ม.ค.–15 เม.ย."
+      }
+    },
+    {
+      "id": "mahabhut.p19.adjust_remainder_4_to_3",
+      "subject": "rotationIndex.remainder4",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "rotationIndex.remainder3",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "19",
+        "locator": "หมายเหตุ"
+      },
+      "condition": "ลดหนึ่งแต้ม",
+      "context": {
+        "type": "other",
+        "value": "1 ม.ค.–15 เม.ย."
+      }
+    },
+    {
+      "id": "mahabhut.p19.adjust_remainder_5_to_4",
+      "subject": "rotationIndex.remainder5",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "rotationIndex.remainder4",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "19",
+        "locator": "หมายเหตุ"
+      },
+      "condition": "ลดหนึ่งแต้ม",
+      "context": {
+        "type": "other",
+        "value": "1 ม.ค.–15 เม.ย."
+      }
+    },
+    {
+      "id": "mahabhut.p19.adjust_remainder_6_to_5",
+      "subject": "rotationIndex.remainder6",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "rotationIndex.remainder5",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "19",
+        "locator": "หมายเหตุ"
+      },
+      "condition": "ลดหนึ่งแต้ม",
+      "context": {
+        "type": "other",
+        "value": "1 ม.ค.–15 เม.ย."
+      }
+    },
+    {
+      "id": "mahabhut.p19.adjust_remainder_0_to_6",
+      "subject": "rotationIndex.remainder0",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "rotationIndex.remainder6",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "19",
+        "locator": "หมายเหตุ"
+      },
+      "condition": "ลดหนึ่งแต้ม",
+      "context": {
+        "type": "other",
+        "value": "1 ม.ค.–15 เม.ย."
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem1_phangkha_d1",
+      "subject": "mahabhutPosition.phangkha",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d1",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 1",
+      "context": {
+        "type": "other",
+        "value": "เรือนภังคะ"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem1_marana_d4",
+      "subject": "mahabhutPosition.marana",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d4",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 1",
+      "context": {
+        "type": "other",
+        "value": "เรือนมรณะ"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem1_thongchai_d0",
+      "subject": "mahabhutPosition.thongchai",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d0",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 1",
+      "context": {
+        "type": "other",
+        "value": "เรือนธงชัย"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem1_khumsap_d3",
+      "subject": "mahabhutPosition.khumsap",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d3",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 1",
+      "context": {
+        "type": "other",
+        "value": "เรือนขุมทรัพย์"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem1_racha_d6",
+      "subject": "mahabhutPosition.racha",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d6",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 1",
+      "context": {
+        "type": "other",
+        "value": "เรือนราชา"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem1_puti_d2",
+      "subject": "mahabhutPosition.puti",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d2",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 1",
+      "context": {
+        "type": "other",
+        "value": "เรือนปูติ"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem1_athibodi_d5",
+      "subject": "mahabhutPosition.athibodi",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d5",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 1",
+      "context": {
+        "type": "other",
+        "value": "เรือนอธิบดี"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem2_phangkha_d2",
+      "subject": "mahabhutPosition.phangkha",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d2",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 2",
+      "context": {
+        "type": "other",
+        "value": "เรือนภังคะ"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem2_marana_d5",
+      "subject": "mahabhutPosition.marana",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d5",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 2",
+      "context": {
+        "type": "other",
+        "value": "เรือนมรณะ"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem2_thongchai_d1",
+      "subject": "mahabhutPosition.thongchai",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d1",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 2",
+      "context": {
+        "type": "other",
+        "value": "เรือนธงชัย"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem2_khumsap_d4",
+      "subject": "mahabhutPosition.khumsap",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d4",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 2",
+      "context": {
+        "type": "other",
+        "value": "เรือนขุมทรัพย์"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem2_racha_d0",
+      "subject": "mahabhutPosition.racha",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d0",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 2",
+      "context": {
+        "type": "other",
+        "value": "เรือนราชา"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem2_puti_d3",
+      "subject": "mahabhutPosition.puti",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d3",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 2",
+      "context": {
+        "type": "other",
+        "value": "เรือนปูติ"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem2_athibodi_d6",
+      "subject": "mahabhutPosition.athibodi",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d6",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 2",
+      "context": {
+        "type": "other",
+        "value": "เรือนอธิบดี"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem3_phangkha_d3",
+      "subject": "mahabhutPosition.phangkha",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d3",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 3",
+      "context": {
+        "type": "other",
+        "value": "เรือนภังคะ"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem3_marana_d6",
+      "subject": "mahabhutPosition.marana",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d6",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 3",
+      "context": {
+        "type": "other",
+        "value": "เรือนมรณะ"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem3_thongchai_d2",
+      "subject": "mahabhutPosition.thongchai",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d2",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 3",
+      "context": {
+        "type": "other",
+        "value": "เรือนธงชัย"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem3_khumsap_d5",
+      "subject": "mahabhutPosition.khumsap",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d5",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 3",
+      "context": {
+        "type": "other",
+        "value": "เรือนขุมทรัพย์"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem3_racha_d1",
+      "subject": "mahabhutPosition.racha",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d1",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 3",
+      "context": {
+        "type": "other",
+        "value": "เรือนราชา"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem3_puti_d4",
+      "subject": "mahabhutPosition.puti",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d4",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 3",
+      "context": {
+        "type": "other",
+        "value": "เรือนปูติ"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem3_athibodi_d0",
+      "subject": "mahabhutPosition.athibodi",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d0",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 3",
+      "context": {
+        "type": "other",
+        "value": "เรือนอธิบดี"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem5_phangkha_d5",
+      "subject": "mahabhutPosition.phangkha",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d5",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 5",
+      "context": {
+        "type": "other",
+        "value": "เรือนภังคะ"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem5_marana_d1",
+      "subject": "mahabhutPosition.marana",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d1",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 5",
+      "context": {
+        "type": "other",
+        "value": "เรือนมรณะ"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem5_thongchai_d4",
+      "subject": "mahabhutPosition.thongchai",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d4",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 5",
+      "context": {
+        "type": "other",
+        "value": "เรือนธงชัย"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem5_khumsap_d0",
+      "subject": "mahabhutPosition.khumsap",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d0",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 5",
+      "context": {
+        "type": "other",
+        "value": "เรือนขุมทรัพย์"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem5_racha_d3",
+      "subject": "mahabhutPosition.racha",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d3",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 5",
+      "context": {
+        "type": "other",
+        "value": "เรือนราชา"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem5_puti_d6",
+      "subject": "mahabhutPosition.puti",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d6",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 5",
+      "context": {
+        "type": "other",
+        "value": "เรือนปูติ"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem5_athibodi_d2",
+      "subject": "mahabhutPosition.athibodi",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d2",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 5",
+      "context": {
+        "type": "other",
+        "value": "เรือนอธิบดี"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem6_phangkha_d6",
+      "subject": "mahabhutPosition.phangkha",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d6",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 6",
+      "context": {
+        "type": "other",
+        "value": "เรือนภังคะ"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem6_marana_d2",
+      "subject": "mahabhutPosition.marana",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d2",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 6",
+      "context": {
+        "type": "other",
+        "value": "เรือนมรณะ"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem6_thongchai_d5",
+      "subject": "mahabhutPosition.thongchai",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d5",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 6",
+      "context": {
+        "type": "other",
+        "value": "เรือนธงชัย"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem6_khumsap_d1",
+      "subject": "mahabhutPosition.khumsap",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d1",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 6",
+      "context": {
+        "type": "other",
+        "value": "เรือนขุมทรัพย์"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem6_racha_d4",
+      "subject": "mahabhutPosition.racha",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d4",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 6",
+      "context": {
+        "type": "other",
+        "value": "เรือนราชา"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem6_puti_d0",
+      "subject": "mahabhutPosition.puti",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d0",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 6",
+      "context": {
+        "type": "other",
+        "value": "เรือนปูติ"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem6_athibodi_d3",
+      "subject": "mahabhutPosition.athibodi",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d3",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 6",
+      "context": {
+        "type": "other",
+        "value": "เรือนอธิบดี"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem0_phangkha_d0",
+      "subject": "mahabhutPosition.phangkha",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d0",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 0",
+      "context": {
+        "type": "other",
+        "value": "เรือนภังคะ"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem0_marana_d3",
+      "subject": "mahabhutPosition.marana",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d3",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 0",
+      "context": {
+        "type": "other",
+        "value": "เรือนมรณะ"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem0_thongchai_d6",
+      "subject": "mahabhutPosition.thongchai",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d6",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 0",
+      "context": {
+        "type": "other",
+        "value": "เรือนธงชัย"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem0_khumsap_d2",
+      "subject": "mahabhutPosition.khumsap",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d2",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 0",
+      "context": {
+        "type": "other",
+        "value": "เรือนขุมทรัพย์"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem0_racha_d5",
+      "subject": "mahabhutPosition.racha",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d5",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 0",
+      "context": {
+        "type": "other",
+        "value": "เรือนราชา"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem0_puti_d1",
+      "subject": "mahabhutPosition.puti",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d1",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 0",
+      "context": {
+        "type": "other",
+        "value": "เรือนปูติ"
+      }
+    },
+    {
+      "id": "mahabhut.p20.rem0_athibodi_d4",
+      "subject": "mahabhutPosition.athibodi",
+      "subjectKind": "other",
+      "relation": "relates_to",
+      "object": "placementDigit.d4",
+      "objectKind": "other",
+      "domain": "lookupTables",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "20",
+        "locator": "หลักการวางเลขลงในเรือนดวงชะตา"
+      },
+      "condition": "เศษ 0",
+      "context": {
+        "type": "other",
+        "value": "เรือนอธิบดี"
+      }
     }
   ],
   "domains": [
@@ -13425,6 +14577,375 @@
       "label": "Planet → Element",
       "status": "unknown",
       "units": []
+    }
+  ],
+  "producedReferenceTableCells": [
+    {
+      "$note": "Phase G birth-date chart lookup rows (pp.23–27) — reference-table cells only; OCR-blocked rows excluded."
+    },
+    {
+      "id": "mahabhut.p24.lookup_2490_2491",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2490 ถึง 15 เม.ย. 2491",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "0 มหาเศรษฐี",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "24",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p24.lookup_2492_2493",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2492 ถึง 15 เม.ย. 2493",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "1 กําพร้า",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "24",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p24.lookup_2494_2495",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2494 ถึง 15 เม.ย. 2495",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "2 นักภาษา",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "24",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p24.lookup_2496_2497",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2496 ถึง 15 เม.ย. 2497",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "3 นักบริหาร",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "24",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p24.lookup_2498_2499",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2498 ถึง 15 เม.ย. 2499",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "4 มนุษย์เจ้าสําราญ",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "24",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p24.lookup_2500_2501",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2500 ถึง 15 เม.ย. 2501",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "5 เศรษฐี",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "24",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p24.lookup_2503_2504",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2503 ถึง 15 เม.ย. 2504",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "6 นักวิชาการ",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "24",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p24.lookup_2505_2506",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2505 ถึง 15 เม.ย. 2506",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "0 มหาเศรษฐี",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "24",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p24.lookup_2507_2508",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2507 ถึง 15 เม.ย. 2508",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "1 กําพร้า",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "24",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p24.lookup_2509_2491",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2509 ถึง 15 เม.ย. 2491",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "3 นักบริหาร",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "24",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p24.lookup_2501_2502",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2501 ถึง 15 เม.ย. 2502",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "2 นักภาษา",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "24",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p23.lookup_2473_2474",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2473 ถึง 15 เม.ย. 2474",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "4 มมนุษย์เจ้าสําราญ",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "23",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p23.lookup_2474_2475",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2474 ถึง 15 เม.ย. 2475",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "5 เศรษนรฐี",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "23",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p23.lookup_2475_2476",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2475 ถึง 15 เม.ย. 2476",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "6 นกวิชาการ",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "23",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p23.lookup_2476_2477",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2476 ถึง 15 เม.ย. 2477",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "0 มหาเศรษฐี",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "23",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p23.lookup_2477_2478",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2477 ถึง 15 เม.ย. 2478",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "1 กําพร้า",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "23",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p23.lookup_2478_2479",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2478 ถึง 15 เม.ย. 2479",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "2 นักภาษา",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "23",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p23.lookup_2480_2481",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2480 ถึง 15 เม.ย. 2481",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "4 มมนุษย์เจ้าสําราญ",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "23",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p23.lookup_2481_2482",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2481 ถึง 15 เม.ย. 2482",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "5 เศรษฐจี",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "23",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p23.lookup_2483_2484",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2483 ถึง 15 เม.ย. 2484",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "0 มหาเศรษฐี",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "23",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p23.lookup_2485_2486",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2485 ถึง 15 เม.ย. 2486",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "2 พนักภาษา",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "23",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p23.lookup_2486_2487",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2486 ถึง 15 เม.ย. 2487",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "3 นกบรวริหาร",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "23",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p23.lookup_2487_2488",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2487 ถึง 15 เม.ย. 2488",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "4 มนุษย์เจ้าสําราญ",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "23",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p23.lookup_2488_2489",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2488 ถึง 15 เม.ย. 2489",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "5 เศรษฐี",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "23",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p23.lookup_2489_2490",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2489 ถึง 15 เม.ย. 2490",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "6 นกวิชาการ",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "23",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p25.lookup_2510_2511",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2510 ถึง 15 เม.ย. 2511",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "6 นักวิชาการ",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "25",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p25.lookup_2511_2512",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2511 ถึง 15 เม.ย. 2512",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "0 มหาเศรษฐี",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "25",
+        "locator": "คำนวณสำเร็จรูป"
+      }
+    },
+    {
+      "id": "mahabhut.p25.lookup_2512_2513",
+      "tableId": "lookupTable.birthDateChart",
+      "tableTitle": "คำนวณสำเร็จรูป",
+      "rowKey": "17 เม.ย. 2512 ถึง 15 เม.ย. 2513",
+      "columnKey": "เศษ/ดวง",
+      "cellValue": "1 กําพร้า",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "25",
+        "locator": "คำนวณสำเร็จรูป"
+      }
     }
   ]
 }

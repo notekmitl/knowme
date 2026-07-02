@@ -2311,6 +2311,27 @@ sessions and developers should consult this before reopening any settled decisio
 
 ---
 
+## D-078 — Mahabhut lookup table ontology + reference table model (Phase G)
+
+- **Date:** 2026-07-01 · **Status:** Accepted · Ontology + minimal Canon production
+  model · **No platform/runtime/engine change**
+- **Context:** D-073 Phase G requires preserving pp.19–27 lookup structure without
+  inferring cells, collapsing rows, or connecting to runtime calculation.
+- **Decision:** Add `rotationIndex`, `archetypeChart`, `placementDigit`, and
+  `lookupTable` ontology categories; add `KnowledgeDomain.lookupTables`; introduce
+  `CanonReferenceTableCell` + `CanonReferenceTableRules` for row/column/cell
+  preservation (no calculation). Atomic units used where row meaning is safe; reference
+  cells for precomputed birth-date lookup rows.
+- **Reason:** Minimum structure to import representable lookup facts from pp.19–20
+  atomically and pp.23–27 as provenanced table cells.
+- **Boundary:** p18 corrupted dasha digits, p20 เศษ 4 row, majority of pp.23–27 rows
+  remain OCR-blocked; p19 เศษ 6 chart mapping not inferred.
+- **Impact:** Phase G +55 atomic units, +28 reference cells (825 cumulative atomic);
+  ontology, reference layer, and production tests.
+- **Related documents:** `THAI_CANON_KNOWLEDGE_PRODUCTION_PHASE_G.md`.
+
+---
+
 ## Related documents
 
 - [`AI_ALIGNMENT_CONTEXT.md`](AI_ALIGNMENT_CONTEXT.md) — rules, reading order, Documentation Policy.

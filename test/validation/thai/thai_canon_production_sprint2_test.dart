@@ -13,6 +13,10 @@ import 'generated/phase_c_taksa_units.dart';
 import 'generated/phase_d_life_period_units.dart';
 import 'generated/phase_e_prediction_units.dart';
 import 'generated/phase_f_remedy_units.dart';
+import 'generated/phase_g_lookup_atomic_units.dart';
+import 'generated/phase_g_reference_table_cells.dart';
+import 'package:knowme/features/astrology/thai/knowledge/canon/reference/canon_reference_table_cell.dart';
+import 'package:knowme/features/astrology/thai/knowledge/canon/reference/canon_reference_table_rules.dart';
 
 /// Canon Knowledge Production — Sprint 2A first batch.
 ///
@@ -41,6 +45,7 @@ void main() {
     String? contextValue,
     KnowledgeDomain domain = KnowledgeDomain.planetLibrary,
     String? condition,
+    String? locator,
     required String page,
   }) {
     final AtomicContext? ctx;
@@ -63,9 +68,11 @@ void main() {
         confidence: KnowledgeConfidence.high,
         condition: condition,
         context: ctx,
-        evidence: AtomicEvidenceRef(bookId: book, page: page),
+        evidence: AtomicEvidenceRef(bookId: book, page: page, locator: locator),
       );
   }
+
+  List<CanonReferenceTableCell> referenceCells() => phaseGReferenceTableCells();
 
   /// The cumulative production batch (Sprints 2A-2C + 3 + Production Batch 4).
   List<AtomicKnowledgeUnit> batch() => [
@@ -599,10 +606,11 @@ void main() {
         ...phaseDLifePeriodUnits(unit: unit),
         ...phaseEPredictionUnits(unit: unit),
         ...phaseFRemedyUnits(unit: unit),
+        ...phaseGLookupAtomicUnits(unit: unit),
       ];
 
   group(
-      'Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4-9 + Phase C–F)',
+      'Mahabhut production batch (Sprints 2A-2C + 3 + Batch 4-9 + Phase C–G)',
       () {
     final ontology = CanonOntologyData.standard();
     final units = batch();
@@ -785,6 +793,62 @@ void main() {
       expect(ontology.resolveId('แจกัน ๓ ลูก'), 'remedyItem.vase3');
       expect(ontology.resolveId('พระปางนาคปรก'), 'ritualTarget.buddhaNakProk');
       expect(ontology.resolveId('พญาครุฑ'), 'ritualTarget.garuda');
+    });
+
+    test('every Phase G lookup atomic unit has page provenance', () {
+      final lookups =
+          units.where((u) => u.domain == KnowledgeDomain.lookupTables);
+      expect(lookups.length, 55);
+      for (final u in lookups) {
+        expect(u.evidence.page, isNotNull, reason: u.id);
+        expect(u.evidence.page!, isNotEmpty, reason: u.id);
+      }
+    });
+
+    test('lookup atomic units preserve table heading in evidence locator', () {
+      for (final u in units.where((u) => u.domain == KnowledgeDomain.lookupTables)) {
+        expect(u.evidence.locator, isNotNull, reason: u.id);
+        expect(u.evidence.locator!.trim(), isNotEmpty, reason: u.id);
+      }
+    });
+
+    test('lookup tables are not imported as prediction copy', () {
+      for (final u in units.where((u) => u.domain == KnowledgeDomain.lookupTables)) {
+        expect(u.relation, isNot(AtomicRelation.produces));
+        expect(u.effect, isNull);
+        final text = '${u.condition ?? ''} ${u.context?.value ?? ''}';
+        expect(text.contains('ทำนาย'), isFalse, reason: u.id);
+      }
+    });
+
+    test('reference table cells validate (D-078)', () {
+      final cells = referenceCells();
+      expect(cells.length, 28);
+      final issues = CanonReferenceTableRules.validateAll(cells);
+      expect(issues, isEmpty, reason: issues.join('\n'));
+      for (final c in cells) {
+        expect(c.tableTitle, 'คำนวณสำเร็จรูป');
+        expect(c.columnKey, 'เศษ/ดวง');
+        expect(c.evidence.page, isNotNull);
+        expect(c.tableId, 'lookupTable.birthDateChart');
+        expect(ontology.resolveId(c.tableTitle), 'lookupTable.birthDateChart');
+      }
+    });
+
+    test('reference table ids and keys are deterministic', () {
+      final cells = referenceCells();
+      expect(cells.map((c) => c.id).toSet().length, cells.length);
+      for (final c in cells) {
+        expect(c.id, startsWith('mahabhut.p'));
+        expect(c.rowKey, contains('17 เม.ย.'));
+        expect(c.rowKey, contains('15 เม.ย.'));
+      }
+    });
+
+    test('lookup vocabulary resolves (D-078)', () {
+      expect(ontology.resolveId('เศษ 1'), 'rotationIndex.remainder1');
+      expect(ontology.resolveId('ดวงกำพร้า'), 'archetypeChart.kamphra');
+      expect(ontology.resolveId('คำนวณสำเร็จรูป'), 'lookupTable.birthDateChart');
     });
 
     test('prediction effect vocabulary resolves (D-076)', () {
@@ -1025,6 +1089,20 @@ void main() {
         'periodStatus.duengTok': 4,
         'taksaRole.kalakini': 2,
         'remedy.sadoeKhroh': 87,
+        'rotationIndex.remainder0': 2,
+        'rotationIndex.remainder1': 2,
+        'rotationIndex.remainder2': 2,
+        'rotationIndex.remainder3': 2,
+        'rotationIndex.remainder4': 2,
+        'rotationIndex.remainder5': 2,
+        'rotationIndex.remainder6': 1,
+        'mahabhutPosition.phangkha': 6,
+        'mahabhutPosition.marana': 6,
+        'mahabhutPosition.thongchai': 6,
+        'mahabhutPosition.khumsap': 6,
+        'mahabhutPosition.racha': 6,
+        'mahabhutPosition.puti': 6,
+        'mahabhutPosition.athibodi': 6,
       });
     });
 
@@ -1084,13 +1162,13 @@ void main() {
       expect(byContext, {
         'archetype_chart': 43,
         'general': 342,
-        'other': 86,
+        'other': 141,
         'life_period': 299,
       });
     });
 
     test('metrics totals reconcile with the batch', () {
-      expect(units.length, 770);
+      expect(units.length, 825);
       expect(mahabhutPlacements.length, 255);
       expect(taksaPlacements.length, 91);
     });

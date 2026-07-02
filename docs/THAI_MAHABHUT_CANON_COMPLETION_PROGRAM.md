@@ -228,7 +228,10 @@ gap-documented.
 
 ### Phase G — Lookup Tables
 
-**Canon scope:** Reference tables and lookup data stated as atomic facts.
+**Status:** **CLOSED** — see [`THAI_CANON_KNOWLEDGE_PRODUCTION_PHASE_G.md`](THAI_CANON_KNOWLEDGE_PRODUCTION_PHASE_G.md).
+
+**Canon scope:** Reference / lookup tables for chart selection, house-digit placement,
+and precomputed birth-date ranges.
 
 | Source (approx.) | Content |
 |---|---|

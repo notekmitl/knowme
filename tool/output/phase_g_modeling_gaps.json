@@ -1,0 +1,22 @@
+[
+  {
+    "material": "p19 เศษ 6 → ดวง mapping",
+    "reason": "Not stated on p19 prose list — not inferred from lookup-table rows"
+  },
+  {
+    "material": "p18 planet dasha ages (Sun, Mercury, Jupiter, Venus)",
+    "reason": "OCR_BLOCKED — digits corrupted on p18"
+  },
+  {
+    "material": "p18 planet transit rotation order",
+    "reason": "Procedural orbit sequence — not a static lookup cell"
+  },
+  {
+    "material": "p38 Sun/Mon Taksa direction grids",
+    "reason": "OCR_BLOCKED — planet tokens not recoverable (Phase C carryover)"
+  },
+  {
+    "material": "p22 split birth-date lookup layout",
+    "reason": "Column alignment broken in OCR — rows recovered from pp.23–27 only"
+  }
+]
