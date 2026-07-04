@@ -8,10 +8,10 @@
 > production pause). Volume 1 baseline remains the starting dataset — see
 > [`THAI_CANON_PRODUCTION_VOLUME_1_CLOSURE.md`](THAI_CANON_PRODUCTION_VOLUME_1_CLOSURE.md).
 
-Status: **CURRENT (active program)** · Decision **D-073** · Platform frozen (D-065) ·
+Status: **CLOSED / FROZEN** · Decision **D-073** · Platform frozen (D-065) ·
 Knowledge Rule unchanged (D-066) · Dataset:
 [`foundation_v1.knowme.json`](../knowledge/canon/production/foundation_v1.knowme.json)
-(357 units at program start)
+(**825 atomic + 28 reference cells — frozen**)
 
 ---
 
@@ -250,12 +250,17 @@ gap-documented.
 
 ### Phase H — Final Audit
 
-**Reporting only** — no production unless audit finds missed representable facts.
+**Status:** **CLOSED** — see [`THAI_MAHABHUT_CANON_FINAL_AUDIT.md`](THAI_MAHABHUT_CANON_FINAL_AUDIT.md).
 
-Deliverables:
+**Scope:** Reporting only. Verified **825 atomic units**, **28 reference-table cells**,
+**287/287** validation tests pass.
+
+**Recommendation:** **`READY_FOR_PHASE_I_FREEZE`**
+
+Deliverables (complete):
 
 - Total **Representable** vs **Extracted** Canon Knowledge (full book)
-- Completion ratio (book-wide)
+- Completion ratio (book-wide): **88.2%** conservative (853 ÷ 967)
 - Coverage by knowledge domain, planet, position, archetype, context, source page
 - Deferred / OCR / Unknown / Ontology Gap / Modeling Gap inventory (final)
 - Conflict and multi-evidence register
@@ -264,12 +269,14 @@ Deliverables:
 
 ### Phase I — Mahabhut Canon Freeze
 
+**Status:** **COMPLETE / FROZEN** — see [`THAI_MAHABHUT_CANON_FREEZE.md`](THAI_MAHABHUT_CANON_FREEZE.md).
+
 **Deliverable:** **Mahabhut Canon Complete**
 
-- Production dataset frozen at final unit count
-- `foundation_v1.knowme.json` (or successor complete dataset) marked **COMPLETE**
+- Production dataset frozen at **825 atomic units + 28 reference-table cells**
+- `foundation_v1.knowme.json` marked **FROZEN** (853 extracted knowledge records)
 - Platform remains frozen; Canon content tier locked for Mahabhut
-- Phase I doc records final metrics and freeze decision (D-074 expected)
+- Phase I doc records final metrics, validation, and post-freeze patch rules
 
 ---
 
@@ -301,17 +308,20 @@ imply a production pause.
 
 ---
 
-## 7 · Current state at program start
+## 7 · Final state (program closed)
 
 | Field | Value |
 |---|---|
 | Dataset | `foundation_v1.knowme.json` |
-| Extracted units | **357** |
-| Evidence pages | 42 of 308 |
-| Validation gate | `thai_canon_production_sprint2_test.dart` |
-| Next phase | **Phase C — Taksa** |
+| Atomic units | **825** |
+| Reference-table cells | **28** |
+| Extracted total | **853** |
+| Evidence pages | **215** (pp.16–305) |
+| Validation gate | **287 / 287 pass** |
+| Program status | **CLOSED / FROZEN** (Phase I complete) |
+| Freeze record | [`THAI_MAHABHUT_CANON_FREEZE.md`](THAI_MAHABHUT_CANON_FREEZE.md) |
 | Platform | Frozen (D-065) — bug fixes only |
-| Policies | D-065–D-072 active; D-073 supersedes Foundation-only charter |
+| Policies | D-065–D-078 active; D-073 program complete |
 
 ---
 
