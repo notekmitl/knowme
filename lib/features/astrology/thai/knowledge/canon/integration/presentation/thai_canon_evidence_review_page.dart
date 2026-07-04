@@ -355,6 +355,17 @@ class _TracePanel extends StatelessWidget {
             else
               for (final note in trace.skippedPeriodStatusNotes)
                 Text('• $note', style: theme.textTheme.bodySmall),
+            if (trace.lifePeriodStatusMetadataBlocker != null) ...[
+              const SizedBox(height: 8),
+              Text(
+                'Period-status metadata blocker:',
+                style: theme.textTheme.labelLarge,
+              ),
+              Text(
+                '• ${trace.lifePeriodStatusMetadataBlocker}',
+                style: theme.textTheme.bodySmall,
+              ),
+            ],
             const SizedBox(height: 8),
             Text(
               'Life periods without runtime status '

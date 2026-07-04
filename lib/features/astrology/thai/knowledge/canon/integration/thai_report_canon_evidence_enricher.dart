@@ -66,6 +66,9 @@ abstract final class ThaiReportCanonEvidenceEnricher {
       pipelineResult,
       labelsByPeriodIndex: periodStatusLabelsByIndex,
     );
+    final periodStatusAudit = periodStatusLabelsByIndex == null
+        ? ThaiCanonPeriodStatusDiscovery.audit(pipelineResult)
+        : null;
 
     final mirror = pipelineResult.mirrorResult!;
 
@@ -201,6 +204,7 @@ abstract final class ThaiReportCanonEvidenceEnricher {
       skippedPeriodStatusNotes: const [],
       lifePeriodsWithoutRuntimeStatus:
           _sortedUnique(lifePeriodsWithoutRuntimeStatus),
+      lifePeriodStatusMetadataBlocker: periodStatusAudit?.blocker,
     );
 
     attachments.sort((a, b) => a.signalId.compareTo(b.signalId));

@@ -1,3 +1,4 @@
+import 'package:knowme/features/astrology/thai/core/life_period/life_period_status_metadata.dart';
 import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_pipeline_result.dart';
 
 import 'thai_canon_period_status_runtime_mapping.dart';
@@ -12,26 +13,41 @@ abstract final class ThaiCanonPeriodStatusDiscovery {
     Map<int, String>? labelsByPeriodIndex,
   }) {
     if (labelsByPeriodIndex != null) {
-      return _validated(labelsByPeriodIndex);
+      return _validatedLabels(labelsByPeriodIndex);
     }
-    return _discoverFromPipeline(pipelineResult);
+    return _labelsFromMetadataAudit(audit(pipelineResult));
   }
 
-  /// Production discovery path.
-  ///
-  /// **Current state (blocked):** [LifeTimeline] / [PeriodState] and
-  /// [ThaiMirrorPipelineResult] do not yet expose deterministic rise/fall
-  /// metadata. Returns empty until report/timeline surfaces exact labels.
-  static Map<int, String> _discoverFromPipeline(
+  /// Full metadata audit for trace / QA (production path).
+  static LifePeriodStatusMetadataAudit audit(
     ThaiMirrorPipelineResult pipelineResult,
   ) {
-    if (!pipelineResult.isSuccess || pipelineResult.lifePeriods == null) {
-      return const {};
+    if (!pipelineResult.isSuccess) {
+      return const LifePeriodStatusMetadataAudit.blocked(
+        finding: LifePeriodStatusMetadataAuditFinding.absentOnRuntime,
+        blocker: LifePeriodStatusMetadataBlocker.noLifeTimeline,
+      );
     }
-    return const {};
+    return LifePeriodStatusMetadataResolver.audit(pipelineResult.lifePeriods);
   }
 
-  static Map<int, String> _validated(Map<int, String> labels) {
+  static Map<int, String> _labelsFromMetadataAudit(
+    LifePeriodStatusMetadataAudit metadataAudit,
+  ) {
+    if (!metadataAudit.isAvailable) return const {};
+    final out = <int, String>{};
+    for (final entry in metadataAudit.byPeriodIndex.entries) {
+      final label = ThaiCanonPeriodStatusRuntimeMapping.runtimeLabelForCanonId(
+        entry.value,
+      );
+      if (label != null) {
+        out[entry.key] = label;
+      }
+    }
+    return out;
+  }
+
+  static Map<int, String> _validatedLabels(Map<int, String> labels) {
     final out = <int, String>{};
     for (final entry in labels.entries) {
       if (ThaiCanonPeriodStatusRuntimeMapping.isAllowedRuntimeLabel(entry.value)) {

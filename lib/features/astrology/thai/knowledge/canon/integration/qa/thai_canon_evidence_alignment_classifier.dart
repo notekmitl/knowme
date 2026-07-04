@@ -112,6 +112,20 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
         ),
       );
     }
+    if (trace.lifePeriodStatusMetadataBlocker != null) {
+      records.add(
+        ThaiCanonEvidenceAlignmentRecord(
+          fixtureId: fixtureId,
+          signalId:
+              'trace:lifePeriodStatusMetadataBlocker:'
+              '${trace.lifePeriodStatusMetadataBlocker}',
+          classification: ThaiCanonEvidenceAlignmentClassification.internalOnly,
+          reason:
+              'Period-status metadata layer blocked — no deterministic engine '
+              'status to expose',
+        ),
+      );
+    }
     for (final signal in trace.outOfCanonScopeSignals) {
       final contentKey = _contentKeyFromSignal(signal);
       records.add(
