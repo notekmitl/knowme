@@ -1,4 +1,5 @@
 import 'package:knowme/features/astrology/thai/content/models/thai_content_key.dart';
+import 'package:knowme/features/astrology/thai/core/life_period/life_period_status_metadata.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/atomic/atomic_knowledge_unit.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/atomic/atomic_relation.dart';
 import 'package:knowme/features/astrology/thai/mirror/models/thai_mirror_lens_source.dart';
@@ -64,6 +65,7 @@ abstract final class ThaiReportCanonEvidenceEnricher {
     final lifePeriodsWithoutRuntimeStatus = <String>[];
     final lifePeriodsWithCanonDerivedStatus = <String>[];
     final lifePeriodsWithoutCanonStatusMarker = <String>[];
+    final lifePeriodsWithRuntimeStatus = <String>[];
 
     final periodStatusLabels = ThaiCanonPeriodStatusDiscovery.discover(
       pipelineResult,
@@ -176,6 +178,8 @@ abstract final class ThaiReportCanonEvidenceEnricher {
         );
         if (canonStatusId == null) continue;
 
+        lifePeriodsWithRuntimeStatus.add(signalId);
+
         final statusRefs = mapper.evidenceForPeriodStatusCanonId(canonStatusId);
         if (statusRefs.isEmpty) {
           inCanonScopeUnmapped.add(
@@ -238,6 +242,10 @@ abstract final class ThaiReportCanonEvidenceEnricher {
           _sortedUnique(lifePeriodsWithCanonDerivedStatus),
       lifePeriodsWithoutCanonStatusMarker:
           _sortedUnique(lifePeriodsWithoutCanonStatusMarker),
+      lifePeriodsWithRuntimeStatus:
+          _sortedUnique(lifePeriodsWithRuntimeStatus),
+      lifePeriodRiseFallFeasibilityResult:
+          periodStatusAudit?.feasibility.result.wire,
       lifePeriodStatusMetadataBlocker: periodStatusAudit?.blocker,
     );
 

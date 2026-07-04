@@ -14,6 +14,8 @@ class ThaiCanonEvidenceTrace {
     this.lifePeriodsWithoutRuntimeStatus = const [],
     this.lifePeriodsWithCanonDerivedStatus = const [],
     this.lifePeriodsWithoutCanonStatusMarker = const [],
+    this.lifePeriodsWithRuntimeStatus = const [],
+    this.lifePeriodRiseFallFeasibilityResult,
     this.lifePeriodStatusMetadataBlocker,
   });
 
@@ -48,6 +50,12 @@ class ThaiCanonEvidenceTrace {
 
   /// Life-period anchors with structural evidence but no unambiguous Canon marker.
   final List<String> lifePeriodsWithoutCanonStatusMarker;
+
+  /// Life-period anchors with engine/runtime rise/fall metadata attached.
+  final List<String> lifePeriodsWithRuntimeStatus;
+
+  /// Feasibility audit wire (e.g. NEEDS_ENGINE_POSITION_METADATA).
+  final String? lifePeriodRiseFallFeasibilityResult;
 
   /// Set when period-status metadata is blocked (e.g. engine gap — not silent).
   final String? lifePeriodStatusMetadataBlocker;

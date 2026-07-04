@@ -355,6 +355,17 @@ class _TracePanel extends StatelessWidget {
             else
               for (final note in trace.skippedPeriodStatusNotes)
                 Text('• $note', style: theme.textTheme.bodySmall),
+            if (trace.lifePeriodRiseFallFeasibilityResult != null) ...[
+              const SizedBox(height: 8),
+              Text(
+                'Rise/fall feasibility:',
+                style: theme.textTheme.labelLarge,
+              ),
+              Text(
+                '• ${trace.lifePeriodRiseFallFeasibilityResult}',
+                style: theme.textTheme.bodySmall,
+              ),
+            ],
             if (trace.lifePeriodStatusMetadataBlocker != null) ...[
               const SizedBox(height: 8),
               Text(

@@ -126,6 +126,30 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
         ),
       );
     }
+    if (trace.lifePeriodRiseFallFeasibilityResult != null) {
+      records.add(
+        ThaiCanonEvidenceAlignmentRecord(
+          fixtureId: fixtureId,
+          signalId:
+              'trace:lifePeriodRiseFallFeasibility:'
+              '${trace.lifePeriodRiseFallFeasibilityResult}',
+          classification: ThaiCanonEvidenceAlignmentClassification.internalOnly,
+          reason:
+              'Engine rise/fall metadata feasibility audit (internal only)',
+        ),
+      );
+    }
+    for (final signal in trace.lifePeriodsWithRuntimeStatus) {
+      records.add(
+        ThaiCanonEvidenceAlignmentRecord(
+          fixtureId: fixtureId,
+          signalId: 'trace:runtimeStatus:$signal',
+          classification: ThaiCanonEvidenceAlignmentClassification.internalOnly,
+          reason:
+              'Period status from engine/runtime rise/fall metadata (internal only)',
+        ),
+      );
+    }
     for (final signal in trace.lifePeriodsWithCanonDerivedStatus) {
       records.add(
         ThaiCanonEvidenceAlignmentRecord(

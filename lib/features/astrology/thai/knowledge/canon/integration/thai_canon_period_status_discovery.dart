@@ -23,12 +23,20 @@ abstract final class ThaiCanonPeriodStatusDiscovery {
     ThaiMirrorPipelineResult pipelineResult,
   ) {
     if (!pipelineResult.isSuccess) {
-      return const LifePeriodStatusMetadataAudit.blocked(
+      final feasibility = ThaiLifePeriodRiseFallFeasibility.audit(
+        timeline: null,
+        profile: null,
+      );
+      return LifePeriodStatusMetadataAudit.blocked(
         finding: LifePeriodStatusMetadataAuditFinding.absentOnRuntime,
         blocker: LifePeriodStatusMetadataBlocker.noLifeTimeline,
+        feasibility: feasibility,
       );
     }
-    return LifePeriodStatusMetadataResolver.audit(pipelineResult.lifePeriods);
+    return LifePeriodStatusMetadataResolver.audit(
+      pipelineResult.lifePeriods,
+      profile: pipelineResult.profile,
+    );
   }
 
   static Map<int, String> _labelsFromMetadataAudit(
