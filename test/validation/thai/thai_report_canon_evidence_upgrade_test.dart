@@ -95,9 +95,7 @@ void main() {
       );
       expect(planetAttachments, isNotEmpty);
       expect(
-        planetAttachments.first.evidenceRefs.any(
-          (r) => r.relation == 'owns' || r.relation == 'relates_to',
-        ),
+        planetAttachments.first.evidenceRefs.every((r) => r.relation == 'owns'),
         isTrue,
       );
     });
@@ -123,7 +121,7 @@ void main() {
       );
     });
 
-    test('prediction rule evidence is internal metadata only', () async {
+    test('prediction rule evidence stays trace-only internal metadata', () async {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
@@ -132,13 +130,53 @@ void main() {
         repository: repository,
       );
 
-      final prediction = bundle.attachments.where(
-        (a) => a.evidenceType == ThaiCanonEvidenceType.predictionRule,
+      expect(
+        bundle.attachments.where(
+          (a) => a.evidenceType == ThaiCanonEvidenceType.predictionRule,
+        ),
+        isEmpty,
       );
-      expect(prediction, isNotEmpty);
-      expect(prediction.first.sectionId, 'futurePredictionInternal');
-      expect(prediction.first.internalOnly, isTrue);
-      expect(prediction.first.userFacingAllowed, isFalse);
+      expect(bundle.trace.traceOnlyEvidenceCandidates, isNotEmpty);
+      expect(
+        bundle.trace.traceOnlyEvidenceCandidates.first,
+        startsWith('prediction:phase_e_rules'),
+      );
+    });
+
+    test('lookup table evidence is not attached to report sections', () async {
+      final pipeline = ThaiMirrorPipeline.generate(
+        ThaiMirrorPipeline.sampleQaBirthData(),
+      );
+      final bundle = await ThaiReportCanonEvidenceEnricher.enrich(
+        pipeline,
+        repository: repository,
+      );
+
+      expect(bundle.trace.skippedLookupTableEvidenceCount, 55);
+      for (final attachment in bundle.attachments) {
+        for (final ref in attachment.evidenceRefs) {
+          expect(ref.domain, isNot('lookupTables'));
+        }
+      }
+    });
+
+    test('mahabhuta_thaya is out of Canon scope not a mapping failure', () async {
+      final pipeline = ThaiMirrorPipeline.generate(
+        ThaiMirrorPipeline.sampleQaBirthData(),
+      );
+      final bundle = await ThaiReportCanonEvidenceEnricher.enrich(
+        pipeline,
+        repository: repository,
+      );
+
+      expect(
+        bundle.trace.outOfCanonScopeSignals,
+        contains('profile:mahabhuta_position:mahabhuta_thaya'),
+      );
+      expect(
+        bundle.trace.inCanonScopeUnmappedSignals,
+        isNot(contains('profile:mahabhuta_position:mahabhuta_thaya')),
+      );
     });
 
     test('remedy evidence is never user-facing', () async {

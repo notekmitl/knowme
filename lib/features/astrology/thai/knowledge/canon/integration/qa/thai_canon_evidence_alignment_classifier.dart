@@ -1,4 +1,5 @@
 import '../thai_canon_evidence_attachment.dart';
+import '../thai_canon_evidence_signal_scope.dart';
 import '../thai_canon_evidence_type.dart';
 import '../thai_canon_ontology_runtime_mapping.dart';
 import '../thai_mirror_canon_evidence_bundle.dart';
@@ -75,6 +76,18 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
         ),
       );
     }
+    if (trace.skippedLookupTableEvidenceCount > 0) {
+      records.add(
+        ThaiCanonEvidenceAlignmentRecord(
+          fixtureId: fixtureId,
+          signalId: 'trace:skipped_lookup_tables',
+          classification: ThaiCanonEvidenceAlignmentClassification.internalOnly,
+          reason:
+              '${trace.skippedLookupTableEvidenceCount} lookup-table units; '
+              'reference-only — not attached to broad report copy',
+        ),
+      );
+    }
     for (final note in trace.skippedPeriodStatusNotes) {
       records.add(
         ThaiCanonEvidenceAlignmentRecord(
@@ -86,7 +99,22 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
         ),
       );
     }
-    for (final signal in trace.signalsWithoutCanonEvidence) {
+    for (final signal in trace.outOfCanonScopeSignals) {
+      final contentKey = _contentKeyFromSignal(signal);
+      records.add(
+        ThaiCanonEvidenceAlignmentRecord(
+          fixtureId: fixtureId,
+          signalId: signal,
+          sectionId: _sectionFromSignal(signal),
+          classification:
+              ThaiCanonEvidenceAlignmentClassification.outOfCanonScope,
+          reason: contentKey == null
+              ? 'Signal outside frozen Mahabhut Canon scope'
+              : ThaiCanonEvidenceSignalScope.outOfCanonScopeReason(contentKey),
+        ),
+      );
+    }
+    for (final signal in trace.inCanonScopeUnmappedSignals) {
       records.add(
         ThaiCanonEvidenceAlignmentRecord(
           fixtureId: fixtureId,
@@ -94,7 +122,23 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
           sectionId: _sectionFromSignal(signal),
           classification:
               ThaiCanonEvidenceAlignmentClassification.unmappedSignal,
-          reason: 'Report signal has no deterministic Canon mapping',
+          reason: 'In-scope signal with no deterministic Canon attachment',
+        ),
+      );
+    }
+    for (final candidate in trace.traceOnlyEvidenceCandidates) {
+      records.add(
+        ThaiCanonEvidenceAlignmentRecord(
+          fixtureId: fixtureId,
+          signalId: candidate,
+          classification: candidate.startsWith('prediction:')
+              ? ThaiCanonEvidenceAlignmentClassification.relatedButWeak
+              : ThaiCanonEvidenceAlignmentClassification.relatedButWeak,
+          reason: candidate.startsWith('prediction:')
+              ? 'Bulk periodStatus rules trace-only; '
+                  'do not prove full prediction prose'
+              : 'Planet attribute evidence trace-only; '
+                  'does not directly support section prose',
         ),
       );
     }
@@ -107,10 +151,6 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
       _classifyAttachment(
     ThaiCanonEvidenceAttachment attachment,
   ) {
-    if (!attachment.userFacingAllowed || attachment.internalOnly) {
-      // Still evaluate structural alignment; user-facing gate is separate.
-    }
-
     return switch (attachment.evidenceType) {
       ThaiCanonEvidenceType.mahabhutPosition =>
         _classifyMahabhut(attachment),
@@ -120,8 +160,7 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
         _classifyLifePeriod(attachment),
       ThaiCanonEvidenceType.predictionRule => (
           ThaiCanonEvidenceAlignmentClassification.relatedButWeak,
-          'Bulk periodStatus rules attached internally; '
-              'do not prove full prediction prose',
+          'Prediction rule attachment should be trace-only',
         ),
       ThaiCanonEvidenceType.taksa => (
           ThaiCanonEvidenceAlignmentClassification.skippedTaksa,
@@ -205,16 +244,6 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
       );
     }
 
-    final attributeOnly = attachment.evidenceRefs.every(
-      (r) => r.object.startsWith('attribute.'),
-    );
-    if (attributeOnly) {
-      return (
-        ThaiCanonEvidenceAlignmentClassification.relatedButWeak,
-        'Planet attribute evidence only — weak support for broad personality copy',
-      );
-    }
-
     return (
       ThaiCanonEvidenceAlignmentClassification.relatedButWeak,
       'Planet/domain evidence related but does not directly prove section prose',
@@ -253,6 +282,15 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
   }
 
   static String? _runtimeKeyFromSignal(String signalId) {
+    if (signalId.startsWith('profile:mahabhuta_position:')) {
+      return signalId.substring('profile:mahabhuta_position:'.length);
+    }
+    final colon = signalId.indexOf(':');
+    if (colon < 0 || colon >= signalId.length - 1) return null;
+    return signalId.substring(colon + 1);
+  }
+
+  static String? _contentKeyFromSignal(String signalId) {
     if (signalId.startsWith('profile:mahabhuta_position:')) {
       return signalId.substring('profile:mahabhuta_position:'.length);
     }

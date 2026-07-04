@@ -2,30 +2,39 @@
 class ThaiCanonEvidenceTrace {
   const ThaiCanonEvidenceTrace({
     this.signalsWithoutCanonEvidence = const [],
+    this.outOfCanonScopeSignals = const [],
+    this.inCanonScopeUnmappedSignals = const [],
+    this.traceOnlyEvidenceCandidates = const [],
     this.runtimeKeysWithoutCanonMapping = const [],
     this.unmappedCanonEvidenceCandidates = const [],
     this.skippedRemedyEvidenceCount = 0,
     this.skippedTaksaEvidenceCount = 0,
+    this.skippedLookupTableEvidenceCount = 0,
     this.skippedPeriodStatusNotes = const [],
   });
 
-  /// Report content keys / signals with no deterministic Canon match.
+  /// Legacy combined list — in-scope unmapped signals only (excludes out-of-scope).
   final List<String> signalsWithoutCanonEvidence;
 
-  /// Runtime keys present in the report but absent from ontology runtime map.
+  /// Report signals outside frozen Mahabhut Canon (not mapping failures).
+  final List<String> outOfCanonScopeSignals;
+
+  /// In-scope signals with no deterministic Canon attachment.
+  final List<String> inCanonScopeUnmappedSignals;
+
+  /// Weak or bulk evidence kept trace-only (not section attachments).
+  final List<String> traceOnlyEvidenceCandidates;
+
+  /// Runtime keys in Canon scope but absent from ontology runtime map.
   final List<String> runtimeKeysWithoutCanonMapping;
 
   /// Canon-side ids available but not attachable without runtime mapping.
   final List<String> unmappedCanonEvidenceCandidates;
 
-  /// Remedy units indexed but intentionally not attached to report sections.
   final int skippedRemedyEvidenceCount;
-
-  /// Taksa units skipped because report has no Taksa runtime keys.
   final int skippedTaksaEvidenceCount;
-
-  /// periodStatus.* notes (no runtime rise/fall keys).
+  final int skippedLookupTableEvidenceCount;
   final List<String> skippedPeriodStatusNotes;
 
-  int get totalUnmappedSignals => signalsWithoutCanonEvidence.length;
+  int get totalUnmappedSignals => inCanonScopeUnmappedSignals.length;
 }

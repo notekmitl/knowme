@@ -3,6 +3,7 @@ enum ThaiCanonEvidenceAlignmentClassification {
   strongMatch,
   relatedButWeak,
   unmappedSignal,
+  outOfCanonScope,
   internalOnly,
   skippedRemedy,
   skippedTaksa,
@@ -17,6 +18,8 @@ extension ThaiCanonEvidenceAlignmentClassificationWire on
           'RELATED_BUT_WEAK',
         ThaiCanonEvidenceAlignmentClassification.unmappedSignal =>
           'UNMAPPED_SIGNAL',
+        ThaiCanonEvidenceAlignmentClassification.outOfCanonScope =>
+          'OUT_OF_CANON_SCOPE',
         ThaiCanonEvidenceAlignmentClassification.internalOnly =>
           'INTERNAL_ONLY',
         ThaiCanonEvidenceAlignmentClassification.skippedRemedy =>

@@ -9,6 +9,7 @@ import 'thai_canon_evidence_attachment.dart';
 import 'thai_canon_evidence_mapper.dart';
 import 'thai_canon_evidence_ref.dart';
 import 'thai_canon_evidence_repository.dart';
+import 'thai_canon_evidence_signal_scope.dart';
 import 'thai_canon_evidence_trace.dart';
 import 'thai_canon_evidence_type.dart';
 import 'thai_canon_ontology_runtime_mapping.dart';
@@ -51,7 +52,9 @@ abstract final class ThaiReportCanonEvidenceEnricher {
     final repo = repository ?? await ThaiCanonEvidenceRepository.loadFromAsset();
     final mapper = repo.mapper;
     final attachments = <ThaiCanonEvidenceAttachment>[];
-    final signalsWithout = <String>[];
+    final outOfCanonScope = <String>[];
+    final inCanonScopeUnmapped = <String>[];
+    final traceOnlyCandidates = <String>[];
     final runtimeUnmapped = <String>[];
     final canonCandidates = <String>[];
 
@@ -67,7 +70,9 @@ abstract final class ThaiReportCanonEvidenceEnricher {
           contentKey: evidence.contentKey,
           mapper: mapper,
           attachments: attachments,
-          signalsWithout: signalsWithout,
+          outOfCanonScope: outOfCanonScope,
+          inCanonScopeUnmapped: inCanonScopeUnmapped,
+          traceOnlyCandidates: traceOnlyCandidates,
           runtimeUnmapped: runtimeUnmapped,
         );
       }
@@ -75,13 +80,14 @@ abstract final class ThaiReportCanonEvidenceEnricher {
 
     for (final contentKey in pipelineResult.profile!.mahabhutaPositionKeys) {
       final signalId = 'profile:mahabhuta_position:$contentKey';
+      if (ThaiCanonEvidenceSignalScope.isOutOfCanonScope(contentKey)) {
+        outOfCanonScope.add(signalId);
+        continue;
+      }
       final refs = mapper.evidenceForRuntimeContentKey(contentKey);
       if (refs.isEmpty) {
-        signalsWithout.add(signalId);
-        if (ThaiContentKeys.allMahabhutaPosition.contains(contentKey) &&
-            ThaiCanonOntologyRuntimeMapping.canonMahabhutForContentKey(
-                    contentKey) ==
-                null) {
+        inCanonScopeUnmapped.add(signalId);
+        if (ThaiCanonEvidenceSignalScope.isInCanonScopeMahabhutKey(contentKey)) {
           runtimeUnmapped.add(contentKey);
         }
         continue;
@@ -103,7 +109,7 @@ abstract final class ThaiReportCanonEvidenceEnricher {
         final units = _lifePeriodStructuralUnits(repo, planetId);
         final signalId = 'life_period:${period.index}:$planetId';
         if (units.isEmpty) {
-          signalsWithout.add(signalId);
+          inCanonScopeUnmapped.add(signalId);
           continue;
         }
         attachments.add(
@@ -120,14 +126,9 @@ abstract final class ThaiReportCanonEvidenceEnricher {
 
     final predictionRefs = _predictionRuleRefs(repo);
     if (predictionRefs.isNotEmpty) {
-      attachments.add(
-        ThaiCanonEvidenceAttachment(
-          sectionId: 'futurePredictionInternal',
-          signalId: 'prediction:phase_e_rules',
-          evidenceType: ThaiCanonEvidenceType.predictionRule,
-          evidenceRefs: predictionRefs,
-          matchQuality: ThaiCanonEvidenceMatchQuality.structural,
-        ),
+      traceOnlyCandidates.add(
+        'prediction:phase_e_rules (${predictionRefs.length} periodStatus refs; '
+        'bulk internal metadata only)',
       );
     }
 
@@ -144,15 +145,24 @@ abstract final class ThaiReportCanonEvidenceEnricher {
     if (ThaiCanonOntologyRuntimeMapping.runtimePlanetKey('planet.ketu') == null) {
       canonCandidates.add('planet.ketu');
     }
+    canonCandidates.add('mahabhutPosition.khumsap');
+
+    final lookupCount = repo.index.units
+        .where((u) => u.domain == KnowledgeDomain.lookupTables)
+        .length;
 
     final trace = ThaiCanonEvidenceTrace(
-      signalsWithoutCanonEvidence: _sortedUnique(signalsWithout),
+      signalsWithoutCanonEvidence: _sortedUnique(inCanonScopeUnmapped),
+      outOfCanonScopeSignals: _sortedUnique(outOfCanonScope),
+      inCanonScopeUnmappedSignals: _sortedUnique(inCanonScopeUnmapped),
+      traceOnlyEvidenceCandidates: _sortedUnique(traceOnlyCandidates),
       runtimeKeysWithoutCanonMapping: _sortedUnique(runtimeUnmapped),
       unmappedCanonEvidenceCandidates: _sortedUnique(canonCandidates),
       skippedRemedyEvidenceCount: mapper.evidenceForRemedyDomain().length,
       skippedTaksaEvidenceCount: repo.index.units
           .where((u) => u.object.startsWith('taksaRole.'))
           .length,
+      skippedLookupTableEvidenceCount: lookupCount,
       skippedPeriodStatusNotes:
           ThaiCanonOntologyRuntimeMapping.periodStatusMappings()
               .where((m) => !m.isMapped)
@@ -176,18 +186,23 @@ abstract final class ThaiReportCanonEvidenceEnricher {
     required String contentKey,
     required ThaiCanonEvidenceMapper mapper,
     required List<ThaiCanonEvidenceAttachment> attachments,
-    required List<String> signalsWithout,
+    required List<String> outOfCanonScope,
+    required List<String> inCanonScopeUnmapped,
+    required List<String> traceOnlyCandidates,
     required List<String> runtimeUnmapped,
   }) {
+    if (ThaiCanonEvidenceSignalScope.isOutOfCanonScopeLens(lensSource) ||
+        ThaiCanonEvidenceSignalScope.isOutOfCanonScope(contentKey)) {
+      outOfCanonScope.add(signalId);
+      return;
+    }
+
     switch (lensSource) {
       case ThaiMirrorLensSource.mahabhutaPosition:
         final refs = mapper.evidenceForRuntimeContentKey(contentKey);
         if (refs.isEmpty) {
-          signalsWithout.add(signalId);
-          if (ThaiContentKeys.allMahabhutaPosition.contains(contentKey) &&
-              ThaiCanonOntologyRuntimeMapping.canonMahabhutForContentKey(
-                      contentKey) ==
-                  null) {
+          inCanonScopeUnmapped.add(signalId);
+          if (ThaiCanonEvidenceSignalScope.isInCanonScopeMahabhutKey(contentKey)) {
             runtimeUnmapped.add(contentKey);
           }
           return;
@@ -203,12 +218,18 @@ abstract final class ThaiReportCanonEvidenceEnricher {
       case ThaiMirrorLensSource.lagnaLord:
         final planetId = _planetIdFromLagnaLordKey(contentKey);
         if (planetId == null) {
-          signalsWithout.add(signalId);
+          inCanonScopeUnmapped.add(signalId);
           return;
         }
-        final refs = _planetSignificationRefs(mapper, planetId);
-        if (refs.isEmpty) {
-          signalsWithout.add(signalId);
+        final attachResult = _planetSignificationAttachmentRefs(mapper, planetId);
+        if (attachResult.attachRefs.isEmpty) {
+          if (attachResult.attributeOnlyCandidate) {
+            traceOnlyCandidates.add(
+              '$signalId (planet attribute evidence only — trace-only)',
+            );
+          } else {
+            inCanonScopeUnmapped.add(signalId);
+          }
           return;
         }
         attachments.add(
@@ -216,13 +237,13 @@ abstract final class ThaiReportCanonEvidenceEnricher {
             sectionId: sectionId.name,
             signalId: signalId,
             evidenceType: ThaiCanonEvidenceType.planetSignification,
-            evidenceRefs: refs,
+            evidenceRefs: attachResult.attachRefs,
             matchQuality: ThaiCanonEvidenceMatchQuality.structural,
           ),
         );
       case ThaiMirrorLensSource.lagna:
       case ThaiMirrorLensSource.myanmarSeven:
-        signalsWithout.add(signalId);
+        outOfCanonScope.add(signalId);
     }
   }
 
@@ -234,19 +255,32 @@ abstract final class ThaiReportCanonEvidenceEnricher {
     return 'planet.$planet';
   }
 
-  static List<ThaiCanonEvidenceRef> _planetSignificationRefs(
+  static ({List<ThaiCanonEvidenceRef> attachRefs, bool attributeOnlyCandidate})
+      _planetSignificationAttachmentRefs(
     ThaiCanonEvidenceMapper mapper,
     String planetId,
   ) {
-    return mapper.refsForUnits(
-      mapper.index.units.where(
-        (u) =>
-            u.subject == planetId &&
-            (u.relation == AtomicRelation.owns ||
-                (u.relation == AtomicRelation.relatesTo &&
-                    u.object.startsWith('attribute.'))),
-      ),
+    final ownsUnits = mapper.index.units.where(
+      (u) => u.subject == planetId && u.relation == AtomicRelation.owns,
     );
+    if (ownsUnits.isNotEmpty) {
+      return (
+        attachRefs: mapper.refsForUnits(ownsUnits),
+        attributeOnlyCandidate: false,
+      );
+    }
+
+    final attributeUnits = mapper.index.units.where(
+      (u) =>
+          u.subject == planetId &&
+          u.relation == AtomicRelation.relatesTo &&
+          u.object.startsWith('attribute.'),
+    );
+    if (attributeUnits.isNotEmpty) {
+      return (attachRefs: const [], attributeOnlyCandidate: true);
+    }
+
+    return (attachRefs: const [], attributeOnlyCandidate: false);
   }
 
   static Iterable<AtomicKnowledgeUnit> _lifePeriodStructuralUnits(

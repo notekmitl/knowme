@@ -351,17 +351,46 @@ class _TracePanel extends StatelessWidget {
               Text('• $note', style: theme.textTheme.bodySmall),
             const SizedBox(height: 8),
             Text(
-              'Signals without Canon evidence '
+              'In-scope unmapped signals '
+              '(${trace.inCanonScopeUnmappedSignals.length}):',
+              style: theme.textTheme.labelLarge,
+            ),
+            for (final s in trace.inCanonScopeUnmappedSignals.take(20))
+              Text('• $s', style: theme.textTheme.bodySmall),
+            if (trace.inCanonScopeUnmappedSignals.length > 20)
+              Text(
+                '… +${trace.inCanonScopeUnmappedSignals.length - 20} more',
+                style: theme.textTheme.bodySmall,
+              ),
+            const SizedBox(height: 8),
+            Text(
+              'Out of Canon scope '
+              '(${trace.outOfCanonScopeSignals.length}):',
+              style: theme.textTheme.labelLarge,
+            ),
+            for (final s in trace.outOfCanonScopeSignals.take(15))
+              Text('• $s', style: theme.textTheme.bodySmall),
+            if (trace.outOfCanonScopeSignals.length > 15)
+              Text(
+                '… +${trace.outOfCanonScopeSignals.length - 15} more',
+                style: theme.textTheme.bodySmall,
+              ),
+            const SizedBox(height: 8),
+            Text(
+              'Trace-only candidates '
+              '(${trace.traceOnlyEvidenceCandidates.length}):',
+              style: theme.textTheme.labelLarge,
+            ),
+            for (final s in trace.traceOnlyEvidenceCandidates)
+              Text('• $s', style: theme.textTheme.bodySmall),
+            const SizedBox(height: 8),
+            Text(
+              'Signals without Canon evidence (legacy alias) '
               '(${trace.signalsWithoutCanonEvidence.length}):',
               style: theme.textTheme.labelLarge,
             ),
-            for (final s in trace.signalsWithoutCanonEvidence.take(20))
+            for (final s in trace.signalsWithoutCanonEvidence.take(10))
               Text('• $s', style: theme.textTheme.bodySmall),
-            if (trace.signalsWithoutCanonEvidence.length > 20)
-              Text(
-                '… +${trace.signalsWithoutCanonEvidence.length - 20} more',
-                style: theme.textTheme.bodySmall,
-              ),
             const SizedBox(height: 8),
             Text(
               'Unmapped Canon candidates '

@@ -47,10 +47,16 @@ class ThaiCanonEvidenceAlignmentAudit {
     required this.sectionsWithStrongMatch,
     required this.sectionsWithWeakEvidence,
     required this.sectionsWithNoEvidence,
+    required this.totalOutOfCanonScopeSignals,
+    required this.totalInCanonScopeUnmapped,
+    required this.totalTraceOnlyCandidates,
     required this.totalUnmappedSignals,
     required this.totalSkippedRemedyCount,
     required this.totalSkippedTaksaCount,
+    required this.totalSkippedLookupTableCount,
     required this.totalSkippedPeriodStatusNotes,
+    required this.topOutOfCanonScopeKeys,
+    required this.topInCanonScopeUnmappedKeys,
     required this.topUnmappedRuntimeKeys,
     required this.topUnusedCanonDomains,
     required this.falseConfidenceRisks,
@@ -64,10 +70,16 @@ class ThaiCanonEvidenceAlignmentAudit {
   final int sectionsWithStrongMatch;
   final int sectionsWithWeakEvidence;
   final int sectionsWithNoEvidence;
+  final int totalOutOfCanonScopeSignals;
+  final int totalInCanonScopeUnmapped;
+  final int totalTraceOnlyCandidates;
   final int totalUnmappedSignals;
   final int totalSkippedRemedyCount;
   final int totalSkippedTaksaCount;
+  final int totalSkippedLookupTableCount;
   final int totalSkippedPeriodStatusNotes;
+  final List<MapEntry<String, int>> topOutOfCanonScopeKeys;
+  final List<MapEntry<String, int>> topInCanonScopeUnmappedKeys;
   final List<MapEntry<String, int>> topUnmappedRuntimeKeys;
   final List<MapEntry<String, int>> topUnusedCanonDomains;
   final List<String> falseConfidenceRisks;
@@ -191,14 +203,19 @@ abstract final class ThaiCanonEvidenceAlignmentRunner {
       for (final c in ThaiCanonEvidenceAlignmentClassification.values) c: 0,
     };
     final unmappedKeyCounts = <String, int>{};
+    final outOfCanonKeyCounts = <String, int>{};
     final canonUnitIdsUsed = <String>{};
     var totalSections = 0;
     var sectionsStrong = 0;
     var sectionsWeak = 0;
     var sectionsNone = 0;
+    var totalOutOfCanon = 0;
+    var totalInCanonUnmapped = 0;
+    var totalTraceOnly = 0;
     var totalUnmapped = 0;
     var totalRemedy = 0;
     var totalTaksa = 0;
+    var totalLookup = 0;
     var totalPeriodStatus = 0;
     final risks = <String>{};
 
@@ -213,10 +230,30 @@ abstract final class ThaiCanonEvidenceAlignmentRunner {
             (classificationCounts[record.classification] ?? 0) + 1;
 
         if (record.classification ==
+            ThaiCanonEvidenceAlignmentClassification.outOfCanonScope) {
+          totalOutOfCanon++;
+          outOfCanonKeyCounts[record.signalId] =
+              (outOfCanonKeyCounts[record.signalId] ?? 0) + 1;
+        }
+        if (record.classification ==
             ThaiCanonEvidenceAlignmentClassification.unmappedSignal) {
+          totalInCanonUnmapped++;
           totalUnmapped++;
           unmappedKeyCounts[record.signalId] =
               (unmappedKeyCounts[record.signalId] ?? 0) + 1;
+        }
+        if (record.classification ==
+            ThaiCanonEvidenceAlignmentClassification.relatedButWeak &&
+            record.attachmentIndex == null &&
+            record.signalId.startsWith('prediction:')) {
+          risks.add(
+            ThaiCanonEvidenceFalseConfidencePatterns.predictionRuleBulkAttach,
+          );
+        }
+        if (record.classification ==
+            ThaiCanonEvidenceAlignmentClassification.internalOnly &&
+            record.signalId.startsWith('trace:skipped_lookup')) {
+          totalLookup += result.bundle.trace.skippedLookupTableEvidenceCount;
         }
         if (record.classification ==
             ThaiCanonEvidenceAlignmentClassification.skippedRemedy) {
@@ -262,12 +299,9 @@ abstract final class ThaiCanonEvidenceAlignmentRunner {
             ThaiCanonEvidenceFalseConfidencePatterns.lifePeriodOnTimelineOnly,
           );
         }
-        if (record.evidenceType == ThaiCanonEvidenceType.predictionRule) {
-          risks.add(
-            ThaiCanonEvidenceFalseConfidencePatterns.predictionRuleBulkAttach,
-          );
-        }
       }
+
+      totalTraceOnly += result.bundle.trace.traceOnlyEvidenceCandidates.length;
 
       sectionsStrong += strongSections.length;
       sectionsWeak += weakSections.where((s) => !strongSections.contains(s)).length;
@@ -302,10 +336,16 @@ abstract final class ThaiCanonEvidenceAlignmentRunner {
       sectionsWithStrongMatch: sectionsStrong,
       sectionsWithWeakEvidence: sectionsWeak,
       sectionsWithNoEvidence: sectionsNone,
+      totalOutOfCanonScopeSignals: totalOutOfCanon,
+      totalInCanonScopeUnmapped: totalInCanonUnmapped,
+      totalTraceOnlyCandidates: totalTraceOnly,
       totalUnmappedSignals: totalUnmapped,
       totalSkippedRemedyCount: totalRemedy,
       totalSkippedTaksaCount: totalTaksa,
+      totalSkippedLookupTableCount: totalLookup,
       totalSkippedPeriodStatusNotes: totalPeriodStatus,
+      topOutOfCanonScopeKeys: _topEntries(outOfCanonKeyCounts, 10),
+      topInCanonScopeUnmappedKeys: _topEntries(unmappedKeyCounts, 10),
       topUnmappedRuntimeKeys: _topEntries(unmappedKeyCounts, 10),
       topUnusedCanonDomains: unusedDomainCounts.entries
           .map((e) => MapEntry(e.key.label, e.value))
@@ -323,10 +363,16 @@ abstract final class ThaiCanonEvidenceAlignmentRunner {
       sectionsWithStrongMatch: partial.sectionsWithStrongMatch,
       sectionsWithWeakEvidence: partial.sectionsWithWeakEvidence,
       sectionsWithNoEvidence: partial.sectionsWithNoEvidence,
+      totalOutOfCanonScopeSignals: partial.totalOutOfCanonScopeSignals,
+      totalInCanonScopeUnmapped: partial.totalInCanonScopeUnmapped,
+      totalTraceOnlyCandidates: partial.totalTraceOnlyCandidates,
       totalUnmappedSignals: partial.totalUnmappedSignals,
       totalSkippedRemedyCount: partial.totalSkippedRemedyCount,
       totalSkippedTaksaCount: partial.totalSkippedTaksaCount,
+      totalSkippedLookupTableCount: partial.totalSkippedLookupTableCount,
       totalSkippedPeriodStatusNotes: partial.totalSkippedPeriodStatusNotes,
+      topOutOfCanonScopeKeys: partial.topOutOfCanonScopeKeys,
+      topInCanonScopeUnmappedKeys: partial.topInCanonScopeUnmappedKeys,
       topUnmappedRuntimeKeys: partial.topUnmappedRuntimeKeys,
       topUnusedCanonDomains: partial.topUnusedCanonDomains.take(10).toList(),
       falseConfidenceRisks: partial.falseConfidenceRisks,

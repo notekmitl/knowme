@@ -28,13 +28,25 @@ abstract final class ThaiCanonEvidenceAlignmentReport {
       ..writeln(
         '| Section rows with no evidence | ${audit.sectionsWithNoEvidence} |',
       )
-      ..writeln('| Unmapped signals (total) | ${audit.totalUnmappedSignals} |')
+      ..writeln(
+        '| Out of Canon scope signals | ${audit.totalOutOfCanonScopeSignals} |',
+      )
+      ..writeln(
+        '| In-scope unmapped signals | ${audit.totalInCanonScopeUnmapped} |',
+      )
+      ..writeln(
+        '| Trace-only evidence candidates | ${audit.totalTraceOnlyCandidates} |',
+      )
       ..writeln(
         '| Skipped remedy count (aggregate) | '
         '${audit.totalSkippedRemedyCount} |',
       )
       ..writeln(
         '| Skipped Taksa count (aggregate) | ${audit.totalSkippedTaksaCount} |',
+      )
+      ..writeln(
+        '| Skipped lookup table count (aggregate) | '
+        '${audit.totalSkippedLookupTableCount} |',
       )
       ..writeln(
         '| Skipped periodStatus notes | '
@@ -50,6 +62,32 @@ abstract final class ThaiCanonEvidenceAlignmentReport {
     }
     buffer
       ..writeln()
+      ..writeln('## Mapping split')
+      ..writeln()
+      ..writeln('### Out of Canon scope (not mapping failures)')
+      ..writeln();
+    for (final entry in audit.topOutOfCanonScopeKeys) {
+      buffer.writeln('- `${entry.key}` (${entry.value} fixtures)');
+    }
+    buffer
+      ..writeln()
+      ..writeln('### True in-scope unmapped')
+      ..writeln();
+    for (final entry in audit.topInCanonScopeUnmappedKeys) {
+      buffer.writeln('- `${entry.key}` (${entry.value} fixtures)');
+    }
+    buffer
+      ..writeln()
+      ..writeln('### Skipped by safety policy')
+      ..writeln()
+      ..writeln('- Remedies: ${audit.totalSkippedRemedyCount} unit-slots (aggregate)')
+      ..writeln('- Lookup tables: ${audit.totalSkippedLookupTableCount} unit-slots (aggregate)')
+      ..writeln()
+      ..writeln('### Skipped due to missing runtime key')
+      ..writeln()
+      ..writeln('- Taksa: ${audit.totalSkippedTaksaCount} unit-slots (aggregate)')
+      ..writeln('- periodStatus notes: ${audit.totalSkippedPeriodStatusNotes}')
+      ..writeln()
       ..writeln('## Fixture summaries')
       ..writeln();
     for (final result in audit.fixtureResults) {
@@ -63,6 +101,16 @@ abstract final class ThaiCanonEvidenceAlignmentReport {
         ..writeln('- Attachments: ${result.attachmentCount}')
         ..writeln('- Evidence refs: ${result.evidenceRefCount}')
         ..writeln(
+          '- Out of scope: ${result.bundle.trace.outOfCanonScopeSignals.length}',
+        )
+        ..writeln(
+          '- In-scope unmapped: '
+          '${result.bundle.trace.inCanonScopeUnmappedSignals.length}',
+        )
+        ..writeln(
+          '- Trace-only: ${result.bundle.trace.traceOnlyEvidenceCandidates.length}',
+        )
+        ..writeln(
           '- Sections with evidence: '
           '${result.sectionsWithEvidence.join(", ")}',
         )
@@ -73,13 +121,6 @@ abstract final class ThaiCanonEvidenceAlignmentReport {
         ..writeln();
     }
     buffer
-      ..writeln('## Top unmapped runtime/report keys')
-      ..writeln();
-    for (final entry in audit.topUnmappedRuntimeKeys) {
-      buffer.writeln('- `${entry.key}` (${entry.value} fixtures)');
-    }
-    buffer
-      ..writeln()
       ..writeln('## Top unused Canon domains (by unit count)')
       ..writeln();
     for (final entry in audit.topUnusedCanonDomains) {
@@ -114,13 +155,21 @@ abstract final class ThaiCanonEvidenceAlignmentReport {
         'sectionsWithStrongMatch': audit.sectionsWithStrongMatch,
         'sectionsWithWeakEvidence': audit.sectionsWithWeakEvidence,
         'sectionsWithNoEvidence': audit.sectionsWithNoEvidence,
+        'totalOutOfCanonScopeSignals': audit.totalOutOfCanonScopeSignals,
+        'totalInCanonScopeUnmapped': audit.totalInCanonScopeUnmapped,
+        'totalTraceOnlyCandidates': audit.totalTraceOnlyCandidates,
         'totalUnmappedSignals': audit.totalUnmappedSignals,
         'totalSkippedRemedyCount': audit.totalSkippedRemedyCount,
         'totalSkippedTaksaCount': audit.totalSkippedTaksaCount,
+        'totalSkippedLookupTableCount': audit.totalSkippedLookupTableCount,
         'totalSkippedPeriodStatusNotes': audit.totalSkippedPeriodStatusNotes,
       },
-      'topUnmappedRuntimeKeys': [
-        for (final e in audit.topUnmappedRuntimeKeys)
+      'topOutOfCanonScopeKeys': [
+        for (final e in audit.topOutOfCanonScopeKeys)
+          {'key': e.key, 'fixtureHits': e.value},
+      ],
+      'topInCanonScopeUnmappedKeys': [
+        for (final e in audit.topInCanonScopeUnmappedKeys)
           {'key': e.key, 'fixtureHits': e.value},
       ],
       'topUnusedCanonDomains': [
@@ -141,6 +190,10 @@ abstract final class ThaiCanonEvidenceAlignmentReport {
             'lagnaLordKey': r.lagnaLordKey,
             'attachmentCount': r.attachmentCount,
             'evidenceRefCount': r.evidenceRefCount,
+            'outOfCanonScopeCount': r.bundle.trace.outOfCanonScopeSignals.length,
+            'inCanonScopeUnmappedCount':
+                r.bundle.trace.inCanonScopeUnmappedSignals.length,
+            'traceOnlyCount': r.bundle.trace.traceOnlyEvidenceCandidates.length,
             'sectionsWithEvidence': r.sectionsWithEvidence,
             'sectionsWithoutEvidence': r.sectionsWithoutEvidence,
           },
