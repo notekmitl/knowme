@@ -11,6 +11,7 @@ class ThaiCanonEvidenceTrace {
     this.skippedTaksaEvidenceCount = 0,
     this.skippedLookupTableEvidenceCount = 0,
     this.skippedPeriodStatusNotes = const [],
+    this.lifePeriodsWithoutRuntimeStatus = const [],
   });
 
   /// Legacy combined list — in-scope unmapped signals only (excludes out-of-scope).
@@ -35,6 +36,9 @@ class ThaiCanonEvidenceTrace {
   final int skippedTaksaEvidenceCount;
   final int skippedLookupTableEvidenceCount;
   final List<String> skippedPeriodStatusNotes;
+
+  /// Life-period anchors with no exact ดวงขึ้น/ดวงตก label in runtime (not a mapping failure).
+  final List<String> lifePeriodsWithoutRuntimeStatus;
 
   int get totalUnmappedSignals => inCanonScopeUnmappedSignals.length;
 }

@@ -5,10 +5,13 @@ import 'package:knowme/features/astrology/thai/knowledge/canon/ontology/canon_on
 import 'package:knowme/features/astrology/thai/knowledge/canon/ontology/canonical_entity.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/ontology/ontology_category.dart';
 
+import 'thai_canon_period_status_runtime_mapping.dart';
+
 /// How a Canon ontology entity maps to an existing runtime identifier.
 enum ThaiCanonRuntimeKeyKind {
   lifePlanet,
   thaiContentKey,
+  periodStatusLabel,
 }
 
 /// One Canon entity → runtime key pairing (or explicit absence).
@@ -148,16 +151,9 @@ abstract final class ThaiCanonOntologyRuntimeMapping {
           )
           .toList(growable: false);
 
-  /// Period rise/fall — no dedicated runtime keys today.
+  /// Period rise/fall — exact Thai report labels only.
   static List<ThaiCanonRuntimeMappingEntry> periodStatusMappings() =>
-      CanonOntologyData.periodStatuses
-          .map(
-            (e) => ThaiCanonRuntimeMappingEntry.unmapped(
-              canonEntityId: e.id,
-              note: 'No runtime periodStatus key',
-            ),
-          )
-          .toList(growable: false);
+      ThaiCanonPeriodStatusRuntimeMapping.runtimeMappings();
 
   /// Entities in selected ontology categories with no runtime mapping entry.
   static List<String> unmappedCanonEntityIds({
@@ -192,6 +188,12 @@ abstract final class ThaiCanonOntologyRuntimeMapping {
   static bool _hasRuntimeMapping(String canonEntityId) {
     if (_planetToLifePlanet.containsKey(canonEntityId)) return true;
     if (_mahabhutToContentKey.containsKey(canonEntityId)) return true;
+    if (ThaiCanonPeriodStatusRuntimeMapping.runtimeLabelForCanonId(
+          canonEntityId,
+        ) !=
+        null) {
+      return true;
+    }
     return false;
   }
 

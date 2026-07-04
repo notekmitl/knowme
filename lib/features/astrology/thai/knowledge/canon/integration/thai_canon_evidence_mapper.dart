@@ -60,6 +60,17 @@ class ThaiCanonEvidenceMapper {
   List<ThaiCanonEvidenceRef> evidenceForLifePeriodContext(String value) =>
       refsForUnits(index.byLifePeriodContext(value));
 
+  /// All Canon units whose subject or object is [canonPeriodStatusId].
+  List<ThaiCanonEvidenceRef> evidenceForPeriodStatusCanonId(
+    String canonPeriodStatusId,
+  ) =>
+      refsForUnits(
+        index.units.where(
+          (u) =>
+              u.subject == canonPeriodStatusId || u.object == canonPeriodStatusId,
+        ),
+      );
+
   /// Remedy Canon — always classified [ThaiCanonEvidenceSafety.remedyInternalOnly].
   List<ThaiCanonEvidenceRef> evidenceForRemedyDomain() {
     return refsForUnits(index.byRemedyDomain()).map((ref) {

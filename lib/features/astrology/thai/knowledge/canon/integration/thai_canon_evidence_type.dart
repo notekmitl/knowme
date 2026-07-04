@@ -3,6 +3,7 @@ enum ThaiCanonEvidenceType {
   mahabhutPosition,
   planetSignification,
   lifePeriodStructural,
+  periodStatusStructural,
   predictionRule,
   taksa,
   remedyInternal,

@@ -55,6 +55,7 @@ class ThaiCanonEvidenceAlignmentAudit {
     required this.totalSkippedTaksaCount,
     required this.totalSkippedLookupTableCount,
     required this.totalSkippedPeriodStatusNotes,
+    required this.totalLifePeriodsWithoutRuntimeStatus,
     required this.topOutOfCanonScopeKeys,
     required this.topInCanonScopeUnmappedKeys,
     required this.topUnmappedRuntimeKeys,
@@ -78,6 +79,7 @@ class ThaiCanonEvidenceAlignmentAudit {
   final int totalSkippedTaksaCount;
   final int totalSkippedLookupTableCount;
   final int totalSkippedPeriodStatusNotes;
+  final int totalLifePeriodsWithoutRuntimeStatus;
   final List<MapEntry<String, int>> topOutOfCanonScopeKeys;
   final List<MapEntry<String, int>> topInCanonScopeUnmappedKeys;
   final List<MapEntry<String, int>> topUnmappedRuntimeKeys;
@@ -217,6 +219,7 @@ abstract final class ThaiCanonEvidenceAlignmentRunner {
     var totalTaksa = 0;
     var totalLookup = 0;
     var totalPeriodStatus = 0;
+    var totalNoRuntimeStatus = 0;
     final risks = <String>{};
 
     for (final result in results) {
@@ -302,6 +305,8 @@ abstract final class ThaiCanonEvidenceAlignmentRunner {
       }
 
       totalTraceOnly += result.bundle.trace.traceOnlyEvidenceCandidates.length;
+      totalNoRuntimeStatus +=
+          result.bundle.trace.lifePeriodsWithoutRuntimeStatus.length;
 
       sectionsStrong += strongSections.length;
       sectionsWeak += weakSections.where((s) => !strongSections.contains(s)).length;
@@ -344,6 +349,7 @@ abstract final class ThaiCanonEvidenceAlignmentRunner {
       totalSkippedTaksaCount: totalTaksa,
       totalSkippedLookupTableCount: totalLookup,
       totalSkippedPeriodStatusNotes: totalPeriodStatus,
+      totalLifePeriodsWithoutRuntimeStatus: totalNoRuntimeStatus,
       topOutOfCanonScopeKeys: _topEntries(outOfCanonKeyCounts, 10),
       topInCanonScopeUnmappedKeys: _topEntries(unmappedKeyCounts, 10),
       topUnmappedRuntimeKeys: _topEntries(unmappedKeyCounts, 10),
@@ -371,6 +377,8 @@ abstract final class ThaiCanonEvidenceAlignmentRunner {
       totalSkippedTaksaCount: partial.totalSkippedTaksaCount,
       totalSkippedLookupTableCount: partial.totalSkippedLookupTableCount,
       totalSkippedPeriodStatusNotes: partial.totalSkippedPeriodStatusNotes,
+      totalLifePeriodsWithoutRuntimeStatus:
+          partial.totalLifePeriodsWithoutRuntimeStatus,
       topOutOfCanonScopeKeys: partial.topOutOfCanonScopeKeys,
       topInCanonScopeUnmappedKeys: partial.topInCanonScopeUnmappedKeys,
       topUnmappedRuntimeKeys: partial.topUnmappedRuntimeKeys,

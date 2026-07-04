@@ -204,7 +204,7 @@ void main() {
       expect(bundle.trace.skippedRemedyEvidenceCount, 87);
     });
 
-    test('unmapped Taksa periodStatus Ketu cases are reported', () async {
+    test('unmapped Taksa Ketu cases are reported; periodStatus mapping wired', () async {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
@@ -214,7 +214,11 @@ void main() {
       );
 
       expect(bundle.trace.skippedTaksaEvidenceCount, greaterThan(0));
-      expect(bundle.trace.skippedPeriodStatusNotes, isNotEmpty);
+      expect(bundle.trace.skippedPeriodStatusNotes, isEmpty);
+      expect(
+        bundle.trace.lifePeriodsWithoutRuntimeStatus,
+        isNotEmpty,
+      );
       expect(
         bundle.trace.unmappedCanonEvidenceCandidates,
         contains('planet.ketu'),
@@ -224,6 +228,12 @@ void main() {
           (id) => id.startsWith('taksaRole.'),
         ),
         isTrue,
+      );
+      expect(
+        bundle.trace.unmappedCanonEvidenceCandidates.any(
+          (id) => id.startsWith('periodStatus.'),
+        ),
+        isFalse,
       );
     });
 

@@ -2,6 +2,7 @@ import '../thai_canon_evidence_attachment.dart';
 import '../thai_canon_evidence_signal_scope.dart';
 import '../thai_canon_evidence_type.dart';
 import '../thai_canon_ontology_runtime_mapping.dart';
+import '../thai_canon_period_status_runtime_mapping.dart';
 import '../thai_mirror_canon_evidence_bundle.dart';
 import 'thai_canon_evidence_alignment_classification.dart';
 
@@ -99,6 +100,18 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
         ),
       );
     }
+    for (final signal in trace.lifePeriodsWithoutRuntimeStatus) {
+      records.add(
+        ThaiCanonEvidenceAlignmentRecord(
+          fixtureId: fixtureId,
+          signalId: 'trace:noStatusInRuntime:$signal',
+          classification: ThaiCanonEvidenceAlignmentClassification.internalOnly,
+          reason:
+              'Life-period anchor has no exact ดวงขึ้น/ดวงตก label in '
+              'runtime/report output (not a mapping failure)',
+        ),
+      );
+    }
     for (final signal in trace.outOfCanonScopeSignals) {
       final contentKey = _contentKeyFromSignal(signal);
       records.add(
@@ -158,6 +171,8 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
         _classifyPlanetSignification(attachment),
       ThaiCanonEvidenceType.lifePeriodStructural =>
         _classifyLifePeriod(attachment),
+      ThaiCanonEvidenceType.periodStatusStructural =>
+        _classifyPeriodStatus(attachment),
       ThaiCanonEvidenceType.predictionRule => (
           ThaiCanonEvidenceAlignmentClassification.relatedButWeak,
           'Prediction rule attachment should be trace-only',
@@ -248,6 +263,48 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
       ThaiCanonEvidenceAlignmentClassification.relatedButWeak,
       'Planet/domain evidence related but does not directly prove section prose',
     );
+  }
+
+  static (ThaiCanonEvidenceAlignmentClassification, String) _classifyPeriodStatus(
+    ThaiCanonEvidenceAttachment attachment,
+  ) {
+    final label = _periodStatusLabelFromSignal(attachment.signalId);
+    if (label == null) {
+      return (
+        ThaiCanonEvidenceAlignmentClassification.relatedButWeak,
+        'Period status signal id not parseable',
+      );
+    }
+
+    final canonId =
+        ThaiCanonPeriodStatusRuntimeMapping.canonIdForRuntimeLabel(label);
+    if (canonId == null) {
+      return (
+        ThaiCanonEvidenceAlignmentClassification.unmappedSignal,
+        'Period status label not in Canon mapping table',
+      );
+    }
+
+    final matches = attachment.evidenceRefs.where(
+      (r) => r.subject == canonId || r.object == canonId,
+    );
+    if (matches.isNotEmpty &&
+        matches.length == attachment.evidenceRefs.length) {
+      return (
+        ThaiCanonEvidenceAlignmentClassification.strongMatch,
+        '$canonId evidence matches runtime label $label on life-period signal',
+      );
+    }
+
+    return (
+      ThaiCanonEvidenceAlignmentClassification.relatedButWeak,
+      'Period status evidence partial vs $canonId',
+    );
+  }
+
+  static String? _periodStatusLabelFromSignal(String signalId) {
+    if (!signalId.contains(':periodStatus:')) return null;
+    return signalId.split(':periodStatus:').last;
   }
 
   static (ThaiCanonEvidenceAlignmentClassification, String) _classifyLifePeriod(

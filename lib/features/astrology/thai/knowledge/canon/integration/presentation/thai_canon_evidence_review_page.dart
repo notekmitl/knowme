@@ -347,8 +347,27 @@ class _TracePanel extends StatelessWidget {
                 '${trace.skippedTaksaEvidenceCount}'),
             const SizedBox(height: 8),
             Text('periodStatus notes:', style: theme.textTheme.labelLarge),
-            for (final note in trace.skippedPeriodStatusNotes)
-              Text('• $note', style: theme.textTheme.bodySmall),
+            if (trace.skippedPeriodStatusNotes.isEmpty)
+              Text(
+                '• none — runtime mapping table is wired',
+                style: theme.textTheme.bodySmall,
+              )
+            else
+              for (final note in trace.skippedPeriodStatusNotes)
+                Text('• $note', style: theme.textTheme.bodySmall),
+            const SizedBox(height: 8),
+            Text(
+              'Life periods without runtime status '
+              '(${trace.lifePeriodsWithoutRuntimeStatus.length}):',
+              style: theme.textTheme.labelLarge,
+            ),
+            for (final s in trace.lifePeriodsWithoutRuntimeStatus.take(10))
+              Text('• $s', style: theme.textTheme.bodySmall),
+            if (trace.lifePeriodsWithoutRuntimeStatus.length > 10)
+              Text(
+                '… +${trace.lifePeriodsWithoutRuntimeStatus.length - 10} more',
+                style: theme.textTheme.bodySmall,
+              ),
             const SizedBox(height: 8),
             Text(
               'In-scope unmapped signals '

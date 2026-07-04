@@ -110,18 +110,38 @@ void main() {
       }
     });
 
-    test('periodStatus unmapped evidence is reported', () {
+    test('periodStatus mapping is wired; absent runtime status is trace-only', () {
       for (final result in audit.fixtureResults) {
-        expect(result.bundle.trace.skippedPeriodStatusNotes, isNotEmpty);
+        expect(result.bundle.trace.skippedPeriodStatusNotes, isEmpty);
+        expect(
+          result.bundle.trace.unmappedCanonEvidenceCandidates,
+          isNot(contains('periodStatus.duengKhuen')),
+        );
+        expect(
+          result.bundle.trace.unmappedCanonEvidenceCandidates,
+          isNot(contains('periodStatus.duengTok')),
+        );
         expect(
           result.records.any(
             (r) =>
                 r.classification ==
                 ThaiCanonEvidenceAlignmentClassification.skippedPeriodStatus,
           ),
+          isFalse,
+        );
+        expect(
+          result.bundle.trace.lifePeriodsWithoutRuntimeStatus,
+          isNotEmpty,
+        );
+        expect(
+          result.records.any(
+            (r) => r.signalId.startsWith('trace:noStatusInRuntime:'),
+          ),
           isTrue,
         );
       }
+      expect(audit.totalSkippedPeriodStatusNotes, 0);
+      expect(audit.totalLifePeriodsWithoutRuntimeStatus, greaterThan(0));
     });
 
     test('one fixture has lower attachment coverage than QA sample', () {

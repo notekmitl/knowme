@@ -13,6 +13,8 @@ import 'thai_canon_evidence_signal_scope.dart';
 import 'thai_canon_evidence_trace.dart';
 import 'thai_canon_evidence_type.dart';
 import 'thai_canon_ontology_runtime_mapping.dart';
+import 'thai_canon_period_status_discovery.dart';
+import 'thai_canon_period_status_runtime_mapping.dart';
 import 'thai_mirror_canon_evidence_bundle.dart';
 
 /// Attaches frozen Canon evidence to Thai Mirror pipeline output without
@@ -40,6 +42,7 @@ abstract final class ThaiReportCanonEvidenceEnricher {
   static Future<ThaiMirrorCanonEvidenceBundle> enrich(
     ThaiMirrorPipelineResult pipelineResult, {
     ThaiCanonEvidenceRepository? repository,
+    Map<int, String>? periodStatusLabelsByIndex,
   }) async {
     if (!pipelineResult.isSuccess) {
       return ThaiMirrorCanonEvidenceBundle(
@@ -57,6 +60,12 @@ abstract final class ThaiReportCanonEvidenceEnricher {
     final traceOnlyCandidates = <String>[];
     final runtimeUnmapped = <String>[];
     final canonCandidates = <String>[];
+    final lifePeriodsWithoutRuntimeStatus = <String>[];
+
+    final periodStatusLabels = ThaiCanonPeriodStatusDiscovery.discover(
+      pipelineResult,
+      labelsByPeriodIndex: periodStatusLabelsByIndex,
+    );
 
     final mirror = pipelineResult.mirrorResult!;
 
@@ -110,31 +119,57 @@ abstract final class ThaiReportCanonEvidenceEnricher {
         final signalId = 'life_period:${period.index}:$planetId';
         if (units.isEmpty) {
           inCanonScopeUnmapped.add(signalId);
+        } else {
+          attachments.add(
+            ThaiCanonEvidenceAttachment(
+              sectionId: 'lifeTimeline',
+              signalId: signalId,
+              evidenceType: ThaiCanonEvidenceType.lifePeriodStructural,
+              evidenceRefs: mapper.refsForUnits(units),
+              matchQuality: ThaiCanonEvidenceMatchQuality.structural,
+            ),
+          );
+        }
+
+        final statusLabel = periodStatusLabels[period.index];
+        if (statusLabel == null) {
+          lifePeriodsWithoutRuntimeStatus.add(signalId);
           continue;
         }
+
+        final canonStatusId =
+            ThaiCanonPeriodStatusRuntimeMapping.canonIdForRuntimeLabel(
+          statusLabel,
+        );
+        if (canonStatusId == null) continue;
+
+        final statusRefs = mapper.evidenceForPeriodStatusCanonId(canonStatusId);
+        if (statusRefs.isEmpty) {
+          inCanonScopeUnmapped.add(
+            '$signalId:periodStatus:$statusLabel',
+          );
+          continue;
+        }
+
         attachments.add(
           ThaiCanonEvidenceAttachment(
             sectionId: 'lifeTimeline',
-            signalId: signalId,
-            evidenceType: ThaiCanonEvidenceType.lifePeriodStructural,
-            evidenceRefs: mapper.refsForUnits(units),
+            signalId: '$signalId:periodStatus:$statusLabel',
+            evidenceType: ThaiCanonEvidenceType.periodStatusStructural,
+            evidenceRefs: statusRefs,
             matchQuality: ThaiCanonEvidenceMatchQuality.structural,
           ),
         );
       }
     }
 
-    final predictionRefs = _predictionRuleRefs(repo);
-    if (predictionRefs.isNotEmpty) {
-      traceOnlyCandidates.add(
-        'prediction:phase_e_rules (${predictionRefs.length} periodStatus refs; '
-        'bulk internal metadata only)',
-      );
-    }
-
-    for (final entry in ThaiCanonOntologyRuntimeMapping.periodStatusMappings()) {
-      if (!entry.isMapped) {
-        canonCandidates.add(entry.canonEntityId);
+    if (periodStatusLabels.isEmpty) {
+      final predictionRefs = _predictionRuleRefs(repo);
+      if (predictionRefs.isNotEmpty) {
+        traceOnlyCandidates.add(
+          'prediction:phase_e_rules (${predictionRefs.length} periodStatus refs; '
+          'bulk internal metadata only — no runtime period status labels)',
+        );
       }
     }
     for (final entry in ThaiCanonOntologyRuntimeMapping.taksaRoleMappings()) {
@@ -163,11 +198,9 @@ abstract final class ThaiReportCanonEvidenceEnricher {
           .where((u) => u.object.startsWith('taksaRole.'))
           .length,
       skippedLookupTableEvidenceCount: lookupCount,
-      skippedPeriodStatusNotes:
-          ThaiCanonOntologyRuntimeMapping.periodStatusMappings()
-              .where((m) => !m.isMapped)
-              .map((m) => '${m.canonEntityId}: ${m.note ?? 'unmapped'}')
-              .toList(growable: false),
+      skippedPeriodStatusNotes: const [],
+      lifePeriodsWithoutRuntimeStatus:
+          _sortedUnique(lifePeriodsWithoutRuntimeStatus),
     );
 
     attachments.sort((a, b) => a.signalId.compareTo(b.signalId));

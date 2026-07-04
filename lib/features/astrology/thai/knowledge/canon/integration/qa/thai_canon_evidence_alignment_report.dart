@@ -52,6 +52,10 @@ abstract final class ThaiCanonEvidenceAlignmentReport {
         '| Skipped periodStatus notes | '
         '${audit.totalSkippedPeriodStatusNotes} |',
       )
+      ..writeln(
+        '| Life periods without runtime status | '
+        '${audit.totalLifePeriodsWithoutRuntimeStatus} |',
+      )
       ..writeln('| Canon unit ids used | ${audit.canonUnitIdsUsed.length} |')
       ..writeln()
       ..writeln('### Classification totals')
@@ -87,6 +91,10 @@ abstract final class ThaiCanonEvidenceAlignmentReport {
       ..writeln()
       ..writeln('- Taksa: ${audit.totalSkippedTaksaCount} unit-slots (aggregate)')
       ..writeln('- periodStatus notes: ${audit.totalSkippedPeriodStatusNotes}')
+      ..writeln(
+        '- Life periods without runtime status: '
+        '${audit.totalLifePeriodsWithoutRuntimeStatus}',
+      )
       ..writeln()
       ..writeln('## Fixture summaries')
       ..writeln();
@@ -163,6 +171,8 @@ abstract final class ThaiCanonEvidenceAlignmentReport {
         'totalSkippedTaksaCount': audit.totalSkippedTaksaCount,
         'totalSkippedLookupTableCount': audit.totalSkippedLookupTableCount,
         'totalSkippedPeriodStatusNotes': audit.totalSkippedPeriodStatusNotes,
+        'totalLifePeriodsWithoutRuntimeStatus':
+            audit.totalLifePeriodsWithoutRuntimeStatus,
       },
       'topOutOfCanonScopeKeys': [
         for (final e in audit.topOutOfCanonScopeKeys)
