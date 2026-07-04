@@ -1,0 +1,143 @@
+import '../thai_canon_evidence_attachment.dart';
+import '../thai_canon_evidence_trace.dart';
+import '../thai_canon_evidence_type.dart';
+import '../thai_mirror_canon_evidence_bundle.dart';
+/// Aggregated coverage metrics for the internal evidence review panel.
+class ThaiCanonEvidenceReviewSummary {
+  const ThaiCanonEvidenceReviewSummary({
+    required this.totalAttachments,
+    required this.totalEvidenceRefs,
+    required this.byType,
+    required this.sectionsWithEvidence,
+    required this.sectionsWithoutEvidence,
+    required this.lifePeriodAttachmentCount,
+    required this.predictionRuleAttachmentCount,
+    required this.remedySkippedCount,
+    required this.taksaSkippedCount,
+    required this.unmappedCandidateCount,
+    required this.signalsWithoutEvidenceCount,
+  });
+
+  factory ThaiCanonEvidenceReviewSummary.fromBundle(
+    ThaiMirrorCanonEvidenceBundle bundle,
+  ) {
+    final attachments = bundle.attachments;
+    final byType = <ThaiCanonEvidenceType, int>{};
+    for (final type in ThaiCanonEvidenceType.values) {
+      byType[type] =
+          attachments.where((a) => a.evidenceType == type).length;
+    }
+
+    final sectionIdsWithEvidence = attachments
+        .map((a) => a.sectionId)
+        .whereType<String>()
+        .where((id) => !id.startsWith('future') && id != 'lifeTimeline')
+        .toSet();
+
+    final mirror = bundle.pipelineResult.mirrorResult!;
+    final mirrorSectionIds =
+        mirror.sections.map((s) => s.id.name).toSet();
+    final without = mirrorSectionIds
+        .where((id) => !sectionIdsWithEvidence.contains(id))
+        .toList()
+      ..sort();
+
+    final withEvidence = sectionIdsWithEvidence
+        .where(mirrorSectionIds.contains)
+        .toList()
+      ..sort();
+
+    final trace = bundle.trace;
+
+    return ThaiCanonEvidenceReviewSummary(
+      totalAttachments: attachments.length,
+      totalEvidenceRefs: bundle.totalEvidenceRefs,
+      byType: byType,
+      sectionsWithEvidence: withEvidence,
+      sectionsWithoutEvidence: without,
+      lifePeriodAttachmentCount:
+          byType[ThaiCanonEvidenceType.lifePeriodStructural] ?? 0,
+      predictionRuleAttachmentCount:
+          byType[ThaiCanonEvidenceType.predictionRule] ?? 0,
+      remedySkippedCount: trace.skippedRemedyEvidenceCount,
+      taksaSkippedCount: trace.skippedTaksaEvidenceCount,
+      unmappedCandidateCount: trace.unmappedCanonEvidenceCandidates.length,
+      signalsWithoutEvidenceCount: trace.signalsWithoutCanonEvidence.length,
+    );
+  }
+
+  final int totalAttachments;
+  final int totalEvidenceRefs;
+  final Map<ThaiCanonEvidenceType, int> byType;
+  final List<String> sectionsWithEvidence;
+  final List<String> sectionsWithoutEvidence;
+  final int lifePeriodAttachmentCount;
+  final int predictionRuleAttachmentCount;
+  final int remedySkippedCount;
+  final int taksaSkippedCount;
+  final int unmappedCandidateCount;
+  final int signalsWithoutEvidenceCount;
+}
+
+/// One flattened row for the evidence review table.
+class ThaiCanonEvidenceReviewRow {
+  const ThaiCanonEvidenceReviewRow({
+    required this.sectionId,
+    required this.signalId,
+    required this.evidenceType,
+    required this.unitId,
+    required this.subject,
+    required this.relation,
+    required this.object,
+    required this.contextLabel,
+    required this.sourcePage,
+    required this.condition,
+    required this.userFacingAllowed,
+  });
+
+  final String sectionId;
+  final String signalId;
+  final ThaiCanonEvidenceType evidenceType;
+  final String unitId;
+  final String subject;
+  final String relation;
+  final String object;
+  final String contextLabel;
+  final String sourcePage;
+  final String condition;
+  final bool userFacingAllowed;
+}
+
+List<ThaiCanonEvidenceReviewRow> flattenEvidenceRows(
+  ThaiMirrorCanonEvidenceBundle bundle,
+) {
+  final rows = <ThaiCanonEvidenceReviewRow>[];
+  for (final attachment in bundle.attachments) {
+    for (final ref in attachment.evidenceRefs) {
+      final ctx = ref.contextType == null
+          ? ''
+          : '${ref.contextType}${ref.contextValue == null ? '' : ':${ref.contextValue}'}';
+      rows.add(
+        ThaiCanonEvidenceReviewRow(
+          sectionId: attachment.sectionId ?? '—',
+          signalId: attachment.signalId,
+          evidenceType: attachment.evidenceType,
+          unitId: ref.unitId,
+          subject: ref.subject,
+          relation: ref.relation,
+          object: ref.object,
+          contextLabel: ctx,
+          sourcePage: ref.sourcePage ?? '',
+          condition: ref.condition ?? '',
+          userFacingAllowed: attachment.userFacingAllowed,
+        ),
+      );
+    }
+  }
+  rows.sort((a, b) {
+    final section = a.sectionId.compareTo(b.sectionId);
+    if (section != 0) return section;
+    return a.unitId.compareTo(b.unitId);
+  });
+  return rows;
+}

@@ -13,6 +13,7 @@ import 'package:knowme/features/tests/mbti_cognitive/mbti_cognitive_routes.dart'
 import 'package:knowme/features/tests/mbti_summary/mbti_summary_routes.dart';
 import 'package:knowme/features/personality_mirror/personality_mirror_routes.dart';
 import 'package:knowme/features/mirror_experience/mirror_experience_routes.dart';
+import 'package:knowme/features/knowledge_workspace/knowledge_workspace_routes.dart';
 import 'package:knowme/features/product_validation/product_validation_routes.dart';
 import 'package:knowme/features/astrology/fusion/presentation/astrology_fusion_demo_routes.dart';
 import 'package:knowme/features/astrology/presentation/astrology_center_routes.dart';
@@ -21,6 +22,8 @@ import 'package:knowme/features/astrology/thai/mirror/presentation/thai_mirror_r
 import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_demo_routes.dart';
 import 'package:knowme/features/astrology/thai/qa/population/thai_mirror_population_qa_routes.dart';
 import 'package:knowme/features/astrology/thai/qa/thai_mirror_qa_routes.dart';
+import 'package:knowme/features/thai_beta/presentation/thai_beta_routes.dart';
+import 'package:knowme/features/astrology/thai/knowledge/canon/integration/presentation/thai_canon_evidence_routes.dart';
 
 import 'package:knowme/core/web/web_launch_route.dart';
 import 'package:knowme/core/web/web_launch_router.dart';
@@ -128,6 +131,20 @@ class KnowMeApp extends StatelessWidget {
                 ProductValidationRoutes.onGenerateRoute(settings);
             if (productValidationRoute != null) {
               return productValidationRoute;
+            }
+            final thaiBetaRoute = ThaiBetaRoutes.onGenerateRoute(settings);
+            if (thaiBetaRoute != null) {
+              return thaiBetaRoute;
+            }
+            final knowledgeWorkspaceRoute =
+                KnowledgeWorkspaceRoutes.onGenerateRoute(settings);
+            if (knowledgeWorkspaceRoute != null) {
+              return knowledgeWorkspaceRoute;
+            }
+            final thaiCanonEvidenceRoute =
+                ThaiCanonEvidenceRoutes.onGenerateRoute(settings);
+            if (thaiCanonEvidenceRoute != null) {
+              return thaiCanonEvidenceRoute;
             }
             final thaiMirrorRoute = ThaiMirrorRoutes.onGenerateRoute(settings);
             if (thaiMirrorRoute != null) {
