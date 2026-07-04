@@ -1,4 +1,5 @@
 import 'package:knowme/features/astrology/thai/knowledge/canon/atomic/atomic_knowledge_unit.dart';
+import 'package:knowme/features/astrology/thai/knowledge/canon/atomic/atomic_relation.dart';
 
 import 'thai_canon_evidence_index.dart';
 import 'thai_canon_evidence_ref.dart';
@@ -61,13 +62,19 @@ class ThaiCanonEvidenceMapper {
       refsForUnits(index.byLifePeriodContext(value));
 
   /// All Canon units whose subject or object is [canonPeriodStatusId].
+  ///
+  /// Excludes remedy-domain units by default — remedy ↔ periodStatus links are
+  /// internal-only and must not attach to report periodStatus annotations.
   List<ThaiCanonEvidenceRef> evidenceForPeriodStatusCanonId(
-    String canonPeriodStatusId,
-  ) =>
+    String canonPeriodStatusId, {
+    bool excludeRemedyDomain = true,
+  }) =>
       refsForUnits(
         index.units.where(
           (u) =>
-              u.subject == canonPeriodStatusId || u.object == canonPeriodStatusId,
+              (u.subject == canonPeriodStatusId ||
+                  u.object == canonPeriodStatusId) &&
+              (!excludeRemedyDomain || u.domain != KnowledgeDomain.remedies),
         ),
       );
 

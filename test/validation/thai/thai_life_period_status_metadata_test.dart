@@ -62,7 +62,8 @@ void main() {
   });
 
   group('Canon evidence integration (production path)', () {
-    test('production discovery does not attach periodStatus evidence', () async {
+    test('production discovery attaches canon-derived periodStatus when unambiguous',
+        () async {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
@@ -72,17 +73,16 @@ void main() {
       );
 
       expect(
-        bundle.attachments.where(
-          (a) => a.evidenceType == ThaiCanonEvidenceType.periodStatusStructural,
-        ),
-        isEmpty,
-      );
-      expect(
         bundle.trace.lifePeriodStatusMetadataBlocker,
         LifePeriodStatusMetadataBlocker.blockedByRuntimeStatusAbsence,
       );
-      expect(bundle.trace.skippedPeriodStatusNotes, isEmpty);
-      expect(bundle.trace.lifePeriodsWithoutRuntimeStatus, isNotEmpty);
+      expect(
+        bundle.attachments.where(
+          (a) => a.signalId.contains(':periodStatus:canonDerived:'),
+        ),
+        isNotEmpty,
+      );
+      expect(bundle.trace.lifePeriodsWithCanonDerivedStatus, isNotEmpty);
     });
 
     test('QA override still attaches when labels injected', () async {

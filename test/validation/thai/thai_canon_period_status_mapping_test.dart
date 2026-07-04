@@ -148,7 +148,7 @@ void main() {
       );
     });
 
-    test('no periodStatus evidence when runtime status is absent', () async {
+    test('no runtime periodStatus when absent; canon-derived is separate', () async {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
@@ -159,9 +159,17 @@ void main() {
 
       expect(
         bundle.attachments.where(
-          (a) => a.evidenceType == ThaiCanonEvidenceType.periodStatusStructural,
+          (a) =>
+              a.evidenceType == ThaiCanonEvidenceType.periodStatusStructural &&
+              !a.signalId.contains(':periodStatus:canonDerived:'),
         ),
         isEmpty,
+      );
+      expect(
+        bundle.attachments.where(
+          (a) => a.signalId.contains(':periodStatus:canonDerived:'),
+        ),
+        isNotEmpty,
       );
       expect(bundle.trace.skippedPeriodStatusNotes, isEmpty);
       expect(bundle.trace.lifePeriodsWithoutRuntimeStatus, isNotEmpty);

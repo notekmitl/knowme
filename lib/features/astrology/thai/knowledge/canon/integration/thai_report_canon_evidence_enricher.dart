@@ -14,6 +14,7 @@ import 'thai_canon_evidence_trace.dart';
 import 'thai_canon_evidence_type.dart';
 import 'thai_canon_ontology_runtime_mapping.dart';
 import 'thai_canon_period_status_discovery.dart';
+import 'thai_canon_period_status_from_evidence.dart';
 import 'thai_canon_period_status_runtime_mapping.dart';
 import 'thai_mirror_canon_evidence_bundle.dart';
 
@@ -61,6 +62,8 @@ abstract final class ThaiReportCanonEvidenceEnricher {
     final runtimeUnmapped = <String>[];
     final canonCandidates = <String>[];
     final lifePeriodsWithoutRuntimeStatus = <String>[];
+    final lifePeriodsWithCanonDerivedStatus = <String>[];
+    final lifePeriodsWithoutCanonStatusMarker = <String>[];
 
     final periodStatusLabels = ThaiCanonPeriodStatusDiscovery.discover(
       pipelineResult,
@@ -134,9 +137,36 @@ abstract final class ThaiReportCanonEvidenceEnricher {
           );
         }
 
+        final structuralRefs = mapper.refsForUnits(units);
+
         final statusLabel = periodStatusLabels[period.index];
         if (statusLabel == null) {
           lifePeriodsWithoutRuntimeStatus.add(signalId);
+          if (units.isNotEmpty) {
+            final canonDerivedId =
+                ThaiCanonPeriodStatusFromEvidence.canonIdFromLifePeriodRefs(
+              structuralRefs,
+            );
+            if (canonDerivedId == null) {
+              lifePeriodsWithoutCanonStatusMarker.add(signalId);
+            } else {
+              lifePeriodsWithCanonDerivedStatus.add(signalId);
+              final statusRefs =
+                  mapper.evidenceForPeriodStatusCanonId(canonDerivedId);
+              if (statusRefs.isNotEmpty) {
+                attachments.add(
+                  ThaiCanonEvidenceAttachment(
+                    sectionId: 'lifeTimeline',
+                    signalId:
+                        '$signalId:periodStatus:canonDerived:$canonDerivedId',
+                    evidenceType: ThaiCanonEvidenceType.periodStatusStructural,
+                    evidenceRefs: statusRefs,
+                    matchQuality: ThaiCanonEvidenceMatchQuality.structural,
+                  ),
+                );
+              }
+            }
+          }
           continue;
         }
 
@@ -204,6 +234,10 @@ abstract final class ThaiReportCanonEvidenceEnricher {
       skippedPeriodStatusNotes: const [],
       lifePeriodsWithoutRuntimeStatus:
           _sortedUnique(lifePeriodsWithoutRuntimeStatus),
+      lifePeriodsWithCanonDerivedStatus:
+          _sortedUnique(lifePeriodsWithCanonDerivedStatus),
+      lifePeriodsWithoutCanonStatusMarker:
+          _sortedUnique(lifePeriodsWithoutCanonStatusMarker),
       lifePeriodStatusMetadataBlocker: periodStatusAudit?.blocker,
     );
 

@@ -126,6 +126,29 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
         ),
       );
     }
+    for (final signal in trace.lifePeriodsWithCanonDerivedStatus) {
+      records.add(
+        ThaiCanonEvidenceAlignmentRecord(
+          fixtureId: fixtureId,
+          signalId: 'trace:canonDerivedStatus:$signal',
+          classification: ThaiCanonEvidenceAlignmentClassification.internalOnly,
+          reason:
+              'Period status derived from exact Canon life_period context marker',
+        ),
+      );
+    }
+    for (final signal in trace.lifePeriodsWithoutCanonStatusMarker) {
+      records.add(
+        ThaiCanonEvidenceAlignmentRecord(
+          fixtureId: fixtureId,
+          signalId: 'trace:noCanonStatusMarker:$signal',
+          classification: ThaiCanonEvidenceAlignmentClassification.internalOnly,
+          reason:
+              'Life-period structural evidence present but no unambiguous '
+              'Canon [ดวงขึ้น]/[ดวงตก] marker',
+        ),
+      );
+    }
     for (final signal in trace.outOfCanonScopeSignals) {
       final contentKey = _contentKeyFromSignal(signal);
       records.add(
@@ -282,6 +305,30 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
   static (ThaiCanonEvidenceAlignmentClassification, String) _classifyPeriodStatus(
     ThaiCanonEvidenceAttachment attachment,
   ) {
+    if (attachment.signalId.contains(':periodStatus:canonDerived:')) {
+      final canonId = _canonDerivedPeriodStatusIdFromSignal(attachment.signalId);
+      if (canonId == null) {
+        return (
+          ThaiCanonEvidenceAlignmentClassification.relatedButWeak,
+          'Canon-derived period status signal id not parseable',
+        );
+      }
+      final matches = attachment.evidenceRefs.where(
+        (r) => r.subject == canonId || r.object == canonId,
+      );
+      if (matches.isNotEmpty) {
+        return (
+          ThaiCanonEvidenceAlignmentClassification.internalOnly,
+          'Canon-derived period status from exact life_period context marker '
+          '($canonId) — internal annotation only',
+        );
+      }
+      return (
+        ThaiCanonEvidenceAlignmentClassification.relatedButWeak,
+        'Canon-derived period status evidence partial vs $canonId',
+      );
+    }
+
     final label = _periodStatusLabelFromSignal(attachment.signalId);
     if (label == null) {
       return (
@@ -318,7 +365,15 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
 
   static String? _periodStatusLabelFromSignal(String signalId) {
     if (!signalId.contains(':periodStatus:')) return null;
+    if (signalId.contains(':periodStatus:canonDerived:')) return null;
     return signalId.split(':periodStatus:').last;
+  }
+
+  static String? _canonDerivedPeriodStatusIdFromSignal(String signalId) {
+    const prefix = ':periodStatus:canonDerived:';
+    final index = signalId.indexOf(prefix);
+    if (index < 0) return null;
+    return signalId.substring(index + prefix.length);
   }
 
   static (ThaiCanonEvidenceAlignmentClassification, String) _classifyLifePeriod(

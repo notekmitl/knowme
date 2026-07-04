@@ -381,6 +381,32 @@ class _TracePanel extends StatelessWidget {
               ),
             const SizedBox(height: 8),
             Text(
+              'Canon-derived period status '
+              '(${trace.lifePeriodsWithCanonDerivedStatus.length}):',
+              style: theme.textTheme.labelLarge,
+            ),
+            for (final s in trace.lifePeriodsWithCanonDerivedStatus.take(10))
+              Text('• $s', style: theme.textTheme.bodySmall),
+            if (trace.lifePeriodsWithCanonDerivedStatus.length > 10)
+              Text(
+                '… +${trace.lifePeriodsWithCanonDerivedStatus.length - 10} more',
+                style: theme.textTheme.bodySmall,
+              ),
+            const SizedBox(height: 8),
+            Text(
+              'No unambiguous Canon status marker '
+              '(${trace.lifePeriodsWithoutCanonStatusMarker.length}):',
+              style: theme.textTheme.labelLarge,
+            ),
+            for (final s in trace.lifePeriodsWithoutCanonStatusMarker.take(10))
+              Text('• $s', style: theme.textTheme.bodySmall),
+            if (trace.lifePeriodsWithoutCanonStatusMarker.length > 10)
+              Text(
+                '… +${trace.lifePeriodsWithoutCanonStatusMarker.length - 10} more',
+                style: theme.textTheme.bodySmall,
+              ),
+            const SizedBox(height: 8),
+            Text(
               'In-scope unmapped signals '
               '(${trace.inCanonScopeUnmappedSignals.length}):',
               style: theme.textTheme.labelLarge,

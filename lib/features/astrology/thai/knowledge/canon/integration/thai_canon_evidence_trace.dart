@@ -12,6 +12,8 @@ class ThaiCanonEvidenceTrace {
     this.skippedLookupTableEvidenceCount = 0,
     this.skippedPeriodStatusNotes = const [],
     this.lifePeriodsWithoutRuntimeStatus = const [],
+    this.lifePeriodsWithCanonDerivedStatus = const [],
+    this.lifePeriodsWithoutCanonStatusMarker = const [],
     this.lifePeriodStatusMetadataBlocker,
   });
 
@@ -40,6 +42,12 @@ class ThaiCanonEvidenceTrace {
 
   /// Life-period anchors with no exact ดวงขึ้น/ดวงตก label in runtime (not a mapping failure).
   final List<String> lifePeriodsWithoutRuntimeStatus;
+
+  /// Life-period anchors with periodStatus evidence from exact Canon context markers.
+  final List<String> lifePeriodsWithCanonDerivedStatus;
+
+  /// Life-period anchors with structural evidence but no unambiguous Canon marker.
+  final List<String> lifePeriodsWithoutCanonStatusMarker;
 
   /// Set when period-status metadata is blocked (e.g. engine gap — not silent).
   final String? lifePeriodStatusMetadataBlocker;
