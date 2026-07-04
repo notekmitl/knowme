@@ -37,3 +37,11 @@ dev_dependencies:
 flutter:
   uses-material-design: true
   generate: true
+  assets:
+    - knowledge/planet_relationships/
+    - knowledge/research/
+    - knowledge/evidence/
+    - knowledge/acquisition/
+    - knowledge/sources/
+    - knowledge/canon/
+    - knowledge/canon/production/foundation_v1.knowme.json
