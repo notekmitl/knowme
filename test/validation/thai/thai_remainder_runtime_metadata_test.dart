@@ -41,23 +41,21 @@ void main() {
       expect(audit.metadataBlocker, isNull);
     });
 
-    test('archetype blocker propagates NEEDS_CANON_ARCHETYPE_MAPPING', () {
+    test('archetype blocker clears when mapping is complete', () {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
       final archetypeAudit = ThaiArchetypeContextMetadataFeasibility.audit(
         profile: pipeline.profile,
         birthData: pipeline.birthData,
+        canonIndex: repository.index,
       );
 
       expect(
         archetypeAudit.result,
-        ArchetypeContextMetadataFeasibilityResult.needsCanonArchetypeMapping,
+        ArchetypeContextMetadataFeasibilityResult.readyToExposeMetadata,
       );
-      expect(
-        archetypeAudit.metadataBlocker,
-        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
-      );
+      expect(archetypeAudit.metadataBlocker, isNull);
     });
 
     test('remainder trace wired on enricher path', () async {
@@ -182,12 +180,12 @@ void main() {
 
       expect(
         statusAudit.blocker,
-        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
+        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
       );
       expect(
         bundle.trace.lifePeriodPositionFeasibilityResult,
         LifePeriodPositionMetadataFeasibilityResult
-            .needsArchetypeContextMetadata.wire,
+            .needsPeriodContextMapping.wire,
       );
       expect(
         bundle.trace.lifePeriodRiseFallFeasibilityResult,

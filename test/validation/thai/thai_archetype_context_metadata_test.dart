@@ -1,12 +1,11 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_status_metadata.dart';
-import 'package:knowme/features/astrology/thai/core/life_period/thai_archetype_context_metadata.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/integration.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/qa/thai_canon_evidence_alignment_runner.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/thai_mirror_consumer_presenter.dart';
 import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_pipeline.dart';
 
-/// Archetype Context Metadata — feasibility audit + blocked path.
+/// Archetype Context Metadata — feasibility audit + resolved metadata path.
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -17,26 +16,24 @@ void main() {
   });
 
   group('Feasibility audit', () {
-    test('production pipeline is NEEDS_CANON_ARCHETYPE_MAPPING', () {
+    test('production pipeline is READY_TO_EXPOSE_METADATA', () {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
       final audit = ThaiArchetypeContextMetadataFeasibility.audit(
         profile: pipeline.profile,
         birthData: pipeline.birthData,
+        canonIndex: repository.index,
       );
 
       expect(
         audit.result,
-        ArchetypeContextMetadataFeasibilityResult.needsCanonArchetypeMapping,
+        ArchetypeContextMetadataFeasibilityResult.readyToExposeMetadata,
       );
       expect(audit.hasRotationRemainderOnRuntime, isTrue);
-      expect(audit.hasArchetypeChartCanonIdOnRuntime, isFalse);
-      expect(audit.canonRemainderToArchetypeMappingComplete, isFalse);
-      expect(
-        audit.metadataBlocker,
-        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
-      );
+      expect(audit.hasArchetypeChartCanonIdOnRuntime, isTrue);
+      expect(audit.canonRemainderToArchetypeMappingComplete, isTrue);
+      expect(audit.metadataBlocker, isNull);
     });
 
     test('does not treat mahabhutaChartNumbers as remainder identity', () {
@@ -48,12 +45,13 @@ void main() {
         ThaiArchetypeContextMetadataFeasibility.audit(
           profile: pipeline.profile,
           birthData: pipeline.birthData,
+          canonIndex: repository.index,
         ).result,
-        ArchetypeContextMetadataFeasibilityResult.needsCanonArchetypeMapping,
+        ArchetypeContextMetadataFeasibilityResult.readyToExposeMetadata,
       );
     });
 
-    test('position and status blockers propagate NEEDS_CANON_ARCHETYPE_MAPPING',
+    test('position and status blockers propagate NEEDS_PERIOD_CONTEXT_MAPPING',
         () async {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
@@ -70,19 +68,24 @@ void main() {
 
       expect(
         statusAudit.blocker,
-        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
+        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
       );
       expect(
         statusAudit.positionFeasibility.metadataBlocker,
-        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
+        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
       );
       expect(
         bundle.trace.lifePeriodArchetypeMetadataBlocker,
-        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
+        isNull,
       );
       expect(
         bundle.trace.lifePeriodPositionMetadataBlocker,
-        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
+        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
+      );
+      expect(
+        bundle.trace.lifePeriodPositionFeasibilityResult,
+        LifePeriodPositionMetadataFeasibilityResult
+            .needsPeriodContextMapping.wire,
       );
     });
   });
@@ -103,12 +106,12 @@ void main() {
       );
     });
 
-    test('returns null for remainder6 — Canon mapping gap', () {
+    test('maps remainder6 to nakwichakan when source-backed', () {
       expect(
         ThaiArchetypeContextMetadataResolver.archetypeChartCanonIdForRemainder(
           'rotationIndex.remainder6',
         ),
-        isNull,
+        'archetypeChart.nakwichakan',
       );
     });
 
@@ -121,19 +124,20 @@ void main() {
       );
     });
 
-    test('Canon mapping completeness audit documents p19 gaps', () {
+    test('Canon mapping completeness audit documents all seven rows', () {
       expect(
-        ThaiArchetypeContextP19Rules.unmappedRemainderIds,
-        contains('rotationIndex.remainder6'),
+        ThaiArchetypeContextP19Rules.remainderToArchetypeChart.length,
+        7,
       );
       expect(
-        ThaiArchetypeContextP19Rules.unmappedArchetypeChartIds,
-        contains('archetypeChart.nakwichakan'),
+        ThaiArchetypeContextMappingRegistry.audit(index: repository.index)
+            .missingRemainderIds,
+        isEmpty,
       );
     });
   });
 
-  group('Canon evidence integration (blocked metadata path)', () {
+  group('Canon evidence integration (resolved metadata path)', () {
     test('9-fixture aggregate counts unchanged', () async {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,

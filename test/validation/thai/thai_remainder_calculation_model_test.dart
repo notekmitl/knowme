@@ -237,27 +237,26 @@ void main() {
   });
 
   group('Downstream blocker chain', () {
-    test('archetype blocker moves to NEEDS_CANON_ARCHETYPE_MAPPING', () {
+    test('archetype blocker clears when Canon mapping is complete', () {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
       final archetypeAudit = ThaiArchetypeContextMetadataFeasibility.audit(
         profile: pipeline.profile,
         birthData: pipeline.birthData,
+        canonIndex: repository.index,
       );
 
       expect(
         archetypeAudit.result,
-        ArchetypeContextMetadataFeasibilityResult.needsCanonArchetypeMapping,
+        ArchetypeContextMetadataFeasibilityResult.readyToExposeMetadata,
       );
-      expect(
-        archetypeAudit.metadataBlocker,
-        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
-      );
+      expect(archetypeAudit.metadataBlocker, isNull);
       expect(archetypeAudit.hasRotationRemainderOnRuntime, isTrue);
     });
 
-    test('position and status blockers remain downstream', () async {
+    test('position and status blockers move to NEEDS_PERIOD_CONTEXT_MAPPING',
+        () async {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
@@ -269,11 +268,11 @@ void main() {
 
       expect(
         statusAudit.blocker,
-        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
+        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
       );
       expect(
         statusAudit.positionFeasibility.metadataBlocker,
-        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
+        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
       );
       expect(
         statusAudit.feasibility.result,

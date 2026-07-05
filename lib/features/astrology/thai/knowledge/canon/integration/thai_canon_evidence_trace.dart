@@ -27,6 +27,11 @@ class ThaiCanonEvidenceTrace {
     this.remainderCanonId,
     this.profilesWithRemainderMetadata = const [],
     this.profilesWithoutRemainderMetadata = const [],
+    this.profilesWithArchetypeContextMetadata = const [],
+    this.profilesWithoutArchetypeContextMetadata = const [],
+    this.archetypeMappingSource,
+    this.archetypeContextMetadataBlocker,
+    this.archetypeChartCanonId,
     this.lifePeriodStatusMetadataBlocker,
   });
 
@@ -100,6 +105,21 @@ class ThaiCanonEvidenceTrace {
 
   /// Profile anchors without deterministic remainder metadata.
   final List<String> profilesWithoutRemainderMetadata;
+
+  /// Profile anchors with archetype context metadata attached.
+  final List<String> profilesWithArchetypeContextMetadata;
+
+  /// Profile anchors without archetype context metadata.
+  final List<String> profilesWithoutArchetypeContextMetadata;
+
+  /// `canon_structural` or `source_forensics_patch` when metadata is present.
+  final String? archetypeMappingSource;
+
+  /// Set when archetype chart identity metadata is blocked.
+  final String? archetypeContextMetadataBlocker;
+
+  /// archetypeChart.* when metadata is present.
+  final String? archetypeChartCanonId;
 
   /// Set when period-status metadata is blocked (e.g. engine gap — not silent).
   final String? lifePeriodStatusMetadataBlocker;

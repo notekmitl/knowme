@@ -31,13 +31,21 @@ export 'thai_remainder_runtime_metadata.dart'
 export 'thai_archetype_context_metadata.dart'
     show
         ArchetypeChartContextMetadata,
+        ArchetypeContextMappingFeasibilityResult,
+        ArchetypeContextMappingFeasibilityResultWire,
         ArchetypeContextMetadataBlocker,
         ArchetypeContextMetadataFeasibilityResult,
         ArchetypeContextMetadataFeasibilityResultWire,
+        ThaiArchetypeContextMappingAudit,
+        ThaiArchetypeContextMappingRegistry,
+        ThaiArchetypeContextMetadata,
         ThaiArchetypeContextMetadataFeasibility,
         ThaiArchetypeContextMetadataFeasibilityAudit,
         ThaiArchetypeContextMetadataResolver,
-        ThaiArchetypeContextP19Rules;
+        ThaiArchetypeContextP19Rules,
+        ThaiArchetypeContextPostFreezePatch001,
+        ThaiArchetypeContextResolution,
+        ThaiArchetypeContextResolver;
 export 'thai_life_period_position_metadata.dart'
     show
         LifePeriodMahabhutPositionMetadata,

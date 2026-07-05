@@ -152,7 +152,7 @@ void main() {
         repository: repository,
       );
 
-      expect(bundle.trace.skippedLookupTableEvidenceCount, 55);
+      expect(bundle.trace.skippedLookupTableEvidenceCount, 56);
       for (final attachment in bundle.attachments) {
         for (final ref in attachment.evidenceRefs) {
           expect(ref.domain, isNot('lookupTables'));

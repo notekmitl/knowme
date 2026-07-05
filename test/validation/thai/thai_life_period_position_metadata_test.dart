@@ -20,7 +20,7 @@ void main() {
   });
 
   group('Feasibility audit', () {
-    test('production pipeline is NEEDS_ARCHETYPE_CONTEXT_METADATA', () {
+    test('production pipeline is NEEDS_PERIOD_CONTEXT_MAPPING', () {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
@@ -28,22 +28,20 @@ void main() {
         timeline: pipeline.lifePeriods,
         profile: pipeline.profile,
         birthData: pipeline.birthData,
+        canonIndex: repository.index,
       );
 
       expect(
         audit.result,
-        LifePeriodPositionMetadataFeasibilityResult
-            .needsArchetypeContextMetadata,
+        LifePeriodPositionMetadataFeasibilityResult.needsPeriodContextMapping,
       );
       expect(audit.hasGoverningPlanetPerPeriod, isTrue);
-      expect(audit.hasArchetypeChartIdentity, isFalse);
+      expect(audit.hasArchetypeChartIdentity, isTrue);
       expect(audit.hasPeriodContextIdentity, isFalse);
       expect(audit.canMapToCanonWithoutPlanetInference, isFalse);
       expect(audit.canonLifePeriodPlacementsPresent, isTrue);
-      expect(
-        audit.metadataBlocker,
-        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
-      );
+      expect(audit.metadataBlocker,
+          LifePeriodPositionMetadataBlocker.needsPeriodContextMapping);
     });
 
     test('status metadata blocker reflects position root cause', () {
@@ -58,12 +56,11 @@ void main() {
 
       expect(
         audit.blocker,
-        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
+        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
       );
       expect(
         audit.positionFeasibility.result,
-        LifePeriodPositionMetadataFeasibilityResult
-            .needsArchetypeContextMetadata,
+        LifePeriodPositionMetadataFeasibilityResult.needsPeriodContextMapping,
       );
       expect(
         audit.feasibility.result,
@@ -83,20 +80,17 @@ void main() {
       expect(
         bundle.trace.lifePeriodPositionFeasibilityResult,
         LifePeriodPositionMetadataFeasibilityResult
-            .needsArchetypeContextMetadata.wire,
+            .needsPeriodContextMapping.wire,
       );
       expect(
         bundle.trace.lifePeriodPositionMetadataBlocker,
-        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
+        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
       );
       expect(
         bundle.trace.lifePeriodStatusMetadataBlocker,
-        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
+        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
       );
-      expect(
-        bundle.trace.lifePeriodArchetypeMetadataBlocker,
-        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
-      );
+      expect(bundle.trace.lifePeriodArchetypeMetadataBlocker, isNull);
     });
   });
 

@@ -1,5 +1,6 @@
 import '../../foundation/models/thai_astrology_profile.dart';
 import '../../foundation/models/thai_birth_data.dart';
+import '../../knowledge/canon/integration/thai_canon_evidence_index.dart';
 import 'life_period_engine.dart';
 import 'thai_archetype_context_metadata.dart';
 
@@ -120,12 +121,14 @@ abstract final class ThaiLifePeriodPositionMetadataFeasibility {
     LifeTimeline? timeline,
     ThaiAstrologyProfile? profile,
     ThaiBirthData? birthData,
+    ThaiCanonEvidenceIndex? canonIndex,
   }) {
     if (timeline == null || timeline.periods.isEmpty) {
       final archetypeFeasibility =
           ThaiArchetypeContextMetadataFeasibility.audit(
         profile: profile,
         birthData: birthData,
+        canonIndex: canonIndex,
       );
       return ThaiLifePeriodPositionMetadataFeasibilityAudit(
         result: LifePeriodPositionMetadataFeasibilityResult
@@ -142,6 +145,7 @@ abstract final class ThaiLifePeriodPositionMetadataFeasibility {
     final archetypeFeasibility = ThaiArchetypeContextMetadataFeasibility.audit(
       profile: profile,
       birthData: birthData,
+      canonIndex: canonIndex,
     );
 
     final hasPlanet = timeline.periods.every((p) => p.planet.name.isNotEmpty);

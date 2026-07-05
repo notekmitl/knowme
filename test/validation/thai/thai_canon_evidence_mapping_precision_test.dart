@@ -142,7 +142,7 @@ void main() {
 
     test('lookup tables are not attached to broad report copy', () {
       for (final result in audit.fixtureResults) {
-        expect(result.bundle.trace.skippedLookupTableEvidenceCount, 55);
+        expect(result.bundle.trace.skippedLookupTableEvidenceCount, 56);
         for (final attachment in result.bundle.attachments) {
           for (final ref in attachment.evidenceRefs) {
             expect(ref.domain, isNot('lookupTables'));

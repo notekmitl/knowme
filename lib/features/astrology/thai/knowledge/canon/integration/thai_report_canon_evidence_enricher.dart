@@ -79,11 +79,13 @@ abstract final class ThaiReportCanonEvidenceEnricher {
       timeline: pipelineResult.lifePeriods,
       profile: pipelineResult.profile,
       birthData: pipelineResult.birthData,
+      canonIndex: repo.index,
     );
     final archetypeFeasibilityAudit =
         ThaiArchetypeContextMetadataFeasibility.audit(
       profile: pipelineResult.profile,
       birthData: pipelineResult.birthData,
+      canonIndex: repo.index,
     );
     final remainderFeasibilityAudit =
         ThaiRemainderRuntimeMetadataFeasibility.audit(
@@ -96,13 +98,26 @@ abstract final class ThaiReportCanonEvidenceEnricher {
       profile: pipelineResult.profile,
       birthData: pipelineResult.birthData,
     );
+    final archetypeResolution = ThaiArchetypeContextResolver.resolve(
+      remainderMetadata: remainderMetadata,
+      canonIndex: repo.index,
+    );
+    final archetypeMetadata = archetypeResolution.metadata;
     final profilesWithRemainderMetadata = <String>[];
     final profilesWithoutRemainderMetadata = <String>[];
+    final profilesWithArchetypeContextMetadata = <String>[];
+    final profilesWithoutArchetypeContextMetadata = <String>[];
     const profileAnchor = 'profile:remainder';
+    const archetypeAnchor = 'profile:archetype';
     if (remainderMetadata != null) {
       profilesWithRemainderMetadata.add(profileAnchor);
     } else {
       profilesWithoutRemainderMetadata.add(profileAnchor);
+    }
+    if (archetypeMetadata != null) {
+      profilesWithArchetypeContextMetadata.add(archetypeAnchor);
+    } else {
+      profilesWithoutArchetypeContextMetadata.add(archetypeAnchor);
     }
 
     final mirror = pipelineResult.mirrorResult!;
@@ -293,6 +308,14 @@ abstract final class ThaiReportCanonEvidenceEnricher {
           _sortedUnique(profilesWithRemainderMetadata),
       profilesWithoutRemainderMetadata:
           _sortedUnique(profilesWithoutRemainderMetadata),
+      profilesWithArchetypeContextMetadata:
+          _sortedUnique(profilesWithArchetypeContextMetadata),
+      profilesWithoutArchetypeContextMetadata:
+          _sortedUnique(profilesWithoutArchetypeContextMetadata),
+      archetypeMappingSource: archetypeMetadata?.source,
+      archetypeContextMetadataBlocker:
+          archetypeFeasibilityAudit.metadataBlocker,
+      archetypeChartCanonId: archetypeMetadata?.archetypeChartCanonId,
       lifePeriodStatusMetadataBlocker: periodStatusAudit?.blocker,
     );
 
