@@ -20,6 +20,12 @@ class ThaiCanonEvidenceTrace {
     this.lifePeriodPositionMetadataBlocker,
     this.lifePeriodArchetypeFeasibilityResult,
     this.lifePeriodArchetypeMetadataBlocker,
+    this.remainderFeasibilityResult,
+    this.remainderMetadataBlocker,
+    this.remainderSourceField,
+    this.remainderCanonId,
+    this.profilesWithRemainderMetadata = const [],
+    this.profilesWithoutRemainderMetadata = const [],
     this.lifePeriodStatusMetadataBlocker,
   });
 
@@ -72,6 +78,24 @@ class ThaiCanonEvidenceTrace {
 
   /// Set when archetype chart identity metadata is blocked.
   final String? lifePeriodArchetypeMetadataBlocker;
+
+  /// Remainder-metadata feasibility audit wire.
+  final String? remainderFeasibilityResult;
+
+  /// Set when rotationIndex.remainderN metadata is blocked.
+  final String? remainderMetadataBlocker;
+
+  /// Exact profile/engine field used when remainder metadata is present.
+  final String? remainderSourceField;
+
+  /// rotationIndex.remainderN when metadata is present.
+  final String? remainderCanonId;
+
+  /// Profile anchors with engine remainder metadata attached.
+  final List<String> profilesWithRemainderMetadata;
+
+  /// Profile anchors without deterministic remainder metadata.
+  final List<String> profilesWithoutRemainderMetadata;
 
   /// Set when period-status metadata is blocked (e.g. engine gap — not silent).
   final String? lifePeriodStatusMetadataBlocker;

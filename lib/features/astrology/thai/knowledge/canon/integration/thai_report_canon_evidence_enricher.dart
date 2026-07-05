@@ -83,6 +83,21 @@ abstract final class ThaiReportCanonEvidenceEnricher {
         ThaiArchetypeContextMetadataFeasibility.audit(
       profile: pipelineResult.profile,
     );
+    final remainderFeasibilityAudit =
+        ThaiRemainderRuntimeMetadataFeasibility.audit(
+      profile: pipelineResult.profile,
+    );
+    final remainderMetadata = ThaiRemainderMetadataResolver.resolve(
+      profile: pipelineResult.profile,
+    );
+    final profilesWithRemainderMetadata = <String>[];
+    final profilesWithoutRemainderMetadata = <String>[];
+    const profileAnchor = 'profile:remainder';
+    if (remainderMetadata != null) {
+      profilesWithRemainderMetadata.add(profileAnchor);
+    } else {
+      profilesWithoutRemainderMetadata.add(profileAnchor);
+    }
 
     final mirror = pipelineResult.mirrorResult!;
 
@@ -263,6 +278,14 @@ abstract final class ThaiReportCanonEvidenceEnricher {
           archetypeFeasibilityAudit.result.wire,
       lifePeriodArchetypeMetadataBlocker:
           archetypeFeasibilityAudit.metadataBlocker,
+      remainderFeasibilityResult: remainderFeasibilityAudit.result.wire,
+      remainderMetadataBlocker: remainderFeasibilityAudit.metadataBlocker,
+      remainderSourceField: remainderMetadata?.sourceField,
+      remainderCanonId: remainderMetadata?.rotationIndexCanonId,
+      profilesWithRemainderMetadata:
+          _sortedUnique(profilesWithRemainderMetadata),
+      profilesWithoutRemainderMetadata:
+          _sortedUnique(profilesWithoutRemainderMetadata),
       lifePeriodStatusMetadataBlocker: periodStatusAudit?.blocker,
     );
 

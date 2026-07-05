@@ -126,6 +126,41 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
         ),
       );
     }
+    if (trace.remainderFeasibilityResult != null) {
+      records.add(
+        ThaiCanonEvidenceAlignmentRecord(
+          fixtureId: fixtureId,
+          signalId:
+              'trace:remainderFeasibility:${trace.remainderFeasibilityResult}',
+          classification: ThaiCanonEvidenceAlignmentClassification.internalOnly,
+          reason: 'Remainder runtime metadata feasibility audit (internal only)',
+        ),
+      );
+    }
+    if (trace.remainderMetadataBlocker != null) {
+      records.add(
+        ThaiCanonEvidenceAlignmentRecord(
+          fixtureId: fixtureId,
+          signalId:
+              'trace:remainderMetadataBlocker:${trace.remainderMetadataBlocker}',
+          classification: ThaiCanonEvidenceAlignmentClassification.internalOnly,
+          reason:
+              'rotationIndex.remainderN metadata blocked — no deterministic '
+              'remainder on runtime',
+        ),
+      );
+    }
+    for (final profile in trace.profilesWithoutRemainderMetadata) {
+      records.add(
+        ThaiCanonEvidenceAlignmentRecord(
+          fixtureId: fixtureId,
+          signalId: 'trace:noRemainderMetadata:$profile',
+          classification: ThaiCanonEvidenceAlignmentClassification.internalOnly,
+          reason:
+              'Profile has no deterministic rotationIndex.remainderN metadata',
+        ),
+      );
+    }
     if (trace.lifePeriodArchetypeFeasibilityResult != null) {
       records.add(
         ThaiCanonEvidenceAlignmentRecord(

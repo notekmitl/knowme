@@ -1,5 +1,6 @@
 import '../../content/models/thai_content_key.dart';
 import '../../foundation/models/thai_astrology_profile.dart';
+import 'thai_remainder_runtime_metadata.dart';
 
 /// Feasibility outcome for archetype chart context metadata.
 enum ArchetypeContextMetadataFeasibilityResult {
@@ -74,6 +75,7 @@ class ThaiArchetypeContextMetadataFeasibilityAudit {
     required this.hasArchetypeChartCanonIdOnRuntime,
     required this.canonRemainderToArchetypeMappingComplete,
     required this.usesMahabhutaThayaAsProxy,
+    required this.remainderFeasibility,
   });
 
   final ArchetypeContextMetadataFeasibilityResult result;
@@ -81,11 +83,13 @@ class ThaiArchetypeContextMetadataFeasibilityAudit {
   final bool hasArchetypeChartCanonIdOnRuntime;
   final bool canonRemainderToArchetypeMappingComplete;
   final bool usesMahabhutaThayaAsProxy;
+  final ThaiRemainderRuntimeMetadataFeasibilityAudit remainderFeasibility;
 
   String? get metadataBlocker => switch (result) {
         ArchetypeContextMetadataFeasibilityResult.readyToExposeMetadata => null,
         ArchetypeContextMetadataFeasibilityResult.needsRemainderMetadata =>
-          ArchetypeContextMetadataBlocker.needsRemainderMetadata,
+          remainderFeasibility.metadataBlocker ??
+              ArchetypeContextMetadataBlocker.needsRemainderMetadata,
         ArchetypeContextMetadataFeasibilityResult.needsCanonArchetypeMapping =>
           ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
       };
@@ -113,7 +117,10 @@ abstract final class ThaiArchetypeContextMetadataFeasibility {
   static ThaiArchetypeContextMetadataFeasibilityAudit audit({
     ThaiAstrologyProfile? profile,
   }) {
-    final hasRemainder = _hasRotationRemainderOnRuntime(profile);
+    final remainderFeasibility = ThaiRemainderRuntimeMetadataFeasibility.audit(
+      profile: profile,
+    );
+    final hasRemainder = _hasRotationRemainderOnRuntime(remainderFeasibility);
     final hasArchetypeId = _hasArchetypeChartCanonIdOnRuntime(profile);
     final mappingComplete = _isCanonRemainderMappingComplete();
     final usesThaya = _usesMahabhutaThayaAsProxy(profile);
@@ -130,6 +137,7 @@ abstract final class ThaiArchetypeContextMetadataFeasibility {
       hasArchetypeChartCanonIdOnRuntime: hasArchetypeId,
       canonRemainderToArchetypeMappingComplete: mappingComplete,
       usesMahabhutaThayaAsProxy: usesThaya,
+      remainderFeasibility: remainderFeasibility,
     );
   }
 
@@ -148,10 +156,15 @@ abstract final class ThaiArchetypeContextMetadataFeasibility {
     return ArchetypeContextMetadataFeasibilityResult.readyToExposeMetadata;
   }
 
-  static bool _hasRotationRemainderOnRuntime(ThaiAstrologyProfile? profile) {
-    if (profile == null) return false;
-    // No rotationIndex.remainderN field on ThaiAstrologyProfile or chart output.
-    return false;
+  static bool _hasRotationRemainderOnRuntime(
+    ThaiRemainderRuntimeMetadataFeasibilityAudit remainderFeasibility,
+  ) {
+    return remainderFeasibility.result ==
+            RemainderRuntimeMetadataFeasibilityResult
+                .readyToExposeRemainderMetadata ||
+        remainderFeasibility.result ==
+            RemainderRuntimeMetadataFeasibilityResult
+                .readyToExposeFromExistingEngineField;
   }
 
   static bool _hasArchetypeChartCanonIdOnRuntime(ThaiAstrologyProfile? profile) {

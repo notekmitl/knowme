@@ -138,7 +138,7 @@ void main() {
 
       expect(
         bundle.trace.lifePeriodStatusMetadataBlocker,
-        ArchetypeContextMetadataBlocker.needsRemainderMetadata,
+        RemainderRuntimeMetadataBlocker.needsRemainderCalculationModel,
       );
       expect(bundle.trace.lifePeriodsWithoutRuntimeStatus, isNotEmpty);
     });

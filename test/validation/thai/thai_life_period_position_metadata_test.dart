@@ -40,7 +40,7 @@ void main() {
       expect(audit.canonLifePeriodPlacementsPresent, isTrue);
       expect(
         audit.metadataBlocker,
-        ArchetypeContextMetadataBlocker.needsRemainderMetadata,
+        RemainderRuntimeMetadataBlocker.needsRemainderCalculationModel,
       );
     });
 
@@ -55,7 +55,7 @@ void main() {
 
       expect(
         audit.blocker,
-        ArchetypeContextMetadataBlocker.needsRemainderMetadata,
+        RemainderRuntimeMetadataBlocker.needsRemainderCalculationModel,
       );
       expect(
         audit.positionFeasibility.result,
@@ -84,15 +84,15 @@ void main() {
       );
       expect(
         bundle.trace.lifePeriodPositionMetadataBlocker,
-        ArchetypeContextMetadataBlocker.needsRemainderMetadata,
+        RemainderRuntimeMetadataBlocker.needsRemainderCalculationModel,
       );
       expect(
         bundle.trace.lifePeriodStatusMetadataBlocker,
-        ArchetypeContextMetadataBlocker.needsRemainderMetadata,
+        RemainderRuntimeMetadataBlocker.needsRemainderCalculationModel,
       );
       expect(
         bundle.trace.lifePeriodArchetypeMetadataBlocker,
-        ArchetypeContextMetadataBlocker.needsRemainderMetadata,
+        RemainderRuntimeMetadataBlocker.needsRemainderCalculationModel,
       );
     });
   });

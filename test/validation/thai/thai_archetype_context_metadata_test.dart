@@ -17,7 +17,7 @@ void main() {
   });
 
   group('Feasibility audit', () {
-    test('production pipeline is NEEDS_REMAINDER_METADATA', () {
+    test('production pipeline is NEEDS_REMAINDER_METADATA (archetype wire)', () {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
@@ -34,7 +34,7 @@ void main() {
       expect(audit.canonRemainderToArchetypeMappingComplete, isFalse);
       expect(
         audit.metadataBlocker,
-        ArchetypeContextMetadataBlocker.needsRemainderMetadata,
+        RemainderRuntimeMetadataBlocker.needsRemainderCalculationModel,
       );
     });
 
@@ -51,7 +51,7 @@ void main() {
       );
     });
 
-    test('position and status blockers propagate NEEDS_REMAINDER_METADATA',
+    test('position and status blockers propagate NEEDS_REMAINDER_CALCULATION_MODEL',
         () async {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
@@ -67,19 +67,19 @@ void main() {
 
       expect(
         statusAudit.blocker,
-        ArchetypeContextMetadataBlocker.needsRemainderMetadata,
+        RemainderRuntimeMetadataBlocker.needsRemainderCalculationModel,
       );
       expect(
         statusAudit.positionFeasibility.metadataBlocker,
-        ArchetypeContextMetadataBlocker.needsRemainderMetadata,
+        RemainderRuntimeMetadataBlocker.needsRemainderCalculationModel,
       );
       expect(
         bundle.trace.lifePeriodArchetypeMetadataBlocker,
-        ArchetypeContextMetadataBlocker.needsRemainderMetadata,
+        RemainderRuntimeMetadataBlocker.needsRemainderCalculationModel,
       );
       expect(
         bundle.trace.lifePeriodPositionMetadataBlocker,
-        ArchetypeContextMetadataBlocker.needsRemainderMetadata,
+        RemainderRuntimeMetadataBlocker.needsRemainderCalculationModel,
       );
     });
   });

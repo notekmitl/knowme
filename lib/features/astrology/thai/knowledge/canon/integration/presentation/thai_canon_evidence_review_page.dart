@@ -355,6 +355,28 @@ class _TracePanel extends StatelessWidget {
             else
               for (final note in trace.skippedPeriodStatusNotes)
                 Text('• $note', style: theme.textTheme.bodySmall),
+            if (trace.remainderFeasibilityResult != null) ...[
+              const SizedBox(height: 8),
+              Text(
+                'Remainder metadata feasibility:',
+                style: theme.textTheme.labelLarge,
+              ),
+              Text(
+                '• ${trace.remainderFeasibilityResult}',
+                style: theme.textTheme.bodySmall,
+              ),
+            ],
+            if (trace.remainderMetadataBlocker != null) ...[
+              const SizedBox(height: 8),
+              Text(
+                'Remainder metadata blocker:',
+                style: theme.textTheme.labelLarge,
+              ),
+              Text(
+                '• ${trace.remainderMetadataBlocker}',
+                style: theme.textTheme.bodySmall,
+              ),
+            ],
             if (trace.lifePeriodArchetypeFeasibilityResult != null) ...[
               const SizedBox(height: 8),
               Text(
