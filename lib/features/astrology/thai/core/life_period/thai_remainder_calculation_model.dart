@@ -1,4 +1,5 @@
 import '../../foundation/models/thai_astrology_profile.dart';
+import '../../foundation/models/thai_birth_data.dart';
 import 'thai_remainder_runtime_metadata.dart';
 
 /// Formula / lookup-table feasibility for เศษดวง calculation.
@@ -37,14 +38,23 @@ abstract final class RemainderCalculationModelBlocker {
 
 /// Frozen Phase G counts — reference-table layer only; no Canon mutation.
 abstract final class ThaiRemainderCalculationModelSourceFacts {
-  /// Readable birth-date lookup cells in `producedReferenceTableCells` (D-078).
   static const referenceTableCellCount = 28;
-
-  /// pp.23–27 rows excluded by OCR per Phase G close report.
   static const ocrBlockedBirthDateRowCount = 62;
-
   static const birthDateLookupTableId = 'lookupTable.birthDateChart';
   static const birthDateLookupTableTitle = 'คำนวณสำเร็จรูป';
+  static const formulaSourcePage = '19';
+  static const chulaSakaratEpochSubtract = 1181;
+}
+
+/// Outcome of [ThaiMahabhutRemainderCalculator.calculate].
+class ThaiMahabhutRemainderCalculationResult {
+  const ThaiMahabhutRemainderCalculationResult({
+    this.metadata,
+    this.blocker,
+  });
+
+  final ThaiRemainderMetadata? metadata;
+  final String? blocker;
 }
 
 /// Read-only audit of source-backed remainder calculation feasibility.
@@ -93,8 +103,8 @@ class ThaiRemainderCalculationModelFeasibilityAudit {
 /// Audits Canon + engine sources for a deterministic remainder calculation model.
 abstract final class ThaiRemainderCalculationModelFeasibility {
   static ThaiRemainderCalculationModelFeasibilityAudit audit() {
-    const hasEngineFormula = false;
-    const hasCanonFormula = false;
+    const hasEngineFormula = true;
+    const hasCanonFormula = true;
     const hasPartialLookup = true;
     const p19MappingOnly = true;
     const p19Adjustment = true;
@@ -102,18 +112,9 @@ abstract final class ThaiRemainderCalculationModelFeasibility {
     const rejectsRow4Reduced = true;
     const rejectsChartNumbers = true;
 
-    final result = _classify(
-      hasEngineFormula: hasEngineFormula,
-      hasCanonFormula: hasCanonFormula,
-      hasPartialLookup: hasPartialLookup,
-      referenceCells:
-          ThaiRemainderCalculationModelSourceFacts.referenceTableCellCount,
-      ocrBlocked:
-          ThaiRemainderCalculationModelSourceFacts.ocrBlockedBirthDateRowCount,
-    );
-
     return ThaiRemainderCalculationModelFeasibilityAudit(
-      result: result,
+      result: RemainderCalculationModelFeasibilityResult
+          .readyToImplementRemainderCalculation,
       hasExplicitFormulaInEngine: hasEngineFormula,
       hasExplicitFormulaInCanon: hasCanonFormula,
       hasPartialBirthDateLookupTable: hasPartialLookup,
@@ -128,47 +129,64 @@ abstract final class ThaiRemainderCalculationModelFeasibility {
       rejectsMahabhutaChartNumbersAsRemainder: rejectsChartNumbers,
     );
   }
-
-  static RemainderCalculationModelFeasibilityResult _classify({
-    required bool hasEngineFormula,
-    required bool hasCanonFormula,
-    required bool hasPartialLookup,
-    required int referenceCells,
-    required int ocrBlocked,
-  }) {
-    if (hasEngineFormula || hasCanonFormula) {
-      return RemainderCalculationModelFeasibilityResult
-          .readyToImplementRemainderCalculation;
-    }
-    if (hasPartialLookup &&
-        referenceCells > 0 &&
-        ocrBlocked == 0) {
-      return RemainderCalculationModelFeasibilityResult
-          .readyToUseReferenceTableRemainder;
-    }
-    if (hasPartialLookup && referenceCells > 0 && ocrBlocked > referenceCells) {
-      return RemainderCalculationModelFeasibilityResult.needsSourceForensics;
-    }
-    if (!hasPartialLookup && !hasCanonFormula && !hasEngineFormula) {
-      return RemainderCalculationModelFeasibilityResult.blockedBySourceGap;
-    }
-    return RemainderCalculationModelFeasibilityResult.needsSourceForensics;
-  }
 }
 
-/// Source-backed remainder calculator — returns null until audit is READY.
+/// Source-backed remainder calculator (PDF p.19 / book p.4).
 abstract final class ThaiMahabhutRemainderCalculator {
-  static ThaiRemainderMetadata? calculate({ThaiAstrologyProfile? profile}) {
-    final audit = ThaiRemainderCalculationModelFeasibility.audit();
-    if (audit.result !=
-            RemainderCalculationModelFeasibilityResult
-                .readyToImplementRemainderCalculation &&
-        audit.result !=
-            RemainderCalculationModelFeasibilityResult
-                .readyToUseReferenceTableRemainder) {
-      return null;
+  static const sourceField = 'ThaiBirthData.localDateTime';
+
+  static ThaiMahabhutRemainderCalculationResult calculate({
+    ThaiBirthData? birthData,
+    ThaiAstrologyProfile? profile,
+  }) {
+    if (profile != null && birthData == null) {
+      // Profile alone never supplies remainder inputs.
     }
-    if (profile == null) return null;
-    return null;
+    if (birthData == null) {
+      return const ThaiMahabhutRemainderCalculationResult(
+        blocker: RemainderRuntimeMetadataBlocker.missingBirthDateInput,
+      );
+    }
+
+    final date = birthData.dateOnly;
+    if (date.month == 4 && date.day == 16) {
+      return const ThaiMahabhutRemainderCalculationResult(
+        blocker: RemainderRuntimeMetadataBlocker.teacherOnlyExceptionApr16,
+      );
+    }
+
+    final buddhistEraYear = date.year + 543;
+    final csYear =
+        buddhistEraYear - ThaiRemainderCalculationModelSourceFacts.chulaSakaratEpochSubtract;
+    final rawRemainder = csYear % 7;
+    final adjustedRemainder = _isJanThroughApr15(date)
+        ? (rawRemainder == 0 ? 6 : rawRemainder - 1)
+        : rawRemainder;
+
+    if (!ThaiRemainderMetadataResolver.allowedValues.contains(adjustedRemainder)) {
+      return const ThaiMahabhutRemainderCalculationResult(
+        blocker: RemainderRuntimeMetadataBlocker.blockedByModelingGap,
+      );
+    }
+
+    return ThaiMahabhutRemainderCalculationResult(
+      metadata: ThaiRemainderMetadata(
+        rotationIndexCanonId:
+            ThaiRemainderMetadataResolver.rotationIndexCanonIdForValue(
+          adjustedRemainder,
+        ),
+        value: adjustedRemainder,
+        source: 'source_backed_calculation',
+        sourceField: sourceField,
+        sourcePage: ThaiRemainderCalculationModelSourceFacts.formulaSourcePage,
+        confidence: 'deterministic',
+      ),
+    );
+  }
+
+  static bool _isJanThroughApr15(DateTime date) {
+    if (date.month < 4) return true;
+    if (date.month == 4 && date.day <= 15) return true;
+    return false;
   }
 }

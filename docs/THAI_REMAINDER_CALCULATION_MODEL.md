@@ -1,99 +1,77 @@
 # Thai Remainder Calculation Model
 
-Phase: **Remainder Calculation Model** (blocker-only — calculation not implemented)
+Phase: **Remainder Calculation Model Completion**
 
-Prerequisites: Remainder Runtime Metadata (`d652a35`).
+Prerequisites: Source Forensics OCR Recovery (`5ee43b7`).
 
-Prior blocker: `NEEDS_REMAINDER_CALCULATION_MODEL` — runtime had no deterministic remainder source.
+Prior blocker: `NEEDS_SOURCE_FORENSICS` — formula recovered from PDF p.19 / book p.4.
 
 ---
 
-## Formula feasibility audit result
+## Completion (implemented)
 
-**Classification: `NEEDS_SOURCE_FORENSICS`**
+### Formula implemented
 
-| Source audited | Finding |
+Source-backed internal calculation in `ThaiMahabhutRemainderCalculator`:
+
+1. `csYear = buddhistEraYear - 1181` (พ.ศ. − 1181)
+2. `rawRemainder = csYear % 7` → values **0–6** (not 1–7)
+3. Birth dates **1 Jan – 15 Apr** inclusive: subtract 1; wrap `0 → 6`
+4. Birth date **16 Apr**: blocked — teacher-only exception (`TEACHER_ONLY_EXCEPTION_APR_16`)
+5. **17 Apr – 31 Dec**: use `rawRemainder` unchanged
+
+Ontology: `rotationIndex.remainder0` … `rotationIndex.remainder6` (D-078).
+
+### Exact source page
+
+- Formula: PDF **p.19** / book p.4
+- Remainder → chart labels corroborated on pp.23–27 (lookup tables; not used as primary calculator in this phase)
+
+### Metadata fields exposed (internal trace only)
+
+| Field | Example |
 | --- | --- |
-| Thai engine (`SevenNumberChart`) | Computes `row4Sum` (3–21) and `row4Reduced` (horawej auxiliary 1–7) — **not** documented as เศษดวง |
-| `ThaiAstrologyProfile.mahabhutaChartNumbers` | Row 4 audit sums — **rejected** as remainder proxy |
-| Canon p19 | Remainder **labels** → archetype chart (0–5) + Jan–Apr **adjustment** rules (`ลดหนึ่งแต้ม`) — **no primary derivation formula** |
-| Canon p20 | House-digit placement grid per remainder — requires remainder input first |
-| Canon pp.23–27 (`lookupTable.birthDateChart`) | **28** readable reference-table cells (`คำนวณสำเร็จรูป` / `เศษ/ดวง`) |
-| OCR inventory (Phase G) | **~62** pp.23–27 birth-date rows blocked — majority of lookup table missing |
+| `remainderCalculationFeasibilityResult` | `READY_TO_IMPLEMENT_REMAINDER_CALCULATION` |
+| `remainderFeasibilityResult` | `READY_TO_EXPOSE_REMAINDER_METADATA` |
+| `remainderMetadataBlocker` | null (normal dates) |
+| `remainderSourceField` | `ThaiBirthData.localDateTime` |
+| `remainderCanonId` | e.g. `rotationIndex.remainder3` |
+| `ThaiRemainderMetadata.source` | `source_backed_calculation` |
+| `ThaiRemainderMetadata.sourcePage` | `19` |
+| `ThaiRemainderMetadata.confidence` | `deterministic` |
 
-**Not** `READY_TO_IMPLEMENT_REMAINDER_CALCULATION` — no explicit source-backed formula in engine or Canon atomic units.
+No user-facing field exposes เศษ / เศษดวง / rotationIndex / remainder / ดวงขึ้น / ดวงตก.
 
-**Not** `READY_TO_USE_REFERENCE_TABLE_REMAINDER` — partial table only; OCR-blocked rows exceed readable cells (62 > 28); cannot resolve most birth dates without forensics.
-
-**Not** `BLOCKED_BY_SOURCE_GAP` — partial lookup + p19 mapping prove the concept exists in source.
-
-**Not** `BLOCKED_BY_MODELING_GAP` — internal metadata model can represent remainder once source is recovered.
-
----
-
-## Formula / table source found or missing
-
-| Candidate | Status |
-| --- | --- |
-| Explicit mod-7 / chart-row formula | **Not found** in engine or frozen Canon |
-| p19 remainder → chart mapping | **Present** — identity table only, not calculation |
-| p19 seasonal adjustment | **Present** — applies after remainder is known |
-| pp.23–27 birth-date lookup | **Partial** — 28 cells; e.g. `17 เม.ย. 2490 ถึง 15 เม.ย. 2491` → `0 มหาเศรษฐี` |
-| SevenNumberChart vertical sum | **Rejected** — documented as chart construction, not เศษดวง |
-
----
-
-## Calculation implemented or blocked
-
-**Blocked.** `ThaiMahabhutRemainderCalculator.calculate` returns `null`. No formula invented. No partial lookup wired until OCR recovery or full table validation.
-
----
-
-## Why row4Reduced / mahabhutaChartNumbers row-4 is not used
-
-| Field | Documented meaning | Used? |
-| --- | --- | --- |
-| `SevenNumberChartResult.row4Reduced` | Horawej auxiliary reduction to 1–7 | **No** — not on profile; not Canon เศษดวง |
-| `mahabhutaChartNumbers` row-4 | Vertical sums 3–21 (audit) | **No** — not proven equivalent to `rotationIndex.remainderN` |
-
----
-
-## Metadata fields exposed
-
-None on profile. Internal trace only:
-
-- `remainderCalculationFeasibilityResult`: `NEEDS_SOURCE_FORENSICS`
-- `remainderFeasibilityResult`: `NEEDS_SOURCE_FORENSICS`
-- `remainderMetadataBlocker`: `NEEDS_SOURCE_FORENSICS`
-- `remainderSourceField`: null
-- `remainderCanonId`: null
-
----
-
-## Remainder metadata counts (9-fixture aggregate)
+### Remainder metadata counts (9-fixture aggregate)
 
 | Metric | Count |
 | --- | ---: |
-| `profilesWithRemainderMetadata` | **0** |
-| `profilesWithoutRemainderMetadata` | **9** |
+| `profilesWithRemainderMetadata` | **9** |
+| `profilesWithoutRemainderMetadata` | **0** |
 
----
-
-## Updated blocker chain
+### Updated blocker chain
 
 | Layer | Feasibility wire | Blocker |
 | --- | --- | --- |
-| Remainder calculation | `NEEDS_SOURCE_FORENSICS` | `NEEDS_SOURCE_FORENSICS` |
-| Remainder metadata | `NEEDS_SOURCE_FORENSICS` | `NEEDS_SOURCE_FORENSICS` |
-| Archetype context | `NEEDS_REMAINDER_METADATA` | `NEEDS_SOURCE_FORENSICS` |
-| Life-period position | `NEEDS_ARCHETYPE_CONTEXT_METADATA` | `NEEDS_SOURCE_FORENSICS` |
-| Rise/fall status | `NEEDS_ENGINE_POSITION_METADATA` | `NEEDS_SOURCE_FORENSICS` (upstream) |
+| Remainder calculation | `READY_TO_IMPLEMENT_REMAINDER_CALCULATION` | null |
+| Remainder metadata | `READY_TO_EXPOSE_REMAINDER_METADATA` | null |
+| Archetype context | `NEEDS_CANON_ARCHETYPE_MAPPING` | `NEEDS_CANON_ARCHETYPE_MAPPING` |
+| Life-period position | `NEEDS_ARCHETYPE_CONTEXT_METADATA` | `NEEDS_CANON_ARCHETYPE_MAPPING` |
+| Rise/fall status | `NEEDS_ENGINE_POSITION_METADATA` | upstream archetype blocker |
 
-When remainder metadata is available, archetype blocker should move to `NEEDS_CANON_ARCHETYPE_MAPPING` (p19 gaps: `remainder6`, `archetypeChart.nakwichakan`).
+Apr 16 only: remainder metadata blocked with `TEACHER_ONLY_EXCEPTION_APR_16` (no fallback).
 
----
+Archetype mapping **not** performed in this phase (p19 gap: `remainder6` → `archetypeChart.nakwichakan`).
 
-## Proof: user-facing output unchanged
+### Rejected proxies (unchanged)
+
+| Field | Used? |
+| --- | --- |
+| `row4Reduced` | **No** |
+| `mahabhutaChartNumbers` row-4 | **No** |
+| Archetype / report copy | **No** |
+
+### Proof: user-facing output unchanged
 
 - User-facing fingerprint unchanged before/after enrich.
 - Consumer timeline/report text contains no remainder labels.
@@ -101,13 +79,15 @@ When remainder metadata is available, archetype blocker should move to `NEEDS_CA
 
 Thai validation suite green (includes `thai_remainder_calculation_model_test.dart`).
 
+### Recommended next phase
+
+**Canon Archetype Mapping Completion**
+
 ---
 
-## Recommended next phase
+## Prior audit (blocked — superseded)
 
-**Source Forensics OCR Recovery**
-
-Recover readable pp.23–27 birth-date lookup rows (and any explicit calculation prose on pp.17–22) before wiring `ThaiMahabhutRemainderCalculator` or a reference-table resolver.
+Earlier phase returned `NEEDS_SOURCE_FORENSICS` because no explicit formula was wired. Source forensics (`5ee43b7`) recovered the p.19 formula; this document’s **Completion** section reflects the implemented state.
 
 ---
 
@@ -115,6 +95,7 @@ Recover readable pp.23–27 birth-date lookup rows (and any explicit calculation
 
 | File | Role |
 | --- | --- |
-| `lib/features/astrology/thai/core/life_period/thai_remainder_calculation_model.dart` | Formula feasibility audit + blocked calculator stub |
-| `lib/features/astrology/thai/core/life_period/thai_remainder_runtime_metadata.dart` | Chains calculation audit into remainder metadata blocker |
+| `lib/features/astrology/thai/core/life_period/thai_remainder_calculation_model.dart` | Source-backed calculator + feasibility audit |
+| `lib/features/astrology/thai/core/life_period/thai_remainder_runtime_metadata.dart` | Metadata resolver + runtime feasibility |
+| `lib/features/astrology/thai/mirror/runtime/thai_mirror_pipeline_result.dart` | Passes `birthData` for remainder inputs |
 | `test/validation/thai/thai_remainder_calculation_model_test.dart` | Phase validation |

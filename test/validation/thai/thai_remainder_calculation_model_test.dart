@@ -1,30 +1,43 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_status_metadata.dart';
+import 'package:knowme/features/astrology/thai/core/life_period/thai_archetype_context_metadata.dart';
+import 'package:knowme/features/astrology/thai/foundation/models/thai_birth_data.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/integration.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/qa/thai_canon_evidence_alignment_runner.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/thai_mirror_consumer_presenter.dart';
 import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_pipeline.dart';
 
-/// Remainder Calculation Model — formula feasibility audit + blocked path.
+/// Remainder Calculation Model — source-backed formula + metadata path.
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   late ThaiCanonEvidenceRepository repository;
+
+  ThaiBirthData birthDataOn(int year, int month, int day) {
+    return ThaiBirthData(
+      localDateTime: DateTime(year, month, day, 12, 0),
+      timeZoneOffset: const Duration(hours: 7),
+      latitude: 13.75,
+      longitude: 100.50,
+      hasBirthTime: true,
+    );
+  }
 
   setUpAll(() async {
     repository = await ThaiCanonEvidenceRepository.loadFromAsset();
   });
 
   group('Formula feasibility audit', () {
-    test('audit result is NEEDS_SOURCE_FORENSICS', () {
+    test('audit result is READY_TO_IMPLEMENT_REMAINDER_CALCULATION', () {
       final audit = ThaiRemainderCalculationModelFeasibility.audit();
 
       expect(
         audit.result,
-        RemainderCalculationModelFeasibilityResult.needsSourceForensics,
+        RemainderCalculationModelFeasibilityResult
+            .readyToImplementRemainderCalculation,
       );
-      expect(audit.hasExplicitFormulaInEngine, isFalse);
-      expect(audit.hasExplicitFormulaInCanon, isFalse);
+      expect(audit.hasExplicitFormulaInEngine, isTrue);
+      expect(audit.hasExplicitFormulaInCanon, isTrue);
       expect(audit.hasPartialBirthDateLookupTable, isTrue);
       expect(audit.referenceTableCellCount, 28);
       expect(audit.ocrBlockedBirthDateRowCount, 62);
@@ -32,32 +45,29 @@ void main() {
       expect(audit.p19HasSeasonalAdjustmentRules, isTrue);
       expect(audit.rejectsRow4ReducedAsRemainder, isTrue);
       expect(audit.rejectsMahabhutaChartNumbersAsRemainder, isTrue);
-      expect(
-        audit.metadataBlocker,
-        RemainderCalculationModelBlocker.needsSourceForensics,
-      );
+      expect(audit.metadataBlocker, isNull);
     });
 
-    test('runtime metadata audit chains NEEDS_SOURCE_FORENSICS', () {
+    test('runtime metadata audit exposes computed remainder on pipeline', () {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
       final audit = ThaiRemainderRuntimeMetadataFeasibility.audit(
         profile: pipeline.profile,
+        birthData: pipeline.birthData,
       );
 
       expect(
         audit.result,
-        RemainderRuntimeMetadataFeasibilityResult.needsSourceForensics,
+        RemainderRuntimeMetadataFeasibilityResult
+            .readyToExposeRemainderMetadata,
       );
       expect(
         audit.calculationModelFeasibility.result,
-        RemainderCalculationModelFeasibilityResult.needsSourceForensics,
+        RemainderCalculationModelFeasibilityResult
+            .readyToImplementRemainderCalculation,
       );
-      expect(
-        audit.metadataBlocker,
-        RemainderRuntimeMetadataBlocker.needsSourceForensics,
-      );
+      expect(audit.metadataBlocker, isNull);
     });
 
     test('calculation trace wired on enricher path', () async {
@@ -71,31 +81,126 @@ void main() {
 
       expect(
         bundle.trace.remainderCalculationFeasibilityResult,
-        RemainderCalculationModelFeasibilityResult.needsSourceForensics.wire,
+        RemainderCalculationModelFeasibilityResult
+            .readyToImplementRemainderCalculation.wire,
       );
       expect(
         bundle.trace.remainderFeasibilityResult,
-        RemainderRuntimeMetadataFeasibilityResult.needsSourceForensics.wire,
+        RemainderRuntimeMetadataFeasibilityResult
+            .readyToExposeRemainderMetadata.wire,
+      );
+      expect(bundle.trace.remainderMetadataBlocker, isNull);
+      expect(
+        bundle.trace.remainderSourceField,
+        ThaiMahabhutRemainderCalculator.sourceField,
       );
       expect(
-        bundle.trace.remainderMetadataBlocker,
-        RemainderRuntimeMetadataBlocker.needsSourceForensics,
+        bundle.trace.remainderCanonId,
+        'rotationIndex.remainder3',
       );
-      expect(bundle.trace.remainderSourceField, isNull);
-      expect(bundle.trace.remainderCanonId, isNull);
-      expect(bundle.trace.profilesWithRemainderMetadata, isEmpty);
-      expect(bundle.trace.profilesWithoutRemainderMetadata, isNotEmpty);
+      expect(bundle.trace.profilesWithRemainderMetadata, isNotEmpty);
+      expect(bundle.trace.profilesWithoutRemainderMetadata, isEmpty);
     });
   });
 
   group('ThaiMahabhutRemainderCalculator', () {
-    test('returns null — calculation not implemented', () {
+    test('QA sample 1972-04-04 uses BE-1181 and Jan-Apr adjustment', () {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
+      final result = ThaiMahabhutRemainderCalculator.calculate(
+        profile: pipeline.profile,
+        birthData: pipeline.birthData,
+      );
+
+      expect(result.blocker, isNull);
+      expect(result.metadata!.value, 3);
+      expect(result.metadata!.sourcePage, '19');
+      expect(result.metadata!.source, 'source_backed_calculation');
+      expect(result.metadata!.confidence, 'deterministic');
       expect(
-        ThaiMahabhutRemainderCalculator.calculate(profile: pipeline.profile),
-        isNull,
+        result.metadata!.rotationIndexCanonId,
+        'rotationIndex.remainder3',
+      );
+    });
+
+    test('remainder output range is exactly 0-6', () {
+      for (var year = 1940; year <= 2010; year++) {
+        final result = ThaiMahabhutRemainderCalculator.calculate(
+          birthData: birthDataOn(year, 7, 1),
+        );
+        expect(result.blocker, isNull);
+        expect(
+          ThaiRemainderMetadataResolver.allowedValues,
+          contains(result.metadata!.value),
+        );
+      }
+    });
+
+    test('Jan 1 through Apr 15 subtracts 1 and wraps 0 to 6', () {
+      final apr15 = ThaiMahabhutRemainderCalculator.calculate(
+        birthData: birthDataOn(1989, 4, 15),
+      );
+      expect(apr15.metadata!.value, 6);
+
+      final jul1SameYear = ThaiMahabhutRemainderCalculator.calculate(
+        birthData: birthDataOn(1815, 7, 1),
+      );
+      final apr1SameCycle = ThaiMahabhutRemainderCalculator.calculate(
+        birthData: birthDataOn(1815, 4, 1),
+      );
+      expect(jul1SameYear.metadata!.value, 1);
+      expect(apr1SameCycle.metadata!.value, 0);
+    });
+
+    test('Apr 16 returns blocked teacher-only exception', () {
+      final result = ThaiMahabhutRemainderCalculator.calculate(
+        birthData: birthDataOn(1980, 4, 16),
+      );
+
+      expect(result.metadata, isNull);
+      expect(
+        result.blocker,
+        RemainderRuntimeMetadataBlocker.teacherOnlyExceptionApr16,
+      );
+    });
+
+    test('Apr 17 through Dec 31 uses raw remainder without adjustment', () {
+      final apr17 = ThaiMahabhutRemainderCalculator.calculate(
+        birthData: birthDataOn(1972, 4, 17),
+      );
+      final jul1 = ThaiMahabhutRemainderCalculator.calculate(
+        birthData: birthDataOn(1972, 7, 1),
+      );
+
+      expect(apr17.metadata!.value, 4);
+      expect(jul1.metadata!.value, 4);
+    });
+
+    test('1995-09-26 harness date yields remainder 6', () {
+      final result = ThaiMahabhutRemainderCalculator.calculate(
+        birthData: birthDataOn(1995, 9, 26),
+      );
+
+      expect(result.metadata!.value, 6);
+      expect(
+        result.metadata!.rotationIndexCanonId,
+        'rotationIndex.remainder6',
+      );
+    });
+
+    test('returns blocked when birth date input is missing', () {
+      final pipeline = ThaiMirrorPipeline.generate(
+        ThaiMirrorPipeline.sampleQaBirthData(),
+      );
+      final result = ThaiMahabhutRemainderCalculator.calculate(
+        profile: pipeline.profile,
+      );
+
+      expect(result.metadata, isNull);
+      expect(
+        result.blocker,
+        RemainderRuntimeMetadataBlocker.missingBirthDateInput,
       );
       expect(
         ThaiRemainderMetadataResolver.resolve(profile: pipeline.profile),
@@ -110,8 +215,9 @@ void main() {
       final audit = ThaiRemainderCalculationModelFeasibility.audit();
 
       expect(audit.rejectsMahabhutaChartNumbersAsRemainder, isTrue);
+      expect(pipeline.profile!.mahabhutaChartNumbers, isNotNull);
       expect(
-        ThaiMahabhutRemainderCalculator.calculate(profile: pipeline.profile),
+        ThaiRemainderMetadataResolver.resolve(profile: pipeline.profile),
         isNull,
       );
     });
@@ -128,25 +234,27 @@ void main() {
         {0, 1, 2, 3, 4, 5, 6},
       );
     });
-
-    test('returns null when profile is missing', () {
-      expect(ThaiMahabhutRemainderCalculator.calculate(), isNull);
-    });
   });
 
   group('Downstream blocker chain', () {
-    test('archetype blocker propagates NEEDS_SOURCE_FORENSICS', () {
+    test('archetype blocker moves to NEEDS_CANON_ARCHETYPE_MAPPING', () {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
       final archetypeAudit = ThaiArchetypeContextMetadataFeasibility.audit(
         profile: pipeline.profile,
+        birthData: pipeline.birthData,
       );
 
       expect(
-        archetypeAudit.metadataBlocker,
-        RemainderRuntimeMetadataBlocker.needsSourceForensics,
+        archetypeAudit.result,
+        ArchetypeContextMetadataFeasibilityResult.needsCanonArchetypeMapping,
       );
+      expect(
+        archetypeAudit.metadataBlocker,
+        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
+      );
+      expect(archetypeAudit.hasRotationRemainderOnRuntime, isTrue);
     });
 
     test('position and status blockers remain downstream', () async {
@@ -156,20 +264,24 @@ void main() {
       final statusAudit = LifePeriodStatusMetadataResolver.audit(
         pipeline.lifePeriods,
         profile: pipeline.profile,
+        birthData: pipeline.birthData,
       );
 
       expect(
         statusAudit.blocker,
-        RemainderRuntimeMetadataBlocker.needsSourceForensics,
+        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
       );
       expect(
         statusAudit.positionFeasibility.metadataBlocker,
-        RemainderRuntimeMetadataBlocker.needsSourceForensics,
+        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
+      );
+      expect(
+        statusAudit.feasibility.result,
+        LifePeriodRiseFallFeasibilityResult.needsEnginePositionMetadata,
       );
     });
 
-    test('9-fixture aggregate: all profiles without remainder metadata',
-        () async {
+    test('9-fixture aggregate: all profiles with remainder metadata', () async {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
@@ -178,14 +290,19 @@ void main() {
         0,
         (sum, r) => sum + r.bundle.trace.profilesWithRemainderMetadata.length,
       );
+      final withoutRemainder = audit.fixtureResults.fold<int>(
+        0,
+        (sum, r) => sum + r.bundle.trace.profilesWithoutRemainderMetadata.length,
+      );
 
-      expect(withRemainder, 0);
+      expect(withRemainder, 9);
+      expect(withoutRemainder, 0);
       expect(
         audit.fixtureResults.every(
           (r) =>
               r.bundle.trace.remainderCalculationFeasibilityResult ==
-              RemainderCalculationModelFeasibilityResult.needsSourceForensics
-                  .wire,
+              RemainderCalculationModelFeasibilityResult
+                  .readyToImplementRemainderCalculation.wire,
         ),
         isTrue,
       );

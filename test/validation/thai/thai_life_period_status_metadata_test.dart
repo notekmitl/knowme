@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/features/astrology/thai/core/life_period/thai_archetype_context_metadata.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_status_metadata.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/integration.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/qa/thai_canon_evidence_alignment_runner.dart';
@@ -27,6 +28,7 @@ void main() {
       final audit = LifePeriodStatusMetadataResolver.audit(
         pipeline.lifePeriods,
         profile: pipeline.profile,
+        birthData: pipeline.birthData,
       );
       expect(
         audit.finding,
@@ -34,7 +36,7 @@ void main() {
       );
       expect(
         audit.blocker,
-        RemainderRuntimeMetadataBlocker.needsSourceForensics,
+        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
       );
       expect(
         audit.feasibility.result,
@@ -64,6 +66,7 @@ void main() {
       final resolverAudit = LifePeriodStatusMetadataResolver.audit(
         pipeline.lifePeriods,
         profile: pipeline.profile,
+        birthData: pipeline.birthData,
       );
 
       expect(discoveryAudit.finding, resolverAudit.finding);
@@ -85,15 +88,15 @@ void main() {
 
       expect(
         bundle.trace.lifePeriodStatusMetadataBlocker,
-        RemainderRuntimeMetadataBlocker.needsSourceForensics,
+        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
       );
       expect(
         bundle.trace.lifePeriodPositionMetadataBlocker,
-        RemainderRuntimeMetadataBlocker.needsSourceForensics,
+        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
       );
       expect(
         bundle.trace.lifePeriodArchetypeMetadataBlocker,
-        RemainderRuntimeMetadataBlocker.needsSourceForensics,
+        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
       );
       expect(
         bundle.trace.lifePeriodRiseFallFeasibilityResult,

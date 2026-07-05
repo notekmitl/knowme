@@ -2,6 +2,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_engine.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_status_metadata.dart';
+import 'package:knowme/features/astrology/thai/core/life_period/thai_archetype_context_metadata.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/thai_life_period_position_metadata.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/integration.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/qa/thai_canon_evidence_alignment_runner.dart';
@@ -26,6 +27,7 @@ void main() {
       final audit = ThaiLifePeriodPositionMetadataFeasibility.audit(
         timeline: pipeline.lifePeriods,
         profile: pipeline.profile,
+        birthData: pipeline.birthData,
       );
 
       expect(
@@ -40,7 +42,7 @@ void main() {
       expect(audit.canonLifePeriodPlacementsPresent, isTrue);
       expect(
         audit.metadataBlocker,
-        RemainderRuntimeMetadataBlocker.needsSourceForensics,
+        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
       );
     });
 
@@ -51,11 +53,12 @@ void main() {
       final audit = LifePeriodStatusMetadataResolver.audit(
         pipeline.lifePeriods,
         profile: pipeline.profile,
+        birthData: pipeline.birthData,
       );
 
       expect(
         audit.blocker,
-        RemainderRuntimeMetadataBlocker.needsSourceForensics,
+        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
       );
       expect(
         audit.positionFeasibility.result,
@@ -84,15 +87,15 @@ void main() {
       );
       expect(
         bundle.trace.lifePeriodPositionMetadataBlocker,
-        RemainderRuntimeMetadataBlocker.needsSourceForensics,
+        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
       );
       expect(
         bundle.trace.lifePeriodStatusMetadataBlocker,
-        RemainderRuntimeMetadataBlocker.needsSourceForensics,
+        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
       );
       expect(
         bundle.trace.lifePeriodArchetypeMetadataBlocker,
-        RemainderRuntimeMetadataBlocker.needsSourceForensics,
+        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
       );
     });
   });

@@ -17,24 +17,25 @@ void main() {
   });
 
   group('Feasibility audit', () {
-    test('production pipeline is NEEDS_REMAINDER_METADATA (archetype wire)', () {
+    test('production pipeline is NEEDS_CANON_ARCHETYPE_MAPPING', () {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
       final audit = ThaiArchetypeContextMetadataFeasibility.audit(
         profile: pipeline.profile,
+        birthData: pipeline.birthData,
       );
 
       expect(
         audit.result,
-        ArchetypeContextMetadataFeasibilityResult.needsRemainderMetadata,
+        ArchetypeContextMetadataFeasibilityResult.needsCanonArchetypeMapping,
       );
-      expect(audit.hasRotationRemainderOnRuntime, isFalse);
+      expect(audit.hasRotationRemainderOnRuntime, isTrue);
       expect(audit.hasArchetypeChartCanonIdOnRuntime, isFalse);
       expect(audit.canonRemainderToArchetypeMappingComplete, isFalse);
       expect(
         audit.metadataBlocker,
-        RemainderRuntimeMetadataBlocker.needsSourceForensics,
+        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
       );
     });
 
@@ -46,12 +47,13 @@ void main() {
       expect(
         ThaiArchetypeContextMetadataFeasibility.audit(
           profile: pipeline.profile,
+          birthData: pipeline.birthData,
         ).result,
-        ArchetypeContextMetadataFeasibilityResult.needsRemainderMetadata,
+        ArchetypeContextMetadataFeasibilityResult.needsCanonArchetypeMapping,
       );
     });
 
-    test('position and status blockers propagate NEEDS_SOURCE_FORENSICS',
+    test('position and status blockers propagate NEEDS_CANON_ARCHETYPE_MAPPING',
         () async {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
@@ -59,6 +61,7 @@ void main() {
       final statusAudit = LifePeriodStatusMetadataResolver.audit(
         pipeline.lifePeriods,
         profile: pipeline.profile,
+        birthData: pipeline.birthData,
       );
       final bundle = await ThaiReportCanonEvidenceEnricher.enrich(
         pipeline,
@@ -67,19 +70,19 @@ void main() {
 
       expect(
         statusAudit.blocker,
-        RemainderRuntimeMetadataBlocker.needsSourceForensics,
+        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
       );
       expect(
         statusAudit.positionFeasibility.metadataBlocker,
-        RemainderRuntimeMetadataBlocker.needsSourceForensics,
+        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
       );
       expect(
         bundle.trace.lifePeriodArchetypeMetadataBlocker,
-        RemainderRuntimeMetadataBlocker.needsSourceForensics,
+        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
       );
       expect(
         bundle.trace.lifePeriodPositionMetadataBlocker,
-        RemainderRuntimeMetadataBlocker.needsSourceForensics,
+        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
       );
     });
   });

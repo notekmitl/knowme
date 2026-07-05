@@ -78,19 +78,23 @@ abstract final class ThaiReportCanonEvidenceEnricher {
         ThaiLifePeriodPositionMetadataFeasibility.audit(
       timeline: pipelineResult.lifePeriods,
       profile: pipelineResult.profile,
+      birthData: pipelineResult.birthData,
     );
     final archetypeFeasibilityAudit =
         ThaiArchetypeContextMetadataFeasibility.audit(
       profile: pipelineResult.profile,
+      birthData: pipelineResult.birthData,
     );
     final remainderFeasibilityAudit =
         ThaiRemainderRuntimeMetadataFeasibility.audit(
       profile: pipelineResult.profile,
+      birthData: pipelineResult.birthData,
     );
     final calculationModelAudit =
         remainderFeasibilityAudit.calculationModelFeasibility;
     final remainderMetadata = ThaiRemainderMetadataResolver.resolve(
       profile: pipelineResult.profile,
+      birthData: pipelineResult.birthData,
     );
     final profilesWithRemainderMetadata = <String>[];
     final profilesWithoutRemainderMetadata = <String>[];

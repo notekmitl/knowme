@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/features/astrology/thai/core/life_period/thai_archetype_context_metadata.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_status_metadata.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/integration.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/qa/thai_canon_evidence_alignment_classification.dart';
@@ -138,7 +139,7 @@ void main() {
 
       expect(
         bundle.trace.lifePeriodStatusMetadataBlocker,
-        RemainderRuntimeMetadataBlocker.needsSourceForensics,
+        ArchetypeContextMetadataBlocker.needsCanonArchetypeMapping,
       );
       expect(bundle.trace.lifePeriodsWithoutRuntimeStatus, isNotEmpty);
     });

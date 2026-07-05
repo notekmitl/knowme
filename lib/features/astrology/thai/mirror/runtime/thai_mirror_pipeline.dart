@@ -1,3 +1,5 @@
+import 'package:knowme/features/astrology/thai/core/life_period/life_period_engine.dart';
+
 import '../../foundation/models/thai_astrology_profile.dart';
 import '../../foundation/models/thai_birth_data.dart';
 import '../../foundation/thai_foundation_engine.dart';
@@ -35,11 +37,19 @@ abstract final class ThaiMirrorPipeline {
       final mirrorResult = _buildMirrorResult(profile);
       final viewState = ThaiMirrorPresenter.present(mirrorResult);
 
+      // V8: derive Life Period evidence from the canonical birth profile here,
+      // in the runtime — never by threading a raw birth date into presenters.
+      // Consistency: feed the sunrise-adjusted astrological date (the single Thai
+      // day), never the civil date — see ThaiBirthData / Birth Normalization.
+      final lifePeriods = LifePeriodEngine.fromBirthData(birthData);
+
       return ThaiMirrorPipelineResult.success(
         viewState: viewState,
         profile: profile,
         mirrorResult: mirrorResult,
         generatedAt: generatedAt,
+        birthData: birthData,
+        lifePeriods: lifePeriods,
       );
     } catch (error) {
       return ThaiMirrorPipelineResult.failure(

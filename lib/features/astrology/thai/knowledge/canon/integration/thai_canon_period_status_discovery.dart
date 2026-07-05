@@ -42,6 +42,7 @@ abstract final class ThaiCanonPeriodStatusDiscovery {
     return LifePeriodStatusMetadataResolver.audit(
       pipelineResult.lifePeriods,
       profile: pipelineResult.profile,
+      birthData: pipelineResult.birthData,
     );
   }
 

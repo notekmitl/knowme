@@ -1,4 +1,5 @@
 import '../../foundation/models/thai_astrology_profile.dart';
+import '../../foundation/models/thai_birth_data.dart';
 import 'thai_remainder_calculation_model.dart';
 
 /// Feasibility outcome for remainder / เศษ runtime metadata.
@@ -39,6 +40,8 @@ abstract final class RemainderRuntimeMetadataBlocker {
   static const needsSourceForensics = 'NEEDS_SOURCE_FORENSICS';
   static const blockedBySourceGap = 'BLOCKED_BY_SOURCE_GAP';
   static const blockedByModelingGap = 'BLOCKED_BY_MODELING_GAP';
+  static const missingBirthDateInput = 'MISSING_BIRTH_DATE_INPUT';
+  static const teacherOnlyExceptionApr16 = 'TEACHER_ONLY_EXCEPTION_APR_16';
 }
 
 /// Internal remainder metadata (Canon rotationIndex id only).
@@ -48,6 +51,7 @@ class ThaiRemainderMetadata {
     required this.value,
     required this.source,
     required this.sourceField,
+    this.sourcePage,
     this.confidence = 'deterministic',
   });
 
@@ -57,9 +61,10 @@ class ThaiRemainderMetadata {
   /// Allowed internal values when exposed: 0–6 per frozen Canon ontology.
   final int value;
 
-  /// `runtime_structural` or `existing_engine_field`.
+  /// `source_backed_calculation`, `runtime_structural`, or `existing_engine_field`.
   final String source;
   final String sourceField;
+  final String? sourcePage;
   final String confidence;
 }
 
@@ -75,6 +80,7 @@ class ThaiRemainderRuntimeMetadataFeasibilityAudit {
     required this.exposesDeterministicRemainderKey,
     required this.rejectsRow4AsRemainderProxy,
     required this.calculationModelFeasibility,
+    this.calculationBlocker,
   });
 
   final RemainderRuntimeMetadataFeasibilityResult result;
@@ -86,8 +92,19 @@ class ThaiRemainderRuntimeMetadataFeasibilityAudit {
   final bool exposesDeterministicRemainderKey;
   final bool rejectsRow4AsRemainderProxy;
   final ThaiRemainderCalculationModelFeasibilityAudit calculationModelFeasibility;
+  final String? calculationBlocker;
 
-  String? get metadataBlocker => switch (result) {
+  String? get metadataBlocker {
+    if (result ==
+            RemainderRuntimeMetadataFeasibilityResult
+                .readyToExposeRemainderMetadata ||
+        result ==
+            RemainderRuntimeMetadataFeasibilityResult
+                .readyToExposeFromExistingEngineField) {
+      return null;
+    }
+    if (calculationBlocker != null) return calculationBlocker;
+    return switch (result) {
         RemainderRuntimeMetadataFeasibilityResult
               .readyToExposeRemainderMetadata ||
         RemainderRuntimeMetadataFeasibilityResult
@@ -102,7 +119,8 @@ class ThaiRemainderRuntimeMetadataFeasibilityAudit {
           RemainderRuntimeMetadataBlocker.blockedBySourceGap,
         RemainderRuntimeMetadataFeasibilityResult.blockedByModelingGap =>
           RemainderRuntimeMetadataBlocker.blockedByModelingGap,
-      };
+    };
+  }
 }
 
 /// Deterministic resolver — returns null unless remainder is on runtime output.
@@ -113,8 +131,14 @@ abstract final class ThaiRemainderMetadataResolver {
     return 'rotationIndex.remainder$value';
   }
 
-  static ThaiRemainderMetadata? resolve({ThaiAstrologyProfile? profile}) {
-    return ThaiMahabhutRemainderCalculator.calculate(profile: profile);
+  static ThaiRemainderMetadata? resolve({
+    ThaiAstrologyProfile? profile,
+    ThaiBirthData? birthData,
+  }) {
+    return ThaiMahabhutRemainderCalculator.calculate(
+      profile: profile,
+      birthData: birthData,
+    ).metadata;
   }
 }
 
@@ -122,8 +146,8 @@ abstract final class ThaiRemainderMetadataResolver {
 abstract final class ThaiRemainderRuntimeMetadataFeasibility {
   static ThaiRemainderRuntimeMetadataFeasibilityAudit audit({
     ThaiAstrologyProfile? profile,
+    ThaiBirthData? birthData,
   }) {
-    final computesDirectly = _computesRemainderDirectly();
     final hasRemainderField = _hasRotationIndexRemainderField(profile);
     final row4AsRemainder = _row4DocumentedAsRemainder();
     final row4ReducedOnProfile = _row4ReducedExposedOnProfile(profile);
@@ -131,8 +155,13 @@ abstract final class ThaiRemainderRuntimeMetadataFeasibility {
         profile!.mahabhutaChartNumbers!.isNotEmpty;
     final exposesKey = _exposesDeterministicRemainderKey(profile);
     const rejectsRow4Proxy = true;
+    const computesDirectly = true;
     final calculationModelFeasibility =
         ThaiRemainderCalculationModelFeasibility.audit();
+    final calculationResult = ThaiMahabhutRemainderCalculator.calculate(
+      profile: profile,
+      birthData: birthData,
+    );
 
     final result = _classify(
       computesDirectly: computesDirectly,
@@ -140,6 +169,7 @@ abstract final class ThaiRemainderRuntimeMetadataFeasibility {
       row4ProvenEquivalent: row4AsRemainder && !rejectsRow4Proxy,
       exposesKey: exposesKey,
       calculationModel: calculationModelFeasibility.result,
+      hasComputedMetadata: calculationResult.metadata != null,
     );
 
     return ThaiRemainderRuntimeMetadataFeasibilityAudit(
@@ -152,6 +182,7 @@ abstract final class ThaiRemainderRuntimeMetadataFeasibility {
       exposesDeterministicRemainderKey: exposesKey,
       rejectsRow4AsRemainderProxy: rejectsRow4Proxy,
       calculationModelFeasibility: calculationModelFeasibility,
+      calculationBlocker: calculationResult.blocker,
     );
   }
 
@@ -161,8 +192,9 @@ abstract final class ThaiRemainderRuntimeMetadataFeasibility {
     required bool row4ProvenEquivalent,
     required bool exposesKey,
     required RemainderCalculationModelFeasibilityResult calculationModel,
+    required bool hasComputedMetadata,
   }) {
-    if (computesDirectly || exposesKey) {
+    if (hasComputedMetadata) {
       return RemainderRuntimeMetadataFeasibilityResult
           .readyToExposeRemainderMetadata;
     }
@@ -170,13 +202,16 @@ abstract final class ThaiRemainderRuntimeMetadataFeasibility {
       return RemainderRuntimeMetadataFeasibilityResult
           .readyToExposeFromExistingEngineField;
     }
+    if (exposesKey) {
+      return RemainderRuntimeMetadataFeasibilityResult
+          .readyToExposeRemainderMetadata;
+    }
     return switch (calculationModel) {
       RemainderCalculationModelFeasibilityResult
             .readyToImplementRemainderCalculation ||
       RemainderCalculationModelFeasibilityResult
             .readyToUseReferenceTableRemainder =>
-        RemainderRuntimeMetadataFeasibilityResult
-            .needsRemainderCalculationModel,
+        RemainderRuntimeMetadataFeasibilityResult.needsRemainderCalculationModel,
       RemainderCalculationModelFeasibilityResult.needsSourceForensics =>
         RemainderRuntimeMetadataFeasibilityResult.needsSourceForensics,
       RemainderCalculationModelFeasibilityResult.blockedBySourceGap =>
@@ -184,11 +219,6 @@ abstract final class ThaiRemainderRuntimeMetadataFeasibility {
       RemainderCalculationModelFeasibilityResult.blockedByModelingGap =>
         RemainderRuntimeMetadataFeasibilityResult.blockedByModelingGap,
     };
-  }
-
-  static bool _computesRemainderDirectly() {
-    // [SevenNumberChart] computes row4Sum / row4Reduced — not เศษ/remainder.
-    return false;
   }
 
   static bool _hasRotationIndexRemainderField(ThaiAstrologyProfile? profile) {

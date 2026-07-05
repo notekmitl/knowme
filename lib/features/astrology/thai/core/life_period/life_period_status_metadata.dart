@@ -6,6 +6,7 @@
 library;
 
 import '../../foundation/models/thai_astrology_profile.dart';
+import '../../foundation/models/thai_birth_data.dart';
 import 'life_period_engine.dart';
 import 'thai_life_period_position_metadata.dart';
 export 'thai_remainder_calculation_model.dart'
@@ -13,6 +14,7 @@ export 'thai_remainder_calculation_model.dart'
         RemainderCalculationModelBlocker,
         RemainderCalculationModelFeasibilityResult,
         RemainderCalculationModelFeasibilityResultWire,
+        ThaiMahabhutRemainderCalculationResult,
         ThaiMahabhutRemainderCalculator,
         ThaiRemainderCalculationModelFeasibility,
         ThaiRemainderCalculationModelFeasibilityAudit,
@@ -107,12 +109,14 @@ abstract final class LifePeriodStatusMetadataResolver {
   static LifePeriodStatusMetadataAudit audit(
     LifeTimeline? timeline, {
     ThaiAstrologyProfile? profile,
+    ThaiBirthData? birthData,
   }) {
     if (timeline == null) {
       final positionFeasibility =
           ThaiLifePeriodPositionMetadataFeasibility.audit(
         timeline: null,
         profile: profile,
+        birthData: birthData,
       );
       final feasibility = ThaiLifePeriodRiseFallFeasibility.audit(
         timeline: null,
@@ -129,6 +133,7 @@ abstract final class LifePeriodStatusMetadataResolver {
     final positionFeasibility = ThaiLifePeriodPositionMetadataFeasibility.audit(
       timeline: timeline,
       profile: profile,
+      birthData: birthData,
     );
 
     final feasibility = ThaiLifePeriodRiseFallFeasibility.audit(

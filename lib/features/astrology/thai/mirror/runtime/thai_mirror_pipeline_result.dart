@@ -1,4 +1,7 @@
+import 'package:knowme/features/astrology/thai/core/life_period/life_period_engine.dart';
+
 import '../../foundation/models/thai_astrology_profile.dart';
+import '../../foundation/models/thai_birth_data.dart';
 import '../models/thai_mirror_result.dart';
 import '../presentation/thai_mirror_view_state.dart';
 
@@ -11,6 +14,8 @@ class ThaiMirrorPipelineResult {
     required this.profile,
     required this.mirrorResult,
     required this.generatedAt,
+    required this.birthData,
+    this.lifePeriods,
   }) : errorMessage = null;
 
   const ThaiMirrorPipelineResult.failure({
@@ -18,12 +23,19 @@ class ThaiMirrorPipelineResult {
   })  : viewState = null,
         profile = null,
         mirrorResult = null,
-        generatedAt = null;
+        generatedAt = null,
+        birthData = null,
+        lifePeriods = null;
 
   final ThaiMirrorViewState? viewState;
   final ThaiAstrologyProfile? profile;
   final ThaiMirrorResult? mirrorResult;
   final DateTime? generatedAt;
+  final ThaiBirthData? birthData;
+
+  /// Life Period Engine *evidence* (computed from the canonical birth profile).
+  /// Drives the V8 Life Timeline. Null when birth date is unavailable.
+  final LifeTimeline? lifePeriods;
   final String? errorMessage;
 
   bool get isSuccess =>

@@ -1,5 +1,6 @@
 import '../../content/models/thai_content_key.dart';
 import '../../foundation/models/thai_astrology_profile.dart';
+import '../../foundation/models/thai_birth_data.dart';
 import 'thai_remainder_runtime_metadata.dart';
 
 /// Feasibility outcome for archetype chart context metadata.
@@ -116,9 +117,11 @@ abstract final class ThaiArchetypeContextMetadataResolver {
 abstract final class ThaiArchetypeContextMetadataFeasibility {
   static ThaiArchetypeContextMetadataFeasibilityAudit audit({
     ThaiAstrologyProfile? profile,
+    ThaiBirthData? birthData,
   }) {
     final remainderFeasibility = ThaiRemainderRuntimeMetadataFeasibility.audit(
       profile: profile,
+      birthData: birthData,
     );
     final hasRemainder = _hasRotationRemainderOnRuntime(remainderFeasibility);
     final hasArchetypeId = _hasArchetypeChartCanonIdOnRuntime(profile);

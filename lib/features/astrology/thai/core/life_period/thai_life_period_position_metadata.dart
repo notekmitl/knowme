@@ -1,4 +1,5 @@
 import '../../foundation/models/thai_astrology_profile.dart';
+import '../../foundation/models/thai_birth_data.dart';
 import 'life_period_engine.dart';
 import 'thai_archetype_context_metadata.dart';
 
@@ -118,10 +119,14 @@ abstract final class ThaiLifePeriodPositionMetadataFeasibility {
   static ThaiLifePeriodPositionMetadataFeasibilityAudit audit({
     LifeTimeline? timeline,
     ThaiAstrologyProfile? profile,
+    ThaiBirthData? birthData,
   }) {
     if (timeline == null || timeline.periods.isEmpty) {
       final archetypeFeasibility =
-          ThaiArchetypeContextMetadataFeasibility.audit(profile: profile);
+          ThaiArchetypeContextMetadataFeasibility.audit(
+        profile: profile,
+        birthData: birthData,
+      );
       return ThaiLifePeriodPositionMetadataFeasibilityAudit(
         result: LifePeriodPositionMetadataFeasibilityResult
             .needsArchetypeContextMetadata,
@@ -136,6 +141,7 @@ abstract final class ThaiLifePeriodPositionMetadataFeasibility {
 
     final archetypeFeasibility = ThaiArchetypeContextMetadataFeasibility.audit(
       profile: profile,
+      birthData: birthData,
     );
 
     final hasPlanet = timeline.periods.every((p) => p.planet.name.isNotEmpty);
