@@ -126,6 +126,34 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
         ),
       );
     }
+    if (trace.lifePeriodPositionFeasibilityResult != null) {
+      records.add(
+        ThaiCanonEvidenceAlignmentRecord(
+          fixtureId: fixtureId,
+          signalId:
+              'trace:lifePeriodPositionFeasibility:'
+              '${trace.lifePeriodPositionFeasibilityResult}',
+          classification: ThaiCanonEvidenceAlignmentClassification.internalOnly,
+          reason:
+              'Life-period Mahabhut position metadata feasibility audit '
+              '(internal only)',
+        ),
+      );
+    }
+    if (trace.lifePeriodPositionMetadataBlocker != null) {
+      records.add(
+        ThaiCanonEvidenceAlignmentRecord(
+          fixtureId: fixtureId,
+          signalId:
+              'trace:lifePeriodPositionMetadataBlocker:'
+              '${trace.lifePeriodPositionMetadataBlocker}',
+          classification: ThaiCanonEvidenceAlignmentClassification.internalOnly,
+          reason:
+              'Per-period Mahabhut position metadata blocked — no deterministic '
+              'archetype/period context to map Canon placements',
+        ),
+      );
+    }
     if (trace.lifePeriodRiseFallFeasibilityResult != null) {
       records.add(
         ThaiCanonEvidenceAlignmentRecord(

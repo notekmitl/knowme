@@ -7,6 +7,16 @@ library;
 
 import '../../foundation/models/thai_astrology_profile.dart';
 import 'life_period_engine.dart';
+import 'thai_life_period_position_metadata.dart';
+export 'thai_life_period_position_metadata.dart'
+    show
+        LifePeriodMahabhutPositionMetadata,
+        LifePeriodPositionMetadataBlocker,
+        LifePeriodPositionMetadataFeasibilityResult,
+        LifePeriodPositionMetadataFeasibilityResultWire,
+        ThaiLifePeriodPositionMetadataFeasibility,
+        ThaiLifePeriodPositionMetadataFeasibilityAudit,
+        ThaiLifePeriodPositionMetadataResolver;
 export 'thai_life_period_rise_fall_metadata.dart'
     show
         LifePeriodRiseFallFeasibilityResult,
@@ -36,6 +46,7 @@ class LifePeriodStatusMetadataAudit {
     required this.blocker,
     required this.periodCount,
     required this.feasibility,
+    required this.positionFeasibility,
     this.byPeriodIndex = const {},
   });
 
@@ -43,16 +54,19 @@ class LifePeriodStatusMetadataAudit {
     required LifePeriodStatusMetadataAuditFinding finding,
     required String blocker,
     required ThaiLifePeriodRiseFallFeasibilityAudit feasibility,
+    required ThaiLifePeriodPositionMetadataFeasibilityAudit positionFeasibility,
     this.periodCount = 0,
   }) : byPeriodIndex = const {},
        finding = finding,
        blocker = blocker,
-       feasibility = feasibility;
+       feasibility = feasibility,
+       positionFeasibility = positionFeasibility;
 
   final LifePeriodStatusMetadataAuditFinding finding;
   final String? blocker;
   final int periodCount;
   final ThaiLifePeriodRiseFallFeasibilityAudit feasibility;
+  final ThaiLifePeriodPositionMetadataFeasibilityAudit positionFeasibility;
 
   /// Period index → Canon id (`periodStatus.duengKhuen` / `.duengTok`).
   final Map<int, String> byPeriodIndex;
@@ -67,6 +81,11 @@ abstract final class LifePeriodStatusMetadataResolver {
     ThaiAstrologyProfile? profile,
   }) {
     if (timeline == null) {
+      final positionFeasibility =
+          ThaiLifePeriodPositionMetadataFeasibility.audit(
+        timeline: null,
+        profile: profile,
+      );
       final feasibility = ThaiLifePeriodRiseFallFeasibility.audit(
         timeline: null,
         profile: profile,
@@ -75,13 +94,31 @@ abstract final class LifePeriodStatusMetadataResolver {
         finding: LifePeriodStatusMetadataAuditFinding.absentOnRuntime,
         blocker: LifePeriodStatusMetadataBlocker.noLifeTimeline,
         feasibility: feasibility,
+        positionFeasibility: positionFeasibility,
       );
     }
+
+    final positionFeasibility = ThaiLifePeriodPositionMetadataFeasibility.audit(
+      timeline: timeline,
+      profile: profile,
+    );
 
     final feasibility = ThaiLifePeriodRiseFallFeasibility.audit(
       timeline: timeline,
       profile: profile,
     );
+
+    if (positionFeasibility.result !=
+        LifePeriodPositionMetadataFeasibilityResult.readyToExposeMetadata) {
+      return LifePeriodStatusMetadataAudit.blocked(
+        finding: LifePeriodStatusMetadataAuditFinding.needsEnginePositionMetadata,
+        blocker: positionFeasibility.metadataBlocker ??
+            LifePeriodPositionMetadataBlocker.needsArchetypeContextMetadata,
+        feasibility: feasibility,
+        positionFeasibility: positionFeasibility,
+        periodCount: timeline.periods.length,
+      );
+    }
 
     if (feasibility.result !=
         LifePeriodRiseFallFeasibilityResult.readyToExposeMetadata) {
@@ -90,6 +127,7 @@ abstract final class LifePeriodStatusMetadataResolver {
         blocker: feasibility.metadataBlocker ??
             LifePeriodStatusMetadataBlocker.needsEnginePositionMetadata,
         feasibility: feasibility,
+        positionFeasibility: positionFeasibility,
         periodCount: timeline.periods.length,
       );
     }
@@ -99,6 +137,7 @@ abstract final class LifePeriodStatusMetadataResolver {
       blocker: null,
       periodCount: timeline.periods.length,
       feasibility: feasibility,
+      positionFeasibility: positionFeasibility,
       byPeriodIndex: const {},
     );
   }

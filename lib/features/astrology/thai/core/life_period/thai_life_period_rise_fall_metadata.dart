@@ -1,5 +1,6 @@
 import '../../foundation/models/thai_astrology_profile.dart';
 import 'life_period_engine.dart';
+import 'thai_life_period_position_metadata.dart';
 
 /// Allowed Canon ids for internal period-status metadata (when available).
 abstract final class LifePeriodStatusMetadataValues {
@@ -150,17 +151,22 @@ abstract final class ThaiLifePeriodRiseFallFeasibility {
       );
     }
 
-    final hasPlanet = timeline.periods.every((p) => p.planet.name.isNotEmpty);
+    final positionAudit = ThaiLifePeriodPositionMetadataFeasibility.audit(
+      timeline: timeline,
+      profile: profile,
+    );
 
-    // Natal Mahabhut keys exist on profile but are not keyed by life-period index.
-    final hasPerPeriodPosition = false;
+    final hasPlanet = positionAudit.hasGoverningPlanetPerPeriod;
 
-    // Archetype chart context exists in frozen Canon life_period units only.
-    final hasArchetype = false;
+    final hasPerPeriodPosition =
+        positionAudit.result ==
+        LifePeriodPositionMetadataFeasibilityResult.readyToExposeMetadata;
+
+    final hasArchetype = positionAudit.hasArchetypeChartIdentity;
 
     final hasRiseFallField = false;
 
-    final canClassify = hasPlanet && hasPerPeriodPosition && hasArchetype;
+    final canClassify = hasPerPeriodPosition && hasArchetype;
 
     final result = canClassify
         ? LifePeriodRiseFallFeasibilityResult.readyToExposeMetadata

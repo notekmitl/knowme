@@ -74,6 +74,11 @@ abstract final class ThaiReportCanonEvidenceEnricher {
     final periodStatusAudit = periodStatusLabelsByIndex == null
         ? ThaiCanonPeriodStatusDiscovery.audit(pipelineResult)
         : null;
+    final positionFeasibilityAudit =
+        ThaiLifePeriodPositionMetadataFeasibility.audit(
+      timeline: pipelineResult.lifePeriods,
+      profile: pipelineResult.profile,
+    );
 
     final mirror = pipelineResult.mirrorResult!;
 
@@ -246,6 +251,10 @@ abstract final class ThaiReportCanonEvidenceEnricher {
           _sortedUnique(lifePeriodsWithRuntimeStatus),
       lifePeriodRiseFallFeasibilityResult:
           periodStatusAudit?.feasibility.result.wire,
+      lifePeriodPositionFeasibilityResult:
+          positionFeasibilityAudit.result.wire,
+      lifePeriodPositionMetadataBlocker:
+          positionFeasibilityAudit.metadataBlocker,
       lifePeriodStatusMetadataBlocker: periodStatusAudit?.blocker,
     );
 

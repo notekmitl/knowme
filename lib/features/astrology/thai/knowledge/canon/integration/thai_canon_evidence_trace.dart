@@ -16,6 +16,8 @@ class ThaiCanonEvidenceTrace {
     this.lifePeriodsWithoutCanonStatusMarker = const [],
     this.lifePeriodsWithRuntimeStatus = const [],
     this.lifePeriodRiseFallFeasibilityResult,
+    this.lifePeriodPositionFeasibilityResult,
+    this.lifePeriodPositionMetadataBlocker,
     this.lifePeriodStatusMetadataBlocker,
   });
 
@@ -56,6 +58,12 @@ class ThaiCanonEvidenceTrace {
 
   /// Feasibility audit wire (e.g. NEEDS_ENGINE_POSITION_METADATA).
   final String? lifePeriodRiseFallFeasibilityResult;
+
+  /// Position-metadata feasibility audit wire.
+  final String? lifePeriodPositionFeasibilityResult;
+
+  /// Set when per-period Mahabhut position metadata is blocked.
+  final String? lifePeriodPositionMetadataBlocker;
 
   /// Set when period-status metadata is blocked (e.g. engine gap — not silent).
   final String? lifePeriodStatusMetadataBlocker;

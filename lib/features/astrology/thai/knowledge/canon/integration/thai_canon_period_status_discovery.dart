@@ -23,6 +23,11 @@ abstract final class ThaiCanonPeriodStatusDiscovery {
     ThaiMirrorPipelineResult pipelineResult,
   ) {
     if (!pipelineResult.isSuccess) {
+      final positionFeasibility =
+          ThaiLifePeriodPositionMetadataFeasibility.audit(
+        timeline: null,
+        profile: null,
+      );
       final feasibility = ThaiLifePeriodRiseFallFeasibility.audit(
         timeline: null,
         profile: null,
@@ -31,6 +36,7 @@ abstract final class ThaiCanonPeriodStatusDiscovery {
         finding: LifePeriodStatusMetadataAuditFinding.absentOnRuntime,
         blocker: LifePeriodStatusMetadataBlocker.noLifeTimeline,
         feasibility: feasibility,
+        positionFeasibility: positionFeasibility,
       );
     }
     return LifePeriodStatusMetadataResolver.audit(

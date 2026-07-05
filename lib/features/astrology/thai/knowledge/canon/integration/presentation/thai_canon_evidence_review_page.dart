@@ -355,6 +355,28 @@ class _TracePanel extends StatelessWidget {
             else
               for (final note in trace.skippedPeriodStatusNotes)
                 Text('• $note', style: theme.textTheme.bodySmall),
+            if (trace.lifePeriodPositionFeasibilityResult != null) ...[
+              const SizedBox(height: 8),
+              Text(
+                'Position metadata feasibility:',
+                style: theme.textTheme.labelLarge,
+              ),
+              Text(
+                '• ${trace.lifePeriodPositionFeasibilityResult}',
+                style: theme.textTheme.bodySmall,
+              ),
+            ],
+            if (trace.lifePeriodPositionMetadataBlocker != null) ...[
+              const SizedBox(height: 8),
+              Text(
+                'Position metadata blocker:',
+                style: theme.textTheme.labelLarge,
+              ),
+              Text(
+                '• ${trace.lifePeriodPositionMetadataBlocker}',
+                style: theme.textTheme.bodySmall,
+              ),
+            ],
             if (trace.lifePeriodRiseFallFeasibilityResult != null) ...[
               const SizedBox(height: 8),
               Text(
