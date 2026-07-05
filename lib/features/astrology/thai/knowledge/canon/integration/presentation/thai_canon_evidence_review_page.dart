@@ -355,6 +355,17 @@ class _TracePanel extends StatelessWidget {
             else
               for (final note in trace.skippedPeriodStatusNotes)
                 Text('• $note', style: theme.textTheme.bodySmall),
+            if (trace.remainderCalculationFeasibilityResult != null) ...[
+              const SizedBox(height: 8),
+              Text(
+                'Remainder calculation feasibility:',
+                style: theme.textTheme.labelLarge,
+              ),
+              Text(
+                '• ${trace.remainderCalculationFeasibilityResult}',
+                style: theme.textTheme.bodySmall,
+              ),
+            ],
             if (trace.remainderFeasibilityResult != null) ...[
               const SizedBox(height: 8),
               Text(

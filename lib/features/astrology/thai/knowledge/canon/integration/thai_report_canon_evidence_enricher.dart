@@ -87,6 +87,8 @@ abstract final class ThaiReportCanonEvidenceEnricher {
         ThaiRemainderRuntimeMetadataFeasibility.audit(
       profile: pipelineResult.profile,
     );
+    final calculationModelAudit =
+        remainderFeasibilityAudit.calculationModelFeasibility;
     final remainderMetadata = ThaiRemainderMetadataResolver.resolve(
       profile: pipelineResult.profile,
     );
@@ -279,6 +281,7 @@ abstract final class ThaiReportCanonEvidenceEnricher {
       lifePeriodArchetypeMetadataBlocker:
           archetypeFeasibilityAudit.metadataBlocker,
       remainderFeasibilityResult: remainderFeasibilityAudit.result.wire,
+      remainderCalculationFeasibilityResult: calculationModelAudit.result.wire,
       remainderMetadataBlocker: remainderFeasibilityAudit.metadataBlocker,
       remainderSourceField: remainderMetadata?.sourceField,
       remainderCanonId: remainderMetadata?.rotationIndexCanonId,

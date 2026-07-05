@@ -34,7 +34,7 @@ void main() {
       expect(audit.canonRemainderToArchetypeMappingComplete, isFalse);
       expect(
         audit.metadataBlocker,
-        RemainderRuntimeMetadataBlocker.needsRemainderCalculationModel,
+        RemainderRuntimeMetadataBlocker.needsSourceForensics,
       );
     });
 
@@ -51,7 +51,7 @@ void main() {
       );
     });
 
-    test('position and status blockers propagate NEEDS_REMAINDER_CALCULATION_MODEL',
+    test('position and status blockers propagate NEEDS_SOURCE_FORENSICS',
         () async {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
@@ -67,19 +67,19 @@ void main() {
 
       expect(
         statusAudit.blocker,
-        RemainderRuntimeMetadataBlocker.needsRemainderCalculationModel,
+        RemainderRuntimeMetadataBlocker.needsSourceForensics,
       );
       expect(
         statusAudit.positionFeasibility.metadataBlocker,
-        RemainderRuntimeMetadataBlocker.needsRemainderCalculationModel,
+        RemainderRuntimeMetadataBlocker.needsSourceForensics,
       );
       expect(
         bundle.trace.lifePeriodArchetypeMetadataBlocker,
-        RemainderRuntimeMetadataBlocker.needsRemainderCalculationModel,
+        RemainderRuntimeMetadataBlocker.needsSourceForensics,
       );
       expect(
         bundle.trace.lifePeriodPositionMetadataBlocker,
-        RemainderRuntimeMetadataBlocker.needsRemainderCalculationModel,
+        RemainderRuntimeMetadataBlocker.needsSourceForensics,
       );
     });
   });

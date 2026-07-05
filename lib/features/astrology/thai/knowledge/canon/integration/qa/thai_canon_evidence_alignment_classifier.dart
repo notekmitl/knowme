@@ -126,6 +126,18 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
         ),
       );
     }
+    if (trace.remainderCalculationFeasibilityResult != null) {
+      records.add(
+        ThaiCanonEvidenceAlignmentRecord(
+          fixtureId: fixtureId,
+          signalId:
+              'trace:remainderCalculationFeasibility:${trace.remainderCalculationFeasibilityResult}',
+          classification: ThaiCanonEvidenceAlignmentClassification.internalOnly,
+          reason:
+              'Remainder calculation model feasibility audit (internal only)',
+        ),
+      );
+    }
     if (trace.remainderFeasibilityResult != null) {
       records.add(
         ThaiCanonEvidenceAlignmentRecord(

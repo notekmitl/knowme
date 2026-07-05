@@ -21,6 +21,7 @@ class ThaiCanonEvidenceTrace {
     this.lifePeriodArchetypeFeasibilityResult,
     this.lifePeriodArchetypeMetadataBlocker,
     this.remainderFeasibilityResult,
+    this.remainderCalculationFeasibilityResult,
     this.remainderMetadataBlocker,
     this.remainderSourceField,
     this.remainderCanonId,
@@ -81,6 +82,9 @@ class ThaiCanonEvidenceTrace {
 
   /// Remainder-metadata feasibility audit wire.
   final String? remainderFeasibilityResult;
+
+  /// Formula / lookup-table calculation feasibility audit wire.
+  final String? remainderCalculationFeasibilityResult;
 
   /// Set when rotationIndex.remainderN metadata is blocked.
   final String? remainderMetadataBlocker;

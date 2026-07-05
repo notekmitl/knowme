@@ -1,10 +1,12 @@
 import '../../foundation/models/thai_astrology_profile.dart';
+import 'thai_remainder_calculation_model.dart';
 
 /// Feasibility outcome for remainder / เศษ runtime metadata.
 enum RemainderRuntimeMetadataFeasibilityResult {
   readyToExposeRemainderMetadata,
   readyToExposeFromExistingEngineField,
   needsRemainderCalculationModel,
+  needsSourceForensics,
   blockedBySourceGap,
   blockedByModelingGap,
 }
@@ -21,6 +23,8 @@ extension RemainderRuntimeMetadataFeasibilityResultWire
         RemainderRuntimeMetadataFeasibilityResult
               .needsRemainderCalculationModel =>
           'NEEDS_REMAINDER_CALCULATION_MODEL',
+        RemainderRuntimeMetadataFeasibilityResult.needsSourceForensics =>
+          'NEEDS_SOURCE_FORENSICS',
         RemainderRuntimeMetadataFeasibilityResult.blockedBySourceGap =>
           'BLOCKED_BY_SOURCE_GAP',
         RemainderRuntimeMetadataFeasibilityResult.blockedByModelingGap =>
@@ -32,6 +36,7 @@ extension RemainderRuntimeMetadataFeasibilityResultWire
 abstract final class RemainderRuntimeMetadataBlocker {
   static const needsRemainderCalculationModel =
       'NEEDS_REMAINDER_CALCULATION_MODEL';
+  static const needsSourceForensics = 'NEEDS_SOURCE_FORENSICS';
   static const blockedBySourceGap = 'BLOCKED_BY_SOURCE_GAP';
   static const blockedByModelingGap = 'BLOCKED_BY_MODELING_GAP';
 }
@@ -69,6 +74,7 @@ class ThaiRemainderRuntimeMetadataFeasibilityAudit {
     required this.hasMahabhutaChartNumbers,
     required this.exposesDeterministicRemainderKey,
     required this.rejectsRow4AsRemainderProxy,
+    required this.calculationModelFeasibility,
   });
 
   final RemainderRuntimeMetadataFeasibilityResult result;
@@ -79,6 +85,7 @@ class ThaiRemainderRuntimeMetadataFeasibilityAudit {
   final bool hasMahabhutaChartNumbers;
   final bool exposesDeterministicRemainderKey;
   final bool rejectsRow4AsRemainderProxy;
+  final ThaiRemainderCalculationModelFeasibilityAudit calculationModelFeasibility;
 
   String? get metadataBlocker => switch (result) {
         RemainderRuntimeMetadataFeasibilityResult
@@ -89,6 +96,8 @@ class ThaiRemainderRuntimeMetadataFeasibilityAudit {
         RemainderRuntimeMetadataFeasibilityResult
               .needsRemainderCalculationModel =>
           RemainderRuntimeMetadataBlocker.needsRemainderCalculationModel,
+        RemainderRuntimeMetadataFeasibilityResult.needsSourceForensics =>
+          RemainderRuntimeMetadataBlocker.needsSourceForensics,
         RemainderRuntimeMetadataFeasibilityResult.blockedBySourceGap =>
           RemainderRuntimeMetadataBlocker.blockedBySourceGap,
         RemainderRuntimeMetadataFeasibilityResult.blockedByModelingGap =>
@@ -105,18 +114,7 @@ abstract final class ThaiRemainderMetadataResolver {
   }
 
   static ThaiRemainderMetadata? resolve({ThaiAstrologyProfile? profile}) {
-    final audit = ThaiRemainderRuntimeMetadataFeasibility.audit(
-      profile: profile,
-    );
-    if (audit.result !=
-            RemainderRuntimeMetadataFeasibilityResult
-                .readyToExposeRemainderMetadata &&
-        audit.result !=
-            RemainderRuntimeMetadataFeasibilityResult
-                .readyToExposeFromExistingEngineField) {
-      return null;
-    }
-    return null;
+    return ThaiMahabhutRemainderCalculator.calculate(profile: profile);
   }
 }
 
@@ -133,12 +131,15 @@ abstract final class ThaiRemainderRuntimeMetadataFeasibility {
         profile!.mahabhutaChartNumbers!.isNotEmpty;
     final exposesKey = _exposesDeterministicRemainderKey(profile);
     const rejectsRow4Proxy = true;
+    final calculationModelFeasibility =
+        ThaiRemainderCalculationModelFeasibility.audit();
 
     final result = _classify(
       computesDirectly: computesDirectly,
       hasRemainderField: hasRemainderField,
       row4ProvenEquivalent: row4AsRemainder && !rejectsRow4Proxy,
       exposesKey: exposesKey,
+      calculationModel: calculationModelFeasibility.result,
     );
 
     return ThaiRemainderRuntimeMetadataFeasibilityAudit(
@@ -150,6 +151,7 @@ abstract final class ThaiRemainderRuntimeMetadataFeasibility {
       hasMahabhutaChartNumbers: hasChartNumbers,
       exposesDeterministicRemainderKey: exposesKey,
       rejectsRow4AsRemainderProxy: rejectsRow4Proxy,
+      calculationModelFeasibility: calculationModelFeasibility,
     );
   }
 
@@ -158,6 +160,7 @@ abstract final class ThaiRemainderRuntimeMetadataFeasibility {
     required bool hasRemainderField,
     required bool row4ProvenEquivalent,
     required bool exposesKey,
+    required RemainderCalculationModelFeasibilityResult calculationModel,
   }) {
     if (computesDirectly || exposesKey) {
       return RemainderRuntimeMetadataFeasibilityResult
@@ -167,8 +170,20 @@ abstract final class ThaiRemainderRuntimeMetadataFeasibility {
       return RemainderRuntimeMetadataFeasibilityResult
           .readyToExposeFromExistingEngineField;
     }
-    return RemainderRuntimeMetadataFeasibilityResult
-        .needsRemainderCalculationModel;
+    return switch (calculationModel) {
+      RemainderCalculationModelFeasibilityResult
+            .readyToImplementRemainderCalculation ||
+      RemainderCalculationModelFeasibilityResult
+            .readyToUseReferenceTableRemainder =>
+        RemainderRuntimeMetadataFeasibilityResult
+            .needsRemainderCalculationModel,
+      RemainderCalculationModelFeasibilityResult.needsSourceForensics =>
+        RemainderRuntimeMetadataFeasibilityResult.needsSourceForensics,
+      RemainderCalculationModelFeasibilityResult.blockedBySourceGap =>
+        RemainderRuntimeMetadataFeasibilityResult.blockedBySourceGap,
+      RemainderCalculationModelFeasibilityResult.blockedByModelingGap =>
+        RemainderRuntimeMetadataFeasibilityResult.blockedByModelingGap,
+    };
   }
 
   static bool _computesRemainderDirectly() {
