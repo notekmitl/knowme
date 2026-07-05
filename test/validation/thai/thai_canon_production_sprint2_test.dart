@@ -798,7 +798,7 @@ void main() {
     test('every Phase G lookup atomic unit has page provenance', () {
       final lookups =
           units.where((u) => u.domain == KnowledgeDomain.lookupTables);
-      expect(lookups.length, 55);
+      expect(lookups.length, 56);
       for (final u in lookups) {
         expect(u.evidence.page, isNotNull, reason: u.id);
         expect(u.evidence.page!, isNotEmpty, reason: u.id);
@@ -1095,7 +1095,7 @@ void main() {
         'rotationIndex.remainder3': 2,
         'rotationIndex.remainder4': 2,
         'rotationIndex.remainder5': 2,
-        'rotationIndex.remainder6': 1,
+        'rotationIndex.remainder6': 2,
         'mahabhutPosition.phangkha': 6,
         'mahabhutPosition.marana': 6,
         'mahabhutPosition.thongchai': 6,
@@ -1162,13 +1162,13 @@ void main() {
       expect(byContext, {
         'archetype_chart': 43,
         'general': 342,
-        'other': 141,
+        'other': 142,
         'life_period': 299,
       });
     });
 
     test('metrics totals reconcile with the batch', () {
-      expect(units.length, 825);
+      expect(units.length, 826);
       expect(mahabhutPlacements.length, 255);
       expect(taksaPlacements.length, 91);
     });

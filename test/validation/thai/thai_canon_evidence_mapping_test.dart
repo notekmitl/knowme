@@ -21,8 +21,8 @@ void main() {
       expect(repository.loadResult.sourceBookId, 'mahabhut');
     });
 
-    test('atomic unit count is 825', () {
-      expect(repository.atomicCount, 825);
+    test('atomic unit count is 826', () {
+      expect(repository.atomicCount, 826);
     });
 
     test('reference-table cell count is 28', () {
@@ -215,7 +215,7 @@ void main() {
     test('ThaiMirrorPipeline output unchanged after evidence layer load', () {
       final before = pipelineFingerprint();
       // Touch the repository to prove loading does not mutate runtime state.
-      expect(repository.atomicCount, 825);
+      expect(repository.atomicCount, 826);
       final after = pipelineFingerprint();
       expect(after, before);
     });
