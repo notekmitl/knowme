@@ -1,0 +1,161 @@
+{
+  "$note": "Forensics-only recovered lines for remainder / เศษดวง. Not Canon import. Source: D:/MahabhutOCR/pages PNG manual review + page_019.txt OCR cross-check. PDF page index = OCR file index.",
+  "formulaPage": {
+    "pdfPageIndex": 19,
+    "bookPrintedPage": "4",
+    "sectionTitle": "วิธีใช้ตำรา",
+    "formulaClassification": "FORMULA_FOUND",
+    "recoveredLines": [
+      {
+        "lineId": "p19.formula.step1",
+        "pdfPageIndex": 19,
+        "bookPrintedPage": "4",
+        "transcription": "[1] เอาปีเกิด พ.ศ. ตั้ง ลบด้วย 1181 เศษที่ได้เป็นปี จ.ศ.",
+        "requiredInputs": ["birthYearBE"],
+        "operation": "subtract 1181",
+        "output": "chulaSakaratYear"
+      },
+      {
+        "lineId": "p19.formula.step2",
+        "pdfPageIndex": 19,
+        "bookPrintedPage": "4",
+        "transcription": "[2] เอาปี จ.ศ. ดังกล่าวตั้ง หารด้วย 7 โปรดสังเกตเศษที่ได้...",
+        "requiredInputs": ["chulaSakaratYear"],
+        "operation": "divide by 7; use remainder",
+        "outputRange": "0-6"
+      },
+      {
+        "lineId": "p19.map.remainder1",
+        "pdfPageIndex": 19,
+        "bookPrintedPage": "4",
+        "transcription": "เศษ 1 เป็น ดวงกำพร้า"
+      },
+      {
+        "lineId": "p19.map.remainder2",
+        "pdfPageIndex": 19,
+        "bookPrintedPage": "4",
+        "transcription": "เศษ 2 เป็น ดวงนักภาษา"
+      },
+      {
+        "lineId": "p19.map.remainder3",
+        "pdfPageIndex": 19,
+        "bookPrintedPage": "4",
+        "transcription": "เศษ 3 เป็น ดวงนักบริหาร"
+      },
+      {
+        "lineId": "p19.map.remainder4",
+        "pdfPageIndex": 19,
+        "bookPrintedPage": "4",
+        "transcription": "เศษ 4 เป็น ดวงมนุษย์เจ้าสำราญ"
+      },
+      {
+        "lineId": "p19.map.remainder5",
+        "pdfPageIndex": 19,
+        "bookPrintedPage": "4",
+        "transcription": "เศษ 5 เป็น ดวงเศรษฐี"
+      },
+      {
+        "lineId": "p19.map.remainder6",
+        "pdfPageIndex": 19,
+        "bookPrintedPage": "4",
+        "transcription": "เศษ 6 เป็น ดวงนักวิชาการ",
+        "recoveryNote": "Handwritten green annotation on page image; absent from OCR text page_019.txt printed list"
+      },
+      {
+        "lineId": "p19.map.remainder0",
+        "pdfPageIndex": 19,
+        "bookPrintedPage": "4",
+        "transcription": "เศษ 0 เป็น ดวงมหาเศรษฐี"
+      },
+      {
+        "lineId": "p19.adjust.header",
+        "pdfPageIndex": 19,
+        "bookPrintedPage": "4",
+        "transcription": "หมายเหตุ : สำหรับคนเกิดระหว่างวันที่ 1 มกราคม ถึงวันที่ 15 เมษายน ของทุกปี ต้องลดจากเศษที่หารได้จริงแต้มหนึ่ง คือ"
+      },
+      {
+        "lineId": "p19.adjust.remainder1_to_0",
+        "pdfPageIndex": 19,
+        "bookPrintedPage": "4",
+        "transcription": "ถ้าเศษ 1 ให้ลดเป็น 0"
+      },
+      {
+        "lineId": "p19.adjust.remainder2_to_1",
+        "pdfPageIndex": 19,
+        "bookPrintedPage": "4",
+        "transcription": "ถ้าเศษ 2 ให้ลดเป็น 1"
+      },
+      {
+        "lineId": "p19.adjust.remainder3_to_2",
+        "pdfPageIndex": 19,
+        "bookPrintedPage": "4",
+        "transcription": "ถ้าเศษ 3 ให้ลดเป็น 2"
+      },
+      {
+        "lineId": "p19.adjust.remainder4_to_3",
+        "pdfPageIndex": 19,
+        "bookPrintedPage": "4",
+        "transcription": "ถ้าเศษ 4 ให้ลดเป็น 3"
+      },
+      {
+        "lineId": "p19.adjust.remainder5_to_4",
+        "pdfPageIndex": 19,
+        "bookPrintedPage": "4",
+        "transcription": "ถ้าเศษ 5 ให้ลดเป็น 4"
+      },
+      {
+        "lineId": "p19.adjust.remainder6_to_5",
+        "pdfPageIndex": 19,
+        "bookPrintedPage": "4",
+        "transcription": "ถ้าเศษ 6 ให้ลดเป็น 5"
+      },
+      {
+        "lineId": "p19.adjust.remainder0_to_6",
+        "pdfPageIndex": 19,
+        "bookPrintedPage": "4",
+        "transcription": "ถ้าเศษ 0 ให้ลดเป็น 6"
+      },
+      {
+        "lineId": "p19.exception.april16",
+        "pdfPageIndex": 19,
+        "bookPrintedPage": "4",
+        "transcription": "สำหรับคนเกิดในวันที่ 16 เมษายน ของทุกๆ ปี ต้องดูกับอาจารย์เท่านั้น",
+        "recoveryNote": "OCR page_019.txt reads '10 เมษายน' — image review confirms 16"
+      }
+    ]
+  },
+  "supportingLines": [
+    {
+      "lineId": "p21.lookup.intro",
+      "pdfPageIndex": 21,
+      "bookPrintedPage": "6",
+      "transcription": "เพียงท่านเอา เดือนเกิด และ พ.ศ. เกิด ของท่านเทียบกับ “คำนวณสำเร็จรูป” ในหน้าต่อไปนี้ก็จะทราบได้ทันทีว่า เศษเท่าไร เป็นดวงอะไร"
+    },
+    {
+      "lineId": "p22.example.adjustment",
+      "pdfPageIndex": 22,
+      "bookPrintedPage": "7",
+      "transcription": "ถ้าบวกลบคูณหารแล้วจะได้ “เศษ 1 (ส่วน พ.ศ. หลัง เศษจริงคือ 2 แต่ถูกลดไปหนึ่งแต้มตามกฎข้างต้น) เป็นดวงกำพร้า”"
+    },
+    {
+      "lineId": "p20.placement.intro",
+      "pdfPageIndex": 20,
+      "bookPrintedPage": "5",
+      "transcription": "นำเศษที่ได้เริ่มวางลงที่เรือนภังคะก่อนแล้วไปเรือน มรณะ-ธงชัย-ขุมทรัพย์-ราชา-ปูติ-อธิบดี เป็นการวนจากซ้ายไปขวา"
+    },
+    {
+      "lineId": "p20.placement.remainder4",
+      "pdfPageIndex": 20,
+      "bookPrintedPage": "5",
+      "transcription": "เศษ 4 วางเลขตามลำดับ 4-0-3-6-2-5-1",
+      "recoveryNote": "Recovered from page image; prior OCR pipeline marked row OCR_BLOCKED"
+    }
+  ],
+  "excludedPages": [
+    {
+      "pdfPageIndex": 38,
+      "bookPrintedPage": "23",
+      "reason": "มหาทักษา directional grid — no remainder / เศษดวง derivation prose"
+    }
+  ]
+}

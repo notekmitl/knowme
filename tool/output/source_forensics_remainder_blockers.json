@@ -1,0 +1,79 @@
+{
+  "$note": "Forensics-only remainder blockers after OCR recovery review. Not runtime wiring.",
+  "formulaSearch": {
+    "classification": "FORMULA_FOUND",
+    "pdfPageIndex": 19,
+    "bookPrintedPage": "4",
+    "summary": "Explicit two-step formula: (birthYearBE - 1181) mod 7; Jan 1–Apr 15 subtract one from raw remainder"
+  },
+  "p19MappingRecovery": {
+    "remainder6ExplicitOnFormulaPage": {
+      "status": "RECOVERED_HANDWRITTEN",
+      "transcription": "เศษ 6 เป็น ดวงนักวิชาการ",
+      "note": "Green handwritten line on page image; not in frozen Canon atomic prose list"
+    },
+    "archetypeChartNakwichakan": {
+      "status": "RECOVERED_VIA_TABLE",
+      "mapping": "remainder 6 → ดวงนักวิชาการ",
+      "note": "Confirmed on every lookup-table page pp.23–27; aligns with archetypeChart.nakwichakan"
+    },
+    "janAprAdjustmentTiming": {
+      "status": "RECOVERED",
+      "appliesTo": "raw remainder after division",
+      "beforeChartMapping": true,
+      "transcriptionHeader": "ต้องลดจากเศษที่หารได้จริงแต้มหนึ่ง"
+    },
+    "primaryDerivationOnP19": {
+      "status": "RECOVERED",
+      "note": "PDF page 19 image contains steps [1] and [2]; frozen Canon captured mapping/adjustment atoms only"
+    }
+  },
+  "p20PlacementRow": {
+    "remainder4Row": {
+      "status": "RECOVERED",
+      "transcription": "เศษ 4 วางเลขตามลำดับ 4-0-3-6-2-5-1",
+      "relevanceToRemainderCalculation": "downstream placement only — requires remainder input first"
+    }
+  },
+  "p18Dasha": {
+    "status": "RECOVERED_FROM_IMAGE",
+    "relevanceToRemainder": "none — planet age durations; not linked to เศษดวง in source prose"
+  },
+  "remainingBlockers": [
+    {
+      "id": "april16_exception",
+      "severity": "policy",
+      "transcription": "สำหรับคนเกิดในวันที่ 16 เมษายน ของทุกๆ ปี ต้องดูกับอาจารย์เท่านั้น",
+      "note": "Outside deterministic formula/table for automated metadata"
+    },
+    {
+      "id": "remainder6_handwritten_canon_gap",
+      "severity": "canon_provenance",
+      "note": "Table confirms mapping; formula-page line is handwritten — human Canon review needed before ontology change"
+    },
+    {
+      "id": "lookup_table_typos",
+      "severity": "source_quality",
+      "examples": ["p27 end year 2578 vs expected 2558", "p24 gap around 2499-2500"],
+      "note": "Does not block formula path"
+    },
+    {
+      "id": "ocr_text_pipeline",
+      "severity": "tooling",
+      "note": "Automated extract_phase_g_lookup_tables.py still reads corrupted OCR text; PNG review supersedes for forensics"
+    }
+  ],
+  "rejectedProxies": [
+    {
+      "field": "SevenNumberChart.row4Reduced",
+      "reason": "Horawej auxiliary reduction — not เศษดวง per source"
+    },
+    {
+      "field": "mahabhutaChartNumbers row-4",
+      "reason": "Chart construction audit sums — not remainder index"
+    }
+  ],
+  "finalSourceForensicsClassification": "READY_TO_IMPLEMENT_REMAINDER_CALCULATION",
+  "alternatePath": "READY_TO_USE_REFERENCE_TABLE_REMAINDER",
+  "recommendedNextPhase": "Canon Archetype Mapping Completion"
+}
