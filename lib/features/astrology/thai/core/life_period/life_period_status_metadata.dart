@@ -8,6 +8,16 @@ library;
 import '../../foundation/models/thai_astrology_profile.dart';
 import 'life_period_engine.dart';
 import 'thai_life_period_position_metadata.dart';
+export 'thai_archetype_context_metadata.dart'
+    show
+        ArchetypeChartContextMetadata,
+        ArchetypeContextMetadataBlocker,
+        ArchetypeContextMetadataFeasibilityResult,
+        ArchetypeContextMetadataFeasibilityResultWire,
+        ThaiArchetypeContextMetadataFeasibility,
+        ThaiArchetypeContextMetadataFeasibilityAudit,
+        ThaiArchetypeContextMetadataResolver,
+        ThaiArchetypeContextP19Rules;
 export 'thai_life_period_position_metadata.dart'
     show
         LifePeriodMahabhutPositionMetadata,

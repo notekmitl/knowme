@@ -355,6 +355,28 @@ class _TracePanel extends StatelessWidget {
             else
               for (final note in trace.skippedPeriodStatusNotes)
                 Text('• $note', style: theme.textTheme.bodySmall),
+            if (trace.lifePeriodArchetypeFeasibilityResult != null) ...[
+              const SizedBox(height: 8),
+              Text(
+                'Archetype context feasibility:',
+                style: theme.textTheme.labelLarge,
+              ),
+              Text(
+                '• ${trace.lifePeriodArchetypeFeasibilityResult}',
+                style: theme.textTheme.bodySmall,
+              ),
+            ],
+            if (trace.lifePeriodArchetypeMetadataBlocker != null) ...[
+              const SizedBox(height: 8),
+              Text(
+                'Archetype context blocker:',
+                style: theme.textTheme.labelLarge,
+              ),
+              Text(
+                '• ${trace.lifePeriodArchetypeMetadataBlocker}',
+                style: theme.textTheme.bodySmall,
+              ),
+            ],
             if (trace.lifePeriodPositionFeasibilityResult != null) ...[
               const SizedBox(height: 8),
               Text(

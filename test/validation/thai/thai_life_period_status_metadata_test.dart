@@ -34,7 +34,7 @@ void main() {
       );
       expect(
         audit.blocker,
-        LifePeriodPositionMetadataBlocker.needsArchetypeContextMetadata,
+        ArchetypeContextMetadataBlocker.needsRemainderMetadata,
       );
       expect(
         audit.feasibility.result,
@@ -85,11 +85,15 @@ void main() {
 
       expect(
         bundle.trace.lifePeriodStatusMetadataBlocker,
-        LifePeriodPositionMetadataBlocker.needsArchetypeContextMetadata,
+        ArchetypeContextMetadataBlocker.needsRemainderMetadata,
       );
       expect(
         bundle.trace.lifePeriodPositionMetadataBlocker,
-        LifePeriodPositionMetadataBlocker.needsArchetypeContextMetadata,
+        ArchetypeContextMetadataBlocker.needsRemainderMetadata,
+      );
+      expect(
+        bundle.trace.lifePeriodArchetypeMetadataBlocker,
+        ArchetypeContextMetadataBlocker.needsRemainderMetadata,
       );
       expect(
         bundle.trace.lifePeriodRiseFallFeasibilityResult,

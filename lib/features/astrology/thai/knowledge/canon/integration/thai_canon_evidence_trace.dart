@@ -18,6 +18,8 @@ class ThaiCanonEvidenceTrace {
     this.lifePeriodRiseFallFeasibilityResult,
     this.lifePeriodPositionFeasibilityResult,
     this.lifePeriodPositionMetadataBlocker,
+    this.lifePeriodArchetypeFeasibilityResult,
+    this.lifePeriodArchetypeMetadataBlocker,
     this.lifePeriodStatusMetadataBlocker,
   });
 
@@ -64,6 +66,12 @@ class ThaiCanonEvidenceTrace {
 
   /// Set when per-period Mahabhut position metadata is blocked.
   final String? lifePeriodPositionMetadataBlocker;
+
+  /// Archetype-context feasibility audit wire.
+  final String? lifePeriodArchetypeFeasibilityResult;
+
+  /// Set when archetype chart identity metadata is blocked.
+  final String? lifePeriodArchetypeMetadataBlocker;
 
   /// Set when period-status metadata is blocked (e.g. engine gap — not silent).
   final String? lifePeriodStatusMetadataBlocker;

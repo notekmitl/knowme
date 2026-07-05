@@ -1,5 +1,6 @@
 import '../../foundation/models/thai_astrology_profile.dart';
 import 'life_period_engine.dart';
+import 'thai_archetype_context_metadata.dart';
 
 /// Feasibility outcome for per-life-period Mahabhut position metadata.
 enum LifePeriodPositionMetadataFeasibilityResult {
@@ -59,6 +60,7 @@ class ThaiLifePeriodPositionMetadataFeasibilityAudit {
     required this.hasPeriodContextIdentity,
     required this.canMapToCanonWithoutPlanetInference,
     required this.canonLifePeriodPlacementsPresent,
+    required this.archetypeFeasibility,
     this.periodCount = 0,
   });
 
@@ -68,6 +70,7 @@ class ThaiLifePeriodPositionMetadataFeasibilityAudit {
   final bool hasPeriodContextIdentity;
   final bool canMapToCanonWithoutPlanetInference;
   final bool canonLifePeriodPlacementsPresent;
+  final ThaiArchetypeContextMetadataFeasibilityAudit archetypeFeasibility;
   final int periodCount;
 
   String? get metadataBlocker => switch (result) {
@@ -75,7 +78,8 @@ class ThaiLifePeriodPositionMetadataFeasibilityAudit {
           null,
         LifePeriodPositionMetadataFeasibilityResult
               .needsArchetypeContextMetadata =>
-          LifePeriodPositionMetadataBlocker.needsArchetypeContextMetadata,
+          archetypeFeasibility.metadataBlocker ??
+              LifePeriodPositionMetadataBlocker.needsArchetypeContextMetadata,
         LifePeriodPositionMetadataFeasibilityResult.needsPeriodContextMapping =>
           LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
         LifePeriodPositionMetadataFeasibilityResult.blockedByModelingGap =>
@@ -116,7 +120,9 @@ abstract final class ThaiLifePeriodPositionMetadataFeasibility {
     ThaiAstrologyProfile? profile,
   }) {
     if (timeline == null || timeline.periods.isEmpty) {
-      return const ThaiLifePeriodPositionMetadataFeasibilityAudit(
+      final archetypeFeasibility =
+          ThaiArchetypeContextMetadataFeasibility.audit(profile: profile);
+      return ThaiLifePeriodPositionMetadataFeasibilityAudit(
         result: LifePeriodPositionMetadataFeasibilityResult
             .needsArchetypeContextMetadata,
         hasGoverningPlanetPerPeriod: false,
@@ -124,13 +130,19 @@ abstract final class ThaiLifePeriodPositionMetadataFeasibility {
         hasPeriodContextIdentity: false,
         canMapToCanonWithoutPlanetInference: false,
         canonLifePeriodPlacementsPresent: true,
+        archetypeFeasibility: archetypeFeasibility,
       );
     }
 
+    final archetypeFeasibility = ThaiArchetypeContextMetadataFeasibility.audit(
+      profile: profile,
+    );
+
     final hasPlanet = timeline.periods.every((p) => p.planet.name.isNotEmpty);
 
-    // Runtime profile exposes natal mahabhuta keys only — not archetype chart id.
-    final hasArchetype = _hasArchetypeChartIdentity(profile);
+    final hasArchetype =
+        archetypeFeasibility.result ==
+        ArchetypeContextMetadataFeasibilityResult.readyToExposeMetadata;
 
     // No deterministic map from PeriodState ages → Canon life_period context value.
     final hasPeriodContext = _hasPeriodContextIdentity(timeline);
@@ -153,6 +165,7 @@ abstract final class ThaiLifePeriodPositionMetadataFeasibility {
       hasPeriodContextIdentity: hasPeriodContext,
       canMapToCanonWithoutPlanetInference: canMapWithoutPlanetInference,
       canonLifePeriodPlacementsPresent: true,
+      archetypeFeasibility: archetypeFeasibility,
       periodCount: timeline.periods.length,
     );
   }
@@ -175,12 +188,6 @@ abstract final class ThaiLifePeriodPositionMetadataFeasibility {
           .needsPeriodContextMapping;
     }
     return LifePeriodPositionMetadataFeasibilityResult.readyToExposeMetadata;
-  }
-
-  static bool _hasArchetypeChartIdentity(ThaiAstrologyProfile? profile) {
-    if (profile == null) return false;
-    // No runtime field exposes which frozen archetypeChart.* applies to the user.
-    return false;
   }
 
   static bool _hasPeriodContextIdentity(LifeTimeline timeline) {

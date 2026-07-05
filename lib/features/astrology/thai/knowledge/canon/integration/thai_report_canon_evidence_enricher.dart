@@ -79,6 +79,10 @@ abstract final class ThaiReportCanonEvidenceEnricher {
       timeline: pipelineResult.lifePeriods,
       profile: pipelineResult.profile,
     );
+    final archetypeFeasibilityAudit =
+        ThaiArchetypeContextMetadataFeasibility.audit(
+      profile: pipelineResult.profile,
+    );
 
     final mirror = pipelineResult.mirrorResult!;
 
@@ -255,6 +259,10 @@ abstract final class ThaiReportCanonEvidenceEnricher {
           positionFeasibilityAudit.result.wire,
       lifePeriodPositionMetadataBlocker:
           positionFeasibilityAudit.metadataBlocker,
+      lifePeriodArchetypeFeasibilityResult:
+          archetypeFeasibilityAudit.result.wire,
+      lifePeriodArchetypeMetadataBlocker:
+          archetypeFeasibilityAudit.metadataBlocker,
       lifePeriodStatusMetadataBlocker: periodStatusAudit?.blocker,
     );
 

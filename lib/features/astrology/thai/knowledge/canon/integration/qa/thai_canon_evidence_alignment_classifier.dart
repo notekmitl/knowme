@@ -126,6 +126,33 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
         ),
       );
     }
+    if (trace.lifePeriodArchetypeFeasibilityResult != null) {
+      records.add(
+        ThaiCanonEvidenceAlignmentRecord(
+          fixtureId: fixtureId,
+          signalId:
+              'trace:lifePeriodArchetypeFeasibility:'
+              '${trace.lifePeriodArchetypeFeasibilityResult}',
+          classification: ThaiCanonEvidenceAlignmentClassification.internalOnly,
+          reason:
+              'Archetype chart context metadata feasibility audit (internal only)',
+        ),
+      );
+    }
+    if (trace.lifePeriodArchetypeMetadataBlocker != null) {
+      records.add(
+        ThaiCanonEvidenceAlignmentRecord(
+          fixtureId: fixtureId,
+          signalId:
+              'trace:lifePeriodArchetypeMetadataBlocker:'
+              '${trace.lifePeriodArchetypeMetadataBlocker}',
+          classification: ThaiCanonEvidenceAlignmentClassification.internalOnly,
+          reason:
+              'Archetype chart identity blocked — no deterministic remainder / '
+              'archetypeChart.* on runtime',
+        ),
+      );
+    }
     if (trace.lifePeriodPositionFeasibilityResult != null) {
       records.add(
         ThaiCanonEvidenceAlignmentRecord(
