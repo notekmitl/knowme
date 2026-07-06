@@ -5,6 +5,7 @@ import '../../knowledge/canon/ontology/canon_ontology_data.dart';
 import 'life_period_engine.dart';
 import 'life_planet.dart';
 import 'thai_archetype_context_metadata.dart';
+import 'thai_life_period_context_normalizer.dart';
 
 /// Feasibility outcome for runtime → Canon `life_period` context mapping.
 enum PeriodContextMappingFeasibilityResult {
@@ -45,6 +46,9 @@ abstract final class PeriodContextMatchMethod {
   static const exactPeriodLabel = 'exact_period_label';
   static const exactAgeRange = 'exact_age_range';
   static const exactAgeRangeAndPlanet = 'exact_age_range_and_planet';
+  static const normalizedExactAgeRange = 'normalized_exact_age_range';
+  static const normalizedUniqueArchetypeAgeRange =
+      'normalized_unique_archetype_age_range';
 }
 
 /// Internal period context metadata (Canon `life_period` value only).
@@ -74,7 +78,7 @@ class ThaiLifePeriodContextMetadata {
   final String confidence;
 }
 
-/// Parsed Canon `life_period` label (normalizer output).
+/// Parsed Canon `life_period` label (legacy parse view).
 class ThaiCanonLifePeriodLabelParse {
   const ThaiCanonLifePeriodLabelParse({
     required this.rawValue,
@@ -82,6 +86,7 @@ class ThaiCanonLifePeriodLabelParse {
     this.parsedAge,
     this.parsedAgeRangeStart,
     this.parsedAgeRangeEnd,
+    this.statusMarker,
   });
 
   final String rawValue;
@@ -89,65 +94,33 @@ class ThaiCanonLifePeriodLabelParse {
   final int? parsedAge;
   final int? parsedAgeRangeStart;
   final int? parsedAgeRangeEnd;
+  final String? statusMarker;
 
   bool get isAgeRange =>
       parsedAgeRangeStart != null && parsedAgeRangeEnd != null;
+
+  factory ThaiCanonLifePeriodLabelParse.fromNormalizedKey(
+    ThaiLifePeriodContextNormalizedKey key,
+  ) {
+    return ThaiCanonLifePeriodLabelParse(
+      rawValue: key.rawLabel,
+      isBirthLabel: key.isBirthLabel,
+      parsedAge: key.pointAge,
+      parsedAgeRangeStart: key.ageRangeStart,
+      parsedAgeRangeEnd: key.ageRangeEnd,
+      statusMarker: key.statusMarker,
+    );
+  }
 }
 
 /// Deterministic parser for frozen Canon `life_period` context strings.
 abstract final class ThaiCanonLifePeriodContextNormalizer {
-  static const birthLabel = 'แรกเกิด';
+  static const birthLabel = ThaiLifePeriodContextNormalizer.birthLabel;
 
   static ThaiCanonLifePeriodLabelParse parse(String rawValue) {
-    final trimmed = rawValue.trim();
-    if (trimmed == birthLabel) {
-      return ThaiCanonLifePeriodLabelParse(
-        rawValue: trimmed,
-        isBirthLabel: true,
-      );
-    }
-
-    final withoutMarkers = trimmed
-        .replaceAll('[ดวงขึ้น]', '')
-        .replaceAll('[ดวงตก]', '')
-        .trim();
-
-    final ascii = _thaiDigitsToAscii(withoutMarkers);
-    final rangeMatch =
-        RegExp(r'อาย(?:ุ)?\s*(\d+)\s*ถึง\s*(\d+)').firstMatch(ascii);
-    if (rangeMatch != null) {
-      final a = int.parse(rangeMatch.group(1)!);
-      final b = int.parse(rangeMatch.group(2)!);
-      return ThaiCanonLifePeriodLabelParse(
-        rawValue: trimmed,
-        isBirthLabel: false,
-        parsedAgeRangeStart: a < b ? a : b,
-        parsedAgeRangeEnd: a < b ? b : a,
-      );
-    }
-
-    final match = RegExp(r'อาย(?:ุ)?\s*(\d+)').firstMatch(ascii);
-    if (match != null) {
-      return ThaiCanonLifePeriodLabelParse(
-        rawValue: trimmed,
-        isBirthLabel: false,
-        parsedAge: int.parse(match.group(1)!),
-      );
-    }
-
-    return ThaiCanonLifePeriodLabelParse(
-      rawValue: trimmed,
-      isBirthLabel: false,
+    return ThaiCanonLifePeriodLabelParse.fromNormalizedKey(
+      ThaiLifePeriodContextNormalizer.fromCanonLabel(rawValue),
     );
-  }
-
-  static String _thaiDigitsToAscii(String input) {
-    const thai = '๐๑๒๓๔๕๖๗๘๙';
-    var out = input;
-    for (var i = 0; i < thai.length; i++) {
-      out = out.replaceAll(thai[i], i.toString());
-    }
-    return out;
   }
 }
 
@@ -358,10 +331,16 @@ class ThaiLifePeriodContextResolution {
   const ThaiLifePeriodContextResolution({
     this.metadata,
     this.missingReason,
+    this.ambiguousCandidates = const [],
+    this.isRawMatch = false,
+    this.isNormalizedMatch = false,
   });
 
   final ThaiLifePeriodContextMetadata? metadata;
   final String? missingReason;
+  final List<String> ambiguousCandidates;
+  final bool isRawMatch;
+  final bool isNormalizedMatch;
 }
 
 /// Maps runtime [PeriodState] → frozen Canon `life_period` context value.
@@ -403,47 +382,136 @@ abstract final class ThaiLifePeriodContextResolver {
       );
     }
 
+    final runtimeKey = ThaiLifePeriodContextNormalizer.fromRuntimePeriod(period);
+    if (ThaiLifePeriodContextNormalizer.wireKey(runtimeKey) == null) {
+      return const ThaiLifePeriodContextResolution(
+        missingReason: 'MISSING_RUNTIME_AGE_RANGE',
+      );
+    }
+
     final planetId = 'planet.${period.planet.name}';
-    final candidates = <String, List<AtomicKnowledgeUnit>>{};
-
-    for (final unit in canonIndex.units) {
-      if (unit.context?.type != AtomicContextType.lifePeriod) continue;
-      if (unit.relation != AtomicRelation.locatedIn) continue;
-      if (!unit.object.startsWith('mahabhutPosition.')) continue;
-      final page = int.tryParse(unit.evidence.page ?? '');
-      if (page == null || !pages.contains(page)) continue;
-      if (unit.subject != planetId) continue;
-
-      final raw = unit.context!.value;
-      final parsed = ThaiCanonLifePeriodContextNormalizer.parse(raw);
-      final matches = _matchesPeriod(
-        period: period,
-        parsed: parsed,
-      );
-      if (!matches) continue;
-
-      candidates.putIfAbsent(raw, () => []).add(unit);
-    }
-
-    if (candidates.isEmpty) {
-      return const ThaiLifePeriodContextResolution(
-        missingReason: 'NO_CANON_CONTEXT_FOR_PERIOD',
-      );
-    }
-    if (candidates.length > 1) {
-      return const ThaiLifePeriodContextResolution(
-        missingReason: 'AMBIGUOUS_CANON_CONTEXT',
-      );
-    }
-
-    final entry = candidates.entries.first;
-    final units = entry.value;
-    final matchMethod = _matchMethodFor(
-      period: period,
-      parsed: ThaiCanonLifePeriodContextNormalizer.parse(entry.key),
-      planetMatched: true,
+    final scopedUnits = _scopedLifePeriodUnits(
+      canonIndex: canonIndex,
+      pages: pages,
+      planetId: planetId,
     );
 
+    final rawCandidates = <String, List<AtomicKnowledgeUnit>>{};
+    for (final unit in scopedUnits) {
+      final raw = unit.context!.value;
+      final parsed = ThaiCanonLifePeriodContextNormalizer.parse(raw);
+      if (!_matchesPeriod(period: period, parsed: parsed)) continue;
+      rawCandidates.putIfAbsent(raw, () => []).add(unit);
+    }
+
+    if (rawCandidates.length == 1) {
+      return _resolutionFromCandidates(
+        period: period,
+        archetypeId: archetypeId,
+        candidates: rawCandidates,
+        matchMethod: _matchMethodFor(
+          period: period,
+          parsed: ThaiCanonLifePeriodContextNormalizer.parse(
+            rawCandidates.keys.first,
+          ),
+          planetMatched: true,
+          normalized: false,
+        ),
+        isRawMatch: true,
+      );
+    }
+    if (rawCandidates.length > 1) {
+      return ThaiLifePeriodContextResolution(
+        missingReason: 'AMBIGUOUS_CANON_CONTEXT',
+        ambiguousCandidates: rawCandidates.keys.toList()..sort(),
+      );
+    }
+
+    final normalizedCandidates = <String, List<AtomicKnowledgeUnit>>{};
+    for (final unit in scopedUnits) {
+      final raw = unit.context!.value;
+      final canonKey = ThaiLifePeriodContextNormalizer.fromCanonLabel(raw);
+      if (canonKey.isAmbiguous) continue;
+      if (!ThaiLifePeriodContextNormalizer.matchesRuntimeToCanon(
+        runtime: runtimeKey,
+        canon: canonKey,
+      )) {
+        continue;
+      }
+      normalizedCandidates.putIfAbsent(raw, () => []).add(unit);
+    }
+
+    if (normalizedCandidates.length == 1) {
+      return _resolutionFromCandidates(
+        period: period,
+        archetypeId: archetypeId,
+        candidates: normalizedCandidates,
+        matchMethod: PeriodContextMatchMethod.normalizedExactAgeRange,
+        isNormalizedMatch: true,
+      );
+    }
+    if (normalizedCandidates.length > 1) {
+      return ThaiLifePeriodContextResolution(
+        missingReason: 'AMBIGUOUS_NORMALIZED_CONTEXT',
+        ambiguousCandidates: normalizedCandidates.keys.toList()..sort(),
+      );
+    }
+
+    final runtimeWire = ThaiLifePeriodContextNormalizer.wireKey(runtimeKey)!;
+    final runtimeBase = _baseWire(runtimeWire);
+    final uniqueByArchetype = <String>{};
+    for (final unit in _allArchetypeLifePeriodUnits(
+      canonIndex: canonIndex,
+      pages: pages,
+    )) {
+      final raw = unit.context!.value;
+      final canonKey = ThaiLifePeriodContextNormalizer.fromCanonLabel(raw);
+      if (canonKey.isAmbiguous) continue;
+      final canonWire = ThaiLifePeriodContextNormalizer.wireKey(canonKey);
+      if (canonWire == null) continue;
+      if (_baseWire(canonWire) != runtimeBase) continue;
+      uniqueByArchetype.add(raw);
+    }
+
+    if (uniqueByArchetype.length == 1) {
+      final raw = uniqueByArchetype.first;
+      final units = scopedUnits
+          .where((u) => u.context!.value == raw)
+          .toList(growable: false);
+      if (units.isNotEmpty) {
+        return _resolutionFromCandidates(
+          period: period,
+          archetypeId: archetypeId,
+          candidates: {raw: units},
+          matchMethod:
+              PeriodContextMatchMethod.normalizedUniqueArchetypeAgeRange,
+          isNormalizedMatch: true,
+        );
+      }
+    }
+
+    if (uniqueByArchetype.length > 1) {
+      return ThaiLifePeriodContextResolution(
+        missingReason: 'AMBIGUOUS_NORMALIZED_CONTEXT',
+        ambiguousCandidates: uniqueByArchetype.toList()..sort(),
+      );
+    }
+
+    return const ThaiLifePeriodContextResolution(
+      missingReason: 'NO_CANON_CONTEXT_FOR_PERIOD',
+    );
+  }
+
+  static ThaiLifePeriodContextResolution _resolutionFromCandidates({
+    required PeriodState period,
+    required String archetypeId,
+    required Map<String, List<AtomicKnowledgeUnit>> candidates,
+    required String matchMethod,
+    bool isRawMatch = false,
+    bool isNormalizedMatch = false,
+  }) {
+    final entry = candidates.entries.first;
+    final units = entry.value;
     return ThaiLifePeriodContextResolution(
       metadata: ThaiLifePeriodContextMetadata(
         periodIndex: period.index,
@@ -461,7 +529,45 @@ abstract final class ThaiLifePeriodContextResolver {
           ..sort(),
         matchMethod: matchMethod,
       ),
+      isRawMatch: isRawMatch,
+      isNormalizedMatch: isNormalizedMatch,
     );
+  }
+
+  static List<AtomicKnowledgeUnit> _scopedLifePeriodUnits({
+    required ThaiCanonEvidenceIndex canonIndex,
+    required Set<int> pages,
+    required String planetId,
+  }) {
+    return canonIndex.units.where((unit) {
+      if (unit.context?.type != AtomicContextType.lifePeriod) return false;
+      if (unit.relation != AtomicRelation.locatedIn) return false;
+      if (!unit.object.startsWith('mahabhutPosition.')) return false;
+      if (unit.subject != planetId) return false;
+      final page = int.tryParse(unit.evidence.page ?? '');
+      if (page == null || !pages.contains(page)) return false;
+      return true;
+    }).toList(growable: false);
+  }
+
+  static List<AtomicKnowledgeUnit> _allArchetypeLifePeriodUnits({
+    required ThaiCanonEvidenceIndex canonIndex,
+    required Set<int> pages,
+  }) {
+    return canonIndex.units.where((unit) {
+      if (unit.context?.type != AtomicContextType.lifePeriod) return false;
+      if (unit.relation != AtomicRelation.locatedIn) return false;
+      if (!unit.object.startsWith('mahabhutPosition.')) return false;
+      final page = int.tryParse(unit.evidence.page ?? '');
+      if (page == null || !pages.contains(page)) return false;
+      return true;
+    }).toList(growable: false);
+  }
+
+  static String _baseWire(String wire) {
+    final idx = wire.indexOf('|status:');
+    if (idx < 0) return wire;
+    return wire.substring(0, idx);
   }
 
   static bool _matchesPeriod({
@@ -484,17 +590,24 @@ abstract final class ThaiLifePeriodContextResolver {
     required PeriodState period,
     required ThaiCanonLifePeriodLabelParse parsed,
     required bool planetMatched,
+    bool normalized = false,
   }) {
     if (parsed.isBirthLabel) {
       return PeriodContextMatchMethod.exactPeriodLabel;
     }
     if (parsed.isAgeRange) {
-      return PeriodContextMatchMethod.exactAgeRange;
+      return normalized
+          ? PeriodContextMatchMethod.normalizedExactAgeRange
+          : PeriodContextMatchMethod.exactAgeRange;
     }
     if (planetMatched) {
-      return PeriodContextMatchMethod.exactAgeRangeAndPlanet;
+      return normalized
+          ? PeriodContextMatchMethod.normalizedExactAgeRange
+          : PeriodContextMatchMethod.exactAgeRangeAndPlanet;
     }
-    return PeriodContextMatchMethod.exactAgeRange;
+    return normalized
+        ? PeriodContextMatchMethod.normalizedExactAgeRange
+        : PeriodContextMatchMethod.exactAgeRange;
   }
 
   /// Resolves all periods; entries are null when mapping fails.

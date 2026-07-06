@@ -108,12 +108,37 @@ abstract final class ThaiReportCanonEvidenceEnricher {
     final lifePeriodsWithoutPeriodContextMetadata = <String>[];
     final periodContextMatchMethods = <String>{};
     final periodContextMissingReasons = <String>{};
+    final periodContextRawMatches = <String>[];
+    final periodContextNormalizedMatches = <String>[];
+    final periodContextAmbiguousMatches = <String>[];
+    final periodContextMissingRuntimeAgeRange = <String>[];
+    final periodContextMissingCanonAgeRange = <String>{};
+    final timelineForContext = pipelineResult.lifePeriods;
+    final canonLifePeriodLabels = repo.index.units
+        .where(
+          (u) =>
+              u.context?.type == AtomicContextType.lifePeriod &&
+              u.relation == AtomicRelation.locatedIn &&
+              u.object.startsWith('mahabhutPosition.'),
+        )
+        .map((u) => u.context!.value)
+        .toSet();
+    for (final label in canonLifePeriodLabels) {
+      final key = ThaiLifePeriodContextNormalizer.fromCanonLabel(label);
+      if (key.isAmbiguous) {
+        periodContextMissingCanonAgeRange.add(label);
+      }
+    }
+    final periodContextNormalizationAudit =
+        ThaiLifePeriodContextNormalizationFeasibility.audit(
+      timeline: timelineForContext,
+      canonLifePeriodLabels: canonLifePeriodLabels,
+    );
     final lifePeriodsWithPositionMetadata = <String>[];
     final lifePeriodsWithoutPositionMetadata = <String>[];
     final positionMetadataMissingReasons = <String>{};
     final positionMetadataEligiblePeriods = <String>[];
     final positionMetadataIneligiblePeriods = <String>[];
-    final timelineForContext = pipelineResult.lifePeriods;
     if (timelineForContext != null && archetypeMetadata != null) {
       for (final period in timelineForContext.periods) {
         final contextAnchor = 'life_period:${period.index}:period_context';
@@ -127,6 +152,12 @@ abstract final class ThaiReportCanonEvidenceEnricher {
         if (resolution.metadata != null) {
           lifePeriodsWithPeriodContextMetadata.add(contextAnchor);
           periodContextMatchMethods.add(resolution.metadata!.matchMethod);
+          if (resolution.isRawMatch) {
+            periodContextRawMatches.add(contextAnchor);
+          }
+          if (resolution.isNormalizedMatch) {
+            periodContextNormalizedMatches.add(contextAnchor);
+          }
           positionMetadataEligiblePeriods.add(positionAnchor);
 
           final positionResolution =
@@ -168,6 +199,13 @@ abstract final class ThaiReportCanonEvidenceEnricher {
           positionMetadataIneligiblePeriods.add(positionAnchor);
           lifePeriodsIneligibleForRuntimeStatus.add(runtimeAnchor);
           lifePeriodsWithoutPositionMetadata.add(positionAnchor);
+          if (resolution.missingReason == 'MISSING_RUNTIME_AGE_RANGE') {
+            periodContextMissingRuntimeAgeRange.add(contextAnchor);
+          }
+          if (resolution.missingReason != null &&
+              resolution.missingReason!.contains('AMBIGUOUS')) {
+            periodContextAmbiguousMatches.add(contextAnchor);
+          }
           if (resolution.missingReason != null) {
             periodContextMissingReasons.add(
               '${period.index}:${resolution.missingReason}',
@@ -420,6 +458,22 @@ abstract final class ThaiReportCanonEvidenceEnricher {
           _sortedUnique(periodContextMatchMethods.toList()),
       periodContextMissingReasons:
           _sortedUnique(periodContextMissingReasons.toList()),
+      periodContextRawMatches: _sortedUnique(periodContextRawMatches),
+      periodContextNormalizedMatches:
+          _sortedUnique(periodContextNormalizedMatches),
+      periodContextAmbiguousMatches: _sortedUnique(periodContextAmbiguousMatches),
+      periodContextMissingRuntimeAgeRange:
+          _sortedUnique(periodContextMissingRuntimeAgeRange),
+      periodContextMissingCanonAgeRange:
+          _sortedUnique(periodContextMissingCanonAgeRange.toList()),
+      periodContextNormalizationFeasibilityResult:
+          periodContextNormalizationAudit.result.wire,
+      periodContextNormalizationBlocker: _periodContextNormalizationBlocker(
+        normalizationAudit: periodContextNormalizationAudit,
+        withContext: lifePeriodsWithPeriodContextMetadata.length,
+        withoutContext: lifePeriodsWithoutPeriodContextMetadata.length,
+        normalizedMatches: periodContextNormalizedMatches.length,
+      ),
       lifePeriodsWithPositionMetadata:
           _sortedUnique(lifePeriodsWithPositionMetadata),
       lifePeriodsWithoutPositionMetadata:
@@ -594,6 +648,28 @@ abstract final class ThaiReportCanonEvidenceEnricher {
 
   static List<String> _sortedUnique(List<String> values) {
     return values.toSet().toList()..sort();
+  }
+
+  static String? _periodContextNormalizationBlocker({
+    required ThaiLifePeriodContextNormalizationAudit normalizationAudit,
+    required int withContext,
+    required int withoutContext,
+    required int normalizedMatches,
+  }) {
+    if (normalizationAudit.result !=
+        PeriodContextNormalizationFeasibilityResult
+            .readyToNormalizePeriodContext) {
+      return normalizationAudit.result.wire;
+    }
+    if (withContext > 0 && withoutContext > 0) {
+      return normalizedMatches > 0
+          ? PeriodContextNormalizationBlocker.partialNormalization
+          : PeriodContextMetadataBlocker.needsPeriodContextMapping;
+    }
+    if (withContext == 0) {
+      return PeriodContextMetadataBlocker.needsPeriodContextMapping;
+    }
+    return null;
   }
 
   static String? _periodContextMetadataBlocker({

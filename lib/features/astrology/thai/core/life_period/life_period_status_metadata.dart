@@ -65,6 +65,15 @@ export 'thai_life_period_context_metadata.dart'
         ThaiLifePeriodContextMetadata,
         ThaiLifePeriodContextResolution,
         ThaiLifePeriodContextResolver;
+export 'thai_life_period_context_normalizer.dart'
+    show
+        PeriodContextNormalizationBlocker,
+        PeriodContextNormalizationFeasibilityResult,
+        PeriodContextNormalizationFeasibilityResultWire,
+        ThaiLifePeriodContextNormalizationAudit,
+        ThaiLifePeriodContextNormalizationFeasibility,
+        ThaiLifePeriodContextNormalizedKey,
+        ThaiLifePeriodContextNormalizer;
 export 'thai_life_period_position_metadata.dart'
     show
         LifePeriodMahabhutPositionMetadata,

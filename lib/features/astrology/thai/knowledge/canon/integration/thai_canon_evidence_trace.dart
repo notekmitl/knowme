@@ -37,6 +37,13 @@ class ThaiCanonEvidenceTrace {
     this.periodContextMetadataBlocker,
     this.periodContextMatchMethods = const [],
     this.periodContextMissingReasons = const [],
+    this.periodContextRawMatches = const [],
+    this.periodContextNormalizedMatches = const [],
+    this.periodContextAmbiguousMatches = const [],
+    this.periodContextMissingRuntimeAgeRange = const [],
+    this.periodContextMissingCanonAgeRange = const [],
+    this.periodContextNormalizationBlocker,
+    this.periodContextNormalizationFeasibilityResult,
     this.lifePeriodsWithPositionMetadata = const [],
     this.lifePeriodsWithoutPositionMetadata = const [],
     this.positionMetadataMissingReasons = const [],
@@ -148,6 +155,27 @@ class ThaiCanonEvidenceTrace {
 
   /// Explicit missing reasons for unmapped life periods.
   final List<String> periodContextMissingReasons;
+
+  /// Life-period anchors matched via raw structural context.
+  final List<String> periodContextRawMatches;
+
+  /// Life-period anchors matched via normalized context key.
+  final List<String> periodContextNormalizedMatches;
+
+  /// Life-period anchors with ambiguous normalized/raw candidates.
+  final List<String> periodContextAmbiguousMatches;
+
+  /// Periods where runtime lacks structured age range.
+  final List<String> periodContextMissingRuntimeAgeRange;
+
+  /// Canon labels in scope lacking parseable age range.
+  final List<String> periodContextMissingCanonAgeRange;
+
+  /// Normalization layer blocker.
+  final String? periodContextNormalizationBlocker;
+
+  /// Normalization feasibility audit wire.
+  final String? periodContextNormalizationFeasibilityResult;
 
   /// Life-period anchors with Mahabhut position metadata.
   final List<String> lifePeriodsWithPositionMetadata;
