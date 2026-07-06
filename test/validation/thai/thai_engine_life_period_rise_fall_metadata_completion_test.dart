@@ -203,7 +203,7 @@ void main() {
           lessThanOrEqualTo(trace.lifePeriodsWithPositionMetadata.length),
         );
 
-        if (trace.lifePeriodsWithRuntimeStatus.isNotEmpty) {
+        if (trace.lifePeriodsWithoutRuntimeStatus.isNotEmpty) {
           expect(
             trace.lifePeriodStatusMetadataBlocker,
             LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata,
@@ -213,17 +213,19 @@ void main() {
             LifePeriodRiseFallFeasibilityResult
                 .partialRuntimeStatusMetadata.wire,
           );
+        } else {
+          expect(trace.lifePeriodStatusMetadataBlocker, isNull);
         }
       }
 
-      expect(withPosition, 7);
-      expect(withRuntime, 7);
-      expect(withRuntime, lessThanOrEqualTo(withPosition));
-      expect(withoutRuntime, 79);
-      expect(derived, 49);
+      expect(withPosition, 65);
+      expect(withRuntime, 65);
+      expect(withRuntime, equals(withPosition));
+      expect(withoutRuntime, 21);
+      expect(derived, 10);
     });
 
-    test('79 ineligible periods remain blocked not inferred', () async {
+    test('21 ineligible periods remain blocked not inferred', () async {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
@@ -233,27 +235,31 @@ void main() {
         (sum, r) =>
             sum + r.bundle.trace.lifePeriodsIneligibleForRuntimeStatus.length,
       );
-      expect(ineligible, 79);
+      expect(ineligible, 21);
     });
 
     test('canon-derived fallback still works separately', () async {
-      final pipeline = ThaiMirrorPipeline.generate(
-        ThaiMirrorPipeline.sampleQaBirthData(),
-      );
-      final bundle = await ThaiReportCanonEvidenceEnricher.enrich(
-        pipeline,
+      final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
 
-      expect(bundle.trace.lifePeriodsWithCanonDerivedStatus, isNotEmpty);
       expect(
-        bundle.attachments.any(
-          (a) => a.signalId.contains(':periodStatus:canonDerived:'),
-        ),
+        audit.fixtureResults
+            .expand((r) => r.bundle.trace.lifePeriodsWithCanonDerivedStatus)
+            .isNotEmpty,
         isTrue,
       );
       expect(
-        bundle.attachments.where(
+        audit.fixtureResults
+            .expand((r) => r.bundle.attachments)
+            .any((a) => a.signalId.contains(':periodStatus:canonDerived:')),
+        isTrue,
+      );
+      final qaBundle = audit.fixtureResults
+          .firstWhere((r) => r.fixture.id == 'qa_sample')
+          .bundle;
+      expect(
+        qaBundle.attachments.where(
           (a) =>
               a.signalId.startsWith('life_period:0:') &&
               a.signalId.contains(':periodStatus:canonDerived:'),

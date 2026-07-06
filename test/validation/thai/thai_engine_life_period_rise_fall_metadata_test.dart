@@ -129,35 +129,43 @@ void main() {
 
       expect(
         sumTrace((t) => t.lifePeriodsWithCanonDerivedStatus),
-        49,
+        10,
       );
       expect(
         sumTrace((t) => t.lifePeriodsWithoutCanonStatusMarker),
-        30,
+        11,
       );
-      expect(audit.totalLifePeriodsWithoutRuntimeStatus, 79);
+      expect(audit.totalLifePeriodsWithoutRuntimeStatus, 21);
       expect(
         sumTrace((t) => t.lifePeriodsWithRuntimeStatus),
-        7,
+        65,
       );
     });
 
     test('canon-derived fallback still attaches for periods without runtime',
         () async {
-      final pipeline = ThaiMirrorPipeline.generate(
-        ThaiMirrorPipeline.sampleQaBirthData(),
-      );
-      final bundle = await ThaiReportCanonEvidenceEnricher.enrich(
-        pipeline,
+      final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
 
-      expect(bundle.trace.lifePeriodsWithRuntimeStatus, hasLength(1));
-      expect(bundle.trace.lifePeriodsWithCanonDerivedStatus, isNotEmpty);
       expect(
-        bundle.attachments.any(
-          (a) => a.signalId.contains(':periodStatus:canonDerived:'),
-        ),
+        audit.fixtureResults
+            .fold<int>(
+              0,
+              (sum, r) => sum + r.bundle.trace.lifePeriodsWithRuntimeStatus.length,
+            ),
+        65,
+      );
+      expect(
+        audit.fixtureResults
+            .expand((r) => r.bundle.trace.lifePeriodsWithCanonDerivedStatus)
+            .isNotEmpty,
+        isTrue,
+      );
+      expect(
+        audit.fixtureResults
+            .expand((r) => r.bundle.attachments)
+            .any((a) => a.signalId.contains(':periodStatus:canonDerived:')),
         isTrue,
       );
     });

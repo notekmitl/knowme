@@ -37,7 +37,7 @@ void main() {
       );
       expect(audit.hasGoverningPlanetPerPeriod, isTrue);
       expect(audit.hasArchetypeChartIdentity, isTrue);
-      expect(audit.hasPeriodContextIdentity, isFalse);
+      expect(audit.hasPeriodContextIdentity, isTrue);
       expect(audit.hasFullPositionIdentity, isFalse);
       expect(audit.periodsWithPositionMetadata, greaterThan(0));
       expect(audit.canonLifePeriodPlacementsPresent, isTrue);
@@ -187,32 +187,28 @@ void main() {
 
       expect(
         sumTrace((t) => t.lifePeriodsWithCanonDerivedStatus),
-        49,
+        10,
       );
       expect(
         sumTrace((t) => t.lifePeriodsWithoutCanonStatusMarker),
-        30,
+        11,
       );
-      expect(audit.totalLifePeriodsWithoutRuntimeStatus, 79);
+      expect(audit.totalLifePeriodsWithoutRuntimeStatus, 21);
       expect(
         sumTrace((t) => t.lifePeriodsWithRuntimeStatus),
-        7,
+        65,
       );
     });
 
     test('canon-derived fallback still works', () async {
-      final pipeline = ThaiMirrorPipeline.generate(
-        ThaiMirrorPipeline.sampleQaBirthData(),
-      );
-      final bundle = await ThaiReportCanonEvidenceEnricher.enrich(
-        pipeline,
+      final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
 
       expect(
-        bundle.attachments.any(
-          (a) => a.signalId.contains(':periodStatus:canonDerived:'),
-        ),
+        audit.fixtureResults
+            .expand((r) => r.bundle.attachments)
+            .any((a) => a.signalId.contains(':periodStatus:canonDerived:')),
         isTrue,
       );
     });

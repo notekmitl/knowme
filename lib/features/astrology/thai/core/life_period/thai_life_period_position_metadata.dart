@@ -5,6 +5,8 @@ import '../../knowledge/canon/atomic/atomic_relation.dart';
 import '../../knowledge/canon/integration/thai_canon_evidence_index.dart';
 import 'life_period_engine.dart';
 import 'thai_archetype_context_metadata.dart';
+import 'thai_archetype_planet_placement_index.dart';
+import 'thai_life_period_archetype_planet_position_resolver.dart';
 import 'thai_life_period_context_metadata.dart';
 import 'thai_remainder_runtime_metadata.dart';
 
@@ -48,18 +50,26 @@ abstract final class LifePeriodPositionMetadataBlocker {
   static const noLifeTimeline = 'NO_LIFE_TIMELINE';
 }
 
+/// Deterministic match method recorded on internal position metadata.
+abstract final class PositionMatchMethod {
+  static const exactLifePeriodContext = 'exact_life_period_context';
+  static const archetypePlanetUniquePosition =
+      'archetype_planet_unique_position';
+}
+
 /// Per-period Mahabhut position metadata (internal only — not user-facing).
 class ThaiLifePeriodPositionMetadata {
   const ThaiLifePeriodPositionMetadata({
     required this.periodIndex,
     required this.runtimePlanet,
     required this.archetypeChartCanonId,
-    required this.canonLifePeriodContextValue,
     required this.mahabhutPositionCanonId,
-    required this.canonEvidenceUnitId,
-    required this.sourcePage,
+    required this.canonEvidenceUnitIds,
+    required this.sourcePages,
+    required this.matchMethod,
     required this.contextType,
     required this.contextValue,
+    this.canonLifePeriodContextValue = '',
     this.confidence = 'deterministic',
   });
 
@@ -68,11 +78,19 @@ class ThaiLifePeriodPositionMetadata {
   final String archetypeChartCanonId;
   final String canonLifePeriodContextValue;
   final String mahabhutPositionCanonId;
-  final String canonEvidenceUnitId;
-  final String sourcePage;
+  final List<String> canonEvidenceUnitIds;
+  final List<String> sourcePages;
+  final String matchMethod;
   final String contextType;
   final String contextValue;
   final String confidence;
+
+  /// First evidence unit id (legacy single-id consumers).
+  String get canonEvidenceUnitId =>
+      canonEvidenceUnitIds.isNotEmpty ? canonEvidenceUnitIds.first : '';
+
+  /// First source page (legacy single-page consumers).
+  String get sourcePage => sourcePages.isNotEmpty ? sourcePages.first : '';
 }
 
 /// Legacy alias — prefer [ThaiLifePeriodPositionMetadata].
@@ -82,10 +100,12 @@ class ThaiLifePeriodPositionResolution {
   const ThaiLifePeriodPositionResolution({
     this.metadata,
     this.missingReason,
+    this.ambiguousPositions = const [],
   });
 
   final ThaiLifePeriodPositionMetadata? metadata;
   final String? missingReason;
+  final List<String> ambiguousPositions;
 }
 
 /// Deterministic feasibility audit — read-only, no Canon mutation.
@@ -226,6 +246,13 @@ abstract final class ThaiLifePeriodPositionMetadataResolver {
     }
 
     final unit = placements.first;
+    final unitIds = placements.map((u) => u.id).toList()..sort();
+    final pages = placements
+        .map((u) => u.evidence.page)
+        .whereType<String>()
+        .toSet()
+        .toList()
+      ..sort();
     return ThaiLifePeriodPositionResolution(
       metadata: ThaiLifePeriodPositionMetadata(
         periodIndex: period.index,
@@ -233,8 +260,9 @@ abstract final class ThaiLifePeriodPositionMetadataResolver {
         archetypeChartCanonId: archetypeId,
         canonLifePeriodContextValue: contextValue,
         mahabhutPositionCanonId: unit.object,
-        canonEvidenceUnitId: unit.id,
-        sourcePage: unit.evidence.page ?? '',
+        canonEvidenceUnitIds: unitIds,
+        sourcePages: pages,
+        matchMethod: PositionMatchMethod.exactLifePeriodContext,
         contextType: AtomicContextType.lifePeriod.wire,
         contextValue: contextValue,
       ),
@@ -297,17 +325,49 @@ abstract final class ThaiLifePeriodPositionMetadataResolver {
     required ThaiArchetypeContextMetadata? archetypeMetadata,
     required Map<int, ThaiLifePeriodContextMetadata?> contextByPeriod,
     required ThaiCanonEvidenceIndex? canonIndex,
+    ThaiArchetypePlanetPlacementIndex? placementIndex,
   }) {
+    final index = placementIndex ??
+        (canonIndex == null
+            ? null
+            : ThaiArchetypePlanetPlacementIndex.build(canonIndex));
+
     final out = <int, ThaiLifePeriodPositionMetadata?>{};
     for (final period in timeline.periods) {
-      out[period.index] = resolve(
+      out[period.index] = resolveCombined(
         period: period,
         archetypeMetadata: archetypeMetadata,
         periodContextMetadata: contextByPeriod[period.index],
         canonIndex: canonIndex,
+        placementIndex: index,
       );
     }
     return out;
+  }
+
+  /// Context path first, then archetype + planet unique placement.
+  static ThaiLifePeriodPositionMetadata? resolveCombined({
+    required PeriodState period,
+    required ThaiArchetypeContextMetadata? archetypeMetadata,
+    required ThaiLifePeriodContextMetadata? periodContextMetadata,
+    required ThaiCanonEvidenceIndex? canonIndex,
+    ThaiArchetypePlanetPlacementIndex? placementIndex,
+  }) {
+    if (periodContextMetadata != null) {
+      final fromContext = resolve(
+        period: period,
+        archetypeMetadata: archetypeMetadata,
+        periodContextMetadata: periodContextMetadata,
+        canonIndex: canonIndex,
+      );
+      if (fromContext != null) return fromContext;
+    }
+    return ThaiLifePeriodArchetypePlanetPositionResolver.resolve(
+      period: period,
+      archetypeMetadata: archetypeMetadata,
+      placementIndex: placementIndex,
+      canonIndex: canonIndex,
+    );
   }
 }
 
@@ -388,13 +448,12 @@ abstract final class ThaiLifePeriodPositionMetadataFeasibility {
     final hasFullPosition =
         periodsWithPosition == timeline.periods.length;
 
-    final canMapWithoutPlanetInference =
-        hasArchetype && hasPeriodContext && hasPlanet;
+    final canMapWithoutPlanetInference = hasArchetype && hasPlanet;
 
     final result = _classify(
       hasPlanet: hasPlanet,
       hasArchetype: hasArchetype,
-      hasPeriodContext: hasPeriodContext,
+      hasPeriodContext: periodsWithContext > 0,
       hasFullPosition: hasFullPosition,
       periodsWithPosition: periodsWithPosition,
       periodContextReady: periodContextFeasibility.result ==
@@ -405,7 +464,7 @@ abstract final class ThaiLifePeriodPositionMetadataFeasibility {
       result: result,
       hasGoverningPlanetPerPeriod: hasPlanet,
       hasArchetypeChartIdentity: hasArchetype,
-      hasPeriodContextIdentity: hasPeriodContext,
+      hasPeriodContextIdentity: periodsWithContext > 0,
       hasFullPositionIdentity: hasFullPosition,
       canMapToCanonWithoutPlanetInference: canMapWithoutPlanetInference,
       canonLifePeriodPlacementsPresent: true,
@@ -414,9 +473,8 @@ abstract final class ThaiLifePeriodPositionMetadataFeasibility {
       periodCount: timeline.periods.length,
       periodsWithContextMetadata: periodsWithContext,
       periodsWithPositionMetadata: periodsWithPosition,
-      periodsEligibleForPosition: periodsWithContext,
-      periodsIneligibleForPosition:
-          timeline.periods.length - periodsWithContext,
+      periodsEligibleForPosition: timeline.periods.length,
+      periodsIneligibleForPosition: 0,
     );
   }
 
@@ -432,7 +490,7 @@ abstract final class ThaiLifePeriodPositionMetadataFeasibility {
       return LifePeriodPositionMetadataFeasibilityResult
           .needsArchetypeContextMetadata;
     }
-    if (!periodContextReady) {
+    if (!periodContextReady && periodsWithPosition == 0) {
       return LifePeriodPositionMetadataFeasibilityResult
           .needsPeriodContextMapping;
     }

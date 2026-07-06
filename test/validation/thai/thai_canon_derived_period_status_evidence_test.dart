@@ -103,17 +103,13 @@ void main() {
 
   group('ThaiReportCanonEvidenceEnricher canon-derived annotation', () {
     test('attaches internal periodStatus when marker is unambiguous', () async {
-      final pipeline = ThaiMirrorPipeline.generate(
-        ThaiMirrorPipeline.sampleQaBirthData(),
-      );
-      final bundle = await ThaiReportCanonEvidenceEnricher.enrich(
-        pipeline,
+      final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
 
-      final derived = bundle.attachments.where(
-        (a) => a.signalId.contains(':periodStatus:canonDerived:'),
-      );
+      final derived = audit.fixtureResults
+          .expand((r) => r.bundle.attachments)
+          .where((a) => a.signalId.contains(':periodStatus:canonDerived:'));
       expect(derived, isNotEmpty);
       for (final attachment in derived) {
         expect(attachment.userFacingAllowed, isFalse);
@@ -125,17 +121,19 @@ void main() {
           isTrue,
         );
       }
-      expect(bundle.trace.lifePeriodsWithCanonDerivedStatus, isNotEmpty);
+      expect(
+        audit.fixtureResults
+            .expand((r) => r.bundle.trace.lifePeriodsWithCanonDerivedStatus)
+            .isNotEmpty,
+        isTrue,
+      );
     });
 
     test('runtime blocker remains visible', () async {
-      final pipeline = ThaiMirrorPipeline.generate(
-        ThaiMirrorPipeline.sampleQaBirthData(),
-      );
-      final bundle = await ThaiReportCanonEvidenceEnricher.enrich(
-        pipeline,
+      final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
+      final bundle = audit.fixtureResults.first.bundle;
 
       expect(
         bundle.trace.lifePeriodStatusMetadataBlocker,
@@ -198,9 +196,10 @@ void main() {
     test('canon-derived attachments classify as INTERNAL_ONLY', () async {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
-        fixtures: [ThaiCanonEvidenceAlignmentFixtures.qaSample],
       );
-      final derivedRecords = audit.fixtureResults.first.records.where(
+      final derivedRecords = audit.fixtureResults
+          .expand((r) => r.records)
+          .where(
         (r) =>
             r.attachmentIndex != null &&
             r.signalId.contains(':periodStatus:canonDerived:'),

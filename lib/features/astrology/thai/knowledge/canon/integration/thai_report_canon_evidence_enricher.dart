@@ -134,16 +134,23 @@ abstract final class ThaiReportCanonEvidenceEnricher {
       timeline: timelineForContext,
       canonLifePeriodLabels: canonLifePeriodLabels,
     );
+    final placementIndex = ThaiArchetypePlanetPlacementIndex.build(repo.index);
+    final placementIndexAudit = placementIndex.audit();
     final lifePeriodsWithPositionMetadata = <String>[];
     final lifePeriodsWithoutPositionMetadata = <String>[];
     final positionMetadataMissingReasons = <String>{};
     final positionMetadataEligiblePeriods = <String>[];
     final positionMetadataIneligiblePeriods = <String>[];
+    final positionMatchMethods = <String>[];
+    final ambiguousArchetypePlanetPairs = <String>{};
+    final missingArchetypePlanetPairs = <String>{};
+    final conflictedArchetypePlanetPairs = <String>{};
     if (timelineForContext != null && archetypeMetadata != null) {
       for (final period in timelineForContext.periods) {
         final contextAnchor = 'life_period:${period.index}:period_context';
         final positionAnchor = 'life_period:${period.index}:position';
         final runtimeAnchor = 'life_period:${period.index}:runtime_status';
+        positionMetadataEligiblePeriods.add(positionAnchor);
         final resolution = ThaiLifePeriodContextResolver.resolveDetailed(
           period: period,
           archetypeMetadata: archetypeMetadata,
@@ -158,47 +165,8 @@ abstract final class ThaiReportCanonEvidenceEnricher {
           if (resolution.isNormalizedMatch) {
             periodContextNormalizedMatches.add(contextAnchor);
           }
-          positionMetadataEligiblePeriods.add(positionAnchor);
-
-          final positionResolution =
-              ThaiLifePeriodPositionMetadataResolver.resolveDetailed(
-            period: period,
-            archetypeMetadata: archetypeMetadata,
-            periodContextMetadata: resolution.metadata,
-            canonIndex: repo.index,
-          );
-          if (positionResolution.metadata != null) {
-            lifePeriodsWithPositionMetadata.add(positionAnchor);
-            lifePeriodsEligibleForRuntimeStatus.add(runtimeAnchor);
-
-            final riseFallResolution =
-                ThaiLifePeriodRiseFallResolver.resolveDetailed(
-              period: period,
-              positionMetadata: positionResolution.metadata,
-              canonIndex: repo.index,
-            );
-            if (riseFallResolution.metadata != null) {
-              runtimeStatusLabelsByIndex[period.index] =
-                  riseFallResolution.metadata!.periodStatusLabel;
-            } else if (riseFallResolution.missingReason != null) {
-              runtimeStatusMissingReasons.add(
-                '${period.index}:${riseFallResolution.missingReason}',
-              );
-            }
-          } else {
-            lifePeriodsWithoutPositionMetadata.add(positionAnchor);
-            lifePeriodsIneligibleForRuntimeStatus.add(runtimeAnchor);
-            if (positionResolution.missingReason != null) {
-              positionMetadataMissingReasons.add(
-                '${period.index}:${positionResolution.missingReason}',
-              );
-            }
-          }
         } else {
           lifePeriodsWithoutPeriodContextMetadata.add(contextAnchor);
-          positionMetadataIneligiblePeriods.add(positionAnchor);
-          lifePeriodsIneligibleForRuntimeStatus.add(runtimeAnchor);
-          lifePeriodsWithoutPositionMetadata.add(positionAnchor);
           if (resolution.missingReason == 'MISSING_RUNTIME_AGE_RANGE') {
             periodContextMissingRuntimeAgeRange.add(contextAnchor);
           }
@@ -210,13 +178,94 @@ abstract final class ThaiReportCanonEvidenceEnricher {
             periodContextMissingReasons.add(
               '${period.index}:${resolution.missingReason}',
             );
+          }
+        }
+
+        final positionMetadata =
+            ThaiLifePeriodPositionMetadataResolver.resolveCombined(
+          period: period,
+          archetypeMetadata: archetypeMetadata,
+          periodContextMetadata: resolution.metadata,
+          canonIndex: repo.index,
+          placementIndex: placementIndex,
+        );
+
+        if (positionMetadata != null) {
+          lifePeriodsWithPositionMetadata.add(positionAnchor);
+          positionMatchMethods.add(positionMetadata.matchMethod);
+          lifePeriodsEligibleForRuntimeStatus.add(runtimeAnchor);
+
+          final riseFallResolution =
+              ThaiLifePeriodRiseFallResolver.resolveDetailed(
+            period: period,
+            positionMetadata: positionMetadata,
+            canonIndex: repo.index,
+          );
+          if (riseFallResolution.metadata != null) {
+            runtimeStatusLabelsByIndex[period.index] =
+                riseFallResolution.metadata!.periodStatusLabel;
+          } else if (riseFallResolution.missingReason != null) {
+            runtimeStatusMissingReasons.add(
+              '${period.index}:${riseFallResolution.missingReason}',
+            );
+          }
+        } else {
+          lifePeriodsWithoutPositionMetadata.add(positionAnchor);
+          lifePeriodsIneligibleForRuntimeStatus.add(runtimeAnchor);
+
+          final pairKey =
+              '${archetypeMetadata.archetypeChartCanonId}:planet.${period.planet.name}';
+          final placementEntry = placementIndex.entryFor(
+            archetypeChartCanonId: archetypeMetadata.archetypeChartCanonId,
+            planetCanonId: 'planet.${period.planet.name}',
+          );
+          switch (placementEntry?.classification) {
+            case ArchetypePlanetPlacementClassification.ambiguousPosition:
+              ambiguousArchetypePlanetPairs.add(pairKey);
+            case ArchetypePlanetPlacementClassification.sourceConflict:
+              conflictedArchetypePlanetPairs.add(pairKey);
+            case ArchetypePlanetPlacementClassification.missingPosition:
+            case null:
+              missingArchetypePlanetPairs.add(pairKey);
+            case ArchetypePlanetPlacementClassification.uniquePosition:
+            case ArchetypePlanetPlacementClassification.ocrBlocked:
+              break;
+          }
+
+          String? missingReason;
+          if (resolution.metadata != null) {
+            missingReason = ThaiLifePeriodPositionMetadataResolver.resolveDetailed(
+              period: period,
+              archetypeMetadata: archetypeMetadata,
+              periodContextMetadata: resolution.metadata,
+              canonIndex: repo.index,
+            ).missingReason;
+          }
+          missingReason ??=
+              ThaiLifePeriodArchetypePlanetPositionResolver.resolveDetailed(
+            period: period,
+            archetypeMetadata: archetypeMetadata,
+            placementIndex: placementIndex,
+            canonIndex: repo.index,
+          ).missingReason;
+          if (missingReason != null) {
             positionMetadataMissingReasons.add(
-              '${period.index}:NO_PERIOD_CONTEXT_METADATA',
+              '${period.index}:$missingReason',
             );
           }
         }
       }
     }
+    ambiguousArchetypePlanetPairs.addAll(
+      placementIndex.pairsWithClassification(
+        ArchetypePlanetPlacementClassification.ambiguousPosition,
+      ),
+    );
+    conflictedArchetypePlanetPairs.addAll(
+      placementIndex.pairsWithClassification(
+        ArchetypePlanetPlacementClassification.sourceConflict,
+      ),
+    );
 
     final periodStatusLabels = periodStatusLabelsByIndex ??
         runtimeStatusLabelsByIndex;
@@ -484,6 +533,15 @@ abstract final class ThaiReportCanonEvidenceEnricher {
           _sortedUnique(positionMetadataEligiblePeriods),
       positionMetadataIneligiblePeriods:
           _sortedUnique(positionMetadataIneligiblePeriods),
+      positionMatchMethods: _sortedUnique(positionMatchMethods),
+      ambiguousArchetypePlanetPairs:
+          _sortedUnique(ambiguousArchetypePlanetPairs.toList()),
+      missingArchetypePlanetPairs:
+          _sortedUnique(missingArchetypePlanetPairs.toList()),
+      conflictedArchetypePlanetPairs:
+          _sortedUnique(conflictedArchetypePlanetPairs.toList()),
+      archetypePlanetPositionStrategyFeasibilityResult:
+          placementIndexAudit.result.wire,
       lifePeriodsEligibleForRuntimeStatus:
           _sortedUnique(lifePeriodsEligibleForRuntimeStatus),
       lifePeriodsIneligibleForRuntimeStatus:

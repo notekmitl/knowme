@@ -74,12 +74,23 @@ export 'thai_life_period_context_normalizer.dart'
         ThaiLifePeriodContextNormalizationFeasibility,
         ThaiLifePeriodContextNormalizedKey,
         ThaiLifePeriodContextNormalizer;
+export 'thai_archetype_planet_placement_index.dart'
+    show
+        ArchetypePlanetPlacementClassification,
+        ArchetypePlanetPlacementEntry,
+        ArchetypePlanetPlacementIndexAudit,
+        ArchetypePlanetPositionStrategyFeasibilityResult,
+        ArchetypePlanetPositionStrategyFeasibilityResultWire,
+        ThaiArchetypePlanetPlacementIndex;
+export 'thai_life_period_archetype_planet_position_resolver.dart'
+    show ThaiLifePeriodArchetypePlanetPositionResolver;
 export 'thai_life_period_position_metadata.dart'
     show
         LifePeriodMahabhutPositionMetadata,
         LifePeriodPositionMetadataBlocker,
         LifePeriodPositionMetadataFeasibilityResult,
         LifePeriodPositionMetadataFeasibilityResultWire,
+        PositionMatchMethod,
         ThaiLifePeriodPositionMetadata,
         ThaiLifePeriodPositionMetadataFeasibility,
         ThaiLifePeriodPositionMetadataFeasibilityAudit,

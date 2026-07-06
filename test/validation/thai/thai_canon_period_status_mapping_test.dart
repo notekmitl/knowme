@@ -165,15 +165,9 @@ void main() {
         ),
         isNotEmpty,
       );
-      expect(
-        bundle.attachments.where(
-          (a) => a.signalId.contains(':periodStatus:canonDerived:'),
-        ),
-        isNotEmpty,
-      );
       expect(bundle.trace.skippedPeriodStatusNotes, isEmpty);
-      expect(bundle.trace.lifePeriodsWithRuntimeStatus, hasLength(1));
-      expect(bundle.trace.lifePeriodsWithoutRuntimeStatus.length, 9);
+      expect(bundle.trace.lifePeriodsWithRuntimeStatus, hasLength(9));
+      expect(bundle.trace.lifePeriodsWithoutRuntimeStatus.length, 1);
     });
 
     test('periodStatus evidence remains userFacingAllowed = false', () async {

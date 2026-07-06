@@ -246,14 +246,13 @@ void main() {
           PeriodContextNormalizationFeasibilityResult
               .readyToNormalizePeriodContext.wire,
         );
-        expect(withRuntime, lessThanOrEqualTo(withPosition));
-        expect(withPosition, lessThanOrEqualTo(withContext));
+        expect(withRuntime, equals(withPosition));
       }
 
       expect(withContext, greaterThanOrEqualTo(8));
       expect(withoutContext, 78);
-      expect(withPosition, greaterThanOrEqualTo(7));
-      expect(withRuntime, greaterThanOrEqualTo(7));
+      expect(withPosition, greaterThanOrEqualTo(65));
+      expect(withRuntime, greaterThanOrEqualTo(65));
       expect(rawMatches + normalizedMatches, lessThanOrEqualTo(withContext));
     });
   });

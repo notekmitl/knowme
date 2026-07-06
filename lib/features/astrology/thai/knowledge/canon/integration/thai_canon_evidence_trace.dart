@@ -49,6 +49,11 @@ class ThaiCanonEvidenceTrace {
     this.positionMetadataMissingReasons = const [],
     this.positionMetadataEligiblePeriods = const [],
     this.positionMetadataIneligiblePeriods = const [],
+    this.positionMatchMethods = const [],
+    this.ambiguousArchetypePlanetPairs = const [],
+    this.missingArchetypePlanetPairs = const [],
+    this.conflictedArchetypePlanetPairs = const [],
+    this.archetypePlanetPositionStrategyFeasibilityResult,
     this.lifePeriodsEligibleForRuntimeStatus = const [],
     this.lifePeriodsIneligibleForRuntimeStatus = const [],
     this.runtimeStatusMissingReasons = const [],
@@ -191,6 +196,21 @@ class ThaiCanonEvidenceTrace {
 
   /// Periods without period context — ineligible for position resolution.
   final List<String> positionMetadataIneligiblePeriods;
+
+  /// Match methods used when position metadata is present.
+  final List<String> positionMatchMethods;
+
+  /// archetypeChart.*:planet.* pairs with ambiguous placement evidence.
+  final List<String> ambiguousArchetypePlanetPairs;
+
+  /// archetypeChart.*:planet.* pairs with no placement evidence.
+  final List<String> missingArchetypePlanetPairs;
+
+  /// archetypeChart.*:planet.* pairs with source-internal position conflict.
+  final List<String> conflictedArchetypePlanetPairs;
+
+  /// Placement strategy feasibility audit wire.
+  final String? archetypePlanetPositionStrategyFeasibilityResult;
 
   /// Periods with position metadata — eligible for runtime rise/fall.
   final List<String> lifePeriodsEligibleForRuntimeStatus;

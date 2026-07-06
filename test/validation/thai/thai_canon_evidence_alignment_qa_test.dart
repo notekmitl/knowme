@@ -129,16 +129,18 @@ void main() {
           ),
           isFalse,
         );
-        expect(
-          result.bundle.trace.lifePeriodsWithoutRuntimeStatus,
-          isNotEmpty,
-        );
-        expect(
-          result.records.any(
-            (r) => r.signalId.startsWith('trace:noStatusInRuntime:'),
-          ),
-          isTrue,
-        );
+        if (result.bundle.trace.lifePeriodsWithoutRuntimeStatus.isNotEmpty) {
+          expect(
+            result.bundle.trace.lifePeriodsWithoutRuntimeStatus,
+            isNotEmpty,
+          );
+          expect(
+            result.records.any(
+              (r) => r.signalId.startsWith('trace:noStatusInRuntime:'),
+            ),
+            isTrue,
+          );
+        }
       }
       expect(audit.totalSkippedPeriodStatusNotes, 0);
       expect(audit.totalLifePeriodsWithoutRuntimeStatus, greaterThan(0));

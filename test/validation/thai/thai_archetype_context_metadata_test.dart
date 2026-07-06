@@ -152,12 +152,12 @@ void main() {
 
       expect(
         sumTrace((t) => t.lifePeriodsWithCanonDerivedStatus),
-        49,
+        10,
       );
-      expect(audit.totalLifePeriodsWithoutRuntimeStatus, 79);
+      expect(audit.totalLifePeriodsWithoutRuntimeStatus, 21);
       expect(
         sumTrace((t) => t.lifePeriodsWithRuntimeStatus),
-        7,
+        65,
       );
     });
 

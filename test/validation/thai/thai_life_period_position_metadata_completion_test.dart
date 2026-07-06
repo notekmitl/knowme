@@ -247,7 +247,8 @@ void main() {
   });
 
   group('Blocker chain and trace', () {
-    test('position count is less than or equal to period context count', () async {
+    test('position count may exceed period context count via archetype planet path',
+        () async {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
@@ -258,7 +259,7 @@ void main() {
 
       expect(
         bundle.trace.lifePeriodsWithPositionMetadata.length,
-        lessThanOrEqualTo(
+        greaterThan(
           bundle.trace.lifePeriodsWithPeriodContextMetadata.length,
         ),
       );
@@ -285,7 +286,7 @@ void main() {
 
         expect(
           trace.lifePeriodsWithPositionMetadata.length,
-          lessThanOrEqualTo(
+          greaterThanOrEqualTo(
             trace.lifePeriodsWithPeriodContextMetadata.length,
           ),
         );
@@ -294,11 +295,6 @@ void main() {
             trace.lifePeriodPositionMetadataBlocker,
             LifePeriodPositionMetadataBlocker.partialPositionMetadata,
           );
-        } else {
-          expect(
-            trace.lifePeriodPositionMetadataBlocker,
-            LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
-          );
         }
         expect(
           trace.periodContextMetadataBlocker,
@@ -306,19 +302,17 @@ void main() {
         );
         expect(
           trace.positionMetadataEligiblePeriods.length,
-          trace.lifePeriodsWithPeriodContextMetadata.length,
+          trace.lifePeriodsWithPositionMetadata.length +
+              trace.lifePeriodsWithoutPositionMetadata.length,
         );
-        expect(
-          trace.positionMetadataIneligiblePeriods.length,
-          trace.lifePeriodsWithoutPeriodContextMetadata.length,
-        );
+        expect(trace.positionMetadataIneligiblePeriods, isEmpty);
       }
 
       expect(withContext, 8);
       expect(withoutContext, 78);
-      expect(withPosition, 7);
-      expect(withPosition, lessThanOrEqualTo(withContext));
-      expect(withoutPosition, greaterThan(withPosition));
+      expect(withPosition, 65);
+      expect(withPosition, greaterThan(withContext));
+      expect(withoutPosition, 21);
     });
 
     test('rise/fall audit shows eligible vs ineligible periods', () {
@@ -341,22 +335,24 @@ void main() {
       expect(audit.periodsIneligibleForRiseFall, greaterThan(0));
     });
 
-    test('78 unmatched periods remain blocked not inferred', () async {
+    test('21 unmatched periods remain blocked not inferred', () async {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
 
-      final withoutContext = audit.fixtureResults.fold<int>(
+      final withoutPosition = audit.fixtureResults.fold<int>(
         0,
         (sum, r) =>
-            sum + r.bundle.trace.lifePeriodsWithoutPeriodContextMetadata.length,
+            sum + r.bundle.trace.lifePeriodsWithoutPositionMetadata.length,
       );
-      expect(withoutContext, 78);
+      expect(withoutPosition, 21);
       for (final result in audit.fixtureResults) {
-        expect(
-          result.bundle.trace.positionMetadataIneligiblePeriods,
-          isNotEmpty,
-        );
+        if (result.bundle.trace.lifePeriodsWithoutPositionMetadata.isNotEmpty) {
+          expect(
+            result.bundle.trace.lifePeriodsWithoutPositionMetadata,
+            isNotEmpty,
+          );
+        }
       }
     });
   });

@@ -104,14 +104,16 @@ void main() {
         bundle.trace.lifePeriodRiseFallFeasibilityResult,
         LifePeriodRiseFallFeasibilityResult.partialRuntimeStatusMetadata.wire,
       );
-      expect(bundle.trace.lifePeriodsWithRuntimeStatus, hasLength(1));
+      expect(bundle.trace.lifePeriodsWithRuntimeStatus, hasLength(9));
       expect(
         bundle.attachments.where(
-          (a) => a.signalId.contains(':periodStatus:canonDerived:'),
+          (a) =>
+              a.evidenceType == ThaiCanonEvidenceType.periodStatusStructural &&
+              !a.signalId.contains(':periodStatus:canonDerived:'),
         ),
         isNotEmpty,
       );
-      expect(bundle.trace.lifePeriodsWithCanonDerivedStatus, isNotEmpty);
+      expect(bundle.trace.lifePeriodsWithCanonDerivedStatus, isEmpty);
     });
 
     test('QA override still attaches when labels injected', () async {
@@ -149,11 +151,11 @@ void main() {
 
       expect(
         bundle.trace.lifePeriodsWithoutRuntimeStatus.length,
-        pipeline.lifePeriods!.periods.length - 1,
+        pipeline.lifePeriods!.periods.length - 9,
       );
       expect(
         auditBefore.totalLifePeriodsWithoutRuntimeStatus,
-        79,
+        21,
       );
     });
 
