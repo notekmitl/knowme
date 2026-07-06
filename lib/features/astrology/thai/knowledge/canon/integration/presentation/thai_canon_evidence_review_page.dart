@@ -224,6 +224,18 @@ class _CoverageCards extends StatelessWidget {
           label: 'Signals w/o evidence',
           value: '${summary.signalsWithoutEvidenceCount}',
         ),
+        _CoverageChip(
+          label: 'Runtime status',
+          value:
+              '${summary.lifePeriodsWithRuntimeStatus} with / '
+              '${summary.lifePeriodsWithoutRuntimeStatus} without',
+        ),
+        _CoverageChip(
+          label: 'QA blockers',
+          value:
+              '${summary.blockedAmbiguousCount} ambig / '
+              '${summary.blockedSourceConflictCount} conflict',
+        ),
       ],
     );
   }
@@ -272,6 +284,10 @@ class _BadgeSummaryCards extends StatelessWidget {
         count: summary.count(
           ThaiInternalEvidenceBadgeCategory.blockedSourceConflict,
         ),
+      ),
+      _BadgeChip(
+        category: ThaiInternalEvidenceBadgeCategory.internalOnly,
+        count: summary.count(ThaiInternalEvidenceBadgeCategory.internalOnly),
       ),
       _BadgeChip(
         category: ThaiInternalEvidenceBadgeCategory.remedyHidden,
@@ -458,6 +474,8 @@ class _TracePanel extends StatelessWidget {
               '[${ThaiInternalEvidenceBadgeCategory.internalOnly.wire}]',
             ),
             const SizedBox(height: 8),
+            Text('QA blockers (internal)', style: theme.textTheme.labelLarge),
+            const SizedBox(height: 4),
             _traceLine(
               '${ThaiInternalEvidenceBadgeCategory.blockedAmbiguous.label} '
               '(${trace.runtimeStatusBlockedByAmbiguousPosition.length})',

@@ -95,6 +95,13 @@ void main() {
     testWidgets('badge summary cards render for internal QA', (tester) async {
       await pumpReviewPage(tester);
 
+      await tester.scrollUntilVisible(
+        find.text('Evidence badges (internal QA only)'),
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.pumpAndSettle();
+
       expect(find.text('Evidence badges (internal QA only)'), findsOneWidget);
       expect(find.textContaining('Canon Supported:'), findsOneWidget);
       await scrollToEvidenceTable(tester);

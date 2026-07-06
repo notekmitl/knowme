@@ -285,7 +285,12 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text('Evidence badges (internal QA only)'), findsOneWidget);
+      await tester.scrollUntilVisible(
+        find.text('Evidence badges (internal QA only)'),
+        200,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.pumpAndSettle();
       expect(find.textContaining('Canon Supported:'), findsOneWidget);
       await scrollToEvidenceTable(tester);
       expect(find.text('Badge'), findsOneWidget);

@@ -18,6 +18,10 @@ class ThaiCanonEvidenceReviewSummary {
     required this.unmappedCandidateCount,
     required this.signalsWithoutEvidenceCount,
     required this.badgeSummary,
+    required this.lifePeriodsWithRuntimeStatus,
+    required this.lifePeriodsWithoutRuntimeStatus,
+    required this.blockedAmbiguousCount,
+    required this.blockedSourceConflictCount,
   });
 
   factory ThaiCanonEvidenceReviewSummary.fromBundle(
@@ -66,6 +70,11 @@ class ThaiCanonEvidenceReviewSummary {
       unmappedCandidateCount: trace.unmappedCanonEvidenceCandidates.length,
       signalsWithoutEvidenceCount: trace.signalsWithoutCanonEvidence.length,
       badgeSummary: ThaiInternalEvidenceBadgeSummary.fromBundle(bundle),
+      lifePeriodsWithRuntimeStatus: trace.lifePeriodsWithRuntimeStatus.length,
+      lifePeriodsWithoutRuntimeStatus:
+          trace.lifePeriodsWithoutRuntimeStatus.length,
+      blockedAmbiguousCount: trace.runtimeStatusBlockedByAmbiguousPosition.length,
+      blockedSourceConflictCount: trace.conflictedArchetypePlanetPairs.length,
     );
   }
 
@@ -81,6 +90,10 @@ class ThaiCanonEvidenceReviewSummary {
   final int unmappedCandidateCount;
   final int signalsWithoutEvidenceCount;
   final ThaiInternalEvidenceBadgeSummary badgeSummary;
+  final int lifePeriodsWithRuntimeStatus;
+  final int lifePeriodsWithoutRuntimeStatus;
+  final int blockedAmbiguousCount;
+  final int blockedSourceConflictCount;
 }
 
 /// One flattened row for the evidence review table.

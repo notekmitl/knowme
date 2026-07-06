@@ -1,0 +1,407 @@
+{
+  "phase": "Internal Evidence QA Pass",
+  "fixtureCount": 9,
+  "fixtures": [
+    {
+      "id": "qa_sample",
+      "attachmentCount": 38,
+      "evidenceRefCount": 945,
+      "badgeMismatches": 0,
+      "weakPromotedToStrong": 0,
+      "provenanceGaps": 0,
+      "badgeCounts": {
+        "CANON_SUPPORTED": 29,
+        "PARTIAL_CANON_SUPPORT": 0,
+        "CANON_DERIVED_INTERNAL": 0,
+        "RUNTIME_METADATA_SUPPORTED": 9,
+        "OUT_OF_CANON_SCOPE": 20,
+        "BLOCKED_AMBIGUOUS": 2,
+        "BLOCKED_SOURCE_CONFLICT": 1,
+        "INTERNAL_ONLY": 0,
+        "REMEDY_HIDDEN": 1,
+        "NO_CANON_EVIDENCE": 0
+      },
+      "skippedRemedyCount": 87,
+      "runtimeMetadata": {
+        "withRuntimeStatus": 9,
+        "withoutRuntimeStatus": 1,
+        "blockedAmbiguous": 1,
+        "blockedSourceConflict": 0,
+        "conflictedPairs": 1
+      }
+    },
+    {
+      "id": "harness_a",
+      "attachmentCount": 29,
+      "evidenceRefCount": 695,
+      "badgeMismatches": 0,
+      "weakPromotedToStrong": 0,
+      "provenanceGaps": 0,
+      "badgeCounts": {
+        "CANON_SUPPORTED": 22,
+        "PARTIAL_CANON_SUPPORT": 0,
+        "CANON_DERIVED_INTERNAL": 2,
+        "RUNTIME_METADATA_SUPPORTED": 5,
+        "OUT_OF_CANON_SCOPE": 9,
+        "BLOCKED_AMBIGUOUS": 6,
+        "BLOCKED_SOURCE_CONFLICT": 3,
+        "INTERNAL_ONLY": 0,
+        "REMEDY_HIDDEN": 1,
+        "NO_CANON_EVIDENCE": 0
+      },
+      "skippedRemedyCount": 87,
+      "runtimeMetadata": {
+        "withRuntimeStatus": 5,
+        "withoutRuntimeStatus": 5,
+        "blockedAmbiguous": 3,
+        "blockedSourceConflict": 2,
+        "conflictedPairs": 1
+      }
+    },
+    {
+      "id": "harness_b",
+      "attachmentCount": 30,
+      "evidenceRefCount": 662,
+      "badgeMismatches": 0,
+      "weakPromotedToStrong": 0,
+      "provenanceGaps": 0,
+      "badgeCounts": {
+        "CANON_SUPPORTED": 22,
+        "PARTIAL_CANON_SUPPORT": 0,
+        "CANON_DERIVED_INTERNAL": 3,
+        "RUNTIME_METADATA_SUPPORTED": 5,
+        "OUT_OF_CANON_SCOPE": 9,
+        "BLOCKED_AMBIGUOUS": 8,
+        "BLOCKED_SOURCE_CONFLICT": 2,
+        "INTERNAL_ONLY": 0,
+        "REMEDY_HIDDEN": 1,
+        "NO_CANON_EVIDENCE": 0
+      },
+      "skippedRemedyCount": 87,
+      "runtimeMetadata": {
+        "withRuntimeStatus": 5,
+        "withoutRuntimeStatus": 5,
+        "blockedAmbiguous": 4,
+        "blockedSourceConflict": 1,
+        "conflictedPairs": 1
+      }
+    },
+    {
+      "id": "harness_c",
+      "attachmentCount": 24,
+      "evidenceRefCount": 424,
+      "badgeMismatches": 0,
+      "weakPromotedToStrong": 0,
+      "provenanceGaps": 0,
+      "badgeCounts": {
+        "CANON_SUPPORTED": 16,
+        "PARTIAL_CANON_SUPPORT": 0,
+        "CANON_DERIVED_INTERNAL": 0,
+        "RUNTIME_METADATA_SUPPORTED": 8,
+        "OUT_OF_CANON_SCOPE": 12,
+        "BLOCKED_AMBIGUOUS": 2,
+        "BLOCKED_SOURCE_CONFLICT": 1,
+        "INTERNAL_ONLY": 0,
+        "REMEDY_HIDDEN": 1,
+        "NO_CANON_EVIDENCE": 0
+      },
+      "skippedRemedyCount": 87,
+      "runtimeMetadata": {
+        "withRuntimeStatus": 8,
+        "withoutRuntimeStatus": 1,
+        "blockedAmbiguous": 1,
+        "blockedSourceConflict": 0,
+        "conflictedPairs": 1
+      }
+    },
+    {
+      "id": "harness_d",
+      "attachmentCount": 29,
+      "evidenceRefCount": 635,
+      "badgeMismatches": 0,
+      "weakPromotedToStrong": 0,
+      "provenanceGaps": 0,
+      "badgeCounts": {
+        "CANON_SUPPORTED": 22,
+        "PARTIAL_CANON_SUPPORT": 0,
+        "CANON_DERIVED_INTERNAL": 1,
+        "RUNTIME_METADATA_SUPPORTED": 6,
+        "OUT_OF_CANON_SCOPE": 8,
+        "BLOCKED_AMBIGUOUS": 6,
+        "BLOCKED_SOURCE_CONFLICT": 1,
+        "INTERNAL_ONLY": 0,
+        "REMEDY_HIDDEN": 1,
+        "NO_CANON_EVIDENCE": 0
+      },
+      "skippedRemedyCount": 87,
+      "runtimeMetadata": {
+        "withRuntimeStatus": 6,
+        "withoutRuntimeStatus": 3,
+        "blockedAmbiguous": 3,
+        "blockedSourceConflict": 0,
+        "conflictedPairs": 1
+      }
+    },
+    {
+      "id": "harness_e",
+      "attachmentCount": 25,
+      "evidenceRefCount": 502,
+      "badgeMismatches": 0,
+      "weakPromotedToStrong": 0,
+      "provenanceGaps": 0,
+      "badgeCounts": {
+        "CANON_SUPPORTED": 17,
+        "PARTIAL_CANON_SUPPORT": 0,
+        "CANON_DERIVED_INTERNAL": 0,
+        "RUNTIME_METADATA_SUPPORTED": 8,
+        "OUT_OF_CANON_SCOPE": 13,
+        "BLOCKED_AMBIGUOUS": 2,
+        "BLOCKED_SOURCE_CONFLICT": 1,
+        "INTERNAL_ONLY": 0,
+        "REMEDY_HIDDEN": 1,
+        "NO_CANON_EVIDENCE": 0
+      },
+      "skippedRemedyCount": 87,
+      "runtimeMetadata": {
+        "withRuntimeStatus": 8,
+        "withoutRuntimeStatus": 1,
+        "blockedAmbiguous": 1,
+        "blockedSourceConflict": 0,
+        "conflictedPairs": 1
+      }
+    },
+    {
+      "id": "harness_f",
+      "attachmentCount": 26,
+      "evidenceRefCount": 534,
+      "badgeMismatches": 0,
+      "weakPromotedToStrong": 0,
+      "provenanceGaps": 0,
+      "badgeCounts": {
+        "CANON_SUPPORTED": 17,
+        "PARTIAL_CANON_SUPPORT": 0,
+        "CANON_DERIVED_INTERNAL": 0,
+        "RUNTIME_METADATA_SUPPORTED": 9,
+        "OUT_OF_CANON_SCOPE": 9,
+        "BLOCKED_AMBIGUOUS": 0,
+        "BLOCKED_SOURCE_CONFLICT": 1,
+        "INTERNAL_ONLY": 0,
+        "REMEDY_HIDDEN": 1,
+        "NO_CANON_EVIDENCE": 0
+      },
+      "skippedRemedyCount": 87,
+      "runtimeMetadata": {
+        "withRuntimeStatus": 9,
+        "withoutRuntimeStatus": 0,
+        "blockedAmbiguous": 0,
+        "blockedSourceConflict": 0,
+        "conflictedPairs": 1
+      }
+    },
+    {
+      "id": "harness_g",
+      "attachmentCount": 27,
+      "evidenceRefCount": 537,
+      "badgeMismatches": 0,
+      "weakPromotedToStrong": 0,
+      "provenanceGaps": 0,
+      "badgeCounts": {
+        "CANON_SUPPORTED": 18,
+        "PARTIAL_CANON_SUPPORT": 0,
+        "CANON_DERIVED_INTERNAL": 4,
+        "RUNTIME_METADATA_SUPPORTED": 5,
+        "OUT_OF_CANON_SCOPE": 13,
+        "BLOCKED_AMBIGUOUS": 10,
+        "BLOCKED_SOURCE_CONFLICT": 1,
+        "INTERNAL_ONLY": 0,
+        "REMEDY_HIDDEN": 1,
+        "NO_CANON_EVIDENCE": 0
+      },
+      "skippedRemedyCount": 87,
+      "runtimeMetadata": {
+        "withRuntimeStatus": 5,
+        "withoutRuntimeStatus": 5,
+        "blockedAmbiguous": 5,
+        "blockedSourceConflict": 0,
+        "conflictedPairs": 1
+      }
+    },
+    {
+      "id": "harness_h",
+      "attachmentCount": 24,
+      "evidenceRefCount": 536,
+      "badgeMismatches": 0,
+      "weakPromotedToStrong": 0,
+      "provenanceGaps": 0,
+      "badgeCounts": {
+        "CANON_SUPPORTED": 14,
+        "PARTIAL_CANON_SUPPORT": 0,
+        "CANON_DERIVED_INTERNAL": 0,
+        "RUNTIME_METADATA_SUPPORTED": 10,
+        "OUT_OF_CANON_SCOPE": 6,
+        "BLOCKED_AMBIGUOUS": 0,
+        "BLOCKED_SOURCE_CONFLICT": 1,
+        "INTERNAL_ONLY": 0,
+        "REMEDY_HIDDEN": 1,
+        "NO_CANON_EVIDENCE": 0
+      },
+      "skippedRemedyCount": 87,
+      "runtimeMetadata": {
+        "withRuntimeStatus": 10,
+        "withoutRuntimeStatus": 0,
+        "blockedAmbiguous": 0,
+        "blockedSourceConflict": 0,
+        "conflictedPairs": 1
+      }
+    }
+  ],
+  "aggregateBadgeCounts": {
+    "CANON_SUPPORTED": 177,
+    "PARTIAL_CANON_SUPPORT": 0,
+    "CANON_DERIVED_INTERNAL": 10,
+    "RUNTIME_METADATA_SUPPORTED": 65,
+    "OUT_OF_CANON_SCOPE": 99,
+    "BLOCKED_AMBIGUOUS": 36,
+    "BLOCKED_SOURCE_CONFLICT": 12,
+    "INTERNAL_ONLY": 0,
+    "REMEDY_HIDDEN": 9,
+    "NO_CANON_EVIDENCE": 0
+  },
+  "badgeQa": {
+    "mismatches": 0,
+    "weakPromotedToCanonSupported": 0,
+    "categoriesProduced": [
+      "BLOCKED_AMBIGUOUS",
+      "BLOCKED_SOURCE_CONFLICT",
+      "CANON_DERIVED_INTERNAL",
+      "CANON_SUPPORTED",
+      "OUT_OF_CANON_SCOPE",
+      "REMEDY_HIDDEN",
+      "RUNTIME_METADATA_SUPPORTED"
+    ],
+    "passed": true
+  },
+  "provenanceQa": {
+    "gaps": 0,
+    "passed": true
+  },
+  "runtimeMetadata": {
+    "lifePeriodsWithRuntimeStatus": 65,
+    "lifePeriodsWithoutRuntimeStatus": 21,
+    "blockedAmbiguous": 18,
+    "blockedSourceConflict": 3,
+    "blockedMissingPosition": 0,
+    "blockedNoP17Rule": 0,
+    "conflictedArchetypePlanetPairs": 1,
+    "perFixture": [
+      {
+        "fixtureId": "qa_sample",
+        "withRuntimeStatus": 9,
+        "withoutRuntimeStatus": 1,
+        "blockedAmbiguous": 1,
+        "blockedSourceConflict": 0,
+        "conflictedPairs": 1,
+        "blockedMissingPosition": 0,
+        "blockedNoP17Rule": 0
+      },
+      {
+        "fixtureId": "harness_a",
+        "withRuntimeStatus": 5,
+        "withoutRuntimeStatus": 5,
+        "blockedAmbiguous": 3,
+        "blockedSourceConflict": 2,
+        "conflictedPairs": 1,
+        "blockedMissingPosition": 0,
+        "blockedNoP17Rule": 0
+      },
+      {
+        "fixtureId": "harness_b",
+        "withRuntimeStatus": 5,
+        "withoutRuntimeStatus": 5,
+        "blockedAmbiguous": 4,
+        "blockedSourceConflict": 1,
+        "conflictedPairs": 1,
+        "blockedMissingPosition": 0,
+        "blockedNoP17Rule": 0
+      },
+      {
+        "fixtureId": "harness_c",
+        "withRuntimeStatus": 8,
+        "withoutRuntimeStatus": 1,
+        "blockedAmbiguous": 1,
+        "blockedSourceConflict": 0,
+        "conflictedPairs": 1,
+        "blockedMissingPosition": 0,
+        "blockedNoP17Rule": 0
+      },
+      {
+        "fixtureId": "harness_d",
+        "withRuntimeStatus": 6,
+        "withoutRuntimeStatus": 3,
+        "blockedAmbiguous": 3,
+        "blockedSourceConflict": 0,
+        "conflictedPairs": 1,
+        "blockedMissingPosition": 0,
+        "blockedNoP17Rule": 0
+      },
+      {
+        "fixtureId": "harness_e",
+        "withRuntimeStatus": 8,
+        "withoutRuntimeStatus": 1,
+        "blockedAmbiguous": 1,
+        "blockedSourceConflict": 0,
+        "conflictedPairs": 1,
+        "blockedMissingPosition": 0,
+        "blockedNoP17Rule": 0
+      },
+      {
+        "fixtureId": "harness_f",
+        "withRuntimeStatus": 9,
+        "withoutRuntimeStatus": 0,
+        "blockedAmbiguous": 0,
+        "blockedSourceConflict": 0,
+        "conflictedPairs": 1,
+        "blockedMissingPosition": 0,
+        "blockedNoP17Rule": 0
+      },
+      {
+        "fixtureId": "harness_g",
+        "withRuntimeStatus": 5,
+        "withoutRuntimeStatus": 5,
+        "blockedAmbiguous": 5,
+        "blockedSourceConflict": 0,
+        "conflictedPairs": 1,
+        "blockedMissingPosition": 0,
+        "blockedNoP17Rule": 0
+      },
+      {
+        "fixtureId": "harness_h",
+        "withRuntimeStatus": 10,
+        "withoutRuntimeStatus": 0,
+        "blockedAmbiguous": 0,
+        "blockedSourceConflict": 0,
+        "conflictedPairs": 1,
+        "blockedMissingPosition": 0,
+        "blockedNoP17Rule": 0
+      }
+    ]
+  },
+  "remedySafety": {
+    "skippedRemedyCountAggregate": 783,
+    "remedyAttachmentsOnReport": 0,
+    "remedyUserFacingRows": 0,
+    "perFixtureSkippedCounts": [
+      87,
+      87,
+      87,
+      87,
+      87,
+      87,
+      87,
+      87,
+      87
+    ],
+    "passed": true
+  },
+  "overallPassed": true
+}
