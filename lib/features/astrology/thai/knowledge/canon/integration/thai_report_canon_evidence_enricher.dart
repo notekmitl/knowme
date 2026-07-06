@@ -66,17 +66,11 @@ abstract final class ThaiReportCanonEvidenceEnricher {
     final lifePeriodsWithCanonDerivedStatus = <String>[];
     final lifePeriodsWithoutCanonStatusMarker = <String>[];
     final lifePeriodsWithRuntimeStatus = <String>[];
+    final lifePeriodsEligibleForRuntimeStatus = <String>[];
+    final lifePeriodsIneligibleForRuntimeStatus = <String>[];
+    final runtimeStatusMissingReasons = <String>{};
+    final runtimeStatusLabelsByIndex = <int, String>{};
 
-    final periodStatusLabels = ThaiCanonPeriodStatusDiscovery.discover(
-      pipelineResult,
-      labelsByPeriodIndex: periodStatusLabelsByIndex,
-    );
-    final periodStatusAudit = periodStatusLabelsByIndex == null
-        ? ThaiCanonPeriodStatusDiscovery.audit(
-            pipelineResult,
-            canonIndex: repo.index,
-          )
-        : null;
     final positionFeasibilityAudit =
         ThaiLifePeriodPositionMetadataFeasibility.audit(
       timeline: pipelineResult.lifePeriods,
@@ -124,6 +118,7 @@ abstract final class ThaiReportCanonEvidenceEnricher {
       for (final period in timelineForContext.periods) {
         final contextAnchor = 'life_period:${period.index}:period_context';
         final positionAnchor = 'life_period:${period.index}:position';
+        final runtimeAnchor = 'life_period:${period.index}:runtime_status';
         final resolution = ThaiLifePeriodContextResolver.resolveDetailed(
           period: period,
           archetypeMetadata: archetypeMetadata,
@@ -143,8 +138,25 @@ abstract final class ThaiReportCanonEvidenceEnricher {
           );
           if (positionResolution.metadata != null) {
             lifePeriodsWithPositionMetadata.add(positionAnchor);
+            lifePeriodsEligibleForRuntimeStatus.add(runtimeAnchor);
+
+            final riseFallResolution =
+                ThaiLifePeriodRiseFallResolver.resolveDetailed(
+              period: period,
+              positionMetadata: positionResolution.metadata,
+              canonIndex: repo.index,
+            );
+            if (riseFallResolution.metadata != null) {
+              runtimeStatusLabelsByIndex[period.index] =
+                  riseFallResolution.metadata!.periodStatusLabel;
+            } else if (riseFallResolution.missingReason != null) {
+              runtimeStatusMissingReasons.add(
+                '${period.index}:${riseFallResolution.missingReason}',
+              );
+            }
           } else {
             lifePeriodsWithoutPositionMetadata.add(positionAnchor);
+            lifePeriodsIneligibleForRuntimeStatus.add(runtimeAnchor);
             if (positionResolution.missingReason != null) {
               positionMetadataMissingReasons.add(
                 '${period.index}:${positionResolution.missingReason}',
@@ -154,6 +166,7 @@ abstract final class ThaiReportCanonEvidenceEnricher {
         } else {
           lifePeriodsWithoutPeriodContextMetadata.add(contextAnchor);
           positionMetadataIneligiblePeriods.add(positionAnchor);
+          lifePeriodsIneligibleForRuntimeStatus.add(runtimeAnchor);
           lifePeriodsWithoutPositionMetadata.add(positionAnchor);
           if (resolution.missingReason != null) {
             periodContextMissingReasons.add(
@@ -166,6 +179,23 @@ abstract final class ThaiReportCanonEvidenceEnricher {
         }
       }
     }
+
+    final periodStatusLabels = periodStatusLabelsByIndex ??
+        runtimeStatusLabelsByIndex;
+    final periodStatusAudit = periodStatusLabelsByIndex == null
+        ? ThaiCanonPeriodStatusDiscovery.audit(
+            pipelineResult,
+            canonIndex: repo.index,
+          )
+        : null;
+    final riseFallFeasibilityAudit = ThaiLifePeriodRiseFallFeasibility.audit(
+      timeline: pipelineResult.lifePeriods,
+      profile: pipelineResult.profile,
+      birthData: pipelineResult.birthData,
+      canonIndex: repo.index,
+      periodsWithRuntimeStatus: runtimeStatusLabelsByIndex.length,
+    );
+
     final profilesWithRemainderMetadata = <String>[];
     final profilesWithoutRemainderMetadata = <String>[];
     final profilesWithArchetypeContextMetadata = <String>[];
@@ -352,8 +382,7 @@ abstract final class ThaiReportCanonEvidenceEnricher {
           _sortedUnique(lifePeriodsWithoutCanonStatusMarker),
       lifePeriodsWithRuntimeStatus:
           _sortedUnique(lifePeriodsWithRuntimeStatus),
-      lifePeriodRiseFallFeasibilityResult:
-          periodStatusAudit?.feasibility.result.wire,
+      lifePeriodRiseFallFeasibilityResult: riseFallFeasibilityAudit.result.wire,
       lifePeriodPositionFeasibilityResult:
           positionFeasibilityAudit.result.wire,
       lifePeriodArchetypeFeasibilityResult:
@@ -401,6 +430,12 @@ abstract final class ThaiReportCanonEvidenceEnricher {
           _sortedUnique(positionMetadataEligiblePeriods),
       positionMetadataIneligiblePeriods:
           _sortedUnique(positionMetadataIneligiblePeriods),
+      lifePeriodsEligibleForRuntimeStatus:
+          _sortedUnique(lifePeriodsEligibleForRuntimeStatus),
+      lifePeriodsIneligibleForRuntimeStatus:
+          _sortedUnique(lifePeriodsIneligibleForRuntimeStatus),
+      runtimeStatusMissingReasons:
+          _sortedUnique(runtimeStatusMissingReasons.toList()),
       lifePeriodPositionMetadataBlocker: _positionMetadataBlocker(
         withPosition: lifePeriodsWithPositionMetadata.length,
         withoutPosition: lifePeriodsWithoutPositionMetadata.length,
@@ -409,8 +444,11 @@ abstract final class ThaiReportCanonEvidenceEnricher {
         feasibility: positionFeasibilityAudit,
       ),
       lifePeriodStatusMetadataBlocker: _lifePeriodStatusMetadataBlocker(
-        positionFeasibility: positionFeasibilityAudit,
         periodStatusAudit: periodStatusAudit,
+        riseFallFeasibility: riseFallFeasibilityAudit,
+        periodsWithRuntime: runtimeStatusLabelsByIndex.length,
+        totalPeriods: timelineForContext?.periods.length ?? 0,
+        labelsInjected: periodStatusLabelsByIndex != null,
       ),
     );
 
@@ -607,17 +645,24 @@ abstract final class ThaiReportCanonEvidenceEnricher {
   }
 
   static String? _lifePeriodStatusMetadataBlocker({
-    required ThaiLifePeriodPositionMetadataFeasibilityAudit positionFeasibility,
     required LifePeriodStatusMetadataAudit? periodStatusAudit,
+    required ThaiLifePeriodRiseFallFeasibilityAudit riseFallFeasibility,
+    required int periodsWithRuntime,
+    required int totalPeriods,
+    required bool labelsInjected,
   }) {
-    if (periodStatusAudit == null) {
+    if (labelsInjected) {
       return null;
     }
-    if (positionFeasibility.result !=
-        LifePeriodPositionMetadataFeasibilityResult.readyToExposeMetadata) {
-      return positionFeasibility.metadataBlocker ??
-          LifePeriodPositionMetadataBlocker.needsPeriodContextMapping;
+    if (periodStatusAudit != null && periodStatusAudit.blocker != null) {
+      return periodStatusAudit.blocker;
     }
-    return periodStatusAudit?.blocker;
+    if (periodsWithRuntime == totalPeriods && totalPeriods > 0) {
+      return null;
+    }
+    if (periodsWithRuntime > 0) {
+      return LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata;
+    }
+    return riseFallFeasibility.metadataBlocker;
   }
 }

@@ -69,7 +69,7 @@ void main() {
 
       expect(
         statusAudit.blocker,
-        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
+        LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata,
       );
       expect(
         statusAudit.positionFeasibility.metadataBlocker,
@@ -152,12 +152,12 @@ void main() {
 
       expect(
         sumTrace((t) => t.lifePeriodsWithCanonDerivedStatus),
-        52,
+        49,
       );
-      expect(audit.totalLifePeriodsWithoutRuntimeStatus, 86);
+      expect(audit.totalLifePeriodsWithoutRuntimeStatus, 79);
       expect(
         sumTrace((t) => t.lifePeriodsWithRuntimeStatus),
-        0,
+        7,
       );
     });
 

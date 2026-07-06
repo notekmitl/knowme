@@ -113,7 +113,9 @@ void main() {
           ),
           isEmpty,
         );
-        expect(result.bundle.trace.traceOnlyEvidenceCandidates, isNotEmpty);
+        if (result.bundle.trace.lifePeriodsWithRuntimeStatus.isEmpty) {
+          expect(result.bundle.trace.traceOnlyEvidenceCandidates, isNotEmpty);
+        }
       }
     });
 

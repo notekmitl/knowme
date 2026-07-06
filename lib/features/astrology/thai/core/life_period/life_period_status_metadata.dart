@@ -9,7 +9,10 @@ import '../../foundation/models/thai_birth_data.dart';
 import '../../foundation/models/thai_astrology_profile.dart';
 import '../../knowledge/canon/integration/thai_canon_evidence_index.dart';
 import 'life_period_engine.dart';
+import 'thai_archetype_context_metadata.dart';
+import 'thai_life_period_context_metadata.dart';
 import 'thai_life_period_position_metadata.dart';
+import 'thai_remainder_runtime_metadata.dart';
 export 'thai_remainder_calculation_model.dart'
     show
         RemainderCalculationModelBlocker,
@@ -83,7 +86,9 @@ export 'thai_life_period_rise_fall_metadata.dart'
         ThaiLifePeriodRiseFallFeasibility,
         ThaiLifePeriodRiseFallFeasibilityAudit,
         ThaiLifePeriodRiseFallP17Rules,
-        ThaiLifePeriodRiseFallResolver;
+        ThaiLifePeriodRiseFallResolution,
+        ThaiLifePeriodRiseFallResolver,
+        ThaiLifePeriodRiseFallRuntimeMetadata;
 import 'thai_life_period_rise_fall_metadata.dart';
 
 /// Audit finding from the life-period status metadata layer.
@@ -160,6 +165,13 @@ abstract final class LifePeriodStatusMetadataResolver {
       );
     }
 
+    final resolved = _resolveAll(
+      timeline: timeline,
+      profile: profile,
+      birthData: birthData,
+      canonIndex: canonIndex,
+    );
+
     final positionFeasibility = ThaiLifePeriodPositionMetadataFeasibility.audit(
       timeline: timeline,
       profile: profile,
@@ -172,25 +184,14 @@ abstract final class LifePeriodStatusMetadataResolver {
       profile: profile,
       birthData: birthData,
       canonIndex: canonIndex,
+      periodsWithRuntimeStatus: resolved.byPeriodIndex.length,
     );
 
-    if (positionFeasibility.result !=
-        LifePeriodPositionMetadataFeasibilityResult.readyToExposeMetadata) {
-      return LifePeriodStatusMetadataAudit.blocked(
-        finding: LifePeriodStatusMetadataAuditFinding.needsEnginePositionMetadata,
-        blocker: positionFeasibility.metadataBlocker ??
-            LifePeriodPositionMetadataBlocker.needsArchetypeContextMetadata,
-        feasibility: feasibility,
-        positionFeasibility: positionFeasibility,
-        periodCount: timeline.periods.length,
-      );
-    }
-
-    if (feasibility.result !=
-        LifePeriodRiseFallFeasibilityResult.readyToExposeMetadata) {
+    if (resolved.byPeriodIndex.isEmpty) {
       return LifePeriodStatusMetadataAudit.blocked(
         finding: LifePeriodStatusMetadataAuditFinding.needsEnginePositionMetadata,
         blocker: feasibility.metadataBlocker ??
+            positionFeasibility.metadataBlocker ??
             LifePeriodStatusMetadataBlocker.needsEnginePositionMetadata,
         feasibility: feasibility,
         positionFeasibility: positionFeasibility,
@@ -200,20 +201,128 @@ abstract final class LifePeriodStatusMetadataResolver {
 
     return LifePeriodStatusMetadataAudit(
       finding: LifePeriodStatusMetadataAuditFinding.alreadyComputedNotExposed,
-      blocker: null,
+      blocker: _statusMetadataBlocker(
+        periodsWithRuntime: resolved.byPeriodIndex.length,
+        periodCount: timeline.periods.length,
+        feasibility: feasibility,
+      ),
       periodCount: timeline.periods.length,
       feasibility: feasibility,
       positionFeasibility: positionFeasibility,
-      byPeriodIndex: const {},
+      byPeriodIndex: Map<int, String>.unmodifiable(resolved.byPeriodIndex),
     );
+  }
+
+  static Map<int, String> runtimeLabelsByPeriodIndex(
+    LifeTimeline? timeline, {
+    ThaiAstrologyProfile? profile,
+    ThaiBirthData? birthData,
+    ThaiCanonEvidenceIndex? canonIndex,
+  }) {
+    if (timeline == null) return const {};
+
+    final labels = <int, String>{};
+    for (final entry in _resolveAll(
+      timeline: timeline,
+      profile: profile,
+      birthData: birthData,
+      canonIndex: canonIndex,
+    ).runtimeMetadataByPeriodIndex.entries) {
+      labels[entry.key] = entry.value.periodStatusLabel;
+    }
+    return Map<int, String>.unmodifiable(labels);
   }
 
   static Map<int, String> canonIdsByPeriodIndex(
     LifeTimeline? timeline, {
     ThaiAstrologyProfile? profile,
+    ThaiBirthData? birthData,
+    ThaiCanonEvidenceIndex? canonIndex,
   }) {
-    final auditResult = audit(timeline, profile: profile);
-    if (!auditResult.isAvailable) return const {};
+    final auditResult = audit(
+      timeline,
+      profile: profile,
+      birthData: birthData,
+      canonIndex: canonIndex,
+    );
     return Map<int, String>.unmodifiable(auditResult.byPeriodIndex);
   }
+
+  static _LifePeriodStatusResolution _resolveAll({
+    required LifeTimeline timeline,
+    ThaiAstrologyProfile? profile,
+    ThaiBirthData? birthData,
+    ThaiCanonEvidenceIndex? canonIndex,
+  }) {
+    if (canonIndex == null) {
+      return const _LifePeriodStatusResolution();
+    }
+
+    final archetypeMetadata = ThaiArchetypeContextResolver.resolve(
+      remainderMetadata: ThaiRemainderMetadataResolver.resolve(
+        profile: profile,
+        birthData: birthData,
+      ),
+      canonIndex: canonIndex,
+    ).metadata;
+
+    final contextByPeriod = ThaiLifePeriodContextResolver.resolveAll(
+      timeline: timeline,
+      archetypeMetadata: archetypeMetadata,
+      canonIndex: canonIndex,
+    );
+    final positionByPeriod = ThaiLifePeriodPositionMetadataResolver.resolveAll(
+      timeline: timeline,
+      archetypeMetadata: archetypeMetadata,
+      contextByPeriod: contextByPeriod,
+      canonIndex: canonIndex,
+    );
+
+    final byPeriodIndex = <int, String>{};
+    final runtimeMetadataByPeriodIndex =
+        <int, ThaiLifePeriodRiseFallRuntimeMetadata>{};
+
+    for (final period in timeline.periods) {
+      final positionMetadata = positionByPeriod[period.index];
+      final resolution = ThaiLifePeriodRiseFallResolver.resolveDetailed(
+        period: period,
+        positionMetadata: positionMetadata,
+        canonIndex: canonIndex,
+      );
+      final metadata = resolution.metadata;
+      if (metadata == null) continue;
+      byPeriodIndex[period.index] = metadata.periodStatusCanonId;
+      runtimeMetadataByPeriodIndex[period.index] = metadata;
+    }
+
+    return _LifePeriodStatusResolution(
+      byPeriodIndex: byPeriodIndex,
+      runtimeMetadataByPeriodIndex: runtimeMetadataByPeriodIndex,
+    );
+  }
+
+  static String? _statusMetadataBlocker({
+    required int periodsWithRuntime,
+    required int periodCount,
+    required ThaiLifePeriodRiseFallFeasibilityAudit feasibility,
+  }) {
+    if (periodsWithRuntime == periodCount && periodCount > 0) {
+      return null;
+    }
+    if (periodsWithRuntime > 0) {
+      return LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata;
+    }
+    return feasibility.metadataBlocker;
+  }
+}
+
+class _LifePeriodStatusResolution {
+  const _LifePeriodStatusResolution({
+    this.byPeriodIndex = const {},
+    this.runtimeMetadataByPeriodIndex = const {},
+  });
+
+  final Map<int, String> byPeriodIndex;
+  final Map<int, ThaiLifePeriodRiseFallRuntimeMetadata>
+      runtimeMetadataByPeriodIndex;
 }

@@ -19,23 +19,26 @@ void main() {
   });
 
   group('Feasibility audit', () {
-    test('production pipeline is NEEDS_ENGINE_POSITION_METADATA', () {
+    test('production pipeline is PARTIAL_RUNTIME_STATUS_METADATA', () {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
       final feasibility = ThaiLifePeriodRiseFallFeasibility.audit(
         timeline: pipeline.lifePeriods,
         profile: pipeline.profile,
+        birthData: pipeline.birthData,
+        canonIndex: repository.index,
       );
 
       expect(
         feasibility.result,
-        LifePeriodRiseFallFeasibilityResult.needsEnginePositionMetadata,
+        LifePeriodRiseFallFeasibilityResult.partialRuntimeStatusMetadata,
       );
       expect(feasibility.hasGoverningPlanetPerPeriod, isTrue);
       expect(feasibility.hasPerPeriodMahabhutPosition, isFalse);
-      expect(feasibility.hasPerPeriodArchetypeContext, isFalse);
-      expect(feasibility.hasExistingRiseFallField, isFalse);
+      expect(feasibility.hasPerPeriodArchetypeContext, isTrue);
+      expect(feasibility.hasExistingRiseFallField, isTrue);
+      expect(feasibility.periodsWithRuntimeStatus, greaterThan(0));
       expect(feasibility.canClassifyFromExistingFields, isFalse);
     });
 
@@ -50,7 +53,11 @@ void main() {
 
       expect(
         bundle.trace.lifePeriodRiseFallFeasibilityResult,
-        LifePeriodRiseFallFeasibilityResult.needsEnginePositionMetadata.wire,
+        LifePeriodRiseFallFeasibilityResult.partialRuntimeStatusMetadata.wire,
+      );
+      expect(
+        bundle.trace.lifePeriodStatusMetadataBlocker,
+        LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata,
       );
     });
   });
@@ -108,8 +115,8 @@ void main() {
     });
   });
 
-  group('Canon evidence integration (blocked metadata path)', () {
-    test('9-fixture aggregate counts unchanged', () async {
+  group('Canon evidence integration (runtime metadata path)', () {
+    test('9-fixture aggregate counts', () async {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
@@ -122,20 +129,20 @@ void main() {
 
       expect(
         sumTrace((t) => t.lifePeriodsWithCanonDerivedStatus),
-        52,
+        49,
       );
       expect(
         sumTrace((t) => t.lifePeriodsWithoutCanonStatusMarker),
-        34,
+        30,
       );
-      expect(audit.totalLifePeriodsWithoutRuntimeStatus, 86);
+      expect(audit.totalLifePeriodsWithoutRuntimeStatus, 79);
       expect(
         sumTrace((t) => t.lifePeriodsWithRuntimeStatus),
-        0,
+        7,
       );
     });
 
-    test('canon-derived fallback still attaches when runtime metadata blocked',
+    test('canon-derived fallback still attaches for periods without runtime',
         () async {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
@@ -145,7 +152,7 @@ void main() {
         repository: repository,
       );
 
-      expect(bundle.trace.lifePeriodsWithRuntimeStatus, isEmpty);
+      expect(bundle.trace.lifePeriodsWithRuntimeStatus, hasLength(1));
       expect(bundle.trace.lifePeriodsWithCanonDerivedStatus, isNotEmpty);
       expect(
         bundle.attachments.any(

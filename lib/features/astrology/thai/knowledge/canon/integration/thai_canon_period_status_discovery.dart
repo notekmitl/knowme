@@ -12,11 +12,22 @@ abstract final class ThaiCanonPeriodStatusDiscovery {
   static Map<int, String> discover(
     ThaiMirrorPipelineResult pipelineResult, {
     Map<int, String>? labelsByPeriodIndex,
+    ThaiCanonEvidenceIndex? canonIndex,
   }) {
     if (labelsByPeriodIndex != null) {
       return _validatedLabels(labelsByPeriodIndex);
     }
-    return _labelsFromMetadataAudit(audit(pipelineResult));
+    if (pipelineResult.isSuccess && canonIndex != null) {
+      return LifePeriodStatusMetadataResolver.runtimeLabelsByPeriodIndex(
+        pipelineResult.lifePeriods,
+        profile: pipelineResult.profile,
+        birthData: pipelineResult.birthData,
+        canonIndex: canonIndex,
+      );
+    }
+    return _labelsFromMetadataAudit(
+      audit(pipelineResult, canonIndex: canonIndex),
+    );
   }
 
   /// Full metadata audit for trace / QA (production path).

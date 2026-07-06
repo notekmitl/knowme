@@ -334,7 +334,7 @@ void main() {
 
       expect(
         audit.result,
-        LifePeriodRiseFallFeasibilityResult.needsEnginePositionMetadata,
+        LifePeriodRiseFallFeasibilityResult.partialRuntimeStatusMetadata,
       );
       expect(audit.periodsWithPositionMetadata, greaterThan(0));
       expect(audit.periodsEligibleForRiseFall, audit.periodsWithPositionMetadata);

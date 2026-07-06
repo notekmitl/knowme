@@ -181,7 +181,7 @@ void main() {
 
       expect(
         statusAudit.blocker,
-        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
+        LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata,
       );
       expect(
         bundle.trace.lifePeriodPositionFeasibilityResult,
@@ -190,7 +190,7 @@ void main() {
       );
       expect(
         bundle.trace.lifePeriodRiseFallFeasibilityResult,
-        'NEEDS_ENGINE_POSITION_METADATA',
+        LifePeriodRiseFallFeasibilityResult.partialRuntimeStatusMetadata.wire,
       );
     });
 

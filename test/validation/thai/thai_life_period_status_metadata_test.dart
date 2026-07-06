@@ -19,7 +19,7 @@ void main() {
   });
 
   group('LifePeriodStatusMetadataResolver audit', () {
-    test('production pipeline is blocked — per-period Mahabhut position absent', () {
+    test('production pipeline has partial runtime status metadata', () {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
@@ -33,19 +33,19 @@ void main() {
       );
       expect(
         audit.finding,
-        LifePeriodStatusMetadataAuditFinding.needsEnginePositionMetadata,
+        LifePeriodStatusMetadataAuditFinding.alreadyComputedNotExposed,
       );
       expect(
         audit.blocker,
-        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
+        LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata,
       );
       expect(
         audit.feasibility.result,
-        LifePeriodRiseFallFeasibilityResult.needsEnginePositionMetadata,
+        LifePeriodRiseFallFeasibilityResult.partialRuntimeStatusMetadata,
       );
       expect(audit.feasibility.hasGoverningPlanetPerPeriod, isTrue);
       expect(audit.feasibility.hasPerPeriodMahabhutPosition, isFalse);
-      expect(audit.byPeriodIndex, isEmpty);
+      expect(audit.byPeriodIndex, isNotEmpty);
       expect(audit.periodCount, greaterThan(0));
     });
 
@@ -93,7 +93,7 @@ void main() {
 
       expect(
         bundle.trace.lifePeriodStatusMetadataBlocker,
-        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
+        LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata,
       );
       expect(
         bundle.trace.lifePeriodPositionMetadataBlocker,
@@ -102,9 +102,9 @@ void main() {
       expect(bundle.trace.lifePeriodArchetypeMetadataBlocker, isNull);
       expect(
         bundle.trace.lifePeriodRiseFallFeasibilityResult,
-        'NEEDS_ENGINE_POSITION_METADATA',
+        LifePeriodRiseFallFeasibilityResult.partialRuntimeStatusMetadata.wire,
       );
-      expect(bundle.trace.lifePeriodsWithRuntimeStatus, isEmpty);
+      expect(bundle.trace.lifePeriodsWithRuntimeStatus, hasLength(1));
       expect(
         bundle.attachments.where(
           (a) => a.signalId.contains(':periodStatus:canonDerived:'),
@@ -133,7 +133,8 @@ void main() {
       expect(bundle.trace.lifePeriodStatusMetadataBlocker, isNull);
     });
 
-    test('lifePeriodsWithoutRuntimeStatus unchanged while metadata blocked', () async {
+    test('lifePeriodsWithoutRuntimeStatus decreases only for eligible periods',
+        () async {
       final auditBefore = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
@@ -148,11 +149,11 @@ void main() {
 
       expect(
         bundle.trace.lifePeriodsWithoutRuntimeStatus.length,
-        pipeline.lifePeriods!.periods.length,
+        pipeline.lifePeriods!.periods.length - 1,
       );
       expect(
         auditBefore.totalLifePeriodsWithoutRuntimeStatus,
-        86,
+        79,
       );
     });
 

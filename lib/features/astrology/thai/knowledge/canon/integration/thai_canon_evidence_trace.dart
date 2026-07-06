@@ -42,6 +42,9 @@ class ThaiCanonEvidenceTrace {
     this.positionMetadataMissingReasons = const [],
     this.positionMetadataEligiblePeriods = const [],
     this.positionMetadataIneligiblePeriods = const [],
+    this.lifePeriodsEligibleForRuntimeStatus = const [],
+    this.lifePeriodsIneligibleForRuntimeStatus = const [],
+    this.runtimeStatusMissingReasons = const [],
     this.lifePeriodStatusMetadataBlocker,
   });
 
@@ -160,6 +163,15 @@ class ThaiCanonEvidenceTrace {
 
   /// Periods without period context — ineligible for position resolution.
   final List<String> positionMetadataIneligiblePeriods;
+
+  /// Periods with position metadata — eligible for runtime rise/fall.
+  final List<String> lifePeriodsEligibleForRuntimeStatus;
+
+  /// Periods without position metadata — ineligible for runtime rise/fall.
+  final List<String> lifePeriodsIneligibleForRuntimeStatus;
+
+  /// Explicit missing reasons when runtime status cannot be resolved.
+  final List<String> runtimeStatusMissingReasons;
 
   /// Set when period-status metadata is blocked (e.g. engine gap — not silent).
   final String? lifePeriodStatusMetadataBlocker;

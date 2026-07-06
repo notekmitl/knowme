@@ -269,7 +269,7 @@ void main() {
 
       expect(
         statusAudit.blocker,
-        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
+        LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata,
       );
       expect(
         statusAudit.positionFeasibility.metadataBlocker,
@@ -277,7 +277,7 @@ void main() {
       );
       expect(
         statusAudit.feasibility.result,
-        LifePeriodRiseFallFeasibilityResult.needsEnginePositionMetadata,
+        LifePeriodRiseFallFeasibilityResult.partialRuntimeStatusMetadata,
       );
     });
 

@@ -58,7 +58,7 @@ void main() {
 
       expect(
         audit.blocker,
-        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
+        LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata,
       );
       expect(
         audit.positionFeasibility.result,
@@ -66,7 +66,7 @@ void main() {
       );
       expect(
         audit.feasibility.result,
-        LifePeriodRiseFallFeasibilityResult.needsEnginePositionMetadata,
+        LifePeriodRiseFallFeasibilityResult.partialRuntimeStatusMetadata,
       );
     });
 
@@ -90,7 +90,7 @@ void main() {
       );
       expect(
         bundle.trace.lifePeriodStatusMetadataBlocker,
-        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
+        LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata,
       );
       expect(bundle.trace.lifePeriodArchetypeMetadataBlocker, isNull);
     });
@@ -173,8 +173,8 @@ void main() {
     });
   });
 
-  group('Canon evidence integration (blocked metadata path)', () {
-    test('9-fixture aggregate counts unchanged', () async {
+  group('Canon evidence integration (position metadata path)', () {
+    test('9-fixture aggregate counts', () async {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
@@ -187,16 +187,16 @@ void main() {
 
       expect(
         sumTrace((t) => t.lifePeriodsWithCanonDerivedStatus),
-        52,
+        49,
       );
       expect(
         sumTrace((t) => t.lifePeriodsWithoutCanonStatusMarker),
-        34,
+        30,
       );
-      expect(audit.totalLifePeriodsWithoutRuntimeStatus, 86);
+      expect(audit.totalLifePeriodsWithoutRuntimeStatus, 79);
       expect(
         sumTrace((t) => t.lifePeriodsWithRuntimeStatus),
-        0,
+        7,
       );
     });
 

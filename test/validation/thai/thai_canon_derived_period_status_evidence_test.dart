@@ -139,7 +139,7 @@ void main() {
 
       expect(
         bundle.trace.lifePeriodStatusMetadataBlocker,
-        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
+        LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata,
       );
       expect(bundle.trace.lifePeriodsWithoutRuntimeStatus, isNotEmpty);
     });
@@ -156,7 +156,7 @@ void main() {
 
       expect(
         bundle.trace.lifePeriodsWithoutRuntimeStatus.length,
-        pipeline.lifePeriods!.periods.length,
+        lessThan(pipeline.lifePeriods!.periods.length),
       );
       expect(
         bundle.trace.lifePeriodsWithCanonDerivedStatus.length,

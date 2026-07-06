@@ -136,11 +136,7 @@ void main() {
         ),
         isEmpty,
       );
-      expect(bundle.trace.traceOnlyEvidenceCandidates, isNotEmpty);
-      expect(
-        bundle.trace.traceOnlyEvidenceCandidates.first,
-        startsWith('prediction:phase_e_rules'),
-      );
+      expect(bundle.trace.traceOnlyEvidenceCandidates, isEmpty);
     });
 
     test('lookup table evidence is not attached to report sections', () async {
