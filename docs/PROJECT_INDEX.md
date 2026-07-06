@@ -127,6 +127,7 @@ everything below links from here.
 | [`THAI_CANON_KNOWLEDGE_PRODUCTION_PHASE_G.md`](THAI_CANON_KNOWLEDGE_PRODUCTION_PHASE_G.md) | Knowledge Production **Phase G (Lookup Tables)** — D-078 lookup ontology + reference-table model; +55 atomic units + 28 reference cells (770→825). p19 remainder/chart, p20 placement grid, pp.23–27 birth-date rows. Closed at OCR + p19 remainder-6 gap | Devs, reviewers, leads, AI | **CLOSED (Phase G)** | D-073, D-078 |
 | [`THAI_MAHABHUT_CANON_FINAL_AUDIT.md`](THAI_MAHABHUT_CANON_FINAL_AUDIT.md) | **Phase H Final Audit** — verified 825 atomic + 28 reference cells; 114 OCR-blocked; 287 tests green. **Recommendation: READY_FOR_PHASE_I_FREEZE** | Devs, reviewers, leads, AI | **CLOSED (Phase H)** | D-073 |
 | [`THAI_MAHABHUT_CANON_FREEZE.md`](THAI_MAHABHUT_CANON_FREEZE.md) | **Phase I Mahabhut Canon Freeze** — official freeze record. **825 atomic + 28 reference cells = 853 extracted**; **Mahabhut Canon Complete** frozen at `foundation_v1.knowme.json` | Devs, reviewers, leads, AI | **FROZEN (Phase I complete)** | D-073, FINAL_AUDIT |
+| [`THAI_INTERNAL_EVIDENCE_REVIEW_FREEZE.md`](THAI_INTERNAL_EVIDENCE_REVIEW_FREEZE.md) | **Thai Internal Canon Evidence Review Stack — FROZEN** — internal-only Canon evidence QA baseline (mapping layer → report enrichment → review panel → alignment QA → precision pass → period/remainder/archetype/position/rise-fall metadata → badge prototype → QA pass); route `/internal/thai-canon-evidence`; 590/590 thai tests; 0 badge mismatches; 0 provenance gaps; 5,470 evidence refs; remedies hidden; public output unchanged; **no public evidence display authorized** | Devs, reviewers, leads, AI | **FROZEN (internal evidence stack)** | THAI_INTERNAL_EVIDENCE_QA_PASS, THAI_INTERNAL_EVIDENCE_BADGE_PROTOTYPE, THAI_MAHABHUT_CANON_FREEZE, DECISION_LOG |
 
 ---
 
@@ -153,6 +154,9 @@ everything below links from here.
 | [`THAI_GOLDEN_CASE_EXPANSION_V1.md`](THAI_GOLDEN_CASE_EXPANSION_V1.md) | Golden cases 5→20 sprint | HISTORICAL | Chart-validation record |
 | [`THAI_LUNAR_CALENDAR_INFRASTRUCTURE_V1.md`](THAI_LUNAR_CALENDAR_INFRASTRUCTURE_V1.md) | Lunar lookup infrastructure | HISTORICAL | Infra record; coverage still limited |
 | [`THAI_LUNAR_DATASET_ACQUISITION_V1.md`](THAI_LUNAR_DATASET_ACQUISITION_V1.md) | Plan to license/import lunar dataset | HISTORICAL (active plan) | License-blocked; still the plan of record |
+| [`THAI_INTERNAL_EVIDENCE_REVIEW_FREEZE.md`](THAI_INTERNAL_EVIDENCE_REVIEW_FREEZE.md) | **Thai Internal Canon Evidence Review Stack — FROZEN** | **FROZEN** | Internal-only; `/internal/thai-canon-evidence`; no public evidence display |
+| [`THAI_INTERNAL_EVIDENCE_QA_PASS.md`](THAI_INTERNAL_EVIDENCE_QA_PASS.md) | Internal Evidence QA Pass record | HISTORICAL (frozen baseline) | 9 fixtures; 0 mismatches |
+| [`THAI_INTERNAL_EVIDENCE_BADGE_PROTOTYPE.md`](THAI_INTERNAL_EVIDENCE_BADGE_PROTOTYPE.md) | Internal evidence badge prototype | HISTORICAL (frozen baseline) | 10 badge categories |
 
 ---
 
