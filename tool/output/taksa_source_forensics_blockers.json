@@ -1,0 +1,51 @@
+{
+  "$note": "Taksa rotation forensics blockers — documentation only.",
+  "finalClassification": "READY_FOR_POST_FREEZE_PATCH_TAKSA_ROTATION",
+  "recommendedNextPhase": "Taksa Evidence Attachment",
+  "postFreezePatchNote": "Monday rotation (8 assignments) patch-ready. Sunday partial (7/8) requires human review for digit-2 cell before patch. No Canon edit in this commit.",
+  "weekdayResults": {
+    "sunday": {
+      "classification": "RECOVERED_PARTIAL",
+      "blocker": "LAYOUT_BLOCKED — grid digit 2 (planet.moon → อายุ) cell empty on p38 image",
+      "ocrStatus": "OCR_BLOCKED for planet names in Sunday table header row"
+    },
+    "monday": {
+      "classification": "RECOVERED_COMPLETE",
+      "blocker": null,
+      "ocrStatus": "OCR_PARTIAL — role grid readable on image; OCR text garbled"
+    },
+    "tuesday": {
+      "classification": "RECOVERED_COMPLETE",
+      "verification": "CONFIRMED against frozen Canon — no SOURCE_FORENSICS_PATCH_REQUIRED",
+      "blocker": null
+    },
+    "wednesdayDaytime": {
+      "classification": "NOT_IN_SOURCE",
+      "blocker": "BLOCKED_BY_SOURCE_GAP — no พุธกลางวัน rotation table in source"
+    },
+    "wednesdayNightRahu": {
+      "classification": "NOT_IN_SOURCE",
+      "blocker": "BLOCKED_BY_SOURCE_GAP — source does not distinguish Wednesday night birth case"
+    },
+    "thursday": {
+      "classification": "NOT_IN_SOURCE",
+      "blocker": "BLOCKED_BY_SOURCE_GAP"
+    },
+    "friday": {
+      "classification": "NOT_IN_SOURCE",
+      "blocker": "BLOCKED_BY_SOURCE_GAP"
+    },
+    "saturday": {
+      "classification": "NOT_IN_SOURCE",
+      "blocker": "BLOCKED_BY_SOURCE_GAP"
+    }
+  },
+  "pagesReviewed": [
+    { "pdfPageIndex": 37, "bookPrintedPage": "22", "section": "มหาทักษา intro + planet-position legend", "rotationRelevance": "digit→planet legend for p38 grids" },
+    { "pdfPageIndex": 38, "bookPrintedPage": "23", "section": "มหาทักษา rotation tables + rule", "rotationRelevance": "primary" },
+    { "pdfPageIndex": 39, "bookPrintedPage": "24", "section": "ความหมายของแต่ละภูมิ", "rotationRelevance": "role meanings only — no rotation" },
+    { "pdfPageIndex": 40, "bookPrintedPage": "25", "section": "หลักการทำนาย", "rotationRelevance": "prediction rules — Phase E deferred" },
+    { "pdfPageIndex": 41, "bookPrintedPage": "26", "section": "หลักการทำนาย (continued)", "rotationRelevance": "prediction rules — no rotation" }
+  ],
+  "publicOutputUnchanged": true
+}

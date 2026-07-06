@@ -1,0 +1,292 @@
+{
+  "$note": "Forensics-only recovered Taksa rotation lines. Not Canon import. Source: D:/MahabhutOCR/pages/page_038.png manual image review + page_037.txt planet-position legend + page_038.txt OCR cross-check. PDF/OCR index = Canon evidence page field.",
+  "planetDigitLegend": {
+    "sourcePage": "37",
+    "sourceLines": [
+      "มหาทักษา ก็คือ บริวาร อายุ เดช ศรี มูละ อุตสาหะ มนตรี กาฬกิณี ซึ่งหมุนไปตามดาว (ศิววัตถุนั้นได้แก่) อาทิตย์ จันทร์ อังคาร พุธ เสาร์ พฤหัส ราห และศุกร์ ตามลำดับตำแหน่งนั้นเอง",
+      "อาทิตย์ ครองทิศตะวันออกเฉียงเหนือ",
+      "จันทร์ ครองทิศตะวันออก",
+      "อังคาร ครองทิศตะวันออกเฉียงใต้",
+      "พุธ ครองทิศใต้",
+      "พฤหัส ครองทิศตะวันตก",
+      "ศุกร์ ครองทิศเหนือ",
+      "เสาร์ ครองทิศตะวันตกเฉียงใต้",
+      "ราห ครองทิศตะวันตกเฉียงเหนือ"
+    ],
+    "digitToPlanet": {
+      "1": "planet.sun",
+      "2": "planet.moon",
+      "3": "planet.mars",
+      "4": "planet.mercury",
+      "5": "planet.jupiter",
+      "6": "planet.venus",
+      "7": "planet.saturn",
+      "8": "planet.rahu"
+    },
+    "confidence": "deterministic"
+  },
+  "rotationRuleProse": {
+    "sourcePage": "38",
+    "recoveredText": "การนับให้นับเวียนขวา : สำหรับวันที่เหลือถ้าเกิดวันใด ก็ให้เริ่มต้นนับวันนั้นเป็นบริวาร ต่อไปก็เป็นอายุ เดช จนถึงกาลกิณี เช่นเกิดวันอังคาร ก็นับอังคารเป็นบริวาร พุธเป็นอายุ เสาร์เป็นเดช พฤหัสเป็นศรี ราหูเป็นมูละ ศุกร์เป็นอุตสาหะ อาทิตย์เป็นมนตรี จันทร์เป็นกาลกิณี",
+    "confidence": "deterministic"
+  },
+  "recoveredLines": [
+    {
+      "lineId": "p38.sunday.grid.1",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันอาทิตย์",
+      "gridDigit": "1",
+      "planetCanonId": "planet.sun",
+      "taksaRoleLabel": "บริวาร",
+      "taksaRoleCanonId": "taksaRole.boriwan",
+      "recoveredText": "๑ บริวาร",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.sunday.grid.3",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันอาทิตย์",
+      "gridDigit": "3",
+      "planetCanonId": "planet.mars",
+      "taksaRoleLabel": "เดช",
+      "taksaRoleCanonId": "taksaRole.det",
+      "recoveredText": "๓ เดช",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.sunday.grid.6",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันอาทิตย์",
+      "gridDigit": "6",
+      "planetCanonId": "planet.venus",
+      "taksaRoleLabel": "กาฬกิณี",
+      "taksaRoleCanonId": "taksaRole.kalakini",
+      "recoveredText": "๖ กาฬกิณี",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.sunday.grid.4",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันอาทิตย์",
+      "gridDigit": "4",
+      "planetCanonId": "planet.mercury",
+      "taksaRoleLabel": "ศรี",
+      "taksaRoleCanonId": "taksaRole.sri",
+      "recoveredText": "๔ ศรี",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.sunday.grid.8",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันอาทิตย์",
+      "gridDigit": "8",
+      "planetCanonId": "planet.rahu",
+      "taksaRoleLabel": "มนตรี",
+      "taksaRoleCanonId": "taksaRole.montri",
+      "recoveredText": "๘ มนตรี",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.sunday.grid.5",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันอาทิตย์",
+      "gridDigit": "5",
+      "planetCanonId": "planet.jupiter",
+      "taksaRoleLabel": "อุตสาหะ",
+      "taksaRoleCanonId": "taksaRole.utsaha",
+      "recoveredText": "๕ อุตสาหะ",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.sunday.grid.7",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันอาทิตย์",
+      "gridDigit": "7",
+      "planetCanonId": "planet.saturn",
+      "taksaRoleLabel": "มูละ",
+      "taksaRoleCanonId": "taksaRole.mula",
+      "recoveredText": "๗ มูละ",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.sunday.grid.2.missing",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันอาทิตย์",
+      "gridDigit": "2",
+      "planetCanonId": "planet.moon",
+      "taksaRoleLabel": "[unclear]",
+      "taksaRoleCanonId": null,
+      "recoveredText": "top-center grid cell empty on page image; expected role slot อายุ not visible",
+      "confidence": "blocked",
+      "blockerReason": "LAYOUT_BLOCKED"
+    },
+    {
+      "lineId": "p38.monday.grid.1",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันจันทร์",
+      "gridDigit": "1",
+      "planetCanonId": "planet.sun",
+      "taksaRoleLabel": "กาฬกิณี",
+      "taksaRoleCanonId": "taksaRole.kalakini",
+      "recoveredText": "๑ กาฬกิณี",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.monday.grid.2",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันจันทร์",
+      "gridDigit": "2",
+      "planetCanonId": "planet.moon",
+      "taksaRoleLabel": "บริวาร",
+      "taksaRoleCanonId": "taksaRole.boriwan",
+      "recoveredText": "๒ บริวาร",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.monday.grid.3",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันจันทร์",
+      "gridDigit": "3",
+      "planetCanonId": "planet.mars",
+      "taksaRoleLabel": "อายุ",
+      "taksaRoleCanonId": "taksaRole.ayu",
+      "recoveredText": "๓ อายุ",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.monday.grid.6",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันจันทร์",
+      "gridDigit": "6",
+      "planetCanonId": "planet.venus",
+      "taksaRoleLabel": "มนตรี",
+      "taksaRoleCanonId": "taksaRole.montri",
+      "recoveredText": "๖ มนตรี",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.monday.grid.4",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันจันทร์",
+      "gridDigit": "4",
+      "planetCanonId": "planet.mercury",
+      "taksaRoleLabel": "เดช",
+      "taksaRoleCanonId": "taksaRole.det",
+      "recoveredText": "๔ เดช",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.monday.grid.8",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันจันทร์",
+      "gridDigit": "8",
+      "planetCanonId": "planet.rahu",
+      "taksaRoleLabel": "อุตสาหะ",
+      "taksaRoleCanonId": "taksaRole.utsaha",
+      "recoveredText": "๘ อุตสาหะ",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.monday.grid.5",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันจันทร์",
+      "gridDigit": "5",
+      "planetCanonId": "planet.jupiter",
+      "taksaRoleLabel": "มูละ",
+      "taksaRoleCanonId": "taksaRole.mula",
+      "recoveredText": "๕ มูละ",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.monday.grid.7",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันจันทร์",
+      "gridDigit": "7",
+      "planetCanonId": "planet.saturn",
+      "taksaRoleLabel": "ศรี",
+      "taksaRoleCanonId": "taksaRole.sri",
+      "recoveredText": "๗ ศรี",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.tuesday.example.mars",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันอังคาร",
+      "planetCanonId": "planet.mars",
+      "taksaRoleLabel": "บริวาร",
+      "taksaRoleCanonId": "taksaRole.boriwan",
+      "recoveredText": "อังคารเป็นบริวาร",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.tuesday.example.mercury",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันอังคาร",
+      "planetCanonId": "planet.mercury",
+      "taksaRoleLabel": "อายุ",
+      "taksaRoleCanonId": "taksaRole.ayu",
+      "recoveredText": "พุธเป็นอายุ",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.tuesday.example.saturn",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันอังคาร",
+      "planetCanonId": "planet.saturn",
+      "taksaRoleLabel": "เดช",
+      "taksaRoleCanonId": "taksaRole.det",
+      "recoveredText": "เสาร์เป็นเดช",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.tuesday.example.jupiter",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันอังคาร",
+      "planetCanonId": "planet.jupiter",
+      "taksaRoleLabel": "ศรี",
+      "taksaRoleCanonId": "taksaRole.sri",
+      "recoveredText": "พฤหัสเป็นศรี",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.tuesday.example.rahu",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันอังคาร",
+      "planetCanonId": "planet.rahu",
+      "taksaRoleLabel": "มูละ",
+      "taksaRoleCanonId": "taksaRole.mula",
+      "recoveredText": "ราหเป็นมูละ",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.tuesday.example.venus",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันอังคาร",
+      "planetCanonId": "planet.venus",
+      "taksaRoleLabel": "อุตสาหะ",
+      "taksaRoleCanonId": "taksaRole.utsaha",
+      "recoveredText": "ศุกร์เป็นอุตสาหะ",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.tuesday.example.sun",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันอังคาร",
+      "planetCanonId": "planet.sun",
+      "taksaRoleLabel": "มนตรี",
+      "taksaRoleCanonId": "taksaRole.montri",
+      "recoveredText": "อาทิตย์เป็นมนตรี",
+      "confidence": "deterministic"
+    },
+    {
+      "lineId": "p38.tuesday.example.moon",
+      "page": "38",
+      "weekdayCase": "คนเกิดวันอังคาร",
+      "planetCanonId": "planet.moon",
+      "taksaRoleLabel": "กาฬกิณี",
+      "taksaRoleCanonId": "taksaRole.kalakini",
+      "recoveredText": "จันทร์เป็นกาฬกิณี",
+      "confidence": "deterministic"
+    }
+  ]
+}

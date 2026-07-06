@@ -1,0 +1,88 @@
+{
+  "$note": "Forensics rotation candidates only — not Canon import. Requires explicit post-freeze patch approval before foundation_v1.knowme.json edit.",
+  "candidates": [
+    {
+      "weekdayCase": "คนเกิดวันอาทิตย์",
+      "birthWeekdayNumber": 1,
+      "classification": "RECOVERED_PARTIAL",
+      "assignmentCount": 7,
+      "missingAssignmentCount": 1,
+      "missingSlots": [
+        {
+          "gridDigit": "2",
+          "planetCanonId": "planet.moon",
+          "reason": "LAYOUT_BLOCKED — top-center cell empty on p38 image"
+        }
+      ],
+      "assignments": [
+        { "planetCanonId": "planet.sun", "taksaRoleCanonId": "taksaRole.boriwan", "sourcePage": "38", "source": "source_forensics_patch" },
+        { "planetCanonId": "planet.mars", "taksaRoleCanonId": "taksaRole.det", "sourcePage": "38", "source": "source_forensics_patch" },
+        { "planetCanonId": "planet.venus", "taksaRoleCanonId": "taksaRole.kalakini", "sourcePage": "38", "source": "source_forensics_patch" },
+        { "planetCanonId": "planet.mercury", "taksaRoleCanonId": "taksaRole.sri", "sourcePage": "38", "source": "source_forensics_patch" },
+        { "planetCanonId": "planet.rahu", "taksaRoleCanonId": "taksaRole.montri", "sourcePage": "38", "source": "source_forensics_patch" },
+        { "planetCanonId": "planet.jupiter", "taksaRoleCanonId": "taksaRole.utsaha", "sourcePage": "38", "source": "source_forensics_patch" },
+        { "planetCanonId": "planet.saturn", "taksaRoleCanonId": "taksaRole.mula", "sourcePage": "38", "source": "source_forensics_patch" }
+      ],
+      "confidence": "deterministic",
+      "patchReady": false,
+      "patchBlocker": "NEEDS_MANUAL_HUMAN_REVIEW — moon→อายุ slot missing on source image"
+    },
+    {
+      "weekdayCase": "คนเกิดวันจันทร์",
+      "birthWeekdayNumber": 2,
+      "classification": "RECOVERED_COMPLETE",
+      "assignmentCount": 8,
+      "assignments": [
+        { "planetCanonId": "planet.sun", "taksaRoleCanonId": "taksaRole.kalakini", "sourcePage": "38", "source": "source_forensics_patch" },
+        { "planetCanonId": "planet.moon", "taksaRoleCanonId": "taksaRole.boriwan", "sourcePage": "38", "source": "source_forensics_patch" },
+        { "planetCanonId": "planet.mars", "taksaRoleCanonId": "taksaRole.ayu", "sourcePage": "38", "source": "source_forensics_patch" },
+        { "planetCanonId": "planet.venus", "taksaRoleCanonId": "taksaRole.montri", "sourcePage": "38", "source": "source_forensics_patch" },
+        { "planetCanonId": "planet.mercury", "taksaRoleCanonId": "taksaRole.det", "sourcePage": "38", "source": "source_forensics_patch" },
+        { "planetCanonId": "planet.rahu", "taksaRoleCanonId": "taksaRole.utsaha", "sourcePage": "38", "source": "source_forensics_patch" },
+        { "planetCanonId": "planet.jupiter", "taksaRoleCanonId": "taksaRole.mula", "sourcePage": "38", "source": "source_forensics_patch" },
+        { "planetCanonId": "planet.saturn", "taksaRoleCanonId": "taksaRole.sri", "sourcePage": "38", "source": "source_forensics_patch" }
+      ],
+      "confidence": "deterministic",
+      "patchReady": true
+    },
+    {
+      "weekdayCase": "คนเกิดวันอังคาร",
+      "birthWeekdayNumber": 3,
+      "classification": "RECOVERED_COMPLETE",
+      "assignmentCount": 8,
+      "alreadyInCanon": true,
+      "canonUnitPrefix": "mahabhut.p38.",
+      "tuesdayVerification": "CONFIRMED — all 8 match frozen Canon",
+      "patchReady": false
+    }
+  ],
+  "notRecoveredWeekdayCases": [
+    {
+      "weekdayCase": "คนเกิดวันพุธกลางวัน",
+      "classification": "NOT_IN_SOURCE",
+      "searchResult": "zero OCR hits for พุธกลางวัน / กลางวัน in Mahabhut OCR corpus"
+    },
+    {
+      "weekdayCase": "คนเกิดวันพุธกลางคืน / ราหู",
+      "classification": "NOT_IN_SOURCE",
+      "searchResult": "zero OCR hits for พุธกลางคืน; ราหู appears in Tuesday example sequence only, not as separate birth-weekday case"
+    },
+    {
+      "weekdayCase": "คนเกิดวันพุธ",
+      "classification": "NOT_IN_SOURCE",
+      "searchResult": "no p38 rotation table; only general clockwise rule prose for remaining weekdays"
+    },
+    {
+      "weekdayCase": "คนเกิดวันพฤหัสบดี",
+      "classification": "NOT_IN_SOURCE"
+    },
+    {
+      "weekdayCase": "คนเกิดวันศุกร์",
+      "classification": "NOT_IN_SOURCE"
+    },
+    {
+      "weekdayCase": "คนเกิดวันเสาร์",
+      "classification": "NOT_IN_SOURCE"
+    }
+  ]
+}
