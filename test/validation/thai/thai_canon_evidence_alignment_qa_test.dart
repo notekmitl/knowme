@@ -90,9 +90,14 @@ void main() {
       expect(audit.totalSkippedRemedyCount, 87 * audit.fixtureResults.length);
     });
 
-    test('Taksa unmapped evidence is reported', () {
+    test('Taksa evidence is trace-only with mapped role keys', () {
       for (final result in audit.fixtureResults) {
         expect(result.bundle.trace.skippedTaksaEvidenceCount, greaterThan(0));
+        expect(result.bundle.trace.taksaRolesMapped.length, 8);
+        expect(
+          result.bundle.trace.taksaSkippedReason,
+          TaksaRuntimeSkippedReason.noRuntimeTaksaSignal,
+        );
         expect(
           result.records.any(
             (r) =>
@@ -105,7 +110,7 @@ void main() {
           result.bundle.trace.unmappedCanonEvidenceCandidates.any(
             (id) => id.startsWith('taksaRole.'),
           ),
-          isTrue,
+          isFalse,
         );
       }
     });

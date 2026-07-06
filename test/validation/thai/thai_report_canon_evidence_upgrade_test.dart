@@ -136,7 +136,12 @@ void main() {
         ),
         isEmpty,
       );
-      expect(bundle.trace.traceOnlyEvidenceCandidates, isEmpty);
+      expect(
+        bundle.trace.traceOnlyEvidenceCandidates.every(
+          (c) => c.startsWith('taksa:trace_only'),
+        ),
+        isTrue,
+      );
     });
 
     test('lookup table evidence is not attached to report sections', () async {
@@ -210,6 +215,8 @@ void main() {
       );
 
       expect(bundle.trace.skippedTaksaEvidenceCount, greaterThan(0));
+      expect(bundle.trace.taksaRolesMapped.length, 8);
+      expect(bundle.trace.taksaSkippedReason, TaksaRuntimeSkippedReason.noRuntimeTaksaSignal);
       expect(bundle.trace.skippedPeriodStatusNotes, isEmpty);
       expect(
         bundle.trace.lifePeriodsWithoutRuntimeStatus,
@@ -223,7 +230,7 @@ void main() {
         bundle.trace.unmappedCanonEvidenceCandidates.any(
           (id) => id.startsWith('taksaRole.'),
         ),
-        isTrue,
+        isFalse,
       );
       expect(
         bundle.trace.unmappedCanonEvidenceCandidates.any(

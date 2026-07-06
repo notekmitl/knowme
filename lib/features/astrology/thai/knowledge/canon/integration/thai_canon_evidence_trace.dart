@@ -9,6 +9,12 @@ class ThaiCanonEvidenceTrace {
     this.unmappedCanonEvidenceCandidates = const [],
     this.skippedRemedyEvidenceCount = 0,
     this.skippedTaksaEvidenceCount = 0,
+    this.taksaRolesMapped = const [],
+    this.taksaCanonUnitsAvailable = 0,
+    this.taksaEvidenceAttachedCount = 0,
+    this.taksaEvidenceTraceOnlyCount = 0,
+    this.taksaSkippedReason,
+    this.taksaFeasibilityResult,
     this.skippedLookupTableEvidenceCount = 0,
     this.skippedPeriodStatusNotes = const [],
     this.lifePeriodsWithoutRuntimeStatus = const [],
@@ -87,6 +93,12 @@ class ThaiCanonEvidenceTrace {
 
   final int skippedRemedyEvidenceCount;
   final int skippedTaksaEvidenceCount;
+  final List<String> taksaRolesMapped;
+  final int taksaCanonUnitsAvailable;
+  final int taksaEvidenceAttachedCount;
+  final int taksaEvidenceTraceOnlyCount;
+  final String? taksaSkippedReason;
+  final String? taksaFeasibilityResult;
   final int skippedLookupTableEvidenceCount;
   final List<String> skippedPeriodStatusNotes;
 

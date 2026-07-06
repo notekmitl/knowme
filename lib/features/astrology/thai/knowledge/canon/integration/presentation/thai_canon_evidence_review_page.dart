@@ -213,8 +213,12 @@ class _CoverageCards extends StatelessWidget {
           highlight: true,
         ),
         _CoverageChip(
-          label: 'Taksa skipped',
-          value: '${summary.taksaSkippedCount}',
+          label: 'Taksa trace-only',
+          value: '${summary.taksaEvidenceTraceOnlyCount}',
+        ),
+        _CoverageChip(
+          label: 'Taksa roles mapped',
+          value: '${summary.taksaRolesMappedCount}',
         ),
         _CoverageChip(
           label: 'Unmapped candidates',
@@ -470,9 +474,17 @@ class _TracePanel extends StatelessWidget {
               '${trace.skippedRemedyEvidenceCount} units (count only — not advice)',
             ),
             Text(
-              'Taksa skipped: ${trace.skippedTaksaEvidenceCount} '
+              'Taksa mapping (internal): '
+              '${trace.taksaRolesMapped.length} roles mapped / '
+              '${trace.taksaCanonUnitsAvailable} Canon units / '
+              '${trace.taksaEvidenceAttachedCount} attached / '
+              '${trace.taksaEvidenceTraceOnlyCount} trace-only '
               '[${ThaiInternalEvidenceBadgeCategory.internalOnly.wire}]',
             ),
+            if (trace.taksaSkippedReason != null)
+              Text('Taksa skipped reason: ${trace.taksaSkippedReason}'),
+            if (trace.taksaFeasibilityResult != null)
+              Text('Taksa feasibility: ${trace.taksaFeasibilityResult}'),
             const SizedBox(height: 8),
             Text('QA blockers (internal)', style: theme.textTheme.labelLarge),
             const SizedBox(height: 4),

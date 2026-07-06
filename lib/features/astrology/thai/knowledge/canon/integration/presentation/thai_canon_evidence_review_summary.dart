@@ -15,6 +15,11 @@ class ThaiCanonEvidenceReviewSummary {
     required this.predictionRuleAttachmentCount,
     required this.remedySkippedCount,
     required this.taksaSkippedCount,
+    required this.taksaRolesMappedCount,
+    required this.taksaCanonUnitsAvailable,
+    required this.taksaEvidenceAttachedCount,
+    required this.taksaEvidenceTraceOnlyCount,
+    required this.taksaSkippedReason,
     required this.unmappedCandidateCount,
     required this.signalsWithoutEvidenceCount,
     required this.badgeSummary,
@@ -67,6 +72,11 @@ class ThaiCanonEvidenceReviewSummary {
           byType[ThaiCanonEvidenceType.predictionRule] ?? 0,
       remedySkippedCount: trace.skippedRemedyEvidenceCount,
       taksaSkippedCount: trace.skippedTaksaEvidenceCount,
+      taksaRolesMappedCount: trace.taksaRolesMapped.length,
+      taksaCanonUnitsAvailable: trace.taksaCanonUnitsAvailable,
+      taksaEvidenceAttachedCount: trace.taksaEvidenceAttachedCount,
+      taksaEvidenceTraceOnlyCount: trace.taksaEvidenceTraceOnlyCount,
+      taksaSkippedReason: trace.taksaSkippedReason ?? '',
       unmappedCandidateCount: trace.unmappedCanonEvidenceCandidates.length,
       signalsWithoutEvidenceCount: trace.signalsWithoutCanonEvidence.length,
       badgeSummary: ThaiInternalEvidenceBadgeSummary.fromBundle(bundle),
@@ -87,6 +97,11 @@ class ThaiCanonEvidenceReviewSummary {
   final int predictionRuleAttachmentCount;
   final int remedySkippedCount;
   final int taksaSkippedCount;
+  final int taksaRolesMappedCount;
+  final int taksaCanonUnitsAvailable;
+  final int taksaEvidenceAttachedCount;
+  final int taksaEvidenceTraceOnlyCount;
+  final String taksaSkippedReason;
   final int unmappedCandidateCount;
   final int signalsWithoutEvidenceCount;
   final ThaiInternalEvidenceBadgeSummary badgeSummary;

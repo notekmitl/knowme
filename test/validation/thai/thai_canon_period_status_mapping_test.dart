@@ -243,7 +243,7 @@ void main() {
       );
     });
 
-    test('Taksa roles remain unmapped in this phase', () async {
+    test('Taksa roles are mapped internally; evidence stays trace-only', () async {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
@@ -251,11 +251,13 @@ void main() {
         pipeline,
         repository: repository,
       );
+      expect(bundle.trace.taksaRolesMapped.length, 8);
+      expect(bundle.trace.taksaSkippedReason, TaksaRuntimeSkippedReason.noRuntimeTaksaSignal);
       expect(
         bundle.trace.unmappedCanonEvidenceCandidates.any(
           (id) => id.startsWith('taksaRole.'),
         ),
-        isTrue,
+        isFalse,
       );
       expect(
         bundle.attachments.where(

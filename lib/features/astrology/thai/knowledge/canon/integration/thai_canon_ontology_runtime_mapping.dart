@@ -6,12 +6,14 @@ import 'package:knowme/features/astrology/thai/knowledge/canon/ontology/canonica
 import 'package:knowme/features/astrology/thai/knowledge/canon/ontology/ontology_category.dart';
 
 import 'thai_canon_period_status_runtime_mapping.dart';
+import 'thai_canon_taksa_role_runtime_mapping.dart';
 
 /// How a Canon ontology entity maps to an existing runtime identifier.
 enum ThaiCanonRuntimeKeyKind {
   lifePlanet,
   thaiContentKey,
   periodStatusLabel,
+  taksaRole,
 }
 
 /// One Canon entity → runtime key pairing (or explicit absence).
@@ -140,16 +142,9 @@ abstract final class ThaiCanonOntologyRuntimeMapping {
     return entries;
   }
 
-  /// Taksa roles — no dedicated runtime keys in the Thai engine today.
+  /// Taksa roles — internal metadata keys only (not report copy).
   static List<ThaiCanonRuntimeMappingEntry> taksaRoleMappings() =>
-      CanonOntologyData.taksaRoles
-          .map(
-            (e) => ThaiCanonRuntimeMappingEntry.unmapped(
-              canonEntityId: e.id,
-              note: 'No runtime Taksa role key',
-            ),
-          )
-          .toList(growable: false);
+      ThaiCanonTaksaRoleRuntimeMapping.runtimeMappings();
 
   /// Period rise/fall — exact Thai report labels only.
   static List<ThaiCanonRuntimeMappingEntry> periodStatusMappings() =>
@@ -191,6 +186,10 @@ abstract final class ThaiCanonOntologyRuntimeMapping {
     if (ThaiCanonPeriodStatusRuntimeMapping.runtimeLabelForCanonId(
           canonEntityId,
         ) !=
+        null) {
+      return true;
+    }
+    if (ThaiCanonTaksaRoleRuntimeMapping.runtimeKeyForCanonId(canonEntityId) !=
         null) {
       return true;
     }

@@ -17,7 +17,10 @@ import 'thai_canon_ontology_runtime_mapping.dart';
 import 'thai_canon_period_status_discovery.dart';
 import 'thai_canon_period_status_from_evidence.dart';
 import 'thai_canon_period_status_runtime_mapping.dart';
+import 'thai_canon_taksa_role_runtime_mapping.dart';
 import 'thai_mirror_canon_evidence_bundle.dart';
+import 'thai_taksa_role_runtime_key.dart';
+import 'thai_taksa_role_runtime_metadata.dart';
 
 /// Attaches frozen Canon evidence to Thai Mirror pipeline output without
 /// mutating user-facing report structures.
@@ -474,9 +477,50 @@ abstract final class ThaiReportCanonEvidenceEnricher {
         );
       }
     }
-    for (final entry in ThaiCanonOntologyRuntimeMapping.taksaRoleMappings()) {
-      if (!entry.isMapped) {
-        canonCandidates.add(entry.canonEntityId);
+    final taksaFeasibilityAudit =
+        ThaiTaksaRoleRuntimeMetadataFeasibilityAudit.audit(
+      pipeline: pipelineResult,
+    );
+    final discoveredTaksaRoleKeys =
+        ThaiTaksaRoleRuntimeSignalDiscovery.discoverRuntimeTaksaRoleKeys(
+      pipeline: pipelineResult,
+    );
+    final taksaRolesMapped = ThaiCanonTaksaRoleRuntimeMapping.runtimeMappings()
+        .where((m) => m.isMapped)
+        .map((m) => m.canonEntityId)
+        .toList(growable: false);
+    final taksaCanonUnits = repo.index.units
+        .where(
+          (u) => ThaiCanonTaksaRoleRuntimeMapping.unitReferencesTaksaRole(
+            subject: u.subject,
+            object: u.object,
+          ),
+        )
+        .toList(growable: false);
+    var taksaEvidenceAttachedCount = 0;
+    final taksaEvidenceTraceOnlyCount = taksaCanonUnits.length;
+    String? taksaSkippedReason;
+    if (discoveredTaksaRoleKeys.isEmpty && taksaCanonUnits.isNotEmpty) {
+      taksaSkippedReason = TaksaRuntimeSkippedReason.noRuntimeTaksaSignal;
+      traceOnlyCandidates.add(
+        'taksa:trace_only (${taksaCanonUnits.length} Canon units; '
+        '$taksaSkippedReason)',
+      );
+    } else if (discoveredTaksaRoleKeys.isNotEmpty) {
+      for (final roleKey in discoveredTaksaRoleKeys) {
+        final refs = mapper.evidenceForTaksaRole(roleKey);
+        if (refs.isEmpty) continue;
+        taksaEvidenceAttachedCount += refs.length;
+        attachments.add(
+          ThaiCanonEvidenceAttachment(
+            sectionId: 'taksaInternal',
+            signalId: 'taksaRole:$roleKey',
+            evidenceType: ThaiCanonEvidenceType.taksa,
+            evidenceRefs: refs,
+            matchQuality: ThaiCanonEvidenceMatchQuality.structural,
+            userFacingAllowed: false,
+          ),
+        );
       }
     }
     if (ThaiCanonOntologyRuntimeMapping.runtimePlanetKey('planet.ketu') == null) {
@@ -496,9 +540,13 @@ abstract final class ThaiReportCanonEvidenceEnricher {
       runtimeKeysWithoutCanonMapping: _sortedUnique(runtimeUnmapped),
       unmappedCanonEvidenceCandidates: _sortedUnique(canonCandidates),
       skippedRemedyEvidenceCount: mapper.evidenceForRemedyDomain().length,
-      skippedTaksaEvidenceCount: repo.index.units
-          .where((u) => u.object.startsWith('taksaRole.'))
-          .length,
+      skippedTaksaEvidenceCount: taksaEvidenceTraceOnlyCount,
+      taksaRolesMapped: _sortedUnique(taksaRolesMapped),
+      taksaCanonUnitsAvailable: taksaCanonUnits.length,
+      taksaEvidenceAttachedCount: taksaEvidenceAttachedCount,
+      taksaEvidenceTraceOnlyCount: taksaEvidenceTraceOnlyCount,
+      taksaSkippedReason: taksaSkippedReason,
+      taksaFeasibilityResult: taksaFeasibilityAudit.result.wire,
       skippedLookupTableEvidenceCount: lookupCount,
       skippedPeriodStatusNotes: const [],
       lifePeriodsWithoutRuntimeStatus:

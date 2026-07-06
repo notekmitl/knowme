@@ -3,6 +3,7 @@ import '../thai_canon_evidence_signal_scope.dart';
 import '../thai_canon_evidence_type.dart';
 import '../thai_canon_ontology_runtime_mapping.dart';
 import '../thai_canon_period_status_runtime_mapping.dart';
+import '../thai_taksa_role_runtime_key.dart';
 import '../thai_mirror_canon_evidence_bundle.dart';
 import 'thai_canon_evidence_alignment_classification.dart';
 
@@ -66,6 +67,8 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
       );
     }
     if (trace.skippedTaksaEvidenceCount > 0) {
+      final reason = trace.taksaSkippedReason ??
+          TaksaRuntimeSkippedReason.noRuntimeTaksaSignal;
       records.add(
         ThaiCanonEvidenceAlignmentRecord(
           fixtureId: fixtureId,
@@ -73,7 +76,8 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
           classification: ThaiCanonEvidenceAlignmentClassification.skippedTaksa,
           reason:
               '${trace.skippedTaksaEvidenceCount} Taksa units in Canon; '
-              'runtime lacks deterministic Taksa keys',
+              '$reason — ${trace.taksaRolesMapped.length} role keys mapped '
+              'internally, trace-only',
         ),
       );
     }
@@ -348,7 +352,7 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
         ),
       ThaiCanonEvidenceType.taksa => (
           ThaiCanonEvidenceAlignmentClassification.skippedTaksa,
-          'Taksa evidence not wired to report signals',
+          'Taksa evidence trace-only — ${TaksaRuntimeSkippedReason.noRuntimeTaksaSignal}',
         ),
       ThaiCanonEvidenceType.remedyInternal => (
           ThaiCanonEvidenceAlignmentClassification.skippedRemedy,

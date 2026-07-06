@@ -163,7 +163,7 @@ void main() {
 
     test('unmapped Canon entities are reported, not ignored', () {
       final unmapped = repository.unmappedCanonEntityIds;
-      expect(unmapped, contains('taksaRole.sri'));
+      expect(unmapped, isNot(contains('taksaRole.sri')));
       expect(unmapped, isNot(contains('periodStatus.duengKhuen')));
       expect(unmapped, isNot(contains('periodStatus.duengTok')));
 
@@ -190,7 +190,7 @@ void main() {
       expect(khumsap.isMapped, isFalse);
 
       final taksaMaps = ThaiCanonOntologyRuntimeMapping.taksaRoleMappings();
-      expect(taksaMaps.every((m) => !m.isMapped), isTrue);
+      expect(taksaMaps.every((m) => m.isMapped), isTrue);
     });
   });
 
