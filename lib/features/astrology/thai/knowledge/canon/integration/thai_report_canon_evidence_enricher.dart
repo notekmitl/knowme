@@ -70,6 +70,13 @@ abstract final class ThaiReportCanonEvidenceEnricher {
     final lifePeriodsIneligibleForRuntimeStatus = <String>[];
     final runtimeStatusMissingReasons = <String>{};
     final runtimeStatusLabelsByIndex = <int, String>{};
+    final runtimeStatusFromExactLifePeriodContext = <String>[];
+    final runtimeStatusFromUniqueArchetypePlanetPosition = <String>[];
+    final runtimeStatusBlockedByAmbiguousPosition = <String>[];
+    final runtimeStatusBlockedBySourceConflict = <String>[];
+    final runtimeStatusBlockedByMissingPosition = <String>[];
+    final runtimeStatusBlockedByNoP17Rule = <String>[];
+    final runtimeStatusWithoutPositionBreakdown = <String>[];
 
     final positionFeasibilityAudit =
         ThaiLifePeriodPositionMetadataFeasibility.audit(
@@ -204,10 +211,23 @@ abstract final class ThaiReportCanonEvidenceEnricher {
           if (riseFallResolution.metadata != null) {
             runtimeStatusLabelsByIndex[period.index] =
                 riseFallResolution.metadata!.periodStatusLabel;
+            if (positionMetadata.matchMethod ==
+                PositionMatchMethod.exactLifePeriodContext) {
+              runtimeStatusFromExactLifePeriodContext.add(runtimeAnchor);
+            } else if (positionMetadata.matchMethod ==
+                PositionMatchMethod.archetypePlanetUniquePosition) {
+              runtimeStatusFromUniqueArchetypePlanetPosition.add(runtimeAnchor);
+            }
           } else if (riseFallResolution.missingReason != null) {
             runtimeStatusMissingReasons.add(
               '${period.index}:${riseFallResolution.missingReason}',
             );
+            if (riseFallResolution.missingReason == 'NO_P17_RULE_FOR_POSITION') {
+              runtimeStatusBlockedByNoP17Rule.add(runtimeAnchor);
+              runtimeStatusWithoutPositionBreakdown.add(
+                '${period.index}:${RuntimeStatusBlockerReason.noP17Rule}',
+              );
+            }
           }
         } else {
           lifePeriodsWithoutPositionMetadata.add(positionAnchor);
@@ -252,6 +272,26 @@ abstract final class ThaiReportCanonEvidenceEnricher {
             positionMetadataMissingReasons.add(
               '${period.index}:$missingReason',
             );
+          }
+
+          final runtimeBlocker = _runtimeStatusBlockerForPositionReason(
+            missingReason: missingReason,
+            hasPeriodContext: resolution.metadata != null,
+          );
+          runtimeStatusWithoutPositionBreakdown.add(
+            '${period.index}:$runtimeBlocker',
+          );
+          switch (runtimeBlocker) {
+            case RuntimeStatusBlockerReason.ambiguousPosition:
+              runtimeStatusBlockedByAmbiguousPosition.add(runtimeAnchor);
+            case RuntimeStatusBlockerReason.sourceConflict:
+              runtimeStatusBlockedBySourceConflict.add(runtimeAnchor);
+            case RuntimeStatusBlockerReason.missingPosition:
+              runtimeStatusBlockedByMissingPosition.add(runtimeAnchor);
+            case RuntimeStatusBlockerReason.missingPeriodContext:
+              runtimeStatusBlockedByMissingPosition.add(runtimeAnchor);
+            default:
+              runtimeStatusBlockedByMissingPosition.add(runtimeAnchor);
           }
         }
       }
@@ -548,6 +588,20 @@ abstract final class ThaiReportCanonEvidenceEnricher {
           _sortedUnique(lifePeriodsIneligibleForRuntimeStatus),
       runtimeStatusMissingReasons:
           _sortedUnique(runtimeStatusMissingReasons.toList()),
+      runtimeStatusFromExactLifePeriodContext:
+          _sortedUnique(runtimeStatusFromExactLifePeriodContext),
+      runtimeStatusFromUniqueArchetypePlanetPosition:
+          _sortedUnique(runtimeStatusFromUniqueArchetypePlanetPosition),
+      runtimeStatusBlockedByAmbiguousPosition:
+          _sortedUnique(runtimeStatusBlockedByAmbiguousPosition),
+      runtimeStatusBlockedBySourceConflict:
+          _sortedUnique(runtimeStatusBlockedBySourceConflict),
+      runtimeStatusBlockedByMissingPosition:
+          _sortedUnique(runtimeStatusBlockedByMissingPosition),
+      runtimeStatusBlockedByNoP17Rule:
+          _sortedUnique(runtimeStatusBlockedByNoP17Rule),
+      runtimeStatusWithoutPositionBreakdown:
+          _sortedUnique(runtimeStatusWithoutPositionBreakdown),
       lifePeriodPositionMetadataBlocker: _positionMetadataBlocker(
         withPosition: lifePeriodsWithPositionMetadata.length,
         withoutPosition: lifePeriodsWithoutPositionMetadata.length,
@@ -702,6 +756,30 @@ abstract final class ThaiReportCanonEvidenceEnricher {
                 u.relation == AtomicRelation.relatesTo),
       ),
     );
+  }
+
+  static String _runtimeStatusBlockerForPositionReason({
+    required String? missingReason,
+    required bool hasPeriodContext,
+  }) {
+    if (missingReason == null) {
+      return hasPeriodContext
+          ? RuntimeStatusBlockerReason.missingPosition
+          : RuntimeStatusBlockerReason.missingPeriodContext;
+    }
+    if (missingReason.contains('SOURCE_CONFLICT')) {
+      return RuntimeStatusBlockerReason.sourceConflict;
+    }
+    if (missingReason.contains('AMBIGUOUS')) {
+      return RuntimeStatusBlockerReason.ambiguousPosition;
+    }
+    if (missingReason.contains('MISSING')) {
+      return RuntimeStatusBlockerReason.missingPosition;
+    }
+    if (missingReason == 'NO_PERIOD_CONTEXT_METADATA') {
+      return RuntimeStatusBlockerReason.missingPeriodContext;
+    }
+    return RuntimeStatusBlockerReason.missingPosition;
   }
 
   static List<String> _sortedUnique(List<String> values) {

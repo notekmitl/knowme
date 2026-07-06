@@ -57,6 +57,13 @@ class ThaiCanonEvidenceTrace {
     this.lifePeriodsEligibleForRuntimeStatus = const [],
     this.lifePeriodsIneligibleForRuntimeStatus = const [],
     this.runtimeStatusMissingReasons = const [],
+    this.runtimeStatusFromExactLifePeriodContext = const [],
+    this.runtimeStatusFromUniqueArchetypePlanetPosition = const [],
+    this.runtimeStatusBlockedByAmbiguousPosition = const [],
+    this.runtimeStatusBlockedBySourceConflict = const [],
+    this.runtimeStatusBlockedByMissingPosition = const [],
+    this.runtimeStatusBlockedByNoP17Rule = const [],
+    this.runtimeStatusWithoutPositionBreakdown = const [],
     this.lifePeriodStatusMetadataBlocker,
   });
 
@@ -220,6 +227,27 @@ class ThaiCanonEvidenceTrace {
 
   /// Explicit missing reasons when runtime status cannot be resolved.
   final List<String> runtimeStatusMissingReasons;
+
+  /// Runtime status resolved via exact `life_period` context position path.
+  final List<String> runtimeStatusFromExactLifePeriodContext;
+
+  /// Runtime status resolved via unique archetype+planet position path.
+  final List<String> runtimeStatusFromUniqueArchetypePlanetPosition;
+
+  /// Periods blocked from runtime status by ambiguous placement.
+  final List<String> runtimeStatusBlockedByAmbiguousPosition;
+
+  /// Periods blocked from runtime status by source-internal conflict.
+  final List<String> runtimeStatusBlockedBySourceConflict;
+
+  /// Periods blocked from runtime status by missing placement evidence.
+  final List<String> runtimeStatusBlockedByMissingPosition;
+
+  /// Periods with position metadata but no p17 structural rule.
+  final List<String> runtimeStatusBlockedByNoP17Rule;
+
+  /// `periodIndex:blocker` for every period without runtime status.
+  final List<String> runtimeStatusWithoutPositionBreakdown;
 
   /// Set when period-status metadata is blocked (e.g. engine gap — not silent).
   final String? lifePeriodStatusMetadataBlocker;

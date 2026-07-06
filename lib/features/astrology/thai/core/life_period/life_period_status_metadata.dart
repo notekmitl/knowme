@@ -103,6 +103,7 @@ export 'thai_life_period_rise_fall_metadata.dart'
         LifePeriodRiseFallStatus,
         LifePeriodStatusMetadataBlocker,
         LifePeriodStatusMetadataValues,
+        RuntimeStatusBlockerReason,
         ThaiLifePeriodRiseFallFeasibility,
         ThaiLifePeriodRiseFallFeasibilityAudit,
         ThaiLifePeriodRiseFallP17Rules,

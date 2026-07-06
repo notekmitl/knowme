@@ -27,6 +27,15 @@ abstract final class LifePeriodStatusMetadataBlocker {
   static const noLifeTimeline = 'NO_LIFE_TIMELINE';
 }
 
+/// Explicit runtime-status blocker for periods without rise/fall metadata.
+abstract final class RuntimeStatusBlockerReason {
+  static const ambiguousPosition = 'AMBIGUOUS_POSITION';
+  static const sourceConflict = 'SOURCE_CONFLICT';
+  static const missingPosition = 'MISSING_POSITION';
+  static const noP17Rule = 'NO_P17_RULE';
+  static const missingPeriodContext = 'MISSING_PERIOD_CONTEXT';
+}
+
 /// Feasibility outcome for engine life-period rise/fall metadata.
 enum LifePeriodRiseFallFeasibilityResult {
   readyToExposeMetadata,
