@@ -150,7 +150,7 @@ void main() {
         ThaiCanonOntologyRuntimeMapping.contentKeyForMahabhutPosition(
           'mahabhutPosition.khumsap',
         ),
-        isNull,
+        ThaiMahabhutKhumsapRuntimeKey.khumsap,
       );
     });
 
@@ -187,7 +187,12 @@ void main() {
       final khumsap = repository.mahabhutPositionMappings
           .where((m) => m.canonEntityId == 'mahabhutPosition.khumsap')
           .single;
-      expect(khumsap.isMapped, isFalse);
+      expect(khumsap.isMapped, isTrue);
+      expect(khumsap.runtimeKey, ThaiMahabhutKhumsapRuntimeKey.khumsap);
+      expect(
+        khumsap.kind,
+        ThaiCanonRuntimeKeyKind.internalMahabhutPosition,
+      );
 
       final taksaMaps = ThaiCanonOntologyRuntimeMapping.taksaRoleMappings();
       expect(taksaMaps.every((m) => m.isMapped), isTrue);

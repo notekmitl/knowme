@@ -507,6 +507,21 @@ class _TracePanel extends StatelessWidget {
             if (trace.taksaRotationBlocker != null)
               Text('Taksa rotation blocker: ${trace.taksaRotationBlocker}'),
             const SizedBox(height: 8),
+            Text('Khumsap mapping (internal)', style: theme.textTheme.labelLarge),
+            Text(
+              'Mapped: ${trace.khumsapMapped} · '
+              'Canon units: ${trace.khumsapCanonUnitsAvailable} · '
+              'attached: ${trace.khumsapEvidenceAttachedCount} · '
+              'candidates: ${trace.khumsapEvidenceCandidateCount}',
+            ),
+            if (trace.khumsapFeasibilityResult != null)
+              Text('Khumsap feasibility: ${trace.khumsapFeasibilityResult}'),
+            Text(
+              'mahabhuta_thaya OUT_OF_CANON_SCOPE: '
+              '${trace.mahabhutaThayaOutOfCanonScope} '
+              '(≠ mahabhutPosition.khumsap)',
+            ),
+            const SizedBox(height: 8),
             Text('QA blockers (internal)', style: theme.textTheme.labelLarge),
             const SizedBox(height: 4),
             _traceLine(

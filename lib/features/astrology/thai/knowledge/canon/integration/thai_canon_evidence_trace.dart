@@ -24,6 +24,12 @@ class ThaiCanonEvidenceTrace {
     this.taksaProfileWeekdayNumber,
     this.taksaRotationAssignmentCount = 0,
     this.taksaRotationBlocker,
+    this.khumsapMapped = false,
+    this.khumsapFeasibilityResult,
+    this.khumsapCanonUnitsAvailable = 0,
+    this.khumsapEvidenceAttachedCount = 0,
+    this.khumsapEvidenceCandidateCount = 0,
+    this.mahabhutaThayaOutOfCanonScope = true,
     this.skippedLookupTableEvidenceCount = 0,
     this.skippedPeriodStatusNotes = const [],
     this.lifePeriodsWithoutRuntimeStatus = const [],
@@ -117,6 +123,12 @@ class ThaiCanonEvidenceTrace {
   final int? taksaProfileWeekdayNumber;
   final int taksaRotationAssignmentCount;
   final String? taksaRotationBlocker;
+  final bool khumsapMapped;
+  final String? khumsapFeasibilityResult;
+  final int khumsapCanonUnitsAvailable;
+  final int khumsapEvidenceAttachedCount;
+  final int khumsapEvidenceCandidateCount;
+  final bool mahabhutaThayaOutOfCanonScope;
   final int skippedLookupTableEvidenceCount;
   final List<String> skippedPeriodStatusNotes;
 

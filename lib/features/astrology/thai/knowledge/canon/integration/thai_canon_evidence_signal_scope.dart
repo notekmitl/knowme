@@ -31,15 +31,21 @@ abstract final class ThaiCanonEvidenceSignalScope {
       return 'Lagna sign content key — not represented in frozen Mahabhut Canon';
     }
     if (contentKey == ThaiContentKeys.mahabhutaThaya) {
-      return 'Runtime mahabhuta_thaya (ทายะ) has no exact Canon entity; '
-          'Canon mahabhutPosition.khumsap (ขุมทรัพย์) is a distinct named '
-          'position with no deterministic runtime key — equivalence not inferred';
+      return 'Runtime mahabhuta_thaya (ทายะ) is OUT_OF_CANON_SCOPE; '
+          'internal mahabhuta_khumsap maps to Canon mahabhutPosition.khumsap '
+          '(ขุมทรัพย์) — equivalence not inferred';
     }
     return 'Signal outside frozen Mahabhut Canon scope';
   }
 
-  /// Mahabhut runtime keys that are in Canon scope (six mapped positions).
+  /// Khumsap internal runtime key — in Canon scope (distinct from thaya).
+  static bool isInternalKhumsapRuntimeKey(String contentKey) {
+    return contentKey == 'mahabhuta_khumsap';
+  }
+
+  /// Mahabhut runtime keys that are in Canon scope (six public + internal khumsap).
   static bool isInCanonScopeMahabhutKey(String contentKey) {
+    if (isInternalKhumsapRuntimeKey(contentKey)) return true;
     return ThaiContentKeys.allMahabhutaPosition.contains(contentKey) &&
         !isOutOfCanonScope(contentKey);
   }

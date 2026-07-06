@@ -6,12 +6,14 @@ import 'package:knowme/features/astrology/thai/knowledge/canon/ontology/canonica
 import 'package:knowme/features/astrology/thai/knowledge/canon/ontology/ontology_category.dart';
 
 import 'thai_canon_period_status_runtime_mapping.dart';
+import 'thai_canon_khumsap_runtime_mapping.dart';
 import 'thai_canon_taksa_role_runtime_mapping.dart';
 
 /// How a Canon ontology entity maps to an existing runtime identifier.
 enum ThaiCanonRuntimeKeyKind {
   lifePlanet,
   thaiContentKey,
+  internalMahabhutPosition,
   periodStatusLabel,
   taksaRole,
 }
@@ -80,13 +82,22 @@ abstract final class ThaiCanonOntologyRuntimeMapping {
   static String? runtimePlanetKey(String canonPlanetId) =>
       lifePlanetForCanonPlanet(canonPlanetId)?.name;
 
-  /// Canon `mahabhutPosition.*` → [ThaiContentKeys] mahabhuta key.
-  static String? contentKeyForMahabhutPosition(String canonPositionId) =>
-      _mahabhutToContentKey[canonPositionId];
+  /// Canon `mahabhutPosition.*` → runtime key (content key or internal).
+  static String? contentKeyForMahabhutPosition(String canonPositionId) {
+    if (canonPositionId == ThaiCanonKhumsapRuntimeMapping.canonEntityId) {
+      return ThaiCanonKhumsapRuntimeMapping.internalRuntimeKey;
+    }
+    return _mahabhutToContentKey[canonPositionId];
+  }
 
-  /// Runtime mahabhuta content key → Canon position id.
-  static String? canonMahabhutForContentKey(String contentKey) =>
-      _contentKeyToMahabhut[contentKey];
+  /// Runtime mahabhuta / internal position key → Canon position id.
+  static String? canonMahabhutForContentKey(String contentKey) {
+    final khumsapCanon = ThaiCanonKhumsapRuntimeMapping.canonIdForRuntimeKey(
+      contentKey,
+    );
+    if (khumsapCanon != null) return khumsapCanon;
+    return _contentKeyToMahabhut[contentKey];
+  }
 
   /// All explicit planet mappings (mapped + documented unmapped planets).
   static List<ThaiCanonRuntimeMappingEntry> planetMappings() {
@@ -117,10 +128,14 @@ abstract final class ThaiCanonOntologyRuntimeMapping {
     ];
   }
 
-  /// Mahabhut position mappings. [mahabhutPosition.khumsap] has no runtime key.
+  /// Mahabhut position mappings — six public content keys + internal Khumsap.
   static List<ThaiCanonRuntimeMappingEntry> mahabhutPositionMappings() {
     final entries = <ThaiCanonRuntimeMappingEntry>[];
     for (final entity in CanonOntologyData.mahabhutPositions) {
+      if (entity.id == ThaiCanonKhumsapRuntimeMapping.canonEntityId) {
+        entries.addAll(ThaiCanonKhumsapRuntimeMapping.runtimeMappings());
+        continue;
+      }
       final key = _mahabhutToContentKey[entity.id];
       if (key != null) {
         entries.add(ThaiCanonRuntimeMappingEntry(
@@ -134,7 +149,7 @@ abstract final class ThaiCanonOntologyRuntimeMapping {
       } else {
         entries.add(ThaiCanonRuntimeMappingEntry.unmapped(
           canonEntityId: entity.id,
-          note: 'No ThaiContentKeys mahabhuta entry',
+          note: 'No runtime key',
         ));
       }
     }
@@ -186,6 +201,10 @@ abstract final class ThaiCanonOntologyRuntimeMapping {
     if (ThaiCanonPeriodStatusRuntimeMapping.runtimeLabelForCanonId(
           canonEntityId,
         ) !=
+        null) {
+      return true;
+    }
+    if (ThaiCanonKhumsapRuntimeMapping.runtimeKeyForCanonId(canonEntityId) !=
         null) {
       return true;
     }

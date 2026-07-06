@@ -17,8 +17,11 @@ import 'thai_canon_ontology_runtime_mapping.dart';
 import 'thai_canon_period_status_discovery.dart';
 import 'thai_canon_period_status_from_evidence.dart';
 import 'thai_canon_period_status_runtime_mapping.dart';
+import 'thai_canon_khumsap_runtime_mapping.dart';
 import 'thai_canon_taksa_role_runtime_mapping.dart';
+import 'thai_khumsap_runtime_metadata.dart';
 import 'thai_mirror_canon_evidence_bundle.dart';
+import 'thai_mahabhut_khumsap_runtime_key.dart';
 import 'thai_taksa_role_runtime_key.dart';
 import 'thai_taksa_role_runtime_metadata.dart';
 import 'thai_taksa_rotation_metadata.dart';
@@ -547,7 +550,30 @@ abstract final class ThaiReportCanonEvidenceEnricher {
     if (ThaiCanonOntologyRuntimeMapping.runtimePlanetKey('planet.ketu') == null) {
       canonCandidates.add('planet.ketu');
     }
-    canonCandidates.add('mahabhutPosition.khumsap');
+    final khumsapFeasibilityAudit =
+        ThaiKhumsapRuntimeMetadataFeasibilityAudit.audit();
+    final khumsapCanonUnits = repo.index.units
+        .where(
+          (u) =>
+              u.subject == ThaiCanonKhumsapRuntimeMapping.canonEntityId ||
+              u.object == ThaiCanonKhumsapRuntimeMapping.canonEntityId,
+        )
+        .toList(growable: false);
+    final khumsapEvidenceAttachedCount = attachments
+        .where(
+          (a) => a.evidenceRefs.any(
+            (r) =>
+                r.subject == ThaiCanonKhumsapRuntimeMapping.canonEntityId ||
+                r.object == ThaiCanonKhumsapRuntimeMapping.canonEntityId,
+          ),
+        )
+        .length;
+    if (khumsapCanonUnits.isNotEmpty && khumsapEvidenceAttachedCount == 0) {
+      traceOnlyCandidates.add(
+        'khumsap:mapped_internal (${khumsapCanonUnits.length} Canon units; '
+        'no ${ThaiMahabhutKhumsapRuntimeKey.khumsap} report signal)',
+      );
+    }
 
     final lookupCount = repo.index.units
         .where((u) => u.domain == KnowledgeDomain.lookupTables)
@@ -589,6 +615,13 @@ abstract final class ThaiReportCanonEvidenceEnricher {
       taksaProfileWeekdayNumber: taksaRotationMetadata.birthWeekdayNumber,
       taksaRotationAssignmentCount: taksaRotationMetadata.assignments.length,
       taksaRotationBlocker: taksaRotationMetadata.blocker,
+      khumsapMapped: true,
+      khumsapFeasibilityResult: khumsapFeasibilityAudit.result.wire,
+      khumsapCanonUnitsAvailable: khumsapCanonUnits.length,
+      khumsapEvidenceAttachedCount: khumsapEvidenceAttachedCount,
+      khumsapEvidenceCandidateCount: khumsapCanonUnits.length,
+      mahabhutaThayaOutOfCanonScope:
+          khumsapFeasibilityAudit.mahabhutaThayaRemainsOutOfCanonScope,
       skippedLookupTableEvidenceCount: lookupCount,
       skippedPeriodStatusNotes: const [],
       lifePeriodsWithoutRuntimeStatus:
