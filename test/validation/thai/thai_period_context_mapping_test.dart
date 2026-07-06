@@ -221,7 +221,7 @@ void main() {
 
       expect(
         audit.result,
-        LifePeriodPositionMetadataFeasibilityResult.needsPeriodContextMapping,
+        LifePeriodPositionMetadataFeasibilityResult.partialPositionMetadata,
       );
       expect(audit.periodsWithContextMetadata, greaterThan(0));
       expect(

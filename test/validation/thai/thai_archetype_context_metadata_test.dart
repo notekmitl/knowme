@@ -60,6 +60,7 @@ void main() {
         pipeline.lifePeriods,
         profile: pipeline.profile,
         birthData: pipeline.birthData,
+        canonIndex: repository.index,
       );
       final bundle = await ThaiReportCanonEvidenceEnricher.enrich(
         pipeline,
@@ -68,11 +69,11 @@ void main() {
 
       expect(
         statusAudit.blocker,
-        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
+        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
       );
       expect(
         statusAudit.positionFeasibility.metadataBlocker,
-        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
+        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
       );
       expect(
         bundle.trace.lifePeriodArchetypeMetadataBlocker,
@@ -80,12 +81,12 @@ void main() {
       );
       expect(
         bundle.trace.lifePeriodPositionMetadataBlocker,
-        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
+        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
       );
       expect(
         bundle.trace.lifePeriodPositionFeasibilityResult,
         LifePeriodPositionMetadataFeasibilityResult
-            .needsPeriodContextMapping.wire,
+            .partialPositionMetadata.wire,
       );
     });
   });

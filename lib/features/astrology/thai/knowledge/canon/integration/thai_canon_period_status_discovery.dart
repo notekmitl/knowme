@@ -2,6 +2,7 @@ import 'package:knowme/features/astrology/thai/core/life_period/life_period_stat
 import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_pipeline_result.dart';
 
 import 'thai_canon_period_status_runtime_mapping.dart';
+import 'thai_canon_evidence_index.dart';
 
 /// Discovers exact period-status labels already present on runtime/report output.
 ///
@@ -20,8 +21,9 @@ abstract final class ThaiCanonPeriodStatusDiscovery {
 
   /// Full metadata audit for trace / QA (production path).
   static LifePeriodStatusMetadataAudit audit(
-    ThaiMirrorPipelineResult pipelineResult,
-  ) {
+    ThaiMirrorPipelineResult pipelineResult, {
+    ThaiCanonEvidenceIndex? canonIndex,
+  }) {
     if (!pipelineResult.isSuccess) {
       final positionFeasibility =
           ThaiLifePeriodPositionMetadataFeasibility.audit(
@@ -43,6 +45,7 @@ abstract final class ThaiCanonPeriodStatusDiscovery {
       pipelineResult.lifePeriods,
       profile: pipelineResult.profile,
       birthData: pipelineResult.birthData,
+      canonIndex: canonIndex,
     );
   }
 

@@ -5,8 +5,9 @@
 /// computed — see [ThaiLifePeriodRiseFallFeasibility].
 library;
 
-import '../../foundation/models/thai_astrology_profile.dart';
 import '../../foundation/models/thai_birth_data.dart';
+import '../../foundation/models/thai_astrology_profile.dart';
+import '../../knowledge/canon/integration/thai_canon_evidence_index.dart';
 import 'life_period_engine.dart';
 import 'thai_life_period_position_metadata.dart';
 export 'thai_remainder_calculation_model.dart'
@@ -67,9 +68,11 @@ export 'thai_life_period_position_metadata.dart'
         LifePeriodPositionMetadataBlocker,
         LifePeriodPositionMetadataFeasibilityResult,
         LifePeriodPositionMetadataFeasibilityResultWire,
+        ThaiLifePeriodPositionMetadata,
         ThaiLifePeriodPositionMetadataFeasibility,
         ThaiLifePeriodPositionMetadataFeasibilityAudit,
-        ThaiLifePeriodPositionMetadataResolver;
+        ThaiLifePeriodPositionMetadataResolver,
+        ThaiLifePeriodPositionResolution;
 export 'thai_life_period_rise_fall_metadata.dart'
     show
         LifePeriodRiseFallFeasibilityResult,
@@ -133,6 +136,7 @@ abstract final class LifePeriodStatusMetadataResolver {
     LifeTimeline? timeline, {
     ThaiAstrologyProfile? profile,
     ThaiBirthData? birthData,
+    ThaiCanonEvidenceIndex? canonIndex,
   }) {
     if (timeline == null) {
       final positionFeasibility =
@@ -140,10 +144,13 @@ abstract final class LifePeriodStatusMetadataResolver {
         timeline: null,
         profile: profile,
         birthData: birthData,
+        canonIndex: canonIndex,
       );
       final feasibility = ThaiLifePeriodRiseFallFeasibility.audit(
         timeline: null,
         profile: profile,
+        birthData: birthData,
+        canonIndex: canonIndex,
       );
       return LifePeriodStatusMetadataAudit.blocked(
         finding: LifePeriodStatusMetadataAuditFinding.absentOnRuntime,
@@ -157,11 +164,14 @@ abstract final class LifePeriodStatusMetadataResolver {
       timeline: timeline,
       profile: profile,
       birthData: birthData,
+      canonIndex: canonIndex,
     );
 
     final feasibility = ThaiLifePeriodRiseFallFeasibility.audit(
       timeline: timeline,
       profile: profile,
+      birthData: birthData,
+      canonIndex: canonIndex,
     );
 
     if (positionFeasibility.result !=

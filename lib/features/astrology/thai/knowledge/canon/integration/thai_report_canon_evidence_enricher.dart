@@ -72,7 +72,10 @@ abstract final class ThaiReportCanonEvidenceEnricher {
       labelsByPeriodIndex: periodStatusLabelsByIndex,
     );
     final periodStatusAudit = periodStatusLabelsByIndex == null
-        ? ThaiCanonPeriodStatusDiscovery.audit(pipelineResult)
+        ? ThaiCanonPeriodStatusDiscovery.audit(
+            pipelineResult,
+            canonIndex: repo.index,
+          )
         : null;
     final positionFeasibilityAudit =
         ThaiLifePeriodPositionMetadataFeasibility.audit(
@@ -111,23 +114,53 @@ abstract final class ThaiReportCanonEvidenceEnricher {
     final lifePeriodsWithoutPeriodContextMetadata = <String>[];
     final periodContextMatchMethods = <String>{};
     final periodContextMissingReasons = <String>{};
+    final lifePeriodsWithPositionMetadata = <String>[];
+    final lifePeriodsWithoutPositionMetadata = <String>[];
+    final positionMetadataMissingReasons = <String>{};
+    final positionMetadataEligiblePeriods = <String>[];
+    final positionMetadataIneligiblePeriods = <String>[];
     final timelineForContext = pipelineResult.lifePeriods;
     if (timelineForContext != null && archetypeMetadata != null) {
       for (final period in timelineForContext.periods) {
-        final anchor = 'life_period:${period.index}:period_context';
+        final contextAnchor = 'life_period:${period.index}:period_context';
+        final positionAnchor = 'life_period:${period.index}:position';
         final resolution = ThaiLifePeriodContextResolver.resolveDetailed(
           period: period,
           archetypeMetadata: archetypeMetadata,
           canonIndex: repo.index,
         );
         if (resolution.metadata != null) {
-          lifePeriodsWithPeriodContextMetadata.add(anchor);
+          lifePeriodsWithPeriodContextMetadata.add(contextAnchor);
           periodContextMatchMethods.add(resolution.metadata!.matchMethod);
+          positionMetadataEligiblePeriods.add(positionAnchor);
+
+          final positionResolution =
+              ThaiLifePeriodPositionMetadataResolver.resolveDetailed(
+            period: period,
+            archetypeMetadata: archetypeMetadata,
+            periodContextMetadata: resolution.metadata,
+            canonIndex: repo.index,
+          );
+          if (positionResolution.metadata != null) {
+            lifePeriodsWithPositionMetadata.add(positionAnchor);
+          } else {
+            lifePeriodsWithoutPositionMetadata.add(positionAnchor);
+            if (positionResolution.missingReason != null) {
+              positionMetadataMissingReasons.add(
+                '${period.index}:${positionResolution.missingReason}',
+              );
+            }
+          }
         } else {
-          lifePeriodsWithoutPeriodContextMetadata.add(anchor);
+          lifePeriodsWithoutPeriodContextMetadata.add(contextAnchor);
+          positionMetadataIneligiblePeriods.add(positionAnchor);
+          lifePeriodsWithoutPositionMetadata.add(positionAnchor);
           if (resolution.missingReason != null) {
             periodContextMissingReasons.add(
               '${period.index}:${resolution.missingReason}',
+            );
+            positionMetadataMissingReasons.add(
+              '${period.index}:NO_PERIOD_CONTEXT_METADATA',
             );
           }
         }
@@ -323,8 +356,6 @@ abstract final class ThaiReportCanonEvidenceEnricher {
           periodStatusAudit?.feasibility.result.wire,
       lifePeriodPositionFeasibilityResult:
           positionFeasibilityAudit.result.wire,
-      lifePeriodPositionMetadataBlocker:
-          positionFeasibilityAudit.metadataBlocker,
       lifePeriodArchetypeFeasibilityResult:
           archetypeFeasibilityAudit.result.wire,
       lifePeriodArchetypeMetadataBlocker:
@@ -360,7 +391,27 @@ abstract final class ThaiReportCanonEvidenceEnricher {
           _sortedUnique(periodContextMatchMethods.toList()),
       periodContextMissingReasons:
           _sortedUnique(periodContextMissingReasons.toList()),
-      lifePeriodStatusMetadataBlocker: periodStatusAudit?.blocker,
+      lifePeriodsWithPositionMetadata:
+          _sortedUnique(lifePeriodsWithPositionMetadata),
+      lifePeriodsWithoutPositionMetadata:
+          _sortedUnique(lifePeriodsWithoutPositionMetadata),
+      positionMetadataMissingReasons:
+          _sortedUnique(positionMetadataMissingReasons.toList()),
+      positionMetadataEligiblePeriods:
+          _sortedUnique(positionMetadataEligiblePeriods),
+      positionMetadataIneligiblePeriods:
+          _sortedUnique(positionMetadataIneligiblePeriods),
+      lifePeriodPositionMetadataBlocker: _positionMetadataBlocker(
+        withPosition: lifePeriodsWithPositionMetadata.length,
+        withoutPosition: lifePeriodsWithoutPositionMetadata.length,
+        withoutContext: lifePeriodsWithoutPeriodContextMetadata.length,
+        totalPeriods: timelineForContext?.periods.length ?? 0,
+        feasibility: positionFeasibilityAudit,
+      ),
+      lifePeriodStatusMetadataBlocker: _lifePeriodStatusMetadataBlocker(
+        positionFeasibility: positionFeasibilityAudit,
+        periodStatusAudit: periodStatusAudit,
+      ),
     );
 
     attachments.sort((a, b) => a.signalId.compareTo(b.signalId));
@@ -523,5 +574,50 @@ abstract final class ThaiReportCanonEvidenceEnricher {
       return PeriodContextMetadataBlocker.needsPeriodContextMapping;
     }
     return null;
+  }
+
+  static String? _positionMetadataBlocker({
+    required int withPosition,
+    required int withoutPosition,
+    required int withoutContext,
+    required int totalPeriods,
+    required ThaiLifePeriodPositionMetadataFeasibilityAudit feasibility,
+  }) {
+    if (feasibility.result ==
+            LifePeriodPositionMetadataFeasibilityResult
+                .needsArchetypeContextMetadata ||
+        feasibility.result ==
+            LifePeriodPositionMetadataFeasibilityResult.blockedByModelingGap ||
+        feasibility.result ==
+            LifePeriodPositionMetadataFeasibilityResult.blockedBySourceGap) {
+      return feasibility.metadataBlocker;
+    }
+    if (withPosition > 0 &&
+        (withoutPosition > 0 || withoutContext > 0) &&
+        totalPeriods > 0) {
+      return LifePeriodPositionMetadataBlocker.partialPositionMetadata;
+    }
+    if (withPosition == 0 && withoutContext > 0) {
+      return LifePeriodPositionMetadataBlocker.needsPeriodContextMapping;
+    }
+    if (withPosition == totalPeriods && totalPeriods > 0) {
+      return null;
+    }
+    return feasibility.metadataBlocker;
+  }
+
+  static String? _lifePeriodStatusMetadataBlocker({
+    required ThaiLifePeriodPositionMetadataFeasibilityAudit positionFeasibility,
+    required LifePeriodStatusMetadataAudit? periodStatusAudit,
+  }) {
+    if (periodStatusAudit == null) {
+      return null;
+    }
+    if (positionFeasibility.result !=
+        LifePeriodPositionMetadataFeasibilityResult.readyToExposeMetadata) {
+      return positionFeasibility.metadataBlocker ??
+          LifePeriodPositionMetadataBlocker.needsPeriodContextMapping;
+    }
+    return periodStatusAudit?.blocker;
   }
 }

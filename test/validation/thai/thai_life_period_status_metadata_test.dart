@@ -29,6 +29,7 @@ void main() {
         pipeline.lifePeriods,
         profile: pipeline.profile,
         birthData: pipeline.birthData,
+        canonIndex: repository.index,
       );
       expect(
         audit.finding,
@@ -36,7 +37,7 @@ void main() {
       );
       expect(
         audit.blocker,
-        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
+        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
       );
       expect(
         audit.feasibility.result,
@@ -62,11 +63,15 @@ void main() {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
-      final discoveryAudit = ThaiCanonPeriodStatusDiscovery.audit(pipeline);
+      final discoveryAudit = ThaiCanonPeriodStatusDiscovery.audit(
+        pipeline,
+        canonIndex: repository.index,
+      );
       final resolverAudit = LifePeriodStatusMetadataResolver.audit(
         pipeline.lifePeriods,
         profile: pipeline.profile,
         birthData: pipeline.birthData,
+        canonIndex: repository.index,
       );
 
       expect(discoveryAudit.finding, resolverAudit.finding);
@@ -88,11 +93,11 @@ void main() {
 
       expect(
         bundle.trace.lifePeriodStatusMetadataBlocker,
-        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
+        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
       );
       expect(
         bundle.trace.lifePeriodPositionMetadataBlocker,
-        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
+        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
       );
       expect(bundle.trace.lifePeriodArchetypeMetadataBlocker, isNull);
       expect(

@@ -37,6 +37,11 @@ class ThaiCanonEvidenceTrace {
     this.periodContextMetadataBlocker,
     this.periodContextMatchMethods = const [],
     this.periodContextMissingReasons = const [],
+    this.lifePeriodsWithPositionMetadata = const [],
+    this.lifePeriodsWithoutPositionMetadata = const [],
+    this.positionMetadataMissingReasons = const [],
+    this.positionMetadataEligiblePeriods = const [],
+    this.positionMetadataIneligiblePeriods = const [],
     this.lifePeriodStatusMetadataBlocker,
   });
 
@@ -140,6 +145,21 @@ class ThaiCanonEvidenceTrace {
 
   /// Explicit missing reasons for unmapped life periods.
   final List<String> periodContextMissingReasons;
+
+  /// Life-period anchors with Mahabhut position metadata.
+  final List<String> lifePeriodsWithPositionMetadata;
+
+  /// Life-period anchors without Mahabhut position metadata.
+  final List<String> lifePeriodsWithoutPositionMetadata;
+
+  /// Explicit missing reasons for periods without position metadata.
+  final List<String> positionMetadataMissingReasons;
+
+  /// Periods with period context — eligible for position resolution.
+  final List<String> positionMetadataEligiblePeriods;
+
+  /// Periods without period context — ineligible for position resolution.
+  final List<String> positionMetadataIneligiblePeriods;
 
   /// Set when period-status metadata is blocked (e.g. engine gap — not silent).
   final String? lifePeriodStatusMetadataBlocker;

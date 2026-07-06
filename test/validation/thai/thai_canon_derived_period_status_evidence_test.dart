@@ -139,7 +139,7 @@ void main() {
 
       expect(
         bundle.trace.lifePeriodStatusMetadataBlocker,
-        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
+        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
       );
       expect(bundle.trace.lifePeriodsWithoutRuntimeStatus, isNotEmpty);
     });

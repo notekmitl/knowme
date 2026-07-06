@@ -264,15 +264,16 @@ void main() {
         pipeline.lifePeriods,
         profile: pipeline.profile,
         birthData: pipeline.birthData,
+        canonIndex: repository.index,
       );
 
       expect(
         statusAudit.blocker,
-        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
+        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
       );
       expect(
         statusAudit.positionFeasibility.metadataBlocker,
-        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
+        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
       );
       expect(
         statusAudit.feasibility.result,

@@ -1,4 +1,6 @@
 import '../../foundation/models/thai_astrology_profile.dart';
+import '../../foundation/models/thai_birth_data.dart';
+import '../../knowledge/canon/integration/thai_canon_evidence_index.dart';
 import 'life_period_engine.dart';
 import 'thai_life_period_position_metadata.dart';
 
@@ -52,6 +54,9 @@ class ThaiLifePeriodRiseFallFeasibilityAudit {
     required this.hasExistingRiseFallField,
     required this.canClassifyFromExistingFields,
     this.periodCount = 0,
+    this.periodsWithPositionMetadata = 0,
+    this.periodsEligibleForRiseFall = 0,
+    this.periodsIneligibleForRiseFall = 0,
   });
 
   final LifePeriodRiseFallFeasibilityResult result;
@@ -61,6 +66,9 @@ class ThaiLifePeriodRiseFallFeasibilityAudit {
   final bool hasExistingRiseFallField;
   final bool canClassifyFromExistingFields;
   final int periodCount;
+  final int periodsWithPositionMetadata;
+  final int periodsEligibleForRiseFall;
+  final int periodsIneligibleForRiseFall;
 
   String? get metadataBlocker => switch (result) {
         LifePeriodRiseFallFeasibilityResult.readyToExposeMetadata => null,
@@ -139,6 +147,8 @@ abstract final class ThaiLifePeriodRiseFallFeasibility {
   static ThaiLifePeriodRiseFallFeasibilityAudit audit({
     LifeTimeline? timeline,
     ThaiAstrologyProfile? profile,
+    ThaiBirthData? birthData,
+    ThaiCanonEvidenceIndex? canonIndex,
   }) {
     if (timeline == null || timeline.periods.isEmpty) {
       return const ThaiLifePeriodRiseFallFeasibilityAudit(
@@ -154,17 +164,17 @@ abstract final class ThaiLifePeriodRiseFallFeasibility {
     final positionAudit = ThaiLifePeriodPositionMetadataFeasibility.audit(
       timeline: timeline,
       profile: profile,
+      birthData: birthData,
+      canonIndex: canonIndex,
     );
 
     final hasPlanet = positionAudit.hasGoverningPlanetPerPeriod;
 
-    final hasPerPeriodPosition =
-        positionAudit.result ==
-        LifePeriodPositionMetadataFeasibilityResult.readyToExposeMetadata;
+    final hasPerPeriodPosition = positionAudit.hasFullPositionIdentity;
 
     final hasArchetype = positionAudit.hasArchetypeChartIdentity;
 
-    final hasRiseFallField = false;
+    const hasRiseFallField = false;
 
     final canClassify = hasPerPeriodPosition && hasArchetype;
 
@@ -180,6 +190,10 @@ abstract final class ThaiLifePeriodRiseFallFeasibility {
       hasExistingRiseFallField: hasRiseFallField,
       canClassifyFromExistingFields: canClassify,
       periodCount: timeline.periods.length,
+      periodsWithPositionMetadata: positionAudit.periodsWithPositionMetadata,
+      periodsEligibleForRiseFall: positionAudit.periodsWithPositionMetadata,
+      periodsIneligibleForRiseFall:
+          timeline.periods.length - positionAudit.periodsWithPositionMetadata,
     );
   }
 }

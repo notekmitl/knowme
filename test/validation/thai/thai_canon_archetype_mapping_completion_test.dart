@@ -192,12 +192,12 @@ void main() {
 
       expect(
         audit.result,
-        LifePeriodPositionMetadataFeasibilityResult.needsPeriodContextMapping,
+        LifePeriodPositionMetadataFeasibilityResult.partialPositionMetadata,
       );
       expect(audit.hasArchetypeChartIdentity, isTrue);
       expect(
         audit.metadataBlocker,
-        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
+        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
       );
     });
 
@@ -238,11 +238,11 @@ void main() {
       expect(
         bundle.trace.lifePeriodPositionFeasibilityResult,
         LifePeriodPositionMetadataFeasibilityResult
-            .needsPeriodContextMapping.wire,
+            .partialPositionMetadata.wire,
       );
       expect(
         bundle.trace.lifePeriodPositionMetadataBlocker,
-        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
+        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
       );
     });
   });

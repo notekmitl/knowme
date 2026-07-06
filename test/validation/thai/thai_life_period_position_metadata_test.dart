@@ -20,7 +20,7 @@ void main() {
   });
 
   group('Feasibility audit', () {
-    test('production pipeline is NEEDS_PERIOD_CONTEXT_MAPPING', () {
+    test('production pipeline is PARTIAL_POSITION_METADATA', () {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
@@ -33,18 +33,19 @@ void main() {
 
       expect(
         audit.result,
-        LifePeriodPositionMetadataFeasibilityResult.needsPeriodContextMapping,
+        LifePeriodPositionMetadataFeasibilityResult.partialPositionMetadata,
       );
       expect(audit.hasGoverningPlanetPerPeriod, isTrue);
       expect(audit.hasArchetypeChartIdentity, isTrue);
       expect(audit.hasPeriodContextIdentity, isFalse);
-      expect(audit.canMapToCanonWithoutPlanetInference, isFalse);
+      expect(audit.hasFullPositionIdentity, isFalse);
+      expect(audit.periodsWithPositionMetadata, greaterThan(0));
       expect(audit.canonLifePeriodPlacementsPresent, isTrue);
       expect(audit.metadataBlocker,
-          LifePeriodPositionMetadataBlocker.needsPeriodContextMapping);
+          LifePeriodPositionMetadataBlocker.partialPositionMetadata);
     });
 
-    test('status metadata blocker reflects position root cause', () {
+    test('status metadata blocker reflects partial position', () {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
@@ -52,15 +53,16 @@ void main() {
         pipeline.lifePeriods,
         profile: pipeline.profile,
         birthData: pipeline.birthData,
+        canonIndex: repository.index,
       );
 
       expect(
         audit.blocker,
-        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
+        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
       );
       expect(
         audit.positionFeasibility.result,
-        LifePeriodPositionMetadataFeasibilityResult.needsPeriodContextMapping,
+        LifePeriodPositionMetadataFeasibilityResult.partialPositionMetadata,
       );
       expect(
         audit.feasibility.result,
@@ -80,15 +82,15 @@ void main() {
       expect(
         bundle.trace.lifePeriodPositionFeasibilityResult,
         LifePeriodPositionMetadataFeasibilityResult
-            .needsPeriodContextMapping.wire,
+            .partialPositionMetadata.wire,
       );
       expect(
         bundle.trace.lifePeriodPositionMetadataBlocker,
-        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
+        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
       );
       expect(
         bundle.trace.lifePeriodStatusMetadataBlocker,
-        LifePeriodPositionMetadataBlocker.needsPeriodContextMapping,
+        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
       );
       expect(bundle.trace.lifePeriodArchetypeMetadataBlocker, isNull);
     });
