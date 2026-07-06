@@ -2,6 +2,7 @@ import '../thai_canon_evidence_attachment.dart';
 import '../thai_canon_evidence_trace.dart';
 import '../thai_canon_evidence_type.dart';
 import '../thai_mirror_canon_evidence_bundle.dart';
+import 'thai_internal_evidence_badge.dart';
 /// Aggregated coverage metrics for the internal evidence review panel.
 class ThaiCanonEvidenceReviewSummary {
   const ThaiCanonEvidenceReviewSummary({
@@ -16,6 +17,7 @@ class ThaiCanonEvidenceReviewSummary {
     required this.taksaSkippedCount,
     required this.unmappedCandidateCount,
     required this.signalsWithoutEvidenceCount,
+    required this.badgeSummary,
   });
 
   factory ThaiCanonEvidenceReviewSummary.fromBundle(
@@ -63,6 +65,7 @@ class ThaiCanonEvidenceReviewSummary {
       taksaSkippedCount: trace.skippedTaksaEvidenceCount,
       unmappedCandidateCount: trace.unmappedCanonEvidenceCandidates.length,
       signalsWithoutEvidenceCount: trace.signalsWithoutCanonEvidence.length,
+      badgeSummary: ThaiInternalEvidenceBadgeSummary.fromBundle(bundle),
     );
   }
 
@@ -77,6 +80,7 @@ class ThaiCanonEvidenceReviewSummary {
   final int taksaSkippedCount;
   final int unmappedCandidateCount;
   final int signalsWithoutEvidenceCount;
+  final ThaiInternalEvidenceBadgeSummary badgeSummary;
 }
 
 /// One flattened row for the evidence review table.
@@ -93,6 +97,7 @@ class ThaiCanonEvidenceReviewRow {
     required this.sourcePage,
     required this.condition,
     required this.userFacingAllowed,
+    required this.badge,
   });
 
   final String sectionId;
@@ -106,13 +111,19 @@ class ThaiCanonEvidenceReviewRow {
   final String sourcePage;
   final String condition;
   final bool userFacingAllowed;
+  final ThaiInternalEvidenceBadgeCategory badge;
 }
 
 List<ThaiCanonEvidenceReviewRow> flattenEvidenceRows(
   ThaiMirrorCanonEvidenceBundle bundle,
 ) {
   final rows = <ThaiCanonEvidenceReviewRow>[];
+  final trace = bundle.trace;
   for (final attachment in bundle.attachments) {
+    final badge = ThaiInternalEvidenceBadgeAssigner.forAttachment(
+      attachment,
+      trace: trace,
+    );
     for (final ref in attachment.evidenceRefs) {
       final ctx = ref.contextType == null
           ? ''
@@ -130,6 +141,7 @@ List<ThaiCanonEvidenceReviewRow> flattenEvidenceRows(
           sourcePage: ref.sourcePage ?? '',
           condition: ref.condition ?? '',
           userFacingAllowed: attachment.userFacingAllowed,
+          badge: badge,
         ),
       );
     }

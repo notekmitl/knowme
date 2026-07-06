@@ -4,6 +4,7 @@ import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_pipeli
 
 import '../integration.dart';
 import 'thai_canon_evidence_review_summary.dart';
+import 'thai_internal_evidence_badge.dart';
 
 /// Internal QA panel — inspect Canon evidence attached to a Thai Mirror report.
 ///
@@ -125,6 +126,8 @@ class _ThaiCanonEvidenceReviewPageState extends State<ThaiCanonEvidenceReviewPag
         const SizedBox(height: 16),
         _CoverageCards(summary: summary),
         const SizedBox(height: 16),
+        _BadgeSummaryCards(summary: summary.badgeSummary),
+        const SizedBox(height: 16),
         Text('Evidence table (${rows.length} refs)',
             style: theme.textTheme.titleMedium),
         const SizedBox(height: 8),
@@ -226,6 +229,97 @@ class _CoverageCards extends StatelessWidget {
   }
 }
 
+class _BadgeSummaryCards extends StatelessWidget {
+  const _BadgeSummaryCards({required this.summary});
+
+  final ThaiInternalEvidenceBadgeSummary summary;
+
+  @override
+  Widget build(BuildContext context) {
+    final chips = <Widget>[
+      _BadgeChip(
+        category: ThaiInternalEvidenceBadgeCategory.canonSupported,
+        count: summary.count(ThaiInternalEvidenceBadgeCategory.canonSupported),
+      ),
+      _BadgeChip(
+        category: ThaiInternalEvidenceBadgeCategory.runtimeMetadataSupported,
+        count: summary.count(
+          ThaiInternalEvidenceBadgeCategory.runtimeMetadataSupported,
+        ),
+      ),
+      _BadgeChip(
+        category: ThaiInternalEvidenceBadgeCategory.partialCanonSupport,
+        count: summary.count(
+          ThaiInternalEvidenceBadgeCategory.partialCanonSupport,
+        ),
+      ),
+      _BadgeChip(
+        category: ThaiInternalEvidenceBadgeCategory.canonDerivedInternal,
+        count: summary.count(
+          ThaiInternalEvidenceBadgeCategory.canonDerivedInternal,
+        ),
+      ),
+      _BadgeChip(
+        category: ThaiInternalEvidenceBadgeCategory.outOfCanonScope,
+        count: summary.count(ThaiInternalEvidenceBadgeCategory.outOfCanonScope),
+      ),
+      _BadgeChip(
+        category: ThaiInternalEvidenceBadgeCategory.blockedAmbiguous,
+        count: summary.count(ThaiInternalEvidenceBadgeCategory.blockedAmbiguous),
+      ),
+      _BadgeChip(
+        category: ThaiInternalEvidenceBadgeCategory.blockedSourceConflict,
+        count: summary.count(
+          ThaiInternalEvidenceBadgeCategory.blockedSourceConflict,
+        ),
+      ),
+      _BadgeChip(
+        category: ThaiInternalEvidenceBadgeCategory.remedyHidden,
+        count: summary.count(ThaiInternalEvidenceBadgeCategory.remedyHidden),
+        highlight: true,
+      ),
+      _BadgeChip(
+        category: ThaiInternalEvidenceBadgeCategory.noCanonEvidence,
+        count: summary.count(ThaiInternalEvidenceBadgeCategory.noCanonEvidence),
+      ),
+    ];
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text('Evidence badges (internal QA only)',
+            style: Theme.of(context).textTheme.titleSmall),
+        const SizedBox(height: 8),
+        Wrap(spacing: 8, runSpacing: 8, children: chips),
+      ],
+    );
+  }
+}
+
+class _BadgeChip extends StatelessWidget {
+  const _BadgeChip({
+    required this.category,
+    required this.count,
+    this.highlight = false,
+  });
+
+  final ThaiInternalEvidenceBadgeCategory category;
+  final int count;
+  final bool highlight;
+
+  @override
+  Widget build(BuildContext context) {
+    if (count <= 0) return const SizedBox.shrink();
+    final scheme = Theme.of(context).colorScheme;
+    return Chip(
+      avatar: highlight
+          ? Icon(Icons.lock_outline, size: 16, color: scheme.error)
+          : null,
+      label: Text('${category.label}: $count'),
+      visualDensity: VisualDensity.compact,
+    );
+  }
+}
+
 class _CoverageChip extends StatelessWidget {
   const _CoverageChip({
     required this.label,
@@ -260,6 +354,7 @@ class _EvidenceTableHeader extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 4),
       child: Row(
         children: [
+          _Cell(flex: 2, text: 'Badge', style: style),
           _Cell(flex: 2, text: 'Section', style: style),
           _Cell(flex: 3, text: 'Signal', style: style),
           _Cell(flex: 2, text: 'Type', style: style),
@@ -288,6 +383,7 @@ class _EvidenceTableRow extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          _Cell(flex: 2, text: row.badge.wire, style: style),
           _Cell(flex: 2, text: row.sectionId, style: style),
           _Cell(flex: 3, text: row.signalId, style: style),
           _Cell(flex: 2, text: row.evidenceType.name, style: style),
@@ -328,6 +424,20 @@ class _TracePanel extends StatelessWidget {
 
   final ThaiCanonEvidenceTrace trace;
 
+  Widget _traceLine(String label, List<String> items, {int take = 10}) {
+    if (items.isEmpty) return const SizedBox.shrink();
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(label, style: const TextStyle(fontWeight: FontWeight.w600)),
+        for (final s in items.take(take)) Text('• $s'),
+        if (items.length > take)
+          Text('… +${items.length - take} more'),
+        const SizedBox(height: 8),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -340,12 +450,38 @@ class _TracePanel extends StatelessWidget {
             Text('Trace / skipped evidence', style: theme.textTheme.titleMedium),
             const SizedBox(height: 8),
             Text(
-              'Remedy evidence skipped (internal count only — not advice): '
-              '${trace.skippedRemedyEvidenceCount}',
+              '${ThaiInternalEvidenceBadgeCategory.remedyHidden.label}: '
+              '${trace.skippedRemedyEvidenceCount} units (count only — not advice)',
             ),
-            Text('Taksa evidence skipped (count): '
-                '${trace.skippedTaksaEvidenceCount}'),
+            Text(
+              'Taksa skipped: ${trace.skippedTaksaEvidenceCount} '
+              '[${ThaiInternalEvidenceBadgeCategory.internalOnly.wire}]',
+            ),
             const SizedBox(height: 8),
+            _traceLine(
+              '${ThaiInternalEvidenceBadgeCategory.blockedAmbiguous.label} '
+              '(${trace.runtimeStatusBlockedByAmbiguousPosition.length})',
+              trace.runtimeStatusBlockedByAmbiguousPosition,
+            ),
+            _traceLine(
+              '${ThaiInternalEvidenceBadgeCategory.blockedSourceConflict.label} '
+              '(${trace.conflictedArchetypePlanetPairs.length})',
+              trace.conflictedArchetypePlanetPairs,
+            ),
+            _traceLine(
+              'Runtime status sources — exact context '
+              '(${trace.runtimeStatusFromExactLifePeriodContext.length})',
+              trace.runtimeStatusFromExactLifePeriodContext,
+            ),
+            _traceLine(
+              'Runtime status sources — archetype+planet '
+              '(${trace.runtimeStatusFromUniqueArchetypePlanetPosition.length})',
+              trace.runtimeStatusFromUniqueArchetypePlanetPosition,
+            ),
+            _traceLine(
+              'Period blockers (${trace.runtimeStatusWithoutPositionBreakdown.length})',
+              trace.runtimeStatusWithoutPositionBreakdown,
+            ),
             Text('periodStatus notes:', style: theme.textTheme.labelLarge),
             if (trace.skippedPeriodStatusNotes.isEmpty)
               Text(
@@ -495,7 +631,7 @@ class _TracePanel extends StatelessWidget {
               ),
             const SizedBox(height: 8),
             Text(
-              'In-scope unmapped signals '
+              '${ThaiInternalEvidenceBadgeCategory.noCanonEvidence.label} '
               '(${trace.inCanonScopeUnmappedSignals.length}):',
               style: theme.textTheme.labelLarge,
             ),
@@ -508,7 +644,7 @@ class _TracePanel extends StatelessWidget {
               ),
             const SizedBox(height: 8),
             Text(
-              'Out of Canon scope '
+              '${ThaiInternalEvidenceBadgeCategory.outOfCanonScope.label} '
               '(${trace.outOfCanonScopeSignals.length}):',
               style: theme.textTheme.labelLarge,
             ),
@@ -521,8 +657,8 @@ class _TracePanel extends StatelessWidget {
               ),
             const SizedBox(height: 8),
             Text(
-              'Trace-only candidates '
-              '(${trace.traceOnlyEvidenceCandidates.length}):',
+              '${ThaiInternalEvidenceBadgeCategory.partialCanonSupport.label} '
+              'trace-only (${trace.traceOnlyEvidenceCandidates.length}):',
               style: theme.textTheme.labelLarge,
             ),
             for (final s in trace.traceOnlyEvidenceCandidates)

@@ -323,6 +323,12 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
     return records;
   }
 
+  /// Public attachment classifier for badge assignment and QA tools.
+  static (ThaiCanonEvidenceAlignmentClassification, String) classifyAttachment(
+    ThaiCanonEvidenceAttachment attachment,
+  ) =>
+      _classifyAttachment(attachment);
+
   static (ThaiCanonEvidenceAlignmentClassification, String)
       _classifyAttachment(
     ThaiCanonEvidenceAttachment attachment,

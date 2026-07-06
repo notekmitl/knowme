@@ -47,11 +47,21 @@ void main() {
       await tester.pumpAndSettle();
     }
 
+    Future<void> scrollToEvidenceTable(WidgetTester tester) async {
+      await tester.scrollUntilVisible(
+        find.textContaining('Evidence table'),
+        500,
+        scrollable: find.byType(Scrollable).first,
+      );
+      await tester.pumpAndSettle();
+    }
+
     testWidgets('panel widget builds with evidence bundle', (tester) async {
       await pumpReviewPage(tester);
 
       expect(find.text('Thai Canon Evidence Review'), findsOneWidget);
       expect(find.textContaining('Attachments:'), findsOneWidget);
+      await scrollToEvidenceTable(tester);
       expect(find.textContaining('Evidence table'), findsOneWidget);
       await scrollToTracePanel(tester);
       expect(find.text('Trace / skipped evidence'), findsOneWidget);
@@ -77,9 +87,18 @@ void main() {
       expect(find.text('yes'), findsNothing);
       await scrollToTracePanel(tester);
       expect(
-        find.textContaining('Remedy evidence skipped (internal count only'),
+        find.textContaining('Remedy Hidden:'),
         findsOneWidget,
       );
+    });
+
+    testWidgets('badge summary cards render for internal QA', (tester) async {
+      await pumpReviewPage(tester);
+
+      expect(find.text('Evidence badges (internal QA only)'), findsOneWidget);
+      expect(find.textContaining('Canon Supported:'), findsOneWidget);
+      await scrollToEvidenceTable(tester);
+      expect(find.text('Badge'), findsOneWidget);
     });
 
     testWidgets('unmapped candidates visible in trace panel', (tester) async {
@@ -162,6 +181,7 @@ void main() {
       ).readAsStringSync();
       expect(source.contains('ThaiCanonEvidenceReviewPage'), isFalse);
       expect(source.contains('thai_canon_evidence'), isFalse);
+      expect(source.contains('ThaiInternalEvidenceBadge'), isFalse);
     });
 
     test('Thai mirror result page does not import review panel', () {
@@ -170,6 +190,7 @@ void main() {
       ).readAsStringSync();
       expect(source.contains('ThaiCanonEvidenceReviewPage'), isFalse);
       expect(source.contains('ThaiReportCanonEvidenceEnricher'), isFalse);
+      expect(source.contains('ThaiInternalEvidenceBadge'), isFalse);
     });
   });
 }
