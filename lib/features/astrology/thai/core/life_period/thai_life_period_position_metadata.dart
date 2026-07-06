@@ -3,6 +3,8 @@ import '../../foundation/models/thai_birth_data.dart';
 import '../../knowledge/canon/integration/thai_canon_evidence_index.dart';
 import 'life_period_engine.dart';
 import 'thai_archetype_context_metadata.dart';
+import 'thai_life_period_context_metadata.dart';
+import 'thai_remainder_runtime_metadata.dart';
 
 /// Feasibility outcome for per-life-period Mahabhut position metadata.
 enum LifePeriodPositionMetadataFeasibilityResult {
@@ -63,7 +65,9 @@ class ThaiLifePeriodPositionMetadataFeasibilityAudit {
     required this.canMapToCanonWithoutPlanetInference,
     required this.canonLifePeriodPlacementsPresent,
     required this.archetypeFeasibility,
+    required this.periodContextFeasibility,
     this.periodCount = 0,
+    this.periodsWithContextMetadata = 0,
   });
 
   final LifePeriodPositionMetadataFeasibilityResult result;
@@ -73,7 +77,9 @@ class ThaiLifePeriodPositionMetadataFeasibilityAudit {
   final bool canMapToCanonWithoutPlanetInference;
   final bool canonLifePeriodPlacementsPresent;
   final ThaiArchetypeContextMetadataFeasibilityAudit archetypeFeasibility;
+  final ThaiLifePeriodContextFeasibilityAudit periodContextFeasibility;
   final int periodCount;
+  final int periodsWithContextMetadata;
 
   String? get metadataBlocker => switch (result) {
         LifePeriodPositionMetadataFeasibilityResult.readyToExposeMetadata =>
@@ -107,7 +113,7 @@ abstract final class ThaiLifePeriodPositionMetadataResolver {
       return null;
     }
     assert(period.planet.name.isNotEmpty);
-    // Production wiring deferred until runtime exposes scoped identity inputs.
+    // Mahabhut position wiring deferred to Life Period Position Metadata Completion.
     return null;
   }
 }
@@ -123,6 +129,11 @@ abstract final class ThaiLifePeriodPositionMetadataFeasibility {
     ThaiBirthData? birthData,
     ThaiCanonEvidenceIndex? canonIndex,
   }) {
+    final periodContextFeasibility = ThaiLifePeriodContextFeasibility.audit(
+      timeline: timeline,
+      canonIndex: canonIndex,
+    );
+
     if (timeline == null || timeline.periods.isEmpty) {
       final archetypeFeasibility =
           ThaiArchetypeContextMetadataFeasibility.audit(
@@ -139,6 +150,7 @@ abstract final class ThaiLifePeriodPositionMetadataFeasibility {
         canMapToCanonWithoutPlanetInference: false,
         canonLifePeriodPlacementsPresent: true,
         archetypeFeasibility: archetypeFeasibility,
+        periodContextFeasibility: periodContextFeasibility,
       );
     }
 
@@ -148,17 +160,29 @@ abstract final class ThaiLifePeriodPositionMetadataFeasibility {
       canonIndex: canonIndex,
     );
 
+    final archetypeMetadata = ThaiArchetypeContextResolver.resolve(
+      remainderMetadata: ThaiRemainderMetadataResolver.resolve(
+        profile: profile,
+        birthData: birthData,
+      ),
+      canonIndex: canonIndex,
+    ).metadata;
+
     final hasPlanet = timeline.periods.every((p) => p.planet.name.isNotEmpty);
 
     final hasArchetype =
         archetypeFeasibility.result ==
         ArchetypeContextMetadataFeasibilityResult.readyToExposeMetadata;
 
-    // No deterministic map from PeriodState ages → Canon life_period context value.
-    final hasPeriodContext = _hasPeriodContextIdentity(timeline);
+    final contextByPeriod = ThaiLifePeriodContextResolver.resolveAll(
+      timeline: timeline,
+      archetypeMetadata: archetypeMetadata,
+      canonIndex: canonIndex,
+    );
+    final periodsWithContext =
+        contextByPeriod.values.where((m) => m != null).length;
+    final hasPeriodContext = periodsWithContext == timeline.periods.length;
 
-    // Canon life_period placements require archetype disambiguation — same planet +
-    // life_period label can map to different mahabhutPosition.* across archetypes.
     final canMapWithoutPlanetInference =
         hasArchetype && hasPeriodContext && hasPlanet;
 
@@ -166,6 +190,8 @@ abstract final class ThaiLifePeriodPositionMetadataFeasibility {
       hasPlanet: hasPlanet,
       hasArchetype: hasArchetype,
       hasPeriodContext: hasPeriodContext,
+      periodContextReady: periodContextFeasibility.result ==
+          PeriodContextMappingFeasibilityResult.readyToMapPeriodContext,
     );
 
     return ThaiLifePeriodPositionMetadataFeasibilityAudit(
@@ -176,7 +202,9 @@ abstract final class ThaiLifePeriodPositionMetadataFeasibility {
       canMapToCanonWithoutPlanetInference: canMapWithoutPlanetInference,
       canonLifePeriodPlacementsPresent: true,
       archetypeFeasibility: archetypeFeasibility,
+      periodContextFeasibility: periodContextFeasibility,
       periodCount: timeline.periods.length,
+      periodsWithContextMetadata: periodsWithContext,
     );
   }
 
@@ -184,29 +212,20 @@ abstract final class ThaiLifePeriodPositionMetadataFeasibility {
     required bool hasPlanet,
     required bool hasArchetype,
     required bool hasPeriodContext,
+    required bool periodContextReady,
   }) {
-    if (!hasPlanet) {
+    if (!hasPlanet || !hasArchetype) {
       return LifePeriodPositionMetadataFeasibilityResult
           .needsArchetypeContextMetadata;
     }
-    if (!hasArchetype) {
+    if (!periodContextReady) {
       return LifePeriodPositionMetadataFeasibilityResult
-          .needsArchetypeContextMetadata;
+          .needsPeriodContextMapping;
     }
     if (!hasPeriodContext) {
       return LifePeriodPositionMetadataFeasibilityResult
           .needsPeriodContextMapping;
     }
     return LifePeriodPositionMetadataFeasibilityResult.readyToExposeMetadata;
-  }
-
-  static bool _hasPeriodContextIdentity(LifeTimeline timeline) {
-    // PeriodState carries numeric ages only — no Canon life_period context value.
-    for (final period in timeline.periods) {
-      if (period.startAge <= 0 || period.endAge < period.startAge) {
-        return false;
-      }
-    }
-    return false;
   }
 }

@@ -46,6 +46,21 @@ export 'thai_archetype_context_metadata.dart'
         ThaiArchetypeContextPostFreezePatch001,
         ThaiArchetypeContextResolution,
         ThaiArchetypeContextResolver;
+export 'thai_life_period_context_metadata.dart'
+    show
+        PeriodContextMappingFeasibilityResult,
+        PeriodContextMappingFeasibilityResultWire,
+        PeriodContextMatchMethod,
+        PeriodContextMetadataBlocker,
+        ThaiArchetypeChartCanonPageIndex,
+        ThaiArchetypeChartLifePeriodPageRanges,
+        ThaiCanonLifePeriodContextNormalizer,
+        ThaiCanonLifePeriodLabelParse,
+        ThaiLifePeriodContextFeasibility,
+        ThaiLifePeriodContextFeasibilityAudit,
+        ThaiLifePeriodContextMetadata,
+        ThaiLifePeriodContextResolution,
+        ThaiLifePeriodContextResolver;
 export 'thai_life_period_position_metadata.dart'
     show
         LifePeriodMahabhutPositionMetadata,

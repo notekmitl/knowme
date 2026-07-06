@@ -103,6 +103,36 @@ abstract final class ThaiReportCanonEvidenceEnricher {
       canonIndex: repo.index,
     );
     final archetypeMetadata = archetypeResolution.metadata;
+    final periodContextFeasibilityAudit = ThaiLifePeriodContextFeasibility.audit(
+      timeline: pipelineResult.lifePeriods,
+      canonIndex: repo.index,
+    );
+    final lifePeriodsWithPeriodContextMetadata = <String>[];
+    final lifePeriodsWithoutPeriodContextMetadata = <String>[];
+    final periodContextMatchMethods = <String>{};
+    final periodContextMissingReasons = <String>{};
+    final timelineForContext = pipelineResult.lifePeriods;
+    if (timelineForContext != null && archetypeMetadata != null) {
+      for (final period in timelineForContext.periods) {
+        final anchor = 'life_period:${period.index}:period_context';
+        final resolution = ThaiLifePeriodContextResolver.resolveDetailed(
+          period: period,
+          archetypeMetadata: archetypeMetadata,
+          canonIndex: repo.index,
+        );
+        if (resolution.metadata != null) {
+          lifePeriodsWithPeriodContextMetadata.add(anchor);
+          periodContextMatchMethods.add(resolution.metadata!.matchMethod);
+        } else {
+          lifePeriodsWithoutPeriodContextMetadata.add(anchor);
+          if (resolution.missingReason != null) {
+            periodContextMissingReasons.add(
+              '${period.index}:${resolution.missingReason}',
+            );
+          }
+        }
+      }
+    }
     final profilesWithRemainderMetadata = <String>[];
     final profilesWithoutRemainderMetadata = <String>[];
     final profilesWithArchetypeContextMetadata = <String>[];
@@ -316,6 +346,20 @@ abstract final class ThaiReportCanonEvidenceEnricher {
       archetypeContextMetadataBlocker:
           archetypeFeasibilityAudit.metadataBlocker,
       archetypeChartCanonId: archetypeMetadata?.archetypeChartCanonId,
+      lifePeriodsWithPeriodContextMetadata:
+          _sortedUnique(lifePeriodsWithPeriodContextMetadata),
+      lifePeriodsWithoutPeriodContextMetadata:
+          _sortedUnique(lifePeriodsWithoutPeriodContextMetadata),
+      periodContextMetadataBlocker:
+          _periodContextMetadataBlocker(
+        feasibility: periodContextFeasibilityAudit,
+        withContext: lifePeriodsWithPeriodContextMetadata.length,
+        withoutContext: lifePeriodsWithoutPeriodContextMetadata.length,
+      ),
+      periodContextMatchMethods:
+          _sortedUnique(periodContextMatchMethods.toList()),
+      periodContextMissingReasons:
+          _sortedUnique(periodContextMissingReasons.toList()),
       lifePeriodStatusMetadataBlocker: periodStatusAudit?.blocker,
     );
 
@@ -461,5 +505,23 @@ abstract final class ThaiReportCanonEvidenceEnricher {
 
   static List<String> _sortedUnique(List<String> values) {
     return values.toSet().toList()..sort();
+  }
+
+  static String? _periodContextMetadataBlocker({
+    required ThaiLifePeriodContextFeasibilityAudit feasibility,
+    required int withContext,
+    required int withoutContext,
+  }) {
+    if (feasibility.result !=
+        PeriodContextMappingFeasibilityResult.readyToMapPeriodContext) {
+      return feasibility.result.wire;
+    }
+    if (withoutContext > 0) {
+      return PeriodContextMetadataBlocker.needsPeriodContextMapping;
+    }
+    if (withContext == 0) {
+      return PeriodContextMetadataBlocker.needsPeriodContextMapping;
+    }
+    return null;
   }
 }

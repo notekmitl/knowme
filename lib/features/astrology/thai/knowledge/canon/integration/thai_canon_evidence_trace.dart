@@ -32,6 +32,11 @@ class ThaiCanonEvidenceTrace {
     this.archetypeMappingSource,
     this.archetypeContextMetadataBlocker,
     this.archetypeChartCanonId,
+    this.lifePeriodsWithPeriodContextMetadata = const [],
+    this.lifePeriodsWithoutPeriodContextMetadata = const [],
+    this.periodContextMetadataBlocker,
+    this.periodContextMatchMethods = const [],
+    this.periodContextMissingReasons = const [],
     this.lifePeriodStatusMetadataBlocker,
   });
 
@@ -120,6 +125,21 @@ class ThaiCanonEvidenceTrace {
 
   /// archetypeChart.* when metadata is present.
   final String? archetypeChartCanonId;
+
+  /// Life-period anchors with Canon `life_period` context metadata.
+  final List<String> lifePeriodsWithPeriodContextMetadata;
+
+  /// Life-period anchors without period context metadata.
+  final List<String> lifePeriodsWithoutPeriodContextMetadata;
+
+  /// Set when period context mapping is blocked.
+  final String? periodContextMetadataBlocker;
+
+  /// Match methods used when period context metadata is present.
+  final List<String> periodContextMatchMethods;
+
+  /// Explicit missing reasons for unmapped life periods.
+  final List<String> periodContextMissingReasons;
 
   /// Set when period-status metadata is blocked (e.g. engine gap — not silent).
   final String? lifePeriodStatusMetadataBlocker;
