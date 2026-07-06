@@ -216,7 +216,8 @@ void main() {
 
       expect(bundle.trace.skippedTaksaEvidenceCount, greaterThan(0));
       expect(bundle.trace.taksaRolesMapped.length, 8);
-      expect(bundle.trace.taksaSkippedReason, TaksaRuntimeSkippedReason.noRuntimeTaksaSignal);
+      expect(bundle.trace.taksaRotationAssignmentCount, 8);
+      expect(bundle.trace.taksaEvidenceAttachedCount, 8);
       expect(bundle.trace.skippedPeriodStatusNotes, isEmpty);
       expect(
         bundle.trace.lifePeriodsWithoutRuntimeStatus,

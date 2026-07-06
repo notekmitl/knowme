@@ -21,6 +21,8 @@ import 'thai_canon_taksa_role_runtime_mapping.dart';
 import 'thai_mirror_canon_evidence_bundle.dart';
 import 'thai_taksa_role_runtime_key.dart';
 import 'thai_taksa_role_runtime_metadata.dart';
+import 'thai_taksa_rotation_metadata.dart';
+import 'thai_taksa_rotation_resolver.dart';
 
 /// Attaches frozen Canon evidence to Thai Mirror pipeline output without
 /// mutating user-facing report structures.
@@ -477,12 +479,16 @@ abstract final class ThaiReportCanonEvidenceEnricher {
         );
       }
     }
+    final taksaRotationAudit = ThaiTaksaRotationFeasibilityAudit.audit(
+      repository: repo,
+    );
+    final taksaRotationResult = ThaiTaksaRotationResolver.resolve(
+      birthData: pipelineResult.birthData,
+      repository: repo,
+    );
+    final taksaRotationMetadata = taksaRotationResult.metadata;
     final taksaFeasibilityAudit =
         ThaiTaksaRoleRuntimeMetadataFeasibilityAudit.audit(
-      pipeline: pipelineResult,
-    );
-    final discoveredTaksaRoleKeys =
-        ThaiTaksaRoleRuntimeSignalDiscovery.discoverRuntimeTaksaRoleKeys(
       pipeline: pipelineResult,
     );
     final taksaRolesMapped = ThaiCanonTaksaRoleRuntimeMapping.runtimeMappings()
@@ -498,28 +504,43 @@ abstract final class ThaiReportCanonEvidenceEnricher {
         )
         .toList(growable: false);
     var taksaEvidenceAttachedCount = 0;
-    final taksaEvidenceTraceOnlyCount = taksaCanonUnits.length;
+    var taksaEvidenceTraceOnlyCount = taksaCanonUnits.length;
     String? taksaSkippedReason;
-    if (discoveredTaksaRoleKeys.isEmpty && taksaCanonUnits.isNotEmpty) {
-      taksaSkippedReason = TaksaRuntimeSkippedReason.noRuntimeTaksaSignal;
-      traceOnlyCandidates.add(
-        'taksa:trace_only (${taksaCanonUnits.length} Canon units; '
-        '$taksaSkippedReason)',
-      );
-    } else if (discoveredTaksaRoleKeys.isNotEmpty) {
-      for (final roleKey in discoveredTaksaRoleKeys) {
-        final refs = mapper.evidenceForTaksaRole(roleKey);
+    if (taksaRotationMetadata.hasAssignments) {
+      for (final assignment in taksaRotationMetadata.assignments) {
+        final unit = repo.index.unitById(assignment.sourceUnitId);
+        if (unit == null) continue;
+        final refs = mapper.refsForUnits([unit]);
         if (refs.isEmpty) continue;
         taksaEvidenceAttachedCount += refs.length;
         attachments.add(
           ThaiCanonEvidenceAttachment(
             sectionId: 'taksaInternal',
-            signalId: 'taksaRole:$roleKey',
+            signalId:
+                'taksaRotation:${assignment.planetCanonId}:'
+                '${assignment.taksaRoleCanonId}',
             evidenceType: ThaiCanonEvidenceType.taksa,
             evidenceRefs: refs,
             matchQuality: ThaiCanonEvidenceMatchQuality.structural,
             userFacingAllowed: false,
           ),
+        );
+      }
+      taksaEvidenceTraceOnlyCount =
+          taksaCanonUnits.length - taksaEvidenceAttachedCount;
+      if (taksaEvidenceTraceOnlyCount > 0) {
+        traceOnlyCandidates.add(
+          'taksa:trace_only ($taksaEvidenceTraceOnlyCount non-rotation Canon '
+          'units; rotation metadata present)',
+        );
+      }
+    } else {
+      taksaSkippedReason = taksaRotationMetadata.blocker ??
+          TaksaRuntimeSkippedReason.noRuntimeTaksaSignal;
+      if (taksaCanonUnits.isNotEmpty) {
+        traceOnlyCandidates.add(
+          'taksa:trace_only (${taksaCanonUnits.length} Canon units; '
+          '$taksaSkippedReason)',
         );
       }
     }
@@ -547,6 +568,25 @@ abstract final class ThaiReportCanonEvidenceEnricher {
       taksaEvidenceTraceOnlyCount: taksaEvidenceTraceOnlyCount,
       taksaSkippedReason: taksaSkippedReason,
       taksaFeasibilityResult: taksaFeasibilityAudit.result.wire,
+      taksaRotationFeasibilityResult: taksaRotationAudit.result.wire,
+      taksaSupportedWeekdays: _sortedUnique(
+        taksaRotationAudit.supportedWeekdayNumbers
+            .map((w) => w.toString())
+            .toList(),
+      ),
+      taksaOcrBlockedWeekdays: _sortedUnique(
+        taksaRotationAudit.ocrBlockedWeekdayNumbers
+            .map((w) => w.toString())
+            .toList(),
+      ),
+      taksaUnsupportedWeekdays: _sortedUnique(
+        taksaRotationAudit.unsupportedWeekdayNumbers
+            .map((w) => w.toString())
+            .toList(),
+      ),
+      taksaProfileWeekdayNumber: taksaRotationMetadata.birthWeekdayNumber,
+      taksaRotationAssignmentCount: taksaRotationMetadata.assignments.length,
+      taksaRotationBlocker: taksaRotationMetadata.blocker,
       skippedLookupTableEvidenceCount: lookupCount,
       skippedPeriodStatusNotes: const [],
       lifePeriodsWithoutRuntimeStatus:

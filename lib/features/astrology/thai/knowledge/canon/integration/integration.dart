@@ -15,4 +15,7 @@ export 'thai_canon_production_loader.dart';
 export 'thai_mirror_canon_evidence_bundle.dart';
 export 'thai_report_canon_evidence_enricher.dart';
 export 'thai_taksa_role_runtime_key.dart';
+export 'thai_taksa_role_assignment.dart';
+export 'thai_taksa_rotation_metadata.dart';
+export 'thai_taksa_rotation_resolver.dart';
 export 'thai_taksa_role_runtime_metadata.dart';

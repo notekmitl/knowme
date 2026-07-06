@@ -20,6 +20,8 @@ class ThaiCanonEvidenceReviewSummary {
     required this.taksaEvidenceAttachedCount,
     required this.taksaEvidenceTraceOnlyCount,
     required this.taksaSkippedReason,
+    required this.taksaRotationAssignmentCount,
+    required this.taksaRotationBlocker,
     required this.unmappedCandidateCount,
     required this.signalsWithoutEvidenceCount,
     required this.badgeSummary,
@@ -76,7 +78,9 @@ class ThaiCanonEvidenceReviewSummary {
       taksaCanonUnitsAvailable: trace.taksaCanonUnitsAvailable,
       taksaEvidenceAttachedCount: trace.taksaEvidenceAttachedCount,
       taksaEvidenceTraceOnlyCount: trace.taksaEvidenceTraceOnlyCount,
-      taksaSkippedReason: trace.taksaSkippedReason ?? '',
+      taksaSkippedReason: trace.taksaSkippedReason ?? trace.taksaRotationBlocker ?? '',
+      taksaRotationAssignmentCount: trace.taksaRotationAssignmentCount,
+      taksaRotationBlocker: trace.taksaRotationBlocker ?? '',
       unmappedCandidateCount: trace.unmappedCanonEvidenceCandidates.length,
       signalsWithoutEvidenceCount: trace.signalsWithoutCanonEvidence.length,
       badgeSummary: ThaiInternalEvidenceBadgeSummary.fromBundle(bundle),
@@ -102,6 +106,8 @@ class ThaiCanonEvidenceReviewSummary {
   final int taksaEvidenceAttachedCount;
   final int taksaEvidenceTraceOnlyCount;
   final String taksaSkippedReason;
+  final int taksaRotationAssignmentCount;
+  final String taksaRotationBlocker;
   final int unmappedCandidateCount;
   final int signalsWithoutEvidenceCount;
   final ThaiInternalEvidenceBadgeSummary badgeSummary;

@@ -351,8 +351,8 @@ abstract final class ThaiCanonEvidenceAlignmentClassifier {
           'Prediction rule attachment should be trace-only',
         ),
       ThaiCanonEvidenceType.taksa => (
-          ThaiCanonEvidenceAlignmentClassification.skippedTaksa,
-          'Taksa evidence trace-only — ${TaksaRuntimeSkippedReason.noRuntimeTaksaSignal}',
+          ThaiCanonEvidenceAlignmentClassification.internalOnly,
+          'Taksa rotation evidence — source-backed weekday assignment',
         ),
       ThaiCanonEvidenceType.remedyInternal => (
           ThaiCanonEvidenceAlignmentClassification.skippedRemedy,

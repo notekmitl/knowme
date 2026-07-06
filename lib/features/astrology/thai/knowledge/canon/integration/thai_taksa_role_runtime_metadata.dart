@@ -1,7 +1,9 @@
 import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_pipeline_result.dart';
 
+import 'thai_canon_evidence_repository.dart';
 import 'thai_canon_taksa_role_runtime_mapping.dart';
 import 'thai_taksa_role_runtime_key.dart';
+import 'thai_taksa_rotation_resolver.dart';
 
 /// Feasibility classification for Taksa runtime mapping.
 enum TaksaRuntimeMappingFeasibilityResult {
@@ -80,12 +82,21 @@ class ThaiTaksaRoleRuntimeMetadataFeasibilityAudit {
   }
 }
 
-/// Discover explicit runtime/report Taksa role signals (empty until wired).
+/// Discover explicit runtime Taksa role assignment signals from rotation metadata.
 abstract final class ThaiTaksaRoleRuntimeSignalDiscovery {
   static List<String> discoverRuntimeTaksaRoleKeys({
     required ThaiMirrorPipelineResult pipeline,
+    ThaiCanonEvidenceRepository? repository,
   }) {
-    // No report section or profile field exposes Taksa role keys today.
-    return const [];
+    if (repository == null || pipeline.birthData == null) return const [];
+    final result = ThaiTaksaRotationResolver.resolve(
+      birthData: pipeline.birthData,
+      repository: repository,
+    );
+    return result.metadata.assignments
+        .map((a) => a.taksaRoleCanonId)
+        .toSet()
+        .toList()
+      ..sort();
   }
 }

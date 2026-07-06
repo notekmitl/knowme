@@ -90,19 +90,26 @@ void main() {
       expect(audit.totalSkippedRemedyCount, 87 * audit.fixtureResults.length);
     });
 
-    test('Taksa evidence is trace-only with mapped role keys', () {
+    test('Taksa rotation metadata on Tuesday fixtures; trace-only on others', () {
+      var tuesdayFixtures = 0;
       for (final result in audit.fixtureResults) {
-        expect(result.bundle.trace.skippedTaksaEvidenceCount, greaterThan(0));
+        if (result.bundle.trace.taksaRotationAssignmentCount == 8) {
+          tuesdayFixtures++;
+          expect(result.bundle.trace.taksaEvidenceAttachedCount, 8);
+        } else {
+          expect(
+            result.bundle.trace.taksaSkippedReason,
+            isNotNull,
+          );
+        }
         expect(result.bundle.trace.taksaRolesMapped.length, 8);
-        expect(
-          result.bundle.trace.taksaSkippedReason,
-          TaksaRuntimeSkippedReason.noRuntimeTaksaSignal,
-        );
         expect(
           result.records.any(
             (r) =>
                 r.classification ==
-                ThaiCanonEvidenceAlignmentClassification.skippedTaksa,
+                    ThaiCanonEvidenceAlignmentClassification.skippedTaksa ||
+                r.classification ==
+                    ThaiCanonEvidenceAlignmentClassification.internalOnly,
           ),
           isTrue,
         );
@@ -113,6 +120,7 @@ void main() {
           isFalse,
         );
       }
+      expect(tuesdayFixtures, greaterThan(0));
     });
 
     test('periodStatus mapping is wired; absent runtime status is trace-only', () {

@@ -40,4 +40,6 @@ abstract final class ThaiTaksaRoleRuntimeKey {
 /// Skipped-reason when Taksa Canon evidence has no runtime/report signal.
 abstract final class TaksaRuntimeSkippedReason {
   static const noRuntimeTaksaSignal = 'NO_RUNTIME_TAKSA_SIGNAL';
+  static const rotationUnsupportedWeekday = 'TAKSA_ROTATION_UNSUPPORTED_WEEKDAY';
+  static const rotationSourceBlocked = 'TAKSA_ROTATION_SOURCE_BLOCKED';
 }

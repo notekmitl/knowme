@@ -217,8 +217,8 @@ class _CoverageCards extends StatelessWidget {
           value: '${summary.taksaEvidenceTraceOnlyCount}',
         ),
         _CoverageChip(
-          label: 'Taksa roles mapped',
-          value: '${summary.taksaRolesMappedCount}',
+          label: 'Taksa rotation',
+          value: '${summary.taksaRotationAssignmentCount}',
         ),
         _CoverageChip(
           label: 'Unmapped candidates',
@@ -483,8 +483,19 @@ class _TracePanel extends StatelessWidget {
             ),
             if (trace.taksaSkippedReason != null)
               Text('Taksa skipped reason: ${trace.taksaSkippedReason}'),
-            if (trace.taksaFeasibilityResult != null)
-              Text('Taksa feasibility: ${trace.taksaFeasibilityResult}'),
+            if (trace.taksaRotationFeasibilityResult != null)
+              Text('Taksa rotation feasibility: ${trace.taksaRotationFeasibilityResult}'),
+            Text(
+              'Taksa weekdays — supported: ${trace.taksaSupportedWeekdays.join(', ')} '
+              '| OCR-blocked: ${trace.taksaOcrBlockedWeekdays.join(', ')} '
+              '| unsupported: ${trace.taksaUnsupportedWeekdays.join(', ')}',
+            ),
+            Text(
+              'Profile weekday: ${trace.taksaProfileWeekdayNumber ?? '—'} · '
+              'rotation assignments: ${trace.taksaRotationAssignmentCount}',
+            ),
+            if (trace.taksaRotationBlocker != null)
+              Text('Taksa rotation blocker: ${trace.taksaRotationBlocker}'),
             const SizedBox(height: 8),
             Text('QA blockers (internal)', style: theme.textTheme.labelLarge),
             const SizedBox(height: 4),

@@ -86,31 +86,25 @@ void main() {
       );
     }
 
-    test('Taksa evidence remains trace-only with NO_RUNTIME_TAKSA_SIGNAL', () async {
+    test('Tuesday QA fixture attaches rotation evidence; remainder trace-only', () async {
       final bundle = await enrich();
       final trace = bundle.trace;
 
       expect(trace.taksaRolesMapped.length, 8);
-      expect(trace.taksaCanonUnitsAvailable, greaterThan(0));
-      expect(trace.taksaEvidenceAttachedCount, 0);
-      expect(trace.taksaEvidenceTraceOnlyCount, trace.taksaCanonUnitsAvailable);
-      expect(trace.taksaSkippedReason, TaksaRuntimeSkippedReason.noRuntimeTaksaSignal);
+      expect(trace.taksaRotationAssignmentCount, 8);
+      expect(trace.taksaEvidenceAttachedCount, 8);
+      expect(trace.taksaRotationBlocker, isNull);
       expect(
-        trace.taksaFeasibilityResult,
-        'READY_TO_ADD_INTERNAL_TAKSA_ROLE_KEYS',
+        trace.taksaRotationFeasibilityResult,
+        'READY_TO_IMPLEMENT_TUESDAY_ONLY',
       );
       expect(
         bundle.attachments.where(
           (a) => a.evidenceType == ThaiCanonEvidenceType.taksa,
-        ),
-        isEmpty,
+        ).length,
+        8,
       );
-      expect(
-        trace.traceOnlyEvidenceCandidates.any(
-          (c) => c.contains(TaksaRuntimeSkippedReason.noRuntimeTaksaSignal),
-        ),
-        isTrue,
-      );
+      expect(trace.taksaEvidenceTraceOnlyCount, greaterThan(0));
     });
 
     test('taksaRole ids are not unmapped Canon candidates', () async {

@@ -243,7 +243,7 @@ void main() {
       );
     });
 
-    test('Taksa roles are mapped internally; evidence stays trace-only', () async {
+    test('Taksa Tuesday rotation attaches internal evidence only', () async {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
@@ -252,18 +252,13 @@ void main() {
         repository: repository,
       );
       expect(bundle.trace.taksaRolesMapped.length, 8);
-      expect(bundle.trace.taksaSkippedReason, TaksaRuntimeSkippedReason.noRuntimeTaksaSignal);
-      expect(
-        bundle.trace.unmappedCanonEvidenceCandidates.any(
-          (id) => id.startsWith('taksaRole.'),
-        ),
-        isFalse,
-      );
+      expect(bundle.trace.taksaRotationAssignmentCount, 8);
+      expect(bundle.trace.taksaSkippedReason, isNull);
       expect(
         bundle.attachments.where(
           (a) => a.evidenceType == ThaiCanonEvidenceType.taksa,
-        ),
-        isEmpty,
+        ).length,
+        8,
       );
     });
   });

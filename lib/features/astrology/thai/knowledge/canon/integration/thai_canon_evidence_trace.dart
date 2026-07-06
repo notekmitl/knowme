@@ -15,6 +15,13 @@ class ThaiCanonEvidenceTrace {
     this.taksaEvidenceTraceOnlyCount = 0,
     this.taksaSkippedReason,
     this.taksaFeasibilityResult,
+    this.taksaRotationFeasibilityResult,
+    this.taksaSupportedWeekdays = const [],
+    this.taksaOcrBlockedWeekdays = const [],
+    this.taksaUnsupportedWeekdays = const [],
+    this.taksaProfileWeekdayNumber,
+    this.taksaRotationAssignmentCount = 0,
+    this.taksaRotationBlocker,
     this.skippedLookupTableEvidenceCount = 0,
     this.skippedPeriodStatusNotes = const [],
     this.lifePeriodsWithoutRuntimeStatus = const [],
@@ -99,6 +106,13 @@ class ThaiCanonEvidenceTrace {
   final int taksaEvidenceTraceOnlyCount;
   final String? taksaSkippedReason;
   final String? taksaFeasibilityResult;
+  final String? taksaRotationFeasibilityResult;
+  final List<String> taksaSupportedWeekdays;
+  final List<String> taksaOcrBlockedWeekdays;
+  final List<String> taksaUnsupportedWeekdays;
+  final int? taksaProfileWeekdayNumber;
+  final int taksaRotationAssignmentCount;
+  final String? taksaRotationBlocker;
   final int skippedLookupTableEvidenceCount;
   final List<String> skippedPeriodStatusNotes;
 
