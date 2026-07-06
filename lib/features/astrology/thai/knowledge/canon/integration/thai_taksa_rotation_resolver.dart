@@ -31,12 +31,13 @@ abstract final class ThaiTaksaRotationResolver {
       );
     }
 
-    if (ThaiTaksaBirthWeekday.ocrBlockedWeekdayNumbers.contains(weekday)) {
+    final blocker = _blockerForWeekday(weekday);
+    if (blocker != null) {
       return ThaiTaksaRotationResolveResult(
         metadata: ThaiTaksaRotationMetadata(
           birthWeekdayNumber: weekday,
           assignments: const [],
-          blocker: TaksaRotationBlocker.sourceBlocked,
+          blocker: blocker,
         ),
       );
     }
@@ -47,7 +48,7 @@ abstract final class ThaiTaksaRotationResolver {
         metadata: ThaiTaksaRotationMetadata(
           birthWeekdayNumber: weekday,
           assignments: const [],
-          blocker: TaksaRotationBlocker.unsupportedWeekday,
+          blocker: TaksaRotationBlocker.notInSource,
         ),
       );
     }
@@ -61,7 +62,7 @@ abstract final class ThaiTaksaRotationResolver {
         metadata: ThaiTaksaRotationMetadata(
           birthWeekdayNumber: weekday,
           assignments: const [],
-          blocker: TaksaRotationBlocker.unsupportedWeekday,
+          blocker: TaksaRotationBlocker.notInSource,
         ),
       );
     }
@@ -79,7 +80,7 @@ abstract final class ThaiTaksaRotationResolver {
           taksaRoleCanonId: unit.object,
           sourcePage: unit.evidence.page ?? '',
           sourceUnitId: unit.id,
-          source: 'canon_structural',
+          source: _sourceForUnit(unit),
         ),
       );
     }
@@ -93,6 +94,27 @@ abstract final class ThaiTaksaRotationResolver {
     );
   }
 
+  static String? _blockerForWeekday(int weekday) {
+    if (ThaiTaksaBirthWeekday.partialSourceReviewWeekdayNumbers
+        .contains(weekday)) {
+      return TaksaRotationBlocker.partialSourceReviewRequired;
+    }
+    if (ThaiTaksaBirthWeekday.notInSourceWeekdayNumbers.contains(weekday)) {
+      return TaksaRotationBlocker.notInSource;
+    }
+    if (!ThaiTaksaBirthWeekday.supportedWeekdayNumbers.contains(weekday)) {
+      return TaksaRotationBlocker.unsupportedWeekday;
+    }
+    return null;
+  }
+
+  static String _sourceForUnit(AtomicKnowledgeUnit unit) {
+    if (unit.id.startsWith('taksa.p38.monday.')) {
+      return 'source_forensics_patch';
+    }
+    return 'canon_structural';
+  }
+
   static List<AtomicKnowledgeUnit> _rotationUnitsForContext(
     Iterable<AtomicKnowledgeUnit> units,
     String contextValue,
@@ -103,11 +125,20 @@ abstract final class ThaiTaksaRotationResolver {
               u.relation == AtomicRelation.locatedIn &&
               u.subject.startsWith('planet.') &&
               u.object.startsWith('taksaRole.') &&
-              u.context?.type == AtomicContextType.other &&
-              u.context?.value == contextValue,
+              _matchesWeekdayRotationContext(u, contextValue),
         )
         .toList(growable: false);
     matches.sort((a, b) => a.id.compareTo(b.id));
     return matches;
+  }
+
+  static bool _matchesWeekdayRotationContext(
+    AtomicKnowledgeUnit unit,
+    String contextValue,
+  ) {
+    final ctx = unit.context;
+    if (ctx == null || ctx.value != contextValue) return false;
+    return ctx.type == AtomicContextType.other ||
+        ctx.type == AtomicContextType.taksaChart;
   }
 }

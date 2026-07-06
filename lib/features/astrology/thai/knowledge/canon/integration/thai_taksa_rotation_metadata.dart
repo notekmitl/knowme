@@ -33,8 +33,19 @@ extension TaksaRotationFeasibilityResultWire on TaksaRotationFeasibilityResult {
 /// Blocker when Taksa rotation cannot be resolved for a profile weekday.
 abstract final class TaksaRotationBlocker {
   static const unsupportedWeekday = 'TAKSA_ROTATION_UNSUPPORTED_WEEKDAY';
-  static const sourceBlocked = 'TAKSA_ROTATION_SOURCE_BLOCKED';
+  static const partialSourceReviewRequired =
+      'TAKSA_ROTATION_PARTIAL_SOURCE_REVIEW_REQUIRED';
+  static const notInSource = 'TAKSA_ROTATION_NOT_IN_SOURCE';
   static const missingBirthWeekday = 'TAKSA_ROTATION_MISSING_BIRTH_WEEKDAY';
+
+  @Deprecated('Use partialSourceReviewRequired for Sunday')
+  static const sourceBlocked = 'TAKSA_ROTATION_SOURCE_BLOCKED';
+}
+
+/// Source-not-in-canon weekday cases (documented separately).
+abstract final class ThaiTaksaNotInSourceWeekdayCase {
+  static const wednesdayDaytime = 'คนเกิดวันพุธกลางวัน';
+  static const wednesdayNightRahu = 'คนเกิดวันพุธกลางคืน / ราหู';
 }
 
 /// Thai birth weekday labels — exact Canon context tokens only.
@@ -56,11 +67,14 @@ abstract final class ThaiTaksaBirthWeekday {
     return 'คนเกิดวัน$label';
   }
 
-  /// Weekdays with source-backed rotation assignments in frozen Canon.
-  static const supportedWeekdayNumbers = {3};
+  /// Weekdays with source-backed rotation assignments in Canon (Patch 002+).
+  static const supportedWeekdayNumbers = {2, 3};
 
-  /// Weekdays where p38 rotation tables exist but OCR blocked extraction (Phase C).
-  static const ocrBlockedWeekdayNumbers = {1, 2};
+  /// Sunday — forensics partial only; not patched.
+  static const partialSourceReviewWeekdayNumbers = {1};
+
+  /// Wed–Sat — no rotation tables in source.
+  static const notInSourceWeekdayNumbers = {4, 5, 6, 7};
 }
 
 /// Resolved Taksa rotation metadata for one profile.
@@ -87,18 +101,22 @@ class ThaiTaksaRotationFeasibilityAudit {
   const ThaiTaksaRotationFeasibilityAudit({
     required this.result,
     required this.supportedWeekdayNumbers,
-    required this.ocrBlockedWeekdayNumbers,
-    required this.unsupportedWeekdayNumbers,
+    required this.partialSourceReviewWeekdayNumbers,
+    required this.notInSourceWeekdayNumbers,
     required this.rotationAssignmentsByWeekday,
     required this.sourcePagesReviewed,
+    required this.wednesdayDaytimeStatus,
+    required this.wednesdayNightRahuStatus,
   });
 
   final TaksaRotationFeasibilityResult result;
   final List<int> supportedWeekdayNumbers;
-  final List<int> ocrBlockedWeekdayNumbers;
-  final List<int> unsupportedWeekdayNumbers;
+  final List<int> partialSourceReviewWeekdayNumbers;
+  final List<int> notInSourceWeekdayNumbers;
   final Map<int, int> rotationAssignmentsByWeekday;
   final List<String> sourcePagesReviewed;
+  final String wednesdayDaytimeStatus;
+  final String wednesdayNightRahuStatus;
 
   static ThaiTaksaRotationFeasibilityAudit audit({
     ThaiCanonEvidenceRepository? repository,
@@ -117,67 +135,58 @@ class ThaiTaksaRotationFeasibilityAudit {
         .where((w) => (rotationByWeekday[w] ?? 0) > 0)
         .toList()
       ..sort();
-    final ocrBlocked = ThaiTaksaBirthWeekday.ocrBlockedWeekdayNumbers.toList()
-      ..sort();
-    final unsupported = <int>[];
-    for (var w = 1; w <= 7; w++) {
-      if (supported.contains(w) || ocrBlocked.contains(w)) continue;
-      unsupported.add(w);
-    }
+    final partialReview =
+        ThaiTaksaBirthWeekday.partialSourceReviewWeekdayNumbers.toList()
+          ..sort();
+    final notInSource =
+        ThaiTaksaBirthWeekday.notInSourceWeekdayNumbers.toList()..sort();
 
-    final result = _classify(
-      supportedCount: supported.length,
-      ocrBlockedCount: ocrBlocked.length,
-      totalWithAssignments: rotationByWeekday.length,
-    );
+    final result = _classify(supportedCount: supported.length);
 
     return ThaiTaksaRotationFeasibilityAudit(
       result: result,
       supportedWeekdayNumbers: supported,
-      ocrBlockedWeekdayNumbers: ocrBlocked,
-      unsupportedWeekdayNumbers: unsupported,
+      partialSourceReviewWeekdayNumbers: partialReview,
+      notInSourceWeekdayNumbers: notInSource,
       rotationAssignmentsByWeekday: rotationByWeekday,
       sourcePagesReviewed: const ['38', '39'],
+      wednesdayDaytimeStatus: TaksaRotationBlocker.notInSource,
+      wednesdayNightRahuStatus: TaksaRotationBlocker.notInSource,
     );
   }
 
   static TaksaRotationFeasibilityResult _classify({
     required int supportedCount,
-    required int ocrBlockedCount,
-    required int totalWithAssignments,
   }) {
-    if (supportedCount == 7) {
+    if (supportedCount >= 7) {
       return TaksaRotationFeasibilityResult.readyToImplementFullRotation;
     }
-    if (supportedCount > 1 && supportedCount < 7) {
+    if (supportedCount > 1) {
       return TaksaRotationFeasibilityResult.readyToImplementPartialRotation;
-    }
-    if (supportedCount == 1 && totalWithAssignments == 1) {
-      return TaksaRotationFeasibilityResult.readyToImplementTuesdayOnly;
-    }
-    if (ocrBlockedCount > 0 && supportedCount == 0) {
-      return TaksaRotationFeasibilityResult.needsTaksaSourceForensics;
-    }
-    if (supportedCount == 0 && ocrBlockedCount == 0) {
-      return TaksaRotationFeasibilityResult.blockedBySourceGap;
     }
     if (supportedCount == 1) {
       return TaksaRotationFeasibilityResult.readyToImplementTuesdayOnly;
     }
-    return TaksaRotationFeasibilityResult.blockedByModelingGap;
+    return TaksaRotationFeasibilityResult.blockedBySourceGap;
   }
 
   static Iterable<AtomicKnowledgeUnit> _weekdayRotationUnits(
     Iterable<AtomicKnowledgeUnit> units,
   ) {
-    return units.where(
-      (u) =>
-          u.relation == AtomicRelation.locatedIn &&
-          u.subject.startsWith('planet.') &&
-          u.object.startsWith('taksaRole.') &&
-          u.context?.type == AtomicContextType.other &&
-          (u.context?.value ?? '').startsWith('คนเกิดวัน'),
-    );
+    return units.where(_isWeekdayRotationUnit);
+  }
+
+  static bool _isWeekdayRotationUnit(AtomicKnowledgeUnit u) {
+    if (u.relation != AtomicRelation.locatedIn) return false;
+    if (!u.subject.startsWith('planet.')) return false;
+    if (!u.object.startsWith('taksaRole.')) return false;
+    final ctx = u.context;
+    if (ctx == null) return false;
+    if (!(ctx.type == AtomicContextType.other ||
+        ctx.type == AtomicContextType.taksaChart)) {
+      return false;
+    }
+    return ctx.value.startsWith('คนเกิดวัน');
   }
 
   static int? _weekdayFromContext(String? value) {

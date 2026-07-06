@@ -574,16 +574,18 @@ abstract final class ThaiReportCanonEvidenceEnricher {
             .map((w) => w.toString())
             .toList(),
       ),
-      taksaOcrBlockedWeekdays: _sortedUnique(
-        taksaRotationAudit.ocrBlockedWeekdayNumbers
+      taksaPartialSourceReviewWeekdays: _sortedUnique(
+        taksaRotationAudit.partialSourceReviewWeekdayNumbers
             .map((w) => w.toString())
             .toList(),
       ),
-      taksaUnsupportedWeekdays: _sortedUnique(
-        taksaRotationAudit.unsupportedWeekdayNumbers
+      taksaNotInSourceWeekdays: _sortedUnique(
+        taksaRotationAudit.notInSourceWeekdayNumbers
             .map((w) => w.toString())
             .toList(),
       ),
+      taksaWednesdayDaytimeStatus: taksaRotationAudit.wednesdayDaytimeStatus,
+      taksaWednesdayNightRahuStatus: taksaRotationAudit.wednesdayNightRahuStatus,
       taksaProfileWeekdayNumber: taksaRotationMetadata.birthWeekdayNumber,
       taksaRotationAssignmentCount: taksaRotationMetadata.assignments.length,
       taksaRotationBlocker: taksaRotationMetadata.blocker,

@@ -17,8 +17,10 @@ class ThaiCanonEvidenceTrace {
     this.taksaFeasibilityResult,
     this.taksaRotationFeasibilityResult,
     this.taksaSupportedWeekdays = const [],
-    this.taksaOcrBlockedWeekdays = const [],
-    this.taksaUnsupportedWeekdays = const [],
+    this.taksaPartialSourceReviewWeekdays = const [],
+    this.taksaNotInSourceWeekdays = const [],
+    this.taksaWednesdayDaytimeStatus,
+    this.taksaWednesdayNightRahuStatus,
     this.taksaProfileWeekdayNumber,
     this.taksaRotationAssignmentCount = 0,
     this.taksaRotationBlocker,
@@ -108,8 +110,10 @@ class ThaiCanonEvidenceTrace {
   final String? taksaFeasibilityResult;
   final String? taksaRotationFeasibilityResult;
   final List<String> taksaSupportedWeekdays;
-  final List<String> taksaOcrBlockedWeekdays;
-  final List<String> taksaUnsupportedWeekdays;
+  final List<String> taksaPartialSourceReviewWeekdays;
+  final List<String> taksaNotInSourceWeekdays;
+  final String? taksaWednesdayDaytimeStatus;
+  final String? taksaWednesdayNightRahuStatus;
   final int? taksaProfileWeekdayNumber;
   final int taksaRotationAssignmentCount;
   final String? taksaRotationBlocker;

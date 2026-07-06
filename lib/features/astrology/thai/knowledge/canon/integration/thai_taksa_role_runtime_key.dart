@@ -42,4 +42,7 @@ abstract final class TaksaRuntimeSkippedReason {
   static const noRuntimeTaksaSignal = 'NO_RUNTIME_TAKSA_SIGNAL';
   static const rotationUnsupportedWeekday = 'TAKSA_ROTATION_UNSUPPORTED_WEEKDAY';
   static const rotationSourceBlocked = 'TAKSA_ROTATION_SOURCE_BLOCKED';
+  static const rotationPartialSourceReviewRequired =
+      'TAKSA_ROTATION_PARTIAL_SOURCE_REVIEW_REQUIRED';
+  static const rotationNotInSource = 'TAKSA_ROTATION_NOT_IN_SOURCE';
 }

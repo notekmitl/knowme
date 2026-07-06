@@ -487,9 +487,19 @@ class _TracePanel extends StatelessWidget {
               Text('Taksa rotation feasibility: ${trace.taksaRotationFeasibilityResult}'),
             Text(
               'Taksa weekdays — supported: ${trace.taksaSupportedWeekdays.join(', ')} '
-              '| OCR-blocked: ${trace.taksaOcrBlockedWeekdays.join(', ')} '
-              '| unsupported: ${trace.taksaUnsupportedWeekdays.join(', ')}',
+              '| partial review: ${trace.taksaPartialSourceReviewWeekdays.join(', ')} '
+              '| not in source: ${trace.taksaNotInSourceWeekdays.join(', ')}',
             ),
+            if (trace.taksaWednesdayDaytimeStatus != null)
+              Text(
+                'Wed daytime (${ThaiTaksaNotInSourceWeekdayCase.wednesdayDaytime}): '
+                '${trace.taksaWednesdayDaytimeStatus}',
+              ),
+            if (trace.taksaWednesdayNightRahuStatus != null)
+              Text(
+                'Wed night / Rahu (${ThaiTaksaNotInSourceWeekdayCase.wednesdayNightRahu}): '
+                '${trace.taksaWednesdayNightRahuStatus}',
+              ),
             Text(
               'Profile weekday: ${trace.taksaProfileWeekdayNumber ?? '—'} · '
               'rotation assignments: ${trace.taksaRotationAssignmentCount}',

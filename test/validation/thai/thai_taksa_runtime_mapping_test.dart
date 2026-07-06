@@ -96,7 +96,7 @@ void main() {
       expect(trace.taksaRotationBlocker, isNull);
       expect(
         trace.taksaRotationFeasibilityResult,
-        'READY_TO_IMPLEMENT_TUESDAY_ONLY',
+        'READY_TO_IMPLEMENT_PARTIAL_ROTATION',
       );
       expect(
         bundle.attachments.where(

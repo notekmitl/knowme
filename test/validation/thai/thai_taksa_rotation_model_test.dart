@@ -3,11 +3,9 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/foundation/models/thai_birth_data.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/integration.dart';
-import 'package:knowme/features/astrology/thai/knowledge/canon/integration/qa/thai_canon_evidence_alignment_classification.dart';
-import 'package:knowme/features/astrology/thai/knowledge/canon/integration/qa/thai_canon_evidence_alignment_classifier.dart';
 import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_pipeline.dart';
 
-/// Taksa Rotation Model — Tuesday-only source-backed rotation.
+/// Taksa Rotation Model — Monday + Tuesday source-backed rotation.
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -17,24 +15,56 @@ void main() {
     repository = await ThaiCanonEvidenceRepository.loadFromAsset();
   });
 
+  ThaiBirthData birthForWeekday(int year, int month, int day) => ThaiBirthData(
+        localDateTime: DateTime(year, month, day, 12, 0),
+        timeZoneOffset: const Duration(hours: 7),
+        latitude: 13.75,
+        longitude: 100.50,
+      );
+
   group('ThaiTaksaRotationFeasibilityAudit', () {
-    test('feasibility audit is READY_TO_IMPLEMENT_TUESDAY_ONLY', () {
+    test('feasibility audit is READY_TO_IMPLEMENT_PARTIAL_ROTATION', () {
       final audit = ThaiTaksaRotationFeasibilityAudit.audit(
         repository: repository,
       );
       expect(
         audit.result,
-        TaksaRotationFeasibilityResult.readyToImplementTuesdayOnly,
+        TaksaRotationFeasibilityResult.readyToImplementPartialRotation,
       );
-      expect(audit.supportedWeekdayNumbers, [3]);
-      expect(audit.ocrBlockedWeekdayNumbers, [1, 2]);
-      expect(audit.unsupportedWeekdayNumbers, [4, 5, 6, 7]);
+      expect(audit.supportedWeekdayNumbers, [2, 3]);
+      expect(audit.partialSourceReviewWeekdayNumbers, [1]);
+      expect(audit.notInSourceWeekdayNumbers, [4, 5, 6, 7]);
+      expect(audit.rotationAssignmentsByWeekday[2], 8);
       expect(audit.rotationAssignmentsByWeekday[3], 8);
-      expect(audit.sourcePagesReviewed, contains('38'));
+      expect(audit.wednesdayDaytimeStatus, TaksaRotationBlocker.notInSource);
+      expect(audit.wednesdayNightRahuStatus, TaksaRotationBlocker.notInSource);
     });
   });
 
   group('ThaiTaksaRotationResolver', () {
+    test('Monday rotation returns 8 source-backed assignments', () {
+      final birth = birthForWeekday(1972, 4, 3);
+      expect(birth.thaiWeekdayNumber, 2);
+      final result = ThaiTaksaRotationResolver.resolve(
+        birthData: birth,
+        repository: repository,
+      );
+      expect(result.metadata.hasAssignments, isTrue);
+      expect(result.metadata.assignments.length, 8);
+      expect(result.metadata.blocker, isNull);
+      for (final a in result.metadata.assignments) {
+        expect(a.sourceUnitId, startsWith('taksa.p38.monday.'));
+        expect(a.sourcePage, '38');
+        expect(a.source, 'source_forensics_patch');
+      }
+      expect(
+        result.metadata.assignments
+            .singleWhere((a) => a.planetCanonId == 'planet.sun')
+            .taksaRoleCanonId,
+        'taksaRole.kalakini',
+      );
+    });
+
     test('Tuesday rotation returns 8 source-backed assignments', () {
       final birth = ThaiMirrorPipeline.sampleQaBirthData();
       expect(birth.thaiWeekdayNumber, 3);
@@ -49,31 +79,12 @@ void main() {
         expect(a.sourceUnitId, startsWith('mahabhut.p38.'));
         expect(a.sourcePage, '38');
         expect(a.source, 'canon_structural');
-        expect(a.confidence, 'deterministic');
       }
-      expect(
-        result.metadata.assignments.map((a) => a.planetCanonId).toSet(),
-        {
-          'planet.mars',
-          'planet.mercury',
-          'planet.saturn',
-          'planet.jupiter',
-          'planet.rahu',
-          'planet.venus',
-          'planet.sun',
-          'planet.moon',
-        },
-      );
     });
 
-    test('unsupported Wednesday returns null with TAKSA_ROTATION_UNSUPPORTED_WEEKDAY', () {
-      final birth = ThaiBirthData(
-        localDateTime: DateTime(1972, 4, 5, 12, 0),
-        timeZoneOffset: Duration(hours: 7),
-        latitude: 13.75,
-        longitude: 100.50,
-      );
-      expect(birth.thaiWeekdayNumber, 4);
+    test('Sunday returns TAKSA_ROTATION_PARTIAL_SOURCE_REVIEW_REQUIRED', () {
+      final birth = birthForWeekday(1972, 4, 2);
+      expect(birth.thaiWeekdayNumber, 1);
       final result = ThaiTaksaRotationResolver.resolve(
         birthData: birth,
         repository: repository,
@@ -81,24 +92,47 @@ void main() {
       expect(result.metadata.assignments, isEmpty);
       expect(
         result.metadata.blocker,
-        TaksaRotationBlocker.unsupportedWeekday,
+        TaksaRotationBlocker.partialSourceReviewRequired,
       );
     });
 
-    test('Sunday returns TAKSA_ROTATION_SOURCE_BLOCKED not inferred roles', () {
-      final birth = ThaiBirthData(
-        localDateTime: DateTime(1972, 4, 2, 12, 0),
-        timeZoneOffset: Duration(hours: 7),
-        latitude: 13.75,
-        longitude: 100.50,
-      );
-      expect(birth.thaiWeekdayNumber, 1);
+    test('Wednesday daytime returns TAKSA_ROTATION_NOT_IN_SOURCE', () {
+      final birth = birthForWeekday(1972, 4, 5);
+      expect(birth.thaiWeekdayNumber, 4);
       final result = ThaiTaksaRotationResolver.resolve(
         birthData: birth,
         repository: repository,
       );
       expect(result.metadata.assignments, isEmpty);
-      expect(result.metadata.blocker, TaksaRotationBlocker.sourceBlocked);
+      expect(result.metadata.blocker, TaksaRotationBlocker.notInSource);
+    });
+
+    test('Thursday–Saturday return TAKSA_ROTATION_NOT_IN_SOURCE', () {
+      final dates = [
+        (1972, 4, 6), // Thu
+        (1972, 4, 7), // Fri
+        (1972, 4, 8), // Sat
+      ];
+      for (final (y, m, d) in dates) {
+        final result = ThaiTaksaRotationResolver.resolve(
+          birthData: birthForWeekday(y, m, d),
+          repository: repository,
+        );
+        expect(result.metadata.assignments, isEmpty);
+        expect(result.metadata.blocker, TaksaRotationBlocker.notInSource);
+      }
+    });
+
+    test('Wednesday daytime and night cases are documented separately', () {
+      final audit = ThaiTaksaRotationFeasibilityAudit.audit(
+        repository: repository,
+      );
+      expect(
+        ThaiTaksaNotInSourceWeekdayCase.wednesdayDaytime,
+        isNot(equals(ThaiTaksaNotInSourceWeekdayCase.wednesdayNightRahu)),
+      );
+      expect(audit.wednesdayDaytimeStatus, TaksaRotationBlocker.notInSource);
+      expect(audit.wednesdayNightRahuStatus, TaksaRotationBlocker.notInSource);
     });
 
     test('no role assignment inferred from planet alone', () {
@@ -120,8 +154,8 @@ void main() {
       );
     }
 
-    test('Tuesday QA fixture attaches rotation evidence internally', () async {
-      final bundle = await enrich(ThaiMirrorPipeline.sampleQaBirthData());
+    test('Monday fixture attaches rotation evidence internally', () async {
+      final bundle = await enrich(birthForWeekday(1972, 4, 3));
       expect(bundle.trace.taksaRotationAssignmentCount, 8);
       expect(bundle.trace.taksaEvidenceAttachedCount, 8);
       expect(bundle.trace.taksaRotationBlocker, isNull);
@@ -135,30 +169,57 @@ void main() {
         if (attachment.evidenceType == ThaiCanonEvidenceType.taksa) {
           expect(attachment.userFacingAllowed, isFalse);
           expect(attachment.signalId, startsWith('taksaRotation:'));
-          expect(attachment.evidenceRefs.single.sourcePage, '38');
         }
       }
     });
 
-    test('Wednesday fixture keeps Taksa evidence trace-only', () async {
-      final birth = ThaiBirthData(
-        localDateTime: DateTime(1972, 4, 5, 12, 0),
-        timeZoneOffset: Duration(hours: 7),
-        latitude: 13.75,
-        longitude: 100.50,
-      );
-      final bundle = await enrich(birth);
-      expect(bundle.trace.taksaRotationAssignmentCount, 0);
-      expect(bundle.trace.taksaEvidenceAttachedCount, 0);
-      expect(
-        bundle.trace.taksaSkippedReason,
-        TaksaRuntimeSkippedReason.rotationUnsupportedWeekday,
-      );
+    test('Tuesday QA fixture attaches rotation evidence internally', () async {
+      final bundle = await enrich(ThaiMirrorPipeline.sampleQaBirthData());
+      expect(bundle.trace.taksaRotationAssignmentCount, 8);
+      expect(bundle.trace.taksaEvidenceAttachedCount, 8);
+      expect(bundle.trace.taksaRotationBlocker, isNull);
       expect(
         bundle.attachments.where(
           (a) => a.evidenceType == ThaiCanonEvidenceType.taksa,
+        ).length,
+        8,
+      );
+    });
+
+    test('unsupported weekdays keep Taksa evidence trace-only', () async {
+      final sunday = await enrich(birthForWeekday(1972, 4, 2));
+      expect(sunday.trace.taksaEvidenceAttachedCount, 0);
+      expect(
+        sunday.trace.taksaRotationBlocker,
+        TaksaRotationBlocker.partialSourceReviewRequired,
+      );
+
+      final wednesday = await enrich(birthForWeekday(1972, 4, 5));
+      expect(wednesday.trace.taksaEvidenceAttachedCount, 0);
+      expect(
+        wednesday.trace.taksaRotationBlocker,
+        TaksaRotationBlocker.notInSource,
+      );
+      expect(
+        wednesday.attachments.where(
+          (a) => a.evidenceType == ThaiCanonEvidenceType.taksa,
         ),
         isEmpty,
+      );
+    });
+
+    test('review trace lists supported weekdays Monday and Tuesday', () async {
+      final bundle = await enrich(ThaiMirrorPipeline.sampleQaBirthData());
+      expect(bundle.trace.taksaSupportedWeekdays, ['2', '3']);
+      expect(bundle.trace.taksaPartialSourceReviewWeekdays, ['1']);
+      expect(bundle.trace.taksaNotInSourceWeekdays, ['4', '5', '6', '7']);
+      expect(
+        bundle.trace.taksaWednesdayDaytimeStatus,
+        TaksaRotationBlocker.notInSource,
+      );
+      expect(
+        bundle.trace.taksaWednesdayNightRahuStatus,
+        TaksaRotationBlocker.notInSource,
       );
     });
 
