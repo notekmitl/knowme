@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -52,12 +53,18 @@ void main() {
 
     test('writes aggregate QA summary artifact', () {
       final json = ThaiInternalEvidenceQaReport.toJson(audit);
+      final map = ThaiInternalEvidenceQaReport.toMapFromRepository(
+        audit: audit,
+        repository: repository,
+      );
       final outDir = Directory('tool/output');
       if (!outDir.existsSync()) outDir.createSync(recursive: true);
       File('tool/output/thai_internal_evidence_qa_summary.json')
-          .writeAsStringSync('$json\n');
+          .writeAsStringSync('${const JsonEncoder.withIndent('  ').convert(map)}\n');
       expect(File('tool/output/thai_internal_evidence_qa_summary.json').existsSync(),
           isTrue);
+      expect(map['phase'], 'Internal Evidence Mapping Refresh');
+      expect(json, isNotEmpty);
     });
   });
 

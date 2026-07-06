@@ -192,7 +192,18 @@ class _CoverageCards extends StatelessWidget {
       runSpacing: 12,
       children: [
         _CoverageChip(
-          label: 'Mahabhut',
+          label: 'Mahabhut positions',
+          value: '${summary.mahabhutPositionsMappedCount} / 7 mapped',
+        ),
+        _CoverageChip(
+          label: 'Khumsap internal',
+          value: summary.khumsapMapped
+              ? '${summary.khumsapEvidenceAttachedCount} attached / '
+                  '${summary.khumsapEvidenceCandidateCount} candidates'
+              : 'unmapped',
+        ),
+        _CoverageChip(
+          label: 'Mahabhut attachments',
           value: '${summary.byType[ThaiCanonEvidenceType.mahabhutPosition] ?? 0}',
         ),
         _CoverageChip(

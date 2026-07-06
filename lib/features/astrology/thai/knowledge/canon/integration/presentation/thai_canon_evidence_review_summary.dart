@@ -1,6 +1,7 @@
 import '../thai_canon_evidence_attachment.dart';
 import '../thai_canon_evidence_trace.dart';
 import '../thai_canon_evidence_type.dart';
+import '../thai_canon_ontology_runtime_mapping.dart';
 import '../thai_mirror_canon_evidence_bundle.dart';
 import 'thai_internal_evidence_badge.dart';
 /// Aggregated coverage metrics for the internal evidence review panel.
@@ -29,6 +30,10 @@ class ThaiCanonEvidenceReviewSummary {
     required this.lifePeriodsWithoutRuntimeStatus,
     required this.blockedAmbiguousCount,
     required this.blockedSourceConflictCount,
+    required this.mahabhutPositionsMappedCount,
+    required this.khumsapMapped,
+    required this.khumsapEvidenceAttachedCount,
+    required this.khumsapEvidenceCandidateCount,
   });
 
   factory ThaiCanonEvidenceReviewSummary.fromBundle(
@@ -89,6 +94,13 @@ class ThaiCanonEvidenceReviewSummary {
           trace.lifePeriodsWithoutRuntimeStatus.length,
       blockedAmbiguousCount: trace.runtimeStatusBlockedByAmbiguousPosition.length,
       blockedSourceConflictCount: trace.conflictedArchetypePlanetPairs.length,
+      mahabhutPositionsMappedCount: ThaiCanonOntologyRuntimeMapping
+          .mahabhutPositionMappings()
+          .where((m) => m.isMapped)
+          .length,
+      khumsapMapped: trace.khumsapMapped,
+      khumsapEvidenceAttachedCount: trace.khumsapEvidenceAttachedCount,
+      khumsapEvidenceCandidateCount: trace.khumsapEvidenceCandidateCount,
     );
   }
 
@@ -115,6 +127,10 @@ class ThaiCanonEvidenceReviewSummary {
   final int lifePeriodsWithoutRuntimeStatus;
   final int blockedAmbiguousCount;
   final int blockedSourceConflictCount;
+  final int mahabhutPositionsMappedCount;
+  final bool khumsapMapped;
+  final int khumsapEvidenceAttachedCount;
+  final int khumsapEvidenceCandidateCount;
 }
 
 /// One flattened row for the evidence review table.
