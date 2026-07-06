@@ -1,5 +1,5 @@
 {
-  "$comment": "Canon Knowledge Production V1 — foundational domains. STATE: production FROZEN + Post-Freeze Patch 001 (826 units). The canonical source หลักมหาภูต (ส. หยกฟ้า) is available as OCR; D-067 added the book's Named Positions; D-068 added the optional `context` applicability qualifier so chart-scoped facts are representable faithfully. Units are produced FROM the source pages (reference-only provenance, D-057) — never invented (D-066: extraction allowed, generation forbidden) — and validated through the real platform by test/validation/thai/thai_canon_production_sprint2_test.dart. CONVENTION: a unit WITHOUT context is a general/unconditional fact (e.g. natural significations jupiter→learning/career, moon→finance, recurring identically across charts); a unit WITH context {type, value} is true ONLY within that scope (here archetype_chart:<verbatim Thai chart heading from the page>). Optional `condition` (verbatim from source) scopes a general signification without chart context (Batch 7, p16). Planet Library attributes use `relates_to` → `attribute.*` value tokens (Batch 8, D-072). The context value is the source's own chart name (verbatim, not translated) so no inference/external knowledge is introduced.",
+  "$comment": "Canon Knowledge Production V1 — foundational domains. STATE: production FROZEN + Post-Freeze Patch 001 + Patch 002 (834 units). The canonical source หลักมหาภูต (ส. หยกฟ้า) is available as OCR; D-067 added the book's Named Positions; D-068 added the optional `context` applicability qualifier so chart-scoped facts are representable faithfully. Units are produced FROM the source pages (reference-only provenance, D-057) — never invented (D-066: extraction allowed, generation forbidden) — and validated through the real platform by test/validation/thai/thai_canon_production_sprint2_test.dart. CONVENTION: a unit WITHOUT context is a general/unconditional fact (e.g. natural significations jupiter→learning/career, moon→finance, recurring identically across charts); a unit WITH context {type, value} is true ONLY within that scope (here archetype_chart:<verbatim Thai chart heading from the page>). Optional `condition` (verbatim from source) scopes a general signification without chart context (Batch 7, p16). Planet Library attributes use `relates_to` → `attribute.*` value tokens (Batch 8, D-072). The context value is the source's own chart name (verbatim, not translated) so no inference/external knowledge is introduced.",
   "version": 1,
   "source": {
     "bookId": "mahabhut",
@@ -5568,6 +5568,169 @@
       "evidence": {
         "bookId": "mahabhut",
         "page": "37"
+      }
+    },
+    {
+      "$note": "Post-Freeze Patch 002 — Monday Taksa rotation (p38, source forensics 96f57d2)."
+    },
+    {
+      "id": "taksa.p38.monday.sun_kalakini",
+      "subject": "planet.sun",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "taksaRole.kalakini",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "38",
+        "locator": "p38.monday.grid.1"
+      },
+      "context": {
+        "type": "taksa_chart",
+        "value": "คนเกิดวันจันทร์"
+      }
+    },
+    {
+      "id": "taksa.p38.monday.moon_boriwan",
+      "subject": "planet.moon",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "taksaRole.boriwan",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "38",
+        "locator": "p38.monday.grid.2"
+      },
+      "context": {
+        "type": "taksa_chart",
+        "value": "คนเกิดวันจันทร์"
+      }
+    },
+    {
+      "id": "taksa.p38.monday.mars_ayu",
+      "subject": "planet.mars",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "taksaRole.ayu",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "38",
+        "locator": "p38.monday.grid.3"
+      },
+      "context": {
+        "type": "taksa_chart",
+        "value": "คนเกิดวันจันทร์"
+      }
+    },
+    {
+      "id": "taksa.p38.monday.venus_montri",
+      "subject": "planet.venus",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "taksaRole.montri",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "38",
+        "locator": "p38.monday.grid.6"
+      },
+      "context": {
+        "type": "taksa_chart",
+        "value": "คนเกิดวันจันทร์"
+      }
+    },
+    {
+      "id": "taksa.p38.monday.mercury_det",
+      "subject": "planet.mercury",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "taksaRole.det",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "38",
+        "locator": "p38.monday.grid.4"
+      },
+      "context": {
+        "type": "taksa_chart",
+        "value": "คนเกิดวันจันทร์"
+      }
+    },
+    {
+      "id": "taksa.p38.monday.rahu_utsaha",
+      "subject": "planet.rahu",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "taksaRole.utsaha",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "38",
+        "locator": "p38.monday.grid.8"
+      },
+      "context": {
+        "type": "taksa_chart",
+        "value": "คนเกิดวันจันทร์"
+      }
+    },
+    {
+      "id": "taksa.p38.monday.jupiter_mula",
+      "subject": "planet.jupiter",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "taksaRole.mula",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "38",
+        "locator": "p38.monday.grid.5"
+      },
+      "context": {
+        "type": "taksa_chart",
+        "value": "คนเกิดวันจันทร์"
+      }
+    },
+    {
+      "id": "taksa.p38.monday.saturn_sri",
+      "subject": "planet.saturn",
+      "subjectKind": "planet",
+      "relation": "located_in",
+      "object": "taksaRole.sri",
+      "objectKind": "other",
+      "domain": "planetLibrary",
+      "strength": "none",
+      "confidence": "high",
+      "evidence": {
+        "bookId": "mahabhut",
+        "page": "38",
+        "locator": "p38.monday.grid.7"
+      },
+      "context": {
+        "type": "taksa_chart",
+        "value": "คนเกิดวันจันทร์"
       }
     },
     {

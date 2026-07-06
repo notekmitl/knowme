@@ -868,6 +868,7 @@ void main() {
               AtomicContextType.archetypeChart,
               AtomicContextType.lifePeriod,
               AtomicContextType.other,
+              AtomicContextType.taksaChart,
             ]),
           );
         }
@@ -1073,14 +1074,14 @@ void main() {
 
     test('coverage by planet (all units)', () {
       expect(countBy(units, (u) => u.subject), {
-        'planet.sun': 84,
-        'planet.moon': 93,
-        'planet.mars': 101,
-        'planet.mercury': 68,
-        'planet.jupiter': 100,
-        'planet.venus': 90,
-        'planet.saturn': 78,
-        'planet.rahu': 54,
+        'planet.sun': 85,
+        'planet.moon': 94,
+        'planet.mars': 102,
+        'planet.mercury': 69,
+        'planet.jupiter': 101,
+        'planet.venus': 91,
+        'planet.saturn': 79,
+        'planet.rahu': 55,
         'taksaRole.ayu': 1,
         'taksaRole.det': 1,
         'taksaRole.sri': 1,
@@ -1142,14 +1143,14 @@ void main() {
 
     test('coverage by taksa role (Phase C assignments)', () {
       expect(countBy(taksaPlacements, (u) => u.object), {
-        'taksaRole.boriwan': 21,
-        'taksaRole.ayu': 14,
-        'taksaRole.det': 18,
-        'taksaRole.sri': 17,
-        'taksaRole.mula': 15,
-        'taksaRole.utsaha': 4,
-        'taksaRole.montri': 1,
-        'taksaRole.kalakini': 1,
+        'taksaRole.boriwan': 22,
+        'taksaRole.ayu': 15,
+        'taksaRole.det': 19,
+        'taksaRole.sri': 18,
+        'taksaRole.mula': 16,
+        'taksaRole.utsaha': 5,
+        'taksaRole.montri': 2,
+        'taksaRole.kalakini': 2,
       });
     });
 
@@ -1164,13 +1165,14 @@ void main() {
         'general': 342,
         'other': 142,
         'life_period': 299,
+        'taksa_chart': 8,
       });
     });
 
     test('metrics totals reconcile with the batch', () {
-      expect(units.length, 826);
+      expect(units.length, 834);
       expect(mahabhutPlacements.length, 255);
-      expect(taksaPlacements.length, 91);
+      expect(taksaPlacements.length, 99);
     });
   });
 }
