@@ -4,6 +4,7 @@ import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_pipeli
 
 import '../integration.dart';
 import 'thai_canon_evidence_review_summary.dart';
+import 'thai_canon_evidence_routes.dart';
 import 'thai_internal_evidence_badge.dart';
 
 /// Internal QA panel — inspect Canon evidence attached to a Thai Mirror report.
@@ -79,6 +80,15 @@ class _ThaiCanonEvidenceReviewPageState extends State<ThaiCanonEvidenceReviewPag
       appBar: AppBar(
         title: const Text('Thai Canon Evidence Review'),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.preview_outlined),
+            tooltip: 'Public evidence badge preview (internal beta)',
+            onPressed: () {
+              Navigator.of(context).pushNamed(
+                ThaiCanonEvidenceRoutes.publicEvidencePreviewRouteName,
+              );
+            },
+          ),
           IconButton(
             icon: const Icon(Icons.refresh),
             onPressed: _loading ? null : _load,
