@@ -677,6 +677,7 @@ void main() {
           home: ThaiBetaReportPage(
             analysis: analysis,
             featureFlagOverride: ThaiEvidenceBadgeFeatureFlagState.off,
+            audienceOverride: const ThaiBetaEvidenceBadgeAudience.anonymous(),
           ),
         ),
       );

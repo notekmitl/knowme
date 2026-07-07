@@ -20,7 +20,8 @@ if ($ApiBaseUrl -match "127\.0\.0\.1|localhost") {
 
 Write-Host "Building Flutter web (release) with ASTROLOGY_API_BASE_URL=$ApiBaseUrl"
 flutter build web --release --no-wasm-dry-run `
-    --dart-define=ASTROLOGY_API_BASE_URL=$ApiBaseUrl
+    --dart-define=ASTROLOGY_API_BASE_URL=$ApiBaseUrl `
+    --dart-define=THAI_PUBLIC_EVIDENCE_BADGE_BETA=internal_only
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 $Bundle = Join-Path $RepoRoot "build\web\main.dart.js"
@@ -28,10 +29,29 @@ if (-not (Test-Path $Bundle)) {
     throw "Build output missing: $Bundle"
 }
 $BundleText = Get-Content $Bundle -Raw
-if ($BundleText -match "127\.0\.0\.1:8000") {
-    throw "Compiled bundle still contains localhost API URL. Build injection failed."
+$ForbiddenPatterns = @(
+    "http://127.0.0.1",
+    "http://localhost",
+    "127.0.0.1:8000",
+    "localhost:8000"
+)
+foreach ($pattern in $ForbiddenPatterns) {
+    if ($BundleText -match $pattern) {
+        throw "Compiled bundle contains forbidden pattern '$pattern'. Deployment blocked."
+    }
 }
-Write-Host "Verified: production bundle does not contain localhost API URL."
+if ($BundleText -notmatch "knowme-astrology-api") {
+    throw "Compiled bundle missing production Cloud Run API host."
+}
+Write-Host "Verified: production bundle passes API localhost guard and contains Cloud Run API host."
+
+$ValidateScript = Join-Path $RepoRoot "scripts\validate_production_web_bundle.ps1"
+& $ValidateScript -BundlePath $Bundle
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+Write-Host "Deploying Firestore rules (knowme-app-694e1)..."
+firebase deploy --only firestore:rules --project knowme-app-694e1
+if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 Write-Host "Deploying to Firebase Hosting (knowme-app-694e1)..."
 firebase deploy --only hosting --project knowme-app-694e1

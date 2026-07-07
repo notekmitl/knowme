@@ -9,7 +9,9 @@ import 'package:knowme/features/astrology/thai/mirror/presentation/ui/pages/thai
 
 import '../../application/thai_beta_analysis.dart';
 import '../../application/thai_beta_evidence_badge_audience.dart';
+import '../../application/thai_beta_evidence_badge_audience_resolver.dart';
 import '../../application/thai_evidence_badge_feature_flag.dart';
+import '../../application/thai_research_admin_access.dart';
 import '../widgets/thai_beta_progress_bar.dart';
 import 'thai_beta_feedback_page.dart';
 
@@ -19,7 +21,7 @@ import 'thai_beta_feedback_page.dart';
 ///
 /// LEVEL 1 Canon evidence badges render here only when the controlled-beta
 /// feature flag and audience gate allow it.
-class ThaiBetaReportPage extends StatefulWidget {
+class ThaiBetaReportPage extends StatelessWidget {
   const ThaiBetaReportPage({
     super.key,
     required this.analysis,
@@ -27,6 +29,7 @@ class ThaiBetaReportPage extends StatefulWidget {
     this.audienceOverride,
     this.badgeViewModelsOverride,
     this.repository,
+    this.researchAdminAccess,
   });
 
   final ThaiBetaAnalysis analysis;
@@ -42,11 +45,64 @@ class ThaiBetaReportPage extends StatefulWidget {
 
   final ThaiCanonEvidenceRepository? repository;
 
+  /// Injectable admin access resolver (production uses Firebase).
+  final ThaiResearchAdminAccess? researchAdminAccess;
+
   @override
-  State<ThaiBetaReportPage> createState() => _ThaiBetaReportPageState();
+  Widget build(BuildContext context) {
+    if (audienceOverride != null) {
+      return _ThaiBetaReportScaffold(
+        analysis: analysis,
+        audience: audienceOverride!,
+        featureFlagOverride: featureFlagOverride,
+        badgeViewModelsOverride: badgeViewModelsOverride,
+        repository: repository,
+      );
+    }
+
+    final access = researchAdminAccess ?? FirebaseThaiResearchAdminAccess();
+    return StreamBuilder<ThaiResearchAccess>(
+      stream: access.watch(),
+      builder: (context, snapshot) {
+        final researchAccess = snapshot.data ?? ThaiResearchAccess.unknown;
+        final audience =
+            ThaiBetaEvidenceBadgeAudienceResolver.fromResearchAccess(
+          researchAccess,
+        );
+        return _ThaiBetaReportScaffold(
+          key: ValueKey('beta-report-${audience.isInternalTester}'),
+          analysis: analysis,
+          audience: audience,
+          featureFlagOverride: featureFlagOverride,
+          badgeViewModelsOverride: badgeViewModelsOverride,
+          repository: repository,
+        );
+      },
+    );
+  }
 }
 
-class _ThaiBetaReportPageState extends State<ThaiBetaReportPage> {
+class _ThaiBetaReportScaffold extends StatefulWidget {
+  const _ThaiBetaReportScaffold({
+    super.key,
+    required this.analysis,
+    required this.audience,
+    this.featureFlagOverride,
+    this.badgeViewModelsOverride,
+    this.repository,
+  });
+
+  final ThaiBetaAnalysis analysis;
+  final ThaiBetaEvidenceBadgeAudience audience;
+  final ThaiEvidenceBadgeFeatureFlagState? featureFlagOverride;
+  final List<ThaiPublicEvidenceBadgeBetaViewModel>? badgeViewModelsOverride;
+  final ThaiCanonEvidenceRepository? repository;
+
+  @override
+  State<_ThaiBetaReportScaffold> createState() => _ThaiBetaReportScaffoldState();
+}
+
+class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
   List<ThaiPublicEvidenceBadgeBetaViewModel> _badges = const [];
   bool _loadingBadges = false;
 
@@ -54,6 +110,14 @@ class _ThaiBetaReportPageState extends State<ThaiBetaReportPage> {
   void initState() {
     super.initState();
     _loadBadgesIfNeeded();
+  }
+
+  @override
+  void didUpdateWidget(covariant _ThaiBetaReportScaffold oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.audience.isInternalTester != widget.audience.isInternalTester) {
+      _loadBadgesIfNeeded();
+    }
   }
 
   Future<void> _loadBadgesIfNeeded() async {
@@ -64,9 +128,17 @@ class _ThaiBetaReportPageState extends State<ThaiBetaReportPage> {
 
     final shouldRender = ThaiPublicEvidenceBadgeBetaGate.shouldRenderBadges(
       flag: widget.featureFlagOverride,
-      audience: widget.audienceOverride,
+      audience: widget.audience,
     );
-    if (!shouldRender) return;
+    if (!shouldRender) {
+      if (_badges.isNotEmpty || _loadingBadges) {
+        setState(() {
+          _badges = const [];
+          _loadingBadges = false;
+        });
+      }
+      return;
+    }
 
     final pipeline = widget.analysis.pipelineResult;
     if (pipeline == null || !pipeline.isSuccess) return;
@@ -96,7 +168,7 @@ class _ThaiBetaReportPageState extends State<ThaiBetaReportPage> {
   bool get _showBadgePanel {
     if (!ThaiPublicEvidenceBadgeBetaGate.shouldRenderBadges(
       flag: widget.featureFlagOverride,
-      audience: widget.audienceOverride,
+      audience: widget.audience,
     )) {
       return false;
     }
