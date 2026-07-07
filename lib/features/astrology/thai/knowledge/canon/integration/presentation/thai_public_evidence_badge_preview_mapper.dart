@@ -136,6 +136,9 @@ abstract final class ThaiPublicEvidenceBadgePreviewMapper {
     if (_isTaksaSignal(attachment)) {
       return 'taksa_hidden';
     }
+    if (_hasLookupTableEvidence(attachment)) {
+      return 'lookup_table_hidden';
+    }
     if (badge != ThaiInternalEvidenceBadgeCategory.canonSupported) {
       return 'internal_badge:${badge.wire}';
     }
@@ -167,6 +170,18 @@ abstract final class ThaiPublicEvidenceBadgePreviewMapper {
     return attachment.sectionId == 'taksaInternal' ||
         signal.contains('taksa') ||
         signal.contains('taksarotation');
+  }
+
+  static bool _hasLookupTableEvidence(ThaiCanonEvidenceAttachment attachment) {
+    if (attachment.signalId.contains('lookup') ||
+        attachment.signalId.contains('lookupTable')) {
+      return true;
+    }
+    for (final ref in attachment.evidenceRefs) {
+      if (ref.domain == 'lookupTables') return true;
+      if (ref.unitId.startsWith('lookup.')) return true;
+    }
+    return false;
   }
 
   static bool _isRiseFallSignal(String signalId) {

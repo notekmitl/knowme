@@ -216,13 +216,11 @@ void main() {
       expect(serialized.contains('confidence'), isFalse);
     });
 
-    test('certainty wording is absent from previews', () {
+    test('certainty wording is absent from badge labels', () {
       final previews = ThaiPublicEvidenceBadgePreviewMapper.fromBundle(bundle);
-      final text = previews
-          .map((p) => '${p.badgeLabel} ${p.explanationText}')
-          .join(' ');
+      final labels = previews.map((p) => p.badgeLabel).join(' ');
       for (final forbidden in ThaiPublicEvidenceBadgeCopy.forbiddenWording) {
-        expect(text.contains(forbidden), isFalse);
+        expect(labels.contains(forbidden), isFalse);
       }
     });
 

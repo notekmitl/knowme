@@ -121,6 +121,13 @@ class _ThaiPublicEvidenceBadgePreviewPageState
             fontWeight: FontWeight.w600,
           ),
         ),
+        const SizedBox(height: 4),
+        Text(
+          'Not a public release — internal QA only.',
+          style: theme.textTheme.bodySmall?.copyWith(
+            color: theme.colorScheme.outline,
+          ),
+        ),
         const SizedBox(height: 16),
         _HiddenSummaryCard(hidden: hidden),
         const SizedBox(height: 16),

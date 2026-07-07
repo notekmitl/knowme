@@ -51,6 +51,8 @@ abstract final class ThaiPublicEvidenceBadgeCopy {
     'ห้ามทำ',
     'โชคร้ายแน่นอน',
     'แก้แล้วดีขึ้นแน่นอน',
+    'การันตี',
+    'แน่นอน',
   ];
 
   static const previewHeader =
