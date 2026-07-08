@@ -11,7 +11,6 @@ import '../../application/thai_beta_analysis.dart';
 import '../../application/thai_beta_evidence_badge_audience.dart';
 import '../../application/thai_beta_evidence_badge_audience_resolver.dart';
 import '../../application/thai_evidence_badge_feature_flag.dart';
-import '../../application/thai_research_admin_access.dart';
 import '../widgets/thai_beta_progress_bar.dart';
 import 'thai_beta_feedback_page.dart';
 
@@ -29,7 +28,7 @@ class ThaiBetaReportPage extends StatelessWidget {
     this.audienceOverride,
     this.badgeViewModelsOverride,
     this.repository,
-    this.researchAdminAccess,
+    this.audienceAccess,
   });
 
   final ThaiBetaAnalysis analysis;
@@ -45,8 +44,8 @@ class ThaiBetaReportPage extends StatelessWidget {
 
   final ThaiCanonEvidenceRepository? repository;
 
-  /// Injectable admin access resolver (production uses Firebase).
-  final ThaiResearchAdminAccess? researchAdminAccess;
+  /// Injectable audience resolver (production uses Firebase auth + admin access).
+  final ThaiBetaEvidenceBadgeAudienceAccess? audienceAccess;
 
   @override
   Widget build(BuildContext context) {
@@ -60,17 +59,22 @@ class ThaiBetaReportPage extends StatelessWidget {
       );
     }
 
-    final access = researchAdminAccess ?? FirebaseThaiResearchAdminAccess();
-    return StreamBuilder<ThaiResearchAccess>(
+    final access =
+        audienceAccess ?? FirebaseThaiBetaEvidenceBadgeAudienceAccess();
+    return StreamBuilder<ThaiBetaEvidenceBadgeAudienceSnapshot>(
       stream: access.watch(),
       builder: (context, snapshot) {
-        final researchAccess = snapshot.data ?? ThaiResearchAccess.unknown;
-        final audience =
-            ThaiBetaEvidenceBadgeAudienceResolver.fromResearchAccess(
-          researchAccess,
-        );
+        final data = snapshot.data;
+        final audience = data == null
+            ? const ThaiBetaEvidenceBadgeAudience.anonymous()
+            : ThaiBetaEvidenceBadgeAudienceResolver.resolve(
+                researchAccess: data.researchAccess,
+                userId: data.userId,
+              );
         return _ThaiBetaReportScaffold(
-          key: ValueKey('beta-report-${audience.isInternalTester}'),
+          key: ValueKey(
+            'beta-report-${audience.isInternalTester}-${audience.isInvitedBetaTester}',
+          ),
           analysis: analysis,
           audience: audience,
           featureFlagOverride: featureFlagOverride,
@@ -115,7 +119,9 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
   @override
   void didUpdateWidget(covariant _ThaiBetaReportScaffold oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.audience.isInternalTester != widget.audience.isInternalTester) {
+    if (oldWidget.audience.isInternalTester != widget.audience.isInternalTester ||
+        oldWidget.audience.isInvitedBetaTester !=
+            widget.audience.isInvitedBetaTester) {
       _loadBadgesIfNeeded();
     }
   }

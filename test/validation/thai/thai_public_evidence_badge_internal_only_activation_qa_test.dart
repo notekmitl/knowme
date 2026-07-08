@@ -25,11 +25,17 @@ import 'package:knowme/features/thai_beta/application/thai_research_admin_access
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart';
 
-class _FakeResearchAdminAccess implements ThaiResearchAdminAccess {
-  _FakeResearchAdminAccess(this.value);
-  final ThaiResearchAccess value;
+class _FakeAudienceAccess implements ThaiBetaEvidenceBadgeAudienceAccess {
+  _FakeAudienceAccess({required this.researchAccess, this.userId});
+  final ThaiResearchAccess researchAccess;
+  final String? userId;
   @override
-  Stream<ThaiResearchAccess> watch() => Stream.value(value);
+  Stream<ThaiBetaEvidenceBadgeAudienceSnapshot> watch() => Stream.value(
+        ThaiBetaEvidenceBadgeAudienceSnapshot(
+          researchAccess: researchAccess,
+          userId: userId,
+        ),
+      );
 }
 
 /// Formal QA for activated internal-only evidence badge phase.
@@ -122,15 +128,14 @@ void main() {
   });
 
   group('Activation state QA', () {
-    test('configured activation is internal_only', () {
-      expect(ThaiEvidenceBadgeActivation.configuredState, 'internal_only');
+    test('frozen internal_only gate mechanics pass', () {
       expect(
         ThaiPublicEvidenceBadgeInternalOnlyActivationQaValidator.auditActivationState(),
         isTrue,
       );
     });
 
-    test('invited_beta is not active', () {
+    test('invited audience blocked under internal_only flag', () {
       expect(
         ThaiPublicEvidenceBadgeInternalOnlyActivationQaValidator.auditInvitedBetaInactive(),
         isTrue,
@@ -195,7 +200,7 @@ void main() {
     Future<void> pumpReport(
       WidgetTester tester, {
       ThaiBetaEvidenceBadgeAudience? audience,
-      ThaiResearchAdminAccess? access,
+      ThaiBetaEvidenceBadgeAudienceAccess? access,
       ThaiEvidenceBadgeFeatureFlagState flag =
           ThaiEvidenceBadgeFeatureFlagState.internalOnly,
       List<ThaiPublicEvidenceBadgeBetaViewModel>? badges,
@@ -206,7 +211,7 @@ void main() {
             analysis: analysis,
             featureFlagOverride: flag,
             audienceOverride: audience,
-            researchAdminAccess: access,
+            audienceAccess: access,
             badgeViewModelsOverride: badges,
           ),
         ),
@@ -217,7 +222,7 @@ void main() {
     testWidgets('admin sees badge only on ThaiBetaReportPage', (tester) async {
       await pumpReport(
         tester,
-        access: _FakeResearchAdminAccess(ThaiResearchAccess.admin),
+        access: _FakeAudienceAccess(researchAccess: ThaiResearchAccess.admin),
         badges: const [safeBadge],
       );
       expect(find.byType(ThaiBetaEvidenceBadgePanel), findsOneWidget);
@@ -227,7 +232,7 @@ void main() {
     testWidgets('normal user sees no badge on ThaiBetaReportPage', (tester) async {
       await pumpReport(
         tester,
-        access: _FakeResearchAdminAccess(ThaiResearchAccess.notAdmin),
+        access: _FakeAudienceAccess(researchAccess: ThaiResearchAccess.notAdmin),
         badges: const [safeBadge],
       );
       expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);

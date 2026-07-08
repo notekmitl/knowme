@@ -1,6 +1,5 @@
 import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience_resolver.dart';
-import 'package:knowme/features/thai_beta/application/thai_evidence_badge_activation.dart';
 import 'package:knowme/features/thai_beta/application/thai_evidence_badge_feature_flag.dart';
 import 'package:knowme/features/thai_beta/application/thai_research_admin_access.dart';
 
@@ -75,16 +74,17 @@ class ThaiPublicEvidenceBadgeInternalOnlyActivationQaAudit {
 /// Formal QA validator for activated internal-only phase.
 abstract final class ThaiPublicEvidenceBadgeInternalOnlyActivationQaValidator {
   static bool auditActivationState() {
-    if (ThaiEvidenceBadgeActivation.configuredState != 'internal_only') {
+    // Validates frozen internal_only gate mechanics (independent of current activation).
+    if (!ThaiPublicEvidenceBadgeBetaGate.shouldRenderBadges(
+      flag: ThaiEvidenceBadgeFeatureFlagState.internalOnly,
+      audience: const ThaiBetaEvidenceBadgeAudience.internalTester(),
+    )) {
       return false;
     }
-    ThaiEvidenceBadgeFeatureFlag.applyConfiguredState();
-    if (ThaiEvidenceBadgeFeatureFlag.state !=
-        ThaiEvidenceBadgeFeatureFlagState.internalOnly) {
-      return false;
-    }
-    if (ThaiEvidenceBadgeFeatureFlag.configuredState !=
-        ThaiEvidenceBadgeFeatureFlagState.internalOnly) {
+    if (ThaiPublicEvidenceBadgeBetaGate.shouldRenderBadges(
+      flag: ThaiEvidenceBadgeFeatureFlagState.internalOnly,
+      audience: const ThaiBetaEvidenceBadgeAudience.anonymous(),
+    )) {
       return false;
     }
     return true;
@@ -136,12 +136,11 @@ abstract final class ThaiPublicEvidenceBadgeInternalOnlyActivationQaValidator {
   }
 
   static bool auditInvitedBetaInactive() {
-    if (ThaiEvidenceBadgeActivation.configuredState == 'invited_beta') {
-      return false;
-    }
-    ThaiEvidenceBadgeFeatureFlag.applyConfiguredState();
-    return ThaiEvidenceBadgeFeatureFlag.state !=
-        ThaiEvidenceBadgeFeatureFlagState.invitedBeta;
+    // Frozen internal-only phase: invited audience blocked under internal_only flag.
+    return !ThaiPublicEvidenceBadgeBetaGate.shouldRenderBadges(
+      flag: ThaiEvidenceBadgeFeatureFlagState.internalOnly,
+      audience: const ThaiBetaEvidenceBadgeAudience.invitedBetaTester(),
+    );
   }
 
   static bool auditRollbackBehavior() {

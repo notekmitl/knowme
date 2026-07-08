@@ -17,17 +17,24 @@ import 'package:knowme/features/astrology/thai/mirror/presentation/ui/pages/thai
 import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_pipeline.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience.dart';
+import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience_resolver.dart';
 import 'package:knowme/features/thai_beta/application/thai_evidence_badge_activation.dart';
 import 'package:knowme/features/thai_beta/application/thai_evidence_badge_feature_flag.dart';
 import 'package:knowme/features/thai_beta/application/thai_research_admin_access.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart';
 
-class _FakeResearchAdminAccess implements ThaiResearchAdminAccess {
-  _FakeResearchAdminAccess(this.value);
-  final ThaiResearchAccess value;
+class _FakeAudienceAccess implements ThaiBetaEvidenceBadgeAudienceAccess {
+  _FakeAudienceAccess({required this.researchAccess, this.userId});
+  final ThaiResearchAccess researchAccess;
+  final String? userId;
   @override
-  Stream<ThaiResearchAccess> watch() => Stream.value(value);
+  Stream<ThaiBetaEvidenceBadgeAudienceSnapshot> watch() => Stream.value(
+        ThaiBetaEvidenceBadgeAudienceSnapshot(
+          researchAccess: researchAccess,
+          userId: userId,
+        ),
+      );
 }
 
 /// Rollback drill — flag off / re-enable internal_only safety validation.
@@ -78,7 +85,7 @@ void main() {
     WidgetTester tester, {
     required ThaiEvidenceBadgeFeatureFlagState flag,
     ThaiBetaEvidenceBadgeAudience? audience,
-    ThaiResearchAdminAccess? access,
+      ThaiBetaEvidenceBadgeAudienceAccess? access,
     List<ThaiPublicEvidenceBadgeBetaViewModel>? badges,
   }) async {
     await tester.pumpWidget(
@@ -87,7 +94,7 @@ void main() {
           analysis: analysis,
           featureFlagOverride: flag,
           audienceOverride: audience,
-          researchAdminAccess: access,
+          audienceAccess: access,
           badgeViewModelsOverride: badges ?? const [safeBadge],
         ),
       ),
@@ -133,7 +140,7 @@ void main() {
       await pumpReport(
         tester,
         flag: ThaiEvidenceBadgeFeatureFlagState.internalOnly,
-        access: _FakeResearchAdminAccess(ThaiResearchAccess.admin),
+        access: _FakeAudienceAccess(researchAccess:ThaiResearchAccess.admin),
       );
       expect(find.byType(ThaiBetaEvidenceBadgePanel), findsOneWidget);
     });
@@ -155,7 +162,7 @@ void main() {
       await pumpReport(
         tester,
         flag: ThaiEvidenceBadgeFeatureFlagState.off,
-        access: _FakeResearchAdminAccess(ThaiResearchAccess.admin),
+        access: _FakeAudienceAccess(researchAccess:ThaiResearchAccess.admin),
       );
       expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);
     });
@@ -164,7 +171,7 @@ void main() {
       await pumpReport(
         tester,
         flag: ThaiEvidenceBadgeFeatureFlagState.off,
-        access: _FakeResearchAdminAccess(ThaiResearchAccess.notAdmin),
+        access: _FakeAudienceAccess(researchAccess:ThaiResearchAccess.notAdmin),
       );
       expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);
     });
@@ -202,14 +209,14 @@ void main() {
       await pumpReport(
         tester,
         flag: ThaiEvidenceBadgeFeatureFlagState.off,
-        access: _FakeResearchAdminAccess(ThaiResearchAccess.admin),
+        access: _FakeAudienceAccess(researchAccess:ThaiResearchAccess.admin),
       );
       expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);
 
       await pumpReport(
         tester,
         flag: ThaiEvidenceBadgeFeatureFlagState.internalOnly,
-        access: _FakeResearchAdminAccess(ThaiResearchAccess.admin),
+        access: _FakeAudienceAccess(researchAccess:ThaiResearchAccess.admin),
       );
       expect(find.byType(ThaiBetaEvidenceBadgePanel), findsOneWidget);
     });
@@ -218,7 +225,7 @@ void main() {
       await pumpReport(
         tester,
         flag: ThaiEvidenceBadgeFeatureFlagState.internalOnly,
-        access: _FakeResearchAdminAccess(ThaiResearchAccess.notAdmin),
+        access: _FakeAudienceAccess(researchAccess:ThaiResearchAccess.notAdmin),
       );
       expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);
     });
@@ -232,12 +239,12 @@ void main() {
       expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);
     });
 
-    test('activation config remains internal_only after drill', () {
-      expect(ThaiEvidenceBadgeActivation.configuredState, 'internal_only');
+    test('activation config supports invited_beta after drill', () {
+      expect(ThaiEvidenceBadgeActivation.configuredState, 'invited_beta');
       ThaiEvidenceBadgeFeatureFlag.applyConfiguredState();
       expect(
         ThaiEvidenceBadgeFeatureFlag.state,
-        ThaiEvidenceBadgeFeatureFlagState.internalOnly,
+        ThaiEvidenceBadgeFeatureFlagState.invitedBeta,
       );
     });
   });

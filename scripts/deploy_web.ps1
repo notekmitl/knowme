@@ -21,7 +21,7 @@ if ($ApiBaseUrl -match "127\.0\.0\.1|localhost") {
 Write-Host "Building Flutter web (release) with ASTROLOGY_API_BASE_URL=$ApiBaseUrl"
 flutter build web --release --no-wasm-dry-run `
     --dart-define=ASTROLOGY_API_BASE_URL=$ApiBaseUrl `
-    --dart-define=THAI_PUBLIC_EVIDENCE_BADGE_BETA=internal_only
+    --dart-define=THAI_PUBLIC_EVIDENCE_BADGE_BETA=invited_beta
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
 $Bundle = Join-Path $RepoRoot "build\web\main.dart.js"

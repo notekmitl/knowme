@@ -13,17 +13,24 @@ import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_pipeli
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience_resolver.dart';
+import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience_resolver.dart';
 import 'package:knowme/features/thai_beta/application/thai_evidence_badge_activation.dart';
 import 'package:knowme/features/thai_beta/application/thai_evidence_badge_feature_flag.dart';
 import 'package:knowme/features/thai_beta/application/thai_research_admin_access.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart';
 
-class _FakeResearchAdminAccess implements ThaiResearchAdminAccess {
-  _FakeResearchAdminAccess(this.value);
-  final ThaiResearchAccess value;
+class _FakeAudienceAccess implements ThaiBetaEvidenceBadgeAudienceAccess {
+  _FakeAudienceAccess({required this.researchAccess, this.userId});
+  final ThaiResearchAccess researchAccess;
+  final String? userId;
   @override
-  Stream<ThaiResearchAccess> watch() => Stream.value(value);
+  Stream<ThaiBetaEvidenceBadgeAudienceSnapshot> watch() => Stream.value(
+        ThaiBetaEvidenceBadgeAudienceSnapshot(
+          researchAccess: researchAccess,
+          userId: userId,
+        ),
+      );
 }
 
 /// Internal-only activation guard tests.
@@ -57,20 +64,28 @@ void main() {
   });
 
   group('Activation configuration', () {
-    test('checked-in activation is internal_only not invited_beta', () {
-      expect(ThaiEvidenceBadgeActivation.configuredState, 'internal_only');
-      expect(ThaiEvidenceBadgeActivation.configuredState, isNot('invited_beta'));
+    test('internal_only gate mechanics preserved', () {
+      expect(
+        ThaiPublicEvidenceBadgeBetaGate.shouldRenderBadges(
+          flag: ThaiEvidenceBadgeFeatureFlagState.internalOnly,
+          audience: const ThaiBetaEvidenceBadgeAudience.internalTester(),
+        ),
+        isTrue,
+      );
+      expect(
+        ThaiPublicEvidenceBadgeBetaGate.shouldRenderBadges(
+          flag: ThaiEvidenceBadgeFeatureFlagState.internalOnly,
+          audience: const ThaiBetaEvidenceBadgeAudience.invitedBetaTester(),
+        ),
+        isFalse,
+      );
     });
 
-    test('applyConfiguredState activates internal_only', () {
+    test('applyConfiguredState activates invited_beta (current phase)', () {
       ThaiEvidenceBadgeFeatureFlag.applyConfiguredState();
       expect(
         ThaiEvidenceBadgeFeatureFlag.state,
-        ThaiEvidenceBadgeFeatureFlagState.internalOnly,
-      );
-      expect(
-        ThaiEvidenceBadgeFeatureFlag.configuredState,
-        ThaiEvidenceBadgeFeatureFlagState.internalOnly,
+        ThaiEvidenceBadgeFeatureFlagState.invitedBeta,
       );
     });
 
@@ -145,7 +160,7 @@ void main() {
     Future<void> pumpReport(
       WidgetTester tester, {
       ThaiBetaEvidenceBadgeAudience? audience,
-      ThaiResearchAdminAccess? access,
+      ThaiBetaEvidenceBadgeAudienceAccess? access,
       List<ThaiPublicEvidenceBadgeBetaViewModel>? badges,
     }) async {
       await tester.pumpWidget(
@@ -154,7 +169,7 @@ void main() {
             analysis: analysis,
             featureFlagOverride: ThaiEvidenceBadgeFeatureFlagState.internalOnly,
             audienceOverride: audience,
-            researchAdminAccess: access,
+            audienceAccess: access,
             badgeViewModelsOverride: badges,
           ),
         ),
@@ -176,7 +191,7 @@ void main() {
     testWidgets('internal_only does not render badge for normal user', (tester) async {
       await pumpReport(
         tester,
-        access: _FakeResearchAdminAccess(ThaiResearchAccess.notAdmin),
+        access: _FakeAudienceAccess(researchAccess: ThaiResearchAccess.notAdmin),
         badges: const [safeBadge],
       );
       expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);
@@ -194,7 +209,7 @@ void main() {
     testWidgets('admin access via stream renders badge panel', (tester) async {
       await pumpReport(
         tester,
-        access: _FakeResearchAdminAccess(ThaiResearchAccess.admin),
+        access: _FakeAudienceAccess(researchAccess: ThaiResearchAccess.admin),
         badges: const [safeBadge],
       );
       expect(find.byType(ThaiBetaEvidenceBadgePanel), findsOneWidget);

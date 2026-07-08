@@ -15,6 +15,7 @@ import 'package:knowme/features/astrology/thai/mirror/presentation/ui/pages/thai
 import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_pipeline.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience.dart';
+import 'package:knowme/features/thai_beta/application/thai_beta_invited_tester_registry.dart';
 import 'package:knowme/features/thai_beta/application/thai_evidence_badge_feature_flag.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart';
