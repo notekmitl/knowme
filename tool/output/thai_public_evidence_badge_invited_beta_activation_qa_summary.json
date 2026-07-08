@@ -1,0 +1,95 @@
+{
+  "phase": "Public Evidence Badge Invited Beta Activation QA",
+  "featureFlag": "thai_public_evidence_badge_beta",
+  "activeFlagState": "invited_beta",
+  "fixtureCount": 9,
+  "overallPassed": true,
+  "activationStatePassed": true,
+  "audienceIsolationPassed": true,
+  "registryPassed": true,
+  "rollbackPassed": true,
+  "internalOnlyPreserved": true,
+  "invalidFlagOff": true,
+  "totalEligibleBetaBadges": 91,
+  "totalEligibilityViolations": 0,
+  "totalCopySafetyViolations": 0,
+  "totalDataLeakageViolations": 0,
+  "publicFingerprintUnchanged": true,
+  "remediesHidden": true,
+  "allowedSurface": "ThaiBetaReportPage",
+  "allowedAudience": "invited_beta_allow_list_uid",
+  "fixtures": [
+    {
+      "id": "qa_sample",
+      "eligibleBetaBadgeCount": 19,
+      "passed": true,
+      "eligibilityViolationCount": 0,
+      "copySafetyViolationCount": 0,
+      "dataLeakageViolationCount": 0
+    },
+    {
+      "id": "harness_a",
+      "eligibleBetaBadgeCount": 12,
+      "passed": true,
+      "eligibilityViolationCount": 0,
+      "copySafetyViolationCount": 0,
+      "dataLeakageViolationCount": 0
+    },
+    {
+      "id": "harness_b",
+      "eligibleBetaBadgeCount": 12,
+      "passed": true,
+      "eligibilityViolationCount": 0,
+      "copySafetyViolationCount": 0,
+      "dataLeakageViolationCount": 0
+    },
+    {
+      "id": "harness_c",
+      "eligibleBetaBadgeCount": 7,
+      "passed": true,
+      "eligibilityViolationCount": 0,
+      "copySafetyViolationCount": 0,
+      "dataLeakageViolationCount": 0
+    },
+    {
+      "id": "harness_d",
+      "eligibleBetaBadgeCount": 13,
+      "passed": true,
+      "eligibilityViolationCount": 0,
+      "copySafetyViolationCount": 0,
+      "dataLeakageViolationCount": 0
+    },
+    {
+      "id": "harness_e",
+      "eligibleBetaBadgeCount": 8,
+      "passed": true,
+      "eligibilityViolationCount": 0,
+      "copySafetyViolationCount": 0,
+      "dataLeakageViolationCount": 0
+    },
+    {
+      "id": "harness_f",
+      "eligibleBetaBadgeCount": 8,
+      "passed": true,
+      "eligibilityViolationCount": 0,
+      "copySafetyViolationCount": 0,
+      "dataLeakageViolationCount": 0
+    },
+    {
+      "id": "harness_g",
+      "eligibleBetaBadgeCount": 8,
+      "passed": true,
+      "eligibilityViolationCount": 0,
+      "copySafetyViolationCount": 0,
+      "dataLeakageViolationCount": 0
+    },
+    {
+      "id": "harness_h",
+      "eligibleBetaBadgeCount": 4,
+      "passed": true,
+      "eligibilityViolationCount": 0,
+      "copySafetyViolationCount": 0,
+      "dataLeakageViolationCount": 0
+    }
+  ]
+}
