@@ -24,6 +24,7 @@ class ThaiMirrorResultPage extends StatefulWidget {
     super.key,
     required this.consumerState,
     this.embeddedInParentScroll = false,
+    this.disableAnimations = false,
   });
 
   final ThaiMirrorConsumerViewState consumerState;
@@ -32,30 +33,41 @@ class ThaiMirrorResultPage extends StatefulWidget {
   /// (e.g. [ThaiBetaReportPage]) owns the single page scroll for full capture.
   final bool embeddedInParentScroll;
 
+  /// Skips mount fade/slide animations (screenshot / capture mode).
+  final bool disableAnimations;
+
   @override
   State<ThaiMirrorResultPage> createState() => _ThaiMirrorResultPageState();
 }
 
 class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _controller = AnimationController(
-    vsync: this,
-    duration: const Duration(milliseconds: 520),
-  )..forward();
+  AnimationController? _controller;
+  Animation<double>? _fade;
+  Animation<Offset>? _slide;
 
-  late final Animation<double> _fade = CurvedAnimation(
-    parent: _controller,
-    curve: Curves.easeOutCubic,
-  );
-
-  late final Animation<Offset> _slide = Tween<Offset>(
-    begin: const Offset(0, 0.025),
-    end: Offset.zero,
-  ).animate(_fade);
+  @override
+  void initState() {
+    super.initState();
+    if (!widget.disableAnimations) {
+      _controller = AnimationController(
+        vsync: this,
+        duration: const Duration(milliseconds: 520),
+      )..forward();
+      _fade = CurvedAnimation(
+        parent: _controller!,
+        curve: Curves.easeOutCubic,
+      );
+      _slide = Tween<Offset>(
+        begin: const Offset(0, 0.025),
+        end: Offset.zero,
+      ).animate(_fade!);
+    }
+  }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller?.dispose();
     super.dispose();
   }
 
@@ -74,27 +86,33 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
     // Major-section rhythm — generous breathing room between blocks.
     const gap = 36.0;
 
+    final articleBody = RepaintBoundary(
+      key: const Key('thai_consumer_full_page'),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: _articleSections(
+          context,
+          consumerState: consumerState,
+          scheme: scheme,
+          gap: gap,
+        ),
+      ),
+    );
+
+    final animatedArticle = widget.disableAnimations
+        ? articleBody
+        : FadeTransition(
+            opacity: _fade!,
+            child: SlideTransition(
+              position: _slide!,
+              child: articleBody,
+            ),
+          );
+
     final article = Center(
       child: ConstrainedBox(
         constraints: BoxConstraints(maxWidth: maxContentWidth),
-        child: FadeTransition(
-          opacity: _fade,
-          child: SlideTransition(
-            position: _slide,
-            child: RepaintBoundary(
-              key: const Key('thai_consumer_full_page'),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: _articleSections(
-                  context,
-                  consumerState: consumerState,
-                  scheme: scheme,
-                  gap: gap,
-                ),
-              ),
-            ),
-          ),
-        ),
+        child: animatedArticle,
       ),
     );
 

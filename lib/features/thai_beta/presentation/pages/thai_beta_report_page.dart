@@ -1,4 +1,13 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+import '../../application/thai_beta_analysis.dart';
+import '../../application/thai_beta_evidence_badge_audience.dart';
+import '../../application/thai_beta_evidence_badge_audience_resolver.dart';
+import '../../application/thai_evidence_badge_feature_flag.dart';
+import '../thai_beta_screenshot_mode.dart';
+import '../widgets/thai_beta_progress_bar.dart';
+import 'thai_beta_feedback_page.dart';
 
 import 'package:knowme/core/web/screenshot_friendly_scroll.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/integration.dart';
@@ -8,19 +17,15 @@ import 'package:knowme/features/astrology/thai/knowledge/canon/integration/prese
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/presentation/thai_public_evidence_badge_beta_view_model.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/ui/pages/thai_mirror_result_page.dart';
 
-import '../../application/thai_beta_analysis.dart';
-import '../../application/thai_beta_evidence_badge_audience.dart';
-import '../../application/thai_beta_evidence_badge_audience_resolver.dart';
-import '../../application/thai_evidence_badge_feature_flag.dart';
-import '../widgets/thai_beta_progress_bar.dart';
-import 'thai_beta_feedback_page.dart';
-
 /// Shows the **existing** Thai report for a beta analysis, with a CTA into the
 /// feedback step. The report itself is not redesigned — it reuses
 /// [ThaiMirrorResultPage] exactly as production does.
 ///
 /// LEVEL 1 Canon evidence badges render here only when the controlled-beta
 /// feature flag and audience gate allow it.
+///
+/// Screenshot mode (`?screenshot=1`, `?capture=1`, `/beta/thai/capture`):
+/// long content layout with document-level scroll for GoFullPage capture.
 class ThaiBetaReportPage extends StatelessWidget {
   const ThaiBetaReportPage({
     super.key,
@@ -30,6 +35,7 @@ class ThaiBetaReportPage extends StatelessWidget {
     this.badgeViewModelsOverride,
     this.repository,
     this.audienceAccess,
+    this.screenshotModeOverride,
   });
 
   final ThaiBetaAnalysis analysis;
@@ -48,8 +54,14 @@ class ThaiBetaReportPage extends StatelessWidget {
   /// Injectable audience resolver (production uses Firebase auth + admin access).
   final ThaiBetaEvidenceBadgeAudienceAccess? audienceAccess;
 
+  /// When set, overrides [ThaiBetaScreenshotMode.isActive] (tests / capture route).
+  final bool? screenshotModeOverride;
+
   @override
   Widget build(BuildContext context) {
+    final screenshotMode =
+        screenshotModeOverride ?? ThaiBetaScreenshotMode.isActive;
+
     if (audienceOverride != null) {
       return _ThaiBetaReportScaffold(
         analysis: analysis,
@@ -57,6 +69,7 @@ class ThaiBetaReportPage extends StatelessWidget {
         featureFlagOverride: featureFlagOverride,
         badgeViewModelsOverride: badgeViewModelsOverride,
         repository: repository,
+        screenshotMode: screenshotMode,
       );
     }
 
@@ -74,13 +87,14 @@ class ThaiBetaReportPage extends StatelessWidget {
               );
         return _ThaiBetaReportScaffold(
           key: ValueKey(
-            'beta-report-${audience.isInternalTester}-${audience.isInvitedBetaTester}',
+            'beta-report-${audience.isInternalTester}-${audience.isInvitedBetaTester}-$screenshotMode',
           ),
           analysis: analysis,
           audience: audience,
           featureFlagOverride: featureFlagOverride,
           badgeViewModelsOverride: badgeViewModelsOverride,
           repository: repository,
+          screenshotMode: screenshotMode,
         );
       },
     );
@@ -92,6 +106,7 @@ class _ThaiBetaReportScaffold extends StatefulWidget {
     super.key,
     required this.analysis,
     required this.audience,
+    required this.screenshotMode,
     this.featureFlagOverride,
     this.badgeViewModelsOverride,
     this.repository,
@@ -99,6 +114,7 @@ class _ThaiBetaReportScaffold extends StatefulWidget {
 
   final ThaiBetaAnalysis analysis;
   final ThaiBetaEvidenceBadgeAudience audience;
+  final bool screenshotMode;
   final ThaiEvidenceBadgeFeatureFlagState? featureFlagOverride;
   final List<ThaiPublicEvidenceBadgeBetaViewModel>? badgeViewModelsOverride;
   final ThaiCanonEvidenceRepository? repository;
@@ -108,19 +124,30 @@ class _ThaiBetaReportScaffold extends StatefulWidget {
 }
 
 class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
+  static const _captureContentKey = Key('thaiBetaReportCaptureContentKey');
+
+  final GlobalKey _captureMeasureKey = GlobalKey();
   List<ThaiPublicEvidenceBadgeBetaViewModel> _badges = const [];
   bool _loadingBadges = false;
+  int _hostSyncGeneration = 0;
 
   @override
   void initState() {
     super.initState();
-    enableScreenshotFriendlyScroll();
+    if (widget.screenshotMode) {
+      if (kIsWeb) {
+        enableScreenshotFriendlyScroll();
+      }
+    }
     _loadBadgesIfNeeded();
+    _scheduleHostHeightSync();
   }
 
   @override
   void dispose() {
-    disableScreenshotFriendlyScroll();
+    if (widget.screenshotMode && kIsWeb) {
+      disableScreenshotFriendlyScroll();
+    }
     super.dispose();
   }
 
@@ -132,11 +159,43 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
             widget.audience.isInvitedBetaTester) {
       _loadBadgesIfNeeded();
     }
+    if (oldWidget.screenshotMode != widget.screenshotMode && kIsWeb) {
+      if (widget.screenshotMode) {
+        enableScreenshotFriendlyScroll();
+      } else {
+        disableScreenshotFriendlyScroll();
+      }
+    }
+    _scheduleHostHeightSync();
+  }
+
+  void _scheduleHostHeightSync() {
+    if (!widget.screenshotMode || !kIsWeb) return;
+    final generation = ++_hostSyncGeneration;
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted || generation != _hostSyncGeneration) return;
+      _syncHostHeightFromContent();
+      Future<void>.delayed(const Duration(milliseconds: 600), () {
+        if (!mounted || generation != _hostSyncGeneration) return;
+        _syncHostHeightFromContent();
+      });
+    });
+  }
+
+  void _syncHostHeightFromContent() {
+    final box = _captureMeasureKey.currentContext?.findRenderObject() as RenderBox?;
+    if (box == null || !box.hasSize) return;
+    final topPadding = MediaQuery.paddingOf(context).top;
+    final height = box.size.height + topPadding + 48;
+    enableScreenshotFriendlyScroll(contentHeightPx: height);
+    syncScreenshotHostHeight(height);
+    if (mounted) setState(() {});
   }
 
   Future<void> _loadBadgesIfNeeded() async {
     if (widget.badgeViewModelsOverride != null) {
       setState(() => _badges = widget.badgeViewModelsOverride!);
+      _scheduleHostHeightSync();
       return;
     }
 
@@ -150,6 +209,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
           _badges = const [];
           _loadingBadges = false;
         });
+        _scheduleHostHeightSync();
       }
       return;
     }
@@ -170,12 +230,14 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
         _badges = ThaiPublicEvidenceBadgeBetaMapper.fromBundle(bundle);
         _loadingBadges = false;
       });
+      _scheduleHostHeightSync();
     } catch (_) {
       if (!mounted) return;
       setState(() {
         _badges = const [];
         _loadingBadges = false;
       });
+      _scheduleHostHeightSync();
     }
   }
 
@@ -192,6 +254,71 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
       return false;
     }
     return _badges.isNotEmpty;
+  }
+
+  Widget _buildReportColumn(ThaiBetaAnalysis analysis) {
+    final bottomInset = widget.screenshotMode
+        ? 24.0
+        : 88 + MediaQuery.paddingOf(context).bottom;
+
+    return Column(
+      key: _captureMeasureKey,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        if (!widget.screenshotMode)
+          const ThaiBetaProgressBar(current: ThaiBetaStep.read),
+        if (widget.screenshotMode) _buildScreenshotDiagnostics(analysis),
+        if (_showBadgePanel)
+          ThaiBetaEvidenceBadgePanel(badges: _badges)
+        else if (_loadingBadges)
+          const LinearProgressIndicator(minHeight: 2),
+        ThaiMirrorResultPage(
+          embeddedInParentScroll: true,
+          disableAnimations: widget.screenshotMode,
+          consumerState: analysis.consumerViewState!,
+        ),
+        if (widget.screenshotMode)
+          Padding(
+            padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+            child: Text(
+              'ให้ความคิดเห็นต่อผลวิเคราะห์ — ใช้หน้า /beta/thai ปกติเพื่อส่ง feedback',
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                    color: Theme.of(context).colorScheme.onSurfaceVariant,
+                  ),
+            ),
+          ),
+        SizedBox(height: bottomInset),
+      ],
+    );
+  }
+
+  Widget _buildScreenshotDiagnostics(ThaiBetaAnalysis analysis) {
+    final box = _captureMeasureKey.currentContext?.findRenderObject() as RenderBox?;
+    final contentHeight = box?.hasSize == true ? box!.size.height : 0.0;
+    final diagnostics = readScreenshotHostDiagnostics(
+      reportContentHeight: contentHeight,
+    );
+
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+      child: Material(
+        color: Theme.of(context).colorScheme.surfaceContainerHighest,
+        borderRadius: BorderRadius.circular(8),
+        child: Padding(
+          padding: const EdgeInsets.all(10),
+          child: Text(
+            diagnostics == null
+                ? 'Screenshot mode — content height: ${contentHeight.toStringAsFixed(0)}px'
+                : 'Screenshot mode — innerHeight: ${diagnostics.windowInnerHeight.toStringAsFixed(0)} | '
+                    'docScroll: ${diagnostics.documentScrollHeight.toStringAsFixed(0)} | '
+                    'bodyScroll: ${diagnostics.bodyScrollHeight.toStringAsFixed(0)} | '
+                    'report: ${diagnostics.reportContentHeight.toStringAsFixed(0)}',
+            style: Theme.of(context).textTheme.labelSmall,
+          ),
+        ),
+      ),
+    );
   }
 
   @override
@@ -212,31 +339,38 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
       );
     }
 
+    final reportColumn = _buildReportColumn(analysis);
+
+    final body = SafeArea(
+      bottom: false,
+      child: widget.screenshotMode
+          ? SingleChildScrollView(
+              key: const Key('thai_beta_report_screenshot_layout'),
+              physics: const NeverScrollableScrollPhysics(),
+              primary: false,
+              child: Center(
+                child: ConstrainedBox(
+                  constraints: const BoxConstraints(maxWidth: 900),
+                  child: KeyedSubtree(
+                    key: _captureContentKey,
+                    child: reportColumn,
+                  ),
+                ),
+              ),
+            )
+          : SingleChildScrollView(
+              key: const Key('thai_beta_report_page_scroll'),
+              primary: true,
+              child: reportColumn,
+            ),
+    );
+
+    if (widget.screenshotMode) {
+      return Scaffold(body: body);
+    }
+
     return Scaffold(
-      body: SafeArea(
-        bottom: false,
-        child: SingleChildScrollView(
-          key: const Key('thai_beta_report_page_scroll'),
-          primary: true,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              const ThaiBetaProgressBar(current: ThaiBetaStep.read),
-              if (_showBadgePanel)
-                ThaiBetaEvidenceBadgePanel(badges: _badges)
-              else if (_loadingBadges)
-                const LinearProgressIndicator(minHeight: 2),
-              ThaiMirrorResultPage(
-                embeddedInParentScroll: true,
-                consumerState: analysis.consumerViewState!,
-              ),
-              SizedBox(
-                height: 88 + MediaQuery.paddingOf(context).bottom,
-              ),
-            ],
-          ),
-        ),
-      ),
+      body: body,
       bottomNavigationBar: SafeArea(
         minimum: const EdgeInsets.fromLTRB(16, 8, 16, 12),
         child: FilledButton.icon(
