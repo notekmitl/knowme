@@ -24,6 +24,7 @@ import 'package:knowme/features/astrology/thai/qa/population/thai_mirror_populat
 import 'package:knowme/features/astrology/thai/qa/thai_mirror_qa_routes.dart';
 import 'package:knowme/features/thai_beta/presentation/thai_beta_routes.dart';
 import 'package:knowme/features/thai_beta/application/thai_evidence_badge_feature_flag.dart';
+import 'package:knowme/features/thai_beta/presentation/thai_beta_screenshot_mode.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/presentation/thai_canon_evidence_routes.dart';
 
 import 'package:knowme/core/web/web_launch_route.dart';
@@ -47,6 +48,7 @@ void main() async {
 
   // Capture the browser launch route before Flutter routing can rewrite the URL.
   final launchRouteName = webLaunchRouteName();
+  ThaiBetaScreenshotMode.configureFromLaunchRoute(launchRouteName);
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
@@ -97,6 +99,13 @@ class KnowMeApp extends StatelessWidget {
           ],
 
           home: WebLaunchRouter(launchRouteName: launchRouteName),
+
+          builder: (context, child) {
+            return ThaiBetaScreenshotScope(
+              active: ThaiBetaScreenshotMode.isActive,
+              child: child ?? const SizedBox.shrink(),
+            );
+          },
 
           onGenerateRoute: (settings) {
             final bigFiveRoute = BigFiveRoutes.onGenerateRoute(settings);

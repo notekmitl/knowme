@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../../application/thai_beta_evidence_badge_audience.dart';
 import '../../application/thai_beta_analysis.dart';
 import '../../domain/thai_beta_input.dart';
-import '../thai_beta_screenshot_mode.dart';
 import 'thai_beta_report_page.dart';
 
 /// Static long-page report for GoFullPage / full-page capture extensions.
@@ -30,7 +30,9 @@ class ThaiBetaCapturePage extends StatelessWidget {
     final analysis = _sampleAnalysis();
     return ThaiBetaReportPage(
       analysis: analysis,
+      audienceOverride: const ThaiBetaEvidenceBadgeAudience.anonymous(),
       screenshotModeOverride: true,
+      showCaptureModeBanner: true,
     );
   }
 }

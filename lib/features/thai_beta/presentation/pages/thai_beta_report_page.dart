@@ -36,6 +36,7 @@ class ThaiBetaReportPage extends StatelessWidget {
     this.repository,
     this.audienceAccess,
     this.screenshotModeOverride,
+    this.showCaptureModeBanner = false,
   });
 
   final ThaiBetaAnalysis analysis;
@@ -54,13 +55,16 @@ class ThaiBetaReportPage extends StatelessWidget {
   /// Injectable audience resolver (production uses Firebase auth + admin access).
   final ThaiBetaEvidenceBadgeAudienceAccess? audienceAccess;
 
-  /// When set, overrides [ThaiBetaScreenshotMode.isActive] (tests / capture route).
+  /// When set, overrides [ThaiBetaScreenshotScope] (tests / capture route).
   final bool? screenshotModeOverride;
+
+  /// Shows the internal capture-route banner ( `/beta/thai/capture` only).
+  final bool showCaptureModeBanner;
 
   @override
   Widget build(BuildContext context) {
     final screenshotMode =
-        screenshotModeOverride ?? ThaiBetaScreenshotMode.isActive;
+        screenshotModeOverride ?? ThaiBetaScreenshotScope.of(context);
 
     if (audienceOverride != null) {
       return _ThaiBetaReportScaffold(
@@ -70,6 +74,7 @@ class ThaiBetaReportPage extends StatelessWidget {
         badgeViewModelsOverride: badgeViewModelsOverride,
         repository: repository,
         screenshotMode: screenshotMode,
+        showCaptureModeBanner: showCaptureModeBanner,
       );
     }
 
@@ -95,6 +100,7 @@ class ThaiBetaReportPage extends StatelessWidget {
           badgeViewModelsOverride: badgeViewModelsOverride,
           repository: repository,
           screenshotMode: screenshotMode,
+          showCaptureModeBanner: showCaptureModeBanner,
         );
       },
     );
@@ -107,6 +113,7 @@ class _ThaiBetaReportScaffold extends StatefulWidget {
     required this.analysis,
     required this.audience,
     required this.screenshotMode,
+    this.showCaptureModeBanner = false,
     this.featureFlagOverride,
     this.badgeViewModelsOverride,
     this.repository,
@@ -115,6 +122,7 @@ class _ThaiBetaReportScaffold extends StatefulWidget {
   final ThaiBetaAnalysis analysis;
   final ThaiBetaEvidenceBadgeAudience audience;
   final bool screenshotMode;
+  final bool showCaptureModeBanner;
   final ThaiEvidenceBadgeFeatureFlagState? featureFlagOverride;
   final List<ThaiPublicEvidenceBadgeBetaViewModel>? badgeViewModelsOverride;
   final ThaiCanonEvidenceRepository? repository;
@@ -265,6 +273,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
       key: _captureMeasureKey,
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        if (widget.showCaptureModeBanner) _buildCaptureModeBanner(),
         if (!widget.screenshotMode)
           const ThaiBetaProgressBar(current: ThaiBetaStep.read),
         if (widget.screenshotMode) _buildScreenshotDiagnostics(analysis),
@@ -293,28 +302,62 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
     );
   }
 
+  Widget _buildCaptureModeBanner() {
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
+      child: Material(
+        color: Theme.of(context).colorScheme.primaryContainer,
+        borderRadius: BorderRadius.circular(8),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+          child: Text(
+            'Thai Beta Capture Mode Active',
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.titleSmall?.copyWith(
+                  fontWeight: FontWeight.w700,
+                ),
+          ),
+        ),
+      ),
+    );
+  }
+
   Widget _buildScreenshotDiagnostics(ThaiBetaAnalysis analysis) {
     final box = _captureMeasureKey.currentContext?.findRenderObject() as RenderBox?;
     final contentHeight = box?.hasSize == true ? box!.size.height : 0.0;
     final diagnostics = readScreenshotHostDiagnostics(
       reportContentHeight: contentHeight,
     );
+    final uri = ThaiBetaScreenshotMode.diagnosticUri;
+
+    final lines = <String>[
+      'screenshotMode: true',
+      'route: ${uri.path}',
+      'query: ${uri.hasQuery ? uri.query : '(none)'}',
+      'contentMeasuredHeight: ${contentHeight.toStringAsFixed(0)}',
+    ];
+    if (diagnostics != null) {
+      lines.addAll([
+        'window.innerHeight: ${diagnostics.windowInnerHeight.toStringAsFixed(0)}',
+        'document.scrollHeight: ${diagnostics.documentScrollHeight.toStringAsFixed(0)}',
+        'body.scrollHeight: ${diagnostics.bodyScrollHeight.toStringAsFixed(0)}',
+      ]);
+    }
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
       child: Material(
+        key: const Key('thai_beta_screenshot_diagnostics'),
         color: Theme.of(context).colorScheme.surfaceContainerHighest,
         borderRadius: BorderRadius.circular(8),
         child: Padding(
           padding: const EdgeInsets.all(10),
           child: Text(
-            diagnostics == null
-                ? 'Screenshot mode — content height: ${contentHeight.toStringAsFixed(0)}px'
-                : 'Screenshot mode — innerHeight: ${diagnostics.windowInnerHeight.toStringAsFixed(0)} | '
-                    'docScroll: ${diagnostics.documentScrollHeight.toStringAsFixed(0)} | '
-                    'bodyScroll: ${diagnostics.bodyScrollHeight.toStringAsFixed(0)} | '
-                    'report: ${diagnostics.reportContentHeight.toStringAsFixed(0)}',
-            style: Theme.of(context).textTheme.labelSmall,
+            lines.join('\n'),
+            style: Theme.of(context).textTheme.labelSmall?.copyWith(
+                  fontFamily: 'monospace',
+                  height: 1.35,
+                ),
           ),
         ),
       ),

@@ -27,7 +27,7 @@ void main() {
   });
 
   tearDown(() {
-    ThaiBetaScreenshotMode.testOverride = null;
+    ThaiBetaScreenshotMode.resetForTest();
   });
 
   group('ThaiBetaScreenshotMode', () {
@@ -38,9 +38,9 @@ void main() {
       expect(ThaiBetaScreenshotMode.isActive, isFalse);
     });
 
-    test('detects capture path', () {
-      final uri = Uri.parse('https://local/beta/thai/capture');
-      expect(uri.path.endsWith('/capture'), isTrue);
+    test('configureFromLaunchRoute detects screenshot query', () {
+      ThaiBetaScreenshotMode.configureFromLaunchRoute('/beta/thai?screenshot=1');
+      expect(ThaiBetaScreenshotMode.isActive, isTrue);
     });
   });
 
@@ -51,6 +51,10 @@ void main() {
     }) async {
       await tester.pumpWidget(
         MaterialApp(
+          builder: (context, child) => ThaiBetaScreenshotScope(
+            active: screenshotMode,
+            child: child ?? const SizedBox.shrink(),
+          ),
           home: ThaiBetaReportPage(
             analysis: analysis,
             audienceOverride: const ThaiBetaEvidenceBadgeAudience.anonymous(),
@@ -86,6 +90,17 @@ void main() {
     testWidgets('screenshot mode hides progress bar', (tester) async {
       await pumpReport(tester, screenshotMode: true);
       expect(find.text('อ่านผล'), findsNothing);
+    });
+
+    testWidgets('screenshot mode shows diagnostics panel', (tester) async {
+      await pumpReport(tester, screenshotMode: true);
+      expect(find.byKey(const Key('thai_beta_screenshot_diagnostics')), findsOneWidget);
+      expect(find.textContaining('screenshotMode: true'), findsOneWidget);
+    });
+
+    testWidgets('normal mode hides diagnostics panel', (tester) async {
+      await pumpReport(tester, screenshotMode: false);
+      expect(find.byKey(const Key('thai_beta_screenshot_diagnostics')), findsNothing);
     });
 
     testWidgets('normal mode keeps parent scroll and bottom bar', (tester) async {

@@ -94,6 +94,28 @@ Does **not** change normal user report output.
 
 ---
 
+## Actual URL verification
+
+**Status: NOT YET VERIFIED in production browser** (code fix applied; deploy + manual check required).
+
+After deploying, verify on `https://knowme-app-694e1.web.app`:
+
+| Check | URL | Expected |
+|-------|-----|----------|
+| Capture route | `/beta/thai/capture` | Capture report page; banner **Thai Beta Capture Mode Active**; not Home/Today |
+| Screenshot query | `/beta/thai?screenshot=1` | Report uses screenshot layout (after flow or direct report) |
+| Capture query alias | `/beta/thai?capture=1` | Same as screenshot=1 |
+| Progress stepper | screenshot mode | Hidden on report |
+| Fixed bottom bar | screenshot mode | Hidden on report |
+| Diagnostics | screenshot mode | Visible panel with route/query/scroll heights |
+| Document scroll | screenshot mode | `document.documentElement.scrollHeight > window.innerHeight` |
+| GoFullPage | screenshot mode | Full report captured (manual extension test) |
+| Normal beta | `/beta/thai` | Unchanged — stepper + feedback bar |
+
+Do **not** mark this section as fixed until each row is checked in a real browser against the deployed build.
+
+---
+
 ## Manual verification checklist
 
 - [ ] `?screenshot=1` enables diagnostics panel
