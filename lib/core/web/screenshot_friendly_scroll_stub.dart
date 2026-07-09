@@ -18,6 +18,8 @@ class ScreenshotHostDiagnostics {
 /// No-op on non-web platforms.
 void enableScreenshotFriendlyScroll({double? contentHeightPx}) {}
 
+void resetScreenshotHostHeight() {}
+
 void syncScreenshotHostHeight(double contentHeightPx) {}
 
 ScreenshotHostDiagnostics? readScreenshotHostDiagnostics({

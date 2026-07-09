@@ -132,12 +132,15 @@ class _ThaiBetaReportScaffold extends StatefulWidget {
 }
 
 class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
-  static const _captureContentKey = Key('thaiBetaReportCaptureContentKey');
+  static const _captureContentKeyValue = Key('thaiBetaReportCaptureContentKey');
+  static const _hostSyncPaddingPx = 80.0;
 
-  final GlobalKey _captureMeasureKey = GlobalKey();
+  final GlobalKey _captureContentMeasureKey = GlobalKey();
+
   List<ThaiPublicEvidenceBadgeBetaViewModel> _badges = const [];
   bool _loadingBadges = false;
   int _hostSyncGeneration = 0;
+  double _lastSyncedHostHeight = 0;
 
   @override
   void initState() {
@@ -191,13 +194,22 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
   }
 
   void _syncHostHeightFromContent() {
-    final box = _captureMeasureKey.currentContext?.findRenderObject() as RenderBox?;
+    if (!kIsWeb) return;
+
+    resetScreenshotHostHeight();
+
+    final box =
+        _captureContentMeasureKey.currentContext?.findRenderObject() as RenderBox?;
     if (box == null || !box.hasSize) return;
+
     final topPadding = MediaQuery.paddingOf(context).top;
-    final height = box.size.height + topPadding + 48;
-    enableScreenshotFriendlyScroll(contentHeightPx: height);
-    syncScreenshotHostHeight(height);
-    if (mounted) setState(() {});
+    final contentHeight = box.size.height;
+    final hostHeight = contentHeight + topPadding + _hostSyncPaddingPx;
+
+    if ((hostHeight - _lastSyncedHostHeight).abs() < 4) return;
+    _lastSyncedHostHeight = hostHeight;
+
+    enableScreenshotFriendlyScroll(contentHeightPx: hostHeight);
   }
 
   Future<void> _loadBadgesIfNeeded() async {
@@ -269,35 +281,53 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
         ? 24.0
         : 88 + MediaQuery.paddingOf(context).bottom;
 
-    return Column(
-      key: _captureMeasureKey,
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        if (widget.showCaptureModeBanner) _buildCaptureModeBanner(),
-        if (!widget.screenshotMode)
-          const ThaiBetaProgressBar(current: ThaiBetaStep.read),
-        if (widget.screenshotMode) _buildScreenshotDiagnostics(analysis),
-        if (_showBadgePanel)
-          ThaiBetaEvidenceBadgePanel(badges: _badges)
-        else if (_loadingBadges)
-          const LinearProgressIndicator(minHeight: 2),
-        ThaiMirrorResultPage(
-          embeddedInParentScroll: true,
-          disableAnimations: widget.screenshotMode,
-          consumerState: analysis.consumerViewState!,
+    final reportBody = <Widget>[
+      if (_showBadgePanel)
+        ThaiBetaEvidenceBadgePanel(badges: _badges)
+      else if (_loadingBadges)
+        const LinearProgressIndicator(minHeight: 2),
+      ThaiMirrorResultPage(
+        embeddedInParentScroll: true,
+        disableAnimations: widget.screenshotMode,
+        consumerState: analysis.consumerViewState!,
+      ),
+      if (widget.screenshotMode)
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+          child: Text(
+            'ให้ความคิดเห็นต่อผลวิเคราะห์ — ใช้หน้า /beta/thai ปกติเพื่อส่ง feedback',
+            textAlign: TextAlign.center,
+            style: Theme.of(context).textTheme.bodySmall?.copyWith(
+                  color: Theme.of(context).colorScheme.onSurfaceVariant,
+                ),
+          ),
         ),
-        if (widget.screenshotMode)
-          Padding(
-            padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-            child: Text(
-              'ให้ความคิดเห็นต่อผลวิเคราะห์ — ใช้หน้า /beta/thai ปกติเพื่อส่ง feedback',
-              textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    color: Theme.of(context).colorScheme.onSurfaceVariant,
-                  ),
+      SizedBox(height: bottomInset),
+    ];
+
+    if (widget.screenshotMode) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          if (widget.showCaptureModeBanner) _buildCaptureModeBanner(),
+          KeyedSubtree(
+            key: _captureContentMeasureKey,
+            child: Column(
+              key: _captureContentKeyValue,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: reportBody,
             ),
           ),
-        SizedBox(height: bottomInset),
+          _buildScreenshotDiagnostics(analysis),
+        ],
+      );
+    }
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const ThaiBetaProgressBar(current: ThaiBetaStep.read),
+        ...reportBody,
       ],
     );
   }
@@ -323,7 +353,8 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
   }
 
   Widget _buildScreenshotDiagnostics(ThaiBetaAnalysis analysis) {
-    final box = _captureMeasureKey.currentContext?.findRenderObject() as RenderBox?;
+    final box =
+        _captureContentMeasureKey.currentContext?.findRenderObject() as RenderBox?;
     final contentHeight = box?.hasSize == true ? box!.size.height : 0.0;
     final diagnostics = readScreenshotHostDiagnostics(
       reportContentHeight: contentHeight,
@@ -335,6 +366,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
       'route: ${uri.path}',
       'query: ${uri.hasQuery ? uri.query : '(none)'}',
       'contentMeasuredHeight: ${contentHeight.toStringAsFixed(0)}',
+      'hostSyncTarget: ${_lastSyncedHostHeight.toStringAsFixed(0)}',
     ];
     if (diagnostics != null) {
       lines.addAll([
@@ -391,13 +423,11 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
               key: const Key('thai_beta_report_screenshot_layout'),
               physics: const NeverScrollableScrollPhysics(),
               primary: false,
-              child: Center(
+              child: Align(
+                alignment: Alignment.topCenter,
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 900),
-                  child: KeyedSubtree(
-                    key: _captureContentKey,
-                    child: reportColumn,
-                  ),
+                  child: reportColumn,
                 ),
               ),
             )
