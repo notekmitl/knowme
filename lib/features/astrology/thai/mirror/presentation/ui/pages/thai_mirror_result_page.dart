@@ -23,9 +23,14 @@ class ThaiMirrorResultPage extends StatefulWidget {
   const ThaiMirrorResultPage({
     super.key,
     required this.consumerState,
+    this.embeddedInParentScroll = false,
   });
 
   final ThaiMirrorConsumerViewState consumerState;
+
+  /// When true, omits [Scaffold] and inner [SingleChildScrollView] so a parent
+  /// (e.g. [ThaiBetaReportPage]) owns the single page scroll for full capture.
+  final bool embeddedInParentScroll;
 
   @override
   State<ThaiMirrorResultPage> createState() => _ThaiMirrorResultPageState();
@@ -62,44 +67,87 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
     final isWide = width >= 768;
     final horizontalPadding = isWide ? 32.0 : 18.0;
     final maxContentWidth = isWide ? 780.0 : double.infinity;
+    final topPadding = widget.embeddedInParentScroll
+        ? (isWide ? 16.0 : 12.0)
+        : (isWide ? 28.0 : 20.0);
 
     // Major-section rhythm — generous breathing room between blocks.
     const gap = 36.0;
 
-    return Scaffold(
-      body: DecoratedBox(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              scheme.primaryContainer.withValues(alpha: 0.18),
-              scheme.surface,
-              scheme.surface,
-            ],
-            stops: const [0.0, 0.32, 1.0],
+    final article = Center(
+      child: ConstrainedBox(
+        constraints: BoxConstraints(maxWidth: maxContentWidth),
+        child: FadeTransition(
+          opacity: _fade,
+          child: SlideTransition(
+            position: _slide,
+            child: RepaintBoundary(
+              key: const Key('thai_consumer_full_page'),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: _articleSections(
+                  context,
+                  consumerState: consumerState,
+                  scheme: scheme,
+                  gap: gap,
+                ),
+              ),
+            ),
           ),
         ),
-        child: SafeArea(
-          child: SingleChildScrollView(
-            padding: EdgeInsets.fromLTRB(
-              horizontalPadding,
-              isWide ? 28 : 20,
-              horizontalPadding,
-              48,
+      ),
+    );
+
+    final decorated = DecoratedBox(
+      decoration: BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [
+            scheme.primaryContainer.withValues(alpha: 0.18),
+            scheme.surface,
+            scheme.surface,
+          ],
+          stops: const [0.0, 0.32, 1.0],
+        ),
+      ),
+      child: widget.embeddedInParentScroll
+          ? Padding(
+              padding: EdgeInsets.fromLTRB(
+                horizontalPadding,
+                topPadding,
+                horizontalPadding,
+                48,
+              ),
+              child: article,
+            )
+          : SafeArea(
+              child: SingleChildScrollView(
+                padding: EdgeInsets.fromLTRB(
+                  horizontalPadding,
+                  topPadding,
+                  horizontalPadding,
+                  48,
+                ),
+                child: article,
+              ),
             ),
-            child: Center(
-              child: ConstrainedBox(
-                constraints: BoxConstraints(maxWidth: maxContentWidth),
-                child: FadeTransition(
-                  opacity: _fade,
-                  child: SlideTransition(
-                    position: _slide,
-                    child: RepaintBoundary(
-                      key: const Key('thai_consumer_full_page'),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
+    );
+
+    if (widget.embeddedInParentScroll) {
+      return decorated;
+    }
+
+    return Scaffold(body: decorated);
+  }
+
+  List<Widget> _articleSections(
+    BuildContext context, {
+    required ThaiMirrorConsumerViewState consumerState,
+    required ColorScheme scheme,
+    required double gap,
+  }) {
+    return [
                           RepaintBoundary(
                             key: const Key('thai_consumer_hero'),
                             child: ThaiMirrorConsumerHeroSection(
@@ -114,7 +162,7 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
                           ),
                           if (consumerState.lifeTimeline != null &&
                               !consumerState.lifeTimeline!.isEmpty) ...[
-                            const SizedBox(height: gap),
+                            SizedBox(height: gap),
                             RepaintBoundary(
                               key: const Key('thai_consumer_life_timeline'),
                               child: ThaiMirrorLifeTimelineSection(
@@ -124,7 +172,7 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
                           ],
                           if (consumerState.futurePrediction != null &&
                               !consumerState.futurePrediction!.isEmpty) ...[
-                            const SizedBox(height: gap),
+                            SizedBox(height: gap),
                             RepaintBoundary(
                               key: const Key('thai_consumer_future_prediction'),
                               child: ThaiMirrorFuturePredictionSection(
@@ -133,7 +181,7 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
                             ),
                           ],
                           if (!consumerState.signatureInsight.isEmpty) ...[
-                            const SizedBox(height: gap),
+                            SizedBox(height: gap),
                             RepaintBoundary(
                               key: const Key('thai_consumer_signature_insight'),
                               child: ThaiMirrorSignatureInsightSection(
@@ -141,7 +189,7 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
                               ),
                             ),
                           ],
-                          const SizedBox(height: gap),
+                          SizedBox(height: gap),
                           RepaintBoundary(
                             key: const Key('thai_consumer_life_dashboard'),
                             child: ThaiMirrorLifeDashboardSection(
@@ -149,21 +197,21 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
                               secretTip: consumerState.secretTip,
                             ),
                           ),
-                          const SizedBox(height: gap),
+                          SizedBox(height: gap),
                           RepaintBoundary(
                             key: const Key('thai_consumer_strengths'),
                             child: ThaiMirrorInsightCardsSection(
                               state: consumerState.strengths,
                             ),
                           ),
-                          const SizedBox(height: gap),
+                          SizedBox(height: gap),
                           RepaintBoundary(
                             key: const Key('thai_consumer_cautions'),
                             child: ThaiMirrorInsightCardsSection(
                               state: consumerState.cautions,
                             ),
                           ),
-                          const SizedBox(height: gap),
+                          SizedBox(height: gap),
                           RepaintBoundary(
                             key: const Key('thai_consumer_advice'),
                             child: ThaiMirrorAdviceSection(
@@ -171,7 +219,7 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
                             ),
                           ),
                           if (consumerState.narrativeSections.isNotEmpty) ...[
-                            const SizedBox(height: gap + 8),
+                            SizedBox(height: gap + 8),
                             RepaintBoundary(
                               key: const Key('thai_consumer_narrative'),
                               child: ThaiMirrorNarrativeReportSection(
@@ -181,7 +229,7 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
                           ],
                           if (consumerState
                               .reflectionSummary.points.isNotEmpty) ...[
-                            const SizedBox(height: gap + 8),
+                            SizedBox(height: gap + 8),
                             RepaintBoundary(
                               key: const Key('thai_consumer_reflection_summary'),
                               child: ThaiMirrorReflectionSummarySection(
@@ -190,7 +238,7 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
                             ),
                           ],
                           if (!consumerState.closingMessage.isEmpty) ...[
-                            const SizedBox(height: gap),
+                            SizedBox(height: gap),
                             RepaintBoundary(
                               key: const Key('thai_consumer_closing'),
                               child: ThaiMirrorClosingMessageSection(
@@ -198,7 +246,7 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
                               ),
                             ),
                           ],
-                          const SizedBox(height: gap),
+                          SizedBox(height: gap),
                           RepaintBoundary(
                             key: const Key('thai_consumer_source'),
                             child: ThaiMirrorSourceTransparencySection(
@@ -230,16 +278,6 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
                               ),
                             ),
                           ],
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ),
-    );
+    ];
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'package:knowme/core/web/screenshot_friendly_scroll.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/integration.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/presentation/thai_beta_evidence_badge_panel.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/presentation/thai_public_evidence_badge_beta_gate.dart';
@@ -113,7 +114,14 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
   @override
   void initState() {
     super.initState();
+    enableScreenshotFriendlyScroll();
     _loadBadgesIfNeeded();
+  }
+
+  @override
+  void dispose() {
+    disableScreenshotFriendlyScroll();
+    super.dispose();
   }
 
   @override
@@ -207,24 +215,26 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
     return Scaffold(
       body: SafeArea(
         bottom: false,
-        child: Column(
-          children: [
-            const ThaiBetaProgressBar(current: ThaiBetaStep.read),
-            if (_showBadgePanel)
-              ConstrainedBox(
-                constraints: const BoxConstraints(maxHeight: 240),
-                child: SingleChildScrollView(
-                  child: ThaiBetaEvidenceBadgePanel(badges: _badges),
-                ),
-              )
-            else if (_loadingBadges)
-              const LinearProgressIndicator(minHeight: 2),
-            Expanded(
-              child: ThaiMirrorResultPage(
+        child: SingleChildScrollView(
+          key: const Key('thai_beta_report_page_scroll'),
+          primary: true,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              const ThaiBetaProgressBar(current: ThaiBetaStep.read),
+              if (_showBadgePanel)
+                ThaiBetaEvidenceBadgePanel(badges: _badges)
+              else if (_loadingBadges)
+                const LinearProgressIndicator(minHeight: 2),
+              ThaiMirrorResultPage(
+                embeddedInParentScroll: true,
                 consumerState: analysis.consumerViewState!,
               ),
-            ),
-          ],
+              SizedBox(
+                height: 88 + MediaQuery.paddingOf(context).bottom,
+              ),
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: SafeArea(

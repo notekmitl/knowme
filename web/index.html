@@ -17,8 +17,67 @@
 
   <title>KnowMe</title>
   <link rel="manifest" href="manifest.json">
+  <style>
+    /*
+      Applied only when Thai Beta Report enables screenshot-friendly mode.
+      Lets GoFullPage scroll the document instead of a nested Flutter viewport.
+    */
+    html.screenshot-friendly,
+    html.screenshot-friendly body {
+      height: auto !important;
+      min-height: 100%;
+      overflow: visible !important;
+    }
+    html.screenshot-friendly flt-glass-pane,
+    html.screenshot-friendly flutter-view {
+      height: auto !important;
+      min-height: 100vh;
+    }
+  </style>
 </head>
 <body>
+  <!--
+    Production-first QA: the Flutter service worker is intentionally DISABLED.
+
+    The SW (deprecated in this Flutter version) is the reason a freshly deployed
+    build required Ctrl+Shift+R / incognito to appear. With no SW registered,
+    index.html + main.dart.js are always fetched fresh (both are served
+    `no-cache` by firebase.json), so the latest production build activates
+    automatically on the next normal page load.
+
+    The inline script below also removes any previously-installed worker and its
+    caches for returning users, so existing devices self-heal once.
+  -->
+  <script>
+    (function () {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations()
+          .then(function (registrations) {
+            registrations.forEach(function (registration) {
+              registration.unregister();
+            });
+          })
+          .catch(function () {});
+      }
+      if (window.caches && caches.keys) {
+        caches.keys()
+          .then(function (keys) {
+            keys.forEach(function (key) { caches.delete(key); });
+          })
+          .catch(function () {});
+      }
+    })();
+  </script>
+
+  <!--
+    Standard Flutter bootstrap: flutter_bootstrap.js carries the correct
+    `_flutter.buildConfig` + entrypoint, so the engine always boots. The inline
+    script above unregisters any service worker and clears its caches on every
+    load, so a returning user self-heals to the freshly deployed build, and new
+    users never keep a persistent worker. Combined with the `no-cache` headers
+    in firebase.json, the latest build activates on a normal load — no
+    Ctrl+Shift+R / incognito needed.
+  -->
   <script src="flutter_bootstrap.js" async></script>
 </body>
 </html>
