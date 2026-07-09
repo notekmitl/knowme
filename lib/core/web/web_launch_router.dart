@@ -7,12 +7,15 @@ import 'package:knowme/features/knowledge_workspace/acquisition/knowledge_acquis
 import 'package:knowme/features/knowledge_workspace/knowledge_workspace_routes.dart';
 import 'package:knowme/features/knowledge_workspace/presentation/knowledge_workspace_page.dart';
 import 'package:knowme/features/thai_beta/presentation/admin/thai_research_admin_guard.dart';
-import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_capture_page.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_landing_page.dart';
 import 'package:knowme/features/thai_beta/presentation/thai_beta_routes.dart';
+import 'package:knowme/features/thai_beta/presentation/thai_beta_screenshot_entry.dart';
+import 'package:knowme/features/thai_beta/presentation/thai_beta_screenshot_routes.dart';
 import 'package:knowme/presentation/pages/auth/auth_gate.dart';
 
+import 'web_intended_route.dart';
 import 'web_launch_route.dart';
+import 'web_launch_route_uri.dart';
 
 /// Picks the app entry widget from the browser URL on web (public consumer
 /// preview deep links) or falls back to [AuthGate] for the normal signed-in flow.
@@ -24,18 +27,23 @@ class WebLaunchRouter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return resolveLaunchWidget(launchRouteName) ?? const AuthGate();
+    return resolveLaunchWidget(effectiveLaunchRoute(launchRouteName)) ??
+        const AuthGate();
+  }
+
+  static String? effectiveLaunchRoute(String? launchRouteName) {
+    return launchRouteName ?? WebIntendedRoute.stored ?? webLaunchRouteName();
   }
 
   /// Resolves the entry widget for a captured browser launch route (testable).
   @visibleForTesting
   static Widget? resolveLaunchWidget(String? launchRouteName) {
-    final routeName = launchRouteName ?? webLaunchRouteName();
+    final routeName = launchRouteName;
     if (routeName == null) return null;
 
-    final uri = _routeUri(routeName);
-    if (ThaiBetaRoutes.isCapturePath(uri.path)) {
-      return const ThaiBetaCapturePage();
+    final uri = routeUriFromName(routeName);
+    if (ThaiBetaScreenshotRoutes.isDeepLink(uri)) {
+      return ThaiBetaScreenshotEntry(routeName: routeName);
     }
     if (ThaiBetaRoutes.isBetaPath(uri.path)) {
       return const ThaiBetaLandingPage();
@@ -65,10 +73,5 @@ class WebLaunchRouter extends StatelessWidget {
       );
     }
     return null;
-  }
-
-  static Uri _routeUri(String name) {
-    final normalized = name.startsWith('/') ? name : '/$name';
-    return Uri.parse('https://local$normalized');
   }
 }

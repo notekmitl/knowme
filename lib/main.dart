@@ -29,6 +29,7 @@ import 'package:knowme/features/astrology/thai/knowledge/canon/integration/prese
 
 import 'package:knowme/core/web/web_launch_route.dart';
 import 'package:knowme/core/web/web_launch_router.dart';
+import 'package:knowme/core/web/web_intended_route.dart';
 import 'presentation/pages/auth/auth_gate.dart';
 
 import 'presentation/providers/auth_provider.dart';
@@ -48,7 +49,9 @@ void main() async {
 
   // Capture the browser launch route before Flutter routing can rewrite the URL.
   final launchRouteName = webLaunchRouteName();
-  ThaiBetaScreenshotMode.configureFromLaunchRoute(launchRouteName);
+  WebIntendedRoute.configure(launchRouteName);
+  final effectiveLaunchRoute = WebLaunchRouter.effectiveLaunchRoute(launchRouteName);
+  ThaiBetaScreenshotMode.configureFromLaunchRoute(effectiveLaunchRoute);
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 

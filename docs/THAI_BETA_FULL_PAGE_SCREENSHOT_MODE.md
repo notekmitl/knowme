@@ -94,6 +94,47 @@ Does **not** change normal user report output.
 
 ---
 
+## Auth-aware capture flow
+
+Screenshot/capture deep links require authentication in production. The app preserves the full browser URL (path **and** query string) through login.
+
+### Flow
+
+1. Unauthenticated user opens:
+   - `/beta/thai/capture`
+   - `/beta/thai?screenshot=1`
+   - `/beta/thai?capture=1`
+2. `WebIntendedRoute` stores the full route string (query preserved).
+3. `ThaiBetaScreenshotEntry` shows `LoginPage`.
+4. After successful login, the same URL intent is restored:
+   - capture path → `ThaiBetaCapturePage` + banner **Thai Beta Capture Mode Active**
+   - screenshot query → Thai Beta landing with `screenshotMode = true`
+5. `ThaiBetaScreenshotMode.configureFromLaunchRoute()` is **re-applied** after auth so the session flag does not reset during `AuthGate` → login navigation.
+
+Authenticated users opening the same URLs skip login and enter capture/screenshot mode immediately.
+
+### Production verification (after login)
+
+1. Open (no session): `https://knowme-app-694e1.web.app/beta/thai/capture`
+2. Confirm login screen appears.
+3. Log in with test/admin account.
+4. Confirm capture report + **Thai Beta Capture Mode Active** (not Home/Today).
+5. In browser console:
+
+```javascript
+window.innerHeight
+document.documentElement.scrollHeight
+document.body.scrollHeight
+```
+
+**Pass:** `document.documentElement.scrollHeight > window.innerHeight` (target > 2× for long reports).
+
+Repeat for `https://knowme-app-694e1.web.app/beta/thai?screenshot=1` — screenshot diagnostics visible, no progress stepper, no fixed bottom bar on report.
+
+GoFullPage: manual extension test only after the above passes — do not mark verified without a real capture attempt.
+
+---
+
 ## Actual URL verification
 
 **Status: NOT YET VERIFIED in production browser** (code fix applied; deploy + manual check required).

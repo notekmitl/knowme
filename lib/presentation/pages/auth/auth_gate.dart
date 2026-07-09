@@ -3,14 +3,19 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 import 'login_page.dart';
 import '../profile/profile_gate.dart';
+import 'package:knowme/core/web/web_intended_route.dart';
+import 'package:knowme/features/thai_beta/presentation/thai_beta_screenshot_entry.dart';
 
 class AuthGate extends StatelessWidget {
-  const AuthGate({super.key});
+  const AuthGate({super.key, this.authStateStream});
+
+  /// Injectable for tests.
+  final Stream<User?>? authStateStream;
 
   @override
   Widget build(BuildContext context) {
     return StreamBuilder<User?>(
-      stream: FirebaseAuth.instance.authStateChanges(),
+      stream: authStateStream ?? FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
         // loading
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -21,6 +26,13 @@ class AuthGate extends StatelessWidget {
 
         // login แล้ว
         if (snapshot.hasData) {
+          final intended = WebIntendedRoute.peekThaiBetaScreenshot();
+          if (intended != null) {
+            return ThaiBetaScreenshotEntry(
+              routeName: intended,
+              authenticatedOverride: true,
+            );
+          }
           return const ProfileGate();
         }
 
