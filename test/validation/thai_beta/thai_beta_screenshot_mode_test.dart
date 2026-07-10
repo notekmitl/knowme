@@ -65,7 +65,7 @@ void main() {
       await tester.pumpAndSettle();
     }
 
-    testWidgets('screenshot mode uses non-scrollable expand layout', (
+    testWidgets('screenshot mode uses non-scrollable parent layout', (
       tester,
     ) async {
       await pumpReport(tester, screenshotMode: true);
@@ -96,6 +96,16 @@ void main() {
       await pumpReport(tester, screenshotMode: true);
       expect(find.byKey(const Key('thai_beta_screenshot_diagnostics')), findsOneWidget);
       expect(find.textContaining('screenshotMode: true'), findsOneWidget);
+      expect(find.textContaining('appliedHostHeight:'), findsOneWidget);
+      expect(find.textContaining('contentMeasuredHeight:'), findsOneWidget);
+    });
+
+    testWidgets('screenshot mode capture wrapper has no parent scroll key', (
+      tester,
+    ) async {
+      await pumpReport(tester, screenshotMode: true);
+      expect(find.byKey(const Key('thai_beta_report_page_scroll')), findsNothing);
+      expect(find.byKey(const Key('thai_beta_report_screenshot_layout')), findsOneWidget);
     });
 
     testWidgets('normal mode hides diagnostics panel', (tester) async {

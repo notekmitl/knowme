@@ -65,14 +65,17 @@ document.documentElement.scrollHeight
 document.body.scrollHeight
 ```
 
-**Pass:** `document.documentElement.scrollHeight` is clearly greater than `window.innerHeight` (target: > 2× for long reports).
+**Pass:** `document.documentElement.scrollHeight > window.innerHeight` and `document.documentElement.scrollHeight` is within ~200px of `body.scrollHeight` and `appliedHostHeight` from diagnostics (not `documentElement === innerHeight` while `body` is inflated).
 
 Also check:
 
 ```javascript
-getComputedStyle(document.querySelector('flt-glass-pane')).minHeight
-document.documentElement.style.getPropertyValue('--thai-beta-report-content-height')
+getComputedStyle(document.documentElement).minHeight
+getComputedStyle(document.body).minHeight
+document.documentElement.style.getPropertyValue('--thai-beta-report-host-height')
 ```
+
+**Fail example (pre document-height fix):** `innerHeight = 915`, `documentElement.scrollHeight = 915`, `body.scrollHeight = 14234` — document scroll stuck at viewport while body inflated.
 
 ---
 

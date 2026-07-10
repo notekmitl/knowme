@@ -22,19 +22,25 @@
       Applied only when Thai Beta Report screenshot mode is active.
       Lets GoFullPage scroll the document instead of a nested Flutter viewport.
     */
-    html.screenshot-friendly,
-    html.screenshot-friendly body {
+    html.screenshot-friendly {
       height: auto !important;
-      min-height: 0 !important;
+      min-height: var(--thai-beta-report-host-height, 100vh) !important;
+      max-height: none !important;
       overflow-y: auto !important;
       overflow-x: hidden !important;
+    }
+    html.screenshot-friendly body {
+      height: auto !important;
+      min-height: var(--thai-beta-report-host-height, 100vh) !important;
+      max-height: none !important;
+      overflow: visible !important;
     }
     html.screenshot-friendly flt-glass-pane,
     html.screenshot-friendly flutter-view,
     html.screenshot-friendly flt-scene-host,
     html.screenshot-friendly #flutter_target {
       height: auto !important;
-      min-height: var(--thai-beta-report-content-height, 100vh) !important;
+      min-height: var(--thai-beta-report-host-height, 100vh) !important;
       max-height: none !important;
       overflow: visible !important;
       overflow-y: visible !important;
@@ -77,32 +83,49 @@
   </script>
 
   <script>
+  window.__clearScreenshotHeightStyles = function (el) {
+    if (!el) return;
+    el.style.removeProperty('height');
+    el.style.removeProperty('min-height');
+    el.style.removeProperty('max-height');
+    el.style.removeProperty('overflow');
+    el.style.removeProperty('overflow-y');
+    el.style.removeProperty('overflow-x');
+    el.style.removeProperty('contain');
+  };
+
   window.__resetThaiBetaScreenshotHost = function () {
-    document.documentElement.style.removeProperty('--thai-beta-report-content-height');
-    var selectors = ['flt-glass-pane', 'flutter-view', 'flt-scene-host', '#flutter_target'];
-    selectors.forEach(function (selector) {
-      document.querySelectorAll(selector).forEach(function (el) {
-        el.style.removeProperty('height');
-        el.style.removeProperty('min-height');
-        el.style.removeProperty('overflow');
-        el.style.removeProperty('overflow-y');
-        el.style.removeProperty('contain');
-      });
+    var root = document.documentElement;
+    root.style.removeProperty('--thai-beta-report-host-height');
+    root.style.removeProperty('--thai-beta-report-content-height');
+    window.__clearScreenshotHeightStyles(root);
+    window.__clearScreenshotHeightStyles(document.body);
+    ['flt-glass-pane', 'flutter-view', 'flt-scene-host', '#flutter_target'].forEach(function (selector) {
+      document.querySelectorAll(selector).forEach(window.__clearScreenshotHeightStyles);
     });
   };
 
   window.__syncThaiBetaScreenshotHost = function (heightPx) {
-    var contentHeight = Math.max(heightPx || 0, 0);
-    var viewportHeight = window.innerHeight || 0;
-    // Floor at viewport for short pages; never read body.scrollHeight here.
-    var hostHeight = Math.max(contentHeight, viewportHeight);
+    var hostHeight = Math.max(heightPx || 0, 0);
     var heightValue = hostHeight + 'px';
-    document.documentElement.style.setProperty(
-      '--thai-beta-report-content-height',
-      heightValue
-    );
-    var selectors = ['flt-glass-pane', 'flutter-view', 'flt-scene-host', '#flutter_target'];
-    selectors.forEach(function (selector) {
+    var root = document.documentElement;
+    root.style.setProperty('--thai-beta-report-host-height', heightValue);
+    root.style.setProperty('--thai-beta-report-content-height', heightValue);
+
+    [root, document.body].forEach(function (el) {
+      if (!el) return;
+      el.style.setProperty('height', 'auto', 'important');
+      el.style.setProperty('min-height', heightValue, 'important');
+      el.style.setProperty('max-height', 'none', 'important');
+      if (el === document.body) {
+        el.style.setProperty('overflow', 'visible', 'important');
+      } else {
+        el.style.setProperty('overflow-y', 'auto', 'important');
+        el.style.setProperty('overflow-x', 'hidden', 'important');
+      }
+    });
+
+    ['flt-glass-pane', 'flutter-view', 'flt-scene-host', '#flutter_target'].forEach(function (selector) {
       document.querySelectorAll(selector).forEach(function (el) {
         el.style.setProperty('height', 'auto', 'important');
         el.style.setProperty('min-height', heightValue, 'important');

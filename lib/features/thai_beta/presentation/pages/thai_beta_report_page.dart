@@ -183,33 +183,44 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
   void _scheduleHostHeightSync() {
     if (!widget.screenshotMode || !kIsWeb) return;
     final generation = ++_hostSyncGeneration;
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
       if (!mounted || generation != _hostSyncGeneration) return;
-      _syncHostHeightFromContent();
-      Future<void>.delayed(const Duration(milliseconds: 600), () {
-        if (!mounted || generation != _hostSyncGeneration) return;
-        _syncHostHeightFromContent();
-      });
+      resetScreenshotHostHeight();
+      await Future<void>.delayed(Duration.zero);
+      if (!mounted || generation != _hostSyncGeneration) return;
+      _measureAndApplyHostHeight();
+      await Future<void>.delayed(const Duration(milliseconds: 400));
+      if (!mounted || generation != _hostSyncGeneration) return;
+      _measureAndApplyHostHeight(refreshDiagnostics: true);
     });
   }
 
-  void _syncHostHeightFromContent() {
+  void _measureAndApplyHostHeight({bool refreshDiagnostics = false}) {
     if (!kIsWeb) return;
-
-    resetScreenshotHostHeight();
 
     final box =
         _captureContentMeasureKey.currentContext?.findRenderObject() as RenderBox?;
     if (box == null || !box.hasSize) return;
 
-    final topPadding = MediaQuery.paddingOf(context).top;
     final contentHeight = box.size.height;
-    final hostHeight = contentHeight + topPadding + _hostSyncPaddingPx;
+    final topPadding = MediaQuery.paddingOf(context).top;
+    final appliedHostHeight = computeScreenshotHostHeight(
+      contentHeightPx: contentHeight,
+      topPaddingPx: topPadding,
+      hostPaddingPx: _hostSyncPaddingPx,
+      windowInnerHeightPx: MediaQuery.sizeOf(context).height,
+    );
 
-    if ((hostHeight - _lastSyncedHostHeight).abs() < 4) return;
-    _lastSyncedHostHeight = hostHeight;
+    if ((appliedHostHeight - _lastSyncedHostHeight).abs() < 4 &&
+        !refreshDiagnostics) {
+      return;
+    }
+    _lastSyncedHostHeight = appliedHostHeight;
+    enableScreenshotFriendlyScroll(contentHeightPx: appliedHostHeight);
 
-    enableScreenshotFriendlyScroll(contentHeightPx: hostHeight);
+    if (refreshDiagnostics && mounted) {
+      setState(() {});
+    }
   }
 
   Future<void> _loadBadgesIfNeeded() async {
@@ -366,7 +377,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
       'route: ${uri.path}',
       'query: ${uri.hasQuery ? uri.query : '(none)'}',
       'contentMeasuredHeight: ${contentHeight.toStringAsFixed(0)}',
-      'hostSyncTarget: ${_lastSyncedHostHeight.toStringAsFixed(0)}',
+      'appliedHostHeight: ${(_lastSyncedHostHeight > 0 ? _lastSyncedHostHeight : readAppliedHostHeightPx()).toStringAsFixed(0)}',
     ];
     if (diagnostics != null) {
       lines.addAll([
