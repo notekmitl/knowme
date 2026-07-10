@@ -435,24 +435,26 @@ abstract final class ThaiMirrorConsumerCopy {
     return cleaned;
   }
 
-  static ({String currentState, String whyItAppears, String suggestedAction})
-      lifeAspectDashboardParts({
+  /// Dashboard aspect lines for UI + PDF export.
+  ///
+  /// Returns full phrases (no mid-word ellipsis). Card/insight UI may still
+  /// truncate via [truncateInsightBody]; export must keep full labels.
+  static ({
+    String currentState,
+    String whyItAppears,
+    String suggestedAction,
+    String themeId,
+  }) lifeAspectDashboardParts({
     required String aspect,
     required List<String> priorityThemeIds,
     required List<String> allThemeIds,
     required int profileSeed,
     Set<String> usedCurrentStates = const {},
+    Set<String> usedThemeIds = const {},
+    Set<String> usedActions = const {},
     String? lagnaKey,
     List<String> growthPathIds = const [],
   }) {
-    final ctx = ThaiMirrorContentContext(
-      allThemeIds: allThemeIds,
-      topThemeIds: priorityThemeIds.isNotEmpty ? priorityThemeIds : allThemeIds,
-      profileSeed: profileSeed,
-      lagnaKey: lagnaKey,
-      growthPathIds: growthPathIds,
-    );
-
     final candidates = <String>[];
     final seen = <String>{};
 
@@ -477,19 +479,30 @@ abstract final class ThaiMirrorConsumerCopy {
       _ => 0,
     };
 
-    final themeId = candidates.isEmpty
-        ? 'independent'
-        : candidates[(profileSeed.abs() + aspectOffset) % candidates.length];
+    String themeId;
+    if (candidates.isEmpty) {
+      themeId = 'independent';
+    } else {
+      final start = (profileSeed.abs() + aspectOffset) % candidates.length;
+      themeId = candidates[start];
+      if (usedThemeIds.isNotEmpty) {
+        for (var k = 0; k < candidates.length; k++) {
+          final cand = candidates[(start + k) % candidates.length];
+          if (!usedThemeIds.contains(cand)) {
+            themeId = cand;
+            break;
+          }
+        }
+      }
+    }
     final phrase = ThaiMirrorThemePhrases.phrase(themeId);
     final hints = ThaiMirrorThemeVariants.aspectHintVariants(themeId, aspect);
     final advice = ThaiMirrorThemeVariants.adviceVariants(themeId);
 
     final hintIndex = (profileSeed.abs() + aspectOffset * 3) %
         (hints.isEmpty ? 1 : hints.length);
-    final adviceIndex = (profileSeed.abs() + aspectOffset * 5) %
-        (advice.isEmpty ? 1 : advice.length);
 
-  var currentState = hints.isNotEmpty
+    var currentState = hints.isNotEmpty
         ? hints[hintIndex]
         : 'ด้าน${_aspectLabelTh(aspect)} — ${phrase.tag}';
     if (usedCurrentStates.contains(currentState) && hints.length > 1) {
@@ -497,30 +510,40 @@ abstract final class ThaiMirrorConsumerCopy {
     }
 
     final whyItAppears =
-        'ดวงสะท้อน${phrase.tag} — ${truncateInsightBody(phrase.heroDetail, maxChars: 80)}';
-
-    var suggestedAction = advice.isNotEmpty
-        ? advice[adviceIndex]
-        : (growthPathIds.isNotEmpty
-            ? ThaiMirrorThemePhrases.phrase(
-                growthPathIds[
-                    (profileSeed.abs() + aspectOffset) % growthPathIds.length],
-              ).heroDetail
-            : 'ลองปรับทีละขั้นในด้าน${_aspectLabelTh(aspect)}');
+        'ดวงสะท้อน${phrase.tag} — ${phrase.heroDetail}';
 
     final lagna = ThaiMirrorLagnaInfluence.dashboardVariant(
       lagnaKey,
       aspect,
       profileSeed + aspectOffset,
     );
-    if (lagna.isNotEmpty && profileSeed.isEven) {
-      suggestedAction = lagna;
+    final actionPool = <String>[
+      if (lagna.isNotEmpty && profileSeed.isEven) lagna,
+      ...advice,
+      for (final id in growthPathIds)
+        ThaiMirrorThemePhrases.phrase(id).heroDetail,
+      'ลองปรับทีละขั้นในด้าน${_aspectLabelTh(aspect)}',
+    ].where((s) => s.trim().isNotEmpty).toList();
+
+    final actionStart = actionPool.isEmpty
+        ? 0
+        : (profileSeed.abs() + aspectOffset * 5) % actionPool.length;
+    var suggestedAction = actionPool.isEmpty
+        ? 'ลองปรับทีละขั้นในด้าน${_aspectLabelTh(aspect)}'
+        : actionPool[actionStart];
+    for (var k = 0; k < actionPool.length; k++) {
+      final cand = actionPool[(actionStart + k) % actionPool.length];
+      if (!usedActions.contains(cand)) {
+        suggestedAction = cand;
+        break;
+      }
     }
 
     return (
-      currentState: truncateInsightBody(currentState, maxChars: 70),
-      whyItAppears: truncateInsightBody(whyItAppears, maxChars: 90),
-      suggestedAction: truncateInsightBody(suggestedAction, maxChars: 70),
+      currentState: currentState,
+      whyItAppears: whyItAppears,
+      suggestedAction: suggestedAction,
+      themeId: themeId,
     );
   }
 

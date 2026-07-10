@@ -130,4 +130,37 @@ print fallback chrome, public fingerprint suite.
 
 ---
 
-**Report content / engine / Canon / badge policy unchanged — export packaging only.**
+## PDF polish
+
+Export formatting is cleaned in `ThaiBetaReportExportPolish` + PDF layout:
+
+| Issue | Fix |
+|-------|-----|
+| `ช่วงก่อนหน้า: ช่วงก่อนหน้า: …` | Neighbour labels already include prefix — do not double-prefix |
+| `เหลืออีกประมาณ 0 ปี / 0 เดือน` | Rewrite to “กำลังอยู่ช่วงปลายของจังหวะนี้”; omit zero remaining |
+| UI ellipsis truncations (`…`) | Prefer `expandedBody`; drop mid-word truncated UI fragments |
+| `ดี(ผ่าน…)` spacing | Normalize spaces around `()` and `•` |
+| Duplicate headings | Dedupe title echoed as first paragraph / consecutive lines |
+| Dense layout | Larger section gaps, timeline cards, disclaimer box, page numbers |
+
+### Known fixed copy issues
+
+- Duplicate neighbour prefix
+- Zero-year / zero-month remaining copy
+- Truncated dashboard / card ellipsis fragments in export
+- Missing space before parentheses
+
+### What PDF is for
+
+PDF is the **primary** way for beta testers to save/share the full Thai report.
+It packages **existing consumer report text** only — not a new prediction engine.
+
+### Why GoFullPage is no longer the primary path
+
+Flutter Web host/canvas scrolling does not reliably produce a clean full-page
+browser capture. Capture mode remains for debugging; **ดาวน์โหลดรายงานเต็ม** is
+the supported export path.
+
+---
+
+**Report content / engine / Canon / badge policy unchanged — export packaging + presentation polish only.**

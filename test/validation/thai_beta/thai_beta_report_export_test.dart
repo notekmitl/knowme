@@ -4,6 +4,7 @@ import 'package:knowme/features/astrology/thai/mirror/presentation/ui/pages/thai
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
+import 'package:knowme/features/thai_beta/application/thai_beta_report_export_polish.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_safety.dart';
 import 'package:knowme/features/thai_beta/application/thai_evidence_badge_feature_flag.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
@@ -97,6 +98,75 @@ void main() {
       // at minimum hero + birth confidence must be present.
       expect(doc.fullPlainText, contains(view.hero.headline));
       expect(doc.fullPlainText, contains(view.birthDataConfidence.title));
+    });
+
+    test('PDF polish removes duplicate neighbour prefixes and zero timing', () {
+      final doc = ThaiBetaReportExportDocument.fromAnalysis(analysis);
+      final text = doc.fullPlainText;
+      expect(text.contains('ช่วงก่อนหน้า: ช่วงก่อนหน้า'), isFalse);
+      expect(text.contains('ช่วงถัดไป: ช่วงถัดไป'), isFalse);
+      expect(RegExp(r'เหลืออีกประมาณ\s*0\s*ปี').hasMatch(text), isFalse);
+      expect(RegExp(r'อีกประมาณ\s*0\s*ปี').hasMatch(text), isFalse);
+      expect(RegExp(r'ในราว\s*0\s*ปี').hasMatch(text), isFalse);
+      expect(RegExp(r'เหลืออีกประมาณ\s*0\s*เดือน').hasMatch(text), isFalse);
+      expect(text.contains('ผ่านรู้สึก…'), isFalse);
+      expect(text.contains('ผ่านคิดละเอ…'), isFalse);
+      expect(text.contains('ดี(ผ่าน'), isFalse);
+    });
+
+    test('export prefers full insight bodies over UI ellipsis truncations', () {
+      final doc = ThaiBetaReportExportDocument.fromAnalysis(analysis);
+      final text = doc.fullPlainText;
+      // No mid-card truncated ellipsis leftovers from UI maxChars cuts.
+      expect(RegExp(r'[ก-๙A-Za-z]…').hasMatch(text), isFalse);
+    });
+  });
+
+  group('ThaiBetaReportExportPolish', () {
+    test('neighbourLabel does not double prefix', () {
+      expect(
+        ThaiBetaReportExportPolish.neighbourLabel(
+          'ช่วงก่อนหน้า: ช่วงวางรากฐาน (1–10)',
+          prefix: 'ช่วงก่อนหน้า: ',
+        ),
+        'ช่วงก่อนหน้า: ช่วงวางรากฐาน (1–10)',
+      );
+      expect(
+        ThaiBetaReportExportPolish.neighbourLabel(
+          'ช่วงวางรากฐาน (1–10)',
+          prefix: 'ช่วงก่อนหน้า: ',
+        ),
+        'ช่วงก่อนหน้า: ช่วงวางรากฐาน (1–10)',
+      );
+    });
+
+    test('polishTimingCopy rewrites zero remaining years', () {
+      final polished = ThaiBetaReportExportPolish.polishTimingCopy(
+        'ตอนนี้คุณอายุ 54 ปี กำลังอยู่ในช่วงเก็บเกี่ยว '
+        'และจะอยู่ในจังหวะนี้ไปอีกประมาณ 0 ปี',
+      );
+      expect(polished.contains('0 ปี'), isFalse);
+      expect(polished.contains('กำลังอยู่ช่วงปลายของจังหวะนี้'), isTrue);
+    });
+
+    test('normalizeSpacing adds space before parentheses', () {
+      expect(
+        ThaiBetaReportExportPolish.normalizeSpacing('ดี(ผ่านช่วงนี้)'),
+        'ดี (ผ่านช่วงนี้)',
+      );
+    });
+
+    test('dedupeParagraphs drops title echo and truncated UI lines', () {
+      final lines = ThaiBetaReportExportPolish.dedupeParagraphs(
+        'การเติบโต',
+        [
+          'การเติบโต',
+          'เนื้อหาเต็ม',
+          'เนื้อหาเต็ม',
+          'ผ่านรู้สึก…',
+        ],
+      );
+      expect(lines, ['เนื้อหาเต็ม']);
     });
   });
 

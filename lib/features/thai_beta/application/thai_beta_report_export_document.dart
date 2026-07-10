@@ -7,16 +7,25 @@ import 'package:knowme/features/astrology/thai/mirror/presentation/prediction/pr
 import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/thai_mirror_life_timeline_state.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 
+import 'thai_beta_report_export_polish.dart';
 import 'thai_beta_report_export_safety.dart';
 
 class ThaiBetaReportExportSection {
   const ThaiBetaReportExportSection({
     required this.title,
     required this.paragraphs,
+    this.kind = ThaiBetaReportExportSectionKind.body,
   });
 
   final String title;
   final List<String> paragraphs;
+  final ThaiBetaReportExportSectionKind kind;
+}
+
+enum ThaiBetaReportExportSectionKind {
+  body,
+  timeline,
+  disclaimer,
 }
 
 /// Structured export payload — no engine/Canon/raw ids.
@@ -64,9 +73,9 @@ class ThaiBetaReportExportDocument {
     final sections = <ThaiBetaReportExportSection>[];
 
     sections.add(
-      ThaiBetaReportExportSection(
-        title: view.hero.identityBadge,
-        paragraphs: [
+      _section(
+        view.hero.identityBadge,
+        [
           view.hero.headline,
           view.hero.summary,
           if (view.hero.tags.isNotEmpty) view.hero.tags.join(' · '),
@@ -76,17 +85,14 @@ class ThaiBetaReportExportDocument {
     );
 
     sections.add(
-      ThaiBetaReportExportSection(
-        title: view.birthDataConfidence.title,
-        paragraphs: [view.birthDataConfidence.body],
-      ),
+      _section(view.birthDataConfidence.title, [view.birthDataConfidence.body]),
     );
 
     if (!view.signatureInsight.isEmpty) {
       sections.add(
-        ThaiBetaReportExportSection(
-          title: view.signatureInsight.eyebrow,
-          paragraphs: [
+        _section(
+          view.signatureInsight.eyebrow,
+          [
             _stripMarkdown(view.signatureInsight.body),
             view.signatureInsight.signature,
           ],
@@ -96,15 +102,10 @@ class ThaiBetaReportExportDocument {
 
     if (view.strengths.cards.isNotEmpty) {
       sections.add(
-        ThaiBetaReportExportSection(
-          title: view.strengths.title,
-          paragraphs: [
-            for (final card in view.strengths.cards) ...[
-              card.title,
-              _stripMarkdown(card.body),
-              if (card.expandedBody != null)
-                _stripMarkdown(card.expandedBody!),
-            ],
+        _section(
+          view.strengths.title,
+          [
+            for (final card in view.strengths.cards) ..._insightCardLines(card),
           ],
         ),
       );
@@ -112,32 +113,24 @@ class ThaiBetaReportExportDocument {
 
     if (view.cautions.cards.isNotEmpty) {
       sections.add(
-        ThaiBetaReportExportSection(
-          title: view.cautions.title,
-          paragraphs: [
-            for (final card in view.cautions.cards) ...[
-              card.title,
-              _stripMarkdown(card.body),
-              if (card.expandedBody != null)
-                _stripMarkdown(card.expandedBody!),
-            ],
+        _section(
+          view.cautions.title,
+          [
+            for (final card in view.cautions.cards) ..._insightCardLines(card),
           ],
         ),
       );
     }
 
     sections.add(
-      ThaiBetaReportExportSection(
-        title: view.advice.title,
-        paragraphs: [_stripMarkdown(view.advice.body)],
-      ),
+      _section(view.advice.title, [_stripMarkdown(view.advice.body)]),
     );
 
     if (view.lifeDashboard.isNotEmpty) {
       sections.add(
-        ThaiBetaReportExportSection(
-          title: 'ภาพรวมด้านชีวิต',
-          paragraphs: [
+        _section(
+          'ภาพรวมด้านชีวิต',
+          [
             for (final item in view.lifeDashboard) ...[
               '${item.label} — ${item.status.labelTh}',
               item.currentState,
@@ -161,9 +154,9 @@ class ThaiBetaReportExportDocument {
 
     for (final narrative in view.narrativeSections) {
       sections.add(
-        ThaiBetaReportExportSection(
-          title: narrative.label,
-          paragraphs: [
+        _section(
+          narrative.label,
+          [
             if (narrative.hasTransition) narrative.transitionIn,
             if (narrative.pullQuote.isNotEmpty)
               _stripMarkdown(narrative.pullQuote),
@@ -177,17 +170,16 @@ class ThaiBetaReportExportDocument {
             ],
             _stripMarkdown(narrative.advice),
             _stripMarkdown(narrative.example),
-            if (narrative.hasReflectionQuestion)
-              narrative.reflectionQuestion,
+            if (narrative.hasReflectionQuestion) narrative.reflectionQuestion,
           ],
         ),
       );
     }
 
     sections.add(
-      ThaiBetaReportExportSection(
-        title: view.reflectionSummary.title,
-        paragraphs: [
+      _section(
+        view.reflectionSummary.title,
+        [
           view.reflectionSummary.intro,
           ...view.reflectionSummary.points,
         ],
@@ -196,9 +188,9 @@ class ThaiBetaReportExportDocument {
 
     if (!view.closingMessage.isEmpty) {
       sections.add(
-        ThaiBetaReportExportSection(
-          title: view.closingMessage.eyebrow,
-          paragraphs: [
+        _section(
+          view.closingMessage.eyebrow,
+          [
             _stripMarkdown(view.closingMessage.message),
             view.closingMessage.signature,
           ],
@@ -207,9 +199,9 @@ class ThaiBetaReportExportDocument {
     }
 
     sections.add(
-      ThaiBetaReportExportSection(
-        title: 'ที่มาของผลวิเคราะห์',
-        paragraphs: [
+      _section(
+        'ที่มาของผลวิเคราะห์',
+        [
           view.sourceTransparency.dataUsed,
           view.sourceTransparency.calculation,
           view.sourceTransparency.meaning,
@@ -218,39 +210,28 @@ class ThaiBetaReportExportDocument {
     );
 
     if (view.secretTip.trim().isNotEmpty) {
-      sections.add(
-        ThaiBetaReportExportSection(
-          title: 'ข้อควรรู้',
-          paragraphs: [view.secretTip],
-        ),
-      );
+      sections.add(_section('ข้อควรรู้', [view.secretTip]));
     }
 
     if (view.disclaimers.isNotEmpty) {
       sections.add(
-        ThaiBetaReportExportSection(
-          title: 'ข้อจำกัด',
-          paragraphs: view.disclaimers,
+        _section(
+          'ข้อจำกัด',
+          view.disclaimers,
+          kind: ThaiBetaReportExportSectionKind.disclaimer,
         ),
       );
     }
 
     final safeBadges = badges
         .where((b) => b.eligible)
-        .map(
-          (b) => ThaiBetaReportExportSection(
-            title: b.badgeLabel,
-            paragraphs: [b.cautionCopy],
-          ),
-        )
+        .map((b) => _section(b.badgeLabel, [b.cautionCopy]))
         .toList();
     if (safeBadges.isNotEmpty) {
       sections.add(
-        const ThaiBetaReportExportSection(
-          title: 'หลักฐานสนับสนุน (สรุปสาธารณะ)',
-          paragraphs: [
-            'ป้ายหลักฐานด้านล่างเป็นสรุประดับที่อนุญาตในเบต้าเท่านั้น',
-          ],
+        _section(
+          'หลักฐานสนับสนุน (สรุปสาธารณะ)',
+          ['ป้ายหลักฐานด้านล่างเป็นสรุประดับที่อนุญาตในเบต้าเท่านั้น'],
         ),
       );
       sections.addAll(safeBadges);
@@ -264,6 +245,7 @@ class ThaiBetaReportExportDocument {
                 .map(ThaiBetaReportExportSafety.scrub)
                 .where((p) => p.trim().isNotEmpty)
                 .toList(),
+            kind: s.kind,
           ),
         )
         .where((s) => s.title.trim().isNotEmpty || s.paragraphs.isNotEmpty)
@@ -277,46 +259,130 @@ class ThaiBetaReportExportDocument {
     );
   }
 
+  static ThaiBetaReportExportSection _section(
+    String title,
+    List<String> paragraphs, {
+    ThaiBetaReportExportSectionKind kind = ThaiBetaReportExportSectionKind.body,
+  }) {
+    final polishedTitle = ThaiBetaReportExportPolish.polishTitle(title);
+    return ThaiBetaReportExportSection(
+      title: polishedTitle,
+      paragraphs:
+          ThaiBetaReportExportPolish.dedupeParagraphs(polishedTitle, paragraphs),
+      kind: kind,
+    );
+  }
+
+  /// Prefer full expanded body over UI-truncated card body.
+  static List<String> _insightCardLines(ThaiMirrorInsightCardState card) {
+    final lines = <String>[card.title];
+    final expanded = card.expandedBody?.trim();
+    if (expanded != null && expanded.isNotEmpty) {
+      lines.add(_stripMarkdown(expanded));
+    } else {
+      final body = _stripMarkdown(card.body);
+      if (!ThaiBetaReportExportPolish.isUiTruncated(body)) {
+        lines.add(body);
+      }
+    }
+    return lines;
+  }
+
   static List<ThaiBetaReportExportSection> _timelineSections(
     ThaiMirrorLifeTimelineState timeline,
   ) {
     final out = <ThaiBetaReportExportSection>[
-      ThaiBetaReportExportSection(
-        title: timeline.sectionTitle,
-        paragraphs: [timeline.sectionIntro],
+      _section(
+        timeline.sectionTitle,
+        [timeline.sectionIntro],
+        kind: ThaiBetaReportExportSectionKind.timeline,
       ),
     ];
+
     final stage = timeline.currentStage;
+    final stageLines = <String>[
+      '${stage.phaseName} · อายุ ${stage.ageLabel}',
+      stage.planetLine,
+      if (stage.keyword.isNotEmpty) 'คำสำคัญ: ${stage.keyword}',
+      ThaiBetaReportExportPolish.polishTimingCopy(stage.intro),
+    ];
+
+    if (stage.yearsRemaining > 0) {
+      stageLines.add(
+        'เหลืออีกประมาณ ${stage.yearsRemaining} ปีก่อนเปลี่ยนช่วง',
+      );
+    } else if (!stageLines.any(
+      (line) => line.contains('กำลังอยู่ช่วงปลายของจังหวะนี้'),
+    )) {
+      stageLines.add('กำลังอยู่ช่วงปลายของจังหวะนี้');
+    }
+
+    final previous = ThaiBetaReportExportPolish.neighbourLabel(
+      stage.previousLabel,
+      prefix: 'ช่วงก่อนหน้า: ',
+    );
+    final next = ThaiBetaReportExportPolish.neighbourLabel(
+      stage.nextLabel,
+      prefix: 'ช่วงถัดไป: ',
+    );
+    if (previous.isNotEmpty) stageLines.add(previous);
+    if (next.isNotEmpty) stageLines.add(next);
+
     out.add(
-      ThaiBetaReportExportSection(
-        title: stage.eyebrow,
-        paragraphs: [
-          '${stage.phaseName} · ${stage.ageLabel}',
-          stage.planetLine,
-          stage.keyword,
-          stage.intro,
-          if (stage.previousLabel.isNotEmpty)
-            'ช่วงก่อนหน้า: ${stage.previousLabel}',
-          if (stage.nextLabel.isNotEmpty) 'ช่วงถัดไป: ${stage.nextLabel}',
-        ],
+      _section(
+        stage.eyebrow,
+        stageLines,
+        kind: ThaiBetaReportExportSectionKind.timeline,
       ),
     );
 
+    final analysis = timeline.currentAnalysis;
+    if (analysis != null && !analysis.isEmpty) {
+      out.add(
+        _section(
+          analysis.title,
+          [
+            analysis.stageLabel,
+            analysis.dominantInfluences,
+            ...analysis.reasons,
+          ],
+          kind: ThaiBetaReportExportSectionKind.timeline,
+        ),
+      );
+    }
+
+    final preview = timeline.futurePreview;
+    if (preview != null) {
+      out.add(
+        _section(
+          preview.title,
+          [
+            preview.intro,
+            preview.transitionLabel,
+            if (preview.elementShiftLine.isNotEmpty) preview.elementShiftLine,
+            preview.opportunitiesLine,
+            preview.challengesLine,
+          ],
+          kind: ThaiBetaReportExportSectionKind.timeline,
+        ),
+      );
+    }
+
     for (final period in timeline.periods) {
       out.add(
-        ThaiBetaReportExportSection(
-          title: '${period.phaseName} (${period.ageLabel})',
-          paragraphs: [
+        _section(
+          '${period.phaseName} (${period.ageLabel})',
+          [
             period.planetLine,
-            period.keyword,
+            if (period.keyword.isNotEmpty) 'คำสำคัญ: ${period.keyword}',
             period.summary,
             period.whatChanges,
             period.easier,
             period.harder,
             period.comparison,
-            // Consumer evidence line only — already scrubbed for public UI.
             period.evidenceLine,
           ],
+          kind: ThaiBetaReportExportSectionKind.timeline,
         ),
       );
     }
@@ -327,9 +393,9 @@ class ThaiBetaReportExportDocument {
     PredictionSectionModel prediction,
   ) {
     final out = <ThaiBetaReportExportSection>[
-      ThaiBetaReportExportSection(
-        title: prediction.sectionTitle,
-        paragraphs: [
+      _section(
+        prediction.sectionTitle,
+        [
           prediction.sectionIntro,
           if (prediction.transitionLine.isNotEmpty) prediction.transitionLine,
         ],
@@ -337,9 +403,9 @@ class ThaiBetaReportExportDocument {
     ];
     for (final window in prediction.windows) {
       out.add(
-        ThaiBetaReportExportSection(
-          title: '${window.windowLabel} — ${window.timeframeLabel}',
-          paragraphs: [
+        _section(
+          '${window.windowLabel} — ${window.timeframeLabel}',
+          [
             window.summary,
             window.topOpportunity,
             window.topRisk,
@@ -347,19 +413,13 @@ class ThaiBetaReportExportDocument {
             window.why,
             window.whyNow,
             window.whatToWatch,
-            // evidenceDetail is consumer expandable copy already on report.
             window.evidenceDetail,
           ],
         ),
       );
     }
     if (prediction.closingAdvice.isNotEmpty) {
-      out.add(
-        ThaiBetaReportExportSection(
-          title: 'คำแนะนำปิดท้ายช่วงถัดไป',
-          paragraphs: [prediction.closingAdvice],
-        ),
-      );
+      out.add(_section('คำแนะนำปิดท้ายช่วงถัดไป', [prediction.closingAdvice]));
     }
     return out;
   }
