@@ -318,14 +318,10 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
     ];
 
     if (widget.screenshotMode) {
+      // Banner + export chrome are pinned in Scaffold; this column is report body.
       return Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          if (widget.showCaptureModeBanner) _buildCaptureModeBanner(),
-          ThaiBetaReportExportButton(
-            analysis: analysis,
-            badges: _showBadgePanel ? _badges : const [],
-          ),
           KeyedSubtree(
             key: _captureContentMeasureKey,
             child: Column(
@@ -432,31 +428,59 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
 
     final reportColumn = _buildReportColumn(analysis);
 
-    final body = SafeArea(
-      bottom: false,
-      child: widget.screenshotMode
-          ? SingleChildScrollView(
-              key: const Key('thai_beta_report_screenshot_layout'),
-              physics: const NeverScrollableScrollPhysics(),
-              primary: false,
-              child: Align(
-                alignment: Alignment.topCenter,
+    if (widget.screenshotMode) {
+      // Pin capture banner + export chrome in the first viewport.
+      // Not gated by evidence badge / admin / invited-beta flags.
+      return Scaffold(
+        body: SafeArea(
+          bottom: false,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Center(
                 child: ConstrainedBox(
                   constraints: const BoxConstraints(maxWidth: 900),
-                  child: reportColumn,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      if (widget.showCaptureModeBanner)
+                        _buildCaptureModeBanner(),
+                      ThaiBetaReportExportButton(
+                        analysis: analysis,
+                        badges: _showBadgePanel ? _badges : const [],
+                      ),
+                    ],
+                  ),
                 ),
               ),
-            )
-          : SingleChildScrollView(
-              key: const Key('thai_beta_report_page_scroll'),
-              primary: true,
-              child: reportColumn,
-            ),
-    );
-
-    if (widget.screenshotMode) {
-      return Scaffold(body: body);
+              Expanded(
+                child: SingleChildScrollView(
+                  key: const Key('thai_beta_report_screenshot_layout'),
+                  physics: const NeverScrollableScrollPhysics(),
+                  primary: false,
+                  child: Align(
+                    alignment: Alignment.topCenter,
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(maxWidth: 900),
+                      child: reportColumn,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
     }
+
+    final body = SafeArea(
+      bottom: false,
+      child: SingleChildScrollView(
+        key: const Key('thai_beta_report_page_scroll'),
+        primary: true,
+        child: reportColumn,
+      ),
+    );
 
     return Scaffold(
       body: body,

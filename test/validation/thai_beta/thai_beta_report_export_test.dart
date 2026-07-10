@@ -5,7 +5,9 @@ import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_safety.dart';
+import 'package:knowme/features/thai_beta/application/thai_evidence_badge_feature_flag.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
+import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_capture_page.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_export_print_page.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart';
 import 'package:knowme/features/thai_beta/presentation/thai_beta_screenshot_mode.dart';
@@ -124,8 +126,39 @@ void main() {
       tester,
     ) async {
       await pumpReport(tester, screenshotMode: true);
+      expect(find.byKey(const Key('thai_beta_report_export_bar')), findsOneWidget);
+      expect(find.byKey(const Key('thai_beta_report_export_button')), findsOneWidget);
+      expect(find.byKey(const Key('thai_beta_report_export_print_button')), findsOneWidget);
+      expect(find.text('ดาวน์โหลดรายงานเต็ม'), findsOneWidget);
+      expect(find.text('เปิดหน้าพิมพ์ / Save as PDF'), findsOneWidget);
+    });
+
+    testWidgets('export button visible on ThaiBetaCapturePage', (tester) async {
+      await tester.pumpWidget(
+        const MaterialApp(home: ThaiBetaCapturePage()),
+      );
+      await tester.pumpAndSettle();
+      expect(find.text('Thai Beta Capture Mode Active'), findsOneWidget);
       expect(find.byKey(const Key('thai_beta_report_export_button')), findsOneWidget);
       expect(find.text('ดาวน์โหลดรายงานเต็ม'), findsOneWidget);
+    });
+
+    testWidgets('export button not gated by evidence badge flag off', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: ThaiBetaReportPage(
+            analysis: analysis,
+            audienceOverride: const ThaiBetaEvidenceBadgeAudience.anonymous(),
+            screenshotModeOverride: true,
+            showCaptureModeBanner: true,
+            featureFlagOverride: ThaiEvidenceBadgeFeatureFlagState.off,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(find.byKey(const Key('thai_beta_report_export_button')), findsOneWidget);
     });
 
     testWidgets('export button hidden in normal beta report mode', (
@@ -133,6 +166,7 @@ void main() {
     ) async {
       await pumpReport(tester, screenshotMode: false);
       expect(find.byKey(const Key('thai_beta_report_export_button')), findsNothing);
+      expect(find.byKey(const Key('thai_beta_report_export_bar')), findsNothing);
     });
 
     testWidgets('ThaiMirrorResultPage alone has no export button', (

@@ -48,6 +48,19 @@ PNG long-capture is **not** implemented (canvas / memory risk).
 
 Filename: `knowme-thai-report.pdf`
 
+### Export button placement
+
+On capture / screenshot mode, chrome is **pinned above the report** in the first
+viewport (not inside the long scroll body):
+
+1. Banner: **Thai Beta Capture Mode Active** (capture route only)
+2. Primary: **ดาวน์โหลดรายงานเต็ม** (full-width filled button)
+3. Secondary: **เปิดหน้าพิมพ์ / Save as PDF**
+4. Then the long report content
+
+Visibility is driven only by `screenshotMode` / capture route — **not** by
+evidence badge feature flags, admin, or invited-beta audience.
+
 ---
 
 ## What is included
