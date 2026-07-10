@@ -1,5 +1,7 @@
 # Thai Astrology Golden Case Expansion V1
 
+> **HISTORICAL (June 2026).** Chart-validation sprint expanding golden reference cases 5→20. Retained as a validation record; does not describe the consumer report. Current architecture: [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md) · index: [`PROJECT_INDEX.md`](PROJECT_INDEX.md).
+
 **Status:** Complete  
 **Date:** 2026-06-08  
 **Scope:** Expand golden reference cases from 5 → 20 using published sources only.

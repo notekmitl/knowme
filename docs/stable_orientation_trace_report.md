@@ -1,5 +1,7 @@
 # stable_orientation Trace Report
 
+> **ARCHIVED (June 2026).** Task A fragment of the GF2 root-cause isolation. Consolidated conclusions live in [`GF2_ROOT_CAUSE_ISOLATION_REPORT.md`](GF2_ROOT_CAUSE_ISOLATION_REPORT.md). Index: [`PROJECT_INDEX.md`](PROJECT_INDEX.md).
+
 **Program:** GF2 Root Cause Isolation — Task A  
 **Generated:** 2026-06-21  
 **Population:** 1000 synthetic humans (V3 — LIFE reinforcement overlay)  

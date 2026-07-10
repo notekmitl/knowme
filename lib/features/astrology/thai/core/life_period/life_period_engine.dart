@@ -1,3 +1,4 @@
+import '../../foundation/models/thai_birth_data.dart';
 import 'life_planet.dart';
 
 /// One life period in the timeline.
@@ -79,9 +80,18 @@ class LifeTimeline {
 /// own composers so this engine can be reused by Timeline, Annual/Future
 /// Prediction, AI Chat, Compatibility and Fusion.
 abstract final class LifePeriodEngine {
-  /// Builds the timeline directly from a canonical birth [DateTime]. This is the
-  /// preferred entry point: callers pass the birth date that already came from
-  /// the canonical profile, never a duplicated birth-data structure.
+  /// Builds the timeline from normalized [ThaiBirthData] — the **preferred,
+  /// consistency-safe** entry point. The starting planet (weekday ruler) and the
+  /// age both come from the single sunrise-adjusted [ThaiBirthData.astrologicalDate],
+  /// so the timeline always agrees with the Thai day shown elsewhere.
+  static LifeTimeline fromBirthData(ThaiBirthData birthData, {DateTime? asOf}) {
+    return fromBirthDate(birthData.astrologicalDate, asOf: asOf);
+  }
+
+  /// Builds the timeline directly from a canonical birth [DateTime].
+  ///
+  /// Callers must pass the **Thai astrological date** (sunrise-adjusted), not the
+  /// civil date — prefer [fromBirthData], which guarantees this.
   static LifeTimeline fromBirthDate(DateTime birthDate, {DateTime? asOf}) {
     return build(
       birthWeekday: birthDate.weekday,

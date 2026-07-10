@@ -1,6 +1,6 @@
 # Narrative Intelligence V2
 
-Generated: 2026-06-21T08:07:51.286835Z
+Generated: 2026-06-28T06:34:36.971321Z
 
 ## Before vs After
 | Metric | V1 | V2 | Δ |

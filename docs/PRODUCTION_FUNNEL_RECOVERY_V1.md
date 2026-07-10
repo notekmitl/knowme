@@ -1,5 +1,7 @@
 # Production Funnel Recovery V1
 
+> **HISTORICAL (strategy, June 2026).** Funnel-recovery strategy reference (MBTI-mini thesis). Strategy is still relevant; the Firestore funnel numbers are a June 2026 snapshot. Index: [`PROJECT_INDEX.md`](PROJECT_INDEX.md).
+
 **Program:** Production Funnel Recovery V1  
 **Authority:** [`docs/KNOWME_MASTER_CONTEXT.md`](KNOWME_MASTER_CONTEXT.md), [`docs/GOVERNANCE.md`](GOVERNANCE.md)  
 **Scope:** Product strategy only — no code, no implementation, no engine changes  

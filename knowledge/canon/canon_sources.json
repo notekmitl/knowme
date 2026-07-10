@@ -1,0 +1,47 @@
+{
+  "$comment": "Source Priority registry for Thai Astrology Canon V1. Each entry registers a SOURCE IDENTITY and its tier only — it asserts no knowledge. Tier 0 (calculation engine) is frozen ground truth; Tier 1 (หลักมหาภูต) is the canonical interpretive source; Tiers 2-4 are supporting. canonical=true is permitted ONLY at tier1_canon.",
+  "version": 1,
+  "sources": [
+    {
+      "id": "calculation_engine",
+      "title": "KnowMe Calculation Engine (Swiss Ephemeris + frozen matrices)",
+      "tier": "tier0_calculation_engine",
+      "canonical": false,
+      "language": "n/a",
+      "notes": "Computed astronomical facts: day/lagna/bhava/planet positions and the frozen PlanetRelationshipMatrix. Ground truth — the knowledge layer never asserts or overrides these. Registered for traceability only."
+    },
+    {
+      "id": "mahabhut",
+      "title": "หลักมหาภูต",
+      "author": "ส. หยกฟ้า",
+      "tier": "tier1_canon",
+      "canonical": true,
+      "language": "th",
+      "notes": "Canonical interpretive source for Thai astrology in KnowMe. When Canon speaks, Canon wins. Content not yet extracted — see mahabhut.manifest.json for the extraction architecture."
+    },
+    {
+      "id": "phrommachat",
+      "title": "พรหมชาติ (ตำราโหราศาสตร์ไทยดั้งเดิม)",
+      "tier": "tier2_thai_classical",
+      "canonical": false,
+      "language": "th",
+      "notes": "Traditional Thai classical text — registered identity only. Supporting source: used to add detail/examples when Canon is silent, never to override Canon."
+    },
+    {
+      "id": "research_corpus",
+      "title": "KnowMe research & source corpus (knowledge/research, knowledge/sources)",
+      "tier": "tier3_research",
+      "canonical": false,
+      "language": "th/en",
+      "notes": "Primary-source research collected via V3/V4/V7 (KnowledgeResearchRecord, EvidenceRecord, SourceRecord). Supporting tier."
+    },
+    {
+      "id": "internet",
+      "title": "Internet / web material",
+      "tier": "tier4_internet",
+      "canonical": false,
+      "language": "n/a",
+      "notes": "Lowest-authority web material. Supporting only; must still carry a quote and reference."
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 # Global Fusion Foundation V2 Specification
 
 **Program:** Global Fusion Foundation V2  
-**Status:** Implementation-ready specification (design only)  
+**Status:** Implemented — this design has shipped. See [`GF2_PRODUCTION_IMPLEMENTATION_V1.md`](GF2_PRODUCTION_IMPLEMENTATION_V1.md) for the production wiring and 1000-human validation. This document is retained as the architecture/design reference.  
 **Canonical architecture:** Mirror Promotion Rules (MV2 / Tier C) + Supplemental Fusion Findings (GF2 / Tier B)  
 **Evidence base:** [`GLOBAL_FUSION_FOUNDATION_VALIDATION_V2.md`](GLOBAL_FUSION_FOUNDATION_VALIDATION_V2.md)  
 **Master Context alignment:** Priority 2 — Global Fusion Foundation; Truth First; Evidence Preservation; GF1/MV1 frozen

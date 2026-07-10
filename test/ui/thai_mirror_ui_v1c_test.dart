@@ -47,10 +47,24 @@ ThaiMirrorEvidenceExplorerState _sortingEvidenceExplorer() {
 
 void main() {
   group('ThaiMirrorResultPage V1c', () {
-    testWidgets('renders source transparency section', (tester) async {
+    testWidgets('renders collapsible analysis principles section', (
+      tester,
+    ) async {
       await tester.pumpWidget(wrapConsumerResultPage(sampleConsumerViewState()));
 
-      expect(find.text(ThaiMirrorSourceTransparencySection.titleTh), findsOneWidget);
+      expect(
+        find.text(ThaiMirrorSourceTransparencySection.titleTh),
+        findsOneWidget,
+      );
+      // Collapsed by default — detail columns are hidden until expanded.
+      expect(find.text('ข้อมูลที่ใช้'), findsNothing);
+
+      final header = find.text(ThaiMirrorSourceTransparencySection.titleTh);
+      await tester.ensureVisible(header);
+      await tester.pumpAndSettle();
+      await tester.tap(header);
+      await tester.pumpAndSettle();
+
       expect(find.text('ข้อมูลที่ใช้'), findsOneWidget);
       expect(find.text('หลักการคำนวณ'), findsOneWidget);
       expect(find.text('ความหมายของผลลัพธ์'), findsOneWidget);

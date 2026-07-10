@@ -192,7 +192,7 @@ App launch
 
 | System | Location | Role |
 |--------|----------|------|
-| Thai Astrology V2 | `lib/features/astrology/thai/` | Foundation → theme → mirror pipeline |
+| Thai Astrology | `lib/features/astrology/thai/` | Foundation → theme → mirror pipeline + full **Consumer Report** (evidence narrative V7, Life Timeline V8) — see `docs/EXECUTIVE_SUMMARY.md` |
 | Western Natal | `lib/features/astrology/` + Firestore `astrology/western_natal` | Natal chart storage + fusion input |
 | Chinese BaZi V1 | `lib/features/bazi/`, `lib/services/bazi_firestore_service.dart` | Four pillars + element balance |
 | MBTI Progressive | `lib/features/tests/mbti/` | 16 → 40 → 80 question flow |
@@ -279,7 +279,7 @@ Changes limited to blocker fixes, serious usability issues, analytics-driven imp
 | Fusion Result V1 presentation | **Frozen v1** | [`FUSION_RESULT_V1_SPEC.md`](FUSION_RESULT_V1_SPEC.md) |
 | MBTI Summary V1.3 | **Stable / frozen-ish** | Deterministic synthesis only |
 | EQ MVP | **Usable+ / frozen-ish** | Maintenance mode |
-| Thai Astrology V2 Core | **Conditional freeze v0.1.0** | Production structural ready |
+| Thai Astrology V2 Core (engine) | **Conditional freeze v0.1.0** | Production structural ready; consumer report presentation (V3–V8) is actively maintained on top |
 | Thai Fusion V2 | **Conditional freeze v0.1.0** | Lineage, agreement, coverage, confidence engines validated |
 | Western Natal V1 | **Temporary freeze** | E2E verified June 2026 |
 | Chinese BaZi V1 | **Temporary freeze** | Backend + Flutter verified |
@@ -399,10 +399,16 @@ See `docs/HANDOFF.md` for runner commands.
 
 | Document | Purpose |
 |----------|---------|
+| `docs/PROJECT_INDEX.md` | Master documentation map + classification + reading order |
+| `docs/AI_ALIGNMENT_CONTEXT.md` | Permanent AI alignment: rules, reading order, never-do |
+| `docs/EXECUTIVE_SUMMARY.md` | Fastest full-project understanding (architecture, freeze map, tech debt, roadmap) |
+| `docs/DOMAIN_MODEL.md` | Highest-level conceptual model: engines, ownership, data flow (diagrams) |
+| `docs/DECISION_LOG.md` | Why major architectural/product decisions were made |
 | `docs/KNOWME_MASTER_CONTEXT.md` | Vision, philosophy, subsystems (this file) |
 | `docs/CURRENT_STATUS.md` | What's done, active focus, risks, deployment |
 | `docs/ARCHITECTURE.md` | Pipeline layers, code organization |
 | `docs/ROADMAP.md` | Evidence-based completed / active / future |
+| `docs/PROJECT_FREEZE.md` | Per-system freeze registry + replacement plans |
 | `docs/HANDOFF.md` | Setup, routing, validation, agent rules |
 
 ### Operational supplements
@@ -420,7 +426,9 @@ See `docs/HANDOFF.md` for runner commands.
 | Document | Purpose |
 |----------|---------|
 | `docs/GLOBAL_FUSION_FOUNDATION_V2_SPECIFICATION.md` | GF2 architecture spec |
-| `docs/THAI_MIRROR_SPECIFICATION_V1.md` | Thai Mirror domain contract |
+| `docs/EXECUTIVE_SUMMARY.md` | Thai Astrology architecture, engines, presentation, QA, roadmap |
+| `docs/THAI_MIRROR_SPECIFICATION_V1.md` | Thai Mirror domain contract (V1; consumer report evolved beyond it) |
+| `docs/ASTROLOGY_QA_HARNESS_V1.md` | Reusable astrology preview + screenshot/story validation harness |
 | `docs/NARRATIVE_EVIDENCE_BRANCHING_V5.md` | Narrative V5 validation |
 | `docs/REAL_USER_RUNTIME_VALIDATION_V1.md` | Production user funnel audit |
 | `docs/PRODUCTION_FUNNEL_RECOVERY_V1.md` | Funnel recovery strategy |

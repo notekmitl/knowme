@@ -1,5 +1,7 @@
 # Real User Runtime Validation V1
 
+> **HISTORICAL (point-in-time, June 2026).** 38-user Firestore funnel replay. The methodology is current; the user counts/metrics are a dated snapshot to be re-run after funnel changes. Index: [`PROJECT_INDEX.md`](PROJECT_INDEX.md).
+
 **Program:** Real User Runtime Validation V1  
 **Authority:** [`docs/KNOWME_MASTER_CONTEXT.md`](KNOWME_MASTER_CONTEXT.md), [`docs/GOVERNANCE.md`](GOVERNANCE.md)  
 **Scope:** Validation only — no production code changes, no synthetic users, no fixtures  

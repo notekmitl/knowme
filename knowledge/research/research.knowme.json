@@ -1,0 +1,6 @@
+{
+  "schemaVersion": "1.0",
+  "domain": "knowledge_research",
+  "description": "Canonical research corpus. Empty until real primary-source research is documented (see research.template.json). Loaded by KnowledgeResearchEngine / KnowledgeEvidenceEngine and browsed in the Knowledge Workspace (/internal/knowledge).",
+  "records": []
+}

@@ -1,7 +1,7 @@
 # KnowMe Developer Handoff
 
 **Purpose:** How a new developer continues the KnowMe project.  
-**Last updated:** June 2026  
+**Last updated:** July 2026  
 **Start here after reading:** [`KNOWME_MASTER_CONTEXT.md`](KNOWME_MASTER_CONTEXT.md) and [`CURRENT_STATUS.md`](CURRENT_STATUS.md)
 
 ---
@@ -13,10 +13,12 @@
 ```bash
 git clone https://github.com/notekmitl/knowme.git
 cd knowme
-git checkout feature/fusion-result
+git checkout feature/thai-astrology-v16-mirror-conversation
 ```
 
-**Important:** `main` (357 files) is far behind `feature/fusion-result` (1,534 files). All architecture work lives on the feature branch until merged.
+**Important:** `main` is far behind the architecture / Thai feature branches. Prefer the current feature branch listed in [`CURRENT_STATUS.md`](CURRENT_STATUS.md).
+
+**AI Worker:** the active external worker lives at `C:\Users\USER\knowme-ai-worker`. The obsolete in-repo `ai-worker/` directory is gitignored and must not be committed.
 
 ### Flutter setup
 

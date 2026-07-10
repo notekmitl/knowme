@@ -1,5 +1,7 @@
 # stable_orientation Layer Ownership Audit
 
+> **ARCHIVED (June 2026).** Task B fragment of the GF2 root-cause isolation. Consolidated conclusions live in [`GF2_ROOT_CAUSE_ISOLATION_REPORT.md`](GF2_ROOT_CAUSE_ISOLATION_REPORT.md). Index: [`PROJECT_INDEX.md`](PROJECT_INDEX.md).
+
 **Program:** GF2 Root Cause Isolation — Task B  
 **Generated:** 2026-06-21  
 **Eligible cohort:** 258 profiles with GF2 composed LIFE reinforcement  

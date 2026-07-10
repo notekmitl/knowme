@@ -1,5 +1,7 @@
 # Human Pattern Dead Zone Forensics V1
 
+> **HISTORICAL (June 2026).** 1000-human per-pattern dead-zone taxonomy that drove the shipped fix in [`HUMAN_PATTERN_ACTIVATION_RECOVERY_V2.md`](HUMAN_PATTERN_ACTIVATION_RECOVERY_V2.md). Retained as the definitive classification matrix. Index: [`PROJECT_INDEX.md`](PROJECT_INDEX.md).
+
 **Program:** Human Pattern Dead Zone Forensics  
 **Authority:** [`docs/KNOWME_MASTER_CONTEXT.md`](KNOWME_MASTER_CONTEXT.md), [`docs/GOVERNANCE.md`](GOVERNANCE.md)  
 **Generated:** 2026-06-21  

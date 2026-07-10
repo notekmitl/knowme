@@ -194,6 +194,7 @@ class _ThaiMirrorQaScreenState extends State<ThaiMirrorQaScreen> {
                 return ThaiMirrorResultPage(
                   consumerState: ThaiMirrorConsumerPresenter.present(
                     result.mirrorResult!,
+                    lifePeriods: result.lifePeriods,
                   ),
                 );
               },

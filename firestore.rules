@@ -1,0 +1,62 @@
+rules_version = '2';
+
+// KnowMe Firestore Security Rules (repository-managed; deploy with
+// `firebase deploy --only firestore:rules`). No console-only configuration.
+//
+// Model:
+//   * All existing app data lives under `users/{uid}/**` and is owner-only.
+//   * `thai_beta_feedback` (Thai Astrology Research) accepts public, anonymous
+//     submissions but is readable only by admins.
+//   * Admins are an explicit allow-list at `admins/{uid}` (managed out-of-band).
+//   * `counters/{id}` backs sequential research ids with bounded, +1-only writes.
+//   * Everything else is denied by default.
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isAdmin() {
+      return isSignedIn() &&
+        exists(/databases/$(database)/documents/admins/$(request.auth.uid));
+    }
+
+    // ---- Existing per-user data: owner-only (preserves all current flows) ----
+    match /users/{userId}/{document=**} {
+      allow read, write: if isSignedIn() && request.auth.uid == userId;
+    }
+
+    // ---- Admin allow-list: a user may read only their own membership doc ----
+    match /admins/{uid} {
+      allow read: if isSignedIn() && request.auth.uid == uid;
+      allow write: if false; // provisioned out-of-band (console/CLI), never by clients
+    }
+
+    // ---- Thai Astrology Research submissions ----
+    // Public create (validated), admin-only read, immutable thereafter.
+    match /thai_beta_feedback/{docId} {
+      allow create: if isValidResearchSubmission();
+      allow read: if isAdmin();
+      allow update, delete: if false;
+    }
+
+    function isValidResearchSubmission() {
+      let data = request.resource.data;
+      return data.keys().hasAll(['researchId', 'feedback', 'reportHash', 'createdAt'])
+        && data.researchId is string
+        && data.researchId.matches('TH-[0-9]{8}')
+        && data.reportHash is string
+        && data.feedback is map;
+    }
+
+    // ---- Sequential research-id counter ----
+    // Anonymous research users increment a shared counter by exactly 1.
+    match /counters/{counterId} {
+      allow read: if true;
+      allow create: if request.resource.data.seq == 1;
+      allow update: if request.resource.data.seq == resource.data.seq + 1;
+      allow delete: if false;
+    }
+  }
+}

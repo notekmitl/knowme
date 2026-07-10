@@ -1,0 +1,5 @@
+{
+  "$comment": "Canonical Knowledge nodes for Thai Astrology. EMPTY baseline (Canon V1): no knowledge is fabricated and the canonical book หลักมหาภูต is NOT yet extracted. Populate by adding nodes that follow canon.schema.json — each node points at a source in canon_sources.json, from which its tier/canonical authority is derived. See canon.template.json for the node shape.",
+  "version": 1,
+  "nodes": []
+}

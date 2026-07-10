@@ -162,6 +162,104 @@ abstract final class MirrorCopy {
     return 'You have seen where your energy is flowing and where it is asking '
         'for care. Carry just one of these gently into your week.';
   }
+
+  // --- Daily Mirror (Phase C) ----------------------------------------------
+
+  static const String dailyTitle = 'Today';
+  static const String dailyGreeting = "Here is today's gentle read on your life.";
+
+  static const String opportunityLabel = "Today's opening";
+  static const String cautionLabel = 'Go gently with';
+  static const String focusLabel = 'Worth your focus';
+  static const String actionLabel = 'One small step';
+
+  static const String dailyConversationTitle = 'Something on your mind?';
+  static const String dailyConversationBody =
+      'Ask about your day in a tap. No typing — just pick what matters and '
+      'follow where it leads.';
+  static const String dailyConversationCta = 'Ask about your day';
+  static const String dailyJourneyCta = 'See the fuller reflection';
+  static const String dailyMoreDetails = 'More details';
+  static const String dailyActionDoneCta = "I'll do this";
+  static const String dailyActionDoneAck = 'Nice — small steps count.';
+
+  /// A short, human date line ("Sunday · 28 June").
+  static String dailyDate(DateTime date) {
+    const weekdays = [
+      'Monday',
+      'Tuesday',
+      'Wednesday',
+      'Thursday',
+      'Friday',
+      'Saturday',
+      'Sunday',
+    ];
+    const months = [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July',
+      'August',
+      'September',
+      'October',
+      'November',
+      'December',
+    ];
+    final wd = weekdays[(date.weekday - 1) % 7];
+    final mo = months[(date.month - 1) % 12];
+    return '$wd · ${date.day} $mo';
+  }
+
+  static String dailyOpportunity(MirrorLifeArea? area) {
+    if (area == null) {
+      return 'No single area is pulling ahead today — a calm, open canvas. '
+          'Pick the opening that matters most to you.';
+    }
+    return '${area.title} is where the light is today. A small move here is '
+        'likely to be met halfway.';
+  }
+
+  static String dailyCaution(MirrorLifeArea? area) {
+    if (area == null) {
+      return 'Nothing is asking for caution today. Keep your usual pace and '
+          'trust your footing.';
+    }
+    return '${area.title} is a little tender right now. Slow down here and be '
+        'kind with yourself before pushing.';
+  }
+
+  static String dailyFocus(MirrorLifeArea area, MirrorLean lean) {
+    final subject = area.title.toLowerCase();
+    switch (lean) {
+      case MirrorLean.goFor:
+        return 'Put your energy into $subject today — the timing is on your '
+            'side.';
+      case MirrorLean.prepare:
+        return 'Give $subject your attention, but lay groundwork rather than '
+            'leaping. Quiet progress counts.';
+      case MirrorLean.wait:
+        return 'Hold $subject lightly today. A watchful, unhurried focus serves '
+            'you better than a big push.';
+    }
+  }
+
+  static String dailyAction(MirrorLifeArea focus, MirrorLean lean) {
+    final subject = focus.title.toLowerCase();
+    switch (lean) {
+      case MirrorLean.goFor:
+        return 'Take one concrete step on $subject today — send the message, '
+            'make the ask, start the thing.';
+      case MirrorLean.prepare:
+        return 'Spend ten quiet minutes preparing for $subject — a list, a '
+            'plan, a first draft.';
+      case MirrorLean.wait:
+        return 'Rather than act on $subject, jot down what you are waiting for. '
+            'Clarity now, action later.';
+    }
+  }
 }
 
 /// Small input bundle so copy can phrase a decision without importing widgets.

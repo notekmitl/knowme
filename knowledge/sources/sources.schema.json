@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://knowme/knowledge/sources/sources.schema.json",
+  "title": "Thai Astrology — Source (one file per source)",
+  "description": "Schema for a single real astrology source and the relationship assertions it makes (V7). One JSON file per source (e.g. thai_classical_x.json). The output is knowledge, not software: NEVER summarize an assertion without keeping the original quote, and every assertion points back to this one source. Consumed by KnowledgeSourceEngine. No engine / matrix dependency — planets and relations are plain strings.",
+  "type": "object",
+  "required": ["id", "title", "author", "school", "language", "assertions"],
+  "additionalProperties": false,
+  "properties": {
+    "id": { "type": "string", "description": "Stable unique source id, e.g. \"thai_classical_x\"." },
+    "title": { "type": "string" },
+    "author": { "type": "string" },
+    "edition": { "type": ["string", "null"] },
+    "publisher": { "type": ["string", "null"] },
+    "year": { "type": ["integer", "null"] },
+    "language": { "type": "string", "description": "th | en | sa | ..." },
+    "school": { "type": "string", "description": "thaiClassical | thaiModern | vedic | ..." },
+    "isbn": { "type": ["string", "null"] },
+    "url": { "type": ["string", "null"] },
+    "license": { "type": ["string", "null"] },
+    "notes": { "type": ["string", "null"] },
+    "assertions": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/assertion" }
+    }
+  },
+  "definitions": {
+    "assertion": {
+      "type": "object",
+      "required": ["from", "to", "relation", "page", "quote"],
+      "additionalProperties": false,
+      "properties": {
+        "from": { "type": "string", "description": "Planet key, e.g. \"venus\"." },
+        "to": { "type": "string", "description": "Planet key, e.g. \"saturn\"." },
+        "relation": { "type": "string", "enum": ["friend", "neutral", "enemy"] },
+        "page": { "type": "string", "description": "Page / folio the assertion is found on." },
+        "quote": { "type": "string", "description": "Original verbatim quote — required; never summarize it away." },
+        "note": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

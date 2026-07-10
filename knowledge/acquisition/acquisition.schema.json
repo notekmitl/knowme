@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://knowme/knowledge/acquisition/acquisition.schema.json",
+  "title": "Thai Astrology — Knowledge Acquisition Batch",
+  "description": "Schema for an acquisition batch consumed by KnowledgeAcquisitionEngine (V6). A batch carries evidence and/or research records to import gradually (JSON only — no Dart editing). Importing NEVER modifies the PlanetRelationshipMatrix; it only merges the evidence (V4) and research (V3) corpora. Evidence records follow evidence.schema.json; research records follow research.schema.json.",
+  "type": "object",
+  "required": ["schemaVersion", "domain"],
+  "additionalProperties": true,
+  "properties": {
+    "schemaVersion": { "type": "string" },
+    "domain": { "type": "string", "const": "knowledge_acquisition" },
+    "batchId": { "type": "string", "description": "Optional id echoed back in the Import Report, e.g. \"BATCH-2026-06-28-01\"." },
+    "description": { "type": "string" },
+    "evidence": {
+      "type": "array",
+      "description": "Evidence records (see ../evidence/evidence.schema.json).",
+      "items": { "type": "object" }
+    },
+    "research": {
+      "type": "array",
+      "description": "Research records (see ../research/research.schema.json). evidenceIds must resolve to an evidence record already in the corpus or earlier in this same batch.",
+      "items": { "type": "object" }
+    }
+  }
+}

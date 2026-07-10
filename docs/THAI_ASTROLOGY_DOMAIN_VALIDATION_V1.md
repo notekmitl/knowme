@@ -1,5 +1,7 @@
 # Thai Astrology Domain Validation V1
 
+> **HISTORICAL (June 2026).** Pre-implementation research that locked the Thai calculation standards later shipped as Foundation Engine V1.1. Retained as the standards-decision record. Current architecture: [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md) · index: [`PROJECT_INDEX.md`](PROJECT_INDEX.md).
+
 **Sprint type:** Research + Validation Only (no code changes)  
 **Date:** June 2026  
 **Purpose:** Lock calculation standards before Thai Mirror V1  

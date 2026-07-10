@@ -1,5 +1,7 @@
 # Narrative Pattern Copy Expansion V1
 
+> **HISTORICAL (June 2026).** Copy-layer expansion record (Thai copy for 30 active patterns), upstream of the V3–V5 selection chain. Index: [`PROJECT_INDEX.md`](PROJECT_INDEX.md).
+
 **Program:** Narrative Pattern Copy Expansion V1  
 **Authority:** [`docs/KNOWME_MASTER_CONTEXT.md`](KNOWME_MASTER_CONTEXT.md), [`docs/GOVERNANCE.md`](GOVERNANCE.md)  
 **Scope:** Narrative layer only — no Mirror, GF1, GF2, Human Model, or Human Pattern changes  

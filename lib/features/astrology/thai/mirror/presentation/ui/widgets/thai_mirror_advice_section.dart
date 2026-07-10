@@ -13,6 +13,7 @@ class ThaiMirrorAdviceSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final isMobile = MediaQuery.sizeOf(context).width < 600;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,20 +48,22 @@ class ThaiMirrorAdviceSection extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: 12),
-              Container(
-                width: 72,
-                height: 72,
-                decoration: BoxDecoration(
-                  color: scheme.primary.withValues(alpha: 0.12),
-                  shape: BoxShape.circle,
+              if (!isMobile) ...[
+                const SizedBox(width: 12),
+                Container(
+                  width: 72,
+                  height: 72,
+                  decoration: BoxDecoration(
+                    color: scheme.primary.withValues(alpha: 0.12),
+                    shape: BoxShape.circle,
+                  ),
+                  child: Icon(
+                    Icons.self_improvement_rounded,
+                    size: 36,
+                    color: scheme.primary.withValues(alpha: 0.75),
+                  ),
                 ),
-                child: Icon(
-                  Icons.self_improvement_rounded,
-                  size: 36,
-                  color: scheme.primary.withValues(alpha: 0.75),
-                ),
-              ),
+              ],
             ],
           ),
         ),

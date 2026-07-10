@@ -1,5 +1,7 @@
 # GF2 Implementation Readiness Report
 
+> **SUPERSEDED (June 2026).** Pre-ship gate scorecard. Superseded by [`GF2_FINAL_IMPLEMENTATION_DECISION.md`](GF2_FINAL_IMPLEMENTATION_DECISION.md) → [`GF2_ROOT_CAUSE_ISOLATION_REPORT.md`](GF2_ROOT_CAUSE_ISOLATION_REPORT.md) → [`GF2_PRODUCTION_IMPLEMENTATION_V1.md`](GF2_PRODUCTION_IMPLEMENTATION_V1.md) (GF2 shipped). Index: [`PROJECT_INDEX.md`](PROJECT_INDEX.md).
+
 **Program:** GF2 Validation Completion  
 **Generated:** 2026-06-21  
 **Population:** 1000 synthetic humans (250 archetypes × 4 variants)  

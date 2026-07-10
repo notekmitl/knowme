@@ -3,19 +3,29 @@ import 'package:flutter/material.dart';
 import '../../copy/thai_mirror_consumer_copy.dart';
 import '../../models/thai_mirror_consumer_view_state.dart';
 
-class ThaiMirrorSourceTransparencySection extends StatelessWidget {
+class ThaiMirrorSourceTransparencySection extends StatefulWidget {
   const ThaiMirrorSourceTransparencySection({
     super.key,
     required this.state,
   });
 
-  static const titleTh = 'แหล่งที่มาของผลลัพธ์';
+  static const titleTh = 'หลักการวิเคราะห์';
 
   final ThaiMirrorSourceTransparencyState state;
 
   @override
+  State<ThaiMirrorSourceTransparencySection> createState() =>
+      _ThaiMirrorSourceTransparencySectionState();
+}
+
+class _ThaiMirrorSourceTransparencySectionState
+    extends State<ThaiMirrorSourceTransparencySection> {
+  bool _expanded = false;
+
+  @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final state = widget.state;
 
     return Container(
       width: double.infinity,
@@ -28,14 +38,49 @@ class ThaiMirrorSourceTransparencySection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            titleTh,
-            style: TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.w700,
-              color: scheme.onSurface,
+          InkWell(
+            borderRadius: BorderRadius.circular(8),
+            onTap: () => setState(() => _expanded = !_expanded),
+            child: Row(
+              children: [
+                Icon(
+                  Icons.info_outline_rounded,
+                  size: 20,
+                  color: scheme.primary,
+                ),
+                const SizedBox(width: 8),
+                Expanded(
+                  child: Text(
+                    ThaiMirrorSourceTransparencySection.titleTh,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: scheme.onSurface,
+                    ),
+                  ),
+                ),
+                Icon(
+                  _expanded
+                      ? Icons.keyboard_arrow_up_rounded
+                      : Icons.keyboard_arrow_down_rounded,
+                  color: scheme.onSurfaceVariant,
+                ),
+              ],
             ),
           ),
+          if (!_expanded) ...[
+            const SizedBox(height: 6),
+            Text(
+              'ดวงไทยนี้วิเคราะห์จากข้อมูลวันเกิดของคุณ — แตะเพื่อดูว่าเรานำ'
+              'อะไรมาใช้และตีความอย่างไร',
+              style: TextStyle(
+                fontSize: 13,
+                height: 1.5,
+                color: scheme.onSurfaceVariant.withValues(alpha: 0.9),
+              ),
+            ),
+          ],
+          if (_expanded) ...[
           const SizedBox(height: 16),
           LayoutBuilder(
             builder: (context, constraints) {
@@ -86,6 +131,7 @@ class ThaiMirrorSourceTransparencySection extends StatelessWidget {
               color: scheme.onSurfaceVariant.withValues(alpha: 0.9),
             ),
           ),
+          ],
         ],
       ),
     );

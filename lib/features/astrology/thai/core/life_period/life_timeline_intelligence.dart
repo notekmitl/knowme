@@ -1,3 +1,4 @@
+import '../../foundation/models/thai_birth_data.dart';
 import 'current_age_analysis.dart';
 import 'future_period_preview.dart';
 import 'life_natal_context.dart';
@@ -55,6 +56,17 @@ abstract final class LifeTimelineIntelligenceEngine {
     DateTime? asOf,
   }) {
     final timeline = LifePeriodEngine.fromBirthDate(birthDate, asOf: asOf);
+    return fromTimeline(timeline, lagnaLord: lagnaLord);
+  }
+
+  /// Consistency-safe entry: builds from normalized [ThaiBirthData] so the
+  /// timeline uses the single sunrise-adjusted Thai astrological date.
+  static LifeTimelineIntelligence fromBirthData(
+    ThaiBirthData birthData, {
+    LifePlanet? lagnaLord,
+    DateTime? asOf,
+  }) {
+    final timeline = LifePeriodEngine.fromBirthData(birthData, asOf: asOf);
     return fromTimeline(timeline, lagnaLord: lagnaLord);
   }
 

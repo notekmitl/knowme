@@ -1,8 +1,9 @@
 # KnowMe Current Status
 
-**Last updated:** June 2026  
-**Branch:** `feature/fusion-result` @ `780a4c1` (Architecture Snapshot V1 on GitHub)  
-**Tracked files:** 1,534
+**Last updated:** July 2026  
+**Branch:** `feature/thai-astrology-v16-mirror-conversation` (pre-AI-worker clean baseline)  
+**Prior architecture snapshot:** `feature/fusion-result`  
+**External AI worker (active):** `C:\Users\USER\knowme-ai-worker` — do **not** use obsolete in-repo `ai-worker/`
 
 ---
 
@@ -102,8 +103,9 @@ Deploy: `.\scripts\deploy_web.ps1` or `firebase deploy --only hosting --project 
 
 ## Next Priority
 
+0. **Pre-AI-worker clean baseline (July 2026)** — repository checkpoint before the external KnowMe AI Worker operates; no new product feature in that checkpoint.
 1. **Deploy / measure Funnel Recovery V2** — track `funnel_telemetry` for MBTI adoption and narrative reach (target: 2.6% → 25%+ narrative reach on active users).
-2. **Merge `feature/fusion-result` → `main`** when release-ready — recovery from `main` alone is insufficient today.
+2. **Merge architecture branch → `main`** when release-ready — recovery from `main` alone is insufficient today.
 3. **Maintain frozen systems** — blocker fixes only on Fusion V1 UI, BaZi V1, Thai V2, MBTI Summary.
 4. **Re-run real-user validation** after funnel changes — compare against `real_user_runtime_validation_v1.json` baseline.
 

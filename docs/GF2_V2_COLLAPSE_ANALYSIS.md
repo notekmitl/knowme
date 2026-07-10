@@ -1,5 +1,7 @@
 # GF2 V2 Collapse Zone Analysis
 
+> **ARCHIVED (June 2026).** One-off forensic investigation of the collapse-zone metric; conclusions were absorbed into the VG-005 metric redefinition. Not maintained. Index: [`PROJECT_INDEX.md`](PROJECT_INDEX.md).
+
 **Program:** Global Fusion Foundation V2 Validation Fix  
 **Generated:** 2026-06-21  
 **Scope:** Evidence only — no production code modified  

@@ -1,5 +1,7 @@
 # VG-002 Scope Audit
 
+> **ARCHIVED (June 2026).** Task C fragment of the GF2 root-cause isolation. Consolidated conclusions live in [`GF2_ROOT_CAUSE_ISOLATION_REPORT.md`](GF2_ROOT_CAUSE_ISOLATION_REPORT.md). Index: [`PROJECT_INDEX.md`](PROJECT_INDEX.md).
+
 **Program:** GF2 Root Cause Isolation — Task C  
 **Generated:** 2026-06-21  
 **Gate:** VG-002 — Dependent pattern reachability (6/6)  

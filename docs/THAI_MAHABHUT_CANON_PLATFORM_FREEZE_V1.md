@@ -143,7 +143,8 @@ and `THAI_CANON_KNOWLEDGE_EXTRACTION_WORKSPACE_V4.md`.
 
 ---
 
-**Conclusion:** Canon Platform = Production Ready and **FROZEN**. Subsequent work
-is Content Engineering only, performed through the Knowledge Extraction Workspace
-(D-060), under the reference-only provenance policy (D-057), the Atomic Knowledge
-model (D-058) and the Canonical Ontology vocabulary (D-059).
+**Conclusion:** Canon Platform = Production Ready and **FROZEN** (D-056). As of
+**Production Mode (D-065)** the platform is **COMPLETE** — no further platform
+layers. All work is **Knowledge Production** through the official pipeline
+(Working Source → Authoring → Workspace → Import), measured by Coverage
+increase. See `THAI_CANON_PLATFORM_PRODUCTION_MODE_V1.md`.

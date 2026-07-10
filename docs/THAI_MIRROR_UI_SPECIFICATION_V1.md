@@ -1,5 +1,14 @@
 # Thai Mirror UI Specification V1
 
+> **Evolution note (June 2026):** This UI spec describes an early *analyst-style*
+> result page (top themes + the nine fusion sections + evidence explorer). The
+> **shipped consumer UI** is `ThaiMirrorResultPage` with the Consumer Report
+> information architecture (hero, strengths, cautions, advice, life dashboard,
+> **Life Timeline**, signature insight, narrative, closing). The analyst widgets
+> described here still exist in the repo but are **not** mounted on the consumer
+> page. For the current shipped presentation layer and widget inventory, read
+> [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md).
+
 **Status:** Specification complete — no Flutter implementation  
 **Date:** 2026-06-08  
 **Input contract:** `ThaiMirrorResult` v1  

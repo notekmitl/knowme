@@ -1,0 +1,6 @@
+{
+  "schemaVersion": "1.0",
+  "domain": "knowledge_sources",
+  "description": "Index of real astrology source files in this directory (one JSON per source). KnowledgeSourceEngine loads every file listed here. Empty until real, fully-cited sources are added — never invent references. Add the filename (relative to knowledge/sources/) here when you add a source.",
+  "sources": []
+}

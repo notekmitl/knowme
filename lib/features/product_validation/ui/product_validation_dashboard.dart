@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'package:knowme/features/mirror_habit/application/mirror_habit_engine.dart';
+import 'package:knowme/features/mirror_habit/application/mirror_habit_store.dart';
+import 'package:knowme/features/mirror_habit/domain/mirror_habit_metrics.dart';
+import 'package:knowme/features/mirror_habit/mirror_habit.dart';
+
 import '../product_funnel.dart';
 import '../product_insight.dart';
 import '../product_validation.dart';
@@ -13,10 +18,13 @@ import '../product_validation_recorder.dart';
 /// team can see whether users actually WOW, where they get curious/engaged, and
 /// where they stop. Read-only over the data (plus a reset for a clean run).
 class ProductValidationDashboard extends StatefulWidget {
-  const ProductValidationDashboard({super.key, this.recorder});
+  const ProductValidationDashboard({super.key, this.recorder, this.habitStore});
 
   /// Defaults to the app-wide recorder; injectable for tests.
   final ProductValidationRecorder? recorder;
+
+  /// Phase D — the habit store the daily-habit panel reads (injectable for tests).
+  final MirrorHabitStore? habitStore;
 
   @override
   State<ProductValidationDashboard> createState() =>
@@ -60,6 +68,9 @@ class _ProductValidationDashboardState
                 const Chip(label: Text('Return visits seen')),
             ],
           ),
+          const SizedBox(height: 20),
+          _sectionTitle('Daily habit'),
+          _DailyHabitPanel(store: widget.habitStore ?? MirrorHabit.store),
           if (insights.sessionCount == 0)
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 32),
@@ -100,6 +111,103 @@ class _ProductValidationDashboardState
         for (final i in items) _InsightTile(insight: i),
         const SizedBox(height: 16),
       ],
+    );
+  }
+}
+
+/// Phase D — per-user habit metrics (retention, sessions, streak, reflection
+/// rate) loaded from the persistent store. Internal-only.
+class _DailyHabitPanel extends StatefulWidget {
+  const _DailyHabitPanel({required this.store});
+
+  final MirrorHabitStore store;
+
+  @override
+  State<_DailyHabitPanel> createState() => _DailyHabitPanelState();
+}
+
+class _DailyHabitPanelState extends State<_DailyHabitPanel> {
+  late Future<MirrorHabitMetrics> _future;
+
+  @override
+  void initState() {
+    super.initState();
+    _future = _load();
+  }
+
+  Future<MirrorHabitMetrics> _load() async {
+    final records = await widget.store.recent();
+    if (records.isEmpty) return MirrorHabitMetrics.empty;
+    var latest = records.first.date;
+    for (final r in records) {
+      if (r.date.isAfter(latest)) latest = r.date;
+    }
+    final today = DateTime.now().isAfter(latest) ? DateTime.now() : latest;
+    return MirrorHabitEngine.metrics(records, today);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder<MirrorHabitMetrics>(
+      future: _future,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState != ConnectionState.done) {
+          return const Padding(
+            padding: EdgeInsets.symmetric(vertical: 12),
+            child: LinearProgressIndicator(minHeight: 2),
+          );
+        }
+        final m = snapshot.data ?? MirrorHabitMetrics.empty;
+        if (m.totalOpenedDays == 0) {
+          return const Padding(
+            padding: EdgeInsets.symmetric(vertical: 8),
+            child: Text('No daily habit records yet.'),
+          );
+        }
+        return Column(
+          children: [
+            Wrap(
+              spacing: 10,
+              runSpacing: 10,
+              children: [
+                _metric('Current streak', '${m.currentStreak}d'),
+                _metric('Longest streak', '${m.longestStreak}d'),
+                _metric('Opened days', '${m.totalOpenedDays}'),
+                _metric('Active · 7d', '${m.daysActiveLast7}/7'),
+                _metric('Active · 30d', '${m.daysActiveLast30}/30'),
+                _metric('7-day retention', m.retained7 ? 'retained' : '—'),
+                _metric('30-day retention', m.retained30 ? 'retained' : '—'),
+                _metric('Sessions / week',
+                    m.averageSessionsPerWeek.toStringAsFixed(1)),
+                _metric('Reflection rate',
+                    '${(m.reflectionRate * 100).round()}%'),
+              ],
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _metric(String label, String value) {
+    final scheme = Theme.of(context).colorScheme;
+    final text = Theme.of(context).textTheme;
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 10),
+      decoration: BoxDecoration(
+        color: scheme.surfaceContainerLow,
+        borderRadius: BorderRadius.circular(14),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(value, style: text.titleMedium),
+          Text(
+            label,
+            style: text.labelSmall?.copyWith(color: scheme.onSurfaceVariant),
+          ),
+        ],
+      ),
     );
   }
 }

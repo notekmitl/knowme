@@ -25,7 +25,7 @@
 | Path | Purpose |
 |------|---------|
 | `foundation/calendar/thai_lunar_date.dart` | Lunar input model |
-| `foundation/calendar/thai_day_boundary.dart` | 06:00 day-change rule |
+| `foundation/calendar/thai_day_boundary.dart` | **Deprecated** day-boundary shim — delegates to `SunriseCalculator` (no hardcoded 06:00); use `ThaiBirthContext.astrologicalDate` (D-036) |
 | `foundation/calendar/thai_month_base_table.dart` | OQ-2 paired-month table |
 | `foundation/calendar/thai_zodiac_year.dart` | OQ-6 year-base table |
 | `foundation/calendar/thai_lunar_calendar.dart` | Gregorian → lunar resolver (delegates to `lunar/`) |

@@ -22,6 +22,14 @@ abstract class ProductValidationTracker {
   void evidenceExpanded(String cardId);
   void reflectionViewed();
   void journeyRestarted();
+
+  // Phase C — Daily Mirror.
+  void dailyMirrorOpened();
+  void dailyActionClicked();
+  void dailyConversationStarted();
+
+  // Phase D — Daily Habit loop.
+  void dailyReflectionSaved();
 }
 
 /// A tracker that records nothing — for tests, or to disable measurement.
@@ -56,6 +64,14 @@ class NoopProductValidationTracker implements ProductValidationTracker {
   void reflectionViewed() {}
   @override
   void journeyRestarted() {}
+  @override
+  void dailyMirrorOpened() {}
+  @override
+  void dailyActionClicked() {}
+  @override
+  void dailyConversationStarted() {}
+  @override
+  void dailyReflectionSaved() {}
 }
 
 /// Collects product events in memory and derives metrics/insights on demand.
@@ -143,6 +159,16 @@ class ProductValidationRecorder implements ProductValidationTracker {
   void reflectionViewed() => _record(ProductEventType.reflectionViewed);
   @override
   void journeyRestarted() => _record(ProductEventType.journeyRestarted);
+  @override
+  void dailyMirrorOpened() => _record(ProductEventType.dailyMirrorOpened);
+  @override
+  void dailyActionClicked() => _record(ProductEventType.dailyActionClicked);
+  @override
+  void dailyConversationStarted() =>
+      _record(ProductEventType.dailyConversationStarted);
+  @override
+  void dailyReflectionSaved() =>
+      _record(ProductEventType.dailyReflectionSaved);
 
   // --- Reads ---------------------------------------------------------------
 

@@ -1,6 +1,6 @@
 # Chinese Zodiac Impact Validation V1
 
-Generated: 2026-06-21T06:23:14.183596Z
+Generated: 2026-06-28T06:34:31.920944Z
 Profiles: 24
 
 ## Validation Methodology
@@ -48,23 +48,23 @@ bridge that maps BaZi fusion themes into MV1 signals without modifying frozen sy
 | humanPatternCountAvg | 3.50 | 4.92 | 1.42 |
 | humanActivationCountTotal | 192 | 225 | 33 |
 | humanActivationCountAvg | 8 | 9.38 | 1.38 |
-| narrativeParagraphCountTotal | 144 | 177 | 33 |
-| narrativeParagraphCountAvg | 6 | 7.38 | 1.38 |
-| narrativeEvidenceCountTotal | 144 | 205 | 61 |
-| narrativeEvidenceCountAvg | 6 | 8.54 | 2.54 |
+| narrativeParagraphCountTotal | 144 | 165 | 21 |
+| narrativeParagraphCountAvg | 6 | 6.88 | 0.88 |
+| narrativeEvidenceCountTotal | 144 | 188 | 44 |
+| narrativeEvidenceCountAvg | 6 | 7.83 | 1.83 |
 | narrativeConfidenceAvg | 0.41 | 0.47 | 0.06 |
 
 ## High-Value Animals
 - Rooster (rooster)
 - Snake (snake)
-- Ox (ox)
 - Rabbit (rabbit)
+- Ox (ox)
 
 ## Low-Value Animals
 - Dog (dog)
-- Monkey (monkey)
-- Goat (goat)
 - Horse (horse)
+- Monkey (monkey)
+- Tiger (tiger)
 
 ## Theme Collisions
 - `supportive` — 16 profiles
@@ -80,7 +80,7 @@ bridge that maps BaZi fusion themes into MV1 signals without modifying frozen sy
 - `calm` — 2 profiles
 
 ## Narrative Impact
-Of 24 profiles: 19 gained paragraphs with evidence anchors; 0 grew longer without new evidence; 5 unchanged at narrative layer.
+Of 24 profiles: 13 gained paragraphs with evidence anchors; 0 grew longer without new evidence; 11 unchanged at narrative layer.
 
 ## Duplication Analysis
 Across all profiles: 166 net-new zodiac theme slots vs 78 theme collisions with BaZi core. Most repeated collisions: supportive (16 profiles), driven (10 profiles), expressive (8 profiles), leadership (8 profiles), independent (6 profiles).
@@ -88,20 +88,20 @@ Across all profiles: 166 net-new zodiac theme slots vs 78 theme collisions with 
 ## Per-Profile Summary
 | Profile | Animal | Tier | Theme Δ | Pattern Δ | Narrative Δ |
 | --- | --- | --- | ---: | ---: | ---: |
-| rat_a | Rat | HIGH | 8 | 2 | 1 |
-| rat_b | Rat | MEDIUM | 7 | 2 | 2 |
-| ox_a | Ox | HIGH | 7 | 1 | 1 |
-| ox_b | Ox | HIGH | 8 | 2 | 3 |
-| tiger_a | Tiger | MEDIUM | 6 | 2 | 1 |
-| tiger_b | Tiger | MEDIUM | 7 | 2 | 2 |
-| rabbit_a | Rabbit | HIGH | 8 | 2 | 1 |
+| rat_a | Rat | HIGH | 8 | 2 | 0 |
+| rat_b | Rat | MEDIUM | 7 | 2 | 1 |
+| ox_a | Ox | MEDIUM | 7 | 1 | 0 |
+| ox_b | Ox | HIGH | 8 | 2 | 2 |
+| tiger_a | Tiger | LOW | 6 | 2 | 0 |
+| tiger_b | Tiger | MEDIUM | 7 | 2 | 1 |
+| rabbit_a | Rabbit | HIGH | 8 | 2 | 0 |
 | rabbit_b | Rabbit | HIGH | 9 | 3 | 3 |
-| dragon_a | Dragon | HIGH | 7 | 1 | 1 |
-| dragon_b | Dragon | HIGH | 6 | 1 | 2 |
-| snake_a | Snake | HIGH | 9 | 1 | 1 |
-| snake_b | Snake | HIGH | 9 | 1 | 2 |
+| dragon_a | Dragon | HIGH | 7 | 1 | 0 |
+| dragon_b | Dragon | HIGH | 6 | 1 | 1 |
+| snake_a | Snake | HIGH | 9 | 1 | 0 |
+| snake_b | Snake | HIGH | 9 | 1 | 1 |
 | horse_a | Horse | MEDIUM | 6 | 1 | 1 |
-| horse_b | Horse | MEDIUM | 5 | 1 | 2 |
+| horse_b | Horse | LOW | 5 | 1 | 1 |
 | goat_a | Goat | LOW | 6 | 1 | 0 |
 | goat_b | Goat | MEDIUM | 6 | 2 | 2 |
 | monkey_a | Monkey | HIGH | 6 | 0 | 0 |
@@ -114,5 +114,5 @@ Across all profiles: 166 net-new zodiac theme slots vs 78 theme collisions with 
 | pig_b | Pig | MEDIUM | 7 | 2 | 2 |
 
 ## Recommendation
-KEEP AND PROMOTE: Zodiac adds measurable fusion and downstream richness (21/24 profiles MEDIUM+ impact) without material tension inflation. Prioritize wiring BaZi zodiac into production Mirror path so live users receive Human Pattern and Narrative gains.
+KEEP AND PROMOTE: Zodiac adds measurable fusion and downstream richness (19/24 profiles MEDIUM+ impact) without material tension inflation. Prioritize wiring BaZi zodiac into production Mirror path so live users receive Human Pattern and Narrative gains.
 

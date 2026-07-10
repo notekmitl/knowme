@@ -27,7 +27,7 @@
     "narrativeParagraphCountAvg": 6.0,
     "narrativeEvidenceCountTotal": 144,
     "narrativeEvidenceCountAvg": 6.0,
-    "narrativeConfidenceAvg": 0.4107993750000001
+    "narrativeConfidenceAvg": 0.41061812500000006
   },
   "aggregateAfter": {
     "themeCountTotal": 382,
@@ -50,11 +50,11 @@
     "humanPatternCountAvg": 4.916666666666667,
     "humanActivationCountTotal": 225,
     "humanActivationCountAvg": 9.375,
-    "narrativeParagraphCountTotal": 177,
-    "narrativeParagraphCountAvg": 7.375,
-    "narrativeEvidenceCountTotal": 205,
-    "narrativeEvidenceCountAvg": 8.541666666666666,
-    "narrativeConfidenceAvg": 0.4691861966765872
+    "narrativeParagraphCountTotal": 165,
+    "narrativeParagraphCountAvg": 6.875,
+    "narrativeEvidenceCountTotal": 188,
+    "narrativeEvidenceCountAvg": 7.833333333333333,
+    "narrativeConfidenceAvg": 0.4694386685681217
   },
   "aggregateDeltas": {
     "themeCountTotal": 166,
@@ -77,23 +77,23 @@
     "humanPatternCountAvg": 1.416666666666667,
     "humanActivationCountTotal": 33,
     "humanActivationCountAvg": 1.375,
-    "narrativeParagraphCountTotal": 33,
-    "narrativeParagraphCountAvg": 1.375,
-    "narrativeEvidenceCountTotal": 61,
-    "narrativeEvidenceCountAvg": 2.541666666666666,
-    "narrativeConfidenceAvg": 0.0583868216765871
+    "narrativeParagraphCountTotal": 21,
+    "narrativeParagraphCountAvg": 0.875,
+    "narrativeEvidenceCountTotal": 44,
+    "narrativeEvidenceCountAvg": 1.833333333333333,
+    "narrativeConfidenceAvg": 0.058820543568121664
   },
   "highValueAnimals": [
     "Rooster (rooster)",
     "Snake (snake)",
-    "Ox (ox)",
-    "Rabbit (rabbit)"
+    "Rabbit (rabbit)",
+    "Ox (ox)"
   ],
   "lowValueAnimals": [
     "Dog (dog)",
+    "Horse (horse)",
     "Monkey (monkey)",
-    "Goat (goat)",
-    "Horse (horse)"
+    "Tiger (tiger)"
   ],
   "themeCollisions": {
     "supportive": 16,
@@ -108,9 +108,9 @@
     "persistent": 4,
     "calm": 2
   },
-  "narrativeImpactSummary": "Of 24 profiles: 19 gained paragraphs with evidence anchors; 0 grew longer without new evidence; 5 unchanged at narrative layer.",
+  "narrativeImpactSummary": "Of 24 profiles: 13 gained paragraphs with evidence anchors; 0 grew longer without new evidence; 11 unchanged at narrative layer.",
   "duplicationAnalysis": "Across all profiles: 166 net-new zodiac theme slots vs 78 theme collisions with BaZi core. Most repeated collisions: supportive (16 profiles), driven (10 profiles), expressive (8 profiles), leadership (8 profiles), independent (6 profiles).",
-  "recommendation": "KEEP AND PROMOTE: Zodiac adds measurable fusion and downstream richness (21/24 profiles MEDIUM+ impact) without material tension inflation. Prioritize wiring BaZi zodiac into production Mirror path so live users receive Human Pattern and Narrative gains.",
+  "recommendation": "KEEP AND PROMOTE: Zodiac adds measurable fusion and downstream richness (19/24 profiles MEDIUM+ impact) without material tension inflation. Prioritize wiring BaZi zodiac into production Mirror path so live users receive Human Pattern and Narrative gains.",
   "profiles": [
     {
       "profileId": "rat_a",
@@ -185,13 +185,13 @@
         "globalBlindSpots": 5,
         "humanPatternCount": 6,
         "humanActivationCount": 10,
-        "narrativeParagraphCount": 8,
-        "narrativeEvidenceCount": 8,
-        "narrativeConfidenceComposite": 0.4595502083333334,
+        "narrativeParagraphCount": 7,
+        "narrativeEvidenceCount": 7,
+        "narrativeConfidenceComposite": 0.4640432142857143,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
-          "decision": 3,
+          "decision": 2,
           "growth": 0
         }
       },
@@ -215,7 +215,7 @@
           "independent",
           "supportive"
         ],
-        "notes": "Net-new zodiac themes: adaptable, analytical, creative, diplomatic, growth_focused, openness, overthinking, structured; Collides with BaZi core themes: driven, independent, supportive; Added 3 tension signal(s) vs core-only arm; Narrative gained 1 paragraph(s) and 1 evidence row(s)"
+        "notes": "Net-new zodiac themes: adaptable, analytical, creative, diplomatic, growth_focused, openness, overthinking, structured; Collides with BaZi core themes: driven, independent, supportive; Added 3 tension signal(s) vs core-only arm; Fusion themes added but downstream narrative unchanged"
       },
       "deltas": {
         "themeCount": 8,
@@ -227,9 +227,9 @@
         "globalBlindSpots": 1,
         "humanPatternCount": 2,
         "humanActivationCount": 1,
-        "narrativeParagraphCount": 1,
-        "narrativeEvidenceCount": 1,
-        "narrativeConfidenceComposite": 0.02037020833333336
+        "narrativeParagraphCount": 0,
+        "narrativeEvidenceCount": 0,
+        "narrativeConfidenceComposite": 0.024863214285714308
       }
     },
     {
@@ -304,13 +304,13 @@
         "globalBlindSpots": 4,
         "humanPatternCount": 5,
         "humanActivationCount": 9,
-        "narrativeParagraphCount": 7,
-        "narrativeEvidenceCount": 7,
-        "narrativeConfidenceComposite": 0.4588777380952381,
+        "narrativeParagraphCount": 6,
+        "narrativeEvidenceCount": 6,
+        "narrativeConfidenceComposite": 0.46391027777777777,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
-          "decision": 2,
+          "decision": 1,
           "growth": 0
         }
       },
@@ -334,7 +334,7 @@
           "independent",
           "supportive"
         ],
-        "notes": "Net-new zodiac themes: adaptable, analytical, creative, diplomatic, openness, overthinking, structured; Collides with BaZi core themes: driven, growth_focused, independent, supportive; Added 4 tension signal(s) vs core-only arm; Narrative gained 2 paragraph(s) and 2 evidence row(s)"
+        "notes": "Net-new zodiac themes: adaptable, analytical, creative, diplomatic, openness, overthinking, structured; Collides with BaZi core themes: driven, growth_focused, independent, supportive; Added 4 tension signal(s) vs core-only arm; Narrative gained 1 paragraph(s) and 1 evidence row(s)"
       },
       "deltas": {
         "themeCount": 7,
@@ -346,9 +346,9 @@
         "globalBlindSpots": 1,
         "humanPatternCount": 2,
         "humanActivationCount": 2,
-        "narrativeParagraphCount": 2,
-        "narrativeEvidenceCount": 2,
-        "narrativeConfidenceComposite": 0.0764589880952381
+        "narrativeParagraphCount": 1,
+        "narrativeEvidenceCount": 1,
+        "narrativeConfidenceComposite": 0.0814915277777778
       }
     },
     {
@@ -384,7 +384,7 @@
         "humanActivationCount": 9,
         "narrativeParagraphCount": 7,
         "narrativeEvidenceCount": 7,
-        "narrativeConfidenceComposite": 0.43918,
+        "narrativeConfidenceComposite": 0.43700500000000003,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
@@ -423,18 +423,18 @@
         "globalBlindSpots": 3,
         "humanPatternCount": 5,
         "humanActivationCount": 10,
-        "narrativeParagraphCount": 8,
-        "narrativeEvidenceCount": 12,
-        "narrativeConfidenceComposite": 0.5187871875000001,
+        "narrativeParagraphCount": 7,
+        "narrativeEvidenceCount": 11,
+        "narrativeConfidenceComposite": 0.5312735714285715,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
-          "decision": 3,
+          "decision": 2,
           "growth": 0
         }
       },
       "qualitative": {
-        "tier": "HIGH",
+        "tier": "MEDIUM",
         "newInformationCount": 7,
         "duplicatedInformationCount": 2,
         "contradictoryInformationCount": 3,
@@ -451,7 +451,7 @@
           "persistent",
           "reliable"
         ],
-        "notes": "Net-new zodiac themes: calm, grounded, impatience, loyal, openness, responsible, structured; Collides with BaZi core themes: persistent, reliable; Added 3 tension signal(s) vs core-only arm; Narrative gained 1 paragraph(s) and 5 evidence row(s)"
+        "notes": "Net-new zodiac themes: calm, grounded, impatience, loyal, openness, responsible, structured; Collides with BaZi core themes: persistent, reliable; Added 3 tension signal(s) vs core-only arm; Fusion themes added but downstream narrative unchanged"
       },
       "deltas": {
         "themeCount": 7,
@@ -463,9 +463,9 @@
         "globalBlindSpots": -1,
         "humanPatternCount": 1,
         "humanActivationCount": 1,
-        "narrativeParagraphCount": 1,
-        "narrativeEvidenceCount": 5,
-        "narrativeConfidenceComposite": 0.07960718750000007
+        "narrativeParagraphCount": 0,
+        "narrativeEvidenceCount": 4,
+        "narrativeConfidenceComposite": 0.09426857142857142
       }
     },
     {
@@ -541,13 +541,13 @@
         "globalBlindSpots": 3,
         "humanPatternCount": 5,
         "humanActivationCount": 10,
-        "narrativeParagraphCount": 8,
-        "narrativeEvidenceCount": 12,
-        "narrativeConfidenceComposite": 0.5155059375000001,
+        "narrativeParagraphCount": 7,
+        "narrativeEvidenceCount": 10,
+        "narrativeConfidenceComposite": 0.5117664285714286,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
-          "decision": 3,
+          "decision": 2,
           "growth": 0
         }
       },
@@ -569,7 +569,7 @@
         "collisionThemeIds": [
           "calm"
         ],
-        "notes": "Net-new zodiac themes: grounded, impatience, loyal, openness, persistent, reliable, responsible, structured; Collides with BaZi core themes: calm; Added 4 tension signal(s) vs core-only arm; Narrative gained 3 paragraph(s) and 7 evidence row(s)"
+        "notes": "Net-new zodiac themes: grounded, impatience, loyal, openness, persistent, reliable, responsible, structured; Collides with BaZi core themes: calm; Added 4 tension signal(s) vs core-only arm; Narrative gained 2 paragraph(s) and 5 evidence row(s)"
       },
       "deltas": {
         "themeCount": 8,
@@ -581,9 +581,9 @@
         "globalBlindSpots": 0,
         "humanPatternCount": 2,
         "humanActivationCount": 3,
-        "narrativeParagraphCount": 3,
-        "narrativeEvidenceCount": 7,
-        "narrativeConfidenceComposite": 0.1330871875000001
+        "narrativeParagraphCount": 2,
+        "narrativeEvidenceCount": 5,
+        "narrativeConfidenceComposite": 0.12934767857142865
       }
     },
     {
@@ -657,18 +657,18 @@
         "globalBlindSpots": 5,
         "humanPatternCount": 6,
         "humanActivationCount": 10,
-        "narrativeParagraphCount": 8,
-        "narrativeEvidenceCount": 8,
-        "narrativeConfidenceComposite": 0.4595502083333334,
+        "narrativeParagraphCount": 7,
+        "narrativeEvidenceCount": 7,
+        "narrativeConfidenceComposite": 0.46214440476190477,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
-          "decision": 3,
+          "decision": 2,
           "growth": 0
         }
       },
       "qualitative": {
-        "tier": "MEDIUM",
+        "tier": "LOW",
         "newInformationCount": 6,
         "duplicatedInformationCount": 6,
         "contradictoryInformationCount": 3,
@@ -688,7 +688,7 @@
           "persistent",
           "supportive"
         ],
-        "notes": "Net-new zodiac themes: flexible, impatience, loyal, overthinking, reflection, rigidity; Collides with BaZi core themes: driven, expressive, independent, leadership, persistent, supportive; Added 3 tension signal(s) vs core-only arm; Narrative gained 1 paragraph(s) and 1 evidence row(s)"
+        "notes": "Net-new zodiac themes: flexible, impatience, loyal, overthinking, reflection, rigidity; Collides with BaZi core themes: driven, expressive, independent, leadership, persistent, supportive; Added 3 tension signal(s) vs core-only arm; Fusion themes added but downstream narrative unchanged"
       },
       "deltas": {
         "themeCount": 6,
@@ -700,9 +700,9 @@
         "globalBlindSpots": 1,
         "humanPatternCount": 2,
         "humanActivationCount": 1,
-        "narrativeParagraphCount": 1,
-        "narrativeEvidenceCount": 1,
-        "narrativeConfidenceComposite": 0.02037020833333336
+        "narrativeParagraphCount": 0,
+        "narrativeEvidenceCount": 0,
+        "narrativeConfidenceComposite": 0.022964404761904755
       }
     },
     {
@@ -777,13 +777,13 @@
         "globalBlindSpots": 4,
         "humanPatternCount": 5,
         "humanActivationCount": 9,
-        "narrativeParagraphCount": 7,
-        "narrativeEvidenceCount": 7,
-        "narrativeConfidenceComposite": 0.4588777380952381,
+        "narrativeParagraphCount": 6,
+        "narrativeEvidenceCount": 6,
+        "narrativeConfidenceComposite": 0.46676999999999996,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
-          "decision": 2,
+          "decision": 1,
           "growth": 0
         }
       },
@@ -808,7 +808,7 @@
           "leadership",
           "supportive"
         ],
-        "notes": "Net-new zodiac themes: flexible, impatience, loyal, overthinking, persistent, reflection, rigidity; Collides with BaZi core themes: driven, expressive, independent, leadership, supportive; Added 4 tension signal(s) vs core-only arm; Narrative gained 2 paragraph(s) and 2 evidence row(s)"
+        "notes": "Net-new zodiac themes: flexible, impatience, loyal, overthinking, persistent, reflection, rigidity; Collides with BaZi core themes: driven, expressive, independent, leadership, supportive; Added 4 tension signal(s) vs core-only arm; Narrative gained 1 paragraph(s) and 1 evidence row(s)"
       },
       "deltas": {
         "themeCount": 7,
@@ -820,9 +820,9 @@
         "globalBlindSpots": 1,
         "humanPatternCount": 2,
         "humanActivationCount": 2,
-        "narrativeParagraphCount": 2,
-        "narrativeEvidenceCount": 2,
-        "narrativeConfidenceComposite": 0.0764589880952381
+        "narrativeParagraphCount": 1,
+        "narrativeEvidenceCount": 1,
+        "narrativeConfidenceComposite": 0.08435124999999999
       }
     },
     {
@@ -898,13 +898,13 @@
         "globalBlindSpots": 5,
         "humanPatternCount": 6,
         "humanActivationCount": 10,
-        "narrativeParagraphCount": 8,
-        "narrativeEvidenceCount": 8,
-        "narrativeConfidenceComposite": 0.4595502083333334,
+        "narrativeParagraphCount": 7,
+        "narrativeEvidenceCount": 7,
+        "narrativeConfidenceComposite": 0.4640432142857143,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
-          "decision": 3,
+          "decision": 2,
           "growth": 0
         }
       },
@@ -929,7 +929,7 @@
           "responsive",
           "supportive"
         ],
-        "notes": "Net-new zodiac themes: analytical, balance, diplomatic, impatience, overthinking, reserved, rigidity, structured; Collides with BaZi core themes: passionate, reliable, responsive, supportive; Added 3 tension signal(s) vs core-only arm; Narrative gained 1 paragraph(s) and 1 evidence row(s)"
+        "notes": "Net-new zodiac themes: analytical, balance, diplomatic, impatience, overthinking, reserved, rigidity, structured; Collides with BaZi core themes: passionate, reliable, responsive, supportive; Added 3 tension signal(s) vs core-only arm; Fusion themes added but downstream narrative unchanged"
       },
       "deltas": {
         "themeCount": 8,
@@ -941,9 +941,9 @@
         "globalBlindSpots": 1,
         "humanPatternCount": 2,
         "humanActivationCount": 1,
-        "narrativeParagraphCount": 1,
-        "narrativeEvidenceCount": 1,
-        "narrativeConfidenceComposite": 0.02037020833333336
+        "narrativeParagraphCount": 0,
+        "narrativeEvidenceCount": 0,
+        "narrativeConfidenceComposite": 0.024863214285714308
       }
     },
     {
@@ -1022,7 +1022,7 @@
         "humanActivationCount": 10,
         "narrativeParagraphCount": 8,
         "narrativeEvidenceCount": 8,
-        "narrativeConfidenceComposite": 0.4595502083333334,
+        "narrativeConfidenceComposite": 0.45788875000000007,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
@@ -1065,7 +1065,7 @@
         "humanActivationCount": 3,
         "narrativeParagraphCount": 3,
         "narrativeEvidenceCount": 3,
-        "narrativeConfidenceComposite": 0.0771314583333334
+        "narrativeConfidenceComposite": 0.07547000000000009
       }
     },
     {
@@ -1140,13 +1140,13 @@
         "globalBlindSpots": 5,
         "humanPatternCount": 5,
         "humanActivationCount": 10,
-        "narrativeParagraphCount": 8,
-        "narrativeEvidenceCount": 8,
-        "narrativeConfidenceComposite": 0.448408125,
+        "narrativeParagraphCount": 7,
+        "narrativeEvidenceCount": 7,
+        "narrativeConfidenceComposite": 0.45439428571428575,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
-          "decision": 3,
+          "decision": 2,
           "growth": 0
         }
       },
@@ -1170,7 +1170,7 @@
           "leadership",
           "supportive"
         ],
-        "notes": "Net-new zodiac themes: analytical, creative, growth_focused, impatience, intuitive, overthinking, rigidity; Collides with BaZi core themes: driven, expressive, leadership, supportive; Narrative gained 1 paragraph(s) and 1 evidence row(s)"
+        "notes": "Net-new zodiac themes: analytical, creative, growth_focused, impatience, intuitive, overthinking, rigidity; Collides with BaZi core themes: driven, expressive, leadership, supportive; Fusion themes added but downstream narrative unchanged"
       },
       "deltas": {
         "themeCount": 7,
@@ -1182,9 +1182,9 @@
         "globalBlindSpots": 1,
         "humanPatternCount": 1,
         "humanActivationCount": 1,
-        "narrativeParagraphCount": 1,
-        "narrativeEvidenceCount": 1,
-        "narrativeConfidenceComposite": 0.009228124999999976
+        "narrativeParagraphCount": 0,
+        "narrativeEvidenceCount": 0,
+        "narrativeConfidenceComposite": 0.015214285714285736
       }
     },
     {
@@ -1258,13 +1258,13 @@
         "globalBlindSpots": 4,
         "humanPatternCount": 4,
         "humanActivationCount": 9,
-        "narrativeParagraphCount": 7,
-        "narrativeEvidenceCount": 7,
-        "narrativeConfidenceComposite": 0.44733,
+        "narrativeParagraphCount": 6,
+        "narrativeEvidenceCount": 6,
+        "narrativeConfidenceComposite": 0.45689666666666673,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
-          "decision": 2,
+          "decision": 1,
           "growth": 0
         }
       },
@@ -1288,7 +1288,7 @@
           "leadership",
           "supportive"
         ],
-        "notes": "Net-new zodiac themes: analytical, creative, impatience, intuitive, overthinking, rigidity; Collides with BaZi core themes: driven, expressive, growth_focused, leadership, supportive; Added 1 tension signal(s) vs core-only arm; Narrative gained 2 paragraph(s) and 2 evidence row(s)"
+        "notes": "Net-new zodiac themes: analytical, creative, impatience, intuitive, overthinking, rigidity; Collides with BaZi core themes: driven, expressive, growth_focused, leadership, supportive; Added 1 tension signal(s) vs core-only arm; Narrative gained 1 paragraph(s) and 1 evidence row(s)"
       },
       "deltas": {
         "themeCount": 6,
@@ -1300,9 +1300,9 @@
         "globalBlindSpots": 1,
         "humanPatternCount": 1,
         "humanActivationCount": 2,
-        "narrativeParagraphCount": 2,
-        "narrativeEvidenceCount": 2,
-        "narrativeConfidenceComposite": 0.06491125000000003
+        "narrativeParagraphCount": 1,
+        "narrativeEvidenceCount": 1,
+        "narrativeConfidenceComposite": 0.07447791666666675
       }
     },
     {
@@ -1338,7 +1338,7 @@
         "humanActivationCount": 9,
         "narrativeParagraphCount": 7,
         "narrativeEvidenceCount": 7,
-        "narrativeConfidenceComposite": 0.43918,
+        "narrativeConfidenceComposite": 0.43700500000000003,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
@@ -1379,13 +1379,13 @@
         "globalBlindSpots": 4,
         "humanPatternCount": 5,
         "humanActivationCount": 10,
-        "narrativeParagraphCount": 8,
-        "narrativeEvidenceCount": 10,
-        "narrativeConfidenceComposite": 0.485931875,
+        "narrativeParagraphCount": 7,
+        "narrativeEvidenceCount": 8,
+        "narrativeConfidenceComposite": 0.4791421428571428,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
-          "decision": 3,
+          "decision": 2,
           "growth": 0
         }
       },
@@ -1408,7 +1408,7 @@
         "collisionThemeIds": [
           "persistent"
         ],
-        "notes": "Net-new zodiac themes: analytical, calm, impatience, loyal, overthinking, reflection, reserved, rigidity, structured; Collides with BaZi core themes: persistent; Added 2 tension signal(s) vs core-only arm; Narrative gained 1 paragraph(s) and 3 evidence row(s)"
+        "notes": "Net-new zodiac themes: analytical, calm, impatience, loyal, overthinking, reflection, reserved, rigidity, structured; Collides with BaZi core themes: persistent; Added 2 tension signal(s) vs core-only arm; Fusion themes added but downstream narrative unchanged"
       },
       "deltas": {
         "themeCount": 9,
@@ -1420,9 +1420,9 @@
         "globalBlindSpots": 0,
         "humanPatternCount": 1,
         "humanActivationCount": 1,
-        "narrativeParagraphCount": 1,
-        "narrativeEvidenceCount": 3,
-        "narrativeConfidenceComposite": 0.046751875
+        "narrativeParagraphCount": 0,
+        "narrativeEvidenceCount": 1,
+        "narrativeConfidenceComposite": 0.04213714285714276
       }
     },
     {
@@ -1499,13 +1499,13 @@
         "globalBlindSpots": 3,
         "humanPatternCount": 4,
         "humanActivationCount": 9,
-        "narrativeParagraphCount": 7,
-        "narrativeEvidenceCount": 9,
-        "narrativeConfidenceComposite": 0.4893367857142857,
+        "narrativeParagraphCount": 6,
+        "narrativeEvidenceCount": 8,
+        "narrativeConfidenceComposite": 0.50312875,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
-          "decision": 2,
+          "decision": 1,
           "growth": 0
         }
       },
@@ -1528,7 +1528,7 @@
         "collisionThemeIds": [
           "calm"
         ],
-        "notes": "Net-new zodiac themes: analytical, impatience, loyal, overthinking, persistent, reflection, reserved, rigidity, structured; Collides with BaZi core themes: calm; Added 3 tension signal(s) vs core-only arm; Narrative gained 2 paragraph(s) and 4 evidence row(s)"
+        "notes": "Net-new zodiac themes: analytical, impatience, loyal, overthinking, persistent, reflection, reserved, rigidity, structured; Collides with BaZi core themes: calm; Added 3 tension signal(s) vs core-only arm; Narrative gained 1 paragraph(s) and 3 evidence row(s)"
       },
       "deltas": {
         "themeCount": 9,
@@ -1540,9 +1540,9 @@
         "globalBlindSpots": 0,
         "humanPatternCount": 1,
         "humanActivationCount": 2,
-        "narrativeParagraphCount": 2,
-        "narrativeEvidenceCount": 4,
-        "narrativeConfidenceComposite": 0.10691803571428571
+        "narrativeParagraphCount": 1,
+        "narrativeEvidenceCount": 3,
+        "narrativeConfidenceComposite": 0.12071000000000004
       }
     },
     {
@@ -1617,8 +1617,8 @@
         "humanPatternCount": 5,
         "humanActivationCount": 10,
         "narrativeParagraphCount": 8,
-        "narrativeEvidenceCount": 10,
-        "narrativeConfidenceComposite": 0.485931875,
+        "narrativeEvidenceCount": 9,
+        "narrativeConfidenceComposite": 0.47083031249999996,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
@@ -1645,7 +1645,7 @@
           "independent",
           "leadership"
         ],
-        "notes": "Net-new zodiac themes: adaptable, creative, flexible, growth_focused, impatience, independent_connection; Collides with BaZi core themes: driven, expressive, independent, leadership; Added 2 tension signal(s) vs core-only arm; Narrative gained 1 paragraph(s) and 3 evidence row(s)"
+        "notes": "Net-new zodiac themes: adaptable, creative, flexible, growth_focused, impatience, independent_connection; Collides with BaZi core themes: driven, expressive, independent, leadership; Added 2 tension signal(s) vs core-only arm; Narrative gained 1 paragraph(s) and 2 evidence row(s)"
       },
       "deltas": {
         "themeCount": 6,
@@ -1658,8 +1658,8 @@
         "humanPatternCount": 1,
         "humanActivationCount": 1,
         "narrativeParagraphCount": 1,
-        "narrativeEvidenceCount": 3,
-        "narrativeConfidenceComposite": 0.046751875
+        "narrativeEvidenceCount": 2,
+        "narrativeConfidenceComposite": 0.031650312499999944
       }
     },
     {
@@ -1732,18 +1732,18 @@
         "globalBlindSpots": 3,
         "humanPatternCount": 4,
         "humanActivationCount": 9,
-        "narrativeParagraphCount": 7,
-        "narrativeEvidenceCount": 9,
-        "narrativeConfidenceComposite": 0.4893367857142857,
+        "narrativeParagraphCount": 6,
+        "narrativeEvidenceCount": 7,
+        "narrativeConfidenceComposite": 0.4847454166666667,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
-          "decision": 2,
+          "decision": 1,
           "growth": 0
         }
       },
       "qualitative": {
-        "tier": "MEDIUM",
+        "tier": "LOW",
         "newInformationCount": 5,
         "duplicatedInformationCount": 5,
         "contradictoryInformationCount": 3,
@@ -1761,7 +1761,7 @@
           "independent",
           "leadership"
         ],
-        "notes": "Net-new zodiac themes: adaptable, creative, flexible, impatience, independent_connection; Collides with BaZi core themes: driven, expressive, growth_focused, independent, leadership; Added 3 tension signal(s) vs core-only arm; Narrative gained 2 paragraph(s) and 4 evidence row(s)"
+        "notes": "Net-new zodiac themes: adaptable, creative, flexible, impatience, independent_connection; Collides with BaZi core themes: driven, expressive, growth_focused, independent, leadership; Added 3 tension signal(s) vs core-only arm; Narrative gained 1 paragraph(s) and 2 evidence row(s)"
       },
       "deltas": {
         "themeCount": 5,
@@ -1773,9 +1773,9 @@
         "globalBlindSpots": 0,
         "humanPatternCount": 1,
         "humanActivationCount": 2,
-        "narrativeParagraphCount": 2,
-        "narrativeEvidenceCount": 4,
-        "narrativeConfidenceComposite": 0.10691803571428571
+        "narrativeParagraphCount": 1,
+        "narrativeEvidenceCount": 2,
+        "narrativeConfidenceComposite": 0.10232666666666673
       }
     },
     {
@@ -1851,7 +1851,7 @@
         "humanActivationCount": 9,
         "narrativeParagraphCount": 7,
         "narrativeEvidenceCount": 7,
-        "narrativeConfidenceComposite": 0.4507277380952381,
+        "narrativeConfidenceComposite": 0.446930119047619,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
@@ -1892,7 +1892,7 @@
         "humanActivationCount": 0,
         "narrativeParagraphCount": 0,
         "narrativeEvidenceCount": 0,
-        "narrativeConfidenceComposite": 0.01154773809523807
+        "narrativeConfidenceComposite": 0.007750119047618964
       }
     },
     {
@@ -1968,7 +1968,7 @@
         "humanActivationCount": 9,
         "narrativeParagraphCount": 7,
         "narrativeEvidenceCount": 7,
-        "narrativeConfidenceComposite": 0.4507277380952381,
+        "narrativeConfidenceComposite": 0.4488289285714286,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
@@ -2009,7 +2009,7 @@
         "humanActivationCount": 2,
         "narrativeParagraphCount": 2,
         "narrativeEvidenceCount": 2,
-        "narrativeConfidenceComposite": 0.06830898809523811
+        "narrativeConfidenceComposite": 0.06641017857142861
       }
     },
     {
@@ -2437,8 +2437,8 @@
         "humanPatternCount": 5,
         "humanActivationCount": 10,
         "narrativeParagraphCount": 8,
-        "narrativeEvidenceCount": 12,
-        "narrativeConfidenceComposite": 0.5155059375000001,
+        "narrativeEvidenceCount": 11,
+        "narrativeConfidenceComposite": 0.500404375,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
@@ -2465,7 +2465,7 @@
         "collisionThemeIds": [
           "leadership"
         ],
-        "notes": "Net-new zodiac themes: analytical, grounded, impatience, loyal, overthinking, reliable, responsible, rigidity, structured; Collides with BaZi core themes: leadership; Added 4 tension signal(s) vs core-only arm; Narrative gained 3 paragraph(s) and 7 evidence row(s)"
+        "notes": "Net-new zodiac themes: analytical, grounded, impatience, loyal, overthinking, reliable, responsible, rigidity, structured; Collides with BaZi core themes: leadership; Added 4 tension signal(s) vs core-only arm; Narrative gained 3 paragraph(s) and 6 evidence row(s)"
       },
       "deltas": {
         "themeCount": 9,
@@ -2478,8 +2478,8 @@
         "humanPatternCount": 2,
         "humanActivationCount": 3,
         "narrativeParagraphCount": 3,
-        "narrativeEvidenceCount": 7,
-        "narrativeConfidenceComposite": 0.1330871875000001
+        "narrativeEvidenceCount": 6,
+        "narrativeConfidenceComposite": 0.11798562500000004
       }
     },
     {
@@ -2553,7 +2553,7 @@
         "humanActivationCount": 9,
         "narrativeParagraphCount": 7,
         "narrativeEvidenceCount": 9,
-        "narrativeConfidenceComposite": 0.4870948809523809,
+        "narrativeConfidenceComposite": 0.4851960714285714,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
@@ -2591,7 +2591,7 @@
         "humanActivationCount": 0,
         "narrativeParagraphCount": 0,
         "narrativeEvidenceCount": 2,
-        "narrativeConfidenceComposite": 0.04791488095238089
+        "narrativeConfidenceComposite": 0.04601607142857139
       }
     },
     {
@@ -2667,7 +2667,7 @@
         "humanActivationCount": 9,
         "narrativeParagraphCount": 7,
         "narrativeEvidenceCount": 9,
-        "narrativeConfidenceComposite": 0.48334488095238093,
+        "narrativeConfidenceComposite": 0.47954726190476193,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
@@ -2705,7 +2705,7 @@
         "humanActivationCount": 2,
         "narrativeParagraphCount": 2,
         "narrativeEvidenceCount": 4,
-        "narrativeConfidenceComposite": 0.10092613095238095
+        "narrativeConfidenceComposite": 0.09712851190476196
       }
     },
     {
@@ -2901,7 +2901,7 @@
         "humanActivationCount": 9,
         "narrativeParagraphCount": 7,
         "narrativeEvidenceCount": 7,
-        "narrativeConfidenceComposite": 0.4488377380952381,
+        "narrativeConfidenceComposite": 0.44693892857142853,
         "narrativeByMode": {
           "identity": 2,
           "relationship": 3,
@@ -2943,7 +2943,7 @@
         "humanActivationCount": 2,
         "narrativeParagraphCount": 2,
         "narrativeEvidenceCount": 2,
-        "narrativeConfidenceComposite": 0.06641898809523811
+        "narrativeConfidenceComposite": 0.06452017857142855
       }
     }
   ]

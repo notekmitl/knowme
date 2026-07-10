@@ -1,5 +1,7 @@
 # Narrative Plan Topology V4
 
+> **HISTORICAL (June 2026).** Step in the V3→V5 narrative-intelligence chain (plan topology). The terminal, current state is [`NARRATIVE_EVIDENCE_BRANCHING_V5.md`](NARRATIVE_EVIDENCE_BRANCHING_V5.md). Index: [`PROJECT_INDEX.md`](PROJECT_INDEX.md).
+
 **Program:** Narrative Plan Topology V4  
 **Authority:** [`docs/KNOWME_MASTER_CONTEXT.md`](KNOWME_MASTER_CONTEXT.md), [`docs/GOVERNANCE.md`](GOVERNANCE.md)  
 **Scope:** Narrative intelligence layer only — no Mirror, GF1, GF2, Human Model, Human Pattern, or copy changes  

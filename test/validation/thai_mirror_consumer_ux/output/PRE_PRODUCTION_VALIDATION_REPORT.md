@@ -1,5 +1,14 @@
 # Thai Astrology Consumer UI — Pre-Production Validation Report
 
+> **Superseded (June 2026):** A mid-June pre-production snapshot of the consumer UI
+> *before* the Life Timeline (V8), evidence-driven narrative composer (V7), and the
+> permanent QA harness. Its open items (shared dashboard fallbacks, single strength
+> card, similar theme pairs, headline collisions, web QA blocked by AuthGate) have
+> since been addressed by later work. Current references:
+> [`docs/EXECUTIVE_SUMMARY.md`](../../../../docs/EXECUTIVE_SUMMARY.md) and
+> [`docs/ASTROLOGY_QA_HARNESS_V1.md`](../../../../docs/ASTROLOGY_QA_HARNESS_V1.md).
+> Retained as a historical validation record.
+
 **Generated:** 2026-06-24  
 **Scope:** Consumer presentation layer only (engine unchanged)  
 **Artifacts:** `test/validation/thai_mirror_consumer_ux/screenshots/` (30 PNGs)  

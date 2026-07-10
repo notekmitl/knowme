@@ -87,7 +87,7 @@ void main() {
       expect(consumer.disclaimers, ThaiMirrorConsumerCopy.consumerDisclaimers);
       expect(consumer.strengths.title, ThaiMirrorConsumerCopy.strengthsSectionTitle);
       expect(consumer.cautions.title, ThaiMirrorConsumerCopy.cautionsSectionTitle);
-      expect(consumer.cautions.cards.length, greaterThanOrEqualTo(1));
+      expect(consumer.cautions.cards.length, 3);
       expect(consumer.lifeDashboard, hasLength(5));
 
       for (final text in _allVisibleStrings(consumer)) {

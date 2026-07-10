@@ -4,7 +4,7 @@ Read-only investigation across **200** synthetic humans. No production systems m
 
 ## Audit A — Pattern Dead Zones
 
-**Never activated:** 20 / 41
+**Never activated:** 19 / 41
 
 | Pattern | Class | Primary Block | Source Rate | Rule Pass |
 |---------|-------|---------------|-------------|-----------|
@@ -20,14 +20,13 @@ Read-only investigation across **200** synthetic humans. No production systems m
 | asymmetric_identity_development | D_structurally_impossible | no_source_pattern | 0.0% | 0.0% |
 | relationship_stabilizer | D_structurally_impossible | no_source_pattern | 0.0% | 0.0% |
 | stable_orientation | D_structurally_impossible | no_source_pattern | 0.0% | 0.0% |
-| reinforced_strength | D_structurally_impossible | no_source_pattern | 0.0% | 0.0% |
+| identity_dual_signal | D_structurally_impossible | no_source_pattern | 0.0% | 0.0% |
 | structured_operator | D_structurally_impossible | no_source_pattern | 0.0% | 0.0% |
-| identity_dual_signal | C_practically_impossible | fusion_finding_type_mismatch | 90.0% | 0.0% |
+| belief_meaning | D_structurally_impossible | no_source_pattern | 0.0% | 0.0% |
 | progressive_builder | D_structurally_impossible | no_source_pattern | 0.0% | 0.0% |
-| internal_conflict_thinker | C_practically_impossible | fusion_finding_type_mismatch | 66.0% | 0.0% |
+| internal_conflict_thinker | D_structurally_impossible | no_source_pattern | 0.0% | 0.0% |
 | adaptive_growth | D_structurally_impossible | no_source_pattern | 0.0% | 0.0% |
 | meaning_seeker | D_structurally_impossible | no_source_pattern | 0.0% | 0.0% |
-| belief_meaning | D_structurally_impossible | no_source_pattern | 0.0% | 0.0% |
 
 ## Audit B — EQ Signal Survival
 
@@ -37,8 +36,8 @@ Read-only investigation across **200** synthetic humans. No production systems m
 | mirror_snapshot | 199 | 100.0% | 0.0% |
 | fusion | 122 | 61.3% | 38.7% |
 | human_model | 122 | 61.3% | 38.7% |
-| human_pattern | 147 | 73.9% | 26.1% |
-| narrative | 139 | 69.8% | 30.2% |
+| human_pattern | 208 | 104.5% | -4.5% |
+| narrative | 195 | 98.0% | 2.0% |
 
 **Primary EQ loss boundary:** mirror_snapshot→fusion
 **Profiles with zero EQ at narrative:** 151/200
@@ -50,18 +49,13 @@ Read-only investigation across **200** synthetic humans. No production systems m
 | mirror | 200 | 100.0% |
 | fusion | 200 | 100.0% |
 | human_model | 200 | 100.0% |
-| human_pattern | 77 | 38.5% |
-| narrative | 82 | 41.0% |
+| human_pattern | 89 | 44.5% |
+| narrative | 199 | 99.5% |
 
 **Primary collapse step:** human_model→human_pattern
-**Collapse zones (≥3 identical):** 22
+**Collapse zones (≥3 identical):** 0
 
 Top collapse zones:
-- Cluster 14: stage=narrative, mirrors=14, patterns=1
-- Cluster 13: stage=narrative, mirrors=13, patterns=1
-- Cluster 9: stage=human_pattern, mirrors=9, patterns=2
-- Cluster 9: stage=human_pattern, mirrors=9, patterns=2
-- Cluster 8: stage=narrative, mirrors=8, patterns=1
 
 ## Audit D — System Dominance
 
@@ -95,22 +89,22 @@ Top collapse zones:
 - eq: 2.5%
 
 ### human_pattern
-- global_fusion: 12.4%
-- big_five: 24.0%
-- thai_astrology: 18.3%
-- knowme_mirror: 20.1%
-- eq: 2.1%
-- mbti: 23.1%
+- global_fusion: 11.0%
+- big_five: 23.9%
+- thai_astrology: 18.6%
+- knowme_mirror: 20.9%
+- eq: 2.6%
+- mbti: 23.0%
 
 ### narrative
-- global_fusion: 11.2%
-- knowme_mirror: 19.7%
-- mbti: 21.4%
-- thai_astrology: 21.8%
-- big_five: 23.3%
-- eq: 2.6%
+- global_fusion: 10.7%
+- thai_astrology: 20.3%
+- knowme_mirror: 20.9%
+- big_five: 23.2%
+- mbti: 21.9%
+- eq: 3.2%
 
-**Narrative survivors:** {global_fusion: 594, knowme_mirror: 1044, mbti: 1137, thai_astrology: 1154, big_five: 1233, eq: 139}
+**Narrative survivors:** {global_fusion: 652, thai_astrology: 1240, knowme_mirror: 1276, big_five: 1417, mbti: 1339, eq: 195}
 
 ## Audit E — Pattern Utilization
 
@@ -120,44 +114,44 @@ Top collapse zones:
 - calm_regulator: 184/200 (92.0%)
 - self_directed_identity: 180/200 (90.0%)
 - responsive_feeler: 166/200 (83.0%)
+- reinforced_strength: 164/200 (82.0%)
 - decisive_actor: 163/200 (81.5%)
 - analytical_thinker: 132/200 (66.0%)
 - ignored_emotional_dimension: 117/200 (58.5%)
 - expressive_identity: 71/200 (35.5%)
-- supportive_connector: 69/200 (34.5%)
 
-**Never activated (20):**
-structured_operator, purpose_driven_motivation, progressive_builder, structured_explorer, adaptive_growth, meaning_seeker, belief_meaning, belief_architect, emotional_depth, resource_oriented_motivation, identity_dual_signal, adaptive_creator, reinforced_strength, stable_orientation, relationship_stabilizer, visible_identity, asymmetric_identity_development, internal_conflict_thinker, reflective_builder, transformation_seeker
+**Never activated (19):**
+purpose_driven_motivation, progressive_builder, structured_explorer, adaptive_growth, meaning_seeker, belief_meaning, belief_architect, emotional_depth, resource_oriented_motivation, identity_dual_signal, adaptive_creator, relationship_stabilizer, stable_orientation, visible_identity, reflective_builder, asymmetric_identity_development, internal_conflict_thinker, structured_operator, transformation_seeker
 
-**Family distribution:** {emotional_style: 350, relationship_style: 255, identity_style: 251, meaning_style: 195, theme_coverage_pattern: 188, decision_style: 180, blind_spot_pattern: 144, thinking_style: 132, growth_edge_pattern: 68, conflict_pattern: 60}
-**Dimension distribution:** {emotion: 467, action: 319, relationship: 282, identity: 251, meaning: 210, thinking: 151, growth: 83, motivation: 60}
+**Family distribution:** {emotional_style: 350, relationship_style: 255, identity_style: 251, growth_edge_pattern: 232, meaning_style: 195, theme_coverage_pattern: 188, decision_style: 180, blind_spot_pattern: 144, thinking_style: 132, conflict_pattern: 60}
+**Dimension distribution:** {emotion: 467, action: 319, relationship: 282, identity: 251, motivation: 224, meaning: 210, thinking: 151, growth: 83}
 
 ## Root Cause Analysis
 
 ### pattern_dead_zones
-20 patterns never activated. Primary block across dead zones: no_source_pattern.
+19 patterns never activated. Primary block across dead zones: no_source_pattern.
 
 ### eq_signal_loss
-EQ survival drops most at mirror_snapshot→fusion. Narrative EQ evidence count: 139.
+EQ survival drops most at mirror_snapshot→fusion. Narrative EQ evidence count: 195.
 
 ### narrative_collapse
-Population compresses from 200 to 82 narratives. Largest compression step: human_model→human_pattern.
+Population compresses from 200 to 199 narratives. Largest compression step: human_model→human_pattern.
 
 ### system_dominance
 knowme_mirror (BaZi/Zodiac) dominates mirror input and persists to narrative. EQ disappears from layers: .
 
 ### pattern_utilization
-Only 21 of 41 patterns ever activate. Top pattern: directional_meaning.
+Only 22 of 41 patterns ever activate. Top pattern: directional_meaning.
 
 ## Evidence-Based Conclusions
 
-- PROVEN: 20/41 registry patterns never fire across 200 synthetic humans.
+- PROVEN: 19/41 registry patterns never fire across 200 synthetic humans.
 - PROVEN: Dead-zone primary failure is "no_source_pattern" — measured via activation forensics on human model snapshots.
-- PROVEN: 18 dead patterns have 0% source-pattern resolution (structurally impossible with current human model output).
-- PROVEN: EQ mirror-input signals = 199; EQ narrative evidence = 139 (69.8% retention). Primary loss boundary: mirror_snapshot→fusion.
+- PROVEN: 19 dead patterns have 0% source-pattern resolution (structurally impossible with current human model output).
+- PROVEN: EQ mirror-input signals = 199; EQ narrative evidence = 195 (98.0% retention). Primary loss boundary: mirror_snapshot→fusion.
 - PROVEN: 151/200 profiles carry zero EQ evidence in final narrative.
-- PROVEN: Narrative diversity = 41.0% — compression occurs primarily at human_model→human_pattern.
-- PROVEN: 22 collapse zones (≥3 identical narratives); 16 zones collapse at narrative layer despite distinct upstream inputs.
+- PROVEN: Narrative diversity = 99.5% — compression occurs primarily at human_model→human_pattern.
+- PROVEN: 0 collapse zones (≥3 identical narratives); 0 zones collapse at narrative layer despite distinct upstream inputs.
 - PROVEN: knowme_mirror share at mirror input = 37.8%; EQ share = 3.4%.
 - PROVEN: Pattern activation rate — top pattern "directional_meaning" fires 195/200 times; bottom activated fires 60/200 times.
 

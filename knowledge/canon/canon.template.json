@@ -1,0 +1,39 @@
+{
+  "$comment": "Template for adding canonical knowledge nodes. Copy a node into canon.knowme.json and edit. RULES: (1) sourceId must exist in canon_sources.json — authority/tier is derived from it. (2) Canon (Tier 1) nodes should carry an evidence quote + page. (3) Supporting nodes that contradict Canon's 'value' are kept but overruled — never override Canon. (4) Never summarize a source away: keep the verbatim quote.",
+  "version": 1,
+  "nodes": [
+    {
+      "id": "example-planet-relationship-venus-saturn",
+      "topic": "planet_relationship",
+      "subject": "venus->saturn",
+      "category": "rule",
+      "statement": "ตัวอย่าง: ศุกร์เป็นมิตรกับเสาร์ ... (อธิบายความหมายตามแหล่งอ้างอิง)",
+      "value": "friend",
+      "sourceId": "mahabhut",
+      "confidence": "high",
+      "status": "draft",
+      "evidence": [
+        { "page": "128", "quote": "<verbatim quote from the source>", "note": "" }
+      ],
+      "references": [],
+      "conditions": ["ใช้เมื่อพิจารณาความสัมพันธ์เชิงทิศทางจากศุกร์ไปเสาร์"],
+      "exceptions": [],
+      "notes": "Replace with a real extracted node. Delete this example before committing real data."
+    },
+    {
+      "id": "example-supporting-detail",
+      "topic": "planet_relationship",
+      "subject": "venus->saturn",
+      "category": "interpretation",
+      "statement": "ตัวอย่างคำอธิบายเสริมจากตำราไทย (ใช้เติมรายละเอียด ไม่ override Canon)",
+      "sourceId": "phrommachat",
+      "confidence": "medium",
+      "status": "draft",
+      "evidence": [{ "page": "—", "quote": "<verbatim quote>" }],
+      "references": ["example-planet-relationship-venus-saturn"],
+      "conditions": [],
+      "exceptions": [],
+      "notes": "Supporting node: elaborates the canon assertion."
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 # KnowMe Governance — Freeze Registry & Programs
 
 **Purpose:** Operational freeze rules, allowed changes, active vs deferred programs.  
-**Canonical entry:** [`CURRENT_STATUS.md`](CURRENT_STATUS.md) summarizes; this file is the full registry.  
+**Canonical entry:** [`CURRENT_STATUS.md`](CURRENT_STATUS.md) summarizes; this file is the policy registry. Per-system freeze detail (status, owner, modification policy, replacement plan) is in [`PROJECT_FREEZE.md`](PROJECT_FREEZE.md). Behavioral rules for AI agents: [`AI_ALIGNMENT_CONTEXT.md`](AI_ALIGNMENT_CONTEXT.md).  
 **Last updated:** June 2026
 
 **Rule before any frozen-system change:** *Does this meaningfully improve user understanding or product value?* If no, move forward.
@@ -48,14 +48,24 @@ Avoid: architecture rewrites, polish loops, copy/spacing churn without product r
 | **Allowed** | Blocker fixes, usability, feedback-driven |
 | **Avoid** | Micro polish loops, architecture changes |
 
-### Thai Astrology V2 Core
+### Thai Astrology V2 Core (engine)
 
 | | |
 |--|--|
 | **Status** | Conditional freeze v0.1.0 — production structural ready |
 | **Spec** | `docs/THAI_MIRROR_SPECIFICATION_V1.md` |
 | **Allowed** | Blocker fixes, usability, analytics |
-| **Avoid** | Houses/aspects UI expansion, architecture rewrite |
+| **Avoid** | Houses/aspects UI expansion, foundation/theme engine rewrite |
+
+### Thai Consumer Report (V3–V8 presentation)
+
+| | |
+|--|--|
+| **Status** | Production deployed — actively maintained presentation layer on top of the frozen engine |
+| **Spec** | `docs/EXECUTIVE_SUMMARY.md`, `docs/ASTROLOGY_QA_HARNESS_V1.md` |
+| **Scope** | Consumer presenter + result page, evidence-driven narrative (V7), Life Timeline + life-period engine (V8), copy composers, QA harness |
+| **Allowed** | Copy quality, narrative diversity, layout/UX, new presentation sections — all gated by screenshot regression + story-coverage CI |
+| **Avoid** | Reaching back into the frozen foundation/theme engines; duplicating the report UI outside the production page |
 
 ### Thai Fusion V2
 
@@ -172,10 +182,10 @@ Avoid: architecture rewrites, polish loops, copy/spacing churn without product r
 - Astrology Fusion redesign
 - Personality Mirror redesign
 - MBTI / EQ expansion beyond maintenance
-- Thai astrology architecture rewrite
+- Thai astrology foundation/theme **engine** rewrite (the consumer report V3–V8 is built additively on top and is delivered)
 - Chinese BaZi architecture rewrite
 - Big Five as primary funnel (MBTI mini is recovery path)
-- Thai Astrology V3 expansion (spec not defined — do not invent scope)
+- Thai lunar dataset expansion beyond verified entries (license-blocked — `docs/THAI_LUNAR_DATASET_ACQUISITION_V1.md`)
 
 ---
 

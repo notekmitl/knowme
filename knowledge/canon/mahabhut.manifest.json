@@ -1,0 +1,14 @@
+{
+  "$comment": "Structural manifest skeleton for the canonical book หลักมหาภูต (ส. หยกฟ้า). Architecture for FUTURE extraction (Canon V1 Task 5) — NO content is extracted yet. When extraction begins, fill in real parts/chapters/sections (with page ranges) and set each section's nodeIds + status. The bibliographic fields should be confirmed against the physical book before relying on them.",
+  "sourceId": "mahabhut",
+  "title": "หลักมหาภูต",
+  "author": "ส. หยกฟ้า",
+  "edition": null,
+  "publisher": null,
+  "year": null,
+  "language": "th",
+  "isbn": null,
+  "extractionStatus": "not_started",
+  "notes": "Bibliographic details (edition/publisher/year/ISBN) are unknown and must be verified from the physical copy before use. Parts/chapters below are an empty skeleton to be populated during extraction.",
+  "parts": []
+}

@@ -26,18 +26,32 @@ class ThaiMirrorLifeDashboardSection extends StatelessWidget {
             Icon(Icons.grid_view_rounded, size: 22, color: scheme.primary),
             const SizedBox(width: 8),
             Expanded(
-              child: Text(
-                ThaiMirrorConsumerCopy.dashboardSectionTitle,
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w700,
-                  color: scheme.onSurface,
-                ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    ThaiMirrorConsumerCopy.dashboardSectionTitle,
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w800,
+                      color: scheme.onSurface,
+                    ),
+                  ),
+                  const SizedBox(height: 2),
+                  Text(
+                    'ภาพรวมแบบเร็ว ก่อนเจาะลึกแต่ละด้านด้านล่าง',
+                    style: TextStyle(
+                      fontSize: 13,
+                      height: 1.4,
+                      color: scheme.onSurfaceVariant,
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
         ),
-        const SizedBox(height: 14),
+        const SizedBox(height: 16),
         if (isMobile)
           Column(
             children: [
@@ -48,35 +62,55 @@ class ThaiMirrorLifeDashboardSection extends StatelessWidget {
             ],
           )
         else
-          Wrap(
-            spacing: 10,
-            runSpacing: 10,
-            children: items.map((item) => SizedBox(
-                  width: 280,
-                  child: _LifeCard(item: item),
-                )).toList(),
+          LayoutBuilder(
+            builder: (context, constraints) {
+              const spacing = 12.0;
+              const columns = 3;
+              final cardWidth =
+                  (constraints.maxWidth - spacing * (columns - 1)) / columns;
+              return Wrap(
+                spacing: spacing,
+                runSpacing: spacing,
+                children: items
+                    .map((item) => SizedBox(
+                          width: cardWidth,
+                          child: _LifeCard(item: item),
+                        ))
+                    .toList(),
+              );
+            },
           ),
         const SizedBox(height: 14),
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Icon(
-              Icons.auto_awesome_rounded,
-              size: 16,
-              color: scheme.primary.withValues(alpha: 0.8),
-            ),
-            const SizedBox(width: 6),
-            Expanded(
-              child: Text(
-                secretTip,
-                style: TextStyle(
-                  fontSize: 13,
-                  height: 1.5,
-                  color: scheme.onSurfaceVariant,
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
+          decoration: BoxDecoration(
+            color: scheme.primaryContainer.withValues(alpha: 0.28),
+            borderRadius: BorderRadius.circular(12),
+            border: Border.all(color: scheme.primary.withValues(alpha: 0.14)),
+          ),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Icon(
+                Icons.auto_awesome_rounded,
+                size: 18,
+                color: scheme.primary,
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  secretTip,
+                  style: TextStyle(
+                    fontSize: 13.5,
+                    height: 1.5,
+                    fontWeight: FontWeight.w500,
+                    color: scheme.onSurface,
+                  ),
                 ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ],
     );
@@ -91,114 +125,67 @@ class _LifeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final accent = item.status.dotColor;
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.all(14),
+      padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
         color: scheme.surface,
-        borderRadius: BorderRadius.circular(14),
-        border: Border.all(color: scheme.outlineVariant.withValues(alpha: 0.45)),
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: scheme.outlineVariant.withValues(alpha: 0.4)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
+              Container(
+                width: 9,
+                height: 9,
+                decoration: BoxDecoration(color: accent, shape: BoxShape.circle),
+              ),
+              const SizedBox(width: 8),
               Expanded(
                 child: Text(
                   item.label,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: 15,
-                    fontWeight: FontWeight.w700,
+                    fontWeight: FontWeight.w800,
                     color: scheme.onSurface,
                   ),
                 ),
               ),
-              Container(
-                width: 8,
-                height: 8,
-                decoration: BoxDecoration(
-                  color: item.status.dotColor,
-                  shape: BoxShape.circle,
-                ),
-              ),
               const SizedBox(width: 6),
-              Text(
-                item.status.labelTh,
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
-                  color: item.status.dotColor,
+              Flexible(
+                child: Text(
+                  item.status.labelTh,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  textAlign: TextAlign.end,
+                  style: TextStyle(
+                    fontSize: 11.5,
+                    fontWeight: FontWeight.w700,
+                    color: accent,
+                  ),
                 ),
               ),
             ],
           ),
           const SizedBox(height: 10),
-          _DashboardRow(
-            label: 'สถานะปัจจุบัน',
-            value: item.currentState,
-            scheme: scheme,
-          ),
-          const SizedBox(height: 8),
-          _DashboardRow(
-            label: 'ทำไมถึงปรากฏ',
-            value: item.whyItAppears,
-            scheme: scheme,
-          ),
-          const SizedBox(height: 8),
-          _DashboardRow(
-            label: 'สิ่งที่ควรทำ',
-            value: item.suggestedAction,
-            scheme: scheme,
-            emphasized: true,
+          Text(
+            item.currentState,
+            style: TextStyle(
+              fontSize: 13.5,
+              height: 1.55,
+              color: scheme.onSurface.withValues(alpha: 0.82),
+            ),
           ),
         ],
       ),
-    );
-  }
-}
-
-class _DashboardRow extends StatelessWidget {
-  const _DashboardRow({
-    required this.label,
-    required this.value,
-    required this.scheme,
-    this.emphasized = false,
-  });
-
-  final String label;
-  final String value;
-  final ColorScheme scheme;
-  final bool emphasized;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          label,
-          style: TextStyle(
-            fontSize: 11.5,
-            fontWeight: FontWeight.w700,
-            letterSpacing: 0.15,
-            color: scheme.primary.withValues(alpha: 0.85),
-          ),
-        ),
-        const SizedBox(height: 2),
-        Text(
-          value,
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
-          style: TextStyle(
-            fontSize: emphasized ? 13 : 12.5,
-            height: 1.45,
-            fontWeight: emphasized ? FontWeight.w600 : FontWeight.w400,
-            color: emphasized ? scheme.onSurface : scheme.onSurfaceVariant,
-          ),
-        ),
-      ],
     );
   }
 }

@@ -1,0 +1,85 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Thai Astrology Canonical Knowledge",
+  "description": "A node carries one piece of Thai-astrology knowledge with full provenance. A node's authority (tier/canonical) is DERIVED from its source in canon_sources.json and must not be self-declared here.",
+  "type": "object",
+  "required": ["version", "nodes"],
+  "properties": {
+    "version": { "type": "integer" },
+    "$comment": { "type": "string" },
+    "nodes": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/node" }
+    }
+  },
+  "definitions": {
+    "node": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "topic", "subject", "category", "statement", "sourceId"],
+      "properties": {
+        "id": { "type": "string", "description": "Unique node id." },
+        "topic": {
+          "type": "string",
+          "description": "Knowledge domain, e.g. planet_relationship, day_meaning, lagna, bhava, planet_meaning, life_period."
+        },
+        "subject": {
+          "type": "string",
+          "description": "The entity, e.g. 'venus->saturn', 'sun', 'monday'."
+        },
+        "category": {
+          "type": "string",
+          "enum": ["rule", "concept", "formula", "meaning", "interpretation", "exception"]
+        },
+        "statement": {
+          "type": "string",
+          "description": "The knowledge text (meaning / interpretation / rule)."
+        },
+        "value": {
+          "type": "string",
+          "description": "Optional normalized assertion for rule-type nodes (e.g. 'friend','enemy','neutral'). Used by conflict resolution; omit for interpretive nodes."
+        },
+        "sourceId": {
+          "type": "string",
+          "description": "Id of a source in canon_sources.json. Tier and canonical flag are derived from it."
+        },
+        "confidence": {
+          "type": "string",
+          "enum": ["none", "low", "medium", "high"]
+        },
+        "status": {
+          "type": "string",
+          "enum": ["draft", "reviewed", "verified", "disputed", "deprecated"]
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "page": { "type": "string" },
+              "quote": { "type": "string", "description": "Verbatim quote — never summarize a source away." },
+              "note": { "type": "string" }
+            }
+          }
+        },
+        "references": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Ids of related nodes or external references."
+        },
+        "conditions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "When this knowledge applies."
+        },
+        "exceptions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "When this knowledge does NOT apply (ยกเว้น)."
+        },
+        "notes": { "type": "string" }
+      }
+    }
+  }
+}

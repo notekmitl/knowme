@@ -1,6 +1,6 @@
-import 'package:knowme/core/profile/birth_profile_format.dart';
 import 'package:knowme/domain/models/profile_model.dart';
 import 'package:knowme/features/astrology/thai/foundation/models/thai_birth_data.dart';
+import 'package:knowme/features/birth_normalization/application/adapters/thai_engine_adapter.dart';
 import 'package:knowme/features/astrology/thai/mirror/models/thai_mirror_result.dart';
 import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_pipeline.dart';
 import 'package:knowme/services/astrology_firestore_service.dart';
@@ -76,35 +76,6 @@ class FirestoreAstrologyFusionLensProbe extends AstrologyFusionLensProbe {
 
   static ThaiBirthData? thaiBirthDataFromProfile(ProfileModel? profile) {
     if (profile == null) return null;
-    if (profile.birthDate.trim().isEmpty) return null;
-
-    final date = BirthProfileFormat.parseStoredDate(profile.birthDate.trim());
-    if (date == null) return null;
-
-    final timeParts = profile.birthTime.split(':');
-    final hour = timeParts.isNotEmpty ? int.tryParse(timeParts[0]) ?? 12 : 12;
-    final minute = timeParts.length > 1 ? int.tryParse(timeParts[1]) ?? 0 : 0;
-    final hasBirthTime = profile.birthTime.trim().isNotEmpty;
-
-    return ThaiBirthData(
-      localDateTime: DateTime(
-        date.year,
-        date.month,
-        date.day,
-        hour,
-        minute,
-      ),
-      timeZoneOffset: _timeZoneOffset(profile.timezone),
-      latitude: profile.latitude,
-      longitude: profile.longitude,
-      hasBirthTime: hasBirthTime,
-    );
-  }
-
-  static Duration _timeZoneOffset(String timezone) {
-    if (timezone.contains('Bangkok') || timezone == 'Asia/Bangkok') {
-      return const Duration(hours: 7);
-    }
-    return const Duration(hours: 7);
+    return ThaiEngineAdapter.fromProfileMap(profile.toMap());
   }
 }

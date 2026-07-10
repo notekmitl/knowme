@@ -45,13 +45,16 @@ abstract final class ThaiMirrorProfileEnrichment {
       return profile;
     }
 
-    final thaiWeekday = _thaiWeekdayNumber(birthData.localDateTime);
+    // Consistency: derive everything from the sunrise-adjusted astrological date
+    // (the single Thai day), never the civil date — see ThaiBirthData.
+    final thaiWeekday = birthData.thaiWeekdayNumber;
+    final astrological = birthData.astrologicalDate;
     final myanmarKeys = _interimMyanmarKeys(
       weekday: thaiWeekday,
-      local: birthData.localDateTime,
+      local: astrological,
     );
     final mahabhutaKeys = _interimMahabhutaKeys(
-      local: birthData.localDateTime,
+      local: astrological,
       weekday: thaiWeekday,
     );
 
@@ -131,9 +134,5 @@ abstract final class ThaiMirrorProfileEnrichment {
   static bool _hasMyanmarOrMahabhuta(ThaiAstrologyProfile profile) {
     return profile.myanmarKeys.isNotEmpty ||
         profile.mahabhutaPositionKeys.isNotEmpty;
-  }
-
-  static int _thaiWeekdayNumber(DateTime local) {
-    return local.weekday == DateTime.sunday ? 1 : local.weekday + 1;
   }
 }

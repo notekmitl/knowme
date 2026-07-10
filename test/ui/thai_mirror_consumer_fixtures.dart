@@ -103,6 +103,44 @@ ThaiMirrorConsumerViewState sampleConsumerViewState({
         status: ThaiMirrorLifeStatus.veryGood,
       ),
     ],
+    narrativeSections: const [
+      ThaiMirrorNarrativeSectionState(
+        label: 'ชีวิตด้านการงาน',
+        icon: Icons.work_outline_rounded,
+        accent: Color(0xFF3D5AFE),
+        pullQuote: 'คุณทำงานได้ดีที่สุด เมื่อได้เป็นตัวเอง',
+        overview: 'หลายคนที่มีดวงแบบคุณมักทำงานได้ดีเมื่อได้ใช้จุดเด่นของตัวเอง',
+        tension: 'คุณอยากทำให้ดีที่สุด แต่ก็กลัวว่าจะออกมาไม่สมบูรณ์อย่างที่หวัง',
+        whyItAppears: 'สิ่งนี้สะท้อนจากแนวโน้มที่ปรากฏเด่นในดวงของคุณ',
+        advice: 'เลือกงานที่ให้คุณได้ใช้จุดแข็งเต็มที่',
+        example: 'เช่น เวลาทีมเจอทางตัน คุณมักเป็นคนที่หาทางออกได้',
+      ),
+    ],
+    signatureInsight: const ThaiMirrorSignatureInsightState(
+      eyebrow: 'ถ้าจะเข้าใจคุณ แค่เรื่องเดียว',
+      body: 'ถ้าตัดทุกอย่างออกไป แล้วเหลือไว้แค่สิ่งเดียวที่เป็นคุณจริง ๆ '
+          'มันคือการที่คุณมองหลาย ๆ ด้านให้รอบก่อนจะลงมือ\n\n'
+          'แต่พอเป็นเรื่องของคนที่คุณรัก คุณกลับตัดสินใจด้วยใจเร็วกว่าที่ตั้งใจ\n\n'
+          'สิ่งที่คุณกำลังเรียนรู้คือ การเชื่อสัญชาตญาณของตัวเองให้มากขึ้นอีกนิด',
+      signature: 'การที่คุณคิดเยอะ ไม่ใช่เพราะลังเล แต่เพราะคุณแคร์ผลลัพธ์',
+    ),
+    reflectionSummary: const ThaiMirrorReflectionSummaryState(
+      title: 'ถ้ามีคนถามว่า “คุณเป็นคนแบบไหน”',
+      intro: 'ดวงไทยจะตอบประมาณนี้',
+      points: [
+        'คนที่ดูแลหน้าที่อย่างเต็มที่',
+        'คนที่คิดรอบคอบก่อนตัดสินใจ',
+        'คนที่ซื่อสัตย์ต่อคนที่ไว้ใจ',
+        'คนที่เรียนรู้เร็วเมื่อสนใจจริง',
+        'คนที่มองหาความมั่นคงในระยะยาว',
+      ],
+    ),
+    closingMessage: const ThaiMirrorClosingMessageState(
+      eyebrow: 'สิ่งที่ดวงไทยอยากบอกคุณ',
+      message: 'คุณมีบางอย่างที่เป็นของคุณเองอยู่แล้ว\n'
+          'ลองให้พื้นที่กับด้านนั้นของตัวเอง',
+      signature: 'จากดวงไทยของคุณ',
+    ),
     sourceTransparency: const ThaiMirrorSourceTransparencyState(
       dataUsed: 'ใช้วัน เดือน ปีเกิด เวลาเกิด และจังหวัดที่เกิดจากโปรไฟล์ของคุณ',
       calculation:

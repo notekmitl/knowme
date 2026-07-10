@@ -60,7 +60,7 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text('แหล่งที่มาของผลลัพธ์'), findsOneWidget);
+      expect(find.text('หลักการวิเคราะห์'), findsOneWidget);
       expect(find.text(ThaiMirrorConsumerCopy.cautionsSectionTitle), findsOneWidget);
     });
 
@@ -92,6 +92,10 @@ void main() {
               body: longAdvice,
             ),
             lifeDashboard: sampleConsumerViewState().lifeDashboard,
+            narrativeSections: sampleConsumerViewState().narrativeSections,
+            signatureInsight: sampleConsumerViewState().signatureInsight,
+            reflectionSummary: sampleConsumerViewState().reflectionSummary,
+            closingMessage: sampleConsumerViewState().closingMessage,
             sourceTransparency: sampleConsumerViewState().sourceTransparency,
             birthDataConfidence: sampleConsumerViewState().birthDataConfidence,
             secretTip: sampleConsumerViewState().secretTip,

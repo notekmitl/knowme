@@ -1,5 +1,7 @@
 # GF2 Final Implementation Decision
 
+> **SUPERSEDED (June 2026).** Records a pre-isolation "reject GF2" recommendation. Overturned by [`GF2_ROOT_CAUSE_ISOLATION_REPORT.md`](GF2_ROOT_CAUSE_ISOLATION_REPORT.md) and superseded by [`GF2_PRODUCTION_IMPLEMENTATION_V1.md`](GF2_PRODUCTION_IMPLEMENTATION_V1.md) (GF2 shipped). Index: [`PROJECT_INDEX.md`](PROJECT_INDEX.md).
+
 **Program:** GF2 Pre-Implementation Calibration  
 **Authority:** [`docs/KNOWME_MASTER_CONTEXT.md`](KNOWME_MASTER_CONTEXT.md), [`docs/GOVERNANCE.md`](GOVERNANCE.md)  
 **Generated:** 2026-06-21  

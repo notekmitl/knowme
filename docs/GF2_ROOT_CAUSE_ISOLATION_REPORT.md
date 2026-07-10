@@ -1,5 +1,7 @@
 # GF2 Root Cause Isolation Report
 
+> **HISTORICAL (June 2026).** The pivotal investigation that re-attributed the `stable_orientation` failure to the Human Pattern layer (fixed in [`HUMAN_PATTERN_ACTIVATION_RECOVERY_V2.md`](HUMAN_PATTERN_ACTIVATION_RECOVERY_V2.md)), clearing GF2 to ship ([`GF2_PRODUCTION_IMPLEMENTATION_V1.md`](GF2_PRODUCTION_IMPLEMENTATION_V1.md)). Index: [`PROJECT_INDEX.md`](PROJECT_INDEX.md).
+
 **Program:** GF2 Root Cause Isolation  
 **Authority:** [`docs/KNOWME_MASTER_CONTEXT.md`](KNOWME_MASTER_CONTEXT.md), [`docs/GOVERNANCE.md`](GOVERNANCE.md)  
 **Generated:** 2026-06-21  

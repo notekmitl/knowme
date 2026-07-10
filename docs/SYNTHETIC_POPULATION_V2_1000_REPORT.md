@@ -1,5 +1,7 @@
 # Synthetic Population V2 — 1000 Human Validation Report
 
+> **HISTORICAL (June 2026).** Documents the narrative-collapse problem state *before* the GF2 + Narrative V1–V5 fixes. Current narrative state: [`NARRATIVE_EVIDENCE_BRANCHING_V5.md`](NARRATIVE_EVIDENCE_BRANCHING_V5.md). Index: [`PROJECT_INDEX.md`](PROJECT_INDEX.md).
+
 **Program:** Synthetic Population Validation V2
 **Population:** 1000 synthetic humans (250 archetypes × 4 variants)
 **Scope:** Validation only — no production modifications

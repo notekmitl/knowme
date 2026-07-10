@@ -103,6 +103,68 @@ class MirrorDecision {
   final MirrorClarity clarity;
 }
 
+/// Phase C — one of the Daily Mirror's three key messages.
+///
+/// Deliberately framed as life guidance (an opening, a caution, a focus) — never
+/// as an engine output. The underlying area is kept for the expandable evidence.
+class MirrorDailyMessage {
+  const MirrorDailyMessage({
+    required this.label,
+    required this.title,
+    required this.tone,
+    required this.body,
+    this.area,
+  });
+
+  /// The warm header ("Today's opening", "Go gently with", "Worth your focus").
+  final String label;
+
+  /// The plain-language subject (life area title, or a gentle fallback).
+  final String title;
+  final MirrorTone tone;
+  final String body;
+
+  /// The underlying life area, if any (evidence/expandable only).
+  final MirrorLifeArea? area;
+}
+
+/// Phase C — the single suggested step on the Daily Mirror.
+class MirrorDailyAction {
+  const MirrorDailyAction({required this.label, required this.body});
+
+  final String label;
+  final String body;
+}
+
+/// Phase C — today's read: three key messages, one action, one ask entry.
+///
+/// This is the Home emotional entry. Prediction / Decision / Timeline never
+/// appear as concepts; the user experiences opportunity, caution, focus and a
+/// small step — with the numbers behind an expandable "what this is based on".
+class MirrorDaily {
+  const MirrorDaily({
+    required this.dateLabel,
+    required this.greeting,
+    required this.opportunity,
+    required this.caution,
+    required this.focus,
+    required this.action,
+    required this.clarity,
+    required this.evidenceAreas,
+  });
+
+  final String dateLabel;
+  final String greeting;
+  final MirrorDailyMessage opportunity;
+  final MirrorDailyMessage caution;
+  final MirrorDailyMessage focus;
+  final MirrorDailyAction action;
+  final MirrorClarity clarity;
+
+  /// Distinct areas behind today's read, for the expandable evidence tile.
+  final List<MirrorLifeArea> evidenceAreas;
+}
+
 /// The closing reflection.
 class MirrorReflectionData {
   const MirrorReflectionData({

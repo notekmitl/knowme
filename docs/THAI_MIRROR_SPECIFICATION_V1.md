@@ -1,5 +1,14 @@
 # Thai Mirror Specification V1
 
+> **Evolution note (June 2026):** This V1 spec defines the original *nine-section
+> fusion mirror* domain contract and remains accurate for the deterministic
+> **engine/assembler** layer. The user-facing product has since evolved into the
+> **Thai Consumer Report (V3–V8)** with a different information architecture
+> (hero → strengths/cautions → advice → life dashboard → **Life Timeline**) and an
+> evidence-driven narrative layer. For the current shipped architecture, read
+> [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md). This document is retained as the
+> domain/contract reference.
+
 **Status:** Specification complete — domain models only, no UI / assembler / narrative impl  
 **Date:** 2026-06-08  
 **Contract version:** `v1`

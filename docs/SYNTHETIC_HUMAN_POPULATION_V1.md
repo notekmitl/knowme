@@ -16,8 +16,8 @@ Validation-only stress test across **200** synthetic humans (50 archetypes × 4 
 |-------|-----------------|-----------------|
 | Mirror | 200 | 100.0% |
 | Fusion | 200 | 100.0% |
-| Pattern sets | 77 | 38.5% |
-| Narratives | 82 | 41.0% |
+| Pattern sets | 89 | 44.5% |
+| Narratives | 199 | 99.5% |
 
 ## Dominant Systems Audit
 
@@ -35,14 +35,14 @@ Validation-only stress test across **200** synthetic humans (50 archetypes × 4 
 
 ## Narrative Duplication Analysis
 
-- Unique narratives: 82
-- Duplication rate: 77.5%
-- Max cluster size: 14
-- Collapse zones (≥3 identical): 22
+- Unique narratives: 199
+- Duplication rate: 1.0%
+- Max cluster size: 2
+- Collapse zones (≥3 identical): 0
 
 ## Dead Zone Analysis
 
-### Pattern dead zones (20)
+### Pattern dead zones (19)
 
 - adaptive_creator
 - adaptive_growth
@@ -56,7 +56,6 @@ Validation-only stress test across **200** synthetic humans (50 archetypes × 4 
 - progressive_builder
 - purpose_driven_motivation
 - reflective_builder
-- reinforced_strength
 - relationship_stabilizer
 - resource_oriented_motivation
 - stable_orientation
@@ -74,8 +73,8 @@ Validation-only stress test across **200** synthetic humans (50 archetypes × 4 
 ## Pattern Distribution
 
 - Registry patterns: 41
-- Ever activated: 21
-- Never activated: 20
+- Ever activated: 22
+- Never activated: 19
 
 Top activated patterns:
 
@@ -84,19 +83,17 @@ Top activated patterns:
 - calm_regulator: 184
 - self_directed_identity: 180
 - responsive_feeler: 166
+- reinforced_strength: 164
 - decisive_actor: 163
 - analytical_thinker: 132
 - ignored_emotional_dimension: 117
 - expressive_identity: 71
-- supportive_connector: 69
 
 ## Recommendations
 
 - Dominant mirror contributors: bazi_zodiac, big_five — review whether downstream fusion/pattern layers over-index these signals.
 - Weak mirror contributors: eq — validate mapping coverage or increase theme differentiation.
-- Narrative diversity ratio 0.41 indicates narrative collapse risk across realistic humans.
-- 22 narrative collapse zones detected (clusters of ≥3 identical narratives).
-- 20 human patterns never activated across 200 profiles.
+- 19 human patterns never activated across 200 profiles.
 - 3 mirror keys present in inputs but never surfaced in fusion findings.
 
 ---

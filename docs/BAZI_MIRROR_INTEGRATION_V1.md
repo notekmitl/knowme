@@ -1,6 +1,6 @@
 # BaZi Mirror Integration V1
 
-Generated: 2026-06-21T06:23:13.841654Z
+Generated: 2026-06-28T06:34:30.934919Z
 
 ## Integration Flow
 ```
@@ -20,8 +20,8 @@ GlobalFusionFoundation → HumanModel → HumanPattern → NarrativeRuntime
 | Mirror findings (astro+personality) | 36 | 46 | 10 |
 | Global fusion findings | 4 | 13 | 9 |
 | Human patterns | 6 | 11 | 5 |
-| Activated patterns | 15 | 18 | 3 |
-| Narrative paragraphs | 11 | 11 | 0 |
+| Activated patterns | 15 | 19 | 4 |
+| Narrative paragraphs | 11 | 12 | 1 |
 
 ## Signal Audit
 - Net-new BaZi signals: 8

@@ -1,5 +1,7 @@
 # Thai Lunar Dataset Acquisition & Integration Plan V1
 
+> **HISTORICAL (active plan, June 2026).** The plan of record to license/import a full Thai lunar dataset. Still license-blocked, so it remains a future roadmap item rather than completed work. Index: [`PROJECT_INDEX.md`](PROJECT_INDEX.md).
+
 **Date:** June 2026  
 **Type:** Research + Architecture Plan (No Dataset Population)  
 **Prerequisite:** `THAI_LUNAR_CALENDAR_INFRASTRUCTURE_V1.md`  

@@ -48,6 +48,18 @@ enum ProductEventType {
 
   /// The journey was restarted from Reflection.
   journeyRestarted,
+
+  /// Phase C — the Daily Mirror surface opened on Home (today's read shown).
+  dailyMirrorOpened,
+
+  /// Phase C — the one suggested action on the Daily Mirror was tapped.
+  dailyActionClicked,
+
+  /// Phase C — the Daily Mirror conversation entry was tapped (ask started).
+  dailyConversationStarted,
+
+  /// Phase D — the daily reflection step was completed (loop closed).
+  dailyReflectionSaved,
 }
 
 /// One recorded product moment.

@@ -1,10 +1,10 @@
 {
   "version": "human_pattern_activation_audit_v1",
-  "generatedAt": "2026-06-21T06:45:07.038243Z",
+  "generatedAt": "2026-06-28T06:34:37.153460Z",
   "populationSize": 200,
   "auditA_patternDeadZones": {
     "populationSize": 200,
-    "neverActivatedCount": 20,
+    "neverActivatedCount": 19,
     "entries": [
       {
         "patternId": "transformation_seeker",
@@ -475,26 +475,26 @@
         ]
       },
       {
-        "patternId": "reinforced_strength",
-        "label": "Reinforced Strength",
-        "patternFamilyId": "growth_edge_pattern",
-        "dimension": "motivation",
+        "patternId": "identity_dual_signal",
+        "label": "Identity Dual Signal",
+        "patternFamilyId": "conflict_pattern",
+        "dimension": "identity",
         "activationCount": 0,
         "activationRule": {
-          "ruleId": "growth_edge_reinforced_strength",
-          "minPatternStrength": 0.2,
+          "ruleId": "conflict_identity_dual",
+          "minPatternStrength": 0.35,
           "minDimensionActivation": 0.1,
           "sourceHumanPatternKey": null,
-          "requiredMirrorKey": null,
+          "requiredMirrorKey": "MIRROR_SELF_IDENTITY",
           "requiredDimensionKey": null,
-          "requiredFusionFindingType": "reinforcement"
+          "requiredFusionFindingType": "tension"
         },
         "requiredInputs": {
           "sourceHumanPatternKey": null,
-          "requiredMirrorKey": null,
+          "requiredMirrorKey": "MIRROR_SELF_IDENTITY",
           "requiredDimensionKey": null,
-          "requiredFusionFindingType": "reinforcement",
-          "minPatternStrength": 0.2,
+          "requiredFusionFindingType": "tension",
+          "minPatternStrength": 0.35,
           "minDimensionActivation": 0.1
         },
         "deadZoneClass": "D_structurally_impossible",
@@ -553,36 +553,34 @@
         ]
       },
       {
-        "patternId": "identity_dual_signal",
-        "label": "Identity Dual Signal",
-        "patternFamilyId": "conflict_pattern",
-        "dimension": "identity",
+        "patternId": "belief_meaning",
+        "label": "Belief Meaning",
+        "patternFamilyId": "meaning_style",
+        "dimension": "meaning",
         "activationCount": 0,
         "activationRule": {
-          "ruleId": "conflict_identity_dual",
-          "minPatternStrength": 0.35,
-          "minDimensionActivation": 0.1,
+          "ruleId": "meaning_belief",
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2,
           "sourceHumanPatternKey": null,
-          "requiredMirrorKey": "MIRROR_SELF_IDENTITY",
-          "requiredDimensionKey": null,
-          "requiredFusionFindingType": "tension"
+          "requiredMirrorKey": "MIRROR_BELIEF_STRUCTURE",
+          "requiredDimensionKey": "meaning",
+          "requiredFusionFindingType": null
         },
         "requiredInputs": {
           "sourceHumanPatternKey": null,
-          "requiredMirrorKey": "MIRROR_SELF_IDENTITY",
-          "requiredDimensionKey": null,
-          "requiredFusionFindingType": "tension",
-          "minPatternStrength": 0.35,
-          "minDimensionActivation": 0.1
+          "requiredMirrorKey": "MIRROR_BELIEF_STRUCTURE",
+          "requiredDimensionKey": "meaning",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2
         },
-        "deadZoneClass": "C_practically_impossible",
-        "primaryBlockReason": "fusion_finding_type_mismatch",
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
         "outcomeDistribution": {
-          "fusion_finding_type_mismatch": 179,
-          "no_source_pattern": 20,
-          "pattern_strength_below_min": 1
+          "no_source_pattern": 200
         },
-        "sourceResolutionRate": 0.9,
+        "sourceResolutionRate": 0.0,
         "rulePassRate": 0.0,
         "theoreticallyPossible": false,
         "sampleBlockingProfiles": [
@@ -655,13 +653,12 @@
           "minPatternStrength": 0.35,
           "minDimensionActivation": 0.1
         },
-        "deadZoneClass": "C_practically_impossible",
-        "primaryBlockReason": "fusion_finding_type_mismatch",
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
         "outcomeDistribution": {
-          "fusion_finding_type_mismatch": 132,
-          "no_source_pattern": 68
+          "no_source_pattern": 200
         },
-        "sourceResolutionRate": 0.66,
+        "sourceResolutionRate": 0.0,
         "rulePassRate": 0.0,
         "theoreticallyPossible": false,
         "sampleBlockingProfiles": [
@@ -729,45 +726,6 @@
         "requiredInputs": {
           "sourceHumanPatternKey": null,
           "requiredMirrorKey": "MIRROR_LIFE_DIRECTION",
-          "requiredDimensionKey": "meaning",
-          "requiredFusionFindingType": null,
-          "minPatternStrength": 0.25,
-          "minDimensionActivation": 0.2
-        },
-        "deadZoneClass": "D_structurally_impossible",
-        "primaryBlockReason": "no_source_pattern",
-        "outcomeDistribution": {
-          "no_source_pattern": 200
-        },
-        "sourceResolutionRate": 0.0,
-        "rulePassRate": 0.0,
-        "theoreticallyPossible": false,
-        "sampleBlockingProfiles": [
-          "architect_varianta",
-          "architect_variantb",
-          "architect_variantc",
-          "architect_variantd",
-          "builder_varianta"
-        ]
-      },
-      {
-        "patternId": "belief_meaning",
-        "label": "Belief Meaning",
-        "patternFamilyId": "meaning_style",
-        "dimension": "meaning",
-        "activationCount": 0,
-        "activationRule": {
-          "ruleId": "meaning_belief",
-          "minPatternStrength": 0.25,
-          "minDimensionActivation": 0.2,
-          "sourceHumanPatternKey": null,
-          "requiredMirrorKey": "MIRROR_BELIEF_STRUCTURE",
-          "requiredDimensionKey": "meaning",
-          "requiredFusionFindingType": null
-        },
-        "requiredInputs": {
-          "sourceHumanPatternKey": null,
-          "requiredMirrorKey": "MIRROR_BELIEF_STRUCTURE",
           "requiredDimensionKey": "meaning",
           "requiredFusionFindingType": null,
           "minPatternStrength": 0.25,
@@ -1335,14 +1293,13 @@
           "minDimensionActivation": 0.1
         },
         "deadZoneClass": "A_active_but_rare",
-        "primaryBlockReason": "fusion_finding_type_mismatch",
+        "primaryBlockReason": "no_source_pattern",
         "outcomeDistribution": {
           "activated": 117,
-          "fusion_finding_type_mismatch": 49,
-          "no_source_pattern": 34
+          "no_source_pattern": 83
         },
-        "sourceResolutionRate": 0.83,
-        "rulePassRate": 0.7048192771084337,
+        "sourceResolutionRate": 0.585,
+        "rulePassRate": 1.0,
         "theoreticallyPossible": true,
         "sampleBlockingProfiles": [
           "architect_variantb",
@@ -1430,6 +1387,46 @@
           "entrepreneur_variantb",
           "entrepreneur_variantc",
           "entrepreneur_variantd"
+        ]
+      },
+      {
+        "patternId": "reinforced_strength",
+        "label": "Reinforced Strength",
+        "patternFamilyId": "growth_edge_pattern",
+        "dimension": "motivation",
+        "activationCount": 164,
+        "activationRule": {
+          "ruleId": "growth_edge_reinforced_strength",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.1,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "reinforcement"
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "reinforcement",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.1
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 36,
+          "activated": 164
+        },
+        "sourceResolutionRate": 0.82,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "teacher_varianta",
+          "teacher_variantd",
+          "leader_variantb",
+          "leader_variantc"
         ]
       },
       {
@@ -1641,24 +1638,24 @@
       "mirror_snapshot": 199,
       "fusion": 122,
       "human_model": 122,
-      "human_pattern": 147,
-      "narrative": 139
+      "human_pattern": 208,
+      "narrative": 195
     },
     "eqSurvivalRates": {
       "mirror_input": 1.0,
       "mirror_snapshot": 1.0,
       "fusion": 0.6130653266331658,
       "human_model": 0.6130653266331658,
-      "human_pattern": 0.7386934673366834,
-      "narrative": 0.6984924623115578
+      "human_pattern": 1.0452261306532664,
+      "narrative": 0.9798994974874372
     },
     "eqLossRates": {
       "mirror_input": 0.0,
       "mirror_snapshot": 0.0,
       "fusion": 0.3869346733668342,
       "human_model": 0.3869346733668342,
-      "human_pattern": 0.2613065326633166,
-      "narrative": 0.3015075376884422
+      "human_pattern": -0.045226130653266416,
+      "narrative": 0.02010050251256279
     },
     "referenceSystemLayers": {
       "mirror_input": {
@@ -1692,19 +1689,19 @@
       },
       "human_pattern": {
         "global_fusion": 878,
-        "big_five": 1694,
-        "thai_astrology": 1294,
-        "knowme_mirror": 1420,
-        "eq": 147,
-        "mbti": 1632
+        "big_five": 1902,
+        "thai_astrology": 1484,
+        "knowme_mirror": 1666,
+        "eq": 208,
+        "mbti": 1834
       },
       "narrative": {
-        "global_fusion": 594,
-        "knowme_mirror": 1044,
-        "mbti": 1137,
-        "thai_astrology": 1154,
-        "big_five": 1233,
-        "eq": 139
+        "global_fusion": 652,
+        "thai_astrology": 1240,
+        "knowme_mirror": 1276,
+        "big_five": 1417,
+        "mbti": 1339,
+        "eq": 195
       }
     },
     "primaryEqLossLayer": "mirror_snapshot→fusion",
@@ -1716,409 +1713,19 @@
       "mirror": 200,
       "fusion": 200,
       "human_model": 200,
-      "human_pattern": 77,
-      "narrative": 82
+      "human_pattern": 89,
+      "narrative": 199
     },
     "layerCompressionRatios": {
       "mirror": 1.0,
       "fusion": 1.0,
       "human_model": 1.0,
-      "human_pattern": 0.385,
-      "narrative": 0.41
+      "human_pattern": 0.445,
+      "narrative": 0.995
     },
-    "collapseZoneCount": 22,
+    "collapseZoneCount": 0,
     "primaryCollapseStage": "human_model→human_pattern",
-    "collapseZones": [
-      {
-        "clusterSize": 14,
-        "profileIds": [
-          "analyst_variantd",
-          "catalyst_varianta",
-          "catalyst_variantc",
-          "creator_variantd",
-          "empath_variantd",
-          "healer_variantd",
-          "investigator_variantc",
-          "observer_variantc",
-          "sage_variantd",
-          "scholar_variantd",
-          "sentinel_variantb",
-          "specialist_variantb",
-          "specialist_variantc",
-          "visionary_varianta"
-        ],
-        "uniqueMirrorFingerprints": 14,
-        "uniqueFusionFingerprints": 14,
-        "uniqueHumanModelHashes": 14,
-        "uniquePatternSets": 1,
-        "collapseStage": "narrative",
-        "compressionRatio": 0.07142857142857142,
-        "narrativeFingerprintSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีลักษณะเด่นในแบบdirectional meaning — ต..."
-      },
-      {
-        "clusterSize": 13,
-        "profileIds": [
-          "creator_variantb",
-          "creator_variantc",
-          "dreamer_varianta",
-          "dreamer_variantd",
-          "empath_varianta",
-          "healer_varianta",
-          "healer_variantb",
-          "healer_variantc",
-          "idealist_varianta",
-          "peacemaker_varianta",
-          "peacemaker_variantb",
-          "peacemaker_variantc",
-          "steward_variantd"
-        ],
-        "uniqueMirrorFingerprints": 13,
-        "uniqueFusionFingerprints": 13,
-        "uniqueHumanModelHashes": 13,
-        "uniquePatternSets": 1,
-        "collapseStage": "narrative",
-        "compressionRatio": 0.07692307692307693,
-        "narrativeFingerprintSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีลักษณะเด่นในแบบdirectional meaning — ต..."
-      },
-      {
-        "clusterSize": 9,
-        "profileIds": [
-          "architect_variantb",
-          "architect_variantc",
-          "dreamer_variantc",
-          "empath_variantc",
-          "idealist_variantc",
-          "investigator_variantd",
-          "mediator_variantb",
-          "pioneer_variantc",
-          "scholar_variantb"
-        ],
-        "uniqueMirrorFingerprints": 9,
-        "uniqueFusionFingerprints": 9,
-        "uniqueHumanModelHashes": 9,
-        "uniquePatternSets": 2,
-        "collapseStage": "human_pattern",
-        "compressionRatio": 0.1111111111111111,
-        "narrativeFingerprintSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีลักษณะเด่นในแบบdirectional meaning — ต..."
-      },
-      {
-        "clusterSize": 9,
-        "profileIds": [
-          "connector_varianta",
-          "dreamer_variantb",
-          "explorer_variantc",
-          "generalist_variantb",
-          "idealist_variantb",
-          "innovator_varianta",
-          "maverick_variantb",
-          "maverick_variantc",
-          "pathfinder_varianta"
-        ],
-        "uniqueMirrorFingerprints": 9,
-        "uniqueFusionFingerprints": 9,
-        "uniqueHumanModelHashes": 9,
-        "uniquePatternSets": 2,
-        "collapseStage": "human_pattern",
-        "compressionRatio": 0.1111111111111111,
-        "narrativeFingerprintSample": "คุณแสดงตัวตนผ่านการสื่อสารและการปรากฏตัวอย่างชัดเจน — สิ่งที่คุณเป็นมักเห็นได้จากภายนอก\nคุณเป็นคนที่มักเลือกสร้างเส้นทาง..."
-      },
-      {
-        "clusterSize": 8,
-        "profileIds": [
-          "analyst_varianta",
-          "analyst_variantc",
-          "architect_varianta",
-          "builder_variantb",
-          "commander_variantb",
-          "curator_variantb",
-          "executor_variantb",
-          "pragmatist_variantc"
-        ],
-        "uniqueMirrorFingerprints": 8,
-        "uniqueFusionFingerprints": 8,
-        "uniqueHumanModelHashes": 8,
-        "uniquePatternSets": 1,
-        "collapseStage": "narrative",
-        "compressionRatio": 0.125,
-        "narrativeFingerprintSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีลักษณะเด่นในแบบdirectional meaning — ต..."
-      },
-      {
-        "clusterSize": 7,
-        "profileIds": [
-          "caregiver_variantb",
-          "empath_variantb",
-          "explorer_variantd",
-          "idealist_variantd",
-          "peacemaker_variantd",
-          "protector_variantc",
-          "sage_variantc"
-        ],
-        "uniqueMirrorFingerprints": 7,
-        "uniqueFusionFingerprints": 7,
-        "uniqueHumanModelHashes": 7,
-        "uniquePatternSets": 2,
-        "collapseStage": "human_pattern",
-        "compressionRatio": 0.14285714285714285,
-        "narrativeFingerprintSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีลักษณะเด่นในแบบdirectional meaning — ต..."
-      },
-      {
-        "clusterSize": 6,
-        "profileIds": [
-          "caregiver_varianta",
-          "protector_variantb",
-          "sage_varianta",
-          "sage_variantb",
-          "stabilizer_varianta",
-          "stabilizer_variantb"
-        ],
-        "uniqueMirrorFingerprints": 6,
-        "uniqueFusionFingerprints": 6,
-        "uniqueHumanModelHashes": 6,
-        "uniquePatternSets": 1,
-        "collapseStage": "narrative",
-        "compressionRatio": 0.16666666666666666,
-        "narrativeFingerprintSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีลักษณะเด่นในแบบdirectional meaning — ต..."
-      },
-      {
-        "clusterSize": 6,
-        "profileIds": [
-          "craftsman_variantd",
-          "entrepreneur_variantd",
-          "investigator_varianta",
-          "investigator_variantb",
-          "observer_variantb",
-          "rebel_variantd"
-        ],
-        "uniqueMirrorFingerprints": 6,
-        "uniqueFusionFingerprints": 6,
-        "uniqueHumanModelHashes": 6,
-        "uniquePatternSets": 1,
-        "collapseStage": "narrative",
-        "compressionRatio": 0.16666666666666666,
-        "narrativeFingerprintSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีลักษณะเด่นในแบบdirectional meaning — ต..."
-      },
-      {
-        "clusterSize": 4,
-        "profileIds": [
-          "architect_variantd",
-          "entrepreneur_varianta",
-          "pioneer_variantd",
-          "strategist_variantd"
-        ],
-        "uniqueMirrorFingerprints": 4,
-        "uniqueFusionFingerprints": 4,
-        "uniqueHumanModelHashes": 4,
-        "uniquePatternSets": 1,
-        "collapseStage": "narrative",
-        "compressionRatio": 0.25,
-        "narrativeFingerprintSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีลักษณะเด่นในแบบdirectional meaning — ต..."
-      },
-      {
-        "clusterSize": 4,
-        "profileIds": [
-          "advisor_varianta",
-          "builder_varianta",
-          "observer_variantd",
-          "specialist_variantd"
-        ],
-        "uniqueMirrorFingerprints": 4,
-        "uniqueFusionFingerprints": 4,
-        "uniqueHumanModelHashes": 4,
-        "uniquePatternSets": 1,
-        "collapseStage": "narrative",
-        "compressionRatio": 0.25,
-        "narrativeFingerprintSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีลักษณะเด่นในแบบdirectional meaning — ต..."
-      },
-      {
-        "clusterSize": 4,
-        "profileIds": [
-          "builder_variantd",
-          "mediator_variantc",
-          "observer_varianta",
-          "scholar_variantc"
-        ],
-        "uniqueMirrorFingerprints": 4,
-        "uniqueFusionFingerprints": 4,
-        "uniqueHumanModelHashes": 4,
-        "uniquePatternSets": 2,
-        "collapseStage": "human_pattern",
-        "compressionRatio": 0.25,
-        "narrativeFingerprintSample": "คุณมีลักษณะเด่นในแบบpurpose guide — ตัวตนของคุณถูกกำหนดจากการเลือกและทิศทางที่คุณยึดถืออย่างสม่ำเสมอ\nคุณเป็นคนที่มักเลือ..."
-      },
-      {
-        "clusterSize": 4,
-        "profileIds": [
-          "advocate_varianta",
-          "advocate_variantc",
-          "teacher_varianta",
-          "teacher_variantc"
-        ],
-        "uniqueMirrorFingerprints": 4,
-        "uniqueFusionFingerprints": 4,
-        "uniqueHumanModelHashes": 4,
-        "uniquePatternSets": 1,
-        "collapseStage": "narrative",
-        "compressionRatio": 0.25,
-        "narrativeFingerprintSample": "คุณแสดงตัวตนผ่านการสื่อสารและการปรากฏตัวอย่างชัดเจน — สิ่งที่คุณเป็นมักเห็นได้จากภายนอก\nคุณมีลักษณะเด่นในแบบdirectional ..."
-      },
-      {
-        "clusterSize": 4,
-        "profileIds": [
-          "advocate_variantb",
-          "connector_variantd",
-          "performer_variantd",
-          "teacher_variantb"
-        ],
-        "uniqueMirrorFingerprints": 4,
-        "uniqueFusionFingerprints": 4,
-        "uniqueHumanModelHashes": 4,
-        "uniquePatternSets": 2,
-        "collapseStage": "human_pattern",
-        "compressionRatio": 0.25,
-        "narrativeFingerprintSample": "คุณแสดงตัวตนผ่านการสื่อสารและการปรากฏตัวอย่างชัดเจน — สิ่งที่คุณเป็นมักเห็นได้จากภายนอก\nคุณเป็นคนที่มักเลือกสร้างเส้นทาง..."
-      },
-      {
-        "clusterSize": 4,
-        "profileIds": [
-          "catalyst_variantd",
-          "explorer_varianta",
-          "generalist_variantd",
-          "visionary_variantd"
-        ],
-        "uniqueMirrorFingerprints": 4,
-        "uniqueFusionFingerprints": 4,
-        "uniqueHumanModelHashes": 4,
-        "uniquePatternSets": 1,
-        "collapseStage": "narrative",
-        "compressionRatio": 0.25,
-        "narrativeFingerprintSample": "คุณแสดงตัวตนผ่านการสื่อสารและการปรากฏตัวอย่างชัดเจน — สิ่งที่คุณเป็นมักเห็นได้จากภายนอก\nคุณเป็นคนที่มักเลือกสร้างเส้นทาง..."
-      },
-      {
-        "clusterSize": 4,
-        "profileIds": [
-          "entrepreneur_variantc",
-          "optimizer_variantb",
-          "pragmatist_variantb",
-          "pragmatist_variantd"
-        ],
-        "uniqueMirrorFingerprints": 4,
-        "uniqueFusionFingerprints": 4,
-        "uniqueHumanModelHashes": 4,
-        "uniquePatternSets": 1,
-        "collapseStage": "narrative",
-        "compressionRatio": 0.25,
-        "narrativeFingerprintSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีลักษณะเด่นในแบบdirectional meaning — ต..."
-      },
-      {
-        "clusterSize": 4,
-        "profileIds": [
-          "innovator_variantc",
-          "maverick_varianta",
-          "pathfinder_variantb",
-          "rebel_variantc"
-        ],
-        "uniqueMirrorFingerprints": 4,
-        "uniqueFusionFingerprints": 4,
-        "uniqueHumanModelHashes": 4,
-        "uniquePatternSets": 1,
-        "collapseStage": "narrative",
-        "compressionRatio": 0.25,
-        "narrativeFingerprintSample": "คุณแสดงตัวตนผ่านการสื่อสารและการปรากฏตัวอย่างชัดเจน — สิ่งที่คุณเป็นมักเห็นได้จากภายนอก\nคุณเป็นคนที่มักเลือกสร้างเส้นทาง..."
-      },
-      {
-        "clusterSize": 4,
-        "profileIds": [
-          "challenger_variantb",
-          "harmonizer_variantb",
-          "maverick_variantd",
-          "pathfinder_variantd"
-        ],
-        "uniqueMirrorFingerprints": 4,
-        "uniqueFusionFingerprints": 4,
-        "uniqueHumanModelHashes": 4,
-        "uniquePatternSets": 1,
-        "collapseStage": "narrative",
-        "compressionRatio": 0.25,
-        "narrativeFingerprintSample": "คุณแสดงตัวตนผ่านการสื่อสารและการปรากฏตัวอย่างชัดเจน — สิ่งที่คุณเป็นมักเห็นได้จากภายนอก\nคุณเป็นคนที่มักเลือกสร้างเส้นทาง..."
-      },
-      {
-        "clusterSize": 4,
-        "profileIds": [
-          "generalist_variantc",
-          "guardian_variantb",
-          "performer_variantc",
-          "rebel_variantb"
-        ],
-        "uniqueMirrorFingerprints": 4,
-        "uniqueFusionFingerprints": 4,
-        "uniqueHumanModelHashes": 4,
-        "uniquePatternSets": 2,
-        "collapseStage": "human_pattern",
-        "compressionRatio": 0.25,
-        "narrativeFingerprintSample": "คุณแสดงตัวตนผ่านการสื่อสารและการปรากฏตัวอย่างชัดเจน — สิ่งที่คุณเป็นมักเห็นได้จากภายนอก\nคุณเป็นคนที่มักเลือกสร้างเส้นทาง..."
-      },
-      {
-        "clusterSize": 4,
-        "profileIds": [
-          "craftsman_varianta",
-          "optimizer_variantd",
-          "realist_varianta",
-          "sentinel_varianta"
-        ],
-        "uniqueMirrorFingerprints": 4,
-        "uniqueFusionFingerprints": 4,
-        "uniqueHumanModelHashes": 4,
-        "uniquePatternSets": 1,
-        "collapseStage": "narrative",
-        "compressionRatio": 0.25,
-        "narrativeFingerprintSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีลักษณะเด่นในแบบdirectional meaning — ต..."
-      },
-      {
-        "clusterSize": 3,
-        "profileIds": [
-          "connector_variantb",
-          "executor_variantd",
-          "leader_variantb"
-        ],
-        "uniqueMirrorFingerprints": 3,
-        "uniqueFusionFingerprints": 3,
-        "uniqueHumanModelHashes": 3,
-        "uniquePatternSets": 1,
-        "collapseStage": "narrative",
-        "compressionRatio": 0.3333333333333333,
-        "narrativeFingerprintSample": "คุณแสดงตัวตนผ่านการสื่อสารและการปรากฏตัวอย่างชัดเจน — สิ่งที่คุณเป็นมักเห็นได้จากภายนอก\nคุณเป็นคนที่มักเลือกสร้างเส้นทาง..."
-      },
-      {
-        "clusterSize": 3,
-        "profileIds": [
-          "advisor_variantb",
-          "visionary_variantb",
-          "visionary_variantc"
-        ],
-        "uniqueMirrorFingerprints": 3,
-        "uniqueFusionFingerprints": 3,
-        "uniqueHumanModelHashes": 3,
-        "uniquePatternSets": 1,
-        "collapseStage": "narrative",
-        "compressionRatio": 0.3333333333333333,
-        "narrativeFingerprintSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีลักษณะเด่นในแบบdirectional meaning — ต..."
-      },
-      {
-        "clusterSize": 3,
-        "profileIds": [
-          "optimizer_varianta",
-          "sentinel_variantd",
-          "steward_varianta"
-        ],
-        "uniqueMirrorFingerprints": 3,
-        "uniqueFusionFingerprints": 3,
-        "uniqueHumanModelHashes": 3,
-        "uniquePatternSets": 1,
-        "collapseStage": "narrative",
-        "compressionRatio": 0.3333333333333333,
-        "narrativeFingerprintSample": "คุณมีลักษณะเด่นในแบบpurpose guide — ตัวตนของคุณถูกกำหนดจากการเลือกและทิศทางที่คุณยึดถืออย่างสม่ำเสมอ\nคุณเป็นคนที่มักเลือ..."
-      }
-    ]
+    "collapseZones": []
   },
   "auditD_systemDominance": {
     "populationSize": 200,
@@ -2154,19 +1761,19 @@
       },
       "human_pattern": {
         "global_fusion": 878,
-        "big_five": 1694,
-        "thai_astrology": 1294,
-        "knowme_mirror": 1420,
-        "eq": 147,
-        "mbti": 1632
+        "big_five": 1902,
+        "thai_astrology": 1484,
+        "knowme_mirror": 1666,
+        "eq": 208,
+        "mbti": 1834
       },
       "narrative": {
-        "global_fusion": 594,
-        "knowme_mirror": 1044,
-        "mbti": 1137,
-        "thai_astrology": 1154,
-        "big_five": 1233,
-        "eq": 139
+        "global_fusion": 652,
+        "thai_astrology": 1240,
+        "knowme_mirror": 1276,
+        "big_five": 1417,
+        "mbti": 1339,
+        "eq": 195
       }
     },
     "layerSystemShares": {
@@ -2200,20 +1807,20 @@
         "eq": 0.02549634273772205
       },
       "human_pattern": {
-        "global_fusion": 0.12427459306440199,
-        "big_five": 0.2397735314932767,
-        "thai_astrology": 0.18315640481245576,
-        "knowme_mirror": 0.20099079971691436,
-        "eq": 0.020806794055201697,
-        "mbti": 0.23099787685774947
+        "global_fusion": 0.11013547415955846,
+        "big_five": 0.23858504766683392,
+        "thai_astrology": 0.18615153035624687,
+        "knowme_mirror": 0.20898143502257902,
+        "eq": 0.02609131961866533,
+        "mbti": 0.23005519317611642
       },
       "narrative": {
-        "global_fusion": 0.11205432937181664,
-        "knowme_mirror": 0.1969439728353141,
-        "mbti": 0.2144878324844369,
-        "thai_astrology": 0.2176947745708357,
-        "big_five": 0.23259762308998302,
-        "eq": 0.02622146764761366
+        "global_fusion": 0.1065533583918941,
+        "thai_astrology": 0.2026474914201667,
+        "knowme_mirror": 0.20853080568720378,
+        "big_five": 0.23157378656643243,
+        "mbti": 0.21882660565451872,
+        "eq": 0.03186795227978428
       }
     },
     "dominantSystemsByLayer": {
@@ -2252,12 +1859,12 @@
       "narrative": []
     },
     "narrativeSurvivors": {
-      "global_fusion": 594,
-      "knowme_mirror": 1044,
-      "mbti": 1137,
-      "thai_astrology": 1154,
-      "big_five": 1233,
-      "eq": 139
+      "global_fusion": 652,
+      "thai_astrology": 1240,
+      "knowme_mirror": 1276,
+      "big_five": 1417,
+      "mbti": 1339,
+      "eq": 195
     }
   },
   "auditE_patternUtilization": {
@@ -2305,6 +1912,14 @@
         "activationRate": 0.83
       },
       {
+        "patternId": "reinforced_strength",
+        "label": "Reinforced Strength",
+        "patternFamilyId": "growth_edge_pattern",
+        "dimension": "motivation",
+        "activationCount": 164,
+        "activationRate": 0.82
+      },
+      {
         "patternId": "decisive_actor",
         "label": "Decisive Actor",
         "patternFamilyId": "decision_style",
@@ -2335,14 +1950,6 @@
         "dimension": "identity",
         "activationCount": 71,
         "activationRate": 0.355
-      },
-      {
-        "patternId": "supportive_connector",
-        "label": "Supportive Connector",
-        "patternFamilyId": "relationship_style",
-        "dimension": "relationship",
-        "activationCount": 69,
-        "activationRate": 0.345
       }
     ],
     "bottomActivated": [
@@ -2428,14 +2035,6 @@
       }
     ],
     "neverActivated": [
-      {
-        "patternId": "structured_operator",
-        "label": "Structured Operator",
-        "patternFamilyId": "decision_style",
-        "dimension": "action",
-        "activationCount": 0,
-        "activationRate": 0.0
-      },
       {
         "patternId": "purpose_driven_motivation",
         "label": "Purpose-Driven Motivation",
@@ -2525,10 +2124,10 @@
         "activationRate": 0.0
       },
       {
-        "patternId": "reinforced_strength",
-        "label": "Reinforced Strength",
-        "patternFamilyId": "growth_edge_pattern",
-        "dimension": "motivation",
+        "patternId": "relationship_stabilizer",
+        "label": "Relationship Stabilizer",
+        "patternFamilyId": "relationship_style",
+        "dimension": "relationship",
         "activationCount": 0,
         "activationRate": 0.0
       },
@@ -2541,18 +2140,18 @@
         "activationRate": 0.0
       },
       {
-        "patternId": "relationship_stabilizer",
-        "label": "Relationship Stabilizer",
-        "patternFamilyId": "relationship_style",
-        "dimension": "relationship",
-        "activationCount": 0,
-        "activationRate": 0.0
-      },
-      {
         "patternId": "visible_identity",
         "label": "Visible Identity",
         "patternFamilyId": "identity_style",
         "dimension": "identity",
+        "activationCount": 0,
+        "activationRate": 0.0
+      },
+      {
+        "patternId": "reflective_builder",
+        "label": "Reflective Builder",
+        "patternFamilyId": "thinking_style",
+        "dimension": "thinking",
         "activationCount": 0,
         "activationRate": 0.0
       },
@@ -2573,10 +2172,10 @@
         "activationRate": 0.0
       },
       {
-        "patternId": "reflective_builder",
-        "label": "Reflective Builder",
-        "patternFamilyId": "thinking_style",
-        "dimension": "thinking",
+        "patternId": "structured_operator",
+        "label": "Structured Operator",
+        "patternFamilyId": "decision_style",
+        "dimension": "action",
         "activationCount": 0,
         "activationRate": 0.0
       },
@@ -2595,6 +2194,7 @@
       "calm_regulator": 184,
       "self_directed_identity": 180,
       "responsive_feeler": 166,
+      "reinforced_strength": 164,
       "decisive_actor": 163,
       "analytical_thinker": 132,
       "ignored_emotional_dimension": 117,
@@ -2611,7 +2211,6 @@
       "independent_decision_maker": 17,
       "guiding_teacher": 15,
       "purpose_guide": 15,
-      "structured_operator": 0,
       "purpose_driven_motivation": 0,
       "progressive_builder": 0,
       "structured_explorer": 0,
@@ -2623,25 +2222,25 @@
       "resource_oriented_motivation": 0,
       "identity_dual_signal": 0,
       "adaptive_creator": 0,
-      "reinforced_strength": 0,
-      "stable_orientation": 0,
       "relationship_stabilizer": 0,
+      "stable_orientation": 0,
       "visible_identity": 0,
+      "reflective_builder": 0,
       "asymmetric_identity_development": 0,
       "internal_conflict_thinker": 0,
-      "reflective_builder": 0,
+      "structured_operator": 0,
       "transformation_seeker": 0
     },
     "familyDistribution": {
       "emotional_style": 350,
       "relationship_style": 255,
       "identity_style": 251,
+      "growth_edge_pattern": 232,
       "meaning_style": 195,
       "theme_coverage_pattern": 188,
       "decision_style": 180,
       "blind_spot_pattern": 144,
       "thinking_style": 132,
-      "growth_edge_pattern": 68,
       "conflict_pattern": 60
     },
     "dimensionDistribution": {
@@ -2649,25 +2248,23 @@
       "action": 319,
       "relationship": 282,
       "identity": 251,
+      "motivation": 224,
       "meaning": 210,
       "thinking": 151,
-      "growth": 83,
-      "motivation": 60
+      "growth": 83
     }
   },
   "rootCauseAnalysis": [
     {
       "topic": "pattern_dead_zones",
-      "finding": "20 patterns never activated. Primary block across dead zones: no_source_pattern.",
+      "finding": "19 patterns never activated. Primary block across dead zones: no_source_pattern.",
       "evidence": {
-        "neverActivatedCount": 20,
+        "neverActivatedCount": 19,
         "blockReasonCounts": {
-          "no_source_pattern": 18,
-          "fusion_finding_type_mismatch": 2
+          "no_source_pattern": 19
         },
         "classificationCounts": {
-          "D_structurally_impossible": 18,
-          "C_practically_impossible": 2
+          "D_structurally_impossible": 19
         },
         "structurallyImpossible": [
           "transformation_seeker",
@@ -2682,34 +2279,35 @@
           "asymmetric_identity_development",
           "relationship_stabilizer",
           "stable_orientation",
-          "reinforced_strength",
+          "identity_dual_signal",
           "structured_operator",
+          "belief_meaning",
           "progressive_builder",
+          "internal_conflict_thinker",
           "adaptive_growth",
-          "meaning_seeker",
-          "belief_meaning"
+          "meaning_seeker"
         ]
       }
     },
     {
       "topic": "eq_signal_loss",
-      "finding": "EQ survival drops most at mirror_snapshot→fusion. Narrative EQ evidence count: 139.",
+      "finding": "EQ survival drops most at mirror_snapshot→fusion. Narrative EQ evidence count: 195.",
       "evidence": {
         "eqLayerCounts": {
           "mirror_input": 199,
           "mirror_snapshot": 199,
           "fusion": 122,
           "human_model": 122,
-          "human_pattern": 147,
-          "narrative": 139
+          "human_pattern": 208,
+          "narrative": 195
         },
         "eqSurvivalRates": {
           "mirror_input": 1.0,
           "mirror_snapshot": 1.0,
           "fusion": 0.6130653266331658,
           "human_model": 0.6130653266331658,
-          "human_pattern": 0.7386934673366834,
-          "narrative": 0.6984924623115578
+          "human_pattern": 1.0452261306532664,
+          "narrative": 0.9798994974874372
         },
         "primaryLossLayer": "mirror_snapshot→fusion",
         "profilesWithZeroEqAtNarrative": 151
@@ -2717,30 +2315,24 @@
     },
     {
       "topic": "narrative_collapse",
-      "finding": "Population compresses from 200 to 82 narratives. Largest compression step: human_model→human_pattern.",
+      "finding": "Population compresses from 200 to 199 narratives. Largest compression step: human_model→human_pattern.",
       "evidence": {
         "layerUniques": {
           "mirror": 200,
           "fusion": 200,
           "human_model": 200,
-          "human_pattern": 77,
-          "narrative": 82
+          "human_pattern": 89,
+          "narrative": 199
         },
         "layerCompressionRatios": {
           "mirror": 1.0,
           "fusion": 1.0,
           "human_model": 1.0,
-          "human_pattern": 0.385,
-          "narrative": 0.41
+          "human_pattern": 0.445,
+          "narrative": 0.995
         },
-        "collapseZoneCount": 22,
-        "topCollapseStages": [
-          "narrative",
-          "narrative",
-          "human_pattern",
-          "human_pattern",
-          "narrative"
-        ]
+        "collapseZoneCount": 0,
+        "topCollapseStages": []
       }
     },
     {
@@ -2755,12 +2347,12 @@
           "eq": 0.03420419388105878
         },
         "narrativeSurvivors": {
-          "global_fusion": 594,
-          "knowme_mirror": 1044,
-          "mbti": 1137,
-          "thai_astrology": 1154,
-          "big_five": 1233,
-          "eq": 139
+          "global_fusion": 652,
+          "thai_astrology": 1240,
+          "knowme_mirror": 1276,
+          "big_five": 1417,
+          "mbti": 1339,
+          "eq": 195
         },
         "disappearedByLayer": {
           "mirror_input": [],
@@ -2774,9 +2366,9 @@
     },
     {
       "topic": "pattern_utilization",
-      "finding": "Only 21 of 41 patterns ever activate. Top pattern: directional_meaning.",
+      "finding": "Only 22 of 41 patterns ever activate. Top pattern: directional_meaning.",
       "evidence": {
-        "neverActivatedCount": 20,
+        "neverActivatedCount": 19,
         "topActivated": [
           "directional_meaning",
           "diplomatic_binder",
@@ -2788,25 +2380,25 @@
           "emotional_style": 350,
           "relationship_style": 255,
           "identity_style": 251,
+          "growth_edge_pattern": 232,
           "meaning_style": 195,
           "theme_coverage_pattern": 188,
           "decision_style": 180,
           "blind_spot_pattern": 144,
           "thinking_style": 132,
-          "growth_edge_pattern": 68,
           "conflict_pattern": 60
         }
       }
     }
   ],
   "evidenceBasedConclusions": [
-    "PROVEN: 20/41 registry patterns never fire across 200 synthetic humans.",
+    "PROVEN: 19/41 registry patterns never fire across 200 synthetic humans.",
     "PROVEN: Dead-zone primary failure is \"no_source_pattern\" — measured via activation forensics on human model snapshots.",
-    "PROVEN: 18 dead patterns have 0% source-pattern resolution (structurally impossible with current human model output).",
-    "PROVEN: EQ mirror-input signals = 199; EQ narrative evidence = 139 (69.8% retention). Primary loss boundary: mirror_snapshot→fusion.",
+    "PROVEN: 19 dead patterns have 0% source-pattern resolution (structurally impossible with current human model output).",
+    "PROVEN: EQ mirror-input signals = 199; EQ narrative evidence = 195 (98.0% retention). Primary loss boundary: mirror_snapshot→fusion.",
     "PROVEN: 151/200 profiles carry zero EQ evidence in final narrative.",
-    "PROVEN: Narrative diversity = 41.0% — compression occurs primarily at human_model→human_pattern.",
-    "PROVEN: 22 collapse zones (≥3 identical narratives); 16 zones collapse at narrative layer despite distinct upstream inputs.",
+    "PROVEN: Narrative diversity = 99.5% — compression occurs primarily at human_model→human_pattern.",
+    "PROVEN: 0 collapse zones (≥3 identical narratives); 0 zones collapse at narrative layer despite distinct upstream inputs.",
     "PROVEN: knowme_mirror share at mirror input = 37.8%; EQ share = 3.4%.",
     "PROVEN: Pattern activation rate — top pattern \"directional_meaning\" fires 195/200 times; bottom activated fires 60/200 times."
   ]

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../models/thai_mirror_consumer_view_state.dart';
+import 'thai_mirror_rich_text.dart';
 
 class ThaiMirrorConsumerHeroSection extends StatelessWidget {
   const ThaiMirrorConsumerHeroSection({
@@ -14,11 +15,10 @@ class ThaiMirrorConsumerHeroSection extends StatelessWidget {
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     final isMobile = MediaQuery.sizeOf(context).width < 600;
-    final headlineMaxLines = isMobile ? 3 : 2;
 
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(20, 22, 20, 22),
+      padding: EdgeInsets.fromLTRB(24, isMobile ? 26 : 34, 24, 26),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,
@@ -28,7 +28,7 @@ class ThaiMirrorConsumerHeroSection extends StatelessWidget {
             scheme.secondaryContainer.withValues(alpha: 0.38),
           ],
         ),
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(24),
         border: Border.all(color: scheme.primary.withValues(alpha: 0.16)),
       ),
       child: Column(
@@ -83,31 +83,32 @@ class ThaiMirrorConsumerHeroSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 18),
+          const SizedBox(height: 20),
           Text(
             state.headline,
-            maxLines: headlineMaxLines,
-            overflow: TextOverflow.ellipsis,
             style: TextStyle(
-              fontSize: isMobile ? 22 : 24,
+              fontSize: isMobile ? 27 : 32,
               fontWeight: FontWeight.w800,
-              height: 1.3,
-              letterSpacing: -0.35,
+              height: 1.32,
+              letterSpacing: -0.5,
               color: scheme.primary,
             ),
           ),
           if (state.summary.isNotEmpty) ...[
-            const SizedBox(height: 12),
-            Text(
-              state.summary,
-              maxLines: isMobile ? 3 : 2,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontSize: 15,
-                height: 1.55,
-                color: scheme.onSurface,
+            const SizedBox(height: 16),
+            for (final paragraph in _paragraphs(state.summary)) ...[
+              if (paragraph != _paragraphs(state.summary).first)
+                const SizedBox(height: 12),
+              ThaiMirrorRichText(
+                paragraph,
+                emphasisColor: scheme.primary,
+                baseStyle: TextStyle(
+                  fontSize: 15.5,
+                  height: 1.7,
+                  color: scheme.onSurface.withValues(alpha: 0.92),
+                ),
               ),
-            ),
+            ],
           ],
           if (state.tags.isNotEmpty) ...[
             const SizedBox(height: 16),
@@ -141,8 +142,34 @@ class ThaiMirrorConsumerHeroSection extends StatelessWidget {
                   .toList(),
             ),
           ],
+          const SizedBox(height: 22),
+          Center(
+            child: Column(
+              children: [
+                Text(
+                  'อ่านต่อ',
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700,
+                    letterSpacing: 0.8,
+                    color: scheme.primary.withValues(alpha: 0.8),
+                  ),
+                ),
+                Icon(
+                  Icons.keyboard_arrow_down_rounded,
+                  color: scheme.primary.withValues(alpha: 0.7),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
   }
+
+  List<String> _paragraphs(String text) => text
+      .split('\n\n')
+      .map((p) => p.trim())
+      .where((p) => p.isNotEmpty)
+      .toList();
 }

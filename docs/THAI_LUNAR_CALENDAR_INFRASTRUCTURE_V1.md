@@ -1,5 +1,7 @@
 # Thai Lunar Calendar Infrastructure V1
 
+> **HISTORICAL (June 2026).** Lunar-lookup infrastructure record. Coverage remains limited to verified entries; uncovered dates degrade gracefully. Dataset plan: [`THAI_LUNAR_DATASET_ACQUISITION_V1.md`](THAI_LUNAR_DATASET_ACQUISITION_V1.md) · index: [`PROJECT_INDEX.md`](PROJECT_INDEX.md).
+
 **Date:** June 2026  
 **Type:** Architecture + Prototype Scaffold (No Fake Data)  
 **Reference:** `THAI_ASTROLOGY_DOMAIN_VALIDATION_V1.md`, `THAI_FOUNDATION_ENGINE_V1_1_NOTES.md`

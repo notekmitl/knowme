@@ -1,0 +1,12 @@
+{
+  "$comment": "Mahabhut Canon Database — EMPTY baseline (Canon Extraction V1). Structure is ready; NO book content has been extracted yet. Populate by adding entities that follow canon_database.schema.json. Every unit's authority/tier derives from its book's source in canon_sources.json; every unit must trace back to book→chapter→section→topic→page. See canon_unit.template.json.",
+  "version": 1,
+  "books": [],
+  "chapters": [],
+  "sections": [],
+  "topics": [],
+  "units": [],
+  "evidence": [],
+  "crossReferences": [],
+  "sourceReferences": []
+}

@@ -14,6 +14,8 @@ import 'package:knowme/features/astrology/domain/astrology_generation_status.dar
 
 import 'package:knowme/features/astrology/presentation/astrology_center_routes.dart';
 
+import 'package:knowme/core/profile/birth_profile_format.dart';
+
 import 'package:knowme/features/funnel_telemetry/funnel_telemetry.dart';
 
 import 'package:knowme/features/home_cohesion/application/home_v2_assembler.dart';
@@ -120,6 +122,21 @@ class _HomePageState extends State<HomePage> {
       generation: generation ?? _generationSnapshot,
 
     );
+
+  }
+
+
+
+  /// Birth date for the Mirror Experience emotional entry (Phase B — Home V4).
+  /// Returns null until the profile bundle has loaded a parseable birth date,
+  /// in which case Home falls back to the legacy hero.
+  DateTime? _mirrorBirthDate() {
+
+    final raw = _sourceBundle?.profileFields['birthDate'];
+
+    if (raw == null || raw.trim().isEmpty) return null;
+
+    return BirthProfileFormat.parseStoredDate(raw.trim());
 
   }
 
@@ -466,6 +483,8 @@ class _HomePageState extends State<HomePage> {
           HomeScreenV3(
 
             data: data,
+
+            mirrorBirthDate: _mirrorBirthDate(),
 
             callbacks: HomeScreenV3Callbacks(
 

@@ -1,5 +1,7 @@
 # Global Fusion Foundation Validation V2
 
+> **HISTORICAL (June 2026).** 200-human forensic baseline explaining *why* GF2 recovery exists. Metrics superseded by 1000-human runs; the shipped result is [`GF2_PRODUCTION_IMPLEMENTATION_V1.md`](GF2_PRODUCTION_IMPLEMENTATION_V1.md). Index: [`PROJECT_INDEX.md`](PROJECT_INDEX.md).
+
 **Program:** Global Fusion Foundation Validation V2  
 **Generated:** 2026-06-21T06:58:39Z  
 **Population:** 200 synthetic humans (Synthetic Human Population V1)  

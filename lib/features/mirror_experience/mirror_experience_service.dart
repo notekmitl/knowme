@@ -63,6 +63,64 @@ class MirrorExperienceService {
     );
   }
 
+  /// Phase C — today's read for the Daily Mirror Home surface.
+  ///
+  /// Composes the existing current-life / forward / decision reads into three
+  /// life-guidance messages (opportunity, caution, focus), one suggested action
+  /// and the evidence behind them. No new runtime, provider or capability — it
+  /// reuses the same fused results the P3 cards already use.
+  MirrorDaily daily(MirrorExperienceInput input) {
+    final now = input.asOf ?? DateTime.now();
+    final current = currentLife(input);
+    final ahead = prediction(input);
+    final move = decision(input);
+
+    final opportunityArea = _firstWithTone(ahead.areas, MirrorTone.strong) ??
+        _firstWithTone(current.areas, MirrorTone.strong) ??
+        (ahead.areas.isEmpty ? null : ahead.areas.first);
+    final cautionArea = _firstWithTone(current.areas, MirrorTone.tender) ??
+        _firstWithTone(ahead.areas, MirrorTone.tender);
+    final focusArea = move.focus;
+
+    final evidence = _distinctAreas([
+      ...current.areas,
+      ...ahead.areas,
+      move.focus,
+    ]);
+
+    return MirrorDaily(
+      dateLabel: MirrorCopy.dailyDate(now),
+      greeting: MirrorCopy.dailyGreeting,
+      opportunity: MirrorDailyMessage(
+        label: MirrorCopy.opportunityLabel,
+        title: opportunityArea?.title ?? 'An open day',
+        tone: opportunityArea?.tone ?? MirrorTone.steady,
+        body: MirrorCopy.dailyOpportunity(opportunityArea),
+        area: opportunityArea,
+      ),
+      caution: MirrorDailyMessage(
+        label: MirrorCopy.cautionLabel,
+        title: cautionArea?.title ?? 'Nothing pressing',
+        tone: cautionArea?.tone ?? MirrorTone.steady,
+        body: MirrorCopy.dailyCaution(cautionArea),
+        area: cautionArea,
+      ),
+      focus: MirrorDailyMessage(
+        label: MirrorCopy.focusLabel,
+        title: focusArea.title,
+        tone: focusArea.tone,
+        body: MirrorCopy.dailyFocus(focusArea, move.lean),
+        area: focusArea,
+      ),
+      action: MirrorDailyAction(
+        label: MirrorCopy.actionLabel,
+        body: MirrorCopy.dailyAction(focusArea, move.lean),
+      ),
+      clarity: current.clarity,
+      evidenceAreas: evidence,
+    );
+  }
+
   MirrorReflectionData reflection(MirrorExperienceInput input) {
     final result = runtime.fuse(_context(ReasoningCapability.evaluate, input));
     final areas = _areas(result);
@@ -121,6 +179,24 @@ class MirrorExperienceService {
     if (focus.tone == MirrorTone.tender) return MirrorLean.wait;
     if (result.confidence.value >= 70) return MirrorLean.goFor;
     return MirrorLean.prepare;
+  }
+
+  MirrorLifeArea? _firstWithTone(List<MirrorLifeArea> areas, MirrorTone tone) {
+    for (final a in areas) {
+      if (a.tone == tone) return a;
+    }
+    return null;
+  }
+
+  List<MirrorLifeArea> _distinctAreas(List<MirrorLifeArea> areas) {
+    final seen = <String>{};
+    final out = <MirrorLifeArea>[];
+    for (final a in areas) {
+      if (a.key.isEmpty) continue;
+      if (seen.add(a.key)) out.add(a);
+      if (out.length >= _maxAreas) break;
+    }
+    return out;
   }
 
   MirrorLifeArea _neutralArea() => const MirrorLifeArea(

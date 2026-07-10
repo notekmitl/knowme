@@ -1,5 +1,7 @@
 # Human Pattern Activation Recovery V2
 
+> **HISTORICAL (June 2026).** Implementation record of the shipped Human-Pattern engine fix (`_resolveSourcePattern`). Forward/production status lives in [`GF2_PRODUCTION_IMPLEMENTATION_V1.md`](GF2_PRODUCTION_IMPLEMENTATION_V1.md). Index: [`PROJECT_INDEX.md`](PROJECT_INDEX.md).
+
 **Program:** Human Pattern Activation Recovery V2  
 **Authority:** [`docs/KNOWME_MASTER_CONTEXT.md`](KNOWME_MASTER_CONTEXT.md), [`docs/GOVERNANCE.md`](GOVERNANCE.md)  
 **Generated:** 2026-06-21  

@@ -1,0 +1,56 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://knowme/knowledge/planet_relationships.schema.json",
+  "title": "Thai Astrology — Planet Relationship Knowledge",
+  "description": "Schema for the data-driven Planet Relationship knowledge consumed by PlanetRelationshipKnowledgeImporter. Relations should mirror the frozen PlanetRelationshipMatrix; provenance fields capture the documented source (or Unknown).",
+  "type": "object",
+  "required": ["schemaVersion", "domain", "relationships"],
+  "additionalProperties": true,
+  "properties": {
+    "schemaVersion": { "type": "string" },
+    "domain": { "type": "string", "const": "planet_relationships" },
+    "description": { "type": "string" },
+    "relationships": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/relationship" }
+    }
+  },
+  "definitions": {
+    "planet": {
+      "type": "string",
+      "enum": ["sun", "moon", "mars", "mercury", "jupiter", "venus", "saturn", "rahu"]
+    },
+    "relationship": {
+      "type": "object",
+      "required": ["from", "to", "relation", "school", "confidence", "status", "verified"],
+      "additionalProperties": false,
+      "properties": {
+        "from": { "$ref": "#/definitions/planet" },
+        "to": { "$ref": "#/definitions/planet" },
+        "relation": { "type": "string", "enum": ["friend", "neutral", "enemy"] },
+        "school": {
+          "type": "string",
+          "enum": ["thaiTraditional", "vedic", "knowmeCustom", "unknown"]
+        },
+        "source": { "type": ["string", "null"] },
+        "author": { "type": ["string", "null"] },
+        "edition": { "type": ["string", "null"] },
+        "publisher": { "type": ["string", "null"] },
+        "year": { "type": ["integer", "null"] },
+        "reference": { "type": ["string", "null"] },
+        "page": { "type": ["string", "null"] },
+        "quote": { "type": ["string", "null"] },
+        "confidence": {
+          "type": "string",
+          "enum": ["none", "low", "medium", "high"]
+        },
+        "status": {
+          "type": "string",
+          "enum": ["unknown", "candidate", "verified", "disputed", "deprecated"]
+        },
+        "verified": { "type": "boolean" },
+        "notes": { "type": ["string", "null"] }
+      }
+    }
+  }
+}
