@@ -7,6 +7,7 @@ import '../../application/thai_beta_evidence_badge_audience_resolver.dart';
 import '../../application/thai_evidence_badge_feature_flag.dart';
 import '../thai_beta_screenshot_mode.dart';
 import '../widgets/thai_beta_progress_bar.dart';
+import '../widgets/thai_beta_report_export_button.dart';
 import 'thai_beta_feedback_page.dart';
 
 import 'package:knowme/core/web/screenshot_friendly_scroll.dart';
@@ -321,6 +322,10 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           if (widget.showCaptureModeBanner) _buildCaptureModeBanner(),
+          ThaiBetaReportExportButton(
+            analysis: analysis,
+            badges: _showBadgePanel ? _badges : const [],
+          ),
           KeyedSubtree(
             key: _captureContentMeasureKey,
             child: Column(
