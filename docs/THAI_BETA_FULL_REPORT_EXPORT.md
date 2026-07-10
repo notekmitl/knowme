@@ -116,7 +116,8 @@ flutter test test/validation/thai_beta/ test/validation/thai/
 ```
 
 Coverage includes: button visibility, forbidden-content scrub, existing-copy usage,
-print fallback chrome, public fingerprint suite.
+print fallback chrome, **real PDF exporter path regression** (`ThaiBetaReportPdfExporter.build`
+plainText assertions), public fingerprint suite.
 
 ---
 
@@ -132,16 +133,29 @@ print fallback chrome, public fingerprint suite.
 
 ## PDF polish
 
-Export formatting is cleaned in `ThaiBetaReportExportPolish` + PDF layout:
+Export formatting is cleaned in `ThaiBetaReportExportPolish` + PDF layout.
 
 | Issue | Fix |
 |-------|-----|
-| `ช่วงก่อนหน้า: ช่วงก่อนหน้า: …` | Neighbour labels already include prefix — do not double-prefix |
+| `ช่วงก่อนหน้า: ช่วงก่อนหน้า: …` | Neighbour labels already include prefix — collapse duplicates |
 | `เหลืออีกประมาณ 0 ปี / 0 เดือน` | Rewrite to “กำลังอยู่ช่วงปลายของจังหวะนี้”; omit zero remaining |
 | UI ellipsis truncations (`…`) | Prefer `expandedBody`; drop mid-word truncated UI fragments |
 | `ดี(ผ่าน…)` spacing | Normalize spaces around `()` and `•` |
-| Duplicate headings | Dedupe title echoed as first paragraph / consecutive lines |
+| Duplicate headings / keyword echo | Drop bare/`คำสำคัญ:` line when planetLine already ends with `• keyword` |
 | Dense layout | Larger section gaps, timeline cards, disclaimer box, page numbers |
+
+### Real PDF exporter path
+
+Download button path:
+
+`ThaiBetaReportExportButton._exportPdf`
+→ `ThaiBetaReportExportDocument.fromAnalysis` (polish)
+→ `ThaiBetaReportPdfExporter.build` / `buildBytes` (**polishForPdf again**)
+→ `downloadBytesAsFile`
+
+Regression tests assert on `ThaiBetaPdfRenderResult.plainText` — the exact Unicode
+strings written into PDF widgets (custom font embedding prevents reliable Thai
+extraction from raw PDF bytes).
 
 ### Known fixed copy issues
 
@@ -149,6 +163,7 @@ Export formatting is cleaned in `ThaiBetaReportExportPolish` + PDF layout:
 - Zero-year / zero-month remaining copy
 - Truncated dashboard / card ellipsis fragments in export
 - Missing space before parentheses
+- Keyword heading echoes after `•`
 
 ### What PDF is for
 

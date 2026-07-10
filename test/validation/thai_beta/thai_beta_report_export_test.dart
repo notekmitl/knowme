@@ -6,6 +6,7 @@ import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_a
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_polish.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_safety.dart';
+import 'package:knowme/features/thai_beta/application/thai_beta_report_pdf_exporter.dart';
 import 'package:knowme/features/thai_beta/application/thai_evidence_badge_feature_flag.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_capture_page.dart';
@@ -103,15 +104,7 @@ void main() {
     test('PDF polish removes duplicate neighbour prefixes and zero timing', () {
       final doc = ThaiBetaReportExportDocument.fromAnalysis(analysis);
       final text = doc.fullPlainText;
-      expect(text.contains('ช่วงก่อนหน้า: ช่วงก่อนหน้า'), isFalse);
-      expect(text.contains('ช่วงถัดไป: ช่วงถัดไป'), isFalse);
-      expect(RegExp(r'เหลืออีกประมาณ\s*0\s*ปี').hasMatch(text), isFalse);
-      expect(RegExp(r'อีกประมาณ\s*0\s*ปี').hasMatch(text), isFalse);
-      expect(RegExp(r'ในราว\s*0\s*ปี').hasMatch(text), isFalse);
-      expect(RegExp(r'เหลืออีกประมาณ\s*0\s*เดือน').hasMatch(text), isFalse);
-      expect(text.contains('ผ่านรู้สึก…'), isFalse);
-      expect(text.contains('ผ่านคิดละเอ…'), isFalse);
-      expect(text.contains('ดี(ผ่าน'), isFalse);
+      expect(ThaiBetaReportExportPolish.findForbidden(text), isEmpty);
     });
 
     test('export prefers full insight bodies over UI ellipsis truncations', () {
@@ -122,11 +115,69 @@ void main() {
     });
   });
 
+  group('Real PDF exporter path regression', () {
+    test('download-button path polishes polluted document before PDF text', () async {
+      const polluted = ThaiBetaReportExportDocument(
+        title: 'KnowMe — รายงานโหราไทย',
+        subtitle: 'probe',
+        filenameStem: 'knowme-thai-report',
+        sections: [
+          ThaiBetaReportExportSection(
+            title: 'เส้นทางชีวิต',
+            kind: ThaiBetaReportExportSectionKind.timeline,
+            paragraphs: [
+              'อิทธิพลดาวพฤหัสบดี • การเติบโต',
+              'การเติบโต',
+              'อิทธิพลดาวพุธ • การเรียนรู้',
+              'การเรียนรู้',
+              'อิทธิพลดาวเสาร์ • ความมั่นคง',
+              'ความมั่นคง',
+              'ช่วงก่อนหน้า: ช่วงก่อนหน้า: ช่วงวางรากฐาน (1–10)',
+              'ช่วงถัดไป: ช่วงถัดไป: ช่วงพลิกผัน (55–66)',
+              'เหลืออีกประมาณ 0 ปีก่อนเปลี่ยนช่วง',
+              'อีกประมาณ 0 เดือนจะเริ่มก้าวสู่จังหวะใหม่',
+              'ดี(ผ่านรู้สึก…)',
+              'ผ่านคิดละเอ…',
+              'เนื้อหาที่ต้องเหลืออยู่',
+            ],
+          ),
+        ],
+      );
+
+      // Same exporter entry used by ThaiBetaReportExportButton._exportPdf.
+      final rendered = await ThaiBetaReportPdfExporter.build(polluted);
+      expect(rendered.bytes, isNotEmpty);
+      expect(rendered.plainText, contains('เนื้อหาที่ต้องเหลืออยู่'));
+      expect(ThaiBetaReportExportPolish.findForbidden(rendered.plainText), isEmpty);
+      expect(rendered.plainText.contains('ผ่านรู้สึก…'), isFalse);
+      expect(rendered.plainText.contains('ผ่านคิดละเอ…'), isFalse);
+      expect(rendered.plainText.contains('ดี(ผ่าน'), isFalse);
+      expect(rendered.plainText.contains('• การเติบโต\nการเติบโต'), isFalse);
+      expect(rendered.plainText.contains('ช่วงก่อนหน้า: ช่วงก่อนหน้า'), isFalse);
+      expect(RegExp(r'(?<![0-9])0\s*ปี').hasMatch(rendered.plainText), isFalse);
+    });
+
+    test('real analysis download path PDF text has no forbidden regressions', () async {
+      final document = ThaiBetaReportExportDocument.fromAnalysis(analysis);
+      final rendered = await ThaiBetaReportPdfExporter.build(document);
+      expect(rendered.bytes.length, greaterThan(1000));
+      expect(ThaiBetaReportExportPolish.findForbidden(rendered.plainText), isEmpty);
+      expect(ThaiBetaReportExportSafety.containsForbidden(rendered.plainText), isFalse);
+    });
+  });
+
   group('ThaiBetaReportExportPolish', () {
     test('neighbourLabel does not double prefix', () {
       expect(
         ThaiBetaReportExportPolish.neighbourLabel(
           'ช่วงก่อนหน้า: ช่วงวางรากฐาน (1–10)',
+          prefix: 'ช่วงก่อนหน้า: ',
+        ),
+        'ช่วงก่อนหน้า: ช่วงวางรากฐาน (1–10)',
+      );
+      expect(
+        ThaiBetaReportExportPolish.neighbourLabel(
+          'ช่วงก่อนหน้า: ช่วงก่อนหน้า: ช่วงวางรากฐาน (1–10)',
           prefix: 'ช่วงก่อนหน้า: ',
         ),
         'ช่วงก่อนหน้า: ช่วงวางรากฐาน (1–10)',
@@ -145,8 +196,13 @@ void main() {
         'ตอนนี้คุณอายุ 54 ปี กำลังอยู่ในช่วงเก็บเกี่ยว '
         'และจะอยู่ในจังหวะนี้ไปอีกประมาณ 0 ปี',
       );
-      expect(polished.contains('0 ปี'), isFalse);
+      expect(RegExp(r'(?<![0-9])0\s*ปี').hasMatch(polished), isFalse);
       expect(polished.contains('กำลังอยู่ช่วงปลายของจังหวะนี้'), isTrue);
+      // Must not destroy legitimate ages like 10/20/54.
+      expect(
+        ThaiBetaReportExportPolish.polishTimingCopy('อายุ 10 ปีในวัยเด็ก'),
+        'อายุ 10 ปีในวัยเด็ก',
+      );
     });
 
     test('normalizeSpacing adds space before parentheses', () {
@@ -156,17 +212,24 @@ void main() {
       );
     });
 
-    test('dedupeParagraphs drops title echo and truncated UI lines', () {
+    test('dedupeParagraphs drops title echo, keyword echo, truncated UI lines', () {
       final lines = ThaiBetaReportExportPolish.dedupeParagraphs(
         'การเติบโต',
         [
           'การเติบโต',
+          'อิทธิพลดาวพฤหัสบดี • การเติบโต',
+          'การเติบโต',
+          'คำสำคัญ: การเติบโต',
           'เนื้อหาเต็ม',
           'เนื้อหาเต็ม',
           'ผ่านรู้สึก…',
+          'ดี(ผ่านคิดละเอ…)',
         ],
       );
-      expect(lines, ['เนื้อหาเต็ม']);
+      expect(lines, [
+        'อิทธิพลดาวพฤหัสบดี • การเติบโต',
+        'เนื้อหาเต็ม',
+      ]);
     });
   });
 

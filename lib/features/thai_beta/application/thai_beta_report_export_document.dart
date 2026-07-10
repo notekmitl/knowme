@@ -251,11 +251,42 @@ class ThaiBetaReportExportDocument {
         .where((s) => s.title.trim().isNotEmpty || s.paragraphs.isNotEmpty)
         .toList();
 
+    // Final presentation polish (also re-applied in PDF exporter).
+    return polishForPdf(
+      ThaiBetaReportExportDocument(
+        title: 'KnowMe — รายงานโหราไทย',
+        subtitle: 'ส่งออกจากโหมด capture / screenshot (งานวิจัยเบต้า)',
+        sections: scrubbed,
+        filenameStem: 'knowme-thai-report',
+      ),
+    );
+  }
+
+  /// Re-apply presentation polish before PDF bytes are written.
+  static ThaiBetaReportExportDocument polishForPdf(
+    ThaiBetaReportExportDocument document,
+  ) {
+    final sections = <ThaiBetaReportExportSection>[];
+    for (final section in document.sections) {
+      final title = ThaiBetaReportExportPolish.polishTitle(section.title);
+      final paragraphs = ThaiBetaReportExportPolish.dedupeParagraphs(
+        title,
+        section.paragraphs,
+      );
+      if (title.isEmpty && paragraphs.isEmpty) continue;
+      sections.add(
+        ThaiBetaReportExportSection(
+          title: title,
+          paragraphs: paragraphs,
+          kind: section.kind,
+        ),
+      );
+    }
     return ThaiBetaReportExportDocument(
-      title: 'KnowMe — รายงานโหราไทย',
-      subtitle: 'ส่งออกจากโหมด capture / screenshot (งานวิจัยเบต้า)',
-      sections: scrubbed,
-      filenameStem: 'knowme-thai-report',
+      title: ThaiBetaReportExportPolish.polishTitle(document.title),
+      subtitle: ThaiBetaReportExportPolish.polishLine(document.subtitle),
+      sections: sections,
+      filenameStem: document.filenameStem,
     );
   }
 
@@ -303,7 +334,7 @@ class ThaiBetaReportExportDocument {
     final stageLines = <String>[
       '${stage.phaseName} · อายุ ${stage.ageLabel}',
       stage.planetLine,
-      if (stage.keyword.isNotEmpty) 'คำสำคัญ: ${stage.keyword}',
+      // Keyword is already on planetLine after "•" — do not echo it again.
       ThaiBetaReportExportPolish.polishTimingCopy(stage.intro),
     ];
 
@@ -374,7 +405,7 @@ class ThaiBetaReportExportDocument {
           '${period.phaseName} (${period.ageLabel})',
           [
             period.planetLine,
-            if (period.keyword.isNotEmpty) 'คำสำคัญ: ${period.keyword}',
+            // Keyword already appears after "•" on planetLine.
             period.summary,
             period.whatChanges,
             period.easier,

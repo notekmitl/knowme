@@ -6,15 +6,53 @@ import 'package:printing/printing.dart';
 
 import 'thai_beta_report_export_document.dart';
 
+/// Result of the real download-button PDF path.
+class ThaiBetaPdfRenderResult {
+  const ThaiBetaPdfRenderResult({
+    required this.bytes,
+    required this.plainText,
+    required this.document,
+  });
+
+  final Uint8List bytes;
+
+  /// Exact text written into PDF widgets (Unicode source of the PDF content).
+  /// Custom font embedding prevents reliable raw-byte Thai extraction, so
+  /// regression tests assert on this render text from the same exporter path.
+  final String plainText;
+
+  final ThaiBetaReportExportDocument document;
+}
+
 /// Builds a downloadable PDF from a [ThaiBetaReportExportDocument].
 ///
 /// Uses Noto Sans Thai via [PdfGoogleFonts] so Thai glyphs render correctly.
 abstract final class ThaiBetaReportPdfExporter {
   static const String defaultFilename = 'knowme-thai-report.pdf';
 
+  /// Same path as [ThaiBetaReportExportButton] download.
   static Future<Uint8List> buildBytes(ThaiBetaReportExportDocument document) async {
+    final result = await build(document);
+    return result.bytes;
+  }
+
+  /// Builds PDF bytes and returns the exact polished text fed to PDF widgets.
+  static Future<ThaiBetaPdfRenderResult> build(
+    ThaiBetaReportExportDocument document,
+  ) async {
+    final polished = ThaiBetaReportExportDocument.polishForPdf(document);
     final regular = await PdfGoogleFonts.notoSansThaiRegular();
     final bold = await PdfGoogleFonts.notoSansThaiBold();
+
+    final plain = StringBuffer()
+      ..writeln(polished.title)
+      ..writeln(polished.subtitle);
+    for (final section in polished.sections) {
+      plain.writeln(section.title);
+      for (final paragraph in section.paragraphs) {
+        plain.writeln(paragraph);
+      }
+    }
 
     final pdf = pw.Document();
     final baseStyle = pw.TextStyle(font: regular, fontSize: 11, height: 1.55);
@@ -47,22 +85,21 @@ abstract final class ThaiBetaReportPdfExporter {
         ),
         build: (context) {
           final widgets = <pw.Widget>[
-            pw.Text(document.title, style: titleStyle),
+            pw.Text(polished.title, style: titleStyle),
             pw.SizedBox(height: 6),
-            pw.Text(document.subtitle, style: subtitleStyle),
+            pw.Text(polished.subtitle, style: subtitleStyle),
             pw.SizedBox(height: 18),
             pw.Divider(thickness: 0.8, color: PdfColors.grey400),
             pw.SizedBox(height: 18),
           ];
 
-          for (var i = 0; i < document.sections.length; i++) {
-            final section = document.sections[i];
+          for (var i = 0; i < polished.sections.length; i++) {
+            final section = polished.sections[i];
             final isDisclaimer =
                 section.kind == ThaiBetaReportExportSectionKind.disclaimer;
             final isTimeline =
                 section.kind == ThaiBetaReportExportSectionKind.timeline;
 
-            // Soft page breaks before major blocks (not the first section).
             if (i > 0 &&
                 (isDisclaimer ||
                     section.title.contains('เส้นทางชีวิต') ||
@@ -149,7 +186,12 @@ abstract final class ThaiBetaReportPdfExporter {
       ),
     );
 
-    return pdf.save();
+    final bytes = await pdf.save();
+    return ThaiBetaPdfRenderResult(
+      bytes: bytes,
+      plainText: plain.toString(),
+      document: polished,
+    );
   }
 
   static String filenameFor(ThaiBetaReportExportDocument document) {
