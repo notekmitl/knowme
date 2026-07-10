@@ -417,11 +417,10 @@ class _ConfidenceMeter extends StatelessWidget {
             Flexible(
               child: Text(
                 label,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontSize: 12,
                   fontWeight: FontWeight.w700,
+                  height: 1.35,
                   color: accent,
                 ),
               ),

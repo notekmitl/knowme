@@ -415,6 +415,10 @@ abstract final class ThaiMirrorConsumerCopy {
     return '${cleaned.substring(0, maxChars - 1).trim()}…';
   }
 
+  /// True when [text] ends with a mid-word UI ellipsis (export polish only).
+  static bool hasUiTruncationEllipsis(String text) =>
+      RegExp(r'[ก-๙A-Za-z]…$').hasMatch(text.trim());
+
   static String enforceHeadlineLength(String text, {int minWords = 8, int maxWords = 15}) {
     var cleaned = sanitizeDisplayText(text);
     if (cleaned.isEmpty) return cleaned;
@@ -437,8 +441,8 @@ abstract final class ThaiMirrorConsumerCopy {
 
   /// Dashboard aspect lines for UI + PDF export.
   ///
-  /// Returns full phrases (no mid-word ellipsis). Card/insight UI may still
-  /// truncate via [truncateInsightBody]; export must keep full labels.
+  /// Returns full phrases (no mid-word ellipsis). Card UI shows full copy;
+  /// [truncateInsightBody] is retained for export-polish detection only.
   static ({
     String currentState,
     String whyItAppears,

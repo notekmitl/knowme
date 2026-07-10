@@ -150,8 +150,6 @@ class _LifeCard extends StatelessWidget {
               Expanded(
                 child: Text(
                   item.label,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     fontSize: 15,
                     fontWeight: FontWeight.w800,
@@ -163,8 +161,6 @@ class _LifeCard extends StatelessWidget {
               Flexible(
                 child: Text(
                   item.status.labelTh,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
                   textAlign: TextAlign.end,
                   style: TextStyle(
                     fontSize: 11.5,

@@ -129,8 +129,6 @@ class _InsightCard extends StatelessWidget {
                   children: [
                     Text(
                       state.title,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         fontSize: 15.5,
                         fontWeight: FontWeight.w800,
@@ -138,18 +136,17 @@ class _InsightCard extends StatelessWidget {
                         color: scheme.onSurface,
                       ),
                     ),
-                    const SizedBox(height: 6),
-                    Text(
-                      state.body,
-                      maxLines: richBody ? null : 4,
-                      overflow:
-                          richBody ? TextOverflow.visible : TextOverflow.ellipsis,
-                      style: TextStyle(
-                        fontSize: 13.5,
-                        height: 1.55,
-                        color: scheme.onSurfaceVariant,
+                    if (!richBody && state.body.trim().isNotEmpty) ...[
+                      const SizedBox(height: 6),
+                      Text(
+                        state.body,
+                        style: TextStyle(
+                          fontSize: 13.5,
+                          height: 1.55,
+                          color: scheme.onSurfaceVariant,
+                        ),
                       ),
-                    ),
+                    ],
                   ],
                 ),
               ),

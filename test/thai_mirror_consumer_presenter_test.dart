@@ -96,6 +96,11 @@ void main() {
           isFalse,
           reason: 'Banned copy in: $text',
         );
+        expect(
+          ThaiMirrorConsumerCopy.hasUiTruncationEllipsis(text),
+          isFalse,
+          reason: 'Mid-word ellipsis in: $text',
+        );
       }
     });
 

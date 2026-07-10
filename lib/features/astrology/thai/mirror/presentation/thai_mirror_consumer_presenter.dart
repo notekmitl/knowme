@@ -39,12 +39,6 @@ abstract final class ThaiMirrorConsumerPresenter {
 
   static const _maxCards = 3;
 
-  /// Insight card bodies allow a full short sentence (≈3 lines) rather than the
-  /// older 60-char hard cut that left mid-word ellipses across every card.
-  static const _cardBodyMaxChars = 104;
-
-
-
   /// [lifePeriods] (when available) powers the V8 Life Timeline. It is engine
   /// *evidence* produced by [LifePeriodEngine] from the canonical birth profile
   /// upstream — the presenter never receives a raw birth date, so birth-profile
@@ -672,10 +666,7 @@ abstract final class ThaiMirrorConsumerPresenter {
       cards.add(
         ThaiMirrorInsightCardState(
           title: variant.title,
-          body: ThaiMirrorConsumerCopy.truncateInsightBody(
-            variant.body,
-            maxChars: _cardBodyMaxChars,
-          ),
+          body: variant.body,
           accent: ThaiMirrorInsightAccent.strength,
           icon: icons[cards.length % icons.length],
           expandedBody: ThaiMirrorReportCopy.buildExpandedStrength(
@@ -698,10 +689,7 @@ abstract final class ThaiMirrorConsumerPresenter {
         cards.add(
           ThaiMirrorInsightCardState(
             title: variant.title,
-            body: ThaiMirrorConsumerCopy.truncateInsightBody(
-              variant.body,
-              maxChars: _cardBodyMaxChars,
-            ),
+            body: variant.body,
             accent: ThaiMirrorInsightAccent.strength,
             icon: icons[cards.length % icons.length],
             expandedBody: ThaiMirrorReportCopy.buildExpandedStrength(
@@ -770,10 +758,7 @@ abstract final class ThaiMirrorConsumerPresenter {
       cards.add(
         ThaiMirrorInsightCardState(
           title: title,
-          body: ThaiMirrorConsumerCopy.truncateInsightBody(
-            body,
-            maxChars: _cardBodyMaxChars,
-          ),
+          body: body,
           accent: ThaiMirrorInsightAccent.caution,
           icon: icons[cards.length % icons.length],
         ),
@@ -803,10 +788,7 @@ abstract final class ThaiMirrorConsumerPresenter {
         cards.add(
           ThaiMirrorInsightCardState(
             title: title,
-            body: ThaiMirrorConsumerCopy.truncateInsightBody(
-              body,
-              maxChars: _cardBodyMaxChars,
-            ),
+            body: body,
             accent: ThaiMirrorInsightAccent.caution,
             icon: icons[cards.length % icons.length],
           ),

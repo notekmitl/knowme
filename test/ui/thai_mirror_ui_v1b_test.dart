@@ -106,5 +106,45 @@ void main() {
 
       expect(find.textContaining('คำแนะนำยาวสำหรับทดสอบ'), findsOneWidget);
     });
+
+    testWidgets('life dashboard currentState shows full Thai without ellipsis',
+        (tester) async {
+      const fullState =
+          'แสดงออกชัด: พูดความรู้สึกตรง ๆ ในที่ที่ปลอดภัยจะทำให้ความรักแน่นแฟ้นขึ้น';
+      final base = sampleConsumerViewState();
+      final dashboard = [
+        ThaiMirrorLifeDashboardItemState(
+          label: 'ความรัก',
+          currentState: fullState,
+          whyItAppears: 'เพราะแสดงออกชัดคือสิ่งที่ติดตัวคุณ',
+          suggestedAction: 'ลองพูดความรู้สึกในที่ที่ปลอดภัย',
+          status: ThaiMirrorLifeStatus.good,
+        ),
+        ...base.lifeDashboard.skip(1),
+      ];
+
+      await tester.pumpWidget(
+        wrapConsumerResultPage(
+          ThaiMirrorConsumerViewState(
+            hero: base.hero,
+            strengths: base.strengths,
+            cautions: base.cautions,
+            advice: base.advice,
+            lifeDashboard: dashboard,
+            narrativeSections: base.narrativeSections,
+            signatureInsight: base.signatureInsight,
+            reflectionSummary: base.reflectionSummary,
+            closingMessage: base.closingMessage,
+            sourceTransparency: base.sourceTransparency,
+            birthDataConfidence: base.birthDataConfidence,
+            secretTip: base.secretTip,
+            disclaimers: base.disclaimers,
+          ),
+        ),
+      );
+
+      expect(find.text(fullState), findsOneWidget);
+      expect(find.textContaining('แน่นแฟ้นข…'), findsNothing);
+    });
   });
 }

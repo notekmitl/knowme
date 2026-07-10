@@ -566,8 +566,6 @@ class _TimelineStrip extends StatelessWidget {
                     const SizedBox(height: 2),
                     Text(
                       seg.phaseName,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         fontSize: 10.5,
                         height: 1.3,
@@ -891,8 +889,6 @@ class _ScoreBar extends StatelessWidget {
             Flexible(
               child: Text(
                 bar.label,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
                 style: TextStyle(
                   fontSize: 11.5,
                   color: scheme.onSurfaceVariant,

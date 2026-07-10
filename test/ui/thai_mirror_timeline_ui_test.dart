@@ -70,4 +70,28 @@ void main() {
 
     expect(find.text('เส้นทางชีวิตของคุณ'), findsOneWidget);
   });
+
+  testWidgets('timeline strip shows full Thai phase names without ellipsis',
+      (tester) async {
+    await pump(
+      tester,
+      const ThaiMirrorConsumerPreviewPage(profileId: 'H'),
+    );
+
+    const longPhase = 'ช่วงพลิกผันและเปลี่ยนผ่าน';
+    expect(find.text(longPhase), findsWidgets);
+    expect(find.textContaining('เปลี่ยนผ่…'), findsNothing);
+  });
+
+  testWidgets('future prediction confidence label shows full Thai copy',
+      (tester) async {
+    await pump(
+      tester,
+      const ThaiMirrorConsumerPreviewPage(profileId: 'H'),
+    );
+
+    expect(find.text('แนวโน้มชีวิตในระยะข้างหน้า'), findsOneWidget);
+    expect(find.textContaining('พอเห็นแนวโน้มได้ค่อนข้างชัด'), findsWidgets);
+    expect(find.textContaining('ค่อนข้างช…'), findsNothing);
+  });
 }
