@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:knowme/core/web/web_launch_router.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_capture_page.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_landing_page.dart';
 import 'package:knowme/features/thai_beta/presentation/thai_beta_routes.dart';
@@ -30,7 +29,8 @@ void main() {
       expect(beta, isNotNull);
     });
 
-    testWidgets('capture route builds ThaiBetaCapturePage', (tester) async {
+    testWidgets('capture route builds ThaiBetaCapturePage empty state without session',
+        (tester) async {
       final route = ThaiBetaRoutes.onGenerateRoute(
         const RouteSettings(name: '/beta/thai/capture'),
       )!;
@@ -47,7 +47,8 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byType(ThaiBetaCapturePage), findsOneWidget);
-      expect(find.text('Thai Beta Capture Mode Active'), findsOneWidget);
+      expect(find.text('ยังไม่มีรายงานสำหรับส่งออก'), findsOneWidget);
+      expect(find.text('Thai Beta Capture Mode Active'), findsNothing);
       expect(find.byType(ThaiBetaLandingPage), findsNothing);
     });
   });

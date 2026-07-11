@@ -38,6 +38,7 @@ class ThaiBetaReportPage extends StatelessWidget {
     this.audienceAccess,
     this.screenshotModeOverride,
     this.showCaptureModeBanner = false,
+    this.captureBannerMessage,
   });
 
   final ThaiBetaAnalysis analysis;
@@ -62,6 +63,9 @@ class ThaiBetaReportPage extends StatelessWidget {
   /// Shows the internal capture-route banner ( `/beta/thai/capture` only).
   final bool showCaptureModeBanner;
 
+  /// Optional override for the capture banner (e.g. QA sample route label).
+  final String? captureBannerMessage;
+
   @override
   Widget build(BuildContext context) {
     final screenshotMode =
@@ -76,6 +80,7 @@ class ThaiBetaReportPage extends StatelessWidget {
         repository: repository,
         screenshotMode: screenshotMode,
         showCaptureModeBanner: showCaptureModeBanner,
+        captureBannerMessage: captureBannerMessage,
       );
     }
 
@@ -102,6 +107,7 @@ class ThaiBetaReportPage extends StatelessWidget {
           repository: repository,
           screenshotMode: screenshotMode,
           showCaptureModeBanner: showCaptureModeBanner,
+          captureBannerMessage: captureBannerMessage,
         );
       },
     );
@@ -115,6 +121,7 @@ class _ThaiBetaReportScaffold extends StatefulWidget {
     required this.audience,
     required this.screenshotMode,
     this.showCaptureModeBanner = false,
+    this.captureBannerMessage,
     this.featureFlagOverride,
     this.badgeViewModelsOverride,
     this.repository,
@@ -124,6 +131,7 @@ class _ThaiBetaReportScaffold extends StatefulWidget {
   final ThaiBetaEvidenceBadgeAudience audience;
   final bool screenshotMode;
   final bool showCaptureModeBanner;
+  final String? captureBannerMessage;
   final ThaiEvidenceBadgeFeatureFlagState? featureFlagOverride;
   final List<ThaiPublicEvidenceBadgeBetaViewModel>? badgeViewModelsOverride;
   final ThaiCanonEvidenceRepository? repository;
@@ -345,6 +353,8 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
   }
 
   Widget _buildCaptureModeBanner() {
+    final message =
+        widget.captureBannerMessage ?? 'Thai Beta Capture Mode Active';
     return Padding(
       padding: const EdgeInsets.fromLTRB(12, 8, 12, 4),
       child: Material(
@@ -353,7 +363,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
           child: Text(
-            'Thai Beta Capture Mode Active',
+            message,
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.titleSmall?.copyWith(
                   fontWeight: FontWeight.w700,

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/thai_mirror_life_timeline_state.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/ui/pages/thai_mirror_result_page.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
+import 'package:knowme/features/thai_beta/application/thai_beta_current_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_polish.dart';
@@ -11,30 +13,48 @@ import 'package:knowme/features/thai_beta/application/thai_evidence_badge_featur
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_capture_page.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_export_print_page.dart';
+import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_qa_sample_capture_page.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart';
 import 'package:knowme/features/thai_beta/presentation/thai_beta_screenshot_mode.dart';
 import 'package:knowme/features/thai_beta/presentation/widgets/thai_beta_report_export_button.dart';
+
+ThaiBetaAnalysis _runAnalysis({
+  required DateTime birthDate,
+  String firstName = 'Export',
+  String lastName = 'Test',
+}) {
+  return ThaiBetaAnalysisRunner.run(
+    ThaiBetaInput(
+      firstName: firstName,
+      lastName: lastName,
+      birthDate: birthDate,
+      birthHour: 10,
+      birthMinute: 30,
+      province: 'กรุงเทพมหานคร',
+      provinceKey: 'bangkok',
+    ),
+  );
+}
+
+ThaiMirrorLifeTimelineState _timeline(ThaiBetaAnalysis analysis) {
+  return analysis.consumerViewState!.lifeTimeline!;
+}
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   late ThaiBetaAnalysis analysis;
+  late ThaiBetaAnalysis qaSampleAnalysis;
 
   setUpAll(() {
-    analysis = ThaiBetaAnalysisRunner.run(
-      ThaiBetaInput(
-        firstName: 'Export',
-        lastName: 'Test',
-        birthDate: DateTime(1972, 4, 4),
-        birthHour: 10,
-        birthMinute: 30,
-        province: 'กรุงเทพมหานคร',
-        provinceKey: 'bangkok',
-      ),
-    );
+    analysis = _runAnalysis(birthDate: DateTime(1972, 4, 4));
+    qaSampleAnalysis = ThaiBetaQaSampleCapturePage.sampleAnalysis();
   });
 
-  tearDown(ThaiBetaScreenshotMode.resetForTest);
+  tearDown(() {
+    ThaiBetaScreenshotMode.resetForTest();
+    ThaiBetaCurrentAnalysis.resetForTest();
+  });
 
   group('ThaiBetaReportExportSafety', () {
     test('detects forbidden tokens', () {
@@ -166,6 +186,146 @@ void main() {
     });
   });
 
+  group('Real user analysis wiring', () {
+    late ThaiBetaAnalysis realUserAnalysis;
+
+    setUpAll(() {
+      realUserAnalysis = _runAnalysis(
+        birthDate: DateTime(1982, 6, 15),
+        firstName: 'Real',
+        lastName: 'User',
+      );
+    });
+
+    test('export uses current ThaiBetaAnalysis from session', () {
+      ThaiBetaCurrentAnalysis.set(realUserAnalysis);
+      expect(ThaiBetaCurrentAnalysis.current, same(realUserAnalysis));
+
+      final doc = ThaiBetaReportExportDocument.fromAnalysis(
+        ThaiBetaCurrentAnalysis.current!,
+      );
+      expect(
+        doc.fullPlainText,
+        contains(realUserAnalysis.consumerViewState!.hero.headline),
+      );
+    });
+
+    test('export never uses sampleQaBirthData birth year', () {
+      final doc = ThaiBetaReportExportDocument.fromAnalysis(realUserAnalysis);
+      final text = doc.fullPlainText;
+      final sampleAge = _timeline(qaSampleAnalysis).currentStage.currentAge;
+      final realAge = _timeline(realUserAnalysis).currentStage.currentAge;
+
+      expect(realAge, isNot(equals(sampleAge)));
+      expect(text, contains('อายุ $realAge'));
+      expect(text, isNot(contains('อายุ $sampleAge')));
+    });
+
+    test('PDF age matches report age', () async {
+      final doc = ThaiBetaReportExportDocument.fromAnalysis(realUserAnalysis);
+      final rendered = await ThaiBetaReportPdfExporter.build(doc);
+      final reportAge = _timeline(realUserAnalysis).currentStage.currentAge;
+
+      expect(rendered.plainText, contains('อายุ $reportAge'));
+    });
+
+    test('PDF current period matches report', () async {
+      final stage = _timeline(realUserAnalysis).currentStage;
+      final doc = ThaiBetaReportExportDocument.fromAnalysis(realUserAnalysis);
+      final rendered = await ThaiBetaReportPdfExporter.build(doc);
+
+      expect(rendered.plainText, contains(stage.phaseName));
+      expect(rendered.plainText, contains(stage.eyebrow));
+    });
+
+    test('PDF timeline matches report timeline sections', () async {
+      final timeline = _timeline(realUserAnalysis);
+      final doc = ThaiBetaReportExportDocument.fromAnalysis(realUserAnalysis);
+      final rendered = await ThaiBetaReportPdfExporter.build(doc);
+
+      expect(rendered.plainText, contains(timeline.sectionTitle));
+      expect(rendered.plainText, contains(timeline.currentStage.planetLine));
+      for (final period in timeline.periods.take(2)) {
+        expect(rendered.plainText, contains(period.phaseName));
+      }
+    });
+
+    test('real PDF has no Markdown markers', () async {
+      final doc = ThaiBetaReportExportDocument.fromAnalysis(realUserAnalysis);
+      final rendered = await ThaiBetaReportPdfExporter.build(doc);
+      expect(rendered.plainText.contains('**'), isFalse);
+    });
+
+    test('real PDF passes safety exclusions', () async {
+      final doc = ThaiBetaReportExportDocument.fromAnalysis(realUserAnalysis);
+      final rendered = await ThaiBetaReportPdfExporter.build(doc);
+      expect(ThaiBetaReportExportSafety.containsForbidden(rendered.plainText), isFalse);
+      expect(ThaiBetaReportExportPolish.findForbidden(rendered.plainText), isEmpty);
+    });
+  });
+
+  group('Capture route without analysis', () {
+    testWidgets('never uses QA sample — shows empty state', (tester) async {
+      ThaiBetaCurrentAnalysis.resetForTest();
+
+      await tester.pumpWidget(
+        MaterialApp(
+          builder: (context, child) => ThaiBetaScreenshotScope(
+            active: true,
+            child: child ?? const SizedBox.shrink(),
+          ),
+          home: const ThaiBetaCapturePage(),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.byKey(const Key('thai_beta_capture_no_report')), findsOneWidget);
+      expect(find.text('ยังไม่มีรายงานสำหรับส่งออก'), findsOneWidget);
+      expect(find.byKey(const Key('thai_beta_capture_back_to_create')), findsOneWidget);
+      expect(find.byKey(const Key('thai_beta_report_export_button')), findsNothing);
+      expect(find.text('Thai Beta Capture Mode Active'), findsNothing);
+
+      final sampleAge = _timeline(qaSampleAnalysis).currentStage.currentAge;
+      expect(find.textContaining('อายุ $sampleAge'), findsNothing);
+    });
+
+    testWidgets('uses stored current analysis for export', (tester) async {
+      final userAnalysis = _runAnalysis(birthDate: DateTime(1982, 6, 15));
+      ThaiBetaCurrentAnalysis.set(userAnalysis);
+
+      await tester.pumpWidget(
+        MaterialApp(
+          builder: (context, child) => ThaiBetaScreenshotScope(
+            active: true,
+            child: child ?? const SizedBox.shrink(),
+          ),
+          home: const ThaiBetaCapturePage(),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.byKey(const Key('thai_beta_report_export_button')), findsOneWidget);
+      expect(find.text('Thai Beta Capture Mode Active'), findsOneWidget);
+      final userAge = _timeline(userAnalysis).currentStage.currentAge;
+      expect(find.textContaining('อายุ $userAge'), findsWidgets);
+    });
+  });
+
+  group('QA sample capture route', () {
+    testWidgets('shows QA label and sample report', (tester) async {
+      await tester.pumpWidget(
+        const MaterialApp(home: ThaiBetaQaSampleCapturePage()),
+      );
+      await tester.pumpAndSettle();
+
+      expect(
+        find.text('QA Sample Report — ไม่ใช่ข้อมูลของผู้ใช้'),
+        findsOneWidget,
+      );
+      expect(find.byKey(const Key('thai_beta_report_export_button')), findsOneWidget);
+    });
+  });
+
   group('ThaiBetaReportExportPolish', () {
     test('neighbourLabel does not double prefix', () {
       expect(
@@ -205,10 +365,29 @@ void main() {
       );
     });
 
-    test('normalizeSpacing adds space before parentheses', () {
+    test('normalizeSpacing adds space before parentheses and Thai punctuation', () {
       expect(
         ThaiBetaReportExportPolish.normalizeSpacing('ดี(ผ่านช่วงนี้)'),
         'ดี (ผ่านช่วงนี้)',
+      );
+      expect(
+        ThaiBetaReportExportPolish.normalizeSpacing('อยากรู้·คำถาม'),
+        'อยากรู้ · คำถาม',
+      );
+      expect(
+        ThaiBetaReportExportPolish.normalizeSpacing('อายุ36–54'),
+        'อายุ 36–54',
+      );
+      expect(
+        ThaiBetaReportExportPolish.normalizeSpacing('ดาวพฤหัสบดี•การเติบโต'),
+        'ดาวพฤหัสบดี • การเติบโต',
+      );
+    });
+
+    test('polishLine strips Markdown bold markers', () {
+      expect(
+        ThaiBetaReportExportPolish.polishLine('**หัวข้อ** เนื้อหา'),
+        'หัวข้อ เนื้อหา',
       );
     });
 
@@ -266,9 +445,18 @@ void main() {
       expect(find.text('เปิดหน้าพิมพ์ / Save as PDF'), findsOneWidget);
     });
 
-    testWidgets('export button visible on ThaiBetaCapturePage', (tester) async {
+    testWidgets('export button visible on capture page with stored analysis', (
+      tester,
+    ) async {
+      ThaiBetaCurrentAnalysis.set(analysis);
       await tester.pumpWidget(
-        const MaterialApp(home: ThaiBetaCapturePage()),
+        MaterialApp(
+          builder: (context, child) => ThaiBetaScreenshotScope(
+            active: true,
+            child: child ?? const SizedBox.shrink(),
+          ),
+          home: const ThaiBetaCapturePage(),
+        ),
       );
       await tester.pumpAndSettle();
       expect(find.text('Thai Beta Capture Mode Active'), findsOneWidget);

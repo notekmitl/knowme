@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../application/thai_beta_analysis.dart';
+import '../../application/thai_beta_current_analysis.dart';
 import '../../domain/thai_beta_input.dart';
 import '../thai_beta_province_options.dart';
 import '../widgets/thai_beta_progress_bar.dart';
@@ -75,6 +76,7 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
 
     final analysis =
         ThaiBetaAnalysisRunner.run(input, startedAt: _startedAt);
+    ThaiBetaCurrentAnalysis.set(analysis);
 
     Navigator.of(context).push(
       MaterialPageRoute<void>(

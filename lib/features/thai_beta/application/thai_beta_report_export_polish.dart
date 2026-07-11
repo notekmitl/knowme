@@ -100,6 +100,18 @@ abstract final class ThaiBetaReportExportPolish {
       RegExp(r'•([^\s])'),
       (m) => '• ${m[1]}',
     );
+    text = text.replaceAllMapped(
+      RegExp(r'([^\s])·'),
+      (m) => '${m[1]} ·',
+    );
+    text = text.replaceAllMapped(
+      RegExp(r'·([^\s])'),
+      (m) => '· ${m[1]}',
+    );
+    text = text.replaceAllMapped(
+      RegExp(r'อายุ(?!\s)(\d+(?:–\d+)?)'),
+      (m) => 'อายุ ${m[1]}',
+    );
     text = text.replaceAll(RegExp(r'[ \t]+([,.;:!?])'), r'$1');
     return text.trim();
   }
@@ -107,6 +119,7 @@ abstract final class ThaiBetaReportExportPolish {
   /// Single-line polish used for every title/paragraph written into the PDF.
   static String polishLine(String input) {
     var text = normalizeSpacing(polishTimingCopy(input));
+    text = text.replaceAll('**', '');
     text = text
         .replaceAll(RegExp(r'(ช่วงก่อนหน้า:\s*)+'), 'ช่วงก่อนหน้า: ')
         .replaceAll(RegExp(r'(ช่วงถัดไป:\s*)+'), 'ช่วงถัดไป: ');

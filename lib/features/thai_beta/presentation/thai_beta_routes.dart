@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 import 'admin/thai_research_admin_guard.dart';
 import 'pages/thai_beta_capture_page.dart';
 import 'pages/thai_beta_landing_page.dart';
+import 'pages/thai_beta_qa_sample_capture_page.dart';
 
 /// Routes for the standalone Thai Astrology Beta.
 abstract final class ThaiBetaRoutes {
   static const String betaRouteName = '/beta/thai';
   static const String betaCaptureRouteName = '/beta/thai/capture';
+  static const String betaQaSampleCaptureRouteName = '/beta/thai/capture-qa';
   static const String adminRouteName = '/internal/thai-beta';
 
   static String _normalizePath(String path) {
@@ -19,6 +21,10 @@ abstract final class ThaiBetaRoutes {
 
   static bool isCapturePath(String path) {
     return _normalizePath(path) == betaCaptureRouteName;
+  }
+
+  static bool isQaSampleCapturePath(String path) {
+    return _normalizePath(path) == betaQaSampleCaptureRouteName;
   }
 
   static bool isBetaPath(String path) {
@@ -39,6 +45,13 @@ abstract final class ThaiBetaRoutes {
       return MaterialPageRoute<void>(
         settings: const RouteSettings(name: betaCaptureRouteName),
         builder: (_) => const ThaiBetaCapturePage(),
+      );
+    }
+
+    if (isQaSampleCapturePath(path)) {
+      return MaterialPageRoute<void>(
+        settings: const RouteSettings(name: betaQaSampleCaptureRouteName),
+        builder: (_) => const ThaiBetaQaSampleCapturePage(),
       );
     }
 

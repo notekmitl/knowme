@@ -151,7 +151,8 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byType(ThaiBetaCapturePage), findsOneWidget);
-      expect(find.text('Thai Beta Capture Mode Active'), findsOneWidget);
+      expect(find.text('ยังไม่มีรายงานสำหรับส่งออก'), findsOneWidget);
+      expect(find.text('Thai Beta Capture Mode Active'), findsNothing);
       expect(find.byType(LoginPage), findsNothing);
       expect(find.byType(HomePage), findsNothing);
       expect(ThaiBetaScreenshotMode.isActive, isTrue);
@@ -232,7 +233,8 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.byType(ThaiBetaCapturePage), findsOneWidget);
-      expect(find.text('Thai Beta Capture Mode Active'), findsOneWidget);
+      expect(find.text('ยังไม่มีรายงานสำหรับส่งออก'), findsOneWidget);
+      expect(find.text('Thai Beta Capture Mode Active'), findsNothing);
       expect(find.byType(ProfileGate), findsNothing);
       expect(find.byType(HomePage), findsNothing);
       expect(WebIntendedRoute.peekThaiBetaScreenshot(), '/beta/thai/capture');
