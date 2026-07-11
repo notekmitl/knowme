@@ -311,6 +311,115 @@ void main() {
     });
   });
 
+  group('Stale analysis export guard', () {
+    ThaiBetaInput sampleInput({
+      String firstName = 'Stale',
+      String lastName = 'Guard',
+      DateTime? birthDate,
+    }) {
+      return ThaiBetaInput(
+        firstName: firstName,
+        lastName: lastName,
+        birthDate: birthDate ?? DateTime(1982, 6, 15),
+        birthHour: 10,
+        birthMinute: 30,
+        province: 'กรุงเทพมหานคร',
+        provinceKey: 'bangkok',
+      );
+    }
+
+    test('successful analysis can export', () {
+      final success = _runAnalysis(birthDate: DateTime(1982, 6, 15));
+      expect(success.isSuccess, isTrue);
+
+      ThaiBetaCurrentAnalysis.clear();
+      ThaiBetaCurrentAnalysis.set(success);
+
+      expect(ThaiBetaCurrentAnalysis.current, same(success));
+      final doc = ThaiBetaReportExportDocument.fromAnalysis(
+        ThaiBetaCurrentAnalysis.current!,
+      );
+      expect(
+        doc.fullPlainText,
+        contains(success.consumerViewState!.hero.headline),
+      );
+    });
+
+    test('starting a new analysis clears previous export state', () {
+      final previous = _runAnalysis(birthDate: DateTime(1982, 6, 15));
+      ThaiBetaCurrentAnalysis.set(previous);
+      expect(ThaiBetaCurrentAnalysis.current, isNotNull);
+
+      // Mirrors ThaiBetaInputPage._submit: clear before running the new attempt.
+      ThaiBetaCurrentAnalysis.clear();
+      expect(ThaiBetaCurrentAnalysis.current, isNull);
+    });
+
+    test('failed latest analysis cannot export stale previous result', () {
+      final previous = _runAnalysis(birthDate: DateTime(1982, 6, 15));
+      ThaiBetaCurrentAnalysis.set(previous);
+      expect(ThaiBetaCurrentAnalysis.current, same(previous));
+
+      ThaiBetaCurrentAnalysis.clear();
+      final failed = ThaiBetaAnalysis.failedForTest(input: sampleInput());
+      expect(failed.isSuccess, isFalse);
+      ThaiBetaCurrentAnalysis.set(failed);
+
+      expect(ThaiBetaCurrentAnalysis.current, isNull);
+    });
+
+    testWidgets(
+      'capture route after failed analysis shows no-report state',
+      (tester) async {
+        final previous = _runAnalysis(birthDate: DateTime(1982, 6, 15));
+        ThaiBetaCurrentAnalysis.set(previous);
+
+        ThaiBetaCurrentAnalysis.clear();
+        ThaiBetaCurrentAnalysis.set(
+          ThaiBetaAnalysis.failedForTest(input: sampleInput()),
+        );
+
+        await tester.pumpWidget(
+          MaterialApp(
+            builder: (context, child) => ThaiBetaScreenshotScope(
+              active: true,
+              child: child ?? const SizedBox.shrink(),
+            ),
+            home: const ThaiBetaCapturePage(),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(find.byKey(const Key('thai_beta_capture_no_report')), findsOneWidget);
+        expect(find.text('ยังไม่มีรายงานสำหรับส่งออก'), findsOneWidget);
+        expect(find.byKey(const Key('thai_beta_report_export_button')), findsNothing);
+
+        final previousAge = _timeline(previous).currentStage.currentAge;
+        expect(find.textContaining('อายุ $previousAge'), findsNothing);
+        final sampleAge = _timeline(qaSampleAnalysis).currentStage.currentAge;
+        expect(find.textContaining('อายุ $sampleAge'), findsNothing);
+      },
+    );
+
+    testWidgets('QA sample route remains separate and clearly labeled', (tester) async {
+      ThaiBetaCurrentAnalysis.resetForTest();
+
+      await tester.pumpWidget(
+        const MaterialApp(home: ThaiBetaQaSampleCapturePage()),
+      );
+      await tester.pumpAndSettle();
+
+      expect(
+        find.text('QA Sample Report — ไม่ใช่ข้อมูลของผู้ใช้'),
+        findsOneWidget,
+      );
+      expect(find.byKey(const Key('thai_beta_report_export_button')), findsOneWidget);
+      expect(find.text('ยังไม่มีรายงานสำหรับส่งออก'), findsNothing);
+      // Real-user capture empty-state must not appear on the QA route.
+      expect(find.byKey(const Key('thai_beta_capture_no_report')), findsNothing);
+    });
+  });
+
   group('QA sample capture route', () {
     testWidgets('shows QA label and sample report', (tester) async {
       await tester.pumpWidget(

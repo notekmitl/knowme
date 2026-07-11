@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:knowme/features/astrology/thai/foundation/models/thai_astrology_profile.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_mirror_consumer_view_state.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/thai_mirror_consumer_presenter.dart';
@@ -55,6 +56,21 @@ class ThaiBetaAnalysis {
       consumerViewState != null &&
       normalizedSnapshot != null &&
       profile != null;
+
+  /// Test-only failed analysis (no engine run). Used to prove export state
+  /// clears on failure without inventing prediction output.
+  @visibleForTesting
+  factory ThaiBetaAnalysis.failedForTest({
+    required ThaiBetaInput input,
+    DateTime? startedAt,
+    String errorMessage = 'ไม่สามารถสร้างผลวิเคราะห์ได้',
+  }) {
+    return ThaiBetaAnalysis._(
+      input: input,
+      startedAt: startedAt ?? DateTime.now(),
+      errorMessage: errorMessage,
+    );
+  }
 }
 
 /// The beta's single entry point: turns user input into the existing Thai report.

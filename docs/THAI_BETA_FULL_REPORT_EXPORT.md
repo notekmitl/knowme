@@ -178,4 +178,18 @@ the supported export path.
 
 ---
 
+## Real-user session analysis (export source)
+
+`/beta/thai/capture` exports **only** `ThaiBetaCurrentAnalysis.current`.
+
+| Event | Export state |
+|-------|----------------|
+| Start new analysis (`ThaiBetaInputPage`) | `clear()` immediately |
+| Analysis succeeds | `set(analysis)` stores it |
+| Analysis fails | `set(failed)` clears — **no stale prior success** |
+| No current success | Capture shows **ยังไม่มีรายงานสำหรับส่งออก** |
+| `/beta/thai/capture-qa` | Separate QA sample route (labeled); never used as capture fallback |
+
+---
+
 **Report content / engine / Canon / badge policy unchanged — export packaging + presentation polish only.**

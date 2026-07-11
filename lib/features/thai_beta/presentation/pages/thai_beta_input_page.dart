@@ -74,6 +74,8 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
       gender: _gender,
     );
 
+    // New attempt must not leave a prior success exportable if this run fails.
+    ThaiBetaCurrentAnalysis.clear();
     final analysis =
         ThaiBetaAnalysisRunner.run(input, startedAt: _startedAt);
     ThaiBetaCurrentAnalysis.set(analysis);
