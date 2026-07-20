@@ -65,7 +65,7 @@ void main() {
       await tester.pumpAndSettle();
     }
 
-    testWidgets('screenshot mode uses non-scrollable parent layout', (
+    testWidgets('screenshot mode uses Flutter-scrollable parent layout', (
       tester,
     ) async {
       await pumpReport(tester, screenshotMode: true);
@@ -75,8 +75,8 @@ void main() {
       final layout = tester.widget<SingleChildScrollView>(
         find.byKey(const Key('thai_beta_report_screenshot_layout')),
       );
-      expect(layout.physics, isA<NeverScrollableScrollPhysics>());
-      expect(layout.primary, isFalse);
+      expect(layout.physics, isNot(isA<NeverScrollableScrollPhysics>()));
+      expect(layout.primary, isTrue);
     });
 
     testWidgets('screenshot mode has no fixed bottom navigation bar', (

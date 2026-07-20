@@ -26,7 +26,8 @@ import 'package:knowme/features/astrology/thai/mirror/presentation/ui/pages/thai
 /// feature flag and audience gate allow it.
 ///
 /// Screenshot mode (`?screenshot=1`, `?capture=1`, `/beta/thai/capture`):
-/// long content layout with document-level scroll for GoFullPage capture.
+/// long-form reading layout with a single Flutter scroll owner (banner +
+/// export chrome stay sticky above the scrollable report body).
 class ThaiBetaReportPage extends StatelessWidget {
   const ThaiBetaReportPage({
     super.key,
@@ -142,30 +143,30 @@ class _ThaiBetaReportScaffold extends StatefulWidget {
 
 class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
   static const _captureContentKeyValue = Key('thaiBetaReportCaptureContentKey');
-  static const _hostSyncPaddingPx = 80.0;
 
   final GlobalKey _captureContentMeasureKey = GlobalKey();
 
   List<ThaiPublicEvidenceBadgeBetaViewModel> _badges = const [];
   bool _loadingBadges = false;
   int _hostSyncGeneration = 0;
-  double _lastSyncedHostHeight = 0;
+  double _lastMeasuredContentHeight = 0;
 
   @override
   void initState() {
     super.initState();
-    if (widget.screenshotMode) {
-      if (kIsWeb) {
-        enableScreenshotFriendlyScroll();
-      }
+    // Capture/reading mode uses Flutter as the only scroll owner.
+    // Do not expand document/html host height (that fought user scrolling).
+    // Always clear any leftover screenshot host styles from a prior visit.
+    if (kIsWeb) {
+      disableScreenshotFriendlyScroll();
     }
     _loadBadgesIfNeeded();
-    _scheduleHostHeightSync();
+    _scheduleDiagnosticsRefresh();
   }
 
   @override
   void dispose() {
-    if (widget.screenshotMode && kIsWeb) {
+    if (kIsWeb) {
       disableScreenshotFriendlyScroll();
     }
     super.dispose();
@@ -180,62 +181,32 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
       _loadBadgesIfNeeded();
     }
     if (oldWidget.screenshotMode != widget.screenshotMode && kIsWeb) {
-      if (widget.screenshotMode) {
-        enableScreenshotFriendlyScroll();
-      } else {
-        disableScreenshotFriendlyScroll();
-      }
+      // Leaving or entering capture: never leave document scroll styles locked.
+      disableScreenshotFriendlyScroll();
     }
-    _scheduleHostHeightSync();
+    _scheduleDiagnosticsRefresh();
   }
 
-  void _scheduleHostHeightSync() {
-    if (!widget.screenshotMode || !kIsWeb) return;
+  /// Refresh measured-height diagnostics only — does not mutate body/html scroll.
+  void _scheduleDiagnosticsRefresh() {
+    if (!widget.screenshotMode) return;
     final generation = ++_hostSyncGeneration;
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted || generation != _hostSyncGeneration) return;
-      resetScreenshotHostHeight();
-      await Future<void>.delayed(Duration.zero);
-      if (!mounted || generation != _hostSyncGeneration) return;
-      _measureAndApplyHostHeight();
-      await Future<void>.delayed(const Duration(milliseconds: 400));
-      if (!mounted || generation != _hostSyncGeneration) return;
-      _measureAndApplyHostHeight(refreshDiagnostics: true);
-    });
-  }
-
-  void _measureAndApplyHostHeight({bool refreshDiagnostics = false}) {
-    if (!kIsWeb) return;
-
-    final box =
-        _captureContentMeasureKey.currentContext?.findRenderObject() as RenderBox?;
-    if (box == null || !box.hasSize) return;
-
-    final contentHeight = box.size.height;
-    final topPadding = MediaQuery.paddingOf(context).top;
-    final appliedHostHeight = computeScreenshotHostHeight(
-      contentHeightPx: contentHeight,
-      topPaddingPx: topPadding,
-      hostPaddingPx: _hostSyncPaddingPx,
-      windowInnerHeightPx: MediaQuery.sizeOf(context).height,
-    );
-
-    if ((appliedHostHeight - _lastSyncedHostHeight).abs() < 4 &&
-        !refreshDiagnostics) {
-      return;
-    }
-    _lastSyncedHostHeight = appliedHostHeight;
-    enableScreenshotFriendlyScroll(contentHeightPx: appliedHostHeight);
-
-    if (refreshDiagnostics && mounted) {
+      final box = _captureContentMeasureKey.currentContext?.findRenderObject()
+          as RenderBox?;
+      if (box == null || !box.hasSize) return;
+      final contentHeight = box.size.height;
+      if ((contentHeight - _lastMeasuredContentHeight).abs() < 4) return;
+      _lastMeasuredContentHeight = contentHeight;
       setState(() {});
-    }
+    });
   }
 
   Future<void> _loadBadgesIfNeeded() async {
     if (widget.badgeViewModelsOverride != null) {
       setState(() => _badges = widget.badgeViewModelsOverride!);
-      _scheduleHostHeightSync();
+      _scheduleDiagnosticsRefresh();
       return;
     }
 
@@ -249,7 +220,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
           _badges = const [];
           _loadingBadges = false;
         });
-        _scheduleHostHeightSync();
+        _scheduleDiagnosticsRefresh();
       }
       return;
     }
@@ -270,14 +241,14 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
         _badges = ThaiPublicEvidenceBadgeBetaMapper.fromBundle(bundle);
         _loadingBadges = false;
       });
-      _scheduleHostHeightSync();
+      _scheduleDiagnosticsRefresh();
     } catch (_) {
       if (!mounted) return;
       setState(() {
         _badges = const [];
         _loadingBadges = false;
       });
-      _scheduleHostHeightSync();
+      _scheduleDiagnosticsRefresh();
     }
   }
 
@@ -388,7 +359,8 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
       'route: ${uri.path}',
       'query: ${uri.hasQuery ? uri.query : '(none)'}',
       'contentMeasuredHeight: ${contentHeight.toStringAsFixed(0)}',
-      'appliedHostHeight: ${(_lastSyncedHostHeight > 0 ? _lastSyncedHostHeight : readAppliedHostHeightPx()).toStringAsFixed(0)}',
+      // Host height is intentionally not applied during reading (Flutter scrolls).
+      'appliedHostHeight: ${readAppliedHostHeightPx().toStringAsFixed(0)}',
     ];
     if (diagnostics != null) {
       lines.addAll([
@@ -466,8 +438,10 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
               Expanded(
                 child: SingleChildScrollView(
                   key: const Key('thai_beta_report_screenshot_layout'),
-                  physics: const NeverScrollableScrollPhysics(),
-                  primary: false,
+                  // Flutter owns capture scrolling (wheel / touch / scrollbar /
+                  // keyboard). NeverScrollable + document-host scroll left
+                  // users unable to read the report on /beta/thai/capture.
+                  primary: true,
                   child: Align(
                     alignment: Alignment.topCenter,
                     child: ConstrainedBox(
