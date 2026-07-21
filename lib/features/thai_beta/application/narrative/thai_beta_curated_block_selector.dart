@@ -5,6 +5,7 @@ import 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mir
 
 import 'thai_beta_curated_narrative_block.dart';
 import 'thai_beta_curated_narrative_blocks.dart';
+import 'thai_beta_narrative_confidence.dart';
 import 'thai_beta_narrative_domain.dart';
 import 'thai_beta_narrative_formatting.dart';
 
@@ -191,7 +192,12 @@ abstract final class ThaiBetaCuratedBlockSelector {
     required String? secondaryTag,
     required int level,
   }) {
-    if (query.confidence < block.minimumConfidence) return 0;
+    final minimum = ThaiBetaNarrativeConfidence.effectiveMinimum(
+      declaredMinimum: block.minimumConfidence,
+      requiresBirthTime: block.requiresBirthTime,
+      safeWithoutBirthTime: block.safeWithoutBirthTime,
+    );
+    if (query.confidence < minimum) return 0;
 
     switch (level) {
       case 1:

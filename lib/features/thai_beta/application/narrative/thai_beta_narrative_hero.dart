@@ -7,6 +7,7 @@ import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_m
 
 import 'thai_beta_curated_block_selector.dart';
 import 'thai_beta_curated_narrative_block.dart';
+import 'thai_beta_narrative_confidence.dart';
 import 'thai_beta_narrative_dedupe.dart';
 import 'thai_beta_narrative_formatting.dart';
 import 'thai_beta_narrative_specificity.dart';
@@ -54,7 +55,7 @@ abstract final class ThaiBetaNarrativeHero {
         usedBlockIds: usedBlockIds,
         usedTextKeys: usedTextKeys,
         seed: profileSeed,
-        confidence: hasBirthTime ? 1.0 : 0.5,
+        confidence: ThaiBetaNarrativeConfidence.forBirthTime(hasBirthTime),
       ),
     );
 

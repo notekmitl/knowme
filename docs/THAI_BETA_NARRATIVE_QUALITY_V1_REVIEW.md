@@ -460,3 +460,37 @@ No forbidden runtime patterns in composed narrative sections.
 - `build/thai_beta_narrative_samples_v11/fixture_b_no_time.txt`
 
 Generated via `flutter test test/validation/thai_beta/narrative/thai_beta_narrative_sample_export_test.dart`
+
+---
+
+## V1.1.1 — Block Integrity & Confidence Consistency
+
+**Date:** July 2026  
+**Base:** Thai Beta Narrative V1.1 on `integrate/thai-beta-narrative-base`  
+**Scope:** Presentation curated-block layer only — no engine / Canon / badge / feature-flag changes
+
+### Problems addressed
+
+1. **Confidence call-site drift** — some `CuratedBlockQuery` constructions omitted `confidence` (defaulted to `1.0`) even when `hasBirthTime` was false (alt advice path, `observableBehavior`), and `domainAdviceFallback` hard-coded `hasBirthTime: true`.
+2. **Declared `minimumConfidence` unused in practice** — nearly all blocks defaulted to `0.0`, so the confidence gate never reinforced the birth-time policy.
+3. **No catalog integrity gate** — required fields, unique ids, fallback coverage, and birth-time flag consistency were only partially covered by selection tests.
+
+### Fixes
+
+| Area | Change |
+|------|--------|
+| Confidence source of truth | `ThaiBetaNarrativeConfidence.forBirthTime` / `effectiveMinimum` |
+| Selector | Match score uses **effective** minimum (unsafe / requires-time → floor `1.0`) |
+| Call sites | Hero, specificity, domain advice, alt-advice, observableBehavior all pass `forBirthTime` |
+| Trace | Records effective minimum confidence |
+| Integrity | `ThaiBetaCuratedBlockIntegrity.validate()` — unique ids, required fields, fallbacks, flag/confidence consistency |
+
+### Tests
+
+`test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart` — catalog integrity + no-time never selects unsafe blocks + composed trace confidence bounds + V1.1 regression suite.
+
+### Confirmations
+
+- Engine / Canon / Mahabhut Canon / evidence badge rollout / invite allow-list unchanged
+- No LLM / random / network
+- Internal block IDs still not shown in public output

@@ -2,37 +2,38 @@
 
 ## Task ID
 
-`single-agent-local-gate-install`
+`thai-beta-narrative-v1.1.1-block-integrity-confidence`
 
 ## เป้าหมาย
 
-ติดตั้ง KnowMe Single-Agent + Local Gate workflow ใน repo นี้ ยุติการใช้ KnowMe AI Worker และ reviewer loop สำหรับงาน automation ใหม่
+Hardening Thai Beta Narrative V1.1 curated blocks สำหรับ:
+1. **Block Integrity** — catalog invariants (unique ids, required fields ต่อ section, fallback coverage, birth-time flag consistency)
+2. **Confidence Consistency** — ค่า confidence ที่ส่งเข้า selector สอดคล้องกับ birth-time policy ทุก call site และ effective minimumConfidence กันไม่ให้ block ที่ไม่ปลอดภัยถูกเลือกเมื่อไม่มีเวลาเกิด
 
 ## สิ่งที่ต้องทำ
 
-- ติดตั้ง `scripts/knowme_task_gate.ps1` และ self-test
-- ติดตั้งเอกสาร workflow authoritative (`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`, standard prompt)
-- อัปเดต status/handoff docs ให้ชี้ระบบใหม่ และ mark AI Worker ว่า retired
-- retire `docs/AI_WORKER_OPERATION.md` เป็น historical record (ห้ามลบ)
-- ไม่แตะ Thai Beta Narrative V1.1.1 หรือ application behavior
+- รวม confidence derivation เป็นจุดเดียว
+- แก้ call site ที่ขาด `confidence` หรือ hardcode `hasBirthTime: true` โดยไม่สอดคล้องกับ profile จริง
+- เพิ่ม integrity validator + focused regression tests
+- อัปเดตเอกสาร review เฉพาะส่วน V1.1.1
 
 ## สิ่งที่ห้ามทำ
 
-- ห้ามขยาย scope นอก `task_scope.json`
-- ห้ามใช้ KnowMe AI Worker, OpenAI API หรือ AI reviewer
-- ห้ามสร้าง worktree หรือ branch ใหม่ระหว่างงาน
+- ห้ามเปลี่ยน public evidence badge rollout, feature flag, invite allow-list
+- ห้ามแตะ Canon / Mahabhut Canon
+- ห้ามเปลี่ยน engine / prediction / life-period selection
+- ห้ามสร้าง worktree หรือ branch ใหม่
 - ห้าม merge, push หรือ deploy
-- ห้ามแตะ external AI Worker directory นอก repo นี้
+- ห้ามใช้ KnowMe AI Worker / OpenAI reviewer
 
 ## Definition of Done
 
-- workflow ใหม่มีเอกสาร authoritative และ Gate ทำงาน PreCommit/PostCommit
-- self-tests ครอบคลุม failure modes และ happy path
-- Local Gate ระยะ PreCommit ผ่าน
-- commit ด้วยข้อความที่ตรงตาม `task_scope.json`
-- Local Gate ระยะ PostCommit ผ่าน
-- `TASK_RESULT.md` มีผลสุดท้ายเพียงไฟล์เดียว
+- Focused tests ของ integrity + confidence ผ่าน
+- PreCommit Gate PASS
+- commit หนึ่งครั้งด้วยข้อความตรง policy
+- PostCommit Gate PASS
+- `TASK_RESULT.md` มีผลสุดท้าย
 
 ## หมายเหตุเฉพาะงาน
 
-งานนี้เป็น workflow/tooling task ไม่ใช่งาน Thai Beta Narrative V1.1.1
+ฐาน: cherry-pick V1 + V1.1 บน `integrate/thai-beta-narrative-base` แล้ว (HEAD ก่อนงานนี้เป็น base_ref)

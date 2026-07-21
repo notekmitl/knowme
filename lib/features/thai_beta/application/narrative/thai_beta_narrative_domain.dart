@@ -7,6 +7,7 @@ import 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mir
 
 import 'thai_beta_curated_block_selector.dart';
 import 'thai_beta_curated_narrative_block.dart';
+import 'thai_beta_narrative_confidence.dart';
 
 /// Consumer life dashboard + narrative domain keys.
 enum ThaiBetaLifeDomain {
@@ -208,15 +209,17 @@ abstract final class ThaiBetaDomainSemanticTags {
   /// Domain-safe advice from curated blocks only.
   static String domainAdviceFallback(
     ThaiBetaLifeDomain domain,
-    String primaryThemeId,
-  ) {
+    String primaryThemeId, {
+    bool hasBirthTime = true,
+  }) {
     final selection = ThaiBetaCuratedBlockSelector.select(
       CuratedBlockQuery(
         section: CuratedNarrativeSection.advice,
         primaryThemeId: primaryThemeId,
         domain: domain,
-        hasBirthTime: true,
+        hasBirthTime: hasBirthTime,
         seed: domain.index,
+        confidence: ThaiBetaNarrativeConfidence.forBirthTime(hasBirthTime),
       ),
     );
     return selection.block.adviceText ?? '';

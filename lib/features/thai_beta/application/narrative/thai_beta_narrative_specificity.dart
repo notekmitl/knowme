@@ -6,6 +6,7 @@ import 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mir
 
 import 'thai_beta_curated_block_selector.dart';
 import 'thai_beta_curated_narrative_block.dart';
+import 'thai_beta_narrative_confidence.dart';
 import 'thai_beta_narrative_domain.dart';
 import 'thai_beta_narrative_formatting.dart';
 import 'thai_beta_narrative_trace.dart';
@@ -52,7 +53,7 @@ abstract final class ThaiBetaNarrativeSpecificity {
         usedBlockIds: usedBlockIds,
         usedTextKeys: usedTextKeys,
         seed: seed,
-        confidence: hasBirthTime ? 1.0 : 0.5,
+        confidence: ThaiBetaNarrativeConfidence.forBirthTime(hasBirthTime),
       ),
     );
     return (
@@ -108,7 +109,7 @@ abstract final class ThaiBetaNarrativeSpecificity {
         usedBlockIds: usedBlockIds,
         usedTextKeys: usedTextKeys,
         seed: seed + 1,
-        confidence: hasBirthTime ? 1.0 : 0.5,
+        confidence: ThaiBetaNarrativeConfidence.forBirthTime(hasBirthTime),
       ),
     );
     return (
@@ -169,7 +170,7 @@ abstract final class ThaiBetaNarrativeSpecificity {
         usedBlockIds: usedBlockIds,
         usedTextKeys: usedTextKeys,
         seed: seed,
-        confidence: hasBirthTime ? 1.0 : 0.5,
+        confidence: ThaiBetaNarrativeConfidence.forBirthTime(hasBirthTime),
       ),
     );
 
@@ -182,7 +183,7 @@ abstract final class ThaiBetaNarrativeSpecificity {
         usedBlockIds: {...usedBlockIds, dashSelection.block.id},
         usedTextKeys: usedTextKeys,
         seed: seed + 7,
-        confidence: hasBirthTime ? 1.0 : 0.5,
+        confidence: ThaiBetaNarrativeConfidence.forBirthTime(hasBirthTime),
       ),
     );
 
@@ -201,6 +202,7 @@ abstract final class ThaiBetaNarrativeSpecificity {
           },
           usedTextKeys: {...usedTextKeys, ...usedActions},
           seed: seed + 13,
+          confidence: ThaiBetaNarrativeConfidence.forBirthTime(hasBirthTime),
         ),
       );
       action = alt.block.adviceText ?? action;
@@ -241,7 +243,7 @@ abstract final class ThaiBetaNarrativeSpecificity {
         usedBlockIds: usedBlockIds,
         usedTextKeys: usedTextKeys,
         seed: seed,
-        confidence: hasBirthTime ? 1.0 : 0.5,
+        confidence: ThaiBetaNarrativeConfidence.forBirthTime(hasBirthTime),
       ),
     );
     final block = selection.block;
@@ -295,7 +297,7 @@ abstract final class ThaiBetaNarrativeSpecificity {
         usedBlockIds: usedBlockIds,
         usedTextKeys: usedTextKeys,
         seed: seed,
-        confidence: hasBirthTime ? 1.0 : 0.5,
+        confidence: ThaiBetaNarrativeConfidence.forBirthTime(hasBirthTime),
       ),
     );
     return (
@@ -349,7 +351,7 @@ abstract final class ThaiBetaNarrativeSpecificity {
         secondaryThemeId: secondaryThemeId,
         hasBirthTime: hasBirthTime,
         seed: seed,
-        confidence: hasBirthTime ? 1.0 : 0.5,
+        confidence: ThaiBetaNarrativeConfidence.forBirthTime(hasBirthTime),
       ),
     );
     if (selection.block.heroSentences.isNotEmpty) {
@@ -388,6 +390,7 @@ abstract final class ThaiBetaNarrativeSpecificity {
         domain: domain,
         hasBirthTime: hasBirthTime,
         seed: seed,
+        confidence: ThaiBetaNarrativeConfidence.forBirthTime(hasBirthTime),
       ),
     );
     if (selection.block.observableBehavior != null) {
@@ -422,7 +425,13 @@ abstract final class ThaiBetaNarrativeSpecificity {
       relationship: matchLevel != null ? '$relationship:$matchLevel' : relationship,
       lifePeriod: lifePeriod,
       blockId: block?.id,
-      minimumConfidence: block?.minimumConfidence,
+      minimumConfidence: block == null
+          ? null
+          : ThaiBetaNarrativeConfidence.effectiveMinimum(
+              declaredMinimum: block.minimumConfidence,
+              requiresBirthTime: block.requiresBirthTime,
+              safeWithoutBirthTime: block.safeWithoutBirthTime,
+            ),
       requiresBirthTime: block?.requiresBirthTime,
       sourceSignalIds: block?.sourceSignalIds ?? const [],
     );
