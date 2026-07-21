@@ -13,10 +13,10 @@
 ```bash
 git clone https://github.com/notekmitl/knowme.git
 cd knowme
-git checkout feature/thai-astrology-v16-mirror-conversation
+git checkout main
 ```
 
-**Important:** `main` is far behind the architecture / Thai feature branches. Prefer the current feature branch listed in [`CURRENT_STATUS.md`](CURRENT_STATUS.md).
+**Important:** Prefer `main` after July 2026 PR #1 (Thai Beta Narrative V1–V1.1.1 + Single-Agent Local Gate). Older feature branches such as `feature/fusion-result` remain useful historical snapshots; check [`CURRENT_STATUS.md`](CURRENT_STATUS.md) for the active deploy source.
 
 **Automation workflow:** Use Single-Agent + Local Gate — see [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). The external AI Worker is **retired** (historical: [`AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)). The obsolete in-repo `ai-worker/` directory is gitignored and must not be committed.
 
