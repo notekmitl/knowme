@@ -224,3 +224,35 @@ class FusionGrowthPathViewModel {
   final IconData icon;
   final FusionGrowthVisualStyle visualStyle;
 }
+
+/// Closing reflection card fields for FusionFooterReflectionSection.
+class FusionFooterReflectionViewModel {
+  const FusionFooterReflectionViewModel({
+    required this.title,
+    required this.body,
+  });
+
+  final String title;
+  final String body;
+}
+
+/// Future-possibility reflection fields for FusionFuturePossibilitySection.
+class FusionFuturePossibilityViewModel {
+  const FusionFuturePossibilityViewModel({
+    required this.title,
+    required this.opportunityLabel,
+    required this.opportunity,
+    required this.challengeLabel,
+    required this.challenge,
+    required this.futureQuestionLabel,
+    required this.futureReflection,
+  });
+
+  final String title;
+  final String opportunityLabel;
+  final String opportunity;
+  final String challengeLabel;
+  final String challenge;
+  final String futureQuestionLabel;
+  final String futureReflection;
+}

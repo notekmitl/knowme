@@ -10,7 +10,9 @@ class MirrorSnapshotWriteResult {
   final String snapshotId;
   final String? rejectedReason;
 
-  static MirrorSnapshotWriteResult accepted(String snapshotId) {
+  /// Accepted write factory — named [acceptedFor] so it does not clash with
+  /// the [accepted] instance field.
+  static MirrorSnapshotWriteResult acceptedFor(String snapshotId) {
     return MirrorSnapshotWriteResult(
       accepted: true,
       snapshotId: snapshotId,
