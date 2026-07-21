@@ -1,6 +1,8 @@
 /// Presentation polish for Thai Beta PDF/export text (no new predictions).
 library;
 
+import 'narrative/thai_beta_narrative_formatting.dart';
+
 /// Cleans export strings: duplicate prefixes, zero-remaining copy, ellipsis
 /// truncations, spacing, heading echoes, and consecutive duplicates.
 ///
@@ -112,7 +114,10 @@ abstract final class ThaiBetaReportExportPolish {
       RegExp(r'อายุ(?!\s)(\d+(?:–\d+)?)'),
       (m) => 'อายุ ${m[1]}',
     );
-    text = text.replaceAll(RegExp(r'[ \t]+([,.;:!?])'), r'$1');
+    text = text.replaceAllMapped(
+      RegExp(r'[ \t]+([,.;:!?])'),
+      (m) => m[1]!,
+    );
     return text.trim();
   }
 
@@ -124,6 +129,7 @@ abstract final class ThaiBetaReportExportPolish {
         .replaceAll(RegExp(r'(ช่วงก่อนหน้า:\s*)+'), 'ช่วงก่อนหน้า: ')
         .replaceAll(RegExp(r'(ช่วงถัดไป:\s*)+'), 'ช่วงถัดไป: ');
     text = polishTimingCopy(text);
+    text = ThaiBetaNarrativeFormatting.normalize(text);
     return normalizeSpacing(text);
   }
 

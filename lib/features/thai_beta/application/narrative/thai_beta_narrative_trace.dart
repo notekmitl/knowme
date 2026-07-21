@@ -1,0 +1,34 @@
+/// Trace metadata for Thai Beta narrative composition (test/debug only).
+library;
+
+import 'thai_beta_narrative_domain.dart';
+
+class ThaiBetaNarrativeTraceEntry {
+  const ThaiBetaNarrativeTraceEntry({
+    required this.sectionId,
+    required this.field,
+    required this.primaryTrait,
+    this.secondaryTrait,
+    this.domain,
+    this.relationship,
+    this.lifePeriod,
+  });
+
+  final String sectionId;
+  final String field;
+  final String primaryTrait;
+  final String? secondaryTrait;
+  final ThaiBetaLifeDomain? domain;
+  final String? relationship;
+  final String? lifePeriod;
+}
+
+class ThaiBetaNarrativeTrace {
+  const ThaiBetaNarrativeTrace({this.entries = const []});
+
+  final List<ThaiBetaNarrativeTraceEntry> entries;
+
+  ThaiBetaNarrativeTrace add(ThaiBetaNarrativeTraceEntry entry) {
+    return ThaiBetaNarrativeTrace(entries: [...entries, entry]);
+  }
+}

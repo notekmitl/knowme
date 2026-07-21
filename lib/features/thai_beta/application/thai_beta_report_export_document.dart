@@ -9,6 +9,7 @@ import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 
 import 'thai_beta_report_export_polish.dart';
 import 'thai_beta_report_export_safety.dart';
+import 'narrative/thai_beta_narrative_composer.dart';
 
 class ThaiBetaReportExportSection {
   const ThaiBetaReportExportSection({
@@ -60,8 +61,7 @@ class ThaiBetaReportExportDocument {
     ThaiBetaAnalysis analysis, {
     List<ThaiPublicEvidenceBadgeBetaViewModel> badges = const [],
   }) {
-    final view = analysis.consumerViewState;
-    if (view == null) {
+    if (analysis.consumerViewState == null) {
       return const ThaiBetaReportExportDocument(
         title: 'KnowMe — รายงานโหราไทย',
         subtitle: 'ไม่พบข้อมูลรายงาน',
@@ -69,6 +69,8 @@ class ThaiBetaReportExportDocument {
         filenameStem: 'knowme-thai-report',
       );
     }
+
+    final view = ThaiBetaNarrativeComposer.narrativeView(analysis);
 
     final sections = <ThaiBetaReportExportSection>[];
 

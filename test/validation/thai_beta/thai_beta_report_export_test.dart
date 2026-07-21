@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/thai_mirror_life_timeline_state.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/ui/pages/thai_mirror_result_page.dart';
+import 'package:knowme/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_current_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience.dart';
@@ -92,9 +93,11 @@ void main() {
       expect(doc.title, contains('KnowMe'));
       final text = doc.fullPlainText;
       expect(text, isNotEmpty);
-      // Uses existing consumer copy — hero headline from presenter.
+      // Uses narrative-quality hero (presentation layer), not raw engine copy.
       expect(
-        text.contains(analysis.consumerViewState!.hero.headline),
+        text.contains(
+          ThaiBetaNarrativeComposer.narrativeView(analysis).hero.headline,
+        ),
         isTrue,
       );
     });
@@ -117,8 +120,11 @@ void main() {
       final view = analysis.consumerViewState!;
       // Every section title/paragraph should come from scrubbed view fields —
       // at minimum hero + birth confidence must be present.
-      expect(doc.fullPlainText, contains(view.hero.headline));
       expect(doc.fullPlainText, contains(view.birthDataConfidence.title));
+      expect(
+        doc.fullPlainText,
+        contains(ThaiBetaNarrativeComposer.narrativeView(analysis).hero.headline),
+      );
     });
 
     test('PDF polish removes duplicate neighbour prefixes and zero timing', () {
@@ -206,7 +212,9 @@ void main() {
       );
       expect(
         doc.fullPlainText,
-        contains(realUserAnalysis.consumerViewState!.hero.headline),
+        contains(
+          ThaiBetaNarrativeComposer.narrativeView(realUserAnalysis).hero.headline,
+        ),
       );
     });
 
@@ -341,7 +349,9 @@ void main() {
       );
       expect(
         doc.fullPlainText,
-        contains(success.consumerViewState!.hero.headline),
+        contains(
+          ThaiBetaNarrativeComposer.narrativeView(success).hero.headline,
+        ),
       );
     });
 

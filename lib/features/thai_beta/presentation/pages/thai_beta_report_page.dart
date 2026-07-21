@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../../application/narrative/thai_beta_narrative_composer.dart';
 import '../../application/thai_beta_analysis.dart';
 import '../../application/thai_beta_evidence_badge_audience.dart';
 import '../../application/thai_beta_evidence_badge_audience_resolver.dart';
@@ -280,7 +281,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
       ThaiMirrorResultPage(
         embeddedInParentScroll: true,
         disableAnimations: widget.screenshotMode,
-        consumerState: analysis.consumerViewState!,
+        consumerState: ThaiBetaNarrativeComposer.narrativeView(analysis),
       ),
       if (widget.screenshotMode)
         Padding(
