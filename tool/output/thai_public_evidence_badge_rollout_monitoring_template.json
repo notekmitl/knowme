@@ -1,0 +1,33 @@
+{
+  "phase": "Public Evidence Badge Rollout Monitoring",
+  "reportDate": null,
+  "featureFlagState": "invited_beta",
+  "publicReleaseActive": false,
+  "allUserRolloutActive": false,
+  "activeSurface": "ThaiBetaReportPage",
+  "activeRoute": "/beta/thai",
+  "testerCount": 0,
+  "badgeRenderedCount": 0,
+  "eligibleBadgeCount": 0,
+  "hiddenCategoryCount": 0,
+  "invitedBetaAudienceCount": 0,
+  "errorCount": 0,
+  "leakageIncidents": 0,
+  "confusionReports": 0,
+  "overconfidenceReports": 0,
+  "remedySourceRequests": 0,
+  "rollbackNeeded": false,
+  "rollbackRule": "set thai_public_evidence_badge_beta to off",
+  "stopCriteria": [
+    "badge_leaked_to_public_surface",
+    "normal_user_saw_badge",
+    "anonymous_saw_badge",
+    "source_prose_leaked",
+    "remedy_leaked",
+    "taksa_khumsap_rise_fall_leaked",
+    "majority_interprets_badge_as_guarantee",
+    "forbidden_wording_appeared",
+    "fingerprint_regression_failed",
+    "feature_flag_or_allow_list_bypass"
+  ]
+}

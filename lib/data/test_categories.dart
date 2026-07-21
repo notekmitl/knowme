@@ -57,6 +57,8 @@ final List<TestCategory> testCategories = [
       "th": "ค้นหาว่าคุณเป็นคนแบบไหนจาก 16 ประเภทบุคลิกภาพ",
     },
     icon: Icons.person,
-    modules: ["mbti_mini", "mbti_short", "mbti_accurate"],
+    // Catalog-only: synthetic progressive MBTI + cognitive (legacy mini/short/accurate
+    // ids remain in [testModules] for other entry points).
+    modules: ["mbti_progressive", "mbti_cognitive", "mbti_summary"],
   ),
 ];

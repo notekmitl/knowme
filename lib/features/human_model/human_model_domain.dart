@@ -1,0 +1,36 @@
+/// Human Model Foundation V1 exports.
+library;
+
+export 'builder/human_model_foundation_builder.dart';
+export 'catalog/human_dimension_catalog.dart';
+export 'catalog/human_pattern_catalog.dart';
+export 'constants/human_model_version.dart';
+export 'coverage/fusion_evidence_to_human_mapper.dart';
+export 'coverage/human_coverage_layer_audit.dart';
+export 'coverage/human_coverage_snapshot.dart';
+export 'coverage/runtime_theme_meaning_catalog.dart';
+export 'contracts/human_model_identity_contract.dart';
+export 'contracts/human_model_input.dart';
+export 'domain/human_confidence.dart';
+export 'domain/human_coverage.dart';
+export 'domain/human_dimension.dart';
+export 'domain/human_dimension_activation.dart';
+export 'domain/human_evidence.dart';
+export 'domain/human_lineage.dart';
+export 'domain/human_model_identity.dart';
+export 'domain/human_model_snapshot.dart';
+export 'domain/human_pattern.dart';
+export 'domain/human_profile.dart';
+export 'engines/human_confidence_composer.dart';
+export 'lineage/human_evidence_preserver.dart';
+export 'lineage/human_lineage_trace.dart';
+export 'mapping/fusion_to_human_mapper.dart';
+export 'mapping/mirror_dimension_to_human_dimension.dart';
+export 'semantics/fusion_finding_to_meaning_mapper.dart';
+export 'semantics/human_meaning_category.dart';
+export 'semantics/human_semantic_audit.dart';
+export 'semantics/human_semantic_pattern_catalog.dart';
+export 'semantics/human_semantic_source_type.dart';
+export 'validation/human_model_validation.dart';
+export 'validation/human_model_validation_harness.dart';
+export 'validation/human_semantics_coverage_validation.dart';

@@ -1,0 +1,6 @@
+{
+  "schemaVersion": "1.0",
+  "domain": "knowledge_evidence",
+  "description": "Canonical evidence corpus. Empty until real citable sources are documented (see evidence.template.json). Research records link to these via evidenceIds. Loaded by KnowledgeEvidenceEngine and browsed in the Knowledge Workspace (/internal/knowledge).",
+  "records": []
+}

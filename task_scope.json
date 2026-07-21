@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "task_id": "thai-beta-narrative-v1.1.1-block-integrity-confidence",
+  "expected_branch": "integrate/thai-beta-narrative-base",
+  "expected_worktree": "C:\\Users\\USER\\knowme",
+  "base_ref": "219a0881a5cf30835bc7b77622c7289949a286e0",
+  "allowed_files": [
+    "lib/features/thai_beta/application/narrative/thai_beta_narrative_confidence.dart",
+    "lib/features/thai_beta/application/narrative/thai_beta_curated_block_integrity.dart",
+    "lib/features/thai_beta/application/narrative/thai_beta_curated_block_selector.dart",
+    "lib/features/thai_beta/application/narrative/thai_beta_narrative_specificity.dart",
+    "lib/features/thai_beta/application/narrative/thai_beta_narrative_hero.dart",
+    "lib/features/thai_beta/application/narrative/thai_beta_narrative_domain.dart",
+    "test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart",
+    "docs/THAI_BETA_NARRATIVE_QUALITY_V1_REVIEW.md",
+    "task.md",
+    "task_scope.json"
+  ],
+  "allowed_globs": [],
+  "forbidden_files": [
+    ".env",
+    ".env.*",
+    "**/*.pem",
+    "**/*.key",
+    "**/google-services.json",
+    "**/GoogleService-Info.plist"
+  ],
+  "generated_output_globs": [
+    "build/**",
+    ".dart_tool/**",
+    "coverage/**",
+    "**/*.g.dart",
+    "**/*.freezed.dart"
+  ],
+  "forbidden_text_patterns": [
+    "OPENAI_API_KEY",
+    "api.openai.com",
+    "knowme-ai-worker",
+    "final_result.json",
+    "round_[0-9]+_review\\.json"
+  ],
+  "focused_tests": [
+    "flutter test test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart"
+  ],
+  "full_test_policy": "auto",
+  "full_test_command": "flutter test test/validation/thai_beta/narrative/",
+  "analyze_command": "flutter analyze --no-fatal-warnings --no-fatal-infos lib/features/thai_beta/application/narrative/",
+  "commit_message_regex": "^thai-beta-narrative-v1\\.1\\.1: .{10,72}$",
+  "require_clean_tree_after_commit": true
+}

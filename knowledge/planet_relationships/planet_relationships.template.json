@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0",
+  "domain": "planet_relationships",
+  "description": "TEMPLATE — copy this shape to record a documented Planet Relationship. Fill source/author/edition/publisher/year/reference/page/quote from a real reference; set status to 'candidate' once proposed and 'verified' (verified=true, confidence raised) only after it has been checked against the source. Never invent references: leave Unknown / null and keep status 'unknown' if you cannot verify. 'relation' must agree with the frozen PlanetRelationshipMatrix (the importer warns on mismatch).",
+  "relationships": [
+    {
+      "from": "saturn",
+      "to": "venus",
+      "relation": "friend",
+      "school": "thaiTraditional",
+      "source": "<book or text title, or \"Unknown\">",
+      "author": "<author or null>",
+      "edition": "<edition or null>",
+      "publisher": "<publisher or null>",
+      "year": null,
+      "reference": "<citation / ISBN / URL, or \"Unknown\">",
+      "page": "<page/section or null>",
+      "quote": "<short verbatim quote or null>",
+      "confidence": "none",
+      "status": "unknown",
+      "verified": false,
+      "notes": "<why this relationship holds; leave provenance Unknown until verified>"
+    }
+  ]
+}

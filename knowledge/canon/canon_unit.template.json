@@ -1,0 +1,42 @@
+{
+  "$comment": "Template for extracting one chapter of หลักมหาภูต into the Canon Database. Copy the entities into canon_database.knowme.json and edit. RULES: (1) every unit must trace to a book→chapter→section→topic→page via 'location'. (2) book.sourceId must exist in canon_sources.json — tier/canonical authority derives from it. (3) keep verbatim quotes in evidence; never summarize a source away. (4) units only become Tier-1 Canon when validationStatus = canonApproved. Delete these examples before committing real data.",
+  "version": 1,
+  "books": [
+    { "id": "mahabhut", "sourceId": "mahabhut", "title": "หลักมหาภูต", "author": "ส. หยกฟ้า", "language": "th" }
+  ],
+  "chapters": [
+    { "id": "mahabhut-ch01", "bookId": "mahabhut", "number": 1, "title": "<ชื่อบทที่ 1>" }
+  ],
+  "sections": [
+    { "id": "mahabhut-ch01-s01", "chapterId": "mahabhut-ch01", "bookId": "mahabhut", "title": "<ชื่อหัวข้อย่อย>", "topic": "planet_relationship", "pageStart": "1", "pageEnd": "10" }
+  ],
+  "topics": [
+    { "id": "mahabhut-ch01-s01-t01", "sectionId": "mahabhut-ch01-s01", "bookId": "mahabhut", "title": "<หัวข้อ>", "order": 1 }
+  ],
+  "units": [
+    {
+      "id": "mahabhut-u0001",
+      "type": "rule",
+      "topic": "planet_relationship",
+      "subject": "venus->saturn",
+      "title": "<ชื่อกฎ>",
+      "statement": "<ข้อความความรู้ตามหนังสือ>",
+      "value": "friend",
+      "confidence": "high",
+      "validationStatus": "draft",
+      "location": { "bookId": "mahabhut", "chapterId": "mahabhut-ch01", "sectionId": "mahabhut-ch01-s01", "topicId": "mahabhut-ch01-s01-t01", "page": "128", "position": "ย่อหน้า 2" },
+      "evidenceIds": ["mahabhut-e0001"],
+      "crossReferenceIds": [],
+      "sourceReferenceIds": ["mahabhut-sr0001"],
+      "conditions": [],
+      "exceptions": []
+    }
+  ],
+  "evidence": [
+    { "id": "mahabhut-e0001", "unitId": "mahabhut-u0001", "sourceReferenceId": "mahabhut-sr0001", "page": "128", "quote": "<verbatim quote from the book>" }
+  ],
+  "crossReferences": [],
+  "sourceReferences": [
+    { "id": "mahabhut-sr0001", "sourceId": "mahabhut", "citation": "หลักมหาภูต, ส. หยกฟ้า", "page": "128" }
+  ]
+}

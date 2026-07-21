@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:knowme/data/test_categories.dart';
 import 'package:knowme/core/i18n/app_text.dart';
 
+import 'package:knowme/features/tests/eq/eq_routes.dart';
+
 import 'test_module_list_page.dart';
 
 class TestCategoryPage extends StatelessWidget {
@@ -63,9 +65,12 @@ class TestCategoryPage extends StatelessWidget {
 
                 /// NAVIGATION
                 onTap: () {
+                  if (category.id == 'eq') {
+                    Navigator.push(context, EqRoutes.home());
+                    return;
+                  }
                   Navigator.push(
                     context,
-
                     MaterialPageRoute(
                       builder: (_) => TestModuleListPage(category: category),
                     ),

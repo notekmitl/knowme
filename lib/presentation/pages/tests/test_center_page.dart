@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:knowme/core/i18n/app_text.dart';
 import 'package:knowme/data/test_categories.dart';
+import 'package:knowme/features/tests/eq/eq_routes.dart';
+
 import 'test_module_list_page.dart';
 
 class TestCenterPage extends StatelessWidget {
@@ -32,6 +34,10 @@ class TestCenterPage extends StatelessWidget {
                 ),
                 trailing: const Icon(Icons.arrow_forward_ios),
                 onTap: () {
+                  if (category.id == 'eq') {
+                    Navigator.push(context, EqRoutes.home());
+                    return;
+                  }
                   Navigator.push(
                     context,
                     MaterialPageRoute(

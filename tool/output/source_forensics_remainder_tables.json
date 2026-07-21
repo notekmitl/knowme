@@ -1,0 +1,110 @@
+{
+  "$note": "Forensics-only lookup table recovery for lookupTable.birthDateChart. Not Canon import. Rows transcribed from D:/MahabhutOCR/pages PNG review.",
+  "tableId": "lookupTable.birthDateChart",
+  "tableTitle": "คำนวณสำเร็จรูป",
+  "columnKey": "เศษ/ดวง",
+  "rowKeyPattern": "17 เม.ย. {startBE} ถึง 15 เม.ย. {endBE}",
+  "pages": [
+    {
+      "pdfPageIndex": 23,
+      "bookPrintedPage": "8",
+      "classification": "RECOVERED",
+      "rowCountRecovered": 20,
+      "yearRangeBE": "2470-2490"
+    },
+    {
+      "pdfPageIndex": 24,
+      "bookPrintedPage": "9",
+      "classification": "PARTIAL_RECOVERY",
+      "rowCountRecovered": 19,
+      "yearRangeBE": "2490-2510",
+      "uncertainCells": [
+        {
+          "rowKey": "17 เม.ย. 2499 ถึง 15 เม.ย. 2500",
+          "cellValue": "[unclear — gap between table blocks on image]",
+          "reason": "Printed table split; row not fully visible on page image"
+        }
+      ]
+    },
+    {
+      "pdfPageIndex": 25,
+      "bookPrintedPage": "10",
+      "classification": "RECOVERED",
+      "rowCountRecovered": 20,
+      "yearRangeBE": "2510-2530"
+    },
+    {
+      "pdfPageIndex": 26,
+      "bookPrintedPage": "11",
+      "classification": "RECOVERED",
+      "rowCountRecovered": 20,
+      "yearRangeBE": "2530-2550"
+    },
+    {
+      "pdfPageIndex": 27,
+      "bookPrintedPage": "12",
+      "classification": "PARTIAL_RECOVERY",
+      "rowCountRecovered": 20,
+      "yearRangeBE": "2550-2570",
+      "uncertainCells": [
+        {
+          "rowKey": "17 เม.ย. 2557 ถึง 15 เม.ย. [unclear]",
+          "cellValue": "4 มนุษย์เจ้าสำราญ",
+          "reason": "End year on image reads 2578 — likely print/OCR typo; expected 2558"
+        }
+      ]
+    },
+    {
+      "pdfPageIndex": 22,
+      "bookPrintedPage": "7",
+      "classification": "LAYOUT_BLOCKED",
+      "reason": "Split-column narrative example; OCR alignment broken — example row recoverable from image only"
+    }
+  ],
+  "remainderToChartLabelsFromTable": {
+    "0": "มหาเศรษฐี",
+    "1": "กำพร้า",
+    "2": "นักภาษา",
+    "3": "นักบริหาร",
+    "4": "มนุษย์เจ้าสำราญ",
+    "5": "เศรษฐี",
+    "6": "นักวิชาการ"
+  },
+  "sampleRecoveredRows": [
+    {
+      "pdfPageIndex": 23,
+      "rowKey": "17 เม.ย. 2470 ถึง 15 เม.ย. 2471",
+      "cellValue": "1 กำพร้า"
+    },
+    {
+      "pdfPageIndex": 23,
+      "rowKey": "17 เม.ย. 2475 ถึง 15 เม.ย. 2476",
+      "cellValue": "6 นักวิชาการ"
+    },
+    {
+      "pdfPageIndex": 24,
+      "rowKey": "17 เม.ย. 2503 ถึง 15 เม.ย. 2504",
+      "cellValue": "6 นักวิชาการ"
+    },
+    {
+      "pdfPageIndex": 25,
+      "rowKey": "17 เม.ย. 2510 ถึง 15 เม.ย. 2511",
+      "cellValue": "6 นักวิชาการ"
+    },
+    {
+      "pdfPageIndex": 26,
+      "rowKey": "17 เม.ย. 2531 ถึง 15 เม.ย. 2532",
+      "cellValue": "6 นักวิชาการ"
+    },
+    {
+      "pdfPageIndex": 27,
+      "rowKey": "17 เม.ย. 2552 ถึง 15 เม.ย. 2553",
+      "cellValue": "6 นักวิชาการ"
+    }
+  ],
+  "ocrPipelineComparison": {
+    "priorReadableCells": 28,
+    "priorOcrBlockedRows": 62,
+    "forensicsNote": "Majority of prior OCR_BLOCKED rows are readable on page PNGs; blocker was OCR text quality not missing source"
+  }
+}

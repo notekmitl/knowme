@@ -1,1 +1,99 @@
-{"flutter":{"platforms":{"android":{"default":{"projectId":"knowme-app-694e1","appId":"1:239840538753:android:f017669821e0e8f09c9d80","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"knowme-app-694e1","configurations":{"android":"1:239840538753:android:f017669821e0e8f09c9d80","ios":"1:239840538753:ios:ac19b1bebcd2b3589c9d80","macos":"1:239840538753:ios:ac19b1bebcd2b3589c9d80","web":"1:239840538753:web:5edbf627980612ae9c9d80","windows":"1:239840538753:web:ea668305db574b289c9d80"}}}}}}
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "public": "build/web",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(js|css|wasm)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
+      },
+      {
+        "source": "main.dart.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "flutter.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "flutter_bootstrap.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "flutter_service_worker.js",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache, must-revalidate"
+          }
+        ]
+      },
+      {
+        "source": "index.html",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-cache"
+          }
+        ]
+      }
+    ]
+  },
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "knowme-app-694e1",
+          "appId": "1:239840538753:android:f017669821e0e8f09c9d80",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "knowme-app-694e1",
+          "configurations": {
+            "android": "1:239840538753:android:f017669821e0e8f09c9d80",
+            "ios": "1:239840538753:ios:ac19b1bebcd2b3589c9d80",
+            "macos": "1:239840538753:ios:ac19b1bebcd2b3589c9d80",
+            "web": "1:239840538753:web:5edbf627980612ae9c9d80",
+            "windows": "1:239840538753:web:ea668305db574b289c9d80"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0",
+  "domain": "knowledge_evidence",
+  "description": "TEMPLATE — copy a record into a real evidence file (e.g. evidence.knowme.json) when documenting a citable source. Record EXACTLY what the source is (sourceType, school, author, book, edition, publisher, year, page, language, quote, url, license). Never invent references: if you cannot cite a real source, do not create a record. Promote reviewStatus draft → reviewed → verified as the citation is checked; use disputed when sources conflict and deprecated when superseded. Research records link to this via evidenceIds.",
+  "records": [
+    {
+      "id": "EV-0001",
+      "sourceType": "<book | manuscript | article | website | oral>",
+      "school": "<thaiTraditional | vedic | knowmeCustom | ...>",
+      "author": "<author name>",
+      "book": "<book / text title>",
+      "edition": "<edition or null>",
+      "publisher": "<publisher or null>",
+      "year": null,
+      "page": "<page / section or null>",
+      "language": "<th | en | sa | ...>",
+      "quote": "<short verbatim quote or null>",
+      "summary": "<one-line paraphrase or null>",
+      "url": "<source URL or null>",
+      "license": "<license / rights or null>",
+      "reviewStatus": "draft",
+      "reviewer": null,
+      "createdAt": null,
+      "updatedAt": null,
+      "notes": "<context; keep provenance honest and leave fields null until verified>"
+    }
+  ]
+}

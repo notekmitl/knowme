@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Canon Book Manifest (หลักมหาภูต)",
+  "description": "Structural manifest for converting the canonical book into structured knowledge LATER. Holds bibliographic metadata + a part/chapter/section skeleton. No book content is extracted here; each section is a placeholder whose nodeIds will be filled when extraction begins, linking to nodes in canon.knowme.json.",
+  "type": "object",
+  "required": ["sourceId", "title", "parts"],
+  "properties": {
+    "sourceId": { "type": "string", "description": "Must match a source id in canon_sources.json (the canonical book)." },
+    "title": { "type": "string" },
+    "author": { "type": "string" },
+    "edition": { "type": "string" },
+    "publisher": { "type": "string" },
+    "year": { "type": "integer" },
+    "language": { "type": "string" },
+    "isbn": { "type": "string" },
+    "extractionStatus": { "type": "string", "enum": ["not_started", "in_progress", "completed"] },
+    "notes": { "type": "string" },
+    "parts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "chapters": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "title"],
+              "properties": {
+                "id": { "type": "string" },
+                "number": { "type": "integer" },
+                "title": { "type": "string" },
+                "sections": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["id", "title"],
+                    "properties": {
+                      "id": { "type": "string" },
+                      "title": { "type": "string" },
+                      "topic": { "type": "string", "description": "Hint of the knowledge domain this section feeds." },
+                      "pageStart": { "type": "string" },
+                      "pageEnd": { "type": "string" },
+                      "status": { "type": "string", "enum": ["notStarted", "inProgress", "extracted"] },
+                      "nodeIds": {
+                        "type": "array",
+                        "items": { "type": "string" },
+                        "description": "Ids of canon.knowme.json nodes extracted from this section (empty until extraction)."
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

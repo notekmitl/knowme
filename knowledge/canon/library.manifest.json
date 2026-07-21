@@ -1,0 +1,26 @@
+{
+  "$comment": "Canon Library manifest — the Manifest System registry of canonical books. Built to hold MANY books, not only หลักมหาภูต. หลักมหาภูต is registered as the canonical (Tier 1) book with extraction not_started. Progress counters are tracked here as extraction proceeds; the detailed chapter/section skeleton lives in each book's manifestAsset.",
+  "version": 1,
+  "books": [
+    {
+      "bookId": "mahabhut",
+      "sourceId": "mahabhut",
+      "title": "หลักมหาภูต",
+      "author": "ส. หยกฟ้า",
+      "canonical": true,
+      "manifestAsset": "knowledge/canon/mahabhut.manifest.json",
+      "extraction": "notStarted",
+      "validation": "unvalidated",
+      "version": 1,
+      "progress": {
+        "totalChapters": 0,
+        "extractedChapters": 0,
+        "totalSections": 0,
+        "extractedSections": 0,
+        "totalUnits": 0,
+        "approvedUnits": 0
+      },
+      "notes": "Canonical source. Content not yet extracted; populate canon_database.knowme.json one chapter at a time and update these counters."
+    }
+  ]
+}

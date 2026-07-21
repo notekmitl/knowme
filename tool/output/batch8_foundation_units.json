@@ -1,0 +1,4397 @@
+[
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_profession_กษัตริย์",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.กษัตริย์",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_profession_ประธานาธิบดี",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ประธานาธิบดี",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_profession_นายกรัฐมนตรี",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นายกรัฐมนตรี",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_profession_นายกเทศมนตรี",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นายกเทศมนตรี",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_profession_ผู้ว่าราชการจังหวัด",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้ว่าราชการจังหวัด",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_profession_ข้าราชการชั้นหัวหน้าทุกตำแหน่ง",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ข้าราชการชั้นหัวหน้าทุกตำแหน่ง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_profession_นายอำเภอ",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นายอำเภอ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_profession_กำนัน",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.กำนัน",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_profession_ผู้ใหญ่บ้าน",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้ใหญ่บ้าน",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_profession_หัวหน้าองค์การ",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.หัวหน้าองค์การ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_profession_ผู้จัดการ",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้จัดการ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_profession_พ่อค้าทอง",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.พ่อค้าทอง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_profession_พ่อบ้านที่ปกครองบ้านเรือน_บิดา",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.พ่อบ้านที่ปกครองบ้านเรือน_บิดา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_profession_ผู้หลัก",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้หลัก",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_profession_ผู้ใหญ่",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้ใหญ่",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_profession_ผู้ปกครอง",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้ปกครอง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_profession_ผู้ดูแล",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้ดูแล",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_profession_พ่อเลี้ยง",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.พ่อเลี้ยง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_profession_พ่อตา",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.พ่อตา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_profession_ผู้อยู่ในฐานะเหมือนบิดา",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้อยู่ในฐานะเหมือนบิดา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_disease_โรคเกี่ยวกับหัวใจ",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคเกี่ยวกับหัวใจ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_disease_โรคเกี่ยวกับศีรษะ",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคเกี่ยวกับศีรษะ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_disease_โรคเกี่ยวกับสายตา",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคเกี่ยวกับสายตา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_disease_โรคเกี่ยวกับตะคิวชซัก",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคเกี่ยวกับตะคิวชซัก",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_disease_โรคเกี่ยวกับสันหลัง_บั้นเอว",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคเกี่ยวกับสันหลัง_บั้นเอว",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_place_ที่ทำการของรัฐบาล",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ที่ทำการของรัฐบาล",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_place_พระราชวัง",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.พระราชวัง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_place_ทำเนียบ",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ทำเนียบ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_place_โรงมหรสพ",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงมหรสพ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_place_ที่ใหญ่โตหรูหรา",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ที่ใหญ่โตหรูหรา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_place_ธนาคารแห่งชาติ",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ธนาคารแห่งชาติ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_place_โรงกษาปณ์",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงกษาปณ์",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_place_บ้านเรือน",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.บ้านเรือน",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_place_ที่อยู่อาศัย",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ที่อยู่อาศัย",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_place_โรงงานทำหม้อ_โอ่ง_ไหทุกชนิด",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงงานทำหม้อ_โอ่ง_ไหทุกชนิด",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_place_โรงงานผลิตที่นอน_หมอน_มู้ง",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงงานผลิตที่นอน_หมอน_มู้ง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_place_ร้านขายที่นอน_หมอน_มู้ง",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ร้านขายที่นอน_หมอน_มู้ง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_place_โรงงานผลิตภัณฑ์มะพร้าว",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงงานผลิตภัณฑ์มะพร้าว",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p30.sun_relates_attribute_place_โรงงานทำอิฐ",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงงานทำอิฐ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "30"
+    }
+  },
+  {
+    "id": "mahabhut.p31.sun_relates_attribute_color_สีแดงสด",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.color.สีแดงสด",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.sun_relates_attribute_taste_รสเผ็ดร้อน",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.taste.รสเผ็ดร้อน",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.sun_relates_attribute_metal_แร่ธาตุทองคำ",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.metal.แร่ธาตุทองคำ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.sun_relates_attribute_gender_เพศชาย",
+    "subject": "planet.sun",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.gender.เพศชาย",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_นางพระยา",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นางพระยา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_ภรรยาผู้เป็นประมุขของประเทศ",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ภรรยาผู้เป็นประมุขของประเทศ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_ภรรยาของข้าราชการที่มีตำแหน่งสูงๆ",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ภรรยาของข้าราชการที่มีตำแหน่งสูงๆ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_สตรีที่สูงศักดิ์_สูงเกียรติยศ_และสูงด้วยฐานะ",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.สตรีที่สูงศักดิ์_สูงเกียรติยศ_และสูงด้วยฐานะ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_เจ้าหน้าที่งานฝ่ายหญิง",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.เจ้าหน้าที่งานฝ่ายหญิง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_นางพยาบาล",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นางพยาบาล",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_หมอตำแย",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.หมอตำแย",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_มารดา_แม่",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.มารดา_แม่",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_ผู้ใหญ่",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้ใหญ่",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_ผู้ปกครอง",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้ปกครอง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_ผู้ดูแลฝ่ายหญิง",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้ดูแลฝ่ายหญิง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_ผู้อยู่ในฐานะเหมือนแม่",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้อยู่ในฐานะเหมือนแม่",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_แม่นม",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.แม่นม",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_แม่เลี้ยง",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.แม่เลี้ยง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_แม่ยาย",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.แม่ยาย",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_กลาสี",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.กลาสี",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_ชาวประมง",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ชาวประมง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_ผู้ทำการขนส่งทางน้ำ",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้ทำการขนส่งทางน้ำ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_คนขับเรือ",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.คนขับเรือ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_นักคมนาคม",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นักคมนาคม",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_คนขับรถ",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.คนขับรถ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_คนเดินเรือ",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.คนเดินเรือ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_คนแจวเรือจ้าง",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.คนแจวเรือจ้าง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_profession_คนหาบเร่",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.คนหาบเร่",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_disease_โรคที่เกี่ยวกับกระเพาะอาหาร",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคที่เกี่ยวกับกระเพาะอาหาร",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_disease_โรคลำไส้",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคลำไส้",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_disease_โรควัณโรค",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรควัณโรค",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_disease_โรคจิต",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคจิต",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_disease_โรคมานํา",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคมานํา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_disease_ต่อมบวม",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.ต่อมบวม",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_disease_โรคเกี่ยวด้วยสายตา",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคเกี่ยวด้วยสายตา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_disease_น้ำเหลืองเสีย",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.น้ำเหลืองเสีย",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_disease_ขัดข้อเท้า",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.ขัดข้อเท้า",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_place_ธนาคาร",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ธนาคาร",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_place_สถาบันการเงินทุกประเภท",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.สถาบันการเงินทุกประเภท",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_place_โรงจำนำ",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงจำนำ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_place_ท่าเรือ",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ท่าเรือ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_place_เรือ",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.เรือ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_place_ยวดยานพาหนะทางน้ำทุกชนิด",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ยวดยานพาหนะทางน้ำทุกชนิด",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_place_สถานที่ๆตั้งอยู่ใกล้กับน้ำ",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.สถานที่ๆตั้งอยู่ใกล้กับน้ำ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_place_สถานที่ผลิตเครื่องดื่ม_เช่นโรงกลั่นสุรา",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.สถานที่ผลิตเครื่องดื่ม_เช่นโรงกลั่นสุรา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_place_โรงทำน้ำหวานทุกชนิด",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงทำน้ำหวานทุกชนิด",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p31.moon_relates_attribute_color_สีขาว",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.color.สีขาว",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "31"
+    }
+  },
+  {
+    "id": "mahabhut.p32.moon_relates_attribute_taste_รสเค็ม",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.taste.รสเค็ม",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.moon_relates_attribute_metal_แร่เงิน",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.metal.แร่เงิน",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.moon_relates_attribute_gemstone_เพชรพลอยที่สีขาว",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.gemstone.เพชรพลอยที่สีขาว",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.moon_relates_attribute_gender_เพศหญิง",
+    "subject": "planet.moon",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.gender.เพศหญิง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_profession_ทหาร",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ทหาร",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_profession_ศัลยแพทย์",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ศัลยแพทย์",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_profession_ทันตแพทย์",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ทันตแพทย์",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_profession_เภสัชกร",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.เภสัชกร",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_profession_นักเคมี",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นักเคมี",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_profession_นายช่าง",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นายช่าง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_profession_ผู้ชำนาญทางเครื่องจักรกล",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้ชำนาญทางเครื่องจักรกล",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_profession_ช่างทำอาวุธ",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ช่างทำอาวุธ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_profession_ลูกน้อง",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ลูกน้อง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_profession_ลูกศิษย์",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ลูกศิษย์",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_profession_พ่อค้าเครื่องอุปโภคบริโภค_เช่นข้าวเปลือก_ข้าวสาร_น้ำมัน_",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.พ่อค้าเครื่องอุปโภคบริโภค_เช่นข้าวเปลือก_ข้าวสาร_น้ำมัน_",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_profession_ยารักษาโรค",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ยารักษาโรค",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_profession_ยาสูบ",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ยาสูบ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_profession_ยาฝิ่น",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ยาฝิ่น",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_profession_พ่อค้าเพชร",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.พ่อค้าเพชร",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_profession_ช่างตัดผม",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ช่างตัดผม",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_profession_คนฆ่าสัตว์",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.คนฆ่าสัตว์",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_disease_โรคขัดเบา",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคขัดเบา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_disease_โรคดีซ่าน",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคดีซ่าน",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_disease_โรคเบาหวาน",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคเบาหวาน",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_disease_หน้าร้อนลวก",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.หน้าร้อนลวก",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_disease_แผลฟกช้ำ",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.แผลฟกช้ำ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_disease_ไข้พิษ",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.ไข้พิษ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_disease_โรคอักเสบอื่นๆ",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคอักเสบอื่นๆ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_disease_โรคเกี่ยวด้วยจมูก",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคเกี่ยวด้วยจมูก",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_place_โรงพยาบาล",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงพยาบาล",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_place_สถานีอนามัย",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.สถานีอนามัย",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_place_คลินิกรักษาโรค",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.คลินิกรักษาโรค",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_place_โรงงานช่างเหล็ก",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงงานช่างเหล็ก",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_place_โรดังเก็บครุภัณฑ์_เช่นโรดังข้าวเปลือก_ข้าวสาร",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรดังเก็บครุภัณฑ์_เช่นโรดังข้าวเปลือก_ข้าวสาร",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_place_ค่ายทหาร",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ค่ายทหาร",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_place_สนามรบ",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.สนามรบ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_place_โรงงานผลิตสารเคมี",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงงานผลิตสารเคมี",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_place_โรงงานผลิตยา",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงงานผลิตยา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_place_โรงงานยาสูบ",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงงานยาสูบ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_place_โรงกลั่นน้ำมัน",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงกลั่นน้ำมัน",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_place_ปั๊มน้ำมัน",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ปั๊มน้ำมัน",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_place_โรงงานฆ่าสัตว์",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงงานฆ่าสัตว์",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_place_ร้านเพชร",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ร้านเพชร",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_place_โรงงานทอผ้า",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงงานทอผ้า",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_place_ร้านตัด_เย็บ_ส่ง_ขายเสื้อผ้า",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ร้านตัด_เย็บ_ส่ง_ขายเสื้อผ้า",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_place_ร้านอาหาร",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ร้านอาหาร",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_place_แผงลอยขายข้าวแกง_บะหมี่_ก๋วยเตี๋ยว",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.แผงลอยขายข้าวแกง_บะหมี่_ก๋วยเตี๋ยว",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_place_กระโจมไฟ",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.กระโจมไฟ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_place_เตาที่เผาอิฐและถ่าน",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.เตาที่เผาอิฐและถ่าน",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_color_สีแดงแก่_ชมพู",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.color.สีแดงแก่_ชมพู",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p32.mars_relates_attribute_taste_รสขม",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.taste.รสขม",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "32"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mars_relates_attribute_metal_ธาตุเหล็ก",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.metal.ธาตุเหล็ก",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mars_relates_attribute_gender_เพศชาย",
+    "subject": "planet.mars",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.gender.เพศชาย",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_profession_นักบวช",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นักบวช",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_profession_นักประพันธ์",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นักประพันธ์",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_profession_นักพูด",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นักพูด",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_profession_ประชาสัมพันธ์",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ประชาสัมพันธ์",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_profession_เลขานุการ",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.เลขานุการ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_profession_สมุห์บัญชี",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.สมุห์บัญชี",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_profession_นักการทูต",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นักการทูต",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_profession_ผู้แทนราษฎร",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้แทนราษฎร",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_profession_ครู",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ครู",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_profession_อาจารย์",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.อาจารย์",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_profession_คนขายหนังสือ",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.คนขายหนังสือ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_profession_คนนำส่งข่าวสาร",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.คนนำส่งข่าวสาร",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_profession_คนส่งของ",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.คนส่งของ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_profession_บุรุษไปรษณีย์",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.บุรุษไปรษณีย์",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_profession_นักหนังสือพิมพ์",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นักหนังสือพิมพ์",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_profession_และผู้ที่ปฏิบัติเกี่ยวกับการพิมพ์ทุกชนิด",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.และผู้ที่ปฏิบัติเกี่ยวกับการพิมพ์ทุกชนิด",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_profession_เจ้าของฟาร์มหมู",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.เจ้าของฟาร์มหมู",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_profession_พ่อค้าหมู",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.พ่อค้าหมู",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_disease_โรคที่เกี่ยวกับสมอง",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคที่เกี่ยวกับสมอง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_disease_พิการ_มีความจำเลอะเลือน",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.พิการ_มีความจำเลอะเลือน",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_disease_โรคปวดศีรษะ",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคปวดศีรษะ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_disease_โรคติดอ่าง",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคติดอ่าง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_disease_โรคที่บันทอนสติปัญญา",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคที่บันทอนสติปัญญา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_disease_โรคเกี่ยวกับยีสีอ่อนเหลือง",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคเกี่ยวกับยีสีอ่อนเหลือง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_disease_กระดูกขัดในข้อเท้า",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.กระดูกขัดในข้อเท้า",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_disease_โรคเกี่ยวกับท้องและลำไส้",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคเกี่ยวกับท้องและลำไส้",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_disease_โรคที่เกี่ยวกับภายในปาก",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคที่เกี่ยวกับภายในปาก",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_place_โรงเรียน",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงเรียน",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_place_โรงพิมพ์",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงพิมพ์",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_place_ร้านขายหนังสือ",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ร้านขายหนังสือ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_place_ร้านทอง",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ร้านทอง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_place_ที่ทำการไปรษณีย์",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ที่ทำการไปรษณีย์",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_place_หอสมุด",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.หอสมุด",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_place_ที่อ่านหนังสือสาธารณะ",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ที่อ่านหนังสือสาธารณะ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_place_ไร่นา",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ไร่นา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_place_ฟาร์มหมู",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ฟาร์มหมู",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_place_โรงงานผลิตภัณฑ์เกี่ยวกับเนื้อหมู",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงงานผลิตภัณฑ์เกี่ยวกับเนื้อหมู",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_color_สีเขียวใบไม้",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.color.สีเขียวใบไม้",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_taste_รสผสมหลายชนิด",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.taste.รสผสมหลายชนิด",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_metal_ปรอท",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.metal.ปรอท",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p33.mercury_relates_attribute_gender_เพศกลางๆ_ไม่จำกัดแน่นอน_คือเป็นได้ทั้งหญิงและชาย_สุดแล้ว",
+    "subject": "planet.mercury",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.gender.เพศกลางๆ_ไม่จำกัดแน่นอน_คือเป็นได้ทั้งหญิงและชาย_สุดแล้ว",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "33"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_profession_นักบวช",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นักบวช",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_profession_ผู้พิพากษา",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้พิพากษา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_profession_สมาชิกสภาสูงสุด",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.สมาชิกสภาสูงสุด",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_profession_ที่ปรึกษา",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ที่ปรึกษา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_profession_ทนายความ",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ทนายความ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_profession_หมอ",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.หมอ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_profession_นักศึกษามหาวิทยาลัย",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นักศึกษามหาวิทยาลัย",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_profession_ผู้หญิง_ที่ไม่ใช่แม่หรือภรรยา",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้หญิง_ที่ไม่ใช่แม่หรือภรรยา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_profession_เพื่อนสนิทมิตรสหาย",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.เพื่อนสนิทมิตรสหาย",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_disease_โรควิกลจริต",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรควิกลจริต",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_disease_โรคหัวใจ",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคหัวใจ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_disease_ความดันโลหิต",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.ความดันโลหิต",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_disease_โรคที่เกี่ยวกับเท้า_ต้นขาและโคนขา",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคที่เกี่ยวกับเท้า_ต้นขาและโคนขา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_place_สถานที่อันเกี่ยวกับศาสนา",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.สถานที่อันเกี่ยวกับศาสนา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_place_โบสถ์",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โบสถ์",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_place_วิหาร",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.วิหาร",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_place_พุทธสถาน",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.พุทธสถาน",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_place_เทวสถาน",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.เทวสถาน",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_place_ศาล",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ศาล",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_place_สภาแห่งชาติ",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.สภาแห่งชาติ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_place_มหาวิทยาลัย",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.มหาวิทยาลัย",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_place_โรงพยาบาล",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงพยาบาล",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_place_สุขศาลา",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.สุขศาลา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_color_สีเหลืองแก่",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.color.สีเหลืองแก่",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_taste_รสหวาน",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.taste.รสหวาน",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_metal_สังกะสี",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.metal.สังกะสี",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.jupiter_relates_attribute_gender_เพศชาย",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.gender.เพศชาย",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.venus_relates_attribute_profession_อาจารย์แห่งศิลปะทุกชนิด",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.อาจารย์แห่งศิลปะทุกชนิด",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.venus_relates_attribute_profession_เจ้าหน้าที่ผู้ดูแลรักษาป่าไม้",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.เจ้าหน้าที่ผู้ดูแลรักษาป่าไม้",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.venus_relates_attribute_profession_พ่อค้าไม้",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.พ่อค้าไม้",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.venus_relates_attribute_profession_นักดนตรี",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นักดนตรี",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.venus_relates_attribute_profession_นักร้อง",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นักร้อง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.venus_relates_attribute_profession_นักแต่งเพลงและโคลงฉันท์กาพย์กลอน",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นักแต่งเพลงและโคลงฉันท์กาพย์กลอน",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.venus_relates_attribute_profession_นักแสดงหนังและละคร",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นักแสดงหนังและละคร",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.venus_relates_attribute_profession_นักกีฬา",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นักกีฬา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.venus_relates_attribute_profession_นักท่องเที่ยว",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นักท่องเที่ยว",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.venus_relates_attribute_profession_ช่างตัดผม",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ช่างตัดผม",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.venus_relates_attribute_profession_ช่างเย็บปักถักร้อย",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ช่างเย็บปักถักร้อย",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.venus_relates_attribute_profession_ช่างดอกไม้",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ช่างดอกไม้",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.venus_relates_attribute_profession_ช่างทำเครื่องประดับเกี่ยวกับอัญมณี",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ช่างทำเครื่องประดับเกี่ยวกับอัญมณี",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.venus_relates_attribute_profession_ผู้ค้าเครื่องสำอาง",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้ค้าเครื่องสำอาง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p34.venus_relates_attribute_profession_ช่างเสริมสวย",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ช่างเสริมสวย",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "34"
+    }
+  },
+  {
+    "id": "mahabhut.p35.venus_relates_attribute_disease_โรคปวดบ่าเอว",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคปวดบ่าเอว",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.venus_relates_attribute_disease_พิการ",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.พิการ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.venus_relates_attribute_disease_ความเจ็บป่วยอันเนื่องมาจากร่างกายไม่ได้รับการพักผ่อน",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.ความเจ็บป่วยอันเนื่องมาจากร่างกายไม่ได้รับการพักผ่อน",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.venus_relates_attribute_disease_โรคภัยไข้เจ็บเกี่ยวกับคอ_และคอหอย",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคภัยไข้เจ็บเกี่ยวกับคอ_และคอหอย",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.venus_relates_attribute_disease_กามโรค",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.กามโรค",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.venus_relates_attribute_disease_มดลูกพิการ",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.มดลูกพิการ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.venus_relates_attribute_place_กรมป่าไม้",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.กรมป่าไม้",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.venus_relates_attribute_place_ร้านค้าเครื่องสำอาง",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ร้านค้าเครื่องสำอาง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.venus_relates_attribute_place_ร้านเสริมสวย",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ร้านเสริมสวย",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.venus_relates_attribute_place_สถานเสริมความงาม",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.สถานเสริมความงาม",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.venus_relates_attribute_place_สถานที่ให้ความบันเทิงสนุกสนาน_เช่นบาร์",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.สถานที่ให้ความบันเทิงสนุกสนาน_เช่นบาร์",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.venus_relates_attribute_place_สถานที่เต้นรำ",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.สถานที่เต้นรำ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.venus_relates_attribute_place_สถานที่ชุมนุมมหรสพ",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.สถานที่ชุมนุมมหรสพ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.venus_relates_attribute_place_และศิลปกรรมทั้งหลาย",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.และศิลปกรรมทั้งหลาย",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.venus_relates_attribute_place_สถานที่ๆหลับนอน",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.สถานที่ๆหลับนอน",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.venus_relates_attribute_place_สถานที่ๆติดต่อกันด้วยความรัก",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.สถานที่ๆติดต่อกันด้วยความรัก",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.venus_relates_attribute_place_สถานที่ๆทำธุรกิจด้านการทำไม้",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.สถานที่ๆทำธุรกิจด้านการทำไม้",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.venus_relates_attribute_place_โรงเลื่อย_ไม้",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงเลื่อย_ไม้",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.venus_relates_attribute_place_โรงเพาะชำพันธุ์ไม้ทุกชนิด",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงเพาะชำพันธุ์ไม้ทุกชนิด",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.venus_relates_attribute_gender_เพศหญิง",
+    "subject": "planet.venus",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.gender.เพศหญิง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.saturn_relates_attribute_profession_เจ้าของโรงงานอุตสาหกรรมต่างๆ",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.เจ้าของโรงงานอุตสาหกรรมต่างๆ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.saturn_relates_attribute_profession_ผู้อำนวยการโรงงานหรือองค์การต่างๆ",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้อำนวยการโรงงานหรือองค์การต่างๆ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.saturn_relates_attribute_profession_กรรมการ",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.กรรมการ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.saturn_relates_attribute_profession_กรรมกร",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.กรรมกร",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.saturn_relates_attribute_profession_และช่าง",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.และช่าง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.saturn_relates_attribute_profession_คนเฝ้าโบสถ์",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.คนเฝ้าโบสถ์",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.saturn_relates_attribute_profession_สัปเหร่อ",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.สัปเหร่อ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.saturn_relates_attribute_profession_ผู้คุมนักโทษ",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้คุมนักโทษ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.saturn_relates_attribute_disease_โรคผิวหนัง",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคผิวหนัง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.saturn_relates_attribute_disease_โรคขัดข้อเท้า",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคขัดข้อเท้า",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.saturn_relates_attribute_disease_เจ็บขาและลำข้อ",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.เจ็บขาและลำข้อ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.saturn_relates_attribute_disease_โรคอันเนื่องมาจากเหงื่อเย็นและออกไม่สะดวก",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคอันเนื่องมาจากเหงื่อเย็นและออกไม่สะดวก",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.saturn_relates_attribute_disease_เส้นประสาทหวาดสะดุ้ง",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.เส้นประสาทหวาดสะดุ้ง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.saturn_relates_attribute_disease_โรคจิตวิปลาส",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคจิตวิปลาส",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.saturn_relates_attribute_disease_มีอารมณ์หงอยเหงาเศร้าทุกข์",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.มีอารมณ์หงอยเหงาเศร้าทุกข์",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p35.saturn_relates_attribute_disease_โรคเกี่ยวกับม้าม",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคเกี่ยวกับม้าม",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "35"
+    }
+  },
+  {
+    "id": "mahabhut.p36.saturn_relates_attribute_place_โรงงานผลิตร่ม",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงงานผลิตร่ม",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.saturn_relates_attribute_place_โรงงานผลิตอาวุธ",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงงานผลิตอาวุธ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.saturn_relates_attribute_place_และมีด_พร้าชนิดต่างๆ",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.และมีด_พร้าชนิดต่างๆ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.saturn_relates_attribute_place_โรงงานผลิตภัณฑ์เกี่ยวกับเนื้อโค",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงงานผลิตภัณฑ์เกี่ยวกับเนื้อโค",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.saturn_relates_attribute_place_ฟาร์มโค",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ฟาร์มโค",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.saturn_relates_attribute_place_สถานที่ๆร้างปรักหักพัง",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.สถานที่ๆร้างปรักหักพัง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.saturn_relates_attribute_place_สถานที่เผาศพ",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.สถานที่เผาศพ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.saturn_relates_attribute_place_ที่ทิ้งขยะมูลฝอย",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ที่ทิ้งขยะมูลฝอย",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.saturn_relates_attribute_place_ทุ่งนา",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ทุ่งนา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.saturn_relates_attribute_place_ป่า",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ป่า",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.saturn_relates_attribute_place_เขา",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.เขา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.saturn_relates_attribute_place_ถ้ำที่เงียบสงบ",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ถ้ำที่เงียบสงบ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.saturn_relates_attribute_color_สีดำ",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.color.สีดำ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.saturn_relates_attribute_taste_รสเปรี้ยว",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.taste.รสเปรี้ยว",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.saturn_relates_attribute_metal_ธาตุตะกั่ว",
+    "subject": "planet.saturn",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.metal.ธาตุตะกั่ว",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.rahu_relates_attribute_profession_บุคคลที่มีแนวทางตรงกันข้ามกับกฎหมาย",
+    "subject": "planet.rahu",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.บุคคลที่มีแนวทางตรงกันข้ามกับกฎหมาย",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.rahu_relates_attribute_profession_นักเลงสุรา",
+    "subject": "planet.rahu",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นักเลงสุรา",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.rahu_relates_attribute_profession_นักเลงสูบฟิ่น",
+    "subject": "planet.rahu",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นักเลงสูบฟิ่น",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.rahu_relates_attribute_profession_นักเลงการพนันทุกชนิด",
+    "subject": "planet.rahu",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นักเลงการพนันทุกชนิด",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.rahu_relates_attribute_profession_เพชรฆาต",
+    "subject": "planet.rahu",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.เพชรฆาต",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.rahu_relates_attribute_profession_คนเลี้ยงสัตว์",
+    "subject": "planet.rahu",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.คนเลี้ยงสัตว์",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.rahu_relates_attribute_profession_พวกอันธพาล",
+    "subject": "planet.rahu",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.พวกอันธพาล",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.rahu_relates_attribute_profession_นักตุมตุ๋น",
+    "subject": "planet.rahu",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.นักตุมตุ๋น",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.rahu_relates_attribute_profession_หัวหน้าซ่อง",
+    "subject": "planet.rahu",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.หัวหน้าซ่อง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.rahu_relates_attribute_profession_ผู้ค้าของปลอม",
+    "subject": "planet.rahu",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.profession.ผู้ค้าของปลอม",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.rahu_relates_attribute_disease_โรคที่เกี่ยวกับโรคมีเมาเป็นมูลเหตุ",
+    "subject": "planet.rahu",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคที่เกี่ยวกับโรคมีเมาเป็นมูลเหตุ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.rahu_relates_attribute_disease_เช่นโรคตับพิการ",
+    "subject": "planet.rahu",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.เช่นโรคตับพิการ",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.rahu_relates_attribute_disease_โรคพิษสุราเรื้อรัง",
+    "subject": "planet.rahu",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคพิษสุราเรื้อรัง",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.rahu_relates_attribute_disease_โรคลมปัจจุบัน",
+    "subject": "planet.rahu",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.disease.โรคลมปัจจุบัน",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.rahu_relates_attribute_place_แหล่งชุมนุมอันธพาล",
+    "subject": "planet.rahu",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.แหล่งชุมนุมอันธพาล",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.rahu_relates_attribute_place_ซ่องโสเภณี",
+    "subject": "planet.rahu",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ซ่องโสเภณี",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.rahu_relates_attribute_place_โรงยาฝิ่น",
+    "subject": "planet.rahu",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.โรงยาฝิ่น",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.rahu_relates_attribute_place_ร้านเหล้า",
+    "subject": "planet.rahu",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ร้านเหล้า",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.rahu_relates_attribute_place_ตลาดมืด",
+    "subject": "planet.rahu",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.ตลาดมืด",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  },
+  {
+    "id": "mahabhut.p36.rahu_relates_attribute_place_แหล่งขายของหนีภาษี",
+    "subject": "planet.rahu",
+    "subjectKind": "planet",
+    "relation": "relates_to",
+    "object": "attribute.place.แหล่งขายของหนีภาษี",
+    "objectKind": "keyword",
+    "domain": "planetLibrary",
+    "strength": "none",
+    "confidence": "high",
+    "evidence": {
+      "bookId": "mahabhut",
+      "page": "36"
+    }
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "id": "mahabhut.p40.dueng_tok_produces_weak",
+    "subject": "periodStatus.duengTok",
+    "subjectKind": "other",
+    "relation": "produces",
+    "object": "predictionEffect.weak",
+    "objectKind": "other",
+    "domain": "lifePeriodRules",
+    "condition": null,
+    "strength": "none",
+    "context_type": null,
+    "context_value": null,
+    "page": "40"
+  },
+  {
+    "id": "mahabhut.p41.dueng_khuen_produces_strong",
+    "subject": "periodStatus.duengKhuen",
+    "subjectKind": "other",
+    "relation": "produces",
+    "object": "predictionEffect.strong",
+    "objectKind": "other",
+    "domain": "lifePeriodRules",
+    "condition": null,
+    "strength": "none",
+    "context_type": null,
+    "context_value": null,
+    "page": "41"
+  },
+  {
+    "id": "mahabhut.p40.kalakini_opposes_dueng_tok",
+    "subject": "taksaRole.kalakini",
+    "subjectKind": "other",
+    "relation": "opposes",
+    "object": "periodStatus.duengTok",
+    "objectKind": "other",
+    "domain": "lifePeriodRules",
+    "condition": "อยู่เรือนภังคะ-มรณะ-ปูติ",
+    "strength": "none",
+    "context_type": null,
+    "context_value": null,
+    "page": "40"
+  },
+  {
+    "id": "mahabhut.p41.kalakini_opposes_dueng_khuen",
+    "subject": "taksaRole.kalakini",
+    "subjectKind": "other",
+    "relation": "opposes",
+    "object": "periodStatus.duengKhuen",
+    "objectKind": "other",
+    "domain": "lifePeriodRules",
+    "condition": "อยู่เรือนธงชัย-ขุมทรัพย์-ราชา-อธิบดี",
+    "strength": "none",
+    "context_type": null,
+    "context_value": null,
+    "page": "41"
+  },
+  {
+    "id": "mahabhut.p40.jupiter_learning_fall",
+    "subject": "planet.jupiter",
+    "subjectKind": "planet",
+    "relation": "produces",
+    "object": "domain.learning",
+    "objectKind": "domain",
+    "domain": "lifePeriodRules",
+    "condition": "อยู่เรือนภังคะ-มรณะ-ปูติ",
+    "strength": "low",
+    "context_type": null,
+    "context_value": null,
+    "page": "40"
+  }
+]

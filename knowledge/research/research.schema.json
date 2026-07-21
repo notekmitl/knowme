@@ -1,0 +1,64 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://knowme/knowledge/research/research.schema.json",
+  "title": "Thai Astrology — Knowledge Research Records",
+  "description": "Schema for astrology research records consumed by KnowledgeResearchEngine. As of V4 a research record no longer owns bibliographic source fields — it references citable sources by id via evidenceIds (see evidence.schema.json). A record captures one interpretation and may support multiple planet relationships. Knowledge-research layer only — NO dependency on the engine or the PlanetRelationshipMatrix; planets and relations are plain strings.",
+  "type": "object",
+  "required": ["schemaVersion", "domain", "records"],
+  "additionalProperties": true,
+  "properties": {
+    "schemaVersion": { "type": "string" },
+    "domain": { "type": "string", "const": "knowledge_research" },
+    "description": { "type": "string" },
+    "records": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/researchRecord" }
+    }
+  },
+  "definitions": {
+    "relationship": {
+      "type": "object",
+      "required": ["from", "to", "relation"],
+      "additionalProperties": false,
+      "properties": {
+        "from": { "type": "string", "description": "Planet key, e.g. \"saturn\"." },
+        "to": { "type": "string", "description": "Planet key, e.g. \"venus\"." },
+        "relation": {
+          "type": "string",
+          "enum": ["friend", "neutral", "enemy"]
+        }
+      }
+    },
+    "researchRecord": {
+      "type": "object",
+      "required": ["id", "topic", "entity", "interpretation", "relationship", "evidenceIds", "confidence", "status"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "description": "Stable unique record id, e.g. \"RR-0001\"." },
+        "topic": { "type": "string", "description": "Research topic, e.g. \"planet_relationship\"." },
+        "entity": { "type": "string", "description": "Subject entity, e.g. \"Saturn\" or \"Saturn–Venus\"." },
+        "interpretation": { "type": "string", "description": "What the source says, in the researcher's words." },
+        "relationship": {
+          "type": "array",
+          "description": "One research record may support multiple planet relationships.",
+          "items": { "$ref": "#/definitions/relationship" }
+        },
+        "evidenceIds": {
+          "type": "array",
+          "description": "Ids of the EvidenceRecords that back this interpretation.",
+          "items": { "type": "string" }
+        },
+        "confidence": {
+          "type": "string",
+          "enum": ["none", "low", "medium", "high"]
+        },
+        "reviewedBy": { "type": ["string", "null"] },
+        "status": {
+          "type": "string",
+          "enum": ["draft", "candidate", "reviewed", "verified", "disputed", "rejected"]
+        },
+        "notes": { "type": ["string", "null"] }
+      }
+    }
+  }
+}

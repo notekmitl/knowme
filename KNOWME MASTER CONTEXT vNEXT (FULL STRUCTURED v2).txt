@@ -1,0 +1,11215 @@
+================================================================================
+DEPRECATED — Documentation migrated to /docs
+================================================================================
+Canonical entry: docs/KNOWME_MASTER_CONTEXT.md
+Also read: docs/CURRENT_STATUS.md, docs/ARCHITECTURE.md, docs/ROADMAP.md, docs/HANDOFF.md
+Supplements: docs/GOVERNANCE.md, docs/FIRESTORE_SCHEMA.md, docs/MBTI_ARCHITECTURE.md,
+             docs/FUSION_RESULT_V1_SPEC.md, docs/DEPLOYMENT.md
+Do not use this file as source of truth for active priorities or architecture.
+================================================================================
+
+MASTER CONTEXT — LAST UPDATED: June 2026
+Fusion Result V1: frozen v1 (presentation polish passes 1–4 complete)
+See docs/FUSION_RESULT_V1_SPEC.md for as-built Fusion presentation spec.
+
+1. PROJECT OVERVIEW
+Project Name
+KnowMe
+Product Category
+Personalized astrology-inspired self-understanding platform
+Product Goal
+KnowMe ไม่ใช่ “เว็บทำแบบทดสอบบุคลิกภาพ”
+เป้าหมายคือ:
+สร้างระบบที่ช่วยให้ผู้ใช้เข้าใจตัวเองอย่างลึกขึ้น ผ่านหลายมิติของบุคลิก ความคิด พฤติกรรม แนวโน้มชีวิต และการเติบโต
+ระบบจะรวมข้อมูลจากหลาย test แล้วค่อย ๆ สังเคราะห์เป็น insight ที่ลึกขึ้นเรื่อย ๆ
+เป้าหมายปลายทาง:
+“Digital mirror for self-understanding”
+ไม่ใช่ horoscope แบบ generic
+ไม่ใช่ quiz app
+ไม่ใช่ MBTI clone
+
+KnowMe direction
+
+Hybrid strategy (B front door, A core)
+
+ภายนอก:
+รู้สึกเหมือนแอปดูดวงที่เข้าใจตัวคุณ
+
+ภายใน:
+ใช้แบบทดสอบ (MBTI, EQ, Big Five ฯลฯ)
+เพื่อ personalize insight
+
+Mental model:
+
+“ดวงที่เข้าใจตัวคุณมากขึ้น”
+
+ไม่ใช่ horoscope ล้วน
+และไม่ใช่ dashboard จิตวิทยา
+-------------------------------------------------------------------------------------------
+
+
+2. CORE PRODUCT PHILOSOPHY
+KnowMe มีหลักคิดสำคัญดังนี้
+2.1 Insight > Label
+
+KnowMe ไม่ใช่ระบบที่จบแค่ label
+
+ไม่ใช่:
+
+คุณคือ ESTJ จบ
+
+หรือ
+
+คุณคือราศีเมถุน จบ
+
+แต่คือ:
+
+คุณมีแนวโน้มคิด รู้สึก ตัดสินใจ
+และตอบสนองต่อโลกแบบนี้
+
+และหลายส่วนของตัวคุณ
+อาจเกิดจากการผสมกันของ
+ดวง บุคลิก และรูปแบบพฤติกรรม
+
+Label เป็นเพียง entry point
+
+Insight คือ product value จริง
+
+เป้าหมาย:
+
+ทำให้ user รู้สึกว่า
+
+“นี่คือตัวฉัน”
+2.2 Self-understanding > Entertainment
+
+KnowMe ไม่ใช่ horoscope app แบบทั่วไป
+
+แต่ก็ไม่ใช่ psychology dashboard แข็งๆ
+
+เป้าหมายคือ:
+
+ให้ความรู้สึกเหมือน
+“ดวงที่เข้าใจตัวคุณมากขึ้น”
+
+โดยใช้แบบทดสอบ
+เพื่อ personalize insight
+
+KnowMe ต้อง balance ระหว่าง:
+
+Emotional resonance
+(รู้สึก relate และมี wow moment)
+
+และ
+
+Grounded self-understanding
+(สะท้อนตัวเองได้จริง)
+
+ระบบควรช่วยเรื่อง:
+
+self-awareness
+decision quality
+relationship awareness
+personal growth
+behavior reflection
+
+Tone ของระบบ:
+
+grounded
+reflective
+emotionally resonant
+psychologically plausible
+insightful
+
+หลีกเลี่ยง:
+
+generic horoscope
+fate / destiny claim
+motivational fantasy
+overclaiming
+deterministic identity claim
+
+Bad:
+
+คุณเกิดมาเพื่อเป็นผู้นำ
+
+Good:
+
+หลายครั้งคุณอาจรู้สึกสบายใจกว่า
+เมื่อมีโครงสร้าง เป้าหมาย
+หรือความชัดเจนบางอย่าง
+
+Allowed:
+
+symbolic astrology framing
+
+แต่ต้องไม่ฟันธงชีวิตแทน user
+
+2.3 Deterministic before AI
+หลักสำคัญมาก
+Current strategy:
+First:
+Deterministic engine
+Later:
+AI enhancement
+เหตุผล:
+predictable
+debuggable
+explainable
+cheap to run
+stable UX
+Current MBTI Summary Fusion:
+deterministic only
+No LLM
+No prompt generation
+No vector memory
+No AI narrative
+Rule-based synthesis เท่านั้น
+
+Current product strategy:
+
+Astrology, MBTI, EQ, Fusion
+must work deterministically first
+
+AI comes later as enhancement layer
+not dependency layer
+
+2.4 Progressive understanding
+
+KnowMe ไม่เชื่อว่า:
+
+ตอบไม่กี่ข้อแล้วเข้าใจคนได้ทั้งหมด
+
+แนวคิดหลักคือ:
+
+เข้าใจเร็วขึ้นก่อน
+แล้วค่อย deepen ได้ภายหลัง
+
+ตัวอย่าง:
+
+Astrology
+→ immediate wow moment
+
+MBTI
+→ quick understanding
+
+EQ / Big Five
+→ deeper personalization
+
+Fusion
+→ clearer self mirror
+
+Goal:
+
+low friction first
+
+high depth later
+
+ไม่ force friction สูงตั้งแต่แรก
+2.5 Readability > Technical Accuracy Dump
+Result should feel:
+
+human
+readable
+emotionally meaningful
+personally relevant
+
+not:
+
+engineering report
+psychology lecture
+astrology taxonomy dump
+-------------------------------------------------------------------------------------------
+
+3. CURRENT PRODUCT STATE (UPDATED)
+
+KnowMe is currently transitioning from feature-building to experience refinement.
+
+The product now has a usable core ecosystem:
+
+Astrology
+→ emotional entry point
+
+Personality tests (MBTI / Cognitive / EQ)
+→ structured self-understanding
+
+Fusion
+→ reflection across multiple lenses
+
+Current development philosophy:
+
+Move product forward while avoiding endless polishing loops.
+
+The goal is not to perfect every system immediately, but to create a coherent, believable, emotionally useful self-understanding experience.
+
+Current reality
+
+Astrology Result V1
+Status: usable+
+Focus: polish and discovery value
+
+MBTI Summary V1.3
+Status: stable / frozen-ish
+
+EQ MVP
+Status: usable+ / frozen-ish
+
+Astrology Fusion V6
+Status: usable+
+Narrative pass complete
+Temporary freeze candidate
+
+Focus:
+maintenance only
+bug fixes
+future engine improvements only
+
+Home / Discovery
+Status: active refinement
+
+Big Five
+Status: future MVP
+
+Product maturity principle
+
+KnowMe prioritizes:
+
+Believable reflection
+Emotional usefulness
+Product cohesion
+Progressive personalization
+
+over:
+
+scientific over-complexity
+excessive psychometric detail
+feature quantity
+endless UI polishing
+Product philosophy
+
+KnowMe should feel like:
+
+“A personalized mirror that helps people understand themselves more deeply.”
+
+NOT:
+
+personality report generator
+astrology content dump
+psychology dashboard
+clinical assessment tool
+Reality update
+
+EQ MVP and Fusion Result V1 are currently usable.
+
+Fusion Result V1 presentation is frozen at v1 after polish passes 1–4.
+
+Development priority should move forward rather than repeatedly micro-polishing already usable systems.
+
+Avoid:
+
+polish loops
+
+Prefer:
+
+product progression
+
+-------------------------------------------------------------------------------------------
+
+
+4. CURRENT IMPLEMENTED TEST ECOSYSTEM
+
+KnowMe currently operates as a multi-lens self-understanding system.
+
+Each lens exists to reflect a different aspect of self-understanding.
+
+No single lens is considered “the truth.”
+
+The product philosophy is:
+
+Multiple perspectives → calmer, deeper self-understanding
+
+Implemented / Active Systems
+Astrology
+
+Role:
+
+Emotional front door of the product.
+
+Purpose:
+
+Provide an emotionally engaging and reflective starting point for self-understanding.
+
+Mental model:
+
+“Your first mirror”
+
+Astrology should feel:
+
+reflective
+emotionally resonant
+grounded
+believable
+
+NOT:
+
+daily horoscope
+fate prediction
+mystical certainty
+MBTI Progressive
+
+Role:
+
+High-level personality reflection.
+
+Purpose:
+
+Help users understand tendencies, preferences, and mental orientation.
+
+Mental model:
+
+“How I tend to think and approach life”
+
+Focus:
+
+personality preference
+energy orientation
+behavioral tendencies
+reflective insight
+Cognitive Function
+
+Role:
+
+Mental processing layer.
+
+Purpose:
+
+Help users understand how they naturally process information and make sense of the world.
+
+Mental model:
+
+“How my mind tends to work”
+
+Focus:
+
+thinking patterns
+information processing
+cognitive preference
+mental dynamics
+EQ (Emotional Intelligence)
+
+Role:
+
+Emotional reflection layer.
+
+Purpose:
+
+Help users understand emotional handling, regulation, emotional awareness, and social emotional tendencies.
+
+Mental model:
+
+“How I emotionally respond and regulate”
+
+Focus:
+
+self-awareness
+emotional regulation
+social awareness
+empathy
+stress handling
+emotional decision patterns
+
+Important:
+
+EQ is NOT:
+
+therapy
+mental health diagnosis
+emotional scoring system
+psychological pathology
+
+Tone:
+
+Grounded
+Reflective
+Non-clinical
+
+Fusion Result V1
+
+Role:
+
+Cross-lens reflection system.
+
+Purpose:
+
+Help users see how multiple lenses may reflect overlapping, complementary, or contrasting perspectives.
+
+Mental model:
+
+“หลายมุมกำลังช่วยสะท้อนตัวฉัน”
+
+Fusion is NOT:
+
+report dump
+personality verdict
+forced onboarding sequence
+prerequisite chain
+
+Fusion should:
+
+explain what data exists
+show what is missing
+reflect current understanding
+synthesize when enough information exists
+Product-wide principle
+
+No lens should feel absolute.
+
+KnowMe is designed around:
+
+reflection
+
+NOT:
+
+judgment
+
+4.1 USER PROFILE FOUNDATION
+
+Purpose
+
+Provide shared profile information
+used across multiple lenses.
+
+Current profile fields
+
+- Birth Date
+- Birth Time
+- Birth Place
+
+Future profile fields may include:
+
+- Blood Type
+
+Important:
+
+Profile data is not a test.
+
+Profile data provides context
+for personalization systems.
+
+Mental model:
+
+Foundation layer
+
+NOT:
+
+personality result
+
+
+
+-------------------------------------------------------------------------------------------
+
+
+5. PRODUCT EXPERIENCE TARGET
+Desired feeling:
+User should feel:
+“ระบบนี้เข้าใจฉัน”
+NOT:
+“นี่คือ template ที่ random มา”
+Important:
+Insight must feel:
+Specific
+not generic
+Grounded
+not magical
+Helpful
+not preachy
+Reflective
+not judgmental
+
+UX benchmark direction
+
+Closer to:
+
+premium personalized astrology app
++
+premium self-reflection / coaching feel
+
+Less like:
+
+generic horoscope app
+Buzzfeed quiz
+corporate psychometric report
+-------------------------------------------------------------------------------------------
+
+
+6. CRITICAL UX WRITING RULES
+Global rule for KnowMe
+Prefer:
+คุณมัก...
+มีแนวโน้ม...
+หลายครั้ง...
+อาจ...
+ดูเหมือนว่า...
+Avoid:
+คุณคือ...
+คุณเป็นแบบนี้เสมอ...
+คุณเกิดมาเพื่อ...
+คุณเหนือกว่า...
+Reason:
+avoid overclaiming
+maintain trust
+psychological plausibility
+
+Example rewrite
+Bad:
+คุณเกิดมาเพื่อขับเคลื่อนเป้าหมาย
+Good:
+คุณมักรู้สึกสบายใจกว่าเมื่อเป้าหมายถูกเปลี่ยนเป็นแผนที่ลงมือทำได้จริง
+-------------------------------------------------------------------------------------------
+
+
+7. ARCHITECTURE PHILOSOPHY
+Critical rule:
+Low blast radius
+Every change should:
+isolated
+modular
+reversible
+deterministic
+easy to debug
+Avoid:
+giant rewrites
+Prefer:
+additive extension
+Pattern:
+new feature folder
+presentation layer first
+reuse existing data
+no schema rewrite
+-------------------------------------------------------------------------------------------
+
+
+8. DEVELOPMENT PRINCIPLES
+Current working principle:
+Working > perfect
+BUT
+No architecture debt explosion
+Meaning:
+fast iteration allowed
+but:
+avoid hacks that create future pain
+
+Decision framework
+Preferred order:
+small blast radius
+simple
+deterministic
+reusable
+localized
+future extensible
+
+Micro-polish rule
+
+If:
+
+feature is usable
+and architecture stable
+
+Prefer:
+
+move to next capability
+
+Avoid:
+
+endless spacing
+copy churn
+density tuning loop
+
+Question:
+
+Is this blocking product value?
+
+If no:
+move on.
+-------------------------------------------------------------------------------------------
+
+
+9. CURRENT SYSTEM ARCHITECTURE (AS-BUILT REALITY)
+Important:
+This section describes actual implementation reality, not ideal architecture.
+KnowMe currently exists in a hybrid transitional architecture.
+Meaning:
+legacy universal test architecture
++
+feature-specific architecture
+coexist together.
+This is intentional for now.
+Do NOT aggressively rewrite.
+
+9.1 High-Level Architecture
+Current mental model:
+Presentation
+   ↓
+Feature Logic / Session State
+   ↓
+Scorer / Rule Engine
+   ↓
+Repository
+   ↓
+Firestore
+Pattern:
+UI
+→ Session
+→ Scorer
+→ Result
+→ Repository
+→ Persistence
+Result generation is deterministic.
+No AI dependency in core logic.
+-------------------------------------------------------------------------------------------
+
+
+10. TEST SYSTEM REALITY
+Current system is NOT fully unified.
+There are 2 architectures:
+
+A. Universal Test Architecture (Legacy but still active)
+Used for:
+many existing tests
+Pattern:
+QuestionService
+   ↓
+UniversalTestPage
+   ↓
+Generic scoring
+Characteristics:
+Strengths
+fast to build
+reusable
+low engineering overhead
+Weaknesses
+hard to customize UX
+limited result intelligence
+difficult progressive flow
+weak for advanced insights
+Still valid for:
+simple tests
+
+B. Feature-Specific Test Architecture (Preferred direction)
+Used by:
+MBTI Progressive
+MBTI Cognitive
+Pattern:
+feature/
+ domain/
+ application/
+ data/
+ presentation/
+Example:
+features/tests/mbti/
+features/tests/mbti_cognitive/
+features/tests/mbti_summary/
+Characteristics:
+Strengths
+custom UX
+progressive checkpoints
+deterministic insight generation
+isolated blast radius
+easier experimentation
+Weaknesses
+more code
+more maintenance
+duplicated patterns risk
+Current strategic direction:
+new advanced systems
+→ feature-specific
+Simple tests:
+can remain universal
+-------------------------------------------------------------------------------------------
+
+
+11. CURRENT TEST ECOSYSTEM
+Current reality:
+MBTI category
+├── MBTI (progressive)
+├── MBTI Cognitive
+└── MBTI Summary
+
+11.1 MBTI Progressive
+Primary identity/personality system.
+Purpose:
+behavioral preference
+Questions:
+16 → 40 → 80
+Checkpoint philosophy:
+quick insight
+→ better understanding
+→ deep profile
+Feature folder:
+lib/features/tests/mbti/
+Architecture:
+domain/
+application/
+data/
+presentation/
+Current maturity:
+MVP+
+stable but still polishing UX
+
+11.2 MBTI Cognitive
+Purpose:
+underlying cognitive processing
+Not:
+classic MBTI identity
+Instead:
+how mind processes information
+Questions:
+16 → 40 → 80
+Checkpoint distribution:
+deterministic round-robin:
+Ni
+Ne
+Ti
+Te
+Fi
+Fe
+Si
+Se
+Distribution:
+16 = 2/function
+40 = 5/function
+80 = 10/function
+Folder:
+lib/features/tests/mbti_cognitive/
+Current maturity:
+MVP
+working and stable
+
+11.3 MBTI Summary Fusion
+Purpose:
+combine:
+MBTI
++
+MBTI Cognitive
+Important:
+NOT a test
+NO scoring
+NO persistence
+NO session
+Pure:
+derived insight layer
+Folder:
+lib/features/tests/mbti_summary/
+Current maturity:
+MVP+
+
+Status:
+Frozen for V1
+
+Only revisit via:
+analytics
+real feedback
+major product shift
+-------------------------------------------------------------------------------------------
+
+
+12. MBTI CATEGORY REALITY
+Current catalog:
+Only 2 actionable tests:
+MBTI
+MBTI Cognitive
+Plus:
+MBTI Summary
+read-only insight layer.
+Catalog UX:
+MBTI
+Synthetic progressive card
+Shows:
+16 ✓ — 40 ✓ — 80
+progress visualization
+Uses:
+users/{uid}/tests/mbti_mini
+
+MBTI Cognitive
+Progressive test card
+Shows:
+checkpoint progress
+Uses:
+users/{uid}/tests/mbti_cognitive
+
+MBTI Summary
+Availability-based card.
+Conditions:
+Requires:
+MBTI result exists
+AND
+Cognitive result exists
+Guest:
+locked state
+Partial completion:
+allowed
+Confidence:
+uses weaker-of-two rule
+-------------------------------------------------------------------------------------------
+
+
+13. ROUTING REALITY
+Important:
+Routing is hybrid.
+Do NOT aggressively unify.
+
+MBTI Progressive
+Route:
+MbtiRoutes.miniTestRoute()
+Entrypoint:
+MbtiMiniTestPage
+Still named:
+mini
+for backward compatibility.
+Important:
+Do NOT rename casually.
+Many legacy dependencies exist.
+
+MBTI Cognitive
+Dedicated route:
+MbtiCognitiveRoutes
+Entrypoint:
+MbtiCognitiveTestPage
+
+MBTI Summary
+Dedicated route:
+MbtiSummaryRoutes
+Entrypoint:
+MbtiSummaryFusionPage
+
+Universal tests
+Still:
+UniversalTestPage
+This coexistence is expected.
+-------------------------------------------------------------------------------------------
+
+
+14. FIRESTORE REALITY
+Critical section.
+Current architecture:
+2 document families:
+tests/*
+results/*
+
+tests/*
+Purpose:
+session/progress
+Contains:
+answered
+answers
+completed
+total
+index
+Mental model:
+working state
+Examples:
+users/{uid}/tests/mbti_mini
+users/{uid}/tests/mbti_cognitive
+
+results/*
+Purpose:
+final deterministic result snapshot
+Mental model:
+source of truth for insight
+Contains:
+type
+dimensions
+scores
+topFunctions
+scoredQuestionCount
+etc
+Examples:
+users/{uid}/results/mbti_mini
+users/{uid}/results/mbti_cognitive
+Critical principle:
+Fusion reads results/*
+NOT tests/*
+Reason:
+tests/* = transient state
+results/* = deterministic snapshot
+-------------------------------------------------------------------------------------------
+
+
+15. LEGACY COMPATIBILITY REALITY
+Very important.
+KnowMe already has evolving schemas.
+Example:
+MBTI result docs created before:
+scoredQuestionCount
+field existed.
+Problem:
+legacy docs return:
+null
+for scoredQuestionCount.
+Solution implemented:
+migration-safe fallback
+Behavior:
+if:
+scoredQuestionCount == null
+Infer from:
+dimension score mass
+Then:
+auto-backfill Firestore.
+Purpose:
+self-healing legacy docs.
+Example:
+dimensionMass=480
+→ inferred=80
+Critical:
+DO NOT REMOVE
+This is compatibility layer.
+Not debug code.
+-------------------------------------------------------------------------------------------
+
+
+16. SOURCE OF TRUTH RULES
+Important architectural rule.
+Never confuse:
+progress
+with
+result
+Rule:
+For UX progress:
+tests/*
+For insights/result:
+results/*
+Example:
+Bad:
+Fusion reads tests/answered
+Good:
+Fusion reads results/scoredQuestionCount
+-------------------------------------------------------------------------------------------
+
+
+17. CURRENT FEATURE FOLDER REALITY
+Current implemented structure:
+lib/features/tests/
+
+   mbti/
+   mbti_cognitive/
+   mbti_summary/
+Each generally follows:
+domain/
+application/
+data/
+presentation/
+widgets/
+Preferred pattern:
+small focused files
+deterministic helpers
+presentation isolation
+Avoid:
+1000-line god file
+-------------------------------------------------------------------------------------------
+
+
+18. LOW BLAST RADIUS RULE (CRITICAL)
+Every implementation decision should prefer:
+additive changes
+Instead of:
+rewrite existing system
+Preferred:
+new folder
+new helper
+presentation-only change
+reuse existing data
+Example:
+Good:
+mbti_summary/
+Bad:
+rewrite:
+mbti/
+to support fusion.
+-------------------------------------------------------------------------------------------
+
+
+19. MBTI PROGRESSIVE SYSTEM (DEEP ARCHITECTURE)
+Purpose
+MBTI Progressive is the primary personality system.
+It measures:
+behavioral preference
+decision style
+information preference
+structure preference
+Mental model:
+“How you tend to operate”
+NOT:
+deep cognition
+That belongs to MBTI Cognitive.
+
+Progressive philosophy
+Current design:
+16 → 40 → 80
+Purpose:
+Lower friction.
+Instead of:
+80 questions immediately
+User gets value early.
+Flow:
+16 questions
+→ quick insight
+
+40 questions
+→ better understanding
+
+80 questions
+→ deep profile
+Product philosophy:
+start fast
+increase confidence later
+-------------------------------------------------------------------------------------------
+
+
+20. MBTI CHECKPOINT SYSTEM
+Constants:
+mbtiMiniCheckpoint = 16
+mbtiStandardCheckpoint = 40
+mbtiAccurateCheckpoint = 80
+Meaning:
+16
+Quick insight
+Low confidence.
+Purpose:
+Fast onboarding.
+
+40
+Better understanding.
+Medium confidence.
+Most users may stop here.
+
+80
+Deep profile.
+Highest confidence.
+Primary recommendation.
+
+Continue model
+Current UX:
+finish checkpoint
+→ show result
+→ optional continue CTA
+Example:
+Q16
+→ result
+→ ทำต่อถึง MBTI Standard (40 ข้อ)
+
+Q40
+→ result
+→ ทำต่อถึง MBTI Accurate (80 ข้อ)
+
+Q80
+→ final
+No routing reset.
+No dialog spam.
+Same page flow.
+-------------------------------------------------------------------------------------------
+
+
+21. MBTI SESSION ARCHITECTURE
+Primary file:
+features/tests/mbti/application/mbti_session_state.dart
+Responsibilities:
+initialize()
+resume
+continue
+restart
+saveProgress()
+finish()
+Mental model:
+state machine
+NOT:
+just controller
+
+Session flow
+Pattern:
+load session
+→ resolve question set
+→ restore answers
+→ answer
+→ save progress
+→ finish
+→ save result
+
+Continue behavior
+Critical:
+Continue does NOT reset.
+Instead:
+Keep answers
+Expand question set
+Example:
+16 → 40
+Behavior:
+answers preserved
+questions expanded
+index jumps to 16
+completed result cleared
+Then:
+continue from:
+Q17
+Same for:
+40 → 80
+
+Restart behavior
+Restart:
+clear session
+fresh mini start
+Protected by:
+confirmation dialog
+No silent destructive action.
+-------------------------------------------------------------------------------------------
+
+
+22. MBTI SCORING MODEL
+Primary file:
+mbti_scorer.dart
+Model:
+Classic dimension model.
+Axes:
+E / I
+S / N
+T / F
+J / P
+Result:
+ESTJ
+INFP
+ENTP
+etc
+Generated:
+MbtiResultSummary
+Contains:
+type
+dimensions
+scoredQuestionCount
+scores
+meta
+
+scoredQuestionCount
+Important field.
+Represents:
+how many questions contributed
+to result
+Examples:
+16
+40
+80
+Used for:
+confidence
+timeline
+fusion
+progress labeling
+Critical:
+Result confidence depends on:
+scoredQuestionCount
+NOT:
+session answered
+-------------------------------------------------------------------------------------------
+
+
+23. MBTI RESULT UX (CURRENT STATE)
+Current maturity:
+MVP+
+Much improved from original.
+Current direction:
+friendly
+insightful
+human
+premium-ish
+NOT:
+engineering report
+
+Result structure
+Current order:
+Hero
+Contains:
+type
+role
+summary
+Direction:
+Identity + synthesis.
+
+Summary section
+“คุณเป็นคนแบบไหน”
+From:
+mbti_types.dart
+
+Strengths
+Checklist.
+Localized.
+
+Cautions / growth
+Soft wording.
+Avoid:
+weaknesses
+Prefer:
+สิ่งที่ควรระวัง
+
+Careers
+Localized list.
+Grounded.
+Avoid deterministic:
+must become CEO
+
+Relationships
+Behavioral interpretation.
+
+Trait interpretation
+Important redesign.
+Previously:
+bad percentage bars.
+Now:
+comparison-oriented interpretation.
+Purpose:
+Answer:
+why this type?
+
+Trait section philosophy
+User problem:
+Classic bars:
+E 60%
+I 40%
+No meaning.
+Current direction:
+Explain:
+what this preference means
+Design goal:
+Readable at glance.
+Not psychometric report.
+Still polishing.
+
+Progress timeline
+Checkpoint UX:
+16 ✓
+40 ✓
+80 ○
+Purpose:
+Explain:
+confidence progression
+Not:
+completed source list.
+-------------------------------------------------------------------------------------------
+
+
+24. MBTI RESULT UX — CURRENT QUALITY ASSESSMENT
+Current:
+usable+
+Strengths:
+better hierarchy
+friendlier
+checkpoint clarity
+localized
+progressive flow works
+Weaknesses:
+trait section still polishable
+premium feel incomplete
+copy sometimes generic
+-------------------------------------------------------------------------------------------
+
+
+25. MBTI COGNITIVE SYSTEM
+Purpose:
+Measure:
+cognitive processing preference
+Mental model:
+How your mind tends to process information
+NOT:
+Identity label.
+
+Cognitive functions
+Current supported:
+Ni
+Ne
+Ti
+Te
+Fi
+Fe
+Si
+Se
+
+Question model
+Likert:
+1–5
+Each question:
+positiveFunction
+negativeFunction
+Logic:
+Agree:
+positive gains score.
+Negative:
+receives reverse contribution.
+Pattern:
+positive += score
+
+negative += (6 - score)
+Reverse flag:
+supported.
+
+Progressive structure
+Same philosophy as MBTI:
+16
+40
+80
+Distribution:
+Deterministic round robin.
+Each checkpoint balanced.
+Checkpoint distribution:
+16 = 2/function
+40 = 5/function
+80 = 10/function
+Important:
+Question order intentionally curated.
+Not random.
+
+Cognitive scoring output
+Produces:
+topFunctions
+orderedFunctions
+scores
+stackTypeHints
+scoredQuestionCount
+No hard type claim.
+Instead:
+function preference profile
+
+Stack hints
+Uses:
+mbtiFunctionStacks
+Output example:
+ENTJ
+ESTJ
+Important:
+Probabilistic only.
+Avoid:
+You ARE ENTJ
+Prefer:
+คล้าย ENTJ
+-------------------------------------------------------------------------------------------
+
+
+26. MBTI COGNITIVE RESULT UX
+Current maturity:
+MVP+
+Current result philosophy:
+Remove fake precision.
+Problem before:
+78%
+65%
+51%
+Feels scientific but misleading.
+Current approach:
+ranked preference
+Top 4:
+rich cards
+Bottom 4:
+compact rows
+Copy:
+order matters
+small gaps are normal
+Purpose:
+Prevent:
+false precision bias
+
+Cognitive hero
+Contains:
+thinking style summary
+stack hint
+confidence
+Rule:
+Insight first.
+Type hint secondary.
+
+Cognitive confidence
+Uses:
+16
+40
+80
+Terminology:
+Quick insight
+Better understanding
+Deep cognitive profile
+Localized.
+-------------------------------------------------------------------------------------------
+
+
+27. MBTI SUMMARY FUSION SYSTEM
+Purpose:
+Combine:
+MBTI
++
+Cognitive
+to produce:
+higher-level interpretation
+Critical:
+NOT scoring
+NOT persistence
+NOT new test
+Pure:
+derived deterministic layer
+Folder:
+features/tests/mbti_summary/
+
+Inputs
+Reads:
+results/mbti_mini
+results/mbti_cognitive
+NOT:
+tests/*
+
+Confidence model
+Rule:
+Weakest-of-two.
+Example:
+MBTI 80
+Cognitive 16
+Result:
+16 confidence tier
+Reason:
+avoid overclaiming.
+
+Migration-safe fallback
+Critical.
+Legacy docs:
+scoredQuestionCount == null
+Infer from:
+dimension mass
+Then self-heal.
+DO NOT REMOVE.
+-------------------------------------------------------------------------------------------
+
+
+28. MBTI SUMMARY INSIGHT ENGINE
+Primary file:
+mbti_summary_insight_engine.dart
+Current maturity:
+v1.1
+Pure deterministic.
+No AI.
+
+Rule A — Alignment
+Compare:
+top functions
+vs
+canonical stack.
+Scoring:
+top1 exact = +2
+top2 exact = +2
+top3 exact = +1
+top4 exact = +1
+Bands:
+weak
+mixed
+strong
+Output:
+human-readable explanation.
+
+Rule B — Theme detection
+Weights:
+4
+3
+2
+1
+Themes:
+logic
+intuition
+feeling
+structure
+exploration
+Purpose:
+Explain thinking style.
+
+Rule C — Outlier detection
+Supported:
+ESTJ
+ENTJ
+INTJ
+ENFP
+Purpose:
+Explain:
+“different from stereotype”
+Example:
+ESTJ + Ti high
+→ more analytical than baseline.
+Safe fallback:
+none.
+
+Rule D — Combination synthesis
+v1.1
+Purpose:
+Reduce repetitive insight.
+Instead of:
+bullet accumulation
+Generate:
+more natural synthesis.
+Example direction:
+ESTJ
++
+Te/Ti/Ni
+↓
+systematic
+analytical
+long-term oriented
+without overclaiming.
+-------------------------------------------------------------------------------------------
+
+
+29. LOCALIZATION STRATEGY
+Current:
+TH
+EN
+Rule:
+UI strings:
+AppText only
+Never hardcode.
+
+Content sources
+UI copy:
+app_text.dart
+Type narrative:
+mbti_types.dart
+Fusion copy:
+app_text.dart
+Resolver:
+localized helper.
+Pattern:
+map[lang]
+?? en
+-------------------------------------------------------------------------------------------
+
+
+30. CURRENT UX QUALITY STATE
+
+Current direction:
+
+more grounded
+more human
+less templated
+more premium
+
+Known product gaps:
+
+product cohesion
+fusion experience
+guided journey
+-------------------------------------------------------------------------------------------
+Historical context only.
+
+MBTI Summary v1.3 frozen.
+
+Do not resume polish loop unless:
+
+analytics
+real feedback
+major product change
+
+31. MBTI SUMMARY UX EVOLUTION HISTORY
+
+Important:
+
+This section explains why the current UI looks the way it does.
+
+Do NOT regress accidentally.
+
+v0 — Raw Fusion (Bad)
+
+Early implementation:
+
+MBTI result
++
+Cognitive result
+stitched together
+
+Problem:
+
+felt generic.
+
+Example feeling:
+
+ESTJ
+Te Ti Ni
+
+You like logic.
+You like systems.
+
+User reaction target:
+
+"this feels templated"
+
+Main problems:
+
+repetitive
+generic
+no synthesis
+report feeling
+no psychological nuance
+v1 — Deterministic Fusion
+
+Introduced:
+
+mbti_summary_insight_engine.dart
+
+Added:
+
+Alignment rule
+Theme rule
+Outlier rule
+
+Result:
+
+More specific.
+
+Still:
+
+verbose.
+
+Problem:
+
+bullet accumulation
+
+Example:
+
+You are ESTJ
+You use logic
+You differ from stereotype
+You use Ti
+
+Repeated meaning.
+
+v1.1 — Synthesis Pass
+
+Goal:
+
+Reduce repetition.
+
+Shift from:
+
+many bullets
+
+to:
+
+strong insight
+
+Example direction:
+
+Instead of:
+
+ESTJ
+analytical
+different
+logic
+
+Synthesize:
+
+ESTJ with stronger analytical tendency
+
+Changes:
+
+Profile synthesis
+Combination-aware thinking
+Growth insight specificity
+Reduced generic wording
+
+Result:
+
+Felt:
+
+more human
+less machine-generated
+v1.2 — Premium UX Polish
+
+Focus:
+
+Presentation.
+
+Not logic.
+
+Improvements:
+
+Hero hierarchy
+Left-aligned thinking section
+Confidence disclosure cleanup
+Softer tone
+Spacing rhythm
+
+Result:
+
+Moved from:
+
+dashboard/debug UI
+
+toward:
+
+premium insight product
+
+Still incomplete.
+
+v1.3 — Final Pre-Freeze Polish
+
+Focus:
+
+visual hierarchy
+density
+reading rhythm
+microcopy
+
+No architecture change.
+
+No scoring change.
+
+No AI.
+
+Remaining improvements:
+Known polish opportunities
+(not active priority)
+-------------------------------------------------------------------------------------------
+
+
+32. CURRENT MBTI SUMMARY UX STRUCTURE
+
+Current order:
+
+Hero
+↓
+ประเภทกับฟังก์ชัน
+↓
+คุณคิดและตัดสินใจแบบไหน
+↓
+ความมั่นใจของภาพรวม
+↓
+สิ่งที่อาจช่วยให้เติบโตได้ดีขึ้น
+
+Mental model:
+
+identity
+→ explanation
+→ thinking pattern
+→ confidence
+→ growth
+
+Important:
+
+This order is intentional.
+
+Do NOT randomly rearrange.
+-------------------------------------------------------------------------------------------
+
+
+33. HERO DESIGN PHILOSOPHY
+
+Purpose:
+
+Immediate recognition.
+
+User should feel:
+
+"this sounds like me"
+
+Hero should communicate:
+
+Identity
+Thinking flavor
+Short synthesis
+
+NOT:
+
+wall of text
+
+NOT:
+
+psychology report
+
+Preferred hierarchy:
+
+eyebrow
+
+type
+
+role
+
+english subtitle
+
+short synthesis
+
+Rule:
+
+1 strong synthesis paragraph
+
+NOT:
+
+4 stacked mini paragraphs
+
+Tone rule
+
+Avoid:
+
+You are born to...
+You always...
+You dominate...
+
+Prefer:
+
+You tend to...
+You may...
+Often...
+Many times...
+-------------------------------------------------------------------------------------------
+
+
+34. THINKING SECTION PHILOSOPHY
+
+Purpose:
+
+Explain:
+
+"How do I usually think?"
+
+NOT:
+
+generic trait dump.
+
+Should feel:
+
+specific.
+
+Combination-aware.
+
+Example target:
+
+Bad:
+
+you use logic
+
+Better:
+
+you like structure
+but may rethink the system
+when deeper logic suggests otherwise
+
+Reading principle:
+
+Headline
+
+↓
+
+explanation
+
+Readable in:
+
+3–5 seconds scan
+Layout rules
+
+Left aligned.
+
+Headline:
+
+semiBold
+
+Body:
+
+regular
+
+Spacing rhythm:
+
+headline → body = 8–12px
+block → block = 16px
+
+Avoid:
+
+center aligned report feeling
+-------------------------------------------------------------------------------------------
+
+
+35. CONFIDENCE CARD PHILOSOPHY
+
+Purpose:
+
+Explain:
+
+How reliable is this interpretation?
+
+NOT:
+
+statistics panel.
+
+Mental model:
+
+trust layer
+
+Contains:
+
+checkpoint confidence
+strengths disclosure
+career disclosure
+
+Important:
+
+Accordion should feel:
+
+premium insight disclosure
+
+NOT:
+
+settings panel
+admin UI
+debug screen
+
+Avoid:
+
+giant white blocks
+heavy separators
+oversized spacing
+giant expand chrome
+
+Target:
+
+compact
+soft
+high-signal
+-------------------------------------------------------------------------------------------
+
+
+36. GROWTH SECTION PHILOSOPHY
+
+Purpose:
+
+Reflection.
+
+NOT:
+
+Correction.
+
+NOT:
+
+Judgment.
+
+NOT:
+
+Therapy.
+
+Tone:
+
+soft
+practical
+human
+non-preachy
+
+Avoid:
+
+you are wrong
+you should
+your weakness is
+
+Prefer:
+
+you may notice...
+sometimes...
+it may help to...
+
+Mental model:
+
+gentle mirror
+-------------------------------------------------------------------------------------------
+
+
+37. CURRENT KNOWN UX GAPS
+
+Important:
+
+These are accepted temporary imperfections.
+
+37.1 Hero polish incomplete
+
+Still issues:
+
+density
+spacing
+visual breathing room
+english subtitle hierarchy
+
+Current state:
+
+good
+not excellent
+37.2 Thinking section needs stronger visual anchor
+
+Current issue:
+
+Reads like text.
+
+Could improve:
+
+small accent
+soft divider
+micro hierarchy
+
+But avoid:
+
+heavy card spam
+37.3 Accordion density still high
+
+Current issue:
+
+Expand state still visually heavy.
+
+Future direction:
+
+lighter disclosure
+less chrome
+tighter spacing
+37.4 Copy still occasionally template-feeling
+
+Especially:
+
+growth copy.
+
+Needs:
+
+micro polish.
+
+NOT:
+
+AI rewrite.
+-------------------------------------------------------------------------------------------
+
+
+38. CURRENT TECHNICAL DEBT
+
+Important:
+
+Reality section.
+
+Do NOT hide problems.
+
+38.1 Hybrid architecture
+
+Current:
+
+UniversalTestPage
++
+feature-specific systems
+
+coexist.
+
+Debt:
+
+duplication risk.
+
+Accepted for now.
+
+Reason:
+
+low blast radius migration.
+
+38.2 Repeated patterns
+
+Examples:
+
+session state patterns repeated:
+
+mbti
+mbti_cognitive
+
+Potential future:
+
+shared progressive abstraction.
+
+BUT:
+
+Do not prematurely abstract.
+
+Current rule:
+
+duplication > bad abstraction
+38.3 AppText size growth
+
+Current:
+
+many strings.
+
+Risk:
+
+large file.
+
+Future:
+
+ARB/codegen possible.
+
+Current:
+
+acceptable.
+
+Do not optimize yet.
+
+38.4 Fusion special-case coverage limited
+
+Current outlier support:
+
+ESTJ
+ENTJ
+INTJ
+ENFP
+
+Not all 16.
+
+Intentional.
+
+Reason:
+
+quality > coverage.
+
+Future:
+
+expand carefully.
+
+38.5 Premium polish incomplete
+
+Known limitation.
+Not active priority.
+
+Current focus:
+Fusion + new capability
+
+38.6 Astrology Dual Architecture
+
+Current reality:
+
+Western Natal architecture
+and legacy astrology architecture
+coexist.
+
+Examples:
+
+presentation/providers/astrology_provider.dart
+
+and
+
+lib/astrology/providers/astrology_provider.dart
+
+Important:
+
+Do not aggressively merge.
+
+Reason:
+
+low blast radius migration.
+
+Risk:
+
+duplicate data paths
+duplicate providers
+confusion during future astrology expansion.
+
+-------------------------------------------------------------------------------------------
+
+
+39. ENGINEERING RULES (CRITICAL)
+
+Always prefer:
+
+low blast radius
+
+Pattern:
+
+Good:
+
+new helper
+presentation-only
+isolated widget
+reuse data
+
+Bad:
+
+rewrite system
+rename core route
+big refactor
+Rule: deterministic first
+
+Before AI:
+
+Try:
+
+rules
+composition
+heuristics
+
+AI later.
+
+Rule: additive migration
+
+Prefer:
+
+add new folder
+
+instead of:
+
+rewrite old folder
+
+Example:
+
+Good:
+
+mbti_summary/
+
+Bad:
+
+force fusion into:
+
+mbti/
+Rule: presentation-first polish
+
+If issue is:
+
+feels generic
+
+Ask:
+
+can wording/layout solve it?
+
+before rewriting logic.
+
+Rule: readability beats technicality
+
+Never expose:
+
+alignment score = 4
+
+Translate:
+
+มีความสอดคล้องกันค่อนข้างสูง
+-------------------------------------------------------------------------------------------
+
+
+40. CURSOR + CHATGPT WORKFLOW
+
+Current best workflow:
+
+ChatGPT
+
+Role:
+
+product architect
+UX critic
+system designer
+logic reviewer
+strategy
+Cursor
+
+Role:
+
+implementation engine
+code execution
+refactor
+flutter edits
+
+Pattern:
+
+design in ChatGPT
+implement in Cursor
+report back
+review
+iterate
+
+Avoid:
+
+blind Cursor implementation.
+
+Expected Cursor report format
+
+Always request:
+
+1. files changed
+2. behavior changes
+3. architecture impact
+4. blast radius
+5. analyze result
+
+Reason:
+
+maintains state continuity.
+-------------------------------------------------------------------------------------------
+
+
+41. AI COLLABORATION RULES
+
+Critical.
+
+Do NOT blindly agree.
+
+AI should:
+
+challenge assumptions
+detect architectural risk
+prevent fantasy engineering
+
+Preferred feedback:
+
+this idea works because...
+risk is...
+better option...
+
+Avoid:
+
+blind validation.
+-------------------------------------------------------------------------------------------
+
+
+42. ANTI-PATTERNS (IMPORTANT)
+
+Never do:
+
+giant rewrite
+
+Bad:
+
+rewrite MBTI architecture
+premature abstraction
+
+Bad:
+
+generic mega framework
+
+before enough repetition exists.
+
+false scientific precision
+
+Bad:
+
+78.4%
+61.2%
+
+if not meaningful.
+
+Prefer:
+
+relative ranking.
+
+horoscope copy
+
+Bad:
+
+you were born to lead
+
+Prefer:
+
+you may feel more comfortable when...
+over-therapy tone
+
+Bad:
+
+healing
+inner child
+trauma
+
+unless intentionally supported.
+
+report language
+
+Bad:
+
+dimension score = 71
+
+Prefer:
+
+human interpretation.
+-------------------------------------------------------------------------------------------
+
+
+43. CURRENT PRIORITIES (UPDATED — JUNE 2026)
+
+Priority 1 — Mirror Platform V1
+
+Goal:
+
+Build the shared reflection engine
+used by all Mirrors.
+
+Current Scope:
+
+- Agreement Engine
+- Tension Engine
+- Reinforcement Engine
+- Blind Spot Engine
+- Confidence Composition
+- Evidence Preservation
+
+Purpose:
+
+Create a common reflection architecture
+for:
+
+- Astrology Mirror
+- Personality Mirror
+- Future Mirrors
+- Global Fusion
+
+--------------------------------------------------
+
+Priority 2 — Global Fusion Foundation
+
+Goal:
+
+Prepare the next-generation fusion layer.
+
+Inputs:
+
+- Astrology Mirror
+- Personality Mirror
+
+Purpose:
+
+Move Fusion from:
+
+Lens Aggregation
+
+to
+
+Mirror Aggregation
+
+--------------------------------------------------
+
+Priority 3 — Home Product Experience
+
+Goal:
+
+Present:
+
+Profile
+Astrology
+Reflection
+Psychology
+
+as one coherent experience.
+
+Purpose:
+
+Personal Space
+
+NOT
+
+Architecture Dashboard.
+
+--------------------------------------------------
+
+Priority 4 — Cross-Lens Cohesion
+
+Goal:
+
+Improve consistency between:
+
+- Astrology
+- Psychology
+- Mirror
+- Global Fusion
+
+Purpose:
+
+Reduce semantic fragmentation.
+
+--------------------------------------------------
+
+Priority 5 — AI Narrative Preparation
+
+Future only.
+
+Depends on:
+
+- Mirror Platform
+- Global Fusion
+- Validation Architecture
+
+being stable first.
+
+--------------------------------------------------
+
+Maintenance Only
+
+- Thai Astrology V2 Core
+- Thai Astrology V3 Foundation
+- Chinese BaZi
+- Astrology Fusion
+- Personality Mirror
+- EQ
+- MBTI Summary
+
+-------------------------------------------------------------------------------------------
+
+44. CURRENT PROGRAM ROADMAP
+
+Phase A
+
+Completed
+
+Thai Astrology V2 Core
+
+Status:
+
+Production Structural Ready
+
+Conditional Freeze
+
+--------------------------------------------------
+
+Phase B
+
+Completed
+
+Thai Astrology V3 Foundation
+
+Completed:
+
+- House Foundation
+- Planet Foundation
+- Relationship Foundation
+- Meaning Foundation
+- Theme Foundation
+
+Status:
+
+Architecture Complete
+
+Conditional Freeze
+
+--------------------------------------------------
+
+Phase C
+
+Completed
+
+Mirror Domain Foundation
+
+Completed:
+
+- Mirror Domain
+- Mirror Categories
+- Mirror Keys
+- Evidence Contract
+- Identity Contract
+
+Status:
+
+Architecture Complete
+
+Conditional Freeze
+
+--------------------------------------------------
+
+Phase D
+
+Current Active Program
+
+Mirror V1 Engine
+
+Includes:
+
+- Agreement Engine
+- Tension Engine
+- Reinforcement Engine
+- Blind Spot Engine
+
+--------------------------------------------------
+
+Phase E
+
+Future
+
+Mirror Validation
+
+Includes:
+
+- Population Validation
+- Consistency Validation
+- Confidence Validation
+
+--------------------------------------------------
+
+Phase F
+
+Future
+
+Mirror Snapshot
+
+Includes:
+
+- Snapshot Contracts
+- Snapshot Persistence
+- Snapshot Consumers
+
+--------------------------------------------------
+
+Phase G
+
+Future
+
+Global Fusion V3
+
+Includes:
+
+- Astrology Mirror
+- Personality Mirror
+
+↓
+
+Global Fusion
+
+--------------------------------------------------
+
+Phase H
+
+Future
+
+AI Narrative Layer
+
+-------------------------------------------------------------------------------------------
+
+
+45. ASTROLOGY SYSTEM REALITY
+Product role
+
+Astrology is the emotional front door of KnowMe.
+
+Every user begins with astrology.
+
+Therefore astrology must create immediate emotional value before any test is taken.
+
+Mental model:
+
+“A first mirror for self-understanding”
+
+Astrology should help users feel:
+
+“I see something meaningful about myself”
+
+without feeling:
+
+mystical
+deterministic
+preachy
+fake-deep
+Current direction
+
+KnowMe follows:
+
+Astrology-first product experience
+
+Meaning:
+
+Users should feel value immediately after signup.
+
+Before:
+
+MBTI
+EQ
+Fusion
+
+Astrology already provides:
+
+emotional reflection
+curiosity
+resonance
+a feeling of being understood
+
+Tests deepen understanding later.
+
+Mental model:
+
+Astrology
+→ emotional entry point
+
+Tests
+→ personalization layers
+
+Fusion
+→ integrated reflection
+
+Product positioning
+
+Astrology should feel closer to:
+
+“ดวงที่เข้าใจตัวคุณมากขึ้น”
+
+NOT:
+
+traditional horoscope
+
+Avoid:
+
+fate prediction
+certainty language
+overclaiming
+magical authority
+
+Bad examples:
+
+“You are destined to…”
+
+“Your future will…”
+
+“You must…”
+
+Prefer:
+
+“อาจสะท้อน…”
+
+“หลายครั้ง…”
+
+“แนวโน้ม…”
+
+“ในบางช่วง…”
+
+Current maturity
+
+Astrology Result V1
+
+Status:
+
+usable+
+
+Focus now:
+
+readability
+emotional usefulness
+reflective tone
+believable experience
+journey into deeper self-understanding
+
+Current non-priority:
+
+adding many astrology systems too early
+
+Rule:
+
+depth before breadth
+
+Prefer:
+
+richer meaning in existing system
+
+before:
+
+more systems
+
+Relationship to tests
+
+Astrology is NOT replaced by tests.
+
+Tests are not “more true.”
+
+They simply provide different lenses.
+
+Mental model:
+
+multiple mirrors
+
+NOT:
+
+truth hierarchy
+-------------------------------------------------------------------------------------------
+
+45.1 ASTROLOGY IMPLEMENTATION REALITY
+
+Current Status (June 2026)
+
+Western Natal V1
+
+Status:
+
+usable+
+temporary freeze
+
+Verified:
+
+- Runtime verified
+- Firestore verified
+- Fusion integration verified
+- End-to-end pipeline verified
+
+Current user flow:
+
+Profile Setup
+↓
+Generate Chart
+↓
+users/{uid}/astrology/western_natal
+↓
+Fusion Mirror
+↓
+users/{uid}/results/astrology
+↓
+Astrology Result
+↓
+Fusion Result
+
+Pipeline:
+
+FastAPI
+↓
+users/{uid}/astrology/western_natal
+↓
+AstrologyProvider
+↓
+AstrologyResultPage
+
+Current implemented chart data:
+
+- Sun Sign
+- Moon Sign
+- Rising Sign
+- Mercury
+- Venus
+- Mars
+- Jupiter
+- Saturn
+- Planet Sign Placement
+- Planet House Placement
+- Insight Summary
+- Overall Summary
+
+Backend also calculates:
+
+- Houses
+- Aspects
+
+Current product surface:
+
+NOT exposed in Result V1
+
+Reason:
+
+Astrology Result V1 is currently usable+
+and focuses on readability over chart complexity.
+
+B. Legacy Astrology Layer
+
+Located under:
+
+lib/astrology/
+
+Contains:
+
+- ZodiacCalculator
+- ChineseZodiacCalculator
+
+Important:
+
+This is legacy compatibility code.
+
+Do not assume it is the primary astrology architecture.
+-------------------------------------------------------------------------------------------
+
+45.2 ASTROLOGY ECOSYSTEM ROADMAP
+
+KnowMe Astrology is planned as a multi-lens astrology ecosystem.
+
+Current implemented lenses
+
+Western Natal
+→ Core Western Lens
+→ V1 Implemented
+→ Usable+
+→ Temporary Freeze
+
+Chinese BaZi (Four Pillars)
+→ Core Chinese Lens
+→ V1 Implemented
+→ Usable+
+→ Temporary Freeze
+
+Thai Astrology
+→ Core Thai Lens
+→ V1 Implemented
+→ Usable+
+→ Temporary Freeze Candidate
+--------------------------------------------------
+
+Legacy Compatibility Layer
+
+Chinese Zodiac (Year-Based)
+
+Status:
+
+Dormant
+
+Contains:
+
+- ChineseZodiacCalculator
+- Year Animal calculation
+- Legacy AstrologyResult support
+
+Important:
+
+Legacy Chinese Zodiac is NOT the Core Chinese Lens.
+
+Current Core Chinese Lens:
+
+Chinese BaZi (Four Pillars)
+
+--------------------------------------------------
+
+Mental Model
+
+Multiple Astrology Perspectives
+
+NOT
+
+One Astrology System Replacing Another
+
+Future Astrology Architecture
+
+Astrology Lenses
+
+- Western Natal
+- Chinese BaZi
+- Thai Astrology
+- Future Lenses
+
+↓
+
+Astrology Mirror
+
+↓
+
+Global Fusion
+
+Important:
+
+Astrology systems remain independent lenses.
+
+Astrology Mirror exists to identify
+shared themes and recurring patterns
+before entering Global Fusion.
+-------------------------------------------------------------------------------------------
+
+45.3 CHINESE BAZI REALITY
+
+Current state:
+
+Two parallel realities currently exist.
+
+--------------------------------------------------
+
+Legacy Layer
+
+Implemented:
+
+- ChineseZodiacCalculator
+- Year-based zodiac calculation
+- Legacy AstrologyResult support
+
+Status:
+
+Dormant
+
+Not user-facing
+
+Important:
+
+This is NOT the primary Chinese astrology direction.
+
+--------------------------------------------------
+
+Chinese BaZi Lens
+
+Implemented:
+
+Backend
+
+- POST /generate-bazi
+- Four Pillars calculation
+- Day Master calculation
+- Year Animal calculation
+- Element Balance calculation
+- Dominant Element calculation
+
+Firestore
+
+- users/{uid}/astrology/chinese_bazi
+- users/{uid}/results/chinese_bazi
+
+Flutter
+
+- BaziChartModel
+- BaziFirestoreService
+- BaziApiService
+- BaziProvider
+- Profile parallel generation hook
+- BaziResultPage V1
+
+--------------------------------------------------
+
+Flutter File Map
+
+lib/data/models/bazi_chart_model.dart
+
+lib/services/bazi_firestore_service.dart
+→ reads astrology/chinese_bazi only
+
+lib/services/bazi_api_service.dart
+→ POST /generate-bazi
+
+lib/presentation/providers/bazi_provider.dart
+
+lib/presentation/pages/profile/profile_setup_page.dart
+→ parallel generate hook
+
+lib/presentation/pages/bazi/bazi_result_page.dart
+
+lib/presentation/pages/home/home_page.dart
+→ debug QA entry only
+
+--------------------------------------------------
+
+Profile Pipeline
+
+profile/main save
+
+→ Future.wait([
+     AstrologyProvider.generateChart(),
+     BaziProvider.generateBazi(),
+   ])
+
+→ independent error snackbars
+
+→ ProfileGate
+
+→ HomePage
+
+Important:
+
+Profile save succeeds even if one lens fails.
+
+--------------------------------------------------
+
+UI Source Of Truth
+
+Flutter UI reads:
+
+users/{uid}/astrology/chinese_bazi
+
+Flutter UI does NOT read:
+
+users/{uid}/results/chinese_bazi
+
+Reason:
+
+astrology/chinese_bazi
+is the UI source of truth.
+
+--------------------------------------------------
+
+Result Page V1
+
+Implemented Sections
+
+1. Hero — Day Master
+
+2. Chinese Big 3
+
+   - Day Master
+   - Year Animal
+   - Dominant Element
+
+3. Four Pillars
+
+   - Year
+   - Month
+   - Day
+   - Hour
+
+4. Element Balance
+
+   - Wood
+   - Fire
+   - Earth
+   - Metal
+   - Water
+
+5. Metadata
+
+   - version
+   - engine_version
+   - generated_at
+
+States:
+
+- loading
+- empty
+- error
+
+Important:
+
+Result Page never generates charts.
+
+Load only.
+
+--------------------------------------------------
+
+Status
+
+Backend Engine
+Implemented
+
+Runtime Verification
+Passed
+
+Firestore Verification
+Passed
+
+Flutter Integration
+Completed
+
+Result Page V1
+Completed
+
+Manual E2E
+Passed
+
+Git
+Committed and Pushed
+
+Backend Commit
+
+698dc09
+
+Flutter Commit
+
+f078f06
+
+Branch
+
+feature/fusion-result
+
+--------------------------------------------------
+
+Current Product Status
+
+Chinese Core Lens
+
+=
+
+BaZi (Four Pillars)
+
+Status:
+
+Usable+
+
+Temporary Freeze
+
+Accessible today via:
+
+Debug QA Entry
+
+Not permanent production navigation.
+
+--------------------------------------------------
+
+Current Remaining Work
+
+1. Permanent Home / Discovery Entry
+
+2. Astrology Fusion Integration
+
+3. Future Interpretation Expansion
+
+--------------------------------------------------
+
+V1 Scope
+
+Data Presentation Only
+
+Included:
+
+- Day Master
+- Chinese Big 3
+- Four Pillars
+- Element Balance
+- Metadata
+
+Not Included:
+
+- Interpretation
+- Narrative Engine
+- Fusion Consumption
+- Strengths
+- Challenges
+- Growth Path
+
+--------------------------------------------------
+
+Implementation Principles
+
+- Four Pillars only in V1
+- Birth Time required
+- FastAPI is the source of truth
+-----------------------------------------------------------------------------------------------
+45.3.1 CHINESE BAZI APPROVED DIRECTION
+
+Approved Direction
+
+Chinese Core Lens
+
+=
+
+BaZi (Four Pillars)
+
+Reason:
+
+Provides a deeper self-understanding lens
+comparable in depth to Western Natal.
+
+KnowMe philosophy:
+
+Multiple deep lenses
+
+rather than
+
+multiple shallow systems.
+
+--------------------------------------------------
+
+Chinese Big 3
+
+1. Day Master
+
+2. Year Animal
+
+3. Dominant Element
+
+--------------------------------------------------
+
+Hero Concept
+
+Day Master
+
+Examples:
+
+- Yang Wood
+- Yin Fire
+- Yang Metal
+
+Day Master acts as the primary identity anchor.
+
+--------------------------------------------------
+
+Approved Full Lens Vision
+
+1. Core Identity
+
+2. Element Balance
+
+3. Strengths
+
+4. Challenges
+
+5. Growth Path
+
+--------------------------------------------------
+
+V1 Implemented (Temporary Freeze)
+
+1. Core Identity
+
+   Hero + Day Master
+
+2. Element Balance
+
+   Raw counts + visual balance
+
+--------------------------------------------------
+
+V1 Explicitly NOT Implemented
+
+3. Strengths
+
+4. Challenges
+
+5. Growth Path
+
+Any interpretation layer
+
+Any narrative generation layer
+
+--------------------------------------------------
+
+Five Elements
+
+Required
+
+- Wood
+- Fire
+- Earth
+- Metal
+- Water
+
+--------------------------------------------------
+
+Architecture
+
+FastAPI
+
+→ POST /generate-bazi
+
+Firestore
+
+→ users/{uid}/astrology/chinese_bazi
+
+→ users/{uid}/results/chinese_bazi
+
+--------------------------------------------------
+
+Fusion Preparation
+
+Prepared for
+
+Section 50.3
+
+Chinese BaZi should eventually map into:
+
+- Core Self
+- Thinking Style
+- Emotional World
+- Relationships
+- Work & Ambition
+- Strengths
+- Growth Areas
+- Growth Path
+
+--------------------------------------------------
+
+Current Status
+
+Reality Audit
+Completed
+
+MVP Definition
+Completed
+
+Technical Design
+Completed
+
+Backend Engine
+Implemented
+
+Runtime Verification
+Passed
+
+Firestore Verification
+Passed
+
+Flutter Integration
+Completed
+
+Result Page V1
+Completed
+
+Manual E2E
+Passed
+
+Git
+Committed and Pushed
+
+--------------------------------------------------
+
+V1 Freeze Status
+
+Usable+
+
+Temporary Freeze
+
+--------------------------------------------------
+
+Current Remaining Work
+
+1. Permanent Home / Discovery Entry
+
+2. Astrology Fusion Integration
+
+3. Future Interpretation Expansion
+--------------------------------------------------
+
+Implementation Principles
+
+- Four Pillars only in V1
+- Birth Time required
+- FastAPI is the source of truth
+-------------------------------------------------------------------------------------------
+
+45.3.2 CHINESE BAZI V1.1 (POST-INTERPRETATION REFINEMENT)
+
+Status:
+
+usable+
+temporary freeze candidate
+
+Purpose:
+
+Transform BaZi from a raw data presentation page
+into a readable self-understanding lens.
+
+Focus:
+
+meaning before terminology
+
+Users should understand:
+
+- what the pillars represent
+- what the elements represent
+- why the element balance matters
+- what overall pattern the chart is trying to reflect
+
+without requiring prior Chinese astrology knowledge.
+
+Implemented refinements
+
+Four Pillars
+
+Added:
+
+- Element legend
+- Pillar role labels
+
+Examples:
+
+ปี (รากฐานและสภาพแวดล้อม)
+เดือน (บริบทการเติบโต)
+วัน (แก่นตัวตน)
+ชั่วโมง (เวลาเกิด)
+
+Purpose:
+
+Help users understand
+why each pillar exists.
+
+--------------------------------------------------
+
+Stem / Branch Explanation
+
+Added:
+
+- Heavenly Stem meaning
+- Earthly Branch meaning
+
+Examples:
+
+รหัสเสา: 庚申
+
+ลำต้นฟ้า:
+庚 (ทองหยาง)
+
+กิ่งดิน:
+申 (ลิง)
+
+Purpose:
+
+Reduce unexplained Chinese terminology.
+
+--------------------------------------------------
+
+Element Balance Interpretation
+
+Added:
+
+How-to-read explanation.
+
+Observation layer:
+
+- dominant elements
+- lower elements
+- balance observations
+
+Purpose:
+
+Help users understand
+what the chart distribution shows.
+
+Important:
+
+Higher count does not automatically mean:
+
+better
+
+Lower count does not automatically mean:
+
+worse
+
+--------------------------------------------------
+
+Summary Card
+
+Added:
+
+ภาพรวมจากมุมมองดวงจีน
+
+Purpose:
+
+Translate element patterns
+into human-readable meaning.
+
+Current direction:
+
+If Fire + Metal + Water appear prominently
+
+Explain:
+
+- expression
+- clarity
+- adaptability
+
+as one combined pattern
+
+instead of describing
+each element separately.
+
+Summary should answer:
+
+"แล้วมันหมายถึงอะไรกับภาพรวมของดวงนี้?"
+
+NOT:
+
+"ธาตุนี้แปลว่าอะไร?"
+
+--------------------------------------------------
+
+Interpretation Philosophy
+
+Preferred:
+
+meaning layer
+
+Example:
+
+ดวงลักษณะนี้มักสะท้อนภาพของ
+การกล้าแสดงออกในสิ่งที่คิด
+การพยายามมองสถานการณ์ให้ชัดก่อนตัดสินใจ
+และการตอบสนองต่อการเปลี่ยนแปลงรอบตัว
+
+Avoid:
+
+raw element descriptions only
+
+Example:
+
+ไฟ = การแสดงออก
+ทอง = การตัดสินใจ
+น้ำ = การปรับตัว
+
+without synthesis.
+
+--------------------------------------------------
+
+Current Product Assessment
+
+Chinese BaZi V1.1
+
+Approximate maturity:
+
+usable+
+
+User comprehension:
+
+significantly improved over V1.
+
+Current recommendation:
+
+Freeze candidate.
+
+Do not enter another copy-polish loop
+unless:
+
+- real user feedback appears
+- analytics show confusion
+- meaningful interpretation gap exists
+
+Prefer:
+
+Home / Discovery
+Fusion Theme Layer
+Cross-lens cohesion
+
+over additional BaZi micro-polish.
+
+-------------------------------------------------------------------------------------------
+
+45.3.3 CHINESE ZODIAC PERSONALITY EXPANSION
+
+Chinese Zodiac Personality Expansion
+Purpose
+
+เพิ่ม Meaning Layer ให้ Year Animal
+
+เพื่อให้ Chinese Big 3 มีความสมบูรณ์มากขึ้น
+
+ปัจจุบัน:
+
+Day Master
+Year Animal
+Dominant Element
+
+แต่ Year Animal ยังเป็นเพียงข้อมูล
+
+ยังไม่ได้ถูกแปลเป็นความหมายเชิงบุคลิก
+
+Product Philosophy
+
+Year Animal
+
+ไม่ใช่ระบบทำนายโชค
+
+ไม่ใช่ระบบฟันธงชีวิต
+
+ไม่ใช่ระบบจับคู่เนื้อคู่
+
+Purpose:
+
+ใช้เป็น Personality Lens เพิ่มเติม
+
+เพื่อช่วยสะท้อน
+
+รูปแบบนิสัย
+วิธีทำงาน
+แนวโน้มการตัดสินใจ
+รูปแบบความสัมพันธ์
+จุดแข็ง
+จุดที่ควรระวัง
+Supported Animals
+
+12 Chinese Zodiac Animals
+
+Rat
+Ox
+Tiger
+Rabbit
+Dragon
+Snake
+Horse
+Goat
+Monkey
+Rooster
+Dog
+Pig
+Interpretation Categories
+
+แต่ละปีนักษัตรควรมี
+
+Core Traits
+
+ลักษณะเด่น
+
+Work Style
+
+รูปแบบการทำงาน
+
+Relationship Style
+
+รูปแบบความสัมพันธ์
+
+Strengths
+
+จุดแข็ง
+
+Challenges
+
+จุดที่ควรระวัง
+
+Growth Suggestions
+
+แนวทางเติบโต
+
+Forbidden Claims
+
+ห้ามใช้ข้อความแบบ
+
+ไม่ควรเป็นหัวหน้า
+ห้ามทำธุรกิจ
+ไม่ควรแต่งงานกับปี...
+ดวงไม่ถูกกับปี...
+จะประสบความสำเร็จแน่นอน
+Preferred Wording
+
+ใช้
+
+มักมีแนวโน้ม...
+หลายครั้ง...
+อาจรู้สึกสบายใจกว่า...
+มักโดดเด่นในบทบาทที่...
+Future Fusion Mapping
+
+Year Animal สามารถ map เข้าสู่
+
+Core Self
+Relationships
+Work & Ambition
+Strengths
+Growth Areas
+
+เพื่อใช้ใน
+
+Astrology Mirror
+Astrology Fusion
+Global Fusion
+Architecture Rule
+
+เป็น Additive Layer
+
+ไม่แก้
+
+Four Pillars Engine
+Day Master Engine
+Element Engine
+
+เพิ่มเฉพาะ
+
+Chinese Zodiac Content Library
+Zodiac Interpretation Resolver
+Zodiac Theme Mapper
+Current Status
+
+Approved
+
+Next Expansion Candidate
+
+Not Frozen
+
+
+-------------------------------------------------------------------------------------------
+
+45.4 ASTROLOGY EXPANSION RULES
+
+Current astrology ecosystem direction:
+
+Western Natal
+
+Chinese BaZi
+
+Thai Astrology
+
+Important:
+
+Each astrology system is treated
+as a separate lens.
+
+Do NOT:
+
+merge all astrology systems
+into one giant architecture.
+
+Prefer:
+
+isolated lens implementation
+
+Future Fusion may consume
+multiple astrology lenses independently.
+
+Rule:
+
+additive
+low blast radius
+reuse existing profile data
+
+Current approved core lenses:
+
+Western Natal
+→ Core Western Lens
+
+Chinese BaZi
+→ Core Chinese Lens
+→ V1 Implemented
+→ Usable+
+→ Temporary Freeze
+
+Thai Astrology
+→ Core Thai Lens (to be defined)
+
+Future approved lens expansion:
+
+Numerology
+Name Analysis
+Phone Number Analysis
+License Plate Analysis
+
+Additional lenses may be added
+without changing Astrology Mirror architecture.
+-------------------------------------------------------------------------------------------
+
+45.4.1 THAI ASTROLOGY REALITY (JUNE 2026)
+
+Current Status
+
+Thai Astrology V2 Core
+
+Production Structural Ready
+
+Conditional Freeze v0.1.0
+
+--------------------------------------------------
+
+Implemented
+
+Foundation Layer
+
+* Lagna
+* Lagna Lord
+* Myanmar Seven Numbers
+* Mahabhuta
+
+Meaning Layer
+
+* Signal Layer
+* Interpretation Layer
+* Content Lookup Layer
+* Theme Layer
+
+Mirror Layer
+
+* Thai Mirror
+
+Fusion Layer
+
+* Thai Fusion
+
+--------------------------------------------------
+
+Quality Status
+
+* Runtime verified
+* Deterministic verified
+* Population QA completed
+* Boundary validation completed
+* Lineage validation completed
+* Contract validation completed
+* Freeze audit completed
+
+--------------------------------------------------
+
+Current Product Status
+
+Thai Astrology V2
+
+Production Structural Ready
+
+Conditional Freeze
+
+--------------------------------------------------
+
+Allowed
+
+* blocker fixes
+* analytics-driven improvements
+* data quality improvements
+* validation improvements
+
+--------------------------------------------------
+
+Avoid
+
+* architecture rewrites
+* mirror redesign
+* fusion redesign
+* synthetic theme expansion
+* additional polish loops
+
+--------------------------------------------------
+
+Current Priority
+
+Mirror Platform
+
+* Agreement Engine
+* Tension Engine
+* Reinforcement Engine
+* Blind Spot Engine
+
+Thai Astrology V3 Foundation
+
+Completed
+Conditional Freeze
+---
+
+Product Role
+
+Thai Astrology is now the third core astrology lens
+alongside:
+
+* Western Natal
+* Chinese BaZi
+
+Mental model:
+
+# Thai Astrology
+
+Thai-style self-understanding lens
+
+NOT
+
+fortune prediction system
+
+NOT
+
+event prediction system
+
+---
+
+Implemented Foundation Layer
+
+Thai Astrology currently includes:
+
+* Lagna (Ascendant)
+* Lagna Lord
+* Myanmar Seven Numbers
+* Mahabhuta
+
+Foundation output is deterministic.
+
+Important:
+
+Foundation Engine remains the source of truth.
+
+Mirror layer may enrich presentation,
+but does not modify foundation calculations.
+
+---
+
+Implemented Mirror Layer
+
+Thai Mirror V1
+
+Purpose:
+
+Transform Thai astrology signals into:
+
+* Theme
+* Evidence
+* Confidence
+
+across shared categories.
+
+Categories:
+
+* Core Self
+* Thinking Style
+* Emotional World
+* Relationships
+* Work & Ambition
+* Strengths
+* Growth Areas
+* Growth Path
+
+Important:
+
+Mirror output is evidence-based.
+
+No synthetic themes.
+
+No synthetic evidence.
+
+---
+
+Truth Lock Policy
+
+V1 follows:
+
+Engine Truth Only
+
+Meaning:
+
+Every theme shown in Thai Mirror must originate from:
+
+* Foundation output
+* Theme Engine output
+* Real evidence
+
+Forbidden:
+
+* synthetic theme generation
+* artificial coverage boosting
+* challenge-to-theme bridge systems
+
+If evidence does not exist:
+
+empty sections are acceptable.
+
+Truth is preferred over coverage.
+
+---
+
+No Birth Time Strategy
+
+Thai Mirror supports profiles without birth time.
+
+When Lagna data is unavailable:
+
+Mirror may use deterministic enrichment based on:
+
+* Myanmar Seven Numbers
+* Mahabhuta
+
+to avoid empty reflections.
+
+This enrichment exists only inside the Mirror layer.
+
+Foundation calculations remain unchanged.
+
+---
+
+Current Quality State
+
+Thai Mirror Population QA
+
+120 synthetic profiles
+
+Results:
+
+* 0 crashes
+* no-birth-time supported
+* abnormal concentration reduced
+* narrative diversity improved
+
+Thai Mirror Validation
+
+* Architecture boundary verified
+* Determinism verified
+* Engine truth verified
+
+---
+
+Current Status
+
+Thai Astrology V2 Core
+
+Production Structural Ready
+
+Conditional Freeze v0.1.0
+
+--------------------------------------------------
+
+Implemented
+
+Foundation Layer
+
+* Lagna
+* Lagna Lord
+* Myanmar Seven Numbers
+* Mahabhuta
+
+Mirror Layer
+
+* Thai Mirror V1
+* Theme Engine
+* Evidence Engine
+* Confidence Engine
+
+--------------------------------------------------
+
+Quality Status
+
+* Runtime verified
+* Deterministic verified
+* Population QA completed
+* No-birth-time support verified
+* Fusion integration verified
+
+--------------------------------------------------
+
+Current Product Status
+
+Thai Astrology V2 Core
+
+Production Structural Ready
+
+Conditional Freeze v0.1.0
+
+--------------------------------------------------
+
+Allowed
+
+* blocker fixes
+* usability issues
+* analytics-driven improvements
+* data quality improvements
+
+--------------------------------------------------
+
+Avoid
+
+* architecture rewrites
+* synthetic theme expansion
+* mirror redesign
+* additional polish loops
+
+--------------------------------------------------
+
+Future Priority
+
+* Home / Discovery Cohesion
+* Personality Fusion Foundation
+
+NOT additional Thai Mirror polishing.
+
+-------------------------------------------------------------------------------------------
+
+45.4.2 THAI ASTROLOGY FULL SYSTEM VISION
+
+Current Reality
+
+Thai Astrology V1 currently provides:
+
+Lagna
+Lagna Lord
+Myanmar Seven Numbers
+Mahabhuta
+
+through:
+
+Foundation Layer
+Theme Layer
+Thai Mirror V1
+
+Status:
+
+Usable+
+
+Temporary Freeze
+
+Important
+
+Thai Astrology V1 is NOT the final vision.
+
+Current implementation exists only as the first foundation layer.
+
+KnowMe does NOT intend to keep Thai Astrology permanently simplified.
+
+Long-term direction remains:
+
+Full Thai Astrology Ecosystem
+
+Product Philosophy
+
+Thai Astrology should become a complete self-understanding lens comparable in depth to:
+
+Western Natal
+Chinese BaZi
+
+while preserving:
+
+readability
+emotional usefulness
+grounded reflection
+
+Mental Model
+
+Western Natal
+
+↓
+
+Psychological symbolism
+
+Chinese BaZi
+
+↓
+
+Elemental life pattern
+
+Thai Astrology
+
+↓
+
+Traditional Thai life structure lens
+
+Goal
+
+Allow users to explore themselves through a complete Thai astrological framework.
+
+Not merely:
+
+Lagna summary
+Day summary
+Number summary
+
+Approved Long-Term Vision
+
+Thai Astrology should eventually support:
+
+Foundation Layer
+
+↓
+
+Interpretation Layer
+
+↓
+
+Mirror Layer
+
+↓
+
+Astrology Fusion
+
+↓
+
+Global Fusion
+
+Foundation Layer (Future)
+
+Future Foundation Engine may include:
+
+Core Birth Chart
+
+Lagna
+Lagna Lord
+Planet Placements
+House Placements
+Zodiac Placements
+
+Planet Status
+
+Exaltation
+Debilitation
+Own Sign
+Friendly Sign
+Enemy Sign
+
+Planet Strength
+
+Planet Dignity
+Benefic Influence
+Malefic Influence
+
+Relationship Structure
+
+Planet Aspects
+Planet Connections
+House Relationships
+
+Important:
+
+Foundation remains deterministic.
+
+No AI.
+
+No narrative generation.
+
+Foundation remains the source of truth.
+
+House System
+
+Future versions should support:
+
+1st House
+Self
+
+2nd House
+Resources
+
+3rd House
+Communication
+
+4th House
+Roots
+
+5th House
+Creativity
+
+6th House
+Challenges
+
+7th House
+Relationships
+
+8th House
+Transformation
+
+9th House
+Beliefs
+
+10th House
+Career
+
+11th House
+Community
+
+12th House
+Inner World
+
+Purpose:
+
+Provide deeper life-domain interpretation.
+
+Planet System
+
+Future support may include:
+
+Sun
+Moon
+Mars
+Mercury
+Jupiter
+Venus
+Saturn
+Rahu
+Ketu
+
+and additional Thai astrology constructs where appropriate.
+
+Traditional Thai Techniques
+
+Future support may include:
+
+Taksa
+
+Birth Day Analysis
+Supportive Planets
+Challenge Planets
+
+Mahataksa
+
+Expanded Taksa Interpretation
+
+Seven Numbers
+
+Full Seven Numbers System
+
+Mahabhuta
+
+Full Mahabhuta Interpretation
+
+Life Timing Systems
+
+Future support may include:
+
+Maha Dasha
+Sub Dasha
+Period Cycles
+Age Cycles
+Traditional Thai Time Systems
+
+Purpose:
+
+Reflect changing life themes across time.
+
+Important:
+
+Reflection
+
+NOT
+
+fortune certainty.
+
+Transit Layer
+
+Future support may include:
+
+Planetary Transit
+Transit Themes
+Life Period Reflection
+
+Purpose:
+
+Contextual self-understanding.
+
+Avoid:
+
+event prediction promises.
+
+Interpretation Categories
+
+Thai Astrology should eventually contribute to:
+
+Core Self
+
+Thinking Style
+
+Emotional World
+
+Relationships
+
+Work & Ambition
+
+Strengths
+
+Growth Areas
+
+Growth Path
+
+Life Themes
+
+Life Cycles
+
+Purpose:
+
+Align Thai Astrology with the Fusion Theme Layer.
+
+Mirror Layer Evolution
+
+Future Thai Mirror should continue to produce:
+
+Category
+
+Theme
+
+Evidence
+
+Confidence
+
+Example:
+
+Category:
+
+Relationships
+
+Theme:
+
+Values loyalty and consistency in close relationships
+
+Evidence:
+
+Lagna Lord
+House Relationships
+Planet Structure
+
+Confidence:
+
+Medium
+
+Important:
+
+Mirror remains evidence-based.
+
+No synthetic themes.
+
+No unsupported claims.
+
+Fusion Integration
+
+Future Architecture
+
+Thai Astrology
+
+↓
+
+Thai Mirror
+
+↓
+
+Astrology Mirror
+
+↓
+
+Global Fusion
+
+Important:
+
+Global Fusion should consume:
+
+Theme
+Evidence
+Confidence
+
+NOT:
+
+raw chart data.
+
+Truth First Principle
+
+Even after expansion:
+
+Engine Truth Only
+
+remains mandatory.
+
+Every interpretation must originate from:
+
+chart calculations
+deterministic rules
+verified evidence
+
+Forbidden:
+
+fabricated insights
+coverage boosting
+unsupported narrative generation
+
+AI Relationship
+
+Future AI systems may explain Thai Astrology.
+
+AI must NOT:
+
+calculate charts
+determine planetary positions
+replace deterministic interpretation
+
+Architecture:
+
+Thai Astrology Engine
+
+↓
+
+Theme Layer
+
+↓
+
+Optional AI Narrative Layer
+
+Long-Term Product Goal
+
+Users should eventually feel:
+
+"Thai Astrology helps me understand
+patterns in my life and personality
+through a uniquely Thai perspective."
+
+NOT:
+
+"Thai Astrology predicts my future."
+
+Implementation Strategy
+
+Phase 1
+
+Foundation Layer V1
+
+Status:
+
+Completed
+
+Includes:
+
+Lagna
+Lagna Lord
+Myanmar Seven Numbers
+Mahabhuta
+
+Phase 2
+
+Thai Astrology V3 Foundation
+
+Completed
+
+Includes:
+
+House Foundation
+Planet Foundation
+Relationship Foundation
+Meaning Foundation
+Theme Foundation
+
+Phase 3
+
+Advanced Traditional Systems
+
+Includes:
+
+Taksa
+Mahataksa
+Seven Numbers Expansion
+
+Phase 4
+
+Life Cycle Systems
+
+Includes:
+
+Dasha
+Period Systems
+Transit Reflection
+
+Phase 5
+
+Thai Mirror Expansion
+
+Includes:
+
+richer theme extraction
+stronger evidence mapping
+broader category coverage
+
+Phase 6
+
+Astrology Mirror Integration
+
+Thai Astrology
+
+↓
+
+Astrology Mirror
+
+↓
+
+Global Fusion
+
+Current Status
+
+Phase 1 Completed
+
+Thai Astrology V1
+
+Usable+
+
+Temporary Freeze
+
+--------------------------------------------------
+
+Phase 2 Completed
+
+Thai Astrology V3 Foundation
+
+Completed
+
+Includes:
+
+- House Foundation
+- Planet Foundation
+- Relationship Foundation
+- Meaning Foundation
+- Theme Foundation
+
+Status:
+
+Architecture Complete
+
+Conditional Freeze
+
+--------------------------------------------------
+
+Long-Term Vision
+
+Full Thai Astrology Ecosystem
+
+--------------------------------------------------
+
+Current Recommendation
+
+Freeze Thai Astrology V3 Foundation.
+
+Continue development in:
+
+Mirror Platform V1
+
+Focus:
+
+- Agreement Engine
+- Tension Engine
+- Reinforcement Engine
+- Blind Spot Engine
+
+Purpose:
+
+Strengthen cross-lens reflection quality
+before additional Thai Astrology expansion.
+
+--------------------------------------------------
+
+Important
+
+Thai Astrology Foundation is no longer
+the primary active development track.
+
+Future Thai Astrology expansion should occur only when:
+
+- Mirror Platform matures
+- Astrology Mirror stabilizes
+- Global Fusion requirements become clearer
+
+Principle:
+
+Depth before breadth.
+
+Reflection quality before additional astrology complexity.
+
+-------------------------------------------------------------------------------------------
+
+45.4.2.1 THAI ASTROLOGY SYSTEM BOUNDARY
+
+Approved Core Direction
+
+KnowMe Thai Astrology should primarily follow:
+
+Traditional Thai Astrology
+(Nirayana-based Thai astrology framework)
+
+Core focus:
+
+- Lagna
+- Houses
+- Planet Placements
+- Planet Relationships
+- Taksa
+- Mahataksa
+
+Future optional modules:
+
+- Seven Numbers
+- Nine Bases
+- Additional Thai systems
+
+Important:
+
+Not every Thai astrology school
+must be implemented.
+
+Depth is preferred over breadth.
+-------------------------------------------------------------------------------------------
+
+45.4.2.2 THAI MIRROR MAPPING PREPARATION
+
+Thai Astrology should eventually map into:
+
+Core Self
+- Lagna
+- Lagna Lord
+
+Thinking Style
+- Mercury
+- House Patterns
+
+Emotional World
+- Moon
+- House Relationships
+
+Relationships
+- 7th House
+- Venus
+
+Work & Ambition
+- 10th House
+- Saturn
+- Jupiter
+
+Strengths
+- Planet Strength
+
+Growth Areas
+- Planet Challenges
+
+Growth Path
+- Taksa
+- Life Cycles
+
+-------------------------------------------------------------------------------------------
+
+45.4.2.3 THAI ASTROLOGY V3 FOUNDATION SUMMARY
+
+Status
+
+Completed
+
+Conditional Freeze
+
+--------------------------------------------------
+
+Completed Domains
+
+House Foundation
+
+Planet Foundation
+
+Planet Relationship Foundation
+
+Meaning Foundation
+
+Theme Foundation
+
+--------------------------------------------------
+
+Purpose
+
+Create the structural foundation required for:
+
+- Thai Mirror
+- Astrology Mirror
+- Global Fusion
+
+--------------------------------------------------
+
+Output Contract
+
+Category
+
+Theme
+
+Evidence
+
+Confidence
+
+--------------------------------------------------
+
+Future Consumers
+
+Thai Mirror
+
+Astrology Mirror
+
+Global Fusion
+
+--------------------------------------------------
+
+Current Recommendation
+
+No additional expansion.
+
+Continue development in:
+
+Mirror Platform.
+
+-------------------------------------------------------------------------------------------
+45.4.2.4 THAI ASTROLOGY V2 STATUS
+Phase 1 — Foundation
+Completed
+
+- Signal Layer
+- Interpretation Layer
+- Content Lookup Foundation
+
+Content Lookup Foundation
+
+C0 Foundation
+Completed
+
+C1 Mapper
+Completed
+
+C2 Content Lookup Engine
+Completed
+
+C3 Validation Audit
+Completed
+
+Status:
+Frozen
+
+Current Active Work:
+Theme Layer
+-------------------------------------------------------------------------------------------
+
+45.4.2.5 THAI ASTROLOGY V2 COMPLETE ARCHITECTURE
+Status
+
+Thai Astrology V2 Core
+
+Status:
+
+Completed
+
+Structural Validation Completed
+
+Deterministic Validation Completed
+
+Boundary Validation Completed
+
+Conditional Freeze v0.1.0
+
+Purpose
+
+Thai Astrology V2 exists to create a complete deterministic meaning pipeline between:
+
+Thai Astrology Foundation
+
+↓
+
+Interpretation Layer
+
+↓
+
+Theme Layer
+
+↓
+
+Mirror Layer
+
+↓
+
+Fusion Layer
+
+↓
+
+Future Astrology Mirror
+
+↓
+
+Future Global Fusion
+
+Design Philosophy
+
+Thai Astrology V2 does not generate user-facing narratives.
+
+Thai Astrology V2 exists to transform deterministic astrological structures into reusable meaning structures.
+
+Purpose:
+
+Category
+
+Theme
+
+Evidence
+
+Confidence
+
+become the primary output contract.
+
+Architecture Overview
+
+Thai Foundation
+
+↓
+
+Signal Layer
+
+↓
+
+Interpretation Layer
+
+↓
+
+Content Lookup
+
+↓
+
+Theme Layer
+
+↓
+
+Thai Mirror
+
+↓
+
+Thai Fusion
+
+↓
+
+Future Astrology Mirror
+
+Layer Responsibilities
+Foundation Layer
+
+Purpose:
+
+Calculate deterministic Thai astrology structures.
+
+Examples:
+
+Lagna
+Lagna Lord
+Myanmar Seven Numbers
+Mahabhuta
+
+Source of Truth:
+
+Foundation Engine
+
+Signal Layer
+
+Purpose:
+
+Convert foundation outputs into structured signals.
+
+Examples:
+
+identity signals
+relationship signals
+ambition signals
+emotional signals
+
+Output:
+
+Signal IDs
+
+Confidence
+
+Evidence
+
+Interpretation Layer
+
+Purpose:
+
+Translate signals into interpretation facts.
+
+Output:
+
+Interpretation Facts
+
+Confidence
+
+Evidence References
+
+Content Lookup Layer
+
+Purpose:
+
+Resolve deterministic content mappings.
+
+Important:
+
+Content Lookup does not generate new meaning.
+
+Content Lookup only resolves approved mappings.
+
+Theme Layer
+
+Purpose:
+
+Transform interpretation facts into shared human themes.
+
+Output Contract:
+
+Category
+
+Theme
+
+Evidence
+
+Confidence
+
+Categories:
+
+Core Self
+Thinking Style
+Emotional World
+Relationships
+Work & Ambition
+Strengths
+Growth Areas
+Growth Path
+Thai Mirror
+
+Purpose:
+
+Create Thai Astrology meaning snapshots.
+
+Output:
+
+Theme
+
+Evidence
+
+Confidence
+
+Category
+
+Important:
+
+Mirror preserves uncertainty.
+
+Mirror does not force coverage.
+
+Mirror follows Engine Truth Only policy.
+
+Thai Fusion
+
+Purpose:
+
+Perform structural synthesis across:
+
+Mirror
+
+Theme
+
+Interpretation
+
+Output:
+
+Agreement
+
+Tension
+
+Coverage
+
+Insights
+
+Confidence
+
+Lineage
+
+Important:
+
+Thai Fusion is not a narrative engine.
+
+Thai Fusion is a structural synthesis engine.
+
+Truth First Principle
+
+Every output must originate from:
+
+Foundation
+
+↓
+
+Signal
+
+↓
+
+Interpretation
+
+↓
+
+Theme
+
+↓
+
+Mirror
+
+↓
+
+Fusion
+
+Forbidden:
+
+synthetic themes
+synthetic evidence
+coverage boosting
+fabricated insights
+
+Truth is preferred over coverage.
+
+Current Output Contract
+
+Thai Fusion Snapshot
+
+Contains:
+
+lineage
+category activations
+agreements
+tensions
+insights
+confidence
+coverage
+warnings
+
+Purpose:
+
+Provide structural meaning for future consumers.
+
+Future Consumers
+
+Thai Fusion output may be consumed by:
+
+Planet Placement Layer
+Planet Relationship Layer
+Astrology Mirror
+Global Fusion
+
+without modifying existing contracts.
+
+Current Quality State
+
+Validated:
+
+Deterministic
+Repeatable
+Lineage Verified
+Boundary Verified
+Import Audit Passed
+Contract Audit Passed
+
+Population Safe
+
+Runtime Safe
+
+Structural Ready
+
+Current Status
+
+Thai Astrology V2 Core
+
+Completed
+
+Conditional Freeze v0.1.0
+
+-------------------------------------------------------------------------------------------
+
+45.4.2.6 THAI FUSION V2 FREEZE NOTES
+Freeze Version
+
+Thai Fusion V2
+
+v0.1.0
+
+Conditional Freeze
+
+Frozen Components
+F1 Domain
+
+Frozen
+
+Includes:
+
+Models
+Contracts
+Enums
+Constants
+F2 Engine
+
+Frozen
+
+Includes:
+
+Lineage Validation
+Category Activation
+Agreement Generation
+Coverage Engine
+Confidence Engine
+Snapshot Identity
+F3 Validation
+
+Completed
+
+Includes:
+
+Lineage Audit
+Coverage Audit
+Confidence Audit
+Agreement Audit
+Boundary Audit
+Determinism Audit
+Deferred Items
+Deferred Item #1
+
+FUSION_MIRROR_THEME_DIVERGENCE
+
+Status:
+
+Reserved
+
+Not Implemented
+
+Target:
+
+v0.2.0
+
+Reason:
+
+Contract exists
+
+Detection logic not yet implemented
+
+Deferred Item #2
+
+Tension Detection
+
+Status:
+
+Deferred MVP
+
+Current behavior:
+
+returns []
+
+Target:
+
+v0.2.0
+
+Accepted Limitations
+
+Current engine intentionally allows:
+
+sparse coverage
+empty tensions
+partial category activation
+
+when evidence is insufficient.
+
+Truth is preferred over forced completeness.
+
+Freeze Approval Conditions
+
+Freeze is approved if:
+
+Determinism maintained
+Contracts unchanged
+Boundary rules maintained
+
+Deferred items documented
+
+Freeze Status
+
+Thai Fusion V2
+
+Conditional Freeze Approved
+
+Version:
+
+v0.1.0
+
+-------------------------------------------------------------------------------------------
+
+45.4.2.7 THAI ASTROLOGY V3 STATUS
+
+Status
+
+Architecture Complete
+
+Production Structural Ready
+
+Conditional Freeze v0.1.0
+
+--------------------------------------------------
+
+Completed Domains
+
+H0-H2
+
+House Foundation
+
+Completed
+
+--------------------------------------------------
+
+P0-P3
+
+Planet Foundation
+
+Completed
+
+--------------------------------------------------
+
+R0-R3
+
+Planet Relationship Foundation
+
+Completed
+
+--------------------------------------------------
+
+M0-M4
+
+Meaning Foundation
+
+Completed
+
+--------------------------------------------------
+
+T0-T3
+
+Theme Foundation
+
+Completed
+
+--------------------------------------------------
+
+Output Contract
+
+Thai Astrology V3 produces:
+
+Category
+
+Theme
+
+Evidence
+
+Confidence
+
+through deterministic lineage.
+
+--------------------------------------------------
+
+Future Consumers
+
+Thai Mirror
+
+Astrology Mirror
+
+Global Fusion
+
+--------------------------------------------------
+
+Allowed
+
+- blocker fixes
+- validation improvements
+- data quality improvements
+
+--------------------------------------------------
+
+Avoid
+
+- architecture rewrites
+- house redesign
+- planet redesign
+- relationship redesign
+- theme redesign
+
+--------------------------------------------------
+
+Current Recommendation
+
+Freeze Thai Astrology V3 Foundation.
+
+Continue in:
+
+Mirror Platform.
+
+-------------------------------------------------------------------------------------------
+
+45.4.2.8 THAI ASTROLOGY FOUNDATION FREEZE STATUS
+
+Status
+
+Production Structural Ready
+
+Conditional Freeze
+
+--------------------------------------------------
+
+Completed Foundations
+
+Thai Astrology V2 Core
+
+Completed
+
+Includes:
+
+- Lagna
+- Lagna Lord
+- Myanmar Seven Numbers
+- Mahabhuta
+
+--------------------------------------------------
+
+Thai Astrology V3 Foundation
+
+Completed
+
+Includes:
+
+- House Foundation
+- Planet Foundation
+- Relationship Foundation
+- Meaning Foundation
+- Theme Foundation
+
+--------------------------------------------------
+
+Validation Status
+
+Completed
+
+- Runtime Validation
+- Deterministic Validation
+- Boundary Validation
+- Lineage Validation
+- Contract Validation
+- Population Validation
+- Freeze Audit
+
+--------------------------------------------------
+
+Output Contract
+
+Category
+
+Theme
+
+Evidence
+
+Confidence
+
+--------------------------------------------------
+
+Future Consumers
+
+Thai Mirror
+
+Astrology Mirror
+
+Global Fusion
+
+--------------------------------------------------
+
+Current Recommendation
+
+Freeze Thai Astrology Foundation Stack.
+
+Do not continue House expansion.
+
+Do not continue Planet expansion.
+
+Do not continue Relationship expansion.
+
+Continue development in:
+
+Mirror Platform
+
+--------------------------------------------------
+
+Allowed
+
+- blocker fixes
+- validation improvements
+- analytics-driven improvements
+- data quality improvements
+
+--------------------------------------------------
+
+Avoid
+
+- architecture rewrites
+- foundation redesign
+- house redesign
+- planet redesign
+- relationship redesign
+- theme redesign
+
+--------------------------------------------------
+
+Status
+
+Thai Astrology Foundation Stack
+
+Architecture Complete
+
+Production Structural Ready
+
+Conditional Freeze
+
+
+-------------------------------------------------------------------------------------------
+
+
+46. HOME EXPERIENCE PRINCIPLE
+
+Home is the most important product surface in KnowMe.
+
+Home should immediately help users feel:
+
+"KnowMe already knows something meaningful about me."
+
+within a few seconds of opening the app.
+
+---
+
+Home Philosophy
+
+Home is:
+
+My Personal Space
+
+NOT:
+
+Discovery Dashboard
+
+NOT:
+
+System Architecture View
+
+NOT:
+
+Task Completion Screen
+
+NOT:
+
+Onboarding Funnel
+
+---
+
+User Mental Model
+
+Users do not think in terms of:
+
+* Astrology Mirror
+* Personality Mirror
+* Global Fusion
+* Exploration Overview
+
+Users think in terms of:
+
+* My Profile
+* My Astrology
+* My Personality
+* My Reflection
+
+Therefore:
+
+Home should speak the user's language.
+
+Not the architecture's language.
+
+---
+
+Primary Home Questions
+
+Home should answer:
+
+1. Who am I?
+
+2. What does KnowMe currently know about me?
+
+3. What can I explore if I want to know more?
+
+The first two questions are more important than the third.
+
+---
+
+Value Before Exploration
+
+Users should receive value immediately.
+
+Users should not need to:
+
+* complete a test
+* unlock a mirror
+* finish a journey
+* reach a milestone
+
+before seeing meaningful content.
+
+Home must provide value first.
+
+Exploration comes later.
+
+---
+
+Astrology First Principle
+
+Astrology is the emotional front door of KnowMe.
+
+Therefore:
+
+Astrology should appear before psychology exploration.
+
+Astrology should provide:
+
+* emotional resonance
+* curiosity
+* self-reflection
+* immediate perceived value
+
+Users should feel:
+
+"This already feels personal."
+
+before taking any psychology test.
+
+---
+
+Psychology Role
+
+Psychology systems exist to deepen understanding.
+
+Examples:
+
+* MBTI
+* EQ
+* Big Five
+
+Purpose:
+
+Personalization
+
+NOT:
+
+Product entry point
+
+Psychology should enrich the experience.
+
+It should not replace astrology.
+
+---
+
+Fusion Role
+
+Fusion exists to connect perspectives.
+
+Purpose:
+
+Help users understand:
+
+how different lenses may reflect similar themes.
+
+Fusion is:
+
+a deeper reflection layer
+
+NOT:
+
+a final personality verdict
+
+NOT:
+
+a truth engine
+
+NOT:
+
+a diagnosis system
+
+---
+
+Home Priority Hierarchy
+
+Priority 1
+
+Profile
+
+Purpose:
+
+Identity anchor.
+
+Users should immediately know:
+
+"This space belongs to me."
+
+---
+
+Priority 2
+
+Astrology Summary
+
+Purpose:
+
+Primary emotional value.
+
+Users should immediately receive:
+
+* astrology identity
+* astrology summary
+* meaningful reflection
+
+---
+
+Priority 3
+
+Combined Reflection
+
+Purpose:
+
+Cross-lens understanding.
+
+Show:
+
+short integrated reflections.
+
+Avoid:
+
+long reports.
+
+---
+
+Priority 4
+
+Psychology Tests
+
+Purpose:
+
+Deeper personalization.
+
+Users may explore:
+
+* MBTI
+* EQ
+* Big Five
+
+freely.
+
+---
+
+Priority 5
+
+Additional Navigation
+
+Examples:
+
+* Astrology
+* Fusion
+* Profile
+* Settings
+
+---
+
+Exploration Principle
+
+KnowMe remains a free-exploration product.
+
+Users should be able to:
+
+* start anywhere
+* stop anytime
+* return later
+* explore in any order
+
+However:
+
+Free exploration does NOT mean every surface has equal importance.
+
+Home should still prioritize:
+
+Profile
+→ Astrology
+→ Reflection
+→ Psychology
+
+---
+
+Guidance Principle
+
+Soft guidance is allowed.
+
+Forced guidance is not.
+
+Good:
+
+"หากอยากรู้จักตัวเองในอีกมุมหนึ่ง คุณสามารถลองสำรวจแบบทดสอบเพิ่มเติมได้"
+
+Bad:
+
+"คุณควรทำ MBTI ต่อ"
+
+Good guidance creates curiosity.
+
+Bad guidance creates pressure.
+
+---
+
+Avoid
+
+Do not design Home around:
+
+* journey dashboards
+* completion dashboards
+* architecture layers
+* recommendation engines
+* next-test systems
+* ranking systems
+* progress obsession
+
+---
+
+Target Feeling
+
+When users open Home they should feel:
+
+"This is my space."
+
+"This already reflects something about me."
+
+"If I want to explore more, I can."
+
+NOT:
+
+"I still need to unlock everything."
+
+NOT:
+
+"The app is telling me what to do next."
+
+---
+
+Home Success Metric
+
+Successful Home experience:
+
+Users receive meaningful value
+before taking additional actions.
+
+The product feels:
+
+personal
+reflective
+astrology-first
+self-understanding focused
+
+rather than:
+
+test-driven
+dashboard-driven
+or architecture-driven.
+
+
+-------------------------------------------------------------------------------------------
+
+46.1 HOME EXPERIENCE PRINCIPLE
+
+Home is not a funnel.
+
+Home is not a task manager.
+
+Home is not a completion dashboard.
+
+--------------------------------------------------
+
+Home should provide value immediately.
+
+The user should not need to:
+
+- take a test
+- unlock a mirror
+- complete a journey
+
+before receiving value.
+
+--------------------------------------------------
+
+Astrology exists to provide
+instant emotional value.
+
+Therefore:
+
+Astrology content should appear
+before psychology exploration.
+
+--------------------------------------------------
+
+Psychology tests exist to deepen understanding.
+
+They do not replace astrology.
+
+--------------------------------------------------
+
+Mental Model
+
+Astrology
+
+↓
+
+Personalization
+
+↓
+
+Fusion
+
+--------------------------------------------------
+
+NOT
+
+Tests
+
+↓
+
+Unlock Astrology
+
+↓
+
+Unlock Fusion
+
+--------------------------------------------------
+
+Home should always feel:
+
+"I already have something meaningful here."
+
+NOT
+
+"I still need to unlock everything."
+
+-------------------------------------------------------------------------------------------
+
+46.2 PRODUCT POSITIONING HIERARCHY
+
+KnowMe positioning hierarchy:
+
+Level 1
+
+Astrology
+
+Primary Product Surface
+
+--------------------------------------------------
+
+Level 2
+
+Psychology
+
+Personalization Layer
+
+Includes:
+
+- MBTI
+- EQ
+- Big Five
+
+--------------------------------------------------
+
+Level 3
+
+Fusion
+
+Higher-order Reflection Layer
+
+--------------------------------------------------
+
+Users should discover KnowMe through:
+
+Astrology
+
+NOT
+
+MBTI
+
+--------------------------------------------------
+
+Users should stay because:
+
+the experience becomes more personal
+over time.
+
+--------------------------------------------------
+
+Product feeling:
+
+"Astrology that understands me more deeply."
+
+NOT
+
+"A psychology dashboard with astrology attached."
+
+-------------------------------------------------------------------------------------------
+
+
+47. FILE / FOLDER REALITY
+
+Current preferred structure:
+
+lib/
+
+core/
+data/
+features/
+presentation/
+services/
+core/
+
+Purpose:
+
+shared app-level logic.
+
+Examples:
+
+i18n
+theme
+constants
+helpers
+
+Rule:
+
+Avoid feature-specific business logic here.
+
+data/
+
+Purpose:
+
+shared static data.
+
+Examples:
+
+question banks
+catalog metadata
+test modules
+categories
+
+Contains:
+
+questions/mbti/*
+test_modules.dart
+test_categories.dart
+features/
+
+Preferred architecture.
+
+Pattern:
+
+features/tests/<feature_name>/
+
+Example:
+
+mbti/
+mbti_cognitive/
+mbti_summary/
+
+Each feature ideally:
+
+domain/
+application/
+data/
+presentation/
+widgets/
+
+Rule:
+
+Feature owns its logic.
+
+Avoid cross-feature leakage.
+
+presentation/
+
+Legacy/general UI.
+
+Still exists.
+
+Contains:
+
+shared pages
+catalogs
+legacy universal screens
+
+Expected coexistence.
+
+services/
+
+App-wide services.
+
+Examples:
+
+question_service
+
+Rule:
+
+Avoid bloating into business logic graveyard.
+-------------------------------------------------------------------------------------------
+
+
+48. NAMING CONVENTIONS
+
+Critical for consistency.
+
+Route naming
+
+Prefer:
+
+FeatureRoutes
+
+Example:
+
+MbtiRoutes
+MbtiCognitiveRoutes
+MbtiSummaryRoutes
+Feature folders
+
+Prefer:
+
+snake_case
+
+Example:
+
+mbti_summary
+
+Avoid:
+
+mbtiSummary
+Model naming
+
+Prefer:
+
+FeatureResult
+FeatureSummary
+FeatureSessionState
+
+Examples:
+
+MbtiResultSummary
+MbtiCognitiveResult
+MbtiMiniSessionState
+Widget naming
+
+Prefer:
+
+FeatureSpecificWidget
+
+Examples:
+
+MbtiResultHero
+MbtiCognitiveFunctionBars
+MbtiSummarySectionCard
+
+Avoid:
+
+Widget1
+CustomCard
+AppText keys
+
+Prefer:
+
+feature_context_action
+
+Examples:
+
+mbti_result_progress_title
+mbti_cog_confidence_accurate
+mbti_summary_growth_title
+
+Avoid:
+
+title1
+summary_text
+-------------------------------------------------------------------------------------------
+
+
+49. IMPLEMENTATION RULES FOR FUTURE TESTS
+
+Important.
+
+Do NOT blindly use feature-specific architecture.
+
+Decision rule:
+
+Use UniversalTestPage if:
+
+Test is:
+
+simple
+low-customization
+one-shot
+basic scoring
+
+Example:
+
+simple personality quiz
+habit test
+fun assessment
+Use Feature-specific architecture if:
+
+Needs:
+
+progressive checkpoints
+custom result UX
+fusion
+custom scoring
+session complexity
+advanced interpretation
+
+Examples:
+
+MBTI
+Cognitive
+future deep systems
+Golden rule
+
+Do not over-engineer.
+
+Bad:
+
+custom architecture for tiny quiz
+
+Good:
+
+universal first
+upgrade when justified
+-------------------------------------------------------------------------------------------
+
+
+50. FUTURE GLOBAL FUSION ENGINE (VISION)
+
+Important distinction.
+
+Current:
+
+MBTI Summary Fusion
+
+Future:
+
+KnowMe Fusion Engine
+
+Different scope.
+
+Future inputs
+
+Potential:
+
+Astrology Mirror
+Personality Mirror
+
+Behavior tests
+Lifestyle tests
+Goals
+Journaling
+Usage patterns
+
+Important:
+
+Future Global Fusion should prefer
+Mirror outputs over raw system outputs.
+Future purpose
+
+Not:
+
+mega personality label
+
+Goal:
+
+higher-order self-understanding
+
+Example:
+
+Instead of:
+
+ESTJ
+
+Could become:
+
+You seem to prefer clarity and structure,
+but become more exploratory
+when emotionally invested or highly motivated.
+
+Reflective.
+
+Nuanced.
+
+Contextual.
+
+Fusion philosophy
+
+Goal:
+
+mirror
+
+NOT:
+
+diagnosis
+
+NOT:
+
+prediction
+
+NOT:
+
+identity prison
+Fusion implementation principle
+
+Before AI:
+
+Prefer:
+
+deterministic synthesis
+
+Then:
+
+optionally:
+
+AI enhancement
+
+Later.
+
+Never start with:
+
+LLM hallucination layer
+
+KnowMe fusion is NOT:
+
+Astrology + MBTI stitched together
+
+Instead:
+
+Universal identity synthesis system
+
+Each system = one lens
+
+Examples:
+
+Astrology
+= energy / tendency / emotional pattern
+
+MBTI
+= thinking & decision style
+
+EQ
+= emotional handling
+
+Big Five
+= behavioral tendency
+
+Goal:
+
+combine multiple lenses
+into one understandable mirror
+
+User feeling:
+
+“นี่คือตัวฉัน”
+
+Important distinction
+
+Section 50 describes:
+
+future vision
+
+NOT:
+
+current implementation reality
+
+Current implementation reality:
+
+see:
+50.1 Fusion Result V1 (Current Reality)
+
+When conflict exists:
+
+50.1 overrides 50
+-------------------------------------------------------------------------------------------
+50.1 FUSION RESULT V1 (CURRENT REALITY)
+What Fusion currently is
+
+Fusion is currently:
+
+a reflection-based overview across available lenses.
+
+Mental model:
+
+“หลายมุมกำลังช่วยสะท้อนตัวฉัน”
+
+Fusion should help users understand:
+
+what information currently exists
+what perspectives are available
+what has not been explored yet
+how multiple lenses may connect
+
+Fusion should feel like:
+
+a calmer mirror
+
+NOT:
+
+personality verdict
+psychological diagnosis
+astrology dump
+report generator
+psychometric dashboard
+Current page structure
+
+Fusion V1 reading structure:
+
+Foundation
+↓
+Lens snapshots
+↓
+Self-discovery status
+↓
+Synthesis
+↓
+Disclosure
+
+Reading model:
+
+context
+→ reflection
+→ exploration progress
+→ connection
+→ trust
+
+Mode rules
+Case A — True Empty
+
+Condition:
+
+No astrology data available.
+
+Expected behavior:
+
+soft neutral state
+
+Used mainly for:
+
+guest
+abnormal data cases
+Case B — Astrology-first Mode
+
+Condition:
+
+Astrology available
+BUT
+
+not enough usable lenses to synthesize
+
+Expected behavior:
+
+Fusion already begins.
+
+Users should still feel:
+
+“เริ่มเห็นบางอย่างเกี่ยวกับตัวเองแล้ว”
+
+Components:
+
+Foundation
+Astrology snapshot
+Exploration status
+Soft synthesis copy
+Disclosure
+
+Goal feeling:
+
+started
+
+NOT:
+
+blocked
+
+Case C — Synthesis Mode
+
+Condition:
+
+Two or more usable lenses
+
+Expected behavior:
+
+deterministic synthesis
+
+Components:
+
+agreement
+tension
+synthesis
+
+Goal:
+
+reflection across perspectives
+
+NOT:
+
+identity verdict
+
+Fusion philosophy
+
+Fusion should expose:
+
+what exists
+what is missing
+how lenses connect
+
+Good feeling:
+
+“หลายมุมกำลังช่วยสะท้อนตัวฉัน”
+
+Bad feeling:
+
+“ระบบกำลังตัดสินว่าฉันเป็นใคร”
+
+Important rules
+
+Fusion is NOT:
+
+forced sequence
+prerequisite chain
+data dump
+mega-report
+
+Fusion should always:
+
+stay grounded
+show source
+explain personalization
+feel emotionally believable
+remain reflective
+Current maturity
+
+Status:
+
+frozen v1
+
+Presentation polish passes 1–4 complete (June 2026).
+
+Rule:
+
+Do NOT enter polish loop.
+
+Revisit only when:
+
+real user feedback exists
+meaningful friction appears
+analytics suggest issues
+product direction changes
+blocker / usability issue
+-------------------------------------------------------------------------------------------
+
+50.1.1 ASTROLOGY FUSION V6 (CURRENT REALITY)
+
+Status
+
+Usable+
+Narrative Pass Complete
+Temporary Freeze Candidate
+
+Current philosophy
+
+Astrology Fusion should feel like:
+
+"A life story reflected by multiple astrology systems."
+
+NOT:
+
+personality report
+astrology encyclopedia
+trait analysis
+majority vote engine
+
+--------------------------------------------------
+
+Primary user feeling
+
+Users should feel:
+
+"This sounds like a chapter of my life."
+
+rather than:
+
+"This is a list of personality traits."
+
+--------------------------------------------------
+
+Current reading flow
+
+Hero
+
+↓
+
+Life Chapter
+
+↓
+
+Consensus
+
+↓
+
+Life Pattern
+
+↓
+
+Strengths
+
+↓
+
+Life Tests
+
+↓
+
+Peak Potential
+
+↓
+
+Life Lesson
+
+↓
+
+Growth Path
+
+↓
+
+Direction Paths
+
+↓
+
+Psychology Discovery CTA
+
+↓
+
+Surprising Insight
+
+↓
+
+KnowMe Moment
+
+↓
+
+Final Message
+
+--------------------------------------------------
+
+Narrative principles
+
+Fusion should answer:
+
+What chapter of life am I in?
+
+What lesson keeps returning?
+
+What challenge keeps repeating?
+
+What happens if I continue this path?
+
+What is the one thing multiple systems want me to remember?
+
+--------------------------------------------------
+
+Important
+
+Fusion V6 focuses on:
+
+Narrative
+Meaning
+Reflection
+
+NOT:
+
+Prediction
+Destiny
+Absolute truth
+
+--------------------------------------------------
+
+Current limitation
+
+Fusion still relies primarily on:
+
+Theme-based synthesis
+
+Examples:
+
+Autonomy
+Expression
+Reflection
+
+Current Fusion does NOT yet implement:
+
+Conflict-based narrative engine
+
+Example future capability:
+
+Autonomy
++
+Relationship Need
++
+Reflection
+
+↓
+
+Personalized inner conflict narrative
+
+Status:
+
+Future enhancement
+Not required for V1 launch
+
+--------------------------------------------------
+
+Product decision
+
+Astrology Fusion V6 is considered sufficiently mature for V1.
+
+Avoid:
+
+repeated copy polishing
+section reshuffling
+endless narrative tweaking
+
+Prefer:
+
+product progression
+
+Next major platform priority:
+
+Mirror Platform V1
+
+-------------------------------------------------------------------------------------------
+50.2 FUSION V1 PRESENTATION SPEC (FROZEN — AS-BUILT)
+
+Scope of freeze:
+
+presentation + copy + formatting only
+
+NOT frozen for change without strong reason:
+
+synthesis logic (FusionBuilder)
+lens threshold (≥2 usable lenses for synthesis mode)
+loader / Firestore paths
+architecture
+
+Primary implementation files:
+
+lib/features/tests/fusion/presentation/fusion_result_page.dart
+lib/core/i18n/app_text.dart (fusion_v11_* keys)
+lib/features/tests/fusion/application/fusion_builder.dart
+lib/features/tests/fusion/application/fusion_lens_loader.dart
+
+Page title (TH):
+
+หลายมุมของคุณเชื่อมกันอย่างไร
+
+Section titles (TH-first):
+
+ข้อมูลพื้นฐานที่ใช้ในการมองตัวคุณ
+ภาพสะท้อนจากแต่ละมุม
+การสำรวจตัวเอง
+เมื่อนำมาดูร่วมกัน
+(disclosure — no section title, quiet footer text)
+
+Section roles (as-built):
+
+Foundation
+→ context only: birth date, time, place
+→ label/value rows (เกิด: / สถานที่:)
+→ NO astrology summary in Foundation (avoids duplicate with snapshot)
+→ if no birth meta: short intro only (ข้อมูลที่ใช้เป็นพื้นฐานในการมองหลายมุมของคุณ)
+
+Lens snapshots
+→ short reflective paragraphs per completed lens only
+→ astrology lens title: มุมมองจากโหรา (NOT ดวงชะตา — avoid horoscope vibe)
+→ reuse real astrology summary when chart exists (AstrologyHeroSynthesis)
+→ fallback copy when no chart summary (human, reflective, non-marketing)
+→ pending lenses NOT listed here (reduces noise)
+
+Self-discovery status
+→ compact exploration map (NOT per-line checklist, NOT admin ○/✓ list)
+→ if zero tests completed:
+   ยังไม่ได้สำรวจแบบทดสอบในตอนนี้
+   MBTI • EQ • Cognitive • Love Style
+→ if some completed:
+   สำรวจแล้ว: MBTI • EQ
+   ยังไม่ได้สำรวจ: Cognitive • Love Style
+
+Synthesis
+→ Case C: agreement + tension + synthesis (deterministic, unchanged)
+→ Case B (astrology-first): warm copy — Fusion already started, not blocked
+   Example TH tone:
+   ตอนนี้ภาพรวมยังอ้างอิงจากโหราเป็นหลัก เมื่อคุณลองสำรวจตัวเองในด้านอื่นเพิ่มขึ้น
+   คุณอาจเริ่มเห็นว่าหลายมุมของตัวเองค่อย ๆ เชื่อมโยงกันมากขึ้น
+
+Disclosure
+→ subtle footer, readable (≈13.5px, improved contrast)
+→ reflective interpretation, not objective truth
+
+Presentation formatting (as-built):
+
+Birth date/time (TH):
+12 เม.ย. 1958 • 15:00 น.
+(time always zero-padded)
+
+Birth place (TH presentation normalize only):
+ลำพูน, Thailand → ลำพูน ประเทศไทย
+(no schema / geocoding change)
+
+Visual hierarchy:
+
+Foundation — highest weight
+Lens snapshots — reflection content
+Self-discovery status — lightest card, secondary
+Synthesis — connection when applicable
+Disclosure — quiet trust
+
+Tone target:
+
+calm
+reflective
+warm
+believable
+readable
+
+Bad feelings to avoid:
+
+debug / admin screen
+placeholder page
+database empty value (—)
+duplicate paragraphs across sections
+horoscope daily vibe
+verbose label stacking
+
+Good feeling target:
+
+“โอเค นี่คือภาพรวมหลายมุมของฉัน”
+
+Polish history (for context only):
+
+Pass 1–2: TH copy, date/time format, section order, reduce snapshot noise
+Pass 3: dedupe Foundation vs snapshot, place normalize, warmer astrology-first
+Pass 4: status empty state, snapshot spacing, synthesis microcopy, disclosure readability
+Final micro polish: human empty state, breathing room, synthesis one-breath copy
+
+After freeze:
+
+no spacing/copy churn without product reason
+-------------------------------------------------------------------------------------------
+
+50.3 FUSION THEME LAYER PHILOSOPHY
+
+Fusion should not combine systems
+at the raw result level.
+
+Different lenses may use:
+
+- different symbols
+- different terminology
+- different models
+- different frameworks
+
+Examples:
+
+Western Natal
+Chinese BaZi
+Thai Astrology
+MBTI
+EQ
+Big Five
+
+Each lens describes people differently.
+
+Therefore Fusion should first translate
+lens outputs into shared human themes.
+
+Only then should Fusion attempt
+cross-lens synthesis.
+
+--------------------------------------------------
+
+Core Fusion Categories
+
+1. Core Self
+
+Fundamental identity
+self-expression
+sense of self
+
+--------------------------------------------------
+
+2. Thinking Style
+
+Decision-making
+reasoning
+information processing
+mental orientation
+
+--------------------------------------------------
+
+3. Emotional World
+
+Emotional patterns
+emotional needs
+inner motivations
+emotional regulation
+
+--------------------------------------------------
+
+4. Relationships
+
+Connection style
+communication patterns
+interpersonal tendencies
+
+--------------------------------------------------
+
+5. Work & Ambition
+
+Motivation
+achievement style
+long-term direction
+working preferences
+
+--------------------------------------------------
+
+6. Strengths
+
+Natural advantages
+recurring positive tendencies
+supportive patterns
+
+--------------------------------------------------
+
+7. Growth Areas
+
+Blind spots
+development opportunities
+potential challenges
+
+--------------------------------------------------
+
+8. Growth Path
+
+Conditions that may support
+personal growth
+learning
+fulfillment
+
+--------------------------------------------------
+
+Fusion Theme Structure
+
+Each lens should eventually produce:
+
+Category
+
+Theme
+
+Evidence
+
+Confidence
+
+instead of only:
+
+raw interpretations
+
+or
+
+system-specific terminology.
+
+--------------------------------------------------
+
+Examples
+
+Western Natal
+
+Theme:
+
+Needs autonomy while maintaining structure
+
+Category:
+
+Core Self
+
+Confidence:
+
+Medium
+
+--------------------------------------------------
+
+Chinese BaZi
+
+Theme:
+
+Acts through responsibility and consistency
+
+Category:
+
+Work & Ambition
+
+Confidence:
+
+Medium
+
+--------------------------------------------------
+
+MBTI
+
+Theme:
+
+Prefers planning before action
+
+Category:
+
+Thinking Style
+
+Confidence:
+
+High
+
+--------------------------------------------------
+
+EQ
+
+Theme:
+
+Usually reflects before reacting emotionally
+
+Category:
+
+Emotional World
+
+Confidence:
+
+Medium
+
+--------------------------------------------------
+
+Fusion Input Philosophy
+
+Fusion should consume:
+
+Themes
+
+NOT
+
+raw astrology placements
+
+NOT
+
+raw MBTI dimensions
+
+NOT
+
+raw EQ scores
+
+NOT
+
+raw system-specific language
+
+Reason:
+
+Fusion operates at the human meaning layer.
+
+--------------------------------------------------
+
+Consensus Logic
+
+If multiple lenses independently support
+similar themes:
+
+Western Natal
+
+Chinese BaZi
+
+Thai Astrology
+
+MBTI
+
+EQ
+
+↓
+
+Similar Theme
+
+Fusion may:
+
+- increase confidence
+- strengthen reflection
+- present stronger evidence
+
+Example:
+
+Several lenses independently suggest:
+
+structure
+planning
+responsibility
+
+↓
+
+Fusion may present:
+
+"You may feel more comfortable when
+goals become clear plans
+that can be acted upon step by step."
+
+--------------------------------------------------
+
+Conflict Logic
+
+If lenses suggest different themes:
+
+Fusion should NOT force agreement.
+
+Fusion should:
+
+- preserve uncertainty
+- show multiple possibilities
+- explain differences
+- wait for additional lenses
+
+Examples:
+
+EQ
+
+↓
+
+emotion-first
+
+MBTI
+
+↓
+
+logic-first
+
+Fusion should not decide
+which lens is correct.
+
+Instead:
+
+present both perspectives.
+
+--------------------------------------------------
+
+Missing Data Logic
+
+Lack of evidence
+does not mean absence.
+
+Example:
+
+Only Astrology available
+
+↓
+
+Fusion should remain
+Astrology-first Mode.
+
+Example:
+
+Astrology + MBTI
+
+↓
+
+Limited synthesis allowed.
+
+Example:
+
+Astrology + MBTI + EQ + BaZi
+
+↓
+
+Stronger synthesis possible.
+
+--------------------------------------------------
+
+Confidence Philosophy
+
+Confidence should increase when:
+
+- multiple lenses agree
+- evidence quality improves
+- more independent lenses exist
+
+Confidence should NOT increase because:
+
+- one system sounds convincing
+- one system is more detailed
+- one system has more data
+
+--------------------------------------------------
+
+Current Fusion Reality
+
+Current Fusion Result V1
+
+does NOT implement
+Theme Layer yet.
+
+Current Fusion uses:
+
+reflection-based synthesis
+
+across available lenses.
+
+Theme Layer remains:
+
+future architecture.
+
+--------------------------------------------------
+
+Chinese BaZi Preparation
+
+Chinese BaZi should eventually map into:
+
+Core Self
+
+- Day Master
+
+Thinking Style
+
+- Day Master tendencies
+
+Emotional World
+
+- Element Balance signals
+
+Relationships
+
+- Future interpretation layer
+
+Work & Ambition
+
+- Day Master + Element patterns
+
+Strengths
+
+- Future interpretation layer
+
+Growth Areas
+
+- Future interpretation layer
+
+Growth Path
+
+- Future interpretation layer
+
+Important:
+
+Chinese BaZi V1 currently provides:
+
+- Day Master
+- Year Animal
+- Dominant Element
+- Four Pillars
+- Element Balance
+
+Only.
+
+Interpretation mapping
+is not implemented yet.
+
+--------------------------------------------------
+
+Guiding Principle
+
+Multiple Mirrors
+
+↓
+
+Clearer Reflection
+
+Not
+
+Multiple Systems
+
+↓
+
+Majority Vote
+
+Fusion exists to observe:
+
+where perspectives converge
+
+where perspectives diverge
+
+and where uncertainty still remains.
+
+Goal:
+
+A calmer
+deeper
+more believable
+
+self-understanding experience.
+-------------------------------------------------------------------------------------------
+
+50.3.1 MIRROR LAYER ARCHITECTURE
+
+Important
+
+KnowMe should not jump directly from
+individual systems into Global Fusion.
+
+As the number of lenses grows,
+direct Fusion becomes increasingly complex.
+
+Examples:
+
+Western Natal
+Chinese BaZi
+Thai Astrology
+MBTI
+EQ
+Big Five
+
+Future systems may include:
+
+Numerology
+Human Design
+Enneagram
+Additional astrology lenses
+
+--------------------------------------------------
+
+Recommended Architecture
+
+Individual Lens
+
+↓
+
+Mirror Layer
+
+↓
+
+Global Fusion
+
+--------------------------------------------------
+
+Purpose
+
+Mirror Layers exist to create
+a meaningful synthesis within the same domain
+before participating in Global Fusion.
+
+This reduces complexity
+and creates stronger thematic consistency.
+
+Mental model:
+
+Many lenses
+↓
+
+One mirror
+
+↓
+
+Many mirrors
+
+↓
+
+One reflection
+
+--------------------------------------------------
+
+Astrology Mirror
+
+Purpose:
+
+Combine multiple astrology systems
+into a shared astrology reflection layer.
+
+Inputs:
+
+- Western Natal
+- Chinese BaZi
+- Thai Astrology
+
+Output:
+
+Theme
+Evidence
+Confidence
+
+Examples:
+
+Core Self
+
+Theme:
+Independent and self-directed
+
+Evidence:
+Western Natal
+Chinese BaZi
+Thai Astrology
+
+Confidence:
+High
+
+--------------------------------------------------
+
+Personality Mirror
+
+Purpose:
+
+Combine personality and psychology systems
+into a shared behavioral reflection layer.
+
+Inputs:
+
+- MBTI
+- EQ
+- Big Five
+
+Future:
+
+- Additional behavioral tests
+- Cognitive systems
+
+Output:
+
+Theme
+Evidence
+Confidence
+
+Examples:
+
+Thinking Style
+
+Theme:
+Prefers structure before action
+
+Evidence:
+MBTI
+Big Five
+
+Confidence:
+Medium
+
+--------------------------------------------------
+
+Mirror Output Contract
+
+Every Mirror should output:
+
+Category
+Theme
+Evidence
+Confidence
+
+Example:
+
+Category:
+Core Self
+
+Theme:
+Values autonomy and self-direction
+
+Evidence:
+Western Natal
+Chinese BaZi
+
+Confidence:
+Medium
+
+Purpose:
+
+Create a shared structure
+for Astrology Mirror,
+Personality Mirror,
+and Future Global Fusion.
+
+--------------------------------------------------
+Global Fusion
+
+Global Fusion should consume:
+
+Astrology Mirror
+
+and
+
+Personality Mirror
+
+NOT:
+
+raw chart data
+
+NOT:
+
+raw astrology placements
+
+NOT:
+
+MBTI dimensions
+
+NOT:
+
+EQ scores
+
+NOT:
+
+system-specific terminology
+
+Global Fusion operates only
+at the human meaning layer.
+
+--------------------------------------------------
+
+Future Expansion Principle
+
+New systems should ideally connect to:
+
+Individual Lens
+
+↓
+
+Relevant Mirror
+
+↓
+
+Global Fusion
+
+Examples:
+
+Human Design
+
+↓
+
+Astrology Mirror
+
+or
+
+Future Spiritual Mirror
+
+Numerology
+
+↓
+
+Astrology Mirror
+
+
+Enneagram
+
+↓
+
+Personality Mirror
+
+--------------------------------------------------
+
+Guiding Principle
+
+Multiple Mirrors
+
+↓
+
+Clearer Reflection
+
+NOT
+
+Multiple Systems
+
+↓
+
+Majority Vote
+
+The purpose of Mirror Layers
+is to reduce complexity
+while increasing coherence.
+-----------------------------------------------
+
+Astrology Mirror Purpose
+
+Astrology Mirror does not determine
+which astrology system is correct.
+
+Its purpose is to identify:
+
+- recurring themes
+- supporting evidence
+- meaningful patterns
+
+across multiple astrology lenses.
+
+Astrology Mirror preserves disagreement.
+
+Conflicting astrology signals
+should remain visible
+rather than being forced into consensus.
+
+-------------------------------------------------------------------------------------------
+
+50.3.2 ASTROLOGY FUSION V1 (CURRENT REALITY)
+
+Status
+
+Implemented
+
+Production Ready
+
+Home Integrated
+
+Journey Integrated
+
+Snapshot Enabled
+
+Analytics Enabled
+
+--------------------------------------------------
+
+Purpose
+
+Astrology Fusion combines:
+
+* Western Natal
+* Chinese BaZi
+* Thai Astrology
+
+into a unified Astrology Mirror.
+
+--------------------------------------------------
+
+Architecture
+
+Western Natal
+
+Chinese BaZi
+
+Thai Astrology
+
+↓
+
+Astrology Fusion
+
+↓
+
+Astrology Identity
+
+↓
+
+Future Global Fusion
+
+--------------------------------------------------
+
+Current Capabilities
+
+Implemented:
+
+* Theme Aggregation
+* Agreement Detection
+* Tension Detection
+* Signal Layer
+* Reflection Engine
+* Fusion Insight Engine
+* Growth Opportunities
+* Future Tendencies
+* Astrology Identity
+* Snapshot Persistence
+* Regeneration System
+* Validation Analytics
+
+--------------------------------------------------
+
+Architecture Principle
+
+Theme Layer First
+
+Evidence First
+
+Truth First
+
+No Synthetic Themes
+
+No Synthetic Evidence
+
+Preserve Lens Disagreement
+
+--------------------------------------------------
+
+Current Status
+
+Astrology Fusion V1
+
+Completed
+
+Temporary Freeze
+
+Future changes should be limited to:
+
+* blocker fixes
+* analytics-driven improvements
+* data quality improvements
+
+-------------------------------------------------------------------------------------------
+50.3.3 ASTROLOGY LENS PLATFORM PRINCIPLE
+
+Astrology Fusion should not assume
+a fixed number of astrology lenses.
+
+Current active lenses:
+
+* Western Natal
+* Chinese BaZi
+* Thai Astrology
+
+Future astrology-related lenses may include:
+
+* Numerology
+* Name Analysis
+* Phone Number Analysis
+* License Plate Analysis
+* Chinese Zodiac Expansion
+* Additional Thai Astrology Modules
+* Future Symbolic Systems
+
+--------------------------------------------------
+
+Architecture Principle
+
+Astrology Fusion consumes:
+
+Theme
+Evidence
+Confidence
+
+from any compatible Astrology Lens.
+
+Astrology Fusion should not contain
+hardcoded logic for:
+
+Western Natal
+Chinese BaZi
+Thai Astrology
+
+only.
+
+Instead:
+
+Any astrology lens that can produce:
+
+Category
+Theme
+Evidence
+Confidence
+
+may participate in Astrology Fusion.
+
+--------------------------------------------------
+
+Mental Model
+
+Astrology Lens
+
+↓
+
+Astrology Mirror
+
+↓
+
+Astrology Reflection
+
+Current Lens Count:
+
+3
+
+Future Lens Count:
+
+Unknown
+
+Architecture should remain unchanged.
+
+--------------------------------------------------
+
+Guiding Principle
+
+Do not hardcode lens count.
+
+Do not assume three-lens architecture.
+
+Build for:
+
+N astrology lenses.
+
+Not:
+
+3 astrology lenses.
+
+--------------------------------------------------
+
+Recommended Lens Contract
+
+Lens ID
+Category
+Theme
+Evidence
+Confidence
+
+เช่น
+
+western_natal
+
+Core Self
+
+Independent and self-directed
+
+Evidence:
+Sun/Mars pattern
+
+Confidence:
+0.72
+
+-------------------------------------------------------------------------------------------
+
+50.3.4 ASTROLOGY FUSION V1 STATUS
+
+Status:
+
+production ready
+
+temporary freeze
+
+Implemented:
+
+* Agreement Engine
+* Tension Engine
+* Signal Engine
+* Reflection Engine
+* Fusion Insight Engine
+* Growth Opportunities
+* Future Tendencies
+* Snapshot Persistence
+* Regeneration Service
+* Home Integration
+* Journey Integration
+* Validation Analytics
+
+Allowed:
+
+* blocker fixes
+* usability issues
+* analytics-driven improvements
+* data quality fixes
+
+Avoid:
+
+* architecture rewrites
+* astrology fusion redesign
+* additional polish loops
+* AI integration during freeze
+
+
+-------------------------------------------------------------------------------------------
+
+50.3.5 PERSONALITY MIRROR V1 (CURRENT REALITY)
+
+Status
+
+Production Ready
+
+Home Integrated
+
+Narrative Enabled
+
+Validation Verified
+
+Temporary Freeze
+
+--------------------------------------------------
+
+Purpose
+
+Personality Mirror combines:
+
+* MBTI
+* Big Five
+* EQ
+
+into a unified personality reflection layer.
+
+Mental model:
+
+Many behavioral perspectives
+
+↓
+
+One personality mirror
+
+↓
+
+Future Global Fusion
+
+--------------------------------------------------
+
+Architecture
+
+MBTI
+
+Big Five
+
+EQ
+
+↓
+
+Personality Mirror
+
+↓
+
+Behavioral Reflection
+
+↓
+
+Future Global Fusion
+
+--------------------------------------------------
+
+Current Capabilities
+
+Implemented:
+
+* Personality Lens Loader
+* Theme Layer
+* Agreement Engine
+* Tension Engine
+* Confidence Composer
+* Validation Harness
+* Narrative Builder
+* Gate Experience
+* Result Experience
+* Home Integration
+
+--------------------------------------------------
+
+Current Inputs
+
+MBTI
+
+Purpose:
+
+Behavioral preference lens
+
+--------------------------------------------------
+
+Big Five
+
+Purpose:
+
+Behavioral tendency lens
+
+--------------------------------------------------
+
+EQ
+
+Purpose:
+
+Emotional reflection lens
+
+--------------------------------------------------
+
+Mirror Output Contract
+
+Category
+
+Theme
+
+Evidence
+
+Confidence
+
+Examples:
+
+Thinking Style
+
+Theme:
+Prefers structure before action
+
+Evidence:
+MBTI
+Big Five
+
+Confidence:
+Medium
+
+--------------------------------------------------
+
+Architecture Principle
+
+Evidence First
+
+Agreement Before Synthesis
+
+Preserve Tension
+
+No Personality Verdict
+
+No Diagnostic Language
+
+--------------------------------------------------
+
+Agreement Philosophy
+
+When multiple lenses independently reflect
+similar themes:
+
+MBTI
+
+Big Five
+
+EQ
+
+↓
+
+Agreement
+
+Mirror may increase confidence.
+
+Agreement strengthens reflection.
+
+Agreement does not create certainty.
+
+--------------------------------------------------
+
+Tension Philosophy
+
+Different lenses may reflect
+different aspects of the same person.
+
+Mirror should preserve:
+
+* nuance
+* uncertainty
+* multiple perspectives
+
+Mirror should not force consensus.
+
+--------------------------------------------------
+
+Narrative Philosophy
+
+Narrative is deterministic.
+
+No AI.
+
+No prompt generation.
+
+No LLM dependency.
+
+Purpose:
+
+Translate agreements and tensions
+into readable reflective language.
+
+Narrative should feel:
+
+* grounded
+* human
+* believable
+* reflective
+
+Avoid:
+
+* personality verdicts
+* diagnosis
+* authority tone
+
+--------------------------------------------------
+
+Gate Logic
+
+Primary Lens Groups:
+
+* MBTI
+* Big Five
+* EQ
+
+Availability Rules:
+
+0–1 groups
+
+↓
+
+Gate Experience
+
+2 groups
+
+↓
+
+Partial Experience
+
+3 groups
+
+↓
+
+Full Experience
+
+--------------------------------------------------
+
+Home Integration
+
+Personality Mirror appears under:
+
+มุมมองจากแบบทดสอบ
+
+Tile states:
+
+Locked
+
+Partial
+
+Ready
+
+Navigation:
+
+Home
+
+↓
+
+Personality Mirror
+
+↓
+
+Gate / Result
+
+--------------------------------------------------
+
+Validation
+
+Implemented:
+
+* Golden Scenarios
+* Confidence Verification
+* Engine Verification
+* Narrative Verification
+
+Purpose:
+
+Ensure deterministic consistency.
+
+--------------------------------------------------
+
+Current Status
+
+Personality Mirror V1
+
+Completed
+
+Production Integrated
+
+Temporary Freeze
+
+Allowed:
+
+* blocker fixes
+* usability issues
+* analytics-driven improvements
+
+Avoid:
+
+* architecture rewrites
+* engine redesign
+* confidence redesign
+* narrative rewrite loops
+* AI integration
+
+-------------------------------------------------------------------------------------------
+
+
+50.3.6 MIRROR PLATFORM V1
+
+Purpose
+
+Mirror Platform exists as the shared reflection layer
+between individual systems and Global Fusion.
+
+Architecture
+
+Individual Lens
+
+↓
+
+Theme Layer
+
+↓
+
+Mirror Layer
+
+↓
+
+Global Fusion
+
+--------------------------------------------------
+
+Current Mirrors
+
+Astrology Mirror
+
+Personality Mirror
+
+--------------------------------------------------
+
+Future Mirrors
+
+Relationship Mirror
+
+Motivation Mirror
+
+Behavior Mirror
+
+Additional Mirrors
+
+--------------------------------------------------
+
+Mirror Output Contract
+
+Category
+
+Theme
+
+Evidence
+
+Confidence
+
+--------------------------------------------------
+
+Shared Human Categories
+
+identity
+
+expression
+
+relationships
+
+resources
+
+action
+
+growth
+
+visibility
+
+transformation
+
+beliefs
+
+inner_world
+
+life_direction
+
+--------------------------------------------------
+
+Core Engines
+
+Agreement Engine
+
+Tension Engine
+
+Reinforcement Engine
+
+Blind Spot Engine
+
+Confidence Composition
+
+Evidence Preservation
+
+--------------------------------------------------
+
+Architecture Principle
+
+Mirror produces structure.
+
+Narrative consumes structure.
+
+--------------------------------------------------
+
+Current Status
+
+Mirror Domain Foundation
+
+Completed
+
+Conditional Freeze
+
+--------------------------------------------------
+
+Current Active Program
+
+Mirror Engine V1
+
+
+-------------------------------------------------------------------------------------------
+
+50.4 FUTURE AI NARRATIVE LAYER (PREMIUM VISION)
+
+Current Philosophy
+
+KnowMe follows:
+
+Deterministic First
+
+All core systems should work correctly without AI.
+
+Examples:
+
+* Western Natal
+* Chinese BaZi
+* Future Thai Astrology
+* MBTI
+* EQ
+* Big Five
+* Fusion Theme Layer
+
+must remain deterministic.
+
+AI should never become the source of truth.
+
+---
+
+Future Premium Direction
+
+KnowMe may introduce an optional AI Narrative Layer
+for Premium users.
+
+Purpose:
+
+Provide deeper personalization
+and richer interpretation.
+
+Mental model:
+
+Deterministic Engine
+↓
+Theme Layer
+↓
+AI Narrative Layer
+
+NOT
+
+AI
+↓
+Generates everything
+
+---
+
+Role of AI
+
+AI may:
+
+* explain patterns in easier language
+* connect themes across multiple lenses
+* generate richer personalized reflections
+* answer user questions about their chart
+* create deeper self-understanding narratives
+* provide conversational exploration
+
+Examples:
+
+Western Natal
++
+Chinese BaZi
++
+MBTI
++
+EQ
+
+↓
+
+AI-generated personalized reflection
+
+---
+
+What AI should NOT do
+
+AI should NOT:
+
+* calculate astrology charts
+* replace deterministic scoring
+* replace test engines
+* invent unsupported claims
+* predict the future with certainty
+* become the source of truth
+
+All interpretations must remain grounded in
+existing deterministic evidence.
+
+---
+
+Premium Experience Vision
+
+Free Tier
+
+* Deterministic Results
+* Standard Insights
+* Fusion Reflection
+
+Premium Tier
+
+* AI-Powered Interpretation
+* Personalized Narrative Reports
+* Ask-AI About My Chart
+* Cross-Lens Deep Reflection
+* Advanced Self-Discovery Insights
+
+---
+
+Future Conversational Astrology
+
+Premium users may eventually interact with AI directly.
+
+Examples:
+
+"ทำไมดวงจีนกับ MBTI ของฉันดูคล้ายกัน"
+
+"จุดแข็งที่ปรากฏซ้ำในหลายศาสตร์คืออะไร"
+
+"เรื่องความสัมพันธ์มีรูปแบบอะไรที่ถูกสะท้อนบ่อย"
+
+"ถ้าดูจากทุกมุมรวมกัน ฉันควรระวังอะไร"
+
+The AI should answer using available evidence
+from completed lenses.
+
+---
+
+Architecture Principle
+
+Deterministic Systems
+
+↓
+
+Theme Layer
+
+↓
+
+AI Narrative Layer
+
+↓
+
+User
+
+Source of truth remains:
+
+* Astrology Engines
+* Test Engines
+* Fusion Theme Layer
+
+AI acts as:
+
+Interpretation Layer
+
+NOT
+
+Calculation Layer
+
+---
+
+Product Philosophy
+
+KnowMe should remain:
+
+grounded
+reflective
+believable
+
+AI should make insights feel more personal
+and easier to understand
+
+without becoming
+a fortune-telling authority.
+
+---
+
+Current Status
+
+Future Vision Only
+
+Not Implemented
+
+Not Active Priority
+
+--------------------------------------------------
+
+Dependencies
+
+Before AI Narrative Layer can begin:
+
+* Astrology Fusion must remain stable
+* Personality Fusion must exist
+* Global Fusion foundation must exist
+* Analytics validation must exist
+
+--------------------------------------------------
+
+Current Priority remains:
+
+* EQ Test MVP
+* Home / Discovery Cohesion
+* Personality Fusion Foundation
+* Big Five MVP
+* Cross-Lens Cohesion
+
+AI Narrative remains future work.
+
+
+-------------------------------------------------------------------------------------------
+51. PRODUCT NORTH STAR
+
+Ultimate goal of KnowMe:
+
+Understand yourself better
+to live better
+
+User feeling target:
+
+"This actually helps me understand myself."
+
+NOT:
+
+"This is a fun test."
+-------------------------------------------------------------------------------------------
+
+
+52. FINAL DECISION FRAMEWORK (VERY IMPORTANT)
+
+Before building anything ask:
+
+Does this improve insight quality?
+Does this reduce generic feeling?
+Does this stay grounded?
+Is blast radius low?
+Can deterministic logic solve it first?
+Is this readable for humans?
+
+If answer:
+
+no
+
+Do not build.
+
+Important:
+
+These schemas reflect current reality, not ideal future architecture.
+
+Treat as:
+
+as-built source of truth
+
+Do not casually redesign.
+-------------------------------------------------------------------------------------------
+
+53. FUSION UX RULES
+Fusion purpose
+
+Fusion exists to help users see:
+
+“How multiple perspectives may reflect me together.”
+
+Fusion should never feel like:
+
+a verdict
+
+Fusion should feel like:
+
+reflection
+
+Core UX principle
+
+Fusion must expose available lenses.
+
+Users should understand:
+
+what data exists
+what is still missing
+what each lens currently reflects
+how multiple lenses may connect
+
+Fusion should reduce confusion.
+
+NOT:
+
+increase complexity.
+
+Good mental model
+
+“หลายมุมกำลังช่วยสะท้อนตัวฉัน”
+
+Bad mental model
+
+“ระบบกำลังตัดสินว่าฉันเป็นใคร”
+
+Reflection principle
+
+Fusion should:
+
+feel grounded
+feel believable
+feel emotionally calm
+acknowledge uncertainty
+remain reflective
+
+Avoid:
+
+certainty language
+
+Bad examples:
+
+“This proves that…”
+
+“You definitely are…”
+
+“This means you always…”
+
+Prefer:
+
+“อาจสะท้อน…”
+
+“หลายครั้ง…”
+
+“แนวโน้ม…”
+
+“ในบางช่วง…”
+
+Source transparency rule
+
+Users should understand:
+
+where interpretation comes from.
+
+Fusion should expose:
+
+available lenses
+explored areas
+unexplored areas
+synthesized overlap
+
+Avoid:
+
+black-box feeling
+
+Bad feeling:
+
+“AI guessed who I am.”
+
+Good feeling:
+
+“หลายมุมกำลังช่วยสะท้อนสิ่งคล้ายกัน”
+
+Snapshot rule
+
+Fusion snapshots should be:
+
+short
+reflective
+calm
+readable
+
+NOT:
+
+full result duplication
+
+NOT:
+
+long reports
+
+Mental model:
+
+snapshot
+
+NOT:
+
+full analysis
+
+Synthesis rule
+
+Synthesis exists to:
+
+connect perspectives
+
+NOT:
+
+replace perspectives
+
+Fusion should synthesize:
+
+agreement
+tension
+integration
+
+without pretending certainty.
+
+Product feeling
+
+Fusion should feel closer to:
+
+“self-reflection journal”
+
+than:
+
+“personality analysis dashboard”
+-------------------------------------------------------------------------------------------
+
+54.Historical note only.
+See section 58 for source of truth.
+
+-------------------------------------------------------------------------------------------
+
+55. FUSION RESULT V1 REALITY
+Status
+
+Fusion Result V1
+
+Current maturity:
+
+frozen v1
+
+Presentation polish passes 1–4 complete (June 2026).
+
+Implemented features
+
+Current Fusion V1 includes:
+
+Three view modes (true empty / astrology-first / synthesis)
+Astrology-first fallback (profile + results/astrology + western_natal)
+Foundation section (birth context only — no duplicate summary)
+Lens snapshots (completed lenses only; astrology = มุมมองจากโหรา)
+Self-discovery status (compact explored / not-explored map)
+Deterministic synthesis (agreement / tension / synthesis)
+Source transparency (disclosure footer)
+TH / EN support (AppText fusion_v11_*)
+Birth date/time human formatting
+TH place display normalize (Thailand → ประเทศไทย)
+Reflective disclosure (readable subtle footer)
+
+Current reading flow:
+
+Foundation
+↓
+Lens snapshots
+↓
+Self-discovery status
+↓
+Synthesis
+↓
+Disclosure
+
+Goal:
+
+Help users understand:
+
+what information exists
+what has been explored
+what multiple lenses reflect
+how perspectives may connect
+Mode switching
+No astrology
+
+Expected behavior:
+
+true empty state
+
+Used for:
+
+guest
+abnormal data states
+
+Astrology only
+
+Expected behavior:
+
+astrology-first mode
+
+Fusion should already feel useful.
+
+Goal feeling:
+
+“เริ่มเห็นภาพตัวเองบางส่วนแล้ว”
+
+NOT:
+
+“ยังใช้ไม่ได้”
+
+Components:
+
+Foundation
+Astrology reflection
+Exploration status
+Soft synthesis copy
+Disclosure
+Two or more usable lenses
+
+Expected behavior:
+
+synthesis mode
+
+Deterministic synthesis only.
+
+Current synthesis model:
+
+Agreement
+↓
+Tension
+↓
+Synthesis
+
+Important product rules
+
+Fusion must NOT become:
+
+admin page
+dashboard overload
+mega-report
+psychology dump
+astrology dump
+
+Fusion should feel:
+
+calm
+readable
+reflective
+emotionally believable
+grounded
+Known limitations
+
+Current limitations include:
+
+summary richness improvable per lens
+Big Five integrated
+
+Future deeper synthesis still evolving
+deeper personalization later
+full premium visual system (v1 presentation polish done; not full redesign)
+
+These are accepted MVP limitations.
+
+Freeze rule
+
+Fusion Result V1 presentation is FROZEN.
+
+Do NOT enter polish loop.
+
+Only revisit when:
+
+real friction appears
+meaningful feedback appears
+analytics support change
+major product shift happens
+blocker / usability issue
+
+Avoid:
+
+copy churn
+spacing churn
+micro polish obsession
+
+-------------------------------------------------------------------------------------------
+
+56. FUSION UX READING MODEL
+Reading philosophy
+
+Fusion should read like:
+
+a calm self-understanding experience
+
+NOT:
+
+a report
+
+NOT:
+
+a dashboard
+
+NOT:
+
+a psychometric analysis page
+
+Reading order
+
+Fusion V1 reading sequence:
+
+Foundation
+↓
+Lens snapshots
+↓
+Self-discovery status
+↓
+Synthesis
+↓
+Disclosure
+
+Mental model
+
+Reading progression:
+
+context
+→ reflection
+→ exploration progress
+→ connection
+→ trust
+
+Users should gradually feel:
+
+“I understand myself a bit more”
+
+NOT:
+
+“I was analyzed”
+
+Section roles
+Foundation
+
+Purpose:
+
+Provide context only.
+
+Users should understand:
+
+what birth inputs are used as basis
+
+Foundation shows:
+
+birth date + time (formatted)
+birth place (display-normalized for TH)
+
+Foundation does NOT show:
+
+astrology reflection paragraph
+(same text lives in Lens snapshots only)
+
+If no birth meta available:
+
+short intro line only
+
+Foundation is:
+
+context
+
+NOT:
+
+analysis
+
+NOT:
+
+duplicate snapshot
+
+Lens snapshots
+
+Purpose:
+
+Provide short reflections from available perspectives.
+
+Snapshots should be:
+
+short
+calm
+emotionally readable
+high signal
+
+Only show:
+
+completed / usable lenses
+
+Astrology snapshot:
+
+title: มุมมองจากโหรา
+
+body: real summary when available, else reflective fallback
+
+Do NOT list pending lenses in snapshots section.
+
+Pending exploration belongs in Self-discovery status only.
+
+Avoid:
+
+paragraph overload
+
+duplicate full results
+
+duplicate Foundation content
+
+Mental model:
+
+high-level reflection
+
+Self-discovery status
+
+Purpose:
+
+Help users understand:
+
+what has been explored
+
+and
+
+what remains unexplored
+
+Format (as-built):
+
+compact labels + bullet-separated lens names
+
+NOT per-lens line items (MBTI — ยังไม่ได้ทำ)
+
+NOT database empty marker (—) when nothing explored
+
+Empty explored state copy:
+
+ยังไม่ได้สำรวจแบบทดสอบในตอนนี้
+
+Should feel:
+
+lightweight
+warm
+human
+
+NOT:
+
+task checklist
+
+NOT:
+
+completion dashboard
+
+NOT:
+
+admin schema list
+
+Synthesis
+
+Purpose:
+
+Show how perspectives may overlap or tension with each other.
+
+Should feel:
+
+reflective
+
+NOT:
+
+final truth
+
+Mental model:
+
+connection
+
+NOT:
+
+identity conclusion
+
+Disclosure
+
+Purpose:
+
+Increase trust.
+
+Users should understand:
+
+Fusion is reflective interpretation.
+
+NOT:
+
+objective truth
+
+Disclosure should feel:
+
+quiet
+calm
+readable
+
+NOT:
+
+warning banner
+
+UX feeling
+
+Good feeling:
+
+“นี่คือภาพรวมหลายมุมของฉัน”
+
+Bad feeling:
+
+“ระบบกำลังวิเคราะห์ฉัน”
+-------------------------------------------------------------------------------------------
+
+57. EQ SYSTEM REALITY
+
+Status
+
+Implemented
+
+Usable+
+
+Temporary Freeze
+
+--------------------------------------------------
+
+Purpose
+
+EQ exists to help users understand:
+
+* emotional awareness
+* emotional regulation
+* emotional tendencies
+* social awareness
+* empathy
+* emotional growth
+
+Mental model:
+
+“How I emotionally respond and regulate”
+
+--------------------------------------------------
+
+Current Product Status
+
+EQ MVP
+
+Implemented
+
+Usable+
+
+Temporary Freeze
+
+--------------------------------------------------
+
+Current Focus
+
+maintenance only
+
+--------------------------------------------------
+
+Architecture Direction
+
+Question Engine
+
+↓
+
+Scoring Engine
+
+↓
+
+Dimension Engine
+
+↓
+
+EQ Result
+
+↓
+
+Personality Mirror
+
+↓
+
+Future Global Fusion
+
+--------------------------------------------------
+
+Important Principle
+
+EQ is not a standalone destination.
+
+EQ participates in:
+
+* Personality Mirror
+* Future Global Fusion
+
+--------------------------------------------------
+
+Product Philosophy
+
+EQ should feel:
+
+* grounded
+* reflective
+* human
+* non-clinical
+
+EQ is NOT:
+
+* therapy
+* diagnosis
+* mental health assessment
+* emotional grading system
+
+--------------------------------------------------
+
+Allowed
+
+* blocker fixes
+* usability improvements
+* analytics-driven improvements
+
+--------------------------------------------------
+
+Avoid
+
+* architecture rewrites
+* isolated EQ evolution
+* polish loops
+
+
+-------------------------------------------------------------------------------------------
+58. ACTIVE VS FROZEN SYSTEMS
+
+### Purpose
+
+Prevent endless polishing loops.
+
+KnowMe prioritizes:
+
+forward product progress
+
+over:
+
+perfectionism
+
+---
+
+### Frozen / Temporary Freeze
+
+The following systems are currently considered stable enough for MVP use.
+
+Changes should be limited to:
+
+* blocker fixes
+* serious usability issues
+* analytics-driven improvements
+* production incidents
+
+Avoid reopening architecture unnecessarily.
+
+---
+
+#### Thai Astrology V2 Core
+
+Status:
+
+usable+
+temporary freeze
+
+Western Natal Pipeline:
+
+verified June 2026
+
+Verified flow:
+
+Profile Setup
+→ Generate Chart
+→ users/{uid}/astrology/western_natal
+→ FusionAstrologyMirror
+→ users/{uid}/results/astrology
+→ AstrologyResultPage
+
+Verification:
+
+* Runtime verified
+* Firestore verified
+* Flutter verified
+* Manual E2E verified
+
+Allowed:
+
+* blocker fixes
+* usability issues
+* analytics-driven improvements
+
+Avoid:
+
+* Houses UI expansion
+* Aspects UI expansion
+* astrology architecture rewrite
+* western natal redesign
+* result page redesign
+
+---
+#### Thai Fusion V2
+
+Status:
+
+conditional freeze v0.1.0
+
+Production Structural Ready
+
+Implemented:
+
+* Lineage Validation
+* Category Activation
+* Agreement Engine
+* Coverage Engine
+* Confidence Engine
+* Insight Engine
+* Snapshot Identity
+
+Validation:
+
+* Lineage Audit
+* Agreement Audit
+* Coverage Audit
+* Confidence Audit
+* Boundary Audit
+* Determinism Audit
+
+Deferred:
+
+* Tension Detection
+* FUSION_MIRROR_THEME_DIVERGENCE
+
+Allowed:
+
+* blocker fixes
+* validation improvements
+* data quality improvements
+
+Avoid:
+
+* contract rewrites
+* fusion redesign
+* synthetic coverage systems
+
+Current Priority:
+
+Thai Astrology V3
+
+---
+
+#### Chinese BaZi V1
+
+Status:
+
+usable+
+temporary freeze
+
+Verified:
+
+* Backend verified
+* Runtime verified
+* Firestore verified
+* Flutter verified
+* Manual E2E verified
+
+Current flow:
+
+Profile Setup
+→ Generate BaZi
+→ users/{uid}/astrology/chinese_bazi
+→ BaziProvider
+→ BaziResultPage
+
+Backend:
+
+POST /generate-bazi
+
+Source of Truth:
+
+users/{uid}/astrology/chinese_bazi
+
+Flutter UI does NOT read:
+
+users/{uid}/results/chinese_bazi
+
+V1 Implemented:
+
+* Day Master
+* Year Animal
+* Dominant Element
+* Four Pillars
+* Element Balance
+* Metadata
+
+Allowed:
+
+* blocker fixes
+* usability issues
+* analytics-driven improvements
+
+Avoid:
+
+* architecture rewrites
+* Day Master interpretation expansion
+* Element Balance interpretation expansion
+* Fusion integration during freeze
+* navigation redesign
+* Thai astrology coupling
+
+Exception:
+
+Chinese Zodiac Personality Expansion
+(Section 45.3.3)
+is approved as an additive layer.
+
+Year Animal interpretation
+may continue independently
+without modifying:
+
+- Four Pillars Engine
+- Day Master Engine
+- Element Engine
+
+---
+
+#### Edit Profile V1
+
+Status:
+
+usable+
+temporary freeze
+
+Verified:
+
+* Logic verified
+* Unit tests passed
+* Firestore verified
+* Manual smoke verification passed
+* Western regression passed
+* BaZi regression passed
+
+Current flow:
+
+Home
+→ Edit Profile
+→ users/{uid}/profile/main
+→ Conditional Regeneration
+→ Western Natal Refresh
+→ Chinese BaZi Refresh
+
+Capabilities:
+
+* Profile preload
+* Profile update
+* Birth-critical change detection
+* Conditional regeneration
+* Western refresh
+* BaZi refresh
+
+Birth-critical fields:
+
+* birthDate
+* birthTime
+* birthPlace
+* latitude
+* longitude
+* timezone
+
+Regeneration:
+
+Only when birth-critical fields change.
+
+No regeneration when updating:
+
+* name
+* gender
+
+Allowed:
+
+* blocker fixes
+* usability issues
+* analytics-driven improvements
+
+Avoid:
+
+* profile architecture rewrite
+* settings system expansion
+* profile redesign
+* regeneration redesign
+* legacy EditProfile revival
+
+---
+
+#### MBTI Summary V1.3
+
+Status:
+
+stable
+
+Allowed:
+
+* blocker fixes only
+
+Avoid:
+
+* reopening architecture unnecessarily
+* redesign loops
+
+---
+
+#### EQ Summary V1
+
+Status:
+
+usable+
+temporary freeze
+
+Allowed:
+
+* blocker fixes
+* usability issues
+* feedback-driven improvements
+
+Avoid:
+
+* micro polish loops
+* unnecessary architecture changes
+
+---
+
+#### Fusion Result V1
+
+Status:
+
+frozen v1
+
+Presentation polish passes 1–4 complete.
+
+June 2026.
+
+Allowed:
+
+* blocker fixes
+* meaningful friction fixes
+* analytics-driven improvements
+* real usability issues
+
+Avoid:
+
+* spacing churn
+* copy churn
+* repeated redesign
+* micro polish loops
+
+---
+
+#### Astrology Fusion V1
+
+Status:
+
+production ready
+
+temporary freeze
+
+Implemented:
+
+* Agreement Engine
+* Tension Engine
+* Signal Engine
+* Reflection Engine
+* Fusion Insight Engine
+* Growth Opportunities
+* Future Tendencies
+* Snapshot Persistence
+* Regeneration Service
+* Home Integration
+* Journey Integration
+* Validation Analytics
+
+Allowed:
+
+* blocker fixes
+* usability issues
+* analytics-driven improvements
+* data quality fixes
+
+Avoid:
+
+* architecture rewrites
+* astrology fusion redesign
+* additional polish loops
+* AI integration during freeze
+
+Current priority:
+
+EQ Test MVP
+---
+
+#### Personality Mirror V1
+
+Status:
+
+production ready
+
+temporary freeze
+
+Implemented:
+
+* Personality Lens Loader
+* Agreement Engine
+* Tension Engine
+* Confidence Composer
+* Validation Harness
+* Narrative Builder
+* Gate Experience
+* Result Experience
+* Home Integration
+
+Inputs:
+
+* MBTI
+* Big Five
+* EQ
+
+Allowed:
+
+* blocker fixes
+* usability issues
+* analytics-driven improvements
+
+Avoid:
+
+* engine redesign
+* confidence redesign
+* narrative rewrite loops
+* architecture rewrites
+
+Current priority:
+
+Global Fusion Foundation
+
+
+
+
+---
+
+
+
+---
+
+### Frozen / Stable Systems
+
+* Astrology Result V1
+* Chinese BaZi V1
+* Thai Astrology V2 Core
+* MBTI Summary V1.3
+* EQ Summary V1
+* Big Five V1
+* Personality Mirror V1
+* Astrology Fusion V1
+* Fusion Result V1
+
+---
+
+Thai Astrology V3 Foundation
+
+Status:
+
+Architecture Complete
+
+Conditional Freeze
+
+--------------------------------------------------
+
+Mirror Domain Foundation
+
+Status:
+
+Completed
+
+Conditional Freeze
+
+
+
+---
+
+Active Build Areas
+
+--------------------------------------------------
+
+Current Active Program
+
+Mirror Platform V1
+
+Includes:
+
+- Agreement Engine
+- Tension Engine
+- Reinforcement Engine
+- Blind Spot Engine
+
+--------------------------------------------------
+
+Next Program
+
+Global Fusion Foundation
+
+Includes:
+
+- Mirror Aggregation
+- Consensus Architecture
+- Divergence Architecture
+- Confidence Composition
+
+--------------------------------------------------
+
+Future Program
+
+AI Narrative Preparation
+
+Depends on:
+
+- Mirror Platform
+- Global Fusion
+- Validation Layer
+
+--------------------------------------------------
+
+Not Active
+
+- Thai Astrology Expansion
+- Astrology Fusion Redesign
+- Personality Mirror Redesign
+- MBTI Expansion
+- EQ Expansion
+- Chinese BaZi Expansion
+
+--------------------------------------------------
+
+Rule
+
+Maintenance only for frozen systems.
+
+Prefer:
+
+depth
+
+over
+
+breadth.
+---
+
+### Not Active
+
+* Astrology Fusion Redesign
+* Personality Mirror Redesign
+* Big Five Expansion
+* MBTI Summary Expansion
+* AI Narrative Layer
+
+---
+
+### Important Rule
+
+Before polishing:
+
+ask:
+
+"Does this meaningfully improve user understanding or product value?"
+
+If no:
+
+move forward.
+
+Avoid:
+
+polishing for polishing’s sake.
+
+---------------------------------------
+
+Exception Programs
+
+Chinese Zodiac Personality Expansion
+Status:
+
+Approved
+
+Active
+
+Low Blast Radius Expansion
+
+Scope:
+
+- Zodiac Content Library
+- Zodiac Interpretation Resolver
+- Zodiac Theme Mapper
+
+Not considered a BaZi Core rewrite.
+
+-------------------------------------------------------------------------------------------
+
+58.1 THAI ASTROLOGY V2 CORE STATUS
+
+Thai Astrology V2 Core
+
+Status:
+
+Production Structural Ready
+
+Conditional Freeze v0.1.0
+
+--------------------------------------------------
+
+Implemented
+
+Foundation Layer
+
+- Lagna
+- Lagna Lord
+- Myanmar Seven Numbers
+- Mahabhuta
+
+Meaning Pipeline
+
+- Signal Layer
+- Interpretation Layer
+- Content Lookup Layer
+- Theme Layer
+- Thai Mirror
+- Thai Fusion
+
+--------------------------------------------------
+
+Thai Fusion V2
+
+Status:
+
+Conditional Freeze Approved
+
+Version:
+
+v0.1.0
+
+Completed:
+
+F1 Domain
+
+- Models
+- Contracts
+- Enums
+- Constants
+
+F2 Engine
+
+- Lineage Validation
+- Category Activation
+- Agreement Engine
+- Coverage Engine
+- Confidence Engine
+- Snapshot Identity
+
+F3 Validation
+
+- Lineage Audit
+- Agreement Audit
+- Coverage Audit
+- Confidence Audit
+- Boundary Audit
+- Determinism Audit
+
+--------------------------------------------------
+
+Deferred Items
+
+Deferred Item #1
+
+FUSION_MIRROR_THEME_DIVERGENCE
+
+Status:
+
+Reserved
+
+Not Implemented
+
+Target:
+
+v0.2.0
+
+--------------------------------------------------
+
+Deferred Item #2
+
+Tension Detection
+
+Status:
+
+Deferred MVP
+
+Current behavior:
+
+returns []
+
+Target:
+
+v0.2.0
+
+--------------------------------------------------
+
+Allowed
+
+- blocker fixes
+- data quality improvements
+- validation improvements
+
+--------------------------------------------------
+
+Avoid
+
+- architecture rewrites
+- contract rewrites
+- mirror redesign
+- fusion redesign
+- synthetic coverage systems
+
+--------------------------------------------------
+
+Current Priority
+
+Mirror Platform V1
+
+Includes:
+
+- Agreement Engine
+- Tension Engine
+- Reinforcement Engine
+- Blind Spot Engine
+
+Purpose:
+
+Create a shared reflection engine
+for Astrology Mirror
+Personality Mirror
+and Future Global Fusion.
+
+--------------------------------------------------
+
+Thai Astrology Foundation
+
+Status:
+
+Completed
+
+Conditional Freeze
+
+Includes:
+
+- V2 Core
+- V3 Foundation
+--------------------------------------------------
+
+Future Expansion
+
+V4
+
+- Taksa
+- Mahataksa
+- Seven Numbers Expansion
+
+V5
+
+- Dasha
+- Life Cycles
+- Transit Reflection
+
+
+
+
+
+
+-------------------------------------------------------------------------------------------
+## 59. MASTER CONTEXT CONSISTENCY RULES
+
+### Purpose
+
+Keep future conversations aligned with current product reality.
+
+Prevent:
+
+* outdated assumptions
+* roadmap drift
+* polish loops
+* conflicting product direction
+
+### Source of truth rule
+
+When conflicts exist:
+
+Prefer:
+
+newer reality
+
+over:
+
+older historical context
+
+Recent implemented product behavior overrides old speculative plans.
+
+Mental model:
+
+Reality > old planning
+
+### Product direction summary
+
+KnowMe currently follows:
+
+Astrology-first discovery
+
+Mental model:
+
+Astrology
+→ emotional entry point
+
+Tests
+→ deeper personalization
+
+Fusion
+→ calmer integrated reflection
+
+Goal feeling:
+
+“เข้าใจตัวเองมากขึ้น”
+
+NOT:
+
+“ระบบกำลังวิเคราะห์ฉัน”
+
+### Important mental model
+
+KnowMe is:
+
+a reflective self-understanding product
+
+NOT:
+
+* clinical psychology product
+* astrology prediction engine
+* personality diagnosis system
+* psychometric dashboard
+* onboarding funnel
+
+### Product tone rules
+
+Prefer:
+
+* reflective
+* grounded
+* emotionally believable
+* soft certainty
+* calm language
+
+Prefer wording:
+
+* อาจสะท้อน
+* หลายครั้ง
+* แนวโน้ม
+* ในบางช่วง
+* หลายมุม
+
+Avoid wording:
+
+* คุณเป็นแบบนี้แน่นอน
+* สิ่งนี้พิสูจน์ว่า
+* คุณต้อง
+* ดวงกำหนด
+* วิเคราะห์ได้ว่า
+
+Avoid:
+
+authority tone
+
+Avoid:
+
+certainty tone
+
+### UX philosophy
+
+KnowMe should feel:
+
+free exploration
+
+Users choose freely.
+
+Avoid:
+
+hidden funnel feeling
+
+Avoid:
+
+forced recommendation feeling
+
+Avoid:
+
+task checklist feeling
+
+### Product maturity rule
+
+Before building new systems ask:
+
+1. Does this improve user understanding?
+2. Does this improve emotional usefulness?
+3. Does this improve product cohesion?
+4. Does this increase believable personalization?
+
+Avoid:
+
+feature accumulation without depth
+
+Prefer:
+
+cohesive experience
+
+### Current freeze reality
+
+Temporarily frozen / stable:
+
+* Astrology Result V1
+* Chinese BaZi V1
+* MBTI Summary V1.3
+* EQ Summary V1
+* Fusion Result V1
+
+Allowed:
+
+* blocker fixes
+* usability friction fixes
+* analytics-driven changes
+* meaningful product improvement
+
+Avoid:
+
+copy churn
+spacing churn
+micro polish obsession
+
+### Current Active Focus
+
+1. Mirror Platform V1
+
+2. Global Fusion Foundation
+
+3. Home Product Experience
+
+4. Cross-Lens Cohesion
+
+5. AI Narrative Preparation
+
+Maintenance only:
+
+* Personality Mirror V1
+* Astrology Fusion V1
+* Big Five V1
+* EQ MVP
+* MBTI Summary V1.3
+
+Avoid:
+
+expanding too many systems too early
+
+Rule:
+
+depth before breadth
+
+Edit Profile V1
+
+Completed:
+- Home entry
+- Profile preload
+- Save profile/main
+- Birth-critical diff detection
+- Conditional regeneration
+- Western refresh
+- BaZi refresh
+
+Manual E2E:
+PASS
+
+Git:
+Committed and pushed
+
+-------------------------------------------------------------------------------------------
+
+59.1 PRODUCT REALITY UPDATE
+
+Important.
+
+Home Architecture
+
+does not equal
+
+Home Product Experience.
+
+--------------------------------------------------
+
+The following systems exist primarily
+as internal architecture layers:
+
+- Exploration Overview
+- Discovery
+- Home Cohesion
+- Home Experience
+- Home Screen Contract
+
+These systems help organize data.
+
+They are not user-facing product concepts.
+
+--------------------------------------------------
+
+Users should primarily experience:
+
+- Profile
+- Astrology
+- Psychology
+- Fusion
+
+--------------------------------------------------
+
+Avoid exposing architecture terminology
+to end users.
+
+Bad:
+
+- Journey
+- Reflections
+- Exploration Overview
+
+Good:
+
+- ดวงของคุณ
+- แบบทดสอบบุคลิกภาพ
+- ภาพรวมจากหลายมุม
+
+--------------------------------------------------
+
+Rule:
+
+Architecture exists for developers.
+
+Product exists for users.
+
+
+-------------------------------------------------------------------------------------------
+
+A1. FIRESTORE HIGH-LEVEL STRUCTURE
+
+Pattern:
+
+users/
+  {uid}/
+      tests/
+      results/
+
+Mental model:
+
+tests/* = progress/session
+
+results/* = deterministic result snapshot
+
+Critical:
+
+Never confuse them.
+-------------------------------------------------------------------------------------------
+
+
+A2. tests/* DOCUMENT PHILOSOPHY
+
+Purpose:
+
+Transient working state.
+
+Contains:
+
+progress
+answers
+resume state
+continue state
+completion state
+
+Mental model:
+
+temporary working memory
+
+Can change often.
+-------------------------------------------------------------------------------------------
+
+
+A3. results/* DOCUMENT PHILOSOPHY
+
+Purpose:
+
+Deterministic snapshot used for insights.
+
+Mental model:
+
+stable interpretation layer
+
+Used by:
+
+result pages
+fusion
+confidence
+summary systems
+
+Important:
+
+Fusion MUST read:
+
+results/*
+
+NOT:
+
+tests/*
+-------------------------------------------------------------------------------------------
+
+
+A4. MBTI PROGRESSIVE — SESSION DOCUMENT
+
+Path:
+
+users/{uid}/tests/mbti_mini
+
+Purpose:
+
+Current progressive state.
+
+Example reality:
+
+{
+  "answered": 40,
+  "total": 80,
+  "completed": false,
+  "index": 40,
+  "answers": {
+    "mbti_1": 4,
+    "mbti_2": 2
+  }
+}
+
+Field meaning:
+
+answered
+
+Questions completed.
+
+Example:
+
+40
+
+Used for:
+
+catalog progress
+timeline
+continue state
+total
+
+Current checkpoint size.
+
+Possible:
+
+16
+40
+80
+completed
+
+Checkpoint completion.
+
+Example:
+
+true
+
+means:
+
+checkpoint result exists.
+
+index
+
+Resume position.
+
+Example:
+
+40
+
+means:
+
+resume at:
+
+Q41
+answers
+
+Map of responses.
+
+Source of truth for continuation.
+
+Critical:
+
+Continue preserves:
+
+answers
+
+Never wipe accidentally.
+-------------------------------------------------------------------------------------------
+
+
+A5. MBTI PROGRESSIVE — RESULT DOCUMENT
+
+Path:
+
+users/{uid}/results/mbti_mini
+
+Example reality:
+
+{
+  "type": "ESTJ",
+  "dimensions": {
+    "E": 72,
+    "I": 48,
+    "S": 63,
+    "N": 57,
+    "T": 65,
+    "F": 55,
+    "J": 75,
+    "P": 45
+  },
+  "scoredQuestionCount": 80,
+  "testId": "mbti_mini",
+  "scoringVersion": 1
+}
+
+Purpose:
+
+Persistent interpretation.
+
+Used by:
+
+fusion
+result page
+confidence
+scoredQuestionCount
+
+Critical field.
+
+Possible:
+
+16
+40
+80
+
+Meaning:
+
+confidence level.
+
+Never infer confidence from:
+
+tests.answered
+
+for fusion.
+
+dimensions
+
+Raw score mass.
+
+Used for:
+
+type derivation
+legacy migration fallback
+trait interpretation
+-------------------------------------------------------------------------------------------
+
+
+A6. LEGACY MIGRATION FALLBACK (CRITICAL)
+
+Problem:
+
+Older result docs may have:
+
+scoredQuestionCount = null
+
+Reason:
+
+field added later.
+
+Current solution:
+
+infer from dimension mass
+
+Example:
+
+dimensionMass = 480
+→ infer 80
+
+Then:
+
+self-heal firestore
+
+Rule:
+
+NEVER REMOVE
+
+This is compatibility logic.
+
+NOT debug code.
+-------------------------------------------------------------------------------------------
+
+
+A7. MBTI COGNITIVE — SESSION DOCUMENT
+
+Path:
+
+users/{uid}/tests/mbti_cognitive
+
+Example:
+
+{
+  "answered": 40,
+  "total": 80,
+  "completed": false,
+  "index": 40,
+  "answers": {
+    "cog_1": 5,
+    "cog_2": 2
+  }
+}
+
+Same philosophy as MBTI.
+
+Important:
+
+Progressive continuation identical.
+-------------------------------------------------------------------------------------------
+
+
+A8. MBTI COGNITIVE — RESULT DOCUMENT
+
+Path:
+
+users/{uid}/results/mbti_cognitive
+
+Example:
+
+{
+  "scores": {
+    "Te": 54,
+    "Ti": 50,
+    "Ni": 47
+  },
+  "topFunctions": [
+    "Te",
+    "Ti",
+    "Ni",
+    "Si"
+  ],
+  "stackTypeHints": [
+    "ENTJ",
+    "ESTJ"
+  ],
+  "scoredQuestionCount": 80
+}
+
+Purpose:
+
+Input for:
+
+fusion
+cognitive result page
+confidence
+
+Important:
+
+Probabilistic.
+
+Avoid:
+
+hard type claim
+-------------------------------------------------------------------------------------------
+
+
+A9. MBTI SUMMARY REALITY
+
+Path:
+
+NONE
+
+Important:
+
+Summary writes:
+
+nothing
+
+Summary:
+
+no persistence
+no scoring
+no session
+
+Pure:
+
+derived interpretation
+-------------------------------------------------------------------------------------------
+
+
+A10. FIRESTORE RULE OF THUMB
+
+Quick mental shortcut:
+
+tests/*
+= current progress
+
+results/*
+= trusted interpretation
+APPENDIX B — REGRESSION CHECKLIST (CRITICAL)
+
+Purpose:
+
+Prevent:
+
+fix one thing
+break three things
+
+Use before major merge.
+-------------------------------------------------------------------------------------------
+
+
+B1. MBTI PROGRESSIVE CHECKLIST
+16 checkpoint
+ Q16 completes
+ result page shown
+ mini confidence correct
+ continue CTA visible
+ restart works
+continue to 40
+ tap continue
+ resumes at Q17
+ answers preserved
+ previous answers not wiped
+ total becomes 40
+ completed false restored
+40 checkpoint
+ Q40 completes
+ result page shown
+ confidence correct
+ continue CTA visible
+continue to 80
+ tap continue
+ resumes at Q41
+ answers preserved
+ total becomes 80
+80 checkpoint
+ final result shown
+ continue button hidden
+ confidence accurate
+ restart works
+reload safety
+ reload at Q7 restores
+ reload at Q35 restores
+ reload at Q68 restores
+ reload after finish restores result
+guest behavior
+ continue preserved locally
+ pendingAnswersForContinue works
+-------------------------------------------------------------------------------------------
+
+
+B2. MBTI RESULT CHECKLIST
+ strengths shown
+ cautions shown
+ careers shown
+ relationships shown
+ trait section readable
+ progress timeline accurate
+ localization works
+ restart dialog safe
+-------------------------------------------------------------------------------------------
+
+
+B3. MBTI COGNITIVE CHECKLIST
+checkpoints
+ 16 result works
+ 40 result works
+ 80 result works
+continuation
+ continue to 40
+ continue to 80
+ answers preserved
+ranking
+ top 4 render
+ bottom 4 render
+ no fake precision feeling
+confidence
+ quick insight correct
+ better understanding correct
+ deep profile correct
+reload safety
+ resume session
+ restore completed result
+-------------------------------------------------------------------------------------------
+
+
+B4. MBTI SUMMARY CHECKLIST
+availability
+ no MBTI → locked
+ no Cognitive → locked
+ guest → locked
+ both exist → available
+confidence
+ weakest-of-two works
+
+Examples:
+
+80 + 16 → 16
+40 + 80 → 40
+80 + 80 → 80
+legacy migration
+ null scoredQuestionCount heals
+ 16 infer correct
+ 40 infer correct
+ 80 infer correct
+UX
+ hero readable
+ thinking section aligned
+ confidence disclosure compact
+ growth tone grounded
+APPENDIX C — FEATURE FILE MAP
+
+Purpose:
+
+Reduce AI guessing.
+-------------------------------------------------------------------------------------------
+
+B5. FUSION RESULT CHECKLIST
+
+Foundation
+ birth date/time shown
+ place formatting works
+ readable hierarchy
+
+Lens snapshots
+ only available lenses shown
+ no duplicated result dump
+ snapshot copy readable
+ astrology snapshot works
+ EQ snapshot works if available
+ MBTI snapshot works if available
+
+Self-discovery status
+ explored lenses correct
+ unexplored lenses correct
+ compact readable format
+ no checklist feeling
+
+Synthesis
+ astrology-first mode works
+ synthesis mode works
+ agreement renders
+ tension renders
+ synthesis renders
+ grounded tone
+ reflective tone
+
+Disclosure
+ readable
+ subtle
+ trust-building
+
+Reading flow
+ Foundation
+ → Lens snapshots
+ → Self-discovery status
+ → Synthesis
+ → Disclosure
+
+Copy
+ grounded
+ reflective
+ non deterministic
+ no horoscope overclaiming
+
+Localization
+ TH works
+ EN fallback works
+-------------------------------------------------------------------------------------------
+
+C1. MBTI
+features/tests/mbti/
+
+application/
+  mbti_session_state.dart
+  mbti_scorer.dart
+
+data/
+  mbti_firestore_repository.dart
+
+domain/
+  mbti_models.dart
+
+presentation/
+  mbti_result_page.dart
+  mbti_mini_test_page.dart
+  widgets/
+
+mbti_routes.dart
+-------------------------------------------------------------------------------------------
+
+
+C2. MBTI COGNITIVE
+features/tests/mbti_cognitive/
+
+application/
+  mbti_cognitive_scorer.dart
+  mbti_cognitive_session_state.dart
+  mbti_cognitive_stack_matcher.dart
+
+data/
+  mbti_cognitive_firestore_repository.dart
+  mbti_cognitive_questions.dart
+
+domain/
+  mbti_cognitive_models.dart
+
+presentation/
+  mbti_cognitive_test_page.dart
+  mbti_cognitive_result_page.dart
+  widgets/
+
+mbti_cognitive_routes.dart
+-------------------------------------------------------------------------------------------
+
+
+C3. MBTI SUMMARY
+features/tests/mbti_summary/
+
+application/
+  mbti_summary_loader.dart
+  mbti_summary_fusion_engine.dart
+  mbti_summary_insight_engine.dart
+
+domain/
+  mbti_summary_models.dart
+  mbti_summary_constants.dart
+
+presentation/
+  mbti_summary_fusion_page.dart
+  mbti_summary_gate_page.dart
+  widgets/
+
+mbti_summary_routes.dart
+APPENDIX D — CURRENT KNOWN PAIN POINTS
+
+Not done yet.
+
+Accepted temporary gaps.
+
+UX
+
+cross-feature cohesion incomplete
+guided exploration fragmented
+home discovery cohesion incomplete
+astrology discovery experience improvable
+retention loop weak
+
+Architecture
+
+hybrid universal + feature-specific coexist
+repeated session patterns
+AppText growth risk
+
+Product
+
+global fusion not implemented
+Exploration Overview incomplete
+cross-mirror discovery still evolving
+deeper personalization later
+
+Current reality:
+
+EQ MVP implemented
+Fusion Result V1 frozen v1 (presentation complete)
+
+Rule:
+
+avoid polish loops
+
+move product forward
+
+Never casually do:
+
+Rename core routes
+
+Bad:
+
+mbti_mini → mbti_progressive
+
+Reason:
+
+compatibility risk.
+
+Rewrite for cleanliness only
+
+Bad:
+
+big refactor because ugly
+
+Rule:
+
+working > perfect.
+
+Premature abstraction
+
+Bad:
+
+mega framework
+
+Prefer:
+
+duplication until stable
+Fake scientific precision
+
+Bad:
+
+73.8%
+
+if meaningless.
+
+Prefer:
+
+ranking / relative interpretation.
+
+Hardcoded localization
+
+Bad:
+
+Text("คุณคือ...")
+
+Rule:
+
+AppText only
+Horoscope copy
+
+Bad:
+
+born to lead
+
+Prefer:
+
+may prefer structure
+Therapy language creep
+
+Avoid:
+
+trauma
+healing
+inner child
+
+unless intentional.
+
+-------------------------------------------------------------------------------------------
+
+C4. FUSION
+
+features/tests/fusion/
+
+application/
+  fusion_builder.dart          ← deterministic synthesis (FROZEN logic)
+  fusion_lens_loader.dart      ← lens input loader
+
+domain/
+  fusion_lens_models.dart
+
+presentation/
+  fusion_result_page.dart      ← Fusion V1 UI (FROZEN presentation v1)
+  widgets/
+
+i18n (presentation copy):
+  lib/core/i18n/app_text.dart
+  keys: fusion_v11_*
+
+Legacy (kept for compatibility)
+
+application/
+  fusion_engine.dart
+  fusion_synthesis.dart
+  fusion_reflection.dart
+  fusion_guidance.dart
+
+domain/
+  fusion_models.dart
+
+Important:
+
+Current Fusion Result V1 reality mainly uses:
+
+fusion_builder.dart
+fusion_lens_loader.dart
+fusion_lens_models.dart
+fusion_result_page.dart
+AppText fusion_v11_* keys
+
+Presentation spec (frozen):
+
+see section 50.2
+
+Legacy files remain for compatibility / staged migration.
+
+Do NOT aggressively delete.
+-------------------------------------------------------------------------------------------
+
+## REQUIRED CLEANUP / REPLACEMENT NOTES
+
+### Replace obsolete Fusion sections
+
+If old Fusion sections still describe:
+
+Hero
+Reflection
+Pattern
+Guidance
+Why
+
+These are obsolete.
+
+Replace with:
+
+Foundation
+↓
+Lens snapshots
+↓
+Self-discovery status
+↓
+Synthesis
+↓
+Disclosure
+
+Reason:
+
+Fusion V1 reality changed.
+
+Do not keep both mental models.
+
+---
+
+### Remove outdated Fusion assumptions
+
+Remove assumptions such as:
+
+* Fusion requires all tests
+* Fusion is final personality truth
+* Fusion is a mega-report
+* Fusion is AI-generated interpretation
+* Fusion is report aggregation
+
+Replace with:
+
+reflection-based multi-lens synthesis
+
+---
+
+### Update EQ assumptions
+
+If EQ is still described as:
+
+future work
+planned system
+experimental
+
+Update to:
+
+usable+ MVP
+
+temporary freeze
+
+Current reality:
+
+implemented and working
+
+---
+
+### Update roadmap assumptions
+
+If roadmap still prioritizes:
+
+EQ → Fusion → Home
+
+Update to:
+
+Astrology discovery experience
+→ Home cohesion
+→ Fusion v1 frozen (maintenance only)
+→ Big Five
+
+Reason:
+
+current product reality changed
+
+---
+
+### Remove recommendation bias assumptions
+
+If Home sections imply:
+
+recommended next test
+
+hard CTA
+
+forced sequence
+
+remove or rewrite.
+
+Current rule:
+
+soft discovery only
+
+Users choose freely.
+
+---
+
+### Remove polish-loop behavior
+
+Avoid future suggestions like:
+
+* redesign entire Fusion again
+* rewrite EQ again
+* re-polish spacing repeatedly
+* copy tweaking without product impact
+
+Rule:
+
+move product forward
+
+not perfection loop
+
+---
+
+### Final master context rule
+
+When unsure:
+
+prefer implemented reality
+
+over speculative ideas.
+
+Ask:
+
+“What exists in the product today?”
+
+before proposing new architecture.
+
+-------------------------------------------------------------------------------------------
+
+AI COMMUNICATION RULE
+
+Explain in:
+simple language
+easy to understand
+with enough detail
+
+Avoid:
+overly technical wording
+dense engineering jargon
+assuming deep technical knowledge
+
+When discussing architecture:
+explain
+what
+why
+impact
+tradeoff
+
+in plain Thai.
+
+Goal:
+
+user should understand quickly
+without losing important detail
+
+-------------------------------------------------------------------------------------------
+
+
+

@@ -1,0 +1,186 @@
+{
+  "generatedAt": "2026-06-21T07:55:46.839613Z",
+  "populationSize": 1000,
+  "beforeV3": {
+    "uniqueNarratives": 586,
+    "profilesInCollapse": 400,
+    "maxClusterSize": 14,
+    "uniqueSelectionFingerprints": 436
+  },
+  "metrics": {
+    "activePatterns": 30,
+    "uniqueNarratives": 875,
+    "uniqueSelectionFingerprints": 860,
+    "uniquePatternSets": 436,
+    "profilesInCollapse": 76,
+    "maxClusterSize": 6,
+    "totalActivations": 13732,
+    "patternCoverage": 1.0,
+    "deltaUniqueNarratives": 289,
+    "deltaProfilesInCollapse": -324,
+    "deltaMaxCluster": -8,
+    "deltaSelectionFingerprints": 424
+  },
+  "gates": {
+    "uniqueNarrativesGte650": true,
+    "profilesInCollapseLte320": true,
+    "maxClusterLte10": true,
+    "activePatternsGte30": true,
+    "deterministicReplay": true
+  },
+  "allGatesPass": true,
+  "fingerprintAudit": {
+    "topSelectionFingerprints": [
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:directional_meaning|relationship:single:responsive_feeler|relationship:single:calm_regulator|relationship:single:diplomatic_binder|decision:agree...",
+        "profileCount": 6
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:expressive_identity|identity:single:directional_meaning|relationship:single:calm_regulator|relationship:single:responsive_feeler|relationship:sin...",
+        "profileCount": 5
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:directional_meaning|relationship:single:responsive_feeler|relationship:single:calm_regulator|relationship:single:diplomatic_binder|decision:singl...",
+        "profileCount": 4
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:directional_meaning|relationship:blind_spot:ignored_emotional_dimension|relationship:single:responsive_feeler|relationship:single:calm_regulator|...",
+        "profileCount": 4
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:directional_meaning|relationship:blind_spot:ignored_emotional_dimension|relationship:single:responsive_feeler|relationship:single:calm_regulator|...",
+        "profileCount": 4
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:directional_meaning|relationship:single:calm_regulator|relationship:single:responsive_feeler|relationship:single:diplomatic_binder|decision:agree...",
+        "profileCount": 4
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:expressive_identity|identity:single:directional_meaning|relationship:single:responsive_feeler|relationship:single:calm_regulator|relationship:sin...",
+        "profileCount": 4
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:expressive_identity|identity:single:directional_meaning|relationship:blind_spot:ignored_emotional_dimension|relationship:single:relationship_stab...",
+        "profileCount": 4
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:directional_meaning|relationship:blind_spot:ignored_emotional_dimension|relationship:single:responsive_feeler|relationship:single:calm_regulator|...",
+        "profileCount": 4
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:expressive_identity|identity:single:directional_meaning|relationship:single:calm_regulator|relationship:single:responsive_feeler|relationship:sin...",
+        "profileCount": 4
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:directional_meaning|relationship:blind_spot:ignored_emotional_dimension|relationship:single:relationship_stabilizer|relationship:single:diplomati...",
+        "profileCount": 3
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:directional_meaning|relationship:single:calm_regulator|relationship:single:responsive_feeler|relationship:single:diplomatic_binder|decision:singl...",
+        "profileCount": 3
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:directional_meaning|relationship:blind_spot:ignored_emotional_dimension|relationship:single:relationship_stabilizer|relationship:single:diplomati...",
+        "profileCount": 3
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:directional_meaning|relationship:blind_spot:ignored_emotional_dimension|relationship:single:relationship_stabilizer|relationship:single:diplomati...",
+        "profileCount": 3
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:directional_meaning|identity:single:stable_orientation|relationship:single:responsive_feeler|relationship:single:calm_regulator|relationship:sing...",
+        "profileCount": 3
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:directional_meaning|relationship:single:responsive_feeler|relationship:single:calm_regulator|relationship:single:diplomatic_binder|decision:tensi...",
+        "profileCount": 3
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:directional_meaning|relationship:single:responsive_feeler|relationship:single:calm_regulator|relationship:single:diplomatic_binder|growth:single:...",
+        "profileCount": 3
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:directional_meaning|relationship:blind_spot:ignored_emotional_dimension|relationship:single:responsive_feeler|relationship:single:calm_regulator|...",
+        "profileCount": 3
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:meaning_seeker|identity:single:directional_meaning|relationship:single:responsive_feeler|relationship:single:calm_regulator|relationship:single:d...",
+        "profileCount": 3
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:directional_meaning|relationship:blind_spot:relational_hidden_potential|relationship:single:relationship_stabilizer|relationship:single:responsiv...",
+        "profileCount": 3
+      }
+    ]
+  },
+  "topRemainingCollapseClusters": [
+    {
+      "clusterSize": 6,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณไวต่ออ..."
+    },
+    {
+      "clusterSize": 5,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณแสดงตัวตนผ่านการสื่อสารและการปรากฏตัวอย่างชัดเจน — สิ่งที่คุณเป็นมักเห็นได้จากภา..."
+    },
+    {
+      "clusterSize": 4,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณไวต่ออ..."
+    },
+    {
+      "clusterSize": 4,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณมักให้..."
+    },
+    {
+      "clusterSize": 4,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณช่วยให..."
+    },
+    {
+      "clusterSize": 4,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณแสดงตัวตนผ่านการสื่อสารและการปรากฏตัวอย่างชัดเจน — สิ่งที่คุณเป็นมักเห็นได้จากภา..."
+    },
+    {
+      "clusterSize": 4,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณแสดงตัวตนผ่านการสื่อสารและการปรากฏตัวอย่างชัดเจน — สิ่งที่คุณเป็นมักเห็นได้จากภา..."
+    },
+    {
+      "clusterSize": 3,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณช่วยให..."
+    },
+    {
+      "clusterSize": 3,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณมักให้..."
+    },
+    {
+      "clusterSize": 3,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nทิศทางชีว..."
+    },
+    {
+      "clusterSize": 3,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณไวต่ออ..."
+    },
+    {
+      "clusterSize": 3,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณไวต่ออ..."
+    },
+    {
+      "clusterSize": 3,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณมักให้..."
+    },
+    {
+      "clusterSize": 3,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณมักให้..."
+    },
+    {
+      "clusterSize": 3,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณไวต่ออ..."
+    }
+  ],
+  "regressionAudit": {
+    "mirrorUnchanged": true,
+    "gf1FoundationPreserved": true,
+    "humanModelDeterministicOnGf1": true,
+    "patternActivationsStable": true,
+    "activePatternsStable": true,
+    "narrativeDeterministicReplay": true
+  }
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "page": "41",
+    "reason": "OCR_BLOCKED",
+    "note": "jupiter learning rise example"
+  },
+  {
+    "page": "44+",
+    "reason": "MODELING_GAP",
+    "note": "per-period domain effects are compound narrative; no atomic extraction without inference"
+  }
+]

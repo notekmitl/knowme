@@ -15,6 +15,7 @@ import 'package:knowme/data/questions/eq/advanced/eq_decision_20.dart';
 import 'package:knowme/data/questions/mbti/mbti_mini.dart';
 import 'package:knowme/data/questions/mbti/mbti_short.dart';
 import 'package:knowme/data/questions/mbti/mbti_accurate.dart';
+import 'package:knowme/data/questions/mbti/mbti_cognitive.dart';
 
 class QuestionService {
   static final Map<String, List<TestQuestion>> _questionBank = {
@@ -22,6 +23,7 @@ class QuestionService {
     "mbti_mini": mbtiMiniQuestions,
     "mbti_short": mbtiShortQuestions,
     "mbti_accurate": mbtiAccurateQuestions,
+    "mbti_cognitive": mbtiCognitiveQuestions,
 
     /// BIG FIVE
     "bigfive_tipi": tipiQuestions,

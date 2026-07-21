@@ -1,0 +1,58 @@
+{
+  "generatedAt": "2026-06-21T08:07:22.148812Z",
+  "populationSize": 1000,
+  "beforeV5": {
+    "uniqueNarratives": 969,
+    "profilesInCollapse": 12,
+    "maxClusterSize": 3,
+    "uniqueEvidenceFingerprints": 0
+  },
+  "metrics": {
+    "activePatterns": 30,
+    "uniqueNarratives": 1000,
+    "uniqueEvidenceFingerprints": 999,
+    "uniquePatternSets": 436,
+    "profilesInCollapse": 0,
+    "maxClusterSize": 1,
+    "totalActivations": 13732,
+    "patternCoverage": 1.0,
+    "deltaUniqueNarratives": 31,
+    "deltaProfilesInCollapse": -12,
+    "deltaMaxCluster": -2,
+    "deltaEvidenceFingerprints": 999
+  },
+  "gates": {
+    "uniqueNarrativesGte990": true,
+    "profilesInCollapseLte5": true,
+    "maxClusterLte2": true,
+    "narrativeFingerprintsGte990": true,
+    "activePatternsGte30": true,
+    "deterministicReplay": true
+  },
+  "allGatesPass": true,
+  "evidenceAudit": {
+    "topEvidenceEquivalentClusters": [
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:directional_meaning|relationship:single:responsive_feeler|relationship:single:calm_regulator|relationship:single:diplomatic_binder|decision:singl...",
+        "profileCount": 3
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:expressive_identity|identity:single:directional_meaning|relationship:single:responsive_feeler|relationship:single:calm_regulator|relationship:sin...",
+        "profileCount": 3
+      },
+      {
+        "selectionFingerprint": "identity:single:self_directed_identity|identity:single:directional_meaning|relationship:blind_spot:ignored_emotional_dimension|relationship:single:diplomatic_binder|relationship:single:responsive_feel...",
+        "profileCount": 3
+      }
+    ]
+  },
+  "remainingCollapseProfiles": [],
+  "regressionAudit": {
+    "mirrorUnchanged": true,
+    "gf1FoundationPreserved": true,
+    "humanModelDeterministicOnGf1": true,
+    "patternActivationsStable": true,
+    "activePatternsStable": true,
+    "narrativeDeterministicReplay": true
+  }
+}

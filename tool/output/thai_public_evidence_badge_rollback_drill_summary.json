@@ -1,0 +1,25 @@
+{
+  "phase": "Public Evidence Badge Rollback Drill",
+  "featureFlag": "thai_public_evidence_badge_beta",
+  "rollbackAction": "off",
+  "reEnableAction": "internal_only",
+  "fixtureCount": 9,
+  "overallPassed": true,
+  "rollbackOffPassed": true,
+  "reEnableInternalOnlyPassed": true,
+  "fingerprintStableAcrossStates": true,
+  "systemsNotRolledBack": true,
+  "leakageViolations": 0,
+  "totalEligibleBetaBadges": 91,
+  "systemsRolledBack": [],
+  "systemsNotRequiringRollback": [
+    "canon_dataset",
+    "evidence_mapping",
+    "engine",
+    "mirror_copy",
+    "prediction_copy",
+    "thai_beta_report_data",
+    "firestore_data",
+    "public_ui"
+  ]
+}

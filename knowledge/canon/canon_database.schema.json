@@ -1,0 +1,151 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Mahabhut Canon Database",
+  "description": "Normalized multi-book schema for canonical Thai-astrology knowledge. Structural hierarchy Book→Chapter→Section→Topic→KnowledgeUnit, with first-class Evidence, CrossReference and SourceReference. A unit's tier/canonical authority derives from its book's source in canon_sources.json (never self-declared).",
+  "type": "object",
+  "required": ["version"],
+  "properties": {
+    "version": { "type": "integer" },
+    "$comment": { "type": "string" },
+    "books": { "type": "array", "items": { "$ref": "#/definitions/book" } },
+    "chapters": { "type": "array", "items": { "$ref": "#/definitions/chapter" } },
+    "sections": { "type": "array", "items": { "$ref": "#/definitions/section" } },
+    "topics": { "type": "array", "items": { "$ref": "#/definitions/topic" } },
+    "units": { "type": "array", "items": { "$ref": "#/definitions/unit" } },
+    "evidence": { "type": "array", "items": { "$ref": "#/definitions/evidence" } },
+    "crossReferences": { "type": "array", "items": { "$ref": "#/definitions/crossReference" } },
+    "sourceReferences": { "type": "array", "items": { "$ref": "#/definitions/sourceReference" } }
+  },
+  "definitions": {
+    "book": {
+      "type": "object",
+      "required": ["id", "sourceId", "title"],
+      "properties": {
+        "id": { "type": "string" },
+        "sourceId": { "type": "string", "description": "Id in canon_sources.json (authority origin)." },
+        "title": { "type": "string" },
+        "author": { "type": "string" },
+        "edition": { "type": "string" },
+        "publisher": { "type": "string" },
+        "year": { "type": "integer" },
+        "language": { "type": "string" },
+        "isbn": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "chapter": {
+      "type": "object",
+      "required": ["id", "bookId", "title"],
+      "properties": {
+        "id": { "type": "string" },
+        "bookId": { "type": "string" },
+        "number": { "type": "integer" },
+        "title": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "section": {
+      "type": "object",
+      "required": ["id", "chapterId", "bookId", "title"],
+      "properties": {
+        "id": { "type": "string" },
+        "chapterId": { "type": "string" },
+        "bookId": { "type": "string" },
+        "title": { "type": "string" },
+        "topic": { "type": "string" },
+        "pageStart": { "type": "string" },
+        "pageEnd": { "type": "string" },
+        "notes": { "type": "string" }
+      }
+    },
+    "topic": {
+      "type": "object",
+      "required": ["id", "sectionId", "bookId", "title"],
+      "properties": {
+        "id": { "type": "string" },
+        "sectionId": { "type": "string" },
+        "bookId": { "type": "string" },
+        "title": { "type": "string" },
+        "order": { "type": "integer" },
+        "notes": { "type": "string" }
+      }
+    },
+    "location": {
+      "type": "object",
+      "required": ["bookId"],
+      "properties": {
+        "bookId": { "type": "string" },
+        "chapterId": { "type": "string" },
+        "sectionId": { "type": "string" },
+        "topicId": { "type": "string" },
+        "page": { "type": "string" },
+        "position": { "type": "string" }
+      }
+    },
+    "unit": {
+      "type": "object",
+      "required": ["id", "type", "topic", "subject", "statement", "location"],
+      "properties": {
+        "id": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": ["topic", "concept", "rule", "formula", "interpretation", "meaning", "example", "exception", "condition"]
+        },
+        "topic": { "type": "string", "description": "Knowledge domain, e.g. planet_relationship, lagna, bhava." },
+        "subject": { "type": "string", "description": "Entity, e.g. venus->saturn, sun." },
+        "title": { "type": "string" },
+        "statement": { "type": "string" },
+        "value": { "type": "string", "description": "Normalized assertion for rule-type units (e.g. friend); used by Canon V1 resolver." },
+        "confidence": { "type": "string", "enum": ["none", "low", "medium", "high"] },
+        "validationStatus": {
+          "type": "string",
+          "enum": ["draft", "extracted", "reviewed", "validated", "canonApproved"]
+        },
+        "location": { "$ref": "#/definitions/location" },
+        "evidenceIds": { "type": "array", "items": { "type": "string" } },
+        "crossReferenceIds": { "type": "array", "items": { "type": "string" } },
+        "sourceReferenceIds": { "type": "array", "items": { "type": "string" } },
+        "conditions": { "type": "array", "items": { "type": "string" } },
+        "exceptions": { "type": "array", "items": { "type": "string" } },
+        "notes": { "type": "string" }
+      }
+    },
+    "evidence": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": { "type": "string" },
+        "unitId": { "type": "string" },
+        "sourceReferenceId": { "type": "string" },
+        "page": { "type": "string" },
+        "quote": { "type": "string", "description": "Verbatim quote — never summarize a source away." },
+        "note": { "type": "string" }
+      }
+    },
+    "crossReference": {
+      "type": "object",
+      "required": ["id", "fromId", "toId", "type"],
+      "properties": {
+        "id": { "type": "string" },
+        "fromId": { "type": "string" },
+        "toId": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": ["ruleToRule", "conceptToConcept", "chapterToChapter", "conceptToFormula", "formulaToInterpretation", "seeAlso", "refines", "dependsOn", "exampleOf", "contradicts"]
+        },
+        "note": { "type": "string" }
+      }
+    },
+    "sourceReference": {
+      "type": "object",
+      "required": ["id", "sourceId"],
+      "properties": {
+        "id": { "type": "string" },
+        "sourceId": { "type": "string", "description": "Id in canon_sources.json." },
+        "citation": { "type": "string" },
+        "page": { "type": "string" },
+        "note": { "type": "string" }
+      }
+    }
+  }
+}

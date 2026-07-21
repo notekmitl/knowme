@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0",
+  "domain": "knowledge_acquisition",
+  "batchId": "BATCH-YYYY-MM-DD-01",
+  "description": "TEMPLATE — one acquisition batch. Paste real sources here, validate + preview in the Acquisition Dashboard (/internal/knowledge/acquire), review the Import Report, then Apply. The dashboard can export the merged corpus so you can commit it back into knowledge/evidence/evidence.knowme.json and knowledge/research/research.knowme.json. Never invent references. Importing does NOT change the PlanetRelationshipMatrix.",
+  "evidence": [
+    {
+      "id": "EV-0001",
+      "sourceType": "book",
+      "school": "thaiTraditional",
+      "author": "<author name>",
+      "book": "<text title>",
+      "edition": null,
+      "publisher": null,
+      "year": null,
+      "page": null,
+      "language": "th",
+      "quote": "<short verbatim quote or null>",
+      "summary": "<one-line paraphrase or null>",
+      "url": null,
+      "license": null,
+      "reviewStatus": "draft",
+      "reviewer": null,
+      "createdAt": null,
+      "updatedAt": null,
+      "notes": null
+    }
+  ],
+  "research": [
+    {
+      "id": "RR-0001",
+      "topic": "planet_relationship",
+      "entity": "Saturn-Venus",
+      "interpretation": "<what the source says, in your words>",
+      "relationship": [
+        { "from": "saturn", "to": "venus", "relation": "friend" },
+        { "from": "venus", "to": "saturn", "relation": "friend" }
+      ],
+      "evidenceIds": ["EV-0001"],
+      "confidence": "low",
+      "reviewedBy": null,
+      "status": "draft",
+      "notes": null
+    }
+  ]
+}

@@ -1,40 +1,152 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-
-  <meta name="google-signin-client_id"
-    content="849467635265-pdm5qmdrppdh21dvmfit8jk5ivlm7nf3.apps.googleusercontent.com">
-
   <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="KnowMe App">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="KnowMe — self-understanding through astrology, personality, and narrative.">
 
-  <!-- iOS -->
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="knowme">
+  <meta name="apple-mobile-web-app-title" content="KnowMe">
 
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
-
-  <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png" />
 
   <title>KnowMe</title>
-
   <link rel="manifest" href="manifest.json">
-
+  <style>
+    /*
+      Applied only when Thai Beta Report screenshot mode is active.
+      Lets GoFullPage scroll the document instead of a nested Flutter viewport.
+    */
+    html.screenshot-friendly {
+      height: auto !important;
+      min-height: var(--thai-beta-report-host-height, 100vh) !important;
+      max-height: none !important;
+      overflow-y: auto !important;
+      overflow-x: hidden !important;
+    }
+    html.screenshot-friendly body {
+      height: auto !important;
+      min-height: var(--thai-beta-report-host-height, 100vh) !important;
+      max-height: none !important;
+      overflow: visible !important;
+    }
+    html.screenshot-friendly flt-glass-pane,
+    html.screenshot-friendly flutter-view,
+    html.screenshot-friendly flt-scene-host,
+    html.screenshot-friendly #flutter_target {
+      height: auto !important;
+      min-height: var(--thai-beta-report-host-height, 100vh) !important;
+      max-height: none !important;
+      overflow: visible !important;
+      overflow-y: visible !important;
+      contain: none !important;
+    }
+  </style>
 </head>
-
 <body>
+  <!--
+    Production-first QA: the Flutter service worker is intentionally DISABLED.
 
-  
+    The SW (deprecated in this Flutter version) is the reason a freshly deployed
+    build required Ctrl+Shift+R / incognito to appear. With no SW registered,
+    index.html + main.dart.js are always fetched fresh (both are served
+    `no-cache` by firebase.json), so the latest production build activates
+    automatically on the next normal page load.
 
-  <!-- FLUTTER -->
+    The inline script below also removes any previously-installed worker and its
+    caches for returning users, so existing devices self-heal once.
+  -->
+  <script>
+    (function () {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations()
+          .then(function (registrations) {
+            registrations.forEach(function (registration) {
+              registration.unregister();
+            });
+          })
+          .catch(function () {});
+      }
+      if (window.caches && caches.keys) {
+        caches.keys()
+          .then(function (keys) {
+            keys.forEach(function (key) { caches.delete(key); });
+          })
+          .catch(function () {});
+      }
+    })();
+  </script>
+
+  <script>
+  window.__clearScreenshotHeightStyles = function (el) {
+    if (!el) return;
+    el.style.removeProperty('height');
+    el.style.removeProperty('min-height');
+    el.style.removeProperty('max-height');
+    el.style.removeProperty('overflow');
+    el.style.removeProperty('overflow-y');
+    el.style.removeProperty('overflow-x');
+    el.style.removeProperty('contain');
+  };
+
+  window.__resetThaiBetaScreenshotHost = function () {
+    var root = document.documentElement;
+    root.style.removeProperty('--thai-beta-report-host-height');
+    root.style.removeProperty('--thai-beta-report-content-height');
+    window.__clearScreenshotHeightStyles(root);
+    window.__clearScreenshotHeightStyles(document.body);
+    ['flt-glass-pane', 'flutter-view', 'flt-scene-host', '#flutter_target'].forEach(function (selector) {
+      document.querySelectorAll(selector).forEach(window.__clearScreenshotHeightStyles);
+    });
+  };
+
+  window.__syncThaiBetaScreenshotHost = function (heightPx) {
+    var hostHeight = Math.max(heightPx || 0, 0);
+    var heightValue = hostHeight + 'px';
+    var root = document.documentElement;
+    root.style.setProperty('--thai-beta-report-host-height', heightValue);
+    root.style.setProperty('--thai-beta-report-content-height', heightValue);
+
+    [root, document.body].forEach(function (el) {
+      if (!el) return;
+      el.style.setProperty('height', 'auto', 'important');
+      el.style.setProperty('min-height', heightValue, 'important');
+      el.style.setProperty('max-height', 'none', 'important');
+      if (el === document.body) {
+        el.style.setProperty('overflow', 'visible', 'important');
+      } else {
+        el.style.setProperty('overflow-y', 'auto', 'important');
+        el.style.setProperty('overflow-x', 'hidden', 'important');
+      }
+    });
+
+    ['flt-glass-pane', 'flutter-view', 'flt-scene-host', '#flutter_target'].forEach(function (selector) {
+      document.querySelectorAll(selector).forEach(function (el) {
+        el.style.setProperty('height', 'auto', 'important');
+        el.style.setProperty('min-height', heightValue, 'important');
+        el.style.setProperty('max-height', 'none', 'important');
+        el.style.setProperty('overflow', 'visible', 'important');
+        el.style.setProperty('overflow-y', 'visible', 'important');
+        el.style.setProperty('contain', 'none', 'important');
+      });
+    });
+  };
+  </script>
+
+  <!--
+    Standard Flutter bootstrap: flutter_bootstrap.js carries the correct
+    `_flutter.buildConfig` + entrypoint, so the engine always boots. The inline
+    script above unregisters any service worker and clears its caches on every
+    load, so a returning user self-heals to the freshly deployed build, and new
+    users never keep a persistent worker. Combined with the `no-cache` headers
+    in firebase.json, the latest build activates on a normal load — no
+    Ctrl+Shift+R / incognito needed.
+  -->
   <script src="flutter_bootstrap.js" async></script>
-
 </body>
-
 </html>

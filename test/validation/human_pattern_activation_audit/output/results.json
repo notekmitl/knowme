@@ -1,0 +1,2405 @@
+{
+  "version": "human_pattern_activation_audit_v1",
+  "generatedAt": "2026-06-28T06:34:37.153460Z",
+  "populationSize": 200,
+  "auditA_patternDeadZones": {
+    "populationSize": 200,
+    "neverActivatedCount": 19,
+    "entries": [
+      {
+        "patternId": "transformation_seeker",
+        "label": "Transformation Seeker",
+        "patternFamilyId": "growth_style",
+        "dimension": "growth",
+        "activationCount": 0,
+        "activationRule": {
+          "ruleId": "growth_transformation",
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_TRANSFORMATION_PATTERN",
+          "requiredDimensionKey": "growth",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_TRANSFORMATION_PATTERN",
+          "requiredDimensionKey": "growth",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2
+        },
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 200
+        },
+        "sourceResolutionRate": 0.0,
+        "rulePassRate": 0.0,
+        "theoreticallyPossible": false,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "visible_identity",
+        "label": "Visible Identity",
+        "patternFamilyId": "identity_style",
+        "dimension": "identity",
+        "activationCount": 0,
+        "activationRule": {
+          "ruleId": "identity_visible",
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_PUBLIC_VISIBILITY",
+          "requiredDimensionKey": "identity",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_PUBLIC_VISIBILITY",
+          "requiredDimensionKey": "identity",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2
+        },
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 200
+        },
+        "sourceResolutionRate": 0.0,
+        "rulePassRate": 0.0,
+        "theoreticallyPossible": false,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "purpose_driven_motivation",
+        "label": "Purpose-Driven Motivation",
+        "patternFamilyId": "motivation_style",
+        "dimension": "motivation",
+        "activationCount": 0,
+        "activationRule": {
+          "ruleId": "motivation_purpose",
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_LIFE_DIRECTION",
+          "requiredDimensionKey": "motivation",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_LIFE_DIRECTION",
+          "requiredDimensionKey": "motivation",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2
+        },
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 200
+        },
+        "sourceResolutionRate": 0.0,
+        "rulePassRate": 0.0,
+        "theoreticallyPossible": false,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "resource_oriented_motivation",
+        "label": "Resource-Oriented Motivation",
+        "patternFamilyId": "motivation_style",
+        "dimension": "motivation",
+        "activationCount": 0,
+        "activationRule": {
+          "ruleId": "motivation_resource",
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_RESOURCE_ORIENTATION",
+          "requiredDimensionKey": "motivation",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_RESOURCE_ORIENTATION",
+          "requiredDimensionKey": "motivation",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2
+        },
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 200
+        },
+        "sourceResolutionRate": 0.0,
+        "rulePassRate": 0.0,
+        "theoreticallyPossible": false,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "adaptive_creator",
+        "label": "Adaptive Creator",
+        "patternFamilyId": "motivation_style",
+        "dimension": "motivation",
+        "activationCount": 0,
+        "activationRule": {
+          "ruleId": "motivation_adaptive_creator",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.15,
+          "sourceHumanPatternKey": "adaptive_creator",
+          "requiredMirrorKey": "MIRROR_GROWTH_ORIENTATION",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "reinforcement"
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": "adaptive_creator",
+          "requiredMirrorKey": "MIRROR_GROWTH_ORIENTATION",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "reinforcement",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.15
+        },
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 200
+        },
+        "sourceResolutionRate": 0.0,
+        "rulePassRate": 0.0,
+        "theoreticallyPossible": false,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "structured_explorer",
+        "label": "Structured Explorer",
+        "patternFamilyId": "thinking_style",
+        "dimension": "thinking",
+        "activationCount": 0,
+        "activationRule": {
+          "ruleId": "thinking_structured_explorer",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.15,
+          "sourceHumanPatternKey": "structured_explorer",
+          "requiredMirrorKey": "MIRROR_BELIEF_STRUCTURE",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "agreement"
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": "structured_explorer",
+          "requiredMirrorKey": "MIRROR_BELIEF_STRUCTURE",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "agreement",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.15
+        },
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 200
+        },
+        "sourceResolutionRate": 0.0,
+        "rulePassRate": 0.0,
+        "theoreticallyPossible": false,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "reflective_builder",
+        "label": "Reflective Builder",
+        "patternFamilyId": "thinking_style",
+        "dimension": "thinking",
+        "activationCount": 0,
+        "activationRule": {
+          "ruleId": "thinking_reflective_builder",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.15,
+          "sourceHumanPatternKey": "reflective_builder",
+          "requiredMirrorKey": "MIRROR_INNER_WORLD",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "reinforcement"
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": "reflective_builder",
+          "requiredMirrorKey": "MIRROR_INNER_WORLD",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "reinforcement",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.15
+        },
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 200
+        },
+        "sourceResolutionRate": 0.0,
+        "rulePassRate": 0.0,
+        "theoreticallyPossible": false,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "belief_architect",
+        "label": "Belief Architect",
+        "patternFamilyId": "thinking_style",
+        "dimension": "thinking",
+        "activationCount": 0,
+        "activationRule": {
+          "ruleId": "thinking_belief_architect",
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_BELIEF_STRUCTURE",
+          "requiredDimensionKey": "thinking",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_BELIEF_STRUCTURE",
+          "requiredDimensionKey": "thinking",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2
+        },
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 200
+        },
+        "sourceResolutionRate": 0.0,
+        "rulePassRate": 0.0,
+        "theoreticallyPossible": false,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "emotional_depth",
+        "label": "Emotional Depth",
+        "patternFamilyId": "emotional_style",
+        "dimension": "emotion",
+        "activationCount": 0,
+        "activationRule": {
+          "ruleId": "emotion_depth",
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_INNER_WORLD",
+          "requiredDimensionKey": "emotion",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_INNER_WORLD",
+          "requiredDimensionKey": "emotion",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2
+        },
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 200
+        },
+        "sourceResolutionRate": 0.0,
+        "rulePassRate": 0.0,
+        "theoreticallyPossible": false,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "asymmetric_identity_development",
+        "label": "Asymmetric Identity Development",
+        "patternFamilyId": "blind_spot_pattern",
+        "dimension": "identity",
+        "activationCount": 0,
+        "activationRule": {
+          "ruleId": "blind_spot_identity_asymmetric",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_PUBLIC_VISIBILITY",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "blind_spot"
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_PUBLIC_VISIBILITY",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "blind_spot",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1
+        },
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 200
+        },
+        "sourceResolutionRate": 0.0,
+        "rulePassRate": 0.0,
+        "theoreticallyPossible": false,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "relationship_stabilizer",
+        "label": "Relationship Stabilizer",
+        "patternFamilyId": "relationship_style",
+        "dimension": "relationship",
+        "activationCount": 0,
+        "activationRule": {
+          "ruleId": "relationship_stabilizer",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.15,
+          "sourceHumanPatternKey": "relationship_stabilizer",
+          "requiredMirrorKey": "MIRROR_RELATIONAL_PATTERN",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "agreement"
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": "relationship_stabilizer",
+          "requiredMirrorKey": "MIRROR_RELATIONAL_PATTERN",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "agreement",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.15
+        },
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 200
+        },
+        "sourceResolutionRate": 0.0,
+        "rulePassRate": 0.0,
+        "theoreticallyPossible": false,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "stable_orientation",
+        "label": "Stable Orientation",
+        "patternFamilyId": "growth_edge_pattern",
+        "dimension": "meaning",
+        "activationCount": 0,
+        "activationRule": {
+          "ruleId": "growth_edge_stable_orientation",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.1,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_LIFE_DIRECTION",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "reinforcement"
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_LIFE_DIRECTION",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "reinforcement",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.1
+        },
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 200
+        },
+        "sourceResolutionRate": 0.0,
+        "rulePassRate": 0.0,
+        "theoreticallyPossible": false,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "identity_dual_signal",
+        "label": "Identity Dual Signal",
+        "patternFamilyId": "conflict_pattern",
+        "dimension": "identity",
+        "activationCount": 0,
+        "activationRule": {
+          "ruleId": "conflict_identity_dual",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_SELF_IDENTITY",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "tension"
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_SELF_IDENTITY",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "tension",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1
+        },
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 200
+        },
+        "sourceResolutionRate": 0.0,
+        "rulePassRate": 0.0,
+        "theoreticallyPossible": false,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "structured_operator",
+        "label": "Structured Operator",
+        "patternFamilyId": "decision_style",
+        "dimension": "action",
+        "activationCount": 0,
+        "activationRule": {
+          "ruleId": "action_structured_operator",
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_STRUCTURE_PATTERN",
+          "requiredDimensionKey": "action",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_STRUCTURE_PATTERN",
+          "requiredDimensionKey": "action",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2
+        },
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 200
+        },
+        "sourceResolutionRate": 0.0,
+        "rulePassRate": 0.0,
+        "theoreticallyPossible": false,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "belief_meaning",
+        "label": "Belief Meaning",
+        "patternFamilyId": "meaning_style",
+        "dimension": "meaning",
+        "activationCount": 0,
+        "activationRule": {
+          "ruleId": "meaning_belief",
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_BELIEF_STRUCTURE",
+          "requiredDimensionKey": "meaning",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_BELIEF_STRUCTURE",
+          "requiredDimensionKey": "meaning",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2
+        },
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 200
+        },
+        "sourceResolutionRate": 0.0,
+        "rulePassRate": 0.0,
+        "theoreticallyPossible": false,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "progressive_builder",
+        "label": "Progressive Builder",
+        "patternFamilyId": "growth_style",
+        "dimension": "growth",
+        "activationCount": 0,
+        "activationRule": {
+          "ruleId": "growth_progressive_builder",
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_GROWTH_ORIENTATION",
+          "requiredDimensionKey": "growth",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_GROWTH_ORIENTATION",
+          "requiredDimensionKey": "growth",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2
+        },
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 200
+        },
+        "sourceResolutionRate": 0.0,
+        "rulePassRate": 0.0,
+        "theoreticallyPossible": false,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "internal_conflict_thinker",
+        "label": "Internal Conflict Thinker",
+        "patternFamilyId": "conflict_pattern",
+        "dimension": "thinking",
+        "activationCount": 0,
+        "activationRule": {
+          "ruleId": "conflict_internal_thinker",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_THINKING_PATTERN",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "tension"
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_THINKING_PATTERN",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "tension",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1
+        },
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 200
+        },
+        "sourceResolutionRate": 0.0,
+        "rulePassRate": 0.0,
+        "theoreticallyPossible": false,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "adaptive_growth",
+        "label": "Adaptive Growth",
+        "patternFamilyId": "growth_style",
+        "dimension": "growth",
+        "activationCount": 0,
+        "activationRule": {
+          "ruleId": "growth_adaptive",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.15,
+          "sourceHumanPatternKey": "adaptive_creator",
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "growth",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": "adaptive_creator",
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "growth",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.15
+        },
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 200
+        },
+        "sourceResolutionRate": 0.0,
+        "rulePassRate": 0.0,
+        "theoreticallyPossible": false,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "meaning_seeker",
+        "label": "Meaning Seeker",
+        "patternFamilyId": "meaning_style",
+        "dimension": "meaning",
+        "activationCount": 0,
+        "activationRule": {
+          "ruleId": "meaning_seeker",
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_LIFE_DIRECTION",
+          "requiredDimensionKey": "meaning",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_LIFE_DIRECTION",
+          "requiredDimensionKey": "meaning",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2
+        },
+        "deadZoneClass": "D_structurally_impossible",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 200
+        },
+        "sourceResolutionRate": 0.0,
+        "rulePassRate": 0.0,
+        "theoreticallyPossible": false,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "purpose_guide",
+        "label": "Purpose Guide",
+        "patternFamilyId": "theme_coverage_pattern",
+        "dimension": "meaning",
+        "activationCount": 15,
+        "activationRule": {
+          "ruleId": "theme_purpose_guide",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1,
+          "sourceHumanPatternKey": "theme_teacher_guiding_influence",
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "meaning",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": "theme_teacher_guiding_influence",
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "meaning",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 185,
+          "activated": 15
+        },
+        "sourceResolutionRate": 0.075,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "guiding_teacher",
+        "label": "Guiding Teacher",
+        "patternFamilyId": "theme_coverage_pattern",
+        "dimension": "growth",
+        "activationCount": 15,
+        "activationRule": {
+          "ruleId": "theme_guiding_teacher",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1,
+          "sourceHumanPatternKey": "theme_teacher_guiding_influence",
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "growth",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": "theme_teacher_guiding_influence",
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "growth",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 185,
+          "activated": 15
+        },
+        "sourceResolutionRate": 0.075,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "independent_decision_maker",
+        "label": "Independent Decision Maker",
+        "patternFamilyId": "decision_style",
+        "dimension": "action",
+        "activationCount": 17,
+        "activationRule": {
+          "ruleId": "action_independent_decision",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.15,
+          "sourceHumanPatternKey": "independent_decision_maker",
+          "requiredMirrorKey": "MIRROR_ACTION_STYLE",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "agreement"
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": "independent_decision_maker",
+          "requiredMirrorKey": "MIRROR_ACTION_STYLE",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "agreement",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.15
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 183,
+          "activated": 17
+        },
+        "sourceResolutionRate": 0.085,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_variantb"
+        ]
+      },
+      {
+        "patternId": "structured_builder_thinker",
+        "label": "Structured Builder Thinker",
+        "patternFamilyId": "theme_coverage_pattern",
+        "dimension": "thinking",
+        "activationCount": 19,
+        "activationRule": {
+          "ruleId": "theme_structured_builder_thinker",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.12,
+          "sourceHumanPatternKey": "theme_builder_constructive_force",
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "thinking",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": "theme_builder_constructive_force",
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "thinking",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.12
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 181,
+          "activated": 19
+        },
+        "sourceResolutionRate": 0.095,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "constructive_builder",
+        "label": "Constructive Builder",
+        "patternFamilyId": "theme_coverage_pattern",
+        "dimension": "action",
+        "activationCount": 19,
+        "activationRule": {
+          "ruleId": "theme_constructive_builder",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.12,
+          "sourceHumanPatternKey": "theme_builder_constructive_force",
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "action",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": "theme_builder_constructive_force",
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "action",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.12
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 181,
+          "activated": 19
+        },
+        "sourceResolutionRate": 0.095,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "relational_hidden_potential",
+        "label": "Relational Hidden Potential",
+        "patternFamilyId": "blind_spot_pattern",
+        "dimension": "relationship",
+        "activationCount": 27,
+        "activationRule": {
+          "ruleId": "blind_spot_relational_hidden",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1,
+          "sourceHumanPatternKey": "blind_spot_relational_pattern_hidden_potential",
+          "requiredMirrorKey": "MIRROR_RELATIONAL_PATTERN",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "blind_spot"
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": "blind_spot_relational_pattern_hidden_potential",
+          "requiredMirrorKey": "MIRROR_RELATIONAL_PATTERN",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "blind_spot",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "activated": 27,
+          "no_source_pattern": 173
+        },
+        "sourceResolutionRate": 0.135,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta",
+          "builder_variantd"
+        ]
+      },
+      {
+        "patternId": "growth_edge_from_tension",
+        "label": "Growth Edge From Tension",
+        "patternFamilyId": "growth_edge_pattern",
+        "dimension": "growth",
+        "activationCount": 34,
+        "activationRule": {
+          "ruleId": "growth_edge_from_theme_tension",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1,
+          "sourceHumanPatternKey": "tension_action_style_growth_edge",
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "growth",
+          "requiredFusionFindingType": "tension"
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": "tension_action_style_growth_edge",
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "growth",
+          "requiredFusionFindingType": "tension",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 140,
+          "dimension_activation_below_min": 26,
+          "activated": 34
+        },
+        "sourceResolutionRate": 0.3,
+        "rulePassRate": 0.5666666666666667,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "growth_edge_builder",
+        "label": "Growth Edge Builder",
+        "patternFamilyId": "growth_edge_pattern",
+        "dimension": "growth",
+        "activationCount": 34,
+        "activationRule": {
+          "ruleId": "growth_edge_action_tension",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1,
+          "sourceHumanPatternKey": "tension_action_style_growth_edge",
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "growth",
+          "requiredFusionFindingType": "tension"
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": "tension_action_style_growth_edge",
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "growth",
+          "requiredFusionFindingType": "tension",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 140,
+          "dimension_activation_below_min": 26,
+          "activated": 34
+        },
+        "sourceResolutionRate": 0.3,
+        "rulePassRate": 0.5666666666666667,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "dual_nature_actor",
+        "label": "Dual Nature Actor",
+        "patternFamilyId": "conflict_pattern",
+        "dimension": "action",
+        "activationCount": 60,
+        "activationRule": {
+          "ruleId": "conflict_dual_nature_actor",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1,
+          "sourceHumanPatternKey": "tension_action_style_growth_edge",
+          "requiredMirrorKey": "MIRROR_ACTION_STYLE",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "tension"
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": "tension_action_style_growth_edge",
+          "requiredMirrorKey": "MIRROR_ACTION_STYLE",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "tension",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 140,
+          "activated": 60
+        },
+        "sourceResolutionRate": 0.3,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_variantb"
+        ]
+      },
+      {
+        "patternId": "accountable_operator",
+        "label": "Accountable Operator",
+        "patternFamilyId": "theme_coverage_pattern",
+        "dimension": "action",
+        "activationCount": 60,
+        "activationRule": {
+          "ruleId": "theme_accountable_operator",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.12,
+          "sourceHumanPatternKey": "theme_responsible_accountable_operator",
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "action",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": "theme_responsible_accountable_operator",
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "action",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.12
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 140,
+          "activated": 60
+        },
+        "sourceResolutionRate": 0.3,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_variantb"
+        ]
+      },
+      {
+        "patternId": "stable_accountability",
+        "label": "Stable Accountability",
+        "patternFamilyId": "theme_coverage_pattern",
+        "dimension": "motivation",
+        "activationCount": 60,
+        "activationRule": {
+          "ruleId": "theme_stable_accountability",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1,
+          "sourceHumanPatternKey": "theme_responsible_accountable_operator",
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "motivation",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": "theme_responsible_accountable_operator",
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "motivation",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 140,
+          "activated": 60
+        },
+        "sourceResolutionRate": 0.3,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_variantb"
+        ]
+      },
+      {
+        "patternId": "supportive_connector",
+        "label": "Supportive Connector",
+        "patternFamilyId": "relationship_style",
+        "dimension": "relationship",
+        "activationCount": 69,
+        "activationRule": {
+          "ruleId": "relationship_supportive",
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_SUPPORT_PATTERN",
+          "requiredDimensionKey": "relationship",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_SUPPORT_PATTERN",
+          "requiredDimensionKey": "relationship",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 131,
+          "activated": 69
+        },
+        "sourceResolutionRate": 0.345,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "expressive_identity",
+        "label": "Expressive Identity",
+        "patternFamilyId": "identity_style",
+        "dimension": "identity",
+        "activationCount": 71,
+        "activationRule": {
+          "ruleId": "identity_expressive",
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_SELF_EXPRESSION",
+          "requiredDimensionKey": "identity",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_SELF_EXPRESSION",
+          "requiredDimensionKey": "identity",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 129,
+          "activated": 71
+        },
+        "sourceResolutionRate": 0.355,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_varianta"
+        ]
+      },
+      {
+        "patternId": "ignored_emotional_dimension",
+        "label": "Ignored Emotional Dimension",
+        "patternFamilyId": "blind_spot_pattern",
+        "dimension": "emotion",
+        "activationCount": 117,
+        "activationRule": {
+          "ruleId": "blind_spot_emotional_ignored",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_EMOTIONAL_PATTERN",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "blind_spot"
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_EMOTIONAL_PATTERN",
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "blind_spot",
+          "minPatternStrength": 0.35,
+          "minDimensionActivation": 0.1
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "activated": 117,
+          "no_source_pattern": 83
+        },
+        "sourceResolutionRate": 0.585,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "architect_variantb",
+          "architect_variantc",
+          "architect_variantd",
+          "builder_variantd",
+          "teacher_variantb"
+        ]
+      },
+      {
+        "patternId": "analytical_thinker",
+        "label": "Analytical Thinker",
+        "patternFamilyId": "thinking_style",
+        "dimension": "thinking",
+        "activationCount": 132,
+        "activationRule": {
+          "ruleId": "thinking_analytical",
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_THINKING_PATTERN",
+          "requiredDimensionKey": "thinking",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_THINKING_PATTERN",
+          "requiredDimensionKey": "thinking",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "activated": 132,
+          "no_source_pattern": 68
+        },
+        "sourceResolutionRate": 0.66,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "builder_variantc",
+          "builder_variantd",
+          "caregiver_varianta",
+          "caregiver_variantc",
+          "creator_varianta"
+        ]
+      },
+      {
+        "patternId": "decisive_actor",
+        "label": "Decisive Actor",
+        "patternFamilyId": "decision_style",
+        "dimension": "action",
+        "activationCount": 163,
+        "activationRule": {
+          "ruleId": "action_decisive",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.15,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "action",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "action",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.15
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "activated": 163,
+          "no_source_pattern": 37
+        },
+        "sourceResolutionRate": 0.815,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "caregiver_varianta",
+          "creator_varianta",
+          "entrepreneur_variantb",
+          "entrepreneur_variantc",
+          "entrepreneur_variantd"
+        ]
+      },
+      {
+        "patternId": "reinforced_strength",
+        "label": "Reinforced Strength",
+        "patternFamilyId": "growth_edge_pattern",
+        "dimension": "motivation",
+        "activationCount": 164,
+        "activationRule": {
+          "ruleId": "growth_edge_reinforced_strength",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.1,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "reinforcement"
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": null,
+          "requiredFusionFindingType": "reinforcement",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.1
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "no_source_pattern": 36,
+          "activated": 164
+        },
+        "sourceResolutionRate": 0.82,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "architect_varianta",
+          "teacher_varianta",
+          "teacher_variantd",
+          "leader_variantb",
+          "leader_variantc"
+        ]
+      },
+      {
+        "patternId": "responsive_feeler",
+        "label": "Responsive Feeler",
+        "patternFamilyId": "emotional_style",
+        "dimension": "emotion",
+        "activationCount": 166,
+        "activationRule": {
+          "ruleId": "emotion_responsive",
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_EMOTIONAL_PATTERN",
+          "requiredDimensionKey": "emotion",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_EMOTIONAL_PATTERN",
+          "requiredDimensionKey": "emotion",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "activated": 166,
+          "no_source_pattern": 34
+        },
+        "sourceResolutionRate": 0.83,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "architect_variantd",
+          "teacher_variantd",
+          "caregiver_variantb",
+          "caregiver_variantd",
+          "explorer_variantd"
+        ]
+      },
+      {
+        "patternId": "self_directed_identity",
+        "label": "Self-Directed Identity",
+        "patternFamilyId": "identity_style",
+        "dimension": "identity",
+        "activationCount": 180,
+        "activationRule": {
+          "ruleId": "identity_self_directed",
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_SELF_IDENTITY",
+          "requiredDimensionKey": "identity",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": "MIRROR_SELF_IDENTITY",
+          "requiredDimensionKey": "identity",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.25,
+          "minDimensionActivation": 0.2
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "activated": 180,
+          "no_source_pattern": 20
+        },
+        "sourceResolutionRate": 0.9,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "teacher_varianta",
+          "teacher_variantc",
+          "teacher_variantd",
+          "explorer_variantb",
+          "leader_varianta"
+        ]
+      },
+      {
+        "patternId": "calm_regulator",
+        "label": "Calm Regulator",
+        "patternFamilyId": "emotional_style",
+        "dimension": "emotion",
+        "activationCount": 184,
+        "activationRule": {
+          "ruleId": "emotion_calm_regulator",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.15,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "emotion",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "emotion",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.15
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "activated": 184,
+          "no_source_pattern": 16
+        },
+        "sourceResolutionRate": 0.92,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "architect_variantd",
+          "caregiver_variantd",
+          "entrepreneur_varianta",
+          "strategist_variantc",
+          "strategist_variantd"
+        ]
+      },
+      {
+        "patternId": "diplomatic_binder",
+        "label": "Diplomatic Binder",
+        "patternFamilyId": "relationship_style",
+        "dimension": "relationship",
+        "activationCount": 186,
+        "activationRule": {
+          "ruleId": "relationship_diplomatic",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.15,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "relationship",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "relationship",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.15
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "activated": 186,
+          "no_source_pattern": 14
+        },
+        "sourceResolutionRate": 0.93,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "architect_variantd",
+          "entrepreneur_varianta",
+          "strategist_variantc",
+          "strategist_variantd",
+          "innovator_variantd"
+        ]
+      },
+      {
+        "patternId": "directional_meaning",
+        "label": "Directional Meaning",
+        "patternFamilyId": "meaning_style",
+        "dimension": "meaning",
+        "activationCount": 195,
+        "activationRule": {
+          "ruleId": "meaning_directional",
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.15,
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "meaning",
+          "requiredFusionFindingType": null
+        },
+        "requiredInputs": {
+          "sourceHumanPatternKey": null,
+          "requiredMirrorKey": null,
+          "requiredDimensionKey": "meaning",
+          "requiredFusionFindingType": null,
+          "minPatternStrength": 0.2,
+          "minDimensionActivation": 0.15
+        },
+        "deadZoneClass": "A_active_but_rare",
+        "primaryBlockReason": "no_source_pattern",
+        "outcomeDistribution": {
+          "activated": 195,
+          "no_source_pattern": 5
+        },
+        "sourceResolutionRate": 0.975,
+        "rulePassRate": 1.0,
+        "theoreticallyPossible": true,
+        "sampleBlockingProfiles": [
+          "mentor_variantd",
+          "diplomat_variantc",
+          "diplomat_variantd",
+          "commander_variantc",
+          "commander_variantd"
+        ]
+      }
+    ]
+  },
+  "auditB_eqSignalSurvival": {
+    "populationSize": 200,
+    "eqLayerCounts": {
+      "mirror_input": 199,
+      "mirror_snapshot": 199,
+      "fusion": 122,
+      "human_model": 122,
+      "human_pattern": 208,
+      "narrative": 195
+    },
+    "eqSurvivalRates": {
+      "mirror_input": 1.0,
+      "mirror_snapshot": 1.0,
+      "fusion": 0.6130653266331658,
+      "human_model": 0.6130653266331658,
+      "human_pattern": 1.0452261306532664,
+      "narrative": 0.9798994974874372
+    },
+    "eqLossRates": {
+      "mirror_input": 0.0,
+      "mirror_snapshot": 0.0,
+      "fusion": 0.3869346733668342,
+      "human_model": 0.3869346733668342,
+      "human_pattern": -0.045226130653266416,
+      "narrative": 0.02010050251256279
+    },
+    "referenceSystemLayers": {
+      "mirror_input": {
+        "knowme_mirror": 2197,
+        "thai_astrology": 965,
+        "mbti": 1096,
+        "big_five": 1361,
+        "eq": 199
+      },
+      "mirror_snapshot": {
+        "knowme_mirror": 2197,
+        "thai_astrology": 965,
+        "mbti": 1096,
+        "big_five": 1361,
+        "eq": 199
+      },
+      "fusion": {
+        "big_five": 1000,
+        "thai_astrology": 856,
+        "knowme_mirror": 986,
+        "eq": 122,
+        "mbti": 984
+      },
+      "human_model": {
+        "global_fusion": 406,
+        "knowme_mirror": 1076,
+        "mbti": 1126,
+        "thai_astrology": 909,
+        "big_five": 1146,
+        "eq": 122
+      },
+      "human_pattern": {
+        "global_fusion": 878,
+        "big_five": 1902,
+        "thai_astrology": 1484,
+        "knowme_mirror": 1666,
+        "eq": 208,
+        "mbti": 1834
+      },
+      "narrative": {
+        "global_fusion": 652,
+        "thai_astrology": 1240,
+        "knowme_mirror": 1276,
+        "big_five": 1417,
+        "mbti": 1339,
+        "eq": 195
+      }
+    },
+    "primaryEqLossLayer": "mirror_snapshot→fusion",
+    "profilesWithZeroEqAtNarrative": 151
+  },
+  "auditC_narrativeCollapse": {
+    "populationSize": 200,
+    "layerUniques": {
+      "mirror": 200,
+      "fusion": 200,
+      "human_model": 200,
+      "human_pattern": 89,
+      "narrative": 199
+    },
+    "layerCompressionRatios": {
+      "mirror": 1.0,
+      "fusion": 1.0,
+      "human_model": 1.0,
+      "human_pattern": 0.445,
+      "narrative": 0.995
+    },
+    "collapseZoneCount": 0,
+    "primaryCollapseStage": "human_model→human_pattern",
+    "collapseZones": []
+  },
+  "auditD_systemDominance": {
+    "populationSize": 200,
+    "layerSystemCounts": {
+      "mirror_input": {
+        "knowme_mirror": 2197,
+        "thai_astrology": 965,
+        "mbti": 1096,
+        "big_five": 1361,
+        "eq": 199
+      },
+      "mirror_snapshot": {
+        "knowme_mirror": 2197,
+        "thai_astrology": 965,
+        "mbti": 1096,
+        "big_five": 1361,
+        "eq": 199
+      },
+      "fusion": {
+        "big_five": 1000,
+        "thai_astrology": 856,
+        "knowme_mirror": 986,
+        "eq": 122,
+        "mbti": 984
+      },
+      "human_model": {
+        "global_fusion": 406,
+        "knowme_mirror": 1076,
+        "mbti": 1126,
+        "thai_astrology": 909,
+        "big_five": 1146,
+        "eq": 122
+      },
+      "human_pattern": {
+        "global_fusion": 878,
+        "big_five": 1902,
+        "thai_astrology": 1484,
+        "knowme_mirror": 1666,
+        "eq": 208,
+        "mbti": 1834
+      },
+      "narrative": {
+        "global_fusion": 652,
+        "thai_astrology": 1240,
+        "knowme_mirror": 1276,
+        "big_five": 1417,
+        "mbti": 1339,
+        "eq": 195
+      }
+    },
+    "layerSystemShares": {
+      "mirror_input": {
+        "knowme_mirror": 0.3776211756617394,
+        "thai_astrology": 0.16586455826744587,
+        "mbti": 0.1883808869027157,
+        "big_five": 0.2339291852870402,
+        "eq": 0.03420419388105878
+      },
+      "mirror_snapshot": {
+        "knowme_mirror": 0.3776211756617394,
+        "thai_astrology": 0.16586455826744587,
+        "mbti": 0.1883808869027157,
+        "big_five": 0.2339291852870402,
+        "eq": 0.03420419388105878
+      },
+      "fusion": {
+        "big_five": 0.25329280648429586,
+        "thai_astrology": 0.21681864235055726,
+        "knowme_mirror": 0.24974670719351572,
+        "eq": 0.03090172239108409,
+        "mbti": 0.24924012158054712
+      },
+      "human_model": {
+        "global_fusion": 0.08484848484848485,
+        "knowme_mirror": 0.22486938349007315,
+        "mbti": 0.23531870428422152,
+        "thai_astrology": 0.18996865203761756,
+        "big_five": 0.2394984326018809,
+        "eq": 0.02549634273772205
+      },
+      "human_pattern": {
+        "global_fusion": 0.11013547415955846,
+        "big_five": 0.23858504766683392,
+        "thai_astrology": 0.18615153035624687,
+        "knowme_mirror": 0.20898143502257902,
+        "eq": 0.02609131961866533,
+        "mbti": 0.23005519317611642
+      },
+      "narrative": {
+        "global_fusion": 0.1065533583918941,
+        "thai_astrology": 0.2026474914201667,
+        "knowme_mirror": 0.20853080568720378,
+        "big_five": 0.23157378656643243,
+        "mbti": 0.21882660565451872,
+        "eq": 0.03186795227978428
+      }
+    },
+    "dominantSystemsByLayer": {
+      "mirror_input": [
+        "big_five",
+        "knowme_mirror"
+      ],
+      "mirror_snapshot": [
+        "big_five",
+        "knowme_mirror"
+      ],
+      "fusion": [
+        "big_five",
+        "knowme_mirror",
+        "mbti"
+      ],
+      "human_model": [
+        "big_five",
+        "knowme_mirror",
+        "mbti"
+      ],
+      "human_pattern": [
+        "big_five",
+        "mbti"
+      ],
+      "narrative": [
+        "big_five"
+      ]
+    },
+    "disappearedSystemsByLayer": {
+      "mirror_input": [],
+      "mirror_snapshot": [],
+      "fusion": [],
+      "human_model": [],
+      "human_pattern": [],
+      "narrative": []
+    },
+    "narrativeSurvivors": {
+      "global_fusion": 652,
+      "thai_astrology": 1240,
+      "knowme_mirror": 1276,
+      "big_five": 1417,
+      "mbti": 1339,
+      "eq": 195
+    }
+  },
+  "auditE_patternUtilization": {
+    "populationSize": 200,
+    "registryPatternCount": 41,
+    "topActivated": [
+      {
+        "patternId": "directional_meaning",
+        "label": "Directional Meaning",
+        "patternFamilyId": "meaning_style",
+        "dimension": "meaning",
+        "activationCount": 195,
+        "activationRate": 0.975
+      },
+      {
+        "patternId": "diplomatic_binder",
+        "label": "Diplomatic Binder",
+        "patternFamilyId": "relationship_style",
+        "dimension": "relationship",
+        "activationCount": 186,
+        "activationRate": 0.93
+      },
+      {
+        "patternId": "calm_regulator",
+        "label": "Calm Regulator",
+        "patternFamilyId": "emotional_style",
+        "dimension": "emotion",
+        "activationCount": 184,
+        "activationRate": 0.92
+      },
+      {
+        "patternId": "self_directed_identity",
+        "label": "Self-Directed Identity",
+        "patternFamilyId": "identity_style",
+        "dimension": "identity",
+        "activationCount": 180,
+        "activationRate": 0.9
+      },
+      {
+        "patternId": "responsive_feeler",
+        "label": "Responsive Feeler",
+        "patternFamilyId": "emotional_style",
+        "dimension": "emotion",
+        "activationCount": 166,
+        "activationRate": 0.83
+      },
+      {
+        "patternId": "reinforced_strength",
+        "label": "Reinforced Strength",
+        "patternFamilyId": "growth_edge_pattern",
+        "dimension": "motivation",
+        "activationCount": 164,
+        "activationRate": 0.82
+      },
+      {
+        "patternId": "decisive_actor",
+        "label": "Decisive Actor",
+        "patternFamilyId": "decision_style",
+        "dimension": "action",
+        "activationCount": 163,
+        "activationRate": 0.815
+      },
+      {
+        "patternId": "analytical_thinker",
+        "label": "Analytical Thinker",
+        "patternFamilyId": "thinking_style",
+        "dimension": "thinking",
+        "activationCount": 132,
+        "activationRate": 0.66
+      },
+      {
+        "patternId": "ignored_emotional_dimension",
+        "label": "Ignored Emotional Dimension",
+        "patternFamilyId": "blind_spot_pattern",
+        "dimension": "emotion",
+        "activationCount": 117,
+        "activationRate": 0.585
+      },
+      {
+        "patternId": "expressive_identity",
+        "label": "Expressive Identity",
+        "patternFamilyId": "identity_style",
+        "dimension": "identity",
+        "activationCount": 71,
+        "activationRate": 0.355
+      }
+    ],
+    "bottomActivated": [
+      {
+        "patternId": "dual_nature_actor",
+        "label": "Dual Nature Actor",
+        "patternFamilyId": "conflict_pattern",
+        "dimension": "action",
+        "activationCount": 60,
+        "activationRate": 0.3
+      },
+      {
+        "patternId": "accountable_operator",
+        "label": "Accountable Operator",
+        "patternFamilyId": "theme_coverage_pattern",
+        "dimension": "action",
+        "activationCount": 60,
+        "activationRate": 0.3
+      },
+      {
+        "patternId": "growth_edge_from_tension",
+        "label": "Growth Edge From Tension",
+        "patternFamilyId": "growth_edge_pattern",
+        "dimension": "growth",
+        "activationCount": 34,
+        "activationRate": 0.17
+      },
+      {
+        "patternId": "growth_edge_builder",
+        "label": "Growth Edge Builder",
+        "patternFamilyId": "growth_edge_pattern",
+        "dimension": "growth",
+        "activationCount": 34,
+        "activationRate": 0.17
+      },
+      {
+        "patternId": "relational_hidden_potential",
+        "label": "Relational Hidden Potential",
+        "patternFamilyId": "blind_spot_pattern",
+        "dimension": "relationship",
+        "activationCount": 27,
+        "activationRate": 0.135
+      },
+      {
+        "patternId": "constructive_builder",
+        "label": "Constructive Builder",
+        "patternFamilyId": "theme_coverage_pattern",
+        "dimension": "action",
+        "activationCount": 19,
+        "activationRate": 0.095
+      },
+      {
+        "patternId": "structured_builder_thinker",
+        "label": "Structured Builder Thinker",
+        "patternFamilyId": "theme_coverage_pattern",
+        "dimension": "thinking",
+        "activationCount": 19,
+        "activationRate": 0.095
+      },
+      {
+        "patternId": "independent_decision_maker",
+        "label": "Independent Decision Maker",
+        "patternFamilyId": "decision_style",
+        "dimension": "action",
+        "activationCount": 17,
+        "activationRate": 0.085
+      },
+      {
+        "patternId": "guiding_teacher",
+        "label": "Guiding Teacher",
+        "patternFamilyId": "theme_coverage_pattern",
+        "dimension": "growth",
+        "activationCount": 15,
+        "activationRate": 0.075
+      },
+      {
+        "patternId": "purpose_guide",
+        "label": "Purpose Guide",
+        "patternFamilyId": "theme_coverage_pattern",
+        "dimension": "meaning",
+        "activationCount": 15,
+        "activationRate": 0.075
+      }
+    ],
+    "neverActivated": [
+      {
+        "patternId": "purpose_driven_motivation",
+        "label": "Purpose-Driven Motivation",
+        "patternFamilyId": "motivation_style",
+        "dimension": "motivation",
+        "activationCount": 0,
+        "activationRate": 0.0
+      },
+      {
+        "patternId": "progressive_builder",
+        "label": "Progressive Builder",
+        "patternFamilyId": "growth_style",
+        "dimension": "growth",
+        "activationCount": 0,
+        "activationRate": 0.0
+      },
+      {
+        "patternId": "structured_explorer",
+        "label": "Structured Explorer",
+        "patternFamilyId": "thinking_style",
+        "dimension": "thinking",
+        "activationCount": 0,
+        "activationRate": 0.0
+      },
+      {
+        "patternId": "adaptive_growth",
+        "label": "Adaptive Growth",
+        "patternFamilyId": "growth_style",
+        "dimension": "growth",
+        "activationCount": 0,
+        "activationRate": 0.0
+      },
+      {
+        "patternId": "meaning_seeker",
+        "label": "Meaning Seeker",
+        "patternFamilyId": "meaning_style",
+        "dimension": "meaning",
+        "activationCount": 0,
+        "activationRate": 0.0
+      },
+      {
+        "patternId": "belief_meaning",
+        "label": "Belief Meaning",
+        "patternFamilyId": "meaning_style",
+        "dimension": "meaning",
+        "activationCount": 0,
+        "activationRate": 0.0
+      },
+      {
+        "patternId": "belief_architect",
+        "label": "Belief Architect",
+        "patternFamilyId": "thinking_style",
+        "dimension": "thinking",
+        "activationCount": 0,
+        "activationRate": 0.0
+      },
+      {
+        "patternId": "emotional_depth",
+        "label": "Emotional Depth",
+        "patternFamilyId": "emotional_style",
+        "dimension": "emotion",
+        "activationCount": 0,
+        "activationRate": 0.0
+      },
+      {
+        "patternId": "resource_oriented_motivation",
+        "label": "Resource-Oriented Motivation",
+        "patternFamilyId": "motivation_style",
+        "dimension": "motivation",
+        "activationCount": 0,
+        "activationRate": 0.0
+      },
+      {
+        "patternId": "identity_dual_signal",
+        "label": "Identity Dual Signal",
+        "patternFamilyId": "conflict_pattern",
+        "dimension": "identity",
+        "activationCount": 0,
+        "activationRate": 0.0
+      },
+      {
+        "patternId": "adaptive_creator",
+        "label": "Adaptive Creator",
+        "patternFamilyId": "motivation_style",
+        "dimension": "motivation",
+        "activationCount": 0,
+        "activationRate": 0.0
+      },
+      {
+        "patternId": "relationship_stabilizer",
+        "label": "Relationship Stabilizer",
+        "patternFamilyId": "relationship_style",
+        "dimension": "relationship",
+        "activationCount": 0,
+        "activationRate": 0.0
+      },
+      {
+        "patternId": "stable_orientation",
+        "label": "Stable Orientation",
+        "patternFamilyId": "growth_edge_pattern",
+        "dimension": "meaning",
+        "activationCount": 0,
+        "activationRate": 0.0
+      },
+      {
+        "patternId": "visible_identity",
+        "label": "Visible Identity",
+        "patternFamilyId": "identity_style",
+        "dimension": "identity",
+        "activationCount": 0,
+        "activationRate": 0.0
+      },
+      {
+        "patternId": "reflective_builder",
+        "label": "Reflective Builder",
+        "patternFamilyId": "thinking_style",
+        "dimension": "thinking",
+        "activationCount": 0,
+        "activationRate": 0.0
+      },
+      {
+        "patternId": "asymmetric_identity_development",
+        "label": "Asymmetric Identity Development",
+        "patternFamilyId": "blind_spot_pattern",
+        "dimension": "identity",
+        "activationCount": 0,
+        "activationRate": 0.0
+      },
+      {
+        "patternId": "internal_conflict_thinker",
+        "label": "Internal Conflict Thinker",
+        "patternFamilyId": "conflict_pattern",
+        "dimension": "thinking",
+        "activationCount": 0,
+        "activationRate": 0.0
+      },
+      {
+        "patternId": "structured_operator",
+        "label": "Structured Operator",
+        "patternFamilyId": "decision_style",
+        "dimension": "action",
+        "activationCount": 0,
+        "activationRate": 0.0
+      },
+      {
+        "patternId": "transformation_seeker",
+        "label": "Transformation Seeker",
+        "patternFamilyId": "growth_style",
+        "dimension": "growth",
+        "activationCount": 0,
+        "activationRate": 0.0
+      }
+    ],
+    "activationDistribution": {
+      "directional_meaning": 195,
+      "diplomatic_binder": 186,
+      "calm_regulator": 184,
+      "self_directed_identity": 180,
+      "responsive_feeler": 166,
+      "reinforced_strength": 164,
+      "decisive_actor": 163,
+      "analytical_thinker": 132,
+      "ignored_emotional_dimension": 117,
+      "expressive_identity": 71,
+      "supportive_connector": 69,
+      "stable_accountability": 60,
+      "dual_nature_actor": 60,
+      "accountable_operator": 60,
+      "growth_edge_from_tension": 34,
+      "growth_edge_builder": 34,
+      "relational_hidden_potential": 27,
+      "constructive_builder": 19,
+      "structured_builder_thinker": 19,
+      "independent_decision_maker": 17,
+      "guiding_teacher": 15,
+      "purpose_guide": 15,
+      "purpose_driven_motivation": 0,
+      "progressive_builder": 0,
+      "structured_explorer": 0,
+      "adaptive_growth": 0,
+      "meaning_seeker": 0,
+      "belief_meaning": 0,
+      "belief_architect": 0,
+      "emotional_depth": 0,
+      "resource_oriented_motivation": 0,
+      "identity_dual_signal": 0,
+      "adaptive_creator": 0,
+      "relationship_stabilizer": 0,
+      "stable_orientation": 0,
+      "visible_identity": 0,
+      "reflective_builder": 0,
+      "asymmetric_identity_development": 0,
+      "internal_conflict_thinker": 0,
+      "structured_operator": 0,
+      "transformation_seeker": 0
+    },
+    "familyDistribution": {
+      "emotional_style": 350,
+      "relationship_style": 255,
+      "identity_style": 251,
+      "growth_edge_pattern": 232,
+      "meaning_style": 195,
+      "theme_coverage_pattern": 188,
+      "decision_style": 180,
+      "blind_spot_pattern": 144,
+      "thinking_style": 132,
+      "conflict_pattern": 60
+    },
+    "dimensionDistribution": {
+      "emotion": 467,
+      "action": 319,
+      "relationship": 282,
+      "identity": 251,
+      "motivation": 224,
+      "meaning": 210,
+      "thinking": 151,
+      "growth": 83
+    }
+  },
+  "rootCauseAnalysis": [
+    {
+      "topic": "pattern_dead_zones",
+      "finding": "19 patterns never activated. Primary block across dead zones: no_source_pattern.",
+      "evidence": {
+        "neverActivatedCount": 19,
+        "blockReasonCounts": {
+          "no_source_pattern": 19
+        },
+        "classificationCounts": {
+          "D_structurally_impossible": 19
+        },
+        "structurallyImpossible": [
+          "transformation_seeker",
+          "visible_identity",
+          "purpose_driven_motivation",
+          "resource_oriented_motivation",
+          "adaptive_creator",
+          "structured_explorer",
+          "reflective_builder",
+          "belief_architect",
+          "emotional_depth",
+          "asymmetric_identity_development",
+          "relationship_stabilizer",
+          "stable_orientation",
+          "identity_dual_signal",
+          "structured_operator",
+          "belief_meaning",
+          "progressive_builder",
+          "internal_conflict_thinker",
+          "adaptive_growth",
+          "meaning_seeker"
+        ]
+      }
+    },
+    {
+      "topic": "eq_signal_loss",
+      "finding": "EQ survival drops most at mirror_snapshot→fusion. Narrative EQ evidence count: 195.",
+      "evidence": {
+        "eqLayerCounts": {
+          "mirror_input": 199,
+          "mirror_snapshot": 199,
+          "fusion": 122,
+          "human_model": 122,
+          "human_pattern": 208,
+          "narrative": 195
+        },
+        "eqSurvivalRates": {
+          "mirror_input": 1.0,
+          "mirror_snapshot": 1.0,
+          "fusion": 0.6130653266331658,
+          "human_model": 0.6130653266331658,
+          "human_pattern": 1.0452261306532664,
+          "narrative": 0.9798994974874372
+        },
+        "primaryLossLayer": "mirror_snapshot→fusion",
+        "profilesWithZeroEqAtNarrative": 151
+      }
+    },
+    {
+      "topic": "narrative_collapse",
+      "finding": "Population compresses from 200 to 199 narratives. Largest compression step: human_model→human_pattern.",
+      "evidence": {
+        "layerUniques": {
+          "mirror": 200,
+          "fusion": 200,
+          "human_model": 200,
+          "human_pattern": 89,
+          "narrative": 199
+        },
+        "layerCompressionRatios": {
+          "mirror": 1.0,
+          "fusion": 1.0,
+          "human_model": 1.0,
+          "human_pattern": 0.445,
+          "narrative": 0.995
+        },
+        "collapseZoneCount": 0,
+        "topCollapseStages": []
+      }
+    },
+    {
+      "topic": "system_dominance",
+      "finding": "knowme_mirror (BaZi/Zodiac) dominates mirror input and persists to narrative. EQ disappears from layers: .",
+      "evidence": {
+        "mirrorInputShares": {
+          "knowme_mirror": 0.3776211756617394,
+          "thai_astrology": 0.16586455826744587,
+          "mbti": 0.1883808869027157,
+          "big_five": 0.2339291852870402,
+          "eq": 0.03420419388105878
+        },
+        "narrativeSurvivors": {
+          "global_fusion": 652,
+          "thai_astrology": 1240,
+          "knowme_mirror": 1276,
+          "big_five": 1417,
+          "mbti": 1339,
+          "eq": 195
+        },
+        "disappearedByLayer": {
+          "mirror_input": [],
+          "mirror_snapshot": [],
+          "fusion": [],
+          "human_model": [],
+          "human_pattern": [],
+          "narrative": []
+        }
+      }
+    },
+    {
+      "topic": "pattern_utilization",
+      "finding": "Only 22 of 41 patterns ever activate. Top pattern: directional_meaning.",
+      "evidence": {
+        "neverActivatedCount": 19,
+        "topActivated": [
+          "directional_meaning",
+          "diplomatic_binder",
+          "calm_regulator",
+          "self_directed_identity",
+          "responsive_feeler"
+        ],
+        "familyDistribution": {
+          "emotional_style": 350,
+          "relationship_style": 255,
+          "identity_style": 251,
+          "growth_edge_pattern": 232,
+          "meaning_style": 195,
+          "theme_coverage_pattern": 188,
+          "decision_style": 180,
+          "blind_spot_pattern": 144,
+          "thinking_style": 132,
+          "conflict_pattern": 60
+        }
+      }
+    }
+  ],
+  "evidenceBasedConclusions": [
+    "PROVEN: 19/41 registry patterns never fire across 200 synthetic humans.",
+    "PROVEN: Dead-zone primary failure is \"no_source_pattern\" — measured via activation forensics on human model snapshots.",
+    "PROVEN: 19 dead patterns have 0% source-pattern resolution (structurally impossible with current human model output).",
+    "PROVEN: EQ mirror-input signals = 199; EQ narrative evidence = 195 (98.0% retention). Primary loss boundary: mirror_snapshot→fusion.",
+    "PROVEN: 151/200 profiles carry zero EQ evidence in final narrative.",
+    "PROVEN: Narrative diversity = 99.5% — compression occurs primarily at human_model→human_pattern.",
+    "PROVEN: 0 collapse zones (≥3 identical narratives); 0 zones collapse at narrative layer despite distinct upstream inputs.",
+    "PROVEN: knowme_mirror share at mirror input = 37.8%; EQ share = 3.4%.",
+    "PROVEN: Pattern activation rate — top pattern \"directional_meaning\" fires 195/200 times; bottom activated fires 60/200 times."
+  ]
+}

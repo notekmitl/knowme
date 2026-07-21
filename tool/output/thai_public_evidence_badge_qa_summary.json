@@ -1,0 +1,204 @@
+{
+  "phase": "Public Evidence Badge QA",
+  "policyLevel": "LEVEL_1_PUBLIC_SUMMARY_BADGE",
+  "previewRoute": "/internal/thai-public-evidence-preview",
+  "fixtureCount": 9,
+  "overallPassed": true,
+  "totalEligiblePreviews": 91,
+  "totalEligibilityViolations": 0,
+  "totalCopySafetyViolations": 0,
+  "totalDataLeakageViolations": 0,
+  "publicFingerprintUnchanged": true,
+  "remediesHidden": true,
+  "fixtures": [
+    {
+      "id": "qa_sample",
+      "eligiblePreviewCount": 19,
+      "eligibilityPassed": true,
+      "copySafetyPassed": true,
+      "dataLeakagePassed": true,
+      "passed": true,
+      "eligibilityViolationCount": 0,
+      "copySafetyViolationCount": 0,
+      "dataLeakageViolationCount": 0,
+      "hidden": {
+        "remedies": 87,
+        "taksa": 105,
+        "khumsap": 13,
+        "riseFall": 18,
+        "blockedAmbiguous": 1,
+        "blockedSourceConflict": 1,
+        "outOfCanonScope": 20
+      }
+    },
+    {
+      "id": "harness_a",
+      "eligiblePreviewCount": 12,
+      "eligibilityPassed": true,
+      "copySafetyPassed": true,
+      "dataLeakagePassed": true,
+      "passed": true,
+      "eligibilityViolationCount": 0,
+      "copySafetyViolationCount": 0,
+      "dataLeakageViolationCount": 0,
+      "hidden": {
+        "remedies": 87,
+        "taksa": 105,
+        "khumsap": 12,
+        "riseFall": 12,
+        "blockedAmbiguous": 3,
+        "blockedSourceConflict": 1,
+        "outOfCanonScope": 9
+      }
+    },
+    {
+      "id": "harness_b",
+      "eligiblePreviewCount": 12,
+      "eligibilityPassed": true,
+      "copySafetyPassed": true,
+      "dataLeakagePassed": true,
+      "passed": true,
+      "eligibilityViolationCount": 0,
+      "copySafetyViolationCount": 0,
+      "dataLeakageViolationCount": 0,
+      "hidden": {
+        "remedies": 87,
+        "taksa": 105,
+        "khumsap": 13,
+        "riseFall": 13,
+        "blockedAmbiguous": 4,
+        "blockedSourceConflict": 1,
+        "outOfCanonScope": 9
+      }
+    },
+    {
+      "id": "harness_c",
+      "eligiblePreviewCount": 7,
+      "eligibilityPassed": true,
+      "copySafetyPassed": true,
+      "dataLeakagePassed": true,
+      "passed": true,
+      "eligibilityViolationCount": 0,
+      "copySafetyViolationCount": 0,
+      "dataLeakageViolationCount": 0,
+      "hidden": {
+        "remedies": 87,
+        "taksa": 105,
+        "khumsap": 12,
+        "riseFall": 16,
+        "blockedAmbiguous": 1,
+        "blockedSourceConflict": 1,
+        "outOfCanonScope": 12
+      }
+    },
+    {
+      "id": "harness_d",
+      "eligiblePreviewCount": 13,
+      "eligibilityPassed": true,
+      "copySafetyPassed": true,
+      "dataLeakagePassed": true,
+      "passed": true,
+      "eligibilityViolationCount": 0,
+      "copySafetyViolationCount": 0,
+      "dataLeakageViolationCount": 0,
+      "hidden": {
+        "remedies": 87,
+        "taksa": 105,
+        "khumsap": 12,
+        "riseFall": 13,
+        "blockedAmbiguous": 3,
+        "blockedSourceConflict": 1,
+        "outOfCanonScope": 8
+      }
+    },
+    {
+      "id": "harness_e",
+      "eligiblePreviewCount": 8,
+      "eligibilityPassed": true,
+      "copySafetyPassed": true,
+      "dataLeakagePassed": true,
+      "passed": true,
+      "eligibilityViolationCount": 0,
+      "copySafetyViolationCount": 0,
+      "dataLeakageViolationCount": 0,
+      "hidden": {
+        "remedies": 87,
+        "taksa": 105,
+        "khumsap": 12,
+        "riseFall": 16,
+        "blockedAmbiguous": 1,
+        "blockedSourceConflict": 1,
+        "outOfCanonScope": 13
+      }
+    },
+    {
+      "id": "harness_f",
+      "eligiblePreviewCount": 8,
+      "eligibilityPassed": true,
+      "copySafetyPassed": true,
+      "dataLeakagePassed": true,
+      "passed": true,
+      "eligibilityViolationCount": 0,
+      "copySafetyViolationCount": 0,
+      "dataLeakageViolationCount": 0,
+      "hidden": {
+        "remedies": 87,
+        "taksa": 105,
+        "khumsap": 12,
+        "riseFall": 18,
+        "blockedAmbiguous": 0,
+        "blockedSourceConflict": 1,
+        "outOfCanonScope": 9
+      }
+    },
+    {
+      "id": "harness_g",
+      "eligiblePreviewCount": 8,
+      "eligibilityPassed": true,
+      "copySafetyPassed": true,
+      "dataLeakagePassed": true,
+      "passed": true,
+      "eligibilityViolationCount": 0,
+      "copySafetyViolationCount": 0,
+      "dataLeakageViolationCount": 0,
+      "hidden": {
+        "remedies": 87,
+        "taksa": 105,
+        "khumsap": 11,
+        "riseFall": 14,
+        "blockedAmbiguous": 5,
+        "blockedSourceConflict": 1,
+        "outOfCanonScope": 13
+      }
+    },
+    {
+      "id": "harness_h",
+      "eligiblePreviewCount": 4,
+      "eligibilityPassed": true,
+      "copySafetyPassed": true,
+      "dataLeakagePassed": true,
+      "passed": true,
+      "eligibilityViolationCount": 0,
+      "copySafetyViolationCount": 0,
+      "dataLeakageViolationCount": 0,
+      "hidden": {
+        "remedies": 87,
+        "taksa": 105,
+        "khumsap": 15,
+        "riseFall": 20,
+        "blockedAmbiguous": 0,
+        "blockedSourceConflict": 1,
+        "outOfCanonScope": 6
+      }
+    }
+  ],
+  "aggregateHidden": {
+    "hiddenRemedies": 783,
+    "hiddenTaksa": 945,
+    "hiddenKhumsap": 112,
+    "hiddenRiseFall": 140,
+    "blockedAmbiguous": 18,
+    "blockedSourceConflict": 9,
+    "outOfCanonScope": 99
+  }
+}

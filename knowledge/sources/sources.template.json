@@ -1,0 +1,24 @@
+{
+  "id": "thai_classical_x",
+  "title": "<source title>",
+  "author": "<author name>",
+  "edition": null,
+  "publisher": null,
+  "year": null,
+  "language": "th",
+  "school": "thaiClassical",
+  "isbn": null,
+  "url": null,
+  "license": null,
+  "notes": "TEMPLATE — copy to a real per-source file (e.g. thai_classical_x.json), then add it to sources.index.json. Record EXACTLY what the source says. Every assertion MUST keep its original page and quote; never summarize the quote away. Adding sources never changes the PlanetRelationshipMatrix — sources are evidence, reviewed later by the Consensus Engine (V8) and Matrix Review (V9).",
+  "assertions": [
+    {
+      "from": "venus",
+      "to": "saturn",
+      "relation": "friend",
+      "page": "128",
+      "quote": "<original verbatim quote from page 128>",
+      "note": null
+    }
+  ]
+}

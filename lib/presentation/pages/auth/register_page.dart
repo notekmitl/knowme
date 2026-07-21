@@ -46,17 +46,7 @@ class _RegisterPageState extends State<RegisterPage> {
     try {
       await context.read<AuthProvider>().register(
         email: email,
-
         password: password,
-
-        /// MOCK ASTROLOGY DATA
-        birthDate: "1982-06-06",
-
-        birthTime: "00:35",
-
-        latitude: 18.7964642,
-
-        longitude: 98.6600586,
       );
 
       if (mounted) {

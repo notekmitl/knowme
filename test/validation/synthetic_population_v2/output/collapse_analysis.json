@@ -1,0 +1,137 @@
+{
+  "generatedAt": "2026-06-21T07:17:26.585233Z",
+  "populationSize": 1000,
+  "collapseScenarios": {
+    "baseline_v1": {
+      "uniqueNarratives": 176,
+      "collapseZones": 69,
+      "profilesInCollapseZones": 865,
+      "maxClusterSize": 118,
+      "duplicationRate": 0.8240000000000001
+    },
+    "gf2_only_no_mp001": {
+      "uniqueNarratives": 343,
+      "collapseZones": 86,
+      "profilesInCollapseZones": 686,
+      "maxClusterSize": 71,
+      "duplicationRate": 0.657
+    },
+    "current_validation_sim_gf2_mp001": {
+      "uniqueNarratives": 384,
+      "collapseZones": 94,
+      "profilesInCollapseZones": 638,
+      "maxClusterSize": 48,
+      "duplicationRate": 0.616
+    },
+    "counterfactual_fixed_r004": {
+      "uniqueNarratives": 426,
+      "collapseZones": 100,
+      "profilesInCollapseZones": 597,
+      "maxClusterSize": 25,
+      "duplicationRate": 0.5740000000000001
+    }
+  },
+  "collapseDelta": {
+    "gf2_only_vs_baseline": 17,
+    "current_sim_vs_baseline": 25,
+    "current_sim_vs_gf2_only": 8,
+    "fixed_r004_vs_current_sim": 6
+  },
+  "r004Analysis": {
+    "brokenHarnessApplications": 0,
+    "correctedWouldApply": 411,
+    "brokenLogic": "fusedReinforcementIds collects ALL mirror reinforcement IDs, then skips any reinforcement whose id is in that set — always true, so R004 never fires.",
+    "correctedLogic": "Skip only if reinforcement mirrorKey already has a GF1 foundation reinforcement finding.",
+    "growthLifeMirrorReinforcementsEligible": {
+      "MIRROR_GROWTH_ORIENTATION": 235,
+      "MIRROR_LIFE_DIRECTION": 0
+    }
+  },
+  "mp001Analysis": {
+    "totalPromotionsApplied": 1020,
+    "profilesWithMp001": 755
+  },
+  "gf2Analysis": {
+    "totalSupplementalAgreements": 5153
+  },
+  "recoveryPatternActivationsAfterCurrentSim": {
+    "progressive_builder": 829,
+    "structured_operator": 755,
+    "meaning_seeker": 258,
+    "purpose_driven_motivation": 217
+  },
+  "narrativeChangeAttribution": {
+    "gf2_growth_life_only": 222,
+    "mp001_structure": 92,
+    "both": 663,
+    "neither_changed_narrative": 3
+  },
+  "collapseTransition": {
+    "profilesWithNarrativeChange": 997,
+    "newCollapseZones_crossedThreshold3": 92,
+    "resolvedCollapseZones_droppedBelow3": 67,
+    "netCollapseZoneChange": 25,
+    "profilesMergedIntoExistingClusters": 0,
+    "profilesSplitFromClusters": 851
+  },
+  "patternConcentration": {
+    "baselineTopPattern": {
+      "directional_meaning": 997,
+      "top5": [
+        {
+          "id": "directional_meaning",
+          "count": 997
+        },
+        {
+          "id": "self_directed_identity",
+          "count": 969
+        },
+        {
+          "id": "diplomatic_binder",
+          "count": 897
+        },
+        {
+          "id": "calm_regulator",
+          "count": 892
+        },
+        {
+          "id": "responsive_feeler",
+          "count": 840
+        }
+      ]
+    },
+    "simulatedTopPattern": {
+      "directional_meaning": 997,
+      "progressive_builder": 829,
+      "meaning_seeker": 258,
+      "structured_operator": 755,
+      "top5": [
+        {
+          "id": "calm_regulator",
+          "count": 1000
+        },
+        {
+          "id": "responsive_feeler",
+          "count": 1000
+        },
+        {
+          "id": "diplomatic_binder",
+          "count": 998
+        },
+        {
+          "id": "directional_meaning",
+          "count": 997
+        },
+        {
+          "id": "decisive_actor",
+          "count": 937
+        }
+      ]
+    }
+  },
+  "reference200Human": {
+    "baselineCollapseZones": 22,
+    "gf2OnlySimulatedCollapseZones": 14,
+    "note": "200-human fusion_dead_zone_trace_runner uses GF2-only (no MP-001 validation sim)."
+  }
+}

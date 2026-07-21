@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import 'package:knowme/features/astrology/application/astrology_generation_coordinator.dart';
+import 'package:knowme/core/profile/birth_profile_format.dart';
 import '../../widgets/location_picker.dart';
 
 class ProfileSetupPage extends StatefulWidget {
@@ -69,11 +71,20 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
     return "${time.hour.toString().padLeft(2, '0')}:${time.minute.toString().padLeft(2, '0')}";
   }
 
+  String _apiBirthDate(DateTime date) {
+    final y = date.year;
+    final m = date.month.toString().padLeft(2, '0');
+    final d = date.day.toString().padLeft(2, '0');
+    return '$y-$m-$d';
+  }
+
   Future<void> saveProfile() async {
     if (nameController.text.isEmpty ||
         birthDate == null ||
         birthTime == null ||
-        birthPlaceController.text.isEmpty) {
+        birthPlaceController.text.isEmpty ||
+        latitude == null ||
+        longitude == null) {
       ScaffoldMessenger.of(
         context,
       ).showSnackBar(const SnackBar(content: Text("Please fill all fields")));
@@ -91,29 +102,31 @@ class _ProfileSetupPageState extends State<ProfileSetupPage> {
         throw Exception("User not found");
       }
 
-      await FirebaseFirestore.instance
-          .collection("users")
-          .doc(user.uid)
-          .collection("profile")
-          .doc("main")
-          .set({
-            "name": nameController.text.trim(),
-            "gender": gender,
-            "birthDate": birthDate!.toIso8601String(),
-            "birthTime": "${birthTime!.hour}:${birthTime!.minute}",
-            "birthPlace": birthPlaceController.text.trim(),
-            "latitude": latitude,
-            "longitude": longitude,
-            "timezone": "Asia/Bangkok",
-          });
+      const timezone = 'Asia/Bangkok';
+      final birthTimeStr = formatTime(birthTime);
 
-      // ❌ ไม่ต้อง Navigator
-      // ProfileGate จะ detect profile/main แล้วเข้า HomePage เอง
+      await FirebaseFirestore.instance
+          .collection('users')
+          .doc(user.uid)
+          .collection('profile')
+          .doc('main')
+          .set({
+        'name': nameController.text.trim(),
+        'gender': gender,
+        'birthDate': BirthProfileFormat.storageDate(birthDate!),
+        'birthTime': birthTimeStr,
+        'birthPlace': birthPlaceController.text.trim(),
+        'latitude': latitude,
+        'longitude': longitude,
+        'timezone': timezone,
+      });
+
+      await AstrologyGenerationCoordinator().ensureGenerated(user.uid);
 
       if (!mounted) return;
 
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text("Profile saved successfully")),
+        const SnackBar(content: Text('Profile saved successfully')),
       );
     } catch (e) {
       if (!mounted) return;

@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Canon Library Manifest",
+  "description": "Registry of canonical books (the Manifest System). Holds many books; each carries metadata, extraction/validation status, version and progress counters, plus a pointer to its detailed per-book manifest.",
+  "type": "object",
+  "required": ["version", "books"],
+  "properties": {
+    "version": { "type": "integer" },
+    "$comment": { "type": "string" },
+    "notes": { "type": "string" },
+    "books": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["bookId", "sourceId", "title"],
+        "properties": {
+          "bookId": { "type": "string" },
+          "sourceId": { "type": "string", "description": "Id in canon_sources.json." },
+          "title": { "type": "string" },
+          "author": { "type": "string" },
+          "canonical": { "type": "boolean" },
+          "manifestAsset": { "type": "string", "description": "Path to the detailed per-book manifest." },
+          "extraction": { "type": "string", "enum": ["notStarted", "inProgress", "completed"] },
+          "validation": { "type": "string", "enum": ["unvalidated", "partial", "validated", "canonApproved"] },
+          "version": { "type": "integer" },
+          "progress": {
+            "type": "object",
+            "properties": {
+              "totalChapters": { "type": "integer" },
+              "extractedChapters": { "type": "integer" },
+              "totalSections": { "type": "integer" },
+              "extractedSections": { "type": "integer" },
+              "totalUnits": { "type": "integer" },
+              "approvedUnits": { "type": "integer" }
+            }
+          },
+          "notes": { "type": "string" }
+        }
+      }
+    }
+  }
+}

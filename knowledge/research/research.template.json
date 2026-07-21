@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "domain": "knowledge_research",
+  "description": "TEMPLATE — copy a record into a real research file (e.g. research.knowme.json) when documenting an interpretation. As of V4, bibliographic source data lives in EvidenceRecords (evidence.template.json); link to them here via evidenceIds. Record what the source says (interpretation) and the relationships it supports. Never invent references. Promote status draft → candidate → reviewed → verified as the citation is checked; use disputed when sources conflict and rejected when a claim does not hold. One record may support multiple relationships and reference multiple evidence records.",
+  "records": [
+    {
+      "id": "RR-0001",
+      "topic": "planet_relationship",
+      "entity": "Saturn–Venus",
+      "interpretation": "<what the source says, in your words>",
+      "relationship": [
+        { "from": "saturn", "to": "venus", "relation": "friend" },
+        { "from": "venus", "to": "saturn", "relation": "friend" }
+      ],
+      "evidenceIds": ["EV-0001"],
+      "confidence": "none",
+      "reviewedBy": null,
+      "status": "draft",
+      "notes": "<context; link evidence via evidenceIds and keep status honest until verified>"
+    }
+  ]
+}

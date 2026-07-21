@@ -1,15 +1,22 @@
+import logging
+import os
+
 import firebase_admin
+from firebase_admin import credentials, firestore
 
-from firebase_admin import credentials
-from firebase_admin import firestore
+logger = logging.getLogger(__name__)
 
-
-cred = credentials.Certificate(
-    "firebase/serviceAccountKey.json"
-)
-
-firebase_admin.initialize_app(
-    cred
-)
+if not firebase_admin._apps:
+    cred_path = os.environ.get(
+        "GOOGLE_APPLICATION_CREDENTIALS",
+        "firebase/serviceAccountKey.json",
+    )
+    if os.path.isfile(cred_path):
+        logger.info("Initializing Firebase Admin with service account file")
+        cred = credentials.Certificate(cred_path)
+        firebase_admin.initialize_app(cred)
+    else:
+        logger.info("Initializing Firebase Admin with application default credentials")
+        firebase_admin.initialize_app()
 
 db = firestore.client()

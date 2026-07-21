@@ -1,0 +1,366 @@
+{
+  "generatedAt": "2026-06-21T07:53:44.881049Z",
+  "populationSize": 1000,
+  "baseline": {
+    "uniqueNarratives": 552,
+    "profilesInCollapse": 446,
+    "maxClusterSize": 16,
+    "activePatterns": 30
+  },
+  "metrics": {
+    "activePatterns": 30,
+    "uniqueNarratives": 586,
+    "uniquePatternSets": 436,
+    "profilesInCollapse": 400,
+    "maxClusterSize": 14,
+    "totalActivations": 13732,
+    "patternCoverage": 1.0,
+    "narrativeEvidenceCoverage": 1.0,
+    "deltaUniqueNarratives": 34,
+    "deltaProfilesInCollapse": -46,
+    "deltaMaxCluster": -2
+  },
+  "gates": {
+    "uniqueNarrativesGt552": true,
+    "profilesInCollapseLt446": true,
+    "maxClusterLt16": true,
+    "activePatternsGte30": true
+  },
+  "allGatesPass": true,
+  "coverageAudit": {
+    "patternAudit": [
+      {
+        "patternId": "accountable_operator",
+        "activationCount": 415,
+        "narrativeUsageCount": 415,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "adaptive_creator",
+        "activationCount": 235,
+        "narrativeUsageCount": 235,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "adaptive_growth",
+        "activationCount": 235,
+        "narrativeUsageCount": 235,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "analytical_thinker",
+        "activationCount": 557,
+        "narrativeUsageCount": 557,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "calm_regulator",
+        "activationCount": 1000,
+        "narrativeUsageCount": 1000,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "constructive_builder",
+        "activationCount": 91,
+        "narrativeUsageCount": 91,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "decisive_actor",
+        "activationCount": 948,
+        "narrativeUsageCount": 948,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "diplomatic_binder",
+        "activationCount": 998,
+        "narrativeUsageCount": 998,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "directional_meaning",
+        "activationCount": 997,
+        "narrativeUsageCount": 997,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "dual_nature_actor",
+        "activationCount": 176,
+        "narrativeUsageCount": 176,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "expressive_identity",
+        "activationCount": 484,
+        "narrativeUsageCount": 484,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "growth_edge_builder",
+        "activationCount": 176,
+        "narrativeUsageCount": 176,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "growth_edge_from_tension",
+        "activationCount": 176,
+        "narrativeUsageCount": 176,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "guiding_teacher",
+        "activationCount": 54,
+        "narrativeUsageCount": 54,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "ignored_emotional_dimension",
+        "activationCount": 579,
+        "narrativeUsageCount": 579,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "independent_decision_maker",
+        "activationCount": 378,
+        "narrativeUsageCount": 378,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "meaning_seeker",
+        "activationCount": 258,
+        "narrativeUsageCount": 258,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "progressive_builder",
+        "activationCount": 829,
+        "narrativeUsageCount": 829,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "purpose_driven_motivation",
+        "activationCount": 216,
+        "narrativeUsageCount": 216,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "purpose_guide",
+        "activationCount": 54,
+        "narrativeUsageCount": 54,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "reinforced_strength",
+        "activationCount": 939,
+        "narrativeUsageCount": 939,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "relational_hidden_potential",
+        "activationCount": 79,
+        "narrativeUsageCount": 79,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "relationship_stabilizer",
+        "activationCount": 185,
+        "narrativeUsageCount": 185,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "responsive_feeler",
+        "activationCount": 1000,
+        "narrativeUsageCount": 1000,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "self_directed_identity",
+        "activationCount": 930,
+        "narrativeUsageCount": 930,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "stable_accountability",
+        "activationCount": 415,
+        "narrativeUsageCount": 415,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "stable_orientation",
+        "activationCount": 258,
+        "narrativeUsageCount": 258,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "structured_builder_thinker",
+        "activationCount": 91,
+        "narrativeUsageCount": 91,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "structured_operator",
+        "activationCount": 755,
+        "narrativeUsageCount": 755,
+        "hasSpecificCopy": true
+      },
+      {
+        "patternId": "supportive_connector",
+        "activationCount": 224,
+        "narrativeUsageCount": 224,
+        "hasSpecificCopy": true
+      }
+    ],
+    "topOverusedCopyGroups": [
+      {
+        "copyGroup": "specific_directional_meaning",
+        "usageCount": 983
+      },
+      {
+        "copyGroup": "specific_progressive_builder",
+        "usageCount": 802
+      },
+      {
+        "copyGroup": "specific_calm_regulator",
+        "usageCount": 802
+      },
+      {
+        "copyGroup": "specific_self_directed_identity",
+        "usageCount": 794
+      },
+      {
+        "copyGroup": "specific_reinforced_strength",
+        "usageCount": 714
+      },
+      {
+        "copyGroup": "specific_responsive_feeler",
+        "usageCount": 692
+      },
+      {
+        "copyGroup": "specific_ignored_emotional_dimension",
+        "usageCount": 579
+      },
+      {
+        "copyGroup": "specific_diplomatic_binder",
+        "usageCount": 546
+      },
+      {
+        "copyGroup": "specific_expressive_identity",
+        "usageCount": 442
+      },
+      {
+        "copyGroup": "specific_structured_operator",
+        "usageCount": 385
+      },
+      {
+        "copyGroup": "pair_agreement_structured_operator+accountable_operator",
+        "usageCount": 370
+      },
+      {
+        "copyGroup": "specific_decisive_actor",
+        "usageCount": 342
+      },
+      {
+        "copyGroup": "pair_tension_analytical_thinker+decisive_actor",
+        "usageCount": 288
+      },
+      {
+        "copyGroup": "pair_tension_decisive_actor+analytical_thinker",
+        "usageCount": 265
+      },
+      {
+        "copyGroup": "specific_meaning_seeker",
+        "usageCount": 250
+      },
+      {
+        "copyGroup": "specific_adaptive_growth",
+        "usageCount": 235
+      },
+      {
+        "copyGroup": "specific_purpose_driven_motivation",
+        "usageCount": 201
+      },
+      {
+        "copyGroup": "compressed_growth_edge_pattern",
+        "usageCount": 165
+      },
+      {
+        "copyGroup": "specific_relationship_stabilizer",
+        "usageCount": 159
+      },
+      {
+        "copyGroup": "specific_independent_decision_maker",
+        "usageCount": 145
+      }
+    ]
+  },
+  "topRemainingCollapseClusters": [
+    {
+      "clusterSize": 14,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณช่วยให..."
+    },
+    {
+      "clusterSize": 13,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณมักให้..."
+    },
+    {
+      "clusterSize": 11,
+      "narrativeSample": "คุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณมองหาความหมายเบื้องหลังชีวิต — ตัวตนของคุณเชื่อมโยงกับสิ่งที่คุณเชื่อและให้คุณค่า\nท..."
+    },
+    {
+      "clusterSize": 10,
+      "narrativeSample": "คุณแสดงตัวตนผ่านการสื่อสารและการปรากฏตัวอย่างชัดเจน — สิ่งที่คุณเป็นมักเห็นได้จากภายนอก\nคุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นก..."
+    },
+    {
+      "clusterSize": 9,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณช่วยให..."
+    },
+    {
+      "clusterSize": 9,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณมักให้..."
+    },
+    {
+      "clusterSize": 9,
+      "narrativeSample": "คุณแสดงตัวตนผ่านการสื่อสารและการปรากฏตัวอย่างชัดเจน — สิ่งที่คุณเป็นมักเห็นได้จากภายนอก\nคุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นก..."
+    },
+    {
+      "clusterSize": 8,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณช่วยให..."
+    },
+    {
+      "clusterSize": 8,
+      "narrativeSample": "คุณแสดงตัวตนผ่านการสื่อสารและการปรากฏตัวอย่างชัดเจน — สิ่งที่คุณเป็นมักเห็นได้จากภายนอก\nคุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นก..."
+    },
+    {
+      "clusterSize": 7,
+      "narrativeSample": "คุณแสดงตัวตนผ่านการสื่อสารและการปรากฏตัวอย่างชัดเจน — สิ่งที่คุณเป็นมักเห็นได้จากภายนอก\nคุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นก..."
+    },
+    {
+      "clusterSize": 7,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณมักให้..."
+    },
+    {
+      "clusterSize": 7,
+      "narrativeSample": "คุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณมองหาความหมายเบื้องหลังชีวิต — ตัวตนของคุณเชื่อมโยงกับสิ่งที่คุณเชื่อและให้คุณค่า\nค..."
+    },
+    {
+      "clusterSize": 6,
+      "narrativeSample": "คุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณมองหาความหมายเบื้องหลังชีวิต — ตัวตนของคุณเชื่อมโยงกับสิ่งที่คุณเชื่อและให้คุณค่า\nค..."
+    },
+    {
+      "clusterSize": 5,
+      "narrativeSample": "คุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณมองหาความหมายเบื้องหลังชีวิต — ตัวตนของคุณเชื่อมโยงกับสิ่งที่คุณเชื่อและให้คุณค่า\nค..."
+    },
+    {
+      "clusterSize": 5,
+      "narrativeSample": "คุณเป็นคนที่มักเลือกสร้างเส้นทางของตัวเองมากกว่าการเดินตามสิ่งที่คนอื่นกำหนด\nคุณมีเข็มทิศภายในที่ชัด — ตัวตนของคุณถูกนำทางโดยทิศทางชีวิตที่คุณเลือกเอง\nคุณช่วยให..."
+    }
+  ],
+  "regressionAudit": {
+    "mirrorUnchanged": true,
+    "gf1FoundationPreserved": true,
+    "humanModelDeterministicOnGf1": true,
+    "narrativeEvidencePresent": true,
+    "patternActivationsStable": true,
+    "activePatternsStable": true
+  }
+}

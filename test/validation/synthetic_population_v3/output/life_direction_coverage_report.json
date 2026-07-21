@@ -1,0 +1,22 @@
+{
+  "populationSize": 1000,
+  "coverageProfiles": 774,
+  "mirrorReinforcementCounts": {
+    "totalLifeReinforcements": 1203,
+    "profilesWithLifeReinforcement": 774
+  },
+  "stableOrientation": {
+    "baselineActivations": 0,
+    "simulatedActivations": 0,
+    "validated": false
+  },
+  "recoveryPipelineReach": {
+    "profilesWithFusionLifeReinforcement": 258,
+    "profilesWithHumanModelLifeReinforcementPattern": 258,
+    "profilesWithAgreementShadowBlock": 258,
+    "blocker": "HP2 PatternActivationEngine resolves first LIFE human pattern (agreement) before reinforcement pattern; stable_orientation requires reinforcement source."
+  },
+  "r004LifeReinforcementsApplied": 901,
+  "evidenceLineageSamples": [],
+  "overlayRuleId": "validation.v3.life_direction_reinforcement_coverage"
+}

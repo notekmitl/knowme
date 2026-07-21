@@ -1,578 +1,962 @@
 import 'package:flutter/material.dart';
 
+
+
 import 'package:provider/provider.dart';
 
+
+
 import 'package:firebase_auth/firebase_auth.dart';
+
+import 'package:knowme/core/i18n/app_text.dart';
+import 'package:knowme/features/astrology/application/astrology_generation_coordinator.dart';
+import 'package:knowme/features/astrology/shared/astrology_flow_state.dart';
+import 'package:knowme/features/astrology/shared/astrology_flow_widgets.dart';
+import 'package:knowme/data/models/astrology_chart_model.dart';
+
+import 'package:knowme/features/tests/mbti/mbti_routes.dart';
+
+
+
+import 'astrology_big3_microcopy.dart';
+import 'astrology_deep_lens.dart';
+import 'astrology_hero_synthesis.dart';
+import 'astrology_result_copy.dart';
+import 'astrology_result_locale.dart';
 
 import '../../providers/astrology_provider.dart';
 
 import '../../providers/locale_provider.dart';
 
+
+
 class AstrologyResultPage extends StatefulWidget {
+
   const AstrologyResultPage({super.key});
 
+
+
   @override
+
   State<AstrologyResultPage> createState() => _AstrologyResultPageState();
+
 }
 
+
+
 class _AstrologyResultPageState extends State<AstrologyResultPage> {
+  final _coordinator = AstrologyGenerationCoordinator();
+  bool _autoGenerating = false;
+
   @override
   void initState() {
     super.initState();
-
-    Future.microtask(() {
-      final uid = FirebaseAuth.instance.currentUser!.uid;
-
-      context.read<AstrologyProvider>().loadChart(uid);
-    });
+    Future.microtask(() => _bootstrap());
   }
 
-  String translateSign(String sign, bool isThai) {
-    if (!isThai) {
-      return sign;
-    }
+  Future<void> _bootstrap() async {
+    if (!mounted) return;
+    final uid = FirebaseAuth.instance.currentUser?.uid;
+    if (uid == null || uid.isEmpty) return;
 
-    final signs = {
-      'Aries': 'ราศีเมษ',
-      'Taurus': 'ราศีพฤษภ',
-      'Gemini': 'ราศีเมถุน',
-      'Cancer': 'ราศีกรกฎ',
-      'Leo': 'ราศีสิงห์',
-      'Virgo': 'ราศีกันย์',
-      'Libra': 'ราศีตุลย์',
-      'Scorpio': 'ราศีพิจิก',
-      'Sagittarius': 'ราศีธนู',
-      'Capricorn': 'ราศีมังกร',
-      'Aquarius': 'ราศีกุมภ์',
-      'Pisces': 'ราศีมีน',
-    };
+    AstrologyResultLocale.apply(
+      context.read<LocaleProvider>().locale.languageCode,
+    );
 
-    return signs[sign] ?? sign;
+    final provider = context.read<AstrologyProvider>();
+    await provider.loadChart(uid);
+    if (!mounted || provider.chart != null) return;
+
+    setState(() => _autoGenerating = true);
+    await _coordinator.ensureGenerated(uid, retrySystemId: 'western');
+    if (!mounted) return;
+    await provider.loadChart(uid);
+    if (mounted) setState(() => _autoGenerating = false);
   }
 
-  String translatePlanet(String planet, bool isThai) {
-    if (!isThai) {
-      return planet.toUpperCase();
-    }
+  Future<void> _retryGeneration() async {
+    if (!mounted) return;
+    final uid = FirebaseAuth.instance.currentUser?.uid;
+    if (uid == null || uid.isEmpty) return;
 
-    final planets = {
-      'sun': 'อาทิตย์',
-      'moon': 'จันทร์',
-      'mercury': 'พุธ',
-      'venus': 'ศุกร์',
-      'mars': 'อังคาร',
-      'jupiter': 'พฤหัส',
-      'saturn': 'เสาร์',
-      'uranus': 'ยูเรนัส',
-      'neptune': 'เนปจูน',
-      'pluto': 'พลูโต',
-    };
-
-    return planets[planet.toLowerCase()] ?? planet;
+    setState(() => _autoGenerating = true);
+    await _coordinator.ensureGenerated(uid, retrySystemId: 'western');
+    if (!mounted) return;
+    await context.read<AstrologyProvider>().loadChart(uid);
+    if (mounted) setState(() => _autoGenerating = false);
   }
 
-  String getPlanetInterpretation(
-    String planet,
-    Map<String, dynamic> data,
-    bool isThai,
-  ) {
-    if (isThai) {
-      final interpretations = {
-        'mars':
-            'คุณเป็นคนที่จัดการความขัดแย้งอย่างนุ่มนวล ไม่ชอบการปะทะตรงๆ พลังการลงมือทำของคุณเกี่ยวข้องกับบ้าน ครอบครัว และความมั่นคงทางอารมณ์',
 
-        'venus':
-            'คุณให้ความสำคัญกับความรักที่มั่นคง จริงใจ และปลอดภัยทางอารมณ์ มีเสน่ห์และรสนิยมเฉพาะตัว',
 
-        'moon':
-            'โลกอารมณ์ของคุณเต็มไปด้วยอิสระ ความฝัน และการค้นหาความหมายชีวิต คุณต้องการพื้นที่ในการเติบโตทางอารมณ์',
+  void _setLanguage(String languageCode) {
 
-        'sun':
-            'ตัวตนหลักของคุณขับเคลื่อนด้วยความอยากเรียนรู้ ความคิดสร้างสรรค์ และการสื่อสาร คุณเป็นคนปรับตัวเก่งและชอบสำรวจสิ่งใหม่',
+    context.read<LocaleProvider>().setLocale(languageCode);
 
-        'mercury':
-            'คุณมีวิธีคิดที่รวดเร็ว ช่างสังเกต และสามารถเชื่อมโยงข้อมูลได้ดี การสื่อสารคือจุดแข็งสำคัญของคุณ',
+    AstrologyResultLocale.apply(languageCode);
 
-        'jupiter':
-            'คุณเติบโตผ่านการเปลี่ยนแปลงภายใน การเข้าใจชีวิตเชิงลึก และการเรียนรู้ด้านจิตใจ',
+    setState(() {});
 
-        'saturn':
-            'คุณให้ความสำคัญกับความรับผิดชอบ ความมั่นคง และการสร้างสมดุลในชีวิตอย่างจริงจัง',
-      };
-
-      return interpretations[planet.toLowerCase()] ??
-          'ดาวดวงนี้สะท้อนพลังสำคัญบางอย่างในตัวคุณ';
-    }
-
-    final interpretations = {
-      'mars':
-          'You handle conflict gently and prefer diplomacy over confrontation. Your action energy connects strongly with emotional security and family life.',
-
-      'venus':
-          'You value loyalty, emotional security, and genuine relationships. Love must feel stable and sincere for you.',
-
-      'moon':
-          'Your emotional world seeks freedom, meaning, and emotional growth. You need space to explore your inner self.',
-
-      'sun':
-          'Your core identity is driven by curiosity, creativity, and communication. You adapt quickly and enjoy exploring new things.',
-
-      'mercury':
-          'Your mind is quick, observant, and highly communicative. Connecting ideas naturally is one of your strengths.',
-
-      'jupiter':
-          'You grow through deep transformation, emotional insight, and understanding life on a deeper level.',
-
-      'saturn':
-          'You take responsibility seriously and seek balance, stability, and long-term structure in life.',
-    };
-
-    return interpretations[planet.toLowerCase()] ??
-        'This planet reflects an important part of your personality.';
   }
+
+
+
+  String _planetPlacementLine(Map<String, dynamic> data, String lang) {
+
+    final sign = AstrologyResultCopy.signLabel('${data['sign'] ?? ''}', lang);
+
+    final house = '${data['house'] ?? '—'}';
+
+    return AppText.t('astro_planet_placement')
+
+        .replaceAll('{sign}', sign)
+
+        .replaceAll('{house}', house);
+
+  }
+
+
+
+  Widget _sectionTitle(String title, {String? subtitle}) {
+
+    return Column(
+
+      crossAxisAlignment: CrossAxisAlignment.start,
+
+      children: [
+
+        Text(
+
+          title,
+
+          style: const TextStyle(
+
+            color: Colors.white,
+
+            fontSize: 26,
+
+            fontWeight: FontWeight.bold,
+
+          ),
+
+        ),
+
+        if (subtitle != null) ...[
+
+          const SizedBox(height: 10),
+
+          Text(
+
+            subtitle,
+
+            style: const TextStyle(
+
+              color: Colors.white70,
+
+              fontSize: 15,
+
+              height: 1.45,
+
+            ),
+
+          ),
+
+        ],
+
+      ],
+
+    );
+
+  }
+
+
+
+  String _deepLensText(AstrologyChartModel chart, String lang) {
+    final local = AstrologyDeepLens.fromBig3(chart.big3, lang);
+    if (local.trim().isNotEmpty) return local.trim();
+    return AstrologyResultLocale.bilingualField(
+      chart.overallSummary,
+      lang,
+      preparingKey: 'astro_deep_preparing',
+    );
+  }
+
+  Widget _mirrorCard(String body, String lang, String debugLabel) {
+
+    AstrologyResultLocale.assertLocaleIntegrity(lang, debugLabel, body);
+
+    return Container(
+
+      width: double.infinity,
+
+      padding: const EdgeInsets.all(22),
+
+      decoration: BoxDecoration(
+
+        color: Colors.white.withOpacity(0.08),
+
+        borderRadius: BorderRadius.circular(24),
+
+      ),
+
+      child: Text(
+
+        body,
+
+        style: const TextStyle(
+
+          color: Colors.white,
+
+          fontSize: 17,
+
+          height: 1.75,
+
+        ),
+
+      ),
+
+    );
+
+  }
+
+
 
   @override
+
   Widget build(BuildContext context) {
+
     final provider = context.watch<AstrologyProvider>();
+
+    final localeProvider = context.watch<LocaleProvider>();
 
     final chart = provider.chart;
 
-    final isThai = Localizations.localeOf(context).languageCode == 'th';
+    final lang = AstrologyResultLocale.langFromProvider(localeProvider);
+
+    final planetInterpretations = chart != null
+        ? AstrologyResultLocale.planetInterpretationsMap(chart, lang)
+        : const <String, String>{};
 
     return Scaffold(
+
       backgroundColor: const Color(0xFF0B1020),
 
       appBar: AppBar(
+
         backgroundColor: Colors.transparent,
 
         elevation: 0,
 
-        title: Text(isThai ? 'โหราศาสตร์ KnowMe' : 'KnowMe Astrology'),
+        title: Text(AppText.t('astro_app_bar_title')),
 
         actions: [
-          TextButton(
-            onPressed: () {
-              context.read<LocaleProvider>().setLocale('th');
-            },
 
-            child: const Text('TH', style: TextStyle(color: Colors.white)),
+          TextButton(
+
+            onPressed: () => _setLanguage('th'),
+
+            child: Text(
+
+              'TH',
+
+              style: TextStyle(
+
+                color: lang == 'th' ? Colors.white : Colors.white54,
+
+                fontWeight:
+
+                    lang == 'th' ? FontWeight.bold : FontWeight.normal,
+
+              ),
+
+            ),
+
           ),
 
           TextButton(
-            onPressed: () {
-              context.read<LocaleProvider>().setLocale('en');
-            },
 
-            child: const Text('EN', style: TextStyle(color: Colors.white)),
+            onPressed: () => _setLanguage('en'),
+
+            child: Text(
+
+              'EN',
+
+              style: TextStyle(
+
+                color: lang == 'en' ? Colors.white : Colors.white54,
+
+                fontWeight:
+
+                    lang == 'en' ? FontWeight.bold : FontWeight.normal,
+
+              ),
+
+            ),
+
           ),
 
           const SizedBox(width: 12),
+
         ],
+
       ),
 
-      body: provider.isLoading
-          ? const Center(child: CircularProgressIndicator())
-          : provider.error != null
-          ? Center(child: Text(provider.error!))
-          : chart == null
-          ? Center(
-              child: Text(
-                isThai ? 'ไม่พบข้อมูลดวง' : 'No astrology data found',
-
-                style: const TextStyle(color: Colors.white),
-              ),
+      body: provider.isLoading || _autoGenerating
+          ? AstrologyGenerationBody(
+              title: AstrologyFlowCopy.generationTitle('ดวงตะวันตก'),
+              body: AstrologyFlowCopy.generationBody('ดวงตะวันตก'),
             )
-          : Container(
-              decoration: const BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [
-                    Color(0xFF0B1020),
+          : provider.error != null
+              ? AstrologyFlowStateBody(
+                  state: AstrologyFlowState.failed,
+                  onPrimaryAction: _retryGeneration,
+                  primaryActionLabel: AstrologyFlowCopy.retryCta,
+                )
+              : chart == null
+                  ? AstrologyFlowStateBody(
+                      state: AstrologyFlowState.failed,
+                      onPrimaryAction: _retryGeneration,
+                      primaryActionLabel: AstrologyFlowCopy.retryCta,
+                    )
+                  : Container(
 
-                    Color(0xFF1A2340),
+                      decoration: const BoxDecoration(
 
-                    Color(0xFF2D1B4E),
-                  ],
+                        gradient: LinearGradient(
 
-                  begin: Alignment.topCenter,
+                          colors: [
 
-                  end: Alignment.bottomCenter,
-                ),
-              ),
+                            Color(0xFF0B1020),
 
-              child: SingleChildScrollView(
-                padding: const EdgeInsets.all(24),
+                            Color(0xFF1A2340),
 
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                            Color(0xFF2D1B4E),
 
-                  children: [
-                    const SizedBox(height: 16),
+                          ],
 
-                    Text(
-                      isThai
-                          ? 'ตัวตนแห่งจักรวาลของคุณ'
-                          : 'Your Cosmic Identity',
+                          begin: Alignment.topCenter,
 
-                      style: const TextStyle(
-                        color: Colors.white,
+                          end: Alignment.bottomCenter,
 
-                        fontSize: 34,
-
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-
-                    const SizedBox(height: 12),
-
-                    Text(
-                      isThai
-                          ? 'ขับเคลื่อนโดย KnowMe Insight Engine'
-                          : 'Powered by KnowMe Insight Engine',
-
-                      style: const TextStyle(
-                        color: Colors.white70,
-
-                        fontSize: 16,
-                      ),
-                    ),
-
-                    const SizedBox(height: 40),
-
-                    Text(
-                      isThai ? 'แกนพลังหลักของคุณ' : 'Your Core Cosmic Energy',
-
-                      style: const TextStyle(
-                        color: Colors.white,
-
-                        fontSize: 28,
-
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-
-                    const SizedBox(height: 12),
-
-                    Text(
-                      isThai
-                          ? 'บุคลิกหลักที่สะท้อนตัวตนและพลังงานภายในของคุณ'
-                          : 'Your main personality energy from astrology',
-
-                      style: const TextStyle(
-                        color: Colors.white70,
-
-                        fontSize: 16,
-                      ),
-                    ),
-
-                    const SizedBox(height: 24),
-
-                    Row(
-                      children: [
-                        Expanded(
-                          child: _big3Card(
-                            '☀',
-
-                            isThai ? 'ตัวตนภายนอก' : 'Outer Self',
-
-                            translateSign(chart.big3['sun'], isThai),
-                          ),
                         ),
 
-                        const SizedBox(width: 12),
-
-                        Expanded(
-                          child: _big3Card(
-                            '🌙',
-
-                            isThai ? 'อารมณ์ภายใน' : 'Inner Emotion',
-
-                            translateSign(chart.big3['moon'], isThai),
-                          ),
-                        ),
-
-                        const SizedBox(width: 12),
-
-                        Expanded(
-                          child: _big3Card(
-                            '⬆',
-
-                            isThai ? 'ภาพลักษณ์' : 'First Impression',
-
-                            translateSign(chart.big3['rising'], isThai),
-                          ),
-                        ),
-                      ],
-                    ),
-
-                    const SizedBox(height: 40),
-
-                    Text(
-                      isThai ? 'ภาพรวมบุคลิก' : 'Personality Insight',
-
-                      style: const TextStyle(
-                        color: Colors.white,
-
-                        fontSize: 28,
-
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    Container(
-                      width: double.infinity,
-
-                      padding: const EdgeInsets.all(24),
-
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.08),
-
-                        borderRadius: BorderRadius.circular(24),
                       ),
 
-                      child: Text(
-                        isThai
-                            ? chart.insight['th'] ?? chart.insight['en']
-                            : chart.insight['en'],
+                      child: SingleChildScrollView(
 
-                        style: const TextStyle(
-                          color: Colors.white,
+                        padding: const EdgeInsets.all(24),
 
-                          fontSize: 18,
+                        child: Column(
 
-                          height: 1.8,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 32),
-
-                    Text(
-                      isThai
-                          ? 'ภาพรวมตัวตนเชิงลึก'
-                          : 'Deep Personality Summary',
-
-                      style: const TextStyle(
-                        color: Colors.white,
-
-                        fontSize: 28,
-
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-
-                    const SizedBox(height: 20),
-
-                    Container(
-                      width: double.infinity,
-
-                      padding: const EdgeInsets.all(24),
-
-                      decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.08),
-
-                        borderRadius: BorderRadius.circular(24),
-                      ),
-
-                      child: Text(
-                        isThai
-                            ? (chart.overallSummary['th'] ??
-                                  chart.overallSummary['en'] ??
-                                  '')
-                            : (chart.overallSummary['en'] ?? ''),
-
-                        style: const TextStyle(
-                          color: Colors.white,
-
-                          fontSize: 18,
-
-                          height: 1.9,
-                        ),
-                      ),
-                    ),
-
-                    const SizedBox(height: 40),
-                    const SizedBox(height: 40),
-
-                    Text(
-                      isThai ? 'ตำแหน่งดาวสำคัญ' : 'Important Planet Positions',
-
-                      style: const TextStyle(
-                        color: Colors.white,
-
-                        fontSize: 28,
-
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-
-                    const SizedBox(height: 12),
-
-                    Text(
-                      isThai
-                          ? 'พลังงานและอิทธิพลของดาวแต่ละดวงในชีวิตคุณ'
-                          : 'How each planet influences your personality',
-
-                      style: const TextStyle(
-                        color: Colors.white70,
-
-                        fontSize: 16,
-                      ),
-                    ),
-
-                    const SizedBox(height: 24),
-
-                    ...chart.planets.entries.map((entry) {
-                      final planet = entry.key;
-
-                      final data = entry.value;
-
-                      return Container(
-                        margin: const EdgeInsets.only(bottom: 16),
-
-                        padding: const EdgeInsets.all(20),
-
-                        decoration: BoxDecoration(
-                          color: Colors.white.withOpacity(0.08),
-
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-
-                        child: Row(
                           crossAxisAlignment: CrossAxisAlignment.start,
 
                           children: [
-                            Container(
-                              width: 52,
 
-                              height: 52,
+                            const SizedBox(height: 8),
 
-                              decoration: BoxDecoration(
-                                color: Colors.purpleAccent.withOpacity(0.25),
+                            Text(
 
-                                borderRadius: BorderRadius.circular(16),
+                              AppText.t('astro_hero_eyebrow'),
+
+                              style: TextStyle(
+
+                                color: Colors.purple.shade100.withOpacity(0.9),
+
+                                fontSize: 13,
+
+                                fontWeight: FontWeight.w600,
+
+                                letterSpacing: 0.6,
+
                               ),
 
-                              child: Center(
-                                child: Text(
-                                  planet[0].toUpperCase(),
+                            ),
 
-                                  style: const TextStyle(
-                                    color: Colors.white,
+                            const SizedBox(height: 8),
 
-                                    fontSize: 24,
+                            Text(
 
-                                    fontWeight: FontWeight.bold,
+                              AppText.t('astro_hero_supporting'),
+
+                              style: const TextStyle(
+
+                                color: Colors.white60,
+
+                                fontSize: 15,
+
+                              ),
+
+                            ),
+
+                            const SizedBox(height: 20),
+
+                            Builder(
+
+                              builder: (context) {
+
+                                final hero = AstrologyHeroSynthesis.build(
+
+                                  chart,
+
+                                  lang: lang,
+
+                                );
+
+                                AstrologyResultLocale.assertLocaleIntegrity(
+
+                                  lang,
+
+                                  'hero',
+
+                                  hero,
+
+                                );
+
+                                return Text(
+
+                                  hero,
+
+                                  style: TextStyle(
+
+                                    color: Colors.white.withOpacity(0.92),
+
+                                    fontSize: 19,
+
+                                    height: 1.65,
+
+                                    fontWeight: FontWeight.w400,
+
                                   ),
+
+                                );
+
+                              },
+
+                            ),
+
+                            const SizedBox(height: 44),
+
+                            _sectionTitle(
+
+                              AppText.t('astro_big3_title'),
+
+                              subtitle: AppText.t('astro_big3_subtitle'),
+
+                            ),
+
+                            const SizedBox(height: 22),
+
+                            Row(
+
+                              children: [
+
+                                Expanded(
+
+                                  child: _big3Card(
+
+                                    '☀',
+
+                                    AppText.t('astro_big3_sun'),
+
+                                    AstrologyResultCopy.signLabel(
+
+                                      chart.big3['sun']?.toString(),
+
+                                      lang,
+
+                                    ),
+
+                                    AstrologyBig3Microcopy.forRole(
+
+                                      AstroBig3Role.sun,
+
+                                      chart.big3['sun'],
+
+                                      lang,
+
+                                    ),
+
+                                  ),
+
                                 ),
-                              ),
+
+                                const SizedBox(width: 12),
+
+                                Expanded(
+
+                                  child: _big3Card(
+
+                                    '🌙',
+
+                                    AppText.t('astro_big3_inner'),
+
+                                    AstrologyResultCopy.signLabel(
+
+                                      chart.big3['moon']?.toString(),
+
+                                      lang,
+
+                                    ),
+
+                                    AstrologyBig3Microcopy.forRole(
+
+                                      AstroBig3Role.moon,
+
+                                      chart.big3['moon'],
+
+                                      lang,
+
+                                    ),
+
+                                  ),
+
+                                ),
+
+                                const SizedBox(width: 12),
+
+                                Expanded(
+
+                                  child: _big3Card(
+
+                                    '⬆',
+
+                                    AppText.t('astro_big3_rising'),
+
+                                    AstrologyResultCopy.signLabel(
+
+                                      chart.big3['rising']?.toString(),
+
+                                      lang,
+
+                                    ),
+
+                                    AstrologyBig3Microcopy.forRole(
+
+                                      AstroBig3Role.rising,
+
+                                      chart.big3['rising'],
+
+                                      lang,
+
+                                    ),
+
+                                  ),
+
+                                ),
+
+                              ],
+
                             ),
 
-                            const SizedBox(width: 16),
+                            const SizedBox(height: 40),
 
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
+                            _sectionTitle(
 
-                                children: [
-                                  Text(
-                                    translatePlanet(planet, isThai),
+                              AppText.t('astro_insight_title'),
 
-                                    style: const TextStyle(
-                                      color: Colors.white,
+                              subtitle: AppText.t('astro_insight_subtitle'),
 
-                                      fontSize: 20,
-
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-
-                                  const SizedBox(height: 6),
-
-                                  Text(
-                                    isThai
-                                        ? 'อยู่ใน${translateSign(data['sign'], isThai)} • เรือนที่ ${data['house']}'
-                                        : '${data['sign']} • House ${data['house']}',
-
-                                    style: const TextStyle(
-                                      color: Colors.white70,
-
-                                      fontSize: 15,
-                                    ),
-                                  ),
-
-                                  const SizedBox(height: 14),
-
-                                  Text(
-                                    getPlanetInterpretation(
-                                      planet,
-                                      data,
-                                      isThai,
-                                    ),
-
-                                    style: const TextStyle(
-                                      color: Colors.white,
-
-                                      fontSize: 15,
-
-                                      height: 1.7,
-                                    ),
-                                  ),
-                                ],
-                              ),
                             ),
+
+                            const SizedBox(height: 18),
+
+                            _mirrorCard(
+
+                              AstrologyResultLocale.bilingualField(
+
+                                chart.insight,
+
+                                lang,
+
+                                preparingKey: 'astro_insight_preparing',
+
+                              ),
+
+                              lang,
+
+                              'insight',
+
+                            ),
+
+                            const SizedBox(height: 36),
+
+                            _sectionTitle(
+
+                              AppText.t('astro_deep_title'),
+
+                              subtitle: AppText.t('astro_deep_subtitle'),
+
+                            ),
+
+                            const SizedBox(height: 18),
+
+                            _mirrorCard(
+
+                              _deepLensText(chart, lang),
+
+                              lang,
+
+                              'overall_summary',
+
+                            ),
+
+                            const SizedBox(height: 44),
+
+                            _sectionTitle(
+
+                              AppText.t('astro_planets_title'),
+
+                              subtitle: AppText.t('astro_planets_subtitle'),
+
+                            ),
+
+                            const SizedBox(height: 14),
+
+                            Text(
+
+                              AppText.t('astro_planets_intro'),
+
+                              style: const TextStyle(
+
+                                color: Colors.white54,
+
+                                fontSize: 14,
+
+                                height: 1.4,
+
+                              ),
+
+                            ),
+
+                            const SizedBox(height: 28),
+
+                            ...chart.planets.entries.map((entry) {
+
+                              final planet = entry.key;
+
+                              final data = entry.value;
+
+                              final planetName =
+
+                                  AstrologyResultCopy.planetLabel(planet, lang);
+
+                              final interpretation =
+
+                                  AstrologyResultLocale.planetInterpretation(
+
+                                chart,
+
+                                planet,
+
+                                lang,
+
+                                planetData: data,
+
+                                precomputedBig7: planetInterpretations,
+
+                              );
+
+                              AstrologyResultLocale.assertLocaleIntegrity(
+
+                                lang,
+
+                                'planet_$planet',
+
+                                interpretation,
+
+                              );
+
+
+
+                              return Container(
+
+                                margin: const EdgeInsets.only(bottom: 20),
+
+                                padding: const EdgeInsets.all(20),
+
+                                decoration: BoxDecoration(
+
+                                  color: Colors.white.withOpacity(0.08),
+
+                                  borderRadius: BorderRadius.circular(20),
+
+                                ),
+
+                                child: Row(
+
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+
+                                  children: [
+
+                                    Container(
+
+                                      width: 52,
+
+                                      height: 52,
+
+                                      decoration: BoxDecoration(
+
+                                        color: Colors.purpleAccent
+
+                                            .withOpacity(0.25),
+
+                                        borderRadius: BorderRadius.circular(16),
+
+                                      ),
+
+                                      child: Center(
+
+                                        child: Text(
+
+                                          planetName.isNotEmpty
+
+                                              ? planetName[0]
+
+                                              : '?',
+
+                                          style: const TextStyle(
+
+                                            color: Colors.white,
+
+                                            fontSize: 22,
+
+                                            fontWeight: FontWeight.bold,
+
+                                          ),
+
+                                        ),
+
+                                      ),
+
+                                    ),
+
+                                    const SizedBox(width: 16),
+
+                                    Expanded(
+
+                                      child: Column(
+
+                                        crossAxisAlignment:
+
+                                            CrossAxisAlignment.start,
+
+                                        children: [
+
+                                          Text(
+
+                                            planetName,
+
+                                            style: const TextStyle(
+
+                                              color: Colors.white,
+
+                                              fontSize: 20,
+
+                                              fontWeight: FontWeight.bold,
+
+                                            ),
+
+                                          ),
+
+                                          const SizedBox(height: 6),
+
+                                          Text(
+
+                                            _planetPlacementLine(data, lang),
+
+                                            style: const TextStyle(
+
+                                              color: Colors.white70,
+
+                                              fontSize: 15,
+
+                                            ),
+
+                                          ),
+
+                                          const SizedBox(height: 14),
+
+                                          Text(
+
+                                            interpretation,
+
+                                            style: const TextStyle(
+
+                                              color: Colors.white,
+
+                                              fontSize: 15,
+
+                                              height: 1.7,
+
+                                            ),
+
+                                          ),
+
+                                        ],
+
+                                      ),
+
+                                    ),
+
+                                  ],
+
+                                ),
+
+                              );
+
+                            }),
+
+                            const SizedBox(height: 48),
+
+                            Text(
+
+                              AppText.t('astro_result_cta_mbti'),
+
+                              style: const TextStyle(
+
+                                color: Colors.white,
+
+                                fontSize: 20,
+
+                                fontWeight: FontWeight.w600,
+
+                                height: 1.4,
+
+                              ),
+
+                            ),
+
+                            const SizedBox(height: 10),
+
+                            Text(
+
+                              AppText.t('astro_result_cta_mbti_support'),
+
+                              style: const TextStyle(
+
+                                color: Colors.white70,
+
+                                fontSize: 15,
+
+                                height: 1.5,
+
+                              ),
+
+                            ),
+
+                            const SizedBox(height: 18),
+
+                            SizedBox(
+
+                              width: double.infinity,
+
+                              child: ElevatedButton(
+
+                                onPressed: () {
+
+                                  Navigator.push(
+
+                                    context,
+
+                                    MbtiRoutes.miniTestRoute(),
+
+                                  );
+
+                                },
+
+                                style: ElevatedButton.styleFrom(
+
+                                  backgroundColor: Colors.purpleAccent,
+
+                                  foregroundColor: Colors.white,
+
+                                  padding: const EdgeInsets.symmetric(
+
+                                    vertical: 16,
+
+                                  ),
+
+                                  shape: RoundedRectangleBorder(
+
+                                    borderRadius: BorderRadius.circular(16),
+
+                                  ),
+
+                                ),
+
+                                child: Text(
+
+                                  AppText.t('astro_result_cta_mbti_action'),
+
+                                ),
+
+                              ),
+
+                            ),
+
+                            const SizedBox(height: 24),
+
                           ],
+
                         ),
-                      );
-                    }),
-                  ],
-                ),
-              ),
-            ),
+
+                      ),
+
+                    ),
+
     );
+
   }
 
-  Widget _big3Card(String emoji, String title, String value) {
+
+
+  Widget _big3Card(
+    String emoji,
+    String title,
+    String value,
+    String microInsight,
+  ) {
     return Container(
       padding: const EdgeInsets.all(20),
-
       decoration: BoxDecoration(
         color: Colors.white.withOpacity(0.08),
-
         borderRadius: BorderRadius.circular(24),
       ),
-
       child: Column(
         children: [
           Text(emoji, style: const TextStyle(fontSize: 28)),
-
           const SizedBox(height: 12),
-
           Text(
             title,
-
             textAlign: TextAlign.center,
-
             style: const TextStyle(color: Colors.white70, fontSize: 14),
           ),
-
           const SizedBox(height: 8),
-
           Text(
             value,
-
             textAlign: TextAlign.center,
-
             style: const TextStyle(
               color: Colors.white,
-
               fontSize: 18,
-
               fontWeight: FontWeight.bold,
             ),
           ),
+          if (microInsight.isNotEmpty) ...[
+            const SizedBox(height: 10),
+            Text(
+              microInsight,
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white.withOpacity(0.62),
+                fontSize: 13,
+                height: 1.45,
+              ),
+            ),
+          ],
         ],
       ),
     );
   }
+
 }
+
+
