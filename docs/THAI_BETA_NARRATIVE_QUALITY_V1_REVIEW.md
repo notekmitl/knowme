@@ -301,3 +301,162 @@ All fixtures ≥4 semantic, coherence, non-repetition. Emotional resonance avera
 - `build/thai_beta_narrative_samples/fixture_b_no_time.txt`
 
 Generated via `flutter test test/validation/thai_beta/narrative/thai_beta_narrative_sample_export_test.dart`
+
+---
+
+## V1.1 — Curated Thai Narrative Blocks
+
+**Date:** July 2026  
+**Base commit:** `215a89e4deb6b8ae4aeea2c681e24f5d4c0d2c94`  
+**Branch:** `ai-worker/20260721-142945-9d5e57`
+
+### Root cause (Clause Composer)
+
+V1 composed Thai by concatenating engine phrase fragments:
+
+```
+Trait A clause + connector + Trait B clause + advice clause
+```
+
+This produced:
+
+- `ลอง` + life-hint sentences (`ลองเป้าหมายที่ท้าทาย…`)
+- `แต่เมื่อต้องตัดสินใจ คุณยัง{trait}ด้วย` without explaining relationship
+- `ตัวอย่างที่พบได้บ่อยคือเมื่อต้องใช้{trait}` malformed Thai
+- Hero templates like `ในขณะที่อีกด้านหนึ่งคุณ…` / `เมื่อสituacionเร่ง`
+- Repeated trait labels within a single strength block
+
+### Curated Block architecture
+
+```
+ThaiBetaInput → Engine (unchanged) → ThaiMirrorConsumerPresenter (unchanged)
+  → ThaiBetaNarrativeComposer V1.1
+      ├─ ThaiBetaCuratedNarrativeBlocks (pre-written Thai)
+      ├─ ThaiBetaCuratedBlockSelector (deterministic selection)
+      ├─ ThaiBetaNarrativeForbidden (regex regression guard)
+      ├─ ThaiBetaNarrativeHero (curated WOW)
+      ├─ ThaiBetaNarrativeDedupe V1.1
+      └─ ThaiBetaNarrativeFormatting (unchanged normalizer)
+  → ThaiBetaReportPage + ThaiBetaReportExportDocument (same composed view)
+```
+
+**Model:** `CuratedNarrativeBlock` — id, section, domain, primary/secondary trait or semantic tags, relationshipType, minimumConfidence, requiresBirthTime, safeWithoutBirthTime, observableBehavior, strengthText, tensionText, adviceText, heroSentences, domainOverview/Why, dashboard fields, sourceSignalIds.
+
+### Block selection order
+
+1. Trait pair + domain + confidence
+2. Trait pair + domain
+3. Primary trait + domain
+4. Primary semantic tag (ReportFacet) + domain
+5. Safe domain fallback (stable sort by block id; seed tie-break)
+
+### No-birth-time policy
+
+- Blocks with `requiresBirthTime` excluded when time missing
+- Hero appends limitation sentence: `โดยไม่มีเวลาเกิด…`
+- Cautious phrasing in `hero_no_time_cautious_v1`
+- Forbidden: deep-motive phrases (`ลึก ๆ คุณต้องการ`, etc.)
+- Report and PDF share the same composed view
+
+### Before / after examples
+
+| Issue | Before (V1) | After (V1.1) |
+|-------|-------------|--------------|
+| Advice | `ลองฟื้นตัวจากความยากลำบาก…` | `ลองกำหนดเวลาตัดสินใจให้เรื่องสำคัญในงาน…` |
+| Trait append | `แต่เมื่อต้องตัดสินใจ คุณยังรับผิดชอบสูงด้วย` | Curated domain block explains behavior in context |
+| Example | `ตัวอย่างที่พบได้บ่อยคือเมื่อต้องใช้ฟื้นตัว…` | Removed — strength uses 3-part curated block |
+| Hero | `คุณมัก… ในขณะที่อีกด้านหนึ่งคุณ…` | `คนอื่นมักเห็นว่าคุณเป็นคนรับผิดชอบ…` (curated hero block) |
+| Strength | Title + repeated `คุณมัก{same}` | Observable behavior + value + caution (distinct) |
+| Work domain | Generic trait clause | `ในงาน คุณมักชอบทำความเข้าใจก่อนลงมือ…` |
+| Money domain | `รู้สึกลึก` without finance link | `เรื่องเงิน คุณมักเปรียบเทียบตัวเลือก…` |
+| Love domain | Trait label only | `ในความสัมพันธ์ คุณมักฟังและทำความเข้าใจ…` |
+| Health domain | Generic | `ด้านพลังใจ คุณมักสังเกตสัญญาณของตัวเอง…` |
+| Luck domain | Generic | `เรื่องโอกาส คุณมักมองหลายมุมก่อนตัดสินใจ…` |
+| No-time | Deep motive claims | `ภาพรวมจากวันเกิดสะท้อนว่า…` + limitation sentence |
+| Dashboard action | `ลอง{lifeHint}` | `ลองจดรายการใช้จ่ายสัปดาห์นี้…` |
+
+### Hero before/after (4 examples)
+
+1. **Structure + thinking:** System template → curated 5-sentence arc (external view → inner drive → situation → observable → reflective close)
+2. **Drive + thinking:** `คุณมัก… เมื่อสถานการณ์เร่ง` → `เมื่อเป้าหมายชัด… คุณจะยอมรอให้แผนพร้อม`
+3. **People + independent:** Clause pair → `คนรอบตัวมักเห็นว่าคุณใส่ใจ… แต่เบื้องหลังนั้น คุณยังต้องการพื้นที่ของตัวเอง`
+4. **No birth time:** Confident inner drive → cautious `คุณอาจมีแนวโน้ม…` + limitation sentence
+
+### Strength before/after (3 examples)
+
+1. **Resilient:** Repeated `คุณมักฟื้นตัว…` → behavior / social value / fatigue caution (3 parts)
+2. **Analytical:** `เมื่อต้องใช้ใคร่ครวญ…` → decision-listing behavior + trust value + over-check caution
+3. **Disciplined:** Engine expanded template → follow-through behavior + reliability + over-commit caution
+
+### Domain before/after (5 domains)
+
+| Domain | Before | After |
+|--------|--------|-------|
+| Work | Trait clause + connector | Curated work-method / responsibility / collaboration behavior |
+| Money | Emotion trait without finance | Spending, saving, risk behavior blocks |
+| Love | Generic headline | Openness, communication, trust behavior |
+| Health | Misplaced teaching trait | Energy, rest, stress, recovery behavior |
+| Luck | Generic | Opportunity see/accept/adapt behavior |
+
+### Advice before/after
+
+- Before: `ลอง$lifeHint` concatenation
+- After: Complete action sentences (`ลองกำหนด…`, `ลองเว้น…`, `ลองจด…`) with reason clause
+
+### Forbidden patterns (regex)
+
+`ThaiBetaNarrativeForbidden.runtimePatterns` — `ลองคุณ`, `ลองงาน`, `อย่างเช่น เมื่อต้องใช้`, `แต่เมื่อต้องตัดสินใจ คุณยัง`, `ในขณะที่อีกด้านหนึ่งคุณ`, duplicate `คุณมัก` within sentence, etc.
+
+### Test results
+
+| Suite | Result |
+|-------|--------|
+| `flutter analyze --no-fatal-warnings --no-fatal-infos` | Exit 0 (296 info/warnings — unchanged from base `215a89e`; 0 issues in changed narrative files) |
+| `test/validation/thai_beta/` | 181 passed |
+| `test/validation/thai/` | 919 passed |
+| `test/validation/thai_beta/narrative/` | 65 passed |
+| Full `flutter test` | 2518 passed, 24 failed (pre-existing: human coverage, screenshots, widget_test — identical 24 failures on base `215a89e`) |
+
+### Fixture rubric V1.1
+
+| Fixture | Path | Semantic | Naturalness | Coherence | Non-rep | Resonance | Grounded | No-time safety |
+|---------|------|----------|-------------|-----------|---------|-----------|----------|----------------|
+| A (time, ~44y) | `build/thai_beta_narrative_samples_v11/fixture_a_with_time.txt` | 5 | 5 | 5 | 5 | 5 | 5 | n/a |
+| B (no time, ~45y) | `build/thai_beta_narrative_samples_v11/fixture_b_no_time.txt` | 5 | 5 | 5 | 5 | 4 | 5 | 5 |
+
+No forbidden runtime patterns in composed narrative sections.
+
+### Files changed (V1.1)
+
+**New:**
+- `lib/features/thai_beta/application/narrative/thai_beta_curated_narrative_block.dart`
+- `lib/features/thai_beta/application/narrative/thai_beta_curated_narrative_blocks.dart`
+- `lib/features/thai_beta/application/narrative/thai_beta_curated_block_selector.dart`
+- `lib/features/thai_beta/application/narrative/thai_beta_narrative_forbidden.dart`
+- `test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart`
+
+**Updated:**
+- `lib/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart`
+- `lib/features/thai_beta/application/narrative/thai_beta_narrative_hero.dart`
+- `lib/features/thai_beta/application/narrative/thai_beta_narrative_specificity.dart`
+- `lib/features/thai_beta/application/narrative/thai_beta_narrative_dedupe.dart`
+- `lib/features/thai_beta/application/narrative/thai_beta_narrative_domain.dart`
+- `lib/features/thai_beta/application/narrative/thai_beta_narrative_trace.dart`
+- `test/validation/thai_beta/narrative/thai_beta_narrative_sample_export_test.dart`
+- `docs/THAI_BETA_NARRATIVE_QUALITY_V1_REVIEW.md`
+
+### Confirmations (V1.1)
+
+- Engine / Canon / Prediction / life period / trait selection unchanged
+- No runtime LLM / random
+- Internal block IDs not shown in public output
+- Generated samples not committed
+- Stash not applied
+- Not pushed / merged / deployed
+
+### V1.1 sample paths (local)
+
+- `build/thai_beta_narrative_samples_v11/fixture_a_with_time.txt`
+- `build/thai_beta_narrative_samples_v11/fixture_b_no_time.txt`
+
+Generated via `flutter test test/validation/thai_beta/narrative/thai_beta_narrative_sample_export_test.dart`

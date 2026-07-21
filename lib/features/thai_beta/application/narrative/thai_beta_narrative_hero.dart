@@ -1,17 +1,19 @@
-/// WOW opening composer for Thai Beta hero section.
+/// WOW opening composer for Thai Beta hero section — V1.1 curated blocks.
 library;
 
 import 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mirror_evidence_composer.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mirror_theme_phrases.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_mirror_consumer_view_state.dart';
 
+import 'thai_beta_curated_block_selector.dart';
+import 'thai_beta_curated_narrative_block.dart';
 import 'thai_beta_narrative_dedupe.dart';
 import 'thai_beta_narrative_formatting.dart';
 import 'thai_beta_narrative_specificity.dart';
 import 'thai_beta_narrative_trace.dart';
 
 abstract final class ThaiBetaNarrativeHero {
-  /// Builds a 5-part WOW opening from existing engine signals only.
+  /// Builds a 3–5 sentence WOW opening from curated blocks.
   static ({
     ThaiMirrorConsumerHeroState hero,
     List<ThaiBetaNarrativeTraceEntry> trace,
@@ -22,100 +24,85 @@ abstract final class ThaiBetaNarrativeHero {
     required bool hasBirthTime,
     String? cautionBody,
     String? lifePeriodLabel,
+    Set<String> usedBlockIds = const {},
+    Set<String> usedTextKeys = const {},
   }) {
     if (orderedThemeIds.isEmpty) {
       return (hero: sourceHero, trace: const []);
     }
 
-    final profile = ThaiMirrorEvidenceComposer.profileFor(orderedThemeIds);
-    final primaryFacet = profile.primary;
-    final contrastFacet = profile.contrastFor(primaryFacet);
-
     final primaryThemeId = orderedThemeIds.first;
     final secondaryThemeId =
         orderedThemeIds.length > 1 ? orderedThemeIds[1] : null;
-    final primaryPhrase = ThaiMirrorThemePhrases.phrase(primaryThemeId);
-    final secondaryPhrase = secondaryThemeId != null
-        ? ThaiMirrorThemePhrases.phrase(secondaryThemeId)
-        : null;
 
-    final used = <String>{};
-    final parts = <String>[];
+    final primaryFacet =
+        ThaiMirrorEvidenceComposer.facetForThemeId(primaryThemeId);
+    final secondaryFacet = secondaryThemeId == null
+        ? null
+        : ThaiMirrorEvidenceComposer.facetForThemeId(secondaryThemeId);
 
-    // 1. What others see first (external behavior).
-    parts.add(
-      _addUnique(
-        used,
-        'คนที่เพิ่งรู้จักคุณมักสังเกตว่า ${primaryPhrase.tag} — '
-            '${primaryPhrase.heroDetail}',
+    final hasDistinctSecondary = secondaryFacet != null &&
+        secondaryFacet != primaryFacet &&
+        !_areSemanticallySimilar(primaryFacet, secondaryFacet);
+
+    final selection = ThaiBetaCuratedBlockSelector.select(
+      CuratedBlockQuery(
+        section: CuratedNarrativeSection.hero,
+        primaryThemeId: primaryThemeId,
+        secondaryThemeId: hasDistinctSecondary ? secondaryThemeId : null,
+        hasBirthTime: hasBirthTime,
+        usedBlockIds: usedBlockIds,
+        usedTextKeys: usedTextKeys,
+        seed: profileSeed,
+        confidence: hasBirthTime ? 1.0 : 0.5,
       ),
     );
 
-    // 2. Inner drive (primary + secondary link).
-    if (secondaryPhrase != null &&
-        primaryFacet != ThaiMirrorEvidenceComposer.facetForThemeId(
-          secondaryThemeId!,
-        )) {
-      parts.add(
-        _addUnique(
-          used,
-          'เบื้องหลังนั้น คุณ${primaryPhrase.headlinePart} '
-              'และยัง${secondaryPhrase.headlinePart}เมื่อสถานการณ์เร่ง',
-        ),
-      );
-    } else {
-      parts.add(
-        _addUnique(
-          used,
-          ThaiMirrorEvidenceComposer.discovery(primaryFacet, profileSeed),
-        ),
+    final block = selection.block;
+    var sentences = List<String>.from(block.heroSentences);
+
+    if (sentences.length > 5) {
+      sentences = sentences.take(5).toList();
+    }
+    if (sentences.length < 3 && block.observableBehavior != null) {
+      sentences.add(block.observableBehavior!);
+    }
+
+    if (cautionBody != null &&
+        cautionBody.trim().isNotEmpty &&
+        sentences.length < 5) {
+      sentences.add(
+        '${ThaiBetaNarrativeFormatting.normalize(cautionBody)} '
+        'และนั่นไม่ได้หมายความว่าคุณอ่อนแอ — แค่เป็นจุดที่ควรดูแลตัวเองให้พอดี',
       );
     }
 
-    // 3. Self-difference (contrast only when supported).
-    if (contrastFacet != primaryFacet) {
-      parts.add(
-        _addUnique(
-          used,
-          ThaiMirrorEvidenceComposer.contradiction(
-            primaryFacet,
-            contrastFacet,
-            profileSeed + 11,
-          ),
-        ),
-      );
-    }
-
-    // 4. Observable behavior.
-    parts.add(
-      _addUnique(
-        used,
-        ThaiBetaNarrativeSpecificity.observableBehavior(
-          themeId: primaryThemeId,
-          seed: profileSeed + 3,
-        ),
-      ),
-    );
-
-    // 5. Reflective closing with grounded tension when caution exists.
-    var closing =
-        'ถ้าอ่านแล้วรู้สึกว่าบางส่วนตรง บางส่วนยังไม่ใช่ทั้งหมด — '
-        'ใช้เฉพาะที่สะท้อนชีวิตจริงของคุณก็พอ';
-    if (cautionBody != null && cautionBody.trim().isNotEmpty) {
-      closing =
-          '${ThaiBetaNarrativeFormatting.normalize(cautionBody)} '
-          'และนั่นไม่ได้หมายความว่าคุณอ่อนแอ — แค่เป็นจุดที่ควรดูแลตัวเองให้พอดี';
-    }
-    parts.add(ThaiBetaNarrativeFormatting.normalize(closing));
-
-    final headline = ThaiBetaNarrativeSpecificity.composeTraitPair(
+    final headline = ThaiBetaNarrativeSpecificity.composeHeadlineFromBlock(
       primaryThemeId: primaryThemeId,
-      secondaryThemeId: secondaryThemeId,
+      secondaryThemeId: hasDistinctSecondary ? secondaryThemeId : null,
+      block: block,
       seed: profileSeed,
     );
+    final headlineKey = ThaiBetaNarrativeFormatting.normalizedKey(headline);
+
+    final used = <String>{...usedTextKeys};
+    final parts = <String>[];
+    for (final sentence in sentences.take(5)) {
+      if (parts.isEmpty &&
+          ThaiBetaNarrativeFormatting.normalizedKey(sentence) == headlineKey) {
+        continue;
+      }
+      final resolved = ThaiBetaNarrativeDedupe.resolveUnique(
+        text: sentence,
+        used: used,
+      );
+      if (resolved.isNotEmpty) {
+        parts.add(resolved);
+      }
+    }
 
     var summary = parts.join('\n\n');
-    if (!hasBirthTime) {
+    if (!hasBirthTime && !summary.contains('ไม่มีเวลาเกิด')) {
       summary = ThaiBetaNarrativeFormatting.normalize(
         '$summary\n\n'
         'โดยไม่มีเวลาเกิด รายงานนี้เน้นภาพรวมจากวันเกิด '
@@ -142,26 +129,35 @@ abstract final class ThaiBetaNarrativeHero {
           sectionId: 'hero',
           field: 'headline',
           primaryThemeId: primaryThemeId,
-          secondaryThemeId: secondaryThemeId,
-          relationship: 'primary+secondary',
+          secondaryThemeId: hasDistinctSecondary ? secondaryThemeId : null,
+          relationship: 'curated_block',
           lifePeriod: lifePeriodLabel,
+          block: block,
+          matchLevel: selection.matchLevel,
         ),
         ThaiBetaNarrativeSpecificity.traceEntry(
           sectionId: 'hero',
           field: 'summary',
           primaryThemeId: primaryThemeId,
-          secondaryThemeId: secondaryThemeId,
-          relationship: 'wow_opening',
+          secondaryThemeId: hasDistinctSecondary ? secondaryThemeId : null,
+          relationship: 'curated_hero',
           lifePeriod: lifePeriodLabel,
+          block: block,
+          matchLevel: selection.matchLevel,
         ),
       ],
     );
   }
 
-  static String _addUnique(Set<String> used, String text) {
-    return ThaiBetaNarrativeDedupe.resolveUnique(
-      text: text,
-      used: used,
-    );
+  static bool _areSemanticallySimilar(ReportFacet a, ReportFacet b) {
+    const similar = {
+      ReportFacet.thinking: {ReportFacet.caution},
+      ReportFacet.structure: {ReportFacet.caution},
+      ReportFacet.drive: {ReportFacet.action},
+      ReportFacet.action: {ReportFacet.drive},
+      ReportFacet.people: {ReportFacet.emotion},
+      ReportFacet.emotion: {ReportFacet.people},
+    };
+    return similar[a]?.contains(b) == true || similar[b]?.contains(a) == true;
   }
 }

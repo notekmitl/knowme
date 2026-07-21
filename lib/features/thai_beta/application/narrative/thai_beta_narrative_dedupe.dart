@@ -1,6 +1,7 @@
-/// Presentation-layer deduplication for Thai Beta narrative.
+/// Presentation-layer deduplication for Thai Beta narrative V1.1.
 library;
 
+import 'thai_beta_narrative_forbidden.dart';
 import 'thai_beta_narrative_formatting.dart';
 
 abstract final class ThaiBetaNarrativeDedupe {
@@ -11,13 +12,19 @@ abstract final class ThaiBetaNarrativeDedupe {
     'พอเป็นแบบนี้คุณเลย',
     'สิ่งที่คนมักสัมผัสได้จากคุณก่อนเลยคือ',
     'อย่างเช่น เมื่อต้องใช้',
+    'ตัวอย่างที่พบได้บ่อยคือเมื่อต้องใช้',
     'ภาพรวมค่อนข้างเอื้อ',
+    'ถ้าจะเข้าใจคุณ แค่เรื่องเดียว',
+    'ในขณะที่อีกด้านหนึ่ง',
+    'แต่เมื่อต้องตัดสินใจ คุณยัง',
   ];
 
   static const _allowedRepeatedDisclaimers = <String>{
     'นี่ไม่ใช่คำฟันธง',
     'บางอย่างอาจใช่ บางอย่างอาจไม่',
     'ลองอ่านช้า ๆ',
+    'ถ้าอ่านแล้วรู้สึกว่าบางส่วนตรง',
+    'โดยไม่มีเวลาเกิด',
   };
 
   /// Removes duplicates within [paragraphs] and against [globalUsed].
@@ -34,6 +41,9 @@ abstract final class ThaiBetaNarrativeDedupe {
       final polished = ThaiBetaNarrativeFormatting.normalize(raw);
       if (polished.isEmpty) continue;
       if (sectionTitle != null && polished == sectionTitle) continue;
+      if (ThaiBetaNarrativeForbidden.findForbidden(polished).isNotEmpty) {
+        continue;
+      }
 
       final key = ThaiBetaNarrativeFormatting.normalizedKey(polished);
       if (key.length < 8) {
@@ -41,6 +51,7 @@ abstract final class ThaiBetaNarrativeDedupe {
         continue;
       }
 
+      if (_isSemanticLeadDuplicate(polished, sectionUsed)) continue;
       if (sectionUsed.contains(key)) {
         if (_isAllowedRepeat(polished)) {
           out.add(polished);
@@ -59,6 +70,15 @@ abstract final class ThaiBetaNarrativeDedupe {
     return out;
   }
 
+  static bool _isSemanticLeadDuplicate(String text, Set<String> sectionUsed) {
+    for (final existing in sectionUsed) {
+      if (ThaiBetaNarrativeForbidden.isSemanticVariant(text, existing)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   static void _recordFixedTemplateKeys(String text, Set<String> used) {
     for (final pattern in _fixedTemplatePatterns) {
       if (!text.contains(pattern)) continue;
@@ -68,6 +88,10 @@ abstract final class ThaiBetaNarrativeDedupe {
 
   static String? dedupeAgainstUsed(String text, Set<String> used, {String? alt}) {
     final polished = ThaiBetaNarrativeFormatting.normalize(text);
+    if (ThaiBetaNarrativeForbidden.findForbidden(polished).isNotEmpty) {
+      if (alt != null) return dedupeAgainstUsed(alt, used);
+      return null;
+    }
     final key = ThaiBetaNarrativeFormatting.normalizedKey(polished);
     if (!used.contains(key)) {
       used.add(key);
@@ -125,8 +149,8 @@ abstract final class ThaiBetaNarrativeDedupe {
     return false;
   }
 
-  /// Rewrites strength card intro to avoid title-echo template.
-  static String rewriteStrengthExpanded({
+  /// Builds strength expanded body from curated 3-part block text.
+  static String buildStrengthExpanded({
     required String title,
     required String expandedBody,
     required Set<String> used,
@@ -142,22 +166,12 @@ abstract final class ThaiBetaNarrativeDedupe {
       var para = p.trim();
       if (para.isEmpty) continue;
 
-      if (para.contains('สิ่งที่คนมักสัมผัสได้จากคุณก่อนเลยคือ')) {
-        para = para.replaceFirst(
-          RegExp(r'สิ่งที่คนมักสัมผัสได้จากคุณก่อนเลยคือ[^—\n]*—?\s*'),
-          'คนที่รู้จักคุณมักสังเกตว่า ',
-        );
-      }
-      if (para.startsWith('อย่างเช่น เมื่อต้องใช้')) {
-        para = para.replaceFirst(
-          'อย่างเช่น เมื่อต้องใช้',
-          'ตัวอย่างที่พบได้บ่อยคือเมื่อต้องใช้',
-        );
-      }
+      if (ThaiBetaNarrativeForbidden.findForbidden(para).isNotEmpty) continue;
 
       final key = ThaiBetaNarrativeFormatting.normalizedKey(para);
       if (titleNorm == key) continue;
       if (used.contains(key)) continue;
+      if (_isSemanticLeadDuplicate(para, used)) continue;
 
       out.add(para);
       used.add(key);
@@ -166,4 +180,16 @@ abstract final class ThaiBetaNarrativeDedupe {
     if (out.isEmpty) return body;
     return out.join('\n\n');
   }
+
+  /// @deprecated Use [buildStrengthExpanded].
+  static String rewriteStrengthExpanded({
+    required String title,
+    required String expandedBody,
+    required Set<String> used,
+  }) =>
+      buildStrengthExpanded(
+        title: title,
+        expandedBody: expandedBody,
+        used: used,
+      );
 }

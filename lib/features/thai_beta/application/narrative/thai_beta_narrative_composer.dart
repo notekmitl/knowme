@@ -1,6 +1,7 @@
-/// Thai Beta Narrative Quality V1 — presentation-only composer.
+/// Thai Beta Narrative Quality V1.1 — curated block composer.
 library;
 
+import 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mirror_theme_phrases.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_mirror_consumer_view_state.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 
@@ -8,6 +9,7 @@ import 'thai_beta_narrative_context.dart';
 import 'thai_beta_narrative_dedupe.dart';
 import 'thai_beta_narrative_domain.dart';
 import 'thai_beta_narrative_formatting.dart';
+import 'thai_beta_narrative_forbidden.dart';
 import 'thai_beta_narrative_hero.dart';
 import 'thai_beta_narrative_specificity.dart';
 import 'thai_beta_narrative_stable_hash.dart';
@@ -74,6 +76,7 @@ abstract final class ThaiBetaNarrativeComposer {
 
     final ctx = ThaiBetaNarrativeContext.fromAnalysis(analysis);
     final globalUsed = <String>{};
+    final usedBlockIds = <String>{};
     var trace = const ThaiBetaNarrativeTrace();
 
     final cautionBody = source.cautions.cards.isNotEmpty
@@ -87,17 +90,29 @@ abstract final class ThaiBetaNarrativeComposer {
       hasBirthTime: ctx.hasBirthTime,
       cautionBody: cautionBody,
       lifePeriodLabel: ctx.lifePeriodLabel,
+      usedBlockIds: usedBlockIds,
+      usedTextKeys: globalUsed,
     );
     for (final entry in heroResult.trace) {
       trace = trace.add(entry);
+      if (entry.blockId != null) usedBlockIds.add(entry.blockId!);
     }
 
-    final strengths = _polishStrengths(source.strengths, globalUsed);
+    final strengthsResult = _polishStrengths(
+      source.strengths,
+      ctx,
+      globalUsed,
+      usedBlockIds,
+      trace,
+    );
+    trace = strengthsResult.trace;
+    final strengths = strengthsResult.section;
     final cautions = _polishInsightSection(source.cautions, globalUsed);
     final lifeDashboardResult = _polishLifeDashboard(
       source.lifeDashboard,
       ctx,
       globalUsed,
+      usedBlockIds,
       trace,
     );
     trace = lifeDashboardResult.trace;
@@ -105,18 +120,32 @@ abstract final class ThaiBetaNarrativeComposer {
       source.narrativeSections,
       ctx,
       globalUsed,
+      usedBlockIds,
       trace,
     );
     trace = narrativeSectionsResult.trace;
+
+    final adviceResult = _polishAdvice(
+      source.advice,
+      ctx,
+      globalUsed,
+      usedBlockIds,
+      trace,
+    );
+    trace = adviceResult.trace;
 
     final view = ThaiMirrorConsumerViewState(
       hero: heroResult.hero,
       strengths: strengths,
       cautions: cautions,
-      advice: _polishAdvice(source.advice, globalUsed),
+      advice: adviceResult.advice,
       lifeDashboard: lifeDashboardResult.items,
       narrativeSections: narrativeSectionsResult.sections,
-      signatureInsight: _polishSignature(source.signatureInsight, globalUsed),
+      signatureInsight: _polishSignature(
+        source.signatureInsight,
+        globalUsed,
+        hasBirthTime: ctx.hasBirthTime,
+      ),
       reflectionSummary: _polishReflection(source.reflectionSummary, globalUsed),
       closingMessage: _polishClosing(source.closingMessage, globalUsed),
       sourceTransparency: source.sourceTransparency,
@@ -136,21 +165,78 @@ abstract final class ThaiBetaNarrativeComposer {
     return compose(analysis).view;
   }
 
-  static ThaiMirrorInsightSectionState _polishStrengths(
+  static String? _themeIdForStrengthTitle(
+    String title,
+    List<String> orderedThemeIds,
+    int cardIndex,
+  ) {
+    final normalizedTitle = ThaiBetaNarrativeFormatting.normalizedKey(title);
+    for (final id in orderedThemeIds) {
+      final tag = ThaiMirrorThemePhrases.phrase(id).tag;
+      if (ThaiBetaNarrativeFormatting.normalizedKey(tag) == normalizedTitle) {
+        return id;
+      }
+    }
+    if (cardIndex < orderedThemeIds.length) {
+      return orderedThemeIds[cardIndex];
+    }
+    return orderedThemeIds.isNotEmpty ? orderedThemeIds.first : null;
+  }
+
+  static ({
     ThaiMirrorInsightSectionState section,
+    ThaiBetaNarrativeTrace trace,
+  }) _polishStrengths(
+    ThaiMirrorInsightSectionState section,
+    ThaiBetaNarrativeContext ctx,
     Set<String> globalUsed,
+    Set<String> usedBlockIds,
+    ThaiBetaNarrativeTrace trace,
   ) {
     final cards = <ThaiMirrorInsightCardState>[];
-    for (final card in section.cards) {
+    for (var i = 0; i < section.cards.length; i++) {
+      final card = section.cards[i];
       final title = ThaiBetaNarrativeFormatting.normalize(card.title);
-      final body = ThaiBetaNarrativeFormatting.normalize(card.body);
-      final expanded = card.expandedBody == null
-          ? null
-          : ThaiBetaNarrativeDedupe.rewriteStrengthExpanded(
-              title: title,
-              expandedBody: card.expandedBody!,
-              used: globalUsed,
-            );
+      var body = ThaiBetaNarrativeFormatting.normalize(card.body);
+
+      final themeId = _themeIdForStrengthTitle(title, ctx.orderedThemeIds, i);
+      String? expanded;
+      if (themeId != null) {
+        final selection = ThaiBetaNarrativeSpecificity.selectStrengthExpanded(
+          themeId: themeId,
+          seed: ctx.profileSeed + i * 31,
+          hasBirthTime: ctx.hasBirthTime,
+          usedBlockIds: usedBlockIds,
+          usedTextKeys: globalUsed,
+        );
+        usedBlockIds.add(selection.block.id);
+        trace = trace.add(
+          ThaiBetaNarrativeSpecificity.traceEntry(
+            sectionId: 'strength_$i',
+            field: 'expandedBody',
+            primaryThemeId: themeId,
+            lifePeriod: ctx.lifePeriodLabel,
+            block: selection.block,
+            matchLevel: selection.matchLevel,
+          ),
+        );
+        expanded = ThaiBetaNarrativeDedupe.buildStrengthExpanded(
+          title: title,
+          expandedBody: selection.text,
+          used: globalUsed,
+        );
+        final observableParts = expanded.split(RegExp(r'\n\n+'));
+        if (observableParts.isNotEmpty) {
+          body = observableParts.first;
+        }
+      } else if (card.expandedBody != null) {
+        expanded = ThaiBetaNarrativeDedupe.buildStrengthExpanded(
+          title: title,
+          expandedBody: card.expandedBody!,
+          used: globalUsed,
+        );
+      }
+
       cards.add(
         ThaiMirrorInsightCardState(
           title: title,
@@ -164,10 +250,13 @@ abstract final class ThaiBetaNarrativeComposer {
         ),
       );
     }
-    return ThaiMirrorInsightSectionState(
-      title: ThaiBetaNarrativeFormatting.normalize(section.title),
-      cards: cards,
-      sectionIcon: section.sectionIcon,
+    return (
+      section: ThaiMirrorInsightSectionState(
+        title: ThaiBetaNarrativeFormatting.normalize(section.title),
+        cards: cards,
+        sectionIcon: section.sectionIcon,
+      ),
+      trace: trace,
     );
   }
 
@@ -205,6 +294,7 @@ abstract final class ThaiBetaNarrativeComposer {
     List<ThaiMirrorLifeDashboardItemState> source,
     ThaiBetaNarrativeContext ctx,
     Set<String> globalUsed,
+    Set<String> usedBlockIds,
     ThaiBetaNarrativeTrace trace,
   ) {
     final usedThemes = <String>{};
@@ -234,37 +324,33 @@ abstract final class ThaiBetaNarrativeComposer {
             )
           : null;
 
-      final copy = ThaiBetaDomainSemanticTags.composeDashboardCopy(
+      final copy = ThaiBetaNarrativeSpecificity.composeDashboardFromBlock(
         domain: domain,
         primaryThemeId: primaryThemeId,
         secondaryThemeId:
             secondaryThemeId != primaryThemeId ? secondaryThemeId : null,
         seed: ctx.profileSeed + i,
+        hasBirthTime: ctx.hasBirthTime,
+        usedBlockIds: usedBlockIds,
+        usedTextKeys: globalUsed,
         usedActions: usedActions,
       );
 
       usedThemes.add(primaryThemeId);
       usedActions.add(copy.suggestedAction);
+      usedBlockIds.add(copy.block.id);
+      usedBlockIds.add(copy.adviceBlock.id);
 
       trace = trace.add(
         ThaiBetaNarrativeSpecificity.traceEntry(
           sectionId: 'dashboard_${domain.aspectKey}',
           field: 'currentState',
           primaryThemeId: primaryThemeId,
-          secondaryThemeId: copy.secondaryThemeId,
+          secondaryThemeId: secondaryThemeId,
           domain: domain,
           lifePeriod: ctx.lifePeriodLabel,
-        ),
-      );
-      trace = trace.add(
-        ThaiBetaNarrativeSpecificity.traceEntry(
-          sectionId: 'dashboard_${domain.aspectKey}',
-          field: 'whyItAppears',
-          primaryThemeId: primaryThemeId,
-          secondaryThemeId: copy.secondaryThemeId,
-          domain: domain,
-          relationship: 'trait+domain_hint',
-          lifePeriod: ctx.lifePeriodLabel,
+          block: copy.block,
+          matchLevel: copy.matchLevel,
         ),
       );
       trace = trace.add(
@@ -273,21 +359,16 @@ abstract final class ThaiBetaNarrativeComposer {
           field: 'suggestedAction',
           primaryThemeId: primaryThemeId,
           domain: domain,
-          relationship: 'trait+domain_advice',
+          relationship: 'curated_advice',
           lifePeriod: ctx.lifePeriodLabel,
+          block: copy.adviceBlock,
+          matchLevel: copy.adviceMatchLevel,
         ),
       );
 
-      final traitPairAlt = ThaiBetaNarrativeSpecificity.composeTraitPair(
-        primaryThemeId: primaryThemeId,
-        secondaryThemeId: copy.secondaryThemeId,
-        seed: ctx.profileSeed + i,
-        domain: domain,
-      );
       final currentState = ThaiBetaNarrativeDedupe.resolveUnique(
         text: copy.currentState,
         used: globalUsed,
-        fallbacks: [traitPairAlt],
       );
 
       out.add(
@@ -343,6 +424,7 @@ abstract final class ThaiBetaNarrativeComposer {
     List<ThaiMirrorNarrativeSectionState> sections,
     ThaiBetaNarrativeContext ctx,
     Set<String> globalUsed,
+    Set<String> usedBlockIds,
     ThaiBetaNarrativeTrace trace,
   ) {
     final out = <ThaiMirrorNarrativeSectionState>[];
@@ -367,18 +449,19 @@ abstract final class ThaiBetaNarrativeComposer {
           ? ctx.orderedThemeIds[1]
           : null;
 
-      var overview = ThaiBetaNarrativeFormatting.normalize(section.overview);
-      if (domain != null &&
-          !ThaiBetaDomainSemanticTags.isTextDomainCompatible(
-            overview,
-            domain,
-          )) {
-        overview = ThaiBetaNarrativeSpecificity.composeTraitPair(
-          primaryThemeId: primaryThemeId,
-          secondaryThemeId: secondaryThemeId,
-          seed: sectionSeed,
-          domain: domain,
-        );
+      var overview = domain != null
+          ? ThaiBetaNarrativeSpecificity.selectDomainOverview(
+              primaryThemeId: primaryThemeId,
+              secondaryThemeId: secondaryThemeId,
+              domain: domain,
+              seed: sectionSeed,
+              hasBirthTime: ctx.hasBirthTime,
+              usedBlockIds: usedBlockIds,
+              usedTextKeys: globalUsed,
+            )
+          : null;
+      if (overview != null) {
+        usedBlockIds.add(overview.block.id);
       }
 
       final transition = section.hasTransition
@@ -393,39 +476,48 @@ abstract final class ThaiBetaNarrativeComposer {
       final tension = section.hasTension
           ? ThaiBetaNarrativeFormatting.normalize(section.tension)
           : '';
-      var why = ThaiBetaNarrativeFormatting.normalize(section.whyItAppears);
-      var advice = ThaiBetaNarrativeFormatting.normalize(section.advice);
+      var why = domain != null
+          ? ThaiBetaNarrativeSpecificity.selectDomainWhy(
+              primaryThemeId: primaryThemeId,
+              secondaryThemeId: secondaryThemeId,
+              domain: domain,
+              seed: sectionSeed + 2,
+              hasBirthTime: ctx.hasBirthTime,
+              usedBlockIds: usedBlockIds,
+              usedTextKeys: globalUsed,
+            )
+          : null;
+      if (why != null) {
+        usedBlockIds.add(why.block.id);
+      }
+      var adviceSelection = domain != null
+          ? ThaiBetaNarrativeSpecificity.selectAdvice(
+              primaryThemeId: primaryThemeId,
+              domain: domain,
+              seed: sectionSeed + 3,
+              hasBirthTime: ctx.hasBirthTime,
+              usedBlockIds: usedBlockIds,
+              usedTextKeys: globalUsed,
+            )
+          : null;
+      if (adviceSelection != null) {
+        usedBlockIds.add(adviceSelection.block.id);
+      }
+
+      final overviewText = overview?.text ??
+          ThaiBetaNarrativeFormatting.normalize(section.overview);
+      final whyText =
+          why?.text ?? ThaiBetaNarrativeFormatting.normalize(section.whyItAppears);
+      final adviceText = adviceSelection?.text ??
+          ThaiBetaNarrativeFormatting.normalize(section.advice);
       var example = ThaiBetaNarrativeFormatting.normalize(section.example);
       final reflection = section.hasReflectionQuestion
           ? ThaiBetaNarrativeFormatting.normalize(section.reflectionQuestion)
           : '';
 
-      if (domain != null) {
-        if (why.isNotEmpty &&
-            !ThaiBetaDomainSemanticTags.isTextDomainCompatible(why, domain)) {
-          why = ThaiBetaDomainSemanticTags.domainWhyFallback(
-            domain: domain,
-            primaryThemeId: primaryThemeId,
-            secondaryThemeId: secondaryThemeId,
-          );
-        }
-        if (advice.isNotEmpty &&
-            !ThaiBetaDomainSemanticTags.isTextDomainCompatible(
-              advice,
-              domain,
-            )) {
-          advice = ThaiBetaDomainSemanticTags.domainAdviceFallback(
-            domain,
-            primaryThemeId,
-          );
-        }
-        if (example.isNotEmpty &&
-            !ThaiBetaDomainSemanticTags.isTextDomainCompatible(
-              example,
-              domain,
-            )) {
-          example = '';
-        }
+      if (domain != null && example.isNotEmpty &&
+          !ThaiBetaDomainSemanticTags.isTextDomainCompatible(example, domain)) {
+        example = '';
       }
 
       final deduped = ThaiBetaNarrativeDedupe.dedupeParagraphs(
@@ -435,26 +527,19 @@ abstract final class ThaiBetaNarrativeComposer {
           if (transition.isNotEmpty) transition,
           if (pullQuote.isNotEmpty) pullQuote,
           if (discovery.isNotEmpty) discovery,
-          overview,
+          overviewText,
           if (tension.isNotEmpty) tension,
-          if (why.isNotEmpty) why,
-          if (advice.isNotEmpty) advice,
+          if (whyText.isNotEmpty) whyText,
+          if (adviceText.isNotEmpty) adviceText,
           if (example.isNotEmpty) example,
           if (reflection.isNotEmpty) reflection,
         ],
         globalUsed: globalUsed,
       );
 
-      final overviewFallback = domain != null
-          ? ThaiBetaNarrativeSpecificity.composeTraitPair(
-              primaryThemeId: primaryThemeId,
-              secondaryThemeId: secondaryThemeId,
-              seed: sectionSeed + 1,
-              domain: domain,
-            )
-          : overview;
+      final overviewFallback = overviewText;
 
-      if (domain != null) {
+      if (domain != null && overview != null) {
         trace = trace.add(
           ThaiBetaNarrativeSpecificity.traceEntry(
             sectionId: 'narrative_${domain.aspectKey}',
@@ -463,9 +548,11 @@ abstract final class ThaiBetaNarrativeComposer {
             secondaryThemeId: secondaryThemeId,
             domain: domain,
             lifePeriod: ctx.lifePeriodLabel,
+            block: overview.block,
+            matchLevel: overview.matchLevel,
           ),
         );
-        if (why.isNotEmpty) {
+        if (whyText.isNotEmpty && why != null) {
           trace = trace.add(
             ThaiBetaNarrativeSpecificity.traceEntry(
               sectionId: 'narrative_${domain.aspectKey}',
@@ -473,20 +560,24 @@ abstract final class ThaiBetaNarrativeComposer {
               primaryThemeId: primaryThemeId,
               secondaryThemeId: secondaryThemeId,
               domain: domain,
-              relationship: 'trait+domain_hint',
+              relationship: 'curated_domain',
               lifePeriod: ctx.lifePeriodLabel,
+              block: why.block,
+              matchLevel: why.matchLevel,
             ),
           );
         }
-        if (advice.isNotEmpty) {
+        if (adviceText.isNotEmpty && adviceSelection != null) {
           trace = trace.add(
             ThaiBetaNarrativeSpecificity.traceEntry(
               sectionId: 'narrative_${domain.aspectKey}',
               field: 'advice',
               primaryThemeId: primaryThemeId,
               domain: domain,
-              relationship: 'trait+domain_advice',
+              relationship: 'curated_advice',
               lifePeriod: ctx.lifePeriodLabel,
+              block: adviceSelection.block,
+              matchLevel: adviceSelection.matchLevel,
             ),
           );
         }
@@ -494,26 +585,27 @@ abstract final class ThaiBetaNarrativeComposer {
 
       out.add(
         ThaiMirrorNarrativeSectionState(
-        label: ThaiBetaNarrativeFormatting.normalize(section.label),
-        icon: section.icon,
-        accent: section.accent,
-        transitionIn: _fieldAfterSectionDedupe(transition, deduped),
-        pullQuote: _fieldAfterSectionDedupe(pullQuote, deduped),
-        overview: _fieldAfterSectionDedupe(
-          overview,
-          deduped,
-          fallback: overviewFallback,
-        ),
-        tension: _fieldAfterSectionDedupe(tension, deduped),
-        discovery: _fieldAfterSectionDedupe(discovery, deduped),
-        reasoningTitle: ThaiBetaNarrativeFormatting.normalize(section.reasoningTitle),
-        reasoningSignals: section.reasoningSignals
-            .map(ThaiBetaNarrativeFormatting.normalize)
-            .toList(),
-        whyItAppears: _fieldAfterSectionDedupe(why, deduped),
-        advice: _fieldAfterSectionDedupe(advice, deduped),
-        example: _fieldAfterSectionDedupe(example, deduped),
-        reflectionQuestion: _fieldAfterSectionDedupe(reflection, deduped),
+          label: ThaiBetaNarrativeFormatting.normalize(section.label),
+          icon: section.icon,
+          accent: section.accent,
+          transitionIn: _fieldAfterSectionDedupe(transition, deduped),
+          pullQuote: _fieldAfterSectionDedupe(pullQuote, deduped),
+          overview: _fieldAfterSectionDedupe(
+            overviewText,
+            deduped,
+            fallback: overviewFallback,
+          ),
+          tension: _fieldAfterSectionDedupe(tension, deduped),
+          discovery: _fieldAfterSectionDedupe(discovery, deduped),
+          reasoningTitle:
+              ThaiBetaNarrativeFormatting.normalize(section.reasoningTitle),
+          reasoningSignals: section.reasoningSignals
+              .map(ThaiBetaNarrativeFormatting.normalize)
+              .toList(),
+          whyItAppears: _fieldAfterSectionDedupe(whyText, deduped),
+          advice: _fieldAfterSectionDedupe(adviceText, deduped),
+          example: _fieldAfterSectionDedupe(example, deduped),
+          reflectionQuestion: _fieldAfterSectionDedupe(reflection, deduped),
         ),
       );
     }
@@ -530,25 +622,78 @@ abstract final class ThaiBetaNarrativeComposer {
     return fallback;
   }
 
-  static ThaiMirrorAdviceState _polishAdvice(
+  static ({
     ThaiMirrorAdviceState advice,
+    ThaiBetaNarrativeTrace trace,
+  }) _polishAdvice(
+    ThaiMirrorAdviceState advice,
+    ThaiBetaNarrativeContext ctx,
     Set<String> globalUsed,
+    Set<String> usedBlockIds,
+    ThaiBetaNarrativeTrace trace,
   ) {
-    final body = ThaiBetaNarrativeFormatting.normalize(advice.body);
-    return ThaiMirrorAdviceState(
-      title: ThaiBetaNarrativeFormatting.normalize(advice.title),
-      body: ThaiBetaNarrativeDedupe.resolveUnique(
-        text: body,
-        used: globalUsed,
+    final primaryThemeId = ctx.orderedThemeIds.isNotEmpty
+        ? ctx.orderedThemeIds.first
+        : 'independent';
+    var selection = ThaiBetaNarrativeSpecificity.selectAdvice(
+      primaryThemeId: primaryThemeId,
+      seed: ctx.profileSeed + 99,
+      hasBirthTime: ctx.hasBirthTime,
+      usedBlockIds: usedBlockIds,
+      usedTextKeys: globalUsed,
+    );
+    var body = selection.text;
+    if (body.isEmpty) {
+      body = ThaiBetaNarrativeFormatting.normalize(advice.body);
+    }
+    if (ThaiBetaNarrativeForbidden.findForbidden(body).isNotEmpty) {
+      selection = ThaiBetaNarrativeSpecificity.selectAdvice(
+        primaryThemeId: primaryThemeId,
+        domain: ThaiBetaLifeDomain.work,
+        seed: ctx.profileSeed + 100,
+        hasBirthTime: ctx.hasBirthTime,
+        usedBlockIds: usedBlockIds,
+        usedTextKeys: globalUsed,
+      );
+      body = selection.text;
+    }
+    usedBlockIds.add(selection.block.id);
+    trace = trace.add(
+      ThaiBetaNarrativeSpecificity.traceEntry(
+        sectionId: 'advice',
+        field: 'body',
+        primaryThemeId: primaryThemeId,
+        lifePeriod: ctx.lifePeriodLabel,
+        block: selection.block,
+        matchLevel: selection.matchLevel,
+        relationship: 'curated_advice',
       ),
+    );
+    return (
+      advice: ThaiMirrorAdviceState(
+        title: ThaiBetaNarrativeFormatting.normalize(advice.title),
+        body: ThaiBetaNarrativeDedupe.resolveUnique(
+          text: body,
+          used: globalUsed,
+        ),
+      ),
+      trace: trace,
     );
   }
 
   static ThaiMirrorSignatureInsightState _polishSignature(
     ThaiMirrorSignatureInsightState insight,
-    Set<String> globalUsed,
-  ) {
-    final body = ThaiBetaNarrativeFormatting.normalize(insight.body);
+    Set<String> globalUsed, {
+    required bool hasBirthTime,
+  }) {
+    var body = ThaiBetaNarrativeFormatting.normalize(insight.body);
+    if (!hasBirthTime &&
+        (ThaiBetaNarrativeForbidden.findNoBirthTimeViolations(body).isNotEmpty ||
+            body.contains('ถ้าจะเข้าใจคุณ แค่เรื่องเดียว'))) {
+      body =
+          'ภาพรวมจากวันเกิดสะท้อนว่า คุณอาจมีแนวโน้มที่โดดเด่นในบางด้าน '
+          '— ประเด็นนี้เหมาะสำหรับใช้สังเกตตัวเองว่าอะไรตรงกับชีวิตจริงของคุณ';
+    }
     return ThaiMirrorSignatureInsightState(
       eyebrow: ThaiBetaNarrativeFormatting.normalize(insight.eyebrow),
       body: ThaiBetaNarrativeDedupe.resolveUnique(

@@ -1,63 +1,363 @@
-/// Two-layer specificity composer for Thai Beta narrative.
+/// Two-layer specificity composer — V1.1 delegates to curated blocks.
 library;
 
 import 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mirror_evidence_composer.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mirror_theme_phrases.dart';
 
+import 'thai_beta_curated_block_selector.dart';
+import 'thai_beta_curated_narrative_block.dart';
 import 'thai_beta_narrative_domain.dart';
 import 'thai_beta_narrative_formatting.dart';
 import 'thai_beta_narrative_trace.dart';
 
 abstract final class ThaiBetaNarrativeSpecificity {
-  /// Combines primary + secondary trait when both signals exist.
+  /// Headline from curated block context — not clause composition.
+  static String composeHeadlineFromBlock({
+    required String primaryThemeId,
+    required String? secondaryThemeId,
+    required CuratedNarrativeBlock block,
+    required int seed,
+  }) {
+    if (block.heroSentences.isNotEmpty) {
+      return ThaiBetaNarrativeFormatting.normalize(block.heroSentences.first);
+    }
+    return composeTraitPair(
+      primaryThemeId: primaryThemeId,
+      secondaryThemeId: secondaryThemeId,
+      seed: seed,
+    );
+  }
+
+  /// Domain overview from curated block selection.
+  static ({
+    String text,
+    CuratedNarrativeBlock block,
+    int matchLevel,
+  }) selectDomainOverview({
+    required String primaryThemeId,
+    String? secondaryThemeId,
+    required ThaiBetaLifeDomain domain,
+    required int seed,
+    required bool hasBirthTime,
+    Set<String> usedBlockIds = const {},
+    Set<String> usedTextKeys = const {},
+  }) {
+    final selection = ThaiBetaCuratedBlockSelector.select(
+      CuratedBlockQuery(
+        section: CuratedNarrativeSection.domain,
+        primaryThemeId: primaryThemeId,
+        secondaryThemeId: secondaryThemeId,
+        domain: domain,
+        hasBirthTime: hasBirthTime,
+        usedBlockIds: usedBlockIds,
+        usedTextKeys: usedTextKeys,
+        seed: seed,
+        confidence: hasBirthTime ? 1.0 : 0.5,
+      ),
+    );
+    return (
+      text: ThaiBetaNarrativeFormatting.normalize(
+        selection.block.domainOverview ?? '',
+      ),
+      block: selection.block,
+      matchLevel: selection.matchLevel,
+    );
+  }
+
+  static String composeDomainOverview({
+    required String primaryThemeId,
+    String? secondaryThemeId,
+    required ThaiBetaLifeDomain domain,
+    required int seed,
+    required bool hasBirthTime,
+    Set<String> usedBlockIds = const {},
+    Set<String> usedTextKeys = const {},
+  }) {
+    return selectDomainOverview(
+      primaryThemeId: primaryThemeId,
+      secondaryThemeId: secondaryThemeId,
+      domain: domain,
+      seed: seed,
+      hasBirthTime: hasBirthTime,
+      usedBlockIds: usedBlockIds,
+      usedTextKeys: usedTextKeys,
+    ).text;
+  }
+
+  /// Domain why from curated block selection.
+  static ({
+    String text,
+    CuratedNarrativeBlock block,
+    int matchLevel,
+  }) selectDomainWhy({
+    required String primaryThemeId,
+    String? secondaryThemeId,
+    required ThaiBetaLifeDomain domain,
+    required int seed,
+    required bool hasBirthTime,
+    Set<String> usedBlockIds = const {},
+    Set<String> usedTextKeys = const {},
+  }) {
+    final selection = ThaiBetaCuratedBlockSelector.select(
+      CuratedBlockQuery(
+        section: CuratedNarrativeSection.domain,
+        primaryThemeId: primaryThemeId,
+        secondaryThemeId: secondaryThemeId,
+        domain: domain,
+        hasBirthTime: hasBirthTime,
+        usedBlockIds: usedBlockIds,
+        usedTextKeys: usedTextKeys,
+        seed: seed + 1,
+        confidence: hasBirthTime ? 1.0 : 0.5,
+      ),
+    );
+    return (
+      text: ThaiBetaNarrativeFormatting.normalize(
+        selection.block.domainWhy ?? '',
+      ),
+      block: selection.block,
+      matchLevel: selection.matchLevel,
+    );
+  }
+
+  static String composeDomainWhy({
+    required String primaryThemeId,
+    String? secondaryThemeId,
+    required ThaiBetaLifeDomain domain,
+    required int seed,
+    required bool hasBirthTime,
+    Set<String> usedBlockIds = const {},
+    Set<String> usedTextKeys = const {},
+  }) {
+    return selectDomainWhy(
+      primaryThemeId: primaryThemeId,
+      secondaryThemeId: secondaryThemeId,
+      domain: domain,
+      seed: seed,
+      hasBirthTime: hasBirthTime,
+      usedBlockIds: usedBlockIds,
+      usedTextKeys: usedTextKeys,
+    ).text;
+  }
+
+  /// Dashboard copy from curated blocks.
+  static ({
+    String currentState,
+    String whyItAppears,
+    String suggestedAction,
+    CuratedNarrativeBlock block,
+    int matchLevel,
+    CuratedNarrativeBlock adviceBlock,
+    int adviceMatchLevel,
+  }) composeDashboardFromBlock({
+    required ThaiBetaLifeDomain domain,
+    required String primaryThemeId,
+    String? secondaryThemeId,
+    required int seed,
+    required bool hasBirthTime,
+    Set<String> usedBlockIds = const {},
+    Set<String> usedTextKeys = const {},
+    Set<String> usedActions = const {},
+  }) {
+    final dashSelection = ThaiBetaCuratedBlockSelector.select(
+      CuratedBlockQuery(
+        section: CuratedNarrativeSection.dashboard,
+        primaryThemeId: primaryThemeId,
+        secondaryThemeId: secondaryThemeId,
+        domain: domain,
+        hasBirthTime: hasBirthTime,
+        usedBlockIds: usedBlockIds,
+        usedTextKeys: usedTextKeys,
+        seed: seed,
+        confidence: hasBirthTime ? 1.0 : 0.5,
+      ),
+    );
+
+    final adviceSelection = ThaiBetaCuratedBlockSelector.select(
+      CuratedBlockQuery(
+        section: CuratedNarrativeSection.advice,
+        primaryThemeId: primaryThemeId,
+        domain: domain,
+        hasBirthTime: hasBirthTime,
+        usedBlockIds: {...usedBlockIds, dashSelection.block.id},
+        usedTextKeys: usedTextKeys,
+        seed: seed + 7,
+        confidence: hasBirthTime ? 1.0 : 0.5,
+      ),
+    );
+
+    var action = adviceSelection.block.adviceText ?? '';
+    if (usedActions.contains(action)) {
+      final alt = ThaiBetaCuratedBlockSelector.select(
+        CuratedBlockQuery(
+          section: CuratedNarrativeSection.advice,
+          primaryThemeId: primaryThemeId,
+          domain: domain,
+          hasBirthTime: hasBirthTime,
+          usedBlockIds: {
+            ...usedBlockIds,
+            dashSelection.block.id,
+            adviceSelection.block.id,
+          },
+          usedTextKeys: {...usedTextKeys, ...usedActions},
+          seed: seed + 13,
+        ),
+      );
+      action = alt.block.adviceText ?? action;
+    }
+
+    return (
+      currentState: ThaiBetaNarrativeFormatting.normalize(
+        dashSelection.block.dashboardCurrent ?? '',
+      ),
+      whyItAppears: ThaiBetaNarrativeFormatting.normalize(
+        dashSelection.block.dashboardWhy ?? '',
+      ),
+      suggestedAction: ThaiBetaNarrativeFormatting.normalize(action),
+      block: dashSelection.block,
+      matchLevel: dashSelection.matchLevel,
+      adviceBlock: adviceSelection.block,
+      adviceMatchLevel: adviceSelection.matchLevel,
+    );
+  }
+
+  /// Strength expanded body from curated 3-part block.
+  static ({
+    String text,
+    CuratedNarrativeBlock block,
+    int matchLevel,
+  }) selectStrengthExpanded({
+    required String themeId,
+    required int seed,
+    required bool hasBirthTime,
+    Set<String> usedBlockIds = const {},
+    Set<String> usedTextKeys = const {},
+  }) {
+    final selection = ThaiBetaCuratedBlockSelector.select(
+      CuratedBlockQuery(
+        section: CuratedNarrativeSection.strength,
+        primaryThemeId: themeId,
+        hasBirthTime: hasBirthTime,
+        usedBlockIds: usedBlockIds,
+        usedTextKeys: usedTextKeys,
+        seed: seed,
+        confidence: hasBirthTime ? 1.0 : 0.5,
+      ),
+    );
+    final block = selection.block;
+    final parts = <String>[
+      if (block.observableBehavior != null) block.observableBehavior!,
+      if (block.strengthText != null) block.strengthText!,
+      if (block.tensionText != null) block.tensionText!,
+    ];
+    return (
+      text: parts.map(ThaiBetaNarrativeFormatting.normalize).join('\n\n'),
+      block: block,
+      matchLevel: selection.matchLevel,
+    );
+  }
+
+  static String composeStrengthExpanded({
+    required String themeId,
+    required int seed,
+    required bool hasBirthTime,
+    Set<String> usedBlockIds = const {},
+    Set<String> usedTextKeys = const {},
+  }) {
+    return selectStrengthExpanded(
+      themeId: themeId,
+      seed: seed,
+      hasBirthTime: hasBirthTime,
+      usedBlockIds: usedBlockIds,
+      usedTextKeys: usedTextKeys,
+    ).text;
+  }
+
+  /// Curated advice for a domain.
+  static ({
+    String text,
+    CuratedNarrativeBlock block,
+    int matchLevel,
+  }) selectAdvice({
+    required String primaryThemeId,
+    ThaiBetaLifeDomain? domain,
+    required int seed,
+    required bool hasBirthTime,
+    Set<String> usedBlockIds = const {},
+    Set<String> usedTextKeys = const {},
+  }) {
+    final selection = ThaiBetaCuratedBlockSelector.select(
+      CuratedBlockQuery(
+        section: CuratedNarrativeSection.advice,
+        primaryThemeId: primaryThemeId,
+        domain: domain,
+        hasBirthTime: hasBirthTime,
+        usedBlockIds: usedBlockIds,
+        usedTextKeys: usedTextKeys,
+        seed: seed,
+        confidence: hasBirthTime ? 1.0 : 0.5,
+      ),
+    );
+    return (
+      text: ThaiBetaNarrativeFormatting.normalize(
+        selection.block.adviceText ?? '',
+      ),
+      block: selection.block,
+      matchLevel: selection.matchLevel,
+    );
+  }
+
+  static String composeAdvice({
+    required String primaryThemeId,
+    ThaiBetaLifeDomain? domain,
+    required int seed,
+    required bool hasBirthTime,
+    Set<String> usedBlockIds = const {},
+    Set<String> usedTextKeys = const {},
+  }) {
+    return selectAdvice(
+      primaryThemeId: primaryThemeId,
+      domain: domain,
+      seed: seed,
+      hasBirthTime: hasBirthTime,
+      usedBlockIds: usedBlockIds,
+      usedTextKeys: usedTextKeys,
+    ).text;
+  }
+
+  /// Legacy fallback — delegates to curated domain block.
   static String composeTraitPair({
     required String primaryThemeId,
     required String? secondaryThemeId,
     required int seed,
     ThaiBetaLifeDomain? domain,
+    bool hasBirthTime = true,
   }) {
-    final primary = ThaiMirrorThemePhrases.phrase(primaryThemeId);
-    if (secondaryThemeId == null || secondaryThemeId == primaryThemeId) {
-      return _singleLayer(primary, domain);
-    }
-
-    final secondary = ThaiMirrorThemePhrases.phrase(secondaryThemeId);
-    final primaryFacet =
-        ThaiMirrorEvidenceComposer.facetForThemeId(primaryThemeId);
-    final secondaryFacet =
-        ThaiMirrorEvidenceComposer.facetForThemeId(secondaryThemeId);
-    if (primaryFacet == secondaryFacet) {
-      return _singleLayer(primary, domain);
-    }
-
-    final templates = <String>[
-      'คุณมัก${primary.headlinePart} '
-          'แต่เมื่อเห็นภาพชัดแล้ว คุณก็${secondary.headlinePart}ได้เร็วกว่าที่คนรอบตัวคาด',
-      'คุณ${primary.headlinePart} '
-          'และพอ${secondary.heroDetail} ก็ยิ่งเห็นจุดแข็งของคุณชัดขึ้น',
-      'คุณมัก${primary.headlinePart} '
-          'ในขณะที่อีกด้านหนึ่งคุณ${secondary.headlinePart}เมื่อสถานการณ์เร่ง',
-    ];
-    final idx = (seed.abs() + (domain?.index ?? 0)) % templates.length;
-    return ThaiBetaNarrativeFormatting.normalize(templates[idx]);
-  }
-
-  static String _singleLayer(ThaiThemePhrase phrase, ThaiBetaLifeDomain? domain) {
-    if (domain == null) {
-      return ThaiBetaNarrativeFormatting.normalize(
-        'คุณมัก${phrase.headlinePart} — ${phrase.heroDetail}',
+    if (domain != null) {
+      return composeDomainOverview(
+        primaryThemeId: primaryThemeId,
+        secondaryThemeId: secondaryThemeId,
+        domain: domain,
+        seed: seed,
+        hasBirthTime: hasBirthTime,
       );
     }
-    final lifeHint = switch (domain) {
-      ThaiBetaLifeDomain.work => phrase.workHint ?? phrase.heroDetail,
-      ThaiBetaLifeDomain.money => phrase.moneyHint ?? phrase.heroDetail,
-      ThaiBetaLifeDomain.love => phrase.loveHint ?? phrase.heroDetail,
-      ThaiBetaLifeDomain.health => phrase.healthHint ?? phrase.heroDetail,
-      ThaiBetaLifeDomain.luck => phrase.luckHint ?? phrase.heroDetail,
-    };
-    return ThaiBetaNarrativeFormatting.normalize(
-      'ด้าน${domain.labelTh} คุณมัก${phrase.headlinePart} — $lifeHint',
+    final selection = ThaiBetaCuratedBlockSelector.select(
+      CuratedBlockQuery(
+        section: CuratedNarrativeSection.hero,
+        primaryThemeId: primaryThemeId,
+        secondaryThemeId: secondaryThemeId,
+        hasBirthTime: hasBirthTime,
+        seed: seed,
+        confidence: hasBirthTime ? 1.0 : 0.5,
+      ),
     );
+    if (selection.block.heroSentences.isNotEmpty) {
+      return ThaiBetaNarrativeFormatting.normalize(
+        selection.block.heroSentences.first,
+      );
+    }
+    return '';
   }
 
   /// Adds contrast only when two distinct facets are present in profile.
@@ -74,21 +374,28 @@ abstract final class ThaiBetaNarrativeSpecificity {
     );
   }
 
-  /// Observable behavior from existing facet scene data.
+  /// Observable behavior from curated strength block when available.
   static String observableBehavior({
     required String themeId,
     required int seed,
     ThaiBetaLifeDomain? domain,
+    bool hasBirthTime = true,
   }) {
-    final facet = ThaiMirrorEvidenceComposer.facetForThemeId(themeId);
-    final area = domain?.aspectKey ?? 'work';
-    return ThaiBetaNarrativeFormatting.normalize(
-      ThaiMirrorEvidenceComposer.microStory(
-        area: area,
-        facet: facet,
+    final selection = ThaiBetaCuratedBlockSelector.select(
+      CuratedBlockQuery(
+        section: CuratedNarrativeSection.strength,
+        primaryThemeId: themeId,
+        domain: domain,
+        hasBirthTime: hasBirthTime,
         seed: seed,
       ),
     );
+    if (selection.block.observableBehavior != null) {
+      return ThaiBetaNarrativeFormatting.normalize(
+        selection.block.observableBehavior!,
+      );
+    }
+    return '';
   }
 
   static ThaiBetaNarrativeTraceEntry traceEntry({
@@ -97,8 +404,10 @@ abstract final class ThaiBetaNarrativeSpecificity {
     required String primaryThemeId,
     String? secondaryThemeId,
     ThaiBetaLifeDomain? domain,
-    String relationship = 'primary+secondary',
+    String relationship = 'curated_block',
     String? lifePeriod,
+    CuratedNarrativeBlock? block,
+    int? matchLevel,
   }) {
     final primary = ThaiMirrorThemePhrases.phrase(primaryThemeId).tag;
     final secondary = secondaryThemeId == null
@@ -110,8 +419,12 @@ abstract final class ThaiBetaNarrativeSpecificity {
       primaryTrait: primary,
       secondaryTrait: secondary,
       domain: domain,
-      relationship: relationship,
+      relationship: matchLevel != null ? '$relationship:$matchLevel' : relationship,
       lifePeriod: lifePeriod,
+      blockId: block?.id,
+      minimumConfidence: block?.minimumConfidence,
+      requiresBirthTime: block?.requiresBirthTime,
+      sourceSignalIds: block?.sourceSignalIds ?? const [],
     );
   }
 }

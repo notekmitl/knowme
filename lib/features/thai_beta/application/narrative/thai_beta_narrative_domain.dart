@@ -4,7 +4,9 @@ library;
 import 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mirror_evidence_composer.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mirror_theme_life_hints.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mirror_theme_phrases.dart';
-import 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mirror_theme_variants.dart';
+
+import 'thai_beta_curated_block_selector.dart';
+import 'thai_beta_curated_narrative_block.dart';
 
 /// Consumer life dashboard + narrative domain keys.
 enum ThaiBetaLifeDomain {
@@ -203,121 +205,21 @@ abstract final class ThaiBetaDomainSemanticTags {
     return pool[start];
   }
 
-  /// Domain-specific dashboard copy from existing theme life hints.
-  static ({
-    String currentState,
-    String whyItAppears,
-    String suggestedAction,
-    String primaryThemeId,
-    String? secondaryThemeId,
-  }) composeDashboardCopy({
-    required ThaiBetaLifeDomain domain,
-    required String primaryThemeId,
-    String? secondaryThemeId,
-    required int seed,
-    Set<String> usedActions = const {},
-  }) {
-    final primary = ThaiMirrorThemePhrases.phrase(primaryThemeId);
-    final life = ThaiMirrorThemeLifeHints.forTheme(primaryThemeId);
-    final domainHint = _lifeHintText(primaryThemeId, domain);
-
-    final secondaryFacet = secondaryThemeId != null
-        ? ThaiMirrorEvidenceComposer.facetForThemeId(secondaryThemeId)
-        : null;
-    final secondaryPhrase = secondaryThemeId != null
-        ? ThaiMirrorThemePhrases.phrase(secondaryThemeId)
-        : null;
-
-    final currentVariants = <String>[
-      domainHint,
-      ThaiMirrorThemePhrases.aspectHint(primaryThemeId, domain.aspectKey),
-    ].where((s) => s.trim().isNotEmpty).toList();
-
-    final currentIdx =
-        (seed.abs() + domain.index * 3) % currentVariants.length;
-    var currentState = currentVariants[currentIdx];
-
-    var whyItAppears = switch (domain) {
-      ThaiBetaLifeDomain.work =>
-        'ในงาน คุณมัก${primary.headlinePart} — ${life.work}',
-      ThaiBetaLifeDomain.money =>
-        'เรื่องเงิน คุณมัก${primary.headlinePart} — ${life.money}',
-      ThaiBetaLifeDomain.love =>
-        'ในความสัมพันธ์ คุณมัก${primary.headlinePart} — ${life.love}',
-      ThaiBetaLifeDomain.health =>
-        'ด้านพลังใจ คุณมัก${primary.headlinePart} — ${life.health}',
-      ThaiBetaLifeDomain.luck =>
-        'เรื่องโอกาส คุณมัก${primary.headlinePart} — ${life.luck}',
-    };
-
-    if (secondaryPhrase != null && secondaryFacet != null) {
-      whyItAppears =
-          '$whyItAppears แต่เมื่อต้องตัดสินใจ คุณยัง${secondaryPhrase.headlinePart}ด้วย';
-    }
-
-    final advicePool = ThaiMirrorThemeVariants.adviceVariants(primaryThemeId)
-        .where((a) => isTextDomainCompatible(a, domain))
-        .toList();
-
-    var suggestedAction = domainAdviceFallback(domain, primaryThemeId);
-    if (advicePool.isNotEmpty) {
-      final actionStart = (seed.abs() + domain.index * 5) % advicePool.length;
-      for (var k = 0; k < advicePool.length; k++) {
-        final cand = advicePool[(actionStart + k) % advicePool.length];
-        if (usedActions.contains(cand)) continue;
-        if (!isTextDomainCompatible(cand, domain)) continue;
-        suggestedAction = cand;
-        break;
-      }
-    }
-
-    return (
-      currentState: currentState,
-      whyItAppears: whyItAppears,
-      suggestedAction: suggestedAction,
-      primaryThemeId: primaryThemeId,
-      secondaryThemeId: secondaryThemeId,
-    );
-  }
-
-  /// Domain-safe advice when no compatible theme variant exists.
+  /// Domain-safe advice from curated blocks only.
   static String domainAdviceFallback(
     ThaiBetaLifeDomain domain,
     String primaryThemeId,
   ) {
-    final hint = _lifeHintText(primaryThemeId, domain).trim();
-    if (hint.length > 8) {
-      return 'ลอง$hint';
-    }
-    return 'ลองปรับทีละขั้นในด้าน${domain.labelTh}';
-  }
-
-  /// Domain-safe why copy from existing life hints.
-  static String domainWhyFallback({
-    required ThaiBetaLifeDomain domain,
-    required String primaryThemeId,
-    String? secondaryThemeId,
-  }) {
-    final primary = ThaiMirrorThemePhrases.phrase(primaryThemeId);
-    final life = ThaiMirrorThemeLifeHints.forTheme(primaryThemeId);
-    var why = switch (domain) {
-      ThaiBetaLifeDomain.work =>
-        'ในงาน คุณมัก${primary.headlinePart} — ${life.work}',
-      ThaiBetaLifeDomain.money =>
-        'เรื่องเงิน คุณมัก${primary.headlinePart} — ${life.money}',
-      ThaiBetaLifeDomain.love =>
-        'ในความสัมพันธ์ คุณมัก${primary.headlinePart} — ${life.love}',
-      ThaiBetaLifeDomain.health =>
-        'ด้านพลังใจ คุณมัก${primary.headlinePart} — ${life.health}',
-      ThaiBetaLifeDomain.luck =>
-        'เรื่องโอกาส คุณมัก${primary.headlinePart} — ${life.luck}',
-    };
-    if (secondaryThemeId != null && secondaryThemeId != primaryThemeId) {
-      final secondary = ThaiMirrorThemePhrases.phrase(secondaryThemeId);
-      why =
-          '$why แต่เมื่อต้องตัดสินใจ คุณยัง${secondary.headlinePart}ด้วย';
-    }
-    return why;
+    final selection = ThaiBetaCuratedBlockSelector.select(
+      CuratedBlockQuery(
+        section: CuratedNarrativeSection.advice,
+        primaryThemeId: primaryThemeId,
+        domain: domain,
+        hasBirthTime: true,
+        seed: domain.index,
+      ),
+    );
+    return selection.block.adviceText ?? '';
   }
 
   /// Checks whether [text] aligns with domain semantic topics.

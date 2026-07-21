@@ -12,6 +12,10 @@ class ThaiBetaNarrativeTraceEntry {
     this.domain,
     this.relationship,
     this.lifePeriod,
+    this.blockId,
+    this.minimumConfidence,
+    this.requiresBirthTime,
+    this.sourceSignalIds = const [],
   });
 
   final String sectionId;
@@ -21,6 +25,10 @@ class ThaiBetaNarrativeTraceEntry {
   final ThaiBetaLifeDomain? domain;
   final String? relationship;
   final String? lifePeriod;
+  final String? blockId;
+  final double? minimumConfidence;
+  final bool? requiresBirthTime;
+  final List<String> sourceSignalIds;
 }
 
 class ThaiBetaNarrativeTrace {
