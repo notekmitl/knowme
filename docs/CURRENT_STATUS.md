@@ -5,7 +5,7 @@
 **Merge commit:** `82c509a5b95388756d0c033ab7400685a6a286d8`  
 **Prior architecture snapshot:** `feature/fusion-result`  
 **Automation workflow (authoritative):** Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
-**Thai Beta Narrative:** V1 + V1.1 curated blocks + **V1.1.1 Block Integrity & Confidence Consistency** on `main` (tip work `38ce369`); **not production-deployed** (manual Firebase hosting remains the only public deploy path; historically tracked from `feature/fusion-result`).
+**Thai Beta Narrative:** V1 + V1.1 curated blocks + **V1.1.1 Block Integrity & Confidence Consistency** on `main` (tip work `38ce369`); **production-deployed** to Firebase Hosting `knowme-app-694e1` from `main` @ `a6874f5` on 2026-07-21 via `scripts/deploy_web.ps1` (live release 19:21:54 +07).
 
 ---
 
@@ -30,7 +30,7 @@
 | **Human Pattern** | Recovery V2 complete | `docs/HUMAN_PATTERN_ACTIVATION_RECOVERY_V2.md` — 9/20 dead patterns recovered |
 | **Narrative V5** | Complete | `docs/NARRATIVE_EVIDENCE_BRANCHING_V5.md` — 1000/1000 unique, 0 collapse |
 | **Funnel Recovery V2** | Implemented | `lib/features/home_cohesion/`, `lib/features/funnel_telemetry/`, MBTI → narrative preview loop |
-| **Thai Beta Narrative Quality V1–V1.1.1** | Merged to `main` (not deployed) | Curated blocks + Block Integrity & Confidence Consistency; `docs/THAI_BETA_NARRATIVE_QUALITY_V1_REVIEW.md`; PR https://github.com/notekmitl/knowme/pull/1 |
+| **Thai Beta Narrative Quality V1–V1.1.1** | Merged to `main` + **hosted** | Curated blocks + Block Integrity & Confidence Consistency; `docs/THAI_BETA_NARRATIVE_QUALITY_V1_REVIEW.md`; PR https://github.com/notekmitl/knowme/pull/1; production https://knowme-app-694e1.web.app/beta/thai |
 | **Single-Agent + Local Gate** | Merged to `main` | `docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`, `scripts/knowme_task_gate.ps1` |
 
 **Also complete (supporting):**
@@ -66,7 +66,7 @@ Real users (38 Firestore accounts): **2.6% reach Narrative**. Blocker is persona
 | Risk | Severity | Detail |
 |------|----------|--------|
 | Personality test cliff | **Critical** | 97% of profile users never start MBTI (`REAL_USER_RUNTIME_VALIDATION_V1.md`) |
-| Hosting source vs `main` | **Medium** | Public beta still historically deployed from `feature/fusion-result`; `main` now includes architecture + Thai Beta Narrative after PR #1 but is **not** auto-deployed |
+| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `a6874f5` (2026-07-21); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
 | Real user PII export local-only | **High** | `firestore_user_export.json` gitignored — must regenerate locally |
 | Firebase service account local-only | **High** | `backend/firebase/serviceAccountKey.json` gitignored |
 | Legacy + new architecture coexist | **Medium** | Parallel scoring, navigation, and module IDs — trace before editing |
@@ -85,7 +85,7 @@ Accepted debt — do not hide; trace before editing.
 | AppText monolith | Low | `lib/core/i18n/app_text.dart` large | ARB/codegen future; acceptable for now |
 | Fusion outlier coverage | Low | Special-case copy for ESTJ, ENTJ, INTJ, ENFP only | Quality > coverage — expand carefully |
 | Dual astrology providers | Medium | `presentation/providers/astrology_provider.dart` + `lib/astrology/providers/astrology_provider.dart` | Do not aggressively merge — duplicate path risk |
-| Hosting source vs `main` | Medium | Public beta historically from `feature/fusion-result`; `main` updated via PR #1 without auto-deploy | Explicit deploy decision required |
+| Hosting source vs `main` | Low | Last public deploy from `main` @ `a6874f5` (manual); no auto-deploy | Keep using `scripts/deploy_web.ps1` for intentional releases |
 | Real user PII export local-only | High | `firestore_user_export.json` gitignored | Regenerate locally |
 | Firebase service account local-only | High | `backend/firebase/serviceAccountKey.json` gitignored | Never commit |
 
@@ -98,7 +98,7 @@ Accepted debt — do not hide; trace before editing.
 | **Status** | Public beta live on Firebase Hosting (June 2026) |
 | **Primary URL** | https://knowme-app-694e1.web.app |
 | **Firebase project** | `knowme-app-694e1` |
-| **Branch deployed from** | `feature/fusion-result` (historical); `main` holds merged Narrative V1–V1.1.1 but is **not** auto-deployed |
+| **Branch deployed from** | `main` @ `a6874f5` (2026-07-21); still **manual** deploy only — no auto-deploy |
 | **Full guide** | [`docs/DEPLOYMENT.md`](DEPLOYMENT.md) |
 
 Deploy: `.\scripts\deploy_web.ps1` or `firebase deploy --only hosting --project knowme-app-694e1`
@@ -107,9 +107,9 @@ Deploy: `.\scripts\deploy_web.ps1` or `firebase deploy --only hosting --project 
 
 ## Next Priority
 
-0. **Thai Beta Narrative production deploy (optional)** — V1–V1.1.1 is on `main` but not hosted; deploy only via established `scripts/deploy_web.ps1` when intentionally releasing Thai Beta report copy.
+0. **Invited-Beta production UI re-check (operator)** — agent deploy verified bundle/flag/gates; interactive invited narrative/badge needs seeded invite UID + credentials (allow-list not changed by deploy task).
 1. **Deploy / measure Funnel Recovery V2** — track `funnel_telemetry` for MBTI adoption and narrative reach (target: 2.6% → 25%+ narrative reach on active users).
-2. **Align production hosting source** — public beta historically from `feature/fusion-result`; decide whether future deploys track `main` after PR #1.
+2. **Keep hosting deploys intentional** — continue `scripts/deploy_web.ps1` from `main` when releasing; no auto-deploy.
 3. **Maintain frozen systems** — blocker fixes only on Fusion V1 UI, BaZi V1, Thai V2, MBTI Summary.
 4. **Re-run real-user validation** after funnel changes — compare against `real_user_runtime_validation_v1.json` baseline.
 
