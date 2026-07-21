@@ -57,8 +57,10 @@ analysis_benchmark.json
 .pub/
 /build/
 build/
+# Flutter/lcov coverage reports at repo root only.
+# Do NOT use unanchored coverage/ — that also ignores real Dart source
+# under lib/features/*/coverage/ (Human Model / Human Pattern).
 /coverage/
-coverage/
 flutter_*.png
 linked_*.ds
 unlinked.ds
