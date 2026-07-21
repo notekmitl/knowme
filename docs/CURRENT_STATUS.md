@@ -1,9 +1,9 @@
 # KnowMe Current Status
 
 **Last updated:** July 2026  
-**Branch:** `feature/thai-astrology-v16-mirror-conversation` (pre-AI-worker clean baseline)  
+**Branch:** `integrate/thai-beta-narrative-base` (current integration worktree)  
 **Prior architecture snapshot:** `feature/fusion-result`  
-**External AI worker (active):** `C:\Users\USER\knowme-ai-worker` — do **not** use obsolete in-repo `ai-worker/`
+**Automation workflow (authoritative):** Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
 
 ---
 
@@ -103,7 +103,7 @@ Deploy: `.\scripts\deploy_web.ps1` or `firebase deploy --only hosting --project 
 
 ## Next Priority
 
-0. **Pre-AI-worker clean baseline (July 2026)** — repository checkpoint before the external KnowMe AI Worker operates; no new product feature in that checkpoint.
+0. **Single-Agent + Local Gate workflow (July 2026)** — Cursor Agent tasks use [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md); external AI Worker retired.
 1. **Deploy / measure Funnel Recovery V2** — track `funnel_telemetry` for MBTI adoption and narrative reach (target: 2.6% → 25%+ narrative reach on active users).
 2. **Merge architecture branch → `main`** when release-ready — recovery from `main` alone is insufficient today.
 3. **Maintain frozen systems** — blocker fixes only on Fusion V1 UI, BaZi V1, Thai V2, MBTI Summary.

@@ -18,7 +18,7 @@ git checkout feature/thai-astrology-v16-mirror-conversation
 
 **Important:** `main` is far behind the architecture / Thai feature branches. Prefer the current feature branch listed in [`CURRENT_STATUS.md`](CURRENT_STATUS.md).
 
-**AI Worker:** the active external worker lives at `C:\Users\USER\knowme-ai-worker`. The obsolete in-repo `ai-worker/` directory is gitignored and must not be committed.
+**Automation workflow:** Use Single-Agent + Local Gate — see [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). The external AI Worker is **retired** (historical: [`AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)). The obsolete in-repo `ai-worker/` directory is gitignored and must not be committed.
 
 ### Flutter setup
 
@@ -163,6 +163,24 @@ flutter test test/home_screen_v3_test.dart
 | `synthetic_population_v3/output/` | GF2, narrative V3–V5, activation recovery JSON |
 | `real_user_runtime_v1/output/` | Real user funnel + validation (export gitignored) |
 | `human_pattern_activation_audit/output/` | Pattern activation audit |
+
+---
+
+## 4.1 Cursor Agent Automation (Single-Agent + Local Gate)
+
+For scoped Cursor Agent tasks (not manual dev work), use the authoritative workflow in [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md):
+
+1. Prepare `task.md` and `task_scope.json` on the target branch/worktree.
+2. Paste [`STANDARD_CURSOR_AGENT_PROMPT.md`](STANDARD_CURSOR_AGENT_PROMPT.md) into Cursor once per task.
+3. Agent runs PreCommit Gate → commit → PostCommit Gate → writes `TASK_RESULT.md`.
+4. Read `TASK_RESULT.md` for the final outcome.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/knowme_task_gate.ps1 -ScopeFile task_scope.json -Phase PreCommit
+powershell -ExecutionPolicy Bypass -File scripts/knowme_task_gate.ps1 -ScopeFile task_scope.json -Phase PostCommit
+```
+
+The external AI Worker and OpenAI reviewer loop are **retired** (historical: [`AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
 
 ---
 

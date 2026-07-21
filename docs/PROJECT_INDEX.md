@@ -54,6 +54,9 @@ everything below links from here.
 | [`GOVERNANCE.md`](GOVERNANCE.md) | Freeze policy + active/deferred/exception programs | Devs, AI | Yes | PROJECT_FREEZE, CURRENT_STATUS |
 | [`PROJECT_FREEZE.md`](PROJECT_FREEZE.md) | Per-system freeze registry + replacement plans | Devs, AI | Yes | GOVERNANCE, EXECUTIVE_SUMMARY |
 | [`HANDOFF.md`](HANDOFF.md) | Onboarding: setup, branches, app flow, validation commands | Devs | Recommended | DEPLOYMENT, FIRESTORE_SCHEMA, ARCHITECTURE |
+| [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md) | **Authoritative** Cursor Agent automation: Single-Agent + Local Gate, task scope, PreCommit/PostCommit | Devs, AI | Yes (automation tasks) | STANDARD_CURSOR_AGENT_PROMPT, AI_WORKER_OPERATION |
+| [`STANDARD_CURSOR_AGENT_PROMPT.md`](STANDARD_CURSOR_AGENT_PROMPT.md) | Standard prompt for every Cursor Agent task after workflow install | AI agents | Yes (automation tasks) | KNOWME_SINGLE_AGENT_WORKFLOW |
+| [`AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md) | **RETIRED / HISTORICAL** — external AI Worker + OpenAI reviewer loop (July 2026) | Devs | Historical only | KNOWME_SINGLE_AGENT_WORKFLOW |
 | [`DEPLOYMENT.md`](DEPLOYMENT.md) | Firebase web deploy, URLs, scripts, rollback | Devs | Recommended | HANDOFF, CURRENT_STATUS |
 | [`FIRESTORE_SCHEMA.md`](FIRESTORE_SCHEMA.md) | `tests/*` vs `results/*`, profile/astrology paths | Devs | Recommended | HANDOFF, MBTI_ARCHITECTURE |
 

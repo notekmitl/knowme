@@ -117,7 +117,9 @@ Full detail: `ARCHITECTURE.md`, `EXECUTIVE_SUMMARY.md`.
 6. **Feature owns its logic** — avoid cross-feature leakage.
 7. **Explain before major changes** — current implementation, risks, minimal approach.
 8. **Safe workflow:** branch → small implementation → manual test → commit only after
-   confirmation.
+   confirmation. For **Cursor Agent automation tasks**, use
+   [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md) (Single-Agent +
+   Local Gate) — not the retired external AI Worker.
 9. **Debug by root cause** — inspect caller chain and data flow; do not patch randomly.
 
 ---

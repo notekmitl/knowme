@@ -1,8 +1,12 @@
 # KnowMe AI Worker — Operation
 
+> **RETIRED (July 2026)** — This external automation system is no longer used for new work.
+> **Authoritative replacement:** [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md) (Single-Agent + Local Gate in this repository).
+> This document is kept as a **historical record** of the retired worker architecture. Do not start new jobs using the flow below.
+
 **Purpose:** Describe how the external KnowMe AI Worker runs automated implementation jobs against the KnowMe repository.
 **Audience:** Developers and operators who submit tasks or inspect worker output.
-**Last updated:** July 2026
+**Last updated:** July 2026 (retired — historical only)
 
 For repository setup and development workflow, see [`HANDOFF.md`](HANDOFF.md). For current project status, see [`CURRENT_STATUS.md`](CURRENT_STATUS.md).
 

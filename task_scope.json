@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "task_id": "single-agent-local-gate-install",
+  "expected_branch": "integrate/thai-beta-narrative-base",
+  "expected_worktree": "C:\\Users\\USER\\knowme",
+  "base_ref": "cf167ab71297be4add4a8748b96748d29ea2ab05",
+  "allowed_files": [
+    "scripts/knowme_task_gate.ps1",
+    "scripts/knowme_task_gate_selftest.ps1",
+    "docs/KNOWME_SINGLE_AGENT_WORKFLOW.md",
+    "docs/STANDARD_CURSOR_AGENT_PROMPT.md",
+    "docs/CURSOR_IMPLEMENTATION_PROMPT.md",
+    "docs/CURRENT_STATUS.md",
+    "docs/HANDOFF.md",
+    "docs/AI_WORKER_OPERATION.md",
+    "docs/PROJECT_INDEX.md",
+    "docs/AI_ALIGNMENT_CONTEXT.md",
+    "task.md",
+    "task_scope.json"
+  ],
+  "allowed_globs": [],
+  "forbidden_files": [
+    ".env",
+    ".env.*",
+    "**/*.pem",
+    "**/*.key",
+    "**/google-services.json",
+    "**/GoogleService-Info.plist"
+  ],
+  "generated_output_globs": [
+    "build/**",
+    ".dart_tool/**",
+    "coverage/**",
+    "**/*.g.dart",
+    "**/*.freezed.dart"
+  ],
+  "forbidden_text_patterns": [
+    "OPENAI_API_KEY",
+    "api.openai.com",
+    "knowme-ai-worker",
+    "final_result.json",
+    "round_[0-9]+_review\\.json"
+  ],
+  "focused_tests": [
+    "powershell -ExecutionPolicy Bypass -File scripts/knowme_task_gate_selftest.ps1"
+  ],
+  "full_test_policy": "skip",
+  "full_test_command": "SKIP",
+  "analyze_command": "SKIP",
+  "commit_message_regex": "^single-agent-gate: .{10,72}$",
+  "require_clean_tree_after_commit": true
+}
