@@ -453,8 +453,20 @@ _ReportCase _runCase(ThaiBetaAnalysis Function() load) {
       .toList();
   final dupes = <String>[];
   final seen = <String>{};
+  final complementaryByBlock = <String, Set<String>>{};
+  for (final e in result.trace.entries) {
+    final id = e.blockId;
+    if (id == null) continue;
+    complementaryByBlock.putIfAbsent(id, () => {}).add('${e.sectionId}:${e.field}');
+  }
   for (final id in blockIds) {
-    if (!seen.add(id)) dupes.add(id);
+    if (!seen.add(id)) {
+      final fields = complementaryByBlock[id] ?? {};
+      final allowedPair = fields.any((f) => f.startsWith('strength_')) &&
+          fields.any((f) =>
+              f.startsWith('caution_') || f.startsWith('personal_core'));
+      if (!allowedPair) dupes.add(id);
+    }
   }
 
   final placeholders = <String>{};

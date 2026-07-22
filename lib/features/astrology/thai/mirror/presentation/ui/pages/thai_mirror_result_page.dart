@@ -25,6 +25,7 @@ class ThaiMirrorResultPage extends StatefulWidget {
     required this.consumerState,
     this.embeddedInParentScroll = false,
     this.disableAnimations = false,
+    this.personalCoreFirst = false,
   });
 
   final ThaiMirrorConsumerViewState consumerState;
@@ -35,6 +36,10 @@ class ThaiMirrorResultPage extends StatefulWidget {
 
   /// Skips mount fade/slide animations (screenshot / capture mode).
   final bool disableAnimations;
+
+  /// V1.2 Thai Beta: place Personal Core (signature insight) immediately after
+  /// birth-confidence so the overview leads before dashboard/timeline detail.
+  final bool personalCoreFirst;
 
   @override
   State<ThaiMirrorResultPage> createState() => _ThaiMirrorResultPageState();
@@ -178,6 +183,16 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
                               state: consumerState.birthDataConfidence,
                             ),
                           ),
+                          if (widget.personalCoreFirst &&
+                              !consumerState.signatureInsight.isEmpty) ...[
+                            SizedBox(height: gap),
+                            RepaintBoundary(
+                              key: const Key('thai_consumer_signature_insight'),
+                              child: ThaiMirrorSignatureInsightSection(
+                                state: consumerState.signatureInsight,
+                              ),
+                            ),
+                          ],
                           if (consumerState.lifeTimeline != null &&
                               !consumerState.lifeTimeline!.isEmpty) ...[
                             SizedBox(height: gap),
@@ -198,7 +213,8 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
                               ),
                             ),
                           ],
-                          if (!consumerState.signatureInsight.isEmpty) ...[
+                          if (!widget.personalCoreFirst &&
+                              !consumerState.signatureInsight.isEmpty) ...[
                             SizedBox(height: gap),
                             RepaintBoundary(
                               key: const Key('thai_consumer_signature_insight'),
