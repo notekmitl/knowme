@@ -5,8 +5,10 @@ import 'package:knowme/core/web/web_intended_route.dart';
 import 'package:knowme/core/web/web_launch_route_uri.dart';
 import 'package:knowme/core/web/web_launch_router.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_landing_page.dart';
+import 'package:knowme/features/thai_beta/presentation/thai_beta_routes.dart';
 import 'package:knowme/features/thai_beta/presentation/thai_beta_screenshot_entry.dart';
 import 'package:knowme/features/thai_beta/presentation/thai_beta_screenshot_mode.dart';
+import 'package:knowme/main.dart';
 import 'package:knowme/presentation/pages/auth/auth_gate.dart';
 import 'package:knowme/presentation/pages/auth/login_page.dart';
 
@@ -90,6 +92,32 @@ void main() {
 
       expect(find.byType(ThaiBetaLandingPage), findsOneWidget);
       expect(find.byType(LoginPage), findsNothing);
+    });
+
+    test('isAnonymousPublicLandingRoute accepts public beta only', () {
+      expect(ThaiBetaRoutes.isAnonymousPublicLandingRoute('/beta/thai'), isTrue);
+      expect(
+        ThaiBetaRoutes.isAnonymousPublicLandingRoute('/beta/thai?nocache=1'),
+        isTrue,
+      );
+      expect(
+        ThaiBetaRoutes.isAnonymousPublicLandingRoute('/beta/thai/capture'),
+        isFalse,
+      );
+      expect(
+        ThaiBetaRoutes.isAnonymousPublicLandingRoute('/beta/thai?screenshot=1'),
+        isFalse,
+      );
+      expect(ThaiBetaRoutes.isAnonymousPublicLandingRoute('/'), isFalse);
+      expect(ThaiBetaRoutes.isAnonymousPublicLandingRoute(null), isFalse);
+    });
+
+    testWidgets('PublicThaiBetaApp shows landing without Login', (tester) async {
+      await tester.pumpWidget(const PublicThaiBetaApp());
+
+      expect(find.byType(ThaiBetaLandingPage), findsOneWidget);
+      expect(find.byType(LoginPage), findsNothing);
+      expect(find.byType(AuthGate), findsNothing);
     });
 
     test('null/root launch does not resolve to public landing', () {

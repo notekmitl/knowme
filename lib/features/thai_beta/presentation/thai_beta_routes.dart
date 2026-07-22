@@ -31,6 +31,22 @@ abstract final class ThaiBetaRoutes {
     return _normalizePath(path) == betaRouteName;
   }
 
+  /// True for anonymous Public Beta landing only (`/beta/thai`).
+  /// Capture / screenshot deep links stay on the authenticated shell.
+  static bool isAnonymousPublicLandingRoute(String? routeName) {
+    if (routeName == null || routeName.isEmpty) return false;
+    final uri = _routeUri(routeName);
+    if (isCapturePath(uri.path) || isQaSampleCapturePath(uri.path)) {
+      return false;
+    }
+    if (!isBetaPath(uri.path)) return false;
+    final query = uri.queryParameters;
+    if (query['screenshot'] == '1' || query['capture'] == '1') {
+      return false;
+    }
+    return true;
+  }
+
   static Uri _routeUri(String name) {
     final normalized = name.startsWith('/') ? name : '/$name';
     return Uri.parse('https://local$normalized');
