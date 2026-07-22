@@ -1,12 +1,14 @@
 {
   "schema_version": 1,
-  "task_id": "thai-beta-public-bootstrap",
-  "expected_branch": "fix/thai-beta-public-bootstrap",
+  "task_id": "thai-beta-authgate-public-bypass",
+  "expected_branch": "fix/thai-beta-authgate-public-bypass",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "83a945f0f5e86c60f73c44b288a94c1667631e7e",
+  "base_ref": "a22006971d31c617ba07a01d78b18ff983a8310d",
   "allowed_files": [
     "lib/main.dart",
-    "lib/features/thai_beta/presentation/thai_beta_routes.dart",
+    "lib/presentation/pages/auth/auth_gate.dart",
+    "lib/core/web/web_launch_route_web.dart",
+    "firebase.json",
     "test/validation/thai_beta/thai_beta_public_route_anonymous_test.dart",
     "task.md",
     "task_scope.json"
@@ -39,7 +41,7 @@
   ],
   "full_test_policy": "auto",
   "full_test_command": "flutter test test/validation/thai_beta/thai_beta_public_route_anonymous_test.dart test/validation/thai_beta/thai_beta_screenshot_auth_redirect_test.dart",
-  "analyze_command": "flutter analyze --no-fatal-warnings --no-fatal-infos lib/main.dart lib/features/thai_beta/presentation/thai_beta_routes.dart",
+  "analyze_command": "flutter analyze --no-fatal-warnings --no-fatal-infos lib/main.dart lib/presentation/pages/auth/auth_gate.dart lib/core/web/web_launch_route_web.dart",
   "commit_message_regex": "^fix\\(thai-beta\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }

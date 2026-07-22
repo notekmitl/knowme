@@ -120,6 +120,38 @@ void main() {
       expect(find.byType(AuthGate), findsNothing);
     });
 
+    testWidgets('AuthGate shows Landing for public /beta/thai (not Login)', (
+      tester,
+    ) async {
+      WebIntendedRoute.configure('/beta/thai');
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: AuthGate(authStateStream: Stream<User?>.value(null)),
+        ),
+      );
+      await tester.pump();
+
+      expect(find.byType(ThaiBetaLandingPage), findsOneWidget);
+      expect(find.byType(LoginPage), findsNothing);
+    });
+
+    testWidgets('AuthGate still shows Login for root when signed out', (
+      tester,
+    ) async {
+      WebIntendedRoute.configure(null);
+
+      await tester.pumpWidget(
+        MaterialApp(
+          home: AuthGate(authStateStream: Stream<User?>.value(null)),
+        ),
+      );
+      await tester.pump();
+
+      expect(find.byType(LoginPage), findsOneWidget);
+      expect(find.byType(ThaiBetaLandingPage), findsNothing);
+    });
+
     test('null/root launch does not resolve to public landing', () {
       expect(WebLaunchRouter.resolveLaunchWidget(null), isNull);
       expect(WebLaunchRouter.resolveLaunchWidget('/'), isNull);
@@ -142,6 +174,7 @@ void main() {
     });
 
     testWidgets('AuthGate without user shows LoginPage', (tester) async {
+      WebIntendedRoute.configure(null);
       await tester.pumpWidget(
         MaterialApp(
           home: AuthGate(authStateStream: Stream<User?>.value(null)),
@@ -174,5 +207,22 @@ void main() {
       expect(widget, isA<ThaiBetaScreenshotEntry>());
       expect(widget, isNot(isA<ThaiBetaLandingPage>()));
     });
+
+    testWidgets(
+      'AuthGate does not treat capture deep link as public landing',
+      (tester) async {
+        WebIntendedRoute.configure('/beta/thai/capture');
+
+        await tester.pumpWidget(
+          MaterialApp(
+            home: AuthGate(authStateStream: Stream<User?>.value(null)),
+          ),
+        );
+        await tester.pump();
+
+        expect(find.byType(LoginPage), findsOneWidget);
+        expect(find.byType(ThaiBetaLandingPage), findsNothing);
+      },
+    );
   });
 }

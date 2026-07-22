@@ -51,14 +51,27 @@ void main() async {
   configureKnowMePathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Re-read after binding so dart:html can see index.html early-capture
-  // (data-attribute / sessionStorage) and the live pathname.
-  final launchRouteName = webLaunchRouteName();
+  // First capture after binding. On some web boots dart:html is not fully
+  // wired yet, so this may be null even when index.html already stored the
+  // deep link — we refresh again after Firebase init below.
+  var launchRouteName = webLaunchRouteName();
   WebIntendedRoute.configure(launchRouteName);
-  final effectiveLaunchRoute = WebLaunchRouter.effectiveLaunchRoute(launchRouteName);
-  ThaiBetaScreenshotMode.configureFromLaunchRoute(effectiveLaunchRoute);
+  ThaiBetaScreenshotMode.configureFromLaunchRoute(
+    WebLaunchRouter.effectiveLaunchRoute(launchRouteName),
+  );
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+
+  // Re-read after async init: DOM early-capture / pathname is reliable here.
+  // Prefer a non-null refresh so a null first read cannot force AuthGate.
+  final refreshedLaunchRoute = webLaunchRouteName();
+  if (refreshedLaunchRoute != null && refreshedLaunchRoute.isNotEmpty) {
+    launchRouteName = refreshedLaunchRoute;
+    WebIntendedRoute.configure(launchRouteName);
+  }
+  final effectiveLaunchRoute =
+      WebLaunchRouter.effectiveLaunchRoute(launchRouteName);
+  ThaiBetaScreenshotMode.configureFromLaunchRoute(effectiveLaunchRoute);
 
   ThaiEvidenceBadgeFeatureFlag.applyConfiguredState();
 
@@ -142,9 +155,16 @@ class KnowMeApp extends StatelessWidget {
           // anonymous Public Beta users to AuthGate/Login in production.
           initialRoute: initialRoute,
           onGenerateInitialRoutes: (newInitialRoute) {
-            final routeName = (newInitialRoute.isEmpty || newInitialRoute == '/')
-                ? WebLaunchRouter.effectiveLaunchRoute(launchRouteName)
-                : newInitialRoute;
+            final effective =
+                WebLaunchRouter.effectiveLaunchRoute(launchRouteName);
+            // Prefer the captured public deep link over engine `/` when the
+            // first main() read was null and PathUrlStrategy reported root.
+            final routeName =
+                ThaiBetaRoutes.isAnonymousPublicLandingRoute(effective)
+                    ? effective
+                    : ((newInitialRoute.isEmpty || newInitialRoute == '/')
+                        ? effective
+                        : newInitialRoute);
             final page = WebLaunchRouter.resolveLaunchWidget(routeName) ??
                 const AuthGate();
             return [
