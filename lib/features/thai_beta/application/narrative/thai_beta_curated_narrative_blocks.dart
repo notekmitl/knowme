@@ -387,6 +387,8 @@ abstract final class ThaiBetaCuratedNarrativeBlocks {
         domain: e.key,
         primarySemanticTags: [tag],
         relationshipType: CuratedRelationshipType.domainPrimary,
+        // Domain copy is day-based observation, not birth-time dependent.
+        safeWithoutBirthTime: true,
         domainOverview: e.value.overview,
         domainWhy: e.value.why,
         sourceSignalIds: [tag, e.key.aspectKey],
@@ -735,6 +737,7 @@ abstract final class ThaiBetaCuratedNarrativeBlocks {
         primarySemanticTags: block.primarySemanticTags,
         primaryTraitIds: block.primaryTraitIds,
         relationshipType: CuratedRelationshipType.domainPrimary,
+        safeWithoutBirthTime: true,
         dashboardCurrent: block.domainOverview,
         dashboardWhy: block.domainWhy,
         sourceSignalIds: block.sourceSignalIds,
@@ -843,6 +846,56 @@ abstract final class ThaiBetaCuratedNarrativeBlocks {
       adviceText:
           'ลองปรึกษาคนที่ไว้ใจได้ก่อนตัดสินใจรับโอกาสใหม่ เพื่อได้มุมมองที่คุณอาจมองข้าม',
       sourceSignalIds: ['luck', 'people'],
+    ),
+    CuratedNarrativeBlock(
+      id: 'advice_work_alt_v1',
+      section: CuratedNarrativeSection.advice,
+      safeWithoutBirthTime: true,
+      domain: ThaiBetaLifeDomain.work,
+      primarySemanticTags: ['structure', 'thinking'],
+      adviceText:
+          'ลองแยกงานที่ต้องทำให้เสร็จวันนี้ ออกจากงานที่แค่รู้สึกว่าควรทำ เพื่อลดภาระที่สะสมโดยไม่จำเป็น',
+      sourceSignalIds: ['work', 'structure'],
+    ),
+    CuratedNarrativeBlock(
+      id: 'advice_money_alt_v1',
+      section: CuratedNarrativeSection.advice,
+      safeWithoutBirthTime: true,
+      domain: ThaiBetaLifeDomain.money,
+      primarySemanticTags: ['caution', 'structure'],
+      adviceText:
+          'ลองตั้งงบสำหรับสิ่งที่สำคัญสัปดาห์นี้ก่อน แล้วค่อยดูรายการอื่นที่ยังยืดหยุ่นได้',
+      sourceSignalIds: ['money', 'caution'],
+    ),
+    CuratedNarrativeBlock(
+      id: 'advice_love_alt_v1',
+      section: CuratedNarrativeSection.advice,
+      safeWithoutBirthTime: true,
+      domain: ThaiBetaLifeDomain.love,
+      primarySemanticTags: ['emotion', 'people'],
+      adviceText:
+          'ลองเว้นเวลาเงียบ ๆ คู่กันสักครู่ โดยไม่ต้องแก้ปัญหาทันที เพื่อให้ทั้งสองฝ่ายได้หายใจ',
+      sourceSignalIds: ['love', 'emotion'],
+    ),
+    CuratedNarrativeBlock(
+      id: 'advice_health_alt_v1',
+      section: CuratedNarrativeSection.advice,
+      safeWithoutBirthTime: true,
+      domain: ThaiBetaLifeDomain.health,
+      primarySemanticTags: ['caution', 'drive'],
+      adviceText:
+          'ลองสังเกตสัญญาณเหนื่อยของร่างกายหลังงานหนัก แล้วจัดเวลาพักให้ชัดก่อนเริ่มรอบใหม่',
+      sourceSignalIds: ['health', 'caution'],
+    ),
+    CuratedNarrativeBlock(
+      id: 'advice_luck_alt_v1',
+      section: CuratedNarrativeSection.advice,
+      safeWithoutBirthTime: true,
+      domain: ThaiBetaLifeDomain.luck,
+      primarySemanticTags: ['novelty', 'action'],
+      adviceText:
+          'ลองเปิดรับข้อมูลใหม่ของโอกาสที่สนใจ โดยยังไม่ต้องตัดสินใจใหญ่ในวันเดียวกัน',
+      sourceSignalIds: ['luck', 'novelty'],
     ),
     CuratedNarrativeBlock(
       id: 'advice_work_fallback_v1',

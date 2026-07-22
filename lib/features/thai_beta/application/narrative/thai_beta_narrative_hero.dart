@@ -128,16 +128,6 @@ abstract final class ThaiBetaNarrativeHero {
       trace: [
         ThaiBetaNarrativeSpecificity.traceEntry(
           sectionId: 'hero',
-          field: 'headline',
-          primaryThemeId: primaryThemeId,
-          secondaryThemeId: hasDistinctSecondary ? secondaryThemeId : null,
-          relationship: 'curated_block',
-          lifePeriod: lifePeriodLabel,
-          block: block,
-          matchLevel: selection.matchLevel,
-        ),
-        ThaiBetaNarrativeSpecificity.traceEntry(
-          sectionId: 'hero',
           field: 'summary',
           primaryThemeId: primaryThemeId,
           secondaryThemeId: hasDistinctSecondary ? secondaryThemeId : null,

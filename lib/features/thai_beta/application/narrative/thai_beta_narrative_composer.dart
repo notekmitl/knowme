@@ -14,6 +14,7 @@ import 'thai_beta_narrative_hero.dart';
 import 'thai_beta_narrative_specificity.dart';
 import 'thai_beta_narrative_stable_hash.dart';
 import 'thai_beta_narrative_trace.dart';
+import 'thai_beta_curated_narrative_block.dart';
 
 class ThaiBetaNarrativeResult {
   const ThaiBetaNarrativeResult({
@@ -476,7 +477,29 @@ abstract final class ThaiBetaNarrativeComposer {
       final tension = section.hasTension
           ? ThaiBetaNarrativeFormatting.normalize(section.tension)
           : '';
-      var why = domain != null
+      // Prefer complementary why text from the overview block (one curated
+      // domain block carries both fields). Only select a second block when
+      // the paired why is missing or already used as public text.
+      ({
+        String text,
+        CuratedNarrativeBlock block,
+        int matchLevel,
+      })? why;
+      if (overview != null) {
+        final pairedWhy = ThaiBetaNarrativeFormatting.normalize(
+          overview.block.domainWhy ?? '',
+        );
+        final pairedKey = ThaiBetaNarrativeFormatting.normalizedKey(pairedWhy);
+        if (pairedWhy.isNotEmpty &&
+            (pairedKey.length <= 8 || !globalUsed.contains(pairedKey))) {
+          why = (
+            text: pairedWhy,
+            block: overview.block,
+            matchLevel: overview.matchLevel,
+          );
+        }
+      }
+      why ??= domain != null
           ? ThaiBetaNarrativeSpecificity.selectDomainWhy(
               primaryThemeId: primaryThemeId,
               secondaryThemeId: secondaryThemeId,
@@ -552,7 +575,9 @@ abstract final class ThaiBetaNarrativeComposer {
             matchLevel: overview.matchLevel,
           ),
         );
-        if (whyText.isNotEmpty && why != null) {
+        if (whyText.isNotEmpty &&
+            why != null &&
+            why.block.id != overview.block.id) {
           trace = trace.add(
             ThaiBetaNarrativeSpecificity.traceEntry(
               sectionId: 'narrative_${domain.aspectKey}',
