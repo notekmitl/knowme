@@ -88,6 +88,9 @@ class KnowMeApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final initialRoute =
+        WebLaunchRouter.effectiveLaunchRoute(launchRouteName) ?? '/';
+
     return Consumer<LocaleProvider>(
       builder: (context, localeProvider, child) {
         return MaterialApp(
@@ -105,7 +108,23 @@ class KnowMeApp extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
 
-          home: WebLaunchRouter(launchRouteName: launchRouteName),
+          // Path URL strategy syncs the browser URL into Navigator. Do not use
+          // `home:` here — it pins `/` and races with `/beta/thai`, which sent
+          // anonymous Public Beta users to AuthGate/Login in production.
+          initialRoute: initialRoute,
+          onGenerateInitialRoutes: (newInitialRoute) {
+            final routeName = (newInitialRoute.isEmpty || newInitialRoute == '/')
+                ? WebLaunchRouter.effectiveLaunchRoute(launchRouteName)
+                : newInitialRoute;
+            final page = WebLaunchRouter.resolveLaunchWidget(routeName) ??
+                const AuthGate();
+            return [
+              MaterialPageRoute<void>(
+                settings: RouteSettings(name: routeName ?? '/'),
+                builder: (_) => page,
+              ),
+            ];
+          },
 
           builder: (context, child) {
             return ThaiBetaScreenshotScope(
@@ -115,6 +134,15 @@ class KnowMeApp extends StatelessWidget {
           },
 
           onGenerateRoute: (settings) {
+            // Public + guarded deep links resolved the same way as cold start.
+            final launchWidget =
+                WebLaunchRouter.resolveLaunchWidget(settings.name);
+            if (launchWidget != null) {
+              return MaterialPageRoute<void>(
+                settings: settings,
+                builder: (_) => launchWidget,
+              );
+            }
             final bigFiveRoute = BigFiveRoutes.onGenerateRoute(settings);
             if (bigFiveRoute != null) {
               return bigFiveRoute;

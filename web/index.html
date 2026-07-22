@@ -71,6 +71,12 @@
         }
         if (route) {
           window.__knowmeLaunchRoute = route;
+          try {
+            document.documentElement.setAttribute('data-knowme-launch-route', route);
+          } catch (e) {}
+          try {
+            sessionStorage.setItem('knowmeLaunchRoute', route);
+          } catch (e) {}
         }
       } catch (e) {}
     })();
