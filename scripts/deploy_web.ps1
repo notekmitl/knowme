@@ -49,6 +49,40 @@ $ValidateScript = Join-Path $RepoRoot "scripts\validate_production_web_bundle.ps
 & $ValidateScript -BundlePath $Bundle
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
+# Bust immutable browser caches of main.dart.js. Firebase Hosting previously
+# served entrypoint JS as `max-age=31536000, immutable`, so returning users kept
+# old AuthGate/Login shells after Public Beta fixes. Query-pin the entrypoint to
+# the deployed git SHA so flutter_bootstrap always fetches the new bundle.
+$DeploySha = (& git rev-parse --short HEAD).Trim()
+if ([string]::IsNullOrWhiteSpace($DeploySha)) {
+    throw "Unable to resolve git SHA for main.dart.js cache bust."
+}
+$BootstrapPath = Join-Path $RepoRoot "build\web\flutter_bootstrap.js"
+if (-not (Test-Path $BootstrapPath)) {
+    throw "Build output missing: $BootstrapPath"
+}
+$BootstrapText = Get-Content -LiteralPath $BootstrapPath -Raw
+$Busted = "main.dart.js?v=$DeploySha"
+if ($BootstrapText -notmatch [regex]::Escape('main.dart.js')) {
+    throw "flutter_bootstrap.js does not reference main.dart.js"
+}
+$BootstrapText = $BootstrapText -replace 'main\.dart\.js(\?v=[0-9a-fA-F]+)?', $Busted
+Set-Content -LiteralPath $BootstrapPath -Value $BootstrapText -NoNewline
+Write-Host "Cache-bust entrypoint: $Busted"
+
+$IndexPath = Join-Path $RepoRoot "build\web\index.html"
+if (-not (Test-Path $IndexPath)) {
+    throw "Build output missing: $IndexPath"
+}
+$IndexText = Get-Content -LiteralPath $IndexPath -Raw
+$BootstrapRef = "flutter_bootstrap.js?v=$DeploySha"
+if ($IndexText -notmatch 'flutter_bootstrap\.js') {
+    throw "index.html does not reference flutter_bootstrap.js"
+}
+$IndexText = $IndexText -replace 'flutter_bootstrap\.js(\?v=[0-9a-fA-F]+)?', $BootstrapRef
+Set-Content -LiteralPath $IndexPath -Value $IndexText -NoNewline
+Write-Host "Cache-bust bootstrap: $BootstrapRef"
+
 Write-Host "Deploying Firestore rules (knowme-app-694e1)..."
 firebase deploy --only firestore:rules --project knowme-app-694e1
 if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
