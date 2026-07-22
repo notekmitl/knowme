@@ -1,18 +1,25 @@
 {
   "schema_version": 1,
-  "task_id": "thai-beta-narrative-v1.1.1-block-integrity-confidence",
-  "expected_branch": "integrate/thai-beta-narrative-base",
+  "task_id": "thai-beta-public-route-anonymous",
+  "expected_branch": "fix/thai-beta-public-route-anonymous",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "219a0881a5cf30835bc7b77622c7289949a286e0",
+  "base_ref": "fbe1d95d82d9140a9afe56c81a8ccc4a7c66fbfb",
   "allowed_files": [
-    "lib/features/thai_beta/application/narrative/thai_beta_narrative_confidence.dart",
-    "lib/features/thai_beta/application/narrative/thai_beta_curated_block_integrity.dart",
-    "lib/features/thai_beta/application/narrative/thai_beta_curated_block_selector.dart",
-    "lib/features/thai_beta/application/narrative/thai_beta_narrative_specificity.dart",
-    "lib/features/thai_beta/application/narrative/thai_beta_narrative_hero.dart",
-    "lib/features/thai_beta/application/narrative/thai_beta_narrative_domain.dart",
-    "test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart",
-    "docs/THAI_BETA_NARRATIVE_QUALITY_V1_REVIEW.md",
+    "lib/main.dart",
+    "lib/core/web/web_launch_route_web.dart",
+    "lib/core/web/web_launch_route_stub.dart",
+    "lib/core/web/web_launch_route_uri.dart",
+    "lib/core/web/web_launch_router.dart",
+    "lib/core/web/web_path_url_strategy.dart",
+    "lib/core/web/web_path_url_strategy_web.dart",
+    "lib/core/web/web_path_url_strategy_stub.dart",
+    "web/index.html",
+    "pubspec.yaml",
+    "pubspec.lock",
+    "test/validation/thai_beta/thai_beta_public_route_anonymous_test.dart",
+    "test/validation/thai_beta/thai_beta_screenshot_auth_redirect_test.dart",
+    "docs/CURRENT_STATUS.md",
+    "docs/HANDOFF.md",
     "task.md",
     "task_scope.json"
   ],
@@ -40,11 +47,11 @@
     "round_[0-9]+_review\\.json"
   ],
   "focused_tests": [
-    "flutter test test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart"
+    "flutter test test/validation/thai_beta/thai_beta_public_route_anonymous_test.dart test/validation/thai_beta/thai_beta_screenshot_auth_redirect_test.dart"
   ],
   "full_test_policy": "auto",
-  "full_test_command": "flutter test test/validation/thai_beta/narrative/",
-  "analyze_command": "flutter analyze --no-fatal-warnings --no-fatal-infos lib/features/thai_beta/application/narrative/",
-  "commit_message_regex": "^thai-beta-narrative-v1\\.1\\.1: .{10,72}$",
+  "full_test_command": "flutter test test/validation/thai_beta/thai_beta_public_route_anonymous_test.dart test/validation/thai_beta/thai_beta_screenshot_auth_redirect_test.dart",
+  "analyze_command": "flutter analyze --no-fatal-warnings --no-fatal-infos lib/main.dart lib/core/web/",
+  "commit_message_regex": "^fix\\(thai-beta\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }

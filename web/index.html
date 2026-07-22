@@ -50,6 +50,33 @@
 </head>
 <body>
   <!--
+    Capture the browser deep-link BEFORE Flutter boots. HashUrlStrategy / engine
+    init can rewrite pathname to `/`, which would otherwise drop `/beta/thai`
+    and send anonymous users to Auth Login instead of ThaiBetaLandingPage.
+  -->
+  <script>
+    (function () {
+      try {
+        var path = window.location.pathname || '/';
+        var search = window.location.search || '';
+        var hash = window.location.hash || '';
+        var route = null;
+        if (path && path !== '/') {
+          route = path + search;
+        } else if (hash && hash.length > 1) {
+          var fragment = hash.charAt(0) === '#' ? hash.substring(1) : hash;
+          if (fragment) {
+            route = fragment.charAt(0) === '/' ? fragment : '/' + fragment;
+          }
+        }
+        if (route) {
+          window.__knowmeLaunchRoute = route;
+        }
+      } catch (e) {}
+    })();
+  </script>
+
+  <!--
     Production-first QA: the Flutter service worker is intentionally DISABLED.
 
     The SW (deprecated in this Flutter version) is the reason a freshly deployed

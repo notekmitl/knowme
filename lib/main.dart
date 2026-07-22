@@ -30,6 +30,7 @@ import 'package:knowme/features/astrology/thai/knowledge/canon/integration/prese
 import 'package:knowme/core/web/web_launch_route.dart';
 import 'package:knowme/core/web/web_launch_router.dart';
 import 'package:knowme/core/web/web_intended_route.dart';
+import 'package:knowme/core/web/web_path_url_strategy.dart';
 import 'presentation/pages/auth/auth_gate.dart';
 
 import 'presentation/providers/auth_provider.dart';
@@ -45,10 +46,13 @@ import 'presentation/providers/locale_provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
+  // Capture BEFORE WidgetsFlutterBinding / URL strategy init. The default
+  // HashUrlStrategy otherwise rewrites `/beta/thai` → `/` and anonymous users
+  // fall through WebLaunchRouter → AuthGate → LoginPage (production FAIL).
+  final launchRouteName = webLaunchRouteName();
+  configureKnowMePathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
 
-  // Capture the browser launch route before Flutter routing can rewrite the URL.
-  final launchRouteName = webLaunchRouteName();
   WebIntendedRoute.configure(launchRouteName);
   final effectiveLaunchRoute = WebLaunchRouter.effectiveLaunchRoute(launchRouteName);
   ThaiBetaScreenshotMode.configureFromLaunchRoute(effectiveLaunchRoute);
