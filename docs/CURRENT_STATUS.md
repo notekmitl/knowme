@@ -2,11 +2,11 @@
 
 **Last updated:** July 2026  
 **Branch:** `main`  
-**Merge tip:** `a721a1a` (PR #14 — Thai Beta Report V1.2.1 readability)  
+**Merge tip:** `463008f` (PR #16 — Thai Beta Narrative Editorial Pass V1.2.2)  
 **Prior architecture snapshot:** `feature/fusion-result`  
 **Automation workflow (authoritative):** Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
 **Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login) — Evidence Badge rollout remains `invited_beta`.
-**Thai Beta Narrative:** **V1.2.1 Report readability** (relevant prev/current/next timeline + progressive disclosure + score weight explanation) on `main` @ `a721a1a`; hosted via `scripts/deploy_web.ps1` (entrypoint `?v=a721a1a`). Prior V1.2 Personal Relevance remains in the same report stack.
+**Thai Beta Narrative:** **V1.2.2 Editorial Pass** (warmer chrome: score explanation, trend clarity label, Personal Core eyebrows, Strength title, future intro/evidence) on `main` @ `463008f`; hosted via `scripts/deploy_web.ps1` (entrypoint `?v=463008f`). Prior V1.2.1 readability + V1.2 Personal Relevance remain in the same report stack.
 
 ---
 
@@ -31,8 +31,8 @@
 | **Human Pattern** | Recovery V2 complete | `docs/HUMAN_PATTERN_ACTIVATION_RECOVERY_V2.md` — 9/20 dead patterns recovered |
 | **Narrative V5** | Complete | `docs/NARRATIVE_EVIDENCE_BRANCHING_V5.md` — 1000/1000 unique, 0 collapse |
 | **Funnel Recovery V2** | Implemented | `lib/features/home_cohesion/`, `lib/features/funnel_telemetry/`, MBTI → narrative preview loop |
-| **Thai Beta Narrative Quality V1–V1.2.1** | Merged to `main` + **hosted** | V1.2.1 relevant timeline + disclosure + score explanation; PR https://github.com/notekmitl/knowme/pull/14; production https://knowme-app-694e1.web.app/beta/thai @ `a721a1a` |
-| **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with V1.2.1 deploy 2026-07-22 @ `a721a1a` |
+| **Thai Beta Narrative Quality V1–V1.2.2** | Merged to `main` + **hosted** | V1.2.2 editorial chrome; PR https://github.com/notekmitl/knowme/pull/16; production https://knowme-app-694e1.web.app/beta/thai @ `463008f` |
+| **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with V1.2.2 deploy 2026-07-22 @ `463008f` |
 | **Single-Agent + Local Gate** | Merged to `main` | `docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`, `scripts/knowme_task_gate.ps1` |
 
 **Also complete (supporting):**
