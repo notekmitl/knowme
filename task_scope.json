@@ -1,15 +1,12 @@
 {
   "schema_version": 1,
-  "task_id": "thai-beta-narrative-v122-editorial",
-  "expected_branch": "feature/thai-beta-narrative-v122-editorial",
+  "task_id": "thai-beta-narrative-v122-status-docs",
+  "expected_branch": "docs/thai-beta-narrative-v122-status",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "bba42551cbdc8f18b242f062f1cbc9663a8cc8fd",
+  "base_ref": "463008f3f29d8a43bef3fd7ec8ba5d06bf9f9c5d",
   "allowed_files": [
-    "lib/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_life_timeline_section.dart",
-    "lib/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_future_prediction_section.dart",
-    "lib/features/astrology/thai/mirror/presentation/prediction/prediction_composer.dart",
-    "lib/features/thai_beta/application/narrative/thai_beta_narrative_v12.dart",
-    "test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart",
+    "docs/CURRENT_STATUS.md",
+    "docs/HANDOFF.md",
     "task.md",
     "task_scope.json"
   ],
@@ -36,12 +33,10 @@
     "final_result.json",
     "round_[0-9]+_review\\.json"
   ],
-  "focused_tests": [
-    "flutter test test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart test/validation/thai_mirror_v10_prediction_presentation/prediction_composer_test.dart"
-  ],
+  "focused_tests": ["SKIP"],
   "full_test_policy": "skip",
   "full_test_command": "SKIP",
-  "analyze_command": "flutter analyze lib/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_life_timeline_section.dart lib/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_future_prediction_section.dart lib/features/astrology/thai/mirror/presentation/prediction/prediction_composer.dart lib/features/thai_beta/application/narrative/thai_beta_narrative_v12.dart test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart",
-  "commit_message_regex": "^feat\\(thai-beta\\): .{10,72}$",
+  "analyze_command": "SKIP",
+  "commit_message_regex": "^docs\\(thai-beta\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }
