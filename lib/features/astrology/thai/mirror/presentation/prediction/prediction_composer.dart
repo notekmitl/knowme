@@ -43,7 +43,7 @@ abstract final class PredictionComposer {
     return PredictionSectionModel(
       sectionTitle: 'แนวโน้มชีวิตในระยะข้างหน้า',
       sectionIntro:
-          'ต่อไปนี้คือแนวโน้มกว้าง ๆ ของช่วงข้างหน้า อ่านเป็นแนวทางพอให้เตรียมใจ '
+          'แนวโน้มกว้าง ๆ ของช่วงข้างหน้า อ่านเป็นแนวทางพอให้เตรียมใจ '
           'ไม่ใช่คำทำนายที่ตายตัว',
       windows: cards,
       transitionLine: _transitionLine(seed),
@@ -206,10 +206,10 @@ abstract final class PredictionComposer {
     final category = PredictionReasonCopy.categoryLabel(lead.category);
     final bondLabel = bond == null ? '' : ' ในระดับ “${bond.labelTh}”';
     return _pick([
-      'ที่มาเชิงเทคนิค: แนวโน้มนี้อ้างอิงจากอิทธิพลของ$name ในช่วงดังกล่าว '
-          'ซึ่งสัมพันธ์กับดาวประจำวันเกิดของคุณ$bondLabel '
-          'และสะท้อนออกมาชัดที่สุดในด้าน$category',
-      'ที่มาเชิงเทคนิค: ช่วงนี้อยู่ภายใต้อิทธิพลของ$name ความสัมพันธ์กับ '
+      'มองจากจังหวะของ$name ในช่วงนี้ '
+          'ซึ่งโยงกับดาวประจำวันเกิดของคุณ$bondLabel '
+          'และเห็นเด่นชัดในด้าน$category',
+      'ช่วงนี้อยู่ในจังหวะของ$name ความสัมพันธ์กับ '
           'พื้นฐานวันเกิดของคุณ$bondLabel จึงปรากฏเป็นแนวโน้มด้าน$category',
     ], seed);
   }

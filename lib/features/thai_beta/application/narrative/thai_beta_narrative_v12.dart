@@ -45,9 +45,9 @@ abstract final class ThaiBetaNarrativeV12 {
   /// Personal Core eyebrow — overview before detail sections.
   static String personalCoreEyebrow(ThaiBetaNarrativeConfidenceBand band) {
     return switch (band) {
-      ThaiBetaNarrativeConfidenceBand.high => 'แก่นที่เห็นชัดจากหลักฐานของคุณ',
+      ThaiBetaNarrativeConfidenceBand.high => 'แก่นที่เห็นชัดจากข้อมูลของคุณ',
       ThaiBetaNarrativeConfidenceBand.medium =>
-        'แก่นที่พอเห็นได้จากหลักฐานที่มี',
+        'แก่นที่พอเห็นได้จากข้อมูลที่มี',
       ThaiBetaNarrativeConfidenceBand.low =>
         'ภาพรวมเบื้องต้นจากข้อมูลที่มี (ยังไม่ครบ)',
     };
@@ -57,9 +57,9 @@ abstract final class ThaiBetaNarrativeV12 {
   static String personalCoreSignature(ThaiBetaNarrativeConfidenceBand band) {
     return switch (band) {
       ThaiBetaNarrativeConfidenceBand.high =>
-        'สรุปจากสัญญาณที่เด่นและสอดคล้องกัน — ใช้สังเกตตัวเอง ไม่ใช่คำฟันธง',
+        'สรุปจากสิ่งที่เด่นและสอดคล้องกัน — ใช้สังเกตตัวเอง ไม่ใช่คำฟันธง',
       ThaiBetaNarrativeConfidenceBand.medium =>
-        'ยังเป็นแนวโน้มจากหลักฐานที่มี — ยืนยันกับชีวิตจริงก่อนตัดสินใจใหญ่',
+        'ยังเป็นแนวโน้มจากข้อมูลที่มี — ยืนยันกับชีวิตจริงก่อนตัดสินใจใหญ่',
       ThaiBetaNarrativeConfidenceBand.low =>
         'ข้อมูลเวลายังไม่ครบ จึงจำกัดความเฉพาะเจาะจง และไม่สรุปแรงจูงใจลึก',
     };
@@ -112,14 +112,14 @@ abstract final class ThaiBetaNarrativeV12 {
       return band == ThaiBetaNarrativeConfidenceBand.low
           ? 'ภาพรวมจากวันเกิดสะท้อนแนวโน้มบางด้านที่เด่นพอสังเกตได้ '
               '— ใช้เทียบกับชีวิตจริงของคุณ ไม่ใช่ข้อสรุปตายตัว'
-          : 'จากหลักฐานที่มี มีลักษณะเด่นที่พอสรุปเป็นภาพรวมได้ '
+          : 'จากข้อมูลที่มี มีลักษณะเด่นที่พอสรุปเป็นภาพรวมได้ '
               '— ใช้สังเกตตัวเอง ไม่ใช่คำฟันธง';
     }
     return parts.join('\n\n');
   }
 
   /// Section titles that make Strength → Risk → Action readable as a set.
-  static const strengthsSectionTitle = 'จุดแข็งที่เด่นจากหลักฐาน';
+  static const strengthsSectionTitle = 'จุดแข็งที่เด่นในตัวคุณ';
   static const cautionsSectionTitle = 'ข้อควรระวังเมื่อใช้จุดแข็งนี้';
   static const adviceSectionTitle = 'แนวทางสำคัญที่นำไปใช้ได้ก่อน';
 

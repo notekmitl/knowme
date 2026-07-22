@@ -391,7 +391,7 @@ class _ConfidenceMeter extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'ความมั่นใจของแนวโน้ม',
+          'ความชัดของแนวโน้ม',
           style: TextStyle(
             fontSize: 12,
             color: scheme.onSurfaceVariant,
