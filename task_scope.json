@@ -1,16 +1,12 @@
 {
   "schema_version": 1,
-  "task_id": "thai-beta-narrative-v12-personal-relevance",
-  "expected_branch": "feature/thai-beta-narrative-v12-personal-relevance",
+  "task_id": "thai-beta-narrative-v12-status-docs",
+  "expected_branch": "docs/thai-beta-narrative-v12-status",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "89d8e7e3e1d2f53926599c4e6b1fb8b588cc1d7f",
+  "base_ref": "f56b4657ff43a019c56c7ec9adaa74866efaf5ff",
   "allowed_files": [
-    "lib/features/astrology/thai/mirror/presentation/ui/pages/thai_mirror_result_page.dart",
-    "lib/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart",
-    "lib/features/thai_beta/application/narrative/thai_beta_narrative_v12.dart",
-    "lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart",
-    "test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart",
-    "test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart",
+    "docs/CURRENT_STATUS.md",
+    "docs/HANDOFF.md",
     "task.md",
     "task_scope.json"
   ],
@@ -37,12 +33,10 @@
     "final_result.json",
     "round_[0-9]+_review\\.json"
   ],
-  "focused_tests": [
-    "flutter test test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart"
-  ],
+  "focused_tests": ["SKIP"],
   "full_test_policy": "skip",
   "full_test_command": "SKIP",
-  "analyze_command": "flutter analyze lib/features/thai_beta/application/narrative lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart lib/features/astrology/thai/mirror/presentation/ui/pages/thai_mirror_result_page.dart test/validation/thai_beta/narrative",
-  "commit_message_regex": "^feat\\(thai-beta\\): .{10,72}$",
+  "analyze_command": "SKIP",
+  "commit_message_regex": "^docs\\(thai-beta\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }

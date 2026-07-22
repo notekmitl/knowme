@@ -2,11 +2,11 @@
 
 **Last updated:** July 2026  
 **Branch:** `main`  
-**Merge tip:** `79d128f` (PR #10 — Thai Beta Narrative V1.1.2 Real Report Quality)  
+**Merge tip:** `f56b465` (PR #12 — Thai Beta Narrative V1.2 Personal Relevance)  
 **Prior architecture snapshot:** `feature/fusion-result`  
 **Automation workflow (authoritative):** Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
-**Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login) — **production-verified** 2026-07-22 on Hosting `knowme-app-694e1` (Evidence Badge rollout remains `invited_beta`).
-**Thai Beta Narrative:** V1–V1.1.1 + **V1.1.2** (duplicate curated-advice / domain-why pairing) — Real Report Quality Acceptance **PASS**; hosted from `main` @ `79d128f` via `scripts/deploy_web.ps1` (entrypoint `?v=79d128f`).
+**Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login) — Evidence Badge rollout remains `invited_beta`.
+**Thai Beta Narrative:** **V1.2 Personal Relevance & Actionable Guidance** (Personal Core + Strength→Risk→Action + prioritised advice) on `main` @ `f56b465`; hosted via `scripts/deploy_web.ps1` (entrypoint `?v=f56b465`).
 
 ---
 
@@ -31,8 +31,8 @@
 | **Human Pattern** | Recovery V2 complete | `docs/HUMAN_PATTERN_ACTIVATION_RECOVERY_V2.md` — 9/20 dead patterns recovered |
 | **Narrative V5** | Complete | `docs/NARRATIVE_EVIDENCE_BRANCHING_V5.md` — 1000/1000 unique, 0 collapse |
 | **Funnel Recovery V2** | Implemented | `lib/features/home_cohesion/`, `lib/features/funnel_telemetry/`, MBTI → narrative preview loop |
-| **Thai Beta Narrative Quality V1–V1.1.2** | Merged to `main` + **hosted** | V1.1.2 Real Report Quality Acceptance PASS; unused same-domain advice before reuse; domain why pairs with overview; PR https://github.com/notekmitl/knowme/pull/10; production https://knowme-app-694e1.web.app/beta/thai @ `79d128f` |
-| **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; AuthGate/public bootstrap + immutable JS cache-bust; re-verified with V1.1.2 deploy 2026-07-22 @ `79d128f` |
+| **Thai Beta Narrative Quality V1–V1.2** | Merged to `main` + **hosted** | V1.2 Personal Core + linked Strength→Risk→Action; acceptance PASS; PR https://github.com/notekmitl/knowme/pull/12; production https://knowme-app-694e1.web.app/beta/thai @ `f56b465` |
+| **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with V1.2 deploy 2026-07-22 @ `f56b465` |
 | **Single-Agent + Local Gate** | Merged to `main` | `docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`, `scripts/knowme_task_gate.ps1` |
 
 **Also complete (supporting):**
@@ -68,7 +68,7 @@ Real users (38 Firestore accounts): **2.6% reach Narrative**. Blocker is persona
 | Risk | Severity | Detail |
 |------|----------|--------|
 | Personality test cliff | **Critical** | 97% of profile users never start MBTI (`REAL_USER_RUNTIME_VALIDATION_V1.md`) |
-| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `79d128f` (2026-07-22); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
+| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `f56b465` (2026-07-22); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
 | Real user PII export local-only | **High** | `firestore_user_export.json` gitignored — must regenerate locally |
 | Firebase service account local-only | **High** | `backend/firebase/serviceAccountKey.json` gitignored |
 | Legacy + new architecture coexist | **Medium** | Parallel scoring, navigation, and module IDs — trace before editing |
@@ -87,7 +87,7 @@ Accepted debt — do not hide; trace before editing.
 | AppText monolith | Low | `lib/core/i18n/app_text.dart` large | ARB/codegen future; acceptable for now |
 | Fusion outlier coverage | Low | Special-case copy for ESTJ, ENTJ, INTJ, ENFP only | Quality > coverage — expand carefully |
 | Dual astrology providers | Medium | `presentation/providers/astrology_provider.dart` + `lib/astrology/providers/astrology_provider.dart` | Do not aggressively merge — duplicate path risk |
-| Hosting source vs `main` | Low | Last public deploy from `main` @ `79d128f` (manual); no auto-deploy | Keep using `scripts/deploy_web.ps1` for intentional releases |
+| Hosting source vs `main` | Low | Last public deploy from `main` @ `f56b465` (manual); no auto-deploy | Keep using `scripts/deploy_web.ps1` for intentional releases |
 | Real user PII export local-only | High | `firestore_user_export.json` gitignored | Regenerate locally |
 | Firebase service account local-only | High | `backend/firebase/serviceAccountKey.json` gitignored | Never commit |
 
@@ -100,7 +100,7 @@ Accepted debt — do not hide; trace before editing.
 | **Status** | Public beta live on Firebase Hosting (June 2026) |
 | **Primary URL** | https://knowme-app-694e1.web.app |
 | **Firebase project** | `knowme-app-694e1` |
-| **Branch deployed from** | `main` @ `79d128f` (2026-07-22); still **manual** deploy only — no auto-deploy |
+| **Branch deployed from** | `main` @ `f56b465` (2026-07-22); still **manual** deploy only — no auto-deploy |
 | **Full guide** | [`docs/DEPLOYMENT.md`](DEPLOYMENT.md) |
 
 Deploy: `.\scripts\deploy_web.ps1` or `firebase deploy --only hosting --project knowme-app-694e1`
