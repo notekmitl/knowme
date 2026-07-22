@@ -60,6 +60,43 @@ void main() {
       expect(find.textContaining('Login'), findsNothing);
     });
 
+    testWidgets('initialRoute /beta/thai resolves landing not Login', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          initialRoute: '/beta/thai',
+          onGenerateInitialRoutes: (initialRoute) {
+            final page =
+                WebLaunchRouter.resolveLaunchWidget(initialRoute) ??
+                    const AuthGate();
+            return [
+              MaterialPageRoute<void>(
+                settings: RouteSettings(name: initialRoute),
+                builder: (_) => page,
+              ),
+            ];
+          },
+          onGenerateRoute: (settings) {
+            final page = WebLaunchRouter.resolveLaunchWidget(settings.name) ??
+                const AuthGate();
+            return MaterialPageRoute<void>(
+              settings: settings,
+              builder: (_) => page,
+            );
+          },
+        ),
+      );
+
+      expect(find.byType(ThaiBetaLandingPage), findsOneWidget);
+      expect(find.byType(LoginPage), findsNothing);
+    });
+
+    test('null/root launch does not resolve to public landing', () {
+      expect(WebLaunchRouter.resolveLaunchWidget(null), isNull);
+      expect(WebLaunchRouter.resolveLaunchWidget('/'), isNull);
+    });
+
     test('routeNameFromPathAndQuery keeps /beta/thai (not rewritten to root)', () {
       expect(routeNameFromPathAndQuery('/beta/thai', ''), '/beta/thai');
       expect(routeNameFromPathAndQuery('/', ''), isNull);

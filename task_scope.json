@@ -1,25 +1,15 @@
 {
   "schema_version": 1,
-  "task_id": "thai-beta-public-route-anonymous",
-  "expected_branch": "fix/thai-beta-public-route-anonymous",
+  "task_id": "thai-beta-public-route-anonymous-v2",
+  "expected_branch": "fix/thai-beta-public-route-anonymous-v2",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "fbe1d95d82d9140a9afe56c81a8ccc4a7c66fbfb",
+  "base_ref": "9ad6e0437509126711a6804ec70c64ccf43666a7",
   "allowed_files": [
     "lib/main.dart",
     "lib/core/web/web_launch_route_web.dart",
-    "lib/core/web/web_launch_route_stub.dart",
-    "lib/core/web/web_launch_route_uri.dart",
     "lib/core/web/web_launch_router.dart",
-    "lib/core/web/web_path_url_strategy.dart",
-    "lib/core/web/web_path_url_strategy_web.dart",
-    "lib/core/web/web_path_url_strategy_stub.dart",
     "web/index.html",
-    "pubspec.yaml",
-    "pubspec.lock",
     "test/validation/thai_beta/thai_beta_public_route_anonymous_test.dart",
-    "test/validation/thai_beta/thai_beta_screenshot_auth_redirect_test.dart",
-    "docs/CURRENT_STATUS.md",
-    "docs/HANDOFF.md",
     "task.md",
     "task_scope.json"
   ],
@@ -51,7 +41,7 @@
   ],
   "full_test_policy": "auto",
   "full_test_command": "flutter test test/validation/thai_beta/thai_beta_public_route_anonymous_test.dart test/validation/thai_beta/thai_beta_screenshot_auth_redirect_test.dart",
-  "analyze_command": "flutter analyze --no-fatal-warnings --no-fatal-infos lib/main.dart lib/core/web/",
+  "analyze_command": "flutter analyze --no-fatal-warnings --no-fatal-infos lib/main.dart lib/core/web/web_launch_route_web.dart lib/core/web/web_launch_router.dart",
   "commit_message_regex": "^fix\\(thai-beta\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }

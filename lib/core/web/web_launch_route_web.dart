@@ -1,15 +1,17 @@
 import 'dart:html' as html;
-import 'dart:js' as js;
 
 import 'web_launch_route_uri.dart';
 
 /// Reads the browser launch URL for public preview deep links.
 ///
 /// Order of preference:
-/// 1. [window.__knowmeLaunchRoute] captured in `web/index.html` before Flutter
-///    boots (survives HashUrlStrategy / engine rewrites).
-/// 2. Live [window.location] pathname/search (and hash fragment when path is `/`).
-/// 3. [Uri.base] fallback.
+/// 1. `data-knowme-launch-route` on `<html>` (set in `web/index.html` before Flutter)
+/// 2. `sessionStorage['knowmeLaunchRoute']` (same early capture)
+/// 3. Live [window.location] pathname/search (and hash when path is `/`)
+/// 4. [Uri.base] fallback
+///
+/// Prefer DOM/sessionStorage over `dart:js` window properties — js interop context
+/// is unreliable before [WidgetsFlutterBinding.ensureInitialized] completes.
 String? webLaunchRouteName() {
   final fromEarlyCapture = _earlyCapturedLaunchRoute();
   if (fromEarlyCapture != null) return fromEarlyCapture;
@@ -40,13 +42,24 @@ String? webLaunchRouteName() {
 
 String? _earlyCapturedLaunchRoute() {
   try {
-    if (!js.context.hasProperty('__knowmeLaunchRoute')) return null;
-    final raw = js.context['__knowmeLaunchRoute'];
-    if (raw is! String) return null;
-    final value = raw.trim();
-    if (value.isEmpty || value == '/') return null;
-    return value.startsWith('/') ? value : '/$value';
-  } catch (_) {
-    return null;
-  }
+    final fromAttr =
+        html.document.documentElement?.getAttribute('data-knowme-launch-route');
+    final normalizedAttr = _normalizeCapturedRoute(fromAttr);
+    if (normalizedAttr != null) return normalizedAttr;
+  } catch (_) {}
+
+  try {
+    final fromStorage = html.window.sessionStorage['knowmeLaunchRoute'];
+    final normalizedStorage = _normalizeCapturedRoute(fromStorage);
+    if (normalizedStorage != null) return normalizedStorage;
+  } catch (_) {}
+
+  return null;
+}
+
+String? _normalizeCapturedRoute(String? raw) {
+  if (raw == null) return null;
+  final value = raw.trim();
+  if (value.isEmpty || value == '/') return null;
+  return value.startsWith('/') ? value : '/$value';
 }

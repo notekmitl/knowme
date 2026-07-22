@@ -27,16 +27,18 @@ class WebLaunchRouter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return resolveLaunchWidget(effectiveLaunchRoute(launchRouteName)) ??
-        const AuthGate();
+    // Prefer the constructor capture, then stored intended route, then a live
+    // re-read of the browser URL / early DOM capture. A null capture at main()
+    // must not force AuthGate while the address bar is still `/beta/thai`.
+    final route = effectiveLaunchRoute(launchRouteName) ?? webLaunchRouteName();
+    return resolveLaunchWidget(route) ?? const AuthGate();
   }
 
   static String? effectiveLaunchRoute(String? launchRouteName) {
     return launchRouteName ?? WebIntendedRoute.stored ?? webLaunchRouteName();
   }
 
-  /// Resolves the entry widget for a captured browser launch route (testable).
-  @visibleForTesting
+  /// Resolves the entry widget for a captured browser launch route.
   static Widget? resolveLaunchWidget(String? launchRouteName) {
     final routeName = launchRouteName;
     if (routeName == null) return null;
