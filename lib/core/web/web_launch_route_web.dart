@@ -1,17 +1,20 @@
 import 'dart:html' as html;
+import 'dart:js' as js;
 
 import 'web_launch_route_uri.dart';
 
 /// Reads the browser launch URL for public preview deep links.
 ///
 /// Order of preference:
-/// 1. `data-knowme-launch-route` on `<html>` (set in `web/index.html` before Flutter)
-/// 2. `sessionStorage['knowmeLaunchRoute']` (same early capture)
-/// 3. Live [window.location] pathname/search (and hash when path is `/`)
-/// 4. [Uri.base] fallback
+/// 1. `window.__knowmeLaunchRoute` (set in `web/index.html` before Flutter)
+/// 2. `data-knowme-launch-route` on `<html>` (same early capture)
+/// 3. `sessionStorage['knowmeLaunchRoute']` (same early capture)
+/// 4. Live [window.location] pathname/search (and hash when path is `/`)
+/// 5. [Uri.base] fallback
 ///
-/// Prefer DOM/sessionStorage over `dart:js` window properties — js interop context
-/// is unreliable before [WidgetsFlutterBinding.ensureInitialized] completes.
+/// Prefer the JS early-capture property first — `dart:html` attribute/storage
+/// reads have been observed to miss the value during the earliest main()
+/// ticks even when the DOM attribute is already present.
 String? webLaunchRouteName() {
   final fromEarlyCapture = _earlyCapturedLaunchRoute();
   if (fromEarlyCapture != null) return fromEarlyCapture;
@@ -41,6 +44,14 @@ String? webLaunchRouteName() {
 }
 
 String? _earlyCapturedLaunchRoute() {
+  try {
+    final fromJs = js.context['__knowmeLaunchRoute'];
+    if (fromJs is String) {
+      final normalizedJs = _normalizeCapturedRoute(fromJs);
+      if (normalizedJs != null) return normalizedJs;
+    }
+  } catch (_) {}
+
   try {
     final fromAttr =
         html.document.documentElement?.getAttribute('data-knowme-launch-route');

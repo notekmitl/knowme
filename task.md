@@ -2,14 +2,14 @@
 
 ## Task ID
 
-`thai-beta-public-bootstrap`
+`thai-beta-authgate-public-bypass`
 
 ## เป้าหมาย
 
-Production ยังแสดง Login บน `/beta/thai` หลัง PR #4/#5 — แยก Public Beta เป็น shell โดยไม่มี AuthGate ใน tree และจับ launch route หลัง ensureInitialized
+Production ยังแสดง Login บน `/beta/thai` หลัง PublicThaiBetaApp bootstrap — อ่าน launch route ซ้ำหลัง Firebase init, อ่าน `__knowmeLaunchRoute` ผ่าน dart:js, และดัก AuthGate ไม่ให้ paint Login เมื่อเป็น Public Beta
 
 ## Definition of Done
 
-- Anonymous `/beta/thai` → PublicThaiBetaApp / ThaiBetaLandingPage
-- Capture/screenshot ยังต้อง Login
-- Gate + PR + deploy + Production ยืนยันไม่ใช่ Login
+- Anonymous `/beta/thai` → ThaiBetaLandingPage (ไม่ใช่ Login)
+- Capture / protected routes ยังต้อง Login
+- Gate + PR + deploy + Production ยืนยันแบบ anonymous
