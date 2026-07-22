@@ -2,14 +2,14 @@
 
 ## Task ID
 
-`thai-beta-authgate-public-bypass`
+`thai-beta-web-cache-bust`
 
 ## เป้าหมาย
 
-Production ยังแสดง Login บน `/beta/thai` หลัง PublicThaiBetaApp bootstrap — อ่าน launch route ซ้ำหลัง Firebase init, อ่าน `__knowmeLaunchRoute` ผ่าน dart:js, และดัก AuthGate ไม่ให้ paint Login เมื่อเป็น Public Beta
+Production ยังแสดง Login เพราะเบราว์เซอร์ cache `main.dart.js` แบบ `immutable` (header `**/*.js` ทับ entrypoint) — แก้ Cache-Control และ cache-bust entrypoint ใน deploy
 
 ## Definition of Done
 
-- Anonymous `/beta/thai` → ThaiBetaLandingPage (ไม่ใช่ Login)
-- Capture / protected routes ยังต้อง Login
-- Gate + PR + deploy + Production ยืนยันแบบ anonymous
+- `main.dart.js` / bootstrap ได้ `no-cache` จริง
+- Deploy ใส่ `?v=<sha>` ที่ bootstrap + main entrypoint
+- Anonymous `/beta/thai` แสดง ThaiBetaLandingPage บน Production

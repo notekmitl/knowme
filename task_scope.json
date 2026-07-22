@@ -1,15 +1,12 @@
 {
   "schema_version": 1,
-  "task_id": "thai-beta-authgate-public-bypass",
-  "expected_branch": "fix/thai-beta-authgate-public-bypass",
+  "task_id": "thai-beta-web-cache-bust",
+  "expected_branch": "fix/thai-beta-web-cache-bust",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "a22006971d31c617ba07a01d78b18ff983a8310d",
+  "base_ref": "45e3f09f858aaed46516877aba47e2a27e2bf059",
   "allowed_files": [
-    "lib/main.dart",
-    "lib/presentation/pages/auth/auth_gate.dart",
-    "lib/core/web/web_launch_route_web.dart",
     "firebase.json",
-    "test/validation/thai_beta/thai_beta_public_route_anonymous_test.dart",
+    "scripts/deploy_web.ps1",
     "task.md",
     "task_scope.json"
   ],
@@ -37,11 +34,11 @@
     "round_[0-9]+_review\\.json"
   ],
   "focused_tests": [
-    "flutter test test/validation/thai_beta/thai_beta_public_route_anonymous_test.dart test/validation/thai_beta/thai_beta_screenshot_auth_redirect_test.dart"
+    "SKIP"
   ],
   "full_test_policy": "auto",
-  "full_test_command": "flutter test test/validation/thai_beta/thai_beta_public_route_anonymous_test.dart test/validation/thai_beta/thai_beta_screenshot_auth_redirect_test.dart",
-  "analyze_command": "flutter analyze --no-fatal-warnings --no-fatal-infos lib/main.dart lib/presentation/pages/auth/auth_gate.dart lib/core/web/web_launch_route_web.dart",
+  "full_test_command": "SKIP",
+  "analyze_command": "SKIP",
   "commit_message_regex": "^fix\\(thai-beta\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }
