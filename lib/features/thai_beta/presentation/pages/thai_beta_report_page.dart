@@ -281,6 +281,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
       ThaiMirrorResultPage(
         embeddedInParentScroll: true,
         disableAnimations: widget.screenshotMode,
+        personalCoreFirst: true,
         consumerState: ThaiBetaNarrativeComposer.narrativeView(analysis),
       ),
       if (widget.screenshotMode)
