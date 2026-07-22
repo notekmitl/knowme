@@ -2,14 +2,12 @@
 
 ## Task ID
 
-`thai-beta-web-cache-bust`
+`thai-beta-public-prod-status-docs`
 
 ## เป้าหมาย
 
-Production ยังแสดง Login เพราะเบราว์เซอร์ cache `main.dart.js` แบบ `immutable` (header `**/*.js` ทับ entrypoint) — แก้ Cache-Control และ cache-bust entrypoint ใน deploy
+อัปเดต CURRENT_STATUS / HANDOFF หลัง anonymous Public Beta Production PASS
 
 ## Definition of Done
 
-- `main.dart.js` / bootstrap ได้ `no-cache` จริง
-- Deploy ใส่ `?v=<sha>` ที่ bootstrap + main entrypoint
-- Anonymous `/beta/thai` แสดง ThaiBetaLandingPage บน Production
+- Docs สะท้อน deploy `d4e7f8b` และ acceptance ที่ถูกต้อง (Login = FAIL)

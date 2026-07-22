@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "task_id": "thai-beta-web-cache-bust",
-  "expected_branch": "fix/thai-beta-web-cache-bust",
+  "task_id": "thai-beta-public-prod-status-docs",
+  "expected_branch": "docs/thai-beta-public-prod-status",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "45e3f09f858aaed46516877aba47e2a27e2bf059",
+  "base_ref": "d4e7f8b08802135bb4a900b1170a4eadef3707ab",
   "allowed_files": [
-    "firebase.json",
-    "scripts/deploy_web.ps1",
+    "docs/CURRENT_STATUS.md",
+    "docs/HANDOFF.md",
     "task.md",
     "task_scope.json"
   ],
@@ -36,9 +36,9 @@
   "focused_tests": [
     "SKIP"
   ],
-  "full_test_policy": "auto",
+  "full_test_policy": "skip",
   "full_test_command": "SKIP",
   "analyze_command": "SKIP",
-  "commit_message_regex": "^fix\\(thai-beta\\): .{10,72}$",
+  "commit_message_regex": "^docs\\(thai-beta\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }

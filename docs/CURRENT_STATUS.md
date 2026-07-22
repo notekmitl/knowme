@@ -1,11 +1,12 @@
 # KnowMe Current Status
 
 **Last updated:** July 2026  
-**Branch:** `main` (merged PR #1 — Thai Beta Narrative V1–V1.1.1 + Single-Agent Local Gate)  
-**Merge commit:** `82c509a5b95388756d0c033ab7400685a6a286d8`  
+**Branch:** `main`  
+**Merge tip:** `d4e7f8b` (PR #8 — Public Beta web cache-bust; includes PR #7 AuthGate public bypass)  
 **Prior architecture snapshot:** `feature/fusion-result`  
 **Automation workflow (authoritative):** Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
-**Thai Beta Narrative:** V1 + V1.1 curated blocks + **V1.1.1 Block Integrity & Confidence Consistency** on `main` (tip work `38ce369`); **production-deployed** to Firebase Hosting `knowme-app-694e1` from `main` @ `a6874f5` on 2026-07-21 via `scripts/deploy_web.ps1` (live release 19:21:54 +07).
+**Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login) — **production-verified** 2026-07-22 on Hosting `knowme-app-694e1` from `main` @ `d4e7f8b` via `scripts/deploy_web.ps1` (entrypoint `?v=<sha>` cache-bust; Evidence Badge rollout remains `invited_beta`).
+**Thai Beta Narrative:** V1 + V1.1 curated blocks + **V1.1.1 Block Integrity & Confidence Consistency** on `main` (report surface; not email-gated).
 
 ---
 
@@ -31,6 +32,7 @@
 | **Narrative V5** | Complete | `docs/NARRATIVE_EVIDENCE_BRANCHING_V5.md` — 1000/1000 unique, 0 collapse |
 | **Funnel Recovery V2** | Implemented | `lib/features/home_cohesion/`, `lib/features/funnel_telemetry/`, MBTI → narrative preview loop |
 | **Thai Beta Narrative Quality V1–V1.1.1** | Merged to `main` + **hosted** | Curated blocks + Block Integrity & Confidence Consistency; `docs/THAI_BETA_NARRATIVE_QUALITY_V1_REVIEW.md`; PR https://github.com/notekmitl/knowme/pull/1; production https://knowme-app-694e1.web.app/beta/thai |
+| **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; AuthGate/public bootstrap + immutable JS cache-bust; anonymous Landing PASS 2026-07-22 @ `d4e7f8b` |
 | **Single-Agent + Local Gate** | Merged to `main` | `docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`, `scripts/knowme_task_gate.ps1` |
 
 **Also complete (supporting):**
