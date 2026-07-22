@@ -1,19 +1,35 @@
 import 'package:flutter/material.dart';
 
+import '../../timeline/relevant_life_periods_selector.dart';
 import '../../timeline/thai_mirror_life_timeline_state.dart';
 
 /// V8 — Life Timeline section.
 ///
 /// Premium "where are you in life" header card + a horizontal life-phase strip +
-/// an expandable list of every planetary period, each interpreted in life
-/// language. The current period is highlighted and expanded by default.
+/// an expandable list of planetary periods, each interpreted in life language.
+///
+/// When [relevantPeriodsOnly] is true (Thai Beta V1.2.1), the list and strip
+/// show only previous/current/next (max 3). Source [state.periods] is not
+/// mutated — selection is a presentation projection.
 class ThaiMirrorLifeTimelineSection extends StatefulWidget {
   const ThaiMirrorLifeTimelineSection({
     super.key,
     required this.state,
+    this.relevantPeriodsOnly = false,
   });
 
   final ThaiMirrorLifeTimelineState state;
+
+  /// V1.2.1 — limit displayed periods/segments to relevant neighbours.
+  final bool relevantPeriodsOnly;
+
+  /// Copy shown beside period domain scores (presentation-only; scores unchanged).
+  static const scoreExplanation =
+      'คะแนนแสดงระดับน้ำหนักของสัญญาณที่ระบบใช้จัดลำดับเนื้อหา '
+      'ไม่ใช่เปอร์เซ็นต์ความแม่นยำหรือการรับประกันเหตุการณ์ในอนาคต';
+
+  static const expandDetailsLabel = 'ดูรายละเอียดช่วงชีวิต';
+  static const collapseDetailsLabel = 'ซ่อนรายละเอียดช่วงชีวิต';
 
   @override
   State<ThaiMirrorLifeTimelineSection> createState() =>
@@ -38,9 +54,34 @@ class _ThaiMirrorLifeTimelineSectionState
 
   Color _accent(int index) => _accents[index % _accents.length];
 
+  List<ThaiMirrorLifePeriodState> get _displayPeriods {
+    final all = widget.state.periods;
+    if (!widget.relevantPeriodsOnly) return all;
+    return RelevantLifePeriodsSelector.select(
+      periods: all,
+      isCurrent: (p) => p.isCurrent,
+      isPast: (p) => p.isPast,
+    );
+  }
+
+  List<ThaiMirrorTimelineSegmentState> get _displaySegments {
+    final all = widget.state.segments;
+    if (!widget.relevantPeriodsOnly) return all;
+    return RelevantLifePeriodsSelector.select(
+      periods: all,
+      isCurrent: (p) => p.isCurrent,
+      isPast: (p) => p.isPast,
+    );
+  }
+
   @override
   void initState() {
     super.initState();
+    // V1.2.1 compact mode: details start collapsed; essentials stay visible.
+    if (widget.relevantPeriodsOnly) {
+      _expanded = -1;
+      return;
+    }
     final periods = widget.state.periods;
     _expanded = periods.indexWhere((p) => p.isCurrent);
     if (_expanded < 0) _expanded = 0;
@@ -51,6 +92,9 @@ class _ThaiMirrorLifeTimelineSectionState
     final scheme = Theme.of(context).colorScheme;
     final state = widget.state;
     final isWide = MediaQuery.sizeOf(context).width >= 768;
+    final periods = _displayPeriods;
+    final segments = _displaySegments;
+    final compact = widget.relevantPeriodsOnly;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,7 +117,10 @@ class _ThaiMirrorLifeTimelineSectionState
         ),
         const SizedBox(height: 8),
         Text(
-          state.sectionIntro,
+          compact
+              ? 'โฟกัสช่วงชีวิตที่เกี่ยวข้องกับตอนนี้ '
+                  '— ก่อนหน้า ปัจจุบัน และถัดไป เมื่อมีข้อมูล'
+              : state.sectionIntro,
           style: TextStyle(
             fontSize: 14.5,
             height: 1.7,
@@ -94,10 +141,11 @@ class _ThaiMirrorLifeTimelineSectionState
         ],
         const SizedBox(height: 18),
         _TimelineStrip(
-          segments: state.segments,
+          segments: segments,
           accentOf: _accent,
         ),
-        if (state.futurePreview != null) ...[
+        // Compact mode: next-period preview duplicates the "next" card — skip it.
+        if (!compact && state.futurePreview != null) ...[
           const SizedBox(height: 18),
           _FuturePreviewCard(
             preview: state.futurePreview!,
@@ -106,7 +154,7 @@ class _ThaiMirrorLifeTimelineSectionState
         ],
         const SizedBox(height: 20),
         Text(
-          'ทุกช่วงชีวิตของคุณ',
+          compact ? 'ช่วงชีวิตที่เกี่ยวข้อง' : 'ทุกช่วงชีวิตของคุณ',
           style: TextStyle(
             fontSize: 15.5,
             fontWeight: FontWeight.w700,
@@ -114,16 +162,26 @@ class _ThaiMirrorLifeTimelineSectionState
           ),
         ),
         const SizedBox(height: 12),
-        for (var i = 0; i < state.periods.length; i++) ...[
-          if (i > 0) const SizedBox(height: 10),
-          _PeriodCard(
-            period: state.periods[i],
-            accent: _accent(state.periods[i].accentIndex),
-            expanded: _expanded == i,
-            isWide: isWide,
-            onTap: () => setState(() => _expanded = _expanded == i ? -1 : i),
-          ),
-        ],
+        if (periods.isEmpty)
+          Text(
+            'ยังไม่มีข้อมูลช่วงชีวิตสำหรับแสดง',
+            style: TextStyle(
+              fontSize: 14,
+              color: scheme.onSurfaceVariant,
+            ),
+          )
+        else
+          for (var i = 0; i < periods.length; i++) ...[
+            if (i > 0) const SizedBox(height: 10),
+            _PeriodCard(
+              period: periods[i],
+              accent: _accent(periods[i].accentIndex),
+              expanded: _expanded == i,
+              isWide: isWide,
+              showCollapsedSummary: compact,
+              onTap: () => setState(() => _expanded = _expanded == i ? -1 : i),
+            ),
+          ],
       ],
     );
   }
@@ -591,6 +649,7 @@ class _PeriodCard extends StatelessWidget {
     required this.expanded,
     required this.isWide,
     required this.onTap,
+    this.showCollapsedSummary = false,
   });
 
   final ThaiMirrorLifePeriodState period;
@@ -598,6 +657,7 @@ class _PeriodCard extends StatelessWidget {
   final bool expanded;
   final bool isWide;
   final VoidCallback onTap;
+  final bool showCollapsedSummary;
 
   @override
   Widget build(BuildContext context) {
@@ -686,6 +746,30 @@ class _PeriodCard extends StatelessWidget {
                     ),
                   ],
                 ),
+                if (showCollapsedSummary && !expanded) ...[
+                  const SizedBox(height: 10),
+                  Text(
+                    period.whatChanges.isNotEmpty
+                        ? period.whatChanges
+                        : period.summary,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontSize: 13.5,
+                      height: 1.55,
+                      color: scheme.onSurface.withValues(alpha: 0.88),
+                    ),
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    ThaiMirrorLifeTimelineSection.expandDetailsLabel,
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w700,
+                      color: accent,
+                    ),
+                  ),
+                ],
                 AnimatedCrossFade(
                   duration: const Duration(milliseconds: 220),
                   crossFadeState: expanded
@@ -695,6 +779,7 @@ class _PeriodCard extends StatelessWidget {
                     period: period,
                     accent: accent,
                     isWide: isWide,
+                    showExpandChrome: showCollapsedSummary,
                   ),
                   secondChild: const SizedBox(width: double.infinity),
                 ),
@@ -738,11 +823,13 @@ class _PeriodDetail extends StatelessWidget {
     required this.period,
     required this.accent,
     required this.isWide,
+    this.showExpandChrome = false,
   });
 
   final ThaiMirrorLifePeriodState period;
   final Color accent;
   final bool isWide;
+  final bool showExpandChrome;
 
   @override
   Widget build(BuildContext context) {
@@ -765,9 +852,30 @@ class _PeriodDetail extends StatelessWidget {
       children: [
         const SizedBox(height: 12),
         Divider(color: scheme.outlineVariant.withValues(alpha: 0.6), height: 1),
+        if (showExpandChrome) ...[
+          const SizedBox(height: 8),
+          Text(
+            ThaiMirrorLifeTimelineSection.collapseDetailsLabel,
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.w700,
+              color: accent,
+            ),
+          ),
+        ],
         para(period.summary),
         para(period.whatChanges),
         const SizedBox(height: 14),
+        Text(
+          ThaiMirrorLifeTimelineSection.scoreExplanation,
+          key: const Key('thai_life_timeline_score_explanation'),
+          style: TextStyle(
+            fontSize: 12.5,
+            height: 1.55,
+            color: scheme.onSurfaceVariant,
+          ),
+        ),
+        const SizedBox(height: 10),
         _ScoreGrid(scores: period.scores, accent: accent, isWide: isWide),
         const SizedBox(height: 6),
         _Hint(icon: Icons.check_circle_rounded, color: accent, text: period.easier),

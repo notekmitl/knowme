@@ -26,6 +26,7 @@ class ThaiMirrorResultPage extends StatefulWidget {
     this.embeddedInParentScroll = false,
     this.disableAnimations = false,
     this.personalCoreFirst = false,
+    this.relevantLifeTimeline = false,
   });
 
   final ThaiMirrorConsumerViewState consumerState;
@@ -40,6 +41,10 @@ class ThaiMirrorResultPage extends StatefulWidget {
   /// V1.2 Thai Beta: place Personal Core (signature insight) immediately after
   /// birth-confidence so the overview leads before dashboard/timeline detail.
   final bool personalCoreFirst;
+
+  /// V1.2.1 Thai Beta: show only previous/current/next life periods and
+  /// collapse secondary period detail by default (presentation-only).
+  final bool relevantLifeTimeline;
 
   @override
   State<ThaiMirrorResultPage> createState() => _ThaiMirrorResultPageState();
@@ -200,6 +205,7 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
                               key: const Key('thai_consumer_life_timeline'),
                               child: ThaiMirrorLifeTimelineSection(
                                 state: consumerState.lifeTimeline!,
+                                relevantPeriodsOnly: widget.relevantLifeTimeline,
                               ),
                             ),
                           ],

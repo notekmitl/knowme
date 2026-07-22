@@ -282,6 +282,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
         embeddedInParentScroll: true,
         disableAnimations: widget.screenshotMode,
         personalCoreFirst: true,
+        relevantLifeTimeline: true,
         consumerState: ThaiBetaNarrativeComposer.narrativeView(analysis),
       ),
       if (widget.screenshotMode)
