@@ -24,6 +24,7 @@ import 'package:knowme/features/astrology/thai/qa/population/thai_mirror_populat
 import 'package:knowme/features/astrology/thai/qa/thai_mirror_qa_routes.dart';
 import 'package:knowme/features/thai_beta/presentation/thai_beta_routes.dart';
 import 'package:knowme/features/thai_beta/application/thai_evidence_badge_feature_flag.dart';
+import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_landing_page.dart';
 import 'package:knowme/features/thai_beta/presentation/thai_beta_screenshot_mode.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/presentation/thai_canon_evidence_routes.dart';
 
@@ -46,13 +47,13 @@ import 'presentation/providers/locale_provider.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
-  // Capture BEFORE WidgetsFlutterBinding / URL strategy init. The default
-  // HashUrlStrategy otherwise rewrites `/beta/thai` → `/` and anonymous users
-  // fall through WebLaunchRouter → AuthGate → LoginPage (production FAIL).
-  final launchRouteName = webLaunchRouteName();
+  // Path strategy first so HashUrlStrategy cannot wipe `/beta/thai` during binding.
   configureKnowMePathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
 
+  // Re-read after binding so dart:html can see index.html early-capture
+  // (data-attribute / sessionStorage) and the live pathname.
+  final launchRouteName = webLaunchRouteName();
   WebIntendedRoute.configure(launchRouteName);
   final effectiveLaunchRoute = WebLaunchRouter.effectiveLaunchRoute(launchRouteName);
   ThaiBetaScreenshotMode.configureFromLaunchRoute(effectiveLaunchRoute);
@@ -60,6 +61,14 @@ void main() async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
   ThaiEvidenceBadgeFeatureFlag.applyConfiguredState();
+
+  // Public Beta must never touch AuthGate. A dedicated app shell guarantees
+  // anonymous `/beta/thai` shows ThaiBetaLandingPage even if Navigator/URL
+  // sync later misfires on the full KnowMeApp route table.
+  if (ThaiBetaRoutes.isAnonymousPublicLandingRoute(effectiveLaunchRoute)) {
+    runApp(const PublicThaiBetaApp());
+    return;
+  }
 
   runApp(
     MultiProvider(
@@ -78,6 +87,26 @@ void main() async {
       child: KnowMeApp(launchRouteName: launchRouteName),
     ),
   );
+}
+
+/// Anonymous-only shell for Public Beta landing — no AuthGate in the tree.
+class PublicThaiBetaApp extends StatelessWidget {
+  const PublicThaiBetaApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      locale: Locale('th'),
+      supportedLocales: [Locale('en'), Locale('th')],
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      home: ThaiBetaLandingPage(),
+    );
+  }
 }
 
 class KnowMeApp extends StatelessWidget {
