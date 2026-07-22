@@ -1,17 +1,12 @@
 {
   "schema_version": 1,
-  "task_id": "thai-beta-narrative-v111-real-report-quality",
-  "expected_branch": "accept/thai-beta-narrative-v111-real-report-quality",
+  "task_id": "thai-beta-narrative-v112-acceptance-status-docs",
+  "expected_branch": "docs/thai-beta-narrative-v112-acceptance-status",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "994773515eb72f900118ad78e2552e5e1624de13",
+  "base_ref": "79d128f5620a4ea3836d5e67fd5d0d63fbc8033c",
   "allowed_files": [
-    "lib/features/thai_beta/application/narrative/thai_beta_curated_block_selector.dart",
-    "lib/features/thai_beta/application/narrative/thai_beta_curated_narrative_blocks.dart",
-    "lib/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart",
-    "lib/features/thai_beta/application/narrative/thai_beta_narrative_hero.dart",
-    "lib/features/thai_beta/application/narrative/thai_beta_narrative_specificity.dart",
-    "test/validation/thai_beta/narrative/thai_beta_narrative_fixtures.dart",
-    "test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart",
+    "docs/CURRENT_STATUS.md",
+    "docs/HANDOFF.md",
     "task.md",
     "task_scope.json"
   ],
@@ -39,11 +34,11 @@
     "round_[0-9]+_review\\.json"
   ],
   "focused_tests": [
-    "flutter test test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart"
+    "SKIP"
   ],
   "full_test_policy": "skip",
   "full_test_command": "SKIP",
-  "analyze_command": "flutter analyze lib/features/thai_beta/application/narrative test/validation/thai_beta/narrative",
-  "commit_message_regex": "^fix\\(thai-beta\\): .{10,72}$",
+  "analyze_command": "SKIP",
+  "commit_message_regex": "^docs\\(thai-beta\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }
