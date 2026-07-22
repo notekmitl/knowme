@@ -2,11 +2,11 @@
 
 **Last updated:** July 2026  
 **Branch:** `main`  
-**Merge tip:** `f56b465` (PR #12 — Thai Beta Narrative V1.2 Personal Relevance)  
+**Merge tip:** `a721a1a` (PR #14 — Thai Beta Report V1.2.1 readability)  
 **Prior architecture snapshot:** `feature/fusion-result`  
 **Automation workflow (authoritative):** Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
 **Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login) — Evidence Badge rollout remains `invited_beta`.
-**Thai Beta Narrative:** **V1.2 Personal Relevance & Actionable Guidance** (Personal Core + Strength→Risk→Action + prioritised advice) on `main` @ `f56b465`; hosted via `scripts/deploy_web.ps1` (entrypoint `?v=f56b465`).
+**Thai Beta Narrative:** **V1.2.1 Report readability** (relevant prev/current/next timeline + progressive disclosure + score weight explanation) on `main` @ `a721a1a`; hosted via `scripts/deploy_web.ps1` (entrypoint `?v=a721a1a`). Prior V1.2 Personal Relevance remains in the same report stack.
 
 ---
 
@@ -31,8 +31,8 @@
 | **Human Pattern** | Recovery V2 complete | `docs/HUMAN_PATTERN_ACTIVATION_RECOVERY_V2.md` — 9/20 dead patterns recovered |
 | **Narrative V5** | Complete | `docs/NARRATIVE_EVIDENCE_BRANCHING_V5.md` — 1000/1000 unique, 0 collapse |
 | **Funnel Recovery V2** | Implemented | `lib/features/home_cohesion/`, `lib/features/funnel_telemetry/`, MBTI → narrative preview loop |
-| **Thai Beta Narrative Quality V1–V1.2** | Merged to `main` + **hosted** | V1.2 Personal Core + linked Strength→Risk→Action; acceptance PASS; PR https://github.com/notekmitl/knowme/pull/12; production https://knowme-app-694e1.web.app/beta/thai @ `f56b465` |
-| **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with V1.2 deploy 2026-07-22 @ `f56b465` |
+| **Thai Beta Narrative Quality V1–V1.2.1** | Merged to `main` + **hosted** | V1.2.1 relevant timeline + disclosure + score explanation; PR https://github.com/notekmitl/knowme/pull/14; production https://knowme-app-694e1.web.app/beta/thai @ `a721a1a` |
+| **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with V1.2.1 deploy 2026-07-22 @ `a721a1a` |
 | **Single-Agent + Local Gate** | Merged to `main` | `docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`, `scripts/knowme_task_gate.ps1` |
 
 **Also complete (supporting):**
@@ -68,7 +68,7 @@ Real users (38 Firestore accounts): **2.6% reach Narrative**. Blocker is persona
 | Risk | Severity | Detail |
 |------|----------|--------|
 | Personality test cliff | **Critical** | 97% of profile users never start MBTI (`REAL_USER_RUNTIME_VALIDATION_V1.md`) |
-| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `f56b465` (2026-07-22); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
+| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `a721a1a` (2026-07-22); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
 | Real user PII export local-only | **High** | `firestore_user_export.json` gitignored — must regenerate locally |
 | Firebase service account local-only | **High** | `backend/firebase/serviceAccountKey.json` gitignored |
 | Legacy + new architecture coexist | **Medium** | Parallel scoring, navigation, and module IDs — trace before editing |
