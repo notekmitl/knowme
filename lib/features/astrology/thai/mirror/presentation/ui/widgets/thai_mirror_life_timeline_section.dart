@@ -24,8 +24,9 @@ class ThaiMirrorLifeTimelineSection extends StatefulWidget {
   final bool relevantPeriodsOnly;
 
   /// Copy shown beside period domain scores (presentation-only; scores unchanged).
+  /// V1.2.2 — warmer wording; meaning unchanged (not accuracy / not a guarantee).
   static const scoreExplanation =
-      'คะแนนแสดงระดับน้ำหนักของสัญญาณที่ระบบใช้จัดลำดับเนื้อหา '
+      'ตัวเลขนี้ช่วยจัดลำดับว่าเรื่องไหนเด่นพอให้อ่านก่อน '
       'ไม่ใช่เปอร์เซ็นต์ความแม่นยำหรือการรับประกันเหตุการณ์ในอนาคต';
 
   static const expandDetailsLabel = 'ดูรายละเอียดช่วงชีวิต';
@@ -118,8 +119,8 @@ class _ThaiMirrorLifeTimelineSectionState
         const SizedBox(height: 8),
         Text(
           compact
-              ? 'โฟกัสช่วงชีวิตที่เกี่ยวข้องกับตอนนี้ '
-                  '— ก่อนหน้า ปัจจุบัน และถัดไป เมื่อมีข้อมูล'
+              ? 'โฟกัสช่วงที่เกี่ยวข้องกับตอนนี้ '
+                  '— ก่อนหน้า ปัจจุบัน และถัดไป'
               : state.sectionIntro,
           style: TextStyle(
             fontSize: 14.5,
