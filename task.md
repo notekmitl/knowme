@@ -2,12 +2,15 @@
 
 ## Task ID
 
-`thai-beta-narrative-v12-status-docs`
+`thai-beta-report-v121-readability`
 
 ## เป้าหมาย
 
-อัปเดต CURRENT_STATUS / HANDOFF หลัง Thai Beta Narrative V1.2 merge + deploy
+Thai Beta Report V1.2.1 — ลดความยาว timeline (prev/current/next), progressive disclosure, คำอธิบายคะแนน, ลดซ้ำในชั้น presentation โดยคง V1.2 narrative/trace/determinism
 
 ## Definition of Done
 
-- Docs สะท้อน `f56b465` / PR #12 และ hosting `?v=f56b465`
+- Relevant Life Timeline สูงสุด 3 ช่วง; ไม่แสดงถึงอายุ 100+
+- รายละเอียดพับได้; คะแนนมีคำอธิบาย
+- V1.1.1/V1.1.2/V1.2 regression ไม่เสีย
+- Gate PASS → PR → merge → deploy `knowme-app-694e1` → ตรวจ Production report
