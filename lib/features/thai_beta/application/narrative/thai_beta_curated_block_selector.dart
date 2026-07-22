@@ -117,17 +117,51 @@ abstract final class ThaiBetaCuratedBlockSelector {
       domain: domain,
       hasBirthTime: query.hasBirthTime,
       requireDomainMatch: true,
+      usedBlockIds: query.usedBlockIds,
     );
     if (domainMatch != null) return domainMatch;
 
-    final sectionMatch = _findSectionFallback(
-      section: query.section,
-      domain: null,
-      hasBirthTime: query.hasBirthTime,
-      requireDomainMatch: false,
-    );
-    if (sectionMatch != null) return sectionMatch;
+    // Any unused same-domain block (e.g. themed advice whose tags did not
+    // match) before reusing a domain default or crossing domains.
+    final unusedSameDomain = ThaiBetaCuratedNarrativeBlocks.all
+        .where(
+          (b) =>
+              b.section == query.section &&
+              b.domain == domain &&
+              _birthTimeOk(b, query.hasBirthTime) &&
+              !query.usedBlockIds.contains(b.id),
+        )
+        .toList()
+      ..sort((a, b) => a.id.compareTo(b.id));
+    if (unusedSameDomain.isNotEmpty) return unusedSameDomain.first;
 
+    // Prefer unused domain-agnostic fallbacks before reusing a domain default.
+    final generalUnused = ThaiBetaCuratedNarrativeBlocks.all
+        .where(
+          (b) =>
+              b.section == query.section &&
+              b.domain == null &&
+              b.relationshipType == CuratedRelationshipType.fallback &&
+              _birthTimeOk(b, query.hasBirthTime) &&
+              !query.usedBlockIds.contains(b.id),
+        )
+        .toList()
+      ..sort((a, b) => a.id.compareTo(b.id));
+    if (generalUnused.isNotEmpty) return generalUnused.first;
+
+    // Only cross-section unused fallback when the query has no domain.
+    if (query.domain == null) {
+      final sectionMatch = _findSectionFallback(
+        section: query.section,
+        domain: null,
+        hasBirthTime: query.hasBirthTime,
+        requireDomainMatch: false,
+        usedBlockIds: query.usedBlockIds,
+      );
+      if (sectionMatch != null) return sectionMatch;
+    }
+
+    // Prefer correct-domain default even if already used over wrong-domain copy.
     return _defaultSectionFallback(query.section, domain, query.hasBirthTime);
   }
 
@@ -136,13 +170,15 @@ abstract final class ThaiBetaCuratedBlockSelector {
     required ThaiBetaLifeDomain? domain,
     required bool hasBirthTime,
     required bool requireDomainMatch,
+    Set<String> usedBlockIds = const {},
   }) {
     final matches = ThaiBetaCuratedNarrativeBlocks.all
         .where(
           (b) =>
               b.section == section &&
               b.relationshipType == CuratedRelationshipType.fallback &&
-              _birthTimeOk(b, hasBirthTime),
+              _birthTimeOk(b, hasBirthTime) &&
+              !usedBlockIds.contains(b.id),
         )
         .where(
           (b) =>

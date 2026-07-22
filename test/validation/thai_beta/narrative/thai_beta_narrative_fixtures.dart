@@ -72,4 +72,65 @@ abstract final class ThaiBetaNarrativeFixtures {
         ),
         startedAt: referenceDate,
       );
+
+  /// Wednesday daytime — harness profile E date (`1972-04-05` พุธ · สาย).
+  /// Canon: Taksa weekday 4 is `NOT_IN_SOURCE` (documented separately for
+  /// daytime vs night/Rahu); narrative must still compose from other signals.
+  static ThaiBetaAnalysis wednesdayDaytime() => ThaiBetaAnalysisRunner.run(
+        ThaiBetaInput(
+          firstName: 'Fixture',
+          lastName: 'WedDay',
+          birthDate: DateTime(1972, 4, 5),
+          birthHour: 9,
+          birthMinute: 15,
+          province: 'กรุงเทพมหานคร',
+          provinceKey: 'bangkok',
+        ),
+        startedAt: referenceDate,
+      );
+
+  /// Wednesday night / pre-sunrise Thursday civil → previous Thai day = พุธ.
+  /// Basis: Birth Normalization sunrise day-boundary (`bornBeforeLocalSunrise`).
+  static ThaiBetaAnalysis wednesdayNightBeforeSunrise() =>
+      ThaiBetaAnalysisRunner.run(
+        ThaiBetaInput(
+          firstName: 'Fixture',
+          lastName: 'WedNight',
+          birthDate: DateTime(1972, 4, 6),
+          birthHour: 2,
+          birthMinute: 0,
+          province: 'กรุงเทพมหานคร',
+          provinceKey: 'bangkok',
+        ),
+        startedAt: referenceDate,
+      );
+
+  /// Wednesday civil date without birth time (noon assumed → same Thai day).
+  static ThaiBetaAnalysis wednesdayNoBirthTime() => ThaiBetaAnalysisRunner.run(
+        ThaiBetaInput(
+          firstName: 'Fixture',
+          lastName: 'WedNoTime',
+          birthDate: DateTime(1972, 4, 5),
+          birthTimeUnknown: true,
+          province: 'กรุงเทพมหานคร',
+          provinceKey: 'bangkok',
+        ),
+        startedAt: referenceDate,
+      );
+
+  /// User marked time unknown even if hour fields exist → no birth time.
+  static ThaiBetaAnalysis incompleteTimeUnknownFlag() =>
+      ThaiBetaAnalysisRunner.run(
+        ThaiBetaInput(
+          firstName: 'Fixture',
+          lastName: 'TimeUnknown',
+          birthDate: DateTime(1982, 4, 4),
+          birthHour: 10,
+          birthMinute: 30,
+          birthTimeUnknown: true,
+          province: 'กรุงเทพมหานคร',
+          provinceKey: 'bangkok',
+        ),
+        startedAt: referenceDate,
+      );
 }

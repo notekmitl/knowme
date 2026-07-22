@@ -188,6 +188,8 @@ abstract final class ThaiBetaNarrativeSpecificity {
     );
 
     var action = adviceSelection.block.adviceText ?? '';
+    var adviceBlock = adviceSelection.block;
+    var adviceMatchLevel = adviceSelection.matchLevel;
     if (usedActions.contains(action)) {
       final alt = ThaiBetaCuratedBlockSelector.select(
         CuratedBlockQuery(
@@ -206,6 +208,8 @@ abstract final class ThaiBetaNarrativeSpecificity {
         ),
       );
       action = alt.block.adviceText ?? action;
+      adviceBlock = alt.block;
+      adviceMatchLevel = alt.matchLevel;
     }
 
     return (
@@ -218,8 +222,8 @@ abstract final class ThaiBetaNarrativeSpecificity {
       suggestedAction: ThaiBetaNarrativeFormatting.normalize(action),
       block: dashSelection.block,
       matchLevel: dashSelection.matchLevel,
-      adviceBlock: adviceSelection.block,
-      adviceMatchLevel: adviceSelection.matchLevel,
+      adviceBlock: adviceBlock,
+      adviceMatchLevel: adviceMatchLevel,
     );
   }
 
