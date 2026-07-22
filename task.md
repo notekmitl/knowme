@@ -2,14 +2,12 @@
 
 ## Task ID
 
-`thai-beta-narrative-v12-personal-relevance`
+`thai-beta-narrative-v12-status-docs`
 
 ## เป้าหมาย
 
-Thai Beta Narrative V1.2 — Personal Core Summary, Strength→Risk→Action linkage, prioritised guidance, confidence-aware language, minimal report hierarchy
+อัปเดต CURRENT_STATUS / HANDOFF หลัง Thai Beta Narrative V1.2 merge + deploy
 
 ## Definition of Done
 
-- V1.2 acceptance suite PASS
-- V1.1 / V1.1.1 / Real Report Quality regression PASS
-- Local Gate PreCommit/PostCommit PASS
+- Docs สะท้อน `f56b465` / PR #12 และ hosting `?v=f56b465`
