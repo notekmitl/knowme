@@ -1,26 +1,12 @@
 {
   "schema_version": 1,
-  "task_id": "thai-beta-life-map-v123",
-  "expected_branch": "feature/thai-beta-life-map-v123",
+  "task_id": "thai-beta-life-map-v123-status-docs",
+  "expected_branch": "docs/thai-beta-life-map-v123-status",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "bc0931e981d09f4e914df94c5a80187ecff05996",
+  "base_ref": "edbb01e84f4bcab02947dd0ef6eefe84b0feb598",
   "allowed_files": [
-    "lib/features/astrology/thai/core/life_period/life_period_engine.dart",
-    "lib/features/astrology/thai/core/life_period/life_planet.dart",
-    "lib/features/astrology/thai/core/life_period/life_sub_period_engine.dart",
-    "lib/features/astrology/thai/core/life_period/annual_taksa_engine.dart",
-    "lib/features/astrology/thai/core/life_period/mahabhut_planet_position_engine.dart",
-    "lib/features/astrology/thai/mirror/presentation/timeline/timeline_presenter.dart",
-    "lib/features/astrology/thai/mirror/presentation/timeline/thai_mirror_life_timeline_state.dart",
-    "lib/features/astrology/thai/mirror/presentation/ui/pages/thai_mirror_result_page.dart",
-    "lib/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_life_timeline_section.dart",
-    "lib/features/birth_normalization/application/sunrise_calculator.dart",
-    "lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart",
-    "test/validation/thai_mirror_v8_timeline/life_period_engine_test.dart",
-    "test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart",
-    "test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart",
-    "test/validation/thai_beta/life_map/thai_life_map_v123_test.dart",
-    "test/validation/thai_beta/life_map/thai_life_map_v123_report_acceptance_test.dart",
+    "docs/CURRENT_STATUS.md",
+    "docs/HANDOFF.md",
     "task.md",
     "task_scope.json"
   ],
@@ -47,12 +33,10 @@
     "final_result.json",
     "round_[0-9]+_review\\.json"
   ],
-  "focused_tests": [
-    "flutter test test/validation/thai_beta/life_map/ test/validation/thai_mirror_v8_timeline/life_period_engine_test.dart test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart"
-  ],
+  "focused_tests": ["SKIP"],
   "full_test_policy": "skip",
   "full_test_command": "SKIP",
-  "analyze_command": "flutter analyze lib/features/astrology/thai/core/life_period/life_period_engine.dart lib/features/astrology/thai/core/life_period/life_planet.dart lib/features/astrology/thai/core/life_period/life_sub_period_engine.dart lib/features/astrology/thai/core/life_period/annual_taksa_engine.dart lib/features/astrology/thai/core/life_period/mahabhut_planet_position_engine.dart lib/features/astrology/thai/mirror/presentation/timeline/timeline_presenter.dart lib/features/astrology/thai/mirror/presentation/timeline/thai_mirror_life_timeline_state.dart lib/features/astrology/thai/mirror/presentation/ui/pages/thai_mirror_result_page.dart lib/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_life_timeline_section.dart lib/features/birth_normalization/application/sunrise_calculator.dart lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart",
-  "commit_message_regex": "^feat\\(thai-beta\\): .{10,72}$",
+  "analyze_command": "SKIP",
+  "commit_message_regex": "^docs\\(thai-beta\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }
