@@ -16,7 +16,7 @@ cd knowme
 git checkout main
 ```
 
-**Important:** Prefer `main`. Public Firebase Hosting was last deployed from `main` @ `07d0eb9` (2026-07-23) — Thai Beta Report **Life Map V1.2.3** + **Mahabhut Canon-index fix** (PR #20) + anonymous Public Beta at https://knowme-app-694e1.web.app/beta/thai?v=07d0eb9 (Thai landing, not Login; Evidence Badge remains `invited_beta`). Life Map multi-chart accuracy: [`THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md`](THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md). Older feature branches such as `feature/fusion-result` remain useful historical snapshots; check [`CURRENT_STATUS.md`](CURRENT_STATUS.md) for the active deploy source.
+**Important:** Prefer `main`. Public Firebase Hosting was last deployed from `main` @ `07d0eb9` (2026-07-23) — Thai Beta Report **Life Map V1.2.3** + **Mahabhut Canon-index fix** (PR #20) + anonymous Public Beta at https://knowme-app-694e1.web.app/beta/thai?v=07d0eb9 (Thai landing, not Login; Evidence Badge remains `invited_beta`). **V1.2.4 Accuracy Audit** is tests/docs only (22×8=176 periods; known 139 / unknown 37) — see [`THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md`](THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md); **no Firebase redeploy** for that audit. Older feature branches such as `feature/fusion-result` remain useful historical snapshots; check [`CURRENT_STATUS.md`](CURRENT_STATUS.md) for the active deploy source.
 
 **Automation workflow:** Use Single-Agent + Local Gate — see [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). The external AI Worker is **retired** (historical: [`AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)). The obsolete in-repo `ai-worker/` directory is gitignored and must not be committed.
 

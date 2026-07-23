@@ -3,6 +3,31 @@
 **Status:** COMPLETED
 **Base:** `2d86e48` / Production code tip `07d0eb9`
 **Fixtures:** synthetic QA only (no real-user PII)
+**Production / Frozen Canon / Mahabhut formulas:** **unchanged** (tests + docs only)
+
+## Test suite clarification
+
+| Suite | What it is | Count |
+|-------|------------|------:|
+| **14/14** | Assertion cases inside `thai_life_map_v124_accuracy_audit_test.dart` only (not the chart/period sample size) | 14 |
+| **Focused Life Map suite** | Canon-index regression + V1.2.3 unit + V1.2.3 report acceptance + V1.2.4 audit | **36** |
+| **Audit sample** | Deterministic synthetic fixtures × 8 Life Map periods | **22 × 8 = 176** |
+
+Compile-error fixes (test harness only): `static const` → `static final` for `DateTime` fixtures; nullable `ThaiEvidenceBadgeActivation.configuredState` coalesced with `?? 'unset'`. No `lib/` / formula / Canon edits.
+
+## Verification commands (evidence)
+
+```text
+flutter analyze test/validation/thai_beta/life_map/
+# → No issues found
+
+flutter test test/validation/thai_beta/life_map/thai_life_map_mahabhut_canon_index_regression_test.dart \
+  test/validation/thai_beta/life_map/thai_life_map_v123_test.dart \
+  test/validation/thai_beta/life_map/thai_life_map_v123_report_acceptance_test.dart \
+  test/validation/thai_beta/life_map/v124/thai_life_map_v124_accuracy_audit_test.dart \
+  --reporter expanded
+# → All tests passed! (+36)
+```
 
 ## Totals
 

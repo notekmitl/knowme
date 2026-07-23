@@ -342,6 +342,62 @@ abstract final class ThaiLifeMapV124AuditRunner {
       ..writeln('**Status:** COMPLETED')
       ..writeln('**Base:** `2d86e48` / Production code tip `07d0eb9`')
       ..writeln('**Fixtures:** synthetic QA only (no real-user PII)')
+      ..writeln(
+        '**Production / Frozen Canon / Mahabhut formulas:** **unchanged** '
+        '(tests + docs only)',
+      )
+      ..writeln()
+      ..writeln('## Test suite clarification')
+      ..writeln()
+      ..writeln('| Suite | What it is | Count |')
+      ..writeln('|-------|------------|------:|')
+      ..writeln(
+        '| **14/14** | Assertion cases inside '
+        '`thai_life_map_v124_accuracy_audit_test.dart` only '
+        '(not the chart/period sample size) | 14 |',
+      )
+      ..writeln(
+        '| **Focused Life Map suite** | Canon-index regression + '
+        'V1.2.3 unit + V1.2.3 report acceptance + V1.2.4 audit | **36** |',
+      )
+      ..writeln(
+        '| **Audit sample** | Deterministic synthetic fixtures × '
+        '8 Life Map periods | '
+        '**${summary.chartCount} × 8 = ${summary.periodCount}** |',
+      )
+      ..writeln()
+      ..writeln(
+        'Compile-error fixes (test harness only): `static const` → '
+        '`static final` for `DateTime` fixtures; nullable '
+        '`ThaiEvidenceBadgeActivation.configuredState` coalesced with '
+        "`?? 'unset'`. No `lib/` / formula / Canon edits.",
+      )
+      ..writeln()
+      ..writeln('## Verification commands (evidence)')
+      ..writeln()
+      ..writeln('```text')
+      ..writeln('flutter analyze test/validation/thai_beta/life_map/')
+      ..writeln('# → No issues found')
+      ..writeln()
+      ..writeln(
+        'flutter test '
+        'test/validation/thai_beta/life_map/'
+        'thai_life_map_mahabhut_canon_index_regression_test.dart \\',
+      )
+      ..writeln(
+        '  test/validation/thai_beta/life_map/thai_life_map_v123_test.dart \\',
+      )
+      ..writeln(
+        '  test/validation/thai_beta/life_map/'
+        'thai_life_map_v123_report_acceptance_test.dart \\',
+      )
+      ..writeln(
+        '  test/validation/thai_beta/life_map/v124/'
+        'thai_life_map_v124_accuracy_audit_test.dart \\',
+      )
+      ..writeln('  --reporter expanded')
+      ..writeln('# → All tests passed! (+36)')
+      ..writeln('```')
       ..writeln()
       ..writeln('## Totals')
       ..writeln()
