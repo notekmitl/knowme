@@ -27,6 +27,8 @@ class ThaiMirrorResultPage extends StatefulWidget {
     this.disableAnimations = false,
     this.personalCoreFirst = false,
     this.relevantLifeTimeline = false,
+    this.lifeMapMode = true,
+    this.collapseSecondarySections = false,
   });
 
   final ThaiMirrorConsumerViewState consumerState;
@@ -46,6 +48,12 @@ class ThaiMirrorResultPage extends StatefulWidget {
   /// collapse secondary period detail by default (presentation-only).
   final bool relevantLifeTimeline;
 
+  /// V1.2.3 — full eight-period Life Map (overrides relevant-only when true).
+  final bool lifeMapMode;
+
+  /// V1.2.3 — secondary report sections start collapsed to shorten the page.
+  final bool collapseSecondarySections;
+
   @override
   State<ThaiMirrorResultPage> createState() => _ThaiMirrorResultPageState();
 }
@@ -64,10 +72,7 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
         vsync: this,
         duration: const Duration(milliseconds: 520),
       )..forward();
-      _fade = CurvedAnimation(
-        parent: _controller!,
-        curve: Curves.easeOutCubic,
-      );
+      _fade = CurvedAnimation(parent: _controller!, curve: Curves.easeOutCubic);
       _slide = Tween<Offset>(
         begin: const Offset(0, 0.025),
         end: Offset.zero,
@@ -113,10 +118,7 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
         ? articleBody
         : FadeTransition(
             opacity: _fade!,
-            child: SlideTransition(
-              position: _slide!,
-              child: articleBody,
-            ),
+            child: SlideTransition(position: _slide!, child: articleBody),
           );
 
     final article = Center(
@@ -176,148 +178,199 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
     required double gap,
   }) {
     return [
-                          RepaintBoundary(
-                            key: const Key('thai_consumer_hero'),
-                            child: ThaiMirrorConsumerHeroSection(
-                              state: consumerState.hero,
-                            ),
-                          ),
-                          const SizedBox(height: 18),
-                          RepaintBoundary(
-                            child: ThaiMirrorBirthDataConfidenceBanner(
-                              state: consumerState.birthDataConfidence,
-                            ),
-                          ),
-                          if (widget.personalCoreFirst &&
-                              !consumerState.signatureInsight.isEmpty) ...[
-                            SizedBox(height: gap),
-                            RepaintBoundary(
-                              key: const Key('thai_consumer_signature_insight'),
-                              child: ThaiMirrorSignatureInsightSection(
-                                state: consumerState.signatureInsight,
-                              ),
-                            ),
-                          ],
-                          if (consumerState.lifeTimeline != null &&
-                              !consumerState.lifeTimeline!.isEmpty) ...[
-                            SizedBox(height: gap),
-                            RepaintBoundary(
-                              key: const Key('thai_consumer_life_timeline'),
-                              child: ThaiMirrorLifeTimelineSection(
-                                state: consumerState.lifeTimeline!,
-                                relevantPeriodsOnly: widget.relevantLifeTimeline,
-                              ),
-                            ),
-                          ],
-                          if (consumerState.futurePrediction != null &&
-                              !consumerState.futurePrediction!.isEmpty) ...[
-                            SizedBox(height: gap),
-                            RepaintBoundary(
-                              key: const Key('thai_consumer_future_prediction'),
-                              child: ThaiMirrorFuturePredictionSection(
-                                state: consumerState.futurePrediction!,
-                              ),
-                            ),
-                          ],
-                          if (!widget.personalCoreFirst &&
-                              !consumerState.signatureInsight.isEmpty) ...[
-                            SizedBox(height: gap),
-                            RepaintBoundary(
-                              key: const Key('thai_consumer_signature_insight'),
-                              child: ThaiMirrorSignatureInsightSection(
-                                state: consumerState.signatureInsight,
-                              ),
-                            ),
-                          ],
-                          SizedBox(height: gap),
-                          RepaintBoundary(
-                            key: const Key('thai_consumer_life_dashboard'),
-                            child: ThaiMirrorLifeDashboardSection(
-                              items: consumerState.lifeDashboard,
-                              secretTip: consumerState.secretTip,
-                            ),
-                          ),
-                          SizedBox(height: gap),
-                          RepaintBoundary(
-                            key: const Key('thai_consumer_strengths'),
-                            child: ThaiMirrorInsightCardsSection(
-                              state: consumerState.strengths,
-                            ),
-                          ),
-                          SizedBox(height: gap),
-                          RepaintBoundary(
-                            key: const Key('thai_consumer_cautions'),
-                            child: ThaiMirrorInsightCardsSection(
-                              state: consumerState.cautions,
-                            ),
-                          ),
-                          SizedBox(height: gap),
-                          RepaintBoundary(
-                            key: const Key('thai_consumer_advice'),
-                            child: ThaiMirrorAdviceSection(
-                              state: consumerState.advice,
-                            ),
-                          ),
-                          if (consumerState.narrativeSections.isNotEmpty) ...[
-                            SizedBox(height: gap + 8),
-                            RepaintBoundary(
-                              key: const Key('thai_consumer_narrative'),
-                              child: ThaiMirrorNarrativeReportSection(
-                                sections: consumerState.narrativeSections,
-                              ),
-                            ),
-                          ],
-                          if (consumerState
-                              .reflectionSummary.points.isNotEmpty) ...[
-                            SizedBox(height: gap + 8),
-                            RepaintBoundary(
-                              key: const Key('thai_consumer_reflection_summary'),
-                              child: ThaiMirrorReflectionSummarySection(
-                                state: consumerState.reflectionSummary,
-                              ),
-                            ),
-                          ],
-                          if (!consumerState.closingMessage.isEmpty) ...[
-                            SizedBox(height: gap),
-                            RepaintBoundary(
-                              key: const Key('thai_consumer_closing'),
-                              child: ThaiMirrorClosingMessageSection(
-                                state: consumerState.closingMessage,
-                              ),
-                            ),
-                          ],
-                          SizedBox(height: gap),
-                          RepaintBoundary(
-                            key: const Key('thai_consumer_source'),
-                            child: ThaiMirrorSourceTransparencySection(
-                              state: consumerState.sourceTransparency,
-                            ),
-                          ),
-                          if (consumerState.disclaimers.isNotEmpty) ...[
-                            const SizedBox(height: 24),
-                            RepaintBoundary(
-                              key: const Key('thai_consumer_footer'),
-                              child: Column(
-                                children: consumerState.disclaimers
-                                    .map(
-                                      (disclaimer) => Padding(
-                                        padding:
-                                            const EdgeInsets.only(bottom: 10),
-                                        child: Text(
-                                          disclaimer,
-                                          style: TextStyle(
-                                            fontSize: 12.5,
-                                            height: 1.5,
-                                            color: scheme.onSurfaceVariant
-                                                .withValues(alpha: 0.9),
-                                          ),
-                                        ),
-                                      ),
-                                    )
-                                    .toList(),
-                              ),
-                            ),
-                          ],
+      RepaintBoundary(
+        key: const Key('thai_consumer_hero'),
+        child: ThaiMirrorConsumerHeroSection(state: consumerState.hero),
+      ),
+      const SizedBox(height: 18),
+      RepaintBoundary(
+        child: ThaiMirrorBirthDataConfidenceBanner(
+          state: consumerState.birthDataConfidence,
+        ),
+      ),
+      if (widget.personalCoreFirst &&
+          !consumerState.signatureInsight.isEmpty) ...[
+        SizedBox(height: gap),
+        RepaintBoundary(
+          key: const Key('thai_consumer_signature_insight'),
+          child: ThaiMirrorSignatureInsightSection(
+            state: consumerState.signatureInsight,
+          ),
+        ),
+      ],
+      if (consumerState.lifeTimeline != null &&
+          !consumerState.lifeTimeline!.isEmpty) ...[
+        SizedBox(height: gap),
+        RepaintBoundary(
+          key: const Key('thai_consumer_life_timeline'),
+          child: ThaiMirrorLifeTimelineSection(
+            state: consumerState.lifeTimeline!,
+            relevantPeriodsOnly:
+                widget.relevantLifeTimeline && !widget.lifeMapMode,
+            lifeMapMode: widget.lifeMapMode,
+          ),
+        ),
+      ],
+      if (consumerState.futurePrediction != null &&
+          !consumerState.futurePrediction!.isEmpty) ...[
+        SizedBox(height: gap),
+        RepaintBoundary(
+          key: const Key('thai_consumer_future_prediction'),
+          child: _MaybeCollapsedSection(
+            collapse: widget.collapseSecondarySections,
+            title: consumerState.futurePrediction!.sectionTitle,
+            child: ThaiMirrorFuturePredictionSection(
+              state: consumerState.futurePrediction!,
+            ),
+          ),
+        ),
+      ],
+      if (!widget.personalCoreFirst &&
+          !consumerState.signatureInsight.isEmpty) ...[
+        SizedBox(height: gap),
+        RepaintBoundary(
+          key: const Key('thai_consumer_signature_insight'),
+          child: ThaiMirrorSignatureInsightSection(
+            state: consumerState.signatureInsight,
+          ),
+        ),
+      ],
+      SizedBox(height: gap),
+      RepaintBoundary(
+        key: const Key('thai_consumer_life_dashboard'),
+        child: _MaybeCollapsedSection(
+          collapse: widget.collapseSecondarySections,
+          title: 'ภาพรวมชีวิต',
+          child: ThaiMirrorLifeDashboardSection(
+            items: consumerState.lifeDashboard,
+            secretTip: consumerState.secretTip,
+          ),
+        ),
+      ),
+      SizedBox(height: gap),
+      RepaintBoundary(
+        key: const Key('thai_consumer_strengths'),
+        child: _MaybeCollapsedSection(
+          collapse: widget.collapseSecondarySections,
+          title: consumerState.strengths.title,
+          child: ThaiMirrorInsightCardsSection(state: consumerState.strengths),
+        ),
+      ),
+      SizedBox(height: gap),
+      RepaintBoundary(
+        key: const Key('thai_consumer_cautions'),
+        child: _MaybeCollapsedSection(
+          collapse: widget.collapseSecondarySections,
+          title: consumerState.cautions.title,
+          child: ThaiMirrorInsightCardsSection(state: consumerState.cautions),
+        ),
+      ),
+      SizedBox(height: gap),
+      RepaintBoundary(
+        key: const Key('thai_consumer_advice'),
+        child: _MaybeCollapsedSection(
+          collapse: widget.collapseSecondarySections,
+          title: consumerState.advice.title,
+          child: ThaiMirrorAdviceSection(state: consumerState.advice),
+        ),
+      ),
+      if (consumerState.narrativeSections.isNotEmpty) ...[
+        SizedBox(height: gap + 8),
+        RepaintBoundary(
+          key: const Key('thai_consumer_narrative'),
+          child: _MaybeCollapsedSection(
+            collapse: widget.collapseSecondarySections,
+            title: 'บทอ่านเพิ่มเติม',
+            child: ThaiMirrorNarrativeReportSection(
+              sections: consumerState.narrativeSections,
+            ),
+          ),
+        ),
+      ],
+      if (consumerState.reflectionSummary.points.isNotEmpty) ...[
+        SizedBox(height: gap + 8),
+        RepaintBoundary(
+          key: const Key('thai_consumer_reflection_summary'),
+          child: ThaiMirrorReflectionSummarySection(
+            state: consumerState.reflectionSummary,
+          ),
+        ),
+      ],
+      if (!consumerState.closingMessage.isEmpty) ...[
+        SizedBox(height: gap),
+        RepaintBoundary(
+          key: const Key('thai_consumer_closing'),
+          child: ThaiMirrorClosingMessageSection(
+            state: consumerState.closingMessage,
+          ),
+        ),
+      ],
+      SizedBox(height: gap),
+      RepaintBoundary(
+        key: const Key('thai_consumer_source'),
+        child: ThaiMirrorSourceTransparencySection(
+          state: consumerState.sourceTransparency,
+        ),
+      ),
+      if (consumerState.disclaimers.isNotEmpty) ...[
+        const SizedBox(height: 24),
+        RepaintBoundary(
+          key: const Key('thai_consumer_footer'),
+          child: Column(
+            children: consumerState.disclaimers
+                .map(
+                  (disclaimer) => Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Text(
+                      disclaimer,
+                      style: TextStyle(
+                        fontSize: 12.5,
+                        height: 1.5,
+                        color: scheme.onSurfaceVariant.withValues(alpha: 0.9),
+                      ),
+                    ),
+                  ),
+                )
+                .toList(),
+          ),
+        ),
+      ],
     ];
+  }
+}
+
+/// Presentation-only collapsible wrapper for secondary report blocks (V1.2.3).
+class _MaybeCollapsedSection extends StatelessWidget {
+  const _MaybeCollapsedSection({
+    required this.collapse,
+    required this.title,
+    required this.child,
+  });
+
+  final bool collapse;
+  final String title;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    if (!collapse) return child;
+    final scheme = Theme.of(context).colorScheme;
+    return Theme(
+      data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
+      child: ExpansionTile(
+        initiallyExpanded: false,
+        tilePadding: EdgeInsets.zero,
+        childrenPadding: const EdgeInsets.only(bottom: 4),
+        title: Text(
+          title,
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w700,
+            color: scheme.onSurface,
+          ),
+        ),
+        children: [child],
+      ),
+    );
   }
 }

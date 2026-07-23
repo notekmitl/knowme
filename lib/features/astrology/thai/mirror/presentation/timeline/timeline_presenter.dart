@@ -1,6 +1,9 @@
+import 'package:knowme/features/astrology/thai/core/life_period/annual_taksa_engine.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_engine.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart';
+import 'package:knowme/features/astrology/thai/core/life_period/life_sub_period_engine.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_timeline_intelligence.dart';
+import 'package:knowme/features/astrology/thai/core/life_period/mahabhut_planet_position_engine.dart';
 
 import '../copy/thai_mirror_evidence_composer.dart';
 import 'period_composite_score.dart';
@@ -46,21 +49,33 @@ abstract final class TimelinePresenter {
     String ageLabel(PeriodState p) => '${p.startAge}–${p.endAge}';
 
     List<ThaiMirrorPeriodScoreBar> bars(PeriodScores sc) => [
-          ThaiMirrorPeriodScoreBar(label: _domainLabel['career']!, value: sc.career),
-          ThaiMirrorPeriodScoreBar(label: _domainLabel['money']!, value: sc.money),
-          ThaiMirrorPeriodScoreBar(label: _domainLabel['love']!, value: sc.love),
-          ThaiMirrorPeriodScoreBar(label: _domainLabel['health']!, value: sc.health),
-          ThaiMirrorPeriodScoreBar(label: _domainLabel['growth']!, value: sc.growth),
-          ThaiMirrorPeriodScoreBar(
-              label: _domainLabel['opportunity']!, value: sc.opportunity),
-        ];
+      ThaiMirrorPeriodScoreBar(
+        label: _domainLabel['career']!,
+        value: sc.career,
+      ),
+      ThaiMirrorPeriodScoreBar(label: _domainLabel['money']!, value: sc.money),
+      ThaiMirrorPeriodScoreBar(label: _domainLabel['love']!, value: sc.love),
+      ThaiMirrorPeriodScoreBar(
+        label: _domainLabel['health']!,
+        value: sc.health,
+      ),
+      ThaiMirrorPeriodScoreBar(
+        label: _domainLabel['growth']!,
+        value: sc.growth,
+      ),
+      ThaiMirrorPeriodScoreBar(
+        label: _domainLabel['opportunity']!,
+        value: sc.opportunity,
+      ),
+    ];
 
     final segments = <ThaiMirrorTimelineSegmentState>[];
     final periods = <ThaiMirrorLifePeriodState>[];
 
     for (final p in timeline.periods) {
       final data = LifePlanets.of(p.planet);
-      final seed = profileSeed ^ (p.planet.index * 2246822519) ^ (p.index * 40503);
+      final seed =
+          profileSeed ^ (p.planet.index * 2246822519) ^ (p.index * 40503);
       final scores = PeriodCompositeScore.evaluate(
         period: p,
         lagnaLord: lagnaLord,
@@ -89,6 +104,35 @@ abstract final class TimelinePresenter {
         ),
       );
 
+      final subPeriods = LifeSubPeriodEngine.forMajor(p.planet)
+          .map(
+            (s) => ThaiMirrorLifeSubPeriodState(
+              label: s.thaiLabel,
+              durationLabel: s.durationLabel,
+            ),
+          )
+          .toList(growable: false);
+
+      final taksaYears =
+          AnnualTaksaEngine.forAgeRange(
+                startPlanet: timeline.startPlanet,
+                startAge: p.startAge,
+                endAge: p.endAge,
+              )
+              .map(
+                (y) => ThaiMirrorAnnualTaksaYearState(
+                  ageLabel: 'อายุ ${y.age}',
+                  boriwanLabel: y.isTagklang
+                      ? 'ตากลาง (บริวารจร)'
+                      : '${y.boriwanLabel} (บริวารจร)',
+                  houseLabel: y.isTagklang ? 'เรือน ๙' : 'เรือน ${y.house}',
+                  isTagklang: y.isTagklang,
+                ),
+              )
+              .toList(growable: false);
+
+      final mahabhut = MahabhutPlanetPositionEngine.resolve(period: p);
+
       periods.add(
         ThaiMirrorLifePeriodState(
           ageLabel: ageLabel(p),
@@ -106,6 +150,14 @@ abstract final class TimelinePresenter {
           scores: bars(scores),
           easeIndex: scores.easeIndex,
           accentIndex: p.planet.index,
+          timeBucketLabel: p.isCurrent
+              ? 'ปัจจุบัน'
+              : p.isPast
+              ? 'อดีต'
+              : 'อนาคต',
+          mahabhutPositionLabel: mahabhut.displayLabel,
+          subPeriods: subPeriods,
+          annualTaksaYears: taksaYears,
         ),
       );
     }
@@ -139,23 +191,28 @@ abstract final class TimelinePresenter {
       keyword: curData.keyword,
       yearsRemaining: cur.remainingYears,
       progress: cur.progress,
-      intro: _stageIntro(age, curData.phaseName, cur.remainingYears, profileSeed),
+      intro: _stageIntro(
+        age,
+        curData.phaseName,
+        cur.remainingYears,
+        profileSeed,
+      ),
       previousLabel: prev == null
           ? ''
           : 'ช่วงก่อนหน้า: ${LifePlanets.of(prev.planet).phaseName} '
-              '(${ageLabel(prev)})',
+                '(${ageLabel(prev)})',
       nextLabel: next == null
           ? ''
           : 'ช่วงถัดไป: ${LifePlanets.of(next.planet).phaseName} '
-              '(${ageLabel(next)})',
+                '(${ageLabel(next)})',
       accentIndex: cur.planet.index,
     );
 
     return ThaiMirrorLifeTimelineState(
-      sectionTitle: 'เส้นทางชีวิตของคุณ',
+      sectionTitle: 'แผนที่ชีวิตของคุณ',
       sectionIntro:
-          'ดวงไทยไม่ได้บอกแค่ว่าคุณเป็นใคร แต่ยังบอกว่าชีวิตแต่ละช่วง '
-          'มีจังหวะของมันอย่างไร — นี่คือเส้นเวลาของคุณตั้งแต่ต้นจนถึงวันนี้',
+          'แปดช่วงดาวเสวยอายุจากอายุโหร 1–108 ปี '
+          'แบ่งเป็นอดีต ปัจจุบัน และอนาคต — กดดูรายละเอียดแต่ละช่วงเพื่อดูดาวแทรกและทักษาจร',
       currentStage: currentStage,
       currentAnalysis: currentAnalysis.isEmpty ? null : currentAnalysis,
       futurePreview: futurePreview,

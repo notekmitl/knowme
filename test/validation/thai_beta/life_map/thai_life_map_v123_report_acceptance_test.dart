@@ -1,0 +1,78 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_life_timeline_section.dart';
+import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience.dart';
+import 'package:knowme/features/thai_beta/application/thai_evidence_badge_feature_flag.dart';
+import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart';
+
+import '../narrative/thai_beta_narrative_fixtures.dart';
+
+void main() {
+  group('Life Map V1.2.3 report acceptance', () {
+    testWidgets('shows eight Life Map periods collapsed with nested labels',
+        (tester) async {
+      final analysis = ThaiBetaNarrativeFixtures.fixtureA();
+      await tester.binding.setSurfaceSize(const Size(390, 2800));
+      addTearDown(() => tester.binding.setSurfaceSize(null));
+      await tester.pumpWidget(
+        MaterialApp(
+          home: ThaiBetaReportPage(
+            analysis: analysis,
+            audienceOverride: const ThaiBetaEvidenceBadgeAudience.anonymous(),
+            featureFlagOverride: ThaiEvidenceBadgeFeatureFlagState.invitedBeta,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('แผนที่ชีวิตของคุณ'), findsOneWidget);
+      expect(find.text('อดีต'), findsWidgets);
+      expect(find.text('ปัจจุบัน'), findsWidgets);
+      expect(find.text('อนาคต'), findsWidgets);
+      expect(
+        find.text(ThaiMirrorLifeTimelineSection.expandDetailsLabel),
+        findsWidgets,
+      );
+      expect(
+        find.text(ThaiMirrorLifeTimelineSection.subPeriodsLabel).hitTestable(),
+        findsNothing,
+      );
+
+      final expand =
+          find.text(ThaiMirrorLifeTimelineSection.expandDetailsLabel).first;
+      await tester.ensureVisible(expand);
+      await tester.tap(expand);
+      await tester.pumpAndSettle();
+
+      expect(
+        find.text(ThaiMirrorLifeTimelineSection.subPeriodsLabel),
+        findsWidgets,
+      );
+      expect(
+        find.text(ThaiMirrorLifeTimelineSection.annualTaksaLabel),
+        findsWidgets,
+      );
+      expect(find.textContaining('ยังยืนยันตำแหน่งไม่ได้'), findsWidgets);
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('anonymous audience still hides Evidence Badge', (tester) async {
+      final analysis = ThaiBetaNarrativeFixtures.fixtureA();
+      await tester.binding.setSurfaceSize(const Size(390, 1200));
+      addTearDown(() => tester.binding.setSurfaceSize(null));
+      await tester.pumpWidget(
+        MaterialApp(
+          home: ThaiBetaReportPage(
+            analysis: analysis,
+            audienceOverride: const ThaiBetaEvidenceBadgeAudience.anonymous(),
+            featureFlagOverride: ThaiEvidenceBadgeFeatureFlagState.invitedBeta,
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+      expect(find.textContaining('Evidence'), findsNothing);
+      expect(find.textContaining('หลักฐาน Canon'), findsNothing);
+      expect(tester.takeException(), isNull);
+    });
+  });
+}

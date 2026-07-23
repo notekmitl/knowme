@@ -6,10 +6,7 @@
 
 /// A single life-domain score for the mini bar charts (0–100).
 class ThaiMirrorPeriodScoreBar {
-  const ThaiMirrorPeriodScoreBar({
-    required this.label,
-    required this.value,
-  });
+  const ThaiMirrorPeriodScoreBar({required this.label, required this.value});
 
   final String label;
   final int value;
@@ -40,6 +37,32 @@ class ThaiMirrorTimelineSegmentState {
   final int accentIndex;
 }
 
+/// Nested ดาวแทรก row for Life Map V1.2.3 (presentation strings only).
+class ThaiMirrorLifeSubPeriodState {
+  const ThaiMirrorLifeSubPeriodState({
+    required this.label,
+    required this.durationLabel,
+  });
+
+  final String label;
+  final String durationLabel;
+}
+
+/// Nested ทักษาจร year row for Life Map V1.2.3.
+class ThaiMirrorAnnualTaksaYearState {
+  const ThaiMirrorAnnualTaksaYearState({
+    required this.ageLabel,
+    required this.boriwanLabel,
+    required this.houseLabel,
+    required this.isTagklang,
+  });
+
+  final String ageLabel;
+  final String boriwanLabel;
+  final String houseLabel;
+  final bool isTagklang;
+}
+
 /// A full, expandable life-period card.
 class ThaiMirrorLifePeriodState {
   const ThaiMirrorLifePeriodState({
@@ -58,6 +81,10 @@ class ThaiMirrorLifePeriodState {
     required this.scores,
     required this.easeIndex,
     required this.accentIndex,
+    this.timeBucketLabel = '',
+    this.mahabhutPositionLabel = '',
+    this.subPeriods = const [],
+    this.annualTaksaYears = const [],
   });
 
   final String ageLabel;
@@ -77,6 +104,18 @@ class ThaiMirrorLifePeriodState {
   final List<ThaiMirrorPeriodScoreBar> scores;
   final int easeIndex;
   final int accentIndex;
+
+  /// V1.2.3 — อดีต / ปัจจุบัน / อนาคต (empty on legacy callers).
+  final String timeBucketLabel;
+
+  /// V1.2.3 — Canon Mahabhut name or soft unknown copy.
+  final String mahabhutPositionLabel;
+
+  /// V1.2.3 — ดาวแทรก (8 rows when Life Map wired).
+  final List<ThaiMirrorLifeSubPeriodState> subPeriods;
+
+  /// V1.2.3 — ทักษาจร years inside this major window.
+  final List<ThaiMirrorAnnualTaksaYearState> annualTaksaYears;
 }
 
 /// The premium "where are you in life" header card.

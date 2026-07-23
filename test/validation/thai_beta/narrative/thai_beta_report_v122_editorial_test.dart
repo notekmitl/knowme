@@ -115,7 +115,7 @@ void main() {
     testWidgets('V122-5 full report shows editorial titles, no old jargon',
         (tester) async {
       final analysis = ThaiBetaNarrativeFixtures.fixtureA();
-      await tester.binding.setSurfaceSize(const Size(390, 1600));
+      await tester.binding.setSurfaceSize(const Size(390, 2400));
       addTearDown(() => tester.binding.setSurfaceSize(null));
       await tester.pumpWidget(
         MaterialApp(
@@ -128,16 +128,12 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text(ThaiBetaNarrativeV12.strengthsSectionTitle), findsOneWidget);
+      expect(find.text(ThaiBetaNarrativeV12.strengthsSectionTitle), findsWidgets);
       expect(find.text('จุดแข็งที่เด่นจากหลักฐาน'), findsNothing);
       expect(find.textContaining('สัญญาณที่ระบบ'), findsNothing);
       expect(find.textContaining('ที่มาเชิงเทคนิค'), findsNothing);
       expect(find.text('ความมั่นใจของแนวโน้ม'), findsNothing);
-      expect(find.text('ความชัดของแนวโน้ม'), findsWidgets);
-      expect(
-        find.textContaining('โฟกัสช่วงที่เกี่ยวข้องกับตอนนี้'),
-        findsOneWidget,
-      );
+      expect(find.text('แผนที่ชีวิตของคุณ'), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
   });

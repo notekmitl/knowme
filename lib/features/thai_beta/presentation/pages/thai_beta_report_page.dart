@@ -139,7 +139,8 @@ class _ThaiBetaReportScaffold extends StatefulWidget {
   final ThaiCanonEvidenceRepository? repository;
 
   @override
-  State<_ThaiBetaReportScaffold> createState() => _ThaiBetaReportScaffoldState();
+  State<_ThaiBetaReportScaffold> createState() =>
+      _ThaiBetaReportScaffoldState();
 }
 
 class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
@@ -176,7 +177,8 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
   @override
   void didUpdateWidget(covariant _ThaiBetaReportScaffold oldWidget) {
     super.didUpdateWidget(oldWidget);
-    if (oldWidget.audience.isInternalTester != widget.audience.isInternalTester ||
+    if (oldWidget.audience.isInternalTester !=
+            widget.audience.isInternalTester ||
         oldWidget.audience.isInvitedBetaTester !=
             widget.audience.isInvitedBetaTester) {
       _loadBadgesIfNeeded();
@@ -194,8 +196,9 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
     final generation = ++_hostSyncGeneration;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!mounted || generation != _hostSyncGeneration) return;
-      final box = _captureContentMeasureKey.currentContext?.findRenderObject()
-          as RenderBox?;
+      final box =
+          _captureContentMeasureKey.currentContext?.findRenderObject()
+              as RenderBox?;
       if (box == null || !box.hasSize) return;
       final contentHeight = box.size.height;
       if ((contentHeight - _lastMeasuredContentHeight).abs() < 4) return;
@@ -232,7 +235,8 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
     setState(() => _loadingBadges = true);
     try {
       final repo =
-          widget.repository ?? await ThaiCanonEvidenceRepository.loadFromAsset();
+          widget.repository ??
+          await ThaiCanonEvidenceRepository.loadFromAsset();
       final bundle = await ThaiReportCanonEvidenceEnricher.enrich(
         pipeline,
         repository: repo,
@@ -282,7 +286,9 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
         embeddedInParentScroll: true,
         disableAnimations: widget.screenshotMode,
         personalCoreFirst: true,
-        relevantLifeTimeline: true,
+        relevantLifeTimeline: false,
+        lifeMapMode: true,
+        collapseSecondarySections: true,
         consumerState: ThaiBetaNarrativeComposer.narrativeView(analysis),
       ),
       if (widget.screenshotMode)
@@ -292,8 +298,8 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
             'ให้ความคิดเห็นต่อผลวิเคราะห์ — ใช้หน้า /beta/thai ปกติเพื่อส่ง feedback',
             textAlign: TextAlign.center,
             style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                  color: Theme.of(context).colorScheme.onSurfaceVariant,
-                ),
+              color: Theme.of(context).colorScheme.onSurfaceVariant,
+            ),
           ),
         ),
       SizedBox(height: bottomInset),
@@ -339,9 +345,9 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
           child: Text(
             message,
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.titleSmall?.copyWith(
-                  fontWeight: FontWeight.w700,
-                ),
+            style: Theme.of(
+              context,
+            ).textTheme.titleSmall?.copyWith(fontWeight: FontWeight.w700),
           ),
         ),
       ),
@@ -350,7 +356,8 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
 
   Widget _buildScreenshotDiagnostics(ThaiBetaAnalysis analysis) {
     final box =
-        _captureContentMeasureKey.currentContext?.findRenderObject() as RenderBox?;
+        _captureContentMeasureKey.currentContext?.findRenderObject()
+            as RenderBox?;
     final contentHeight = box?.hasSize == true ? box!.size.height : 0.0;
     final diagnostics = readScreenshotHostDiagnostics(
       reportContentHeight: contentHeight,
@@ -384,9 +391,9 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
           child: Text(
             lines.join('\n'),
             style: Theme.of(context).textTheme.labelSmall?.copyWith(
-                  fontFamily: 'monospace',
-                  height: 1.35,
-                ),
+              fontFamily: 'monospace',
+              height: 1.35,
+            ),
           ),
         ),
       ),
