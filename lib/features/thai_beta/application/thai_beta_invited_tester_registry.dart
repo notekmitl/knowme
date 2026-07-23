@@ -1,7 +1,8 @@
 /// Deterministic invited-beta allow-list (uid-based).
 ///
-/// Production Firestore-backed registry is future wiring. Until then, ops can
-/// seed uids at startup or via test injection. Revoke by removing uid.
+/// Production source of truth is Firestore `invited_beta_testers/{uid}`
+/// (see `firestore.rules` + [FirebaseThaiInvitedBetaTesterAccess]).
+/// This in-memory set remains for unit/widget tests and local injection only.
 abstract final class ThaiBetaInvitedTesterRegistry {
   static final Set<String> invitedUserIds = <String>{};
 

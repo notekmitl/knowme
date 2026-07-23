@@ -8,6 +8,10 @@ rules_version = '2';
 //   * `thai_beta_feedback` (Thai Astrology Research) accepts public, anonymous
 //     submissions but is readable only by admins.
 //   * Admins are an explicit allow-list at `admins/{uid}` (managed out-of-band).
+//   * Invited beta testers are an explicit allow-list at
+//     `invited_beta_testers/{uid}` (managed out-of-band; never client-writable).
+//   * `thai_life_map_beta_feedback` is invite-only Life Map validation feedback
+//     (signed-in invited testers write own doc; admins read all).
 //   * `counters/{id}` backs sequential research ids with bounded, +1-only writes.
 //   * Everything else is denied by default.
 service cloud.firestore {
@@ -22,6 +26,11 @@ service cloud.firestore {
         exists(/databases/$(database)/documents/admins/$(request.auth.uid));
     }
 
+    function isInvitedBetaTester() {
+      return isSignedIn() &&
+        exists(/databases/$(database)/documents/invited_beta_testers/$(request.auth.uid));
+    }
+
     // ---- Existing per-user data: owner-only (preserves all current flows) ----
     match /users/{userId}/{document=**} {
       allow read, write: if isSignedIn() && request.auth.uid == userId;
@@ -29,6 +38,12 @@ service cloud.firestore {
 
     // ---- Admin allow-list: a user may read only their own membership doc ----
     match /admins/{uid} {
+      allow read: if isSignedIn() && request.auth.uid == uid;
+      allow write: if false; // provisioned out-of-band (console/CLI), never by clients
+    }
+
+    // ---- Invited beta allow-list (Evidence Badge + Life Map validation) ----
+    match /invited_beta_testers/{uid} {
       allow read: if isSignedIn() && request.auth.uid == uid;
       allow write: if false; // provisioned out-of-band (console/CLI), never by clients
     }
@@ -48,6 +63,87 @@ service cloud.firestore {
         && data.researchId.matches('TH-[0-9]{8}')
         && data.reportHash is string
         && data.feedback is map;
+    }
+
+    // ---- Thai Life Map V1.2.5 invited-beta validation feedback ----
+    // Doc id MUST equal auth uid (one overall score sheet per invited user).
+    match /thai_life_map_beta_feedback/{uid} {
+      allow read: if isAdmin() ||
+        (isInvitedBetaTester() && request.auth.uid == uid);
+      allow create, update: if isInvitedBetaTester()
+        && request.auth.uid == uid
+        && uid == request.resource.data.userId
+        && isValidLifeMapFeedback();
+      allow delete: if false;
+
+      match /period_feedback/{periodId} {
+        allow read: if isAdmin() ||
+          (isInvitedBetaTester() && request.auth.uid == uid);
+        allow create, update: if isInvitedBetaTester()
+          && request.auth.uid == uid
+          && isValidPeriodFeedback();
+        allow delete: if false;
+      }
+    }
+
+    function isValidLifeMapFeedback() {
+      let data = request.resource.data;
+      return data.keys().hasAll([
+          'userId',
+          'scores',
+          'lifeMapRef',
+          'viewportClass',
+          'buildVersion',
+          'feedbackSchemaVersion',
+          'sourcePath',
+          'isQaTest',
+          'createdAt',
+          'updatedAt'
+        ])
+        && data.userId == request.auth.uid
+        && data.scores is map
+        && data.scores.keys().hasAll([
+            'lifeFit', 'clarity', 'trust', 'usefulness'
+          ])
+        && isScore1to5(data.scores.lifeFit)
+        && isScore1to5(data.scores.clarity)
+        && isScore1to5(data.scores.trust)
+        && isScore1to5(data.scores.usefulness)
+        && data.lifeMapRef is string
+        && data.lifeMapRef.size() > 0
+        && data.lifeMapRef.size() <= 128
+        && data.viewportClass in ['mobile', 'desktop']
+        && data.buildVersion is string
+        && data.feedbackSchemaVersion is int
+        && data.sourcePath is string
+        && data.isQaTest is bool
+        && (!('optionalComment' in data)
+            || (data.optionalComment is string
+                && data.optionalComment.size() <= 500))
+        && (!('uxIssues' in data)
+            || (data.uxIssues is list && data.uxIssues.size() <= 8));
+    }
+
+    function isValidPeriodFeedback() {
+      let data = request.resource.data;
+      return data.keys().hasAll([
+          'periodIndex',
+          'category',
+          'updatedAt'
+        ])
+        && data.periodIndex is int
+        && data.periodIndex >= 0
+        && data.periodIndex <= 7
+        && data.category in [
+            'exact', 'mismatch', 'ambiguous', 'hard_to_read'
+          ]
+        && (!('optionalComment' in data)
+            || (data.optionalComment is string
+                && data.optionalComment.size() <= 500));
+    }
+
+    function isScore1to5(value) {
+      return value is int && value >= 1 && value <= 5;
     }
 
     // ---- Sequential research-id counter ----

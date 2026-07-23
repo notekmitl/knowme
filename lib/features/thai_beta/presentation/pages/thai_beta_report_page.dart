@@ -9,6 +9,7 @@ import '../../application/thai_evidence_badge_feature_flag.dart';
 import '../thai_beta_screenshot_mode.dart';
 import '../widgets/thai_beta_progress_bar.dart';
 import '../widgets/thai_beta_report_export_button.dart';
+import '../widgets/thai_life_map_beta_feedback_panel.dart';
 import 'thai_beta_feedback_page.dart';
 
 import 'package:knowme/core/web/screenshot_friendly_scroll.dart';
@@ -35,6 +36,7 @@ class ThaiBetaReportPage extends StatelessWidget {
     required this.analysis,
     this.featureFlagOverride,
     this.audienceOverride,
+    this.userIdOverride,
     this.badgeViewModelsOverride,
     this.repository,
     this.audienceAccess,
@@ -50,6 +52,9 @@ class ThaiBetaReportPage extends StatelessWidget {
 
   /// Test injection for audience gate.
   final ThaiBetaEvidenceBadgeAudience? audienceOverride;
+
+  /// Test injection for signed-in uid (with [audienceOverride]).
+  final String? userIdOverride;
 
   /// Test injection for precomputed safe badge view models.
   final List<ThaiPublicEvidenceBadgeBetaViewModel>? badgeViewModelsOverride;
@@ -77,6 +82,7 @@ class ThaiBetaReportPage extends StatelessWidget {
       return _ThaiBetaReportScaffold(
         analysis: analysis,
         audience: audienceOverride!,
+        userId: userIdOverride,
         featureFlagOverride: featureFlagOverride,
         badgeViewModelsOverride: badgeViewModelsOverride,
         repository: repository,
@@ -97,6 +103,7 @@ class ThaiBetaReportPage extends StatelessWidget {
             : ThaiBetaEvidenceBadgeAudienceResolver.resolve(
                 researchAccess: data.researchAccess,
                 userId: data.userId,
+                firestoreInvited: data.firestoreInvited,
               );
         return _ThaiBetaReportScaffold(
           key: ValueKey(
@@ -104,6 +111,7 @@ class ThaiBetaReportPage extends StatelessWidget {
           ),
           analysis: analysis,
           audience: audience,
+          userId: data?.userId,
           featureFlagOverride: featureFlagOverride,
           badgeViewModelsOverride: badgeViewModelsOverride,
           repository: repository,
@@ -122,6 +130,7 @@ class _ThaiBetaReportScaffold extends StatefulWidget {
     required this.analysis,
     required this.audience,
     required this.screenshotMode,
+    this.userId,
     this.showCaptureModeBanner = false,
     this.captureBannerMessage,
     this.featureFlagOverride,
@@ -131,6 +140,7 @@ class _ThaiBetaReportScaffold extends StatefulWidget {
 
   final ThaiBetaAnalysis analysis;
   final ThaiBetaEvidenceBadgeAudience audience;
+  final String? userId;
   final bool screenshotMode;
   final bool showCaptureModeBanner;
   final String? captureBannerMessage;
@@ -291,6 +301,21 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
         collapseSecondarySections: true,
         consumerState: ThaiBetaNarrativeComposer.narrativeView(analysis),
       ),
+      if (!widget.screenshotMode &&
+          widget.audience.isInvitedBetaTester &&
+          widget.userId != null &&
+          widget.userId!.isNotEmpty)
+        ThaiLifeMapBetaFeedbackPanel(
+          userId: widget.userId!,
+          lifeMapRef: (analysis.reportHash ?? '').isEmpty
+              ? 'unknown'
+              : analysis.reportHash!,
+          viewportClass: MediaQuery.sizeOf(context).shortestSide < 600
+              ? 'mobile'
+              : 'desktop',
+          buildVersion: '1.0.0+1',
+          sourcePath: 'thai_beta_report',
+        ),
       if (widget.screenshotMode)
         Padding(
           padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
