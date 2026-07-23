@@ -10,16 +10,7 @@
 /// AI Chat, Compatibility and Fusion features.
 library;
 
-enum LifePlanet {
-  sun,
-  moon,
-  mars,
-  mercury,
-  jupiter,
-  venus,
-  saturn,
-  rahu,
-}
+enum LifePlanet { sun, moon, mars, mercury, jupiter, venus, saturn, rahu }
 
 /// Static, reusable metadata for each planet. Strengths follow the traditional
 /// Thai cycle (Moon 15, Mars 8, Mercury(day) 17, Saturn 10, Jupiter 19,
@@ -63,14 +54,14 @@ enum LifeDomain { career, money, love, health, growth, opportunity, pressure }
 extension LifeDomainInfo on LifeDomain {
   /// Short Thai label ("การงาน"). A label, never narrative copy.
   String get labelTh => switch (this) {
-        LifeDomain.career => 'การงาน',
-        LifeDomain.money => 'การเงิน',
-        LifeDomain.love => 'ความรัก',
-        LifeDomain.health => 'สุขภาพ',
-        LifeDomain.growth => 'การเติบโต',
-        LifeDomain.opportunity => 'โอกาส',
-        LifeDomain.pressure => 'แรงกดดัน',
-      };
+    LifeDomain.career => 'การงาน',
+    LifeDomain.money => 'การเงิน',
+    LifeDomain.love => 'ความรัก',
+    LifeDomain.health => 'สุขภาพ',
+    LifeDomain.growth => 'การเติบโต',
+    LifeDomain.opportunity => 'โอกาส',
+    LifeDomain.pressure => 'แรงกดดัน',
+  };
 
   /// The six supportive domains (pressure excluded).
   static const List<LifeDomain> supportive = [
@@ -106,14 +97,14 @@ class PlanetAffinity {
 
   /// Intrinsic base level for [domain].
   int valueOf(LifeDomain domain) => switch (domain) {
-        LifeDomain.career => career,
-        LifeDomain.money => money,
-        LifeDomain.love => love,
-        LifeDomain.health => health,
-        LifeDomain.growth => growth,
-        LifeDomain.opportunity => opportunity,
-        LifeDomain.pressure => pressure,
-      };
+    LifeDomain.career => career,
+    LifeDomain.money => money,
+    LifeDomain.love => love,
+    LifeDomain.health => health,
+    LifeDomain.growth => growth,
+    LifeDomain.opportunity => opportunity,
+    LifeDomain.pressure => pressure,
+  };
 
   /// The six supportive domains ranked strongest → weakest (pressure excluded).
   List<LifeDomain> get supportRanked {
@@ -232,7 +223,8 @@ abstract final class LifePlanets {
       strength: 8,
       thaiName: 'ดาวอังคาร',
       phaseName: 'ช่วงลงมือและบุกเบิก',
-      phaseEssence: 'ช่วงพลังสูง เหมาะกับการลงมือ ตัดสินใจ และผลักดันสิ่งที่ค้างไว้',
+      phaseEssence:
+          'ช่วงพลังสูง เหมาะกับการลงมือ ตัดสินใจ และผลักดันสิ่งที่ค้างไว้',
       keyword: 'การลงมือ',
       affinity: PlanetAffinity(
         career: 80,
@@ -249,7 +241,8 @@ abstract final class LifePlanets {
       strength: 17,
       thaiName: 'ดาวพุธ',
       phaseName: 'ช่วงเรียนรู้และเชื่อมโยง',
-      phaseEssence: 'ช่วงของการคิด สื่อสาร เรียนรู้ และต่อยอดความรู้ให้กลายเป็นโอกาส',
+      phaseEssence:
+          'ช่วงของการคิด สื่อสาร เรียนรู้ และต่อยอดความรู้ให้กลายเป็นโอกาส',
       keyword: 'การเรียนรู้',
       affinity: PlanetAffinity(
         career: 76,
@@ -281,7 +274,17 @@ abstract final class LifePlanets {
 
   /// Maps a Dart [DateTime.weekday] (Mon=1 … Sun=7) to its ruling planet, which
   /// is where the life-period ring begins for that person.
-  static LifePlanet rulerForWeekday(int weekday) {
+  ///
+  /// When [wednesdayNightRahu] is true and [weekday] is Wednesday, the start
+  /// planet is Rahu (พุธกลางคืน / วันราหู) — the traditional 8-day life-period
+  /// branch, separate from Taksa rotation tables.
+  static LifePlanet rulerForWeekday(
+    int weekday, {
+    bool wednesdayNightRahu = false,
+  }) {
+    if (weekday == DateTime.wednesday && wednesdayNightRahu) {
+      return LifePlanet.rahu;
+    }
     switch (weekday) {
       case DateTime.monday:
         return LifePlanet.moon;

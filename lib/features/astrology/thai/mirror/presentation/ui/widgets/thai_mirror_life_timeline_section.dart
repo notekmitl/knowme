@@ -11,17 +11,25 @@ import '../../timeline/thai_mirror_life_timeline_state.dart';
 /// When [relevantPeriodsOnly] is true (Thai Beta V1.2.1), the list and strip
 /// show only previous/current/next (max 3). Source [state.periods] is not
 /// mutated — selection is a presentation projection.
+///
+/// When [lifeMapMode] is true (V1.2.3), all eight periods are shown with
+/// past/current/future labels; period details start collapsed and include
+/// nested ดาวแทรก / ทักษาจร expanders.
 class ThaiMirrorLifeTimelineSection extends StatefulWidget {
   const ThaiMirrorLifeTimelineSection({
     super.key,
     required this.state,
     this.relevantPeriodsOnly = false,
+    this.lifeMapMode = false,
   });
 
   final ThaiMirrorLifeTimelineState state;
 
   /// V1.2.1 — limit displayed periods/segments to relevant neighbours.
   final bool relevantPeriodsOnly;
+
+  /// V1.2.3 — full eight-period Life Map presentation.
+  final bool lifeMapMode;
 
   /// Copy shown beside period domain scores (presentation-only; scores unchanged).
   /// V1.2.2 — warmer wording; meaning unchanged (not accuracy / not a guarantee).
@@ -31,6 +39,9 @@ class ThaiMirrorLifeTimelineSection extends StatefulWidget {
 
   static const expandDetailsLabel = 'ดูรายละเอียดช่วงชีวิต';
   static const collapseDetailsLabel = 'ซ่อนรายละเอียดช่วงชีวิต';
+  static const subPeriodsLabel = 'ดาวแทรกในช่วงนี้';
+  static const annualTaksaLabel = 'ทักษาจรรายปีในช่วงนี้';
+  static const mahabhutLabel = 'ตำแหน่งมหาภูต';
 
   @override
   State<ThaiMirrorLifeTimelineSection> createState() =>
@@ -57,7 +68,7 @@ class _ThaiMirrorLifeTimelineSectionState
 
   List<ThaiMirrorLifePeriodState> get _displayPeriods {
     final all = widget.state.periods;
-    if (!widget.relevantPeriodsOnly) return all;
+    if (widget.lifeMapMode || !widget.relevantPeriodsOnly) return all;
     return RelevantLifePeriodsSelector.select(
       periods: all,
       isCurrent: (p) => p.isCurrent,
@@ -67,7 +78,7 @@ class _ThaiMirrorLifeTimelineSectionState
 
   List<ThaiMirrorTimelineSegmentState> get _displaySegments {
     final all = widget.state.segments;
-    if (!widget.relevantPeriodsOnly) return all;
+    if (widget.lifeMapMode || !widget.relevantPeriodsOnly) return all;
     return RelevantLifePeriodsSelector.select(
       periods: all,
       isCurrent: (p) => p.isCurrent,
@@ -78,8 +89,8 @@ class _ThaiMirrorLifeTimelineSectionState
   @override
   void initState() {
     super.initState();
-    // V1.2.1 compact mode: details start collapsed; essentials stay visible.
-    if (widget.relevantPeriodsOnly) {
+    // V1.2.1 compact / V1.2.3 Life Map: details start collapsed.
+    if (widget.relevantPeriodsOnly || widget.lifeMapMode) {
       _expanded = -1;
       return;
     }
@@ -95,7 +106,7 @@ class _ThaiMirrorLifeTimelineSectionState
     final isWide = MediaQuery.sizeOf(context).width >= 768;
     final periods = _displayPeriods;
     final segments = _displaySegments;
-    final compact = widget.relevantPeriodsOnly;
+    final compact = widget.relevantPeriodsOnly || widget.lifeMapMode;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -120,7 +131,7 @@ class _ThaiMirrorLifeTimelineSectionState
         Text(
           compact
               ? 'โฟกัสช่วงที่เกี่ยวข้องกับตอนนี้ '
-                  '— ก่อนหน้า ปัจจุบัน และถัดไป'
+                    '— ก่อนหน้า ปัจจุบัน และถัดไป'
               : state.sectionIntro,
           style: TextStyle(
             fontSize: 14.5,
@@ -141,10 +152,7 @@ class _ThaiMirrorLifeTimelineSectionState
           ),
         ],
         const SizedBox(height: 18),
-        _TimelineStrip(
-          segments: segments,
-          accentOf: _accent,
-        ),
+        _TimelineStrip(segments: segments, accentOf: _accent),
         // Compact mode: next-period preview duplicates the "next" card — skip it.
         if (!compact && state.futurePreview != null) ...[
           const SizedBox(height: 18),
@@ -155,7 +163,11 @@ class _ThaiMirrorLifeTimelineSectionState
         ],
         const SizedBox(height: 20),
         Text(
-          compact ? 'ช่วงชีวิตที่เกี่ยวข้อง' : 'ทุกช่วงชีวิตของคุณ',
+          widget.lifeMapMode
+              ? 'แปดช่วงดาวเสวยอายุ'
+              : compact
+                  ? 'ช่วงชีวิตที่เกี่ยวข้อง'
+                  : 'ทุกช่วงชีวิตของคุณ',
           style: TextStyle(
             fontSize: 15.5,
             fontWeight: FontWeight.w700,
@@ -166,10 +178,7 @@ class _ThaiMirrorLifeTimelineSectionState
         if (periods.isEmpty)
           Text(
             'ยังไม่มีข้อมูลช่วงชีวิตสำหรับแสดง',
-            style: TextStyle(
-              fontSize: 14,
-              color: scheme.onSurfaceVariant,
-            ),
+            style: TextStyle(fontSize: 14, color: scheme.onSurfaceVariant),
           )
         else
           for (var i = 0; i < periods.length; i++) ...[
@@ -180,6 +189,7 @@ class _ThaiMirrorLifeTimelineSectionState
               expanded: _expanded == i,
               isWide: isWide,
               showCollapsedSummary: compact,
+              lifeMapMode: widget.lifeMapMode,
               onTap: () => setState(() => _expanded = _expanded == i ? -1 : i),
             ),
           ],
@@ -246,20 +256,14 @@ class _CurrentStageCard extends StatelessWidget {
           const SizedBox(height: 4),
           Text(
             '${stage.planetLine}  •  อายุ ${stage.ageLabel}',
-            style: TextStyle(
-              fontSize: 13.5,
-              color: scheme.onSurfaceVariant,
-            ),
+            style: TextStyle(fontSize: 13.5, color: scheme.onSurfaceVariant),
           ),
           const SizedBox(height: 16),
           _ProgressBar(progress: stage.progress, accent: accent),
           const SizedBox(height: 8),
           Text(
             'เหลืออีกประมาณ ${stage.yearsRemaining} ปีก่อนเปลี่ยนช่วง',
-            style: TextStyle(
-              fontSize: 12.5,
-              color: scheme.onSurfaceVariant,
-            ),
+            style: TextStyle(fontSize: 12.5, color: scheme.onSurfaceVariant),
           ),
           const SizedBox(height: 16),
           Text(
@@ -270,8 +274,7 @@ class _CurrentStageCard extends StatelessWidget {
               color: scheme.onSurface.withValues(alpha: 0.92),
             ),
           ),
-          if (stage.previousLabel.isNotEmpty ||
-              stage.nextLabel.isNotEmpty) ...[
+          if (stage.previousLabel.isNotEmpty || stage.nextLabel.isNotEmpty) ...[
             const SizedBox(height: 16),
             if (stage.previousLabel.isNotEmpty)
               _NeighbourChip(
@@ -530,10 +533,7 @@ class _NeighbourChip extends StatelessWidget {
         Expanded(
           child: Text(
             label,
-            style: TextStyle(
-              fontSize: 13,
-              color: scheme.onSurfaceVariant,
-            ),
+            style: TextStyle(fontSize: 13, color: scheme.onSurfaceVariant),
           ),
         ),
       ],
@@ -600,8 +600,8 @@ class _TimelineStrip extends StatelessWidget {
                         color: seg.isPast
                             ? accentOf(seg.accentIndex).withValues(alpha: 0.35)
                             : seg.isCurrent
-                                ? accentOf(seg.accentIndex)
-                                : scheme.surfaceContainerHighest,
+                            ? accentOf(seg.accentIndex)
+                            : scheme.surfaceContainerHighest,
                         border: seg.isCurrent
                             ? Border.all(
                                 color: accentOf(seg.accentIndex),
@@ -615,8 +615,9 @@ class _TimelineStrip extends StatelessWidget {
                       seg.ageLabel,
                       style: TextStyle(
                         fontSize: 12,
-                        fontWeight:
-                            seg.isCurrent ? FontWeight.w800 : FontWeight.w600,
+                        fontWeight: seg.isCurrent
+                            ? FontWeight.w800
+                            : FontWeight.w600,
                         color: seg.isCurrent
                             ? accentOf(seg.accentIndex)
                             : scheme.onSurface,
@@ -651,6 +652,7 @@ class _PeriodCard extends StatelessWidget {
     required this.isWide,
     required this.onTap,
     this.showCollapsedSummary = false,
+    this.lifeMapMode = false,
   });
 
   final ThaiMirrorLifePeriodState period;
@@ -659,10 +661,14 @@ class _PeriodCard extends StatelessWidget {
   final bool isWide;
   final VoidCallback onTap;
   final bool showCollapsedSummary;
+  final bool lifeMapMode;
 
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final bucket = period.timeBucketLabel.isNotEmpty
+        ? period.timeBucketLabel
+        : (period.isCurrent ? 'ปัจจุบัน' : (period.isPast ? 'อดีต' : 'อนาคต'));
 
     return Container(
       decoration: BoxDecoration(
@@ -722,7 +728,10 @@ class _PeriodCard extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              if (period.isCurrent) ...[
+                              if (lifeMapMode) ...[
+                                const SizedBox(width: 8),
+                                _Badge(label: bucket, accent: accent),
+                              ] else if (period.isCurrent) ...[
                                 const SizedBox(width: 8),
                                 _Badge(label: 'ตอนนี้', accent: accent),
                               ],
@@ -781,6 +790,7 @@ class _PeriodCard extends StatelessWidget {
                     accent: accent,
                     isWide: isWide,
                     showExpandChrome: showCollapsedSummary,
+                    lifeMapMode: lifeMapMode,
                   ),
                   secondChild: const SizedBox(width: double.infinity),
                 ),
@@ -825,28 +835,30 @@ class _PeriodDetail extends StatelessWidget {
     required this.accent,
     required this.isWide,
     this.showExpandChrome = false,
+    this.lifeMapMode = false,
   });
 
   final ThaiMirrorLifePeriodState period;
   final Color accent;
   final bool isWide;
   final bool showExpandChrome;
+  final bool lifeMapMode;
 
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
 
     Widget para(String text) => Padding(
-          padding: const EdgeInsets.only(top: 10),
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: 14.5,
-              height: 1.8,
-              color: scheme.onSurface.withValues(alpha: 0.9),
-            ),
-          ),
-        );
+      padding: const EdgeInsets.only(top: 10),
+      child: Text(
+        text,
+        style: TextStyle(
+          fontSize: 14.5,
+          height: 1.8,
+          color: scheme.onSurface.withValues(alpha: 0.9),
+        ),
+      ),
+    );
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -864,8 +876,41 @@ class _PeriodDetail extends StatelessWidget {
             ),
           ),
         ],
+        if (period.mahabhutPositionLabel.isNotEmpty) ...[
+          const SizedBox(height: 10),
+          Text(
+            '${ThaiMirrorLifeTimelineSection.mahabhutLabel}: '
+            '${period.mahabhutPositionLabel}',
+            key: const Key('thai_life_map_mahabhut_position'),
+            style: TextStyle(
+              fontSize: 13.5,
+              height: 1.5,
+              color: scheme.onSurfaceVariant,
+            ),
+          ),
+        ],
         para(period.summary),
         para(period.whatChanges),
+        if (lifeMapMode || period.subPeriods.isNotEmpty) ...[
+          const SizedBox(height: 12),
+          _NestedLifeMapList(
+            title: ThaiMirrorLifeTimelineSection.subPeriodsLabel,
+            rows: [
+              for (final s in period.subPeriods)
+                '${s.label} — ${s.durationLabel}',
+            ],
+          ),
+        ],
+        if (lifeMapMode || period.annualTaksaYears.isNotEmpty) ...[
+          const SizedBox(height: 8),
+          _NestedLifeMapList(
+            title: ThaiMirrorLifeTimelineSection.annualTaksaLabel,
+            rows: [
+              for (final y in period.annualTaksaYears)
+                '${y.ageLabel}: ${y.boriwanLabel} · ${y.houseLabel}',
+            ],
+          ),
+        ],
         const SizedBox(height: 14),
         Text(
           ThaiMirrorLifeTimelineSection.scoreExplanation,
@@ -879,7 +924,11 @@ class _PeriodDetail extends StatelessWidget {
         const SizedBox(height: 10),
         _ScoreGrid(scores: period.scores, accent: accent, isWide: isWide),
         const SizedBox(height: 6),
-        _Hint(icon: Icons.check_circle_rounded, color: accent, text: period.easier),
+        _Hint(
+          icon: Icons.check_circle_rounded,
+          color: accent,
+          text: period.easier,
+        ),
         const SizedBox(height: 8),
         _Hint(
           icon: Icons.error_outline_rounded,
@@ -908,6 +957,86 @@ class _PeriodDetail extends StatelessWidget {
           ),
         ],
       ],
+    );
+  }
+}
+
+class _NestedLifeMapList extends StatefulWidget {
+  const _NestedLifeMapList({required this.title, required this.rows});
+
+  final String title;
+  final List<String> rows;
+
+  @override
+  State<_NestedLifeMapList> createState() => _NestedLifeMapListState();
+}
+
+class _NestedLifeMapListState extends State<_NestedLifeMapList> {
+  bool _open = false;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    if (widget.rows.isEmpty) return const SizedBox.shrink();
+
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: scheme.outlineVariant.withValues(alpha: 0.7)),
+      ),
+      child: Column(
+        children: [
+          InkWell(
+            onTap: () => setState(() => _open = !_open),
+            borderRadius: BorderRadius.circular(12),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Text(
+                      widget.title,
+                      style: TextStyle(
+                        fontSize: 13.5,
+                        fontWeight: FontWeight.w700,
+                        color: scheme.onSurface,
+                      ),
+                    ),
+                  ),
+                  Icon(
+                    _open
+                        ? Icons.keyboard_arrow_up_rounded
+                        : Icons.keyboard_arrow_down_rounded,
+                    size: 20,
+                    color: scheme.onSurfaceVariant,
+                  ),
+                ],
+              ),
+            ),
+          ),
+          if (_open)
+            Padding(
+              padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  for (final row in widget.rows) ...[
+                    Text(
+                      row,
+                      style: TextStyle(
+                        fontSize: 13,
+                        height: 1.55,
+                        color: scheme.onSurfaceVariant,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                  ],
+                ],
+              ),
+            ),
+        ],
+      ),
     );
   }
 }

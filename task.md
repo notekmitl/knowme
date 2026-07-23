@@ -2,12 +2,14 @@
 
 ## Task ID
 
-`thai-beta-narrative-v122-status-docs`
+`thai-beta-life-map-v123`
 
 ## เป้าหมาย
 
-อัปเดต CURRENT_STATUS / HANDOFF หลัง Thai Beta Narrative V1.2.2 merge + deploy
+Thai Life Map V1.2.3 — ดาวเสวยอายุ 8 ช่วง (1–108), ดาวแทรก, ทักษาจร, พุธกลางคืน/ราหู, Mahabhut จาก Canon เท่านั้น, UI พับได้บนทุกเส้นทางรายงาน
 
 ## Definition of Done
 
-- Docs สะท้อน `463008f` / PR #16 และ hosting `?v=463008f`
+- Focused tests + analyze + Local Gate PASS
+- Commit / PR / merge / deploy / Production QA
+- Docs CURRENT_STATUS + HANDOFF

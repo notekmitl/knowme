@@ -2,7 +2,10 @@ import 'dart:math' as math;
 
 /// Result of a sunrise computation for a given date/place.
 class SunriseCalculation {
-  const SunriseCalculation({required this.localSunrise, required this.available});
+  const SunriseCalculation({
+    required this.localSunrise,
+    required this.available,
+  });
 
   /// Local sunrise on the requested civil date. When [available] is false this
   /// falls back to 06:00 local purely so callers always have a value; callers
@@ -60,7 +63,8 @@ abstract final class SunriseCalculator {
     final m = (0.9856 * t) - 3.289;
 
     // Sun's true longitude.
-    var l = m +
+    var l =
+        m +
         (1.916 * math.sin(_rad(m))) +
         (0.020 * math.sin(_rad(2 * m))) +
         282.634;
@@ -79,7 +83,8 @@ abstract final class SunriseCalculator {
     final cosDec = math.cos(math.asin(sinDec));
 
     // Local hour angle.
-    final cosH = (math.cos(_rad(_officialZenith)) -
+    final cosH =
+        (math.cos(_rad(_officialZenith)) -
             (sinDec * math.sin(_rad(latitude)))) /
         (cosDec * math.cos(_rad(latitude)));
 
@@ -104,8 +109,72 @@ abstract final class SunriseCalculator {
     final second = ((minuteDouble - minute) * 60.0).round().clamp(0, 59);
 
     return SunriseCalculation(
-      localSunrise:
-          DateTime(date.year, date.month, date.day, hour, minute, second),
+      localSunrise: DateTime(
+        date.year,
+        date.month,
+        date.day,
+        hour,
+        minute,
+        second,
+      ),
+      available: true,
+    );
+  }
+
+  /// Local sunset for [date] — same Almanac algorithm as [localSunrise],
+  /// using the setting-hour branch. Additive helper for พุธกลางคืน / ราหู.
+  static SunriseCalculation localSunset({
+    required DateTime date,
+    required double latitude,
+    required double longitude,
+    required Duration utcOffset,
+  }) {
+    final n = dayOfYear(date);
+    final lngHour = longitude / 15.0;
+    final t = n + ((18.0 - lngHour) / 24.0);
+    final m = (0.9856 * t) - 3.289;
+    var l =
+        m +
+        (1.916 * math.sin(_rad(m))) +
+        (0.020 * math.sin(_rad(2 * m))) +
+        282.634;
+    l = _normDeg(l);
+    var ra = _deg(math.atan(0.91764 * math.tan(_rad(l))));
+    ra = _normDeg(ra);
+    final lQuadrant = (l / 90.0).floor() * 90.0;
+    final raQuadrant = (ra / 90.0).floor() * 90.0;
+    ra = ra + (lQuadrant - raQuadrant);
+    ra = ra / 15.0;
+    final sinDec = 0.39782 * math.sin(_rad(l));
+    final cosDec = math.cos(math.asin(sinDec));
+    final cosH =
+        (math.cos(_rad(_officialZenith)) -
+            (sinDec * math.sin(_rad(latitude)))) /
+        (cosDec * math.cos(_rad(latitude)));
+    if (cosH > 1 || cosH < -1) {
+      return SunriseCalculation(
+        localSunrise: DateTime(date.year, date.month, date.day, 18),
+        available: false,
+      );
+    }
+    var h = _deg(math.acos(cosH)); // sunset branch
+    h = h / 15.0;
+    final localMeanTime = h + ra - (0.06571 * t) - 6.622;
+    final utHours = _normHours(localMeanTime - lngHour);
+    final localHours = _normHours(utHours + (utcOffset.inMinutes / 60.0));
+    final hour = localHours.floor();
+    final minuteDouble = (localHours - hour) * 60.0;
+    final minute = minuteDouble.floor();
+    final second = ((minuteDouble - minute) * 60.0).round().clamp(0, 59);
+    return SunriseCalculation(
+      localSunrise: DateTime(
+        date.year,
+        date.month,
+        date.day,
+        hour,
+        minute,
+        second,
+      ),
       available: true,
     );
   }

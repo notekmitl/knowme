@@ -1,3 +1,5 @@
+import 'package:knowme/features/birth_normalization/application/sunrise_calculator.dart';
+
 import '../../foundation/models/thai_birth_data.dart';
 import 'life_planet.dart';
 
@@ -73,6 +75,9 @@ class LifeTimeline {
 /// the order then follows [LifePlanets.ring]; each period lasts the planet's
 /// strength in years.
 ///
+/// Life Map V1.2.3 uses [lifeMapMaxAge] (108) so the first cycle is exactly eight
+/// periods covering ages 1–108 with no repeat.
+///
 /// The engine consumes the canonical birth profile (the birth date already
 /// resolved by `CanonicalProfileResolver` upstream) and returns *evidence only*
 /// — the [LifeTimeline] of [PeriodState]s. It performs no scoring narrative and
@@ -80,12 +85,23 @@ class LifeTimeline {
 /// own composers so this engine can be reused by Timeline, Annual/Future
 /// Prediction, AI Chat, Compatibility and Fusion.
 abstract final class LifePeriodEngine {
+  /// Inclusive Thai age covered by one full planetary strength cycle.
+  static const lifeMapMaxAge = 108;
+
   /// Builds the timeline from normalized [ThaiBirthData] — the **preferred,
   /// consistency-safe** entry point. The starting planet (weekday ruler) and the
   /// age both come from the single sunrise-adjusted [ThaiBirthData.astrologicalDate],
   /// so the timeline always agrees with the Thai day shown elsewhere.
+  ///
+  /// พุธกลางคืน / ราหู: when birth time is known and falls after local sunset on
+  /// the astrological Wednesday, the ring starts at Rahu.
   static LifeTimeline fromBirthData(ThaiBirthData birthData, {DateTime? asOf}) {
-    return fromBirthDate(birthData.astrologicalDate, asOf: asOf);
+    return build(
+      birthWeekday: birthData.astrologicalDate.weekday,
+      currentAge: ageFrom(birthData.astrologicalDate, asOf: asOf),
+      maxAge: lifeMapMaxAge,
+      wednesdayNightRahu: isWednesdayNightRahu(birthData),
+    );
   }
 
   /// Builds the timeline directly from a canonical birth [DateTime].
@@ -96,20 +112,44 @@ abstract final class LifePeriodEngine {
     return build(
       birthWeekday: birthDate.weekday,
       currentAge: ageFrom(birthDate, asOf: asOf),
+      maxAge: lifeMapMaxAge,
     );
   }
 
-  /// Generates all periods covering roughly age 1–[maxAge].
+  /// True when [birthData] is พุธกลางคืน (ราหู day) for the 8-day life-period ring.
+  ///
+  /// Requires known birth time. Unknown time never invents night/Rahu.
+  static bool isWednesdayNightRahu(ThaiBirthData birthData) {
+    if (!birthData.hasBirthTime) return false;
+    final astro = birthData.astrologicalDate;
+    if (astro.weekday != DateTime.wednesday) return false;
+
+    final sunset = SunriseCalculator.localSunset(
+      date: DateTime(astro.year, astro.month, astro.day),
+      latitude: birthData.latitude,
+      longitude: birthData.longitude,
+      utcOffset: birthData.timeZoneOffset,
+    );
+    if (!sunset.available) return false;
+
+    final birth = birthData.localDateTime;
+    return !birth.isBefore(sunset.localSunrise);
+  }
+
+  /// Generates all periods covering ages 1–[maxAge] (default Life Map 108).
   static LifeTimeline build({
     required int birthWeekday,
     required int currentAge,
-    int maxAge = 120,
+    int maxAge = lifeMapMaxAge,
+    bool wednesdayNightRahu = false,
   }) {
-    final startPlanet = LifePlanets.rulerForWeekday(birthWeekday);
+    final startPlanet = LifePlanets.rulerForWeekday(
+      birthWeekday,
+      wednesdayNightRahu: wednesdayNightRahu,
+    );
     final ring = LifePlanets.ring;
     final startIndex = ring.indexOf(startPlanet);
 
-    final planetsSeq = <LifePlanet>[];
     final raw = <_RawPeriod>[];
     var age = 1;
     var k = 0;
@@ -117,11 +157,13 @@ abstract final class LifePeriodEngine {
       final planet = ring[(startIndex + k) % ring.length];
       final strength = LifePlanets.of(planet).strength;
       final start = age;
-      final end = age + strength - 1;
-      planetsSeq.add(planet);
-      raw.add(_RawPeriod(planet, start, end, strength));
+      var end = age + strength - 1;
+      if (end > maxAge) end = maxAge;
+      final span = end - start + 1;
+      raw.add(_RawPeriod(planet, start, end, span));
       age = end + 1;
       k++;
+      if (end >= maxAge) break;
     }
 
     final effectiveAge = currentAge < 1 ? 1 : currentAge;
@@ -179,7 +221,8 @@ abstract final class LifePeriodEngine {
   static int ageFrom(DateTime birthDate, {DateTime? asOf}) {
     final now = asOf ?? DateTime.now();
     var age = now.year - birthDate.year;
-    final hadBirthday = (now.month > birthDate.month) ||
+    final hadBirthday =
+        (now.month > birthDate.month) ||
         (now.month == birthDate.month && now.day >= birthDate.day);
     if (!hadBirthday) age -= 1;
     return age < 0 ? 0 : age;

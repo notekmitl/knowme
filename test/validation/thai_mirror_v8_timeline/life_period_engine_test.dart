@@ -53,7 +53,7 @@ void main() {
       expect(t.periods[3].isFuture, isTrue);
     });
 
-    test('coverage reaches ~120 and every weekday starts at its ruler', () {
+    test('coverage reaches 108 with exactly 8 periods for every weekday', () {
       const expected = {
         DateTime.monday: LifePlanet.moon,
         DateTime.tuesday: LifePlanet.mars,
@@ -66,7 +66,8 @@ void main() {
       expected.forEach((weekday, planet) {
         final t = LifePeriodEngine.build(birthWeekday: weekday, currentAge: 1);
         expect(t.startPlanet, planet);
-        expect(t.periods.last.endAge, greaterThanOrEqualTo(120));
+        expect(t.periods, hasLength(8));
+        expect(t.periods.last.endAge, 108);
         // Ages are contiguous with no gaps.
         for (var i = 1; i < t.periods.length; i++) {
           expect(t.periods[i].startAge, t.periods[i - 1].endAge + 1);
@@ -105,7 +106,10 @@ void main() {
         PlanetRelation.enemy,
       );
       expect(
-        PlanetRelationshipMatrix.relation(LifePlanet.mercury, LifePlanet.jupiter),
+        PlanetRelationshipMatrix.relation(
+          LifePlanet.mercury,
+          LifePlanet.jupiter,
+        ),
         PlanetRelation.neutral,
       );
       final net = PlanetRelationshipMatrix.netScore(
@@ -122,9 +126,11 @@ void main() {
         birthWeekday: DateTime.friday,
         currentAge: 30,
       );
-      final evidence = ThaiMirrorEvidenceComposer.profileFor(
-        const ['empathetic', 'loyal', 'creative'],
-      );
+      final evidence = ThaiMirrorEvidenceComposer.profileFor(const [
+        'empathetic',
+        'loyal',
+        'creative',
+      ]);
       final scores = PeriodCompositeScore.evaluate(
         period: t.current,
         lagnaLord: LifePlanet.venus,
