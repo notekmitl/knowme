@@ -1,4 +1,5 @@
 import 'package:knowme/features/astrology/fusion/application/astrology_fusion_lens_probe.dart';
+import 'package:knowme/features/astrology/thai/knowledge/canon/integration/thai_canon_evidence_repository.dart';
 import 'package:knowme/services/profile_service.dart';
 
 import '../runtime/thai_mirror_pipeline.dart';
@@ -7,7 +8,7 @@ import '../runtime/thai_mirror_pipeline_result.dart';
 /// Production entry for Thai Mirror — profile → pipeline only (no engine changes).
 class ThaiMirrorEntryService {
   ThaiMirrorEntryService({ProfileService? profileService})
-      : _profileService = profileService ?? ProfileService();
+    : _profileService = profileService ?? ProfileService();
 
   final ProfileService _profileService;
 
@@ -18,6 +19,9 @@ class ThaiMirrorEntryService {
   }
 
   Future<ThaiMirrorPipelineResult> loadResult() async {
+    // Warm Frozen Canon cache before presenters resolve Life Map Mahabhut.
+    await ThaiCanonEvidenceRepository.loadFromAsset();
+
     final profile = await _profileService.loadProfile();
     final birthData =
         FirestoreAstrologyFusionLensProbe.thaiBirthDataFromProfile(profile);

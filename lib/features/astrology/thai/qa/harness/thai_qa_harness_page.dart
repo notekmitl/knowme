@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../core/life_period/life_period_engine.dart';
 import '../../foundation/models/thai_birth_data.dart';
+import '../../knowledge/canon/integration/thai_canon_evidence_repository.dart';
 import '../../mirror/presentation/thai_mirror_consumer_presenter.dart';
 import '../../mirror/presentation/ui/pages/thai_mirror_result_page.dart';
 import '../../mirror/runtime/thai_mirror_pipeline.dart';
@@ -17,13 +18,41 @@ import 'thai_qa_harness_spec.dart';
 /// theme, locale, scenario). There is no duplicate report UI: the harness is a
 /// thin, declarative wrapper used for visual QA and screenshot regression, and
 /// is reusable as the template for Western / Chinese / Fusion / Future / Compat.
-class ThaiQaHarnessPage extends StatelessWidget {
+class ThaiQaHarnessPage extends StatefulWidget {
   const ThaiQaHarnessPage({super.key, required this.spec});
 
   final ThaiQaHarnessSpec spec;
 
   @override
+  State<ThaiQaHarnessPage> createState() => _ThaiQaHarnessPageState();
+}
+
+class _ThaiQaHarnessPageState extends State<ThaiQaHarnessPage> {
+  late Future<void> _canonReady;
+
+  @override
+  void initState() {
+    super.initState();
+    _canonReady = ThaiCanonEvidenceRepository.loadFromAsset();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    return FutureBuilder<void>(
+      future: _canonReady,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState != ConnectionState.done) {
+          return const Scaffold(
+            body: Center(child: CircularProgressIndicator()),
+          );
+        }
+        return _buildHarness(context);
+      },
+    );
+  }
+
+  Widget _buildHarness(BuildContext context) {
+    final spec = widget.spec;
     final profile = ThaiQaHarnessProfiles.byId(spec.profileId);
     final birthData = _birthDataFor(profile.birthData, spec);
 
@@ -47,6 +76,9 @@ class ThaiQaHarnessPage extends StatelessWidget {
     final consumer = ThaiMirrorConsumerPresenter.present(
       mirrorResult,
       lifePeriods: lifePeriods,
+      profile: result.profile,
+      birthData: result.birthData,
+      canonIndex: ThaiCanonEvidenceRepository.cachedIndexOrNull,
     );
 
     Widget page = ThaiMirrorResultPage(consumerState: consumer);

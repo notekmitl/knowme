@@ -28,12 +28,33 @@ class ThaiBetaQaSampleCapturePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ThaiBetaReportPage(
-      analysis: sampleAnalysis(),
-      audienceOverride: const ThaiBetaEvidenceBadgeAudience.anonymous(),
-      screenshotModeOverride: true,
-      showCaptureModeBanner: true,
-      captureBannerMessage: 'QA Sample Report — ไม่ใช่ข้อมูลของผู้ใช้',
+    return FutureBuilder<ThaiBetaAnalysis>(
+      future: ThaiBetaAnalysisRunner.runAsync(
+        ThaiBetaInput(
+          firstName: 'Capture',
+          lastName: 'Preview',
+          birthDate: DateTime(1972, 4, 4),
+          birthHour: 10,
+          birthMinute: 30,
+          province: 'กรุงเทพมหานคร',
+          provinceKey: 'bangkok',
+        ),
+      ),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState != ConnectionState.done) {
+          return const Scaffold(
+            body: Center(child: CircularProgressIndicator()),
+          );
+        }
+        final analysis = snapshot.data ?? sampleAnalysis();
+        return ThaiBetaReportPage(
+          analysis: analysis,
+          audienceOverride: const ThaiBetaEvidenceBadgeAudience.anonymous(),
+          screenshotModeOverride: true,
+          showCaptureModeBanner: true,
+          captureBannerMessage: 'QA Sample Report — ไม่ใช่ข้อมูลของผู้ใช้',
+        );
+      },
     );
   }
 }

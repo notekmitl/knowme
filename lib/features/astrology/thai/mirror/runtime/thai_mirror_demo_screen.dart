@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../foundation/models/thai_birth_data.dart';
+import '../../knowledge/canon/integration/thai_canon_evidence_repository.dart';
 import '../presentation/thai_mirror_consumer_presenter.dart';
 import '../presentation/ui/pages/thai_mirror_result_page.dart';
 import 'thai_mirror_pipeline.dart';
@@ -25,10 +26,13 @@ class _ThaiMirrorDemoScreenState extends State<ThaiMirrorDemoScreen> {
   @override
   void initState() {
     super.initState();
-    _pipelineFuture = Future(
-      () => ThaiMirrorPipeline.generate(
-        widget.birthData ?? ThaiMirrorPipeline.sampleQaBirthData(),
-      ),
+    _pipelineFuture = _load();
+  }
+
+  Future<ThaiMirrorPipelineResult> _load() async {
+    await ThaiCanonEvidenceRepository.loadFromAsset();
+    return ThaiMirrorPipeline.generate(
+      widget.birthData ?? ThaiMirrorPipeline.sampleQaBirthData(),
     );
   }
 
@@ -58,6 +62,8 @@ class _ThaiMirrorDemoScreenState extends State<ThaiMirrorDemoScreen> {
             consumerState: ThaiMirrorConsumerPresenter.present(
               result.mirrorResult!,
               lifePeriods: result.lifePeriods,
+              profile: result.profile,
+              birthData: result.birthData,
             ),
           );
         },

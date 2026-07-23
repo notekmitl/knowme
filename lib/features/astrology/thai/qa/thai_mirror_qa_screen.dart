@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../knowledge/canon/integration/thai_canon_evidence_repository.dart';
 import '../mirror/presentation/thai_mirror_consumer_presenter.dart';
 import '../mirror/presentation/ui/pages/thai_mirror_result_page.dart';
 import '../mirror/runtime/thai_mirror_pipeline.dart';
@@ -32,9 +33,10 @@ class _ThaiMirrorQaScreenState extends State<ThaiMirrorQaScreen> {
   }
 
   Future<ThaiMirrorPipelineResult> _runPipeline(ThaiMirrorQaProfile profile) {
-    return Future.microtask(
-      () => ThaiMirrorPipeline.generate(profile.birthData),
-    );
+    return () async {
+      await ThaiCanonEvidenceRepository.loadFromAsset();
+      return ThaiMirrorPipeline.generate(profile.birthData);
+    }();
   }
 
   Future<void> _loadDashboard() async {
@@ -195,6 +197,8 @@ class _ThaiMirrorQaScreenState extends State<ThaiMirrorQaScreen> {
                   consumerState: ThaiMirrorConsumerPresenter.present(
                     result.mirrorResult!,
                     lifePeriods: result.lifePeriods,
+                    profile: result.profile,
+                    birthData: result.birthData,
                   ),
                 );
               },

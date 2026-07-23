@@ -4,6 +4,10 @@ import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart
 import 'package:knowme/features/astrology/thai/core/life_period/life_sub_period_engine.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_timeline_intelligence.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/mahabhut_planet_position_engine.dart';
+import 'package:knowme/features/astrology/thai/core/life_period/thai_life_map_mahabhut_resolution.dart';
+import 'package:knowme/features/astrology/thai/foundation/models/thai_astrology_profile.dart';
+import 'package:knowme/features/astrology/thai/foundation/models/thai_birth_data.dart';
+import 'package:knowme/features/astrology/thai/knowledge/canon/integration/thai_canon_evidence_index.dart';
 
 import '../copy/thai_mirror_evidence_composer.dart';
 import 'period_composite_score.dart';
@@ -31,6 +35,9 @@ abstract final class TimelinePresenter {
   /// profile upstream). The presenter never receives a raw birth date — only
   /// engine evidence — so birth-profile resolution stays in one place.
   ///
+  /// [canonIndex] (or the Frozen Canon process cache) plus [profile]/[birthData]
+  /// feed existing Mahabhut resolvers — never invent placement tables here.
+  ///
   /// Returns null when no timeline evidence is available.
   static ThaiMirrorLifeTimelineState? build({
     required LifeTimeline? lifePeriods,
@@ -38,6 +45,9 @@ abstract final class TimelinePresenter {
     required List<String> orderedThemeIds,
     required List<String> topThemeTags,
     required int profileSeed,
+    ThaiAstrologyProfile? profile,
+    ThaiBirthData? birthData,
+    ThaiCanonEvidenceIndex? canonIndex,
   }) {
     if (lifePeriods == null) return null;
 
@@ -45,6 +55,11 @@ abstract final class TimelinePresenter {
     final age = timeline.currentAge;
     final lagnaLord = LifePlanets.fromLagnaLordKey(lagnaLordKey);
     final evidence = ThaiMirrorEvidenceComposer.profileFor(orderedThemeIds);
+    final mahabhutResolution = ThaiLifeMapMahabhutResolution.tryCreate(
+      profile: profile,
+      birthData: birthData,
+      canonIndex: canonIndex,
+    );
 
     String ageLabel(PeriodState p) => '${p.startAge}–${p.endAge}';
 
@@ -131,7 +146,8 @@ abstract final class TimelinePresenter {
               )
               .toList(growable: false);
 
-      final mahabhut = MahabhutPlanetPositionEngine.resolve(period: p);
+      final mahabhut = mahabhutResolution?.resolve(p) ??
+          MahabhutPlanetPositionEngine.resolve(period: p);
 
       periods.add(
         ThaiMirrorLifePeriodState(
