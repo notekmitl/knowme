@@ -16,7 +16,7 @@ cd knowme
 git checkout main
 ```
 
-**Important:** Prefer `main`. Public Firebase Hosting was last deployed from `main` @ `463008f` (2026-07-22) — Thai Beta Report **V1.2.2** (editorial chrome) + anonymous Public Beta at https://knowme-app-694e1.web.app/beta/thai (Thai landing, not Login; Evidence Badge remains `invited_beta`). Older feature branches such as `feature/fusion-result` remain useful historical snapshots; check [`CURRENT_STATUS.md`](CURRENT_STATUS.md) for the active deploy source.
+**Important:** Prefer `main`. Public Firebase Hosting was last deployed from `main` @ `edbb01e` (2026-07-23) — Thai Beta Report **Life Map V1.2.3** + anonymous Public Beta at https://knowme-app-694e1.web.app/beta/thai (Thai landing, not Login; Evidence Badge remains `invited_beta`). Older feature branches such as `feature/fusion-result` remain useful historical snapshots; check [`CURRENT_STATUS.md`](CURRENT_STATUS.md) for the active deploy source.
 
 **Automation workflow:** Use Single-Agent + Local Gate — see [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). The external AI Worker is **retired** (historical: [`AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)). The obsolete in-repo `ai-worker/` directory is gitignored and must not be committed.
 
