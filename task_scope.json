@@ -41,11 +41,11 @@
     "round_[0-9]+_review\\.json"
   ],
   "focused_tests": [
-    "flutter test test/validation/thai_beta/life_map/v126/thai_life_map_v126_narrative_ux_test.dart test/ui/thai_mirror_timeline_ui_test.dart --reporter expanded"
+    "flutter test --no-pub test/validation/thai_beta/life_map/v126/thai_life_map_v126_narrative_ux_test.dart test/ui/thai_mirror_timeline_ui_test.dart --reporter expanded"
   ],
   "full_test_policy": "required",
-  "full_test_command": "flutter test test/validation/thai_beta/life_map test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart test/ui/thai_mirror_timeline_ui_test.dart --reporter expanded",
-  "analyze_command": "flutter analyze lib/features/astrology/thai/mirror/presentation/timeline test/validation/thai_beta/life_map/v126",
+  "full_test_command": "flutter test --no-pub test/validation/thai_beta/life_map test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart test/ui/thai_mirror_timeline_ui_test.dart --reporter expanded",
+  "analyze_command": "flutter analyze --no-pub lib/features/astrology/thai/mirror/presentation/timeline test/validation/thai_beta/life_map/v126",
   "commit_message_regex": "^fix\\(thai-beta\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }
