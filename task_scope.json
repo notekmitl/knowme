@@ -1,14 +1,18 @@
 {
   "schema_version": 1,
-  "task_id": "thai-life-map-mahabhut-canon-status-docs",
-  "expected_branch": "docs/thai-life-map-mahabhut-canon-status",
+  "task_id": "thai-life-map-v124-accuracy-audit",
+  "expected_branch": "audit/thai-life-map-v124-accuracy",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "07d0eb9ee4597fd8268125124a7f07169b1c6ea1",
+  "base_ref": "2d86e4818ad0771e88e10bfe75f37cb0cdffc740",
   "allowed_files": [
+    "task.md",
+    "task_scope.json",
     "docs/CURRENT_STATUS.md",
     "docs/HANDOFF.md",
-    "task.md",
-    "task_scope.json"
+    "docs/THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md",
+    "test/validation/thai_beta/life_map/v124/thai_life_map_v124_fixtures.dart",
+    "test/validation/thai_beta/life_map/v124/thai_life_map_v124_audit_runner.dart",
+    "test/validation/thai_beta/life_map/v124/thai_life_map_v124_accuracy_audit_test.dart"
   ],
   "allowed_globs": [],
   "forbidden_files": [
@@ -33,10 +37,12 @@
     "final_result.json",
     "round_[0-9]+_review\\.json"
   ],
-  "focused_tests": ["SKIP"],
+  "focused_tests": [
+    "flutter test test/validation/thai_beta/life_map/v124/thai_life_map_v124_accuracy_audit_test.dart test/validation/thai_beta/life_map/thai_life_map_mahabhut_canon_index_regression_test.dart --reporter expanded"
+  ],
   "full_test_policy": "skip",
   "full_test_command": "SKIP",
   "analyze_command": "SKIP",
-  "commit_message_regex": "^docs\\(thai-beta\\): .{10,72}$",
+  "commit_message_regex": "^test\\(thai-beta\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }
