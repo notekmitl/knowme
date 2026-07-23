@@ -35,6 +35,7 @@ void main() {
     PeriodNarrative composeForced({
       required int start,
       required int end,
+      required int narrativeAge,
       required LifePlanet planet,
       LifePlanet? previous,
       LifePlanet? next,
@@ -62,6 +63,7 @@ void main() {
       );
       return PeriodNarrativeComposer.compose(
         period: period,
+        narrativeAge: narrativeAge,
         scores: scores,
         lagnaLord: LifePlanet.sun,
         evidence: evidence,
@@ -71,7 +73,12 @@ void main() {
     }
 
     test('early childhood avoids adult career/money/romance framing', () {
-      final n = composeForced(start: 1, end: 6, planet: LifePlanet.saturn);
+      final n = composeForced(
+        start: 1,
+        end: 10,
+        narrativeAge: 5,
+        planet: LifePlanet.saturn,
+      );
       expect(n.stageLabel, 'วัยเด็กเล็ก');
       expect(n.advice.contains('ผู้ปกครอง'), isTrue);
       final blob = '${n.summary}${n.whatChanges}${n.harder}${n.advice}';
@@ -85,6 +92,7 @@ void main() {
       final n = composeForced(
         start: 30,
         end: 40,
+        narrativeAge: 35,
         planet: LifePlanet.jupiter,
         previous: LifePlanet.saturn,
         next: LifePlanet.rahu,
@@ -117,6 +125,11 @@ void main() {
           );
           return PeriodNarrativeComposer.compose(
             period: p,
+            narrativeAge: p.isCurrent
+                ? timeline.currentAge
+                : p.isPast
+                ? p.endAge
+                : p.startAge,
             scores: scores,
             lagnaLord: LifePlanet.moon,
             evidence: evidence,
@@ -129,6 +142,99 @@ void main() {
         expect(compose(timeline.periods[1]).comparison, isNotEmpty);
       },
     );
+
+    test(
+      'presenter uses actual age inside a long current astrology period',
+      () {
+        final expectedStages = <int, String>{
+          11: 'วัยเรียน',
+          12: 'วัยเรียน',
+          13: 'วัยรุ่น',
+          17: 'วัยรุ่น',
+          18: 'วัยเริ่มต้นผู้ใหญ่',
+          29: 'วัยเริ่มต้นผู้ใหญ่',
+        };
+
+        for (final entry in expectedStages.entries) {
+          final timeline = LifePeriodEngine.build(
+            birthWeekday: DateTime.monday,
+            currentAge: entry.key,
+          );
+          final state = TimelinePresenter.build(
+            lifePeriods: timeline,
+            lagnaLordKey: 'moon',
+            orderedThemeIds: const ['thinking'],
+            topThemeTags: const ['รอบคอบ'],
+            profileSeed: 7,
+          );
+          final current = state!.periods.singleWhere((p) => p.isCurrent);
+          expect(
+            current.stageLabel,
+            entry.value,
+            reason: 'current age ${entry.key}',
+          );
+        }
+      },
+    );
+
+    test(
+      'child and teen current periods never use adult narrative framing',
+      () {
+        for (final age in const [7, 11, 12, 13, 15, 17]) {
+          final timeline = LifePeriodEngine.build(
+            birthWeekday: DateTime.monday,
+            currentAge: age,
+          );
+          final state = TimelinePresenter.build(
+            lifePeriods: timeline,
+            lagnaLordKey: 'moon',
+            orderedThemeIds: const ['thinking'],
+            topThemeTags: const ['รอบคอบ'],
+            profileSeed: 7,
+          );
+          final current = state!.periods.singleWhere((p) => p.isCurrent);
+          final blob =
+              '${current.summary}${current.whatChanges}${current.harder}'
+              '${current.advice}';
+          expect(blob.contains('วัยเริ่มทำงาน'), isFalse, reason: 'age $age');
+          expect(blob.contains('บทบาทผู้ใหญ่'), isFalse, reason: 'age $age');
+          expect(blob.contains('ลงทุน'), isFalse, reason: 'age $age');
+          expect(blob.contains('คู่ครอง'), isFalse, reason: 'age $age');
+        }
+      },
+    );
+
+    test('past and future periods use the nearest boundary age', () {
+      final age5 = TimelinePresenter.build(
+        lifePeriods: LifePeriodEngine.build(
+          birthWeekday: DateTime.monday,
+          currentAge: 5,
+        ),
+        lagnaLordKey: 'moon',
+        orderedThemeIds: const ['thinking'],
+        topThemeTags: const ['รอบคอบ'],
+        profileSeed: 7,
+      )!;
+      final nextFromAge5 = age5.periods.firstWhere(
+        (p) => !p.isPast && !p.isCurrent,
+      );
+      expect(nextFromAge5.ageLabel, '16–23');
+      expect(nextFromAge5.stageLabel, 'วัยรุ่น');
+
+      final age30 = TimelinePresenter.build(
+        lifePeriods: LifePeriodEngine.build(
+          birthWeekday: DateTime.monday,
+          currentAge: 30,
+        ),
+        lagnaLordKey: 'moon',
+        orderedThemeIds: const ['thinking'],
+        topThemeTags: const ['รอบคอบ'],
+        profileSeed: 7,
+      )!;
+      final previousFromAge30 = age30.periods.lastWhere((p) => p.isPast);
+      expect(previousFromAge30.ageLabel, '16–23');
+      expect(previousFromAge30.stageLabel, 'วัยเริ่มต้นผู้ใหญ่');
+    });
   });
 
   group('Thai composition hygiene', () {
