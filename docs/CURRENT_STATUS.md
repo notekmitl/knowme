@@ -1,12 +1,12 @@
 # KnowMe Current Status
 
 **Last updated:** July 2026  
-**Branch:** `feature/thai-life-map-v125-beta-validation` (pending merge) / track `main` @ `cb33a3d`  
-**Merge tip:** `cb33a3d` (PR #22 — V1.2.4 Accuracy Audit); Production code tip `07d0eb9` (PR #20) until V1.2.5 deploy  
+**Branch:** `main`  
+**Merge tip:** `b5d1243` (PR #23 — Life Map V1.2.5 invited beta feedback); Production hosted @ `b5d1243`  
 **Prior architecture snapshot:** `feature/fusion-result`  
 **Automation workflow (authoritative):** Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
 **Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login) — Evidence Badge rollout remains `invited_beta`.
-**Thai Beta Narrative / Life Map:** **V1.2.3** + Canon-index fix @ `07d0eb9`; **V1.2.4 Audit** on `main` @ `cb33a3d`; **V1.2.5 Feedback System** — Ready for Invited Beta Validation (0 real Feedback yet). See [`THAI_LIFE_MAP_V125_BETA_VALIDATION.md`](THAI_LIFE_MAP_V125_BETA_VALIDATION.md).
+**Thai Beta Narrative / Life Map:** **V1.2.3** + Canon-index; **V1.2.4 Audit**; **V1.2.5 Feedback System deployed** @ `b5d1243` — status **Ready for Invited Beta Validation** (0 real Life Map Feedback). See [`THAI_LIFE_MAP_V125_BETA_VALIDATION.md`](THAI_LIFE_MAP_V125_BETA_VALIDATION.md).
 
 ---
 
@@ -34,8 +34,8 @@
 | **Thai Beta Narrative Quality V1–V1.2.2 + Life Map V1.2.3** | Merged to `main` + **hosted** | Life Map V1.2.3; PR https://github.com/notekmitl/knowme/pull/18; production https://knowme-app-694e1.web.app/beta/thai |
 | **Life Map Mahabhut Canon index (Production fix)** | Merged to `main` + **hosted** | PR https://github.com/notekmitl/knowme/pull/20 @ `07d0eb9`; wires Frozen Canon `repository.index` into Timeline/Consumer presenters — unknown no longer forced by null index. Presenter-path QA (1972-04-04 02:00 BKK): **known=7 / unknown=1** (ธงชัย, unknown, ปูติ, อธิบดี, ขุมทรัพย์, ปูติ, มรณะ, ราชา). Sample pipeline fixture: known=8 / unknown=0 |
 | **Thai Life Map V1.2.4 Accuracy Audit** | Merged tests + report | PR #22 @ `cb33a3d`; 22 fixtures / 176 periods; known 139 / unknown 37; [`THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md`](THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md) |
-| **Thai Life Map V1.2.5 Invited Beta Feedback** | Implemented — **Ready for Validation** | Invite-only Firestore `thai_life_map_beta_feedback` + `invited_beta_testers`; non-blocking panel on report; admin summary; **0 real users** → not Validation Passed; [`THAI_LIFE_MAP_V125_BETA_VALIDATION.md`](THAI_LIFE_MAP_V125_BETA_VALIDATION.md) |
-| **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with Mahabhut Canon deploy 2026-07-23 @ `07d0eb9` |
+| **Thai Life Map V1.2.5 Invited Beta Feedback** | Merged + **hosted** — **Ready for Validation** | PR #23 @ `b5d1243`; deploy Firebase Hosting + rules 2026-07-23; anonymous Production QA PASS (no panel/badge leak); **0 real invited Feedback** → not Validation Passed; [`THAI_LIFE_MAP_V125_BETA_VALIDATION.md`](THAI_LIFE_MAP_V125_BETA_VALIDATION.md) |
+| **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with V1.2.5 deploy 2026-07-23 @ `b5d1243` |
 | **Single-Agent + Local Gate** | Merged to `main` | `docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`, `scripts/knowme_task_gate.ps1` |
 
 **Also complete (supporting):**
@@ -71,7 +71,7 @@ Real users (38 Firestore accounts): **2.6% reach Narrative**. Blocker is persona
 | Risk | Severity | Detail |
 |------|----------|--------|
 | Personality test cliff | **Critical** | 97% of profile users never start MBTI (`REAL_USER_RUNTIME_VALIDATION_V1.md`) |
-| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `07d0eb9` (2026-07-23); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
+| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `b5d1243` (2026-07-23); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
 | Real user PII export local-only | **High** | `firestore_user_export.json` gitignored — must regenerate locally |
 | Firebase service account local-only | **High** | `backend/firebase/serviceAccountKey.json` gitignored |
 | Legacy + new architecture coexist | **Medium** | Parallel scoring, navigation, and module IDs — trace before editing |
@@ -90,7 +90,7 @@ Accepted debt — do not hide; trace before editing.
 | AppText monolith | Low | `lib/core/i18n/app_text.dart` large | ARB/codegen future; acceptable for now |
 | Fusion outlier coverage | Low | Special-case copy for ESTJ, ENTJ, INTJ, ENFP only | Quality > coverage — expand carefully |
 | Dual astrology providers | Medium | `presentation/providers/astrology_provider.dart` + `lib/astrology/providers/astrology_provider.dart` | Do not aggressively merge — duplicate path risk |
-| Hosting source vs `main` | Low | Last public deploy from `main` @ `07d0eb9` (manual); no auto-deploy | Keep using `scripts/deploy_web.ps1` for intentional releases |
+| Hosting source vs `main` | Low | Last public deploy from `main` @ `b5d1243` (manual); no auto-deploy | Keep using `scripts/deploy_web.ps1` for intentional releases |
 | Real user PII export local-only | High | `firestore_user_export.json` gitignored | Regenerate locally |
 | Firebase service account local-only | High | `backend/firebase/serviceAccountKey.json` gitignored | Never commit |
 
@@ -103,7 +103,7 @@ Accepted debt — do not hide; trace before editing.
 | **Status** | Public beta live on Firebase Hosting (June 2026) |
 | **Primary URL** | https://knowme-app-694e1.web.app |
 | **Firebase project** | `knowme-app-694e1` |
-| **Branch deployed from** | `main` @ `07d0eb9` (2026-07-23); still **manual** deploy only — no auto-deploy |
+| **Branch deployed from** | `main` @ `b5d1243` (2026-07-23); still **manual** deploy only — no auto-deploy |
 | **Full guide** | [`docs/DEPLOYMENT.md`](DEPLOYMENT.md) |
 
 Deploy: `.\scripts\deploy_web.ps1` or `firebase deploy --only hosting --project knowme-app-694e1`

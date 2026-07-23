@@ -1,28 +1,15 @@
 {
   "schema_version": 1,
-  "task_id": "thai-life-map-v125-beta-validation",
-  "expected_branch": "feature/thai-life-map-v125-beta-validation",
+  "task_id": "thai-life-map-v125-deploy-status-docs",
+  "expected_branch": "docs/thai-life-map-v125-deploy-status",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "cb33a3d720b45f10159c0bced8f5db78638a0c37",
+  "base_ref": "b5d1243eee16efde8436016fcf99350cdb8e851d",
   "allowed_files": [
     "task.md",
     "task_scope.json",
-    "firestore.rules",
     "docs/CURRENT_STATUS.md",
     "docs/HANDOFF.md",
-    "docs/THAI_LIFE_MAP_V125_BETA_VALIDATION.md",
-    "lib/features/thai_beta/application/thai_beta_invited_tester_registry.dart",
-    "lib/features/thai_beta/application/thai_invited_beta_tester_access.dart",
-    "lib/features/thai_beta/application/thai_beta_evidence_badge_audience_resolver.dart",
-    "lib/features/thai_beta/application/thai_life_map_beta_feedback_store.dart",
-    "lib/features/thai_beta/application/thai_life_map_beta_feedback_summary.dart",
-    "lib/features/thai_beta/application/memory_thai_life_map_beta_feedback_store.dart",
-    "lib/features/thai_beta/domain/thai_life_map_beta_feedback.dart",
-    "lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart",
-    "lib/features/thai_beta/presentation/admin/thai_beta_admin_page.dart",
-    "lib/features/thai_beta/presentation/widgets/thai_life_map_beta_feedback_panel.dart",
-    "lib/features/thai_beta/presentation/widgets/thai_life_map_beta_feedback_summary_card.dart",
-    "test/validation/thai_beta/life_map/v125/thai_life_map_v125_beta_validation_test.dart"
+    "docs/THAI_LIFE_MAP_V125_BETA_VALIDATION.md"
   ],
   "allowed_globs": [],
   "forbidden_files": [
@@ -47,12 +34,10 @@
     "final_result.json",
     "round_[0-9]+_review\\.json"
   ],
-  "focused_tests": [
-    "flutter test test/validation/thai_beta/life_map/v125/thai_life_map_v125_beta_validation_test.dart test/validation/thai_beta/life_map/thai_life_map_mahabhut_canon_index_regression_test.dart test/validation/thai_beta/life_map/v124/thai_life_map_v124_accuracy_audit_test.dart test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart --reporter expanded"
-  ],
+  "focused_tests": [],
   "full_test_policy": "skip",
   "full_test_command": "SKIP",
-  "analyze_command": "flutter analyze --no-fatal-infos lib/features/thai_beta test/validation/thai_beta/life_map/v125",
-  "commit_message_regex": "^(feat|fix|test|docs)\\(thai-beta\\): .{10,72}$",
+  "analyze_command": "SKIP",
+  "commit_message_regex": "^docs\\(thai-beta\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }
