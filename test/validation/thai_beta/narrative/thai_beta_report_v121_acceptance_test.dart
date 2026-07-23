@@ -58,11 +58,18 @@ void main() {
     });
 
     test('V121-16 V1.2 narrative still present on composed view', () {
-      final result =
-          ThaiBetaNarrativeComposer.compose(ThaiBetaNarrativeFixtures.fixtureA());
+      final result = ThaiBetaNarrativeComposer.compose(
+        ThaiBetaNarrativeFixtures.fixtureA(),
+      );
       expect(result.view.signatureInsight.isEmpty, isFalse);
-      expect(result.view.strengths.title, ThaiBetaNarrativeV12.strengthsSectionTitle);
-      expect(result.view.cautions.title, ThaiBetaNarrativeV12.cautionsSectionTitle);
+      expect(
+        result.view.strengths.title,
+        ThaiBetaNarrativeV12.strengthsSectionTitle,
+      );
+      expect(
+        result.view.cautions.title,
+        ThaiBetaNarrativeV12.cautionsSectionTitle,
+      );
       expect(result.view.advice.title, ThaiBetaNarrativeV12.adviceSectionTitle);
       expect(
         result.trace.entries.any((e) => e.sectionId == 'personal_core'),
@@ -154,18 +161,78 @@ void main() {
       }
 
       final periods = <ThaiMirrorLifePeriodState>[
-        period(age: '1–10', name: 'ช่วงA', current: false, past: true, accent: 0),
-        period(age: '11–20', name: 'ช่วงB', current: false, past: true, accent: 1),
-        period(age: '21–30', name: 'ช่วงC', current: true, past: false, accent: 2),
-        period(age: '31–40', name: 'ช่วงD', current: false, past: false, accent: 3),
-        period(age: '120–137', name: 'ช่วงไกล', current: false, past: false, accent: 4),
+        period(
+          age: '1–10',
+          name: 'ช่วงA',
+          current: false,
+          past: true,
+          accent: 0,
+        ),
+        period(
+          age: '11–20',
+          name: 'ช่วงB',
+          current: false,
+          past: true,
+          accent: 1,
+        ),
+        period(
+          age: '21–30',
+          name: 'ช่วงC',
+          current: true,
+          past: false,
+          accent: 2,
+        ),
+        period(
+          age: '31–40',
+          name: 'ช่วงD',
+          current: false,
+          past: false,
+          accent: 3,
+        ),
+        period(
+          age: '120–137',
+          name: 'ช่วงไกล',
+          current: false,
+          past: false,
+          accent: 4,
+        ),
       ];
       final segments = <ThaiMirrorTimelineSegmentState>[
-        segment(age: '1–10', name: 'ช่วงA', current: false, past: true, accent: 0),
-        segment(age: '11–20', name: 'ช่วงB', current: false, past: true, accent: 1),
-        segment(age: '21–30', name: 'ช่วงC', current: true, past: false, accent: 2),
-        segment(age: '31–40', name: 'ช่วงD', current: false, past: false, accent: 3),
-        segment(age: '120–137', name: 'ช่วงไกล', current: false, past: false, accent: 4),
+        segment(
+          age: '1–10',
+          name: 'ช่วงA',
+          current: false,
+          past: true,
+          accent: 0,
+        ),
+        segment(
+          age: '11–20',
+          name: 'ช่วงB',
+          current: false,
+          past: true,
+          accent: 1,
+        ),
+        segment(
+          age: '21–30',
+          name: 'ช่วงC',
+          current: true,
+          past: false,
+          accent: 2,
+        ),
+        segment(
+          age: '31–40',
+          name: 'ช่วงD',
+          current: false,
+          past: false,
+          accent: 3,
+        ),
+        segment(
+          age: '120–137',
+          name: 'ช่วงไกล',
+          current: false,
+          past: false,
+          accent: 4,
+        ),
       ];
 
       return ThaiMirrorLifeTimelineState(
@@ -220,8 +287,9 @@ void main() {
       await tester.pumpAndSettle();
     }
 
-    testWidgets('V121-8/12 compact: ≤3 periods, collapsed, no far age',
-        (tester) async {
+    testWidgets('V121-8/12 compact: ≤3 periods, collapsed, no far age', (
+      tester,
+    ) async {
       await pumpTimeline(tester, size: const Size(390, 844), compact: true);
       expect(find.text('ช่วงชีวิตที่เกี่ยวข้อง'), findsOneWidget);
       expect(find.text('ช่วงA'), findsNothing);
@@ -236,50 +304,47 @@ void main() {
         findsWidgets,
       );
       expect(
-        find.byKey(const Key('thai_life_timeline_score_explanation')).hitTestable(),
+        find
+            .byKey(const Key('thai_life_timeline_score_explanation'))
+            .hitTestable(),
         findsNothing,
       );
       expect(tester.takeException(), isNull);
     });
 
-    testWidgets('V121-11/13 expand shows score explanation + scores',
-        (tester) async {
-      await pumpTimeline(tester, size: const Size(390, 1200), compact: true);
-      final expand =
-          find.text(ThaiMirrorLifeTimelineSection.expandDetailsLabel).first;
-      await tester.ensureVisible(expand);
-      await tester.pumpAndSettle();
-      await tester.tap(expand);
-      await tester.pumpAndSettle();
-      expect(
-        find.byKey(const Key('thai_life_timeline_score_explanation')).hitTestable(),
-        findsOneWidget,
-      );
-      expect(
-        find.text(ThaiMirrorLifeTimelineSection.scoreExplanation).hitTestable(),
-        findsOneWidget,
-      );
-      expect(find.text('การงาน').hitTestable(), findsOneWidget);
-      expect(find.text('70').hitTestable(), findsOneWidget);
-      final collapse = find
-          .text(ThaiMirrorLifeTimelineSection.collapseDetailsLabel)
-          .hitTestable();
-      await tester.ensureVisible(collapse);
-      await tester.pumpAndSettle();
-      await tester.tap(collapse);
-      await tester.pumpAndSettle();
-      expect(
-        find.byKey(const Key('thai_life_timeline_score_explanation')).hitTestable(),
-        findsNothing,
-      );
-    });
+    testWidgets(
+      'V121-11/13 expand shows life narrative sections (no score bars)',
+      (tester) async {
+        await pumpTimeline(tester, size: const Size(390, 1200), compact: true);
+        final expand = find
+            .text(ThaiMirrorLifeTimelineSection.expandDetailsLabel)
+            .first;
+        await tester.ensureVisible(expand);
+        await tester.pumpAndSettle();
+        await tester.tap(expand);
+        await tester.pumpAndSettle();
+        expect(find.text('สรุปช่วงนี้').hitTestable(), findsOneWidget);
+        expect(find.text('เรื่องที่เด่น').hitTestable(), findsOneWidget);
+        expect(
+          find.byKey(const Key('thai_life_timeline_score_explanation')),
+          findsNothing,
+        );
+        expect(find.text('การงาน').hitTestable(), findsNothing);
+        final collapse = find
+            .text(ThaiMirrorLifeTimelineSection.collapseDetailsLabel)
+            .hitTestable();
+        await tester.ensureVisible(collapse);
+        await tester.pumpAndSettle();
+        await tester.tap(collapse);
+        await tester.pumpAndSettle();
+        expect(find.text('สรุปช่วงนี้').hitTestable(), findsNothing);
+      },
+    );
 
     testWidgets('V121-14 mobile width no exception', (tester) async {
       await pumpTimeline(tester, size: const Size(390, 844), compact: true);
       expect(tester.takeException(), isNull);
-      final overflow = find.byWidgetPredicate(
-        (w) => w is ErrorWidget,
-      );
+      final overflow = find.byWidgetPredicate((w) => w is ErrorWidget);
       expect(overflow, findsNothing);
     });
 
@@ -336,25 +401,36 @@ void main() {
       await tester.pumpAndSettle();
     }
 
-    testWidgets('V121-14/16/19/20 report: core + Life Map timeline + no badge',
-        (tester) async {
-      await pumpReport(tester, const Size(390, 844));
-      expect(find.byType(ThaiBetaReportPage), findsOneWidget);
-      expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);
-      expect(find.byKey(const Key('thai_consumer_signature_insight')), findsOneWidget);
-      expect(find.text(ThaiBetaNarrativeV12.strengthsSectionTitle), findsWidgets);
-      expect(find.text('แผนที่ชีวิตของคุณ'), findsOneWidget);
-      expect(find.textContaining('137'), findsNothing);
-      expect(
-        find.text(ThaiMirrorLifeTimelineSection.expandDetailsLabel),
-        findsWidgets,
-      );
-      expect(tester.takeException(), isNull);
-    });
+    testWidgets(
+      'V121-14/16/19/20 report: core + Life Map timeline + no badge',
+      (tester) async {
+        await pumpReport(tester, const Size(390, 844));
+        expect(find.byType(ThaiBetaReportPage), findsOneWidget);
+        expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);
+        expect(
+          find.byKey(const Key('thai_consumer_signature_insight')),
+          findsOneWidget,
+        );
+        expect(
+          find.text(ThaiBetaNarrativeV12.strengthsSectionTitle),
+          findsWidgets,
+        );
+        expect(find.text('แผนที่ชีวิตของคุณ'), findsOneWidget);
+        expect(find.textContaining('137'), findsNothing);
+        expect(
+          find.text(ThaiMirrorLifeTimelineSection.expandDetailsLabel),
+          findsWidgets,
+        );
+        expect(tester.takeException(), isNull);
+      },
+    );
 
     testWidgets('V121-15 desktop report hierarchy', (tester) async {
       await pumpReport(tester, const Size(1280, 900));
-      expect(find.byKey(const Key('thai_consumer_signature_insight')), findsOneWidget);
+      expect(
+        find.byKey(const Key('thai_consumer_signature_insight')),
+        findsOneWidget,
+      );
       expect(find.text('แผนที่ชีวิตของคุณ'), findsOneWidget);
       expect(tester.takeException(), isNull);
     });

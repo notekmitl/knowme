@@ -81,6 +81,8 @@ class ThaiMirrorLifePeriodState {
     required this.scores,
     required this.easeIndex,
     required this.accentIndex,
+    this.advice = '',
+    this.stageLabel = '',
     this.timeBucketLabel = '',
     this.mahabhutPositionLabel = '',
     this.subPeriods = const [],
@@ -100,6 +102,12 @@ class ThaiMirrorLifePeriodState {
   final String harder;
   final String comparison;
   final String evidenceLine;
+
+  /// V1.2.6 — actionable guidance (age-appropriate).
+  final String advice;
+
+  /// V1.2.6 — presentation life-stage label.
+  final String stageLabel;
 
   final List<ThaiMirrorPeriodScoreBar> scores;
   final int easeIndex;

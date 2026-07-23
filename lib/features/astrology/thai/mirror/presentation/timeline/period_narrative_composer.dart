@@ -4,6 +4,7 @@ import 'package:knowme/features/astrology/thai/core/life_period/planet_relations
 
 import '../copy/thai_mirror_evidence_composer.dart';
 import 'period_composite_score.dart';
+import 'thai_life_stage_context.dart';
 
 /// Human narrative for one life period.
 class PeriodNarrative {
@@ -14,142 +15,38 @@ class PeriodNarrative {
     required this.harder,
     required this.comparison,
     required this.evidenceLine,
+    this.advice = '',
+    this.stageLabel = '',
   });
 
   final String summary;
+
+  /// Highlight themes ("เรื่องที่เด่น") — complete Thai sentences.
   final String whatChanges;
+
+  /// Kept for compatibility; mirrors highlight-friendly wording.
   final String easier;
+
+  /// Cautions ("สิ่งที่ควรระวัง").
   final String harder;
 
-  /// Previous → current → next bridge (may be empty for the very first period).
+  /// Previous → current bridge (empty for first period).
   final String comparison;
 
-  /// A line that cites the person's existing strongest pattern.
+  /// Soft evidence line (no engine keys).
   final String evidenceLine;
+
+  /// Actionable guidance ("คำแนะนำ" / "แนวทางส่งเสริม").
+  final String advice;
+
+  /// Human life-stage label (presentation only).
+  final String stageLabel;
 }
 
-/// V8 — Period Narrative Composer.
+/// V1.2.6 — Period Narrative Composer (age-aware, natural Thai).
 ///
-/// Turns a [PeriodState] + its [PeriodScores] + the person's evidence into life
-/// language ("ช่วงนี้เป็นช่วงที่...") rather than astrology terminology. Every
-/// slot rotates across several variants by seed, phase, dominant domain and the
-/// planet's relationship to the lagna lord, so periods don't read identically
-/// across people or across a single life.
+/// Uses engine scores/signals only. Does not change calculation or Canon.
 abstract final class PeriodNarrativeComposer {
-  static const _domainNoun = {
-    'career': 'การงานและเป้าหมาย',
-    'money': 'ความมั่นคงและการเงิน',
-    'love': 'ความรักและความสัมพันธ์',
-    'health': 'การดูแลใจและร่างกาย',
-    'growth': 'การเรียนรู้และการเติบโต',
-    'opportunity': 'โอกาสใหม่ ๆ',
-  };
-
-  static const _domainFlourish = <String, List<String>>{
-    'career': [
-      'เรื่องงานและเป้าหมายกลายเป็นแกนหลักของชีวิต',
-      'หน้าที่การงานและความสำเร็จเริ่มขึ้นมานำชีวิต',
-      'ตัวตนในแบบ “คนทำงาน” ของคุณจะชัดเป็นพิเศษ',
-    ],
-    'money': [
-      'ความมั่นคงและฐานการเงินเริ่มก่อตัวชัดขึ้น',
-      'เรื่องเงินและการวางรากฐานชีวิตจะเด่นขึ้นมา',
-      'การสร้างความมั่นคงให้ตัวเองกลายเป็นโจทย์หลัก',
-    ],
-    'love': [
-      'ความสัมพันธ์และคนรอบตัวมีความหมายมากเป็นพิเศษ',
-      'หัวใจและความผูกพันกับคนสำคัญจะเป็นศูนย์กลาง',
-      'เรื่องของความรักและความเข้าใจกันจะเด่นขึ้น',
-    ],
-    'health': [
-      'การกลับมาดูแลใจและร่างกายกลายเป็นเรื่องสำคัญ',
-      'ชีวิตเรียกหาความสมดุลและการพักที่แท้จริง',
-      'เสียงข้างในและสุขภาพของคุณจะดังขึ้นกว่าเดิม',
-    ],
-    'growth': [
-      'การเรียนรู้และการเติบโตข้างในเดินหน้าอย่างเห็นได้ชัด',
-      'คุณจะโตขึ้นจากข้างในแบบที่ตัวเองก็รู้สึกได้',
-      'บทเรียนใหม่ ๆ จะค่อย ๆ เปลี่ยนวิธีมองโลกของคุณ',
-    ],
-    'opportunity': [
-      'โอกาสใหม่ ๆ ทยอยเข้ามาให้ได้ลองคว้า',
-      'ประตูหลายบานเริ่มเปิดให้คุณได้เลือกเดิน',
-      'จังหวะและโอกาสจะวิ่งเข้าหาคุณมากกว่าช่วงอื่น',
-    ],
-  };
-
-  static const _domainEasier = <String, List<String>>{
-    'career': [
-      'การผลักดันงานและการตัดสินใจเรื่องอาชีพจะลื่นไหลกว่าเดิม',
-      'การลงมือทำเป้าหมายใหญ่ ๆ จะมีแรงส่งมากขึ้น',
-      'การได้รับการยอมรับในสิ่งที่ทำจะมาง่ายกว่าช่วงก่อน',
-    ],
-    'money': [
-      'การวางแผนและเก็บสะสมจะทำได้เป็นรูปเป็นร่างขึ้น',
-      'การจัดการเรื่องเงินจะเริ่มอยู่มือมากขึ้น',
-      'การมองเห็นช่องทางสร้างความมั่นคงจะชัดขึ้น',
-    ],
-    'love': [
-      'การเปิดใจและเชื่อมความสัมพันธ์จะเป็นธรรมชาติมากขึ้น',
-      'การเข้าใจและถูกเข้าใจจะเกิดง่ายกว่าเดิม',
-      'การได้ใกล้ชิดกับคนที่ใช่จะรู้สึกอบอุ่นเป็นพิเศษ',
-    ],
-    'health': [
-      'การฟังเสียงตัวเองและพักให้พอจะทำได้ง่ายขึ้น',
-      'การกลับมาอยู่กับตัวเองจะช่วยเติมพลังได้ดี',
-      'การดูแลใจและร่างกายจะค่อย ๆ กลับมาสมดุล',
-    ],
-    'growth': [
-      'การเรียนรู้สิ่งใหม่และเข้าใจตัวเองจะไหลลื่น',
-      'การปรับตัวและเปิดรับมุมใหม่จะทำได้สบายขึ้น',
-      'การต่อยอดสิ่งที่รู้ให้กลายเป็นของตัวเองจะง่ายขึ้น',
-    ],
-    'opportunity': [
-      'การมองเห็นและคว้าโอกาสจะคล่องตัวขึ้น',
-      'การเริ่มต้นสิ่งใหม่จะมีจังหวะหนุนหลัง',
-      'การพบเจอคนและโอกาสที่ใช่จะเกิดบ่อยกว่าเดิม',
-    ],
-  };
-
-  static const _domainHarder = <String, List<String>>{
-    'career': [
-      'อาจต้องระวังการแบกงานไว้คนเดียวจนลืมพัก',
-      'ระวังการกดดันตัวเองเรื่องผลงานมากเกินไป',
-      'ระวังการรับงานมากกว่าที่เวลาและแรงจะไหว',
-    ],
-    'money': [
-      'ต้องระวังการใช้จ่ายตามอารมณ์หรือรีบตัดสินใจเรื่องเงิน',
-      'อย่าเพิ่งรีบลงทุนหรือผูกมัดการเงินก้อนใหญ่',
-      'ระวังการตามใจตัวเองจนแผนการเงินรวน',
-    ],
-    'love': [
-      'ความสัมพันธ์อาจต้องการเวลาและความเข้าใจมากกว่าที่คิด',
-      'ระวังการคาดหวังจากคนอื่นเงียบ ๆ โดยไม่บอก',
-      'ระวังการเก็บความน้อยใจเล็ก ๆ ไว้จนกลายเป็นกำแพง',
-    ],
-    'health': [
-      'พลังใจอาจหมดเร็วถ้าไม่ดูแลตัวเองให้ทัน',
-      'ระวังการฝืนตัวเองจนร่างกายส่งสัญญาณเตือน',
-      'ระวังการละเลยการพักจนสะสมเป็นความล้า',
-    ],
-    'growth': [
-      'อาจรู้สึกว่ายังไปไม่ถึงไหนทั้งที่จริงกำลังค่อย ๆ โต',
-      'ระวังการเปรียบเทียบตัวเองกับคนอื่นจนท้อ',
-      'ระวังการเร่งผลลัพธ์จนลืมชื่นชมระยะทางที่ผ่านมา',
-    ],
-    'opportunity': [
-      'โอกาสที่เข้ามาเยอะอาจทำให้เลือกยากและไขว้เขว',
-      'ระวังการรับทุกอย่างไว้จนโฟกัสหลุด',
-      'ระวังการไล่ตามทุกโอกาสจนไม่มีอะไรได้ลงลึก',
-    ],
-  };
-
-  static String _pick(Map<String, List<String>> bank, String domain, int n) {
-    final list = bank[domain] ?? const [''];
-    if (list.isEmpty) return '';
-    return list[n.abs() % list.length];
-  }
-
   static PeriodNarrative compose({
     required PeriodState period,
     required PeriodScores scores,
@@ -159,98 +56,323 @@ abstract final class PeriodNarrativeComposer {
     required int seed,
   }) {
     final data = LifePlanets.of(period.planet);
-    final top = scores.topDomain;
-    final weak = scores.weakestDomain;
+    final band = ThaiLifeStageContext.fromPeriodAges(
+      period.startAge,
+      period.endAge,
+    );
     final s = seed.abs();
+    final top = ThaiLifeStageContext.narrativeDomain(scores.topDomain, band);
+    final weak = ThaiLifeStageContext.narrativeDomain(
+      scores.weakestDomain,
+      band,
+    );
 
-    final flourish = _pick(_domainFlourish, top, s ~/ 2);
-    final easierTop = _pick(_domainEasier, top, s ~/ 11);
-    final harderWeak = _pick(_domainHarder, weak, s ~/ 13);
-
-    final summaryFrames = <String>[
-      'ช่วงนี้เป็นช่วงที่$flourish '
-          '${data.phaseEssence.replaceFirst('ช่วง', 'เป็นจังหวะ')}',
-      'ถ้าจะให้เรียกง่าย ๆ นี่คือ“${data.phaseName.replaceFirst('ช่วง', '')}” '
-          'ของชีวิตคุณ — ช่วงที่$flourish',
-      '${data.phaseEssence} และในช่วงนี้ $flourish',
-      'ชีวิตช่วงนี้จะหมุนรอบเรื่อง${_domainNoun[top]} เป็นหลัก '
-          'มันคือ${data.phaseName.replaceFirst('ช่วง', 'จังหวะ')}ของคุณ',
-    ];
-
-    // What *changes* describes the shift in focus toward this period's domain —
-    // deliberately different from `easier` (which names what gets easier), so
-    // the two lines don't read as the same sentence twice.
-    final domainNoun = _domainNoun[top] ?? 'หลาย ๆ ด้าน';
-    final changeFrames = <String>[
-      'จังหวะเด่นจะค่อย ๆ ย้ายมาอยู่ที่เรื่อง$domainNoun',
-      'โฟกัสของชีวิตจะขยับมาที่เรื่อง$domainNoun มากกว่าช่วงก่อน',
-      'เทียบกับก่อนหน้านี้ เรื่อง$domainNoun จะเด่นขึ้นชัด',
-    ];
-
-    final easierFrames = <String>[
-      'สิ่งที่จะง่ายขึ้นในช่วงนี้คือ $easierTop',
-      'จุดที่คุณจะรู้สึกได้เปรียบคือ $easierTop',
-    ];
-
-    final harderFrames = <String>[
-      'ส่วนสิ่งที่ต้องระวังคือ $harderWeak',
-      'อีกด้านที่อยากให้ดูแลคือ $harderWeak',
-      'สิ่งที่อาจหนักขึ้นเล็กน้อยคือ $harderWeak',
-    ];
-
-    final summary = summaryFrames[s % summaryFrames.length];
-    final whatChanges = changeFrames[(s ~/ 3) % changeFrames.length];
-    final easier = easierFrames[(s ~/ 5) % easierFrames.length];
-    final harder = harderFrames[(s ~/ 7) % harderFrames.length];
+    final summary = _pick(_summaryBank(band, data), s);
+    final highlights = _pick(_highlightBank(band, top), s ~/ 3);
+    final caution = _pick(_cautionBank(band, weak), s ~/ 7);
+    final advice = _pick(_adviceBank(band, top), s ~/ 11);
+    final comparison = _comparison(period, band, s);
+    final evidenceLine = _evidenceLine(
+      period,
+      lagnaLord,
+      evidence,
+      topThemeTags,
+      seed,
+      band,
+    );
 
     return PeriodNarrative(
       summary: summary,
-      whatChanges: whatChanges,
-      easier: easier,
-      harder: harder,
-      comparison: _comparison(period, seed),
-      evidenceLine:
-          _evidenceLine(period, lagnaLord, evidence, topThemeTags, seed),
+      whatChanges: highlights,
+      easier: highlights,
+      harder: caution,
+      comparison: comparison,
+      evidenceLine: evidenceLine,
+      advice: advice,
+      stageLabel: ThaiLifeStageContext.bandLabelTh(band),
     );
   }
 
-  static String _comparison(PeriodState period, int seed) {
+  static String _pick(List<String> list, int n) {
+    if (list.isEmpty) {
+      return 'ช่วงนี้เป็นจังหวะที่ควรสังเกตตัวเองอย่างนุ่มนวลและค่อยเป็นค่อยไป';
+    }
+    return list[n.abs() % list.length];
+  }
+
+  static List<String> _summaryBank(
+    ThaiLifeStageBand band,
+    LifePlanetData data,
+  ) {
+    final phase = data.phaseName;
+    final essence = data.phaseEssence;
+    switch (band) {
+      case ThaiLifeStageBand.earlyChildhood:
+        return [
+          'ในวัยเด็กเล็ก ช่วงอายุนี้เป็น$phase ซึ่ง$essence ผู้ปกครองจะสังเกตพัฒนาการอารมณ์และการปรับตัวของเด็กได้ชัดขึ้น',
+          'ช่วงนี้ของวัยเด็กเล็กคือ$phase — $essence เหมาะกับการสร้างความมั่นคงทางใจผ่านการดูแลที่สม่ำเสมอ',
+          'สำหรับเด็กเล็ก ช่วงนี้เป็น$phase ที่$essence โดยเน้นความอบอุ่น การเล่น และการเรียนรู้จากสิ่งรอบตัว',
+        ];
+      case ThaiLifeStageBand.schoolAge:
+        return [
+          'ในวัยเรียน ช่วงนี้เป็น$phase ซึ่ง$essence เรื่องการเรียนรู้ เพื่อน และการฝึกวินัยมักเด่นขึ้น',
+          'ช่วงวัยเรียนนี้คือ$phase — $essence เหมาะกับการสนับสนุนความสนใจและความมั่นใจของเด็ก',
+          'สำหรับเด็กโต ช่วงนี้เป็น$phase ที่$essence โดยเน้นการเรียน การเข้าสังคม และการค้นหาสิ่งที่ถนัด',
+        ];
+      case ThaiLifeStageBand.teen:
+        return [
+          'ในวัยรุ่น ช่วงนี้เป็น$phase ซึ่ง$essence เรื่องตัวตน เพื่อน และทิศทางอนาคตมักสำคัญขึ้น',
+          'ช่วงวัยรุ่นนี้คือ$phase — $essence เหมาะกับการเรียนรู้การตัดสินใจและการวางขอบเขตอย่างเหมาะสม',
+          'สำหรับวัยรุ่น ช่วงนี้เป็น$phase ที่$essence โดยเน้นการค้นหาตัวตนและความเป็นอิสระอย่างมีที่พึ่ง',
+        ];
+      case ThaiLifeStageBand.youngAdult:
+        return [
+          'ในวัยเริ่มต้นผู้ใหญ่ ช่วงนี้เป็น$phase ซึ่ง$essence เรื่องการสร้างตัวตน ความรับผิดชอบ และทางเลือกหลักของชีวิตมักเด่นขึ้น',
+          'ช่วงนี้คือ$phase — $essence เหมาะกับการทดลองบทบาทผู้ใหญ่และการวางรากฐานระยะต้น',
+          'สำหรับวัยเริ่มทำงานหรือเรียนต่อ ช่วงนี้เป็น$phase ที่$essence โดยเน้นการตัดสินใจที่ส่งผลต่อทิศทางระยะยาว',
+        ];
+      case ThaiLifeStageBand.workingAdult:
+        return [
+          'ในวัยทำงาน ช่วงนี้เป็น$phase ซึ่ง$essence เรื่องงาน ความมั่นคง และสมดุลชีวิตมักเป็นแกนหลัก',
+          'ช่วงนี้คือ$phase — $essence เหมาะกับการเลือกโอกาสที่สอดคล้องกับพลังและความรับผิดชอบที่มีอยู่',
+          'สำหรับวัยสร้างฐานชีวิต ช่วงนี้เป็น$phase ที่$essence โดยเน้นการบริหารภาระและโอกาสไปพร้อมกัน',
+        ];
+      case ThaiLifeStageBand.midlife:
+        return [
+          'ในวัยกลางคน ช่วงนี้เป็น$phase ซึ่ง$essence เรื่องการทบทวนทิศทาง การดูแลคนรอบตัว และการบริหารพลังงานมักสำคัญขึ้น',
+          'ช่วงนี้คือ$phase — $essence เหมาะกับการต่อยอดประสบการณ์และปรับบทบาทให้พอดีกับชีวิตจริง',
+          'สำหรับวัยกลางคน ช่วงนี้เป็น$phase ที่$essence โดยเน้นความมั่นคงและการเลือกสิ่งที่คุ้มค่าแก่เวลา',
+        ];
+      case ThaiLifeStageBand.elder:
+        return [
+          'ในวัยสูงอายุ ช่วงนี้เป็น$phase ซึ่ง$essence เรื่องคุณภาพชีวิต ความสัมพันธ์ และการใช้ประสบการณ์ส่งต่อมักเด่นขึ้น',
+          'ช่วงนี้คือ$phase — $essence เหมาะกับการรักษาสมดุลใจและปรับบทบาทอย่างให้เกียรติตัวเอง',
+          'สำหรับวัยสูงอายุ ช่วงนี้เป็น$phase ที่$essence โดยเน้นความมั่นคงทางใจและการดูแลชีวิตประจำวันอย่างพอดี',
+        ];
+    }
+  }
+
+  static List<String> _highlightBank(ThaiLifeStageBand band, String domain) {
+    final child = ThaiLifeStageContext.isChildOriented(band);
+    final teen = band == ThaiLifeStageBand.teen;
+    switch (domain) {
+      case 'career':
+        if (child) {
+          return [
+            'เรื่องที่เด่นคือการเรียนรู้ผ่านการลงมือทำและการฝึกความรับผิดชอบเล็ก ๆ ในชีวิตประจำวัน',
+            'จังหวะนี้ส่งเสริมให้เด็กได้ลองบทบาทและความสามารถใหม่ในสภาพแวดล้อมที่ปลอดภัย',
+          ];
+        }
+        if (teen) {
+          return [
+            'เรื่องที่เด่นคือการค้นหาทิศทางอนาคตผ่านการเรียน กิจกรรม และความสนใจของตนเอง',
+            'จังหวะนี้ช่วยให้วัยรุ่นเห็นภาพบทบาทที่อยากลองในอนาคตได้ชัดขึ้น',
+          ];
+        }
+        return [
+          'เรื่องที่เด่นคืองาน เป้าหมาย และบทบาทที่ต้องรับผิดชอบในสังคม',
+          'จังหวะนี้เอื้อให้การผลักดันเป้าหมายและการตัดสินใจเรื่องหน้าที่ลื่นขึ้น',
+        ];
+      case 'money':
+        if (child || teen) {
+          return [
+            'เรื่องที่เด่นคือความรู้สึกมั่นคง การดูแลพื้นฐาน และการจัดระเบียบชีวิตประจำวัน',
+            'จังหวะนี้ส่งเสริมวินัยเล็ก ๆ และการเข้าใจคุณค่าของสิ่งของอย่างค่อยเป็นค่อยไป',
+          ];
+        }
+        return [
+          'เรื่องที่เด่นคือความมั่นคง การวางแผน และการสร้างฐานชีวิตให้จับต้องได้',
+          'จังหวะนี้เอื้อให้การจัดการทรัพยากรและการวางแผนระยะยาวชัดขึ้น',
+        ];
+      case 'love':
+        if (child) {
+          return [
+            'เรื่องที่เด่นคือความผูกพันกับผู้ดูแล ความอบอุ่น และการเรียนรู้การไว้ใจผู้อื่น',
+            'จังหวะนี้ส่งเสริมความสัมพันธ์ในครอบครัวและการสื่อสารอย่างอ่อนโยน',
+          ];
+        }
+        if (teen) {
+          return [
+            'เรื่องที่เด่นคือมิตรภาพ การยอมรับจากกลุ่ม และความสัมพันธ์ที่กำลังเรียนรู้ขอบเขต',
+            'จังหวะนี้ช่วยให้เข้าใจความรู้สึกของตนเองและผู้อื่นมากขึ้น โดยยังควรเดินอย่างค่อยเป็นค่อยไป',
+          ];
+        }
+        return [
+          'เรื่องที่เด่นคือความสัมพันธ์ ความเข้าใจกัน และการดูแลคนสำคัญ',
+          'จังหวะนี้เอื้อให้การเชื่อมใจและการสร้างความผูกพันมีความหมายมากขึ้น',
+        ];
+      case 'health':
+        return child || teen
+            ? [
+                'เรื่องที่เด่นคือพลังกายใจ จังหวะพักผ่อน และการดูแลตัวเองตามวัย',
+                'จังหวะนี้ส่งเสริมการฟังสัญญาณร่างกายและอารมณ์อย่างสม่ำเสมอ',
+              ]
+            : [
+                'เรื่องที่เด่นคือสมดุลของใจและร่างกาย รวมถึงการพักที่พอเพียง',
+                'จังหวะนี้เอื้อให้การดูแลสุขภาพและพลังงานกลายเป็นเรื่องสำคัญขึ้น',
+              ];
+      case 'opportunity':
+        return [
+          'เรื่องที่เด่นคือโอกาสใหม่ ๆ และการได้ลองทางเลือกที่เหมาะกับจังหวะชีวิต',
+          'จังหวะนี้เปิดช่องให้ได้พบคนหรือโอกาสที่สอดคล้องกับทิศทางปัจจุบัน',
+        ];
+      case 'growth':
+      default:
+        return [
+          'เรื่องที่เด่นคือการเรียนรู้ การเข้าใจตัวเอง และการเติบโตจากประสบการณ์',
+          'จังหวะนี้ส่งเสริมการปรับมุมมองและพัฒนาทักษะที่ใช้ได้จริงในชีวิตประจำวัน',
+        ];
+    }
+  }
+
+  static List<String> _cautionBank(ThaiLifeStageBand band, String domain) {
+    final child = ThaiLifeStageContext.isChildOriented(band);
+    final teen = band == ThaiLifeStageBand.teen;
+    switch (domain) {
+      case 'career':
+        if (child) {
+          return [
+            'สิ่งที่ควรระวังคือการกดดันเด็กเรื่องผลงานหรือความเก่งจนเกินวัย',
+            'ควรหลีกเลี่ยงการเปรียบเทียบกับเด็กคนอื่นจนบั่นทอนความมั่นใจ',
+          ];
+        }
+        if (teen) {
+          return [
+            'สิ่งที่ควรระวังคือการเร่งตัดสินใจเรื่องอนาคตโดยยังไม่เข้าใจตัวเองพอ',
+            'ควรระวังการแบกความคาดหวังจากคนรอบตัวจนเครียดเกินควร',
+          ];
+        }
+        return [
+          'สิ่งที่ควรระวังคือการแบกงานหรือความรับผิดชอบไว้คนเดียวจนลืมพัก',
+          'ควรระวังการกดดันตัวเองเรื่องผลงานจนเสียสมดุลชีวิต',
+        ];
+      case 'money':
+        if (child || teen) {
+          return [
+            'สิ่งที่ควรระวังคือความไม่แน่นอนของกิจวัตรที่ทำให้เด็กรู้สึกไม่มั่นคง',
+            'ควรจัดสภาพแวดล้อมให้คาดเดาได้ และอธิบายการเปลี่ยนแปลงด้วยภาษาที่เข้าใจง่าย',
+          ];
+        }
+        return [
+          'สิ่งที่ควรระวังคือการตัดสินใจเรื่องเงินหรือข้อผูกมัดใหญ่โดยรีบร้อน',
+          'ควรชะลอการใช้จ่ายตามอารมณ์ และทบทวนแผนก่อนผูกพันระยะยาว',
+        ];
+      case 'love':
+        if (child) {
+          return [
+            'สิ่งที่ควรระวังคือการขาดความสม่ำเสมอในการดูแล ซึ่งอาจทำให้เด็กรู้สึกไม่แน่ใจ',
+            'ควรสื่อสารด้วยความอ่อนโยนและให้เวลาเด็กปรับตัวเมื่อสภาพแวดล้อมเปลี่ยน',
+          ];
+        }
+        if (teen) {
+          return [
+            'สิ่งที่ควรระวังคือการเปรียบเทียบตัวเองกับเพื่อนจนกระทบความมั่นใจ',
+            'ควรระวังการเปิดใจเร็วเกินไปโดยยังไม่มีขอบเขตที่ชัดเจน',
+          ];
+        }
+        return [
+          'สิ่งที่ควรระวังคือการคาดหวังเงียบ ๆ โดยไม่สื่อสาร จนเกิดความเข้าใจผิด',
+          'ควรดูแลไม่ให้ความน้อยใจเล็ก ๆ สะสมจนกลายเป็นระยะห่าง',
+        ];
+      case 'health':
+        return [
+          'สิ่งที่ควรระวังคือการฝืนตัวเองจนสะสมความล้าโดยไม่ทันสังเกต',
+          'ควรจัดเวลาพักและกิจกรรมที่เติมพลังให้สมดุลกับภาระที่มี',
+        ];
+      case 'opportunity':
+        return [
+          'สิ่งที่ควรระวังคือการรับทุกโอกาสไว้จนโฟกัสกระจาย',
+          'ควรเลือกเฉพาะทางที่สอดคล้องกับพลังและลำดับความสำคัญในตอนนี้',
+        ];
+      case 'growth':
+      default:
+        return [
+          'สิ่งที่ควรระวังคือการเร่งผลลัพธ์จนลืมชื่นชมพัฒนาการทีละขั้น',
+          'ควรหลีกเลี่ยงการเปรียบเทียบตัวเองกับคนอื่นจนท้อโดยไม่จำเป็น',
+        ];
+    }
+  }
+
+  static List<String> _adviceBank(ThaiLifeStageBand band, String domain) {
+    switch (band) {
+      case ThaiLifeStageBand.earlyChildhood:
+        return [
+          'ผู้ปกครองหรือผู้ดูแลควรให้เวลาร่วมเล่น สื่อสารอย่างนุ่มนวล และสร้างกิจวัตรที่เด็กคาดเดาได้',
+          'ควรเปิดโอกาสให้เด็กได้สำรวจอย่างปลอดภัย และสะท้อนความรู้สึกของเด็กด้วยคำที่เข้าใจง่าย',
+          'เน้นความสม่ำเสมอในการดูแลมากกว่าการเร่งทักษะเกินวัย',
+        ];
+      case ThaiLifeStageBand.schoolAge:
+        return [
+          'ผู้ปกครองและครูควรสนับสนุนความสนใจของเด็ก พร้อมฝึกวินัยแบบค่อยเป็นค่อยไป',
+          'ควรช่วยจัดเวลาเรียน พัก และกิจกรรมเพื่อนให้สมดุล โดยไม่เปรียบเทียบกับเด็กคนอื่น',
+          'เปิดโอกาสให้เด็กได้ลองสิ่งที่ถนัดและได้รับคำชมที่เฉพาะเจาะจง',
+        ];
+      case ThaiLifeStageBand.teen:
+        return [
+          'ควรให้พื้นที่คิดและตัดสินใจในเรื่องที่เหมาะสม พร้อมเป็นที่ปรึกษาเมื่อต้องการ',
+          'ช่วยวางขอบเขตที่ชัดเจนโดยไม่ตีตรา และสนับสนุนการสำรวจตัวตนอย่างปลอดภัย',
+          'ชวนพูดคุยเรื่องอนาคตแบบเปิด ไม่เร่งฟันธงเส้นทางเดียว',
+        ];
+      case ThaiLifeStageBand.youngAdult:
+        return [
+          'ควรทดลองบทบาทและทางเลือกอย่างมีขอบเขต แล้วทบทวนสิ่งที่ได้เรียนรู้เป็นระยะ',
+          'วางวินัยเล็ก ๆ เรื่องเวลา เงิน และสุขภาพ เพื่อรองรับการเริ่มต้นชีวิตผู้ใหญ่',
+          'เลือกความสัมพันธ์และโอกาสที่สอดคล้องกับค่าที่ตนเองยึดถือ',
+        ];
+      case ThaiLifeStageBand.workingAdult:
+        return [
+          'จัดลำดับงานและความรับผิดชอบให้เหลือพลังดูแลตัวเองและคนสำคัญ',
+          'เลือกโอกาสที่คุ้มค่าแก่เวลา แทนการรับทุกอย่างไว้',
+          'ทบทวนสมดุลงาน การเงิน และสุขภาพอย่างสม่ำเสมอ',
+        ];
+      case ThaiLifeStageBand.midlife:
+        return [
+          'ทบทวนทิศทางชีวิตและภาระที่มี แล้วเลือกลงแรงกับสิ่งที่สร้างคุณค่าจริง',
+          'ดูแลพลังงานและสุขภาพควบคู่กับการสนับสนุนครอบครัวหรือทีม',
+          'ใช้ประสบการณ์ที่มีในการตัดสินใจระยะยาวอย่างใจเย็น',
+        ];
+      case ThaiLifeStageBand.elder:
+        return [
+          'จัดชีวิตประจำวันให้เอื้อต่อคุณภาพชีวิต ความสัมพันธ์ และความสงบใจ',
+          'เลือกกิจกรรมที่เติมความหมาย โดยไม่ฝืนร่างกายเกินควร',
+          'แบ่งปันประสบการณ์กับคนรุ่นหลังในจังหวะที่ตนเองสบายใจ',
+        ];
+    }
+  }
+
+  static String _comparison(
+    PeriodState period,
+    ThaiLifeStageBand band,
+    int seed,
+  ) {
     final prev = period.previousPlanet;
-    final next = period.nextPlanet;
-    if (prev == null && next == null) return '';
-    final parts = <String>[];
-    if (prev != null) {
-      final p = LifePlanets.of(prev);
-      parts.add(
-        'ถ้าช่วงก่อนหน้า (${p.phaseName}) คือช่วงของ${p.keyword} '
-        'ช่วงนี้คือก้าวต่อจากตรงนั้น',
-      );
-    }
-    if (next != null) {
-      final n = LifePlanets.of(next);
-      parts.add(
-        'และเมื่อผ่านช่วงนี้ไป คุณจะเข้าสู่${n.phaseName} '
-        'ที่ชีวิตจะเน้นเรื่อง${n.keyword}มากขึ้น',
-      );
-    }
-    return parts.join(' ');
+    if (prev == null) return '';
+    final p = LifePlanets.of(prev);
+    final current = LifePlanets.of(period.planet);
+    final frames = ThaiLifeStageContext.isChildOriented(band)
+        ? [
+            'เทียบกับช่วงก่อนหน้า (${p.phaseName}) ที่เน้นเรื่อง${p.keyword} ช่วงนี้ (${current.phaseName}) จะเห็นจังหวะของ${current.keyword} ชัดขึ้นในชีวิตประจำวันของเด็ก',
+            'จากช่วง${p.phaseName} มาสู่ช่วง${current.phaseName} พัฒนาการจะขยับจาก${p.keyword} ไปสู่${current.keyword} มากขึ้น',
+          ]
+        : [
+            'เทียบกับช่วงก่อนหน้า (${p.phaseName}) ที่เน้นเรื่อง${p.keyword} ช่วงนี้ (${current.phaseName}) จะให้ความสำคัญกับ${current.keyword} มากขึ้น',
+            'จากจังหวะ${p.phaseName} สู่${current.phaseName} โฟกัสของชีวิตจะค่อย ๆ ย้ายจาก${p.keyword} ไปสู่${current.keyword}',
+          ];
+    return frames[seed.abs() % frames.length];
   }
 
   static const _relationTails = <PlanetRelation, List<String>>{
     PlanetRelation.friend: [
-      'ช่วงนี้จึงเป็นจังหวะที่จุดแข็งของคุณได้ส่งเสริมกันพอดี',
-      'ช่วงนี้จุดแข็งข้อนี้จะยิ่งทำงานให้คุณได้เต็มที่',
-      'ช่วงนี้จึงเป็นจังหวะที่คุณได้ใช้ของดีในตัวอย่างลื่นไหล',
+      'จังหวะนี้จึงเอื้อให้จุดเด่นข้อนี้ทำงานได้อย่างลื่นไหล',
+      'ช่วงนี้จุดเด่นข้อนี้มักช่วยให้เดินทางได้สบายขึ้น',
     ],
     PlanetRelation.enemy: [
-      'ช่วงนี้จึงอาจรู้สึกฝืนอยู่บ้าง แต่ก็เป็นบทเรียนที่ทำให้คุณโตขึ้น',
-      'ช่วงนี้อาจต้องออกแรงกับตัวเองมากขึ้น แต่ผลที่ได้ก็คุ้มค่า',
-      'ช่วงนี้จึงท้าทายข้อนี้ของคุณ และนั่นแหละที่ทำให้คุณแกร่งขึ้น',
+      'จังหวะนี้อาจรู้สึกฝืนบ้าง แต่ก็เป็นโอกาสฝึกความอดทนและการปรับตัว',
+      'ช่วงนี้อาจต้องออกแรงกับตัวเองมากขึ้น โดยยังเดินอย่างค่อยเป็นค่อยไป',
     ],
     PlanetRelation.neutral: [
-      'ช่วงนี้จึงขึ้นอยู่กับว่าคุณจะหยิบจุดแข็งของตัวเองมาใช้แค่ไหน',
-      'ช่วงนี้เปิดทางให้คุณเลือกได้ว่าจะเดินด้วยจุดแข็งข้อนี้แบบไหน',
-      'ช่วงนี้จะเป็นอย่างไรก็อยู่ที่คุณจะวางจุดแข็งข้อนี้ตรงไหน',
+      'จังหวะนี้เปิดทางให้เลือกได้ว่าจะใช้จุดเด่นข้อนี้อย่างไร',
+      'ช่วงนี้ผลลัพธ์จะชัดขึ้นเมื่อนำจุดเด่นข้อนี้มาใช้จริง',
     ],
   };
 
@@ -260,28 +382,26 @@ abstract final class PeriodNarrativeComposer {
     EvidenceProfile evidence,
     List<String> topThemeTags,
     int seed,
+    ThaiLifeStageBand band,
   ) {
     final relation = lagnaLord == null
         ? PlanetRelation.neutral
         : PlanetRelationshipMatrix.relation(period.planet, lagnaLord);
-
-    final tailOptions = _relationTails[relation]!;
-    final relationTail = tailOptions[(seed.abs() ~/ 3) % tailOptions.length];
-
-    // Cite a *different* one of the person's strongest patterns per period
-    // (keyed off the period index) so the same strength word isn't echoed in
-    // every single card down the whole timeline.
+    final relationTail =
+        _relationTails[relation]![(seed.abs() ~/ 3) %
+            _relationTails[relation]!.length];
     final tags = topThemeTags
         .map((t) => t.trim())
         .where((t) => t.isNotEmpty)
         .toList();
     if (tags.isEmpty) return relationTail;
     final tag = tags[(period.index + seed.abs() ~/ 5) % tags.length];
-
+    if (ThaiLifeStageContext.isChildOriented(band)) {
+      return 'จุดเด่นที่สัมพันธ์กับภาพรวมของคนคนนี้คือ “$tag” $relationTail';
+    }
     final frames = <String>[
-      'เพราะสิ่งที่โดดเด่นที่สุดในตัวคุณคือ“$tag” $relationTail',
-      'ในเมื่อจุดเด่นของคุณคือ“$tag” $relationTail',
-      'ด้วยความที่คุณเป็นคน“$tag”อยู่แล้ว $relationTail',
+      'เพราะจุดเด่นที่เห็นชัดคือ “$tag” $relationTail',
+      'ด้วยนิสัย “$tag” ที่เป็นทุนเดิม $relationTail',
     ];
     return frames[seed.abs() % frames.length];
   }
