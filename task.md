@@ -1,16 +1,18 @@
-# Task: Thai Life Map V1.2.4 — Real-User Accuracy Audit
+# Task: Thai Life Map V1.2.5 — Invited Beta User Validation
 
 ## Goal
-Run a deterministic multi-chart accuracy audit (≥20 synthetic fixtures, ≥160 periods) across Life Map / Mahabhut / consumer paths. Document results. Fix production code only if a data-flow bug is found.
+Ship a production-safe Feedback collection + UI for invited-beta signed-in users on Thai Life Map, with Firestore rules enforcement, admin summary, and status **Ready for Invited Beta Validation** (do not claim Validation Passed without real users).
 
-## Status
-- Audit sample: 22 fixtures / 176 periods — known 139 / unknown 37; no data-flow anomalies
-- Focused Life Map suite: 36/36 (14 assertion cases in V1.2.4 file alone ≠ sample size)
-- Compile fixes were test-only (`static final` DateTime; nullable badge coalesce)
-- No `lib/` / Frozen Canon / formula changes → no Firebase deploy
+## Scope choice
+- New collection `thai_life_map_beta_feedback` (invite-only writes) — keep public `thai_beta_feedback` research path unchanged
+- New allow-list `invited_beta_testers/{uid}` (same trust model as `admins/{uid}`)
+- Wire Evidence Badge audience to Firestore invite docs (in-memory registry remains for tests)
+- Non-blocking panel on `ThaiBetaReportPage` for invited users only
+- Admin summary card on existing `ThaiBetaAdminPage`
 
 ## Non-goals
-- Do not modify Frozen Canon or Mahabhut formulas
-- Do not invent placement tables
-- Do not open Public Evidence Badge
-- Do not redeploy if only tests/docs change
+- Do not modify Frozen Canon / Mahabhut formulas
+- Do not open Evidence Badge to the public
+- Do not auto-expand allow-list
+- Do not seed fake user validation scores
+- Do not claim Validation Passed without ≥5 real users

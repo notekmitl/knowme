@@ -1,12 +1,12 @@
 # KnowMe Current Status
 
 **Last updated:** July 2026  
-**Branch:** `main` (V1.2.4 audit on `audit/thai-life-map-v124-accuracy` pending merge)  
-**Merge tip:** `2d86e48` (PR #21 — Mahabhut Canon-index status docs); Production code tip `07d0eb9` (PR #20)  
+**Branch:** `feature/thai-life-map-v125-beta-validation` (pending merge) / track `main` @ `cb33a3d`  
+**Merge tip:** `cb33a3d` (PR #22 — V1.2.4 Accuracy Audit); Production code tip `07d0eb9` (PR #20) until V1.2.5 deploy  
 **Prior architecture snapshot:** `feature/fusion-result`  
 **Automation workflow (authoritative):** Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
 **Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login) — Evidence Badge rollout remains `invited_beta`.
-**Thai Beta Narrative / Life Map:** **V1.2.3 Life Map** + **Mahabhut Canon-index fix** on `main` @ `07d0eb9`; **V1.2.4 Accuracy Audit** — 22 synthetic charts / 176 periods (known 139 / unknown 37); focused Life Map suite **36/36**; no production code change → **no redeploy**. Report: [`THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md`](THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md).
+**Thai Beta Narrative / Life Map:** **V1.2.3** + Canon-index fix @ `07d0eb9`; **V1.2.4 Audit** on `main` @ `cb33a3d`; **V1.2.5 Feedback System** — Ready for Invited Beta Validation (0 real Feedback yet). See [`THAI_LIFE_MAP_V125_BETA_VALIDATION.md`](THAI_LIFE_MAP_V125_BETA_VALIDATION.md).
 
 ---
 
@@ -33,7 +33,8 @@
 | **Funnel Recovery V2** | Implemented | `lib/features/home_cohesion/`, `lib/features/funnel_telemetry/`, MBTI → narrative preview loop |
 | **Thai Beta Narrative Quality V1–V1.2.2 + Life Map V1.2.3** | Merged to `main` + **hosted** | Life Map V1.2.3; PR https://github.com/notekmitl/knowme/pull/18; production https://knowme-app-694e1.web.app/beta/thai |
 | **Life Map Mahabhut Canon index (Production fix)** | Merged to `main` + **hosted** | PR https://github.com/notekmitl/knowme/pull/20 @ `07d0eb9`; wires Frozen Canon `repository.index` into Timeline/Consumer presenters — unknown no longer forced by null index. Presenter-path QA (1972-04-04 02:00 BKK): **known=7 / unknown=1** (ธงชัย, unknown, ปูติ, อธิบดี, ขุมทรัพย์, ปูติ, มรณะ, ราชา). Sample pipeline fixture: known=8 / unknown=0 |
-| **Thai Life Map V1.2.4 Accuracy Audit** | Tests + report (no runtime change) | 22 fixtures / 176 periods; known 139 (79%) / unknown 37 (21%): `AMBIGUOUS_ARCHETYPE_PLANET_PLACEMENT` 27, `SOURCE_CONFLICT_ARCHETYPE_PLANET_PLACEMENT` 6, `AMBIGUOUS_MAHABHUT_POSITION` 4; Wed day/night PASS; path parity + determinism + no state leak; Badge `invited_beta`; focused suite 36/36; `flutter analyze test/validation/thai_beta/life_map/` clean; **do not Firebase deploy**; report [`THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md`](THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md) |
+| **Thai Life Map V1.2.4 Accuracy Audit** | Merged tests + report | PR #22 @ `cb33a3d`; 22 fixtures / 176 periods; known 139 / unknown 37; [`THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md`](THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md) |
+| **Thai Life Map V1.2.5 Invited Beta Feedback** | Implemented — **Ready for Validation** | Invite-only Firestore `thai_life_map_beta_feedback` + `invited_beta_testers`; non-blocking panel on report; admin summary; **0 real users** → not Validation Passed; [`THAI_LIFE_MAP_V125_BETA_VALIDATION.md`](THAI_LIFE_MAP_V125_BETA_VALIDATION.md) |
 | **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with Mahabhut Canon deploy 2026-07-23 @ `07d0eb9` |
 | **Single-Agent + Local Gate** | Merged to `main` | `docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`, `scripts/knowme_task_gate.ps1` |
 

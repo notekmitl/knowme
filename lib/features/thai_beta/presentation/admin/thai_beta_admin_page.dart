@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../application/thai_beta_dashboard.dart';
 import '../../application/thai_beta_store.dart';
 import '../../domain/thai_beta_record.dart';
+import '../widgets/thai_life_map_beta_feedback_summary_card.dart';
 import 'thai_beta_detail_page.dart';
 
 /// `/internal/thai-beta` — internal review tool for beta submissions.
@@ -67,12 +68,20 @@ class _ThaiBetaAdminPageState extends State<ThaiBetaAdminPage> {
           }
           final all = snapshot.data ?? const <ThaiBetaRecord>[];
           if (all.isEmpty) {
-            return const Center(child: Text('ยังไม่มีข้อมูล feedback'));
+            return ListView(
+              padding: const EdgeInsets.all(16),
+              children: const [
+                ThaiLifeMapBetaFeedbackSummaryCard(),
+                SizedBox(height: 24),
+                Center(child: Text('ยังไม่มีข้อมูล research feedback')),
+              ],
+            );
           }
 
           final dashboard = ThaiBetaDashboard.fromRecords(all);
-          final versions = {for (final r in all) r.thaiFoundationVersion}.toList()
-            ..sort();
+          final versions = {
+            for (final r in all) r.thaiFoundationVersion,
+          }.toList()..sort();
           final filtered = _applyFilters(all);
 
           return Center(
@@ -81,6 +90,8 @@ class _ThaiBetaAdminPageState extends State<ThaiBetaAdminPage> {
               child: ListView(
                 padding: const EdgeInsets.all(16),
                 children: [
+                  const ThaiLifeMapBetaFeedbackSummaryCard(),
+                  const SizedBox(height: 16),
                   _DashboardCard(dashboard: dashboard),
                   const SizedBox(height: 16),
                   _Filters(
@@ -93,8 +104,10 @@ class _ThaiBetaAdminPageState extends State<ThaiBetaAdminPage> {
                     onDateChanged: () => setState(() {}),
                   ),
                   const SizedBox(height: 12),
-                  Text('ผลลัพธ์ ${filtered.length} รายการ',
-                      style: Theme.of(context).textTheme.labelLarge),
+                  Text(
+                    'ผลลัพธ์ ${filtered.length} รายการ',
+                    style: Theme.of(context).textTheme.labelLarge,
+                  ),
                   const SizedBox(height: 8),
                   for (final record in filtered)
                     _RecordTile(
@@ -123,8 +136,10 @@ class _DashboardCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final maxBar = dashboard.ratingDistribution.values
-        .fold<int>(1, (m, v) => v > m ? v : m);
+    final maxBar = dashboard.ratingDistribution.values.fold<int>(
+      1,
+      (m, v) => v > m ? v : m,
+    );
 
     return Card(
       child: Padding(
@@ -157,14 +172,14 @@ class _DashboardCard extends StatelessWidget {
                     Expanded(
                       child: LayoutBuilder(
                         builder: (context, c) {
-                          final count =
-                              dashboard.ratingDistribution[star] ?? 0;
+                          final count = dashboard.ratingDistribution[star] ?? 0;
                           return Stack(
                             children: [
                               Container(
                                 height: 14,
                                 decoration: BoxDecoration(
-                                  color: theme.colorScheme.surfaceContainerHighest,
+                                  color:
+                                      theme.colorScheme.surfaceContainerHighest,
                                   borderRadius: BorderRadius.circular(7),
                                 ),
                               ),
@@ -184,8 +199,10 @@ class _DashboardCard extends StatelessWidget {
                     const SizedBox(width: 8),
                     SizedBox(
                       width: 28,
-                      child: Text('${dashboard.ratingDistribution[star] ?? 0}',
-                          textAlign: TextAlign.end),
+                      child: Text(
+                        '${dashboard.ratingDistribution[star] ?? 0}',
+                        textAlign: TextAlign.end,
+                      ),
                     ),
                   ],
                 ),
