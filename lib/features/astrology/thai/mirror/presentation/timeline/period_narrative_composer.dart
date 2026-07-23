@@ -49,6 +49,7 @@ class PeriodNarrative {
 abstract final class PeriodNarrativeComposer {
   static PeriodNarrative compose({
     required PeriodState period,
+    required int narrativeAge,
     required PeriodScores scores,
     required LifePlanet? lagnaLord,
     required EvidenceProfile evidence,
@@ -56,10 +57,7 @@ abstract final class PeriodNarrativeComposer {
     required int seed,
   }) {
     final data = LifePlanets.of(period.planet);
-    final band = ThaiLifeStageContext.fromPeriodAges(
-      period.startAge,
-      period.endAge,
-    );
+    final band = ThaiLifeStageContext.fromAge(narrativeAge);
     final s = seed.abs();
     final top = ThaiLifeStageContext.narrativeDomain(scores.topDomain, band);
     final weak = ThaiLifeStageContext.narrativeDomain(

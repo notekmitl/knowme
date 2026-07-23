@@ -99,6 +99,11 @@ abstract final class TimelinePresenter {
       );
       final narrative = PeriodNarrativeComposer.compose(
         period: p,
+        narrativeAge: p.isCurrent
+            ? age
+            : p.isPast
+            ? p.endAge
+            : p.startAge,
         scores: scores,
         lagnaLord: lagnaLord,
         evidence: evidence,

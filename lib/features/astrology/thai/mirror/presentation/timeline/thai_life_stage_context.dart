@@ -1,7 +1,8 @@
 /// Presentation-only life-stage context for Thai Life Map narrative.
 ///
-/// Does **not** change engine period boundaries. Uses the mid-age of a period
-/// window to pick age-appropriate copy banks.
+/// Does **not** change engine period boundaries. The presenter supplies the
+/// reader-relevant age for each period so a long astrology window cannot turn
+/// a child into an adult in user-facing copy.
 library;
 
 enum ThaiLifeStageBand {
@@ -26,15 +27,6 @@ abstract final class ThaiLifeStageContext {
     if (age <= 64) return ThaiLifeStageBand.midlife;
     return ThaiLifeStageBand.elder;
   }
-
-  /// Mid-point of an inclusive [startAge]–[endAge] period window.
-  static int midAge(int startAge, int endAge) {
-    if (endAge < startAge) return startAge;
-    return startAge + ((endAge - startAge) ~/ 2);
-  }
-
-  static ThaiLifeStageBand fromPeriodAges(int startAge, int endAge) =>
-      fromAge(midAge(startAge, endAge));
 
   static String bandLabelTh(ThaiLifeStageBand band) => switch (band) {
     ThaiLifeStageBand.earlyChildhood => 'วัยเด็กเล็ก',
