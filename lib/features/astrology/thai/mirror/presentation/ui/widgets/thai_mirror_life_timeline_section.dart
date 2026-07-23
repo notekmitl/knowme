@@ -12,9 +12,9 @@ import '../../timeline/thai_mirror_life_timeline_state.dart';
 /// show only previous/current/next (max 3). Source [state.periods] is not
 /// mutated — selection is a presentation projection.
 ///
-/// When [lifeMapMode] is true (V1.2.3), all eight periods are shown with
-/// past/current/future labels; period details start collapsed and include
-/// nested ดาวแทรก / ทักษาจร expanders.
+/// When [lifeMapMode] is true (V1.2.3+), all eight periods are shown with
+/// past/current/future labels; period details start collapsed. V1.2.6 shows
+/// age-aware narrative sections (ไม่แสดงกราฟคะแนน / ดาวแทรก / ทักษาจรดิบ).
 class ThaiMirrorLifeTimelineSection extends StatefulWidget {
   const ThaiMirrorLifeTimelineSection({
     super.key,
@@ -166,8 +166,8 @@ class _ThaiMirrorLifeTimelineSectionState
           widget.lifeMapMode
               ? 'แปดช่วงดาวเสวยอายุ'
               : compact
-                  ? 'ช่วงชีวิตที่เกี่ยวข้อง'
-                  : 'ทุกช่วงชีวิตของคุณ',
+              ? 'ช่วงชีวิตที่เกี่ยวข้อง'
+              : 'ทุกช่วงชีวิตของคุณ',
           style: TextStyle(
             fontSize: 15.5,
             fontWeight: FontWeight.w700,
@@ -788,9 +788,7 @@ class _PeriodCard extends StatelessWidget {
                   firstChild: _PeriodDetail(
                     period: period,
                     accent: accent,
-                    isWide: isWide,
                     showExpandChrome: showCollapsedSummary,
-                    lifeMapMode: lifeMapMode,
                   ),
                   secondChild: const SizedBox(width: double.infinity),
                 ),
@@ -833,16 +831,12 @@ class _PeriodDetail extends StatelessWidget {
   const _PeriodDetail({
     required this.period,
     required this.accent,
-    required this.isWide,
     this.showExpandChrome = false,
-    this.lifeMapMode = false,
   });
 
   final ThaiMirrorLifePeriodState period;
   final Color accent;
-  final bool isWide;
   final bool showExpandChrome;
-  final bool lifeMapMode;
 
   @override
   Widget build(BuildContext context) {
@@ -876,8 +870,20 @@ class _PeriodDetail extends StatelessWidget {
             ),
           ),
         ],
-        if (period.mahabhutPositionLabel.isNotEmpty) ...[
+        if (period.stageLabel.isNotEmpty) ...[
           const SizedBox(height: 10),
+          Text(
+            period.stageLabel,
+            key: const Key('thai_life_map_stage_label'),
+            style: TextStyle(
+              fontSize: 12.5,
+              fontWeight: FontWeight.w700,
+              color: accent,
+            ),
+          ),
+        ],
+        if (period.mahabhutPositionLabel.isNotEmpty) ...[
+          const SizedBox(height: 8),
           Text(
             '${ThaiMirrorLifeTimelineSection.mahabhutLabel}: '
             '${period.mahabhutPositionLabel}',
@@ -889,53 +895,32 @@ class _PeriodDetail extends StatelessWidget {
             ),
           ),
         ],
+        _SectionTitle(text: 'สรุปช่วงนี้', accent: accent),
         para(period.summary),
-        para(period.whatChanges),
-        if (lifeMapMode || period.subPeriods.isNotEmpty) ...[
-          const SizedBox(height: 12),
-          _NestedLifeMapList(
-            title: ThaiMirrorLifeTimelineSection.subPeriodsLabel,
-            rows: [
-              for (final s in period.subPeriods)
-                '${s.label} — ${s.durationLabel}',
-            ],
-          ),
+        if (period.whatChanges.isNotEmpty) ...[
+          _SectionTitle(text: 'เรื่องที่เด่น', accent: accent),
+          para(period.whatChanges),
         ],
-        if (lifeMapMode || period.annualTaksaYears.isNotEmpty) ...[
-          const SizedBox(height: 8),
-          _NestedLifeMapList(
-            title: ThaiMirrorLifeTimelineSection.annualTaksaLabel,
-            rows: [
-              for (final y in period.annualTaksaYears)
-                '${y.ageLabel}: ${y.boriwanLabel} · ${y.houseLabel}',
-            ],
-          ),
+        if (period.harder.isNotEmpty) ...[
+          _SectionTitle(text: 'สิ่งที่ควรระวัง', accent: accent),
+          para(period.harder),
         ],
-        const SizedBox(height: 14),
-        Text(
-          ThaiMirrorLifeTimelineSection.scoreExplanation,
-          key: const Key('thai_life_timeline_score_explanation'),
-          style: TextStyle(
-            fontSize: 12.5,
-            height: 1.55,
-            color: scheme.onSurfaceVariant,
+        if ((period.advice.isNotEmpty ? period.advice : period.easier)
+            .isNotEmpty) ...[
+          _SectionTitle(
+            text:
+                period.stageLabel.contains('เด็ก') ||
+                    period.stageLabel.contains('เรียน')
+                ? 'แนวทางส่งเสริมในวัยนี้'
+                : 'คำแนะนำสำหรับช่วงนี้',
+            accent: accent,
           ),
-        ),
-        const SizedBox(height: 10),
-        _ScoreGrid(scores: period.scores, accent: accent, isWide: isWide),
-        const SizedBox(height: 6),
-        _Hint(
-          icon: Icons.check_circle_rounded,
-          color: accent,
-          text: period.easier,
-        ),
-        const SizedBox(height: 8),
-        _Hint(
-          icon: Icons.error_outline_rounded,
-          color: scheme.tertiary,
-          text: period.harder,
-        ),
-        if (period.comparison.isNotEmpty) para(period.comparison),
+          para(period.advice.isNotEmpty ? period.advice : period.easier),
+        ],
+        if (period.comparison.isNotEmpty) ...[
+          _SectionTitle(text: 'ความเปลี่ยนแปลงจากช่วงก่อน', accent: accent),
+          para(period.comparison),
+        ],
         if (period.evidenceLine.isNotEmpty) ...[
           const SizedBox(height: 12),
           Container(
@@ -956,208 +941,31 @@ class _PeriodDetail extends StatelessWidget {
             ),
           ),
         ],
+        // V1.2.6 — raw ดาวแทรก / ทักษาจร / score charts stay off user-facing UI.
+        // Engine still computes them for audit / invited QA paths.
       ],
     );
   }
 }
 
-class _NestedLifeMapList extends StatefulWidget {
-  const _NestedLifeMapList({required this.title, required this.rows});
+class _SectionTitle extends StatelessWidget {
+  const _SectionTitle({required this.text, required this.accent});
 
-  final String title;
-  final List<String> rows;
-
-  @override
-  State<_NestedLifeMapList> createState() => _NestedLifeMapListState();
-}
-
-class _NestedLifeMapListState extends State<_NestedLifeMapList> {
-  bool _open = false;
-
-  @override
-  Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    if (widget.rows.isEmpty) return const SizedBox.shrink();
-
-    return Container(
-      width: double.infinity,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(12),
-        border: Border.all(color: scheme.outlineVariant.withValues(alpha: 0.7)),
-      ),
-      child: Column(
-        children: [
-          InkWell(
-            onTap: () => setState(() => _open = !_open),
-            borderRadius: BorderRadius.circular(12),
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Text(
-                      widget.title,
-                      style: TextStyle(
-                        fontSize: 13.5,
-                        fontWeight: FontWeight.w700,
-                        color: scheme.onSurface,
-                      ),
-                    ),
-                  ),
-                  Icon(
-                    _open
-                        ? Icons.keyboard_arrow_up_rounded
-                        : Icons.keyboard_arrow_down_rounded,
-                    size: 20,
-                    color: scheme.onSurfaceVariant,
-                  ),
-                ],
-              ),
-            ),
-          ),
-          if (_open)
-            Padding(
-              padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  for (final row in widget.rows) ...[
-                    Text(
-                      row,
-                      style: TextStyle(
-                        fontSize: 13,
-                        height: 1.55,
-                        color: scheme.onSurfaceVariant,
-                      ),
-                    ),
-                    const SizedBox(height: 4),
-                  ],
-                ],
-              ),
-            ),
-        ],
-      ),
-    );
-  }
-}
-
-class _Hint extends StatelessWidget {
-  const _Hint({required this.icon, required this.color, required this.text});
-
-  final IconData icon;
-  final Color color;
   final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(top: 2),
-          child: Icon(icon, size: 16, color: color),
-        ),
-        const SizedBox(width: 8),
-        Expanded(
-          child: Text(
-            text,
-            style: TextStyle(
-              fontSize: 14,
-              height: 1.7,
-              color: scheme.onSurface.withValues(alpha: 0.88),
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class _ScoreGrid extends StatelessWidget {
-  const _ScoreGrid({
-    required this.scores,
-    required this.accent,
-    required this.isWide,
-  });
-
-  final List<ThaiMirrorPeriodScoreBar> scores;
-  final Color accent;
-  final bool isWide;
-
-  @override
-  Widget build(BuildContext context) {
-    final columns = isWide ? 3 : 2;
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        const spacing = 10.0;
-        final itemWidth =
-            (constraints.maxWidth - spacing * (columns - 1)) / columns;
-        return Wrap(
-          spacing: spacing,
-          runSpacing: 10,
-          children: [
-            for (final bar in scores)
-              SizedBox(
-                width: itemWidth,
-                child: _ScoreBar(bar: bar, accent: accent),
-              ),
-          ],
-        );
-      },
-    );
-  }
-}
-
-class _ScoreBar extends StatelessWidget {
-  const _ScoreBar({required this.bar, required this.accent});
-
-  final ThaiMirrorPeriodScoreBar bar;
   final Color accent;
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Flexible(
-              child: Text(
-                bar.label,
-                style: TextStyle(
-                  fontSize: 11.5,
-                  color: scheme.onSurfaceVariant,
-                ),
-              ),
-            ),
-            const SizedBox(width: 6),
-            Text(
-              '${bar.value}',
-              style: TextStyle(
-                fontSize: 11.5,
-                fontWeight: FontWeight.w700,
-                color: accent,
-              ),
-            ),
-          ],
+    return Padding(
+      padding: const EdgeInsets.only(top: 14, bottom: 2),
+      child: Text(
+        text,
+        style: TextStyle(
+          fontSize: 13.5,
+          fontWeight: FontWeight.w800,
+          color: accent,
         ),
-        const SizedBox(height: 4),
-        ClipRRect(
-          borderRadius: BorderRadius.circular(6),
-          child: Stack(
-            children: [
-              Container(height: 6, color: scheme.surfaceContainerHighest),
-              FractionallySizedBox(
-                widthFactor: (bar.value / 100).clamp(0.02, 1.0),
-                child: Container(height: 6, color: accent),
-              ),
-            ],
-          ),
-        ),
-      ],
+      ),
     );
   }
 }

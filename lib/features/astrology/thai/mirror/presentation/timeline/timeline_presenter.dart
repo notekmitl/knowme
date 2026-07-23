@@ -146,7 +146,8 @@ abstract final class TimelinePresenter {
               )
               .toList(growable: false);
 
-      final mahabhut = mahabhutResolution?.resolve(p) ??
+      final mahabhut =
+          mahabhutResolution?.resolve(p) ??
           MahabhutPlanetPositionEngine.resolve(period: p);
 
       periods.add(
@@ -163,6 +164,8 @@ abstract final class TimelinePresenter {
           harder: narrative.harder,
           comparison: narrative.comparison,
           evidenceLine: narrative.evidenceLine,
+          advice: narrative.advice,
+          stageLabel: narrative.stageLabel,
           scores: bars(scores),
           easeIndex: scores.easeIndex,
           accentIndex: p.planet.index,
@@ -228,7 +231,7 @@ abstract final class TimelinePresenter {
       sectionTitle: 'แผนที่ชีวิตของคุณ',
       sectionIntro:
           'แปดช่วงดาวเสวยอายุจากอายุโหร 1–108 ปี '
-          'แบ่งเป็นอดีต ปัจจุบัน และอนาคต — กดดูรายละเอียดแต่ละช่วงเพื่อดูดาวแทรกและทักษาจร',
+          'แบ่งเป็นอดีต ปัจจุบัน และอนาคต — กดดูรายละเอียดเพื่ออ่านสรุป จุดเด่น ข้อควรระวัง และแนวทางที่เหมาะกับวัย',
       currentStage: currentStage,
       currentAnalysis: currentAnalysis.isEmpty ? null : currentAnalysis,
       futurePreview: futurePreview,

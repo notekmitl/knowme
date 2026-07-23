@@ -9,8 +9,9 @@ import '../narrative/thai_beta_narrative_fixtures.dart';
 
 void main() {
   group('Life Map V1.2.3 report acceptance', () {
-    testWidgets('shows eight Life Map periods collapsed with nested labels',
-        (tester) async {
+    testWidgets('shows eight Life Map periods collapsed with nested labels', (
+      tester,
+    ) async {
       final analysis = ThaiBetaNarrativeFixtures.fixtureA();
       await tester.binding.setSurfaceSize(const Size(390, 2800));
       addTearDown(() => tester.binding.setSurfaceSize(null));
@@ -38,25 +39,36 @@ void main() {
         findsNothing,
       );
 
-      final expand =
-          find.text(ThaiMirrorLifeTimelineSection.expandDetailsLabel).first;
+      final expand = find
+          .text(ThaiMirrorLifeTimelineSection.expandDetailsLabel)
+          .first;
       await tester.ensureVisible(expand);
       await tester.tap(expand);
       await tester.pumpAndSettle();
 
+      // V1.2.6 — user detail shows life narrative sections, not raw nested lists.
+      expect(find.text('สรุปช่วงนี้'), findsWidgets);
+      expect(find.text('เรื่องที่เด่น'), findsWidgets);
+      expect(find.text('สิ่งที่ควรระวัง'), findsWidgets);
       expect(
         find.text(ThaiMirrorLifeTimelineSection.subPeriodsLabel),
-        findsWidgets,
+        findsNothing,
       );
       expect(
         find.text(ThaiMirrorLifeTimelineSection.annualTaksaLabel),
-        findsWidgets,
+        findsNothing,
+      );
+      expect(
+        find.byKey(const Key('thai_life_timeline_score_explanation')),
+        findsNothing,
       );
       expect(find.textContaining('ยังยืนยันตำแหน่งไม่ได้'), findsWidgets);
       expect(tester.takeException(), isNull);
     });
 
-    testWidgets('anonymous audience still hides Evidence Badge', (tester) async {
+    testWidgets('anonymous audience still hides Evidence Badge', (
+      tester,
+    ) async {
       final analysis = ThaiBetaNarrativeFixtures.fixtureA();
       await tester.binding.setSurfaceSize(const Size(390, 1200));
       addTearDown(() => tester.binding.setSurfaceSize(null));

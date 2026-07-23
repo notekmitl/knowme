@@ -1,97 +1,111 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:knowme/features/astrology/thai/mirror/presentation/pages/thai_mirror_consumer_preview_page.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_life_timeline_section.dart';
+import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience.dart';
+import 'package:knowme/features/thai_beta/application/thai_evidence_badge_feature_flag.dart';
+import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart';
 
-/// V8 — Life Timeline renders inside the consumer report when a birth date is
-/// available, and is hidden when it is not.
+import '../validation/thai_beta/narrative/thai_beta_narrative_fixtures.dart';
+
+/// V1.2.6 — Life Map period detail shows age-aware narrative (no score bars /
+/// raw nested astrology lists) on the production Thai Beta report path.
 void main() {
-  Future<void> pump(WidgetTester tester, Widget child) async {
-    await tester.binding.setSurfaceSize(const Size(420, 3200));
+  Future<void> pumpReport(
+    WidgetTester tester, {
+    Size size = const Size(390, 2800),
+  }) async {
+    await tester.binding.setSurfaceSize(size);
     addTearDown(() => tester.binding.setSurfaceSize(null));
     await tester.pumpWidget(
       MaterialApp(
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF7E57C2)),
-          useMaterial3: true,
+        home: ThaiBetaReportPage(
+          analysis: ThaiBetaNarrativeFixtures.fixtureA(),
+          audienceOverride: const ThaiBetaEvidenceBadgeAudience.anonymous(),
+          featureFlagOverride: ThaiEvidenceBadgeFeatureFlagState.invitedBeta,
         ),
-        home: child,
       ),
     );
-    await tester.pump(const Duration(milliseconds: 600));
+    await tester.pumpAndSettle();
   }
 
   testWidgets('timeline section renders with a birth date', (tester) async {
-    await pump(
-      tester,
-      const ThaiMirrorConsumerPreviewPage(profileId: 'A'),
-    );
+    await pumpReport(tester);
 
-    expect(find.text('เส้นทางชีวิตของคุณ'), findsOneWidget);
-    expect(find.text('คุณอยู่ช่วงไหนของชีวิต'), findsOneWidget);
-    expect(find.text('ทุกช่วงชีวิตของคุณ'), findsOneWidget);
-    // "ตอนนี้" badge marks the current period card.
-    expect(find.text('ตอนนี้'), findsWidgets);
+    expect(find.text('แผนที่ชีวิตของคุณ'), findsOneWidget);
+    expect(find.text('อดีต'), findsWidgets);
+    expect(find.text('ปัจจุบัน'), findsWidgets);
+    expect(find.text('อนาคต'), findsWidgets);
   });
 
-  testWidgets('period cards expand and collapse on tap', (tester) async {
-    await pump(
-      tester,
-      const ThaiMirrorConsumerPreviewPage(profileId: 'A'),
+  testWidgets('period cards expand to life narrative without score bars', (
+    tester,
+  ) async {
+    await pumpReport(tester);
+
+    final expand = find
+        .text(ThaiMirrorLifeTimelineSection.expandDetailsLabel)
+        .first;
+    await tester.ensureVisible(expand);
+    await tester.tap(expand);
+    await tester.pumpAndSettle();
+
+    expect(find.text('สรุปช่วงนี้'), findsWidgets);
+    expect(find.text('เรื่องที่เด่น'), findsWidgets);
+    expect(find.text('สิ่งที่ควรระวัง'), findsWidgets);
+    expect(
+      find.byKey(const Key('thai_life_timeline_score_explanation')),
+      findsNothing,
     );
-
-    // Current period is expanded by default — score domain labels visible.
-    expect(find.text('การงาน'), findsWidgets);
-
-    // Tap a non-current period (first: ช่วงวางรากฐาน) to expand it.
-    await tester.tap(find.text('ช่วงวางรากฐาน').first);
-    await tester.pump(const Duration(milliseconds: 300));
-
-    // Still shows score bars after switching expansion.
-    expect(find.text('การเงิน'), findsWidgets);
-
-    // Tap again to collapse that card.
-    await tester.tap(find.text('ช่วงวางรากฐาน').first);
-    await tester.pump(const Duration(milliseconds: 300));
+    expect(
+      find.text(ThaiMirrorLifeTimelineSection.subPeriodsLabel),
+      findsNothing,
+    );
+    expect(
+      find.text(ThaiMirrorLifeTimelineSection.annualTaksaLabel),
+      findsNothing,
+    );
   });
 
-  testWidgets('timeline still renders without a birth time (weekday only)',
-      (tester) async {
-    // The life-period cycle depends only on the weekday of birth, not the time,
-    // so the production pipeline always derives it. The QA Harness reuses that
-    // exact pipeline, so the timeline must remain visible even with no birth
-    // time (which only changes confidence copy elsewhere in the report).
-    await pump(
-      tester,
-      const ThaiMirrorConsumerPreviewPage(
-        profileId: 'A',
-        hasBirthTime: false,
+  testWidgets('timeline still renders without a birth time (weekday only)', (
+    tester,
+  ) async {
+    await tester.binding.setSurfaceSize(const Size(390, 2800));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    await tester.pumpWidget(
+      MaterialApp(
+        home: ThaiBetaReportPage(
+          analysis: ThaiBetaNarrativeFixtures.fixtureB(),
+          audienceOverride: const ThaiBetaEvidenceBadgeAudience.anonymous(),
+          featureFlagOverride: ThaiEvidenceBadgeFeatureFlagState.invitedBeta,
+        ),
       ),
     );
+    await tester.pumpAndSettle();
 
-    expect(find.text('เส้นทางชีวิตของคุณ'), findsOneWidget);
+    expect(find.text('แผนที่ชีวิตของคุณ'), findsOneWidget);
   });
 
-  testWidgets('timeline strip shows full Thai phase names without ellipsis',
-      (tester) async {
-    await pump(
-      tester,
-      const ThaiMirrorConsumerPreviewPage(profileId: 'H'),
-    );
+  testWidgets('timeline strip shows full Thai phase names without ellipsis', (
+    tester,
+  ) async {
+    await pumpReport(tester, size: const Size(390, 3200));
 
-    const longPhase = 'ช่วงพลิกผันและเปลี่ยนผ่าน';
-    expect(find.text(longPhase), findsWidgets);
-    expect(find.textContaining('เปลี่ยนผ่…'), findsNothing);
+    expect(find.textContaining('…'), findsNothing);
   });
 
-  testWidgets('future prediction confidence label shows full Thai copy',
-      (tester) async {
-    await pump(
-      tester,
-      const ThaiMirrorConsumerPreviewPage(profileId: 'H'),
-    );
+  testWidgets('desktop width shows narrative sections without overflow', (
+    tester,
+  ) async {
+    await pumpReport(tester, size: const Size(1440, 2000));
 
-    expect(find.text('แนวโน้มชีวิตในระยะข้างหน้า'), findsOneWidget);
-    expect(find.textContaining('พอเห็นแนวโน้มได้ค่อนข้างชัด'), findsWidgets);
-    expect(find.textContaining('ค่อนข้างช…'), findsNothing);
+    final expand = find
+        .text(ThaiMirrorLifeTimelineSection.expandDetailsLabel)
+        .first;
+    await tester.ensureVisible(expand);
+    await tester.tap(expand);
+    await tester.pumpAndSettle();
+
+    expect(find.text('สรุปช่วงนี้'), findsWidgets);
+    expect(tester.takeException(), isNull);
   });
 }
