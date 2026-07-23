@@ -1,9 +1,17 @@
-# KnowMe Task
+# Task: Fix Life Map Mahabhut all-unknown (missing Canon index)
 
-## Task ID
+## Goal
+Wire Frozen Canon `repository.index` into Production / Thai Beta / QA Life Map presenters so Mahabhut positions resolve via existing resolvers instead of returning unknown for all 8 periods.
 
-`thai-beta-life-map-v123-status-docs`
+## Non-goals
+- Do not invent placement tables or formulas
+- Do not modify Frozen Canon, Mahabhut formula, or Public Evidence Badge
+- Do not guess positions when Canon is ambiguous/conflicted
 
-## เป้าหมาย
-
-อัปเดต CURRENT_STATUS / HANDOFF หลัง Life Map V1.2.3 merge + deploy `edbb01e`
+## Acceptance
+- Consumer path receives real canonIndex
+- Fixture with confirmable placements shows real Thai names
+- Not all 8 periods unknown when Canon confirms
+- Ambiguous/source conflict stay unknown
+- Beta / Mirror / QA agree
+- Gate + focused tests pass

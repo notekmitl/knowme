@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../../application/thai_beta_analysis.dart';
@@ -74,10 +76,17 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
       gender: _gender,
     );
 
+    unawaited(_submitAnalysis(input));
+  }
+
+  Future<void> _submitAnalysis(ThaiBetaInput input) async {
     // New attempt must not leave a prior success exportable if this run fails.
     ThaiBetaCurrentAnalysis.clear();
-    final analysis =
-        ThaiBetaAnalysisRunner.run(input, startedAt: _startedAt);
+    final analysis = await ThaiBetaAnalysisRunner.runAsync(
+      input,
+      startedAt: _startedAt,
+    );
+    if (!mounted) return;
     ThaiBetaCurrentAnalysis.set(analysis);
 
     Navigator.of(context).push(

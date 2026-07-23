@@ -19,6 +19,9 @@ import 'package:knowme/features/astrology/thai/core/life_period/life_period_engi
 import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_timeline_intelligence.dart';
 import 'package:knowme/features/astrology/thai/core/prediction/prediction_intelligence_engine.dart';
+import 'package:knowme/features/astrology/thai/foundation/models/thai_astrology_profile.dart';
+import 'package:knowme/features/astrology/thai/foundation/models/thai_birth_data.dart';
+import 'package:knowme/features/astrology/thai/knowledge/canon/integration/thai_canon_evidence_index.dart';
 
 import 'models/thai_mirror_consumer_view_state.dart';
 
@@ -43,9 +46,15 @@ abstract final class ThaiMirrorConsumerPresenter {
   /// *evidence* produced by [LifePeriodEngine] from the canonical birth profile
   /// upstream — the presenter never receives a raw birth date, so birth-profile
   /// resolution is never duplicated here.
+  ///
+  /// [profile], [birthData], and [canonIndex] (or the Frozen Canon cache) are
+  /// required for Life Map Mahabhut labels via existing resolvers.
   static ThaiMirrorConsumerViewState present(
     ThaiMirrorResult result, {
     LifeTimeline? lifePeriods,
+    ThaiAstrologyProfile? profile,
+    ThaiBirthData? birthData,
+    ThaiCanonEvidenceIndex? canonIndex,
   }) {
 
     final topThemeIds =
@@ -90,6 +99,9 @@ abstract final class ThaiMirrorConsumerPresenter {
       orderedThemeIds: allThemeIds.isNotEmpty ? allThemeIds : topThemeIds,
       topThemeTags: topThemeTags,
       profileSeed: profileSeed,
+      profile: profile,
+      birthData: birthData,
+      canonIndex: canonIndex,
     );
 
     final futurePrediction = _buildFuturePrediction(

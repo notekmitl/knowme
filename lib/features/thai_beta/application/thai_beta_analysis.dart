@@ -1,5 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:knowme/features/astrology/thai/foundation/models/thai_astrology_profile.dart';
+import 'package:knowme/features/astrology/thai/knowledge/canon/integration/thai_canon_evidence_index.dart';
+import 'package:knowme/features/astrology/thai/knowledge/canon/integration/thai_canon_evidence_repository.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_mirror_consumer_view_state.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/thai_mirror_consumer_presenter.dart';
 import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_pipeline.dart';
@@ -79,7 +81,24 @@ class ThaiBetaAnalysis {
 /// `ThaiBetaInput → RawBirthInput → BirthNormalizer → ThaiEngineAdapter →
 /// ThaiMirrorPipeline → existing Thai report view state`.
 abstract final class ThaiBetaAnalysisRunner {
-  static ThaiBetaAnalysis run(ThaiBetaInput input, {DateTime? startedAt}) {
+  /// Loads Frozen Canon then runs [run] so Life Map Mahabhut can resolve.
+  static Future<ThaiBetaAnalysis> runAsync(
+    ThaiBetaInput input, {
+    DateTime? startedAt,
+  }) async {
+    final repository = await ThaiCanonEvidenceRepository.loadFromAsset();
+    return run(
+      input,
+      startedAt: startedAt,
+      canonIndex: repository.index,
+    );
+  }
+
+  static ThaiBetaAnalysis run(
+    ThaiBetaInput input, {
+    DateTime? startedAt,
+    ThaiCanonEvidenceIndex? canonIndex,
+  }) {
     final sessionStart = startedAt ?? DateTime.now();
     final raw = RawBirthInput(
       birthDate: input.birthDate,
@@ -117,9 +136,14 @@ abstract final class ThaiBetaAnalysisRunner {
       );
     }
 
+    final resolvedCanonIndex =
+        canonIndex ?? ThaiCanonEvidenceRepository.cachedIndexOrNull;
     final view = ThaiMirrorConsumerPresenter.present(
       pipeline.mirrorResult!,
       lifePeriods: pipeline.lifePeriods,
+      profile: pipeline.profile,
+      birthData: pipeline.birthData,
+      canonIndex: resolvedCanonIndex,
     );
     final profile = pipeline.profile!;
     final reportSnapshot =

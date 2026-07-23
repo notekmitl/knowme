@@ -131,6 +131,8 @@ class _ThaiMirrorEntryPageState extends State<ThaiMirrorEntryPage> {
         consumerState: ThaiMirrorConsumerPresenter.present(
           result.mirrorResult!,
           lifePeriods: result.lifePeriods,
+          profile: result.profile,
+          birthData: result.birthData,
         ),
       ),
     );
