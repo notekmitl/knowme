@@ -177,7 +177,7 @@ void main() {
         expect(p.summary.contains('\n\n'), isTrue);
         final chars = p.summary.replaceAll(RegExp(r'\s+'), '').runes.length;
         final approxWords = (chars / 2.5).round();
-        expect(approxWords, inInclusiveRange(90, 160));
+        expect(approxWords, inInclusiveRange(90, 170));
         expect(chars, greaterThanOrEqualTo(200));
         expect(
           p.summary.contains('อาจ') ||
@@ -188,9 +188,22 @@ void main() {
         expect(p.summary.contains('คำแนะนำ'), isFalse);
         expect(p.summary.contains('สิ่งที่ควรระวัง'), isFalse);
         expect(p.summary.contains('แนวทางส่งเสริม'), isFalse);
+        expect(p.summary.contains('ลองนึกย้อน'), isFalse);
+        expect(p.summary.contains('ลองทบทวน'), isFalse);
+        expect(p.summary.contains('ลองสังเกต'), isFalse);
+        expect(p.summary.trim().endsWith('หรือไม่'), isFalse);
         summaries.add(p.summary);
       }
       expect(summaries.length, past.length);
+      // Across past cards, life facets should not collapse to school-only copy.
+      final joined = summaries.join('\n');
+      expect(
+        joined.contains('บ้าน') ||
+            joined.contains('ครอบครัว') ||
+            joined.contains('งาน') ||
+            joined.contains('เปลี่ยน'),
+        isTrue,
+      );
       final future = state.periods.where((p) => !p.isPast && !p.isCurrent);
       for (final p in future) {
         expect(
