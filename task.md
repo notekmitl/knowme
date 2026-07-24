@@ -1,3 +1,3 @@
-﻿# Task: Past Narrative phase-label hygiene
+﻿# Task: Docs — Past Narrative life-breadth Production @ 5529264
 
-Strip duplicated "ช่วง" in openings and prefer age-natural opening facet among selected evidence facets.
+Record PR #35/#36 merge/deploy and Production QA. Docs only — no redeploy.

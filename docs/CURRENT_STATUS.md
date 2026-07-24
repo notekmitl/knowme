@@ -2,11 +2,11 @@
 
 **Last updated:** July 2026  
 **Branch:** `main`  
-**Merge tip:** `c698c22` (PR #33 usability feedback); Production hosted @ `c698c22`  
+**Merge tip:** `5529264` (PR #36 past phase hygiene; prior PR #35 past life-breadth @ `399ac7a`); Production hosted @ `5529264`  
 **Prior architecture snapshot:** `feature/fusion-result`  
 **Automation workflow (authoritative):** Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
 **Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login) — Evidence Badge rollout remains `invited_beta`.
-**Thai Beta Narrative / Life Map:** **V1.2.6** usability feedback (denser past, theme rename, Mahabhut report gate, accordion chrome fix) hosted @ `c698c22` (PR #33); status **Ready for Invited Beta Validation** (0 real Life Map Feedback). See [`THAI_LIFE_MAP_V126_NARRATIVE_UX.md`](THAI_LIFE_MAP_V126_NARRATIVE_UX.md).
+**Thai Beta Narrative / Life Map:** **V1.2.6** past life-breadth (evidence-linked facets; no retrospective prompts) hosted @ `5529264` (PR #35/#36); status **Ready for Invited Beta Validation** (0 real Life Map Feedback). See [`THAI_LIFE_MAP_V126_NARRATIVE_UX.md`](THAI_LIFE_MAP_V126_NARRATIVE_UX.md).
 
 ---
 
@@ -35,8 +35,8 @@
 | **Life Map Mahabhut Canon index (Production fix)** | Merged to `main` + **hosted** | PR https://github.com/notekmitl/knowme/pull/20 @ `07d0eb9`; wires Frozen Canon `repository.index` into Timeline/Consumer presenters — unknown no longer forced by null index. Presenter-path QA (1972-04-04 02:00 BKK): **known=7 / unknown=1** (ธงชัย, unknown, ปูติ, อธิบดี, ขุมทรัพย์, ปูติ, มรณะ, ราชา). Sample pipeline fixture: known=8 / unknown=0 |
 | **Thai Life Map V1.2.4 Accuracy Audit** | Merged tests + report | PR #22 @ `cb33a3d`; 22 fixtures / 176 periods; known 139 / unknown 37; [`THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md`](THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md) |
 | **Thai Life Map V1.2.5 Invited Beta Feedback** | Merged + **hosted** — **Ready for Validation** | PR #23 @ `b5d1243`; deploy Firebase Hosting + rules 2026-07-23; anonymous Production QA PASS (no panel/badge leak); **0 real invited Feedback** → not Validation Passed; [`THAI_LIFE_MAP_V125_BETA_VALIDATION.md`](THAI_LIFE_MAP_V125_BETA_VALIDATION.md) |
-| **Thai Life Map V1.2.6 Narrative & Life-stage UX** | Merged + **hosted** — **Ready for Validation** | PR #25/#27/#31; usability PR #33 @ `c698c22` (denser past; `เรื่องสำคัญของช่วงนี้`; Mahabhut all-or-none + descriptions; no accordion collapse chrome in content); Canon/formulas unchanged; [`THAI_LIFE_MAP_V126_NARRATIVE_UX.md`](THAI_LIFE_MAP_V126_NARRATIVE_UX.md) |
-| **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with usability deploy 2026-07-24 @ `c698c22` |
+| **Thai Life Map V1.2.6 Narrative & Life-stage UX** | Merged + **hosted** — **Ready for Validation** | PR #25/#27/#31/#33; past life-breadth PR #35 @ `399ac7a` + phase hygiene PR #36 @ `5529264` (evidence-linked Past facets; no `ลองนึกย้อน`; Canon/formulas unchanged); [`THAI_LIFE_MAP_V126_NARRATIVE_UX.md`](THAI_LIFE_MAP_V126_NARRATIVE_UX.md) |
+| **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with past-breadth deploy 2026-07-24 @ `5529264` |
 | **Single-Agent + Local Gate** | Merged to `main` | `docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`, `scripts/knowme_task_gate.ps1` |
 
 **Also complete (supporting):**
@@ -72,7 +72,7 @@ Real users (38 Firestore accounts): **2.6% reach Narrative**. Blocker is persona
 | Risk | Severity | Detail |
 |------|----------|--------|
 | Personality test cliff | **Critical** | 97% of profile users never start MBTI (`REAL_USER_RUNTIME_VALIDATION_V1.md`) |
-| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `c698c22` (2026-07-24); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
+| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `5529264` (2026-07-24); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
 | Real user PII export local-only | **High** | `firestore_user_export.json` gitignored — must regenerate locally |
 | Firebase service account local-only | **High** | `backend/firebase/serviceAccountKey.json` gitignored |
 | Legacy + new architecture coexist | **Medium** | Parallel scoring, navigation, and module IDs — trace before editing |
