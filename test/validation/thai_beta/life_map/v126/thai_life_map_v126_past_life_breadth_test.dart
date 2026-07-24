@@ -120,6 +120,8 @@ void main() {
         );
         expect(p.summary.contains('ลองทบทวน'), isFalse);
         expect(p.summary.trim().endsWith('หรือไม่'), isFalse);
+        expect(p.summary.contains('ช่วงช่วง'), isFalse);
+        expect(p.summary.contains('ในช่วงช่วง'), isFalse);
       }
       expect(past.map((p) => p.summary).toSet().length, past.length);
 

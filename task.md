@@ -1,4 +1,3 @@
-﻿# Task: Past Narrative life-breadth (V1.2.6 feedback refinement)
+﻿# Task: Past Narrative phase-label hygiene
 
-Make Past Narrative a life-picture tied to structured evidence and age-safe facets.
-Remove retrospective prompts ("ลองนึกย้อน…"). Presentation-only; Canon frozen.
+Strip duplicated "ช่วง" in openings and prefer age-natural opening facet among selected evidence facets.
