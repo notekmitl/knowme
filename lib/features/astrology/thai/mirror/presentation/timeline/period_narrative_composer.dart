@@ -66,10 +66,15 @@ abstract final class PeriodNarrativeComposer {
     );
     final stageLabel = ThaiLifeStageContext.bandLabelTh(band);
 
-    // Past: retrospective check-only — no advice / caution / comparison.
+    // Past: richer retrospective check-only — no advice / caution / comparison.
     if (period.isPast) {
       return PeriodNarrative(
-        summary: _pick(_pastRetrospectiveBank(band, data), s),
+        summary: _composePastRetrospective(
+          band: band,
+          data: data,
+          seed: s,
+          periodIndex: period.index,
+        ),
         whatChanges: '',
         easier: '',
         harder: '',
@@ -111,48 +116,261 @@ abstract final class PeriodNarrativeComposer {
     );
   }
 
-  /// Past-only: 1–2 short retrospective sentences for recognition, not advice.
-  static List<String> _pastRetrospectiveBank(
-    ThaiLifeStageBand band,
-    LifePlanetData data,
-  ) {
+  /// Past-only: 2–3 short paragraphs (~90–160 Thai words) for recognition.
+  static String _composePastRetrospective({
+    required ThaiLifeStageBand band,
+    required LifePlanetData data,
+    required int seed,
+    required int periodIndex,
+  }) {
     final phase = data.phaseName;
     final keyword = data.keyword;
+    final planet = data.thaiName;
+    final essence = data.phaseEssence;
+    final s = seed.abs() + periodIndex * 17;
+
+    final opening = _pick(_pastOpeningBank(band, phase, keyword, planet), s);
+    final middle = _pick(
+      _pastMiddleBank(band, phase, keyword, essence, planet),
+      s ~/ 5,
+    );
+    final closing = _pick(_pastClosingBank(band, phase, keyword), s ~/ 11);
+    final text = '$opening\n\n$middle\n\n$closing';
+    return _fitPastWordBudget(text, s);
+  }
+
+  static int _thaiApproxWordCount(String text) {
+    // Thai copy is lightly spaced; approximate words from non-whitespace mass.
+    final chars = text.replaceAll(RegExp(r'\s+'), '').runes.length;
+    if (chars == 0) return 0;
+    return (chars / 2.5).round();
+  }
+
+  static String _fitPastWordBudget(String text, int seed) {
+    var words = _thaiApproxWordCount(text);
+    if (words >= 90 && words <= 160) return text;
+    if (words < 90) {
+      final pad = _pick(const [
+        'ลองนึกย้อนภาพบ้าน โรงเรียน หรือคนรอบตัวในช่วงนั้น '
+            'ว่ามีจังหวะไหนที่รู้สึกคุ้นกับบรรยากาศนี้หรือไม่ '
+            'โดยเทียบกับความรู้สึกจริงของตนเองอย่างนุ่มนวล',
+        'หากเทียบกับความทรงจำของตนเอง อาจพบร่องรอยบางอย่าง '
+            'ที่สอดคล้องกับจังหวะนี้โดยไม่ต้องฟันธงว่าเกิดเหตุการณ์แบบเดียว '
+            'และไม่จำเป็นต้องครบทุกข้อในชีวิตจริง',
+      ], seed);
+      final denser = '$text\n\n$pad';
+      if (_thaiApproxWordCount(denser) <= 160) return denser;
+      return denser;
+    }
+    final parts = text.split('\n\n');
+    if (parts.length >= 3 && words > 160) {
+      final trimmed = '${parts[0]}\n\n${parts[1]}';
+      if (_thaiApproxWordCount(trimmed) >= 90) return trimmed;
+    }
+    return text;
+  }
+
+  static List<String> _pastOpeningBank(
+    ThaiLifeStageBand band,
+    String phase,
+    String keyword,
+    String planet,
+  ) {
     switch (band) {
       case ThaiLifeStageBand.earlyChildhood:
         return [
-          'ในวัยเด็กเล็กช่วง$phase คุณมักเคยผ่านจังหวะที่เกี่ยวกับ$keyword และการปรับตัวกับผู้ดูแล',
-          'ย้อนกลับไป ช่วง$phase ในวัยเด็กเล็กมักทิ้งร่องรอยเรื่องความอบอุ่นและความมั่นคงทางใจ',
+          'ช่วงนี้อาจเป็นช่วง$phase ภายใต้อิทธิพล$planet '
+              'ที่บรรยากาศในบ้านและการดูแลใกล้ชิดมีน้ำหนักกับความรู้สึกเรื่อง$keyword '
+              'มากกว่าเป้าหมายระยะยาว',
+          'ย้อนกลับไป ช่วง$phase ในวัยเด็กเล็กมักเป็นจังหวะที่$planet '
+              'ทำให้เรื่อง$keyword ปรากฏผ่านกิจวัตร ความอบอุ่น และความสม่ำเสมอของผู้ดูแล',
         ];
       case ThaiLifeStageBand.schoolAge:
         return [
-          'ในวัยเรียนช่วง$phase คุณมักเคยผ่านเรื่อง$keyword การเรียนรู้ และเพื่อนในโรงเรียน',
-          'ย้อนกลับไป ช่วง$phase มักสัมพันธ์กับวินัยเล็ก ๆ และสิ่งที่เริ่มถนัดในวัยเรียน',
+          'ช่วงนี้อาจเป็นช่วง$phase ที่อิทธิพล$planet '
+              'ทำให้การเรียน เพื่อน และวินัยเล็ก ๆ เชื่อมกับเรื่อง$keyword '
+              'ชัดขึ้นในชีวิตประจำวัน',
+          'ย้อนกลับไป ช่วง$phase ในวัยเรียนมักสัมพันธ์กับ$planet '
+              'ผ่านห้องเรียน การบ้าน และคนรอบตัวที่ช่วยหล่อเลี้ยงเรื่อง$keyword',
         ];
       case ThaiLifeStageBand.teen:
         return [
-          'ในวัยรุ่นช่วง$phase คุณมักเคยผ่านการค้นหาตัวตนและจังหวะของ$keyword',
-          'ย้อนกลับไป ช่วง$phase มักเกี่ยวกับเพื่อน ความเป็นอิสระ และการทดลองบทบาท',
+          'ช่วงนี้อาจเป็นช่วง$phase ที่อิทธิพล$planet '
+              'ผลักให้การค้นหาตัวตน เพื่อน และขอบเขตส่วนตัว '
+              'ไปคู่กับเรื่อง$keyword',
+          'ย้อนกลับไป ช่วง$phase ในวัยรุ่นมักมีร่องรอยของ$planet '
+              'ผ่านการทดลองบทบาท ความเป็นอิสระ และการจัดวางเรื่อง$keyword',
         ];
       case ThaiLifeStageBand.youngAdult:
         return [
-          'ในช่วง$phase ของวัยเริ่มต้นผู้ใหญ่ คุณมักเคยผ่านการสร้างตัวตนและจังหวะของ$keyword',
-          'ย้อนกลับไป ช่วง$phase มักสัมพันธ์กับทางเลือกระยะต้นและความรับผิดชอบที่เพิ่มขึ้น',
+          'ช่วงนี้อาจเป็นช่วง$phase ของวัยเริ่มต้นผู้ใหญ่ '
+              'ที่อิทธิพล$planet ทำให้การสร้างตัวตนและการรับผิดชอบระยะต้น '
+              'โยงกับเรื่อง$keyword',
+          'ย้อนกลับไป ช่วง$phase มักเป็นจังหวะที่$planet '
+              'ทำให้ทางเลือกแรก ๆ ของชีวิตผู้ใหญ่สะท้อนเรื่อง$keyword ได้ชัด',
         ];
       case ThaiLifeStageBand.workingAdult:
         return [
-          'ในช่วง$phase ของวัยทำงาน คุณมักเคยผ่านภาระหน้าที่และจังหวะของ$keyword',
-          'ย้อนกลับไป ช่วง$phase มักเกี่ยวกับการสร้างฐานชีวิตและการจัดสมดุลความรับผิดชอบ',
+          'ช่วงนี้อาจเป็นช่วง$phase ของวัยทำงาน '
+              'ที่อิทธิพล$planet ทำให้ภาระหน้าที่ การจัดสมดุล '
+              'และฐานชีวิตโยงกับเรื่อง$keyword',
+          'ย้อนกลับไป ช่วง$phase มักเป็นจังหวะที่$planet '
+              'ทำให้ความรับผิดชอบในงานและชีวิตสะท้อนเรื่อง$keyword เป็นแกน',
         ];
       case ThaiLifeStageBand.midlife:
         return [
-          'ในช่วง$phase ของวัยกลางคน คุณมักเคยผ่านการทบทวนทิศทางและจังหวะของ$keyword',
-          'ย้อนกลับไป ช่วง$phase มักสัมพันธ์กับการดูแลคนรอบตัวและการจัดลำดับสิ่งสำคัญ',
+          'ช่วงนี้อาจเป็นช่วง$phase ของวัยกลางคน '
+              'ที่อิทธิพล$planet ทำให้การทบทวนทิศทางและการดูแลคนรอบตัว '
+              'โยงกับเรื่อง$keyword',
+          'ย้อนกลับไป ช่วง$phase มักเป็นจังหวะที่$planet '
+              'ทำให้การจัดลำดับสิ่งสำคัญในชีวิตสะท้อนเรื่อง$keyword',
         ];
       case ThaiLifeStageBand.elder:
         return [
-          'ในช่วง$phase ของวัยสูงอายุ คุณมักเคยผ่านการปรับบทบาทและจังหวะของ$keyword',
-          'ย้อนกลับไป ช่วง$phase มักเกี่ยวกับคุณภาพชีวิตและความสัมพันธ์ที่ใกล้ชิด',
+          'ช่วงนี้อาจเป็นช่วง$phase ของวัยสูงอายุ '
+              'ที่อิทธิพล$planet ทำให้คุณภาพชีวิตและความสัมพันธ์ใกล้ชิด '
+              'โยงกับเรื่อง$keyword',
+          'ย้อนกลับไป ช่วง$phase มักเป็นจังหวะที่$planet '
+              'ทำให้การปรับบทบาทอย่างให้เกียรติตนเองสะท้อนเรื่อง$keyword',
+        ];
+    }
+  }
+
+  static List<String> _pastMiddleBank(
+    ThaiLifeStageBand band,
+    String phase,
+    String keyword,
+    String essence,
+    String planet,
+  ) {
+    switch (band) {
+      case ThaiLifeStageBand.earlyChildhood:
+        return [
+          'มีแนวโน้มว่าคุณอาจเคยต้องปรับตัวกับจังหวะในบ้าน '
+              'การแยกจากผู้ดูแลชั่วคราว หรือการเรียนรู้กติกาเล็ก ๆ '
+              'ในขณะที่$essence กำลังทำงานผ่านอิทธิพล$planet',
+          'อาจเคยผ่านความรู้สึกปลอดภัยหรือไม่แน่นอนสลับกัน '
+              'ผ่านการกิน นอน เล่น และการถูกโอบอุ้ม '
+              'โดยเรื่อง$keyword ปรากฏเป็นพื้นอารมณ์มากกว่าคำพูดโต้แย้ง',
+        ];
+      case ThaiLifeStageBand.schoolAge:
+        return [
+          'มีแนวโน้มว่าคุณอาจเคยต้องจัดการการบ้าน เพื่อนในห้อง '
+              'หรือความคาดหวังจากผู้ใหญ่ '
+              'ในขณะที่$essence ทำให้เรื่อง$keyword โผล่ผ่านความถนัดและความพยายาม',
+          'อาจเคยผ่านจังหวะที่รู้สึกเก่งในบางวิชาหรือบางกิจกรรม '
+              'และลังเลในบางเรื่อง โดยอิทธิพล$planet '
+              'ช่วยให้เห็นภาพว่าสิ่งใดเริ่มเป็นของตน',
+        ];
+      case ThaiLifeStageBand.teen:
+        return [
+          'มีแนวโน้มว่าคุณอาจเคยต้องเลือกระหว่างความคาดหวังของบ้าน '
+              'กับความเป็นตัวของตัวเอง '
+              'ในขณะที่$essence ทำให้เรื่อง$keyword ถูกทดลองผ่านเพื่อนและกลุ่ม',
+          'อาจเคยผ่านช่วงที่อารมณ์ขึ้นลงชัด '
+              'และการหาที่ทางในกลุ่มคนรอบตัว '
+              'โดยอิทธิพล$planet ทำให้คำถามเรื่องตัวตนไม่ใช่เรื่องไกลตัว',
+        ];
+      case ThaiLifeStageBand.youngAdult:
+        return [
+          'มีแนวโน้มว่าคุณอาจเคยต้องเลือกเส้นทางเรียน งานแรก '
+              'หรือรูปแบบการใช้ชีวิตระยะต้น '
+              'ในขณะที่$essence ทำให้เรื่อง$keyword เป็นเกณฑ์ตัดสินใจเงียบ ๆ',
+          'อาจเคยผ่านความลังเลระหว่างความมั่นคงกับโอกาสใหม่ '
+              'และการรับผิดชอบที่เพิ่มขึ้นทีละขั้น '
+              'โดยอิทธิพล$planet ทำให้บทเรียนเหล่านี้จับต้องได้',
+        ];
+      case ThaiLifeStageBand.workingAdult:
+        return [
+          'มีแนวโน้มว่าคุณอาจเคยต้องจัดสมดุลระหว่างงาน ครอบครัว '
+              'และพลังงานของตนเอง '
+              'ในขณะที่$essence ทำให้เรื่อง$keyword เป็นแกนที่ใช้จัดลำดับ',
+          'อาจเคยผ่านช่วงเร่งและช่วงชะลอสลับกัน '
+              'พร้อมการรับผิดชอบที่หนักขึ้น '
+              'โดยอิทธิพล$planet ทำให้เห็นว่าฐานชีวิตถูกสร้างอย่างไร',
+        ];
+      case ThaiLifeStageBand.midlife:
+        return [
+          'มีแนวโน้มว่าคุณอาจเคยต้องทบทวนสิ่งที่ลงทุนมาทั้งชีวิต '
+              'และเลือกสิ่งที่ยังคุ้มค่าจะดูแลต่อ '
+              'ในขณะที่$essence ทำให้เรื่อง$keyword เป็นเข็มทิศ',
+          'อาจเคยผ่านการปรับบทบาทในครอบครัวหรือการงาน '
+              'พร้อมความรู้สึกว่าเวลาเหลือน้อยลง '
+              'โดยอิทธิพล$planet ทำให้การคัดสรรสิ่งสำคัญชัดขึ้น',
+        ];
+      case ThaiLifeStageBand.elder:
+        return [
+          'มีแนวโน้มว่าคุณอาจเคยต้องปรับจังหวะชีวิตให้พอดีกับร่างกาย '
+              'และความสัมพันธ์ที่เหลืออยู่ '
+              'ในขณะที่$essence ทำให้เรื่อง$keyword ปรากฏผ่านคุณภาพวันต่อวัน',
+          'อาจเคยผ่านการส่งต่อบทบาท การดูแลคนใกล้ชิด '
+              'หรือการเลือกว่าจะใช้เวลาอย่างไร '
+              'โดยอิทธิพล$planet ทำให้ความสงบและความหมายสำคัญขึ้น',
+        ];
+    }
+  }
+
+  static List<String> _pastClosingBank(
+    ThaiLifeStageBand band,
+    String phase,
+    String keyword,
+  ) {
+    switch (band) {
+      case ThaiLifeStageBand.earlyChildhood:
+        return [
+          'หากเทียบกับความทรงจำช่วงนั้น อาจพบภาพบ้าน ผู้ดูแล '
+              'หรือความรู้สึกมั่นคง/ไม่มั่นคง ที่สอดคล้องกับจังหวะ$phase '
+              'โดยไม่ต้องฟันธงว่าทุกคนผ่านเหตุการณ์เดียวกัน',
+          'ลองนึกย้อนว่าในวัยเด็กเล็ก มีช่วงไหนที่เรื่อง$keyword '
+              'รู้สึกใกล้ตัวผ่านการดูแลและการปรับตัวหรือไม่',
+        ];
+      case ThaiLifeStageBand.schoolAge:
+        return [
+          'หากเทียบกับความทรงจำวัยเรียน อาจพบร่องรอยของช่วง$phase '
+              'ผ่านห้องเรียน เพื่อน หรือสิ่งที่เริ่มถนัด '
+              'ซึ่งโยงกับเรื่อง$keyword ได้โดยไม่ต้องตัดสินถูกผิด',
+          'ลองนึกย้อนว่ามีช่วงไหนในโรงเรียนที่เรื่อง$keyword '
+              'ปรากฏผ่านความพยายามหรือความสัมพันธ์กับคนรอบตัวหรือไม่',
+        ];
+      case ThaiLifeStageBand.teen:
+        return [
+          'หากเทียบกับความทรงจำวัยรุ่น อาจพบร่องรอยของช่วง$phase '
+              'ผ่านเพื่อน กลุ่ม หรือการทดลองบทบาท '
+              'ที่โยงกับเรื่อง$keyword โดยไม่ต้องฟันธงผลลัพธ์',
+          'ลองนึกย้อนว่ามีจังหวะไหนที่การหาตัวตนและเรื่อง$keyword '
+              'มาบรรจบกันในช่วง$phase หรือไม่',
+        ];
+      case ThaiLifeStageBand.youngAdult:
+        return [
+          'หากเทียบกับช่วงเริ่มต้นผู้ใหญ่ อาจพบร่องรอยของ$phase '
+              'ผ่านทางเลือกแรก ๆ และความรับผิดชอบที่เพิ่มขึ้น '
+              'ซึ่งโยงกับเรื่อง$keyword ได้โดยไม่ต้องตัดสินว่าควรทำอย่างไร',
+          'ลองนึกย้อนว่ามีช่วงไหนที่เรื่อง$keyword '
+              'กลายเป็นเกณฑ์เงียบ ๆ ในการเลือกทางของตนเองหรือไม่',
+        ];
+      case ThaiLifeStageBand.workingAdult:
+        return [
+          'หากเทียบกับช่วงวัยทำงาน อาจพบร่องรอยของ$phase '
+              'ผ่านภาระหน้าที่และการจัดสมดุลชีวิต '
+              'ซึ่งโยงกับเรื่อง$keyword โดยไม่ต้องย้อนไปแก้ในอดีต',
+          'ลองนึกย้อนว่ามีจังหวะไหนที่เรื่อง$keyword '
+              'กลายเป็นแกนของงานและความรับผิดชอบในช่วงนั้นหรือไม่',
+        ];
+      case ThaiLifeStageBand.midlife:
+        return [
+          'หากเทียบกับวัยกลางคน อาจพบร่องรอยของ$phase '
+              'ผ่านการทบทวนทิศทางและการดูแลคนรอบตัว '
+              'ซึ่งโยงกับเรื่อง$keyword โดยไม่ต้องชี้นำว่าควรเปลี่ยนอะไร',
+          'ลองนึกย้อนว่ามีช่วงไหนที่เรื่อง$keyword '
+              'ถูกใช้คัดสรรสิ่งสำคัญของชีวิตในช่วงนั้นหรือไม่',
+        ];
+      case ThaiLifeStageBand.elder:
+        return [
+          'หากเทียบกับวัยสูงอายุ อาจพบร่องรอยของ$phase '
+              'ผ่านคุณภาพวันต่อวันและความสัมพันธ์ใกล้ชิด '
+              'ซึ่งโยงกับเรื่อง$keyword โดยไม่ต้องสั่งสอน',
+          'ลองนึกย้อนว่ามีจังหวะไหนที่เรื่อง$keyword '
+              'ปรากฏผ่านการปรับบทบาทอย่างให้เกียรติตนเองหรือไม่',
         ];
     }
   }

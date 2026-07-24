@@ -109,11 +109,20 @@ void main() {
           reason: 'QA fixture must not show unknown on all 8 periods',
         );
         expect(known.length + unknown.length, 8);
-        expect(
-          unknown.every((p) => p.mahabhutPositionLabel.isEmpty),
-          isTrue,
-          reason: 'unresolved periods must not leak unknown copy to user label',
-        );
+        if (unknown.isEmpty) {
+          expect(periods.every((p) => p.mahabhutShownOnReport), isTrue);
+          expect(
+            periods.every((p) => p.mahabhutPositionLabel.isNotEmpty),
+            isTrue,
+          );
+          expect(
+            periods.every((p) => p.mahabhutDescription.isNotEmpty),
+            isTrue,
+          );
+        } else {
+          expect(periods.every((p) => !p.mahabhutShownOnReport), isTrue);
+          expect(periods.every((p) => p.mahabhutPositionLabel.isEmpty), isTrue);
+        }
         expect(
           unknown.every((p) => p.mahabhutUnknownReason.isNotEmpty),
           isTrue,
@@ -237,7 +246,16 @@ void main() {
           .toList();
 
       expect(betaLabels, mirrorLabels);
-      expect(betaLabels.where((l) => l.isNotEmpty), isNotEmpty);
+      // Report-level UI may hide all labels when any period is unresolved;
+      // internal known flags still prove path parity via mahabhutKnown.
+      final betaKnown = analysis.consumerViewState!.lifeTimeline!.periods
+          .map((p) => p.mahabhutKnown)
+          .toList();
+      final mirrorKnown = mirrorView.lifeTimeline!.periods
+          .map((p) => p.mahabhutKnown)
+          .toList();
+      expect(betaKnown, mirrorKnown);
+      expect(betaKnown.where((k) => k), isNotEmpty);
     });
 
     test(
@@ -255,15 +273,23 @@ void main() {
         final analysis = await ThaiBetaAnalysisRunner.runAsync(input);
         expect(analysis.isSuccess, isTrue);
 
-        final labels = analysis.consumerViewState!.lifeTimeline!.periods
-            .map((p) => p.mahabhutPositionLabel)
-            .toList();
-        expect(labels, hasLength(8));
+        final periods = analysis.consumerViewState!.lifeTimeline!.periods;
+        expect(periods, hasLength(8));
         expect(
-          labels.any((l) => l.isNotEmpty),
+          periods.any((p) => p.mahabhutKnown),
           isTrue,
           reason: 'user birth must not be all-unknown when Canon confirms',
         );
+        final labels = periods.map((p) => p.mahabhutPositionLabel).toList();
+        if (periods.every((p) => p.mahabhutKnown)) {
+          expect(labels.every((l) => l.isNotEmpty), isTrue);
+          expect(
+            periods.every((p) => p.mahabhutDescription.isNotEmpty),
+            isTrue,
+          );
+        } else {
+          expect(labels.every((l) => l.isEmpty), isTrue);
+        }
       },
     );
   });

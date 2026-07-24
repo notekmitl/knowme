@@ -38,10 +38,10 @@ class ThaiMirrorLifeTimelineSection extends StatefulWidget {
       'ไม่ใช่เปอร์เซ็นต์ความแม่นยำหรือการรับประกันเหตุการณ์ในอนาคต';
 
   static const expandDetailsLabel = 'ดูรายละเอียดช่วงชีวิต';
-  static const collapseDetailsLabel = 'ซ่อนรายละเอียดช่วงชีวิต';
   static const subPeriodsLabel = 'ดาวแทรกในช่วงนี้';
   static const annualTaksaLabel = 'ทักษาจรรายปีในช่วงนี้';
   static const mahabhutLabel = 'ตำแหน่งมหาภูต';
+  static const themeLabel = 'เรื่องสำคัญของช่วงนี้';
 
   @override
   State<ThaiMirrorLifeTimelineSection> createState() =>
@@ -761,14 +761,15 @@ class _PeriodCard extends StatelessWidget {
                   const SizedBox(height: 10),
                   if (period.keyword.isNotEmpty)
                     Text(
-                      'ธีมหลัก: ${period.keyword}',
+                      '${ThaiMirrorLifeTimelineSection.themeLabel}: '
+                      '${period.keyword}',
                       style: TextStyle(
                         fontSize: 13,
                         fontWeight: FontWeight.w600,
                         color: scheme.onSurfaceVariant,
                       ),
                     ),
-                  if (period.mahabhutKnown &&
+                  if (period.mahabhutShownOnReport &&
                       period.mahabhutPositionLabel.isNotEmpty) ...[
                     const SizedBox(height: 6),
                     Text(
@@ -780,6 +781,20 @@ class _PeriodCard extends StatelessWidget {
                         color: scheme.onSurfaceVariant,
                       ),
                     ),
+                    if (period.mahabhutDescription.isNotEmpty) ...[
+                      const SizedBox(height: 4),
+                      Text(
+                        period.mahabhutDescription,
+                        key: const Key('thai_life_map_mahabhut_description'),
+                        style: TextStyle(
+                          fontSize: 12.5,
+                          height: 1.5,
+                          color: scheme.onSurfaceVariant.withValues(
+                            alpha: 0.95,
+                          ),
+                        ),
+                      ),
+                    ],
                   ],
                   const SizedBox(height: 8),
                   Text(
@@ -827,11 +842,7 @@ class _PeriodCard extends StatelessWidget {
                     crossFadeState: expanded
                         ? CrossFadeState.showFirst
                         : CrossFadeState.showSecond,
-                    firstChild: _PeriodDetail(
-                      period: period,
-                      accent: accent,
-                      showExpandChrome: showCollapsedSummary,
-                    ),
+                    firstChild: _PeriodDetail(period: period, accent: accent),
                     secondChild: const SizedBox(width: double.infinity),
                   ),
                 ],
@@ -871,15 +882,10 @@ class _Badge extends StatelessWidget {
 }
 
 class _PeriodDetail extends StatelessWidget {
-  const _PeriodDetail({
-    required this.period,
-    required this.accent,
-    this.showExpandChrome = false,
-  });
+  const _PeriodDetail({required this.period, required this.accent});
 
   final ThaiMirrorLifePeriodState period;
   final Color accent;
-  final bool showExpandChrome;
 
   @override
   Widget build(BuildContext context) {
@@ -902,17 +908,6 @@ class _PeriodDetail extends StatelessWidget {
       children: [
         const SizedBox(height: 12),
         Divider(color: scheme.outlineVariant.withValues(alpha: 0.6), height: 1),
-        if (showExpandChrome) ...[
-          const SizedBox(height: 8),
-          Text(
-            ThaiMirrorLifeTimelineSection.collapseDetailsLabel,
-            style: TextStyle(
-              fontSize: 13,
-              fontWeight: FontWeight.w700,
-              color: accent,
-            ),
-          ),
-        ],
         if (period.stageLabel.isNotEmpty) ...[
           const SizedBox(height: 10),
           Text(
@@ -925,7 +920,18 @@ class _PeriodDetail extends StatelessWidget {
             ),
           ),
         ],
-        if (period.mahabhutKnown &&
+        if (period.keyword.isNotEmpty) ...[
+          const SizedBox(height: 8),
+          Text(
+            '${ThaiMirrorLifeTimelineSection.themeLabel}: ${period.keyword}',
+            style: TextStyle(
+              fontSize: 13,
+              fontWeight: FontWeight.w600,
+              color: scheme.onSurfaceVariant,
+            ),
+          ),
+        ],
+        if (period.mahabhutShownOnReport &&
             period.mahabhutPositionLabel.isNotEmpty) ...[
           const SizedBox(height: 8),
           Text(
@@ -938,6 +944,18 @@ class _PeriodDetail extends StatelessWidget {
               color: scheme.onSurfaceVariant,
             ),
           ),
+          if (period.mahabhutDescription.isNotEmpty) ...[
+            const SizedBox(height: 4),
+            Text(
+              period.mahabhutDescription,
+              key: const Key('thai_life_map_mahabhut_description'),
+              style: TextStyle(
+                fontSize: 13,
+                height: 1.55,
+                color: scheme.onSurfaceVariant.withValues(alpha: 0.95),
+              ),
+            ),
+          ],
         ],
         _SectionTitle(
           text: period.isPast ? 'สิ่งที่น่าจะผ่านมา' : 'สรุปช่วงนี้',
