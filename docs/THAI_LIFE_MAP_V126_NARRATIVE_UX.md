@@ -99,51 +99,50 @@ Inclusive age bands (do **not** alter engine boundaries):
 - Nested ดาวแทรก / ทักษาจร expanders
 - Engine keys / debug identifiers in detail copy
 
-Still computed in models for audit / future QA paths. Mahabhut user label shows **only when Canon-confirmed**; unresolved reasons stay internal.
+Still computed in models for audit / future QA paths. Mahabhut user surface is **report-complete only** (all 8 + descriptions); unresolved reasons stay internal.
 
 ## Frozen Canon & formulas
 
 - No edits under Canon knowledge packages
 - No Mahabhut / life-period formula changes
-- V1.2.4 Accuracy Audit suite green (expectations unchanged)
+- V1.2.4 Accuracy Audit suite green (report-level UI expectations updated)
 
 ## Security & invited beta
 
 | Role | Expected | Verified this round |
 |------|----------|---------------------|
-| Anonymous | Landing; no Evidence Badge; no invited feedback panel | Production browser `/beta/thai?v=5bcabfa` |
+| Anonymous | Landing; no Evidence Badge; no invited feedback panel | Production browser `/beta/thai?v=c698c22` |
 | Normal signed-in | No invited panel | Automated V1.2.5 gating tests |
 | Invited signed-in | Panel when allow-listed | Automated V1.2.5 tests only — **no live invited UID seeded** |
 | Admin without invite | No invited user panel | Automated V1.2.5 tests |
 | Evidence Badge | `invited_beta` | Deploy dart-define + bundle marker |
 | Firestore rules | Unchanged | Deploy reported rules already up to date |
 
-## Automated tests (evidence) — PR #31 / deploy `5bcabfa`
+## Automated tests (evidence) — PR #33 / deploy `c698c22`
 
 | Suite | Result |
 |-------|--------|
 | Local Gate PreCommit + PostCommit | PASS |
-| Focused time-bucket + narrative + Mahabhut + V1.2.3 UI + timeline widgets | **28 passed** |
-| Broader (focused + V1.2.4 accuracy + V1.2.5 beta validation) | **57 passed** |
+| Focused usability suite (gate) | **44 passed** |
+| Broader V1.2.4 + V1.2.5 + time-bucket | **54 passed** |
 | Analyze (changed presentation paths) | No issues |
-| `flutter build web --release` via `scripts/deploy_web.ps1` | PASS @ `5bcabfa` |
+| `flutter build web --release` via `scripts/deploy_web.ps1` | PASS @ `c698c22` |
 
-## Browser / Visual QA — Production @ `5bcabfa`
+## Browser / Visual QA — Production @ `c698c22`
 
 | Check | Result |
 |-------|--------|
-| Hosted `main.dart.js?v=5bcabfa` | HTTP 200, `cache-control: no-cache, must-revalidate` |
-| Bundle markers | `invited_beta`, `thai_life_map_beta_feedback_panel`, `thai_life_map_stage_label`; past title escaped string present; unknown Mahabhut user strings **absent** |
-| `/beta/thai?v=5bcabfa` anonymous | Thai research landing (“ดูดวงไทย — งานวิจัย”); **no** Evidence Badge; **no** invited Life Map feedback panel |
-| QA harness `/thai-mirror/consumer-preview?profile=A&age=11` | Past compact + สิ่งที่น่าจะผ่านมา; current expanded with วัยเรียน / ผู้ปกครอง; future preview with `อาจ`/`เมื่อถึง`; **no** unknown Mahabhut copy |
-| Mobile 390×844 | Viewport set; no horizontal overflow observed on hero/Life Map header |
+| Hosted `main.dart.js?v=c698c22` | Deployed; cache-bust via `?v=c698c22` |
+| Bundle markers | `invited_beta`; theme rename present; collapse chrome string absent; unknown Mahabhut user strings absent |
+| `/beta/thai?v=c698c22` anonymous | Thai research landing; no Evidence Badge; no invited panel |
+| QA harness `/thai-mirror/consumer-preview?profile=A&age=11` | Past denser + theme rename; current expanded (school-age); future preview; no collapse chrome / unknown Mahabhut copy |
 | Live invited / admin sessions | **Not executed** — no invite UIDs seeded |
 
 ## Feedback counts (at close)
 
 | Metric | Value |
 |--------|------:|
-| Real invited users with Life Map Feedback (`thai_life_map_beta_feedback`) | **0** (unchanged; research landing “1 คน” is a separate path) |
+| Real invited users with Life Map Feedback (`thai_life_map_beta_feedback`) | **0** (unchanged; research landing count is a separate path) |
 | QA Life Map Feedback created this round | **None** |
 
 ## Validation status
@@ -154,11 +153,11 @@ Do **not** treat as Validation Passed until ≥5 real invited users submit Life 
 
 ## Rollback
 
-Redeploy prior Hosting SHA (`e16ad14` or earlier) via `scripts/deploy_web.ps1` from that commit. Rules unchanged — no rules rollback required for this release.
+Redeploy prior Hosting SHA (`5bcabfa` or earlier) via `scripts/deploy_web.ps1` from that commit. Rules unchanged — no rules rollback required for this release.
 
 ## Known limitations
 
 - Production click-expand of every future period across all ages not fully browser-automated this round
 - Invited-user / admin live panel not re-checked without seeded allow-list UID
 - Score/sub-period engine data remains in models but is not user-visible in detail
-- One Canon-ambiguous period per some charts remains unresolved internally (e.g. 1972 fixture unknown=1) — UI omits the line rather than inventing a placement
+- Charts with any unresolved Mahabhut hide the section for the whole report (by design)
