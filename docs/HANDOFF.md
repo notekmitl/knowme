@@ -16,7 +16,7 @@ cd knowme
 git checkout main
 ```
 
-**Important:** Prefer `main`. Public Firebase Hosting was last deployed from `main` @ `5bcabfa` (2026-07-24) — includes Thai Beta **Life Map V1.2.6** time-bucket UX (PR #31) + age-boundary (PR #27) + prior V1.2.5/V1.2.3/Canon-index; anonymous Public Beta at https://knowme-app-694e1.web.app/beta/thai?v=5bcabfa (Thai landing, not Login; Evidence Badge remains `invited_beta`). Validation status: **Ready for Invited Beta Validation** — see [`THAI_LIFE_MAP_V126_NARRATIVE_UX.md`](THAI_LIFE_MAP_V126_NARRATIVE_UX.md). Older feature branches such as `feature/fusion-result` remain useful historical snapshots; check [`CURRENT_STATUS.md`](CURRENT_STATUS.md) for the active deploy source.
+**Important:** Prefer `main`. Public Firebase Hosting was last deployed from `main` @ `c698c22` (2026-07-24) — includes Thai Beta **Life Map V1.2.6** usability feedback (PR #33) + time-bucket (PR #31) + age-boundary (PR #27); anonymous Public Beta at https://knowme-app-694e1.web.app/beta/thai?v=c698c22 (Thai landing, not Login; Evidence Badge remains `invited_beta`). Validation status: **Ready for Invited Beta Validation** — see [`THAI_LIFE_MAP_V126_NARRATIVE_UX.md`](THAI_LIFE_MAP_V126_NARRATIVE_UX.md). Older feature branches such as `feature/fusion-result` remain useful historical snapshots; check [`CURRENT_STATUS.md`](CURRENT_STATUS.md) for the active deploy source.
 
 **Automation workflow:** Use Single-Agent + Local Gate — see [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). The external AI Worker is **retired** (historical: [`AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)). The obsolete in-repo `ai-worker/` directory is gitignored and must not be committed.
 

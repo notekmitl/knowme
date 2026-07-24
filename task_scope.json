@@ -1,34 +1,24 @@
 ﻿{
   "schema_version": 1,
-  "task_id": "thai-life-map-v126-usability-feedback",
-  "expected_branch": "feature/thai-life-map-v126-usability-feedback",
+  "task_id": "thai-life-map-v126-usability-deploy-docs",
+  "expected_branch": "docs/thai-life-map-v126-usability-deploy",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "49c300e4fa6a39d2cee054780ceb34dca1b41ab3",
+  "base_ref": "c698c225e68ef2eba718b848cbf8c652bc72cd91",
   "allowed_files": [
     "task.md",
     "task_scope.json",
-    "lib/features/astrology/thai/mirror/presentation/timeline/mahabhut_position_user_copy.dart",
-    "lib/features/astrology/thai/mirror/presentation/timeline/period_narrative_composer.dart",
-    "lib/features/astrology/thai/mirror/presentation/timeline/thai_mirror_life_timeline_state.dart",
-    "lib/features/astrology/thai/mirror/presentation/timeline/timeline_presenter.dart",
-    "lib/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_life_timeline_section.dart",
-    "test/validation/thai_beta/life_map/thai_life_map_mahabhut_canon_index_regression_test.dart",
-    "test/validation/thai_beta/life_map/v124/thai_life_map_v124_audit_runner.dart",
-    "test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart",
-    "test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart"
+    "docs/CURRENT_STATUS.md",
+    "docs/HANDOFF.md",
+    "docs/THAI_LIFE_MAP_V126_NARRATIVE_UX.md"
   ],
-  "allowed_globs": [
-    "test/validation/thai_beta/life_map/v126/**"
-  ],
+  "allowed_globs": [],
   "forbidden_files": [
     ".env",
     ".env.*",
     "**/*.pem",
     "**/*.key",
     "**/google-services.json",
-    "**/GoogleService-Info.plist",
-    "firestore.rules",
-    "lib/features/astrology/thai/knowledge/canon/**"
+    "**/GoogleService-Info.plist"
   ],
   "generated_output_globs": [
     "build/**",
@@ -44,12 +34,10 @@
     "final_result.json",
     "round_[0-9]+_review\\.json"
   ],
-  "focused_tests": [
-    "flutter test test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart test/validation/thai_beta/life_map/thai_life_map_mahabhut_canon_index_regression_test.dart test/validation/thai_beta/life_map/v124/thai_life_map_v124_accuracy_audit_test.dart test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart test/ui/thai_mirror_timeline_ui_test.dart --reporter compact"
-  ],
+  "focused_tests": [],
   "full_test_policy": "skip",
   "full_test_command": "SKIP",
-  "analyze_command": "flutter analyze lib/features/astrology/thai/mirror/presentation/timeline lib/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_life_timeline_section.dart",
-  "commit_message_regex": "^feat\\(thai-beta\\): .{10,72}$",
+  "analyze_command": "SKIP",
+  "commit_message_regex": "^docs\\(thai-beta\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }
