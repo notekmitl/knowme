@@ -1,16 +1,12 @@
-{
+﻿{
   "schema_version": 1,
-  "task_id": "thai-life-map-v126-age-stage-boundary-closure",
-  "expected_branch": "qa/thai-life-map-v126-closure",
-  "expected_worktree": "/workspace/scratch/d7f23716fe13/knowme-v126-closure",
-  "base_ref": "fbac8c0baf73c9040c7bfae399eca268bda1a1da",
+  "task_id": "thai-life-map-v126-f3409de-deploy-docs",
+  "expected_branch": "docs/thai-life-map-v126-f3409de-deploy",
+  "expected_worktree": "C:\\Users\\USER\\knowme",
+  "base_ref": "f3409debbc134dc85dce08b9fee006e372f78a8a",
   "allowed_files": [
     "task.md",
     "task_scope.json",
-    "lib/features/astrology/thai/mirror/presentation/timeline/thai_life_stage_context.dart",
-    "lib/features/astrology/thai/mirror/presentation/timeline/period_narrative_composer.dart",
-    "lib/features/astrology/thai/mirror/presentation/timeline/timeline_presenter.dart",
-    "test/validation/thai_beta/life_map/v126/thai_life_map_v126_narrative_ux_test.dart",
     "docs/CURRENT_STATUS.md",
     "docs/HANDOFF.md",
     "docs/THAI_LIFE_MAP_V126_NARRATIVE_UX.md"
@@ -22,9 +18,7 @@
     "**/*.pem",
     "**/*.key",
     "**/google-services.json",
-    "**/GoogleService-Info.plist",
-    "firestore.rules",
-    "lib/features/astrology/thai/knowledge/canon/**"
+    "**/GoogleService-Info.plist"
   ],
   "generated_output_globs": [
     "build/**",
@@ -40,12 +34,10 @@
     "final_result.json",
     "round_[0-9]+_review\\.json"
   ],
-  "focused_tests": [
-    "flutter test test/validation/thai_beta/life_map/v126/thai_life_map_v126_narrative_ux_test.dart test/ui/thai_mirror_timeline_ui_test.dart --reporter expanded"
-  ],
-  "full_test_policy": "required",
-  "full_test_command": "flutter test test/validation/thai_beta/life_map test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart test/ui/thai_mirror_timeline_ui_test.dart --reporter expanded",
-  "analyze_command": "flutter analyze lib/features/astrology/thai/mirror/presentation/timeline test/validation/thai_beta/life_map/v126",
-  "commit_message_regex": "^fix\\(thai-beta\\): .{10,72}$",
+  "focused_tests": [],
+  "full_test_policy": "skip",
+  "full_test_command": "SKIP",
+  "analyze_command": "SKIP",
+  "commit_message_regex": "^docs\\(thai-beta\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }

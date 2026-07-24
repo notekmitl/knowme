@@ -2,10 +2,10 @@
 
 **Status:** **Ready for Invited Beta Validation**  
 **Not:** Validation Passed (real invited-user Life Map Feedback count still **0**)  
-**Merge:** PR #25 → `ab093ad`  
-**Feature commit:** `639c76c`  
-**Production deploy:** Firebase `knowme-app-694e1` from `main` @ `ab093ad` (2026-07-23)  
-**Public URL:** https://knowme-app-694e1.web.app/beta/thai?v=ab093ad
+**Narrative UX merge:** PR #25 → `ab093ad` (feature `639c76c`)  
+**Age-boundary closure merge:** PR #27 → `f3409de` (fix `4fc4d51`)  
+**Production deploy:** Firebase `knowme-app-694e1` from `main` @ `f3409de` (2026-07-24)  
+**Public URL:** https://knowme-app-694e1.web.app/beta/thai?v=f3409de
 
 ## Problem (pre-fix)
 
@@ -17,9 +17,13 @@ User-facing Life Map period detail was hard to use:
 - Raw nested ดาวแทรก / ทักษาจร lists users cannot interpret
 - Dense, duplicated detail that did not answer “what matters in this stage?”
 
+### Follow-up defect (closed in PR #27)
+
+A child inside a long astrology period (e.g. age **11** in window **11–29**) still received young-adult narrative when the band was derived from the period mid-age instead of the reader’s actual age.
+
 ## Root cause
 
-Presentation reused one adult domain scaffold and exposed engine nested lists. Narrative composition used fragment-style copy without life-stage context. Calculation and Frozen Canon were not the defect.
+Presentation reused one adult domain scaffold and exposed engine nested lists. Narrative composition used fragment-style copy without life-stage context. After V1.2.6 narrative banks landed, mid-age classification still mislabeled the **current** period for long windows. Calculation and Frozen Canon were not the defect.
 
 ## Architecture change (presentation only)
 
@@ -27,15 +31,15 @@ Presentation reused one adult domain scaffold and exposed engine nested lists. N
 |-------|--------|
 | Calculation / Canon | **Unchanged** |
 | Engine period windows | **Unchanged** |
-| `ThaiLifeStageContext` | New — maps mid-age of existing period windows → narrative band |
-| `PeriodNarrativeComposer` | Complete Thai sentence banks per band; advice + stageLabel |
-| `TimelinePresenter` / state | Wire advice + stageLabel; intro no longer invites raw star/taksa UI |
-| `ThaiMirrorLifeTimelineSection` | Detail sections: สรุป / เรื่องที่เด่น / สิ่งที่ควรระวัง / คำแนะนำหรือแนวทางส่งเสริม / ความเปลี่ยนแปลงจากช่วงก่อน; hide score grid + nested raw lists |
+| `ThaiLifeStageContext` | Presentation bands by age |
+| `PeriodNarrativeComposer` | Complete Thai sentence banks; `narrativeAge` input |
+| `TimelinePresenter` | Current period → actual `timeline.currentAge`; past → `endAge`; future → `startAge` |
+| `ThaiMirrorLifeTimelineSection` | Detail: สรุป / เรื่องที่เด่น / สิ่งที่ควรระวัง / คำแนะนำหรือแนวทางส่งเสริม / ความเปลี่ยนแปลงจากช่วงก่อน; hide score grid + nested raw lists |
 | Curated heroes | Fix broken “คิดรอบก่อนตอบ” phrasing |
 
 ## Life-stage bands (presentation only)
 
-Inclusive mid-age bands (do **not** alter engine boundaries):
+Inclusive age bands (do **not** alter engine boundaries):
 
 | Band | Ages | Tone |
 |------|------|------|
@@ -47,7 +51,7 @@ Inclusive mid-age bands (do **not** alter engine boundaries):
 | midlife | 50–64 | Review / responsibility |
 | elder | 65+ | Quality of life / dignity |
 
-Child-oriented bands remap engine career/money/romance domains before copy selection. Engine scores still computed for compatibility.
+**Current period:** use actual user age. **Past/future periods:** use nearest boundary age of that window. Child-oriented bands remap engine career/money/romance domains before copy selection. Engine scores still computed for compatibility.
 
 ## Hidden from user-facing UI (retained internally)
 
@@ -61,49 +65,48 @@ Still computed in models for audit / future QA paths. Mahabhut position label re
 
 - No edits under Canon knowledge packages
 - No Mahabhut / life-period formula changes
-- V1.2.4 Accuracy Audit suite still green (expectations unchanged)
+- V1.2.4 Accuracy Audit suite green (expectations unchanged)
 
 ## Security & invited beta
 
 | Role | Expected | Verified this round |
 |------|----------|---------------------|
-| Anonymous | Landing; no Evidence Badge; no invited feedback panel | Production browser desktop + mobile |
+| Anonymous | Landing; no Evidence Badge; no invited feedback panel | Production browser `/beta/thai?v=f3409de` |
 | Normal signed-in | No invited panel | Automated V1.2.5 gating tests |
 | Invited signed-in | Panel when allow-listed | Automated V1.2.5 tests only — **no live invited UID seeded** |
 | Admin without invite | No invited user panel | Automated V1.2.5 tests |
 | Evidence Badge | `invited_beta` | Deploy dart-define + bundle marker |
 | Firestore rules | Unchanged | Deploy reported rules already up to date |
 
-## Automated tests (evidence)
+## Automated tests (evidence) — pre-deploy @ `f3409de`
 
 | Suite | Result |
 |-------|--------|
-| V1.2.6 focused + timeline UI + V1.2.3 acceptance | **13 passed** (PreCommit) |
-| V1.2.1–V1.2.6 + timeline UI combined | **55 passed** |
-| Evidence Badge invited QA | **46 passed** |
-| V1.2.5 feedback gating | Included in 55-suite |
-| Analyze (changed paths) | No issues |
-| Local Gate PreCommit / PostCommit | PASS |
-| `flutter build web --release` (deploy script) | PASS |
+| Focused v126 + timeline UI | **14 passed** |
+| Full Life Map regression + V1.2.1 narrative + Evidence Badge QA | **109 passed** |
+| Age-boundary focused (actual age / child-teen / classification) | **3 passed** (subset re-check) |
+| Analyze (timeline paths) | No issues |
+| `flutter build web --release` via `scripts/deploy_web.ps1` | PASS |
 
-## Browser / Visual QA
+## Browser / Visual QA — Production @ `f3409de`
 
 | Check | Result |
 |-------|--------|
-| Production `/beta/thai?v=ab093ad` desktop | Thai research landing; **no** Evidence Badge chrome; **no** invited Life Map feedback panel |
-| Production mobile 390×844 | Landing layout OK; same gating |
-| Hosted `main.dart.js?v=ab093ad` | HTTP 200, `cache-control: no-cache, must-revalidate` |
+| Hosted `main.dart.js?v=f3409de` | HTTP 200, `cache-control: no-cache, must-revalidate` |
 | Bundle markers | `invited_beta`, `thai_life_map_beta_feedback_panel`, `thai_life_map_stage_label` |
-| Interactive full report across all life stages on Production | **Not executed** — Flutter web form automation limited; covered by widget tests |
-| Live invited / admin sessions | **Not executed** — no invite UIDs seeded this round |
+| `/beta/thai?v=f3409de` anonymous | Thai research landing; **no** Evidence Badge; **no** invited Life Map feedback panel |
+| QA harness ` /thai-mirror/consumer-preview?profile=A&age=11` desktop | Life Map shows “วันนี้ ในวัย 11 ปี…”; period window still 11–29; no Evidence Badge / invited panel |
+| Same harness `viewport=mobile` | Life Map header + age-11 copy visible; no obvious overflow on first viewport |
+| Period-detail expand / score-grid absence on Production click-path | Covered by widget tests; **live expand click not fully automated** this round |
+| Live invited / admin sessions | **Not executed** — no invite UIDs seeded |
+| Console errors on harness age=11 | None observed in sampled session |
 
 ## Feedback counts (at close)
 
 | Metric | Value |
 |--------|------:|
-| Real invited users with Life Map Feedback (`thai_life_map_beta_feedback`) | **0** (unchanged; not counted from research landing “1 คน”) |
+| Real invited users with Life Map Feedback (`thai_life_map_beta_feedback`) | **0** (unchanged; research landing “1 คน” is a separate path) |
 | QA Life Map Feedback created this round | **None** |
-| Research landing participant counter | Shows **1** (separate public research path — not Life Map Validation metric) |
 
 ## Validation status
 
@@ -113,10 +116,10 @@ Do **not** treat as Validation Passed until ≥5 real invited users submit Life 
 
 ## Rollback
 
-Redeploy prior Hosting SHA (`b5d1243`) via `scripts/deploy_web.ps1` from that commit. Rules unchanged — no rules rollback required for this release.
+Redeploy prior Hosting SHA (`ab093ad` or earlier) via `scripts/deploy_web.ps1` from that commit. Rules unchanged — no rules rollback required for this release.
 
 ## Known limitations
 
-- Production interactive Life Map expand across synthetic ages not browser-automated this round
-- Invited-user live panel not re-checked without seeded allow-list UID
+- Production click-expand of every period card across ages 5/11/15/23/35/55/70 not fully browser-automated
+- Invited-user / admin live panel not re-checked without seeded allow-list UID
 - Score/sub-period engine data remains in models but is not user-visible in detail
