@@ -1,4 +1,4 @@
-﻿# Task: Thai Life Map V1.2.6 deploy status @ f3409de
+﻿# Task: Thai Life Map V1.2.6 redeploy status @ e16ad14
 
-Record Production deploy of PR #27 age-boundary fix @ f3409de and Production QA.
-Docs only — no redeploy.
+Record Production redeploy from main (includes PR #27) @ e16ad14 and QA.
+Docs only — no further redeploy.

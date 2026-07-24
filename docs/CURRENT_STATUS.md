@@ -2,11 +2,11 @@
 
 **Last updated:** July 2026  
 **Branch:** `main`  
-**Merge tip:** `f3409de` (PR #27 — Life Map V1.2.6 age-stage boundary closure); Production hosted @ `f3409de`  
+**Merge tip:** `e16ad14` (docs after PR #27); Production hosted @ `e16ad14` (app includes PR #27 @ `f3409de`)  
 **Prior architecture snapshot:** `feature/fusion-result`  
 **Automation workflow (authoritative):** Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
 **Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login) — Evidence Badge rollout remains `invited_beta`.
-**Thai Beta Narrative / Life Map:** **V1.2.6** narrative + life-stage UX + **actual-age boundary fix** deployed @ `f3409de` (PR #25/#27); status **Ready for Invited Beta Validation** (0 real Life Map Feedback). See [`THAI_LIFE_MAP_V126_NARRATIVE_UX.md`](THAI_LIFE_MAP_V126_NARRATIVE_UX.md).
+**Thai Beta Narrative / Life Map:** **V1.2.6** narrative + life-stage UX + **actual-age boundary fix** hosted @ `e16ad14` (PR #25/#27); status **Ready for Invited Beta Validation** (0 real Life Map Feedback). See [`THAI_LIFE_MAP_V126_NARRATIVE_UX.md`](THAI_LIFE_MAP_V126_NARRATIVE_UX.md).
 
 ---
 
@@ -35,8 +35,8 @@
 | **Life Map Mahabhut Canon index (Production fix)** | Merged to `main` + **hosted** | PR https://github.com/notekmitl/knowme/pull/20 @ `07d0eb9`; wires Frozen Canon `repository.index` into Timeline/Consumer presenters — unknown no longer forced by null index. Presenter-path QA (1972-04-04 02:00 BKK): **known=7 / unknown=1** (ธงชัย, unknown, ปูติ, อธิบดี, ขุมทรัพย์, ปูติ, มรณะ, ราชา). Sample pipeline fixture: known=8 / unknown=0 |
 | **Thai Life Map V1.2.4 Accuracy Audit** | Merged tests + report | PR #22 @ `cb33a3d`; 22 fixtures / 176 periods; known 139 / unknown 37; [`THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md`](THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md) |
 | **Thai Life Map V1.2.5 Invited Beta Feedback** | Merged + **hosted** — **Ready for Validation** | PR #23 @ `b5d1243`; deploy Firebase Hosting + rules 2026-07-23; anonymous Production QA PASS (no panel/badge leak); **0 real invited Feedback** → not Validation Passed; [`THAI_LIFE_MAP_V125_BETA_VALIDATION.md`](THAI_LIFE_MAP_V125_BETA_VALIDATION.md) |
-| **Thai Life Map V1.2.6 Narrative & Life-stage UX** | Merged + **hosted** — **Ready for Validation** | PR #25 @ `ab093ad`; PR #27 age-boundary fix @ `f3409de`; Production Hosting 2026-07-24 @ `f3409de`; actual age for current-period narrative; Canon/formulas unchanged; [`THAI_LIFE_MAP_V126_NARRATIVE_UX.md`](THAI_LIFE_MAP_V126_NARRATIVE_UX.md) |
-| **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with V1.2.6 deploy 2026-07-24 @ `f3409de` |
+| **Thai Life Map V1.2.6 Narrative & Life-stage UX** | Merged + **hosted** — **Ready for Validation** | PR #25 @ `ab093ad`; PR #27 age-boundary fix @ `f3409de`; Production Hosting re-verified 2026-07-24 @ `e16ad14` (includes #27); actual age for current-period narrative; Canon/formulas unchanged; [`THAI_LIFE_MAP_V126_NARRATIVE_UX.md`](THAI_LIFE_MAP_V126_NARRATIVE_UX.md) |
+| **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with V1.2.6 deploy 2026-07-24 @ `e16ad14` |
 | **Single-Agent + Local Gate** | Merged to `main` | `docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`, `scripts/knowme_task_gate.ps1` |
 
 **Also complete (supporting):**
@@ -72,7 +72,7 @@ Real users (38 Firestore accounts): **2.6% reach Narrative**. Blocker is persona
 | Risk | Severity | Detail |
 |------|----------|--------|
 | Personality test cliff | **Critical** | 97% of profile users never start MBTI (`REAL_USER_RUNTIME_VALIDATION_V1.md`) |
-| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `f3409de` (2026-07-24); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
+| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `e16ad14` (2026-07-24); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
 | Real user PII export local-only | **High** | `firestore_user_export.json` gitignored — must regenerate locally |
 | Firebase service account local-only | **High** | `backend/firebase/serviceAccountKey.json` gitignored |
 | Legacy + new architecture coexist | **Medium** | Parallel scoring, navigation, and module IDs — trace before editing |
@@ -91,7 +91,7 @@ Accepted debt — do not hide; trace before editing.
 | AppText monolith | Low | `lib/core/i18n/app_text.dart` large | ARB/codegen future; acceptable for now |
 | Fusion outlier coverage | Low | Special-case copy for ESTJ, ENTJ, INTJ, ENFP only | Quality > coverage — expand carefully |
 | Dual astrology providers | Medium | `presentation/providers/astrology_provider.dart` + `lib/astrology/providers/astrology_provider.dart` | Do not aggressively merge — duplicate path risk |
-| Hosting source vs `main` | Low | Last public deploy from `main` @ `f3409de` (manual); no auto-deploy | Keep using `scripts/deploy_web.ps1` for intentional releases |
+| Hosting source vs `main` | Low | Last public deploy from `main` @ `e16ad14` (manual); no auto-deploy | Keep using `scripts/deploy_web.ps1` for intentional releases |
 | Real user PII export local-only | High | `firestore_user_export.json` gitignored | Regenerate locally |
 | Firebase service account local-only | High | `backend/firebase/serviceAccountKey.json` gitignored | Never commit |
 
@@ -104,7 +104,7 @@ Accepted debt — do not hide; trace before editing.
 | **Status** | Public beta live on Firebase Hosting (June 2026) |
 | **Primary URL** | https://knowme-app-694e1.web.app |
 | **Firebase project** | `knowme-app-694e1` |
-| **Branch deployed from** | `main` @ `f3409de` (2026-07-24); still **manual** deploy only — no auto-deploy |
+| **Branch deployed from** | `main` @ `e16ad14` (2026-07-24); still **manual** deploy only — no auto-deploy |
 | **Full guide** | [`docs/DEPLOYMENT.md`](DEPLOYMENT.md) |
 
 Deploy: `.\scripts\deploy_web.ps1` or `firebase deploy --only hosting --project knowme-app-694e1`

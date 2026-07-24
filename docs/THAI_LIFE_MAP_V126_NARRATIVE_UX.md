@@ -4,8 +4,8 @@
 **Not:** Validation Passed (real invited-user Life Map Feedback count still **0**)  
 **Narrative UX merge:** PR #25 → `ab093ad` (feature `639c76c`)  
 **Age-boundary closure merge:** PR #27 → `f3409de` (fix `4fc4d51`)  
-**Production deploy:** Firebase `knowme-app-694e1` from `main` @ `f3409de` (2026-07-24)  
-**Public URL:** https://knowme-app-694e1.web.app/beta/thai?v=f3409de
+**Production deploy:** Firebase `knowme-app-694e1` from `main` @ `e16ad14` (2026-07-24; includes PR #27)  
+**Public URL:** https://knowme-app-694e1.web.app/beta/thai?v=e16ad14
 
 ## Problem (pre-fix)
 
@@ -71,35 +71,32 @@ Still computed in models for audit / future QA paths. Mahabhut position label re
 
 | Role | Expected | Verified this round |
 |------|----------|---------------------|
-| Anonymous | Landing; no Evidence Badge; no invited feedback panel | Production browser `/beta/thai?v=f3409de` |
+| Anonymous | Landing; no Evidence Badge; no invited feedback panel | Production browser `/beta/thai?v=e16ad14` |
 | Normal signed-in | No invited panel | Automated V1.2.5 gating tests |
 | Invited signed-in | Panel when allow-listed | Automated V1.2.5 tests only — **no live invited UID seeded** |
 | Admin without invite | No invited user panel | Automated V1.2.5 tests |
 | Evidence Badge | `invited_beta` | Deploy dart-define + bundle marker |
 | Firestore rules | Unchanged | Deploy reported rules already up to date |
 
-## Automated tests (evidence) — pre-deploy @ `f3409de`
+## Automated tests (evidence) — pre-deploy re-check before `e16ad14` hosting
 
 | Suite | Result |
 |-------|--------|
 | Focused v126 + timeline UI | **14 passed** |
 | Full Life Map regression + V1.2.1 narrative + Evidence Badge QA | **109 passed** |
-| Age-boundary focused (actual age / child-teen / classification) | **3 passed** (subset re-check) |
 | Analyze (timeline paths) | No issues |
 | `flutter build web --release` via `scripts/deploy_web.ps1` | PASS |
 
-## Browser / Visual QA — Production @ `f3409de`
+## Browser / Visual QA — Production @ `e16ad14`
 
 | Check | Result |
 |-------|--------|
-| Hosted `main.dart.js?v=f3409de` | HTTP 200, `cache-control: no-cache, must-revalidate` |
+| Hosted `main.dart.js?v=e16ad14` | HTTP 200, `cache-control: no-cache, must-revalidate` |
 | Bundle markers | `invited_beta`, `thai_life_map_beta_feedback_panel`, `thai_life_map_stage_label` |
-| `/beta/thai?v=f3409de` anonymous | Thai research landing; **no** Evidence Badge; **no** invited Life Map feedback panel |
-| QA harness ` /thai-mirror/consumer-preview?profile=A&age=11` desktop | Life Map shows “วันนี้ ในวัย 11 ปี…”; period window still 11–29; no Evidence Badge / invited panel |
-| Same harness `viewport=mobile` | Life Map header + age-11 copy visible; no obvious overflow on first viewport |
-| Period-detail expand / score-grid absence on Production click-path | Covered by widget tests; **live expand click not fully automated** this round |
+| `/beta/thai?v=e16ad14` anonymous | Thai research landing; **no** Evidence Badge; **no** invited Life Map feedback panel |
+| QA harness `/thai-mirror/consumer-preview?profile=A&age=11` mobile | Life Map shows “วันนี้ ในวัย 11 ปี…”; period window 11–29; no Evidence Badge / invited panel |
+| Period-detail expand / score-grid absence | Covered by widget tests; **live expand click not fully automated** this round |
 | Live invited / admin sessions | **Not executed** — no invite UIDs seeded |
-| Console errors on harness age=11 | None observed in sampled session |
 
 ## Feedback counts (at close)
 
