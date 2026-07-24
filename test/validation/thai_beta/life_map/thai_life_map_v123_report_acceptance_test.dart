@@ -62,7 +62,9 @@ void main() {
         find.byKey(const Key('thai_life_timeline_score_explanation')),
         findsNothing,
       );
-      expect(find.textContaining('ยังยืนยันตำแหน่งไม่ได้'), findsWidgets);
+      // Unresolved Mahabhut is kept internal — user UI must not show system copy.
+      expect(find.textContaining('ยังยืนยันตำแหน่งไม่ได้'), findsNothing);
+      expect(find.textContaining('ยืนยันอันดับตำแหน่งไม่ได้'), findsNothing);
       expect(tester.takeException(), isNull);
     });
 

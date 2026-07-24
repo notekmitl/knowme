@@ -179,7 +179,14 @@ abstract final class TimelinePresenter {
               : p.isPast
               ? 'อดีต'
               : 'อนาคต',
-          mahabhutPositionLabel: mahabhut.displayLabel,
+          // User surface: confirmed names only. Unresolved stays internal.
+          mahabhutPositionLabel: mahabhut.known
+              ? (mahabhut.thaiName ?? '')
+              : '',
+          mahabhutKnown: mahabhut.known,
+          mahabhutUnknownReason: mahabhut.known
+              ? ''
+              : (mahabhut.unknownReason ?? ''),
           subPeriods: subPeriods,
           annualTaksaYears: taksaYears,
         ),

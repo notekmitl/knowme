@@ -1,4 +1,3 @@
-﻿# Task: Thai Life Map V1.2.6 redeploy status @ e16ad14
+﻿# Task: Thai Life Map V1.2.6 time-bucket UX + Mahabhut UI omit
 
-Record Production redeploy from main (includes PR #27) @ e16ad14 and QA.
-Docs only — no further redeploy.
+Past cards compact (retrospective only); current expanded by default with full detail; future collapsed with preview. Hide unresolved Mahabhut from user UI after confirming resolver known/unknown parity (no Canon/formula changes).

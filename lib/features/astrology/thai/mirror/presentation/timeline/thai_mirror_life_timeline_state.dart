@@ -85,6 +85,8 @@ class ThaiMirrorLifePeriodState {
     this.stageLabel = '',
     this.timeBucketLabel = '',
     this.mahabhutPositionLabel = '',
+    this.mahabhutKnown = false,
+    this.mahabhutUnknownReason = '',
     this.subPeriods = const [],
     this.annualTaksaYears = const [],
   });
@@ -116,8 +118,15 @@ class ThaiMirrorLifePeriodState {
   /// V1.2.3 — อดีต / ปัจจุบัน / อนาคต (empty on legacy callers).
   final String timeBucketLabel;
 
-  /// V1.2.3 — Canon Mahabhut name or soft unknown copy.
+  /// Confirmed Canon Mahabhut Thai name only. Empty when unresolved (never
+  /// shows system unknown copy on the user surface).
   final String mahabhutPositionLabel;
+
+  /// True when [mahabhutPositionLabel] is a confirmed Canon name.
+  final bool mahabhutKnown;
+
+  /// Internal unresolved reason for diagnostics / tests — not user-facing.
+  final String mahabhutUnknownReason;
 
   /// V1.2.3 — ดาวแทรก (8 rows when Life Map wired).
   final List<ThaiMirrorLifeSubPeriodState> subPeriods;
