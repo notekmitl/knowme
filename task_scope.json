@@ -1,14 +1,15 @@
 ﻿{
   "schema_version": 1,
-  "task_id": "thai-life-map-v126-past-phase-hygiene",
-  "expected_branch": "feature/thai-life-map-v126-past-phase-hygiene",
+  "task_id": "thai-life-map-v126-past-life-breadth-docs",
+  "expected_branch": "docs/thai-life-map-v126-past-life-breadth",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "399ac7a22325c208524bf700370fc1fb087e8562",
+  "base_ref": "5529264dbc4c331b802b43cf0e2768047c654e6a",
   "allowed_files": [
     "task.md",
     "task_scope.json",
-    "lib/features/astrology/thai/mirror/presentation/timeline/past_retrospective_composer.dart",
-    "test/validation/thai_beta/life_map/v126/thai_life_map_v126_past_life_breadth_test.dart"
+    "docs/CURRENT_STATUS.md",
+    "docs/HANDOFF.md",
+    "docs/THAI_LIFE_MAP_V126_NARRATIVE_UX.md"
   ],
   "allowed_globs": [],
   "forbidden_files": [
@@ -33,12 +34,10 @@
     "final_result.json",
     "round_[0-9]+_review\\.json"
   ],
-  "focused_tests": [
-    "flutter test test/validation/thai_beta/life_map/v126/thai_life_map_v126_past_life_breadth_test.dart --reporter compact"
-  ],
+  "focused_tests": [],
   "full_test_policy": "skip",
   "full_test_command": "SKIP",
-  "analyze_command": "flutter analyze lib/features/astrology/thai/mirror/presentation/timeline/past_retrospective_composer.dart",
-  "commit_message_regex": "^fix\\(thai-beta\\): .{10,72}$",
+  "analyze_command": "SKIP",
+  "commit_message_regex": "^docs\\(thai-beta\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }

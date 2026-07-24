@@ -6,8 +6,21 @@
 **Age-boundary closure merge:** PR #27 → `f3409de` (fix `4fc4d51`)  
 **Time-bucket UX + Mahabhut UI omit:** PR #31 → `5bcabfa` (feature `21b93aa`)  
 **Usability feedback (past density / theme / Mahabhut gate / accordion):** PR #33 → `c698c22` (feature `16257ea`)  
-**Production deploy:** Firebase `knowme-app-694e1` from `main` @ `c698c22` (2026-07-24)  
-**Public URL:** https://knowme-app-694e1.web.app/beta/thai?v=c698c22
+**Past life-breadth + prompt removal:** PR #35 → `399ac7a` (feature `65e2ec2`)  
+**Past phase-label hygiene:** PR #36 → `5529264` (fix `7adc292`)  
+**Production deploy:** Firebase `knowme-app-694e1` from `main` @ `5529264` (2026-07-24)  
+**Public URL:** https://knowme-app-694e1.web.app/beta/thai?v=5529264
+
+## Past life-breadth (PR #35 / #36)
+
+| Change | Detail |
+|--------|--------|
+| Root cause | Age-band-only past banks + `_fitPastWordBudget` / closing pads reused school/homework vocabulary and “ลองนึกย้อน…” closers |
+| New composer | `PastRetrospectiveComposer` selects 1–3 age-safe life facets from affinity, period scores, keyword/essence only |
+| Structure | 2–3 short paragraphs (~90–160 approx Thai words): atmosphere → possible life experiences → inner effect (no advice) |
+| Soft language | `อาจ` / `แนวโน้ม` / `ในบางคน` — no hardcode Saturn→ย้ายบ้าน; no fate claims |
+| Prompt removal | No `ลองนึกย้อน` / `ลองทบทวน` / retrospective question endings on Past path |
+| Hygiene (#36) | Strip leading `ช่วง` from `phaseName` to avoid `ช่วงช่วง…`; prefer childhood opening facet among selected evidence |
 
 ## Usability feedback (PR #33)
 
@@ -111,31 +124,32 @@ Still computed in models for audit / future QA paths. Mahabhut user surface is *
 
 | Role | Expected | Verified this round |
 |------|----------|---------------------|
-| Anonymous | Landing; no Evidence Badge; no invited feedback panel | Production browser `/beta/thai?v=c698c22` |
+| Anonymous | Landing; no Evidence Badge; no invited feedback panel | Production browser `/beta/thai?v=5529264` |
 | Normal signed-in | No invited panel | Automated V1.2.5 gating tests |
 | Invited signed-in | Panel when allow-listed | Automated V1.2.5 tests only — **no live invited UID seeded** |
 | Admin without invite | No invited user panel | Automated V1.2.5 tests |
 | Evidence Badge | `invited_beta` | Deploy dart-define + bundle marker |
 | Firestore rules | Unchanged | Deploy reported rules already up to date |
 
-## Automated tests (evidence) — PR #33 / deploy `c698c22`
+## Automated tests (evidence) — PR #35 / #36 / deploy `5529264`
 
 | Suite | Result |
 |-------|--------|
-| Local Gate PreCommit + PostCommit | PASS |
-| Focused usability suite (gate) | **44 passed** |
-| Broader V1.2.4 + V1.2.5 + time-bucket | **54 passed** |
-| Analyze (changed presentation paths) | No issues |
-| `flutter build web --release` via `scripts/deploy_web.ps1` | PASS @ `c698c22` |
+| Local Gate PreCommit + PostCommit | PASS (both feature PRs) |
+| Life Map validation tree (`test/validation/thai_beta/life_map/`) | **68 passed** |
+| Focused past-breadth suite | **4 passed** (+ time-bucket / narrative UX in gate) |
+| Analyze (past + period composers) | No issues |
+| `flutter build web --release` via `scripts/deploy_web.ps1` | PASS @ `5529264` |
 
-## Browser / Visual QA — Production @ `c698c22`
+## Browser / Visual QA — Production @ `5529264`
 
 | Check | Result |
 |-------|--------|
-| Hosted `main.dart.js?v=c698c22` | Deployed; cache-bust via `?v=c698c22` |
-| Bundle markers | `invited_beta`; theme rename present; collapse chrome string absent; unknown Mahabhut user strings absent |
-| `/beta/thai?v=c698c22` anonymous | Thai research landing; no Evidence Badge; no invited panel |
-| QA harness `/thai-mirror/consumer-preview?profile=A&age=11` | Past denser + theme rename; current expanded (school-age); future preview; no collapse chrome / unknown Mahabhut copy |
+| Hosted `main.dart.js?v=5529264` | Deployed; cache-bust via `?v=5529264` |
+| Bundle markers | `invited_beta` present; Past path no longer pads with `ลองนึกย้อน` |
+| `/beta/thai?v=5529264` anonymous | Thai research landing; no Evidence Badge; no invited panel |
+| Past narrative samples (same presenter path as Production) | Childhood home/family breadth; adult work/money when affinity supports; no retrospective prompts; no `ช่วงช่วง` after #36 |
+| Interactive Form→Report canvas fill | **Limited** — Flutter TextField controllers do not reliably sync from browser automation (known); narrative verified via presenter path + landing/bundle checks |
 | Live invited / admin sessions | **Not executed** — no invite UIDs seeded |
 
 ## Feedback counts (at close)
