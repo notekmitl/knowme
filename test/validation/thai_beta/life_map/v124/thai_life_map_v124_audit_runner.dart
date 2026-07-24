@@ -4,6 +4,7 @@ import 'package:knowme/features/astrology/thai/core/life_period/mahabhut_planet_
 import 'package:knowme/features/astrology/thai/core/life_period/thai_life_map_mahabhut_resolution.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/thai_canon_evidence_repository.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/thai_mirror_consumer_presenter.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/mahabhut_position_user_copy.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
@@ -220,20 +221,33 @@ abstract final class ThaiLifeMapV124AuditRunner {
 
     final rows = <ThaiLifeMapV124PeriodRow>[];
     final enginePeriods = timeline.periods;
+    final resolvedForReport = <MahabhutPlanetPosition>[];
+    for (var i = 0; i < lifeTimeline.periods.length; i++) {
+      final engine = enginePeriods[i];
+      resolvedForReport.add(
+        resolution?.resolve(engine) ??
+            MahabhutPlanetPositionEngine.resolve(period: engine),
+      );
+    }
+    final showMahabhutOnReport = MahabhutPositionUserCopy.reportReadyToShow(
+      resolvedForReport,
+    );
+
     for (var i = 0; i < lifeTimeline.periods.length; i++) {
       final ui = lifeTimeline.periods[i];
       final engine = enginePeriods[i];
       final data = LifePlanets.of(engine.planet);
-      final mahabhut =
-          resolution?.resolve(engine) ??
-          MahabhutPlanetPositionEngine.resolve(period: engine);
+      final mahabhut = resolvedForReport[i];
 
-      final expectedUiLabel = mahabhut.known ? (mahabhut.thaiName ?? '') : '';
+      final expectedUiLabel = showMahabhutOnReport
+          ? (mahabhut.thaiName ?? '')
+          : '';
       if (ui.mahabhutPositionLabel != expectedUiLabel) {
         anomalies.add(
           'PRESENTER_VS_RESOLVER_LABEL period=$i '
           'ui=${ui.mahabhutPositionLabel} expected=$expectedUiLabel '
-          'resolverDisplay=${mahabhut.displayLabel}',
+          'resolverDisplay=${mahabhut.displayLabel} '
+          'showReport=$showMahabhutOnReport',
         );
       }
       if (ui.mahabhutKnown != mahabhut.known) {

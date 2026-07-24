@@ -85,8 +85,10 @@ class ThaiMirrorLifePeriodState {
     this.stageLabel = '',
     this.timeBucketLabel = '',
     this.mahabhutPositionLabel = '',
+    this.mahabhutDescription = '',
     this.mahabhutKnown = false,
     this.mahabhutUnknownReason = '',
+    this.mahabhutShownOnReport = false,
     this.subPeriods = const [],
     this.annualTaksaYears = const [],
   });
@@ -118,15 +120,21 @@ class ThaiMirrorLifePeriodState {
   /// V1.2.3 — อดีต / ปัจจุบัน / อนาคต (empty on legacy callers).
   final String timeBucketLabel;
 
-  /// Confirmed Canon Mahabhut Thai name only. Empty when unresolved (never
-  /// shows system unknown copy on the user surface).
+  /// Confirmed Canon Mahabhut Thai name on the user surface when the whole
+  /// report is complete (all 8 known + explainable). Empty otherwise.
   final String mahabhutPositionLabel;
 
-  /// True when [mahabhutPositionLabel] is a confirmed Canon name.
+  /// 1–2 sentence plain-Thai explanation when [mahabhutShownOnReport] is true.
+  final String mahabhutDescription;
+
+  /// Resolver truth: confirmed Canon placement (internal / diagnostic).
   final bool mahabhutKnown;
 
   /// Internal unresolved reason for diagnostics / tests — not user-facing.
   final String mahabhutUnknownReason;
+
+  /// Report-level gate: show Mahabhut on every card or on none.
+  final bool mahabhutShownOnReport;
 
   /// V1.2.3 — ดาวแทรก (8 rows when Life Map wired).
   final List<ThaiMirrorLifeSubPeriodState> subPeriods;

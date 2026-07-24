@@ -330,12 +330,12 @@ void main() {
           findsNothing,
         );
         expect(find.text('การงาน').hitTestable(), findsNothing);
-        final collapse = find
-            .text(ThaiMirrorLifeTimelineSection.collapseDetailsLabel)
-            .hitTestable();
-        await tester.ensureVisible(collapse);
+        expect(find.textContaining('ซ่อนรายละเอียดช่วงชีวิต'), findsNothing);
+        final collapseArrow = find.byIcon(Icons.keyboard_arrow_up_rounded);
+        expect(collapseArrow, findsWidgets);
+        await tester.ensureVisible(collapseArrow.first);
         await tester.pumpAndSettle();
-        await tester.tap(collapse);
+        await tester.tap(collapseArrow.first);
         await tester.pumpAndSettle();
         expect(find.text('สรุปช่วงนี้').hitTestable(), findsNothing);
       },

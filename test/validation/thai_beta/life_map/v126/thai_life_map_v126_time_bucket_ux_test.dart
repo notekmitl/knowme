@@ -60,14 +60,16 @@ void main() {
           if (pos.known) {
             known++;
             expect(ui.mahabhutKnown, isTrue);
-            expect(ui.mahabhutPositionLabel, pos.thaiName);
           } else {
             unknown++;
             expect(ui.mahabhutKnown, isFalse);
-            expect(ui.mahabhutPositionLabel, isEmpty);
             expect(ui.mahabhutUnknownReason, isNotEmpty);
             expect(pos.unknownReason, isNotNull);
           }
+          // Report-level: any unknown ⇒ hide Mahabhut on every card.
+          expect(ui.mahabhutShownOnReport, isFalse);
+          expect(ui.mahabhutPositionLabel, isEmpty);
+          expect(ui.mahabhutDescription, isEmpty);
         }
         expect(known, 7);
         expect(unknown, 1);
@@ -95,17 +97,18 @@ void main() {
       )!;
 
       expect(state.periods, hasLength(8));
+      final allKnown = pipeline.lifePeriods!.periods.every(
+        (p) => resolution.resolve(p).known,
+      );
+      expect(allKnown, isTrue);
+      expect(state.periods.every((p) => p.mahabhutShownOnReport), isTrue);
       for (final p in pipeline.lifePeriods!.periods) {
         final pos = resolution.resolve(p);
         final ui = state.periods[p.index];
         expect(ui.ageLabel, '${p.startAge}–${p.endAge}');
         expect(ui.mahabhutKnown, pos.known);
-        if (pos.known) {
-          expect(ui.mahabhutPositionLabel, pos.thaiName);
-        } else {
-          expect(ui.mahabhutPositionLabel, isEmpty);
-          expect(ui.mahabhutUnknownReason, pos.unknownReason);
-        }
+        expect(ui.mahabhutPositionLabel, pos.thaiName);
+        expect(ui.mahabhutDescription, isNotEmpty);
       }
     });
   });
@@ -132,10 +135,10 @@ void main() {
       expect(find.text('สิ่งที่น่าจะผ่านมา'), findsWidgets);
       expect(find.textContaining('ยังยืนยันตำแหน่งไม่ได้'), findsNothing);
       expect(find.textContaining('ยืนยันอันดับตำแหน่งไม่ได้'), findsNothing);
+      expect(find.textContaining('ธีมหลัก'), findsNothing);
+      expect(find.textContaining('ซ่อนรายละเอียดช่วงชีวิต'), findsNothing);
+      expect(find.textContaining('เรื่องสำคัญของช่วงนี้'), findsWidgets);
 
-      // Past must not surface guidance headings even if other periods expand.
-      final pastAdvice = find.text('คำแนะนำสำหรับช่วงนี้');
-      // Current may show advice when expanded — expand current only.
       final expand = find.text(
         ThaiMirrorLifeTimelineSection.expandDetailsLabel,
       );
@@ -145,14 +148,11 @@ void main() {
         await tester.pumpAndSettle();
       }
       expect(find.text('สรุปช่วงนี้'), findsWidgets);
-      // Past headings for forbidden sections should not appear as empty shells.
+      expect(find.textContaining('ซ่อนรายละเอียดช่วงชีวิต'), findsNothing);
       expect(tester.takeException(), isNull);
-      // Sanity: past retrospective exists; forbidden past-only labels absent
-      // from a pure past card text blob is covered by presenter unit checks.
-      expect(pastAdvice, findsWidgets); // present/future may show advice
     });
 
-    test('past narratives have no advice/caution/comparison', () {
+    test('past narratives have denser retrospective without advice', () {
       final timeline = LifePeriodEngine.build(
         birthWeekday: DateTime.friday,
         currentAge: 45,
@@ -166,6 +166,7 @@ void main() {
       )!;
       final past = state.periods.where((p) => p.isPast).toList();
       expect(past, isNotEmpty);
+      final summaries = <String>{};
       for (final p in past) {
         expect(p.advice, isEmpty);
         expect(p.harder, isEmpty);
@@ -173,15 +174,23 @@ void main() {
         expect(p.comparison, isEmpty);
         expect(p.evidenceLine, isEmpty);
         expect(p.summary.trim(), isNotEmpty);
+        expect(p.summary.contains('\n\n'), isTrue);
+        final chars = p.summary.replaceAll(RegExp(r'\s+'), '').runes.length;
+        final approxWords = (chars / 2.5).round();
+        expect(approxWords, inInclusiveRange(90, 160));
+        expect(chars, greaterThanOrEqualTo(200));
         expect(
-          p.summary.contains('ย้อน') || p.summary.contains('เคยผ่าน'),
+          p.summary.contains('อาจ') ||
+              p.summary.contains('แนวโน้ม') ||
+              p.summary.contains('ย้อน'),
           isTrue,
         );
-        expect(
-          p.summary.split(RegExp(r'[।\.!?…]')).length,
-          lessThanOrEqualTo(4),
-        );
+        expect(p.summary.contains('คำแนะนำ'), isFalse);
+        expect(p.summary.contains('สิ่งที่ควรระวัง'), isFalse);
+        expect(p.summary.contains('แนวทางส่งเสริม'), isFalse);
+        summaries.add(p.summary);
       }
+      expect(summaries.length, past.length);
       final future = state.periods.where((p) => !p.isPast && !p.isCurrent);
       for (final p in future) {
         expect(

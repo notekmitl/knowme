@@ -1,3 +1,3 @@
-﻿# Task: Docs — Life Map V1.2.6 time-bucket Production @ 5bcabfa
+﻿# Task: Thai Life Map V1.2.6 usability feedback fix
 
-Record PR #31 merge/deploy and Production QA. Docs only — no redeploy.
+Enrich past retrospective density; rename ธีมหลัก → เรื่องสำคัญของช่วงนี้; report-level Mahabhut show-all-or-none with evidence-backed descriptions; remove accordion collapse copy from expanded content.

@@ -10,6 +10,7 @@ import 'package:knowme/features/astrology/thai/foundation/models/thai_birth_data
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/thai_canon_evidence_index.dart';
 
 import '../copy/thai_mirror_evidence_composer.dart';
+import 'mahabhut_position_user_copy.dart';
 import 'period_composite_score.dart';
 import 'period_intelligence_composer.dart';
 import 'period_narrative_composer.dart';
@@ -87,6 +88,17 @@ abstract final class TimelinePresenter {
     final segments = <ThaiMirrorTimelineSegmentState>[];
     final periods = <ThaiMirrorLifePeriodState>[];
 
+    // Resolve Mahabhut for all periods before render (report-level consistency).
+    final mahabhutByIndex = <int, MahabhutPlanetPosition>{};
+    for (final p in timeline.periods) {
+      mahabhutByIndex[p.index] =
+          mahabhutResolution?.resolve(p) ??
+          MahabhutPlanetPositionEngine.resolve(period: p);
+    }
+    final showMahabhutOnReport = MahabhutPositionUserCopy.reportReadyToShow(
+      mahabhutByIndex.values,
+    );
+
     for (final p in timeline.periods) {
       final data = LifePlanets.of(p.planet);
       final seed =
@@ -151,9 +163,10 @@ abstract final class TimelinePresenter {
               )
               .toList(growable: false);
 
-      final mahabhut =
-          mahabhutResolution?.resolve(p) ??
-          MahabhutPlanetPositionEngine.resolve(period: p);
+      final mahabhut = mahabhutByIndex[p.index]!;
+      final description = showMahabhutOnReport
+          ? (MahabhutPositionUserCopy.explain(mahabhut) ?? '')
+          : '';
 
       periods.add(
         ThaiMirrorLifePeriodState(
@@ -179,14 +192,16 @@ abstract final class TimelinePresenter {
               : p.isPast
               ? 'อดีต'
               : 'อนาคต',
-          // User surface: confirmed names only. Unresolved stays internal.
-          mahabhutPositionLabel: mahabhut.known
+          // User surface: all-or-nothing when every period is explainable.
+          mahabhutPositionLabel: showMahabhutOnReport
               ? (mahabhut.thaiName ?? '')
               : '',
+          mahabhutDescription: description,
           mahabhutKnown: mahabhut.known,
           mahabhutUnknownReason: mahabhut.known
               ? ''
               : (mahabhut.unknownReason ?? ''),
+          mahabhutShownOnReport: showMahabhutOnReport,
           subPeriods: subPeriods,
           annualTaksaYears: taksaYears,
         ),
