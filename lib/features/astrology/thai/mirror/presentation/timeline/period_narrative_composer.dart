@@ -64,20 +64,40 @@ abstract final class PeriodNarrativeComposer {
       scores.weakestDomain,
       band,
     );
+    final stageLabel = ThaiLifeStageContext.bandLabelTh(band);
 
-    final summary = _pick(_summaryBank(band, data), s);
-    final highlights = _pick(_highlightBank(band, top), s ~/ 3);
-    final caution = _pick(_cautionBank(band, weak), s ~/ 7);
-    final advice = _pick(_adviceBank(band, top), s ~/ 11);
-    final comparison = _comparison(period, band, s);
-    final evidenceLine = _evidenceLine(
-      period,
-      lagnaLord,
-      evidence,
-      topThemeTags,
-      seed,
-      band,
+    // Past: retrospective check-only — no advice / caution / comparison.
+    if (period.isPast) {
+      return PeriodNarrative(
+        summary: _pick(_pastRetrospectiveBank(band, data), s),
+        whatChanges: '',
+        easier: '',
+        harder: '',
+        comparison: '',
+        evidenceLine: '',
+        advice: '',
+        stageLabel: stageLabel,
+      );
+    }
+
+    final isFuture = !period.isCurrent && !period.isPast;
+    final summary = _pick(
+      isFuture ? _futureSummaryBank(band, data) : _summaryBank(band, data),
+      s,
     );
+    final highlights = _pick(
+      isFuture ? _futureHighlightBank(band, top) : _highlightBank(band, top),
+      s ~/ 3,
+    );
+    final caution = _pick(_cautionBank(band, weak), s ~/ 7);
+    final advice = _pick(
+      isFuture ? _futureAdviceBank(band) : _adviceBank(band, top),
+      s ~/ 11,
+    );
+    final comparison = period.isCurrent ? _comparison(period, band, s) : '';
+    final evidenceLine = period.isCurrent
+        ? _evidenceLine(period, lagnaLord, evidence, topThemeTags, seed, band)
+        : '';
 
     return PeriodNarrative(
       summary: summary,
@@ -87,8 +107,119 @@ abstract final class PeriodNarrativeComposer {
       comparison: comparison,
       evidenceLine: evidenceLine,
       advice: advice,
-      stageLabel: ThaiLifeStageContext.bandLabelTh(band),
+      stageLabel: stageLabel,
     );
+  }
+
+  /// Past-only: 1–2 short retrospective sentences for recognition, not advice.
+  static List<String> _pastRetrospectiveBank(
+    ThaiLifeStageBand band,
+    LifePlanetData data,
+  ) {
+    final phase = data.phaseName;
+    final keyword = data.keyword;
+    switch (band) {
+      case ThaiLifeStageBand.earlyChildhood:
+        return [
+          'ในวัยเด็กเล็กช่วง$phase คุณมักเคยผ่านจังหวะที่เกี่ยวกับ$keyword และการปรับตัวกับผู้ดูแล',
+          'ย้อนกลับไป ช่วง$phase ในวัยเด็กเล็กมักทิ้งร่องรอยเรื่องความอบอุ่นและความมั่นคงทางใจ',
+        ];
+      case ThaiLifeStageBand.schoolAge:
+        return [
+          'ในวัยเรียนช่วง$phase คุณมักเคยผ่านเรื่อง$keyword การเรียนรู้ และเพื่อนในโรงเรียน',
+          'ย้อนกลับไป ช่วง$phase มักสัมพันธ์กับวินัยเล็ก ๆ และสิ่งที่เริ่มถนัดในวัยเรียน',
+        ];
+      case ThaiLifeStageBand.teen:
+        return [
+          'ในวัยรุ่นช่วง$phase คุณมักเคยผ่านการค้นหาตัวตนและจังหวะของ$keyword',
+          'ย้อนกลับไป ช่วง$phase มักเกี่ยวกับเพื่อน ความเป็นอิสระ และการทดลองบทบาท',
+        ];
+      case ThaiLifeStageBand.youngAdult:
+        return [
+          'ในช่วง$phase ของวัยเริ่มต้นผู้ใหญ่ คุณมักเคยผ่านการสร้างตัวตนและจังหวะของ$keyword',
+          'ย้อนกลับไป ช่วง$phase มักสัมพันธ์กับทางเลือกระยะต้นและความรับผิดชอบที่เพิ่มขึ้น',
+        ];
+      case ThaiLifeStageBand.workingAdult:
+        return [
+          'ในช่วง$phase ของวัยทำงาน คุณมักเคยผ่านภาระหน้าที่และจังหวะของ$keyword',
+          'ย้อนกลับไป ช่วง$phase มักเกี่ยวกับการสร้างฐานชีวิตและการจัดสมดุลความรับผิดชอบ',
+        ];
+      case ThaiLifeStageBand.midlife:
+        return [
+          'ในช่วง$phase ของวัยกลางคน คุณมักเคยผ่านการทบทวนทิศทางและจังหวะของ$keyword',
+          'ย้อนกลับไป ช่วง$phase มักสัมพันธ์กับการดูแลคนรอบตัวและการจัดลำดับสิ่งสำคัญ',
+        ];
+      case ThaiLifeStageBand.elder:
+        return [
+          'ในช่วง$phase ของวัยสูงอายุ คุณมักเคยผ่านการปรับบทบาทและจังหวะของ$keyword',
+          'ย้อนกลับไป ช่วง$phase มักเกี่ยวกับคุณภาพชีวิตและความสัมพันธ์ที่ใกล้ชิด',
+        ];
+    }
+  }
+
+  static List<String> _futureSummaryBank(
+    ThaiLifeStageBand band,
+    LifePlanetData data,
+  ) {
+    final phase = data.phaseName;
+    final essence = data.phaseEssence;
+    switch (band) {
+      case ThaiLifeStageBand.earlyChildhood:
+        return [
+          'เมื่อถึงวัยเด็กเล็กในจังหวะ$phase ซึ่ง$essence อาจเห็นพัฒนาการอารมณ์และการปรับตัวเด่นขึ้น',
+          'จังหวะ$phase ในวัยเด็กเล็กอาจเปิดโอกาสให้สร้างความมั่นคงทางใจผ่านการดูแลที่สม่ำเสมอ',
+        ];
+      case ThaiLifeStageBand.schoolAge:
+        return [
+          'เมื่อถึงวัยเรียนในจังหวะ$phase ซึ่ง$essence อาจเห็นเรื่องการเรียนรู้ เพื่อน และวินัยเด่นขึ้น',
+          'จังหวะ$phase ในวัยเรียนอาจเป็นช่วงที่ความสนใจและความมั่นใจถูกหล่อเลี้ยงได้ชัด',
+        ];
+      case ThaiLifeStageBand.teen:
+        return [
+          'เมื่อถึงวัยรุ่นในจังหวะ$phase ซึ่ง$essence อาจเห็นเรื่องตัวตน เพื่อน และทิศทางอนาคตสำคัญขึ้น',
+          'จังหวะ$phase ในวัยรุ่นอาจเป็นช่วงที่การตัดสินใจและขอบเขตส่วนตัวถูกทดลองมากขึ้น',
+        ];
+      case ThaiLifeStageBand.youngAdult:
+        return [
+          'เมื่อถึงวัยเริ่มต้นผู้ใหญ่ในจังหวะ$phase ซึ่ง$essence อาจเห็นการสร้างตัวตนและความรับผิดชอบเด่นขึ้น',
+          'จังหวะ$phase อาจเป็นช่วงทดลองบทบาทผู้ใหญ่และวางรากฐานระยะต้น',
+        ];
+      case ThaiLifeStageBand.workingAdult:
+        return [
+          'เมื่อถึงวัยทำงานในจังหวะ$phase ซึ่ง$essence อาจเห็นงาน ความมั่นคง และสมดุลชีวิตเป็นแกนหลัก',
+          'จังหวะ$phase อาจเปิดโอกาสให้เลือกทางที่สอดคล้องกับพลังและความรับผิดชอบที่มี',
+        ];
+      case ThaiLifeStageBand.midlife:
+        return [
+          'เมื่อถึงวัยกลางคนในจังหวะ$phase ซึ่ง$essence อาจเห็นการทบทวนทิศทางและการบริหารพลังงานสำคัญขึ้น',
+          'จังหวะ$phase อาจเป็นช่วงต่อยอดประสบการณ์และปรับบทบาทให้พอดีกับชีวิตจริง',
+        ];
+      case ThaiLifeStageBand.elder:
+        return [
+          'เมื่อถึงวัยสูงอายุในจังหวะ$phase ซึ่ง$essence อาจเห็นคุณภาพชีวิตและความสัมพันธ์เด่นขึ้น',
+          'จังหวะ$phase อาจเอื้อต่อการรักษาสมดุลใจและปรับบทบาทอย่างให้เกียรติตัวเอง',
+        ];
+    }
+  }
+
+  static List<String> _futureHighlightBank(
+    ThaiLifeStageBand band,
+    String domain,
+  ) {
+    final base = _highlightBank(band, domain);
+    return [
+      for (final line in base)
+        line
+            .replaceFirst('เรื่องที่เด่นคือ', 'แนวโน้มที่อาจเด่นคือ')
+            .replaceFirst('จังหวะนี้ส่งเสริม', 'จังหวะนี้อาจส่งเสริม')
+            .replaceFirst('จังหวะนี้ช่วย', 'จังหวะนี้อาจช่วย')
+            .replaceFirst('จังหวะนี้เอื้อ', 'จังหวะนี้อาจเอื้อ'),
+    ];
+  }
+
+  static List<String> _futureAdviceBank(ThaiLifeStageBand band) {
+    final base = _adviceBank(band, 'growth');
+    return [for (final line in base) 'เมื่อถึงช่วงนั้น $line'];
   }
 
   static String _pick(List<String> list, int n) {

@@ -44,19 +44,19 @@ class ThaiLifeMapV124PeriodRow {
   final String summary;
 
   Map<String, Object?> toJson() => {
-        'periodIndex': periodIndex,
-        'ageLabel': ageLabel,
-        'planet': planet.name,
-        'planetThaiName': planetThaiName,
-        'phaseName': phaseName,
-        'archetypeChartCanonId': archetypeChartCanonId,
-        'mahabhutKnown': mahabhutKnown,
-        'mahabhutLabel': mahabhutLabel,
-        'unknownReason': unknownReason,
-        'presenterLabel': presenterLabel,
-        'subPeriodCount': subPeriodCount,
-        'taksaYearCount': taksaYearCount,
-      };
+    'periodIndex': periodIndex,
+    'ageLabel': ageLabel,
+    'planet': planet.name,
+    'planetThaiName': planetThaiName,
+    'phaseName': phaseName,
+    'archetypeChartCanonId': archetypeChartCanonId,
+    'mahabhutKnown': mahabhutKnown,
+    'mahabhutLabel': mahabhutLabel,
+    'unknownReason': unknownReason,
+    'presenterLabel': presenterLabel,
+    'subPeriodCount': subPeriodCount,
+    'taksaYearCount': taksaYearCount,
+  };
 }
 
 class ThaiLifeMapV124ChartAudit {
@@ -100,12 +100,9 @@ class ThaiLifeMapV124AuditSummary {
   final Map<String, int> unknownReasonCounts;
 
   int get chartCount => charts.length;
-  int get periodCount =>
-      charts.fold(0, (sum, c) => sum + c.periods.length);
-  int get knownCount =>
-      charts.fold(0, (sum, c) => sum + c.knownCount);
-  int get unknownCount =>
-      charts.fold(0, (sum, c) => sum + c.unknownCount);
+  int get periodCount => charts.fold(0, (sum, c) => sum + c.periods.length);
+  int get knownCount => charts.fold(0, (sum, c) => sum + c.knownCount);
+  int get unknownCount => charts.fold(0, (sum, c) => sum + c.unknownCount);
   List<ThaiLifeMapV124ChartAudit> get anomalousCharts =>
       charts.where((c) => c.anomalies.isNotEmpty).toList();
 }
@@ -157,14 +154,11 @@ abstract final class ThaiLifeMapV124AuditRunner {
         startPlanet: null,
         wednesdayNightRahu: null,
         periods: const [],
-        anomalies: [
-          'ANALYSIS_FAILED: ${analysis.errorMessage ?? 'unknown'}',
-        ],
+        anomalies: ['ANALYSIS_FAILED: ${analysis.errorMessage ?? 'unknown'}'],
         fingerprint: '',
         exportIncludesLifeTimeline: false,
         exportIncludesMahabhut: false,
-        badgeActivation:
-            ThaiEvidenceBadgeActivation.configuredState ?? 'unset',
+        badgeActivation: ThaiEvidenceBadgeActivation.configuredState ?? 'unset',
         errorMessage: analysis.errorMessage,
       );
     }
@@ -182,8 +176,9 @@ abstract final class ThaiLifeMapV124AuditRunner {
       birthData: pipeline.birthData,
       canonIndex: repo.index,
     );
-    final betaLabels =
-        lifeTimeline.periods.map((p) => p.mahabhutPositionLabel).toList();
+    final betaLabels = lifeTimeline.periods
+        .map((p) => p.mahabhutPositionLabel)
+        .toList();
     final mirrorLabels = mirrorView.lifeTimeline!.periods
         .map((p) => p.mahabhutPositionLabel)
         .toList();
@@ -229,14 +224,28 @@ abstract final class ThaiLifeMapV124AuditRunner {
       final ui = lifeTimeline.periods[i];
       final engine = enginePeriods[i];
       final data = LifePlanets.of(engine.planet);
-      final mahabhut = resolution?.resolve(engine) ??
+      final mahabhut =
+          resolution?.resolve(engine) ??
           MahabhutPlanetPositionEngine.resolve(period: engine);
 
-      if (ui.mahabhutPositionLabel != mahabhut.displayLabel) {
+      final expectedUiLabel = mahabhut.known ? (mahabhut.thaiName ?? '') : '';
+      if (ui.mahabhutPositionLabel != expectedUiLabel) {
         anomalies.add(
           'PRESENTER_VS_RESOLVER_LABEL period=$i '
-          'ui=${ui.mahabhutPositionLabel} resolver=${mahabhut.displayLabel}',
+          'ui=${ui.mahabhutPositionLabel} expected=$expectedUiLabel '
+          'resolverDisplay=${mahabhut.displayLabel}',
         );
+      }
+      if (ui.mahabhutKnown != mahabhut.known) {
+        anomalies.add(
+          'PRESENTER_VS_RESOLVER_KNOWN period=$i '
+          'uiKnown=${ui.mahabhutKnown} resolverKnown=${mahabhut.known}',
+        );
+      }
+      if (!mahabhut.known &&
+          ui.mahabhutUnknownReason.isEmpty &&
+          (mahabhut.unknownReason?.isNotEmpty ?? false)) {
+        anomalies.add('MISSING_INTERNAL_UNKNOWN_REASON period=$i');
       }
       if (ui.planetLine.contains(data.thaiName) == false) {
         anomalies.add(
@@ -297,7 +306,8 @@ abstract final class ThaiLifeMapV124AuditRunner {
           s.title.contains('แผนที่') ||
           s.title.contains('ช่วง'),
     );
-    final exportHasMahabhut = exportText.contains('ตำแหน่งมหาภูต') ||
+    final exportHasMahabhut =
+        exportText.contains('ตำแหน่งมหาภูต') ||
         exportText.contains('ดาวแทรก') ||
         exportText.contains('ทักษาจร');
 
@@ -330,8 +340,7 @@ abstract final class ThaiLifeMapV124AuditRunner {
       fingerprint: fingerprint,
       exportIncludesLifeTimeline: exportHasTimeline,
       exportIncludesMahabhut: exportHasMahabhut,
-      badgeActivation:
-          ThaiEvidenceBadgeActivation.configuredState ?? 'unset',
+      badgeActivation: ThaiEvidenceBadgeActivation.configuredState ?? 'unset',
     );
   }
 
@@ -431,10 +440,10 @@ abstract final class ThaiLifeMapV124AuditRunner {
       ..writeln()
       ..writeln('## Per-fixture summary')
       ..writeln()
+      ..writeln('| ID | Tag | Start | WedNight | Known | Unknown | Anomalies |')
       ..writeln(
-        '| ID | Tag | Start | WedNight | Known | Unknown | Anomalies |',
-      )
-      ..writeln('|----|-----|-------|----------|------:|--------:|-----------|');
+        '|----|-----|-------|----------|------:|--------:|-----------|',
+      );
     for (final c in summary.charts) {
       buf.writeln(
         '| ${c.fixture.id} | `${c.fixture.tag}` | '
@@ -453,8 +462,7 @@ abstract final class ThaiLifeMapV124AuditRunner {
     for (final c in summary.charts.where(
       (c) => c.fixture.expectWednesdayNightRahu != null,
     )) {
-      final ok =
-          c.wednesdayNightRahu == c.fixture.expectWednesdayNightRahu;
+      final ok = c.wednesdayNightRahu == c.fixture.expectWednesdayNightRahu;
       buf.writeln(
         '| ${c.fixture.id} | ${c.fixture.expectWednesdayNightRahu} | '
         '${c.wednesdayNightRahu} | ${ok ? 'PASS' : 'FAIL'} |',
@@ -473,14 +481,10 @@ abstract final class ThaiLifeMapV124AuditRunner {
       ..writeln()
       ..writeln('## PDF / export')
       ..writeln()
-      ..writeln(
-        '| Item | Result |',
-      )
+      ..writeln('| Item | Result |')
       ..writeln('|------|--------|');
-    final anyTimeline =
-        summary.charts.any((c) => c.exportIncludesLifeTimeline);
-    final anyMahabhut =
-        summary.charts.any((c) => c.exportIncludesMahabhut);
+    final anyTimeline = summary.charts.any((c) => c.exportIncludesLifeTimeline);
+    final anyMahabhut = summary.charts.any((c) => c.exportIncludesMahabhut);
     buf
       ..writeln(
         '| Life timeline narrative sections | '
@@ -540,7 +544,9 @@ abstract final class ThaiLifeMapV124AuditRunner {
       ..writeln('## Confirmed')
       ..writeln()
       ..writeln('- ≥20 deterministic synthetic fixtures')
-      ..writeln('- Each chart yields exactly 8 Life Map periods when successful')
+      ..writeln(
+        '- Each chart yields exactly 8 Life Map periods when successful',
+      )
       ..writeln('- Canon index present on consumer path')
       ..writeln('- Presenter mahabhut labels match resolver display labels')
       ..writeln('- Rerun determinism checked')

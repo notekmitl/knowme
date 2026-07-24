@@ -40,6 +40,8 @@ void main() {
       LifePlanet? previous,
       LifePlanet? next,
       int index = 0,
+      bool isCurrent = true,
+      bool isPast = false,
     }) {
       final period = PeriodState(
         index: index,
@@ -47,10 +49,10 @@ void main() {
         startAge: start,
         endAge: end,
         strength: end - start + 1,
-        isCurrent: false,
-        isPast: true,
-        progress: 1,
-        remainingYears: 0,
+        isCurrent: isCurrent,
+        isPast: isPast,
+        progress: isCurrent ? 0.4 : (isPast ? 1 : 0),
+        remainingYears: isCurrent ? (end - narrativeAge) : 0,
         previousPlanet: previous,
         nextPlanet: next,
       );
@@ -108,40 +110,48 @@ void main() {
       );
     });
 
-    test(
-      'first period has empty comparison; later periods have comparison',
-      () {
-        final timeline = LifePeriodEngine.build(
-          birthWeekday: DateTime.monday,
-          currentAge: 40,
+    test('first period has empty comparison; current may have comparison', () {
+      final timeline = LifePeriodEngine.build(
+        birthWeekday: DateTime.monday,
+        currentAge: 40,
+      );
+      final evidence = EvidenceProfile.fromThemeIds(const ['structure']);
+      PeriodNarrative compose(PeriodState p) {
+        final scores = PeriodCompositeScore.evaluate(
+          period: p,
+          lagnaLord: LifePlanet.moon,
+          evidence: evidence,
+          seed: 7,
         );
-        final evidence = EvidenceProfile.fromThemeIds(const ['structure']);
-        PeriodNarrative compose(PeriodState p) {
-          final scores = PeriodCompositeScore.evaluate(
-            period: p,
-            lagnaLord: LifePlanet.moon,
-            evidence: evidence,
-            seed: 7,
-          );
-          return PeriodNarrativeComposer.compose(
-            period: p,
-            narrativeAge: p.isCurrent
-                ? timeline.currentAge
-                : p.isPast
-                ? p.endAge
-                : p.startAge,
-            scores: scores,
-            lagnaLord: LifePlanet.moon,
-            evidence: evidence,
-            topThemeTags: const ['มั่นคง'],
-            seed: 7,
-          );
-        }
+        return PeriodNarrativeComposer.compose(
+          period: p,
+          narrativeAge: p.isCurrent
+              ? timeline.currentAge
+              : p.isPast
+              ? p.endAge
+              : p.startAge,
+          scores: scores,
+          lagnaLord: LifePlanet.moon,
+          evidence: evidence,
+          topThemeTags: const ['มั่นคง'],
+          seed: 7,
+        );
+      }
 
-        expect(compose(timeline.periods.first).comparison, isEmpty);
-        expect(compose(timeline.periods[1]).comparison, isNotEmpty);
-      },
-    );
+      expect(compose(timeline.periods.first).comparison, isEmpty);
+      final current = timeline.periods.singleWhere((p) => p.isCurrent);
+      if (current.previousPlanet != null) {
+        expect(compose(current).comparison, isNotEmpty);
+      }
+      for (final p in timeline.periods.where((p) => p.isPast)) {
+        final n = compose(p);
+        expect(n.advice, isEmpty);
+        expect(n.harder, isEmpty);
+        expect(n.whatChanges, isEmpty);
+        expect(n.comparison, isEmpty);
+        expect(n.summary.trim(), isNotEmpty);
+      }
+    });
 
     test(
       'presenter uses actual age inside a long current astrology period',
@@ -268,11 +278,18 @@ void main() {
       expect(state.periods.length, 8);
       for (final p in state.periods) {
         expect(p.summary.trim(), isNotEmpty);
-        expect(
-          p.advice.trim().isNotEmpty || p.easier.trim().isNotEmpty,
-          isTrue,
-        );
         expect(p.stageLabel, isNotEmpty);
+        if (p.isPast) {
+          expect(p.advice, isEmpty);
+          expect(p.harder, isEmpty);
+          expect(p.whatChanges, isEmpty);
+          expect(p.mahabhutPositionLabel.contains('ยืนยัน'), isFalse);
+        } else {
+          expect(
+            p.advice.trim().isNotEmpty || p.easier.trim().isNotEmpty,
+            isTrue,
+          );
+        }
       }
     });
   });

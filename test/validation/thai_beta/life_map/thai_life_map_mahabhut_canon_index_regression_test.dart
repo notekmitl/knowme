@@ -41,86 +41,103 @@ void main() {
       expect(resolution.archetypeMetadata, isNotNull);
     });
 
-    test('consumer path without index stays all-unknown (proves wiring matter)',
-        () {
-      ThaiCanonEvidenceRepository.clearCachedForTest();
-      addTearDown(() {
-        ThaiCanonEvidenceRepository.bindCachedForTest(repository);
-      });
+    test(
+      'consumer path without index stays all-unknown (proves wiring matter)',
+      () {
+        ThaiCanonEvidenceRepository.clearCachedForTest();
+        addTearDown(() {
+          ThaiCanonEvidenceRepository.bindCachedForTest(repository);
+        });
 
-      final pipeline = ThaiMirrorPipeline.generate(
-        ThaiMirrorPipeline.sampleQaBirthData(),
-      );
-      final view = ThaiMirrorConsumerPresenter.present(
-        pipeline.mirrorResult!,
-        lifePeriods: pipeline.lifePeriods,
-        profile: pipeline.profile,
-        birthData: pipeline.birthData,
-      );
-
-      final labels = view.lifeTimeline!.periods
-          .map((p) => p.mahabhutPositionLabel)
-          .toList();
-      expect(labels, hasLength(8));
-      expect(
-        labels.every((l) => l == MahabhutPlanetPosition.unknownLabel),
-        isTrue,
-      );
-    });
-
-    test('consumer path with canonIndex resolves real names for QA fixture', () {
-      final pipeline = ThaiMirrorPipeline.generate(
-        ThaiMirrorPipeline.sampleQaBirthData(),
-      );
-      final view = ThaiMirrorConsumerPresenter.present(
-        pipeline.mirrorResult!,
-        lifePeriods: pipeline.lifePeriods,
-        profile: pipeline.profile,
-        birthData: pipeline.birthData,
-        canonIndex: repository.index,
-      );
-
-      final periods = view.lifeTimeline!.periods;
-      expect(periods, hasLength(8));
-
-      final known = periods
-          .where(
-            (p) =>
-                p.mahabhutPositionLabel != MahabhutPlanetPosition.unknownLabel,
-          )
-          .toList();
-      final unknown = periods
-          .where(
-            (p) =>
-                p.mahabhutPositionLabel == MahabhutPlanetPosition.unknownLabel,
-          )
-          .toList();
-
-      expect(
-        known,
-        isNotEmpty,
-        reason: 'QA fixture must not show unknown on all 8 periods',
-      );
-      expect(known.length + unknown.length, 8);
-
-      const allowed = {
-        'ภังคะ',
-        'ปูติ',
-        'ขุมทรัพย์',
-        'มรณะ',
-        'อธิบดี',
-        'ราชา',
-        'ธงชัย',
-        MahabhutPlanetPosition.unknownLabel,
-      };
-      for (final p in periods) {
-        expect(
-          allowed.contains(p.mahabhutPositionLabel),
-          isTrue,
-          reason: 'unexpected label: ${p.mahabhutPositionLabel}',
+        final pipeline = ThaiMirrorPipeline.generate(
+          ThaiMirrorPipeline.sampleQaBirthData(),
         );
-      }
-    });
+        final view = ThaiMirrorConsumerPresenter.present(
+          pipeline.mirrorResult!,
+          lifePeriods: pipeline.lifePeriods,
+          profile: pipeline.profile,
+          birthData: pipeline.birthData,
+        );
+
+        final labels = view.lifeTimeline!.periods
+            .map((p) => p.mahabhutPositionLabel)
+            .toList();
+        expect(labels, hasLength(8));
+        expect(
+          labels.every((l) => l.isEmpty),
+          isTrue,
+          reason:
+              'without Canon index, user labels must stay empty (no unknown copy)',
+        );
+        expect(
+          view.lifeTimeline!.periods.every((p) => !p.mahabhutKnown),
+          isTrue,
+        );
+        expect(
+          view.lifeTimeline!.periods.every(
+            (p) => p.mahabhutUnknownReason.isNotEmpty,
+          ),
+          isTrue,
+          reason: 'internal unresolved reason must remain for diagnostics',
+        );
+      },
+    );
+
+    test(
+      'consumer path with canonIndex resolves real names for QA fixture',
+      () {
+        final pipeline = ThaiMirrorPipeline.generate(
+          ThaiMirrorPipeline.sampleQaBirthData(),
+        );
+        final view = ThaiMirrorConsumerPresenter.present(
+          pipeline.mirrorResult!,
+          lifePeriods: pipeline.lifePeriods,
+          profile: pipeline.profile,
+          birthData: pipeline.birthData,
+          canonIndex: repository.index,
+        );
+
+        final periods = view.lifeTimeline!.periods;
+        expect(periods, hasLength(8));
+
+        final known = periods.where((p) => p.mahabhutKnown).toList();
+        final unknown = periods.where((p) => !p.mahabhutKnown).toList();
+
+        expect(
+          known,
+          isNotEmpty,
+          reason: 'QA fixture must not show unknown on all 8 periods',
+        );
+        expect(known.length + unknown.length, 8);
+        expect(
+          unknown.every((p) => p.mahabhutPositionLabel.isEmpty),
+          isTrue,
+          reason: 'unresolved periods must not leak unknown copy to user label',
+        );
+        expect(
+          unknown.every((p) => p.mahabhutUnknownReason.isNotEmpty),
+          isTrue,
+        );
+
+        const allowed = {
+          'ภังคะ',
+          'ปูติ',
+          'ขุมทรัพย์',
+          'มรณะ',
+          'อธิบดี',
+          'ราชา',
+          'ธงชัย',
+          '',
+        };
+        for (final p in periods) {
+          expect(
+            allowed.contains(p.mahabhutPositionLabel),
+            isTrue,
+            reason: 'unexpected label: ${p.mahabhutPositionLabel}',
+          );
+        }
+      },
+    );
   });
 
   group('Resolver semantics preserved', () {
@@ -220,10 +237,7 @@ void main() {
           .toList();
 
       expect(betaLabels, mirrorLabels);
-      expect(
-        betaLabels.where((l) => l != MahabhutPlanetPosition.unknownLabel),
-        isNotEmpty,
-      );
+      expect(betaLabels.where((l) => l.isNotEmpty), isNotEmpty);
     });
 
     test(
@@ -246,7 +260,7 @@ void main() {
             .toList();
         expect(labels, hasLength(8));
         expect(
-          labels.any((l) => l != MahabhutPlanetPosition.unknownLabel),
+          labels.any((l) => l.isNotEmpty),
           isTrue,
           reason: 'user birth must not be all-unknown when Canon confirms',
         );

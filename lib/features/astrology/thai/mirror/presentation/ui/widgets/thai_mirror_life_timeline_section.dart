@@ -89,14 +89,12 @@ class _ThaiMirrorLifeTimelineSectionState
   @override
   void initState() {
     super.initState();
-    // V1.2.1 compact / V1.2.3 Life Map: details start collapsed.
-    if (widget.relevantPeriodsOnly || widget.lifeMapMode) {
-      _expanded = -1;
-      return;
-    }
-    final periods = widget.state.periods;
+    final periods = _displayPeriods;
+    // Present period starts expanded; past stays compact; future starts collapsed.
     _expanded = periods.indexWhere((p) => p.isCurrent);
-    if (_expanded < 0) _expanded = 0;
+    if (_expanded < 0 && periods.isNotEmpty) {
+      _expanded = widget.lifeMapMode || widget.relevantPeriodsOnly ? -1 : 0;
+    }
   }
 
   @override
@@ -186,11 +184,13 @@ class _ThaiMirrorLifeTimelineSectionState
             _PeriodCard(
               period: periods[i],
               accent: _accent(periods[i].accentIndex),
-              expanded: _expanded == i,
+              expanded: periods[i].isPast ? false : _expanded == i,
               isWide: isWide,
               showCollapsedSummary: compact,
               lifeMapMode: widget.lifeMapMode,
-              onTap: () => setState(() => _expanded = _expanded == i ? -1 : i),
+              onTap: periods[i].isPast
+                  ? () {}
+                  : () => setState(() => _expanded = _expanded == i ? -1 : i),
             ),
           ],
       ],
@@ -748,50 +748,93 @@ class _PeriodCard extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Icon(
-                      expanded
-                          ? Icons.keyboard_arrow_up_rounded
-                          : Icons.keyboard_arrow_down_rounded,
-                      color: scheme.onSurfaceVariant,
-                    ),
+                    if (!period.isPast)
+                      Icon(
+                        expanded
+                            ? Icons.keyboard_arrow_up_rounded
+                            : Icons.keyboard_arrow_down_rounded,
+                        color: scheme.onSurfaceVariant,
+                      ),
                   ],
                 ),
-                if (showCollapsedSummary && !expanded) ...[
+                if (period.isPast) ...[
                   const SizedBox(height: 10),
+                  if (period.keyword.isNotEmpty)
+                    Text(
+                      'ธีมหลัก: ${period.keyword}',
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w600,
+                        color: scheme.onSurfaceVariant,
+                      ),
+                    ),
+                  if (period.mahabhutKnown &&
+                      period.mahabhutPositionLabel.isNotEmpty) ...[
+                    const SizedBox(height: 6),
+                    Text(
+                      '${ThaiMirrorLifeTimelineSection.mahabhutLabel}: '
+                      '${period.mahabhutPositionLabel}',
+                      key: const Key('thai_life_map_mahabhut_position'),
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: scheme.onSurfaceVariant,
+                      ),
+                    ),
+                  ],
+                  const SizedBox(height: 8),
                   Text(
-                    period.whatChanges.isNotEmpty
-                        ? period.whatChanges
-                        : period.summary,
-                    maxLines: 3,
-                    overflow: TextOverflow.ellipsis,
+                    'สิ่งที่น่าจะผ่านมา',
+                    style: TextStyle(
+                      fontSize: 13,
+                      fontWeight: FontWeight.w800,
+                      color: accent,
+                    ),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    period.summary,
                     style: TextStyle(
                       fontSize: 13.5,
                       height: 1.55,
                       color: scheme.onSurface.withValues(alpha: 0.88),
                     ),
                   ),
-                  const SizedBox(height: 8),
-                  Text(
-                    ThaiMirrorLifeTimelineSection.expandDetailsLabel,
-                    style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w700,
-                      color: accent,
+                ] else ...[
+                  if (showCollapsedSummary && !expanded) ...[
+                    const SizedBox(height: 10),
+                    Text(
+                      period.summary,
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(
+                        fontSize: 13.5,
+                        height: 1.55,
+                        color: scheme.onSurface.withValues(alpha: 0.88),
+                      ),
                     ),
+                    const SizedBox(height: 8),
+                    Text(
+                      ThaiMirrorLifeTimelineSection.expandDetailsLabel,
+                      style: TextStyle(
+                        fontSize: 13,
+                        fontWeight: FontWeight.w700,
+                        color: accent,
+                      ),
+                    ),
+                  ],
+                  AnimatedCrossFade(
+                    duration: const Duration(milliseconds: 220),
+                    crossFadeState: expanded
+                        ? CrossFadeState.showFirst
+                        : CrossFadeState.showSecond,
+                    firstChild: _PeriodDetail(
+                      period: period,
+                      accent: accent,
+                      showExpandChrome: showCollapsedSummary,
+                    ),
+                    secondChild: const SizedBox(width: double.infinity),
                   ),
                 ],
-                AnimatedCrossFade(
-                  duration: const Duration(milliseconds: 220),
-                  crossFadeState: expanded
-                      ? CrossFadeState.showFirst
-                      : CrossFadeState.showSecond,
-                  firstChild: _PeriodDetail(
-                    period: period,
-                    accent: accent,
-                    showExpandChrome: showCollapsedSummary,
-                  ),
-                  secondChild: const SizedBox(width: double.infinity),
-                ),
               ],
             ),
           ),
@@ -882,7 +925,8 @@ class _PeriodDetail extends StatelessWidget {
             ),
           ),
         ],
-        if (period.mahabhutPositionLabel.isNotEmpty) ...[
+        if (period.mahabhutKnown &&
+            period.mahabhutPositionLabel.isNotEmpty) ...[
           const SizedBox(height: 8),
           Text(
             '${ThaiMirrorLifeTimelineSection.mahabhutLabel}: '
@@ -895,18 +939,22 @@ class _PeriodDetail extends StatelessWidget {
             ),
           ),
         ],
-        _SectionTitle(text: 'สรุปช่วงนี้', accent: accent),
+        _SectionTitle(
+          text: period.isPast ? 'สิ่งที่น่าจะผ่านมา' : 'สรุปช่วงนี้',
+          accent: accent,
+        ),
         para(period.summary),
-        if (period.whatChanges.isNotEmpty) ...[
+        if (!period.isPast && period.whatChanges.isNotEmpty) ...[
           _SectionTitle(text: 'เรื่องที่เด่น', accent: accent),
           para(period.whatChanges),
         ],
-        if (period.harder.isNotEmpty) ...[
+        if (!period.isPast && period.harder.isNotEmpty) ...[
           _SectionTitle(text: 'สิ่งที่ควรระวัง', accent: accent),
           para(period.harder),
         ],
-        if ((period.advice.isNotEmpty ? period.advice : period.easier)
-            .isNotEmpty) ...[
+        if (!period.isPast &&
+            (period.advice.isNotEmpty ? period.advice : period.easier)
+                .isNotEmpty) ...[
           _SectionTitle(
             text:
                 period.stageLabel.contains('เด็ก') ||
@@ -917,11 +965,11 @@ class _PeriodDetail extends StatelessWidget {
           ),
           para(period.advice.isNotEmpty ? period.advice : period.easier),
         ],
-        if (period.comparison.isNotEmpty) ...[
+        if (!period.isPast && period.comparison.isNotEmpty) ...[
           _SectionTitle(text: 'ความเปลี่ยนแปลงจากช่วงก่อน', accent: accent),
           para(period.comparison),
         ],
-        if (period.evidenceLine.isNotEmpty) ...[
+        if (!period.isPast && period.evidenceLine.isNotEmpty) ...[
           const SizedBox(height: 12),
           Container(
             width: double.infinity,
