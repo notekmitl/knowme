@@ -267,16 +267,42 @@ abstract final class PastRetrospectiveComposer {
     ThaiLifeStageBand.elder => _PastFacet.healthEnergy,
   };
 
+  /// [LifePlanetData.phaseName] already starts with "ช่วง…"; strip for templates.
+  static String _phaseCore(LifePlanetData data) {
+    final phase = data.phaseName.trim();
+    return phase.startsWith('ช่วง') ? phase.substring('ช่วง'.length) : phase;
+  }
+
+  /// Prefer age-natural facet labels in openings without inventing new evidence.
+  static _PastFacet _openingFacet(
+    List<_PastFacet> facets,
+    ThaiLifeStageBand band,
+  ) {
+    if (band == ThaiLifeStageBand.earlyChildhood ||
+        band == ThaiLifeStageBand.schoolAge) {
+      const preferred = [
+        _PastFacet.homeFamily,
+        _PastFacet.schoolLearning,
+        _PastFacet.dutyAndAdaptation,
+        _PastFacet.peersBelonging,
+      ];
+      for (final facet in preferred) {
+        if (facets.contains(facet)) return facet;
+      }
+    }
+    return facets.first;
+  }
+
   static List<String> _openingLines(
     ThaiLifeStageBand band,
     LifePlanetData data,
     List<_PastFacet> facets,
   ) {
-    final phase = data.phaseName;
+    final phase = _phaseCore(data);
     final planet = data.thaiName;
     final keyword = data.keyword;
     final essence = data.phaseEssence;
-    final primary = facets.first;
+    final primary = _openingFacet(facets, band);
     final stage = ThaiLifeStageContext.bandLabelTh(band);
     final focus = _facetFocusLabel(primary, band);
     return [
