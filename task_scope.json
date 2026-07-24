@@ -1,15 +1,16 @@
 ﻿{
   "schema_version": 1,
-  "task_id": "thai-life-map-v126-usability-deploy-docs",
-  "expected_branch": "docs/thai-life-map-v126-usability-deploy",
+  "task_id": "thai-life-map-v126-past-life-breadth",
+  "expected_branch": "feature/thai-life-map-v126-past-life-breadth",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "c698c225e68ef2eba718b848cbf8c652bc72cd91",
+  "base_ref": "f7a60842ebbc399988c2ab8e77f0ab26c13f69a1",
   "allowed_files": [
     "task.md",
     "task_scope.json",
-    "docs/CURRENT_STATUS.md",
-    "docs/HANDOFF.md",
-    "docs/THAI_LIFE_MAP_V126_NARRATIVE_UX.md"
+    "lib/features/astrology/thai/mirror/presentation/timeline/past_retrospective_composer.dart",
+    "lib/features/astrology/thai/mirror/presentation/timeline/period_narrative_composer.dart",
+    "test/validation/thai_beta/life_map/v126/thai_life_map_v126_past_life_breadth_test.dart",
+    "test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart"
   ],
   "allowed_globs": [],
   "forbidden_files": [
@@ -34,10 +35,12 @@
     "final_result.json",
     "round_[0-9]+_review\\.json"
   ],
-  "focused_tests": [],
+  "focused_tests": [
+    "flutter test test/validation/thai_beta/life_map/v126/thai_life_map_v126_past_life_breadth_test.dart test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart test/validation/thai_beta/life_map/v126/thai_life_map_v126_narrative_ux_test.dart --reporter compact"
+  ],
   "full_test_policy": "skip",
   "full_test_command": "SKIP",
-  "analyze_command": "SKIP",
-  "commit_message_regex": "^docs\\(thai-beta\\): .{10,72}$",
+  "analyze_command": "flutter analyze lib/features/astrology/thai/mirror/presentation/timeline/past_retrospective_composer.dart lib/features/astrology/thai/mirror/presentation/timeline/period_narrative_composer.dart",
+  "commit_message_regex": "^feat\\(thai-beta\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }

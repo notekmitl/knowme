@@ -1,3 +1,4 @@
-﻿# Task: Docs — Life Map V1.2.6 usability Production @ c698c22
+﻿# Task: Past Narrative life-breadth (V1.2.6 feedback refinement)
 
-Record PR #33 merge/deploy and Production QA. Docs only — no redeploy.
+Make Past Narrative a life-picture tied to structured evidence and age-safe facets.
+Remove retrospective prompts ("ลองนึกย้อน…"). Presentation-only; Canon frozen.
