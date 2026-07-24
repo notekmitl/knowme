@@ -4,8 +4,30 @@
 **Not:** Validation Passed (real invited-user Life Map Feedback count still **0**)  
 **Narrative UX merge:** PR #25 → `ab093ad` (feature `639c76c`)  
 **Age-boundary closure merge:** PR #27 → `f3409de` (fix `4fc4d51`)  
-**Production deploy:** Firebase `knowme-app-694e1` from `main` @ `e16ad14` (2026-07-24; includes PR #27)  
-**Public URL:** https://knowme-app-694e1.web.app/beta/thai?v=e16ad14
+**Time-bucket UX + Mahabhut UI omit:** PR #31 → `5bcabfa` (feature `21b93aa`)  
+**Production deploy:** Firebase `knowme-app-694e1` from `main` @ `5bcabfa` (2026-07-24)  
+**Public URL:** https://knowme-app-694e1.web.app/beta/thai?v=5bcabfa
+
+## Time-bucket UX (PR #31)
+
+Presentation density by period bucket (Canon 8 periods ages 1–108 unchanged):
+
+| Bucket | UX |
+|--------|-----|
+| **Past** | Compact non-expandable card: name, age, planet, theme, confirmed Mahabhut only, 1–2 retrospective sentences under **สิ่งที่น่าจะผ่านมา**. No advice / caution / comparison / evidence footer. |
+| **Present** | Highest priority; **expanded by default**; full detail; narrative age = actual user age. |
+| **Future** | Collapsed with one-sentence preview (`อาจ` / `เมื่อถึง`); expand to full present-level detail. |
+
+### Mahabhut display (presentation only)
+
+| Layer | Behavior |
+|-------|----------|
+| Resolver + Frozen Canon | **Unchanged** — 1972-04-04 02:00 BKK remains **known=7 / unknown=1** (`AMBIGUOUS_ARCHETYPE_PLANET_PLACEMENT`) |
+| Presenter | `mahabhutPositionLabel` = confirmed Thai name only; `mahabhutKnown` + `mahabhutUnknownReason` retained internally |
+| User UI | Omit “ตำแหน่งมหาภูต” line when unresolved — **never** show “ยังยืนยันตำแหน่งไม่ได้” / “ยืนยันอันดับตำแหน่งไม่ได้” |
+| Fallback | None invented; no user-specific hardcodes |
+
+**Root cause of “many unresolved” UI copy:** presenter previously set `mahabhutPositionLabel` from `displayLabel`, which always surfaces the unknown Thai string. Resolver was already correct when Canon index is wired — not a Canon regression.
 
 ## Problem (pre-fix)
 
@@ -59,7 +81,7 @@ Inclusive age bands (do **not** alter engine boundaries):
 - Nested ดาวแทรก / ทักษาจร expanders
 - Engine keys / debug identifiers in detail copy
 
-Still computed in models for audit / future QA paths. Mahabhut position label remains when known (Canon-index path).
+Still computed in models for audit / future QA paths. Mahabhut user label shows **only when Canon-confirmed**; unresolved reasons stay internal.
 
 ## Frozen Canon & formulas
 
@@ -71,31 +93,32 @@ Still computed in models for audit / future QA paths. Mahabhut position label re
 
 | Role | Expected | Verified this round |
 |------|----------|---------------------|
-| Anonymous | Landing; no Evidence Badge; no invited feedback panel | Production browser `/beta/thai?v=e16ad14` |
+| Anonymous | Landing; no Evidence Badge; no invited feedback panel | Production browser `/beta/thai?v=5bcabfa` |
 | Normal signed-in | No invited panel | Automated V1.2.5 gating tests |
 | Invited signed-in | Panel when allow-listed | Automated V1.2.5 tests only — **no live invited UID seeded** |
 | Admin without invite | No invited user panel | Automated V1.2.5 tests |
 | Evidence Badge | `invited_beta` | Deploy dart-define + bundle marker |
 | Firestore rules | Unchanged | Deploy reported rules already up to date |
 
-## Automated tests (evidence) — pre-deploy re-check before `e16ad14` hosting
+## Automated tests (evidence) — PR #31 / deploy `5bcabfa`
 
 | Suite | Result |
 |-------|--------|
-| Focused v126 + timeline UI | **14 passed** |
-| Full Life Map regression + V1.2.1 narrative + Evidence Badge QA | **109 passed** |
-| Analyze (timeline paths) | No issues |
-| `flutter build web --release` via `scripts/deploy_web.ps1` | PASS |
+| Local Gate PreCommit + PostCommit | PASS |
+| Focused time-bucket + narrative + Mahabhut + V1.2.3 UI + timeline widgets | **28 passed** |
+| Broader (focused + V1.2.4 accuracy + V1.2.5 beta validation) | **57 passed** |
+| Analyze (changed presentation paths) | No issues |
+| `flutter build web --release` via `scripts/deploy_web.ps1` | PASS @ `5bcabfa` |
 
-## Browser / Visual QA — Production @ `e16ad14`
+## Browser / Visual QA — Production @ `5bcabfa`
 
 | Check | Result |
 |-------|--------|
-| Hosted `main.dart.js?v=e16ad14` | HTTP 200, `cache-control: no-cache, must-revalidate` |
-| Bundle markers | `invited_beta`, `thai_life_map_beta_feedback_panel`, `thai_life_map_stage_label` |
-| `/beta/thai?v=e16ad14` anonymous | Thai research landing; **no** Evidence Badge; **no** invited Life Map feedback panel |
-| QA harness `/thai-mirror/consumer-preview?profile=A&age=11` mobile | Life Map shows “วันนี้ ในวัย 11 ปี…”; period window 11–29; no Evidence Badge / invited panel |
-| Period-detail expand / score-grid absence | Covered by widget tests; **live expand click not fully automated** this round |
+| Hosted `main.dart.js?v=5bcabfa` | HTTP 200, `cache-control: no-cache, must-revalidate` |
+| Bundle markers | `invited_beta`, `thai_life_map_beta_feedback_panel`, `thai_life_map_stage_label`; past title escaped string present; unknown Mahabhut user strings **absent** |
+| `/beta/thai?v=5bcabfa` anonymous | Thai research landing (“ดูดวงไทย — งานวิจัย”); **no** Evidence Badge; **no** invited Life Map feedback panel |
+| QA harness `/thai-mirror/consumer-preview?profile=A&age=11` | Past compact + สิ่งที่น่าจะผ่านมา; current expanded with วัยเรียน / ผู้ปกครอง; future preview with `อาจ`/`เมื่อถึง`; **no** unknown Mahabhut copy |
+| Mobile 390×844 | Viewport set; no horizontal overflow observed on hero/Life Map header |
 | Live invited / admin sessions | **Not executed** — no invite UIDs seeded |
 
 ## Feedback counts (at close)
@@ -113,10 +136,11 @@ Do **not** treat as Validation Passed until ≥5 real invited users submit Life 
 
 ## Rollback
 
-Redeploy prior Hosting SHA (`ab093ad` or earlier) via `scripts/deploy_web.ps1` from that commit. Rules unchanged — no rules rollback required for this release.
+Redeploy prior Hosting SHA (`e16ad14` or earlier) via `scripts/deploy_web.ps1` from that commit. Rules unchanged — no rules rollback required for this release.
 
 ## Known limitations
 
-- Production click-expand of every period card across ages 5/11/15/23/35/55/70 not fully browser-automated
+- Production click-expand of every future period across all ages not fully browser-automated this round
 - Invited-user / admin live panel not re-checked without seeded allow-list UID
 - Score/sub-period engine data remains in models but is not user-visible in detail
+- One Canon-ambiguous period per some charts remains unresolved internally (e.g. 1972 fixture unknown=1) — UI omits the line rather than inventing a placement
