@@ -2,7 +2,7 @@
 
 **Last updated:** July 2026  
 **Branch:** `main`  
-**Merge tip:** `4b42f95` (PR #40 V1.2.8 Verdict Narrative); Production hosted @ `4b42f95`  
+**Merge tip:** `7ca091f` (PR #42 V1.2.9 Semantic Verdict); Production hosted @ `7ca091f`  
 **Prior architecture snapshot:** `feature/fusion-result`  
 **Automation workflow (authoritative):** Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
 **Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login) — Evidence Badge rollout remains `invited_beta`.
@@ -38,7 +38,7 @@
 | **Thai Life Map V1.2.6 Narrative & Life-stage UX** | Merged + **hosted** — **Ready for Validation** | PR #25/#27/#31/#33; past life-breadth PR #35 @ `399ac7a` + phase hygiene PR #36 @ `5529264` (evidence-linked Past facets; no `ลองนึกย้อน`; Canon/formulas unchanged); [`THAI_LIFE_MAP_V126_NARRATIVE_UX.md`](THAI_LIFE_MAP_V126_NARRATIVE_UX.md) |
 | **Thai Life Map V1.2.7 Simulated 864 Matrix** | Merged + **hosted** | PR #38 @ `2e633b8`; 8 weekday categories × ages 1–108 = **864/864** production-path passes; independent Sakamoto/Almanac oracle; optional `asOf` plumbing; Canon unresolved tallied (not forced 8/0); [`THAI_LIFE_MAP_V127_SIMULATED_MATRIX.md`](THAI_LIFE_MAP_V127_SIMULATED_MATRIX.md) |
 | **Thai Life Map V1.2.8 Verdict Narrative** | Merged + **hosted** — **product-failed on UI** | PR #40 @ `4b42f95`; hedges/labels improved but meta-language remained (`แกนของชีวิต` / `บรรยากาศหลัก`) |
-| **Thai Life Map V1.2.9 Semantic Verdict Fix** | This release | Semantic claim layer (situation+domain+consequence); Production-failure regression; [`THAI_LIFE_MAP_V129_SEMANTIC_VERDICT.md`](THAI_LIFE_MAP_V129_SEMANTIC_VERDICT.md) |
+| **Thai Life Map V1.2.9 Semantic Verdict Fix** | Merged + **hosted** — **Ready for Validation** | PR #42 @ `7ca091f`; semantic claim layer (situation+domain+consequence); Production-failure phrases absent from hosted bundle; interactive Life Map UI QA blocked by Flutter a11y — production-path presenter/widget verified; [`THAI_LIFE_MAP_V129_SEMANTIC_VERDICT.md`](THAI_LIFE_MAP_V129_SEMANTIC_VERDICT.md) |
 | **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with past-breadth deploy 2026-07-24 @ `5529264` |
 | **Single-Agent + Local Gate** | Merged to `main` | `docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`, `scripts/knowme_task_gate.ps1` |
 
@@ -75,7 +75,7 @@ Real users (38 Firestore accounts): **2.6% reach Narrative**. Blocker is persona
 | Risk | Severity | Detail |
 |------|----------|--------|
 | Personality test cliff | **Critical** | 97% of profile users never start MBTI (`REAL_USER_RUNTIME_VALIDATION_V1.md`) |
-| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `4b42f95` (2026-07-25); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
+| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `7ca091f` (2026-07-25); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
 | Real user PII export local-only | **High** | `firestore_user_export.json` gitignored — must regenerate locally |
 | Firebase service account local-only | **High** | `backend/firebase/serviceAccountKey.json` gitignored |
 | Legacy + new architecture coexist | **Medium** | Parallel scoring, navigation, and module IDs — trace before editing |
@@ -107,7 +107,7 @@ Accepted debt — do not hide; trace before editing.
 | **Status** | Public beta live on Firebase Hosting (June 2026) |
 | **Primary URL** | https://knowme-app-694e1.web.app |
 | **Firebase project** | `knowme-app-694e1` |
-| **Branch deployed from** | `main` @ `4b42f95` (2026-07-25); still **manual** deploy only — no auto-deploy |
+| **Branch deployed from** | `main` @ `7ca091f` (2026-07-25); still **manual** deploy only — no auto-deploy |
 | **Full guide** | [`docs/DEPLOYMENT.md`](DEPLOYMENT.md) |
 
 Deploy: `.\scripts\deploy_web.ps1` or `firebase deploy --only hosting --project knowme-app-694e1`
