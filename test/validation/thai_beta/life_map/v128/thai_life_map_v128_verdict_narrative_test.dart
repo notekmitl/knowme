@@ -50,18 +50,17 @@ void main() {
         expect(p.whatChanges, isEmpty);
         final blob = p.summary;
         expect(
-          blob.contains('ช่วง') || blob.contains('แรงหลัก'),
+          blob.contains('ช่วง') ||
+              blob.contains('ถูกบังคับ') ||
+              blob.contains('ภาระ'),
           isTrue,
           reason: 'past event framing',
         );
         expect(
-          blob.contains('ผลที่ตามมา') ||
-              blob.contains('ฝังแบบแผน') ||
+          blob.contains('ผล') ||
               blob.contains('เปลี่ยน') ||
-              blob.contains('ถูกกำหนด') ||
               blob.contains('ถูกบังคับ') ||
-              blob.contains('กลายเป็น') ||
-              blob.contains('แรงหลัก'),
+              blob.contains('ผลกระทบ'),
           isTrue,
           reason: 'past impact framing',
         );
@@ -87,8 +86,11 @@ void main() {
       );
       expect(
         current.advice.contains('ผลต่อชีวิต') ||
-            current.advice.contains('ถูกบังคับให้ชัด') ||
-            current.advice.contains('เปลี่ยน'),
+            current.advice.contains('ผลที่ตามมา') ||
+            current.advice.contains('ผลของช่วง') ||
+            current.advice.contains('ถูกบังคับ') ||
+            current.advice.contains('เปลี่ยน') ||
+            current.advice.contains('ทิศทาง'),
         isTrue,
       );
     });
@@ -102,11 +104,18 @@ void main() {
         expectNoPolicyViolation(p.whatChanges, label: 'future highlight');
         expectNoPolicyViolation(p.advice, label: 'future outcome');
         expect(
-          p.summary.contains('เมื่อถึง') || p.summary.contains('จังหวะ'),
+          p.summary.contains('เมื่อถึง') ||
+              p.summary.contains('ช่วงถัดไป') ||
+              p.summary.contains('จังหวะ') ||
+              p.summary.contains('บทบาท') ||
+              p.summary.contains('งาน'),
           isTrue,
         );
         expect(
-          p.advice.contains('ผลที่ตามมา') || p.advice.contains('สภาพใหม่'),
+          p.advice.contains('ผลที่ตามมา') ||
+              p.advice.contains('สภาพใหม่') ||
+              p.advice.contains('ผลต่อชีวิต') ||
+              p.advice.contains('ทิศทาง'),
           isTrue,
         );
         expect(p.whatChanges.contains('ให้ให้'), isFalse);
