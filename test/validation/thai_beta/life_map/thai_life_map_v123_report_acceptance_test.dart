@@ -49,7 +49,7 @@ void main() {
       // V1.2.6 — user detail shows life narrative sections, not raw nested lists.
       expect(find.text('สรุปช่วงนี้'), findsWidgets);
       expect(find.text('เรื่องที่เด่น'), findsWidgets);
-      expect(find.text('สิ่งที่ควรระวัง'), findsWidgets);
+      expect(find.text('แรงกดดันและความขัดแย้ง'), findsWidgets);
       expect(
         find.text(ThaiMirrorLifeTimelineSection.subPeriodsLabel),
         findsNothing,

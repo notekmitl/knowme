@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_engine.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/thai_life_map_mahabhut_resolution.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/thai_canon_evidence_repository.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/life_map_verdict_copy.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/timeline_presenter.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_life_timeline_section.dart';
 import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_pipeline.dart';
@@ -132,7 +133,7 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('แผนที่ชีวิตของคุณ'), findsOneWidget);
-      expect(find.text('สิ่งที่น่าจะผ่านมา'), findsWidgets);
+      expect(find.text('สิ่งที่ผ่านมา'), findsWidgets);
       expect(find.textContaining('ยังยืนยันตำแหน่งไม่ได้'), findsNothing);
       expect(find.textContaining('ยืนยันอันดับตำแหน่งไม่ได้'), findsNothing);
       expect(find.textContaining('ธีมหลัก'), findsNothing);
@@ -179,12 +180,7 @@ void main() {
         final approxWords = (chars / 2.5).round();
         expect(approxWords, inInclusiveRange(90, 170));
         expect(chars, greaterThanOrEqualTo(200));
-        expect(
-          p.summary.contains('อาจ') ||
-              p.summary.contains('แนวโน้ม') ||
-              p.summary.contains('ย้อน'),
-          isTrue,
-        );
+        expect(LifeMapVerdictCopy.violatesPrimaryBody(p.summary), isFalse);
         expect(p.summary.contains('คำแนะนำ'), isFalse);
         expect(p.summary.contains('สิ่งที่ควรระวัง'), isFalse);
         expect(p.summary.contains('แนวทางส่งเสริม'), isFalse);
@@ -192,6 +188,7 @@ void main() {
         expect(p.summary.contains('ลองทบทวน'), isFalse);
         expect(p.summary.contains('ลองสังเกต'), isFalse);
         expect(p.summary.trim().endsWith('หรือไม่'), isFalse);
+        expect(p.summary.contains('?'), isFalse);
         summaries.add(p.summary);
       }
       expect(summaries.length, past.length);
@@ -206,15 +203,23 @@ void main() {
       );
       final future = state.periods.where((p) => !p.isPast && !p.isCurrent);
       for (final p in future) {
+        expect(LifeMapVerdictCopy.violatesPrimaryBody(p.summary), isFalse);
         expect(
-          p.summary.contains('อาจ') || p.summary.contains('เมื่อถึง'),
+          p.summary.contains('เมื่อถึง') ||
+              p.summary.contains('จังหวะ') ||
+              p.summary.contains('ทิศทาง'),
           isTrue,
         );
         expect(p.advice, isNotEmpty);
+        expect(LifeMapVerdictCopy.violatesPrimaryBody(p.advice), isFalse);
+        expect(LifeMapVerdictCopy.violatesPrimaryBody(p.harder), isFalse);
       }
       final current = state.periods.singleWhere((p) => p.isCurrent);
       expect(current.advice, isNotEmpty);
       expect(current.harder, isNotEmpty);
+      expect(LifeMapVerdictCopy.violatesPrimaryBody(current.summary), isFalse);
+      expect(LifeMapVerdictCopy.violatesPrimaryBody(current.advice), isFalse);
+      expect(LifeMapVerdictCopy.violatesPrimaryBody(current.harder), isFalse);
     });
   });
 }
