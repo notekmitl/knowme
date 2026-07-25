@@ -2,11 +2,11 @@
 
 **Last updated:** July 2026  
 **Branch:** `main`  
-**Merge tip:** `2e633b8` (PR #38 V1.2.7 simulated 864 matrix); Production hosted @ `2e633b8`  
+**Merge tip:** pending V1.2.8 verdict narrative (this task); prior tip `a82e83f` (docs) / Production hosted @ `2e633b8` until redeploy  
 **Prior architecture snapshot:** `feature/fusion-result`  
 **Automation workflow (authoritative):** Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
 **Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login) — Evidence Badge rollout remains `invited_beta`.
-**Thai Beta Narrative / Life Map:** **V1.2.6** past life-breadth; **V1.2.7** simulated 864-profile matrix + optional `asOf` plumbing hosted @ `2e633b8` (PR #38) — see [`THAI_LIFE_MAP_V127_SIMULATED_MATRIX.md`](THAI_LIFE_MAP_V127_SIMULATED_MATRIX.md). Status **Ready for Invited Beta Validation** (0 real Life Map Feedback). See [`THAI_LIFE_MAP_V126_NARRATIVE_UX.md`](THAI_LIFE_MAP_V126_NARRATIVE_UX.md).
+**Thai Beta Narrative / Life Map:** **V1.2.8** Verdict Narrative (Past/Current/Future definitive copy, presentation only) — see [`THAI_LIFE_MAP_V128_VERDICT_NARRATIVE.md`](THAI_LIFE_MAP_V128_VERDICT_NARRATIVE.md). Built on V1.2.6/V1.2.7. Status **Ready for Invited Beta Validation** (0 real Life Map Feedback).
 
 ---
 
@@ -37,6 +37,7 @@
 | **Thai Life Map V1.2.5 Invited Beta Feedback** | Merged + **hosted** — **Ready for Validation** | PR #23 @ `b5d1243`; deploy Firebase Hosting + rules 2026-07-23; anonymous Production QA PASS (no panel/badge leak); **0 real invited Feedback** → not Validation Passed; [`THAI_LIFE_MAP_V125_BETA_VALIDATION.md`](THAI_LIFE_MAP_V125_BETA_VALIDATION.md) |
 | **Thai Life Map V1.2.6 Narrative & Life-stage UX** | Merged + **hosted** — **Ready for Validation** | PR #25/#27/#31/#33; past life-breadth PR #35 @ `399ac7a` + phase hygiene PR #36 @ `5529264` (evidence-linked Past facets; no `ลองนึกย้อน`; Canon/formulas unchanged); [`THAI_LIFE_MAP_V126_NARRATIVE_UX.md`](THAI_LIFE_MAP_V126_NARRATIVE_UX.md) |
 | **Thai Life Map V1.2.7 Simulated 864 Matrix** | Merged + **hosted** | PR #38 @ `2e633b8`; 8 weekday categories × ages 1–108 = **864/864** production-path passes; independent Sakamoto/Almanac oracle; optional `asOf` plumbing; Canon unresolved tallied (not forced 8/0); [`THAI_LIFE_MAP_V127_SIMULATED_MATRIX.md`](THAI_LIFE_MAP_V127_SIMULATED_MATRIX.md) |
+| **Thai Life Map V1.2.8 Verdict Narrative** | This release | Presentation-only Past/Current/Future definitive copy; hedge/coaching bans; UI labels; [`THAI_LIFE_MAP_V128_VERDICT_NARRATIVE.md`](THAI_LIFE_MAP_V128_VERDICT_NARRATIVE.md) |
 | **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with past-breadth deploy 2026-07-24 @ `5529264` |
 | **Single-Agent + Local Gate** | Merged to `main` | `docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`, `scripts/knowme_task_gate.ps1` |
 

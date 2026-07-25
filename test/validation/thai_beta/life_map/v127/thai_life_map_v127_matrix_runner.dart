@@ -2,10 +2,10 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_engine.dart';
-import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/mahabhut_planet_position_engine.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/thai_life_map_mahabhut_resolution.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/thai_canon_evidence_repository.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/life_map_verdict_copy.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/mahabhut_position_user_copy.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/past_retrospective_composer.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/thai_life_stage_context.dart';
@@ -390,6 +390,9 @@ abstract final class ThaiLifeMapV127MatrixRunner {
       if (PastRetrospectiveComposer.containsRetrospectivePrompt(u.summary)) {
         anomalies.add('PAST_PROMPT_BANNED ${u.ageLabel}');
       }
+      if (LifeMapVerdictCopy.violatesPrimaryBody(u.summary)) {
+        anomalies.add('PAST_VERDICT_POLICY ${u.ageLabel}');
+      }
       if (u.summary.contains('ช่วงช่วง')) {
         anomalies.add('PAST_DOUBLE_PHASE ${u.ageLabel}');
       }
@@ -420,6 +423,19 @@ abstract final class ThaiLifeMapV127MatrixRunner {
       );
     }
     final currentUi = ui.periods.firstWhere((p) => p.isCurrent);
+    if (LifeMapVerdictCopy.violatesPrimaryBody(currentUi.summary) ||
+        LifeMapVerdictCopy.violatesPrimaryBody(currentUi.whatChanges) ||
+        LifeMapVerdictCopy.violatesPrimaryBody(currentUi.harder) ||
+        LifeMapVerdictCopy.violatesPrimaryBody(currentUi.advice)) {
+      anomalies.add('CURRENT_VERDICT_POLICY');
+    }
+    for (final u in ui.periods.where((p) => !p.isPast && !p.isCurrent)) {
+      if (LifeMapVerdictCopy.violatesPrimaryBody(u.summary) ||
+          LifeMapVerdictCopy.violatesPrimaryBody(u.whatChanges) ||
+          LifeMapVerdictCopy.violatesPrimaryBody(u.advice)) {
+        anomalies.add('FUTURE_VERDICT_POLICY ${u.ageLabel}');
+      }
+    }
     if (band == ThaiLifeStageBand.earlyChildhood ||
         band == ThaiLifeStageBand.schoolAge) {
       final blob = currentUi.summary;

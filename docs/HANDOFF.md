@@ -16,7 +16,7 @@ cd knowme
 git checkout main
 ```
 
-**Important:** Prefer `main`. Public Firebase Hosting was last deployed from `main` @ `2e633b8` (2026-07-25) — includes Thai Beta **Life Map V1.2.7** simulated 864-profile matrix + optional `asOf` plumbing (PR #38) on top of V1.2.6 past life-breadth. See [`THAI_LIFE_MAP_V127_SIMULATED_MATRIX.md`](THAI_LIFE_MAP_V127_SIMULATED_MATRIX.md). Anonymous Public Beta: https://knowme-app-694e1.web.app/beta/thai?v=2e633b8 (Evidence Badge remains `invited_beta`). Validation status: **Ready for Invited Beta Validation**.
+**Important:** Prefer `main`. Public Firebase Hosting will redeploy with Thai Beta **Life Map V1.2.8** Verdict Narrative (presentation-only Past/Current/Future copy) after merge — see [`THAI_LIFE_MAP_V128_VERDICT_NARRATIVE.md`](THAI_LIFE_MAP_V128_VERDICT_NARRATIVE.md). Prior production @ `2e633b8` (V1.2.7 matrix). Anonymous Public Beta: https://knowme-app-694e1.web.app/beta/thai (Evidence Badge remains `invited_beta`). Validation status: **Ready for Invited Beta Validation**.
 
 **Automation workflow:** Use Single-Agent + Local Gate — see [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). The external AI Worker is **retired** (historical: [`AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)). The obsolete in-repo `ai-worker/` directory is gitignored and must not be committed.
 

@@ -45,7 +45,7 @@ Presentation density by period bucket (Canon 8 periods ages 1–108 unchanged):
 
 | Bucket | UX |
 |--------|-----|
-| **Past** | Compact non-expandable card: name, age, planet, **เรื่องสำคัญของช่วงนี้**, Mahabhut when report-complete, denser **สิ่งที่น่าจะผ่านมา**. No advice / caution / comparison / evidence footer. |
+| **Past** | Compact non-expandable card: name, age, planet, **เรื่องสำคัญของช่วงนี้**, Mahabhut when report-complete, denser **สิ่งที่ผ่านมา** (V1.2.8 verdict tone). No advice / caution / comparison / evidence footer. |
 | **Present** | Highest priority; **expanded by default**; full detail; narrative age = actual user age. |
 | **Future** | Collapsed with one-sentence preview (`อาจ` / `เมื่อถึง`); expand to full present-level detail. |
 
@@ -87,7 +87,7 @@ Presentation reused one adult domain scaffold and exposed engine nested lists. N
 | `ThaiLifeStageContext` | Presentation bands by age |
 | `PeriodNarrativeComposer` | Complete Thai sentence banks; `narrativeAge` input |
 | `TimelinePresenter` | Current period → actual `timeline.currentAge`; past → `endAge`; future → `startAge` |
-| `ThaiMirrorLifeTimelineSection` | Detail: สรุป / เรื่องที่เด่น / สิ่งที่ควรระวัง / คำแนะนำหรือแนวทางส่งเสริม / ความเปลี่ยนแปลงจากช่วงก่อน; hide score grid + nested raw lists |
+| `ThaiMirrorLifeTimelineSection` | Detail: สรุป / เรื่องที่เด่น / แรงกดดันและความขัดแย้ง / ผลต่อชีวิตในช่วงนี้ / ความเปลี่ยนแปลงจากช่วงก่อน; hide score grid + nested raw lists (V1.2.8 labels) |
 | Curated heroes | Fix broken “คิดรอบก่อนตอบ” phrasing |
 
 ## Life-stage bands (presentation only)

@@ -798,7 +798,7 @@ class _PeriodCard extends StatelessWidget {
                   ],
                   const SizedBox(height: 8),
                   Text(
-                    'สิ่งที่น่าจะผ่านมา',
+                    'สิ่งที่ผ่านมา',
                     style: TextStyle(
                       fontSize: 13,
                       fontWeight: FontWeight.w800,
@@ -958,7 +958,7 @@ class _PeriodDetail extends StatelessWidget {
           ],
         ],
         _SectionTitle(
-          text: period.isPast ? 'สิ่งที่น่าจะผ่านมา' : 'สรุปช่วงนี้',
+          text: period.isPast ? 'สิ่งที่ผ่านมา' : 'สรุปช่วงนี้',
           accent: accent,
         ),
         para(period.summary),
@@ -967,7 +967,7 @@ class _PeriodDetail extends StatelessWidget {
           para(period.whatChanges),
         ],
         if (!period.isPast && period.harder.isNotEmpty) ...[
-          _SectionTitle(text: 'สิ่งที่ควรระวัง', accent: accent),
+          _SectionTitle(text: 'แรงกดดันและความขัดแย้ง', accent: accent),
           para(period.harder),
         ],
         if (!period.isPast &&
@@ -977,8 +977,8 @@ class _PeriodDetail extends StatelessWidget {
             text:
                 period.stageLabel.contains('เด็ก') ||
                     period.stageLabel.contains('เรียน')
-                ? 'แนวทางส่งเสริมในวัยนี้'
-                : 'คำแนะนำสำหรับช่วงนี้',
+                ? 'ผลต่อชีวิตในวัยนี้'
+                : 'ผลต่อชีวิตในช่วงนี้',
             accent: accent,
           ),
           para(period.advice.isNotEmpty ? period.advice : period.easier),
