@@ -16,7 +16,7 @@ cd knowme
 git checkout main
 ```
 
-**Important:** Prefer `main`. Life Map **V1.2.9** semantic verdict fix supersedes V1.2.8 product-failure copy — see [`THAI_LIFE_MAP_V129_SEMANTIC_VERDICT.md`](THAI_LIFE_MAP_V129_SEMANTIC_VERDICT.md). Prior Production @ `4b42f95` (V1.2.8) failed owner Product Acceptance on real Life Map UI. Evidence Badge remains `invited_beta`. Validation status: **Ready for Invited Beta Validation**.
+**Important:** Prefer `main`. Life Map **V1.2.9** semantic verdict is hosted @ `7ca091f` (PR #42) — see [`THAI_LIFE_MAP_V129_SEMANTIC_VERDICT.md`](THAI_LIFE_MAP_V129_SEMANTIC_VERDICT.md). V1.2.8 @ `4b42f95` failed Product Acceptance (meta-language). Evidence Badge remains `invited_beta`. Validation status: **Ready for Invited Beta Validation**.
 
 **Automation workflow:** Use Single-Agent + Local Gate — see [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). The external AI Worker is **retired** (historical: [`AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)). The obsolete in-repo `ai-worker/` directory is gitignored and must not be committed.
 

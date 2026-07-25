@@ -1,6 +1,6 @@
 # Thai Life Map V1.2.9 — Semantic Verdict Fix
 
-**Status:** Implementation (product-failure fix over V1.2.8)  
+**Status:** Merged + hosted @ `7ca091f` (PR #42) — product-failure fix over V1.2.8  
 **Runtime predecessor:** V1.2.8 @ `4b42f95` failed Product Acceptance on Production UI
 
 ## Root cause (proven)
