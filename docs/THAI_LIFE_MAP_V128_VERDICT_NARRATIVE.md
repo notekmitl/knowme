@@ -1,6 +1,6 @@
 # Thai Life Map V1.2.8 — Verdict Narrative
 
-**Status:** Implementation (presentation only)  
+**Status:** Merged + Production hosted @ `4b42f95` (PR #40)  
 **Scope:** Past Verdict / Current Reality / Future Forecast copy tone  
 **Non-goals:** Canon, formulas, Mahabhut resolution, period math, Past/Current/Future classification, Firestore, Auth, Evidence Badge, Unified Synthesis
 
@@ -48,3 +48,6 @@ Mahabhut all-or-nothing hide policy unchanged: unresolved positions are not show
 
 - Focused v128 + v126 + timeline UI + v123 acceptance + v125 invited beta
 - V1.2.7 production-path matrix: **864 executed, 0 skipped, 864 passed** (with verdict policy checks on past/current/future bodies)
+- Local Gate PreCommit/PostCommit PASS
+- Production web build + Hosting deploy from merged `main` @ `4b42f95` (`main.dart.js?v=4b42f95` verified)
+- Light Production QA: anonymous `/beta/thai` landing loads on hosted runtime; full interactive Life Map scroll limited by Flutter web a11y in automation — narrative contract covered by automated production-path tests
