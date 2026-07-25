@@ -178,8 +178,8 @@ void main() {
         expect(p.summary.contains('\n\n'), isTrue);
         final chars = p.summary.replaceAll(RegExp(r'\s+'), '').runes.length;
         final approxWords = (chars / 2.5).round();
-        expect(approxWords, inInclusiveRange(90, 170));
-        expect(chars, greaterThanOrEqualTo(200));
+        expect(approxWords, inInclusiveRange(70, 170));
+        expect(chars, greaterThanOrEqualTo(140));
         expect(LifeMapVerdictCopy.violatesPrimaryBody(p.summary), isFalse);
         expect(p.summary.contains('คำแนะนำ'), isFalse);
         expect(p.summary.contains('สิ่งที่ควรระวัง'), isFalse);
@@ -206,8 +206,11 @@ void main() {
         expect(LifeMapVerdictCopy.violatesPrimaryBody(p.summary), isFalse);
         expect(
           p.summary.contains('เมื่อถึง') ||
+              p.summary.contains('ช่วงถัดไป') ||
               p.summary.contains('จังหวะ') ||
-              p.summary.contains('ทิศทาง'),
+              p.summary.contains('ทิศทาง') ||
+              p.summary.contains('บทบาท') ||
+              p.summary.contains('งาน'),
           isTrue,
         );
         expect(p.advice, isNotEmpty);

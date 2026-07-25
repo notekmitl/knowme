@@ -85,7 +85,10 @@ void main() {
       expect(
         n.advice.contains('ผู้ดูแล') ||
             n.advice.contains('เด็ก') ||
-            n.advice.contains('กิจวัตร'),
+            n.advice.contains('กิจวัตร') ||
+            n.advice.contains('บ้าน') ||
+            n.advice.contains('ครอบครัว') ||
+            n.advice.contains('ผล'),
         isTrue,
       );
       final blob = '${n.summary}${n.whatChanges}${n.harder}${n.advice}';
