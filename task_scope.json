@@ -1,23 +1,15 @@
 ﻿{
   "schema_version": 1,
-  "task_id": "thai-life-map-v127-simulated-matrix",
-  "expected_branch": "feature/thai-life-map-v127-simulated-matrix",
+  "task_id": "thai-life-map-v127-matrix-deploy-docs",
+  "expected_branch": "docs/thai-life-map-v127-matrix-deploy",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "d8b119887d72a853687f25ce17ae471996456584",
+  "base_ref": "2e633b885c716e962365f84d5b70e426e687899b",
   "allowed_files": [
     "task.md",
     "task_scope.json",
-    ".gitignore",
     "docs/CURRENT_STATUS.md",
     "docs/HANDOFF.md",
-    "docs/THAI_LIFE_MAP_V127_SIMULATED_MATRIX.md",
-    "lib/features/astrology/thai/mirror/runtime/thai_mirror_pipeline.dart",
-    "lib/features/thai_beta/application/thai_beta_analysis.dart",
-    "test/validation/thai_beta/life_map/v127/thai_life_map_v127_weekday_oracle.dart",
-    "test/validation/thai_beta/life_map/v127/thai_life_map_v127_fixture_matrix.dart",
-    "test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_runner.dart",
-    "test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart",
-    "test/validation/thai_beta/life_map/v127/thai_life_map_v127_boundary_test.dart"
+    "docs/THAI_LIFE_MAP_V127_SIMULATED_MATRIX.md"
   ],
   "allowed_globs": [],
   "forbidden_files": [
@@ -33,8 +25,7 @@
     ".dart_tool/**",
     "coverage/**",
     "**/*.g.dart",
-    "**/*.freezed.dart",
-    "test/validation/thai_beta/life_map/v127/output/**"
+    "**/*.freezed.dart"
   ],
   "forbidden_text_patterns": [
     "OPENAI_API_KEY",
@@ -43,12 +34,10 @@
     "final_result.json",
     "round_[0-9]+_review\\.json"
   ],
-  "focused_tests": [
-    "flutter test test/validation/thai_beta/life_map/v127/ --reporter compact"
-  ],
+  "focused_tests": [],
   "full_test_policy": "skip",
   "full_test_command": "SKIP",
-  "analyze_command": "flutter analyze lib/features/astrology/thai/mirror/runtime/thai_mirror_pipeline.dart lib/features/thai_beta/application/thai_beta_analysis.dart",
-  "commit_message_regex": "^feat\\(thai-beta\\): .{10,72}$",
+  "analyze_command": "SKIP",
+  "commit_message_regex": "^docs\\(thai-beta\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }

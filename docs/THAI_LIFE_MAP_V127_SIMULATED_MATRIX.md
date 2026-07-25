@@ -1,8 +1,11 @@
 # Thai Life Map V1.2.7 — Simulated 864 Profile Matrix
 
-**Status:** COMPLETED
-**Fixtures:** synthetic QA only (no real-user PII / Auth / Firestore)
-**Reference clock:** `2026-07-15T12:00:00.000` (Asia/Bangkok)
+**Status:** COMPLETED  
+**Merge:** PR #38 → `2e633b8`  
+**Production deploy:** Firebase `knowme-app-694e1` from `main` @ `2e633b8` (2026-07-25)  
+**Public URL:** https://knowme-app-694e1.web.app/beta/thai?v=2e633b8  
+**Fixtures:** synthetic QA only (no real-user PII / Auth / Firestore)  
+**Reference clock:** `2026-07-15T12:00:00.000` (Asia/Bangkok)  
 **Production Canon / formulas / invited_beta:** unchanged (matrix + optional `asOf` plumbing only)
 
 ## Core matrix
