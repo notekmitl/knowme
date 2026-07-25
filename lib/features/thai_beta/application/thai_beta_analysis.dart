@@ -85,11 +85,13 @@ abstract final class ThaiBetaAnalysisRunner {
   static Future<ThaiBetaAnalysis> runAsync(
     ThaiBetaInput input, {
     DateTime? startedAt,
+    DateTime? asOf,
   }) async {
     final repository = await ThaiCanonEvidenceRepository.loadFromAsset();
     return run(
       input,
       startedAt: startedAt,
+      asOf: asOf,
       canonIndex: repository.index,
     );
   }
@@ -97,6 +99,7 @@ abstract final class ThaiBetaAnalysisRunner {
   static ThaiBetaAnalysis run(
     ThaiBetaInput input, {
     DateTime? startedAt,
+    DateTime? asOf,
     ThaiCanonEvidenceIndex? canonIndex,
   }) {
     final sessionStart = startedAt ?? DateTime.now();
@@ -122,7 +125,7 @@ abstract final class ThaiBetaAnalysisRunner {
     }
 
     final birthData = ThaiEngineAdapter.fromContext(birth.thai);
-    final pipeline = ThaiMirrorPipeline.generate(birthData);
+    final pipeline = ThaiMirrorPipeline.generate(birthData, asOf: asOf);
     if (pipeline.isFailure ||
         pipeline.mirrorResult == null ||
         pipeline.profile == null) {
@@ -130,8 +133,9 @@ abstract final class ThaiBetaAnalysisRunner {
         input: input,
         startedAt: sessionStart,
         normalizedBirth: birth,
-        normalizedSnapshot:
-            ThaiBetaNormalizedSnapshot.fromNormalizedBirth(birth),
+        normalizedSnapshot: ThaiBetaNormalizedSnapshot.fromNormalizedBirth(
+          birth,
+        ),
         errorMessage: pipeline.errorMessage ?? 'ไม่สามารถสร้างผลวิเคราะห์ได้',
       );
     }
@@ -146,8 +150,10 @@ abstract final class ThaiBetaAnalysisRunner {
       canonIndex: resolvedCanonIndex,
     );
     final profile = pipeline.profile!;
-    final reportSnapshot =
-        ThaiBetaReportSnapshot.build(profile: profile, view: view);
+    final reportSnapshot = ThaiBetaReportSnapshot.build(
+      profile: profile,
+      view: view,
+    );
 
     return ThaiBetaAnalysis._(
       input: input,

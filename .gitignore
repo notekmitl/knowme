@@ -159,6 +159,9 @@ ai-worker/
 # Local copyrighted working-source PDFs at repo root (never commit)
 /*.pdf
 
+# Life Map V1.2.7 simulated matrix bulk artifacts (summary markdown is committed under docs/)
+test/validation/thai_beta/life_map/v127/output/
+
 # Local probe / temp dumps under tool/output (tracked evidence JSON stays tracked)
 tool/output/pdf_probe*
 tool/output/prod_equiv*
