@@ -1,3 +1,4 @@
-﻿# Task: Docs — Past Narrative life-breadth Production @ 5529264
+﻿# Task: Life Map V1.2.7 simulated 864-profile matrix
 
-Record PR #35/#36 merge/deploy and Production QA. Docs only — no redeploy.
+Deterministic 8 weekday × ages 1–108 fixtures through production Thai Beta path.
+Independent oracle; optional asOf plumbing; Canon frozen.

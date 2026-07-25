@@ -27,7 +27,15 @@ abstract final class ThaiMirrorPipeline {
   }
 
   /// Runs the full Thai Mirror pipeline without throwing to callers.
-  static ThaiMirrorPipelineResult generate(ThaiBirthData birthData) {
+  ///
+  /// Optional [asOf] freezes Life Map age/current-period classification for
+  /// deterministic QA. When null, [LifePeriodEngine] uses the wall clock
+  /// (production default). Does not change Canon, formulas, or birth
+  /// normalization.
+  static ThaiMirrorPipelineResult generate(
+    ThaiBirthData birthData, {
+    DateTime? asOf,
+  }) {
     try {
       final generatedAt = DateTime.now().toUtc();
       final profile = ThaiMirrorProfileEnrichment.enrich(
@@ -41,7 +49,7 @@ abstract final class ThaiMirrorPipeline {
       // in the runtime — never by threading a raw birth date into presenters.
       // Consistency: feed the sunrise-adjusted astrological date (the single Thai
       // day), never the civil date — see ThaiBirthData / Birth Normalization.
-      final lifePeriods = LifePeriodEngine.fromBirthData(birthData);
+      final lifePeriods = LifePeriodEngine.fromBirthData(birthData, asOf: asOf);
 
       return ThaiMirrorPipelineResult.success(
         viewState: viewState,
