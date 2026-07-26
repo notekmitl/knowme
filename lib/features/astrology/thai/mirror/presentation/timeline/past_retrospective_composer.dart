@@ -1,12 +1,13 @@
 import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart';
 
-import 'life_map_plain_thai_renderer.dart';
 import 'life_map_semantic_mapper.dart';
 import 'life_map_verdict_semantics.dart';
+import 'past_life_story_composer.dart';
 import 'period_composite_score.dart';
 import 'thai_life_stage_context.dart';
 
 /// V1.3.0 Past Verdict — plain Thai life story from period evidence.
+/// V1.3.4 synthesizes 3–4 concrete sentences via [PastLifeStoryComposer].
 abstract final class PastRetrospectiveComposer {
   static String compose({
     required ThaiLifeStageBand band,
@@ -40,7 +41,14 @@ abstract final class PastRetrospectiveComposer {
       scores: scores,
       seed: s,
     );
-    final text = LifeMapPlainThaiRenderer.renderPastBody(semantics);
+    final text = PastLifeStoryComposer.compose(
+      semantics: semantics,
+      data: data,
+      scores: scores,
+      band: band,
+      periodIndex: periodIndex,
+      seed: s,
+    );
     return (text: text, semantics: semantics);
   }
 

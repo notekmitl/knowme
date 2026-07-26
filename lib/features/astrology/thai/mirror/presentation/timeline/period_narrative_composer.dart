@@ -111,12 +111,14 @@ abstract final class PeriodNarrativeComposer {
         ? _evidenceLine(period, lagnaLord, evidence, topThemeTags, seed, band)
         : '';
 
-    // V1.3.3: Current UI uses life domains; keep slot fields for Future /
-    // export/tests but Current card prefers [lifeDomains].
+    // V1.3.4: Current UI uses four forecast domains from scores + claims.
     final lifeDomains = period.isCurrent
         ? LifeMapCurrentDomainComposer.compose(
             semantics: semantics,
+            scores: scores,
+            data: data,
             comparison: comparison,
+            seed: s,
           )
         : const <ThaiMirrorLifeDomainBlock>[];
 

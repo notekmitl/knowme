@@ -27,10 +27,10 @@ void main() {
   ];
 
   const allowedDomains = [
-    LifeMapCurrentDomainComposer.titleLife,
     LifeMapCurrentDomainComposer.titleWork,
-    LifeMapCurrentDomainComposer.titleLove,
+    LifeMapCurrentDomainComposer.titleMoney,
     LifeMapCurrentDomainComposer.titleHealth,
+    LifeMapCurrentDomainComposer.titleFortune,
   ];
 
   ThaiMirrorLifeTimelineState buildAt({
@@ -82,13 +82,14 @@ void main() {
       final hasLifeDim =
           blob.contains('เส้นทางชีวิต') ||
           blob.contains('จังหวะ') ||
-          blob.contains('ช่วงชีวิต') ||
-          blob.contains('ดาวเสวยอายุ');
+          blob.contains('ช่วง') ||
+          blob.contains('ดาวเสวยอายุ') ||
+          blob.contains('ตอนนี้อยู่ใน');
       expect(hasLifeDim, isTrue, reason: blob);
 
       // Headline must not be a pure "คุณเป็นคน..." personality line alone.
       expect(view.hero.headline.startsWith('คุณเป็นคน'), isFalse);
-      expect(view.hero.headline, contains('จังหวะ'));
+      expect(view.hero.headline.contains('พื้นฐานจากดวงไทยคู่กับ'), isFalse);
 
       final paras = view.hero.summary
           .split('\n\n')
@@ -173,16 +174,14 @@ void main() {
   });
 
   group('V1.3.3 Current life domains', () {
-    test('Current uses ≤4 allowed domains; omits old semantic headings', () {
+    test('Current uses exactly 4 forecast domains', () {
       final state = buildAt(weekday: DateTime.sunday, age: 39);
       final current = state.periods.singleWhere((p) => p.isCurrent);
       expect(current.lifeDomains, isNotEmpty);
-      expect(current.lifeDomains.length, lessThanOrEqualTo(4));
+      expect(current.lifeDomains.length, 4);
       expect(
-        current.lifeDomains.any(
-          (d) => d.title == LifeMapCurrentDomainComposer.titleLife,
-        ),
-        isTrue,
+        current.lifeDomains.map((d) => d.title).toList(),
+        LifeMapCurrentDomainComposer.allowedTitles,
       );
 
       for (final d in current.lifeDomains) {
@@ -209,6 +208,9 @@ void main() {
       expect(titles.toSet().length, titles.length);
 
       for (final h in bannedSemanticHeadings) {
+        expect(titles, isNot(contains(h)));
+      }
+      for (final h in LifeMapCurrentDomainComposer.legacyTitles) {
         expect(titles, isNot(contains(h)));
       }
     });
@@ -244,8 +246,8 @@ void main() {
       await tester.pumpAndSettle();
 
       // Ensure current details are visible (scroll + expand if needed).
-      final lifeTitle = find.text(LifeMapCurrentDomainComposer.titleLife);
-      if (lifeTitle.evaluate().isEmpty) {
+      final workTitle = find.text(LifeMapCurrentDomainComposer.titleWork);
+      if (workTitle.evaluate().isEmpty) {
         final expand = find.text(
           ThaiMirrorLifeTimelineSection.expandDetailsLabel,
         );
@@ -254,14 +256,14 @@ void main() {
           await tester.tap(expand.at(i), warnIfMissed: false);
           await tester.pumpAndSettle();
           if (find
-              .text(LifeMapCurrentDomainComposer.titleLife)
+              .text(LifeMapCurrentDomainComposer.titleWork)
               .evaluate()
               .isNotEmpty) {
             break;
           }
         }
       }
-      expect(find.text(LifeMapCurrentDomainComposer.titleLife), findsWidgets);
+      expect(find.text(LifeMapCurrentDomainComposer.titleWork), findsWidgets);
       for (final d in current.lifeDomains) {
         expect(find.text(d.title), findsWidgets);
       }

@@ -227,6 +227,10 @@ abstract final class LifeMapPlainThaiRenderer {
   }
 
   /// Strip Past soft openers that add no event information.
+  static String stripPastSoftOpenerPublic(String text) =>
+      _stripPastSoftOpener(text);
+
+  /// Strip Past soft openers that add no event information.
   static String _stripPastSoftOpener(String text) {
     var t = text.trim();
     t = t.replaceFirst(

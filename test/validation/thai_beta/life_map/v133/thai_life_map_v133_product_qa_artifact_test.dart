@@ -78,7 +78,7 @@ void main() {
 
     expect(personalityOnly, isFalse);
     expect(complete.signatureInsight.isEmpty, isTrue);
-    expect(complete.hero.headline.contains('จังหวะ'), isTrue);
+    expect(complete.hero.headline.contains('พื้นฐานจากดวงไทยคู่กับ'), isFalse);
 
     final timeline = LifePeriodEngine.build(
       birthWeekday: DateTime.sunday,
@@ -179,7 +179,11 @@ void main() {
 
     final current = state.periods.singleWhere((p) => p.isCurrent);
     expect(current.lifeDomains, isNotEmpty);
-    expect(current.lifeDomains.length, lessThanOrEqualTo(4));
+    expect(current.lifeDomains.length, 4);
+    expect(
+      current.lifeDomains.map((d) => d.title).toList(),
+      LifeMapCurrentDomainComposer.allowedTitles,
+    );
     for (final h in [
       'สรุปช่วงนี้',
       'สิ่งที่ทำให้ลำบาก',
