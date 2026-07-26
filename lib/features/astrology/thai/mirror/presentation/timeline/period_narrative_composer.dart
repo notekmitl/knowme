@@ -3,6 +3,7 @@ import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart
 import 'package:knowme/features/astrology/thai/core/life_period/planet_relationship_matrix.dart';
 
 import '../copy/thai_mirror_evidence_composer.dart';
+import 'life_map_plain_thai_renderer.dart';
 import 'life_map_semantic_mapper.dart';
 import 'life_map_verdict_semantics.dart';
 import 'period_composite_score.dart';
@@ -25,7 +26,7 @@ class PeriodNarrative {
 
   final String summary;
 
-  /// Highlight / dominant situation detail.
+  /// Highlight / dominant situation detail (often empty in V1.3.0).
   final String whatChanges;
 
   /// Kept for compatibility; mirrors highlight-friendly wording.
@@ -50,9 +51,7 @@ class PeriodNarrative {
   final LifeMapVerdictSemantics? semantics;
 }
 
-/// V1.2.9 — Period Narrative Composer (semantic life-situation verdicts).
-///
-/// Uses engine scores/signals only. Does not change calculation or Canon.
+/// V1.3.0 — Period Narrative Composer (plain Thai life-situation verdicts).
 abstract final class PeriodNarrativeComposer {
   static PeriodNarrative compose({
     required PeriodState period,
@@ -99,24 +98,7 @@ abstract final class PeriodNarrativeComposer {
       scores: scores,
       seed: s,
     );
-    final primary = semantics.primary;
-    final pressure = semantics.pressure ?? primary;
-    final consequence = semantics.consequence ?? primary;
-
-    // Keep slots semantically distinct; drop paraphrase copies.
-    final highlight = primary.situationTh.contains(primary.domain.labelTh)
-        ? primary.situationTh
-        : '${primary.situationTh} โดยกระทบ${primary.domain.labelTh}โดยตรง';
-    var harder = pressure.pressureTh;
-    if (harder == highlight || pressure.semanticKey == primary.semanticKey) {
-      harder =
-          'แรงกดดันหลักอยู่ที่${pressure.domain.labelTh}ที่รับไว้พร้อมกันจนเลือกไม่ได้ทุกทาง';
-    }
-    var advice = consequence.consequenceTh;
-    if (advice == highlight || advice == harder) {
-      advice =
-          'ผลต่อชีวิตคือทิศทางด้าน${primary.domain.labelTh}ถูกกำหนดจากการเลือกในช่วงนี้';
-    }
+    final rendered = LifeMapPlainThaiRenderer.renderPresentFuture(semantics);
 
     final comparison = period.isCurrent ? _comparison(period, band, s) : '';
     final evidenceLine = period.isCurrent
@@ -124,17 +106,13 @@ abstract final class PeriodNarrativeComposer {
         : '';
 
     return PeriodNarrative(
-      summary: highlight,
-      whatChanges:
-          'ด้านที่ได้รับผลชัดคือ${primary.domain.labelTh} '
-          'และถูกบังคับให้จัดการก่อนเรื่องรอง',
-      easier:
-          'ด้านที่ได้รับผลชัดคือ${primary.domain.labelTh} '
-          'และถูกบังคับให้จัดการก่อนเรื่องรอง',
-      harder: harder,
+      summary: rendered.summary,
+      whatChanges: rendered.whatChanges,
+      easier: rendered.whatChanges,
+      harder: rendered.harder,
       comparison: comparison,
       evidenceLine: evidenceLine,
-      advice: advice,
+      advice: rendered.advice,
       stageLabel: stageLabel,
       semantics: semantics,
     );
@@ -151,28 +129,28 @@ abstract final class PeriodNarrativeComposer {
     final current = LifePlanets.of(period.planet);
     final frames = ThaiLifeStageContext.isChildOriented(band)
         ? [
-            'เทียบกับช่วงก่อนที่เน้น${p.keyword} ช่วงนี้ผลักเรื่อง${current.keyword}ให้เป็นหน้าที่ที่ต้องจัดการในชีวิตประจำวัน',
-            'จากช่วง${p.phaseName} มาสู่${current.phaseName} เด็กต้องรับการเปลี่ยนจาก${p.keyword}ไปสู่${current.keyword}',
+            'ก่อนหน้านี้เน้นเรื่อง${p.keyword} ตอนนี้เรื่อง${current.keyword}มาก่อน',
+            'จาก${p.phaseName}มาสู่${current.phaseName} โฟกัสย้ายจาก${p.keyword}ไป${current.keyword}',
           ]
         : [
-            'เทียบกับช่วงก่อนที่เน้น${p.keyword} ช่วงนี้ให้ความสำคัญกับ${current.keyword}ในการตัดสินใจจริง',
-            'จาก${p.phaseName} สู่${current.phaseName} โฟกัสของชีวิตย้ายจาก${p.keyword}ไปสู่${current.keyword}',
+            'ก่อนหน้านี้เน้นเรื่อง${p.keyword} ตอนนี้เรื่อง${current.keyword}มาก่อนในการตัดสินใจ',
+            'จาก${p.phaseName}สู่${current.phaseName} โฟกัสย้ายจาก${p.keyword}ไป${current.keyword}',
           ];
     return frames[seed.abs() % frames.length];
   }
 
   static const _relationTails = <PlanetRelation, List<String>>{
     PlanetRelation.friend: [
-      'จุดเด่นข้อนี้จึงทำงานได้ลื่นและช่วยให้เดินหน้าได้',
-      'จุดเด่นข้อนี้ช่วยให้จัดการหน้าที่ในช่วงนี้ได้ชัดขึ้น',
+      'จุดเด่นข้อนี้ช่วยให้เดินหน้าได้',
+      'จุดเด่นข้อนี้ช่วยจัดการหน้าที่ในช่วงนี้ได้ชัดขึ้น',
     ],
     PlanetRelation.enemy: [
-      'จุดเด่นข้อนี้ฝืนกับนิสัยเดิม และบังคับให้ฝึกความอดทนกับการปรับตัว',
-      'ช่วงนี้ออกแรงกับตัวเองมากขึ้น และผลของการปรับตัววัดได้ชัด',
+      'จุดเด่นข้อนี้ออกแรงกับตัวเองมากขึ้น',
+      'ช่วงนี้ออกแรงกับตัวเองมากขึ้น และผลวัดได้ชัด',
     ],
     PlanetRelation.neutral: [
-      'จุดเด่นข้อนี้เปิดทางให้เลือกได้ว่าจะใช้พลังนี้อย่างไร',
-      'ผลลัพธ์ชัดขึ้นเมื่อนำจุดเด่นข้อนี้มาใช้จริง',
+      'จุดเด่นข้อนี้เปิดทางให้เลือกได้ว่าจะใช้อย่างไร',
+      'ผลชัดขึ้นเมื่อนำจุดเด่นข้อนี้มาใช้จริง',
     ],
   };
 

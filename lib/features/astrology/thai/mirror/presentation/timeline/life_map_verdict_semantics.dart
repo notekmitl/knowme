@@ -24,17 +24,18 @@ enum LifeMapClaimDomain {
 extension LifeMapClaimDomainLabel on LifeMapClaimDomain {
   String get id => name;
 
+  /// Short plain label for evidence/debug — never dump into prophecy tails.
   String get labelTh => switch (this) {
-    LifeMapClaimDomain.workRole => 'งานและบทบาท',
-    LifeMapClaimDomain.moneySecurity => 'รายได้และความมั่นคง',
-    LifeMapClaimDomain.relationshipBond => 'ความสัมพันธ์ใกล้ชิด',
-    LifeMapClaimDomain.familyHome => 'บ้านและครอบครัว',
-    LifeMapClaimDomain.healthEnergy => 'สุขภาพและพลังงาน',
-    LifeMapClaimDomain.identityBelonging => 'ตัวตนและการยอมรับ',
-    LifeMapClaimDomain.learningPath => 'การเรียนและทักษะ',
-    LifeMapClaimDomain.dutyBurden => 'หน้าที่และความรับผิดชอบ',
-    LifeMapClaimDomain.transitionRebuild => 'การเปลี่ยนโครงสร้างชีวิต',
-    LifeMapClaimDomain.opportunityExpand => 'โอกาสและการขยายบทบาท',
+    LifeMapClaimDomain.workRole => 'งาน',
+    LifeMapClaimDomain.moneySecurity => 'เงิน',
+    LifeMapClaimDomain.relationshipBond => 'ความรัก',
+    LifeMapClaimDomain.familyHome => 'บ้าน',
+    LifeMapClaimDomain.healthEnergy => 'สุขภาพ',
+    LifeMapClaimDomain.identityBelonging => 'คนรอบตัว',
+    LifeMapClaimDomain.learningPath => 'การเรียน',
+    LifeMapClaimDomain.dutyBurden => 'หน้าที่',
+    LifeMapClaimDomain.transitionRebuild => 'การเริ่มใหม่',
+    LifeMapClaimDomain.opportunityExpand => 'โอกาส',
   };
 }
 
@@ -167,6 +168,21 @@ abstract final class LifeMapVerdictCopy {
     'structured evidence',
     'Canon index',
     'affinity',
+    // V1.3.0 — system / abstract report language
+    'ผลกระทบหลักอยู่ที่',
+    'ควบคู่กับด้าน',
+    'โดยกระทบ',
+    'ด้านที่ได้รับผลชัดคือ',
+    'เป้าหมายเปลี่ยนไปสู่',
+    'โครงสร้างชีวิต',
+    'ขอบเขตงาน',
+    'ขยายบทบาท',
+    'โอกาสและการขยายบทบาท',
+    'งานและบทบาท',
+    'บ้านและครอบครัว',
+    'ความมั่นคงทางใจผูกกับ',
+    'บทบาทถูกจัดใหม่',
+    'รับผิดชอบผลเอง',
   ];
 
   /// Soft abstract stems that fail when they are the whole claim.
@@ -205,17 +221,6 @@ abstract final class LifeMapVerdictCopy {
   static bool looksLikeAbstractOnly(String text) {
     final t = text.replaceAll(RegExp(r'\s+'), '');
     if (t.isEmpty) return true;
-    // Pressure/conflict lines are concrete when they name a life tension.
-    if (t.contains('แรงกดดัน') || t.contains('ความขัดแย้ง')) {
-      return t.length < 24;
-    }
-    if (t.contains('ผลที่ตามมา') ||
-        t.contains('สภาพใหม่') ||
-        t.contains('ผลของช่วง') ||
-        t.contains('ผลต่อชีวิต') ||
-        t.contains('ผลกระทบ')) {
-      return t.length < 28;
-    }
     const markers = [
       'ต้องตัด',
       'ต้องจัด',
@@ -223,35 +228,58 @@ abstract final class LifeMapVerdictCopy {
       'ต้องรับ',
       'ต้องสร้าง',
       'ต้องลงมือ',
-      'ต้องสื่อสาร',
+      'ต้องคุย',
       'ต้องคืน',
-      'ถูกบังคับ',
-      'ภาระ',
-      'บทบาท',
-      'รายได้',
-      'รายจ่าย',
+      'ต้องเลือก',
+      'ต้องหยุด',
+      'ต้องเริ่ม',
+      'ต้องทำตาม',
+      'ต้องพึ่ง',
+      'ต้องแบก',
+      'ต้องลด',
+      'ต้องคิด',
+      'ต้องหา',
+      'มีโอกาส',
+      'มีคนช่วย',
+      'มีทางเลือก',
       'งาน',
+      'เงิน',
+      'บ้าน',
       'ครอบครัว',
-      'ความสัมพันธ์',
+      'ความรัก',
       'สุขภาพ',
       'หน้าที่',
-      'เส้นทาง',
+      'คนรอบตัว',
+      'ผู้ใหญ่',
+      'เรียน',
       'ตัดสินใจ',
-      'สื่อสาร',
-      'ระยะห่าง',
-      'คาดหวัง',
-      'เปรียบเทียบ',
       'ใกล้ชิด',
+      'เปลี่ยน',
+      'เริ่มใหม่',
+      'ชีวิตไม่เหมือนเดิม',
+      'ร่างกาย',
+      'ใจ',
+      'สุดแรง',
+      'ถูกใช้',
+      'พัก',
+      'ล้า',
+      'ทางเลือก',
       'โอกาส',
       'โฟกัส',
-      'บ้าน',
-      'เรียน',
+      'แย่ง',
+      'อนาคต',
+      'มอง',
+      'ต่างจากเดิม',
       'ทักษะ',
-      'ขอบเขต',
-      'ผลงาน',
-      'เปลี่ยน',
-      'โครงสร้าง',
-      'ให้ความสำคัญ',
+      'ฝึก',
+      'ใช้ต่อ',
+      'สมดุล',
+      'คุย',
+      'ปล่อย',
+      'ยึด',
+      'เลือก',
+      'ถนัด',
+      'ชัดขึ้น',
     ];
     return !markers.any(t.contains);
   }

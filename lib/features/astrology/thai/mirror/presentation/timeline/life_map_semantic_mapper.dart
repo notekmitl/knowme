@@ -6,8 +6,8 @@ import 'thai_life_stage_context.dart';
 
 /// Deterministic mapping from period evidence → falsifiable life claims.
 ///
-/// Uses only planet affinity, composite scores, keyword/essence already on
-/// [LifePlanetData], and age band. Does not invent Canon events.
+/// Claim Thai bodies are plain, short, and free of time-marker prefixes.
+/// [LifeMapPlainThaiRenderer] assembles UI copy.
 abstract final class LifeMapSemanticMapper {
   static LifeMapVerdictSemantics build({
     required LifeMapVerdictTense tense,
@@ -44,7 +44,6 @@ abstract final class LifeMapSemanticMapper {
       ],
     );
 
-    // Pressure uses a different domain when possible to avoid slot paraphrase.
     final pressureDomainFinal = pressureDomain == primaryDomain
         ? _alternateDomain(primaryDomain, data, band)
         : pressureDomain;
@@ -76,29 +75,10 @@ abstract final class LifeMapSemanticMapper {
       ],
     );
 
-    LifeMapVerdictClaim? secondary;
-    if (tense == LifeMapVerdictTense.past) {
-      final alt = _alternateDomain(primaryDomain, data, band);
-      if (alt != primaryDomain) {
-        secondary = _claimFor(
-          tense: tense,
-          band: band,
-          domain: alt,
-          transition: transition,
-          role: _ClaimRole.situation,
-          variant: s ~/ 11,
-          evidenceKeys: [
-            'planet:${data.planet.name}',
-            'affinity_secondary:${alt.id}',
-          ],
-        );
-      }
-    }
-
     return LifeMapVerdictSemantics(
       tense: tense,
       primary: primary,
-      secondary: secondary,
+      secondary: null,
       pressure: pressure.semanticKey == primary.semanticKey ? null : pressure,
       consequence: consequence.semanticKey == primary.semanticKey
           ? null
@@ -227,7 +207,7 @@ abstract final class LifeMapSemanticMapper {
     final pack = _pack(domain, band);
     final sit = pack.situations[variant.abs() % pack.situations.length];
     final press = pack.pressures[variant.abs() % pack.pressures.length];
-    final cons = _consequence(tense, domain, transition, variant);
+    final cons = _consequence(transition, variant);
 
     switch (role) {
       case _ClaimRole.situation:
@@ -237,7 +217,7 @@ abstract final class LifeMapSemanticMapper {
           domain: domain,
           pressureId: press.id,
           consequenceId: cons.id,
-          situationTh: _frameSituation(tense, sit.text),
+          situationTh: sit.text,
           pressureTh: press.text,
           consequenceTh: cons.text,
           evidenceKeys: evidenceKeys,
@@ -269,135 +249,101 @@ abstract final class LifeMapSemanticMapper {
     }
   }
 
-  static String _frameSituation(LifeMapVerdictTense tense, String body) {
-    switch (tense) {
-      case LifeMapVerdictTense.past:
-        return 'ช่วงนั้น$body';
-      case LifeMapVerdictTense.current:
-        return 'ขณะนี้$body';
-      case LifeMapVerdictTense.future:
-        return 'ช่วงถัดไป$body';
-    }
-  }
-
-  static _TextId _consequence(
-    LifeMapVerdictTense tense,
-    LifeMapClaimDomain domain,
-    _TransitionKind transition,
-    int variant,
-  ) {
-    final domainLabel = domain.labelTh;
+  /// Plain consequence — no domain-label injection.
+  static _TextId _consequence(_TransitionKind transition, int variant) {
     final lines = switch (transition) {
       _TransitionKind.forcedReorder => [
         _TextId(
           'cons_reorder',
-          'ผลที่ตามมาคือคุณต้องจัดลำดับ$domainLabelใหม่และตัดสิ่งที่ไม่สร้างผลระยะยาวออก',
+          'คุณต้องเลือกเก็บเฉพาะเรื่องที่สำคัญจริง ๆ',
         ),
         _TextId(
           'cons_reorder2',
-          'ชีวิตหลังจากนี้ให้ความสำคัญกับ$domainLabelมาก่อนความสบายใจชั่วคราว',
+          'คุณต้องจัดลำดับชีวิตใหม่และหยุดบางอย่างที่ถ่วงไว้',
         ),
       ],
       _TransitionKind.separateRebuild => [
         _TextId(
           'cons_rebuild',
-          'ผลที่ตามมาคือคุณแยกจากวิธีเดิมด้าน$domainLabelและสร้างหลักของตัวเองขึ้นใหม่',
+          'คุณต้องเริ่มใหม่และปล่อยวิธีเดิมไป',
         ),
         _TextId(
           'cons_rebuild2',
-          'เส้นทางด้าน$domainLabelไม่กลับไปรูปแบบเดิม และเป้าหมายระยะยาวเปลี่ยนชัด',
+          'ชีวิตไม่เหมือนเดิม และคุณต้องสร้างทางของตัวเอง',
         ),
       ],
       _TransitionKind.lockStability => [
         _TextId(
           'cons_lock',
-          'ผลที่ตามมาคือการตัดสินใจด้าน$domainLabelยึดความมั่นคงไว้ก่อนความต้องการส่วนตัว',
+          'คุณต้องยึดเรื่องมั่นคงไว้ก่อนความอยากส่วนตัว',
         ),
         _TextId(
           'cons_lock2',
-          'ภาระด้าน$domainLabelจำกัดทางเลือกอื่น และคุณต้องรับหน้าที่ที่หลีกเลี่ยงไม่ได้',
+          'หน้าที่ที่หลีกเลี่ยงไม่ได้จำกัดทางเลือกอื่น',
         ),
       ],
       _TransitionKind.expandRole => [
         _TextId(
           'cons_expand',
-          'ผลที่ตามมาคือบทบาทด้าน$domainLabelขยาย และความรับผิดชอบเพิ่มขึ้นตามโอกาสที่เข้ามา',
+          'คุณต้องรับหน้าที่มากขึ้นตามโอกาสที่เข้ามา',
         ),
         _TextId(
           'cons_expand2',
-          'คุณออกจากกรอบเดิมด้าน$domainLabel และตัดสินใจด้วยตัวเองมากขึ้น',
+          'คุณออกจากวิธีเดิมและตัดสินใจด้วยตัวเองมากขึ้น',
         ),
       ],
       _TransitionKind.commitAction => [
         _TextId(
           'cons_act',
-          'ผลที่ตามมาคือคุณต้องลงมือตัดสินใจด้าน$domainLabelแทนการเลื่อนปัญหาไว้',
+          'คุณต้องลงมือตัดสินใจแทนการเลื่อนปัญหาไว้',
         ),
         _TextId(
           'cons_act2',
-          'ทิศทางด้าน$domainLabelถูกกำหนดจากการเลือกในช่วงนี้ และแยกจากทางเก่า',
+          'คุณมองอนาคตต่างจากเดิม',
         ),
       ],
       _TransitionKind.rebindRelations => [
         _TextId(
           'cons_rel',
-          'ผลที่ตามมาคือรูปแบบความสัมพันธ์และขอบเขตด้าน$domainLabelถูกตั้งใหม่',
+          'คุณต้องคุยและรับผิดชอบผลของการอยู่ใกล้ชิดชัดขึ้น',
         ),
         _TextId(
           'cons_rel2',
-          'คุณต้องสื่อสารและรับผิดชอบผลของความใกล้ชิดด้าน$domainLabelชัดขึ้น',
+          'รูปแบบความใกล้ชิดเปลี่ยน และต้องตั้งขอบเขตใหม่',
         ),
       ],
       _TransitionKind.seekRecognition => [
         _TextId(
           'cons_recog',
-          'ผลที่ตามมาคือ$domainLabelถูกมองเห็นชัดขึ้น และบทบาทเปลี่ยนตาม',
+          'คนอื่นเห็นคุณชัดขึ้น และหน้าที่ของคุณเปลี่ยนตาม',
         ),
         _TextId(
           'cons_recog2',
-          'ผลที่ตามมาคือคุณต้องรับความคาดหวังใหม่ด้าน$domainLabelและรักษาสมดุลกับชีวิตส่วนตัว',
+          'คุณต้องรับความคาดหวังใหม่และรักษาสมดุลกับชีวิตตัวเอง',
         ),
       ],
       _TransitionKind.restoreBalance => [
         _TextId(
           'cons_bal',
-          'ผลที่ตามมาคือคุณต้องคืนสมดุลด้าน$domainLabelก่อนเร่งผลลัพธ์อื่น',
+          'คุณต้องคืนแรงก่อนเร่งเรื่องอื่น',
         ),
         _TextId(
           'cons_bal2',
-          'ผลที่ตามมาคือชีวิตถูกปรับให้$domainLabelอยู่ได้โดยไม่เสียสุขภาพและที่พึ่ง',
+          'คุณต้องจัดชีวิตให้พักได้โดยไม่เสียสุขภาพ',
         ),
       ],
       _TransitionKind.skillBuild => [
         _TextId(
           'cons_skill',
-          'ผลที่ตามมาคือทักษะและวินัยด้าน$domainLabelถูกหล่อจนใช้ต่อได้จริง',
+          'ทักษะที่ฝึกไว้ใช้ต่อได้จริง',
         ),
         _TextId(
           'cons_skill2',
-          'คุณเลือกทางที่ถนัดด้าน$domainLabelชัดขึ้น และรับขอบเขตจากสภาพจริง',
+          'คุณเลือกทางที่ถนัดชัดขึ้น',
         ),
       ],
     };
-    final picked = lines[variant.abs() % lines.length];
-    if (tense == LifeMapVerdictTense.future) {
-      final body = picked.text.startsWith('ผลที่ตามมาคือ')
-          ? picked.text.substring('ผลที่ตามมาคือ'.length)
-          : picked.text;
-      return _TextId(picked.id, 'สภาพใหม่ที่ตามมาคือ$body');
-    }
-    if (tense == LifeMapVerdictTense.past) {
-      final body = picked.text.startsWith('ผลที่ตามมาคือคุณต้อง')
-          ? picked.text.replaceFirst(
-              'ผลที่ตามมาคือคุณต้อง',
-              'ผลของช่วงนั้นทำให้คุณ',
-            )
-          : picked.text.startsWith('ผลที่ตามมาคือ')
-          ? picked.text.replaceFirst('ผลที่ตามมาคือ', 'ผลของช่วงนั้นคือ')
-          : 'ผลของช่วงนั้นคือ${picked.text}';
-      return _TextId(picked.id, body);
-    }
-    return picked;
+    return lines[variant.abs() % lines.length];
   }
 
   static _DomainPack _pack(LifeMapClaimDomain domain, ThaiLifeStageBand band) {
@@ -410,31 +356,31 @@ abstract final class LifeMapSemanticMapper {
               ? [
                   _TextId(
                     'sit_work_youth',
-                    'ความคาดหวังเรื่องผลงานหรือทิศทางอนาคตถูกบังคับให้เลือกจริง',
+                    'คุณต้องเลือกทางเรียนหรือกิจกรรมที่ผู้ใหญ่คาดหวัง',
                   ),
                   _TextId(
                     'sit_work_youth2',
-                    'บทบาทในโรงเรียน กิจกรรม หรืองานเล็ก ๆ กำหนดเวลาทั้งวัน',
+                    'โรงเรียน กิจกรรม หรืองานเล็ก ๆ กินเวลาทั้งวันของคุณ',
                   ),
                 ]
               : [
                   _TextId(
                     'sit_work',
-                    'ภาระงานและหน้าที่ในที่ทำงานบังคับให้จัดลำดับชีวิตใหม่',
+                    'งานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่',
                   ),
                   _TextId(
                     'sit_work2',
-                    'บทบาทหรือขอบเขตงานที่เคยคุ้นเคยเปลี่ยน และต้องรับผิดชอบผลเอง',
+                    'งานที่เคยทำแบบเดิมเริ่มเปลี่ยนไป',
                   ),
                 ],
           pressures: [
             _TextId(
               'prs_work',
-              'แรงกดดันหลักคือการแบกงานไว้หลายเรื่องจนเวลาและพลังถูกแบ่ง',
+              'คุณต้องแบกงานหลายเรื่องจนเวลาและพลังไม่พอ',
             ),
             _TextId(
               'prs_work2',
-              'ความขัดแย้งหลักอยู่ที่ผลงานกับชีวิตส่วนตัวที่รับพร้อมกันไม่ไหว',
+              'งานกับชีวิตส่วนตัวแย่งกันจนทำพร้อมกันไม่ไหว',
             ),
           ],
         );
@@ -443,21 +389,21 @@ abstract final class LifeMapSemanticMapper {
           situations: [
             _TextId(
               'sit_money',
-              'ภาระรายจ่ายหรือข้อผูกมัดทางการเงินจำกัดทางเลือกอื่นของชีวิต',
+              'เรื่องเงินจำกัดทางเลือกอื่นในชีวิตของคุณ',
             ),
             _TextId(
               'sit_money2',
-              'การสร้างฐานสำรองและความมั่นคงทางทรัพย์สินกลายเป็นเกณฑ์ตัดสินใจหลัก',
+              'คุณต้องคิดเรื่องเก็บเงินและความมั่นคงก่อนเรื่องอื่น',
             ),
           ],
           pressures: [
             _TextId(
               'prs_money',
-              'แรงกดดันหลักคือต้องตัดสินใจเรื่องเงินภายใต้เวลาและข้อจำกัดที่มี',
+              'คุณต้องตัดสินใจเรื่องเงินภายใต้เวลาและข้อจำกัดที่มี',
             ),
             _TextId(
               'prs_money2',
-              'ความขัดแย้งหลักอยู่ที่การใช้จ่ายระยะสั้นกับแผนความมั่นคงระยะยาว',
+              'การใช้เงินวันนี้กับแผนระยะยาวแย่งกันอยู่',
             ),
           ],
         );
@@ -466,21 +412,21 @@ abstract final class LifeMapSemanticMapper {
           situations: [
             _TextId(
               'sit_love',
-              'ความสัมพันธ์ใกล้ชิดถูกทดสอบเรื่องขอบเขต ความจริงใจ และการอยู่ร่วม',
+              'ความใกล้ชิดถูกทดสอบเรื่องความจริงใจและการอยู่ร่วม',
             ),
             _TextId(
               'sit_love2',
-              'รูปแบบการผูกพันเปลี่ยน และคุณต้องรับผิดชอบผลของการเลือกใกล้ชิด',
+              'รูปแบบความรักเปลี่ยน และคุณต้องรับผลจากการเลือก',
             ),
           ],
           pressures: [
             _TextId(
               'prs_love',
-              'แรงกดดันหลักคือคาดหวังเงียบ ๆ โดยไม่สื่อสารจนเกิดระยะห่าง',
+              'คุณคาดหวังเงียบ ๆ โดยไม่คุยจนเกิดระยะห่าง',
             ),
             _TextId(
               'prs_love2',
-              'ความขัดแย้งหลักอยู่ที่ความต้องการใกล้ชิดกับความต้องการมีพื้นที่ส่วนตัว',
+              'อยากใกล้ชิดกับอยากมีพื้นที่ส่วนตัวแย่งกันอยู่',
             ),
           ],
         );
@@ -489,21 +435,21 @@ abstract final class LifeMapSemanticMapper {
           situations: [
             _TextId(
               'sit_home',
-              'บ้าน ครอบครัว หรือสภาพแวดล้อมใกล้ตัวเปลี่ยน และบังคับให้ปรับกิจวัตร',
+              'คนในบ้านมีผลต่อชีวิตคุณมาก',
             ),
             _TextId(
               'sit_home2',
-              'บทบาทในบ้านถูกจัดใหม่ และความมั่นคงทางใจผูกกับที่พึ่งใกล้ตัว',
+              'หน้าที่ในบ้านเปลี่ยนไป และคุณต้องพึ่งคนใกล้ตัวมากขึ้น',
             ),
           ],
           pressures: [
             _TextId(
               'prs_home',
-              'แรงกดดันหลักคือความไม่สม่ำเสมอของการดูแลหรือกฎในบ้าน',
+              'คุณต้องทำตามความคาดหวังของผู้ใหญ่',
             ),
             _TextId(
               'prs_home2',
-              'ความขัดแย้งหลักอยู่ที่หน้าที่ในบ้านกับความต้องการส่วนตัว',
+              'หน้าที่ในบ้านกับความต้องการส่วนตัวแย่งกันอยู่',
             ),
           ],
         );
@@ -512,18 +458,21 @@ abstract final class LifeMapSemanticMapper {
           situations: [
             _TextId(
               'sit_health',
-              'พลังกายและใจถูกใช้จนสุด และบังคับให้ปรับจังหวะพักกับงาน',
+              'ร่างกายและใจถูกใช้จนสุดแรง',
             ),
             _TextId(
               'sit_health2',
-              'ข้อจำกัดของร่างกายทำให้ต้องลดภาระบางอย่างเพื่อรักษาพลังงาน',
+              'คุณต้องลดภาระบางอย่างเพื่อรักษาแรงไว้',
             ),
           ],
           pressures: [
-            _TextId('prs_health', 'แรงกดดันหลักคือการฝืนตัวเองจนสะสมความล้า'),
+            _TextId(
+              'prs_health',
+              'คุณฝืนตัวเองจนสะสมความล้า',
+            ),
             _TextId(
               'prs_health2',
-              'ความขัดแย้งหลักอยู่ที่ภาระที่มีกับเวลาพักที่ร่างกายต้องการจริง',
+              'ภาระที่มีกับเวลาพักที่ร่างกายต้องการแย่งกันอยู่',
             ),
           ],
         );
@@ -532,18 +481,21 @@ abstract final class LifeMapSemanticMapper {
           situations: [
             _TextId(
               'sit_id',
-              'การหาที่ยืนในกลุ่มและการแสดงออกถูกทดสอบจนกระทบความมั่นใจ',
+              'คุณต้องหาที่ยืนในกลุ่มและแสดงออกให้คนอื่นเห็น',
             ),
             _TextId(
               'sit_id2',
-              'ตัวตนถูกผลักให้เลือกทางของตนเองภายใต้ความคาดหวังรอบข้าง',
+              'คุณถูกผลักให้เลือกทางของตัวเองท่ามกลางคนรอบตัว',
             ),
           ],
           pressures: [
-            _TextId('prs_id', 'แรงกดดันหลักคือการเปรียบเทียบตัวเองกับคนรอบตัว'),
+            _TextId(
+              'prs_id',
+              'คุณเปรียบเทียบตัวเองกับคนรอบตัวบ่อย',
+            ),
             _TextId(
               'prs_id2',
-              'ความขัดแย้งหลักอยู่ที่อยากเป็นตัวเองกับอยากได้รับการยอมรับ',
+              'อยากเป็นตัวเองกับอยากให้คนอื่นยอมรับแย่งกันอยู่',
             ),
           ],
         );
@@ -552,21 +504,21 @@ abstract final class LifeMapSemanticMapper {
           situations: [
             _TextId(
               'sit_learn',
-              'การเรียน ทักษะ หรือการฝึกฝนกลายเป็นเวทีหลักที่กำหนดวันเวลา',
+              'การเรียนและการฝึกฝนกินเวลาส่วนใหญ่ของคุณ',
             ),
             _TextId(
               'sit_learn2',
-              'ความคาดหวังของผู้ใหญ่และการหาที่ยืนในกลุ่มเพื่อนบังคับให้เลือกทางที่ถนัด',
+              'คุณต้องเลือกทางที่ถนัดท่ามกลางความคาดหวังของคนรอบตัว',
             ),
           ],
           pressures: [
             _TextId(
               'prs_learn',
-              'แรงกดดันหลักคือผลงานเรียนหรือทักษะที่ถูกเปรียบเทียบ',
+              'ผลงานเรียนถูกนำไปเปรียบกับคนอื่น',
             ),
             _TextId(
               'prs_learn2',
-              'ความขัดแย้งหลักอยู่ที่สิ่งที่ถนัดกับสิ่งที่คนรอบตัวคาดหวัง',
+              'สิ่งที่ถนัดกับสิ่งที่คนรอบตัวคาดหวังไม่ตรงกัน',
             ),
           ],
         );
@@ -575,18 +527,21 @@ abstract final class LifeMapSemanticMapper {
           situations: [
             _TextId(
               'sit_duty',
-              'หน้าที่และความรับผิดชอบเพิ่มขึ้นจนจำกัดทางเลือกอื่นของชีวิต',
+              'หน้าที่และความรับผิดชอบเพิ่มขึ้นจนเลือกทางอื่นได้ยาก',
             ),
             _TextId(
               'sit_duty2',
-              'คุณต้องรับภาระที่หลีกเลี่ยงไม่ได้และจัดชีวิตให้รับน้ำหนักนั้นได้',
+              'คุณต้องรับภาระที่หลีกเลี่ยงไม่ได้',
             ),
           ],
           pressures: [
-            _TextId('prs_duty', 'แรงกดดันหลักคือภาระที่ต้องทำแม้จะไม่อยากรับ'),
+            _TextId(
+              'prs_duty',
+              'มีภาระที่ต้องทำแม้จะไม่อยากรับ',
+            ),
             _TextId(
               'prs_duty2',
-              'ความขัดแย้งหลักอยู่ที่หน้าที่กับความต้องการส่วนตัว',
+              'หน้าที่กับความต้องการส่วนตัวแย่งกันอยู่',
             ),
           ],
         );
@@ -595,21 +550,21 @@ abstract final class LifeMapSemanticMapper {
           situations: [
             _TextId(
               'sit_trans',
-              'โครงสร้างชีวิตที่เคยคุ้นเคยเปลี่ยน และคุณต้องแยกจากวิธีเดิม',
+              'ชีวิตที่เคยคุ้นเคยเปลี่ยน และคุณต้องแยกจากวิธีเดิม',
             ),
             _TextId(
               'sit_trans2',
-              'บทบาทหรือสภาพแวดล้อมปิดบทหนึ่งและเปิดบทใหม่ที่ต้องสร้างเอง',
+              'บทหนึ่งจบลง และคุณต้องสร้างทางใหม่ด้วยตัวเอง',
             ),
           ],
           pressures: [
             _TextId(
               'prs_trans',
-              'แรงกดดันหลักคือการสูญเสียความคุ้นเคยโดยยังไม่มีฐานใหม่ชัด',
+              'คุณเสียความคุ้นเคยไปทั้งที่ฐานใหม่ยังไม่ชัด',
             ),
             _TextId(
               'prs_trans2',
-              'ความขัดแย้งหลักอยู่ที่อยากยึดของเดิมกับความจำเป็นต้องเดินต่อ',
+              'อยากยึดของเดิมกับความจำเป็นต้องเดินต่อแย่งกันอยู่',
             ),
           ],
         );
@@ -618,18 +573,21 @@ abstract final class LifeMapSemanticMapper {
           situations: [
             _TextId(
               'sit_opp',
-              'โอกาสใหม่ด้านงาน รายได้ หรือบทบาทเข้ามาผ่านผลงานหรือเครือข่ายที่สะสม',
+              'มีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก',
             ),
             _TextId(
               'sit_opp2',
-              'ทางเลือกขยาย แต่ทุกโอกาสแลกด้วยความรับผิดชอบที่เพิ่มขึ้น',
+              'มีทางเลือกมากขึ้น แต่ทุกทางแลกด้วยหน้าที่ที่เพิ่มขึ้น',
             ),
           ],
           pressures: [
-            _TextId('prs_opp', 'แรงกดดันหลักคือการรับทุกโอกาสไว้จนโฟกัสกระจาย'),
+            _TextId(
+              'prs_opp',
+              'คุณรับทุกโอกาสไว้จนโฟกัสกระจาย',
+            ),
             _TextId(
               'prs_opp2',
-              'ความขัดแย้งหลักอยู่ที่ทางเลือกมากมายกับลำดับความสำคัญของช่วงนี้',
+              'ทางเลือกเยอะจนเลือกลำดับความสำคัญได้ยาก',
             ),
           ],
         );

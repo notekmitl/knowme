@@ -46,10 +46,9 @@ void main() {
       await tester.tap(expand);
       await tester.pumpAndSettle();
 
-      // V1.2.6 — user detail shows life narrative sections, not raw nested lists.
+      // V1.3.0 — highlight slot omitted when it would only paraphrase summary.
       expect(find.text('สรุปช่วงนี้'), findsWidgets);
-      expect(find.text('เรื่องที่เด่น'), findsWidgets);
-      expect(find.text('แรงกดดันและความขัดแย้ง'), findsWidgets);
+      expect(find.text('สิ่งที่ทำให้ลำบาก'), findsWidgets);
       expect(
         find.text(ThaiMirrorLifeTimelineSection.subPeriodsLabel),
         findsNothing,

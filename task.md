@@ -1,5 +1,7 @@
-﻿# Task: Thai Life Map V1.2.9 — Fix Verdict Narrative Product Failure
+﻿# Task: Thai Life Map V1.3.0 — Plain Thai Narrative
 
-แก้ product failure ของ V1.2.8: ข้อความยังเป็น meta-language (`แกนของชีวิต`, `บรรยากาศหลัก`, …) แม้ hedge จะถูกลบ
+แก้ product failure ของ V1.2.9: ข้อความยังเป็นภาษาระบบ/`ช่วงนั้น` ซ้ำ/domain dump
+แม้ semantic claim จะมีแล้ว
 
-เพิ่ม semantic claim layer (situation + domain + consequence) จาก evidence จริง แล้ว render เป็นคำพยากรณ์ที่ตัดสิน ตรง/ไม่ตรง ได้
+แยก structured claim ออกจาก Plain Thai renderer ให้ UI อ่านง่ายระดับเด็ก ~10 ขวบ
+และเพิ่ม Product Language Gate บนข้อความสุดท้ายที่แสดงจริง
