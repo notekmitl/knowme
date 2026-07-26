@@ -182,12 +182,17 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
         key: const Key('thai_consumer_hero'),
         child: ThaiMirrorConsumerHeroSection(state: consumerState.hero),
       ),
-      const SizedBox(height: 18),
-      RepaintBoundary(
-        child: ThaiMirrorBirthDataConfidenceBanner(
-          state: consumerState.birthDataConfidence,
+      // V1.3.2: complete birth data is silent. Incomplete limitation lives on
+      // hero.identitySubtitle (birth-data metadata) — never a mid-report banner.
+      if (!consumerState.birthDataConfidence.isComplete &&
+          consumerState.birthDataConfidence.title.trim().isNotEmpty) ...[
+        const SizedBox(height: 18),
+        RepaintBoundary(
+          child: ThaiMirrorBirthDataConfidenceBanner(
+            state: consumerState.birthDataConfidence,
+          ),
         ),
-      ),
+      ],
       if (widget.personalCoreFirst &&
           !consumerState.signatureInsight.isEmpty) ...[
         SizedBox(height: gap),

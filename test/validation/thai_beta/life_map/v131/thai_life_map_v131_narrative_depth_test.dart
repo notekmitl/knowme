@@ -52,14 +52,15 @@ void main() {
         final text = p.summary;
         expect(LifeMapVerdictCopy.violatesPrimaryBody(text), isFalse);
         expect(LifeMapPlainThaiRenderer.hasAbstractDuel(text), isFalse);
-        final words =
-            (text.replaceAll(RegExp(r'\s+'), '').runes.length / 2.5).round();
+        expect(LifeMapPlainThaiRenderer.hasPastSoftOpener(text), isFalse);
+        final words = (text.replaceAll(RegExp(r'\s+'), '').runes.length / 2.5)
+            .round();
         expect(words, greaterThanOrEqualTo(40), reason: text);
         // Multiple distinct beats: context/change/pressure/response cues.
         expect(
           text.contains('ก่อนหน้า') ||
-              text.contains('ในช่วงนั้น') ||
-              text.contains('เปลี่ยน'),
+              text.contains('เปลี่ยน') ||
+              text.contains('ต้อง'),
           isTrue,
           reason: text,
         );
@@ -69,11 +70,8 @@ void main() {
               text.contains('เริ่ม'),
           isTrue,
         );
-        expect(
-          'ช่วงนั้น'.allMatches(text).length,
-          lessThanOrEqualTo(1),
-          reason: text,
-        );
+        expect('ช่วงนั้น'.allMatches(text).length, equals(0), reason: text);
+        expect('ในช่วงนั้น'.allMatches(text).length, equals(0), reason: text);
       }
     });
 
@@ -103,7 +101,9 @@ void main() {
       expect(blob.contains('ใช้เฉพาะที่สะท้อนชีวิตจริงของคุณก็พอ'), isFalse);
       // Unrelated hero line still present (not replaced with filler).
       expect(
-        blob.contains('เวลาต้องเลือก คุณมักลิสต์ข้อดีข้อเสียในหัวอยู่เงียบ ๆ ก่อนเสมอ') ||
+        blob.contains(
+              'เวลาต้องเลือก คุณมักลิสต์ข้อดีข้อเสียในหัวอยู่เงียบ ๆ ก่อนเสมอ',
+            ) ||
             blob.contains('คนอื่นมักเห็นว่าคุณ'),
         isTrue,
       );
@@ -123,7 +123,12 @@ void main() {
         expect(LifeMapVerdictCopy.violatesPrimaryBody(text), isFalse);
         expect(
           LifeMapPlainThaiRenderer.countMarker(text, 'ช่วงนั้น'),
-          lessThanOrEqualTo(1),
+          equals(0),
+        );
+        expect(LifeMapPlainThaiRenderer.hasPastSoftOpener(text), isFalse);
+        expect(
+          LifeMapPlainThaiRenderer.hasVagueRelationshipForm(text),
+          isFalse,
         );
       }
     });

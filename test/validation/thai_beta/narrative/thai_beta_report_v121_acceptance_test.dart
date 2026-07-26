@@ -61,7 +61,9 @@ void main() {
       final result = ThaiBetaNarrativeComposer.compose(
         ThaiBetaNarrativeFixtures.fixtureA(),
       );
-      expect(result.view.signatureInsight.isEmpty, isFalse);
+      // V1.3.2: core lives on hero; separate signature card is empty.
+      expect(result.view.signatureInsight.isEmpty, isTrue);
+      expect(result.view.hero.summary, isNotEmpty);
       expect(
         result.view.strengths.title,
         ThaiBetaNarrativeV12.strengthsSectionTitle,
@@ -86,9 +88,10 @@ void main() {
       );
       expect(noTime.view.birthDataConfidence.isComplete, isFalse);
       expect(
-        noTime.view.signatureInsight.eyebrow,
-        unknown.view.signatureInsight.eyebrow,
+        noTime.view.hero.identitySubtitle,
+        unknown.view.hero.identitySubtitle,
       );
+      expect(noTime.view.hero.identitySubtitle, contains('ไม่มีเวลาเกิด'));
     });
 
     test('V121-18 Wednesday daytime normalization unchanged', () {
@@ -407,10 +410,13 @@ void main() {
         await pumpReport(tester, const Size(390, 844));
         expect(find.byType(ThaiBetaReportPage), findsOneWidget);
         expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);
+        // V1.3.2: single hero; personal core absorbed.
+        expect(find.byKey(const Key('thai_consumer_hero')), findsOneWidget);
         expect(
           find.byKey(const Key('thai_consumer_signature_insight')),
-          findsOneWidget,
+          findsNothing,
         );
+        expect(find.text('ข้อมูลวันเกิดครบถ้วน'), findsNothing);
         expect(
           find.text(ThaiBetaNarrativeV12.strengthsSectionTitle),
           findsWidgets,
@@ -427,9 +433,10 @@ void main() {
 
     testWidgets('V121-15 desktop report hierarchy', (tester) async {
       await pumpReport(tester, const Size(1280, 900));
+      expect(find.byKey(const Key('thai_consumer_hero')), findsOneWidget);
       expect(
         find.byKey(const Key('thai_consumer_signature_insight')),
-        findsOneWidget,
+        findsNothing,
       );
       expect(find.text('แผนที่ชีวิตของคุณ'), findsOneWidget);
       expect(tester.takeException(), isNull);

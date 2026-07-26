@@ -49,8 +49,7 @@ void main() {
         if (p.harder.isNotEmpty) 'harder: ${p.harder}',
         if (p.advice.isNotEmpty) 'advice: ${p.advice}',
       ].join('\n\n');
-      final marker =
-          LifeMapPlainThaiRenderer.countMarker(card, 'ช่วงนั้น');
+      final marker = LifeMapPlainThaiRenderer.countMarker(card, 'ช่วงนั้น');
       buf.writeln('### $bucket — ${p.planetLine} (${p.ageLabel})');
       buf.writeln();
       buf.writeln(
@@ -67,7 +66,9 @@ void main() {
         '- beats: ${p.isPast ? '(see semantics via presenter path)' : 'n/a'}',
       );
       buf.writeln();
-      expect(marker, lessThanOrEqualTo(1));
+      expect(marker, equals(0));
+      expect(LifeMapPlainThaiRenderer.hasPastSoftOpener(card), isFalse);
+      expect(LifeMapPlainThaiRenderer.hasVagueRelationshipForm(card), isFalse);
       expect(LifeMapPlainThaiRenderer.hasAbstractDuel(card), isFalse);
       expect(LifeMapVerdictCopy.violatesPrimaryBody(p.summary), isFalse);
       if (p.isPast) {
@@ -115,7 +116,17 @@ void main() {
           expect(LifeMapPlainThaiRenderer.hasAbstractDuel(p.summary), isFalse);
           expect(
             LifeMapPlainThaiRenderer.countMarker(p.summary, 'ช่วงนั้น'),
-            lessThanOrEqualTo(1),
+            equals(0),
+          );
+          expect(
+            LifeMapPlainThaiRenderer.hasPastSoftOpener(p.summary),
+            isFalse,
+          );
+          expect(
+            LifeMapPlainThaiRenderer.hasVagueRelationshipForm(
+              '${p.summary}\n${p.harder}\n${p.advice}',
+            ),
+            isFalse,
           );
         }
       }

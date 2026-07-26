@@ -2,7 +2,7 @@
 
 **Last updated:** July 2026  
 **Branch:** `main`  
-**Merge tip:** `41d7988` (PR #46 V1.3.1 Narrative Depth); Production hosted @ `41d7988`  
+**Merge tip:** `3a2e3b9` (docs tip after V1.3.1); Production hosted @ `41d7988`; **V1.3.2 in progress**  
 **Prior architecture snapshot:** `feature/fusion-result`  
 **Automation workflow (authoritative):** Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
 **Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login) — Evidence Badge rollout remains `invited_beta`.
@@ -40,7 +40,8 @@
 | **Thai Life Map V1.2.8 Verdict Narrative** | Merged + **hosted** — **product-failed on UI** | PR #40 @ `4b42f95`; hedges/labels improved but meta-language remained (`แกนของชีวิต` / `บรรยากาศหลัก`) |
 | **Thai Life Map V1.2.9 Semantic Verdict Fix** | Merged + **hosted** — **product-failed on UI** | PR #42 @ `7ca091f`; semantic claims existed but UI prose stayed system-like (`ช่วงนั้น` / domain dump) |
 | **Thai Life Map V1.3.0 Plain Thai Narrative** | Merged + **hosted** — **product-failed on UI** | PR #44 @ `ad1e948`; plain Thai improved but Past too short / Current abstract duel / hero disclaimer |
-| **Thai Life Map V1.3.1 Narrative Depth** | Merged + **hosted** — **Ready for Validation** | PR #46 @ `41d7988`; Past story beats + natural Current + hero disclaimer removed; interactive Life Map UI QA blocked by Flutter a11y — production-path verified; [`THAI_LIFE_MAP_V131_NARRATIVE_DEPTH.md`](THAI_LIFE_MAP_V131_NARRATIVE_DEPTH.md) |
+| **Thai Life Map V1.3.1 Narrative Depth** | Merged + **hosted** — **product-failed on UI** | PR #46 @ `41d7988`; Past depth OK but duplicate core card / success banner / Past soft opener / abstract Current remained |
+| **Thai Life Map V1.3.2 Copy Hierarchy** | This release | Merge hero+core, silent complete birth data, remove Past soft opener, concrete Current; [`THAI_LIFE_MAP_V132_COPY_HIERARCHY.md`](THAI_LIFE_MAP_V132_COPY_HIERARCHY.md) |
 | **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with past-breadth deploy 2026-07-24 @ `5529264` |
 | **Single-Agent + Local Gate** | Merged to `main` | `docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`, `scripts/knowme_task_gate.ps1` |
 
