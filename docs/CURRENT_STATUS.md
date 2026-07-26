@@ -2,11 +2,11 @@
 
 **Last updated:** July 2026  
 **Branch:** `main`  
-**Merge tip:** `dff4b43` (PR #50 V1.3.3 Holistic Domains); Production hosted @ `dff4b43`  
+**Merge tip:** `7a3d07d` (PR #52 V1.3.4 Narrative Quality); Production hosted @ `7a3d07d`  
 **Prior architecture snapshot:** `feature/fusion-result`  
 **Automation workflow (authoritative):** Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
 **Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login) — Evidence Badge rollout remains `invited_beta`.
-**Thai Beta Narrative / Life Map:** **V1.3.3** holistic overview + Past life-story variety + Current life domains (product failure over V1.3.2 personality-only hero / Past skeletons / Current semantic headings) — see [`THAI_LIFE_MAP_V133_HOLISTIC_DOMAINS.md`](THAI_LIFE_MAP_V133_HOLISTIC_DOMAINS.md). V1.3.2 hosted @ `c1c0cbc` failed Product Acceptance on real UI. Status **Ready for Invited Beta Validation** (0 real Life Map Feedback).
+**Thai Beta Narrative / Life Map:** **V1.3.4** narrative quality upgrade on existing evidence only (no ephemeris) — life overview + Past life-story + Current การงาน/การเงิน/สุขภาพ/โชคลาภ — see [`THAI_LIFE_MAP_V134_NARRATIVE_QUALITY.md`](THAI_LIFE_MAP_V134_NARRATIVE_QUALITY.md). V1.3.3 @ `dff4b43` failed Product Acceptance (abstract overview / Past templates / wrong Current domains). Status **Ready for Invited Beta Validation** — Product Acceptance awaits owner Production text review (0 real Life Map Feedback).
 
 ---
 
@@ -42,7 +42,8 @@
 | **Thai Life Map V1.3.0 Plain Thai Narrative** | Merged + **hosted** — **product-failed on UI** | PR #44 @ `ad1e948`; plain Thai improved but Past too short / Current abstract duel / hero disclaimer |
 | **Thai Life Map V1.3.1 Narrative Depth** | Merged + **hosted** — **product-failed on UI** | PR #46 @ `41d7988`; Past depth OK but duplicate core card / success banner / Past soft opener / abstract Current remained |
 | **Thai Life Map V1.3.2 Copy Hierarchy** | Merged + **hosted** — **product-failed on UI** | PR #48 @ `c1c0cbc`; single hero + silent complete birth + Past/Current language; owner Production Acceptance failed (personality-only hero / Past skeletons / Current headings) |
-| **Thai Life Map V1.3.3 Holistic Domains** | Merged + **hosted** — **Ready for Validation** | PR #50 @ `dff4b43`; holistic hero + Past beat variety + Current ≤4 life domains; interactive Life Map UI QA blocked by Flutter a11y — production-path verified; [`THAI_LIFE_MAP_V133_HOLISTIC_DOMAINS.md`](THAI_LIFE_MAP_V133_HOLISTIC_DOMAINS.md) |
+| **Thai Life Map V1.3.3 Holistic Domains** | Merged + **hosted** — **product-failed on UI** | PR #50 @ `dff4b43`; holistic hero + Past variety + Current domains; owner Production Acceptance failed (abstract overview / Past templates / wrong domain set) |
+| **Thai Life Map V1.3.4 Narrative Quality** | Merged + **hosted** — **Ready for Validation** | PR #52 @ `7a3d07d`; overview/Past/Current quality on PeriodScores only — no SE/degrees/houses; Current = การงาน/การเงิน/สุขภาพ/โชคลาภ; production-path + QA artifact verified; Product Acceptance pending owner; [`THAI_LIFE_MAP_V134_NARRATIVE_QUALITY.md`](THAI_LIFE_MAP_V134_NARRATIVE_QUALITY.md) |
 | **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with past-breadth deploy 2026-07-24 @ `5529264` |
 | **Single-Agent + Local Gate** | Merged to `main` | `docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`, `scripts/knowme_task_gate.ps1` |
 
@@ -79,7 +80,7 @@ Real users (38 Firestore accounts): **2.6% reach Narrative**. Blocker is persona
 | Risk | Severity | Detail |
 |------|----------|--------|
 | Personality test cliff | **Critical** | 97% of profile users never start MBTI (`REAL_USER_RUNTIME_VALIDATION_V1.md`) |
-| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `dff4b43` (2026-07-26); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
+| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `7a3d07d` (2026-07-26); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
 | Real user PII export local-only | **High** | `firestore_user_export.json` gitignored — must regenerate locally |
 | Firebase service account local-only | **High** | `backend/firebase/serviceAccountKey.json` gitignored |
 | Legacy + new architecture coexist | **Medium** | Parallel scoring, navigation, and module IDs — trace before editing |
@@ -111,7 +112,7 @@ Accepted debt — do not hide; trace before editing.
 | **Status** | Public beta live on Firebase Hosting (June 2026) |
 | **Primary URL** | https://knowme-app-694e1.web.app |
 | **Firebase project** | `knowme-app-694e1` |
-| **Branch deployed from** | `main` @ `c1c0cbc` (2026-07-26); still **manual** deploy only — no auto-deploy |
+| **Branch deployed from** | `main` @ `7a3d07d` (2026-07-26); still **manual** deploy only — no auto-deploy |
 | **Full guide** | [`docs/DEPLOYMENT.md`](DEPLOYMENT.md) |
 
 Deploy: `.\scripts\deploy_web.ps1` or `firebase deploy --only hosting --project knowme-app-694e1`

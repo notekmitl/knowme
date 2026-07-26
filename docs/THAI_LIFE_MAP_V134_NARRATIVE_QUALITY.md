@@ -1,6 +1,6 @@
 # Thai Life Map V1.3.4 — Narrative Quality Upgrade
 
-**Status:** Feature branch (pending merge/deploy)  
+**Status:** Merged + hosted @ `7a3d07d` (PR #52) — Technical Gate passed; Product Acceptance pending owner Production text review  
 **Predecessor:** V1.3.3 @ `dff4b43` — Technical Gate passed; Product Acceptance failed (abstract overview / Past templates / wrong Current domains)
 
 ## Scope
