@@ -1,6 +1,6 @@
 # Thai Life Map V1.3.0 — Plain Thai Narrative
 
-**Status:** Implementation (product-failure fix over V1.2.9)  
+**Status:** Merged + hosted @ `ad1e948` (PR #44) — product-failure fix over V1.2.9  
 **Runtime predecessor:** V1.2.9 @ `7ca091f` failed Product Acceptance (system prose / repeated `ช่วงนั้น`)
 
 ## Root cause (proven)

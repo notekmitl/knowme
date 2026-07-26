@@ -16,7 +16,7 @@ cd knowme
 git checkout main
 ```
 
-**Important:** Prefer `main`. Life Map **V1.3.0** plain Thai narrative supersedes V1.2.9 product-failure copy — see [`THAI_LIFE_MAP_V130_PLAIN_THAI.md`](THAI_LIFE_MAP_V130_PLAIN_THAI.md). Prior Production @ `7ca091f` (V1.2.9) failed owner Product Acceptance on real Life Map UI. Evidence Badge remains `invited_beta`. Validation status: **Ready for Invited Beta Validation**.
+**Important:** Prefer `main`. Life Map **V1.3.0** plain Thai narrative is hosted @ `ad1e948` (PR #44) — see [`THAI_LIFE_MAP_V130_PLAIN_THAI.md`](THAI_LIFE_MAP_V130_PLAIN_THAI.md). V1.2.9 @ `7ca091f` failed Product Acceptance (system prose / repeated `ช่วงนั้น`). Evidence Badge remains `invited_beta`. Validation status: **Ready for Invited Beta Validation**.
 
 **Automation workflow:** Use Single-Agent + Local Gate — see [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). The external AI Worker is **retired** (historical: [`AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)). The obsolete in-repo `ai-worker/` directory is gitignored and must not be committed.
 
