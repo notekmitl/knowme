@@ -6,10 +6,57 @@ import 'life_map_verdict_semantics.dart';
 /// Does not dump internal domain labels, and never prefixes every sentence
 /// with the same time marker.
 abstract final class LifeMapPlainThaiRenderer {
-  /// Full Past card body (2–3 short sentences). Harder/advice stay empty.
+  /// Full Past card body — flowing story of 4–6 short sentences when evidence
+  /// supports; fewer when sparse. Grouped into 2–3 paragraphs (not bullet list).
   static String renderPastBody(LifeMapVerdictSemantics semantics) {
-    final slots = _buildSlots(semantics, LifeMapVerdictTense.past);
-    return slots.map((s) => s.text).join('\n\n');
+    final beats = semantics.beats;
+    final sentences = <String>[];
+    if (beats.isNotEmpty) {
+      for (final beat in beats) {
+        final t = _stripSystemPhrases(beat.textTh);
+        if (t.isEmpty) continue;
+        if (sentences.any((s) => _sameMeaning(s, t))) continue;
+        sentences.add(t);
+      }
+    } else {
+      for (final slot in _buildSlots(semantics, LifeMapVerdictTense.past)) {
+        sentences.add(slot.text);
+      }
+    }
+    if (sentences.isEmpty) return '';
+
+    // Soft past open once on the first sentence only.
+    if (!sentences.first.startsWith('ช่วงนั้น') &&
+        !sentences.first.startsWith('ในช่วงนั้น')) {
+      sentences[0] = 'ในช่วงนั้น ${sentences.first}';
+    }
+
+    List<String> paragraphs;
+    if (sentences.length <= 2) {
+      paragraphs = [sentences.join(' ')];
+      // Matrix + UX still expect ≥2 paragraphs when we have ≥2 beats.
+      if (sentences.length == 2) {
+        paragraphs = [sentences.first, sentences.last];
+      }
+    } else if (sentences.length == 3) {
+      paragraphs = [
+        '${sentences[0]} ${sentences[1]}',
+        sentences[2],
+      ];
+    } else if (sentences.length == 4) {
+      paragraphs = [
+        '${sentences[0]} ${sentences[1]}',
+        '${sentences[2]} ${sentences[3]}',
+      ];
+    } else {
+      // 5–6: three paragraphs of story beats.
+      paragraphs = [
+        '${sentences[0]} ${sentences[1]}',
+        '${sentences[2]} ${sentences[3]}',
+        sentences.skip(4).join(' '),
+      ];
+    }
+    return paragraphs.where((p) => p.trim().isNotEmpty).join('\n\n');
   }
 
   /// Current / Future card fields.
@@ -218,7 +265,15 @@ abstract final class LifeMapPlainThaiRenderer {
         .replaceAll('ผลที่ตามมาคือ', '');
   }
 
-  /// Product Language Gate helpers (UI-visible text).
+  /// Public duplicate check for mapper past-beat assembly.
+  static bool sameMeaningPublic(String a, String b) => _sameMeaning(a, b);
+
+  /// True when prose uses abstract "A กับ B แย่งกัน" without a clear actor.
+  static bool hasAbstractDuel(String text) {
+    if (text.contains('แย่งกัน')) return true;
+    return RegExp(r'[^。\n]{4,}กับ[^。\n]{4,}(แย่ง|แข่ง|สู้กัน)').hasMatch(text);
+  }
+
   static int countMarker(String cardText, String marker) =>
       marker.allMatches(cardText).length;
 

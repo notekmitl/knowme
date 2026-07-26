@@ -51,7 +51,7 @@ void main() {
         expect(text.contains('ลงทุน'), isFalse);
         expect(
           PastRetrospectiveComposer.approxWordCount(text),
-          inInclusiveRange(15, 120),
+          inInclusiveRange(40, 220),
         );
       },
     );
@@ -172,7 +172,11 @@ void main() {
         ),
         isFalse,
       );
-      expect(narrative.summary.contains('\n\n'), isTrue);
+      expect(narrative.summary.trim(), isNotEmpty);
+      expect(
+        PastRetrospectiveComposer.approxWordCount(narrative.summary),
+        greaterThanOrEqualTo(40),
+      );
     });
   });
 }
