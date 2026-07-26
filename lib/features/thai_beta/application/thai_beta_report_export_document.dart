@@ -23,11 +23,7 @@ class ThaiBetaReportExportSection {
   final ThaiBetaReportExportSectionKind kind;
 }
 
-enum ThaiBetaReportExportSectionKind {
-  body,
-  timeline,
-  disclaimer,
-}
+enum ThaiBetaReportExportSectionKind { body, timeline, disclaimer }
 
 /// Structured export payload — no engine/Canon/raw ids.
 class ThaiBetaReportExportDocument {
@@ -75,52 +71,47 @@ class ThaiBetaReportExportDocument {
     final sections = <ThaiBetaReportExportSection>[];
 
     sections.add(
-      _section(
-        view.hero.identityBadge,
-        [
-          view.hero.headline,
-          view.hero.summary,
-          if (view.hero.tags.isNotEmpty) view.hero.tags.join(' · '),
-          view.hero.identitySubtitle,
-        ],
-      ),
+      _section(view.hero.identityBadge, [
+        view.hero.headline,
+        view.hero.summary,
+        if (view.hero.tags.isNotEmpty) view.hero.tags.join(' · '),
+        view.hero.identitySubtitle,
+      ]),
     );
 
-    sections.add(
-      _section(view.birthDataConfidence.title, [view.birthDataConfidence.body]),
-    );
+    // V1.3.2: birth-data confidence is silent when complete; incomplete note
+    // already lives on hero.identitySubtitle — do not emit a spare banner block.
+    if (!view.birthDataConfidence.isComplete &&
+        view.birthDataConfidence.title.trim().isNotEmpty) {
+      sections.add(
+        _section(view.birthDataConfidence.title, [
+          view.birthDataConfidence.body,
+        ]),
+      );
+    }
 
     if (!view.signatureInsight.isEmpty) {
       sections.add(
-        _section(
-          view.signatureInsight.eyebrow,
-          [
-            _stripMarkdown(view.signatureInsight.body),
-            view.signatureInsight.signature,
-          ],
-        ),
+        _section(view.signatureInsight.eyebrow, [
+          _stripMarkdown(view.signatureInsight.body),
+          view.signatureInsight.signature,
+        ]),
       );
     }
 
     if (view.strengths.cards.isNotEmpty) {
       sections.add(
-        _section(
-          view.strengths.title,
-          [
-            for (final card in view.strengths.cards) ..._insightCardLines(card),
-          ],
-        ),
+        _section(view.strengths.title, [
+          for (final card in view.strengths.cards) ..._insightCardLines(card),
+        ]),
       );
     }
 
     if (view.cautions.cards.isNotEmpty) {
       sections.add(
-        _section(
-          view.cautions.title,
-          [
-            for (final card in view.cautions.cards) ..._insightCardLines(card),
-          ],
-        ),
+        _section(view.cautions.title, [
+          for (final card in view.cautions.cards) ..._insightCardLines(card),
+        ]),
       );
     }
 
@@ -130,17 +121,14 @@ class ThaiBetaReportExportDocument {
 
     if (view.lifeDashboard.isNotEmpty) {
       sections.add(
-        _section(
-          'ภาพรวมด้านชีวิต',
-          [
-            for (final item in view.lifeDashboard) ...[
-              '${item.label} — ${item.status.labelTh}',
-              item.currentState,
-              item.whyItAppears,
-              item.suggestedAction,
-            ],
+        _section('ภาพรวมด้านชีวิต', [
+          for (final item in view.lifeDashboard) ...[
+            '${item.label} — ${item.status.labelTh}',
+            item.currentState,
+            item.whyItAppears,
+            item.suggestedAction,
           ],
-        ),
+        ]),
       );
     }
 
@@ -156,59 +144,47 @@ class ThaiBetaReportExportDocument {
 
     for (final narrative in view.narrativeSections) {
       sections.add(
-        _section(
-          narrative.label,
-          [
-            if (narrative.hasTransition) narrative.transitionIn,
-            if (narrative.pullQuote.isNotEmpty)
-              _stripMarkdown(narrative.pullQuote),
-            if (narrative.hasDiscovery) _stripMarkdown(narrative.discovery),
-            _stripMarkdown(narrative.overview),
-            if (narrative.hasTension) _stripMarkdown(narrative.tension),
-            _stripMarkdown(narrative.whyItAppears),
-            if (narrative.hasReasoning) ...[
-              narrative.reasoningTitle,
-              ...narrative.reasoningSignals.map(_stripMarkdown),
-            ],
-            _stripMarkdown(narrative.advice),
-            _stripMarkdown(narrative.example),
-            if (narrative.hasReflectionQuestion) narrative.reflectionQuestion,
+        _section(narrative.label, [
+          if (narrative.hasTransition) narrative.transitionIn,
+          if (narrative.pullQuote.isNotEmpty)
+            _stripMarkdown(narrative.pullQuote),
+          if (narrative.hasDiscovery) _stripMarkdown(narrative.discovery),
+          _stripMarkdown(narrative.overview),
+          if (narrative.hasTension) _stripMarkdown(narrative.tension),
+          _stripMarkdown(narrative.whyItAppears),
+          if (narrative.hasReasoning) ...[
+            narrative.reasoningTitle,
+            ...narrative.reasoningSignals.map(_stripMarkdown),
           ],
-        ),
+          _stripMarkdown(narrative.advice),
+          _stripMarkdown(narrative.example),
+          if (narrative.hasReflectionQuestion) narrative.reflectionQuestion,
+        ]),
       );
     }
 
     sections.add(
-      _section(
-        view.reflectionSummary.title,
-        [
-          view.reflectionSummary.intro,
-          ...view.reflectionSummary.points,
-        ],
-      ),
+      _section(view.reflectionSummary.title, [
+        view.reflectionSummary.intro,
+        ...view.reflectionSummary.points,
+      ]),
     );
 
     if (!view.closingMessage.isEmpty) {
       sections.add(
-        _section(
-          view.closingMessage.eyebrow,
-          [
-            _stripMarkdown(view.closingMessage.message),
-            view.closingMessage.signature,
-          ],
-        ),
+        _section(view.closingMessage.eyebrow, [
+          _stripMarkdown(view.closingMessage.message),
+          view.closingMessage.signature,
+        ]),
       );
     }
 
     sections.add(
-      _section(
-        'ที่มาของผลวิเคราะห์',
-        [
-          view.sourceTransparency.dataUsed,
-          view.sourceTransparency.calculation,
-          view.sourceTransparency.meaning,
-        ],
-      ),
+      _section('ที่มาของผลวิเคราะห์', [
+        view.sourceTransparency.dataUsed,
+        view.sourceTransparency.calculation,
+        view.sourceTransparency.meaning,
+      ]),
     );
 
     if (view.secretTip.trim().isNotEmpty) {
@@ -231,10 +207,9 @@ class ThaiBetaReportExportDocument {
         .toList();
     if (safeBadges.isNotEmpty) {
       sections.add(
-        _section(
-          'หลักฐานสนับสนุน (สรุปสาธารณะ)',
-          ['ป้ายหลักฐานด้านล่างเป็นสรุประดับที่อนุญาตในเบต้าเท่านั้น'],
-        ),
+        _section('หลักฐานสนับสนุน (สรุปสาธารณะ)', [
+          'ป้ายหลักฐานด้านล่างเป็นสรุประดับที่อนุญาตในเบต้าเท่านั้น',
+        ]),
       );
       sections.addAll(safeBadges);
     }
@@ -300,8 +275,10 @@ class ThaiBetaReportExportDocument {
     final polishedTitle = ThaiBetaReportExportPolish.polishTitle(title);
     return ThaiBetaReportExportSection(
       title: polishedTitle,
-      paragraphs:
-          ThaiBetaReportExportPolish.dedupeParagraphs(polishedTitle, paragraphs),
+      paragraphs: ThaiBetaReportExportPolish.dedupeParagraphs(
+        polishedTitle,
+        paragraphs,
+      ),
       kind: kind,
     );
   }
@@ -325,11 +302,9 @@ class ThaiBetaReportExportDocument {
     ThaiMirrorLifeTimelineState timeline,
   ) {
     final out = <ThaiBetaReportExportSection>[
-      _section(
-        timeline.sectionTitle,
-        [timeline.sectionIntro],
-        kind: ThaiBetaReportExportSectionKind.timeline,
-      ),
+      _section(timeline.sectionTitle, [
+        timeline.sectionIntro,
+      ], kind: ThaiBetaReportExportSectionKind.timeline),
     ];
 
     final stage = timeline.currentStage;
@@ -372,32 +347,24 @@ class ThaiBetaReportExportDocument {
     final analysis = timeline.currentAnalysis;
     if (analysis != null && !analysis.isEmpty) {
       out.add(
-        _section(
-          analysis.title,
-          [
-            analysis.stageLabel,
-            analysis.dominantInfluences,
-            ...analysis.reasons,
-          ],
-          kind: ThaiBetaReportExportSectionKind.timeline,
-        ),
+        _section(analysis.title, [
+          analysis.stageLabel,
+          analysis.dominantInfluences,
+          ...analysis.reasons,
+        ], kind: ThaiBetaReportExportSectionKind.timeline),
       );
     }
 
     final preview = timeline.futurePreview;
     if (preview != null) {
       out.add(
-        _section(
-          preview.title,
-          [
-            preview.intro,
-            preview.transitionLabel,
-            if (preview.elementShiftLine.isNotEmpty) preview.elementShiftLine,
-            preview.opportunitiesLine,
-            preview.challengesLine,
-          ],
-          kind: ThaiBetaReportExportSectionKind.timeline,
-        ),
+        _section(preview.title, [
+          preview.intro,
+          preview.transitionLabel,
+          if (preview.elementShiftLine.isNotEmpty) preview.elementShiftLine,
+          preview.opportunitiesLine,
+          preview.challengesLine,
+        ], kind: ThaiBetaReportExportSectionKind.timeline),
       );
     }
 
@@ -426,29 +393,23 @@ class ThaiBetaReportExportDocument {
     PredictionSectionModel prediction,
   ) {
     final out = <ThaiBetaReportExportSection>[
-      _section(
-        prediction.sectionTitle,
-        [
-          prediction.sectionIntro,
-          if (prediction.transitionLine.isNotEmpty) prediction.transitionLine,
-        ],
-      ),
+      _section(prediction.sectionTitle, [
+        prediction.sectionIntro,
+        if (prediction.transitionLine.isNotEmpty) prediction.transitionLine,
+      ]),
     ];
     for (final window in prediction.windows) {
       out.add(
-        _section(
-          '${window.windowLabel} — ${window.timeframeLabel}',
-          [
-            window.summary,
-            window.topOpportunity,
-            window.topRisk,
-            window.confidenceLabel,
-            window.why,
-            window.whyNow,
-            window.whatToWatch,
-            window.evidenceDetail,
-          ],
-        ),
+        _section('${window.windowLabel} — ${window.timeframeLabel}', [
+          window.summary,
+          window.topOpportunity,
+          window.topRisk,
+          window.confidenceLabel,
+          window.why,
+          window.whyNow,
+          window.whatToWatch,
+          window.evidenceDetail,
+        ]),
       );
     }
     if (prediction.closingAdvice.isNotEmpty) {

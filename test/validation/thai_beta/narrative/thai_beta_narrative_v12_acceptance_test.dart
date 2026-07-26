@@ -21,11 +21,18 @@ void main() {
 
   group('V1.2 Personal Relevance acceptance', () {
     test('V12-1 full time + coherent: personal core + linked SRA', () {
-      final result =
-          ThaiBetaNarrativeComposer.compose(ThaiBetaNarrativeFixtures.fixtureA());
+      final result = ThaiBetaNarrativeComposer.compose(
+        ThaiBetaNarrativeFixtures.fixtureA(),
+      );
       final view = result.view;
-      expect(view.signatureInsight.isEmpty, isFalse);
-      expect(view.signatureInsight.eyebrow, contains('แก่น'));
+      // V1.3.2: personal core is synthesized into the single hero card.
+      expect(view.signatureInsight.isEmpty, isTrue);
+      expect(view.hero.summary, isNotEmpty);
+      expect(view.hero.identityBadge, 'ดวงไทยของคุณ');
+      expect(
+        _publicText(result),
+        isNot(contains('แก่นที่พอเห็นได้จากข้อมูลที่มี')),
+      );
       expect(view.strengths.title, ThaiBetaNarrativeV12.strengthsSectionTitle);
       expect(view.cautions.title, ThaiBetaNarrativeV12.cautionsSectionTitle);
       expect(view.advice.title, ThaiBetaNarrativeV12.adviceSectionTitle);
@@ -36,36 +43,47 @@ void main() {
         isTrue,
       );
       expect(
-        result.trace.entries.any((e) => e.relationship?.contains('v12_linked_risk') == true),
+        result.trace.entries.any(
+          (e) => e.relationship?.contains('v12_linked_risk') == true,
+        ),
         isTrue,
       );
-      expect(ThaiBetaNarrativeForbidden.findForbidden(_publicText(result)), isEmpty);
+      expect(
+        ThaiBetaNarrativeForbidden.findForbidden(_publicText(result)),
+        isEmpty,
+      );
     });
 
     test('V12-2 mixed/tension profile: no contradictory public copy', () {
-      final result =
-          ThaiBetaNarrativeComposer.compose(ThaiBetaNarrativeFixtures.fixtureC());
-      expect(result.view.signatureInsight.isEmpty, isFalse);
-      expect(ThaiBetaNarrativeForbidden.findForbidden(_publicText(result)), isEmpty);
+      final result = ThaiBetaNarrativeComposer.compose(
+        ThaiBetaNarrativeFixtures.fixtureC(),
+      );
+      expect(result.view.signatureInsight.isEmpty, isTrue);
+      expect(result.view.hero.summary, isNotEmpty);
+      expect(
+        ThaiBetaNarrativeForbidden.findForbidden(_publicText(result)),
+        isEmpty,
+      );
       expect(
         ThaiBetaNarrativeV12.adviceConflictsWithCore(
           adviceText: result.view.advice.body,
-          coreBody: result.view.signatureInsight.body,
+          coreBody: result.view.hero.summary,
         ),
         isFalse,
       );
     });
 
     test('V12-3 no birth time: limited core + no deep motive', () {
-      final result =
-          ThaiBetaNarrativeComposer.compose(ThaiBetaNarrativeFixtures.fixtureB());
-      expect(result.view.birthDataConfidence.isComplete, isFalse);
-      expect(
-        result.view.signatureInsight.eyebrow,
-        contains('ยังไม่ครบ'),
+      final result = ThaiBetaNarrativeComposer.compose(
+        ThaiBetaNarrativeFixtures.fixtureB(),
       );
+      expect(result.view.birthDataConfidence.isComplete, isFalse);
+      expect(result.view.signatureInsight.isEmpty, isTrue);
+      expect(result.view.hero.identitySubtitle, contains('ไม่มีเวลาเกิด'));
       expect(
-        ThaiBetaNarrativeForbidden.findNoBirthTimeViolations(_publicText(result)),
+        ThaiBetaNarrativeForbidden.findNoBirthTimeViolations(
+          _publicText(result),
+        ),
         isEmpty,
       );
       expect(
@@ -87,16 +105,22 @@ void main() {
       final noTime = ThaiBetaNarrativeComposer.compose(
         ThaiBetaNarrativeFixtures.fixtureB(),
       );
-      expect(unknown.view.signatureInsight.eyebrow, noTime.view.signatureInsight.eyebrow);
       expect(
-        ThaiBetaNarrativeForbidden.findNoBirthTimeViolations(_publicText(unknown)),
+        unknown.view.hero.identitySubtitle,
+        noTime.view.hero.identitySubtitle,
+      );
+      expect(
+        ThaiBetaNarrativeForbidden.findNoBirthTimeViolations(
+          _publicText(unknown),
+        ),
         isEmpty,
       );
     });
 
     test('V12-5 limited evidence still composes without filler patterns', () {
-      final result =
-          ThaiBetaNarrativeComposer.compose(ThaiBetaNarrativeFixtures.fixtureD());
+      final result = ThaiBetaNarrativeComposer.compose(
+        ThaiBetaNarrativeFixtures.fixtureD(),
+      );
       final text = _publicText(result);
       expect(text.contains('TODO'), isFalse);
       expect(text.contains('placeholder'), isFalse);
@@ -104,8 +128,9 @@ void main() {
     });
 
     test('V12-6 advice relates to primary strength evidence when possible', () {
-      final result =
-          ThaiBetaNarrativeComposer.compose(ThaiBetaNarrativeFixtures.fixtureA());
+      final result = ThaiBetaNarrativeComposer.compose(
+        ThaiBetaNarrativeFixtures.fixtureA(),
+      );
       final strengthIds = result.trace.entries
           .where((e) => e.sectionId.startsWith('strength_'))
           .map((e) => e.blockId)
@@ -125,8 +150,9 @@ void main() {
     });
 
     test('V12-7 no duplicate caution text across linked cards', () {
-      final result =
-          ThaiBetaNarrativeComposer.compose(ThaiBetaNarrativeFixtures.fixtureA());
+      final result = ThaiBetaNarrativeComposer.compose(
+        ThaiBetaNarrativeFixtures.fixtureA(),
+      );
       final bodies = result.view.cautions.cards.map((c) => c.body).toList();
       expect(bodies.toSet().length, bodies.length);
     });
@@ -141,7 +167,7 @@ void main() {
         expect(
           ThaiBetaNarrativeV12.adviceConflictsWithCore(
             adviceText: result.view.advice.body,
-            coreBody: result.view.signatureInsight.body,
+            coreBody: result.view.hero.summary,
           ),
           isFalse,
         );
@@ -154,7 +180,8 @@ void main() {
       final snap = analysis.normalizedSnapshot!;
       expect(_thaiWeekdayNumber(snap.thaiAstrologicalDate), 4);
       final result = ThaiBetaNarrativeComposer.compose(analysis);
-      expect(result.view.signatureInsight.isEmpty, isFalse);
+      expect(result.view.signatureInsight.isEmpty, isTrue);
+      expect(result.view.hero.summary, isNotEmpty);
     });
 
     test('V12-10 Wednesday pre-sunrise rolls to พุธ', () {
@@ -163,8 +190,14 @@ void main() {
       expect(snap.usedPreviousDay, isTrue);
       expect(_thaiWeekdayNumber(snap.thaiAstrologicalDate), 4);
       expect(
-        ThaiBetaNarrativeComposer.compose(analysis).view.signatureInsight.isEmpty,
-        isFalse,
+        ThaiBetaNarrativeComposer.compose(
+          analysis,
+        ).view.signatureInsight.isEmpty,
+        isTrue,
+      );
+      expect(
+        ThaiBetaNarrativeComposer.compose(analysis).view.hero.summary,
+        isNotEmpty,
       );
     });
 
@@ -180,8 +213,7 @@ void main() {
       ).birth!;
       expect(noon.sunriseAvailable, isTrue);
       final sunrise = noon.sunrise;
-      final beforeHour =
-          sunrise.minute == 0 ? sunrise.hour - 1 : sunrise.hour;
+      final beforeHour = sunrise.minute == 0 ? sunrise.hour - 1 : sunrise.hour;
       final beforeMinute = sunrise.minute == 0 ? 59 : sunrise.minute - 1;
       final before = BirthNormalizer.normalize(
         RawBirthInput(
@@ -211,7 +243,7 @@ void main() {
       final a = ThaiBetaNarrativeFixtures.fixtureA();
       final first = ThaiBetaNarrativeComposer.compose(a);
       final second = ThaiBetaNarrativeComposer.compose(a);
-      expect(first.view.signatureInsight.body, second.view.signatureInsight.body);
+      expect(first.view.hero.summary, second.view.hero.summary);
       expect(first.view.advice.body, second.view.advice.body);
       expect(
         first.trace.entries.map((e) => e.blockId).toList(),
@@ -220,8 +252,9 @@ void main() {
     });
 
     test('V12-13 traceability for core / strength / risk / action', () {
-      final result =
-          ThaiBetaNarrativeComposer.compose(ThaiBetaNarrativeFixtures.fixtureA());
+      final result = ThaiBetaNarrativeComposer.compose(
+        ThaiBetaNarrativeFixtures.fixtureA(),
+      );
       expect(
         result.trace.entries.any(
           (e) => e.sectionId == 'personal_core' && e.blockId != null,
@@ -282,15 +315,33 @@ void main() {
       await tester.pumpAndSettle();
     }
 
-    testWidgets('V12-14 mobile: core + SRA hierarchy visible, no badge',
-        (tester) async {
+    testWidgets('V12-14 mobile: core + SRA hierarchy visible, no badge', (
+      tester,
+    ) async {
       await pumpReport(tester, const Size(390, 844));
       expect(find.byType(ThaiBetaReportPage), findsOneWidget);
       expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);
-      expect(find.byKey(const Key('thai_consumer_signature_insight')), findsOneWidget);
-      expect(find.text(ThaiBetaNarrativeV12.strengthsSectionTitle), findsOneWidget);
-      expect(find.text(ThaiBetaNarrativeV12.cautionsSectionTitle), findsOneWidget);
-      expect(find.text(ThaiBetaNarrativeV12.adviceSectionTitle), findsOneWidget);
+      // V1.3.2: single opening hero; no separate personal-core card.
+      expect(find.byKey(const Key('thai_consumer_hero')), findsOneWidget);
+      expect(
+        find.byKey(const Key('thai_consumer_signature_insight')),
+        findsNothing,
+      );
+      expect(find.text('ดวงไทยของคุณ'), findsWidgets);
+      expect(find.text('แก่นที่พอเห็นได้จากข้อมูลที่มี'), findsNothing);
+      expect(find.text('ข้อมูลวันเกิดครบถ้วน'), findsNothing);
+      expect(
+        find.text(ThaiBetaNarrativeV12.strengthsSectionTitle),
+        findsOneWidget,
+      );
+      expect(
+        find.text(ThaiBetaNarrativeV12.cautionsSectionTitle),
+        findsOneWidget,
+      );
+      expect(
+        find.text(ThaiBetaNarrativeV12.adviceSectionTitle),
+        findsOneWidget,
+      );
       expect(tester.takeException(), isNull);
     });
 
@@ -298,8 +349,16 @@ void main() {
       await pumpReport(tester, const Size(1280, 800));
       expect(find.byType(ThaiBetaReportPage), findsOneWidget);
       expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);
-      expect(find.byKey(const Key('thai_consumer_signature_insight')), findsOneWidget);
-      expect(find.text(ThaiBetaNarrativeV12.strengthsSectionTitle), findsOneWidget);
+      expect(find.byKey(const Key('thai_consumer_hero')), findsOneWidget);
+      expect(
+        find.byKey(const Key('thai_consumer_signature_insight')),
+        findsNothing,
+      );
+      expect(find.text('ข้อมูลวันเกิดครบถ้วน'), findsNothing);
+      expect(
+        find.text(ThaiBetaNarrativeV12.strengthsSectionTitle),
+        findsOneWidget,
+      );
       expect(tester.takeException(), isNull);
     });
 

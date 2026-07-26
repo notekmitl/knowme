@@ -95,10 +95,12 @@ abstract final class LifeMapSemanticMapper {
       }
     }
 
-    final pressureFinal =
-        pressure.semanticKey == primary.semanticKey ? null : pressure;
-    final consequenceFinal =
-        consequence.semanticKey == primary.semanticKey ? null : consequence;
+    final pressureFinal = pressure.semanticKey == primary.semanticKey
+        ? null
+        : pressure;
+    final consequenceFinal = consequence.semanticKey == primary.semanticKey
+        ? null
+        : consequence;
 
     final beats = tense == LifeMapVerdictTense.past
         ? _pastBeats(
@@ -183,7 +185,11 @@ abstract final class LifeMapSemanticMapper {
         id: linger.id,
         role: 'lingering',
         textTh: linger.text,
-        evidenceKeys: [...keys, 'beat:lingering', 'transition:${transition.name}'],
+        evidenceKeys: [
+          ...keys,
+          'beat:lingering',
+          'transition:${transition.name}',
+        ],
       ),
     ];
 
@@ -192,7 +198,9 @@ abstract final class LifeMapSemanticMapper {
     for (final beat in raw) {
       final t = beat.textTh.trim();
       if (t.isEmpty) continue;
-      if (kept.any((k) => LifeMapPlainThaiRenderer.sameMeaningPublic(k.textTh, t))) {
+      if (kept.any(
+        (k) => LifeMapPlainThaiRenderer.sameMeaningPublic(k.textTh, t),
+      )) {
         continue;
       }
       kept.add(beat);
@@ -372,63 +380,42 @@ abstract final class LifeMapSemanticMapper {
   static _TextId _consequence(_TransitionKind transition, int variant) {
     final lines = switch (transition) {
       _TransitionKind.forcedReorder => [
-        _TextId(
-          'cons_reorder',
-          'คุณต้องเลือกเก็บเฉพาะเรื่องที่สำคัญจริง ๆ',
-        ),
+        _TextId('cons_reorder', 'คุณต้องเลือกเก็บเฉพาะเรื่องที่สำคัญจริง ๆ'),
         _TextId(
           'cons_reorder2',
           'คุณต้องจัดลำดับชีวิตใหม่และหยุดบางอย่างที่ถ่วงไว้',
         ),
       ],
       _TransitionKind.separateRebuild => [
-        _TextId(
-          'cons_rebuild',
-          'คุณต้องเริ่มใหม่และปล่อยวิธีเดิมไป',
-        ),
+        _TextId('cons_rebuild', 'คุณต้องเริ่มใหม่และปล่อยวิธีเดิมไป'),
         _TextId(
           'cons_rebuild2',
           'ชีวิตไม่เหมือนเดิม และคุณต้องสร้างทางของตัวเอง',
         ),
       ],
       _TransitionKind.lockStability => [
-        _TextId(
-          'cons_lock',
-          'คุณต้องยึดเรื่องมั่นคงไว้ก่อนความอยากส่วนตัว',
-        ),
-        _TextId(
-          'cons_lock2',
-          'หน้าที่ที่หลีกเลี่ยงไม่ได้จำกัดทางเลือกอื่น',
-        ),
+        _TextId('cons_lock', 'คุณต้องยึดเรื่องมั่นคงไว้ก่อนความอยากส่วนตัว'),
+        _TextId('cons_lock2', 'หน้าที่ที่หลีกเลี่ยงไม่ได้จำกัดทางเลือกอื่น'),
       ],
       _TransitionKind.expandRole => [
-        _TextId(
-          'cons_expand',
-          'คุณต้องรับหน้าที่มากขึ้นตามโอกาสที่เข้ามา',
-        ),
+        _TextId('cons_expand', 'คุณต้องรับหน้าที่มากขึ้นตามโอกาสที่เข้ามา'),
         _TextId(
           'cons_expand2',
           'คุณออกจากวิธีเดิมและตัดสินใจด้วยตัวเองมากขึ้น',
         ),
       ],
       _TransitionKind.commitAction => [
-        _TextId(
-          'cons_act',
-          'คุณต้องลงมือตัดสินใจแทนการเลื่อนปัญหาไว้',
-        ),
-        _TextId(
-          'cons_act2',
-          'คุณมองอนาคตต่างจากเดิม',
-        ),
+        _TextId('cons_act', 'คุณต้องลงมือตัดสินใจแทนการเลื่อนปัญหาไว้'),
+        _TextId('cons_act2', 'คุณมองอนาคตต่างจากเดิม'),
       ],
       _TransitionKind.rebindRelations => [
         _TextId(
           'cons_rel',
-          'คุณต้องคุยและรับผิดชอบผลของการอยู่ใกล้ชิดชัดขึ้น',
+          'คุณต้องคุยกับคนใกล้ตัวและรับผิดชอบผลของการอยู่ด้วยกันชัดขึ้น',
         ),
         _TextId(
           'cons_rel2',
-          'รูปแบบความใกล้ชิดเปลี่ยน และต้องตั้งขอบเขตใหม่',
+          'คุณต้องบอกคนใกล้ตัวว่าเรื่องใดรับได้ และเรื่องใดยังรับไม่ได้',
         ),
       ],
       _TransitionKind.seekRecognition => [
@@ -442,24 +429,12 @@ abstract final class LifeMapSemanticMapper {
         ),
       ],
       _TransitionKind.restoreBalance => [
-        _TextId(
-          'cons_bal',
-          'คุณต้องคืนแรงก่อนเร่งเรื่องอื่น',
-        ),
-        _TextId(
-          'cons_bal2',
-          'คุณต้องจัดชีวิตให้พักได้โดยไม่เสียสุขภาพ',
-        ),
+        _TextId('cons_bal', 'คุณต้องคืนแรงก่อนเร่งเรื่องอื่น'),
+        _TextId('cons_bal2', 'คุณต้องจัดชีวิตให้พักได้โดยไม่เสียสุขภาพ'),
       ],
       _TransitionKind.skillBuild => [
-        _TextId(
-          'cons_skill',
-          'ทักษะที่ฝึกไว้ใช้ต่อได้จริง',
-        ),
-        _TextId(
-          'cons_skill2',
-          'คุณเลือกทางที่ถนัดชัดขึ้น',
-        ),
+        _TextId('cons_skill', 'ทักษะที่ฝึกไว้ใช้ต่อได้จริง'),
+        _TextId('cons_skill2', 'คุณเลือกทางที่ถนัดชัดขึ้น'),
       ],
     };
     return lines[variant.abs() % lines.length];
@@ -487,16 +462,10 @@ abstract final class LifeMapSemanticMapper {
                     'sit_work',
                     'งานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่',
                   ),
-                  _TextId(
-                    'sit_work2',
-                    'งานที่เคยทำแบบเดิมเริ่มเปลี่ยนไป',
-                  ),
+                  _TextId('sit_work2', 'งานที่เคยทำแบบเดิมเริ่มเปลี่ยนไป'),
                 ],
           pressures: [
-            _TextId(
-              'prs_work',
-              'คุณต้องแบกงานหลายเรื่องจนเวลาและพลังไม่พอ',
-            ),
+            _TextId('prs_work', 'คุณต้องแบกงานหลายเรื่องจนเวลาและพลังไม่พอ'),
             _TextId(
               'prs_work2',
               'คุณมีทั้งงานและเรื่องส่วนตัวให้จัดการพร้อมกันจนทำไม่ไหว',
@@ -529,10 +498,7 @@ abstract final class LifeMapSemanticMapper {
       case LifeMapClaimDomain.moneySecurity:
         return _DomainPack(
           situations: [
-            _TextId(
-              'sit_money',
-              'เรื่องเงินจำกัดทางเลือกอื่นในชีวิตของคุณ',
-            ),
+            _TextId('sit_money', 'เรื่องเงินจำกัดทางเลือกอื่นในชีวิตของคุณ'),
             _TextId(
               'sit_money2',
               'คุณต้องคิดเรื่องเก็บเงินและความมั่นคงก่อนเรื่องอื่น',
@@ -570,14 +536,11 @@ abstract final class LifeMapSemanticMapper {
             ),
             _TextId(
               'sit_love2',
-              'รูปแบบความรักเปลี่ยน และคุณต้องรับผลจากการเลือก',
+              'คุณต้องเลือกว่าจะให้เวลากับงานหรือกับคนใกล้ตัวก่อน',
             ),
           ],
           pressures: [
-            _TextId(
-              'prs_love',
-              'คุณคาดหวังเงียบ ๆ โดยไม่คุยจนเกิดระยะห่าง',
-            ),
+            _TextId('prs_love', 'คุณคาดหวังเงียบ ๆ โดยไม่คุยจนเกิดระยะห่าง'),
             _TextId(
               'prs_love2',
               'คุณอยากใกล้ชิด แต่ก็ยังต้องการพื้นที่ส่วนตัว',
@@ -590,29 +553,20 @@ abstract final class LifeMapSemanticMapper {
             ),
           ],
           lingerings: [
-            _TextId(
-              'ling_love',
-              'คุณเริ่มระวังมากขึ้นเวลาเลือกใกล้ชิดกับใคร',
-            ),
+            _TextId('ling_love', 'คุณเริ่มระวังมากขึ้นเวลาเลือกใกล้ชิดกับใคร'),
           ],
         );
       case LifeMapClaimDomain.familyHome:
         return _DomainPack(
           situations: [
-            _TextId(
-              'sit_home',
-              'คนในบ้านมีผลต่อชีวิตคุณมาก',
-            ),
+            _TextId('sit_home', 'คนในบ้านมีผลต่อชีวิตคุณมาก'),
             _TextId(
               'sit_home2',
               'หน้าที่ในบ้านเปลี่ยนไป และคุณต้องพึ่งคนใกล้ตัวมากขึ้น',
             ),
           ],
           pressures: [
-            _TextId(
-              'prs_home',
-              'คุณต้องทำตามความคาดหวังของผู้ใหญ่',
-            ),
+            _TextId('prs_home', 'คุณต้องทำตามความคาดหวังของผู้ใหญ่'),
             _TextId(
               'prs_home2',
               'คุณมีหน้าที่ในบ้านมากขึ้นจนเวลาส่วนตัวเหลือน้อย',
@@ -634,24 +588,12 @@ abstract final class LifeMapSemanticMapper {
       case LifeMapClaimDomain.healthEnergy:
         return _DomainPack(
           situations: [
-            _TextId(
-              'sit_health',
-              'ร่างกายและใจถูกใช้จนสุดแรง',
-            ),
-            _TextId(
-              'sit_health2',
-              'คุณต้องลดภาระบางอย่างเพื่อรักษาแรงไว้',
-            ),
+            _TextId('sit_health', 'ร่างกายและใจถูกใช้จนสุดแรง'),
+            _TextId('sit_health2', 'คุณต้องลดภาระบางอย่างเพื่อรักษาแรงไว้'),
           ],
           pressures: [
-            _TextId(
-              'prs_health',
-              'คุณฝืนตัวเองจนสะสมความล้า',
-            ),
-            _TextId(
-              'prs_health2',
-              'คุณมีหน้าที่หลายอย่าง จนแทบไม่มีเวลาพัก',
-            ),
+            _TextId('prs_health', 'คุณฝืนตัวเองจนสะสมความล้า'),
+            _TextId('prs_health2', 'คุณมีหน้าที่หลายอย่าง จนแทบไม่มีเวลาพัก'),
           ],
           contexts: [
             _TextId(
@@ -669,24 +611,15 @@ abstract final class LifeMapSemanticMapper {
       case LifeMapClaimDomain.identityBelonging:
         return _DomainPack(
           situations: [
-            _TextId(
-              'sit_id',
-              'คุณต้องหาที่ยืนในกลุ่มและแสดงออกให้คนอื่นเห็น',
-            ),
+            _TextId('sit_id', 'คุณต้องหาที่ยืนในกลุ่มและแสดงออกให้คนอื่นเห็น'),
             _TextId(
               'sit_id2',
               'คุณถูกผลักให้เลือกทางของตัวเองท่ามกลางคนรอบตัว',
             ),
           ],
           pressures: [
-            _TextId(
-              'prs_id',
-              'คุณเปรียบเทียบตัวเองกับคนรอบตัวบ่อย',
-            ),
-            _TextId(
-              'prs_id2',
-              'คุณอยากเป็นตัวเอง แต่ก็ยังอยากให้คนอื่นยอมรับ',
-            ),
+            _TextId('prs_id', 'คุณเปรียบเทียบตัวเองกับคนรอบตัวบ่อย'),
+            _TextId('prs_id2', 'คุณอยากเป็นตัวเอง แต่ก็ยังอยากให้คนอื่นยอมรับ'),
           ],
           contexts: [
             _TextId(
@@ -704,20 +637,14 @@ abstract final class LifeMapSemanticMapper {
       case LifeMapClaimDomain.learningPath:
         return _DomainPack(
           situations: [
-            _TextId(
-              'sit_learn',
-              'การเรียนและการฝึกฝนกินเวลาส่วนใหญ่ของคุณ',
-            ),
+            _TextId('sit_learn', 'การเรียนและการฝึกฝนกินเวลาส่วนใหญ่ของคุณ'),
             _TextId(
               'sit_learn2',
               'คุณต้องเลือกทางที่ถนัดท่ามกลางความคาดหวังของคนรอบตัว',
             ),
           ],
           pressures: [
-            _TextId(
-              'prs_learn',
-              'ผลงานเรียนถูกนำไปเปรียบกับคนอื่น',
-            ),
+            _TextId('prs_learn', 'ผลงานเรียนถูกนำไปเปรียบกับคนอื่น'),
             _TextId(
               'prs_learn2',
               'สิ่งที่ถนัดกับสิ่งที่คนรอบตัวคาดหวังไม่ตรงกัน',
@@ -743,26 +670,17 @@ abstract final class LifeMapSemanticMapper {
               'sit_duty',
               'หน้าที่และความรับผิดชอบเพิ่มขึ้นจนเลือกทางอื่นได้ยาก',
             ),
-            _TextId(
-              'sit_duty2',
-              'คุณต้องรับภาระที่หลีกเลี่ยงไม่ได้',
-            ),
+            _TextId('sit_duty2', 'คุณต้องรับภาระที่หลีกเลี่ยงไม่ได้'),
           ],
           pressures: [
-            _TextId(
-              'prs_duty',
-              'มีภาระที่ต้องทำแม้จะไม่อยากรับ',
-            ),
+            _TextId('prs_duty', 'มีภาระที่ต้องทำแม้จะไม่อยากรับ'),
             _TextId(
               'prs_duty2',
               'คุณต้องทำหน้าที่ก่อน ทั้งที่อยากมีเวลาให้ตัวเอง',
             ),
           ],
           contexts: [
-            _TextId(
-              'ctx_duty',
-              'ก่อนหน้านั้นภาระของคุณยังไม่หนักเท่านี้',
-            ),
+            _TextId('ctx_duty', 'ก่อนหน้านั้นภาระของคุณยังไม่หนักเท่านี้'),
           ],
           lingerings: [
             _TextId(
@@ -784,10 +702,7 @@ abstract final class LifeMapSemanticMapper {
             ),
           ],
           pressures: [
-            _TextId(
-              'prs_trans',
-              'คุณเสียความคุ้นเคยไปทั้งที่ฐานใหม่ยังไม่ชัด',
-            ),
+            _TextId('prs_trans', 'คุณเสียความคุ้นเคยไปทั้งที่ฐานใหม่ยังไม่ชัด'),
             _TextId(
               'prs_trans2',
               'คุณยังอยากยึดของเดิม แต่ก็รู้ว่าต้องเดินต่อ',
@@ -809,24 +724,15 @@ abstract final class LifeMapSemanticMapper {
       case LifeMapClaimDomain.opportunityExpand:
         return _DomainPack(
           situations: [
-            _TextId(
-              'sit_opp',
-              'มีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก',
-            ),
+            _TextId('sit_opp', 'มีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก'),
             _TextId(
               'sit_opp2',
               'มีทางเลือกมากขึ้น แต่ทุกทางแลกด้วยหน้าที่ที่เพิ่มขึ้น',
             ),
           ],
           pressures: [
-            _TextId(
-              'prs_opp',
-              'คุณรับทุกโอกาสไว้จนโฟกัสกระจาย',
-            ),
-            _TextId(
-              'prs_opp2',
-              'ทางเลือกเยอะจนเลือกลำดับความสำคัญได้ยาก',
-            ),
+            _TextId('prs_opp', 'คุณรับทุกโอกาสไว้จนโฟกัสกระจาย'),
+            _TextId('prs_opp2', 'ทางเลือกเยอะจนเลือกลำดับความสำคัญได้ยาก'),
           ],
           contexts: [
             _TextId(

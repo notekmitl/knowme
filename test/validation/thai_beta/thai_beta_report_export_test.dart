@@ -64,9 +64,15 @@ void main() {
       expect(ThaiBetaReportExportSafety.containsForbidden('Taksa'), isTrue);
       expect(ThaiBetaReportExportSafety.containsForbidden('ทักษา'), isTrue);
       expect(ThaiBetaReportExportSafety.containsForbidden('Khumsap'), isTrue);
-      expect(ThaiBetaReportExportSafety.containsForbidden('คุ้มทรัพย์'), isTrue);
+      expect(
+        ThaiBetaReportExportSafety.containsForbidden('คุ้มทรัพย์'),
+        isTrue,
+      );
       expect(ThaiBetaReportExportSafety.containsForbidden('remedy'), isTrue);
-      expect(ThaiBetaReportExportSafety.containsForbidden('ontology:foo'), isTrue);
+      expect(
+        ThaiBetaReportExportSafety.containsForbidden('ontology:foo'),
+        isTrue,
+      );
       expect(
         ThaiBetaReportExportSafety.containsForbidden('unit.remedy.1'),
         isTrue,
@@ -117,14 +123,13 @@ void main() {
 
     test('does not invent new prediction copy beyond view state', () {
       final doc = ThaiBetaReportExportDocument.fromAnalysis(analysis);
-      final view = analysis.consumerViewState!;
-      // Every section title/paragraph should come from scrubbed view fields —
-      // at minimum hero + birth confidence must be present.
-      expect(doc.fullPlainText, contains(view.birthDataConfidence.title));
-      expect(
-        doc.fullPlainText,
-        contains(ThaiBetaNarrativeComposer.narrativeView(analysis).hero.headline),
-      );
+      final view = ThaiBetaNarrativeComposer.narrativeView(analysis);
+      // V1.3.2: birth confidence banner is silent when complete; hero remains.
+      expect(view.birthDataConfidence.isComplete, isTrue);
+      expect(view.birthDataConfidence.title, isEmpty);
+      expect(doc.fullPlainText, contains(view.hero.identityBadge));
+      expect(doc.fullPlainText, contains(view.hero.headline));
+      expect(doc.fullPlainText, isNot(contains('ข้อมูลวันเกิดครบถ้วน')));
     });
 
     test('PDF polish removes duplicate neighbour prefixes and zero timing', () {
@@ -142,54 +147,75 @@ void main() {
   });
 
   group('Real PDF exporter path regression', () {
-    test('download-button path polishes polluted document before PDF text', () async {
-      const polluted = ThaiBetaReportExportDocument(
-        title: 'KnowMe — รายงานโหราไทย',
-        subtitle: 'probe',
-        filenameStem: 'knowme-thai-report',
-        sections: [
-          ThaiBetaReportExportSection(
-            title: 'เส้นทางชีวิต',
-            kind: ThaiBetaReportExportSectionKind.timeline,
-            paragraphs: [
-              'อิทธิพลดาวพฤหัสบดี • การเติบโต',
-              'การเติบโต',
-              'อิทธิพลดาวพุธ • การเรียนรู้',
-              'การเรียนรู้',
-              'อิทธิพลดาวเสาร์ • ความมั่นคง',
-              'ความมั่นคง',
-              'ช่วงก่อนหน้า: ช่วงก่อนหน้า: ช่วงวางรากฐาน (1–10)',
-              'ช่วงถัดไป: ช่วงถัดไป: ช่วงพลิกผัน (55–66)',
-              'เหลืออีกประมาณ 0 ปีก่อนเปลี่ยนช่วง',
-              'อีกประมาณ 0 เดือนจะเริ่มก้าวสู่จังหวะใหม่',
-              'ดี(ผ่านรู้สึก…)',
-              'ผ่านคิดละเอ…',
-              'เนื้อหาที่ต้องเหลืออยู่',
-            ],
-          ),
-        ],
-      );
+    test(
+      'download-button path polishes polluted document before PDF text',
+      () async {
+        const polluted = ThaiBetaReportExportDocument(
+          title: 'KnowMe — รายงานโหราไทย',
+          subtitle: 'probe',
+          filenameStem: 'knowme-thai-report',
+          sections: [
+            ThaiBetaReportExportSection(
+              title: 'เส้นทางชีวิต',
+              kind: ThaiBetaReportExportSectionKind.timeline,
+              paragraphs: [
+                'อิทธิพลดาวพฤหัสบดี • การเติบโต',
+                'การเติบโต',
+                'อิทธิพลดาวพุธ • การเรียนรู้',
+                'การเรียนรู้',
+                'อิทธิพลดาวเสาร์ • ความมั่นคง',
+                'ความมั่นคง',
+                'ช่วงก่อนหน้า: ช่วงก่อนหน้า: ช่วงวางรากฐาน (1–10)',
+                'ช่วงถัดไป: ช่วงถัดไป: ช่วงพลิกผัน (55–66)',
+                'เหลืออีกประมาณ 0 ปีก่อนเปลี่ยนช่วง',
+                'อีกประมาณ 0 เดือนจะเริ่มก้าวสู่จังหวะใหม่',
+                'ดี(ผ่านรู้สึก…)',
+                'ผ่านคิดละเอ…',
+                'เนื้อหาที่ต้องเหลืออยู่',
+              ],
+            ),
+          ],
+        );
 
-      // Same exporter entry used by ThaiBetaReportExportButton._exportPdf.
-      final rendered = await ThaiBetaReportPdfExporter.build(polluted);
-      expect(rendered.bytes, isNotEmpty);
-      expect(rendered.plainText, contains('เนื้อหาที่ต้องเหลืออยู่'));
-      expect(ThaiBetaReportExportPolish.findForbidden(rendered.plainText), isEmpty);
-      expect(rendered.plainText.contains('ผ่านรู้สึก…'), isFalse);
-      expect(rendered.plainText.contains('ผ่านคิดละเอ…'), isFalse);
-      expect(rendered.plainText.contains('ดี(ผ่าน'), isFalse);
-      expect(rendered.plainText.contains('• การเติบโต\nการเติบโต'), isFalse);
-      expect(rendered.plainText.contains('ช่วงก่อนหน้า: ช่วงก่อนหน้า'), isFalse);
-      expect(RegExp(r'(?<![0-9])0\s*ปี').hasMatch(rendered.plainText), isFalse);
-    });
+        // Same exporter entry used by ThaiBetaReportExportButton._exportPdf.
+        final rendered = await ThaiBetaReportPdfExporter.build(polluted);
+        expect(rendered.bytes, isNotEmpty);
+        expect(rendered.plainText, contains('เนื้อหาที่ต้องเหลืออยู่'));
+        expect(
+          ThaiBetaReportExportPolish.findForbidden(rendered.plainText),
+          isEmpty,
+        );
+        expect(rendered.plainText.contains('ผ่านรู้สึก…'), isFalse);
+        expect(rendered.plainText.contains('ผ่านคิดละเอ…'), isFalse);
+        expect(rendered.plainText.contains('ดี(ผ่าน'), isFalse);
+        expect(rendered.plainText.contains('• การเติบโต\nการเติบโต'), isFalse);
+        expect(
+          rendered.plainText.contains('ช่วงก่อนหน้า: ช่วงก่อนหน้า'),
+          isFalse,
+        );
+        expect(
+          RegExp(r'(?<![0-9])0\s*ปี').hasMatch(rendered.plainText),
+          isFalse,
+        );
+      },
+    );
 
-    test('real analysis download path PDF text has no forbidden regressions', () async {
-      final document = ThaiBetaReportExportDocument.fromAnalysis(analysis);
-      final rendered = await ThaiBetaReportPdfExporter.build(document);
-      expect(rendered.bytes.length, greaterThan(1000));
-      expect(ThaiBetaReportExportPolish.findForbidden(rendered.plainText), isEmpty);
-      expect(ThaiBetaReportExportSafety.containsForbidden(rendered.plainText), isFalse);
-    });
+    test(
+      'real analysis download path PDF text has no forbidden regressions',
+      () async {
+        final document = ThaiBetaReportExportDocument.fromAnalysis(analysis);
+        final rendered = await ThaiBetaReportPdfExporter.build(document);
+        expect(rendered.bytes.length, greaterThan(1000));
+        expect(
+          ThaiBetaReportExportPolish.findForbidden(rendered.plainText),
+          isEmpty,
+        );
+        expect(
+          ThaiBetaReportExportSafety.containsForbidden(rendered.plainText),
+          isFalse,
+        );
+      },
+    );
   });
 
   group('Real user analysis wiring', () {
@@ -213,7 +239,9 @@ void main() {
       expect(
         doc.fullPlainText,
         contains(
-          ThaiBetaNarrativeComposer.narrativeView(realUserAnalysis).hero.headline,
+          ThaiBetaNarrativeComposer.narrativeView(
+            realUserAnalysis,
+          ).hero.headline,
         ),
       );
     });
@@ -267,8 +295,14 @@ void main() {
     test('real PDF passes safety exclusions', () async {
       final doc = ThaiBetaReportExportDocument.fromAnalysis(realUserAnalysis);
       final rendered = await ThaiBetaReportPdfExporter.build(doc);
-      expect(ThaiBetaReportExportSafety.containsForbidden(rendered.plainText), isFalse);
-      expect(ThaiBetaReportExportPolish.findForbidden(rendered.plainText), isEmpty);
+      expect(
+        ThaiBetaReportExportSafety.containsForbidden(rendered.plainText),
+        isFalse,
+      );
+      expect(
+        ThaiBetaReportExportPolish.findForbidden(rendered.plainText),
+        isEmpty,
+      );
     });
   });
 
@@ -287,10 +321,19 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.byKey(const Key('thai_beta_capture_no_report')), findsOneWidget);
+      expect(
+        find.byKey(const Key('thai_beta_capture_no_report')),
+        findsOneWidget,
+      );
       expect(find.text('ยังไม่มีรายงานสำหรับส่งออก'), findsOneWidget);
-      expect(find.byKey(const Key('thai_beta_capture_back_to_create')), findsOneWidget);
-      expect(find.byKey(const Key('thai_beta_report_export_button')), findsNothing);
+      expect(
+        find.byKey(const Key('thai_beta_capture_back_to_create')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const Key('thai_beta_report_export_button')),
+        findsNothing,
+      );
       expect(find.text('Thai Beta Capture Mode Active'), findsNothing);
 
       final sampleAge = _timeline(qaSampleAnalysis).currentStage.currentAge;
@@ -312,7 +355,10 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.byKey(const Key('thai_beta_report_export_button')), findsOneWidget);
+      expect(
+        find.byKey(const Key('thai_beta_report_export_button')),
+        findsOneWidget,
+      );
       expect(find.text('Thai Beta Capture Mode Active'), findsOneWidget);
       final userAge = _timeline(userAnalysis).currentStage.currentAge;
       expect(find.textContaining('อายุ $userAge'), findsWidgets);
@@ -378,40 +424,47 @@ void main() {
       expect(ThaiBetaCurrentAnalysis.current, isNull);
     });
 
-    testWidgets(
-      'capture route after failed analysis shows no-report state',
-      (tester) async {
-        final previous = _runAnalysis(birthDate: DateTime(1982, 6, 15));
-        ThaiBetaCurrentAnalysis.set(previous);
+    testWidgets('capture route after failed analysis shows no-report state', (
+      tester,
+    ) async {
+      final previous = _runAnalysis(birthDate: DateTime(1982, 6, 15));
+      ThaiBetaCurrentAnalysis.set(previous);
 
-        ThaiBetaCurrentAnalysis.clear();
-        ThaiBetaCurrentAnalysis.set(
-          ThaiBetaAnalysis.failedForTest(input: sampleInput()),
-        );
+      ThaiBetaCurrentAnalysis.clear();
+      ThaiBetaCurrentAnalysis.set(
+        ThaiBetaAnalysis.failedForTest(input: sampleInput()),
+      );
 
-        await tester.pumpWidget(
-          MaterialApp(
-            builder: (context, child) => ThaiBetaScreenshotScope(
-              active: true,
-              child: child ?? const SizedBox.shrink(),
-            ),
-            home: const ThaiBetaCapturePage(),
+      await tester.pumpWidget(
+        MaterialApp(
+          builder: (context, child) => ThaiBetaScreenshotScope(
+            active: true,
+            child: child ?? const SizedBox.shrink(),
           ),
-        );
-        await tester.pumpAndSettle();
+          home: const ThaiBetaCapturePage(),
+        ),
+      );
+      await tester.pumpAndSettle();
 
-        expect(find.byKey(const Key('thai_beta_capture_no_report')), findsOneWidget);
-        expect(find.text('ยังไม่มีรายงานสำหรับส่งออก'), findsOneWidget);
-        expect(find.byKey(const Key('thai_beta_report_export_button')), findsNothing);
+      expect(
+        find.byKey(const Key('thai_beta_capture_no_report')),
+        findsOneWidget,
+      );
+      expect(find.text('ยังไม่มีรายงานสำหรับส่งออก'), findsOneWidget);
+      expect(
+        find.byKey(const Key('thai_beta_report_export_button')),
+        findsNothing,
+      );
 
-        final previousAge = _timeline(previous).currentStage.currentAge;
-        expect(find.textContaining('อายุ $previousAge'), findsNothing);
-        final sampleAge = _timeline(qaSampleAnalysis).currentStage.currentAge;
-        expect(find.textContaining('อายุ $sampleAge'), findsNothing);
-      },
-    );
+      final previousAge = _timeline(previous).currentStage.currentAge;
+      expect(find.textContaining('อายุ $previousAge'), findsNothing);
+      final sampleAge = _timeline(qaSampleAnalysis).currentStage.currentAge;
+      expect(find.textContaining('อายุ $sampleAge'), findsNothing);
+    });
 
-    testWidgets('QA sample route remains separate and clearly labeled', (tester) async {
+    testWidgets('QA sample route remains separate and clearly labeled', (
+      tester,
+    ) async {
       ThaiBetaCurrentAnalysis.resetForTest();
 
       await tester.pumpWidget(
@@ -423,10 +476,16 @@ void main() {
         find.text('QA Sample Report — ไม่ใช่ข้อมูลของผู้ใช้'),
         findsOneWidget,
       );
-      expect(find.byKey(const Key('thai_beta_report_export_button')), findsOneWidget);
+      expect(
+        find.byKey(const Key('thai_beta_report_export_button')),
+        findsOneWidget,
+      );
       expect(find.text('ยังไม่มีรายงานสำหรับส่งออก'), findsNothing);
       // Real-user capture empty-state must not appear on the QA route.
-      expect(find.byKey(const Key('thai_beta_capture_no_report')), findsNothing);
+      expect(
+        find.byKey(const Key('thai_beta_capture_no_report')),
+        findsNothing,
+      );
     });
   });
 
@@ -441,7 +500,10 @@ void main() {
         find.text('QA Sample Report — ไม่ใช่ข้อมูลของผู้ใช้'),
         findsOneWidget,
       );
-      expect(find.byKey(const Key('thai_beta_report_export_button')), findsOneWidget);
+      expect(
+        find.byKey(const Key('thai_beta_report_export_button')),
+        findsOneWidget,
+      );
     });
   });
 
@@ -484,24 +546,27 @@ void main() {
       );
     });
 
-    test('normalizeSpacing adds space before parentheses and Thai punctuation', () {
-      expect(
-        ThaiBetaReportExportPolish.normalizeSpacing('ดี(ผ่านช่วงนี้)'),
-        'ดี (ผ่านช่วงนี้)',
-      );
-      expect(
-        ThaiBetaReportExportPolish.normalizeSpacing('อยากรู้·คำถาม'),
-        'อยากรู้ · คำถาม',
-      );
-      expect(
-        ThaiBetaReportExportPolish.normalizeSpacing('อายุ36–54'),
-        'อายุ 36–54',
-      );
-      expect(
-        ThaiBetaReportExportPolish.normalizeSpacing('ดาวพฤหัสบดี•การเติบโต'),
-        'ดาวพฤหัสบดี • การเติบโต',
-      );
-    });
+    test(
+      'normalizeSpacing adds space before parentheses and Thai punctuation',
+      () {
+        expect(
+          ThaiBetaReportExportPolish.normalizeSpacing('ดี(ผ่านช่วงนี้)'),
+          'ดี (ผ่านช่วงนี้)',
+        );
+        expect(
+          ThaiBetaReportExportPolish.normalizeSpacing('อยากรู้·คำถาม'),
+          'อยากรู้ · คำถาม',
+        );
+        expect(
+          ThaiBetaReportExportPolish.normalizeSpacing('อายุ36–54'),
+          'อายุ 36–54',
+        );
+        expect(
+          ThaiBetaReportExportPolish.normalizeSpacing('ดาวพฤหัสบดี•การเติบโต'),
+          'ดาวพฤหัสบดี • การเติบโต',
+        );
+      },
+    );
 
     test('polishLine strips Markdown bold markers', () {
       expect(
@@ -510,10 +575,10 @@ void main() {
       );
     });
 
-    test('dedupeParagraphs drops title echo, keyword echo, truncated UI lines', () {
-      final lines = ThaiBetaReportExportPolish.dedupeParagraphs(
-        'การเติบโต',
-        [
+    test(
+      'dedupeParagraphs drops title echo, keyword echo, truncated UI lines',
+      () {
+        final lines = ThaiBetaReportExportPolish.dedupeParagraphs('การเติบโต', [
           'การเติบโต',
           'อิทธิพลดาวพฤหัสบดี • การเติบโต',
           'การเติบโต',
@@ -522,13 +587,10 @@ void main() {
           'เนื้อหาเต็ม',
           'ผ่านรู้สึก…',
           'ดี(ผ่านคิดละเอ…)',
-        ],
-      );
-      expect(lines, [
-        'อิทธิพลดาวพฤหัสบดี • การเติบโต',
-        'เนื้อหาเต็ม',
-      ]);
-    });
+        ]);
+        expect(lines, ['อิทธิพลดาวพฤหัสบดี • การเติบโต', 'เนื้อหาเต็ม']);
+      },
+    );
   });
 
   group('Export button visibility', () {
@@ -557,9 +619,18 @@ void main() {
       tester,
     ) async {
       await pumpReport(tester, screenshotMode: true);
-      expect(find.byKey(const Key('thai_beta_report_export_bar')), findsOneWidget);
-      expect(find.byKey(const Key('thai_beta_report_export_button')), findsOneWidget);
-      expect(find.byKey(const Key('thai_beta_report_export_print_button')), findsOneWidget);
+      expect(
+        find.byKey(const Key('thai_beta_report_export_bar')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const Key('thai_beta_report_export_button')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const Key('thai_beta_report_export_print_button')),
+        findsOneWidget,
+      );
       expect(find.text('ดาวน์โหลดรายงานเต็ม'), findsOneWidget);
       expect(find.text('เปิดหน้าพิมพ์ / Save as PDF'), findsOneWidget);
     });
@@ -579,7 +650,10 @@ void main() {
       );
       await tester.pumpAndSettle();
       expect(find.text('Thai Beta Capture Mode Active'), findsOneWidget);
-      expect(find.byKey(const Key('thai_beta_report_export_button')), findsOneWidget);
+      expect(
+        find.byKey(const Key('thai_beta_report_export_button')),
+        findsOneWidget,
+      );
       expect(find.text('ดาวน์โหลดรายงานเต็ม'), findsOneWidget);
     });
 
@@ -598,15 +672,24 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      expect(find.byKey(const Key('thai_beta_report_export_button')), findsOneWidget);
+      expect(
+        find.byKey(const Key('thai_beta_report_export_button')),
+        findsOneWidget,
+      );
     });
 
     testWidgets('export button hidden in normal beta report mode', (
       tester,
     ) async {
       await pumpReport(tester, screenshotMode: false);
-      expect(find.byKey(const Key('thai_beta_report_export_button')), findsNothing);
-      expect(find.byKey(const Key('thai_beta_report_export_bar')), findsNothing);
+      expect(
+        find.byKey(const Key('thai_beta_report_export_button')),
+        findsNothing,
+      );
+      expect(
+        find.byKey(const Key('thai_beta_report_export_bar')),
+        findsNothing,
+      );
     });
 
     testWidgets('ThaiMirrorResultPage alone has no export button', (
@@ -621,7 +704,10 @@ void main() {
       );
       await tester.pumpAndSettle();
       expect(find.byType(ThaiBetaReportExportButton), findsNothing);
-      expect(find.byKey(const Key('thai_beta_report_export_button')), findsNothing);
+      expect(
+        find.byKey(const Key('thai_beta_report_export_button')),
+        findsNothing,
+      );
     });
   });
 
@@ -635,7 +721,10 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.byKey(const Key('thai_beta_export_print_page')), findsOneWidget);
+      expect(
+        find.byKey(const Key('thai_beta_export_print_page')),
+        findsOneWidget,
+      );
       expect(find.text('อ่านผล'), findsNothing);
       expect(find.text('ให้ความคิดเห็นต่อผลวิเคราะห์'), findsNothing);
       expect(find.textContaining('KnowMe'), findsWidgets);

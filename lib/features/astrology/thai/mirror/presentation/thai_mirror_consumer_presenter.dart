@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart' show Icons;
 
-
-
 import '../models/thai_mirror_result.dart';
 
 import '../models/thai_mirror_section.dart';
@@ -30,8 +28,6 @@ import 'prediction/prediction_section_model.dart';
 
 import 'timeline/timeline_presenter.dart';
 
-
-
 /// Maps [ThaiMirrorResult] to consumer-facing [ThaiMirrorConsumerViewState].
 
 ///
@@ -39,7 +35,6 @@ import 'timeline/timeline_presenter.dart';
 /// All user-visible copy is generated here — never passes engine narrative through.
 
 abstract final class ThaiMirrorConsumerPresenter {
-
   static const _maxCards = 3;
 
   /// [lifePeriods] (when available) powers the V8 Life Timeline. It is engine
@@ -56,10 +51,9 @@ abstract final class ThaiMirrorConsumerPresenter {
     ThaiBirthData? birthData,
     ThaiCanonEvidenceIndex? canonIndex,
   }) {
-
-    final topThemeIds =
-
-        result.topThemes.map((theme) => theme.themeId).toList(growable: false);
+    final topThemeIds = result.topThemes
+        .map((theme) => theme.themeId)
+        .toList(growable: false);
 
     final allThemeIds = _allThemeIds(result);
 
@@ -113,7 +107,7 @@ abstract final class ThaiMirrorConsumerPresenter {
     return ThaiMirrorConsumerViewState(
       lifeTimeline: lifeTimeline,
       futurePrediction: futurePrediction,
-      hero: _buildHero(ctx),
+      hero: _buildHero(ctx, hasBirthTime: result.profileContext.hasBirthTime),
       strengths: _buildStrengths(result, allThemeIds, ctx),
       cautions: _buildCautions(result, allThemeIds, ctx),
       advice: _buildAdvice(result, ctx),
@@ -142,28 +136,18 @@ abstract final class ThaiMirrorConsumerPresenter {
       sourceTransparency: _buildSourceTransparency(result),
 
       birthDataConfidence: ThaiMirrorConsumerCopy.birthDataConfidence(
-
         hasBirthTime: result.profileContext.hasBirthTime,
-
       ),
 
       secretTip: ThaiMirrorConsumerCopy.buildSecretTip(
-
         _themeIdsFromSection(
-
           result.sectionById(ThaiMirrorSectionId.growthPath),
-
         ),
-
       ),
 
       disclaimers: ThaiMirrorConsumerCopy.consumerDisclaimers,
-
     );
-
   }
-
-
 
   /// V10.5 — builds the Future Prediction section from the same life-period
   /// *evidence* the timeline uses. The V10 prediction engine is deterministic
@@ -189,9 +173,13 @@ abstract final class ThaiMirrorConsumerPresenter {
     );
   }
 
-  static ThaiMirrorConsumerHeroState _buildHero(ThaiMirrorContentContext ctx) {
-    final themeIds =
-        ctx.allThemeIds.isNotEmpty ? ctx.allThemeIds : ctx.topThemeIds;
+  static ThaiMirrorConsumerHeroState _buildHero(
+    ThaiMirrorContentContext ctx, {
+    required bool hasBirthTime,
+  }) {
+    final themeIds = ctx.allThemeIds.isNotEmpty
+        ? ctx.allThemeIds
+        : ctx.topThemeIds;
 
     return ThaiMirrorConsumerHeroState(
       headline: ThaiMirrorReportCopy.buildEmotionalHeadline(
@@ -206,6 +194,11 @@ abstract final class ThaiMirrorConsumerPresenter {
           .take(5)
           .map(ThaiMirrorConsumerCopy.tagLabel)
           .toList(growable: false),
+      // V1.3.2: incomplete birth-time limitation lives on birth-data metadata.
+      identitySubtitle: hasBirthTime
+          ? 'จากดวงไทยตามวันเกิดของคุณ'
+          : 'ไม่มีเวลาเกิด — วิเคราะห์ได้เฉพาะภาพรวมจากวันเกิด '
+                'ไม่ใช่ภาพละเอียดเต็มรูปแบบ',
     );
   }
 
@@ -239,14 +232,11 @@ abstract final class ThaiMirrorConsumerPresenter {
     };
   }
 
-
-
   static ThaiMirrorInsightSectionState _buildStrengths(
     ThaiMirrorResult result,
     List<String> allThemeIds,
     ThaiMirrorContentContext ctx,
   ) {
-
     final pool = _deriveStrengthThemeIds(result, allThemeIds);
     final growthPathIds = _themeIdsFromSection(
       result.sectionById(ThaiMirrorSectionId.growthPath),
@@ -265,12 +255,12 @@ abstract final class ThaiMirrorConsumerPresenter {
     return ThaiMirrorInsightSectionState(
       title: ThaiMirrorConsumerCopy.strengthsSectionTitle,
       sectionIcon: Icons.auto_awesome_rounded,
-      cards: _strengthCards(_rotateThemeIds(extended, ctx.profileSeed * 41), ctx),
+      cards: _strengthCards(
+        _rotateThemeIds(extended, ctx.profileSeed * 41),
+        ctx,
+      ),
     );
-
   }
-
-
 
   static ThaiMirrorInsightSectionState _buildCautions(
     ThaiMirrorResult result,
@@ -288,8 +278,6 @@ abstract final class ThaiMirrorConsumerPresenter {
     );
   }
 
-
-
   static ThaiMirrorAdviceState _buildAdvice(
     ThaiMirrorResult result,
     ThaiMirrorContentContext ctx,
@@ -305,8 +293,6 @@ abstract final class ThaiMirrorConsumerPresenter {
       ),
     );
   }
-
-
 
   static List<ThaiMirrorLifeDashboardItemState> _buildLifeDashboard(
     ThaiMirrorResult result,
@@ -426,8 +412,6 @@ abstract final class ThaiMirrorConsumerPresenter {
     );
   }
 
-
-
   static int _profileSeed(
     List<String> topThemeIds,
     List<String> allThemeIds, {
@@ -473,75 +457,44 @@ abstract final class ThaiMirrorConsumerPresenter {
     return [for (var i = 0; i < ids.length; i++) ids[(start + i) % ids.length]];
   }
 
-
-
   static List<String> _allThemeIds(ThaiMirrorResult result) {
-
     final seen = <String>{};
 
     final ordered = <String>[];
 
-
-
     void addFrom(Iterable<String> ids) {
-
       for (final id in ids) {
-
         if (seen.add(id)) ordered.add(id);
-
       }
-
     }
-
-
 
     addFrom(result.topThemes.map((theme) => theme.themeId));
 
     for (final sectionId in ThaiMirrorSectionId.values) {
-
       addFrom(_themeIdsFromSection(result.sectionById(sectionId)));
-
     }
 
-
-
     return ordered;
-
   }
 
-
-
   static List<String> _deriveStrengthThemeIds(
-
     ThaiMirrorResult result,
 
     List<String> allThemeIds,
-
   ) {
-
     final seen = <String>{};
 
     final ordered = <String>[];
 
-
-
     void addFrom(List<String> ids) {
-
       for (final id in ids) {
-
         if (seen.add(id)) ordered.add(id);
-
       }
-
     }
 
-
-
-    addFrom(_themeIdsFromSection(
-
-      result.sectionById(ThaiMirrorSectionId.strengths),
-
-    ));
+    addFrom(
+      _themeIdsFromSection(result.sectionById(ThaiMirrorSectionId.strengths)),
+    );
 
     addFrom(result.topThemes.map((theme) => theme.themeId).toList());
 
@@ -550,33 +503,33 @@ abstract final class ThaiMirrorConsumerPresenter {
     ).toSet();
     ordered.removeWhere(growthPathIds.contains);
 
-    addFrom(_themeIdsFromSection(
+    addFrom(
+      _themeIdsFromSection(
+        result.sectionById(ThaiMirrorSectionId.workAndAmbition),
+      ),
+    );
 
-      result.sectionById(ThaiMirrorSectionId.workAndAmbition),
+    addFrom(
+      _themeIdsFromSection(
+        result.sectionById(ThaiMirrorSectionId.relationships),
+      ),
+    );
 
-    ));
+    addFrom(
+      _themeIdsFromSection(result.sectionById(ThaiMirrorSectionId.coreSelf)),
+    );
 
-    addFrom(_themeIdsFromSection(
+    addFrom(
+      _themeIdsFromSection(
+        result.sectionById(ThaiMirrorSectionId.thinkingStyle),
+      ),
+    );
 
-      result.sectionById(ThaiMirrorSectionId.relationships),
-
-    ));
-
-    addFrom(_themeIdsFromSection(
-
-      result.sectionById(ThaiMirrorSectionId.coreSelf),
-
-    ));
-
-    addFrom(_themeIdsFromSection(
-
-      result.sectionById(ThaiMirrorSectionId.thinkingStyle),
-
-    ));
-
-    addFrom(_themeIdsFromSection(
-      result.sectionById(ThaiMirrorSectionId.emotionalWorld),
-    ));
+    addFrom(
+      _themeIdsFromSection(
+        result.sectionById(ThaiMirrorSectionId.emotionalWorld),
+      ),
+    );
 
     final growthAreaIds = _themeIdsFromSection(
       result.sectionById(ThaiMirrorSectionId.growthAreas),
@@ -584,15 +537,10 @@ abstract final class ThaiMirrorConsumerPresenter {
     ordered.removeWhere(growthAreaIds.contains);
 
     return ordered;
-
   }
 
-
-
   static ThaiMirrorLifeStatus _lifeStatus(int themeCount) {
-
     return switch (themeCount) {
-
       >= 3 => ThaiMirrorLifeStatus.veryGood,
 
       2 => ThaiMirrorLifeStatus.bright,
@@ -600,54 +548,32 @@ abstract final class ThaiMirrorConsumerPresenter {
       1 => ThaiMirrorLifeStatus.good,
 
       _ => ThaiMirrorLifeStatus.moderate,
-
     };
-
   }
 
-
-
   static ThaiMirrorSourceTransparencyState _buildSourceTransparency(
-
     ThaiMirrorResult result,
-
   ) {
-
     final hasBirthTime = result.profileContext.hasBirthTime;
 
-
-
     return ThaiMirrorSourceTransparencyState(
-
       dataUsed: hasBirthTime
-
           ? ThaiMirrorConsumerCopy.dataUsedWithBirthTime
-
           : ThaiMirrorConsumerCopy.dataUsedWithoutBirthTime,
 
       calculation: ThaiMirrorConsumerCopy.calculationExplanation,
 
       meaning: ThaiMirrorConsumerCopy.resultsMeaning,
-
     );
-
   }
 
-
-
   static List<String> _themeIdsFromSection(ThaiMirrorSection? section) {
-
     if (section == null) return const [];
 
     return section.supportingThemes
-
         .map((ThaiMirrorThemeRef theme) => theme.themeId)
-
         .toList(growable: false);
-
   }
-
-
 
   static List<ThaiMirrorInsightCardState> _strengthCards(
     List<String> themeIds,
@@ -661,8 +587,11 @@ abstract final class ThaiMirrorConsumerPresenter {
     ];
 
     final seenTitles = <String>{};
-    final picked =
-        _pickSpacedStrengthThemes(themeIds, ctx.profileSeed, _maxCards);
+    final picked = _pickSpacedStrengthThemes(
+      themeIds,
+      ctx.profileSeed,
+      _maxCards,
+    );
 
     for (final themeId in picked) {
       if (cards.length >= _maxCards) break;
@@ -811,5 +740,3 @@ abstract final class ThaiMirrorConsumerPresenter {
     return cards;
   }
 }
-
-

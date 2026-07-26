@@ -18,10 +18,7 @@ import 'thai_beta_narrative_trace.dart';
 import 'thai_beta_narrative_v12.dart';
 
 class ThaiBetaNarrativeResult {
-  const ThaiBetaNarrativeResult({
-    required this.view,
-    required this.trace,
-  });
+  const ThaiBetaNarrativeResult({required this.view, required this.trace});
 
   final ThaiMirrorConsumerViewState view;
   final ThaiBetaNarrativeTrace trace;
@@ -122,6 +119,14 @@ abstract final class ThaiBetaNarrativeComposer {
     );
     trace = coreResult.trace;
 
+    // V1.3.2: synthesize Personal Core into the single opening hero card.
+    // Do not keep a second "แก่น..." card or trailing quote when absorbed.
+    final mergedHero = _mergeHeroWithPersonalCore(
+      hero: heroResult.hero,
+      core: coreResult.insight,
+      hasBirthTime: ctx.hasBirthTime,
+    );
+
     final strengths = strengthsResult.section;
 
     // V1.2: cautions linked from the same curated strength blocks (tension).
@@ -153,8 +158,9 @@ abstract final class ThaiBetaNarrativeComposer {
     );
     trace = narrativeSectionsResult.trace;
 
-    final primaryStrength =
-        strengthBlocks.isNotEmpty ? strengthBlocks.first : null;
+    final primaryStrength = strengthBlocks.isNotEmpty
+        ? strengthBlocks.first
+        : null;
     final adviceResult = _polishAdvice(
       source.advice,
       ctx,
@@ -187,14 +193,22 @@ abstract final class ThaiBetaNarrativeComposer {
     }
 
     final view = ThaiMirrorConsumerViewState(
-      hero: heroResult.hero,
+      hero: mergedHero,
       strengths: strengths,
       cautions: cautions,
       advice: finalAdvice,
       lifeDashboard: lifeDashboardResult.items,
       narrativeSections: narrativeSectionsResult.sections,
-      signatureInsight: coreResult.insight,
-      reflectionSummary: _polishReflection(source.reflectionSummary, globalUsed),
+      // V1.3.2: core absorbed into hero — no separate card.
+      signatureInsight: const ThaiMirrorSignatureInsightState(
+        eyebrow: '',
+        body: '',
+        signature: '',
+      ),
+      reflectionSummary: _polishReflection(
+        source.reflectionSummary,
+        globalUsed,
+      ),
       closingMessage: _polishClosing(source.closingMessage, globalUsed),
       sourceTransparency: source.sourceTransparency,
       birthDataConfidence: source.birthDataConfidence,
@@ -236,7 +250,8 @@ abstract final class ThaiBetaNarrativeComposer {
     ThaiBetaNarrativeTrace trace,
     List<CuratedNarrativeBlock> blocks,
     List<int> matchLevels,
-  }) _polishStrengths(
+  })
+  _polishStrengths(
     ThaiMirrorInsightSectionState section,
     ThaiBetaNarrativeContext ctx,
     Set<String> globalUsed,
@@ -332,10 +347,8 @@ abstract final class ThaiBetaNarrativeComposer {
     );
   }
 
-  static ({
-    ThaiMirrorInsightSectionState section,
-    ThaiBetaNarrativeTrace trace,
-  }) _polishLinkedCautions({
+  static ({ThaiMirrorInsightSectionState section, ThaiBetaNarrativeTrace trace})
+  _polishLinkedCautions({
     required List<String> sourceTitles,
     required List<CuratedNarrativeBlock> strengthBlocks,
     required List<int> matchLevels,
@@ -366,8 +379,8 @@ abstract final class ThaiBetaNarrativeComposer {
       final themeId = block.primaryTraitIds.isNotEmpty
           ? block.primaryTraitIds.first
           : (ctx.orderedThemeIds.isNotEmpty
-              ? ctx.orderedThemeIds.first
-              : 'independent');
+                ? ctx.orderedThemeIds.first
+                : 'independent');
 
       trace = trace.add(
         ThaiBetaNarrativeSpecificity.traceEntry(
@@ -405,7 +418,8 @@ abstract final class ThaiBetaNarrativeComposer {
   static ({
     List<ThaiMirrorLifeDashboardItemState> items,
     ThaiBetaNarrativeTrace trace,
-  }) _polishLifeDashboard(
+  })
+  _polishLifeDashboard(
     List<ThaiMirrorLifeDashboardItemState> source,
     ThaiBetaNarrativeContext ctx,
     Set<String> globalUsed,
@@ -442,8 +456,9 @@ abstract final class ThaiBetaNarrativeComposer {
       final copy = ThaiBetaNarrativeSpecificity.composeDashboardFromBlock(
         domain: domain,
         primaryThemeId: primaryThemeId,
-        secondaryThemeId:
-            secondaryThemeId != primaryThemeId ? secondaryThemeId : null,
+        secondaryThemeId: secondaryThemeId != primaryThemeId
+            ? secondaryThemeId
+            : null,
         seed: ctx.profileSeed + i,
         hasBirthTime: ctx.hasBirthTime,
         usedBlockIds: usedBlockIds,
@@ -490,10 +505,12 @@ abstract final class ThaiBetaNarrativeComposer {
         ThaiMirrorLifeDashboardItemState(
           label: item.label,
           currentState: ThaiBetaNarrativeFormatting.normalize(currentState),
-          whyItAppears:
-              ThaiBetaNarrativeFormatting.normalize(copy.whyItAppears),
-          suggestedAction:
-              ThaiBetaNarrativeFormatting.normalize(copy.suggestedAction),
+          whyItAppears: ThaiBetaNarrativeFormatting.normalize(
+            copy.whyItAppears,
+          ),
+          suggestedAction: ThaiBetaNarrativeFormatting.normalize(
+            copy.suggestedAction,
+          ),
           status: item.status,
         ),
       );
@@ -524,10 +541,10 @@ abstract final class ThaiBetaNarrativeComposer {
           used: globalUsed,
         ),
       ),
-      whyItAppears:
-          ThaiBetaNarrativeFormatting.normalize(item.whyItAppears),
-      suggestedAction:
-          ThaiBetaNarrativeFormatting.normalize(item.suggestedAction),
+      whyItAppears: ThaiBetaNarrativeFormatting.normalize(item.whyItAppears),
+      suggestedAction: ThaiBetaNarrativeFormatting.normalize(
+        item.suggestedAction,
+      ),
       status: item.status,
     );
   }
@@ -535,7 +552,8 @@ abstract final class ThaiBetaNarrativeComposer {
   static ({
     List<ThaiMirrorNarrativeSectionState> sections,
     ThaiBetaNarrativeTrace trace,
-  }) _polishNarrativeSections(
+  })
+  _polishNarrativeSections(
     List<ThaiMirrorNarrativeSectionState> sections,
     ThaiBetaNarrativeContext ctx,
     Set<String> globalUsed,
@@ -545,8 +563,9 @@ abstract final class ThaiBetaNarrativeComposer {
     final out = <ThaiMirrorNarrativeSectionState>[];
 
     for (final section in sections) {
-      final domain =
-          ThaiBetaDomainSemanticTags.domainForNarrativeLabel(section.label);
+      final domain = ThaiBetaDomainSemanticTags.domainForNarrativeLabel(
+        section.label,
+      );
       final sectionSeed = ThaiBetaNarrativeStableHash.seedOffset(
         ctx.profileSeed,
         [section.label, domain?.aspectKey ?? 'general'],
@@ -558,8 +577,8 @@ abstract final class ThaiBetaNarrativeComposer {
               seed: sectionSeed,
             )
           : (ctx.orderedThemeIds.isNotEmpty
-              ? ctx.orderedThemeIds.first
-              : 'independent');
+                ? ctx.orderedThemeIds.first
+                : 'independent');
       final secondaryThemeId = ctx.orderedThemeIds.length > 1
           ? ctx.orderedThemeIds[1]
           : null;
@@ -594,11 +613,7 @@ abstract final class ThaiBetaNarrativeComposer {
       // Prefer complementary why text from the overview block (one curated
       // domain block carries both fields). Only select a second block when
       // the paired why is missing or already used as public text.
-      ({
-        String text,
-        CuratedNarrativeBlock block,
-        int matchLevel,
-      })? why;
+      ({String text, CuratedNarrativeBlock block, int matchLevel})? why;
       if (overview != null) {
         final pairedWhy = ThaiBetaNarrativeFormatting.normalize(
           overview.block.domainWhy ?? '',
@@ -641,18 +656,22 @@ abstract final class ThaiBetaNarrativeComposer {
         usedBlockIds.add(adviceSelection.block.id);
       }
 
-      final overviewText = overview?.text ??
+      final overviewText =
+          overview?.text ??
           ThaiBetaNarrativeFormatting.normalize(section.overview);
       final whyText =
-          why?.text ?? ThaiBetaNarrativeFormatting.normalize(section.whyItAppears);
-      final adviceText = adviceSelection?.text ??
+          why?.text ??
+          ThaiBetaNarrativeFormatting.normalize(section.whyItAppears);
+      final adviceText =
+          adviceSelection?.text ??
           ThaiBetaNarrativeFormatting.normalize(section.advice);
       var example = ThaiBetaNarrativeFormatting.normalize(section.example);
       final reflection = section.hasReflectionQuestion
           ? ThaiBetaNarrativeFormatting.normalize(section.reflectionQuestion)
           : '';
 
-      if (domain != null && example.isNotEmpty &&
+      if (domain != null &&
+          example.isNotEmpty &&
           !ThaiBetaDomainSemanticTags.isTextDomainCompatible(example, domain)) {
         example = '';
       }
@@ -736,8 +755,9 @@ abstract final class ThaiBetaNarrativeComposer {
           ),
           tension: _fieldAfterSectionDedupe(tension, deduped),
           discovery: _fieldAfterSectionDedupe(discovery, deduped),
-          reasoningTitle:
-              ThaiBetaNarrativeFormatting.normalize(section.reasoningTitle),
+          reasoningTitle: ThaiBetaNarrativeFormatting.normalize(
+            section.reasoningTitle,
+          ),
           reasoningSignals: section.reasoningSignals
               .map(ThaiBetaNarrativeFormatting.normalize)
               .toList(),
@@ -765,7 +785,8 @@ abstract final class ThaiBetaNarrativeComposer {
     ThaiMirrorAdviceState advice,
     ThaiBetaNarrativeTrace trace,
     String? adviceBlockId,
-  }) _polishAdvice(
+  })
+  _polishAdvice(
     ThaiMirrorAdviceState advice,
     ThaiBetaNarrativeContext ctx,
     Set<String> globalUsed,
@@ -777,8 +798,8 @@ abstract final class ThaiBetaNarrativeComposer {
     final primaryThemeId = primaryStrength?.primaryTraitIds.isNotEmpty == true
         ? primaryStrength!.primaryTraitIds.first
         : (ctx.orderedThemeIds.isNotEmpty
-            ? ctx.orderedThemeIds.first
-            : 'independent');
+              ? ctx.orderedThemeIds.first
+              : 'independent');
 
     var selection = ThaiBetaNarrativeSpecificity.selectAdvice(
       primaryThemeId: primaryThemeId,
@@ -855,10 +876,79 @@ abstract final class ThaiBetaNarrativeComposer {
     );
   }
 
+  /// V1.3.2 — fold Personal Core claims into the single "ดวงไทยของคุณ" card.
+  ///
+  /// Keeps hero headline/tags; adds only core paragraphs that add new meaning.
+  /// Drops the trailing confidence quote (signature) — no filler replacement.
+  static ThaiMirrorConsumerHeroState _mergeHeroWithPersonalCore({
+    required ThaiMirrorConsumerHeroState hero,
+    required ThaiMirrorSignatureInsightState core,
+    required bool hasBirthTime,
+  }) {
+    final heroParas = hero.summary
+        .split('\n\n')
+        .map((p) => ThaiBetaNarrativeFormatting.normalize(p))
+        .where((p) => p.isNotEmpty)
+        .toList();
+    final coreParas = core.body
+        .split('\n\n')
+        .map((p) => ThaiBetaNarrativeFormatting.normalize(p))
+        .where((p) => p.isNotEmpty)
+        .toList();
+
+    final merged = <String>[...heroParas];
+    for (final para in coreParas) {
+      if (_isAbsorbedCoreMeta(para)) continue;
+      if (merged.any((existing) => _paragraphsOverlap(existing, para))) {
+        continue;
+      }
+      merged.add(para);
+    }
+
+    // Soft cap: one opening card, not a dump of two cards concatenated.
+    final capped = merged.length <= 6 ? merged : merged.take(6).toList();
+
+    return ThaiMirrorConsumerHeroState(
+      headline: hero.headline,
+      summary: capped.join('\n\n'),
+      tags: hero.tags,
+      identityBadge: hero.identityBadge,
+      identitySubtitle: hasBirthTime
+          ? hero.identitySubtitle
+          : 'ไม่มีเวลาเกิด — วิเคราะห์ได้เฉพาะภาพรวมจากวันเกิด '
+                'ไม่ใช่ภาพละเอียดเต็มรูปแบบ',
+    );
+  }
+
+  static bool _isAbsorbedCoreMeta(String para) {
+    // Confidence / soft-sell lines that do not add personality evidence.
+    const meta = [
+      'ใช้สังเกตตัวเอง ไม่ใช่คำฟันธง',
+      'ยังเป็นแนวโน้มจากข้อมูลที่มี',
+      'ยืนยันกับชีวิตจริงก่อนตัดสินใจใหญ่',
+      'ข้อมูลเวลายังไม่ครบ',
+      'ไม่ใช่ข้อสรุปตายตัว',
+    ];
+    return meta.any(para.contains) && para.length < 80;
+  }
+
+  static bool _paragraphsOverlap(String a, String b) {
+    final ka = ThaiBetaNarrativeFormatting.normalizedKey(a);
+    final kb = ThaiBetaNarrativeFormatting.normalizedKey(b);
+    if (ka.isEmpty || kb.isEmpty) return false;
+    if (ka == kb) return true;
+    if (ka.contains(kb) || kb.contains(ka)) {
+      final shorter = ka.length < kb.length ? ka : kb;
+      return shorter.length >= 18;
+    }
+    return false;
+  }
+
   static ({
     ThaiMirrorSignatureInsightState insight,
     ThaiBetaNarrativeTrace trace,
-  }) _composePersonalCore({
+  })
+  _composePersonalCore({
     required List<CuratedNarrativeBlock> strengthBlocks,
     required List<int> matchLevels,
     required ThaiBetaNarrativeContext ctx,
@@ -878,8 +968,7 @@ abstract final class ThaiBetaNarrativeComposer {
     }
 
     final primary = strengthBlocks.first;
-    final secondary =
-        strengthBlocks.length > 1 ? strengthBlocks[1] : null;
+    final secondary = strengthBlocks.length > 1 ? strengthBlocks[1] : null;
     final matchLevel = matchLevels.isNotEmpty ? matchLevels.first : 5;
     final band = ThaiBetaNarrativeV12.bandFor(
       hasBirthTime: ctx.hasBirthTime,
@@ -896,8 +985,8 @@ abstract final class ThaiBetaNarrativeComposer {
     final themeId = primary.primaryTraitIds.isNotEmpty
         ? primary.primaryTraitIds.first
         : (ctx.orderedThemeIds.isNotEmpty
-            ? ctx.orderedThemeIds.first
-            : 'independent');
+              ? ctx.orderedThemeIds.first
+              : 'independent');
 
     trace = trace.add(
       ThaiBetaNarrativeSpecificity.traceEntry(
@@ -933,7 +1022,9 @@ abstract final class ThaiBetaNarrativeComposer {
   }) {
     var body = ThaiBetaNarrativeFormatting.normalize(insight.body);
     if (!hasBirthTime &&
-        (ThaiBetaNarrativeForbidden.findNoBirthTimeViolations(body).isNotEmpty ||
+        (ThaiBetaNarrativeForbidden.findNoBirthTimeViolations(
+              body,
+            ).isNotEmpty ||
             body.contains('ถ้าจะเข้าใจคุณ แค่เรื่องเดียว'))) {
       body =
           'ภาพรวมจากวันเกิดสะท้อนว่า คุณอาจมีแนวโน้มที่โดดเด่นในบางด้าน '
@@ -941,10 +1032,7 @@ abstract final class ThaiBetaNarrativeComposer {
     }
     return ThaiMirrorSignatureInsightState(
       eyebrow: ThaiBetaNarrativeFormatting.normalize(insight.eyebrow),
-      body: ThaiBetaNarrativeDedupe.resolveUnique(
-        text: body,
-        used: globalUsed,
-      ),
+      body: ThaiBetaNarrativeDedupe.resolveUnique(text: body, used: globalUsed),
       signature: ThaiBetaNarrativeFormatting.normalize(insight.signature),
     );
   }

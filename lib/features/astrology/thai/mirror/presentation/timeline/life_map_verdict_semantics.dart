@@ -206,6 +206,11 @@ abstract final class LifeMapVerdictCopy {
     'รับผิดชอบผลเอง',
     'แย่งกันอยู่',
     'แย่งกัน',
+    // V1.3.2 — vague relationship form-change / boundary jargon
+    'รูปแบบความรักเปลี่ยน',
+    'รูปแบบความใกล้ชิดเปลี่ยน',
+    'ตั้งขอบเขตใหม่',
+    'ต้องตั้งขอบเขต',
   ];
 
   /// Soft abstract stems that fail when they are the whole claim.

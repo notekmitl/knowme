@@ -3,10 +3,7 @@ import 'package:flutter/material.dart';
 import '../../models/thai_mirror_consumer_view_state.dart';
 
 class ThaiMirrorBirthDataConfidenceBanner extends StatelessWidget {
-  const ThaiMirrorBirthDataConfidenceBanner({
-    super.key,
-    required this.state,
-  });
+  const ThaiMirrorBirthDataConfidenceBanner({super.key, required this.state});
 
   static const sectionKey = Key('thai_consumer_birth_confidence');
 
@@ -14,6 +11,11 @@ class ThaiMirrorBirthDataConfidenceBanner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // V1.3.2: complete birth data is a silent normal state — never celebrate it.
+    if (state.isComplete || state.title.trim().isEmpty) {
+      return const SizedBox.shrink(key: sectionKey);
+    }
+
     final scheme = Theme.of(context).colorScheme;
     final isComplete = state.isComplete;
 
@@ -22,14 +24,10 @@ class ThaiMirrorBirthDataConfidenceBanner extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(14),
       decoration: BoxDecoration(
-        color: isComplete
-            ? const Color(0xFFE8F5E9)
-            : const Color(0xFFFFF8E1),
+        color: isComplete ? const Color(0xFFE8F5E9) : const Color(0xFFFFF8E1),
         borderRadius: BorderRadius.circular(14),
         border: Border.all(
-          color: isComplete
-              ? const Color(0xFF43A047)
-              : const Color(0xFFFFB300),
+          color: isComplete ? const Color(0xFF43A047) : const Color(0xFFFFB300),
           width: 1.2,
         ),
       ),
@@ -38,7 +36,9 @@ class ThaiMirrorBirthDataConfidenceBanner extends StatelessWidget {
         children: [
           Icon(
             isComplete ? Icons.verified_rounded : Icons.info_outline_rounded,
-            color: isComplete ? const Color(0xFF2E7D32) : const Color(0xFFF57C00),
+            color: isComplete
+                ? const Color(0xFF2E7D32)
+                : const Color(0xFFF57C00),
             size: 22,
           ),
           const SizedBox(width: 10),

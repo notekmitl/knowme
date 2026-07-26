@@ -10,26 +10,28 @@ abstract final class LifeMapPlainThaiRenderer {
   /// supports; fewer when sparse. Grouped into 2–3 paragraphs (not bullet list).
   static String renderPastBody(LifeMapVerdictSemantics semantics) {
     final beats = semantics.beats;
-    final sentences = <String>[];
+    var sentences = <String>[];
     if (beats.isNotEmpty) {
       for (final beat in beats) {
-        final t = _stripSystemPhrases(beat.textTh);
+        final t = _stripPastSoftOpener(_stripSystemPhrases(beat.textTh));
         if (t.isEmpty) continue;
+        if (_omitVagueClaim(t)) continue;
         if (sentences.any((s) => _sameMeaning(s, t))) continue;
         sentences.add(t);
       }
     } else {
       for (final slot in _buildSlots(semantics, LifeMapVerdictTense.past)) {
+        if (slot.text.isEmpty) continue;
         sentences.add(slot.text);
       }
     }
     if (sentences.isEmpty) return '';
 
-    // Soft past open once on the first sentence only.
-    if (!sentences.first.startsWith('ช่วงนั้น') &&
-        !sentences.first.startsWith('ในช่วงนั้น')) {
-      sentences[0] = 'ในช่วงนั้น ${sentences.first}';
-    }
+    // V1.3.2: never soft-open Past with "ในช่วงนั้น" / similar filler.
+    sentences = [
+      for (final s in sentences) _stripPastSoftOpener(s),
+    ].where((s) => s.isNotEmpty).toList();
+    if (sentences.isEmpty) return '';
 
     List<String> paragraphs;
     if (sentences.length <= 2) {
@@ -39,10 +41,7 @@ abstract final class LifeMapPlainThaiRenderer {
         paragraphs = [sentences.first, sentences.last];
       }
     } else if (sentences.length == 3) {
-      paragraphs = [
-        '${sentences[0]} ${sentences[1]}',
-        sentences[2],
-      ];
+      paragraphs = ['${sentences[0]} ${sentences[1]}', sentences[2]];
     } else if (sentences.length == 4) {
       paragraphs = [
         '${sentences[0]} ${sentences[1]}',
@@ -60,12 +59,7 @@ abstract final class LifeMapPlainThaiRenderer {
   }
 
   /// Current / Future card fields.
-  static ({
-    String summary,
-    String whatChanges,
-    String harder,
-    String advice,
-  })
+  static ({String summary, String whatChanges, String harder, String advice})
   renderPresentFuture(LifeMapVerdictSemantics semantics) {
     final slots = _buildSlots(semantics, semantics.tense);
     final summary = slots.isNotEmpty ? slots[0].text : '';
@@ -87,44 +81,54 @@ abstract final class LifeMapPlainThaiRenderer {
     final pressure = semantics.pressure;
     final consequence = semantics.consequence;
 
+    final situationText = _plainSituation(tense, primary.situationTh);
     final raw = <_Slot>[
-      _Slot(
-        role: _SlotRole.situation,
-        text: _plainSituation(tense, primary.situationTh),
-        key: 'sit:${primary.situationId}|${primary.domainId}',
-      ),
+      if (situationText.isNotEmpty)
+        _Slot(
+          role: _SlotRole.situation,
+          text: situationText,
+          key: 'sit:${primary.situationId}|${primary.domainId}',
+        ),
     ];
 
     if (pressure != null &&
         pressure.pressureTh.trim().isNotEmpty &&
-        !_sameMeaning(pressure.pressureTh, primary.situationTh)) {
-      raw.add(
-        _Slot(
-          role: _SlotRole.pressure,
-          text: _stripSystemPhrases(pressure.pressureTh),
-          key: 'prs:${pressure.pressureId}|${pressure.domainId}',
-        ),
-      );
+        !_nearDuplicate(pressure.pressureTh, primary.situationTh)) {
+      final cleaned = _stripSystemPhrases(pressure.pressureTh);
+      if (!_omitVagueClaim(cleaned)) {
+        raw.add(
+          _Slot(
+            role: _SlotRole.pressure,
+            text: cleaned,
+            key: 'prs:${pressure.pressureId}|${pressure.domainId}',
+          ),
+        );
+      }
     }
 
     if (consequence != null &&
         consequence.consequenceTh.trim().isNotEmpty &&
-        !_sameMeaning(consequence.consequenceTh, primary.situationTh) &&
+        !_nearDuplicate(consequence.consequenceTh, primary.situationTh) &&
         (pressure == null ||
-            !_sameMeaning(consequence.consequenceTh, pressure.pressureTh))) {
-      raw.add(
-        _Slot(
-          role: _SlotRole.consequence,
-          text: _plainConsequence(tense, consequence.consequenceTh),
-          key: 'cons:${consequence.consequenceId}|${consequence.domainId}',
-        ),
-      );
+            !_nearDuplicate(consequence.consequenceTh, pressure.pressureTh))) {
+      final cleaned = _plainConsequence(tense, consequence.consequenceTh);
+      if (!_omitVagueClaim(cleaned)) {
+        raw.add(
+          _Slot(
+            role: _SlotRole.consequence,
+            text: cleaned,
+            key: 'cons:${consequence.consequenceId}|${consequence.domainId}',
+          ),
+        );
+      }
     }
 
     // Deduplicate by normalized meaning; keep order situation → pressure → consequence.
     final kept = <_Slot>[];
     for (final slot in raw) {
-      if (kept.any((k) => _sameMeaning(k.text, slot.text))) continue;
+      if (slot.text.trim().isEmpty) continue;
+      if (_omitVagueClaim(slot.text)) continue;
+      if (kept.any((k) => _nearDuplicate(k.text, slot.text))) continue;
       kept.add(slot);
     }
 
@@ -133,17 +137,19 @@ abstract final class LifeMapPlainThaiRenderer {
   }
 
   static String _plainSituation(LifeMapVerdictTense tense, String body) {
-    final clean = _stripSystemPhrases(body);
+    var clean = _stripSystemPhrases(body);
+    clean = _stripPastSoftOpener(clean);
+    if (_omitVagueClaim(clean)) return '';
     // Prefer opening with the event itself. Time marker only when tense needs it.
     switch (tense) {
       case LifeMapVerdictTense.past:
         return clean;
       case LifeMapVerdictTense.current:
         if (_startsWithTimeMarker(clean)) return clean;
-        return 'ตอนนี้$clean';
+        return clean.isEmpty ? '' : 'ตอนนี้$clean';
       case LifeMapVerdictTense.future:
         if (_startsWithTimeMarker(clean)) return clean;
-        return 'ต่อไป$clean';
+        return clean.isEmpty ? '' : 'ต่อไป$clean';
     }
   }
 
@@ -173,6 +179,18 @@ abstract final class LifeMapPlainThaiRenderer {
     List<_Slot> slots,
     LifeMapVerdictTense tense,
   ) {
+    // V1.3.2: Past must not keep soft "ช่วงนั้น" fillers at all.
+    if (tense == LifeMapVerdictTense.past) {
+      return [
+        for (final slot in slots)
+          _Slot(
+            role: slot.role,
+            text: _stripPastSoftOpener(slot.text),
+            key: slot.key,
+          ),
+      ].where((s) => s.text.isNotEmpty && !_omitVagueClaim(s.text)).toList();
+    }
+
     final marker = switch (tense) {
       LifeMapVerdictTense.past => 'ช่วงนั้น',
       LifeMapVerdictTense.current => 'ตอนนี้',
@@ -183,6 +201,9 @@ abstract final class LifeMapPlainThaiRenderer {
       for (final slot in slots)
         () {
           var text = slot.text;
+          if (_omitVagueClaim(text)) {
+            return _Slot(role: slot.role, text: '', key: slot.key);
+          }
           final count = marker.allMatches(text).length;
           if (count == 0) return slot;
           if (!seen) {
@@ -196,11 +217,33 @@ abstract final class LifeMapPlainThaiRenderer {
             }
             return _Slot(role: slot.role, text: text, key: slot.key);
           }
-          text = text.replaceAll(marker, '').replaceAll(RegExp(r'\s+'), ' ').trim();
+          text = text
+              .replaceAll(marker, '')
+              .replaceAll(RegExp(r'\s+'), ' ')
+              .trim();
           return _Slot(role: slot.role, text: text, key: slot.key);
         }(),
-    ];
+    ].where((s) => s.text.isNotEmpty).toList();
   }
+
+  /// Strip Past soft openers that add no event information.
+  static String _stripPastSoftOpener(String text) {
+    var t = text.trim();
+    t = t.replaceFirst(
+      RegExp(r'^(ในช่วงนั้น|ช่วงนั้น|ณ ช่วงเวลานั้น|ในเวลานั้น)\s*'),
+      '',
+    );
+    t = t
+        .replaceAll('ในช่วงนั้น', '')
+        .replaceAll('ณ ช่วงเวลานั้น', '')
+        .replaceAll(RegExp(r'(^|\s)ช่วงนั้น\s*'), ' ')
+        .replaceAll(RegExp(r'\s+'), ' ')
+        .trim();
+    return t;
+  }
+
+  /// Omit claims that stay abstract without a concrete life action.
+  static bool _omitVagueClaim(String text) => hasVagueRelationshipForm(text);
 
   static bool _startsWithTimeMarker(String text) {
     return text.startsWith('ช่วงนั้น') ||
@@ -229,6 +272,20 @@ abstract final class LifeMapPlainThaiRenderer {
         .replaceAll(RegExp(r'\s+'), ' ')
         .trim();
     return t;
+  }
+
+  /// Strict near-duplicate for cross-slot dedupe (not loose token overlap).
+  /// Keeps distinct claims that share a few words but say different actions.
+  static bool _nearDuplicate(String a, String b) {
+    final na = _normalize(a);
+    final nb = _normalize(b);
+    if (na.isEmpty || nb.isEmpty) return false;
+    if (na == nb) return true;
+    if (na.contains(nb) || nb.contains(na)) {
+      final shorter = na.length < nb.length ? na : nb;
+      return shorter.length >= 18;
+    }
+    return false;
   }
 
   /// Loose meaning compare for duplicate slots (not string equality alone).
@@ -272,6 +329,31 @@ abstract final class LifeMapPlainThaiRenderer {
   static bool hasAbstractDuel(String text) {
     if (text.contains('แย่งกัน')) return true;
     return RegExp(r'[^。\n]{4,}กับ[^。\n]{4,}(แย่ง|แข่ง|สู้กัน)').hasMatch(text);
+  }
+
+  /// Vague relationship form-change / boundary jargon without a concrete act.
+  static bool hasVagueRelationshipForm(String text) {
+    if (text.contains('รูปแบบความรักเปลี่ยน')) return true;
+    if (text.contains('รูปแบบความใกล้ชิดเปลี่ยน')) return true;
+    if (text.contains('ตั้งขอบเขตใหม่') || text.contains('ต้องตั้งขอบเขต')) {
+      return true;
+    }
+    if (RegExp(r'รูปแบบ.{0,16}เปลี่ยน').hasMatch(text) &&
+        (text.contains('ความรัก') ||
+            text.contains('ใกล้ชิด') ||
+            text.contains('ความสัมพันธ์') ||
+            text.contains('ผูกพัน'))) {
+      return true;
+    }
+    return false;
+  }
+
+  /// Past soft opener fillers that add no event data.
+  static bool hasPastSoftOpener(String text) {
+    return text.contains('ในช่วงนั้น') ||
+        text.contains('ณ ช่วงเวลานั้น') ||
+        RegExp(r'(^|\n|\s)ในเวลานั้น\b').hasMatch(text) ||
+        RegExp(r'(^|\n)ช่วงนั้น').hasMatch(text);
   }
 
   static int countMarker(String cardText, String marker) =>
