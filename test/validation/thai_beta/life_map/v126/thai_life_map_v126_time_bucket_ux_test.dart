@@ -176,16 +176,11 @@ void main() {
         expect(p.comparison, isEmpty);
         expect(p.evidenceLine, isEmpty);
         expect(p.summary.trim(), isNotEmpty);
-        expect(
-          p.summary.contains('\n\n') ||
-              PastRetrospectiveComposer.approxWordCount(p.summary) >= 15,
-          isTrue,
-        );
         final chars = p.summary.replaceAll(RegExp(r'\s+'), '').runes.length;
         final approxWords = (chars / 2.5).round();
-        // V1.3.0 plain Thai: short 2–3 sentences, not dense 70–170 report prose.
-        expect(approxWords, inInclusiveRange(15, 120));
-        expect(chars, greaterThanOrEqualTo(40));
+        // V1.3.1 past story: longer when evidence supports (not 3-bullet summary).
+        expect(approxWords, inInclusiveRange(40, 220));
+        expect(chars, greaterThanOrEqualTo(80));
         expect(LifeMapVerdictCopy.violatesPrimaryBody(p.summary), isFalse);
         expect(p.summary.contains('คำแนะนำ'), isFalse);
         expect(p.summary.contains('สิ่งที่ควรระวัง'), isFalse);
@@ -196,6 +191,7 @@ void main() {
         expect(p.summary.trim().endsWith('หรือไม่'), isFalse);
         expect(p.summary.contains('?'), isFalse);
         expect(p.summary.contains('ผลกระทบหลักอยู่ที่'), isFalse);
+        expect(p.summary.contains('แย่งกัน'), isFalse);
         expect(
           'ช่วงนั้น'.allMatches(p.summary).length,
           lessThanOrEqualTo(1),

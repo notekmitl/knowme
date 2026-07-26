@@ -74,6 +74,23 @@ class LifeMapVerdictClaim {
   String get semanticKey => '$situationId|${domain.id}|$consequenceId';
 }
 
+/// Ordered story beat for Past depth (and optional Current/Future extras).
+class LifeMapNarrativeBeat {
+  const LifeMapNarrativeBeat({
+    required this.id,
+    required this.role,
+    required this.textTh,
+    required this.evidenceKeys,
+  });
+
+  final String id;
+
+  /// One of: context, change, support, pressure, response, lingering.
+  final String role;
+  final String textTh;
+  final List<String> evidenceKeys;
+}
+
 /// Structured payload accompanying rendered Thai copy.
 class LifeMapVerdictSemantics {
   const LifeMapVerdictSemantics({
@@ -82,6 +99,7 @@ class LifeMapVerdictSemantics {
     this.secondary,
     this.pressure,
     this.consequence,
+    this.beats = const [],
   });
 
   final LifeMapVerdictTense tense;
@@ -93,6 +111,9 @@ class LifeMapVerdictSemantics {
 
   /// Consequence slot (advice / closing).
   final LifeMapVerdictClaim? consequence;
+
+  /// Ordered Past story beats (4–6 when evidence supports). Empty for sparse.
+  final List<LifeMapNarrativeBeat> beats;
 
   bool get hasSituationDomainConsequence =>
       primary.situationId.isNotEmpty &&
@@ -183,6 +204,8 @@ abstract final class LifeMapVerdictCopy {
     'ความมั่นคงทางใจผูกกับ',
     'บทบาทถูกจัดใหม่',
     'รับผิดชอบผลเอง',
+    'แย่งกันอยู่',
+    'แย่งกัน',
   ];
 
   /// Soft abstract stems that fail when they are the whole claim.

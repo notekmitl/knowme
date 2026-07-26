@@ -1,5 +1,6 @@
 import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart';
 
+import 'life_map_plain_thai_renderer.dart';
 import 'life_map_verdict_semantics.dart';
 import 'period_composite_score.dart';
 import 'thai_life_stage_context.dart';
@@ -75,15 +76,133 @@ abstract final class LifeMapSemanticMapper {
       ],
     );
 
+    LifeMapVerdictClaim? secondary;
+    if (tense == LifeMapVerdictTense.past) {
+      final alt = _alternateDomain(primaryDomain, data, band);
+      if (alt != primaryDomain) {
+        secondary = _claimFor(
+          tense: tense,
+          band: band,
+          domain: alt,
+          transition: transition,
+          role: _ClaimRole.situation,
+          variant: s ~/ 11,
+          evidenceKeys: [
+            'planet:${data.planet.name}',
+            'affinity_secondary:${alt.id}',
+          ],
+        );
+      }
+    }
+
+    final pressureFinal =
+        pressure.semanticKey == primary.semanticKey ? null : pressure;
+    final consequenceFinal =
+        consequence.semanticKey == primary.semanticKey ? null : consequence;
+
+    final beats = tense == LifeMapVerdictTense.past
+        ? _pastBeats(
+            band: band,
+            data: data,
+            primaryDomain: primaryDomain,
+            primary: primary,
+            secondary: secondary,
+            pressure: pressureFinal,
+            consequence: consequenceFinal,
+            transition: transition,
+            seed: s,
+          )
+        : const <LifeMapNarrativeBeat>[];
+
     return LifeMapVerdictSemantics(
       tense: tense,
       primary: primary,
-      secondary: null,
-      pressure: pressure.semanticKey == primary.semanticKey ? null : pressure,
-      consequence: consequence.semanticKey == primary.semanticKey
-          ? null
-          : consequence,
+      secondary: secondary,
+      pressure: pressureFinal,
+      consequence: consequenceFinal,
+      beats: beats,
     );
+  }
+
+  /// Past story beats from evidence only — no invented events.
+  static List<LifeMapNarrativeBeat> _pastBeats({
+    required ThaiLifeStageBand band,
+    required LifePlanetData data,
+    required LifeMapClaimDomain primaryDomain,
+    required LifeMapVerdictClaim primary,
+    required LifeMapVerdictClaim? secondary,
+    required LifeMapVerdictClaim? pressure,
+    required LifeMapVerdictClaim? consequence,
+    required _TransitionKind transition,
+    required int seed,
+  }) {
+    final pack = _pack(primaryDomain, band);
+    final ctx = pack.contexts[seed.abs() % pack.contexts.length];
+    final linger = pack.lingerings[seed.abs() % pack.lingerings.length];
+    final keys = [
+      'planet:${data.planet.name}',
+      'keyword:${data.keyword}',
+      'domain:${primaryDomain.id}',
+    ];
+
+    final raw = <LifeMapNarrativeBeat>[
+      LifeMapNarrativeBeat(
+        id: ctx.id,
+        role: 'context',
+        textTh: ctx.text,
+        evidenceKeys: [...keys, 'beat:context'],
+      ),
+      LifeMapNarrativeBeat(
+        id: primary.situationId,
+        role: 'change',
+        textTh: primary.situationTh,
+        evidenceKeys: primary.evidenceKeys,
+      ),
+      if (secondary != null)
+        LifeMapNarrativeBeat(
+          id: secondary.situationId,
+          role: 'support',
+          textTh: secondary.situationTh,
+          evidenceKeys: secondary.evidenceKeys,
+        ),
+      if (pressure != null)
+        LifeMapNarrativeBeat(
+          id: pressure.pressureId,
+          role: 'pressure',
+          textTh: pressure.pressureTh,
+          evidenceKeys: pressure.evidenceKeys,
+        ),
+      if (consequence != null)
+        LifeMapNarrativeBeat(
+          id: consequence.consequenceId,
+          role: 'response',
+          textTh: consequence.consequenceTh,
+          evidenceKeys: consequence.evidenceKeys,
+        ),
+      LifeMapNarrativeBeat(
+        id: linger.id,
+        role: 'lingering',
+        textTh: linger.text,
+        evidenceKeys: [...keys, 'beat:lingering', 'transition:${transition.name}'],
+      ),
+    ];
+
+    // Deduplicate by normalized text; keep order. Cap at 6; keep at least change.
+    final kept = <LifeMapNarrativeBeat>[];
+    for (final beat in raw) {
+      final t = beat.textTh.trim();
+      if (t.isEmpty) continue;
+      if (kept.any((k) => LifeMapPlainThaiRenderer.sameMeaningPublic(k.textTh, t))) {
+        continue;
+      }
+      kept.add(beat);
+      if (kept.length >= 6) break;
+    }
+    if (kept.length < 3) {
+      // Sparse evidence: keep what we have (may be 2–3).
+      return kept;
+    }
+    return kept;
   }
 
   static LifeMapClaimDomain _domainFromScoreKey(
@@ -380,7 +499,30 @@ abstract final class LifeMapSemanticMapper {
             ),
             _TextId(
               'prs_work2',
-              'งานกับชีวิตส่วนตัวแย่งกันจนทำพร้อมกันไม่ไหว',
+              'คุณมีทั้งงานและเรื่องส่วนตัวให้จัดการพร้อมกันจนทำไม่ไหว',
+            ),
+          ],
+          contexts: child || teen
+              ? [
+                  _TextId(
+                    'ctx_work_youth',
+                    'ก่อนหน้านั้นวันของคุณยังหมุนรอบการเรียนและกิจกรรมที่คุ้นเคย',
+                  ),
+                ]
+              : [
+                  _TextId(
+                    'ctx_work',
+                    'ก่อนหน้านั้นคุณยังทำงานในแบบที่คุ้นเคยและรู้ว่าต้องทำอะไรต่อไป',
+                  ),
+                ],
+          lingerings: [
+            _TextId(
+              'ling_work',
+              'เรื่องงานนี้ยังมีผลต่อการตัดสินใจของคุณในเวลาต่อมา',
+            ),
+            _TextId(
+              'ling_work2',
+              'คุณเริ่มมองหน้าที่และความรับผิดชอบต่างจากเดิม',
             ),
           ],
         );
@@ -403,7 +545,19 @@ abstract final class LifeMapSemanticMapper {
             ),
             _TextId(
               'prs_money2',
-              'การใช้เงินวันนี้กับแผนระยะยาวแย่งกันอยู่',
+              'คุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว',
+            ),
+          ],
+          contexts: [
+            _TextId(
+              'ctx_money',
+              'ก่อนหน้านั้นเรื่องเงินยังไม่ใช่สิ่งที่คุณต้องคิดทุกวัน',
+            ),
+          ],
+          lingerings: [
+            _TextId(
+              'ling_money',
+              'คุณเริ่มให้ความสำคัญกับความมั่นคงทางการเงินมากขึ้น',
             ),
           ],
         );
@@ -426,7 +580,19 @@ abstract final class LifeMapSemanticMapper {
             ),
             _TextId(
               'prs_love2',
-              'อยากใกล้ชิดกับอยากมีพื้นที่ส่วนตัวแย่งกันอยู่',
+              'คุณอยากใกล้ชิด แต่ก็ยังต้องการพื้นที่ส่วนตัว',
+            ),
+          ],
+          contexts: [
+            _TextId(
+              'ctx_love',
+              'ก่อนหน้านั้นความสัมพันธ์ยังเดินไปในแบบที่คุณคุ้นเคย',
+            ),
+          ],
+          lingerings: [
+            _TextId(
+              'ling_love',
+              'คุณเริ่มระวังมากขึ้นเวลาเลือกใกล้ชิดกับใคร',
             ),
           ],
         );
@@ -449,7 +615,19 @@ abstract final class LifeMapSemanticMapper {
             ),
             _TextId(
               'prs_home2',
-              'หน้าที่ในบ้านกับความต้องการส่วนตัวแย่งกันอยู่',
+              'คุณมีหน้าที่ในบ้านมากขึ้นจนเวลาส่วนตัวเหลือน้อย',
+            ),
+          ],
+          contexts: [
+            _TextId(
+              'ctx_home',
+              'ก่อนหน้านั้นชีวิตในบ้านยังเดินตามแบบเดิมที่คุณคุ้นเคย',
+            ),
+          ],
+          lingerings: [
+            _TextId(
+              'ling_home',
+              'เรื่องบ้านยังติดอยู่ในใจและมีผลต่อทางเลือกของคุณต่อมา',
             ),
           ],
         );
@@ -472,7 +650,19 @@ abstract final class LifeMapSemanticMapper {
             ),
             _TextId(
               'prs_health2',
-              'ภาระที่มีกับเวลาพักที่ร่างกายต้องการแย่งกันอยู่',
+              'คุณมีหน้าที่หลายอย่าง จนแทบไม่มีเวลาพัก',
+            ),
+          ],
+          contexts: [
+            _TextId(
+              'ctx_health',
+              'ก่อนหน้านั้นคุณยังผลักดันตัวเองได้โดยไม่รู้สึกหมดแรงง่าย',
+            ),
+          ],
+          lingerings: [
+            _TextId(
+              'ling_health',
+              'คุณเริ่มรู้ว่าต้องรักษาแรงไว้ ไม่ใช่ผลักทุกเรื่องพร้อมกัน',
             ),
           ],
         );
@@ -495,7 +685,19 @@ abstract final class LifeMapSemanticMapper {
             ),
             _TextId(
               'prs_id2',
-              'อยากเป็นตัวเองกับอยากให้คนอื่นยอมรับแย่งกันอยู่',
+              'คุณอยากเป็นตัวเอง แต่ก็ยังอยากให้คนอื่นยอมรับ',
+            ),
+          ],
+          contexts: [
+            _TextId(
+              'ctx_id',
+              'ก่อนหน้านั้นคุณยังหาที่ยืนในกลุ่มแบบค่อยเป็นค่อยไป',
+            ),
+          ],
+          lingerings: [
+            _TextId(
+              'ling_id',
+              'คุณเริ่มกล้าเลือกทางของตัวเองมากขึ้นแม้คนรอบตัวจะมองต่าง',
             ),
           ],
         );
@@ -521,6 +723,18 @@ abstract final class LifeMapSemanticMapper {
               'สิ่งที่ถนัดกับสิ่งที่คนรอบตัวคาดหวังไม่ตรงกัน',
             ),
           ],
+          contexts: [
+            _TextId(
+              'ctx_learn',
+              'ก่อนหน้านั้นการเรียนยังเป็นแค่ส่วนหนึ่งของวัน',
+            ),
+          ],
+          lingerings: [
+            _TextId(
+              'ling_learn',
+              'คุณเริ่มรู้ว่าต้องเลือกทางที่ถนัด ไม่ใช่ทำทุกอย่างตามที่คนอื่นอยาก',
+            ),
+          ],
         );
       case LifeMapClaimDomain.dutyBurden:
         return _DomainPack(
@@ -541,7 +755,19 @@ abstract final class LifeMapSemanticMapper {
             ),
             _TextId(
               'prs_duty2',
-              'หน้าที่กับความต้องการส่วนตัวแย่งกันอยู่',
+              'คุณต้องทำหน้าที่ก่อน ทั้งที่อยากมีเวลาให้ตัวเอง',
+            ),
+          ],
+          contexts: [
+            _TextId(
+              'ctx_duty',
+              'ก่อนหน้านั้นภาระของคุณยังไม่หนักเท่านี้',
+            ),
+          ],
+          lingerings: [
+            _TextId(
+              'ling_duty',
+              'คุณเริ่มจัดลำดับว่าอะไรต้องรับ และอะไรปล่อยได้',
             ),
           ],
         );
@@ -564,7 +790,19 @@ abstract final class LifeMapSemanticMapper {
             ),
             _TextId(
               'prs_trans2',
-              'อยากยึดของเดิมกับความจำเป็นต้องเดินต่อแย่งกันอยู่',
+              'คุณยังอยากยึดของเดิม แต่ก็รู้ว่าต้องเดินต่อ',
+            ),
+          ],
+          contexts: [
+            _TextId(
+              'ctx_trans',
+              'ก่อนหน้านั้นชีวิตยังอยู่ในกรอบที่คุณรู้จักดี',
+            ),
+          ],
+          lingerings: [
+            _TextId(
+              'ling_trans',
+              'คุณเริ่มยอมรับว่าต้องสร้างทางใหม่ แม้ยังไม่สมบูรณ์',
             ),
           ],
         );
@@ -588,6 +826,18 @@ abstract final class LifeMapSemanticMapper {
             _TextId(
               'prs_opp2',
               'ทางเลือกเยอะจนเลือกลำดับความสำคัญได้ยาก',
+            ),
+          ],
+          contexts: [
+            _TextId(
+              'ctx_opp',
+              'ก่อนหน้านั้นโอกาสใหม่ยังเข้ามาน้อยและคุณยังโฟกัสเรื่องเดิมได้',
+            ),
+          ],
+          lingerings: [
+            _TextId(
+              'ling_opp',
+              'คุณเริ่มเลือกโอกาสที่สำคัญจริง ๆ แทนการรับทุกอย่าง',
             ),
           ],
         );
@@ -616,7 +866,14 @@ class _TextId {
 }
 
 class _DomainPack {
-  const _DomainPack({required this.situations, required this.pressures});
+  const _DomainPack({
+    required this.situations,
+    required this.pressures,
+    required this.contexts,
+    required this.lingerings,
+  });
   final List<_TextId> situations;
   final List<_TextId> pressures;
+  final List<_TextId> contexts;
+  final List<_TextId> lingerings;
 }
