@@ -2,11 +2,11 @@
 
 **Last updated:** July 2026  
 **Branch:** `main`  
-**Merge tip:** `c1c0cbc` (PR #48 V1.3.2 Copy Hierarchy); Production hosted @ `c1c0cbc`  
+**Merge tip:** `dff4b43` (PR #50 V1.3.3 Holistic Domains); Production hosted @ `dff4b43`  
 **Prior architecture snapshot:** `feature/fusion-result`  
 **Automation workflow (authoritative):** Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
 **Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login) — Evidence Badge rollout remains `invited_beta`.
-**Thai Beta Narrative / Life Map:** **V1.3.2** copy hierarchy & Past/Current language (product failure over V1.3.1 duplicate core / success banner / Past soft opener / abstract Current) — see [`THAI_LIFE_MAP_V132_COPY_HIERARCHY.md`](THAI_LIFE_MAP_V132_COPY_HIERARCHY.md). Prior V1.3.1 hosted @ `41d7988` failed Product Acceptance on real UI. Status **Ready for Invited Beta Validation** (0 real Life Map Feedback).
+**Thai Beta Narrative / Life Map:** **V1.3.3** holistic overview + Past life-story variety + Current life domains (product failure over V1.3.2 personality-only hero / Past skeletons / Current semantic headings) — see [`THAI_LIFE_MAP_V133_HOLISTIC_DOMAINS.md`](THAI_LIFE_MAP_V133_HOLISTIC_DOMAINS.md). V1.3.2 hosted @ `c1c0cbc` failed Product Acceptance on real UI. Status **Ready for Invited Beta Validation** (0 real Life Map Feedback).
 
 ---
 
@@ -41,7 +41,8 @@
 | **Thai Life Map V1.2.9 Semantic Verdict Fix** | Merged + **hosted** — **product-failed on UI** | PR #42 @ `7ca091f`; semantic claims existed but UI prose stayed system-like (`ช่วงนั้น` / domain dump) |
 | **Thai Life Map V1.3.0 Plain Thai Narrative** | Merged + **hosted** — **product-failed on UI** | PR #44 @ `ad1e948`; plain Thai improved but Past too short / Current abstract duel / hero disclaimer |
 | **Thai Life Map V1.3.1 Narrative Depth** | Merged + **hosted** — **product-failed on UI** | PR #46 @ `41d7988`; Past depth OK but duplicate core card / success banner / Past soft opener / abstract Current remained |
-| **Thai Life Map V1.3.2 Copy Hierarchy** | Merged + **hosted** — **Ready for Validation** | PR #48 @ `c1c0cbc`; single hero card + silent complete birth data + Past/Current language; interactive Life Map UI QA blocked by Flutter a11y — production-path verified; [`THAI_LIFE_MAP_V132_COPY_HIERARCHY.md`](THAI_LIFE_MAP_V132_COPY_HIERARCHY.md) |
+| **Thai Life Map V1.3.2 Copy Hierarchy** | Merged + **hosted** — **product-failed on UI** | PR #48 @ `c1c0cbc`; single hero + silent complete birth + Past/Current language; owner Production Acceptance failed (personality-only hero / Past skeletons / Current headings) |
+| **Thai Life Map V1.3.3 Holistic Domains** | Merged + **hosted** — **Ready for Validation** | PR #50 @ `dff4b43`; holistic hero + Past beat variety + Current ≤4 life domains; interactive Life Map UI QA blocked by Flutter a11y — production-path verified; [`THAI_LIFE_MAP_V133_HOLISTIC_DOMAINS.md`](THAI_LIFE_MAP_V133_HOLISTIC_DOMAINS.md) |
 | **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with past-breadth deploy 2026-07-24 @ `5529264` |
 | **Single-Agent + Local Gate** | Merged to `main` | `docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`, `scripts/knowme_task_gate.ps1` |
 
@@ -78,7 +79,7 @@ Real users (38 Firestore accounts): **2.6% reach Narrative**. Blocker is persona
 | Risk | Severity | Detail |
 |------|----------|--------|
 | Personality test cliff | **Critical** | 97% of profile users never start MBTI (`REAL_USER_RUNTIME_VALIDATION_V1.md`) |
-| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `c1c0cbc` (2026-07-26); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
+| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `dff4b43` (2026-07-26); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
 | Real user PII export local-only | **High** | `firestore_user_export.json` gitignored — must regenerate locally |
 | Firebase service account local-only | **High** | `backend/firebase/serviceAccountKey.json` gitignored |
 | Legacy + new architecture coexist | **Medium** | Parallel scoring, navigation, and module IDs — trace before editing |
