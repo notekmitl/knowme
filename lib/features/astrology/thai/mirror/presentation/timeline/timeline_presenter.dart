@@ -204,6 +204,7 @@ abstract final class TimelinePresenter {
           mahabhutShownOnReport: showMahabhutOnReport,
           subPeriods: subPeriods,
           annualTaksaYears: taksaYears,
+          lifeDomains: narrative.lifeDomains,
         ),
       );
     }

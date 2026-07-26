@@ -63,6 +63,22 @@ class ThaiMirrorAnnualTaksaYearState {
   final bool isTagklang;
 }
 
+/// V1.3.3 — one life-domain block on the Current card (user-facing).
+class ThaiMirrorLifeDomainBlock {
+  const ThaiMirrorLifeDomainBlock({
+    required this.title,
+    required this.body,
+    this.evidenceKeys = const [],
+  });
+
+  /// One of: การดำเนินชีวิต / การงาน / ความรัก / สุขภาพ
+  final String title;
+  final String body;
+
+  /// Internal QA/trace keys — not rendered as narrative.
+  final List<String> evidenceKeys;
+}
+
 /// A full, expandable life-period card.
 class ThaiMirrorLifePeriodState {
   const ThaiMirrorLifePeriodState({
@@ -91,6 +107,7 @@ class ThaiMirrorLifePeriodState {
     this.mahabhutShownOnReport = false,
     this.subPeriods = const [],
     this.annualTaksaYears = const [],
+    this.lifeDomains = const [],
   });
 
   final String ageLabel;
@@ -141,6 +158,9 @@ class ThaiMirrorLifePeriodState {
 
   /// V1.2.3 — ทักษาจร years inside this major window.
   final List<ThaiMirrorAnnualTaksaYearState> annualTaksaYears;
+
+  /// V1.3.3 — Current-only life domains (omit when empty / non-current).
+  final List<ThaiMirrorLifeDomainBlock> lifeDomains;
 }
 
 /// The premium "where are you in life" header card.
