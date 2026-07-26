@@ -6,7 +6,7 @@
 **Prior architecture snapshot:** `feature/fusion-result`  
 **Automation workflow (authoritative):** Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
 **Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login) — Evidence Badge rollout remains `invited_beta`.
-**Thai Beta Narrative / Life Map:** **V1.2.9** semantic verdict fix (product failure over V1.2.8 meta-language) — see [`THAI_LIFE_MAP_V129_SEMANTIC_VERDICT.md`](THAI_LIFE_MAP_V129_SEMANTIC_VERDICT.md). Prior V1.2.8 hosted @ `4b42f95` failed Product Acceptance on real UI. Status **Ready for Invited Beta Validation** (0 real Life Map Feedback).
+**Thai Beta Narrative / Life Map:** **V1.3.0** plain Thai narrative (product failure over V1.2.9 system prose) — see [`THAI_LIFE_MAP_V130_PLAIN_THAI.md`](THAI_LIFE_MAP_V130_PLAIN_THAI.md). Prior V1.2.9 hosted @ `7ca091f` failed Product Acceptance on real UI (repeated `ช่วงนั้น` / domain dump). Status **Ready for Invited Beta Validation** (0 real Life Map Feedback).
 
 ---
 
@@ -38,7 +38,8 @@
 | **Thai Life Map V1.2.6 Narrative & Life-stage UX** | Merged + **hosted** — **Ready for Validation** | PR #25/#27/#31/#33; past life-breadth PR #35 @ `399ac7a` + phase hygiene PR #36 @ `5529264` (evidence-linked Past facets; no `ลองนึกย้อน`; Canon/formulas unchanged); [`THAI_LIFE_MAP_V126_NARRATIVE_UX.md`](THAI_LIFE_MAP_V126_NARRATIVE_UX.md) |
 | **Thai Life Map V1.2.7 Simulated 864 Matrix** | Merged + **hosted** | PR #38 @ `2e633b8`; 8 weekday categories × ages 1–108 = **864/864** production-path passes; independent Sakamoto/Almanac oracle; optional `asOf` plumbing; Canon unresolved tallied (not forced 8/0); [`THAI_LIFE_MAP_V127_SIMULATED_MATRIX.md`](THAI_LIFE_MAP_V127_SIMULATED_MATRIX.md) |
 | **Thai Life Map V1.2.8 Verdict Narrative** | Merged + **hosted** — **product-failed on UI** | PR #40 @ `4b42f95`; hedges/labels improved but meta-language remained (`แกนของชีวิต` / `บรรยากาศหลัก`) |
-| **Thai Life Map V1.2.9 Semantic Verdict Fix** | Merged + **hosted** — **Ready for Validation** | PR #42 @ `7ca091f`; semantic claim layer (situation+domain+consequence); Production-failure phrases absent from hosted bundle; interactive Life Map UI QA blocked by Flutter a11y — production-path presenter/widget verified; [`THAI_LIFE_MAP_V129_SEMANTIC_VERDICT.md`](THAI_LIFE_MAP_V129_SEMANTIC_VERDICT.md) |
+| **Thai Life Map V1.2.9 Semantic Verdict Fix** | Merged + **hosted** — **product-failed on UI** | PR #42 @ `7ca091f`; semantic claims existed but UI prose stayed system-like (`ช่วงนั้น` / domain dump) |
+| **Thai Life Map V1.3.0 Plain Thai Narrative** | This release | Plain Thai renderer + Product Language Gate; [`THAI_LIFE_MAP_V130_PLAIN_THAI.md`](THAI_LIFE_MAP_V130_PLAIN_THAI.md) |
 | **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with past-breadth deploy 2026-07-24 @ `5529264` |
 | **Single-Agent + Local Gate** | Merged to `main` | `docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`, `scripts/knowme_task_gate.ps1` |
 

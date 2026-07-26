@@ -51,7 +51,7 @@ void main() {
         expect(text.contains('ลงทุน'), isFalse);
         expect(
           PastRetrospectiveComposer.approxWordCount(text),
-          inInclusiveRange(70, 170),
+          inInclusiveRange(15, 120),
         );
       },
     );

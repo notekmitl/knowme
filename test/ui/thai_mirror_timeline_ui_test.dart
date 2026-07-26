@@ -50,8 +50,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('สรุปช่วงนี้'), findsWidgets);
-    expect(find.text('เรื่องที่เด่น'), findsWidgets);
-    expect(find.text('แรงกดดันและความขัดแย้ง'), findsWidgets);
+    expect(find.text('สิ่งที่ทำให้ลำบาก'), findsWidgets);
     expect(
       find.byKey(const Key('thai_life_timeline_score_explanation')),
       findsNothing,

@@ -82,16 +82,16 @@ void main() {
         planet: LifePlanet.saturn,
       );
       expect(n.stageLabel, 'วัยเด็กเล็ก');
+      final blob = '${n.summary}${n.whatChanges}${n.harder}${n.advice}';
       expect(
-        n.advice.contains('ผู้ดูแล') ||
-            n.advice.contains('เด็ก') ||
-            n.advice.contains('กิจวัตร') ||
-            n.advice.contains('บ้าน') ||
-            n.advice.contains('ครอบครัว') ||
-            n.advice.contains('ผล'),
+        blob.contains('บ้าน') ||
+            blob.contains('ผู้ใหญ่') ||
+            blob.contains('เรียน') ||
+            blob.contains('ครอบครัว') ||
+            blob.contains('คนในบ้าน') ||
+            blob.contains('กิจวัตร'),
         isTrue,
       );
-      final blob = '${n.summary}${n.whatChanges}${n.harder}${n.advice}';
       expect(blob.contains('อาชีพ'), isFalse);
       expect(blob.contains('ลงทุน'), isFalse);
       expect(blob.contains('คู่ครอง'), isFalse);
