@@ -16,7 +16,7 @@ cd knowme
 git checkout main
 ```
 
-**Important:** Prefer `main`. Life Map **V1.3.3** holistic overview + Current life domains is hosted @ `dff4b43` (PR #50) — see [`THAI_LIFE_MAP_V133_HOLISTIC_DOMAINS.md`](THAI_LIFE_MAP_V133_HOLISTIC_DOMAINS.md). V1.3.2 @ `c1c0cbc` failed Product Acceptance (personality-only hero / Past skeletons / Current semantic headings). Evidence Badge remains `invited_beta`. Validation status: **Ready for Invited Beta Validation**.
+**Important:** Prefer `main`. Life Map **V1.3.4** narrative quality (no ephemeris) is hosted @ `7a3d07d` (PR #52) — see [`THAI_LIFE_MAP_V134_NARRATIVE_QUALITY.md`](THAI_LIFE_MAP_V134_NARRATIVE_QUALITY.md). V1.3.3 @ `dff4b43` failed Product Acceptance (abstract overview / Past templates / wrong Current domains). Evidence Badge remains `invited_beta`. Validation status: **Ready for Invited Beta Validation** — Product Acceptance awaits owner Production text review.
 
 **Automation workflow:** Use Single-Agent + Local Gate — see [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). The external AI Worker is **retired** (historical: [`AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)). The obsolete in-repo `ai-worker/` directory is gitignored and must not be committed.
 
