@@ -16,7 +16,7 @@ cd knowme
 git checkout main
 ```
 
-**Important:** Prefer `main`. Life Map **V1.3.2** copy hierarchy supersedes V1.3.1 product-failure — see [`THAI_LIFE_MAP_V132_COPY_HIERARCHY.md`](THAI_LIFE_MAP_V132_COPY_HIERARCHY.md). Prior Production @ `41d7988` (V1.3.1) failed owner Product Acceptance. Evidence Badge remains `invited_beta`.
+**Important:** Prefer `main`. Life Map **V1.3.2** copy hierarchy is hosted @ `c1c0cbc` (PR #48) — see [`THAI_LIFE_MAP_V132_COPY_HIERARCHY.md`](THAI_LIFE_MAP_V132_COPY_HIERARCHY.md). V1.3.1 @ `41d7988` failed Product Acceptance (duplicate core / success banner / Past soft opener / abstract Current). Evidence Badge remains `invited_beta`. Validation status: **Ready for Invited Beta Validation**.
 
 **Automation workflow:** Use Single-Agent + Local Gate — see [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). The external AI Worker is **retired** (historical: [`AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)). The obsolete in-repo `ai-worker/` directory is gitignored and must not be committed.
 

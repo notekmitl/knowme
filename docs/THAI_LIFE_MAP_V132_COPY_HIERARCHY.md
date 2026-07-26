@@ -1,6 +1,6 @@
 # Thai Life Map V1.3.2 — Product Copy & Information Hierarchy
 
-**Status:** Implementation (product-failure fix over V1.3.1)  
+**Status:** Merged + hosted @ `c1c0cbc` (PR #48) — product-failure fix over V1.3.1  
 **Runtime predecessor:** V1.3.1 @ `41d7988` failed Product Acceptance (duplicate core card / success banner / Past soft opener / abstract Current)
 
 ## Root causes
