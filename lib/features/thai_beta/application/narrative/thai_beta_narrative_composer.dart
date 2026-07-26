@@ -12,6 +12,7 @@ import 'thai_beta_narrative_domain.dart';
 import 'thai_beta_narrative_formatting.dart';
 import 'thai_beta_narrative_forbidden.dart';
 import 'thai_beta_narrative_hero.dart';
+import 'thai_beta_holistic_overview_composer.dart';
 import 'thai_beta_narrative_specificity.dart';
 import 'thai_beta_narrative_stable_hash.dart';
 import 'thai_beta_narrative_trace.dart';
@@ -119,11 +120,12 @@ abstract final class ThaiBetaNarrativeComposer {
     );
     trace = coreResult.trace;
 
-    // V1.3.2: synthesize Personal Core into the single opening hero card.
-    // Do not keep a second "แก่น..." card or trailing quote when absorbed.
-    final mergedHero = _mergeHeroWithPersonalCore(
-      hero: heroResult.hero,
+    // V1.3.3: holistic executive overview (natal + life trajectory + current).
+    // Replaces personality-only merge of hero + personal core.
+    final mergedHero = ThaiBetaHolisticOverviewComposer.compose(
+      natalHero: heroResult.hero,
       core: coreResult.insight,
+      timeline: source.lifeTimeline,
       hasBirthTime: ctx.hasBirthTime,
     );
 
@@ -874,74 +876,6 @@ abstract final class ThaiBetaNarrativeComposer {
       trace: trace,
       adviceBlockId: selection.block.id,
     );
-  }
-
-  /// V1.3.2 — fold Personal Core claims into the single "ดวงไทยของคุณ" card.
-  ///
-  /// Keeps hero headline/tags; adds only core paragraphs that add new meaning.
-  /// Drops the trailing confidence quote (signature) — no filler replacement.
-  static ThaiMirrorConsumerHeroState _mergeHeroWithPersonalCore({
-    required ThaiMirrorConsumerHeroState hero,
-    required ThaiMirrorSignatureInsightState core,
-    required bool hasBirthTime,
-  }) {
-    final heroParas = hero.summary
-        .split('\n\n')
-        .map((p) => ThaiBetaNarrativeFormatting.normalize(p))
-        .where((p) => p.isNotEmpty)
-        .toList();
-    final coreParas = core.body
-        .split('\n\n')
-        .map((p) => ThaiBetaNarrativeFormatting.normalize(p))
-        .where((p) => p.isNotEmpty)
-        .toList();
-
-    final merged = <String>[...heroParas];
-    for (final para in coreParas) {
-      if (_isAbsorbedCoreMeta(para)) continue;
-      if (merged.any((existing) => _paragraphsOverlap(existing, para))) {
-        continue;
-      }
-      merged.add(para);
-    }
-
-    // Soft cap: one opening card, not a dump of two cards concatenated.
-    final capped = merged.length <= 6 ? merged : merged.take(6).toList();
-
-    return ThaiMirrorConsumerHeroState(
-      headline: hero.headline,
-      summary: capped.join('\n\n'),
-      tags: hero.tags,
-      identityBadge: hero.identityBadge,
-      identitySubtitle: hasBirthTime
-          ? hero.identitySubtitle
-          : 'ไม่มีเวลาเกิด — วิเคราะห์ได้เฉพาะภาพรวมจากวันเกิด '
-                'ไม่ใช่ภาพละเอียดเต็มรูปแบบ',
-    );
-  }
-
-  static bool _isAbsorbedCoreMeta(String para) {
-    // Confidence / soft-sell lines that do not add personality evidence.
-    const meta = [
-      'ใช้สังเกตตัวเอง ไม่ใช่คำฟันธง',
-      'ยังเป็นแนวโน้มจากข้อมูลที่มี',
-      'ยืนยันกับชีวิตจริงก่อนตัดสินใจใหญ่',
-      'ข้อมูลเวลายังไม่ครบ',
-      'ไม่ใช่ข้อสรุปตายตัว',
-    ];
-    return meta.any(para.contains) && para.length < 80;
-  }
-
-  static bool _paragraphsOverlap(String a, String b) {
-    final ka = ThaiBetaNarrativeFormatting.normalizedKey(a);
-    final kb = ThaiBetaNarrativeFormatting.normalizedKey(b);
-    if (ka.isEmpty || kb.isEmpty) return false;
-    if (ka == kb) return true;
-    if (ka.contains(kb) || kb.contains(ka)) {
-      final shorter = ka.length < kb.length ? ka : kb;
-      return shorter.length >= 18;
-    }
-    return false;
   }
 
   static ({

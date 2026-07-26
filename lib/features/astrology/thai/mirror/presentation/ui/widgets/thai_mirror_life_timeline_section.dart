@@ -920,7 +920,8 @@ class _PeriodDetail extends StatelessWidget {
             ),
           ),
         ],
-        if (period.keyword.isNotEmpty) ...[
+        if (period.keyword.isNotEmpty &&
+            !(period.isCurrent && period.lifeDomains.isNotEmpty)) ...[
           const SizedBox(height: 8),
           Text(
             '${ThaiMirrorLifeTimelineSection.themeLabel}: ${period.keyword}',
@@ -957,37 +958,47 @@ class _PeriodDetail extends StatelessWidget {
             ),
           ],
         ],
-        _SectionTitle(
-          text: period.isPast ? 'สิ่งที่เกิดขึ้น' : 'สรุปช่วงนี้',
-          accent: accent,
-        ),
-        para(period.summary),
-        if (!period.isPast && period.whatChanges.isNotEmpty) ...[
-          _SectionTitle(text: 'เรื่องที่เด่น', accent: accent),
-          para(period.whatChanges),
-        ],
-        if (!period.isPast && period.harder.isNotEmpty) ...[
-          _SectionTitle(text: 'สิ่งที่ทำให้ลำบาก', accent: accent),
-          para(period.harder),
-        ],
-        if (!period.isPast &&
-            (period.advice.isNotEmpty ? period.advice : period.easier)
-                .isNotEmpty) ...[
+        // V1.3.3: Current uses life-domain hierarchy; Past/Future keep slot layout.
+        if (period.isCurrent && period.lifeDomains.isNotEmpty) ...[
+          for (final domain in period.lifeDomains) ...[
+            _SectionTitle(text: domain.title, accent: accent),
+            para(domain.body),
+          ],
+        ] else ...[
           _SectionTitle(
-            text:
-                period.stageLabel.contains('เด็ก') ||
-                    period.stageLabel.contains('เรียน')
-                ? 'ผลต่อชีวิตในวัยนี้'
-                : 'ผลต่อชีวิตในช่วงนี้',
+            text: period.isPast ? 'สิ่งที่เกิดขึ้น' : 'สรุปช่วงนี้',
             accent: accent,
           ),
-          para(period.advice.isNotEmpty ? period.advice : period.easier),
+          para(period.summary),
+          if (!period.isPast && period.whatChanges.isNotEmpty) ...[
+            _SectionTitle(text: 'เรื่องที่เด่น', accent: accent),
+            para(period.whatChanges),
+          ],
+          if (!period.isPast && period.harder.isNotEmpty) ...[
+            _SectionTitle(text: 'สิ่งที่ทำให้ลำบาก', accent: accent),
+            para(period.harder),
+          ],
+          if (!period.isPast &&
+              (period.advice.isNotEmpty ? period.advice : period.easier)
+                  .isNotEmpty) ...[
+            _SectionTitle(
+              text:
+                  period.stageLabel.contains('เด็ก') ||
+                      period.stageLabel.contains('เรียน')
+                  ? 'ผลต่อชีวิตในวัยนี้'
+                  : 'ผลต่อชีวิตในช่วงนี้',
+              accent: accent,
+            ),
+            para(period.advice.isNotEmpty ? period.advice : period.easier),
+          ],
+          if (!period.isPast && period.comparison.isNotEmpty) ...[
+            _SectionTitle(text: 'ความเปลี่ยนแปลงจากช่วงก่อน', accent: accent),
+            para(period.comparison),
+          ],
         ],
-        if (!period.isPast && period.comparison.isNotEmpty) ...[
-          _SectionTitle(text: 'ความเปลี่ยนแปลงจากช่วงก่อน', accent: accent),
-          para(period.comparison),
-        ],
-        if (!period.isPast && period.evidenceLine.isNotEmpty) ...[
+        if (!period.isPast &&
+            !period.isCurrent &&
+            period.evidenceLine.isNotEmpty) ...[
           const SizedBox(height: 12),
           Container(
             width: double.infinity,

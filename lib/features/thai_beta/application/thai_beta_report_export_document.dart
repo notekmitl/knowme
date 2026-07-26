@@ -369,19 +369,27 @@ class ThaiBetaReportExportDocument {
     }
 
     for (final period in timeline.periods) {
+      final body = <String>[
+        period.planetLine,
+        if (period.isCurrent && period.lifeDomains.isNotEmpty)
+          for (final domain in period.lifeDomains) ...[
+            domain.title,
+            domain.body,
+          ]
+        else ...[
+          period.summary,
+          period.whatChanges,
+          period.easier,
+          period.harder,
+          period.comparison,
+          period.evidenceLine,
+          if (period.advice.isNotEmpty) period.advice,
+        ],
+      ];
       out.add(
         _section(
           '${period.phaseName} (${period.ageLabel})',
-          [
-            period.planetLine,
-            // Keyword already appears after "•" on planetLine.
-            period.summary,
-            period.whatChanges,
-            period.easier,
-            period.harder,
-            period.comparison,
-            period.evidenceLine,
-          ],
+          body,
           kind: ThaiBetaReportExportSectionKind.timeline,
         ),
       );

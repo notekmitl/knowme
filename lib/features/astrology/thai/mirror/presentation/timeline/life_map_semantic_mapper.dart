@@ -127,6 +127,10 @@ abstract final class LifeMapSemanticMapper {
   }
 
   /// Past story beats from evidence only — no invented events.
+  ///
+  /// V1.3.3: vary role order and openers by seed so eight periods do not share
+  /// one "โอกาส → รับมือ → เลือก" skeleton. Continuity uses transition /
+  /// lingering evidence only — never fabricated events.
   static List<LifeMapNarrativeBeat> _pastBeats({
     required ThaiLifeStageBand band,
     required LifePlanetData data,
@@ -139,49 +143,50 @@ abstract final class LifeMapSemanticMapper {
     required int seed,
   }) {
     final pack = _pack(primaryDomain, band);
-    final ctx = pack.contexts[seed.abs() % pack.contexts.length];
-    final linger = pack.lingerings[seed.abs() % pack.lingerings.length];
+    final s = seed.abs();
+    final ctx = pack.contexts[s % pack.contexts.length];
+    final linger = pack.lingerings[s % pack.lingerings.length];
     final keys = [
       'planet:${data.planet.name}',
       'keyword:${data.keyword}',
       'domain:${primaryDomain.id}',
     ];
 
-    final raw = <LifeMapNarrativeBeat>[
-      LifeMapNarrativeBeat(
+    final byRole = <String, LifeMapNarrativeBeat>{
+      'context': LifeMapNarrativeBeat(
         id: ctx.id,
         role: 'context',
-        textTh: ctx.text,
+        textTh: _varyPastOpener(ctx.text, s),
         evidenceKeys: [...keys, 'beat:context'],
       ),
-      LifeMapNarrativeBeat(
+      'change': LifeMapNarrativeBeat(
         id: primary.situationId,
         role: 'change',
         textTh: primary.situationTh,
         evidenceKeys: primary.evidenceKeys,
       ),
       if (secondary != null)
-        LifeMapNarrativeBeat(
+        'support': LifeMapNarrativeBeat(
           id: secondary.situationId,
           role: 'support',
           textTh: secondary.situationTh,
           evidenceKeys: secondary.evidenceKeys,
         ),
       if (pressure != null)
-        LifeMapNarrativeBeat(
+        'pressure': LifeMapNarrativeBeat(
           id: pressure.pressureId,
           role: 'pressure',
           textTh: pressure.pressureTh,
           evidenceKeys: pressure.evidenceKeys,
         ),
       if (consequence != null)
-        LifeMapNarrativeBeat(
+        'response': LifeMapNarrativeBeat(
           id: consequence.consequenceId,
           role: 'response',
           textTh: consequence.consequenceTh,
           evidenceKeys: consequence.evidenceKeys,
         ),
-      LifeMapNarrativeBeat(
+      'lingering': LifeMapNarrativeBeat(
         id: linger.id,
         role: 'lingering',
         textTh: linger.text,
@@ -191,9 +196,33 @@ abstract final class LifeMapSemanticMapper {
           'transition:${transition.name}',
         ],
       ),
-    ];
+    };
 
-    // Deduplicate by normalized text; keep order. Cap at 6; keep at least change.
+    // Pattern templates — each starts with a different role when evidence allows.
+    const patterns = <List<String>>[
+      ['context', 'change', 'pressure', 'response', 'lingering'],
+      ['change', 'pressure', 'response', 'lingering', 'support'],
+      ['pressure', 'change', 'support', 'response', 'lingering'],
+      ['context', 'pressure', 'change', 'lingering', 'response'],
+      ['change', 'support', 'context', 'pressure', 'lingering'],
+      ['support', 'change', 'pressure', 'lingering', 'response'],
+      ['change', 'response', 'pressure', 'lingering', 'context'],
+      ['context', 'support', 'change', 'response', 'lingering'],
+    ];
+    final order = patterns[s % patterns.length];
+
+    final raw = <LifeMapNarrativeBeat>[];
+    for (final role in order) {
+      final beat = byRole[role];
+      if (beat == null) continue;
+      raw.add(beat);
+    }
+    // Ensure primary change is present even if pattern skipped a missing role.
+    if (!raw.any((b) => b.role == 'change')) {
+      raw.insert(0, byRole['change']!);
+    }
+
+    // Deduplicate by normalized text; keep pattern order. Cap at 5 for flow.
     final kept = <LifeMapNarrativeBeat>[];
     for (final beat in raw) {
       final t = beat.textTh.trim();
@@ -204,13 +233,30 @@ abstract final class LifeMapSemanticMapper {
         continue;
       }
       kept.add(beat);
-      if (kept.length >= 6) break;
-    }
-    if (kept.length < 3) {
-      // Sparse evidence: keep what we have (may be 2–3).
-      return kept;
+      if (kept.length >= 5) break;
     }
     return kept;
+  }
+
+  /// Diversify Past openers without soft filler "ในช่วงนั้น" / "ช่วงนั้น".
+  static String _varyPastOpener(String text, int seed) {
+    var t = text.trim();
+    if (t.isEmpty) return t;
+    // Never reintroduce banned soft openers.
+    t = t.replaceFirst(RegExp(r'^ในช่วงนั้น\s*'), '');
+    t = t.replaceFirst(RegExp(r'^ช่วงนั้น\s*'), '');
+    const stem = 'ก่อนหน้านั้น';
+    if (!t.startsWith(stem)) return t;
+    final rest = t.substring(stem.length).trimLeft();
+    if (rest.isEmpty) return t;
+    final alts = <String>[
+      'ก่อนหน้านี้$rest',
+      rest,
+      'พื้นฐานก่อนเข้าช่วงนี้$rest',
+      'จากจังหวะก่อนหน้าที่ส่งต่อมา $rest',
+      'ก่อนจะถึงจุดนี้$rest',
+    ];
+    return alts[seed.abs() % alts.length];
   }
 
   static LifeMapClaimDomain _domainFromScoreKey(

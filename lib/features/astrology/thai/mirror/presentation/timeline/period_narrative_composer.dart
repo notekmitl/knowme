@@ -6,9 +6,11 @@ import '../copy/thai_mirror_evidence_composer.dart';
 import 'life_map_plain_thai_renderer.dart';
 import 'life_map_semantic_mapper.dart';
 import 'life_map_verdict_semantics.dart';
+import 'life_map_current_domain_composer.dart';
 import 'period_composite_score.dart';
 import 'past_retrospective_composer.dart';
 import 'thai_life_stage_context.dart';
+import 'thai_mirror_life_timeline_state.dart';
 
 /// Human narrative for one life period.
 class PeriodNarrative {
@@ -22,6 +24,7 @@ class PeriodNarrative {
     this.advice = '',
     this.stageLabel = '',
     this.semantics,
+    this.lifeDomains = const [],
   });
 
   final String summary;
@@ -49,6 +52,9 @@ class PeriodNarrative {
 
   /// Structured claims for semantic tests (not shown as raw IDs in UI).
   final LifeMapVerdictSemantics? semantics;
+
+  /// V1.3.3 — Current life-domain blocks for UI (empty for past/future).
+  final List<ThaiMirrorLifeDomainBlock> lifeDomains;
 }
 
 /// V1.3.0 — Period Narrative Composer (plain Thai life-situation verdicts).
@@ -105,6 +111,15 @@ abstract final class PeriodNarrativeComposer {
         ? _evidenceLine(period, lagnaLord, evidence, topThemeTags, seed, band)
         : '';
 
+    // V1.3.3: Current UI uses life domains; keep slot fields for Future /
+    // export/tests but Current card prefers [lifeDomains].
+    final lifeDomains = period.isCurrent
+        ? LifeMapCurrentDomainComposer.compose(
+            semantics: semantics,
+            comparison: comparison,
+          )
+        : const <ThaiMirrorLifeDomainBlock>[];
+
     return PeriodNarrative(
       summary: rendered.summary,
       whatChanges: rendered.whatChanges,
@@ -115,6 +130,7 @@ abstract final class PeriodNarrativeComposer {
       advice: rendered.advice,
       stageLabel: stageLabel,
       semantics: semantics,
+      lifeDomains: lifeDomains,
     );
   }
 
