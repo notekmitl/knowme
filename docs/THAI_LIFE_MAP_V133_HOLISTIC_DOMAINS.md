@@ -1,7 +1,7 @@
 # Thai Life Map V1.3.3 — Holistic Overview + Life Story + Current Domains
 
-**Status:** Feature branch (pending merge/deploy)  
-**Predecessor:** V1.3.2 @ `c1c0cbc` / docs tip `5073771` — Technical Gate passed; Product Acceptance failed on Production UI
+**Status:** Merged + hosted @ `dff4b43` (PR #50) — product-failure fix over V1.3.2  
+**Runtime predecessor:** V1.3.2 @ `c1c0cbc` failed Product Acceptance (personality-only hero / Past skeletons / Current semantic headings)
 
 ## Root causes
 
