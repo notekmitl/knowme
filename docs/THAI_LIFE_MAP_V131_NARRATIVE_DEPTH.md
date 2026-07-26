@@ -1,6 +1,6 @@
 # Thai Life Map V1.3.1 — Narrative Depth & Natural Thai
 
-**Status:** Implementation (product-failure fix over V1.3.0)  
+**Status:** Merged + hosted @ `41d7988` (PR #46) — product-failure fix over V1.3.0  
 **Runtime predecessor:** V1.3.0 @ `ad1e948` failed Product Acceptance (Past too short / Current abstract duel / hero disclaimer)
 
 ## Root causes
