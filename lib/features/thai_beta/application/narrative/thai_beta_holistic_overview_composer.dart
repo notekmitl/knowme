@@ -1,16 +1,25 @@
-/// V1.3.3 — executive overview for the single "ดวงไทยของคุณ" hero card.
+/// V1.3.4 — life overview for the single "ดวงไทยของคุณ" hero card.
 ///
-/// Synthesizes natal foundation + life trajectory + current focus/challenge
-/// from approved evidence. Never copies Past/Current/Future card bodies
-/// verbatim, and never invents unsupported life events.
+/// Uses curated natal evidence + Life Map phase/affinity signals only.
+/// No planet degrees, houses, or Swiss Ephemeris. Never pastes timeline cards.
 library;
 
+import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_mirror_consumer_view_state.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/thai_mirror_life_timeline_state.dart';
 
 import 'thai_beta_narrative_formatting.dart';
 
 abstract final class ThaiBetaHolisticOverviewComposer {
+  static const _bannedOpeners = [
+    'พื้นฐานจากดวงไทยคู่กับ',
+    'จังหวะช่วง',
+    'ที่เน้นการเรียนรู้',
+    'ที่เน้นความสุขและความสัมพันธ์',
+    'พลังชีวิตกำลังทำงาน',
+    'ค่อย ๆ วางโครงให้ชีวิต',
+  ];
+
   /// Merge curated natal copy with life-map evidence into one overview card.
   static ThaiMirrorConsumerHeroState compose({
     required ThaiMirrorConsumerHeroState natalHero,
@@ -21,45 +30,42 @@ abstract final class ThaiBetaHolisticOverviewComposer {
     final natalParas = _uniqueParas([
       ...natalHero.summary.split('\n\n'),
       ...core.body.split('\n\n'),
-    ]).where((p) => !_isAbsorbedMeta(p)).toList();
-
-    final foundation = natalParas.isEmpty ? '' : natalParas.first;
-    final foundationExtra = natalParas.length > 1 ? natalParas[1] : '';
+    ]).where((p) => !_isAbsorbedMeta(p) && !_isBannedPhrase(p)).toList();
 
     final stage = timeline?.currentStage;
+    final planet = _planetFromStage(stage);
     final current = _currentPeriod(timeline);
     final analysis = timeline?.currentAnalysis;
 
-    final trajectory = _trajectorySentence(stage: stage, analysis: analysis);
-    final currentFocus = _currentFocusSentence(current: current, stage: stage);
-    final challenge = _challengeSentence(current: current, analysis: analysis);
+    final foundation = _foundationSentence(natalParas, natalHero.headline);
+    final strengthCaution = _strengthCaution(natalParas, foundation);
+    final trajectory = _trajectorySentence(planet: planet, stage: stage);
+    final currentFocus = _currentFocusSentence(
+      planet: planet,
+      stage: stage,
+      analysis: analysis,
+    );
 
     final parts = <String>[];
     void add(String? text) {
       final t = ThaiBetaNarrativeFormatting.normalize(text ?? '');
       if (t.isEmpty) return;
+      if (_isBannedPhrase(t)) return;
       if (parts.any((p) => _overlap(p, t))) return;
-      // Do not paste full timeline card bodies into the hero.
       if (_looksLikeTimelineDump(t, current)) return;
       parts.add(t);
     }
 
     add(foundation);
+    add(strengthCaution);
     add(trajectory);
     add(currentFocus);
-    add(challenge);
-    // One extra natal nuance only when life evidence is sparse.
-    if (parts.length < 3) {
-      add(foundationExtra);
-    }
 
-    // Soft cap: executive summary, not a concatenated report.
     final capped = parts.length <= 4 ? parts : parts.take(4).toList();
-
     final headline = _headline(
       natalHeadline: natalHero.headline,
+      planet: planet,
       stage: stage,
-      hasLifeEvidence: trajectory.isNotEmpty || currentFocus.isNotEmpty,
     );
 
     return ThaiMirrorConsumerHeroState(
@@ -74,6 +80,16 @@ abstract final class ThaiBetaHolisticOverviewComposer {
     );
   }
 
+  static LifePlanetData? _planetFromStage(ThaiMirrorCurrentStageState? stage) {
+    if (stage == null) return null;
+    final keyword = stage.keyword.trim();
+    final phase = stage.phaseName.trim();
+    for (final data in LifePlanets.data.values) {
+      if (data.keyword == keyword || data.phaseName == phase) return data;
+    }
+    return null;
+  }
+
   static ThaiMirrorLifePeriodState? _currentPeriod(
     ThaiMirrorLifeTimelineState? timeline,
   ) {
@@ -86,139 +102,104 @@ abstract final class ThaiBetaHolisticOverviewComposer {
 
   static String _headline({
     required String natalHeadline,
+    required LifePlanetData? planet,
     required ThaiMirrorCurrentStageState? stage,
-    required bool hasLifeEvidence,
   }) {
+    if (planet != null) {
+      return ThaiBetaNarrativeFormatting.normalize(
+        'ตอนนี้อยู่ใน${planet.phaseName} — ${planet.phaseEssence}',
+      );
+    }
     final natal = ThaiBetaNarrativeFormatting.normalize(natalHeadline);
-    if (!hasLifeEvidence || stage == null) {
-      return natal;
+    if (_isBannedPhrase(natal) || natal.startsWith('คุณเป็นคน')) {
+      final phase = stage?.phaseName.trim() ?? '';
+      if (phase.isNotEmpty) {
+        return ThaiBetaNarrativeFormatting.normalize('ตอนนี้อยู่ใน$phase');
+      }
     }
-    final phase = stage.phaseName.trim();
-    final keyword = stage.keyword.trim();
-    if (phase.isEmpty && keyword.isEmpty) return natal;
+    return natal;
+  }
 
-    // Overview headline: identity + life rhythm — not personality-only.
-    if (keyword.isNotEmpty && phase.isNotEmpty) {
-      return ThaiBetaNarrativeFormatting.normalize(
-        'พื้นฐานจากดวงไทยคู่กับจังหวะ$phaseที่เน้น$keyword',
-      );
+  static String _foundationSentence(
+    List<String> natalParas,
+    String natalHeadline,
+  ) {
+    for (final p in natalParas) {
+      if (p.length >= 24 && !_isBannedPhrase(p)) return p;
     }
-    if (keyword.isNotEmpty) {
-      return ThaiBetaNarrativeFormatting.normalize(
-        'พื้นฐานจากดวงไทยและจังหวะชีวิตที่เน้น$keyword',
-      );
+    final h = ThaiBetaNarrativeFormatting.normalize(natalHeadline);
+    if (h.isNotEmpty && !_isBannedPhrase(h) && !h.startsWith('คุณเป็นคน')) {
+      return h;
     }
-    return ThaiBetaNarrativeFormatting.normalize(
-      'พื้นฐานจากดวงไทยและจังหวะ$phaseในชีวิตตอนนี้',
-    );
+    return 'จากข้อมูลดวงไทยที่มี พื้นฐานตัวตนของคุณพออ่านเป็นแนวทางชีวิตได้ '
+        'โดยยังต้องเทียบกับสถานการณ์จริง';
+  }
+
+  static String _strengthCaution(List<String> natalParas, String foundation) {
+    for (final p in natalParas) {
+      if (_overlap(foundation, p)) continue;
+      if (p.length < 20) continue;
+      if (_isBannedPhrase(p)) continue;
+      return p;
+    }
+    return '';
   }
 
   static String _trajectorySentence({
+    required LifePlanetData? planet,
     required ThaiMirrorCurrentStageState? stage,
-    required ThaiMirrorCurrentAnalysisState? analysis,
   }) {
-    if (stage == null) return '';
-    final phase = stage.phaseName.trim();
-    final keyword = stage.keyword.trim();
-    final dominant = analysis?.dominantInfluences.trim() ?? '';
-
-    if (dominant.isNotEmpty &&
-        !dominant.contains('ข้อมูลไม่เพียงพอ') &&
-        dominant.length < 120) {
-      // Reframe analysis line as life-rhythm overview (not a card dump).
-      return ThaiBetaNarrativeFormatting.normalize(
-        'เส้นทางชีวิตเดินเป็นช่วงตามดาวเสวยอายุ — $dominant',
-      );
-    }
-    if (phase.isNotEmpty && keyword.isNotEmpty) {
+    if (planet != null) {
       return ThaiBetaNarrativeFormatting.normalize(
         'เส้นทางชีวิตเดินเป็นช่วงตามดาวเสวยอายุ '
-        'และตอนนี้อยู่ใน$phaseที่เน้น$keyword',
+        'จังหวะปัจจุบันเน้น${planet.keyword}และผลของสิ่งที่สะสมมา',
       );
     }
-    if (keyword.isNotEmpty) {
-      return ThaiBetaNarrativeFormatting.normalize(
-        'เส้นทางชีวิตเดินเป็นช่วงตามดาวเสวยอายุ '
-        'และจังหวะปัจจุบันเน้น$keyword',
-      );
-    }
-    return '';
+    final keyword = stage?.keyword.trim() ?? '';
+    if (keyword.isEmpty) return '';
+    return ThaiBetaNarrativeFormatting.normalize(
+      'เส้นทางชีวิตเดินเป็นช่วงตามดาวเสวยอายุ '
+      'และจังหวะปัจจุบันเกี่ยวข้องกับ$keyword',
+    );
   }
 
   static String _currentFocusSentence({
-    required ThaiMirrorLifePeriodState? current,
+    required LifePlanetData? planet,
     required ThaiMirrorCurrentStageState? stage,
-  }) {
-    final keyword = (stage?.keyword ?? current?.keyword ?? '').trim();
-    final phase = (stage?.phaseName ?? current?.phaseName ?? '').trim();
-    final planet = (stage?.planetLine ?? current?.planetLine ?? '').trim();
-
-    // Overview-level synthesis from approved period labels — not card body paste.
-    if (keyword.isNotEmpty && phase.isNotEmpty) {
-      return ThaiBetaNarrativeFormatting.normalize(
-        'ช่วงชีวิตตอนนี้อยู่ใน$phase '
-        'และเรื่องสำคัญหมุนรอบ$keyword',
-      );
-    }
-    if (keyword.isNotEmpty && planet.isNotEmpty) {
-      return ThaiBetaNarrativeFormatting.normalize(
-        'ช่วงชีวิตตอนนี้$planet '
-        'ทำให้เรื่อง$keyword เด่นขึ้น',
-      );
-    }
-    if (keyword.isNotEmpty) {
-      return ThaiBetaNarrativeFormatting.normalize(
-        'ช่วงชีวิตตอนนี้เรื่องสำคัญหมุนรอบ$keyword',
-      );
-    }
-    return '';
-  }
-
-  static String _challengeSentence({
-    required ThaiMirrorLifePeriodState? current,
     required ThaiMirrorCurrentAnalysisState? analysis,
   }) {
-    // Prefer current-analysis reasons (distinct composer from period cards).
     final reason = analysis?.reasons.isNotEmpty == true
         ? analysis!.reasons.first.trim()
         : '';
     if (reason.isNotEmpty &&
         reason.length < 110 &&
+        !_isBannedPhrase(reason) &&
         !reason.contains('ข้อมูลไม่เพียงพอ')) {
-      var body = reason;
-      // Avoid "ช่วงนี้คือช่วงนี้…" stutter from analysis copy.
-      body = body.replaceFirst(RegExp(r'^ช่วงนี้'), '').trimLeft();
-      if (body.isEmpty) return '';
-      return ThaiBetaNarrativeFormatting.normalize(
-        'จุดที่ควรใส่ใจในช่วงนี้คือ$body',
-      );
-    }
-
-    // Fall back to a short pressure cue without pasting the full harder slot.
-    final harder = _firstSentence(current?.harder ?? '');
-    if (harder.isEmpty) return '';
-    final reframed = _stripCurrentLead(harder).trim();
-    if (reframed.isEmpty || reframed.length > 90) return '';
-    return ThaiBetaNarrativeFormatting.normalize(
-      'จุดท้าทายที่ควรดูแลคือ$reframed',
-    );
-  }
-
-  static String _firstSentence(String text) {
-    final t = text.trim();
-    if (t.isEmpty) return '';
-    final cut = t.split(RegExp(r'(?<=[.!?。])\s+|\n+'));
-    return cut.first.trim();
-  }
-
-  static String _stripCurrentLead(String text) {
-    var t = text.trim();
-    for (final lead in ['ตอนนี้', 'ขณะนี้', 'ช่วงชีวิตตอนนี้']) {
-      if (t.startsWith(lead)) {
-        t = t.substring(lead.length).trimLeft();
+      var body = reason.replaceFirst(RegExp(r'^ช่วงนี้'), '').trimLeft();
+      if (body.isNotEmpty) {
+        return ThaiBetaNarrativeFormatting.normalize(
+          'สิ่งที่ควรใส่ใจในช่วงนี้คือ$body',
+        );
       }
     }
-    return t;
+    if (planet != null) {
+      final pressure = planet.affinity.pressure;
+      if (pressure >= 70) {
+        return ThaiBetaNarrativeFormatting.normalize(
+          'ช่วงนี้มีแรงกดดันจากหน้าที่และความเปลี่ยนแปลงสูง '
+          'ควรจัดลำดับสิ่งที่รับได้ก่อนเร่งขยาย',
+        );
+      }
+      return ThaiBetaNarrativeFormatting.normalize(
+        'ช่วงนี้เหมาะกับการใช้จุดแข็งที่มีอยู่ให้เป็นรูปธรรม '
+        'มากกว่าการรอจังหวะจากภายนอกอย่างเดียว',
+      );
+    }
+    return '';
+  }
+
+  static bool _isBannedPhrase(String text) {
+    return _bannedOpeners.any(text.contains);
   }
 
   static bool _looksLikeTimelineDump(
