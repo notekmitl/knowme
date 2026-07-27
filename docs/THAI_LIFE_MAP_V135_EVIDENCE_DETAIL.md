@@ -1,6 +1,6 @@
 # Thai Life Map V1.3.5 — Evidence-Backed Detailed Report
 
-**Status:** Feature branch (pending merge/deploy) — Technical Gate in progress  
+**Status:** Merged + hosted @ `7916af6` (PR #54) — Technical Gate passed; Product Acceptance pending owner Production text review  
 **Predecessor:** V1.3.4 @ `7a3d07d` — narrative quality on PeriodScores; Product Acceptance still pending owner
 
 ## Decision
