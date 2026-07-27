@@ -4,6 +4,16 @@
 // planet enums leak into the UI layer — the TimelinePresenter flattens
 // everything here.
 
+import 'package:knowme/features/astrology/thai/mirror/evidence/v135/thai_detailed_report_model.dart';
+
+export 'package:knowme/features/astrology/thai/mirror/evidence/v135/thai_detailed_report_model.dart'
+    show
+        ThaiMirrorDetailedReportState,
+        ThaiMirrorTopicBlockState,
+        ThaiMirrorPeriodDetailState,
+        ThaiMirrorCurrentDetailState,
+        ThaiMirrorClosingAdviceState;
+
 /// A single life-domain score for the mini bar charts (0–100).
 class ThaiMirrorPeriodScoreBar {
   const ThaiMirrorPeriodScoreBar({required this.label, required this.value});
@@ -260,6 +270,7 @@ class ThaiMirrorLifeTimelineState {
     required this.periods,
     this.currentAnalysis,
     this.futurePreview,
+    this.detailedReport,
   });
 
   final String sectionTitle;
@@ -273,6 +284,9 @@ class ThaiMirrorLifeTimelineState {
 
   /// V9 — next-period preview (optional; null when in the final period).
   final ThaiMirrorFuturePreviewState? futurePreview;
+
+  /// V1.3.5 — evidence-backed detailed report (additive; null on older callers).
+  final ThaiMirrorDetailedReportState? detailedReport;
 
   bool get isEmpty => segments.isEmpty;
 }

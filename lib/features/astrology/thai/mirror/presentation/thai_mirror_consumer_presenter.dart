@@ -50,6 +50,7 @@ abstract final class ThaiMirrorConsumerPresenter {
     ThaiAstrologyProfile? profile,
     ThaiBirthData? birthData,
     ThaiCanonEvidenceIndex? canonIndex,
+    DateTime? asOf,
   }) {
     final topThemeIds = result.topThemes
         .map((theme) => theme.themeId)
@@ -96,6 +97,7 @@ abstract final class ThaiMirrorConsumerPresenter {
       profile: profile,
       birthData: birthData,
       canonIndex: canonIndex,
+      asOf: asOf,
     );
 
     final futurePrediction = _buildFuturePrediction(

@@ -1,3 +1,3 @@
-﻿# Task: Thai Life Map V1.3.4 — Narrative Quality Upgrade
+﻿# Task: Thai Life Map V1.3.5 — Evidence-Backed Detailed Report
 
-Upgrade overview/Past/Current narrative using existing PeriodScores + claims only. No ephemeris. Current = การงาน/การเงิน/สุขภาพ/โชคลาภ.
+Additive evidence layer from verified Flutter Thai calculators only (no SE/longitudes/Ketu/Uranus). Report sections: lifetime topics, past/current/future with ข้อมูลดวงที่พบ + คำทำนาย; birthday-year window; consolidated closing advice.

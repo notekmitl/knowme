@@ -193,6 +193,13 @@ class _ThaiMirrorLifeTimelineSectionState
                   : () => setState(() => _expanded = _expanded == i ? -1 : i),
             ),
           ],
+        if (widget.lifeMapMode && state.detailedReport != null) ...[
+          const SizedBox(height: 28),
+          _DetailedEvidenceReport(
+            report: state.detailedReport!,
+            accent: _accent(state.currentStage.accentIndex),
+          ),
+        ],
       ],
     );
   }
@@ -1042,6 +1049,382 @@ class _SectionTitle extends StatelessWidget {
           fontWeight: FontWeight.w800,
           color: accent,
         ),
+      ),
+    );
+  }
+}
+
+/// V1.3.5 — evidence-backed detailed reading (additive; preserves Life Map chrome).
+class _DetailedEvidenceReport extends StatelessWidget {
+  const _DetailedEvidenceReport({required this.report, required this.accent});
+
+  final ThaiMirrorDetailedReportState report;
+  final Color accent;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'รายงานเชิงหลักฐาน',
+          style: TextStyle(
+            fontSize: 17,
+            fontWeight: FontWeight.w800,
+            color: scheme.onSurface,
+          ),
+        ),
+        const SizedBox(height: 6),
+        Text(
+          'แต่ละหัวข้อแสดงข้อมูลดวงที่คำนวณได้จริง ตามด้วยคำทำนายจากหลักฐานนั้น',
+          style: TextStyle(
+            fontSize: 13.5,
+            height: 1.6,
+            color: scheme.onSurfaceVariant,
+          ),
+        ),
+        const SizedBox(height: 16),
+        Text(
+          'พื้นดวงตลอดชีวิต',
+          style: TextStyle(
+            fontSize: 15.5,
+            fontWeight: FontWeight.w700,
+            color: scheme.onSurface,
+          ),
+        ),
+        const SizedBox(height: 10),
+        for (final t in report.lifetimeTopics) ...[
+          _EvidenceTopicCard(topic: t, accent: accent),
+          const SizedBox(height: 10),
+        ],
+        const SizedBox(height: 8),
+        Text(
+          'อดีต — หลักฐานและเหตุการณ์ที่มีเกณฑ์',
+          style: TextStyle(
+            fontSize: 15.5,
+            fontWeight: FontWeight.w700,
+            color: scheme.onSurface,
+          ),
+        ),
+        const SizedBox(height: 10),
+        for (final p in report.pastPeriods) ...[
+          _EvidencePeriodCard(period: p, accent: accent, bucket: 'อดีต'),
+          const SizedBox(height: 10),
+        ],
+        const SizedBox(height: 8),
+        Text(
+          'ปัจจุบัน — ช่วงอายุและปีเกิด',
+          style: TextStyle(
+            fontSize: 15.5,
+            fontWeight: FontWeight.w700,
+            color: scheme.onSurface,
+          ),
+        ),
+        const SizedBox(height: 10),
+        _EvidenceCurrentCard(current: report.currentReading, accent: accent),
+        const SizedBox(height: 18),
+        Text(
+          'อนาคต — ช่วงถัดไปถึงปลายวงจร',
+          style: TextStyle(
+            fontSize: 15.5,
+            fontWeight: FontWeight.w700,
+            color: scheme.onSurface,
+          ),
+        ),
+        const SizedBox(height: 10),
+        for (final p in report.futurePeriods) ...[
+          _EvidencePeriodCard(period: p, accent: accent, bucket: 'อนาคต'),
+          const SizedBox(height: 10),
+        ],
+        const SizedBox(height: 8),
+        _EvidenceClosingCard(closing: report.closingAdvice, accent: accent),
+      ],
+    );
+  }
+}
+
+class _EvidenceTopicCard extends StatelessWidget {
+  const _EvidenceTopicCard({required this.topic, required this.accent});
+
+  final ThaiMirrorTopicBlockState topic;
+  final Color accent;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: accent.withValues(alpha: 0.28)),
+        color: scheme.surface,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            topic.title,
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w800,
+              color: scheme.onSurface,
+            ),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            'ข้อมูลดวงที่พบ',
+            style: TextStyle(
+              fontSize: 12.5,
+              fontWeight: FontWeight.w700,
+              color: accent,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            topic.evidenceFound,
+            style: TextStyle(
+              fontSize: 13.5,
+              height: 1.65,
+              color: scheme.onSurface.withValues(alpha: 0.9),
+            ),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            'คำทำนาย',
+            style: TextStyle(
+              fontSize: 12.5,
+              fontWeight: FontWeight.w700,
+              color: accent,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            topic.prediction,
+            style: TextStyle(
+              fontSize: 13.5,
+              height: 1.65,
+              color: scheme.onSurface.withValues(alpha: 0.9),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _EvidencePeriodCard extends StatelessWidget {
+  const _EvidencePeriodCard({
+    required this.period,
+    required this.accent,
+    required this.bucket,
+  });
+
+  final ThaiMirrorPeriodDetailState period;
+  final Color accent;
+  final String bucket;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: accent.withValues(alpha: 0.22)),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '$bucket · ${period.phaseName} (${period.ageLabel})',
+            style: TextStyle(
+              fontSize: 14.5,
+              fontWeight: FontWeight.w800,
+              color: scheme.onSurface,
+            ),
+          ),
+          const SizedBox(height: 2),
+          Text(
+            period.planetLine,
+            style: TextStyle(fontSize: 12.5, color: scheme.onSurfaceVariant),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            'ข้อมูลดวงที่พบ',
+            style: TextStyle(
+              fontSize: 12.5,
+              fontWeight: FontWeight.w700,
+              color: accent,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            period.evidenceFound,
+            style: TextStyle(fontSize: 13.5, height: 1.65),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            'คำทำนาย',
+            style: TextStyle(
+              fontSize: 12.5,
+              fontWeight: FontWeight.w700,
+              color: accent,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            period.prediction,
+            style: TextStyle(fontSize: 13.5, height: 1.65),
+          ),
+          if (period.eventLines.isNotEmpty) ...[
+            const SizedBox(height: 10),
+            Text(
+              'เหตุการณ์ที่มีเกณฑ์จากหลักฐาน',
+              style: TextStyle(
+                fontSize: 12.5,
+                fontWeight: FontWeight.w700,
+                color: accent,
+              ),
+            ),
+            const SizedBox(height: 4),
+            for (final line in period.eventLines)
+              Padding(
+                padding: const EdgeInsets.only(bottom: 6),
+                child: Text('• $line', style: const TextStyle(height: 1.6)),
+              ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _EvidenceCurrentCard extends StatelessWidget {
+  const _EvidenceCurrentCard({required this.current, required this.accent});
+
+  final ThaiMirrorCurrentDetailState current;
+  final Color accent;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: accent.withValues(alpha: 0.35)),
+        color: accent.withValues(alpha: 0.05),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'ข้อมูลดวงที่พบ',
+            style: TextStyle(
+              fontSize: 12.5,
+              fontWeight: FontWeight.w700,
+              color: accent,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            current.evidenceFound,
+            style: TextStyle(fontSize: 13.5, height: 1.65),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            'คำทำนาย',
+            style: TextStyle(
+              fontSize: 12.5,
+              fontWeight: FontWeight.w700,
+              color: accent,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            current.prediction,
+            style: TextStyle(fontSize: 13.5, height: 1.65),
+          ),
+          if (current.conflictNote.isNotEmpty) ...[
+            const SizedBox(height: 10),
+            Text(
+              current.conflictNote,
+              style: TextStyle(
+                fontSize: 13,
+                height: 1.6,
+                color: scheme.onSurfaceVariant,
+              ),
+            ),
+          ],
+        ],
+      ),
+    );
+  }
+}
+
+class _EvidenceClosingCard extends StatelessWidget {
+  const _EvidenceClosingCard({required this.closing, required this.accent});
+
+  final ThaiMirrorClosingAdviceState closing;
+  final Color accent;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(16, 14, 16, 16),
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: scheme.outlineVariant),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'คำแนะนำ ข้อควรระวัง และหมายเหตุสุขภาพ',
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w800,
+              color: scheme.onSurface,
+            ),
+          ),
+          const SizedBox(height: 10),
+          Text(
+            'คำแนะนำ',
+            style: TextStyle(
+              fontSize: 12.5,
+              fontWeight: FontWeight.w700,
+              color: accent,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(closing.recommendations, style: const TextStyle(height: 1.65)),
+          const SizedBox(height: 10),
+          Text(
+            'ข้อควรระวัง',
+            style: TextStyle(
+              fontSize: 12.5,
+              fontWeight: FontWeight.w700,
+              color: accent,
+            ),
+          ),
+          const SizedBox(height: 4),
+          Text(closing.cautions, style: const TextStyle(height: 1.65)),
+          const SizedBox(height: 10),
+          Text(
+            closing.healthDisclaimer,
+            style: TextStyle(
+              fontSize: 12.5,
+              height: 1.6,
+              color: scheme.onSurfaceVariant,
+            ),
+          ),
+        ],
       ),
     );
   }

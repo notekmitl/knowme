@@ -125,7 +125,8 @@ abstract final class ThaiBetaAnalysisRunner {
     }
 
     final birthData = ThaiEngineAdapter.fromContext(birth.thai);
-    final pipeline = ThaiMirrorPipeline.generate(birthData, asOf: asOf);
+    final readingAt = asOf ?? sessionStart;
+    final pipeline = ThaiMirrorPipeline.generate(birthData, asOf: readingAt);
     if (pipeline.isFailure ||
         pipeline.mirrorResult == null ||
         pipeline.profile == null) {
@@ -148,6 +149,7 @@ abstract final class ThaiBetaAnalysisRunner {
       profile: pipeline.profile,
       birthData: pipeline.birthData,
       canonIndex: resolvedCanonIndex,
+      asOf: readingAt,
     );
     final profile = pipeline.profile!;
     final reportSnapshot = ThaiBetaReportSnapshot.build(
