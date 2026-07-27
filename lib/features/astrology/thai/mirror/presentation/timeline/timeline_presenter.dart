@@ -8,6 +8,7 @@ import 'package:knowme/features/astrology/thai/core/life_period/thai_life_map_ma
 import 'package:knowme/features/astrology/thai/foundation/models/thai_astrology_profile.dart';
 import 'package:knowme/features/astrology/thai/foundation/models/thai_birth_data.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/thai_canon_evidence_index.dart';
+import 'package:knowme/features/astrology/thai/mirror/evidence/v135/thai_detailed_report_composer.dart';
 
 import '../copy/thai_mirror_evidence_composer.dart';
 import 'mahabhut_position_user_copy.dart';
@@ -49,6 +50,7 @@ abstract final class TimelinePresenter {
     ThaiAstrologyProfile? profile,
     ThaiBirthData? birthData,
     ThaiCanonEvidenceIndex? canonIndex,
+    DateTime? asOf,
   }) {
     if (lifePeriods == null) return null;
 
@@ -265,7 +267,36 @@ abstract final class TimelinePresenter {
       futurePreview: futurePreview,
       segments: segments,
       periods: periods,
+      detailedReport: _buildDetailedReport(
+        birthData: birthData,
+        profile: profile,
+        timeline: timeline,
+        asOf: asOf,
+        profileSeed: profileSeed,
+        orderedThemeIds: orderedThemeIds,
+      ),
     );
+  }
+
+  static ThaiMirrorDetailedReportState? _buildDetailedReport({
+    required ThaiBirthData? birthData,
+    required ThaiAstrologyProfile? profile,
+    required LifeTimeline timeline,
+    required DateTime? asOf,
+    required int profileSeed,
+    required List<String> orderedThemeIds,
+  }) {
+    if (birthData == null || profile == null) return null;
+    final readingAt = asOf ?? DateTime.now();
+    final model = ThaiDetailedReportComposer.compose(
+      birthData: birthData,
+      profile: profile,
+      timeline: timeline,
+      asOfLocal: readingAt,
+      profileSeed: profileSeed,
+      orderedThemeIds: orderedThemeIds,
+    );
+    return ThaiDetailedReportComposer.toViewState(model);
   }
 
   static String _stageIntro(int age, String phase, int remaining, int seed) {
