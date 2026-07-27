@@ -1,12 +1,12 @@
 # KnowMe Current Status
 
 **Last updated:** July 2026  
-**Branch:** `main`  
-**Merge tip:** `1121015` (PR #56 V1.3.5 UI Primary); Production hosted @ `1121015`  
+**Branch:** `main` (restore in flight — see Life Map row)  
+**Merge tip:** was `1299b0a` (docs after V1.3.5 UI-primary); restore branch restores accepted UX  
 **Prior architecture snapshot:** `feature/fusion-result`  
 **Automation workflow (authoritative):** Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
 **Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login) — Evidence Badge rollout remains `invited_beta`.
-**Thai Beta Narrative / Life Map:** **V1.3.5 UI Primary** — detailed evidence report is the primary Life Map body on `/beta/thai` (PR #56 @ `1121015`); prior deploy @ `7916af6` **Product Acceptance FAILED** because V1.3.5 was buried under legacy timeline chrome. Status **Ready for Invited Beta Validation** — Product Acceptance awaits owner Production text review after UI-primary fix.
+**Thai Beta Narrative / Life Map:** **Restore accepted UI** — V1.3.5 customer-facing detailed evidence report **FAILED Product Acceptance** (debug/QA dump). `_DetailedEvidenceReport` removed from ordinary user path; accepted pre-V1.3.5 Life Map restored (baseline `7a3d07d` / docs tip `14ed096`). V1.3.5 evidence layer remains **internal only**. Product Acceptance: **ยังไม่ผ่าน—รอเจ้าของตรวจหน้า Production หลังคืนรูปแบบเดิม**.
 
 ---
 
@@ -44,7 +44,7 @@
 | **Thai Life Map V1.3.2 Copy Hierarchy** | Merged + **hosted** — **product-failed on UI** | PR #48 @ `c1c0cbc`; single hero + silent complete birth + Past/Current language; owner Production Acceptance failed (personality-only hero / Past skeletons / Current headings) |
 | **Thai Life Map V1.3.3 Holistic Domains** | Merged + **hosted** — **product-failed on UI** | PR #50 @ `dff4b43`; holistic hero + Past variety + Current domains; owner Production Acceptance failed (abstract overview / Past templates / wrong domain set) |
 | **Thai Life Map V1.3.4 Narrative Quality** | Merged + **hosted** — **Ready for Validation** | PR #52 @ `7a3d07d`; overview/Past/Current quality on PeriodScores only — no SE/degrees/houses; Current = การงาน/การเงิน/สุขภาพ/โชคลาภ; production-path + QA artifact verified; Product Acceptance pending owner; [`THAI_LIFE_MAP_V134_NARRATIVE_QUALITY.md`](THAI_LIFE_MAP_V134_NARRATIVE_QUALITY.md) |
-| **Thai Life Map V1.3.5 Evidence Detail** | Merged + **hosted** — **Product Acceptance FAILED on UI** then **UI-primary fix hosted** | PR #54 @ `7916af6` built evidence model but appended under legacy timeline; PR #56 @ `1121015` makes V1.3.5 primary on `/beta/thai`; Product Acceptance pending owner; [`THAI_LIFE_MAP_V135_EVIDENCE_DETAIL.md`](THAI_LIFE_MAP_V135_EVIDENCE_DETAIL.md) |
+| **Thai Life Map V1.3.5 Evidence Detail** | Evidence **internal**; customer detailed report **rejected** | PR #54 @ `7916af6` appended debug-like report; PR #56 @ `1121015` made it primary → **Product Acceptance FAILED decisively**; restore removes `_DetailedEvidenceReport` from customer path and restores accepted Life Map (`7a3d07d`); future customer evidence UI needs separate narrative/UX phase; [`THAI_LIFE_MAP_V135_EVIDENCE_DETAIL.md`](THAI_LIFE_MAP_V135_EVIDENCE_DETAIL.md) |
 | **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with past-breadth deploy 2026-07-24 @ `5529264` |
 | **Single-Agent + Local Gate** | Merged to `main` | `docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`, `scripts/knowme_task_gate.ps1` |
 

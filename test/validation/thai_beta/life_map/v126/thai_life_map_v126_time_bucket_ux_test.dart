@@ -4,7 +4,6 @@ import 'package:knowme/features/astrology/thai/core/life_period/life_period_engi
 import 'package:knowme/features/astrology/thai/core/life_period/thai_life_map_mahabhut_resolution.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/thai_canon_evidence_repository.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/life_map_verdict_copy.dart';
-import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/past_retrospective_composer.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/timeline_presenter.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_life_timeline_section.dart';
 import 'package:knowme/features/astrology/thai/mirror/runtime/thai_mirror_pipeline.dart';
@@ -134,16 +133,27 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('แผนที่ชีวิตของคุณ'), findsOneWidget);
-      // V1.3.5 primary: past lives in the detailed report, not legacy period cards.
-      expect(find.text('พื้นดวงตลอดชีวิต'), findsOneWidget);
-      expect(find.text('อดีต'), findsWidgets);
-      expect(find.text('ข้อมูลดวงที่พบ'), findsWidgets);
+      expect(find.text('สิ่งที่เกิดขึ้น'), findsWidgets);
       expect(find.textContaining('ยังยืนยันตำแหน่งไม่ได้'), findsNothing);
       expect(find.textContaining('ยืนยันอันดับตำแหน่งไม่ได้'), findsNothing);
       expect(find.textContaining('ธีมหลัก'), findsNothing);
       expect(find.textContaining('ซ่อนรายละเอียดช่วงชีวิต'), findsNothing);
-      expect(find.text('แปดช่วงดาวเสวยอายุ'), findsNothing);
-      expect(find.text('ทำไมช่วงนี้ถึงสำคัญ'), findsNothing);
+      expect(find.textContaining('เรื่องสำคัญของช่วงนี้'), findsWidgets);
+      expect(find.text('แปดช่วงดาวเสวยอายุ'), findsOneWidget);
+      expect(find.text('ทำไมช่วงนี้ถึงสำคัญ'), findsOneWidget);
+      expect(find.text('พื้นดวงตลอดชีวิต'), findsNothing);
+      expect(find.text('ข้อมูลดวงที่พบ'), findsNothing);
+
+      final expand = find.text(
+        ThaiMirrorLifeTimelineSection.expandDetailsLabel,
+      );
+      if (expand.evaluate().isNotEmpty) {
+        await tester.ensureVisible(expand.first);
+        await tester.tap(expand.first);
+        await tester.pumpAndSettle();
+      }
+      expect(find.text('สรุปช่วงนี้'), findsWidgets);
+      expect(find.textContaining('ซ่อนรายละเอียดช่วงชีวิต'), findsNothing);
       expect(tester.takeException(), isNull);
     });
 
@@ -185,10 +195,7 @@ void main() {
         expect(p.summary.contains('?'), isFalse);
         expect(p.summary.contains('ผลกระทบหลักอยู่ที่'), isFalse);
         expect(p.summary.contains('แย่งกัน'), isFalse);
-        expect(
-          'ช่วงนั้น'.allMatches(p.summary).length,
-          lessThanOrEqualTo(1),
-        );
+        expect('ช่วงนั้น'.allMatches(p.summary).length, lessThanOrEqualTo(1));
         summaries.add(p.summary);
       }
       expect(summaries.length, past.length);

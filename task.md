@@ -1,3 +1,6 @@
-﻿# Task: Thai Life Map V1.3.5 UI Primary Integration
+﻿# Task: Restore accepted Thai Life Map customer-facing report
 
-Make V1.3.5 evidence report the primary Life Map UI on /beta/thai. Suppress legacy timeline narrative when detailedReport is available. Product Acceptance previously failed because V1.3.5 was appended below the full legacy report.
+Remove the V1.3.5 `_DetailedEvidenceReport` evidence/debug dump from the ordinary
+user render path on `/beta/thai`. Restore the last accepted pre-V1.3.5 human-
+readable Life Map (baseline merge `7a3d07d` / docs tip `14ed096`). Keep V1.3.5
+evidence models and calculations as internal infrastructure only.
