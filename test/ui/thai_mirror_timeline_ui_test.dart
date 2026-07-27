@@ -42,15 +42,10 @@ void main() {
   ) async {
     await pumpReport(tester);
 
-    final expand = find
-        .text(ThaiMirrorLifeTimelineSection.expandDetailsLabel)
-        .first;
-    await tester.ensureVisible(expand);
-    await tester.tap(expand);
-    await tester.pumpAndSettle();
-
-    expect(find.text('สรุปช่วงนี้'), findsWidgets);
-    expect(find.text('สิ่งที่ทำให้ลำบาก'), findsWidgets);
+    // V1.3.5 primary: detailed report replaces expandable legacy period cards.
+    expect(find.text('พื้นดวงตลอดชีวิต'), findsOneWidget);
+    expect(find.text('ข้อมูลดวงที่พบ'), findsWidgets);
+    expect(find.text('คำทำนาย'), findsWidgets);
     expect(
       find.byKey(const Key('thai_life_timeline_score_explanation')),
       findsNothing,
@@ -63,6 +58,7 @@ void main() {
       find.text(ThaiMirrorLifeTimelineSection.annualTaksaLabel),
       findsNothing,
     );
+    expect(find.text('แปดช่วงดาวเสวยอายุ'), findsNothing);
   });
 
   testWidgets('timeline still renders without a birth time (weekday only)', (
@@ -97,14 +93,8 @@ void main() {
   ) async {
     await pumpReport(tester, size: const Size(1440, 2000));
 
-    final expand = find
-        .text(ThaiMirrorLifeTimelineSection.expandDetailsLabel)
-        .first;
-    await tester.ensureVisible(expand);
-    await tester.tap(expand);
-    await tester.pumpAndSettle();
-
-    expect(find.text('สรุปช่วงนี้'), findsWidgets);
+    expect(find.text('พื้นดวงตลอดชีวิต'), findsOneWidget);
+    expect(find.text('คำทำนาย'), findsWidgets);
     expect(tester.takeException(), isNull);
   });
 }

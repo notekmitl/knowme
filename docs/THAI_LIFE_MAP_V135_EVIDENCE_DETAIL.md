@@ -1,7 +1,15 @@
 # Thai Life Map V1.3.5 — Evidence-Backed Detailed Report
 
-**Status:** Merged + hosted @ `7916af6` (PR #54) — Technical Gate passed; Product Acceptance pending owner Production text review  
+**Status:** Merged + hosted @ `7916af6` (PR #54) — Technical Gate passed; **Product Acceptance FAILED** (legacy report remained primary UI). UI-primary integration fix follows on a new branch.  
 **Predecessor:** V1.3.4 @ `7a3d07d` — narrative quality on PeriodScores; Product Acceptance still pending owner
+
+## Product Acceptance failure (2026-07-27)
+
+On Production `/beta/thai`, eligible users still saw legacy chrome first (`ทำไมช่วงนี้ถึงสำคัญ`, `แปดช่วงดาวเสวยอายุ`, period domain cards). V1.3.5 `_DetailedEvidenceReport` was **appended below** the full legacy timeline in [`thai_mirror_life_timeline_section.dart`](../lib/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_life_timeline_section.dart), so the page appeared unchanged.
+
+**Root cause:** `useDetailedPrimary` was never selected — detailed report rendered only after all legacy cards.
+
+**Fix direction:** When `lifeMapMode && detailedReport != null`, render V1.3.5 as the primary Life Map body after the stage header; suppress legacy analysis / strip / eight-period cards.
 
 ## Decision
 

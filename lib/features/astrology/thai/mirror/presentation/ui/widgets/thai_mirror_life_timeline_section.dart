@@ -105,6 +105,12 @@ class _ThaiMirrorLifeTimelineSectionState
     final periods = _displayPeriods;
     final segments = _displaySegments;
     final compact = widget.relevantPeriodsOnly || widget.lifeMapMode;
+    // V1.3.5 UI primary: when the detailed evidence report model is present in
+    // Life Map mode, it becomes the primary report. Legacy analysis / eight
+    // period cards / domain blocks must not render above it (Product Acceptance
+    // failed when V1.3.5 was only appended below the full legacy timeline).
+    final useDetailedPrimary =
+        widget.lifeMapMode && state.detailedReport != null;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -127,7 +133,10 @@ class _ThaiMirrorLifeTimelineSectionState
         ),
         const SizedBox(height: 8),
         Text(
-          compact
+          useDetailedPrimary
+              ? 'อ่านพื้นดวง อดีต ปัจจุบัน และอนาคตจากหลักฐานที่คำนวณได้จริง '
+                    '— แต่ละหัวข้อมีข้อมูลดวงที่พบและคำทำนาย'
+              : compact
               ? 'โฟกัสช่วงที่เกี่ยวข้องกับตอนนี้ '
                     '— ก่อนหน้า ปัจจุบัน และถัดไป'
               : state.sectionIntro,
@@ -142,63 +151,65 @@ class _ThaiMirrorLifeTimelineSectionState
           stage: state.currentStage,
           accent: _accent(state.currentStage.accentIndex),
         ),
-        if (state.currentAnalysis != null) ...[
-          const SizedBox(height: 14),
-          _CurrentAnalysisCard(
-            analysis: state.currentAnalysis!,
-            accent: _accent(state.currentStage.accentIndex),
-          ),
-        ],
-        const SizedBox(height: 18),
-        _TimelineStrip(segments: segments, accentOf: _accent),
-        // Compact mode: next-period preview duplicates the "next" card — skip it.
-        if (!compact && state.futurePreview != null) ...[
-          const SizedBox(height: 18),
-          _FuturePreviewCard(
-            preview: state.futurePreview!,
-            accent: _accent(state.currentStage.accentIndex),
-          ),
-        ],
-        const SizedBox(height: 20),
-        Text(
-          widget.lifeMapMode
-              ? 'แปดช่วงดาวเสวยอายุ'
-              : compact
-              ? 'ช่วงชีวิตที่เกี่ยวข้อง'
-              : 'ทุกช่วงชีวิตของคุณ',
-          style: TextStyle(
-            fontSize: 15.5,
-            fontWeight: FontWeight.w700,
-            color: scheme.onSurface,
-          ),
-        ),
-        const SizedBox(height: 12),
-        if (periods.isEmpty)
-          Text(
-            'ยังไม่มีข้อมูลช่วงชีวิตสำหรับแสดง',
-            style: TextStyle(fontSize: 14, color: scheme.onSurfaceVariant),
-          )
-        else
-          for (var i = 0; i < periods.length; i++) ...[
-            if (i > 0) const SizedBox(height: 10),
-            _PeriodCard(
-              period: periods[i],
-              accent: _accent(periods[i].accentIndex),
-              expanded: periods[i].isPast ? false : _expanded == i,
-              isWide: isWide,
-              showCollapsedSummary: compact,
-              lifeMapMode: widget.lifeMapMode,
-              onTap: periods[i].isPast
-                  ? () {}
-                  : () => setState(() => _expanded = _expanded == i ? -1 : i),
-            ),
-          ],
-        if (widget.lifeMapMode && state.detailedReport != null) ...[
-          const SizedBox(height: 28),
+        if (useDetailedPrimary) ...[
+          const SizedBox(height: 20),
           _DetailedEvidenceReport(
             report: state.detailedReport!,
             accent: _accent(state.currentStage.accentIndex),
+            primarySurface: true,
           ),
+        ] else ...[
+          if (state.currentAnalysis != null) ...[
+            const SizedBox(height: 14),
+            _CurrentAnalysisCard(
+              analysis: state.currentAnalysis!,
+              accent: _accent(state.currentStage.accentIndex),
+            ),
+          ],
+          const SizedBox(height: 18),
+          _TimelineStrip(segments: segments, accentOf: _accent),
+          // Compact mode: next-period preview duplicates the "next" card — skip it.
+          if (!compact && state.futurePreview != null) ...[
+            const SizedBox(height: 18),
+            _FuturePreviewCard(
+              preview: state.futurePreview!,
+              accent: _accent(state.currentStage.accentIndex),
+            ),
+          ],
+          const SizedBox(height: 20),
+          Text(
+            widget.lifeMapMode
+                ? 'แปดช่วงดาวเสวยอายุ'
+                : compact
+                ? 'ช่วงชีวิตที่เกี่ยวข้อง'
+                : 'ทุกช่วงชีวิตของคุณ',
+            style: TextStyle(
+              fontSize: 15.5,
+              fontWeight: FontWeight.w700,
+              color: scheme.onSurface,
+            ),
+          ),
+          const SizedBox(height: 12),
+          if (periods.isEmpty)
+            Text(
+              'ยังไม่มีข้อมูลช่วงชีวิตสำหรับแสดง',
+              style: TextStyle(fontSize: 14, color: scheme.onSurfaceVariant),
+            )
+          else
+            for (var i = 0; i < periods.length; i++) ...[
+              if (i > 0) const SizedBox(height: 10),
+              _PeriodCard(
+                period: periods[i],
+                accent: _accent(periods[i].accentIndex),
+                expanded: periods[i].isPast ? false : _expanded == i,
+                isWide: isWide,
+                showCollapsedSummary: compact,
+                lifeMapMode: widget.lifeMapMode,
+                onTap: periods[i].isPast
+                    ? () {}
+                    : () => setState(() => _expanded = _expanded == i ? -1 : i),
+              ),
+            ],
         ],
       ],
     );
@@ -1056,10 +1067,17 @@ class _SectionTitle extends StatelessWidget {
 
 /// V1.3.5 — evidence-backed detailed reading (additive; preserves Life Map chrome).
 class _DetailedEvidenceReport extends StatelessWidget {
-  const _DetailedEvidenceReport({required this.report, required this.accent});
+  const _DetailedEvidenceReport({
+    required this.report,
+    required this.accent,
+    this.primarySurface = false,
+  });
 
   final ThaiMirrorDetailedReportState report;
   final Color accent;
+
+  /// When true, this block is the primary Life Map report (no secondary framing).
+  final bool primarySurface;
 
   @override
   Widget build(BuildContext context) {
@@ -1067,24 +1085,26 @@ class _DetailedEvidenceReport extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'รายงานเชิงหลักฐาน',
-          style: TextStyle(
-            fontSize: 17,
-            fontWeight: FontWeight.w800,
-            color: scheme.onSurface,
+        if (!primarySurface) ...[
+          Text(
+            'รายงานเชิงหลักฐาน',
+            style: TextStyle(
+              fontSize: 17,
+              fontWeight: FontWeight.w800,
+              color: scheme.onSurface,
+            ),
           ),
-        ),
-        const SizedBox(height: 6),
-        Text(
-          'แต่ละหัวข้อแสดงข้อมูลดวงที่คำนวณได้จริง ตามด้วยคำทำนายจากหลักฐานนั้น',
-          style: TextStyle(
-            fontSize: 13.5,
-            height: 1.6,
-            color: scheme.onSurfaceVariant,
+          const SizedBox(height: 6),
+          Text(
+            'แต่ละหัวข้อแสดงข้อมูลดวงที่คำนวณได้จริง ตามด้วยคำทำนายจากหลักฐานนั้น',
+            style: TextStyle(
+              fontSize: 13.5,
+              height: 1.6,
+              color: scheme.onSurfaceVariant,
+            ),
           ),
-        ),
-        const SizedBox(height: 16),
+          const SizedBox(height: 16),
+        ],
         Text(
           'พื้นดวงตลอดชีวิต',
           style: TextStyle(
@@ -1100,7 +1120,7 @@ class _DetailedEvidenceReport extends StatelessWidget {
         ],
         const SizedBox(height: 8),
         Text(
-          'อดีต — หลักฐานและเหตุการณ์ที่มีเกณฑ์',
+          'อดีต',
           style: TextStyle(
             fontSize: 15.5,
             fontWeight: FontWeight.w700,
@@ -1114,7 +1134,7 @@ class _DetailedEvidenceReport extends StatelessWidget {
         ],
         const SizedBox(height: 8),
         Text(
-          'ปัจจุบัน — ช่วงอายุและปีเกิด',
+          'ปัจจุบัน',
           style: TextStyle(
             fontSize: 15.5,
             fontWeight: FontWeight.w700,
@@ -1125,7 +1145,7 @@ class _DetailedEvidenceReport extends StatelessWidget {
         _EvidenceCurrentCard(current: report.currentReading, accent: accent),
         const SizedBox(height: 18),
         Text(
-          'อนาคต — ช่วงถัดไปถึงปลายวงจร',
+          'อนาคต',
           style: TextStyle(
             fontSize: 15.5,
             fontWeight: FontWeight.w700,
