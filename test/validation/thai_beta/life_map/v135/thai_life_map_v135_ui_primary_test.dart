@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/presentation/thai_beta_evidence_badge_panel.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_life_timeline_section.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience.dart';
 import 'package:knowme/features/thai_beta/application/thai_evidence_badge_feature_flag.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart';
 
 import '../../narrative/thai_beta_narrative_fixtures.dart';
 
-/// V1.3.5 UI primary — proves the real `/beta/thai` report page renders the
-/// detailed evidence report as the primary Life Map surface (not buried under
-/// the legacy eight-period narrative).
+/// Restoration regression — when a valid V1.3.5 `detailedReport` model exists,
+/// the accepted pre-V1.3.5 human-readable Life Map remains the primary render
+/// path. `_DetailedEvidenceReport` / raw evidence cards must not appear.
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -39,53 +40,66 @@ void main() {
     await tester.pump(const Duration(milliseconds: 50));
   }
 
-  testWidgets('V1.3.5 is primary report on ThaiBetaReportPage (mobile)', (
-    tester,
-  ) async {
-    await pumpReport(tester);
-
+  void expectAcceptedHumanReadableReport() {
     expect(find.text('แผนที่ชีวิตของคุณ'), findsOneWidget);
-    expect(find.text('พื้นดวงตลอดชีวิต'), findsOneWidget);
-    expect(find.text('ภาพรวมชีวิต'), findsWidgets);
-    expect(find.text('บุคลิกและวิธีดำเนินชีวิต'), findsOneWidget);
-    expect(find.text('การงาน'), findsWidgets);
-    expect(find.text('การเงิน'), findsWidgets);
-    expect(find.text('ความรัก'), findsOneWidget);
-    expect(find.text('สุขภาพ'), findsWidgets);
-    expect(find.text('ข้อมูลดวงที่พบ'), findsWidgets);
-    expect(find.text('คำทำนาย'), findsWidgets);
-    expect(find.text('อดีต'), findsWidgets);
-    expect(find.text('ปัจจุบัน'), findsWidgets);
-    expect(find.text('อนาคต'), findsWidgets);
-    expect(
-      find.text('คำแนะนำ ข้อควรระวัง และหมายเหตุสุขภาพ'),
-      findsOneWidget,
-    );
+    expect(find.text('ทำไมช่วงนี้ถึงสำคัญ'), findsOneWidget);
+    expect(find.text('แปดช่วงดาวเสวยอายุ'), findsOneWidget);
+  }
 
-    // Legacy primary chrome must not appear when detailed report is available.
-    expect(find.text('ทำไมช่วงนี้ถึงสำคัญ'), findsNothing);
-    expect(find.text('แปดช่วงดาวเสวยอายุ'), findsNothing);
-    expect(find.textContaining('รายงานเชิงหลักฐาน'), findsNothing);
-
-    // Current reading combines age-period + birthday-year metadata.
-    expect(find.textContaining('ชั้นช่วงอายุ'), findsWidgets);
-    expect(find.textContaining('ชั้นปีเกิด'), findsWidgets);
-
-    // Raw evidence IDs stay internal.
+  void expectDetailedEvidenceReportAbsent() {
+    expect(find.text('พื้นดวงตลอดชีวิต'), findsNothing);
+    expect(find.text('รายงานเชิงหลักฐาน'), findsNothing);
+    expect(find.text('ข้อมูลดวงที่พบ'), findsNothing);
+    expect(find.text('คำแนะนำ ข้อควรระวัง และหมายเหตุสุขภาพ'), findsNothing);
+    expect(find.textContaining('sidereal'), findsNothing);
+    expect(find.textContaining('Lahiri'), findsNothing);
+    expect(find.textContaining('whole-sign'), findsNothing);
+    expect(find.textContaining('career='), findsNothing);
+    expect(find.textContaining('money='), findsNothing);
+    expect(find.textContaining('love='), findsNothing);
+    expect(find.textContaining('health='), findsNothing);
+    expect(find.textContaining('pressure='), findsNothing);
+    expect(find.textContaining('friend'), findsNothing);
+    expect(find.textContaining('enemy'), findsNothing);
+    expect(find.textContaining('neutral'), findsNothing);
     expect(find.textContaining('ev.lagna'), findsNothing);
     expect(find.textContaining('ev.period.'), findsNothing);
     expect(find.textContaining('ev.score.'), findsNothing);
     expect(find.textContaining('evidenceIds'), findsNothing);
+  }
 
-    expect(tester.takeException(), isNull);
-  });
+  testWidgets(
+    'accepted Life Map remains primary when detailedReport model exists',
+    (tester) async {
+      final analysis = ThaiBetaNarrativeFixtures.fixtureA();
+      expect(
+        analysis.consumerViewState?.lifeTimeline?.detailedReport,
+        isNotNull,
+      );
 
-  testWidgets('V1.3.5 primary also at desktop width', (tester) async {
+      await pumpReport(tester);
+
+      expectAcceptedHumanReadableReport();
+      expectDetailedEvidenceReportAbsent();
+
+      final expand = find
+          .text(ThaiMirrorLifeTimelineSection.expandDetailsLabel)
+          .first;
+      await tester.ensureVisible(expand);
+      await tester.tap(expand);
+      await tester.pumpAndSettle();
+      expect(find.text('สรุปช่วงนี้'), findsWidgets);
+      expect(tester.takeException(), isNull);
+    },
+  );
+
+  testWidgets('accepted layout remains usable at desktop width', (
+    tester,
+  ) async {
     await pumpReport(tester, size: const Size(1440, 3200));
 
-    expect(find.text('พื้นดวงตลอดชีวิต'), findsOneWidget);
-    expect(find.text('ทำไมช่วงนี้ถึงสำคัญ'), findsNothing);
-    expect(find.text('แปดช่วงดาวเสวยอายุ'), findsNothing);
+    expectAcceptedHumanReadableReport();
+    expectDetailedEvidenceReportAbsent();
     expect(tester.takeException(), isNull);
   });
 
@@ -98,7 +112,8 @@ void main() {
       flag: ThaiEvidenceBadgeFeatureFlagState.invitedBeta,
     );
     expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);
-    expect(find.text('พื้นดวงตลอดชีวิต'), findsOneWidget);
+    expectAcceptedHumanReadableReport();
+    expectDetailedEvidenceReportAbsent();
   });
 
   testWidgets('ordinary non-invited user has no badge panel', (tester) async {
@@ -109,7 +124,8 @@ void main() {
       userId: 'user-not-invited',
     );
     expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);
-    expect(find.text('พื้นดวงตลอดชีวิต'), findsOneWidget);
+    expectAcceptedHumanReadableReport();
+    expectDetailedEvidenceReportAbsent();
   });
 
   testWidgets('internal tester without invite has no LEVEL1 badge leak', (
@@ -122,10 +138,11 @@ void main() {
       userId: 'admin-not-invited',
     );
     expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);
-    expect(find.text('พื้นดวงตลอดชีวิต'), findsOneWidget);
+    expectAcceptedHumanReadableReport();
+    expectDetailedEvidenceReportAbsent();
   });
 
-  testWidgets('eligible invited tester keeps V1.3.5 primary surface', (
+  testWidgets('eligible invited tester still sees accepted Life Map', (
     tester,
   ) async {
     await pumpReport(
@@ -134,8 +151,8 @@ void main() {
       flag: ThaiEvidenceBadgeFeatureFlagState.invitedBeta,
       userId: 'invited-user-1',
     );
-    expect(find.text('พื้นดวงตลอดชีวิต'), findsOneWidget);
-    expect(find.text('แปดช่วงดาวเสวยอายุ'), findsNothing);
+    expectAcceptedHumanReadableReport();
+    expectDetailedEvidenceReportAbsent();
     expect(tester.takeException(), isNull);
   });
 }
