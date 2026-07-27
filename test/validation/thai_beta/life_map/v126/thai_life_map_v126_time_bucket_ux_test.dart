@@ -134,23 +134,16 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('แผนที่ชีวิตของคุณ'), findsOneWidget);
-      expect(find.text('สิ่งที่เกิดขึ้น'), findsWidgets);
+      // V1.3.5 primary: past lives in the detailed report, not legacy period cards.
+      expect(find.text('พื้นดวงตลอดชีวิต'), findsOneWidget);
+      expect(find.text('อดีต'), findsWidgets);
+      expect(find.text('ข้อมูลดวงที่พบ'), findsWidgets);
       expect(find.textContaining('ยังยืนยันตำแหน่งไม่ได้'), findsNothing);
       expect(find.textContaining('ยืนยันอันดับตำแหน่งไม่ได้'), findsNothing);
       expect(find.textContaining('ธีมหลัก'), findsNothing);
       expect(find.textContaining('ซ่อนรายละเอียดช่วงชีวิต'), findsNothing);
-      expect(find.textContaining('เรื่องสำคัญของช่วงนี้'), findsWidgets);
-
-      final expand = find.text(
-        ThaiMirrorLifeTimelineSection.expandDetailsLabel,
-      );
-      if (expand.evaluate().isNotEmpty) {
-        await tester.ensureVisible(expand.first);
-        await tester.tap(expand.first);
-        await tester.pumpAndSettle();
-      }
-      expect(find.text('สรุปช่วงนี้'), findsWidgets);
-      expect(find.textContaining('ซ่อนรายละเอียดช่วงชีวิต'), findsNothing);
+      expect(find.text('แปดช่วงดาวเสวยอายุ'), findsNothing);
+      expect(find.text('ทำไมช่วงนี้ถึงสำคัญ'), findsNothing);
       expect(tester.takeException(), isNull);
     });
 
