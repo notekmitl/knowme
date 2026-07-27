@@ -16,7 +16,7 @@ cd knowme
 git checkout main
 ```
 
-**Important:** Prefer `main`. V1.3.5 customer-facing detailed evidence report **FAILED Product Acceptance** (PR #54 / #56) and must **not** be described as shipped customer UX. Accepted Life Map presentation is restored (baseline `7a3d07d` / docs tip `14ed096`); evidence package remains internal — see [`THAI_LIFE_MAP_V135_EVIDENCE_DETAIL.md`](THAI_LIFE_MAP_V135_EVIDENCE_DETAIL.md). Evidence Badge remains `invited_beta`. Product Acceptance: **ยังไม่ผ่าน—รอเจ้าของตรวจหน้า Production หลังคืนรูปแบบเดิม**.
+**Important:** Prefer `main`. V1.3.5 customer-facing detailed evidence report **FAILED Product Acceptance** (PR #54 / #56). Accepted Life Map restored + hosted @ `0eb7bdb` (PR #58; baseline `7a3d07d` / docs tip `14ed096`); evidence package remains internal — see [`THAI_LIFE_MAP_V135_EVIDENCE_DETAIL.md`](THAI_LIFE_MAP_V135_EVIDENCE_DETAIL.md). Evidence Badge remains `invited_beta`. Product Acceptance: **ยังไม่ผ่าน—รอเจ้าของตรวจหน้า Production หลังคืนรูปแบบเดิม**.
 
 **Automation workflow:** Use Single-Agent + Local Gate — see [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). The external AI Worker is **retired** (historical: [`AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)). The obsolete in-repo `ai-worker/` directory is gitignored and must not be committed.
 
