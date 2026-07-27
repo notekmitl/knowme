@@ -1,6 +1,6 @@
 # Thai Life Map V1.3.5 — Evidence Infrastructure (internal)
 
-**Status:** Customer-facing detailed report **FAILED Product Acceptance** and was **removed from the ordinary user render path**. Accepted pre-V1.3.5 Life Map UX restored (behavioral baseline merge `7a3d07d` / docs tip `14ed096`). V1.3.5 evidence models/calculations remain **internal only**.  
+**Status:** Customer-facing detailed report **FAILED Product Acceptance** and was **removed from the ordinary user render path**. Accepted pre-V1.3.5 Life Map UX restored and **hosted** @ `0eb7bdb` (PR #58; behavioral baseline merge `7a3d07d` / docs tip `14ed096`). V1.3.5 evidence models/calculations remain **internal only**.  
 **Product Acceptance:** ยังไม่ผ่าน—รอเจ้าของตรวจหน้า Production หลังคืนรูปแบบเดิม
 
 ## Product Acceptance failures
