@@ -1,9 +1,10 @@
-# Task: Fix anonymous Thai Beta route preservation
+# Task: Close Thai Beta anonymous Production validation in active docs
 
-Production re-check confirmed that the anonymous `/beta/thai` flow renders and
-completes, but its dedicated app shell registers the landing page as `/`. This
-rewrites the browser address to root and makes reload leave the Thai Beta route.
+Update active status, handoff, and roadmap documentation from repository,
+Production, and Git evidence. Record PR #61 and Production bundle `da85013`,
+close the anonymous route/reload validation, remove active instructions that
+incorrectly require login or seeded UID for the anonymous flow, and identify
+exactly one evidence-based next development task.
 
-Preserve `/beta/thai` as the shell's initial Navigator route, add focused
-regression coverage, and make no other application, feature-flag, invite-list,
-Firebase configuration, narrative, or production behavior changes.
+Documentation only. Do not change application code, Firebase configuration,
+feature flags, invite lists, historical records, or Production.

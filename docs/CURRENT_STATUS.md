@@ -2,11 +2,12 @@
 
 **Last updated:** July 2026  
 **Branch:** `main`  
-**Merge tip:** `0eb7bdb` (PR #58 restore accepted Life Map UI); Production hosted @ `0eb7bdb`  
+**Merge tip:** `da85013` (PR #61 Thai Beta public-route reload fix); Production hosted @ `da85013`
+
 **Prior architecture snapshot:** `feature/fusion-result`  
 **Automation workflow (authoritative):** Codex Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). Codex is the sole executor for one task branch/worktree at a time; Cursor, Claude Code, and other agents must not edit that same branch/worktree concurrently. External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
 **Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login) — Evidence Badge rollout remains `invited_beta`.
-**Thai Beta Narrative / Life Map:** **Accepted UI restored** (PR #58 @ `0eb7bdb`) — V1.3.5 customer-facing detailed evidence report **FAILED Product Acceptance** and was removed from the ordinary user path; V1.3.5 evidence layer remains **internal only**. Product Acceptance: **ยังไม่ผ่าน—รอเจ้าของตรวจหน้า Production หลังคืนรูปแบบเดิม**.
+**Thai Beta Narrative / Life Map:** **Anonymous Production QA passed** on the accepted UI (PR #58 baseline, PR #61 reload fix, Production bundle `da85013`). Narrative V1.2 and the restored Life Map render end-to-end; V1.3.5 detailed evidence remains **internal only**. Anonymous correctly sees no Evidence Badge because rollout remains `invited_beta`.
 
 ---
 
@@ -43,9 +44,9 @@
 | **Thai Life Map V1.3.1 Narrative Depth** | Merged + **hosted** — **product-failed on UI** | PR #46 @ `41d7988`; Past depth OK but duplicate core card / success banner / Past soft opener / abstract Current remained |
 | **Thai Life Map V1.3.2 Copy Hierarchy** | Merged + **hosted** — **product-failed on UI** | PR #48 @ `c1c0cbc`; single hero + silent complete birth + Past/Current language; owner Production Acceptance failed (personality-only hero / Past skeletons / Current headings) |
 | **Thai Life Map V1.3.3 Holistic Domains** | Merged + **hosted** — **product-failed on UI** | PR #50 @ `dff4b43`; holistic hero + Past variety + Current domains; owner Production Acceptance failed (abstract overview / Past templates / wrong domain set) |
-| **Thai Life Map V1.3.4 Narrative Quality** | Merged + **hosted** — **Ready for Validation** | PR #52 @ `7a3d07d`; overview/Past/Current quality on PeriodScores only — no SE/degrees/houses; Current = การงาน/การเงิน/สุขภาพ/โชคลาภ; production-path + QA artifact verified; Product Acceptance pending owner; [`THAI_LIFE_MAP_V134_NARRATIVE_QUALITY.md`](THAI_LIFE_MAP_V134_NARRATIVE_QUALITY.md) |
-| **Thai Life Map V1.3.5 Evidence Detail** | Evidence **internal**; customer detailed report **rejected**; **accepted UI restored + hosted** | PR #54/#56 failed PA; PR #58 @ `0eb7bdb` restores accepted Life Map (`7a3d07d`) and removes `_DetailedEvidenceReport` from customer path; Production @ `0eb7bdb`; Product Acceptance pending owner; [`THAI_LIFE_MAP_V135_EVIDENCE_DETAIL.md`](THAI_LIFE_MAP_V135_EVIDENCE_DETAIL.md) |
-| **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with past-breadth deploy 2026-07-24 @ `5529264` |
+| **Thai Life Map V1.3.4 Narrative Quality** | Merged + **hosted + anonymously validated** | PR #52 @ `7a3d07d`; overview/Past/Current quality on PeriodScores only — no SE/degrees/houses; accepted UI restored by PR #58 and verified end-to-end on Production bundle `da85013`; [`THAI_LIFE_MAP_V134_NARRATIVE_QUALITY.md`](THAI_LIFE_MAP_V134_NARRATIVE_QUALITY.md) |
+| **Thai Life Map V1.3.5 Evidence Detail** | Evidence **internal**; customer detailed report **rejected**; accepted UI restored + validated | PR #54/#56 failed PA; PR #58 @ `0eb7bdb` restored accepted Life Map and removed `_DetailedEvidenceReport` from the public path; anonymous QA confirmed no internal evidence/Canon prose leakage on `da85013`; [`THAI_LIFE_MAP_V135_EVIDENCE_DETAIL.md`](THAI_LIFE_MAP_V135_EVIDENCE_DETAIL.md) |
+| **Thai Beta anonymous Public route** | Merged + **hosted + verified** | Anonymous needs no account or seeded UID. PR #61 fixed `PublicThaiBetaApp` using `/` as its Navigator route; merge `da85013`, Production bundle `da85013`, reload remains on `/beta/thai` |
 | **Codex Single-Agent + Local Gate** | Current repository workflow | `docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`, `scripts/knowme_task_gate.ps1` |
 
 **Also complete (supporting):**
@@ -81,7 +82,7 @@ Real users (38 Firestore accounts): **2.6% reach Narrative**. Blocker is persona
 | Risk | Severity | Detail |
 |------|----------|--------|
 | Personality test cliff | **Critical** | 97% of profile users never start MBTI (`REAL_USER_RUNTIME_VALIDATION_V1.md`) |
-| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `0eb7bdb` (2026-07-27); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
+| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `da85013` (2026-07-28); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
 | Real user PII export local-only | **High** | `firestore_user_export.json` gitignored — must regenerate locally |
 | Firebase service account local-only | **High** | `backend/firebase/serviceAccountKey.json` gitignored |
 | Legacy + new architecture coexist | **Medium** | Parallel scoring, navigation, and module IDs — trace before editing |
@@ -100,7 +101,7 @@ Accepted debt — do not hide; trace before editing.
 | AppText monolith | Low | `lib/core/i18n/app_text.dart` large | ARB/codegen future; acceptable for now |
 | Fusion outlier coverage | Low | Special-case copy for ESTJ, ENTJ, INTJ, ENFP only | Quality > coverage — expand carefully |
 | Dual astrology providers | Medium | `presentation/providers/astrology_provider.dart` + `lib/astrology/providers/astrology_provider.dart` | Do not aggressively merge — duplicate path risk |
-| Hosting source vs `main` | Low | Last public deploy from `main` @ `c698c22` (manual); no auto-deploy | Keep using `scripts/deploy_web.ps1` for intentional releases |
+| Hosting source vs `main` | Low | Last public deploy from `main` @ `da85013` (manual); no auto-deploy | Keep using `scripts/deploy_web.ps1` for intentional releases |
 | Real user PII export local-only | High | `firestore_user_export.json` gitignored | Regenerate locally |
 | Firebase service account local-only | High | `backend/firebase/serviceAccountKey.json` gitignored | Never commit |
 
@@ -113,7 +114,7 @@ Accepted debt — do not hide; trace before editing.
 | **Status** | Public beta live on Firebase Hosting (June 2026) |
 | **Primary URL** | https://knowme-app-694e1.web.app |
 | **Firebase project** | `knowme-app-694e1` |
-| **Branch deployed from** | `main` @ `0eb7bdb` (2026-07-27); still **manual** deploy only — no auto-deploy |
+| **Branch deployed from** | `main` @ `da85013` (2026-07-28); still **manual** deploy only — no auto-deploy |
 | **Full guide** | [`docs/DEPLOYMENT.md`](DEPLOYMENT.md) |
 
 Deploy: `.\scripts\deploy_web.ps1` or `firebase deploy --only hosting --project knowme-app-694e1`
@@ -122,11 +123,15 @@ Deploy: `.\scripts\deploy_web.ps1` or `firebase deploy --only hosting --project 
 
 ## Next Priority
 
-0. **Invited-Beta production UI re-check (operator)** — agent deploy verified bundle/flag/gates; interactive invited narrative/badge needs seeded invite UID + credentials (allow-list not changed by deploy task).
-1. **Deploy / measure Funnel Recovery V2** — track `funnel_telemetry` for MBTI adoption and narrative reach (target: 2.6% → 25%+ narrative reach on active users).
-2. **Keep hosting deploys intentional** — continue `scripts/deploy_web.ps1` from `main` when releasing; no auto-deploy.
-3. **Maintain frozen systems** — blocker fixes only on Fusion V1 UI, BaZi V1, Thai V2, MBTI Summary.
-4. **Re-run real-user validation** after funnel changes — compare against `real_user_runtime_validation_v1.json` baseline.
+**One next development task: Production Funnel Measurement V1.**
+
+- **Problem:** Funnel Recovery V2 is already implemented, but KnowMe cannot yet make an evidence-backed product decision from a defined post-release cohort.
+- **User value:** the team can see whether astrology users actually continue to MBTI and receive a narrative, then improve the real bottleneck instead of adding speculative features.
+- **Scope:** define a privacy-safe measurement window and cohort; aggregate existing `funnel_telemetry` events; compare MBTI start/completion and narrative reach against the 2.6% baseline; produce a repeatable internal report and validation command.
+- **Not included:** no new funnel UI, no Funnel Recovery V2 reimplementation, no feature-flag/audience change, no paid acquisition, no new engine/provider, and no PII committed to Git.
+- **Product acceptance:** a repeatable run reports cohort size, event coverage, MBTI start/completion, narrative reach, drop-off, and baseline delta; incomplete telemetry is labelled rather than inferred; results contain no UID or personal data; the report clearly recommends keep/iterate/stop against the 25% narrative-reach target.
+
+Do not start this task until the owner explicitly requests it. Keep hosting deploys intentional and maintain frozen systems with blocker fixes only.
 
 **Not next (explicitly deferred per master context):**
 

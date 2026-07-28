@@ -16,7 +16,7 @@ cd knowme
 git checkout main
 ```
 
-**Important:** Prefer `main`. V1.3.5 customer-facing detailed evidence report **FAILED Product Acceptance** (PR #54 / #56). Accepted Life Map restored + hosted @ `0eb7bdb` (PR #58; baseline `7a3d07d` / docs tip `14ed096`); evidence package remains internal — see [`THAI_LIFE_MAP_V135_EVIDENCE_DETAIL.md`](THAI_LIFE_MAP_V135_EVIDENCE_DETAIL.md). Evidence Badge remains `invited_beta`. Product Acceptance: **ยังไม่ผ่าน—รอเจ้าของตรวจหน้า Production หลังคืนรูปแบบเดิม**.
+**Important:** `main` is canonical. Accepted Life Map was restored by PR #58 and anonymous Production QA passed after PR #61 at bundle `da85013`. Anonymous users open `/beta/thai` without login or a seeded UID, complete the report, and remain on that route after reload. V1.3.5 detailed evidence stays internal; Evidence Badge remains `invited_beta`, so no badge for anonymous users is correct.
 
 **Automation workflow:** Use Single-Agent + Local Gate — see [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). The external AI Worker is **retired** (historical: [`AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)). The obsolete in-repo `ai-worker/` directory is gitignored and must not be committed.
 
@@ -55,16 +55,24 @@ Output: `test/validation/real_user_runtime_v1/output/` (export JSON is gitignore
 
 | Branch | Role |
 |--------|------|
-| `feature/fusion-result` | **Active development** — full architecture snapshot |
-| `main` | Legacy baseline — do not assume it contains Mirror/GF2/Narrative/Home V3 |
-| `feature/connect-test-flow` | Older test-flow branch |
+| `main` | Canonical integration and release branch |
+| `feature/fusion-result` | Historical architecture snapshot; not the base for new work |
+| `feature/connect-test-flow` | Historical test-flow branch |
 
 **Workflow:**
 
-1. Branch from `feature/fusion-result` for new work.
-2. Small commits, focused scope.
-3. Run relevant validation before claiming engine changes.
-4. Merge to `main` only when release-ready.
+1. Fetch and verify `origin/main`, then create one `codex/*` branch/worktree for the task.
+2. Define `task.md` and `task_scope.json`; keep commits and allow-list focused.
+3. Run Local Gate PreCommit and PostCommit plus relevant validation.
+4. Merge to `main` only when release-ready, then sync local `main`.
+
+### Thai Beta anonymous operations
+
+- Public anonymous entry: `https://knowme-app-694e1.web.app/beta/thai`.
+- Do not request login, credentials, Firebase invite seeding, or a seeded UID for the anonymous flow.
+- Evidence Badge is separately controlled by `invited_beta`; anonymous not seeing it is expected.
+- PR #61 fixed route preservation/reload (`981ed04`, merge `da85013`, Production bundle `da85013`).
+- The anonymous Production validation and route/reload incident are closed. Reopen only with a reproducible regression.
 
 ---
 
