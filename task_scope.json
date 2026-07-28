@@ -1,23 +1,24 @@
-﻿{
+{
   "schema_version": 1,
-  "task_id": "thai-life-map-restore-accepted-ui",
-  "expected_branch": "feature/thai-life-map-restore-accepted-ui",
+  "task_id": "codex-single-agent-workflow-migration",
+  "expected_branch": "codex/migrate-single-agent-workflow",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "1299b0af99da5b7a5f8888bf322adf3c7ee939b3",
+  "base_ref": "8f784a297efcb33fa7770f4d232f53648a8ca6d2",
   "allowed_files": [
     "task.md",
     "task_scope.json",
+    "README.md",
+    "docs/AI_ALIGNMENT_CONTEXT.md",
     "docs/CURRENT_STATUS.md",
     "docs/HANDOFF.md",
-    "docs/THAI_LIFE_MAP_V135_EVIDENCE_DETAIL.md",
-    "lib/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_life_timeline_section.dart",
-    "test/validation/thai_beta/life_map/v135/thai_life_map_v135_ui_primary_test.dart",
-    "test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart",
-    "test/ui/thai_mirror_timeline_ui_test.dart"
+    "docs/KNOWME_MASTER_CONTEXT.md",
+    "docs/KNOWME_SINGLE_AGENT_WORKFLOW.md",
+    "docs/PROJECT_INDEX.md",
+    "docs/CURSOR_IMPLEMENTATION_PROMPT.md",
+    "docs/STANDARD_CURSOR_AGENT_PROMPT.md",
+    "docs/STANDARD_CODEX_AGENT_PROMPT.md"
   ],
-  "allowed_globs": [
-    "test/validation/thai_beta/life_map/v135/**"
-  ],
+  "allowed_globs": [],
   "forbidden_files": [
     ".env",
     ".env.*",
@@ -44,11 +45,11 @@
     "round_[0-9]+_review\\.json"
   ],
   "focused_tests": [
-    "flutter test test/validation/thai_beta/life_map/v135/ test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart test/ui/thai_mirror_timeline_ui_test.dart --reporter compact"
+    "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/knowme_task_gate_selftest.ps1"
   ],
   "full_test_policy": "skip",
   "full_test_command": "SKIP",
-  "analyze_command": "flutter analyze lib/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_life_timeline_section.dart test/validation/thai_beta/life_map/v135 test/ui/thai_mirror_timeline_ui_test.dart test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart",
-  "commit_message_regex": "^fix\\(thai-beta\\): .{10,72}$",
+  "analyze_command": "SKIP",
+  "commit_message_regex": "^docs\\(workflow\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }

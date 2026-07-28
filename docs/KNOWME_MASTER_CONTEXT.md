@@ -390,6 +390,7 @@ See `docs/HANDOFF.md` for runner commands.
 4. **Preserve production flow:** `main.dart` → AuthGate → ProfileGate → HomePage.
 5. **Do not assume module consistency** — some module IDs are inconsistent across legacy and new architecture.
 6. **Stability > correctness > architecture purity > speed.**
+7. **Codex is the sole repository executor** for one task branch/worktree at a time. Do not let Cursor, Claude Code, or another agent edit the same branch/worktree concurrently; use the Single-Agent + Local Gate workflow in [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md).
 
 ---
 

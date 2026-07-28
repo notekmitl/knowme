@@ -36,6 +36,7 @@ every document and defines the reading order. AI agents must start with
 | [`docs/ROADMAP.md`](docs/ROADMAP.md) | Evidence-based completed / active / future |
 | [`docs/GOVERNANCE.md`](docs/GOVERNANCE.md) + [`docs/PROJECT_FREEZE.md`](docs/PROJECT_FREEZE.md) | Freeze policy + per-system freeze registry |
 | [`docs/HANDOFF.md`](docs/HANDOFF.md) | Setup, routing, validation commands, agent rules |
+| [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](docs/KNOWME_SINGLE_AGENT_WORKFLOW.md) | Authoritative Codex Single-Agent + Local Gate workflow |
 
 ## Project layout
 

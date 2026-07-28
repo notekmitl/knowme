@@ -1,6 +1,11 @@
-﻿# Task: Restore accepted Thai Life Map customer-facing report
+# Task: Migrate KnowMe primary executor from Cursor to Codex
 
-Remove the V1.3.5 `_DetailedEvidenceReport` evidence/debug dump from the ordinary
-user render path on `/beta/thai`. Restore the last accepted pre-V1.3.5 human-
-readable Life Map (baseline merge `7a3d07d` / docs tip `14ed096`). Keep V1.3.5
-evidence models and calculations as internal infrastructure only.
+Update the repository's current documentation and operational prompt so Codex is
+the sole end-to-end executor for one task branch/worktree at a time. Preserve the
+existing Single-Agent + Local Gate controls exactly: allowlist, forbidden-file and
+forbidden-text checks, analyze/focused/full-test policy, PreCommit, and PostCommit.
+
+Do not change application code, Firebase runtime/configuration, feature flags,
+invited-beta access, product status, or Production deployment state. Historical
+documents may retain Cursor references when clearly classified as historical and
+must not instruct current work.

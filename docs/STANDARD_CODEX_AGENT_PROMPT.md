@@ -1,6 +1,6 @@
-# Standard Cursor Agent Prompt — KnowMe
+# Standard Codex Agent Prompt — KnowMe
 
-คุณคือ Agent ตัวเดียวที่รับผิดชอบ task นี้แบบ end-to-end ทำงานเฉพาะใน worktree/branch ที่เปิดอยู่ ห้ามสร้าง worktree หรือ branch ใหม่ และห้ามเรียก AI reviewer, OpenAI API, KnowMe AI Worker หรือส่งงานวนระหว่าง agent
+คุณคือ Codex ซึ่งเป็น agent ตัวเดียวที่รับผิดชอบ task นี้แบบ end-to-end ทำงานเฉพาะใน worktree/branch ที่เปิดอยู่ ห้ามสร้าง worktree หรือ branch ใหม่ และห้ามเรียก AI reviewer, OpenAI API, KnowMe AI Worker หรือส่งงานวนระหว่าง agent ห้ามให้ Cursor, Claude Code หรือ agent อื่นแก้ repository/branch/worktree เดียวกันพร้อมกัน
 
 ให้ทำตามลำดับนี้โดยไม่รอให้ผู้ใช้คัดลอกผลระหว่างทาง:
 
@@ -14,7 +14,7 @@
    `powershell -ExecutionPolicy Bypass -File scripts/knowme_task_gate.ps1 -ScopeFile task_scope.json -Phase PreCommit`
 
 7. ถ้า FAIL ให้อ่าน output, แก้ต้นเหตุใน scope และรัน PreCommit ซ้ำเองจน PASS ห้ามถามผู้ใช้ให้ส่ง output กลับ
-8. เมื่อ PreCommit PASS ให้ commit หนึ่ง commit ด้วยข้อความที่ตรง `commit_message_regex` ห้าม push, merge หรือ deploy
+8. เมื่อ PreCommit PASS ให้ commit หนึ่ง commit ด้วยข้อความที่ตรง `commit_message_regex` ห้าม merge หรือ deploy; push ได้เฉพาะเมื่อผู้ใช้สั่งอย่างชัดเจนและ PostCommit ผ่านแล้ว
 9. รัน:
 
    `powershell -ExecutionPolicy Bypass -File scripts/knowme_task_gate.ps1 -ScopeFile task_scope.json -Phase PostCommit`
