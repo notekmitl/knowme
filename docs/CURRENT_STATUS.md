@@ -4,7 +4,7 @@
 **Branch:** `main`  
 **Merge tip:** `0eb7bdb` (PR #58 restore accepted Life Map UI); Production hosted @ `0eb7bdb`  
 **Prior architecture snapshot:** `feature/fusion-result`  
-**Automation workflow (authoritative):** Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
+**Automation workflow (authoritative):** Codex Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). Codex is the sole executor for one task branch/worktree at a time; Cursor, Claude Code, and other agents must not edit that same branch/worktree concurrently. External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
 **Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login) — Evidence Badge rollout remains `invited_beta`.
 **Thai Beta Narrative / Life Map:** **Accepted UI restored** (PR #58 @ `0eb7bdb`) — V1.3.5 customer-facing detailed evidence report **FAILED Product Acceptance** and was removed from the ordinary user path; V1.3.5 evidence layer remains **internal only**. Product Acceptance: **ยังไม่ผ่าน—รอเจ้าของตรวจหน้า Production หลังคืนรูปแบบเดิม**.
 
@@ -46,7 +46,7 @@
 | **Thai Life Map V1.3.4 Narrative Quality** | Merged + **hosted** — **Ready for Validation** | PR #52 @ `7a3d07d`; overview/Past/Current quality on PeriodScores only — no SE/degrees/houses; Current = การงาน/การเงิน/สุขภาพ/โชคลาภ; production-path + QA artifact verified; Product Acceptance pending owner; [`THAI_LIFE_MAP_V134_NARRATIVE_QUALITY.md`](THAI_LIFE_MAP_V134_NARRATIVE_QUALITY.md) |
 | **Thai Life Map V1.3.5 Evidence Detail** | Evidence **internal**; customer detailed report **rejected**; **accepted UI restored + hosted** | PR #54/#56 failed PA; PR #58 @ `0eb7bdb` restores accepted Life Map (`7a3d07d`) and removes `_DetailedEvidenceReport` from customer path; Production @ `0eb7bdb`; Product Acceptance pending owner; [`THAI_LIFE_MAP_V135_EVIDENCE_DETAIL.md`](THAI_LIFE_MAP_V135_EVIDENCE_DETAIL.md) |
 | **Thai Beta anonymous Public route** | Merged + **hosted + verified** | PRs #7–#8; re-verified with past-breadth deploy 2026-07-24 @ `5529264` |
-| **Single-Agent + Local Gate** | Merged to `main` | `docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`, `scripts/knowme_task_gate.ps1` |
+| **Codex Single-Agent + Local Gate** | Current repository workflow | `docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`, `scripts/knowme_task_gate.ps1` |
 
 **Also complete (supporting):**
 

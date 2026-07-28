@@ -166,12 +166,12 @@ flutter test test/home_screen_v3_test.dart
 
 ---
 
-## 4.1 Cursor Agent Automation (Single-Agent + Local Gate)
+## 4.1 Codex Automation (Single-Agent + Local Gate)
 
-For scoped Cursor Agent tasks (not manual dev work), use the authoritative workflow in [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md):
+For scoped Codex tasks (not manual dev work), use the authoritative workflow in [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). Codex is the only executor for a task branch/worktree; do not allow Cursor, Claude Code, or another agent to edit that same branch/worktree concurrently.
 
 1. Prepare `task.md` and `task_scope.json` on the target branch/worktree.
-2. Paste [`STANDARD_CURSOR_AGENT_PROMPT.md`](STANDARD_CURSOR_AGENT_PROMPT.md) into Cursor once per task.
+2. Give Codex [`STANDARD_CODEX_AGENT_PROMPT.md`](STANDARD_CODEX_AGENT_PROMPT.md) once per task when the task prompt does not already contain equivalent controls.
 3. Agent runs PreCommit Gate → commit → PostCommit Gate → writes `TASK_RESULT.md`.
 4. Read `TASK_RESULT.md` for the final outcome.
 
@@ -291,9 +291,9 @@ Avoid: `Widget1`, `title1`, `mbtiSummary` (camelCase folders).
 | Tool | Role |
 |------|------|
 | ChatGPT (or similar) | Product architect, UX critic, system designer, strategy |
-| Cursor | Implementation engine, code execution, focused diffs |
+| Codex | Sole implementation executor, code execution, focused diffs, validation, commit/push when explicitly authorized |
 
-**Pattern:** design/review → implement in Cursor → validate → iterate. Avoid blind implementation without tracing callers.
+**Pattern:** design/review → implement in Codex → validate → iterate. One task uses one Codex-owned branch/worktree; Cursor, Claude Code, and other agents must not edit it concurrently. Avoid blind implementation without tracing callers.
 
 ### Expected change report
 

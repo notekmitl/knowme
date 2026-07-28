@@ -117,9 +117,10 @@ Full detail: `ARCHITECTURE.md`, `EXECUTIVE_SUMMARY.md`.
 6. **Feature owns its logic** — avoid cross-feature leakage.
 7. **Explain before major changes** — current implementation, risks, minimal approach.
 8. **Safe workflow:** branch → small implementation → manual test → commit only after
-   confirmation. For **Cursor Agent automation tasks**, use
+   confirmation. For **Codex automation tasks**, use
    [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md) (Single-Agent +
-   Local Gate) — not the retired external AI Worker.
+   Local Gate) — one Codex executor per task branch/worktree, with no concurrent
+   Cursor, Claude Code, or other agent edits on that same branch/worktree.
 9. **Debug by root cause** — inspect caller chain and data flow; do not patch randomly.
 
 ---

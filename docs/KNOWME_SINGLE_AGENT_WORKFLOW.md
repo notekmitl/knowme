@@ -1,11 +1,11 @@
 # KnowMe Single-Agent + Local Gate
 
-**Status:** CURRENT — authoritative automation workflow for Cursor Agent tasks.  
-**Last updated:** July 2026
+**Status:** CURRENT — authoritative automation workflow for Codex tasks.
+**Last updated:** 28 July 2026
 
 ## 1. การตัดสินใจหลัก
 
-KnowMe ใช้ Cursor Agent ตัวเดียวทำงาน end-to-end ใน branch/worktree ที่ผู้ใช้กำหนดไว้ล่วงหน้า ระบบนี้ยุติ KnowMe AI Worker, OpenAI API reviewer, reviewer loop, การส่ง JSON หลายไฟล์ และการสร้าง worktree ระหว่าง task อย่างถาวร
+KnowMe ใช้ Codex เป็นผู้ทำงานหลักเพียงรายเดียวแบบ end-to-end ในหนึ่ง branch/worktree ต่อหนึ่ง task โดย branch/worktree ต้องถูกกำหนดไว้ก่อนเริ่ม implementation ห้าม Cursor, Claude Code หรือ agent อื่นแก้ repository/branch/worktree เดียวกันพร้อมกับ Codex ระบบนี้ยุติ KnowMe AI Worker, OpenAI API reviewer, reviewer loop, การส่ง JSON หลายไฟล์ และการสร้าง worktree ระหว่าง task อย่างถาวร
 
 Local Gate เป็น PowerShell script ธรรมดา ตัดสิน PASS/FAIL จาก command exit code จริง ไม่ให้ AI เป็นผู้ตัดสินว่าผ่านหรือไม่
 
@@ -18,7 +18,7 @@ Local Gate เป็น PowerShell script ธรรมดา ตัดสิน 
 - `scripts/knowme_task_gate.ps1`: ตัวตรวจกลางของ repo
 - `scripts/knowme_task_gate_selftest.ps1`: deterministic self-tests สำหรับ Gate
 - `TASK_RESULT.md`: ผลสุดท้ายที่ผู้ใช้อ่านเพียงไฟล์เดียว (local-only — ดู §5)
-- `docs/STANDARD_CURSOR_AGENT_PROMPT.md`: prompt มาตรฐานสำหรับทุก task
+- `docs/STANDARD_CODEX_AGENT_PROMPT.md`: prompt มาตรฐานสำหรับทุก task
 
 ## 3. เหตุผลที่ Gate มีสองระยะ
 
@@ -43,7 +43,7 @@ Local Gate เป็น PowerShell script ธรรมดา ตัดสิน 
 2. commit message ตรง regex
 3. ไม่มี source change ค้างหลัง commit ตาม policy (`TASK_RESULT.md` ยกเว้น)
 
-หาก PreCommit ไม่ผ่าน ห้าม commit หาก PostCommit ไม่ผ่าน Cursor ต้องแก้เอง โดยแก้หรือ amend commit แล้วรัน PostCommit ใหม่ ห้าม push/merge/deploy ทุกกรณีใน workflow นี้
+หาก PreCommit ไม่ผ่าน ห้าม commit หาก PostCommit ไม่ผ่าน Codex ต้องแก้เอง โดยแก้หรือ amend commit แล้วรัน PostCommit ใหม่ ห้าม merge/deploy ทุกกรณีใน workflow นี้ การ push ทำได้เฉพาะเมื่อผู้ใช้สั่งอย่างชัดเจนและ PostCommit ผ่านแล้ว
 
 ## 4. กฎของ scope
 
@@ -58,7 +58,7 @@ Local Gate เป็น PowerShell script ธรรมดา ตัดสิน 
 
 ## 5. TASK_RESULT.md
 
-ไฟล์นี้เป็นรายงานสุดท้าย ไม่ใช่หลักฐานตัดสิน PASS หลักฐานจริงคือ exit code ของ Gate Cursor ต้องเขียนผลตามที่เกิดขึ้นจริงเท่านั้น และต้องระบุ commit SHA หลัง PostCommit ผ่าน
+ไฟล์นี้เป็นรายงานสุดท้าย ไม่ใช่หลักฐานตัดสิน PASS หลักฐานจริงคือ exit code ของ Gate Codex ต้องเขียนผลตามที่เกิดขึ้นจริงเท่านั้น และต้องระบุ commit SHA หลัง PostCommit ผ่าน
 
 แนะนำให้ `TASK_RESULT.md` เป็นไฟล์ operational ที่ไม่ commit และเพิ่มไว้ใน `.git/info/exclude` ของ worktree เพื่อให้รายงานมี commit SHA สุดท้ายได้โดยไม่ทำให้ tree สกปรก ห้ามเพิ่มลง project `.gitignore` หากไม่จำเป็น
 
@@ -73,14 +73,14 @@ if (-not (Select-String -Path .git/info/exclude -Pattern '^TASK_RESULT\.md$' -Qu
 
 - Gate หยุดทันทีเมื่อ invariant สำคัญผิด เช่น branch/worktree/base/scope
 - Test failure แสดง command และ exit code
-- Cursor อ่าน output แก้เฉพาะต้นเหตุ แล้วรัน phase เดิมซ้ำ
+- Codex อ่าน output แก้เฉพาะต้นเหตุ แล้วรัน phase เดิมซ้ำ
 - ห้ามลด test policy, ขยาย allow-list, เปลี่ยน base_ref หรือแก้ Gate เพื่อทำให้ task ผ่าน หาก task ไม่สามารถเสร็จใน scope ให้เขียน `TASK_RESULT.md` เป็น `BLOCKED` และหยุดโดยไม่ commit
 
 ## 7. ขั้นตอนใช้งานที่สั้นที่สุด
 
 1. ผู้ใช้เตรียม branch/worktree หนึ่งชุด แล้วแก้ `task.md` กับ `task_scope.json`
-2. เปิด Cursor ที่ worktree นั้น วาง `docs/STANDARD_CURSOR_AGENT_PROMPT.md` เพียงครั้งเดียว
-3. Cursor ตรวจ scope, ลงมือ, รัน PreCommit, แก้จนผ่าน, commit, รัน PostCommit และเขียน `TASK_RESULT.md`
+2. เปิด Codex ที่ worktree นั้น และให้ `docs/STANDARD_CODEX_AGENT_PROMPT.md` เพียงครั้งเดียวเมื่อ task prompt ไม่มี controls ที่เทียบเท่า
+3. Codex ตรวจ scope, ลงมือ, รัน PreCommit, แก้จนผ่าน, commit, รัน PostCommit และเขียน `TASK_RESULT.md`
 4. ผู้ใช้อ่านเฉพาะ `TASK_RESULT.md`
 
 ## 8. สิ่งที่ workflow นี้ไม่ทำ
@@ -88,8 +88,9 @@ if (-not (Select-String -Path .git/info/exclude -Pattern '^TASK_RESULT\.md$' -Qu
 - ไม่สร้าง branch/worktree
 - ไม่เรียก AI/API reviewer
 - ไม่สร้าง review rounds หรือ JSON ส่งต่อ
-- ไม่ merge, push, deploy
+- ไม่ merge หรือ deploy; ไม่ push เว้นแต่ผู้ใช้สั่งอย่างชัดเจนและ PostCommit ผ่านแล้ว
 - ไม่แก้ scope อัตโนมัติ
+- ไม่ให้ Cursor, Claude Code หรือ agent อื่นแก้ branch/worktree เดียวกันพร้อมกับ Codex
 
 ## 9. Gate commands
 
