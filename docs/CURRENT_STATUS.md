@@ -86,7 +86,7 @@ Real users (38 Firestore accounts): **2.6% reach Narrative**. Blocker is persona
 | Real user PII export local-only | **High** | `firestore_user_export.json` gitignored — must regenerate locally |
 | Firebase service account local-only | **High** | `backend/firebase/serviceAccountKey.json` gitignored |
 | Legacy + new architecture coexist | **Medium** | Parallel scoring, navigation, and module IDs — trace before editing |
-| Funnel Recovery V2 unvalidated in production | **Medium** | Implemented and on GitHub; conversion metrics not yet measured post-deploy |
+| Funnel Recovery V2 effectiveness unproven | **Medium** | Production Funnel Measurement V1 observed 1/4 Narrative preview reach, but n=4 and baseline semantics differ; no causal lift claim |
 
 ---
 
@@ -123,15 +123,15 @@ Deploy: `.\scripts\deploy_web.ps1` or `firebase deploy --only hosting --project 
 
 ## Next Priority
 
-**One next development task: Production Funnel Measurement V1.**
+**Production Funnel Measurement V1: COMPLETE — decision IMPROVE.**
 
-- **Problem:** Funnel Recovery V2 is already implemented, but KnowMe cannot yet make an evidence-backed product decision from a defined post-release cohort.
-- **User value:** the team can see whether astrology users actually continue to MBTI and receive a narrative, then improve the real bottleneck instead of adding speculative features.
-- **Scope:** define a privacy-safe measurement window and cohort; aggregate existing `funnel_telemetry` events; compare MBTI start/completion and narrative reach against the 2.6% baseline; produce a repeatable internal report and validation command.
-- **Not included:** no new funnel UI, no Funnel Recovery V2 reimplementation, no feature-flag/audience change, no paid acquisition, no new engine/provider, and no PII committed to Git.
-- **Product acceptance:** a repeatable run reports cohort size, event coverage, MBTI start/completion, narrative reach, drop-off, and baseline delta; incomplete telemetry is labelled rather than inferred; results contain no UID or personal data; the report clearly recommends keep/iterate/stop against the 25% narrative-reach target.
+- Completed Bangkok window: 23 June–27 July 2026.
+- Eligible 4; MBTI started 2; completed 1; Narrative preview reached 1.
+- Observed reach is `1/4 = 25%`, but n=4 is below the decision minimum and is not directly comparable with the historical `1/38 = 2.6%` full-Narrative baseline.
+- Single observed bottleneck: eligible → MBTI started (2/4 lost).
+- No Funnel/UI change is authorized by this result. Re-run the read-only command after a decision-sized cohort; see [`PRODUCTION_FUNNEL_MEASUREMENT_V1.md`](PRODUCTION_FUNNEL_MEASUREMENT_V1.md).
 
-Do not start this task until the owner explicitly requests it. Keep hosting deploys intentional and maintain frozen systems with blocker fixes only.
+Keep hosting deploys intentional and maintain frozen systems with blocker fixes only.
 
 **Not next (explicitly deferred per master context):**
 

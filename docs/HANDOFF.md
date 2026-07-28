@@ -74,6 +74,19 @@ Output: `test/validation/real_user_runtime_v1/output/` (export JSON is gitignore
 - PR #61 fixed route preservation/reload (`981ed04`, merge `da85013`, Production bundle `da85013`).
 - The anonymous Production validation and route/reload incident are closed. Reopen only with a reproducible regression.
 
+### Production funnel measurement
+
+Production Funnel Measurement V1 is read-only and reports aggregates only:
+
+```powershell
+python tool/production_funnel_measurement.py --start 2026-06-23 --end 2026-07-28
+```
+
+The local gitignored service account is required. Never commit its credential or
+raw user export. Current result: eligible 4 → MBTI started 2 → completed 1 →
+Narrative preview 1; decision **IMPROVE**, confidence limited by sample size.
+Definitions and denominator rules: [`PRODUCTION_FUNNEL_MEASUREMENT_V1.md`](PRODUCTION_FUNNEL_MEASUREMENT_V1.md).
+
 ---
 
 ## 3. Where to Start

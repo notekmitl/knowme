@@ -1,12 +1,15 @@
 {
   "schema_version": 1,
-  "task_id": "close-thai-beta-anonymous-production-validation",
-  "expected_branch": "codex/close-thai-beta-production-validation",
+  "task_id": "production-funnel-measurement-v1",
+  "expected_branch": "codex/production-funnel-measurement-v1",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "da85013a337cc077f252e93d369c0a1b7604ad9c",
+  "base_ref": "cebed6b774fc2c29c7bcf463d1b026157885dea5",
   "allowed_files": [
     "task.md",
     "task_scope.json",
+    "tool/production_funnel_measurement.py",
+    "test/validation/production_funnel_measurement_v1/test_measurement.py",
+    "docs/PRODUCTION_FUNNEL_MEASUREMENT_V1.md",
     "docs/CURRENT_STATUS.md",
     "docs/HANDOFF.md",
     "docs/ROADMAP.md"
@@ -18,12 +21,15 @@
     "**/*.pem",
     "**/*.key",
     "**/google-services.json",
-    "**/GoogleService-Info.plist"
+    "**/GoogleService-Info.plist",
+    "**/firestore_user_export.json"
   ],
   "generated_output_globs": [
     "build/**",
     ".dart_tool/**",
     "coverage/**",
+    "**/__pycache__/**",
+    "**/*.pyc",
     "**/*.g.dart",
     "**/*.freezed.dart"
   ],
@@ -38,11 +44,11 @@
     "round_[0-9]+_review\\.json"
   ],
   "focused_tests": [
-    "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/knowme_task_gate_selftest.ps1"
+    "python -m unittest discover -s test/validation/production_funnel_measurement_v1 -p \"test_*.py\" -v"
   ],
   "full_test_policy": "skip",
   "full_test_command": "SKIP",
-  "analyze_command": "SKIP",
-  "commit_message_regex": "^docs\\(status\\): .{10,72}$",
+  "analyze_command": "python -m py_compile tool/production_funnel_measurement.py test/validation/production_funnel_measurement_v1/test_measurement.py",
+  "commit_message_regex": "^feat\\(measurement\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }
