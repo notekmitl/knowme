@@ -2,7 +2,7 @@
 
 **Last updated:** July 2026  
 **Branch:** `main`  
-**Merge tip:** `da85013` (PR #61 Thai Beta public-route reload fix); Production hosted @ `da85013`
+**Merge tip before Core Reading V1:** `380348f` (PR #63 Production Funnel Measurement V1); Production hosted @ `da85013`
 
 **Prior architecture snapshot:** `feature/fusion-result`  
 **Automation workflow (authoritative):** Codex Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). Codex is the sole executor for one task branch/worktree at a time; Cursor, Claude Code, and other agents must not edit that same branch/worktree concurrently. External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
@@ -33,6 +33,7 @@
 | **Narrative V5** | Complete | `docs/NARRATIVE_EVIDENCE_BRANCHING_V5.md` — 1000/1000 unique, 0 collapse |
 | **Funnel Recovery V2** | Implemented | `lib/features/home_cohesion/`, `lib/features/funnel_telemetry/`, MBTI → narrative preview loop |
 | **Thai Beta Narrative Quality V1–V1.2.2 + Life Map V1.2.3** | Merged to `main` + **hosted** | Life Map V1.2.3; PR https://github.com/notekmitl/knowme/pull/18; production https://knowme-app-694e1.web.app/beta/thai |
+| **Thai Birth Profile Core Reading V1** | Implemented; Production owner acceptance required | Lifelong “ดวงจากวันเกิดของคุณ” before Timeline; web/PDF share one `ThaiBetaAnalysis`; no Engine/Canon change — [`THAI_BIRTH_PROFILE_CORE_READING_V1.md`](THAI_BIRTH_PROFILE_CORE_READING_V1.md) |
 | **Life Map Mahabhut Canon index (Production fix)** | Merged to `main` + **hosted** | PR https://github.com/notekmitl/knowme/pull/20 @ `07d0eb9`; wires Frozen Canon `repository.index` into Timeline/Consumer presenters — unknown no longer forced by null index. Presenter-path QA (1972-04-04 02:00 BKK): **known=7 / unknown=1** (ธงชัย, unknown, ปูติ, อธิบดี, ขุมทรัพย์, ปูติ, มรณะ, ราชา). Sample pipeline fixture: known=8 / unknown=0 |
 | **Thai Life Map V1.2.4 Accuracy Audit** | Merged tests + report | PR #22 @ `cb33a3d`; 22 fixtures / 176 periods; known 139 / unknown 37; [`THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md`](THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md) |
 | **Thai Life Map V1.2.5 Invited Beta Feedback** | Merged + **hosted** — **Ready for Validation** | PR #23 @ `b5d1243`; deploy Firebase Hosting + rules 2026-07-23; anonymous Production QA PASS (no panel/badge leak); **0 real invited Feedback** → not Validation Passed; [`THAI_LIFE_MAP_V125_BETA_VALIDATION.md`](THAI_LIFE_MAP_V125_BETA_VALIDATION.md) |
@@ -61,9 +62,12 @@
 
 ## Current Focus
 
-**Convert astrology-complete users into personality-test completers.**
+**Make Thai Astrology Beta useful and credible to real testers before expanding
+to other systems.**
 
-Real users (38 Firestore accounts): **2.6% reach Narrative**. Blocker is personality test completion, not narrative engine failure.
+The immediate product surface is the lifelong Thai birth-profile reading on
+`/beta/thai`. Funnel history and measurement remain recorded, but Funnel/MBTI
+work is not the current next implementation priority.
 
 **Active product surface:**
 
@@ -123,7 +127,15 @@ Deploy: `.\scripts\deploy_web.ps1` or `firebase deploy --only hosting --project 
 
 ## Next Priority
 
-**Production Funnel Measurement V1: COMPLETE — decision IMPROVE.**
+**Thai Birth Profile Core Reading V1: owner/tester Product Acceptance after
+Production release.**
+
+- Confirm the report starts with “ดวงจากวันเกิดของคุณ” and “สรุปดวงสำคัญ”.
+- Read full-time and no-time results from real tests.
+- Decide whether the structure and evidence-backed Thai copy feels close enough
+  to a direct Thai astrologer reading. Codex must not declare accuracy itself.
+
+**Production Funnel Measurement V1 remains COMPLETE — decision IMPROVE.**
 
 - Completed Bangkok window: 23 June–27 July 2026.
 - Eligible 4; MBTI started 2; completed 1; Narrative preview reached 1.

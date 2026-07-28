@@ -87,6 +87,18 @@ raw user export. Current result: eligible 4 → MBTI started 2 → completed 1 �
 Narrative preview 1; decision **IMPROVE**, confidence limited by sample size.
 Definitions and denominator rules: [`PRODUCTION_FUNNEL_MEASUREMENT_V1.md`](PRODUCTION_FUNNEL_MEASUREMENT_V1.md).
 
+### Current product priority — Thai Birth Profile Core Reading
+
+`/beta/thai` must lead with **“ดวงจากวันเกิดของคุณ”** before Life Timeline.
+Web and PDF build that section from the same `ThaiBetaAnalysis`; do not create
+parallel calculations or copy real user birth data into fixtures. With no birth
+time, Lagna/houses must remain absent. See
+[`THAI_BIRTH_PROFILE_CORE_READING_V1.md`](THAI_BIRTH_PROFILE_CORE_READING_V1.md).
+
+Thai Astrology quality and real-person Product Acceptance are current. Preserve
+Funnel history, but do not route the next implementation to MBTI/Funnel,
+Chinese, Western, or Fusion until the owner changes this priority.
+
 ---
 
 ## 3. Where to Start

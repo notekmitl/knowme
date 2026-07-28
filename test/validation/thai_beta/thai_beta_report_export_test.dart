@@ -9,6 +9,7 @@ import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_a
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_polish.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_safety.dart';
+import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_pdf_exporter.dart';
 import 'package:knowme/features/thai_beta/application/thai_evidence_badge_feature_flag.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
@@ -99,13 +100,9 @@ void main() {
       expect(doc.title, contains('KnowMe'));
       final text = doc.fullPlainText;
       expect(text, isNotEmpty);
-      // Uses narrative-quality hero (presentation layer), not raw engine copy.
-      expect(
-        text.contains(
-          ThaiBetaNarrativeComposer.narrativeView(analysis).hero.headline,
-        ),
-        isTrue,
-      );
+      // Core Reading is the shared web/PDF presentation source.
+      expect(text, contains(ThaiBirthProfileCoreReading.reportTitle));
+      expect(text, contains('สรุปดวงสำคัญ'));
     });
 
     test('export text has no forbidden content', () {
@@ -124,11 +121,16 @@ void main() {
     test('does not invent new prediction copy beyond view state', () {
       final doc = ThaiBetaReportExportDocument.fromAnalysis(analysis);
       final view = ThaiBetaNarrativeComposer.narrativeView(analysis);
-      // V1.3.2: birth confidence banner is silent when complete; hero remains.
+      // V1.3.2: birth confidence remains silent when complete. Core Reading
+      // replaces the legacy hero as the PDF opening without inventing
+      // prediction copy.
       expect(view.birthDataConfidence.isComplete, isTrue);
       expect(view.birthDataConfidence.title, isEmpty);
-      expect(doc.fullPlainText, contains(view.hero.identityBadge));
-      expect(doc.fullPlainText, contains(view.hero.headline));
+      expect(
+        doc.fullPlainText,
+        contains(ThaiBirthProfileCoreReading.reportTitle),
+      );
+      expect(doc.fullPlainText, contains('โครงสร้างดวงหลัก'));
       expect(doc.fullPlainText, isNot(contains('ข้อมูลวันเกิดครบถ้วน')));
     });
 
