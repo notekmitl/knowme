@@ -1,11 +1,9 @@
-# Task: Migrate KnowMe primary executor from Cursor to Codex
+# Task: Fix anonymous Thai Beta route preservation
 
-Update the repository's current documentation and operational prompt so Codex is
-the sole end-to-end executor for one task branch/worktree at a time. Preserve the
-existing Single-Agent + Local Gate controls exactly: allowlist, forbidden-file and
-forbidden-text checks, analyze/focused/full-test policy, PreCommit, and PostCommit.
+Production re-check confirmed that the anonymous `/beta/thai` flow renders and
+completes, but its dedicated app shell registers the landing page as `/`. This
+rewrites the browser address to root and makes reload leave the Thai Beta route.
 
-Do not change application code, Firebase runtime/configuration, feature flags,
-invited-beta access, product status, or Production deployment state. Historical
-documents may retain Cursor references when clearly classified as historical and
-must not instruct current work.
+Preserve `/beta/thai` as the shell's initial Navigator route, add focused
+regression coverage, and make no other application, feature-flag, invite-list,
+Firebase configuration, narrative, or production behavior changes.
