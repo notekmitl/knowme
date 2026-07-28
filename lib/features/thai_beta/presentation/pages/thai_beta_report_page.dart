@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../application/narrative/thai_beta_narrative_composer.dart';
+import '../../application/core_reading/thai_birth_profile_core_reading.dart';
 import '../../application/thai_beta_analysis.dart';
 import '../../application/thai_beta_evidence_badge_audience.dart';
 import '../../application/thai_beta_evidence_badge_audience_resolver.dart';
@@ -9,6 +10,7 @@ import '../../application/thai_evidence_badge_feature_flag.dart';
 import '../thai_beta_screenshot_mode.dart';
 import '../widgets/thai_beta_progress_bar.dart';
 import '../widgets/thai_beta_report_export_button.dart';
+import '../widgets/thai_birth_profile_core_reading_section.dart';
 import '../widgets/thai_life_map_beta_feedback_panel.dart';
 import 'thai_beta_feedback_page.dart';
 
@@ -286,12 +288,33 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
     final bottomInset = widget.screenshotMode
         ? 24.0
         : 88 + MediaQuery.paddingOf(context).bottom;
+    final narrativeView = ThaiBetaNarrativeComposer.narrativeView(analysis);
+    final coreReading = ThaiBirthProfileCoreReading.fromAnalysis(
+      analysis,
+      consumerView: narrativeView,
+    );
 
     final reportBody = <Widget>[
       if (_showBadgePanel)
         ThaiBetaEvidenceBadgePanel(badges: _badges)
       else if (_loadingBadges)
         const LinearProgressIndicator(minHeight: 2),
+      Padding(
+        padding: EdgeInsets.fromLTRB(
+          MediaQuery.sizeOf(context).width >= 768 ? 32 : 18,
+          16,
+          MediaQuery.sizeOf(context).width >= 768 ? 32 : 18,
+          0,
+        ),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 780),
+            child: ThaiBirthProfileCoreReadingSection(
+              reading: coreReading,
+            ),
+          ),
+        ),
+      ),
       ThaiMirrorResultPage(
         embeddedInParentScroll: true,
         disableAnimations: widget.screenshotMode,
@@ -299,7 +322,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
         relevantLifeTimeline: false,
         lifeMapMode: true,
         collapseSecondarySections: true,
-        consumerState: ThaiBetaNarrativeComposer.narrativeView(analysis),
+        consumerState: narrativeView,
       ),
       if (!widget.screenshotMode &&
           widget.audience.isInvitedBetaTester &&

@@ -100,6 +100,14 @@ Sources: `docs/*.md`, `lib/features/*`, validation outputs.
 
 ## Active
 
+### Thai Astrology quality first
+
+Thai Birth Profile Core Reading V1 makes `/beta/thai` begin with
+“ดวงจากวันเกิดของคุณ” and eight evidence-backed lifelong sections before any
+Timeline. The next decision is owner/tester Product Acceptance on Production.
+Chinese, Western, Fusion, MBTI, psychology, and new Funnel work are deferred
+until Thai Astrology reaches the required quality.
+
 | Item | Why active | Evidence |
 |------|------------|----------|
 | **Funnel conversion (astrology → personality → narrative)** | Real users: 2.6% narrative reach; 97% drop-off before MBTI | `REAL_USER_RUNTIME_VALIDATION_V1.md`, Funnel Recovery V2 code |

@@ -6,6 +6,7 @@ import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_m
 import 'package:knowme/features/astrology/thai/mirror/presentation/prediction/prediction_section_model.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/thai_mirror_life_timeline_state.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
+import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
 
 import 'thai_beta_report_export_polish.dart';
 import 'thai_beta_report_export_safety.dart';
@@ -69,7 +70,20 @@ class ThaiBetaReportExportDocument {
     final view = ThaiBetaNarrativeComposer.narrativeView(analysis);
 
     final sections = <ThaiBetaReportExportSection>[];
+    final coreReading = ThaiBirthProfileCoreReading.fromAnalysis(
+      analysis,
+      consumerView: view,
+    );
+    sections.add(_section(coreReading.title, [coreReading.subtitle]));
+    sections.addAll(
+      coreReading.sections.map(
+        (section) => _section(section.title, section.publicParagraphs),
+      ),
+    );
 
+    // Preserve the established report below the new Core Reading. This keeps
+    // screen/PDF parity, no-time limitation copy, and existing export
+    // contracts while changing only the opening hierarchy.
     sections.add(
       _section(view.hero.identityBadge, [
         view.hero.headline,
@@ -79,8 +93,6 @@ class ThaiBetaReportExportDocument {
       ]),
     );
 
-    // V1.3.2: birth-data confidence is silent when complete; incomplete note
-    // already lives on hero.identitySubtitle — do not emit a spare banner block.
     if (!view.birthDataConfidence.isComplete &&
         view.birthDataConfidence.title.trim().isNotEmpty) {
       sections.add(
