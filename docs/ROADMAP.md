@@ -103,7 +103,7 @@ Sources: `docs/*.md`, `lib/features/*`, validation outputs.
 | Item | Why active | Evidence |
 |------|------------|----------|
 | **Funnel conversion (astrology → personality → narrative)** | Real users: 2.6% narrative reach; 97% drop-off before MBTI | `REAL_USER_RUNTIME_VALIDATION_V1.md`, Funnel Recovery V2 code |
-| **Production Funnel Measurement V1 — next development task** | Measure the already-implemented recovery funnel against the 2.6% baseline with a privacy-safe, repeatable cohort report; do not rebuild Funnel Recovery V2 | `lib/features/funnel_telemetry/`, `REAL_USER_RUNTIME_VALIDATION_V1.md`, `PRODUCTION_FUNNEL_RECOVERY_V1.md` |
+| **Production funnel decision-sized cohort** | V1 measurement complete: 4 eligible, 2 MBTI starts, 1 completion, 1 Narrative preview; decision IMPROVE but no causal claim at n=4. Re-run unchanged measurement after ≥20 eligible users | `PRODUCTION_FUNNEL_MEASUREMENT_V1.md`, `tool/production_funnel_measurement.py` |
 | **Home experience refinement** | Primary post-astrology product surface | `lib/features/home_cohesion/`, `PRODUCTION_FUNNEL_RECOVERY_V1.md` |
 | **Chinese Zodiac Personality Expansion** | Approved additive program, low blast radius | [`GOVERNANCE.md`](GOVERNANCE.md) exception programs |
 | **Real-user validation re-runs** | Measure funnel changes against 38-user baseline | `test/validation/real_user_runtime_v1/` |

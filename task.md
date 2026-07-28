@@ -1,10 +1,11 @@
-# Task: Close Thai Beta anonymous Production validation in active docs
+# Task: Production Funnel Measurement V1
 
-Update active status, handoff, and roadmap documentation from repository,
-Production, and Git evidence. Record PR #61 and Production bundle `da85013`,
-close the anonymous route/reload validation, remove active instructions that
-incorrectly require login or seeded UID for the anonymous flow, and identify
-exactly one evidence-based next development task.
+Measure the existing authenticated Production funnel from astrology-ready Home
+users through MBTI start, MBTI completion, and Narrative preview. Use current
+Firestore telemetry read-only, emit only non-identifying aggregates, document
+all denominator and data-quality limits, and make exactly one KEEP / IMPROVE /
+STOP decision.
 
-Documentation only. Do not change application code, Firebase configuration,
-feature flags, invite lists, historical records, or Production.
+Do not change Funnel Recovery V2, UI, narrative, astrology, Canon, audience,
+feature flags, Firebase data/rules, or Production. Do not commit raw exports,
+credentials, user identifiers, or personal data.
