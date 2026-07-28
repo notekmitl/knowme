@@ -69,8 +69,9 @@ void main() async {
     launchRouteName = refreshedLaunchRoute;
     WebIntendedRoute.configure(launchRouteName);
   }
-  final effectiveLaunchRoute =
-      WebLaunchRouter.effectiveLaunchRoute(launchRouteName);
+  final effectiveLaunchRoute = WebLaunchRouter.effectiveLaunchRoute(
+    launchRouteName,
+  );
   ThaiBetaScreenshotMode.configureFromLaunchRoute(effectiveLaunchRoute);
 
   ThaiEvidenceBadgeFeatureFlag.applyConfiguredState();
@@ -108,16 +109,23 @@ class PublicThaiBetaApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      locale: Locale('th'),
-      supportedLocales: [Locale('en'), Locale('th')],
-      localizationsDelegates: [
+      locale: const Locale('th'),
+      supportedLocales: const [Locale('en'), Locale('th')],
+      localizationsDelegates: const [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],
-      home: ThaiBetaLandingPage(),
+      initialRoute: ThaiBetaRoutes.betaRouteName,
+      onGenerateInitialRoutes: (_) => [
+        MaterialPageRoute<void>(
+          settings: const RouteSettings(name: ThaiBetaRoutes.betaRouteName),
+          builder: (_) => const ThaiBetaLandingPage(),
+        ),
+      ],
+      onGenerateRoute: ThaiBetaRoutes.onGenerateRoute,
     );
   }
 }
@@ -155,17 +163,19 @@ class KnowMeApp extends StatelessWidget {
           // anonymous Public Beta users to AuthGate/Login in production.
           initialRoute: initialRoute,
           onGenerateInitialRoutes: (newInitialRoute) {
-            final effective =
-                WebLaunchRouter.effectiveLaunchRoute(launchRouteName);
+            final effective = WebLaunchRouter.effectiveLaunchRoute(
+              launchRouteName,
+            );
             // Prefer the captured public deep link over engine `/` when the
             // first main() read was null and PathUrlStrategy reported root.
             final routeName =
                 ThaiBetaRoutes.isAnonymousPublicLandingRoute(effective)
-                    ? effective
-                    : ((newInitialRoute.isEmpty || newInitialRoute == '/')
-                        ? effective
-                        : newInitialRoute);
-            final page = WebLaunchRouter.resolveLaunchWidget(routeName) ??
+                ? effective
+                : ((newInitialRoute.isEmpty || newInitialRoute == '/')
+                      ? effective
+                      : newInitialRoute);
+            final page =
+                WebLaunchRouter.resolveLaunchWidget(routeName) ??
                 const AuthGate();
             return [
               MaterialPageRoute<void>(
@@ -184,8 +194,9 @@ class KnowMeApp extends StatelessWidget {
 
           onGenerateRoute: (settings) {
             // Public + guarded deep links resolved the same way as cold start.
-            final launchWidget =
-                WebLaunchRouter.resolveLaunchWidget(settings.name);
+            final launchWidget = WebLaunchRouter.resolveLaunchWidget(
+              settings.name,
+            );
             if (launchWidget != null) {
               return MaterialPageRoute<void>(
                 settings: settings,
@@ -204,8 +215,9 @@ class KnowMeApp extends StatelessWidget {
             if (mbtiRoute != null) {
               return mbtiRoute;
             }
-            final cognitiveRoute =
-                MbtiCognitiveRoutes.onGenerateRoute(settings);
+            final cognitiveRoute = MbtiCognitiveRoutes.onGenerateRoute(
+              settings,
+            );
             if (cognitiveRoute != null) {
               return cognitiveRoute;
             }
@@ -246,18 +258,21 @@ class KnowMeApp extends StatelessWidget {
             if (thaiMirrorRoute != null) {
               return thaiMirrorRoute;
             }
-            final thaiMirrorDemoRoute =
-                ThaiMirrorDemoRoutes.onGenerateRoute(settings);
+            final thaiMirrorDemoRoute = ThaiMirrorDemoRoutes.onGenerateRoute(
+              settings,
+            );
             if (thaiMirrorDemoRoute != null) {
               return thaiMirrorDemoRoute;
             }
-            final astrologyFusionRoute =
-                AstrologyFusionRoutes.onGenerateRoute(settings);
+            final astrologyFusionRoute = AstrologyFusionRoutes.onGenerateRoute(
+              settings,
+            );
             if (astrologyFusionRoute != null) {
               return astrologyFusionRoute;
             }
-            final astrologyCenterRoute =
-                AstrologyCenterRoutes.onGenerateRoute(settings);
+            final astrologyCenterRoute = AstrologyCenterRoutes.onGenerateRoute(
+              settings,
+            );
             if (astrologyCenterRoute != null) {
               return astrologyCenterRoute;
             }
@@ -266,7 +281,9 @@ class KnowMeApp extends StatelessWidget {
             if (astrologyFusionDemoRoute != null) {
               return astrologyFusionDemoRoute;
             }
-            final thaiMirrorQaRoute = ThaiMirrorQaRoutes.onGenerateRoute(settings);
+            final thaiMirrorQaRoute = ThaiMirrorQaRoutes.onGenerateRoute(
+              settings,
+            );
             if (thaiMirrorQaRoute != null) {
               return thaiMirrorQaRoute;
             }

@@ -30,30 +30,23 @@ void main() {
     });
 
     test('query string on public beta still resolves to landing', () {
-      final widget =
-          WebLaunchRouter.resolveLaunchWidget('/beta/thai?nocache=1');
+      final widget = WebLaunchRouter.resolveLaunchWidget(
+        '/beta/thai?nocache=1',
+      );
       expect(widget, isA<ThaiBetaLandingPage>());
     });
 
     test('effectiveLaunchRoute preserves captured public beta path', () {
-      expect(
-        WebLaunchRouter.effectiveLaunchRoute('/beta/thai'),
-        '/beta/thai',
-      );
+      expect(WebLaunchRouter.effectiveLaunchRoute('/beta/thai'), '/beta/thai');
       WebIntendedRoute.configure('/beta/thai');
-      expect(
-        WebLaunchRouter.effectiveLaunchRoute(null),
-        '/beta/thai',
-      );
+      expect(WebLaunchRouter.effectiveLaunchRoute(null), '/beta/thai');
     });
 
     testWidgets('WebLaunchRouter with /beta/thai does not build LoginPage', (
       tester,
     ) async {
       await tester.pumpWidget(
-        const MaterialApp(
-          home: WebLaunchRouter(launchRouteName: '/beta/thai'),
-        ),
+        const MaterialApp(home: WebLaunchRouter(launchRouteName: '/beta/thai')),
       );
 
       expect(find.byType(ThaiBetaLandingPage), findsOneWidget);
@@ -71,7 +64,7 @@ void main() {
           onGenerateInitialRoutes: (initialRoute) {
             final page =
                 WebLaunchRouter.resolveLaunchWidget(initialRoute) ??
-                    const AuthGate();
+                const AuthGate();
             return [
               MaterialPageRoute<void>(
                 settings: RouteSettings(name: initialRoute),
@@ -80,7 +73,8 @@ void main() {
             ];
           },
           onGenerateRoute: (settings) {
-            final page = WebLaunchRouter.resolveLaunchWidget(settings.name) ??
+            final page =
+                WebLaunchRouter.resolveLaunchWidget(settings.name) ??
                 const AuthGate();
             return MaterialPageRoute<void>(
               settings: settings,
@@ -95,7 +89,10 @@ void main() {
     });
 
     test('isAnonymousPublicLandingRoute accepts public beta only', () {
-      expect(ThaiBetaRoutes.isAnonymousPublicLandingRoute('/beta/thai'), isTrue);
+      expect(
+        ThaiBetaRoutes.isAnonymousPublicLandingRoute('/beta/thai'),
+        isTrue,
+      );
       expect(
         ThaiBetaRoutes.isAnonymousPublicLandingRoute('/beta/thai?nocache=1'),
         isTrue,
@@ -112,12 +109,20 @@ void main() {
       expect(ThaiBetaRoutes.isAnonymousPublicLandingRoute(null), isFalse);
     });
 
-    testWidgets('PublicThaiBetaApp shows landing without Login', (tester) async {
+    testWidgets('PublicThaiBetaApp shows landing without Login', (
+      tester,
+    ) async {
       await tester.pumpWidget(const PublicThaiBetaApp());
 
       expect(find.byType(ThaiBetaLandingPage), findsOneWidget);
       expect(find.byType(LoginPage), findsNothing);
       expect(find.byType(AuthGate), findsNothing);
+      expect(
+        Navigator.of(
+          tester.element(find.byType(ThaiBetaLandingPage)),
+        ).widget.initialRoute,
+        ThaiBetaRoutes.betaRouteName,
+      );
     });
 
     testWidgets('AuthGate shows Landing for public /beta/thai (not Login)', (
@@ -126,9 +131,7 @@ void main() {
       WebIntendedRoute.configure('/beta/thai');
 
       await tester.pumpWidget(
-        MaterialApp(
-          home: AuthGate(authStateStream: Stream<User?>.value(null)),
-        ),
+        MaterialApp(home: AuthGate(authStateStream: Stream<User?>.value(null))),
       );
       await tester.pump();
 
@@ -142,9 +145,7 @@ void main() {
       WebIntendedRoute.configure(null);
 
       await tester.pumpWidget(
-        MaterialApp(
-          home: AuthGate(authStateStream: Stream<User?>.value(null)),
-        ),
+        MaterialApp(home: AuthGate(authStateStream: Stream<User?>.value(null))),
       );
       await tester.pump();
 
@@ -157,10 +158,13 @@ void main() {
       expect(WebLaunchRouter.resolveLaunchWidget('/'), isNull);
     });
 
-    test('routeNameFromPathAndQuery keeps /beta/thai (not rewritten to root)', () {
-      expect(routeNameFromPathAndQuery('/beta/thai', ''), '/beta/thai');
-      expect(routeNameFromPathAndQuery('/', ''), isNull);
-    });
+    test(
+      'routeNameFromPathAndQuery keeps /beta/thai (not rewritten to root)',
+      () {
+        expect(routeNameFromPathAndQuery('/beta/thai', ''), '/beta/thai');
+        expect(routeNameFromPathAndQuery('/', ''), isNull);
+      },
+    );
   });
 
   group('protected routes still require login', () {
@@ -176,9 +180,7 @@ void main() {
     testWidgets('AuthGate without user shows LoginPage', (tester) async {
       WebIntendedRoute.configure(null);
       await tester.pumpWidget(
-        MaterialApp(
-          home: AuthGate(authStateStream: Stream<User?>.value(null)),
-        ),
+        MaterialApp(home: AuthGate(authStateStream: Stream<User?>.value(null))),
       );
       await tester.pump();
 
@@ -202,27 +204,23 @@ void main() {
     });
 
     test('capture path does not resolve to public landing', () {
-      final widget =
-          WebLaunchRouter.resolveLaunchWidget('/beta/thai/capture');
+      final widget = WebLaunchRouter.resolveLaunchWidget('/beta/thai/capture');
       expect(widget, isA<ThaiBetaScreenshotEntry>());
       expect(widget, isNot(isA<ThaiBetaLandingPage>()));
     });
 
-    testWidgets(
-      'AuthGate does not treat capture deep link as public landing',
-      (tester) async {
-        WebIntendedRoute.configure('/beta/thai/capture');
+    testWidgets('AuthGate does not treat capture deep link as public landing', (
+      tester,
+    ) async {
+      WebIntendedRoute.configure('/beta/thai/capture');
 
-        await tester.pumpWidget(
-          MaterialApp(
-            home: AuthGate(authStateStream: Stream<User?>.value(null)),
-          ),
-        );
-        await tester.pump();
+      await tester.pumpWidget(
+        MaterialApp(home: AuthGate(authStateStream: Stream<User?>.value(null))),
+      );
+      await tester.pump();
 
-        expect(find.byType(LoginPage), findsOneWidget);
-        expect(find.byType(ThaiBetaLandingPage), findsNothing);
-      },
-    );
+      expect(find.byType(LoginPage), findsOneWidget);
+      expect(find.byType(ThaiBetaLandingPage), findsNothing);
+    });
   });
 }

@@ -1,22 +1,14 @@
 {
   "schema_version": 1,
-  "task_id": "codex-single-agent-workflow-migration",
-  "expected_branch": "codex/migrate-single-agent-workflow",
+  "task_id": "thai-beta-public-route-reload",
+  "expected_branch": "codex/fix-thai-beta-public-route-reload",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "8f784a297efcb33fa7770f4d232f53648a8ca6d2",
+  "base_ref": "f6de45d6992f2e4ed1f7bb2655c4796b71c2c04a",
   "allowed_files": [
     "task.md",
     "task_scope.json",
-    "README.md",
-    "docs/AI_ALIGNMENT_CONTEXT.md",
-    "docs/CURRENT_STATUS.md",
-    "docs/HANDOFF.md",
-    "docs/KNOWME_MASTER_CONTEXT.md",
-    "docs/KNOWME_SINGLE_AGENT_WORKFLOW.md",
-    "docs/PROJECT_INDEX.md",
-    "docs/CURSOR_IMPLEMENTATION_PROMPT.md",
-    "docs/STANDARD_CURSOR_AGENT_PROMPT.md",
-    "docs/STANDARD_CODEX_AGENT_PROMPT.md"
+    "lib/main.dart",
+    "test/validation/thai_beta/thai_beta_public_route_anonymous_test.dart"
   ],
   "allowed_globs": [],
   "forbidden_files": [
@@ -45,11 +37,11 @@
     "round_[0-9]+_review\\.json"
   ],
   "focused_tests": [
-    "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/knowme_task_gate_selftest.ps1"
+    "flutter test test/validation/thai_beta/thai_beta_public_route_anonymous_test.dart"
   ],
   "full_test_policy": "skip",
   "full_test_command": "SKIP",
-  "analyze_command": "SKIP",
-  "commit_message_regex": "^docs\\(workflow\\): .{10,72}$",
+  "analyze_command": "flutter analyze lib/main.dart test/validation/thai_beta/thai_beta_public_route_anonymous_test.dart",
+  "commit_message_regex": "^fix\\(thai-beta\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }
