@@ -102,14 +102,15 @@ Sources: `docs/*.md`, `lib/features/*`, validation outputs.
 
 | Item | Why active | Evidence |
 |------|------------|----------|
-| **Mahabhut Canon Completion Program (D-073)** | Complete `หลักมหาภูต` extraction — Phases C→I through Canon Freeze; supersedes foundation-only charter | `THAI_MAHABHUT_CANON_COMPLETION_PROGRAM.md`, `foundation_v1.knowme.json` (357 units baseline) |
 | **Funnel conversion (astrology → personality → narrative)** | Real users: 2.6% narrative reach; 97% drop-off before MBTI | `REAL_USER_RUNTIME_VALIDATION_V1.md`, Funnel Recovery V2 code |
-| **Funnel telemetry measurement** | Track MBTI adoption, narrative preview, completion funnel | `lib/features/funnel_telemetry/` |
+| **Production Funnel Measurement V1 — next development task** | Measure the already-implemented recovery funnel against the 2.6% baseline with a privacy-safe, repeatable cohort report; do not rebuild Funnel Recovery V2 | `lib/features/funnel_telemetry/`, `REAL_USER_RUNTIME_VALIDATION_V1.md`, `PRODUCTION_FUNNEL_RECOVERY_V1.md` |
 | **Home experience refinement** | Primary post-astrology product surface | `lib/features/home_cohesion/`, `PRODUCTION_FUNNEL_RECOVERY_V1.md` |
 | **Chinese Zodiac Personality Expansion** | Approved additive program, low blast radius | [`GOVERNANCE.md`](GOVERNANCE.md) exception programs |
 | **Real-user validation re-runs** | Measure funnel changes against 38-user baseline | `test/validation/real_user_runtime_v1/` |
 
 **Active rule (from master context):** Maintenance only on frozen systems. Prefer depth over breadth. Do not reopen frozen architecture without strong reason.
+
+**Closed since the prior roadmap snapshot:** Mahabhut Canon Completion Program D-073 completed Phases C–I and is `CLOSED / FROZEN` with 825 atomic units + 28 reference-table cells. It is not an active backlog; see [`THAI_MAHABHUT_CANON_FREEZE.md`](THAI_MAHABHUT_CANON_FREEZE.md).
 
 ---
 

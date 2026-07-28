@@ -1,14 +1,15 @@
 {
   "schema_version": 1,
-  "task_id": "thai-beta-public-route-reload",
-  "expected_branch": "codex/fix-thai-beta-public-route-reload",
+  "task_id": "close-thai-beta-anonymous-production-validation",
+  "expected_branch": "codex/close-thai-beta-production-validation",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "f6de45d6992f2e4ed1f7bb2655c4796b71c2c04a",
+  "base_ref": "da85013a337cc077f252e93d369c0a1b7604ad9c",
   "allowed_files": [
     "task.md",
     "task_scope.json",
-    "lib/main.dart",
-    "test/validation/thai_beta/thai_beta_public_route_anonymous_test.dart"
+    "docs/CURRENT_STATUS.md",
+    "docs/HANDOFF.md",
+    "docs/ROADMAP.md"
   ],
   "allowed_globs": [],
   "forbidden_files": [
@@ -37,11 +38,11 @@
     "round_[0-9]+_review\\.json"
   ],
   "focused_tests": [
-    "flutter test test/validation/thai_beta/thai_beta_public_route_anonymous_test.dart"
+    "powershell -NoProfile -ExecutionPolicy Bypass -File scripts/knowme_task_gate_selftest.ps1"
   ],
   "full_test_policy": "skip",
   "full_test_command": "SKIP",
-  "analyze_command": "flutter analyze lib/main.dart test/validation/thai_beta/thai_beta_public_route_anonymous_test.dart",
-  "commit_message_regex": "^fix\\(thai-beta\\): .{10,72}$",
+  "analyze_command": "SKIP",
+  "commit_message_regex": "^docs\\(status\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }
