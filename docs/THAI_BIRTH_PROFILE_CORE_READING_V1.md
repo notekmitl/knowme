@@ -14,18 +14,16 @@ of this phase.
 
 ## Root cause
 
-The accepted Thai Beta page passed `personalCoreFirst: true`, but
-`ThaiMirrorResultPage` still rendered:
+Core Reading V1 assembled the right lifelong evidence, but exposed it as eight
+separate cards. Every card repeated labels such as “หลักจากพื้นดวง”,
+“คำอ่านพื้นดวง”, “สิ่งที่ควรระวัง”, and “แนวทางใช้ประโยชน์”. Summary, life
+overview, and deep identity also reused several of the same facts. The result
+read like system output instead of one interpretation written for a person.
 
-1. hero;
-2. personal signature;
-3. Life Timeline;
-4. current/future prediction;
-5. life dashboard and narrative sections.
-
-The first substantial report was therefore age/period-oriented. It did not
-assemble the existing lifelong computed facts into one explicit birth-profile
-report.
+Human-Readable Core Reading V1 keeps the same facts and replaces only that
+presentation/composition layer. Claims are assigned once across the report,
+technical chart structure moves into a collapsed disclosure, and a visible
+divider separates lifelong reading from Life Timeline.
 
 ## Source of truth
 
@@ -66,20 +64,22 @@ are never rendered or exported.
 
 ## Report order
 
-1. สรุปดวงสำคัญ
-2. โครงสร้างดวงหลัก
-3. ภาพรวมชีวิต
-4. ตัวตนและนิสัยลึก ๆ
-5. การงาน
-6. การเงิน
-7. ความรักและความสัมพันธ์
-8. สุขภาพและพลังชีวิตตามตำรา
+1. สรุปตัวคุณจากพื้นดวง
+2. การงาน
+3. การเงิน
+4. ความรักและความสัมพันธ์
+5. สุขภาพและพลังชีวิตตามตำรา
+6. สิ่งที่ดวงนี้อยากบอกคุณ
+7. ดวงนี้วิเคราะห์จากอะไร — collapsed by default
+8. Visual divider: “จากพื้นดวงสู่จังหวะชีวิต”
 9. Existing Life Timeline and future-period content
 10. Existing reflection, source transparency, PDF, and feedback flow
 
-Each Core Reading section includes only supported fields among: fact found,
-interpretation, strength, caution, and practical use. Empty unsupported fields
-are omitted instead of being filled with generic copy.
+The six narrative sections use natural paragraphs without repeated
+fact/reading/strength/caution/action labels. Exact normalized claims are owned
+once across Core Reading. Empty unsupported content is omitted rather than
+filled with generic copy. PDF serializes the same seven-section Domain object;
+the methodology disclosure is expanded as plain text in the export.
 
 ## Time and location rules
 
@@ -116,8 +116,9 @@ are omitted instead of being filled with generic copy.
 ## Validation
 
 Focused coverage checks full-time, no-time, before/after sunrise, different
-date/place, determinism, web-before-Timeline ordering, web/PDF parity, and
-public identifier safety:
+date/place, determinism, global claim dedupe, removal of system labels,
+collapsed methodology behavior, web-before-Timeline ordering and divider,
+web/PDF parity, and public identifier safety:
 
 ```powershell
 flutter test test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart

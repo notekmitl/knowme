@@ -10,6 +10,13 @@ class ThaiBirthProfileCoreReadingSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
+    final narrativeSections = reading.sections
+        .where((section) => !section.isMethodology)
+        .toList(growable: false);
+    final methodology = reading.sections.singleWhere(
+      (section) => section.isMethodology,
+    );
+
     return Semantics(
       key: const Key('thai_birth_profile_core_reading'),
       container: true,
@@ -35,15 +42,21 @@ class ThaiBirthProfileCoreReadingSection extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(reading.subtitle),
-              const SizedBox(height: 24),
-              for (var i = 0; i < reading.sections.length; i++) ...[
-                _CoreReadingCard(
+              const SizedBox(height: 28),
+              for (var i = 0; i < narrativeSections.length; i++) ...[
+                _NarrativeSection(
                   key: ValueKey('thai_birth_profile_section_$i'),
-                  section: reading.sections[i],
+                  section: narrativeSections[i],
+                  isLead: i == 0,
                 ),
-                if (i != reading.sections.length - 1)
-                  const SizedBox(height: 16),
+                if (i != narrativeSections.length - 1)
+                  const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 20),
+                    child: Divider(),
+                  ),
               ],
+              const SizedBox(height: 20),
+              _MethodologyExpansion(section: methodology),
             ],
           ),
         ),
@@ -52,22 +65,28 @@ class ThaiBirthProfileCoreReadingSection extends StatelessWidget {
   }
 }
 
-class _CoreReadingCard extends StatelessWidget {
-  const _CoreReadingCard({super.key, required this.section});
+class _NarrativeSection extends StatelessWidget {
+  const _NarrativeSection({
+    super.key,
+    required this.section,
+    required this.isLead,
+  });
 
   final ThaiBirthProfileCoreSection section;
+  final bool isLead;
 
   @override
   Widget build(BuildContext context) {
     final scheme = Theme.of(context).colorScheme;
     return DecoratedBox(
-      decoration: BoxDecoration(
-        color: scheme.surfaceContainerLowest,
-        borderRadius: BorderRadius.circular(18),
-        border: Border.all(color: scheme.outlineVariant.withValues(alpha: .7)),
-      ),
+      decoration: isLead
+          ? BoxDecoration(
+              color: scheme.primaryContainer.withValues(alpha: .28),
+              borderRadius: BorderRadius.circular(18),
+            )
+          : const BoxDecoration(),
       child: Padding(
-        padding: const EdgeInsets.all(16),
+        padding: isLead ? const EdgeInsets.all(16) : EdgeInsets.zero,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -78,27 +97,12 @@ class _CoreReadingCard extends StatelessWidget {
               ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: 12),
-            if (section.found.isNotEmpty)
-              _LabeledParagraphs(
-                label: 'หลักจากพื้นดวง',
-                values: section.found,
-              ),
-            if (section.reading.isNotEmpty)
-              _LabeledParagraphs(
-                label: 'คำอ่านพื้นดวง',
-                values: section.reading,
-              ),
-            if (section.strength.isNotEmpty)
-              _LabeledParagraphs(label: 'จุดแข็ง', values: [section.strength]),
-            if (section.caution.isNotEmpty)
-              _LabeledParagraphs(
-                label: 'สิ่งที่ควรระวัง',
-                values: [section.caution],
-              ),
-            if (section.action.isNotEmpty)
-              _LabeledParagraphs(
-                label: 'แนวทางใช้ประโยชน์',
-                values: [section.action],
+            for (var i = 0; i < section.paragraphs.length; i++)
+              Padding(
+                padding: EdgeInsets.only(
+                  bottom: i == section.paragraphs.length - 1 ? 0 : 10,
+                ),
+                child: Text(section.paragraphs[i]),
               ),
           ],
         ),
@@ -107,32 +111,43 @@ class _CoreReadingCard extends StatelessWidget {
   }
 }
 
-class _LabeledParagraphs extends StatelessWidget {
-  const _LabeledParagraphs({required this.label, required this.values});
+class _MethodologyExpansion extends StatelessWidget {
+  const _MethodologyExpansion({required this.section});
 
-  final String label;
-  final List<String> values;
+  final ThaiBirthProfileCoreSection section;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 12),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+    final scheme = Theme.of(context).colorScheme;
+    return DecoratedBox(
+      decoration: BoxDecoration(
+        color: scheme.surfaceContainerLowest,
+        borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: scheme.outlineVariant),
+      ),
+      child: ExpansionTile(
+        key: const Key('thai_birth_profile_methodology'),
+        initiallyExpanded: false,
+        shape: const Border(),
+        collapsedShape: const Border(),
+        title: Text(
+          section.title,
+          style: Theme.of(
+            context,
+          ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
+        ),
+        childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
         children: [
-          Text(
-            label,
-            style: Theme.of(
-              context,
-            ).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700),
-          ),
-          const SizedBox(height: 4),
-          for (final value in values)
-            if (value.trim().isNotEmpty)
-              Padding(
-                padding: const EdgeInsets.only(bottom: 4),
-                child: Text(value),
+          for (var i = 0; i < section.paragraphs.length; i++)
+            Padding(
+              padding: EdgeInsets.only(
+                bottom: i == section.paragraphs.length - 1 ? 0 : 10,
               ),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Text(section.paragraphs[i]),
+              ),
+            ),
         ],
       ),
     );

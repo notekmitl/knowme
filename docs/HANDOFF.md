@@ -74,6 +74,22 @@ Output: `test/validation/real_user_runtime_v1/output/` (export JSON is gitignore
 - PR #61 fixed route preservation/reload (`981ed04`, merge `da85013`, Production bundle `da85013`).
 - The anonymous Production validation and route/reload incident are closed. Reopen only with a reproducible regression.
 
+### Thai Birth Profile Human-Readable Core Reading V1
+
+- `/beta/thai` presents the existing lifelong evidence as six continuous
+  reader-facing narrative sections plus a collapsed
+  “ดวงนี้วิเคราะห์จากอะไร” disclosure.
+- The old eight-card structure and repeated system labels are retired.
+- “จากพื้นดวงสู่จังหวะชีวิต” visibly separates Core Reading from the
+  unchanged Timeline.
+- Web and PDF use the same deterministic
+  `ThaiBirthProfileCoreReading.fromAnalysis` output.
+- Birth Normalization, Thai Engine, Frozen Canon, Timeline, feedback, Evidence
+  Badge policy, auth, audience, flags, Firebase data/rules, and Production
+  configuration are unchanged.
+- Owner/tester Product Acceptance is the next decision; Codex does not declare
+  interpretive accuracy.
+
 ### Production funnel measurement
 
 Production Funnel Measurement V1 is read-only and reports aggregates only:

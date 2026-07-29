@@ -102,9 +102,10 @@ Sources: `docs/*.md`, `lib/features/*`, validation outputs.
 
 ### Thai Astrology quality first
 
-Thai Birth Profile Core Reading V1 makes `/beta/thai` begin with
-“ดวงจากวันเกิดของคุณ” and eight evidence-backed lifelong sections before any
-Timeline. The next decision is owner/tester Product Acceptance on Production.
+Thai Birth Profile Human-Readable Core Reading V1 makes `/beta/thai` begin with
+“ดวงจากวันเกิดของคุณ” and six evidence-backed lifelong narrative sections,
+followed by a collapsed public-safe methodology disclosure before Timeline.
+The next decision is owner/tester Product Acceptance on Production.
 Chinese, Western, Fusion, MBTI, psychology, and new Funnel work are deferred
 until Thai Astrology reaches the required quality.
 

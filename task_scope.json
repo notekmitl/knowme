@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "task_id": "thai-birth-profile-core-reading-v1",
-  "expected_branch": "codex/thai-birth-profile-core-reading-v1",
+  "task_id": "thai-core-reading-human-narrative-v1",
+  "expected_branch": "codex/thai-core-reading-human-narrative-v1",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "380348fd34fb7dec447bc01b6668d05fc94ead3b",
+  "base_ref": "b1d79707dd367321c12d05929c6d7e9d76681e70",
   "allowed_files": [
     "task.md",
     "task_scope.json",

@@ -309,8 +309,31 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 780),
-            child: ThaiBirthProfileCoreReadingSection(
-              reading: coreReading,
+            child: ThaiBirthProfileCoreReadingSection(reading: coreReading),
+          ),
+        ),
+      ),
+      Padding(
+        key: const Key('thai_birth_profile_timeline_divider'),
+        padding: const EdgeInsets.fromLTRB(18, 28, 18, 4),
+        child: Center(
+          child: ConstrainedBox(
+            constraints: const BoxConstraints(maxWidth: 780),
+            child: Column(
+              children: [
+                const Divider(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 12),
+                  child: Text(
+                    'จากพื้นดวงสู่จังหวะชีวิต',
+                    textAlign: TextAlign.center,
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                      fontWeight: FontWeight.w700,
+                    ),
+                  ),
+                ),
+                const Divider(),
+              ],
             ),
           ),
         ),
