@@ -2,6 +2,24 @@ import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_m
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 
+/// Centralized reader-facing copy for the Core Reading surface and PDF.
+class ThaiBirthProfileCoreReadingCopy {
+  const ThaiBirthProfileCoreReadingCopy._();
+
+  static const reportTitle = 'ดวงจากวันเกิดของคุณ';
+  static const summaryTitle = 'สรุปตัวคุณจากพื้นดวง';
+  static const workTitle = 'การงาน';
+  static const moneyTitle = 'การเงิน';
+  static const relationshipsTitle = 'ความรักและความสัมพันธ์';
+  static const wellbeingTitle = 'สุขภาพและพลังชีวิตตามตำรา';
+  static const closingTitle = 'สิ่งที่ดวงนี้อยากบอกคุณ';
+  static const methodologyTitle = 'ดวงนี้วิเคราะห์จากอะไร';
+  static const timelineTransitionTitle = 'จากพื้นดวงสู่จังหวะชีวิต';
+  static const medicalDisclaimer =
+      'เนื้อหาส่วนนี้เป็นมุมมองตามความเชื่อทางโหราศาสตร์ '
+      'ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์';
+}
+
 class ThaiBirthProfileCoreSection {
   const ThaiBirthProfileCoreSection({
     required this.title,
@@ -28,10 +46,9 @@ class ThaiBirthProfileCoreReading {
     required this.hasBirthTime,
   });
 
-  static const reportTitle = 'ดวงจากวันเกิดของคุณ';
+  static const reportTitle = ThaiBirthProfileCoreReadingCopy.reportTitle;
   static const medicalDisclaimer =
-      'เนื้อหาส่วนนี้เป็นมุมมองตามความเชื่อทางโหราศาสตร์ '
-      'ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์';
+      ThaiBirthProfileCoreReadingCopy.medicalDisclaimer;
 
   final String title;
   final String subtitle;
@@ -53,9 +70,10 @@ class ThaiBirthProfileCoreReading {
         ? view.hero.tags
         : (mirror?.topThemes.map((theme) => theme.themeName).toList() ??
               const []);
-    final fallback = themeLabels.isEmpty
+    final themeSummary = themeLabels.isEmpty
         ? ''
-        : 'พื้นดวงนี้มีแนวโน้มเด่นด้าน ${themeLabels.take(3).join(' · ')}';
+        : 'แกนสำคัญของพื้นดวงนี้เชื่อมโยง '
+              '${themeLabels.take(3).join(' · ')} เข้าด้วยกัน';
 
     String cardBody(ThaiMirrorInsightSectionState section, {int index = 0}) {
       if (section.cards.length <= index) return '';
@@ -119,12 +137,14 @@ class ThaiBirthProfileCoreReading {
     }
 
     final summary = claims([
+      themeSummary,
       view.signatureInsight.body,
       view.hero.summary,
       cardBody(view.strengths),
       cardBody(view.cautions),
-      fallback,
-    ]);
+      ...view.reflectionSummary.points.take(2),
+      view.advice.body,
+    ]).take(4).toList(growable: false);
 
     final structure = <String>[];
     if (normalized != null) {
@@ -168,7 +188,7 @@ class ThaiBirthProfileCoreReading {
 
     final sections = <ThaiBirthProfileCoreSection>[
       ThaiBirthProfileCoreSection(
-        title: 'สรุปตัวคุณจากพื้นดวง',
+        title: ThaiBirthProfileCoreReadingCopy.summaryTitle,
         paragraphs: summary,
         evidenceKeys: [
           'mirror:identity',
@@ -177,36 +197,40 @@ class ThaiBirthProfileCoreReading {
         ],
       ),
       lifeDomain(
-        title: 'การงาน',
+        title: ThaiBirthProfileCoreReadingCopy.workTitle,
         marker: 'งาน',
         evidence: 'mirror:work_and_ambition',
       ),
-      lifeDomain(title: 'การเงิน', marker: 'เงิน', evidence: 'mirror:money'),
       lifeDomain(
-        title: 'ความรักและความสัมพันธ์',
+        title: ThaiBirthProfileCoreReadingCopy.moneyTitle,
+        marker: 'เงิน',
+        evidence: 'mirror:money',
+      ),
+      lifeDomain(
+        title: ThaiBirthProfileCoreReadingCopy.relationshipsTitle,
         marker: 'รัก',
         evidence: 'mirror:relationships',
       ),
       lifeDomain(
-        title: 'สุขภาพและพลังชีวิตตามตำรา',
+        title: ThaiBirthProfileCoreReadingCopy.wellbeingTitle,
         marker: 'สุขภาพ',
         evidence: 'mirror:wellbeing',
         trailing: medicalDisclaimer,
       ),
       ThaiBirthProfileCoreSection(
-        title: 'สิ่งที่ดวงนี้อยากบอกคุณ',
+        title: ThaiBirthProfileCoreReadingCopy.closingTitle,
         paragraphs: claims([
-          ...view.reflectionSummary.points,
+          ...view.reflectionSummary.points.skip(2),
           view.advice.body,
           cardBody(view.strengths, index: 1),
-        ]),
+        ]).take(3).toList(growable: false),
         evidenceKeys: [
           'mirror:reflection',
           ...themeIds.take(3).map((id) => 'theme:$id'),
         ],
       ),
       ThaiBirthProfileCoreSection(
-        title: 'ดวงนี้วิเคราะห์จากอะไร',
+        title: ThaiBirthProfileCoreReadingCopy.methodologyTitle,
         paragraphs: structure,
         evidenceKeys: const [
           'normalized:astrological_date',
@@ -237,6 +261,13 @@ class ThaiBirthProfileCoreReading {
 
   static String _lifelong(String value) {
     final plain = _plain(value);
+    const metaValidationMarkers = [
+      'อย่าใช้ข้อความนี้แทน',
+      'แทนการสังเกตพฤติกรรมจริง',
+      'ข้อความนี้เป็นเพียง',
+      'ผลนี้เป็นเพียง',
+    ];
+    if (metaValidationMarkers.any(plain.contains)) return '';
     const temporalMarkers = [
       'อายุ ',
       'ช่วงนี้',

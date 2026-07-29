@@ -325,7 +325,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 12),
                   child: Text(
-                    'จากพื้นดวงสู่จังหวะชีวิต',
+                    ThaiBirthProfileCoreReadingCopy.timelineTransitionTitle,
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w700,

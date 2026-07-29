@@ -25,6 +25,20 @@ presentation/composition layer. Claims are assigned once across the report,
 technical chart structure moves into a collapsed disclosure, and a visible
 divider separates lifelong reading from Life Timeline.
 
+### Product Acceptance follow-up V1.1
+
+Production review found one remaining composition leak: a curated
+meta-validation caution (“อย่าใช้ข้อความนี้แทน…”) could become the first
+paragraph when time-oriented identity copy was omitted. Some fixtures therefore
+showed only two summary paragraphs, while the closing reflection could expand
+to six.
+
+V1.1 filters meta-validation copy from every public/PDF Core Reading claim,
+uses unused traceable reflection evidence to keep the summary at three to four
+paragraphs, and limits the closing to three paragraphs. Section and transition
+labels are centralized in `ThaiBirthProfileCoreReadingCopy`. Engine facts,
+evidence keys, ordering, no-time rules, and PDF source remain unchanged.
+
 ## Source of truth
 
 `ThaiBirthProfileCoreReading.fromAnalysis(analysis)` consumes the same

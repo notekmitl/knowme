@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "task_id": "thai-core-reading-human-narrative-v1",
-  "expected_branch": "codex/thai-core-reading-human-narrative-v1",
+  "task_id": "thai-core-reading-product-acceptance-fix-v1-1",
+  "expected_branch": "codex/thai-core-reading-product-acceptance-fix-v1-1",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "b1d79707dd367321c12d05929c6d7e9d76681e70",
+  "base_ref": "cc3f5903459c1d2924d5efbc26f39e6fd3d4cda9",
   "allowed_files": [
     "task.md",
     "task_scope.json",

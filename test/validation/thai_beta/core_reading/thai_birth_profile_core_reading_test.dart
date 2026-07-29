@@ -116,8 +116,50 @@ void main() {
       expect(text, isNot(contains('หลักจากพื้นดวง')));
       expect(text, isNot(contains('คำอ่านพื้นดวง')));
       expect(text, isNot(contains('แนวทางใช้ประโยชน์')));
+      expect(text, isNot(contains('อย่าใช้ข้อความนี้แทน')));
+      expect(text, isNot(contains('แทนการสังเกตพฤติกรรมจริง')));
     },
   );
+
+  test('summary and closing meet product acceptance density', () {
+    final reading = ThaiBirthProfileCoreReading.fromAnalysis(
+      ThaiBetaNarrativeFixtures.fixtureA(),
+    );
+    final summary = reading.sections.singleWhere(
+      (section) =>
+          section.title == ThaiBirthProfileCoreReadingCopy.summaryTitle,
+    );
+    final closing = reading.sections.singleWhere(
+      (section) =>
+          section.title == ThaiBirthProfileCoreReadingCopy.closingTitle,
+    );
+
+    expect(summary.paragraphs.length, inInclusiveRange(3, 4));
+    expect(closing.paragraphs, isNotEmpty);
+    expect(closing.paragraphs.length, lessThanOrEqualTo(3));
+    expect(summary.paragraphs.join('\n'), contains('แกนสำคัญของพื้นดวงนี้'));
+  });
+
+  test('each life domain keeps its own traceable evidence owner', () {
+    final reading = ThaiBirthProfileCoreReading.fromAnalysis(
+      ThaiBetaNarrativeFixtures.fixtureA(),
+    );
+    final expectedEvidence = {
+      ThaiBirthProfileCoreReadingCopy.workTitle: 'mirror:work_and_ambition',
+      ThaiBirthProfileCoreReadingCopy.moneyTitle: 'mirror:money',
+      ThaiBirthProfileCoreReadingCopy.relationshipsTitle:
+          'mirror:relationships',
+      ThaiBirthProfileCoreReadingCopy.wellbeingTitle: 'mirror:wellbeing',
+    };
+
+    for (final entry in expectedEvidence.entries) {
+      final section = reading.sections.singleWhere(
+        (candidate) => candidate.title == entry.key,
+      );
+      expect(section.paragraphs, isNotEmpty, reason: entry.key);
+      expect(section.evidenceKeys, contains(entry.value), reason: entry.key);
+    }
+  });
 
   test('lifelong core reading excludes age and current-period predictions', () {
     final reading = ThaiBirthProfileCoreReading.fromAnalysis(
@@ -225,5 +267,10 @@ void main() {
     expect(text, isNot(contains('Canon ID')));
     expect(text, isNot(contains('ontology')));
     expect(text, isNot(contains('debug')));
+    expect(text, isNot(contains('สรุปดวงสำคัญ')));
+    expect(text, isNot(contains('โครงสร้างดวงหลัก')));
+    expect(text, isNot(contains('ภาพรวมชีวิต')));
+    expect(text, isNot(contains('ตัวตนและนิสัยลึก ๆ')));
+    expect(text, isNot(contains('อย่าใช้ข้อความนี้แทน')));
   });
 }
