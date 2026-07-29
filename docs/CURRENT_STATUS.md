@@ -127,10 +127,15 @@ Deploy: `.\scripts\deploy_web.ps1` or `firebase deploy --only hosting --project 
 
 ## Next Priority
 
-**Thai Birth Profile Core Reading V1: owner/tester Product Acceptance after
-Production release.**
+**Thai Birth Profile Human-Readable Core Reading V1: owner/tester Product
+Acceptance on Production.**
 
-- Confirm the report starts with “ดวงจากวันเกิดของคุณ” and “สรุปดวงสำคัญ”.
+- Confirm the report starts with “ดวงจากวันเกิดของคุณ” and
+  “สรุปตัวคุณจากพื้นดวง”.
+- Confirm work, money, relationships, wellbeing, and closing reflection read as
+  continuous prose without repeated system labels.
+- Confirm “ดวงนี้วิเคราะห์จากอะไร” is collapsed by default and the Timeline is
+  visually separated.
 - Read full-time and no-time results from real tests.
 - Decide whether the structure and evidence-backed Thai copy feels close enough
   to a direct Thai astrologer reading. Codex must not declare accuracy itself.

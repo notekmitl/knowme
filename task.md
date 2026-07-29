@@ -1,15 +1,16 @@
-# Task: Thai Birth Profile Core Reading V1
+# Task: Thai Birth Profile — Human-Readable Core Reading V1
 
-Make `/beta/thai` lead with an evidence-backed lifelong Thai birth-profile
-reading titled “ดวงจากวันเกิดของคุณ” before any age-based timeline. Reuse the
-existing normalized birth, Thai Foundation/Mirror facts, and the same
-`ThaiBetaAnalysis` for web and PDF.
+Refine the existing `/beta/thai` Core Reading into a concise, human-readable
+lifelong narrative before the age-based Timeline. Keep the same
+`ThaiBetaAnalysis`, normalized birth facts, Thai Foundation/Mirror evidence,
+deterministic composition, and web/PDF source.
 
-Cover the strongest supported core summary, chart structure, life overview,
-deep character, work, money, love, and astrology-framed wellbeing. Omit
-time-dependent facts when birth time is absent. Preserve Timeline, feedback,
-Evidence Badge policy, audience, auth, feature flags, PDF flow, Engine formulas,
-and Frozen Canon.
+Use seven reader-facing sections: a synthesized personal summary, work, money,
+relationships, astrology-framed wellbeing, a closing reflection, and a
+collapsed public-safe methodology disclosure. Remove repetitive system labels
+and separate the Core Reading visually from Timeline.
 
-Do not add AI, external services, other astrology systems, psychology, MBTI,
-Funnel work, compatibility, personal fixtures, or unsupported predictions.
+Do not change Engine formulas, Birth Normalization, Frozen Canon, Timeline,
+auth, audience, feature flags, database/rules, feedback schema, or Production
+configuration. Do not add AI, external services, new astrology systems,
+unsupported predictions, Funnel work, or personal fixtures.

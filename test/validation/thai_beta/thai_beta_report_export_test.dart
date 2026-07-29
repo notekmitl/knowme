@@ -102,7 +102,7 @@ void main() {
       expect(text, isNotEmpty);
       // Core Reading is the shared web/PDF presentation source.
       expect(text, contains(ThaiBirthProfileCoreReading.reportTitle));
-      expect(text, contains('สรุปดวงสำคัญ'));
+      expect(text, contains('สรุปตัวคุณจากพื้นดวง'));
     });
 
     test('export text has no forbidden content', () {
@@ -130,7 +130,7 @@ void main() {
         doc.fullPlainText,
         contains(ThaiBirthProfileCoreReading.reportTitle),
       );
-      expect(doc.fullPlainText, contains('โครงสร้างดวงหลัก'));
+      expect(doc.fullPlainText, contains('ดวงนี้วิเคราะห์จากอะไร'));
       expect(doc.fullPlainText, isNot(contains('ข้อมูลวันเกิดครบถ้วน')));
     });
 
