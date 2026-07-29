@@ -16,7 +16,12 @@ cd knowme
 git checkout main
 ```
 
-**Important:** `main` is canonical. Accepted Life Map was restored by PR #58 and anonymous Production QA passed after PR #61 at bundle `da85013`. Anonymous users open `/beta/thai` without login or a seeded UID, complete the report, and remain on that route after reload. V1.3.5 detailed evidence stays internal; Evidence Badge remains `invited_beta`, so no badge for anonymous users is correct.
+**Important:** `main` is canonical. Accepted Life Map was restored by PR #58,
+anonymous route/reload QA passed after PR #61, and Human-Readable Core Reading
+V1 shipped from PR #65 at Production bundle `3d881e7`. Anonymous users open
+`/beta/thai` without login or a seeded UID, complete the report, and remain on
+that route after reload. V1.3.5 detailed evidence stays internal; Evidence
+Badge remains `invited_beta`, so no badge for anonymous users is correct.
 
 **Automation workflow:** Use Single-Agent + Local Gate — see [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). The external AI Worker is **retired** (historical: [`AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)). The obsolete in-repo `ai-worker/` directory is gitignored and must not be committed.
 
