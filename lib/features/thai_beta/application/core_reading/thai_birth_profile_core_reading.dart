@@ -55,6 +55,26 @@ enum ThaiBirthProfileCoreAtomKind {
   actionTheme,
 }
 
+enum _ThemeAtomSource { topThemes, sectionSupportingThemes }
+
+class _ThemeAtomCandidate {
+  const _ThemeAtomCandidate(this.theme, this.source, {this.sectionId});
+
+  final ThaiMirrorThemeRef theme;
+  final _ThemeAtomSource source;
+  final ThaiMirrorSectionId? sectionId;
+}
+
+class ThaiBirthProfileCoreEvidenceRef {
+  const ThaiBirthProfileCoreEvidenceRef({
+    required this.sourceRef,
+    required this.rawValue,
+  });
+
+  final String sourceRef;
+  final String rawValue;
+}
+
 /// A typed computed fact used before any reader-facing sentence is composed.
 class ThaiBirthProfileCoreClaimAtom {
   const ThaiBirthProfileCoreClaimAtom({
@@ -65,6 +85,7 @@ class ThaiBirthProfileCoreClaimAtom {
     this.houseNumber,
     this.themeId,
     this.score = 0,
+    this.additionalEvidenceRefs = const [],
   });
 
   final ThaiBirthProfileCoreAtomKind kind;
@@ -73,9 +94,15 @@ class ThaiBirthProfileCoreClaimAtom {
   /// Exact field or computed result member that supplied [rawValue].
   final String sourceRef;
   final String rawValue;
+  final List<ThaiBirthProfileCoreEvidenceRef> additionalEvidenceRefs;
   final int? houseNumber;
   final String? themeId;
   final double score;
+
+  List<ThaiBirthProfileCoreEvidenceRef> get evidenceRefs => [
+    ThaiBirthProfileCoreEvidenceRef(sourceRef: sourceRef, rawValue: rawValue),
+    ...additionalEvidenceRefs,
+  ];
 }
 
 /// One reader-facing paragraph with deterministic, internal-only ownership.
@@ -280,7 +307,10 @@ class ThaiBirthProfileCoreReading {
         role: role,
         semanticKey: semanticKey,
         evidenceKeys: List.unmodifiable(
-          atoms.map((atom) => atom.sourceRef).toSet(),
+          atoms
+              .expand((atom) => atom.evidenceRefs)
+              .map((evidence) => evidence.sourceRef)
+              .toSet(),
         ),
         sourceAtoms: List.unmodifiable(atoms),
       );
@@ -343,6 +373,7 @@ class ThaiBirthProfileCoreReading {
             identityTheme,
             domain: ThaiBirthProfileCoreDomain.summary,
             kind: ThaiBirthProfileCoreAtomKind.identityTheme,
+            source: _ThemeAtomSource.sectionSupportingThemes,
             sectionId: ThaiMirrorSectionId.coreSelf,
           );
     final specificSummary = compact([
@@ -370,48 +401,9 @@ class ThaiBirthProfileCoreReading {
           semanticKey: 'theme:${identityAtom.themeId}:identity',
           atoms: [identityAtom],
         ),
-      if (summaryAtoms.any(
-        (atom) => atom.kind == ThaiBirthProfileCoreAtomKind.astrologicalWeekday,
-      ))
-        claim(
-          text:
-              'วันทางโหราศาสตร์ของพื้นดวงนี้คือวัน${_thaiWeekday(birthData?.thaiWeekdayNumber)} '
-              'จึงใช้วันดังกล่าวเป็นจุดตั้งต้นของการอ่านโครงสร้างดวง',
-          domain: ThaiBirthProfileCoreDomain.summary,
-          role: ThaiBirthProfileCoreClaimRole.fact,
-          semanticKey: 'computed:astrological-weekday',
-          atoms: summaryAtoms
-              .where(
-                (atom) =>
-                    atom.kind ==
-                    ThaiBirthProfileCoreAtomKind.astrologicalWeekday,
-              )
-              .toList(),
-        ),
     ]);
 
-    final summary = specificSummary.isNotEmpty
-        ? specificSummary
-        : compact([
-            if (mirror != null && mirror.topThemes.isNotEmpty)
-              claim(
-                text:
-                    'แนวโน้มเด่นที่ระบบคำนวณได้คือ '
-                    '${mirror.topThemes.take(3).map((theme) => theme.themeName).join(' · ')}',
-                domain: ThaiBirthProfileCoreDomain.summary,
-                role: ThaiBirthProfileCoreClaimRole.fact,
-                semanticKey: 'fallback:top-themes',
-                atoms: [
-                  for (final theme in mirror.topThemes.take(3))
-                    _themeAtom(
-                      theme,
-                      domain: ThaiBirthProfileCoreDomain.summary,
-                      kind: ThaiBirthProfileCoreAtomKind.identityTheme,
-                      sectionId: ThaiMirrorSectionId.topThemes,
-                    ),
-                ],
-              ),
-          ]);
+    final summary = specificSummary;
 
     final houseAtoms = _houseAtoms(profile);
     ThaiBirthProfileCoreSection? lifeDomain({
@@ -454,7 +446,9 @@ class ThaiBirthProfileCoreReading {
               role: ThaiBirthProfileCoreClaimRole.disclosure,
               semanticKey: 'disclosure:medical',
               evidenceKeys: atoms
-                  .map((atom) => atom.sourceRef)
+                  .expand((atom) => atom.evidenceRefs)
+                  .map((evidence) => evidence.sourceRef)
+                  .toSet()
                   .toList(growable: false),
               sourceAtoms: atoms,
             ),
@@ -462,75 +456,57 @@ class ThaiBirthProfileCoreReading {
       );
     }
 
-    final strengthTheme = selectHighestPriorityTheme([
-      ...?mirror?.sectionById(ThaiMirrorSectionId.strengths)?.supportingThemes,
-      ...?mirror?.topThemes,
-    ], supportedThemeIds: _strengthPhrases.keys);
-    final riskTheme = selectHighestPriorityTheme(
-      [
-        ...?mirror
-            ?.sectionById(ThaiMirrorSectionId.growthAreas)
-            ?.supportingThemes,
-        ...?mirror?.topThemes,
-      ],
-      supportedThemeIds: _riskPhrases.keys,
-      excludedThemeIds: [if (strengthTheme != null) strengthTheme.themeId],
+    final closingCandidates = <_ThemeAtomCandidate>[
+      for (final theme in mirror?.topThemes ?? const <ThaiMirrorThemeRef>[])
+        _ThemeAtomCandidate(theme, _ThemeAtomSource.topThemes),
+      for (final sectionId in [
+        ThaiMirrorSectionId.strengths,
+        ThaiMirrorSectionId.growthAreas,
+        ThaiMirrorSectionId.growthPath,
+      ])
+        for (final theme
+            in mirror?.sectionById(sectionId)?.supportingThemes ??
+                const <ThaiMirrorThemeRef>[])
+          _ThemeAtomCandidate(
+            theme,
+            _ThemeAtomSource.sectionSupportingThemes,
+            sectionId: sectionId,
+          ),
+    ];
+    final closingTheme = selectClosingContextTheme(
+      closingCandidates.map((candidate) => candidate.theme),
     );
-    final actionTheme = selectHighestPriorityTheme(
-      [
-        ...?mirror
-            ?.sectionById(ThaiMirrorSectionId.growthPath)
-            ?.supportingThemes,
-        ...?mirror?.topThemes,
-      ],
-      supportedThemeIds: _actionPhrases.keys,
-      excludedThemeIds: [
-        if (strengthTheme != null) strengthTheme.themeId,
-        if (riskTheme != null) riskTheme.themeId,
-      ],
-    );
+    final closingSource = closingTheme == null
+        ? null
+        : closingCandidates.firstWhere(
+            (candidate) =>
+                candidate.theme.themeId == closingTheme.themeId &&
+                candidate.theme.score == closingTheme.score,
+          );
     final closingAtoms = <ThaiBirthProfileCoreClaimAtom>[
-      if (strengthTheme != null)
+      if (closingTheme != null && closingSource != null)
         _themeAtom(
-          strengthTheme,
+          closingTheme,
           domain: ThaiBirthProfileCoreDomain.closing,
           kind: ThaiBirthProfileCoreAtomKind.strengthTheme,
-          sectionId:
-              mirror
-                      ?.sectionById(ThaiMirrorSectionId.strengths)
-                      ?.supportingThemes
-                      .contains(strengthTheme) ==
-                  true
-              ? ThaiMirrorSectionId.strengths
-              : ThaiMirrorSectionId.topThemes,
+          source: closingSource.source,
+          sectionId: closingSource.sectionId,
         ),
-      if (riskTheme != null)
+      if (closingTheme != null && closingSource != null)
         _themeAtom(
-          riskTheme,
+          closingTheme,
           domain: ThaiBirthProfileCoreDomain.closing,
           kind: ThaiBirthProfileCoreAtomKind.riskTheme,
-          sectionId:
-              mirror
-                      ?.sectionById(ThaiMirrorSectionId.growthAreas)
-                      ?.supportingThemes
-                      .contains(riskTheme) ==
-                  true
-              ? ThaiMirrorSectionId.growthAreas
-              : ThaiMirrorSectionId.topThemes,
+          source: closingSource.source,
+          sectionId: closingSource.sectionId,
         ),
-      if (actionTheme != null)
+      if (closingTheme != null && closingSource != null)
         _themeAtom(
-          actionTheme,
+          closingTheme,
           domain: ThaiBirthProfileCoreDomain.closing,
           kind: ThaiBirthProfileCoreAtomKind.actionTheme,
-          sectionId:
-              mirror
-                      ?.sectionById(ThaiMirrorSectionId.growthPath)
-                      ?.supportingThemes
-                      .contains(actionTheme) ==
-                  true
-              ? ThaiMirrorSectionId.growthPath
-              : ThaiMirrorSectionId.topThemes,
+          source: closingSource.source,
+          sectionId: closingSource.sectionId,
         ),
     ];
     final closingClaim = closingAtoms.length < 2
@@ -543,43 +519,174 @@ class ThaiBirthProfileCoreReading {
             atoms: closingAtoms,
           );
 
-    final structure = <String>[];
+    final methodologyClaims = <ThaiBirthProfileCoreParagraph>[];
+    void addMethodologyClaim({
+      required String text,
+      required String semanticKey,
+      required List<ThaiBirthProfileCoreClaimAtom> atoms,
+    }) {
+      if (text.trim().isEmpty || atoms.isEmpty) return;
+      methodologyClaims.add(
+        ThaiBirthProfileCoreParagraph(
+          text: text,
+          domain: ThaiBirthProfileCoreDomain.methodology,
+          role: ThaiBirthProfileCoreClaimRole.disclosure,
+          semanticKey: semanticKey,
+          evidenceKeys: atoms
+              .expand((atom) => atom.evidenceRefs)
+              .map((evidence) => evidence.sourceRef)
+              .toSet()
+              .toList(growable: false),
+          sourceAtoms: List.unmodifiable(atoms),
+        ),
+      );
+    }
+
     if (normalized != null) {
       final thaiDay = _thaiWeekday(
         analysis.pipelineResult?.birthData?.thaiWeekdayNumber,
       );
-      structure.add(
-        'ระบบใช้วัน$thaiDayเป็นวันทางโหราศาสตร์ '
-        '(วันที่ ${normalized.thaiAstrologicalDate})',
+      addMethodologyClaim(
+        text:
+            'ระบบใช้วัน$thaiDayเป็นวันทางโหราศาสตร์ '
+            '(วันที่ ${normalized.thaiAstrologicalDate})',
+        semanticKey: 'methodology:astrological-date',
+        atoms: [
+          if (birthData?.thaiWeekdayNumber != null)
+            ThaiBirthProfileCoreClaimAtom(
+              kind: ThaiBirthProfileCoreAtomKind.astrologicalWeekday,
+              domain: ThaiBirthProfileCoreDomain.methodology,
+              sourceRef: 'ThaiMirrorPipelineResult.birthData.thaiWeekdayNumber',
+              rawValue: '${birthData!.thaiWeekdayNumber}',
+            ),
+          ThaiBirthProfileCoreClaimAtom(
+            kind: ThaiBirthProfileCoreAtomKind.astrologicalWeekday,
+            domain: ThaiBirthProfileCoreDomain.methodology,
+            sourceRef:
+                'ThaiBetaAnalysis.normalizedSnapshot.thaiAstrologicalDate',
+            rawValue: normalized.thaiAstrologicalDate,
+          ),
+        ],
       );
       if (normalized.sunriseAvailable) {
-        structure.add(
-          normalized.usedPreviousDay
+        addMethodologyClaim(
+          text: normalized.usedPreviousDay
               ? 'เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้นเวลา ${normalized.sunrise} '
                     'จึงใช้วันก่อนหน้าตามกฎที่นับวันใหม่เมื่อพระอาทิตย์ขึ้น '
                     'โดยไม่เปลี่ยนวันเกิดตามสูติบัตร'
               : 'เวลาเกิดอยู่หลังพระอาทิตย์ขึ้นเวลา ${normalized.sunrise} '
                     'จึงใช้วันเดียวกับวันเกิดตามสูติบัตร',
+          semanticKey: 'methodology:sunrise-boundary',
+          atoms: [
+            ThaiBirthProfileCoreClaimAtom(
+              kind: ThaiBirthProfileCoreAtomKind.astrologicalWeekday,
+              domain: ThaiBirthProfileCoreDomain.methodology,
+              sourceRef: 'ThaiBetaAnalysis.normalizedSnapshot.birthTime',
+              rawValue: normalized.birthTime,
+            ),
+            ThaiBirthProfileCoreClaimAtom(
+              kind: ThaiBirthProfileCoreAtomKind.astrologicalWeekday,
+              domain: ThaiBirthProfileCoreDomain.methodology,
+              sourceRef: 'ThaiBetaAnalysis.normalizedSnapshot.sunrise',
+              rawValue: normalized.sunrise,
+            ),
+            ThaiBirthProfileCoreClaimAtom(
+              kind: ThaiBirthProfileCoreAtomKind.astrologicalWeekday,
+              domain: ThaiBirthProfileCoreDomain.methodology,
+              sourceRef: 'ThaiBetaAnalysis.normalizedSnapshot.usedPreviousDay',
+              rawValue: '${normalized.usedPreviousDay}',
+            ),
+            ThaiBirthProfileCoreClaimAtom(
+              kind: ThaiBirthProfileCoreAtomKind.astrologicalWeekday,
+              domain: ThaiBirthProfileCoreDomain.methodology,
+              sourceRef: 'ThaiBetaAnalysis.normalizedSnapshot.rawBirthDate',
+              rawValue: normalized.rawBirthDate,
+            ),
+          ],
         );
       }
     }
     if (analysis.input.hasBirthTime &&
         profile?.lagnaKey != null &&
         profile!.lagnaKey!.isNotEmpty) {
-      structure.add(
-        'ลัคนาอยู่ที่${_lagnaLabel(profile.lagnaKey!)} '
-        'จากเวลาเกิด พิกัดสถานที่เกิด และเขตเวลา',
+      addMethodologyClaim(
+        text:
+            'ลัคนาอยู่ที่${_lagnaLabel(profile.lagnaKey!)} '
+            'จากเวลาเกิด พิกัดสถานที่เกิด และเขตเวลา',
+        semanticKey: 'methodology:lagna-inputs',
+        atoms: [
+          ThaiBirthProfileCoreClaimAtom(
+            kind: ThaiBirthProfileCoreAtomKind.lagnaSign,
+            domain: ThaiBirthProfileCoreDomain.methodology,
+            sourceRef: 'ThaiAstrologyProfile.lagnaKey',
+            rawValue: profile.lagnaKey!,
+          ),
+          if (normalized != null) ...[
+            ThaiBirthProfileCoreClaimAtom(
+              kind: ThaiBirthProfileCoreAtomKind.lagnaSign,
+              domain: ThaiBirthProfileCoreDomain.methodology,
+              sourceRef: 'ThaiBetaAnalysis.normalizedSnapshot.birthTime',
+              rawValue: normalized.birthTime,
+            ),
+            ThaiBirthProfileCoreClaimAtom(
+              kind: ThaiBirthProfileCoreAtomKind.lagnaSign,
+              domain: ThaiBirthProfileCoreDomain.methodology,
+              sourceRef: 'ThaiBetaAnalysis.normalizedSnapshot.latitude',
+              rawValue: '${normalized.latitude}',
+            ),
+            ThaiBirthProfileCoreClaimAtom(
+              kind: ThaiBirthProfileCoreAtomKind.lagnaSign,
+              domain: ThaiBirthProfileCoreDomain.methodology,
+              sourceRef: 'ThaiBetaAnalysis.normalizedSnapshot.longitude',
+              rawValue: '${normalized.longitude}',
+            ),
+            ThaiBirthProfileCoreClaimAtom(
+              kind: ThaiBirthProfileCoreAtomKind.lagnaSign,
+              domain: ThaiBirthProfileCoreDomain.methodology,
+              sourceRef: 'ThaiBetaAnalysis.normalizedSnapshot.timeZoneId',
+              rawValue: normalized.timeZoneId,
+            ),
+          ],
+        ],
       );
     } else {
-      structure.add(
-        'รายงานนี้ไม่มีเวลาเกิด จึงไม่กล่าวถึงลัคนา ภพ '
-        'หรือข้อสรุปที่ต้องพึ่งตำแหน่งตามเวลาเกิด',
+      addMethodologyClaim(
+        text:
+            'รายงานนี้ไม่มีเวลาเกิด จึงไม่กล่าวถึงลัคนา ภพ '
+            'หรือข้อสรุปที่ต้องพึ่งตำแหน่งตามเวลาเกิด',
+        semanticKey: 'methodology:no-birth-time',
+        atoms: [
+          ThaiBirthProfileCoreClaimAtom(
+            kind: ThaiBirthProfileCoreAtomKind.astrologicalWeekday,
+            domain: ThaiBirthProfileCoreDomain.methodology,
+            sourceRef: 'ThaiBetaInput.birthTimeUnknown',
+            rawValue: '${analysis.input.birthTimeUnknown}',
+          ),
+          if (normalized != null)
+            ThaiBirthProfileCoreClaimAtom(
+              kind: ThaiBirthProfileCoreAtomKind.astrologicalWeekday,
+              domain: ThaiBirthProfileCoreDomain.methodology,
+              sourceRef: 'ThaiBetaAnalysis.normalizedSnapshot.birthTime',
+              rawValue: normalized.birthTime,
+            ),
+        ],
       );
     }
     if (mirror != null && mirror.topThemes.isNotEmpty) {
-      structure.add(
-        'การอ่านข้างต้นเรียบเรียงจากแนวโน้มเด่น '
-        '${mirror.topThemes.take(3).map((theme) => theme.themeName).join(' · ')}',
+      addMethodologyClaim(
+        text:
+            'การอ่านข้างต้นเรียบเรียงจากแนวโน้มเด่น '
+            '${mirror.topThemes.take(3).map((theme) => theme.themeName).join(' · ')}',
+        semanticKey: 'methodology:top-themes',
+        atoms: [
+          for (final theme in mirror.topThemes.take(3))
+            _themeAtom(
+              theme,
+              domain: ThaiBirthProfileCoreDomain.methodology,
+              kind: ThaiBirthProfileCoreAtomKind.identityTheme,
+              source: _ThemeAtomSource.topThemes,
+            ),
+        ],
       );
     }
 
@@ -621,40 +728,7 @@ class ThaiBirthProfileCoreReading {
       ThaiBirthProfileCoreSection(
         title: ThaiBirthProfileCoreReadingCopy.methodologyTitle,
         domain: ThaiBirthProfileCoreDomain.methodology,
-        claims: [
-          for (final (index, paragraph) in structure.indexed)
-            ThaiBirthProfileCoreParagraph(
-              text: paragraph,
-              domain: ThaiBirthProfileCoreDomain.methodology,
-              role: ThaiBirthProfileCoreClaimRole.disclosure,
-              semanticKey: 'methodology:$index',
-              evidenceKeys: [
-                switch (index) {
-                  0 => 'normalized:astrological_date',
-                  1 when normalized?.sunriseAvailable == true =>
-                    'normalized:sunrise',
-                  _ when paragraph.contains('ลัคนา') => 'profile:lagna',
-                  _ => 'mirror:top_themes',
-                },
-              ],
-              sourceAtoms: [
-                ThaiBirthProfileCoreClaimAtom(
-                  kind: ThaiBirthProfileCoreAtomKind.astrologicalWeekday,
-                  domain: ThaiBirthProfileCoreDomain.methodology,
-                  sourceRef: switch (index) {
-                    0 =>
-                      'ThaiBetaAnalysis.normalizedSnapshot.thaiAstrologicalDate',
-                    1 when normalized?.sunriseAvailable == true =>
-                      'ThaiBetaAnalysis.normalizedSnapshot.sunrise',
-                    _ when paragraph.contains('ลัคนา') =>
-                      'ThaiAstrologyProfile.lagnaKey',
-                    _ => 'ThaiMirrorResult.topThemes',
-                  },
-                  rawValue: paragraph,
-                ),
-              ],
-            ),
-        ],
+        claims: methodologyClaims,
         isMethodology: true,
       ),
     ];
@@ -691,19 +765,51 @@ class ThaiBirthProfileCoreReading {
     return ranked.isEmpty ? null : ranked.first;
   }
 
+  static ThaiMirrorThemeRef? selectClosingContextTheme(
+    Iterable<ThaiMirrorThemeRef> themes,
+  ) {
+    final fullySupported = _strengthPhrases.keys
+        .toSet()
+        .intersection(_riskPhrases.keys.toSet())
+        .intersection(_actionPhrases.keys.toSet());
+    return selectHighestPriorityTheme(
+      themes,
+      supportedThemeIds: fullySupported,
+    );
+  }
+
   static ThaiBirthProfileCoreClaimAtom _themeAtom(
     ThaiMirrorThemeRef theme, {
     required ThaiBirthProfileCoreDomain domain,
     required ThaiBirthProfileCoreAtomKind kind,
-    required ThaiMirrorSectionId sectionId,
+    required _ThemeAtomSource source,
+    ThaiMirrorSectionId? sectionId,
   }) {
+    if (source == _ThemeAtomSource.sectionSupportingThemes &&
+        sectionId == null) {
+      throw ArgumentError('sectionId is required for a section theme atom');
+    }
+    final collectionPath = switch (source) {
+      _ThemeAtomSource.topThemes => 'ThaiMirrorResult.topThemes',
+      _ThemeAtomSource.sectionSupportingThemes =>
+        'ThaiMirrorResult.sections[${sectionId!.id}].supportingThemes',
+    };
+    final itemPath = '$collectionPath[themeId=${theme.themeId}]';
     return ThaiBirthProfileCoreClaimAtom(
       kind: kind,
       domain: domain,
-      sourceRef:
-          'ThaiMirrorResult.sections[${sectionId.id}]'
-          '.supportingThemes[themeId=${theme.themeId}].score',
+      sourceRef: '$itemPath.themeId',
       rawValue: theme.themeId,
+      additionalEvidenceRefs: [
+        ThaiBirthProfileCoreEvidenceRef(
+          sourceRef: '$itemPath.score',
+          rawValue: '${theme.score}',
+        ),
+        ThaiBirthProfileCoreEvidenceRef(
+          sourceRef: '$itemPath.themeName',
+          rawValue: theme.themeName,
+        ),
+      ],
       themeId: theme.themeId,
       score: theme.score,
     );
@@ -770,13 +876,12 @@ class ThaiBirthProfileCoreReading {
       if (atom.kind == ThaiBirthProfileCoreAtomKind.lagnaSign) sign = atom;
       if (atom.kind == ThaiBirthProfileCoreAtomKind.lagnaLord) lord = atom;
     }
-    if (sign == null) return '';
-    return lord == null
-        ? 'ลัคนาของพื้นดวงนี้อยู่ที่${_lagnaLabel(sign.rawValue)} '
-              'จึงใช้ราศีนี้เป็นกรอบหลักในการอ่านตัวตน'
-        : 'ลัคนาของพื้นดวงนี้อยู่ที่${_lagnaLabel(sign.rawValue)} '
-              'และมี${_lordLabel(lord.rawValue)}เป็นเจ้าเรือน '
-              'จึงใช้ทั้งราศีและดาวเจ้าราศีเป็นกรอบหลักในการอ่านตัวตน';
+    if (sign == null || lord == null) return '';
+    final mode = _planetMode(lord.rawValue);
+    if (mode.$1.isEmpty || mode.$2.isEmpty) return '';
+    return 'ลัคนา${_lagnaLabel(sign.rawValue)}และ${_lordLabel(lord.rawValue)}'
+        'ในฐานะเจ้าเรือน ทำให้บุคลิกพื้นฐานมักขับเคลื่อนด้วย${mode.$1} '
+        'โดยควรระวัง${mode.$2}';
   }
 
   static String _composeHouseDomain(

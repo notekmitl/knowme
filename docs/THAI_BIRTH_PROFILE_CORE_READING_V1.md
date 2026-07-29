@@ -148,7 +148,9 @@ Strength/Risk selection, exact paragraph-to-atom provenance,
 source-fact-based semantic-domain enforcement (including plausible-looking
 keys backed by the wrong fact), exact and near-semantic duplicate rejection
 across distinct semantic keys, non-reuse of consumer narrative fields,
-supported synthesis, removal of system labels and legacy lifelong blocks,
+field/value-matched provenance for section themes and `topThemes`, complete
+Methodology provenance, single-context Strength → Risk → Action synthesis,
+fail-closed unsupported closing themes, removal of system labels and legacy lifelong blocks,
 collapsed methodology behavior, divider-before-Timeline ordering, standalone
 Thai Mirror default behavior, web/PDF parity, and public identifier safety:
 

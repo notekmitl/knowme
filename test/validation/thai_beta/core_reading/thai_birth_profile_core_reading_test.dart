@@ -149,6 +149,12 @@ void main() {
       summary.paragraphs.join('\n'),
       isNot(contains('แนวโน้มเด่นที่ระบบคำนวณได้คือ')),
     );
+    expect(summary.paragraphs.join('\n'), isNot(contains('วันทางโหราศาสตร์')));
+    expect(
+      summary.paragraphs.join('\n'),
+      isNot(contains('จุดตั้งต้นของการอ่าน')),
+    );
+    expect(summary.paragraphs.join('\n'), isNot(contains('กรอบหลักในการอ่าน')));
   });
 
   test('each paragraph owns exact typed source facts for its domain', () {
@@ -175,7 +181,10 @@ void main() {
         expect(claim.sourceAtoms, isNotEmpty, reason: entry.key);
         expect(
           claim.evidenceKeys.toSet(),
-          claim.sourceAtoms.map((atom) => atom.sourceRef).toSet(),
+          claim.sourceAtoms
+              .expand((atom) => atom.evidenceRefs)
+              .map((evidence) => evidence.sourceRef)
+              .toSet(),
           reason: '${entry.key}: exact provenance',
         );
         expect(
@@ -206,7 +215,10 @@ void main() {
         expect(claim.sourceAtoms, isNotEmpty, reason: claim.semanticKey);
         expect(
           claim.evidenceKeys.toSet(),
-          claim.sourceAtoms.map((atom) => atom.sourceRef).toSet(),
+          claim.sourceAtoms
+              .expand((atom) => atom.evidenceRefs)
+              .map((evidence) => evidence.sourceRef)
+              .toSet(),
           reason: claim.semanticKey,
         );
         expect(
@@ -217,6 +229,108 @@ void main() {
             ),
           ),
           isTrue,
+          reason: claim.semanticKey,
+        );
+      }
+    }
+  });
+
+  test('section and top-theme atoms preserve exact field/value provenance', () {
+    final analysis = ThaiBetaNarrativeFixtures.fixtureA();
+    final reading = ThaiBirthProfileCoreReading.fromAnalysis(analysis);
+    final summaryTheme = reading.sections
+        .singleWhere(
+          (section) => section.domain == ThaiBirthProfileCoreDomain.summary,
+        )
+        .claims
+        .expand((claim) => claim.sourceAtoms)
+        .firstWhere(
+          (atom) => atom.kind == ThaiBirthProfileCoreAtomKind.identityTheme,
+        );
+    final topThemeAtoms = reading.sections
+        .singleWhere((section) => section.isMethodology)
+        .claims
+        .singleWhere((claim) => claim.semanticKey == 'methodology:top-themes')
+        .sourceAtoms;
+
+    expect(
+      summaryTheme.sourceRef,
+      startsWith('ThaiMirrorResult.sections[core_self].supportingThemes['),
+    );
+    expect(summaryTheme.sourceRef, endsWith('.themeId'));
+    expect(summaryTheme.rawValue, summaryTheme.themeId);
+    expect(
+      summaryTheme.evidenceRefs
+          .singleWhere((evidence) => evidence.sourceRef.endsWith('.score'))
+          .rawValue,
+      '${summaryTheme.score}',
+    );
+
+    expect(topThemeAtoms, isNotEmpty);
+    for (final atom in topThemeAtoms) {
+      expect(atom.sourceRef, startsWith('ThaiMirrorResult.topThemes['));
+      expect(atom.sourceRef, endsWith('.themeId'));
+      expect(atom.rawValue, atom.themeId);
+      expect(
+        atom.evidenceRefs
+            .singleWhere((evidence) => evidence.sourceRef.endsWith('.score'))
+            .rawValue,
+        '${atom.score}',
+      );
+      expect(
+        atom.evidenceRefs.any(
+          (evidence) =>
+              evidence.sourceRef.endsWith('.score') &&
+              evidence.rawValue == atom.themeId,
+        ),
+        isFalse,
+      );
+    }
+  });
+
+  test('methodology owns every field named by each explanation', () {
+    final reading = ThaiBirthProfileCoreReading.fromAnalysis(
+      ThaiBetaNarrativeFixtures.fixtureA(),
+    );
+    final methodology = reading.sections.singleWhere(
+      (section) => section.isMethodology,
+    );
+    Set<String> refs(String key) => methodology.claims
+        .singleWhere((claim) => claim.semanticKey == key)
+        .evidenceKeys
+        .toSet();
+
+    expect(
+      refs('methodology:astrological-date'),
+      containsAll({
+        'ThaiMirrorPipelineResult.birthData.thaiWeekdayNumber',
+        'ThaiBetaAnalysis.normalizedSnapshot.thaiAstrologicalDate',
+      }),
+    );
+    expect(
+      refs('methodology:sunrise-boundary'),
+      containsAll({
+        'ThaiBetaAnalysis.normalizedSnapshot.birthTime',
+        'ThaiBetaAnalysis.normalizedSnapshot.sunrise',
+        'ThaiBetaAnalysis.normalizedSnapshot.usedPreviousDay',
+        'ThaiBetaAnalysis.normalizedSnapshot.rawBirthDate',
+      }),
+    );
+    expect(
+      refs('methodology:lagna-inputs'),
+      containsAll({
+        'ThaiAstrologyProfile.lagnaKey',
+        'ThaiBetaAnalysis.normalizedSnapshot.birthTime',
+        'ThaiBetaAnalysis.normalizedSnapshot.latitude',
+        'ThaiBetaAnalysis.normalizedSnapshot.longitude',
+        'ThaiBetaAnalysis.normalizedSnapshot.timeZoneId',
+      }),
+    );
+    for (final claim in methodology.claims) {
+      for (final atom in claim.sourceAtoms) {
+        expect(
+          atom.evidenceRefs.any((evidence) => evidence.rawValue == claim.text),
+          isFalse,
           reason: claim.semanticKey,
         );
       }
@@ -438,6 +552,61 @@ void main() {
     );
 
     expect(selected?.themeId, 'risk_overcommitment');
+  });
+
+  test('closing uses one scored thematic context for strength risk action', () {
+    final reading = ThaiBirthProfileCoreReading.fromAnalysis(
+      ThaiBetaNarrativeFixtures.fixtureA(),
+    );
+    final closing = reading.sections.singleWhere(
+      (section) => section.domain == ThaiBirthProfileCoreDomain.closing,
+    );
+    final atoms = closing.claims.single.sourceAtoms;
+
+    expect(atoms.map((atom) => atom.kind).toSet(), {
+      ThaiBirthProfileCoreAtomKind.strengthTheme,
+      ThaiBirthProfileCoreAtomKind.riskTheme,
+      ThaiBirthProfileCoreAtomKind.actionTheme,
+    });
+    expect(atoms.map((atom) => atom.themeId).toSet(), hasLength(1));
+    expect(atoms.map((atom) => atom.score).toSet(), hasLength(1));
+    expect(atoms.map((atom) => atom.sourceRef).toSet(), hasLength(1));
+  });
+
+  test('closing context selection is deterministic and fails closed', () {
+    const supported = [
+      ThaiMirrorThemeRef(
+        themeId: 'curious',
+        themeName: 'curious',
+        score: 90,
+        confidence: ThaiThemeConfidenceLevel.high,
+      ),
+      ThaiMirrorThemeRef(
+        themeId: 'disciplined',
+        themeName: 'disciplined',
+        score: 90,
+        confidence: ThaiThemeConfidenceLevel.high,
+      ),
+    ];
+    const unsupported = [
+      ThaiMirrorThemeRef(
+        themeId: 'unsupported_theme',
+        themeName: 'unsupported',
+        score: 100,
+        confidence: ThaiThemeConfidenceLevel.high,
+      ),
+    ];
+
+    expect(
+      ThaiBirthProfileCoreReading.selectClosingContextTheme(
+        supported.reversed,
+      )?.themeId,
+      'curious',
+    );
+    expect(
+      ThaiBirthProfileCoreReading.selectClosingContextTheme(unsupported),
+      isNull,
+    );
   });
 
   test('full reading has no semantic duplicate paragraphs', () {
