@@ -325,7 +325,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                 Padding(
                   padding: const EdgeInsets.symmetric(vertical: 12),
                   child: Text(
-                    'จากพื้นดวงสู่จังหวะชีวิต',
+                    ThaiBirthProfileCoreReadingCopy.timelineTransitionTitle,
                     textAlign: TextAlign.center,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                       fontWeight: FontWeight.w700,
@@ -345,6 +345,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
         relevantLifeTimeline: false,
         lifeMapMode: true,
         collapseSecondarySections: true,
+        timelineAndTransparencyOnly: true,
         consumerState: narrativeView,
       ),
       if (!widget.screenshotMode &&

@@ -130,6 +130,16 @@ Deploy: `.\scripts\deploy_web.ps1` or `firebase deploy --only hosting --project 
 **Thai Birth Profile Human-Readable Core Reading V1: owner/tester Product
 Acceptance on Production.**
 
+Product Acceptance Fix V1.1 is prepared as a review candidate: it removes
+meta-validation copy from public/PDF Core Reading, strengthens thin summaries
+with unused traceable evidence, assigns exact evidence ownership to each
+structured paragraph, prevents semantic-key/text near-duplicates, and composes
+supported strength → risk → action claims. Thai Beta Web/PDF no longer append
+the legacy lifelong report after Core Reading; Timeline/current/future and
+transparency/disclaimers remain, while standalone Thai Mirror keeps its default
+behavior. It does not change Engine or Production until its Draft PR is
+reviewed and merged.
+
 - Confirm the report starts with “ดวงจากวันเกิดของคุณ” and
   “สรุปตัวคุณจากพื้นดวง”.
 - Confirm work, money, relationships, wellbeing, and closing reflection read as

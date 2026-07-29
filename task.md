@@ -1,14 +1,22 @@
-# Task: Thai Birth Profile — Human-Readable Core Reading V1
+# Task: Thai Core Reading Product Acceptance Fix V1.1
 
-Refine the existing `/beta/thai` Core Reading into a concise, human-readable
-lifelong narrative before the age-based Timeline. Keep the same
-`ThaiBetaAnalysis`, normalized birth facts, Thai Foundation/Mirror evidence,
-deterministic composition, and web/PDF source.
+Close the remaining Product Acceptance gaps in the existing human-readable
+Core Reading without changing Engine, Canon, normalization, or runtime facts.
 
-Use seven reader-facing sections: a synthesized personal summary, work, money,
-relationships, astrology-framed wellbeing, a closing reflection, and a
-collapsed public-safe methodology disclosure. Remove repetitive system labels
-and separate the Core Reading visually from Timeline.
+The personal summary must connect the supported identity, strength, risk, and
+practical direction instead of exposing a QA/meta caution. Domain sections
+must remain domain-specific, the closing must be concise, and public/PDF text
+must contain no old system headings, meta-validation copy, duplicates, internal
+identifiers, or unsupported claims. Model every public paragraph as a
+structured claim with one semantic domain and exact internal evidence
+ownership; prevent exact and near-duplicate claims; and synthesize supported
+strength → risk → action paragraphs. Centralize feature copy in the Core
+Reading copy helper and retain the collapsed methodology and Timeline divider.
+
+Thai Beta Web and PDF must render the lifelong Core Reading once. The embedded
+Thai Mirror contribution is limited to Timeline/current/future and
+transparency/disclaimer content, while standalone Thai Mirror keeps its
+existing default report. Web/PDF Core content must remain identical.
 
 Do not change Engine formulas, Birth Normalization, Frozen Canon, Timeline,
 auth, audience, feature flags, database/rules, feedback schema, or Production

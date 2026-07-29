@@ -29,6 +29,7 @@ class ThaiMirrorResultPage extends StatefulWidget {
     this.relevantLifeTimeline = false,
     this.lifeMapMode = true,
     this.collapseSecondarySections = false,
+    this.timelineAndTransparencyOnly = false,
   });
 
   final ThaiMirrorConsumerViewState consumerState;
@@ -53,6 +54,11 @@ class ThaiMirrorResultPage extends StatefulWidget {
 
   /// V1.2.3 — secondary report sections start collapsed to shorten the page.
   final bool collapseSecondarySections;
+
+  /// Thai Beta composition mode: the parent owns the lifelong Core Reading,
+  /// so this page contributes only timeline/future and transparency/footer.
+  /// Defaults to false to preserve the established Thai Mirror report.
+  final bool timelineAndTransparencyOnly;
 
   @override
   State<ThaiMirrorResultPage> createState() => _ThaiMirrorResultPageState();
@@ -177,6 +183,13 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
     required ColorScheme scheme,
     required double gap,
   }) {
+    if (widget.timelineAndTransparencyOnly) {
+      return _timelineAndTransparencySections(
+        consumerState: consumerState,
+        scheme: scheme,
+        gap: gap,
+      );
+    }
     return [
       RepaintBoundary(
         key: const Key('thai_consumer_hero'),
@@ -307,6 +320,70 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
           key: const Key('thai_consumer_closing'),
           child: ThaiMirrorClosingMessageSection(
             state: consumerState.closingMessage,
+          ),
+        ),
+      ],
+      SizedBox(height: gap),
+      RepaintBoundary(
+        key: const Key('thai_consumer_source'),
+        child: ThaiMirrorSourceTransparencySection(
+          state: consumerState.sourceTransparency,
+        ),
+      ),
+      if (consumerState.disclaimers.isNotEmpty) ...[
+        const SizedBox(height: 24),
+        RepaintBoundary(
+          key: const Key('thai_consumer_footer'),
+          child: Column(
+            children: consumerState.disclaimers
+                .map(
+                  (disclaimer) => Padding(
+                    padding: const EdgeInsets.only(bottom: 10),
+                    child: Text(
+                      disclaimer,
+                      style: TextStyle(
+                        fontSize: 12.5,
+                        height: 1.5,
+                        color: scheme.onSurfaceVariant.withValues(alpha: 0.9),
+                      ),
+                    ),
+                  ),
+                )
+                .toList(),
+          ),
+        ),
+      ],
+    ];
+  }
+
+  List<Widget> _timelineAndTransparencySections({
+    required ThaiMirrorConsumerViewState consumerState,
+    required ColorScheme scheme,
+    required double gap,
+  }) {
+    return [
+      if (consumerState.lifeTimeline != null &&
+          !consumerState.lifeTimeline!.isEmpty)
+        RepaintBoundary(
+          key: const Key('thai_consumer_life_timeline'),
+          child: ThaiMirrorLifeTimelineSection(
+            state: consumerState.lifeTimeline!,
+            relevantPeriodsOnly:
+                widget.relevantLifeTimeline && !widget.lifeMapMode,
+            lifeMapMode: widget.lifeMapMode,
+          ),
+        ),
+      if (consumerState.futurePrediction != null &&
+          !consumerState.futurePrediction!.isEmpty) ...[
+        SizedBox(height: gap),
+        RepaintBoundary(
+          key: const Key('thai_consumer_future_prediction'),
+          child: _MaybeCollapsedSection(
+            collapse: widget.collapseSecondarySections,
+            title: consumerState.futurePrediction!.sectionTitle,
+            child: ThaiMirrorFuturePredictionSection(
+              state: consumerState.futurePrediction!,
+            ),
           ),
         ),
       ],
