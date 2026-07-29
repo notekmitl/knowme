@@ -142,12 +142,15 @@ and non-duplicated transparency/disclaimer sections.
 
 ## Validation
 
-Focused coverage checks full-time, no-time, before/after sunrise, different
-date/place, determinism, paragraph evidence ownership, semantic-domain
-enforcement, known near-duplicate rejection, supported synthesis, removal of
-system labels and legacy lifelong blocks, collapsed methodology behavior,
-divider-before-Timeline ordering, standalone Thai Mirror default behavior,
-web/PDF parity, and public identifier safety:
+Focused coverage checks full-time, no-time fail-closed behavior,
+before/after sunrise, different date/place, deterministic score-based
+Strength/Risk selection, exact paragraph-to-atom provenance,
+source-fact-based semantic-domain enforcement (including plausible-looking
+keys backed by the wrong fact), exact and near-semantic duplicate rejection
+across distinct semantic keys, non-reuse of consumer narrative fields,
+supported synthesis, removal of system labels and legacy lifelong blocks,
+collapsed methodology behavior, divider-before-Timeline ordering, standalone
+Thai Mirror default behavior, web/PDF parity, and public identifier safety:
 
 ```powershell
 flutter test test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart

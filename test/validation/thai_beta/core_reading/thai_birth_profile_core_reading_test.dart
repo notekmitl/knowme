@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/features/astrology/thai/mirror/models/thai_mirror_theme_ref.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/ui/pages/thai_mirror_result_page.dart';
+import 'package:knowme/features/astrology/thai/theme/models/thai_theme_confidence_level.dart';
 import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
@@ -46,6 +48,11 @@ void main() {
     expect(publicText, contains('ไม่มีเวลาเกิด'));
     expect(publicText, isNot(contains('ลัคนาอยู่ที่')));
     expect(publicText, isNot(contains('ภพที่')));
+    final domains = reading.sections.map((section) => section.domain);
+    expect(domains, isNot(contains(ThaiBirthProfileCoreDomain.work)));
+    expect(domains, isNot(contains(ThaiBirthProfileCoreDomain.money)));
+    expect(domains, isNot(contains(ThaiBirthProfileCoreDomain.relationships)));
+    expect(domains, isNot(contains(ThaiBirthProfileCoreDomain.wellbeing)));
   });
 
   test(
@@ -122,7 +129,7 @@ void main() {
     },
   );
 
-  test('summary and closing meet product acceptance density', () {
+  test('summary uses specific computed facts before generic theme labels', () {
     final reading = ThaiBirthProfileCoreReading.fromAnalysis(
       ThaiBetaNarrativeFixtures.fixtureA(),
     );
@@ -135,25 +142,27 @@ void main() {
           section.title == ThaiBirthProfileCoreReadingCopy.closingTitle,
     );
 
-    expect(summary.paragraphs.length, inInclusiveRange(3, 4));
+    expect(summary.paragraphs, isNotEmpty);
     expect(closing.paragraphs, isNotEmpty);
     expect(closing.paragraphs.length, lessThanOrEqualTo(3));
-    expect(summary.paragraphs.join('\n'), contains('แกนสำคัญของพื้นดวงนี้'));
+    expect(
+      summary.paragraphs.join('\n'),
+      isNot(contains('แนวโน้มเด่นที่ระบบคำนวณได้คือ')),
+    );
   });
 
-  test('each life domain keeps its own traceable evidence owner', () {
+  test('each paragraph owns exact typed source facts for its domain', () {
     final reading = ThaiBirthProfileCoreReading.fromAnalysis(
       ThaiBetaNarrativeFixtures.fixtureA(),
     );
-    final expectedEvidence = {
-      ThaiBirthProfileCoreReadingCopy.workTitle: 'mirror:work_and_ambition',
-      ThaiBirthProfileCoreReadingCopy.moneyTitle: 'mirror:money',
-      ThaiBirthProfileCoreReadingCopy.relationshipsTitle:
-          'mirror:relationships',
-      ThaiBirthProfileCoreReadingCopy.wellbeingTitle: 'mirror:wellbeing',
+    final expectedHouses = {
+      ThaiBirthProfileCoreReadingCopy.workTitle: 10,
+      ThaiBirthProfileCoreReadingCopy.moneyTitle: 2,
+      ThaiBirthProfileCoreReadingCopy.relationshipsTitle: 7,
+      ThaiBirthProfileCoreReadingCopy.wellbeingTitle: 6,
     };
 
-    for (final entry in expectedEvidence.entries) {
+    for (final entry in expectedHouses.entries) {
       final section = reading.sections.singleWhere(
         (candidate) => candidate.title == entry.key,
       );
@@ -163,13 +172,77 @@ void main() {
         expect(claim.domain, section.domain, reason: entry.key);
         expect(claim.semanticKey, isNotEmpty, reason: entry.key);
         expect(claim.evidenceKeys, isNotEmpty, reason: entry.key);
+        expect(claim.sourceAtoms, isNotEmpty, reason: entry.key);
         expect(
-          claim.evidenceKeys.any((key) => key.startsWith(entry.value)),
+          claim.evidenceKeys.toSet(),
+          claim.sourceAtoms.map((atom) => atom.sourceRef).toSet(),
+          reason: '${entry.key}: exact provenance',
+        );
+        expect(
+          claim.sourceAtoms.every(
+            (atom) =>
+                atom.houseNumber == entry.value &&
+                ThaiBirthProfileCoreDomainPolicy.acceptsAtom(
+                  section.domain,
+                  atom,
+                ),
+          ),
           isTrue,
           reason: '${entry.key}: ${claim.text}',
         );
       }
     }
+  });
+
+  test('all public claims preserve exact atom provenance', () {
+    final reading = ThaiBirthProfileCoreReading.fromAnalysis(
+      ThaiBetaNarrativeFixtures.fixtureA(),
+    );
+
+    for (final section in reading.sections.where(
+      (section) => !section.isMethodology,
+    )) {
+      for (final claim in section.claims) {
+        expect(claim.sourceAtoms, isNotEmpty, reason: claim.semanticKey);
+        expect(
+          claim.evidenceKeys.toSet(),
+          claim.sourceAtoms.map((atom) => atom.sourceRef).toSet(),
+          reason: claim.semanticKey,
+        );
+        expect(
+          claim.sourceAtoms.every(
+            (atom) => ThaiBirthProfileCoreDomainPolicy.acceptsAtom(
+              claim.domain,
+              atom,
+            ),
+          ),
+          isTrue,
+          reason: claim.semanticKey,
+        );
+      }
+    }
+  });
+
+  test('core paragraphs are not reused consumer-facing narrative fields', () {
+    final analysis = ThaiBetaNarrativeFixtures.fixtureA();
+    final reading = ThaiBirthProfileCoreReading.fromAnalysis(analysis);
+    final generated = reading.sections
+        .where((section) => !section.isMethodology)
+        .expand((section) => section.publicParagraphs)
+        .toSet();
+    final view = analysis.consumerViewState!;
+    final legacy = <String>{
+      view.hero.headline,
+      view.signatureInsight.signature,
+      for (final section in view.narrativeSections) ...[
+        section.overview,
+        section.pullQuote,
+        section.tension,
+        section.advice,
+      ],
+    }.where((text) => text.trim().isNotEmpty);
+
+    expect(generated.intersection(legacy.toSet()), isEmpty);
   });
 
   test(
@@ -179,7 +252,7 @@ void main() {
         text: 'คุณมักรับงานมากเกินไปเพราะคิดว่าต้องเป็นผู้นำเสมอ',
         domain: ThaiBirthProfileCoreDomain.work,
         role: ThaiBirthProfileCoreClaimRole.synthesis,
-        semanticKey: 'mirror:work:risk:overcommit',
+        semanticKey: 'different-key-for-the-paraphrase',
         evidenceKeys: ['mirror:work_and_ambition:risk'],
       );
       const reworded = ThaiBirthProfileCoreParagraph(
@@ -222,25 +295,50 @@ void main() {
     },
   );
 
-  test(
-    'semantic domain policy rejects evidence from the wrong life domain',
-    () {
-      expect(
-        ThaiBirthProfileCoreDomainPolicy.accepts(
-          ThaiBirthProfileCoreDomain.money,
-          const ['mirror:relationships:overview'],
-        ),
-        isFalse,
-      );
-      expect(
-        ThaiBirthProfileCoreDomainPolicy.accepts(
-          ThaiBirthProfileCoreDomain.money,
-          const ['mirror:money:overview', 'theme:builder'],
-        ),
-        isTrue,
-      );
-    },
-  );
+  test('domain policy checks the source fact, not a plausible-looking key', () {
+    const fakeMoneyAtom = ThaiBirthProfileCoreClaimAtom(
+      kind: ThaiBirthProfileCoreAtomKind.identityTheme,
+      domain: ThaiBirthProfileCoreDomain.money,
+      sourceRef: 'mirror:money:investment_personality',
+      rawValue: 'บุคลิกที่ชอบคิดเรื่องการลงทุน',
+    );
+    const validMoneyAtom = ThaiBirthProfileCoreClaimAtom(
+      kind: ThaiBirthProfileCoreAtomKind.houseSign,
+      domain: ThaiBirthProfileCoreDomain.money,
+      sourceRef: 'HouseEngine.calculate.house[2].signKey',
+      rawValue: 'taurus',
+      houseNumber: 2,
+    );
+    const unsupportedWellbeingAtom = ThaiBirthProfileCoreClaimAtom(
+      kind: ThaiBirthProfileCoreAtomKind.identityTheme,
+      domain: ThaiBirthProfileCoreDomain.wellbeing,
+      sourceRef: 'HouseEngine.calculate.house[6].routine',
+      rawValue: 'คิดเป็นระบบและชอบกิจวัตรเดิม',
+      houseNumber: 6,
+    );
+
+    expect(
+      ThaiBirthProfileCoreDomainPolicy.acceptsAtom(
+        ThaiBirthProfileCoreDomain.money,
+        fakeMoneyAtom,
+      ),
+      isFalse,
+    );
+    expect(
+      ThaiBirthProfileCoreDomainPolicy.acceptsAtom(
+        ThaiBirthProfileCoreDomain.money,
+        validMoneyAtom,
+      ),
+      isTrue,
+    );
+    expect(
+      ThaiBirthProfileCoreDomainPolicy.acceptsAtom(
+        ThaiBirthProfileCoreDomain.wellbeing,
+        unsupportedWellbeingAtom,
+      ),
+      isFalse,
+    );
+  });
 
   test(
     'each product domain contains supported synthesis, not mixed ownership',
@@ -268,8 +366,16 @@ void main() {
         final synthesis = section.claims.firstWhere(
           (claim) => claim.role == ThaiBirthProfileCoreClaimRole.synthesis,
         );
-        expect(synthesis.text, contains('พลังที่ควรนำมาเป็นฐาน'));
-        expect(synthesis.text, contains('แล้วเปลี่ยนพลังนั้นเป็นการลงมือ'));
+        expect(synthesis.sourceAtoms, hasLength(2));
+        expect(
+          synthesis.sourceAtoms.every(
+            (atom) => ThaiBirthProfileCoreDomainPolicy.acceptsAtom(
+              section.domain,
+              atom,
+            ),
+          ),
+          isTrue,
+        );
         expect(
           section.claims.every((claim) => claim.domain == section.domain),
           isTrue,
@@ -298,16 +404,64 @@ void main() {
     ]) {
       expect(text, isNot(contains(forbidden)));
     }
+  });
 
-    final summary = reading.sections.singleWhere(
-      (section) => section.domain == ThaiBirthProfileCoreDomain.summary,
+  test('strength and risk selection is deterministic and score-based', () {
+    const themes = [
+      ThaiMirrorThemeRef(
+        themeId: 'risk_overcontrol',
+        themeName: 'risk',
+        score: 71,
+        confidence: ThaiThemeConfidenceLevel.high,
+      ),
+      ThaiMirrorThemeRef(
+        themeId: 'risk_overthinking',
+        themeName: 'risk',
+        score: 88,
+        confidence: ThaiThemeConfidenceLevel.high,
+      ),
+      ThaiMirrorThemeRef(
+        themeId: 'risk_overcommitment',
+        themeName: 'risk',
+        score: 88,
+        confidence: ThaiThemeConfidenceLevel.high,
+      ),
+    ];
+
+    final selected = ThaiBirthProfileCoreReading.selectHighestPriorityTheme(
+      themes.reversed,
+      supportedThemeIds: const {
+        'risk_overcontrol',
+        'risk_overthinking',
+        'risk_overcommitment',
+      },
     );
-    final fullSynthesis = summary.claims.firstWhere(
-      (claim) => claim.role == ThaiBirthProfileCoreClaimRole.synthesis,
+
+    expect(selected?.themeId, 'risk_overcommitment');
+  });
+
+  test('full reading has no semantic duplicate paragraphs', () {
+    final reading = ThaiBirthProfileCoreReading.fromAnalysis(
+      ThaiBetaNarrativeFixtures.fixtureA(),
     );
-    expect(fullSynthesis.text, contains('พลังที่ควรนำมาเป็นฐาน'));
-    expect(fullSynthesis.text, contains('โดยเฝ้าดูไม่ให้'));
-    expect(fullSynthesis.text, contains('แล้วเปลี่ยนพลังนั้นเป็นการลงมือ'));
+    final claims = reading.sections
+        .expand((section) => section.claims)
+        .toList(growable: false);
+
+    for (var left = 0; left < claims.length; left++) {
+      for (var right = left + 1; right < claims.length; right++) {
+        expect(
+          ThaiBirthProfileCoreClaimDeduplicator.isNearDuplicate(
+            claims[left],
+            claims[right],
+          ),
+          isFalse,
+          reason:
+              '${claims[left].semanticKey} duplicates '
+              '${claims[right].semanticKey}',
+        );
+      }
+    }
   });
 
   testWidgets('core reading appears before Timeline on the report page', (
