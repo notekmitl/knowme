@@ -345,6 +345,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
         relevantLifeTimeline: false,
         lifeMapMode: true,
         collapseSecondarySections: true,
+        timelineAndTransparencyOnly: true,
         consumerState: narrativeView,
       ),
       if (!widget.screenshotMode &&

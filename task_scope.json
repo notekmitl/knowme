@@ -8,6 +8,7 @@
     "task.md",
     "task_scope.json",
     "lib/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart",
+    "lib/features/astrology/thai/mirror/presentation/ui/pages/thai_mirror_result_page.dart",
     "lib/features/thai_beta/presentation/widgets/thai_birth_profile_core_reading_section.dart",
     "lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart",
     "lib/features/thai_beta/application/thai_beta_report_export_document.dart",

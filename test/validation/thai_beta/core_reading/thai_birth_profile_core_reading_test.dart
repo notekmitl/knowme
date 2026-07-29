@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/ui/pages/thai_mirror_result_page.dart';
 import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
@@ -157,9 +158,126 @@ void main() {
         (candidate) => candidate.title == entry.key,
       );
       expect(section.paragraphs, isNotEmpty, reason: entry.key);
-      expect(section.evidenceKeys, contains(entry.value), reason: entry.key);
+      expect(section.domain, isNot(ThaiBirthProfileCoreDomain.summary));
+      for (final claim in section.claims) {
+        expect(claim.domain, section.domain, reason: entry.key);
+        expect(claim.semanticKey, isNotEmpty, reason: entry.key);
+        expect(claim.evidenceKeys, isNotEmpty, reason: entry.key);
+        expect(
+          claim.evidenceKeys.any((key) => key.startsWith(entry.value)),
+          isTrue,
+          reason: '${entry.key}: ${claim.text}',
+        );
+      }
     }
   });
+
+  test(
+    'known rewording of one semantic claim is rejected as near-duplicate',
+    () {
+      const first = ThaiBirthProfileCoreParagraph(
+        text: 'คุณมักรับงานมากเกินไปเพราะคิดว่าต้องเป็นผู้นำเสมอ',
+        domain: ThaiBirthProfileCoreDomain.work,
+        role: ThaiBirthProfileCoreClaimRole.synthesis,
+        semanticKey: 'mirror:work:risk:overcommit',
+        evidenceKeys: ['mirror:work_and_ambition:risk'],
+      );
+      const reworded = ThaiBirthProfileCoreParagraph(
+        text: 'คุณอาจรับงานมากเกิน เพราะรู้สึกว่าตัวเองต้องนำอยู่เสมอ',
+        domain: ThaiBirthProfileCoreDomain.work,
+        role: ThaiBirthProfileCoreClaimRole.synthesis,
+        semanticKey: 'mirror:work:risk:overcommit',
+        evidenceKeys: ['mirror:work_and_ambition:risk'],
+      );
+
+      expect(
+        ThaiBirthProfileCoreClaimDeduplicator.isNearDuplicate(reworded, first),
+        isTrue,
+      );
+    },
+  );
+
+  test(
+    'exact duplicate text is rejected even with a different semantic key',
+    () {
+      const first = ThaiBirthProfileCoreParagraph(
+        text: 'คุณมักวางแผนงานก่อนลงมือ',
+        domain: ThaiBirthProfileCoreDomain.work,
+        role: ThaiBirthProfileCoreClaimRole.interpretation,
+        semanticKey: 'mirror:work:planning',
+        evidenceKeys: ['mirror:work_and_ambition:overview'],
+      );
+      const duplicate = ThaiBirthProfileCoreParagraph(
+        text: 'คุณมักวางแผนงานก่อนลงมือ',
+        domain: ThaiBirthProfileCoreDomain.work,
+        role: ThaiBirthProfileCoreClaimRole.interpretation,
+        semanticKey: 'mirror:work:second-key',
+        evidenceKeys: ['mirror:work_and_ambition:overview'],
+      );
+
+      expect(
+        ThaiBirthProfileCoreClaimDeduplicator.isNearDuplicate(duplicate, first),
+        isTrue,
+      );
+    },
+  );
+
+  test(
+    'semantic domain policy rejects evidence from the wrong life domain',
+    () {
+      expect(
+        ThaiBirthProfileCoreDomainPolicy.accepts(
+          ThaiBirthProfileCoreDomain.money,
+          const ['mirror:relationships:overview'],
+        ),
+        isFalse,
+      );
+      expect(
+        ThaiBirthProfileCoreDomainPolicy.accepts(
+          ThaiBirthProfileCoreDomain.money,
+          const ['mirror:money:overview', 'theme:builder'],
+        ),
+        isTrue,
+      );
+    },
+  );
+
+  test(
+    'each product domain contains supported synthesis, not mixed ownership',
+    () {
+      final reading = ThaiBirthProfileCoreReading.fromAnalysis(
+        ThaiBetaNarrativeFixtures.fixtureA(),
+      );
+      final productDomains = reading.sections.where(
+        (section) => {
+          ThaiBirthProfileCoreDomain.work,
+          ThaiBirthProfileCoreDomain.money,
+          ThaiBirthProfileCoreDomain.relationships,
+          ThaiBirthProfileCoreDomain.wellbeing,
+        }.contains(section.domain),
+      );
+
+      for (final section in productDomains) {
+        expect(
+          section.claims.any(
+            (claim) => claim.role == ThaiBirthProfileCoreClaimRole.synthesis,
+          ),
+          isTrue,
+          reason: section.title,
+        );
+        final synthesis = section.claims.firstWhere(
+          (claim) => claim.role == ThaiBirthProfileCoreClaimRole.synthesis,
+        );
+        expect(synthesis.text, contains('พลังที่ควรนำมาเป็นฐาน'));
+        expect(synthesis.text, contains('แล้วเปลี่ยนพลังนั้นเป็นการลงมือ'));
+        expect(
+          section.claims.every((claim) => claim.domain == section.domain),
+          isTrue,
+          reason: section.title,
+        );
+      }
+    },
+  );
 
   test('lifelong core reading excludes age and current-period predictions', () {
     final reading = ThaiBirthProfileCoreReading.fromAnalysis(
@@ -180,6 +298,16 @@ void main() {
     ]) {
       expect(text, isNot(contains(forbidden)));
     }
+
+    final summary = reading.sections.singleWhere(
+      (section) => section.domain == ThaiBirthProfileCoreDomain.summary,
+    );
+    final fullSynthesis = summary.claims.firstWhere(
+      (claim) => claim.role == ThaiBirthProfileCoreClaimRole.synthesis,
+    );
+    expect(fullSynthesis.text, contains('พลังที่ควรนำมาเป็นฐาน'));
+    expect(fullSynthesis.text, contains('โดยเฝ้าดูไม่ให้'));
+    expect(fullSynthesis.text, contains('แล้วเปลี่ยนพลังนั้นเป็นการลงมือ'));
   });
 
   testWidgets('core reading appears before Timeline on the report page', (
@@ -203,6 +331,26 @@ void main() {
     expect(core, findsOneWidget);
     expect(timeline, findsOneWidget);
     expect(divider, findsOneWidget);
+    expect(find.byKey(const Key('thai_consumer_hero')), findsNothing);
+    expect(
+      find.byKey(const Key('thai_consumer_signature_insight')),
+      findsNothing,
+    );
+    expect(find.byKey(const Key('thai_consumer_life_dashboard')), findsNothing);
+    expect(find.byKey(const Key('thai_consumer_strengths')), findsNothing);
+    expect(find.byKey(const Key('thai_consumer_cautions')), findsNothing);
+    expect(find.byKey(const Key('thai_consumer_advice')), findsNothing);
+    expect(find.byKey(const Key('thai_consumer_narrative')), findsNothing);
+    expect(
+      find.byKey(const Key('thai_consumer_reflection_summary')),
+      findsNothing,
+    );
+    expect(find.byKey(const Key('thai_consumer_closing')), findsNothing);
+    expect(find.byKey(const Key('thai_consumer_source')), findsOneWidget);
+    final mirror = tester.widget<ThaiMirrorResultPage>(
+      find.byType(ThaiMirrorResultPage),
+    );
+    expect(mirror.timelineAndTransparencyOnly, isTrue);
     expect(
       tester.getTopLeft(core).dy,
       lessThan(tester.getTopLeft(timeline).dy),
@@ -211,6 +359,34 @@ void main() {
       tester.getTopLeft(divider).dy,
       lessThan(tester.getTopLeft(timeline).dy),
     );
+  });
+
+  testWidgets('Thai Mirror default still renders the lifelong report', (
+    tester,
+  ) async {
+    final analysis = ThaiBetaNarrativeFixtures.fixtureA();
+    await tester.pumpWidget(
+      MaterialApp(
+        home: ThaiMirrorResultPage(
+          disableAnimations: true,
+          consumerState: analysis.consumerViewState!,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final mirror = tester.widget<ThaiMirrorResultPage>(
+      find.byType(ThaiMirrorResultPage),
+    );
+    expect(mirror.timelineAndTransparencyOnly, isFalse);
+    expect(find.byKey(const Key('thai_consumer_hero')), findsOneWidget);
+    expect(
+      find.byKey(const Key('thai_consumer_life_dashboard')),
+      findsOneWidget,
+    );
+    expect(find.byKey(const Key('thai_consumer_strengths')), findsOneWidget);
+    expect(find.byKey(const Key('thai_consumer_cautions')), findsOneWidget);
+    expect(find.byKey(const Key('thai_consumer_advice')), findsOneWidget);
   });
 
   testWidgets('methodology is collapsed by default and can be expanded', (
@@ -254,6 +430,28 @@ void main() {
       for (final paragraph in section.publicParagraphs) {
         expect(exported.paragraphs, contains(paragraph));
       }
+    }
+  });
+
+  test('PDF contains Core once and omits legacy lifelong semantics', () {
+    final analysis = ThaiBetaNarrativeFixtures.fixtureA();
+    final view = analysis.consumerViewState!;
+    final export = ThaiBetaReportExportDocument.fromAnalysis(analysis);
+    final titles = export.sections.map((section) => section.title).toList();
+    final text = export.fullPlainText;
+
+    expect(
+      titles.where((title) => title == ThaiBirthProfileCoreReading.reportTitle),
+      hasLength(1),
+    );
+    expect(text, isNot(contains(view.hero.headline)));
+    expect(text, isNot(contains(view.signatureInsight.signature)));
+    expect(titles, isNot(contains(view.strengths.title)));
+    expect(titles, isNot(contains(view.cautions.title)));
+    expect(titles, isNot(contains(view.advice.title)));
+    expect(titles, isNot(contains(view.reflectionSummary.title)));
+    for (final narrative in view.narrativeSections) {
+      expect(titles, isNot(contains(narrative.label)));
     }
   });
 

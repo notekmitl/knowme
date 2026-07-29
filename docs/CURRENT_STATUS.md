@@ -132,8 +132,12 @@ Acceptance on Production.**
 
 Product Acceptance Fix V1.1 is prepared as a review candidate: it removes
 meta-validation copy from public/PDF Core Reading, strengthens thin summaries
-with unused traceable evidence, and caps the closing reflection at three
-paragraphs. It does not change Engine or Production until its Draft PR is
+with unused traceable evidence, assigns exact evidence ownership to each
+structured paragraph, prevents semantic-key/text near-duplicates, and composes
+supported strength → risk → action claims. Thai Beta Web/PDF no longer append
+the legacy lifelong report after Core Reading; Timeline/current/future and
+transparency/disclaimers remain, while standalone Thai Mirror keeps its default
+behavior. It does not change Engine or Production until its Draft PR is
 reviewed and merged.
 
 - Confirm the report starts with “ดวงจากวันเกิดของคุณ” and

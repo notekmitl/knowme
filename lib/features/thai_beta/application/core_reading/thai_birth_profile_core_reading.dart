@@ -20,22 +20,145 @@ class ThaiBirthProfileCoreReadingCopy {
       'ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์';
 }
 
+enum ThaiBirthProfileCoreDomain {
+  summary,
+  work,
+  money,
+  relationships,
+  wellbeing,
+  closing,
+  methodology,
+}
+
+enum ThaiBirthProfileCoreClaimRole {
+  fact,
+  interpretation,
+  synthesis,
+  disclosure,
+}
+
+/// One reader-facing paragraph with deterministic, internal-only ownership.
+class ThaiBirthProfileCoreParagraph {
+  const ThaiBirthProfileCoreParagraph({
+    required this.text,
+    required this.domain,
+    required this.role,
+    required this.semanticKey,
+    required this.evidenceKeys,
+  });
+
+  final String text;
+  final ThaiBirthProfileCoreDomain domain;
+  final ThaiBirthProfileCoreClaimRole role;
+  final String semanticKey;
+
+  /// Exact fact/source references used for this paragraph. Never rendered.
+  final List<String> evidenceKeys;
+}
+
 class ThaiBirthProfileCoreSection {
   const ThaiBirthProfileCoreSection({
     required this.title,
-    required this.paragraphs,
-    required this.evidenceKeys,
+    required this.domain,
+    required this.claims,
     this.isMethodology = false,
   });
 
   final String title;
-  final List<String> paragraphs;
-
-  /// Internal trace only. Never rendered or exported.
-  final List<String> evidenceKeys;
+  final ThaiBirthProfileCoreDomain domain;
+  final List<ThaiBirthProfileCoreParagraph> claims;
   final bool isMethodology;
 
+  List<String> get paragraphs =>
+      claims.map((claim) => claim.text).toList(growable: false);
   List<String> get publicParagraphs => paragraphs;
+
+  /// Compatibility view for internal diagnostics; ownership lives on claims.
+  List<String> get evidenceKeys => {
+    for (final claim in claims) ...claim.evidenceKeys,
+  }.toList(growable: false);
+}
+
+/// Deterministic protection against a fact being restated with light edits.
+class ThaiBirthProfileCoreClaimDeduplicator {
+  ThaiBirthProfileCoreClaimDeduplicator._();
+
+  static bool isNearDuplicate(
+    ThaiBirthProfileCoreParagraph candidate,
+    ThaiBirthProfileCoreParagraph existing,
+  ) {
+    if (candidate.semanticKey == existing.semanticKey) return true;
+    final left = _normalize(candidate.text);
+    final right = _normalize(existing.text);
+    if (left == right) return true;
+    if (left.isEmpty || right.isEmpty) return false;
+    final leftIsShorter = left.length <= right.length;
+    final shorter = leftIsShorter ? left : right;
+    final longer = leftIsShorter ? right : left;
+    if (longer.contains(shorter) && shorter.length / longer.length >= .9) {
+      return true;
+    }
+    final leftGrams = _grams(left);
+    final rightGrams = _grams(right);
+    final overlap = leftGrams.intersection(rightGrams).length;
+    final union = leftGrams.union(rightGrams).length;
+    return union > 0 && overlap / union >= .82;
+  }
+
+  static Set<String> _grams(String value) {
+    if (value.length < 3) return {value};
+    return {
+      for (var index = 0; index <= value.length - 3; index++)
+        value.substring(index, index + 3),
+    };
+  }
+
+  static String _normalize(String value) => value
+      .replaceAll('**', '')
+      .replaceAll(RegExp(r'[\s·•:;,.!?()\-–—]+'), '')
+      .toLowerCase();
+}
+
+class ThaiBirthProfileCoreDomainPolicy {
+  const ThaiBirthProfileCoreDomainPolicy._();
+
+  static bool accepts(
+    ThaiBirthProfileCoreDomain domain,
+    Iterable<String> evidenceKeys,
+  ) {
+    final keys = evidenceKeys.toList(growable: false);
+    final owners = switch (domain) {
+      ThaiBirthProfileCoreDomain.summary => const [
+        'mirror:identity',
+        'mirror:top_themes',
+        'mirror:signature',
+        'mirror:hero',
+        'mirror:strengths',
+        'mirror:cautions',
+        'mirror:advice',
+        'mirror:reflection',
+      ],
+      ThaiBirthProfileCoreDomain.work => const ['mirror:work_and_ambition'],
+      ThaiBirthProfileCoreDomain.money => const ['mirror:money'],
+      ThaiBirthProfileCoreDomain.relationships => const [
+        'mirror:relationships',
+      ],
+      ThaiBirthProfileCoreDomain.wellbeing => const ['mirror:wellbeing'],
+      ThaiBirthProfileCoreDomain.closing => const [
+        'mirror:reflection',
+        'mirror:strengths',
+        'mirror:advice',
+      ],
+      ThaiBirthProfileCoreDomain.methodology => const [
+        'normalized:',
+        'profile:lagna',
+        'mirror:top_themes',
+      ],
+    };
+    return keys.any(
+      (key) => owners.any((owner) => key == owner || key.startsWith('$owner:')),
+    );
+  }
 }
 
 class ThaiBirthProfileCoreReading {
@@ -80,17 +203,45 @@ class ThaiBirthProfileCoreReading {
       return _lifelong(section.cards[index].body);
     }
 
-    final usedClaims = <String>{};
-    List<String> claims(Iterable<String> candidates) {
-      final result = <String>[];
-      for (final candidate in candidates) {
-        final value = _lifelong(candidate);
-        final key = _claimKey(value);
-        if (value.isEmpty || key.isEmpty || !usedClaims.add(key)) continue;
-        result.add(value);
+    final acceptedClaims = <ThaiBirthProfileCoreParagraph>[];
+
+    ThaiBirthProfileCoreParagraph? claim({
+      required String text,
+      required ThaiBirthProfileCoreDomain domain,
+      required ThaiBirthProfileCoreClaimRole role,
+      required String semanticKey,
+      required List<String> evidenceKeys,
+      bool allowTemporal = false,
+    }) {
+      final value = allowTemporal ? _plain(text) : _lifelong(text);
+      if (value.isEmpty) return null;
+      final candidate = ThaiBirthProfileCoreParagraph(
+        text: value,
+        domain: domain,
+        role: role,
+        semanticKey: semanticKey,
+        evidenceKeys: List.unmodifiable(evidenceKeys),
+      );
+      if (!ThaiBirthProfileCoreDomainPolicy.accepts(domain, evidenceKeys)) {
+        throw StateError(
+          'Evidence does not belong to ${domain.name}: $semanticKey',
+        );
       }
-      return result;
+      if (acceptedClaims.any(
+        (existing) => ThaiBirthProfileCoreClaimDeduplicator.isNearDuplicate(
+          candidate,
+          existing,
+        ),
+      )) {
+        return null;
+      }
+      acceptedClaims.add(candidate);
+      return candidate;
     }
+
+    List<ThaiBirthProfileCoreParagraph> compact(
+      Iterable<ThaiBirthProfileCoreParagraph?> values,
+    ) => values.whereType<ThaiBirthProfileCoreParagraph>().toList();
 
     final domains = <String, ThaiMirrorNarrativeSectionState>{
       for (final section in view.narrativeSections) section.label: section,
@@ -114,36 +265,123 @@ class ThaiBirthProfileCoreReading {
       required String title,
       required String marker,
       required String evidence,
+      required ThaiBirthProfileCoreDomain domainType,
       String trailing = '',
     }) {
       final narrative = domain(marker);
       final dash = dashboard(marker);
-      final paragraphs = claims([
-        if (narrative != null) narrative.overview,
-        if (narrative != null) narrative.tension,
-        if (narrative != null) narrative.pullQuote,
-        if (narrative != null) narrative.whyItAppears,
-        if (narrative != null) narrative.advice,
-        if (narrative == null && dash != null) dash.currentState,
-        if (narrative == null && dash != null) dash.whyItAppears,
-        if (narrative == null && dash != null) dash.suggestedAction,
-        trailing,
-      ]);
+      final domainEvidence = [
+        evidence,
+        ...themeIds.take(3).map((id) => 'theme:$id'),
+      ];
+      final overview = narrative?.overview ?? dash?.currentState ?? '';
+      final strength = narrative?.pullQuote ?? dash?.whyItAppears ?? '';
+      final risk = narrative?.tension ?? '';
+      final action = narrative?.advice ?? dash?.suggestedAction ?? '';
+      final synthesis = _synthesizeStrengthRiskAction(
+        strength: strength,
+        risk: risk,
+        action: action,
+      );
       return ThaiBirthProfileCoreSection(
         title: title,
-        paragraphs: paragraphs,
-        evidenceKeys: [evidence, ...themeIds.take(3).map((id) => 'theme:$id')],
+        domain: domainType,
+        claims: compact([
+          claim(
+            text: overview,
+            domain: domainType,
+            role: ThaiBirthProfileCoreClaimRole.interpretation,
+            semanticKey: '$evidence:overview',
+            evidenceKeys: [evidence, '$evidence:overview'],
+          ),
+          claim(
+            text: synthesis,
+            domain: domainType,
+            role: ThaiBirthProfileCoreClaimRole.synthesis,
+            semanticKey: '$evidence:strength-risk-action',
+            evidenceKeys: [
+              ...domainEvidence,
+              if (strength.isNotEmpty) '$evidence:strength',
+              if (risk.isNotEmpty) '$evidence:risk',
+              if (action.isNotEmpty) '$evidence:action',
+            ],
+          ),
+          if (trailing.isNotEmpty)
+            claim(
+              text: trailing,
+              domain: domainType,
+              role: ThaiBirthProfileCoreClaimRole.disclosure,
+              semanticKey: '$evidence:disclaimer',
+              evidenceKeys: ['$evidence:disclaimer'],
+            ),
+        ]),
       );
     }
 
-    final summary = claims([
-      themeSummary,
-      view.signatureInsight.body,
-      view.hero.summary,
-      cardBody(view.strengths),
-      cardBody(view.cautions),
-      ...view.reflectionSummary.points.take(2),
-      view.advice.body,
+    final summaryEvidence = [
+      'mirror:identity',
+      'mirror:top_themes',
+      ...themeIds.take(3).map((id) => 'theme:$id'),
+    ];
+    final summaryStrength = cardBody(view.strengths).isNotEmpty
+        ? cardBody(view.strengths)
+        : (view.reflectionSummary.points.isNotEmpty
+              ? view.reflectionSummary.points.first
+              : view.signatureInsight.body);
+    final summary = compact([
+      claim(
+        text: themeSummary,
+        domain: ThaiBirthProfileCoreDomain.summary,
+        role: ThaiBirthProfileCoreClaimRole.fact,
+        semanticKey: 'mirror:top_themes:summary',
+        evidenceKeys: summaryEvidence,
+      ),
+      claim(
+        text: view.signatureInsight.body,
+        domain: ThaiBirthProfileCoreDomain.summary,
+        role: ThaiBirthProfileCoreClaimRole.interpretation,
+        semanticKey: 'mirror:identity:signature',
+        evidenceKeys: ['mirror:identity', 'mirror:signature'],
+      ),
+      claim(
+        text: _synthesizeStrengthRiskAction(
+          strength: summaryStrength,
+          risk: cardBody(view.cautions),
+          action: view.advice.body,
+        ),
+        domain: ThaiBirthProfileCoreDomain.summary,
+        role: ThaiBirthProfileCoreClaimRole.synthesis,
+        semanticKey: 'mirror:identity:strength-risk-action',
+        evidenceKeys: [
+          ...summaryEvidence,
+          'mirror:strengths:0',
+          'mirror:reflection:0',
+          'mirror:cautions:0',
+          'mirror:advice',
+        ],
+      ),
+      claim(
+        text: cardBody(view.strengths, index: 1),
+        domain: ThaiBirthProfileCoreDomain.summary,
+        role: ThaiBirthProfileCoreClaimRole.interpretation,
+        semanticKey: 'mirror:identity:secondary-strength',
+        evidenceKeys: ['mirror:identity', 'mirror:strengths:1'],
+      ),
+      for (final (index, point) in view.reflectionSummary.points.indexed)
+        claim(
+          text: point,
+          domain: ThaiBirthProfileCoreDomain.summary,
+          role: ThaiBirthProfileCoreClaimRole.interpretation,
+          semanticKey: 'mirror:reflection:$index',
+          evidenceKeys: ['mirror:reflection:$index'],
+        ),
+      claim(
+        text: view.hero.summary,
+        domain: ThaiBirthProfileCoreDomain.summary,
+        role: ThaiBirthProfileCoreClaimRole.interpretation,
+        semanticKey: 'mirror:identity:hero',
+        evidenceKeys: ['mirror:identity', 'mirror:hero'],
+      ),
     ]).take(4).toList(growable: false);
 
     final structure = <String>[];
@@ -189,54 +427,78 @@ class ThaiBirthProfileCoreReading {
     final sections = <ThaiBirthProfileCoreSection>[
       ThaiBirthProfileCoreSection(
         title: ThaiBirthProfileCoreReadingCopy.summaryTitle,
-        paragraphs: summary,
-        evidenceKeys: [
-          'mirror:identity',
-          'mirror:top_themes',
-          ...themeIds.take(3).map((id) => 'theme:$id'),
-        ],
+        domain: ThaiBirthProfileCoreDomain.summary,
+        claims: summary,
       ),
       lifeDomain(
         title: ThaiBirthProfileCoreReadingCopy.workTitle,
         marker: 'งาน',
         evidence: 'mirror:work_and_ambition',
+        domainType: ThaiBirthProfileCoreDomain.work,
       ),
       lifeDomain(
         title: ThaiBirthProfileCoreReadingCopy.moneyTitle,
         marker: 'เงิน',
         evidence: 'mirror:money',
+        domainType: ThaiBirthProfileCoreDomain.money,
       ),
       lifeDomain(
         title: ThaiBirthProfileCoreReadingCopy.relationshipsTitle,
         marker: 'รัก',
         evidence: 'mirror:relationships',
+        domainType: ThaiBirthProfileCoreDomain.relationships,
       ),
       lifeDomain(
         title: ThaiBirthProfileCoreReadingCopy.wellbeingTitle,
         marker: 'สุขภาพ',
         evidence: 'mirror:wellbeing',
+        domainType: ThaiBirthProfileCoreDomain.wellbeing,
         trailing: medicalDisclaimer,
       ),
       ThaiBirthProfileCoreSection(
         title: ThaiBirthProfileCoreReadingCopy.closingTitle,
-        paragraphs: claims([
-          ...view.reflectionSummary.points.skip(2),
-          view.advice.body,
-          cardBody(view.strengths, index: 1),
-        ]).take(3).toList(growable: false),
-        evidenceKeys: [
-          'mirror:reflection',
-          ...themeIds.take(3).map((id) => 'theme:$id'),
-        ],
+        domain: ThaiBirthProfileCoreDomain.closing,
+        claims: compact([
+          claim(
+            text: _synthesizeStrengthRiskAction(
+              strength: cardBody(view.strengths, index: 1),
+              risk: view.reflectionSummary.points.length > 2
+                  ? view.reflectionSummary.points[2]
+                  : '',
+              action: view.advice.body,
+            ),
+            domain: ThaiBirthProfileCoreDomain.closing,
+            role: ThaiBirthProfileCoreClaimRole.synthesis,
+            semanticKey: 'mirror:reflection:closing',
+            evidenceKeys: [
+              'mirror:reflection',
+              'mirror:strengths:1',
+              'mirror:advice',
+              ...themeIds.take(3).map((id) => 'theme:$id'),
+            ],
+          ),
+        ]),
       ),
       ThaiBirthProfileCoreSection(
         title: ThaiBirthProfileCoreReadingCopy.methodologyTitle,
-        paragraphs: structure,
-        evidenceKeys: const [
-          'normalized:astrological_date',
-          'normalized:sunrise',
-          'profile:lagna',
-          'mirror:top_themes',
+        domain: ThaiBirthProfileCoreDomain.methodology,
+        claims: [
+          for (final (index, paragraph) in structure.indexed)
+            ThaiBirthProfileCoreParagraph(
+              text: paragraph,
+              domain: ThaiBirthProfileCoreDomain.methodology,
+              role: ThaiBirthProfileCoreClaimRole.disclosure,
+              semanticKey: 'methodology:$index',
+              evidenceKeys: [
+                switch (index) {
+                  0 => 'normalized:astrological_date',
+                  1 when normalized?.sunriseAvailable == true =>
+                    'normalized:sunrise',
+                  _ when paragraph.contains('ลัคนา') => 'profile:lagna',
+                  _ => 'mirror:top_themes',
+                },
+              ],
+            ),
         ],
         isMethodology: true,
       ),
@@ -252,12 +514,42 @@ class ThaiBirthProfileCoreReading {
     );
   }
 
+  static String _synthesizeStrengthRiskAction({
+    required String strength,
+    required String risk,
+    required String action,
+  }) {
+    final safeStrength = _asSynthesisClause(strength);
+    final safeRisk = _asSynthesisClause(risk);
+    final safeAction = _asSynthesisClause(action);
+    if (safeStrength.isEmpty && safeRisk.isEmpty && safeAction.isEmpty) {
+      return '';
+    }
+    return [
+      if (safeStrength.isNotEmpty) 'พลังที่ควรนำมาเป็นฐานคือ $safeStrength',
+      if (safeRisk.isNotEmpty) 'โดยเฝ้าดูไม่ให้ $safeRisk กลายเป็นแรงกดดัน',
+      if (safeAction.isNotEmpty)
+        'แล้วเปลี่ยนพลังนั้นเป็นการลงมือด้วยการ $safeAction',
+    ].join(' ');
+  }
+
+  static String _asSynthesisClause(String value) {
+    var clause = _lifelong(value)
+        .replaceFirst(
+          RegExp(r'^(จุดแข็ง|สิ่งที่ควรระวัง|คำแนะนำ)\s*[:：\-–—]?\s*'),
+          '',
+        )
+        .replaceFirst(RegExp(r'^(คุณ|หลายครั้งคุณ|โดยทั่วไปคุณ)\s*'), '')
+        .replaceAll(RegExp(r'[.!?。]+$'), '')
+        .trim();
+    if (clause.startsWith('ควร')) {
+      clause = clause.substring('ควร'.length).trim();
+    }
+    return clause;
+  }
+
   static String _plain(String value) =>
       value.replaceAll('**', '').replaceAll(RegExp(r'\s+'), ' ').trim();
-
-  static String _claimKey(String value) => _plain(
-    value,
-  ).replaceAll(RegExp(r'[\s·•:;,.!?()\-–—]+'), '').toLowerCase();
 
   static String _lifelong(String value) {
     final plain = _plain(value);

@@ -240,11 +240,7 @@ void main() {
       );
       expect(
         doc.fullPlainText,
-        contains(
-          ThaiBetaNarrativeComposer.narrativeView(
-            realUserAnalysis,
-          ).hero.headline,
-        ),
+        contains(_timeline(realUserAnalysis).currentStage.planetLine),
       );
     });
 
@@ -397,9 +393,7 @@ void main() {
       );
       expect(
         doc.fullPlainText,
-        contains(
-          ThaiBetaNarrativeComposer.narrativeView(success).hero.headline,
-        ),
+        contains(_timeline(success).currentStage.planetLine),
       );
     });
 

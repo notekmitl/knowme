@@ -115,6 +115,10 @@ Web and PDF build that section from the same `ThaiBetaAnalysis`; do not create
 parallel calculations or copy real user birth data into fixtures. With no birth
 time, Lagna/houses must remain absent. See
 [`THAI_BIRTH_PROFILE_CORE_READING_V1.md`](THAI_BIRTH_PROFILE_CORE_READING_V1.md).
+The V1.1 Draft candidate owns evidence per structured paragraph, rejects
+near-duplicate claims, and renders the lifelong Core once before
+Timeline/current/future. Standalone Thai Mirror behavior remains the default;
+do not restore its legacy lifelong blocks inside Thai Beta Web or PDF.
 
 Thai Astrology quality and real-person Product Acceptance are current. Preserve
 Funnel history, but do not route the next implementation to MBTI/Funnel,

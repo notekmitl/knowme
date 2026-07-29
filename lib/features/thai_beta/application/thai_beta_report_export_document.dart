@@ -2,7 +2,6 @@
 library;
 
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/presentation/thai_public_evidence_badge_beta_view_model.dart';
-import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_mirror_consumer_view_state.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/prediction/prediction_section_model.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/thai_mirror_life_timeline_state.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
@@ -81,69 +80,8 @@ class ThaiBetaReportExportDocument {
       ),
     );
 
-    // Preserve the established report below the new Core Reading. This keeps
-    // screen/PDF parity, no-time limitation copy, and existing export
-    // contracts while changing only the opening hierarchy.
-    sections.add(
-      _section(view.hero.identityBadge, [
-        view.hero.headline,
-        view.hero.summary,
-        if (view.hero.tags.isNotEmpty) view.hero.tags.join(' · '),
-        view.hero.identitySubtitle,
-      ]),
-    );
-
-    if (!view.birthDataConfidence.isComplete &&
-        view.birthDataConfidence.title.trim().isNotEmpty) {
-      sections.add(
-        _section(view.birthDataConfidence.title, [
-          view.birthDataConfidence.body,
-        ]),
-      );
-    }
-
-    if (!view.signatureInsight.isEmpty) {
-      sections.add(
-        _section(view.signatureInsight.eyebrow, [
-          _stripMarkdown(view.signatureInsight.body),
-          view.signatureInsight.signature,
-        ]),
-      );
-    }
-
-    if (view.strengths.cards.isNotEmpty) {
-      sections.add(
-        _section(view.strengths.title, [
-          for (final card in view.strengths.cards) ..._insightCardLines(card),
-        ]),
-      );
-    }
-
-    if (view.cautions.cards.isNotEmpty) {
-      sections.add(
-        _section(view.cautions.title, [
-          for (final card in view.cautions.cards) ..._insightCardLines(card),
-        ]),
-      );
-    }
-
-    sections.add(
-      _section(view.advice.title, [_stripMarkdown(view.advice.body)]),
-    );
-
-    if (view.lifeDashboard.isNotEmpty) {
-      sections.add(
-        _section('ภาพรวมด้านชีวิต', [
-          for (final item in view.lifeDashboard) ...[
-            '${item.label} — ${item.status.labelTh}',
-            item.currentState,
-            item.whyItAppears,
-            item.suggestedAction,
-          ],
-        ]),
-      );
-    }
-
+    // Thai Beta owns one lifelong Core Reading. Only time-dependent material
+    // and non-duplicated transparency/disclaimer content follows it.
     final timeline = view.lifeTimeline;
     if (timeline != null) {
       sections.addAll(_timelineSections(timeline));
@@ -154,43 +92,6 @@ class ThaiBetaReportExportDocument {
       sections.addAll(_predictionSections(prediction));
     }
 
-    for (final narrative in view.narrativeSections) {
-      sections.add(
-        _section(narrative.label, [
-          if (narrative.hasTransition) narrative.transitionIn,
-          if (narrative.pullQuote.isNotEmpty)
-            _stripMarkdown(narrative.pullQuote),
-          if (narrative.hasDiscovery) _stripMarkdown(narrative.discovery),
-          _stripMarkdown(narrative.overview),
-          if (narrative.hasTension) _stripMarkdown(narrative.tension),
-          _stripMarkdown(narrative.whyItAppears),
-          if (narrative.hasReasoning) ...[
-            narrative.reasoningTitle,
-            ...narrative.reasoningSignals.map(_stripMarkdown),
-          ],
-          _stripMarkdown(narrative.advice),
-          _stripMarkdown(narrative.example),
-          if (narrative.hasReflectionQuestion) narrative.reflectionQuestion,
-        ]),
-      );
-    }
-
-    sections.add(
-      _section(view.reflectionSummary.title, [
-        view.reflectionSummary.intro,
-        ...view.reflectionSummary.points,
-      ]),
-    );
-
-    if (!view.closingMessage.isEmpty) {
-      sections.add(
-        _section(view.closingMessage.eyebrow, [
-          _stripMarkdown(view.closingMessage.message),
-          view.closingMessage.signature,
-        ]),
-      );
-    }
-
     sections.add(
       _section('ที่มาของผลวิเคราะห์', [
         view.sourceTransparency.dataUsed,
@@ -198,10 +99,6 @@ class ThaiBetaReportExportDocument {
         view.sourceTransparency.meaning,
       ]),
     );
-
-    if (view.secretTip.trim().isNotEmpty) {
-      sections.add(_section('ข้อควรรู้', [view.secretTip]));
-    }
 
     if (view.disclaimers.isNotEmpty) {
       sections.add(
@@ -293,21 +190,6 @@ class ThaiBetaReportExportDocument {
       ),
       kind: kind,
     );
-  }
-
-  /// Prefer full expanded body over UI-truncated card body.
-  static List<String> _insightCardLines(ThaiMirrorInsightCardState card) {
-    final lines = <String>[card.title];
-    final expanded = card.expandedBody?.trim();
-    if (expanded != null && expanded.isNotEmpty) {
-      lines.add(_stripMarkdown(expanded));
-    } else {
-      final body = _stripMarkdown(card.body);
-      if (!ThaiBetaReportExportPolish.isUiTruncated(body)) {
-        lines.add(body);
-      }
-    }
-    return lines;
   }
 
   static List<ThaiBetaReportExportSection> _timelineSections(
@@ -438,7 +320,4 @@ class ThaiBetaReportExportDocument {
     return out;
   }
 
-  static String _stripMarkdown(String input) {
-    return input.replaceAll('**', '').trim();
-  }
 }
