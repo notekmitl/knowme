@@ -6,8 +6,8 @@
 
 **Prior architecture snapshot:** `feature/fusion-result`  
 **Automation workflow (authoritative):** Codex Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). Codex is the sole executor for one task branch/worktree at a time; Cursor, Claude Code, and other agents must not edit that same branch/worktree concurrently. External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
-**Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login) — Evidence Badge rollout remains `invited_beta`.
-**Thai Beta Narrative / Life Map:** **Anonymous Production QA passed** on the accepted UI (PR #58 baseline, PR #61 reload fix, Production bundle `da85013`). Narrative V1.2 and the restored Life Map render end-to-end; V1.3.5 detailed evidence remains **internal only**. Anonymous correctly sees no Evidence Badge because rollout remains `invited_beta`.
+**Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login). LEVEL 1 Canon badges now use `public_beta`: rollout flag + eligible public-safe report evidence only, never Auth/UID/invite membership.
+**Thai Beta Narrative / Life Map:** **Anonymous Production QA passed** on 2026-07-30 at Hosting release `adf0142`. Core Reading V1.1, Timeline, Evidence Badge, full-time/no-time paths, and the real 8-page PDF were verified end-to-end; V1.3.5 detailed evidence remains **internal only**.
 
 ---
 
@@ -33,7 +33,8 @@
 | **Narrative V5** | Complete | `docs/NARRATIVE_EVIDENCE_BRANCHING_V5.md` — 1000/1000 unique, 0 collapse |
 | **Funnel Recovery V2** | Implemented | `lib/features/home_cohesion/`, `lib/features/funnel_telemetry/`, MBTI → narrative preview loop |
 | **Thai Beta Narrative Quality V1–V1.2.2 + Life Map V1.2.3** | Merged to `main` + **hosted** | Life Map V1.2.3; PR https://github.com/notekmitl/knowme/pull/18; production https://knowme-app-694e1.web.app/beta/thai |
-| **Thai Birth Profile Core Reading V1** | Implemented; Production owner acceptance required | Lifelong “ดวงจากวันเกิดของคุณ” before Timeline; web/PDF share one `ThaiBetaAnalysis`; no Engine/Canon change — [`THAI_BIRTH_PROFILE_CORE_READING_V1.md`](THAI_BIRTH_PROFILE_CORE_READING_V1.md) |
+| **Thai Birth Profile Core Reading V1/V1.1** | **Production released + verified** | PR #67 (`e3b88df`, merge `a4ce716`) plus birth-hour fixes PR #68/#69; lifelong “ดวงจากวันเกิดของคุณ” before Timeline; Web/PDF share one `ThaiBetaAnalysis`; no Engine/Canon change — [`THAI_BIRTH_PROFILE_CORE_READING_V1.md`](THAI_BIRTH_PROFILE_CORE_READING_V1.md) |
+| **Public LEVEL 1 Canon Evidence Badge** | **Production released + anonymously verified** | PR #70 (`71578aa`, merge `c1598d6`) removed Auth/UID/invite dependency; PR #71 (`c32add8`, merge `adf0142`) removed internal section identifiers from public output. Web/capture/PDF use the same eligible evidence policy. |
 | **Life Map Mahabhut Canon index (Production fix)** | Merged to `main` + **hosted** | PR https://github.com/notekmitl/knowme/pull/20 @ `07d0eb9`; wires Frozen Canon `repository.index` into Timeline/Consumer presenters — unknown no longer forced by null index. Presenter-path QA (1972-04-04 02:00 BKK): **known=7 / unknown=1** (ธงชัย, unknown, ปูติ, อธิบดี, ขุมทรัพย์, ปูติ, มรณะ, ราชา). Sample pipeline fixture: known=8 / unknown=0 |
 | **Thai Life Map V1.2.4 Accuracy Audit** | Merged tests + report | PR #22 @ `cb33a3d`; 22 fixtures / 176 periods; known 139 / unknown 37; [`THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md`](THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md) |
 | **Thai Life Map V1.2.5 Invited Beta Feedback** | Merged + **hosted** — **Ready for Validation** | PR #23 @ `b5d1243`; deploy Firebase Hosting + rules 2026-07-23; anonymous Production QA PASS (no panel/badge leak); **0 real invited Feedback** → not Validation Passed; [`THAI_LIFE_MAP_V125_BETA_VALIDATION.md`](THAI_LIFE_MAP_V125_BETA_VALIDATION.md) |
@@ -86,7 +87,7 @@ work is not the current next implementation priority.
 | Risk | Severity | Detail |
 |------|----------|--------|
 | Personality test cliff | **Critical** | 97% of profile users never start MBTI (`REAL_USER_RUNTIME_VALIDATION_V1.md`) |
-| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `da85013` (2026-07-28); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
+| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `adf0142` (2026-07-30); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
 | Real user PII export local-only | **High** | `firestore_user_export.json` gitignored — must regenerate locally |
 | Firebase service account local-only | **High** | `backend/firebase/serviceAccountKey.json` gitignored |
 | Legacy + new architecture coexist | **Medium** | Parallel scoring, navigation, and module IDs — trace before editing |
@@ -105,7 +106,7 @@ Accepted debt — do not hide; trace before editing.
 | AppText monolith | Low | `lib/core/i18n/app_text.dart` large | ARB/codegen future; acceptable for now |
 | Fusion outlier coverage | Low | Special-case copy for ESTJ, ENTJ, INTJ, ENFP only | Quality > coverage — expand carefully |
 | Dual astrology providers | Medium | `presentation/providers/astrology_provider.dart` + `lib/astrology/providers/astrology_provider.dart` | Do not aggressively merge — duplicate path risk |
-| Hosting source vs `main` | Low | Last public deploy from `main` @ `da85013` (manual); no auto-deploy | Keep using `scripts/deploy_web.ps1` for intentional releases |
+| Hosting source vs `main` | Low | Last public deploy from `main` @ `adf0142` (manual); no auto-deploy | Keep using `scripts/deploy_web.ps1` for intentional releases |
 | Real user PII export local-only | High | `firestore_user_export.json` gitignored | Regenerate locally |
 | Firebase service account local-only | High | `backend/firebase/serviceAccountKey.json` gitignored | Never commit |
 
@@ -118,7 +119,7 @@ Accepted debt — do not hide; trace before editing.
 | **Status** | Public beta live on Firebase Hosting (June 2026) |
 | **Primary URL** | https://knowme-app-694e1.web.app |
 | **Firebase project** | `knowme-app-694e1` |
-| **Branch deployed from** | `main` @ `3d881e7` (2026-07-29, PR #65); still **manual** deploy only — no auto-deploy |
+| **Branch deployed from** | `main` @ `adf0142` (2026-07-30, PR #71); still **manual** deploy only — no auto-deploy |
 | **Full guide** | [`docs/DEPLOYMENT.md`](DEPLOYMENT.md) |
 
 Deploy: `.\scripts\deploy_web.ps1` or `firebase deploy --only hosting --project knowme-app-694e1`
@@ -127,28 +128,15 @@ Deploy: `.\scripts\deploy_web.ps1` or `firebase deploy --only hosting --project 
 
 ## Next Priority
 
-**Thai Birth Profile Human-Readable Core Reading V1: owner/tester Product
-Acceptance on Production.**
+**Thai Birth Profile Human-Readable Core Reading V1.1 is Production released
+and verified.**
 
-Product Acceptance Fix V1.1 is prepared as a review candidate: it removes
-meta-validation copy from public/PDF Core Reading, strengthens thin summaries
-with unused traceable evidence, assigns exact evidence ownership to each
-structured paragraph, prevents semantic-key/text near-duplicates, and composes
-supported strength → risk → action claims. Thai Beta Web/PDF no longer append
-the legacy lifelong report after Core Reading; Timeline/current/future and
-transparency/disclaimers remain, while standalone Thai Mirror keeps its default
-behavior. It does not change Engine or Production until its Draft PR is
-reviewed and merged.
-
-- Confirm the report starts with “ดวงจากวันเกิดของคุณ” and
-  “สรุปตัวคุณจากพื้นดวง”.
-- Confirm work, money, relationships, wellbeing, and closing reflection read as
-  continuous prose without repeated system labels.
-- Confirm “ดวงนี้วิเคราะห์จากอะไร” is collapsed by default and the Timeline is
-  visually separated.
-- Read full-time and no-time results from real tests.
-- Decide whether the structure and evidence-backed Thai copy feels close enough
-  to a direct Thai astrologer reading. Codex must not declare accuracy itself.
+PR #67, birth-hour fixes PR #68/#69, public badge PR #70, and redaction hotfix
+PR #71 are merged. Anonymous Production smoke testing passed for selected birth
+time and unknown birth time, LEVEL 1 eligible evidence, Core Reading placement,
+Timeline separation, public-safe output, and real Web/PDF parity. No further
+Core Reading release action is pending; future interpretive accuracy decisions
+remain owner/tester judgments.
 
 **Production Funnel Measurement V1 remains COMPLETE — decision IMPROVE.**
 

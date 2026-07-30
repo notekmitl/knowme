@@ -16,12 +16,12 @@ cd knowme
 git checkout main
 ```
 
-**Important:** `main` is canonical. Accepted Life Map was restored by PR #58,
-anonymous route/reload QA passed after PR #61, and Human-Readable Core Reading
-V1 shipped from PR #65 at Production bundle `3d881e7`. Anonymous users open
-`/beta/thai` without login or a seeded UID, complete the report, and remain on
-that route after reload. V1.3.5 detailed evidence stays internal; Evidence
-Badge remains `invited_beta`, so no badge for anonymous users is correct.
+**Important:** `main` is canonical. Human-Readable Core Reading V1.1 shipped in
+PR #67, birth-hour state was fixed in PR #68/#69, and public LEVEL 1 badges
+shipped in PR #70 with the public-identifier redaction hotfix in PR #71.
+Production Hosting `adf0142` was anonymously verified on 2026-07-30. Anonymous
+users open `/beta/thai` without login or a seeded UID; eligible reports show
+public-safe LEVEL 1 badges. V1.3.5 detailed evidence stays internal.
 
 **Automation workflow:** Use Single-Agent + Local Gate — see [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). The external AI Worker is **retired** (historical: [`AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)). The obsolete in-repo `ai-worker/` directory is gitignored and must not be committed.
 
@@ -75,7 +75,7 @@ Output: `test/validation/real_user_runtime_v1/output/` (export JSON is gitignore
 
 - Public anonymous entry: `https://knowme-app-694e1.web.app/beta/thai`.
 - Do not request login, credentials, Firebase invite seeding, or a seeded UID for the anonymous flow.
-- Evidence Badge is separately controlled by `invited_beta`; anonymous not seeing it is expected.
+- Evidence Badge is controlled by `public_beta`; visibility depends only on the rollout flag and eligible LEVEL 1 report evidence, not Auth, UID, admin status, or invite membership.
 - PR #61 fixed route preservation/reload (`981ed04`, merge `da85013`, Production bundle `da85013`).
 - The anonymous Production validation and route/reload incident are closed. Reopen only with a reproducible regression.
 
@@ -89,11 +89,11 @@ Output: `test/validation/real_user_runtime_v1/output/` (export JSON is gitignore
   unchanged Timeline.
 - Web and PDF use the same deterministic
   `ThaiBirthProfileCoreReading.fromAnalysis` output.
-- Birth Normalization, Thai Engine, Frozen Canon, Timeline, feedback, Evidence
-  Badge policy, auth, audience, flags, Firebase data/rules, and Production
-  configuration are unchanged.
-- Owner/tester Product Acceptance is the next decision; Codex does not declare
-  interpretive accuracy.
+- Birth Normalization, Thai Engine, Frozen Canon, Timeline, feedback, Auth,
+  Firebase data/rules, and audience are unchanged.
+- Production validation passed for full-time/no-time Web, real PDF parity,
+  public-safe LEVEL 1 badges, Timeline placement, and zero related console
+  errors. Interpretive accuracy remains an owner/tester judgment.
 
 ### Production funnel measurement
 
@@ -115,10 +115,10 @@ Web and PDF build that section from the same `ThaiBetaAnalysis`; do not create
 parallel calculations or copy real user birth data into fixtures. With no birth
 time, Lagna/houses must remain absent. See
 [`THAI_BIRTH_PROFILE_CORE_READING_V1.md`](THAI_BIRTH_PROFILE_CORE_READING_V1.md).
-The V1.1 Draft candidate owns evidence per structured paragraph, rejects
-near-duplicate claims, and renders the lifelong Core once before
-Timeline/current/future. Standalone Thai Mirror behavior remains the default;
-do not restore its legacy lifelong blocks inside Thai Beta Web or PDF.
+V1.1 owns evidence per structured paragraph, rejects near-duplicate claims, and
+renders the lifelong Core once before Timeline/current/future. It is released
+and verified in Production. Standalone Thai Mirror behavior remains the
+default; do not restore its legacy lifelong blocks inside Thai Beta Web or PDF.
 
 Thai Astrology quality and real-person Product Acceptance are current. Preserve
 Funnel history, but do not route the next implementation to MBTI/Funnel,
