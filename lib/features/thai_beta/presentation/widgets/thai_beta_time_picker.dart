@@ -13,6 +13,7 @@ class ThaiBetaTimeField extends StatelessWidget {
     required this.minute,
     required this.onHourChanged,
     required this.onMinuteChanged,
+    this.hourController,
   });
 
   /// Selected hour, or null when not yet chosen.
@@ -20,6 +21,7 @@ class ThaiBetaTimeField extends StatelessWidget {
   final int minute;
   final ValueChanged<int?> onHourChanged;
   final ValueChanged<int> onMinuteChanged;
+  final TextEditingController? hourController;
 
   static String two(int v) => v.toString().padLeft(2, '0');
 
@@ -29,9 +31,21 @@ class ThaiBetaTimeField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Expanded(
-          child: _ThaiBetaHourDropdown(
-            hour: hour,
-            onChanged: onHourChanged,
+          child: DropdownMenu<int>(
+            key: const Key('thai_beta_hour_menu'),
+            controller: hourController,
+            initialSelection: hour,
+            enableFilter: true,
+            requestFocusOnTap: true,
+            menuHeight: 260,
+            expandedInsets: EdgeInsets.zero,
+            label: const Text('ชั่วโมง'),
+            leadingIcon: const Icon(Icons.access_time_rounded),
+            onSelected: onHourChanged,
+            dropdownMenuEntries: [
+              for (var h = 0; h <= 23; h++)
+                DropdownMenuEntry<int>(value: h, label: two(h)),
+            ],
           ),
         ),
         const Padding(
@@ -58,90 +72,6 @@ class ThaiBetaTimeField extends StatelessWidget {
             ],
           ),
         ),
-      ],
-    );
-  }
-}
-
-class _ThaiBetaHourDropdown extends StatefulWidget {
-  const _ThaiBetaHourDropdown({
-    required this.hour,
-    required this.onChanged,
-  });
-
-  final int? hour;
-  final ValueChanged<int?> onChanged;
-
-  @override
-  State<_ThaiBetaHourDropdown> createState() =>
-      _ThaiBetaHourDropdownState();
-}
-
-class _ThaiBetaHourDropdownState extends State<_ThaiBetaHourDropdown> {
-  late final TextEditingController _controller;
-  int? _committedHour;
-  bool _syncingController = false;
-
-  @override
-  void initState() {
-    super.initState();
-    _committedHour = widget.hour;
-    _controller = TextEditingController(
-      text: widget.hour == null ? '' : ThaiBetaTimeField.two(widget.hour!),
-    )..addListener(_commitControllerValue);
-  }
-
-  @override
-  void didUpdateWidget(covariant _ThaiBetaHourDropdown oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (widget.hour == _committedHour) return;
-    _committedHour = widget.hour;
-    _syncingController = true;
-    _controller.text =
-        widget.hour == null ? '' : ThaiBetaTimeField.two(widget.hour!);
-    _syncingController = false;
-  }
-
-  @override
-  void dispose() {
-    _controller
-      ..removeListener(_commitControllerValue)
-      ..dispose();
-    super.dispose();
-  }
-
-  void _commitControllerValue() {
-    if (_syncingController) return;
-    final parsed = int.tryParse(_controller.text.trim());
-    if (parsed == null || parsed < 0 || parsed > 23) return;
-    _commit(parsed);
-  }
-
-  void _commit(int? value) {
-    if (value == _committedHour) return;
-    _committedHour = value;
-    widget.onChanged(value);
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return DropdownMenu<int>(
-      key: const Key('thai_beta_hour_menu'),
-      controller: _controller,
-      initialSelection: widget.hour,
-      enableFilter: true,
-      requestFocusOnTap: true,
-      menuHeight: 260,
-      expandedInsets: EdgeInsets.zero,
-      label: const Text('ชั่วโมง'),
-      leadingIcon: const Icon(Icons.access_time_rounded),
-      onSelected: _commit,
-      dropdownMenuEntries: [
-        for (var h = 0; h <= 23; h++)
-          DropdownMenuEntry<int>(
-            value: h,
-            label: ThaiBetaTimeField.two(h),
-          ),
       ],
     );
   }

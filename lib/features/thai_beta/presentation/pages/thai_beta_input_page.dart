@@ -23,6 +23,7 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
   final _formKey = GlobalKey<FormState>();
   final _firstName = TextEditingController();
   final _lastName = TextEditingController();
+  final _birthHourController = TextEditingController();
 
   DateTime? _birthDate;
   int? _birthHour;
@@ -40,6 +41,7 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
   void dispose() {
     _firstName.dispose();
     _lastName.dispose();
+    _birthHourController.dispose();
     super.dispose();
   }
 
@@ -64,13 +66,18 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
       return;
     }
 
+    final displayedHour = int.tryParse(_birthHourController.text.trim());
+    final resolvedHour = _birthHour ??
+        (displayedHour != null && displayedHour >= 0 && displayedHour <= 23
+            ? displayedHour
+            : null);
     final input = ThaiBetaInput(
       firstName: _firstName.text.trim(),
       lastName: _lastName.text.trim(),
       birthDate: _birthDate!,
-      birthHour: _birthTimeUnknown ? null : _birthHour,
+      birthHour: _birthTimeUnknown ? null : resolvedHour,
       birthMinute: _birthTimeUnknown ? 0 : _birthMinute,
-      birthTimeUnknown: _birthTimeUnknown || _birthHour == null,
+      birthTimeUnknown: _birthTimeUnknown || resolvedHour == null,
       province: _province?.labelTh,
       provinceKey: _province?.resolverKey,
       gender: _gender,
@@ -176,6 +183,7 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
                       ThaiBetaTimeField(
                         hour: _birthHour,
                         minute: _birthMinute,
+                        hourController: _birthHourController,
                         onHourChanged: (v) => setState(() => _birthHour = v),
                         onMinuteChanged: (v) =>
                             setState(() => _birthMinute = v),

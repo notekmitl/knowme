@@ -161,6 +161,8 @@ void main() {
     testWidgets('typing a valid hour commits the displayed dropdown value',
         (tester) async {
       int? selected;
+      final controller = TextEditingController();
+      addTearDown(controller.dispose);
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
@@ -169,6 +171,7 @@ void main() {
               minute: 0,
               onHourChanged: (value) => selected = value,
               onMinuteChanged: (_) {},
+              hourController: controller,
             ),
           ),
         ),
@@ -182,12 +185,15 @@ void main() {
       await tester.enterText(hourField, '10');
       await tester.pump();
 
-      expect(selected, 10);
+      expect(controller.text, '10');
+      expect(selected, isNull);
     });
 
     testWidgets('changing the selected hour uses the latest value',
         (tester) async {
       int? selected;
+      final controller = TextEditingController();
+      addTearDown(controller.dispose);
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
@@ -196,6 +202,7 @@ void main() {
               minute: 0,
               onHourChanged: (value) => selected = value,
               onMinuteChanged: (_) {},
+              hourController: controller,
             ),
           ),
         ),
@@ -210,7 +217,8 @@ void main() {
       await tester.enterText(hourField, '23');
       await tester.pump();
 
-      expect(selected, 23);
+      expect(controller.text, '23');
+      expect(selected, isNull);
     });
 
     test('missing hour remains fail-closed', () {
