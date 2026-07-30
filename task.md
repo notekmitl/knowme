@@ -1,8 +1,7 @@
-# Task: Public Thai Beta Evidence Badge V1
+# Task: Public Thai Beta Evidence Badge Redaction Hotfix
 
-Make LEVEL 1 Canon badges on `/beta/thai` depend on the current report's
-public-safe evidence and the rollout flag, never Firebase Auth, UID, session,
-admin status, or invited-tester membership.
+Prevent internal section identifiers from appearing in the public LEVEL 1
+Canon badge while preserving the evidence-based rollout on `/beta/thai`.
 
 Keep `/beta/thai` anonymous. Preserve the frozen LEVEL 1 eligibility filter,
 safe copy, rollback-to-off behavior, Core Reading, Canon, Engine, Timeline,

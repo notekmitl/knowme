@@ -66,11 +66,6 @@ class _BadgeRow extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          badge.sectionId,
-          style: theme.textTheme.labelMedium,
-        ),
-        const SizedBox(height: 4),
         Chip(
           label: Text(badge.badgeLabel),
           backgroundColor: theme.colorScheme.primaryContainer,

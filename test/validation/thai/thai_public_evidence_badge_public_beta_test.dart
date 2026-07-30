@@ -105,6 +105,7 @@ void main() {
       );
       expect(find.byType(ThaiBetaEvidenceBadgePanel), findsOneWidget);
       expect(find.text('LEVEL 1 Canon'), findsOneWidget);
+      expect(find.text('profile'), findsNothing);
     });
 
     testWidgets('real report enrichment produces only LEVEL 1 badges', (
