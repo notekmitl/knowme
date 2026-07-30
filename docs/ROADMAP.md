@@ -102,14 +102,14 @@ Sources: `docs/*.md`, `lib/features/*`, validation outputs.
 
 ### Thai Astrology quality first
 
-Thai Birth Profile Human-Readable Core Reading V1 makes `/beta/thai` begin with
-“ดวงจากวันเกิดของคุณ” and six evidence-backed lifelong narrative sections,
-followed by a collapsed public-safe methodology disclosure before Timeline.
-The V1.1 Draft candidate adds paragraph-level traceability, semantic-domain
+Thai Birth Profile Human-Readable Core Reading V1.1 is Production released and
+verified. PR #67 delivered paragraph-level traceability, semantic-domain
 enforcement, supported strength → risk → action synthesis, near-duplicate
-prevention, and removes the repeated legacy lifelong report from Thai Beta
-Web/PDF without changing standalone Thai Mirror defaults.
-The next decision is owner/tester Product Acceptance on Production.
+prevention, and single-instance Web/PDF output. PR #68/#69 fixed birth-hour
+state; PR #70 made eligible LEVEL 1 badges public without Auth/UID/invite
+dependency; PR #71 removed internal identifiers. Anonymous full-time/no-time
+Web and the real 8-page PDF passed Production smoke testing on 2026-07-30 at
+Hosting release `adf0142`. Standalone Thai Mirror defaults remain unchanged.
 Chinese, Western, Fusion, MBTI, psychology, and new Funnel work are deferred
 until Thai Astrology reaches the required quality.
 
