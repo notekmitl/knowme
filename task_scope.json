@@ -1,12 +1,13 @@
 {
   "schema_version": 1,
   "task_id": "thai-beta-birth-hour-state-hotfix",
-  "expected_branch": "codex/hotfix-thai-beta-birth-hour-state",
+  "expected_branch": "codex/hotfix-thai-beta-birth-hour-state-v2",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "a4ce7169d68bda23d23e86c1a357e8d195048204",
+  "base_ref": "382dbedb7cba13fb6f67da15098aafd7a045149e",
   "allowed_files": [
     "task.md",
     "task_scope.json",
+    "lib/features/thai_beta/presentation/pages/thai_beta_input_page.dart",
     "lib/features/thai_beta/presentation/widgets/thai_beta_time_picker.dart",
     "test/validation/thai_beta/thai_beta_input_fields_test.dart"
   ],
