@@ -17,6 +17,7 @@ abstract final class ThaiPublicEvidenceBadgeBetaGate {
         resolvedAudience.isInternalTester,
       ThaiEvidenceBadgeFeatureFlagState.invitedBeta =>
         resolvedAudience.isInvitedBetaTester,
+      ThaiEvidenceBadgeFeatureFlagState.publicBeta => true,
     };
   }
 

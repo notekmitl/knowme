@@ -5,7 +5,7 @@ import 'thai_evidence_badge_activation.dart';
 /// Default runtime fallback: [off]. Invalid values resolve to [off].
 ///
 /// Configure at build time:
-/// `--dart-define=THAI_PUBLIC_EVIDENCE_BADGE_BETA=internal_only|invited_beta|off`
+/// `--dart-define=THAI_PUBLIC_EVIDENCE_BADGE_BETA=internal_only|invited_beta|public_beta|off`
 ///
 /// When the dart-define is omitted, [ThaiEvidenceBadgeActivation.configuredState]
 /// applies (currently `internal_only` for internal-only activation).
@@ -13,6 +13,7 @@ enum ThaiEvidenceBadgeFeatureFlagState {
   off,
   internalOnly,
   invitedBeta,
+  publicBeta,
 }
 
 /// Static feature flag — default off; injectable in tests.
@@ -24,6 +25,7 @@ abstract final class ThaiEvidenceBadgeFeatureFlag {
     return switch (raw?.trim().toLowerCase()) {
       'internal_only' => ThaiEvidenceBadgeFeatureFlagState.internalOnly,
       'invited_beta' => ThaiEvidenceBadgeFeatureFlagState.invitedBeta,
+      'public_beta' => ThaiEvidenceBadgeFeatureFlagState.publicBeta,
       'off' || '' || null => ThaiEvidenceBadgeFeatureFlagState.off,
       _ => ThaiEvidenceBadgeFeatureFlagState.off,
     };
