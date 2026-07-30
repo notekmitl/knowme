@@ -79,6 +79,8 @@ class ThaiBetaReportPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenshotMode =
         screenshotModeOverride ?? ThaiBetaScreenshotScope.of(context);
+    final resolvedFlag =
+        featureFlagOverride ?? ThaiEvidenceBadgeFeatureFlag.state;
 
     if (audienceOverride != null) {
       return _ThaiBetaReportScaffold(
@@ -86,6 +88,21 @@ class ThaiBetaReportPage extends StatelessWidget {
         audience: audienceOverride!,
         userId: userIdOverride,
         featureFlagOverride: featureFlagOverride,
+        badgeViewModelsOverride: badgeViewModelsOverride,
+        repository: repository,
+        screenshotMode: screenshotMode,
+        showCaptureModeBanner: showCaptureModeBanner,
+        captureBannerMessage: captureBannerMessage,
+      );
+    }
+
+    // Public Thai Beta is evidence-gated, not identity-gated. Avoid creating
+    // Firebase Auth/Firestore audience listeners on this public surface.
+    if (resolvedFlag == ThaiEvidenceBadgeFeatureFlagState.publicBeta) {
+      return _ThaiBetaReportScaffold(
+        analysis: analysis,
+        audience: const ThaiBetaEvidenceBadgeAudience.anonymous(),
+        featureFlagOverride: resolvedFlag,
         badgeViewModelsOverride: badgeViewModelsOverride,
         repository: repository,
         screenshotMode: screenshotMode,
@@ -221,7 +238,11 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
 
   Future<void> _loadBadgesIfNeeded() async {
     if (widget.badgeViewModelsOverride != null) {
-      setState(() => _badges = widget.badgeViewModelsOverride!);
+      setState(
+        () => _badges = widget.badgeViewModelsOverride!
+            .where((badge) => badge.eligible)
+            .toList(growable: false),
+      );
       _scheduleDiagnosticsRefresh();
       return;
     }
@@ -348,6 +369,17 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
         timelineAndTransparencyOnly: true,
         consumerState: narrativeView,
       ),
+      if (!widget.screenshotMode)
+        Padding(
+          padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
+          child: OutlinedButton.icon(
+            key: const Key('thai_beta_open_capture_export'),
+            onPressed: () =>
+                Navigator.of(context).pushNamed('/beta/thai/capture'),
+            icon: const Icon(Icons.picture_as_pdf_outlined),
+            label: const Text('ดาวน์โหลดรายงาน PDF'),
+          ),
+        ),
       if (!widget.screenshotMode &&
           widget.audience.isInvitedBetaTester &&
           widget.userId != null &&

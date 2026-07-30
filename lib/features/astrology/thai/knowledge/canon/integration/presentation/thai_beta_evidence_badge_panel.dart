@@ -26,7 +26,7 @@ class ThaiBetaEvidenceBadgePanel extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Canon traceability (beta)',
+              'LEVEL 1 Canon',
               style: theme.textTheme.labelLarge?.copyWith(
                 color: theme.colorScheme.primary,
               ),
