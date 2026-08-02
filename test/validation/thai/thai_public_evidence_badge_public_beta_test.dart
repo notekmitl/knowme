@@ -108,6 +108,32 @@ void main() {
       expect(find.text('profile'), findsNothing);
     });
 
+    testWidgets('repeated public badge copy renders once', (tester) async {
+      const secondEligibleBadge = ThaiPublicEvidenceBadgeBetaViewModel(
+        sectionId: 'timeline',
+        badgeLabel: ThaiPublicEvidenceBadgeCopy.primaryBadgeLabel,
+        cautionCopy: ThaiPublicEvidenceBadgeCopy.cautionCopy,
+        sourceLevel:
+            ThaiPublicEvidenceDisclosureLevel.level1PublicSummaryBadge,
+        eligible: true,
+      );
+      await pumpReport(
+        tester,
+        flag: ThaiEvidenceBadgeFeatureFlagState.publicBeta,
+        audience: const ThaiBetaEvidenceBadgeAudience.anonymous(),
+        badges: const [eligibleBadge, secondEligibleBadge],
+      );
+
+      expect(
+        find.text(ThaiPublicEvidenceBadgeCopy.primaryBadgeLabel),
+        findsOneWidget,
+      );
+      expect(
+        find.text(ThaiPublicEvidenceBadgeCopy.cautionCopy),
+        findsOneWidget,
+      );
+    });
+
     testWidgets('real report enrichment produces only LEVEL 1 badges', (
       tester,
     ) async {

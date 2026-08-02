@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/thai_mirror_life_timeline_state.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/ui/pages/thai_mirror_result_page.dart';
+import 'package:knowme/features/astrology/thai/knowledge/canon/integration/presentation/thai_public_evidence_badge_beta_view_model.dart';
+import 'package:knowme/features/astrology/thai/knowledge/canon/integration/presentation/thai_public_evidence_badge_preview.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_current_analysis.dart';
@@ -103,6 +105,42 @@ void main() {
       // Core Reading is the shared web/PDF presentation source.
       expect(text, contains(ThaiBirthProfileCoreReading.reportTitle));
       expect(text, contains('สรุปตัวคุณจากพื้นดวง'));
+    });
+
+    test('deduplicates identical public evidence summaries', () {
+      const badges = [
+        ThaiPublicEvidenceBadgeBetaViewModel(
+          sectionId: 'profile',
+          badgeLabel: ThaiPublicEvidenceBadgeCopy.primaryBadgeLabel,
+          cautionCopy: ThaiPublicEvidenceBadgeCopy.cautionCopy,
+          sourceLevel:
+              ThaiPublicEvidenceDisclosureLevel.level1PublicSummaryBadge,
+          eligible: true,
+        ),
+        ThaiPublicEvidenceBadgeBetaViewModel(
+          sectionId: 'timeline',
+          badgeLabel: ThaiPublicEvidenceBadgeCopy.primaryBadgeLabel,
+          cautionCopy: ThaiPublicEvidenceBadgeCopy.cautionCopy,
+          sourceLevel:
+              ThaiPublicEvidenceDisclosureLevel.level1PublicSummaryBadge,
+          eligible: true,
+        ),
+      ];
+      final doc = ThaiBetaReportExportDocument.fromAnalysis(
+        analysis,
+        badges: badges,
+      );
+
+      expect(
+        ThaiPublicEvidenceBadgeCopy.primaryBadgeLabel.allMatches(
+          doc.fullPlainText,
+        ),
+        hasLength(1),
+      );
+      expect(
+        ThaiPublicEvidenceBadgeCopy.cautionCopy.allMatches(doc.fullPlainText),
+        hasLength(1),
+      );
     });
 
     test('export text has no forbidden content', () {
