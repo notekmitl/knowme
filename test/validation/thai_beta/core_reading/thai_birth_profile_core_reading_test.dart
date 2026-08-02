@@ -32,7 +32,7 @@ void main() {
     expect(reading.sections.every((s) => s.evidenceKeys.isNotEmpty), isTrue);
     expect(
       reading.sections.last.publicParagraphs.join('\n'),
-      contains('ลัคนาอยู่ที่ราศี'),
+      contains('ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากเวลาและสถานที่เกิด)'),
     );
   });
 
@@ -561,8 +561,11 @@ void main() {
     final closing = reading.sections.singleWhere(
       (section) => section.domain == ThaiBirthProfileCoreDomain.closing,
     );
-    final atoms = closing.claims.single.sourceAtoms;
+    final atoms = closing.claims
+        .expand((claim) => claim.sourceAtoms)
+        .toList(growable: false);
 
+    expect(closing.claims, hasLength(3));
     expect(atoms.map((atom) => atom.kind).toSet(), {
       ThaiBirthProfileCoreAtomKind.strengthTheme,
       ThaiBirthProfileCoreAtomKind.riskTheme,

@@ -1,14 +1,23 @@
 {
   "schema_version": 1,
-  "task_id": "public-thai-beta-badge-redaction-hotfix",
-  "expected_branch": "codex/public-thai-beta-badge-redaction-hotfix",
+  "task_id": "thai-beta-readability-comprehension-v1",
+  "expected_branch": "codex/thai-beta-readability-comprehension-v1",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "c1598d68262dade03e5a12e9b63434c5a559eed6",
+  "base_ref": "28f08b105428a4fe3d19d1922cdb24f188bec29e",
   "allowed_files": [
     "task.md",
     "task_scope.json",
-    "lib/features/astrology/thai/knowledge/canon/integration/presentation/thai_beta_evidence_badge_panel.dart",
-    "test/validation/thai/thai_public_evidence_badge_public_beta_test.dart"
+    "TASK_RESULT.md",
+    "lib/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart",
+    "lib/features/thai_beta/application/thai_beta_report_export_document.dart",
+    "lib/features/thai_beta/presentation/widgets/thai_birth_profile_core_reading_section.dart",
+    "test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart",
+    "test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart",
+    "test/validation/thai_beta/thai_beta_report_export_test.dart",
+    "test/validation/thai_beta/thai_beta_report_scroll_layout_test.dart",
+    "docs/CURRENT_STATUS.md",
+    "docs/HANDOFF.md",
+    "docs/ROADMAP.md"
   ],
   "allowed_globs": [],
   "forbidden_files": [
@@ -27,7 +36,9 @@
     "**/__pycache__/**",
     "**/*.pyc",
     "**/*.g.dart",
-    "**/*.freezed.dart"
+    "**/*.freezed.dart",
+    "**/*.pdf",
+    "**/*.png"
   ],
   "forbidden_text_patterns": [
     "OPENAI_API_KEY",
@@ -40,11 +51,13 @@
     "round_[0-9]+_review\\.json"
   ],
   "focused_tests": [
-    "flutter test test/validation/thai/thai_public_evidence_badge_public_beta_test.dart",
-    "flutter test test/validation/thai_beta/thai_beta_report_export_test.dart"
+    "flutter test test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart",
+    "flutter test test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart",
+    "flutter test test/validation/thai_beta/thai_beta_report_export_test.dart",
+    "flutter test test/validation/thai_beta/thai_beta_report_scroll_layout_test.dart"
   ],
   "full_test_policy": "required",
-  "full_test_command": "flutter test --concurrency=1 test/validation/thai/thai_public_evidence_badge_public_beta_test.dart test/validation/thai_beta/thai_beta_report_export_test.dart",
+  "full_test_command": "flutter test --concurrency=1 test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart test/validation/thai_beta/thai_beta_report_export_test.dart test/validation/thai_beta/thai_beta_report_scroll_layout_test.dart test/validation/thai_beta/thai_beta_pipeline_test.dart test/validation/thai_beta/thai_beta_public_route_anonymous_test.dart test/validation/thai/thai_public_evidence_badge_public_beta_test.dart",
   "analyze_command": "flutter analyze --no-fatal-warnings --no-fatal-infos",
   "commit_message_regex": "^fix\\(thai-beta\\): .{10,72}$",
   "require_clean_tree_after_commit": true
