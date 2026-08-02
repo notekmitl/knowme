@@ -18,6 +18,16 @@ class ThaiBetaEvidenceBadgePanel extends StatelessWidget {
     if (badges.isEmpty) return const SizedBox.shrink();
 
     final theme = Theme.of(context);
+    final uniquePublicSummaries = <String, ThaiPublicEvidenceBadgeBetaViewModel>{};
+    for (final badge in badges) {
+      ThaiEvidenceBadgeBetaTelemetry.badgeRendered(
+        sectionId: badge.sectionId,
+      );
+      uniquePublicSummaries.putIfAbsent(
+        '${badge.badgeLabel}\u0000${badge.cautionCopy}',
+        () => badge,
+      );
+    }
     return Material(
       color: theme.colorScheme.surfaceContainerHighest.withValues(alpha: 0.35),
       child: Padding(
@@ -39,10 +49,7 @@ class ThaiBetaEvidenceBadgePanel extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
-            ...badges.map((badge) {
-              ThaiEvidenceBadgeBetaTelemetry.badgeRendered(
-                sectionId: badge.sectionId,
-              );
+            ...uniquePublicSummaries.values.map((badge) {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 8),
                 child: _BadgeRow(badge: badge),

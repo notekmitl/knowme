@@ -1,9 +1,8 @@
-# Task: Thai Beta Readability & Comprehension Hardening V1
+# Task: Thai Beta Readability Evidence Summary Dedupe V1
 
-Improve only the Public Thai Beta consumer-facing composition, presentation,
-and PDF export so deterministic reports are easier to understand, concise,
-non-repetitive, domain-aligned, and actionable across known-time and
-unknown-time fixtures.
+Remove repeated copies of the same public Evidence Badge explanation from the
+Thai Beta Web panel and PDF export while preserving per-section eligibility,
+telemetry, and the approved public wording.
 
 Preserve the Thai Engine, Canon, Birth Normalization, evidence eligibility,
 anonymous access, Timeline calculations, standalone Thai Mirror, feedback,

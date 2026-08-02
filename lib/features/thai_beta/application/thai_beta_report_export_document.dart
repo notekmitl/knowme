@@ -110,8 +110,14 @@ class ThaiBetaReportExportDocument {
       );
     }
 
-    final safeBadges = badges
-        .where((b) => b.eligible)
+    final uniqueSafeBadges = <String, ThaiPublicEvidenceBadgeBetaViewModel>{};
+    for (final badge in badges.where((badge) => badge.eligible)) {
+      uniqueSafeBadges.putIfAbsent(
+        '${badge.badgeLabel}\u0000${badge.cautionCopy}',
+        () => badge,
+      );
+    }
+    final safeBadges = uniqueSafeBadges.values
         .map((b) => _section(b.badgeLabel, [b.cautionCopy]))
         .toList();
     if (safeBadges.isNotEmpty) {
