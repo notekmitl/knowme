@@ -64,6 +64,10 @@ class ThaiBetaEvidenceBadgePanel extends StatelessWidget {
   }
 }
 
+String _readerBadgeLabel(String label) => label == 'มีแหล่งอ้างอิงใน Canon'
+    ? 'มีที่มาจากตำราอ้างอิง'
+    : label;
+
 class _BadgeRow extends StatelessWidget {
   const _BadgeRow({required this.badge});
 
@@ -76,7 +80,7 @@ class _BadgeRow extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Chip(
-          label: Text(badge.badgeLabel),
+          label: Text(_readerBadgeLabel(badge.badgeLabel)),
           backgroundColor: theme.colorScheme.primaryContainer,
         ),
         const SizedBox(height: 4),

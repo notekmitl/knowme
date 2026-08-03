@@ -565,7 +565,16 @@ void main() {
         .expand((claim) => claim.sourceAtoms)
         .toList(growable: false);
 
-    expect(closing.claims, hasLength(3));
+    expect(closing.claims, hasLength(1));
+    expect(closing.claims.single.text, contains('จุดแข็งที่คุณพึ่งพาได้คือ'));
+    expect(
+      closing.claims.single.text,
+      contains('เมื่อใช้จุดแข็งนี้มากเกินไป ควรระวัง'),
+    );
+    expect(
+      closing.claims.single.text,
+      contains('เพื่อใช้จุดแข็งนี้ได้อย่างพอดี ลอง'),
+    );
     expect(atoms.map((atom) => atom.kind).toSet(), {
       ThaiBirthProfileCoreAtomKind.strengthTheme,
       ThaiBirthProfileCoreAtomKind.riskTheme,

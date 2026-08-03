@@ -119,7 +119,12 @@ class ThaiBetaReportExportDocument {
     }
     final safeBadges = uniqueSafeBadges.values
         .map(
-          (b) => _section('รายละเอียดหลักฐาน', [b.badgeLabel, b.cautionCopy]),
+          (b) => _section('รายละเอียดหลักฐาน', [
+            b.badgeLabel == 'มีแหล่งอ้างอิงใน Canon'
+                ? 'มีที่มาจากตำราอ้างอิง'
+                : b.badgeLabel,
+            b.cautionCopy,
+          ]),
         )
         .toList();
     if (safeBadges.isNotEmpty) {

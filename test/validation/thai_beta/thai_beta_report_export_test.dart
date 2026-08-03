@@ -132,10 +132,14 @@ void main() {
       );
 
       expect(
+        'มีที่มาจากตำราอ้างอิง'.allMatches(doc.fullPlainText),
+        hasLength(1),
+      );
+      expect(
         ThaiPublicEvidenceBadgeCopy.primaryBadgeLabel.allMatches(
           doc.fullPlainText,
         ),
-        hasLength(1),
+        isEmpty,
       );
       expect(
         ThaiPublicEvidenceBadgeCopy.cautionCopy.allMatches(doc.fullPlainText),

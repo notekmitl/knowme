@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "task_id": "thai-beta-human-readability-v2",
-  "expected_branch": "codex/thai-beta-human-readability-v2",
+  "task_id": "thai-beta-human-readability-v2-production-hardening",
+  "expected_branch": "codex/thai-beta-human-readability-v2-production-hardening",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "b9143a20efeab35c081cbcad15697dbdfa102ee2",
+  "base_ref": "a30a114e8954906d343b98b6aded1d1ad40ef76a",
   "allowed_files": [
     "task.md",
     "task_scope.json",

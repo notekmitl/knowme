@@ -377,29 +377,23 @@ class ThaiBirthProfileCoreReading {
             sectionId: ThaiMirrorSectionId.coreSelf,
           );
     final specificSummary = compact([
-      if (summaryAtoms.any(
-        (atom) => atom.kind == ThaiBirthProfileCoreAtomKind.lagnaSign,
-      ))
+      if (identityAtom != null &&
+          summaryAtoms.any(
+            (atom) => atom.kind == ThaiBirthProfileCoreAtomKind.lagnaSign,
+          ))
         claim(
-          text: _composeLagnaSummary(summaryAtoms),
-          domain: ThaiBirthProfileCoreDomain.summary,
-          role: ThaiBirthProfileCoreClaimRole.fact,
-          semanticKey: 'computed:lagna-frame',
-          atoms: summaryAtoms
-              .where(
-                (atom) =>
-                    atom.kind == ThaiBirthProfileCoreAtomKind.lagnaSign ||
-                    atom.kind == ThaiBirthProfileCoreAtomKind.lagnaLord,
-              )
-              .toList(),
-        ),
-      if (identityAtom != null)
-        claim(
-          text: _identityPhrases[identityAtom.themeId] ?? '',
+          text: _composeLagnaSummary(summaryAtoms, identityAtom),
           domain: ThaiBirthProfileCoreDomain.summary,
           role: ThaiBirthProfileCoreClaimRole.interpretation,
-          semanticKey: 'theme:${identityAtom.themeId}:identity',
-          atoms: [identityAtom],
+          semanticKey: 'computed:lagna-identity-frame',
+          atoms: [
+            ...summaryAtoms.where(
+              (atom) =>
+                  atom.kind == ThaiBirthProfileCoreAtomKind.lagnaSign ||
+                  atom.kind == ThaiBirthProfileCoreAtomKind.lagnaLord,
+            ),
+            identityAtom,
+          ],
         ),
     ]);
 
@@ -519,29 +513,19 @@ class ThaiBirthProfileCoreReading {
         ),
     ];
     final closingCopy = _composeClosing(closingAtoms);
-    final closingClaims = closingAtoms.length < 3
+    final closingClaims = closingAtoms.length < 3 ||
+            closingCopy.strength.isEmpty ||
+            closingCopy.risk.isEmpty ||
+            closingCopy.action.isEmpty
         ? const <ThaiBirthProfileCoreParagraph>[]
         : compact([
             claim(
-              text: closingCopy.strength,
+              text:
+                  '${closingCopy.strength} ${closingCopy.risk} ${closingCopy.action}',
               domain: ThaiBirthProfileCoreDomain.closing,
               role: ThaiBirthProfileCoreClaimRole.synthesis,
-              semanticKey: 'computed:ranked-strength',
-              atoms: [closingAtoms[0]],
-            ),
-            claim(
-              text: closingCopy.risk,
-              domain: ThaiBirthProfileCoreDomain.closing,
-              role: ThaiBirthProfileCoreClaimRole.synthesis,
-              semanticKey: 'computed:ranked-risk',
-              atoms: [closingAtoms[1]],
-            ),
-            claim(
-              text: closingCopy.action,
-              domain: ThaiBirthProfileCoreDomain.closing,
-              role: ThaiBirthProfileCoreClaimRole.synthesis,
-              semanticKey: 'computed:ranked-action',
-              atoms: [closingAtoms[2]],
+              semanticKey: 'computed:ranked-strength-risk-action',
+              atoms: closingAtoms,
             ),
           ]);
 
@@ -896,6 +880,7 @@ class ThaiBirthProfileCoreReading {
 
   static String _composeLagnaSummary(
     List<ThaiBirthProfileCoreClaimAtom> atoms,
+    ThaiBirthProfileCoreClaimAtom identityAtom,
   ) {
     ThaiBirthProfileCoreClaimAtom? sign;
     ThaiBirthProfileCoreClaimAtom? lord;
@@ -904,11 +889,11 @@ class ThaiBirthProfileCoreReading {
       if (atom.kind == ThaiBirthProfileCoreAtomKind.lagnaLord) lord = atom;
     }
     if (sign == null || lord == null) return '';
-    final mode = _planetMode(lord.rawValue);
-    if (mode.$1.isEmpty || mode.$2.isEmpty) return '';
+    final identityPhrase = _identityPhrases[identityAtom.themeId] ?? '';
+    if (identityPhrase.isEmpty) return '';
     return 'เมื่อพิจารณาวัน เวลา และสถานที่เกิด '
         'ภาพบุคลิกตั้งต้นเชื่อมกับ${_lagnaLabel(sign.rawValue)}และ'
-        '${_lordLabel(lord.rawValue)} จึงสะท้อนว่าคุณมักให้ความสำคัญกับ${mode.$1}';
+        '${_lordLabel(lord.rawValue)} โดยภาพรวมนี้ชี้ว่า$identityPhrase';
   }
 
   static ({String analysis, String guidance}) _composeHouseDomain(

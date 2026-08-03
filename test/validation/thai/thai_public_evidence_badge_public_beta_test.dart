@@ -126,9 +126,10 @@ void main() {
       await tester.tap(find.byKey(const Key('thai_beta_evidence_details')));
       await tester.pumpAndSettle();
 
+      expect(find.text('มีที่มาจากตำราอ้างอิง'), findsOneWidget);
       expect(
         find.text(ThaiPublicEvidenceBadgeCopy.primaryBadgeLabel),
-        findsOneWidget,
+        findsNothing,
       );
       expect(
         find.text(ThaiPublicEvidenceBadgeCopy.cautionCopy),
@@ -261,7 +262,11 @@ void main() {
 
       expect(
         withEligible.fullPlainText,
-        contains(ThaiPublicEvidenceBadgeCopy.primaryBadgeLabel),
+        contains('มีที่มาจากตำราอ้างอิง'),
+      );
+      expect(
+        withEligible.fullPlainText,
+        isNot(contains(ThaiPublicEvidenceBadgeCopy.primaryBadgeLabel)),
       );
       expect(
         withoutEligible.fullPlainText,
