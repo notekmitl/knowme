@@ -574,8 +574,9 @@ class ThaiBirthProfileCoreReading {
       );
       addMethodologyClaim(
         text:
-            'วันทางโหราศาสตร์ของคำอ่านนี้คือวัน$thaiDay '
-            '(วันที่ ${normalized.thaiAstrologicalDate})',
+            'วันเกิดตามสูติบัตรยังเป็นวันที่ ${normalized.rawBirthDate} ตามเดิม '
+            'ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วัน$thaiDay '
+            '(วันที่ ${normalized.thaiAstrologicalDate}) เป็นวันทางโหราศาสตร์',
         semanticKey: 'methodology:astrological-date',
         atoms: [
           if (birthData?.thaiWeekdayNumber != null)
@@ -701,8 +702,8 @@ class ThaiBirthProfileCoreReading {
     if (mirror != null && mirror.topThemes.isNotEmpty) {
       addMethodologyClaim(
         text:
-            'คำอ่านข้างต้นเรียบเรียงจากแนวโน้มหลัก '
-            '${mirror.topThemes.take(3).map((theme) => theme.themeName).join(' · ')}',
+            'คำอ่านข้างต้นจัดลำดับจากแนวโน้มที่มีน้ำหนักเด่นในผลวิเคราะห์ '
+            'โดยไม่นำชื่อหมวดภายในมาแสดงแทนคำอธิบายสำหรับผู้อ่าน',
         semanticKey: 'methodology:top-themes',
         atoms: [
           for (final theme in mirror.topThemes.take(3))
@@ -926,35 +927,35 @@ class ThaiBirthProfileCoreReading {
     return switch (domain) {
       ThaiBirthProfileCoreDomain.work => (
         analysis:
-            'ในเรื่องงาน ตำแหน่ง$signLabelและ$lordLabelสะท้อนว่า'
+            'แนวโน้มหลัก: ในเรื่องงาน ตำแหน่ง$signLabelและ$lordLabelสะท้อนว่า'
             'คุณมักให้ความสำคัญกับ${mode.$1}',
         guidance:
-            'เมื่อแนวโน้มนี้ทำงานมากเกินไป อาจเกิด${mode.$2} '
-            'ลอง${mode.$3}เพื่อให้งานเดินต่อได้โดยไม่ฝืนตัวเอง',
+            'สิ่งที่ควรระวัง: เมื่อแนวโน้มนี้ทำงานมากเกินไป อาจเกิด${mode.$2} '
+            'สิ่งที่นำไปใช้ได้: ลอง${mode.$3}เพื่อให้งานเดินต่อได้โดยไม่ฝืนตัวเอง',
       ),
       ThaiBirthProfileCoreDomain.money => (
         analysis:
-            'ในเรื่องเงิน ตำแหน่ง$signLabelและ$lordLabelสะท้อนว่า'
+            'แนวโน้มหลัก: ในเรื่องเงิน ตำแหน่ง$signLabelและ$lordLabelสะท้อนว่า'
             'คุณมักจัดการทรัพยากรโดยให้ความสำคัญกับ${mode.$1}',
         guidance:
-            'ก่อนตัดสินใจเรื่องเงิน ควรเผื่อใจต่อ${mode.$2} '
-            'แล้วใช้${mode.$3}เป็นเกณฑ์ประกอบ',
+            'สิ่งที่ควรระวัง: ก่อนตัดสินใจเรื่องเงิน ควรเผื่อใจต่อ${mode.$2} '
+            'สิ่งที่นำไปใช้ได้: ใช้${mode.$3}เป็นเกณฑ์ประกอบ',
       ),
       ThaiBirthProfileCoreDomain.relationships => (
         analysis:
-            'ในความสัมพันธ์ ตำแหน่ง$signLabelและ$lordLabelสะท้อนว่า'
+            'แนวโน้มหลัก: ในความสัมพันธ์ ตำแหน่ง$signLabelและ$lordLabelสะท้อนว่า'
             'คุณมักสร้างความไว้ใจผ่าน${mode.$1}',
         guidance:
-            'เมื่ออยู่กับคนใกล้ตัว ควรระวัง${mode.$2} '
-            'และลอง${mode.$3}เพื่อรักษาพื้นที่ของทั้งสองฝ่าย',
+            'สิ่งที่ควรระวัง: เมื่ออยู่กับคนใกล้ตัว ควรระวัง${mode.$2} '
+            'สิ่งที่นำไปใช้ได้: ลอง${mode.$3}เพื่อรักษาพื้นที่ของทั้งสองฝ่าย',
       ),
       ThaiBirthProfileCoreDomain.wellbeing => (
         analysis:
-            'ในมุมสุขภาวะตามตำรา ตำแหน่ง$signLabelและ$lordLabel'
+            'แนวโน้มหลัก: ในมุมสุขภาวะตามตำรา ตำแหน่ง$signLabelและ$lordLabel'
             'ชวนให้ดูแลพลังของตัวเองผ่าน${mode.$1}',
         guidance:
-            'หากเริ่มรู้สึกว่า${mode.$2} ลอง${mode.$3} '
-            'และจัดเวลาพักให้สม่ำเสมอ',
+            'สิ่งที่ควรระวัง: หากเริ่มรู้สึกว่า${mode.$2} '
+            'สิ่งที่นำไปใช้ได้: ลอง${mode.$3}และจัดเวลาพักให้สม่ำเสมอ',
       ),
       _ => (analysis: '', guidance: ''),
     };

@@ -1,9 +1,10 @@
-# Task: Thai Beta Readability Evidence Summary Dedupe V1
+# Task: Thai Beta Human Readability V2
 
-Remove repeated copies of the same public Evidence Badge explanation from the
-Thai Beta Web panel and PDF export while preserving per-section eligibility,
-telemetry, and the approved public wording.
+Harden Thai Beta reader-facing narrative composition and presentation after the
+Production PDF baseline check. Remove internal labels, make each life domain
+clearly communicate its tendency, risk, and supported action, clarify civil and
+astrological dates, and keep Web/PDF meaning aligned.
 
-Preserve the Thai Engine, Canon, Birth Normalization, evidence eligibility,
-anonymous access, Timeline calculations, standalone Thai Mirror, feedback,
-authentication, feature flags, and production data.
+Preserve the Thai Astrology Engine, Canon and Canon sources, Birth
+Normalization, evidence eligibility, authentication, feedback, production
+data, standalone Thai Mirror behavior, and every other lens.
