@@ -190,6 +190,37 @@ void main() {
       expect(audit, hasLength(8));
     },
   );
+
+  test('known-time report closes from an exact computed fallback fact', () {
+    final analysis = _genderFixture(
+      gender: 'unspecified',
+      birthDate: DateTime(2001, 1, 15),
+      province: 'กาญจนบุรี',
+      provinceKey: 'kanchanaburi',
+    );
+    final reading = ThaiBirthProfileCoreReading.fromAnalysis(analysis);
+    final closing = reading.sections.singleWhere(
+      (section) => section.domain == ThaiBirthProfileCoreDomain.closing,
+    );
+
+    expect(closing.claims, hasLength(1));
+    expect(closing.claims.single.text, contains('จุดแข็งที่คุณพึ่งพาได้คือ'));
+    expect(
+      closing.claims.single.text,
+      contains('เมื่อใช้จุดแข็งนี้มากเกินไป ควรระวัง'),
+    );
+    expect(
+      closing.claims.single.text,
+      contains('เพื่อใช้จุดแข็งนี้ได้อย่างพอดี ลอง'),
+    );
+    expect(closing.claims.single.evidenceKeys, isNotEmpty);
+    expect(
+      closing.claims.single.sourceAtoms.every(
+        (atom) => atom.sourceRef.isNotEmpty && atom.rawValue.isNotEmpty,
+      ),
+      isTrue,
+    );
+  });
 }
 
 int _countMatches(String text, List<String> markers) =>
