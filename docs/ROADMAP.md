@@ -1,6 +1,6 @@
 # KnowMe Roadmap
 
-**Last updated:** June 2026  
+**Last updated:** August 3, 2026
 **Rule:** Items listed here are backed by repository evidence only. Nothing invented.
 
 Sources: `docs/*.md`, `lib/features/*`, validation outputs.
@@ -8,6 +8,18 @@ Sources: `docs/*.md`, `lib/features/*`, validation outputs.
 ---
 
 ## Completed
+
+### Thai Beta Human Readability V2 — Production complete
+
+PR #75 (`ce96440`, merge `a30a114`) plus focused Production hardening PR #76
+(`7d3e0e2`, merge `59e140e`) and Closing fallback PR #77 (`dccd103`, merge and
+Hosting release `eb1f1c8`) are deployed and verified. Eight deterministic
+fixtures, known/no-time fail-closed behavior, Desktop/Mobile presentation,
+Evidence-once behavior, Timeline ordering, and a real 8-page Production PDF
+passed. No Thai Engine, Canon source, Birth Normalization, eligibility, Auth,
+Feedback, Production data, or other lens changed. This is qualitative product
+readability closure, not statistical accuracy validation; the 10-person cohort
+has not started.
 
 ### Platform & architecture
 

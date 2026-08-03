@@ -1,13 +1,13 @@
 # KnowMe Current Status
 
-**Last updated:** July 2026  
+**Last updated:** August 3, 2026
 **Branch:** `main`  
 **Merge tip before Core Reading V1:** `380348f` (PR #63 Production Funnel Measurement V1); Production hosted @ `da85013`
 
 **Prior architecture snapshot:** `feature/fusion-result`  
 **Automation workflow (authoritative):** Codex Single-Agent + Local Gate — [`docs/KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). Codex is the sole executor for one task branch/worktree at a time; Cursor, Claude Code, and other agents must not edit that same branch/worktree concurrently. External AI Worker **retired** July 2026 (historical record: [`docs/AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)).
 **Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login). LEVEL 1 Canon badges now use `public_beta`: rollout flag + eligible public-safe report evidence only, never Auth/UID/invite membership.
-**Thai Beta Narrative / Life Map:** **Anonymous Production QA passed** on 2026-07-30 at Hosting release `adf0142`. Core Reading V1.1, Timeline, Evidence Badge, full-time/no-time paths, and the real 8-page PDF were verified end-to-end; V1.3.5 detailed evidence remains **internal only**.
+**Thai Beta Narrative / Life Map:** **Human Readability V2 Production QA passed** on 2026-08-03 at Hosting release `eb1f1c8`. PR #75 shipped the reader-facing rewrite; PR #76 removed the final public `Canon` label and closed Personal Core/Closing gaps; PR #77 added the evidence-backed Closing fallback found by Production smoke testing. Known-time/no-time, Desktop/Mobile, Timeline, Evidence, and the real 8-page PDF were verified end-to-end; V1.3.5 detailed evidence remains **internal only**.
 
 ---
 
@@ -34,6 +34,7 @@
 | **Funnel Recovery V2** | Implemented | `lib/features/home_cohesion/`, `lib/features/funnel_telemetry/`, MBTI → narrative preview loop |
 | **Thai Beta Narrative Quality V1–V1.2.2 + Life Map V1.2.3** | Merged to `main` + **hosted** | Life Map V1.2.3; PR https://github.com/notekmitl/knowme/pull/18; production https://knowme-app-694e1.web.app/beta/thai |
 | **Thai Birth Profile Core Reading V1/V1.1** | **Production released + verified** | PR #67 (`e3b88df`, merge `a4ce716`) plus birth-hour fixes PR #68/#69; lifelong “ดวงจากวันเกิดของคุณ” before Timeline; Web/PDF share one `ThaiBetaAnalysis`; no Engine/Canon change — [`THAI_BIRTH_PROFILE_CORE_READING_V1.md`](THAI_BIRTH_PROFILE_CORE_READING_V1.md) |
+| **Thai Beta Human Readability V2** | **Production released + verified** | PR #75 (`ce96440`, merge `a30a114`), Production hardening PR #76 (`7d3e0e2`, merge `59e140e`), and Closing fallback PR #77 (`dccd103`, merge/Hosting `eb1f1c8`). Eight deterministic fixtures, Web/PDF parity, known/no-time fail-closed behavior, Desktop/Mobile layout, and the real 8-page Production PDF passed. This is product readability validation only, not a claim of astrological accuracy; the 10-person cohort has not started. |
 | **Public LEVEL 1 Canon Evidence Badge** | **Production released + anonymously verified** | PR #70 (`71578aa`, merge `c1598d6`) removed Auth/UID/invite dependency; PR #71 (`c32add8`, merge `adf0142`) removed internal section identifiers from public output. Web/capture/PDF use the same eligible evidence policy. |
 | **Life Map Mahabhut Canon index (Production fix)** | Merged to `main` + **hosted** | PR https://github.com/notekmitl/knowme/pull/20 @ `07d0eb9`; wires Frozen Canon `repository.index` into Timeline/Consumer presenters — unknown no longer forced by null index. Presenter-path QA (1972-04-04 02:00 BKK): **known=7 / unknown=1** (ธงชัย, unknown, ปูติ, อธิบดี, ขุมทรัพย์, ปูติ, มรณะ, ราชา). Sample pipeline fixture: known=8 / unknown=0 |
 | **Thai Life Map V1.2.4 Accuracy Audit** | Merged tests + report | PR #22 @ `cb33a3d`; 22 fixtures / 176 periods; known 139 / unknown 37; [`THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md`](THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md) |
@@ -87,7 +88,7 @@ work is not the current next implementation priority.
 | Risk | Severity | Detail |
 |------|----------|--------|
 | Personality test cliff | **Critical** | 97% of profile users never start MBTI (`REAL_USER_RUNTIME_VALIDATION_V1.md`) |
-| Hosting source vs `main` | **Low** | Public hosting last deployed from `main` @ `adf0142` (2026-07-30); still **manual** only (`scripts/deploy_web.ps1`), no auto-deploy |
+| Hosting source vs `main` | **Low** | Public Hosting was manually deployed from `main` @ `eb1f1c8` on 2026-08-03; deploy remains manual (`scripts/deploy_web.ps1`), with no auto-deploy |
 | Real user PII export local-only | **High** | `firestore_user_export.json` gitignored — must regenerate locally |
 | Firebase service account local-only | **High** | `backend/firebase/serviceAccountKey.json` gitignored |
 | Legacy + new architecture coexist | **Medium** | Parallel scoring, navigation, and module IDs — trace before editing |
