@@ -28,7 +28,7 @@ class ThaiBirthProfileCoreReadingSection extends StatelessWidget {
           border: Border.all(color: scheme.outlineVariant),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(20),
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 22),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -41,7 +41,7 @@ class ThaiBirthProfileCoreReadingSection extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 8),
-              Text(reading.subtitle),
+              Text(reading.subtitle, style: const TextStyle(height: 1.55)),
               const SizedBox(height: 28),
               for (var i = 0; i < narrativeSections.length; i++) ...[
                 _NarrativeSection(
@@ -102,7 +102,10 @@ class _NarrativeSection extends StatelessWidget {
                 padding: EdgeInsets.only(
                   bottom: i == section.paragraphs.length - 1 ? 0 : 10,
                 ),
-                child: Text(section.paragraphs[i]),
+                child: Text(
+                  section.paragraphs[i],
+                  style: const TextStyle(height: 1.65),
+                ),
               ),
           ],
         ),
@@ -145,7 +148,10 @@ class _MethodologyExpansion extends StatelessWidget {
               ),
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text(section.paragraphs[i]),
+                child: Text(
+                  section.paragraphs[i],
+                  style: const TextStyle(height: 1.6),
+                ),
               ),
             ),
         ],

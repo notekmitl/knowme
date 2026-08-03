@@ -104,7 +104,7 @@ void main() {
         audience: const ThaiBetaEvidenceBadgeAudience.anonymous(),
       );
       expect(find.byType(ThaiBetaEvidenceBadgePanel), findsOneWidget);
-      expect(find.text('LEVEL 1 Canon'), findsOneWidget);
+      expect(find.text('ที่มาของคำวิเคราะห์'), findsOneWidget);
       expect(find.text('profile'), findsNothing);
     });
 
@@ -113,8 +113,7 @@ void main() {
         sectionId: 'timeline',
         badgeLabel: ThaiPublicEvidenceBadgeCopy.primaryBadgeLabel,
         cautionCopy: ThaiPublicEvidenceBadgeCopy.cautionCopy,
-        sourceLevel:
-            ThaiPublicEvidenceDisclosureLevel.level1PublicSummaryBadge,
+        sourceLevel: ThaiPublicEvidenceDisclosureLevel.level1PublicSummaryBadge,
         eligible: true,
       );
       await pumpReport(
@@ -123,6 +122,9 @@ void main() {
         audience: const ThaiBetaEvidenceBadgeAudience.anonymous(),
         badges: const [eligibleBadge, secondEligibleBadge],
       );
+
+      await tester.tap(find.byKey(const Key('thai_beta_evidence_details')));
+      await tester.pumpAndSettle();
 
       expect(
         find.text(ThaiPublicEvidenceBadgeCopy.primaryBadgeLabel),
@@ -145,7 +147,7 @@ void main() {
         settle: false,
       );
       expect(find.byType(ThaiBetaEvidenceBadgePanel), findsOneWidget);
-      expect(find.text('LEVEL 1 Canon'), findsOneWidget);
+      expect(find.text('ที่มาของคำวิเคราะห์'), findsOneWidget);
     });
 
     testWidgets('anonymous + empty evidence hides badge', (tester) async {
@@ -215,7 +217,7 @@ void main() {
         screenshotMode: true,
       );
       expect(find.byType(ThaiBetaEvidenceBadgePanel), findsOneWidget);
-      expect(find.text('LEVEL 1 Canon'), findsOneWidget);
+      expect(find.text('ที่มาของคำวิเคราะห์'), findsOneWidget);
     });
 
     testWidgets('report opens capture with the current analysis', (
@@ -244,7 +246,7 @@ void main() {
       await tester.pump(const Duration(seconds: 2));
 
       expect(find.byType(ThaiBetaReportExportButton), findsOneWidget);
-      expect(find.text('LEVEL 1 Canon'), findsOneWidget);
+      expect(find.text('ที่มาของคำวิเคราะห์'), findsOneWidget);
     });
 
     test('PDF document includes only the same eligible public badges', () {

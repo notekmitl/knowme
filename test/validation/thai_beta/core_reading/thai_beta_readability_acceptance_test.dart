@@ -55,6 +55,11 @@ void main() {
             'ระบบใช้',
             'ระบบคำนวณ',
             'แนวโน้มเด่น',
+            'LEVEL 1 Canon',
+            'Controlled beta',
+            'Analytical',
+            'Persistence',
+            'Visionary',
           ]),
           'deterministicLanguage': _countMatches(webText, const [
             'ทำให้บุคลิก',
@@ -96,6 +101,41 @@ void main() {
             reason: '${entry.key}: ${section.title}',
           );
         }
+        for (final domain in const [
+          ThaiBirthProfileCoreDomain.work,
+          ThaiBirthProfileCoreDomain.money,
+          ThaiBirthProfileCoreDomain.relationships,
+          ThaiBirthProfileCoreDomain.wellbeing,
+        ]) {
+          final matching = reading.sections.where((s) => s.domain == domain);
+          if (matching.isEmpty) continue;
+          final domainText = matching.single.paragraphs.join('\n');
+          expect(
+            domainText,
+            contains('แนวโน้มหลัก:'),
+            reason: '$entry / $domain',
+          );
+          expect(
+            domainText,
+            contains('สิ่งที่ควรระวัง:'),
+            reason: '$entry / $domain',
+          );
+          expect(
+            domainText,
+            contains('สิ่งที่นำไปใช้ได้:'),
+            reason: '$entry / $domain',
+          );
+        }
+        final methodology = reading.sections.singleWhere(
+          (s) => s.isMethodology,
+        );
+        expect(
+          methodology.paragraphs.join('\n'),
+          contains('วันเกิดตามสูติบัตร'),
+        );
+        expect(methodology.paragraphs.join('\n'), contains('วันทางโหราศาสตร์'));
+        expect(renderedPdf.plainText, isNot(contains('internal/beta')));
+        expect(renderedPdf.plainText, isNot(contains('capture / screenshot')));
         expect(
           metrics.values.every((count) => count == 0),
           isTrue,

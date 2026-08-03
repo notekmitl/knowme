@@ -31,7 +31,9 @@ abstract final class ThaiBetaReportPdfExporter {
   static const String defaultFilename = 'knowme-thai-report.pdf';
 
   /// Same path as [ThaiBetaReportExportButton] download.
-  static Future<Uint8List> buildBytes(ThaiBetaReportExportDocument document) async {
+  static Future<Uint8List> buildBytes(
+    ThaiBetaReportExportDocument document,
+  ) async {
     final result = await build(document);
     return result.bytes;
   }
@@ -175,7 +177,7 @@ abstract final class ThaiBetaReportPdfExporter {
           widgets.add(pw.SizedBox(height: 10));
           widgets.add(
             pw.Text(
-              'KnowMe Thai Beta — internal/beta export\n'
+              'KnowMe — รายงานโหราไทย\n'
               'เนื้อหาจากรายงานที่มีอยู่แล้ว ไม่สร้างคำทำนายใหม่',
               style: subtitleStyle,
             ),

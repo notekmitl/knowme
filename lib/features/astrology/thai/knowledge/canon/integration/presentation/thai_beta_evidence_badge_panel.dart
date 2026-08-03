@@ -4,12 +4,9 @@ import 'package:knowme/features/thai_beta/application/thai_evidence_badge_beta_t
 
 import 'thai_public_evidence_badge_beta_view_model.dart';
 
-/// LEVEL 1 Canon traceability badges — Thai Beta Research Result only.
+/// Compact reader-facing evidence summary for Thai Beta only.
 class ThaiBetaEvidenceBadgePanel extends StatelessWidget {
-  const ThaiBetaEvidenceBadgePanel({
-    super.key,
-    required this.badges,
-  });
+  const ThaiBetaEvidenceBadgePanel({super.key, required this.badges});
 
   final List<ThaiPublicEvidenceBadgeBetaViewModel> badges;
 
@@ -18,11 +15,10 @@ class ThaiBetaEvidenceBadgePanel extends StatelessWidget {
     if (badges.isEmpty) return const SizedBox.shrink();
 
     final theme = Theme.of(context);
-    final uniquePublicSummaries = <String, ThaiPublicEvidenceBadgeBetaViewModel>{};
+    final uniquePublicSummaries =
+        <String, ThaiPublicEvidenceBadgeBetaViewModel>{};
     for (final badge in badges) {
-      ThaiEvidenceBadgeBetaTelemetry.badgeRendered(
-        sectionId: badge.sectionId,
-      );
+      ThaiEvidenceBadgeBetaTelemetry.badgeRendered(sectionId: badge.sectionId);
       uniquePublicSummaries.putIfAbsent(
         '${badge.badgeLabel}\u0000${badge.cautionCopy}',
         () => badge,
@@ -36,25 +32,31 @@ class ThaiBetaEvidenceBadgePanel extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'LEVEL 1 Canon',
+              'ที่มาของคำวิเคราะห์',
               style: theme.textTheme.labelLarge?.copyWith(
                 color: theme.colorScheme.primary,
               ),
             ),
             const SizedBox(height: 4),
             Text(
-              'Controlled beta — traceability only, not a guarantee.',
+              'รายงานนี้มีข้อมูลอ้างอิงจากตำรา รายละเอียดนี้ช่วยบอกที่มา '
+              'แต่ไม่ใช่การรับรองความแม่นยำ',
               style: theme.textTheme.bodySmall?.copyWith(
                 color: theme.colorScheme.outline,
               ),
             ),
-            const SizedBox(height: 8),
-            ...uniquePublicSummaries.values.map((badge) {
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 8),
-                child: _BadgeRow(badge: badge),
-              );
-            }),
+            const SizedBox(height: 4),
+            ExpansionTile(
+              key: const Key('thai_beta_evidence_details'),
+              tilePadding: EdgeInsets.zero,
+              childrenPadding: EdgeInsets.zero,
+              shape: const Border(),
+              collapsedShape: const Border(),
+              title: const Text('ดูรายละเอียดหลักฐาน'),
+              children: uniquePublicSummaries.values
+                  .map((badge) => _BadgeRow(badge: badge))
+                  .toList(growable: false),
+            ),
           ],
         ),
       ),
@@ -78,10 +80,7 @@ class _BadgeRow extends StatelessWidget {
           backgroundColor: theme.colorScheme.primaryContainer,
         ),
         const SizedBox(height: 4),
-        Text(
-          badge.cautionCopy,
-          style: theme.textTheme.bodySmall,
-        ),
+        Text(badge.cautionCopy, style: theme.textTheme.bodySmall),
       ],
     );
   }

@@ -1,17 +1,19 @@
 {
   "schema_version": 1,
-  "task_id": "thai-beta-readability-evidence-dedupe-v1",
-  "expected_branch": "codex/thai-beta-readability-evidence-dedupe-v1",
+  "task_id": "thai-beta-human-readability-v2",
+  "expected_branch": "codex/thai-beta-human-readability-v2",
   "expected_worktree": "C:\\Users\\USER\\knowme",
-  "base_ref": "ea00c7c72482873b32916c6f7fcd62d0132a212e",
+  "base_ref": "b9143a20efeab35c081cbcad15697dbdfa102ee2",
   "allowed_files": [
     "task.md",
     "task_scope.json",
     "TASK_RESULT.md",
     "lib/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart",
     "lib/features/thai_beta/application/thai_beta_report_export_document.dart",
+    "lib/features/thai_beta/application/thai_beta_report_pdf_exporter.dart",
     "lib/features/astrology/thai/knowledge/canon/integration/presentation/thai_beta_evidence_badge_panel.dart",
     "lib/features/thai_beta/presentation/widgets/thai_birth_profile_core_reading_section.dart",
+    "lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart",
     "test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart",
     "test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart",
     "test/validation/thai_beta/thai_beta_report_export_test.dart",
@@ -22,41 +24,15 @@
     "docs/ROADMAP.md"
   ],
   "allowed_globs": [],
-  "forbidden_files": [
-    ".env",
-    ".env.*",
-    "**/*.pem",
-    "**/*.key",
-    "**/google-services.json",
-    "**/GoogleService-Info.plist",
-    "**/firestore_user_export.json"
-  ],
-  "generated_output_globs": [
-    "build/**",
-    ".dart_tool/**",
-    "coverage/**",
-    "**/__pycache__/**",
-    "**/*.pyc",
-    "**/*.g.dart",
-    "**/*.freezed.dart",
-    "**/*.pdf",
-    "**/*.png"
-  ],
-  "forbidden_text_patterns": [
-    "OPENAI_API_KEY",
-    "api.openai.com",
-    "knowme-ai-worker",
-    "swiss_ephemeris",
-    "pyswisseph",
-    "import swisseph",
-    "final_result.json",
-    "round_[0-9]+_review\\.json"
-  ],
+  "forbidden_files": [".env", ".env.*", "**/*.pem", "**/*.key", "**/google-services.json", "**/GoogleService-Info.plist", "**/firestore_user_export.json"],
+  "generated_output_globs": ["build/**", ".dart_tool/**", "coverage/**", "**/__pycache__/**", "**/*.pyc", "**/*.g.dart", "**/*.freezed.dart", "**/*.pdf", "**/*.png"],
+  "forbidden_text_patterns": ["OPENAI_API_KEY", "api.openai.com", "knowme-ai-worker", "swiss_ephemeris", "pyswisseph", "import swisseph", "final_result.json", "round_[0-9]+_review\\.json"],
   "focused_tests": [
     "flutter test test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart",
     "flutter test test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart",
     "flutter test test/validation/thai_beta/thai_beta_report_export_test.dart",
-    "flutter test test/validation/thai_beta/thai_beta_report_scroll_layout_test.dart"
+    "flutter test test/validation/thai_beta/thai_beta_report_scroll_layout_test.dart",
+    "flutter test test/validation/thai/thai_public_evidence_badge_public_beta_test.dart"
   ],
   "full_test_policy": "required",
   "full_test_command": "flutter test --concurrency=1 test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart test/validation/thai_beta/thai_beta_report_export_test.dart test/validation/thai_beta/thai_beta_report_scroll_layout_test.dart test/validation/thai_beta/thai_beta_pipeline_test.dart test/validation/thai_beta/thai_beta_public_route_anonymous_test.dart test/validation/thai/thai_public_evidence_badge_public_beta_test.dart",

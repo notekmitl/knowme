@@ -118,12 +118,15 @@ class ThaiBetaReportExportDocument {
       );
     }
     final safeBadges = uniqueSafeBadges.values
-        .map((b) => _section(b.badgeLabel, [b.cautionCopy]))
+        .map(
+          (b) => _section('รายละเอียดหลักฐาน', [b.badgeLabel, b.cautionCopy]),
+        )
         .toList();
     if (safeBadges.isNotEmpty) {
       sections.add(
-        _section('หลักฐานสนับสนุน (สรุปสาธารณะ)', [
-          'ป้ายหลักฐานด้านล่างเป็นสรุประดับที่อนุญาตในเบต้าเท่านั้น',
+        _section('ที่มาของคำวิเคราะห์', [
+          'รายงานนี้มีข้อมูลอ้างอิงจากตำรา รายละเอียดนี้ช่วยบอกที่มา '
+              'แต่ไม่ใช่การรับรองความแม่นยำ',
         ]),
       );
       sections.addAll(safeBadges);
@@ -147,7 +150,7 @@ class ThaiBetaReportExportDocument {
     return polishForPdf(
       ThaiBetaReportExportDocument(
         title: 'KnowMe — รายงานโหราไทย',
-        subtitle: 'ส่งออกจากโหมด capture / screenshot (งานวิจัยเบต้า)',
+        subtitle: 'รายงานฉบับสำหรับอ่านและบันทึกส่วนตัว',
         sections: scrubbed,
         filenameStem: 'knowme-thai-report',
       ),
@@ -325,5 +328,4 @@ class ThaiBetaReportExportDocument {
     }
     return out;
   }
-
 }
