@@ -44,7 +44,9 @@ void main() {
             .toList(growable: false);
         final webText = webParagraphs.join('\n');
         final metrics = <String, int>{
-          'longParagraphs': webParagraphs.where((p) => p.length > 220).length,
+          // Closing intentionally keeps Strength → Risk → Action in one
+          // context; it may be longer than a single domain sentence.
+          'longParagraphs': webParagraphs.where((p) => p.length > 320).length,
           'unexplainedTerms': _countMatches(webText, const [
             'ลัคนาอยู่ที่',
             'เจ้าเรือน',
@@ -136,6 +138,22 @@ void main() {
         expect(methodology.paragraphs.join('\n'), contains('วันทางโหราศาสตร์'));
         expect(renderedPdf.plainText, isNot(contains('internal/beta')));
         expect(renderedPdf.plainText, isNot(contains('capture / screenshot')));
+        expect(renderedPdf.plainText, isNot(contains('Canon')));
+        final closing = reading.sections.singleWhere(
+          (section) => section.domain == ThaiBirthProfileCoreDomain.closing,
+        );
+        if (closing.claims.isNotEmpty) {
+          expect(closing.claims, hasLength(1), reason: entry.key);
+          expect(closing.claims.single.text, contains('จุดแข็งที่คุณพึ่งพาได้คือ'));
+          expect(
+            closing.claims.single.text,
+            contains('เมื่อใช้จุดแข็งนี้มากเกินไป ควรระวัง'),
+          );
+          expect(
+            closing.claims.single.text,
+            contains('เพื่อใช้จุดแข็งนี้ได้อย่างพอดี ลอง'),
+          );
+        }
         expect(
           metrics.values.every((count) => count == 0),
           isTrue,
