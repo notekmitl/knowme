@@ -495,6 +495,22 @@ class ThaiBirthProfileCoreReading {
           source: closingSource.source,
           sectionId: closingSource.sectionId,
         ),
+      if (closingTheme == null &&
+          profile?.lagnaLordKey != null &&
+          profile!.lagnaLordKey!.isNotEmpty)
+        for (final kind in const [
+          ThaiBirthProfileCoreAtomKind.strengthTheme,
+          ThaiBirthProfileCoreAtomKind.riskTheme,
+          ThaiBirthProfileCoreAtomKind.actionTheme,
+        ])
+          ThaiBirthProfileCoreClaimAtom(
+            kind: kind,
+            domain: ThaiBirthProfileCoreDomain.closing,
+            sourceRef: 'ThaiAstrologyProfile.lagnaLordKey',
+            rawValue: profile.lagnaLordKey!,
+            themeId: 'lagna-lord:${profile.lagnaLordKey}',
+            score: 0,
+          ),
       if (closingTheme != null && closingSource != null)
         _themeAtom(
           closingTheme,
@@ -955,7 +971,17 @@ class ThaiBirthProfileCoreReading {
     ) {
       for (final atom in atoms) {
         if (atom.kind == kind && atom.themeId != null) {
-          return registry[atom.themeId] ?? '';
+          final registered = registry[atom.themeId] ?? '';
+          if (registered.isNotEmpty) return registered;
+          if (atom.sourceRef == 'ThaiAstrologyProfile.lagnaLordKey') {
+            final mode = _planetMode(atom.rawValue);
+            return switch (kind) {
+              ThaiBirthProfileCoreAtomKind.strengthTheme => mode.$1,
+              ThaiBirthProfileCoreAtomKind.riskTheme => mode.$2,
+              ThaiBirthProfileCoreAtomKind.actionTheme => mode.$3,
+              _ => '',
+            };
+          }
         }
       }
       return '';
