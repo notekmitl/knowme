@@ -1,7 +1,7 @@
 # KnowMe Developer Handoff
 
 **Purpose:** How a new developer continues the KnowMe project.  
-**Last updated:** July 2026  
+**Last updated:** August 3, 2026
 **Start here after reading:** [`KNOWME_MASTER_CONTEXT.md`](KNOWME_MASTER_CONTEXT.md) and [`CURRENT_STATUS.md`](CURRENT_STATUS.md)
 
 ---
@@ -19,9 +19,11 @@ git checkout main
 **Important:** `main` is canonical. Human-Readable Core Reading V1.1 shipped in
 PR #67, birth-hour state was fixed in PR #68/#69, and public LEVEL 1 badges
 shipped in PR #70 with the public-identifier redaction hotfix in PR #71.
-Production Hosting `adf0142` was anonymously verified on 2026-07-30. Anonymous
+Human Readability V2 shipped through PR #75, Production hardening PR #76, and
+the evidence-backed Closing fallback PR #77. Production Hosting `eb1f1c8` was
+verified on 2026-08-03. Anonymous
 users open `/beta/thai` without login or a seeded UID; eligible reports show
-public-safe LEVEL 1 badges. V1.3.5 detailed evidence stays internal.
+compact public-safe evidence details. V1.3.5 detailed evidence stays internal.
 
 **Automation workflow:** Use Single-Agent + Local Gate — see [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md). The external AI Worker is **retired** (historical: [`AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md)). The obsolete in-repo `ai-worker/` directory is gitignored and must not be committed.
 
@@ -94,6 +96,21 @@ Output: `test/validation/real_user_runtime_v1/output/` (export JSON is gitignore
 - Production validation passed for full-time/no-time Web, real PDF parity,
   public-safe LEVEL 1 badges, Timeline placement, and zero related console
   errors. Interpretive accuracy remains an owner/tester judgment.
+
+### Thai Beta Human Readability V2 release
+
+- PR #75 (`ce96440`, merge `a30a114`) shipped the reader-facing composition,
+  typography, current-period focus, date clarification, and compact evidence UI.
+- Production PDF validation exposed two remaining presentation gaps. PR #76
+  (`7d3e0e2`, merge `59e140e`) removed the public `Canon` label, separated
+  Personal Core from domain copy, and made Closing one Strength → Risk → Action
+  context. PR #77 (`dccd103`, merge `eb1f1c8`) added a computed-fact fallback
+  when ranked themes have no supported Closing copy.
+- Hosting deploy to `knowme-app-694e1` completed on 2026-08-03. Production smoke
+  testing passed known-time/no-time, Desktop/Mobile, Evidence once, Timeline
+  placement, no internal labels, and real 8-page Web/PDF semantic parity.
+- This closes product readability hardening only. Do not claim statistical or
+  astrological accuracy, and do not describe the 10-person cohort as started.
 
 ### Production funnel measurement
 
