@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 
+import 'package:flutter/services.dart' show rootBundle;
 import 'package:pdf/pdf.dart';
 import 'package:pdf/widgets.dart' as pw;
-import 'package:printing/printing.dart';
 
 import 'thai_beta_report_export_document.dart';
 
@@ -26,9 +26,35 @@ class ThaiBetaPdfRenderResult {
 
 /// Builds a downloadable PDF from a [ThaiBetaReportExportDocument].
 ///
-/// Uses Noto Sans Thai via [PdfGoogleFonts] so Thai glyphs render correctly.
+/// Uses bundled Noto Sans Thai assets so export remains deterministic and does
+/// not depend on a runtime network request or a non-Thai fallback font.
 abstract final class ThaiBetaReportPdfExporter {
   static const String defaultFilename = 'knowme-thai-report.pdf';
+  static const String _regularFontAsset =
+      'assets/fonts/noto_sans_thai/NotoSansThai-Regular.ttf';
+  static const String _boldFontAsset =
+      'assets/fonts/noto_sans_thai/NotoSansThai-Bold.ttf';
+  static const String _latinRegularFontAsset =
+      'assets/fonts/noto_sans_thai/NotoSans-Regular.ttf';
+  static const String _latinBoldFontAsset =
+      'assets/fonts/noto_sans_thai/NotoSans-Bold.ttf';
+
+  static Future<(pw.Font, pw.Font, pw.Font, pw.Font)>? _fonts;
+
+  static Future<(pw.Font, pw.Font, pw.Font, pw.Font)> _loadFonts() {
+    return _fonts ??= () async {
+      final regular = await rootBundle.load(_regularFontAsset);
+      final bold = await rootBundle.load(_boldFontAsset);
+      final latinRegular = await rootBundle.load(_latinRegularFontAsset);
+      final latinBold = await rootBundle.load(_latinBoldFontAsset);
+      return (
+        pw.Font.ttf(regular),
+        pw.Font.ttf(bold),
+        pw.Font.ttf(latinRegular),
+        pw.Font.ttf(latinBold),
+      );
+    }();
+  }
 
   /// Same path as [ThaiBetaReportExportButton] download.
   static Future<Uint8List> buildBytes(
@@ -43,8 +69,7 @@ abstract final class ThaiBetaReportPdfExporter {
     ThaiBetaReportExportDocument document,
   ) async {
     final polished = ThaiBetaReportExportDocument.polishForPdf(document);
-    final regular = await PdfGoogleFonts.notoSansThaiRegular();
-    final bold = await PdfGoogleFonts.notoSansThaiBold();
+    final (regular, bold, latinRegular, latinBold) = await _loadFonts();
 
     final plain = StringBuffer()
       ..writeln(polished.title)
@@ -57,17 +82,34 @@ abstract final class ThaiBetaReportPdfExporter {
     }
 
     final pdf = pw.Document();
-    final baseStyle = pw.TextStyle(font: regular, fontSize: 11, height: 1.55);
-    final titleStyle = pw.TextStyle(font: bold, fontSize: 20, height: 1.35);
-    final sectionStyle = pw.TextStyle(font: bold, fontSize: 13.5, height: 1.4);
+    final baseStyle = pw.TextStyle(
+      font: regular,
+      fontFallback: [latinRegular],
+      fontSize: 11,
+      height: 1.55,
+    );
+    final titleStyle = pw.TextStyle(
+      font: bold,
+      fontFallback: [latinBold],
+      fontSize: 20,
+      height: 1.35,
+    );
+    final sectionStyle = pw.TextStyle(
+      font: bold,
+      fontFallback: [latinBold],
+      fontSize: 13.5,
+      height: 1.4,
+    );
     final subtitleStyle = pw.TextStyle(
       font: regular,
+      fontFallback: [latinRegular],
       fontSize: 10,
       color: PdfColors.grey700,
       height: 1.4,
     );
     final disclaimerStyle = pw.TextStyle(
       font: regular,
+      fontFallback: [latinRegular],
       fontSize: 10,
       color: PdfColors.grey800,
       height: 1.5,

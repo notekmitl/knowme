@@ -1,17 +1,11 @@
-# Task: Thai Beta Human Readability V2 — Closing Fallback
+# Task: Thai Beta Synthetic Audit Closure — V2 Contract + Thai PDF
 
-Harden Thai Beta reader-facing narrative composition and presentation after the
-Production PDF baseline check. Remove internal labels, make each life domain
-clearly communicate its tendency, risk, and supported action, clarify civil and
-astrological dates, and keep Web/PDF meaning aligned.
+Close the deterministic 300-case audit by aligning the stale screen/PDF parity
+test with the authoritative V2 Core Reading contract and embedding the two Noto
+Sans Thai weights used by the real PDF exporter. Validate 20 representative PDF
+files visually without changing Engine, Canon, Birth Normalization, narrative
+behavior, feature flags, authentication, feedback, or Production data.
 
-Close the two Production-only gaps found after the first V2 release: keep the
-Personal Core distinct from domain copy, render a complete Strength → Risk →
-Action closing, and translate the remaining reader-facing Canon badge label.
-
-Ensure a known-time report whose ranked themes have no supported closing copy
-still derives Strength → Risk → Action from the exact computed lagna-lord fact.
-
-Preserve the Thai Astrology Engine, Canon and Canon sources, Birth
-Normalization, evidence eligibility, authentication, feedback, production
-data, standalone Thai Mirror behavior, and every other lens.
+This remains a system consistency audit, not human validation or scientific
+accuracy evidence. Closure requires the repository workflow, PR, Hosting deploy,
+and Production smoke test to pass without bypasses or skipped checks.

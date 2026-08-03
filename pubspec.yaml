@@ -43,6 +43,10 @@ flutter:
   uses-material-design: true
   generate: true
   assets:
+    - assets/fonts/noto_sans_thai/NotoSansThai-Regular.ttf
+    - assets/fonts/noto_sans_thai/NotoSansThai-Bold.ttf
+    - assets/fonts/noto_sans_thai/NotoSans-Regular.ttf
+    - assets/fonts/noto_sans_thai/NotoSans-Bold.ttf
     - knowledge/planet_relationships/
     - knowledge/research/
     - knowledge/evidence/
