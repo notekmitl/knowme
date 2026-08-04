@@ -1,5 +1,18 @@
 # KnowMe Developer Handoff
 
+## Active prerequisite: Thai Mirror Golden Baseline Repair V1
+
+- Branch: `codex/thai-mirror-golden-baseline-repair-v1`
+- Base: `fdf2cb3ccdbdacb8cd33bd0c41e6ff1fe35fe2d8`
+- Canonical toolchain: isolated Flutter 3.41.1
+- Scope: QA harness PNG baselines and status documentation only
+- Do not mix this work with Thai Beta Past-to-Future Narrative V3 or modify its
+  worktree. Do not change production UI, comparator tolerance, tests, or Gates.
+- Record: [`THAI_MIRROR_GOLDEN_BASELINE_REPAIR_V1.md`](THAI_MIRROR_GOLDEN_BASELINE_REPAIR_V1.md)
+- Task-local exception: the standalone consumer-page golden is not part of the
+  scoped required suite. It still fails unchanged main by 32.63% / 305,379
+  pixels and must be handled in a separate task; do not treat it as passing.
+
 **Purpose:** How a new developer continues the KnowMe project.  
 **Last updated:** August 3, 2026
 **Start here after reading:** [`KNOWME_MASTER_CONTEXT.md`](KNOWME_MASTER_CONTEXT.md) and [`CURRENT_STATUS.md`](CURRENT_STATUS.md)
