@@ -1,7 +1,8 @@
 # Thai Beta Past-to-Future Narrative V3
 
-**Status:** Recovered; Local Gate PreCommit passed; Draft delivery pending  
+**Status:** Recovered; Local Gate passed; Draft PR #81 open
 **Base:** `3671b62fba86fc83365fdba597b695b1f3324c6b`  
+**Implementation:** `468827ffec9ef845db91a498f7287e52c925ab57`
 **Production:** Not released
 
 ## Product contract
@@ -51,3 +52,7 @@ screenshot regression passed 24/24 before Local Gate.
 Gate self-test passed 9/9. PreCommit passed analyze with no fatal errors,
 focused tests, and the required 135-test scoped suite plus the V1.3.3
 future-domain compatibility case.
+
+PostCommit Gate passed, the implementation was pushed, and Draft PR #81 was
+opened at https://github.com/notekmitl/knowme/pull/81. No merge or deployment
+was performed.

@@ -11,6 +11,9 @@
   change; no invented events, dates, disease, diagnosis, or unsupported facts.
 - **Recovery:** Source/tests restored from the validated V3 archive onto PR #80
   merge `3671b62fba86fc83365fdba597b695b1f3324c6b`.
+- **Validation record:** Implementation commit
+  `468827ffec9ef845db91a498f7287e52c925ab57`, Draft PR #81; not merged or
+  released to Production.
 
 
 ## D-079 — Repair stale Thai Mirror QA screenshot baselines from unchanged main

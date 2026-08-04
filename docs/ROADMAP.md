@@ -14,6 +14,10 @@ baseline. Recovered V3 source/tests now continue on that baseline with full
 scoped validation. This remains a Draft candidate and is not released to
 Production.
 
+Implementation commit `468827ffec9ef845db91a498f7287e52c925ab57` passed Local
+Gate and is published as Draft PR #81. Merge and Production validation are
+future decisions, not part of this task.
+
 ### Thai Mirror QA Screenshot Golden Baseline Repair V1 — complete
 
 PR #80 merged at `3671b62fba86fc83365fdba597b695b1f3324c6b` after deterministic repeat
