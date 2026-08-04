@@ -55,6 +55,7 @@ everything below links from here.
 | [`PROJECT_FREEZE.md`](PROJECT_FREEZE.md) | Per-system freeze registry + replacement plans | Devs, AI | Yes | GOVERNANCE, EXECUTIVE_SUMMARY |
 | [`HANDOFF.md`](HANDOFF.md) | Onboarding: setup, branches, app flow, validation commands | Devs | Recommended | DEPLOYMENT, FIRESTORE_SCHEMA, ARCHITECTURE |
 | [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md) | **Authoritative** Codex automation: Single-Agent + Local Gate, task scope, PreCommit/PostCommit | Devs, AI | Yes (automation tasks) | STANDARD_CODEX_AGENT_PROMPT, AI_WORKER_OPERATION |
+| [`THAI_MIRROR_GOLDEN_BASELINE_REPAIR_V1.md`](THAI_MIRROR_GOLDEN_BASELINE_REPAIR_V1.md) | Isolated repair and deterministic visual validation record for Thai Mirror QA screenshot baselines | Devs, QA | CURRENT | ASTROLOGY_QA_HARNESS_V1, KNOWME_SINGLE_AGENT_WORKFLOW |
 | [`STANDARD_CODEX_AGENT_PROMPT.md`](STANDARD_CODEX_AGENT_PROMPT.md) | Standard prompt for every Codex task after workflow install | AI agents | Yes (automation tasks) | KNOWME_SINGLE_AGENT_WORKFLOW |
 | [`AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md) | **RETIRED / HISTORICAL** — external AI Worker + OpenAI reviewer loop (July 2026) | Devs | Historical only | KNOWME_SINGLE_AGENT_WORKFLOW |
 | [`DEPLOYMENT.md`](DEPLOYMENT.md) | Firebase web deploy, URLs, scripts, rollback | Devs | Recommended | HANDOFF, CURRENT_STATUS |

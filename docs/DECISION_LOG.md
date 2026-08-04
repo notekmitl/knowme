@@ -1,5 +1,22 @@
 # DECISION LOG
 
+## D-079 — Repair stale Thai Mirror QA screenshot baselines from unchanged main
+
+- **Date:** 2026-08-04 | **Status:** Accepted for isolated validation
+- **Decision:** Regenerate only existing Thai Mirror QA harness PNGs from
+  immutable `origin/main` `fdf2cb3ccdbdacb8cd33bd0c41e6ff1fe35fe2d8`
+  with Flutter 3.41.1, and accept them only after repeat hash stability, visual
+  review, story coverage, consumer UI tests, analyze, and Local Gate pass.
+- **Boundary:** No production source, comparator/tolerance, test, Gate, Engine,
+  Canon, Birth Normalization, or Thai Beta V3 change.
+- **Reason:** Unchanged main fails the stale baseline in all 24 profile/viewport
+  cases, so the old images cannot serve as a useful regression gate.
+- **Task-local exception:** The unrelated standalone consumer-page golden is
+  excluded from this scoped required suite after unchanged-main proof of the
+  same 32.63% / 305,379-pixel failure. It remains failing and requires a
+  separate repair; its baseline, test, tolerance, and Gate are unchanged.
+
+
 **Status:** CURRENT
 **Audience:** Developers and AI agents.
 **Last updated:** June 2026
