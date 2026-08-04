@@ -11,6 +11,11 @@ existing defaults. Engine, Canon, Birth Normalization, Auth, evidence
 eligibility, Feedback, Firebase rules/data, and other astrology systems are
 outside scope.
 
+Production-candidate review must inspect deterministic A-H text, known-time
+Desktop, no-time Mobile, and actual PDF output. Future statements backed only
+by scores/bands must use cautious tendency or conditional language, never
+invent or guarantee events. Review artifacts stay outside the repository.
+
 ## Recovery provenance
 
 The 13 source/test files were restored from

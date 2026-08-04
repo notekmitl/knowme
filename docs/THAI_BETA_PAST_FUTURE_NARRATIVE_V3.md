@@ -44,6 +44,20 @@ suite and requires a separate repair task.
 - Local Gate PreCommit and PostCommit pass.
 - No Production release occurs from the Draft PR task.
 
+## Production-candidate review
+
+The 2026-08-04 review inspected complete deterministic fixture text A-H,
+Desktop known-time and Mobile no-time report renders, and actual PDF exports
+(11 and 10 pages) from the shared exporter. Layout, ordering, Web/PDF semantic
+parity, long-range coverage, fail-closed no-time behavior, and public-copy
+safety passed visual and automated review.
+
+Future statements derived only from score/band evidence now use cautious
+tendency or conditional wording. Specific certainty phrases about new roles,
+income increases, a destined partner, forced relationship decisions, and
+health outcomes are not permitted. This hardening changes presentation copy
+only; it does not change evidence, Engine, Canon, or calculations.
+
 The recovered V3 narrative/UI suite passed 6/6, export passed 37 tests,
 future-domain compatibility passed, eight-fixture readability reported zero
 issues, Web/PDF parity passed, story coverage passed A-H, and the repaired QA

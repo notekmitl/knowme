@@ -1,5 +1,20 @@
 # DECISION LOG
 
+## D-081 — Require cautious future language for score/band evidence
+
+- **Date:** 2026-08-04 | **Status:** Accepted for Draft candidate
+- **Decision:** Future career, finance, relationship, and health prose derived
+  only from deterministic score/band evidence must use tendency, opportunity,
+  risk, or conditional language; it must not present a specific outcome as
+  certain.
+- **Evidence:** Production-candidate review of complete fixtures A-H plus
+  known/no-time Web and PDF output found certainty phrases unsupported by an
+  event fact. Those phrases were softened without changing evidence, scores,
+  Engine logic, Canon, or report structure.
+- **Boundary:** Thai Beta V3 presentation composition only. Standalone Thai
+  Mirror defaults, golden baseline, tests/tolerance, and Local Gate policy are
+  unchanged. Draft PR #81 remains unreleased.
+
 ## D-080 — Thai Beta Past-to-Future Narrative V3 opt-in presentation
 
 - **Date:** 2026-08-04 | **Status:** Draft candidate under validation

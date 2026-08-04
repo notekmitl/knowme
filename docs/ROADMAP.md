@@ -18,6 +18,11 @@ Implementation commit `468827ffec9ef845db91a498f7287e52c925ab57` passed Local
 Gate and is published as Draft PR #81. Merge and Production validation are
 future decisions, not part of this task.
 
+Production-candidate review on 2026-08-04 inspected deterministic A-H output,
+Desktop known-time, Mobile no-time, and actual known/no-time PDF exports. It
+found no layout or privacy regression and hardened only unsupported certainty
+in future copy. Scoped tests and Local Gate pass; PR #81 remains Draft.
+
 ### Thai Mirror QA Screenshot Golden Baseline Repair V1 — complete
 
 PR #80 merged at `3671b62fba86fc83365fdba597b695b1f3324c6b` after deterministic repeat

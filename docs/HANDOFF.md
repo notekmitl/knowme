@@ -10,6 +10,11 @@
 - No Production release or deployment is part of this Draft task.
 - Validated implementation: `468827ffec9ef845db91a498f7287e52c925ab57`
 - Draft PR: https://github.com/notekmitl/knowme/pull/81
+- Production-candidate review: A-H text, Desktop known-time, Mobile no-time,
+  actual known/no-time PDFs, and Web/PDF parity inspected. Unsupported certain
+  future wording was softened to tendency language; Engine/evidence unchanged.
+- Known comparison failures remain identical to unchanged main: standalone
+  golden 32.63% / 305,379 pixels and full V1.3.3 `thai_consumer_hero` missing.
 - Record: [`THAI_BETA_PAST_FUTURE_NARRATIVE_V3.md`](THAI_BETA_PAST_FUTURE_NARRATIVE_V3.md)
 
 ## Completed prerequisite: Thai Mirror Golden Baseline Repair V1

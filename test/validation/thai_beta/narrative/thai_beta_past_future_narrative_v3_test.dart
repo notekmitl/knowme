@@ -59,9 +59,9 @@ void main() {
           'สุขภาพ',
         ]);
         for (final domain in window.domains) {
-          if (window.windowLabel != 'ช่วงนี้') {
-            expect(domain.body, contains('จะ'));
-          }
+          expect(domain.body, isNot(contains('จะถูกบังคับ')));
+          expect(domain.body, isNot(contains('คนที่ใช่จะเข้ามา')));
+          expect(domain.body, isNot(contains('รายได้จะเพิ่ม')));
           expect(domain.body.length, greaterThan(65));
           expect(domain.caution, isNotEmpty);
         }

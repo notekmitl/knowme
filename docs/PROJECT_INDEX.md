@@ -4,6 +4,11 @@
 **Audience:** Everyone (humans + AI agents).
 **Last updated:** June 2026
 
+Thai Beta Past-to-Future Narrative V3 and its 2026-08-04 production-candidate
+review are recorded in
+[`THAI_BETA_PAST_FUTURE_NARRATIVE_V3.md`](THAI_BETA_PAST_FUTURE_NARRATIVE_V3.md)
+(CURRENT, product/developer audience; Draft candidate, not Production).
+
 This is the master index for all KnowMe documentation. It classifies every document,
 states its purpose and audience, and defines the reading order. **No orphan docs:**
 everything below links from here.
