@@ -215,14 +215,22 @@ void main() {
       }
     });
 
-    test('Future keeps slot layout — no life domain headings forced', () {
-      final state = buildAt(weekday: DateTime.sunday, age: 39);
-      final future = state.periods.where((p) => !p.isPast && !p.isCurrent);
-      for (final p in future) {
-        expect(p.lifeDomains, isEmpty);
-        expect(p.summary, isNotEmpty);
-      }
-    });
+    test(
+      'Future carries four domains for Thai Beta without changing summary',
+      () {
+        final state = buildAt(weekday: DateTime.sunday, age: 39);
+        final future = state.periods.where((p) => !p.isPast && !p.isCurrent);
+        for (final p in future) {
+          expect(p.lifeDomains.map((domain) => domain.title).toList(), const [
+            'การงาน',
+            'การเงิน',
+            'ความรัก',
+            'สุขภาพ',
+          ]);
+          expect(p.summary, isNotEmpty);
+        }
+      },
+    );
 
     testWidgets('Current UI shows domain titles when expanded', (tester) async {
       final state = buildAt(weekday: DateTime.sunday, age: 39);

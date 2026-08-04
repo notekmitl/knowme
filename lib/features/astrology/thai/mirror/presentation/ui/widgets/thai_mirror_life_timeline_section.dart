@@ -21,6 +21,7 @@ class ThaiMirrorLifeTimelineSection extends StatefulWidget {
     required this.state,
     this.relevantPeriodsOnly = false,
     this.lifeMapMode = false,
+    this.detailedNarrativeMode = false,
   });
 
   final ThaiMirrorLifeTimelineState state;
@@ -30,6 +31,11 @@ class ThaiMirrorLifeTimelineSection extends StatefulWidget {
 
   /// V1.2.3 — full eight-period Life Map presentation.
   final bool lifeMapMode;
+
+  /// Thai Beta V3: all past periods can be read in detail, future periods show
+  /// work/money/love/health, and bucket headings make the life story scannable.
+  /// Defaults off to preserve the standalone Thai Mirror surface.
+  final bool detailedNarrativeMode;
 
   /// Copy shown beside period domain scores (presentation-only; scores unchanged).
   /// V1.2.2 — warmer wording; meaning unchanged (not accuracy / not a guarantee).
@@ -51,6 +57,7 @@ class ThaiMirrorLifeTimelineSection extends StatefulWidget {
 class _ThaiMirrorLifeTimelineSectionState
     extends State<ThaiMirrorLifeTimelineSection> {
   late int _expanded;
+  final Set<int> _expandedDetailed = <int>{};
 
   // Distinct, calm accents keyed by planet index (0..7).
   static const _accents = <Color>[
@@ -95,6 +102,11 @@ class _ThaiMirrorLifeTimelineSectionState
     if (_expanded < 0 && periods.isNotEmpty) {
       _expanded = widget.lifeMapMode || widget.relevantPeriodsOnly ? -1 : 0;
     }
+    if (widget.detailedNarrativeMode) {
+      for (var i = 0; i < periods.length; i++) {
+        _expandedDetailed.add(i);
+      }
+    }
   }
 
   @override
@@ -132,7 +144,10 @@ class _ThaiMirrorLifeTimelineSectionState
         ),
         const SizedBox(height: 8),
         Text(
-          compact
+          widget.detailedNarrativeMode
+              ? 'อ่านอดีตทุกช่วงอย่างละเอียด แล้วเทียบกับช่วงปัจจุบันก่อนอ่าน '
+                    '12 เดือนข้างหน้า จุดเปลี่ยนถัดไป และแนวโน้มทุกช่วงอายุ'
+              : compact
               ? 'โฟกัสช่วงที่เกี่ยวข้องกับตอนนี้ '
                     '— ก่อนหน้า ปัจจุบัน และถัดไป'
               : state.sectionIntro,
@@ -166,7 +181,9 @@ class _ThaiMirrorLifeTimelineSectionState
         ],
         const SizedBox(height: 20),
         Text(
-          widget.lifeMapMode
+          widget.detailedNarrativeMode
+              ? 'เรื่องราวชีวิตตามช่วงอายุ'
+              : widget.lifeMapMode
               ? 'แปดช่วงดาวเสวยอายุ'
               : compact
               ? 'ช่วงชีวิตที่เกี่ยวข้อง'
@@ -185,19 +202,85 @@ class _ThaiMirrorLifeTimelineSectionState
           )
         else
           for (var i = 0; i < periods.length; i++) ...[
+            if (widget.detailedNarrativeMode &&
+                (i == 0 ||
+                    periods[i - 1].timeBucketLabel !=
+                        periods[i].timeBucketLabel)) ...[
+              if (i > 0) const SizedBox(height: 14),
+              _PeriodBucketHeading(label: periods[i].timeBucketLabel),
+              const SizedBox(height: 10),
+            ],
             if (i > 0) const SizedBox(height: 10),
             _PeriodCard(
               period: periods[i],
               accent: _accent(periods[i].accentIndex),
-              expanded: periods[i].isPast ? false : _expanded == i,
+              expanded: widget.detailedNarrativeMode
+                  ? _expandedDetailed.contains(i)
+                  : periods[i].isPast
+                  ? false
+                  : _expanded == i,
               isWide: isWide,
               showCollapsedSummary: compact,
               lifeMapMode: widget.lifeMapMode,
-              onTap: periods[i].isPast
+              detailedNarrativeMode: widget.detailedNarrativeMode,
+              onTap: widget.detailedNarrativeMode
+                  ? () => setState(() {
+                      if (!_expandedDetailed.remove(i)) {
+                        _expandedDetailed.add(i);
+                      }
+                    })
+                  : periods[i].isPast
                   ? () {}
                   : () => setState(() => _expanded = _expanded == i ? -1 : i),
             ),
           ],
+      ],
+    );
+  }
+}
+
+class _PeriodBucketHeading extends StatelessWidget {
+  const _PeriodBucketHeading({required this.label});
+
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final (title, subtitle) = switch (label) {
+      'อดีต' => (
+        'อดีตของคุณ',
+        'อ่านย้อนทุกช่วง แล้วเทียบกับเหตุการณ์และความรู้สึกที่เกิดขึ้นจริง',
+      ),
+      'ปัจจุบัน' => (
+        'ช่วงปัจจุบัน',
+        'สิ่งที่กำลังส่งผลต่อชีวิตและการตัดสินใจตอนนี้',
+      ),
+      _ => (
+        'แนวโน้มระยะยาว',
+        'ทุกช่วงอายุที่เหลือจนถึงปลายเส้นชีวิตตามวงจรนี้',
+      ),
+    };
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+            fontSize: 17,
+            fontWeight: FontWeight.w800,
+            color: scheme.onSurface,
+          ),
+        ),
+        const SizedBox(height: 3),
+        Text(
+          subtitle,
+          style: TextStyle(
+            fontSize: 13,
+            height: 1.55,
+            color: scheme.onSurfaceVariant,
+          ),
+        ),
       ],
     );
   }
@@ -658,6 +741,7 @@ class _PeriodCard extends StatelessWidget {
     required this.onTap,
     this.showCollapsedSummary = false,
     this.lifeMapMode = false,
+    this.detailedNarrativeMode = false,
   });
 
   final ThaiMirrorLifePeriodState period;
@@ -667,6 +751,7 @@ class _PeriodCard extends StatelessWidget {
   final VoidCallback onTap;
   final bool showCollapsedSummary;
   final bool lifeMapMode;
+  final bool detailedNarrativeMode;
 
   @override
   Widget build(BuildContext context) {
@@ -753,7 +838,7 @@ class _PeriodCard extends StatelessWidget {
                         ],
                       ),
                     ),
-                    if (!period.isPast)
+                    if (!period.isPast || detailedNarrativeMode)
                       Icon(
                         expanded
                             ? Icons.keyboard_arrow_up_rounded
@@ -762,7 +847,7 @@ class _PeriodCard extends StatelessWidget {
                       ),
                   ],
                 ),
-                if (period.isPast) ...[
+                if (period.isPast && !detailedNarrativeMode) ...[
                   const SizedBox(height: 10),
                   if (period.keyword.isNotEmpty)
                     Text(
@@ -847,7 +932,11 @@ class _PeriodCard extends StatelessWidget {
                     crossFadeState: expanded
                         ? CrossFadeState.showFirst
                         : CrossFadeState.showSecond,
-                    firstChild: _PeriodDetail(period: period, accent: accent),
+                    firstChild: _PeriodDetail(
+                      period: period,
+                      accent: accent,
+                      detailedNarrativeMode: detailedNarrativeMode,
+                    ),
                     secondChild: const SizedBox(width: double.infinity),
                   ),
                 ],
@@ -887,10 +976,15 @@ class _Badge extends StatelessWidget {
 }
 
 class _PeriodDetail extends StatelessWidget {
-  const _PeriodDetail({required this.period, required this.accent});
+  const _PeriodDetail({
+    required this.period,
+    required this.accent,
+    required this.detailedNarrativeMode,
+  });
 
   final ThaiMirrorLifePeriodState period;
   final Color accent;
+  final bool detailedNarrativeMode;
 
   @override
   Widget build(BuildContext context) {
@@ -963,8 +1057,18 @@ class _PeriodDetail extends StatelessWidget {
             ),
           ],
         ],
-        // V1.3.3: Current uses life-domain hierarchy; Past/Future keep slot layout.
-        if (period.isCurrent && period.lifeDomains.isNotEmpty) ...[
+        if (detailedNarrativeMode && period.lifeDomains.isNotEmpty) ...[
+          _SectionTitle(text: 'ภาพรวมช่วงนี้', accent: accent),
+          para(period.summary),
+          for (final domain in period.lifeDomains) ...[
+            _SectionTitle(text: domain.title, accent: accent),
+            para(domain.body),
+          ],
+          if (period.comparison.isNotEmpty) ...[
+            _SectionTitle(text: 'ความเปลี่ยนแปลงจากช่วงก่อน', accent: accent),
+            para(period.comparison),
+          ],
+        ] else if (period.isCurrent && period.lifeDomains.isNotEmpty) ...[
           for (final domain in period.lifeDomains) ...[
             _SectionTitle(text: domain.title, accent: accent),
             para(domain.body),

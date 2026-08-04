@@ -4,6 +4,24 @@
 // prediction enums leak into the UI layer — the PredictionComposer flattens
 // everything here (copy boundary preserved).
 
+/// One evidence-derived life-domain forecast inside a prediction horizon.
+class PredictionDomainModel {
+  const PredictionDomainModel({
+    required this.title,
+    required this.body,
+    required this.caution,
+  });
+
+  /// One of การงาน / การเงิน / ความรัก / สุขภาพ.
+  final String title;
+
+  /// Direct forecast copy grounded in the category strength and reasons.
+  final String body;
+
+  /// The concrete pressure or boundary to watch in this domain.
+  final String caution;
+}
+
 /// One prediction horizon card (Current · Next 12 Months · Next Life Period).
 ///
 /// The main card stays scannable (article style, < 2 min read): timeframe,
@@ -23,6 +41,7 @@ class PredictionWindowCardModel {
     required this.whyNow,
     required this.whatToWatch,
     required this.evidenceDetail,
+    this.domains = const [],
   });
 
   /// Short tag for the horizon ("ช่วงนี้", "ใน 12 เดือนข้างหน้า").
@@ -57,6 +76,10 @@ class PredictionWindowCardModel {
 
   /// Technical planet evidence — shown only inside the expandable detail.
   final String evidenceDetail;
+
+  /// Thai Beta V3 detailed reading. Existing callers render this only when
+  /// their product mode opts in, preserving the standalone Thai Mirror UI.
+  final List<PredictionDomainModel> domains;
 }
 
 /// The whole Future Prediction section view state.
@@ -67,6 +90,8 @@ class PredictionSectionModel {
     required this.windows,
     required this.transitionLine,
     required this.closingAdvice,
+    this.detailedSectionIntro = '',
+    this.detailedClosingAdvice = '',
   });
 
   final String sectionTitle;
@@ -80,6 +105,10 @@ class PredictionSectionModel {
 
   /// A gentle, non-deterministic closing note (tendency, not a verdict).
   final String closingAdvice;
+
+  /// Thai Beta V3 copy for the expanded four-domain presentation.
+  final String detailedSectionIntro;
+  final String detailedClosingAdvice;
 
   bool get isEmpty => windows.isEmpty;
 }

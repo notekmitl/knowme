@@ -7,13 +7,19 @@ Sources: `docs/*.md`, `lib/features/*`, validation outputs.
 
 ## Active prerequisite
 
-### Thai Mirror QA Screenshot Golden Baseline Repair V1
+### Thai Beta Past-to-Future Narrative V3 — resumed
 
-Refresh only the stale QA harness PNG baselines from unchanged `main` using
-Flutter 3.41.1, then require deterministic repeat passes, visual contact-sheet
-review, story coverage, focused consumer UI tests, analyze, and Local Gate. This
-is a prerequisite for rerunning Thai Beta Past-to-Future Narrative V3; it is not
-a production UI or runtime change.
+PR #80 merged at `3671b62fba86fc83365fdba597b695b1f3324c6b`, restoring the QA harness
+baseline. Recovered V3 source/tests now continue on that baseline with full
+scoped validation. This remains a Draft candidate and is not released to
+Production.
+
+### Thai Mirror QA Screenshot Golden Baseline Repair V1 — complete
+
+PR #80 merged at `3671b62fba86fc83365fdba597b695b1f3324c6b` after deterministic repeat
+passes, visual contact-sheet review, story coverage, focused consumer UI tests,
+analyze, and Local Gate. This restored QA infrastructure only; it did not change
+production UI or runtime behavior.
 
 Follow-up (separate scope): repair and validate the standalone
 `test/goldens/thai_mirror_consumer_page.png`, which still fails unchanged main

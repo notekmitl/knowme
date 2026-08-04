@@ -1,5 +1,18 @@
 # DECISION LOG
 
+## D-080 — Thai Beta Past-to-Future Narrative V3 opt-in presentation
+
+- **Date:** 2026-08-04 | **Status:** Draft candidate under validation
+- **Decision:** Add deterministic detailed past/current/future presentation for
+  Thai Beta through explicit opt-in state shared by Web/PDF, while standalone
+  Thai Mirror keeps existing defaults.
+- **Boundary:** Presentation/composition only. No Engine, Canon, Birth
+  Normalization, Auth, evidence eligibility, Feedback, Firebase, or other-lens
+  change; no invented events, dates, disease, diagnosis, or unsupported facts.
+- **Recovery:** Source/tests restored from the validated V3 archive onto PR #80
+  merge `3671b62fba86fc83365fdba597b695b1f3324c6b`.
+
+
 ## D-079 — Repair stale Thai Mirror QA screenshot baselines from unchanged main
 
 - **Date:** 2026-08-04 | **Status:** Accepted for isolated validation

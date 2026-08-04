@@ -188,6 +188,29 @@ void main() {
       // No mid-card truncated ellipsis leftovers from UI maxChars cuts.
       expect(RegExp(r'[ก-๙A-Za-z]…').hasMatch(text), isFalse);
     });
+
+    test(
+      'exports detailed past and future domains from the shared view state',
+      () {
+        final doc = ThaiBetaReportExportDocument.fromAnalysis(analysis);
+        final text = doc.fullPlainText;
+        final view = ThaiBetaNarrativeComposer.narrativeView(analysis);
+        final timeline = view.lifeTimeline!;
+        final prediction = view.futurePrediction!;
+
+        final past = timeline.periods.firstWhere((period) => period.isPast);
+        final future = timeline.periods.firstWhere(
+          (period) => !period.isPast && !period.isCurrent,
+        );
+        expect(text, contains(past.lifeDomains.first.body));
+        expect(text, contains(future.lifeDomains.first.body));
+        expect(text, contains(prediction.detailedSectionIntro));
+        for (final domain in prediction.windows.first.domains) {
+          expect(text, contains(domain.body));
+          expect(text, contains(domain.caution));
+        }
+      },
+    );
   });
 
   group('Real PDF exporter path regression', () {

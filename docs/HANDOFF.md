@@ -1,9 +1,18 @@
 # KnowMe Developer Handoff
 
-## Active prerequisite: Thai Mirror Golden Baseline Repair V1
+## Active work: Thai Beta Past-to-Future Narrative V3 resume
 
-- Branch: `codex/thai-mirror-golden-baseline-repair-v1`
-- Base: `fdf2cb3ccdbdacb8cd33bd0c41e6ff1fe35fe2d8`
+- Branch: `codex/thai-beta-past-future-narrative-v3-resume`
+- Base: `3671b62fba86fc83365fdba597b695b1f3324c6b` (PR #80 merge)
+- Recovered source/test set: 13 files from the validated recovery ZIP
+- Toolchain: Flutter 3.41.1 / Dart 3.11.0
+- V3 is Thai-Beta opt-in; standalone Thai Mirror defaults must remain unchanged.
+- No Production release or deployment is part of this Draft task.
+- Record: [`THAI_BETA_PAST_FUTURE_NARRATIVE_V3.md`](THAI_BETA_PAST_FUTURE_NARRATIVE_V3.md)
+
+## Completed prerequisite: Thai Mirror Golden Baseline Repair V1
+
+- PR #80 merge: `3671b62fba86fc83365fdba597b695b1f3324c6b`
 - Canonical toolchain: isolated Flutter 3.41.1
 - Scope: QA harness PNG baselines and status documentation only
 - Do not mix this work with Thai Beta Past-to-Future Narrative V3 or modify its

@@ -7,6 +7,7 @@ import 'life_map_plain_thai_renderer.dart';
 import 'life_map_semantic_mapper.dart';
 import 'life_map_verdict_semantics.dart';
 import 'life_map_current_domain_composer.dart';
+import 'life_period_domain_composer.dart';
 import 'period_composite_score.dart';
 import 'past_retrospective_composer.dart';
 import 'thai_life_stage_context.dart';
@@ -53,7 +54,9 @@ class PeriodNarrative {
   /// Structured claims for semantic tests (not shown as raw IDs in UI).
   final LifeMapVerdictSemantics? semantics;
 
-  /// V1.3.3 — Current life-domain blocks for UI (empty for past/future).
+  /// Current keeps the accepted V1.3.4 domain set. Thai Beta V3 additionally
+  /// receives evidence-derived past/future domain blocks; the established
+  /// standalone report decides whether to render them.
   final List<ThaiMirrorLifeDomainBlock> lifeDomains;
 }
 
@@ -81,6 +84,11 @@ abstract final class PeriodNarrativeComposer {
         seed: s,
         periodIndex: period.index,
       );
+      final lifeDomains = LifePeriodDomainComposer.compose(
+        semantics: past.semantics,
+        scores: scores,
+        data: data,
+      );
       return PeriodNarrative(
         summary: past.text,
         whatChanges: '',
@@ -91,6 +99,7 @@ abstract final class PeriodNarrativeComposer {
         advice: '',
         stageLabel: stageLabel,
         semantics: past.semantics,
+        lifeDomains: lifeDomains,
       );
     }
 
@@ -111,7 +120,8 @@ abstract final class PeriodNarrativeComposer {
         ? _evidenceLine(period, lagnaLord, evidence, topThemeTags, seed, band)
         : '';
 
-    // V1.3.4: Current UI uses four forecast domains from scores + claims.
+    // V1.3.4: Current UI keeps its accepted four-domain composition. Thai Beta
+    // V3 adds a separate work/money/love/health set for future periods.
     final lifeDomains = period.isCurrent
         ? LifeMapCurrentDomainComposer.compose(
             semantics: semantics,
@@ -120,7 +130,11 @@ abstract final class PeriodNarrativeComposer {
             comparison: comparison,
             seed: s,
           )
-        : const <ThaiMirrorLifeDomainBlock>[];
+        : LifePeriodDomainComposer.compose(
+            semantics: semantics,
+            scores: scores,
+            data: data,
+          );
 
     return PeriodNarrative(
       summary: rendered.summary,

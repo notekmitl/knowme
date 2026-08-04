@@ -1,0 +1,172 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/prediction/prediction_section_model.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/life_period_domain_composer.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_future_prediction_section.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_life_timeline_section.dart';
+import 'package:knowme/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart';
+
+import 'thai_beta_narrative_fixtures.dart';
+
+void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
+  final analysis = ThaiBetaNarrativeFixtures.fixtureA();
+  final view = ThaiBetaNarrativeComposer.narrativeView(analysis);
+  final timeline = view.lifeTimeline!;
+  final prediction = view.futurePrediction!;
+
+  group('Thai Beta Past-to-Future Narrative V3', () {
+    test('every past and future life period has four detailed domains', () {
+      final periods = timeline.periods
+          .where((period) => period.isPast || !period.isCurrent)
+          .toList(growable: false);
+      expect(periods.where((period) => period.isPast), isNotEmpty);
+      expect(
+        periods.where((period) => !period.isPast && !period.isCurrent),
+        isNotEmpty,
+      );
+
+      for (final period in periods) {
+        expect(
+          period.lifeDomains.map((domain) => domain.title).toList(),
+          LifePeriodDomainComposer.requiredTitles,
+          reason: '${period.timeBucketLabel} ${period.ageLabel}',
+        );
+        for (final domain in period.lifeDomains) {
+          expect(domain.body.length, greaterThan(75));
+          expect(domain.evidenceKeys, isNotEmpty);
+          expect(domain.body, isNot(contains('คะแนน')));
+          expect(domain.body, isNot(contains('evidence')));
+        }
+      }
+
+      for (var domainIndex = 0; domainIndex < 4; domainIndex++) {
+        final bodies = periods
+            .map((period) => period.lifeDomains[domainIndex].body)
+            .toSet();
+        expect(bodies.length, periods.length);
+      }
+    });
+
+    test('each prediction horizon covers work money love and health', () {
+      expect(prediction.windows, isNotEmpty);
+      for (final window in prediction.windows) {
+        expect(window.domains.map((domain) => domain.title).toList(), const [
+          'การงาน',
+          'การเงิน',
+          'ความรัก',
+          'สุขภาพ',
+        ]);
+        for (final domain in window.domains) {
+          if (window.windowLabel != 'ช่วงนี้') {
+            expect(domain.body, contains('จะ'));
+          }
+          expect(domain.body.length, greaterThan(65));
+          expect(domain.caution, isNotEmpty);
+        }
+      }
+    });
+
+    test('future copy is deterministic for the same analysis', () {
+      final second = ThaiBetaNarrativeComposer.narrativeView(
+        ThaiBetaNarrativeFixtures.fixtureA(),
+      ).futurePrediction!;
+
+      expect(_domainDump(prediction), _domainDump(second));
+    });
+  });
+
+  group('Thai Beta V3 opt-in UI', () {
+    testWidgets('past detail and long-range future are open and grouped', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: SingleChildScrollView(
+              child: ThaiMirrorLifeTimelineSection(
+                state: timeline,
+                lifeMapMode: true,
+                detailedNarrativeMode: true,
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('อดีตของคุณ'), findsOneWidget);
+      expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
+      expect(find.text('แนวโน้มระยะยาว'), findsOneWidget);
+
+      final firstPast = timeline.periods.firstWhere((period) => period.isPast);
+      expect(find.text(firstPast.lifeDomains.first.body), findsOneWidget);
+
+      final future = timeline.periods.where(
+        (period) => !period.isPast && !period.isCurrent,
+      );
+      for (final period in future) {
+        expect(find.text(period.lifeDomains.first.body), findsOneWidget);
+      }
+    });
+
+    testWidgets(
+      'future section shows all four domains without opening detail',
+      (tester) async {
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: SingleChildScrollView(
+                child: ThaiMirrorFuturePredictionSection(
+                  state: prediction,
+                  detailedNarrativeMode: true,
+                ),
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+
+        expect(
+          find.text('คำทำนายแยกตามด้านชีวิต'),
+          findsNWidgets(prediction.windows.length),
+        );
+        for (final title in const ['การงาน', 'การเงิน', 'ความรัก', 'สุขภาพ']) {
+          expect(find.text(title), findsNWidgets(prediction.windows.length));
+        }
+        expect(find.text(prediction.detailedSectionIntro), findsOneWidget);
+        expect(find.text(prediction.detailedClosingAdvice), findsOneWidget);
+      },
+    );
+
+    testWidgets('standalone default keeps detailed beta copy hidden', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: SingleChildScrollView(
+              child: ThaiMirrorLifeTimelineSection(
+                state: timeline,
+                lifeMapMode: true,
+              ),
+            ),
+          ),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      expect(find.text('อดีตของคุณ'), findsNothing);
+      final firstPast = timeline.periods.firstWhere((period) => period.isPast);
+      expect(find.text(firstPast.lifeDomains.first.body), findsNothing);
+    });
+  });
+}
+
+String _domainDump(PredictionSectionModel state) {
+  return state.windows
+      .expand((window) => window.domains)
+      .map((domain) => '${domain.title}|${domain.body}|${domain.caution}')
+      .join('\n');
+}
