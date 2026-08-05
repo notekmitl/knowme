@@ -3,6 +3,7 @@ library;
 
 import 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mirror_theme_phrases.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_mirror_consumer_view_state.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/thai_mirror_life_timeline_state.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 
 import 'thai_beta_curated_narrative_block.dart';
@@ -218,7 +219,7 @@ abstract final class ThaiBetaNarrativeComposer {
       disclaimers: source.disclaimers
           .map(ThaiBetaNarrativeFormatting.normalize)
           .toList(),
-      lifeTimeline: source.lifeTimeline,
+      lifeTimeline: _differentiateTimelineDomains(source.lifeTimeline),
       futurePrediction: source.futurePrediction,
     );
 
@@ -245,6 +246,88 @@ abstract final class ThaiBetaNarrativeComposer {
       return orderedThemeIds[cardIndex];
     }
     return orderedThemeIds.isNotEmpty ? orderedThemeIds.first : null;
+  }
+
+  /// Differentiates repeated past/future domain paragraphs only on the Thai
+  /// Beta presentation copy. Later repetitions retain all four V3 domains and
+  /// gain the period's computed change statement instead of invented events.
+  /// Current-period content and the source Thai Mirror state remain unchanged.
+  static ThaiMirrorLifeTimelineState? _differentiateTimelineDomains(
+    ThaiMirrorLifeTimelineState? timeline,
+  ) {
+    if (timeline == null) return null;
+    final used = <String>{};
+    final periods = timeline.periods
+        .map((period) {
+          if (period.isCurrent || period.lifeDomains.isEmpty) return period;
+          final bucket = period.isPast ? 'past' : 'future';
+          final domains = <ThaiMirrorLifeDomainBlock>[];
+          for (final domain in period.lifeDomains) {
+            final semanticBody = domain.body.replaceAll(
+              'ใน${period.phaseName}',
+              'ในช่วงชีวิตนี้',
+            );
+            final key =
+                '$bucket|${domain.title}|'
+                '${ThaiBetaNarrativeFormatting.normalizedKey(semanticBody)}';
+            if (used.add(key)) {
+              domains.add(domain);
+              continue;
+            }
+            domains.add(
+              ThaiMirrorLifeDomainBlock(
+                title: domain.title,
+                body:
+                    '${domain.body} เมื่อดูจังหวะนี้ร่วมกัน ${period.summary} '
+                    '${period.whatChanges}',
+                evidenceKeys: [
+                  ...domain.evidenceKeys,
+                  'ThaiMirrorLifePeriodState.summary',
+                  'ThaiMirrorLifePeriodState.whatChanges',
+                ],
+              ),
+            );
+          }
+          return ThaiMirrorLifePeriodState(
+            ageLabel: period.ageLabel,
+            phaseName: period.phaseName,
+            planetLine: period.planetLine,
+            keyword: period.keyword,
+            isCurrent: period.isCurrent,
+            isPast: period.isPast,
+            summary: period.summary,
+            whatChanges: period.whatChanges,
+            easier: period.easier,
+            harder: period.harder,
+            comparison: period.comparison,
+            evidenceLine: period.evidenceLine,
+            scores: period.scores,
+            easeIndex: period.easeIndex,
+            accentIndex: period.accentIndex,
+            advice: period.advice,
+            stageLabel: period.stageLabel,
+            timeBucketLabel: period.timeBucketLabel,
+            mahabhutPositionLabel: period.mahabhutPositionLabel,
+            mahabhutDescription: period.mahabhutDescription,
+            mahabhutKnown: period.mahabhutKnown,
+            mahabhutUnknownReason: period.mahabhutUnknownReason,
+            mahabhutShownOnReport: period.mahabhutShownOnReport,
+            subPeriods: period.subPeriods,
+            annualTaksaYears: period.annualTaksaYears,
+            lifeDomains: List.unmodifiable(domains),
+          );
+        })
+        .toList(growable: false);
+    return ThaiMirrorLifeTimelineState(
+      sectionTitle: timeline.sectionTitle,
+      sectionIntro: timeline.sectionIntro,
+      currentStage: timeline.currentStage,
+      segments: timeline.segments,
+      periods: periods,
+      currentAnalysis: timeline.currentAnalysis,
+      futurePreview: timeline.futurePreview,
+      detailedReport: timeline.detailedReport,
+    );
   }
 
   static ({

@@ -41,7 +41,8 @@ void main() {
     expect(structure.factRows.first.label, 'วันทางโหราศาสตร์');
     expect(
       structure.factRows.any(
-        (row) => row.label == 'ลัคนา' && RegExp(r'\d+°\d{2}′').hasMatch(row.value),
+        (row) =>
+            row.label == 'ลัคนา' && RegExp(r'\d+°\d{2}′').hasMatch(row.value),
       ),
       isTrue,
     );
@@ -100,6 +101,57 @@ void main() {
       isTrue,
     );
   });
+
+  test('unknown time never exposes an assumed sunrise or clock conclusion', () {
+    final unknownAnalysis = ThaiBetaNarrativeFixtures.wednesdayNoBirthTime();
+    final unknown = ThaiBirthProfileCoreReading.fromAnalysis(unknownAnalysis);
+    final unknownText = unknown.sections
+        .expand((section) => section.publicParagraphs)
+        .join('\n');
+    final unknownSemanticKeys = unknown.sections
+        .expand((section) => section.claims)
+        .map((claim) => claim.semanticKey)
+        .toSet();
+
+    expect(unknownAnalysis.input.hasBirthTime, isFalse);
+    expect(unknownAnalysis.input.toMap()['birthHour'], isNull);
+    expect(unknownAnalysis.input.toMap()['birthMinute'], isNull);
+    expect(unknownText, isNot(contains('ก่อนพระอาทิตย์ขึ้น')));
+    expect(unknownText, isNot(contains('หลังพระอาทิตย์ขึ้น')));
+    expect(unknownText, isNot(contains('เวลาเกิดอยู่')));
+    expect(
+      unknownSemanticKeys,
+      isNot(contains('methodology:sunrise-boundary')),
+    );
+
+    final known = ThaiBirthProfileCoreReading.fromAnalysis(
+      ThaiBetaNarrativeFixtures.wednesdayDaytime(),
+    );
+    final knownText = known.sections
+        .expand((section) => section.publicParagraphs)
+        .join('\n');
+    final knownSemanticKeys = known.sections
+        .expand((section) => section.claims)
+        .map((claim) => claim.semanticKey)
+        .toSet();
+    expect(knownText, contains('หลังพระอาทิตย์ขึ้น'));
+    expect(knownSemanticKeys, contains('methodology:sunrise-boundary'));
+  });
+
+  test(
+    'wellbeing guidance uses natural Thai without a duplicated directive',
+    () {
+      final reading = ThaiBirthProfileCoreReading.fromAnalysis(
+        ThaiBetaNarrativeFixtures.fixtureA(),
+      );
+      final text = reading.sections
+          .expand((section) => section.publicParagraphs)
+          .join('\n');
+
+      expect(text, isNot(contains('จึงควรการ')));
+      expect(text, isNot(contains('จึงควรควร')));
+    },
+  );
 
   test(
     'before sunrise and after sunrise use different astrological day facts',
@@ -637,10 +689,7 @@ void main() {
       closing.claims.single.text,
       contains('เมื่อใช้จุดแข็งนี้มากเกินไปอาจกลายเป็น'),
     );
-    expect(
-      closing.claims.single.text,
-      contains('ทางที่เหมาะกว่าคือ'),
-    );
+    expect(closing.claims.single.text, contains('ทางที่เหมาะกว่าคือ'));
     expect(atoms.map((atom) => atom.kind).toSet(), {
       ThaiBirthProfileCoreAtomKind.strengthTheme,
       ThaiBirthProfileCoreAtomKind.riskTheme,

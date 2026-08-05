@@ -105,10 +105,7 @@ void main() {
       // Core Reading is the shared web/PDF presentation source.
       expect(text, contains(ThaiBirthProfileCoreReading.reportTitle));
       expect(text, contains(ThaiBirthProfileCoreReadingCopy.summaryTitle));
-      expect(
-        text,
-        contains(ThaiBirthProfileCoreReadingCopy.dayCountingTitle),
-      );
+      expect(text, contains(ThaiBirthProfileCoreReadingCopy.dayCountingTitle));
       expect(
         text,
         contains(ThaiBirthProfileCoreReadingCopy.chartStructureTitle),
@@ -183,6 +180,96 @@ void main() {
       expect(doc.fullPlainText, contains('ดวงนี้วิเคราะห์จากอะไร'));
       expect(doc.fullPlainText, isNot(contains('ข้อมูลวันเกิดครบถ้วน')));
     });
+
+    test('unknown-time web and PDF omit assumed clock and sunrise claims', () {
+      final unknown = ThaiBetaAnalysisRunner.run(
+        ThaiBetaInput(
+          firstName: 'Unknown',
+          lastName: 'Time',
+          birthDate: DateTime(1972, 4, 5),
+          birthTimeUnknown: true,
+          province: 'กรุงเทพมหานคร',
+          provinceKey: 'bangkok',
+        ),
+        startedAt: DateTime(2026, 7, 21),
+      );
+      final webText = ThaiBirthProfileCoreReading.fromAnalysis(
+        unknown,
+      ).sections.expand((section) => section.publicParagraphs).join('\n');
+      final pdfText = ThaiBetaReportExportDocument.fromAnalysis(
+        unknown,
+      ).fullPlainText;
+
+      for (final text in [webText, pdfText]) {
+        expect(text, isNot(contains('ก่อนพระอาทิตย์ขึ้น')));
+        expect(text, isNot(contains('หลังพระอาทิตย์ขึ้น')));
+        expect(text, isNot(contains('เวลาเกิดอยู่')));
+        expect(text, isNot(contains('12:00')));
+      }
+      expect(unknown.input.toMap()['birthHour'], isNull);
+      expect(unknown.input.toMap()['birthMinute'], isNull);
+    });
+
+    test(
+      'Thai Beta differentiates repeated past and future domain paragraphs',
+      () {
+        final source = analysis.consumerViewState!.lifeTimeline!;
+        final curated = ThaiBetaNarrativeComposer.narrativeView(
+          analysis,
+        ).lifeTimeline!;
+        final sourceCount = source.periods
+            .where((period) => !period.isCurrent)
+            .expand((period) => period.lifeDomains)
+            .length;
+        final curatedEntries = <String>[];
+        for (final period in curated.periods.where(
+          (period) => !period.isCurrent,
+        )) {
+          final bucket = period.isPast ? 'past' : 'future';
+          for (final domain in period.lifeDomains) {
+            final body = domain.body
+                .replaceAll('ใน${period.phaseName}', 'ในช่วงชีวิตนี้')
+                .replaceAll(RegExp(r'\s+'), ' ')
+                .trim()
+                .toLowerCase();
+            curatedEntries.add('$bucket|${domain.title}|$body');
+          }
+        }
+
+        expect(curatedEntries.toSet(), hasLength(curatedEntries.length));
+        expect(curatedEntries, hasLength(sourceCount));
+        expect(
+          curated.periods
+              .where((period) => !period.isCurrent)
+              .every((period) => period.lifeDomains.length == 4),
+          isTrue,
+        );
+        expect(
+          curated.periods
+              .where((period) => !period.isCurrent)
+              .expand((period) => period.lifeDomains)
+              .where(
+                (domain) => domain.evidenceKeys.contains(
+                  'ThaiMirrorLifePeriodState.whatChanges',
+                ),
+              ),
+          isNotEmpty,
+        );
+        expect(
+          curated.periods.singleWhere((period) => period.isCurrent).lifeDomains,
+          orderedEquals(
+            source.periods
+                .singleWhere((period) => period.isCurrent)
+                .lifeDomains,
+          ),
+        );
+
+        final exportText = ThaiBetaReportExportDocument.fromAnalysis(
+          analysis,
+        ).fullPlainText;
+        expect(exportText, contains('เมื่อดูจังหวะนี้ร่วมกัน'));
+      },
+    );
 
     test('PDF polish removes duplicate neighbour prefixes and zero timing', () {
       final doc = ThaiBetaReportExportDocument.fromAnalysis(analysis);

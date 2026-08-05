@@ -9,6 +9,7 @@
     "docs/CURRENT_STATUS.md", "docs/HANDOFF.md", "docs/ROADMAP.md",
     "docs/THAI_BIRTH_PROFILE_CORE_READING_V1.md",
     "lib/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart",
+    "lib/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart",
     "lib/features/thai_beta/application/thai_beta_report_export_document.dart",
     "lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart",
     "lib/features/thai_beta/presentation/widgets/thai_birth_profile_core_reading_section.dart",

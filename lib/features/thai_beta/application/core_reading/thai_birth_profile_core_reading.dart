@@ -472,7 +472,7 @@ class ThaiBirthProfileCoreReading {
         .toList(growable: false);
     if (weekdayAtoms.isNotEmpty) {
       final weekday = _thaiWeekday(birthData?.thaiWeekdayNumber);
-      final dayMeaning = normalized == null
+      final dayMeaning = normalized == null || !analysis.input.hasBirthTime
           ? 'วันหลักที่ใช้กับกฎทางโหราศาสตร์ไทย'
           : normalized.usedPreviousDay
           ? 'เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้น จึงใช้วันก่อนหน้าเป็นวันทางโหราศาสตร์'
@@ -524,37 +524,34 @@ class ThaiBirthProfileCoreReading {
         ThaiBirthProfileCoreFactRow(
           label: 'เจ้าเรือนลัคนา',
           value: _lordLabel(lord.rawValue),
-          meaning: mode.$1.isEmpty
-              ? 'แนวทางหลักที่ใช้ขยายความลัคนา'
-              : mode.$1,
+          meaning: mode.$1.isEmpty ? 'แนวทางหลักที่ใช้ขยายความลัคนา' : mode.$1,
           sourceAtoms: lagnaLordAtoms,
         ),
       );
     }
-    const chartDomains = <
-      ({int houseNumber, ThaiBirthProfileCoreDomain domain, String label})
-    >[
-      (
-        houseNumber: 10,
-        domain: ThaiBirthProfileCoreDomain.work,
-        label: 'เรือนการงาน',
-      ),
-      (
-        houseNumber: 2,
-        domain: ThaiBirthProfileCoreDomain.money,
-        label: 'เรือนการเงิน',
-      ),
-      (
-        houseNumber: 7,
-        domain: ThaiBirthProfileCoreDomain.relationships,
-        label: 'เรือนความสัมพันธ์',
-      ),
-      (
-        houseNumber: 6,
-        domain: ThaiBirthProfileCoreDomain.wellbeing,
-        label: 'เรือนสุขภาวะ',
-      ),
-    ];
+    const chartDomains =
+        <({int houseNumber, ThaiBirthProfileCoreDomain domain, String label})>[
+          (
+            houseNumber: 10,
+            domain: ThaiBirthProfileCoreDomain.work,
+            label: 'เรือนการงาน',
+          ),
+          (
+            houseNumber: 2,
+            domain: ThaiBirthProfileCoreDomain.money,
+            label: 'เรือนการเงิน',
+          ),
+          (
+            houseNumber: 7,
+            domain: ThaiBirthProfileCoreDomain.relationships,
+            label: 'เรือนความสัมพันธ์',
+          ),
+          (
+            houseNumber: 6,
+            domain: ThaiBirthProfileCoreDomain.wellbeing,
+            label: 'เรือนสุขภาวะ',
+          ),
+        ];
     for (final config in chartDomains) {
       final atoms = houseAtoms
           .where((atom) => atom.houseNumber == config.houseNumber)
@@ -707,7 +704,8 @@ class ThaiBirthProfileCoreReading {
         ),
     ];
     final closingCopy = _composeClosing(closingAtoms);
-    final closingClaims = closingAtoms.length < 3 ||
+    final closingClaims =
+        closingAtoms.length < 3 ||
             closingCopy.strength.isEmpty ||
             closingCopy.risk.isEmpty ||
             closingCopy.action.isEmpty
@@ -776,7 +774,7 @@ class ThaiBirthProfileCoreReading {
           ),
         ],
       );
-      if (normalized.sunriseAvailable) {
+      if (analysis.input.hasBirthTime && normalized.sunriseAvailable) {
         addDisclosureClaim(
           target: dayCountingClaims,
           text: normalized.usedPreviousDay
@@ -950,7 +948,8 @@ class ThaiBirthProfileCoreReading {
       omissions.add(
         const ThaiBirthProfileCoreOmission(
           topic: ThaiBirthProfileCoreReadingCopy.chartStructureTitle,
-          reason: 'ไม่มีจุดคำนวณหลักที่ตรวจสอบย้อนกลับได้เพียงพอสำหรับสรุปโครงสร้างดวง',
+          reason:
+              'ไม่มีจุดคำนวณหลักที่ตรวจสอบย้อนกลับได้เพียงพอสำหรับสรุปโครงสร้างดวง',
         ),
       );
     }
@@ -1236,7 +1235,7 @@ class ThaiBirthProfileCoreReading {
             'ตามตำรา เรือนสุขภาวะอยู่ที่$signLabelและมี$lordLabelเป็นเจ้าเรือน '
             'จึงควรดูแลพลังของตัวเองผ่าน${mode.$1}',
         guidance:
-            'สัญญาณที่ไม่ควรปล่อยไว้นานคือ${mode.$2} จึงควร${mode.$3} '
+            'สัญญาณที่ไม่ควรปล่อยไว้นานคือ${mode.$2} ทางที่เหมาะคือ${mode.$3} '
             'และจัดเวลาพักให้สม่ำเสมอ',
       ),
       _ => (analysis: '', guidance: ''),
