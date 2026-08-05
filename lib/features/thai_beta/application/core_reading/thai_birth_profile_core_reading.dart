@@ -512,7 +512,7 @@ class ThaiBirthProfileCoreReading {
               sourceRef: 'ThaiAstrologyProfile.siderealAscendantDeg',
               rawValue: '${profile.siderealAscendantDeg}',
             ),
-            if (identityAtom != null) identityAtom,
+            ?identityAtom,
           ],
         ),
       );
@@ -1021,10 +1021,10 @@ class ThaiBirthProfileCoreReading {
           claims: const [],
           factRows: chartFactRows,
         ),
-      if (workSection != null) workSection,
-      if (moneySection != null) moneySection,
-      if (relationshipsSection != null) relationshipsSection,
-      if (wellbeingSection != null) wellbeingSection,
+      ?workSection,
+      ?moneySection,
+      ?relationshipsSection,
+      ?wellbeingSection,
       if (closingClaims.isNotEmpty)
         ThaiBirthProfileCoreSection(
           title: ThaiBirthProfileCoreReadingCopy.closingTitle,
