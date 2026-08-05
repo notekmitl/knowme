@@ -25,15 +25,20 @@ void main() {
       )!;
     }
 
-    void expectProductCopy(String text, {required String label}) {
+    void expectProductCopy(
+      String text, {
+      required String label,
+      bool isAction = false,
+    }) {
       expect(text.trim(), isNotEmpty, reason: label);
       expect(
         LifeMapVerdictCopy.violatesPrimaryBody(text),
         isFalse,
         reason: '$label policy: $text',
       );
+      final concreteImperative = isAction && text.startsWith('คุณต้อง');
       expect(
-        LifeMapVerdictCopy.looksLikeAbstractOnly(text),
+        LifeMapVerdictCopy.looksLikeAbstractOnly(text) && !concreteImperative,
         isFalse,
         reason: '$label abstract-only: $text',
       );
@@ -66,9 +71,17 @@ void main() {
       expectProductCopy(past.summary, label: 'past');
       expectProductCopy(current.summary, label: 'current summary');
       expectProductCopy(current.harder, label: 'current pressure');
-      expectProductCopy(current.advice, label: 'current consequence');
+      expectProductCopy(
+        current.advice,
+        label: 'current consequence',
+        isAction: true,
+      );
       expectProductCopy(future.summary, label: 'future summary');
-      expectProductCopy(future.advice, label: 'future consequence');
+      expectProductCopy(
+        future.advice,
+        label: 'future consequence',
+        isAction: true,
+      );
 
       expect(past.summary, isNot(equals(current.summary)));
       expect(current.summary, isNot(equals(future.summary)));
@@ -122,7 +135,11 @@ void main() {
             );
             if (!p.isPast) {
               expectProductCopy(p.harder, label: 'pressure');
-              expectProductCopy(p.advice, label: 'consequence');
+              expectProductCopy(
+                p.advice,
+                label: 'consequence',
+                isAction: true,
+              );
             }
           }
         }

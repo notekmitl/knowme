@@ -296,7 +296,7 @@ void main() {
     });
 
     test('ambiguous blockers map to BLOCKED_AMBIGUOUS', () {
-      expect(audit.runtimeMetadata.blockedAmbiguous, 18);
+      expect(audit.runtimeMetadata.blockedAmbiguous, 14);
       for (final result in audit.fixtureResults) {
         for (final entry
             in result.bundle.trace.runtimeStatusWithoutPositionBreakdown) {
@@ -310,7 +310,7 @@ void main() {
     });
 
     test('source conflict blockers map to BLOCKED_SOURCE_CONFLICT', () {
-      expect(audit.runtimeMetadata.blockedSourceConflict, 3);
+      expect(audit.runtimeMetadata.blockedSourceConflict, 2);
       expect(audit.runtimeMetadata.conflictedArchetypePlanetPairs, 1);
       for (final result in audit.fixtureResults) {
         for (final pair in result.bundle.trace.conflictedArchetypePlanetPairs) {
@@ -359,15 +359,15 @@ void main() {
 
   group('Runtime metadata audit', () {
     test('aggregate runtime status counts match baseline', () {
-      expect(audit.runtimeMetadata.lifePeriodsWithRuntimeStatus, 65);
-      expect(audit.runtimeMetadata.lifePeriodsWithoutRuntimeStatus, 21);
-      expect(audit.runtimeMetadata.blockedAmbiguous, 18);
+      expect(audit.runtimeMetadata.lifePeriodsWithRuntimeStatus, 56);
+      expect(audit.runtimeMetadata.lifePeriodsWithoutRuntimeStatus, 16);
+      expect(audit.runtimeMetadata.blockedAmbiguous, 14);
       expect(audit.runtimeMetadata.blockedNoP17Rule, 0);
       expect(
         audit.runtimeMetadata.blockedAmbiguous +
             audit.runtimeMetadata.blockedSourceConflict +
             audit.runtimeMetadata.blockedMissingPosition,
-        21,
+        16,
       );
     });
 

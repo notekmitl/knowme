@@ -192,13 +192,10 @@ void main() {
 
       expect(
         audit.result,
-        LifePeriodPositionMetadataFeasibilityResult.partialPositionMetadata,
+        LifePeriodPositionMetadataFeasibilityResult.readyToExposeMetadata,
       );
       expect(audit.hasArchetypeChartIdentity, isTrue);
-      expect(
-        audit.metadataBlocker,
-        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
-      );
+      expect(audit.metadataBlocker, isNull);
     });
 
     test('enricher trace counts archetype metadata on 9 fixtures', () async {
@@ -238,7 +235,7 @@ void main() {
       expect(
         bundle.trace.lifePeriodPositionFeasibilityResult,
         LifePeriodPositionMetadataFeasibilityResult
-            .partialPositionMetadata.wire,
+            .readyToExposeMetadata.wire,
       );
       expect(
         bundle.trace.lifePeriodPositionMetadataBlocker,

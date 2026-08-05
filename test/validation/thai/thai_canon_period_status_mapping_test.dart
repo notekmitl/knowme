@@ -166,8 +166,8 @@ void main() {
         isNotEmpty,
       );
       expect(bundle.trace.skippedPeriodStatusNotes, isEmpty);
-      expect(bundle.trace.lifePeriodsWithRuntimeStatus, hasLength(9));
-      expect(bundle.trace.lifePeriodsWithoutRuntimeStatus.length, 1);
+      expect(bundle.trace.lifePeriodsWithRuntimeStatus, hasLength(8));
+      expect(bundle.trace.lifePeriodsWithoutRuntimeStatus, isEmpty);
     });
 
     test('periodStatus evidence remains userFacingAllowed = false', () async {

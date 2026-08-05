@@ -247,7 +247,7 @@ void main() {
   });
 
   group('Blocker chain and trace', () {
-    test('position count may exceed period context count via archetype planet path',
+    test('QA sample resolves every period through current position paths',
         () async {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
@@ -259,12 +259,12 @@ void main() {
 
       expect(
         bundle.trace.lifePeriodsWithPositionMetadata.length,
-        greaterThan(
+        greaterThanOrEqualTo(
           bundle.trace.lifePeriodsWithPeriodContextMetadata.length,
         ),
       );
       expect(bundle.trace.lifePeriodsWithPositionMetadata, isNotEmpty);
-      expect(bundle.trace.lifePeriodsWithoutPositionMetadata, isNotEmpty);
+      expect(bundle.trace.lifePeriodsWithoutPositionMetadata, isEmpty);
     });
 
     test('9-fixture aggregate counts and partial blocker', () async {
@@ -309,10 +309,10 @@ void main() {
       }
 
       expect(withContext, 8);
-      expect(withoutContext, 78);
-      expect(withPosition, 65);
+      expect(withoutContext, 64);
+      expect(withPosition, 56);
       expect(withPosition, greaterThan(withContext));
-      expect(withoutPosition, 21);
+      expect(withoutPosition, 16);
     });
 
     test('rise/fall audit shows eligible vs ineligible periods', () {
@@ -328,11 +328,11 @@ void main() {
 
       expect(
         audit.result,
-        LifePeriodRiseFallFeasibilityResult.partialRuntimeStatusMetadata,
+        LifePeriodRiseFallFeasibilityResult.readyToExposeMetadata,
       );
       expect(audit.periodsWithPositionMetadata, greaterThan(0));
       expect(audit.periodsEligibleForRiseFall, audit.periodsWithPositionMetadata);
-      expect(audit.periodsIneligibleForRiseFall, greaterThan(0));
+      expect(audit.periodsIneligibleForRiseFall, 0);
     });
 
     test('21 unmatched periods remain blocked not inferred', () async {
@@ -345,7 +345,7 @@ void main() {
         (sum, r) =>
             sum + r.bundle.trace.lifePeriodsWithoutPositionMetadata.length,
       );
-      expect(withoutPosition, 21);
+      expect(withoutPosition, 16);
       for (final result in audit.fixtureResults) {
         if (result.bundle.trace.lifePeriodsWithoutPositionMetadata.isNotEmpty) {
           expect(

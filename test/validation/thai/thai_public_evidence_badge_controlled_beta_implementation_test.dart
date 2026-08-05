@@ -159,7 +159,9 @@ void main() {
         badges: const [safeBadge],
       );
       expect(find.byType(ThaiBetaEvidenceBadgePanel), findsOneWidget);
-      expect(find.text(ThaiPublicEvidenceBadgeCopy.primaryBadgeLabel), findsOneWidget);
+      await tester.tap(find.byKey(const Key('thai_beta_evidence_details')));
+      await tester.pumpAndSettle();
+      expect(find.text('มีที่มาจากตำราอ้างอิง'), findsOneWidget);
       expect(find.text(ThaiPublicEvidenceBadgeCopy.cautionCopy), findsOneWidget);
     });
 
@@ -209,6 +211,8 @@ void main() {
         audience: const ThaiBetaEvidenceBadgeAudience.internalTester(),
         badges: ThaiPublicEvidenceBadgeBetaMapper.fromBundle(bundle),
       );
+      await tester.tap(find.byKey(const Key('thai_beta_evidence_details')));
+      await tester.pumpAndSettle();
       final labelText = tester
           .widgetList<Chip>(
             find.descendant(

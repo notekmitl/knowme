@@ -89,7 +89,7 @@ void main() {
       expect(view.hero.summary, isNot(contains('ข้อมูลวันเกิดครบถ้วน')));
     });
 
-    testWidgets('report UI: single hero, no core card, no complete banner', (
+    testWidgets('report UI: current Core Reading, no legacy completion banner', (
       tester,
     ) async {
       final analysis = ThaiBetaNarrativeFixtures.fixtureA();
@@ -105,7 +105,10 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      expect(find.byKey(const Key('thai_consumer_hero')), findsOneWidget);
+      expect(
+        find.byKey(const Key('thai_birth_profile_core_reading')),
+        findsOneWidget,
+      );
       expect(
         find.byKey(const Key('thai_consumer_signature_insight')),
         findsNothing,

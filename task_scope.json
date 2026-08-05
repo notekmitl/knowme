@@ -1,42 +1,29 @@
 {
   "schema_version": 1,
-  "task_id": "thai-beta-past-future-narrative-v3-resume",
-  "expected_branch": "codex/thai-beta-past-future-narrative-v3-resume",
-  "expected_worktree": "C:\\Users\\USER\\Documents\\Knowme\\thai-beta-past-future-narrative-v3-resume",
-  "base_ref": "3671b62fba86fc83365fdba597b695b1f3324c6b",
+  "task_id": "thai-full-suite-baseline-fix",
+  "expected_branch": "codex/thai-full-suite-baseline-fix",
+  "expected_worktree": "C:\\Users\\USER\\Documents\\Knowme\\thai-full-suite-baseline-fix",
+  "base_ref": "b0a5b4c541f86d82a1fe7fecbae070ffea8a4b2e",
   "allowed_files": [
-    "task.md", "task_scope.json", "TASK_RESULT.md",
-    "docs/CURRENT_STATUS.md", "docs/ROADMAP.md", "docs/HANDOFF.md",
-    "docs/DECISION_LOG.md", "docs/PROJECT_INDEX.md",
-    "docs/THAI_BETA_PAST_FUTURE_NARRATIVE_V3.md",
-    "lib/features/astrology/thai/mirror/presentation/prediction/prediction_composer.dart",
-    "lib/features/astrology/thai/mirror/presentation/prediction/prediction_section_model.dart",
-    "lib/features/astrology/thai/mirror/presentation/timeline/life_period_domain_composer.dart",
-    "lib/features/astrology/thai/mirror/presentation/timeline/period_narrative_composer.dart",
-    "lib/features/astrology/thai/mirror/presentation/timeline/thai_mirror_life_timeline_state.dart",
-    "lib/features/astrology/thai/mirror/presentation/ui/pages/thai_mirror_result_page.dart",
-    "lib/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_future_prediction_section.dart",
-    "lib/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_life_timeline_section.dart",
-    "lib/features/thai_beta/application/thai_beta_report_export_document.dart",
-    "lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart",
-    "test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart",
-    "test/validation/thai_beta/thai_beta_report_export_test.dart",
-    "test/validation/thai_beta/life_map/v133/thai_life_map_v133_holistic_domains_test.dart"
+    "task.md",
+    "task_scope.json",
+    "docs/CURRENT_STATUS.md",
+    "docs/HANDOFF.md",
+    "docs/ROADMAP.md"
   ],
-  "allowed_globs": [],
+  "allowed_globs": [
+    "test/validation/thai/*_test.dart",
+    "test/validation/thai_beta/**/*_test.dart"
+  ],
   "forbidden_files": [".env", ".env.*", "**/*.pem", "**/*.key", "**/google-services.json", "**/GoogleService-Info.plist", "**/firestore_user_export.json"],
   "generated_output_globs": ["build/**", ".dart_tool/**", "coverage/**", "**/failures/**", "**/__pycache__/**", "**/*.pyc", "**/*.pdf", "**/*.png"],
   "forbidden_text_patterns": ["OPENAI_API_KEY", "api.openai.com", "knowme-ai-worker", "final_result.json", "round_[0-9]+_review\\.json"],
   "focused_tests": [
-    "& 'C:\\Users\\USER\\Documents\\Knowme\\flutter-3.41.1-sdk\\bin\\flutter.bat' test --no-pub test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart",
-    "& 'C:\\Users\\USER\\Documents\\Knowme\\flutter-3.41.1-sdk\\bin\\flutter.bat' test --no-pub test/validation/thai_beta/thai_beta_report_export_test.dart",
-    "& 'C:\\Users\\USER\\Documents\\Knowme\\flutter-3.41.1-sdk\\bin\\flutter.bat' test --no-pub test/validation/thai_beta/life_map/v133/thai_life_map_v133_holistic_domains_test.dart --plain-name 'Future carries four domains for Thai Beta without changing summary'",
-    "& 'C:\\Users\\USER\\Documents\\Knowme\\flutter-3.41.1-sdk\\bin\\flutter.bat' test --no-pub test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart test/validation/thai_beta/narrative/thai_beta_narrative_screen_pdf_parity_test.dart",
-    "& 'C:\\Users\\USER\\Documents\\Knowme\\flutter-3.41.1-sdk\\bin\\flutter.bat' test --no-pub test/validation/thai_mirror_qa_harness/story_coverage_validation_test.dart test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart"
+    "& 'C:\\Users\\USER\\Documents\\Knowme\\flutter-3.41.1-sdk\\bin\\flutter.bat' test --no-pub --concurrency=1 test/validation/thai test/validation/thai_beta test/validation/thai_mirror_qa_harness"
   ],
   "full_test_policy": "required",
-  "full_test_command": "& 'C:\\Users\\USER\\Documents\\Knowme\\flutter-3.41.1-sdk\\bin\\flutter.bat' test --no-pub --concurrency=1 test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart test/validation/thai_beta/thai_beta_report_export_test.dart test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart test/validation/thai_beta/narrative/thai_beta_narrative_screen_pdf_parity_test.dart test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart test/validation/thai_beta/thai_beta_pipeline_test.dart test/validation/thai_beta/thai_beta_report_scroll_layout_test.dart test/validation/thai_mirror_qa_harness/story_coverage_validation_test.dart test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart test/validation/thai_mirror_v8_timeline/life_period_engine_test.dart test/validation/thai_mirror_v8_timeline/timeline_narrative_diversity_test.dart test/validation/thai_mirror_v10_prediction/prediction_intelligence_test.dart test/validation/thai_mirror_v10_prediction_presentation/prediction_composer_test.dart; if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }; & 'C:\\Users\\USER\\Documents\\Knowme\\flutter-3.41.1-sdk\\bin\\flutter.bat' test --no-pub test/validation/thai_beta/life_map/v133/thai_life_map_v133_holistic_domains_test.dart --plain-name 'Future carries four domains for Thai Beta without changing summary'",
+  "full_test_command": "& 'C:\\Users\\USER\\Documents\\Knowme\\flutter-3.41.1-sdk\\bin\\flutter.bat' test --no-pub --concurrency=1 test/validation/thai test/validation/thai_beta test/validation/thai_mirror_qa_harness",
   "analyze_command": "& 'C:\\Users\\USER\\Documents\\Knowme\\flutter-3.41.1-sdk\\bin\\flutter.bat' analyze --no-pub --no-fatal-warnings --no-fatal-infos",
-  "commit_message_regex": "^feat\\(thai-beta\\): .{10,72}$",
+  "commit_message_regex": "^test\\(thai\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }

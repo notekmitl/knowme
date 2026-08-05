@@ -26,29 +26,21 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text('แผนที่ชีวิตของคุณ'), findsOneWidget);
+      expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
       expect(find.text('อดีต'), findsWidgets);
       expect(find.text('ปัจจุบัน'), findsWidgets);
       expect(find.text('อนาคต'), findsWidgets);
       expect(
         find.text(ThaiMirrorLifeTimelineSection.expandDetailsLabel),
-        findsWidgets,
+        findsNothing,
       );
       expect(
         find.text(ThaiMirrorLifeTimelineSection.subPeriodsLabel).hitTestable(),
         findsNothing,
       );
 
-      final expand = find
-          .text(ThaiMirrorLifeTimelineSection.expandDetailsLabel)
-          .first;
-      await tester.ensureVisible(expand);
-      await tester.tap(expand);
-      await tester.pumpAndSettle();
-
-      // V1.3.0 — highlight slot omitted when it would only paraphrase summary.
-      expect(find.text('สรุปช่วงนี้'), findsWidgets);
-      expect(find.text('สิ่งที่ทำให้ลำบาก'), findsWidgets);
+      expect(find.text('อดีตของคุณ'), findsOneWidget);
+      expect(find.text('แนวโน้มระยะยาว'), findsOneWidget);
       expect(
         find.text(ThaiMirrorLifeTimelineSection.subPeriodsLabel),
         findsNothing,

@@ -7,6 +7,7 @@ import 'package:knowme/features/astrology/thai/knowledge/canon/integration/thai_
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/thai_taksa_rotation_resolver.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_mirror_consumer_view_state.dart';
 import 'package:knowme/features/birth_normalization/birth_normalization.dart';
+import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_curated_block_selector.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_curated_narrative_block.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart';
@@ -55,7 +56,7 @@ void main() {
       expect(case_.analysis.input.hasBirthTime, isFalse);
       expect(case_.view.birthDataConfidence.isComplete, isFalse);
       expect(
-        case_.text.contains('โดยไม่มีเวลาเกิด'),
+        case_.text.contains('ไม่มีเวลาเกิด'),
         isTrue,
         reason: 'no-time limitation sentence required',
       );
@@ -141,7 +142,7 @@ void main() {
         expect(snap.thaiAstrologicalDate, '1972-04-05');
         expect(_thaiWeekdayNumber(snap.thaiAstrologicalDate), 4);
         expect(case_.analysis.input.hasBirthTime, isFalse);
-        expect(case_.text.contains('โดยไม่มีเวลาเกิด'), isTrue);
+        expect(case_.text.contains('ไม่มีเวลาเกิด'), isTrue);
         expect(case_.noBirthTimeViolations, isEmpty);
         for (final min in case_.traceMins) {
           expect(
@@ -158,7 +159,7 @@ void main() {
       expect(case_.analysis.isSuccess, isTrue);
       expect(case_.analysis.input.hasBirthTime, isFalse);
       expect(case_.view.birthDataConfidence.isComplete, isFalse);
-      expect(case_.text.contains('โดยไม่มีเวลาเกิด'), isTrue);
+      expect(case_.text.contains('ไม่มีเวลาเกิด'), isTrue);
       expect(case_.noBirthTimeViolations, isEmpty);
     });
 
@@ -420,7 +421,18 @@ _ReportCase _runCase(ThaiBetaAnalysis Function() load) {
   final analysis = load();
   final result = ThaiBetaNarrativeComposer.compose(analysis);
   final view = result.view;
+  final core = ThaiBirthProfileCoreReading.fromAnalysis(
+    analysis,
+    consumerView: view,
+  );
   final buf = StringBuffer()
+    ..writeln(core.title)
+    ..writeln(core.subtitle)
+    ..writeln(
+      core.sections
+          .expand((section) => section.publicParagraphs)
+          .join('\n'),
+    )
     ..writeln(view.hero.headline)
     ..writeln(view.hero.summary)
     ..writeln(view.advice.body)

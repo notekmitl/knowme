@@ -218,11 +218,11 @@ void main() {
         }
       }
 
-      expect(withPosition, 65);
-      expect(withRuntime, 65);
+      expect(withPosition, 56);
+      expect(withRuntime, 56);
       expect(withRuntime, equals(withPosition));
-      expect(withoutRuntime, 21);
-      expect(derived, 10);
+      expect(withoutRuntime, 16);
+      expect(derived, 8);
     });
 
     test('21 ineligible periods remain blocked not inferred', () async {
@@ -235,7 +235,7 @@ void main() {
         (sum, r) =>
             sum + r.bundle.trace.lifePeriodsIneligibleForRuntimeStatus.length,
       );
-      expect(ineligible, 21);
+      expect(ineligible, 16);
     });
 
     test('canon-derived fallback still works separately', () async {

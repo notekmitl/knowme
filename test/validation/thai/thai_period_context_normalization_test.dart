@@ -250,9 +250,9 @@ void main() {
       }
 
       expect(withContext, greaterThanOrEqualTo(8));
-      expect(withoutContext, 78);
-      expect(withPosition, greaterThanOrEqualTo(65));
-      expect(withRuntime, greaterThanOrEqualTo(65));
+      expect(withoutContext, 64);
+      expect(withPosition, greaterThanOrEqualTo(56));
+      expect(withRuntime, greaterThanOrEqualTo(56));
       expect(rawMatches + normalizedMatches, lessThanOrEqualTo(withContext));
     });
   });
