@@ -13,13 +13,18 @@ class ThaiBirthProfileCoreReadingCopy {
   const ThaiBirthProfileCoreReadingCopy._();
 
   static const reportTitle = 'ดวงจากวันเกิดของคุณ';
-  static const summaryTitle = 'สรุปตัวคุณจากพื้นดวง';
+  static const summaryTitle = 'สรุปตรง ๆ';
+  static const dayCountingTitle = 'หลักการนับวันทางโหราศาสตร์ไทย';
+  static const chartStructureTitle = 'โครงสร้างดวงหลัก';
   static const workTitle = 'การงาน';
   static const moneyTitle = 'การเงิน';
   static const relationshipsTitle = 'ความรักและความสัมพันธ์';
   static const wellbeingTitle = 'สุขภาพและพลังชีวิตตามตำรา';
-  static const closingTitle = 'สิ่งที่ดวงนี้อยากบอกคุณ';
+  static const closingTitle = 'คำชี้หลักจากพื้นดวง';
+  static const currentLifeTitle = 'ช่วงชีวิตปัจจุบัน';
+  static const futurePredictionTitle = 'คำทำนายช่วงสำคัญ';
   static const methodologyTitle = 'ดวงนี้วิเคราะห์จากอะไร';
+  static const omissionsTitle = 'หัวข้อที่ไม่ได้แสดง';
   static const timelineTransitionTitle = 'จากพื้นดวงสู่จังหวะชีวิต';
   static const medicalDisclaimer =
       'เนื้อหาส่วนนี้เป็นมุมมองตามความเชื่อทางโหราศาสตร์ '
@@ -126,25 +131,67 @@ class ThaiBirthProfileCoreParagraph {
   final List<ThaiBirthProfileCoreClaimAtom> sourceAtoms;
 }
 
+/// One exact, reader-facing row in the computed chart overview.
+class ThaiBirthProfileCoreFactRow {
+  const ThaiBirthProfileCoreFactRow({
+    required this.label,
+    required this.value,
+    required this.meaning,
+    required this.sourceAtoms,
+  });
+
+  final String label;
+  final String value;
+  final String meaning;
+  final List<ThaiBirthProfileCoreClaimAtom> sourceAtoms;
+
+  List<String> get evidenceKeys => sourceAtoms
+      .expand((atom) => atom.evidenceRefs)
+      .map((evidence) => evidence.sourceRef)
+      .toSet()
+      .toList(growable: false);
+
+  String get publicText => '$label: $value — $meaning';
+}
+
+/// A fail-closed disclosure for a requested topic with insufficient evidence.
+class ThaiBirthProfileCoreOmission {
+  const ThaiBirthProfileCoreOmission({
+    required this.topic,
+    required this.reason,
+  });
+
+  final String topic;
+  final String reason;
+
+  String get publicText => '$topic — $reason';
+}
+
 class ThaiBirthProfileCoreSection {
   const ThaiBirthProfileCoreSection({
     required this.title,
     required this.domain,
     required this.claims,
+    this.factRows = const [],
     this.isMethodology = false,
   });
 
   final String title;
   final ThaiBirthProfileCoreDomain domain;
   final List<ThaiBirthProfileCoreParagraph> claims;
+  final List<ThaiBirthProfileCoreFactRow> factRows;
   final bool isMethodology;
 
   List<String> get paragraphs =>
       claims.map((claim) => claim.text).toList(growable: false);
-  List<String> get publicParagraphs => paragraphs;
+  List<String> get publicParagraphs => [
+    ...factRows.map((row) => row.publicText),
+    ...paragraphs,
+  ];
 
   /// Compatibility view for internal diagnostics; ownership lives on claims.
   List<String> get evidenceKeys => {
+    for (final row in factRows) ...row.evidenceKeys,
     for (final claim in claims) ...claim.evidenceKeys,
   }.toList(growable: false);
 }
@@ -264,6 +311,7 @@ class ThaiBirthProfileCoreReading {
     required this.title,
     required this.subtitle,
     required this.sections,
+    required this.omissions,
     required this.hasBirthTime,
   });
 
@@ -274,6 +322,7 @@ class ThaiBirthProfileCoreReading {
   final String title;
   final String subtitle;
   final List<ThaiBirthProfileCoreSection> sections;
+  final List<ThaiBirthProfileCoreOmission> omissions;
   final bool hasBirthTime;
 
   factory ThaiBirthProfileCoreReading.fromAnalysis(
@@ -284,6 +333,7 @@ class ThaiBirthProfileCoreReading {
     final normalized = analysis.normalizedSnapshot;
     final birthData = analysis.pipelineResult?.birthData;
     final mirror = analysis.pipelineResult?.mirrorResult;
+    final readerView = consumerView ?? analysis.consumerViewState;
     final acceptedClaims = <ThaiBirthProfileCoreParagraph>[];
 
     ThaiBirthProfileCoreParagraph? claim({
@@ -338,6 +388,19 @@ class ThaiBirthProfileCoreReading {
           domain: ThaiBirthProfileCoreDomain.summary,
           sourceRef: 'ThaiMirrorPipelineResult.birthData.thaiWeekdayNumber',
           rawValue: '${birthData!.thaiWeekdayNumber}',
+          additionalEvidenceRefs: [
+            if (normalized != null) ...[
+              ThaiBirthProfileCoreEvidenceRef(
+                sourceRef:
+                    'ThaiBetaAnalysis.normalizedSnapshot.usedPreviousDay',
+                rawValue: '${normalized.usedPreviousDay}',
+              ),
+              ThaiBirthProfileCoreEvidenceRef(
+                sourceRef: 'ThaiBetaAnalysis.normalizedSnapshot.sunrise',
+                rawValue: normalized.sunrise,
+              ),
+            ],
+          ],
           score: 80,
         ),
       );
@@ -400,6 +463,121 @@ class ThaiBirthProfileCoreReading {
     final summary = specificSummary;
 
     final houseAtoms = _houseAtoms(profile);
+    final chartFactRows = <ThaiBirthProfileCoreFactRow>[];
+    final weekdayAtoms = summaryAtoms
+        .where(
+          (atom) =>
+              atom.kind == ThaiBirthProfileCoreAtomKind.astrologicalWeekday,
+        )
+        .toList(growable: false);
+    if (weekdayAtoms.isNotEmpty) {
+      final weekday = _thaiWeekday(birthData?.thaiWeekdayNumber);
+      final dayMeaning = normalized == null
+          ? 'วันหลักที่ใช้กับกฎทางโหราศาสตร์ไทย'
+          : normalized.usedPreviousDay
+          ? 'เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้น จึงใช้วันก่อนหน้าเป็นวันทางโหราศาสตร์'
+          : 'เวลาเกิดอยู่หลังพระอาทิตย์ขึ้น จึงใช้วันเดียวกับวันเกิดตามสูติบัตร';
+      chartFactRows.add(
+        ThaiBirthProfileCoreFactRow(
+          label: 'วันทางโหราศาสตร์',
+          value: 'วัน$weekday',
+          meaning: dayMeaning,
+          sourceAtoms: weekdayAtoms,
+        ),
+      );
+    }
+    final lagnaSignAtoms = summaryAtoms
+        .where((atom) => atom.kind == ThaiBirthProfileCoreAtomKind.lagnaSign)
+        .toList(growable: false);
+    final lagnaLordAtoms = summaryAtoms
+        .where((atom) => atom.kind == ThaiBirthProfileCoreAtomKind.lagnaLord)
+        .toList(growable: false);
+    if (lagnaSignAtoms.isNotEmpty && profile?.siderealAscendantDeg != null) {
+      final identityMeaning = identityAtom == null
+          ? 'ภาพบุคลิกตั้งต้นที่คำนวณจากเวลาและสถานที่เกิด'
+          : _identityPhrases[identityAtom.themeId] ??
+                'ภาพบุคลิกตั้งต้นที่คำนวณจากเวลาและสถานที่เกิด';
+      chartFactRows.add(
+        ThaiBirthProfileCoreFactRow(
+          label: 'ลัคนา',
+          value:
+              '${_lagnaLabel(lagnaSignAtoms.first.rawValue)} '
+              '${_degreeWithinSign(profile!.siderealAscendantDeg!)}',
+          meaning: identityMeaning,
+          sourceAtoms: [
+            ...lagnaSignAtoms,
+            ThaiBirthProfileCoreClaimAtom(
+              kind: ThaiBirthProfileCoreAtomKind.lagnaSign,
+              domain: ThaiBirthProfileCoreDomain.summary,
+              sourceRef: 'ThaiAstrologyProfile.siderealAscendantDeg',
+              rawValue: '${profile.siderealAscendantDeg}',
+            ),
+            if (identityAtom != null) identityAtom,
+          ],
+        ),
+      );
+    }
+    if (lagnaLordAtoms.isNotEmpty) {
+      final lord = lagnaLordAtoms.first;
+      final mode = _planetMode(lord.rawValue);
+      chartFactRows.add(
+        ThaiBirthProfileCoreFactRow(
+          label: 'เจ้าเรือนลัคนา',
+          value: _lordLabel(lord.rawValue),
+          meaning: mode.$1.isEmpty
+              ? 'แนวทางหลักที่ใช้ขยายความลัคนา'
+              : mode.$1,
+          sourceAtoms: lagnaLordAtoms,
+        ),
+      );
+    }
+    const chartDomains = <
+      ({int houseNumber, ThaiBirthProfileCoreDomain domain, String label})
+    >[
+      (
+        houseNumber: 10,
+        domain: ThaiBirthProfileCoreDomain.work,
+        label: 'เรือนการงาน',
+      ),
+      (
+        houseNumber: 2,
+        domain: ThaiBirthProfileCoreDomain.money,
+        label: 'เรือนการเงิน',
+      ),
+      (
+        houseNumber: 7,
+        domain: ThaiBirthProfileCoreDomain.relationships,
+        label: 'เรือนความสัมพันธ์',
+      ),
+      (
+        houseNumber: 6,
+        domain: ThaiBirthProfileCoreDomain.wellbeing,
+        label: 'เรือนสุขภาวะ',
+      ),
+    ];
+    for (final config in chartDomains) {
+      final atoms = houseAtoms
+          .where((atom) => atom.houseNumber == config.houseNumber)
+          .toList(growable: false);
+      if (atoms.length < 2) continue;
+      final sign = atoms.firstWhere(
+        (atom) => atom.kind == ThaiBirthProfileCoreAtomKind.houseSign,
+      );
+      final lord = atoms.firstWhere(
+        (atom) => atom.kind == ThaiBirthProfileCoreAtomKind.houseLord,
+      );
+      final mode = _planetMode(lord.rawValue);
+      chartFactRows.add(
+        ThaiBirthProfileCoreFactRow(
+          label: config.label,
+          value:
+              '${_lagnaLabel(sign.rawValue)} · เจ้าเรือน${_lordLabel(lord.rawValue)}',
+          meaning: mode.$1,
+          sourceAtoms: atoms,
+        ),
+      );
+    }
+
     ThaiBirthProfileCoreSection? lifeDomain({
       required String title,
       required ThaiBirthProfileCoreDomain domain,
@@ -545,14 +723,16 @@ class ThaiBirthProfileCoreReading {
             ),
           ]);
 
+    final dayCountingClaims = <ThaiBirthProfileCoreParagraph>[];
     final methodologyClaims = <ThaiBirthProfileCoreParagraph>[];
-    void addMethodologyClaim({
+    void addDisclosureClaim({
+      required List<ThaiBirthProfileCoreParagraph> target,
       required String text,
       required String semanticKey,
       required List<ThaiBirthProfileCoreClaimAtom> atoms,
     }) {
       if (text.trim().isEmpty || atoms.isEmpty) return;
-      methodologyClaims.add(
+      target.add(
         ThaiBirthProfileCoreParagraph(
           text: text,
           domain: ThaiBirthProfileCoreDomain.methodology,
@@ -572,7 +752,8 @@ class ThaiBirthProfileCoreReading {
       final thaiDay = _thaiWeekday(
         analysis.pipelineResult?.birthData?.thaiWeekdayNumber,
       );
-      addMethodologyClaim(
+      addDisclosureClaim(
+        target: dayCountingClaims,
         text:
             'วันเกิดตามสูติบัตรยังเป็นวันที่ ${normalized.rawBirthDate} ตามเดิม '
             'ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วัน$thaiDay '
@@ -596,7 +777,8 @@ class ThaiBirthProfileCoreReading {
         ],
       );
       if (normalized.sunriseAvailable) {
-        addMethodologyClaim(
+        addDisclosureClaim(
+          target: dayCountingClaims,
           text: normalized.usedPreviousDay
               ? 'เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้นเวลา ${normalized.sunrise} '
                     'จึงใช้วันก่อนหน้าตามกฎที่นับวันใหม่เมื่อพระอาทิตย์ขึ้น '
@@ -636,7 +818,8 @@ class ThaiBirthProfileCoreReading {
     if (analysis.input.hasBirthTime &&
         profile?.lagnaKey != null &&
         profile!.lagnaKey!.isNotEmpty) {
-      addMethodologyClaim(
+      addDisclosureClaim(
+        target: methodologyClaims,
         text:
             'ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากเวลาและสถานที่เกิด) '
             'อยู่ที่${_lagnaLabel(profile.lagnaKey!)}',
@@ -677,7 +860,8 @@ class ThaiBirthProfileCoreReading {
         ],
       );
     } else {
-      addMethodologyClaim(
+      addDisclosureClaim(
+        target: methodologyClaims,
         text:
             'รายงานนี้ไม่มีเวลาเกิด จึงไม่กล่าวถึงลัคนา ภพ '
             'หรือข้อสรุปที่ต้องพึ่งตำแหน่งตามเวลาเกิด',
@@ -700,7 +884,8 @@ class ThaiBirthProfileCoreReading {
       );
     }
     if (mirror != null && mirror.topThemes.isNotEmpty) {
-      addMethodologyClaim(
+      addDisclosureClaim(
+        target: methodologyClaims,
         text:
             'คำอ่านข้างต้นจัดลำดับจากแนวโน้มที่มีน้ำหนักเด่นในผลวิเคราะห์ '
             'โดยไม่นำชื่อหมวดภายในมาแสดงแทนคำอธิบายสำหรับผู้อ่าน',
@@ -717,41 +902,135 @@ class ThaiBirthProfileCoreReading {
       );
     }
 
-    final domainSections = <ThaiBirthProfileCoreSection?>[
-      lifeDomain(
-        title: ThaiBirthProfileCoreReadingCopy.workTitle,
-        domain: ThaiBirthProfileCoreDomain.work,
-        houseNumber: 10,
+    final workSection = lifeDomain(
+      title: ThaiBirthProfileCoreReadingCopy.workTitle,
+      domain: ThaiBirthProfileCoreDomain.work,
+      houseNumber: 10,
+    );
+    final moneySection = lifeDomain(
+      title: ThaiBirthProfileCoreReadingCopy.moneyTitle,
+      domain: ThaiBirthProfileCoreDomain.money,
+      houseNumber: 2,
+    );
+    final relationshipsSection = lifeDomain(
+      title: ThaiBirthProfileCoreReadingCopy.relationshipsTitle,
+      domain: ThaiBirthProfileCoreDomain.relationships,
+      houseNumber: 7,
+    );
+    final wellbeingSection = lifeDomain(
+      title: ThaiBirthProfileCoreReadingCopy.wellbeingTitle,
+      domain: ThaiBirthProfileCoreDomain.wellbeing,
+      houseNumber: 6,
+      includeMedicalDisclaimer: true,
+    );
+
+    final omissions = <ThaiBirthProfileCoreOmission>[];
+    final missingHouseReason = analysis.input.hasBirthTime
+        ? 'ผลคำนวณไม่มีตำแหน่งเรือนและเจ้าเรือนที่ตรวจสอบได้ครบพอ จึงไม่เติมคำทำนายทั่วไปแทน'
+        : 'ไม่มีเวลาเกิด จึงคำนวณลัคนาและเรือนที่ใช้วิเคราะห์หัวข้อนี้ไม่ได้';
+    if (summary.isEmpty) {
+      omissions.add(
+        ThaiBirthProfileCoreOmission(
+          topic: ThaiBirthProfileCoreReadingCopy.summaryTitle,
+          reason: analysis.input.hasBirthTime
+              ? 'ไม่พบแนวโน้มตัวตนที่เชื่อมกับลัคนาและมีหลักฐานรองรับครบพอ'
+              : 'ไม่มีเวลาเกิด จึงไม่ใช้ลัคนาสรุปบุคลิกแทนข้อมูลที่ขาด',
+        ),
+      );
+    }
+    if (dayCountingClaims.isEmpty) {
+      omissions.add(
+        const ThaiBirthProfileCoreOmission(
+          topic: ThaiBirthProfileCoreReadingCopy.dayCountingTitle,
+          reason: 'ไม่มีข้อมูลวันทางโหราศาสตร์ที่ตรวจสอบย้อนกลับได้',
+        ),
+      );
+    }
+    if (chartFactRows.isEmpty) {
+      omissions.add(
+        const ThaiBirthProfileCoreOmission(
+          topic: ThaiBirthProfileCoreReadingCopy.chartStructureTitle,
+          reason: 'ไม่มีจุดคำนวณหลักที่ตรวจสอบย้อนกลับได้เพียงพอสำหรับสรุปโครงสร้างดวง',
+        ),
+      );
+    }
+    for (final omitted in <(String, ThaiBirthProfileCoreSection?)>[
+      (ThaiBirthProfileCoreReadingCopy.workTitle, workSection),
+      (ThaiBirthProfileCoreReadingCopy.moneyTitle, moneySection),
+      (
+        ThaiBirthProfileCoreReadingCopy.relationshipsTitle,
+        relationshipsSection,
       ),
-      lifeDomain(
-        title: ThaiBirthProfileCoreReadingCopy.moneyTitle,
-        domain: ThaiBirthProfileCoreDomain.money,
-        houseNumber: 2,
-      ),
-      lifeDomain(
-        title: ThaiBirthProfileCoreReadingCopy.relationshipsTitle,
-        domain: ThaiBirthProfileCoreDomain.relationships,
-        houseNumber: 7,
-      ),
-      lifeDomain(
-        title: ThaiBirthProfileCoreReadingCopy.wellbeingTitle,
-        domain: ThaiBirthProfileCoreDomain.wellbeing,
-        houseNumber: 6,
-        includeMedicalDisclaimer: true,
-      ),
-    ];
+      (ThaiBirthProfileCoreReadingCopy.wellbeingTitle, wellbeingSection),
+    ]) {
+      if (omitted.$2 == null) {
+        omissions.add(
+          ThaiBirthProfileCoreOmission(
+            topic: omitted.$1,
+            reason: missingHouseReason,
+          ),
+        );
+      }
+    }
+    if (closingClaims.isEmpty) {
+      omissions.add(
+        const ThaiBirthProfileCoreOmission(
+          topic: ThaiBirthProfileCoreReadingCopy.closingTitle,
+          reason:
+              'ไม่พบชุดจุดแข็ง ความเสี่ยง และแนวทางที่อ้างอิงจากแนวโน้มเดียวกันได้ครบ',
+        ),
+      );
+    }
+    if (readerView?.lifeTimeline == null || readerView!.lifeTimeline!.isEmpty) {
+      omissions.add(
+        const ThaiBirthProfileCoreOmission(
+          topic: ThaiBirthProfileCoreReadingCopy.currentLifeTitle,
+          reason:
+              'ไม่พบผลคำนวณช่วงชีวิตปัจจุบันที่สมบูรณ์พอให้แสดงอย่างตรวจสอบย้อนกลับได้',
+        ),
+      );
+    }
+    if (readerView?.futurePrediction == null ||
+        readerView!.futurePrediction!.isEmpty) {
+      omissions.add(
+        const ThaiBirthProfileCoreOmission(
+          topic: ThaiBirthProfileCoreReadingCopy.futurePredictionTitle,
+          reason:
+              'ไม่พบช่วงคำทำนายอนาคตที่มีหลักฐานจากผลคำนวณชุดเดียวกันรองรับ',
+        ),
+      );
+    }
+
     final sections = <ThaiBirthProfileCoreSection>[
-      ThaiBirthProfileCoreSection(
-        title: ThaiBirthProfileCoreReadingCopy.summaryTitle,
-        domain: ThaiBirthProfileCoreDomain.summary,
-        claims: summary,
-      ),
-      ...domainSections.whereType<ThaiBirthProfileCoreSection>(),
-      ThaiBirthProfileCoreSection(
-        title: ThaiBirthProfileCoreReadingCopy.closingTitle,
-        domain: ThaiBirthProfileCoreDomain.closing,
-        claims: closingClaims,
-      ),
+      if (summary.isNotEmpty)
+        ThaiBirthProfileCoreSection(
+          title: ThaiBirthProfileCoreReadingCopy.summaryTitle,
+          domain: ThaiBirthProfileCoreDomain.summary,
+          claims: summary,
+        ),
+      if (dayCountingClaims.isNotEmpty)
+        ThaiBirthProfileCoreSection(
+          title: ThaiBirthProfileCoreReadingCopy.dayCountingTitle,
+          domain: ThaiBirthProfileCoreDomain.methodology,
+          claims: dayCountingClaims,
+        ),
+      if (chartFactRows.isNotEmpty)
+        ThaiBirthProfileCoreSection(
+          title: ThaiBirthProfileCoreReadingCopy.chartStructureTitle,
+          domain: ThaiBirthProfileCoreDomain.methodology,
+          claims: const [],
+          factRows: chartFactRows,
+        ),
+      if (workSection != null) workSection,
+      if (moneySection != null) moneySection,
+      if (relationshipsSection != null) relationshipsSection,
+      if (wellbeingSection != null) wellbeingSection,
+      if (closingClaims.isNotEmpty)
+        ThaiBirthProfileCoreSection(
+          title: ThaiBirthProfileCoreReadingCopy.closingTitle,
+          domain: ThaiBirthProfileCoreDomain.closing,
+          claims: closingClaims,
+        ),
       ThaiBirthProfileCoreSection(
         title: ThaiBirthProfileCoreReadingCopy.methodologyTitle,
         domain: ThaiBirthProfileCoreDomain.methodology,
@@ -763,9 +1042,10 @@ class ThaiBirthProfileCoreReading {
     return ThaiBirthProfileCoreReading(
       title: reportTitle,
       subtitle: analysis.input.hasBirthTime
-          ? 'คำอ่านพื้นดวงตลอดชีวิตจากวัน เวลา และสถานที่เกิด'
-          : 'คำอ่านพื้นดวงจากวันและสถานที่เกิด พร้อมระบุข้อจำกัดเมื่อไม่มีเวลาเกิด',
+          ? 'คำอ่านพื้นดวงและจังหวะชีวิตจากวัน เวลา และสถานที่เกิด'
+          : 'คำอ่านจากวันและสถานที่เกิด พร้อมบอกตรง ๆ ว่าหัวข้อใดต้องตัดออกเมื่อไม่มีเวลาเกิด',
       sections: sections,
+      omissions: omissions,
       hasBirthTime: analysis.input.hasBirthTime,
     );
   }
@@ -907,9 +1187,10 @@ class ThaiBirthProfileCoreReading {
     if (sign == null || lord == null) return '';
     final identityPhrase = _identityPhrases[identityAtom.themeId] ?? '';
     if (identityPhrase.isEmpty) return '';
-    return 'เมื่อพิจารณาวัน เวลา และสถานที่เกิด '
-        'ภาพบุคลิกตั้งต้นเชื่อมกับ${_lagnaLabel(sign.rawValue)}และ'
-        '${_lordLabel(lord.rawValue)} โดยภาพรวมนี้ชี้ว่า$identityPhrase';
+    final mode = _planetMode(lord.rawValue);
+    return 'สรุปตรง ๆ พื้นดวงนี้มีลัคนา${_lagnaLabel(sign.rawValue)} '
+        'โดยมี${_lordLabel(lord.rawValue)}เป็นเจ้าเรือน $identityPhrase '
+        'จุดแข็งมักอยู่ที่${mode.$1} ส่วนที่ควรระวังคือ${mode.$2}';
   }
 
   static ({String analysis, String guidance}) _composeHouseDomain(
@@ -928,35 +1209,35 @@ class ThaiBirthProfileCoreReading {
     return switch (domain) {
       ThaiBirthProfileCoreDomain.work => (
         analysis:
-            'แนวโน้มหลัก: ในเรื่องงาน ตำแหน่ง$signLabelและ$lordLabelสะท้อนว่า'
-            'คุณมักให้ความสำคัญกับ${mode.$1}',
+            'เรื่องงาน เรือนการงานอยู่ที่$signLabelและมี$lordLabelเป็นเจ้าเรือน '
+            'จึงมักเด่นเมื่อได้ใช้${mode.$1}',
         guidance:
-            'สิ่งที่ควรระวัง: เมื่อแนวโน้มนี้ทำงานมากเกินไป อาจเกิด${mode.$2} '
-            'สิ่งที่นำไปใช้ได้: ลอง${mode.$3}เพื่อให้งานเดินต่อได้โดยไม่ฝืนตัวเอง',
+            'ตัวฉุดสำคัญคือ${mode.$2} ทางใช้จุดเด่นนี้ให้เกิดผลคือ'
+            '${mode.$3} เพื่อให้งานเดินต่อได้โดยไม่ฝืนกำลังของตัวเอง',
       ),
       ThaiBirthProfileCoreDomain.money => (
         analysis:
-            'แนวโน้มหลัก: ในเรื่องเงิน ตำแหน่ง$signLabelและ$lordLabelสะท้อนว่า'
-            'คุณมักจัดการทรัพยากรโดยให้ความสำคัญกับ${mode.$1}',
+            'เรื่องการเงิน เรือนการเงินอยู่ที่$signLabelและมี$lordLabelเป็นเจ้าเรือน '
+            'จึงมักจัดการเงินและทรัพยากรโดยให้ความสำคัญกับ${mode.$1}',
         guidance:
-            'สิ่งที่ควรระวัง: ก่อนตัดสินใจเรื่องเงิน ควรเผื่อใจต่อ${mode.$2} '
-            'สิ่งที่นำไปใช้ได้: ใช้${mode.$3}เป็นเกณฑ์ประกอบ',
+            'จุดที่ควรระวังคือ${mode.$2} ก่อนตัดสินใจเรื่องเงินควรใช้'
+            '${mode.$3}เป็นเกณฑ์ เพื่อไม่ให้ความต้องการระยะสั้นกระทบฐานระยะยาว',
       ),
       ThaiBirthProfileCoreDomain.relationships => (
         analysis:
-            'แนวโน้มหลัก: ในความสัมพันธ์ ตำแหน่ง$signLabelและ$lordLabelสะท้อนว่า'
-            'คุณมักสร้างความไว้ใจผ่าน${mode.$1}',
+            'เรื่องความสัมพันธ์ เรือนคู่ครองอยู่ที่$signLabelและมี$lordLabelเป็นเจ้าเรือน '
+            'จึงมักสร้างความไว้ใจผ่าน${mode.$1}',
         guidance:
-            'สิ่งที่ควรระวัง: เมื่ออยู่กับคนใกล้ตัว ควรระวัง${mode.$2} '
-            'สิ่งที่นำไปใช้ได้: ลอง${mode.$3}เพื่อรักษาพื้นที่ของทั้งสองฝ่าย',
+            'ความสัมพันธ์จะติดขัดเมื่อเกิด${mode.$2} วิธีรักษาพื้นที่ของทั้งสองฝ่ายคือ'
+            '${mode.$3}และคุยขอบเขตให้เข้าใจตรงกัน',
       ),
       ThaiBirthProfileCoreDomain.wellbeing => (
         analysis:
-            'แนวโน้มหลัก: ในมุมสุขภาวะตามตำรา ตำแหน่ง$signLabelและ$lordLabel'
-            'ชวนให้ดูแลพลังของตัวเองผ่าน${mode.$1}',
+            'ตามตำรา เรือนสุขภาวะอยู่ที่$signLabelและมี$lordLabelเป็นเจ้าเรือน '
+            'จึงควรดูแลพลังของตัวเองผ่าน${mode.$1}',
         guidance:
-            'สิ่งที่ควรระวัง: หากเริ่มรู้สึกว่า${mode.$2} '
-            'สิ่งที่นำไปใช้ได้: ลอง${mode.$3}และจัดเวลาพักให้สม่ำเสมอ',
+            'สัญญาณที่ไม่ควรปล่อยไว้นานคือ${mode.$2} จึงควร${mode.$3} '
+            'และจัดเวลาพักให้สม่ำเสมอ',
       ),
       _ => (analysis: '', guidance: ''),
     };
@@ -997,9 +1278,15 @@ class ThaiBirthProfileCoreReading {
       _actionPhrases,
     );
     return (
-      strength: strength.isEmpty ? '' : 'จุดแข็งที่คุณพึ่งพาได้คือ$strength',
-      risk: risk.isEmpty ? '' : 'เมื่อใช้จุดแข็งนี้มากเกินไป ควรระวัง$risk',
-      action: action.isEmpty ? '' : 'เพื่อใช้จุดแข็งนี้ได้อย่างพอดี ลอง$action',
+      strength: strength.isEmpty
+          ? ''
+          : 'คำชี้หลักของพื้นดวงนี้คือให้ใช้$strengthเป็นแกน',
+      risk: risk.isEmpty
+          ? ''
+          : 'เพราะเมื่อใช้จุดแข็งนี้มากเกินไปอาจกลายเป็น$risk',
+      action: action.isEmpty
+          ? ''
+          : 'ทางที่เหมาะกว่าคือ$action แล้วค่อยขยายเมื่อฐานเดิมรองรับได้',
     );
   }
 
@@ -1155,6 +1442,15 @@ class ThaiBirthProfileCoreReading {
     ];
     if (temporalMarkers.any(plain.contains)) return '';
     return plain;
+  }
+
+  static String _degreeWithinSign(double siderealDegree) {
+    final normalized = ((siderealDegree % 30) + 30) % 30;
+    var totalMinutes = (normalized * 60).round();
+    if (totalMinutes >= 30 * 60) totalMinutes = (30 * 60) - 1;
+    final degrees = totalMinutes ~/ 60;
+    final minutes = (totalMinutes % 60).toString().padLeft(2, '0');
+    return '$degrees°$minutes′';
   }
 
   static String _thaiWeekday(int? number) => switch (number) {

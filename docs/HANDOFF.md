@@ -1,5 +1,17 @@
 # KnowMe Developer Handoff
 
+## Active stacked work: Thai Beta Exemplar Narrative V1
+
+- Branch: `codex/thai-beta-exemplar-narrative-v1`
+- Base: prerequisite PR #82 HEAD `a20be549f8a25f529d539bb7f23734af469b8c50`
+- Dependency: PR #81 → PR #82 → Narrative Draft PR.
+- Checkpoint and patch SHA-256 values were verified before integration.
+- Nine intended paths applied cleanly; four overlapping task/status paths were
+  semantically merged so the PR #82 baseline repair remains intact.
+- Preserve V3, Required-suite contracts, Engine, Canon, normalization,
+  evidence policy, standalone Thai Mirror, feature flags, and Production data.
+- Draft-only: do not merge or deploy.
+
 ## Active prerequisite: Thai Required full-suite baseline contract repair
 
 - Branch: `codex/thai-full-suite-baseline-fix`

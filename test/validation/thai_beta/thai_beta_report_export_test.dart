@@ -104,7 +104,15 @@ void main() {
       expect(text, isNotEmpty);
       // Core Reading is the shared web/PDF presentation source.
       expect(text, contains(ThaiBirthProfileCoreReading.reportTitle));
-      expect(text, contains('สรุปตัวคุณจากพื้นดวง'));
+      expect(text, contains(ThaiBirthProfileCoreReadingCopy.summaryTitle));
+      expect(
+        text,
+        contains(ThaiBirthProfileCoreReadingCopy.dayCountingTitle),
+      );
+      expect(
+        text,
+        contains(ThaiBirthProfileCoreReadingCopy.chartStructureTitle),
+      );
     });
 
     test('deduplicates identical public evidence summaries', () {

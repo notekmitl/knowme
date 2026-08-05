@@ -170,6 +170,7 @@ until Thai Astrology reaches the required quality.
 | **Home experience refinement** | Primary post-astrology product surface | `lib/features/home_cohesion/`, `PRODUCTION_FUNNEL_RECOVERY_V1.md` |
 | **Chinese Zodiac Personality Expansion** | Approved additive program, low blast radius | [`GOVERNANCE.md`](GOVERNANCE.md) exception programs |
 | **Real-user validation re-runs** | Measure funnel changes against 38-user baseline | `test/validation/real_user_runtime_v1/` |
+| **Thai Beta Exemplar Narrative V1** | Owner-approved Web/PDF presentation follow-up with computed chart facts and evidence-based omissions; stacked as PR #81 → prerequisite PR #82 → Narrative Draft and not released | `codex/thai-beta-exemplar-narrative-v1`, `THAI_BIRTH_PROFILE_CORE_READING_V1.md` |
 
 **Active rule (from master context):** Maintenance only on frozen systems. Prefer depth over breadth. Do not reopen frozen architecture without strong reason.
 

@@ -97,6 +97,10 @@ class _NarrativeSection extends StatelessWidget {
               ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
             ),
             const SizedBox(height: 12),
+            if (section.factRows.isNotEmpty) ...[
+              _ComputedFactTable(rows: section.factRows),
+              if (section.paragraphs.isNotEmpty) const SizedBox(height: 14),
+            ],
             for (var i = 0; i < section.paragraphs.length; i++)
               Padding(
                 padding: EdgeInsets.only(
@@ -108,6 +112,112 @@ class _NarrativeSection extends StatelessWidget {
                 ),
               ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _ComputedFactTable extends StatelessWidget {
+  const _ComputedFactTable({required this.rows});
+
+  final List<ThaiBirthProfileCoreFactRow> rows;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    final headerStyle = Theme.of(context).textTheme.labelLarge?.copyWith(
+      fontWeight: FontWeight.w700,
+      color: scheme.onSurface,
+    );
+    final bodyStyle = Theme.of(
+      context,
+    ).textTheme.bodyMedium?.copyWith(height: 1.5);
+
+    Widget cell(String text, TextStyle? style) => Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 9),
+      child: Text(text, style: style),
+    );
+
+    return Table(
+      key: const Key('thai_birth_profile_chart_facts'),
+      border: TableBorder.all(color: scheme.outlineVariant),
+      columnWidths: const {
+        0: FlexColumnWidth(1.15),
+        1: FlexColumnWidth(1.45),
+        2: FlexColumnWidth(2.4),
+      },
+      defaultVerticalAlignment: TableCellVerticalAlignment.middle,
+      children: [
+        TableRow(
+          decoration: BoxDecoration(color: scheme.surfaceContainerHighest),
+          children: [
+            cell('จุดสำคัญ', headerStyle),
+            cell('ตำแหน่ง', headerStyle),
+            cell('ความหมายหลัก', headerStyle),
+          ],
+        ),
+        for (final row in rows)
+          TableRow(
+            children: [
+              cell(row.label, bodyStyle?.copyWith(fontWeight: FontWeight.w700)),
+              cell(row.value, bodyStyle),
+              cell(row.meaning, bodyStyle),
+            ],
+          ),
+      ],
+    );
+  }
+}
+
+class ThaiBirthProfileCoreOmissionsSection extends StatelessWidget {
+  const ThaiBirthProfileCoreOmissionsSection({
+    super.key,
+    required this.omissions,
+  });
+
+  final List<ThaiBirthProfileCoreOmission> omissions;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    return Semantics(
+      key: const Key('thai_birth_profile_omissions'),
+      container: true,
+      label: ThaiBirthProfileCoreReadingCopy.omissionsTitle,
+      child: DecoratedBox(
+        decoration: BoxDecoration(
+          color: scheme.surfaceContainerLowest,
+          borderRadius: BorderRadius.circular(18),
+          border: Border.all(color: scheme.outlineVariant),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(18),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                ThaiBirthProfileCoreReadingCopy.omissionsTitle,
+                style: Theme.of(
+                  context,
+                ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700),
+              ),
+              const SizedBox(height: 8),
+              const Text(
+                'ระบบตัดหัวข้อต่อไปนี้ออกแทนการเติมคำทำนายที่ไม่มีข้อมูลรองรับ',
+                style: TextStyle(height: 1.55),
+              ),
+              const SizedBox(height: 10),
+              for (final omission in omissions)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 8),
+                  child: Text(
+                    '• ${omission.publicText}',
+                    style: const TextStyle(height: 1.55),
+                  ),
+                ),
+            ],
+          ),
         ),
       ),
     );
