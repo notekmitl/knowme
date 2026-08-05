@@ -32,17 +32,16 @@ Desktop known-time, Mobile no-time, and actual known/no-time PDF exports. It
 found no layout or privacy regression and hardened only unsupported certainty
 in future copy. Scoped tests and Local Gate pass; PR #81 remains Draft.
 
-### Thai Beta Exemplar Narrative V1 — Product Acceptance blocked
+### Thai Beta Exemplar Narrative V1 — awaiting owner Product Acceptance
 
-Draft PR #83 HEAD `41684c6d1110b7e7358d79a78bf74425ca51327a`
-retains the stacked PR #81 → PR #82 dependency and its Required-suite results.
-The application-flow/PDF timeout was resolved as a temporary harness-only
-fake-async/file-I/O issue; actual known/no-time Web and 12/11-page PDF capture
-now completes in seconds with exact shared-document parity. Product Acceptance
-is not ready: the synthetic unknown-time methodology presents the normalizer's
-internal assumed-noon path as a real after-sunrise birth-time conclusion. This
-pre-existing fail-closed defect requires a separately authorized focused fix;
-PR #83 remains Draft and is not released.
+Draft PR #83 source-tested HEAD `4e6560b4b6bbf591c405f7b4fd58b487afdb213f`
+retains the stacked PR #81 → PR #82 dependency and closes the three authorized
+Product Acceptance defects without changing Engine, Canon, Birth Normalization,
+or Thai Mirror defaults. Unknown-time now fails closed at the presentation
+boundary; repeated life-period domains retain V3 coverage while using computed
+period context; wellbeing wording is natural Thai. Required 1,445/1,445 and all
+focused/parity/synthetic/Gate checks pass. A new complete Web/PDF packet is
+ready for owner review. PR #83 remains Draft and is not released or deployed.
 
 ### Thai Mirror QA Screenshot Golden Baseline Repair V1 — complete
 

@@ -12,20 +12,23 @@
   evidence policy, standalone Thai Mirror, feature flags, and Production data.
 - Draft-only: do not merge or deploy.
 - Draft PR #83 tested source HEAD:
-  `41684c6d1110b7e7358d79a78bf74425ca51327a`.
+  `4e6560b4b6bbf591c405f7b4fd58b487afdb213f`.
 - The prior application-flow/PDF timeout is not a product exporter defect. It
   came from real file/raster futures in a temporary `testWidgets` fake-async
   harness plus an initially restricted Flutter tool-state write. Corrected
   capture completed known/no-time twice, produced valid 12/11-page PDFs, and
   left no process or handle open.
 - Product Acceptance packet (local, outside Git):
-  `C:\Users\USER\Documents\Knowme\product-acceptance\pr83-41684c6d`.
-- Product Acceptance remains **blocked**. Synthetic unknown-time output says
-  “เวลาเกิดอยู่หลังพระอาทิตย์ขึ้นเวลา 06:26” because normalization's internal
-  noon assumption is exposed whenever `normalized.sunriseAvailable`, without
-  requiring `analysis.input.hasBirthTime`. The condition is also present on
-  base `a20be549`; fix it in an explicitly authorized focused follow-up before
-  owner acceptance. Do not change Birth Normalization to address presentation.
+  `C:\Users\USER\Documents\Knowme\product-acceptance\pr83-4e6560b`.
+- Product Acceptance is **READY FOR PRODUCT ACCEPTANCE** and awaits owner
+  review. Unknown-time sunrise copy now requires input-time authority; repeated
+  V3 domains retain all four categories but gain evidence-backed period context;
+  the malformed wellbeing sentence is corrected. Birth Normalization, Engine,
+  Canon, Thai Mirror defaults, feature flags, and Production remain unchanged.
+- Validation: Required 1,445/1,445, synthetic 300/300, story A–H, screenshots
+  24/24, Analyze 299 existing diagnostics, and Local Gates pass. Two consecutive
+  application-flow runs produced deterministic Web captures and valid 12-page
+  known/unknown PDFs with exact shared-document parity.
 
 ## Active prerequisite: Thai Required full-suite baseline contract repair
 
