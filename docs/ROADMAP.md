@@ -32,6 +32,18 @@ Desktop known-time, Mobile no-time, and actual known/no-time PDF exports. It
 found no layout or privacy regression and hardened only unsupported certainty
 in future copy. Scoped tests and Local Gate pass; PR #81 remains Draft.
 
+### Thai Beta Exemplar Narrative V1 — Product Acceptance blocked
+
+Draft PR #83 HEAD `41684c6d1110b7e7358d79a78bf74425ca51327a`
+retains the stacked PR #81 → PR #82 dependency and its Required-suite results.
+The application-flow/PDF timeout was resolved as a temporary harness-only
+fake-async/file-I/O issue; actual known/no-time Web and 12/11-page PDF capture
+now completes in seconds with exact shared-document parity. Product Acceptance
+is not ready: the synthetic unknown-time methodology presents the normalizer's
+internal assumed-noon path as a real after-sunrise birth-time conclusion. This
+pre-existing fail-closed defect requires a separately authorized focused fix;
+PR #83 remains Draft and is not released.
+
 ### Thai Mirror QA Screenshot Golden Baseline Repair V1 — complete
 
 PR #80 merged at `3671b62fba86fc83365fdba597b695b1f3324c6b` after deterministic repeat
