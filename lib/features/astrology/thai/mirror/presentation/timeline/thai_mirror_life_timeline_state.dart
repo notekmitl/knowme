@@ -169,7 +169,8 @@ class ThaiMirrorLifePeriodState {
   /// V1.2.3 — ทักษาจร years inside this major window.
   final List<ThaiMirrorAnnualTaksaYearState> annualTaksaYears;
 
-  /// V1.3.3 — Current-only life domains (omit when empty / non-current).
+  /// Structured life-domain copy. Current keeps the accepted V1.3.4 set;
+  /// Thai Beta V3 may additionally render evidence-derived past/future domains.
   final List<ThaiMirrorLifeDomainBlock> lifeDomains;
 }
 

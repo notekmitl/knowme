@@ -30,6 +30,7 @@ class ThaiMirrorResultPage extends StatefulWidget {
     this.lifeMapMode = true,
     this.collapseSecondarySections = false,
     this.timelineAndTransparencyOnly = false,
+    this.detailedPastFutureNarrative = false,
   });
 
   final ThaiMirrorConsumerViewState consumerState;
@@ -59,6 +60,11 @@ class ThaiMirrorResultPage extends StatefulWidget {
   /// so this page contributes only timeline/future and transparency/footer.
   /// Defaults to false to preserve the established Thai Mirror report.
   final bool timelineAndTransparencyOnly;
+
+  /// Thai Beta V3 opt-in. Shows detailed past/future domains and foregrounds
+  /// the 12-month / next-turning-point reading. Defaults off so established
+  /// standalone Thai Mirror behavior and goldens stay unchanged.
+  final bool detailedPastFutureNarrative;
 
   @override
   State<ThaiMirrorResultPage> createState() => _ThaiMirrorResultPageState();
@@ -226,6 +232,7 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
             relevantPeriodsOnly:
                 widget.relevantLifeTimeline && !widget.lifeMapMode,
             lifeMapMode: widget.lifeMapMode,
+            detailedNarrativeMode: widget.detailedPastFutureNarrative,
           ),
         ),
       ],
@@ -239,6 +246,7 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
             title: consumerState.futurePrediction!.sectionTitle,
             child: ThaiMirrorFuturePredictionSection(
               state: consumerState.futurePrediction!,
+              detailedNarrativeMode: widget.detailedPastFutureNarrative,
             ),
           ),
         ),
@@ -371,6 +379,7 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
             relevantPeriodsOnly:
                 widget.relevantLifeTimeline && !widget.lifeMapMode,
             lifeMapMode: widget.lifeMapMode,
+            detailedNarrativeMode: widget.detailedPastFutureNarrative,
           ),
         ),
       if (consumerState.futurePrediction != null &&
@@ -383,6 +392,7 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
             title: consumerState.futurePrediction!.sectionTitle,
             child: ThaiMirrorFuturePredictionSection(
               state: consumerState.futurePrediction!,
+              detailedNarrativeMode: widget.detailedPastFutureNarrative,
             ),
           ),
         ),

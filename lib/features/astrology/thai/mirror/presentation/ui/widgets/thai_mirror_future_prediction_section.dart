@@ -14,9 +14,14 @@ class ThaiMirrorFuturePredictionSection extends StatelessWidget {
   const ThaiMirrorFuturePredictionSection({
     super.key,
     required this.state,
+    this.detailedNarrativeMode = false,
   });
 
   final PredictionSectionModel state;
+
+  /// Thai Beta V3: foreground the future and show all four requested domains.
+  /// Defaults off so the standalone Thai Mirror presentation is unchanged.
+  final bool detailedNarrativeMode;
 
   @override
   Widget build(BuildContext context) {
@@ -27,13 +32,17 @@ class ThaiMirrorFuturePredictionSection extends StatelessWidget {
       children: [
         Row(
           children: [
-            Icon(Icons.auto_graph_rounded, size: 20, color: scheme.primary),
+            Icon(
+              Icons.auto_graph_rounded,
+              size: detailedNarrativeMode ? 24 : 20,
+              color: scheme.primary,
+            ),
             const SizedBox(width: 8),
             Expanded(
               child: Text(
                 state.sectionTitle,
                 style: TextStyle(
-                  fontSize: 20,
+                  fontSize: detailedNarrativeMode ? 24 : 20,
                   fontWeight: FontWeight.w800,
                   color: scheme.onSurface,
                 ),
@@ -43,7 +52,9 @@ class ThaiMirrorFuturePredictionSection extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         Text(
-          state.sectionIntro,
+          detailedNarrativeMode
+              ? state.detailedSectionIntro
+              : state.sectionIntro,
           style: TextStyle(
             fontSize: 14.5,
             height: 1.7,
@@ -53,7 +64,11 @@ class ThaiMirrorFuturePredictionSection extends StatelessWidget {
         const SizedBox(height: 18),
         for (var i = 0; i < state.windows.length; i++) ...[
           if (i > 0) const SizedBox(height: 12),
-          _WindowCard(card: state.windows[i], highlighted: i == 0),
+          _WindowCard(
+            card: state.windows[i],
+            highlighted: detailedNarrativeMode ? i == 1 : i == 0,
+            detailedNarrativeMode: detailedNarrativeMode,
+          ),
         ],
         if (state.transitionLine.isNotEmpty) ...[
           const SizedBox(height: 16),
@@ -62,8 +77,11 @@ class ThaiMirrorFuturePredictionSection extends StatelessWidget {
             children: [
               Padding(
                 padding: const EdgeInsets.only(top: 2),
-                child: Icon(Icons.trending_flat_rounded,
-                    size: 16, color: scheme.primary),
+                child: Icon(
+                  Icons.trending_flat_rounded,
+                  size: 16,
+                  color: scheme.primary,
+                ),
               ),
               const SizedBox(width: 8),
               Expanded(
@@ -79,7 +97,10 @@ class ThaiMirrorFuturePredictionSection extends StatelessWidget {
             ],
           ),
         ],
-        if (state.closingAdvice.isNotEmpty) ...[
+        if ((detailedNarrativeMode
+                ? state.detailedClosingAdvice
+                : state.closingAdvice)
+            .isNotEmpty) ...[
           const SizedBox(height: 16),
           Container(
             width: double.infinity,
@@ -91,12 +112,13 @@ class ThaiMirrorFuturePredictionSection extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(Icons.favorite_rounded,
-                    size: 16, color: scheme.primary),
+                Icon(Icons.favorite_rounded, size: 16, color: scheme.primary),
                 const SizedBox(width: 10),
                 Expanded(
                   child: Text(
-                    state.closingAdvice,
+                    detailedNarrativeMode
+                        ? state.detailedClosingAdvice
+                        : state.closingAdvice,
                     style: TextStyle(
                       fontSize: 14,
                       height: 1.75,
@@ -114,17 +136,28 @@ class ThaiMirrorFuturePredictionSection extends StatelessWidget {
 }
 
 class _WindowCard extends StatefulWidget {
-  const _WindowCard({required this.card, required this.highlighted});
+  const _WindowCard({
+    required this.card,
+    required this.highlighted,
+    required this.detailedNarrativeMode,
+  });
 
   final PredictionWindowCardModel card;
   final bool highlighted;
+  final bool detailedNarrativeMode;
 
   @override
   State<_WindowCard> createState() => _WindowCardState();
 }
 
 class _WindowCardState extends State<_WindowCard> {
-  bool _expanded = false;
+  late bool _expanded;
+
+  @override
+  void initState() {
+    super.initState();
+    _expanded = widget.detailedNarrativeMode && widget.highlighted;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -186,6 +219,23 @@ class _WindowCardState extends State<_WindowCard> {
             color: scheme.tertiary,
             text: card.topRisk,
           ),
+          if (widget.detailedNarrativeMode && card.domains.isNotEmpty) ...[
+            const SizedBox(height: 16),
+            Text(
+              'คำทำนายแยกตามด้านชีวิต',
+              key: Key('thai_beta_prediction_domains_${card.windowLabel}'),
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w800,
+                color: scheme.onSurface,
+              ),
+            ),
+            const SizedBox(height: 10),
+            for (var i = 0; i < card.domains.length; i++) ...[
+              if (i > 0) const SizedBox(height: 8),
+              _DomainForecast(domain: card.domains[i], accent: accent),
+            ],
+          ],
           const SizedBox(height: 14),
           _ConfidenceMeter(
             label: card.confidenceLabel,
@@ -226,6 +276,62 @@ class _WindowCardState extends State<_WindowCard> {
             firstChild: _Detail(card: card, accent: accent),
             secondChild: const SizedBox(width: double.infinity),
           ),
+        ],
+      ),
+    );
+  }
+}
+
+class _DomainForecast extends StatelessWidget {
+  const _DomainForecast({required this.domain, required this.accent});
+
+  final PredictionDomainModel domain;
+  final Color accent;
+
+  @override
+  Widget build(BuildContext context) {
+    final scheme = Theme.of(context).colorScheme;
+    return Container(
+      width: double.infinity,
+      padding: const EdgeInsets.fromLTRB(14, 12, 14, 12),
+      decoration: BoxDecoration(
+        color: scheme.surfaceContainerHighest.withValues(alpha: 0.42),
+        borderRadius: BorderRadius.circular(14),
+        border: Border.all(
+          color: scheme.outlineVariant.withValues(alpha: 0.45),
+        ),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            domain.title,
+            style: TextStyle(
+              fontSize: 13.5,
+              fontWeight: FontWeight.w800,
+              color: accent,
+            ),
+          ),
+          const SizedBox(height: 5),
+          Text(
+            domain.body,
+            style: TextStyle(
+              fontSize: 14,
+              height: 1.72,
+              color: scheme.onSurface.withValues(alpha: 0.92),
+            ),
+          ),
+          if (domain.caution.isNotEmpty) ...[
+            const SizedBox(height: 6),
+            Text(
+              domain.caution,
+              style: TextStyle(
+                fontSize: 13,
+                height: 1.65,
+                color: scheme.onSurfaceVariant,
+              ),
+            ),
+          ],
         ],
       ),
     );
@@ -392,10 +498,7 @@ class _ConfidenceMeter extends StatelessWidget {
       children: [
         Text(
           'ความชัดของแนวโน้ม',
-          style: TextStyle(
-            fontSize: 12,
-            color: scheme.onSurfaceVariant,
-          ),
+          style: TextStyle(fontSize: 12, color: scheme.onSurfaceVariant),
         ),
         const SizedBox(height: 6),
         Row(
@@ -407,9 +510,7 @@ class _ConfidenceMeter extends StatelessWidget {
                 height: 6,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(3),
-                  color: i < level
-                      ? accent
-                      : scheme.surfaceContainerHighest,
+                  color: i < level ? accent : scheme.surfaceContainerHighest,
                 ),
               ),
             ],

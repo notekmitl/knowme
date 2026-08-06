@@ -1,6 +1,7 @@
 import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/planet_relationship_engine.dart';
 import 'package:knowme/features/astrology/thai/core/prediction/prediction.dart';
+import 'package:knowme/features/astrology/thai/core/prediction/prediction_category.dart';
 import 'package:knowme/features/astrology/thai/core/prediction/prediction_intelligence_engine.dart';
 import 'package:knowme/features/astrology/thai/core/prediction/prediction_window.dart';
 
@@ -20,6 +21,13 @@ abstract final class PredictionComposer {
     PredictionWindowKind.current,
     PredictionWindowKind.next12Months,
     PredictionWindowKind.nextLifePeriod,
+  ];
+
+  static const _requiredDomains = <PredictionCategory>[
+    PredictionCategory.career,
+    PredictionCategory.finance,
+    PredictionCategory.relationship,
+    PredictionCategory.health,
   ];
 
   static String _pick(List<String> options, int n) =>
@@ -48,6 +56,12 @@ abstract final class PredictionComposer {
       windows: cards,
       transitionLine: _transitionLine(seed),
       closingAdvice: _closingAdvice(seed),
+      detailedSectionIntro:
+          'อ่านอนาคตเป็นสามระดับ: ช่วงนี้ 12 เดือนข้างหน้า และจุดเปลี่ยนชีวิตถัดไป '
+          'แต่ละช่วงแยกการงาน การเงิน ความรัก และสุขภาพให้เห็นตรง ๆ',
+      detailedClosingAdvice:
+          'ให้ใช้ 12 เดือนข้างหน้าเป็นช่วงวางแผนหลัก แล้วใช้จุดเปลี่ยนชีวิตถัดไป '
+          'เป็นกรอบเตรียมตัวระยะยาว',
     );
   }
 
@@ -74,8 +88,10 @@ abstract final class PredictionComposer {
     final riskLabel = riskDomain?.labelTh ?? 'จังหวะที่เปลี่ยนไป';
     final confidence = _confidence(lead.score.confidence);
 
-    final lifePeriodText =
-        PredictionReasonCopy.lifePeriod(lead.lifePeriodReason, seed);
+    final lifePeriodText = PredictionReasonCopy.lifePeriod(
+      lead.lifePeriodReason,
+      seed,
+    );
     final whatToWatch = lifePeriodText.isEmpty
         ? 'ลองจับตาเรื่อง$riskLabel ไว้เป็นพิเศษ'
         : '$lifePeriodText ลองจับตาเรื่อง$riskLabel ไว้เป็นพิเศษ';
@@ -92,15 +108,126 @@ abstract final class PredictionComposer {
       whyNow: PredictionReasonCopy.whyNow(lead.timingReason, seed),
       whatToWatch: whatToWatch,
       evidenceDetail: _evidenceDetail(lead, seed),
+      domains: _domainForecasts(kind, preds, seed),
     );
   }
+
+  static List<PredictionDomainModel> _domainForecasts(
+    PredictionWindowKind kind,
+    List<Prediction> predictions,
+    int seed,
+  ) {
+    final byCategory = {
+      for (final prediction in predictions) prediction.category: prediction,
+    };
+    return [
+      for (var i = 0; i < _requiredDomains.length; i++)
+        if (byCategory[_requiredDomains[i]] case final prediction?)
+          PredictionDomainModel(
+            title: PredictionReasonCopy.categoryLabel(prediction.category),
+            body: _domainBody(kind, prediction),
+            caution: _domainCaution(prediction, seed + i * 31),
+          ),
+    ];
+  }
+
+  static String _domainBody(PredictionWindowKind kind, Prediction prediction) {
+    final lead = _windowLead(kind);
+    final band = prediction.score.strength >= 68
+        ? _ForecastBand.strong
+        : prediction.score.strength >= 48
+        ? _ForecastBand.active
+        : _ForecastBand.quiet;
+
+    return switch (prediction.category) {
+      PredictionCategory.career => switch (band) {
+        _ForecastBand.strong =>
+          '$lead งานมีแนวโน้มเดินหน้า และอาจมีบทบาทหรือความรับผิดชอบเพิ่มขึ้น '
+              'ผลงานที่ทำต่อเนื่องมีโอกาสถูกมองเห็นชัดขึ้น',
+        _ForecastBand.active =>
+          '$lead งานมีแนวโน้มขยับแบบค่อยเป็นค่อยไป ความสำเร็จมาจากการทำเรื่องหลักให้จบ '
+              'มากกว่าการเปิดหลายทางพร้อมกัน',
+        _ForecastBand.quiet =>
+          '$lead งานอาจช้ากว่าที่หวัง ควรแก้ข้อจำกัดเดิมและจัดลำดับภาระก่อน '
+              'เพื่อให้เห็นทางขยับที่ชัด',
+      },
+      PredictionCategory.finance => switch (band) {
+        _ForecastBand.strong =>
+          '$lead รายได้มีโอกาสเพิ่มตามงานหรือหน้าที่ที่ขยายขึ้น '
+              'ความมั่นคงมีแนวโน้มดีขึ้นเมื่อเก็บส่วนเพิ่มไว้เป็นเงินสำรอง',
+        _ForecastBand.active =>
+          '$lead การเงินมีแนวโน้มพอหมุนได้และเริ่มนิ่งขึ้น แต่ยังควรคุมรายจ่าย '
+              'ก่อนเพิ่มภาระระยะยาว',
+        _ForecastBand.quiet =>
+          '$lead การเงินมีแนวโน้มตึงกว่าด้านอื่น รายได้หลักยังมาจากงานที่ทำสม่ำเสมอ '
+              'ไม่ใช่เงินก้อนหรือโชคฉับพลัน',
+      },
+      PredictionCategory.relationship => switch (band) {
+        _ForecastBand.strong =>
+          '$lead ความสัมพันธ์มีแนวโน้มชัดขึ้นจากการกระทำที่สม่ำเสมอ '
+              'ส่วนเรื่องที่ค้างคาอาจต้องคุยให้ชัดก่อนตัดสินใจ',
+        _ForecastBand.active =>
+          '$lead ความรักมีแนวโน้มค่อย ๆ พัฒนา ความสม่ำเสมอและการพูดตรงกัน '
+              'เป็นข้อมูลสำคัญก่อนตัดสินใจว่าจะเดินหน้าหรือหยุด',
+        _ForecastBand.quiet =>
+          '$lead ความรักอาจไม่ใช่ด้านที่เดินง่าย ควรลดความคาดหวังที่ไม่ได้พูด '
+              'และดูการกระทำมากกว่าคำสัญญา',
+      },
+      PredictionCategory.health => switch (band) {
+        _ForecastBand.strong =>
+          '$lead พลังชีวิตโดยรวมมีแนวโน้มรับมือกิจกรรมได้ดี '
+              'ถ้ารักษาเวลานอนและไม่ใช้ร่างกายต่อเนื่องเกินไป',
+        _ForecastBand.active =>
+          '$lead พลังชีวิตมีแนวโน้มขึ้นลงตามภาระ ควรจัดวันพักและเวลานอนให้สม่ำเสมอ '
+              'ก่อนความล้าสะสม',
+        _ForecastBand.quiet =>
+          '$lead ร่างกายอาจล้าง่ายเมื่อฝืนต่อเนื่อง ควรลดภาระที่ไม่จำเป็น '
+              'และให้การพักเป็นส่วนหนึ่งของแผน',
+      },
+      _ => '',
+    };
+  }
+
+  static String _domainCaution(Prediction prediction, int seed) {
+    final risks = [...prediction.risks]
+      ..sort((a, b) {
+        final magnitude = b.magnitude.compareTo(a.magnitude);
+        return magnitude != 0
+            ? magnitude
+            : a.domain.index.compareTo(b.domain.index);
+      });
+    final riskLabel = risks.isEmpty ? '' : risks.first.domain.labelTh;
+    final suffix = riskLabel.isEmpty ? '' : ' โดยเฉพาะเรื่อง$riskLabel';
+
+    return switch (prediction.category) {
+      PredictionCategory.career =>
+        'จุดที่ต้องระวังคือรับงานเกินเวลาและพลังที่มี$suffix',
+      PredictionCategory.finance =>
+        'จุดที่ต้องระวังคือรายจ่ายเพิ่มตามภาระและการตัดสินใจใช้เงินเร็ว$suffix',
+      PredictionCategory.relationship =>
+        'จุดที่ต้องระวังคือปล่อยให้ความไม่พอใจสะสมแทนการคุยให้ชัด$suffix',
+      PredictionCategory.health =>
+        'จุดที่ต้องระวังคือความล้าสะสม$suffix ข้อความนี้ไม่ใช่คำวินิจฉัยทางการแพทย์',
+      _ => _pick([
+        'จับตาเรื่อง$riskLabelไว้เป็นพิเศษ',
+        'อย่ามองข้ามแรงกดดันด้าน$riskLabel',
+      ], seed),
+    };
+  }
+
+  static String _windowLead(PredictionWindowKind kind) => switch (kind) {
+    PredictionWindowKind.current => 'ช่วงนี้',
+    PredictionWindowKind.next12Months => 'ใน 12 เดือนข้างหน้า',
+    PredictionWindowKind.nextLifePeriod => 'เมื่อเข้าสู่ช่วงชีวิตถัดไป',
+  };
 
   // --- Selection (deterministic) ------------------------------------------
 
   /// The window's lead category = highest strength, ties broken by category
   /// order. Drives the window-level "why / why now / evidence".
   static Prediction _lead(List<Prediction> preds) {
-    final list = [...preds]..sort((a, b) {
+    final list = [...preds]
+      ..sort((a, b) {
         final c = b.score.strength.compareTo(a.score.strength);
         return c != 0 ? c : a.category.index.compareTo(b.category.index);
       });
@@ -152,10 +279,10 @@ abstract final class PredictionComposer {
   }
 
   static String _windowLabel(PredictionWindowKind kind) => switch (kind) {
-        PredictionWindowKind.current => 'ช่วงนี้',
-        PredictionWindowKind.next12Months => 'ใน 12 เดือนข้างหน้า',
-        PredictionWindowKind.nextLifePeriod => 'ช่วงชีวิตถัดไป',
-      };
+    PredictionWindowKind.current => 'ช่วงนี้',
+    PredictionWindowKind.next12Months => 'ใน 12 เดือนข้างหน้า',
+    PredictionWindowKind.nextLifePeriod => 'ช่วงชีวิตถัดไป',
+  };
 
   static String _timeframe(PredictionWindowKind kind, PredictionWindow window) {
     switch (kind) {
@@ -189,14 +316,14 @@ abstract final class PredictionComposer {
   }
 
   static String _opportunityLine(String oppLabel, int seed) => _pick([
-        'จุดที่มักได้แรงหนุนเป็นพิเศษคือเรื่อง$oppLabel',
-        'ด้านที่มักเปิดโอกาสให้มากที่สุดคือเรื่อง$oppLabel',
-      ], seed);
+    'จุดที่มักได้แรงหนุนเป็นพิเศษคือเรื่อง$oppLabel',
+    'ด้านที่มักเปิดโอกาสให้มากที่สุดคือเรื่อง$oppLabel',
+  ], seed);
 
   static String _riskLine(String riskLabel, int seed) => _pick([
-        'เรื่องที่ควรเผื่อใจไว้คือ$riskLabel',
-        'อีกด้านที่อยากให้ดูแลเป็นพิเศษคือ$riskLabel',
-      ], seed);
+    'เรื่องที่ควรเผื่อใจไว้คือ$riskLabel',
+    'อีกด้านที่อยากให้ดูแลเป็นพิเศษคือ$riskLabel',
+  ], seed);
 
   static String _evidenceDetail(Prediction lead, int seed) {
     final planet = lead.planetReason.planet;
@@ -215,14 +342,16 @@ abstract final class PredictionComposer {
   }
 
   static String _transitionLine(int seed) => _pick([
-        'การก้าวจากช่วงนี้ไปสู่ช่วงข้างหน้า มักเป็นแบบค่อยเป็นค่อยไป '
-            'มากกว่าจะเปลี่ยนแบบกะทันหัน',
-        'รอยต่อระหว่างช่วงนี้กับช่วงหน้า มักให้เวลาคุณปรับตัวพอสมควร',
-      ], seed);
+    'การก้าวจากช่วงนี้ไปสู่ช่วงข้างหน้า มักเป็นแบบค่อยเป็นค่อยไป '
+        'มากกว่าจะเปลี่ยนแบบกะทันหัน',
+    'รอยต่อระหว่างช่วงนี้กับช่วงหน้า มักให้เวลาคุณปรับตัวพอสมควร',
+  ], seed);
 
   static String _closingAdvice(int seed) => _pick([
-        'ทั้งหมดนี้เป็นเพียงแนวโน้ม ไม่ใช่คำตัดสิน คุณยังเป็นคนกำหนดทิศทาง '
-            'ของตัวเองได้เสมอ',
-        'อ่านสิ่งเหล่านี้เป็นแนวทางพอให้เตรียมใจ ส่วนการเลือกยังอยู่ในมือคุณเสมอ',
-      ], seed);
+    'ทั้งหมดนี้เป็นเพียงแนวโน้ม ไม่ใช่คำตัดสิน คุณยังเป็นคนกำหนดทิศทาง '
+        'ของตัวเองได้เสมอ',
+    'อ่านสิ่งเหล่านี้เป็นแนวทางพอให้เตรียมใจ ส่วนการเลือกยังอยู่ในมือคุณเสมอ',
+  ], seed);
 }
+
+enum _ForecastBand { strong, active, quiet }

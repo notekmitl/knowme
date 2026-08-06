@@ -1,20 +1,29 @@
-# Task: Thai Mirror QA Screenshot Golden Baseline Repair V1
+# Task: Thai Beta Past-to-Future Narrative V3 Resume
 
-Repair the stale Thai Mirror QA screenshot baselines from immutable
-`origin/main` commit `fdf2cb3ccdbdacb8cd33bd0c41e6ff1fe35fe2d8` using
-Flutter 3.41.1. Regenerate only the existing QA harness PNG baselines, verify
-deterministic output and visual/story coverage, and restore the screenshot
-regression as an active Local Gate.
+Resume the recovered V3 work on immutable post-PR-80 main
+`3671b62fba86fc83365fdba597b695b1f3324c6b`. Thai Beta must present detailed,
+deterministic past, current, 12-month, next-turning-point, and long-range life
+period narratives through the available age range (up to 108), with work,
+money, love, and health domains shared by Web and PDF.
 
-This prerequisite is isolated from Thai Beta Past-to-Future Narrative V3. It
-must not change production source, comparator tolerance, tests, Gate scripts,
-Engine, Canon, Birth Normalization, or any V3 worktree content.
+The behavior is opt-in for Thai Beta V3. Standalone Thai Mirror keeps its
+existing defaults. Engine, Canon, Birth Normalization, Auth, evidence
+eligibility, Feedback, Firebase rules/data, and other astrology systems are
+outside scope.
 
-## Approved task-local exception
+Production-candidate review must inspect deterministic A-H text, known-time
+Desktop, no-time Mobile, and actual PDF output. Future statements backed only
+by scores/bands must use cautious tendency or conditional language, never
+invent or guarantee events. Review artifacts stay outside the repository.
 
-The scoped required suite excludes the separate standalone golden
-`test/goldens/thai_mirror_consumer_page.png`. On unchanged `origin/main` it
-already fails by 32.63% / 305,379 pixels, so it is not a regression caused by
-this repair. This does not mark that golden as passing and does not authorize
-changing, disabling, deleting, or relaxing it. A separate repair task is
-required.
+## Recovery provenance
+
+The 13 source/test files were restored from
+`knowme-v3-recovery-2026-08-04.zip`, SHA-256
+`9a1119ea07ab75b4d88724aef5dc77514013824c7c4de0339d32c8c0062ed3ec`.
+The archive was validated for exact file membership and safe relative paths,
+then extracted outside the repository before restoration.
+
+PR #80 merged at `3671b62fba86fc83365fdba597b695b1f3324c6b` and supplies the repaired QA
+harness baseline. The separate standalone consumer golden remains a known
+32.63% / 305,379-pixel failure and is not part of this task or scoped suite.

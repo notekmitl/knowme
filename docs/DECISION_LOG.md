@@ -1,5 +1,36 @@
 # DECISION LOG
 
+## D-081 — Require cautious future language for score/band evidence
+
+- **Date:** 2026-08-04 | **Status:** Accepted for Draft candidate
+- **Decision:** Future career, finance, relationship, and health prose derived
+  only from deterministic score/band evidence must use tendency, opportunity,
+  risk, or conditional language; it must not present a specific outcome as
+  certain.
+- **Evidence:** Production-candidate review of complete fixtures A-H plus
+  known/no-time Web and PDF output found certainty phrases unsupported by an
+  event fact. Those phrases were softened without changing evidence, scores,
+  Engine logic, Canon, or report structure.
+- **Boundary:** Thai Beta V3 presentation composition only. Standalone Thai
+  Mirror defaults, golden baseline, tests/tolerance, and Local Gate policy are
+  unchanged. Draft PR #81 remains unreleased.
+
+## D-080 — Thai Beta Past-to-Future Narrative V3 opt-in presentation
+
+- **Date:** 2026-08-04 | **Status:** Draft candidate under validation
+- **Decision:** Add deterministic detailed past/current/future presentation for
+  Thai Beta through explicit opt-in state shared by Web/PDF, while standalone
+  Thai Mirror keeps existing defaults.
+- **Boundary:** Presentation/composition only. No Engine, Canon, Birth
+  Normalization, Auth, evidence eligibility, Feedback, Firebase, or other-lens
+  change; no invented events, dates, disease, diagnosis, or unsupported facts.
+- **Recovery:** Source/tests restored from the validated V3 archive onto PR #80
+  merge `3671b62fba86fc83365fdba597b695b1f3324c6b`.
+- **Validation record:** Implementation commit
+  `468827ffec9ef845db91a498f7287e52c925ab57`, Draft PR #81; not merged or
+  released to Production.
+
+
 ## D-079 — Repair stale Thai Mirror QA screenshot baselines from unchanged main
 
 - **Date:** 2026-08-04 | **Status:** Accepted for isolated validation

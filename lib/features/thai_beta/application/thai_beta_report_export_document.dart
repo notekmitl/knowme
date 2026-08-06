@@ -279,7 +279,7 @@ class ThaiBetaReportExportDocument {
     for (final period in timeline.periods) {
       final body = <String>[
         period.planetLine,
-        if (period.isCurrent && period.lifeDomains.isNotEmpty)
+        if (period.lifeDomains.isNotEmpty)
           for (final domain in period.lifeDomains) ...[
             domain.title,
             domain.body,
@@ -308,9 +308,14 @@ class ThaiBetaReportExportDocument {
   static List<ThaiBetaReportExportSection> _predictionSections(
     PredictionSectionModel prediction,
   ) {
+    final hasDetailedDomains = prediction.windows.any(
+      (window) => window.domains.isNotEmpty,
+    );
     final out = <ThaiBetaReportExportSection>[
       _section(prediction.sectionTitle, [
-        prediction.sectionIntro,
+        hasDetailedDomains && prediction.detailedSectionIntro.isNotEmpty
+            ? prediction.detailedSectionIntro
+            : prediction.sectionIntro,
         if (prediction.transitionLine.isNotEmpty) prediction.transitionLine,
       ]),
     ];
@@ -325,11 +330,20 @@ class ThaiBetaReportExportDocument {
           window.whyNow,
           window.whatToWatch,
           window.evidenceDetail,
+          for (final domain in window.domains) ...[
+            domain.title,
+            domain.body,
+            domain.caution,
+          ],
         ]),
       );
     }
-    if (prediction.closingAdvice.isNotEmpty) {
-      out.add(_section('คำแนะนำปิดท้ายช่วงถัดไป', [prediction.closingAdvice]));
+    final closing =
+        hasDetailedDomains && prediction.detailedClosingAdvice.isNotEmpty
+        ? prediction.detailedClosingAdvice
+        : prediction.closingAdvice;
+    if (closing.isNotEmpty) {
+      out.add(_section('คำแนะนำปิดท้ายช่วงถัดไป', [closing]));
     }
     return out;
   }

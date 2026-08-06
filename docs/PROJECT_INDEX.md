@@ -4,6 +4,11 @@
 **Audience:** Everyone (humans + AI agents).
 **Last updated:** June 2026
 
+Thai Beta Past-to-Future Narrative V3 and its 2026-08-04 production-candidate
+review are recorded in
+[`THAI_BETA_PAST_FUTURE_NARRATIVE_V3.md`](THAI_BETA_PAST_FUTURE_NARRATIVE_V3.md)
+(CURRENT, product/developer audience; Draft candidate, not Production).
+
 This is the master index for all KnowMe documentation. It classifies every document,
 states its purpose and audience, and defines the reading order. **No orphan docs:**
 everything below links from here.
@@ -56,6 +61,7 @@ everything below links from here.
 | [`HANDOFF.md`](HANDOFF.md) | Onboarding: setup, branches, app flow, validation commands | Devs | Recommended | DEPLOYMENT, FIRESTORE_SCHEMA, ARCHITECTURE |
 | [`KNOWME_SINGLE_AGENT_WORKFLOW.md`](KNOWME_SINGLE_AGENT_WORKFLOW.md) | **Authoritative** Codex automation: Single-Agent + Local Gate, task scope, PreCommit/PostCommit | Devs, AI | Yes (automation tasks) | STANDARD_CODEX_AGENT_PROMPT, AI_WORKER_OPERATION |
 | [`THAI_MIRROR_GOLDEN_BASELINE_REPAIR_V1.md`](THAI_MIRROR_GOLDEN_BASELINE_REPAIR_V1.md) | Isolated repair and deterministic visual validation record for Thai Mirror QA screenshot baselines | Devs, QA | CURRENT | ASTROLOGY_QA_HARNESS_V1, KNOWME_SINGLE_AGENT_WORKFLOW |
+| [`THAI_BETA_PAST_FUTURE_NARRATIVE_V3.md`](THAI_BETA_PAST_FUTURE_NARRATIVE_V3.md) | Thai Beta opt-in deterministic past/current/future narrative presentation and recovery record (Draft PR #81) | Product, Devs, QA | CURRENT (Draft candidate) | THAI_MIRROR_GOLDEN_BASELINE_REPAIR_V1, THAI_BIRTH_PROFILE_CORE_READING_V1 |
 | [`STANDARD_CODEX_AGENT_PROMPT.md`](STANDARD_CODEX_AGENT_PROMPT.md) | Standard prompt for every Codex task after workflow install | AI agents | Yes (automation tasks) | KNOWME_SINGLE_AGENT_WORKFLOW |
 | [`AI_WORKER_OPERATION.md`](AI_WORKER_OPERATION.md) | **RETIRED / HISTORICAL** — external AI Worker + OpenAI reviewer loop (July 2026) | Devs | Historical only | KNOWME_SINGLE_AGENT_WORKFLOW |
 | [`DEPLOYMENT.md`](DEPLOYMENT.md) | Firebase web deploy, URLs, scripts, rollback | Devs | Recommended | HANDOFF, CURRENT_STATUS |
