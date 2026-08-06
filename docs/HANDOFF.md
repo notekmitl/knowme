@@ -1,5 +1,75 @@
 # KnowMe Developer Handoff
 
+## Active stacked work: Thai Beta Exemplar Narrative V1
+
+**Current decision: PRODUCT ACCEPTANCE PASSED on 2026-08-06; controlled stack
+Merge/Deploy approved.** The known-time discrepancy is closed by accepted PR
+#84. PR #83 is integrated on that dependency, Combined validation and the new
+application-flow Web/PDF packet passed owner acceptance. The rejected
+pre-Engine packet remains historical evidence and was not reused or overwritten.
+At the time of this record, PR #83/#84 are still OPEN/Draft, no stack PR has
+been merged, nothing has been deployed, and Production/feature flags are
+unchanged. GitHub created no CI checks/workflow runs.
+
+- Branch: `codex/thai-beta-exemplar-narrative-v1`
+- Accepted base: PR #84 HEAD
+  `57971d9d1cd2f1b634f1e1a9da7b779f40a6dd74`.
+- Combined source-tested HEAD:
+  `5d5c1d9b5540a37ed8d251a06db0e4f41575113b`.
+- Combined Required scope: 1,500/1,500 PASS; Gate self-test 9/9; Analyze 299
+  existing non-fatal diagnostics; PreCommit PASS; story A-H and QA screenshots
+  24/24 PASS.
+- New Engine-integrated packet:
+  `C:\Users\USER\Documents\Knowme\product-acceptance\pr83-engine-integrated-5d5c1d9`.
+  It contains synthetic known/no-time application-flow Web captures, valid
+  12-page PDFs, page renders/contact sheets, extraction, audit, manifest, and
+  ZIP. Known-time displays Aquarius 19°19′; unknown-time remains fail-closed;
+  shared Web/PDF document text is exact.
+  Final packet has 84 files, zero zero-byte files; the extractable ZIP SHA-256
+  is `78D481DCEBCAD9A7DD2408474E66102668B3EC1F0ECA1B0344F294B2493DD77D`.
+- Dependency: PR #81 → PR #82 → PR #84 → Narrative Draft PR #83.
+- Checkpoint and patch SHA-256 values were verified before integration.
+- Nine intended paths applied cleanly; four overlapping task/status paths were
+  semantically merged so the PR #82 baseline repair remains intact.
+- Preserve V3, Required-suite contracts, accepted Engine corrections and A–G
+  baselines, Profile H, Canon, evidence policy, standalone Thai Mirror, feature
+  flags, and Production data.
+- Draft-only: do not merge or deploy.
+- Draft PR #83 tested source HEAD:
+  `4e6560b4b6bbf591c405f7b4fd58b487afdb213f`.
+- The prior application-flow/PDF timeout is not a product exporter defect. It
+  came from real file/raster futures in a temporary `testWidgets` fake-async
+  harness plus an initially restricted Flutter tool-state write. Corrected
+  capture completed known/no-time twice, produced valid 12/11-page PDFs, and
+  left no process or handle open.
+- Product Acceptance packet (local, outside Git):
+  original `C:\Users\USER\Documents\Knowme\product-acceptance\pr83-4e6560b`;
+  delivered `C:\Users\USER\Downloads\KnowMe-PR83-Acceptance-pr83-4e6560b` and
+  `C:\Users\USER\Downloads\KnowMe-PR83-Acceptance-pr83-4e6560b.zip`.
+- The owner initially could not locate the reported packet, so Acceptance was
+  suspended as `BLOCKED — ACCEPTANCE ARTIFACT NOT DELIVERED`. Literal host
+  checks later proved the original existed; the search failure is `ROOT CAUSE
+  NOT PROVEN`. Delivery is now **DELIVERED FOR PRODUCT ACCEPTANCE**: 71 files,
+  zero zero-byte files, valid manifest, valid 12-page PDFs (50,266 and 47,669
+  bytes), and ZIP SHA-256
+  `E947102751276D6A68688D9DCAFD679A5D6144E468F607AE67EE39E18E0955EA`.
+- Owner inspection rejected the pre-Engine packet's Product Acceptance claims. The
+  known-time fixture says Chiang Mai but uses `chiang_mai`; the production
+  resolver's canonical key is `chiang mai`, so normalization defaults that
+  fixture to Bangkok (13.7563, 100.5018). The packet value Virgo 19°31′ matches
+  that fallback. The same civil input with Chiang Mai's actual coordinates
+  (18.7883, 98.9853) computes Virgo about 20°32′. The historical Aquarius
+  19°19′ reference is not present in repository history and remains
+  unreconciled under the prior Engine. PR #84 subsequently corrected and proved
+  Aquarius 19°19′ for Chiang Mai and passed Product Acceptance on 2026-08-06.
+- Unknown-time sunrise copy requires input-time authority; repeated
+  V3 domains retain all four categories but gain evidence-backed period context;
+  the malformed wellbeing sentence is corrected. Birth Normalization, Engine,
+  Canon, Thai Mirror defaults, feature flags, and Production remain unchanged.
+- Validation: Required 1,445/1,445, synthetic 300/300, story A–H, screenshots
+  24/24, Analyze 299 existing diagnostics, and Local Gates pass. Two consecutive
+  application-flow runs produced deterministic Web captures and valid 12-page
+  known/unknown PDFs with exact shared-document parity.
 ## Accepted dependency: Thai Ascendant Correctness V1
 
 - Base: PR #82 HEAD `a20be549f8a25f529d539bb7f23734af469b8c50`.

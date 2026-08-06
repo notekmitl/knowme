@@ -13,12 +13,14 @@ import '../narrative/thai_beta_narrative_fixtures.dart';
 
 void main() {
   const titles = [
-    'สรุปตัวคุณจากพื้นดวง',
+    'สรุปตรง ๆ',
+    'หลักการนับวันทางโหราศาสตร์ไทย',
+    'โครงสร้างดวงหลัก',
     'การงาน',
     'การเงิน',
     'ความรักและความสัมพันธ์',
     'สุขภาพและพลังชีวิตตามตำรา',
-    'สิ่งที่ดวงนี้อยากบอกคุณ',
+    'คำชี้หลักจากพื้นดวง',
     'ดวงนี้วิเคราะห์จากอะไร',
   ];
 
@@ -30,6 +32,37 @@ void main() {
     expect(reading.title, ThaiBirthProfileCoreReading.reportTitle);
     expect(reading.sections.map((s) => s.title), orderedEquals(titles));
     expect(reading.sections.every((s) => s.evidenceKeys.isNotEmpty), isTrue);
+    expect(reading.omissions, isEmpty);
+    final structure = reading.sections.singleWhere(
+      (section) =>
+          section.title == ThaiBirthProfileCoreReadingCopy.chartStructureTitle,
+    );
+    expect(structure.factRows.length, greaterThanOrEqualTo(3));
+    expect(structure.factRows.first.label, 'วันทางโหราศาสตร์');
+    expect(
+      structure.factRows.any(
+        (row) =>
+            row.label == 'ลัคนา' && RegExp(r'\d+°\d{2}′').hasMatch(row.value),
+      ),
+      isTrue,
+    );
+    final lagnaRow = structure.factRows.singleWhere(
+      (row) => row.label == 'ลัคนา',
+    );
+    expect(
+      lagnaRow.evidenceKeys,
+      contains('ThaiAstrologyProfile.siderealAscendantDeg'),
+    );
+    expect(
+      structure.factRows.every(
+        (row) =>
+            row.evidenceKeys.isNotEmpty &&
+            row.sourceAtoms.every(
+              (atom) => atom.sourceRef.isNotEmpty && atom.rawValue.isNotEmpty,
+            ),
+      ),
+      isTrue,
+    );
     expect(
       reading.sections.last.publicParagraphs.join('\n'),
       contains('ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากเวลาและสถานที่เกิด)'),
@@ -53,7 +86,72 @@ void main() {
     expect(domains, isNot(contains(ThaiBirthProfileCoreDomain.money)));
     expect(domains, isNot(contains(ThaiBirthProfileCoreDomain.relationships)));
     expect(domains, isNot(contains(ThaiBirthProfileCoreDomain.wellbeing)));
+    expect(
+      reading.omissions.map((omission) => omission.topic),
+      containsAll({
+        ThaiBirthProfileCoreReadingCopy.summaryTitle,
+        ThaiBirthProfileCoreReadingCopy.workTitle,
+        ThaiBirthProfileCoreReadingCopy.moneyTitle,
+        ThaiBirthProfileCoreReadingCopy.relationshipsTitle,
+        ThaiBirthProfileCoreReadingCopy.wellbeingTitle,
+      }),
+    );
+    expect(
+      reading.omissions.every((omission) => omission.reason.isNotEmpty),
+      isTrue,
+    );
   });
+
+  test('unknown time never exposes an assumed sunrise or clock conclusion', () {
+    final unknownAnalysis = ThaiBetaNarrativeFixtures.wednesdayNoBirthTime();
+    final unknown = ThaiBirthProfileCoreReading.fromAnalysis(unknownAnalysis);
+    final unknownText = unknown.sections
+        .expand((section) => section.publicParagraphs)
+        .join('\n');
+    final unknownSemanticKeys = unknown.sections
+        .expand((section) => section.claims)
+        .map((claim) => claim.semanticKey)
+        .toSet();
+
+    expect(unknownAnalysis.input.hasBirthTime, isFalse);
+    expect(unknownAnalysis.input.toMap()['birthHour'], isNull);
+    expect(unknownAnalysis.input.toMap()['birthMinute'], isNull);
+    expect(unknownText, isNot(contains('ก่อนพระอาทิตย์ขึ้น')));
+    expect(unknownText, isNot(contains('หลังพระอาทิตย์ขึ้น')));
+    expect(unknownText, isNot(contains('เวลาเกิดอยู่')));
+    expect(
+      unknownSemanticKeys,
+      isNot(contains('methodology:sunrise-boundary')),
+    );
+
+    final known = ThaiBirthProfileCoreReading.fromAnalysis(
+      ThaiBetaNarrativeFixtures.wednesdayDaytime(),
+    );
+    final knownText = known.sections
+        .expand((section) => section.publicParagraphs)
+        .join('\n');
+    final knownSemanticKeys = known.sections
+        .expand((section) => section.claims)
+        .map((claim) => claim.semanticKey)
+        .toSet();
+    expect(knownText, contains('หลังพระอาทิตย์ขึ้น'));
+    expect(knownSemanticKeys, contains('methodology:sunrise-boundary'));
+  });
+
+  test(
+    'wellbeing guidance uses natural Thai without a duplicated directive',
+    () {
+      final reading = ThaiBirthProfileCoreReading.fromAnalysis(
+        ThaiBetaNarrativeFixtures.fixtureA(),
+      );
+      final text = reading.sections
+          .expand((section) => section.publicParagraphs)
+          .join('\n');
+
+      expect(text, isNot(contains('จึงควรการ')));
+      expect(text, isNot(contains('จึงควรควร')));
+    },
+  );
 
   test(
     'before sunrise and after sunrise use different astrological day facts',
@@ -64,8 +162,22 @@ void main() {
       final after = ThaiBirthProfileCoreReading.fromAnalysis(
         ThaiBetaNarrativeFixtures.wednesdayDaytime(),
       );
-      final beforeStructure = before.sections.last.publicParagraphs.join('\n');
-      final afterStructure = after.sections.last.publicParagraphs.join('\n');
+      final beforeStructure = before.sections
+          .singleWhere(
+            (section) =>
+                section.title ==
+                ThaiBirthProfileCoreReadingCopy.dayCountingTitle,
+          )
+          .publicParagraphs
+          .join('\n');
+      final afterStructure = after.sections
+          .singleWhere(
+            (section) =>
+                section.title ==
+                ThaiBirthProfileCoreReadingCopy.dayCountingTitle,
+          )
+          .publicParagraphs
+          .join('\n');
 
       expect(beforeStructure, contains('ก่อนพระอาทิตย์ขึ้น'));
       expect(beforeStructure, contains('ใช้วันก่อนหน้า'));
@@ -292,10 +404,13 @@ void main() {
     final reading = ThaiBirthProfileCoreReading.fromAnalysis(
       ThaiBetaNarrativeFixtures.fixtureA(),
     );
-    final methodology = reading.sections.singleWhere(
-      (section) => section.isMethodology,
-    );
-    Set<String> refs(String key) => methodology.claims
+    final disclosureClaims = reading.sections
+        .where(
+          (section) => section.domain == ThaiBirthProfileCoreDomain.methodology,
+        )
+        .expand((section) => section.claims)
+        .toList(growable: false);
+    Set<String> refs(String key) => disclosureClaims
         .singleWhere((claim) => claim.semanticKey == key)
         .evidenceKeys
         .toSet();
@@ -326,7 +441,7 @@ void main() {
         'ThaiBetaAnalysis.normalizedSnapshot.timeZoneId',
       }),
     );
-    for (final claim in methodology.claims) {
+    for (final claim in disclosureClaims) {
       for (final atom in claim.sourceAtoms) {
         expect(
           atom.evidenceRefs.any((evidence) => evidence.rawValue == claim.text),
@@ -566,15 +681,15 @@ void main() {
         .toList(growable: false);
 
     expect(closing.claims, hasLength(1));
-    expect(closing.claims.single.text, contains('จุดแข็งที่คุณพึ่งพาได้คือ'));
     expect(
       closing.claims.single.text,
-      contains('เมื่อใช้จุดแข็งนี้มากเกินไป ควรระวัง'),
+      contains('คำชี้หลักของพื้นดวงนี้คือให้ใช้'),
     );
     expect(
       closing.claims.single.text,
-      contains('เพื่อใช้จุดแข็งนี้ได้อย่างพอดี ลอง'),
+      contains('เมื่อใช้จุดแข็งนี้มากเกินไปอาจกลายเป็น'),
     );
+    expect(closing.claims.single.text, contains('ทางที่เหมาะกว่าคือ'));
     expect(atoms.map((atom) => atom.kind).toSet(), {
       ThaiBirthProfileCoreAtomKind.strengthTheme,
       ThaiBirthProfileCoreAtomKind.riskTheme,
@@ -696,6 +811,34 @@ void main() {
     );
   });
 
+  testWidgets('unsupported no-time topics are disclosed after Timeline', (
+    tester,
+  ) async {
+    await tester.pumpWidget(
+      MaterialApp(
+        home: ThaiBetaReportPage(
+          analysis: ThaiBetaNarrativeFixtures.fixtureB(),
+          audienceOverride: const ThaiBetaEvidenceBadgeAudience.anonymous(),
+          screenshotModeOverride: true,
+        ),
+      ),
+    );
+    await tester.pump();
+
+    final timeline = find.byKey(const Key('thai_consumer_life_timeline'));
+    final omissions = find.byKey(const Key('thai_birth_profile_omissions'));
+    expect(timeline, findsOneWidget);
+    expect(omissions, findsOneWidget);
+    expect(
+      tester.getTopLeft(timeline).dy,
+      lessThan(tester.getTopLeft(omissions).dy),
+    );
+    expect(
+      find.text(ThaiBirthProfileCoreReadingCopy.omissionsTitle),
+      findsOneWidget,
+    );
+  });
+
   testWidgets('Thai Mirror default still renders the lifelong report', (
     tester,
   ) async {
@@ -768,6 +911,21 @@ void main() {
     }
   });
 
+  test('PDF appends the same omissions as the final report section', () {
+    final analysis = ThaiBetaNarrativeFixtures.fixtureB();
+    final core = ThaiBirthProfileCoreReading.fromAnalysis(analysis);
+    final export = ThaiBetaReportExportDocument.fromAnalysis(analysis);
+
+    expect(core.omissions, isNotEmpty);
+    expect(
+      export.sections.last.title,
+      ThaiBirthProfileCoreReadingCopy.omissionsTitle,
+    );
+    for (final omission in core.omissions) {
+      expect(export.sections.last.paragraphs, contains(omission.publicText));
+    }
+  });
+
   test('PDF contains Core once and omits legacy lifelong semantics', () {
     final analysis = ThaiBetaNarrativeFixtures.fixtureA();
     final view = analysis.consumerViewState!;
@@ -801,7 +959,7 @@ void main() {
     expect(text, isNot(contains('ontology')));
     expect(text, isNot(contains('debug')));
     expect(text, isNot(contains('สรุปดวงสำคัญ')));
-    expect(text, isNot(contains('โครงสร้างดวงหลัก')));
+    expect(text, contains('โครงสร้างดวงหลัก'));
     expect(text, isNot(contains('ภาพรวมชีวิต')));
     expect(text, isNot(contains('ตัวตนและนิสัยลึก ๆ')));
     expect(text, isNot(contains('อย่าใช้ข้อความนี้แทน')));

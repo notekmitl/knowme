@@ -137,6 +137,15 @@ class ThaiBetaReportExportDocument {
       sections.addAll(safeBadges);
     }
 
+    if (coreReading.omissions.isNotEmpty) {
+      sections.add(
+        _section(ThaiBirthProfileCoreReadingCopy.omissionsTitle, [
+          'ระบบตัดหัวข้อต่อไปนี้ออกแทนการเติมคำทำนายที่ไม่มีข้อมูลรองรับ',
+          ...coreReading.omissions.map((omission) => omission.publicText),
+        ], kind: ThaiBetaReportExportSectionKind.disclaimer),
+      );
+    }
+
     final scrubbed = sections
         .map(
           (s) => ThaiBetaReportExportSection(

@@ -4,6 +4,48 @@
 **Scope:** Thai Beta presentation + PDF only  
 **Engine/Canon:** unchanged
 
+## Owner-approved Exemplar Narrative V1 follow-up
+
+The active stacked Draft branch ports the owner-approved exemplar onto the
+current Past-to-Future Narrative V3 base for both Thai Beta Web and PDF/export:
+
+Post-Engine integration uses accepted Draft PR #84 HEAD
+`57971d9d1cd2f1b634f1e1a9da7b779f40a6dd74`. Combined source-tested HEAD
+`5d5c1d9b5540a37ed8d251a06db0e4f41575113b` passes 1,500/1,500 Required tests
+and produces a new synthetic application-flow packet with known-time Aquarius
+19°19′, unknown-time fail-closed output, and exact shared Web/PDF document
+parity. This dependency update does not expand the Narrative implementation
+scope; both PRs remain Draft and nothing is deployed.
+
+Owner Product Acceptance passed on 2026-08-06 and authorized controlled stack
+Merge/Deploy. Accepted Combined source-tested SHA remains
+`5d5c1d9b5540a37ed8d251a06db0e4f41575113b`; the accepted Engine base remains
+`57971d9d1cd2f1b634f1e1a9da7b779f40a6dd74`. At the time this acceptance was
+recorded, no PR had been merged or deployed, Production/feature flags were
+unchanged, and GitHub had created no CI checks/workflow runs.
+
+1. `สรุปตรง ๆ`
+2. `หลักการนับวันทางโหราศาสตร์ไทย`
+3. `โครงสร้างดวงหลัก` — a compact table of computed weekday, Lagna degree,
+   Lagna lord, and supported house/lord facts
+4. identity/core when evidence supports it
+5. work, money, relationships, and wellbeing in reader-facing prose
+6. one grounded closing synthesis
+7. the unchanged V3 current, past, future, and Timeline surfaces
+8. `หัวข้อที่ไม่ได้แสดง` at the end when a requested topic failed closed
+
+The overview contains only fields already exposed by the same
+`ThaiBetaAnalysis`; it is not a new planetary-longitude or dasha engine. Web and
+PDF serialize the same fact rows and omission records. Each withheld topic has
+a verifiable missing-evidence reason instead of generic horoscope copy. This
+follow-up does not modify Birth Normalization, the frozen Thai Engine/Canon,
+Timeline or Prediction calculations, evidence eligibility, authentication,
+feedback, standalone Thai Mirror defaults, or Production data.
+
+The fail-closed disclosure also covers existing current-life and future results
+when either is absent. A complete known-time analysis is expected to produce no
+omissions under normal pipeline operation.
+
 ## Product decision
 
 Thai Astrology Beta now leads with **“ดวงจากวันเกิดของคุณ”**. The lifelong
@@ -89,24 +131,30 @@ traceability and are never rendered or exported.
 
 ## Report order
 
-1. สรุปตัวคุณจากพื้นดวง
-2. การงาน
-3. การเงิน
-4. ความรักและความสัมพันธ์
-5. สุขภาพและพลังชีวิตตามตำรา
-6. สิ่งที่ดวงนี้อยากบอกคุณ
-7. ดวงนี้วิเคราะห์จากอะไร — collapsed by default
-8. Visual divider: “จากพื้นดวงสู่จังหวะชีวิต”
-9. Existing Life Timeline and future-period content
-10. Existing source transparency, disclaimers, PDF, and feedback flow
+1. สรุปตรง ๆ
+2. หลักการนับวันทางโหราศาสตร์ไทย
+3. โครงสร้างดวงหลัก
+4. ภาพรวมตัวตน — only when supported
+5. การงาน
+6. การเงิน
+7. ความรักและความสัมพันธ์
+8. สุขภาพและพลังชีวิตตามตำรา
+9. คำชี้หลักจากพื้นดวง
+10. ดวงนี้วิเคราะห์จากอะไร — collapsed by default
+11. Visual divider: “จากพื้นดวงสู่จังหวะชีวิต”
+12. Existing V3 current, past, future, and Timeline content
+13. Existing source transparency and disclaimers
+14. หัวข้อที่ไม่ได้แสดง — only when one or more topics were withheld
+15. Existing PDF and feedback flow
 
-The six narrative sections use natural paragraphs without repeated
+The narrative sections use natural paragraphs without repeated
 fact/reading/strength/caution/action labels. Exact normalized claims are owned
 once across Core Reading at paragraph level. Empty unsupported content is
-omitted rather than filled with generic copy. PDF serializes the same
-seven-section Domain object; the methodology disclosure is expanded as plain
-text in the export. It then continues directly with Timeline/current/future
-and non-duplicated transparency/disclaimer sections.
+omitted rather than filled with generic copy, and the same omission plus reason
+is appended at the end of Web and PDF. PDF serializes the same section/fact-row
+Domain object; the methodology disclosure is expanded as plain text in the
+export. It then continues with the unchanged V3 current/past/future surfaces and
+non-duplicated transparency/disclaimer sections.
 
 ## Time and location rules
 

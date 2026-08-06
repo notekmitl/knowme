@@ -48,6 +48,19 @@ Desktop known-time, Mobile no-time, and actual known/no-time PDF exports. It
 found no layout or privacy regression and hardened only unsupported certainty
 in future copy. Scoped tests and Local Gate pass; PR #81 remains Draft.
 
+### Thai Beta Exemplar Narrative V1 — Product Acceptance passed; release approved
+
+Draft PR #83 now targets accepted Draft Engine PR #84 at
+`57971d9d1cd2f1b634f1e1a9da7b779f40a6dd74`. Non-force integration produced
+source-tested Combined HEAD `5d5c1d9b5540a37ed8d251a06db0e4f41575113b`.
+The Required scope passes 1,500/1,500 with Local Gate, story A-H, screenshots,
+and Analyze contracts intact. A new synthetic application-flow packet proves
+Aquarius 19°19′ for the approved known-time fixture, unknown-time fail-closed
+behavior, exact shared Web/PDF meaning, and valid 12-page PDFs. The next action
+was completed by the owner on 2026-08-06 and controlled stack Merge/Deploy is
+approved. At this acceptance-record point PR #83 and PR #84 remain Draft and
+are not yet released or deployed; GitHub has no CI checks/workflow runs.
+
 ### Thai Mirror QA Screenshot Golden Baseline Repair V1 — complete
 
 PR #80 merged at `3671b62fba86fc83365fdba597b695b1f3324c6b` after deterministic repeat
@@ -186,6 +199,7 @@ until Thai Astrology reaches the required quality.
 | **Home experience refinement** | Primary post-astrology product surface | `lib/features/home_cohesion/`, `PRODUCTION_FUNNEL_RECOVERY_V1.md` |
 | **Chinese Zodiac Personality Expansion** | Approved additive program, low blast radius | [`GOVERNANCE.md`](GOVERNANCE.md) exception programs |
 | **Real-user validation re-runs** | Measure funnel changes against 38-user baseline | `test/validation/real_user_runtime_v1/` |
+| **Thai Beta Exemplar Narrative V1** | Owner-approved Web/PDF presentation follow-up with computed chart facts and evidence-based omissions; stacked as PR #81 → prerequisite PR #82 → Narrative Draft and not released | `codex/thai-beta-exemplar-narrative-v1`, `THAI_BIRTH_PROFILE_CORE_READING_V1.md` |
 
 **Active rule (from master context):** Maintenance only on frozen systems. Prefer depth over breadth. Do not reopen frozen architecture without strong reason.
 

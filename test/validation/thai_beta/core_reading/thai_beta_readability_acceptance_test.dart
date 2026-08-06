@@ -48,10 +48,9 @@ void main() {
           // context; it may be longer than a single domain sentence.
           'longParagraphs': webParagraphs.where((p) => p.length > 320).length,
           'unexplainedTerms': _countMatches(webText, const [
-            'ลัคนาอยู่ที่',
-            'เจ้าเรือน',
-            'เรือนการงาน',
-            'เรือนการเงิน',
+            'sidereal',
+            'ayanamsa',
+            'whole-sign',
           ]),
           'systemLanguage': _countMatches(webText, const [
             'ระบบใช้',
@@ -64,9 +63,9 @@ void main() {
             'Visionary',
           ]),
           'deterministicLanguage': _countMatches(webText, const [
-            'ทำให้บุคลิก',
-            'ภาพงานจึง',
-            'จึงควร',
+            'คุณต้อง',
+            'เกิดมาเพื่อ',
+            'ดวงกำหนด',
           ]),
           'exactDuplicates':
               webParagraphs.length -
@@ -112,46 +111,69 @@ void main() {
           final matching = reading.sections.where((s) => s.domain == domain);
           if (matching.isEmpty) continue;
           final domainText = matching.single.paragraphs.join('\n');
-          expect(
-            domainText,
-            contains('แนวโน้มหลัก:'),
-            reason: '$entry / $domain',
-          );
-          expect(
-            domainText,
-            contains('สิ่งที่ควรระวัง:'),
-            reason: '$entry / $domain',
-          );
-          expect(
-            domainText,
-            contains('สิ่งที่นำไปใช้ได้:'),
-            reason: '$entry / $domain',
-          );
+          expect(matching.single.claims.length, greaterThanOrEqualTo(2));
+          expect(domainText, isNot(contains('แนวโน้มหลัก:')));
+          expect(domainText, isNot(contains('สิ่งที่ควรระวัง:')));
+          expect(domainText, isNot(contains('สิ่งที่นำไปใช้ได้:')));
         }
-        final methodology = reading.sections.singleWhere(
-          (s) => s.isMethodology,
+        final dayCounting = reading.sections.singleWhere(
+          (section) =>
+              section.title ==
+              ThaiBirthProfileCoreReadingCopy.dayCountingTitle,
         );
         expect(
-          methodology.paragraphs.join('\n'),
+          dayCounting.paragraphs.join('\n'),
           contains('วันเกิดตามสูติบัตร'),
         );
-        expect(methodology.paragraphs.join('\n'), contains('วันทางโหราศาสตร์'));
+        expect(
+          dayCounting.paragraphs.join('\n'),
+          contains('วันทางโหราศาสตร์'),
+        );
+        final structure = reading.sections.singleWhere(
+          (section) =>
+              section.title ==
+              ThaiBirthProfileCoreReadingCopy.chartStructureTitle,
+        );
+        expect(structure.factRows, isNotEmpty, reason: entry.key);
         expect(renderedPdf.plainText, isNot(contains('internal/beta')));
         expect(renderedPdf.plainText, isNot(contains('capture / screenshot')));
         expect(renderedPdf.plainText, isNot(contains('Canon')));
-        final closing = reading.sections.singleWhere(
+        final closingSections = reading.sections.where(
           (section) => section.domain == ThaiBirthProfileCoreDomain.closing,
         );
-        if (closing.claims.isNotEmpty) {
+        if (closingSections.isNotEmpty) {
+          final closing = closingSections.single;
           expect(closing.claims, hasLength(1), reason: entry.key);
-          expect(closing.claims.single.text, contains('จุดแข็งที่คุณพึ่งพาได้คือ'));
           expect(
             closing.claims.single.text,
-            contains('เมื่อใช้จุดแข็งนี้มากเกินไป ควรระวัง'),
+            contains('คำชี้หลักของพื้นดวงนี้คือให้ใช้'),
           );
           expect(
             closing.claims.single.text,
-            contains('เพื่อใช้จุดแข็งนี้ได้อย่างพอดี ลอง'),
+            contains('เมื่อใช้จุดแข็งนี้มากเกินไปอาจกลายเป็น'),
+          );
+          expect(
+            closing.claims.single.text,
+            contains('ทางที่เหมาะกว่าคือ'),
+          );
+        }
+        if (reading.omissions.isEmpty) {
+          expect(
+            pdf.sections.where(
+              (section) =>
+                  section.title ==
+                  ThaiBirthProfileCoreReadingCopy.omissionsTitle,
+            ),
+            isEmpty,
+          );
+        } else {
+          expect(
+            pdf.sections.last.title,
+            ThaiBirthProfileCoreReadingCopy.omissionsTitle,
+          );
+          expect(
+            pdf.sections.last.paragraphs,
+            containsAll(reading.omissions.map((item) => item.publicText)),
           );
         }
         expect(
@@ -204,14 +226,17 @@ void main() {
     );
 
     expect(closing.claims, hasLength(1));
-    expect(closing.claims.single.text, contains('จุดแข็งที่คุณพึ่งพาได้คือ'));
     expect(
       closing.claims.single.text,
-      contains('เมื่อใช้จุดแข็งนี้มากเกินไป ควรระวัง'),
+      contains('คำชี้หลักของพื้นดวงนี้คือให้ใช้'),
     );
     expect(
       closing.claims.single.text,
-      contains('เพื่อใช้จุดแข็งนี้ได้อย่างพอดี ลอง'),
+      contains('เมื่อใช้จุดแข็งนี้มากเกินไปอาจกลายเป็น'),
+    );
+    expect(
+      closing.claims.single.text,
+      contains('ทางที่เหมาะกว่าคือ'),
     );
     expect(closing.claims.single.evidenceKeys, isNotEmpty);
     expect(

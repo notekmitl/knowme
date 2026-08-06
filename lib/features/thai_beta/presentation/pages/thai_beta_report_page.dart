@@ -370,6 +370,18 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
         detailedPastFutureNarrative: true,
         consumerState: narrativeView,
       ),
+      if (coreReading.omissions.isNotEmpty)
+        Padding(
+          padding: const EdgeInsets.fromLTRB(18, 20, 18, 8),
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 780),
+              child: ThaiBirthProfileCoreOmissionsSection(
+                omissions: coreReading.omissions,
+              ),
+            ),
+          ),
+        ),
       if (!widget.screenshotMode)
         Padding(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
