@@ -1,15 +1,30 @@
 # KnowMe Developer Handoff
 
-## Active stacked work: Thai Beta Exemplar Narrative V1
+## Released: Thai Beta Exemplar Narrative V1
+
+**Production closure (2026-08-06):** PR #81, #82, #84, and #83 are merged in
+the approved order. Their merge commits are `7047fd9`, `04f5d7e`, `ee04ded`,
+and `7dd04f9`. Firebase Hosting release `1786018899255000` (version
+`df025ab8aeb294cd`) is FINALIZED and serves `flutter_bootstrap.js?v=7dd04f9`
+and `main.dart.js?v=7dd04f9` at `https://knowme-app-694e1.web.app`.
+
+Production smoke testing used synthetic application-flow inputs only. The
+known-time review retained `00:35` and rendered house evidence; the unknown-time
+report did not substitute `12:00` and explicitly omitted unsupported
+house-dependent sections. Actual downloaded PDFs opened and rendered as 12 and
+11 non-blank A4 pages with the same report ordering and meaning as Web. Mobile
+390px and Desktop 1440px checks had no horizontal overflow, and browser logs
+contained no errors or warnings. The rollout remains `public_beta`; no Auth,
+Feedback, audience, Canon, feature-flag value, or Production data changed.
 
 **Current decision: PRODUCT ACCEPTANCE PASSED on 2026-08-06; controlled stack
 Merge/Deploy approved.** The known-time discrepancy is closed by accepted PR
 #84. PR #83 is integrated on that dependency, Combined validation and the new
 application-flow Web/PDF packet passed owner acceptance. The rejected
 pre-Engine packet remains historical evidence and was not reused or overwritten.
-At the time of this record, PR #83/#84 are still OPEN/Draft, no stack PR has
-been merged, nothing has been deployed, and Production/feature flags are
-unchanged. GitHub created no CI checks/workflow runs.
+The historical acceptance packet remains evidence for the accepted source, but
+the release decision is now closed by merged-main and real Production checks.
+GitHub created no CI checks/workflow runs, so this is not reported as CI PASS.
 
 - Branch: `codex/thai-beta-exemplar-narrative-v1`
 - Accepted base: PR #84 HEAD
