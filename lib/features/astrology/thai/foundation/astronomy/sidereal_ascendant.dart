@@ -10,8 +10,12 @@ abstract final class SiderealAscendant {
   static double julianDay(DateTime utc) {
     final year = utc.year;
     final month = utc.month;
-    final day = utc.day +
-        (utc.hour + utc.minute / 60.0 + utc.second / 3600.0 + utc.millisecond / 3600000.0) /
+    final day =
+        utc.day +
+        (utc.hour +
+                utc.minute / 60.0 +
+                utc.second / 3600.0 +
+                utc.millisecond / 3600000.0) /
             24.0;
 
     var y = year;
@@ -36,7 +40,8 @@ abstract final class SiderealAscendant {
     required double longitudeEast,
   }) {
     final t = (julianDay - 2451545.0) / 36525.0;
-    final obliquity = 23.439291 -
+    final obliquity =
+        23.439291 -
         0.0130042 * t -
         0.00000016 * t * t +
         0.000000504 * t * t * t;
@@ -53,14 +58,19 @@ abstract final class SiderealAscendant {
     final lat = latitude * _degToRad;
     final eps = obliquity * _degToRad;
 
-    final y = math.cos(ramc);
-    final x = -math.sin(eps) * math.tan(lat) + math.cos(eps) * math.sin(ramc);
-    final asc = math.atan2(y, x) * _radToDeg;
+    // Ecliptic longitude of the eastern horizon. The +180° selects the
+    // Ascendant rather than the opposite horizon intersection. Keep the
+    // latitude term positive; reversing it produces the former Virgo result.
+    final y = -math.cos(ramc);
+    final x = math.cos(eps) * math.sin(ramc) + math.sin(eps) * math.tan(lat);
+    final asc = math.atan2(y, x) * _radToDeg + 180.0;
     return LahiriAyanamsa.normalizeDegrees(asc);
   }
 
   static int wholeSignIndex(double siderealAscendantDegrees) {
-    final normalized = LahiriAyanamsa.normalizeDegrees(siderealAscendantDegrees);
+    final normalized = LahiriAyanamsa.normalizeDegrees(
+      siderealAscendantDegrees,
+    );
     return (normalized / 30.0).floor() % 12;
   }
 

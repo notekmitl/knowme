@@ -100,7 +100,31 @@ All other dates emit `LUNAR_DATE_UNVERIFIED` warning — **no guessing**.
 - Thai Theme Resolver / Engine / Presenter
 - Content Layer
 - Fusion, Mirror, UI, Navigation
-- Lagna Engine (Sidereal + Lahiri + Whole Sign)
+
+## Thai Ascendant Correctness V1 candidate (August 2026)
+
+The earlier statement that the Lagna layer was unchanged is superseded for the
+separate `thai-ascendant-correctness-v1` candidate based on
+`a20be549f8a25f529d539bb7f23734af469b8c50`. The product contract remains
+sidereal zodiac + Lahiri ayanamsha + whole-sign houses; the candidate repairs
+implementation correctness without changing that contract:
+
+- supported province keys are canonicalized and explicit unknown/mismatched
+  location data fails closed instead of silently selecting Bangkok;
+- UTC astronomical instants are typed as UTC and remain separate from the
+  sunrise-adjusted Thai astrological date;
+- the ascendant horizon equation uses the corrected latitude sign/quadrant;
+- the Lahiri J2000 approximation constant is aligned to the independent Swiss
+  Ephemeris 2.10.03 oracle.
+
+For the approved synthetic Chiang Mai instant, the independent oracle is
+319.3113756° and the local approximation is 319.3137084°, displayed as
+Aquarius 19°19′. The Bangkok control displays Aquarius 21°54′. This remains a
+Draft candidate at source-tested commit
+`7e313442241e72734bd6eedd0df97a74e386f48e`. Required PreCommit Gate passed
+1,494/1,494 tests; Product Acceptance remains. It is not merged or deployed.
+The candidate is published only as Draft PR #84:
+https://github.com/notekmitl/knowme/pull/84.
 
 ---
 

@@ -1,5 +1,29 @@
 # KnowMe Developer Handoff
 
+## Accepted dependency: Thai Ascendant Correctness V1
+
+- Base: PR #82 HEAD `a20be549f8a25f529d539bb7f23734af469b8c50`.
+- Local audit confirms the independent Lahiri result: Chiang Mai 18.7883 /
+  98.9853 at UTC 1982-06-05T17:35:00Z produces 319.313708° locally versus the
+  319.311376° oracle, Aquarius 19°19′.
+- Resolver, UTC, horizon-equation, and Lahiri-epoch fixes pass focused, parity,
+  synthetic 300, story A–H, Analyze, and Gate self-test checks.
+- The owner approved a controlled QA-harness rebaseline for Known-time Profiles
+  A–G only. Exactly 108 PNGs changed; Profile H and the standalone golden did
+  not change. Before/after Desktop/Tablet/Mobile contact sheets passed visual
+  audit, and screenshot regression passed 24/24 twice with identical manifests.
+- Required PreCommit Gate passed 1,494/1,494 tests with the baseline 299 Analyze
+  diagnostics and no fatal/new diagnostic. Source-tested commit:
+  `7e313442241e72734bd6eedd0df97a74e386f48e`.
+- Draft Engine PR #84 is OPEN/Draft and MERGEABLE/CLEAN:
+  https://github.com/notekmitl/knowme/pull/84. GitHub created no checks or
+  workflow runs for the branch; this is not reported as CI PASS.
+- The 247-file Correctness Packet and verified ZIP are delivered in Windows
+  Downloads as `KnowMe-Thai-Ascendant-Correctness-7e31344`. Product Acceptance
+  passed on 2026-08-06.
+- PR #84 remains OPEN/Draft and is the accepted dependency for PR #83 stack
+  integration. Do not merge/deploy; Production and feature flags are unchanged.
+
 ## Active prerequisite: Thai Required full-suite baseline contract repair
 
 - Branch: `codex/thai-full-suite-baseline-fix`

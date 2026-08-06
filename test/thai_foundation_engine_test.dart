@@ -182,16 +182,16 @@ void main() {
       final result = LagnaEngine.calculate(
         _bangkokBirth(year: 1990, month: 1, day: 15, hour: 10, minute: 30),
       )!;
-      expect(result.lagnaKey, ThaiContentKeys.lagnaVirgo);
-      expect(result.signIndex, 5);
+      expect(result.lagnaKey, ThaiContentKeys.lagnaPisces);
+      expect(result.signIndex, 11);
     });
 
     test('TC-02 Bangkok 1988-05-10 14:00 — deterministic lagna', () {
       final result = LagnaEngine.calculate(
         _bangkokBirth(year: 1988, month: 5, day: 10, hour: 14),
       )!;
-      expect(result.lagnaKey, ThaiContentKeys.lagnaPisces);
-      expect(result.signIndex, 11);
+      expect(result.lagnaKey, ThaiContentKeys.lagnaLeo);
+      expect(result.signIndex, 4);
     });
   });
 
@@ -350,7 +350,7 @@ void main() {
         latitude: 13.75,
         longitudeEast: 100.50,
       );
-      expect(asc, closeTo(160.313, 0.01));
+      expect(asc, closeTo(333.023, 0.01));
     });
   });
 }

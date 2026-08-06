@@ -8,6 +8,15 @@ class _Coord {
   final double lng;
 }
 
+class BirthLocationResolution {
+  const BirthLocationResolution.success(this.location) : error = null;
+  const BirthLocationResolution.invalid(this.error) : location = null;
+
+  final BirthLocation? location;
+  final String? error;
+  bool get isValid => location != null && error == null;
+}
+
 /// Resolves a [BirthLocation] from raw input.
 ///
 /// Priority: explicit coordinates → known province → known country → Bangkok
@@ -20,19 +29,26 @@ abstract final class BirthLocationResolver {
 
   /// Coordinate per Thai province, built from the canonical 77-province table
   /// plus common English aliases — so every selectable province resolves.
-  static final Map<String, _Coord> _provinces = {
-    for (final p in kThaiProvincesAll)
-      p.key: _Coord(p.latitude, p.longitude),
+  static final Map<String, ThaiProvince> _provinces = {
+    for (final province in kThaiProvincesAll)
+      _normalizeKey(province.key): province,
+    for (final province in kThaiProvincesAll) province.nameTh: province,
     for (final entry in kThaiProvinceAliases.entries)
-      if (_coordFor(entry.value) != null) entry.key: _coordFor(entry.value)!,
+      _normalizeKey(entry.key): ?_provinceForCanonicalKey(entry.value),
   };
 
-  static _Coord? _coordFor(String key) {
+  static ThaiProvince? _provinceForCanonicalKey(String key) {
     for (final p in kThaiProvincesAll) {
-      if (p.key == key) return _Coord(p.latitude, p.longitude);
+      if (p.key == key) return p;
     }
     return null;
   }
+
+  static String _normalizeKey(String value) => value
+      .trim()
+      .toLowerCase()
+      .replaceAll(RegExp(r'[_-]+'), ' ')
+      .replaceAll(RegExp(r'\s+'), ' ');
 
   /// A representative coordinate per country (capital / major city).
   static const Map<String, _Coord> _countries = {
@@ -52,48 +68,76 @@ abstract final class BirthLocationResolver {
     'australia': _Coord(-33.8688, 151.2093),
   };
 
-  static BirthLocation resolve(RawBirthInput input) {
+  static BirthLocationResolution resolve(RawBirthInput input) {
     if (input.hasExplicitCoordinates) {
-      return BirthLocation(
-        latitude: input.latitude!,
-        longitude: input.longitude!,
-        source: BirthLocationSource.explicit,
-        province: input.province,
-        country: input.country,
-        label: input.placeLabel,
+      return BirthLocationResolution.success(
+        BirthLocation(
+          latitude: input.latitude!,
+          longitude: input.longitude!,
+          source: BirthLocationSource.explicit,
+          province: input.province,
+          country: input.country,
+          label: input.placeLabel,
+        ),
       );
     }
 
-    final provinceKey = input.province?.trim().toLowerCase();
-    if (provinceKey != null && _provinces.containsKey(provinceKey)) {
-      final c = _provinces[provinceKey]!;
-      return BirthLocation(
-        latitude: c.lat,
-        longitude: c.lng,
-        source: BirthLocationSource.resolvedFromProvince,
-        province: input.province,
-        country: input.country,
-        label: input.placeLabel,
+    final provinceValue = input.province?.trim() ?? '';
+    if (provinceValue.isNotEmpty) {
+      final province = _provinces[_normalizeKey(provinceValue)];
+      if (province == null) {
+        return BirthLocationResolution.invalid(
+          'Unknown province key: $provinceValue',
+        );
+      }
+      final label = input.placeLabel?.trim() ?? '';
+      final labelledProvince = label.isEmpty
+          ? null
+          : _provinces[_normalizeKey(label)];
+      if (labelledProvince != null && labelledProvince.key != province.key) {
+        return BirthLocationResolution.invalid(
+          'Province label does not match resolved coordinates.',
+        );
+      }
+      return BirthLocationResolution.success(
+        BirthLocation(
+          latitude: province.latitude,
+          longitude: province.longitude,
+          source: BirthLocationSource.resolvedFromProvince,
+          province: input.province,
+          country: input.country,
+          label: input.placeLabel,
+        ),
       );
     }
 
-    final countryKey = input.country?.trim().toLowerCase();
-    if (countryKey != null && _countries.containsKey(countryKey)) {
+    final countryValue = input.country?.trim() ?? '';
+    final countryKey = _normalizeKey(countryValue);
+    if (countryValue.isNotEmpty && _countries.containsKey(countryKey)) {
       final c = _countries[countryKey]!;
-      return BirthLocation(
-        latitude: c.lat,
-        longitude: c.lng,
-        source: BirthLocationSource.resolvedFromCountry,
-        province: input.province,
-        country: input.country,
-        label: input.placeLabel,
+      return BirthLocationResolution.success(
+        BirthLocation(
+          latitude: c.lat,
+          longitude: c.lng,
+          source: BirthLocationSource.resolvedFromCountry,
+          province: input.province,
+          country: input.country,
+          label: input.placeLabel,
+        ),
+      );
+    }
+    if (countryValue.isNotEmpty) {
+      return BirthLocationResolution.invalid(
+        'Unknown country key: $countryValue',
       );
     }
 
-    return const BirthLocation(
-      latitude: bangkokLat,
-      longitude: bangkokLng,
-      source: BirthLocationSource.defaulted,
+    return const BirthLocationResolution.success(
+      BirthLocation(
+        latitude: bangkokLat,
+        longitude: bangkokLng,
+        source: BirthLocationSource.defaulted,
+      ),
     );
   }
 }
