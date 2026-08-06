@@ -1,6 +1,6 @@
 # Thai Birth Profile Core Reading V1
 
-**Status:** Implemented for `/beta/thai`  
+**Status:** Production released and verified for `/beta/thai` (2026-08-06)
 **Scope:** Thai Beta presentation + PDF only  
 **Engine/Canon:** unchanged
 
@@ -23,6 +23,14 @@ Merge/Deploy. Accepted Combined source-tested SHA remains
 `57971d9d1cd2f1b634f1e1a9da7b779f40a6dd74`. At the time this acceptance was
 recorded, no PR had been merged or deployed, Production/feature flags were
 unchanged, and GitHub had created no CI checks/workflow runs.
+
+The approved stack is now merged through PR #81 (`7047fd9`), PR #82
+(`04f5d7e`), PR #84 (`ee04ded`), and PR #83 (`7dd04f9`). Firebase Hosting
+release `1786018899255000` / version `df025ab8aeb294cd` serves the matching
+cache-pinned bundle. Production checks passed for known-time and unknown-time
+application flows, actual 12/11-page PDFs, Web/PDF semantic parity,
+fail-closed omissions, responsive widths, and runtime logs. The rollout remains
+`public_beta`; no Auth, Feedback, audience, Canon, or Production data changed.
 
 1. `สรุปตรง ๆ`
 2. `หลักการนับวันทางโหราศาสตร์ไทย`

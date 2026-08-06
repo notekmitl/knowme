@@ -1,5 +1,15 @@
 # KnowMe Roadmap
 
+## Thai Beta Exemplar Narrative V1 — Production complete
+
+The approved stack is merged through PR #81 (`7047fd9`), PR #82 (`04f5d7e`),
+PR #84 (`ee04ded`), and PR #83 (`7dd04f9`). Firebase Hosting release
+`1786018899255000` / version `df025ab8aeb294cd` was deployed and verified on
+2026-08-06. Known-time and unknown-time Production application flows, actual
+12/11-page PDFs, Web/PDF parity, Desktop/Mobile widths, fail-closed omissions,
+and runtime logs passed. This milestone is complete; it does not change the
+`public_beta` rollout or make a scientific-accuracy claim.
+
 ## Accepted dependency — Thai Ascendant Correctness V1
 
 The independent Lahiri oracle and local numerical audit agree on Aquarius
@@ -48,7 +58,7 @@ Desktop known-time, Mobile no-time, and actual known/no-time PDF exports. It
 found no layout or privacy regression and hardened only unsupported certainty
 in future copy. Scoped tests and Local Gate pass; PR #81 remains Draft.
 
-### Thai Beta Exemplar Narrative V1 — Product Acceptance passed; release approved
+### Thai Beta Exemplar Narrative V1 — Production released and verified
 
 Draft PR #83 now targets accepted Draft Engine PR #84 at
 `57971d9d1cd2f1b634f1e1a9da7b779f40a6dd74`. Non-force integration produced
@@ -58,8 +68,9 @@ and Analyze contracts intact. A new synthetic application-flow packet proves
 Aquarius 19°19′ for the approved known-time fixture, unknown-time fail-closed
 behavior, exact shared Web/PDF meaning, and valid 12-page PDFs. The next action
 was completed by the owner on 2026-08-06 and controlled stack Merge/Deploy is
-approved. At this acceptance-record point PR #83 and PR #84 remain Draft and
-are not yet released or deployed; GitHub has no CI checks/workflow runs.
+approved. The controlled stack subsequently merged and was deployed as Hosting
+version `df025ab8aeb294cd` from release commit `7dd04f9`; real known/no-time Web
+and PDF smoke testing passed. GitHub had no CI checks/workflow runs.
 
 ### Thai Mirror QA Screenshot Golden Baseline Repair V1 — complete
 

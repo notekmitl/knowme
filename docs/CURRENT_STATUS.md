@@ -1,5 +1,17 @@
 # KnowMe Current Status
 
+> **Thai Beta Exemplar Narrative V1 Production release verified (2026-08-06):**
+> The controlled stack merged in order through PR #81 (`7047fd9`), PR #82
+> (`04f5d7e`), PR #84 (`ee04ded`), and PR #83 (`7dd04f9`). Firebase Hosting
+> release `1786018899255000` / version `df025ab8aeb294cd` serves bundle
+> `7dd04f9` at `https://knowme-app-694e1.web.app`. Production application-flow
+> checks passed for known-time (`00:35` retained, house evidence present) and
+> unknown-time (house-dependent Core sections omitted with explicit reasons),
+> with real 12-page and 11-page PDFs, no blank pages, Web/PDF semantic parity,
+> responsive width checks, and no browser runtime errors. The rollout remains
+> `public_beta`; Auth, Feedback, audience, Canon, and Production data were not
+> changed.
+
 > **Engine correctness Product Acceptance passed (2026-08-06):** The separate
 > `codex/thai-ascendant-correctness-v1` worktree proves the approved synthetic
 > Chiang Mai input as Lahiri Aquarius 19°19′ and closes the resolver, UTC,
@@ -27,9 +39,9 @@
 **Thai Beta Public:** Anonymous `/beta/thai` → `ThaiBetaLandingPage` (not Login). LEVEL 1 Canon badges now use `public_beta`: rollout flag + eligible public-safe report evidence only, never Auth/UID/invite membership.
 **Thai Beta Narrative / Life Map:** **Human Readability V2 Production QA passed** on 2026-08-03 at Hosting release `eb1f1c8`. PR #75 shipped the reader-facing rewrite; PR #76 removed the final public `Canon` label and closed Personal Core/Closing gaps; PR #77 added the evidence-backed Closing fallback found by Production smoke testing. Known-time/no-time, Desktop/Mobile, Timeline, Evidence, and the real 8-page PDF were verified end-to-end; V1.3.5 detailed evidence remains **internal only**.
 **Thai Mirror QA screenshot baseline:** Repair V1 merged through PR #80 at `3671b62fba86fc83365fdba597b695b1f3324c6b`. Fifty-one harness PNGs now form the deterministic Flutter 3.41.1 baseline and restore the QA screenshot Gate. The separate standalone consumer golden remains a known 32.63% / 305,379-pixel failure and requires its own task.
-**Thai Beta Past-to-Future Narrative V3:** Recovered from the validated V3 archive and resumed on post-PR-80 main `3671b62fba86fc83365fdba597b695b1f3324c6b`. Draft PR #81 remains open. Production-candidate human review covered complete A-H text, Desktop known-time, Mobile no-time, and actual 11/10-page PDFs; it softened score/band-derived future claims that were too certain without changing evidence or Engine behavior. Scoped tests and PreCommit Gate pass. V3 is not a Production release. The standalone consumer golden and full-file V1.3.3 hero-key failure remain separate unchanged-main failures.
-**Thai Required full-suite baseline contract repair:** A separate prerequisite branch from PR #81 HEAD `b0a5b4c541f86d82a1fe7fecbae070ffea8a4b2e` repaired 70 reproducible stale test-contract assertions without production-source changes. The approved Required scope (`thai`, `thai_beta`, and `thai_mirror_qa_harness`) now passes **1,439/1,439**. This remains a Draft prerequisite; Narrative V3 is preserved separately and Production is unchanged.
-**Thai Beta Exemplar Narrative V1:** **PRODUCT ACCEPTANCE PASSED on 2026-08-06; controlled stack Merge/Deploy approved.** PR #83 targets accepted PR #84 HEAD `57971d9d1cd2f1b634f1e1a9da7b779f40a6dd74`; source-tested Combined HEAD is `5d5c1d9b5540a37ed8d251a06db0e4f41575113b`. The Required scope passed **1,500/1,500**, Gate self-test 9/9, Analyze with 299 existing non-fatal diagnostics, story A-H, and QA screenshots 24/24. The verified packet at `C:\Users\USER\Documents\Knowme\product-acceptance\pr83-engine-integrated-5d5c1d9` proves known-time Aquarius 19°19′, unknown-time fail-closed output, exact Web/PDF parity, and two valid 12-page PDFs; ZIP SHA-256 is `78D481DCEBCAD9A7DD2408474E66102668B3EC1F0ECA1B0344F294B2493DD77D`. GitHub created no CI checks/workflow runs. At this acceptance-record commit, PR #83/#84 remain OPEN/Draft and nothing has yet been merged or deployed; Production and feature flags remain unchanged.
+**Thai Beta Past-to-Future Narrative V3:** Production released through PR #81 and the controlled stack ending at PR #83 merge `7dd04f9`; complete A-H, current/past/future presentation, Web/PDF, and known/no-time behavior remain covered by the final merged-main validation.
+**Thai Required full-suite baseline contract repair:** PR #82 is merged as prerequisite `04f5d7e`; the final merged-main Required scope passes **1,500/1,500** without Production-source changes from the contract repair itself.
+**Thai Beta Exemplar Narrative V1:** **PRODUCTION RELEASED AND VERIFIED on 2026-08-06.** Accepted Combined source remains `5d5c1d9b5540a37ed8d251a06db0e4f41575113b`; release merge is `7dd04f940dd5f0079276b127329fbb9bdddabd77`. Firebase Hosting version `df025ab8aeb294cd` serves the matching cache-pinned bundle. Known-time and unknown-time Production flows, real PDFs, responsive layout, omission behavior, and runtime logs passed. GitHub created no CI checks/workflow runs; validation evidence is therefore local/Production evidence, not a CI-pass claim.
 
 ---
 
