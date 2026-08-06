@@ -1,5 +1,25 @@
 # KnowMe Developer Handoff
 
+## Active prerequisite: Thai Ascendant Correctness V1
+
+- Base: PR #82 HEAD `a20be549f8a25f529d539bb7f23734af469b8c50`.
+- Local audit confirms the independent Lahiri result: Chiang Mai 18.7883 /
+  98.9853 at UTC 1982-06-05T17:35:00Z produces 319.313708° locally versus the
+  319.311376° oracle, Aquarius 19°19′.
+- Resolver, UTC, horizon-equation, and Lahiri-epoch fixes pass focused, parity,
+  synthetic 300, story A–H, Analyze, and Gate self-test checks.
+- The owner approved a controlled QA-harness rebaseline for Known-time Profiles
+  A–G only. Exactly 108 PNGs changed; Profile H and the standalone golden did
+  not change. Before/after Desktop/Tablet/Mobile contact sheets passed visual
+  audit, and screenshot regression passed 24/24 twice with identical manifests.
+- Required PreCommit Gate passed 1,494/1,494 tests with the baseline 299 Analyze
+  diagnostics and no fatal/new diagnostic. Source-tested commit:
+  `7e313442241e72734bd6eedd0df97a74e386f48e`.
+- Push, Draft Engine PR, final docs/remote HEAD, and acceptance packet remain to
+  be completed. Do not broaden the golden scope.
+- PR #83 remains a separate Draft and contains no Engine fix. Nothing is merged
+  or deployed; Production and feature flags are unchanged.
+
 ## Active prerequisite: Thai Required full-suite baseline contract repair
 
 - Branch: `codex/thai-full-suite-baseline-fix`

@@ -1,5 +1,16 @@
 # KnowMe Current Status
 
+> **Engine correctness candidate under validation:** The separate
+> `codex/thai-ascendant-correctness-v1` worktree proves the approved synthetic
+> Chiang Mai input as Lahiri Aquarius 19°19′ and closes the resolver, UTC,
+> horizon-equation, and Lahiri-epoch root causes locally. The owner approved a
+> controlled QA-harness rebaseline for Known-time Profiles A–G: 108 PNGs changed,
+> Profile H stayed byte-identical and passed 3/3, and screenshot regression
+> passed 24/24 twice with identical SHA-256 manifests. Required PreCommit Gate
+> passed 1,494/1,494 tests; source-tested commit is
+> `7e313442241e72734bd6eedd0df97a74e386f48e`. Draft PR publication and Product
+> Acceptance remain pending. Nothing is merged or deployed.
+
 **Last updated:** August 3, 2026
 **Branch:** `main`  
 **Merge tip before Core Reading V1:** `380348f` (PR #63 Production Funnel Measurement V1); Production hosted @ `da85013`

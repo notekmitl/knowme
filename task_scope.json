@@ -1,29 +1,46 @@
 {
   "schema_version": 1,
-  "task_id": "thai-full-suite-baseline-fix",
-  "expected_branch": "codex/thai-full-suite-baseline-fix",
-  "expected_worktree": "C:\\Users\\USER\\Documents\\Knowme\\thai-full-suite-baseline-fix",
-  "base_ref": "b0a5b4c541f86d82a1fe7fecbae070ffea8a4b2e",
+  "task_id": "thai-ascendant-correctness-v1",
+  "expected_branch": "codex/thai-ascendant-correctness-v1",
+  "expected_worktree": "C:\\Users\\USER\\Documents\\Knowme\\thai-ascendant-correctness-v1",
+  "base_ref": "a20be549f8a25f529d539bb7f23734af469b8c50",
   "allowed_files": [
-    "task.md",
-    "task_scope.json",
-    "docs/CURRENT_STATUS.md",
-    "docs/HANDOFF.md",
-    "docs/ROADMAP.md"
+    "task.md", "task_scope.json", "TASK_RESULT.md",
+    "docs/CURRENT_STATUS.md", "docs/HANDOFF.md", "docs/ROADMAP.md",
+    "docs/THAI_FOUNDATION_ENGINE_V1_1_NOTES.md",
+    "lib/features/birth_normalization/application/birth_location_resolver.dart",
+    "lib/features/birth_normalization/application/birth_normalizer.dart",
+    "lib/features/birth_normalization/application/adapters/western_birth_adapter.dart",
+    "lib/features/astrology/thai/foundation/astronomy/sidereal_ascendant.dart",
+    "lib/features/astrology/thai/foundation/astronomy/lahiri_ayanamsa.dart",
+    "lib/features/astrology/thai/foundation/models/thai_birth_data.dart",
+    "test/validation/birth_normalization/birth_normalization_test.dart",
+    "test/thai_foundation_engine_test.dart",
+    "test/validation/thai/thai_ascendant_correctness_test.dart"
+    ,"test/validation/thai_beta/thai_beta_report_export_test.dart",
+    "test/validation/thai_beta/life_map/thai_life_map_mahabhut_canon_index_regression_test.dart",
+    "test/validation/thai/thai_canon_evidence_mapping_precision_test.dart"
   ],
   "allowed_globs": [
-    "test/validation/thai/*_test.dart",
-    "test/validation/thai_beta/**/*_test.dart"
+    "test/validation/thai_mirror_qa_harness/screenshots/a_*.png",
+    "test/validation/thai_mirror_qa_harness/screenshots/b_*.png",
+    "test/validation/thai_mirror_qa_harness/screenshots/c_*.png",
+    "test/validation/thai_mirror_qa_harness/screenshots/d_*.png",
+    "test/validation/thai_mirror_qa_harness/screenshots/e_*.png",
+    "test/validation/thai_mirror_qa_harness/screenshots/f_*.png",
+    "test/validation/thai_mirror_qa_harness/screenshots/g_*.png"
   ],
   "forbidden_files": [".env", ".env.*", "**/*.pem", "**/*.key", "**/google-services.json", "**/GoogleService-Info.plist", "**/firestore_user_export.json"],
-  "generated_output_globs": ["build/**", ".dart_tool/**", "coverage/**", "**/failures/**", "**/__pycache__/**", "**/*.pyc", "**/*.pdf", "**/*.png"],
+  "generated_output_globs": ["build/**", ".dart_tool/**", "coverage/**", "**/failures/**", "**/__pycache__/**", "**/*.pyc", "**/*.pdf"],
   "forbidden_text_patterns": ["OPENAI_API_KEY", "api.openai.com", "knowme-ai-worker", "final_result.json", "round_[0-9]+_review\\.json"],
   "focused_tests": [
-    "& 'C:\\Users\\USER\\Documents\\Knowme\\flutter-3.41.1-sdk\\bin\\flutter.bat' test --no-pub --concurrency=1 test/validation/thai test/validation/thai_beta test/validation/thai_mirror_qa_harness"
+    "& 'C:\\Users\\USER\\Documents\\Knowme\\flutter-3.41.1-sdk\\bin\\flutter.bat' test --no-pub --concurrency=1 test/validation/birth_normalization/birth_normalization_test.dart test/thai_foundation_engine_test.dart test/validation/thai/thai_ascendant_correctness_test.dart",
+    "& 'C:\\Users\\USER\\Documents\\Knowme\\flutter-3.41.1-sdk\\bin\\flutter.bat' test --no-pub --concurrency=1 test/validation/thai_beta/thai_beta_report_export_test.dart test/validation/thai_beta/narrative/thai_beta_narrative_screen_pdf_parity_test.dart test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart",
+    "& 'C:\\Users\\USER\\Documents\\Knowme\\flutter-3.41.1-sdk\\bin\\flutter.bat' test --no-pub test/validation/thai_mirror_qa_harness/story_coverage_validation_test.dart test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart"
   ],
   "full_test_policy": "required",
-  "full_test_command": "& 'C:\\Users\\USER\\Documents\\Knowme\\flutter-3.41.1-sdk\\bin\\flutter.bat' test --no-pub --concurrency=1 test/validation/thai test/validation/thai_beta test/validation/thai_mirror_qa_harness",
+  "full_test_command": "& 'C:\\Users\\USER\\Documents\\Knowme\\flutter-3.41.1-sdk\\bin\\flutter.bat' test --no-pub --concurrency=1 test/validation/thai_beta/ test/validation/thai/ test/validation/birth_normalization/ test/thai_foundation_engine_test.dart test/validation/thai_mirror_qa_harness/story_coverage_validation_test.dart test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart",
   "analyze_command": "& 'C:\\Users\\USER\\Documents\\Knowme\\flutter-3.41.1-sdk\\bin\\flutter.bat' analyze --no-pub --no-fatal-warnings --no-fatal-infos",
-  "commit_message_regex": "^test\\(thai\\): .{10,72}$",
+  "commit_message_regex": "^fix\\(thai-engine\\): .{10,72}$",
   "require_clean_tree_after_commit": true
 }
