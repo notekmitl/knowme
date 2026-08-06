@@ -48,7 +48,7 @@ Desktop known-time, Mobile no-time, and actual known/no-time PDF exports. It
 found no layout or privacy regression and hardened only unsupported certainty
 in future copy. Scoped tests and Local Gate pass; PR #81 remains Draft.
 
-### Thai Beta Exemplar Narrative V1 — ready for post-Engine Product Acceptance
+### Thai Beta Exemplar Narrative V1 — Product Acceptance passed; release approved
 
 Draft PR #83 now targets accepted Draft Engine PR #84 at
 `57971d9d1cd2f1b634f1e1a9da7b779f40a6dd74`. Non-force integration produced
@@ -57,8 +57,9 @@ The Required scope passes 1,500/1,500 with Local Gate, story A-H, screenshots,
 and Analyze contracts intact. A new synthetic application-flow packet proves
 Aquarius 19°19′ for the approved known-time fixture, unknown-time fail-closed
 behavior, exact shared Web/PDF meaning, and valid 12-page PDFs. The next action
-is owner review of this new packet. PR #83 and PR #84 remain Draft and are not
-released or deployed.
+was completed by the owner on 2026-08-06 and controlled stack Merge/Deploy is
+approved. At this acceptance-record point PR #83 and PR #84 remain Draft and
+are not yet released or deployed; GitHub has no CI checks/workflow runs.
 
 ### Thai Mirror QA Screenshot Golden Baseline Repair V1 — complete
 

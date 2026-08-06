@@ -17,6 +17,13 @@ and produces a new synthetic application-flow packet with known-time Aquarius
 parity. This dependency update does not expand the Narrative implementation
 scope; both PRs remain Draft and nothing is deployed.
 
+Owner Product Acceptance passed on 2026-08-06 and authorized controlled stack
+Merge/Deploy. Accepted Combined source-tested SHA remains
+`5d5c1d9b5540a37ed8d251a06db0e4f41575113b`; the accepted Engine base remains
+`57971d9d1cd2f1b634f1e1a9da7b779f40a6dd74`. At the time this acceptance was
+recorded, no PR had been merged or deployed, Production/feature flags were
+unchanged, and GitHub had created no CI checks/workflow runs.
+
 1. `สรุปตรง ๆ`
 2. `หลักการนับวันทางโหราศาสตร์ไทย`
 3. `โครงสร้างดวงหลัก` — a compact table of computed weekday, Lagna degree,

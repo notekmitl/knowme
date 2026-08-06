@@ -2,11 +2,14 @@
 
 ## Active stacked work: Thai Beta Exemplar Narrative V1
 
-**Current decision: READY FOR PR #83 POST-ENGINE PRODUCT ACCEPTANCE.**
-The known-time discrepancy is closed by Product-Accepted PR #84. PR #83 is now
-integrated on that accepted dependency, Combined validation passes, and a new
-application-flow Web/PDF packet is delivered. The rejected pre-Engine packet
-remains historical evidence and was not reused or overwritten.
+**Current decision: PRODUCT ACCEPTANCE PASSED on 2026-08-06; controlled stack
+Merge/Deploy approved.** The known-time discrepancy is closed by accepted PR
+#84. PR #83 is integrated on that dependency, Combined validation and the new
+application-flow Web/PDF packet passed owner acceptance. The rejected
+pre-Engine packet remains historical evidence and was not reused or overwritten.
+At the time of this record, PR #83/#84 are still OPEN/Draft, no stack PR has
+been merged, nothing has been deployed, and Production/feature flags are
+unchanged. GitHub created no CI checks/workflow runs.
 
 - Branch: `codex/thai-beta-exemplar-narrative-v1`
 - Accepted base: PR #84 HEAD
