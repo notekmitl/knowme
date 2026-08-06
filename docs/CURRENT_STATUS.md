@@ -1,6 +1,6 @@
 # KnowMe Current Status
 
-> **Engine correctness candidate under validation:** The separate
+> **Engine correctness Product Acceptance passed (2026-08-06):** The separate
 > `codex/thai-ascendant-correctness-v1` worktree proves the approved synthetic
 > Chiang Mai input as Lahiri Aquarius 19°19′ and closes the resolver, UTC,
 > horizon-equation, and Lahiri-epoch root causes locally. The owner approved a
@@ -13,9 +13,10 @@
 > https://github.com/notekmitl/knowme/pull/84; GitHub created no checks/workflow
 > runs. The 247-file Correctness Packet is delivered at
 > `C:\Users\USER\Downloads\KnowMe-Thai-Ascendant-Correctness-7e31344` with a
-> verified extractable ZIP of the same name. Owner Product Acceptance remains
-> pending. Nothing is merged or deployed, and Production/feature flags are
-> unchanged.
+> verified extractable ZIP of the same name. Owner Product Acceptance passed on
+> 2026-08-06. PR #84 remains OPEN/Draft and is now the accepted dependency for
+> PR #83 stack integration. Nothing is merged or deployed, and
+> Production/feature flags are unchanged.
 
 **Last updated:** August 3, 2026
 **Branch:** `main`  

@@ -1,6 +1,6 @@
 # KnowMe Roadmap
 
-## Active prerequisite — Thai Ascendant Correctness V1
+## Accepted dependency — Thai Ascendant Correctness V1
 
 The independent Lahiri oracle and local numerical audit agree on Aquarius
 19°19′ for the approved Chiang Mai fixture. Minimal resolver, UTC, horizon
@@ -12,8 +12,9 @@ PreCommit Gate passed 1,494/1,494 at source-tested commit
 `7e313442241e72734bd6eedd0df97a74e386f48e`. Draft Engine PR #84 is OPEN,
 Draft, and MERGEABLE/CLEAN at https://github.com/notekmitl/knowme/pull/84;
 GitHub created no checks/workflow runs. The verified 247-file Correctness Packet
-is delivered in Windows Downloads; owner acceptance remains. PR #83 stays
-blocked and separate. Nothing is merged or deployed.
+is delivered in Windows Downloads; Product Acceptance passed on 2026-08-06.
+PR #84 remains Draft and becomes the accepted base dependency for PR #83 stack
+integration. Nothing is merged or deployed.
 
 **Last updated:** August 3, 2026
 **Rule:** Items listed here are backed by repository evidence only. Nothing invented.

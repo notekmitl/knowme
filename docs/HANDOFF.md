@@ -1,6 +1,6 @@
 # KnowMe Developer Handoff
 
-## Active prerequisite: Thai Ascendant Correctness V1
+## Accepted dependency: Thai Ascendant Correctness V1
 
 - Base: PR #82 HEAD `a20be549f8a25f529d539bb7f23734af469b8c50`.
 - Local audit confirms the independent Lahiri result: Chiang Mai 18.7883 /
@@ -19,10 +19,10 @@
   https://github.com/notekmitl/knowme/pull/84. GitHub created no checks or
   workflow runs for the branch; this is not reported as CI PASS.
 - The 247-file Correctness Packet and verified ZIP are delivered in Windows
-  Downloads as `KnowMe-Thai-Ascendant-Correctness-7e31344`. Owner review remains.
-  Do not broaden the golden scope or merge/deploy before acceptance.
-- PR #83 remains a separate Draft and contains no Engine fix. Nothing is merged
-  or deployed; Production and feature flags are unchanged.
+  Downloads as `KnowMe-Thai-Ascendant-Correctness-7e31344`. Product Acceptance
+  passed on 2026-08-06.
+- PR #84 remains OPEN/Draft and is the accepted dependency for PR #83 stack
+  integration. Do not merge/deploy; Production and feature flags are unchanged.
 
 ## Active prerequisite: Thai Required full-suite baseline contract repair
 
