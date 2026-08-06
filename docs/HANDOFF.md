@@ -19,9 +19,17 @@
   capture completed known/no-time twice, produced valid 12/11-page PDFs, and
   left no process or handle open.
 - Product Acceptance packet (local, outside Git):
-  `C:\Users\USER\Documents\Knowme\product-acceptance\pr83-4e6560b`.
-- Product Acceptance is **READY FOR PRODUCT ACCEPTANCE** and awaits owner
-  review. Unknown-time sunrise copy now requires input-time authority; repeated
+  original `C:\Users\USER\Documents\Knowme\product-acceptance\pr83-4e6560b`;
+  delivered `C:\Users\USER\Downloads\KnowMe-PR83-Acceptance-pr83-4e6560b` and
+  `C:\Users\USER\Downloads\KnowMe-PR83-Acceptance-pr83-4e6560b.zip`.
+- The owner initially could not locate the reported packet, so Acceptance was
+  suspended as `BLOCKED — ACCEPTANCE ARTIFACT NOT DELIVERED`. Literal host
+  checks later proved the original existed; the search failure is `ROOT CAUSE
+  NOT PROVEN`. Delivery is now **DELIVERED FOR PRODUCT ACCEPTANCE**: 71 files,
+  zero zero-byte files, valid manifest, valid 12-page PDFs (50,266 and 47,669
+  bytes), and ZIP SHA-256
+  `E947102751276D6A68688D9DCAFD679A5D6144E468F607AE67EE39E18E0955EA`.
+- Unknown-time sunrise copy requires input-time authority; repeated
   V3 domains retain all four categories but gain evidence-backed period context;
   the malformed wellbeing sentence is corrected. Birth Normalization, Engine,
   Canon, Thai Mirror defaults, feature flags, and Production remain unchanged.
