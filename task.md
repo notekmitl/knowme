@@ -1,29 +1,19 @@
-# Task: Thai Beta Past-to-Future Narrative V3 Resume
+# Task: Thai Required Full-Suite Baseline Contract Repair
 
-Resume the recovered V3 work on immutable post-PR-80 main
-`3671b62fba86fc83365fdba597b695b1f3324c6b`. Thai Beta must present detailed,
-deterministic past, current, 12-month, next-turning-point, and long-range life
-period narratives through the available age range (up to 108), with work,
-money, love, and health domains shared by Web and PDF.
+Repair the 70 reproducible test-contract failures on immutable PR #81 HEAD
+`b0a5b4c541f86d82a1fe7fecbae070ffea8a4b2e` without changing production
+source, runtime behavior, Engine, Canon, prediction semantics, feature flags,
+or Production data.
 
-The behavior is opt-in for Thai Beta V3. Standalone Thai Mirror keeps its
-existing defaults. Engine, Canon, Birth Normalization, Auth, evidence
-eligibility, Feedback, Firebase rules/data, and other astrology systems are
-outside scope.
+The Required scope is the complete Thai, Thai Beta, and Thai Mirror QA harness
+validation directories. Tests may not be skipped, filtered, or weakened. The
+repair must align stale assertions with the authoritative current producer and
+presentation contracts, then pass all 1,439 tests with zero failures.
 
-Production-candidate review must inspect deterministic A-H text, known-time
-Desktop, no-time Mobile, and actual PDF output. Future statements backed only
-by scores/bands must use cautious tendency or conditional language, never
-invent or guarantee events. Review artifacts stay outside the repository.
+The Narrative intended diff is preserved separately and must not be mixed into
+this prerequisite. The 28 tracked files rewritten by the diagnostic Full-suite
+run are generated QA artifacts only and were restored individually to the base
+commit after exact-path and blob verification.
 
-## Recovery provenance
-
-The 13 source/test files were restored from
-`knowme-v3-recovery-2026-08-04.zip`, SHA-256
-`9a1119ea07ab75b4d88724aef5dc77514013824c7c4de0339d32c8c0062ed3ec`.
-The archive was validated for exact file membership and safe relative paths,
-then extracted outside the repository before restoration.
-
-PR #80 merged at `3671b62fba86fc83365fdba597b695b1f3324c6b` and supplies the repaired QA
-harness baseline. The separate standalone consumer golden remains a known
-32.63% / 305,379-pixel failure and is not part of this task or scoped suite.
+This task ends at a Draft PR stacked onto the PR #81 head branch. Do not merge,
+deploy, change feature flags, or mutate Production data.

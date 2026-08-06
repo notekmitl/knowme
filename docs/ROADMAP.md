@@ -7,6 +7,15 @@ Sources: `docs/*.md`, `lib/features/*`, validation outputs.
 
 ## Active prerequisite
 
+### Thai Required full-suite baseline contract repair — Draft prerequisite
+
+On clean PR #81 HEAD `b0a5b4c541f86d82a1fe7fecbae070ffea8a4b2e`,
+the Required Thai validation scope reproduced 70 stale-contract failures.
+Test-only corrections now pass 1,439/1,439 tests without production-source,
+Engine, Canon, prediction, feature-flag, or Production-data changes. The
+Narrative intended diff remains checkpointed separately. Publish this repair as
+a Draft PR stacked on the PR #81 branch; do not merge or deploy in this task.
+
 ### Thai Beta Past-to-Future Narrative V3 — resumed
 
 PR #80 merged at `3671b62fba86fc83365fdba597b695b1f3324c6b`, restoring the QA harness

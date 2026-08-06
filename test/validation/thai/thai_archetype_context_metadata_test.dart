@@ -67,14 +67,8 @@ void main() {
         repository: repository,
       );
 
-      expect(
-        statusAudit.blocker,
-        LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata,
-      );
-      expect(
-        statusAudit.positionFeasibility.metadataBlocker,
-        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
-      );
+      expect(statusAudit.blocker, isNull);
+      expect(statusAudit.positionFeasibility.metadataBlocker, isNull);
       expect(
         bundle.trace.lifePeriodArchetypeMetadataBlocker,
         isNull,
@@ -86,7 +80,7 @@ void main() {
       expect(
         bundle.trace.lifePeriodPositionFeasibilityResult,
         LifePeriodPositionMetadataFeasibilityResult
-            .partialPositionMetadata.wire,
+            .readyToExposeMetadata.wire,
       );
     });
   });
@@ -152,12 +146,12 @@ void main() {
 
       expect(
         sumTrace((t) => t.lifePeriodsWithCanonDerivedStatus),
-        10,
+        8,
       );
-      expect(audit.totalLifePeriodsWithoutRuntimeStatus, 21);
+      expect(audit.totalLifePeriodsWithoutRuntimeStatus, 16);
       expect(
         sumTrace((t) => t.lifePeriodsWithRuntimeStatus),
-        65,
+        56,
       );
     });
 

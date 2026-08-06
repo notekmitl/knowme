@@ -267,17 +267,11 @@ void main() {
         canonIndex: repository.index,
       );
 
-      expect(
-        statusAudit.blocker,
-        LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata,
-      );
-      expect(
-        statusAudit.positionFeasibility.metadataBlocker,
-        LifePeriodPositionMetadataBlocker.partialPositionMetadata,
-      );
+      expect(statusAudit.blocker, isNull);
+      expect(statusAudit.positionFeasibility.metadataBlocker, isNull);
       expect(
         statusAudit.feasibility.result,
-        LifePeriodRiseFallFeasibilityResult.partialRuntimeStatusMetadata,
+        LifePeriodRiseFallFeasibilityResult.readyToExposeMetadata,
       );
     });
 

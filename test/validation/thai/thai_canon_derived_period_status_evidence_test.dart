@@ -135,11 +135,8 @@ void main() {
       );
       final bundle = audit.fixtureResults.first.bundle;
 
-      expect(
-        bundle.trace.lifePeriodStatusMetadataBlocker,
-        LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata,
-      );
-      expect(bundle.trace.lifePeriodsWithoutRuntimeStatus, isNotEmpty);
+      expect(bundle.trace.lifePeriodStatusMetadataBlocker, isNull);
+      expect(bundle.trace.lifePeriodsWithoutRuntimeStatus, isEmpty);
     });
 
     test('lifePeriodsWithoutRuntimeStatus tracked separately from canon-derived',

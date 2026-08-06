@@ -132,27 +132,25 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text('แผนที่ชีวิตของคุณ'), findsOneWidget);
-      expect(find.text('สิ่งที่เกิดขึ้น'), findsWidgets);
+      expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
+      expect(find.text('สิ่งที่เกิดขึ้น'), findsNothing);
+      expect(find.text('อดีตของคุณ'), findsOneWidget);
       expect(find.textContaining('ยังยืนยันตำแหน่งไม่ได้'), findsNothing);
       expect(find.textContaining('ยืนยันอันดับตำแหน่งไม่ได้'), findsNothing);
       expect(find.textContaining('ธีมหลัก'), findsNothing);
       expect(find.textContaining('ซ่อนรายละเอียดช่วงชีวิต'), findsNothing);
       expect(find.textContaining('เรื่องสำคัญของช่วงนี้'), findsWidgets);
-      expect(find.text('แปดช่วงดาวเสวยอายุ'), findsOneWidget);
-      expect(find.text('ทำไมช่วงนี้ถึงสำคัญ'), findsOneWidget);
+      expect(find.text('อดีตของคุณ'), findsOneWidget);
+      expect(find.text('แนวโน้มระยะยาว'), findsOneWidget);
       expect(find.text('พื้นดวงตลอดชีวิต'), findsNothing);
       expect(find.text('ข้อมูลดวงที่พบ'), findsNothing);
 
-      final expand = find.text(
-        ThaiMirrorLifeTimelineSection.expandDetailsLabel,
+      expect(
+        find.text(ThaiMirrorLifeTimelineSection.expandDetailsLabel),
+        findsNothing,
       );
-      if (expand.evaluate().isNotEmpty) {
-        await tester.ensureVisible(expand.first);
-        await tester.tap(expand.first);
-        await tester.pumpAndSettle();
-      }
-      expect(find.text('สรุปช่วงนี้'), findsWidgets);
+      expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
+      expect(find.text('แนวโน้มระยะยาว'), findsOneWidget);
       expect(find.textContaining('ซ่อนรายละเอียดช่วงชีวิต'), findsNothing);
       expect(tester.takeException(), isNull);
     });

@@ -35,16 +35,13 @@ void main() {
         audit.finding,
         LifePeriodStatusMetadataAuditFinding.alreadyComputedNotExposed,
       );
-      expect(
-        audit.blocker,
-        LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata,
-      );
+      expect(audit.blocker, isNull);
       expect(
         audit.feasibility.result,
-        LifePeriodRiseFallFeasibilityResult.partialRuntimeStatusMetadata,
+        LifePeriodRiseFallFeasibilityResult.readyToExposeMetadata,
       );
       expect(audit.feasibility.hasGoverningPlanetPerPeriod, isTrue);
-      expect(audit.feasibility.hasPerPeriodMahabhutPosition, isFalse);
+      expect(audit.feasibility.hasPerPeriodMahabhutPosition, isTrue);
       expect(audit.byPeriodIndex, isNotEmpty);
       expect(audit.periodCount, greaterThan(0));
     });
@@ -91,10 +88,7 @@ void main() {
         repository: repository,
       );
 
-      expect(
-        bundle.trace.lifePeriodStatusMetadataBlocker,
-        LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata,
-      );
+      expect(bundle.trace.lifePeriodStatusMetadataBlocker, isNull);
       expect(
         bundle.trace.lifePeriodPositionMetadataBlocker,
         LifePeriodPositionMetadataBlocker.partialPositionMetadata,
@@ -102,9 +96,9 @@ void main() {
       expect(bundle.trace.lifePeriodArchetypeMetadataBlocker, isNull);
       expect(
         bundle.trace.lifePeriodRiseFallFeasibilityResult,
-        LifePeriodRiseFallFeasibilityResult.partialRuntimeStatusMetadata.wire,
+        LifePeriodRiseFallFeasibilityResult.readyToExposeMetadata.wire,
       );
-      expect(bundle.trace.lifePeriodsWithRuntimeStatus, hasLength(9));
+      expect(bundle.trace.lifePeriodsWithRuntimeStatus, hasLength(8));
       expect(
         bundle.attachments.where(
           (a) =>
@@ -151,11 +145,11 @@ void main() {
 
       expect(
         bundle.trace.lifePeriodsWithoutRuntimeStatus.length,
-        pipeline.lifePeriods!.periods.length - 9,
+        pipeline.lifePeriods!.periods.length - 8,
       );
       expect(
         auditBefore.totalLifePeriodsWithoutRuntimeStatus,
-        21,
+        16,
       );
     });
 

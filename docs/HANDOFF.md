@@ -1,5 +1,18 @@
 # KnowMe Developer Handoff
 
+## Active prerequisite: Thai Required full-suite baseline contract repair
+
+- Branch: `codex/thai-full-suite-baseline-fix`
+- Base: PR #81 HEAD `b0a5b4c541f86d82a1fe7fecbae070ffea8a4b2e`
+- Scope: test contracts only; no production source or runtime behavior changed.
+- Reproducible baseline: 70 failures. Repaired Required scope: 1,439 tests,
+  zero failures across `thai`, `thai_beta`, and `thai_mirror_qa_harness`.
+- Twenty-eight tracked generated QA artifacts from diagnostic execution were
+  verified and restored individually to the base blobs; they are not in diff.
+- Narrative intended changes remain in the external recovery checkpoint and
+  must be semantically reapplied only after this prerequisite is published.
+- Draft-only: do not merge or deploy from this task.
+
 ## Active work: Thai Beta Past-to-Future Narrative V3 resume
 
 - Branch: `codex/thai-beta-past-future-narrative-v3-resume`

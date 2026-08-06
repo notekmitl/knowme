@@ -370,9 +370,9 @@ void main() {
       }
 
       expect(withContext, 8);
-      expect(withPosition, 65);
-      expect(withoutPosition, 21);
-      expect(withRuntime, 65);
+      expect(withPosition, 56);
+      expect(withoutPosition, 16);
+      expect(withRuntime, 56);
       expect(
         audit.fixtureResults.first.bundle.trace.conflictedArchetypePlanetPairs,
         contains('archetypeChart.nakwichakan:planet.jupiter'),

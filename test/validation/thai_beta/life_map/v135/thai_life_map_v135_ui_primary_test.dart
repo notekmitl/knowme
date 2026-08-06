@@ -41,9 +41,13 @@ void main() {
   }
 
   void expectAcceptedHumanReadableReport() {
-    expect(find.text('แผนที่ชีวิตของคุณ'), findsOneWidget);
-    expect(find.text('ทำไมช่วงนี้ถึงสำคัญ'), findsOneWidget);
-    expect(find.text('แปดช่วงดาวเสวยอายุ'), findsOneWidget);
+    expect(
+      find.byKey(const Key('thai_birth_profile_core_reading')),
+      findsOneWidget,
+    );
+    expect(find.text('อดีตของคุณ'), findsOneWidget);
+    expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
+    expect(find.text('แนวโน้มระยะยาว'), findsOneWidget);
   }
 
   void expectDetailedEvidenceReportAbsent() {
@@ -82,13 +86,13 @@ void main() {
       expectAcceptedHumanReadableReport();
       expectDetailedEvidenceReportAbsent();
 
-      final expand = find
-          .text(ThaiMirrorLifeTimelineSection.expandDetailsLabel)
-          .first;
-      await tester.ensureVisible(expand);
-      await tester.tap(expand);
-      await tester.pumpAndSettle();
-      expect(find.text('สรุปช่วงนี้'), findsWidgets);
+      expect(
+        find.text(ThaiMirrorLifeTimelineSection.expandDetailsLabel),
+        findsNothing,
+      );
+      expect(find.text('อดีตของคุณ'), findsOneWidget);
+      expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
+      expect(find.text('แนวโน้มระยะยาว'), findsOneWidget);
       expect(tester.takeException(), isNull);
     },
   );

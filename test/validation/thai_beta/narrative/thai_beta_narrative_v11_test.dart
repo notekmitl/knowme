@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_curated_block_selector.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_curated_narrative_block.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_curated_narrative_blocks.dart';
@@ -283,12 +284,16 @@ void main() {
         ThaiBetaNarrativeFixtures.fixtureB(),
       );
       final hero = result.view.hero;
+      final core = ThaiBirthProfileCoreReading.fromAnalysis(
+        ThaiBetaNarrativeFixtures.fixtureB(),
+        consumerView: result.view,
+      );
       expect(
         result.trace.entries.firstWhere((e) => e.sectionId == 'hero').blockId,
         'hero_no_time_cautious_v1',
       );
-      expect(hero.headline, contains('ภาพรวมจากวันเกิด'));
-      expect(hero.summary, contains('ไม่มีเวลาเกิด'));
+      expect(core.title, 'ดวงจากวันเกิดของคุณ');
+      expect(core.subtitle, contains('ไม่มีเวลาเกิด'));
       expect(
         ThaiBetaNarrativeForbidden.findNoBirthTimeViolations(hero.summary),
         isEmpty,
@@ -331,8 +336,12 @@ void main() {
     test('report and export share no-time policy', () {
       final analysis = ThaiBetaNarrativeFixtures.fixtureB();
       final screen = ThaiBetaNarrativeComposer.narrativeView(analysis);
+      final core = ThaiBirthProfileCoreReading.fromAnalysis(
+        analysis,
+        consumerView: screen,
+      );
       final export = ThaiBetaReportExportDocument.fromAnalysis(analysis);
-      expect(screen.hero.summary, contains('ไม่มีเวลาเกิด'));
+      expect(core.subtitle, contains('ไม่มีเวลาเกิด'));
       expect(export.fullPlainText, contains('ไม่มีเวลาเกิด'));
       expect(
         ThaiBetaNarrativeForbidden.findNoBirthTimeViolations(

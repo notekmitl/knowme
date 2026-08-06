@@ -205,7 +205,7 @@ void main() {
       expect(bundle.trace.skippedRemedyEvidenceCount, 87);
     });
 
-    test('unmapped Taksa Ketu cases are reported; periodStatus mapping wired', () async {
+    test('mapped Taksa candidates leave only the Canon-silent Ketu gap', () async {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
@@ -221,11 +221,11 @@ void main() {
       expect(bundle.trace.skippedPeriodStatusNotes, isEmpty);
       expect(
         bundle.trace.lifePeriodsWithoutRuntimeStatus,
-        isNotEmpty,
+        isEmpty,
       );
       expect(
         bundle.trace.unmappedCanonEvidenceCandidates,
-        contains('planet.ketu'),
+        ['planet.ketu'],
       );
       expect(
         bundle.trace.unmappedCanonEvidenceCandidates.any(

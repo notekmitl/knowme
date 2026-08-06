@@ -411,21 +411,21 @@ void main() {
         expect(find.byType(ThaiBetaReportPage), findsOneWidget);
         expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);
         // V1.3.2: single hero; personal core absorbed.
-        expect(find.byKey(const Key('thai_consumer_hero')), findsOneWidget);
+        expect(
+          find.byKey(const Key('thai_birth_profile_core_reading')),
+          findsOneWidget,
+        );
         expect(
           find.byKey(const Key('thai_consumer_signature_insight')),
           findsNothing,
         );
         expect(find.text('ข้อมูลวันเกิดครบถ้วน'), findsNothing);
-        expect(
-          find.text(ThaiBetaNarrativeV12.strengthsSectionTitle),
-          findsWidgets,
-        );
-        expect(find.text('แผนที่ชีวิตของคุณ'), findsOneWidget);
+        expect(find.text(ThaiBetaNarrativeV12.strengthsSectionTitle), findsNothing);
+        expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
         expect(find.textContaining('137'), findsNothing);
         expect(
           find.text(ThaiMirrorLifeTimelineSection.expandDetailsLabel),
-          findsWidgets,
+          findsNothing,
         );
         expect(tester.takeException(), isNull);
       },
@@ -433,12 +433,15 @@ void main() {
 
     testWidgets('V121-15 desktop report hierarchy', (tester) async {
       await pumpReport(tester, const Size(1280, 900));
-      expect(find.byKey(const Key('thai_consumer_hero')), findsOneWidget);
+      expect(
+        find.byKey(const Key('thai_birth_profile_core_reading')),
+        findsOneWidget,
+      );
       expect(
         find.byKey(const Key('thai_consumer_signature_insight')),
         findsNothing,
       );
-      expect(find.text('แผนที่ชีวิตของคุณ'), findsOneWidget);
+      expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
   });

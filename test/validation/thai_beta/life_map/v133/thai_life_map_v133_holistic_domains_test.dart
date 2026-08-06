@@ -107,7 +107,7 @@ void main() {
       expect(view.signatureInsight.isEmpty, isTrue);
     });
 
-    testWidgets('UI: single hero, no core card, no complete banner', (
+    testWidgets('UI: current Core Reading, no legacy completion banner', (
       tester,
     ) async {
       await tester.binding.setSurfaceSize(const Size(390, 844));
@@ -122,7 +122,10 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      expect(find.byKey(const Key('thai_consumer_hero')), findsOneWidget);
+      expect(
+        find.byKey(const Key('thai_birth_profile_core_reading')),
+        findsOneWidget,
+      );
       expect(
         find.byKey(const Key('thai_consumer_signature_insight')),
         findsNothing,

@@ -221,7 +221,7 @@ void main() {
 
       expect(
         audit.result,
-        LifePeriodPositionMetadataFeasibilityResult.partialPositionMetadata,
+        LifePeriodPositionMetadataFeasibilityResult.readyToExposeMetadata,
       );
       expect(audit.periodsWithContextMetadata, greaterThan(0));
       expect(

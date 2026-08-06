@@ -179,18 +179,15 @@ void main() {
         repository: repository,
       );
 
-      expect(
-        statusAudit.blocker,
-        LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata,
-      );
+      expect(statusAudit.blocker, isNull);
       expect(
         bundle.trace.lifePeriodPositionFeasibilityResult,
         LifePeriodPositionMetadataFeasibilityResult
-            .partialPositionMetadata.wire,
+            .readyToExposeMetadata.wire,
       );
       expect(
         bundle.trace.lifePeriodRiseFallFeasibilityResult,
-        LifePeriodRiseFallFeasibilityResult.partialRuntimeStatusMetadata.wire,
+        LifePeriodRiseFallFeasibilityResult.readyToExposeMetadata.wire,
       );
     });
 

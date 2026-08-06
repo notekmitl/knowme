@@ -19,7 +19,7 @@ void main() {
   });
 
   group('Feasibility audit', () {
-    test('production pipeline is PARTIAL_RUNTIME_STATUS_METADATA', () {
+    test('production pipeline is READY_TO_EXPOSE_METADATA', () {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
@@ -32,14 +32,14 @@ void main() {
 
       expect(
         feasibility.result,
-        LifePeriodRiseFallFeasibilityResult.partialRuntimeStatusMetadata,
+        LifePeriodRiseFallFeasibilityResult.readyToExposeMetadata,
       );
       expect(feasibility.hasGoverningPlanetPerPeriod, isTrue);
-      expect(feasibility.hasPerPeriodMahabhutPosition, isFalse);
+      expect(feasibility.hasPerPeriodMahabhutPosition, isTrue);
       expect(feasibility.hasPerPeriodArchetypeContext, isTrue);
       expect(feasibility.hasExistingRiseFallField, isTrue);
       expect(feasibility.periodsWithRuntimeStatus, greaterThan(0));
-      expect(feasibility.canClassifyFromExistingFields, isFalse);
+      expect(feasibility.canClassifyFromExistingFields, isTrue);
     });
 
     test('feasibility wire matches trace on enricher path', () async {
@@ -53,12 +53,9 @@ void main() {
 
       expect(
         bundle.trace.lifePeriodRiseFallFeasibilityResult,
-        LifePeriodRiseFallFeasibilityResult.partialRuntimeStatusMetadata.wire,
+        LifePeriodRiseFallFeasibilityResult.readyToExposeMetadata.wire,
       );
-      expect(
-        bundle.trace.lifePeriodStatusMetadataBlocker,
-        LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata,
-      );
+      expect(bundle.trace.lifePeriodStatusMetadataBlocker, isNull);
     });
   });
 
@@ -129,16 +126,16 @@ void main() {
 
       expect(
         sumTrace((t) => t.lifePeriodsWithCanonDerivedStatus),
-        10,
+        8,
       );
       expect(
         sumTrace((t) => t.lifePeriodsWithoutCanonStatusMarker),
-        11,
+        8,
       );
-      expect(audit.totalLifePeriodsWithoutRuntimeStatus, 21);
+      expect(audit.totalLifePeriodsWithoutRuntimeStatus, 16);
       expect(
         sumTrace((t) => t.lifePeriodsWithRuntimeStatus),
-        65,
+        56,
       );
     });
 
@@ -154,7 +151,7 @@ void main() {
               0,
               (sum, r) => sum + r.bundle.trace.lifePeriodsWithRuntimeStatus.length,
             ),
-        65,
+        56,
       );
       expect(
         audit.fixtureResults

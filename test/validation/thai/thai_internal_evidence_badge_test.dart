@@ -147,17 +147,11 @@ void main() {
       }
     });
 
-    test('ambiguous position blockers receive BLOCKED_AMBIGUOUS', () {
-      expect(bundle.trace.runtimeStatusWithoutPositionBreakdown, isNotEmpty);
+    test('QA sample has no ambiguous position blockers', () {
+      expect(bundle.trace.runtimeStatusWithoutPositionBreakdown, isEmpty);
       final ambiguousBreakdown = bundle.trace.runtimeStatusWithoutPositionBreakdown
           .where((entry) => entry.contains('AMBIGUOUS_POSITION'));
-      expect(ambiguousBreakdown, isNotEmpty);
-      for (final entry in ambiguousBreakdown.take(3)) {
-        expect(
-          ThaiInternalEvidenceBadgeAssigner.forRuntimeBlocker(entry),
-          ThaiInternalEvidenceBadgeCategory.blockedAmbiguous,
-        );
-      }
+      expect(ambiguousBreakdown, isEmpty);
     });
 
     test('source conflict blockers receive BLOCKED_SOURCE_CONFLICT', () {

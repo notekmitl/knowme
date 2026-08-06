@@ -295,6 +295,8 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
+      await tester.tap(find.byKey(const Key('thai_beta_evidence_details')));
+      await tester.pumpAndSettle();
       final chips = tester
           .widgetList<Chip>(
             find.descendant(

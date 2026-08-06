@@ -36,8 +36,8 @@ void main() {
         );
       }
 
-      expect(withPosition, 65);
-      expect(withRuntime, 65);
+      expect(withPosition, 56);
+      expect(withRuntime, 56);
     });
 
     test('status source breakdown sums to runtime count', () async {
@@ -59,7 +59,7 @@ void main() {
 
       expect(exact + archetype, runtime);
       expect(exact, 7);
-      expect(archetype, 58);
+      expect(archetype, 49);
     });
 
     test('remaining 21 periods explicitly classified', () async {
@@ -96,10 +96,10 @@ void main() {
         );
       }
 
-      expect(withoutRuntime, 21);
-      expect(breakdown, 21);
+      expect(withoutRuntime, 16);
+      expect(breakdown, 16);
       expect(noP17, 0);
-      expect(ambiguous + conflict + missing, 21);
+      expect(ambiguous + conflict + missing, 16);
     });
   });
 
@@ -108,7 +108,7 @@ void main() {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
-      final period = pipeline.lifePeriods!.periods[8];
+      final period = pipeline.lifePeriods!.periods[7];
 
       expect(
         ThaiLifePeriodRiseFallResolver.resolve(
@@ -120,7 +120,7 @@ void main() {
       );
     });
 
-    test('ambiguous archetype+planet pair returns null', () {
+    test('eighth QA period resolves from current archetype+planet evidence', () {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
@@ -131,23 +131,21 @@ void main() {
         ),
         canonIndex: repository.index,
       ).metadata!;
-      final period = pipeline.lifePeriods!.periods[8];
+      final period = pipeline.lifePeriods!.periods[7];
 
-      expect(
-        ThaiLifePeriodArchetypePlanetPositionResolver.resolve(
-          period: period,
-          archetypeMetadata: archetype,
-          canonIndex: repository.index,
-        ),
-        isNull,
+      final position = ThaiLifePeriodArchetypePlanetPositionResolver.resolve(
+        period: period,
+        archetypeMetadata: archetype,
+        canonIndex: repository.index,
       );
+      expect(position, isNotNull);
       expect(
         ThaiLifePeriodRiseFallResolver.resolve(
           period: period,
-          positionMetadata: null,
+          positionMetadata: position,
           canonIndex: repository.index,
         ),
-        isNull,
+        isNotNull,
       );
     });
 

@@ -321,27 +321,21 @@ void main() {
       await pumpReport(tester, const Size(390, 844));
       expect(find.byType(ThaiBetaReportPage), findsOneWidget);
       expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);
-      // V1.3.2: single opening hero; no separate personal-core card.
-      expect(find.byKey(const Key('thai_consumer_hero')), findsOneWidget);
+      // Current Production: shared Core Reading owns the opening hierarchy.
+      expect(
+        find.byKey(const Key('thai_birth_profile_core_reading')),
+        findsOneWidget,
+      );
       expect(
         find.byKey(const Key('thai_consumer_signature_insight')),
         findsNothing,
       );
-      expect(find.text('ดวงไทยของคุณ'), findsWidgets);
+      expect(find.text('ดวงจากวันเกิดของคุณ'), findsOneWidget);
       expect(find.text('แก่นที่พอเห็นได้จากข้อมูลที่มี'), findsNothing);
       expect(find.text('ข้อมูลวันเกิดครบถ้วน'), findsNothing);
-      expect(
-        find.text(ThaiBetaNarrativeV12.strengthsSectionTitle),
-        findsOneWidget,
-      );
-      expect(
-        find.text(ThaiBetaNarrativeV12.cautionsSectionTitle),
-        findsOneWidget,
-      );
-      expect(
-        find.text(ThaiBetaNarrativeV12.adviceSectionTitle),
-        findsOneWidget,
-      );
+      expect(find.text(ThaiBetaNarrativeV12.strengthsSectionTitle), findsNothing);
+      expect(find.text(ThaiBetaNarrativeV12.cautionsSectionTitle), findsNothing);
+      expect(find.text(ThaiBetaNarrativeV12.adviceSectionTitle), findsNothing);
       expect(tester.takeException(), isNull);
     });
 
@@ -349,16 +343,16 @@ void main() {
       await pumpReport(tester, const Size(1280, 800));
       expect(find.byType(ThaiBetaReportPage), findsOneWidget);
       expect(find.byType(ThaiBetaEvidenceBadgePanel), findsNothing);
-      expect(find.byKey(const Key('thai_consumer_hero')), findsOneWidget);
+      expect(
+        find.byKey(const Key('thai_birth_profile_core_reading')),
+        findsOneWidget,
+      );
       expect(
         find.byKey(const Key('thai_consumer_signature_insight')),
         findsNothing,
       );
       expect(find.text('ข้อมูลวันเกิดครบถ้วน'), findsNothing);
-      expect(
-        find.text(ThaiBetaNarrativeV12.strengthsSectionTitle),
-        findsOneWidget,
-      );
+      expect(find.text(ThaiBetaNarrativeV12.strengthsSectionTitle), findsNothing);
       expect(tester.takeException(), isNull);
     });
 

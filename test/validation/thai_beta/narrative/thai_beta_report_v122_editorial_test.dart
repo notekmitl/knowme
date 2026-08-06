@@ -128,12 +128,16 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text(ThaiBetaNarrativeV12.strengthsSectionTitle), findsWidgets);
+      expect(find.text(ThaiBetaNarrativeV12.strengthsSectionTitle), findsNothing);
+      expect(
+        find.byKey(const Key('thai_birth_profile_core_reading')),
+        findsOneWidget,
+      );
       expect(find.text('จุดแข็งที่เด่นจากหลักฐาน'), findsNothing);
       expect(find.textContaining('สัญญาณที่ระบบ'), findsNothing);
       expect(find.textContaining('ที่มาเชิงเทคนิค'), findsNothing);
       expect(find.text('ความมั่นใจของแนวโน้ม'), findsNothing);
-      expect(find.text('แผนที่ชีวิตของคุณ'), findsOneWidget);
+      expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
   });

@@ -20,7 +20,7 @@ void main() {
   });
 
   group('Feasibility audit', () {
-    test('production pipeline is PARTIAL_POSITION_METADATA', () {
+    test('production pipeline is READY_TO_EXPOSE_METADATA', () {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
@@ -33,16 +33,15 @@ void main() {
 
       expect(
         audit.result,
-        LifePeriodPositionMetadataFeasibilityResult.partialPositionMetadata,
+        LifePeriodPositionMetadataFeasibilityResult.readyToExposeMetadata,
       );
       expect(audit.hasGoverningPlanetPerPeriod, isTrue);
       expect(audit.hasArchetypeChartIdentity, isTrue);
       expect(audit.hasPeriodContextIdentity, isTrue);
-      expect(audit.hasFullPositionIdentity, isFalse);
+      expect(audit.hasFullPositionIdentity, isTrue);
       expect(audit.periodsWithPositionMetadata, greaterThan(0));
       expect(audit.canonLifePeriodPlacementsPresent, isTrue);
-      expect(audit.metadataBlocker,
-          LifePeriodPositionMetadataBlocker.partialPositionMetadata);
+      expect(audit.metadataBlocker, isNull);
     });
 
     test('status metadata blocker reflects partial position', () {
@@ -56,17 +55,14 @@ void main() {
         canonIndex: repository.index,
       );
 
-      expect(
-        audit.blocker,
-        LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata,
-      );
+      expect(audit.blocker, isNull);
       expect(
         audit.positionFeasibility.result,
-        LifePeriodPositionMetadataFeasibilityResult.partialPositionMetadata,
+        LifePeriodPositionMetadataFeasibilityResult.readyToExposeMetadata,
       );
       expect(
         audit.feasibility.result,
-        LifePeriodRiseFallFeasibilityResult.partialRuntimeStatusMetadata,
+        LifePeriodRiseFallFeasibilityResult.readyToExposeMetadata,
       );
     });
 
@@ -82,16 +78,13 @@ void main() {
       expect(
         bundle.trace.lifePeriodPositionFeasibilityResult,
         LifePeriodPositionMetadataFeasibilityResult
-            .partialPositionMetadata.wire,
+            .readyToExposeMetadata.wire,
       );
       expect(
         bundle.trace.lifePeriodPositionMetadataBlocker,
         LifePeriodPositionMetadataBlocker.partialPositionMetadata,
       );
-      expect(
-        bundle.trace.lifePeriodStatusMetadataBlocker,
-        LifePeriodStatusMetadataBlocker.partialRuntimeStatusMetadata,
-      );
+      expect(bundle.trace.lifePeriodStatusMetadataBlocker, isNull);
       expect(bundle.trace.lifePeriodArchetypeMetadataBlocker, isNull);
     });
   });
@@ -187,16 +180,16 @@ void main() {
 
       expect(
         sumTrace((t) => t.lifePeriodsWithCanonDerivedStatus),
-        10,
+        8,
       );
       expect(
         sumTrace((t) => t.lifePeriodsWithoutCanonStatusMarker),
-        11,
+        8,
       );
-      expect(audit.totalLifePeriodsWithoutRuntimeStatus, 21);
+      expect(audit.totalLifePeriodsWithoutRuntimeStatus, 16);
       expect(
         sumTrace((t) => t.lifePeriodsWithRuntimeStatus),
-        65,
+        56,
       );
     });
 
