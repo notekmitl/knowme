@@ -2,6 +2,11 @@
 
 ## Active stacked work: Thai Beta Exemplar Narrative V1
 
+**Current decision: BLOCKED — PRODUCT ACCEPTANCE FAILED.** Do not continue
+narrative wording, pagination, merge, or deployment until the known-time
+ascendant discrepancy receives an Engine correctness decision. The rejected
+packet remains evidence and must not be overwritten.
+
 - Branch: `codex/thai-beta-exemplar-narrative-v1`
 - Base: prerequisite PR #82 HEAD `a20be549f8a25f529d539bb7f23734af469b8c50`
 - Dependency: PR #81 → PR #82 → Narrative Draft PR.
@@ -29,6 +34,15 @@
   zero zero-byte files, valid manifest, valid 12-page PDFs (50,266 and 47,669
   bytes), and ZIP SHA-256
   `E947102751276D6A68688D9DCAFD679A5D6144E468F607AE67EE39E18E0955EA`.
+- Owner inspection then rejected the packet's Product Acceptance claims. The
+  known-time fixture says Chiang Mai but uses `chiang_mai`; the production
+  resolver's canonical key is `chiang mai`, so normalization defaults that
+  fixture to Bangkok (13.7563, 100.5018). The packet value Virgo 19°31′ matches
+  that fallback. The same civil input with Chiang Mai's actual coordinates
+  (18.7883, 98.9853) computes Virgo about 20°32′. The historical Aquarius
+  19°19′ reference is not present in repository history and remains
+  unreconciled. This is an Engine correctness decision boundary, not an
+  authorized presentation-only fix.
 - Unknown-time sunrise copy requires input-time authority; repeated
   V3 domains retain all four categories but gain evidence-backed period context;
   the malformed wellbeing sentence is corrected. Birth Normalization, Engine,

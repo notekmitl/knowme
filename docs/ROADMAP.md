@@ -32,16 +32,18 @@ Desktop known-time, Mobile no-time, and actual known/no-time PDF exports. It
 found no layout or privacy regression and hardened only unsupported certainty
 in future copy. Scoped tests and Local Gate pass; PR #81 remains Draft.
 
-### Thai Beta Exemplar Narrative V1 — awaiting owner Product Acceptance
+### Thai Beta Exemplar Narrative V1 — BLOCKED, Product Acceptance failed
 
 Draft PR #83 source-tested HEAD `4e6560b4b6bbf591c405f7b4fd58b487afdb213f`
-retains the stacked PR #81 → PR #82 dependency and closes the three authorized
-Product Acceptance defects without changing Engine, Canon, Birth Normalization,
-or Thai Mirror defaults. Unknown-time now fails closed at the presentation
-boundary; repeated life-period domains retain V3 coverage while using computed
-period context; wellbeing wording is natural Thai. Required 1,445/1,445 and all
-focused/parity/synthetic/Gate checks pass. A new complete Web/PDF packet is
-ready for owner review. PR #83 remains Draft and is not released or deployed.
+retains the stacked PR #81 → PR #82 dependency. Owner inspection of the actual
+packet rejected the previous READY claim. Before further presentation work,
+the known-time ascendant audit found that the supposedly Chiang Mai fixture
+uses the invalid resolver key `chiang_mai` and silently falls back to Bangkok.
+The packet's Virgo 19°31′ follows that fallback; real Chiang Mai coordinates
+produce Virgo about 20°32′ in the current Engine, while the owner's historical
+reference is Aquarius 19°19′. Resolve this Engine correctness discrepancy
+before unknown-time, narrative, and PDF pagination repairs resume. PR #83
+remains Draft and is not released or deployed.
 
 ### Thai Mirror QA Screenshot Golden Baseline Repair V1 — complete
 
