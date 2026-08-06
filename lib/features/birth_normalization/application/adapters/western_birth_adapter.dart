@@ -12,7 +12,16 @@ abstract final class WesternBirthAdapter {
   }) {
     return WesternBirthContext(
       localDateTime: localDateTime,
-      utcInstant: localDateTime.subtract(timeZone.utcOffset),
+      utcInstant: DateTime.utc(
+        localDateTime.year,
+        localDateTime.month,
+        localDateTime.day,
+        localDateTime.hour,
+        localDateTime.minute,
+        localDateTime.second,
+        localDateTime.millisecond,
+        localDateTime.microsecond,
+      ).subtract(timeZone.utcOffset),
       timeZoneOffset: timeZone.utcOffset,
       latitude: location.latitude,
       longitude: location.longitude,

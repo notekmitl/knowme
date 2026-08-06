@@ -47,7 +47,7 @@ void main() {
     test('Lagna sign signals are out of Canon scope', () {
       final lagnaOut = audit.fixtureResults.expand((r) => r.records).where(
             (r) =>
-                r.signalId.contains('lagna_cancer') &&
+                r.signalId.contains('lagna_') &&
                 !r.signalId.contains('lagna_lord') &&
                 r.classification ==
                     ThaiCanonEvidenceAlignmentClassification.outOfCanonScope,

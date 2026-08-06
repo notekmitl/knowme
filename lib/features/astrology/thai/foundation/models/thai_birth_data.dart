@@ -25,13 +25,19 @@ class ThaiBirthData {
 
   final DateTime? _astrologicalDate;
 
-  DateTime get utcDateTime => localDateTime.subtract(timeZoneOffset);
+  DateTime get utcDateTime => DateTime.utc(
+    localDateTime.year,
+    localDateTime.month,
+    localDateTime.day,
+    localDateTime.hour,
+    localDateTime.minute,
+    localDateTime.second,
+    localDateTime.millisecond,
+    localDateTime.microsecond,
+  ).subtract(timeZoneOffset);
 
-  DateTime get dateOnly => DateTime(
-        localDateTime.year,
-        localDateTime.month,
-        localDateTime.day,
-      );
+  DateTime get dateOnly =>
+      DateTime(localDateTime.year, localDateTime.month, localDateTime.day);
 
   /// Sunrise-adjusted Thai astrological date (from Birth Normalization).
   /// Previous calendar day for before-sunrise births; falls back to [dateOnly]

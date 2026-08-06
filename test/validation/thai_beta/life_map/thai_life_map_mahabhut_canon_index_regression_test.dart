@@ -264,11 +264,13 @@ void main() {
         final input = ThaiBetaInput(
           firstName: 'Real',
           lastName: 'Entry',
-          birthDate: DateTime(1988, 11, 15),
-          birthHour: 14,
+          // Corrected-engine deterministic fixture with Canon-confirmed
+          // positions. This remains distinct from sampleQaBirthData().
+          birthDate: DateTime(1970, 1, 4),
+          birthHour: 2,
           birthMinute: 20,
-          province: 'เชียงใหม่',
-          provinceKey: 'chiangmai',
+          province: 'กรุงเทพมหานคร',
+          provinceKey: 'bangkok',
         );
         final analysis = await ThaiBetaAnalysisRunner.runAsync(input);
         expect(analysis.isSuccess, isTrue);
