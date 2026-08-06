@@ -24,7 +24,13 @@ abstract final class BirthNormalizer {
   static BirthNormalizationResult normalize(RawBirthInput input) {
     final reasons = <BirthNormalizationReason>[];
 
-    final location = BirthLocationResolver.resolve(input);
+    final locationResolution = BirthLocationResolver.resolve(input);
+    if (!locationResolution.isValid) {
+      return BirthNormalizationResult.invalid(
+        locationResolution.error ?? 'Unable to resolve birth location.',
+      );
+    }
+    final location = locationResolution.location!;
     switch (location.source) {
       case BirthLocationSource.explicit:
         reasons.add(BirthNormalizationReason.locationFromExplicitCoordinates);
@@ -51,9 +57,11 @@ abstract final class BirthNormalizer {
     final hasBirthTime = input.hasBirthTime;
     final hour = hasBirthTime ? input.birthHour! : _assumedHour;
     final minute = hasBirthTime ? input.birthMinute : 0;
-    reasons.add(hasBirthTime
-        ? BirthNormalizationReason.birthTimeProvided
-        : BirthNormalizationReason.birthTimeMissingNoonAssumed);
+    reasons.add(
+      hasBirthTime
+          ? BirthNormalizationReason.birthTimeProvided
+          : BirthNormalizationReason.birthTimeMissingNoonAssumed,
+    );
 
     final localDateTime = DateTime(
       input.birthDate.year,

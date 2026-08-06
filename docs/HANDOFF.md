@@ -2,19 +2,22 @@
 
 ## Active stacked work: Thai Beta Exemplar Narrative V1
 
-**Current decision: BLOCKED — PRODUCT ACCEPTANCE FAILED.** Do not continue
-narrative wording, pagination, merge, or deployment until the known-time
-ascendant discrepancy receives an Engine correctness decision. The rejected
-packet remains evidence and must not be overwritten.
+**Current decision: ENGINE DEPENDENCY ACCEPTED — COMBINED VALIDATION REQUIRED.**
+The known-time discrepancy is closed by Product-Accepted PR #84. PR #83 must
+validate its Narrative scope on the accepted Engine source and produce a new
+application-flow Web/PDF packet. The rejected pre-Engine packet remains
+historical evidence and must not be reused or overwritten.
 
 - Branch: `codex/thai-beta-exemplar-narrative-v1`
-- Base: prerequisite PR #82 HEAD `a20be549f8a25f529d539bb7f23734af469b8c50`
-- Dependency: PR #81 → PR #82 → Narrative Draft PR.
+- Accepted base: PR #84 HEAD
+  `57971d9d1cd2f1b634f1e1a9da7b779f40a6dd74`.
+- Dependency: PR #81 → PR #82 → PR #84 → Narrative Draft PR #83.
 - Checkpoint and patch SHA-256 values were verified before integration.
 - Nine intended paths applied cleanly; four overlapping task/status paths were
   semantically merged so the PR #82 baseline repair remains intact.
-- Preserve V3, Required-suite contracts, Engine, Canon, normalization,
-  evidence policy, standalone Thai Mirror, feature flags, and Production data.
+- Preserve V3, Required-suite contracts, accepted Engine corrections and A–G
+  baselines, Profile H, Canon, evidence policy, standalone Thai Mirror, feature
+  flags, and Production data.
 - Draft-only: do not merge or deploy.
 - Draft PR #83 tested source HEAD:
   `4e6560b4b6bbf591c405f7b4fd58b487afdb213f`.
@@ -34,15 +37,15 @@ packet remains evidence and must not be overwritten.
   zero zero-byte files, valid manifest, valid 12-page PDFs (50,266 and 47,669
   bytes), and ZIP SHA-256
   `E947102751276D6A68688D9DCAFD679A5D6144E468F607AE67EE39E18E0955EA`.
-- Owner inspection then rejected the packet's Product Acceptance claims. The
+- Owner inspection rejected the pre-Engine packet's Product Acceptance claims. The
   known-time fixture says Chiang Mai but uses `chiang_mai`; the production
   resolver's canonical key is `chiang mai`, so normalization defaults that
   fixture to Bangkok (13.7563, 100.5018). The packet value Virgo 19°31′ matches
   that fallback. The same civil input with Chiang Mai's actual coordinates
   (18.7883, 98.9853) computes Virgo about 20°32′. The historical Aquarius
   19°19′ reference is not present in repository history and remains
-  unreconciled. This is an Engine correctness decision boundary, not an
-  authorized presentation-only fix.
+  unreconciled under the prior Engine. PR #84 subsequently corrected and proved
+  Aquarius 19°19′ for Chiang Mai and passed Product Acceptance on 2026-08-06.
 - Unknown-time sunrise copy requires input-time authority; repeated
   V3 domains retain all four categories but gain evidence-backed period context;
   the malformed wellbeing sentence is corrected. Birth Normalization, Engine,
@@ -51,6 +54,29 @@ packet remains evidence and must not be overwritten.
   24/24, Analyze 299 existing diagnostics, and Local Gates pass. Two consecutive
   application-flow runs produced deterministic Web captures and valid 12-page
   known/unknown PDFs with exact shared-document parity.
+## Accepted dependency: Thai Ascendant Correctness V1
+
+- Base: PR #82 HEAD `a20be549f8a25f529d539bb7f23734af469b8c50`.
+- Local audit confirms the independent Lahiri result: Chiang Mai 18.7883 /
+  98.9853 at UTC 1982-06-05T17:35:00Z produces 319.313708° locally versus the
+  319.311376° oracle, Aquarius 19°19′.
+- Resolver, UTC, horizon-equation, and Lahiri-epoch fixes pass focused, parity,
+  synthetic 300, story A–H, Analyze, and Gate self-test checks.
+- The owner approved a controlled QA-harness rebaseline for Known-time Profiles
+  A–G only. Exactly 108 PNGs changed; Profile H and the standalone golden did
+  not change. Before/after Desktop/Tablet/Mobile contact sheets passed visual
+  audit, and screenshot regression passed 24/24 twice with identical manifests.
+- Required PreCommit Gate passed 1,494/1,494 tests with the baseline 299 Analyze
+  diagnostics and no fatal/new diagnostic. Source-tested commit:
+  `7e313442241e72734bd6eedd0df97a74e386f48e`.
+- Draft Engine PR #84 is OPEN/Draft and MERGEABLE/CLEAN:
+  https://github.com/notekmitl/knowme/pull/84. GitHub created no checks or
+  workflow runs for the branch; this is not reported as CI PASS.
+- The 247-file Correctness Packet and verified ZIP are delivered in Windows
+  Downloads as `KnowMe-Thai-Ascendant-Correctness-7e31344`. Product Acceptance
+  passed on 2026-08-06.
+- PR #84 remains OPEN/Draft and is the accepted dependency for PR #83 stack
+  integration. Do not merge/deploy; Production and feature flags are unchanged.
 
 ## Active prerequisite: Thai Required full-suite baseline contract repair
 

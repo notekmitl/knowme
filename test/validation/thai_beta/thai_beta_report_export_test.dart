@@ -411,8 +411,12 @@ void main() {
       final realAge = _timeline(realUserAnalysis).currentStage.currentAge;
 
       expect(realAge, isNot(equals(sampleAge)));
-      expect(text, contains('อายุ $realAge'));
-      expect(text, isNot(contains('อายุ $sampleAge')));
+      expect(text,
+          anyOf(contains('อายุ $realAge'), contains('วัย $realAge ปี')));
+      expect(
+          text,
+          isNot(anyOf(contains('อายุ $sampleAge'),
+              contains('วัย $sampleAge ปี'))));
     });
 
     test('PDF age matches report age', () async {
@@ -420,7 +424,10 @@ void main() {
       final rendered = await ThaiBetaReportPdfExporter.build(doc);
       final reportAge = _timeline(realUserAnalysis).currentStage.currentAge;
 
-      expect(rendered.plainText, contains('อายุ $reportAge'));
+      expect(
+          rendered.plainText,
+          anyOf(contains('อายุ $reportAge'),
+              contains('วัย $reportAge ปี')));
     });
 
     test('PDF current period matches report', () async {
@@ -519,7 +526,13 @@ void main() {
       );
       expect(find.text('Thai Beta Capture Mode Active'), findsOneWidget);
       final userAge = _timeline(userAnalysis).currentStage.currentAge;
-      expect(find.textContaining('อายุ $userAge'), findsWidgets);
+      expect(
+        find.byWidgetPredicate((widget) =>
+            widget is Text &&
+            ((widget.data?.contains('อายุ $userAge') ?? false) ||
+                (widget.data?.contains('วัย $userAge ปี') ?? false))),
+        findsWidgets,
+      );
     });
   });
 

@@ -4,10 +4,9 @@
 abstract final class LahiriAyanamsa {
   static double forJulianDay(double julianDay) {
     final t = (julianDay - 2451545.0) / 36525.0;
-    return 22.460148 +
-        1.396042 * t +
-        0.000308 * t * t -
-        0.000000057 * t * t * t;
+    // Lahiri at J2000 is approximately 23°51′24″. The previous 22.460148°
+    // epoch constant was about 1.4° low and was not Swiss-compatible.
+    return 23.85675 + 1.396042 * t + 0.000308 * t * t - 0.000000057 * t * t * t;
   }
 
   static double normalizeDegrees(double degrees) {

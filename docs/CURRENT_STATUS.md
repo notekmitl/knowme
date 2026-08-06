@@ -1,5 +1,23 @@
 # KnowMe Current Status
 
+> **Engine correctness Product Acceptance passed (2026-08-06):** The separate
+> `codex/thai-ascendant-correctness-v1` worktree proves the approved synthetic
+> Chiang Mai input as Lahiri Aquarius 19°19′ and closes the resolver, UTC,
+> horizon-equation, and Lahiri-epoch root causes locally. The owner approved a
+> controlled QA-harness rebaseline for Known-time Profiles A–G: 108 PNGs changed,
+> Profile H stayed byte-identical and passed 3/3, and screenshot regression
+> passed 24/24 twice with identical SHA-256 manifests. Required PreCommit Gate
+> passed 1,494/1,494 tests; source-tested commit is
+> `7e313442241e72734bd6eedd0df97a74e386f48e`. Draft Engine PR #84 is OPEN,
+> Draft, MERGEABLE/CLEAN at
+> https://github.com/notekmitl/knowme/pull/84; GitHub created no checks/workflow
+> runs. The 247-file Correctness Packet is delivered at
+> `C:\Users\USER\Downloads\KnowMe-Thai-Ascendant-Correctness-7e31344` with a
+> verified extractable ZIP of the same name. Owner Product Acceptance passed on
+> 2026-08-06. PR #84 remains OPEN/Draft and is now the accepted dependency for
+> PR #83 stack integration. Nothing is merged or deployed, and
+> Production/feature flags are unchanged.
+
 **Last updated:** August 6, 2026
 **Branch:** `main`  
 **Merge tip before Core Reading V1:** `380348f` (PR #63 Production Funnel Measurement V1); Production hosted @ `da85013`
@@ -11,7 +29,7 @@
 **Thai Mirror QA screenshot baseline:** Repair V1 merged through PR #80 at `3671b62fba86fc83365fdba597b695b1f3324c6b`. Fifty-one harness PNGs now form the deterministic Flutter 3.41.1 baseline and restore the QA screenshot Gate. The separate standalone consumer golden remains a known 32.63% / 305,379-pixel failure and requires its own task.
 **Thai Beta Past-to-Future Narrative V3:** Recovered from the validated V3 archive and resumed on post-PR-80 main `3671b62fba86fc83365fdba597b695b1f3324c6b`. Draft PR #81 remains open. Production-candidate human review covered complete A-H text, Desktop known-time, Mobile no-time, and actual 11/10-page PDFs; it softened score/band-derived future claims that were too certain without changing evidence or Engine behavior. Scoped tests and PreCommit Gate pass. V3 is not a Production release. The standalone consumer golden and full-file V1.3.3 hero-key failure remain separate unchanged-main failures.
 **Thai Required full-suite baseline contract repair:** A separate prerequisite branch from PR #81 HEAD `b0a5b4c541f86d82a1fe7fecbae070ffea8a4b2e` repaired 70 reproducible stale test-contract assertions without production-source changes. The approved Required scope (`thai`, `thai_beta`, and `thai_mirror_qa_harness`) now passes **1,439/1,439**. This remains a Draft prerequisite; Narrative V3 is preserved separately and Production is unchanged.
-**Thai Beta Exemplar Narrative V1:** **BLOCKED — PRODUCT ACCEPTANCE FAILED.** The owner rejected the delivered PR #83 packet because its real Web/PDF output contradicts the prior READY summary. The known-time acceptance fixture labels its location Chiang Mai but passes `provinceKey: chiang_mai`; the authoritative resolver accepts `chiang mai`, so the fixture silently uses Bangkok fallback coordinates. This reproduces the packet's Virgo 19°31′, while the actual Chiang Mai coordinates produce Virgo approximately 20°32′ under the current Engine. Neither reconciles the owner's historical Aquarius 19°19′ reference. Ascendant correctness therefore requires an owner/Engine decision before narrative or pagination fixes continue. Source-tested HEAD remains `4e6560b4b6bbf591c405f7b4fd58b487afdb213f`; current docs/remote HEAD before this status update is `82682503e8656bd6d98f821576eb7bac0a356648`. The rejected packet is retained unchanged for evidence. PR #83 remains OPEN/Draft and is not merged, released, or deployed; Production and feature flags are unchanged.
+**Thai Beta Exemplar Narrative V1:** Engine correctness dependency is now Product-Accepted. PR #83 is being integrated by non-force merge onto accepted PR #84 HEAD `57971d9d1cd2f1b634f1e1a9da7b779f40a6dd74` and will be rebased at the GitHub PR level to `codex/thai-ascendant-correctness-v1`. The rejected pre-Engine packet remains historical evidence and must not be reused for acceptance. Combined validation and a new Engine-integrated Web/PDF packet are required before post-Engine Product Acceptance. Both PRs remain OPEN/Draft; nothing is merged to main or deployed, and Production/feature flags are unchanged.
 
 ---
 

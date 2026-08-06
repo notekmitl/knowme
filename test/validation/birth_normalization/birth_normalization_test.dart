@@ -113,7 +113,8 @@ void main() {
     test('Western uses exact instant with no day shift', () {
       final r = BirthNormalizer.normalize(bangkok(3)).birth!;
       expect(r.western.localDateTime, DateTime(1990, 6, 15, 3));
-      expect(r.western.utcInstant, DateTime(1990, 6, 14, 20)); // 03:00 − 7h
+      expect(r.western.utcInstant,
+          DateTime.utc(1990, 6, 14, 20)); // 03:00 − 7h
       expect(r.reasons, contains(BirthNormalizationReason.westernUsesExactInstant));
     });
 
@@ -131,12 +132,23 @@ void main() {
       expect(r.latitude, bangkokLat);
     });
 
-    test('unknown location defaults to Bangkok', () {
-      final r = BirthNormalizer.normalize(RawBirthInput(
+    test('explicit unknown location fails closed', () {
+      final result = BirthNormalizer.normalize(RawBirthInput(
         birthDate: DateTime(1990, 6, 15),
         birthHour: 9,
         province: 'Atlantis',
         country: 'Nowhere',
+        timeZoneId: 'Asia/Bangkok',
+      ));
+      expect(result.isValid, isFalse);
+      expect(result.birth, isNull);
+      expect(result.error, contains('Unknown province key'));
+    });
+
+    test('missing location retains documented Bangkok default', () {
+      final r = BirthNormalizer.normalize(RawBirthInput(
+        birthDate: DateTime(1990, 6, 15),
+        birthHour: 9,
         timeZoneId: 'Asia/Bangkok',
       )).birth!;
       expect(r.location.source, BirthLocationSource.defaulted);
