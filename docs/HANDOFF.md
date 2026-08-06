@@ -2,15 +2,28 @@
 
 ## Active stacked work: Thai Beta Exemplar Narrative V1
 
-**Current decision: ENGINE DEPENDENCY ACCEPTED — COMBINED VALIDATION REQUIRED.**
-The known-time discrepancy is closed by Product-Accepted PR #84. PR #83 must
-validate its Narrative scope on the accepted Engine source and produce a new
-application-flow Web/PDF packet. The rejected pre-Engine packet remains
-historical evidence and must not be reused or overwritten.
+**Current decision: READY FOR PR #83 POST-ENGINE PRODUCT ACCEPTANCE.**
+The known-time discrepancy is closed by Product-Accepted PR #84. PR #83 is now
+integrated on that accepted dependency, Combined validation passes, and a new
+application-flow Web/PDF packet is delivered. The rejected pre-Engine packet
+remains historical evidence and was not reused or overwritten.
 
 - Branch: `codex/thai-beta-exemplar-narrative-v1`
 - Accepted base: PR #84 HEAD
   `57971d9d1cd2f1b634f1e1a9da7b779f40a6dd74`.
+- Combined source-tested HEAD:
+  `5d5c1d9b5540a37ed8d251a06db0e4f41575113b`.
+- Combined Required scope: 1,500/1,500 PASS; Gate self-test 9/9; Analyze 299
+  existing non-fatal diagnostics; PreCommit PASS; story A-H and QA screenshots
+  24/24 PASS.
+- New Engine-integrated packet:
+  `C:\Users\USER\Documents\Knowme\product-acceptance\pr83-engine-integrated-5d5c1d9`.
+  It contains synthetic known/no-time application-flow Web captures, valid
+  12-page PDFs, page renders/contact sheets, extraction, audit, manifest, and
+  ZIP. Known-time displays Aquarius 19°19′; unknown-time remains fail-closed;
+  shared Web/PDF document text is exact.
+  Final packet has 84 files, zero zero-byte files; the extractable ZIP SHA-256
+  is `78D481DCEBCAD9A7DD2408474E66102668B3EC1F0ECA1B0344F294B2493DD77D`.
 - Dependency: PR #81 → PR #82 → PR #84 → Narrative Draft PR #83.
 - Checkpoint and patch SHA-256 values were verified before integration.
 - Nine intended paths applied cleanly; four overlapping task/status paths were

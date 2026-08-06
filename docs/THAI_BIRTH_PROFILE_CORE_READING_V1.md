@@ -9,6 +9,14 @@
 The active stacked Draft branch ports the owner-approved exemplar onto the
 current Past-to-Future Narrative V3 base for both Thai Beta Web and PDF/export:
 
+Post-Engine integration uses accepted Draft PR #84 HEAD
+`57971d9d1cd2f1b634f1e1a9da7b779f40a6dd74`. Combined source-tested HEAD
+`5d5c1d9b5540a37ed8d251a06db0e4f41575113b` passes 1,500/1,500 Required tests
+and produces a new synthetic application-flow packet with known-time Aquarius
+19°19′, unknown-time fail-closed output, and exact shared Web/PDF document
+parity. This dependency update does not expand the Narrative implementation
+scope; both PRs remain Draft and nothing is deployed.
+
 1. `สรุปตรง ๆ`
 2. `หลักการนับวันทางโหราศาสตร์ไทย`
 3. `โครงสร้างดวงหลัก` — a compact table of computed weekday, Lagna degree,
