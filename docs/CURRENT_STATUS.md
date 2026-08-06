@@ -11,8 +11,11 @@
 > `7e313442241e72734bd6eedd0df97a74e386f48e`. Draft Engine PR #84 is OPEN,
 > Draft, MERGEABLE/CLEAN at
 > https://github.com/notekmitl/knowme/pull/84; GitHub created no checks/workflow
-> runs. Correctness Product Acceptance remains pending. Nothing is merged or
-> deployed, and Production/feature flags are unchanged.
+> runs. The 247-file Correctness Packet is delivered at
+> `C:\Users\USER\Downloads\KnowMe-Thai-Ascendant-Correctness-7e31344` with a
+> verified extractable ZIP of the same name. Owner Product Acceptance remains
+> pending. Nothing is merged or deployed, and Production/feature flags are
+> unchanged.
 
 **Last updated:** August 3, 2026
 **Branch:** `main`  

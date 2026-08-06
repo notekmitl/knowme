@@ -18,8 +18,9 @@
 - Draft Engine PR #84 is OPEN/Draft and MERGEABLE/CLEAN:
   https://github.com/notekmitl/knowme/pull/84. GitHub created no checks or
   workflow runs for the branch; this is not reported as CI PASS.
-- Correctness acceptance packet and owner review remain. Do not broaden the
-  golden scope or merge/deploy before acceptance.
+- The 247-file Correctness Packet and verified ZIP are delivered in Windows
+  Downloads as `KnowMe-Thai-Ascendant-Correctness-7e31344`. Owner review remains.
+  Do not broaden the golden scope or merge/deploy before acceptance.
 - PR #83 remains a separate Draft and contains no Engine fix. Nothing is merged
   or deployed; Production and feature flags are unchanged.
 
