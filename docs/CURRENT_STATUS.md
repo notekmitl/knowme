@@ -8,8 +8,11 @@
 > Profile H stayed byte-identical and passed 3/3, and screenshot regression
 > passed 24/24 twice with identical SHA-256 manifests. Required PreCommit Gate
 > passed 1,494/1,494 tests; source-tested commit is
-> `7e313442241e72734bd6eedd0df97a74e386f48e`. Draft PR publication and Product
-> Acceptance remain pending. Nothing is merged or deployed.
+> `7e313442241e72734bd6eedd0df97a74e386f48e`. Draft Engine PR #84 is OPEN,
+> Draft, MERGEABLE/CLEAN at
+> https://github.com/notekmitl/knowme/pull/84; GitHub created no checks/workflow
+> runs. Correctness Product Acceptance remains pending. Nothing is merged or
+> deployed, and Production/feature flags are unchanged.
 
 **Last updated:** August 3, 2026
 **Branch:** `main`  

@@ -123,6 +123,8 @@ Aquarius 19°19′. The Bangkok control displays Aquarius 21°54′. This remain
 Draft candidate at source-tested commit
 `7e313442241e72734bd6eedd0df97a74e386f48e`. Required PreCommit Gate passed
 1,494/1,494 tests; Product Acceptance remains. It is not merged or deployed.
+The candidate is published only as Draft PR #84:
+https://github.com/notekmitl/knowme/pull/84.
 
 ---
 

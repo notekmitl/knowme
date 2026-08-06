@@ -9,9 +9,10 @@ approved a controlled QA-harness rebaseline for Known-time Profiles A–G only:
 108 PNGs changed, Profile H remained byte-identical, and screenshot regression
 passed 24/24 twice with identical manifests after visual audit. Required
 PreCommit Gate passed 1,494/1,494 at source-tested commit
-`7e313442241e72734bd6eedd0df97a74e386f48e`; Draft Engine PR and correctness
-acceptance remain. PR #83 stays blocked and separate. Nothing is merged or
-deployed.
+`7e313442241e72734bd6eedd0df97a74e386f48e`. Draft Engine PR #84 is OPEN,
+Draft, and MERGEABLE/CLEAN at https://github.com/notekmitl/knowme/pull/84;
+GitHub created no checks/workflow runs. Correctness acceptance remains. PR #83
+stays blocked and separate. Nothing is merged or deployed.
 
 **Last updated:** August 3, 2026
 **Rule:** Items listed here are backed by repository evidence only. Nothing invented.

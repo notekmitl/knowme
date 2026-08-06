@@ -15,8 +15,11 @@
 - Required PreCommit Gate passed 1,494/1,494 tests with the baseline 299 Analyze
   diagnostics and no fatal/new diagnostic. Source-tested commit:
   `7e313442241e72734bd6eedd0df97a74e386f48e`.
-- Push, Draft Engine PR, final docs/remote HEAD, and acceptance packet remain to
-  be completed. Do not broaden the golden scope.
+- Draft Engine PR #84 is OPEN/Draft and MERGEABLE/CLEAN:
+  https://github.com/notekmitl/knowme/pull/84. GitHub created no checks or
+  workflow runs for the branch; this is not reported as CI PASS.
+- Correctness acceptance packet and owner review remain. Do not broaden the
+  golden scope or merge/deploy before acceptance.
 - PR #83 remains a separate Draft and contains no Engine fix. Nothing is merged
   or deployed; Production and feature flags are unchanged.
 
