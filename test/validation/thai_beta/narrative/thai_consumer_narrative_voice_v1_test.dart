@@ -41,6 +41,16 @@ void main() {
     ].join('\n');
 
     for (final forbidden in [
+      'หากความล้าสะสม ข้อความนี้ไม่ใช่คำวินิจฉัยทางการแพทย์เกิดซ้ำ',
+      'เตรียมรับมือเรื่องความล้าสะสม ข้อความนี้ไม่ใช่คำวินิจฉัยทางการแพทย์',
+      'กดดูรายละเอียด',
+      'เนื้อหาจากรายงานที่มีอยู่แล้ว ไม่สร้างคำทำนายใหม่',
+      'โดยไม่นำชื่อหมวดภายใน',
+      'แรงกดดัน',
+      'เรื่องงานหมายถึงการเลือกบทบาทและกิจกรรมที่ยังมีความหมาย',
+      'เรื่องเงินเน้นการดูแลสิ่งที่มี',
+      'ให้ความสำคัญกับการดูแลกัน การบอกความต้องการ',
+      'เน้นการจัดกิจวัตรและการพักให้เหมาะกับแรงที่มี',
       'สรุปตรง ๆ พื้นดวงนี้',
       'พื้นดวงให้น้ำหนักกับ',
       'จึงปรากฏเป็นแนวโน้มด้าน',
@@ -59,9 +69,7 @@ void main() {
       expect(text, isNot(contains(forbidden)), reason: forbidden);
     }
     expect(
-      RegExp(
-        'ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ',
-      ).allMatches(text).length,
+      RegExp('ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ').allMatches(text).length,
       1,
       reason: 'medical guidance belongs with the current-period context only',
     );
@@ -107,6 +115,63 @@ void main() {
         isNot(_meaningKey(nextYear.domains[i].body)),
       );
       expect(current.domains[i].caution, isNot(nextYear.domains[i].caution));
+    }
+  });
+
+  test('forecast windows keep distinct semantic roles and isolated risk', () {
+    final windows = ThaiBetaNarrativeComposer.narrativeView(
+      analysis,
+    ).futurePrediction!.windows;
+    expect(windows, hasLength(greaterThanOrEqualTo(3)));
+    final current = windows[0];
+    final nextYear = windows[1];
+    final nextPeriod = windows[2];
+
+    for (final domain in current.domains) {
+      expect(domain.body, startsWith('สำหรับตอนนี้'));
+      expect(domain.caution, isNot(contains('ไม่ใช่คำวินิจฉัยทางการแพทย์')));
+    }
+    for (final domain in nextYear.domains) {
+      expect(domain.body, startsWith('ในปีข้างหน้า'));
+      expect(domain.caution, startsWith('ทบทวนเมื่อ'));
+    }
+    for (final domain in nextPeriod.domains) {
+      expect(domain.body, startsWith('เมื่อเข้าสู่ช่วงชีวิตถัดไป'));
+      expect(domain.caution, startsWith('เตรียม'));
+      final matchingCurrent = current.domains.where(
+        (candidate) => candidate.title == domain.title,
+      );
+      if (matchingCurrent.isNotEmpty) {
+        expect(
+          _meaningKey(domain.body),
+          isNot(_meaningKey(matchingCurrent.single.body)),
+        );
+      }
+    }
+  });
+
+  test('late-life domains fail closed without age-specific evidence', () {
+    final periods = ThaiBetaNarrativeComposer.narrativeView(
+      analysis,
+    ).lifeTimeline!.periods;
+    final latePeriods = periods
+        .where((period) {
+          final start = int.parse(period.ageLabel.split('–').first);
+          return start >= 69;
+        })
+        .toList(growable: false);
+
+    expect(latePeriods.map((period) => period.ageLabel), [
+      '69–83',
+      '84–91',
+      '92–108',
+    ]);
+    for (final period in latePeriods) {
+      expect(
+        period.lifeDomains,
+        isEmpty,
+        reason: '${period.ageLabel} must omit generic synonym templates',
+      );
     }
   });
 

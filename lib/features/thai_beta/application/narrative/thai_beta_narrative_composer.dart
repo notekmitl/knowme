@@ -270,6 +270,7 @@ abstract final class ThaiBetaNarrativeComposer {
               domain: domain,
               startAge: startAge,
             );
+            if (ageAppropriate == null) continue;
             final consumerBody = _stripRepeatedMedicalDisclaimer(
               ageAppropriate.body,
             );
@@ -309,16 +310,16 @@ abstract final class ThaiBetaNarrativeComposer {
             keyword: period.keyword,
             isCurrent: period.isCurrent,
             isPast: period.isPast,
-            summary: period.summary,
-            whatChanges: period.whatChanges,
-            easier: period.easier,
-            harder: period.harder,
-            comparison: period.comparison,
-            evidenceLine: period.evidenceLine,
+            summary: startAge >= 69 ? '' : period.summary,
+            whatChanges: startAge >= 69 ? '' : period.whatChanges,
+            easier: startAge >= 69 ? '' : period.easier,
+            harder: startAge >= 69 ? '' : period.harder,
+            comparison: startAge >= 69 ? '' : period.comparison,
+            evidenceLine: startAge >= 69 ? '' : period.evidenceLine,
             scores: period.scores,
             easeIndex: period.easeIndex,
             accentIndex: period.accentIndex,
-            advice: period.advice,
+            advice: startAge >= 69 ? '' : period.advice,
             stageLabel: period.stageLabel,
             timeBucketLabel: period.timeBucketLabel,
             mahabhutPositionLabel: period.mahabhutPositionLabel,
@@ -334,12 +335,22 @@ abstract final class ThaiBetaNarrativeComposer {
         .toList(growable: false);
     return ThaiMirrorLifeTimelineState(
       sectionTitle: timeline.sectionTitle,
-      sectionIntro: timeline.sectionIntro,
+      sectionIntro:
+          'ดูช่วงที่ผ่านมา ช่วงปัจจุบัน และช่วงข้างหน้า เพื่อเข้าใจจังหวะชีวิตในภาพรวม',
       currentStage: _betaCurrentStage(timeline.currentStage),
       segments: timeline.segments,
       periods: periods,
       currentAnalysis: _betaCurrentAnalysis(timeline.currentAnalysis),
-      futurePreview: timeline.futurePreview,
+      futurePreview: timeline.futurePreview == null
+          ? null
+          : ThaiMirrorFuturePreviewState(
+              title: timeline.futurePreview!.title,
+              intro: 'ดูภาพรวมของช่วงถัดไป เพื่อเตรียมสิ่งสำคัญไว้ล่วงหน้า',
+              transitionLabel: timeline.futurePreview!.transitionLabel,
+              elementShiftLine: timeline.futurePreview!.elementShiftLine,
+              opportunitiesLine: timeline.futurePreview!.opportunitiesLine,
+              challengesLine: timeline.futurePreview!.challengesLine,
+            ),
       detailedReport: timeline.detailedReport,
     );
   }
@@ -414,7 +425,7 @@ abstract final class ThaiBetaNarrativeComposer {
     );
   }
 
-  static ThaiMirrorLifeDomainBlock _ageAppropriateDomain({
+  static ThaiMirrorLifeDomainBlock? _ageAppropriateDomain({
     required ThaiMirrorLifePeriodState period,
     required ThaiMirrorLifeDomainBlock domain,
     required int startAge,
@@ -453,20 +464,10 @@ abstract final class ThaiBetaNarrativeComposer {
         _ => null,
       };
     } else if (startAge >= 69) {
-      body = switch (domain.title) {
-        'การงาน' =>
-          'ใน${period.phaseName} เรื่องงานหมายถึงการเลือกบทบาทและกิจกรรมที่ยังมีความหมาย '
-              'พร้อมจัดแรงให้พอดีกับชีวิตประจำวัน แกน${period.keyword}จึงหมายถึงการทำสิ่งที่เลือกแล้วให้ต่อเนื่อง',
-        'การเงิน' =>
-          'ใน${period.phaseName} เรื่องเงินเน้นการดูแลสิ่งที่มี '
-              'และพิจารณาภาระใหม่ให้สอดคล้องกับความมั่นคงที่ต้องการ โดยใช้${period.keyword}เป็นกรอบทบทวนทางเลือก',
-        'ความรัก' || 'ความสัมพันธ์' =>
-          'ความสัมพันธ์ใน${period.phaseName}ให้ความสำคัญกับการดูแลกัน '
-              'การบอกความต้องการ และการรักษาพื้นที่ที่สบายใจ พร้อมอ่าน${period.keyword}ผ่านการกระทำที่ทำร่วมกันได้จริง',
-        'สุขภาพ' =>
-          'พลังใน${period.phaseName}เน้นการจัดกิจวัตรและการพักให้เหมาะกับแรงที่มี ไม่ให้แรงผลักจาก${period.keyword}กลายเป็นการฝืนตัวเอง',
-        _ => null,
-      };
+      // The source evidence does not distinguish these late-age domains beyond
+      // a period/theme label. Omit them rather than manufacture four generic
+      // paragraphs that differ only by the label.
+      return null;
     }
     final baseBody = body ?? domain.body;
     return ThaiMirrorLifeDomainBlock(
@@ -488,15 +489,34 @@ abstract final class ThaiBetaNarrativeComposer {
   ) {
     if (prediction == null) return null;
     final windows = <PredictionWindowCardModel>[];
+    final currentBodies = <String, String>{
+      if (prediction.windows.isNotEmpty)
+        for (final domain in prediction.windows.first.domains)
+          domain.title: domain.body,
+    };
     for (var i = 0; i < prediction.windows.length; i++) {
       final window = prediction.windows[i];
       final domains = window.domains
-          .map(
-            (domain) => PredictionDomainModel(
+          .map((domain) {
+            final body = _forecastBody(
+              domain.title,
+              domain.body,
+              i,
+              currentBody: currentBodies[domain.title],
+            );
+            final caution = i == 0
+                ? _riskSignal(domain.caution)
+                : _forecastCheckpoint(domain.title, i);
+            return PredictionDomainModel(
               title: domain.title,
-              body: _forecastBody(domain.title, domain.body, i),
-              caution: _forecastCaution(domain.caution, i),
-            ),
+              body: body,
+              caution: caution,
+            );
+          })
+          .where(
+            (domain) =>
+                domain.body.trim().isNotEmpty ||
+                domain.caution.trim().isNotEmpty,
           )
           .toList(growable: false);
       windows.add(
@@ -508,29 +528,20 @@ abstract final class ThaiBetaNarrativeComposer {
             window.summary,
             window.topOpportunity,
           ),
-          topRisk: window.topRisk,
+          topRisk: _specificTopRisk(window.topRisk),
           confidenceLabel: switch (window.confidenceLevel) {
             _ when i == 0 => 'เทียบคำอ่านช่วงปัจจุบันกับชีวิตจริงของคุณ',
             _ when i == 1 => 'ใช้กรอบ 12 เดือนนี้วางแผนและทบทวนระหว่างทาง',
             _ => 'ใช้ช่วงถัดไปเตรียมตัว โดยไม่ถือว่าเหตุการณ์ถูกกำหนดไว้แล้ว',
           },
           confidenceLevel: window.confidenceLevel,
-          why: window.why,
-          whyNow: window.whyNow,
-          whatToWatch: window.whatToWatch,
-          evidenceDetail: window.evidenceDetail
-              .replaceAll(
-                'ความสัมพันธ์กับ พื้นฐานวันเกิดของคุณ',
-                'เมื่อเทียบกับพื้นดวงของคุณ',
-              )
-              .replaceAll(
-                'ความสัมพันธ์กับพื้นฐานวันเกิดของคุณ',
-                'เมื่อเทียบกับพื้นดวงของคุณ',
-              )
-              .replaceAll(
-                'จึงปรากฏเป็นแนวโน้มด้าน',
-                'จึงทำให้เรื่องที่เด่นในช่วงนี้คือ',
-              ),
+          // Domain paragraphs already contain the consumer-facing meaning.
+          // Drop diagnostic/meta explanation instead of exposing confidence
+          // mechanics or repeating generic pressure language.
+          why: '',
+          whyNow: '',
+          whatToWatch: '',
+          evidenceDetail: '',
           domains: domains,
         ),
       );
@@ -546,7 +557,12 @@ abstract final class ThaiBetaNarrativeComposer {
     );
   }
 
-  static String _forecastBody(String title, String body, int windowIndex) {
+  static String _forecastBody(
+    String title,
+    String body,
+    int windowIndex, {
+    String? currentBody,
+  }) {
     final stripped = body
         .replaceFirst(RegExp(r'^ช่วงนี้\s*'), '')
         .replaceFirst(RegExp(r'^ใน 12 เดือนข้างหน้า\s*'), '')
@@ -554,7 +570,12 @@ abstract final class ThaiBetaNarrativeComposer {
     return switch (windowIndex) {
       0 => 'สำหรับตอนนี้ $stripped',
       1 => _nextYearAction(title),
-      _ => 'เมื่อเข้าสู่ช่วงชีวิตถัดไป $stripped',
+      _ =>
+        currentBody != null &&
+                ThaiBetaNarrativeFormatting.normalizedKey(currentBody) ==
+                    ThaiBetaNarrativeFormatting.normalizedKey(body)
+            ? ''
+            : 'เมื่อเข้าสู่ช่วงชีวิตถัดไป $stripped',
     };
   }
 
@@ -574,13 +595,35 @@ abstract final class ThaiBetaNarrativeComposer {
     _ => 'ในปีข้างหน้า ใช้สิ่งที่เกิดขึ้นจริงเป็นจุดทบทวนก่อนตัดสินใจเพิ่ม',
   };
 
-  static String _forecastCaution(String caution, int windowIndex) {
-    final base = caution.replaceAll(' โดยเฉพาะเรื่องแรงกดดัน', '');
-    final risk = base.replaceFirst('จุดที่ต้องระวังคือ', '');
-    return switch (windowIndex) {
-      0 => base,
-      1 => 'หาก$riskเกิดซ้ำ ควรหยุดทบทวนทางเลือกก่อนเดินหน้าต่อ',
-      _ => 'เตรียมรับมือเรื่อง$riskโดยไม่ถือว่าเป็นเหตุการณ์ที่ต้องเกิดแน่นอน',
+  static String _riskSignal(String caution) {
+    final risk = caution
+        .replaceAll(' โดยเฉพาะเรื่องแรงกดดัน', '')
+        .replaceAll(RegExp(r'\s*ข้อความนี้ไม่ใช่คำวินิจฉัยทางการแพทย์.*$'), '')
+        .trim();
+    return risk.contains('แรงกดดัน') && risk.length < 40 ? '' : risk;
+  }
+
+  static String _specificTopRisk(String risk) {
+    final value = _riskSignal(risk);
+    return value.contains('แรงกดดัน') ? '' : value;
+  }
+
+  static String _forecastCheckpoint(String title, int windowIndex) {
+    if (windowIndex == 1) {
+      return switch (title) {
+        'การงาน' => 'ทบทวนเมื่อภาระใหม่เริ่มเบียดเวลาของงานหลัก',
+        'การเงิน' => 'ทบทวนเมื่อรายจ่ายประจำหรือภาระผูกพันเพิ่มขึ้น',
+        'ความรัก' => 'ทบทวนเมื่อคำพูดและการกระทำเริ่มไม่สอดคล้องกัน',
+        'สุขภาพ' => 'ทบทวนเมื่อเวลาพักไม่พอกับภาระที่เพิ่มขึ้น',
+        _ => '',
+      };
+    }
+    return switch (title) {
+      'การงาน' => 'เตรียมทักษะและขอบเขตงานก่อนรับบทบาทระยะยาว',
+      'การเงิน' => 'เตรียมเงินสำรองก่อนเพิ่มภาระระยะยาว',
+      'ความรัก' => 'เตรียมคุยเป้าหมายร่วมกันก่อนตัดสินใจระยะยาว',
+      'สุขภาพ' => 'เตรียมกิจวัตรพักฟื้นที่ทำต่อเนื่องได้ในระยะยาว',
+      _ => '',
     };
   }
 
@@ -589,13 +632,18 @@ abstract final class ThaiBetaNarrativeComposer {
     final opportunityKey = ThaiBetaNarrativeFormatting.normalizedKey(
       opportunity,
     );
-    const topics = ['การงาน', 'การเงิน', 'ความรัก', 'สุขภาพ'];
+    const topics = [
+      'การงาน',
+      'การเงิน',
+      'ความรัก',
+      'สุขภาพ',
+      'การเติบโต',
+      'โอกาส',
+    ];
     final sameSupportedTopic = topics.any(
       (topic) => summaryKey.contains(topic) && opportunityKey.contains(topic),
     );
-    if (sameSupportedTopic &&
-        summaryKey.contains('แรงหนุน') &&
-        opportunityKey.contains('แรงหนุน')) {
+    if (sameSupportedTopic) {
       return '';
     }
     return opportunity;

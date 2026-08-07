@@ -886,7 +886,7 @@ class ThaiBirthProfileCoreReading {
         target: methodologyClaims,
         text:
             'คำอ่านข้างต้นจัดลำดับจากแนวโน้มที่มีน้ำหนักเด่นในผลวิเคราะห์ '
-            'โดยไม่นำชื่อหมวดภายในมาแสดงแทนคำอธิบายสำหรับผู้อ่าน',
+            'แต่ละส่วนจึงอธิบายความหมายที่เกี่ยวกับชีวิตของคุณโดยตรง',
         semanticKey: 'methodology:top-themes',
         atoms: [
           for (final theme in mirror.topThemes.take(3))

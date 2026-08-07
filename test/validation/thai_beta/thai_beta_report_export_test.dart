@@ -237,11 +237,23 @@ void main() {
         }
 
         expect(curatedEntries.toSet(), hasLength(curatedEntries.length));
-        expect(curatedEntries, hasLength(sourceCount));
+        expect(curatedEntries.length, lessThan(sourceCount));
         expect(
           curated.periods
-              .where((period) => !period.isCurrent)
+              .where((period) {
+                final start = int.parse(period.ageLabel.split('–').first);
+                return !period.isCurrent && start < 69;
+              })
               .every((period) => period.lifeDomains.length == 4),
+          isTrue,
+        );
+        expect(
+          curated.periods
+              .where((period) {
+                final start = int.parse(period.ageLabel.split('–').first);
+                return start >= 69;
+              })
+              .every((period) => period.lifeDomains.isEmpty),
           isTrue,
         );
         expect(
@@ -310,6 +322,41 @@ void main() {
 
   group('Real PDF exporter path regression', () {
     test(
+      'pagination units keep period, domain, and first paragraph together',
+      () {
+        const section = ThaiBetaReportExportSection(
+          title: 'ช่วงทดสอบ 1982-06-05',
+          kind: ThaiBetaReportExportSectionKind.timeline,
+          paragraphs: [
+            'บริบทของช่วง',
+            'การงาน',
+            'แนวโน้มงานที่มีหลักฐานรองรับ',
+            'การเงิน',
+            'แนวโน้มเงินที่มีหลักฐานรองรับ',
+            'ความรัก',
+            'แนวโน้มความสัมพันธ์ที่มีหลักฐานรองรับ',
+            'สุขภาพ',
+            'แนวโน้มสุขภาวะที่มีหลักฐานรองรับ',
+          ],
+        );
+
+        final units = ThaiBetaReportPdfExporter.debugPaginationUnitsForTest(
+          section,
+        );
+        expect(units, hasLength(4));
+        expect(units.first, contains('ช่วงทดสอบ 1982-06-05'));
+        expect(units.first, contains('การงาน'));
+        expect(units.first, contains('แนวโน้มงาน'));
+        expect(units[1], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nการเงิน'));
+        expect(units[2], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nความรัก'));
+        expect(units[3], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nสุขภาพ'));
+        for (final unit in units) {
+          expect(unit, isNot(matches(RegExp(r'1982-06-0\s*\n\s*5'))));
+        }
+      },
+    );
+
+    test(
       'download-button path polishes polluted document before PDF text',
       () async {
         const polluted = ThaiBetaReportExportDocument(
@@ -376,6 +423,15 @@ void main() {
           ThaiBetaReportExportSafety.containsForbidden(rendered.plainText),
           isFalse,
         );
+        for (final forbidden in [
+          'หากความล้าสะสม ข้อความนี้ไม่ใช่คำวินิจฉัยทางการแพทย์เกิดซ้ำ',
+          'เตรียมรับมือเรื่องความล้าสะสม ข้อความนี้ไม่ใช่คำวินิจฉัยทางการแพทย์',
+          'กดดูรายละเอียด',
+          'เนื้อหาจากรายงานที่มีอยู่แล้ว ไม่สร้างคำทำนายใหม่',
+          'โดยไม่นำชื่อหมวดภายใน',
+        ]) {
+          expect(rendered.plainText, isNot(contains(forbidden)));
+        }
       },
     );
   });
