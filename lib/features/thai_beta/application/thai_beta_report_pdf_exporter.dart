@@ -144,10 +144,6 @@ abstract final class ThaiBetaReportPdfExporter {
             final isTimeline =
                 section.kind == ThaiBetaReportExportSectionKind.timeline;
 
-            if (i > 0 && isDisclaimer) {
-              widgets.add(pw.NewPage());
-            }
-
             if (isTimeline) {
               final firstParagraph = section.paragraphs.isEmpty
                   ? null
@@ -162,15 +158,17 @@ abstract final class ThaiBetaReportPdfExporter {
                     borderRadius: pw.BorderRadius.circular(6),
                     border: pw.Border.all(color: PdfColors.grey300, width: 0.6),
                   ),
-                  child: pw.Column(
-                    crossAxisAlignment: pw.CrossAxisAlignment.start,
-                    children: [
-                      pw.Text(section.title, style: sectionStyle),
-                      if (firstParagraph != null) ...[
-                        pw.SizedBox(height: 8),
-                        pw.Text(firstParagraph, style: baseStyle),
+                  child: pw.RichText(
+                    text: pw.TextSpan(
+                      children: [
+                        pw.TextSpan(text: section.title, style: sectionStyle),
+                        if (firstParagraph != null)
+                          pw.TextSpan(
+                            text: '\n\n$firstParagraph',
+                            style: baseStyle,
+                          ),
                       ],
-                    ],
+                    ),
                   ),
                 ),
               );
@@ -226,15 +224,17 @@ abstract final class ThaiBetaReportPdfExporter {
                 ? null
                 : section.paragraphs.first;
             widgets.add(
-              pw.Column(
-                crossAxisAlignment: pw.CrossAxisAlignment.start,
-                children: [
-                  pw.Text(section.title, style: sectionStyle),
-                  if (firstParagraph != null) ...[
-                    pw.SizedBox(height: 8),
-                    pw.Text(firstParagraph, style: baseStyle),
+              pw.RichText(
+                text: pw.TextSpan(
+                  children: [
+                    pw.TextSpan(text: section.title, style: sectionStyle),
+                    if (firstParagraph != null)
+                      pw.TextSpan(
+                        text: '\n\n$firstParagraph',
+                        style: baseStyle,
+                      ),
                   ],
-                ],
+                ),
               ),
             );
             for (final paragraph in section.paragraphs.skip(1)) {
