@@ -270,7 +270,10 @@ abstract final class ThaiBetaNarrativeComposer {
               domain: domain,
               startAge: startAge,
             );
-            final semanticBody = ageAppropriate.body.replaceAll(
+            final consumerBody = _stripRepeatedMedicalDisclaimer(
+              ageAppropriate.body,
+            );
+            final semanticBody = consumerBody.replaceAll(
               'ใน${period.phaseName}',
               'ในช่วงชีวิตนี้',
             );
@@ -278,13 +281,19 @@ abstract final class ThaiBetaNarrativeComposer {
                 '$bucket|${domain.title}|'
                 '${ThaiBetaNarrativeFormatting.normalizedKey(semanticBody)}';
             if (used.add(key)) {
-              domains.add(ageAppropriate);
+              domains.add(
+                ThaiMirrorLifeDomainBlock(
+                  title: ageAppropriate.title,
+                  body: consumerBody,
+                  evidenceKeys: ageAppropriate.evidenceKeys,
+                ),
+              );
               continue;
             }
             domains.add(
               ThaiMirrorLifeDomainBlock(
                 title: domain.title,
-                body: '${ageAppropriate.body} ${_periodDifference(period)}',
+                body: '$consumerBody ${_periodDifference(period)}',
                 evidenceKeys: [
                   ...domain.evidenceKeys,
                   'ThaiMirrorLifePeriodState.summary',
@@ -334,6 +343,18 @@ abstract final class ThaiBetaNarrativeComposer {
       detailedReport: timeline.detailedReport,
     );
   }
+
+  static String _stripRepeatedMedicalDisclaimer(String body) => body
+      .replaceAll(
+        ' ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำวินิจฉัยทางการแพทย์',
+        '',
+      )
+      .replaceAll(
+        RegExp(
+          r' ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำบอกจากแพทย์(?: หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ)?',
+        ),
+        '',
+      );
 
   static String stagePositionForProgress(double progress) => progress < 0.34
       ? 'ช่วงต้น'

@@ -58,6 +58,13 @@ void main() {
     ]) {
       expect(text, isNot(contains(forbidden)), reason: forbidden);
     }
+    expect(
+      RegExp(
+        'ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ',
+      ).allMatches(text).length,
+      1,
+      reason: 'medical guidance belongs with the current-period context only',
+    );
   });
 
   test('life-period position wording agrees at every boundary', () {
