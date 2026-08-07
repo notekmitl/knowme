@@ -2,14 +2,31 @@
 
 ## Status
 
-Draft PR #86 Product Acceptance candidate at source-tested commit `67ed0f0`.
+Draft PR #86 re-acceptance candidate at source-tested commit
+`a49cf70334b9356d1f83ed5a3033de46085812ea`. The first Product Acceptance did
+not pass; this revision addresses the recorded language, semantic separation,
+age suitability, PDF pagination and capture-harness defects.
 This work changes deterministic Thai Beta
 narrative composition only. It is not merged or deployed and makes no claim of
 scientific accuracy.
 
-The Required scope passes 1,507/1,507 with Local Gates. GitHub created no
-checks/workflow runs. The known/no-time Web/PDF packet is awaiting owner voice
-review; approval, Merge and Deploy are explicitly outside this task.
+The Required scope passes 1,510/1,510 with Local Gates. GitHub created no
+checks/workflow runs. The reworked known/no-time Web/PDF packet is awaiting
+owner voice review; this status is not a Product Acceptance PASS. Approval,
+Merge and Deploy are explicitly outside this task.
+
+## Re-acceptance additions
+
+- Position wording uses one deterministic progress contract at start, early,
+  middle, late, final year and transition boundaries.
+- Eight period narratives use age-aware facts; current, 12-month and next-life
+  windows have separate state, action and long-range purposes.
+- Repeated medical guidance appears with current context rather than every age
+  period; the final disclaimer remains.
+- PDF headings stay with their first paragraph and sparse forced final pages
+  are removed without reducing typography.
+- Acceptance export/Desktop/Mobile commands exit normally, and Windows capture
+  loads a Thai font so the delivered images are readable.
 
 ## Reader-facing contract
 

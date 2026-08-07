@@ -1,6 +1,6 @@
 # KnowMe Developer Handoff
 
-## Active Draft: Thai Consumer Narrative Voice V1
+## Active Draft: Thai Consumer Narrative Voice V1 re-acceptance
 
 Branch `codex/thai-consumer-narrative-voice-v1` is a narrative-only Product
 Acceptance candidate based on main `4f6aa81fdb8be1d254f21dc3816104cef3252f77`.
@@ -14,17 +14,23 @@ Do not conflate the two Chiang Mai fixtures: the user-reviewed `00:03` input
 correctly produces Aquarius `9°24′`; the historical `00:35` regression input
 remains Aquarius `19°19′`. Stored time, timezone, coordinates, Engine result,
 and export are asserted end to end. Unknown-time keeps no clock value and never
-uses `12:00`. The task must stop at Draft PR and wait for owner review of the
-actual Web/PDF Product Acceptance Packet; do not merge or deploy.
+uses `12:00`. The first Product Acceptance failed on contradictory stage
+wording, repeated boilerplate, current/12-month duplication, age-inappropriate
+copy, PDF pagination and a timing-out screenshot harness. Those defects now
+have deterministic regressions, but the task must still stop at Draft PR and
+wait for owner review of the actual Web/PDF packet; do not merge or deploy.
 
-Source-tested commit `67ed0f0` passed the Required scope 1,507/1,507 plus
+Source-tested commit `a49cf70334b9356d1f83ed5a3033de46085812ea` passed the Required scope 1,510/1,510 plus
 Analyze, Gate self-test, PreCommit and PostCommit. Draft PR #86 is OPEN/Draft,
 MERGEABLE/CLEAN at https://github.com/notekmitl/knowme/pull/86. GitHub created
-no checks/workflow runs, so do not call this CI PASS. The 46-file packet and
+no checks/workflow runs, so do not call this CI PASS. The new 40-file packet and
 verified ZIP are at
-`C:\Users\USER\Documents\Knowme\product-acceptance\thai-consumer-narrative-voice-v1-67ed0f0`
+`C:\Users\USER\Documents\Knowme\product-acceptance\thai-consumer-narrative-voice-v1-rework-a49cf70`
 and the matching `.zip`; ZIP SHA-256 is
-`4457F1295C68235392C56A330C912679D983ED463DF2528592DD7B3AD57A768D`.
+`16df45969ccd4c77421de52c80259900a5cc18783cdc4aed084128f0569de8a9`.
+Known/Unknown PDFs are 11 pages each and all 22 renders were inspected. The
+export/Desktop/Mobile harness commands exit 0 without timeout. Product
+Acceptance remains pending owner re-review.
 
 ## Released: Thai Beta Exemplar Narrative V1
 
