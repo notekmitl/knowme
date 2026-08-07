@@ -1,7 +1,7 @@
 import 'dart:io';
-import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience.dart';
@@ -81,12 +81,24 @@ Future<void> _capture(
   required Size size,
   required File file,
 }) async {
+  const acceptanceFontFamily = 'KnowMeAcceptanceThai';
+  final thaiFont = File(r'C:\Windows\Fonts\tahoma.ttf');
+  if (thaiFont.existsSync()) {
+    final fontBytes = thaiFont.readAsBytesSync();
+    await (FontLoader(acceptanceFontFamily)..addFont(
+          Future<ByteData>.value(ByteData.sublistView(fontBytes)),
+        ))
+        .load();
+  }
   await tester.binding.setSurfaceSize(size);
   final repaintKey = GlobalKey();
   await tester.pumpWidget(
     RepaintBoundary(
       key: repaintKey,
       child: MaterialApp(
+        theme: ThemeData(
+          fontFamily: thaiFont.existsSync() ? acceptanceFontFamily : null,
+        ),
         home: ThaiBetaReportPage(
           analysis: analysis,
           audienceOverride: const ThaiBetaEvidenceBadgeAudience.anonymous(),
