@@ -681,15 +681,12 @@ void main() {
         .toList(growable: false);
 
     expect(closing.claims, hasLength(1));
-    expect(
-      closing.claims.single.text,
-      contains('คำชี้หลักของพื้นดวงนี้คือให้ใช้'),
-    );
+    expect(closing.claims.single.text, contains('จุดแข็งที่ควรใช้เป็นแกนคือ'));
     expect(
       closing.claims.single.text,
       contains('เมื่อใช้จุดแข็งนี้มากเกินไปอาจกลายเป็น'),
     );
-    expect(closing.claims.single.text, contains('ทางที่เหมาะกว่าคือ'));
+    expect(closing.claims.single.text, contains('ลอง'));
     expect(atoms.map((atom) => atom.kind).toSet(), {
       ThaiBirthProfileCoreAtomKind.strengthTheme,
       ThaiBirthProfileCoreAtomKind.riskTheme,

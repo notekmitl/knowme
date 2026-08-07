@@ -3,6 +3,7 @@ library;
 
 import 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mirror_theme_phrases.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_mirror_consumer_view_state.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/prediction/prediction_section_model.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/thai_mirror_life_timeline_state.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 
@@ -220,7 +221,7 @@ abstract final class ThaiBetaNarrativeComposer {
           .map(ThaiBetaNarrativeFormatting.normalize)
           .toList(),
       lifeTimeline: _differentiateTimelineDomains(source.lifeTimeline),
-      futurePrediction: source.futurePrediction,
+      futurePrediction: _polishPrediction(source.futurePrediction),
     );
 
     return ThaiBetaNarrativeResult(view: view, trace: trace);
@@ -261,6 +262,7 @@ abstract final class ThaiBetaNarrativeComposer {
         .map((period) {
           if (period.isCurrent || period.lifeDomains.isEmpty) return period;
           final bucket = period.isPast ? 'past' : 'future';
+          final startAge = int.tryParse(period.ageLabel.split('–').first) ?? 0;
           final domains = <ThaiMirrorLifeDomainBlock>[];
           for (final domain in period.lifeDomains) {
             final semanticBody = domain.body.replaceAll(
@@ -270,16 +272,19 @@ abstract final class ThaiBetaNarrativeComposer {
             final key =
                 '$bucket|${domain.title}|'
                 '${ThaiBetaNarrativeFormatting.normalizedKey(semanticBody)}';
+            final ageAppropriate = _ageAppropriateDomain(
+              period: period,
+              domain: domain,
+              startAge: startAge,
+            );
             if (used.add(key)) {
-              domains.add(domain);
+              domains.add(ageAppropriate);
               continue;
             }
             domains.add(
               ThaiMirrorLifeDomainBlock(
                 title: domain.title,
-                body:
-                    '${domain.body} เมื่อดูจังหวะนี้ร่วมกัน ${period.summary} '
-                    '${period.whatChanges}',
+                body: '${ageAppropriate.body} ${_periodDifference(period)}',
                 evidenceKeys: [
                   ...domain.evidenceKeys,
                   'ThaiMirrorLifePeriodState.summary',
@@ -328,6 +333,133 @@ abstract final class ThaiBetaNarrativeComposer {
       futurePreview: timeline.futurePreview,
       detailedReport: timeline.detailedReport,
     );
+  }
+
+  static ThaiMirrorLifeDomainBlock _ageAppropriateDomain({
+    required ThaiMirrorLifePeriodState period,
+    required ThaiMirrorLifeDomainBlock domain,
+    required int startAge,
+  }) {
+    String? body;
+    if (startAge < 11) {
+      body = switch (domain.title) {
+        'การงาน' =>
+          'ใน${period.phaseName} เรื่องงานหมายถึงการฝึกทำหน้าที่เล็ก ๆ การเรียนรู้กติกา '
+              'และการได้รับกำลังใจเมื่อพยายาม',
+        'การเงิน' =>
+          'ใน${period.phaseName} เรื่องเงินหมายถึงการเริ่มเข้าใจคุณค่าของสิ่งของ '
+              'การรอคอย และการรู้ว่าบางอย่างต้องเก็บไว้ใช้ภายหลัง',
+        'ความรัก' || 'ความสัมพันธ์' =>
+          'ความสัมพันธ์ใน${period.phaseName}อยู่ที่ความไว้ใจในครอบครัวและคนใกล้ตัว '
+              'รวมถึงการเรียนรู้ว่าจะบอกความต้องการของตัวเองอย่างไร',
+        'สุขภาพ' =>
+          'พลังใน${period.phaseName}ควรอ่านผ่านการกิน นอน เล่น และพักให้เป็นเวลา '
+              'ไม่ใช่ความกังวลเรื่องภาระแบบผู้ใหญ่',
+        _ => null,
+      };
+    } else if (startAge >= 84 && domain.title == 'การงาน') {
+      body =
+          'ใน${period.phaseName} เรื่องงานหมายถึงบทบาทและสิ่งที่คุณยังอยากทำต่อ '
+          'มากกว่าการเพิ่มหน้าที่ใหม่ จังหวะ${period.keyword}ชวนให้เลือกสิ่งที่มีความหมาย'
+          'และพอดีกับแรงที่มี';
+    }
+    final baseBody = body ?? domain.body;
+    return ThaiMirrorLifeDomainBlock(
+      title: domain.title,
+      body: '$baseBody บริบทเฉพาะของช่วงนี้คือจังหวะ${period.keyword}',
+      evidenceKeys: domain.evidenceKeys,
+    );
+  }
+
+  static String _periodDifference(ThaiMirrorLifePeriodState period) {
+    final change = period.whatChanges.trim();
+    if (change.isNotEmpty) return 'ช่วงนี้ต่างจากช่วงอื่นตรงที่$change';
+    final summary = period.summary.trim();
+    return summary.isEmpty ? '' : 'ภาพของช่วงนี้คือ$summary';
+  }
+
+  static PredictionSectionModel? _polishPrediction(
+    PredictionSectionModel? prediction,
+  ) {
+    if (prediction == null) return null;
+    final windows = <PredictionWindowCardModel>[];
+    for (var i = 0; i < prediction.windows.length; i++) {
+      final window = prediction.windows[i];
+      final domains = window.domains
+          .map(
+            (domain) => PredictionDomainModel(
+              title: domain.title,
+              body: _forecastBody(domain.body, i),
+              caution: _forecastCaution(domain.caution, i),
+            ),
+          )
+          .toList(growable: false);
+      windows.add(
+        PredictionWindowCardModel(
+          windowLabel: window.windowLabel,
+          timeframeLabel: window.timeframeLabel,
+          summary: window.summary,
+          topOpportunity: window.topOpportunity,
+          topRisk: window.topRisk,
+          confidenceLabel: switch (window.confidenceLevel) {
+            3 =>
+              'ข้อมูลหลายด้านชี้ไปทางเดียวกัน จึงอ่านทิศทางนี้ได้ค่อนข้างชัด',
+            2 => 'ข้อมูลพอให้เห็นทิศทาง แต่ยังควรเทียบกับสิ่งที่เกิดขึ้นจริง',
+            _ => 'ข้อมูลยังให้ได้เพียงภาพกว้าง และสถานการณ์จริงอาจเปลี่ยนได้',
+          },
+          confidenceLevel: window.confidenceLevel,
+          why: window.why,
+          whyNow: window.whyNow,
+          whatToWatch: window.whatToWatch,
+          evidenceDetail: window.evidenceDetail
+              .replaceAll(
+                'ความสัมพันธ์กับ พื้นฐานวันเกิดของคุณ',
+                'เมื่อเทียบกับพื้นดวงของคุณ',
+              )
+              .replaceAll(
+                'ความสัมพันธ์กับพื้นฐานวันเกิดของคุณ',
+                'เมื่อเทียบกับพื้นดวงของคุณ',
+              )
+              .replaceAll(
+                'จึงปรากฏเป็นแนวโน้มด้าน',
+                'จึงทำให้เรื่องที่เด่นในช่วงนี้คือ',
+              ),
+          domains: domains,
+        ),
+      );
+    }
+    return PredictionSectionModel(
+      sectionTitle: prediction.sectionTitle,
+      sectionIntro: prediction.sectionIntro,
+      windows: List.unmodifiable(windows),
+      transitionLine: prediction.transitionLine,
+      closingAdvice: prediction.closingAdvice,
+      detailedSectionIntro: prediction.detailedSectionIntro,
+      detailedClosingAdvice: prediction.detailedClosingAdvice,
+    );
+  }
+
+  static String _forecastBody(String body, int windowIndex) {
+    final stripped = body
+        .replaceFirst(RegExp(r'^ช่วงนี้\s*'), '')
+        .replaceFirst(RegExp(r'^ใน 12 เดือนข้างหน้า\s*'), '')
+        .replaceFirst(RegExp(r'^เมื่อเข้าสู่ช่วงชีวิตถัดไป\s*'), '');
+    return switch (windowIndex) {
+      0 => 'สำหรับตอนนี้ $stripped',
+      1 =>
+        'มองไปในปีข้างหน้า หากจังหวะเดิมต่อเนื่อง $stripped '
+            'ควรทบทวนแผนเป็นระยะตามสิ่งที่เกิดขึ้นจริง',
+      _ => 'เมื่อเข้าสู่ช่วงชีวิตถัดไป $stripped',
+    };
+  }
+
+  static String _forecastCaution(String caution, int windowIndex) {
+    final base = caution.replaceAll(' โดยเฉพาะเรื่องแรงกดดัน', '');
+    return switch (windowIndex) {
+      0 => '$base สังเกตสัญญาณนี้จากสิ่งที่เกิดขึ้นในแต่ละวัน',
+      1 => '$base กำหนดจุดทบทวนไว้ล่วงหน้า ไม่รอให้ปัญหาสะสม',
+      _ => '$base ใช้เป็นเรื่องที่ควรเตรียมตัว ไม่ใช่ข้อสรุปล่วงหน้า',
+    };
   }
 
   static ({

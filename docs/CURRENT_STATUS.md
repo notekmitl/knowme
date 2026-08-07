@@ -1,5 +1,15 @@
 # KnowMe Current Status
 
+> **Thai Consumer Narrative Voice V1 — Draft Product Acceptance candidate
+> (2026-08-07):** Work on `codex/thai-consumer-narrative-voice-v1` improves
+> deterministic Thai Beta consumer wording without changing Engine, Canon,
+> Birth Normalization, evidence meaning, Timeline ranges, routes, flags, or
+> Production. Correctness tests explicitly separate the user-review input
+> `1982-06-06 00:03` Chiang Mai (Aquarius `9°24′`) from the historical `00:35`
+> regression fixture (Aquarius `19°19′`); Engine/Web/PDF agree for each exact
+> input and unknown-time does not substitute noon. This remains unmerged and
+> undeployed pending Product Acceptance.
+
 > **Thai Beta Exemplar Narrative V1 Production release verified (2026-08-06):**
 > The controlled stack merged in order through PR #81 (`7047fd9`), PR #82
 > (`04f5d7e`), PR #84 (`ee04ded`), and PR #83 (`7dd04f9`). Firebase Hosting

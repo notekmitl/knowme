@@ -267,7 +267,7 @@ void main() {
         final exportText = ThaiBetaReportExportDocument.fromAnalysis(
           analysis,
         ).fullPlainText;
-        expect(exportText, contains('เมื่อดูจังหวะนี้ร่วมกัน'));
+        expect(exportText, contains('บริบทเฉพาะของช่วงนี้คือจังหวะ'));
       },
     );
 

@@ -1,5 +1,22 @@
 # KnowMe Developer Handoff
 
+## Active Draft: Thai Consumer Narrative Voice V1
+
+Branch `codex/thai-consumer-narrative-voice-v1` is a narrative-only Product
+Acceptance candidate based on main `4f6aa81fdb8be1d254f21dc3816104cef3252f77`.
+It replaces stiff/repeated consumer phrasing, separates current-period and
+12-month guidance, and uses age-appropriate period language while retaining
+the existing deterministic evidence and Web/PDF contracts. No Engine, Canon,
+Birth Normalization, province, evidence, Timeline, flag, route, Firebase, or
+Production behavior is changed.
+
+Do not conflate the two Chiang Mai fixtures: the user-reviewed `00:03` input
+correctly produces Aquarius `9°24′`; the historical `00:35` regression input
+remains Aquarius `19°19′`. Stored time, timezone, coordinates, Engine result,
+and export are asserted end to end. Unknown-time keeps no clock value and never
+uses `12:00`. The task must stop at Draft PR and wait for owner review of the
+actual Web/PDF Product Acceptance Packet; do not merge or deploy.
+
 ## Released: Thai Beta Exemplar Narrative V1
 
 **Production closure (2026-08-06):** PR #81, #82, #84, and #83 are merged in
