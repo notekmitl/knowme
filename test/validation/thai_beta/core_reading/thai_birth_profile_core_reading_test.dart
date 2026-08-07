@@ -686,7 +686,7 @@ void main() {
       closing.claims.single.text,
       contains('เมื่อใช้จุดแข็งนี้มากเกินไปอาจกลายเป็น'),
     );
-    expect(closing.claims.single.text, contains('ลอง'));
+    expect(closing.claims.single.text, contains('แนวทางที่เหมาะ'));
     expect(atoms.map((atom) => atom.kind).toSet(), {
       ThaiBirthProfileCoreAtomKind.strengthTheme,
       ThaiBirthProfileCoreAtomKind.riskTheme,

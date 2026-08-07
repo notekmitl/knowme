@@ -24,3 +24,12 @@ Web/PDF ต้องใช้ shared document เดียวกัน, output �
 Product Acceptance ต้องมี known/no-time Web/PDF, before/after, Desktop/Mobile,
 PDF renders ทุกหน้า และผล tests/gates จริงจาก source-tested commit ห้าม Merge
 หรือ Deploy
+
+## Product Acceptance rework
+
+Product Acceptance รอบแรกไม่ผ่านเพราะข้อความตำแหน่งในช่วงชีวิตขัดกัน,
+ภาษาสำเร็จรูปซ้ำ, current/12-month ใกล้เคียงกันเกินไป, ข้อความบางช่วงไม่เหมาะกับวัย,
+PDF มี orphan headings และ acceptance capture process ค้างจาก test-only timer
+รอบแก้นี้ต้องแก้ที่ shared narrative/presentation และ PDF layout ต้นทาง,
+เพิ่ม boundary/age/semantic/pagination regressions และทำให้ artifact harness exit 0
+ตามปกติ โดยไม่เปลี่ยน Engine หรือค่าลัคนาที่รับรองแล้ว

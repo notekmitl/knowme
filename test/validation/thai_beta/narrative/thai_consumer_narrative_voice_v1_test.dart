@@ -49,8 +49,42 @@ void main() {
       'เมื่อดูจังหวะนี้ร่วมกัน',
       'ตัวฉุดสำคัญคือ',
       'ทางใช้จุดเด่นนี้ให้เกิดผลคือ',
+      'บริบทเฉพาะของช่วงนี้คือ',
+      'ภาพของช่วงนี้คือต่อไปงานและหน้าที่บังคับ',
+      'ลองการ',
+      'สังเกตสัญญาณนี้จากสิ่งที่เกิดขึ้นในแต่ละวัน',
+      'กำหนดจุดทบทวนไว้ล่วงหน้า ไม่รอให้ปัญหาสะสม',
+      'ใช้เป็นเรื่องที่ควรเตรียมตัว ไม่ใช่ข้อสรุปล่วงหน้า',
     ]) {
       expect(text, isNot(contains(forbidden)), reason: forbidden);
+    }
+  });
+
+  test('life-period position wording agrees at every boundary', () {
+    final cases = <({double progress, String expected, int remaining})>[
+      (progress: 0, expected: 'ช่วงต้น', remaining: 20),
+      (progress: 0.2, expected: 'ช่วงต้น', remaining: 16),
+      (progress: 0.5, expected: 'ช่วงกลาง', remaining: 10),
+      (progress: 0.8, expected: 'ช่วงปลาย', remaining: 4),
+      (progress: 1, expected: 'ช่วงปลาย', remaining: 0),
+    ];
+    for (final c in cases) {
+      final text = ThaiBetaNarrativeComposer.stageIntroForProgress(
+        age: 44,
+        phase: 'ช่วงทดสอบ',
+        remaining: c.remaining,
+        progress: c.progress,
+      );
+      expect(text, contains(c.expected));
+      for (final other in ['ช่วงต้น', 'ช่วงกลาง', 'ช่วงปลาย']) {
+        if (other != c.expected) expect(text, isNot(contains(other)));
+      }
+      if (c.remaining == 0) {
+        expect(text, contains('จุดเปลี่ยน'));
+        expect(text, isNot(contains('0 ปี')));
+      } else {
+        expect(text, contains('${c.remaining} ปี'));
+      }
     }
   });
 
@@ -87,6 +121,27 @@ void main() {
     final lateText = late.join('\n');
     expect(lateText, isNot(contains('บทบาทใหม่เข้ามา')));
     expect(lateText, isNot(contains('งานมีแนวโน้มขยายตัว')));
+    expect(lateText, isNot(contains('รายได้เพิ่มตามงาน')));
+    expect(lateText, isNot(contains('บังคับให้คุณจัดลำดับชีวิตใหม่')));
+  });
+
+  test('all eight periods use age-aware consumer language', () {
+    final periods = ThaiBetaNarrativeComposer.narrativeView(
+      analysis,
+    ).lifeTimeline!.periods;
+    expect(periods, hasLength(8));
+    for (final period in periods) {
+      final start = int.parse(period.ageLabel.split('–').first);
+      final text = period.lifeDomains.map((domain) => domain.body).join('\n');
+      expect(text, isNot(contains('บริบทเฉพาะของช่วงนี้คือ')));
+      if (start < 30) {
+        expect(text, isNot(contains('งานประจำ')));
+      }
+      if (start >= 69) {
+        expect(text, isNot(contains('รายได้เพิ่ม')));
+        expect(text, isNot(contains('งานมีแนวโน้มขยายตัว')));
+      }
+    }
   });
 
   test('Web narrative and PDF use the same polished document content', () {

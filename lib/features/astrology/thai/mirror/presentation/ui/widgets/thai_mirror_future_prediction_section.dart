@@ -207,12 +207,14 @@ class _WindowCardState extends State<_WindowCard> {
               color: scheme.onSurface.withValues(alpha: 0.92),
             ),
           ),
-          const SizedBox(height: 12),
-          _Line(
-            icon: Icons.check_circle_rounded,
-            color: accent,
-            text: card.topOpportunity,
-          ),
+          if (card.topOpportunity.isNotEmpty) ...[
+            const SizedBox(height: 12),
+            _Line(
+              icon: Icons.check_circle_rounded,
+              color: accent,
+              text: card.topOpportunity,
+            ),
+          ],
           const SizedBox(height: 8),
           _Line(
             icon: Icons.error_outline_rounded,

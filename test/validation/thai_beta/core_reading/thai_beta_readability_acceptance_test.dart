@@ -148,7 +148,7 @@ void main() {
             closing.claims.single.text,
             contains('เมื่อใช้จุดแข็งนี้มากเกินไปอาจกลายเป็น'),
           );
-          expect(closing.claims.single.text, contains('ลอง'));
+          expect(closing.claims.single.text, contains('แนวทางที่เหมาะ'));
         }
         if (reading.omissions.isEmpty) {
           expect(
@@ -224,7 +224,7 @@ void main() {
       closing.claims.single.text,
       contains('เมื่อใช้จุดแข็งนี้มากเกินไปอาจกลายเป็น'),
     );
-    expect(closing.claims.single.text, contains('ลอง'));
+    expect(closing.claims.single.text, contains('แนวทางที่เหมาะ'));
     expect(closing.claims.single.evidenceKeys, isNotEmpty);
     expect(
       closing.claims.single.sourceAtoms.every(

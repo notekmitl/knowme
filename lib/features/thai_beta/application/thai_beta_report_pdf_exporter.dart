@@ -144,20 +144,19 @@ abstract final class ThaiBetaReportPdfExporter {
             final isTimeline =
                 section.kind == ThaiBetaReportExportSectionKind.timeline;
 
-            if (i > 0 &&
-                (isDisclaimer ||
-                    section.title.contains('เส้นทางชีวิต') ||
-                    section.title.contains('แนวโน้ม') ||
-                    section.title.startsWith('ข้อจำกัด'))) {
+            if (i > 0 && isDisclaimer) {
               widgets.add(pw.NewPage());
             }
 
             if (isTimeline) {
+              final firstParagraph = section.paragraphs.isEmpty
+                  ? null
+                  : section.paragraphs.first;
               widgets.add(
                 pw.Container(
                   width: double.infinity,
                   padding: const pw.EdgeInsets.all(12),
-                  margin: const pw.EdgeInsets.only(bottom: 14),
+                  margin: const pw.EdgeInsets.only(bottom: 7),
                   decoration: pw.BoxDecoration(
                     color: PdfColors.grey100,
                     borderRadius: pw.BorderRadius.circular(6),
@@ -167,15 +166,33 @@ abstract final class ThaiBetaReportPdfExporter {
                     crossAxisAlignment: pw.CrossAxisAlignment.start,
                     children: [
                       pw.Text(section.title, style: sectionStyle),
-                      pw.SizedBox(height: 8),
-                      for (final paragraph in section.paragraphs) ...[
-                        pw.Text(paragraph, style: baseStyle),
-                        pw.SizedBox(height: 7),
+                      if (firstParagraph != null) ...[
+                        pw.SizedBox(height: 8),
+                        pw.Text(firstParagraph, style: baseStyle),
                       ],
                     ],
                   ),
                 ),
               );
+              for (final paragraph in section.paragraphs.skip(1)) {
+                widgets.add(
+                  pw.Container(
+                    width: double.infinity,
+                    padding: const pw.EdgeInsets.fromLTRB(12, 5, 12, 7),
+                    margin: const pw.EdgeInsets.only(bottom: 4),
+                    decoration: const pw.BoxDecoration(
+                      border: pw.Border(
+                        left: pw.BorderSide(
+                          color: PdfColors.grey300,
+                          width: 0.8,
+                        ),
+                      ),
+                    ),
+                    child: pw.Text(paragraph, style: baseStyle),
+                  ),
+                );
+              }
+              widgets.add(pw.SizedBox(height: 7));
               continue;
             }
 
@@ -205,11 +222,24 @@ abstract final class ThaiBetaReportPdfExporter {
               continue;
             }
 
-            widgets.add(pw.Text(section.title, style: sectionStyle));
-            widgets.add(pw.SizedBox(height: 8));
-            for (final paragraph in section.paragraphs) {
-              widgets.add(pw.Text(paragraph, style: baseStyle));
+            final firstParagraph = section.paragraphs.isEmpty
+                ? null
+                : section.paragraphs.first;
+            widgets.add(
+              pw.Column(
+                crossAxisAlignment: pw.CrossAxisAlignment.start,
+                children: [
+                  pw.Text(section.title, style: sectionStyle),
+                  if (firstParagraph != null) ...[
+                    pw.SizedBox(height: 8),
+                    pw.Text(firstParagraph, style: baseStyle),
+                  ],
+                ],
+              ),
+            );
+            for (final paragraph in section.paragraphs.skip(1)) {
               widgets.add(pw.SizedBox(height: 7));
+              widgets.add(pw.Text(paragraph, style: baseStyle));
             }
             widgets.add(pw.SizedBox(height: 14));
           }
