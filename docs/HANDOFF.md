@@ -1,6 +1,6 @@
 # KnowMe Developer Handoff
 
-## Active Draft: Thai Consumer Narrative Voice V1 re-acceptance
+## Active Draft: Thai Consumer Narrative Voice V1 Round 3 re-acceptance
 
 Branch `codex/thai-consumer-narrative-voice-v1` is a narrative-only Product
 Acceptance candidate based on main `4f6aa81fdb8be1d254f21dc3816104cef3252f77`.
@@ -14,22 +14,24 @@ Do not conflate the two Chiang Mai fixtures: the user-reviewed `00:03` input
 correctly produces Aquarius `9°24′`; the historical `00:35` regression input
 remains Aquarius `19°19′`. Stored time, timezone, coordinates, Engine result,
 and export are asserted end to end. Unknown-time keeps no clock value and never
-uses `12:00`. The first Product Acceptance failed on contradictory stage
-wording, repeated boilerplate, current/12-month duplication, age-inappropriate
-copy, PDF pagination and a timing-out screenshot harness. Those defects now
-have deterministic regressions, but the task must still stop at Draft PR and
-wait for owner review of the actual Web/PDF packet; do not merge or deploy.
+uses `12:00`. The second Product Acceptance additionally failed on medical
+disclaimer contamination, generic/duplicated future copy, late-age synonym
+templates, horizon role overlap, meta leakage, and PDF date/domain pagination.
+Round 3 separates risk/action/disclaimer data, omits unsupported late-age
+domains, removes meta copy, and paginates by period/domain semantic units with
+atomic date tokens. The task must still stop at Draft PR and wait for owner
+review of the actual Web/PDF packet; do not merge or deploy.
 
-Source-tested commit `a49cf70334b9356d1f83ed5a3033de46085812ea` passed the Required scope 1,510/1,510 plus
+Source-tested commit `4ceb6a4d40243f3fd24dbcb310d990ebdf34ad48` passed the Required scope 1,513/1,513 plus
 Analyze, Gate self-test, PreCommit and PostCommit. Draft PR #86 is OPEN/Draft,
 MERGEABLE/CLEAN at https://github.com/notekmitl/knowme/pull/86. GitHub created
-no checks/workflow runs, so do not call this CI PASS. The new 40-file packet and
+no checks/workflow runs, so do not call this CI PASS. The Round 3 packet and
 verified ZIP are at
-`C:\Users\USER\Documents\Knowme\product-acceptance\thai-consumer-narrative-voice-v1-rework-a49cf70`
+`C:\Users\USER\Documents\Knowme\product-acceptance\thai-consumer-narrative-voice-v1-round3-4ceb6a4`
 and the matching `.zip`; ZIP SHA-256 is
 recorded in the local-only `TASK_RESULT.md` generated after the final remote
 HEAD is known.
-Known/Unknown PDFs are 11 pages each and all 22 renders were inspected. The
+Known/Unknown PDFs are 13 pages each and all 26 renders were inspected. The
 export/Desktop/Mobile harness commands exit 0 without timeout. Product
 Acceptance remains pending owner re-review.
 

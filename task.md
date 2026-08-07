@@ -1,5 +1,14 @@
 # Task: Thai Consumer Narrative Voice V1
 
+## Product Acceptance rework — Round 3
+
+Product Acceptance รอบสองไม่ผ่านเพราะคำเตือนทางการแพทย์ถูกนำไปต่อเป็น
+risk/action, future summary/opportunity และ horizon copy ซ้ำ, ช่วงอายุ 69–108
+ใช้ synonym template, มี meta text หลุด และ PDF ตัด date/domain blocks ข้ามหน้า
+รอบสามต้องแก้ที่ shared narrative model และ PDF semantic pagination, omit
+ข้อความเมื่อหลักฐานไม่เฉพาะพอ, ตรวจ PDF จริงทุกหน้า และหยุดที่ Draft PR #86
+โดยไม่ Merge หรือ Deploy
+
 ปรับภาษารายงาน Thai Beta ให้เป็นภาษาไทยธรรมชาติ ตรง ชัด และเป็นมิตร โดยแก้
 เฉพาะ narrative composition บนข้อมูลคำนวณเดิม ไม่เปลี่ยน Engine, Canon,
 Birth Normalization, province resolver, evidence semantics, Timeline ranges,

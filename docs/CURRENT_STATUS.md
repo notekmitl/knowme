@@ -1,7 +1,7 @@
 # KnowMe Current Status
 
-> **Thai Consumer Narrative Voice V1 — re-acceptance candidate after first
-> Product Acceptance failed (2026-08-07):** Work on `codex/thai-consumer-narrative-voice-v1` improves
+> **Thai Consumer Narrative Voice V1 — Round 3 re-acceptance candidate after
+> second Product Acceptance failed (2026-08-07):** Work on `codex/thai-consumer-narrative-voice-v1` improves
 > deterministic Thai Beta consumer wording without changing Engine, Canon,
 > Birth Normalization, evidence meaning, Timeline ranges, routes, flags, or
 > Production. Correctness tests explicitly separate the user-review input
@@ -9,13 +9,13 @@
 > regression fixture (Aquarius `19°19′`); Engine/Web/PDF agree for each exact
 > input and unknown-time does not substitute noon. This remains unmerged and
 > undeployed pending owner re-acceptance. Source-tested commit
-> `a49cf70334b9356d1f83ed5a3033de46085812ea` passed 1,510/1,510 Required tests,
+> `4ceb6a4d40243f3fd24dbcb310d990ebdf34ad48` passed 1,513/1,513 Required tests,
 > Analyze, Gate self-test, PreCommit and PostCommit.
 > Draft PR #86 is OPEN/Draft and MERGEABLE/CLEAN; GitHub created no checks or
-> workflow runs. The new 40-file known/no-time packet contains readable Thai
-> Desktop/Mobile captures plus 11-page Known and 11-page Unknown PDFs; all 22
+> workflow runs. The Round 3 known/no-time packet contains readable Thai
+> Desktop/Mobile captures plus 13-page Known and 13-page Unknown PDFs; all 26
 > pages were visually checked. It is delivered outside Git at
-> `C:\Users\USER\Documents\Knowme\product-acceptance\thai-consumer-narrative-voice-v1-rework-a49cf70`
+> `C:\Users\USER\Documents\Knowme\product-acceptance\thai-consumer-narrative-voice-v1-round3-4ceb6a4`
 > and awaits owner review. This is not a Product Acceptance PASS.
 
 > **Thai Beta Exemplar Narrative V1 Production release verified (2026-08-06):**
