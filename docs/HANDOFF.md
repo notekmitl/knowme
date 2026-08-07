@@ -27,7 +27,8 @@ no checks/workflow runs, so do not call this CI PASS. The new 40-file packet and
 verified ZIP are at
 `C:\Users\USER\Documents\Knowme\product-acceptance\thai-consumer-narrative-voice-v1-rework-a49cf70`
 and the matching `.zip`; ZIP SHA-256 is
-`16df45969ccd4c77421de52c80259900a5cc18783cdc4aed084128f0569de8a9`.
+recorded in the local-only `TASK_RESULT.md` generated after the final remote
+HEAD is known.
 Known/Unknown PDFs are 11 pages each and all 22 renders were inspected. The
 export/Desktop/Mobile harness commands exit 0 without timeout. Product
 Acceptance remains pending owner re-review.
