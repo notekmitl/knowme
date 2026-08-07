@@ -8,7 +8,11 @@
 > `1982-06-06 00:03` Chiang Mai (Aquarius `9°24′`) from the historical `00:35`
 > regression fixture (Aquarius `19°19′`); Engine/Web/PDF agree for each exact
 > input and unknown-time does not substitute noon. This remains unmerged and
-> undeployed pending Product Acceptance.
+> undeployed pending Product Acceptance. Source-tested commit `67ed0f0` passed
+> 1,507/1,507 Required tests, Analyze, Gate self-test, PreCommit and PostCommit.
+> Draft PR #86 is OPEN/Draft and MERGEABLE/CLEAN; GitHub created no checks or
+> workflow runs. The 46-file known/no-time Web/PDF packet is delivered outside
+> Git and awaits owner voice review.
 
 > **Thai Beta Exemplar Narrative V1 Production release verified (2026-08-06):**
 > The controlled stack merged in order through PR #81 (`7047fd9`), PR #82

@@ -17,6 +17,15 @@ and export are asserted end to end. Unknown-time keeps no clock value and never
 uses `12:00`. The task must stop at Draft PR and wait for owner review of the
 actual Web/PDF Product Acceptance Packet; do not merge or deploy.
 
+Source-tested commit `67ed0f0` passed the Required scope 1,507/1,507 plus
+Analyze, Gate self-test, PreCommit and PostCommit. Draft PR #86 is OPEN/Draft,
+MERGEABLE/CLEAN at https://github.com/notekmitl/knowme/pull/86. GitHub created
+no checks/workflow runs, so do not call this CI PASS. The 46-file packet and
+verified ZIP are at
+`C:\Users\USER\Documents\Knowme\product-acceptance\thai-consumer-narrative-voice-v1-67ed0f0`
+and the matching `.zip`; ZIP SHA-256 is
+`4457F1295C68235392C56A330C912679D983ED463DF2528592DD7B3AD57A768D`.
+
 ## Released: Thai Beta Exemplar Narrative V1
 
 **Production closure (2026-08-06):** PR #81, #82, #84, and #83 are merged in

@@ -2,9 +2,14 @@
 
 ## Status
 
-Draft Product Acceptance candidate. This work changes deterministic Thai Beta
+Draft PR #86 Product Acceptance candidate at source-tested commit `67ed0f0`.
+This work changes deterministic Thai Beta
 narrative composition only. It is not merged or deployed and makes no claim of
 scientific accuracy.
+
+The Required scope passes 1,507/1,507 with Local Gates. GitHub created no
+checks/workflow runs. The known/no-time Web/PDF packet is awaiting owner voice
+review; approval, Merge and Deploy are explicitly outside this task.
 
 ## Reader-facing contract
 
