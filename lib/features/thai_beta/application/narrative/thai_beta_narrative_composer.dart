@@ -258,17 +258,21 @@ abstract final class ThaiBetaNarrativeComposer {
   ) {
     if (timeline == null) return null;
     final used = <String>{};
+    final usedClaims = <String>[];
     final periods = timeline.periods
         .map((period) {
           if (period.isCurrent || period.lifeDomains.isEmpty) return period;
           final bucket = period.isPast ? 'past' : 'future';
-          final startAge = int.tryParse(period.ageLabel.split('–').first) ?? 0;
+          final ages = period.ageLabel.split('–');
+          final startAge = int.tryParse(ages.first) ?? 0;
+          final endAge = int.tryParse(ages.last) ?? startAge;
           final domains = <ThaiMirrorLifeDomainBlock>[];
           for (final domain in period.lifeDomains) {
             final ageAppropriate = _ageAppropriateDomain(
               period: period,
               domain: domain,
               startAge: startAge,
+              endAge: endAge,
             );
             if (ageAppropriate == null) continue;
             final consumerBody = _stripRepeatedMedicalDisclaimer(
@@ -281,7 +285,11 @@ abstract final class ThaiBetaNarrativeComposer {
             final key =
                 '$bucket|${domain.title}|'
                 '${ThaiBetaNarrativeFormatting.normalizedKey(semanticBody)}';
-            if (used.add(key)) {
+            final isSemanticallyNew = usedClaims.every(
+              (claim) => !_isSemanticallySimilar(claim, semanticBody),
+            );
+            if (used.add(key) && isSemanticallyNew) {
+              usedClaims.add(semanticBody);
               domains.add(
                 ThaiMirrorLifeDomainBlock(
                   title: ageAppropriate.title,
@@ -291,17 +299,8 @@ abstract final class ThaiBetaNarrativeComposer {
               );
               continue;
             }
-            domains.add(
-              ThaiMirrorLifeDomainBlock(
-                title: domain.title,
-                body: '$consumerBody ${_periodDifference(period)}',
-                evidenceKeys: [
-                  ...domain.evidenceKeys,
-                  'ThaiMirrorLifePeriodState.summary',
-                  'ThaiMirrorLifePeriodState.whatChanges',
-                ],
-              ),
-            );
+            // A prefix/suffix does not make a repeated claim new. Omit it
+            // rather than moving a horizon summary into a domain paragraph.
           }
           return ThaiMirrorLifePeriodState(
             ageLabel: period.ageLabel,
@@ -349,7 +348,10 @@ abstract final class ThaiBetaNarrativeComposer {
               transitionLabel: timeline.futurePreview!.transitionLabel,
               elementShiftLine: timeline.futurePreview!.elementShiftLine,
               opportunitiesLine: timeline.futurePreview!.opportunitiesLine,
-              challengesLine: timeline.futurePreview!.challengesLine,
+              // The upstream preview exposes only a list of labels here. It
+              // does not identify a pressure source, affected domain and
+              // decision impact, so consumer output must fail closed.
+              challengesLine: '',
             ),
       detailedReport: timeline.detailedReport,
     );
@@ -429,22 +431,39 @@ abstract final class ThaiBetaNarrativeComposer {
     required ThaiMirrorLifePeriodState period,
     required ThaiMirrorLifeDomainBlock domain,
     required int startAge,
+    required int endAge,
   }) {
     String? body;
-    if (startAge < 11) {
+    if (endAge <= 10) {
       body = switch (domain.title) {
         'การงาน' =>
-          'ใน${period.phaseName} เรื่องงานหมายถึงการฝึกทำหน้าที่เล็ก ๆ การเรียนรู้กติกา '
-              'และการได้รับกำลังใจเมื่อพยายาม',
+          'ใน${period.phaseName} เรื่องการงานหมายถึงการเรียนรู้หน้าที่เล็ก ๆ '
+              'การฝึกทักษะ และการได้รับกำลังใจเมื่อพยายาม',
         'การเงิน' =>
-          'ใน${period.phaseName} เรื่องเงินหมายถึงการเริ่มเข้าใจคุณค่าของสิ่งของ '
-              'การรอคอย และการรู้ว่าบางอย่างต้องเก็บไว้ใช้ภายหลัง',
+          'ใน${period.phaseName} เรื่องการเงินหมายถึงการเข้าใจคุณค่าของสิ่งของ '
+              'การแบ่งใช้ การเก็บออม และการตัดสินใจจากทรัพยากรที่มีตามวัย',
         'ความรัก' || 'ความสัมพันธ์' =>
-          'ความสัมพันธ์ใน${period.phaseName}อยู่ที่ความไว้ใจในครอบครัวและคนใกล้ตัว '
-              'รวมถึงการเรียนรู้ว่าจะบอกความต้องการของตัวเองอย่างไร',
+          'ความสัมพันธ์ใน${period.phaseName}หมายถึงความไว้ใจในครอบครัว เพื่อน '
+              'และคนใกล้ตัว รวมถึงการเรียนรู้ขอบเขตและการบอกความต้องการของตนเอง',
         'สุขภาพ' =>
-          'พลังใน${period.phaseName}ควรอ่านผ่านการกิน นอน เล่น และพักให้เป็นเวลา '
-              'ไม่ใช่ความกังวลเรื่องภาระแบบผู้ใหญ่',
+          'สุขภาพใน${period.phaseName}หมายถึงการเติบโต การกิน นอน เคลื่อนไหว '
+              'และพักให้เป็นเวลาอย่างเหมาะกับวัย',
+        _ => null,
+      };
+    } else if (endAge <= 21) {
+      body = switch (domain.title) {
+        'การงาน' =>
+          'ใน${period.phaseName} การงานหมายถึงการเรียนรู้ให้ลึกขึ้น ทดลองทักษะ '
+              'และสังเกตว่าสิ่งใดเหมาะกับทางที่กำลังเลือก',
+        'การเงิน' =>
+          'ใน${period.phaseName} การเงินหมายถึงการฝึกวางแผนค่าใช้จ่าย '
+              'แยกสิ่งจำเป็นจากสิ่งที่อยากได้ และเริ่มรับผิดชอบการตัดสินใจของตนเอง',
+        'ความรัก' || 'ความสัมพันธ์' =>
+          'ความสัมพันธ์ใน${period.phaseName}เน้นการรู้จักตัวเองผ่านมิตรภาพ '
+              'ความไว้ใจ ขอบเขต และการสื่อสารเมื่อความรู้สึกเปลี่ยนไป',
+        'สุขภาพ' =>
+          'สุขภาพใน${period.phaseName}เกี่ยวกับจังหวะการเติบโต การนอน '
+              'การเคลื่อนไหว และการรักษากิจวัตรให้สมดุลกับการเรียนรู้',
         _ => null,
       };
     } else if (startAge < 30) {
@@ -477,39 +496,43 @@ abstract final class ThaiBetaNarrativeComposer {
     );
   }
 
-  static String _periodDifference(ThaiMirrorLifePeriodState period) {
-    final change = period.whatChanges.trim();
-    if (change.isNotEmpty) return 'สิ่งที่เปลี่ยนในช่วงนี้คือ$change';
-    final summary = period.summary.trim();
-    return summary;
-  }
-
   static PredictionSectionModel? _polishPrediction(
     PredictionSectionModel? prediction,
   ) {
     if (prediction == null) return null;
     final windows = <PredictionWindowCardModel>[];
-    final currentBodies = <String, String>{
-      if (prediction.windows.isNotEmpty)
-        for (final domain in prediction.windows.first.domains)
-          domain.title: domain.body,
-    };
+    final claimsByDomain = <String, List<String>>{};
+    final risksByDomain = <String, List<String>>{};
+    final actionsByDomain = <String, List<String>>{};
     for (var i = 0; i < prediction.windows.length; i++) {
       final window = prediction.windows[i];
       final domains = window.domains
           .map((domain) {
-            final body = _forecastBody(
-              domain.title,
-              domain.body,
-              i,
-              currentBody: currentBodies[domain.title],
-            );
-            final caution = i == 0
+            final body = _forecastBody(domain.title, domain.body, i);
+            var caution = i == 0
                 ? _riskSignal(domain.caution)
                 : _forecastCheckpoint(domain.title, i);
+            final bodySeen = claimsByDomain.putIfAbsent(
+              domain.title,
+              () => <String>[],
+            );
+            final cautionSeen = (i == 0 ? risksByDomain : actionsByDomain)
+                .putIfAbsent(domain.title, () => <String>[]);
+            final uniqueBody = bodySeen.every(
+              (previous) => !_isSemanticallySimilar(previous, body),
+            );
+            final uniqueCaution = cautionSeen.every(
+              (previous) => !_isSemanticallySimilar(previous, caution),
+            );
+            if (uniqueBody && body.trim().isNotEmpty) bodySeen.add(body);
+            if (uniqueCaution && caution.trim().isNotEmpty) {
+              cautionSeen.add(caution);
+            } else {
+              caution = '';
+            }
             return PredictionDomainModel(
               title: domain.title,
-              body: body,
+              body: uniqueBody ? body : '',
               caution: caution,
             );
           })
@@ -557,12 +580,7 @@ abstract final class ThaiBetaNarrativeComposer {
     );
   }
 
-  static String _forecastBody(
-    String title,
-    String body,
-    int windowIndex, {
-    String? currentBody,
-  }) {
+  static String _forecastBody(String title, String body, int windowIndex) {
     final stripped = body
         .replaceFirst(RegExp(r'^ช่วงนี้\s*'), '')
         .replaceFirst(RegExp(r'^ใน 12 เดือนข้างหน้า\s*'), '')
@@ -570,12 +588,7 @@ abstract final class ThaiBetaNarrativeComposer {
     return switch (windowIndex) {
       0 => 'สำหรับตอนนี้ $stripped',
       1 => _nextYearAction(title),
-      _ =>
-        currentBody != null &&
-                ThaiBetaNarrativeFormatting.normalizedKey(currentBody) ==
-                    ThaiBetaNarrativeFormatting.normalizedKey(body)
-            ? ''
-            : 'เมื่อเข้าสู่ช่วงชีวิตถัดไป $stripped',
+      _ => _nextPeriodPreparation(title),
     };
   }
 
@@ -595,6 +608,22 @@ abstract final class ThaiBetaNarrativeComposer {
     _ => 'ในปีข้างหน้า ใช้สิ่งที่เกิดขึ้นจริงเป็นจุดทบทวนก่อนตัดสินใจเพิ่ม',
   };
 
+  static String _nextPeriodPreparation(String title) => switch (title.trim()) {
+    'การงาน' =>
+      'เมื่อเข้าสู่ช่วงชีวิตถัดไป ให้ประเมินว่าทักษะและขอบเขตงานแบบใดควรรักษาไว้ '
+          'ก่อนเลือกรับบทบาทระยะยาว',
+    'การเงิน' =>
+      'เมื่อเข้าสู่ช่วงชีวิตถัดไป ให้จัดฐานเงินสำรองและภาระผูกพันให้เห็นชัด '
+          'ก่อนวางแผนการเงินระยะยาว',
+    'ความรัก' || 'ความสัมพันธ์' =>
+      'เมื่อเข้าสู่ช่วงชีวิตถัดไป ให้คุยทิศทางและขอบเขตที่ต้องการร่วมกัน '
+          'ก่อนตัดสินใจเรื่องความสัมพันธ์ระยะยาว',
+    'สุขภาพ' =>
+      'เมื่อเข้าสู่ช่วงชีวิตถัดไป ให้เลือกกิจวัตรพักและดูแลตนเองที่ทำต่อเนื่องได้ '
+          'เพื่อรองรับการเปลี่ยนแปลงระยะยาว',
+    _ => '',
+  };
+
   static String _riskSignal(String caution) {
     final risk = caution
         .replaceAll(' โดยเฉพาะเรื่องแรงกดดัน', '')
@@ -606,6 +635,25 @@ abstract final class ThaiBetaNarrativeComposer {
   static String _specificTopRisk(String risk) {
     final value = _riskSignal(risk);
     return value.contains('แรงกดดัน') ? '' : value;
+  }
+
+  static bool _isSemanticallySimilar(String left, String right) {
+    final a = ThaiBetaNarrativeFormatting.normalizedKey(left);
+    final b = ThaiBetaNarrativeFormatting.normalizedKey(right);
+    if (a.isEmpty || b.isEmpty) return false;
+    if (a == b || a.contains(b) || b.contains(a)) return true;
+    Set<String> grams(String value) {
+      if (value.length < 3) return {value};
+      return {
+        for (var i = 0; i <= value.length - 3; i++) value.substring(i, i + 3),
+      };
+    }
+
+    final ag = grams(a);
+    final bg = grams(b);
+    final overlap = ag.intersection(bg).length;
+    final union = ag.union(bg).length;
+    return union > 0 && overlap / union >= 0.72;
   }
 
   static String _forecastCheckpoint(String title, int windowIndex) {

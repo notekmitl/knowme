@@ -210,78 +210,73 @@ void main() {
       expect(unknown.input.toMap()['birthMinute'], isNull);
     });
 
-    test(
-      'Thai Beta differentiates repeated past and future domain paragraphs',
-      () {
-        final source = analysis.consumerViewState!.lifeTimeline!;
-        final curated = ThaiBetaNarrativeComposer.narrativeView(
-          analysis,
-        ).lifeTimeline!;
-        final sourceCount = source.periods
+    test('Thai Beta omits repeated past and future domain claims', () {
+      final source = analysis.consumerViewState!.lifeTimeline!;
+      final curated = ThaiBetaNarrativeComposer.narrativeView(
+        analysis,
+      ).lifeTimeline!;
+      final sourceCount = source.periods
+          .where((period) => !period.isCurrent)
+          .expand((period) => period.lifeDomains)
+          .length;
+      final curatedEntries = <String>[];
+      for (final period in curated.periods.where(
+        (period) => !period.isCurrent,
+      )) {
+        final bucket = period.isPast ? 'past' : 'future';
+        for (final domain in period.lifeDomains) {
+          final body = domain.body
+              .replaceAll('ใน${period.phaseName}', 'ในช่วงชีวิตนี้')
+              .replaceAll(RegExp(r'\s+'), ' ')
+              .trim()
+              .toLowerCase();
+          curatedEntries.add('$bucket|${domain.title}|$body');
+        }
+      }
+
+      expect(curatedEntries.toSet(), hasLength(curatedEntries.length));
+      expect(curatedEntries.length, lessThan(sourceCount));
+      expect(
+        curated.periods
+            .where((period) {
+              final start = int.parse(period.ageLabel.split('–').first);
+              return !period.isCurrent && start < 69;
+            })
+            .every((period) => period.lifeDomains.length <= 4),
+        isTrue,
+      );
+      expect(
+        curated.periods
+            .where((period) {
+              final start = int.parse(period.ageLabel.split('–').first);
+              return start >= 69;
+            })
+            .every((period) => period.lifeDomains.isEmpty),
+        isTrue,
+      );
+      expect(
+        curated.periods
             .where((period) => !period.isCurrent)
             .expand((period) => period.lifeDomains)
-            .length;
-        final curatedEntries = <String>[];
-        for (final period in curated.periods.where(
-          (period) => !period.isCurrent,
-        )) {
-          final bucket = period.isPast ? 'past' : 'future';
-          for (final domain in period.lifeDomains) {
-            final body = domain.body
-                .replaceAll('ใน${period.phaseName}', 'ในช่วงชีวิตนี้')
-                .replaceAll(RegExp(r'\s+'), ' ')
-                .trim()
-                .toLowerCase();
-            curatedEntries.add('$bucket|${domain.title}|$body');
-          }
-        }
-
-        expect(curatedEntries.toSet(), hasLength(curatedEntries.length));
-        expect(curatedEntries.length, lessThan(sourceCount));
-        expect(
-          curated.periods
-              .where((period) {
-                final start = int.parse(period.ageLabel.split('–').first);
-                return !period.isCurrent && start < 69;
-              })
-              .every((period) => period.lifeDomains.length == 4),
-          isTrue,
-        );
-        expect(
-          curated.periods
-              .where((period) {
-                final start = int.parse(period.ageLabel.split('–').first);
-                return start >= 69;
-              })
-              .every((period) => period.lifeDomains.isEmpty),
-          isTrue,
-        );
-        expect(
-          curated.periods
-              .where((period) => !period.isCurrent)
-              .expand((period) => period.lifeDomains)
-              .where(
-                (domain) => domain.evidenceKeys.contains(
-                  'ThaiMirrorLifePeriodState.whatChanges',
-                ),
+            .where(
+              (domain) => domain.evidenceKeys.contains(
+                'ThaiMirrorLifePeriodState.whatChanges',
               ),
-          isNotEmpty,
-        );
-        expect(
-          curated.periods.singleWhere((period) => period.isCurrent).lifeDomains,
-          orderedEquals(
-            source.periods
-                .singleWhere((period) => period.isCurrent)
-                .lifeDomains,
-          ),
-        );
+            ),
+        isEmpty,
+      );
+      expect(
+        curated.periods.singleWhere((period) => period.isCurrent).lifeDomains,
+        orderedEquals(
+          source.periods.singleWhere((period) => period.isCurrent).lifeDomains,
+        ),
+      );
 
-        final exportText = ThaiBetaReportExportDocument.fromAnalysis(
-          analysis,
-        ).fullPlainText;
-        expect(exportText, isNot(contains('บริบทเฉพาะของช่วงนี้คือ')));
-      },
-    );
+      final exportText = ThaiBetaReportExportDocument.fromAnalysis(
+        analysis,
+      ).fullPlainText;
+      expect(exportText, isNot(contains('บริบทเฉพาะของช่วงนี้คือ')));
+    });
 
     test('PDF polish removes duplicate neighbour prefixes and zero timing', () {
       final doc = ThaiBetaReportExportDocument.fromAnalysis(analysis);
@@ -343,13 +338,14 @@ void main() {
         final units = ThaiBetaReportPdfExporter.debugPaginationUnitsForTest(
           section,
         );
-        expect(units, hasLength(4));
+        expect(units, hasLength(5));
         expect(units.first, contains('ช่วงทดสอบ 1982-06-05'));
-        expect(units.first, contains('การงาน'));
-        expect(units.first, contains('แนวโน้มงาน'));
-        expect(units[1], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nการเงิน'));
-        expect(units[2], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nความรัก'));
-        expect(units[3], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nสุขภาพ'));
+        expect(units.first, contains('บริบทของช่วง'));
+        expect(units.first, isNot(contains('การงาน')));
+        expect(units[1], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nการงาน'));
+        expect(units[2], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nการเงิน'));
+        expect(units[3], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nความรัก'));
+        expect(units[4], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nสุขภาพ'));
         for (final unit in units) {
           expect(unit, isNot(matches(RegExp(r'1982-06-0\s*\n\s*5'))));
         }

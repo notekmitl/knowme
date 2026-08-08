@@ -65,6 +65,11 @@ void main() {
       'สังเกตสัญญาณนี้จากสิ่งที่เกิดขึ้นในแต่ละวัน',
       'กำหนดจุดทบทวนไว้ล่วงหน้า ไม่รอให้ปัญหาสะสม',
       'ใช้เป็นเรื่องที่ควรเตรียมตัว ไม่ใช่ข้อสรุปล่วงหน้า',
+      'เรื่องพลังชีวิตและการพักผ่อนเปลี่ยนชัดขึ้นและมีผลต่อชีวิตประจำวัน',
+      'ร่างกายและใจถูกใช้จนสุดแรง',
+      'คุณต้องแบกงานหลายเรื่องจนเวลาและพลังไม่พอ',
+      'คุณเริ่มรู้ว่าต้องรักษาแรงไว้ ไม่ใช่ผลักทุกเรื่องพร้อมกัน',
+      'แรงกดดันหลักในช่วงหน้าคือเรื่อง',
     ]) {
       expect(text, isNot(contains(forbidden)), reason: forbidden);
     }
@@ -73,6 +78,7 @@ void main() {
       1,
       reason: 'medical guidance belongs with the current-period context only',
     );
+    expect(view.lifeTimeline?.futurePreview?.challengesLine, isEmpty);
   });
 
   test('life-period position wording agrees at every boundary', () {
@@ -216,6 +222,30 @@ void main() {
     }
   });
 
+  test('within each early-life period every domain has distinct meaning', () {
+    final periods = ThaiBetaNarrativeComposer.narrativeView(analysis)
+        .lifeTimeline!
+        .periods
+        .where((period) {
+          final end = int.parse(period.ageLabel.split('–').last);
+          return end <= 21;
+        });
+    for (final period in periods) {
+      final bodies = period.lifeDomains.map((domain) => domain.body).toList();
+      for (var i = 0; i < bodies.length; i++) {
+        for (var j = i + 1; j < bodies.length; j++) {
+          expect(
+            _semanticSimilarity(bodies[i], bodies[j]),
+            lessThan(0.72),
+            reason: '${period.ageLabel}: ${bodies[i]} / ${bodies[j]}',
+          );
+        }
+      }
+      expect(bodies.join('\n'), isNot(contains('หมดไฟ')));
+      expect(bodies.join('\n'), isNot(contains('แบกงาน')));
+    }
+  });
+
   test('Web narrative and PDF use the same polished document content', () {
     final view = ThaiBetaNarrativeComposer.narrativeView(analysis);
     final core = ThaiBirthProfileCoreReading.fromAnalysis(
@@ -235,3 +265,15 @@ String _meaningKey(String value) => value
     .replaceAll(RegExp(r'ช่วงนี้|ใน 12 เดือนข้างหน้า|ในราว 1 ปีข้างหน้า'), '')
     .replaceAll(RegExp(r'\s+'), '')
     .trim();
+
+double _semanticSimilarity(String left, String right) {
+  Set<String> grams(String value) {
+    final key = _meaningKey(value);
+    if (key.length < 3) return {key};
+    return {for (var i = 0; i <= key.length - 3; i++) key.substring(i, i + 3)};
+  }
+
+  final a = grams(left);
+  final b = grams(right);
+  return a.intersection(b).length / a.union(b).length;
+}

@@ -36,8 +36,8 @@ void main() {
             continue;
           }
           expect(
-            period.lifeDomains.map((domain) => domain.title).toList(),
-            LifePeriodDomainComposer.requiredTitles,
+            period.lifeDomains.map((domain) => domain.title),
+            everyElement(isIn(LifePeriodDomainComposer.requiredTitles)),
             reason: '${period.timeBucketLabel} ${period.ageLabel}',
           );
           for (final domain in period.lifeDomains) {
@@ -48,21 +48,14 @@ void main() {
           }
         }
 
-        for (var domainIndex = 0; domainIndex < 4; domainIndex++) {
+        for (final title in LifePeriodDomainComposer.requiredTitles) {
           final bodies = periods
-              .where((period) {
-                final startAge = int.parse(period.ageLabel.split('–').first);
-                return startAge < 69;
-              })
-              .map((period) => period.lifeDomains[domainIndex].body)
-              .toSet();
-          expect(
-            bodies.length,
-            periods.where((period) {
-              final startAge = int.parse(period.ageLabel.split('–').first);
-              return startAge < 69;
-            }).length,
-          );
+              .expand((period) => period.lifeDomains)
+              .where((domain) => domain.title == title)
+              .map((domain) => domain.body)
+              .toList();
+          expect(bodies, isNotEmpty, reason: title);
+          expect(bodies.toSet().length, bodies.length, reason: title);
         }
       },
     );

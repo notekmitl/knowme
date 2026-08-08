@@ -67,12 +67,12 @@ List<_PdfSemanticBlock> _semanticBlocks(List<String> paragraphs) {
   if (blocks.isEmpty) {
     return [_PdfSemanticBlock(paragraphs: preamble)];
   }
-  final first = blocks.first;
-  blocks[0] = _PdfSemanticBlock(
-    heading: first.heading,
-    paragraphs: [...preamble, ...first.paragraphs],
-  );
-  return blocks;
+  // Section/horizon summaries are not domain claims. Keep the preamble in a
+  // separate semantic unit so it can never render under the first domain.
+  return [
+    if (preamble.isNotEmpty) _PdfSemanticBlock(paragraphs: preamble),
+    ...blocks,
+  ];
 }
 
 /// Result of the real download-button PDF path.
@@ -232,25 +232,39 @@ abstract final class ThaiBetaReportPdfExporter {
 
             if (isDisclaimer) {
               widgets.add(pw.SizedBox(height: 10));
+              // A one-row table is an atomic pagination unit in package:pdf.
+              // This keeps the omission heading, lead and first reason on the
+              // same page instead of allowing a heading-only card.
               widgets.add(
-                pw.Container(
-                  width: double.infinity,
-                  padding: const pw.EdgeInsets.all(12),
-                  decoration: pw.BoxDecoration(
-                    border: pw.Border.all(color: PdfColors.grey400, width: 0.7),
-                    borderRadius: pw.BorderRadius.circular(4),
-                  ),
-                  child: pw.Column(
-                    crossAxisAlignment: pw.CrossAxisAlignment.start,
-                    children: [
-                      pw.Text(section.title, style: sectionStyle),
-                      pw.SizedBox(height: 8),
-                      for (final paragraph in section.paragraphs) ...[
-                        pw.Text(paragraph, style: disclaimerStyle),
-                        pw.SizedBox(height: 6),
+                pw.Table(
+                  children: [
+                    pw.TableRow(
+                      children: [
+                        pw.Container(
+                          width: double.infinity,
+                          padding: const pw.EdgeInsets.all(12),
+                          decoration: pw.BoxDecoration(
+                            border: pw.Border.all(
+                              color: PdfColors.grey400,
+                              width: 0.7,
+                            ),
+                            borderRadius: pw.BorderRadius.circular(4),
+                          ),
+                          child: pw.Column(
+                            crossAxisAlignment: pw.CrossAxisAlignment.start,
+                            children: [
+                              pw.Text(section.title, style: sectionStyle),
+                              pw.SizedBox(height: 8),
+                              for (final paragraph in section.paragraphs) ...[
+                                pw.Text(paragraph, style: disclaimerStyle),
+                                pw.SizedBox(height: 6),
+                              ],
+                            ],
+                          ),
+                        ),
                       ],
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               );
               continue;
