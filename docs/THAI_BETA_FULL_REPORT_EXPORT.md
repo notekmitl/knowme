@@ -133,6 +133,11 @@ plainText assertions), public fingerprint suite.
 
 ## PDF polish
 
+Draft PR #86 Round 4 treats pre-domain horizon summaries as independent PDF
+semantic units. They are never prepended to the first domain. Disclaimer and
+omission heading/lead/first-body groups render atomically, while domain units
+retain continuation context after page breaks.
+
 Export formatting is cleaned in `ThaiBetaReportExportPolish` + PDF layout.
 
 | Issue | Fix |

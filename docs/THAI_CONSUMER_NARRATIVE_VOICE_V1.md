@@ -2,8 +2,8 @@
 
 ## Status
 
-Draft PR #86 Round 3 re-acceptance candidate at source-tested commit
-`4ceb6a4d40243f3fd24dbcb310d990ebdf34ad48`. The first and second Product
+Draft PR #86 Round 4 re-acceptance candidate at source-tested commit
+`81f37502ccd2f1b9f65e8d4f7d870dcaea1770a8`. The first, second, and third Product
 Acceptance rounds did not pass; this revision addresses the recorded language,
 semantic separation, age suitability, disclaimer ownership, meta leakage and
 PDF semantic pagination defects.
@@ -11,12 +11,21 @@ This work changes deterministic Thai Beta
 narrative composition only. It is not merged or deployed and makes no claim of
 scientific accuracy.
 
-The Required scope passes 1,513/1,513 with Local Gates. GitHub created no
+The Required scope passes 1,514/1,514 with Local Gates.
 checks/workflow runs. The reworked known/no-time Web/PDF packet is awaiting
 owner voice review; this status is not a Product Acceptance PASS. Approval,
 Merge and Deploy are explicitly outside this task.
 
 ## Re-acceptance additions
+
+- Window summaries are structurally outside domain blocks.
+- Cross-horizon primary claim/risk/action exact and normalized similarity
+  gates omit duplicates instead of decorating them with prefixes or suffixes.
+- Age ranges through 21 have distinct work, money, relationship, and health
+  meaning; adult workload/burnout templates are prohibited.
+- Generic pressure requires source, affected domain, and decision impact;
+  label-only input fails closed.
+- Omission heading, lead and first reason paginate as one atomic unit.
 
 - Position wording uses one deterministic progress contract at start, early,
   middle, late, final year and transition boundaries.

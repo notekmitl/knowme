@@ -6,9 +6,12 @@
   "base_ref": "4f6aa81fdb8be1d254f21dc3816104cef3252f77",
   "allowed_files": [
     "task.md",
+    "TASK_RESULT.md",
     "task_scope.json",
     "docs/CURRENT_STATUS.md",
     "docs/HANDOFF.md",
+    "docs/THAI_BETA_FULL_REPORT_EXPORT.md",
+    "docs/THAI_BIRTH_PROFILE_CORE_READING_V1.md",
     "docs/THAI_CONSUMER_NARRATIVE_VOICE_V1.md",
     "lib/features/astrology/thai/mirror/presentation/timeline/timeline_presenter.dart",
     "lib/features/astrology/thai/mirror/presentation/ui/widgets/thai_mirror_future_prediction_section.dart",

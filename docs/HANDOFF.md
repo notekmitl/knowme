@@ -636,3 +636,10 @@ For a new developer joining today:
 2. Run `flutter test test/home_screen_v3_test.dart`.
 3. Read `REAL_USER_RUNTIME_VALIDATION_V1.md` — understand the 2.6% narrative reach problem.
 4. Pick up funnel telemetry analysis or a scoped Home cohesion fix — **do not start with architecture rewrites**.
+# Handoff — Draft PR #86 Round 4
+
+Round 3 Product Acceptance failed. Review only the new Round 4 packet generated
+from source-tested commit `81f37502ccd2f1b9f65e8d4f7d870dcaea1770a8`.
+The final known-time and unknown-time PDFs are 13 and 12 pages. All 25 pages
+were rendered and visually inspected. PR #86 must remain Draft; do not merge
+or deploy until the owner re-accepts these exact PDFs.

@@ -198,6 +198,11 @@ non-duplicated transparency/disclaimer sections.
 
 ## Validation
 
+Round 4 of Draft PR #86 makes the final fail-closed omission disclosure an
+atomic PDF semantic unit: its heading, lead paragraph and first omission reason
+must remain on one page. This changes pagination only; omission evidence and
+public reasons remain unchanged.
+
 Focused coverage checks full-time, no-time fail-closed behavior,
 before/after sunrise, different date/place, deterministic score-based
 Strength/Risk selection, exact paragraph-to-atom provenance,

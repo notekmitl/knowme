@@ -207,3 +207,11 @@ Keep hosting deploys intentional and maintain frozen systems with blocker fixes 
 - Astrology fusion redesign
 - Big Five as primary funnel path (MBTI mini is the recovery path)
 - Architecture rewrites
+# 2026-08-08 — Thai Consumer Narrative Voice Round 4 candidate
+
+Product Acceptance round 3 did not pass. Draft PR #86 now has a source-tested
+Round 4 correction at `81f37502ccd2f1b9f65e8d4f7d870dcaea1770a8` covering
+horizon/domain ownership, semantic duplication, ages 7–21, generic pressure,
+and omission pagination. Required tests pass 1,514/1,514; PreCommit passes.
+Known-time is 13 pages with Aquarius 9°24′; unknown-time is 12 pages and
+remains fail closed. No merge, deploy, Production, or feature-flag change.

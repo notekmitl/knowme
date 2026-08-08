@@ -1,6 +1,11 @@
 # Task: Thai Consumer Narrative Voice V1
 
-## Product Acceptance rework — Round 3
+## Product Acceptance rework — Round 4
+
+Product Acceptance round 3 did not pass. Round 4 addresses horizon-summary
+domain ownership, exact/normalized semantic duplication, full-range age-aware
+domain copy, generic-pressure evidence structure, atomic omission pagination,
+and artifact-derived acceptance reporting. It must stop at the same Draft PR.
 
 Product Acceptance รอบสองไม่ผ่านเพราะคำเตือนทางการแพทย์ถูกนำไปต่อเป็น
 risk/action, future summary/opportunity และ horizon copy ซ้ำ, ช่วงอายุ 69–108
