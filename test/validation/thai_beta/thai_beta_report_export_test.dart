@@ -199,6 +199,9 @@ void main() {
       final pdfText = ThaiBetaReportExportDocument.fromAnalysis(
         unknown,
       ).fullPlainText;
+      final prediction = ThaiBetaNarrativeComposer.narrativeView(
+        unknown,
+      ).futurePrediction!;
 
       for (final text in [webText, pdfText]) {
         expect(text, isNot(contains('ก่อนพระอาทิตย์ขึ้น')));
@@ -208,68 +211,85 @@ void main() {
       }
       expect(unknown.input.toMap()['birthHour'], isNull);
       expect(unknown.input.toMap()['birthMinute'], isNull);
+      for (final domain in prediction.windows.expand(
+        (window) => window.domains,
+      )) {
+        expect(domain.uncertaintyDisclosure, contains('ไม่มีหลักฐานลัคนา'));
+        expect(domain.preparationAction, isNot(contains('ไม่มีหลักฐานลัคนา')));
+        expect(
+          pdfText,
+          contains('ข้อจำกัดของคำอ่าน: ${domain.uncertaintyDisclosure}'),
+        );
+      }
     });
 
-    test(
-      'Thai Beta differentiates repeated past and future domain paragraphs',
-      () {
-        final source = analysis.consumerViewState!.lifeTimeline!;
-        final curated = ThaiBetaNarrativeComposer.narrativeView(
-          analysis,
-        ).lifeTimeline!;
-        final sourceCount = source.periods
+    test('Thai Beta omits repeated past and future domain claims', () {
+      final source = analysis.consumerViewState!.lifeTimeline!;
+      final curated = ThaiBetaNarrativeComposer.narrativeView(
+        analysis,
+      ).lifeTimeline!;
+      final sourceCount = source.periods
+          .where((period) => !period.isCurrent)
+          .expand((period) => period.lifeDomains)
+          .length;
+      final curatedEntries = <String>[];
+      for (final period in curated.periods.where(
+        (period) => !period.isCurrent,
+      )) {
+        final bucket = period.isPast ? 'past' : 'future';
+        for (final domain in period.lifeDomains) {
+          final body = domain.body
+              .replaceAll('ใน${period.phaseName}', 'ในช่วงชีวิตนี้')
+              .replaceAll(RegExp(r'\s+'), ' ')
+              .trim()
+              .toLowerCase();
+          curatedEntries.add('$bucket|${domain.title}|$body');
+        }
+      }
+
+      expect(curatedEntries.toSet(), hasLength(curatedEntries.length));
+      expect(curatedEntries.length, lessThan(sourceCount));
+      expect(
+        curated.periods
+            .where((period) {
+              final start = int.parse(period.ageLabel.split('–').first);
+              return !period.isCurrent && start < 69;
+            })
+            .every((period) => period.lifeDomains.length <= 4),
+        isTrue,
+      );
+      expect(
+        curated.periods
+            .where((period) {
+              final start = int.parse(period.ageLabel.split('–').first);
+              return start >= 69;
+            })
+            .every((period) => period.lifeDomains.isEmpty),
+        isTrue,
+      );
+      expect(
+        curated.periods
             .where((period) => !period.isCurrent)
             .expand((period) => period.lifeDomains)
-            .length;
-        final curatedEntries = <String>[];
-        for (final period in curated.periods.where(
-          (period) => !period.isCurrent,
-        )) {
-          final bucket = period.isPast ? 'past' : 'future';
-          for (final domain in period.lifeDomains) {
-            final body = domain.body
-                .replaceAll('ใน${period.phaseName}', 'ในช่วงชีวิตนี้')
-                .replaceAll(RegExp(r'\s+'), ' ')
-                .trim()
-                .toLowerCase();
-            curatedEntries.add('$bucket|${domain.title}|$body');
-          }
-        }
-
-        expect(curatedEntries.toSet(), hasLength(curatedEntries.length));
-        expect(curatedEntries, hasLength(sourceCount));
-        expect(
-          curated.periods
-              .where((period) => !period.isCurrent)
-              .every((period) => period.lifeDomains.length == 4),
-          isTrue,
-        );
-        expect(
-          curated.periods
-              .where((period) => !period.isCurrent)
-              .expand((period) => period.lifeDomains)
-              .where(
-                (domain) => domain.evidenceKeys.contains(
-                  'ThaiMirrorLifePeriodState.whatChanges',
-                ),
+            .where(
+              (domain) => domain.evidenceKeys.contains(
+                'ThaiMirrorLifePeriodState.whatChanges',
               ),
-          isNotEmpty,
-        );
-        expect(
-          curated.periods.singleWhere((period) => period.isCurrent).lifeDomains,
-          orderedEquals(
-            source.periods
-                .singleWhere((period) => period.isCurrent)
-                .lifeDomains,
-          ),
-        );
+            ),
+        isEmpty,
+      );
+      expect(
+        curated.periods.singleWhere((period) => period.isCurrent).lifeDomains,
+        orderedEquals(
+          source.periods.singleWhere((period) => period.isCurrent).lifeDomains,
+        ),
+      );
 
-        final exportText = ThaiBetaReportExportDocument.fromAnalysis(
-          analysis,
-        ).fullPlainText;
-        expect(exportText, contains('เมื่อดูจังหวะนี้ร่วมกัน'));
-      },
-    );
+      final exportText = ThaiBetaReportExportDocument.fromAnalysis(
+        analysis,
+      ).fullPlainText;
+      expect(exportText, isNot(contains('บริบทเฉพาะของช่วงนี้คือ')));
+    });
 
     test('PDF polish removes duplicate neighbour prefixes and zero timing', () {
       final doc = ThaiBetaReportExportDocument.fromAnalysis(analysis);
@@ -301,14 +321,55 @@ void main() {
         expect(text, contains(future.lifeDomains.first.body));
         expect(text, contains(prediction.detailedSectionIntro));
         for (final domain in prediction.windows.first.domains) {
-          expect(text, contains(domain.body));
-          expect(text, contains(domain.caution));
+          expect(text, contains('แนวโน้ม: ${domain.claim}'));
+          expect(text, contains('ความเสี่ยง: ${domain.risk}'));
+          expect(text, contains('ผลต่อการตัดสินใจ: ${domain.decisionImpact}'));
+          expect(
+            text,
+            contains('แนวทางเตรียมตัว: ${domain.preparationAction}'),
+          );
         }
       },
     );
   });
 
   group('Real PDF exporter path regression', () {
+    test(
+      'pagination units keep period, domain, and first paragraph together',
+      () {
+        const section = ThaiBetaReportExportSection(
+          title: 'ช่วงทดสอบ 1982-06-05',
+          kind: ThaiBetaReportExportSectionKind.timeline,
+          paragraphs: [
+            'บริบทของช่วง',
+            'การงาน',
+            'แนวโน้มงานที่มีหลักฐานรองรับ',
+            'การเงิน',
+            'แนวโน้มเงินที่มีหลักฐานรองรับ',
+            'ความรัก',
+            'แนวโน้มความสัมพันธ์ที่มีหลักฐานรองรับ',
+            'สุขภาพ',
+            'แนวโน้มสุขภาวะที่มีหลักฐานรองรับ',
+          ],
+        );
+
+        final units = ThaiBetaReportPdfExporter.debugPaginationUnitsForTest(
+          section,
+        );
+        expect(units, hasLength(5));
+        expect(units.first, contains('ช่วงทดสอบ 1982-06-05'));
+        expect(units.first, contains('บริบทของช่วง'));
+        expect(units.first, isNot(contains('การงาน')));
+        expect(units[1], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nการงาน'));
+        expect(units[2], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nการเงิน'));
+        expect(units[3], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nความรัก'));
+        expect(units[4], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nสุขภาพ'));
+        for (final unit in units) {
+          expect(unit, isNot(matches(RegExp(r'1982-06-0\s*\n\s*5'))));
+        }
+      },
+    );
+
     test(
       'download-button path polishes polluted document before PDF text',
       () async {
@@ -376,6 +437,15 @@ void main() {
           ThaiBetaReportExportSafety.containsForbidden(rendered.plainText),
           isFalse,
         );
+        for (final forbidden in [
+          'หากความล้าสะสม ข้อความนี้ไม่ใช่คำวินิจฉัยทางการแพทย์เกิดซ้ำ',
+          'เตรียมรับมือเรื่องความล้าสะสม ข้อความนี้ไม่ใช่คำวินิจฉัยทางการแพทย์',
+          'กดดูรายละเอียด',
+          'เนื้อหาจากรายงานที่มีอยู่แล้ว ไม่สร้างคำทำนายใหม่',
+          'โดยไม่นำชื่อหมวดภายใน',
+        ]) {
+          expect(rendered.plainText, isNot(contains(forbidden)));
+        }
       },
     );
   });
@@ -411,12 +481,16 @@ void main() {
       final realAge = _timeline(realUserAnalysis).currentStage.currentAge;
 
       expect(realAge, isNot(equals(sampleAge)));
-      expect(text,
-          anyOf(contains('อายุ $realAge'), contains('วัย $realAge ปี')));
       expect(
-          text,
-          isNot(anyOf(contains('อายุ $sampleAge'),
-              contains('วัย $sampleAge ปี'))));
+        text,
+        anyOf(contains('อายุ $realAge'), contains('วัย $realAge ปี')),
+      );
+      expect(
+        text,
+        isNot(
+          anyOf(contains('อายุ $sampleAge'), contains('วัย $sampleAge ปี')),
+        ),
+      );
     });
 
     test('PDF age matches report age', () async {
@@ -425,9 +499,9 @@ void main() {
       final reportAge = _timeline(realUserAnalysis).currentStage.currentAge;
 
       expect(
-          rendered.plainText,
-          anyOf(contains('อายุ $reportAge'),
-              contains('วัย $reportAge ปี')));
+        rendered.plainText,
+        anyOf(contains('อายุ $reportAge'), contains('วัย $reportAge ปี')),
+      );
     });
 
     test('PDF current period matches report', () async {
@@ -527,10 +601,12 @@ void main() {
       expect(find.text('Thai Beta Capture Mode Active'), findsOneWidget);
       final userAge = _timeline(userAnalysis).currentStage.currentAge;
       expect(
-        find.byWidgetPredicate((widget) =>
-            widget is Text &&
-            ((widget.data?.contains('อายุ $userAge') ?? false) ||
-                (widget.data?.contains('วัย $userAge ปี') ?? false))),
+        find.byWidgetPredicate(
+          (widget) =>
+              widget is Text &&
+              ((widget.data?.contains('อายุ $userAge') ?? false) ||
+                  (widget.data?.contains('วัย $userAge ปี') ?? false)),
+        ),
         findsWidgets,
       );
     });

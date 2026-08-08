@@ -139,10 +139,14 @@ class ThaiBetaReportExportDocument {
 
     if (coreReading.omissions.isNotEmpty) {
       sections.add(
-        _section(ThaiBirthProfileCoreReadingCopy.omissionsTitle, [
-          'ระบบตัดหัวข้อต่อไปนี้ออกแทนการเติมคำทำนายที่ไม่มีข้อมูลรองรับ',
-          ...coreReading.omissions.map((omission) => omission.publicText),
-        ], kind: ThaiBetaReportExportSectionKind.disclaimer),
+        _section(
+          ThaiBirthProfileCoreReadingCopy.omissionsTitle,
+          [
+            'ระบบตัดหัวข้อต่อไปนี้ออกแทนการเติมคำทำนายที่ไม่มีข้อมูลรองรับ',
+            ...coreReading.omissions.map((omission) => omission.publicText),
+          ],
+          kind: ThaiBetaReportExportSectionKind.disclaimer,
+        ),
       );
     }
 
@@ -341,8 +345,18 @@ class ThaiBetaReportExportDocument {
           window.evidenceDetail,
           for (final domain in window.domains) ...[
             domain.title,
-            domain.body,
-            domain.caution,
+            if (domain.claim.isNotEmpty)
+              'แนวโน้ม: ${domain.claim}'
+            else
+              domain.body,
+            if (domain.risk.isNotEmpty) 'ความเสี่ยง: ${domain.risk}',
+            if (domain.decisionImpact.isNotEmpty)
+              'ผลต่อการตัดสินใจ: ${domain.decisionImpact}',
+            if (domain.preparationAction.isNotEmpty)
+              'แนวทางเตรียมตัว: ${domain.preparationAction}',
+            if (domain.uncertaintyDisclosure.isNotEmpty)
+              'ข้อจำกัดของคำอ่าน: ${domain.uncertaintyDisclosure}',
+            if (domain.claim.isEmpty) domain.caution,
           ],
         ]),
       );

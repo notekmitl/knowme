@@ -6,6 +6,75 @@ import 'package:pdf/widgets.dart' as pw;
 
 import 'thai_beta_report_export_document.dart';
 
+class _PdfSemanticBlock {
+  const _PdfSemanticBlock({this.heading, required this.paragraphs});
+
+  final String? heading;
+  final List<String> paragraphs;
+}
+
+const _domainHeadings = {'การงาน', 'การเงิน', 'ความรัก', 'สุขภาพ'};
+
+String _pdfSafeText(String value) => value;
+
+List<pw.InlineSpan> _pdfInlineSpans(String value, pw.TextStyle style) {
+  final spans = <pw.InlineSpan>[];
+  final dates = RegExp(r'\b\d{4}-\d{2}-\d{2}\b').allMatches(value);
+  var offset = 0;
+  for (final date in dates) {
+    if (date.start > offset) {
+      spans.add(
+        pw.TextSpan(text: value.substring(offset, date.start), style: style),
+      );
+    }
+    final token = date.group(0)!;
+    spans.add(
+      pw.WidgetSpan(
+        child: pw.Text(token, style: style, softWrap: false),
+        style: style,
+      ),
+    );
+    offset = date.end;
+  }
+  if (offset < value.length) {
+    spans.add(pw.TextSpan(text: value.substring(offset), style: style));
+  }
+  return spans.isEmpty ? [pw.TextSpan(text: value, style: style)] : spans;
+}
+
+List<_PdfSemanticBlock> _semanticBlocks(List<String> paragraphs) {
+  if (paragraphs.isEmpty) return const [];
+  final blocks = <_PdfSemanticBlock>[];
+  final preamble = <String>[];
+  String? heading;
+  var body = <String>[];
+  for (final paragraph in paragraphs) {
+    if (_domainHeadings.contains(paragraph.trim())) {
+      if (heading != null) {
+        blocks.add(_PdfSemanticBlock(heading: heading, paragraphs: body));
+      }
+      heading = paragraph;
+      body = <String>[];
+    } else if (heading == null) {
+      preamble.add(paragraph);
+    } else {
+      body.add(paragraph);
+    }
+  }
+  if (heading != null) {
+    blocks.add(_PdfSemanticBlock(heading: heading, paragraphs: body));
+  }
+  if (blocks.isEmpty) {
+    return [_PdfSemanticBlock(paragraphs: preamble)];
+  }
+  // Section/horizon summaries are not domain claims. Keep the preamble in a
+  // separate semantic unit so it can never render under the first domain.
+  return [
+    if (preamble.isNotEmpty) _PdfSemanticBlock(paragraphs: preamble),
+    ...blocks,
+  ];
+}
+
 /// Result of the real download-button PDF path.
 class ThaiBetaPdfRenderResult {
   const ThaiBetaPdfRenderResult({
@@ -40,6 +109,23 @@ abstract final class ThaiBetaReportPdfExporter {
       'assets/fonts/noto_sans_thai/NotoSans-Bold.ttf';
 
   static Future<(pw.Font, pw.Font, pw.Font, pw.Font)>? _fonts;
+
+  /// Semantic pagination units used by the PDF renderer. Exposed so regression
+  /// tests can prove that a period/domain heading travels with its first body
+  /// paragraph and that continuation blocks retain their period context.
+  static List<String> debugPaginationUnitsForTest(
+    ThaiBetaReportExportSection section,
+  ) {
+    final blocks = _semanticBlocks(section.paragraphs);
+    return [
+      for (var i = 0; i < blocks.length; i++)
+        [
+          i == 0 ? section.title : '${section.title} (ต่อ)',
+          if (blocks[i].heading != null) blocks[i].heading!,
+          ...blocks[i].paragraphs,
+        ].map(_pdfSafeText).join('\n'),
+    ];
+  }
 
   static Future<(pw.Font, pw.Font, pw.Font, pw.Font)> _loadFonts() {
     return _fonts ??= () async {
@@ -144,72 +230,92 @@ abstract final class ThaiBetaReportPdfExporter {
             final isTimeline =
                 section.kind == ThaiBetaReportExportSectionKind.timeline;
 
-            if (i > 0 &&
-                (isDisclaimer ||
-                    section.title.contains('เส้นทางชีวิต') ||
-                    section.title.contains('แนวโน้ม') ||
-                    section.title.startsWith('ข้อจำกัด'))) {
-              widgets.add(pw.NewPage());
-            }
-
-            if (isTimeline) {
-              widgets.add(
-                pw.Container(
-                  width: double.infinity,
-                  padding: const pw.EdgeInsets.all(12),
-                  margin: const pw.EdgeInsets.only(bottom: 14),
-                  decoration: pw.BoxDecoration(
-                    color: PdfColors.grey100,
-                    borderRadius: pw.BorderRadius.circular(6),
-                    border: pw.Border.all(color: PdfColors.grey300, width: 0.6),
-                  ),
-                  child: pw.Column(
-                    crossAxisAlignment: pw.CrossAxisAlignment.start,
-                    children: [
-                      pw.Text(section.title, style: sectionStyle),
-                      pw.SizedBox(height: 8),
-                      for (final paragraph in section.paragraphs) ...[
-                        pw.Text(paragraph, style: baseStyle),
-                        pw.SizedBox(height: 7),
-                      ],
-                    ],
-                  ),
-                ),
-              );
-              continue;
-            }
-
             if (isDisclaimer) {
               widgets.add(pw.SizedBox(height: 10));
+              // A one-row table is an atomic pagination unit in package:pdf.
+              // This keeps the omission heading, lead and first reason on the
+              // same page instead of allowing a heading-only card.
               widgets.add(
-                pw.Container(
-                  width: double.infinity,
-                  padding: const pw.EdgeInsets.all(12),
-                  decoration: pw.BoxDecoration(
-                    border: pw.Border.all(color: PdfColors.grey400, width: 0.7),
-                    borderRadius: pw.BorderRadius.circular(4),
-                  ),
-                  child: pw.Column(
-                    crossAxisAlignment: pw.CrossAxisAlignment.start,
-                    children: [
-                      pw.Text(section.title, style: sectionStyle),
-                      pw.SizedBox(height: 8),
-                      for (final paragraph in section.paragraphs) ...[
-                        pw.Text(paragraph, style: disclaimerStyle),
-                        pw.SizedBox(height: 6),
+                pw.Table(
+                  children: [
+                    pw.TableRow(
+                      children: [
+                        pw.Container(
+                          width: double.infinity,
+                          padding: const pw.EdgeInsets.all(12),
+                          decoration: pw.BoxDecoration(
+                            border: pw.Border.all(
+                              color: PdfColors.grey400,
+                              width: 0.7,
+                            ),
+                            borderRadius: pw.BorderRadius.circular(4),
+                          ),
+                          child: pw.Column(
+                            crossAxisAlignment: pw.CrossAxisAlignment.start,
+                            children: [
+                              pw.Text(section.title, style: sectionStyle),
+                              pw.SizedBox(height: 8),
+                              for (final paragraph in section.paragraphs) ...[
+                                pw.Text(paragraph, style: disclaimerStyle),
+                                pw.SizedBox(height: 6),
+                              ],
+                            ],
+                          ),
+                        ),
                       ],
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
               );
               continue;
             }
 
-            widgets.add(pw.Text(section.title, style: sectionStyle));
-            widgets.add(pw.SizedBox(height: 8));
-            for (final paragraph in section.paragraphs) {
-              widgets.add(pw.Text(paragraph, style: baseStyle));
-              widgets.add(pw.SizedBox(height: 7));
+            final blocks = _semanticBlocks(section.paragraphs);
+            for (var blockIndex = 0; blockIndex < blocks.length; blockIndex++) {
+              final block = blocks[blockIndex];
+              final heading = blockIndex == 0
+                  ? section.title
+                  : '${section.title} (ต่อ)';
+              widgets.add(
+                pw.Container(
+                  width: double.infinity,
+                  padding: isTimeline
+                      ? const pw.EdgeInsets.all(12)
+                      : const pw.EdgeInsets.symmetric(vertical: 4),
+                  margin: const pw.EdgeInsets.only(bottom: 7),
+                  decoration: isTimeline
+                      ? pw.BoxDecoration(
+                          color: blockIndex == 0
+                              ? PdfColors.grey100
+                              : PdfColors.white,
+                          borderRadius: pw.BorderRadius.circular(6),
+                          border: pw.Border.all(
+                            color: PdfColors.grey300,
+                            width: 0.6,
+                          ),
+                        )
+                      : null,
+                  child: pw.RichText(
+                    text: pw.TextSpan(
+                      children: [
+                        pw.TextSpan(
+                          text: _pdfSafeText(heading),
+                          style: sectionStyle,
+                        ),
+                        if (block.heading != null)
+                          pw.TextSpan(
+                            text: '\n\n${_pdfSafeText(block.heading!)}',
+                            style: sectionStyle,
+                          ),
+                        for (final paragraph in block.paragraphs) ...[
+                          pw.TextSpan(text: '\n\n', style: baseStyle),
+                          ..._pdfInlineSpans(paragraph, baseStyle),
+                        ],
+                      ],
+                    ),
+                  ),
+                ),
+              );
             }
             widgets.add(pw.SizedBox(height: 14));
           }
@@ -220,7 +326,7 @@ abstract final class ThaiBetaReportPdfExporter {
           widgets.add(
             pw.Text(
               'KnowMe — รายงานโหราไทย\n'
-              'เนื้อหาจากรายงานที่มีอยู่แล้ว ไม่สร้างคำทำนายใหม่',
+              'ใช้เป็นแนวทางทบทวนตัวเอง ไม่ใช่ข้อสรุปที่กำหนดชีวิต',
               style: subtitleStyle,
             ),
           );

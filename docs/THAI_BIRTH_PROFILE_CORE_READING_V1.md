@@ -198,6 +198,11 @@ non-duplicated transparency/disclaimer sections.
 
 ## Validation
 
+Round 4 of Draft PR #86 makes the final fail-closed omission disclosure an
+atomic PDF semantic unit: its heading, lead paragraph and first omission reason
+must remain on one page. This changes pagination only; omission evidence and
+public reasons remain unchanged.
+
 Focused coverage checks full-time, no-time fail-closed behavior,
 before/after sunrise, different date/place, deterministic score-based
 Strength/Risk selection, exact paragraph-to-atom provenance,
@@ -224,3 +229,8 @@ and CI configuration were not changed. Default Thai Mirror behavior remains
 covered by the non-golden widget-tree/content regression in the focused Core
 Reading test.
 
+## Active Round 9 compatibility
+
+The consumer Core Reading renders an astrological weekday only when birth time and the sunrise-boundary result support it. Unknown time omits the final weekday and records the unsupported topic; it does not render a noon fallback or sunrise time.
+
+Round 9 changes only future forecast typed decision composition, profile-aware acceptance pairing, controlled production mutation validation, and exported forecast prose. Core Reading ownership, evidence meaning, day-boundary rules, known-time calculations, and unknown-time omissions are unchanged. Rounds 5–8 compatibility notes are historical and superseded here. Product Acceptance remains pending.

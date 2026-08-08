@@ -133,6 +133,11 @@ plainText assertions), public fingerprint suite.
 
 ## PDF polish
 
+Draft PR #86 Round 4 treats pre-domain horizon summaries as independent PDF
+semantic units. They are never prepended to the first domain. Disclaimer and
+omission heading/lead/first-body groups render atomically, while domain units
+retain continuation context after page breaks.
+
 Export formatting is cleaned in `ThaiBetaReportExportPolish` + PDF layout.
 
 | Issue | Fix |
@@ -193,3 +198,10 @@ the supported export path.
 ---
 
 **Report content / engine / Canon / badge policy unchanged — export packaging + presentation polish only.**
+## Active Round 9 forecast export contract
+
+Product Acceptance is pending. Web and PDF export the same Claim, Risk, Decision Impact, Action, and separate uncertainty-disclosure values from the shared presentation model. PDF code never reconstructs predictive fields or parses audit fingerprints.
+
+Disclosure is rendered as `ข้อจำกัดของคำอ่าน` after the four predictive fields and is excluded from cross-mode semantic comparison. Decision Impact and Action come from the same typed `ForecastDecisionPlan`; the exporter renders their composed strings without rebuilding or inferring intent. Unknown-time Action independently requires a real-result checkpoint. Acceptance audits hash the final PDFs before inspecting semantic coherence and every rendered page. Final Round 9 page counts and hashes are authoritative in `TASK_RESULT.md` and the immutable Round 9 packet.
+
+Rounds 5–7 export notes are historical and superseded by this contract.

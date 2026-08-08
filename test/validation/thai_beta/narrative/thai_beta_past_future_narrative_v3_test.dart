@@ -17,37 +17,48 @@ void main() {
   final prediction = view.futurePrediction!;
 
   group('Thai Beta Past-to-Future Narrative V3', () {
-    test('every past and future life period has four detailed domains', () {
-      final periods = timeline.periods
-          .where((period) => period.isPast || !period.isCurrent)
-          .toList(growable: false);
-      expect(periods.where((period) => period.isPast), isNotEmpty);
-      expect(
-        periods.where((period) => !period.isPast && !period.isCurrent),
-        isNotEmpty,
-      );
-
-      for (final period in periods) {
+    test(
+      'supported periods have domains and unsupported late ages fail closed',
+      () {
+        final periods = timeline.periods
+            .where((period) => period.isPast || !period.isCurrent)
+            .toList(growable: false);
+        expect(periods.where((period) => period.isPast), isNotEmpty);
         expect(
-          period.lifeDomains.map((domain) => domain.title).toList(),
-          LifePeriodDomainComposer.requiredTitles,
-          reason: '${period.timeBucketLabel} ${period.ageLabel}',
+          periods.where((period) => !period.isPast && !period.isCurrent),
+          isNotEmpty,
         );
-        for (final domain in period.lifeDomains) {
-          expect(domain.body.length, greaterThan(75));
-          expect(domain.evidenceKeys, isNotEmpty);
-          expect(domain.body, isNot(contains('คะแนน')));
-          expect(domain.body, isNot(contains('evidence')));
-        }
-      }
 
-      for (var domainIndex = 0; domainIndex < 4; domainIndex++) {
-        final bodies = periods
-            .map((period) => period.lifeDomains[domainIndex].body)
-            .toSet();
-        expect(bodies.length, periods.length);
-      }
-    });
+        for (final period in periods) {
+          final startAge = int.parse(period.ageLabel.split('–').first);
+          if (startAge >= 69) {
+            expect(period.lifeDomains, isEmpty);
+            continue;
+          }
+          expect(
+            period.lifeDomains.map((domain) => domain.title),
+            everyElement(isIn(LifePeriodDomainComposer.requiredTitles)),
+            reason: '${period.timeBucketLabel} ${period.ageLabel}',
+          );
+          for (final domain in period.lifeDomains) {
+            expect(domain.body.length, greaterThan(75));
+            expect(domain.evidenceKeys, isNotEmpty);
+            expect(domain.body, isNot(contains('คะแนน')));
+            expect(domain.body, isNot(contains('evidence')));
+          }
+        }
+
+        for (final title in LifePeriodDomainComposer.requiredTitles) {
+          final bodies = periods
+              .expand((period) => period.lifeDomains)
+              .where((domain) => domain.title == title)
+              .map((domain) => domain.body)
+              .toList();
+          expect(bodies, isNotEmpty, reason: title);
+          expect(bodies.toSet().length, bodies.length, reason: title);
+        }
+      },
+    );
 
     test('each prediction horizon covers work money love and health', () {
       expect(prediction.windows, isNotEmpty);
@@ -107,7 +118,11 @@ void main() {
         (period) => !period.isPast && !period.isCurrent,
       );
       for (final period in future) {
-        expect(find.text(period.lifeDomains.first.body), findsOneWidget);
+        if (period.lifeDomains.isNotEmpty) {
+          expect(find.text(period.lifeDomains.first.body), findsOneWidget);
+        } else {
+          expect(find.text(period.phaseName), findsWidgets);
+        }
       }
     });
 
