@@ -198,3 +198,6 @@ the supported export path.
 ---
 
 **Report content / engine / Canon / badge policy unchanged — export packaging + presentation polish only.**
+## Round 5 semantic export rules
+
+The PDF exports the same four-field future blocks used by Web: claim, risk, decision impact, and preparation action. It preserves cross-mode evidence sensitivity, omits unsupported unknown-time weekday output, and applies the consumer-domain allowlist. Acceptance audits hash and inspect the exact final PDFs in the packet.

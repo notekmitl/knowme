@@ -472,14 +472,18 @@ class ThaiBirthProfileCoreReading {
         .toList(growable: false);
     if (weekdayAtoms.isNotEmpty) {
       final weekday = _thaiWeekday(birthData?.thaiWeekdayNumber);
-      final dayMeaning = normalized == null || !analysis.input.hasBirthTime
+      final dayMeaning = !analysis.input.hasBirthTime
+          ? 'เป็นเพียงฐานวันตามปฏิทิน เพราะไม่มีเวลาเกิด วันทางโหราศาสตร์อาจเป็นวันก่อนหน้าได้'
+          : normalized == null
           ? 'วันหลักที่ใช้กับกฎทางโหราศาสตร์ไทย'
           : normalized.usedPreviousDay
           ? 'เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้น จึงใช้วันก่อนหน้าเป็นวันทางโหราศาสตร์'
           : 'เวลาเกิดอยู่หลังพระอาทิตย์ขึ้น จึงใช้วันเดียวกับวันเกิดตามสูติบัตร';
       chartFactRows.add(
         ThaiBirthProfileCoreFactRow(
-          label: 'วันทางโหราศาสตร์',
+          label: analysis.input.hasBirthTime
+              ? 'วันทางโหราศาสตร์'
+              : 'ฐานวันตามปฏิทิน',
           value: 'วัน$weekday',
           meaning: dayMeaning,
           sourceAtoms: weekdayAtoms,
@@ -752,10 +756,12 @@ class ThaiBirthProfileCoreReading {
       );
       addDisclosureClaim(
         target: dayCountingClaims,
-        text:
-            'วันเกิดตามสูติบัตรยังเป็นวันที่ ${normalized.rawBirthDate} ตามเดิม '
-            'ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วัน$thaiDay '
-            '(วันที่ ${normalized.thaiAstrologicalDate}) เป็นวันทางโหราศาสตร์',
+        text: analysis.input.hasBirthTime
+            ? 'วันเกิดตามสูติบัตรยังเป็นวันที่ ${normalized.rawBirthDate} ตามเดิม '
+                  'ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วัน$thaiDay '
+                  '(วันที่ ${normalized.thaiAstrologicalDate}) เป็นวันทางโหราศาสตร์'
+            : 'วันที่ ${normalized.rawBirthDate} ตรงกับวัน$thaiDayตามปฏิทินและใช้เป็นฐานทำงานเท่านั้น '
+                  'เมื่อไม่มีเวลาเกิด วันทางโหราศาสตร์อาจเป็นวันก่อนหน้า จึงยังไม่สรุปวันสุดท้าย',
         semanticKey: 'methodology:astrological-date',
         atoms: [
           if (birthData?.thaiWeekdayNumber != null)

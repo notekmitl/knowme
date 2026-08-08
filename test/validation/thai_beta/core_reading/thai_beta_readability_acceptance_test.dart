@@ -116,21 +116,40 @@ void main() {
           expect(domainText, isNot(contains('สิ่งที่ควรระวัง:')));
           expect(domainText, isNot(contains('สิ่งที่นำไปใช้ได้:')));
         }
-        final dayCounting = reading.sections.singleWhere(
+        final dayCounting = reading.sections.where(
           (section) =>
               section.title == ThaiBirthProfileCoreReadingCopy.dayCountingTitle,
         );
-        expect(
-          dayCounting.paragraphs.join('\n'),
-          contains('วันเกิดตามสูติบัตร'),
-        );
-        expect(dayCounting.paragraphs.join('\n'), contains('วันทางโหราศาสตร์'));
-        final structure = reading.sections.singleWhere(
+        if (analysis.input.hasBirthTime) {
+          expect(dayCounting, hasLength(1));
+          expect(
+            dayCounting.single.paragraphs.join('\n'),
+            contains('วันเกิดตามสูติบัตร'),
+          );
+          expect(
+            dayCounting.single.paragraphs.join('\n'),
+            contains('วันทางโหราศาสตร์'),
+          );
+        } else {
+          expect(dayCounting, hasLength(1));
+          expect(
+            dayCounting.single.paragraphs.join('\n'),
+            contains('วันทางโหราศาสตร์อาจเป็นวันก่อนหน้า'),
+          );
+        }
+        final structure = reading.sections.where(
           (section) =>
               section.title ==
               ThaiBirthProfileCoreReadingCopy.chartStructureTitle,
         );
-        expect(structure.factRows, isNotEmpty, reason: entry.key);
+        if (analysis.input.hasBirthTime) {
+          expect(structure, hasLength(1), reason: entry.key);
+          expect(structure.single.factRows, isNotEmpty, reason: entry.key);
+        } else {
+          expect(structure, hasLength(1), reason: entry.key);
+          expect(structure.single.factRows, isNotEmpty, reason: entry.key);
+          expect(structure.single.factRows.first.label, 'ฐานวันตามปฏิทิน');
+        }
         expect(renderedPdf.plainText, isNot(contains('internal/beta')));
         expect(renderedPdf.plainText, isNot(contains('capture / screenshot')));
         expect(renderedPdf.plainText, isNot(contains('Canon')));

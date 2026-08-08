@@ -347,7 +347,9 @@ abstract final class ThaiBetaNarrativeComposer {
               intro: 'ดูภาพรวมของช่วงถัดไป เพื่อเตรียมสิ่งสำคัญไว้ล่วงหน้า',
               transitionLabel: timeline.futurePreview!.transitionLabel,
               elementShiftLine: timeline.futurePreview!.elementShiftLine,
-              opportunitiesLine: timeline.futurePreview!.opportunitiesLine,
+              opportunitiesLine: _consumerOpportunityLine(
+                timeline.futurePreview!.opportunitiesLine,
+              ),
               // The upstream preview exposes only a list of labels here. It
               // does not identify a pressure source, affected domain and
               // decision impact, so consumer output must fail closed.
@@ -501,38 +503,23 @@ abstract final class ThaiBetaNarrativeComposer {
   ) {
     if (prediction == null) return null;
     final windows = <PredictionWindowCardModel>[];
-    final claimsByDomain = <String, List<String>>{};
-    final risksByDomain = <String, List<String>>{};
-    final actionsByDomain = <String, List<String>>{};
     for (var i = 0; i < prediction.windows.length; i++) {
       final window = prediction.windows[i];
       final domains = window.domains
           .map((domain) {
-            final body = _forecastBody(domain.title, domain.body, i);
-            var caution = i == 0
-                ? _riskSignal(domain.caution)
-                : _forecastCheckpoint(domain.title, i);
-            final bodySeen = claimsByDomain.putIfAbsent(
-              domain.title,
-              () => <String>[],
-            );
-            final cautionSeen = (i == 0 ? risksByDomain : actionsByDomain)
-                .putIfAbsent(domain.title, () => <String>[]);
-            final uniqueBody = bodySeen.every(
-              (previous) => !_isSemanticallySimilar(previous, body),
-            );
-            final uniqueCaution = cautionSeen.every(
-              (previous) => !_isSemanticallySimilar(previous, caution),
-            );
-            if (uniqueBody && body.trim().isNotEmpty) bodySeen.add(body);
-            if (uniqueCaution && caution.trim().isNotEmpty) {
-              cautionSeen.add(caution);
-            } else {
-              caution = '';
-            }
+            final claim = _forecastClaim(domain.body, i);
+            final risk = _riskSignal(domain.caution);
+            final body = [
+              'แนวโน้ม: $claim',
+              'ผลต่อการตัดสินใจ: ${_decisionImpact(domain.title, claim)}',
+            ].join('\n');
+            var caution = [
+              if (risk.isNotEmpty) 'ความเสี่ยง: $risk',
+              'แนวทางเตรียมตัว: ${_forecastCheckpoint(domain.title, i)}',
+            ].join('\n');
             return PredictionDomainModel(
               title: domain.title,
-              body: uniqueBody ? body : '',
+              body: body,
               caution: caution,
             );
           })
@@ -580,49 +567,44 @@ abstract final class ThaiBetaNarrativeComposer {
     );
   }
 
-  static String _forecastBody(String title, String body, int windowIndex) {
+  static String _forecastClaim(String body, int windowIndex) {
     final stripped = body
         .replaceFirst(RegExp(r'^ช่วงนี้\s*'), '')
         .replaceFirst(RegExp(r'^ใน 12 เดือนข้างหน้า\s*'), '')
         .replaceFirst(RegExp(r'^เมื่อเข้าสู่ช่วงชีวิตถัดไป\s*'), '');
     return switch (windowIndex) {
       0 => 'สำหรับตอนนี้ $stripped',
-      1 => _nextYearAction(title),
-      _ => _nextPeriodPreparation(title),
+      1 => 'ใน 12 เดือนข้างหน้า $stripped',
+      _ => 'เมื่อเข้าสู่ช่วงชีวิตถัดไป $stripped',
     };
   }
 
-  static String _nextYearAction(String title) => switch (title.trim()) {
-    'การงาน' =>
-      'ในปีข้างหน้า ใช้ภาพรวมช่วงนี้เป็นฐานเลือกงานที่ควรลงแรงก่อน '
-          'แล้วตรวจความคืบหน้าจากผลที่เกิดขึ้นจริง',
-    'การเงิน' =>
-      'ในปีข้างหน้า แยกเงินที่ต้องรักษาออกจากเงินที่พร้อมใช้ '
-          'และทบทวนข้อตกลงก่อนรับภาระเพิ่ม',
-    'ความรัก' || 'ความสัมพันธ์' =>
-      'ในปีข้างหน้า ให้ความสำคัญกับการคุยความคาดหวังให้ชัด '
-          'แล้วดูว่าการกระทำของทั้งสองฝ่ายสอดคล้องกันหรือไม่',
-    'สุขภาพ' =>
-      'ในปีข้างหน้า จัดเวลาพักและกิจวัตรให้รองรับภาระที่มี '
-          'หากมีอาการผิดปกติควรปรึกษาผู้เชี่ยวชาญ ไม่ใช้คำอ่านนี้แทนการแพทย์',
-    _ => 'ในปีข้างหน้า ใช้สิ่งที่เกิดขึ้นจริงเป็นจุดทบทวนก่อนตัดสินใจเพิ่ม',
-  };
-
-  static String _nextPeriodPreparation(String title) => switch (title.trim()) {
-    'การงาน' =>
-      'เมื่อเข้าสู่ช่วงชีวิตถัดไป ให้ประเมินว่าทักษะและขอบเขตงานแบบใดควรรักษาไว้ '
-          'ก่อนเลือกรับบทบาทระยะยาว',
-    'การเงิน' =>
-      'เมื่อเข้าสู่ช่วงชีวิตถัดไป ให้จัดฐานเงินสำรองและภาระผูกพันให้เห็นชัด '
-          'ก่อนวางแผนการเงินระยะยาว',
-    'ความรัก' || 'ความสัมพันธ์' =>
-      'เมื่อเข้าสู่ช่วงชีวิตถัดไป ให้คุยทิศทางและขอบเขตที่ต้องการร่วมกัน '
-          'ก่อนตัดสินใจเรื่องความสัมพันธ์ระยะยาว',
-    'สุขภาพ' =>
-      'เมื่อเข้าสู่ช่วงชีวิตถัดไป ให้เลือกกิจวัตรพักและดูแลตนเองที่ทำต่อเนื่องได้ '
-          'เพื่อรองรับการเปลี่ยนแปลงระยะยาว',
-    _ => '',
-  };
+  static String _decisionImpact(String title, String claim) {
+    final constrained =
+        claim.contains('ช้า') ||
+        claim.contains('ตึง') ||
+        claim.contains('ล้าง่าย') ||
+        claim.contains('ไม่ใช่ด้านที่เดินง่าย');
+    return switch (title.trim()) {
+      'การงาน' =>
+        constrained
+            ? 'ควรจำกัดงานใหม่และแก้คอขวดเดิมก่อนขยายบทบาท'
+            : 'ใช้แนวโน้มนี้เลือกลำดับงานและขอบเขตบทบาทที่รับเพิ่ม',
+      'การเงิน' =>
+        constrained
+            ? 'ควรรักษาสภาพคล่องก่อนรับภาระหรือใช้เงินก้อน'
+            : 'ใช้แนวโน้มนี้กำหนดเงินสำรองก่อนตัดสินใจเพิ่มภาระ',
+      'ความรัก' || 'ความสัมพันธ์' =>
+        constrained
+            ? 'ควรชะลอข้อผูกพันจนกว่าความคาดหวังและการกระทำจะชัด'
+            : 'ใช้ความสม่ำเสมอและบทสนทนาจริงเป็นฐานตัดสินใจความสัมพันธ์',
+      'สุขภาพ' =>
+        constrained
+            ? 'ควรลดภาระก่อนเพิ่มกิจกรรมและไม่ใช้คำอ่านแทนคำแนะนำทางการแพทย์'
+            : 'ใช้ระดับพลังที่เกิดขึ้นจริงกำหนดภาระและเวลาพัก',
+      _ => 'ใช้สิ่งที่เกิดขึ้นจริงเป็นฐานทบทวนก่อนตัดสินใจ',
+    };
+  }
 
   static String _riskSignal(String caution) {
     final risk = caution
@@ -673,6 +655,13 @@ abstract final class ThaiBetaNarrativeComposer {
       'สุขภาพ' => 'เตรียมกิจวัตรพักฟื้นที่ทำต่อเนื่องได้ในระยะยาว',
       _ => '',
     };
+  }
+
+  static String _consumerOpportunityLine(String value) {
+    const allowed = {'การงาน', 'การเงิน', 'ความรัก', 'สุขภาพ', 'การเติบโต'};
+    final domains = allowed.where(value.contains).toList(growable: false);
+    if (domains.isEmpty) return '';
+    return 'ด้านที่มีแรงสนับสนุนในช่วงถัดไป: ${domains.join(' · ')}';
   }
 
   static String _dedupeOpportunity(String summary, String opportunity) {

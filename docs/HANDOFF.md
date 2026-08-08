@@ -643,3 +643,6 @@ from source-tested commit `81f37502ccd2f1b9f65e8d4f7d870dcaea1770a8`.
 The final known-time and unknown-time PDFs are 13 and 12 pages. All 25 pages
 were rendered and visually inspected. PR #86 must remain Draft; do not merge
 or deploy until the owner re-accepts these exact PDFs.
+## Thai Consumer Narrative Voice V1 — Round 5 re-acceptance
+
+Round 4 failed because future bodies were replaced by shared advice, unknown time asserted an unsupported Sunday, and a generic opportunity label leaked into consumer copy. Round 5 fixes those causes on existing Draft PR #86. Reviewers must use only the Round 5 packet and verify PDF hashes first. Merge and Production deployment remain prohibited until Product Acceptance passes.

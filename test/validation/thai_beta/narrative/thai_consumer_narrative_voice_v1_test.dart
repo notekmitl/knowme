@@ -134,16 +134,19 @@ void main() {
     final nextPeriod = windows[2];
 
     for (final domain in current.domains) {
-      expect(domain.body, startsWith('สำหรับตอนนี้'));
+      expect(domain.body, startsWith('แนวโน้ม: สำหรับตอนนี้'));
+      expect(domain.body, contains('\nผลต่อการตัดสินใจ:'));
+      expect(domain.caution, contains('ความเสี่ยง:'));
+      expect(domain.caution, contains('\nแนวทางเตรียมตัว:'));
       expect(domain.caution, isNot(contains('ไม่ใช่คำวินิจฉัยทางการแพทย์')));
     }
     for (final domain in nextYear.domains) {
-      expect(domain.body, startsWith('ในปีข้างหน้า'));
-      expect(domain.caution, startsWith('ทบทวนเมื่อ'));
+      expect(domain.body, startsWith('แนวโน้ม: ใน 12 เดือนข้างหน้า'));
+      expect(domain.caution, contains('แนวทางเตรียมตัว: ทบทวนเมื่อ'));
     }
     for (final domain in nextPeriod.domains) {
-      expect(domain.body, startsWith('เมื่อเข้าสู่ช่วงชีวิตถัดไป'));
-      expect(domain.caution, startsWith('เตรียม'));
+      expect(domain.body, startsWith('แนวโน้ม: เมื่อเข้าสู่ช่วงชีวิตถัดไป'));
+      expect(domain.caution, contains('แนวทางเตรียมตัว: เตรียม'));
       final matchingCurrent = current.domains.where(
         (candidate) => candidate.title == domain.title,
       );
@@ -153,6 +156,89 @@ void main() {
           isNot(_meaningKey(matchingCurrent.single.body)),
         );
       }
+    }
+  });
+
+  test('future claims respond to known-time versus unknown-time evidence', () {
+    ThaiBetaAnalysis run({required bool unknown, int? hour, int? minute}) {
+      final input = unknown
+          ? ThaiBetaInput(
+              firstName: 'Fixture',
+              lastName: 'Unknown',
+              birthDate: DateTime(1982, 6, 6),
+              birthTimeUnknown: true,
+              province: 'เชียงใหม่',
+              provinceKey: 'chiang_mai',
+            )
+          : ThaiBetaInput(
+              firstName: 'Fixture',
+              lastName: 'Known',
+              birthDate: DateTime(1982, 6, 6),
+              birthHour: hour!,
+              birthMinute: minute!,
+              province: 'เชียงใหม่',
+              provinceKey: 'chiang_mai',
+            );
+      return ThaiBetaAnalysisRunner.run(input, startedAt: DateTime(2026, 8, 7));
+    }
+
+    List<String> predictiveBlocks(ThaiBetaAnalysis analysis) =>
+        ThaiBetaNarrativeComposer.narrativeView(analysis)
+            .futurePrediction!
+            .windows
+            .expand((window) => window.domains)
+            .expand((domain) => [domain.body, domain.caution])
+            .map(_meaningKey)
+            .where((text) => text.isNotEmpty)
+            .toList(growable: false);
+
+    final fixtures = [
+      (
+        known: run(unknown: false, hour: 0, minute: 3),
+        unknown: run(unknown: true),
+      ),
+      (
+        known: run(unknown: false, hour: 0, minute: 35),
+        unknown: run(unknown: true),
+      ),
+    ];
+    for (final fixture in fixtures) {
+      final known = predictiveBlocks(fixture.known);
+      final unknown = predictiveBlocks(fixture.unknown);
+      expect(known, hasLength(unknown.length));
+      expect(
+        List.generate(
+          known.length,
+          (i) => known[i] == unknown[i],
+        ).every((same) => same),
+        isFalse,
+        reason:
+            'different evidence fingerprints cannot yield one identical prediction block',
+      );
+      final exactOverlap = known.toSet().intersection(unknown.toSet()).length;
+      expect(exactOverlap, lessThan(known.length));
+    }
+  });
+
+  test('future opportunity taxonomy omits generic opportunity labels', () {
+    final line =
+        ThaiBetaNarrativeComposer.narrativeView(
+          analysis,
+        ).lifeTimeline?.futurePreview?.opportunitiesLine ??
+        '';
+    expect(line, isNot(contains(' · โอกาส')));
+    expect(line, isNot(endsWith('โอกาส')));
+    if (line.isNotEmpty) {
+      expect(
+        [
+          'การงาน',
+          'การเงิน',
+          'ความรัก',
+          'สุขภาพ',
+          'การเติบโต',
+        ].any(line.contains),
+        isTrue,
+      );
     }
   });
 

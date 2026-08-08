@@ -215,3 +215,6 @@ horizon/domain ownership, semantic duplication, ages 7–21, generic pressure,
 and omission pagination. Required tests pass 1,514/1,514; PreCommit passes.
 Known-time is 13 pages with Aquarius 9°24′; unknown-time is 12 pages and
 remains fail closed. No merge, deploy, Production, or feature-flag change.
+## 2026-08-08 — Thai Consumer Narrative Voice V1 Round 5
+
+Round 4 failed Product Acceptance and remains unmerged. Round 5 is on the same Draft PR #86 and branch. The composer preserves evidence-derived future claims in four explicit fields, unknown-time weekday rendering fails closed, and preview taxonomy accepts only meaningful consumer domains. No Production deployment or feature-flag change is included.

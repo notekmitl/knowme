@@ -83,3 +83,8 @@ Thai Astrology Engine, Ascendant formulas, Canon, province resolver, Birth
 Normalization, evidence eligibility/meaning, Timeline ranges, Thai Mirror
 defaults, Auth, Feedback, Firebase, feature flags, public routes, and Production
 data are unchanged.
+## Round 5 evidence-sensitive future contract (2026-08-08)
+
+Round 4 failed Product Acceptance because its consumer composer replaced the evidence-derived 12-month and next-period claims with profile-independent advice. Every future domain/horizon now renders four explicit fields: `แนวโน้ม`, `ความเสี่ยง`, `ผลต่อการตัดสินใจ`, and `แนวทางเตรียมตัว`. Generic advice is labelled only as preparation and is never presented as a prediction.
+
+Known-time and unknown-time fixtures with different evidence fingerprints must not produce an entirely identical predictive matrix. Unknown-time output fails closed on the astrological weekday and never exposes sunrise. Generic taxonomy labels such as `โอกาส` are not consumer domains; the preview shows only meaningful allowlisted domains or omits the line.

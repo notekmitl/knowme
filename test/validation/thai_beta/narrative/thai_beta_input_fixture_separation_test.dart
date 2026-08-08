@@ -64,6 +64,22 @@ void main() {
     expect(analysis.profile!.siderealAscendantDeg, isNull);
     expect(export.fullPlainText, isNot(contains('12:00')));
     expect(export.fullPlainText, contains('ไม่มีเวลาเกิด'));
+    expect(export.fullPlainText, contains('วันอาทิตย์ตามปฏิทิน'));
+    expect(
+      export.fullPlainText,
+      contains('วันทางโหราศาสตร์อาจเป็นวันก่อนหน้า'),
+    );
+    expect(export.fullPlainText, isNot(contains('พระอาทิตย์ขึ้นเวลา')));
+  });
+
+  test('00:03 and 00:35 resolve Saturday while unknown asserts no day', () {
+    for (final minute in [3, 35]) {
+      final text = ThaiBetaReportExportDocument.fromAnalysis(
+        runAt(minute),
+      ).fullPlainText;
+      expect(text, contains('วันเสาร์'));
+      expect(text, isNot(contains('วันอาทิตย์')));
+    }
   });
 }
 
