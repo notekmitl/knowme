@@ -18,6 +18,7 @@ class PredictionDomainModel {
     this.preparationAction = '',
     this.uncertaintyDisclosure = '',
     this.material,
+    this.decisionPlan,
   });
 
   /// One of การงาน / การเงิน / ความรัก / สุขภาพ.
@@ -41,6 +42,9 @@ class PredictionDomainModel {
   /// Typed consumer-material inputs. Serialized only for acceptance audits.
   final ForecastMaterialFingerprint? material;
 
+  /// Typed authority shared by Decision Impact and Action.
+  final ForecastDecisionPlan? decisionPlan;
+
   String get materialFingerprint => material?.serialize() ?? '';
 }
 
@@ -53,6 +57,96 @@ enum ForecastBand { strong, active, quiet }
 enum ForecastEvidenceAvailability { full, noLagna }
 
 enum ForecastField { claim, risk, decisionImpact, action }
+
+enum ForecastDecisionIntent {
+  protectCoreWork,
+  preserveLiquidity,
+  clarifyCommitment,
+  preserveRecovery,
+}
+
+/// Consumer decision semantics derived from forecast material before prose.
+class ForecastDecisionPlan {
+  const ForecastDecisionPlan({
+    required this.horizon,
+    required this.domain,
+    required this.band,
+    required this.riskDomain,
+    required this.intent,
+    required this.evidenceAvailability,
+    required this.spansTransition,
+  });
+
+  factory ForecastDecisionPlan.fromMaterial(
+    ForecastMaterialFingerprint material, {
+    ForecastDecisionIntent? intent,
+  }) => ForecastDecisionPlan(
+    horizon: material.horizon,
+    domain: material.domain,
+    band: material.band,
+    riskDomain: material.riskDomain,
+    intent:
+        intent ??
+        switch (material.domain) {
+          ForecastDomain.career => ForecastDecisionIntent.protectCoreWork,
+          ForecastDomain.finance => ForecastDecisionIntent.preserveLiquidity,
+          ForecastDomain.relationship =>
+            ForecastDecisionIntent.clarifyCommitment,
+          ForecastDomain.health => ForecastDecisionIntent.preserveRecovery,
+        },
+    evidenceAvailability: material.evidenceAvailability,
+    spansTransition: material.spansTransition,
+  );
+
+  final ForecastHorizon horizon;
+  final ForecastDomain domain;
+  final ForecastBand band;
+  final LifeDomain? riskDomain;
+  final ForecastDecisionIntent intent;
+  final ForecastEvidenceAvailability evidenceAvailability;
+  final bool spansTransition;
+
+  ForecastDecisionPlan copyWith({ForecastDecisionIntent? intent}) =>
+      ForecastDecisionPlan(
+        horizon: horizon,
+        domain: domain,
+        band: band,
+        riskDomain: riskDomain,
+        intent: intent ?? this.intent,
+        evidenceAvailability: evidenceAvailability,
+        spansTransition: spansTransition,
+      );
+
+  Map<String, Object?> projection(ForecastField field) => switch (field) {
+    ForecastField.claim => {'horizon': horizon, 'domain': domain, 'band': band},
+    ForecastField.risk => {
+      'horizon': horizon,
+      'domain': domain,
+      'riskDomain': riskDomain,
+    },
+    ForecastField.decisionImpact => {
+      'horizon': horizon,
+      'domain': domain,
+      'band': band,
+      'riskDomain': riskDomain,
+      'intent': intent,
+      'spansTransition': horizon == ForecastHorizon.nextLifePeriod
+          ? spansTransition
+          : false,
+    },
+    ForecastField.action => {
+      'horizon': horizon,
+      'domain': domain,
+      'band': band,
+      'riskDomain': riskDomain,
+      'intent': intent,
+      'evidenceAvailability': evidenceAvailability,
+      'spansTransition': horizon == ForecastHorizon.nextLifePeriod
+          ? spansTransition
+          : false,
+    },
+  };
+}
 
 /// Canonical authority for forecast materiality and field-level projection.
 class ForecastMaterialFingerprint {

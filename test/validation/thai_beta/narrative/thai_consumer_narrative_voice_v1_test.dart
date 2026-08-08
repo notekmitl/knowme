@@ -213,16 +213,17 @@ void main() {
       (birthDate: DateTime(1994, 11, 27), hour: 18, minute: 42),
       (birthDate: DateTime(2001, 3, 14), hour: 6, minute: 18),
     ];
-    final fixtures = civilProfiles
+    final fixtures = civilProfiles.indexed
         .map(
-          (profile) => (
+          (entry) => (
+            profileCaseId: 'civil-case-${entry.$1 + 1}',
             known: run(
-              birthDate: profile.birthDate,
+              birthDate: entry.$2.birthDate,
               unknown: false,
-              hour: profile.hour,
-              minute: profile.minute,
+              hour: entry.$2.hour,
+              minute: entry.$2.minute,
             ),
-            unknown: run(birthDate: profile.birthDate, unknown: true),
+            unknown: run(birthDate: entry.$2.birthDate, unknown: true),
           ),
         )
         .toList();
@@ -235,7 +236,28 @@ void main() {
     final report = _matrixReport(
       known,
       unknown,
-      controlledMutationCoverage: _controlledMutationCoverage(known.first),
+      knownProfileCaseIds: fixtures
+          .expand(
+            (fixture) => List.filled(
+              predictiveBlocks(fixture.known).length,
+              fixture.profileCaseId,
+            ),
+          )
+          .toList(),
+      unknownProfileCaseIds: fixtures
+          .expand(
+            (fixture) => List.filled(
+              predictiveBlocks(fixture.unknown).length,
+              fixture.profileCaseId,
+            ),
+          )
+          .toList(),
+      productionGenerationSensitivity: _productionGenerationSensitivity(
+        known.first,
+      ),
+      negativeGateDetectionCoverage: _negativeGateDetectionCoverage(
+        known.first,
+      ),
     );
     expect(report.totalComparedCells, 240);
     expect(report.differentFingerprintCells, greaterThan(0));
@@ -261,6 +283,14 @@ void main() {
     expect(
       report.actualDifferenceCoverage,
       containsAll({'band', 'risk', 'availability'}),
+    );
+    expect(
+      report.productionGenerationSensitivity,
+      containsAll({'band', 'risk', 'availability', 'transition'}),
+    );
+    expect(
+      report.negativeGateDetectionCoverage,
+      containsAll({'band', 'risk', 'availability', 'transition'}),
     );
   });
 
@@ -440,6 +470,72 @@ void main() {
     expect(distinctOutputReport.sharedOutputJustifications, isEmpty);
   });
 
+  test(
+    'profile-aware pairing is order independent and fails identity defects',
+    () {
+      PredictionDomainModel model(ForecastBand band, String marker) =>
+          ThaiBetaNarrativeComposer.composeForecastForMaterial(
+            title: 'การงาน',
+            windowIndex: 0,
+            sourceBody: 'งานมีข้อมูลให้ทบทวน $marker',
+            sourceCaution: 'ภาระอาจเกินกำลัง $marker',
+            material: ForecastMaterialFingerprint(
+              horizon: ForecastHorizon.current,
+              domain: ForecastDomain.career,
+              band: band,
+              riskDomain: LifeDomain.pressure,
+              evidenceAvailability: ForecastEvidenceAvailability.full,
+              spansTransition: false,
+            ),
+          );
+      final known = [
+        model(ForecastBand.strong, 'ก'),
+        model(ForecastBand.quiet, 'ข'),
+      ];
+      final unknown = [
+        model(ForecastBand.strong, 'ก'),
+        model(ForecastBand.quiet, 'ข'),
+      ];
+      final ordered = _matrixReport(
+        known,
+        unknown,
+        knownProfileCaseIds: const ['case-a', 'case-b'],
+        unknownProfileCaseIds: const ['case-a', 'case-b'],
+      );
+      final shuffled = _matrixReport(
+        known,
+        [unknown[1], unknown[0]],
+        knownProfileCaseIds: const ['case-a', 'case-b'],
+        unknownProfileCaseIds: const ['case-b', 'case-a'],
+      );
+      expect(shuffled.totalComparedCells, ordered.totalComparedCells);
+      expect(shuffled.equalFingerprintCells, ordered.equalFingerprintCells);
+      expect(shuffled.violations, ordered.violations);
+
+      final duplicate = _matrixReport(
+        known,
+        unknown,
+        knownProfileCaseIds: const ['case-a', 'case-a'],
+        unknownProfileCaseIds: const ['case-a', 'case-b'],
+      );
+      expect(duplicate.violations.join('\n'), contains('duplicate identity'));
+      final missingUnexpected = _matrixReport(
+        [known.first],
+        [unknown.last],
+        knownProfileCaseIds: const ['case-a'],
+        unknownProfileCaseIds: const ['case-b'],
+      );
+      expect(
+        missingUnexpected.violations.join('\n'),
+        contains('missing identity'),
+      );
+      expect(
+        missingUnexpected.violations.join('\n'),
+        contains('unexpected identity'),
+      );
+    },
+  );
+
   test('action composes risk and decision behavior without quoting fields', () {
     const base = ForecastMaterialFingerprint(
       horizon: ForecastHorizon.current,
@@ -452,19 +548,39 @@ void main() {
     const claim = 'งานมีพื้นที่ขยับทีละขั้น';
     const risk = 'ภาระใหม่อาจเบียดเวลางานหลัก';
     const decision = 'บทบาทใหม่ต้องไม่ลดคุณภาพงานหลัก';
-    String action(ForecastMaterialFingerprint material) =>
-        ThaiBetaNarrativeComposer.forecastActionForMaterial(
-          title: 'การงาน',
-          windowIndex: 0,
-          claim: claim,
-          risk: risk,
-          decisionImpact: decision,
-          material: material,
-        );
-    final pressureAction = action(base);
-    final moneyAction = action(base.copyWith(riskDomain: LifeDomain.money));
-    expect(pressureAction, isNot(moneyAction));
-    for (final value in [pressureAction, moneyAction]) {
+    PredictionDomainModel compose(
+      ForecastMaterialFingerprint material, {
+      ForecastDecisionIntent? intent,
+    }) => ThaiBetaNarrativeComposer.composeForecastForMaterial(
+      title: 'การงาน',
+      windowIndex: 0,
+      sourceBody: claim,
+      sourceCaution: risk,
+      material: material,
+      decisionIntent: intent,
+    );
+    final pressure = compose(base);
+    final money = compose(base.copyWith(riskDomain: LifeDomain.money));
+    final liquidity = compose(
+      base,
+      intent: ForecastDecisionIntent.preserveLiquidity,
+    );
+    expect(pressure.preparationAction, isNot(money.preparationAction));
+    expect(pressure.decisionImpact, isNot(liquidity.decisionImpact));
+    expect(pressure.preparationAction, isNot(liquidity.preparationAction));
+    expect(
+      pressure.decisionPlan!.intent,
+      ForecastDecisionIntent.protectCoreWork,
+    );
+    expect(
+      liquidity.decisionPlan!.intent,
+      ForecastDecisionIntent.preserveLiquidity,
+    );
+    for (final value in [
+      pressure.preparationAction,
+      money.preparationAction,
+      liquidity.preparationAction,
+    ]) {
       expect(value, isNot(contains(claim)));
       expect(value, isNot(contains(risk)));
       expect(value, isNot(contains(decision)));
@@ -675,13 +791,14 @@ List<String> _crossModeViolations(
       right: unknown.preparationAction,
     ),
   ];
+  final leftPlan =
+      known.decisionPlan ?? ForecastDecisionPlan.fromMaterial(known.material!);
+  final rightPlan =
+      unknown.decisionPlan ??
+      ForecastDecisionPlan.fromMaterial(unknown.material!);
   for (final field in fields) {
-    final leftFingerprint = _projectionKey(
-      known.material!.projection(field.field),
-    );
-    final rightFingerprint = _projectionKey(
-      unknown.material!.projection(field.field),
-    );
+    final leftFingerprint = _projectionKey(leftPlan.projection(field.field));
+    final rightFingerprint = _projectionKey(rightPlan.projection(field.field));
     if (leftFingerprint == rightFingerprint) continue;
     final exact = field.left == field.right;
     final leftKey = _meaningKey(field.left);
@@ -708,18 +825,39 @@ String _projectionKey(Map<String, Object?> value) {
 _MatrixReport _matrixReport(
   List<PredictionDomainModel> known,
   List<PredictionDomainModel> unknown, {
-  Set<String> controlledMutationCoverage = const {},
+  List<String>? knownProfileCaseIds,
+  List<String>? unknownProfileCaseIds,
+  Set<String> productionGenerationSensitivity = const {},
+  Set<String> negativeGateDetectionCoverage = const {},
 }) {
-  String identity(PredictionDomainModel model) =>
-      '${model.material!.horizon.name}/${model.material!.domain.name}';
-  final rightByIdentity = <String, List<PredictionDomainModel>>{};
-  for (final model in unknown) {
-    rightByIdentity.putIfAbsent(identity(model), () => []).add(model);
+  final leftIds = knownProfileCaseIds ?? List.filled(known.length, 'case-1');
+  final rightIds =
+      unknownProfileCaseIds ?? List.filled(unknown.length, 'case-1');
+  String identity(String profileCaseId, PredictionDomainModel model) =>
+      '$profileCaseId/${model.material!.horizon.name}/${model.material!.domain.name}';
+  final violations = <String>[];
+  if (leftIds.length != known.length || rightIds.length != unknown.length) {
+    violations.add('profile identity count mismatch');
+  }
+  final leftByIdentity = <String, PredictionDomainModel>{};
+  final rightByIdentity = <String, PredictionDomainModel>{};
+  for (var i = 0; i < known.length && i < leftIds.length; i++) {
+    final key = identity(leftIds[i], known[i]);
+    if (leftByIdentity.containsKey(key)) {
+      violations.add('duplicate identity $key');
+    }
+    leftByIdentity[key] = known[i];
+  }
+  for (var i = 0; i < unknown.length && i < rightIds.length; i++) {
+    final key = identity(rightIds[i], unknown[i]);
+    if (rightByIdentity.containsKey(key)) {
+      violations.add('duplicate identity $key');
+    }
+    rightByIdentity[key] = unknown[i];
   }
   var total = 0;
   var equal = 0;
   var different = 0;
-  final violations = <String>[];
   final observed = <String, Set<Object?>>{
     'band': {},
     'risk': {},
@@ -729,13 +867,13 @@ _MatrixReport _matrixReport(
   final differenceCoverage = <String>{};
   final fieldCoverage = <ForecastField>{};
   final sharedOutputs = <_SharedOutputJustification>[];
-  for (final left in known) {
-    final matches = rightByIdentity[identity(left)];
-    if (matches == null || matches.isEmpty) {
-      violations.add('missing identity ${identity(left)}');
+  for (final entry in leftByIdentity.entries) {
+    final left = entry.value;
+    final right = rightByIdentity.remove(entry.key);
+    if (right == null) {
+      violations.add('missing identity ${entry.key}');
       continue;
     }
-    final right = matches.removeAt(0);
     final leftMaterial = left.material!;
     final rightMaterial = right.material!;
     observed['band']!.addAll([leftMaterial.band, rightMaterial.band]);
@@ -767,8 +905,14 @@ _MatrixReport _matrixReport(
     for (final field in ForecastField.values) {
       fieldCoverage.add(field);
       total++;
-      final a = _projectionKey(leftMaterial.projection(field));
-      final b = _projectionKey(rightMaterial.projection(field));
+      final a = _projectionKey(
+        (left.decisionPlan ?? ForecastDecisionPlan.fromMaterial(leftMaterial))
+            .projection(field),
+      );
+      final b = _projectionKey(
+        (right.decisionPlan ?? ForecastDecisionPlan.fromMaterial(rightMaterial))
+            .projection(field),
+      );
       if (a == b) {
         equal++;
       } else {
@@ -783,7 +927,7 @@ _MatrixReport _matrixReport(
             _semanticSimilarity(leftText, rightText) >= 0.72) {
           sharedOutputs.add(
             _SharedOutputJustification(
-              identity: identity(left),
+              identity: entry.key,
               field: field,
               leftProjection: a,
               rightProjection: b,
@@ -797,9 +941,7 @@ _MatrixReport _matrixReport(
     violations.addAll(_crossModeViolations(left, right));
   }
   for (final entry in rightByIdentity.entries) {
-    if (entry.value.isNotEmpty) {
-      violations.add('unexpected identity ${entry.key} x${entry.value.length}');
-    }
+    violations.add('unexpected identity ${entry.key}');
   }
   return _MatrixReport(
     totalComparedCells: total,
@@ -809,7 +951,8 @@ _MatrixReport _matrixReport(
     violations: violations,
     observedValueCoverage: observed,
     actualDifferenceCoverage: differenceCoverage,
-    controlledMutationCoverage: controlledMutationCoverage,
+    productionGenerationSensitivity: productionGenerationSensitivity,
+    negativeGateDetectionCoverage: negativeGateDetectionCoverage,
     fieldComparisonCoverage: fieldCoverage,
   );
 }
@@ -822,8 +965,11 @@ String _fieldText(PredictionDomainModel model, ForecastField field) =>
       ForecastField.action => model.preparationAction,
     };
 
-Set<String> _controlledMutationCoverage(PredictionDomainModel derived) {
-  final base = derived.material!;
+Set<String> _negativeGateDetectionCoverage(PredictionDomainModel derived) {
+  final base = derived.material!.copyWith(
+    horizon: ForecastHorizon.nextLifePeriod,
+    spansTransition: true,
+  );
   PredictionDomainModel model(ForecastMaterialFingerprint material) =>
       PredictionDomainModel(
         title: derived.title,
@@ -861,6 +1007,63 @@ Set<String> _controlledMutationCoverage(PredictionDomainModel derived) {
   };
 }
 
+Set<String> _productionGenerationSensitivity(PredictionDomainModel derived) {
+  final base = derived.material!.copyWith(
+    horizon: ForecastHorizon.nextLifePeriod,
+    spansTransition: true,
+  );
+  PredictionDomainModel compose(ForecastMaterialFingerprint material) =>
+      ThaiBetaNarrativeComposer.composeForecastForMaterial(
+        title: derived.title,
+        windowIndex: 2,
+        sourceBody: 'ด้านนี้มีข้อมูลให้ทบทวนก่อนขยายภาระ',
+        sourceCaution: 'ภาระอาจเกินกำลังที่มี',
+        material: material,
+      );
+  final mutations = <String, ForecastMaterialFingerprint>{
+    'band': base.copyWith(
+      band: base.band == ForecastBand.quiet
+          ? ForecastBand.strong
+          : ForecastBand.quiet,
+    ),
+    'risk': base.copyWith(
+      riskDomain: base.riskDomain == LifeDomain.money
+          ? LifeDomain.health
+          : LifeDomain.money,
+    ),
+    'availability': base.copyWith(
+      evidenceAvailability:
+          base.evidenceAvailability == ForecastEvidenceAvailability.full
+          ? ForecastEvidenceAvailability.noLagna
+          : ForecastEvidenceAvailability.full,
+    ),
+    'transition': base.copyWith(spansTransition: false),
+  };
+  final original = compose(base);
+  return {
+    for (final entry in mutations.entries)
+      if (_projectedFieldsChanged(original, compose(entry.value))) entry.key,
+  };
+}
+
+bool _projectedFieldsChanged(
+  PredictionDomainModel left,
+  PredictionDomainModel right,
+) {
+  final leftPlan = left.decisionPlan!;
+  final rightPlan = right.decisionPlan!;
+  for (final field in ForecastField.values) {
+    final a = _projectionKey(leftPlan.projection(field));
+    final b = _projectionKey(rightPlan.projection(field));
+    if (a != b &&
+        _meaningKey(_fieldText(left, field)) ==
+            _meaningKey(_fieldText(right, field))) {
+      return false;
+    }
+  }
+  return true;
+}
+
 class _MatrixReport {
   const _MatrixReport({
     required this.totalComparedCells,
@@ -870,7 +1073,8 @@ class _MatrixReport {
     required this.violations,
     required this.observedValueCoverage,
     required this.actualDifferenceCoverage,
-    required this.controlledMutationCoverage,
+    required this.productionGenerationSensitivity,
+    required this.negativeGateDetectionCoverage,
     required this.fieldComparisonCoverage,
   });
 
@@ -881,7 +1085,8 @@ class _MatrixReport {
   final List<String> violations;
   final Map<String, Set<Object?>> observedValueCoverage;
   final Set<String> actualDifferenceCoverage;
-  final Set<String> controlledMutationCoverage;
+  final Set<String> productionGenerationSensitivity;
+  final Set<String> negativeGateDetectionCoverage;
   final Set<ForecastField> fieldComparisonCoverage;
 
   List<String> get failures => [
@@ -899,13 +1104,20 @@ class _MatrixReport {
       'missing observed transition values',
     if (!actualDifferenceCoverage.containsAll({'band', 'risk', 'availability'}))
       'missing actual cross-mode difference coverage',
-    if (!controlledMutationCoverage.containsAll({
+    if (!productionGenerationSensitivity.containsAll({
       'band',
       'risk',
       'availability',
       'transition',
     }))
-      'missing controlled mutation coverage',
+      'missing production generation sensitivity',
+    if (!negativeGateDetectionCoverage.containsAll({
+      'band',
+      'risk',
+      'availability',
+      'transition',
+    }))
+      'missing negative gate detection coverage',
     if (!fieldComparisonCoverage.containsAll(ForecastField.values))
       'missing field comparison coverage',
     if (sharedOutputJustifications.any(

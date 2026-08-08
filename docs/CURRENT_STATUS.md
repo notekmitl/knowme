@@ -1,18 +1,18 @@
 # KnowMe Current Status
 
-## Active Draft — Thai Consumer Narrative Voice Round 8
+## Active Draft — Thai Consumer Narrative Voice Round 9
 
 **Last updated:** August 8, 2026
 **Branch:** `codex/thai-consumer-narrative-voice-v1`
 **Draft PR:** #86 — OPEN, Draft, unmerged
-**Product Acceptance:** pending Round 8 owner review
+**Product Acceptance:** pending Round 9 owner review
 **Production/deployment:** unchanged; merge and deploy prohibited
 
-Round 7 failed because disclaimer text could satisfy availability differentiation, Action repeated whole Decision/Risk sentences, the actual matrix did not require risk/transition coverage, shared-output counting did not count shared output, and evidence recorded a fabricated full SHA. Round 8 separates disclosure from predictive fields, composes short behavior-changing Actions, makes Risk/Decision meaning respond to structured material, and reports observed/difference/mutation/field coverage separately.
+Round 8 failed because Action did not consume Decision Impact semantics, controlled mutation coverage reused base output and counted gate violations, multi-profile identity omitted `profileCaseId`, and attachments did not represent the final packet.
 
-The actual Round 7 implementation SHA is `6a61e8b1e398ae83a558cde779c793dc360a4a18`; the previously recorded `6a61e8bdfd6d632030136158646f634632609d6b` is invalid and must not be used.
+Round 9 uses one typed `ForecastDecisionPlan` for Decision Impact and Action, recomposes controlled mutations through the production path, separates generation sensitivity from negative gate detection, and pairs actual outputs by deterministic non-PII `profileCaseId/horizon/domain`.
 
-Final Round 8 source SHA, tests, gates, PDF facts, packet and ZIP hashes, PR state, and GitHub status are authoritative in `TASK_RESULT.md` after artifact completion. Final remote HEAD is authoritative in the PR body and delivery response after push because it cannot self-reference inside its own commit.
+Final source SHA, tests, PDF facts, packet and ZIP hashes become authoritative in `TASK_RESULT.md` after artifact completion. Final remote HEAD and GitHub state are recorded after push in the PR body and delivery response.
 
 ## Preserved boundaries
 
@@ -20,4 +20,4 @@ Thai Engine/Canon/evidence semantics, calculations, birth normalization, provinc
 
 ## Historical Acceptance
 
-Rounds 3–7 failed Product Acceptance and remain unmerged/undeployed. They are not active or ready states.
+Rounds 3–8 failed Product Acceptance and are not active or ready states.

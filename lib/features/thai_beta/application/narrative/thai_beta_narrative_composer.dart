@@ -508,49 +508,12 @@ abstract final class ThaiBetaNarrativeComposer {
       final window = prediction.windows[i];
       final domains = window.domains
           .map((domain) {
-            final claim = _forecastClaim(domain.body, i);
-            final material = domain.material!;
-            final risk = _riskSignal(
-              domain.caution,
-              riskDomain: material.riskDomain,
-            );
-            final decisionImpact = _decisionImpact(
-              domain.title,
-              claim,
-              risk,
-              material,
-            );
-            final action = forecastActionForMaterial(
+            return composeForecastForMaterial(
               title: domain.title,
               windowIndex: i,
-              claim: claim,
-              risk: risk,
-              decisionImpact: decisionImpact,
-              material: material,
-            );
-            final uncertaintyDisclosure =
-                material.evidenceAvailability ==
-                    ForecastEvidenceAvailability.noLagna
-                ? 'คำอ่านนี้ไม่มีหลักฐานลัคนา จึงใช้เป็นกรอบสังเกตและไม่ฟันธง'
-                : '';
-            final body = [
-              'แนวโน้ม: $claim',
-              'ผลต่อการตัดสินใจ: $decisionImpact',
-            ].join('\n');
-            final caution = [
-              if (risk.isNotEmpty) 'ความเสี่ยง: $risk',
-              'แนวทางเตรียมตัว: $action',
-            ].join('\n');
-            return PredictionDomainModel(
-              title: domain.title,
-              body: body,
-              caution: caution,
-              claim: claim,
-              risk: risk,
-              decisionImpact: decisionImpact,
-              preparationAction: action,
-              uncertaintyDisclosure: uncertaintyDisclosure,
-              material: material,
+              sourceBody: domain.body,
+              sourceCaution: domain.caution,
+              material: domain.material!,
             );
           })
           .where(
@@ -597,91 +560,68 @@ abstract final class ThaiBetaNarrativeComposer {
     );
   }
 
-  static String _forecastClaim(String body, int windowIndex) {
+  static String _forecastClaim(
+    String body,
+    int windowIndex,
+    ForecastDecisionPlan plan,
+  ) {
     final stripped = body
         .replaceFirst(RegExp(r'^ช่วงนี้\s*'), '')
         .replaceFirst(RegExp(r'^ใน 12 เดือนข้างหน้า\s*'), '')
         .replaceFirst(RegExp(r'^เมื่อเข้าสู่ช่วงชีวิตถัดไป\s*'), '');
-    return switch (windowIndex) {
+    final timed = switch (windowIndex) {
       0 => 'สำหรับตอนนี้ $stripped',
       1 => 'ใน 12 เดือนข้างหน้า $stripped',
       _ => 'เมื่อเข้าสู่ช่วงชีวิตถัดไป $stripped',
     };
+    final posture = switch (plan.band) {
+      ForecastBand.strong => 'จังหวะนี้รองรับการเดินหน้าทีละก้าว',
+      ForecastBand.active => 'จังหวะนี้เหมาะกับการทดลองในขอบเขตเล็ก',
+      ForecastBand.quiet => 'จังหวะนี้เหมาะกับการสังเกตก่อนขยาย',
+    };
+    return '$timed $posture';
   }
 
-  static String _decisionImpact(
-    String title,
-    String claim,
-    String risk,
-    ForecastMaterialFingerprint material,
-  ) {
-    final evidenceRiskDecision = switch (material.riskDomain) {
-      LifeDomain.love => switch (title.trim()) {
-        'การงาน' =>
-          'แยกข้อตกลงเรื่องงานออกจากความคาดหวังในความสัมพันธ์ก่อนรับบทบาทเพิ่ม',
-        'การเงิน' => 'ตกลงขอบเขตเงินร่วมให้ชัดก่อนรับรายจ่ายหรือภาระก้อนใหม่',
-        'ความรัก' ||
-        'ความสัมพันธ์' => 'รอให้คำพูดและการกระทำสอดคล้องกันก่อนเพิ่มข้อผูกพัน',
-        'สุขภาพ' => 'กันเวลาพักออกจากภาระความสัมพันธ์ก่อนเพิ่มกิจกรรม',
-        _ => '',
-      },
-      LifeDomain.pressure =>
-        'กำหนดเพดานภาระและจุดหยุดก่อนขยายการตัดสินใจในด้านนี้',
-      LifeDomain.money => 'รักษาเงินพร้อมใช้ก่อนขยายภาระในด้านนี้',
-      LifeDomain.health => 'รักษาเวลาพักและการฟื้นตัวก่อนขยายภาระในด้านนี้',
-      LifeDomain.career => 'กันเวลางานหลักไว้ก่อนเพิ่มภาระในด้านนี้',
+  static String _decisionImpact(ForecastDecisionPlan plan) {
+    final decisionCore = switch ((plan.band, plan.intent)) {
+      (ForecastBand.strong, ForecastDecisionIntent.protectCoreWork) =>
+        'รับบทบาทเพิ่มได้หนึ่งก้าวเมื่อคุณภาพงานหลักยังคงเดิม',
+      (ForecastBand.active, ForecastDecisionIntent.protectCoreWork) =>
+        'ทดลองขอบเขตงานใหม่ก่อนตัดสินใจรับบทบาทเต็มตัว',
+      (ForecastBand.quiet, ForecastDecisionIntent.protectCoreWork) =>
+        'หยุดเพิ่มงานและคืนเวลาให้งานหลักก่อน',
+      (ForecastBand.strong, ForecastDecisionIntent.preserveLiquidity) =>
+        'ขยับภาระได้เมื่อกันเงินพร้อมใช้ไว้ครบแล้ว',
+      (ForecastBand.active, ForecastDecisionIntent.preserveLiquidity) =>
+        'พิสูจน์กระแสเงินจริงในวงเล็กก่อนเพิ่มภาระ',
+      (ForecastBand.quiet, ForecastDecisionIntent.preserveLiquidity) =>
+        'ชะลอรายจ่ายก้อนใหม่และรักษาเงินพร้อมใช้',
+      (ForecastBand.strong, ForecastDecisionIntent.clarifyCommitment) =>
+        'เพิ่มข้อผูกพันได้เมื่อคำพูดและการกระทำสอดคล้องกัน',
+      (ForecastBand.active, ForecastDecisionIntent.clarifyCommitment) =>
+        'ทดลองข้อตกลงเล็กและดูความสม่ำเสมอก่อนผูกพันเพิ่ม',
+      (ForecastBand.quiet, ForecastDecisionIntent.clarifyCommitment) =>
+        'รอความชัดของเงื่อนไขก่อนเพิ่มข้อผูกพัน',
+      (ForecastBand.strong, ForecastDecisionIntent.preserveRecovery) =>
+        'เพิ่มกิจกรรมได้เมื่อเวลาพักและการฟื้นตัวยังคงพอ',
+      (ForecastBand.active, ForecastDecisionIntent.preserveRecovery) =>
+        'ทดลองกิจกรรมทีละขั้นและใช้การฟื้นตัวจริงเป็นเพดาน',
+      (ForecastBand.quiet, ForecastDecisionIntent.preserveRecovery) =>
+        'ลดกิจกรรมและคืนเวลาฟื้นตัวก่อนรับภาระใหม่',
+    };
+    final transition =
+        plan.horizon == ForecastHorizon.nextLifePeriod && plan.spansTransition
+        ? ' พร้อมเผื่อกำลังสำหรับรอยต่อช่วงชีวิต'
+        : '';
+    final riskBoundary = switch (plan.riskDomain) {
+      LifeDomain.pressure => ' เพราะภาระเกินกำลังจะเบียดพื้นที่ตัดสินใจ',
+      LifeDomain.money => ' เพราะภาระเงินจะลดทางเลือกที่เหลือ',
+      LifeDomain.love => ' เพราะความคาดหวังที่ไม่ตรงกันทำให้ผูกพันเร็วเกินไป',
+      LifeDomain.health => ' เพราะการพักไม่พอจะลดกำลังสำหรับขั้นต่อไป',
+      LifeDomain.career => ' เพราะงานเพิ่มอาจเบียดคุณภาพงานหลัก',
       _ => '',
     };
-    if (evidenceRiskDecision.isNotEmpty) {
-      final bandDecision = switch (material.band) {
-        ForecastBand.strong => 'มีพื้นที่เดินหน้าได้หนึ่งก้าว แต่',
-        ForecastBand.active => 'ควรทดลองในขอบเขตเล็กและ',
-        ForecastBand.quiet => 'ควรชะลอการขยายและ',
-      };
-      return '$bandDecision$evidenceRiskDecision';
-    }
-    final constrained =
-        material.band == ForecastBand.quiet ||
-        claim.contains('ช้า') ||
-        claim.contains('ตึง') ||
-        claim.contains('ล้าง่าย') ||
-        claim.contains('ไม่ใช่ด้านที่เดินง่าย');
-    final strong = material.band == ForecastBand.strong;
-    return switch (title.trim()) {
-      'การงาน' =>
-        constrained
-            ? 'ภาระที่เพิ่มจะเบียดงานหลักได้ จึงควรจำกัดงานใหม่ก่อนขยายบทบาท'
-            : strong
-            ? 'โอกาสขยับงานมีน้ำหนัก แต่ต้องกันกำลังไว้ไม่ให้บทบาทใหม่ลดคุณภาพงานหลัก'
-            : risk.contains('รับงานเกิน')
-            ? 'งานมีพื้นที่ขยับทีละขั้น จึงควรทดลองขอบเขตใหม่ก่อนรับบทบาทเพิ่มเต็มตัว'
-            : 'ใช้แนวโน้มนี้เลือกลำดับงานและขอบเขตบทบาทที่รับเพิ่ม',
-      'การเงิน' =>
-        constrained
-            ? 'สภาพคล่องอาจลดลง จึงควรรักษาเงินพร้อมใช้ก่อนรับภาระหรือใช้เงินก้อน'
-            : strong
-            ? 'โอกาสเพิ่มความมั่นคงมีน้ำหนัก จึงควรล็อกส่วนเพิ่มเป็นเงินสำรองก่อนขยายภาระ'
-            : risk.contains('รายจ่ายเพิ่ม')
-            ? 'การเงินมีพื้นที่นิ่งขึ้นทีละขั้น จึงควรพิสูจน์กระแสเงินก่อนเพิ่มภาระ'
-            : 'ใช้แนวโน้มนี้กำหนดเงินสำรองก่อนตัดสินใจเพิ่มภาระ',
-      'ความรัก' || 'ความสัมพันธ์' =>
-        constrained
-            ? 'ความคาดหวังที่ยังไม่ตรงกันเพิ่มความเสี่ยงต่อข้อผูกพัน จึงควรรอความชัดก่อนตัดสินใจ'
-            : strong
-            ? 'ความสัมพันธ์มีแรงเดินหน้า แต่เรื่องค้างคายังเป็นเงื่อนไขก่อนเพิ่มข้อผูกพัน'
-            : risk.contains('ไม่พอใจสะสม')
-            ? 'ความสัมพันธ์ค่อย ๆ พัฒนา จึงควรใช้ความสม่ำเสมอจริงพิสูจน์ทิศทางก่อนตัดสินใจ'
-            : 'ใช้ความสม่ำเสมอและบทสนทนาจริงเป็นฐานตัดสินใจความสัมพันธ์',
-      'สุขภาพ' =>
-        constrained
-            ? 'ความล้าที่เพิ่มขึ้นลดพื้นที่รับภาระใหม่ จึงควรลดกิจกรรมและไม่ใช้คำอ่านแทนคำแนะนำทางการแพทย์'
-            : strong
-            ? 'พลังโดยรวมรองรับกิจกรรมได้ แต่ต้องรักษาเวลาพักไม่ให้ข้อได้เปรียบกลายเป็นความล้า'
-            : risk.contains('ความล้าสะสม')
-            ? 'พลังขึ้นลงตามภาระ จึงควรเพิ่มกิจกรรมทีละขั้นและใช้การฟื้นตัวจริงกำหนดเพดาน'
-            : 'ใช้ระดับพลังที่เกิดขึ้นจริงกำหนดภาระและเวลาพัก',
-      _ => 'ใช้สิ่งที่เกิดขึ้นจริงเป็นฐานทบทวนก่อนตัดสินใจ',
-    };
+    return '$decisionCore$riskBoundary$transition';
   }
 
   static String _riskSignal(String caution, {LifeDomain? riskDomain}) {
@@ -723,64 +663,85 @@ abstract final class ThaiBetaNarrativeComposer {
     return union > 0 && overlap / union >= 0.72;
   }
 
-  /// Composes a concise action from the block's predictive meaning.
-  ///
-  /// Public for deterministic acceptance mutation tests; this does not run an
-  /// engine or create a prediction.
-  static String forecastActionForMaterial({
+  /// Production path shared by report composition and controlled mutations.
+  static PredictionDomainModel composeForecastForMaterial({
     required String title,
     required int windowIndex,
-    required String claim,
-    required String risk,
-    required String decisionImpact,
+    required String sourceBody,
+    required String sourceCaution,
     required ForecastMaterialFingerprint material,
+    ForecastDecisionIntent? decisionIntent,
   }) {
-    if (claim.isEmpty || risk.isEmpty || decisionImpact.isEmpty) {
-      return _forecastAction(title, windowIndex, material);
-    }
+    final plan = ForecastDecisionPlan.fromMaterial(
+      material,
+      intent: decisionIntent,
+    );
+    final claim = _forecastClaim(sourceBody, windowIndex, plan);
+    final risk = _riskSignal(sourceCaution, riskDomain: plan.riskDomain);
+    final decisionImpact = _decisionImpact(plan);
+    final action = _forecastActionForPlan(plan);
+    final disclosure =
+        plan.evidenceAvailability == ForecastEvidenceAvailability.noLagna
+        ? 'คำอ่านนี้ไม่มีหลักฐานลัคนา จึงใช้เป็นกรอบสังเกตและไม่ฟันธง'
+        : '';
+    return PredictionDomainModel(
+      title: title,
+      body: 'แนวโน้ม: $claim\nผลต่อการตัดสินใจ: $decisionImpact',
+      caution: [
+        if (risk.isNotEmpty) 'ความเสี่ยง: $risk',
+        'แนวทางเตรียมตัว: $action',
+      ].join('\n'),
+      claim: claim,
+      risk: risk,
+      decisionImpact: decisionImpact,
+      preparationAction: action,
+      uncertaintyDisclosure: disclosure,
+      material: material,
+      decisionPlan: plan,
+    );
+  }
 
-    final horizonLead = switch (material.horizon) {
+  static String _forecastActionForPlan(ForecastDecisionPlan plan) {
+    final horizonLead = switch (plan.horizon) {
       ForecastHorizon.current => 'ตอนนี้',
       ForecastHorizon.next12Months => 'ตั้งจุดทบทวนภายใน 12 เดือน',
-      ForecastHorizon.nextLifePeriod when material.spansTransition =>
+      ForecastHorizon.nextLifePeriod when plan.spansTransition =>
         'ก่อนเปลี่ยนช่วงชีวิต เตรียมรับรอยต่อระยะยาวโดย',
       ForecastHorizon.nextLifePeriod =>
         'ก่อนเปลี่ยนช่วงชีวิต เตรียมฐานระยะยาวโดย',
     };
-    final claimIsConstrained =
-        material.band == ForecastBand.quiet ||
-        claim.contains('ช้า') ||
-        claim.contains('ตึง') ||
-        claim.contains('ล้าง่าย') ||
-        claim.contains('ขึ้นลง');
-    final claimResponse = switch ((material.band, claimIsConstrained)) {
-      (_, true) => 'ชะลอก้าวใหม่และเก็บข้อมูลจริงก่อนตัดสินใจ',
-      (ForecastBand.strong, _) => 'เลือกหนึ่งก้าวที่เห็นผลชัดและกำหนดเพดานไว้',
-      (ForecastBand.active, _) => 'ทดลองทีละขั้นแล้วทบทวนจากผลที่เกิดขึ้นจริง',
-      (ForecastBand.quiet, _) => 'ชะลอก้าวใหม่และเก็บข้อมูลจริงก่อนตัดสินใจ',
+    final posture = switch (plan.band) {
+      ForecastBand.strong => 'เลือกทำหนึ่งก้าวและกำหนดเพดานไว้',
+      ForecastBand.active => 'ทดลองทีละขั้นแล้วทบทวนผลจริง',
+      ForecastBand.quiet => 'ชะลอก้าวใหม่และเก็บข้อมูลจริง',
     };
-    final riskResponse = switch (material.riskDomain) {
+    final riskResponse = switch (plan.riskDomain) {
       LifeDomain.pressure => 'ลดภาระทันทีเมื่อภาระเริ่มเกินกำลัง',
       LifeDomain.money => 'หยุดเพิ่มภาระเงินเมื่อความเสี่ยงเริ่มเกิด',
       LifeDomain.love => 'ชะลอข้อตกลงเมื่อความสัมพันธ์ยังไม่ชัด',
       LifeDomain.health => 'ลดกิจกรรมเมื่อการฟื้นตัวไม่พอ',
+      LifeDomain.career => 'หยุดรับงานเพิ่มเมื่องานหลักเริ่มถูกเบียด',
       _ => 'ชะลอและทบทวนเมื่อความเสี่ยงนี้เริ่มเกิด',
     };
-    final decisionStep = switch (title.trim()) {
-      'การงาน' => 'จัดลำดับงานหลักก่อนรับบทบาทเพิ่ม',
-      'การเงิน' => 'กันเงินพร้อมใช้ก่อนเพิ่มภาระ',
-      'ความรัก' || 'ความสัมพันธ์' =>
+    final decisionStep = switch (plan.intent) {
+      ForecastDecisionIntent.protectCoreWork =>
+        'จัดลำดับงานหลักก่อนรับบทบาทเพิ่ม',
+      ForecastDecisionIntent.preserveLiquidity =>
+        'กันเงินพร้อมใช้ก่อนเพิ่มภาระ',
+      ForecastDecisionIntent.clarifyCommitment =>
         'คุยเงื่อนไขให้ชัดก่อนเพิ่มข้อผูกพัน',
-      'สุขภาพ' => 'รักษาเวลาฟื้นตัวก่อนเพิ่มกิจกรรม',
-      _ => 'กำหนดเกณฑ์หยุดไว้ก่อนเริ่ม',
+      ForecastDecisionIntent.preserveRecovery =>
+        'รักษาเวลาฟื้นตัวก่อนเพิ่มกิจกรรม',
     };
-    if (material.evidenceAvailability == ForecastEvidenceAvailability.noLagna) {
+    if (plan.evidenceAvailability == ForecastEvidenceAvailability.noLagna) {
       return '$horizonLead บันทึกผลจริงหนึ่งรอบก่อน แล้วค่อย$decisionStep; '
           'หากข้อมูลยังไม่ชัดให้ชะลอไว้และ$riskResponse';
     }
-    return '$horizonLead $decisionStep โดย$claimResponse; $riskResponse';
+    return '$horizonLead $decisionStep โดย$posture; $riskResponse';
   }
 
+  // Legacy fallback retained for callers that still construct unpolished cards.
+  // ignore: unused_element
   static String _forecastAction(
     String title,
     int windowIndex,
