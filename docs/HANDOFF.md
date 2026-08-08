@@ -1,18 +1,20 @@
-# Handoff — Active Draft PR #86 Round 7
+# Handoff — Active Draft PR #86 Round 8
 
-**Active review:** Round 7 only. Product Acceptance is pending. PR #86 must remain Draft; do not merge or deploy.
+Product Acceptance is pending. PR #86 must remain Draft; do not merge or deploy.
 
-Review the exact Round 7 known-time and unknown-time PDFs after checking their SHA-256 values in `TASK_RESULT.md` and the packet manifest. Inspect every rendered page and verify:
+Review the exact Round 8 known-time and unknown-time PDFs and manifest recorded in `TASK_RESULT.md`. Inspect every rendered page and verify:
 
-- Claim, Risk, Decision Impact, and Action describe one coherent block.
-- Action responds to the same Claim/Risk/Decision Impact and typed material projection, not merely domain/horizon/band.
-- Unknown-time Action fails closed when Lagna evidence is unavailable.
-- Current, 12-month, and next-period ownership remains distinct.
-- No repeated known/unknown prediction is unjustified by equal field-level material.
-- No internal taxonomy, orphan heading, clipping, overlap, broken continuation, or pagination defect appears.
+- Claim, Risk, Decision Impact, and Action form one coherent block without repeating whole sentences.
+- Unknown-time uncertainty disclosure is a separate field and never supplies predictive differentiation.
+- `noLagna` changes recommended behavior by requiring an observed-result checkpoint before added commitment.
+- Risk and Decision meaning respond to the structured risk domain; Actions remain concise and executable.
+- Current, 12-month, and next-period ownership is distinct.
+- Coverage reports separate observed values, actual cross-mode differences, controlled mutations, and field comparisons; transition difference is not claimed when only true/false observation exists.
+- Shared-output counts include only genuinely equal/contained/similar predictive output and every justification has an evidence-backed record; zero is reported when none exists.
+- No unsupported weekday/time/Lagna/house/sunrise claim, internal taxonomy, orphan heading, clipping, overlap, or pagination defect appears.
 
-The final remote SHA, test/gate totals, packet paths, PDF hashes, page counts, PR state, and GitHub status are recorded in `TASK_RESULT.md`.
+`TASK_RESULT.md` owns source-tested and artifact facts. The PR body and delivery response own exact final remote HEAD after push.
 
 ## Historical Acceptance
 
-Rounds 3–6 failed and are superseded for active review. Prior packets remain immutable historical evidence only.
+Rounds 3–7 failed and are historical only. Round 7 implementation SHA is `6a61e8b1e398ae83a558cde779c793dc360a4a18`; do not use the invalid fabricated SHA from its former evidence.

@@ -326,6 +326,11 @@ class _DomainForecast extends StatelessWidget {
               label: 'แนวทางเตรียมตัว',
               value: domain.preparationAction,
             ),
+            if (domain.uncertaintyDisclosure.isNotEmpty)
+              _ForecastField(
+                label: 'ข้อจำกัดของคำอ่าน',
+                value: domain.uncertaintyDisclosure,
+              ),
           ] else ...[
             Text(
               domain.body,

@@ -229,12 +229,8 @@ and CI configuration were not changed. Default Thai Mirror behavior remains
 covered by the non-golden widget-tree/content regression in the focused Core
 Reading test.
 
-## Round 5 unknown-time weekday rule
+## Active Round 8 compatibility
 
-The consumer Core Reading renders an astrological weekday only when a birth time was supplied and the sunrise-boundary result is supported. Unknown time omits the final weekday and records the unsupported topic; it does not render a noon fallback or sunrise time. This presentation rule does not alter Engine or normalization results.
-# Round 6 compatibility note
+The consumer Core Reading renders an astrological weekday only when birth time and the sunrise-boundary result support it. Unknown time omits the final weekday and records the unsupported topic; it does not render a noon fallback or sunrise time.
 
-Round 6 changes only future forecast presentation and export structure. Core Reading ownership, accepted known-time calculations, unknown-time omissions, day-boundary behavior, and evidence semantics remain unchanged.
-# Active Round 7 compatibility
-
-Round 7 changes forecast material typing, Action composition, and acceptance validation only. Core Reading ownership, evidence meaning, day-boundary rules, known-time calculations, and unknown-time omissions are unchanged. Product Acceptance remains pending.
+Round 8 changes only future forecast presentation, disclosure separation, semantic Action composition, export fields, and acceptance validation. Core Reading ownership, evidence meaning, day-boundary rules, known-time calculations, and unknown-time omissions are unchanged. Rounds 5–7 compatibility notes are historical and superseded here. Product Acceptance remains pending.

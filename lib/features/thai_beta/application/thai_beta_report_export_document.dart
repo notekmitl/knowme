@@ -354,6 +354,8 @@ class ThaiBetaReportExportDocument {
               'ผลต่อการตัดสินใจ: ${domain.decisionImpact}',
             if (domain.preparationAction.isNotEmpty)
               'แนวทางเตรียมตัว: ${domain.preparationAction}',
+            if (domain.uncertaintyDisclosure.isNotEmpty)
+              'ข้อจำกัดของคำอ่าน: ${domain.uncertaintyDisclosure}',
             if (domain.claim.isEmpty) domain.caution,
           ],
         ]),

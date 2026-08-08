@@ -16,6 +16,7 @@ class PredictionDomainModel {
     this.risk = '',
     this.decisionImpact = '',
     this.preparationAction = '',
+    this.uncertaintyDisclosure = '',
     this.material,
   });
 
@@ -33,6 +34,9 @@ class PredictionDomainModel {
   final String risk;
   final String decisionImpact;
   final String preparationAction;
+
+  /// Non-predictive evidence limitation rendered outside the four forecast fields.
+  final String uncertaintyDisclosure;
 
   /// Typed consumer-material inputs. Serialized only for acceptance audits.
   final ForecastMaterialFingerprint? material;
@@ -67,6 +71,22 @@ class ForecastMaterialFingerprint {
   final LifeDomain? riskDomain;
   final ForecastEvidenceAvailability evidenceAvailability;
   final bool spansTransition;
+
+  ForecastMaterialFingerprint copyWith({
+    ForecastHorizon? horizon,
+    ForecastDomain? domain,
+    ForecastBand? band,
+    LifeDomain? riskDomain,
+    ForecastEvidenceAvailability? evidenceAvailability,
+    bool? spansTransition,
+  }) => ForecastMaterialFingerprint(
+    horizon: horizon ?? this.horizon,
+    domain: domain ?? this.domain,
+    band: band ?? this.band,
+    riskDomain: riskDomain ?? this.riskDomain,
+    evidenceAvailability: evidenceAvailability ?? this.evidenceAvailability,
+    spansTransition: spansTransition ?? this.spansTransition,
+  );
 
   Map<String, Object?> projection(ForecastField field) => switch (field) {
     ForecastField.claim => {'horizon': horizon, 'domain': domain, 'band': band},

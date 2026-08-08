@@ -199,6 +199,9 @@ void main() {
       final pdfText = ThaiBetaReportExportDocument.fromAnalysis(
         unknown,
       ).fullPlainText;
+      final prediction = ThaiBetaNarrativeComposer.narrativeView(
+        unknown,
+      ).futurePrediction!;
 
       for (final text in [webText, pdfText]) {
         expect(text, isNot(contains('ก่อนพระอาทิตย์ขึ้น')));
@@ -208,6 +211,16 @@ void main() {
       }
       expect(unknown.input.toMap()['birthHour'], isNull);
       expect(unknown.input.toMap()['birthMinute'], isNull);
+      for (final domain in prediction.windows.expand(
+        (window) => window.domains,
+      )) {
+        expect(domain.uncertaintyDisclosure, contains('ไม่มีหลักฐานลัคนา'));
+        expect(domain.preparationAction, isNot(contains('ไม่มีหลักฐานลัคนา')));
+        expect(
+          pdfText,
+          contains('ข้อจำกัดของคำอ่าน: ${domain.uncertaintyDisclosure}'),
+        );
+      }
     });
 
     test('Thai Beta omits repeated past and future domain claims', () {
@@ -310,10 +323,7 @@ void main() {
         for (final domain in prediction.windows.first.domains) {
           expect(text, contains('แนวโน้ม: ${domain.claim}'));
           expect(text, contains('ความเสี่ยง: ${domain.risk}'));
-          expect(
-            text,
-            contains('ผลต่อการตัดสินใจ: ${domain.decisionImpact}'),
-          );
+          expect(text, contains('ผลต่อการตัดสินใจ: ${domain.decisionImpact}'));
           expect(
             text,
             contains('แนวทางเตรียมตัว: ${domain.preparationAction}'),

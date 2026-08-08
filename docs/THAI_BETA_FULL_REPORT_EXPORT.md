@@ -198,12 +198,10 @@ the supported export path.
 ---
 
 **Report content / engine / Canon / badge policy unchanged — export packaging + presentation polish only.**
-## Round 5 semantic export rules
+## Active Round 8 forecast export contract
 
-The PDF exports the same four-field future blocks used by Web: claim, risk, decision impact, and preparation action. It preserves cross-mode evidence sensitivity, omits unsupported unknown-time weekday output, and applies the consumer-domain allowlist. Acceptance audits hash and inspect the exact final PDFs in the packet.
-# Round 6 structured forecast export
+Product Acceptance is pending. Web and PDF export the same Claim, Risk, Decision Impact, Action, and separate uncertainty-disclosure values from the shared presentation model. PDF code never reconstructs predictive fields or parses audit fingerprints.
 
-The PDF export consumes the same structured Claim, Risk, Decision Impact, and Action values as the Web forecast cards. It must not reconstruct these fields from domain templates. Horizon ownership and the upstream material fingerprint are resolved before export, so exact PDF text is auditable against the same evidence-sensitive narrative model.
-# Active Round 7 export contract
+Disclosure is rendered as `ข้อจำกัดของคำอ่าน` after the four predictive fields and is excluded from cross-mode semantic comparison. Unknown-time Action must independently change recommended behavior by requiring a real-result checkpoint; adding disclosure alone is insufficient. Acceptance audits hash the final PDFs before inspecting phrase semantics and every rendered page. Final Round 8 page counts and hashes are authoritative in `TASK_RESULT.md` and the immutable Round 8 packet.
 
-Product Acceptance is pending. Web and PDF export the same typed forecast presentation fields. PDF serialization never reconstructs Action or parses audit fingerprint strings; Claim, Risk, Decision Impact, and evidence-backed Action are copied from the shared presentation model. Unknown-time availability remains fail-closed. Final Round 7 page counts and hashes are authoritative only in `TASK_RESULT.md` and the immutable packet.
+Rounds 5–7 export notes are historical and superseded by this contract.

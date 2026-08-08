@@ -509,15 +509,18 @@ abstract final class ThaiBetaNarrativeComposer {
       final domains = window.domains
           .map((domain) {
             final claim = _forecastClaim(domain.body, i);
-            final risk = _riskSignal(domain.caution);
             final material = domain.material!;
+            final risk = _riskSignal(
+              domain.caution,
+              riskDomain: material.riskDomain,
+            );
             final decisionImpact = _decisionImpact(
               domain.title,
               claim,
               risk,
               material,
             );
-            final action = _evidenceBackedForecastAction(
+            final action = forecastActionForMaterial(
               title: domain.title,
               windowIndex: i,
               claim: claim,
@@ -525,6 +528,11 @@ abstract final class ThaiBetaNarrativeComposer {
               decisionImpact: decisionImpact,
               material: material,
             );
+            final uncertaintyDisclosure =
+                material.evidenceAvailability ==
+                    ForecastEvidenceAvailability.noLagna
+                ? 'คำอ่านนี้ไม่มีหลักฐานลัคนา จึงใช้เป็นกรอบสังเกตและไม่ฟันธง'
+                : '';
             final body = [
               'แนวโน้ม: $claim',
               'ผลต่อการตัดสินใจ: $decisionImpact',
@@ -541,6 +549,7 @@ abstract final class ThaiBetaNarrativeComposer {
               risk: risk,
               decisionImpact: decisionImpact,
               preparationAction: action,
+              uncertaintyDisclosure: uncertaintyDisclosure,
               material: material,
             );
           })
@@ -606,6 +615,31 @@ abstract final class ThaiBetaNarrativeComposer {
     String risk,
     ForecastMaterialFingerprint material,
   ) {
+    final evidenceRiskDecision = switch (material.riskDomain) {
+      LifeDomain.love => switch (title.trim()) {
+        'การงาน' =>
+          'แยกข้อตกลงเรื่องงานออกจากความคาดหวังในความสัมพันธ์ก่อนรับบทบาทเพิ่ม',
+        'การเงิน' => 'ตกลงขอบเขตเงินร่วมให้ชัดก่อนรับรายจ่ายหรือภาระก้อนใหม่',
+        'ความรัก' ||
+        'ความสัมพันธ์' => 'รอให้คำพูดและการกระทำสอดคล้องกันก่อนเพิ่มข้อผูกพัน',
+        'สุขภาพ' => 'กันเวลาพักออกจากภาระความสัมพันธ์ก่อนเพิ่มกิจกรรม',
+        _ => '',
+      },
+      LifeDomain.pressure =>
+        'กำหนดเพดานภาระและจุดหยุดก่อนขยายการตัดสินใจในด้านนี้',
+      LifeDomain.money => 'รักษาเงินพร้อมใช้ก่อนขยายภาระในด้านนี้',
+      LifeDomain.health => 'รักษาเวลาพักและการฟื้นตัวก่อนขยายภาระในด้านนี้',
+      LifeDomain.career => 'กันเวลางานหลักไว้ก่อนเพิ่มภาระในด้านนี้',
+      _ => '',
+    };
+    if (evidenceRiskDecision.isNotEmpty) {
+      final bandDecision = switch (material.band) {
+        ForecastBand.strong => 'มีพื้นที่เดินหน้าได้หนึ่งก้าว แต่',
+        ForecastBand.active => 'ควรทดลองในขอบเขตเล็กและ',
+        ForecastBand.quiet => 'ควรชะลอการขยายและ',
+      };
+      return '$bandDecision$evidenceRiskDecision';
+    }
     final constrained =
         material.band == ForecastBand.quiet ||
         claim.contains('ช้า') ||
@@ -650,12 +684,19 @@ abstract final class ThaiBetaNarrativeComposer {
     };
   }
 
-  static String _riskSignal(String caution) {
+  static String _riskSignal(String caution, {LifeDomain? riskDomain}) {
     final risk = caution
         .replaceAll(' โดยเฉพาะเรื่องแรงกดดัน', '')
         .replaceAll(RegExp(r'\s*ข้อความนี้ไม่ใช่คำวินิจฉัยทางการแพทย์.*$'), '')
         .trim();
-    return risk.contains('แรงกดดัน') && risk.length < 40 ? '' : risk;
+    final base = risk.contains('แรงกดดัน') && risk.length < 40 ? '' : risk;
+    return switch (riskDomain) {
+      LifeDomain.love => 'ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน',
+      LifeDomain.money => 'ภาระเงินอาจลดพื้นที่ตัดสินใจในด้านนี้',
+      LifeDomain.health => 'การพักไม่พออาจลดกำลังสำหรับด้านนี้',
+      LifeDomain.career => 'งานหลักอาจถูกภาระด้านนี้เบียดเวลา',
+      _ => base,
+    };
   }
 
   static String _specificTopRisk(String risk) {
@@ -682,7 +723,11 @@ abstract final class ThaiBetaNarrativeComposer {
     return union > 0 && overlap / union >= 0.72;
   }
 
-  static String _evidenceBackedForecastAction({
+  /// Composes a concise action from the block's predictive meaning.
+  ///
+  /// Public for deterministic acceptance mutation tests; this does not run an
+  /// engine or create a prediction.
+  static String forecastActionForMaterial({
     required String title,
     required int windowIndex,
     required String claim,
@@ -691,7 +736,7 @@ abstract final class ThaiBetaNarrativeComposer {
     required ForecastMaterialFingerprint material,
   }) {
     if (claim.isEmpty || risk.isEmpty || decisionImpact.isEmpty) {
-      return _forecastAction(title, windowIndex, material.serialize());
+      return _forecastAction(title, windowIndex, material);
     }
 
     final horizonLead = switch (material.horizon) {
@@ -702,13 +747,18 @@ abstract final class ThaiBetaNarrativeComposer {
       ForecastHorizon.nextLifePeriod =>
         'ก่อนเปลี่ยนช่วงชีวิต เตรียมฐานระยะยาวโดย',
     };
-    final evidenceGuard =
-        material.evidenceAvailability == ForecastEvidenceAvailability.noLagna
-        ? 'ใช้เป็นแนวทางเตรียมตัวแบบไม่ฟันธงเพราะไม่มีหลักฐานลัคนา '
-        : '';
-    final claimResponse = material.band == ForecastBand.strong
-        ? 'รักษาส่วนของแนวโน้มที่เกิดขึ้นจริง'
-        : 'ตรวจว่าแนวโน้มนี้เกิดขึ้นจริงก่อนขยายการตัดสินใจ';
+    final claimIsConstrained =
+        material.band == ForecastBand.quiet ||
+        claim.contains('ช้า') ||
+        claim.contains('ตึง') ||
+        claim.contains('ล้าง่าย') ||
+        claim.contains('ขึ้นลง');
+    final claimResponse = switch ((material.band, claimIsConstrained)) {
+      (_, true) => 'ชะลอก้าวใหม่และเก็บข้อมูลจริงก่อนตัดสินใจ',
+      (ForecastBand.strong, _) => 'เลือกหนึ่งก้าวที่เห็นผลชัดและกำหนดเพดานไว้',
+      (ForecastBand.active, _) => 'ทดลองทีละขั้นแล้วทบทวนจากผลที่เกิดขึ้นจริง',
+      (ForecastBand.quiet, _) => 'ชะลอก้าวใหม่และเก็บข้อมูลจริงก่อนตัดสินใจ',
+    };
     final riskResponse = switch (material.riskDomain) {
       LifeDomain.pressure => 'ลดภาระทันทีเมื่อภาระเริ่มเกินกำลัง',
       LifeDomain.money => 'หยุดเพิ่มภาระเงินเมื่อความเสี่ยงเริ่มเกิด',
@@ -716,18 +766,36 @@ abstract final class ThaiBetaNarrativeComposer {
       LifeDomain.health => 'ลดกิจกรรมเมื่อการฟื้นตัวไม่พอ',
       _ => 'ชะลอและทบทวนเมื่อความเสี่ยงนี้เริ่มเกิด',
     };
-    return '$horizonLead $evidenceGuard$claimResponse; '
-        'ใช้ผลต่อการตัดสินใจว่า “$decisionImpact” เป็นเกณฑ์ และ$riskResponse '
-        '(ความเสี่ยงที่ตอบอยู่: $risk)';
+    final decisionStep = switch (title.trim()) {
+      'การงาน' when decisionImpact.contains('งาน') =>
+        'จัดลำดับงานหลักก่อนรับบทบาทเพิ่ม',
+      'การเงิน' when decisionImpact.contains('เงิน') =>
+        'กันเงินพร้อมใช้ก่อนเพิ่มภาระ',
+      'ความรัก' || 'ความสัมพันธ์'
+          when decisionImpact.contains('สัมพันธ์') ||
+              decisionImpact.contains('ผูกพัน') =>
+        'คุยเงื่อนไขให้ชัดก่อนเพิ่มข้อผูกพัน',
+      'สุขภาพ'
+          when decisionImpact.contains('พัก') ||
+              decisionImpact.contains('กิจกรรม') ||
+              decisionImpact.contains('ล้า') =>
+        'รักษาเวลาฟื้นตัวก่อนเพิ่มกิจกรรม',
+      _ => 'กำหนดเกณฑ์หยุดไว้ก่อนเริ่ม',
+    };
+    if (material.evidenceAvailability == ForecastEvidenceAvailability.noLagna) {
+      return '$horizonLead บันทึกผลจริงหนึ่งรอบก่อน แล้วค่อย$decisionStep; '
+          'หากข้อมูลยังไม่ชัดให้ชะลอไว้และ$riskResponse';
+    }
+    return '$horizonLead $decisionStep โดย$claimResponse; $riskResponse';
   }
 
   static String _forecastAction(
     String title,
     int windowIndex,
-    String fingerprint,
+    ForecastMaterialFingerprint material,
   ) {
-    final constrained = fingerprint.contains('b=quiet');
-    final strong = fingerprint.contains('b=strong');
+    final constrained = material.band == ForecastBand.quiet;
+    final strong = material.band == ForecastBand.strong;
     if (windowIndex == 0) {
       return switch (title) {
         'การงาน' =>
