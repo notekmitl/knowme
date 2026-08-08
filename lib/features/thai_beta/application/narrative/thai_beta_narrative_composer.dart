@@ -767,19 +767,11 @@ abstract final class ThaiBetaNarrativeComposer {
       _ => 'ชะลอและทบทวนเมื่อความเสี่ยงนี้เริ่มเกิด',
     };
     final decisionStep = switch (title.trim()) {
-      'การงาน' when decisionImpact.contains('งาน') =>
-        'จัดลำดับงานหลักก่อนรับบทบาทเพิ่ม',
-      'การเงิน' when decisionImpact.contains('เงิน') =>
-        'กันเงินพร้อมใช้ก่อนเพิ่มภาระ',
-      'ความรัก' || 'ความสัมพันธ์'
-          when decisionImpact.contains('สัมพันธ์') ||
-              decisionImpact.contains('ผูกพัน') =>
+      'การงาน' => 'จัดลำดับงานหลักก่อนรับบทบาทเพิ่ม',
+      'การเงิน' => 'กันเงินพร้อมใช้ก่อนเพิ่มภาระ',
+      'ความรัก' || 'ความสัมพันธ์' =>
         'คุยเงื่อนไขให้ชัดก่อนเพิ่มข้อผูกพัน',
-      'สุขภาพ'
-          when decisionImpact.contains('พัก') ||
-              decisionImpact.contains('กิจกรรม') ||
-              decisionImpact.contains('ล้า') =>
-        'รักษาเวลาฟื้นตัวก่อนเพิ่มกิจกรรม',
+      'สุขภาพ' => 'รักษาเวลาฟื้นตัวก่อนเพิ่มกิจกรรม',
       _ => 'กำหนดเกณฑ์หยุดไว้ก่อนเริ่ม',
     };
     if (material.evidenceAvailability == ForecastEvidenceAvailability.noLagna) {
