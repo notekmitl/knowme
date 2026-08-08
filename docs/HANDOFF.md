@@ -646,3 +646,6 @@ or deploy until the owner re-accepts these exact PDFs.
 ## Thai Consumer Narrative Voice V1 — Round 5 re-acceptance
 
 Round 4 failed because future bodies were replaced by shared advice, unknown time asserted an unsupported Sunday, and a generic opportunity label leaked into consumer copy. Round 5 fixes those causes on existing Draft PR #86. Reviewers must use only the Round 5 packet and verify PDF hashes first. Merge and Production deployment remain prohibited until Product Acceptance passes.
+# PR #86 Round 6 handoff
+
+Review the new Round 6 acceptance packet and the Draft PR #86 diff. Product Acceptance Round 5 is explicitly superseded after failure. Validate current/12-month/next-period action ownership and compare Claim, Risk, Decision Impact, and Action across known-time and unknown-time PDFs. Do not merge or deploy as part of this handoff.

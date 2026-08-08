@@ -201,3 +201,6 @@ the supported export path.
 ## Round 5 semantic export rules
 
 The PDF exports the same four-field future blocks used by Web: claim, risk, decision impact, and preparation action. It preserves cross-mode evidence sensitivity, omits unsupported unknown-time weekday output, and applies the consumer-domain allowlist. Acceptance audits hash and inspect the exact final PDFs in the packet.
+# Round 6 structured forecast export
+
+The PDF export consumes the same structured Claim, Risk, Decision Impact, and Action values as the Web forecast cards. It must not reconstruct these fields from domain templates. Horizon ownership and the upstream material fingerprint are resolved before export, so exact PDF text is auditable against the same evidence-sensitive narrative model.

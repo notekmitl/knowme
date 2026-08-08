@@ -10,6 +10,11 @@ class PredictionDomainModel {
     required this.title,
     required this.body,
     required this.caution,
+    this.claim = '',
+    this.risk = '',
+    this.decisionImpact = '',
+    this.preparationAction = '',
+    this.materialFingerprint = '',
   });
 
   /// One of การงาน / การเงิน / ความรัก / สุขภาพ.
@@ -20,6 +25,16 @@ class PredictionDomainModel {
 
   /// The concrete pressure or boundary to watch in this domain.
   final String caution;
+
+  /// Structured Thai Beta consumer fields. Empty on legacy Thai Mirror cards.
+  final String claim;
+  final String risk;
+  final String decisionImpact;
+  final String preparationAction;
+
+  /// Consumer-material evidence only: horizon/domain/band/risk/availability.
+  /// Never includes a name, profile seed, or cosmetic wording choice.
+  final String materialFingerprint;
 }
 
 /// One prediction horizon card (Current · Next 12 Months · Next Life Period).

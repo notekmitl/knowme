@@ -88,3 +88,10 @@ data are unchanged.
 Round 4 failed Product Acceptance because its consumer composer replaced the evidence-derived 12-month and next-period claims with profile-independent advice. Every future domain/horizon now renders four explicit fields: `แนวโน้ม`, `ความเสี่ยง`, `ผลต่อการตัดสินใจ`, and `แนวทางเตรียมตัว`. Generic advice is labelled only as preparation and is never presented as a prediction.
 
 Known-time and unknown-time fixtures with different evidence fingerprints must not produce an entirely identical predictive matrix. Unknown-time output fails closed on the astrological weekday and never exposes sunrise. Generic taxonomy labels such as `โอกาส` are not consumer domains; the preview shows only meaningful allowlisted domains or omits the line.
+# Round 6 forecast evidence-sensitivity contract
+
+Round 6 makes each future-domain card a four-field product contract: Claim, Risk, Decision Impact, and Action. Every card retains an upstream material fingerprint containing horizon, domain, evidence band, risk, evidence availability, and transition state. Consumer copy may be shared across known-time and unknown-time modes only when the material fingerprint projected for that field is equal.
+
+The cross-mode acceptance gate evaluates every horizon × domain × field cell independently. It rejects exact equality, bidirectional containment, or normalized high similarity when projected material evidence differs; disclaimers are outside this comparison. A negative self-test proves that changing only one block cannot mask invalid shared output in the other blocks.
+
+Action ownership is strict: current actions use immediate language and never long-term preparation; 12-month actions own review inside 12 months; next-period actions own preparation before transition and may use long-term language.

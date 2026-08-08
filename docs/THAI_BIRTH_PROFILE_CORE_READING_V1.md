@@ -232,3 +232,6 @@ Reading test.
 ## Round 5 unknown-time weekday rule
 
 The consumer Core Reading renders an astrological weekday only when a birth time was supplied and the sunrise-boundary result is supported. Unknown time omits the final weekday and records the unsupported topic; it does not render a noon fallback or sunrise time. This presentation rule does not alter Engine or normalization results.
+# Round 6 compatibility note
+
+Round 6 changes only future forecast presentation and export structure. Core Reading ownership, accepted known-time calculations, unknown-time omissions, day-boundary behavior, and evidence semantics remain unchanged.

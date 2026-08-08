@@ -218,3 +218,6 @@ remains fail closed. No merge, deploy, Production, or feature-flag change.
 ## 2026-08-08 — Thai Consumer Narrative Voice V1 Round 5
 
 Round 4 failed Product Acceptance and remains unmerged. Round 5 is on the same Draft PR #86 and branch. The composer preserves evidence-derived future claims in four explicit fields, unknown-time weekday rendering fails closed, and preview taxonomy accepts only meaningful consumer domains. No Production deployment or feature-flag change is included.
+# PR #86 Product Acceptance Round 6
+
+Round 5 failed on horizon action ownership, static Decision/Action templates, and an underpowered cross-mode gate. Round 6 fixes those root causes with structured four-field forecast cards, upstream material fingerprints, strict horizon-owned actions, and an independently evaluated horizon/domain/field evidence-sensitivity matrix with a negative self-test. The required local full regression passes 1,518 tests; PR #86 remains Draft pending Product re-acceptance.

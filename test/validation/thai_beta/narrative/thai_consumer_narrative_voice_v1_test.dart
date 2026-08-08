@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/prediction/prediction_section_model.dart';
 import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
@@ -139,14 +140,20 @@ void main() {
       expect(domain.caution, contains('ความเสี่ยง:'));
       expect(domain.caution, contains('\nแนวทางเตรียมตัว:'));
       expect(domain.caution, isNot(contains('ไม่ใช่คำวินิจฉัยทางการแพทย์')));
+      expect(domain.claim, startsWith('สำหรับตอนนี้'));
+      expect(domain.preparationAction, startsWith('ตอนนี้'));
+      expect(domain.preparationAction, isNot(contains('ระยะยาว')));
+      expect(domain.materialFingerprint, isNotEmpty);
     }
     for (final domain in nextYear.domains) {
       expect(domain.body, startsWith('แนวโน้ม: ใน 12 เดือนข้างหน้า'));
-      expect(domain.caution, contains('แนวทางเตรียมตัว: ทบทวนเมื่อ'));
+      expect(domain.preparationAction, contains('12 เดือน'));
+      expect(domain.preparationAction, contains('ทบทวน'));
     }
     for (final domain in nextPeriod.domains) {
       expect(domain.body, startsWith('แนวโน้ม: เมื่อเข้าสู่ช่วงชีวิตถัดไป'));
-      expect(domain.caution, contains('แนวทางเตรียมตัว: เตรียม'));
+      expect(domain.preparationAction, startsWith('ก่อนเปลี่ยนช่วงชีวิต'));
+      expect(domain.preparationAction, contains('ระยะยาว'));
       final matchingCurrent = current.domains.where(
         (candidate) => candidate.title == domain.title,
       );
@@ -154,6 +161,10 @@ void main() {
         expect(
           _meaningKey(domain.body),
           isNot(_meaningKey(matchingCurrent.single.body)),
+        );
+        expect(
+          domain.preparationAction,
+          isNot(matchingCurrent.single.preparationAction),
         );
       }
     }
@@ -182,14 +193,11 @@ void main() {
       return ThaiBetaAnalysisRunner.run(input, startedAt: DateTime(2026, 8, 7));
     }
 
-    List<String> predictiveBlocks(ThaiBetaAnalysis analysis) =>
+    List<PredictionDomainModel> predictiveBlocks(ThaiBetaAnalysis analysis) =>
         ThaiBetaNarrativeComposer.narrativeView(analysis)
             .futurePrediction!
             .windows
             .expand((window) => window.domains)
-            .expand((domain) => [domain.body, domain.caution])
-            .map(_meaningKey)
-            .where((text) => text.isNotEmpty)
             .toList(growable: false);
 
     final fixtures = [
@@ -206,18 +214,37 @@ void main() {
       final known = predictiveBlocks(fixture.known);
       final unknown = predictiveBlocks(fixture.unknown);
       expect(known, hasLength(unknown.length));
-      expect(
-        List.generate(
-          known.length,
-          (i) => known[i] == unknown[i],
-        ).every((same) => same),
-        isFalse,
-        reason:
-            'different evidence fingerprints cannot yield one identical prediction block',
-      );
-      final exactOverlap = known.toSet().intersection(unknown.toSet()).length;
-      expect(exactOverlap, lessThan(known.length));
+      final violations = <String>[];
+      for (var i = 0; i < known.length; i++) {
+        violations.addAll(_crossModeViolations(known[i], unknown[i]));
+      }
+      expect(violations, isEmpty, reason: violations.join('\n'));
     }
+  });
+
+  test('cross-mode gate rejects a matrix that differs in only one block', () {
+    const known = PredictionDomainModel(
+      title: 'การงาน',
+      body: '',
+      caution: '',
+      claim: 'งานเดินหน้า',
+      risk: 'รับงานเกินเวลา',
+      decisionImpact: 'ต้องเลือกงานหลัก',
+      preparationAction: 'จำกัดงานเพิ่ม',
+      materialFingerprint: 'h=current|d=career|b=strong|r=workload|e=supported',
+    );
+    const invalidUnknown = PredictionDomainModel(
+      title: 'การงาน',
+      body: '',
+      caution: '',
+      claim: 'งานช้าลง',
+      risk: 'รับงานเกินเวลา',
+      decisionImpact: 'ต้องเลือกงานหลัก',
+      preparationAction: 'จำกัดงานเพิ่ม',
+      materialFingerprint: 'h=current|d=career|b=quiet|r=conflict|e=supported',
+    );
+    final violations = _crossModeViolations(known, invalidUnknown);
+    expect(violations, hasLength(greaterThanOrEqualTo(3)));
   });
 
   test('future opportunity taxonomy omits generic opportunity labels', () {
@@ -363,3 +390,66 @@ double _semanticSimilarity(String left, String right) {
   final b = grams(right);
   return a.intersection(b).length / a.union(b).length;
 }
+
+List<String> _crossModeViolations(
+  PredictionDomainModel known,
+  PredictionDomainModel unknown,
+) {
+  final violations = <String>[];
+  final fields = <({String name, String left, String right, Set<String> keys})>[
+    (
+      name: 'claim',
+      left: known.claim,
+      right: unknown.claim,
+      keys: {'h', 'd', 'b', 'e', 'p'},
+    ),
+    (
+      name: 'risk',
+      left: known.risk,
+      right: unknown.risk,
+      keys: {'h', 'd', 'r', 'e'},
+    ),
+    (
+      name: 'decisionImpact',
+      left: known.decisionImpact,
+      right: unknown.decisionImpact,
+      keys: {'h', 'd', 'b', 'r', 'e', 'p'},
+    ),
+    (
+      name: 'action',
+      left: known.preparationAction,
+      right: unknown.preparationAction,
+      keys: {'h', 'd', 'b', 'r', 'e', 'p'},
+    ),
+  ];
+  for (final field in fields) {
+    final leftFingerprint = _fingerprintProjection(
+      known.materialFingerprint,
+      field.keys,
+    );
+    final rightFingerprint = _fingerprintProjection(
+      unknown.materialFingerprint,
+      field.keys,
+    );
+    if (leftFingerprint == rightFingerprint) continue;
+    final exact = field.left == field.right;
+    final leftKey = _meaningKey(field.left);
+    final rightKey = _meaningKey(field.right);
+    final contained = leftKey.contains(rightKey) || rightKey.contains(leftKey);
+    final similar = _semanticSimilarity(field.left, field.right) >= 0.72;
+    if (exact || contained || similar) {
+      violations.add(
+        '${known.title}/${field.name}: different material fingerprints '
+        'retained equal/contained/similar output '
+        '[$leftFingerprint] vs [$rightFingerprint] '
+        '"${field.left}" vs "${field.right}"',
+      );
+    }
+  }
+  return violations;
+}
+
+String _fingerprintProjection(String value, Set<String> keys) => value
+    .split('|')
+    .where((part) => keys.contains(part.split('=').first))
+    .join('|');

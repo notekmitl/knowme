@@ -127,8 +127,37 @@ abstract final class PredictionComposer {
             title: PredictionReasonCopy.categoryLabel(prediction.category),
             body: _domainBody(kind, prediction),
             caution: _domainCaution(prediction, seed + i * 31),
+            materialFingerprint: _materialFingerprint(kind, prediction),
           ),
     ];
+  }
+
+  static String _materialFingerprint(
+    PredictionWindowKind kind,
+    Prediction prediction,
+  ) {
+    final band = prediction.score.strength >= 68
+        ? 'strong'
+        : prediction.score.strength >= 48
+        ? 'active'
+        : 'quiet';
+    final risks = [...prediction.risks]
+      ..sort((a, b) {
+        final magnitude = b.magnitude.compareTo(a.magnitude);
+        return magnitude != 0
+            ? magnitude
+            : a.domain.index.compareTo(b.domain.index);
+      });
+    final risk = risks.isEmpty ? 'none' : risks.first.domain.name;
+    final availability = prediction.reasons.isEmpty ? 'limited' : 'supported';
+    return [
+      'h=${kind.name}',
+      'd=${prediction.category.name}',
+      'b=$band',
+      'r=$risk',
+      'e=$availability',
+      't=${prediction.window.spansTransition}',
+    ].join('|');
   }
 
   static String _domainBody(PredictionWindowKind kind, Prediction prediction) {

@@ -308,8 +308,16 @@ void main() {
         expect(text, contains(future.lifeDomains.first.body));
         expect(text, contains(prediction.detailedSectionIntro));
         for (final domain in prediction.windows.first.domains) {
-          expect(text, contains(domain.body));
-          expect(text, contains(domain.caution));
+          expect(text, contains('แนวโน้ม: ${domain.claim}'));
+          expect(text, contains('ความเสี่ยง: ${domain.risk}'));
+          expect(
+            text,
+            contains('ผลต่อการตัดสินใจ: ${domain.decisionImpact}'),
+          );
+          expect(
+            text,
+            contains('แนวทางเตรียมตัว: ${domain.preparationAction}'),
+          );
         }
       },
     );
