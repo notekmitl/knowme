@@ -1,6 +1,7 @@
 /// Thai Beta Narrative Quality V1.1 + V1.2 — curated block composer.
 library;
 
+import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mirror_theme_phrases.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_mirror_consumer_view_state.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/prediction/prediction_section_model.dart';
@@ -509,16 +510,21 @@ abstract final class ThaiBetaNarrativeComposer {
           .map((domain) {
             final claim = _forecastClaim(domain.body, i);
             final risk = _riskSignal(domain.caution);
-            final fingerprint = [
-              domain.materialFingerprint,
-            ].where((part) => part.isNotEmpty).join('|');
+            final material = domain.material!;
             final decisionImpact = _decisionImpact(
               domain.title,
               claim,
               risk,
-              fingerprint,
+              material,
             );
-            final action = _forecastAction(domain.title, i, fingerprint);
+            final action = _evidenceBackedForecastAction(
+              title: domain.title,
+              windowIndex: i,
+              claim: claim,
+              risk: risk,
+              decisionImpact: decisionImpact,
+              material: material,
+            );
             final body = [
               'แนวโน้ม: $claim',
               'ผลต่อการตัดสินใจ: $decisionImpact',
@@ -535,7 +541,7 @@ abstract final class ThaiBetaNarrativeComposer {
               risk: risk,
               decisionImpact: decisionImpact,
               preparationAction: action,
-              materialFingerprint: fingerprint,
+              material: material,
             );
           })
           .where(
@@ -598,15 +604,15 @@ abstract final class ThaiBetaNarrativeComposer {
     String title,
     String claim,
     String risk,
-    String fingerprint,
+    ForecastMaterialFingerprint material,
   ) {
     final constrained =
-        fingerprint.contains('b=quiet') ||
+        material.band == ForecastBand.quiet ||
         claim.contains('ช้า') ||
         claim.contains('ตึง') ||
         claim.contains('ล้าง่าย') ||
         claim.contains('ไม่ใช่ด้านที่เดินง่าย');
-    final strong = fingerprint.contains('b=strong');
+    final strong = material.band == ForecastBand.strong;
     return switch (title.trim()) {
       'การงาน' =>
         constrained
@@ -674,6 +680,45 @@ abstract final class ThaiBetaNarrativeComposer {
     final overlap = ag.intersection(bg).length;
     final union = ag.union(bg).length;
     return union > 0 && overlap / union >= 0.72;
+  }
+
+  static String _evidenceBackedForecastAction({
+    required String title,
+    required int windowIndex,
+    required String claim,
+    required String risk,
+    required String decisionImpact,
+    required ForecastMaterialFingerprint material,
+  }) {
+    if (claim.isEmpty || risk.isEmpty || decisionImpact.isEmpty) {
+      return _forecastAction(title, windowIndex, material.serialize());
+    }
+
+    final horizonLead = switch (material.horizon) {
+      ForecastHorizon.current => 'ตอนนี้',
+      ForecastHorizon.next12Months => 'ตั้งจุดทบทวนภายใน 12 เดือน',
+      ForecastHorizon.nextLifePeriod when material.spansTransition =>
+        'ก่อนเปลี่ยนช่วงชีวิต เตรียมรับรอยต่อระยะยาวโดย',
+      ForecastHorizon.nextLifePeriod =>
+        'ก่อนเปลี่ยนช่วงชีวิต เตรียมฐานระยะยาวโดย',
+    };
+    final evidenceGuard =
+        material.evidenceAvailability == ForecastEvidenceAvailability.noLagna
+        ? 'ใช้เป็นแนวทางเตรียมตัวแบบไม่ฟันธงเพราะไม่มีหลักฐานลัคนา '
+        : '';
+    final claimResponse = material.band == ForecastBand.strong
+        ? 'รักษาส่วนของแนวโน้มที่เกิดขึ้นจริง'
+        : 'ตรวจว่าแนวโน้มนี้เกิดขึ้นจริงก่อนขยายการตัดสินใจ';
+    final riskResponse = switch (material.riskDomain) {
+      LifeDomain.pressure => 'ลดภาระทันทีเมื่อภาระเริ่มเกินกำลัง',
+      LifeDomain.money => 'หยุดเพิ่มภาระเงินเมื่อความเสี่ยงเริ่มเกิด',
+      LifeDomain.love => 'ชะลอข้อตกลงเมื่อความสัมพันธ์ยังไม่ชัด',
+      LifeDomain.health => 'ลดกิจกรรมเมื่อการฟื้นตัวไม่พอ',
+      _ => 'ชะลอและทบทวนเมื่อความเสี่ยงนี้เริ่มเกิด',
+    };
+    return '$horizonLead $evidenceGuard$claimResponse; '
+        'ใช้ผลต่อการตัดสินใจว่า “$decisionImpact” เป็นเกณฑ์ และ$riskResponse '
+        '(ความเสี่ยงที่ตอบอยู่: $risk)';
   }
 
   static String _forecastAction(

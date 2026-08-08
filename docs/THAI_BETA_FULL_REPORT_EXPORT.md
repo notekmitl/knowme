@@ -204,3 +204,6 @@ The PDF exports the same four-field future blocks used by Web: claim, risk, deci
 # Round 6 structured forecast export
 
 The PDF export consumes the same structured Claim, Risk, Decision Impact, and Action values as the Web forecast cards. It must not reconstruct these fields from domain templates. Horizon ownership and the upstream material fingerprint are resolved before export, so exact PDF text is auditable against the same evidence-sensitive narrative model.
+# Active Round 7 export contract
+
+Product Acceptance is pending. Web and PDF export the same typed forecast presentation fields. PDF serialization never reconstructs Action or parses audit fingerprint strings; Claim, Risk, Decision Impact, and evidence-backed Action are copied from the shared presentation model. Unknown-time availability remains fail-closed. Final Round 7 page counts and hashes are authoritative only in `TASK_RESULT.md` and the immutable packet.

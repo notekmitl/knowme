@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/prediction/prediction_section_model.dart';
 import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart';
@@ -213,14 +214,118 @@ void main() {
     for (final fixture in fixtures) {
       final known = predictiveBlocks(fixture.known);
       final unknown = predictiveBlocks(fixture.unknown);
-      expect(known, hasLength(unknown.length));
-      final violations = <String>[];
-      for (var i = 0; i < known.length; i++) {
-        violations.addAll(_crossModeViolations(known[i], unknown[i]));
-      }
-      expect(violations, isEmpty, reason: violations.join('\n'));
+      final report = _matrixReport(known, unknown);
+      expect(report.totalComparedCells, 48);
+      expect(report.differentFingerprintCells, greaterThan(0));
+      expect(report.equalFingerprintCells, greaterThan(0));
+      expect(report.violations, isEmpty, reason: report.violations.join('\n'));
+      expect(report.coveredComponents, containsAll({'band', 'availability'}));
     }
   });
+
+  test(
+    'typed fingerprint uses real availability and one transition authority',
+    () {
+      final known = ThaiBetaNarrativeComposer.narrativeView(
+        analysis,
+      ).futurePrediction!.windows.expand((window) => window.domains).toList();
+      final unknownAnalysis = ThaiBetaAnalysisRunner.run(
+        ThaiBetaInput(
+          firstName: 'Fixture',
+          lastName: 'Unknown',
+          birthDate: DateTime(1982, 6, 6),
+          birthTimeUnknown: true,
+          province: 'เชียงใหม่',
+          provinceKey: 'chiang_mai',
+        ),
+        startedAt: DateTime(2026, 8, 7),
+      );
+      final unknown = ThaiBetaNarrativeComposer.narrativeView(
+        unknownAnalysis,
+      ).futurePrediction!.windows.expand((window) => window.domains).toList();
+      expect(
+        known.map((domain) => domain.material!.evidenceAvailability).toSet(),
+        {ForecastEvidenceAvailability.full},
+      );
+      expect(
+        unknown.map((domain) => domain.material!.evidenceAvailability).toSet(),
+        {ForecastEvidenceAvailability.noLagna},
+      );
+      for (final domain in [...known, ...unknown]) {
+        expect(domain.materialFingerprint, contains('|t='));
+        expect(domain.materialFingerprint, isNot(contains('|p=')));
+      }
+      expect(
+        known.map((domain) => domain.material!.spansTransition).toSet(),
+        containsAll({true, false}),
+      );
+    },
+  );
+
+  test(
+    'matrix rejects band risk availability transition and vacuous passes',
+    () {
+      const base = ForecastMaterialFingerprint(
+        horizon: ForecastHorizon.nextLifePeriod,
+        domain: ForecastDomain.career,
+        band: ForecastBand.strong,
+        riskDomain: LifeDomain.pressure,
+        evidenceAvailability: ForecastEvidenceAvailability.full,
+        spansTransition: true,
+      );
+      PredictionDomainModel model(ForecastMaterialFingerprint material) =>
+          PredictionDomainModel(
+            title: 'การงาน',
+            body: '',
+            caution: '',
+            claim: 'ข้อความร่วม',
+            risk: 'ความเสี่ยงร่วม',
+            decisionImpact: 'ผลร่วม',
+            preparationAction: 'การกระทำร่วม',
+            material: material,
+          );
+      final mutations = [
+        const ForecastMaterialFingerprint(
+          horizon: ForecastHorizon.nextLifePeriod,
+          domain: ForecastDomain.career,
+          band: ForecastBand.quiet,
+          riskDomain: LifeDomain.pressure,
+          evidenceAvailability: ForecastEvidenceAvailability.full,
+          spansTransition: true,
+        ),
+        const ForecastMaterialFingerprint(
+          horizon: ForecastHorizon.nextLifePeriod,
+          domain: ForecastDomain.career,
+          band: ForecastBand.strong,
+          riskDomain: LifeDomain.career,
+          evidenceAvailability: ForecastEvidenceAvailability.full,
+          spansTransition: true,
+        ),
+        const ForecastMaterialFingerprint(
+          horizon: ForecastHorizon.nextLifePeriod,
+          domain: ForecastDomain.career,
+          band: ForecastBand.strong,
+          riskDomain: LifeDomain.pressure,
+          evidenceAvailability: ForecastEvidenceAvailability.noLagna,
+          spansTransition: true,
+        ),
+        const ForecastMaterialFingerprint(
+          horizon: ForecastHorizon.nextLifePeriod,
+          domain: ForecastDomain.career,
+          band: ForecastBand.strong,
+          riskDomain: LifeDomain.pressure,
+          evidenceAvailability: ForecastEvidenceAvailability.full,
+          spansTransition: false,
+        ),
+      ];
+      for (final mutation in mutations) {
+        expect(_crossModeViolations(model(base), model(mutation)), isNotEmpty);
+      }
+      final vacuous = _matrixReport([model(base)], [model(base)]);
+      expect(vacuous.differentFingerprintCells, 0);
+      expect(vacuous.isAcceptable, isFalse);
+    },
+  );
 
   test('cross-mode gate rejects a matrix that differs in only one block', () {
     const known = PredictionDomainModel(
@@ -231,7 +336,14 @@ void main() {
       risk: 'รับงานเกินเวลา',
       decisionImpact: 'ต้องเลือกงานหลัก',
       preparationAction: 'จำกัดงานเพิ่ม',
-      materialFingerprint: 'h=current|d=career|b=strong|r=workload|e=supported',
+      material: ForecastMaterialFingerprint(
+        horizon: ForecastHorizon.current,
+        domain: ForecastDomain.career,
+        band: ForecastBand.strong,
+        riskDomain: LifeDomain.pressure,
+        evidenceAvailability: ForecastEvidenceAvailability.full,
+        spansTransition: false,
+      ),
     );
     const invalidUnknown = PredictionDomainModel(
       title: 'การงาน',
@@ -241,7 +353,14 @@ void main() {
       risk: 'รับงานเกินเวลา',
       decisionImpact: 'ต้องเลือกงานหลัก',
       preparationAction: 'จำกัดงานเพิ่ม',
-      materialFingerprint: 'h=current|d=career|b=quiet|r=conflict|e=supported',
+      material: ForecastMaterialFingerprint(
+        horizon: ForecastHorizon.current,
+        domain: ForecastDomain.career,
+        band: ForecastBand.quiet,
+        riskDomain: LifeDomain.career,
+        evidenceAvailability: ForecastEvidenceAvailability.noLagna,
+        spansTransition: false,
+      ),
     );
     final violations = _crossModeViolations(known, invalidUnknown);
     expect(violations, hasLength(greaterThanOrEqualTo(3)));
@@ -396,40 +515,26 @@ List<String> _crossModeViolations(
   PredictionDomainModel unknown,
 ) {
   final violations = <String>[];
-  final fields = <({String name, String left, String right, Set<String> keys})>[
+  final fields = <({ForecastField field, String left, String right})>[
+    (field: ForecastField.claim, left: known.claim, right: unknown.claim),
+    (field: ForecastField.risk, left: known.risk, right: unknown.risk),
     (
-      name: 'claim',
-      left: known.claim,
-      right: unknown.claim,
-      keys: {'h', 'd', 'b', 'e', 'p'},
-    ),
-    (
-      name: 'risk',
-      left: known.risk,
-      right: unknown.risk,
-      keys: {'h', 'd', 'r', 'e'},
-    ),
-    (
-      name: 'decisionImpact',
+      field: ForecastField.decisionImpact,
       left: known.decisionImpact,
       right: unknown.decisionImpact,
-      keys: {'h', 'd', 'b', 'r', 'e', 'p'},
     ),
     (
-      name: 'action',
+      field: ForecastField.action,
       left: known.preparationAction,
       right: unknown.preparationAction,
-      keys: {'h', 'd', 'b', 'r', 'e', 'p'},
     ),
   ];
   for (final field in fields) {
-    final leftFingerprint = _fingerprintProjection(
-      known.materialFingerprint,
-      field.keys,
+    final leftFingerprint = _projectionKey(
+      known.material!.projection(field.field),
     );
-    final rightFingerprint = _fingerprintProjection(
-      unknown.materialFingerprint,
-      field.keys,
+    final rightFingerprint = _projectionKey(
+      unknown.material!.projection(field.field),
     );
     if (leftFingerprint == rightFingerprint) continue;
     final exact = field.left == field.right;
@@ -437,9 +542,14 @@ List<String> _crossModeViolations(
     final rightKey = _meaningKey(field.right);
     final contained = leftKey.contains(rightKey) || rightKey.contains(leftKey);
     final similar = _semanticSimilarity(field.left, field.right) >= 0.72;
-    if (exact || contained || similar) {
+    final justifiedAvailabilityGuard =
+        field.field == ForecastField.action &&
+        known.material!.evidenceAvailability !=
+            unknown.material!.evidenceAvailability &&
+        '${field.left}\n${field.right}'.contains('ไม่มีหลักฐานลัคนา');
+    if ((exact || contained || similar) && !justifiedAvailabilityGuard) {
       violations.add(
-        '${known.title}/${field.name}: different material fingerprints '
+        '${known.title}/${field.field.name}: different material fingerprints '
         'retained equal/contained/similar output '
         '[$leftFingerprint] vs [$rightFingerprint] '
         '"${field.left}" vs "${field.right}"',
@@ -449,7 +559,87 @@ List<String> _crossModeViolations(
   return violations;
 }
 
-String _fingerprintProjection(String value, Set<String> keys) => value
-    .split('|')
-    .where((part) => keys.contains(part.split('=').first))
-    .join('|');
+String _projectionKey(Map<String, Object?> value) {
+  final keys = value.keys.toList()..sort();
+  return keys.map((key) => '$key=${value[key]}').join('|');
+}
+
+_MatrixReport _matrixReport(
+  List<PredictionDomainModel> known,
+  List<PredictionDomainModel> unknown,
+) {
+  String identity(PredictionDomainModel model) =>
+      '${model.material!.horizon.name}/${model.material!.domain.name}';
+  final rightByIdentity = {for (final model in unknown) identity(model): model};
+  var total = 0;
+  var equal = 0;
+  var different = 0;
+  var justified = 0;
+  final violations = <String>[];
+  final coverage = <String>{};
+  for (final left in known) {
+    final right = rightByIdentity[identity(left)];
+    if (right == null) {
+      violations.add('missing identity ${identity(left)}');
+      continue;
+    }
+    final leftMaterial = left.material!;
+    final rightMaterial = right.material!;
+    if (leftMaterial.band != rightMaterial.band) coverage.add('band');
+    if (leftMaterial.riskDomain != rightMaterial.riskDomain) {
+      coverage.add('risk');
+    }
+    if (leftMaterial.evidenceAvailability !=
+        rightMaterial.evidenceAvailability) {
+      coverage.add('availability');
+    }
+    if (leftMaterial.spansTransition != rightMaterial.spansTransition) {
+      coverage.add('transition');
+    }
+    for (final field in ForecastField.values) {
+      total++;
+      final a = _projectionKey(leftMaterial.projection(field));
+      final b = _projectionKey(rightMaterial.projection(field));
+      if (a == b) {
+        equal++;
+      } else {
+        different++;
+        if (field == ForecastField.action &&
+            '${left.preparationAction}\n${right.preparationAction}'.contains(
+              'ไม่มีหลักฐานลัคนา',
+            )) {
+          justified++;
+        }
+      }
+    }
+    violations.addAll(_crossModeViolations(left, right));
+  }
+  return _MatrixReport(
+    totalComparedCells: total,
+    equalFingerprintCells: equal,
+    differentFingerprintCells: different,
+    sharedOutputJustifiedCells: justified,
+    violations: violations,
+    coveredComponents: coverage,
+  );
+}
+
+class _MatrixReport {
+  const _MatrixReport({
+    required this.totalComparedCells,
+    required this.equalFingerprintCells,
+    required this.differentFingerprintCells,
+    required this.sharedOutputJustifiedCells,
+    required this.violations,
+    required this.coveredComponents,
+  });
+
+  final int totalComparedCells;
+  final int equalFingerprintCells;
+  final int differentFingerprintCells;
+  final int sharedOutputJustifiedCells;
+  final List<String> violations;
+  final Set<String> coveredComponents;
+
+  bool get isAcceptable => differentFingerprintCells > 0 && violations.isEmpty;
+}

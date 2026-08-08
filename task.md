@@ -1,49 +1,18 @@
-# Task: Thai Consumer Narrative Voice V1
+# Task: Thai Consumer Narrative Voice Product Acceptance — Round 7
 
-## Product Acceptance rework — Round 4
+Round 6 failed Product Acceptance. Rework the same branch and Draft PR #86; do not merge, deploy, change Production, routes, feature flags, Thai Mirror defaults, Engine, Canon, evidence meaning, birth normalization, province resolution, calculations, or accepted 00:03/00:35 results.
 
-Product Acceptance round 3 did not pass. Round 4 addresses horizon-summary
-domain ownership, exact/normalized semantic duplication, full-range age-aware
-domain copy, generic-pressure evidence structure, atomic omission pagination,
-and artifact-derived acceptance reporting. It must stop at the same Draft PR.
+## Active Round 7 scope
 
-Product Acceptance รอบสองไม่ผ่านเพราะคำเตือนทางการแพทย์ถูกนำไปต่อเป็น
-risk/action, future summary/opportunity และ horizon copy ซ้ำ, ช่วงอายุ 69–108
-ใช้ synonym template, มี meta text หลุด และ PDF ตัด date/domain blocks ข้ามหน้า
-รอบสามต้องแก้ที่ shared narrative model และ PDF semantic pagination, omit
-ข้อความเมื่อหลักฐานไม่เฉพาะพอ, ตรวจ PDF จริงทุกหน้า และหยุดที่ Draft PR #86
-โดยไม่ Merge หรือ Deploy
+- Replace serialized string parsing with a typed material fingerprint whose canonical fields are horizon, domain, band, risk domain, real evidence availability, and transition.
+- Derive evidence availability from the existing `PredictionIntelligence.context.hasLagna` authority, never from required reason-list emptiness.
+- Compose Action from the same block's Claim, Risk, Decision Impact, and typed material. Unknown-time actions fail closed when Lagna evidence is absent.
+- Pair cross-mode cells by horizon/domain identity and compare Claim, Risk, Decision Impact, and Action independently using exact, containment, and normalized similarity checks.
+- Record compared/equal/different/justified/violation counts; fail vacuous matrices and missing component coverage.
+- Add separate band, risk, availability, transition, one-cell, and vacuous negative tests; run the matrix from the 300-profile synthetic suite.
+- Preserve strict current/12-month/next-period action ownership, Web/PDF parity, unknown-time omissions, taxonomy, age language, pagination, and prior accepted regressions.
+- Generate and visually inspect a new immutable Round 7 acceptance packet. Product Acceptance remains pending owner review.
 
-ปรับภาษารายงาน Thai Beta ให้เป็นภาษาไทยธรรมชาติ ตรง ชัด และเป็นมิตร โดยแก้
-เฉพาะ narrative composition บนข้อมูลคำนวณเดิม ไม่เปลี่ยน Engine, Canon,
-Birth Normalization, province resolver, evidence semantics, Timeline ranges,
-feature flags, routes หรือ Production configuration
+## Delivery boundary
 
-งานใช้ base ที่ยอมรับแล้ว
-`4f6aa81fdb8be1d254f21dc3816104cef3252f77` และจบที่ Draft PR เท่านั้น
-Web/PDF ต้องใช้ shared document เดียวกัน, output ต้อง deterministic,
-หนึ่ง public paragraph ต้องคง provenance ตาม contract เดิม และ unknown-time
-ต้อง fail closed
-
-## Fixture separation
-
-- ผู้ใช้รอบนี้: `1982-06-06 00:03`, Chiang Mai (`Asia/Bangkok`,
-  `18.7883, 98.9853`) ต้องคง input `00:03` และ Engine/Web/PDF แสดง Aquarius
-  `9°24′` ตรงกัน
-- regression fixture เดิม: วันและจังหวัดเดียวกันแต่ `00:35` ต้องคง Aquarius
-  `19°19′`
-- ห้ามเปรียบเทียบค่าจากสองเวลาแล้วสรุปว่าเป็น Ascendant regression
-- unknown-time ต้องไม่ใช้ `12:00` ทดแทนและต้อง omit ข้อมูลที่ไม่มีหลักฐาน
-
-Product Acceptance ต้องมี known/no-time Web/PDF, before/after, Desktop/Mobile,
-PDF renders ทุกหน้า และผล tests/gates จริงจาก source-tested commit ห้าม Merge
-หรือ Deploy
-
-## Product Acceptance rework
-
-Product Acceptance รอบแรกไม่ผ่านเพราะข้อความตำแหน่งในช่วงชีวิตขัดกัน,
-ภาษาสำเร็จรูปซ้ำ, current/12-month ใกล้เคียงกันเกินไป, ข้อความบางช่วงไม่เหมาะกับวัย,
-PDF มี orphan headings และ acceptance capture process ค้างจาก test-only timer
-รอบแก้นี้ต้องแก้ที่ shared narrative/presentation และ PDF layout ต้นทาง,
-เพิ่ม boundary/age/semantic/pagination regressions และทำให้ artifact harness exit 0
-ตามปกติ โดยไม่เปลี่ยน Engine หรือค่าลัคนาที่รับรองแล้ว
+Commit and non-force push only to `codex/thai-consumer-narrative-voice-v1`; update existing Draft PR #86. No merge or deploy.

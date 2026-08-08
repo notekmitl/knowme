@@ -2,7 +2,9 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/prediction/prediction_section_model.dart';
 import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
+import 'package:knowme/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_safety.dart';
@@ -43,6 +45,70 @@ void main() {
       expect(c.id, matches(RegExp(r'^S[0-9]{3}$')));
     }
   });
+
+  test(
+    'synthetic matrix invokes cross-mode material sensitivity',
+    () {
+      var compared = 0;
+      var different = 0;
+      final bands = <ForecastBand>{};
+      final risks = <Object?>{};
+      final transitions = <bool>{};
+      for (final c in cases.where((c) => c.input.hasBirthTime).take(75)) {
+        final known = _run(c);
+        final unknown = ThaiBetaAnalysisRunner.run(
+          ThaiBetaInput(
+            firstName: c.id,
+            lastName: 'Synthetic',
+            birthDate: c.input.birthDate,
+            birthTimeUnknown: true,
+            province: c.input.province,
+            provinceKey: c.input.provinceKey,
+          ),
+          startedAt: DateTime.parse(_referenceDate),
+          asOf: DateTime.parse(_referenceDate),
+        );
+        List<PredictionDomainModel> blocks(ThaiBetaAnalysis analysis) =>
+            ThaiBetaNarrativeComposer.narrativeView(analysis)
+                .futurePrediction!
+                .windows
+                .expand((window) => window.domains)
+                .toList();
+        String identity(PredictionDomainModel model) =>
+            '${model.material!.horizon.name}/${model.material!.domain.name}';
+        final right = {
+          for (final model in blocks(unknown)) identity(model): model,
+        };
+        for (final left in blocks(known)) {
+          final match = right[identity(left)]!;
+          compared += ForecastField.values.length;
+          bands.add(left.material!.band);
+          risks.add(left.material!.riskDomain);
+          transitions.add(left.material!.spansTransition);
+          for (final field in ForecastField.values) {
+            final a = left.material!.projection(field).toString();
+            final b = match.material!.projection(field).toString();
+            if (a != b) {
+              different++;
+              if (field == ForecastField.action) {
+                expect(
+                  left.preparationAction == match.preparationAction,
+                  isFalse,
+                  reason: '${c.id}/${identity(left)}',
+                );
+              }
+            }
+          }
+        }
+      }
+      expect(compared, greaterThan(0));
+      expect(different, greaterThan(0), reason: 'vacuous matrix must fail');
+      expect(bands, containsAll(ForecastBand.values));
+      expect(risks, isNotEmpty);
+      expect(transitions, containsAll({true, false}));
+    },
+    timeout: const Timeout(Duration(minutes: 10)),
+  );
 
   test(
     'all 300 cases pass structured, narrative, omission and safety contracts',

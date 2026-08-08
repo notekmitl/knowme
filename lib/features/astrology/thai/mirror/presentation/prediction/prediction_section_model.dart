@@ -1,3 +1,5 @@
+import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart';
+
 // V10.5 — UI-facing view state for the Future Prediction section.
 //
 // These models carry only strings/ints the widget renders. No engine, planet or
@@ -14,7 +16,7 @@ class PredictionDomainModel {
     this.risk = '',
     this.decisionImpact = '',
     this.preparationAction = '',
-    this.materialFingerprint = '',
+    this.material,
   });
 
   /// One of การงาน / การเงิน / ความรัก / สุขภาพ.
@@ -32,9 +34,71 @@ class PredictionDomainModel {
   final String decisionImpact;
   final String preparationAction;
 
-  /// Consumer-material evidence only: horizon/domain/band/risk/availability.
-  /// Never includes a name, profile seed, or cosmetic wording choice.
-  final String materialFingerprint;
+  /// Typed consumer-material inputs. Serialized only for acceptance audits.
+  final ForecastMaterialFingerprint? material;
+
+  String get materialFingerprint => material?.serialize() ?? '';
+}
+
+enum ForecastHorizon { current, next12Months, nextLifePeriod }
+
+enum ForecastDomain { career, finance, relationship, health }
+
+enum ForecastBand { strong, active, quiet }
+
+enum ForecastEvidenceAvailability { full, noLagna }
+
+enum ForecastField { claim, risk, decisionImpact, action }
+
+/// Canonical authority for forecast materiality and field-level projection.
+class ForecastMaterialFingerprint {
+  const ForecastMaterialFingerprint({
+    required this.horizon,
+    required this.domain,
+    required this.band,
+    required this.riskDomain,
+    required this.evidenceAvailability,
+    required this.spansTransition,
+  });
+
+  final ForecastHorizon horizon;
+  final ForecastDomain domain;
+  final ForecastBand band;
+  final LifeDomain? riskDomain;
+  final ForecastEvidenceAvailability evidenceAvailability;
+  final bool spansTransition;
+
+  Map<String, Object?> projection(ForecastField field) => switch (field) {
+    ForecastField.claim => {'horizon': horizon, 'domain': domain, 'band': band},
+    ForecastField.risk => {
+      'horizon': horizon,
+      'domain': domain,
+      'riskDomain': riskDomain,
+    },
+    ForecastField.decisionImpact => {
+      'horizon': horizon,
+      'domain': domain,
+      'band': band,
+      'riskDomain': riskDomain,
+    },
+    ForecastField.action => {
+      'horizon': horizon,
+      'domain': domain,
+      'band': band,
+      'riskDomain': riskDomain,
+      'evidenceAvailability': evidenceAvailability,
+      'spansTransition': spansTransition,
+    },
+  };
+
+  String serialize() => [
+    'h=${horizon.name}',
+    'd=${domain.name}',
+    'b=${band.name}',
+    'r=${riskDomain?.name ?? 'none'}',
+    'e=${evidenceAvailability.name}',
+    't=$spansTransition',
+  ].join('|');
 }
 
 /// One prediction horizon card (Current · Next 12 Months · Next Life Period).

@@ -235,3 +235,6 @@ The consumer Core Reading renders an astrological weekday only when a birth time
 # Round 6 compatibility note
 
 Round 6 changes only future forecast presentation and export structure. Core Reading ownership, accepted known-time calculations, unknown-time omissions, day-boundary behavior, and evidence semantics remain unchanged.
+# Active Round 7 compatibility
+
+Round 7 changes forecast material typing, Action composition, and acceptance validation only. Core Reading ownership, evidence meaning, day-boundary rules, known-time calculations, and unknown-time omissions are unchanged. Product Acceptance remains pending.

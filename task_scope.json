@@ -27,6 +27,7 @@
     "test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart",
     "test/validation/thai_beta/narrative/thai_consumer_narrative_acceptance_artifact_test.dart",
     "test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart",
+    "test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart",
     "test/validation/thai_beta/thai_beta_report_export_test.dart"
   ],
   "allowed_globs": [],
