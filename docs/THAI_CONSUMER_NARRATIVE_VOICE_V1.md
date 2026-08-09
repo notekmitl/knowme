@@ -2,7 +2,7 @@
 
 ## Status — Round 9 Product Acceptance Fix Set 02
 
-The original Round 9 ZIP was recovered and owner-verified, then failed Product Acceptance for raster clipping and semantic-coherence defects. Fix Set 02 was source-tested at `05f9a582784fde7d0e961e7ef90d60263e265731`; artifact hashes and page counts are recorded in `TASK_RESULT.md`. Product Acceptance remains pending owner manual upload and re-review. Draft PR #86 remains OPEN, Draft, unmerged, and undeployed.
+The original Round 9 ZIP was recovered and owner-verified, then failed Product Acceptance for raster clipping and semantic-coherence defects. The `05f9a58` candidate is **WITHDRAWN — INTERNAL QA INCOMPLETE**. Fix Set 02 revision 1 was source-tested at `48c9a24d23d9d5f13110cc757fc6011e753b0b69`; its 17/17-page PDF hashes and packet hash are recorded in `TASK_RESULT.md`. Product Acceptance remains pending owner manual upload and re-review. Draft PR #86 remains OPEN, Draft, unmerged, and undeployed.
 
 ## Typed forecast contract
 
