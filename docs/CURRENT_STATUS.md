@@ -1,21 +1,17 @@
 # KnowMe Current Status
 
-## Active Draft — Thai Consumer Narrative Voice Round 9
+## Active Draft — Round 9 Product Acceptance Fix Set 02
 
 **Last updated:** August 9, 2026
+
 **Branch:** `codex/thai-consumer-narrative-voice-v1`
+
 **Draft PR:** #86 — OPEN, Draft, unmerged
-**Product Acceptance:** pending owner manual upload and reviewer evaluation
+
+**Product Acceptance:** pending owner manual upload and re-review
+
 **Production/deployment:** unchanged; merge and deploy prohibited
 
-The original Round 9 ZIP is missing and was not recovered. Reproduced artifact set 01 was generated from source-tested SHA `41da102e34a2f60262969f19d6d5a3033418d225`, verified, and copied to Windows Downloads for owner manual upload. It is not claimed to be byte-identical to the missing original.
+The original Round 9 ZIP was recovered and owner-verified, then failed Product Acceptance for visual clipping and semantic-coherence defects. Fix Set 02 was source-tested at `05f9a582784fde7d0e961e7ef90d60263e265731`; its verified ZIP hash is `D6107A3EF29DFAEBE67516FE06A7287AFCB85EE0AA8D8118EADDFBA545971C04`. Exact artifact details are authoritative in `TASK_RESULT.md`.
 
-Artifact hashes, page counts, and delivery paths are authoritative in `TASK_RESULT.md`. This delivery recovery did not modify source or tests and did not rerun the prior full 1,524-test suite.
-
-## Preserved boundaries
-
-Thai Engine/Canon/evidence semantics, calculations, birth normalization, province resolver, day-boundary rules, timeline ranges, routes, flags, Auth/Firebase/Production, Thai Mirror defaults, and accepted 00:03/00:35 results are unchanged.
-
-## Historical Acceptance
-
-Rounds 3–8 failed Product Acceptance and are not active or ready states.
+Engine/Canon/evidence semantics, calculations, birth normalization, province resolver, day-boundary rules, timeline ranges, routes, flags, Auth/Firebase/Production, Thai Mirror defaults, and accepted 00:03/00:35 results remain unchanged.

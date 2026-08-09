@@ -1,8 +1,8 @@
 # Thai Consumer Narrative Voice V1
 
-## Status — Round 9 reproduced artifact delivery
+## Status — Round 9 Product Acceptance Fix Set 02
 
-Product Acceptance is pending owner manual upload and reviewer evaluation. Existing Draft PR #86 remains OPEN, Draft, unmerged, and undeployed. The original Round 9 ZIP is missing; reproduced artifact set 01 was generated from the unchanged source-tested SHA and is documented in `TASK_RESULT.md` without any byte-identity claim.
+The original Round 9 ZIP was recovered and owner-verified, then failed Product Acceptance for raster clipping and semantic-coherence defects. Fix Set 02 was source-tested at `05f9a582784fde7d0e961e7ef90d60263e265731`; artifact hashes and page counts are recorded in `TASK_RESULT.md`. Product Acceptance remains pending owner manual upload and re-review. Draft PR #86 remains OPEN, Draft, unmerged, and undeployed.
 
 ## Typed forecast contract
 

@@ -1,15 +1,11 @@
-# Handoff — Active Draft PR #86 Round 9
+# Handoff — Draft PR #86 Round 9 Fix Set 02
 
 Product Acceptance is pending. PR #86 must remain Draft; do not merge or deploy.
 
-The original Round 9 ZIP is missing. Owner must manually upload this verified reproduced delivery file:
+The original Round 9 ZIP was recovered and owner-verified, and Product Acceptance failed. Owner must manually upload the new verified Fix Set 02 delivery:
 
-`C:\Users\USER\Downloads\thai-consumer-narrative-voice-v1-round9-reproduced-01-41da102.zip`
+`C:\Users\USER\Downloads\thai-consumer-narrative-voice-v1-round9-fixset-02-05f9a58.zip`
 
-Before reviewer evaluation, verify the uploaded file SHA-256 is `40D46963C005F47C059D731B3D67224E2AF5F5F6FC47C00DE82A6D7BFBB7A056`. Review the known-time and unknown-time PDFs, Web artifacts, 31 page renders, audit reports, and `SHA256SUMS.txt` recorded in `TASK_RESULT.md`.
+Before re-review, verify SHA-256 `D6107A3EF29DFAEBE67516FE06A7287AFCB85EE0AA8D8118EADDFBA545971C04`. The ZIP contains 279 entries: final Known/Unknown Web and PDF artifacts, 250 page renders, desktop/mobile screenshots, 20 audit reports, and `SHA256SUMS.txt` covering 278/278 payloads.
 
-This reproduced set comes from source-tested SHA `41da102e34a2f60262969f19d6d5a3033418d225`; it is not represented as byte-identical to the unavailable original. No Product Acceptance or readiness statement is valid until manual upload and reviewer evaluation are complete.
-
-## Historical Acceptance
-
-Rounds 3–8 failed and are historical only.
+Source-tested commit: `05f9a582784fde7d0e961e7ef90d60263e265731`. No Product Acceptance or readiness statement is valid until manual upload and owner re-review are complete. No merge, deploy, or Production change is authorized.

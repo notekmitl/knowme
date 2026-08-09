@@ -1,36 +1,29 @@
-# Thai Consumer Narrative Voice V1 — Round 9 Reproduced Artifact Set 01
+# Thai Consumer Narrative Voice V1 — Round 9 Fix Set 02
 
 ## Result
 
-The original Round 9 ZIP with SHA-256 `46BF38A0D295CD0B5D22539D175085D0937305649689D957CB4B5464A749F198` is missing and was not recovered. A replacement delivery set was reproduced from the exact source-tested commit `41da102e34a2f60262969f19d6d5a3033418d225` without source, test, or PDF-content changes.
+The original Round 9 ZIP was recovered and owner-verified: SHA-256 `46BF38A0D295CD0B5D22539D175085D0937305649689D957CB4B5464A749F198`, 4,817,296 bytes, 61 entries, Known PDF 16 pages (`2F07E72FE3BBBE634E786BBC2148AFDA317CDC349D1944F511AFADD43EA8EE50`), and Unknown PDF 15 pages (`9E0632CC2D3F442610F406742D8EBB5B3005508364E0E7886D2E4165D9008A44`). Owner review returned **REVISE — PRODUCT ACCEPTANCE FAILED**.
 
-Product Acceptance remains pending owner manual upload and reviewer evaluation. Draft PR #86 must remain OPEN, Draft, and unmerged; no deployment is authorized.
+Fix Set 02 corrects the actual raster clipping, omits unsupported empty periods, derives Risk/Decision/Action from typed consumer-risk domains, and compares horizon semantics after removing time-only boilerplate.
 
-## Validation provenance
+## Validation
 
-- Prior source-tested record: full required suite 1,524 passed, analyze/gates passed, and accepted 00:03/00:35 regressions preserved.
-- Reproduction run: existing acceptance artifact generator passed for base, desktop, and mobile variants without timeout.
-- The full 1,524-test suite was not rerun for this delivery-only reproduction.
-- Web/PDF extracted-text parity: exact for known-time and unknown-time.
-- PDF visual QA: all 31 rendered pages inspected; no clipping, overflow, orphan, or abnormal blank page found.
+- Source-tested commit: `05f9a582784fde7d0e961e7ef90d60263e265731`.
+- Full suite: 1,527 tests passed; focused raster/period/coherence/horizon regressions passed.
+- Synthetic audit: 300/300; gate self-test: 9/9.
+- PreCommit and PostCommit passed; changed Dart files have zero diagnostics. Repository analyze retains 299 pre-existing findings.
+- Exporters and desktop/mobile screenshot generators exited 0.
+- Known/Unknown Web/PDF semantic text is byte-identical per mode.
+- Poppler 120 DPI raster audit: 250/250 pages individually scanned, 0 blank pages, 0 unsafe bounds.
 
-## Reproduced immutable evidence
+## Final packet
 
-Packet directory: `C:\Users\USER\knowme\product-acceptance\thai-consumer-narrative-voice-v1-round9-reproduced-01-41da102`.
+Packet: `C:\Users\USER\knowme\product-acceptance\thai-consumer-narrative-voice-v1-round9-fixset-02-05f9a58`.
 
-- Known-time PDF: 16 A4 pages; SHA-256 `CA534AF9B5F9244E4CA0B1C8840D4F2B8437A144C30F21CFAEA3847E8053E3BD`.
-- Unknown-time PDF: 15 A4 pages; SHA-256 `762134B198F775B394370AF021AD4CD254F426BCBEF94B7BD14F567144E2528C`.
-- ZIP filename: `thai-consumer-narrative-voice-v1-round9-reproduced-01-41da102.zip`.
-- ZIP size: 4,816,883 bytes.
-- ZIP SHA-256: `40D46963C005F47C059D731B3D67224E2AF5F5F6FC47C00DE82A6D7BFBB7A056`.
-- ZIP inventory: 61 files, including 31 page-render PNGs and all required Round 9 audit reports.
-- `SHA256SUMS.txt`: 60 payload hashes, UTF-8 without BOM; every entry verified against ZIP content.
-- Owner upload copy: `C:\Users\USER\Downloads\thai-consumer-narrative-voice-v1-round9-reproduced-01-41da102.zip`; hash verified equal to the packet ZIP.
+- Known PDF: `known-time-report.pdf`; 126 A4 pages; SHA-256 `4BF507A6539316B9EA7A6ED9F4B6DEEC87B21EE095C7B75C69256FC0D52B35D1`.
+- Unknown PDF: `unknown-time-report.pdf`; 124 A4 pages; SHA-256 `C1D0A09C93204BA34C3ED6263B1A50C393A1491BCED2B8C0A3EE4DB22643D6C6`.
+- ZIP: `thai-consumer-narrative-voice-v1-round9-fixset-02-05f9a58.zip`; 5,530,988 bytes; 279 entries; SHA-256 `D6107A3EF29DFAEBE67516FE06A7287AFCB85EE0AA8D8118EADDFBA545971C04`.
+- `SHA256SUMS.txt`: 278/278 payload entries verified inside the ZIP.
+- Owner copy: `C:\Users\USER\Downloads\thai-consumer-narrative-voice-v1-round9-fixset-02-05f9a58.zip`; copied-file hash matches.
 
-The reproduced PDF and ZIP hashes differ from the unavailable original artifact hashes and are reported only as reproduced artifacts.
-
-Post-push remote HEAD and GitHub state are recorded in the PR body and delivery response.
-
-## Historical Acceptance
-
-Rounds 3–8 failed Product Acceptance and are historical only.
+Product Acceptance remains pending owner manual upload and re-review. PR #86 must remain OPEN, Draft, and unmerged. No merge, deploy, or Production change is authorized.
