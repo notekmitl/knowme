@@ -392,6 +392,13 @@ void main() {
                   .toList()
                 ..sort((a, b) => a.path.compareTo(b.path));
           expect(pages, isNotEmpty);
+          expect(
+            pages.length,
+            lessThanOrEqualTo(fixture.key == 'known' ? 32 : 30),
+            reason:
+                '${fixture.key} PDF regressed to forced one-block-per-page '
+                'pagination (${pages.length} pages)',
+          );
           for (final page in pages) {
             expect(
               _hasInkInForbiddenMargin(page.readAsBytesSync()),

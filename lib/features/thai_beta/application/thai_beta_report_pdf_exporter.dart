@@ -17,13 +17,14 @@ const _domainHeadings = {'การงาน', 'การเงิน', 'คว�
 
 String _pdfSafeText(String value) => value;
 
-// Build a fresh, height-bounded semantic unit. Page breaks are inserted before
-// one-unit pages after the report introduction ensure the PDF engine never
-// retries or spans a semantic unit from unsafe trailing space.
-pw.Widget _atomicPaginationUnit(pw.Widget Function() buildChild) =>
-    buildChild();
-
-const int _paginationUnitsPerPage = 1;
+// Build a fresh, height-bounded semantic unit. Each unit is small enough for
+// MultiPage to keep together while still allowing several units on one page.
+pw.Widget _atomicPaginationUnit(pw.Widget Function() buildChild) => pw.Table(
+  columnWidths: const {0: pw.FlexColumnWidth()},
+  children: [
+    pw.TableRow(children: [buildChild()]),
+  ],
+);
 
 pw.Widget _timelineFrame({
   required bool isTimeline,
@@ -252,16 +253,6 @@ abstract final class ThaiBetaReportPdfExporter {
             pw.Divider(thickness: 0.8, color: PdfColors.grey400),
             pw.SizedBox(height: 18),
           ];
-          var paginationUnitsOnPage = 0;
-
-          void startPaginationUnit() {
-            if (paginationUnitsOnPage >= _paginationUnitsPerPage) {
-              widgets.add(pw.NewPage());
-              paginationUnitsOnPage = 0;
-            }
-            paginationUnitsOnPage++;
-          }
-
           for (var i = 0; i < polished.sections.length; i++) {
             final section = polished.sections[i];
             final isDisclaimer =
@@ -277,8 +268,6 @@ abstract final class ThaiBetaReportPdfExporter {
               // Keep only the heading and first paragraph atomic. A container
               // holding the entire section cannot span a page and can be
               // clipped by MultiPage when the remaining height is too small.
-              widgets.add(pw.NewPage());
-              paginationUnitsOnPage = 1;
               widgets.add(
                 pw.Table(
                   children: [
@@ -330,7 +319,6 @@ abstract final class ThaiBetaReportPdfExporter {
               final firstParagraphs = renderParagraphs
                   .take(firstParagraphCount)
                   .toList(growable: false);
-              startPaginationUnit();
               final firstUnitChildren = <pw.Widget>[
                 pw.Text(_pdfSafeText(heading), style: sectionStyle),
                 if (block.heading != null) ...[
@@ -385,7 +373,7 @@ abstract final class ThaiBetaReportPdfExporter {
                     .skip(paragraphIndex)
                     .take(1)
                     .toList(growable: false);
-                startPaginationUnit();
+                widgets.add(pw.SizedBox(height: 5));
                 widgets.add(
                   _atomicPaginationUnit(
                     () => _timelineFrame(
