@@ -6,6 +6,8 @@ The original Round 9 ZIP was recovered and owner-verified: SHA-256 `46BF38A0D295
 
 Fix Set 02 corrects the actual raster clipping, omits unsupported empty periods, derives Risk/Decision/Action from typed consumer-risk domains, and compares horizon semantics after removing time-only boilerplate. The initial `05f9a58` candidate is **WITHDRAWN — INTERNAL QA INCOMPLETE** because forced one-block-per-page pagination produced 126/124 pages and the visual review was incomplete. Revision 1 restores dense atomic pagination without changing Web content.
 
+Owner Gate Amendment: complete inspection of the rejected historical candidate is **WAIVED BY OWNER — candidate already rejected and root cause proven**. Actual historical inspection covered Known pages 1–40 only; the remaining 210 pages were waived, not passed. Final-artifact acceptance evidence remains the 34/34-page full-resolution review.
+
 ## Validation
 
 - Source-tested commit: `48c9a24d23d9d5f13110cc757fc6011e753b0b69`.
@@ -18,12 +20,13 @@ Fix Set 02 corrects the actual raster clipping, omits unsupported empty periods,
 
 ## Final packet
 
-Packet: `C:\Users\USER\knowme\product-acceptance\thai-consumer-narrative-voice-v1-round9-fixset-02-r1-48c9a24`.
+Packet: `C:\Users\USER\knowme\product-acceptance\thai-consumer-narrative-voice-v1-round9-fixset-02-r2-48c9a24`.
 
 - Known PDF: `known-time-report.pdf`; 17 A4 pages; SHA-256 `F7315EB6A69FE5AEAB1D085E588FCBC7132DF2537B76E56CD303E628F0E960D0`.
 - Unknown PDF: `unknown-time-report.pdf`; 17 A4 pages; SHA-256 `86969DC6B30C15C41809B98F8082627D8BE5626CA3541033173A77305D0C95F5`.
-- ZIP: `thai-consumer-narrative-voice-v1-round9-fixset-02-r1-48c9a24.zip`; 4,757,986 bytes; 64 entries; SHA-256 `A02C5C4895EB27096F1754B9E0CB362A2E3294E28DAA76ACCE523E5CA7E72F5A`.
-- `SHA256SUMS.txt`: 63/63 payload entries verified inside the ZIP.
-- Owner copy: `C:\Users\USER\Downloads\thai-consumer-narrative-voice-v1-round9-fixset-02-r1-48c9a24.zip`; copied-file hash matches.
+- ZIP: `thai-consumer-narrative-voice-v1-round9-fixset-02-r2-48c9a24.zip`; 4,759,125 bytes; 65 entries; SHA-256 `16789716157E5F06DBE0A6D1903915BD2A82F9550491D1BD30645D634EF1EBBD`.
+- `SHA256SUMS.txt`: 64/64 payload entries verified inside the ZIP.
+- Audit inventory: 22 Markdown reports, including `OWNER_GATE_AMENDMENT.md`; visual log remains 34 rows.
+- Owner copy: `C:\Users\USER\Downloads\thai-consumer-narrative-voice-v1-round9-fixset-02-r2-48c9a24.zip`; copied-file hash matches.
 
 Product Acceptance remains pending owner manual upload and re-review. PR #86 must remain OPEN, Draft, and unmerged. No merge, deploy, or Production change is authorized.

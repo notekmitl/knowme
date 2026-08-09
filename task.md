@@ -8,7 +8,8 @@ Original Round 9 was recovered and owner-verified, then failed Product Acceptanc
 - Original Product Acceptance: **FAILED** because of raster clipping, empty-period cards, Risk/Decision/Action mismatch, and a cross-horizon normalization audit miss.
 - Initial Fix Set 02 candidate `thai-consumer-narrative-voice-v1-round9-fixset-02-05f9a58.zip` is **WITHDRAWN — INTERNAL QA INCOMPLETE** because forced one-block-per-page pagination inflated its PDFs to 126/124 pages and every page was not visually reviewed.
 - Fix Set 02 revision 1 source-tested commit: `48c9a24d23d9d5f13110cc757fc6011e753b0b69`.
-- Current ZIP: `thai-consumer-narrative-voice-v1-round9-fixset-02-r1-48c9a24.zip`; SHA-256 `A02C5C4895EB27096F1754B9E0CB362A2E3294E28DAA76ACCE523E5CA7E72F5A`.
+- Historical Candidate complete visual review: **WAIVED BY OWNER — candidate already rejected and root cause proven**. Actual historical inspection covered Known pages 1–40 only; this is not a 250-page Visual QA pass.
+- R1 is retained as the historical pre-amendment packet. Current R2 ZIP: `thai-consumer-narrative-voice-v1-round9-fixset-02-r2-48c9a24.zip`; SHA-256 `16789716157E5F06DBE0A6D1903915BD2A82F9550491D1BD30645D634EF1EBBD`.
 - Product Acceptance remains pending owner manual upload and re-review. No readiness or acceptance claim is authorized.
 
 Do not merge, deploy, change Production, or create Round 10.
