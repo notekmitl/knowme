@@ -1,20 +1,19 @@
 # Task: Thai Consumer Narrative Voice Product Acceptance — Round 9
 
-Round 8 failed Product Acceptance. Rework the same branch and Draft PR #86 only. Do not merge, deploy, change Production, routes, flags, Thai Mirror defaults, Engine, Canon, evidence meaning, normalization, province resolution, calculations, timelines, or accepted 00:03/00:35 results.
+Round 8 failed Product Acceptance. Rework remains on the same branch and Draft PR #86 only. Do not merge, deploy, change Production, routes, flags, Thai Mirror defaults, Engine, Canon, evidence meaning, normalization, province resolution, calculations, timelines, or accepted 00:03/00:35 results.
 
-## Active Round 9 scope
+## Active Round 9 delivery state
 
-- Decision Impact and Action must be generated from one typed `ForecastDecisionPlan`; never infer intent by parsing Thai prose.
-- The plan owns horizon, forecast domain, band posture, risk domain/response, decision intent/consequence, availability, and transition.
-- Controlled production mutations must recompose all fields through the real production path. Report production generation sensitivity separately from negative gate detection.
-- Actual cross-mode identity is `profileCaseId/horizon/domain`, using deterministic non-PII fixture IDs. Duplicate, missing, and unexpected identities fail; ordering must not matter.
-- Keep uncertainty disclosure outside predictive fields and shared-output calculation.
-- Preserve current/12-month/next-period ownership, Web/PDF parity, unknown-time omissions, taxonomy, age language, pagination, and accepted regressions.
-- Create and inspect a new immutable Round 9 packet. Product Acceptance remains pending owner review.
+- Source-tested commit remains `41da102e34a2f60262969f19d6d5a3033418d225`.
+- The original Round 9 ZIP is missing and was not recovered.
+- Reproduced artifact set 01 was generated from the same source-tested commit without source, test, or PDF-content changes.
+- The reproduced set is not represented as byte-identical to the missing original.
+- The verified ZIP is prepared in Windows Downloads for owner manual upload.
+- Product Acceptance remains pending; no readiness claim is authorized before reviewer access and evaluation.
 
 ## Delivery boundary
 
-Commit and non-force push only to `codex/thai-consumer-narrative-voice-v1`; update existing Draft PR #86. No merge or deploy. Deliver actual Round 9 PDFs and ZIP through supported attachments. If delivery is unavailable, report `DELIVERY_BLOCKED` and do not claim readiness.
+Commit documentation updates and non-force push only to `codex/thai-consumer-narrative-voice-v1`; update existing Draft PR #86. No merge, deploy, Production change, or Round 10 work.
 
 ## Historical Acceptance
 

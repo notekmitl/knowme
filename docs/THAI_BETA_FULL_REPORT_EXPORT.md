@@ -202,6 +202,6 @@ the supported export path.
 
 Product Acceptance is pending. Web and PDF export the same Claim, Risk, Decision Impact, Action, and separate uncertainty-disclosure values from the shared presentation model. PDF code never reconstructs predictive fields or parses audit fingerprints.
 
-Disclosure is rendered as `ข้อจำกัดของคำอ่าน` after the four predictive fields and is excluded from cross-mode semantic comparison. Decision Impact and Action come from the same typed `ForecastDecisionPlan`; the exporter renders their composed strings without rebuilding or inferring intent. Unknown-time Action independently requires a real-result checkpoint. Acceptance audits hash the final PDFs before inspecting semantic coherence and every rendered page. Final Round 9 page counts and hashes are authoritative in `TASK_RESULT.md` and the immutable Round 9 packet.
+Disclosure is rendered as `ข้อจำกัดของคำอ่าน` after the four predictive fields and is excluded from cross-mode semantic comparison. Decision Impact and Action come from the same typed `ForecastDecisionPlan`; the exporter renders their composed strings without rebuilding or inferring intent. Unknown-time Action independently requires a real-result checkpoint. Acceptance audits hash the final PDFs before inspecting semantic coherence and every rendered page. The original Round 9 ZIP is missing; reproduced artifact set 01 page counts, hashes, and manual-upload status are authoritative in `TASK_RESULT.md`.
 
 Rounds 5–7 export notes are historical and superseded by this contract.

@@ -2,17 +2,15 @@
 
 ## Active Draft — Thai Consumer Narrative Voice Round 9
 
-**Last updated:** August 8, 2026
+**Last updated:** August 9, 2026
 **Branch:** `codex/thai-consumer-narrative-voice-v1`
 **Draft PR:** #86 — OPEN, Draft, unmerged
-**Product Acceptance:** pending Round 9 owner review
+**Product Acceptance:** pending owner manual upload and reviewer evaluation
 **Production/deployment:** unchanged; merge and deploy prohibited
 
-Round 8 failed because Action did not consume Decision Impact semantics, controlled mutation coverage reused base output and counted gate violations, multi-profile identity omitted `profileCaseId`, and attachments did not represent the final packet.
+The original Round 9 ZIP is missing and was not recovered. Reproduced artifact set 01 was generated from source-tested SHA `41da102e34a2f60262969f19d6d5a3033418d225`, verified, and copied to Windows Downloads for owner manual upload. It is not claimed to be byte-identical to the missing original.
 
-Round 9 uses one typed `ForecastDecisionPlan` for Decision Impact and Action, recomposes controlled mutations through the production path, separates generation sensitivity from negative gate detection, and pairs actual outputs by deterministic non-PII `profileCaseId/horizon/domain`.
-
-Final source SHA, tests, PDF facts, packet and ZIP hashes become authoritative in `TASK_RESULT.md` after artifact completion. Final remote HEAD and GitHub state are recorded after push in the PR body and delivery response.
+Artifact hashes, page counts, and delivery paths are authoritative in `TASK_RESULT.md`. This delivery recovery did not modify source or tests and did not rerun the prior full 1,524-test suite.
 
 ## Preserved boundaries
 

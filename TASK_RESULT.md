@@ -1,35 +1,35 @@
-# Thai Consumer Narrative Voice V1 — Round 9
+# Thai Consumer Narrative Voice V1 — Round 9 Reproduced Artifact Set 01
 
 ## Result
 
-Round 9 implementation and local source/artifact verification are complete. Product Acceptance remains pending owner review. Draft PR #86 must remain OPEN, Draft, and unmerged; no deployment is authorized.
+The original Round 9 ZIP with SHA-256 `46BF38A0D295CD0B5D22539D175085D0937305649689D957CB4B5464A749F198` is missing and was not recovered. A replacement delivery set was reproduced from the exact source-tested commit `41da102e34a2f60262969f19d6d5a3033418d225` without source, test, or PDF-content changes.
 
-Source-tested commit: `41da102e34a2f60262969f19d6d5a3033418d225`.
+Product Acceptance remains pending owner manual upload and reviewer evaluation. Draft PR #86 must remain OPEN, Draft, and unmerged; no deployment is authorized.
 
-## Test inventory
+## Validation provenance
 
-- Focused narrative/core/export/pipeline: 243 passed.
-- Synthetic/semantic parity inventory: 16 passed; synthetic audit 300/300.
-- Full required suite: 1,524 passed (minimum 1,523).
-- Repository analyze command: exit 0 with 299 pre-existing findings.
-- Changed Dart file analyze: 0 diagnostics.
-- Gate self-test: 9/9 passed.
-- PreCommit gate: PASS.
-- Artifact generator: base, desktop, and mobile passed without timeout.
-- Web/PDF text parity: exact for known-time and unknown-time.
-- PDF visual QA: all 31 rendered pages inspected.
+- Prior source-tested record: full required suite 1,524 passed, analyze/gates passed, and accepted 00:03/00:35 regressions preserved.
+- Reproduction run: existing acceptance artifact generator passed for base, desktop, and mobile variants without timeout.
+- The full 1,524-test suite was not rerun for this delivery-only reproduction.
+- Web/PDF extracted-text parity: exact for known-time and unknown-time.
+- PDF visual QA: all 31 rendered pages inspected; no clipping, overflow, orphan, or abnormal blank page found.
 
-## Immutable evidence
+## Reproduced immutable evidence
 
-Packet directory: `product-acceptance/thai-consumer-narrative-voice-v1-round9-41da102`.
+Packet directory: `C:\Users\USER\knowme\product-acceptance\thai-consumer-narrative-voice-v1-round9-reproduced-01-41da102`.
 
-- Known-time PDF: 16 pages; SHA-256 `2F07E72FE3BBBE634E786BBC2148AFDA317CDC349D1944F511AFADD43EA8EE50`.
-- Unknown-time PDF: 15 pages; SHA-256 `9E0632CC2D3F442610F406742D8EBB5B3005508364E0E7886D2E4165D9008A44`.
-- ZIP filename: `thai-consumer-narrative-voice-v1-round9-41da102.zip`.
-- ZIP SHA-256: `46BF38A0D295CD0B5D22539D175085D0937305649689D957CB4B5464A749F198`.
-- `SHA256SUMS.txt`: 60 payload hashes, UTF-8 without BOM, verified before ZIP creation.
+- Known-time PDF: 16 A4 pages; SHA-256 `CA534AF9B5F9244E4CA0B1C8840D4F2B8437A144C30F21CFAEA3847E8053E3BD`.
+- Unknown-time PDF: 15 A4 pages; SHA-256 `762134B198F775B394370AF021AD4CD254F426BCBEF94B7BD14F567144E2528C`.
+- ZIP filename: `thai-consumer-narrative-voice-v1-round9-reproduced-01-41da102.zip`.
+- ZIP size: 4,816,883 bytes.
+- ZIP SHA-256: `40D46963C005F47C059D731B3D67224E2AF5F5F6FC47C00DE82A6D7BFBB7A056`.
+- ZIP inventory: 61 files, including 31 page-render PNGs and all required Round 9 audit reports.
+- `SHA256SUMS.txt`: 60 payload hashes, UTF-8 without BOM; every entry verified against ZIP content.
+- Owner upload copy: `C:\Users\USER\Downloads\thai-consumer-narrative-voice-v1-round9-reproduced-01-41da102.zip`; hash verified equal to the packet ZIP.
 
-PostCommit result, final remote HEAD, timestamped PR state, and GitHub status/workflow facts are recorded after push in the PR body and final response. They are intentionally not represented here as self-referential commit facts.
+The reproduced PDF and ZIP hashes differ from the unavailable original artifact hashes and are reported only as reproduced artifacts.
+
+Post-push remote HEAD and GitHub state are recorded in the PR body and delivery response.
 
 ## Historical Acceptance
 
