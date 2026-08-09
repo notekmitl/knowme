@@ -332,6 +332,7 @@ abstract final class ThaiBetaNarrativeComposer {
             lifeDomains: List.unmodifiable(domains),
           );
         })
+        .where(_hasConsumerTimelineContent)
         .toList(growable: false);
     return ThaiMirrorLifeTimelineState(
       sectionTitle: timeline.sectionTitle,
@@ -359,6 +360,18 @@ abstract final class ThaiBetaNarrativeComposer {
       detailedReport: timeline.detailedReport,
     );
   }
+
+  static bool _hasConsumerTimelineContent(ThaiMirrorLifePeriodState period) =>
+      period.lifeDomains.isNotEmpty ||
+      [
+        period.summary,
+        period.whatChanges,
+        period.easier,
+        period.harder,
+        period.comparison,
+        period.evidenceLine,
+        period.advice,
+      ].any((value) => value.trim().isNotEmpty);
 
   static String _stripRepeatedMedicalDisclaimer(String body) => body
       .replaceAll(
@@ -579,7 +592,14 @@ abstract final class ThaiBetaNarrativeComposer {
       ForecastBand.active => 'จังหวะนี้เหมาะกับการทดลองในขอบเขตเล็ก',
       ForecastBand.quiet => 'จังหวะนี้เหมาะกับการสังเกตก่อนขยาย',
     };
-    return '$timed $posture';
+    final evidenceCriterion = switch (plan.horizon) {
+      ForecastHorizon.current => 'ให้ตัดสินจากผลที่กำลังเกิดขึ้นจริง',
+      ForecastHorizon.next12Months =>
+        'ให้ดูว่าผลนี้เกิดซ้ำได้หลายรอบก่อนผูกแผนทั้งปี',
+      ForecastHorizon.nextLifePeriod =>
+        'ให้ดูว่าฐานเดิมยังรองรับความเปลี่ยนแปลงระยะยาวได้',
+    };
+    return '$timed $evidenceCriterion $posture';
   }
 
   static String _decisionImpact(ForecastDecisionPlan plan) {
@@ -613,7 +633,15 @@ abstract final class ThaiBetaNarrativeComposer {
         plan.horizon == ForecastHorizon.nextLifePeriod && plan.spansTransition
         ? ' พร้อมเผื่อกำลังสำหรับรอยต่อช่วงชีวิต'
         : '';
-    final riskBoundary = switch (plan.riskDomain) {
+    final horizonBoundary = switch (plan.horizon) {
+      ForecastHorizon.current =>
+        ' โดยใช้ผลที่เกิดขึ้นในรอบนี้เป็นขอบเขตตัดสินใจ',
+      ForecastHorizon.next12Months =>
+        ' โดยยืนยันจากผลที่เกิดซ้ำระหว่างจุดทบทวนก่อนผูกมัดแผนทั้งปี',
+      ForecastHorizon.nextLifePeriod =>
+        ' โดยตรวจว่าฐานเดิมรองรับรอยต่อได้ก่อนเปลี่ยนภาระระยะยาว',
+    };
+    final riskBoundary = switch (plan.consumerRiskDomain) {
       LifeDomain.pressure => ' เพราะภาระเกินกำลังจะเบียดพื้นที่ตัดสินใจ',
       LifeDomain.money => ' เพราะภาระเงินจะลดทางเลือกที่เหลือ',
       LifeDomain.love => ' เพราะความคาดหวังที่ไม่ตรงกันทำให้ผูกพันเร็วเกินไป',
@@ -621,7 +649,7 @@ abstract final class ThaiBetaNarrativeComposer {
       LifeDomain.career => ' เพราะงานเพิ่มอาจเบียดคุณภาพงานหลัก',
       _ => '',
     };
-    return '$decisionCore$riskBoundary$transition';
+    return '$decisionCore$riskBoundary$horizonBoundary$transition';
   }
 
   static String _riskSignal(String caution, {LifeDomain? riskDomain}) {
@@ -677,7 +705,10 @@ abstract final class ThaiBetaNarrativeComposer {
       intent: decisionIntent,
     );
     final claim = _forecastClaim(sourceBody, windowIndex, plan);
-    final risk = _riskSignal(sourceCaution, riskDomain: plan.riskDomain);
+    final risk = _riskSignal(
+      sourceCaution,
+      riskDomain: plan.consumerRiskDomain,
+    );
     final decisionImpact = _decisionImpact(plan);
     final action = _forecastActionForPlan(plan);
     final disclosure =
@@ -715,7 +746,14 @@ abstract final class ThaiBetaNarrativeComposer {
       ForecastBand.active => 'ทดลองทีละขั้นแล้วทบทวนผลจริง',
       ForecastBand.quiet => 'ชะลอก้าวใหม่และเก็บข้อมูลจริง',
     };
-    final riskResponse = switch (plan.riskDomain) {
+    final horizonProtocol = switch (plan.horizon) {
+      ForecastHorizon.current => 'ลงมือหนึ่งรอบแล้วตรวจผลทันที',
+      ForecastHorizon.next12Months =>
+        'บันทึกผลทุกจุดทบทวนก่อนเพิ่มข้อผูกมัดรอบถัดไป',
+      ForecastHorizon.nextLifePeriod =>
+        'ทดลองฐานใหม่ในขอบเขตเล็กก่อนย้ายภาระระยะยาว',
+    };
+    final riskResponse = switch (plan.consumerRiskDomain) {
       LifeDomain.pressure => 'ลดภาระทันทีเมื่อภาระเริ่มเกินกำลัง',
       LifeDomain.money => 'หยุดเพิ่มภาระเงินเมื่อความเสี่ยงเริ่มเกิด',
       LifeDomain.love => 'ชะลอข้อตกลงเมื่อความสัมพันธ์ยังไม่ชัด',
@@ -735,9 +773,10 @@ abstract final class ThaiBetaNarrativeComposer {
     };
     if (plan.evidenceAvailability == ForecastEvidenceAvailability.noLagna) {
       return '$horizonLead บันทึกผลจริงหนึ่งรอบก่อน แล้วค่อย$decisionStep; '
-          'หากข้อมูลยังไม่ชัดให้ชะลอไว้และ$riskResponse';
+          '$horizonProtocol; หากข้อมูลยังไม่ชัดให้ชะลอไว้และ$riskResponse';
     }
-    return '$horizonLead $decisionStep โดย$posture; $riskResponse';
+    return '$horizonLead $decisionStep โดย$posture; '
+        '$horizonProtocol; $riskResponse';
   }
 
   // Legacy fallback retained for callers that still construct unpolished cards.

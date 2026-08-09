@@ -25,6 +25,7 @@
     "test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart",
     "test/validation/thai_beta/narrative/thai_beta_input_fixture_separation_test.dart",
     "test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart",
+    "test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart",
     "test/validation/thai_beta/narrative/thai_consumer_narrative_acceptance_artifact_test.dart",
     "test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart",
     "test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart",

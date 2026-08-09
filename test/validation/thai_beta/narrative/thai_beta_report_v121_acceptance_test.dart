@@ -39,22 +39,35 @@ void main() {
       expect(timeline.periods.length, ages.length);
     });
 
-    test('V121-8 long source → UI projection ≤3', () {
+    test('V121-8 empty far periods are omitted before UI projection', () {
       final view = ThaiBetaNarrativeComposer.narrativeView(
         ThaiBetaNarrativeFixtures.fixtureA(),
       );
       final all = view.lifeTimeline!.periods;
       expect(all.length, greaterThanOrEqualTo(5));
-      final lastAge = all.last.ageLabel;
-      final end = int.parse(lastAge.split('–').last);
-      expect(end, greaterThanOrEqualTo(100));
+      expect(
+        all.every(
+          (period) =>
+              period.lifeDomains.isNotEmpty ||
+              [
+                period.summary,
+                period.whatChanges,
+                period.easier,
+                period.harder,
+                period.comparison,
+                period.evidenceLine,
+                period.advice,
+              ].any((value) => value.trim().isNotEmpty),
+        ),
+        isTrue,
+      );
       final selected = RelevantLifePeriodsSelector.select(
         periods: all,
         isCurrent: (p) => p.isCurrent,
         isPast: (p) => p.isPast,
       );
       expect(selected.length, lessThanOrEqualTo(3));
-      expect(selected.any((p) => p.ageLabel == lastAge), isFalse);
+      expect(selected.length, lessThan(all.length));
     });
 
     test('V121-16 V1.2 narrative still present on composed view', () {
@@ -420,7 +433,10 @@ void main() {
           findsNothing,
         );
         expect(find.text('ข้อมูลวันเกิดครบถ้วน'), findsNothing);
-        expect(find.text(ThaiBetaNarrativeV12.strengthsSectionTitle), findsNothing);
+        expect(
+          find.text(ThaiBetaNarrativeV12.strengthsSectionTitle),
+          findsNothing,
+        );
         expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
         expect(find.textContaining('137'), findsNothing);
         expect(

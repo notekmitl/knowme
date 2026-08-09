@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/thai_mirror_life_timeline_state.dart';
@@ -334,6 +336,77 @@ void main() {
   });
 
   group('Real PDF exporter path regression', () {
+    test('Poppler raster keeps ink inside printable margins', () async {
+      final renderer = _findPdftoppm();
+      expect(
+        renderer,
+        isNotNull,
+        reason: 'pdftoppm is required for the real-raster clipping gate',
+      );
+      final temp = Directory.systemTemp.createTempSync(
+        'knowme-pdf-raster-regression-',
+      );
+      try {
+        for (final fixture in <String, ThaiBetaAnalysis>{
+          'known': analysis,
+          'unknown': ThaiBetaAnalysisRunner.run(
+            ThaiBetaInput(
+              firstName: 'Raster',
+              lastName: 'Unknown',
+              birthDate: DateTime(1982, 6, 6),
+              birthTimeUnknown: true,
+              province: 'เชียงใหม่',
+              provinceKey: 'chiang_mai',
+            ),
+          ),
+        }.entries) {
+          final document = ThaiBetaReportExportDocument.fromAnalysis(
+            fixture.value,
+          );
+          final rendered = await ThaiBetaReportPdfExporter.build(document);
+          final pdf = File('${temp.path}/${fixture.key}.pdf')
+            ..writeAsBytesSync(rendered.bytes);
+          final prefix = '${temp.path}/${fixture.key}';
+          final result = await Process.run(renderer!, [
+            '-r',
+            '120',
+            pdf.path,
+            prefix,
+          ]);
+          expect(
+            result.exitCode,
+            0,
+            reason: 'pdftoppm failed: ${result.stderr}',
+          );
+          final pages =
+              temp
+                  .listSync()
+                  .whereType<File>()
+                  .where(
+                    (file) =>
+                        file.uri.pathSegments.last.startsWith(
+                          '${fixture.key}-',
+                        ) &&
+                        file.path.endsWith('.ppm'),
+                  )
+                  .toList()
+                ..sort((a, b) => a.path.compareTo(b.path));
+          expect(pages, isNotEmpty);
+          for (final page in pages) {
+            expect(
+              _hasInkInForbiddenMargin(page.readAsBytesSync()),
+              isFalse,
+              reason:
+                  '${fixture.key}/${page.uri.pathSegments.last} '
+                  'contains raster ink outside the printable margin',
+            );
+          }
+        }
+      } finally {
+        temp.deleteSync(recursive: true);
+      }
+    });
+
     test(
       'pagination units keep period, domain, and first paragraph together',
       () {
@@ -975,4 +1048,80 @@ void main() {
       expect(find.textContaining('KnowMe'), findsWidgets);
     });
   });
+}
+
+String? _findPdftoppm() {
+  final configured = Platform.environment['KNOWME_PDFTOPPM'];
+  if (configured != null && File(configured).existsSync()) return configured;
+  if (Platform.isWindows) {
+    final profile = Platform.environment['USERPROFILE'];
+    if (profile != null) {
+      final runtimes = Directory('$profile/.cache/codex-runtimes');
+      if (runtimes.existsSync()) {
+        for (final entity in runtimes.listSync(recursive: true)) {
+          if (entity is File &&
+              entity.path.endsWith(
+                r'\dependencies\native\poppler\Library\bin\pdftoppm.exe',
+              )) {
+            return entity.path;
+          }
+        }
+      }
+    }
+  }
+  return null;
+}
+
+bool _hasInkInForbiddenMargin(List<int> bytes) {
+  var offset = 0;
+  String token() {
+    while (offset < bytes.length &&
+        (bytes[offset] == 9 ||
+            bytes[offset] == 10 ||
+            bytes[offset] == 13 ||
+            bytes[offset] == 32)) {
+      offset++;
+    }
+    final start = offset;
+    while (offset < bytes.length &&
+        bytes[offset] != 9 &&
+        bytes[offset] != 10 &&
+        bytes[offset] != 13 &&
+        bytes[offset] != 32) {
+      offset++;
+    }
+    return String.fromCharCodes(bytes.sublist(start, offset));
+  }
+
+  expect(token(), 'P6');
+  final width = int.parse(token());
+  final height = int.parse(token());
+  final maxValue = int.parse(token());
+  expect(maxValue, 255);
+  while (offset < bytes.length &&
+      (bytes[offset] == 9 ||
+          bytes[offset] == 10 ||
+          bytes[offset] == 13 ||
+          bytes[offset] == 32)) {
+    offset++;
+  }
+  const safeMargin = 55;
+  const inkThreshold = 225;
+  for (var y = 0; y < height; y++) {
+    for (var x = 0; x < width; x++) {
+      final pixel = offset + ((y * width + x) * 3);
+      final isInk =
+          bytes[pixel] < inkThreshold ||
+          bytes[pixel + 1] < inkThreshold ||
+          bytes[pixel + 2] < inkThreshold;
+      if (isInk &&
+          (x < safeMargin ||
+              x >= width - safeMargin ||
+              y < safeMargin ||
+              y >= height - safeMargin)) {
+        return true;
+      }
+    }
+  }
+  return false;
 }

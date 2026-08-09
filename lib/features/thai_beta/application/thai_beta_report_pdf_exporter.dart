@@ -17,29 +17,59 @@ const _domainHeadings = {'การงาน', 'การเงิน', 'คว�
 
 String _pdfSafeText(String value) => value;
 
-List<pw.InlineSpan> _pdfInlineSpans(String value, pw.TextStyle style) {
-  final spans = <pw.InlineSpan>[];
-  final dates = RegExp(r'\b\d{4}-\d{2}-\d{2}\b').allMatches(value);
-  var offset = 0;
-  for (final date in dates) {
-    if (date.start > offset) {
-      spans.add(
-        pw.TextSpan(text: value.substring(offset, date.start), style: style),
-      );
+// Build a fresh, height-bounded semantic unit. Page breaks are inserted before
+// one-unit pages after the report introduction ensure the PDF engine never
+// retries or spans a semantic unit from unsafe trailing space.
+pw.Widget _atomicPaginationUnit(pw.Widget Function() buildChild) =>
+    buildChild();
+
+const int _paginationUnitsPerPage = 1;
+
+pw.Widget _timelineFrame({
+  required bool isTimeline,
+  required pw.Widget child,
+  required pw.EdgeInsets padding,
+  required PdfColor color,
+}) {
+  if (!isTimeline) {
+    // The outer atomic container hides this Column's spanning interface from
+    // MultiPage, so it is laid out once with fresh child coordinates.
+    return child;
+  }
+  return pw.Container(
+    width: double.infinity,
+    padding: padding,
+    margin: const pw.EdgeInsets.only(bottom: 7),
+    decoration: pw.BoxDecoration(
+      color: color,
+      borderRadius: pw.BorderRadius.circular(6),
+      border: pw.Border.all(color: PdfColors.grey300, width: 0.6),
+    ),
+    child: child,
+  );
+}
+
+/// Splits a display paragraph without changing its characters. The limit is a
+/// layout budget, not fixture-specific pagination: at the report's font size
+/// Thai prose has few whitespace break opportunities. A 360-character bound
+/// plus both headings stays comfortably below one printable A4 page, while
+/// every source character is preserved across continuation units.
+List<String> _boundedPdfParagraphs(String paragraph) {
+  const maxCharacters = 360;
+  if (paragraph.length <= maxCharacters) return [paragraph];
+  final tokens = RegExp(r'\S+\s*').allMatches(paragraph);
+  final chunks = <String>[];
+  var current = StringBuffer();
+  for (final match in tokens) {
+    final token = match.group(0)!;
+    if (current.isNotEmpty && current.length + token.length > maxCharacters) {
+      chunks.add(current.toString());
+      current = StringBuffer();
     }
-    final token = date.group(0)!;
-    spans.add(
-      pw.WidgetSpan(
-        child: pw.Text(token, style: style, softWrap: false),
-        style: style,
-      ),
-    );
-    offset = date.end;
+    current.write(token);
   }
-  if (offset < value.length) {
-    spans.add(pw.TextSpan(text: value.substring(offset), style: style));
-  }
-  return spans.isEmpty ? [pw.TextSpan(text: value, style: style)] : spans;
+  if (current.isNotEmpty) chunks.add(current.toString());
+  return chunks.isEmpty ? [paragraph] : chunks;
 }
 
 List<_PdfSemanticBlock> _semanticBlocks(List<String> paragraphs) {
@@ -222,6 +252,15 @@ abstract final class ThaiBetaReportPdfExporter {
             pw.Divider(thickness: 0.8, color: PdfColors.grey400),
             pw.SizedBox(height: 18),
           ];
+          var paginationUnitsOnPage = 0;
+
+          void startPaginationUnit() {
+            if (paginationUnitsOnPage >= _paginationUnitsPerPage) {
+              widgets.add(pw.NewPage());
+              paginationUnitsOnPage = 0;
+            }
+            paginationUnitsOnPage++;
+          }
 
           for (var i = 0; i < polished.sections.length; i++) {
             final section = polished.sections[i];
@@ -232,9 +271,14 @@ abstract final class ThaiBetaReportPdfExporter {
 
             if (isDisclaimer) {
               widgets.add(pw.SizedBox(height: 10));
-              // A one-row table is an atomic pagination unit in package:pdf.
-              // This keeps the omission heading, lead and first reason on the
-              // same page instead of allowing a heading-only card.
+              final firstParagraph = section.paragraphs.isEmpty
+                  ? null
+                  : section.paragraphs.first;
+              // Keep only the heading and first paragraph atomic. A container
+              // holding the entire section cannot span a page and can be
+              // clipped by MultiPage when the remaining height is too small.
+              widgets.add(pw.NewPage());
+              paginationUnitsOnPage = 1;
               widgets.add(
                 pw.Table(
                   children: [
@@ -254,10 +298,9 @@ abstract final class ThaiBetaReportPdfExporter {
                             crossAxisAlignment: pw.CrossAxisAlignment.start,
                             children: [
                               pw.Text(section.title, style: sectionStyle),
-                              pw.SizedBox(height: 8),
-                              for (final paragraph in section.paragraphs) ...[
-                                pw.Text(paragraph, style: disclaimerStyle),
-                                pw.SizedBox(height: 6),
+                              if (firstParagraph != null) ...[
+                                pw.SizedBox(height: 8),
+                                pw.Text(firstParagraph, style: disclaimerStyle),
                               ],
                             ],
                           ),
@@ -267,55 +310,112 @@ abstract final class ThaiBetaReportPdfExporter {
                   ],
                 ),
               );
+              for (final paragraph in section.paragraphs.skip(1)) {
+                widgets.add(pw.SizedBox(height: 6));
+                widgets.add(pw.Text(paragraph, style: disclaimerStyle));
+              }
               continue;
             }
 
             final blocks = _semanticBlocks(section.paragraphs);
             for (var blockIndex = 0; blockIndex < blocks.length; blockIndex++) {
               final block = blocks[blockIndex];
+              final renderParagraphs = block.paragraphs
+                  .expand(_boundedPdfParagraphs)
+                  .toList(growable: false);
               final heading = blockIndex == 0
                   ? section.title
                   : '${section.title} (ต่อ)';
-              widgets.add(
-                pw.Container(
-                  width: double.infinity,
-                  padding: isTimeline
-                      ? const pw.EdgeInsets.all(12)
-                      : const pw.EdgeInsets.symmetric(vertical: 4),
-                  margin: const pw.EdgeInsets.only(bottom: 7),
-                  decoration: isTimeline
-                      ? pw.BoxDecoration(
-                          color: blockIndex == 0
-                              ? PdfColors.grey100
-                              : PdfColors.white,
-                          borderRadius: pw.BorderRadius.circular(6),
-                          border: pw.Border.all(
-                            color: PdfColors.grey300,
-                            width: 0.6,
-                          ),
-                        )
-                      : null,
-                  child: pw.RichText(
-                    text: pw.TextSpan(
-                      children: [
-                        pw.TextSpan(
-                          text: _pdfSafeText(heading),
-                          style: sectionStyle,
-                        ),
-                        if (block.heading != null)
-                          pw.TextSpan(
-                            text: '\n\n${_pdfSafeText(block.heading!)}',
-                            style: sectionStyle,
-                          ),
-                        for (final paragraph in block.paragraphs) ...[
-                          pw.TextSpan(text: '\n\n', style: baseStyle),
-                          ..._pdfInlineSpans(paragraph, baseStyle),
-                        ],
-                      ],
+              final firstParagraphCount = renderParagraphs.length.clamp(0, 1);
+              final firstParagraphs = renderParagraphs
+                  .take(firstParagraphCount)
+                  .toList(growable: false);
+              startPaginationUnit();
+              final firstUnitChildren = <pw.Widget>[
+                pw.Text(_pdfSafeText(heading), style: sectionStyle),
+                if (block.heading != null) ...[
+                  pw.SizedBox(height: 8),
+                  pw.Text(_pdfSafeText(block.heading!), style: sectionStyle),
+                ],
+                for (final paragraph in firstParagraphs) ...[
+                  pw.SizedBox(height: 8),
+                  pw.Text(paragraph, style: baseStyle),
+                ],
+              ];
+              if (isTimeline) {
+                widgets.add(
+                  _atomicPaginationUnit(
+                    () => _timelineFrame(
+                      isTimeline: true,
+                      padding: const pw.EdgeInsets.all(12),
+                      color: blockIndex == 0
+                          ? PdfColors.grey100
+                          : PdfColors.white,
+                      child: pw.Column(
+                        crossAxisAlignment: pw.CrossAxisAlignment.start,
+                        children: firstUnitChildren,
+                      ),
                     ),
                   ),
-                ),
-              );
+                );
+              } else {
+                widgets.add(
+                  _atomicPaginationUnit(
+                    () => _timelineFrame(
+                      isTimeline: false,
+                      padding: pw.EdgeInsets.zero,
+                      color: PdfColors.white,
+                      child: pw.Column(
+                        crossAxisAlignment: pw.CrossAxisAlignment.start,
+                        children: firstUnitChildren,
+                      ),
+                    ),
+                  ),
+                );
+              }
+              // Remaining paragraphs are grouped into bounded atomic units.
+              // Each unit repeats its semantic heading, so a page transition
+              // never starts with an unlabeled continuation.
+              for (
+                var paragraphIndex = firstParagraphCount;
+                paragraphIndex < renderParagraphs.length;
+                paragraphIndex++
+              ) {
+                final remaining = renderParagraphs
+                    .skip(paragraphIndex)
+                    .take(1)
+                    .toList(growable: false);
+                startPaginationUnit();
+                widgets.add(
+                  _atomicPaginationUnit(
+                    () => _timelineFrame(
+                      isTimeline: isTimeline,
+                      padding: const pw.EdgeInsets.fromLTRB(12, 5, 12, 8),
+                      color: PdfColors.white,
+                      child: pw.Column(
+                        crossAxisAlignment: pw.CrossAxisAlignment.start,
+                        children: [
+                          pw.Text(
+                            _pdfSafeText('${section.title} (ต่อ)'),
+                            style: sectionStyle,
+                          ),
+                          if (block.heading != null) ...[
+                            pw.SizedBox(height: 8),
+                            pw.Text(
+                              _pdfSafeText(block.heading!),
+                              style: sectionStyle,
+                            ),
+                          ],
+                          for (final paragraph in remaining) ...[
+                            pw.SizedBox(height: 8),
+                            pw.Text(paragraph, style: baseStyle),
+                          ],
+                        ],
+                      ),
+                    ),
+                  ),
+                );
+              }
             }
             widgets.add(pw.SizedBox(height: 14));
           }

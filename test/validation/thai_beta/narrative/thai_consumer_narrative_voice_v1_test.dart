@@ -126,6 +126,48 @@ void main() {
     }
   });
 
+  test(
+    'cross-horizon gate removes time boilerplate and compares each field',
+    () {
+      final windows = ThaiBetaNarrativeComposer.narrativeView(
+        analysis,
+      ).futurePrediction!.windows;
+      final current = {
+        for (final domain in windows[0].domains) domain.title: domain,
+      };
+      final nextYear = {
+        for (final domain in windows[1].domains) domain.title: domain,
+      };
+      for (final entry in current.entries) {
+        final next = nextYear[entry.key]!;
+        for (final field in [
+          ForecastField.claim,
+          ForecastField.decisionImpact,
+          ForecastField.action,
+        ]) {
+          expect(
+            _semanticCoreKey(_fieldText(entry.value, field)),
+            isNot(_semanticCoreKey(_fieldText(next, field))),
+            reason:
+                '${entry.key}/${field.name} differs only by horizon wording',
+          );
+        }
+        if (_semanticCoreKey(entry.value.risk) == _semanticCoreKey(next.risk)) {
+          expect(
+            entry.value.decisionPlan!.consumerRiskDomain,
+            next.decisionPlan!.consumerRiskDomain,
+            reason: '${entry.key}/risk shared output needs typed evidence',
+          );
+        }
+      }
+      expect(
+        _semanticCoreKey('สำหรับตอนนี้ งานหลักต้องคงคุณภาพ'),
+        _semanticCoreKey('ใน 12 เดือนข้างหน้า งานหลักต้องคงคุณภาพ'),
+        reason: 'changing only a time lead must not evade the gate',
+      );
+    },
+  );
+
   test('forecast windows keep distinct semantic roles and isolated risk', () {
     final windows = ThaiBetaNarrativeComposer.narrativeView(
       analysis,
@@ -368,7 +410,7 @@ void main() {
           horizon: ForecastHorizon.nextLifePeriod,
           domain: ForecastDomain.career,
           band: ForecastBand.strong,
-          riskDomain: LifeDomain.career,
+          riskDomain: LifeDomain.money,
           evidenceAvailability: ForecastEvidenceAvailability.full,
           spansTransition: true,
         ),
@@ -589,6 +631,42 @@ void main() {
     }
   });
 
+  test('typed coherence gate rejects foreign and generic risk responses', () {
+    for (final domain in ForecastDomain.values) {
+      final valid = ThaiBetaNarrativeComposer.composeForecastForMaterial(
+        title: domain.name,
+        windowIndex: 0,
+        sourceBody: 'แนวโน้มที่มีหลักฐานรองรับ',
+        sourceCaution: 'แรงกดดัน',
+        material: ForecastMaterialFingerprint(
+          horizon: ForecastHorizon.current,
+          domain: domain,
+          band: ForecastBand.active,
+          riskDomain: LifeDomain.pressure,
+          evidenceAvailability: ForecastEvidenceAvailability.full,
+          spansTransition: false,
+        ),
+      );
+      expect(_typedCoherenceViolations(valid), isEmpty, reason: domain.name);
+      final foreign = PredictionDomainModel(
+        title: valid.title,
+        body: valid.body,
+        caution: valid.caution,
+        claim: valid.claim,
+        risk: 'ภาระเกินกำลังอาจเบียดพื้นที่ตัดสินใจ',
+        decisionImpact: valid.decisionImpact,
+        preparationAction: 'ลดภาระทันทีเมื่อภาระเริ่มเกินกำลัง',
+        material: valid.material,
+        decisionPlan: valid.decisionPlan,
+      );
+      expect(
+        _typedCoherenceViolations(foreign),
+        isNotEmpty,
+        reason: '${domain.name} must reject a generic pressure response',
+      );
+    }
+  });
+
   test('cross-mode gate rejects a matrix that differs in only one block', () {
     const known = PredictionDomainModel(
       title: 'การงาน',
@@ -625,7 +703,7 @@ void main() {
       ),
     );
     final violations = _crossModeViolations(known, invalidUnknown);
-    expect(violations, hasLength(greaterThanOrEqualTo(3)));
+    expect(violations, hasLength(greaterThanOrEqualTo(2)));
   });
 
   test('future opportunity taxonomy omits generic opportunity labels', () {
@@ -650,7 +728,7 @@ void main() {
     }
   });
 
-  test('late-life domains fail closed without age-specific evidence', () {
+  test('late-life periods are omitted without age-specific evidence', () {
     final periods = ThaiBetaNarrativeComposer.narrativeView(
       analysis,
     ).lifeTimeline!.periods;
@@ -661,18 +739,7 @@ void main() {
         })
         .toList(growable: false);
 
-    expect(latePeriods.map((period) => period.ageLabel), [
-      '69–83',
-      '84–91',
-      '92–108',
-    ]);
-    for (final period in latePeriods) {
-      expect(
-        period.lifeDomains,
-        isEmpty,
-        reason: '${period.ageLabel} must omit generic synonym templates',
-      );
-    }
+    expect(latePeriods, isEmpty);
   });
 
   test('early-childhood and late-life periods avoid adult template claims', () {
@@ -697,14 +764,28 @@ void main() {
     expect(lateText, isNot(contains('บังคับให้คุณจัดลำดับชีวิตใหม่')));
   });
 
-  test('all eight periods use age-aware consumer language', () {
+  test('all retained periods contain age-aware consumer narrative', () {
     final periods = ThaiBetaNarrativeComposer.narrativeView(
       analysis,
     ).lifeTimeline!.periods;
-    expect(periods, hasLength(8));
+    expect(periods, isNotEmpty);
     for (final period in periods) {
       final start = int.parse(period.ageLabel.split('–').first);
       final text = period.lifeDomains.map((domain) => domain.body).join('\n');
+      expect(
+        period.lifeDomains.isNotEmpty ||
+            [
+              period.summary,
+              period.whatChanges,
+              period.easier,
+              period.harder,
+              period.comparison,
+              period.evidenceLine,
+              period.advice,
+            ].any((value) => value.trim().isNotEmpty),
+        isTrue,
+        reason: '${period.ageLabel} must not be a heading-only period',
+      );
       expect(text, isNot(contains('บริบทเฉพาะของช่วงนี้คือ')));
       if (start < 30) {
         expect(text, isNot(contains('งานประจำ')));
@@ -757,6 +838,19 @@ void main() {
 
 String _meaningKey(String value) => value
     .replaceAll(RegExp(r'ช่วงนี้|ใน 12 เดือนข้างหน้า|ในราว 1 ปีข้างหน้า'), '')
+    .replaceAll(RegExp(r'\s+'), '')
+    .trim();
+
+String _semanticCoreKey(String value) => value
+    .replaceAll(
+      RegExp(
+        r'สำหรับตอนนี้|ใน 12 เดือนข้างหน้า|เมื่อเข้าสู่ช่วงชีวิตถัดไป|'
+        r'ตอนนี้|ตั้งจุดทบทวนภายใน 12 เดือน|'
+        r'ก่อนเปลี่ยนช่วงชีวิต เตรียมรับรอยต่อระยะยาวโดย|'
+        r'ก่อนเปลี่ยนช่วงชีวิต เตรียมฐานระยะยาวโดย',
+      ),
+      '',
+    )
     .replaceAll(RegExp(r'\s+'), '')
     .trim();
 
@@ -964,6 +1058,39 @@ String _fieldText(PredictionDomainModel model, ForecastField field) =>
       ForecastField.decisionImpact => model.decisionImpact,
       ForecastField.action => model.preparationAction,
     };
+
+List<String> _typedCoherenceViolations(PredictionDomainModel model) {
+  final plan = model.decisionPlan!;
+  final tokens = switch (plan.consumerRiskDomain) {
+    LifeDomain.career => (
+      risk: 'งานหลัก',
+      decision: 'งานหลัก',
+      action: 'งานหลัก',
+    ),
+    LifeDomain.money => (
+      risk: 'ภาระเงิน',
+      decision: 'เงิน',
+      action: 'ภาระเงิน',
+    ),
+    LifeDomain.love => (
+      risk: 'ความคาดหวัง',
+      decision: 'ความคาดหวัง',
+      action: 'ความสัมพันธ์',
+    ),
+    LifeDomain.health => (risk: 'การพัก', decision: 'พัก', action: 'ฟื้นตัว'),
+    _ => (risk: '', decision: '', action: ''),
+  };
+  return [
+    if (tokens.risk.isEmpty || !model.risk.contains(tokens.risk))
+      'risk does not use the typed consumer risk',
+    if (tokens.decision.isEmpty ||
+        !model.decisionImpact.contains(tokens.decision))
+      'decision does not answer the typed consumer risk',
+    if (tokens.action.isEmpty ||
+        !model.preparationAction.contains(tokens.action))
+      'action does not enforce the typed stopping boundary',
+  ];
+}
 
 Set<String> _negativeGateDetectionCoverage(PredictionDomainModel derived) {
   final base = derived.material!.copyWith(

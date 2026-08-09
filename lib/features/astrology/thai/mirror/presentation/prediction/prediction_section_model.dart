@@ -106,6 +106,22 @@ class ForecastDecisionPlan {
   final ForecastEvidenceAvailability evidenceAvailability;
   final bool spansTransition;
 
+  /// Consumer-facing risk authority for this forecast domain.
+  ///
+  /// The evidence risk remains available as [riskDomain], while every
+  /// user-facing Risk, Decision Impact boundary, and Action response consumes
+  /// this same typed domain. This prevents a generic pressure response from
+  /// leaking across career, finance, relationship, and health cards.
+  LifeDomain get consumerRiskDomain =>
+      riskDomain != null && riskDomain != LifeDomain.pressure
+      ? riskDomain!
+      : switch (domain) {
+          ForecastDomain.career => LifeDomain.career,
+          ForecastDomain.finance => LifeDomain.money,
+          ForecastDomain.relationship => LifeDomain.love,
+          ForecastDomain.health => LifeDomain.health,
+        };
+
   ForecastDecisionPlan copyWith({ForecastDecisionIntent? intent}) =>
       ForecastDecisionPlan(
         horizon: horizon,
@@ -122,13 +138,13 @@ class ForecastDecisionPlan {
     ForecastField.risk => {
       'horizon': horizon,
       'domain': domain,
-      'riskDomain': riskDomain,
+      'consumerRiskDomain': consumerRiskDomain,
     },
     ForecastField.decisionImpact => {
       'horizon': horizon,
       'domain': domain,
       'band': band,
-      'riskDomain': riskDomain,
+      'consumerRiskDomain': consumerRiskDomain,
       'intent': intent,
       'spansTransition': horizon == ForecastHorizon.nextLifePeriod
           ? spansTransition
@@ -138,7 +154,7 @@ class ForecastDecisionPlan {
       'horizon': horizon,
       'domain': domain,
       'band': band,
-      'riskDomain': riskDomain,
+      'consumerRiskDomain': consumerRiskDomain,
       'intent': intent,
       'evidenceAvailability': evidenceAvailability,
       'spansTransition': horizon == ForecastHorizon.nextLifePeriod
@@ -166,6 +182,16 @@ class ForecastMaterialFingerprint {
   final ForecastEvidenceAvailability evidenceAvailability;
   final bool spansTransition;
 
+  LifeDomain get consumerRiskDomain =>
+      riskDomain != null && riskDomain != LifeDomain.pressure
+      ? riskDomain!
+      : switch (domain) {
+          ForecastDomain.career => LifeDomain.career,
+          ForecastDomain.finance => LifeDomain.money,
+          ForecastDomain.relationship => LifeDomain.love,
+          ForecastDomain.health => LifeDomain.health,
+        };
+
   ForecastMaterialFingerprint copyWith({
     ForecastHorizon? horizon,
     ForecastDomain? domain,
@@ -187,19 +213,19 @@ class ForecastMaterialFingerprint {
     ForecastField.risk => {
       'horizon': horizon,
       'domain': domain,
-      'riskDomain': riskDomain,
+      'consumerRiskDomain': consumerRiskDomain,
     },
     ForecastField.decisionImpact => {
       'horizon': horizon,
       'domain': domain,
       'band': band,
-      'riskDomain': riskDomain,
+      'consumerRiskDomain': consumerRiskDomain,
     },
     ForecastField.action => {
       'horizon': horizon,
       'domain': domain,
       'band': band,
-      'riskDomain': riskDomain,
+      'consumerRiskDomain': consumerRiskDomain,
       'evidenceAvailability': evidenceAvailability,
       'spansTransition': spansTransition,
     },
