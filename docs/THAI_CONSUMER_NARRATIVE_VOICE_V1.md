@@ -2,7 +2,7 @@
 
 ## Status — Round 9 Product Acceptance Fix Set 03
 
-Fix Set 02 R2 failed Product Acceptance. Fix Set 03 is source-tested at `73d1fa0e539b5ebdf42750078135a70cd1cadd01` and corrects ISO token wrapping, `โชคลาภ` semantic ownership, screenshot icon glyphs, and the harness debug banner. The owner reviewed all 34/34 final PDF renders and both final Web screenshots. Owner decision: `PRODUCT_ACCEPTANCE_PASS — ROUND 9 FIX SET 03` on 2026-08-10. PR #86 merged as `a516d574b7cdd90d530026bf281cc41642471afa` and Production Hosting deploy completed with cache pin `a516d57`. Synthetic Known/Unknown Production results passed. A fresh Production PDF download was not verified because direct `/capture` navigation cleared the in-memory analysis; accepted artifact PDFs remain authoritative.
+Fix Set 02 R2 failed Product Acceptance. Fix Set 03 is source-tested at `73d1fa0e539b5ebdf42750078135a70cd1cadd01` and corrects ISO token wrapping, `โชคลาภ` semantic ownership, screenshot icon glyphs, and the harness debug banner. The owner reviewed all 34/34 final PDF renders and both final Web screenshots. Owner decision: `PRODUCT_ACCEPTANCE_PASS — ROUND 9 FIX SET 03` on 2026-08-10. PR #86 merged as `a516d574b7cdd90d530026bf281cc41642471afa` and Production Hosting deploy completed with cache pin `a516d57`. Known/Unknown Production results and same-session PDF downloads passed; both runtime PDFs parsed and rendered 17/17 pages. Accepted artifact PDFs remain the separate Product Acceptance evidence.
 
 ## Forecast contract
 
