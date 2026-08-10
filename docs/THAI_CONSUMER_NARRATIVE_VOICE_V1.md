@@ -1,13 +1,43 @@
 # Thai Consumer Narrative Voice V1
 
-## Status — Round 9 Product Acceptance Fix Set 03
+## Status — Reading Flow and Friendly Voice amendment
 
-Fix Set 02 R2 failed Product Acceptance. Fix Set 03 is source-tested at `73d1fa0e539b5ebdf42750078135a70cd1cadd01` and corrects ISO token wrapping, `โชคลาภ` semantic ownership, screenshot icon glyphs, and the harness debug banner. The owner reviewed all 34/34 final PDF renders and both final Web screenshots. Owner decision: `PRODUCT_ACCEPTANCE_PASS — ROUND 9 FIX SET 03` on 2026-08-10. PR #86 merged as `a516d574b7cdd90d530026bf281cc41642471afa` and Production Hosting deploy completed with cache pin `a516d57`. Known/Unknown Production results and same-session PDF downloads passed; both runtime PDFs parsed and rendered 17/17 pages. Accepted artifact PDFs remain the separate Product Acceptance evidence.
+Status: `PENDING PRODUCT ACCEPTANCE` on branch `agent/thai-report-reading-flow-v1`, based on `c34a1c088b555160707577308c281570b570752a`. Round 9 remains the completed historical Production release and is not rewritten by this amendment.
 
-## Forecast contract
+## Reader-facing order
 
-Each horizon/domain block owns Claim, Risk, Decision Impact, Action, and a separate non-predictive uncertainty disclosure. Web and PDF consume the same typed presentation model. Decision Impact and Action derive from the same `ForecastDecisionPlan`; consumer prose is not parsed to infer intent.
+1. ดวงจากวันเกิดของคุณ
+2. สรุปตัวคุณแบบตรง ๆ
+3. จุดเด่น จุดที่ควรระวัง และคำแนะนำหลัก
+4. การงาน
+5. การเงิน
+6. ความรักและความสัมพันธ์
+7. สุขภาพและพลังชีวิต
+8. คำชี้หลักจากพื้นดวง
+9. แผนที่ชีวิต
+10. อดีตของคุณ
+11. ช่วงปัจจุบัน
+12. แนวโน้ม 12 เดือนข้างหน้า
+13. ช่วงชีวิตถัดไป
+14. แนวโน้มระยะยาว
+15. รายงานนี้ดูจากอะไร — collapsed by default on Web
+16. Disclaimer, explicit omissions, and limitations
 
-Current owns immediate action, Next 12 Months owns a checkpoint within 12 months, and Next Life Period owns transition preparation. Unknown time remains fail-closed and does not substitute noon or expose unsupported astrological-day, Lagna, or house facts. Accepted 00:03 and 00:35 behavior remains unchanged.
+## Voice rules
 
-The historical 126/124-page candidate was inspected only for Known pages 1–40; the owner waived the remaining 210 pages. This is not a complete historical Visual QA pass. Rounds 3–8 and failed Round 9 candidates do not represent current readiness.
+Reader-facing Thai speaks directly to `คุณ`, uses short familiar sentences, states practical meaning before technical reason, and keeps soft certainty. Avoid academic labels, mystical certainty, threats, daily-horoscope tone, and formulaic horizon/domain repetition. Natural labels such as `เรื่องนี้มีผลกับคุณอย่างไร`, `สิ่งที่ควรระวัง`, and `สิ่งที่ทำได้ตอนนี้` may present the same typed fields without changing their semantics.
+
+## Preserved contracts
+
+- Web and PDF consume the same `ThaiBetaAnalysis` and shared presentation state.
+- Forecast Claim, Risk, Decision Impact, Action, and uncertainty remain separately typed; copy is never parsed to infer intent.
+- Known-time astrological facts, exact birth inputs, day boundary, ascendant, houses, timeline ranges, and factual provenance do not change.
+- Unknown time remains fail-closed: no assumed clock, Lagna, house, or astrological-day conclusion.
+- Work, money, relationship, health, and fortune remain separate semantic owners.
+- No internal Canon/ontology IDs, debug markers, QA labels, or source prose appear in the consumer report.
+
+## Transparency
+
+`หลักการนับวันทางโหราศาสตร์ไทย` and `โครงสร้างดวงหลัก` are no longer opening sections. Their facts remain available near the end under progressive disclosure together with submitted birth data, calculation method, important chart points, provenance, meaning, and limitations.
+
+The task is not release-complete and has no merge, deployment, or readiness claim until Owner Product Acceptance passes.

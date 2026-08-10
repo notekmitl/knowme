@@ -116,6 +116,8 @@ The Thai lens ships an end-to-end **consumer report** that runs independently of
 global narrative pipeline above. It has its own deterministic pipeline, presentation
 layer, and QA harness. Full detail: [`EXECUTIVE_SUMMARY.md`](EXECUTIVE_SUMMARY.md).
 
+The active Reading Flow and Friendly Voice V1 amendment keeps `ThaiBetaAnalysis` as the single Web/PDF analysis authority. Core reading, timeline, forecasts, and technical transparency are reordered as projections of the existing typed state; no duplicate presentation model or astrology calculation path is introduced. Reader interpretation leads, while astrological-day and chart-structure provenance moves to final progressive disclosure. Unknown time remains fail-closed.
+
 ```
 ThaiBirthData (Firestore profile or QA harness)
   → ThaiFoundationEngine            (lagna, Myanmar Seven, Mahabhuta)

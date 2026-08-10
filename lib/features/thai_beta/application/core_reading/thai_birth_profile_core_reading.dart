@@ -13,17 +13,18 @@ class ThaiBirthProfileCoreReadingCopy {
   const ThaiBirthProfileCoreReadingCopy._();
 
   static const reportTitle = 'ดวงจากวันเกิดของคุณ';
-  static const summaryTitle = 'สรุปตรง ๆ';
+  static const summaryTitle = 'สรุปตัวคุณแบบตรง ๆ';
+  static const guidanceTitle = 'จุดเด่น จุดที่ควรระวัง และคำแนะนำหลัก';
   static const dayCountingTitle = 'หลักการนับวันทางโหราศาสตร์ไทย';
   static const chartStructureTitle = 'โครงสร้างดวงหลัก';
   static const workTitle = 'การงาน';
   static const moneyTitle = 'การเงิน';
   static const relationshipsTitle = 'ความรักและความสัมพันธ์';
-  static const wellbeingTitle = 'สุขภาพและพลังชีวิตตามตำรา';
+  static const wellbeingTitle = 'สุขภาพและพลังชีวิต';
   static const closingTitle = 'คำชี้หลักจากพื้นดวง';
   static const currentLifeTitle = 'ช่วงชีวิตปัจจุบัน';
   static const futurePredictionTitle = 'คำทำนายช่วงสำคัญ';
-  static const methodologyTitle = 'ดวงนี้วิเคราะห์จากอะไร';
+  static const methodologyTitle = 'รายงานนี้ดูจากอะไร';
   static const omissionsTitle = 'หัวข้อที่ไม่ได้แสดง';
   static const timelineTransitionTitle = 'จากพื้นดวงสู่จังหวะชีวิต';
   static const medicalDisclaimer =
@@ -708,19 +709,41 @@ class ThaiBirthProfileCoreReading {
         ),
     ];
     final closingCopy = _composeClosing(closingAtoms);
-    final closingClaims =
+    final guidanceClaims =
         closingAtoms.length < 3 ||
             closingCopy.strength.isEmpty ||
             closingCopy.risk.isEmpty ||
             closingCopy.action.isEmpty
         ? const <ThaiBirthProfileCoreParagraph>[]
+        : <ThaiBirthProfileCoreParagraph>[
+            for (final entry in <(String, String)>[
+              ('strength', closingCopy.strength),
+              ('risk', closingCopy.risk),
+              ('action', closingCopy.action),
+            ])
+              ThaiBirthProfileCoreParagraph(
+                text: entry.$2,
+                domain: ThaiBirthProfileCoreDomain.closing,
+                role: ThaiBirthProfileCoreClaimRole.synthesis,
+                semanticKey: 'computed:guidance:${entry.$1}',
+                evidenceKeys: closingAtoms
+                    .expand((atom) => atom.evidenceRefs)
+                    .map((evidence) => evidence.sourceRef)
+                    .toSet()
+                    .toList(growable: false),
+                sourceAtoms: List.unmodifiable(closingAtoms),
+              ),
+          ];
+    final closingSummaryClaims = closingCopy.action.isEmpty
+        ? const <ThaiBirthProfileCoreParagraph>[]
         : compact([
             claim(
               text:
-                  '${closingCopy.strength} ${closingCopy.risk} ${closingCopy.action}',
+                  'ถ้าต้องเลือกเพียงเรื่องเดียว ให้เริ่มจาก${closingCopy.action.replaceFirst('สิ่งที่คุณลองทำได้คือ', '')} '
+                  'แล้วดูผลที่เกิดขึ้นจริงก่อนเพิ่มเรื่องถัดไป',
               domain: ThaiBirthProfileCoreDomain.closing,
               role: ThaiBirthProfileCoreClaimRole.synthesis,
-              semanticKey: 'computed:ranked-strength-risk-action',
+              semanticKey: 'computed:closing-priority-action',
               atoms: closingAtoms,
             ),
           ]);
@@ -977,7 +1000,7 @@ class ThaiBirthProfileCoreReading {
         );
       }
     }
-    if (closingClaims.isEmpty) {
+    if (guidanceClaims.isEmpty) {
       omissions.add(
         const ThaiBirthProfileCoreOmission(
           topic: ThaiBirthProfileCoreReadingCopy.closingTitle,
@@ -1013,33 +1036,27 @@ class ThaiBirthProfileCoreReading {
           domain: ThaiBirthProfileCoreDomain.summary,
           claims: summary,
         ),
-      if (dayCountingClaims.isNotEmpty)
+      if (guidanceClaims.isNotEmpty)
         ThaiBirthProfileCoreSection(
-          title: ThaiBirthProfileCoreReadingCopy.dayCountingTitle,
-          domain: ThaiBirthProfileCoreDomain.methodology,
-          claims: dayCountingClaims,
-        ),
-      if (chartFactRows.isNotEmpty)
-        ThaiBirthProfileCoreSection(
-          title: ThaiBirthProfileCoreReadingCopy.chartStructureTitle,
-          domain: ThaiBirthProfileCoreDomain.methodology,
-          claims: const [],
-          factRows: chartFactRows,
+          title: ThaiBirthProfileCoreReadingCopy.guidanceTitle,
+          domain: ThaiBirthProfileCoreDomain.closing,
+          claims: guidanceClaims,
         ),
       ?workSection,
       ?moneySection,
       ?relationshipsSection,
       ?wellbeingSection,
-      if (closingClaims.isNotEmpty)
+      if (closingSummaryClaims.isNotEmpty)
         ThaiBirthProfileCoreSection(
           title: ThaiBirthProfileCoreReadingCopy.closingTitle,
           domain: ThaiBirthProfileCoreDomain.closing,
-          claims: closingClaims,
+          claims: closingSummaryClaims,
         ),
       ThaiBirthProfileCoreSection(
         title: ThaiBirthProfileCoreReadingCopy.methodologyTitle,
         domain: ThaiBirthProfileCoreDomain.methodology,
-        claims: methodologyClaims,
+        claims: [...dayCountingClaims, ...methodologyClaims],
+        factRows: chartFactRows,
         isMethodology: true,
       ),
     ];
@@ -1193,9 +1210,9 @@ class ThaiBirthProfileCoreReading {
     final identityPhrase = _identityPhrases[identityAtom.themeId] ?? '';
     if (identityPhrase.isEmpty) return '';
     final mode = _planetMode(lord.rawValue);
-    return 'ลัคนา${_lagnaLabel(sign.rawValue)}และ${_lordLabel(lord.rawValue)}'
-        'ที่เป็นเจ้าเรือน บอกว่าคุณ$identityPhrase '
-        'คุณทำได้ดีเมื่อใช้${mode.$1} แต่ควรสังเกตเวลาที่${mode.$2}';
+    return 'คุณ$identityPhrase และมักไปได้ดีเมื่อใช้${mode.$1} '
+        'สิ่งที่ควรระวังคือ${mode.$2} '
+        'ภาพนี้มาจากลัคนา${_lagnaLabel(sign.rawValue)}และ${_lordLabel(lord.rawValue)}';
   }
 
   static ({String analysis, String guidance}) _composeHouseDomain(
@@ -1214,32 +1231,32 @@ class ThaiBirthProfileCoreReading {
     return switch (domain) {
       ThaiBirthProfileCoreDomain.work => (
         analysis:
-            'เรื่องงาน เรือนการงานอยู่ที่$signLabelและมี$lordLabelเป็นเจ้าเรือน '
-            'จึงมักเด่นเมื่อได้ใช้${mode.$1}',
+            'เรื่องงาน คุณมักทำได้ดีเมื่อได้ใช้${mode.$1} '
+            'ภาพนี้มาจากจุดการงานที่อยู่ใน$signLabelและสัมพันธ์กับ$lordLabel',
         guidance:
-            'งานจะเริ่มติดเมื่อ${mode.$2} เริ่มจาก${mode.$3} '
-            'เพื่อให้งานเดินต่อได้โดยไม่ฝืนกำลังของตัวเอง',
+            'ถ้างานเริ่มติด ลองเช็กว่ากำลัง${mode.$2}อยู่หรือไม่ '
+            'สิ่งที่ทำได้คือ${mode.$3} เพื่อให้งานเดินต่อโดยไม่ฝืนตัวเอง',
       ),
       ThaiBirthProfileCoreDomain.money => (
         analysis:
-            'เรื่องการเงิน เรือนการเงินอยู่ที่$signLabelและมี$lordLabelเป็นเจ้าเรือน '
-            'จึงมักจัดการเงินและทรัพยากรโดยให้ความสำคัญกับ${mode.$1}',
+            'เรื่องเงิน คุณมักให้ความสำคัญกับ${mode.$1} '
+            'ภาพนี้มาจากจุดการเงินที่อยู่ใน$signLabelและสัมพันธ์กับ$lordLabel',
         guidance:
-            'เรื่องเงินควรระวังเวลาที่${mode.$2} ก่อนตัดสินใจให้ใช้${mode.$3} '
-            'เพื่อไม่ให้ความต้องการระยะสั้นกระทบฐานระยะยาว',
+            'ก่อนตัดสินใจเรื่องเงิน ระวังเวลาที่${mode.$2} '
+            'ลองใช้${mode.$3} เพื่อไม่ให้เรื่องเร่งด่วนกระทบเงินที่ต้องเก็บไว้',
       ),
       ThaiBirthProfileCoreDomain.relationships => (
         analysis:
-            'เรื่องความสัมพันธ์ เรือนคู่ครองอยู่ที่$signLabelและมี$lordLabelเป็นเจ้าเรือน '
-            'จึงมักสร้างความไว้ใจผ่าน${mode.$1}',
+            'ในความสัมพันธ์ คุณมักสร้างความไว้ใจผ่าน${mode.$1} '
+            'ภาพนี้มาจากจุดความสัมพันธ์ที่อยู่ใน$signLabelและสัมพันธ์กับ$lordLabel',
         guidance:
-            'ความสัมพันธ์จะติดขัดเมื่อ${mode.$2} ควรใช้${mode.$3} '
-            'และคุยขอบเขตให้เข้าใจตรงกัน เพื่อรักษาพื้นที่ของทั้งสองฝ่าย',
+            'ถ้าเริ่มเข้าใจกันยาก ลองดูว่ากำลัง${mode.$2}อยู่หรือไม่ '
+            'ใช้${mode.$3} แล้วคุยขอบเขตให้ชัด เพื่อให้ทั้งสองฝ่ายยังมีพื้นที่ของตัวเอง',
       ),
       ThaiBirthProfileCoreDomain.wellbeing => (
         analysis:
-            'ตามตำรา เรือนสุขภาวะอยู่ที่$signLabelและมี$lordLabelเป็นเจ้าเรือน '
-            'จึงควรดูแลพลังของตัวเองผ่าน${mode.$1}',
+            'เรื่องพลังชีวิต คุณเหมาะกับการดูแลตัวเองผ่าน${mode.$1} '
+            'ภาพนี้มาจากจุดสุขภาวะที่อยู่ใน$signLabelและสัมพันธ์กับ$lordLabel',
         guidance:
             'ถ้าเริ่ม${mode.$2} อย่าปล่อยไว้นาน ให้ใช้${mode.$3} '
             'พร้อมจัดเวลาพักให้สม่ำเสมอ',
@@ -1283,13 +1300,11 @@ class ThaiBirthProfileCoreReading {
       _actionPhrases,
     );
     return (
-      strength: strength.isEmpty ? '' : 'จุดแข็งที่ควรใช้เป็นแกนคือ$strength',
-      risk: risk.isEmpty
-          ? ''
-          : 'เพราะเมื่อใช้จุดแข็งนี้มากเกินไปอาจกลายเป็น$risk',
+      strength: strength.isEmpty ? '' : 'จุดแข็งที่คุณหยิบมาใช้ได้คือ$strength',
+      risk: risk.isEmpty ? '' : 'แต่ถ้าใช้มากเกินไป จุดแข็งนี้อาจกลายเป็น$risk',
       action: action.isEmpty
           ? ''
-          : 'แนวทางที่เหมาะคือ$action แล้วค่อยขยายเมื่อฐานเดิมรองรับได้',
+          : 'สิ่งที่คุณลองทำได้คือ$action แล้วค่อยเพิ่มเมื่อเห็นว่าคุณยังมีเวลาและแรงพอ',
     );
   }
 
@@ -1317,7 +1332,7 @@ class ThaiBirthProfileCoreReading {
         ),
         ThaiContentKeys.lagnaLordJupiter => (
           'ภาพระยะยาว ความรู้ และการขยายอย่างมีหลัก',
-          'การคาดหวังผลมากกว่าทรัพยากรที่มี',
+          'การมองปลายทางไกลจนลืมเช็กต้นทุนที่มีอยู่จริง',
           'การตั้งเกณฑ์เติบโตที่วัดได้และเผื่อพื้นที่สำหรับการเรียนรู้',
         ),
         ThaiContentKeys.lagnaLordVenus => (
@@ -1383,7 +1398,7 @@ class ThaiBirthProfileCoreReading {
     'curious': 'การเปิดเรื่องใหม่หลายทางจนสิ่งสำคัญไม่จบ',
     'practical': 'การเลือกเฉพาะผลระยะสั้นจนพลาดภาพกว้าง',
     'grounded': 'การรักษาความมั่นคงจนชะลอการเปลี่ยนที่จำเป็น',
-    'visionary': 'การมองไกลกว่าทรัพยากรและขั้นตอนที่มี',
+    'visionary': 'ภาพใหญ่พาใจไปข้างหน้าจนรายละเอียดตรงหน้าหลุดมือ',
     'protective': 'การรับภาระแทนคนอื่นมากเกินขอบเขต',
     'adaptable': 'การปรับบ่อยจนทิศทางหลักไม่ชัด',
     'creative': 'การสร้างทางเลือกเพิ่มจนตัดสินใจไม่ลง',

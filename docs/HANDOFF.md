@@ -1,11 +1,9 @@
-# Handoff — Draft PR #86 Round 9 Fix Set 03
+# Handoff — Thai Report Reading Flow and Friendly Voice V1
 
-Owner decision: `PRODUCT_ACCEPTANCE_PASS — ROUND 9 FIX SET 03` on 2026-08-10. PR #86 merged as `a516d574b7cdd90d530026bf281cc41642471afa` and the official web deployment completed for Firebase project `knowme-app-694e1`.
+Status: `PENDING PRODUCT ACCEPTANCE`.
 
-Owner must manually upload:
+This draft responds to Owner feedback that the Production Round 9 report still reads too formally and introduces methodology too early. The new flow opens with the reader’s identity, strengths/cautions/actions, and life domains; then moves through life map, past, present, 12-month, next-period, and long-term views. Calculation method, Thai astrological-day detail, chart structure, provenance, and limitations are placed in collapsed controls at the end of Web and in the final transparency portion of PDF.
 
-`C:\Users\USER\Downloads\thai-consumer-narrative-voice-v1-round9-fixset-03-r1-73d1fa0.zip`
+The implementation preserves the same `ThaiBetaAnalysis` for Web/PDF, exact inputs, Known-time facts, Unknown-time fail-closed behavior, typed Risk → Decision Impact → Action semantics, domain ownership, and beta policy. It does not alter engine, Canon, ascendant, houses, timeline boundaries, Auth, flags, or Production.
 
-Before re-review, verify SHA-256 `23E617EA0E703A271791A8658D3CD2ED91B9732450AD744E5A065E39F1307ED0`. The ZIP contains 66 entries: Known/Unknown Web and PDFs, 34 page renders, two screenshots, 23 audit reports, and `SHA256SUMS.txt` covering 65/65 payload files.
-
-Source-tested commit: `73d1fa0e539b5ebdf42750078135a70cd1cadd01`. The owner reviewed 34/34 final PDF renders and both final Web screenshots and confirmed all three reported presentation defect groups plus the debug-banner correction. R2 remains historical failed evidence and must not be overwritten. The historical 126/124-page candidate review covered Known pages 1–40 only; 210 pages were waived. Production serves cache pin `a516d57`; HTTP root/beta, Known/Unknown flows, and same-session Production PDF downloads passed. Runtime PDF details are in `TASK_RESULT.md`; accepted artifact PDFs remain the separate Product Acceptance evidence.
+Do not merge or deploy until the Owner reviews the new Known/Unknown acceptance packet and explicitly passes Product Acceptance. Round 9 remains completed historical evidence; do not remove or overwrite its artifacts.

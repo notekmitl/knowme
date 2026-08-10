@@ -1,20 +1,23 @@
-# Task: Thai Consumer Narrative Voice — Round 9 Fix Set 03
+# Task: Thai Report Reading Flow and Friendly Voice V1
 
-Draft PR #86 remains the only delivery vehicle. Round 9 Fix Set 02 R2 passed packet integrity but failed Product Acceptance for an ISO date-token split, incorrect `โชคลาภ` heading ownership, missing-glyph Web icons, and an inconsistent visual review log.
+Owner feedback after the completed Round 9 release requires a new Product Narrative and Information Architecture pass for the Thai Beta Web/PDF report. This task does not change astrology calculations, Canon, factual provenance, ascendant/houses, timeline boundaries, beta policy, Auth, or Production.
 
-## Active delivery state
+## Delivery contract
 
-- Source-tested commit: `73d1fa0e539b5ebdf42750078135a70cd1cadd01`.
-- Fix Set 03 corrects the three owner-reported presentation defects and removes the acceptance screenshot debug banner found during the required new visual review.
-- Final packet: `thai-consumer-narrative-voice-v1-round9-fixset-03-r1-73d1fa0.zip`; 4,737,585 bytes; 66 entries; SHA-256 `23E617EA0E703A271791A8658D3CD2ED91B9732450AD744E5A065E39F1307ED0`.
-- R2 ZIP SHA-256 `16789716157E5F06DBE0A6D1903915BD2A82F9550491D1BD30645D634EF1EBBD` is retained as historical failed-acceptance evidence and was not overwritten.
-- Historical 126/124-page inspection covered Known pages 1–40 only; the owner waived the remaining 210 pages. This is not a 250-page pass.
-- Owner decision: `PRODUCT_ACCEPTANCE_PASS — ROUND 9 FIX SET 03` on 2026-08-10.
-- Owner reviewed all 34/34 final PDF renders and both final Web screenshots. The ISO date-token split, fortune-heading ownership, missing icon glyphs, and harness debug banner are confirmed fixed.
-- PR #86 merged as `a516d574b7cdd90d530026bf281cc41642471afa` on 2026-08-10 and was deployed to Firebase Hosting project `knowme-app-694e1`.
-- Production root and `/beta/thai` returned HTTP 200 with cache-pinned assets `a516d57`. Synthetic Known-time (10:00) and Unknown-time flows reached results successfully; Unknown remained fail-closed.
-- Production PDF download verification passed on 2026-08-10 at 16:49–16:56 +07:00. Known-time and Unknown-time analyses used the live `/beta/thai` UI; each result-page export action entered Capture Mode inside the same SPA session before the real PDF download button was clicked. No direct `/capture` navigation was used.
-- Known Production PDF: `knowme-thai-report (15).pdf`; 59,590 bytes; 17 pages; SHA-256 `7A88C0BDF46FC4297FBFE28F6DAC4444725E0B56D8D5F165D1D6AFF298A58915`.
-- Unknown Production PDF: `knowme-thai-report (16).pdf`; 59,563 bytes; 17 pages; SHA-256 `6F3E995942314F01E7FB79A5FC27A979C73BFA9734CA40C91AA3288273218A40`.
+- Baseline: `c34a1c088b555160707577308c281570b570752a` (`origin/main`).
+- Branch: `agent/thai-report-reading-flow-v1`.
+- Reader-facing interpretation leads; calculation method and chart structure move to final collapsed transparency controls.
+- Web and PDF consume the same `ThaiBetaAnalysis`, core reading, timeline, and forecast state.
+- Thai voice is warm, direct, plain, and uses `คุณ`; typed Risk → Decision Impact → Action semantics remain intact.
+- Known-time facts remain unchanged; Unknown-time remains fail-closed.
+- Round 9 is retained as completed historical evidence. Existing `product-acceptance/` is not changed.
+- Final state for this task: `PENDING PRODUCT ACCEPTANCE`. Do not merge or deploy.
 
-Do not create Round 10. Production remains `public_beta`; Auth, audience, API deployment, flags, and Production data were not changed.
+## Acceptance
+
+- New reader-facing order is enforced for Web and PDF.
+- `หลักการนับวันทางโหราศาสตร์ไทย` and `โครงสร้างดวงหลัก` are absent from the opening flow and available only near the end.
+- Forecast fields use natural labels without weakening typed semantic ownership.
+- Focused, full, analyzer, screenshot/golden, PDF raster, documentation, secret/PII, PreCommit, and PostCommit gates pass.
+- A separate Known/Unknown acceptance packet is generated, hashed, rendered, visually reviewed, and copied to the Windows delivery location.
+- Push a non-force branch and open a Draft PR. Do not merge or deploy.

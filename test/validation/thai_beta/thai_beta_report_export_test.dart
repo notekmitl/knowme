@@ -107,7 +107,7 @@ void main() {
       // Core Reading is the shared web/PDF presentation source.
       expect(text, contains(ThaiBirthProfileCoreReading.reportTitle));
       expect(text, contains(ThaiBirthProfileCoreReadingCopy.summaryTitle));
-      expect(text, contains(ThaiBirthProfileCoreReadingCopy.dayCountingTitle));
+      expect(text, contains('วิธีนับวันทางโหราศาสตร์ไทย'));
       expect(
         text,
         contains(ThaiBirthProfileCoreReadingCopy.chartStructureTitle),
@@ -179,7 +179,7 @@ void main() {
         doc.fullPlainText,
         contains(ThaiBirthProfileCoreReading.reportTitle),
       );
-      expect(doc.fullPlainText, contains('ดวงนี้วิเคราะห์จากอะไร'));
+      expect(doc.fullPlainText, contains('รายงานนี้ดูจากอะไร'));
       expect(doc.fullPlainText, isNot(contains('ข้อมูลวันเกิดครบถ้วน')));
     });
 
@@ -323,12 +323,15 @@ void main() {
         expect(text, contains(future.lifeDomains.first.body));
         expect(text, contains(prediction.detailedSectionIntro));
         for (final domain in prediction.windows.first.domains) {
-          expect(text, contains('แนวโน้ม: ${domain.claim}'));
-          expect(text, contains('ความเสี่ยง: ${domain.risk}'));
-          expect(text, contains('ผลต่อการตัดสินใจ: ${domain.decisionImpact}'));
+          expect(text, contains('ภาพที่เห็น: ${domain.claim}'));
+          expect(text, contains('สิ่งที่ควรระวัง: ${domain.risk}'));
           expect(
             text,
-            contains('แนวทางเตรียมตัว: ${domain.preparationAction}'),
+            contains('เรื่องนี้มีผลกับคุณอย่างไร: ${domain.decisionImpact}'),
+          );
+          expect(
+            text,
+            contains('สิ่งที่ทำได้ตอนนี้: ${domain.preparationAction}'),
           );
         }
       },
@@ -628,7 +631,7 @@ void main() {
       final doc = ThaiBetaReportExportDocument.fromAnalysis(realUserAnalysis);
       final rendered = await ThaiBetaReportPdfExporter.build(doc);
 
-      expect(rendered.plainText, contains(timeline.sectionTitle));
+      expect(rendered.plainText, contains('แผนที่ชีวิต'));
       expect(rendered.plainText, contains(timeline.currentStage.planetLine));
       for (final period in timeline.periods.take(2)) {
         expect(rendered.plainText, contains(period.phaseName));

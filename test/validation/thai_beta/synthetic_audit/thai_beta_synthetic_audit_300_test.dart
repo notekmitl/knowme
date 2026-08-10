@@ -387,7 +387,8 @@ void main() {
               ),
               isFalse,
               reason:
-                  '${c.id}: ${paragraphs[i].semanticKey}/${paragraphs[j].semanticKey}',
+                  '${c.id}: ${paragraphs[i].semanticKey}/${paragraphs[j].semanticKey}\n'
+                  '${paragraphs[i].text}\n${paragraphs[j].text}',
             );
           }
         }

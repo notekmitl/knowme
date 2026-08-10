@@ -3,9 +3,14 @@ import 'package:flutter/material.dart';
 import '../../application/core_reading/thai_birth_profile_core_reading.dart';
 
 class ThaiBirthProfileCoreReadingSection extends StatelessWidget {
-  const ThaiBirthProfileCoreReadingSection({super.key, required this.reading});
+  const ThaiBirthProfileCoreReadingSection({
+    super.key,
+    required this.reading,
+    this.showMethodology = true,
+  });
 
   final ThaiBirthProfileCoreReading reading;
+  final bool showMethodology;
 
   @override
   Widget build(BuildContext context) {
@@ -55,13 +60,29 @@ class ThaiBirthProfileCoreReadingSection extends StatelessWidget {
                     child: Divider(),
                   ),
               ],
-              const SizedBox(height: 20),
-              _MethodologyExpansion(section: methodology),
+              if (showMethodology) ...[
+                const SizedBox(height: 20),
+                _MethodologyExpansion(section: methodology),
+              ],
             ],
           ),
         ),
       ),
     );
+  }
+}
+
+class ThaiBirthProfileMethodologySection extends StatelessWidget {
+  const ThaiBirthProfileMethodologySection({super.key, required this.reading});
+
+  final ThaiBirthProfileCoreReading reading;
+
+  @override
+  Widget build(BuildContext context) {
+    final methodology = reading.sections.singleWhere(
+      (section) => section.isMethodology,
+    );
+    return _MethodologyExpansion(section: methodology);
   }
 }
 
@@ -251,6 +272,26 @@ class _MethodologyExpansion extends StatelessWidget {
         ),
         childrenPadding: const EdgeInsets.fromLTRB(16, 0, 16, 16),
         children: [
+          const Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'ข้อมูลวัน เวลา และสถานที่เกิด · วิธีนับวันทางโหราศาสตร์ไทย',
+              style: TextStyle(fontWeight: FontWeight.w700, height: 1.5),
+            ),
+          ),
+          const SizedBox(height: 12),
+          if (section.factRows.isNotEmpty) ...[
+            const Align(
+              alignment: Alignment.centerLeft,
+              child: Text(
+                ThaiBirthProfileCoreReadingCopy.chartStructureTitle,
+                style: TextStyle(fontWeight: FontWeight.w700),
+              ),
+            ),
+            const SizedBox(height: 8),
+            _ComputedFactTable(rows: section.factRows),
+            if (section.paragraphs.isNotEmpty) const SizedBox(height: 14),
+          ],
           for (var i = 0; i < section.paragraphs.length; i++)
             Padding(
               padding: EdgeInsets.only(

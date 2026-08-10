@@ -330,7 +330,10 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 780),
-            child: ThaiBirthProfileCoreReadingSection(reading: coreReading),
+            child: ThaiBirthProfileCoreReadingSection(
+              reading: coreReading,
+              showMethodology: false,
+            ),
           ),
         ),
       ),
@@ -369,6 +372,9 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
         timelineAndTransparencyOnly: true,
         detailedPastFutureNarrative: true,
         consumerState: narrativeView,
+        additionalTransparencySection: ThaiBirthProfileMethodologySection(
+          reading: coreReading,
+        ),
       ),
       if (coreReading.omissions.isNotEmpty)
         Padding(

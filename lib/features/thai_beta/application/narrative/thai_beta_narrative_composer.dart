@@ -587,19 +587,40 @@ abstract final class ThaiBetaNarrativeComposer {
       1 => 'ใน 12 เดือนข้างหน้า $stripped',
       _ => 'เมื่อเข้าสู่ช่วงชีวิตถัดไป $stripped',
     };
-    final posture = switch (plan.band) {
-      ForecastBand.strong => 'จังหวะนี้รองรับการเดินหน้าทีละก้าว',
-      ForecastBand.active => 'จังหวะนี้เหมาะกับการทดลองในขอบเขตเล็ก',
-      ForecastBand.quiet => 'จังหวะนี้เหมาะกับการสังเกตก่อนขยาย',
-    };
     final evidenceCriterion = switch (plan.horizon) {
-      ForecastHorizon.current => 'ให้ตัดสินจากผลที่กำลังเกิดขึ้นจริง',
+      ForecastHorizon.current => 'ลองเทียบกับสิ่งที่กำลังเกิดขึ้นจริง',
       ForecastHorizon.next12Months =>
-        'ให้ดูว่าผลนี้เกิดซ้ำได้หลายรอบก่อนผูกแผนทั้งปี',
+        'ค่อยวางแผนต่อเมื่อเห็นผลแบบนี้เกิดซ้ำมากกว่าหนึ่งครั้ง',
       ForecastHorizon.nextLifePeriod =>
-        'ให้ดูว่าฐานเดิมยังรองรับความเปลี่ยนแปลงระยะยาวได้',
+        'เช็กก่อนว่าสิ่งที่คุณมีอยู่ยังพอรองรับความเปลี่ยนแปลงนี้',
     };
-    return '$timed $evidenceCriterion $posture';
+    final pace = switch ((plan.band, plan.intent)) {
+      (ForecastBand.strong, ForecastDecisionIntent.protectCoreWork) =>
+        'งานหลักยังมีแรงให้ขยับต่อได้',
+      (ForecastBand.active, ForecastDecisionIntent.protectCoreWork) =>
+        'ลองเพิ่มบทบาททีละส่วนจะเห็นผลชัดกว่า',
+      (ForecastBand.quiet, ForecastDecisionIntent.protectCoreWork) =>
+        'ควรรักษาคุณภาพงานหลักไว้ก่อน',
+      (ForecastBand.strong, ForecastDecisionIntent.preserveLiquidity) =>
+        'ฐานเงินยังเปิดทางให้วางแผนต่อได้',
+      (ForecastBand.active, ForecastDecisionIntent.preserveLiquidity) =>
+        'ลองขยับเรื่องเงินในวงเล็กก่อน',
+      (ForecastBand.quiet, ForecastDecisionIntent.preserveLiquidity) =>
+        'ควรรักษาเงินพร้อมใช้ไว้ก่อน',
+      (ForecastBand.strong, ForecastDecisionIntent.clarifyCommitment) =>
+        'ความสัมพันธ์มีพื้นที่ให้คุยเรื่องถัดไป',
+      (ForecastBand.active, ForecastDecisionIntent.clarifyCommitment) =>
+        'ค่อย ๆ ดูความสม่ำเสมอของกันและกัน',
+      (ForecastBand.quiet, ForecastDecisionIntent.clarifyCommitment) =>
+        'ยังควรรอให้ความคาดหวังตรงกันก่อน',
+      (ForecastBand.strong, ForecastDecisionIntent.preserveRecovery) =>
+        'พลังชีวิตยังรองรับกิจกรรมที่เลือกไว้ได้',
+      (ForecastBand.active, ForecastDecisionIntent.preserveRecovery) =>
+        'เพิ่มกิจกรรมทีละอย่างจะดูแรงของตัวเองง่ายกว่า',
+      (ForecastBand.quiet, ForecastDecisionIntent.preserveRecovery) =>
+        'การพักให้พอสำคัญกว่าการเพิ่มกิจกรรม',
+    };
+    return '$timed $pace $evidenceCriterion';
   }
 
   static String _decisionImpact(ForecastDecisionPlan plan) {
@@ -631,15 +652,13 @@ abstract final class ThaiBetaNarrativeComposer {
     };
     final transition =
         plan.horizon == ForecastHorizon.nextLifePeriod && plan.spansTransition
-        ? ' พร้อมเผื่อกำลังสำหรับรอยต่อช่วงชีวิต'
+        ? ' และเผื่อแรงสำหรับช่วงเปลี่ยนผ่าน'
         : '';
     final horizonBoundary = switch (plan.horizon) {
-      ForecastHorizon.current =>
-        ' โดยใช้ผลที่เกิดขึ้นในรอบนี้เป็นขอบเขตตัดสินใจ',
-      ForecastHorizon.next12Months =>
-        ' โดยยืนยันจากผลที่เกิดซ้ำระหว่างจุดทบทวนก่อนผูกมัดแผนทั้งปี',
+      ForecastHorizon.current => ' ดูผลรอบนี้ก่อนเพิ่มเรื่องใหม่',
+      ForecastHorizon.next12Months => ' ทบทวนระหว่างปี ก่อนผูกแผนต่อทั้งปี',
       ForecastHorizon.nextLifePeriod =>
-        ' โดยตรวจว่าฐานเดิมรองรับรอยต่อได้ก่อนเปลี่ยนภาระระยะยาว',
+        ' เช็กเวลา เงิน และแรงก่อนเปลี่ยนภาระใหญ่',
     };
     final riskBoundary = switch (plan.consumerRiskDomain) {
       LifeDomain.pressure => ' เพราะภาระเกินกำลังจะเบียดพื้นที่ตัดสินใจ',
@@ -717,10 +736,10 @@ abstract final class ThaiBetaNarrativeComposer {
         : '';
     return PredictionDomainModel(
       title: title,
-      body: 'แนวโน้ม: $claim\nผลต่อการตัดสินใจ: $decisionImpact',
+      body: 'ภาพที่เห็น: $claim\nเรื่องนี้มีผลกับคุณอย่างไร: $decisionImpact',
       caution: [
-        if (risk.isNotEmpty) 'ความเสี่ยง: $risk',
-        'แนวทางเตรียมตัว: $action',
+        if (risk.isNotEmpty) 'สิ่งที่ควรระวัง: $risk',
+        'สิ่งที่ทำได้ตอนนี้: $action',
       ].join('\n'),
       claim: claim,
       risk: risk,
@@ -737,21 +756,19 @@ abstract final class ThaiBetaNarrativeComposer {
       ForecastHorizon.current => 'ตอนนี้',
       ForecastHorizon.next12Months => 'ตั้งจุดทบทวนภายใน 12 เดือน',
       ForecastHorizon.nextLifePeriod when plan.spansTransition =>
-        'ก่อนเปลี่ยนช่วงชีวิต เตรียมรับรอยต่อระยะยาวโดย',
-      ForecastHorizon.nextLifePeriod =>
-        'ก่อนเปลี่ยนช่วงชีวิต เตรียมฐานระยะยาวโดย',
+        'ก่อนเข้าสู่ช่วงชีวิตใหม่ ระหว่างรอยต่อนี้',
+      ForecastHorizon.nextLifePeriod => 'ก่อนเข้าสู่ช่วงชีวิตใหม่',
     };
     final posture = switch (plan.band) {
-      ForecastBand.strong => 'เลือกทำหนึ่งก้าวและกำหนดเพดานไว้',
-      ForecastBand.active => 'ทดลองทีละขั้นแล้วทบทวนผลจริง',
-      ForecastBand.quiet => 'ชะลอก้าวใหม่และเก็บข้อมูลจริง',
+      ForecastBand.strong => 'เลือกทำเรื่องสำคัญหนึ่งเรื่องและกำหนดเพดานไว้',
+      ForecastBand.active => 'ลองทีละขั้นแล้วดูผลที่เกิดขึ้นจริง',
+      ForecastBand.quiet => 'ชะลอเรื่องใหม่และเก็บข้อมูลให้ชัดก่อน',
     };
     final horizonProtocol = switch (plan.horizon) {
       ForecastHorizon.current => 'ลงมือหนึ่งรอบแล้วตรวจผลทันที',
       ForecastHorizon.next12Months =>
-        'บันทึกผลทุกจุดทบทวนก่อนเพิ่มข้อผูกมัดรอบถัดไป',
-      ForecastHorizon.nextLifePeriod =>
-        'ทดลองฐานใหม่ในขอบเขตเล็กก่อนย้ายภาระระยะยาว',
+        'จดสิ่งที่เกิดขึ้นทุกครั้งที่ทบทวนก่อนรับภาระเพิ่ม',
+      ForecastHorizon.nextLifePeriod => 'ลองปรับในวงเล็กก่อนรับภาระก้อนใหญ่',
     };
     final riskResponse = switch (plan.consumerRiskDomain) {
       LifeDomain.pressure => 'ลดภาระทันทีเมื่อภาระเริ่มเกินกำลัง',
@@ -772,11 +789,11 @@ abstract final class ThaiBetaNarrativeComposer {
         'รักษาเวลาฟื้นตัวก่อนเพิ่มกิจกรรม',
     };
     if (plan.evidenceAvailability == ForecastEvidenceAvailability.noLagna) {
-      return '$horizonLead บันทึกผลจริงหนึ่งรอบก่อน แล้วค่อย$decisionStep; '
-          '$horizonProtocol; หากข้อมูลยังไม่ชัดให้ชะลอไว้และ$riskResponse';
+      return '$horizonLead บันทึกผลจริงหนึ่งรอบก่อน แล้วค่อย$decisionStep '
+          '$horizonProtocol ถ้าข้อมูลยังไม่ชัด ให้ชะลอไว้ก่อนและ$riskResponse';
     }
-    return '$horizonLead $decisionStep โดย$posture; '
-        '$horizonProtocol; $riskResponse';
+    return '$horizonLead $decisionStep แล้ว$posture '
+        '$horizonProtocol และ$riskResponse';
   }
 
   // Legacy fallback retained for callers that still construct unpolished cards.

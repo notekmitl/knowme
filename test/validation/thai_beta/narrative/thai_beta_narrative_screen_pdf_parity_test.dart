@@ -21,7 +21,16 @@ void main() {
         final exported = export.sections.singleWhere(
           (candidate) => candidate.title == section.title,
         );
-        expect(exported.paragraphs, section.publicParagraphs);
+        if (section.isMethodology) {
+          expect(exported.paragraphs, containsAll(section.publicParagraphs));
+          expect(
+            exported.paragraphs,
+            contains('ข้อมูลวัน เวลา และสถานที่เกิด'),
+          );
+          expect(exported.paragraphs, contains('วิธีนับวันทางโหราศาสตร์ไทย'));
+        } else {
+          expect(exported.paragraphs, section.publicParagraphs);
+        }
       }
     });
 
@@ -37,7 +46,9 @@ void main() {
       expect(
         result.plainText,
         isNot(
-          contains(ThaiBetaNarrativeComposer.narrativeView(analysis).hero.headline),
+          contains(
+            ThaiBetaNarrativeComposer.narrativeView(analysis).hero.headline,
+          ),
         ),
       );
     });

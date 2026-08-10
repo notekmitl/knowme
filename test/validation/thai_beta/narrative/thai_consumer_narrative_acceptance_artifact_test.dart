@@ -41,20 +41,24 @@ void main() {
     }
 
     if (captureVariant == 'desktop') {
-      await _capture(
-        tester,
-        analysis: fixtures['known-time']!,
-        size: const Size(1440, 1000),
-        file: File('${output.path}/known-time-desktop.png'),
-      );
+      for (final entry in fixtures.entries) {
+        await _capture(
+          tester,
+          analysis: entry.value,
+          size: const Size(1440, 1000),
+          file: File('${output.path}/${entry.key}-desktop.png'),
+        );
+      }
     }
     if (captureVariant == 'mobile') {
-      await _capture(
-        tester,
-        analysis: fixtures['unknown-time']!,
-        size: const Size(390, 844),
-        file: File('${output.path}/unknown-time-mobile.png'),
-      );
+      for (final entry in fixtures.entries) {
+        await _capture(
+          tester,
+          analysis: entry.value,
+          size: const Size(390, 844),
+          file: File('${output.path}/${entry.key}-mobile.png'),
+        );
+      }
     }
   });
 }

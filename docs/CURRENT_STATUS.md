@@ -1,18 +1,17 @@
 # KnowMe Current Status
 
-## Active Draft — Round 9 Product Acceptance Fix Set 03
+## Active Draft — Thai Report Reading Flow and Friendly Voice V1
 
 **Last updated:** August 10, 2026
 
-**Branch:** `codex/thai-consumer-narrative-voice-v1`
+**Branch:** `agent/thai-report-reading-flow-v1`
 
-**PR:** #86 — MERGED at `a516d574b7cdd90d530026bf281cc41642471afa`
+**Baseline:** `c34a1c088b555160707577308c281570b570752a`
 
-**Product Acceptance:** `PRODUCT_ACCEPTANCE_PASS — ROUND 9 FIX SET 03` (2026-08-10)
-**Production/deployment:** Firebase Hosting deployed from merged main; cache pin `a516d57`
+**Product Acceptance:** `PENDING PRODUCT ACCEPTANCE`
 
-Fix Set 02 R2 failed Product Acceptance for visible presentation defects and an inconsistent visual log. Fix Set 03 source-tested SHA `73d1fa0e539b5ebdf42750078135a70cd1cadd01` corrects those defects and provides a newly reviewed 17/17-page packet. The final ZIP SHA-256 is `23E617EA0E703A271791A8658D3CD2ED91B9732450AD744E5A065E39F1307ED0`; exact artifact details are authoritative in `TASK_RESULT.md`.
+**Merge/deployment:** Not merged; not deployed
 
-The owner reviewed all 34/34 final PDF renders and both final Web screenshots and confirmed the ISO date-token split, fortune-heading ownership, missing icon glyphs, and debug banner fixed. Final gates passed 1,529/1,529 tests plus gate self-test 9/9. Production HTTP/cache checks, Known/Unknown application flows, and same-session PDF downloads passed on 2026-08-10. Both runtime PDFs parsed and rendered 17/17 pages; filenames, sizes, and hashes are recorded in `TASK_RESULT.md`.
+Owner feedback after the completed Round 9 release requires the Thai Beta report to explain the reader first and move technical transparency to the end. The active draft changes Web/PDF information architecture and consumer wording only. It keeps one `ThaiBetaAnalysis`, typed narrative semantics, factual provenance, Known-time facts, Unknown-time fail-closed behavior, calculation engines, Canon, routes, flags, Auth, audience policy, and Production unchanged.
 
-The historical 126/124-page candidate was inspected only for Known pages 1–40; the remaining 210 pages were waived, not passed. Engine/Canon/evidence semantics, calculations, birth normalization, province resolver, day-boundary rules, timeline ranges, routes, flags, Auth/Firebase/Production, Thai Mirror defaults, and accepted 00:03/00:35 results remain unchanged.
+Round 9 remains a historical completed release. Its acceptance evidence and the existing `product-acceptance/` directory are not changed or overwritten by this task.

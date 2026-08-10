@@ -178,10 +178,10 @@ void main() {
     final nextPeriod = windows[2];
 
     for (final domain in current.domains) {
-      expect(domain.body, startsWith('แนวโน้ม: สำหรับตอนนี้'));
-      expect(domain.body, contains('\nผลต่อการตัดสินใจ:'));
-      expect(domain.caution, contains('ความเสี่ยง:'));
-      expect(domain.caution, contains('\nแนวทางเตรียมตัว:'));
+      expect(domain.body, startsWith('ภาพที่เห็น: สำหรับตอนนี้'));
+      expect(domain.body, contains('\nเรื่องนี้มีผลกับคุณอย่างไร:'));
+      expect(domain.caution, contains('สิ่งที่ควรระวัง:'));
+      expect(domain.caution, contains('\nสิ่งที่ทำได้ตอนนี้:'));
       expect(domain.caution, isNot(contains('ไม่ใช่คำวินิจฉัยทางการแพทย์')));
       expect(domain.claim, startsWith('สำหรับตอนนี้'));
       expect(domain.preparationAction, startsWith('ตอนนี้'));
@@ -189,14 +189,14 @@ void main() {
       expect(domain.materialFingerprint, isNotEmpty);
     }
     for (final domain in nextYear.domains) {
-      expect(domain.body, startsWith('แนวโน้ม: ใน 12 เดือนข้างหน้า'));
+      expect(domain.body, startsWith('ภาพที่เห็น: ใน 12 เดือนข้างหน้า'));
       expect(domain.preparationAction, contains('12 เดือน'));
       expect(domain.preparationAction, contains('ทบทวน'));
     }
     for (final domain in nextPeriod.domains) {
-      expect(domain.body, startsWith('แนวโน้ม: เมื่อเข้าสู่ช่วงชีวิตถัดไป'));
-      expect(domain.preparationAction, startsWith('ก่อนเปลี่ยนช่วงชีวิต'));
-      expect(domain.preparationAction, contains('ระยะยาว'));
+      expect(domain.body, startsWith('ภาพที่เห็น: เมื่อเข้าสู่ช่วงชีวิตถัดไป'));
+      expect(domain.preparationAction, startsWith('ก่อนเข้าสู่ช่วงชีวิตใหม่'));
+      expect(domain.preparationAction, contains('ภาระก้อนใหญ่'));
       final matchingCurrent = current.domains.where(
         (candidate) => candidate.title == domain.title,
       );

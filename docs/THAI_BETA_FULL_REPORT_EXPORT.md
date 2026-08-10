@@ -216,3 +216,11 @@ Production `https://knowme-app-694e1.web.app` served cache pin `a516d57`. Known-
 - Unknown: `knowme-thai-report (16).pdf`; 59,563 bytes; 17 pages; SHA-256 `6F3E995942314F01E7FB79A5FC27A979C73BFA9734CA40C91AA3288273218A40`.
 
 Both Production files parsed and rendered on every page. Visual review found no true blank page, clipping, overflow, footer overlap, debug/sample/test marker, or Markdown leakage. ISO dates remained atomic and `โชคลาภ` remained a separate card from `สุขภาพ`. Known retained time-qualified Lagna/house facts; Unknown omitted their values and included explicit fail-closed reasons. The export document does not render submitted name fields; birth date and analysis mode matched the live fixtures. Runtime hashes are independent of the accepted Product Acceptance artifact hashes.
+
+## Thai Report Reading Flow and Friendly Voice V1 — active draft
+
+Status: `PENDING PRODUCT ACCEPTANCE`. This amendment keeps the real PDF exporter and the same `ThaiBetaAnalysis`; it changes presentation order and consumer wording only.
+
+The PDF now follows the reader-facing sequence used by Web: Core interpretation and life domains first; then life map, past, present, 12-month outlook, next life period, and long-term outlook; then `รายงานนี้ดูจากอะไร`, source transparency, disclaimers, and explicit omissions. Thai astrological-day detail and chart structure remain present but no longer open the report. Natural field labels replace academic UI/PDF labels while typed Claim/Risk/Decision Impact/Action data remains unchanged.
+
+Validation for this draft must include exact Web/PDF semantic parity, Known/Unknown behavior, ISO token atomicity, fortune/health ownership, full PDF raster review, desktop/mobile screenshots, and a separate hashed acceptance packet. Do not merge or deploy before Owner Product Acceptance.

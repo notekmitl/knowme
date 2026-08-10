@@ -316,14 +316,14 @@ class _DomainForecast extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           if (domain.claim.isNotEmpty) ...[
-            _ForecastField(label: 'แนวโน้ม', value: domain.claim),
-            _ForecastField(label: 'ความเสี่ยง', value: domain.risk),
+            _ForecastField(label: 'ภาพที่เห็น', value: domain.claim),
+            _ForecastField(label: 'สิ่งที่ควรระวัง', value: domain.risk),
             _ForecastField(
-              label: 'ผลต่อการตัดสินใจ',
+              label: 'เรื่องนี้มีผลกับคุณอย่างไร',
               value: domain.decisionImpact,
             ),
             _ForecastField(
-              label: 'แนวทางเตรียมตัว',
+              label: 'สิ่งที่ทำได้ตอนนี้',
               value: domain.preparationAction,
             ),
             if (domain.uncertaintyDisclosure.isNotEmpty)
