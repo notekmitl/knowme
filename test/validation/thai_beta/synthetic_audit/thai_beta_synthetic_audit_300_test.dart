@@ -2,7 +2,9 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/prediction/prediction_section_model.dart';
 import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
+import 'package:knowme/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_safety.dart';
@@ -10,6 +12,14 @@ import 'package:knowme/features/thai_beta/application/thai_beta_report_pdf_expor
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 
 const _referenceDate = '2026-08-03T00:00:00.000Z';
+
+String _forecastField(PredictionDomainModel model, ForecastField field) =>
+    switch (field) {
+      ForecastField.claim => model.claim,
+      ForecastField.risk => model.risk,
+      ForecastField.decisionImpact => model.decisionImpact,
+      ForecastField.action => model.preparationAction,
+    };
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
@@ -43,6 +53,99 @@ void main() {
       expect(c.id, matches(RegExp(r'^S[0-9]{3}$')));
     }
   });
+
+  test(
+    'synthetic matrix invokes cross-mode material sensitivity',
+    () {
+      var compared = 0;
+      var different = 0;
+      final bands = <ForecastBand>{};
+      final risks = <Object?>{};
+      final availabilities = <ForecastEvidenceAvailability>{};
+      final transitions = <bool>{};
+      final differenceCoverage = <String>{};
+      final fieldCoverage = <ForecastField>{};
+      for (final c in cases.where((c) => c.input.hasBirthTime).take(75)) {
+        final known = _run(c);
+        final unknown = ThaiBetaAnalysisRunner.run(
+          ThaiBetaInput(
+            firstName: c.id,
+            lastName: 'Synthetic',
+            birthDate: c.input.birthDate,
+            birthTimeUnknown: true,
+            province: c.input.province,
+            provinceKey: c.input.provinceKey,
+          ),
+          startedAt: DateTime.parse(_referenceDate),
+          asOf: DateTime.parse(_referenceDate),
+        );
+        List<PredictionDomainModel> blocks(ThaiBetaAnalysis analysis) =>
+            ThaiBetaNarrativeComposer.narrativeView(analysis)
+                .futurePrediction!
+                .windows
+                .expand((window) => window.domains)
+                .toList();
+        String identity(PredictionDomainModel model) =>
+            '${model.material!.horizon.name}/${model.material!.domain.name}';
+        final right = {
+          for (final model in blocks(unknown)) identity(model): model,
+        };
+        for (final left in blocks(known)) {
+          final match = right.remove(identity(left))!;
+          compared += ForecastField.values.length;
+          bands.add(left.material!.band);
+          bands.add(match.material!.band);
+          risks.add(left.material!.riskDomain);
+          risks.add(match.material!.riskDomain);
+          availabilities.add(left.material!.evidenceAvailability);
+          availabilities.add(match.material!.evidenceAvailability);
+          transitions.add(left.material!.spansTransition);
+          transitions.add(match.material!.spansTransition);
+          if (left.material!.band != match.material!.band) {
+            differenceCoverage.add('band');
+          }
+          if (left.material!.riskDomain != match.material!.riskDomain) {
+            differenceCoverage.add('risk');
+          }
+          if (left.material!.evidenceAvailability !=
+              match.material!.evidenceAvailability) {
+            differenceCoverage.add('availability');
+          }
+          if (left.material!.spansTransition !=
+              match.material!.spansTransition) {
+            differenceCoverage.add('transition');
+          }
+          for (final field in ForecastField.values) {
+            fieldCoverage.add(field);
+            final a = left.material!.projection(field).toString();
+            final b = match.material!.projection(field).toString();
+            if (a != b) {
+              different++;
+              expect(
+                _forecastField(left, field),
+                isNot(_forecastField(match, field)),
+                reason:
+                    '${c.id}/${identity(left)}/${field.name} '
+                    '${left.material!.riskDomain} vs ${match.material!.riskDomain}',
+              );
+            }
+          }
+          expect(left.preparationAction, isNot(contains('ไม่มีหลักฐานลัคนา')));
+          expect(match.preparationAction, isNot(contains('ไม่มีหลักฐานลัคนา')));
+        }
+        expect(right, isEmpty, reason: '${c.id}: unmatched unknown identity');
+      }
+      expect(compared, greaterThan(0));
+      expect(different, greaterThan(0), reason: 'vacuous matrix must fail');
+      expect(bands, containsAll(ForecastBand.values));
+      expect(risks.whereType<Object>().length, greaterThan(1));
+      expect(availabilities, containsAll(ForecastEvidenceAvailability.values));
+      expect(transitions, containsAll({true, false}));
+      expect(differenceCoverage, containsAll({'band', 'risk', 'availability'}));
+      expect(fieldCoverage, containsAll(ForecastField.values));
+    },
+    timeout: const Timeout(Duration(minutes: 10)),
+  );
 
   test(
     'all 300 cases pass structured, narrative, omission and safety contracts',

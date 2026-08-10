@@ -472,14 +472,18 @@ class ThaiBirthProfileCoreReading {
         .toList(growable: false);
     if (weekdayAtoms.isNotEmpty) {
       final weekday = _thaiWeekday(birthData?.thaiWeekdayNumber);
-      final dayMeaning = normalized == null || !analysis.input.hasBirthTime
+      final dayMeaning = !analysis.input.hasBirthTime
+          ? 'เป็นเพียงฐานวันตามปฏิทิน เพราะไม่มีเวลาเกิด วันทางโหราศาสตร์อาจเป็นวันก่อนหน้าได้'
+          : normalized == null
           ? 'วันหลักที่ใช้กับกฎทางโหราศาสตร์ไทย'
           : normalized.usedPreviousDay
           ? 'เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้น จึงใช้วันก่อนหน้าเป็นวันทางโหราศาสตร์'
           : 'เวลาเกิดอยู่หลังพระอาทิตย์ขึ้น จึงใช้วันเดียวกับวันเกิดตามสูติบัตร';
       chartFactRows.add(
         ThaiBirthProfileCoreFactRow(
-          label: 'วันทางโหราศาสตร์',
+          label: analysis.input.hasBirthTime
+              ? 'วันทางโหราศาสตร์'
+              : 'ฐานวันตามปฏิทิน',
           value: 'วัน$weekday',
           meaning: dayMeaning,
           sourceAtoms: weekdayAtoms,
@@ -752,10 +756,12 @@ class ThaiBirthProfileCoreReading {
       );
       addDisclosureClaim(
         target: dayCountingClaims,
-        text:
-            'วันเกิดตามสูติบัตรยังเป็นวันที่ ${normalized.rawBirthDate} ตามเดิม '
-            'ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วัน$thaiDay '
-            '(วันที่ ${normalized.thaiAstrologicalDate}) เป็นวันทางโหราศาสตร์',
+        text: analysis.input.hasBirthTime
+            ? 'วันเกิดตามสูติบัตรยังเป็นวันที่ ${normalized.rawBirthDate} ตามเดิม '
+                  'ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วัน$thaiDay '
+                  '(วันที่ ${normalized.thaiAstrologicalDate}) เป็นวันทางโหราศาสตร์'
+            : 'วันที่ ${normalized.rawBirthDate} ตรงกับวัน$thaiDayตามปฏิทินและใช้เป็นฐานทำงานเท่านั้น '
+                  'เมื่อไม่มีเวลาเกิด วันทางโหราศาสตร์อาจเป็นวันก่อนหน้า จึงยังไม่สรุปวันสุดท้าย',
         semanticKey: 'methodology:astrological-date',
         atoms: [
           if (birthData?.thaiWeekdayNumber != null)
@@ -886,7 +892,7 @@ class ThaiBirthProfileCoreReading {
         target: methodologyClaims,
         text:
             'คำอ่านข้างต้นจัดลำดับจากแนวโน้มที่มีน้ำหนักเด่นในผลวิเคราะห์ '
-            'โดยไม่นำชื่อหมวดภายในมาแสดงแทนคำอธิบายสำหรับผู้อ่าน',
+            'แต่ละส่วนจึงอธิบายความหมายที่เกี่ยวกับชีวิตของคุณโดยตรง',
         semanticKey: 'methodology:top-themes',
         atoms: [
           for (final theme in mirror.topThemes.take(3))
@@ -1187,9 +1193,9 @@ class ThaiBirthProfileCoreReading {
     final identityPhrase = _identityPhrases[identityAtom.themeId] ?? '';
     if (identityPhrase.isEmpty) return '';
     final mode = _planetMode(lord.rawValue);
-    return 'สรุปตรง ๆ พื้นดวงนี้มีลัคนา${_lagnaLabel(sign.rawValue)} '
-        'โดยมี${_lordLabel(lord.rawValue)}เป็นเจ้าเรือน $identityPhrase '
-        'จุดแข็งมักอยู่ที่${mode.$1} ส่วนที่ควรระวังคือ${mode.$2}';
+    return 'ลัคนา${_lagnaLabel(sign.rawValue)}และ${_lordLabel(lord.rawValue)}'
+        'ที่เป็นเจ้าเรือน บอกว่าคุณ$identityPhrase '
+        'คุณทำได้ดีเมื่อใช้${mode.$1} แต่ควรสังเกตเวลาที่${mode.$2}';
   }
 
   static ({String analysis, String guidance}) _composeHouseDomain(
@@ -1211,32 +1217,32 @@ class ThaiBirthProfileCoreReading {
             'เรื่องงาน เรือนการงานอยู่ที่$signLabelและมี$lordLabelเป็นเจ้าเรือน '
             'จึงมักเด่นเมื่อได้ใช้${mode.$1}',
         guidance:
-            'ตัวฉุดสำคัญคือ${mode.$2} ทางใช้จุดเด่นนี้ให้เกิดผลคือ'
-            '${mode.$3} เพื่อให้งานเดินต่อได้โดยไม่ฝืนกำลังของตัวเอง',
+            'งานจะเริ่มติดเมื่อ${mode.$2} เริ่มจาก${mode.$3} '
+            'เพื่อให้งานเดินต่อได้โดยไม่ฝืนกำลังของตัวเอง',
       ),
       ThaiBirthProfileCoreDomain.money => (
         analysis:
             'เรื่องการเงิน เรือนการเงินอยู่ที่$signLabelและมี$lordLabelเป็นเจ้าเรือน '
             'จึงมักจัดการเงินและทรัพยากรโดยให้ความสำคัญกับ${mode.$1}',
         guidance:
-            'จุดที่ควรระวังคือ${mode.$2} ก่อนตัดสินใจเรื่องเงินควรใช้'
-            '${mode.$3}เป็นเกณฑ์ เพื่อไม่ให้ความต้องการระยะสั้นกระทบฐานระยะยาว',
+            'เรื่องเงินควรระวังเวลาที่${mode.$2} ก่อนตัดสินใจให้ใช้${mode.$3} '
+            'เพื่อไม่ให้ความต้องการระยะสั้นกระทบฐานระยะยาว',
       ),
       ThaiBirthProfileCoreDomain.relationships => (
         analysis:
             'เรื่องความสัมพันธ์ เรือนคู่ครองอยู่ที่$signLabelและมี$lordLabelเป็นเจ้าเรือน '
             'จึงมักสร้างความไว้ใจผ่าน${mode.$1}',
         guidance:
-            'ความสัมพันธ์จะติดขัดเมื่อเกิด${mode.$2} วิธีรักษาพื้นที่ของทั้งสองฝ่ายคือ'
-            '${mode.$3}และคุยขอบเขตให้เข้าใจตรงกัน',
+            'ความสัมพันธ์จะติดขัดเมื่อ${mode.$2} ควรใช้${mode.$3} '
+            'และคุยขอบเขตให้เข้าใจตรงกัน เพื่อรักษาพื้นที่ของทั้งสองฝ่าย',
       ),
       ThaiBirthProfileCoreDomain.wellbeing => (
         analysis:
             'ตามตำรา เรือนสุขภาวะอยู่ที่$signLabelและมี$lordLabelเป็นเจ้าเรือน '
             'จึงควรดูแลพลังของตัวเองผ่าน${mode.$1}',
         guidance:
-            'สัญญาณที่ไม่ควรปล่อยไว้นานคือ${mode.$2} ทางที่เหมาะคือ${mode.$3} '
-            'และจัดเวลาพักให้สม่ำเสมอ',
+            'ถ้าเริ่ม${mode.$2} อย่าปล่อยไว้นาน ให้ใช้${mode.$3} '
+            'พร้อมจัดเวลาพักให้สม่ำเสมอ',
       ),
       _ => (analysis: '', guidance: ''),
     };
@@ -1277,15 +1283,13 @@ class ThaiBirthProfileCoreReading {
       _actionPhrases,
     );
     return (
-      strength: strength.isEmpty
-          ? ''
-          : 'คำชี้หลักของพื้นดวงนี้คือให้ใช้$strengthเป็นแกน',
+      strength: strength.isEmpty ? '' : 'จุดแข็งที่ควรใช้เป็นแกนคือ$strength',
       risk: risk.isEmpty
           ? ''
           : 'เพราะเมื่อใช้จุดแข็งนี้มากเกินไปอาจกลายเป็น$risk',
       action: action.isEmpty
           ? ''
-          : 'ทางที่เหมาะกว่าคือ$action แล้วค่อยขยายเมื่อฐานเดิมรองรับได้',
+          : 'แนวทางที่เหมาะคือ$action แล้วค่อยขยายเมื่อฐานเดิมรองรับได้',
     );
   }
 
@@ -1341,16 +1345,16 @@ class ThaiBirthProfileCoreReading {
   };
 
   static const _identityPhrases = <String, String>{
-    'independent': 'พื้นดวงให้น้ำหนักกับการกำหนดทิศทางด้วยตัวเอง',
-    'disciplined': 'พื้นดวงให้น้ำหนักกับความสม่ำเสมอและการรักษาระบบ',
-    'curious': 'พื้นดวงให้น้ำหนักกับการเรียนรู้จากสิ่งใหม่',
-    'practical': 'พื้นดวงให้น้ำหนักกับสิ่งที่นำไปใช้ได้จริง',
-    'grounded': 'พื้นดวงให้น้ำหนักกับความมั่นคงและฐานที่ไว้ใจได้',
-    'visionary': 'พื้นดวงให้น้ำหนักกับภาพระยะยาวและความหมายของสิ่งที่ทำ',
-    'protective': 'พื้นดวงให้น้ำหนักกับการดูแลสิ่งที่เห็นว่าสำคัญ',
-    'adaptable': 'พื้นดวงให้น้ำหนักกับการปรับวิธีเมื่อเงื่อนไขเปลี่ยน',
-    'creative': 'พื้นดวงให้น้ำหนักกับการสร้างทางเลือกใหม่ด้วยตัวเอง',
-    'ambitious': 'พื้นดวงให้น้ำหนักกับการพัฒนาและขยับเป้าหมายไปข้างหน้า',
+    'independent': 'สบายใจกว่าเมื่อได้กำหนดทิศทางด้วยตัวเอง',
+    'disciplined': 'ไปได้ดีเมื่อชีวิตมีระบบและรู้ว่าต้องทำอะไรต่อ',
+    'curious': 'เรียนรู้ได้ดีจากการตั้งคำถามและลองสิ่งใหม่',
+    'practical': 'มองหาวิธีที่นำไปใช้ได้จริงก่อนเสมอ',
+    'grounded': 'ให้ความสำคัญกับความมั่นคงและฐานที่ไว้ใจได้',
+    'visionary': 'มักมองภาพระยะยาวและความหมายของสิ่งที่ทำ',
+    'protective': 'พร้อมดูแลสิ่งและคนที่เห็นว่าสำคัญ',
+    'adaptable': 'ปรับวิธีได้เมื่อเงื่อนไขเปลี่ยน',
+    'creative': 'ชอบสร้างทางเลือกใหม่แทนการยึดวิธีเดิม',
+    'ambitious': 'มีแรงขยับเป้าหมายและพัฒนาตัวเองต่อเนื่อง',
   };
 
   static const _strengthPhrases = <String, String>{

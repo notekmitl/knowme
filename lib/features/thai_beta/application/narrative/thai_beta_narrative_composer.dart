@@ -1,8 +1,10 @@
 /// Thai Beta Narrative Quality V1.1 + V1.2 — curated block composer.
 library;
 
+import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mirror_theme_phrases.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_mirror_consumer_view_state.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/prediction/prediction_section_model.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/thai_mirror_life_timeline_state.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 
@@ -220,7 +222,7 @@ abstract final class ThaiBetaNarrativeComposer {
           .map(ThaiBetaNarrativeFormatting.normalize)
           .toList(),
       lifeTimeline: _differentiateTimelineDomains(source.lifeTimeline),
-      futurePrediction: source.futurePrediction,
+      futurePrediction: _polishPrediction(source.futurePrediction),
     );
 
     return ThaiBetaNarrativeResult(view: view, trace: trace);
@@ -257,36 +259,49 @@ abstract final class ThaiBetaNarrativeComposer {
   ) {
     if (timeline == null) return null;
     final used = <String>{};
+    final usedClaims = <String>[];
     final periods = timeline.periods
         .map((period) {
           if (period.isCurrent || period.lifeDomains.isEmpty) return period;
           final bucket = period.isPast ? 'past' : 'future';
+          final ages = period.ageLabel.split('–');
+          final startAge = int.tryParse(ages.first) ?? 0;
+          final endAge = int.tryParse(ages.last) ?? startAge;
           final domains = <ThaiMirrorLifeDomainBlock>[];
           for (final domain in period.lifeDomains) {
-            final semanticBody = domain.body.replaceAll(
+            final ageAppropriate = _ageAppropriateDomain(
+              period: period,
+              domain: domain,
+              startAge: startAge,
+              endAge: endAge,
+            );
+            if (ageAppropriate == null) continue;
+            final consumerBody = _stripRepeatedMedicalDisclaimer(
+              ageAppropriate.body,
+            );
+            final semanticBody = consumerBody.replaceAll(
               'ใน${period.phaseName}',
               'ในช่วงชีวิตนี้',
             );
             final key =
                 '$bucket|${domain.title}|'
                 '${ThaiBetaNarrativeFormatting.normalizedKey(semanticBody)}';
-            if (used.add(key)) {
-              domains.add(domain);
+            final isSemanticallyNew = usedClaims.every(
+              (claim) => !_isSemanticallySimilar(claim, semanticBody),
+            );
+            if (used.add(key) && isSemanticallyNew) {
+              usedClaims.add(semanticBody);
+              domains.add(
+                ThaiMirrorLifeDomainBlock(
+                  title: ageAppropriate.title,
+                  body: consumerBody,
+                  evidenceKeys: ageAppropriate.evidenceKeys,
+                ),
+              );
               continue;
             }
-            domains.add(
-              ThaiMirrorLifeDomainBlock(
-                title: domain.title,
-                body:
-                    '${domain.body} เมื่อดูจังหวะนี้ร่วมกัน ${period.summary} '
-                    '${period.whatChanges}',
-                evidenceKeys: [
-                  ...domain.evidenceKeys,
-                  'ThaiMirrorLifePeriodState.summary',
-                  'ThaiMirrorLifePeriodState.whatChanges',
-                ],
-              ),
-            );
+            // A prefix/suffix does not make a repeated claim new. Omit it
+            // rather than moving a horizon summary into a domain paragraph.
           }
           return ThaiMirrorLifePeriodState(
             ageLabel: period.ageLabel,
@@ -295,16 +310,16 @@ abstract final class ThaiBetaNarrativeComposer {
             keyword: period.keyword,
             isCurrent: period.isCurrent,
             isPast: period.isPast,
-            summary: period.summary,
-            whatChanges: period.whatChanges,
-            easier: period.easier,
-            harder: period.harder,
-            comparison: period.comparison,
-            evidenceLine: period.evidenceLine,
+            summary: startAge >= 69 ? '' : period.summary,
+            whatChanges: startAge >= 69 ? '' : period.whatChanges,
+            easier: startAge >= 69 ? '' : period.easier,
+            harder: startAge >= 69 ? '' : period.harder,
+            comparison: startAge >= 69 ? '' : period.comparison,
+            evidenceLine: startAge >= 69 ? '' : period.evidenceLine,
             scores: period.scores,
             easeIndex: period.easeIndex,
             accentIndex: period.accentIndex,
-            advice: period.advice,
+            advice: startAge >= 69 ? '' : period.advice,
             stageLabel: period.stageLabel,
             timeBucketLabel: period.timeBucketLabel,
             mahabhutPositionLabel: period.mahabhutPositionLabel,
@@ -317,17 +332,576 @@ abstract final class ThaiBetaNarrativeComposer {
             lifeDomains: List.unmodifiable(domains),
           );
         })
+        .where(_hasConsumerTimelineContent)
         .toList(growable: false);
     return ThaiMirrorLifeTimelineState(
       sectionTitle: timeline.sectionTitle,
-      sectionIntro: timeline.sectionIntro,
-      currentStage: timeline.currentStage,
+      sectionIntro:
+          'ดูช่วงที่ผ่านมา ช่วงปัจจุบัน และช่วงข้างหน้า เพื่อเข้าใจจังหวะชีวิตในภาพรวม',
+      currentStage: _betaCurrentStage(timeline.currentStage),
       segments: timeline.segments,
       periods: periods,
-      currentAnalysis: timeline.currentAnalysis,
-      futurePreview: timeline.futurePreview,
+      currentAnalysis: _betaCurrentAnalysis(timeline.currentAnalysis),
+      futurePreview: timeline.futurePreview == null
+          ? null
+          : ThaiMirrorFuturePreviewState(
+              title: timeline.futurePreview!.title,
+              intro: 'ดูภาพรวมของช่วงถัดไป เพื่อเตรียมสิ่งสำคัญไว้ล่วงหน้า',
+              transitionLabel: timeline.futurePreview!.transitionLabel,
+              elementShiftLine: timeline.futurePreview!.elementShiftLine,
+              opportunitiesLine: _consumerOpportunityLine(
+                timeline.futurePreview!.opportunitiesLine,
+              ),
+              // The upstream preview exposes only a list of labels here. It
+              // does not identify a pressure source, affected domain and
+              // decision impact, so consumer output must fail closed.
+              challengesLine: '',
+            ),
       detailedReport: timeline.detailedReport,
     );
+  }
+
+  static bool _hasConsumerTimelineContent(ThaiMirrorLifePeriodState period) =>
+      period.lifeDomains.isNotEmpty ||
+      [
+        period.summary,
+        period.whatChanges,
+        period.easier,
+        period.harder,
+        period.comparison,
+        period.evidenceLine,
+        period.advice,
+      ].any((value) => value.trim().isNotEmpty);
+
+  static String _stripRepeatedMedicalDisclaimer(String body) => body
+      .replaceAll(
+        ' ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำวินิจฉัยทางการแพทย์',
+        '',
+      )
+      .replaceAll(
+        RegExp(
+          r' ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำบอกจากแพทย์(?: หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ)?',
+        ),
+        '',
+      );
+
+  static String stagePositionForProgress(double progress) => progress < 0.34
+      ? 'ช่วงต้น'
+      : progress < 0.67
+      ? 'ช่วงกลาง'
+      : 'ช่วงปลาย';
+
+  static String stageIntroForProgress({
+    required int age,
+    required String phase,
+    required int remaining,
+    required double progress,
+  }) {
+    final position = stagePositionForProgress(progress);
+    final remainingLine = remaining > 0
+        ? 'เหลือเวลาอีกราว $remaining ปีก่อนเปลี่ยนผ่าน'
+        : 'กำลังเข้าสู่จุดเปลี่ยนไปยังช่วงถัดไป';
+    return 'ตอนนี้คุณอายุ $age ปี อยู่$positionของ$phase และ$remainingLine';
+  }
+
+  static ThaiMirrorCurrentStageState _betaCurrentStage(
+    ThaiMirrorCurrentStageState stage,
+  ) => ThaiMirrorCurrentStageState(
+    eyebrow: stage.eyebrow,
+    currentAge: stage.currentAge,
+    ageLabel: stage.ageLabel,
+    phaseName: stage.phaseName,
+    planetLine: stage.planetLine,
+    keyword: stage.keyword,
+    yearsRemaining: stage.yearsRemaining,
+    progress: stage.progress,
+    intro: stageIntroForProgress(
+      age: stage.currentAge,
+      phase: stage.phaseName,
+      remaining: stage.yearsRemaining,
+      progress: stage.progress,
+    ),
+    previousLabel: stage.previousLabel,
+    nextLabel: stage.nextLabel,
+    accentIndex: stage.accentIndex,
+  );
+
+  static ThaiMirrorCurrentAnalysisState? _betaCurrentAnalysis(
+    ThaiMirrorCurrentAnalysisState? analysis,
+  ) {
+    if (analysis == null) return null;
+    final stage = analysis.stageLabel.contains('ช่วงต้น')
+        ? 'ช่วงต้น'
+        : analysis.stageLabel.contains('ช่วงกลาง')
+        ? 'ช่วงกลาง'
+        : 'ช่วงปลาย';
+    return ThaiMirrorCurrentAnalysisState(
+      title: analysis.title,
+      stageLabel: 'ตอนนี้คุณอยู่$stageของจังหวะนี้',
+      dominantInfluences: analysis.dominantInfluences,
+      reasons: analysis.reasons,
+    );
+  }
+
+  static ThaiMirrorLifeDomainBlock? _ageAppropriateDomain({
+    required ThaiMirrorLifePeriodState period,
+    required ThaiMirrorLifeDomainBlock domain,
+    required int startAge,
+    required int endAge,
+  }) {
+    String? body;
+    if (endAge <= 10) {
+      body = switch (domain.title) {
+        'การงาน' =>
+          'ใน${period.phaseName} เรื่องการงานหมายถึงการเรียนรู้หน้าที่เล็ก ๆ '
+              'การฝึกทักษะ และการได้รับกำลังใจเมื่อพยายาม',
+        'การเงิน' =>
+          'ใน${period.phaseName} เรื่องการเงินหมายถึงการเข้าใจคุณค่าของสิ่งของ '
+              'การแบ่งใช้ การเก็บออม และการตัดสินใจจากทรัพยากรที่มีตามวัย',
+        'ความรัก' || 'ความสัมพันธ์' =>
+          'ความสัมพันธ์ใน${period.phaseName}หมายถึงความไว้ใจในครอบครัว เพื่อน '
+              'และคนใกล้ตัว รวมถึงการเรียนรู้ขอบเขตและการบอกความต้องการของตนเอง',
+        'สุขภาพ' =>
+          'สุขภาพใน${period.phaseName}หมายถึงการเติบโต การกิน นอน เคลื่อนไหว '
+              'และพักให้เป็นเวลาอย่างเหมาะกับวัย',
+        _ => null,
+      };
+    } else if (endAge <= 21) {
+      body = switch (domain.title) {
+        'การงาน' =>
+          'ใน${period.phaseName} การงานหมายถึงการเรียนรู้ให้ลึกขึ้น ทดลองทักษะ '
+              'และสังเกตว่าสิ่งใดเหมาะกับทางที่กำลังเลือก',
+        'การเงิน' =>
+          'ใน${period.phaseName} การเงินหมายถึงการฝึกวางแผนค่าใช้จ่าย '
+              'แยกสิ่งจำเป็นจากสิ่งที่อยากได้ และเริ่มรับผิดชอบการตัดสินใจของตนเอง',
+        'ความรัก' || 'ความสัมพันธ์' =>
+          'ความสัมพันธ์ใน${period.phaseName}เน้นการรู้จักตัวเองผ่านมิตรภาพ '
+              'ความไว้ใจ ขอบเขต และการสื่อสารเมื่อความรู้สึกเปลี่ยนไป',
+        'สุขภาพ' =>
+          'สุขภาพใน${period.phaseName}เกี่ยวกับจังหวะการเติบโต การนอน '
+              'การเคลื่อนไหว และการรักษากิจวัตรให้สมดุลกับการเรียนรู้',
+        _ => null,
+      };
+    } else if (startAge < 30) {
+      body = switch (domain.title) {
+        'การงาน' =>
+          'ใน${period.phaseName} เรื่องหน้าที่ค่อย ๆ เปลี่ยนจากการเรียนรู้ '
+              'และค้นหาทางของตัวเอง ไปสู่การรับผิดชอบมากขึ้นตามวัย',
+        'การเงิน' =>
+          'ใน${period.phaseName} เรื่องเงินเริ่มจากการรู้จักจัดสรรสิ่งที่มี '
+              'ก่อนค่อย ๆ รับผิดชอบรายรับรายจ่ายของตัวเอง',
+        'ความรัก' || 'ความสัมพันธ์' =>
+          'ความสัมพันธ์ใน${period.phaseName}เน้นการรู้จักขอบเขต ความไว้ใจ '
+              'และการสื่อสารที่ชัดขึ้นตามวัย',
+        'สุขภาพ' =>
+          'พลังใน${period.phaseName}สัมพันธ์กับการเติบโต การพักผ่อน '
+              'และการจัดกิจวัตรให้เหมาะกับสิ่งที่ต้องเรียนรู้และรับผิดชอบ',
+        _ => null,
+      };
+    } else if (startAge >= 69) {
+      // The source evidence does not distinguish these late-age domains beyond
+      // a period/theme label. Omit them rather than manufacture four generic
+      // paragraphs that differ only by the label.
+      return null;
+    }
+    final baseBody = body ?? domain.body;
+    return ThaiMirrorLifeDomainBlock(
+      title: domain.title,
+      body: baseBody,
+      evidenceKeys: domain.evidenceKeys,
+    );
+  }
+
+  static PredictionSectionModel? _polishPrediction(
+    PredictionSectionModel? prediction,
+  ) {
+    if (prediction == null) return null;
+    final windows = <PredictionWindowCardModel>[];
+    for (var i = 0; i < prediction.windows.length; i++) {
+      final window = prediction.windows[i];
+      final domains = window.domains
+          .map((domain) {
+            return composeForecastForMaterial(
+              title: domain.title,
+              windowIndex: i,
+              sourceBody: domain.body,
+              sourceCaution: domain.caution,
+              material: domain.material!,
+            );
+          })
+          .where(
+            (domain) =>
+                domain.body.trim().isNotEmpty ||
+                domain.caution.trim().isNotEmpty,
+          )
+          .toList(growable: false);
+      windows.add(
+        PredictionWindowCardModel(
+          windowLabel: window.windowLabel,
+          timeframeLabel: window.timeframeLabel,
+          summary: window.summary,
+          topOpportunity: _dedupeOpportunity(
+            window.summary,
+            window.topOpportunity,
+          ),
+          topRisk: _specificTopRisk(window.topRisk),
+          confidenceLabel: switch (window.confidenceLevel) {
+            _ when i == 0 => 'เทียบคำอ่านช่วงปัจจุบันกับชีวิตจริงของคุณ',
+            _ when i == 1 => 'ใช้กรอบ 12 เดือนนี้วางแผนและทบทวนระหว่างทาง',
+            _ => 'ใช้ช่วงถัดไปเตรียมตัว โดยไม่ถือว่าเหตุการณ์ถูกกำหนดไว้แล้ว',
+          },
+          confidenceLevel: window.confidenceLevel,
+          // Domain paragraphs already contain the consumer-facing meaning.
+          // Drop diagnostic/meta explanation instead of exposing confidence
+          // mechanics or repeating generic pressure language.
+          why: '',
+          whyNow: '',
+          whatToWatch: '',
+          evidenceDetail: '',
+          domains: domains,
+        ),
+      );
+    }
+    return PredictionSectionModel(
+      sectionTitle: prediction.sectionTitle,
+      sectionIntro: prediction.sectionIntro,
+      windows: List.unmodifiable(windows),
+      transitionLine: prediction.transitionLine,
+      closingAdvice: prediction.closingAdvice,
+      detailedSectionIntro: prediction.detailedSectionIntro,
+      detailedClosingAdvice: prediction.detailedClosingAdvice,
+    );
+  }
+
+  static String _forecastClaim(
+    String body,
+    int windowIndex,
+    ForecastDecisionPlan plan,
+  ) {
+    final stripped = body
+        .replaceFirst(RegExp(r'^ช่วงนี้\s*'), '')
+        .replaceFirst(RegExp(r'^ใน 12 เดือนข้างหน้า\s*'), '')
+        .replaceFirst(RegExp(r'^เมื่อเข้าสู่ช่วงชีวิตถัดไป\s*'), '');
+    final timed = switch (windowIndex) {
+      0 => 'สำหรับตอนนี้ $stripped',
+      1 => 'ใน 12 เดือนข้างหน้า $stripped',
+      _ => 'เมื่อเข้าสู่ช่วงชีวิตถัดไป $stripped',
+    };
+    final posture = switch (plan.band) {
+      ForecastBand.strong => 'จังหวะนี้รองรับการเดินหน้าทีละก้าว',
+      ForecastBand.active => 'จังหวะนี้เหมาะกับการทดลองในขอบเขตเล็ก',
+      ForecastBand.quiet => 'จังหวะนี้เหมาะกับการสังเกตก่อนขยาย',
+    };
+    final evidenceCriterion = switch (plan.horizon) {
+      ForecastHorizon.current => 'ให้ตัดสินจากผลที่กำลังเกิดขึ้นจริง',
+      ForecastHorizon.next12Months =>
+        'ให้ดูว่าผลนี้เกิดซ้ำได้หลายรอบก่อนผูกแผนทั้งปี',
+      ForecastHorizon.nextLifePeriod =>
+        'ให้ดูว่าฐานเดิมยังรองรับความเปลี่ยนแปลงระยะยาวได้',
+    };
+    return '$timed $evidenceCriterion $posture';
+  }
+
+  static String _decisionImpact(ForecastDecisionPlan plan) {
+    final decisionCore = switch ((plan.band, plan.intent)) {
+      (ForecastBand.strong, ForecastDecisionIntent.protectCoreWork) =>
+        'รับบทบาทเพิ่มได้หนึ่งก้าวเมื่อคุณภาพงานหลักยังคงเดิม',
+      (ForecastBand.active, ForecastDecisionIntent.protectCoreWork) =>
+        'ทดลองขอบเขตงานใหม่ก่อนตัดสินใจรับบทบาทเต็มตัว',
+      (ForecastBand.quiet, ForecastDecisionIntent.protectCoreWork) =>
+        'หยุดเพิ่มงานและคืนเวลาให้งานหลักก่อน',
+      (ForecastBand.strong, ForecastDecisionIntent.preserveLiquidity) =>
+        'ขยับภาระได้เมื่อกันเงินพร้อมใช้ไว้ครบแล้ว',
+      (ForecastBand.active, ForecastDecisionIntent.preserveLiquidity) =>
+        'พิสูจน์กระแสเงินจริงในวงเล็กก่อนเพิ่มภาระ',
+      (ForecastBand.quiet, ForecastDecisionIntent.preserveLiquidity) =>
+        'ชะลอรายจ่ายก้อนใหม่และรักษาเงินพร้อมใช้',
+      (ForecastBand.strong, ForecastDecisionIntent.clarifyCommitment) =>
+        'เพิ่มข้อผูกพันได้เมื่อคำพูดและการกระทำสอดคล้องกัน',
+      (ForecastBand.active, ForecastDecisionIntent.clarifyCommitment) =>
+        'ทดลองข้อตกลงเล็กและดูความสม่ำเสมอก่อนผูกพันเพิ่ม',
+      (ForecastBand.quiet, ForecastDecisionIntent.clarifyCommitment) =>
+        'รอความชัดของเงื่อนไขก่อนเพิ่มข้อผูกพัน',
+      (ForecastBand.strong, ForecastDecisionIntent.preserveRecovery) =>
+        'เพิ่มกิจกรรมได้เมื่อเวลาพักและการฟื้นตัวยังคงพอ',
+      (ForecastBand.active, ForecastDecisionIntent.preserveRecovery) =>
+        'ทดลองกิจกรรมทีละขั้นและใช้การฟื้นตัวจริงเป็นเพดาน',
+      (ForecastBand.quiet, ForecastDecisionIntent.preserveRecovery) =>
+        'ลดกิจกรรมและคืนเวลาฟื้นตัวก่อนรับภาระใหม่',
+    };
+    final transition =
+        plan.horizon == ForecastHorizon.nextLifePeriod && plan.spansTransition
+        ? ' พร้อมเผื่อกำลังสำหรับรอยต่อช่วงชีวิต'
+        : '';
+    final horizonBoundary = switch (plan.horizon) {
+      ForecastHorizon.current =>
+        ' โดยใช้ผลที่เกิดขึ้นในรอบนี้เป็นขอบเขตตัดสินใจ',
+      ForecastHorizon.next12Months =>
+        ' โดยยืนยันจากผลที่เกิดซ้ำระหว่างจุดทบทวนก่อนผูกมัดแผนทั้งปี',
+      ForecastHorizon.nextLifePeriod =>
+        ' โดยตรวจว่าฐานเดิมรองรับรอยต่อได้ก่อนเปลี่ยนภาระระยะยาว',
+    };
+    final riskBoundary = switch (plan.consumerRiskDomain) {
+      LifeDomain.pressure => ' เพราะภาระเกินกำลังจะเบียดพื้นที่ตัดสินใจ',
+      LifeDomain.money => ' เพราะภาระเงินจะลดทางเลือกที่เหลือ',
+      LifeDomain.love => ' เพราะความคาดหวังที่ไม่ตรงกันทำให้ผูกพันเร็วเกินไป',
+      LifeDomain.health => ' เพราะการพักไม่พอจะลดกำลังสำหรับขั้นต่อไป',
+      LifeDomain.career => ' เพราะงานเพิ่มอาจเบียดคุณภาพงานหลัก',
+      _ => '',
+    };
+    return '$decisionCore$riskBoundary$horizonBoundary$transition';
+  }
+
+  static String _riskSignal(String caution, {LifeDomain? riskDomain}) {
+    final risk = caution
+        .replaceAll(' โดยเฉพาะเรื่องแรงกดดัน', '')
+        .replaceAll(RegExp(r'\s*ข้อความนี้ไม่ใช่คำวินิจฉัยทางการแพทย์.*$'), '')
+        .trim();
+    final base = risk.contains('แรงกดดัน') && risk.length < 40 ? '' : risk;
+    return switch (riskDomain) {
+      LifeDomain.love => 'ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน',
+      LifeDomain.money => 'ภาระเงินอาจลดพื้นที่ตัดสินใจในด้านนี้',
+      LifeDomain.health => 'การพักไม่พออาจลดกำลังสำหรับด้านนี้',
+      LifeDomain.career => 'งานหลักอาจถูกภาระด้านนี้เบียดเวลา',
+      _ => base,
+    };
+  }
+
+  static String _specificTopRisk(String risk) {
+    final value = _riskSignal(risk);
+    return value.contains('แรงกดดัน') ? '' : value;
+  }
+
+  static bool _isSemanticallySimilar(String left, String right) {
+    final a = ThaiBetaNarrativeFormatting.normalizedKey(left);
+    final b = ThaiBetaNarrativeFormatting.normalizedKey(right);
+    if (a.isEmpty || b.isEmpty) return false;
+    if (a == b || a.contains(b) || b.contains(a)) return true;
+    Set<String> grams(String value) {
+      if (value.length < 3) return {value};
+      return {
+        for (var i = 0; i <= value.length - 3; i++) value.substring(i, i + 3),
+      };
+    }
+
+    final ag = grams(a);
+    final bg = grams(b);
+    final overlap = ag.intersection(bg).length;
+    final union = ag.union(bg).length;
+    return union > 0 && overlap / union >= 0.72;
+  }
+
+  /// Production path shared by report composition and controlled mutations.
+  static PredictionDomainModel composeForecastForMaterial({
+    required String title,
+    required int windowIndex,
+    required String sourceBody,
+    required String sourceCaution,
+    required ForecastMaterialFingerprint material,
+    ForecastDecisionIntent? decisionIntent,
+  }) {
+    final plan = ForecastDecisionPlan.fromMaterial(
+      material,
+      intent: decisionIntent,
+    );
+    final claim = _forecastClaim(sourceBody, windowIndex, plan);
+    final risk = _riskSignal(
+      sourceCaution,
+      riskDomain: plan.consumerRiskDomain,
+    );
+    final decisionImpact = _decisionImpact(plan);
+    final action = _forecastActionForPlan(plan);
+    final disclosure =
+        plan.evidenceAvailability == ForecastEvidenceAvailability.noLagna
+        ? 'คำอ่านนี้ไม่มีหลักฐานลัคนา จึงใช้เป็นกรอบสังเกตและไม่ฟันธง'
+        : '';
+    return PredictionDomainModel(
+      title: title,
+      body: 'แนวโน้ม: $claim\nผลต่อการตัดสินใจ: $decisionImpact',
+      caution: [
+        if (risk.isNotEmpty) 'ความเสี่ยง: $risk',
+        'แนวทางเตรียมตัว: $action',
+      ].join('\n'),
+      claim: claim,
+      risk: risk,
+      decisionImpact: decisionImpact,
+      preparationAction: action,
+      uncertaintyDisclosure: disclosure,
+      material: material,
+      decisionPlan: plan,
+    );
+  }
+
+  static String _forecastActionForPlan(ForecastDecisionPlan plan) {
+    final horizonLead = switch (plan.horizon) {
+      ForecastHorizon.current => 'ตอนนี้',
+      ForecastHorizon.next12Months => 'ตั้งจุดทบทวนภายใน 12 เดือน',
+      ForecastHorizon.nextLifePeriod when plan.spansTransition =>
+        'ก่อนเปลี่ยนช่วงชีวิต เตรียมรับรอยต่อระยะยาวโดย',
+      ForecastHorizon.nextLifePeriod =>
+        'ก่อนเปลี่ยนช่วงชีวิต เตรียมฐานระยะยาวโดย',
+    };
+    final posture = switch (plan.band) {
+      ForecastBand.strong => 'เลือกทำหนึ่งก้าวและกำหนดเพดานไว้',
+      ForecastBand.active => 'ทดลองทีละขั้นแล้วทบทวนผลจริง',
+      ForecastBand.quiet => 'ชะลอก้าวใหม่และเก็บข้อมูลจริง',
+    };
+    final horizonProtocol = switch (plan.horizon) {
+      ForecastHorizon.current => 'ลงมือหนึ่งรอบแล้วตรวจผลทันที',
+      ForecastHorizon.next12Months =>
+        'บันทึกผลทุกจุดทบทวนก่อนเพิ่มข้อผูกมัดรอบถัดไป',
+      ForecastHorizon.nextLifePeriod =>
+        'ทดลองฐานใหม่ในขอบเขตเล็กก่อนย้ายภาระระยะยาว',
+    };
+    final riskResponse = switch (plan.consumerRiskDomain) {
+      LifeDomain.pressure => 'ลดภาระทันทีเมื่อภาระเริ่มเกินกำลัง',
+      LifeDomain.money => 'หยุดเพิ่มภาระเงินเมื่อความเสี่ยงเริ่มเกิด',
+      LifeDomain.love => 'ชะลอข้อตกลงเมื่อความสัมพันธ์ยังไม่ชัด',
+      LifeDomain.health => 'ลดกิจกรรมเมื่อการฟื้นตัวไม่พอ',
+      LifeDomain.career => 'หยุดรับงานเพิ่มเมื่องานหลักเริ่มถูกเบียด',
+      _ => 'ชะลอและทบทวนเมื่อความเสี่ยงนี้เริ่มเกิด',
+    };
+    final decisionStep = switch (plan.intent) {
+      ForecastDecisionIntent.protectCoreWork =>
+        'จัดลำดับงานหลักก่อนรับบทบาทเพิ่ม',
+      ForecastDecisionIntent.preserveLiquidity =>
+        'กันเงินพร้อมใช้ก่อนเพิ่มภาระ',
+      ForecastDecisionIntent.clarifyCommitment =>
+        'คุยเงื่อนไขให้ชัดก่อนเพิ่มข้อผูกพัน',
+      ForecastDecisionIntent.preserveRecovery =>
+        'รักษาเวลาฟื้นตัวก่อนเพิ่มกิจกรรม',
+    };
+    if (plan.evidenceAvailability == ForecastEvidenceAvailability.noLagna) {
+      return '$horizonLead บันทึกผลจริงหนึ่งรอบก่อน แล้วค่อย$decisionStep; '
+          '$horizonProtocol; หากข้อมูลยังไม่ชัดให้ชะลอไว้และ$riskResponse';
+    }
+    return '$horizonLead $decisionStep โดย$posture; '
+        '$horizonProtocol; $riskResponse';
+  }
+
+  // Legacy fallback retained for callers that still construct unpolished cards.
+  // ignore: unused_element
+  static String _forecastAction(
+    String title,
+    int windowIndex,
+    ForecastMaterialFingerprint material,
+  ) {
+    final constrained = material.band == ForecastBand.quiet;
+    final strong = material.band == ForecastBand.strong;
+    if (windowIndex == 0) {
+      return switch (title) {
+        'การงาน' =>
+          constrained
+              ? 'ตอนนี้ตัดงานรองหนึ่งเรื่องและกันเวลาแก้ข้อจำกัดของงานหลัก'
+              : strong
+              ? 'ตอนนี้เลือกงานที่มีโอกาสเห็นผลชัดหนึ่งเรื่องและกำหนดเพดานบทบาทเพิ่ม'
+              : 'ตอนนี้เลือกงานหลักหนึ่งเรื่องและกำหนดเพดานงานเพิ่มไม่ให้เกินเวลาที่มี',
+        'การเงิน' =>
+          constrained
+              ? 'ตอนนี้ชะลอรายจ่ายก้อนใหม่และตรวจเงินพร้อมใช้ก่อนตัดสินใจ'
+              : strong
+              ? 'ตอนนี้กันรายได้ส่วนเพิ่มเป็นเงินสำรองก่อนขยายค่าใช้จ่าย'
+              : 'ตอนนี้กันส่วนหนึ่งของเงินเข้าเป็นสำรองก่อนรับรายจ่ายหรือภาระเพิ่ม',
+        'ความรัก' =>
+          constrained
+              ? 'ตอนนี้ถามความคาดหวังที่ยังไม่ได้พูดให้ชัดก่อนเพิ่มข้อผูกพัน'
+              : strong
+              ? 'ตอนนี้คุยเรื่องค้างคาให้จบและตกลงการกระทำที่ต้องทำต่อเนื่องร่วมกัน'
+              : 'ตอนนี้คุยเรื่องที่ค้างคาและเทียบคำพูดกับการกระทำที่เกิดขึ้นจริง',
+        'สุขภาพ' =>
+          constrained
+              ? 'ตอนนี้ลดกิจกรรมที่ไม่จำเป็นและจัดเวลาพักก่อนความล้าเพิ่ม'
+              : strong
+              ? 'ตอนนี้รักษาเวลานอนและวันพักไว้ก่อนเพิ่มกิจกรรมใหม่'
+              : 'ตอนนี้กำหนดเวลานอนและวันพักให้พอกับกิจกรรมที่ทำจริง',
+        _ => 'ตอนนี้ทบทวนสิ่งที่เกิดขึ้นจริงก่อนเพิ่มภาระ',
+      };
+    }
+    if (windowIndex == 1) {
+      return switch (title) {
+        'การงาน' =>
+          constrained
+              ? 'ตั้งจุดทบทวนใน 12 เดือนเมื่อข้อจำกัดเดิมยังทำให้งานหลักล่าช้า'
+              : strong
+              ? 'ตั้งหมุดผลลัพธ์ใน 12 เดือนและทบทวนเมื่อบทบาทใหม่ลดคุณภาพงานหลัก'
+              : 'ตั้งจุดทบทวนใน 12 เดือนเมื่อภาระใหม่เริ่มเบียดเวลาของงานหลัก',
+        'การเงิน' =>
+          constrained
+              ? 'ตั้งจุดทบทวนใน 12 เดือนเมื่อเงินพร้อมใช้ลดลงหรือรายจ่ายก้อนใหม่เกิดขึ้น'
+              : strong
+              ? 'ตั้งเป้าเงินสำรองใน 12 เดือนและทบทวนเมื่อรายจ่ายโตเร็วกว่าส่วนเพิ่ม'
+              : 'ตั้งจุดทบทวนใน 12 เดือนเมื่อรายจ่ายประจำหรือภาระผูกพันเพิ่มขึ้น',
+        'ความรัก' =>
+          constrained
+              ? 'ตั้งจุดทบทวนใน 12 เดือนเมื่อความคาดหวังยังไม่ถูกพูดให้ชัด'
+              : strong
+              ? 'ตั้งจุดทบทวนใน 12 เดือนว่าข้อตกลงใหม่ถูกทำต่อเนื่องจริงหรือไม่'
+              : 'ตั้งจุดทบทวนใน 12 เดือนเมื่อคำพูดและการกระทำเริ่มไม่สอดคล้องกัน',
+        'สุขภาพ' =>
+          constrained
+              ? 'ตั้งจุดทบทวนใน 12 เดือนเมื่อความล้ายังเกิดซ้ำแม้ลดภาระแล้ว'
+              : strong
+              ? 'ตั้งจุดทบทวนใน 12 เดือนเมื่อกิจกรรมเพิ่มแต่เวลาฟื้นตัวยังเท่าเดิม'
+              : 'ตั้งจุดทบทวนใน 12 เดือนเมื่อเวลาพักไม่พอกับภาระที่เพิ่มขึ้น',
+        _ => 'กำหนดจุดทบทวนในกรอบ 12 เดือนจากผลที่เกิดขึ้นจริง',
+      };
+    }
+    return switch (title) {
+      'การงาน' =>
+        constrained
+            ? 'ก่อนเปลี่ยนช่วงชีวิต เตรียมแก้ข้อจำกัดเดิมและกำหนดขอบเขตบทบาทระยะยาว'
+            : strong
+            ? 'ก่อนเปลี่ยนช่วงชีวิต เตรียมรักษางานที่ให้ผลชัดและวางเพดานบทบาทระยะยาว'
+            : 'ก่อนเปลี่ยนช่วงชีวิต เตรียมทักษะและขอบเขตงานที่รองรับบทบาทระยะยาว',
+      'การเงิน' =>
+        constrained
+            ? 'ก่อนเปลี่ยนช่วงชีวิต เตรียมฐานสภาพคล่องก่อนวางภาระผูกพันระยะยาว'
+            : strong
+            ? 'ก่อนเปลี่ยนช่วงชีวิต เตรียมรักษาส่วนเพิ่มเป็นทุนสำรองสำหรับภาระระยะยาว'
+            : 'ก่อนเปลี่ยนช่วงชีวิต เตรียมเงินสำรองและทบทวนภาระผูกพันระยะยาว',
+      'ความรัก' =>
+        constrained
+            ? 'ก่อนเปลี่ยนช่วงชีวิต เตรียมทำความคาดหวังให้ชัดก่อนวางเป้าหมายร่วมระยะยาว'
+            : strong
+            ? 'ก่อนเปลี่ยนช่วงชีวิต เตรียมเปลี่ยนความชัดที่มีเป็นข้อตกลงร่วมระยะยาว'
+            : 'ก่อนเปลี่ยนช่วงชีวิต เตรียมคุยเป้าหมายและขอบเขตร่วมกันในระยะยาว',
+      'สุขภาพ' =>
+        constrained
+            ? 'ก่อนเปลี่ยนช่วงชีวิต เตรียมลดภาระและวางกิจวัตรพักฟื้นระยะยาว'
+            : strong
+            ? 'ก่อนเปลี่ยนช่วงชีวิต เตรียมรักษากิจวัตรที่รองรับพลังและการฟื้นตัวระยะยาว'
+            : 'ก่อนเปลี่ยนช่วงชีวิต เตรียมกิจวัตรพักฟื้นที่ทำต่อเนื่องได้ในระยะยาว',
+      _ => 'ก่อนเปลี่ยนช่วงชีวิต เตรียมฐานที่ต้องใช้ต่อเนื่องในระยะยาว',
+    };
+  }
+
+  static String _consumerOpportunityLine(String value) {
+    const allowed = {'การงาน', 'การเงิน', 'ความรัก', 'สุขภาพ', 'การเติบโต'};
+    final domains = allowed.where(value.contains).toList(growable: false);
+    if (domains.isEmpty) return '';
+    return 'ด้านที่มีแรงสนับสนุนในช่วงถัดไป: ${domains.join(' · ')}';
+  }
+
+  static String _dedupeOpportunity(String summary, String opportunity) {
+    final summaryKey = ThaiBetaNarrativeFormatting.normalizedKey(summary);
+    final opportunityKey = ThaiBetaNarrativeFormatting.normalizedKey(
+      opportunity,
+    );
+    const topics = [
+      'การงาน',
+      'การเงิน',
+      'ความรัก',
+      'สุขภาพ',
+      'การเติบโต',
+      'โอกาส',
+    ];
+    final sameSupportedTopic = topics.any(
+      (topic) => summaryKey.contains(topic) && opportunityKey.contains(topic),
+    );
+    if (sameSupportedTopic) {
+      return '';
+    }
+    return opportunity;
   }
 
   static ({

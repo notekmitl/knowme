@@ -44,7 +44,15 @@ abstract final class PredictionComposer {
       if (preds.isEmpty) continue;
       final window = _windowFor(intelligence, kind);
       if (window == null) continue;
-      cards.add(_card(kind, window, preds, seed + i * 97));
+      cards.add(
+        _card(
+          kind,
+          window,
+          preds,
+          seed + i * 97,
+          hasLagna: intelligence.context.hasLagna,
+        ),
+      );
     }
     if (cards.isEmpty) return null;
 
@@ -79,8 +87,9 @@ abstract final class PredictionComposer {
     PredictionWindowKind kind,
     PredictionWindow window,
     List<Prediction> preds,
-    int seed,
-  ) {
+    int seed, {
+    required bool hasLagna,
+  }) {
     final lead = _lead(preds);
     final oppDomain = _topOpportunityDomain(preds);
     final riskDomain = _topRiskDomain(preds);
@@ -108,15 +117,16 @@ abstract final class PredictionComposer {
       whyNow: PredictionReasonCopy.whyNow(lead.timingReason, seed),
       whatToWatch: whatToWatch,
       evidenceDetail: _evidenceDetail(lead, seed),
-      domains: _domainForecasts(kind, preds, seed),
+      domains: _domainForecasts(kind, preds, seed, hasLagna: hasLagna),
     );
   }
 
   static List<PredictionDomainModel> _domainForecasts(
     PredictionWindowKind kind,
     List<Prediction> predictions,
-    int seed,
-  ) {
+    int seed, {
+    required bool hasLagna,
+  }) {
     final byCategory = {
       for (final prediction in predictions) prediction.category: prediction,
     };
@@ -127,8 +137,42 @@ abstract final class PredictionComposer {
             title: PredictionReasonCopy.categoryLabel(prediction.category),
             body: _domainBody(kind, prediction),
             caution: _domainCaution(prediction, seed + i * 31),
+            material: _materialFingerprint(
+              kind,
+              prediction,
+              hasLagna: hasLagna,
+            ),
           ),
     ];
+  }
+
+  static ForecastMaterialFingerprint _materialFingerprint(
+    PredictionWindowKind kind,
+    Prediction prediction, {
+    required bool hasLagna,
+  }) {
+    final band = prediction.score.strength >= 68
+        ? ForecastBand.strong
+        : prediction.score.strength >= 48
+        ? ForecastBand.active
+        : ForecastBand.quiet;
+    final risks = [...prediction.risks]
+      ..sort((a, b) {
+        final magnitude = b.magnitude.compareTo(a.magnitude);
+        return magnitude != 0
+            ? magnitude
+            : a.domain.index.compareTo(b.domain.index);
+      });
+    return ForecastMaterialFingerprint(
+      horizon: ForecastHorizon.values.byName(kind.name),
+      domain: ForecastDomain.values.byName(prediction.category.name),
+      band: band,
+      riskDomain: risks.isEmpty ? null : risks.first.domain,
+      evidenceAvailability: hasLagna
+          ? ForecastEvidenceAvailability.full
+          : ForecastEvidenceAvailability.noLagna,
+      spansTransition: prediction.window.spansTransition,
+    );
   }
 
   static String _domainBody(PredictionWindowKind kind, Prediction prediction) {
