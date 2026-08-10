@@ -28,3 +28,11 @@ Fix Set 02 R2 failed Product Acceptance. Fix Set 03 makes ISO date tokens atomic
 Owner decision: `PRODUCT_ACCEPTANCE_PASS — ROUND 9 FIX SET 03` on 2026-08-10. The owner reviewed 34/34 final PDF renders and both final Web screenshots and confirmed the ISO date-token, fortune-heading ownership, icon-glyph, and debug-banner defects fixed. PR #86 is authorized for final integration; merge and deployment are not recorded as complete until their gates and Production verification pass.
 
 R2 remains historical failed-acceptance evidence. The older 126/124-page candidate was inspected only for Known pages 1–40; the remaining 210 pages were explicitly waived, not reviewed or passed.
+
+## Final integration and Production
+
+- PR #86 merged at 2026-08-10T08:38:51Z; merge commit `a516d574b7cdd90d530026bf281cc41642471afa`.
+- Official `scripts/deploy_web.ps1` completed for Firebase project `knowme-app-694e1`; Firestore rules compiled/released and Hosting released 78 files.
+- Production root and `/beta/thai`: HTTP 200. `flutter_bootstrap.js` and `main.dart.js` are cache-pinned to `a516d57`.
+- Synthetic Known-time 10:00 and Unknown-time application flows reached Production results. Known exposed time-supported chart structure; Unknown omitted time-dependent facts. ISO `2001-01-15`, icon glyphs, accordion controls, and absence of the harness debug banner were visually confirmed.
+- Production PDF download was not re-verified because direct navigation to `/beta/thai/capture` resets the in-memory current analysis and displayed the expected no-current-report state. Accepted 17/17-page PDFs and their hashes remain the acceptance evidence; no claim is made that a new Production PDF was downloaded.
