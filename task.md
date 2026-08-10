@@ -13,6 +13,8 @@ Draft PR #86 remains the only delivery vehicle. Round 9 Fix Set 02 R2 passed pac
 - Owner reviewed all 34/34 final PDF renders and both final Web screenshots. The ISO date-token split, fortune-heading ownership, missing icon glyphs, and harness debug banner are confirmed fixed.
 - PR #86 merged as `a516d574b7cdd90d530026bf281cc41642471afa` on 2026-08-10 and was deployed to Firebase Hosting project `knowme-app-694e1`.
 - Production root and `/beta/thai` returned HTTP 200 with cache-pinned assets `a516d57`. Synthetic Known-time (10:00) and Unknown-time flows reached results successfully; Unknown remained fail-closed.
-- Production PDF download was not re-verified: direct navigation to `/beta/thai/capture` resets the in-memory analysis session and correctly showed no current report.
+- Production PDF download verification passed on 2026-08-10 at 16:49–16:56 +07:00. Known-time and Unknown-time analyses used the live `/beta/thai` UI; each result-page export action entered Capture Mode inside the same SPA session before the real PDF download button was clicked. No direct `/capture` navigation was used.
+- Known Production PDF: `knowme-thai-report (15).pdf`; 59,590 bytes; 17 pages; SHA-256 `7A88C0BDF46FC4297FBFE28F6DAC4444725E0B56D8D5F165D1D6AFF298A58915`.
+- Unknown Production PDF: `knowme-thai-report (16).pdf`; 59,563 bytes; 17 pages; SHA-256 `6F3E995942314F01E7FB79A5FC27A979C73BFA9734CA40C91AA3288273218A40`.
 
 Do not create Round 10. Production remains `public_beta`; Auth, audience, API deployment, flags, and Production data were not changed.

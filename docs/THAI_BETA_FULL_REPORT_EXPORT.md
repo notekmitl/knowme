@@ -207,3 +207,12 @@ Disclosure is rendered as `ข้อจำกัดของคำอ่าน` 
 Fix Set 03 makes ISO date tokens atomic while retaining ASCII hyphens and recognizes `โชคลาภ` as a separate domain heading. The acceptance screenshot harness loads Material Icons and suppresses its debug banner. Acceptance audits hash the final PDFs before checking semantic coherence and all 34 renders. The failed R2 visual log is not carried forward: a new full-resolution review covered every final page and both final screenshots. Historical inspection of the rejected 126/124-page candidate covered Known pages 1–40 only; the remaining 210 pages were waived, not passed. Page counts, hashes, and manual-upload status are authoritative in `TASK_RESULT.md`.
 
 Rounds 5–7 export notes are historical and superseded by this contract.
+
+## Production download verification — 2026-08-10
+
+Production `https://knowme-app-694e1.web.app` served cache pin `a516d57`. Known-time 10:00 and Unknown-time analyses started at `/beta/thai`; the export action at the bottom of each result navigated inside the same SPA session to Capture Mode, preserving `ThaiBetaCurrentAnalysis.current`. The real download button was then clicked. Direct `/capture` navigation was not used.
+
+- Known: `knowme-thai-report (15).pdf`; 59,590 bytes; 17 pages; SHA-256 `7A88C0BDF46FC4297FBFE28F6DAC4444725E0B56D8D5F165D1D6AFF298A58915`.
+- Unknown: `knowme-thai-report (16).pdf`; 59,563 bytes; 17 pages; SHA-256 `6F3E995942314F01E7FB79A5FC27A979C73BFA9734CA40C91AA3288273218A40`.
+
+Both Production files parsed and rendered on every page. Visual review found no true blank page, clipping, overflow, footer overlap, debug/sample/test marker, or Markdown leakage. ISO dates remained atomic and `โชคลาภ` remained a separate card from `สุขภาพ`. Known retained time-qualified Lagna/house facts; Unknown omitted their values and included explicit fail-closed reasons. The export document does not render submitted name fields; birth date and analysis mode matched the live fixtures. Runtime hashes are independent of the accepted Product Acceptance artifact hashes.
