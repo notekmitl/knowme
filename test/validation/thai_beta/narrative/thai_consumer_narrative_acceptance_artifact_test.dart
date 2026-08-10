@@ -119,6 +119,7 @@ Future<void> _capture(
     RepaintBoundary(
       key: repaintKey,
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           fontFamily: thaiFont.existsSync() ? acceptanceFontFamily : null,
         ),
