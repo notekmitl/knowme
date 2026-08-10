@@ -1,32 +1,26 @@
-# Thai Consumer Narrative Voice V1 — Round 9 Fix Set 02
+# Thai Consumer Narrative Voice V1 — Round 9 Fix Set 03
 
 ## Result
 
-The original Round 9 ZIP was recovered and owner-verified: SHA-256 `46BF38A0D295CD0B5D22539D175085D0937305649689D957CB4B5464A749F198`, 4,817,296 bytes, 61 entries, Known PDF 16 pages (`2F07E72FE3BBBE634E786BBC2148AFDA317CDC349D1944F511AFADD43EA8EE50`), and Unknown PDF 15 pages (`9E0632CC2D3F442610F406742D8EBB5B3005508364E0E7886D2E4165D9008A44`). Owner review returned **REVISE — PRODUCT ACCEPTANCE FAILED**.
-
-Fix Set 02 corrects the actual raster clipping, omits unsupported empty periods, derives Risk/Decision/Action from typed consumer-risk domains, and compares horizon semantics after removing time-only boilerplate. The initial `05f9a58` candidate is **WITHDRAWN — INTERNAL QA INCOMPLETE** because forced one-block-per-page pagination produced 126/124 pages and the visual review was incomplete. Revision 1 restores dense atomic pagination without changing Web content.
-
-Owner Gate Amendment: complete inspection of the rejected historical candidate is **WAIVED BY OWNER — candidate already rejected and root cause proven**. Actual historical inspection covered Known pages 1–40 only; the remaining 210 pages were waived, not passed. Final-artifact acceptance evidence remains the 34/34-page full-resolution review.
+Fix Set 02 R2 failed Product Acceptance. Fix Set 03 makes ISO date tokens atomic without changing their visible ASCII hyphens, recognizes `โชคลาภ` as a separate semantic domain heading, loads Material Icons in the screenshot harness, and suppresses the harness-only debug banner found during new visual QA. The R2 visual result was discarded rather than carried forward.
 
 ## Validation
 
-- Source-tested commit: `48c9a24d23d9d5f13110cc757fc6011e753b0b69`.
-- Full suite: 1,527 tests passed; focused raster/period/coherence/horizon regressions passed.
-- Synthetic audit: 300/300; gate self-test: 9/9.
-- PreCommit and PostCommit passed; changed Dart files have zero diagnostics. Repository analyze retains 299 pre-existing findings.
-- Exporters and desktop/mobile screenshot generators exited 0.
-- Known/Unknown Web/PDF semantic text is byte-identical per mode.
-- Poppler 120 DPI render: 34/34 pages. Every page was opened individually at full resolution; 0 clipping, overflow, orphan-heading, blank-page, decoration-fragment, or footer-overlap defects.
+- Source-tested commit: `73d1fa0e539b5ebdf42750078135a70cd1cadd01`.
+- Final gate: 1,529 tests passed; focused exporter/narrative suite 44 passed; synthetic audit 300/300; self-test 9/9.
+- Analyze: 299 pre-existing findings; no changed-file diagnostic. PreCommit and PostCommit passed.
+- Web/PDF semantic text parity: exact in Known and Unknown modes.
+- Known PDF: 17 pages; SHA-256 `71BCD6C3B1954DD948FA381A9129BA16DA5618603B90C8F4BDBC06C3F6DE9D67`.
+- Unknown PDF: 17 pages; SHA-256 `60B2EF5B83440BA6674AA18B6C8DF8C13432AF092432D6E5844C75A05594E928`.
+- New full-resolution review: 34/34 PDF renders and both final Web screenshots passed. Known p1, Known p8, and Unknown p6 received defect-specific checks.
 
 ## Final packet
 
-Packet: `C:\Users\USER\knowme\product-acceptance\thai-consumer-narrative-voice-v1-round9-fixset-02-r2-48c9a24`.
+- Folder: `C:\Users\USER\knowme\product-acceptance\thai-consumer-narrative-voice-v1-round9-fixset-03-r1-73d1fa0`.
+- ZIP: `C:\Users\USER\knowme\product-acceptance\thai-consumer-narrative-voice-v1-round9-fixset-03-r1-73d1fa0.zip`.
+- Owner copy: `C:\Users\USER\Downloads\thai-consumer-narrative-voice-v1-round9-fixset-03-r1-73d1fa0.zip`.
+- ZIP: 4,737,585 bytes; 66 entries; SHA-256 `23E617EA0E703A271791A8658D3CD2ED91B9732450AD744E5A065E39F1307ED0`.
+- `SHA256SUMS.txt`: 65/65 payload entries verified inside the ZIP.
+- Audit inventory: 23 Markdown reports, including the owner amendment, defect correction, raster regression, verification, and new 34-row visual log.
 
-- Known PDF: `known-time-report.pdf`; 17 A4 pages; SHA-256 `F7315EB6A69FE5AEAB1D085E588FCBC7132DF2537B76E56CD303E628F0E960D0`.
-- Unknown PDF: `unknown-time-report.pdf`; 17 A4 pages; SHA-256 `86969DC6B30C15C41809B98F8082627D8BE5626CA3541033173A77305D0C95F5`.
-- ZIP: `thai-consumer-narrative-voice-v1-round9-fixset-02-r2-48c9a24.zip`; 4,759,125 bytes; 65 entries; SHA-256 `16789716157E5F06DBE0A6D1903915BD2A82F9550491D1BD30645D634EF1EBBD`.
-- `SHA256SUMS.txt`: 64/64 payload entries verified inside the ZIP.
-- Audit inventory: 22 Markdown reports, including `OWNER_GATE_AMENDMENT.md`; visual log remains 34 rows.
-- Owner copy: `C:\Users\USER\Downloads\thai-consumer-narrative-voice-v1-round9-fixset-02-r2-48c9a24.zip`; copied-file hash matches.
-
-Product Acceptance remains pending owner manual upload and re-review. PR #86 must remain OPEN, Draft, and unmerged. No merge, deploy, or Production change is authorized.
+Product Acceptance remains pending manual upload and owner re-review. PR #86 must remain OPEN, Draft, unmerged, and undeployed.

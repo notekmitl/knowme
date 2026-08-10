@@ -198,10 +198,12 @@ the supported export path.
 ---
 
 **Report content / engine / Canon / badge policy unchanged — export packaging + presentation polish only.**
-## Active Round 9 forecast export contract
+## Active Round 9 Fix Set 03 export contract
 
-Product Acceptance is pending. Web and PDF export the same Claim, Risk, Decision Impact, Action, and separate uncertainty-disclosure values from the shared presentation model. PDF code never reconstructs predictive fields or parses audit fingerprints.
+Product Acceptance is pending owner manual upload and re-review. Web and PDF export the same Claim, Risk, Decision Impact, Action, and separate uncertainty-disclosure values from the shared presentation model. PDF code never reconstructs predictive fields or parses audit fingerprints.
 
-Disclosure is rendered as `ข้อจำกัดของคำอ่าน` after the four predictive fields and is excluded from cross-mode semantic comparison. Decision Impact and Action come from the same typed `ForecastDecisionPlan`; the exporter renders their composed strings without rebuilding or inferring intent. Unknown-time Action independently requires a real-result checkpoint. Acceptance audits hash the final PDFs before inspecting semantic coherence and every rendered page. The original Round 9 ZIP failed Product Acceptance; complete review of its rejected 126/124-page successor is **WAIVED BY OWNER — candidate already rejected and root cause proven**, not passed. R2 carries forward the complete 34-page visual review only after verifying byte-identical final PDF hashes. Page counts, hashes, and manual-upload status are authoritative in `TASK_RESULT.md`. Product Acceptance remains pending owner re-review.
+Disclosure is rendered as `ข้อจำกัดของคำอ่าน` after the four predictive fields and is excluded from cross-mode semantic comparison. Decision Impact and Action come from the same typed `ForecastDecisionPlan`; the exporter renders their composed strings without rebuilding or inferring intent. Unknown-time Action independently requires a real-result checkpoint.
+
+Fix Set 03 makes ISO date tokens atomic while retaining ASCII hyphens and recognizes `โชคลาภ` as a separate domain heading. The acceptance screenshot harness loads Material Icons and suppresses its debug banner. Acceptance audits hash the final PDFs before checking semantic coherence and all 34 renders. The failed R2 visual log is not carried forward: a new full-resolution review covered every final page and both final screenshots. Historical inspection of the rejected 126/124-page candidate covered Known pages 1–40 only; the remaining 210 pages were waived, not passed. Page counts, hashes, and manual-upload status are authoritative in `TASK_RESULT.md`.
 
 Rounds 5–7 export notes are historical and superseded by this contract.

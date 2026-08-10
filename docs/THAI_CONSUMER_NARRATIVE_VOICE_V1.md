@@ -1,38 +1,13 @@
 # Thai Consumer Narrative Voice V1
 
-## Status — Round 9 Product Acceptance Fix Set 02
+## Status — Round 9 Product Acceptance Fix Set 03
 
-The original Round 9 ZIP failed Product Acceptance, and the `05f9a58` candidate is rejected. Historical Candidate complete visual review is **WAIVED BY OWNER — candidate already rejected and root cause proven**; actual inspection covered Known pages 1–40 only. R2 preserves source-tested SHA `48c9a24d23d9d5f13110cc757fc6011e753b0b69`, byte-identical 17/17-page PDFs, and the completed 34/34 final-page visual review. Artifact hashes are recorded in `TASK_RESULT.md`. Product Acceptance remains pending owner manual upload and re-review. Draft PR #86 remains OPEN, Draft, unmerged, and undeployed.
+Fix Set 02 R2 failed Product Acceptance. Fix Set 03 is source-tested at `73d1fa0e539b5ebdf42750078135a70cd1cadd01` and corrects ISO token wrapping, `โชคลาภ` semantic ownership, and screenshot icon glyphs. A new 34-page plus two-screenshot full-resolution review passed; the failed R2 visual result was not reused. Artifact hashes are recorded in `TASK_RESULT.md`. Product Acceptance remains pending owner manual upload and re-review. Draft PR #86 remains OPEN, Draft, unmerged, and undeployed.
 
-## Typed forecast contract
+## Forecast contract
 
-Each horizon/domain block owns Claim, Risk, Decision Impact, Action, and a separate non-predictive uncertainty disclosure. Web and PDF consume the same model.
+Each horizon/domain block owns Claim, Risk, Decision Impact, Action, and a separate non-predictive uncertainty disclosure. Web and PDF consume the same typed presentation model. Decision Impact and Action derive from the same `ForecastDecisionPlan`; consumer prose is not parsed to infer intent.
 
-`ForecastMaterialFingerprint` owns horizon, domain, band, risk domain, real evidence availability, and transition. `ForecastDecisionPlan` is derived before prose and adds the decision intent. Decision Impact and Action are composed from that same plan; consumer prose is never parsed to infer intent.
+Current owns immediate action, Next 12 Months owns a checkpoint within 12 months, and Next Life Period owns transition preparation. Unknown time remains fail-closed and does not substitute noon or expose unsupported astrological-day, Lagna, or house facts. Accepted 00:03 and 00:35 behavior remains unchanged.
 
-Claim responds to horizon/domain/band. Risk responds to horizon/domain/risk domain. Decision responds to horizon/domain/band/risk/intent and next-period transition. Action responds to every plan component, including noLagna behavior. Disclosure belongs to no predictive projection.
-
-## Mutation and matrix authority
-
-Controlled mutations call the production composition path again from typed input. Reports separate:
-
-- negative gate detection coverage, proving stale output is rejected;
-- production generation sensitivity, proving band, risk, availability, and transition regenerate affected fields;
-- actual observed and cross-mode difference coverage;
-- four-field comparison coverage.
-
-Actual matrix identity is `profileCaseId/horizon/domain`. `profileCaseId` is deterministic fixture metadata with no name or birth data. Pairing is one-to-one and order-independent. Duplicate, missing, and unexpected identities fail in both directions.
-
-Shared output means equal, bidirectionally contained, or semantically similar predictive text under different projections. Disclosure is excluded. Any shared output without evidence-backed justification fails; otherwise zero is reported honestly.
-
-## Horizon ownership and safety
-
-- Current owns immediate action.
-- Next 12 months owns an explicit checkpoint within 12 months.
-- Next life period owns preparation for the transition; transition changes output only there.
-
-Unknown time never substitutes noon or exposes unsupported astrological day, sunrise, Lagna, or houses. Accepted 00:03 Aquarius 9°24′ Saturday and 00:35 Aquarius 19°19′ Saturday remain unchanged. Engine, Canon, evidence meaning, calculations, timelines, routes, flags, Production, and Thai Mirror defaults are outside scope.
-
-## Historical Acceptance
-
-Rounds 3–8 failed Product Acceptance and do not represent current readiness.
+The historical 126/124-page candidate was inspected only for Known pages 1–40; the owner waived the remaining 210 pages. This is not a complete historical Visual QA pass. Rounds 3–8 and failed Round 9 candidates do not represent current readiness.
