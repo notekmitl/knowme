@@ -81,14 +81,37 @@ Future<void> _capture(
   required Size size,
   required File file,
 }) async {
+  // Widget-test captures do not automatically load the Material Icons font.
+  // Load the SDK artifact before painting so icons do not become missing-glyph
+  // squares in the acceptance screenshots.
+  var ancestor = Directory(Platform.resolvedExecutable).parent;
+  File? materialIcons;
+  for (var depth = 0; depth < 6 && materialIcons == null; depth++) {
+    for (final suffix in [
+      'artifacts/material_fonts/materialicons-regular.otf',
+      'material_fonts/materialicons-regular.otf',
+    ]) {
+      final candidate = File('${ancestor.path}/$suffix');
+      if (candidate.existsSync()) materialIcons = candidate;
+    }
+    ancestor = ancestor.parent;
+  }
+  if (materialIcons == null) {
+    throw StateError('Material Icons font is unavailable in the Flutter SDK');
+  }
+  await (FontLoader('MaterialIcons')..addFont(
+        Future<ByteData>.value(
+          ByteData.sublistView(materialIcons.readAsBytesSync()),
+        ),
+      ))
+      .load();
   const acceptanceFontFamily = 'KnowMeAcceptanceThai';
   final thaiFont = File(r'C:\Windows\Fonts\tahoma.ttf');
   if (thaiFont.existsSync()) {
     final fontBytes = thaiFont.readAsBytesSync();
-    await (FontLoader(acceptanceFontFamily)..addFont(
-          Future<ByteData>.value(ByteData.sublistView(fontBytes)),
-        ))
-        .load();
+    await (FontLoader(
+      acceptanceFontFamily,
+    )..addFont(Future<ByteData>.value(ByteData.sublistView(fontBytes)))).load();
   }
   await tester.binding.setSurfaceSize(size);
   final repaintKey = GlobalKey();

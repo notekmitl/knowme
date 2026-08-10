@@ -13,9 +13,36 @@ class _PdfSemanticBlock {
   final List<String> paragraphs;
 }
 
-const _domainHeadings = {'การงาน', 'การเงิน', 'ความรัก', 'สุขภาพ'};
+const _domainHeadings = {'การงาน', 'การเงิน', 'ความรัก', 'สุขภาพ', 'โชคลาภ'};
 
-String _pdfSafeText(String value) => value;
+final _isoDatePattern = RegExp(r'(?<!\d)\d{4}-\d{2}-\d{2}(?!\d)');
+
+/// Keeps each ISO date in an inline widget so the visible token uses ordinary
+/// ASCII hyphens but can move only as a whole to the next line.
+pw.Widget _pdfText(String value, {required pw.TextStyle style}) {
+  final matches = _isoDatePattern.allMatches(value).toList(growable: false);
+  if (matches.isEmpty) return pw.Text(value, style: style);
+  final spans = <pw.InlineSpan>[];
+  var offset = 0;
+  for (final match in matches) {
+    if (match.start > offset) {
+      spans.add(pw.TextSpan(text: value.substring(offset, match.start)));
+    }
+    spans.add(
+      pw.WidgetSpan(
+        child: pw.Text(match.group(0)!, style: style),
+        style: style,
+      ),
+    );
+    offset = match.end;
+  }
+  if (offset < value.length) {
+    spans.add(pw.TextSpan(text: value.substring(offset)));
+  }
+  return pw.RichText(
+    text: pw.TextSpan(style: style, children: spans),
+  );
+}
 
 // Build a fresh, height-bounded semantic unit. Each unit is small enough for
 // MultiPage to keep together while still allowing several units on one page.
@@ -154,9 +181,14 @@ abstract final class ThaiBetaReportPdfExporter {
           i == 0 ? section.title : '${section.title} (ต่อ)',
           if (blocks[i].heading != null) blocks[i].heading!,
           ...blocks[i].paragraphs,
-        ].map(_pdfSafeText).join('\n'),
+        ].join('\n'),
     ];
   }
+
+  static List<String> debugIsoDateTokensForTest(String value) => _isoDatePattern
+      .allMatches(value)
+      .map((match) => match.group(0)!)
+      .toList(growable: false);
 
   static Future<(pw.Font, pw.Font, pw.Font, pw.Font)> _loadFonts() {
     return _fonts ??= () async {
@@ -301,7 +333,7 @@ abstract final class ThaiBetaReportPdfExporter {
               );
               for (final paragraph in section.paragraphs.skip(1)) {
                 widgets.add(pw.SizedBox(height: 6));
-                widgets.add(pw.Text(paragraph, style: disclaimerStyle));
+                widgets.add(_pdfText(paragraph, style: disclaimerStyle));
               }
               continue;
             }
@@ -320,14 +352,14 @@ abstract final class ThaiBetaReportPdfExporter {
                   .take(firstParagraphCount)
                   .toList(growable: false);
               final firstUnitChildren = <pw.Widget>[
-                pw.Text(_pdfSafeText(heading), style: sectionStyle),
+                _pdfText(heading, style: sectionStyle),
                 if (block.heading != null) ...[
                   pw.SizedBox(height: 8),
-                  pw.Text(_pdfSafeText(block.heading!), style: sectionStyle),
+                  _pdfText(block.heading!, style: sectionStyle),
                 ],
                 for (final paragraph in firstParagraphs) ...[
                   pw.SizedBox(height: 8),
-                  pw.Text(paragraph, style: baseStyle),
+                  _pdfText(paragraph, style: baseStyle),
                 ],
               ];
               if (isTimeline) {
@@ -383,20 +415,17 @@ abstract final class ThaiBetaReportPdfExporter {
                       child: pw.Column(
                         crossAxisAlignment: pw.CrossAxisAlignment.start,
                         children: [
-                          pw.Text(
-                            _pdfSafeText('${section.title} (ต่อ)'),
+                          _pdfText(
+                            '${section.title} (ต่อ)',
                             style: sectionStyle,
                           ),
                           if (block.heading != null) ...[
                             pw.SizedBox(height: 8),
-                            pw.Text(
-                              _pdfSafeText(block.heading!),
-                              style: sectionStyle,
-                            ),
+                            _pdfText(block.heading!, style: sectionStyle),
                           ],
                           for (final paragraph in remaining) ...[
                             pw.SizedBox(height: 8),
-                            pw.Text(paragraph, style: baseStyle),
+                            _pdfText(paragraph, style: baseStyle),
                           ],
                         ],
                       ),

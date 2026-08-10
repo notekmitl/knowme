@@ -450,6 +450,36 @@ void main() {
       },
     );
 
+    test('ISO date tokens are detected generically for atomic layout', () {
+      expect(
+        ThaiBetaReportPdfExporter.debugIsoDateTokensForTest(
+          'วันที่ 1982-06-05 และ 2001-12-31 ใช้เป็นฐาน',
+        ),
+        ['1982-06-05', '2001-12-31'],
+      );
+      expect(
+        ThaiBetaReportPdfExporter.debugIsoDateTokensForTest('รุ่น 1982-06'),
+        isEmpty,
+      );
+    });
+
+    test('fortune owns a semantic block after health in every mode', () {
+      const section = ThaiBetaReportExportSection(
+        title: 'ช่วงทดสอบ',
+        kind: ThaiBetaReportExportSectionKind.timeline,
+        paragraphs: ['สุขภาพ', 'ข้อความสุขภาพ', 'โชคลาภ', 'ข้อความโชคลาภ'],
+      );
+
+      final units = ThaiBetaReportPdfExporter.debugPaginationUnitsForTest(
+        section,
+      );
+      expect(units, hasLength(2));
+      expect(units[0], contains('สุขภาพ\nข้อความสุขภาพ'));
+      expect(units[0], isNot(contains('โชคลาภ')));
+      expect(units[1], contains('โชคลาภ\nข้อความโชคลาภ'));
+      expect(units[1], isNot(contains('สุขภาพ')));
+    });
+
     test(
       'download-button path polishes polluted document before PDF text',
       () async {
