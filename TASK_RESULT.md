@@ -23,4 +23,8 @@ Fix Set 02 R2 failed Product Acceptance. Fix Set 03 makes ISO date tokens atomic
 - `SHA256SUMS.txt`: 65/65 payload entries verified inside the ZIP.
 - Audit inventory: 23 Markdown reports, including the owner amendment, defect correction, raster regression, verification, and new 34-row visual log.
 
-Product Acceptance remains pending manual upload and owner re-review. PR #86 must remain OPEN, Draft, unmerged, and undeployed.
+## Product Acceptance
+
+Owner decision: `PRODUCT_ACCEPTANCE_PASS — ROUND 9 FIX SET 03` on 2026-08-10. The owner reviewed 34/34 final PDF renders and both final Web screenshots and confirmed the ISO date-token, fortune-heading ownership, icon-glyph, and debug-banner defects fixed. PR #86 is authorized for final integration; merge and deployment are not recorded as complete until their gates and Production verification pass.
+
+R2 remains historical failed-acceptance evidence. The older 126/124-page candidate was inspected only for Known pages 1–40; the remaining 210 pages were explicitly waived, not reviewed or passed.

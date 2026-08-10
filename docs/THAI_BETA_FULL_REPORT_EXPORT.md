@@ -200,7 +200,7 @@ the supported export path.
 **Report content / engine / Canon / badge policy unchanged — export packaging + presentation polish only.**
 ## Active Round 9 Fix Set 03 export contract
 
-Product Acceptance is pending owner manual upload and re-review. Web and PDF export the same Claim, Risk, Decision Impact, Action, and separate uncertainty-disclosure values from the shared presentation model. PDF code never reconstructs predictive fields or parses audit fingerprints.
+Product Acceptance passed as `PRODUCT_ACCEPTANCE_PASS — ROUND 9 FIX SET 03` on 2026-08-10. The owner reviewed 34/34 final PDF renders and both Web screenshots. Web and PDF export the same Claim, Risk, Decision Impact, Action, and separate uncertainty-disclosure values from the shared presentation model. PDF code never reconstructs predictive fields or parses audit fingerprints.
 
 Disclosure is rendered as `ข้อจำกัดของคำอ่าน` after the four predictive fields and is excluded from cross-mode semantic comparison. Decision Impact and Action come from the same typed `ForecastDecisionPlan`; the exporter renders their composed strings without rebuilding or inferring intent. Unknown-time Action independently requires a real-result checkpoint.
 
