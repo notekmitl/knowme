@@ -24,18 +24,18 @@ V1.2 retains typed Claim/Risk/Decision/Action semantics but selects only the mat
 
 ## Validation
 
-- Focused narrative/fixture tests: 24/24 passed.
-- Affected regression tests: 62/62 passed.
+- Focused narrative/core/export/pipeline tests: 251/251 passed.
 - Synthetic/parity tests: 16/16 passed, including 300 synthetic cases and 20 exact Web/PDF parity cases.
-- Golden/story tests: 32/32 passed.
-- Full required Flutter suite: 1,530/1,530 passed.
+- Golden/story tests: 32/32 passed (24 screenshot profiles and 8 story profiles); no golden update was needed.
+- Full required Flutter suite: 1,532/1,532 passed.
 - Repository PreCommit gate: passed.
 - Analyzer: completed with the repository baseline of 299 warning/info findings and no fatal gate failure.
-- Deterministic Known/Unknown audit: zero duplicate complete narrative sentences, identical cross-horizon bodies, reused full actions, visible four-field templates, or prefix/suffix-only horizon variants.
+- Deterministic Known/Unknown V1.2 audit: zero duplicate internal clauses, reused normalized sentence skeletons, repeated action/fallback constructions, forbidden transition families, or content-budget breaches. The V1.1-style negative fixture fails as required.
 - Known Web/PDF canonical text parity: byte-identical.
 - Unknown Web/PDF canonical text parity: byte-identical; fail-closed behavior preserved.
-- Acceptance PDFs: Known 11 pages, SHA-256 `F08542ABD7BB61F77C890389F074AB16B50D676E5508B80B5C6E882EDE639CB0`; Unknown 10 pages, SHA-256 `9605081518D9FDB318BF3239535FCCEFE04675839C559DAE628EADE351AF8ED7`.
-- Visual QA: all 21 rendered PDF pages and four Web desktop/mobile captures inspected without blank page, clipping, overflow, footer overlap, or missing glyph.
-- New acceptance folder: `C:\Users\USER\Documents\Knowme\thai-report-natural-narrative-v1-1-f9945a5-acceptance`.
+- Acceptance PDFs from source-tested commit `fa2664f`: Known 6 pages / 36,543 bytes / SHA-256 `4DBEAFC51239398C7ED8ACF42584CFE7CE95B0F71DDFB41A2C4A5A427E796601`; Unknown 5 pages / 33,512 bytes / SHA-256 `EFD5BAA9E9E0FBBE6CF2B3C3EF9EAAABE967758F346AE1839D7BBC6676F492FE`.
+- Visual QA: all 11 final rendered PDF pages and four final Web desktop/mobile captures inspected without blank/orphan page, repeated continuation heading, clipping, overflow, footer overlap, or missing glyph. The evidence log records every page's first heading, last visible line, and continuation count (all zero).
+- New acceptance folder: `C:\Users\USER\Documents\Knowme\thai-report-natural-narrative-v1-2-fa2664f-acceptance`.
+- ZIP: `C:\Users\USER\Downloads\thai-report-natural-narrative-v1-2-fa2664f.zip`, 2,436,006 bytes, 28 safe unique entries, SHA-256 `8EA21BB2AEB98BBD36DDE28B8F958E4693A58F0C49A03D72C7D7B49249BEC673`; 26 checksum lines verified with zero mismatch.
 
 The acceptance ZIP and Draft PR metadata are recorded after packaging and push complete. Do not merge or deploy before explicit Owner approval.
