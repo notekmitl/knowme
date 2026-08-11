@@ -1,5 +1,7 @@
 # PR #89 V1.3 Root-Cause Record
 
+> Superseded delivery status (2026-08-11): V1.4 completion is authorized under the Owner-approved baseline-delta gate. Candidate-r2 remains negative evidence with 9 substantive violations; candidate-r5 remains diagnostic only. Fresh candidate-r6 passes the corrected audit with zero substantive violations. Product Acceptance remains pending, and all V1–V1.3 packets remain immutable.
+
 Recorded before V1.3 implementation on August 11, 2026.
 
 ## Owner decision and verified packet

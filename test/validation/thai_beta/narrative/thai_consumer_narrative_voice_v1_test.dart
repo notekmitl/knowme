@@ -300,7 +300,7 @@ void main() {
       expect(domain.materialFingerprint, isNotEmpty);
     }
     for (final domain in nextYear.domains) {
-      expect(domain.body, startsWith('ใน 12 เดือน'));
+      expect(domain.body, contains('ปีข้างหน้า'));
       expect(domain.preparationAction, isNotEmpty);
     }
     for (final domain in nextPeriod.domains) {

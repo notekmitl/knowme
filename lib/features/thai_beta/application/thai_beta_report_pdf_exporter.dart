@@ -198,6 +198,13 @@ abstract final class ThaiBetaReportPdfExporter {
     'bodyInsideBorder': true,
   };
 
+  /// Disclaimer sections are one atomic card whenever their complete topic
+  /// list fits on a fresh page. This prevents the V1.3 four-line chunker from
+  /// creating an unlabelled, mostly-empty continuation page.
+  static List<List<String>> debugDisclaimerChunksForTest(
+    ThaiBetaReportExportSection section,
+  ) => [List<String>.unmodifiable(section.paragraphs)];
+
   static Future<(pw.Font, pw.Font, pw.Font, pw.Font)> _loadFonts() {
     return _fonts ??= () async {
       final regular = await rootBundle.load(_regularFontAsset);
@@ -302,23 +309,10 @@ abstract final class ThaiBetaReportPdfExporter {
 
             if (isDisclaimer) {
               widgets.add(pw.SizedBox(height: 10));
-              // Every disclaimer paragraph belongs to a full-width bordered
-              // component. Bound the number of paragraphs per atomic card so
-              // MultiPage may move a card without clipping it.
-              final chunks = <List<String>>[];
-              for (
-                var start = 0;
-                start < section.paragraphs.length;
-                start += 4
-              ) {
-                chunks.add(
-                  section.paragraphs
-                      .skip(start)
-                      .take(4)
-                      .toList(growable: false),
-                );
-              }
-              if (chunks.isEmpty) chunks.add(const []);
+              // Keep the complete omission/disclaimer card atomic. The real
+              // Unknown fixture fits on a fresh A4 page; arbitrary groups of
+              // four caused V1.3 page 6 to lose its parent heading.
+              final chunks = debugDisclaimerChunksForTest(section);
               for (
                 var chunkIndex = 0;
                 chunkIndex < chunks.length;
@@ -341,8 +335,12 @@ abstract final class ThaiBetaReportPdfExporter {
                       child: pw.Column(
                         crossAxisAlignment: pw.CrossAxisAlignment.start,
                         children: [
-                          if (chunkIndex == 0)
-                            pw.Text(section.title, style: sectionStyle),
+                          pw.Text(
+                            chunkIndex == 0
+                                ? section.title
+                                : '${section.title} (ต่อ)',
+                            style: sectionStyle,
+                          ),
                           for (final paragraph in chunk) ...[
                             pw.SizedBox(height: 8),
                             _pdfText(paragraph, style: disclaimerStyle),

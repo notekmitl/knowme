@@ -332,7 +332,8 @@ void main() {
         'width': 'content',
         'bodyInsideBorder': false,
       };
-      final current = ThaiBetaReportPdfExporter.debugDisclaimerGeometryForTest();
+      final current =
+          ThaiBetaReportPdfExporter.debugDisclaimerGeometryForTest();
 
       bool violates(Map<String, Object> geometry) =>
           geometry['column'] != 'flex' ||
@@ -346,6 +347,28 @@ void main() {
         'width': 'page',
         'bodyInsideBorder': true,
       });
+    });
+
+    test('V1.3 Unknown omission failure stays atomic with visible orientation', () {
+      const section = ThaiBetaReportExportSection(
+        title: 'หัวข้อที่ไม่ได้แสดง',
+        kind: ThaiBetaReportExportSectionKind.disclaimer,
+        paragraphs: [
+          'ระบบตัดหัวข้อต่อไปนี้ออกแทนการเติมคำทำนายที่ไม่มีข้อมูลรองรับ',
+          'สรุปตัวคุณแบบตรง ๆ — ไม่มีเวลาเกิด จึงไม่ใช้ลัคนาสรุปบุคลิก',
+          'การงานจากลัคนาและเรือนการงาน — ไม่มีเวลาเกิด จึงคำนวณไม่ได้',
+          'การเงินจากลัคนาและเรือนการเงิน — ไม่มีเวลาเกิด จึงคำนวณไม่ได้',
+          'ความรักและความสัมพันธ์จากลัคนาและเรือนคู่ครอง — ไม่มีเวลาเกิด จึงคำนวณไม่ได้',
+          'สุขภาพและพลังชีวิตจากลัคนาและเรือนสุขภาพ — ไม่มีเวลาเกิด จึงคำนวณไม่ได้',
+          'คำชี้หลักจากพื้นดวง — ไม่พบชุดจุดแข็ง ความเสี่ยง และแนวทางที่อ้างอิงได้ครบ',
+        ],
+      );
+      final chunks = ThaiBetaReportPdfExporter.debugDisclaimerChunksForTest(
+        section,
+      );
+      expect(chunks, hasLength(1));
+      expect(chunks.single, hasLength(7));
+      expect(chunks.single, contains(section.paragraphs.last));
     });
 
     test('Poppler raster keeps ink inside printable margins', () async {

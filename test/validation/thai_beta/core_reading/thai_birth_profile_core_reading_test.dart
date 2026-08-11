@@ -88,10 +88,10 @@ void main() {
       reading.omissions.map((omission) => omission.topic),
       containsAll({
         ThaiBirthProfileCoreReadingCopy.summaryTitle,
-        ThaiBirthProfileCoreReadingCopy.workTitle,
-        ThaiBirthProfileCoreReadingCopy.moneyTitle,
-        ThaiBirthProfileCoreReadingCopy.relationshipsTitle,
-        ThaiBirthProfileCoreReadingCopy.wellbeingTitle,
+        '${ThaiBirthProfileCoreReadingCopy.workTitle}จากลัคนาและเรือนการงาน',
+        '${ThaiBirthProfileCoreReadingCopy.moneyTitle}จากลัคนาและเรือนการเงิน',
+        '${ThaiBirthProfileCoreReadingCopy.relationshipsTitle}จากลัคนาและเรือนคู่ครอง',
+        '${ThaiBirthProfileCoreReadingCopy.wellbeingTitle}จากลัคนาและเรือนสุขภาพ',
       }),
     );
     expect(

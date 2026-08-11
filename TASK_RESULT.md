@@ -1,5 +1,7 @@
 # Thai Report Natural Narrative V1.2 + Pagination Repair
 
+> V1.4 completion result (2026-08-11): the Owner-approved baseline-delta gate passes. A fresh JSON-reporter run reconciles clean HEAD at 2,856 passed / 40 failed with V1.4 at 2,858 passed / 39 failed: 39 unchanged, one now passing, zero new, zero worsened, and zero unmatched. Focused V1.4 gates pass 109/109; the repository scoped suite passes 1,535/1,535; golden regression passes 24/24; analyzer remains exactly the 299-finding baseline. Fresh candidate-r6 passes all 5,070 narrative comparisons with zero substantive violations and its Known 6-page / Unknown 5-page PDFs pass every-page visual inspection. Product Acceptance remains pending.
+
 ## Result
 
 Draft PR #89 is being reworked on `agent/thai-report-reading-flow-v1` after the Owner rejected the actual V1.1 packet. V1.1 is immutable historical evidence. Status is `PENDING OWNER RE-ACCEPTANCE`; this branch is not merged or deployed.

@@ -1,5 +1,7 @@
 # Task: Thai Report Reading Flow and Friendly Voice V1
 
+> V1.4 completion status (2026-08-11): **OWNER-APPROVED BASELINE-DELTA GATE PASSED; FINAL DELIVERY IN PROGRESS**. Absolute zero was inappropriate for this scoped PR because clean HEAD `23fe2c2` itself has 40 failures. Machine-readable comparison proves V1.4 has 39 unchanged baseline failures, one baseline failure now passing, zero new failures, zero worsened failures, and zero unmatched failures. All V1.4-specific gates pass; Product Acceptance remains pending and PR #89 remains Draft.
+
 ## Owner-rejection recovery Round 2 — Natural Narrative V1.2 + pagination repair
 
 The Owner rejected the actual V1.1 packet (`f9945a5`) because its paragraphs still exposed a shared fragment chain and Known PDF pages 6–8 repeatedly emitted parent continuation headings. The prior statement that every page had passed visual review is invalid. V1.2 selects one finished thought per domain/horizon, enforces strict paragraph budgets, removes generic action/fallback/transition suffixes, and repairs pagination at the semantic-block renderer. Status is `PENDING OWNER RE-ACCEPTANCE`; PR #89 stays open and Draft. No merge or deployment is authorised.

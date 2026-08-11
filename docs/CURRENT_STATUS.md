@@ -1,5 +1,7 @@
 # KnowMe Current Status
 
+**V1.4 completion (2026-08-11): BASELINE-DELTA GATE PASSED.** The Owner replaced the impossible absolute-zero broad gate with a strict zero-new-failure gate. Clean HEAD is 2,856 passed / 40 failed; final V1.4 is 2,858 passed / 39 failed. Machine-readable reconciliation proves 39 unchanged baseline failures, one baseline failure now passing, zero new, zero worsened, and zero unmatched. All V1.4-specific, scoped, narrative, golden, analyzer, artifact, and visual gates pass. Product Acceptance remains pending; PR #89 remains Draft with no merge, deploy, or Production change.
+
 ## Active Draft — Thai Report Reading Flow and Friendly Voice V1
 
 **Last updated:** August 11, 2026

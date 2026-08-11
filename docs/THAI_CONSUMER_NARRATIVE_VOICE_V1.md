@@ -1,5 +1,7 @@
 # Thai Consumer Narrative Voice V1
 
+> V1.4 completion note (2026-08-11): fresh candidate-r6 was generated from the final source state. Its complete Known/Unknown audit compares all 5,070 pairs and reports exact 18, near 5, explicitly allowed structural/safety 23, and zero substantive violations. Candidate-r2 remains negative evidence and candidate-r5 remains diagnostic only. The Owner-approved broad baseline-delta gate also passes with zero new or worsened failures. Product Acceptance remains pending; this is not a release or acceptance claim.
+
 ## Status — Reading Flow and Friendly Voice amendment
 
 Status: `PENDING OWNER RE-ACCEPTANCE` on branch `agent/thai-report-reading-flow-v1`. The actual V1.1 packet was rejected in Round 2 because internal fragment chains remained formulaic and Known PDF pages 6–8 repeated continuation headings. The earlier all-pages visual-pass conclusion is invalid. Round 9 remains completed historical evidence and is not rewritten.

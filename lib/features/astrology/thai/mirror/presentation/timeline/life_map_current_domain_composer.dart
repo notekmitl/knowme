@@ -125,7 +125,7 @@ abstract final class LifeMapCurrentDomainComposer {
 
     final parts = <String>[];
     parts.add(_moneySituation(level, career, data, situation, seed));
-    parts.add(_moneyTrend(level, scores, seed));
+    parts.add(_moneyTrend(level, scores, data, seed));
     parts.add(_moneyCaution(level, scores, seed));
     return (body: _joinUnique(parts, min: 2, max: 4), keys: keys);
   }
@@ -152,7 +152,7 @@ abstract final class LifeMapCurrentDomainComposer {
 
     final parts = <String>[];
     parts.add(_healthSituation(level, pressure, data, situation, seed));
-    parts.add(_healthTrend(level, pressure, scores, seed));
+    parts.add(_healthTrend(level, pressure, scores, data, seed));
     parts.add(_healthCaution(pressure, seed));
     final body = _joinUnique(parts, min: 2, max: 4);
     // Safety: never emit diagnosis terms.
@@ -201,7 +201,7 @@ abstract final class LifeMapCurrentDomainComposer {
     }
 
     parts.add(_fortuneSituation(opp, data, seed));
-    parts.add(_fortuneVsWork(career, money, seed));
+    parts.add(_fortuneVsWork(career, money, data, seed));
     parts.add(_fortuneCaution(opp, seed));
     return (body: _joinUnique(parts, min: 2, max: 4), keys: keys);
   }
@@ -257,7 +257,9 @@ abstract final class LifeMapCurrentDomainComposer {
   ) {
     return switch (d) {
       _WorkDirection.advance =>
-        'มีโอกาสรับงานหรือความรับผิดชอบเพิ่มตามจังหวะ${data.phaseName} แต่ไม่จำเป็นต้องรับทุกทางพร้อมกัน',
+        data.phaseName == 'ช่วงเรียนรู้และเชื่อมโยง'
+            ? 'งานเดิมกำลังเปลี่ยนแปลงไปสู่โจทย์ใหม่ ให้เลือกงานที่เพิ่มทักษะหรือเครือข่ายจริง แทนการรับบทบาทเพิ่มเพียงเพราะมีคนส่งมา'
+            : 'มีโอกาสรับงานหรือความรับผิดชอบเพิ่มตามจังหวะ${data.phaseName} แต่ไม่จำเป็นต้องรับทุกทางพร้อมกัน',
       _WorkDirection.steady =>
         'แนวโน้มคือเดินหน้าแบบค่อยเป็นค่อยไป และวัดผลจากสิ่งที่ทำต่อเนื่อง',
       _WorkDirection.shift =>
@@ -309,11 +311,19 @@ abstract final class LifeMapCurrentDomainComposer {
     return 'ช่วงนี้การเงินอยู่ในระดับพอไปได้ ควรรักษาสภาพคล่องเป็นหลัก';
   }
 
-  static String _moneyTrend(_Signal level, PeriodScores scores, int seed) {
+  static String _moneyTrend(
+    _Signal level,
+    PeriodScores scores,
+    LifePlanetData data,
+    int seed,
+  ) {
     if (scores.money >= 65 && scores.pressure >= 60) {
       return 'รายจ่ายและต้นทุนมีแนวโน้มเพิ่มตามภาระ เงินเข้ามาแล้วไม่ควรรีบใช้หมด';
     }
     if (level == _Signal.strong) {
+      if (data.phaseName == 'ช่วงเรียนรู้และเชื่อมโยง') {
+        return 'จังหวะนี้ให้ใช้รายรับจริงเป็นฐาน แยกงบทดลองสำหรับการเรียนรู้ออกจากเงินที่ต้องใช้ประจำ';
+      }
       return 'เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว';
     }
     if (level == _Signal.quiet) {
@@ -363,12 +373,16 @@ abstract final class LifeMapCurrentDomainComposer {
     _Signal level,
     _Signal pressure,
     PeriodScores scores,
+    LifePlanetData data,
     int seed,
   ) {
     if (pressure == _Signal.strong) {
       return 'แนวโน้มคือเครียดสะสมเมื่อทำงานต่อเนื่องโดยไม่เว้นช่วงพัก';
     }
-    return 'ควรรักษาเวลานอนและเว้นช่วงพักสั้น ๆ เพื่อไม่ให้ความล้าสะสม';
+    if (data.phaseName == 'ช่วงเรียนรู้และเชื่อมโยง') {
+      return 'ใช้บันทึกการนอนและความล้าเป็นข้อมูลจริง แล้วลดภาระที่ทำให้วันพักไม่ช่วยฟื้นตัว';
+    }
+    return 'รักษาเวลานอนให้คงที่ และเว้นช่วงสั้น ๆ ระหว่างภาระ เพื่อไม่ให้ความล้าสะสมจนกระทบช่วงที่ต้องใช้แรง';
   }
 
   static String _healthCaution(_Signal pressure, int seed) {
@@ -388,7 +402,15 @@ abstract final class LifeMapCurrentDomainComposer {
     return 'ช่วงนี้ยังไม่มีสัญญาณโชคก้อนใหญ่จากจังหวะดาวเสวยอายุ';
   }
 
-  static String _fortuneVsWork(_Signal career, _Signal money, int seed) {
+  static String _fortuneVsWork(
+    _Signal career,
+    _Signal money,
+    LifePlanetData data,
+    int seed,
+  ) {
+    if (data.phaseName == 'ช่วงเรียนรู้และเชื่อมโยง') {
+      return 'หากมีรายได้จากช่องทางใหม่ ให้แยกผลจากทักษะหรือเครือข่ายที่สร้างไว้ ออกจากเหตุบังเอิญที่ยังยืนยันซ้ำไม่ได้';
+    }
     return 'รายได้หลักยังแยกจากโชคเหตุบังเอิญ — ส่วนใหญ่มาจากงานและความสามารถที่ลงมือเอง';
   }
 

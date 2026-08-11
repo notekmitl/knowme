@@ -6,6 +6,12 @@ This draft responds to Owner feedback that the Production Round 9 report still r
 
 The implementation preserves the same `ThaiBetaAnalysis` for Web/PDF, exact inputs, Known-time facts, Unknown-time fail-closed behavior, typed Risk → Decision Impact → Action semantics, domain ownership, and beta policy. It does not alter engine, Canon, ascendant, houses, timeline boundaries, Auth, flags, or Production.
 
+## V1.4 recovery blocker — 2026-08-11
+
+Do not package or deliver the current dirty worktree. Artifact generation is no longer hanging: the cause was the sandbox being unable to acquire `C:\src\flutter\bin\cache\flutter.bat.lock` before the Dart runner. The remaining hard gate is the complete broad suite: 2,858 passed and 39 failed, with all 39 reproduced at clean HEAD `23fe2c2`. V1.4-only failures were fixed, including the inspected 21 profile B–H timeline goldens. Product Acceptance is pending; PR #89 must remain Draft. No merge, deploy, or Production change is authorized.
+
+**Superseding owner decision:** the absolute-zero blocker paragraph above is historical. The Owner has approved a strict baseline-delta gate. Machine-readable JSON/CSV proves V1.4 introduced zero new failures and worsened zero failures: clean HEAD has 40 failures, V1.4 retains 39 unchanged failures, and one no-time omission expectation now passes because V1.4 makes the labels accurately Lagna/house-specific. Fresh candidate-r6 passes all V1.4-specific, scoped, narrative, golden, analyzer, artifact, and every-page visual gates.
+
 Do not merge or deploy until the Owner reviews the new Known/Unknown acceptance packet and explicitly passes Product Acceptance. Round 9 remains completed historical evidence; do not remove or overwrite its artifacts.
 
 V1.2 retains typed Claim/Risk/Decision/Action data but no longer serializes every semantic input into every passage. Current prose has at most two short paragraphs and one focus; twelve-month and next-period prose each have at most one paragraph and one review/preparation item. The quality gate now catches duplicate clauses inside paragraphs, normalized cross-domain skeletons, repeated fallback/transition families, oversized fragment chains, and repeated continuation headings. The paginator emits the parent heading once and keeps subsequent paragraph chunks unheaded. Every final page requires a first-heading/last-line/continuation-count log. Ascendant verification remains unchanged: 00:03 gives 9°24′; the 19°19′ baseline uses 00:35.
