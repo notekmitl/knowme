@@ -2,6 +2,8 @@
 
 > PR #89 V1.4 completion note (2026-08-11): the Flutter SDK bootstrap-lock root cause remains documented and durable stage markers now make the entry point observable. Fresh candidate-r6 contains Known/Unknown Web captures, canonical text, and PDFs generated from the final source state. Known is 6 pages and Unknown is 5 pages; all 11 rendered pages pass readable-resolution visual review, pagination, containment, footer, and page-count checks. Web/PDF canonical bytes match for both fixtures. Product Acceptance remains pending; historical Round 9 acceptance below is unchanged.
 
+Final candidate-r6 PDF hashes are Known `E2F68B456EDCAF016AB0BC7F18ECE7457FA77EBBDF8F409BF8B5EC6A64BA61A6` and Unknown `EB5B96855FC2193376AFA0830137670BDA03BF5EBB6D9A95AB5DED8B4EE2E0A0`. The packet contains both desktop/mobile captures and all 11 rendered pages.
+
 **Status:** ACTIVE  
 **Date:** July 2026  
 **Commit:** Thai Beta Full Report Export  

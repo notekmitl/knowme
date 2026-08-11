@@ -1,6 +1,6 @@
 # Task: Thai Report Reading Flow and Friendly Voice V1
 
-> V1.4 completion status (2026-08-11): **OWNER-APPROVED BASELINE-DELTA GATE PASSED; FINAL DELIVERY IN PROGRESS**. Absolute zero was inappropriate for this scoped PR because clean HEAD `23fe2c2` itself has 40 failures. Machine-readable comparison proves V1.4 has 39 unchanged baseline failures, one baseline failure now passing, zero new failures, zero worsened failures, and zero unmatched failures. All V1.4-specific gates pass; Product Acceptance remains pending and PR #89 remains Draft.
+> V1.4 completion status (2026-08-11): **REVISION COMPLETE — PENDING OWNER RE-ACCEPTANCE**. Absolute zero was inappropriate for this scoped PR because clean HEAD `23fe2c2` itself has 40 failures. Machine-readable comparison proves V1.4 has 39 unchanged baseline failures, one baseline failure now passing, zero new failures, zero worsened failures, and zero unmatched failures. All V1.4-specific gates pass; final candidate-r6 is packaged from implementation commit `179c5c9a3f6318d799b0be8c2233be7013b89c1c`. PR #89 remains Draft.
 
 ## Owner-rejection recovery Round 2 — Natural Narrative V1.2 + pagination repair
 

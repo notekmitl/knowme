@@ -2,6 +2,8 @@
 
 > V1.4 completion result (2026-08-11): the Owner-approved baseline-delta gate passes. A fresh JSON-reporter run reconciles clean HEAD at 2,856 passed / 40 failed with V1.4 at 2,858 passed / 39 failed: 39 unchanged, one now passing, zero new, zero worsened, and zero unmatched. Focused V1.4 gates pass 109/109; the repository scoped suite passes 1,535/1,535; golden regression passes 24/24; analyzer remains exactly the 299-finding baseline. Fresh candidate-r6 passes all 5,070 narrative comparisons with zero substantive violations and its Known 6-page / Unknown 5-page PDFs pass every-page visual inspection. Product Acceptance remains pending.
 
+Final acceptance ZIP: `C:\Users\USER\Downloads\thai-report-natural-narrative-v1-4-final-r6-179c5c9.zip`; size 22,399,505 bytes; 45 unique safe entries; SHA-256 `9C63DCB66CCD938AB013B09FA90CCC986FBB63A53EE5AB66EE7B04624CFC5F7A`. Known PDF SHA-256 is `E2F68B456EDCAF016AB0BC7F18ECE7457FA77EBBDF8F409BF8B5EC6A64BA61A6`; Unknown PDF SHA-256 is `EB5B96855FC2193376AFA0830137670BDA03BF5EBB6D9A95AB5DED8B4EE2E0A0`. Cross-fixture audit JSON SHA-256 is `619C2843F2CF70E8315A84C6188B3FB1BC98598CC725A49BB7FC85757B64F1F4`. Product Acceptance remains pending; no merge, deploy, or Production change occurred.
+
 ## Result
 
 Draft PR #89 is being reworked on `agent/thai-report-reading-flow-v1` after the Owner rejected the actual V1.1 packet. V1.1 is immutable historical evidence. Status is `PENDING OWNER RE-ACCEPTANCE`; this branch is not merged or deployed.

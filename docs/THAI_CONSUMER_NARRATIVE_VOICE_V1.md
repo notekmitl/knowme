@@ -2,6 +2,8 @@
 
 > V1.4 completion note (2026-08-11): fresh candidate-r6 was generated from the final source state. Its complete Known/Unknown audit compares all 5,070 pairs and reports exact 18, near 5, explicitly allowed structural/safety 23, and zero substantive violations. Candidate-r2 remains negative evidence and candidate-r5 remains diagnostic only. The Owner-approved broad baseline-delta gate also passes with zero new or worsened failures. Product Acceptance remains pending; this is not a release or acceptance claim.
 
+The final cross-fixture audit JSON is shipped in candidate-r6 with SHA-256 `619C2843F2CF70E8315A84C6188B3FB1BC98598CC725A49BB7FC85757B64F1F4`. The ZIP SHA-256 is `9C63DCB66CCD938AB013B09FA90CCC986FBB63A53EE5AB66EE7B04624CFC5F7A`.
+
 ## Status — Reading Flow and Friendly Voice amendment
 
 Status: `PENDING OWNER RE-ACCEPTANCE` on branch `agent/thai-report-reading-flow-v1`. The actual V1.1 packet was rejected in Round 2 because internal fragment chains remained formulaic and Known PDF pages 6–8 repeated continuation headings. The earlier all-pages visual-pass conclusion is invalid. Round 9 remains completed historical evidence and is not rewritten.
