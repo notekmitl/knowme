@@ -983,13 +983,22 @@ class ThaiBirthProfileCoreReading {
       );
     }
     for (final omitted in <(String, ThaiBirthProfileCoreSection?)>[
-      (ThaiBirthProfileCoreReadingCopy.workTitle, workSection),
-      (ThaiBirthProfileCoreReadingCopy.moneyTitle, moneySection),
       (
-        ThaiBirthProfileCoreReadingCopy.relationshipsTitle,
+        '${ThaiBirthProfileCoreReadingCopy.workTitle}จากลัคนาและเรือนการงาน',
+        workSection,
+      ),
+      (
+        '${ThaiBirthProfileCoreReadingCopy.moneyTitle}จากลัคนาและเรือนการเงิน',
+        moneySection,
+      ),
+      (
+        '${ThaiBirthProfileCoreReadingCopy.relationshipsTitle}จากลัคนาและเรือนคู่ครอง',
         relationshipsSection,
       ),
-      (ThaiBirthProfileCoreReadingCopy.wellbeingTitle, wellbeingSection),
+      (
+        '${ThaiBirthProfileCoreReadingCopy.wellbeingTitle}จากลัคนาและเรือนสุขภาพ',
+        wellbeingSection,
+      ),
     ]) {
       if (omitted.$2 == null) {
         omissions.add(
@@ -1224,29 +1233,25 @@ class ThaiBirthProfileCoreReading {
     final mode = _planetMode(lord.rawValue);
     return switch (domain) {
       ThaiBirthProfileCoreDomain.work => (
-        analysis:
-            'เรื่องงาน คุณมักทำได้ดีเมื่อได้ใช้${mode.$1}',
+        analysis: 'เรื่องงาน คุณมักทำได้ดีเมื่อได้ใช้${mode.$1}',
         guidance:
             'ถ้างานเริ่มติด ลองเช็กว่ากำลัง${mode.$2}อยู่หรือไม่ '
             'สิ่งที่ทำได้คือ${mode.$3} เพื่อให้งานเดินต่อโดยไม่ฝืนตัวเอง',
       ),
       ThaiBirthProfileCoreDomain.money => (
-        analysis:
-            'เรื่องเงิน คุณมักให้ความสำคัญกับ${mode.$1}',
+        analysis: 'เรื่องเงิน คุณมักให้ความสำคัญกับ${mode.$1}',
         guidance:
             'ก่อนตัดสินใจเรื่องเงิน ระวังเวลาที่${mode.$2} '
             'ลองใช้${mode.$3} เพื่อไม่ให้เรื่องเร่งด่วนกระทบเงินที่ต้องเก็บไว้',
       ),
       ThaiBirthProfileCoreDomain.relationships => (
-        analysis:
-            'ในความสัมพันธ์ คุณมักสร้างความไว้ใจผ่าน${mode.$1}',
+        analysis: 'ในความสัมพันธ์ คุณมักสร้างความไว้ใจผ่าน${mode.$1}',
         guidance:
             'ถ้าเริ่มเข้าใจกันยาก ลองดูว่ากำลัง${mode.$2}อยู่หรือไม่ '
             'ใช้${mode.$3} แล้วคุยขอบเขตให้ชัด เพื่อให้ทั้งสองฝ่ายยังมีพื้นที่ของตัวเอง',
       ),
       ThaiBirthProfileCoreDomain.wellbeing => (
-        analysis:
-            'เรื่องพลังชีวิต คุณเหมาะกับการดูแลตัวเองผ่าน${mode.$1}',
+        analysis: 'เรื่องพลังชีวิต คุณเหมาะกับการดูแลตัวเองผ่าน${mode.$1}',
         guidance:
             'ถ้าเริ่ม${mode.$2} อย่าปล่อยไว้นาน ให้ใช้${mode.$3} '
             'พร้อมจัดเวลาพักให้สม่ำเสมอ',

@@ -28,3 +28,6 @@ Owner feedback after the completed Round 9 release requires a new Product Narrat
 - Focused, full, analyzer, screenshot/golden, PDF raster, documentation, secret/PII, PreCommit, and PostCommit gates pass.
 - A separate Known/Unknown acceptance packet is generated, hashed, rendered, visually reviewed, and copied to the Windows delivery location.
 - Push a non-force branch and open a Draft PR. Do not merge or deploy.
+# PR #89 V1.3 owner-rejection recovery (2026-08-11)
+
+V1.2 was rejected for cross-fixture duplication, repeated Known past claims, an Unknown displayed-versus-omitted wording contradiction, and a malformed Known limitation card. V1.3 allocates evidence-led claims by horizon, qualifies Unknown omissions as Lagna/house-only, and uses full-width bordered disclaimer units. Status: **PENDING OWNER RE-ACCEPTANCE**. Earlier packets and `product-acceptance/` remain immutable; Round 9 remains historical completed evidence. No merge or deploy.

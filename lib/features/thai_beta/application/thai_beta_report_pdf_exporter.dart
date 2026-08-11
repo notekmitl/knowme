@@ -190,6 +190,14 @@ abstract final class ThaiBetaReportPdfExporter {
       .map((match) => match.group(0)!)
       .toList(growable: false);
 
+  /// Geometry contract for disclaimer/omission cards. The former one-column
+  /// intrinsic table could shrink the border around short Known-time copy.
+  static Map<String, Object> debugDisclaimerGeometryForTest() => const {
+    'column': 'flex',
+    'width': 'page',
+    'bodyInsideBorder': true,
+  };
+
   static Future<(pw.Font, pw.Font, pw.Font, pw.Font)> _loadFonts() {
     return _fonts ??= () async {
       final regular = await rootBundle.load(_regularFontAsset);
@@ -294,46 +302,56 @@ abstract final class ThaiBetaReportPdfExporter {
 
             if (isDisclaimer) {
               widgets.add(pw.SizedBox(height: 10));
-              final firstParagraph = section.paragraphs.isEmpty
-                  ? null
-                  : section.paragraphs.first;
-              // Keep only the heading and first paragraph atomic. A container
-              // holding the entire section cannot span a page and can be
-              // clipped by MultiPage when the remaining height is too small.
-              widgets.add(
-                pw.Table(
-                  children: [
-                    pw.TableRow(
-                      children: [
-                        pw.Container(
-                          width: double.infinity,
-                          padding: const pw.EdgeInsets.all(12),
-                          decoration: pw.BoxDecoration(
-                            border: pw.Border.all(
-                              color: PdfColors.grey400,
-                              width: 0.7,
-                            ),
-                            borderRadius: pw.BorderRadius.circular(4),
-                          ),
-                          child: pw.Column(
-                            crossAxisAlignment: pw.CrossAxisAlignment.start,
-                            children: [
-                              pw.Text(section.title, style: sectionStyle),
-                              if (firstParagraph != null) ...[
-                                pw.SizedBox(height: 8),
-                                pw.Text(firstParagraph, style: disclaimerStyle),
-                              ],
-                            ],
-                          ),
+              // Every disclaimer paragraph belongs to a full-width bordered
+              // component. Bound the number of paragraphs per atomic card so
+              // MultiPage may move a card without clipping it.
+              final chunks = <List<String>>[];
+              for (
+                var start = 0;
+                start < section.paragraphs.length;
+                start += 4
+              ) {
+                chunks.add(
+                  section.paragraphs
+                      .skip(start)
+                      .take(4)
+                      .toList(growable: false),
+                );
+              }
+              if (chunks.isEmpty) chunks.add(const []);
+              for (
+                var chunkIndex = 0;
+                chunkIndex < chunks.length;
+                chunkIndex++
+              ) {
+                if (chunkIndex > 0) widgets.add(pw.SizedBox(height: 6));
+                final chunk = chunks[chunkIndex];
+                widgets.add(
+                  _atomicPaginationUnit(
+                    () => pw.Container(
+                      width: double.infinity,
+                      padding: const pw.EdgeInsets.all(12),
+                      decoration: pw.BoxDecoration(
+                        border: pw.Border.all(
+                          color: PdfColors.grey400,
+                          width: 0.7,
                         ),
-                      ],
+                        borderRadius: pw.BorderRadius.circular(4),
+                      ),
+                      child: pw.Column(
+                        crossAxisAlignment: pw.CrossAxisAlignment.start,
+                        children: [
+                          if (chunkIndex == 0)
+                            pw.Text(section.title, style: sectionStyle),
+                          for (final paragraph in chunk) ...[
+                            pw.SizedBox(height: 8),
+                            _pdfText(paragraph, style: disclaimerStyle),
+                          ],
+                        ],
+                      ),
                     ),
-                  ],
-                ),
-              );
-              for (final paragraph in section.paragraphs.skip(1)) {
-                widgets.add(pw.SizedBox(height: 6));
-                widgets.add(_pdfText(paragraph, style: disclaimerStyle));
+                  ),
+                );
               }
               continue;
             }

@@ -228,3 +228,6 @@ Status: `PENDING PRODUCT ACCEPTANCE`. This amendment keeps the real PDF exporter
 The PDF now follows the reader-facing sequence used by Web: Core interpretation and life domains first; then life map, past, present, 12-month outlook, next life period, and long-term outlook; then `รายงานนี้ดูจากอะไร`, source transparency, disclaimers, and explicit omissions. Thai astrological-day detail and chart structure remain present but no longer open the report. Natural field labels replace academic UI/PDF labels while typed Claim/Risk/Decision Impact/Action data remains unchanged.
 
 Validation for this draft must include exact Web/PDF semantic parity, Known/Unknown behavior, ISO token atomicity, fortune/health ownership, full PDF raster review, desktop/mobile screenshots, and a separate hashed acceptance packet. Do not merge or deploy before Owner Product Acceptance.
+# V1.3 PDF layout amendment
+
+The V1.2 Known limitation card used intrinsic one-column table width and was incorrectly passed by a review that checked text presence but not component bounds. V1.3 wraps every disclaimer chunk in the same full-width atomic pagination unit and requires body text to remain inside its border. Every rendered page must be reviewed at readable resolution with component geometry recorded. Status: **PENDING OWNER RE-ACCEPTANCE**.

@@ -25,4 +25,7 @@ V1.2 must render the parent section heading once, keep each domain heading with 
 The previous review checked raster legibility, clipping, blank pages, overflow, and footer collisions, but did not record page-level first heading, last visible line, or continuation-heading counts. It also lacked an explicit rejection rule for repeated headings or component-like fragmentation. This allowed pages 6–8 to be marked visually legible while still being editorially broken.
 
 V1.2 review must inspect every rendered page at full resolution, record those page-level fields, count continuation headings, and reject any page that resembles the V1.1 pages 6–8 pattern.
+# Round 3 owner correction
+
+The V1.2 zero-finding audit was incomplete: it did not compare Known and Unknown corpora, allocate evidence keys across horizons, inspect repeated fragments inside longer past-period paragraphs, reconcile displayed topics with qualified omissions, or measure PDF component borders. Its visual pass is invalid because the Known limitation card was legible but geometrically malformed. The verified rejected packet is `thai-report-natural-narrative-v1-2-fa2664f.zip`, SHA-256 `8EA21BB2AEB98BBD36DDE28B8F958E4693A58F0C49A03D72C7D7B49249BEC673`. See `PR89_V13_ROOT_CAUSE.md`; status is **PENDING OWNER RE-ACCEPTANCE**.
 

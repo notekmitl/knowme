@@ -260,6 +260,8 @@ abstract final class ThaiBetaNarrativeComposer {
     if (timeline == null) return null;
     final used = <String>{};
     final usedClaims = <String>[];
+    final usedPeriodClaims = <String>[];
+    final usedPeriodFragments = <String>{};
     final periods = timeline.periods
         .map((period) {
           if (period.isCurrent || period.lifeDomains.isEmpty) return period;
@@ -303,6 +305,54 @@ abstract final class ThaiBetaNarrativeComposer {
             // A prefix/suffix does not make a repeated claim new. Omit it
             // rather than moving a horizon summary into a domain paragraph.
           }
+          String allocatePeriodClaim(String value) {
+            var claim = value.trim();
+            if (period.isCurrent || claim.isEmpty) return claim;
+            for (final fragment in const [
+              'คุณอยากใกล้ชิด แต่ก็ยังต้องการพื้นที่ส่วนตัว',
+              'คุณเริ่มเลือกโอกาสที่สำคัญจริง ๆ แทนการรับทุกอย่าง',
+            ]) {
+              if (!claim.contains(fragment)) continue;
+              if (usedPeriodFragments.contains(fragment)) {
+                claim = claim
+                    .replaceAll(fragment, '')
+                    .replaceAll('และบทเรียนนี้ยังติดตัวไปในช่วงถัดไป', '')
+                    .replaceAll(RegExp(r'\s+'), ' ')
+                    .trim();
+              } else {
+                usedPeriodFragments.add(fragment);
+              }
+            }
+            if (claim.isEmpty) return '';
+            final isNew = usedPeriodClaims.every(
+              (existing) => !_isSemanticallySimilar(existing, claim),
+            );
+            if (!isNew) return '';
+            usedPeriodClaims.add(claim);
+            return claim;
+          }
+
+          final allocatedSummary = startAge >= 69
+              ? ''
+              : allocatePeriodClaim(period.summary);
+          final allocatedChange = startAge >= 69
+              ? ''
+              : allocatePeriodClaim(period.whatChanges);
+          final allocatedEasier = startAge >= 69
+              ? ''
+              : allocatePeriodClaim(period.easier);
+          final allocatedHarder = startAge >= 69
+              ? ''
+              : allocatePeriodClaim(period.harder);
+          final allocatedComparison = startAge >= 69
+              ? ''
+              : allocatePeriodClaim(period.comparison);
+          final allocatedEvidence = startAge >= 69
+              ? ''
+              : allocatePeriodClaim(period.evidenceLine);
+          final allocatedAdvice = startAge >= 69
+              ? ''
+              : allocatePeriodClaim(period.advice);
           return ThaiMirrorLifePeriodState(
             ageLabel: period.ageLabel,
             phaseName: period.phaseName,
@@ -310,16 +360,16 @@ abstract final class ThaiBetaNarrativeComposer {
             keyword: period.keyword,
             isCurrent: period.isCurrent,
             isPast: period.isPast,
-            summary: startAge >= 69 ? '' : period.summary,
-            whatChanges: startAge >= 69 ? '' : period.whatChanges,
-            easier: startAge >= 69 ? '' : period.easier,
-            harder: startAge >= 69 ? '' : period.harder,
-            comparison: startAge >= 69 ? '' : period.comparison,
-            evidenceLine: startAge >= 69 ? '' : period.evidenceLine,
+            summary: allocatedSummary,
+            whatChanges: allocatedChange,
+            easier: allocatedEasier,
+            harder: allocatedHarder,
+            comparison: allocatedComparison,
+            evidenceLine: allocatedEvidence,
             scores: period.scores,
             easeIndex: period.easeIndex,
             accentIndex: period.accentIndex,
-            advice: startAge >= 69 ? '' : period.advice,
+            advice: allocatedAdvice,
             stageLabel: period.stageLabel,
             timeBucketLabel: period.timeBucketLabel,
             mahabhutPositionLabel: period.mahabhutPositionLabel,
@@ -573,19 +623,71 @@ abstract final class ThaiBetaNarrativeComposer {
     );
   }
 
-  static String _forecastClaim(String body, int windowIndex) {
-    final stripped = body
-        .replaceFirst(RegExp(r'^ช่วงนี้\s*'), '')
-        .replaceFirst(RegExp(r'^ใน 12 เดือนข้างหน้า\s*'), '')
-        .replaceFirst(RegExp(r'^เมื่อเข้าสู่ช่วงชีวิตถัดไป\s*'), '');
-    final timed = switch (windowIndex) {
-      0 => stripped,
-      1 => 'ตลอดปีข้างหน้า $stripped',
-      _ => 'เมื่อเข้าใกล้ช่วงชีวิตถัดไป $stripped',
+  static String _forecastClaim(String sourceBody, ForecastDecisionPlan plan) {
+    final strength = switch (plan.band) {
+      ForecastBand.strong => 'น้ำหนักเด่น',
+      ForecastBand.active => 'น้ำหนักปานกลาง',
+      ForecastBand.quiet => 'น้ำหนักเบา',
     };
-    // Evidence availability and transition ownership remain typed. Their
-    // disclosure belongs once at section level, not inside every domain.
-    return timed;
+    final known =
+        plan.evidenceAvailability == ForecastEvidenceAvailability.full;
+    final basis = known
+        ? 'ข้อมูลลัคนา เรือน และจังหวะช่วงชีวิต'
+        : 'จังหวะช่วงชีวิตที่คำนวณได้โดยไม่ใช้ลัคนา';
+    final claim = switch ((plan.horizon, plan.domain)) {
+      (ForecastHorizon.current, ForecastDomain.career) =>
+        known
+            ? '$basis ให้น้ำหนักเรื่องขอบเขตงานตอนนี้อยู่ในระดับ$strength จึงควรเลือกภาระที่รักษาคุณภาพงานหลักได้'
+            : '$basis บอกได้เพียงว่าควรสังเกตภาระงานจริงตอนนี้ ยังไม่ใช้เรือนการงานสรุปบทบาทหรือความก้าวหน้า',
+      (ForecastHorizon.current, ForecastDomain.finance) =>
+        known
+            ? '$basis ให้น้ำหนักกับเงินที่ต้องพร้อมใช้ตอนนี้ในระดับ$strength ก่อนตัดสินใจเพิ่มภาระระยะยาว'
+            : '$basis ใช้เตือนให้ดูรายรับรายจ่ายจริงตอนนี้ แต่ยังไม่ใช้เรือนการเงินสรุปฐานะหรือรายได้',
+      (ForecastHorizon.current, ForecastDomain.relationship) =>
+        known
+            ? '$basis ชี้ว่าความชัดเจนของข้อตกลงสำคัญในช่วงนี้ โดยมีน้ำหนัก$strength'
+            : '$basis ใช้ชวนสังเกตความสม่ำเสมอที่เกิดขึ้นจริง แต่ยังไม่ใช้เรือนคู่ครองสรุปความสัมพันธ์',
+      (ForecastHorizon.current, ForecastDomain.health) =>
+        known
+            ? '$basis ให้น้ำหนักกับการพักและการฟื้นตัวตอนนี้ในระดับ$strength'
+            : '$basis ใช้ชวนติดตามการนอนและความล้าจริง แต่ยังไม่ใช้เรือนสุขภาพสรุปภาวะร่างกาย',
+      (ForecastHorizon.next12Months, ForecastDomain.career) =>
+        known
+            ? 'ใน 12 เดือน $basis ชี้ให้ดูว่างานหลักส่งมอบได้สม่ำเสมอขึ้นหรือไม่ ก่อนขยายขอบเขตงาน'
+            : 'ใน 12 เดือน ให้ใช้ผลงานที่ส่งมอบได้จริงเป็นจุดตรวจ เพราะรายงานนี้ไม่มีเรือนการงานสำหรับทำนายความก้าวหน้า',
+      (ForecastHorizon.next12Months, ForecastDomain.finance) =>
+        known
+            ? 'ใน 12 เดือน $basis ชี้ให้ติดตามส่วนต่างรายรับกับภาระประจำเป็นรายไตรมาส'
+            : 'ใน 12 เดือน ให้เทียบยอดคงเหลือจริงแต่ละไตรมาส เพราะรายงานนี้ไม่มีเรือนการเงินสำหรับคาดรายได้',
+      (ForecastHorizon.next12Months, ForecastDomain.relationship) =>
+        known
+            ? 'ใน 12 เดือน $basis ชี้ให้ดูว่าข้อตกลงที่พูดไว้เกิดขึ้นต่อเนื่องแค่ไหน'
+            : 'ใน 12 เดือน ให้ดูพฤติกรรมที่เกิดซ้ำเป็นหลัก เพราะรายงานนี้ไม่มีเรือนคู่ครองสำหรับคาดทิศทางความสัมพันธ์',
+      (ForecastHorizon.next12Months, ForecastDomain.health) =>
+        known
+            ? 'ใน 12 เดือน $basis ชี้ให้เทียบคุณภาพการพักระหว่างเดือนเบากับเดือนที่ภาระสูง'
+            : 'ใน 12 เดือน ให้บันทึกการนอนและความล้าระหว่างเดือนเบากับเดือนหนัก เพราะไม่มีเรือนสุขภาพสำหรับพยากรณ์',
+      (ForecastHorizon.nextLifePeriod, ForecastDomain.career) =>
+        known
+            ? 'ช่วงชีวิตถัดไป $basis เปลี่ยนคำถามจากการรับงานเพิ่มเป็นการเลือกบทบาทที่ควรรักษาหรือส่งต่อ'
+            : 'ช่วงชีวิตถัดไป ใช้รูปแบบงานที่ทำซ้ำได้จริงช่วยเลือกสิ่งที่จะรักษาหรือส่งต่อ โดยไม่สรุปจากเรือนการงาน',
+      (ForecastHorizon.nextLifePeriod, ForecastDomain.finance) =>
+        known
+            ? 'ช่วงชีวิตถัดไป $basis ย้ายจุดสนใจไปที่ภาระผูกพันระยะยาวและเงินรองรับช่วงเปลี่ยนผ่าน'
+            : 'ช่วงชีวิตถัดไป ใช้ค่าใช้จ่ายจริงจำลองภาระระยะยาว โดยไม่คาดฐานะจากเรือนการเงิน',
+      (ForecastHorizon.nextLifePeriod, ForecastDomain.relationship) =>
+        known
+            ? 'ช่วงชีวิตถัดไป $basis ย้ายจุดสนใจไปที่เวลา หน้าที่ และพื้นที่ส่วนตัวที่ใช้ร่วมกันได้จริง'
+            : 'ช่วงชีวิตถัดไป ทดลองตารางชีวิตร่วมกันระยะสั้นก่อนตัดสินใจ โดยไม่สรุปจากเรือนคู่ครอง',
+      (ForecastHorizon.nextLifePeriod, ForecastDomain.health) =>
+        known
+            ? 'ช่วงชีวิตถัดไป $basis ย้ายจุดสนใจไปที่กิจวัตรพักฟื้นที่ทำต่อเนื่องได้เมื่อภาระเปลี่ยน'
+            : 'ช่วงชีวิตถัดไป ทดลองรูปแบบวันทำงานและวันพักจากข้อมูลร่างกายจริง โดยไม่สรุปจากเรือนสุขภาพ',
+    };
+    // The source body remains an input to the typed material pipeline, while
+    // reader-facing selection is owned by the evidence allocation above.
+    assert(sourceBody.isNotEmpty);
+    return claim;
   }
 
   static String _decisionImpact(ForecastDecisionPlan plan) {
@@ -685,7 +787,7 @@ abstract final class ThaiBetaNarrativeComposer {
       material,
       intent: decisionIntent,
     );
-    final claim = _forecastClaim(sourceBody, windowIndex);
+    final claim = _forecastClaim(sourceBody, plan);
     final risk = _riskSignal(
       sourceCaution,
       riskDomain: plan.consumerRiskDomain,

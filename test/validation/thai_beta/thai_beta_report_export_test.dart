@@ -326,6 +326,28 @@ void main() {
   });
 
   group('Real PDF exporter path regression', () {
+    test('disclaimer cards use full-width geometry and contain their body', () {
+      const legacy = <String, Object>{
+        'column': 'intrinsic',
+        'width': 'content',
+        'bodyInsideBorder': false,
+      };
+      final current = ThaiBetaReportPdfExporter.debugDisclaimerGeometryForTest();
+
+      bool violates(Map<String, Object> geometry) =>
+          geometry['column'] != 'flex' ||
+          geometry['width'] != 'page' ||
+          geometry['bodyInsideBorder'] != true;
+
+      expect(violates(legacy), isTrue, reason: 'negative legacy fixture');
+      expect(violates(current), isFalse);
+      expect(current, {
+        'column': 'flex',
+        'width': 'page',
+        'bodyInsideBorder': true,
+      });
+    });
+
     test('Poppler raster keeps ink inside printable margins', () async {
       final renderer = _findPdftoppm();
       expect(

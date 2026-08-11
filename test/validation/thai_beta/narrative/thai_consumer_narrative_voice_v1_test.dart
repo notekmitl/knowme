@@ -300,11 +300,11 @@ void main() {
       expect(domain.materialFingerprint, isNotEmpty);
     }
     for (final domain in nextYear.domains) {
-      expect(domain.body, startsWith('ตลอดปีข้างหน้า'));
+      expect(domain.body, startsWith('ใน 12 เดือน'));
       expect(domain.preparationAction, isNotEmpty);
     }
     for (final domain in nextPeriod.domains) {
-      expect(domain.body, startsWith('เมื่อเข้าใกล้ช่วงชีวิตถัดไป'));
+      expect(domain.body, startsWith('ช่วงชีวิตถัดไป'));
       expect(domain.preparationAction, isNotEmpty);
       final matchingCurrent = current.domains.where(
         (candidate) => candidate.title == domain.title,
@@ -319,6 +319,36 @@ void main() {
           isNot(matchingCurrent.single.preparationAction),
         );
       }
+    }
+  });
+
+  test('V1.2 repeated past claims are allocated to one period only', () {
+    final periods = ThaiBetaNarrativeComposer.narrativeView(
+      analysis,
+    ).lifeTimeline!.periods.where((period) => period.isPast);
+    final corpus = periods
+        .expand(
+          (period) => [
+            period.summary,
+            period.whatChanges,
+            period.easier,
+            period.harder,
+            period.comparison,
+            period.evidenceLine,
+            period.advice,
+          ],
+        )
+        .where((value) => value.trim().isNotEmpty)
+        .toList();
+    for (final rejectedV12Claim in const [
+      'คุณอยากใกล้ชิด แต่ก็ยังต้องการพื้นที่ส่วนตัว',
+      'คุณเริ่มเลือกโอกาสที่สำคัญจริง ๆ แทนการรับทุกอย่าง',
+    ]) {
+      expect(
+        corpus.where((value) => value.contains(rejectedV12Claim)),
+        hasLength(1),
+        reason: 'a personal past claim belongs to one period only',
+      );
     }
   });
 
@@ -475,8 +505,23 @@ void main() {
       );
       for (final domain in [...known, ...unknown]) {
         expect(domain.materialFingerprint, contains('|t='));
+        expect(domain.materialFingerprint, contains('|k='));
+        expect(domain.materialFingerprint, contains('|o='));
+        expect(domain.materialFingerprint, contains('|td='));
         expect(domain.materialFingerprint, isNot(contains('|p=')));
       }
+      expect(known.map((domain) => domain.material!.sourceOwnership).toSet(), {
+        'lagna-house-and-life-period-score',
+      });
+      expect(
+        unknown.map((domain) => domain.material!.sourceOwnership).toSet(),
+        {'life-period-score-without-lagna'},
+      );
+      expect(known.every((domain) => domain.material!.timeDependent), isTrue);
+      expect(
+        unknown.every((domain) => !domain.material!.timeDependent),
+        isTrue,
+      );
       expect(
         known.map((domain) => domain.material!.spansTransition).toSet(),
         containsAll({true, false}),

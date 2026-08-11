@@ -45,3 +45,6 @@ Current prose explains immediate attention; 12-month prose explains development,
 `หลักการนับวันทางโหราศาสตร์ไทย` and `โครงสร้างดวงหลัก` are no longer opening sections. Their facts remain available near the end under progressive disclosure together with submitted birth data, calculation method, important chart points, provenance, meaning, and limitations.
 
 The task is not release-complete and has no merge, deployment, or readiness claim until Owner Product Acceptance passes.
+# V1.3 evidence allocation amendment
+
+V1.3 adds stable evidence key, domain, horizon, availability, time-dependency, and source-ownership metadata to forecast material. A supported semantic claim is allocated to one useful horizon; repeated past fragments are omitted rather than filled with generic prose. Unknown-time forecast wording identifies its timeline-only basis, while omitted-topic labels refer specifically to unavailable Lagna/house readings. Status: **PENDING OWNER RE-ACCEPTANCE**.

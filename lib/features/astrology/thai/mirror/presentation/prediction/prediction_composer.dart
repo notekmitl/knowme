@@ -172,6 +172,12 @@ abstract final class PredictionComposer {
           ? ForecastEvidenceAvailability.full
           : ForecastEvidenceAvailability.noLagna,
       spansTransition: prediction.window.spansTransition,
+      evidenceKey:
+          'prediction.${prediction.category.name}.${kind.name}.${band.name}',
+      sourceOwnership: hasLagna
+          ? 'lagna-house-and-life-period-score'
+          : 'life-period-score-without-lagna',
+      timeDependent: hasLagna,
     );
   }
 

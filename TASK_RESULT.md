@@ -39,3 +39,6 @@ V1.2 retains typed Claim/Risk/Decision/Action semantics but selects only the mat
 - ZIP: `C:\Users\USER\Downloads\thai-report-natural-narrative-v1-2-fa2664f.zip`, 2,436,006 bytes, 28 safe unique entries, SHA-256 `8EA21BB2AEB98BBD36DDE28B8F958E4693A58F0C49A03D72C7D7B49249BEC673`; 26 checksum lines verified with zero mismatch.
 
 The acceptance ZIP and Draft PR metadata are recorded after packaging and push complete. Do not merge or deploy before explicit Owner approval.
+# PR #89 V1.3 status (2026-08-11)
+
+Owner rejected V1.2 (`thai-report-natural-narrative-v1-2-fa2664f.zip`, SHA-256 `8EA21BB2AEB98BBD36DDE28B8F958E4693A58F0C49A03D72C7D7B49249BEC673`). Root causes and the invalid V1.2 visual-review conclusion are recorded in `docs/PR89_V13_ROOT_CAUSE.md`. V1.3 repairs cross-fixture/horizon selection, repeated past fragments, Unknown omission wording, and PDF disclaimer geometry. Status: **PENDING OWNER RE-ACCEPTANCE**. Do not merge or deploy.
