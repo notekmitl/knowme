@@ -1,18 +1,10 @@
-# Thai Report Reading Flow and Friendly Voice V1
-
-## V1.1 owner-rejection recovery
-
-The first PR #89 acceptance packet was rejected: `REJECTED — FRIENDLY VOICE AND NARRATIVE DISTINCTNESS NOT ACHIEVED`. Root cause was shared horizon boilerplate, shared risk/action suffixes, and renderers that exposed Claim/Risk/Decision/Action as four repeated labels. V1.1 recomposes the typed fields into connected prose, uses twelve horizon/domain-specific actions, removes the duplicate current forecast, makes past/long-term presentation concise, and moves sign/ruler explanation out of early interpretation. A deterministic gate now checks complete-sentence reuse, long narrative duplication, cross-horizon semantic identity, repeated actions, and prefix-only horizon changes for Known and Unknown outputs.
-
-Factual verification remains unchanged: the exact Known fixture is 1982-06-06 00:03, Chiang Mai, standard Thai Beta analysis, and canonically produces Aquarius 9°24′. The prior Aquarius 19°19′ evidence uses 00:35, so the difference is input-driven and is not a regression. Current status: `PENDING OWNER RE-ACCEPTANCE`.
+# Thai Report Natural Narrative Recompositon V1.1
 
 ## Result
 
-Implementation continues on `agent/thai-report-reading-flow-v1` from baseline `c34a1c088b555160707577308c281570b570752a`. Status is `PENDING OWNER RE-ACCEPTANCE`; this branch is not merged or deployed.
+Draft PR #89 has been reworked on `agent/thai-report-reading-flow-v1` after the first acceptance packet was rejected. The source-tested implementation commit is `f9945a5`. Status is `PENDING OWNER RE-ACCEPTANCE`; this branch is not merged or deployed.
 
-The root cause was split composition responsibility: the core reader model treated Thai astrological-day methodology and the chart table as normal opening sections, while Web and PDF independently arranged timeline, forecast, and transparency blocks. Forecast presentation also exposed formal field labels and repeated long horizon boilerplate across domains.
-
-The amendment keeps one `ThaiBetaAnalysis` and the existing typed state. It moves provenance into final progressive disclosure, projects the same timeline state into map/past/current and long-term portions around the shared forecast, and replaces formal labels with natural Thai while retaining Claim, Risk, Decision Impact, Action, uncertainty, and domain ownership.
+The root cause was shared horizon boilerplate, reused risk/action suffixes, and renderers that exposed Claim/Risk/Decision/Action as four repeated labels. V1.1 recomposes those typed values into connected prose, assigns distinct jobs and actions to each horizon/domain combination, consolidates the current period, shortens past/long-term presentation, and places methodology after reader-facing interpretation.
 
 ## Preserved contracts
 
@@ -20,22 +12,29 @@ The amendment keeps one `ThaiBetaAnalysis` and the existing typed state. It move
 - Known-time facts remain exact; Unknown-time remains fail-closed with no assumed time, Lagna, house, or astrological-day conclusion.
 - Web/PDF consume the same analysis and shared presentation values.
 - Fortune remains separate from health; ISO date tokens remain atomic.
-- Round 9 remains completed historical evidence; existing `product-acceptance/` was not changed.
+- Round 9 remains completed historical evidence; existing `product-acceptance/` and the rejected first PR #89 packet were not changed.
+
+## Factual verification
+
+- Exact Known fixture: 1982-06-06 00:03, Chiang Mai, standard `ThaiBetaAnalysisRunner`.
+- Canonical ascendant: Aquarius 9°24′.
+- The separate 00:35 fixture produces Aquarius 19°19′; this is input-driven, not a regression.
 
 ## Validation
 
+- Focused narrative/fixture tests: 24/24 passed.
+- Affected regression tests: 62/62 passed.
+- Synthetic/parity tests: 16/16 passed, including 300 synthetic cases and 20 exact Web/PDF parity cases.
+- Golden/story tests: 32/32 passed.
+- Full required Flutter suite: 1,530/1,530 passed.
 - Repository PreCommit gate: passed.
-- Gate self-test: 9/9 passed.
-- Full required Flutter suite: 1,529/1,529 passed.
-- Synthetic audit: 300 cases plus deterministic, deep-narrative, and real-PDF samples passed.
-- Screenshot/golden regression: 24/24 desktop/tablet/mobile profiles passed.
-- Analyzer: completed with the repository's 299 existing warning/info findings and no fatal warning/info gate failure.
-- Known Web/PDF canonical text parity: exact.
-- Unknown Web/PDF canonical text parity: exact; fail-closed behavior preserved.
-- Acceptance PDFs: Known 17 pages, SHA-256 `D1244A98DF3E8F9158CF0CEB7D204B3893B03A42A2C012F40A3C5F21564073B9`; Unknown 18 pages, SHA-256 `73D92CEEA7F12831CBD90656C6323C31DC0B2B493523F64D959B238AA2484215`.
-- Visual QA: all 35 rendered PDF pages and four Web desktop/mobile captures inspected without blank page, clipping, overflow, orphan heading, footer overlap, or missing glyph.
-- Acceptance packet: `C:\Users\USER\Documents\Knowme\thai-report-reading-flow-v1-acceptance` (separate from Round 9).
+- Analyzer: completed with the repository baseline of 299 warning/info findings and no fatal gate failure.
+- Deterministic Known/Unknown audit: zero duplicate complete narrative sentences, identical cross-horizon bodies, reused full actions, visible four-field templates, or prefix/suffix-only horizon variants.
+- Known Web/PDF canonical text parity: byte-identical.
+- Unknown Web/PDF canonical text parity: byte-identical; fail-closed behavior preserved.
+- Acceptance PDFs: Known 11 pages, SHA-256 `F08542ABD7BB61F77C890389F074AB16B50D676E5508B80B5C6E882EDE639CB0`; Unknown 10 pages, SHA-256 `9605081518D9FDB318BF3239535FCCEFE04675839C559DAE628EADE351AF8ED7`.
+- Visual QA: all 21 rendered PDF pages and four Web desktop/mobile captures inspected without blank page, clipping, overflow, footer overlap, or missing glyph.
+- New acceptance folder: `C:\Users\USER\Documents\Knowme\thai-report-natural-narrative-v1-1-f9945a5-acceptance`.
 
-PostCommit, push, and Draft PR metadata are recorded after those operations complete.
+The acceptance ZIP and Draft PR metadata are recorded after packaging and push complete. Do not merge or deploy before explicit Owner approval.
 
-Final delivery status remains `PENDING PRODUCT ACCEPTANCE`. Do not merge or deploy before explicit Owner approval.
