@@ -583,44 +583,18 @@ abstract final class ThaiBetaNarrativeComposer {
         .replaceFirst(RegExp(r'^ใน 12 เดือนข้างหน้า\s*'), '')
         .replaceFirst(RegExp(r'^เมื่อเข้าสู่ช่วงชีวิตถัดไป\s*'), '');
     final timed = switch (windowIndex) {
-      0 => 'สำหรับตอนนี้ $stripped',
-      1 => 'ใน 12 เดือนข้างหน้า $stripped',
-      _ => 'เมื่อเข้าสู่ช่วงชีวิตถัดไป $stripped',
+      0 => stripped,
+      1 => 'ตลอดปีข้างหน้า $stripped',
+      _ => 'เมื่อเข้าใกล้ช่วงชีวิตถัดไป $stripped',
     };
-    final evidenceCriterion = switch (plan.horizon) {
-      ForecastHorizon.current => 'ลองเทียบกับสิ่งที่กำลังเกิดขึ้นจริง',
-      ForecastHorizon.next12Months =>
-        'ค่อยวางแผนต่อเมื่อเห็นผลแบบนี้เกิดซ้ำมากกว่าหนึ่งครั้ง',
-      ForecastHorizon.nextLifePeriod =>
-        'เช็กก่อนว่าสิ่งที่คุณมีอยู่ยังพอรองรับความเปลี่ยนแปลงนี้',
-    };
-    final pace = switch ((plan.band, plan.intent)) {
-      (ForecastBand.strong, ForecastDecisionIntent.protectCoreWork) =>
-        'งานหลักยังมีแรงให้ขยับต่อได้',
-      (ForecastBand.active, ForecastDecisionIntent.protectCoreWork) =>
-        'ลองเพิ่มบทบาททีละส่วนจะเห็นผลชัดกว่า',
-      (ForecastBand.quiet, ForecastDecisionIntent.protectCoreWork) =>
-        'ควรรักษาคุณภาพงานหลักไว้ก่อน',
-      (ForecastBand.strong, ForecastDecisionIntent.preserveLiquidity) =>
-        'ฐานเงินยังเปิดทางให้วางแผนต่อได้',
-      (ForecastBand.active, ForecastDecisionIntent.preserveLiquidity) =>
-        'ลองขยับเรื่องเงินในวงเล็กก่อน',
-      (ForecastBand.quiet, ForecastDecisionIntent.preserveLiquidity) =>
-        'ควรรักษาเงินพร้อมใช้ไว้ก่อน',
-      (ForecastBand.strong, ForecastDecisionIntent.clarifyCommitment) =>
-        'ความสัมพันธ์มีพื้นที่ให้คุยเรื่องถัดไป',
-      (ForecastBand.active, ForecastDecisionIntent.clarifyCommitment) =>
-        'ค่อย ๆ ดูความสม่ำเสมอของกันและกัน',
-      (ForecastBand.quiet, ForecastDecisionIntent.clarifyCommitment) =>
-        'ยังควรรอให้ความคาดหวังตรงกันก่อน',
-      (ForecastBand.strong, ForecastDecisionIntent.preserveRecovery) =>
-        'พลังชีวิตยังรองรับกิจกรรมที่เลือกไว้ได้',
-      (ForecastBand.active, ForecastDecisionIntent.preserveRecovery) =>
-        'เพิ่มกิจกรรมทีละอย่างจะดูแรงของตัวเองง่ายกว่า',
-      (ForecastBand.quiet, ForecastDecisionIntent.preserveRecovery) =>
-        'การพักให้พอสำคัญกว่าการเพิ่มกิจกรรม',
-    };
-    return '$timed $pace $evidenceCriterion';
+    final evidenceBoundary =
+        plan.evidenceAvailability == ForecastEvidenceAvailability.noLagna
+        ? ' ภาพนี้อ่านจากวันเกิดโดยไม่ใช้เรือนชะตา'
+        : '';
+    final transitionBoundary = plan.spansTransition
+        ? ' โดยมีรอยต่อของช่วงชีวิตอยู่ในกรอบนี้'
+        : '';
+    return '$timed$evidenceBoundary$transitionBoundary';
   }
 
   static String _decisionImpact(ForecastDecisionPlan plan) {
@@ -650,25 +624,22 @@ abstract final class ThaiBetaNarrativeComposer {
       (ForecastBand.quiet, ForecastDecisionIntent.preserveRecovery) =>
         'ลดกิจกรรมและคืนเวลาฟื้นตัวก่อนรับภาระใหม่',
     };
-    final transition =
-        plan.horizon == ForecastHorizon.nextLifePeriod && plan.spansTransition
-        ? ' และเผื่อแรงสำหรับช่วงเปลี่ยนผ่าน'
-        : '';
-    final horizonBoundary = switch (plan.horizon) {
-      ForecastHorizon.current => ' ดูผลรอบนี้ก่อนเพิ่มเรื่องใหม่',
-      ForecastHorizon.next12Months => ' ทบทวนระหว่างปี ก่อนผูกแผนต่อทั้งปี',
-      ForecastHorizon.nextLifePeriod =>
-        ' เช็กเวลา เงิน และแรงก่อนเปลี่ยนภาระใหญ่',
-    };
-    final riskBoundary = switch (plan.consumerRiskDomain) {
-      LifeDomain.pressure => ' เพราะภาระเกินกำลังจะเบียดพื้นที่ตัดสินใจ',
-      LifeDomain.money => ' เพราะภาระเงินจะลดทางเลือกที่เหลือ',
-      LifeDomain.love => ' เพราะความคาดหวังที่ไม่ตรงกันทำให้ผูกพันเร็วเกินไป',
-      LifeDomain.health => ' เพราะการพักไม่พอจะลดกำลังสำหรับขั้นต่อไป',
-      LifeDomain.career => ' เพราะงานเพิ่มอาจเบียดคุณภาพงานหลัก',
+    final riskConsequence = switch (plan.consumerRiskDomain) {
+      LifeDomain.pressure => ' โดยต้องเหลือพื้นที่ให้ภาระหลัก',
+      LifeDomain.money => ' โดยไม่ลดเงินที่ต้องพร้อมใช้',
+      LifeDomain.love => ' โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน',
+      LifeDomain.health => ' โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน',
+      LifeDomain.career => ' โดยไม่แลกกับคุณภาพงานหลัก',
       _ => '',
     };
-    return '$decisionCore$riskBoundary$horizonBoundary$transition';
+    final evidenceBoundary =
+        plan.evidenceAvailability == ForecastEvidenceAvailability.noLagna
+        ? ' จึงควรยืนยันจากผลที่เกิดซ้ำก่อนตัดสินใจ'
+        : '';
+    final transitionBoundary = plan.spansTransition
+        ? ' และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต'
+        : '';
+    return '$decisionCore$riskConsequence$evidenceBoundary$transitionBoundary';
   }
 
   static String _riskSignal(String caution, {LifeDomain? riskDomain}) {
@@ -729,18 +700,15 @@ abstract final class ThaiBetaNarrativeComposer {
       riskDomain: plan.consumerRiskDomain,
     );
     final decisionImpact = _decisionImpact(plan);
-    final action = _forecastActionForPlan(plan);
+    final action = _naturalActionForPlan(plan);
     final disclosure =
         plan.evidenceAvailability == ForecastEvidenceAvailability.noLagna
         ? 'คำอ่านนี้ไม่มีหลักฐานลัคนา จึงใช้เป็นกรอบสังเกตและไม่ฟันธง'
         : '';
     return PredictionDomainModel(
       title: title,
-      body: 'ภาพที่เห็น: $claim\nเรื่องนี้มีผลกับคุณอย่างไร: $decisionImpact',
-      caution: [
-        if (risk.isNotEmpty) 'สิ่งที่ควรระวัง: $risk',
-        'สิ่งที่ทำได้ตอนนี้: $action',
-      ].join('\n'),
+      body: _naturalForecastBody(plan, claim, decisionImpact, risk, action),
+      caution: '',
       claim: claim,
       risk: risk,
       decisionImpact: decisionImpact,
@@ -751,6 +719,181 @@ abstract final class ThaiBetaNarrativeComposer {
     );
   }
 
+  static String _naturalForecastBody(
+    ForecastDecisionPlan plan,
+    String claim,
+    String decisionImpact,
+    String risk,
+    String action,
+  ) {
+    final bridge = switch ((plan.horizon, plan.intent)) {
+      (ForecastHorizon.current, ForecastDecisionIntent.protectCoreWork) =>
+        'จุดชี้ขาดอยู่ที่พื้นที่ของงานหลัก',
+      (ForecastHorizon.current, ForecastDecisionIntent.preserveLiquidity) =>
+        'สิ่งที่ต้องเห็นให้ชัดคือเงินที่เหลือหลังภาระประจำ',
+      (ForecastHorizon.current, ForecastDecisionIntent.clarifyCommitment) =>
+        'ให้ดูว่าคำพูดกับการกระทำของทั้งสองฝ่ายไปทางเดียวกันหรือไม่',
+      (ForecastHorizon.current, ForecastDecisionIntent.preserveRecovery) =>
+        'สัญญาณจากการนอนและการฟื้นตัวจะบอกจังหวะที่เหมาะกว่า',
+      (ForecastHorizon.next12Months, ForecastDecisionIntent.protectCoreWork) =>
+        'ตลอดปีให้วัดจากคุณภาพงานเดิม ไม่ใช่จำนวนบทบาทใหม่',
+      (
+        ForecastHorizon.next12Months,
+        ForecastDecisionIntent.preserveLiquidity,
+      ) =>
+        'ระยะเงินพร้อมใช้ในแต่ละไตรมาสจะเป็นหลักตัดสินใจ',
+      (
+        ForecastHorizon.next12Months,
+        ForecastDecisionIntent.clarifyCommitment,
+      ) =>
+        'ความสม่ำเสมอตลอดปีสำคัญกว่าคำมั่นเพียงครั้งเดียว',
+      (ForecastHorizon.next12Months, ForecastDecisionIntent.preserveRecovery) =>
+        'ติดตามคุณภาพการพักในสัปดาห์ที่ภาระสูงเป็นพิเศษ',
+      (
+        ForecastHorizon.nextLifePeriod,
+        ForecastDecisionIntent.protectCoreWork,
+      ) =>
+        'ก่อนเปลี่ยนช่วงชีวิต ต้องรู้ว่างานใดจะทำต่อ งานใดจะส่งต่อ',
+      (
+        ForecastHorizon.nextLifePeriod,
+        ForecastDecisionIntent.preserveLiquidity,
+      ) =>
+        'เงินสำรองช่วงเปลี่ยนผ่านควรรับภาระได้โดยไม่บีบทางเลือก',
+      (
+        ForecastHorizon.nextLifePeriod,
+        ForecastDecisionIntent.clarifyCommitment,
+      ) =>
+        'บทสนทนาเรื่องเวลา หน้าที่ และพื้นที่ส่วนตัวต้องเกิดก่อนเปลี่ยนช่วง',
+      (
+        ForecastHorizon.nextLifePeriod,
+        ForecastDecisionIntent.preserveRecovery,
+      ) =>
+        'กิจวัตรที่ทำต่อได้จริงควรถูกเตรียมก่อนภาระชุดใหม่เริ่ม',
+    };
+    final riskSentence = risk.trim().isEmpty
+        ? ''
+        : ' ระหว่างนั้นให้สังเกตว่า$risk';
+    return '$claim $decisionImpact\n$bridge$riskSentence $action';
+  }
+
+  static String _naturalActionForPlan(ForecastDecisionPlan plan) {
+    final action = switch ((plan.horizon, plan.intent)) {
+      (ForecastHorizon.current, ForecastDecisionIntent.protectCoreWork) =>
+        'เลือกงานหลักหนึ่งเรื่อง ตั้งเพดานเวลา และปฏิเสธงานใหม่เมื่อเพดานเต็ม',
+      (ForecastHorizon.current, ForecastDecisionIntent.preserveLiquidity) =>
+        'กันเงินรายจ่ายจำเป็นก่อน แล้วทดลองภาระใหม่ด้วยวงเงินเล็กที่หยุดได้',
+      (ForecastHorizon.current, ForecastDecisionIntent.clarifyCommitment) =>
+        'พูดเงื่อนไขที่ค้างอยู่ให้จบหนึ่งเรื่อง แล้วดูการตอบสนองก่อนตกลงเพิ่ม',
+      (ForecastHorizon.current, ForecastDecisionIntent.preserveRecovery) =>
+        'ลดกิจกรรมหนึ่งอย่างในสัปดาห์นี้และคืนเวลานั้นให้การนอน',
+      (ForecastHorizon.next12Months, ForecastDecisionIntent.protectCoreWork) =>
+        'กำหนดจุดทบทวนกลางปีเพื่อเลือกว่าจะขยายบทบาทเดิมหรือหยุดรับเพิ่ม',
+      (
+        ForecastHorizon.next12Months,
+        ForecastDecisionIntent.preserveLiquidity,
+      ) =>
+        'บันทึกเงินคงเหลือทุกไตรมาสและขยายแผนต่อเมื่อเงินสำรองไม่ลดลง',
+      (
+        ForecastHorizon.next12Months,
+        ForecastDecisionIntent.clarifyCommitment,
+      ) =>
+        'ทบทวนข้อตกลงตามพฤติกรรมที่เกิดซ้ำ ไม่เร่งข้อผูกพันจากช่วงที่ราบรื่นครั้งเดียว',
+      (ForecastHorizon.next12Months, ForecastDecisionIntent.preserveRecovery) =>
+        'จดคุณภาพการนอนหลังสัปดาห์หนัก และลดตารางเดือนถัดไปเมื่อฟื้นไม่ทัน',
+      (
+        ForecastHorizon.nextLifePeriod,
+        ForecastDecisionIntent.protectCoreWork,
+      ) =>
+        'ทำรายการงานที่จะรักษา ส่งต่อ และยุติให้เสร็จก่อนรับบทบาทก้อนใหม่',
+      (
+        ForecastHorizon.nextLifePeriod,
+        ForecastDecisionIntent.preserveLiquidity,
+      ) =>
+        'สร้างเงินสำรองเฉพาะช่วงเปลี่ยนผ่านก่อนผูกค่าใช้จ่ายระยะยาวก้อนใหม่',
+      (
+        ForecastHorizon.nextLifePeriod,
+        ForecastDecisionIntent.clarifyCommitment,
+      ) =>
+        'ตกลงเวลา หน้าที่ และพื้นที่ส่วนตัวของช่วงถัดไปไว้ก่อนตัดสินใจร่วมกัน',
+      (
+        ForecastHorizon.nextLifePeriod,
+        ForecastDecisionIntent.preserveRecovery,
+      ) =>
+        'ทดลองกิจวัตรพักแบบใหม่ล่วงหน้าและเก็บเฉพาะแบบที่ทำต่อได้ในวันที่ยุ่ง',
+    };
+    final riskResponse = switch (plan.consumerRiskDomain) {
+      LifeDomain.pressure => 'ถ้าภาระเริ่มล้น ให้ลดขอบเขตก่อนเพิ่มเวลา',
+      LifeDomain.money => 'ถ้าภาระเงินสูงกว่าแผน ให้หยุดรายการใหม่ไว้ก่อน',
+      LifeDomain.love =>
+        'ถ้าความคาดหวังในความสัมพันธ์ยังไม่ตรงกัน ให้ชะลอข้อตกลงที่ย้อนกลับยาก',
+      LifeDomain.health => 'ถ้าฟื้นตัวไม่ทัน ให้ลดความถี่แทนการฝืนทำต่อ',
+      LifeDomain.career => 'ถ้างานหลักเสียคุณภาพ ให้คืนเวลาก่อนรับงานเพิ่ม',
+      _ => 'ถ้าผลจริงไม่เป็นไปตามแผน ให้ชะลอและทบทวนใหม่',
+    };
+    if (plan.evidenceAvailability == ForecastEvidenceAvailability.noLagna) {
+      final observationAction = switch ((plan.horizon, plan.intent)) {
+        (ForecastHorizon.current, ForecastDecisionIntent.protectCoreWork) =>
+          'จดเวลางานจริงหนึ่งสัปดาห์ แล้วคงไว้เฉพาะบทบาทที่ไม่ทำให้งานหลักตก',
+        (ForecastHorizon.current, ForecastDecisionIntent.preserveLiquidity) =>
+          'ใช้รายรับรายจ่ายจริงหนึ่งรอบเป็นฐาน และเลื่อนรายการที่ยังไม่มีเงินรองรับ',
+        (ForecastHorizon.current, ForecastDecisionIntent.clarifyCommitment) =>
+          'สังเกตการรักษาคำพูดในเรื่องเล็กก่อนเปิดบทสนทนาเรื่องผูกพัน',
+        (ForecastHorizon.current, ForecastDecisionIntent.preserveRecovery) =>
+          'บันทึกเวลานอนกับความล้าหนึ่งสัปดาห์ก่อนเปลี่ยนตารางกิจกรรม',
+        (
+          ForecastHorizon.next12Months,
+          ForecastDecisionIntent.protectCoreWork,
+        ) =>
+          'เก็บหลักฐานผลงานเป็นรอบและค่อยเลือกบทบาทจากแบบที่ทำซ้ำได้',
+        (
+          ForecastHorizon.next12Months,
+          ForecastDecisionIntent.preserveLiquidity,
+        ) =>
+          'เทียบยอดคงเหลือรายไตรมาส แล้วค่อยขยายแผนจากเงินที่เกิดขึ้นจริง',
+        (
+          ForecastHorizon.next12Months,
+          ForecastDecisionIntent.clarifyCommitment,
+        ) =>
+          'ใช้ความต่อเนื่องหลายเดือนยืนยันความพร้อม แทนการกำหนดวันผูกพันล่วงหน้า',
+        (
+          ForecastHorizon.next12Months,
+          ForecastDecisionIntent.preserveRecovery,
+        ) =>
+          'เก็บรูปแบบการฟื้นตัวในเดือนเบาและเดือนหนักก่อนตั้งเป้าระยะยาว',
+        (
+          ForecastHorizon.nextLifePeriod,
+          ForecastDecisionIntent.protectCoreWork,
+        ) =>
+          'ทดลองส่งต่องานชิ้นเล็กและดูผลก่อนจัดโครงบทบาทของช่วงใหม่',
+        (
+          ForecastHorizon.nextLifePeriod,
+          ForecastDecisionIntent.preserveLiquidity,
+        ) =>
+          'จำลองค่าใช้จ่ายช่วงเปลี่ยนผ่านจากตัวเลขจริงก่อนผูกภาระก้อนถัดไป',
+        (
+          ForecastHorizon.nextLifePeriod,
+          ForecastDecisionIntent.clarifyCommitment,
+        ) =>
+          'ทดลองตารางชีวิตร่วมกันระยะสั้นก่อนกำหนดหน้าที่ของช่วงถัดไป',
+        (
+          ForecastHorizon.nextLifePeriod,
+          ForecastDecisionIntent.preserveRecovery,
+        ) =>
+          'ทดลองวันทำงานและวันพักแบบช่วงใหม่ก่อนย้ายภาระทั้งหมด',
+      };
+      final transitionStep = plan.spansTransition
+          ? 'เก็บผลจากรอยต่อหนึ่งรอบก่อนย้ายภาระทั้งหมด'
+          : '';
+      return '$observationAction $riskResponse $transitionStep'.trim();
+    }
+    final transitionStep = plan.spansTransition
+        ? 'กันเวลา เงิน หรือแรงไว้รับรอยต่อก่อนเริ่มก้อนใหม่'
+        : '';
+    return '$action $riskResponse $transitionStep'.trim();
+  }
+
+  // Kept temporarily for compatibility comparison in deterministic audits.
+  // ignore: unused_element
   static String _forecastActionForPlan(ForecastDecisionPlan plan) {
     final horizonLead = switch (plan.horizon) {
       ForecastHorizon.current => 'ตอนนี้',

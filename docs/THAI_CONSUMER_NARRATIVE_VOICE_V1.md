@@ -2,7 +2,7 @@
 
 ## Status — Reading Flow and Friendly Voice amendment
 
-Status: `PENDING PRODUCT ACCEPTANCE` on branch `agent/thai-report-reading-flow-v1`, based on `c34a1c088b555160707577308c281570b570752a`. Round 9 remains the completed historical Production release and is not rewritten by this amendment.
+Status: `PENDING OWNER RE-ACCEPTANCE` on branch `agent/thai-report-reading-flow-v1`, based on `c34a1c088b555160707577308c281570b570752a`. The first PR #89 packet was rejected because four renamed labels still exposed formulaic shared composition. Round 9 remains completed historical evidence and is not rewritten.
 
 ## Reader-facing order
 
@@ -25,7 +25,9 @@ Status: `PENDING PRODUCT ACCEPTANCE` on branch `agent/thai-report-reading-flow-v
 
 ## Voice rules
 
-Reader-facing Thai speaks directly to `คุณ`, uses short familiar sentences, states practical meaning before technical reason, and keeps soft certainty. Avoid academic labels, mystical certainty, threats, daily-horoscope tone, and formulaic horizon/domain repetition. Natural labels such as `เรื่องนี้มีผลกับคุณอย่างไร`, `สิ่งที่ควรระวัง`, and `สิ่งที่ทำได้ตอนนี้` may present the same typed fields without changing their semantics.
+Reader-facing Thai speaks directly to `คุณ`, uses short familiar sentences, states practical meaning before technical reason, and keeps soft certainty. Avoid academic labels, mystical certainty, threats, daily-horoscope tone, and formulaic horizon/domain repetition. Claim, Risk, Decision Impact, and Action remain typed internally but are recomposed as two or three connected paragraphs; their schema labels must not repeat through the report.
+
+Current prose explains immediate attention; 12-month prose explains development, watch signs, and review timing; next-period prose explains priority shifts and preparation. Long-term text is synthesis only. A deterministic Known/Unknown audit rejects reused complete sentences, repeated long clauses, identical cross-horizon bodies/actions, and horizon changes made only by a prefix or suffix.
 
 ## Preserved contracts
 

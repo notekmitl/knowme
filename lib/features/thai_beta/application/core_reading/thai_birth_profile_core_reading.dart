@@ -1211,52 +1211,42 @@ class ThaiBirthProfileCoreReading {
     if (identityPhrase.isEmpty) return '';
     final mode = _planetMode(lord.rawValue);
     return 'คุณ$identityPhrase และมักไปได้ดีเมื่อใช้${mode.$1} '
-        'สิ่งที่ควรระวังคือ${mode.$2} '
-        'ภาพนี้มาจากลัคนา${_lagnaLabel(sign.rawValue)}และ${_lordLabel(lord.rawValue)}';
+        'สิ่งที่ควรระวังคือ${mode.$2}';
   }
 
   static ({String analysis, String guidance}) _composeHouseDomain(
     ThaiBirthProfileCoreDomain domain,
     List<ThaiBirthProfileCoreClaimAtom> atoms,
   ) {
-    final sign = atoms.firstWhere(
-      (atom) => atom.kind == ThaiBirthProfileCoreAtomKind.houseSign,
-    );
     final lord = atoms.firstWhere(
       (atom) => atom.kind == ThaiBirthProfileCoreAtomKind.houseLord,
     );
-    final signLabel = _lagnaLabel(sign.rawValue);
-    final lordLabel = _lordLabel(lord.rawValue);
     final mode = _planetMode(lord.rawValue);
     return switch (domain) {
       ThaiBirthProfileCoreDomain.work => (
         analysis:
-            'เรื่องงาน คุณมักทำได้ดีเมื่อได้ใช้${mode.$1} '
-            'ภาพนี้มาจากจุดการงานที่อยู่ใน$signLabelและสัมพันธ์กับ$lordLabel',
+            'เรื่องงาน คุณมักทำได้ดีเมื่อได้ใช้${mode.$1}',
         guidance:
             'ถ้างานเริ่มติด ลองเช็กว่ากำลัง${mode.$2}อยู่หรือไม่ '
             'สิ่งที่ทำได้คือ${mode.$3} เพื่อให้งานเดินต่อโดยไม่ฝืนตัวเอง',
       ),
       ThaiBirthProfileCoreDomain.money => (
         analysis:
-            'เรื่องเงิน คุณมักให้ความสำคัญกับ${mode.$1} '
-            'ภาพนี้มาจากจุดการเงินที่อยู่ใน$signLabelและสัมพันธ์กับ$lordLabel',
+            'เรื่องเงิน คุณมักให้ความสำคัญกับ${mode.$1}',
         guidance:
             'ก่อนตัดสินใจเรื่องเงิน ระวังเวลาที่${mode.$2} '
             'ลองใช้${mode.$3} เพื่อไม่ให้เรื่องเร่งด่วนกระทบเงินที่ต้องเก็บไว้',
       ),
       ThaiBirthProfileCoreDomain.relationships => (
         analysis:
-            'ในความสัมพันธ์ คุณมักสร้างความไว้ใจผ่าน${mode.$1} '
-            'ภาพนี้มาจากจุดความสัมพันธ์ที่อยู่ใน$signLabelและสัมพันธ์กับ$lordLabel',
+            'ในความสัมพันธ์ คุณมักสร้างความไว้ใจผ่าน${mode.$1}',
         guidance:
             'ถ้าเริ่มเข้าใจกันยาก ลองดูว่ากำลัง${mode.$2}อยู่หรือไม่ '
             'ใช้${mode.$3} แล้วคุยขอบเขตให้ชัด เพื่อให้ทั้งสองฝ่ายยังมีพื้นที่ของตัวเอง',
       ),
       ThaiBirthProfileCoreDomain.wellbeing => (
         analysis:
-            'เรื่องพลังชีวิต คุณเหมาะกับการดูแลตัวเองผ่าน${mode.$1} '
-            'ภาพนี้มาจากจุดสุขภาวะที่อยู่ใน$signLabelและสัมพันธ์กับ$lordLabel',
+            'เรื่องพลังชีวิต คุณเหมาะกับการดูแลตัวเองผ่าน${mode.$1}',
         guidance:
             'ถ้าเริ่ม${mode.$2} อย่าปล่อยไว้นาน ให้ใช้${mode.$3} '
             'พร้อมจัดเวลาพักให้สม่ำเสมอ',

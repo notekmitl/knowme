@@ -218,11 +218,8 @@ void main() {
       )) {
         expect(domain.uncertaintyDisclosure, contains('ไม่มีหลักฐานลัคนา'));
         expect(domain.preparationAction, isNot(contains('ไม่มีหลักฐานลัคนา')));
-        expect(
-          pdfText,
-          contains('ข้อจำกัดของคำอ่าน: ${domain.uncertaintyDisclosure}'),
-        );
       }
+      expect('ข้อจำกัดของคำอ่าน:'.allMatches(pdfText), hasLength(1));
     });
 
     test('Thai Beta omits repeated past and future domain claims', () {
@@ -307,7 +304,7 @@ void main() {
     });
 
     test(
-      'exports detailed past and future domains from the shared view state',
+      'exports concise past and distinct future prose from shared state',
       () {
         final doc = ThaiBetaReportExportDocument.fromAnalysis(analysis);
         final text = doc.fullPlainText;
@@ -316,23 +313,13 @@ void main() {
         final prediction = view.futurePrediction!;
 
         final past = timeline.periods.firstWhere((period) => period.isPast);
-        final future = timeline.periods.firstWhere(
-          (period) => !period.isPast && !period.isCurrent,
-        );
-        expect(text, contains(past.lifeDomains.first.body));
-        expect(text, contains(future.lifeDomains.first.body));
+        expect(text, contains(past.summary));
+        expect(text, isNot(contains(past.lifeDomains.first.body)));
         expect(text, contains(prediction.detailedSectionIntro));
-        for (final domain in prediction.windows.first.domains) {
-          expect(text, contains('ภาพที่เห็น: ${domain.claim}'));
-          expect(text, contains('สิ่งที่ควรระวัง: ${domain.risk}'));
-          expect(
-            text,
-            contains('เรื่องนี้มีผลกับคุณอย่างไร: ${domain.decisionImpact}'),
-          );
-          expect(
-            text,
-            contains('สิ่งที่ทำได้ตอนนี้: ${domain.preparationAction}'),
-          );
+        for (final domain
+            in prediction.windows.skip(1).expand((window) => window.domains)) {
+          expect(text, contains(domain.body));
+          expect(text, isNot(contains('ภาพที่เห็น: ${domain.claim}')));
         }
       },
     );

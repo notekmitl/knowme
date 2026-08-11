@@ -62,11 +62,11 @@ class ThaiMirrorFuturePredictionSection extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 18),
-        for (var i = 0; i < state.windows.length; i++) ...[
-          if (i > 0) const SizedBox(height: 12),
+        for (var i = 1; i < state.windows.length; i++) ...[
+          if (i > 1) const SizedBox(height: 12),
           _WindowCard(
             card: state.windows[i],
-            highlighted: detailedNarrativeMode ? i == 1 : i == 0,
+            highlighted: i == 1,
             detailedNarrativeMode: detailedNarrativeMode,
           ),
         ],
@@ -315,76 +315,26 @@ class _DomainForecast extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 5),
-          if (domain.claim.isNotEmpty) ...[
-            _ForecastField(label: 'ภาพที่เห็น', value: domain.claim),
-            _ForecastField(label: 'สิ่งที่ควรระวัง', value: domain.risk),
-            _ForecastField(
-              label: 'เรื่องนี้มีผลกับคุณอย่างไร',
-              value: domain.decisionImpact,
+          Text(
+            domain.body,
+            style: TextStyle(
+              fontSize: 14,
+              height: 1.72,
+              color: scheme.onSurface.withValues(alpha: 0.92),
             ),
-            _ForecastField(
-              label: 'สิ่งที่ทำได้ตอนนี้',
-              value: domain.preparationAction,
-            ),
-            if (domain.uncertaintyDisclosure.isNotEmpty)
-              _ForecastField(
-                label: 'ข้อจำกัดของคำอ่าน',
-                value: domain.uncertaintyDisclosure,
-              ),
-          ] else ...[
+          ),
+          if (domain.caution.isNotEmpty) ...[
+            const SizedBox(height: 6),
             Text(
-              domain.body,
+              domain.caution,
               style: TextStyle(
-                fontSize: 14,
-                height: 1.72,
-                color: scheme.onSurface.withValues(alpha: 0.92),
+                fontSize: 13,
+                height: 1.65,
+                color: scheme.onSurfaceVariant,
               ),
             ),
-            if (domain.caution.isNotEmpty) ...[
-              const SizedBox(height: 6),
-              Text(
-                domain.caution,
-                style: TextStyle(
-                  fontSize: 13,
-                  height: 1.65,
-                  color: scheme.onSurfaceVariant,
-                ),
-              ),
-            ],
           ],
         ],
-      ),
-    );
-  }
-}
-
-class _ForecastField extends StatelessWidget {
-  const _ForecastField({required this.label, required this.value});
-
-  final String label;
-  final String value;
-
-  @override
-  Widget build(BuildContext context) {
-    if (value.trim().isEmpty) return const SizedBox.shrink();
-    final scheme = Theme.of(context).colorScheme;
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 6),
-      child: Text.rich(
-        TextSpan(
-          children: [
-            TextSpan(
-              text: '$label: ',
-              style: const TextStyle(fontWeight: FontWeight.w700),
-            ),
-            TextSpan(text: value),
-          ],
-        ),
-        style: TextStyle(
-          fontSize: 13.5,
-          height: 1.65,
-          color: scheme.onSurface.withValues(alpha: 0.92),
-        ),
       ),
     );
   }

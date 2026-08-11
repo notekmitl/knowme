@@ -256,16 +256,17 @@ class _ThaiMirrorLifeTimelineSectionState
             _PeriodCard(
               period: periods[i],
               accent: _accent(periods[i].accentIndex),
-              expanded: widget.detailedNarrativeMode
+              expanded: widget.detailedNarrativeMode && periods[i].isCurrent
                   ? _expandedDetailed.contains(i)
                   : periods[i].isPast
                   ? false
                   : _expanded == i,
               isWide: isWide,
-              showCollapsedSummary: compact,
+              showCollapsedSummary: compact || !periods[i].isCurrent,
               lifeMapMode: widget.lifeMapMode,
-              detailedNarrativeMode: widget.detailedNarrativeMode,
-              onTap: widget.detailedNarrativeMode
+              detailedNarrativeMode:
+                  widget.detailedNarrativeMode && periods[i].isCurrent,
+              onTap: widget.detailedNarrativeMode && periods[i].isCurrent
                   ? () => setState(() {
                       if (!_expandedDetailed.remove(i)) {
                         _expandedDetailed.add(i);
@@ -928,15 +929,6 @@ class _PeriodCard extends StatelessWidget {
                       ),
                     ],
                   ],
-                  const SizedBox(height: 8),
-                  Text(
-                    'สิ่งที่เกิดขึ้น',
-                    style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w800,
-                      color: accent,
-                    ),
-                  ),
                   const SizedBox(height: 4),
                   Text(
                     period.summary,
@@ -947,7 +939,9 @@ class _PeriodCard extends StatelessWidget {
                     ),
                   ),
                 ] else ...[
-                  if (showCollapsedSummary && !expanded) ...[
+                  if (showCollapsedSummary &&
+                      !expanded &&
+                      (!lifeMapMode || detailedNarrativeMode)) ...[
                     const SizedBox(height: 10),
                     Text(
                       period.summary,

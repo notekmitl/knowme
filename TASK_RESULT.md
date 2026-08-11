@@ -1,8 +1,14 @@
 # Thai Report Reading Flow and Friendly Voice V1
 
+## V1.1 owner-rejection recovery
+
+The first PR #89 acceptance packet was rejected: `REJECTED — FRIENDLY VOICE AND NARRATIVE DISTINCTNESS NOT ACHIEVED`. Root cause was shared horizon boilerplate, shared risk/action suffixes, and renderers that exposed Claim/Risk/Decision/Action as four repeated labels. V1.1 recomposes the typed fields into connected prose, uses twelve horizon/domain-specific actions, removes the duplicate current forecast, makes past/long-term presentation concise, and moves sign/ruler explanation out of early interpretation. A deterministic gate now checks complete-sentence reuse, long narrative duplication, cross-horizon semantic identity, repeated actions, and prefix-only horizon changes for Known and Unknown outputs.
+
+Factual verification remains unchanged: the exact Known fixture is 1982-06-06 00:03, Chiang Mai, standard Thai Beta analysis, and canonically produces Aquarius 9°24′. The prior Aquarius 19°19′ evidence uses 00:35, so the difference is input-driven and is not a regression. Current status: `PENDING OWNER RE-ACCEPTANCE`.
+
 ## Result
 
-Implementation is complete on `agent/thai-report-reading-flow-v1` from baseline `c34a1c088b555160707577308c281570b570752a`. Status remains `PENDING PRODUCT ACCEPTANCE`; this branch is not merged or deployed.
+Implementation continues on `agent/thai-report-reading-flow-v1` from baseline `c34a1c088b555160707577308c281570b570752a`. Status is `PENDING OWNER RE-ACCEPTANCE`; this branch is not merged or deployed.
 
 The root cause was split composition responsibility: the core reader model treated Thai astrological-day methodology and the chart table as normal opening sections, while Web and PDF independently arranged timeline, forecast, and transparency blocks. Forecast presentation also exposed formal field labels and repeated long horizon boilerplate across domains.
 

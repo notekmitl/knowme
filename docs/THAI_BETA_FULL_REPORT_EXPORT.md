@@ -4,6 +4,10 @@
 **Date:** July 2026  
 **Commit:** Thai Beta Full Report Export  
 
+## PR #89 Natural Narrative V1.1 amendment (August 11, 2026)
+
+PDF and Web now render the same connected narrative body instead of exposing four repeated forecast field labels. The PDF exports one consolidated current section, omits the duplicate current forecast window, renders past and long-term periods concisely, and retains calculation methodology only in the final transparency section. Status is `PENDING OWNER RE-ACCEPTANCE`; no merge or deployment is authorised.
+
 ---
 
 ## Why GoFullPage was abandoned

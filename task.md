@@ -1,5 +1,9 @@
 # Task: Thai Report Reading Flow and Friendly Voice V1
 
+## Owner-rejection recovery — Natural Narrative Recomposition V1.1
+
+The Owner rejected the first PR #89 packet (`b597b29`) because renamed labels left a shared, formulaic composer underneath. This revision removes the visible four-field template, gives current/year/next-period prose different jobs, consolidates the current section, shortens weakly evidenced past periods, and keeps methodology at the end. Status is `PENDING OWNER RE-ACCEPTANCE`; PR #89 stays open and Draft. No merge or deployment is authorised.
+
 Owner feedback after the completed Round 9 release requires a new Product Narrative and Information Architecture pass for the Thai Beta Web/PDF report. This task does not change astrology calculations, Canon, factual provenance, ascendant/houses, timeline boundaries, beta policy, Auth, or Production.
 
 ## Delivery contract
@@ -11,7 +15,7 @@ Owner feedback after the completed Round 9 release requires a new Product Narrat
 - Thai voice is warm, direct, plain, and uses `คุณ`; typed Risk → Decision Impact → Action semantics remain intact.
 - Known-time facts remain unchanged; Unknown-time remains fail-closed.
 - Round 9 is retained as completed historical evidence. Existing `product-acceptance/` is not changed.
-- Final state for this task: `PENDING PRODUCT ACCEPTANCE`. Do not merge or deploy.
+- Final state for this revision: `PENDING OWNER RE-ACCEPTANCE`. Do not merge or deploy.
 
 ## Acceptance
 

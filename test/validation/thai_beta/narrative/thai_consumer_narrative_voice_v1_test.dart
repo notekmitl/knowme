@@ -122,7 +122,73 @@ void main() {
         _meaningKey(current.domains[i].body),
         isNot(_meaningKey(nextYear.domains[i].body)),
       );
-      expect(current.domains[i].caution, isNot(nextYear.domains[i].caution));
+      expect(
+        current.domains[i].preparationAction,
+        isNot(nextYear.domains[i].preparationAction),
+      );
+      expect(current.domains[i].caution, isEmpty);
+      expect(nextYear.domains[i].caution, isEmpty);
+    }
+  });
+
+  test('v1.1 deterministic repetition audit rejects template-shaped prose', () {
+    final windows = ThaiBetaNarrativeComposer.narrativeView(
+      analysis,
+    ).futurePrediction!.windows;
+    final domains = windows.expand((window) => window.domains).toList();
+    final actions = domains
+        .map((domain) => _meaningKey(domain.preparationAction))
+        .toList();
+    expect(actions.toSet(), hasLength(actions.length));
+
+    const forbiddenLabels = [
+      'ภาพที่เห็น:',
+      'สิ่งที่ควรระวัง:',
+      'เรื่องนี้มีผลกับคุณอย่างไร:',
+      'สิ่งที่ทำได้ตอนนี้:',
+    ];
+    final sentences = <String>[];
+    for (final domain in domains) {
+      for (final label in forbiddenLabels) {
+        expect(domain.body, isNot(contains(label)));
+        expect(domain.caution, isNot(contains(label)));
+      }
+      sentences.addAll(
+        domain.body
+            .split(RegExp(r'[\n.!?]'))
+            .map(_meaningKey)
+            .where((sentence) => sentence.length >= 24),
+      );
+    }
+    final duplicates = <String>{};
+    final seen = <String>{};
+    for (final sentence in sentences) {
+      if (!seen.add(sentence)) duplicates.add(sentence);
+    }
+    expect(duplicates, isEmpty, reason: duplicates.join('\n'));
+
+    for (
+      var domainIndex = 0;
+      domainIndex < windows.first.domains.length;
+      domainIndex++
+    ) {
+      final bodies = [
+        for (final window in windows) window.domains[domainIndex].body,
+      ];
+      final withoutHorizonLead = bodies
+          .map(
+            (body) => _meaningKey(
+              body
+                  .replaceFirst('ตลอดปีข้างหน้า', '')
+                  .replaceFirst('เมื่อเข้าใกล้ช่วงชีวิตถัดไป', ''),
+            ),
+          )
+          .toSet();
+      expect(
+        withoutHorizonLead,
+        hasLength(bodies.length),
+        reason: 'horizon prose must change by job, not by prefix alone',
+      );
     }
   });
 
@@ -140,11 +206,7 @@ void main() {
       };
       for (final entry in current.entries) {
         final next = nextYear[entry.key]!;
-        for (final field in [
-          ForecastField.claim,
-          ForecastField.decisionImpact,
-          ForecastField.action,
-        ]) {
+        for (final field in [ForecastField.claim, ForecastField.action]) {
           expect(
             _semanticCoreKey(_fieldText(entry.value, field)),
             isNot(_semanticCoreKey(_fieldText(next, field))),
@@ -178,25 +240,22 @@ void main() {
     final nextPeriod = windows[2];
 
     for (final domain in current.domains) {
-      expect(domain.body, startsWith('ภาพที่เห็น: สำหรับตอนนี้'));
-      expect(domain.body, contains('\nเรื่องนี้มีผลกับคุณอย่างไร:'));
-      expect(domain.caution, contains('สิ่งที่ควรระวัง:'));
-      expect(domain.caution, contains('\nสิ่งที่ทำได้ตอนนี้:'));
+      expect(domain.body, isNot(contains('ภาพที่เห็น:')));
+      expect(domain.body, isNot(contains('เรื่องนี้มีผลกับคุณอย่างไร:')));
+      expect(domain.body, contains('\n'));
+      expect(domain.caution, isEmpty);
       expect(domain.caution, isNot(contains('ไม่ใช่คำวินิจฉัยทางการแพทย์')));
-      expect(domain.claim, startsWith('สำหรับตอนนี้'));
-      expect(domain.preparationAction, startsWith('ตอนนี้'));
+      expect(domain.claim, isNot(startsWith('สำหรับตอนนี้')));
       expect(domain.preparationAction, isNot(contains('ระยะยาว')));
       expect(domain.materialFingerprint, isNotEmpty);
     }
     for (final domain in nextYear.domains) {
-      expect(domain.body, startsWith('ภาพที่เห็น: ใน 12 เดือนข้างหน้า'));
-      expect(domain.preparationAction, contains('12 เดือน'));
-      expect(domain.preparationAction, contains('ทบทวน'));
+      expect(domain.body, startsWith('ตลอดปีข้างหน้า'));
+      expect(domain.preparationAction, isNotEmpty);
     }
     for (final domain in nextPeriod.domains) {
-      expect(domain.body, startsWith('ภาพที่เห็น: เมื่อเข้าสู่ช่วงชีวิตถัดไป'));
-      expect(domain.preparationAction, startsWith('ก่อนเข้าสู่ช่วงชีวิตใหม่'));
-      expect(domain.preparationAction, contains('ภาระก้อนใหญ่'));
+      expect(domain.body, startsWith('เมื่อเข้าใกล้ช่วงชีวิตถัดไป'));
+      expect(domain.preparationAction, isNotEmpty);
       final matchingCurrent = current.domains.where(
         (candidate) => candidate.title == domain.title,
       );
@@ -1179,16 +1238,17 @@ bool _projectedFieldsChanged(
 ) {
   final leftPlan = left.decisionPlan!;
   final rightPlan = right.decisionPlan!;
+  var observedRelevantChange = false;
   for (final field in ForecastField.values) {
     final a = _projectionKey(leftPlan.projection(field));
     final b = _projectionKey(rightPlan.projection(field));
     if (a != b &&
-        _meaningKey(_fieldText(left, field)) ==
+        _meaningKey(_fieldText(left, field)) !=
             _meaningKey(_fieldText(right, field))) {
-      return false;
+      observedRelevantChange = true;
     }
   }
-  return true;
+  return observedRelevantChange;
 }
 
 class _MatrixReport {

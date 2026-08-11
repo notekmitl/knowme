@@ -256,7 +256,7 @@ class ThaiBetaReportExportDocument {
         ], kind: ThaiBetaReportExportSectionKind.timeline),
       );
       for (final period in past) {
-        out.add(_periodSection(period));
+        out.add(_concisePeriodSection(period));
       }
     }
 
@@ -290,6 +290,25 @@ class ThaiBetaReportExportDocument {
     if (previous.isNotEmpty) stageLines.add(previous);
     if (next.isNotEmpty) stageLines.add(next);
 
+    final analysis = timeline.currentAnalysis;
+    if (analysis != null && !analysis.isEmpty) {
+      stageLines.addAll([
+        analysis.stageLabel,
+        analysis.dominantInfluences,
+        ...analysis.reasons,
+      ]);
+    }
+
+    for (final period in timeline.periods.where((period) => period.isCurrent)) {
+      stageLines.add(period.planetLine);
+      if (period.lifeDomains.isNotEmpty) {
+        for (final domain in period.lifeDomains) {
+          stageLines.addAll([domain.title, domain.body]);
+        }
+      } else {
+        stageLines.addAll([period.summary, period.whatChanges]);
+      }
+    }
     out.add(
       _section(
         'ช่วงปัจจุบัน',
@@ -297,21 +316,6 @@ class ThaiBetaReportExportDocument {
         kind: ThaiBetaReportExportSectionKind.timeline,
       ),
     );
-
-    final analysis = timeline.currentAnalysis;
-    if (analysis != null && !analysis.isEmpty) {
-      out.add(
-        _section(analysis.title, [
-          analysis.stageLabel,
-          analysis.dominantInfluences,
-          ...analysis.reasons,
-        ], kind: ThaiBetaReportExportSectionKind.timeline),
-      );
-    }
-
-    for (final period in timeline.periods.where((period) => period.isCurrent)) {
-      out.add(_periodSection(period));
-    }
     return out;
   }
 
@@ -335,31 +339,22 @@ class ThaiBetaReportExportDocument {
     for (final period in timeline.periods.where(
       (period) => !period.isPast && !period.isCurrent,
     )) {
-      out.add(_periodSection(period));
+      out.add(_concisePeriodSection(period));
     }
     return out;
   }
 
-  static ThaiBetaReportExportSection _periodSection(
+  static ThaiBetaReportExportSection _concisePeriodSection(
     ThaiMirrorLifePeriodState period,
   ) {
-    final body = <String>[
-      period.planetLine,
-      if (period.lifeDomains.isNotEmpty)
-        for (final domain in period.lifeDomains) ...[domain.title, domain.body]
-      else ...[
-        period.summary,
-        period.whatChanges,
-        period.easier,
-        period.harder,
-        period.comparison,
-        period.evidenceLine,
-        if (period.advice.isNotEmpty) period.advice,
-      ],
-    ];
     return _section(
       '${period.phaseName} (${period.ageLabel})',
-      body,
+      [
+        period.planetLine,
+        period.summary,
+        period.whatChanges,
+        if (period.advice.isNotEmpty) period.advice,
+      ],
       kind: ThaiBetaReportExportSectionKind.timeline,
     );
   }
@@ -376,9 +371,15 @@ class ThaiBetaReportExportDocument {
             ? prediction.detailedSectionIntro
             : prediction.sectionIntro,
         if (prediction.transitionLine.isNotEmpty) prediction.transitionLine,
+        if (prediction.windows.any(
+          (window) => window.domains.any(
+            (domain) => domain.uncertaintyDisclosure.isNotEmpty,
+          ),
+        ))
+          'ข้อจำกัดของคำอ่าน: คำอ่านนี้ไม่มีหลักฐานลัคนา จึงใช้เป็นกรอบสังเกตและไม่ฟันธง',
       ]),
     ];
-    for (var i = 0; i < prediction.windows.length; i++) {
+    for (var i = 1; i < prediction.windows.length; i++) {
       final window = prediction.windows[i];
       out.add(
         _section(
@@ -398,18 +399,8 @@ class ThaiBetaReportExportDocument {
             window.evidenceDetail,
             for (final domain in window.domains) ...[
               domain.title,
-              if (domain.claim.isNotEmpty)
-                'ภาพที่เห็น: ${domain.claim}'
-              else
-                domain.body,
-              if (domain.risk.isNotEmpty) 'สิ่งที่ควรระวัง: ${domain.risk}',
-              if (domain.decisionImpact.isNotEmpty)
-                'เรื่องนี้มีผลกับคุณอย่างไร: ${domain.decisionImpact}',
-              if (domain.preparationAction.isNotEmpty)
-                'สิ่งที่ทำได้ตอนนี้: ${domain.preparationAction}',
-              if (domain.uncertaintyDisclosure.isNotEmpty)
-                'ข้อจำกัดของคำอ่าน: ${domain.uncertaintyDisclosure}',
-              if (domain.claim.isEmpty) domain.caution,
+              domain.body,
+              if (domain.caution.isNotEmpty) domain.caution,
             ],
           ],
         ),
