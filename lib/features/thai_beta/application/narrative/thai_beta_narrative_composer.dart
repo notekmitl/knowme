@@ -573,11 +573,7 @@ abstract final class ThaiBetaNarrativeComposer {
     );
   }
 
-  static String _forecastClaim(
-    String body,
-    int windowIndex,
-    ForecastDecisionPlan plan,
-  ) {
+  static String _forecastClaim(String body, int windowIndex) {
     final stripped = body
         .replaceFirst(RegExp(r'^ช่วงนี้\s*'), '')
         .replaceFirst(RegExp(r'^ใน 12 เดือนข้างหน้า\s*'), '')
@@ -587,14 +583,9 @@ abstract final class ThaiBetaNarrativeComposer {
       1 => 'ตลอดปีข้างหน้า $stripped',
       _ => 'เมื่อเข้าใกล้ช่วงชีวิตถัดไป $stripped',
     };
-    final evidenceBoundary =
-        plan.evidenceAvailability == ForecastEvidenceAvailability.noLagna
-        ? ' ภาพนี้อ่านจากวันเกิดโดยไม่ใช้เรือนชะตา'
-        : '';
-    final transitionBoundary = plan.spansTransition
-        ? ' โดยมีรอยต่อของช่วงชีวิตอยู่ในกรอบนี้'
-        : '';
-    return '$timed$evidenceBoundary$transitionBoundary';
+    // Evidence availability and transition ownership remain typed. Their
+    // disclosure belongs once at section level, not inside every domain.
+    return timed;
   }
 
   static String _decisionImpact(ForecastDecisionPlan plan) {
@@ -694,7 +685,7 @@ abstract final class ThaiBetaNarrativeComposer {
       material,
       intent: decisionIntent,
     );
-    final claim = _forecastClaim(sourceBody, windowIndex, plan);
+    final claim = _forecastClaim(sourceBody, windowIndex);
     final risk = _riskSignal(
       sourceCaution,
       riskDomain: plan.consumerRiskDomain,
@@ -707,7 +698,7 @@ abstract final class ThaiBetaNarrativeComposer {
         : '';
     return PredictionDomainModel(
       title: title,
-      body: _naturalForecastBody(plan, claim, decisionImpact, risk, action),
+      body: _naturalForecastBody(plan, claim, action),
       caution: '',
       claim: claim,
       risk: risk,
@@ -722,11 +713,9 @@ abstract final class ThaiBetaNarrativeComposer {
   static String _naturalForecastBody(
     ForecastDecisionPlan plan,
     String claim,
-    String decisionImpact,
-    String risk,
     String action,
   ) {
-    final bridge = switch ((plan.horizon, plan.intent)) {
+    final observableOrPriority = switch ((plan.horizon, plan.intent)) {
       (ForecastHorizon.current, ForecastDecisionIntent.protectCoreWork) =>
         'จุดชี้ขาดอยู่ที่พื้นที่ของงานหลัก',
       (ForecastHorizon.current, ForecastDecisionIntent.preserveLiquidity) =>
@@ -770,10 +759,15 @@ abstract final class ThaiBetaNarrativeComposer {
       ) =>
         'กิจวัตรที่ทำต่อได้จริงควรถูกเตรียมก่อนภาระชุดใหม่เริ่ม',
     };
-    final riskSentence = risk.trim().isEmpty
-        ? ''
-        : ' ระหว่างนั้นให้สังเกตว่า$risk';
-    return '$claim $decisionImpact\n$bridge$riskSentence $action';
+    // Typed claim/risk/decision/action values stay available on the model, but
+    // reader-facing copy deliberately selects only what this horizon needs.
+    // This prevents the hidden field schema from reappearing as a fragment
+    // chain inside one long paragraph.
+    return switch (plan.horizon) {
+      ForecastHorizon.current => '$claim\n$action',
+      ForecastHorizon.next12Months => '$claim $observableOrPriority',
+      ForecastHorizon.nextLifePeriod => '$claim $action',
+    };
   }
 
   static String _naturalActionForPlan(ForecastDecisionPlan plan) {
@@ -820,15 +814,6 @@ abstract final class ThaiBetaNarrativeComposer {
         ForecastDecisionIntent.preserveRecovery,
       ) =>
         'ทดลองกิจวัตรพักแบบใหม่ล่วงหน้าและเก็บเฉพาะแบบที่ทำต่อได้ในวันที่ยุ่ง',
-    };
-    final riskResponse = switch (plan.consumerRiskDomain) {
-      LifeDomain.pressure => 'ถ้าภาระเริ่มล้น ให้ลดขอบเขตก่อนเพิ่มเวลา',
-      LifeDomain.money => 'ถ้าภาระเงินสูงกว่าแผน ให้หยุดรายการใหม่ไว้ก่อน',
-      LifeDomain.love =>
-        'ถ้าความคาดหวังในความสัมพันธ์ยังไม่ตรงกัน ให้ชะลอข้อตกลงที่ย้อนกลับยาก',
-      LifeDomain.health => 'ถ้าฟื้นตัวไม่ทัน ให้ลดความถี่แทนการฝืนทำต่อ',
-      LifeDomain.career => 'ถ้างานหลักเสียคุณภาพ ให้คืนเวลาก่อนรับงานเพิ่ม',
-      _ => 'ถ้าผลจริงไม่เป็นไปตามแผน ให้ชะลอและทบทวนใหม่',
     };
     if (plan.evidenceAvailability == ForecastEvidenceAvailability.noLagna) {
       final observationAction = switch ((plan.horizon, plan.intent)) {
@@ -881,15 +866,9 @@ abstract final class ThaiBetaNarrativeComposer {
         ) =>
           'ทดลองวันทำงานและวันพักแบบช่วงใหม่ก่อนย้ายภาระทั้งหมด',
       };
-      final transitionStep = plan.spansTransition
-          ? 'เก็บผลจากรอยต่อหนึ่งรอบก่อนย้ายภาระทั้งหมด'
-          : '';
-      return '$observationAction $riskResponse $transitionStep'.trim();
+      return observationAction;
     }
-    final transitionStep = plan.spansTransition
-        ? 'กันเวลา เงิน หรือแรงไว้รับรอยต่อก่อนเริ่มก้อนใหม่'
-        : '';
-    return '$action $riskResponse $transitionStep'.trim();
+    return action;
   }
 
   // Kept temporarily for compatibility comparison in deterministic audits.

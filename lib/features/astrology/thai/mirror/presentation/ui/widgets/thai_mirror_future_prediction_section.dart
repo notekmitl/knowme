@@ -207,7 +207,8 @@ class _WindowCardState extends State<_WindowCard> {
               color: scheme.onSurface.withValues(alpha: 0.92),
             ),
           ),
-          if (card.topOpportunity.isNotEmpty) ...[
+          if (!widget.detailedNarrativeMode &&
+              card.topOpportunity.isNotEmpty) ...[
             const SizedBox(height: 12),
             _Line(
               icon: Icons.check_circle_rounded,
@@ -215,12 +216,14 @@ class _WindowCardState extends State<_WindowCard> {
               text: card.topOpportunity,
             ),
           ],
-          const SizedBox(height: 8),
-          _Line(
-            icon: Icons.error_outline_rounded,
-            color: scheme.tertiary,
-            text: card.topRisk,
-          ),
+          if (!widget.detailedNarrativeMode) ...[
+            const SizedBox(height: 8),
+            _Line(
+              icon: Icons.error_outline_rounded,
+              color: scheme.tertiary,
+              text: card.topRisk,
+            ),
+          ],
           if (widget.detailedNarrativeMode && card.domains.isNotEmpty) ...[
             const SizedBox(height: 16),
             Text(
@@ -238,46 +241,51 @@ class _WindowCardState extends State<_WindowCard> {
               _DomainForecast(domain: card.domains[i], accent: accent),
             ],
           ],
-          const SizedBox(height: 14),
-          _ConfidenceMeter(
-            label: card.confidenceLabel,
-            level: card.confidenceLevel,
-            accent: accent,
-          ),
-          const SizedBox(height: 6),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: TextButton.icon(
-              onPressed: () => setState(() => _expanded = !_expanded),
-              style: TextButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-                minimumSize: Size.zero,
-                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                foregroundColor: accent,
-              ),
-              icon: Icon(
-                _expanded
-                    ? Icons.keyboard_arrow_up_rounded
-                    : Icons.keyboard_arrow_down_rounded,
-                size: 18,
-              ),
-              label: Text(
-                _expanded ? 'ย่อรายละเอียด' : 'ทำไมถึงเป็นแบบนี้',
-                style: const TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w700,
+          if (!widget.detailedNarrativeMode) ...[
+            const SizedBox(height: 14),
+            _ConfidenceMeter(
+              label: card.confidenceLabel,
+              level: card.confidenceLevel,
+              accent: accent,
+            ),
+            const SizedBox(height: 6),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton.icon(
+                onPressed: () => setState(() => _expanded = !_expanded),
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 4,
+                    vertical: 2,
+                  ),
+                  minimumSize: Size.zero,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  foregroundColor: accent,
+                ),
+                icon: Icon(
+                  _expanded
+                      ? Icons.keyboard_arrow_up_rounded
+                      : Icons.keyboard_arrow_down_rounded,
+                  size: 18,
+                ),
+                label: Text(
+                  _expanded ? 'ย่อรายละเอียด' : 'ทำไมถึงเป็นแบบนี้',
+                  style: const TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
             ),
-          ),
-          AnimatedCrossFade(
-            duration: const Duration(milliseconds: 200),
-            crossFadeState: _expanded
-                ? CrossFadeState.showFirst
-                : CrossFadeState.showSecond,
-            firstChild: _Detail(card: card, accent: accent),
-            secondChild: const SizedBox(width: double.infinity),
-          ),
+            AnimatedCrossFade(
+              duration: const Duration(milliseconds: 200),
+              crossFadeState: _expanded
+                  ? CrossFadeState.showFirst
+                  : CrossFadeState.showSecond,
+              firstChild: _Detail(card: card, accent: accent),
+              secondChild: const SizedBox(width: double.infinity),
+            ),
+          ],
         ],
       ),
     );

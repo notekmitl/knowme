@@ -170,7 +170,7 @@ abstract final class ThaiBetaReportPdfExporter {
 
   /// Semantic pagination units used by the PDF renderer. Exposed so regression
   /// tests can prove that a period/domain heading travels with its first body
-  /// paragraph and that continuation blocks retain their period context.
+  /// paragraph without repeating the parent heading for every domain block.
   static List<String> debugPaginationUnitsForTest(
     ThaiBetaReportExportSection section,
   ) {
@@ -178,7 +178,7 @@ abstract final class ThaiBetaReportPdfExporter {
     return [
       for (var i = 0; i < blocks.length; i++)
         [
-          i == 0 ? section.title : '${section.title} (ต่อ)',
+          if (i == 0) section.title,
           if (blocks[i].heading != null) blocks[i].heading!,
           ...blocks[i].paragraphs,
         ].join('\n'),
@@ -344,15 +344,13 @@ abstract final class ThaiBetaReportPdfExporter {
               final renderParagraphs = block.paragraphs
                   .expand(_boundedPdfParagraphs)
                   .toList(growable: false);
-              final heading = blockIndex == 0
-                  ? section.title
-                  : '${section.title} (ต่อ)';
+              final heading = blockIndex == 0 ? section.title : null;
               final firstParagraphCount = renderParagraphs.length.clamp(0, 1);
               final firstParagraphs = renderParagraphs
                   .take(firstParagraphCount)
                   .toList(growable: false);
               final firstUnitChildren = <pw.Widget>[
-                _pdfText(heading, style: sectionStyle),
+                if (heading != null) _pdfText(heading, style: sectionStyle),
                 if (block.heading != null) ...[
                   pw.SizedBox(height: 8),
                   _pdfText(block.heading!, style: sectionStyle),
@@ -393,9 +391,9 @@ abstract final class ThaiBetaReportPdfExporter {
                   ),
                 );
               }
-              // Remaining paragraphs are grouped into bounded atomic units.
-              // Each unit repeats its semantic heading, so a page transition
-              // never starts with an unlabeled continuation.
+              // Remaining paragraphs are bounded atomic units. Parent and
+              // domain headings are not repeated merely because content was
+              // split into another unit; block index is not a page boundary.
               for (
                 var paragraphIndex = firstParagraphCount;
                 paragraphIndex < renderParagraphs.length;
@@ -408,25 +406,18 @@ abstract final class ThaiBetaReportPdfExporter {
                 widgets.add(pw.SizedBox(height: 5));
                 widgets.add(
                   _atomicPaginationUnit(
-                    () => _timelineFrame(
-                      isTimeline: isTimeline,
-                      padding: const pw.EdgeInsets.fromLTRB(12, 5, 12, 8),
-                      color: PdfColors.white,
+                    () => pw.Padding(
+                      padding: pw.EdgeInsets.fromLTRB(
+                        isTimeline ? 12 : 0,
+                        3,
+                        isTimeline ? 12 : 0,
+                        5,
+                      ),
                       child: pw.Column(
                         crossAxisAlignment: pw.CrossAxisAlignment.start,
                         children: [
-                          _pdfText(
-                            '${section.title} (ต่อ)',
-                            style: sectionStyle,
-                          ),
-                          if (block.heading != null) ...[
-                            pw.SizedBox(height: 8),
-                            _pdfText(block.heading!, style: sectionStyle),
-                          ],
-                          for (final paragraph in remaining) ...[
-                            pw.SizedBox(height: 8),
+                          for (final paragraph in remaining)
                             _pdfText(paragraph, style: baseStyle),
-                          ],
                         ],
                       ),
                     ),
@@ -436,17 +427,6 @@ abstract final class ThaiBetaReportPdfExporter {
             }
             widgets.add(pw.SizedBox(height: 14));
           }
-
-          widgets.add(pw.SizedBox(height: 16));
-          widgets.add(pw.Divider(thickness: 0.6, color: PdfColors.grey400));
-          widgets.add(pw.SizedBox(height: 10));
-          widgets.add(
-            pw.Text(
-              'KnowMe — รายงานโหราไทย\n'
-              'ใช้เป็นแนวทางทบทวนตัวเอง ไม่ใช่ข้อสรุปที่กำหนดชีวิต',
-              style: subtitleStyle,
-            ),
-          );
 
           return widgets;
         },

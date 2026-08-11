@@ -4,9 +4,9 @@
 **Date:** July 2026  
 **Commit:** Thai Beta Full Report Export  
 
-## PR #89 Natural Narrative V1.1 amendment (August 11, 2026)
+## PR #89 Natural Narrative V1.2 and pagination repair (August 11, 2026)
 
-PDF and Web now render the same connected narrative body instead of exposing four repeated forecast field labels. The PDF exports one consolidated current section, omits the duplicate current forecast window, renders past and long-term periods concisely, and retains calculation methodology only in the final transparency section. Status is `PENDING OWNER RE-ACCEPTANCE`; no merge or deployment is authorised.
+Owner Round 2 rejected V1.1: removing four labels did not remove its formulaic internal fragment chain, and Known pages 6–8 repeatedly rendered parent `(ต่อ)` headings before domain fragments. The prior visual-pass conclusion is invalid. V1.2 selects one finished thought per domain/horizon, applies strict paragraph budgets, and renders the parent section title only once while leaving later paragraph chunks unheaded. The improved deterministic audit and page-level manual log cover the previously missed failures. Status is `PENDING OWNER RE-ACCEPTANCE`; no merge or deployment is authorised.
 
 ---
 

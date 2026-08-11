@@ -263,44 +263,16 @@ class ThaiBetaReportExportDocument {
     final stage = timeline.currentStage;
     final stageLines = <String>[
       stage.eyebrow,
-      '${stage.phaseName} · อายุ ${stage.ageLabel}',
-      stage.planetLine,
-      // Keyword is already on planetLine after "•" — do not echo it again.
+      '${stage.phaseName} · อายุ ${stage.ageLabel} · ${stage.planetLine}',
       ThaiBetaReportExportPolish.polishTimingCopy(stage.intro),
     ];
 
-    if (stage.yearsRemaining > 0) {
-      stageLines.add(
-        'เหลืออีกประมาณ ${stage.yearsRemaining} ปีก่อนเปลี่ยนช่วง',
-      );
-    } else if (!stageLines.any(
-      (line) => line.contains('กำลังอยู่ช่วงปลายของจังหวะนี้'),
-    )) {
-      stageLines.add('กำลังอยู่ช่วงปลายของจังหวะนี้');
-    }
-
-    final previous = ThaiBetaReportExportPolish.neighbourLabel(
-      stage.previousLabel,
-      prefix: 'ช่วงก่อนหน้า: ',
-    );
-    final next = ThaiBetaReportExportPolish.neighbourLabel(
-      stage.nextLabel,
-      prefix: 'ช่วงถัดไป: ',
-    );
-    if (previous.isNotEmpty) stageLines.add(previous);
-    if (next.isNotEmpty) stageLines.add(next);
-
     final analysis = timeline.currentAnalysis;
     if (analysis != null && !analysis.isEmpty) {
-      stageLines.addAll([
-        analysis.stageLabel,
-        analysis.dominantInfluences,
-        ...analysis.reasons,
-      ]);
+      stageLines.add(analysis.dominantInfluences);
     }
 
     for (final period in timeline.periods.where((period) => period.isCurrent)) {
-      stageLines.add(period.planetLine);
       if (period.lifeDomains.isNotEmpty) {
         for (final domain in period.lifeDomains) {
           stageLines.addAll([domain.title, domain.body]);
@@ -347,13 +319,16 @@ class ThaiBetaReportExportDocument {
   static ThaiBetaReportExportSection _concisePeriodSection(
     ThaiMirrorLifePeriodState period,
   ) {
+    final meaning = period.summary.trim().isNotEmpty
+        ? period.summary.trim()
+        : period.whatChanges.trim();
     return _section(
       '${period.phaseName} (${period.ageLabel})',
       [
-        period.planetLine,
-        period.summary,
-        period.whatChanges,
-        if (period.advice.isNotEmpty) period.advice,
+        [
+          period.planetLine.trim(),
+          meaning,
+        ].where((part) => part.isNotEmpty).join(' — '),
       ],
       kind: ThaiBetaReportExportSectionKind.timeline,
     );
@@ -390,18 +365,7 @@ class ThaiBetaReportExportDocument {
           },
           [
             window.summary,
-            window.topOpportunity,
-            window.topRisk,
-            window.confidenceLabel,
-            window.why,
-            window.whyNow,
-            window.whatToWatch,
-            window.evidenceDetail,
-            for (final domain in window.domains) ...[
-              domain.title,
-              domain.body,
-              if (domain.caution.isNotEmpty) domain.caution,
-            ],
+            for (final domain in window.domains) ...[domain.title, domain.body],
           ],
         ),
       );

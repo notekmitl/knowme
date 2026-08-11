@@ -2,7 +2,9 @@
 
 ## Status — Reading Flow and Friendly Voice amendment
 
-Status: `PENDING OWNER RE-ACCEPTANCE` on branch `agent/thai-report-reading-flow-v1`, based on `c34a1c088b555160707577308c281570b570752a`. The first PR #89 packet was rejected because four renamed labels still exposed formulaic shared composition. Round 9 remains completed historical evidence and is not rewritten.
+Status: `PENDING OWNER RE-ACCEPTANCE` on branch `agent/thai-report-reading-flow-v1`. The actual V1.1 packet was rejected in Round 2 because internal fragment chains remained formulaic and Known PDF pages 6–8 repeated continuation headings. The earlier all-pages visual-pass conclusion is invalid. Round 9 remains completed historical evidence and is not rewritten.
+
+V1.2 uses a selection-based composition budget: current domains contain at most two short paragraphs and one practical focus; twelve-month domains contain one short paragraph with one observable sign; next-period domains contain one short paragraph with one preparation item; long-term synthesis stays concise. The audit covers duplicate internal clauses, normalized sentence skeletons, repeated action/fallback/transition families, semantic-fragment budgets, distinct past-period statements, and page-local continuation counts. Manual acceptance evidence records every page's first heading, last visible line, and continuation count.
 
 ## Reader-facing order
 

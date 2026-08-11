@@ -1,10 +1,12 @@
-# Thai Report Natural Narrative Recompositon V1.1
+# Thai Report Natural Narrative V1.2 + Pagination Repair
 
 ## Result
 
-Draft PR #89 has been reworked on `agent/thai-report-reading-flow-v1` after the first acceptance packet was rejected. The source-tested implementation commit is `f9945a5`. Status is `PENDING OWNER RE-ACCEPTANCE`; this branch is not merged or deployed.
+Draft PR #89 is being reworked on `agent/thai-report-reading-flow-v1` after the Owner rejected the actual V1.1 packet. V1.1 is immutable historical evidence. Status is `PENDING OWNER RE-ACCEPTANCE`; this branch is not merged or deployed.
 
-The root cause was shared horizon boilerplate, reused risk/action suffixes, and renderers that exposed Claim/Risk/Decision/Action as four repeated labels. V1.1 recomposes those typed values into connected prose, assigns distinct jobs and actions to each horizon/domain combination, consolidates the current period, shortens past/long-term presentation, and places methodology after reader-facing interpretation.
+The V1.2 root cause analysis is recorded in `docs/PR89_V12_ROOT_CAUSE.md`. The composer still concatenated timed claim, impact, bridge, risk, action, fallback, and transition fragments after labels were removed. The PDF semantic-block renderer then treated each split block as a continuation and unconditionally prefixed the parent title with `(ต่อ)`. The previous audit split only complete sentences, while the previous visual checklist did not record first/last lines or continuation counts per page; both therefore missed the Owner-visible failures.
+
+V1.2 retains typed Claim/Risk/Decision/Action semantics but selects only the material needed for one finished reader-facing thought. Current domains are limited to two short paragraphs and one practical focus; twelve-month and next-period domains are limited to one short paragraph, with one observable sign or one preparation item. Parent headings render once, and paragraph chunks no longer create separately headed cards.
 
 ## Preserved contracts
 
@@ -37,4 +39,3 @@ The root cause was shared horizon boilerplate, reused risk/action suffixes, and 
 - New acceptance folder: `C:\Users\USER\Documents\Knowme\thai-report-natural-narrative-v1-1-f9945a5-acceptance`.
 
 The acceptance ZIP and Draft PR metadata are recorded after packaging and push complete. Do not merge or deploy before explicit Owner approval.
-

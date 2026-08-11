@@ -8,7 +8,7 @@
 
 **Baseline:** `c34a1c088b555160707577308c281570b570752a`
 
-**Product Acceptance:** first PR #89 packet rejected; V1.1 is `PENDING OWNER RE-ACCEPTANCE`
+**Product Acceptance:** V1.1 rejected in Owner review Round 2; V1.2 is `PENDING OWNER RE-ACCEPTANCE`
 
 **Merge/deployment:** Not merged; not deployed
 
@@ -16,4 +16,4 @@ Owner feedback after the completed Round 9 release requires the Thai Beta report
 
 Round 9 remains a historical completed release. Its acceptance evidence and the existing `product-acceptance/` directory are not changed or overwritten by this task.
 
-The rejection confirmed that label renaming had not removed the underlying shared template. V1.1 now uses connected prose with distinct current, 12-month, and next-period jobs; one current section; concise past/long-term presentation; and a deterministic Known/Unknown repetition gate. Exact Known input 1982-06-06 00:03 Chiang Mai still yields Aquarius 9°24′; 19°19′ belongs to the separate 00:35 fixture.
+Round 2 confirmed that removing labels still left the underlying timed-claim/impact/risk/action/fallback/transition fragment chain, and that V1.1 Known PDF pages 6–8 repeated continuation headings before fragments. The prior all-pages visual-pass conclusion is invalid. V1.2 composes one finished thought within horizon budgets, checks internal clauses and normalized skeletons, and renders a parent section heading only once. Exact Known input 1982-06-06 00:03 Chiang Mai still yields Aquarius 9°24′; 19°19′ belongs to the separate 00:35 fixture.

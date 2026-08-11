@@ -430,12 +430,43 @@ void main() {
         expect(units.first, contains('ช่วงทดสอบ 1982-06-05'));
         expect(units.first, contains('บริบทของช่วง'));
         expect(units.first, isNot(contains('การงาน')));
-        expect(units[1], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nการงาน'));
-        expect(units[2], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nการเงิน'));
-        expect(units[3], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nความรัก'));
-        expect(units[4], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nสุขภาพ'));
+        expect(units[1], startsWith('การงาน\n'));
+        expect(units[2], startsWith('การเงิน\n'));
+        expect(units[3], startsWith('ความรัก\n'));
+        expect(units[4], startsWith('สุขภาพ\n'));
         for (final unit in units) {
           expect(unit, isNot(matches(RegExp(r'1982-06-0\s*\n\s*5'))));
+          expect(unit, isNot(contains('(ต่อ)')));
+        }
+      },
+    );
+
+    test(
+      'V1.1 pages 6-8 regression: parent continuation is not emitted per domain',
+      () {
+        for (final title in const [
+          'แนวโน้ม 12 เดือนข้างหน้า',
+          'ช่วงชีวิตถัดไป',
+        ]) {
+          final section = ThaiBetaReportExportSection(
+            title: title,
+            paragraphs: const [
+              'บทนำของช่วง',
+              'การงาน',
+              'เนื้อหางานที่จบเป็นหนึ่งความคิด',
+              'การเงิน',
+              'เนื้อหาเงินที่จบเป็นหนึ่งความคิด',
+              'ความรัก',
+              'เนื้อหาความสัมพันธ์ที่จบเป็นหนึ่งความคิด',
+              'สุขภาพ',
+              'เนื้อหาสุขภาพที่จบเป็นหนึ่งความคิด',
+            ],
+          );
+          final units = ThaiBetaReportPdfExporter.debugPaginationUnitsForTest(
+            section,
+          );
+          expect(units.where((unit) => unit.contains(title)), hasLength(1));
+          expect(units.where((unit) => unit.contains('$title (ต่อ)')), isEmpty);
         }
       },
     );
