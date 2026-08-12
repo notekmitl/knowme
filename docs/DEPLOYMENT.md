@@ -1,5 +1,11 @@
 # KnowMe Public Deployment
 
+## V1.4 PDF pagination hotfix - final Production record
+
+Hotfix PR #90 merged as `effab1bffcb410891ae5361908392c92188da8b7`; the exact-boundary follow-up PR #91 merged as `bbdb209b8c2573b16a49d445dd214f7cdfe5fd30`. A clean detached worktree at merged `origin/main` deployed `bbdb209` with `scripts/deploy_web.ps1` from 2026-08-12T08:17:11Z through 2026-08-12T08:18:09Z. Exit code was 0; Firestore rules compiled/required no update and Firebase Hosting released 77 files to project/site `knowme-app-694e1`.
+
+Cache-bypassed `/` and `/beta/thai` return HTTP 200, the deployed bootstrap assets pin `bbdb209`, and the Production API guards passed. Real post-deploy browser downloads passed the page contract: Known `(22)` is 36,839 bytes, SHA-256 `1D4A599B9089A7B6F22EEA6E68862B5839F151B05EC8CE35D890F46209D54881`, 6 pages; Unknown `(23)` is 32,756 bytes, SHA-256 `A7CC414114EDD21566F701A8B10B7101779C6AB74DA7D3880C86CC4D5F93FB4D`, 5 pages. All 11 pages passed direct visual inspection. The Unknown Web/PDF flow remains fail-closed and canonical parity hashes are unchanged. Firebase Hosting release history remains the rollback reference.
+
 ## V1.4 PDF pagination hotfix — pending deployment
 
 Local verification on 2026-08-12 confirms the exporter hotfix restores Known 6 / Unknown 5 pages without changing canonical report text. The deployed revision remains defective until the hotfix PR is merged and the official `scripts/deploy_web.ps1` workflow is rerun from clean merged `origin/main`. Rollback remains available through Firebase Hosting release history.

@@ -36,4 +36,17 @@ The follow-up correction emits section spacing only between sections, never afte
 - Accepted canonical hashes remain unchanged: Known `AAB53A53DD8699365E5EDAD1F57C61ABCB4A7A69FD90D6E99E4B940C0987FC10`; Unknown `43274E0CEDAA187CFF51879B77547D1C6746E497FF57CCB2ECDB0540F87FDF99`.
 - Focused exporter/parity/acceptance/core/audit suite passed 93/93. The complete repository suite finished at 2,861 passed / 39 failed: the same 39 documented baseline failures and three additional passing hotfix regressions, with zero new failure. Analyzer remains exactly the documented 299 warning/info baseline.
 
-Production remains defective until this hotfix is merged and redeployed. Rollback remains available through Firebase Hosting release history.
+## Merge, deployment, and final Production verification
+
+- PR #90 merged at 2026-08-12T08:06:55Z as `effab1bffcb410891ae5361908392c92188da8b7`.
+- Its Production run proved Unknown at 5 pages but exposed the badge-inclusive final-spacer boundary in Known.
+- PR #91 merged at 2026-08-12T08:16:57Z as `bbdb209b8c2573b16a49d445dd214f7cdfe5fd30`.
+- Clean merged `origin/main` deployed from 2026-08-12T08:17:11Z to 2026-08-12T08:18:09Z with exit 0 and 77 Hosting files.
+- Cache-bypassed `/` and `/beta/thai` returned HTTP 200 and bootstrap assets matched pin `bbdb209`.
+- Fresh Production Known `knowme-thai-report (22).pdf`: 36,839 bytes; SHA-256 `1D4A599B9089A7B6F22EEA6E68862B5839F151B05EC8CE35D890F46209D54881`; 6 pages.
+- Fresh Production Unknown `knowme-thai-report (23).pdf`: 32,756 bytes; SHA-256 `A7CC414114EDD21566F701A8B10B7101779C6AB74DA7D3880C86CC4D5F93FB4D`; 5 pages.
+- All 11 Production pages were rendered at 150 DPI and directly inspected. Page numbering is correct; there is no blank/footer-only page, clipping, overlap, truncation, out-of-bounds content, broken Thai wrapping, or card-border escape.
+- Known and Unknown Web flows retain four categories. Unknown omits time, Lagna, ascendant, and houses and displays the explicit omission card.
+- Accepted canonical hashes remain unchanged: Known `AAB53A53DD8699365E5EDAD1F57C61ABCB4A7A69FD90D6E99E4B940C0987FC10`; Unknown `43274E0CEDAA187CFF51879B77547D1C6746E497FF57CCB2ECDB0540F87FDF99`.
+
+The original Production pagination defect is resolved. Rollback remains available through Firebase Hosting release history.
