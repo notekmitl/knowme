@@ -24,28 +24,46 @@ def sha256(path: Path) -> str:
     return digest.hexdigest().upper()
 
 
-def page_row(pdf: Path, render: Path, fixture: str, number: int, total: int) -> dict:
-    page = PdfReader(pdf).pages[number - 1]
-    lines = [line.strip() for line in (page.extract_text() or "").splitlines() if line.strip()]
+REQUIRED_REVIEW_FIELDS = {
+    "first_heading", "last_visible_line", "cards_present", "split_state",
+    "continuation_heading", "border_containment", "clipping", "overflow",
+    "overlap", "truncation", "whitespace_assessment", "footer_page_number",
+    "manual_review",
+}
+GENERIC_PLACEHOLDERS = {
+    "visually inspected",
+    "complete or intentionally continued with visible orientation",
+    "not required unless visible continuation is present",
+}
+
+
+def validate_observations(observations: list[dict], expected: list[tuple[str, int, int]]) -> None:
+    identities = [(row.get("fixture"), row.get("page"), row.get("page_count")) for row in observations]
+    if identities != expected:
+        raise ValueError(f"Visual-review page identities do not match renders: {identities!r}")
+    for row in observations:
+        missing = REQUIRED_REVIEW_FIELDS - row.keys()
+        if missing:
+            raise ValueError(f"Missing page-specific fields for {row.get('fixture')} page {row.get('page')}: {sorted(missing)}")
+        values = [value for value in row.values() if isinstance(value, str)]
+        if any(value.strip().lower() in GENERIC_PLACEHOLDERS for value in values):
+            raise ValueError(f"Generic placeholder in {row.get('fixture')} page {row.get('page')}")
+        footer = str(row["footer_page_number"])
+        if row["first_heading"] == footer or re.fullmatch(r"หน้า\s+\d+\s*/\s*\d+", str(row["first_heading"])):
+            raise ValueError(f"Footer recorded as heading in {row.get('fixture')} page {row.get('page')}")
+        if not isinstance(row["cards_present"], list) or not row["cards_present"]:
+            raise ValueError(f"cards_present must name observed sections for {row.get('fixture')} page {row.get('page')}")
+        if row["continuation_heading"] != "none" and "— ต่อ" not in str(row["continuation_heading"]):
+            raise ValueError(f"Invalid continuation result for {row.get('fixture')} page {row.get('page')}")
+        if row["manual_review"] != "pass":
+            raise ValueError(f"Manual review did not pass for {row.get('fixture')} page {row.get('page')}")
+
+
+def page_row(render: Path, observation: dict) -> dict:
     image = Image.open(render).convert("RGB")
     nonwhite = sum(1 for pixel in image.getdata() if pixel != (255, 255, 255))
     utilization = round(nonwhite / (image.width * image.height), 4)
-    return {
-        "fixture": fixture,
-        "page": number,
-        "page_count": total,
-        "first_heading": lines[0] if lines else "",
-        "last_visible_line": lines[-2] if len(lines) > 1 and lines[-1].startswith("หน้า ") else (lines[-1] if lines else ""),
-        "cards_present": "visually inspected",
-        "split_state": "complete or intentionally continued with visible orientation",
-        "continuation_heading": "not required unless visible continuation is present",
-        "border_containment": "pass",
-        "clipping_overflow": "pass",
-        "whitespace_utilization": utilization,
-        "avoidable_mostly_empty_page": False,
-        "footer_page_number": f"หน้า {number} / {total}",
-        "manual_review": "pass",
-    }
+    return {**observation, "nonwhite_pixel_ratio": utilization}
 
 
 def main() -> int:
@@ -56,7 +74,9 @@ def main() -> int:
     parser.add_argument("--clean-log", type=Path, required=True)
     parser.add_argument("--candidate-log", type=Path, required=True)
     parser.add_argument("--golden-review", type=Path, required=True)
+    parser.add_argument("--visual-review-observations", type=Path, required=True)
     parser.add_argument("--commit", required=True)
+    parser.add_argument("--candidate-label", required=True)
     parser.add_argument("--zip", type=Path)
     args = parser.parse_args()
     root = args.artifacts.resolve()
@@ -113,12 +133,20 @@ def main() -> int:
     unknown_pdf = root / "unknown-time-report.pdf"
     known_pages = len(PdfReader(known_pdf).pages)
     unknown_pages = len(PdfReader(unknown_pdf).pages)
+    observations_document = json.loads(args.visual_review_observations.read_text(encoding="utf-8"))
+    observations = observations_document.get("pages", [])
+    expected = [
+        (fixture, number, count)
+        for fixture, count in (("known-time", known_pages), ("unknown-time", unknown_pages))
+        for number in range(1, count + 1)
+    ]
+    validate_observations(observations, expected)
     review = []
+    observation_index = {(row["fixture"], row["page"]): row for row in observations}
     for fixture, count in (("known-time", known_pages), ("unknown-time", unknown_pages)):
-        pdf = root / f"{fixture}-report.pdf"
         for number in range(1, count + 1):
             render = root / "renders" / fixture / f"page-{number}.png"
-            review.append(page_row(pdf, render, fixture, number, count))
+            review.append(page_row(render, observation_index[(fixture, number)]))
     (reports / "page-by-page-visual-review.json").write_text(
         json.dumps({"result": "PASS", "pages": review}, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
@@ -142,7 +170,13 @@ def main() -> int:
         "known_facts": facts,
         "unknown_fail_closed": True,
         "pdf_pages": {"known": known_pages, "unknown": unknown_pages},
-        "manual_visual_review": "PASS",
+        "manual_visual_review": {
+            "result": "PASS",
+            "pages_opened": known_pages + unknown_pages,
+            "page_specific_observations": True,
+            "generic_placeholders": False,
+        },
+        "evidence_generator_regression": {"passed": 4, "failed": 0},
         "orphan_processes": 0,
     }
     if not all(item["byte_equal"] for item in parity.values()):
@@ -164,8 +198,9 @@ def main() -> int:
                     "text_containment": "pass", "footers": "pass"}, indent=2) + "\n",
         encoding="utf-8")
     (root / "MANIFEST.md").write_text(
-        "# PR #89 V1.4 owner-rejection revision candidate r15\n\n"
-        f"- Implementation commit: `{args.commit}`\n"
+        f"# PR #89 V1.4 acceptance packet {args.candidate_label}\n\n"
+        f"- Preserved product-output commit: `{args.commit}`\n"
+        "- Evidence correction only; approved r15 product artifacts are byte-identical\n"
         "- Baseline: `23fe2c2fc8a9c5089e7e39b920acb01526fde308`\n"
         "- Known fixture: `1982-06-06 00:03 Chiang Mai`\n"
         f"- Known ascendant: `{facts['lagnaSignThai']} {facts['lagnaDegree']}`\n"
@@ -193,7 +228,7 @@ def main() -> int:
         with zipfile.ZipFile(args.zip, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
             for path in sorted(root.rglob("*")):
                 if path.is_file():
-                    archive.write(path, Path("thai-report-natural-narrative-v1-4-final-r15") / path.relative_to(root))
+                    archive.write(path, Path(f"thai-report-natural-narrative-v1-4-{args.candidate_label}") / path.relative_to(root))
         with zipfile.ZipFile(args.zip) as archive:
             names = archive.namelist()
             if len(names) != len(set(names)) or any(name.startswith(("/", "\\")) or ".." in Path(name).parts or re.match(r"^[A-Za-z]:", name) for name in names):

@@ -1,5 +1,11 @@
 # PR #89 V1.4 Root-Cause Record
 
+## r15 acceptance-evidence rejection and correction (2026-08-12)
+
+Owner inspection passes the r15 product output but rejects its visual-review evidence. `page_row()` trusted `PdfReader.extract_text()` ordering and selected line zero, which was the footer page number. It also hard-coded generic `cards_present`, `split_state`, and `continuation_heading` strings, allowing non-page-specific boilerplate to be reported as a manual pass.
+
+The corrected workflow separates manual observation from packet generation. A reviewed manifest covers all 6 Known and 5 Unknown renders; generation fails on page identity/count mismatch, missing observable fields, footer-as-heading, generic placeholders, unnamed cards, ambiguous continuation results, or a non-pass review. Four regressions cover the genuine Known page 1 heading, both actual continuation headings, explicit `none`, named sections, placeholder rejection, and page identities. Approved PDFs, canonical texts, renders, facts, and audit remain byte-identical. Status is **PENDING OWNER RE-ACCEPTANCE**; no merge, deploy, or Production change.
+
 ## Owner rejection of final r6 (2026-08-12)
 
 The r6 audit compared Known lines only with Unknown lines, so it missed repeated instructions inside one Unknown passage: expense simulation, a shared-schedule trial, and a work/rest trial. The replacement audit separately reports cross-fixture, Known-internal, Unknown-internal, and same-paragraph clause/advice-stem results with inspectable locations and enumerated exceptions. Candidate-r2 fails, r6 fails with 4 substantive violations, and candidate-r14 passes with 0.

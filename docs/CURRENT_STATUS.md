@@ -1,5 +1,7 @@
 # KnowMe Current Status
 
+**V1.4 PRODUCT OUTPUT PASSES — ACCEPTANCE EVIDENCE CORRECTED (2026-08-12).** Owner inspection passes r15 product output but rejects its generic page-review evidence. The corrected workflow requires complete page-specific manual observations and rejects footer headings, placeholders, missing identities/cards, and ambiguous continuations. Product artifacts remain byte-identical to r15. Status: **PENDING OWNER RE-ACCEPTANCE**. PR #89 remains Draft; no merge, deploy, or Production change.
+
 **V1.4 REVISION COMPLETE — PENDING OWNER RE-ACCEPTANCE (2026-08-12).** Owner rejection of r6 is recorded. Candidate-r14 removes the three Unknown same-passage repetitions, restores supported future interpretation before advice, and adds `โครงสร้างดวงหลัก — ต่อ` / `รายงานนี้ดูจากอะไร — ต่อ` PDF orientation. PR #89 remains Draft; no merge, deploy, or Production change.
 
 **V1.4 REVISION COMPLETE — PENDING OWNER RE-ACCEPTANCE (2026-08-11).** The Owner replaced the impossible absolute-zero broad gate with a strict zero-new-failure gate. Clean HEAD is 2,856 passed / 40 failed; final V1.4 is 2,858 passed / 39 failed. Machine-readable reconciliation proves 39 unchanged baseline failures, one baseline failure now passing, zero new, zero worsened, and zero unmatched. All V1.4-specific, scoped, narrative, golden, analyzer, artifact, and visual gates pass. Final candidate-r6 is packaged from implementation commit `179c5c9a3f6318d799b0be8c2233be7013b89c1c`; PR #89 remains Draft with no merge, deploy, or Production change.

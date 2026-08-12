@@ -1,5 +1,9 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+**V1.4 evidence-only handoff (2026-08-12):** use the new immutable `final-r16-evidence` packet for the next Owner review; do not alter r15. Owner already passes the r15 product content/rendering. The new packet changes only the evidence workflow/report and preserves both PDFs, both canonical texts, all 11 renders, engine facts, and narrative audit byte-for-byte. Known page 6 records `โครงสร้างดวงหลัก — ต่อ`, Unknown page 5 records `รายงานนี้ดูจากอะไร — ต่อ`, and all other pages explicitly record `none`. **PENDING OWNER RE-ACCEPTANCE**; keep PR #89 Draft and do not merge/deploy/change Production.
+
+Packet: `C:\Users\USER\Downloads\thai-report-natural-narrative-v1-4-final-r16-evidence-24c10f5.zip`; 23,386,793 bytes; 45 unique entries; SHA-256 `9DF9C2B414BF2B8EF6ADA64AD53056AF8F7AD4D157A57597390E6906AFD343D3`.
+
 **2026-08-12 owner-rejection revision:** do not use r6 for acceptance. Its audit omitted within-report and same-passage comparison. Candidate-r14 is the current inspected candidate: Known 6 pages, Unknown 5 pages, explicit continuation headings, Web/PDF canonical parity, and corrected complete audit at zero substantive violations. Status remains **PENDING OWNER RE-ACCEPTANCE**.
 
 Status: `PENDING OWNER RE-ACCEPTANCE` after the Owner rejected V1.1 in Round 2 for formulaic internal fragment chains and visibly broken Known PDF pagination on pages 6–8.

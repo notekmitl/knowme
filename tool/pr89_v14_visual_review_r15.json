@@ -1,0 +1,127 @@
+{
+  "reviewed_at": "2026-08-12",
+  "method": "Manual inspection of every final r15 PNG render at original readable resolution",
+  "pages": [
+    {
+      "fixture": "known-time", "page": 1, "page_count": 6,
+      "first_heading": "KnowMe — รายงานโหรไทย",
+      "last_visible_line": "ใช้การกำหนดเป้าหมายและทบทวนผลอย่างตรงไปตรงมา แล้วคุยขอบเขตให้ชัด เพื่อให้ทั้งสองฝ่ายยังมีพื้นที่ของตัวเอง",
+      "cards_present": ["ดวงจากวันเกิดของคุณ", "สรุปตัวคุณแบบตรง ๆ", "จุดเด่น จุดที่ควรระวัง และคำแนะนำหลัก", "การงาน", "การเงิน", "ความรักและความสัมพันธ์"],
+      "split_state": "The opening summary and four domain sections are complete on this page; the report continues with health on page 2.",
+      "continuation_heading": "none", "border_containment": "pass; no bordered card crosses the printable area",
+      "clipping": "none", "overflow": "none", "overlap": "none", "truncation": "none",
+      "whitespace_assessment": "Balanced opening-page whitespace with clear title separation and a fully used content column.",
+      "footer_page_number": "หน้า 1 / 6", "manual_review": "pass"
+    },
+    {
+      "fixture": "known-time", "page": 2, "page_count": 6,
+      "first_heading": "สุขภาพและพลังชีวิต",
+      "last_visible_line": "คุณอยากใกล้ชิด แต่ก็ยังต้องการพื้นที่ส่วนตัว คุณเริ่มเลือกโอกาสที่สำคัญจริง ๆ แทนการรับทุกอย่าง และบทเรียนนี้ยังติดตัวไปในช่วงถัดไป",
+      "cards_present": ["สุขภาพและพลังชีวิต", "คำชี้หลักจากพื้นดวง", "แผนที่ชีวิต", "อดีตของคุณ", "ช่วงวางรากฐาน (1–10)", "ช่วงเติบโตและขยาย (11–29)"],
+      "split_state": "The health and guidance sections are complete; the life-map timeline begins and continues to page 3 between complete cards.",
+      "continuation_heading": "none", "border_containment": "pass; all four visible timeline cards remain within their borders",
+      "clipping": "none", "overflow": "none", "overlap": "none", "truncation": "none",
+      "whitespace_assessment": "Dense but readable card layout with consistent gaps and no avoidable empty region.",
+      "footer_page_number": "หน้า 2 / 6", "manual_review": "pass"
+    },
+    {
+      "fixture": "known-time", "page": 3, "page_count": 6,
+      "first_heading": "ช่วงพลิกผันและเปลี่ยนผ่าน (30–41)",
+      "last_visible_line": "ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากหลักฐานและภาระจริงก่อนรับ",
+      "cards_present": ["ช่วงพลิกผันและเปลี่ยนผ่าน (30–41)", "ช่วงปัจจุบัน", "การงาน", "การเงิน", "สุขภาพ", "โชคลาภ"],
+      "split_state": "The timeline and current-period cards are complete; future analysis starts on page 4.",
+      "continuation_heading": "none", "border_containment": "pass; every card is fully contained",
+      "clipping": "none", "overflow": "none", "overlap": "none", "truncation": "none",
+      "whitespace_assessment": "Well-filled page with even card spacing and a normal footer margin.",
+      "footer_page_number": "หน้า 3 / 6", "manual_review": "pass"
+    },
+    {
+      "fixture": "known-time", "page": 4, "page_count": 6,
+      "first_heading": "แนวโน้มชีวิตในระยะข้างหน้า",
+      "last_visible_line": "สร้างเงินสำรองเฉพาะช่วงเปลี่ยนผ่านก่อนผูกค่าใช้จ่ายระยะยาวก้อนใหม่",
+      "cards_present": ["แนวโน้มชีวิตในระยะข้างหน้า", "แนวโน้ม 12 เดือนข้างหน้า", "การงาน", "การเงิน", "ความรัก", "สุขภาพ", "ช่วงชีวิตถัดไป", "การงาน", "การเงิน"],
+      "split_state": "The 12-month forecast is complete; the next-life-period section continues naturally to page 5 after the finance subsection.",
+      "continuation_heading": "none", "border_containment": "pass; this page uses unboxed prose within the printable area",
+      "clipping": "none", "overflow": "none", "overlap": "none", "truncation": "none",
+      "whitespace_assessment": "High but controlled text density; headings and paragraph gaps keep the page readable.",
+      "footer_page_number": "หน้า 4 / 6", "manual_review": "pass"
+    },
+    {
+      "fixture": "known-time", "page": 5, "page_count": 6,
+      "first_heading": "ความรัก",
+      "last_visible_line": "ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากเวลาและสถานที่เกิด) อยู่ที่ราศีกุมภ์",
+      "cards_present": ["ความรัก", "สุขภาพ", "คำแนะนำปิดท้ายช่วงถัดไป", "แนวโน้มระยะยาว", "ช่วงเปล่งประกาย (63–68)", "รายงานนี้ดูจากอะไร"],
+      "split_state": "The next-life-period forecast completes; report-explanation content begins and is explicitly continued on page 6.",
+      "continuation_heading": "none", "border_containment": "pass; both visible cards are fully contained",
+      "clipping": "none", "overflow": "none", "overlap": "none", "truncation": "none",
+      "whitespace_assessment": "Content fills the page without crowding; the report-explanation transition is clearly separated.",
+      "footer_page_number": "หน้า 5 / 6", "manual_review": "pass"
+    },
+    {
+      "fixture": "known-time", "page": 6, "page_count": 6,
+      "first_heading": "โครงสร้างดวงหลัก — ต่อ",
+      "last_visible_line": "สิ่งที่อ่านอาจตรงหรือไม่ตรงกับตัวคุณทั้งหมด — ใช้เป็นจุดเริ่มสังเกตตัวเอง",
+      "cards_present": ["โครงสร้างดวงหลัก — ต่อ", "โครงสร้างดวงหลัก", "ความหมายและข้อจำกัดของผลลัพธ์", "ที่มาของผลวิเคราะห์", "ข้อจำกัด"],
+      "split_state": "This page continues the report-explanation section from page 5 and completes the report with the limitation card.",
+      "continuation_heading": "โครงสร้างดวงหลัก — ต่อ", "border_containment": "pass; the final limitation card is fully enclosed",
+      "clipping": "none", "overflow": "none", "overlap": "none", "truncation": "none",
+      "whitespace_assessment": "Comfortable final-page whitespace after the limitation card; not mostly empty and no extra page is needed.",
+      "footer_page_number": "หน้า 6 / 6", "manual_review": "pass"
+    },
+    {
+      "fixture": "unknown-time", "page": 1, "page_count": 5,
+      "first_heading": "KnowMe — รายงานโหรไทย",
+      "last_visible_line": "คุณต้องแบกงานหลายเรื่องจนเวลาและพลังไม่พอ คุณเริ่มรู้ว่าต้องรักษาแรงไว้ ไม่ใช่ผลักทุกเรื่องพร้อมกัน และบทเรียนนี้ยังติดตัวไปในช่วงถัดไป",
+      "cards_present": ["ดวงจากวันเกิดของคุณ", "แผนที่ชีวิต", "อดีตของคุณ", "ช่วงเปล่งประกาย (1–6)", "ช่วงดูแลใจ (7–21)"],
+      "split_state": "The opening and first two life-map cards are complete; the timeline continues with the next complete card on page 2.",
+      "continuation_heading": "none", "border_containment": "pass; all visible cards remain within borders",
+      "clipping": "none", "overflow": "none", "overlap": "none", "truncation": "none",
+      "whitespace_assessment": "Balanced title area and card spacing with no avoidable blank region.",
+      "footer_page_number": "หน้า 1 / 5", "manual_review": "pass"
+    },
+    {
+      "fixture": "unknown-time", "page": 2, "page_count": 5,
+      "first_heading": "ช่วงลงมือและบุกเบิก (22–29)",
+      "last_visible_line": "หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ",
+      "cards_present": ["ช่วงลงมือและบุกเบิก (22–29)", "ช่วงปัจจุบัน", "การงาน", "การเงิน", "สุขภาพ"],
+      "split_state": "The timeline and current-period domain cards are complete; the fortune card continues as a complete unit on page 3.",
+      "continuation_heading": "none", "border_containment": "pass; every visible card is fully contained",
+      "clipping": "none", "overflow": "none", "overlap": "none", "truncation": "none",
+      "whitespace_assessment": "Consistent card spacing and good bottom-margin use without a mostly empty continuation page.",
+      "footer_page_number": "หน้า 2 / 5", "manual_review": "pass"
+    },
+    {
+      "fixture": "unknown-time", "page": 3, "page_count": 5,
+      "first_heading": "โชคลาภ",
+      "last_visible_line": "จำลองค่าใช้จ่ายช่วงเปลี่ยนผ่านจากตัวเลขจริงก่อนผูกภาระก้อนถัดไป",
+      "cards_present": ["โชคลาภ", "แนวโน้มชีวิตในระยะข้างหน้า", "แนวโน้ม 12 เดือนข้างหน้า", "การงาน", "การเงิน", "ความรัก", "สุขภาพ", "ช่วงชีวิตถัดไป", "การงาน", "การเงิน"],
+      "split_state": "The fortune and 12-month sections are complete; the next-life-period section continues to page 4 after finance.",
+      "continuation_heading": "none", "border_containment": "pass; the fortune card is enclosed and prose remains inside margins",
+      "clipping": "none", "overflow": "none", "overlap": "none", "truncation": "none",
+      "whitespace_assessment": "Dense forecast page with clear hierarchy and sufficient separation between sections.",
+      "footer_page_number": "หน้า 3 / 5", "manual_review": "pass"
+    },
+    {
+      "fixture": "unknown-time", "page": 4, "page_count": 5,
+      "first_heading": "ความรัก",
+      "last_visible_line": "วันทางโหราศาสตร์อาจเป็นวันก่อนหน้า จึงยังไม่สรุปวันสุดท้าย",
+      "cards_present": ["ความรัก", "สุขภาพ", "คำแนะนำปิดท้ายช่วงถัดไป", "แนวโน้มระยะยาว", "ช่วงวางรากฐาน (47–56)", "ช่วงเติบโตและขยาย (57–75)", "รายงานนี้ดูจากอะไร"],
+      "split_state": "The next-life-period forecast completes; the report-explanation section begins and continues explicitly on page 5.",
+      "continuation_heading": "none", "border_containment": "pass; all three visible cards are fully enclosed",
+      "clipping": "none", "overflow": "none", "overlap": "none", "truncation": "none",
+      "whitespace_assessment": "Full but readable page; the explanation section begins with enough room to avoid an orphan heading.",
+      "footer_page_number": "หน้า 4 / 5", "manual_review": "pass"
+    },
+    {
+      "fixture": "unknown-time", "page": 5, "page_count": 5,
+      "first_heading": "รายงานนี้ดูจากอะไร — ต่อ",
+      "last_visible_line": "คำชี้หลักจากพื้นดวง — ไม่พบชุดจุดแข็ง ความเสี่ยง และแนวทางที่อ้างอิงจากแนวโน้มเดียวกันได้ครบ",
+      "cards_present": ["รายงานนี้ดูจากอะไร — ต่อ", "โครงสร้างดวงหลัก", "ความหมายและข้อจำกัดของผลลัพธ์", "ที่มาของผลวิเคราะห์", "ข้อจำกัด", "หัวข้อที่ไม่ได้แสดง"],
+      "split_state": "This page continues the report-explanation section from page 4 and completes the fail-closed limitations and omitted-topic card.",
+      "continuation_heading": "รายงานนี้ดูจากอะไร — ต่อ", "border_containment": "pass; both final bordered cards are fully contained",
+      "clipping": "none", "overflow": "none", "overlap": "none", "truncation": "none",
+      "whitespace_assessment": "The final page is well used; the two limitation cards fit cleanly with a normal footer margin.",
+      "footer_page_number": "หน้า 5 / 5", "manual_review": "pass"
+    }
+  ]
+}
