@@ -444,7 +444,8 @@ abstract final class ThaiBetaReportPdfExporter {
                 paragraphIndex < renderParagraphs.length;
                 paragraphIndex++
               ) {
-                final continuationHeading = continuation != null &&
+                final continuationHeading =
+                    continuation != null &&
                         paragraphIndex == continuation.paragraphIndex
                     ? continuation.heading
                     : null;
@@ -466,10 +467,7 @@ abstract final class ThaiBetaReportPdfExporter {
                         crossAxisAlignment: pw.CrossAxisAlignment.start,
                         children: [
                           if (continuationHeading != null) ...[
-                            _pdfText(
-                              continuationHeading,
-                              style: sectionStyle,
-                            ),
+                            _pdfText(continuationHeading, style: sectionStyle),
                             pw.SizedBox(height: 8),
                           ],
                           for (final paragraph in remaining)
@@ -481,7 +479,12 @@ abstract final class ThaiBetaReportPdfExporter {
                 );
               }
             }
-            widgets.add(pw.SizedBox(height: 14));
+            // Section spacing belongs only between sections. A trailing spacer
+            // has no content but MultiPage still lays it out; when the final
+            // content exactly fills a page it can create a footer-only page.
+            if (i < polished.sections.length - 1) {
+              widgets.add(pw.SizedBox(height: 14));
+            }
           }
 
           return widgets;

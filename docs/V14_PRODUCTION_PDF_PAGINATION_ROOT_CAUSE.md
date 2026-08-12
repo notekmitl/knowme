@@ -13,6 +13,8 @@ The initial V1.4 deployment from `0c3d1ef9d083502aa5f1ddae67b9acd23acecbed` expo
 
 The marker did not represent a measured page boundary. When preceding content already filled a page naturally, `MultiPage` advanced before processing the forced break and the additional `pw.NewPage()` advanced again. In the Known Production fixture this left a footer-only seventh page. In the Unknown fixture it displaced the atomic omission card onto a sixth page. Font loading, browser device-pixel ratio, DOM measurement, and asynchronous Web font readiness were ruled out: the downloadable PDF uses bundled fonts and the Dart `pdf` renderer rather than browser print layout.
 
+Production verification after PR #90 exposed a second exact-boundary condition in Known mode. The live export includes the public evidence-badge disclosure while the first local Production regression did not. The exporter appended a 14-point spacer after every section, including the final section. With the disclosure present, final content filled page 6 exactly and the content-free trailing spacer caused `MultiPage` to allocate a footer-only page 7. Unknown did not hit that exact boundary and correctly fell to 5 pages after PR #90.
+
 ## Why prior gates missed it
 
 The accepted r16 evidence used the fixed 1982-06-06 fixture and remained 6/5 pages. Production verification used 2001-01-15, whose different age/timeline prose placed the forced marker at a different measured boundary. The existing raster gate permitted up to 32 Known and 30 Unknown pages and checked only forbidden-margin ink; it did not assert 6/5 pages or reject blank/footer-only pages. Canonical parity checked text, not pagination.
@@ -20,6 +22,8 @@ The accepted r16 evidence used the fixed 1982-06-06 fixture and remained 6/5 pag
 ## Fix
 
 The hotfix removes the forced page break. The continuation heading and its intended paragraph now form one atomic pagination unit, allowing `MultiPage` to place them together at the measured boundary. No margins, font sizes, text, cards, calculations, or content ordering changed. `ThaiBetaPdfRenderResult` now exposes the final renderer page count so the real download path can be asserted directly.
+
+The follow-up correction emits section spacing only between sections, never after the final section. Regression fixtures use the exact Production names and include the public evidence-badge disclosure so both boundary conditions travel through the same exporter path as the live download.
 
 ## Regression and local evidence
 

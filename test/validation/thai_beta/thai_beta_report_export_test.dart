@@ -333,8 +333,8 @@ void main() {
       ]) {
         final productionAnalysis = ThaiBetaAnalysisRunner.run(
           ThaiBetaInput(
-            firstName: 'Production',
-            lastName: 'Pagination',
+            firstName: 'ทดสอบ',
+            lastName: fixture.knownTime ? 'ระบบ' : 'ไม่ทราบเวลา',
             birthDate: DateTime(2001, 1, 15),
             birthHour: fixture.knownTime ? 10 : null,
             birthMinute: 0,
@@ -346,6 +346,16 @@ void main() {
         );
         final document = ThaiBetaReportExportDocument.fromAnalysis(
           productionAnalysis,
+          badges: const [
+            ThaiPublicEvidenceBadgeBetaViewModel(
+              sectionId: 'production-pagination-regression',
+              badgeLabel: ThaiPublicEvidenceBadgeCopy.primaryBadgeLabel,
+              cautionCopy: ThaiPublicEvidenceBadgeCopy.cautionCopy,
+              sourceLevel:
+                  ThaiPublicEvidenceDisclosureLevel.level1PublicSummaryBadge,
+              eligible: true,
+            ),
+          ],
         );
         final rendered = await ThaiBetaReportPdfExporter.build(document);
         final evidenceOutput =
