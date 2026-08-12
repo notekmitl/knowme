@@ -265,3 +265,6 @@ Items documented as future in master context or specs — **not yet active prior
 - [x] Add deterministic report-level claim ownership and V1.5 evidence packet.
 - [ ] Owner reads proposed Known/Unknown reports and accepts narrative quality.
 - [ ] Merge/deploy only under a separate explicit owner instruction.
+# V1.5 R2 gate
+
+Current gate: owner acceptance of R2 Known 00:35 and Unknown PDFs. Merge and deployment remain out of scope; Production remains V1.4.

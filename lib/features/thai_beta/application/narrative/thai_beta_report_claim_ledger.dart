@@ -38,6 +38,13 @@ class ThaiBetaReportClaimAllocation {
     required this.horizon,
     this.expressed = false,
     Set<String>? callbackKeys,
+    this.evidenceSignature = '',
+    this.evidenceType = 'computed',
+    this.confidence = 'supported',
+    this.primaryExpression = '',
+    this.permittedCallback = '',
+    this.callbackNewInformation = '',
+    this.traceabilityReference = '',
   }) : callbackKeys = callbackKeys ?? <String>{};
 
   final String canonicalId;
@@ -48,4 +55,28 @@ class ThaiBetaReportClaimAllocation {
   final String? horizon;
   bool expressed;
   final Set<String> callbackKeys;
+  final String evidenceSignature;
+  final String evidenceType;
+  final String confidence;
+  final String primaryExpression;
+  final String permittedCallback;
+  final String callbackNewInformation;
+  final String traceabilityReference;
+
+  Map<String, Object?> toJson() => {
+    'canonicalId': canonicalId,
+    'completeEvidenceSignature': evidenceSignature,
+    'evidenceKeys': evidenceKeys.toList()..sort(),
+    'evidenceType': evidenceType,
+    'confidence': confidence,
+    'role': role,
+    'primaryExpression': primaryExpression,
+    'permittedCallback': permittedCallback,
+    'callbackNewInformation': callbackNewInformation,
+    'renderedSection': section,
+    'domain': domain,
+    'horizon': horizon,
+    'expressed': expressed,
+    'traceabilityReference': traceabilityReference,
+  };
 }

@@ -55,3 +55,6 @@ accepted `19°19′` result used `00:35`. V1.5 introduces report-level claim
 ownership, one forecast home per domain, a chart-specific opening, single
 domain syntheses and prioritised advice. Owner Acceptance is pending. Do not
 merge or deploy; V1.4 remains live.
+# V1.5 R2 owner-rejection recovery (2026-08-12)
+
+R1 owner acceptance is rejected. Its stale focused log contradicted the summary. R2 restores all four domains in all three horizons, adds evidence-signature Claim Ledger and a new acceptance packet. PR #92 remains Draft; owner acceptance is pending; no merge/deploy; Production remains V1.4.

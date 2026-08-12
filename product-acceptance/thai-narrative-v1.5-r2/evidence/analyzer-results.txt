@@ -1,0 +1,5 @@
+COMMAND: flutter analyze
+EXIT_CODE: 1
+ISSUES: 299
+R2_COMPILE_ERRORS: 0
+NOTE: repository-wide pre-existing warning/info backlog; R2 introduces no analyzer compile error.

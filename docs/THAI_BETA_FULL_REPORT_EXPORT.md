@@ -254,3 +254,6 @@ prediction view models. V1.5 changes claim planning before wording: each domain
 forecast has one primary horizon, while methodology retains evidence without
 restating its interpretation. Proposed 00:03 Chiang Mai Known and Unknown PDFs
 are in `product-acceptance/thai-narrative-v1.5-r1/`; Owner Acceptance is pending.
+# V1.5 R2 export acceptance note
+
+R2 exports use 6 pages for both Known and Unknown after evidence cues were added, restore 12 domain/horizon blocks, add a synthesis before methodology, and preserve byte-identical Web/PDF canonical text. Owner 00:35 is the primary Known fixture; 00:03 is regression-only. See `product-acceptance/thai-narrative-v1.5-r2/`.

@@ -42,3 +42,6 @@ V1.4 remains technically live and stable, but its narrative quality is rejected.
 V1.5 is a Draft-only architecture rewrite on `codex/thai-narrative-v1-5`.
 Acceptance packet: `product-acceptance/thai-narrative-v1.5-r1/`. No merge or
 Production deployment is authorised.
+# Update — Thai Narrative V1.5 R2 (2026-08-12)
+
+R1 owner acceptance was rejected, including a stale failed log contradicting its summary. R2 restores four domains per horizon and adds complete acceptance evidence. PR #92 remains Draft and owner acceptance is pending. No merge/deploy is authorised; Production remains V1.4.

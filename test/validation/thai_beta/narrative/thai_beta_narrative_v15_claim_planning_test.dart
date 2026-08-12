@@ -52,7 +52,7 @@ void main() {
 
   for (final knownTime in [true, false]) {
     test(
-      'V1.5 assigns each forecast domain once (${knownTime ? 'Known' : 'Unknown'})',
+      'V1.5 assigns all forecast domains to every horizon (${knownTime ? 'Known' : 'Unknown'})',
       () {
         final analysis = ThaiBetaAnalysisRunner.run(
           ThaiBetaInput(
@@ -73,12 +73,18 @@ void main() {
             .map((domain) => domain.material!.domain)
             .toList();
         expect(domains.toSet().length, 4);
-        expect(domains.length, 4);
+        expect(domains.length, 12);
         expect(
-          view.futurePrediction!.windows
-              .where((window) => window.domains.isNotEmpty)
-              .length,
-          3,
+          view.futurePrediction!.windows.every(
+            (window) =>
+                window.domains.length == 4 &&
+                window.domains
+                        .map((domain) => domain.material!.domain)
+                        .toSet()
+                        .length ==
+                    4,
+          ),
+          isTrue,
         );
 
         final text = ThaiBetaReportExportDocument.fromAnalysis(

@@ -1,0 +1,102 @@
+{
+ "owner-known-0035": {
+  "current": [
+   true,
+   true,
+   true,
+   true
+  ],
+  "next12Months": [
+   true,
+   true,
+   true,
+   true
+  ],
+  "nextLifePeriod": [
+   true,
+   true,
+   true,
+   true
+  ]
+ },
+ "owner-unknown": {
+  "current": [
+   true,
+   true,
+   true,
+   true
+  ],
+  "next12Months": [
+   true,
+   true,
+   true,
+   true
+  ],
+  "nextLifePeriod": [
+   true,
+   true,
+   true,
+   true
+  ]
+ },
+ "regression-known-0003": {
+  "current": [
+   true,
+   true,
+   true,
+   true
+  ],
+  "next12Months": [
+   true,
+   true,
+   true,
+   true
+  ],
+  "nextLifePeriod": [
+   true,
+   true,
+   true,
+   true
+  ]
+ },
+ "comparison-known-bangkok": {
+  "current": [
+   true,
+   true,
+   true,
+   true
+  ],
+  "next12Months": [
+   true,
+   true,
+   true,
+   true
+  ],
+  "nextLifePeriod": [
+   true,
+   true,
+   true,
+   true
+  ]
+ },
+ "comparison-known-khon-kaen": {
+  "current": [
+   true,
+   true,
+   true,
+   true
+  ],
+  "next12Months": [
+   true,
+   true,
+   true,
+   true
+  ],
+  "nextLifePeriod": [
+   true,
+   true,
+   true,
+   true
+  ]
+ }
+}

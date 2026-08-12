@@ -68,3 +68,6 @@ Implementation and acceptance evidence are proposed under
 `product-acceptance/thai-narrative-v1.5-r1/`. Automated checks are supporting
 evidence only; narrative quality remains pending Owner reading. Production was
 not changed. See `docs/THAI_NARRATIVE_V15_ROOT_CAUSE_AND_SPEC.md`.
+# V1.5 R2 status (2026-08-12)
+
+R1 is recorded as owner-rejected. R2 focused validation passes 261/261 and the owner 00:35 / regression 00:03 identities remain Aquarius 19°19′ / 9°24′. The R2 package includes five PDFs, 29 rendered pages, Claim Ledger and corrective evidence. PR #92 remains Draft and requires owner acceptance; no merge or deployment has occurred; Production remains V1.4.

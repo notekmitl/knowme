@@ -20,7 +20,6 @@ import 'thai_beta_narrative_specificity.dart';
 import 'thai_beta_narrative_stable_hash.dart';
 import 'thai_beta_narrative_trace.dart';
 import 'thai_beta_narrative_v12.dart';
-import 'thai_beta_report_claim_ledger.dart';
 
 class ThaiBetaNarrativeResult {
   const ThaiBetaNarrativeResult({required this.view, required this.trace});
@@ -567,12 +566,10 @@ abstract final class ThaiBetaNarrativeComposer {
     PredictionSectionModel? prediction,
   ) {
     if (prediction == null) return null;
-    final assignedDomains = _assignPrimaryForecastHomes(prediction.windows);
     final windows = <PredictionWindowCardModel>[];
     for (var i = 0; i < prediction.windows.length; i++) {
       final window = prediction.windows[i];
       final domains = window.domains
-          .where((domain) => assignedDomains[i]?.contains(domain.material!.domain) ?? false)
           .map((domain) {
             return composeForecastForMaterial(
               title: domain.title,
@@ -615,6 +612,17 @@ abstract final class ThaiBetaNarrativeComposer {
         ),
       );
     }
+    final priorities = windows
+        .expand((window) => window.domains)
+        .map((domain) => domain.preparationAction.trim())
+        .where((action) => action.isNotEmpty)
+        .toSet()
+        .take(3)
+        .toList(growable: false);
+    final strongEnding = priorities.isEmpty
+        ? prediction.detailedClosingAdvice
+        : 'สรุปแล้ว ทิศทางไม่ได้อยู่ที่การทำให้มากขึ้น แต่อยู่ที่ลำดับนี้: '
+              '1) รักษาคุณภาพงาน 2) กันเงินและพื้นที่ตัดสินใจ 3) รักษาขอบเขตความสัมพันธ์และเวลาฟื้นตัว';
     return PredictionSectionModel(
       sectionTitle: prediction.sectionTitle,
       sectionIntro: prediction.sectionIntro,
@@ -622,93 +630,8 @@ abstract final class ThaiBetaNarrativeComposer {
       transitionLine: prediction.transitionLine,
       closingAdvice: prediction.closingAdvice,
       detailedSectionIntro: prediction.detailedSectionIntro,
-      detailedClosingAdvice: prediction.detailedClosingAdvice,
+      detailedClosingAdvice: strongEnding,
     );
-  }
-
-  /// Gives each life-domain claim one primary horizon. The earlier V1.4
-  /// composer rendered all four domains in all three windows, so the same
-  /// conclusion appeared twelve times with little more than a time-label
-  /// change. This deterministic allocation keeps complete report coverage,
-  /// while each horizon performs a different narrative job.
-  static Map<int, Set<ForecastDomain>> _assignPrimaryForecastHomes(
-    List<PredictionWindowCardModel> windows,
-  ) {
-    if (windows.isEmpty) return const {};
-    final result = <int, Set<ForecastDomain>>{
-      for (var i = 0; i < windows.length; i++) i: <ForecastDomain>{},
-    };
-    final ledger = ThaiBetaReportClaimLedger();
-    final remaining = ForecastDomain.values.toSet();
-    int weight(ForecastBand band) => switch (band) {
-      ForecastBand.strong => 3,
-      ForecastBand.active => 2,
-      ForecastBand.quiet => 1,
-    };
-
-    // First reserve one materially strongest, still-unclaimed domain for each
-    // horizon so present, near future and longer direction all add information.
-    for (var i = 0; i < windows.length && remaining.isNotEmpty; i++) {
-      final candidates = windows[i].domains
-          .where((domain) => remaining.contains(domain.material!.domain))
-          .toList()
-        ..sort((a, b) {
-          final band = weight(b.material!.band).compareTo(weight(a.material!.band));
-          return band != 0
-              ? band
-              : a.material!.domain.index.compareTo(b.material!.domain.index);
-        });
-      if (candidates.isEmpty) continue;
-      final chosen = candidates.first.material!.domain;
-      result[i]!.add(chosen);
-      final material = candidates.first.material!;
-      ledger.assign(
-        ThaiBetaReportClaimAllocation(
-          canonicalId: 'forecast:${chosen.name}',
-          evidenceKeys: {material.evidenceKey},
-          role: i == 0 ? 'active-pressure' : i == 1 ? 'change-trigger' : 'direction-consequence',
-          section: 'forecast-window-$i',
-          domain: chosen.name,
-          horizon: material.horizon.name,
-          expressed: true,
-        ),
-      );
-      remaining.remove(chosen);
-    }
-
-    // Allocate any fourth domain to the horizon where its evidence is
-    // strongest. Stable index tie-breaking makes output reproducible.
-    for (final domain in remaining) {
-      var bestWindow = 0;
-      var bestWeight = -1;
-      for (var i = 0; i < windows.length; i++) {
-        final candidate = windows[i].domains
-            .where((item) => item.material!.domain == domain)
-            .firstOrNull;
-        if (candidate == null) continue;
-        final candidateWeight = weight(candidate.material!.band);
-        if (candidateWeight > bestWeight) {
-          bestWeight = candidateWeight;
-          bestWindow = i;
-        }
-      }
-      result[bestWindow]!.add(domain);
-      final material = windows[bestWindow].domains
-          .firstWhere((item) => item.material!.domain == domain)
-          .material!;
-      ledger.assign(
-        ThaiBetaReportClaimAllocation(
-          canonicalId: 'forecast:${domain.name}',
-          evidenceKeys: {material.evidenceKey},
-          role: bestWindow == 0 ? 'active-pressure' : bestWindow == 1 ? 'change-trigger' : 'direction-consequence',
-          section: 'forecast-window-$bestWindow',
-          domain: domain.name,
-          horizon: material.horizon.name,
-          expressed: true,
-        ),
-      );
-    }
-    return result;
   }
 
   static String _forecastClaim(String sourceBody, ForecastDecisionPlan plan) {
@@ -883,9 +806,17 @@ abstract final class ThaiBetaNarrativeComposer {
         plan.evidenceAvailability == ForecastEvidenceAvailability.noLagna
         ? 'คำอ่านนี้ไม่มีหลักฐานลัคนา จึงใช้เป็นกรอบสังเกตและไม่ฟันธง'
         : '';
+    final evidenceFrame = [
+      switch (plan.band) {
+        ForecastBand.strong => 'น้ำหนักเด่น',
+        ForecastBand.active => 'น้ำหนักปานกลาง',
+        ForecastBand.quiet => 'น้ำหนักเบา',
+      },
+      if (plan.spansTransition) 'คาบเกี่ยวรอยต่อ',
+    ].join(' · ');
     return PredictionDomainModel(
       title: title,
-      body: _naturalForecastBody(plan, claim, action),
+      body: '${_naturalForecastBody(plan, claim, action)} ($evidenceFrame)',
       caution: '',
       claim: claim,
       risk: risk,

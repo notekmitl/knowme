@@ -44,3 +44,6 @@ Read the Known and Unknown PDFs in
 any merge. Correctness is reconciled (`00:03` => Aquarius `9°24′`; `00:35` =>
 Aquarius `19°19′`). The remaining decision is subjective Owner Acceptance.
 Do not merge, deploy or alter Production until that decision is explicit.
+# Handoff — V1.5 R2 owner review
+
+Review `product-acceptance/thai-narrative-v1.5-r2/evidence/owner-known-0035-report.pdf` and `owner-unknown-report.pdf`. The 00:03 PDF is regression evidence only. R1 is rejected and preserved. Keep PR #92 Draft; do not merge or deploy until explicit owner acceptance. Production remains V1.4.
