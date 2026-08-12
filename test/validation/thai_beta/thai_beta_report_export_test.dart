@@ -326,6 +326,55 @@ void main() {
   });
 
   group('Real PDF exporter path regression', () {
+    test('Production pagination fixtures stay at 6/5 pages', () async {
+      for (final fixture in <({bool knownTime, int pages})>[
+        (knownTime: true, pages: 6),
+        (knownTime: false, pages: 5),
+      ]) {
+        final productionAnalysis = ThaiBetaAnalysisRunner.run(
+          ThaiBetaInput(
+            firstName: 'Production',
+            lastName: 'Pagination',
+            birthDate: DateTime(2001, 1, 15),
+            birthHour: fixture.knownTime ? 10 : null,
+            birthMinute: 0,
+            birthTimeUnknown: !fixture.knownTime,
+            province: fixture.knownTime ? 'เชียงใหม่' : '',
+            provinceKey: fixture.knownTime ? 'chiang_mai' : '',
+          ),
+          startedAt: DateTime(2026, 8, 12),
+        );
+        final document = ThaiBetaReportExportDocument.fromAnalysis(
+          productionAnalysis,
+        );
+        final rendered = await ThaiBetaReportPdfExporter.build(document);
+        final evidenceOutput =
+            Platform.environment['KNOWME_PAGINATION_HOTFIX_OUTPUT'];
+        if (evidenceOutput != null && evidenceOutput.isNotEmpty) {
+          final output = Directory(evidenceOutput)..createSync(recursive: true);
+          final stem = fixture.knownTime ? 'known-time' : 'unknown-time';
+          File('${output.path}/$stem.pdf').writeAsBytesSync(rendered.bytes);
+          File(
+            '${output.path}/$stem-canonical.txt',
+          ).writeAsStringSync(rendered.plainText);
+        }
+
+        expect(
+          rendered.pageCount,
+          fixture.pages,
+          reason: fixture.knownTime ? 'Known-time' : 'Unknown-time',
+        );
+        expect(rendered.plainText, document.fullPlainText);
+      }
+    });
+
+    test('continuation heading stays atomic without forcing a new page', () {
+      expect(
+        ThaiBetaReportPdfExporter.debugUsesForcedContinuationPageForTest,
+        isFalse,
+      );
+    });
+
     test('disclaimer cards use full-width geometry and contain their body', () {
       const legacy = <String, Object>{
         'column': 'intrinsic',
@@ -383,7 +432,18 @@ void main() {
       );
       try {
         for (final fixture in <String, ThaiBetaAnalysis>{
-          'known': analysis,
+          'known': ThaiBetaAnalysisRunner.run(
+            ThaiBetaInput(
+              firstName: 'Raster',
+              lastName: 'Known',
+              birthDate: DateTime(1982, 6, 6),
+              birthHour: 0,
+              birthMinute: 3,
+              province: 'เชียงใหม่',
+              provinceKey: 'chiang_mai',
+            ),
+            startedAt: DateTime(2026, 8, 7),
+          ),
           'unknown': ThaiBetaAnalysisRunner.run(
             ThaiBetaInput(
               firstName: 'Raster',
@@ -393,6 +453,7 @@ void main() {
               province: 'เชียงใหม่',
               provinceKey: 'chiang_mai',
             ),
+            startedAt: DateTime(2026, 8, 7),
           ),
         }.entries) {
           final document = ThaiBetaReportExportDocument.fromAnalysis(
@@ -429,14 +490,22 @@ void main() {
           expect(pages, isNotEmpty);
           expect(
             pages.length,
-            lessThanOrEqualTo(fixture.key == 'known' ? 32 : 30),
+            fixture.key == 'known' ? 6 : 5,
             reason:
-                '${fixture.key} PDF regressed to forced one-block-per-page '
-                'pagination (${pages.length} pages)',
+                '${fixture.key} real-export PDF page-count regression '
+                '(${pages.length} pages)',
           );
           for (final page in pages) {
+            final raster = page.readAsBytesSync();
             expect(
-              _hasInkInForbiddenMargin(page.readAsBytesSync()),
+              _hasBodyInk(raster),
+              isTrue,
+              reason:
+                  '${fixture.key}/${page.uri.pathSegments.last} is blank or '
+                  'contains only its footer',
+            );
+            expect(
+              _hasInkInForbiddenMargin(raster),
               isFalse,
               reason:
                   '${fixture.key}/${page.uri.pathSegments.last} '
@@ -1196,6 +1265,40 @@ String? _findPdftoppm() {
 }
 
 bool _hasInkInForbiddenMargin(List<int> bytes) {
+  final raster = _readPpm(bytes);
+  const safeMargin = 55;
+  const inkThreshold = 225;
+  for (var y = 0; y < raster.height; y++) {
+    for (var x = 0; x < raster.width; x++) {
+      if (_isInk(raster, x, y, inkThreshold) &&
+          (x < safeMargin ||
+              x >= raster.width - safeMargin ||
+              y < safeMargin ||
+              y >= raster.height - safeMargin)) {
+        return true;
+      }
+    }
+  }
+  return false;
+}
+
+bool _hasBodyInk(List<int> bytes) {
+  final raster = _readPpm(bytes);
+  const inkThreshold = 225;
+  const sideMargin = 55;
+  const topMargin = 55;
+  const footerBand = 130;
+  for (var y = topMargin; y < raster.height - footerBand; y++) {
+    for (var x = sideMargin; x < raster.width - sideMargin; x++) {
+      if (_isInk(raster, x, y, inkThreshold)) return true;
+    }
+  }
+  return false;
+}
+
+({List<int> bytes, int offset, int width, int height}) _readPpm(
+  List<int> bytes,
+) {
   var offset = 0;
   String token() {
     while (offset < bytes.length &&
@@ -1228,23 +1331,17 @@ bool _hasInkInForbiddenMargin(List<int> bytes) {
           bytes[offset] == 32)) {
     offset++;
   }
-  const safeMargin = 55;
-  const inkThreshold = 225;
-  for (var y = 0; y < height; y++) {
-    for (var x = 0; x < width; x++) {
-      final pixel = offset + ((y * width + x) * 3);
-      final isInk =
-          bytes[pixel] < inkThreshold ||
-          bytes[pixel + 1] < inkThreshold ||
-          bytes[pixel + 2] < inkThreshold;
-      if (isInk &&
-          (x < safeMargin ||
-              x >= width - safeMargin ||
-              y < safeMargin ||
-              y >= height - safeMargin)) {
-        return true;
-      }
-    }
-  }
-  return false;
+  return (bytes: bytes, offset: offset, width: width, height: height);
+}
+
+bool _isInk(
+  ({List<int> bytes, int offset, int width, int height}) raster,
+  int x,
+  int y,
+  int threshold,
+) {
+  final pixel = raster.offset + ((y * raster.width + x) * 3);
+  return raster.bytes[pixel] < threshold ||
+      raster.bytes[pixel + 1] < threshold ||
+      raster.bytes[pixel + 2] < threshold;
 }

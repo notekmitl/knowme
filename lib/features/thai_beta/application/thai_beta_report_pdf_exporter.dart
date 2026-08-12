@@ -139,6 +139,7 @@ class ThaiBetaPdfRenderResult {
     required this.bytes,
     required this.plainText,
     required this.document,
+    required this.pageCount,
   });
 
   final Uint8List bytes;
@@ -149,6 +150,10 @@ class ThaiBetaPdfRenderResult {
   final String plainText;
 
   final ThaiBetaReportExportDocument document;
+
+  /// Number of pages produced by the same renderer used by the download
+  /// button. Captured from the final MultiPage footer after layout completes.
+  final int pageCount;
 }
 
 /// Builds a downloadable PDF from a [ThaiBetaReportExportDocument].
@@ -167,6 +172,11 @@ abstract final class ThaiBetaReportPdfExporter {
       'assets/fonts/noto_sans_thai/NotoSans-Bold.ttf';
 
   static Future<(pw.Font, pw.Font, pw.Font, pw.Font)>? _fonts;
+
+  /// Continuation headings are kept atomic with their paragraph and rely on
+  /// MultiPage's measured boundary. A forced NewPage can create an empty page
+  /// when the preceding content already ends exactly at a page boundary.
+  static const bool debugUsesForcedContinuationPageForTest = false;
 
   /// Semantic pagination units used by the PDF renderer. Exposed so regression
   /// tests can prove that a period/domain heading travels with its first body
@@ -260,6 +270,7 @@ abstract final class ThaiBetaReportPdfExporter {
     }
 
     final pdf = pw.Document();
+    var pageCount = 0;
     final baseStyle = pw.TextStyle(
       font: regular,
       fontFallback: [latinRegular],
@@ -297,14 +308,17 @@ abstract final class ThaiBetaReportPdfExporter {
       pw.MultiPage(
         pageFormat: PdfPageFormat.a4,
         margin: const pw.EdgeInsets.fromLTRB(44, 48, 44, 48),
-        footer: (context) => pw.Padding(
-          padding: const pw.EdgeInsets.only(top: 8),
-          child: pw.Text(
-            'หน้า ${context.pageNumber} / ${context.pagesCount}',
-            style: subtitleStyle,
-            textAlign: pw.TextAlign.center,
-          ),
-        ),
+        footer: (context) {
+          pageCount = context.pagesCount;
+          return pw.Padding(
+            padding: const pw.EdgeInsets.only(top: 8),
+            child: pw.Text(
+              'หน้า ${context.pageNumber} / ${context.pagesCount}',
+              style: subtitleStyle,
+              textAlign: pw.TextAlign.center,
+            ),
+          );
+        },
         build: (context) {
           final widgets = <pw.Widget>[
             pw.Text(polished.title, style: titleStyle),
@@ -430,15 +444,10 @@ abstract final class ThaiBetaReportPdfExporter {
                 paragraphIndex < renderParagraphs.length;
                 paragraphIndex++
               ) {
-                if (continuation != null &&
-                    paragraphIndex == continuation.paragraphIndex) {
-                  widgets.add(pw.NewPage());
-                  widgets.add(
-                    _atomicPaginationUnit(
-                      () => _pdfText(continuation.heading, style: sectionStyle),
-                    ),
-                  );
-                }
+                final continuationHeading = continuation != null &&
+                        paragraphIndex == continuation.paragraphIndex
+                    ? continuation.heading
+                    : null;
                 final remaining = renderParagraphs
                     .skip(paragraphIndex)
                     .take(1)
@@ -456,6 +465,13 @@ abstract final class ThaiBetaReportPdfExporter {
                       child: pw.Column(
                         crossAxisAlignment: pw.CrossAxisAlignment.start,
                         children: [
+                          if (continuationHeading != null) ...[
+                            _pdfText(
+                              continuationHeading,
+                              style: sectionStyle,
+                            ),
+                            pw.SizedBox(height: 8),
+                          ],
                           for (final paragraph in remaining)
                             _pdfText(paragraph, style: baseStyle),
                         ],
@@ -478,6 +494,7 @@ abstract final class ThaiBetaReportPdfExporter {
       bytes: bytes,
       plainText: plain.toString(),
       document: polished,
+      pageCount: pageCount,
     );
   }
 
