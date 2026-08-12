@@ -1,5 +1,9 @@
 # PR #89 V1.4 Root-Cause Record
 
+## Final Owner Acceptance (2026-08-12)
+
+The Owner independently accepted V1.4 using `thai-report-natural-narrative-v1-4-final-r16-evidence-24c10f5.zip` (23,386,793 bytes; 45 entries; SHA-256 `9DF9C2B414BF2B8EF6ADA64AD53056AF8F7AD4D157A57597390E6906AFD343D3`) and evidence report SHA-256 `50AC460E5C1A745725AF98D31F8B4B4A6A36C500F72DA50C93DD114A397226B1`. Known 6 pages, Unknown 5 pages, and all 11 renders passed independent inspection. The accepted r16 evidence correction preserves the approved r15 PDFs, canonical texts, and renders byte-for-byte. PR #89 is approved for merge. Deployment has not occurred and Production remains unchanged. The rejection and correction sections below remain an immutable history; their pending statuses are superseded by this acceptance.
+
 ## r15 acceptance-evidence rejection and correction (2026-08-12)
 
 Owner inspection passes the r15 product output but rejects its visual-review evidence. `page_row()` trusted `PdfReader.extract_text()` ordering and selected line zero, which was the footer page number. It also hard-coded generic `cards_present`, `split_state`, and `continuation_heading` strings, allowing non-page-specific boilerplate to be reported as a manual pass.

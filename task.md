@@ -1,5 +1,7 @@
 # Task: Thai Report Reading Flow and Friendly Voice V1
 
+> **V1.4 PRODUCT ACCEPTANCE — PASSED (2026-08-12).** The Owner independently accepted `thai-report-natural-narrative-v1-4-final-r16-evidence-24c10f5.zip` (23,386,793 bytes; 45 unique entries; ZIP SHA-256 `9DF9C2B414BF2B8EF6ADA64AD53056AF8F7AD4D157A57597390E6906AFD343D3`; evidence-report SHA-256 `50AC460E5C1A745725AF98D31F8B4B4A6A36C500F72DA50C93DD114A397226B1`). Known is 6 pages, Unknown is 5 pages, and all 11 renders were independently inspected and accepted. Product artifacts remain byte-for-byte identical to approved r15 output. PR #89 is approved for merge. Deployment is outside this task and Production remains unchanged. Historical pending/rejection statements below describe earlier checkpoints and are superseded for V1.4.
+
 > V1.4 r15 evidence correction (2026-08-12): Owner inspection passes the r15 product output but rejects `page-by-page-visual-review.json`. The generator used the first extracted PDF line (a footer) as the heading and hard-coded generic review fields. The evidence-only r16 workflow now requires validated manual observations for all 11 pages and preserves the r15 PDFs, canonical texts, renders, facts, and narrative audit byte-for-byte. Status: **PENDING OWNER RE-ACCEPTANCE**; PR #89 stays Draft with no merge, deploy, or Production change.
 
 > V1.4 owner-rejection revision (2026-08-12): r6 was rejected because its cross-fixture-only audit missed three Unknown internal repetitions, the Known future copy read like a tracking worksheet, and two PDF continuations lacked orientation. The corrected audit covers cross-fixture, Known-internal, Unknown-internal, and same-passage advice stems; r6 fails with 4 substantive violations while candidate-r14 passes with 0. Status: **PENDING OWNER RE-ACCEPTANCE**; no merge, deploy, or Production change.
@@ -21,7 +23,7 @@ Owner feedback after the completed Round 9 release requires a new Product Narrat
 - Thai voice is warm, direct, plain, and uses `คุณ`; typed Risk → Decision Impact → Action semantics remain intact.
 - Known-time facts remain unchanged; Unknown-time remains fail-closed.
 - Round 9 is retained as completed historical evidence. Existing `product-acceptance/` is not changed.
-- Final state for this revision: `PENDING OWNER RE-ACCEPTANCE`. Do not merge or deploy.
+- Final state for this revision: `V1.4 PRODUCT ACCEPTANCE — PASSED`; PR #89 is approved for merge. Do not deploy in this task.
 - Current domains: at most two short paragraphs and one practical focus. Twelve-month and next-period domains: at most one short paragraph, with one review sign or one preparation item respectively.
 - The deterministic quality gate covers internal duplicate clauses, normalized sentence skeletons, repeated construction families, semantic-fragment budgets, and per-page continuation-heading counts.
 - Manual PDF review must record the first heading, last visible line, and continuation-heading count for every Known and Unknown page.
