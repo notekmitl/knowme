@@ -1,5 +1,9 @@
 # KnowMe Public Deployment
 
+## V1.4 PDF pagination hotfix — pending deployment
+
+Local verification on 2026-08-12 confirms the exporter hotfix restores Known 6 / Unknown 5 pages without changing canonical report text. The deployed revision remains defective until the hotfix PR is merged and the official `scripts/deploy_web.ps1` workflow is rerun from clean merged `origin/main`. Rollback remains available through Firebase Hosting release history.
+
 ## V1.4 production deployment record — 2026-08-12
 
 Accepted PR #89 merge `0c3d1ef9d083502aa5f1ddae67b9acd23acecbed` was deployed with `scripts/deploy_web.ps1` to Firebase project/site `knowme-app-694e1`. Deployment ran from 2026-08-12 07:26:02Z to 07:26:31Z and exited successfully; Firestore rules compiled and Hosting released 77 files. Production serves cache pin `0c3d1ef`, the configured Production API, and no localhost/test endpoint.
