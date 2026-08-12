@@ -1,5 +1,11 @@
 # KnowMe Public Deployment
 
+## V1.4 production deployment record — 2026-08-12
+
+Accepted PR #89 merge `0c3d1ef9d083502aa5f1ddae67b9acd23acecbed` was deployed with `scripts/deploy_web.ps1` to Firebase project/site `knowme-app-694e1`. Deployment ran from 2026-08-12 07:26:02Z to 07:26:31Z and exited successfully; Firestore rules compiled and Hosting released 77 files. Production serves cache pin `0c3d1ef`, the configured Production API, and no localhost/test endpoint.
+
+Post-deploy verification found a PDF pagination defect despite successful Web/API checks. A real Known download produced 7 pages, including an empty final page, rather than 6. A real Unknown download produced 6 pages rather than 5. No application repair was made by the deployment task. Status: **V1.4 DEPLOYED — PRODUCTION DEFECT FOUND**. Rollback is available from the Firebase Console Hosting release history; Firebase CLI did not expose a release identifier during this deployment.
+
 Public beta is served as a **Flutter Web** build on **Firebase Hosting** against the production Firebase project **`knowme-app-694e1`**.
 
 ---

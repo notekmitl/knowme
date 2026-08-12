@@ -1,5 +1,7 @@
 # KnowMe Current Status
 
+**V1.4 DEPLOYED — PRODUCTION DEFECT FOUND (2026-08-12).** Accepted PR #89 merge `0c3d1ef9d083502aa5f1ddae67b9acd23acecbed` is live on Firebase project `knowme-app-694e1` at `https://knowme-app-694e1.web.app`. The official deploy completed successfully at 2026-08-12 07:26:31Z after all pre-deployment gates passed. Production HTTP, pinned assets, Production API guard, Known/Unknown Web flows, Unknown fail-closed behavior, and real PDF download actions passed. The runtime PDFs fail the accepted pagination gate: Known has 7 pages with an empty final page instead of 6; Unknown has 6 pages instead of 5. This deployment task did not change application source. Rollback remains available through Firebase Hosting release history.
+
 **V1.4 PRODUCT ACCEPTANCE — PASSED (2026-08-12).** The Owner accepts the r16 packet `thai-report-natural-narrative-v1-4-final-r16-evidence-24c10f5.zip` (23,386,793 bytes; 45 entries; SHA-256 `9DF9C2B414BF2B8EF6ADA64AD53056AF8F7AD4D157A57597390E6906AFD343D3`) and evidence report SHA-256 `50AC460E5C1A745725AF98D31F8B4B4A6A36C500F72DA50C93DD114A397226B1`. Known 6 pages, Unknown 5 pages, and all 11 renders were independently inspected and accepted. Approved r15 product artifacts remain byte-for-byte unchanged. PR #89 is approved for merge. Deployment has not occurred and Production remains unchanged. All earlier V1.4 pending statements below are historical and superseded.
 
 **V1.4 PRODUCT OUTPUT PASSES — ACCEPTANCE EVIDENCE CORRECTED (2026-08-12).** Owner inspection passes r15 product output but rejects its generic page-review evidence. The corrected workflow requires complete page-specific manual observations and rejects footer headings, placeholders, missing identities/cards, and ambiguous continuations. Product artifacts remain byte-identical to r15. Status: **PENDING OWNER RE-ACCEPTANCE**. PR #89 remains Draft; no merge, deploy, or Production change.
@@ -10,15 +12,15 @@
 
 ## Active Draft — Thai Report Reading Flow and Friendly Voice V1
 
-**Last updated:** August 11, 2026
+**Last updated:** August 12, 2026
 
-**Branch:** `agent/thai-report-reading-flow-v1`
+**Branch:** remote `main`
 
-**Baseline:** `c34a1c088b555160707577308c281570b570752a`
+**Deployed revision:** `0c3d1ef9d083502aa5f1ddae67b9acd23acecbed`
 
 **Product Acceptance:** V1.4 passed Owner Acceptance on August 12, 2026
 
-**Merge/deployment:** PR #89 approved for merge; not deployed
+**Merge/deployment:** PR #89 merged and V1.4 deployed; Production PDF pagination defect found (Known 7 pages, Unknown 6 pages; required 6/5)
 
 Owner feedback after the completed Round 9 release requires the Thai Beta report to explain the reader first and move technical transparency to the end. The active draft changes Web/PDF information architecture and consumer wording only. It keeps one `ThaiBetaAnalysis`, typed narrative semantics, factual provenance, Known-time facts, Unknown-time fail-closed behavior, calculation engines, Canon, routes, flags, Auth, audience policy, and Production unchanged.
 
