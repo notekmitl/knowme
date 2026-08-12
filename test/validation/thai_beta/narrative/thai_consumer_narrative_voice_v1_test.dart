@@ -122,7 +122,123 @@ void main() {
         _meaningKey(current.domains[i].body),
         isNot(_meaningKey(nextYear.domains[i].body)),
       );
-      expect(current.domains[i].caution, isNot(nextYear.domains[i].caution));
+      expect(
+        current.domains[i].preparationAction,
+        isNot(nextYear.domains[i].preparationAction),
+      );
+      expect(current.domains[i].caution, isEmpty);
+      expect(nextYear.domains[i].caution, isEmpty);
+    }
+  });
+
+  test('v1.1 deterministic repetition audit rejects template-shaped prose', () {
+    final windows = ThaiBetaNarrativeComposer.narrativeView(
+      analysis,
+    ).futurePrediction!.windows;
+    final domains = windows.expand((window) => window.domains).toList();
+    final actions = domains
+        .map((domain) => _meaningKey(domain.preparationAction))
+        .toList();
+    expect(actions.toSet(), hasLength(actions.length));
+
+    const forbiddenLabels = [
+      'ภาพที่เห็น:',
+      'สิ่งที่ควรระวัง:',
+      'เรื่องนี้มีผลกับคุณอย่างไร:',
+      'สิ่งที่ทำได้ตอนนี้:',
+    ];
+    final sentences = <String>[];
+    for (final domain in domains) {
+      for (final label in forbiddenLabels) {
+        expect(domain.body, isNot(contains(label)));
+        expect(domain.caution, isNot(contains(label)));
+      }
+      sentences.addAll(
+        domain.body
+            .split(RegExp(r'[\n.!?]'))
+            .map(_meaningKey)
+            .where((sentence) => sentence.length >= 24),
+      );
+    }
+    final duplicates = <String>{};
+    final seen = <String>{};
+    for (final sentence in sentences) {
+      if (!seen.add(sentence)) duplicates.add(sentence);
+    }
+    expect(duplicates, isEmpty, reason: duplicates.join('\n'));
+
+    for (
+      var domainIndex = 0;
+      domainIndex < windows.first.domains.length;
+      domainIndex++
+    ) {
+      final bodies = [
+        for (final window in windows) window.domains[domainIndex].body,
+      ];
+      final withoutHorizonLead = bodies
+          .map(
+            (body) => _meaningKey(
+              body
+                  .replaceFirst('ตลอดปีข้างหน้า', '')
+                  .replaceFirst('เมื่อเข้าใกล้ช่วงชีวิตถัดไป', ''),
+            ),
+          )
+          .toSet();
+      expect(
+        withoutHorizonLead,
+        hasLength(bodies.length),
+        reason: 'horizon prose must change by job, not by prefix alone',
+      );
+    }
+  });
+
+  test('v1.2 gate catches V1.1 clause reuse and enforces content budgets', () {
+    const rejectedV11 =
+        'รับบทบาทเพิ่มได้ โดยไม่แลกกับคุณภาพงานหลัก. '
+        'เลือกงานหนึ่งเรื่อง โดยไม่แลกกับคุณภาพงานหลัก';
+    expect(_duplicateClauses(rejectedV11), isNotEmpty);
+
+    final unknownAnalysis = ThaiBetaAnalysisRunner.run(
+      ThaiBetaInput(
+        firstName: 'Fixture',
+        lastName: 'Unknown',
+        birthDate: DateTime(1982, 6, 6),
+        province: 'เชียงใหม่',
+        provinceKey: 'chiang_mai',
+      ),
+      startedAt: DateTime(2026, 8, 7),
+    );
+    for (final candidate in [analysis, unknownAnalysis]) {
+      final windows = ThaiBetaNarrativeComposer.narrativeView(
+        candidate,
+      ).futurePrediction!.windows;
+      final skeletons = <String>{};
+      for (var windowIndex = 0; windowIndex < windows.length; windowIndex++) {
+        for (final domain in windows[windowIndex].domains) {
+          final paragraphs = domain.body
+              .split('\n')
+              .where((part) => part.trim().isNotEmpty)
+              .toList();
+          expect(
+            paragraphs.length,
+            lessThanOrEqualTo(windowIndex == 0 ? 2 : 1),
+          );
+          expect(_duplicateClauses(domain.body), isEmpty);
+          for (final repeatedFamily in const [
+            'ระหว่างนั้นให้สังเกตว่า',
+            'โดยมีรอยต่อของช่วงชีวิตอยู่ในกรอบนี้',
+            'กันเวลา เงิน หรือแรงไว้รับรอยต่อ',
+            'ถ้าผลจริงไม่เป็นไปตามแผน',
+          ]) {
+            expect(domain.body, isNot(contains(repeatedFamily)));
+          }
+          expect(
+            skeletons.add(_sentenceSkeleton(domain.body)),
+            isTrue,
+            reason: 'sentence skeleton reused: ${domain.body}',
+          );
+        }
+      }
     }
   });
 
@@ -140,11 +256,7 @@ void main() {
       };
       for (final entry in current.entries) {
         final next = nextYear[entry.key]!;
-        for (final field in [
-          ForecastField.claim,
-          ForecastField.decisionImpact,
-          ForecastField.action,
-        ]) {
+        for (final field in [ForecastField.claim, ForecastField.action]) {
           expect(
             _semanticCoreKey(_fieldText(entry.value, field)),
             isNot(_semanticCoreKey(_fieldText(next, field))),
@@ -178,25 +290,22 @@ void main() {
     final nextPeriod = windows[2];
 
     for (final domain in current.domains) {
-      expect(domain.body, startsWith('แนวโน้ม: สำหรับตอนนี้'));
-      expect(domain.body, contains('\nผลต่อการตัดสินใจ:'));
-      expect(domain.caution, contains('ความเสี่ยง:'));
-      expect(domain.caution, contains('\nแนวทางเตรียมตัว:'));
+      expect(domain.body, isNot(contains('ภาพที่เห็น:')));
+      expect(domain.body, isNot(contains('เรื่องนี้มีผลกับคุณอย่างไร:')));
+      expect(domain.body, contains('\n'));
+      expect(domain.caution, isEmpty);
       expect(domain.caution, isNot(contains('ไม่ใช่คำวินิจฉัยทางการแพทย์')));
-      expect(domain.claim, startsWith('สำหรับตอนนี้'));
-      expect(domain.preparationAction, startsWith('ตอนนี้'));
+      expect(domain.claim, isNot(startsWith('สำหรับตอนนี้')));
       expect(domain.preparationAction, isNot(contains('ระยะยาว')));
       expect(domain.materialFingerprint, isNotEmpty);
     }
     for (final domain in nextYear.domains) {
-      expect(domain.body, startsWith('แนวโน้ม: ใน 12 เดือนข้างหน้า'));
-      expect(domain.preparationAction, contains('12 เดือน'));
-      expect(domain.preparationAction, contains('ทบทวน'));
+      expect(domain.body, contains('ปีข้างหน้า'));
+      expect(domain.preparationAction, isNotEmpty);
     }
     for (final domain in nextPeriod.domains) {
-      expect(domain.body, startsWith('แนวโน้ม: เมื่อเข้าสู่ช่วงชีวิตถัดไป'));
-      expect(domain.preparationAction, startsWith('ก่อนเปลี่ยนช่วงชีวิต'));
-      expect(domain.preparationAction, contains('ระยะยาว'));
+      expect(domain.body, startsWith('ช่วงชีวิตถัดไป'));
+      expect(domain.preparationAction, isNotEmpty);
       final matchingCurrent = current.domains.where(
         (candidate) => candidate.title == domain.title,
       );
@@ -210,6 +319,36 @@ void main() {
           isNot(matchingCurrent.single.preparationAction),
         );
       }
+    }
+  });
+
+  test('V1.2 repeated past claims are allocated to one period only', () {
+    final periods = ThaiBetaNarrativeComposer.narrativeView(
+      analysis,
+    ).lifeTimeline!.periods.where((period) => period.isPast);
+    final corpus = periods
+        .expand(
+          (period) => [
+            period.summary,
+            period.whatChanges,
+            period.easier,
+            period.harder,
+            period.comparison,
+            period.evidenceLine,
+            period.advice,
+          ],
+        )
+        .where((value) => value.trim().isNotEmpty)
+        .toList();
+    for (final rejectedV12Claim in const [
+      'คุณอยากใกล้ชิด แต่ก็ยังต้องการพื้นที่ส่วนตัว',
+      'คุณเริ่มเลือกโอกาสที่สำคัญจริง ๆ แทนการรับทุกอย่าง',
+    ]) {
+      expect(
+        corpus.where((value) => value.contains(rejectedV12Claim)),
+        hasLength(1),
+        reason: 'a personal past claim belongs to one period only',
+      );
     }
   });
 
@@ -366,8 +505,23 @@ void main() {
       );
       for (final domain in [...known, ...unknown]) {
         expect(domain.materialFingerprint, contains('|t='));
+        expect(domain.materialFingerprint, contains('|k='));
+        expect(domain.materialFingerprint, contains('|o='));
+        expect(domain.materialFingerprint, contains('|td='));
         expect(domain.materialFingerprint, isNot(contains('|p=')));
       }
+      expect(known.map((domain) => domain.material!.sourceOwnership).toSet(), {
+        'lagna-house-and-life-period-score',
+      });
+      expect(
+        unknown.map((domain) => domain.material!.sourceOwnership).toSet(),
+        {'life-period-score-without-lagna'},
+      );
+      expect(known.every((domain) => domain.material!.timeDependent), isTrue);
+      expect(
+        unknown.every((domain) => !domain.material!.timeDependent),
+        isTrue,
+      );
       expect(
         known.map((domain) => domain.material!.spansTransition).toSet(),
         containsAll({true, false}),
@@ -578,58 +732,61 @@ void main() {
     },
   );
 
-  test('action composes risk and decision behavior without quoting fields', () {
-    const base = ForecastMaterialFingerprint(
-      horizon: ForecastHorizon.current,
-      domain: ForecastDomain.career,
-      band: ForecastBand.active,
-      riskDomain: LifeDomain.pressure,
-      evidenceAvailability: ForecastEvidenceAvailability.full,
-      spansTransition: false,
-    );
-    const claim = 'งานมีพื้นที่ขยับทีละขั้น';
-    const risk = 'ภาระใหม่อาจเบียดเวลางานหลัก';
-    const decision = 'บทบาทใหม่ต้องไม่ลดคุณภาพงานหลัก';
-    PredictionDomainModel compose(
-      ForecastMaterialFingerprint material, {
-      ForecastDecisionIntent? intent,
-    }) => ThaiBetaNarrativeComposer.composeForecastForMaterial(
-      title: 'การงาน',
-      windowIndex: 0,
-      sourceBody: claim,
-      sourceCaution: risk,
-      material: material,
-      decisionIntent: intent,
-    );
-    final pressure = compose(base);
-    final money = compose(base.copyWith(riskDomain: LifeDomain.money));
-    final liquidity = compose(
-      base,
-      intent: ForecastDecisionIntent.preserveLiquidity,
-    );
-    expect(pressure.preparationAction, isNot(money.preparationAction));
-    expect(pressure.decisionImpact, isNot(liquidity.decisionImpact));
-    expect(pressure.preparationAction, isNot(liquidity.preparationAction));
-    expect(
-      pressure.decisionPlan!.intent,
-      ForecastDecisionIntent.protectCoreWork,
-    );
-    expect(
-      liquidity.decisionPlan!.intent,
-      ForecastDecisionIntent.preserveLiquidity,
-    );
-    for (final value in [
-      pressure.preparationAction,
-      money.preparationAction,
-      liquidity.preparationAction,
-    ]) {
-      expect(value, isNot(contains(claim)));
-      expect(value, isNot(contains(risk)));
-      expect(value, isNot(contains(decision)));
-      expect(value, isNot(contains('ใช้ผลต่อการตัดสินใจว่า')));
-      expect(value, isNot(contains('ความเสี่ยงที่ตอบอยู่')));
-    }
-  });
+  test(
+    'selective action follows decision intent without appending every risk',
+    () {
+      const base = ForecastMaterialFingerprint(
+        horizon: ForecastHorizon.current,
+        domain: ForecastDomain.career,
+        band: ForecastBand.active,
+        riskDomain: LifeDomain.pressure,
+        evidenceAvailability: ForecastEvidenceAvailability.full,
+        spansTransition: false,
+      );
+      const claim = 'งานมีพื้นที่ขยับทีละขั้น';
+      const risk = 'ภาระใหม่อาจเบียดเวลางานหลัก';
+      const decision = 'บทบาทใหม่ต้องไม่ลดคุณภาพงานหลัก';
+      PredictionDomainModel compose(
+        ForecastMaterialFingerprint material, {
+        ForecastDecisionIntent? intent,
+      }) => ThaiBetaNarrativeComposer.composeForecastForMaterial(
+        title: 'การงาน',
+        windowIndex: 0,
+        sourceBody: claim,
+        sourceCaution: risk,
+        material: material,
+        decisionIntent: intent,
+      );
+      final pressure = compose(base);
+      final money = compose(base.copyWith(riskDomain: LifeDomain.money));
+      final liquidity = compose(
+        base,
+        intent: ForecastDecisionIntent.preserveLiquidity,
+      );
+      expect(pressure.preparationAction, money.preparationAction);
+      expect(pressure.decisionImpact, isNot(liquidity.decisionImpact));
+      expect(pressure.preparationAction, isNot(liquidity.preparationAction));
+      expect(
+        pressure.decisionPlan!.intent,
+        ForecastDecisionIntent.protectCoreWork,
+      );
+      expect(
+        liquidity.decisionPlan!.intent,
+        ForecastDecisionIntent.preserveLiquidity,
+      );
+      for (final value in [
+        pressure.preparationAction,
+        money.preparationAction,
+        liquidity.preparationAction,
+      ]) {
+        expect(value, isNot(contains(claim)));
+        expect(value, isNot(contains(risk)));
+        expect(value, isNot(contains(decision)));
+        expect(value, isNot(contains('ใช้ผลต่อการตัดสินใจว่า')));
+        expect(value, isNot(contains('ความเสี่ยงที่ตอบอยู่')));
+      }
+    },
+  );
 
   test('typed coherence gate rejects foreign and generic risk responses', () {
     for (final domain in ForecastDomain.values) {
@@ -1059,26 +1216,45 @@ String _fieldText(PredictionDomainModel model, ForecastField field) =>
       ForecastField.action => model.preparationAction,
     };
 
+Set<String> _duplicateClauses(String text) {
+  final clauses = text
+      .split(
+        RegExp(
+          r'[\n.!?]|(?=โดยไม่)|(?=โดยมี)|(?=ระหว่างนั้น)|(?=ถ้า)|(?=และกัน)',
+        ),
+      )
+      .map(_meaningKey)
+      .where((clause) => clause.length >= 10)
+      .toList();
+  final seen = <String>{};
+  return {
+    for (final clause in clauses)
+      if (!seen.add(clause)) clause,
+  };
+}
+
+String _sentenceSkeleton(String text) => _meaningKey(text)
+    .replaceAll(RegExp(r'ตลอดปีข้างหน้า|เมื่อเข้าใกล้ช่วงชีวิตถัดไป'), '')
+    .replaceAll(
+      RegExp(r'งาน|เงิน|ความสัมพันธ์|สุขภาพ|การพัก|บทบาท'),
+      '<domain>',
+    )
+    .replaceAll(RegExp(r'\d+'), '<n>');
+
 List<String> _typedCoherenceViolations(PredictionDomainModel model) {
   final plan = model.decisionPlan!;
   final tokens = switch (plan.consumerRiskDomain) {
-    LifeDomain.career => (
-      risk: 'งานหลัก',
-      decision: 'งานหลัก',
-      action: 'งานหลัก',
-    ),
-    LifeDomain.money => (
-      risk: 'ภาระเงิน',
-      decision: 'เงิน',
-      action: 'ภาระเงิน',
-    ),
-    LifeDomain.love => (
-      risk: 'ความคาดหวัง',
-      decision: 'ความคาดหวัง',
-      action: 'ความสัมพันธ์',
-    ),
-    LifeDomain.health => (risk: 'การพัก', decision: 'พัก', action: 'ฟื้นตัว'),
-    _ => (risk: '', decision: '', action: ''),
+    LifeDomain.career => (risk: 'งานหลัก', decision: 'งานหลัก'),
+    LifeDomain.money => (risk: 'ภาระเงิน', decision: 'เงิน'),
+    LifeDomain.love => (risk: 'ความคาดหวัง', decision: 'ความคาดหวัง'),
+    LifeDomain.health => (risk: 'การพัก', decision: 'พัก'),
+    _ => (risk: '', decision: ''),
+  };
+  final actionToken = switch (plan.intent) {
+    ForecastDecisionIntent.protectCoreWork => 'งาน',
+    ForecastDecisionIntent.preserveLiquidity => 'เงิน',
+    ForecastDecisionIntent.clarifyCommitment => 'เงื่อนไข',
+    ForecastDecisionIntent.preserveRecovery => 'กิจกรรม',
   };
   return [
     if (tokens.risk.isEmpty || !model.risk.contains(tokens.risk))
@@ -1086,9 +1262,8 @@ List<String> _typedCoherenceViolations(PredictionDomainModel model) {
     if (tokens.decision.isEmpty ||
         !model.decisionImpact.contains(tokens.decision))
       'decision does not answer the typed consumer risk',
-    if (tokens.action.isEmpty ||
-        !model.preparationAction.contains(tokens.action))
-      'action does not enforce the typed stopping boundary',
+    if (!model.preparationAction.contains(actionToken))
+      'action does not follow the typed decision intent',
   ];
 }
 
@@ -1179,16 +1354,17 @@ bool _projectedFieldsChanged(
 ) {
   final leftPlan = left.decisionPlan!;
   final rightPlan = right.decisionPlan!;
+  var observedRelevantChange = false;
   for (final field in ForecastField.values) {
     final a = _projectionKey(leftPlan.projection(field));
     final b = _projectionKey(rightPlan.projection(field));
     if (a != b &&
-        _meaningKey(_fieldText(left, field)) ==
+        _meaningKey(_fieldText(left, field)) !=
             _meaningKey(_fieldText(right, field))) {
-      return false;
+      observedRelevantChange = true;
     }
   }
-  return true;
+  return observedRelevantChange;
 }
 
 class _MatrixReport {

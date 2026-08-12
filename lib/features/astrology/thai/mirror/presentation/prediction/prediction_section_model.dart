@@ -173,6 +173,9 @@ class ForecastMaterialFingerprint {
     required this.riskDomain,
     required this.evidenceAvailability,
     required this.spansTransition,
+    this.evidenceKey = '',
+    this.sourceOwnership = 'prediction-score',
+    this.timeDependent = true,
   });
 
   final ForecastHorizon horizon;
@@ -181,6 +184,12 @@ class ForecastMaterialFingerprint {
   final LifeDomain? riskDomain;
   final ForecastEvidenceAvailability evidenceAvailability;
   final bool spansTransition;
+
+  /// Stable internal ownership used to allocate one semantic claim to one
+  /// horizon and to audit Known/Unknown availability without parsing prose.
+  final String evidenceKey;
+  final String sourceOwnership;
+  final bool timeDependent;
 
   LifeDomain get consumerRiskDomain =>
       riskDomain != null && riskDomain != LifeDomain.pressure
@@ -199,6 +208,9 @@ class ForecastMaterialFingerprint {
     LifeDomain? riskDomain,
     ForecastEvidenceAvailability? evidenceAvailability,
     bool? spansTransition,
+    String? evidenceKey,
+    String? sourceOwnership,
+    bool? timeDependent,
   }) => ForecastMaterialFingerprint(
     horizon: horizon ?? this.horizon,
     domain: domain ?? this.domain,
@@ -206,6 +218,9 @@ class ForecastMaterialFingerprint {
     riskDomain: riskDomain ?? this.riskDomain,
     evidenceAvailability: evidenceAvailability ?? this.evidenceAvailability,
     spansTransition: spansTransition ?? this.spansTransition,
+    evidenceKey: evidenceKey ?? this.evidenceKey,
+    sourceOwnership: sourceOwnership ?? this.sourceOwnership,
+    timeDependent: timeDependent ?? this.timeDependent,
   );
 
   Map<String, Object?> projection(ForecastField field) => switch (field) {
@@ -238,6 +253,9 @@ class ForecastMaterialFingerprint {
     'r=${riskDomain?.name ?? 'none'}',
     'e=${evidenceAvailability.name}',
     't=$spansTransition',
+    'k=$evidenceKey',
+    'o=$sourceOwnership',
+    'td=$timeDependent',
   ].join('|');
 }
 

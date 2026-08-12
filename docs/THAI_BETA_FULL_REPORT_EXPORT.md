@@ -1,8 +1,22 @@
 # Thai Beta Full Report Export
 
+> **V1.4 PRODUCT ACCEPTANCE — PASSED (2026-08-12).** The Owner accepted `thai-report-natural-narrative-v1-4-final-r16-evidence-24c10f5.zip`, 23,386,793 bytes, 45 entries, ZIP SHA-256 `9DF9C2B414BF2B8EF6ADA64AD53056AF8F7AD4D157A57597390E6906AFD343D3`, and evidence-report SHA-256 `50AC460E5C1A745725AF98D31F8B4B4A6A36C500F72DA50C93DD114A397226B1`. Known is 6 pages, Unknown is 5 pages, and all 11 renders were independently inspected and accepted. Product artifacts remain byte-for-byte identical to approved r15 output. PR #89 is approved for merge; deployment has not occurred and Production remains unchanged. Earlier V1.4 pending entries are historical and superseded.
+
+> V1.4 evidence correction (2026-08-12): Owner inspection passes the r15 PDFs but rejects generic page-review JSON. The evidence-only correction preserves Known PDF `11A8238AAD42B50216A51BFD1D97D94F14150B500C585D0E172C58B4BBAE4DCE`, Unknown PDF `6E413EED71491793D687C1FCF0C87E25B2FBACDD0E7347255A04F4F0D4BF56AE`, Known canonical `AAB53A53DD8699365E5EDAD1F57C61ABCB4A7A69FD90D6E99E4B940C0987FC10`, Unknown canonical `43274E0CEDAA187CFF51879B77547D1C6746E497FF57CCB2ECDB0540F87FDF99`, and every render hash. Corrected page-review SHA-256 is `50AC460E5C1A745725AF98D31F8B4B4A6A36C500F72DA50C93DD114A397226B1`. **PENDING OWNER RE-ACCEPTANCE**; no merge or deploy.
+
+> PR #89 V1.4 correction (2026-08-12): candidate-r14 remains A4 at Known 6 pages and Unknown 5 pages. All 11 pages were rendered at 150 DPI and opened. Known page 6 begins `โครงสร้างดวงหลัก — ต่อ`; Unknown page 5 begins `รายงานนี้ดูจากอะไร — ต่อ`. No clipping, overlap, orphan heading, Thai truncation, blank page, or avoidable nearly empty final page remains.
+
+> PR #89 V1.4 completion note (2026-08-11): the Flutter SDK bootstrap-lock root cause remains documented and durable stage markers now make the entry point observable. Fresh candidate-r6 contains Known/Unknown Web captures, canonical text, and PDFs generated from the final source state. Known is 6 pages and Unknown is 5 pages; all 11 rendered pages pass readable-resolution visual review, pagination, containment, footer, and page-count checks. Web/PDF canonical bytes match for both fixtures. Product Acceptance remains pending; historical Round 9 acceptance below is unchanged.
+
+Final candidate-r6 PDF hashes are Known `E2F68B456EDCAF016AB0BC7F18ECE7457FA77EBBDF8F409BF8B5EC6A64BA61A6` and Unknown `EB5B96855FC2193376AFA0830137670BDA03BF5EBB6D9A95AB5DED8B4EE2E0A0`. The packet contains both desktop/mobile captures and all 11 rendered pages.
+
 **Status:** ACTIVE  
 **Date:** July 2026  
 **Commit:** Thai Beta Full Report Export  
+
+## PR #89 Natural Narrative V1.2 and pagination repair (August 11, 2026)
+
+Owner Round 2 rejected V1.1: removing four labels did not remove its formulaic internal fragment chain, and Known pages 6–8 repeatedly rendered parent `(ต่อ)` headings before domain fragments. The prior visual-pass conclusion is invalid. V1.2 selects one finished thought per domain/horizon, applies strict paragraph budgets, and renders the parent section title only once while leaving later paragraph chunks unheaded. The improved deterministic audit and page-level manual log cover the previously missed failures. Status is `PENDING OWNER RE-ACCEPTANCE`; no merge or deployment is authorised.
 
 ---
 
@@ -216,3 +230,14 @@ Production `https://knowme-app-694e1.web.app` served cache pin `a516d57`. Known-
 - Unknown: `knowme-thai-report (16).pdf`; 59,563 bytes; 17 pages; SHA-256 `6F3E995942314F01E7FB79A5FC27A979C73BFA9734CA40C91AA3288273218A40`.
 
 Both Production files parsed and rendered on every page. Visual review found no true blank page, clipping, overflow, footer overlap, debug/sample/test marker, or Markdown leakage. ISO dates remained atomic and `โชคลาภ` remained a separate card from `สุขภาพ`. Known retained time-qualified Lagna/house facts; Unknown omitted their values and included explicit fail-closed reasons. The export document does not render submitted name fields; birth date and analysis mode matched the live fixtures. Runtime hashes are independent of the accepted Product Acceptance artifact hashes.
+
+## Thai Report Reading Flow and Friendly Voice V1 — active draft
+
+Status: `PENDING PRODUCT ACCEPTANCE`. This amendment keeps the real PDF exporter and the same `ThaiBetaAnalysis`; it changes presentation order and consumer wording only.
+
+The PDF now follows the reader-facing sequence used by Web: Core interpretation and life domains first; then life map, past, present, 12-month outlook, next life period, and long-term outlook; then `รายงานนี้ดูจากอะไร`, source transparency, disclaimers, and explicit omissions. Thai astrological-day detail and chart structure remain present but no longer open the report. Natural field labels replace academic UI/PDF labels while typed Claim/Risk/Decision Impact/Action data remains unchanged.
+
+Validation for this draft must include exact Web/PDF semantic parity, Known/Unknown behavior, ISO token atomicity, fortune/health ownership, full PDF raster review, desktop/mobile screenshots, and a separate hashed acceptance packet. Do not merge or deploy before Owner Product Acceptance.
+# V1.3 PDF layout amendment
+
+The V1.2 Known limitation card used intrinsic one-column table width and was incorrectly passed by a review that checked text presence but not component bounds. V1.3 wraps every disclaimer chunk in the same full-width atomic pagination unit and requires body text to remain inside its border. Every rendered page must be reviewed at readable resolution with component geometry recorded. Status: **PENDING OWNER RE-ACCEPTANCE**.

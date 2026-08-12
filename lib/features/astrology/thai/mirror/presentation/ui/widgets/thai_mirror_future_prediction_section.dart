@@ -62,11 +62,11 @@ class ThaiMirrorFuturePredictionSection extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 18),
-        for (var i = 0; i < state.windows.length; i++) ...[
-          if (i > 0) const SizedBox(height: 12),
+        for (var i = 1; i < state.windows.length; i++) ...[
+          if (i > 1) const SizedBox(height: 12),
           _WindowCard(
             card: state.windows[i],
-            highlighted: detailedNarrativeMode ? i == 1 : i == 0,
+            highlighted: i == 1,
             detailedNarrativeMode: detailedNarrativeMode,
           ),
         ],
@@ -207,7 +207,8 @@ class _WindowCardState extends State<_WindowCard> {
               color: scheme.onSurface.withValues(alpha: 0.92),
             ),
           ),
-          if (card.topOpportunity.isNotEmpty) ...[
+          if (!widget.detailedNarrativeMode &&
+              card.topOpportunity.isNotEmpty) ...[
             const SizedBox(height: 12),
             _Line(
               icon: Icons.check_circle_rounded,
@@ -215,12 +216,14 @@ class _WindowCardState extends State<_WindowCard> {
               text: card.topOpportunity,
             ),
           ],
-          const SizedBox(height: 8),
-          _Line(
-            icon: Icons.error_outline_rounded,
-            color: scheme.tertiary,
-            text: card.topRisk,
-          ),
+          if (!widget.detailedNarrativeMode) ...[
+            const SizedBox(height: 8),
+            _Line(
+              icon: Icons.error_outline_rounded,
+              color: scheme.tertiary,
+              text: card.topRisk,
+            ),
+          ],
           if (widget.detailedNarrativeMode && card.domains.isNotEmpty) ...[
             const SizedBox(height: 16),
             Text(
@@ -238,46 +241,51 @@ class _WindowCardState extends State<_WindowCard> {
               _DomainForecast(domain: card.domains[i], accent: accent),
             ],
           ],
-          const SizedBox(height: 14),
-          _ConfidenceMeter(
-            label: card.confidenceLabel,
-            level: card.confidenceLevel,
-            accent: accent,
-          ),
-          const SizedBox(height: 6),
-          Align(
-            alignment: Alignment.centerLeft,
-            child: TextButton.icon(
-              onPressed: () => setState(() => _expanded = !_expanded),
-              style: TextButton.styleFrom(
-                padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 2),
-                minimumSize: Size.zero,
-                tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                foregroundColor: accent,
-              ),
-              icon: Icon(
-                _expanded
-                    ? Icons.keyboard_arrow_up_rounded
-                    : Icons.keyboard_arrow_down_rounded,
-                size: 18,
-              ),
-              label: Text(
-                _expanded ? 'ย่อรายละเอียด' : 'ทำไมถึงเป็นแบบนี้',
-                style: const TextStyle(
-                  fontSize: 13,
-                  fontWeight: FontWeight.w700,
+          if (!widget.detailedNarrativeMode) ...[
+            const SizedBox(height: 14),
+            _ConfidenceMeter(
+              label: card.confidenceLabel,
+              level: card.confidenceLevel,
+              accent: accent,
+            ),
+            const SizedBox(height: 6),
+            Align(
+              alignment: Alignment.centerLeft,
+              child: TextButton.icon(
+                onPressed: () => setState(() => _expanded = !_expanded),
+                style: TextButton.styleFrom(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 4,
+                    vertical: 2,
+                  ),
+                  minimumSize: Size.zero,
+                  tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  foregroundColor: accent,
+                ),
+                icon: Icon(
+                  _expanded
+                      ? Icons.keyboard_arrow_up_rounded
+                      : Icons.keyboard_arrow_down_rounded,
+                  size: 18,
+                ),
+                label: Text(
+                  _expanded ? 'ย่อรายละเอียด' : 'ทำไมถึงเป็นแบบนี้',
+                  style: const TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
             ),
-          ),
-          AnimatedCrossFade(
-            duration: const Duration(milliseconds: 200),
-            crossFadeState: _expanded
-                ? CrossFadeState.showFirst
-                : CrossFadeState.showSecond,
-            firstChild: _Detail(card: card, accent: accent),
-            secondChild: const SizedBox(width: double.infinity),
-          ),
+            AnimatedCrossFade(
+              duration: const Duration(milliseconds: 200),
+              crossFadeState: _expanded
+                  ? CrossFadeState.showFirst
+                  : CrossFadeState.showSecond,
+              firstChild: _Detail(card: card, accent: accent),
+              secondChild: const SizedBox(width: double.infinity),
+            ),
+          ],
         ],
       ),
     );
@@ -315,76 +323,26 @@ class _DomainForecast extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 5),
-          if (domain.claim.isNotEmpty) ...[
-            _ForecastField(label: 'แนวโน้ม', value: domain.claim),
-            _ForecastField(label: 'ความเสี่ยง', value: domain.risk),
-            _ForecastField(
-              label: 'ผลต่อการตัดสินใจ',
-              value: domain.decisionImpact,
+          Text(
+            domain.body,
+            style: TextStyle(
+              fontSize: 14,
+              height: 1.72,
+              color: scheme.onSurface.withValues(alpha: 0.92),
             ),
-            _ForecastField(
-              label: 'แนวทางเตรียมตัว',
-              value: domain.preparationAction,
-            ),
-            if (domain.uncertaintyDisclosure.isNotEmpty)
-              _ForecastField(
-                label: 'ข้อจำกัดของคำอ่าน',
-                value: domain.uncertaintyDisclosure,
-              ),
-          ] else ...[
+          ),
+          if (domain.caution.isNotEmpty) ...[
+            const SizedBox(height: 6),
             Text(
-              domain.body,
+              domain.caution,
               style: TextStyle(
-                fontSize: 14,
-                height: 1.72,
-                color: scheme.onSurface.withValues(alpha: 0.92),
+                fontSize: 13,
+                height: 1.65,
+                color: scheme.onSurfaceVariant,
               ),
             ),
-            if (domain.caution.isNotEmpty) ...[
-              const SizedBox(height: 6),
-              Text(
-                domain.caution,
-                style: TextStyle(
-                  fontSize: 13,
-                  height: 1.65,
-                  color: scheme.onSurfaceVariant,
-                ),
-              ),
-            ],
           ],
         ],
-      ),
-    );
-  }
-}
-
-class _ForecastField extends StatelessWidget {
-  const _ForecastField({required this.label, required this.value});
-
-  final String label;
-  final String value;
-
-  @override
-  Widget build(BuildContext context) {
-    if (value.trim().isEmpty) return const SizedBox.shrink();
-    final scheme = Theme.of(context).colorScheme;
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 6),
-      child: Text.rich(
-        TextSpan(
-          children: [
-            TextSpan(
-              text: '$label: ',
-              style: const TextStyle(fontWeight: FontWeight.w700),
-            ),
-            TextSpan(text: value),
-          ],
-        ),
-        style: TextStyle(
-          fontSize: 13.5,
-          height: 1.65,
-          color: scheme.onSurface.withValues(alpha: 0.92),
-        ),
       ),
     );
   }

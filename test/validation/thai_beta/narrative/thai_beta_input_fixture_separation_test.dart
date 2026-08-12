@@ -34,6 +34,7 @@ void main() {
     expect(profile.lagnaKey, ThaiContentKeys.lagnaAquarius);
     expect(_display(profile.siderealAscendantDeg!), '9°24′');
     expect(export.fullPlainText, contains('ราศีกุมภ์ 9°24′'));
+    expect(export.fullPlainText, isNot(contains('ราศีพิจิก 9°24′')));
   });
 
   test('00:35 retains the accepted Aquarius 19°19′ regression baseline', () {

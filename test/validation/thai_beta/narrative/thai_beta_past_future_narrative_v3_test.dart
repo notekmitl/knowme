@@ -74,7 +74,9 @@ void main() {
           expect(domain.body, isNot(contains('คนที่ใช่จะเข้ามา')));
           expect(domain.body, isNot(contains('รายได้จะเพิ่ม')));
           expect(domain.body.length, greaterThan(65));
-          expect(domain.caution, isNotEmpty);
+          expect(domain.risk, isNotEmpty);
+          expect(domain.decisionImpact, isNotEmpty);
+          expect(domain.preparationAction, isNotEmpty);
         }
       }
     });
@@ -112,14 +114,16 @@ void main() {
       expect(find.text('แนวโน้มระยะยาว'), findsOneWidget);
 
       final firstPast = timeline.periods.firstWhere((period) => period.isPast);
-      expect(find.text(firstPast.lifeDomains.first.body), findsOneWidget);
+      expect(find.text(firstPast.lifeDomains.first.body), findsNothing);
+      expect(find.text(firstPast.summary), findsWidgets);
 
       final future = timeline.periods.where(
         (period) => !period.isPast && !period.isCurrent,
       );
       for (final period in future) {
         if (period.lifeDomains.isNotEmpty) {
-          expect(find.text(period.lifeDomains.first.body), findsOneWidget);
+          expect(find.text(period.lifeDomains.first.body), findsNothing);
+          expect(find.text(period.summary), findsWidgets);
         } else {
           expect(find.text(period.phaseName), findsWidgets);
         }
@@ -145,10 +149,13 @@ void main() {
 
         expect(
           find.text('คำทำนายแยกตามด้านชีวิต'),
-          findsNWidgets(prediction.windows.length),
+          findsNWidgets(prediction.windows.length - 1),
         );
         for (final title in const ['การงาน', 'การเงิน', 'ความรัก', 'สุขภาพ']) {
-          expect(find.text(title), findsNWidgets(prediction.windows.length));
+          expect(
+            find.text(title),
+            findsNWidgets(prediction.windows.length - 1),
+          );
         }
         expect(find.text(prediction.detailedSectionIntro), findsOneWidget);
         expect(find.text(prediction.detailedClosingAdvice), findsOneWidget);

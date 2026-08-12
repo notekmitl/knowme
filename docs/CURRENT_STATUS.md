@@ -1,18 +1,30 @@
 # KnowMe Current Status
 
-## Active Draft — Round 9 Product Acceptance Fix Set 03
+**V1.4 PRODUCT ACCEPTANCE — PASSED (2026-08-12).** The Owner accepts the r16 packet `thai-report-natural-narrative-v1-4-final-r16-evidence-24c10f5.zip` (23,386,793 bytes; 45 entries; SHA-256 `9DF9C2B414BF2B8EF6ADA64AD53056AF8F7AD4D157A57597390E6906AFD343D3`) and evidence report SHA-256 `50AC460E5C1A745725AF98D31F8B4B4A6A36C500F72DA50C93DD114A397226B1`. Known 6 pages, Unknown 5 pages, and all 11 renders were independently inspected and accepted. Approved r15 product artifacts remain byte-for-byte unchanged. PR #89 is approved for merge. Deployment has not occurred and Production remains unchanged. All earlier V1.4 pending statements below are historical and superseded.
 
-**Last updated:** August 10, 2026
+**V1.4 PRODUCT OUTPUT PASSES — ACCEPTANCE EVIDENCE CORRECTED (2026-08-12).** Owner inspection passes r15 product output but rejects its generic page-review evidence. The corrected workflow requires complete page-specific manual observations and rejects footer headings, placeholders, missing identities/cards, and ambiguous continuations. Product artifacts remain byte-identical to r15. Status: **PENDING OWNER RE-ACCEPTANCE**. PR #89 remains Draft; no merge, deploy, or Production change.
 
-**Branch:** `codex/thai-consumer-narrative-voice-v1`
+**V1.4 REVISION COMPLETE — PENDING OWNER RE-ACCEPTANCE (2026-08-12).** Owner rejection of r6 is recorded. Candidate-r14 removes the three Unknown same-passage repetitions, restores supported future interpretation before advice, and adds `โครงสร้างดวงหลัก — ต่อ` / `รายงานนี้ดูจากอะไร — ต่อ` PDF orientation. PR #89 remains Draft; no merge, deploy, or Production change.
 
-**PR:** #86 — MERGED at `a516d574b7cdd90d530026bf281cc41642471afa`
+**V1.4 REVISION COMPLETE — PENDING OWNER RE-ACCEPTANCE (2026-08-11).** The Owner replaced the impossible absolute-zero broad gate with a strict zero-new-failure gate. Clean HEAD is 2,856 passed / 40 failed; final V1.4 is 2,858 passed / 39 failed. Machine-readable reconciliation proves 39 unchanged baseline failures, one baseline failure now passing, zero new, zero worsened, and zero unmatched. All V1.4-specific, scoped, narrative, golden, analyzer, artifact, and visual gates pass. Final candidate-r6 is packaged from implementation commit `179c5c9a3f6318d799b0be8c2233be7013b89c1c`; PR #89 remains Draft with no merge, deploy, or Production change.
 
-**Product Acceptance:** `PRODUCT_ACCEPTANCE_PASS — ROUND 9 FIX SET 03` (2026-08-10)
-**Production/deployment:** Firebase Hosting deployed from merged main; cache pin `a516d57`
+## Active Draft — Thai Report Reading Flow and Friendly Voice V1
 
-Fix Set 02 R2 failed Product Acceptance for visible presentation defects and an inconsistent visual log. Fix Set 03 source-tested SHA `73d1fa0e539b5ebdf42750078135a70cd1cadd01` corrects those defects and provides a newly reviewed 17/17-page packet. The final ZIP SHA-256 is `23E617EA0E703A271791A8658D3CD2ED91B9732450AD744E5A065E39F1307ED0`; exact artifact details are authoritative in `TASK_RESULT.md`.
+**Last updated:** August 11, 2026
 
-The owner reviewed all 34/34 final PDF renders and both final Web screenshots and confirmed the ISO date-token split, fortune-heading ownership, missing icon glyphs, and debug banner fixed. Final gates passed 1,529/1,529 tests plus gate self-test 9/9. Production HTTP/cache checks, Known/Unknown application flows, and same-session PDF downloads passed on 2026-08-10. Both runtime PDFs parsed and rendered 17/17 pages; filenames, sizes, and hashes are recorded in `TASK_RESULT.md`.
+**Branch:** `agent/thai-report-reading-flow-v1`
 
-The historical 126/124-page candidate was inspected only for Known pages 1–40; the remaining 210 pages were waived, not passed. Engine/Canon/evidence semantics, calculations, birth normalization, province resolver, day-boundary rules, timeline ranges, routes, flags, Auth/Firebase/Production, Thai Mirror defaults, and accepted 00:03/00:35 results remain unchanged.
+**Baseline:** `c34a1c088b555160707577308c281570b570752a`
+
+**Product Acceptance:** V1.4 passed Owner Acceptance on August 12, 2026
+
+**Merge/deployment:** PR #89 approved for merge; not deployed
+
+Owner feedback after the completed Round 9 release requires the Thai Beta report to explain the reader first and move technical transparency to the end. The active draft changes Web/PDF information architecture and consumer wording only. It keeps one `ThaiBetaAnalysis`, typed narrative semantics, factual provenance, Known-time facts, Unknown-time fail-closed behavior, calculation engines, Canon, routes, flags, Auth, audience policy, and Production unchanged.
+
+Round 9 remains a historical completed release. Its acceptance evidence and the existing `product-acceptance/` directory are not changed or overwritten by this task.
+
+Round 2 confirmed that removing labels still left the underlying timed-claim/impact/risk/action/fallback/transition fragment chain, and that V1.1 Known PDF pages 6–8 repeated continuation headings before fragments. The prior all-pages visual-pass conclusion is invalid. V1.2 composes one finished thought within horizon budgets, checks internal clauses and normalized skeletons, and renders a parent section heading only once. Exact Known input 1982-06-06 00:03 Chiang Mai still yields Aquarius 9°24′; 19°19′ belongs to the separate 00:35 fixture.
+# PR #89 V1.3 recovery — 2026-08-11
+
+V1.2 Product Acceptance was rejected after owner inspection found cross-fixture narrative reuse, repeated Known past material, an Unknown displayed-versus-omitted wording contradiction, and malformed Known PDF limitation-card geometry. V1.3 uses evidence ownership metadata and single-horizon allocation, keeps Unknown fail-closed while qualifying only Lagna/house material as omitted, and renders every disclaimer paragraph inside a full-width bordered component. Status: **PENDING OWNER RE-ACCEPTANCE**. PR #89 remains Draft; no merge or deploy. Earlier packets and `product-acceptance/` are untouched.

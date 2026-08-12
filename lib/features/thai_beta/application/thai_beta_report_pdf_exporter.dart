@@ -170,7 +170,7 @@ abstract final class ThaiBetaReportPdfExporter {
 
   /// Semantic pagination units used by the PDF renderer. Exposed so regression
   /// tests can prove that a period/domain heading travels with its first body
-  /// paragraph and that continuation blocks retain their period context.
+  /// paragraph without repeating the parent heading for every domain block.
   static List<String> debugPaginationUnitsForTest(
     ThaiBetaReportExportSection section,
   ) {
@@ -178,7 +178,7 @@ abstract final class ThaiBetaReportPdfExporter {
     return [
       for (var i = 0; i < blocks.length; i++)
         [
-          i == 0 ? section.title : '${section.title} (ต่อ)',
+          if (i == 0) section.title,
           if (blocks[i].heading != null) blocks[i].heading!,
           ...blocks[i].paragraphs,
         ].join('\n'),
@@ -189,6 +189,35 @@ abstract final class ThaiBetaReportPdfExporter {
       .allMatches(value)
       .map((match) => match.group(0)!)
       .toList(growable: false);
+
+  static ({int paragraphIndex, String heading})?
+  debugReadingBasisContinuationForTest(ThaiBetaReportExportSection section) {
+    if (section.title != 'รายงานนี้ดูจากอะไร') return null;
+    final lacksBirthTime = section.paragraphs.any(
+      (paragraph) => paragraph.contains('ไม่มีเวลาเกิด'),
+    );
+    return (
+      paragraphIndex: lacksBirthTime ? 3 : 5,
+      heading: lacksBirthTime
+          ? '${section.title} — ต่อ'
+          : 'โครงสร้างดวงหลัก — ต่อ',
+    );
+  }
+
+  /// Geometry contract for disclaimer/omission cards. The former one-column
+  /// intrinsic table could shrink the border around short Known-time copy.
+  static Map<String, Object> debugDisclaimerGeometryForTest() => const {
+    'column': 'flex',
+    'width': 'page',
+    'bodyInsideBorder': true,
+  };
+
+  /// Disclaimer sections are one atomic card whenever their complete topic
+  /// list fits on a fresh page. This prevents the V1.3 four-line chunker from
+  /// creating an unlabelled, mostly-empty continuation page.
+  static List<List<String>> debugDisclaimerChunksForTest(
+    ThaiBetaReportExportSection section,
+  ) => [List<String>.unmodifiable(section.paragraphs)];
 
   static Future<(pw.Font, pw.Font, pw.Font, pw.Font)> _loadFonts() {
     return _fonts ??= () async {
@@ -294,65 +323,65 @@ abstract final class ThaiBetaReportPdfExporter {
 
             if (isDisclaimer) {
               widgets.add(pw.SizedBox(height: 10));
-              final firstParagraph = section.paragraphs.isEmpty
-                  ? null
-                  : section.paragraphs.first;
-              // Keep only the heading and first paragraph atomic. A container
-              // holding the entire section cannot span a page and can be
-              // clipped by MultiPage when the remaining height is too small.
-              widgets.add(
-                pw.Table(
-                  children: [
-                    pw.TableRow(
-                      children: [
-                        pw.Container(
-                          width: double.infinity,
-                          padding: const pw.EdgeInsets.all(12),
-                          decoration: pw.BoxDecoration(
-                            border: pw.Border.all(
-                              color: PdfColors.grey400,
-                              width: 0.7,
-                            ),
-                            borderRadius: pw.BorderRadius.circular(4),
-                          ),
-                          child: pw.Column(
-                            crossAxisAlignment: pw.CrossAxisAlignment.start,
-                            children: [
-                              pw.Text(section.title, style: sectionStyle),
-                              if (firstParagraph != null) ...[
-                                pw.SizedBox(height: 8),
-                                pw.Text(firstParagraph, style: disclaimerStyle),
-                              ],
-                            ],
-                          ),
+              // Keep the complete omission/disclaimer card atomic. The real
+              // Unknown fixture fits on a fresh A4 page; arbitrary groups of
+              // four caused V1.3 page 6 to lose its parent heading.
+              final chunks = debugDisclaimerChunksForTest(section);
+              for (
+                var chunkIndex = 0;
+                chunkIndex < chunks.length;
+                chunkIndex++
+              ) {
+                if (chunkIndex > 0) widgets.add(pw.SizedBox(height: 6));
+                final chunk = chunks[chunkIndex];
+                widgets.add(
+                  _atomicPaginationUnit(
+                    () => pw.Container(
+                      width: double.infinity,
+                      padding: const pw.EdgeInsets.all(12),
+                      decoration: pw.BoxDecoration(
+                        border: pw.Border.all(
+                          color: PdfColors.grey400,
+                          width: 0.7,
                         ),
-                      ],
+                        borderRadius: pw.BorderRadius.circular(4),
+                      ),
+                      child: pw.Column(
+                        crossAxisAlignment: pw.CrossAxisAlignment.start,
+                        children: [
+                          pw.Text(
+                            chunkIndex == 0
+                                ? section.title
+                                : '${section.title} (ต่อ)',
+                            style: sectionStyle,
+                          ),
+                          for (final paragraph in chunk) ...[
+                            pw.SizedBox(height: 8),
+                            _pdfText(paragraph, style: disclaimerStyle),
+                          ],
+                        ],
+                      ),
                     ),
-                  ],
-                ),
-              );
-              for (final paragraph in section.paragraphs.skip(1)) {
-                widgets.add(pw.SizedBox(height: 6));
-                widgets.add(_pdfText(paragraph, style: disclaimerStyle));
+                  ),
+                );
               }
               continue;
             }
 
             final blocks = _semanticBlocks(section.paragraphs);
+            final continuation = debugReadingBasisContinuationForTest(section);
             for (var blockIndex = 0; blockIndex < blocks.length; blockIndex++) {
               final block = blocks[blockIndex];
               final renderParagraphs = block.paragraphs
                   .expand(_boundedPdfParagraphs)
                   .toList(growable: false);
-              final heading = blockIndex == 0
-                  ? section.title
-                  : '${section.title} (ต่อ)';
+              final heading = blockIndex == 0 ? section.title : null;
               final firstParagraphCount = renderParagraphs.length.clamp(0, 1);
               final firstParagraphs = renderParagraphs
                   .take(firstParagraphCount)
                   .toList(growable: false);
               final firstUnitChildren = <pw.Widget>[
-                _pdfText(heading, style: sectionStyle),
+                if (heading != null) _pdfText(heading, style: sectionStyle),
                 if (block.heading != null) ...[
                   pw.SizedBox(height: 8),
                   _pdfText(block.heading!, style: sectionStyle),
@@ -393,14 +422,23 @@ abstract final class ThaiBetaReportPdfExporter {
                   ),
                 );
               }
-              // Remaining paragraphs are grouped into bounded atomic units.
-              // Each unit repeats its semantic heading, so a page transition
-              // never starts with an unlabeled continuation.
+              // Remaining paragraphs are bounded atomic units. Parent and
+              // domain headings are not repeated merely because content was
+              // split into another unit; block index is not a page boundary.
               for (
                 var paragraphIndex = firstParagraphCount;
                 paragraphIndex < renderParagraphs.length;
                 paragraphIndex++
               ) {
+                if (continuation != null &&
+                    paragraphIndex == continuation.paragraphIndex) {
+                  widgets.add(pw.NewPage());
+                  widgets.add(
+                    _atomicPaginationUnit(
+                      () => _pdfText(continuation.heading, style: sectionStyle),
+                    ),
+                  );
+                }
                 final remaining = renderParagraphs
                     .skip(paragraphIndex)
                     .take(1)
@@ -408,25 +446,18 @@ abstract final class ThaiBetaReportPdfExporter {
                 widgets.add(pw.SizedBox(height: 5));
                 widgets.add(
                   _atomicPaginationUnit(
-                    () => _timelineFrame(
-                      isTimeline: isTimeline,
-                      padding: const pw.EdgeInsets.fromLTRB(12, 5, 12, 8),
-                      color: PdfColors.white,
+                    () => pw.Padding(
+                      padding: pw.EdgeInsets.fromLTRB(
+                        isTimeline ? 12 : 0,
+                        3,
+                        isTimeline ? 12 : 0,
+                        5,
+                      ),
                       child: pw.Column(
                         crossAxisAlignment: pw.CrossAxisAlignment.start,
                         children: [
-                          _pdfText(
-                            '${section.title} (ต่อ)',
-                            style: sectionStyle,
-                          ),
-                          if (block.heading != null) ...[
-                            pw.SizedBox(height: 8),
-                            _pdfText(block.heading!, style: sectionStyle),
-                          ],
-                          for (final paragraph in remaining) ...[
-                            pw.SizedBox(height: 8),
+                          for (final paragraph in remaining)
                             _pdfText(paragraph, style: baseStyle),
-                          ],
                         ],
                       ),
                     ),
@@ -436,17 +467,6 @@ abstract final class ThaiBetaReportPdfExporter {
             }
             widgets.add(pw.SizedBox(height: 14));
           }
-
-          widgets.add(pw.SizedBox(height: 16));
-          widgets.add(pw.Divider(thickness: 0.6, color: PdfColors.grey400));
-          widgets.add(pw.SizedBox(height: 10));
-          widgets.add(
-            pw.Text(
-              'KnowMe — รายงานโหราไทย\n'
-              'ใช้เป็นแนวทางทบทวนตัวเอง ไม่ใช่ข้อสรุปที่กำหนดชีวิต',
-              style: subtitleStyle,
-            ),
-          );
 
           return widgets;
         },

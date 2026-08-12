@@ -96,11 +96,21 @@ void main() {
             hasLength(1),
             reason: '${entry.key}: ${section.title}',
           );
-          expect(
-            exported.single.paragraphs,
-            orderedEquals(section.publicParagraphs),
-            reason: '${entry.key}: ${section.title}',
-          );
+          if (section.domain == ThaiBirthProfileCoreDomain.methodology) {
+            // The PDF keeps the shared methodology facts, with short
+            // subheadings added for scanability inside the final section.
+            expect(
+              exported.single.paragraphs,
+              containsAll(section.publicParagraphs),
+              reason: '${entry.key}: ${section.title}',
+            );
+          } else {
+            expect(
+              exported.single.paragraphs,
+              orderedEquals(section.publicParagraphs),
+              reason: '${entry.key}: ${section.title}',
+            );
+          }
         }
         for (final domain in const [
           ThaiBirthProfileCoreDomain.work,
@@ -116,58 +126,41 @@ void main() {
           expect(domainText, isNot(contains('สิ่งที่ควรระวัง:')));
           expect(domainText, isNot(contains('สิ่งที่นำไปใช้ได้:')));
         }
-        final dayCounting = reading.sections.where(
-          (section) =>
-              section.title == ThaiBirthProfileCoreReadingCopy.dayCountingTitle,
+        final methodology = reading.sections.singleWhere(
+          (section) => section.isMethodology,
         );
         if (analysis.input.hasBirthTime) {
-          expect(dayCounting, hasLength(1));
           expect(
-            dayCounting.single.paragraphs.join('\n'),
+            methodology.paragraphs.join('\n'),
             contains('วันเกิดตามสูติบัตร'),
           );
           expect(
-            dayCounting.single.paragraphs.join('\n'),
+            methodology.paragraphs.join('\n'),
             contains('วันทางโหราศาสตร์'),
           );
         } else {
-          expect(dayCounting, hasLength(1));
           expect(
-            dayCounting.single.paragraphs.join('\n'),
+            methodology.paragraphs.join('\n'),
             contains('วันทางโหราศาสตร์อาจเป็นวันก่อนหน้า'),
           );
         }
-        final structure = reading.sections.where(
-          (section) =>
-              section.title ==
-              ThaiBirthProfileCoreReadingCopy.chartStructureTitle,
-        );
         if (analysis.input.hasBirthTime) {
-          expect(structure, hasLength(1), reason: entry.key);
-          expect(structure.single.factRows, isNotEmpty, reason: entry.key);
+          expect(methodology.factRows, isNotEmpty, reason: entry.key);
         } else {
-          expect(structure, hasLength(1), reason: entry.key);
-          expect(structure.single.factRows, isNotEmpty, reason: entry.key);
-          expect(structure.single.factRows.first.label, 'ฐานวันตามปฏิทิน');
+          expect(methodology.factRows, isNotEmpty, reason: entry.key);
+          expect(methodology.factRows.first.label, 'ฐานวันตามปฏิทิน');
         }
         expect(renderedPdf.plainText, isNot(contains('internal/beta')));
         expect(renderedPdf.plainText, isNot(contains('capture / screenshot')));
         expect(renderedPdf.plainText, isNot(contains('Canon')));
         final closingSections = reading.sections.where(
-          (section) => section.domain == ThaiBirthProfileCoreDomain.closing,
+          (section) =>
+              section.title == ThaiBirthProfileCoreReadingCopy.closingTitle,
         );
         if (closingSections.isNotEmpty) {
           final closing = closingSections.single;
           expect(closing.claims, hasLength(1), reason: entry.key);
-          expect(
-            closing.claims.single.text,
-            contains('จุดแข็งที่ควรใช้เป็นแกนคือ'),
-          );
-          expect(
-            closing.claims.single.text,
-            contains('เมื่อใช้จุดแข็งนี้มากเกินไปอาจกลายเป็น'),
-          );
-          expect(closing.claims.single.text, contains('แนวทางที่เหมาะ'));
+          expect(closing.claims.single.text, contains('ถ้าต้องเลือกเพียงเรื่องเดียว'));
         }
         if (reading.omissions.isEmpty) {
           expect(
@@ -234,16 +227,12 @@ void main() {
     );
     final reading = ThaiBirthProfileCoreReading.fromAnalysis(analysis);
     final closing = reading.sections.singleWhere(
-      (section) => section.domain == ThaiBirthProfileCoreDomain.closing,
+      (section) =>
+          section.title == ThaiBirthProfileCoreReadingCopy.closingTitle,
     );
 
     expect(closing.claims, hasLength(1));
-    expect(closing.claims.single.text, contains('จุดแข็งที่ควรใช้เป็นแกนคือ'));
-    expect(
-      closing.claims.single.text,
-      contains('เมื่อใช้จุดแข็งนี้มากเกินไปอาจกลายเป็น'),
-    );
-    expect(closing.claims.single.text, contains('แนวทางที่เหมาะ'));
+    expect(closing.claims.single.text, contains('ถ้าต้องเลือกเพียงเรื่องเดียว'));
     expect(closing.claims.single.evidenceKeys, isNotEmpty);
     expect(
       closing.claims.single.sourceAtoms.every(

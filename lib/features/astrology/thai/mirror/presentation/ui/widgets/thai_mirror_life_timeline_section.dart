@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import '../../timeline/relevant_life_periods_selector.dart';
 import '../../timeline/thai_mirror_life_timeline_state.dart';
 
+enum ThaiMirrorTimelineView { complete, mapPastCurrent, longTerm }
+
 /// V8 — Life Timeline section.
 ///
 /// Premium "where are you in life" header card + a horizontal life-phase strip +
@@ -22,6 +24,7 @@ class ThaiMirrorLifeTimelineSection extends StatefulWidget {
     this.relevantPeriodsOnly = false,
     this.lifeMapMode = false,
     this.detailedNarrativeMode = false,
+    this.view = ThaiMirrorTimelineView.complete,
   });
 
   final ThaiMirrorLifeTimelineState state;
@@ -36,6 +39,10 @@ class ThaiMirrorLifeTimelineSection extends StatefulWidget {
   /// work/money/love/health, and bucket headings make the life story scannable.
   /// Defaults off to preserve the standalone Thai Mirror surface.
   final bool detailedNarrativeMode;
+
+  /// Splits the same canonical timeline state around the forecast section.
+  /// Thai Beta uses map/past/current first and long-term periods afterward.
+  final ThaiMirrorTimelineView view;
 
   /// Copy shown beside period domain scores (presentation-only; scores unchanged).
   /// V1.2.2 — warmer wording; meaning unchanged (not accuracy / not a guarantee).
@@ -75,6 +82,16 @@ class _ThaiMirrorLifeTimelineSectionState
 
   List<ThaiMirrorLifePeriodState> get _displayPeriods {
     final all = widget.state.periods;
+    if (widget.view == ThaiMirrorTimelineView.mapPastCurrent) {
+      return all
+          .where((period) => period.isPast || period.isCurrent)
+          .toList(growable: false);
+    }
+    if (widget.view == ThaiMirrorTimelineView.longTerm) {
+      return all
+          .where((period) => !period.isPast && !period.isCurrent)
+          .toList(growable: false);
+    }
     if (widget.lifeMapMode || !widget.relevantPeriodsOnly) return all;
     return RelevantLifePeriodsSelector.select(
       periods: all,
@@ -117,6 +134,8 @@ class _ThaiMirrorLifeTimelineSectionState
     final periods = _displayPeriods;
     final segments = _displaySegments;
     final compact = widget.relevantPeriodsOnly || widget.lifeMapMode;
+    final isSplitMap = widget.view == ThaiMirrorTimelineView.mapPastCurrent;
+    final isLongTerm = widget.view == ThaiMirrorTimelineView.longTerm;
     // V1.3.5 customer-facing detailed evidence report is intentionally NOT
     // rendered here. Product Acceptance failed on the evidence/debug dump;
     // restore the accepted pre-V1.3.5 human-readable Life Map (baseline
@@ -132,7 +151,7 @@ class _ThaiMirrorLifeTimelineSectionState
             const SizedBox(width: 8),
             Expanded(
               child: Text(
-                state.sectionTitle,
+                isLongTerm ? 'แนวโน้มระยะยาว' : 'แผนที่ชีวิต',
                 style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.w800,
@@ -144,7 +163,9 @@ class _ThaiMirrorLifeTimelineSectionState
         ),
         const SizedBox(height: 8),
         Text(
-          widget.detailedNarrativeMode
+          isLongTerm
+              ? 'มองช่วงชีวิตถัด ๆ ไปเป็นภาพกว้าง ใช้เพื่อเตรียมตัว ไม่ใช่ข้อสรุปตายตัว'
+              : widget.detailedNarrativeMode
               ? 'อ่านอดีตทุกช่วงอย่างละเอียด แล้วเทียบกับช่วงปัจจุบันก่อนอ่าน '
                     '12 เดือนข้างหน้า จุดเปลี่ยนถัดไป และแนวโน้มทุกช่วงอายุ'
               : compact
@@ -157,22 +178,26 @@ class _ThaiMirrorLifeTimelineSectionState
             color: scheme.onSurfaceVariant,
           ),
         ),
-        const SizedBox(height: 18),
-        _CurrentStageCard(
-          stage: state.currentStage,
-          accent: _accent(state.currentStage.accentIndex),
-        ),
-        if (state.currentAnalysis != null) ...[
-          const SizedBox(height: 14),
-          _CurrentAnalysisCard(
-            analysis: state.currentAnalysis!,
+        if (!isLongTerm) ...[
+          const SizedBox(height: 18),
+          _TimelineStrip(segments: segments, accentOf: _accent),
+        ],
+        if (!isSplitMap && !isLongTerm) ...[
+          const SizedBox(height: 18),
+          _CurrentStageCard(
+            stage: state.currentStage,
             accent: _accent(state.currentStage.accentIndex),
           ),
+          if (state.currentAnalysis != null) ...[
+            const SizedBox(height: 14),
+            _CurrentAnalysisCard(
+              analysis: state.currentAnalysis!,
+              accent: _accent(state.currentStage.accentIndex),
+            ),
+          ],
         ],
-        const SizedBox(height: 18),
-        _TimelineStrip(segments: segments, accentOf: _accent),
         // Compact mode: next-period preview duplicates the "next" card — skip it.
-        if (!compact && state.futurePreview != null) ...[
+        if (!compact && !isSplitMap && state.futurePreview != null) ...[
           const SizedBox(height: 18),
           _FuturePreviewCard(
             preview: state.futurePreview!,
@@ -181,7 +206,9 @@ class _ThaiMirrorLifeTimelineSectionState
         ],
         const SizedBox(height: 20),
         Text(
-          widget.detailedNarrativeMode
+          isLongTerm
+              ? 'ช่วงชีวิตถัด ๆ ไป'
+              : widget.detailedNarrativeMode
               ? 'เรื่องราวชีวิตตามช่วงอายุ'
               : widget.lifeMapMode
               ? 'แปดช่วงดาวเสวยอายุ'
@@ -203,6 +230,7 @@ class _ThaiMirrorLifeTimelineSectionState
         else
           for (var i = 0; i < periods.length; i++) ...[
             if (widget.detailedNarrativeMode &&
+                !isLongTerm &&
                 (i == 0 ||
                     periods[i - 1].timeBucketLabel !=
                         periods[i].timeBucketLabel)) ...[
@@ -210,20 +238,35 @@ class _ThaiMirrorLifeTimelineSectionState
               _PeriodBucketHeading(label: periods[i].timeBucketLabel),
               const SizedBox(height: 10),
             ],
+            if (isSplitMap && periods[i].isCurrent) ...[
+              _CurrentStageCard(
+                stage: state.currentStage,
+                accent: _accent(state.currentStage.accentIndex),
+              ),
+              if (state.currentAnalysis != null) ...[
+                const SizedBox(height: 14),
+                _CurrentAnalysisCard(
+                  analysis: state.currentAnalysis!,
+                  accent: _accent(state.currentStage.accentIndex),
+                ),
+              ],
+              const SizedBox(height: 10),
+            ],
             if (i > 0) const SizedBox(height: 10),
             _PeriodCard(
               period: periods[i],
               accent: _accent(periods[i].accentIndex),
-              expanded: widget.detailedNarrativeMode
+              expanded: widget.detailedNarrativeMode && periods[i].isCurrent
                   ? _expandedDetailed.contains(i)
                   : periods[i].isPast
                   ? false
                   : _expanded == i,
               isWide: isWide,
-              showCollapsedSummary: compact,
+              showCollapsedSummary: compact || !periods[i].isCurrent,
               lifeMapMode: widget.lifeMapMode,
-              detailedNarrativeMode: widget.detailedNarrativeMode,
-              onTap: widget.detailedNarrativeMode
+              detailedNarrativeMode:
+                  widget.detailedNarrativeMode && periods[i].isCurrent,
+              onTap: widget.detailedNarrativeMode && periods[i].isCurrent
                   ? () => setState(() {
                       if (!_expandedDetailed.remove(i)) {
                         _expandedDetailed.add(i);
@@ -886,15 +929,6 @@ class _PeriodCard extends StatelessWidget {
                       ),
                     ],
                   ],
-                  const SizedBox(height: 8),
-                  Text(
-                    'สิ่งที่เกิดขึ้น',
-                    style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.w800,
-                      color: accent,
-                    ),
-                  ),
                   const SizedBox(height: 4),
                   Text(
                     period.summary,
@@ -905,7 +939,9 @@ class _PeriodCard extends StatelessWidget {
                     ),
                   ),
                 ] else ...[
-                  if (showCollapsedSummary && !expanded) ...[
+                  if (showCollapsedSummary &&
+                      !expanded &&
+                      (!lifeMapMode || detailedNarrativeMode)) ...[
                     const SizedBox(height: 10),
                     Text(
                       period.summary,

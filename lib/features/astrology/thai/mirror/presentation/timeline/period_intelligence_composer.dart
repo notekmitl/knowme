@@ -77,6 +77,12 @@ abstract final class PeriodIntelligenceComposer {
     final intel = analysis.intelligence;
     final element = intel.element.labelTh;
     if (intel.isNatalHarmonious) {
+      if (analysis.period.planet == LifePlanet.mercury) {
+        return 'พลังธาตุ$elementของช่วงนี้เน้นการเก็บข้อมูล เชื่อมคน และทดลองใช้ความรู้กับงานจริง ก่อนเลือกทางที่คุ้มจะทำต่อ';
+      }
+      if (analysis.period.planet == LifePlanet.venus) {
+        return 'พลังธาตุ$elementหนุนช่วงเก็บเกี่ยวให้คุณใช้ความสัมพันธ์และความเข้าใจคนประกอบการตัดสินใจ โดยไม่ต้องเร่งทุกเรื่องพร้อมกัน';
+      }
       return _pick([
         'อิทธิพลหลักตอนนี้คือพลังธาตุ$element ที่ส่งเสริมพื้นฐานในตัวคุณ คุณจึงได้เป็นตัวเองมากขึ้น',
         'ช่วงนี้พลังธาตุ$element กำลังทำงานเข้าขากับตัวตนของคุณ ทำให้หลายเรื่องไปต่อได้ง่าย',
@@ -111,10 +117,16 @@ abstract final class PeriodIntelligenceComposer {
       'ในราว ${preview.yearsUntil} ปีข้างหน้า ชีวิตของคุณเริ่มเปลี่ยนเข้าสู่${nextData.phaseName}',
     ], seed ~/ 31);
 
-    final elementShiftLine = shift.changes
-        ? 'พลังงานจะค่อย ๆ เปลี่ยนจากธาตุ${shift.from.labelTh}ไปสู่ธาตุ${shift.to.labelTh} '
-              '(${shift.relation.labelTh})'
-        : '';
+    final elementShiftLine = !shift.changes
+        ? ''
+        : switch ((shift.from.labelTh, shift.to.labelTh)) {
+            ('น้ำ', 'ไฟ') =>
+              'จากจังหวะที่รับฟังและปรับตามสถานการณ์ คุณกำลังเข้าสู่ช่วงที่ต้องตัดสินใจและลงมือให้ชัดขึ้น (${shift.relation.labelTh})',
+            ('ดิน', 'ลม') =>
+              'จากจังหวะที่เน้นความมั่นคง คุณกำลังเข้าสู่ช่วงที่ต้องเปิดรับข้อมูล คน และทางเลือกใหม่ (${shift.relation.labelTh})',
+            _ =>
+              'จังหวะชีวิตเปลี่ยนจากธาตุ${shift.from.labelTh}ไปสู่ธาตุ${shift.to.labelTh} (${shift.relation.labelTh})',
+          };
 
     final opps = preview.opportunities.map((d) => d.labelTh).join(' · ');
     final chals = preview.challenges.map((d) => d.labelTh).join(' · ');

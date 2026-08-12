@@ -137,7 +137,7 @@ abstract final class PastLifeStoryComposer {
     final t = carry.trim();
     if (t.isEmpty) return '';
     if (t.contains('ต่อมา') || t.contains('ส่ง')) return t;
-    return '$t และยังมีผลต่อการตัดสินใจในช่วงถัดไป';
+    return '$t และบทเรียนนี้ยังติดตัวไปในช่วงถัดไป';
   }
 
   static String _ageBandLine(ThaiLifeStageBand band) {

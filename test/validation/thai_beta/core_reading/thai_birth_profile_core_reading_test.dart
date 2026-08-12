@@ -13,15 +13,14 @@ import '../narrative/thai_beta_narrative_fixtures.dart';
 
 void main() {
   const titles = [
-    'สรุปตรง ๆ',
-    'หลักการนับวันทางโหราศาสตร์ไทย',
-    'โครงสร้างดวงหลัก',
+    'สรุปตัวคุณแบบตรง ๆ',
+    'จุดเด่น จุดที่ควรระวัง และคำแนะนำหลัก',
     'การงาน',
     'การเงิน',
     'ความรักและความสัมพันธ์',
-    'สุขภาพและพลังชีวิตตามตำรา',
+    'สุขภาพและพลังชีวิต',
     'คำชี้หลักจากพื้นดวง',
-    'ดวงนี้วิเคราะห์จากอะไร',
+    'รายงานนี้ดูจากอะไร',
   ];
 
   test('full birth data builds all evidence-backed core sections', () {
@@ -34,8 +33,7 @@ void main() {
     expect(reading.sections.every((s) => s.evidenceKeys.isNotEmpty), isTrue);
     expect(reading.omissions, isEmpty);
     final structure = reading.sections.singleWhere(
-      (section) =>
-          section.title == ThaiBirthProfileCoreReadingCopy.chartStructureTitle,
+      (section) => section.isMethodology,
     );
     expect(structure.factRows.length, greaterThanOrEqualTo(3));
     expect(structure.factRows.first.label, 'วันทางโหราศาสตร์');
@@ -90,10 +88,10 @@ void main() {
       reading.omissions.map((omission) => omission.topic),
       containsAll({
         ThaiBirthProfileCoreReadingCopy.summaryTitle,
-        ThaiBirthProfileCoreReadingCopy.workTitle,
-        ThaiBirthProfileCoreReadingCopy.moneyTitle,
-        ThaiBirthProfileCoreReadingCopy.relationshipsTitle,
-        ThaiBirthProfileCoreReadingCopy.wellbeingTitle,
+        '${ThaiBirthProfileCoreReadingCopy.workTitle}จากลัคนาและเรือนการงาน',
+        '${ThaiBirthProfileCoreReadingCopy.moneyTitle}จากลัคนาและเรือนการเงิน',
+        '${ThaiBirthProfileCoreReadingCopy.relationshipsTitle}จากลัคนาและเรือนคู่ครอง',
+        '${ThaiBirthProfileCoreReadingCopy.wellbeingTitle}จากลัคนาและเรือนสุขภาพ',
       }),
     );
     expect(
@@ -163,19 +161,11 @@ void main() {
         ThaiBetaNarrativeFixtures.wednesdayDaytime(),
       );
       final beforeStructure = before.sections
-          .singleWhere(
-            (section) =>
-                section.title ==
-                ThaiBirthProfileCoreReadingCopy.dayCountingTitle,
-          )
+          .singleWhere((section) => section.isMethodology)
           .publicParagraphs
           .join('\n');
       final afterStructure = after.sections
-          .singleWhere(
-            (section) =>
-                section.title ==
-                ThaiBirthProfileCoreReadingCopy.dayCountingTitle,
-          )
+          .singleWhere((section) => section.isMethodology)
           .publicParagraphs
           .join('\n');
 
@@ -674,19 +664,17 @@ void main() {
       ThaiBetaNarrativeFixtures.fixtureA(),
     );
     final closing = reading.sections.singleWhere(
-      (section) => section.domain == ThaiBirthProfileCoreDomain.closing,
+      (section) =>
+          section.title == ThaiBirthProfileCoreReadingCopy.guidanceTitle,
     );
     final atoms = closing.claims
         .expand((claim) => claim.sourceAtoms)
         .toList(growable: false);
 
-    expect(closing.claims, hasLength(1));
-    expect(closing.claims.single.text, contains('จุดแข็งที่ควรใช้เป็นแกนคือ'));
-    expect(
-      closing.claims.single.text,
-      contains('เมื่อใช้จุดแข็งนี้มากเกินไปอาจกลายเป็น'),
-    );
-    expect(closing.claims.single.text, contains('แนวทางที่เหมาะ'));
+    expect(closing.claims, hasLength(3));
+    expect(closing.claims[0].text, contains('จุดแข็งที่คุณหยิบมาใช้ได้คือ'));
+    expect(closing.claims[1].text, contains('ถ้าใช้มากเกินไป'));
+    expect(closing.claims[2].text, contains('สิ่งที่คุณลองทำได้คือ'));
     expect(atoms.map((atom) => atom.kind).toSet(), {
       ThaiBirthProfileCoreAtomKind.strengthTheme,
       ThaiBirthProfileCoreAtomKind.riskTheme,

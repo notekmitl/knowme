@@ -533,7 +533,7 @@ abstract final class LifeMapSemanticMapper {
           lingerings: [
             _TextId(
               'ling_work',
-              'เรื่องงานนี้ยังมีผลต่อการตัดสินใจของคุณในเวลาต่อมา',
+              'บทเรียนเรื่องงานนี้ยังติดตัวไปตอนที่คุณต้องเลือกทางต่อมา',
             ),
             _TextId(
               'ling_work2',

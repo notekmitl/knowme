@@ -31,6 +31,7 @@ class ThaiMirrorResultPage extends StatefulWidget {
     this.collapseSecondarySections = false,
     this.timelineAndTransparencyOnly = false,
     this.detailedPastFutureNarrative = false,
+    this.additionalTransparencySection,
   });
 
   final ThaiMirrorConsumerViewState consumerState;
@@ -65,6 +66,10 @@ class ThaiMirrorResultPage extends StatefulWidget {
   /// the 12-month / next-turning-point reading. Defaults off so established
   /// standalone Thai Mirror behavior and goldens stay unchanged.
   final bool detailedPastFutureNarrative;
+
+  /// Optional report-owned provenance content placed with the final
+  /// transparency controls. It does not alter the canonical consumer state.
+  final Widget? additionalTransparencySection;
 
   @override
   State<ThaiMirrorResultPage> createState() => _ThaiMirrorResultPageState();
@@ -380,6 +385,7 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
                 widget.relevantLifeTimeline && !widget.lifeMapMode,
             lifeMapMode: widget.lifeMapMode,
             detailedNarrativeMode: widget.detailedPastFutureNarrative,
+            view: ThaiMirrorTimelineView.mapPastCurrent,
           ),
         ),
       if (consumerState.futurePrediction != null &&
@@ -396,6 +402,24 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
             ),
           ),
         ),
+      ],
+      if (consumerState.lifeTimeline != null &&
+          !consumerState.lifeTimeline!.isEmpty) ...[
+        SizedBox(height: gap),
+        RepaintBoundary(
+          key: const Key('thai_consumer_life_timeline_long_term'),
+          child: ThaiMirrorLifeTimelineSection(
+            state: consumerState.lifeTimeline!,
+            relevantPeriodsOnly: false,
+            lifeMapMode: true,
+            detailedNarrativeMode: widget.detailedPastFutureNarrative,
+            view: ThaiMirrorTimelineView.longTerm,
+          ),
+        ),
+      ],
+      if (widget.additionalTransparencySection != null) ...[
+        SizedBox(height: gap),
+        widget.additionalTransparencySection!,
       ],
       SizedBox(height: gap),
       RepaintBoundary(

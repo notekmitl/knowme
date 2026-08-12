@@ -107,7 +107,7 @@ void main() {
       // Core Reading is the shared web/PDF presentation source.
       expect(text, contains(ThaiBirthProfileCoreReading.reportTitle));
       expect(text, contains(ThaiBirthProfileCoreReadingCopy.summaryTitle));
-      expect(text, contains(ThaiBirthProfileCoreReadingCopy.dayCountingTitle));
+      expect(text, contains('วิธีนับวันทางโหราศาสตร์ไทย'));
       expect(
         text,
         contains(ThaiBirthProfileCoreReadingCopy.chartStructureTitle),
@@ -179,7 +179,7 @@ void main() {
         doc.fullPlainText,
         contains(ThaiBirthProfileCoreReading.reportTitle),
       );
-      expect(doc.fullPlainText, contains('ดวงนี้วิเคราะห์จากอะไร'));
+      expect(doc.fullPlainText, contains('รายงานนี้ดูจากอะไร'));
       expect(doc.fullPlainText, isNot(contains('ข้อมูลวันเกิดครบถ้วน')));
     });
 
@@ -218,11 +218,8 @@ void main() {
       )) {
         expect(domain.uncertaintyDisclosure, contains('ไม่มีหลักฐานลัคนา'));
         expect(domain.preparationAction, isNot(contains('ไม่มีหลักฐานลัคนา')));
-        expect(
-          pdfText,
-          contains('ข้อจำกัดของคำอ่าน: ${domain.uncertaintyDisclosure}'),
-        );
       }
+      expect('ข้อจำกัดของคำอ่าน:'.allMatches(pdfText), hasLength(1));
     });
 
     test('Thai Beta omits repeated past and future domain claims', () {
@@ -307,7 +304,7 @@ void main() {
     });
 
     test(
-      'exports detailed past and future domains from the shared view state',
+      'exports concise past and distinct future prose from shared state',
       () {
         final doc = ThaiBetaReportExportDocument.fromAnalysis(analysis);
         final text = doc.fullPlainText;
@@ -316,26 +313,64 @@ void main() {
         final prediction = view.futurePrediction!;
 
         final past = timeline.periods.firstWhere((period) => period.isPast);
-        final future = timeline.periods.firstWhere(
-          (period) => !period.isPast && !period.isCurrent,
-        );
-        expect(text, contains(past.lifeDomains.first.body));
-        expect(text, contains(future.lifeDomains.first.body));
+        expect(text, contains(past.summary));
+        expect(text, isNot(contains(past.lifeDomains.first.body)));
         expect(text, contains(prediction.detailedSectionIntro));
-        for (final domain in prediction.windows.first.domains) {
-          expect(text, contains('แนวโน้ม: ${domain.claim}'));
-          expect(text, contains('ความเสี่ยง: ${domain.risk}'));
-          expect(text, contains('ผลต่อการตัดสินใจ: ${domain.decisionImpact}'));
-          expect(
-            text,
-            contains('แนวทางเตรียมตัว: ${domain.preparationAction}'),
-          );
+        for (final domain
+            in prediction.windows.skip(1).expand((window) => window.domains)) {
+          expect(text, contains(domain.body));
+          expect(text, isNot(contains('ภาพที่เห็น: ${domain.claim}')));
         }
       },
     );
   });
 
   group('Real PDF exporter path regression', () {
+    test('disclaimer cards use full-width geometry and contain their body', () {
+      const legacy = <String, Object>{
+        'column': 'intrinsic',
+        'width': 'content',
+        'bodyInsideBorder': false,
+      };
+      final current =
+          ThaiBetaReportPdfExporter.debugDisclaimerGeometryForTest();
+
+      bool violates(Map<String, Object> geometry) =>
+          geometry['column'] != 'flex' ||
+          geometry['width'] != 'page' ||
+          geometry['bodyInsideBorder'] != true;
+
+      expect(violates(legacy), isTrue, reason: 'negative legacy fixture');
+      expect(violates(current), isFalse);
+      expect(current, {
+        'column': 'flex',
+        'width': 'page',
+        'bodyInsideBorder': true,
+      });
+    });
+
+    test('V1.3 Unknown omission failure stays atomic with visible orientation', () {
+      const section = ThaiBetaReportExportSection(
+        title: 'หัวข้อที่ไม่ได้แสดง',
+        kind: ThaiBetaReportExportSectionKind.disclaimer,
+        paragraphs: [
+          'ระบบตัดหัวข้อต่อไปนี้ออกแทนการเติมคำทำนายที่ไม่มีข้อมูลรองรับ',
+          'สรุปตัวคุณแบบตรง ๆ — ไม่มีเวลาเกิด จึงไม่ใช้ลัคนาสรุปบุคลิก',
+          'การงานจากลัคนาและเรือนการงาน — ไม่มีเวลาเกิด จึงคำนวณไม่ได้',
+          'การเงินจากลัคนาและเรือนการเงิน — ไม่มีเวลาเกิด จึงคำนวณไม่ได้',
+          'ความรักและความสัมพันธ์จากลัคนาและเรือนคู่ครอง — ไม่มีเวลาเกิด จึงคำนวณไม่ได้',
+          'สุขภาพและพลังชีวิตจากลัคนาและเรือนสุขภาพ — ไม่มีเวลาเกิด จึงคำนวณไม่ได้',
+          'คำชี้หลักจากพื้นดวง — ไม่พบชุดจุดแข็ง ความเสี่ยง และแนวทางที่อ้างอิงได้ครบ',
+        ],
+      );
+      final chunks = ThaiBetaReportPdfExporter.debugDisclaimerChunksForTest(
+        section,
+      );
+      expect(chunks, hasLength(1));
+      expect(chunks.single, hasLength(7));
+      expect(chunks.single, contains(section.paragraphs.last));
+    });
+
     test('Poppler raster keeps ink inside printable margins', () async {
       final renderer = _findPdftoppm();
       expect(
@@ -440,15 +475,66 @@ void main() {
         expect(units.first, contains('ช่วงทดสอบ 1982-06-05'));
         expect(units.first, contains('บริบทของช่วง'));
         expect(units.first, isNot(contains('การงาน')));
-        expect(units[1], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nการงาน'));
-        expect(units[2], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nการเงิน'));
-        expect(units[3], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nความรัก'));
-        expect(units[4], startsWith('ช่วงทดสอบ 1982-06-05 (ต่อ)\nสุขภาพ'));
+        expect(units[1], startsWith('การงาน\n'));
+        expect(units[2], startsWith('การเงิน\n'));
+        expect(units[3], startsWith('ความรัก\n'));
+        expect(units[4], startsWith('สุขภาพ\n'));
         for (final unit in units) {
           expect(unit, isNot(matches(RegExp(r'1982-06-0\s*\n\s*5'))));
+          expect(unit, isNot(contains('(ต่อ)')));
         }
       },
     );
+
+    test(
+      'V1.1 pages 6-8 regression: parent continuation is not emitted per domain',
+      () {
+        for (final title in const [
+          'แนวโน้ม 12 เดือนข้างหน้า',
+          'ช่วงชีวิตถัดไป',
+        ]) {
+          final section = ThaiBetaReportExportSection(
+            title: title,
+            paragraphs: const [
+              'บทนำของช่วง',
+              'การงาน',
+              'เนื้อหางานที่จบเป็นหนึ่งความคิด',
+              'การเงิน',
+              'เนื้อหาเงินที่จบเป็นหนึ่งความคิด',
+              'ความรัก',
+              'เนื้อหาความสัมพันธ์ที่จบเป็นหนึ่งความคิด',
+              'สุขภาพ',
+              'เนื้อหาสุขภาพที่จบเป็นหนึ่งความคิด',
+            ],
+          );
+          final units = ThaiBetaReportPdfExporter.debugPaginationUnitsForTest(
+            section,
+          );
+          expect(units.where((unit) => unit.contains(title)), hasLength(1));
+          expect(units.where((unit) => unit.contains('$title (ต่อ)')), isEmpty);
+        }
+      },
+    );
+
+    test('reading-basis continuation is explicit for both evidence modes', () {
+      const known = ThaiBetaReportExportSection(
+        title: 'รายงานนี้ดูจากอะไร',
+        paragraphs: ['ก', 'ข', 'ค', 'ง', 'จ', 'ฉ'],
+      );
+      const unknown = ThaiBetaReportExportSection(
+        title: 'รายงานนี้ดูจากอะไร',
+        paragraphs: ['ก', 'ข', 'ไม่มีเวลาเกิด', 'ง'],
+      );
+
+      expect(
+        ThaiBetaReportPdfExporter.debugReadingBasisContinuationForTest(known),
+        (paragraphIndex: 5, heading: 'โครงสร้างดวงหลัก — ต่อ'),
+      );
+      expect(
+        ThaiBetaReportPdfExporter.debugReadingBasisContinuationForTest(unknown),
+        (paragraphIndex: 3, heading: 'รายงานนี้ดูจากอะไร — ต่อ'),
+      );
+    });
 
     test('ISO date tokens are detected generically for atomic layout', () {
       expect(
@@ -628,7 +714,7 @@ void main() {
       final doc = ThaiBetaReportExportDocument.fromAnalysis(realUserAnalysis);
       final rendered = await ThaiBetaReportPdfExporter.build(doc);
 
-      expect(rendered.plainText, contains(timeline.sectionTitle));
+      expect(rendered.plainText, contains('แผนที่ชีวิต'));
       expect(rendered.plainText, contains(timeline.currentStage.planetLine));
       for (final period in timeline.periods.take(2)) {
         expect(rendered.plainText, contains(period.phaseName));

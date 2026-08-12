@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -18,14 +19,23 @@ void main() {
     tester,
   ) async {
     if (outputPath == null || outputPath.isEmpty) return;
+    _stage('fixture-loading', 'start');
     final output = Directory(outputPath)..createSync(recursive: true);
+    _stage('known-canonical-analysis', 'start');
+    final knownAnalysis = _analysis(knownTime: true);
+    _stage('known-canonical-analysis', 'complete');
+    _stage('unknown-canonical-analysis', 'start');
+    final unknownAnalysis = _analysis(knownTime: false);
+    _stage('unknown-canonical-analysis', 'complete');
     final fixtures = <String, ThaiBetaAnalysis>{
-      'known-time': _analysis(knownTime: true),
-      'unknown-time': _analysis(knownTime: false),
+      'known-time': knownAnalysis,
+      'unknown-time': unknownAnalysis,
     };
+    _stage('fixture-loading', 'complete');
 
     if (captureVariant.isEmpty) {
       for (final entry in fixtures.entries) {
+        _stage('pdf-generation:${entry.key}', 'start');
         final document = ThaiBetaReportExportDocument.fromAnalysis(entry.value);
         final pdf = await ThaiBetaReportPdfExporter.build(document);
         File(
@@ -37,26 +47,78 @@ void main() {
         File(
           '${output.path}/${entry.key}-pdf-text.txt',
         ).writeAsStringSync(pdf.plainText);
+        _stage('web-pdf-canonical:${entry.key}', 'complete');
       }
+      final known = fixtures['known-time']!;
+      final longitude = known.profile!.siderealAscendantDeg!;
+      final withinSign = ((longitude % 30) + 30) % 30;
+      final totalMinutes = (withinSign * 60).round();
+      final degree =
+          '${totalMinutes ~/ 60}°${(totalMinutes % 60).toString().padLeft(2, '0')}′';
+      final facts = <String, Object?>{
+        'fixtureId': 'known-1982-06-06-0003-chiang-mai',
+        'birthDate': '1982-06-06',
+        'birthTime': '00:03',
+        'provinceKey': 'chiang_mai',
+        'lagnaKey': known.profile!.lagnaKey,
+        'lagnaSignThai': 'ราศีกุมภ์',
+        'lagnaDegree': degree,
+      };
+      final factualJson = const JsonEncoder.withIndent('  ').convert(facts);
+      File(
+        '${output.path}/engine-factual-result.json',
+      ).writeAsStringSync('$factualJson\n');
+      final factText = '${facts['lagnaSignThai']} ${facts['lagnaDegree']}';
+      for (final name in [
+        'known-time-web-text.txt',
+        'known-time-pdf-text.txt',
+      ]) {
+        if (!File(
+          '${output.path}/$name',
+        ).readAsStringSync().contains(factText)) {
+          throw StateError('$name disagrees with engine fact $factText');
+        }
+      }
+      File('${output.path}/MANIFEST.generated.md').writeAsStringSync(
+        '# Generated acceptance facts\n\n'
+        '- Fixture: `${facts['fixtureId']}`\n'
+        '- Known ascendant: `$factText`\n'
+        '- Factual source: `engine-factual-result.json`\n',
+      );
+      _stage('manifest-generation', 'complete');
     }
 
     if (captureVariant == 'desktop') {
-      await _capture(
-        tester,
-        analysis: fixtures['known-time']!,
-        size: const Size(1440, 1000),
-        file: File('${output.path}/known-time-desktop.png'),
-      );
+      _stage('screenshot-capture:desktop', 'start');
+      for (final entry in fixtures.entries) {
+        await _capture(
+          tester,
+          analysis: entry.value,
+          size: const Size(1440, 1000),
+          file: File('${output.path}/${entry.key}-desktop.png'),
+        );
+      }
+      _stage('screenshot-capture:desktop', 'complete');
     }
     if (captureVariant == 'mobile') {
-      await _capture(
-        tester,
-        analysis: fixtures['unknown-time']!,
-        size: const Size(390, 844),
-        file: File('${output.path}/unknown-time-mobile.png'),
-      );
+      _stage('screenshot-capture:mobile', 'start');
+      for (final entry in fixtures.entries) {
+        await _capture(
+          tester,
+          analysis: entry.value,
+          size: const Size(390, 844),
+          file: File('${output.path}/${entry.key}-mobile.png'),
+        );
+      }
+      _stage('screenshot-capture:mobile', 'complete');
     }
   });
+}
+
+void _stage(String name, String state) {
+  stderr.writeln(
+    '[V14_STAGE] ${DateTime.now().toUtc().toIso8601String()} $name $state',
+  );
 }
 
 ThaiBetaAnalysis _analysis({required bool knownTime}) {

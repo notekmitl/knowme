@@ -1,5 +1,11 @@
 # KnowMe Roadmap
 
+## Active — Thai Report Reading Flow and Friendly Voice V1
+
+Owner feedback after Production Round 9 opened a presentation-only follow-up: put the reader’s story before methodology, use friendlier Thai, reduce repeated forecast templates, and align Web/PDF order. Work is isolated on `agent/thai-report-reading-flow-v1` from baseline `c34a1c088b555160707577308c281570b570752a` and is `PENDING PRODUCT ACCEPTANCE`.
+
+This work must not change astrology engines, Canon, ascendant/houses, timeline boundaries, factual provenance, Known/Unknown rules, beta policy, Auth, or Production. It must not merge or deploy before Owner acceptance. Round 9 remains a completed historical release with its evidence intact.
+
 ## Thai Beta Exemplar Narrative V1 — Production complete
 
 The approved stack is merged through PR #81 (`7047fd9`), PR #82 (`04f5d7e`),

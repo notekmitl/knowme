@@ -67,9 +67,11 @@ abstract final class PredictionComposer {
       detailedSectionIntro:
           'อ่านอนาคตเป็นสามระดับ: ช่วงนี้ 12 เดือนข้างหน้า และจุดเปลี่ยนชีวิตถัดไป '
           'แต่ละช่วงแยกการงาน การเงิน ความรัก และสุขภาพให้เห็นตรง ๆ',
-      detailedClosingAdvice:
-          'ให้ใช้ 12 เดือนข้างหน้าเป็นช่วงวางแผนหลัก แล้วใช้จุดเปลี่ยนชีวิตถัดไป '
-          'เป็นกรอบเตรียมตัวระยะยาว',
+      detailedClosingAdvice: intelligence.context.hasLagna
+          ? 'ให้ใช้ 12 เดือนข้างหน้าเป็นช่วงวางแผนหลัก แล้วใช้จุดเปลี่ยนชีวิตถัดไป '
+                'เป็นกรอบเตรียมตัวระยะยาว'
+          : 'เมื่อไม่มีเวลาเกิด ให้ใช้ช่วง 12 เดือนเป็นสมุดบันทึกผลจริง '
+                'และยังไม่สรุปเรื่องระยะยาวจนกว่าจะเห็นรูปแบบเกิดซ้ำ',
     );
   }
 
@@ -172,6 +174,12 @@ abstract final class PredictionComposer {
           ? ForecastEvidenceAvailability.full
           : ForecastEvidenceAvailability.noLagna,
       spansTransition: prediction.window.spansTransition,
+      evidenceKey:
+          'prediction.${prediction.category.name}.${kind.name}.${band.name}',
+      sourceOwnership: hasLagna
+          ? 'lagna-house-and-life-period-score'
+          : 'life-period-score-without-lagna',
+      timeDependent: hasLagna,
     );
   }
 
