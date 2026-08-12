@@ -14,7 +14,6 @@ import '../narrative/thai_beta_narrative_fixtures.dart';
 void main() {
   const titles = [
     'สรุปตัวคุณแบบตรง ๆ',
-    'จุดเด่น จุดที่ควรระวัง และคำแนะนำหลัก',
     'การงาน',
     'การเงิน',
     'ความรักและความสัมพันธ์',
@@ -659,22 +658,21 @@ void main() {
     expect(selected?.themeId, 'risk_overcommitment');
   });
 
-  test('closing uses one scored thematic context for strength risk action', () {
+  test('closing prioritises one action from one scored thematic context', () {
     final reading = ThaiBirthProfileCoreReading.fromAnalysis(
       ThaiBetaNarrativeFixtures.fixtureA(),
     );
     final closing = reading.sections.singleWhere(
       (section) =>
-          section.title == ThaiBirthProfileCoreReadingCopy.guidanceTitle,
+          section.title == ThaiBirthProfileCoreReadingCopy.closingTitle,
     );
     final atoms = closing.claims
         .expand((claim) => claim.sourceAtoms)
         .toList(growable: false);
 
-    expect(closing.claims, hasLength(3));
-    expect(closing.claims[0].text, contains('จุดแข็งที่คุณหยิบมาใช้ได้คือ'));
-    expect(closing.claims[1].text, contains('ถ้าใช้มากเกินไป'));
-    expect(closing.claims[2].text, contains('สิ่งที่คุณลองทำได้คือ'));
+    expect(closing.claims, hasLength(1));
+    expect(closing.claims.single.text, contains('แก่นของคำอ่านนี้'));
+    expect(closing.claims.single.text, contains('ใช้ผลจริงเป็นเกณฑ์'));
     expect(atoms.map((atom) => atom.kind).toSet(), {
       ThaiBirthProfileCoreAtomKind.strengthTheme,
       ThaiBirthProfileCoreAtomKind.riskTheme,

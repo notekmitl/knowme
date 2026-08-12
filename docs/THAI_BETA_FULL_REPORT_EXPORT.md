@@ -247,3 +247,10 @@ Validation for this draft must include exact Web/PDF semantic parity, Known/Unkn
 # V1.3 PDF layout amendment
 
 The V1.2 Known limitation card used intrinsic one-column table width and was incorrectly passed by a review that checked text presence but not component bounds. V1.3 wraps every disclaimer chunk in the same full-width atomic pagination unit and requires body text to remain inside its border. Every rendered page must be reviewed at readable resolution with component geometry recorded. Status: **PENDING OWNER RE-ACCEPTANCE**.
+# V1.5 narrative/export note
+
+The Web and PDF export continue to consume the same canonical Core Reading and
+prediction view models. V1.5 changes claim planning before wording: each domain
+forecast has one primary horizon, while methodology retains evidence without
+restating its interpretation. Proposed 00:03 Chiang Mai Known and Unknown PDFs
+are in `product-acceptance/thai-narrative-v1.5-r1/`; Owner Acceptance is pending.

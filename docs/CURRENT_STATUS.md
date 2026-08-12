@@ -36,3 +36,9 @@ Round 2 confirmed that removing labels still left the underlying timed-claim/imp
 # PR #89 V1.3 recovery — 2026-08-11
 
 V1.2 Product Acceptance was rejected after owner inspection found cross-fixture narrative reuse, repeated Known past material, an Unknown displayed-versus-omitted wording contradiction, and malformed Known PDF limitation-card geometry. V1.3 uses evidence ownership metadata and single-horizon allocation, keeps Unknown fail-closed while qualifying only Lagna/house material as omitted, and renders every disclaimer paragraph inside a full-width bordered component. Status: **PENDING OWNER RE-ACCEPTANCE**. PR #89 remains Draft; no merge or deploy. Earlier packets and `product-acceptance/` are untouched.
+# V1.5 narrative-quality draft — Owner Acceptance pending
+
+V1.4 remains technically live and stable, but its narrative quality is rejected.
+V1.5 is a Draft-only architecture rewrite on `codex/thai-narrative-v1-5`.
+Acceptance packet: `product-acceptance/thai-narrative-v1.5-r1/`. No merge or
+Production deployment is authorised.

@@ -60,15 +60,12 @@ void main() {
       },
     );
 
-    test('each prediction horizon covers work money love and health', () {
+    test('prediction covers all domains once across distinct horizons', () {
       expect(prediction.windows, isNotEmpty);
+      final covered = <String>[];
       for (final window in prediction.windows) {
-        expect(window.domains.map((domain) => domain.title).toList(), const [
-          'การงาน',
-          'การเงิน',
-          'ความรัก',
-          'สุขภาพ',
-        ]);
+        expect(window.domains, isNotEmpty);
+        covered.addAll(window.domains.map((domain) => domain.title));
         for (final domain in window.domains) {
           expect(domain.body, isNot(contains('จะถูกบังคับ')));
           expect(domain.body, isNot(contains('คนที่ใช่จะเข้ามา')));
@@ -79,6 +76,8 @@ void main() {
           expect(domain.preparationAction, isNotEmpty);
         }
       }
+      expect(covered.toSet(), {'การงาน', 'การเงิน', 'ความรัก', 'สุขภาพ'});
+      expect(covered, hasLength(4));
     });
 
     test('future copy is deterministic for the same analysis', () {
@@ -151,11 +150,10 @@ void main() {
           find.text('คำทำนายแยกตามด้านชีวิต'),
           findsNWidgets(prediction.windows.length - 1),
         );
-        for (final title in const ['การงาน', 'การเงิน', 'ความรัก', 'สุขภาพ']) {
-          expect(
-            find.text(title),
-            findsNWidgets(prediction.windows.length - 1),
-          );
+        for (final window in prediction.windows.skip(1)) {
+          for (final domain in window.domains) {
+            expect(find.text(domain.title), findsOneWidget);
+          }
         }
         expect(find.text(prediction.detailedSectionIntro), findsOneWidget);
         expect(find.text(prediction.detailedClosingAdvice), findsOneWidget);

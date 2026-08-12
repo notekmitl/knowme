@@ -259,3 +259,9 @@ Items documented as future in master context or specs — **not yet active prior
 2. **Funnel before features** — real-user conversion is the current bottleneck, not engine diversity.
 3. **Freeze what works** — Fusion V1 UI, BaZi V1, Thai V2, MBTI Summary are maintenance-only.
 4. **No invented work** — if it is not in `/docs/` or code, it is not on this roadmap.
+# V1.5 gate
+
+- [x] Diagnose cross-layer repetition and audit blind spot.
+- [x] Add deterministic report-level claim ownership and V1.5 evidence packet.
+- [ ] Owner reads proposed Known/Unknown reports and accepts narrative quality.
+- [ ] Merge/deploy only under a separate explicit owner instruction.

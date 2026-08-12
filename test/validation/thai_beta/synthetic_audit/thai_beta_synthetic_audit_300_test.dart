@@ -85,8 +85,11 @@ void main() {
                 .windows
                 .expand((window) => window.domains)
                 .toList();
+        // V1.5 may assign the same domain to a different primary horizon when
+        // Known house evidence is unavailable. Domain remains the comparison
+        // identity; horizon is itself an audited material difference.
         String identity(PredictionDomainModel model) =>
-            '${model.material!.horizon.name}/${model.material!.domain.name}';
+            model.material!.domain.name;
         final right = {
           for (final model in blocks(unknown)) identity(model): model,
         };
@@ -117,8 +120,12 @@ void main() {
           }
           for (final field in ForecastField.values) {
             fieldCoverage.add(field);
-            final a = left.material!.projection(field).toString();
-            final b = match.material!.projection(field).toString();
+            final leftProjection = {...left.material!.projection(field)}
+              ..remove('horizon');
+            final rightProjection = {...match.material!.projection(field)}
+              ..remove('horizon');
+            final a = leftProjection.toString();
+            final b = rightProjection.toString();
             if (a != b) {
               different++;
               expect(

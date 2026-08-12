@@ -524,12 +524,11 @@ class ThaiBirthProfileCoreReading {
     }
     if (lagnaLordAtoms.isNotEmpty) {
       final lord = lagnaLordAtoms.first;
-      final mode = _planetMode(lord.rawValue);
       chartFactRows.add(
         ThaiBirthProfileCoreFactRow(
           label: 'เจ้าเรือนลัคนา',
           value: _lordLabel(lord.rawValue),
-          meaning: mode.$1.isEmpty ? 'แนวทางหลักที่ใช้ขยายความลัคนา' : mode.$1,
+          meaning: 'หลักฐานที่เชื่อมลัคนากับรูปแบบการตัดสินใจในคำอ่าน',
           sourceAtoms: lagnaLordAtoms,
         ),
       );
@@ -568,13 +567,12 @@ class ThaiBirthProfileCoreReading {
       final lord = atoms.firstWhere(
         (atom) => atom.kind == ThaiBirthProfileCoreAtomKind.houseLord,
       );
-      final mode = _planetMode(lord.rawValue);
       chartFactRows.add(
         ThaiBirthProfileCoreFactRow(
           label: config.label,
           value:
               '${_lagnaLabel(sign.rawValue)} · เจ้าเรือน${_lordLabel(lord.rawValue)}',
-          meaning: mode.$1,
+          meaning: 'ราศีและเจ้าเรือนที่ใช้เป็นหลักฐานเฉพาะของหัวข้อนี้',
           sourceAtoms: atoms,
         ),
       );
@@ -608,20 +606,12 @@ class ThaiBirthProfileCoreReading {
         semanticKey: 'computed:house:$houseNumber:analysis',
         atoms: atoms,
       );
-      final guidanceParagraph = claim(
-        text: copy.guidance,
-        domain: domain,
-        role: ThaiBirthProfileCoreClaimRole.synthesis,
-        semanticKey: 'computed:house:$houseNumber:guidance',
-        atoms: atoms,
-      );
-      if (analysisParagraph == null || guidanceParagraph == null) return null;
+      if (analysisParagraph == null) return null;
       return ThaiBirthProfileCoreSection(
         title: title,
         domain: domain,
         claims: [
           analysisParagraph,
-          guidanceParagraph,
           if (includeMedicalDisclaimer)
             ThaiBirthProfileCoreParagraph(
               text: medicalDisclaimer,
@@ -709,38 +699,15 @@ class ThaiBirthProfileCoreReading {
         ),
     ];
     final closingCopy = _composeClosing(closingAtoms);
-    final guidanceClaims =
-        closingAtoms.length < 3 ||
-            closingCopy.strength.isEmpty ||
-            closingCopy.risk.isEmpty ||
-            closingCopy.action.isEmpty
-        ? const <ThaiBirthProfileCoreParagraph>[]
-        : <ThaiBirthProfileCoreParagraph>[
-            for (final entry in <(String, String)>[
-              ('strength', closingCopy.strength),
-              ('risk', closingCopy.risk),
-              ('action', closingCopy.action),
-            ])
-              ThaiBirthProfileCoreParagraph(
-                text: entry.$2,
-                domain: ThaiBirthProfileCoreDomain.closing,
-                role: ThaiBirthProfileCoreClaimRole.synthesis,
-                semanticKey: 'computed:guidance:${entry.$1}',
-                evidenceKeys: closingAtoms
-                    .expand((atom) => atom.evidenceRefs)
-                    .map((evidence) => evidence.sourceRef)
-                    .toSet()
-                    .toList(growable: false),
-                sourceAtoms: List.unmodifiable(closingAtoms),
-              ),
-          ];
+    const guidanceClaims = <ThaiBirthProfileCoreParagraph>[];
     final closingSummaryClaims = closingCopy.action.isEmpty
         ? const <ThaiBirthProfileCoreParagraph>[]
         : compact([
             claim(
               text:
-                  'ถ้าต้องเลือกเพียงเรื่องเดียว ให้เริ่มจาก${closingCopy.action.replaceFirst('สิ่งที่คุณลองทำได้คือ', '')} '
-                  'แล้วดูผลที่เกิดขึ้นจริงก่อนเพิ่มเรื่องถัดไป',
+                  'แก่นของคำอ่านนี้ไม่ใช่การรับให้มากขึ้น แต่คือการเลือกสิ่งที่คู่ควรกับแรงของคุณ '
+                  'เริ่มจาก${closingCopy.action.replaceFirst('สิ่งที่คุณลองทำได้คือ', '').replaceFirst(' แล้วค่อยเพิ่มเมื่อเห็นว่าคุณยังมีเวลาและแรงพอ', '')} '
+                  'แล้วใช้ผลจริงเป็นเกณฑ์ก่อนเปิดภาระถัดไป',
               domain: ThaiBirthProfileCoreDomain.closing,
               role: ThaiBirthProfileCoreClaimRole.synthesis,
               semanticKey: 'computed:closing-priority-action',
@@ -1009,7 +976,7 @@ class ThaiBirthProfileCoreReading {
         );
       }
     }
-    if (guidanceClaims.isEmpty) {
+    if (closingSummaryClaims.isEmpty) {
       omissions.add(
         const ThaiBirthProfileCoreOmission(
           topic: ThaiBirthProfileCoreReadingCopy.closingTitle,
@@ -1219,8 +1186,9 @@ class ThaiBirthProfileCoreReading {
     final identityPhrase = _identityPhrases[identityAtom.themeId] ?? '';
     if (identityPhrase.isEmpty) return '';
     final mode = _planetMode(lord.rawValue);
-    return 'คุณ$identityPhrase และมักไปได้ดีเมื่อใช้${mode.$1} '
-        'สิ่งที่ควรระวังคือ${mode.$2}';
+    return 'ภาพเด่นของดวงนี้คือคนที่$identityPhrase ขณะที่${_lordLabel(lord.rawValue)}ย้ำ${mode.$1} '
+        'แรงสองด้านทำให้คนอื่นพึ่งคุณได้ — แต่ด้านกลับคือ${mode.$2}โดยไม่ทันสังเกต '
+        'บทต่อไปจะชี้ต้นทาง แรงกดในปัจจุบัน และการตัดสินใจที่เปลี่ยนทิศได้มากที่สุด';
   }
 
   static ({String analysis, String guidance}) _composeHouseDomain(
@@ -1233,25 +1201,29 @@ class ThaiBirthProfileCoreReading {
     final mode = _planetMode(lord.rawValue);
     return switch (domain) {
       ThaiBirthProfileCoreDomain.work => (
-        analysis: 'เรื่องงาน คุณมักทำได้ดีเมื่อได้ใช้${mode.$1}',
+        analysis:
+            'เรื่องงาน เรือนนี้ชี้ว่าคุณสร้างผลงานผ่าน${mode.$1} จุดตัดสินไม่ได้อยู่ที่รับงานได้อีกเท่าไร แต่อยู่ที่บทบาทนั้นเพิ่มอำนาจกำหนดคุณภาพงานหรือเพียงเพิ่มน้ำหนักให้คุณถือ',
         guidance:
             'ถ้างานเริ่มติด ลองเช็กว่ากำลัง${mode.$2}อยู่หรือไม่ '
             'สิ่งที่ทำได้คือ${mode.$3} เพื่อให้งานเดินต่อโดยไม่ฝืนตัวเอง',
       ),
       ThaiBirthProfileCoreDomain.money => (
-        analysis: 'เรื่องเงิน คุณมักให้ความสำคัญกับ${mode.$1}',
+        analysis:
+            'เรื่องเงิน รูปแบบของเรือนนี้ผูกความมั่นคงเข้ากับ${mode.$1} จึงวัดความก้าวหน้าได้จากทางเลือกที่เงินสำรองเปิดให้ ไม่ใช่เพียงยอดที่สะสม',
         guidance:
             'ก่อนตัดสินใจเรื่องเงิน ระวังเวลาที่${mode.$2} '
             'ลองใช้${mode.$3} เพื่อไม่ให้เรื่องเร่งด่วนกระทบเงินที่ต้องเก็บไว้',
       ),
       ThaiBirthProfileCoreDomain.relationships => (
-        analysis: 'ในความสัมพันธ์ คุณมักสร้างความไว้ใจผ่าน${mode.$1}',
+        analysis:
+            'ในความสัมพันธ์ ความไว้ใจของคุณเกิดผ่าน${mode.$1} ความสัมพันธ์จึงลึกขึ้นเมื่อความรับผิดชอบที่แบ่งกันสอดคล้องกับพื้นที่ที่แต่ละฝ่ายต้องมี',
         guidance:
             'ถ้าเริ่มเข้าใจกันยาก ลองดูว่ากำลัง${mode.$2}อยู่หรือไม่ '
             'ใช้${mode.$3} แล้วคุยขอบเขตให้ชัด เพื่อให้ทั้งสองฝ่ายยังมีพื้นที่ของตัวเอง',
       ),
       ThaiBirthProfileCoreDomain.wellbeing => (
-        analysis: 'เรื่องพลังชีวิต คุณเหมาะกับการดูแลตัวเองผ่าน${mode.$1}',
+        analysis:
+            'เรื่องพลังชีวิต เรือนนี้เชื่อมความสม่ำเสมอของร่างกายกับ${mode.$1} สัญญาณสำคัญจึงไม่ใช่วันที่ล้าเพียงวันเดียว แต่คือเวลาฟื้นตัวที่ยาวขึ้นหลังช่วงรับผิดชอบหนัก',
         guidance:
             'ถ้าเริ่ม${mode.$2} อย่าปล่อยไว้นาน ให้ใช้${mode.$3} '
             'พร้อมจัดเวลาพักให้สม่ำเสมอ',

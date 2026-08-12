@@ -37,3 +37,10 @@ V1.2 was rejected. Use only the new V1.3 packet for the next owner review. The r
 PR #90 merged as `effab1bffcb410891ae5361908392c92188da8b7`; PR #91 merged as `bbdb209b8c2573b16a49d445dd214f7cdfe5fd30`. The latter is the deployed source revision. The official `scripts/deploy_web.ps1` run completed from 08:17:11Z to 08:18:09Z with exit 0 and 77 Hosting files on Firebase project/site `knowme-app-694e1`. Production `/` and `/beta/thai` return HTTP 200 and assets are pinned to `bbdb209`.
 
 Fresh Production downloads: Known `C:\Users\USER\Downloads\knowme-thai-report (22).pdf`, 36,839 bytes, SHA-256 `1D4A599B9089A7B6F22EEA6E68862B5839F151B05EC8CE35D890F46209D54881`, 6 pages; Unknown `C:\Users\USER\Downloads\knowme-thai-report (23).pdf`, 32,756 bytes, SHA-256 `A7CC414114EDD21566F701A8B10B7101779C6AB74DA7D3880C86CC4D5F93FB4D`, 5 pages. All 11 pages were visually inspected and passed geometry, typography, card, continuation, footer, and nonblank-content checks. Unknown omits time-dependent astrology and displays its omission disclosure. Accepted canonical hashes remain unchanged. No manual QA blocker remains; rollback is available through Firebase Hosting release history.
+# V1.5 handoff
+
+Read the Known and Unknown PDFs in
+`product-acceptance/thai-narrative-v1.5-r1/` and judge narrative quality before
+any merge. Correctness is reconciled (`00:03` => Aquarius `9°24′`; `00:35` =>
+Aquarius `19°19′`). The remaining decision is subjective Owner Acceptance.
+Do not merge, deploy or alter Production until that decision is explicit.

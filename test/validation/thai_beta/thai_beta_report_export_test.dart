@@ -500,7 +500,7 @@ void main() {
           expect(pages, isNotEmpty);
           expect(
             pages.length,
-            fixture.key == 'known' ? 6 : 5,
+            5,
             reason:
                 '${fixture.key} real-export PDF page-count regression '
                 '(${pages.length} pages)',

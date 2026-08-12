@@ -30,6 +30,20 @@ void main() {
     final fixtures = <String, ThaiBetaAnalysis>{
       'known-time': knownAnalysis,
       'unknown-time': unknownAnalysis,
+      'comparison-known-bangkok': _comparisonAnalysis(
+        date: DateTime(1991, 11, 18),
+        hour: 14,
+        minute: 20,
+        province: 'กรุงเทพมหานคร',
+        provinceKey: 'bangkok',
+      ),
+      'comparison-known-khon-kaen': _comparisonAnalysis(
+        date: DateTime(1974, 2, 27),
+        hour: 6,
+        minute: 45,
+        province: 'ขอนแก่น',
+        provinceKey: 'khon_kaen',
+      ),
     };
     _stage('fixture-loading', 'complete');
 
@@ -114,6 +128,25 @@ void main() {
     }
   });
 }
+
+ThaiBetaAnalysis _comparisonAnalysis({
+  required DateTime date,
+  required int hour,
+  required int minute,
+  required String province,
+  required String provinceKey,
+}) => ThaiBetaAnalysisRunner.run(
+  ThaiBetaInput(
+    firstName: 'Comparison',
+    lastName: 'Fixture',
+    birthDate: date,
+    birthHour: hour,
+    birthMinute: minute,
+    province: province,
+    provinceKey: provinceKey,
+  ),
+  startedAt: DateTime(2026, 8, 7),
+);
 
 void _stage(String name, String state) {
   stderr.writeln(

@@ -62,3 +62,9 @@ The acceptance ZIP and Draft PR metadata are recorded after packaging and push c
 # PR #89 V1.3 status (2026-08-11)
 
 Owner rejected V1.2 (`thai-report-natural-narrative-v1-2-fa2664f.zip`, SHA-256 `8EA21BB2AEB98BBD36DDE28B8F958E4693A58F0C49A03D72C7D7B49249BEC673`). Root causes and the invalid V1.2 visual-review conclusion are recorded in `docs/PR89_V13_ROOT_CAUSE.md`. V1.3 repairs cross-fixture/horizon selection, repeated past fragments, Unknown omission wording, and PDF disclaimer geometry. Status: **PENDING OWNER RE-ACCEPTANCE**. Do not merge or deploy.
+# V1.5 narrative quality result (Draft)
+
+Implementation and acceptance evidence are proposed under
+`product-acceptance/thai-narrative-v1.5-r1/`. Automated checks are supporting
+evidence only; narrative quality remains pending Owner reading. Production was
+not changed. See `docs/THAI_NARRATIVE_V15_ROOT_CAUSE_AND_SPEC.md`.

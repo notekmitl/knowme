@@ -45,3 +45,13 @@ Owner feedback after the completed Round 9 release requires a new Product Narrat
 # PR #89 V1.3 owner-rejection recovery (2026-08-11)
 
 V1.2 was rejected for cross-fixture duplication, repeated Known past claims, an Unknown displayed-versus-omitted wording contradiction, and a malformed Known limitation card. V1.3 allocates evidence-led claims by horizon, qualifies Unknown omissions as Lagna/house-only, and uses full-width bordered disclaimer units. Status: **PENDING OWNER RE-ACCEPTANCE**. Earlier packets and `product-acceptance/` remain immutable; Round 9 remains historical completed evidence. No merge or deploy.
+# V1.5 Thai narrative quality (Draft)
+
+Owner rejected the narrative quality of live V1.4. Work is isolated on
+`codex/thai-narrative-v1-5` from verified `origin/main` `22cbb3c`. The rejected
+seven-page PDF identity is preserved in the new acceptance packet. Correctness
+gate passed: `00:03` Chiang Mai legitimately produces Aquarius `9°24′`; the
+accepted `19°19′` result used `00:35`. V1.5 introduces report-level claim
+ownership, one forecast home per domain, a chart-specific opening, single
+domain syntheses and prioritised advice. Owner Acceptance is pending. Do not
+merge or deploy; V1.4 remains live.
