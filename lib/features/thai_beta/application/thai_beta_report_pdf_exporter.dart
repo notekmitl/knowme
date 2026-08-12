@@ -190,6 +190,20 @@ abstract final class ThaiBetaReportPdfExporter {
       .map((match) => match.group(0)!)
       .toList(growable: false);
 
+  static ({int paragraphIndex, String heading})?
+  debugReadingBasisContinuationForTest(ThaiBetaReportExportSection section) {
+    if (section.title != 'รายงานนี้ดูจากอะไร') return null;
+    final lacksBirthTime = section.paragraphs.any(
+      (paragraph) => paragraph.contains('ไม่มีเวลาเกิด'),
+    );
+    return (
+      paragraphIndex: lacksBirthTime ? 3 : 5,
+      heading: lacksBirthTime
+          ? '${section.title} — ต่อ'
+          : 'โครงสร้างดวงหลัก — ต่อ',
+    );
+  }
+
   /// Geometry contract for disclaimer/omission cards. The former one-column
   /// intrinsic table could shrink the border around short Known-time copy.
   static Map<String, Object> debugDisclaimerGeometryForTest() => const {
@@ -355,6 +369,7 @@ abstract final class ThaiBetaReportPdfExporter {
             }
 
             final blocks = _semanticBlocks(section.paragraphs);
+            final continuation = debugReadingBasisContinuationForTest(section);
             for (var blockIndex = 0; blockIndex < blocks.length; blockIndex++) {
               final block = blocks[blockIndex];
               final renderParagraphs = block.paragraphs
@@ -415,6 +430,15 @@ abstract final class ThaiBetaReportPdfExporter {
                 paragraphIndex < renderParagraphs.length;
                 paragraphIndex++
               ) {
+                if (continuation != null &&
+                    paragraphIndex == continuation.paragraphIndex) {
+                  widgets.add(pw.NewPage());
+                  widgets.add(
+                    _atomicPaginationUnit(
+                      () => _pdfText(continuation.heading, style: sectionStyle),
+                    ),
+                  );
+                }
                 final remaining = renderParagraphs
                     .skip(paragraphIndex)
                     .take(1)

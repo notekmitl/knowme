@@ -516,6 +516,26 @@ void main() {
       },
     );
 
+    test('reading-basis continuation is explicit for both evidence modes', () {
+      const known = ThaiBetaReportExportSection(
+        title: 'รายงานนี้ดูจากอะไร',
+        paragraphs: ['ก', 'ข', 'ค', 'ง', 'จ', 'ฉ'],
+      );
+      const unknown = ThaiBetaReportExportSection(
+        title: 'รายงานนี้ดูจากอะไร',
+        paragraphs: ['ก', 'ข', 'ไม่มีเวลาเกิด', 'ง'],
+      );
+
+      expect(
+        ThaiBetaReportPdfExporter.debugReadingBasisContinuationForTest(known),
+        (paragraphIndex: 5, heading: 'โครงสร้างดวงหลัก — ต่อ'),
+      );
+      expect(
+        ThaiBetaReportPdfExporter.debugReadingBasisContinuationForTest(unknown),
+        (paragraphIndex: 3, heading: 'รายงานนี้ดูจากอะไร — ต่อ'),
+      );
+    });
+
     test('ISO date tokens are detected generically for atomic layout', () {
       expect(
         ThaiBetaReportPdfExporter.debugIsoDateTokensForTest(

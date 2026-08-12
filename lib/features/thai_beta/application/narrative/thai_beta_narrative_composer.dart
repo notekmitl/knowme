@@ -650,36 +650,36 @@ abstract final class ThaiBetaNarrativeComposer {
             : 'ให้ติดตามการนอนและความล้าจริง โดยยังไม่สรุปภาวะร่างกายจากเรือนสุขภาพ',
       (ForecastHorizon.next12Months, ForecastDomain.career) =>
         known
-            ? 'ปีข้างหน้าให้ดูว่างานหลักส่งมอบได้สม่ำเสมอขึ้นหรือไม่ ก่อนขยายขอบเขต'
-            : 'ปีข้างหน้าใช้ผลงานที่ส่งมอบได้จริงเป็นจุดตรวจ',
+            ? 'ปีข้างหน้าบทบาทที่ต้องประสานคนและตัดสินใจจะเด่นขึ้น งานเดิมมีโอกาสขยายขอบเขต แต่ภาระที่รับพร้อมกันมากเกินไปจะทำให้คุณภาพตก'
+            : 'ปีข้างหน้างานที่ทำซ้ำจนเกิดความชำนาญมีแนวโน้มพาคุณไปสู่หน้าที่ใหม่ แต่ยังไม่ควรสรุปตำแหน่งหรือความก้าวหน้าจากเรือนการงาน',
       (ForecastHorizon.next12Months, ForecastDomain.finance) =>
         known
-            ? 'ติดตามส่วนต่างระหว่างรายรับกับภาระประจำทุกไตรมาสในปีข้างหน้า'
-            : 'เทียบยอดคงเหลือจริงทุกไตรมาสก่อนเพิ่มภาระเงิน',
+            ? 'ปีข้างหน้ารายรับมีโอกาสขยับตามบทบาทงาน แต่ภาระประจำจะตามมาเร็ว เงินก้อนใหม่จึงให้ผลดีเมื่อรักษาสภาพคล่องไว้ก่อน'
+            : 'ปีข้างหน้าฐานรายรับที่เกิดขึ้นจริงจะชัดขึ้นพร้อมรายจ่ายจำเป็น ควรระวังการผูกภาระจากรายได้ที่ยังไม่สม่ำเสมอ',
       (ForecastHorizon.next12Months, ForecastDomain.relationship) =>
         known
-            ? 'ปีข้างหน้าให้ดูว่าข้อตกลงที่พูดไว้เกิดขึ้นต่อเนื่องเพียงใด'
-            : 'ปีข้างหน้าให้ยึดพฤติกรรมที่เกิดซ้ำมากกว่าคำมั่นเพียงครั้งเดียว',
+            ? 'ปีข้างหน้าความสัมพันธ์เป็นเรื่องเด่น ข้อตกลงที่ค้างอยู่มีแนวโน้มถูกนำมาพูดให้ชัด และเปิดทางให้ความสัมพันธ์มั่นคงขึ้นหากทั้งสองฝ่ายแบ่งเวลาได้จริง'
+            : 'ปีข้างหน้าความสัมพันธ์มีแนวโน้มชัดจากพฤติกรรมที่เกิดซ้ำ คนที่พร้อมจะค่อย ๆ แสดงความสม่ำเสมอมากกว่าพูดคำมั่นครั้งเดียว',
       (ForecastHorizon.next12Months, ForecastDomain.health) =>
         known
-            ? 'ปีข้างหน้าให้เทียบคุณภาพการพักระหว่างเดือนเบากับเดือนที่ภาระสูง'
-            : 'บันทึกการนอนและความล้าระหว่างเดือนเบากับเดือนหนัก',
+            ? 'ปีข้างหน้าภาระที่เพิ่มขึ้นอาจทำให้การพักไม่เป็นเวลา หากรักษาจังหวะฟื้นตัวได้ พลังงานจะกลับมาสม่ำเสมอและรองรับงานใหม่ได้ดีขึ้น'
+            : 'ปีข้างหน้าความล้าจะสะท้อนชัดเมื่อหน้าที่หลายด้านมาชนกัน แต่ยังไม่ควรตีความเป็นข้อสรุปสุขภาพจากเรือนหรือดาว',
       (ForecastHorizon.nextLifePeriod, ForecastDomain.career) =>
         known
-            ? 'ช่วงชีวิตถัดไปเปลี่ยนจากการรับงานเพิ่ม เป็นการเลือกบทบาทที่จะรักษาหรือส่งต่อ'
+            ? 'ช่วงชีวิตถัดไปบทบาทของคุณจะเปลี่ยนจากการรับงานเพิ่มไปสู่การคุมทิศทาง โอกาสอยู่ที่การเก็บงานซึ่งใช้ประสบการณ์สูงและลดงานที่กระจายแรง'
             : 'ช่วงถัดไปให้ใช้รูปแบบงานที่ทำซ้ำได้จริงช่วยเลือกสิ่งที่จะรักษาหรือส่งต่อ',
       (ForecastHorizon.nextLifePeriod, ForecastDomain.finance) =>
         known
             ? 'ช่วงชีวิตถัดไปต้องให้น้ำหนักกับภาระระยะยาวและเงินรองรับการเปลี่ยนผ่าน'
-            : 'ใช้ค่าใช้จ่ายจริงจำลองภาระระยะยาวก่อนผูกพัน',
+            : 'ช่วงถัดไปฐานการเงินมีแนวโน้มเปลี่ยนตามหน้าที่ใหม่ ภาระระยะยาวจึงควรเกิดหลังรายรับจริงเริ่มนิ่ง',
       (ForecastHorizon.nextLifePeriod, ForecastDomain.relationship) =>
         known
-            ? 'ช่วงชีวิตถัดไปต้องคุยเรื่องเวลา หน้าที่ และพื้นที่ส่วนตัวที่ใช้ร่วมกันได้จริง'
-            : 'ทดลองตารางชีวิตร่วมกันระยะสั้นก่อนตัดสินใจเรื่องใหญ่',
+            ? 'ช่วงชีวิตถัดไปความสัมพันธ์ต้องปรับตามภาระชุดใหม่ ความคลุมเครือเรื่องบทบาทอาจสร้างระยะห่าง แต่การวางชีวิตร่วมกันอย่างเป็นรูปธรรมจะเพิ่มความมั่นคง'
+            : 'ช่วงถัดไปความสัมพันธ์ที่ไปต่อได้จะต้องรับจังหวะชีวิตใหม่ของทั้งสองฝ่าย ความชัดเรื่องเวลาและหน้าที่จะสำคัญกว่าคำสัญญา',
       (ForecastHorizon.nextLifePeriod, ForecastDomain.health) =>
         known
-            ? 'ช่วงชีวิตถัดไปต้องมีกิจวัตรพักฟื้นที่ทำต่อได้แม้ภาระเปลี่ยน'
-            : 'ทดลองรูปแบบวันทำงานและวันพักจากข้อมูลร่างกายจริง',
+            ? 'ช่วงชีวิตถัดไปพลังงานมีแนวโน้มขึ้นลงตามภาระที่เปลี่ยน หากเร่งรับทุกอย่างพร้อมกัน ความล้าจะสะสมเร็วกว่าช่วงปัจจุบัน'
+            : 'ช่วงถัดไปพลังงานอาจเปลี่ยนตามภาระชุดใหม่ ร่างกายจะตอบสนองดีขึ้นเมื่อวันทำงานและวันพักมีจังหวะที่คงเส้นคงวา',
     };
     // The source body remains an input to the typed material pipeline, while
     // reader-facing selection is owned by the evidence allocation above.
@@ -814,80 +814,40 @@ abstract final class ThaiBetaNarrativeComposer {
     String claim,
     String action,
   ) {
-    if (plan.evidenceAvailability == ForecastEvidenceAvailability.noLagna) {
+    if (plan.evidenceAvailability == ForecastEvidenceAvailability.noLagna &&
+        plan.horizon == ForecastHorizon.next12Months) {
       final observation = switch ((plan.horizon, plan.intent)) {
-        (ForecastHorizon.next12Months, ForecastDecisionIntent.protectCoreWork) =>
-          'กรอบสังเกตหนึ่งปี: จดว่างานชนิดใดส่งมอบได้จริง และงานชนิดใดกินเวลาโดยไม่เกิดผลงาน',
+        (
+          ForecastHorizon.next12Months,
+          ForecastDecisionIntent.protectCoreWork,
+        ) =>
+          'งานที่ทำต่อเนื่องมีแนวโน้มเปิดหน้าที่ใหม่ แต่ยังไม่ควรฟันธงตำแหน่งจากดวง ให้เลือกต่อยอดจากงานที่เห็นผลจริง',
         (
           ForecastHorizon.next12Months,
           ForecastDecisionIntent.preserveLiquidity,
         ) =>
-          'กรอบสังเกตหนึ่งปี: เทียบรายรับ รายจ่ายจำเป็น และเงินคงเหลือจากตัวเลขจริงทุกสามเดือน',
+          'รายรับที่เกิดขึ้นจริงมีแนวโน้มชัดขึ้นพร้อมภาระจำเป็น รักษาเงินพร้อมใช้ก่อนเพิ่มข้อผูกพันระยะยาว',
         (
           ForecastHorizon.next12Months,
           ForecastDecisionIntent.clarifyCommitment,
         ) =>
-          'กรอบสังเกตหนึ่งปี: บันทึกข้อตกลงที่ทั้งสองฝ่ายทำได้จริง โดยยังไม่สรุปอนาคตจากคำพูดครั้งเดียว',
+          'ความสัมพันธ์มีแนวโน้มชัดขึ้นจากความสม่ำเสมอ หากการกระทำตรงกับคำพูดจึงค่อยเพิ่มข้อตกลงร่วมกัน',
         (
           ForecastHorizon.next12Months,
           ForecastDecisionIntent.preserveRecovery,
         ) =>
-          'กรอบสังเกตหนึ่งปี: เก็บเวลานอน วันพัก และระดับความล้าจริง เพื่อเห็นว่าตารางแบบใดทำต่อได้',
+          'ภาระที่ชนกันอาจทำให้พักไม่พอ จัดวันพักให้คงที่และลดตารางทันทีเมื่อความล้าเริ่มสะสม',
         _ => '',
       };
       if (observation.isNotEmpty) return observation;
     }
-    final observableOrPriority = switch ((plan.horizon, plan.intent)) {
-      (ForecastHorizon.current, ForecastDecisionIntent.protectCoreWork) =>
-        'จุดชี้ขาดอยู่ที่พื้นที่ของงานหลัก',
-      (ForecastHorizon.current, ForecastDecisionIntent.preserveLiquidity) =>
-        'สิ่งที่ต้องเห็นให้ชัดคือเงินที่เหลือหลังภาระประจำ',
-      (ForecastHorizon.current, ForecastDecisionIntent.clarifyCommitment) =>
-        'ให้ดูว่าคำพูดกับการกระทำของทั้งสองฝ่ายไปทางเดียวกันหรือไม่',
-      (ForecastHorizon.current, ForecastDecisionIntent.preserveRecovery) =>
-        'สัญญาณจากการนอนและการฟื้นตัวจะบอกจังหวะที่เหมาะกว่า',
-      (ForecastHorizon.next12Months, ForecastDecisionIntent.protectCoreWork) =>
-        'ตลอดปีให้วัดจากคุณภาพงานเดิม ไม่ใช่จำนวนบทบาทใหม่',
-      (
-        ForecastHorizon.next12Months,
-        ForecastDecisionIntent.preserveLiquidity,
-      ) =>
-        'ระยะเงินพร้อมใช้ในแต่ละไตรมาสจะเป็นหลักตัดสินใจ',
-      (
-        ForecastHorizon.next12Months,
-        ForecastDecisionIntent.clarifyCommitment,
-      ) =>
-        'ความสม่ำเสมอตลอดปีสำคัญกว่าคำมั่นเพียงครั้งเดียว',
-      (ForecastHorizon.next12Months, ForecastDecisionIntent.preserveRecovery) =>
-        'ติดตามคุณภาพการพักในสัปดาห์ที่ภาระสูงเป็นพิเศษ',
-      (
-        ForecastHorizon.nextLifePeriod,
-        ForecastDecisionIntent.protectCoreWork,
-      ) =>
-        'ก่อนเปลี่ยนช่วงชีวิต ต้องรู้ว่างานใดจะทำต่อ งานใดจะส่งต่อ',
-      (
-        ForecastHorizon.nextLifePeriod,
-        ForecastDecisionIntent.preserveLiquidity,
-      ) =>
-        'เงินสำรองช่วงเปลี่ยนผ่านควรรับภาระได้โดยไม่บีบทางเลือก',
-      (
-        ForecastHorizon.nextLifePeriod,
-        ForecastDecisionIntent.clarifyCommitment,
-      ) =>
-        'บทสนทนาเรื่องเวลา หน้าที่ และพื้นที่ส่วนตัวต้องเกิดก่อนเปลี่ยนช่วง',
-      (
-        ForecastHorizon.nextLifePeriod,
-        ForecastDecisionIntent.preserveRecovery,
-      ) =>
-        'กิจวัตรที่ทำต่อได้จริงควรถูกเตรียมก่อนภาระชุดใหม่เริ่ม',
-    };
     // Typed claim/risk/decision/action values stay available on the model, but
     // reader-facing copy deliberately selects only what this horizon needs.
     // This prevents the hidden field schema from reappearing as a fragment
     // chain inside one long paragraph.
     return switch (plan.horizon) {
       ForecastHorizon.current => '$claim\n$action',
-      ForecastHorizon.next12Months => '$claim $observableOrPriority',
+      ForecastHorizon.next12Months => '$claim $action',
       ForecastHorizon.nextLifePeriod => '$claim $action',
     };
   }
@@ -986,7 +946,7 @@ abstract final class ThaiBetaNarrativeComposer {
           ForecastHorizon.nextLifePeriod,
           ForecastDecisionIntent.preserveRecovery,
         ) =>
-          'ทดลองวันทำงานและวันพักแบบช่วงใหม่ก่อนย้ายภาระทั้งหมด',
+          'กันเวลาฟื้นตัวไว้ก่อนรับภาระชุดใหม่ และลดสิ่งที่เบียดเวลานอนเป็นอันดับแรก',
       };
       return observationAction;
     }

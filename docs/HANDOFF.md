@@ -1,5 +1,7 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+**2026-08-12 owner-rejection revision:** do not use r6 for acceptance. Its audit omitted within-report and same-passage comparison. Candidate-r14 is the current inspected candidate: Known 6 pages, Unknown 5 pages, explicit continuation headings, Web/PDF canonical parity, and corrected complete audit at zero substantive violations. Status remains **PENDING OWNER RE-ACCEPTANCE**.
+
 Status: `PENDING OWNER RE-ACCEPTANCE` after the Owner rejected V1.1 in Round 2 for formulaic internal fragment chains and visibly broken Known PDF pagination on pages 6–8.
 
 This draft responds to Owner feedback that the Production Round 9 report still reads too formally and introduces methodology too early. The new flow opens with the reader’s identity, strengths/cautions/actions, and life domains; then moves through life map, past, present, 12-month, next-period, and long-term views. Calculation method, Thai astrological-day detail, chart structure, provenance, and limitations are placed in collapsed controls at the end of Web and in the final transparency portion of PDF.

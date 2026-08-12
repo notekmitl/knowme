@@ -164,7 +164,7 @@ def main() -> int:
                     "text_containment": "pass", "footers": "pass"}, indent=2) + "\n",
         encoding="utf-8")
     (root / "MANIFEST.md").write_text(
-        "# PR #89 V1.4 final acceptance candidate r6\n\n"
+        "# PR #89 V1.4 owner-rejection revision candidate r15\n\n"
         f"- Implementation commit: `{args.commit}`\n"
         "- Baseline: `23fe2c2fc8a9c5089e7e39b920acb01526fde308`\n"
         "- Known fixture: `1982-06-06 00:03 Chiang Mai`\n"
@@ -193,7 +193,7 @@ def main() -> int:
         with zipfile.ZipFile(args.zip, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
             for path in sorted(root.rglob("*")):
                 if path.is_file():
-                    archive.write(path, Path("thai-report-natural-narrative-v1-4-final-r6") / path.relative_to(root))
+                    archive.write(path, Path("thai-report-natural-narrative-v1-4-final-r15") / path.relative_to(root))
         with zipfile.ZipFile(args.zip) as archive:
             names = archive.namelist()
             if len(names) != len(set(names)) or any(name.startswith(("/", "\\")) or ".." in Path(name).parts or re.match(r"^[A-Za-z]:", name) for name in names):

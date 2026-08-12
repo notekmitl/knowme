@@ -1,5 +1,11 @@
 # PR #89 V1.4 Root-Cause Record
 
+## Owner rejection of final r6 (2026-08-12)
+
+The r6 audit compared Known lines only with Unknown lines, so it missed repeated instructions inside one Unknown passage: expense simulation, a shared-schedule trial, and a work/rest trial. The replacement audit separately reports cross-fixture, Known-internal, Unknown-internal, and same-paragraph clause/advice-stem results with inspectable locations and enumerated exceptions. Candidate-r2 fails, r6 fails with 4 substantive violations, and candidate-r14 passes with 0.
+
+The narrative correction uses supported tendency → manifestation → opportunity/pressure → response. Deterministic semantic continuation boundaries put `โครงสร้างดวงหลัก — ต่อ` on Known page 6 and `รายงานนี้ดูจากอะไร — ต่อ` on Unknown page 5. Counts remain 6/5; all pages were inspected, and final-page whitespace is reduced without splitting the limitation card. Status remains **PENDING OWNER RE-ACCEPTANCE**.
+
 Recorded before V1.4 implementation on August 11, 2026.
 
 ## Owner decision and verified packet
