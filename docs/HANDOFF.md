@@ -47,3 +47,5 @@ Do not merge, deploy or alter Production until that decision is explicit.
 # Handoff — V1.5 R2 owner review
 
 Review `product-acceptance/thai-narrative-v1.5-r2/evidence/owner-known-0035-report.pdf` and `owner-unknown-report.pdf`. The 00:03 PDF is regression evidence only. R1 is rejected and preserved. Keep PR #92 Draft; do not merge or deploy until explicit owner acceptance. Production remains V1.4.
+
+Use the corrected R2 ZIP with SHA-256 `610E69A38E2CA012BE4698E266E465EA8B17F44275761812050854A47F9B36CD`. Its README and five contact sheets cover all 30 final page renders. PDF bytes are unchanged, and the exact focused suite reran at 261/261.

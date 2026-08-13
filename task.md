@@ -57,4 +57,8 @@ domain syntheses and prioritised advice. Owner Acceptance is pending. Do not
 merge or deploy; V1.4 remains live.
 # V1.5 R2 owner-rejection recovery (2026-08-12)
 
+## Acceptance-evidence correction (2026-08-13)
+
+The final R2 packet corrects the rendered-page count from 29 to 30 and rebuilds all five contact sheets from the final six-page renders. PDFs, narrative source and tests are unchanged. The exact focused command was rerun at 261 passed / 0 failed / exit 0. Final ZIP SHA-256: `610E69A38E2CA012BE4698E266E465EA8B17F44275761812050854A47F9B36CD`. PR #92 remains Draft; Owner Acceptance is pending; no merge/deploy; Production remains V1.4.
+
 R1 owner acceptance is rejected. Its stale focused log contradicted the summary. R2 restores all four domains in all three horizons, adds evidence-signature Claim Ledger and a new acceptance packet. PR #92 remains Draft; owner acceptance is pending; no merge/deploy; Production remains V1.4.

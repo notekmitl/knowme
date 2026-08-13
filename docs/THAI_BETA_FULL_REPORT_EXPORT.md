@@ -256,4 +256,6 @@ restating its interpretation. Proposed 00:03 Chiang Mai Known and Unknown PDFs
 are in `product-acceptance/thai-narrative-v1.5-r1/`; Owner Acceptance is pending.
 # V1.5 R2 export acceptance note
 
+Acceptance-evidence correction (2026-08-13): the README now reports 30 rendered pages and all five contact sheets were rebuilt from the final page PNGs. PDF bytes and exporter source are unchanged. The exact focused suite reran at 261/261. Corrected R2 ZIP SHA-256: `610E69A38E2CA012BE4698E266E465EA8B17F44275761812050854A47F9B36CD`.
+
 R2 exports use 6 pages for both Known and Unknown after evidence cues were added, restore 12 domain/horizon blocks, add a synthesis before methodology, and preserve byte-identical Web/PDF canonical text. Owner 00:35 is the primary Known fixture; 00:03 is regression-only. See `product-acceptance/thai-narrative-v1.5-r2/`.

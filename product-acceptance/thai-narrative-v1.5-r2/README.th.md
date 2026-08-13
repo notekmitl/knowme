@@ -6,4 +6,6 @@ PDF หลักที่ owner ควรอ่านคือ `evidence/owner-k
 
 ผลสำคัญ: owner 00:35 = ลัคนาราศีกุมภ์ 19°19′, regression 00:03 = ลัคนาราศีกุมภ์ 9°24′, Unknown-time ไม่สร้างลัคนา/เรือน/วันโหราศาสตร์จากเวลาสมมติ และทุก horizon มีงาน เงิน ความรัก สุขภาพครบ
 
-ดู Claim Ledger, coverage matrix, root cause, before/after, unsupported-claim disposition, parity, geometry, test และ analyzer evidence ในโฟลเดอร์ `evidence/` ส่วนภาพ render ครบ 29 หน้าอยู่ใน `renders/`
+หลักฐาน R1 แยกชัดเจน: `evidence/r1-focused-failing-historical.log` คือ log เดิม 253 ผ่าน / 8 ล้มเหลว, `evidence/r1-failure-index.md` อธิบาย failure ทั้งแปด และ `evidence/r1-command-reproduction.log` คือการรันภายหลังที่ผ่าน 261/261 ซึ่งยืนยันสาเหตุของ test-log contradiction
+
+ดู Claim Ledger, coverage matrix, root cause, before/after, unsupported-claim disposition, parity, geometry, test และ analyzer evidence ในโฟลเดอร์ `evidence/` ส่วนภาพ render ครบ 30 หน้าอยู่ใน `renders/`

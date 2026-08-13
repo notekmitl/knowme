@@ -267,4 +267,6 @@ Items documented as future in master context or specs — **not yet active prior
 - [ ] Merge/deploy only under a separate explicit owner instruction.
 # V1.5 R2 gate
 
+R2 evidence correction (2026-08-13): all five contact sheets now derive from the final 30 page renders and the README count is corrected. The PDFs/source are unchanged; focused validation remains 261/261. Corrected ZIP SHA-256: `610E69A38E2CA012BE4698E266E465EA8B17F44275761812050854A47F9B36CD`.
+
 Current gate: owner acceptance of R2 Known 00:35 and Unknown PDFs. Merge and deployment remain out of scope; Production remains V1.4.
