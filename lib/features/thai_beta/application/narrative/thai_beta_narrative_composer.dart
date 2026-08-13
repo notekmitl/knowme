@@ -10,6 +10,7 @@ import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 
 import 'thai_beta_curated_narrative_block.dart';
 import 'thai_beta_narrative_context.dart';
+import 'thai_beta_report_narrative_plan.dart';
 import 'thai_beta_narrative_dedupe.dart';
 import 'thai_beta_narrative_domain.dart';
 import 'thai_beta_narrative_formatting.dart';
@@ -78,6 +79,10 @@ abstract final class ThaiBetaNarrativeComposer {
     }
 
     final ctx = ThaiBetaNarrativeContext.fromAnalysis(analysis);
+    final reportPlan = ThaiBetaReportNarrativePlan.fromPrediction(
+      prediction: source.futurePrediction,
+      context: ctx,
+    );
     final globalUsed = <String>{};
     final usedBlockIds = <String>{};
     var trace = const ThaiBetaNarrativeTrace();
@@ -130,6 +135,7 @@ abstract final class ThaiBetaNarrativeComposer {
       core: coreResult.insight,
       timeline: source.lifeTimeline,
       hasBirthTime: ctx.hasBirthTime,
+      reportPlan: reportPlan,
     );
 
     final strengths = strengthsResult.section;
@@ -222,7 +228,7 @@ abstract final class ThaiBetaNarrativeComposer {
           .map(ThaiBetaNarrativeFormatting.normalize)
           .toList(),
       lifeTimeline: _differentiateTimelineDomains(source.lifeTimeline),
-      futurePrediction: _polishPrediction(source.futurePrediction),
+      futurePrediction: _polishPrediction(source.futurePrediction, reportPlan),
     );
 
     return ThaiBetaNarrativeResult(view: view, trace: trace);
@@ -332,25 +338,42 @@ abstract final class ThaiBetaNarrativeComposer {
             return claim;
           }
 
-          final allocatedSummary = startAge >= 69
+          final pastSynthesis = period.isPast
+              ? _cautiousPastSynthesis(period)
+              : null;
+          final allocatedSummary = pastSynthesis != null
+              ? pastSynthesis.$1
+              : startAge >= 69
               ? ''
               : allocatePeriodClaim(period.summary);
-          final allocatedChange = startAge >= 69
+          final allocatedChange = pastSynthesis != null
+              ? pastSynthesis.$2
+              : startAge >= 69
               ? ''
               : allocatePeriodClaim(period.whatChanges);
-          final allocatedEasier = startAge >= 69
+          final allocatedEasier = pastSynthesis != null
+              ? ''
+              : startAge >= 69
               ? ''
               : allocatePeriodClaim(period.easier);
-          final allocatedHarder = startAge >= 69
+          final allocatedHarder = pastSynthesis != null
+              ? ''
+              : startAge >= 69
               ? ''
               : allocatePeriodClaim(period.harder);
-          final allocatedComparison = startAge >= 69
+          final allocatedComparison = pastSynthesis != null
+              ? ''
+              : startAge >= 69
               ? ''
               : allocatePeriodClaim(period.comparison);
-          final allocatedEvidence = startAge >= 69
+          final allocatedEvidence = pastSynthesis != null
+              ? ''
+              : startAge >= 69
               ? ''
               : allocatePeriodClaim(period.evidenceLine);
-          final allocatedAdvice = startAge >= 69
+          final allocatedAdvice = pastSynthesis != null
+              ? ''
+              : startAge >= 69
               ? ''
               : allocatePeriodClaim(period.advice);
           return ThaiMirrorLifePeriodState(
@@ -379,7 +402,17 @@ abstract final class ThaiBetaNarrativeComposer {
             mahabhutShownOnReport: period.mahabhutShownOnReport,
             subPeriods: period.subPeriods,
             annualTaksaYears: period.annualTaksaYears,
-            lifeDomains: List.unmodifiable(domains),
+            lifeDomains: period.isPast
+                ? List.unmodifiable(
+                    domains.map(
+                      (domain) => ThaiMirrorLifeDomainBlock(
+                        title: domain.title,
+                        body: _cautiousPastDomainBody(period, domain.title),
+                        evidenceKeys: domain.evidenceKeys,
+                      ),
+                    ),
+                  )
+                : List.unmodifiable(domains),
           );
         })
         .where(_hasConsumerTimelineContent)
@@ -409,6 +442,57 @@ abstract final class ThaiBetaNarrativeComposer {
             ),
       detailedReport: timeline.detailedReport,
     );
+  }
+
+  static (String, String) _cautiousPastSynthesis(
+    ThaiMirrorLifePeriodState period,
+  ) {
+    final topics = period.lifeDomains
+        .map((domain) => domain.title.trim())
+        .where((title) => title.isNotEmpty)
+        .toSet()
+        .take(2)
+        .join('และ');
+    final focus = topics.isEmpty ? period.keyword.trim() : topics;
+    final theme = period.keyword.trim().isEmpty
+        ? 'การเปลี่ยนแปลงตามช่วงวัย'
+        : period.keyword.trim();
+    return (
+      'เมื่อมองย้อนกลับ ${period.phaseName}ชวนให้ทบทวนธีม$theme'
+          '${focus.isEmpty ? '' : 'ผ่านเรื่อง$focus'} '
+          'นี่เป็นกรอบตั้งคำถาม ไม่ใช่ข้อสรุปว่าเหตุการณ์ใดเกิดขึ้นจริง',
+      'ลองถามตัวเองว่าในวัย ${period.ageLabel} '
+          'ประสบการณ์ใดทำให้มุมมองต่อ${focus.isEmpty ? 'ชีวิต' : focus}เปลี่ยนไปจริง ๆ',
+    );
+  }
+
+  static String _cautiousPastDomainBody(
+    ThaiMirrorLifePeriodState period,
+    String domainTitle,
+  ) {
+    final theme = period.keyword.trim().isEmpty
+        ? 'การเปลี่ยนแปลงตามช่วงวัย'
+        : period.keyword.trim();
+    return switch (domainTitle) {
+      'การงาน' =>
+        'ธีม$themeใน${period.phaseName}ชวนย้อนดูว่า '
+            'การเรียน งาน หรือหน้าที่แบบใดเคยเปลี่ยนวิธีที่คุณเลือกใช้แรง '
+            'คำถามนี้ไม่ยืนยันว่าเหตุการณ์นั้นเกิดขึ้นจริง',
+      'การเงิน' =>
+        'เมื่อนึกถึง${period.phaseName}ผ่านธีม$theme '
+            'ลองทบทวนว่าวิธีใช้ เก็บ หรือแบ่งทรัพยากรของคุณเปลี่ยนตรงไหน '
+            'ให้ยึดความทรงจำจริงแทนการเติมเรื่องจากคำอ่าน',
+      'ความรัก' || 'ความสัมพันธ์' =>
+        'สำหรับ${period.phaseName} ธีม$themeอาจใช้เป็นคำถามเรื่องความไว้ใจและขอบเขต '
+            'อะไรในประสบการณ์จริงทำให้คุณเข้าใจความสัมพันธ์ต่างจากเดิม',
+      'สุขภาพ' =>
+        'หากมอง${period.phaseName}ผ่านธีม$theme '
+            'ลองนึกว่าจังหวะพักและการใช้พลังแบบใดเคยเหมาะกับคุณ '
+            'นี่ไม่ใช่ข้อสรุปด้านสุขภาพหรือคำบอกว่าเคยเกิดอะไรขึ้น',
+      _ =>
+        'ธีม$themeใน${period.phaseName}เป็นเพียงคำถามให้เทียบกับประสบการณ์จริง '
+            'ไม่ใช่ข้อสรุปว่าเหตุการณ์ใดเกิดขึ้น',
+    };
   }
 
   static bool _hasConsumerTimelineContent(ThaiMirrorLifePeriodState period) =>
@@ -564,6 +648,7 @@ abstract final class ThaiBetaNarrativeComposer {
 
   static PredictionSectionModel? _polishPrediction(
     PredictionSectionModel? prediction,
+    ThaiBetaReportNarrativePlan reportPlan,
   ) {
     if (prediction == null) return null;
     final windows = <PredictionWindowCardModel>[];
@@ -577,6 +662,7 @@ abstract final class ThaiBetaNarrativeComposer {
               sourceBody: domain.body,
               sourceCaution: domain.caution,
               material: domain.material!,
+              reportPlan: reportPlan,
             );
           })
           .where(
@@ -612,17 +698,9 @@ abstract final class ThaiBetaNarrativeComposer {
         ),
       );
     }
-    final priorities = windows
-        .expand((window) => window.domains)
-        .map((domain) => domain.preparationAction.trim())
-        .where((action) => action.isNotEmpty)
-        .toSet()
-        .take(3)
-        .toList(growable: false);
-    final strongEnding = priorities.isEmpty
-        ? prediction.detailedClosingAdvice
-        : 'สรุปแล้ว ทิศทางไม่ได้อยู่ที่การทำให้มากขึ้น แต่อยู่ที่ลำดับนี้: '
-              '1) รักษาคุณภาพงาน 2) กันเงินและพื้นที่ตัดสินใจ 3) รักษาขอบเขตความสัมพันธ์และเวลาฟื้นตัว';
+    final strongEnding =
+        'สรุปแล้ว ให้ใช้${ThaiBetaReportNarrativePlan.domainLabel(reportPlan.primary)}เป็นแกน '
+        'และตรวจว่า${ThaiBetaReportNarrativePlan.boundaryLabel(reportPlan.secondary)}ก่อนขยับทุกครั้ง';
     return PredictionSectionModel(
       sectionTitle: prediction.sectionTitle,
       sectionIntro: prediction.sectionIntro,
@@ -635,29 +713,29 @@ abstract final class ThaiBetaNarrativeComposer {
   }
 
   static String _forecastClaim(String sourceBody, ForecastDecisionPlan plan) {
-    final strength = switch (plan.band) {
-      ForecastBand.strong => 'น้ำหนักเด่น',
-      ForecastBand.active => 'น้ำหนักปานกลาง',
-      ForecastBand.quiet => 'น้ำหนักเบา',
+    final posture = switch (plan.band) {
+      ForecastBand.strong => 'มีแรงส่งให้ขยับได้',
+      ForecastBand.active => 'ยังขยับได้เมื่อเลือกจังหวะ',
+      ForecastBand.quiet => 'ควรชะลอการขยายและแก้ข้อจำกัดเดิมก่อน',
     };
     final known =
         plan.evidenceAvailability == ForecastEvidenceAvailability.full;
     final claim = switch ((plan.horizon, plan.domain)) {
       (ForecastHorizon.current, ForecastDomain.career) =>
         known
-            ? 'ตอนนี้เรื่องขอบเขตงานมี$strength เลือกรับเฉพาะภาระที่ไม่เบียดคุณภาพงานหลัก'
+            ? 'ตอนนี้งาน$posture เลือกรับเฉพาะภาระที่ไม่เบียดคุณภาพงานหลัก'
             : 'ช่วงนี้ให้ดูภาระงานที่เกิดขึ้นจริง ยังสรุปบทบาทหรือความก้าวหน้าจากเรือนการงานไม่ได้',
       (ForecastHorizon.current, ForecastDomain.finance) =>
         known
-            ? 'เงินที่ต้องพร้อมใช้มี$strengthกว่าการเพิ่มภาระระยะยาวในตอนนี้'
+            ? 'ตอนนี้การเงิน$posture แต่เงินพร้อมใช้ต้องมาก่อนภาระระยะยาว'
             : 'ให้ตัดสินใจจากรายรับรายจ่ายจริง เพราะยังสรุปฐานะหรือรายได้จากเรือนการเงินไม่ได้',
       (ForecastHorizon.current, ForecastDomain.relationship) =>
         known
-            ? 'ข้อตกลงที่ชัดเจนมี$strengthต่อความสัมพันธ์ในช่วงนี้'
+            ? 'ตอนนี้ความสัมพันธ์$posture เมื่อข้อตกลงชัดและทั้งสองฝ่ายทำได้จริง'
             : 'ให้ดูความสม่ำเสมอที่เกิดขึ้นจริง โดยยังไม่สรุปความสัมพันธ์จากเรือนคู่ครอง',
       (ForecastHorizon.current, ForecastDomain.health) =>
         known
-            ? 'การพักและการฟื้นตัวมี$strengthในช่วงนี้'
+            ? 'ตอนนี้กำลังของคุณ$posture ตราบใดที่การพักยังฟื้นแรงได้ทัน'
             : 'ให้ติดตามการนอนและความล้าจริง โดยยังไม่สรุปภาวะร่างกายจากเรือนสุขภาพ',
       (ForecastHorizon.next12Months, ForecastDomain.career) =>
         known
@@ -790,6 +868,7 @@ abstract final class ThaiBetaNarrativeComposer {
     required String sourceCaution,
     required ForecastMaterialFingerprint material,
     ForecastDecisionIntent? decisionIntent,
+    ThaiBetaReportNarrativePlan? reportPlan,
   }) {
     final plan = ForecastDecisionPlan.fromMaterial(
       material,
@@ -806,17 +885,11 @@ abstract final class ThaiBetaNarrativeComposer {
         plan.evidenceAvailability == ForecastEvidenceAvailability.noLagna
         ? 'คำอ่านนี้ไม่มีหลักฐานลัคนา จึงใช้เป็นกรอบสังเกตและไม่ฟันธง'
         : '';
-    final evidenceFrame = [
-      switch (plan.band) {
-        ForecastBand.strong => 'น้ำหนักเด่น',
-        ForecastBand.active => 'น้ำหนักปานกลาง',
-        ForecastBand.quiet => 'น้ำหนักเบา',
-      },
-      if (plan.spansTransition) 'คาบเกี่ยวรอยต่อ',
-    ].join(' · ');
+    final reportDelta = reportPlan?.horizonDelta(plan) ?? '';
+    final body = _naturalForecastBody(plan, claim, action);
     return PredictionDomainModel(
       title: title,
-      body: '${_naturalForecastBody(plan, claim, action)} ($evidenceFrame)',
+      body: reportDelta.isEmpty ? body : '$body $reportDelta',
       caution: '',
       claim: claim,
       risk: risk,

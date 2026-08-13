@@ -62,3 +62,7 @@ merge or deploy; V1.4 remains live.
 The final R2 packet corrects the rendered-page count from 29 to 30 and rebuilds all five contact sheets from the final six-page renders. PDFs, narrative source and tests are unchanged. The exact focused command was rerun at 261 passed / 0 failed / exit 0. Final ZIP SHA-256: `610E69A38E2CA012BE4698E266E465EA8B17F44275761812050854A47F9B36CD`. PR #92 remains Draft; Owner Acceptance is pending; no merge/deploy; Production remains V1.4.
 
 R1 owner acceptance is rejected. Its stale focused log contradicted the summary. R2 restores all four domains in all three horizons, adds evidence-signature Claim Ledger and a new acceptance packet. PR #92 remains Draft; owner acceptance is pending; no merge/deploy; Production remains V1.4.
+
+# V1.5 R3 owner-acceptance recovery (2026-08-13)
+
+`V1.5 R2 OWNER ACCEPTANCE REJECTED`. R3 replaces the block-level paraphrase path with an evidence-led report plan, opens Known/Unknown with a report-specific “ลายเซ็นของคำอ่าน”, separates horizon functions, removes system labels, and turns past biography-like assertions into cautious reflection. Final gates report 4×3 coverage, zero internal exact duplicates/callback-without-delta/system-language/unsupported-biography hits, and 0/26 exact strong-claim reuse across materially different fixtures. PR #92 stays Draft; no merge/deploy; Production remains V1.4.

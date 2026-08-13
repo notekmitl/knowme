@@ -49,3 +49,7 @@ Do not merge, deploy or alter Production until that decision is explicit.
 Review `product-acceptance/thai-narrative-v1.5-r2/evidence/owner-known-0035-report.pdf` and `owner-unknown-report.pdf`. The 00:03 PDF is regression evidence only. R1 is rejected and preserved. Keep PR #92 Draft; do not merge or deploy until explicit owner acceptance. Production remains V1.4.
 
 Use the corrected R2 ZIP with SHA-256 `610E69A38E2CA012BE4698E266E465EA8B17F44275761812050854A47F9B36CD`. Its README and five contact sheets cover all 30 final page renders. PDF bytes are unchanged, and the exact focused suite reran at 261/261.
+
+# Handoff — V1.5 R3 owner review
+
+`V1.5 R2 OWNER ACCEPTANCE REJECTED`; keep the R2 packet only as immutable historical evidence. Review R3 at `product-acceptance/thai-narrative-v1.5-r3/`, starting with `owner-known-0035-report.pdf` and `owner-unknown-report.pdf`. Both are 6 pages; the 00:03 PDF is regression evidence only. Machine metrics, raw focused output, all 30 page renders and five contact sheets are included. Automated evidence is supporting material, not Owner Acceptance. Keep PR #92 Draft; do not merge or deploy; Production remains V1.4.

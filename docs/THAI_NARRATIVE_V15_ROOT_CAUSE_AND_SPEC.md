@@ -53,3 +53,11 @@ synonyms cannot evade the gate.
 
 Do not merge or deploy until the owner has read the proposed PDFs and explicitly
 accepted narrative quality.
+
+## R3 correction after Owner rejection
+
+`V1.5 R2 OWNER ACCEPTANCE REJECTED`. R2's fixed per-horizon/domain sentence table restored completeness but produced 60/84 exact-reused strong-claim instances (71.43%), or 36/66 (54.55%) after the explicitly justified 00:03 twin was removed. Matching evidence signatures were incorrectly treated as freshness exemptions.
+
+R3 adds `ThaiBetaReportNarrativePlan`, which ranks typed forecast material across the whole report, selects at most two motifs, and generates one hook with a central tension, consequence and decision question. Forecast prose consumes that plan so current, 12-month and next-period copy answer different questions. Theme, risk boundary, evidence availability and life-period context—not random synonyms—create material variation.
+
+Consumer prose must have zero rejected system-label hits, zero exact duplicate bodies within a report, zero callbacks without new-information delta and zero unsupported biography patterns. Past periods are reflective questions grounded in period/theme/domain metadata; they must not claim an event happened. Exact strong-claim reuse for materially different fixtures must be ≤25%, with the 00:03 pair documented explicitly and no domain-signature blanket exemption.

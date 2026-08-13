@@ -1,0 +1,2163 @@
+{
+ "schema": "knowme-claim-ledger-v1.5-r3",
+ "policy": {
+  "domainSignatureBlanketExemptions": false,
+  "callbacksRequireNewInformation": true,
+  "consumerSystemLabelsAllowed": false
+ },
+ "justifiedTwins": [
+  {
+   "left": "owner-known-0035",
+   "right": "regression-known-0003",
+   "scope": "only claims with identical complete evidence and rendered text",
+   "reason": "the 00:03 regression fixture is retained as an explicit boundary twin; it is excluded only claim-by-claim, never by domain signature"
+  }
+ ],
+ "claims": [
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "core:computed:lagna-identity-frame",
+   "completeEvidenceSignature": "ThaiAstrologyProfile.lagnaKey=lagna_aquarius|ThaiAstrologyProfile.lagnaLordKey=lagna_lord_saturn|ThaiMirrorResult.sections[core_self].supportingThemes[themeId=disciplined].score=1.195|ThaiMirrorResult.sections[core_self].supportingThemes[themeId=disciplined].themeId=disciplined|ThaiMirrorResult.sections[core_self].supportingThemes[themeId=disciplined].themeName=Disciplined",
+   "evidenceKeys": [
+    "ThaiAstrologyProfile.lagnaKey",
+    "ThaiAstrologyProfile.lagnaLordKey",
+    "ThaiMirrorResult.sections[core_self].supportingThemes[themeId=disciplined].score",
+    "ThaiMirrorResult.sections[core_self].supportingThemes[themeId=disciplined].themeId",
+    "ThaiMirrorResult.sections[core_self].supportingThemes[themeId=disciplined].themeName"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "interpretation",
+   "primaryExpression": "ภาพเด่นของดวงนี้คือคนที่ไปได้ดีเมื่อชีวิตมีระบบและรู้ว่าต้องทำอะไรต่อ ขณะที่ดาวเสาร์ย้ำวินัย ความต่อเนื่อง และการสร้างฐานทีละขั้น แรงสองด้านทำให้คนอื่นพึ่งคุณได้ — แต่ด้านกลับคือการแบกภาระนานเกินไปโดยไม่ปรับวิธีจนไม่ทันสังเกต จากนี้ ให้ดูว่าแรงนี้เปลี่ยนสี่ด้านของชีวิตอย่างไร",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "สรุปตัวคุณแบบตรง ๆ",
+   "domain": "summary",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:lagna-identity-frame"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "core:computed:house:10:analysis",
+   "completeEvidenceSignature": "HouseEngine.calculate.house[10].lordKey=lagna_lord_mars|HouseEngine.calculate.house[10].signKey=lagna_scorpio",
+   "evidenceKeys": [
+    "HouseEngine.calculate.house[10].lordKey",
+    "HouseEngine.calculate.house[10].signKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "synthesis",
+   "primaryExpression": "ราศีพิจิก: เรื่องงาน เรือนนี้ชี้ว่าคุณสร้างผลงานผ่านความกล้าลงมือและการจัดการสิ่งเร่งด่วน จุดตัดสินไม่ได้อยู่ที่รับงานได้อีกเท่าไร แต่อยู่ที่บทบาทนั้นเพิ่มอำนาจกำหนดคุณภาพงานหรือเพียงเพิ่มน้ำหนักให้คุณถือ",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "การงาน",
+   "domain": "work",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:house:10:analysis"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "core:computed:house:2:analysis",
+   "completeEvidenceSignature": "HouseEngine.calculate.house[2].lordKey=lagna_lord_jupiter|HouseEngine.calculate.house[2].signKey=lagna_pisces",
+   "evidenceKeys": [
+    "HouseEngine.calculate.house[2].lordKey",
+    "HouseEngine.calculate.house[2].signKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "synthesis",
+   "primaryExpression": "ราศีมีน: เรื่องเงิน รูปแบบของเรือนนี้ผูกความมั่นคงเข้ากับภาพระยะยาว ความรู้ และการขยายอย่างมีหลัก จึงวัดความก้าวหน้าได้จากทางเลือกที่เงินสำรองเปิดให้ ไม่ใช่เพียงยอดที่สะสม",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "การเงิน",
+   "domain": "money",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:house:2:analysis"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "core:computed:house:7:analysis",
+   "completeEvidenceSignature": "HouseEngine.calculate.house[7].lordKey=lagna_lord_sun|HouseEngine.calculate.house[7].signKey=lagna_leo",
+   "evidenceKeys": [
+    "HouseEngine.calculate.house[7].lordKey",
+    "HouseEngine.calculate.house[7].signKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "synthesis",
+   "primaryExpression": "ราศีสิงห์: ในความสัมพันธ์ ความไว้ใจของคุณเกิดผ่านความชัดเจนและการตัดสินใจด้วยตัวเอง ความสัมพันธ์จึงลึกขึ้นเมื่อความรับผิดชอบที่แบ่งกันสอดคล้องกับพื้นที่ที่แต่ละฝ่ายต้องมี",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "ความรักและความสัมพันธ์",
+   "domain": "relationships",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:house:7:analysis"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "core:computed:house:6:analysis",
+   "completeEvidenceSignature": "HouseEngine.calculate.house[6].lordKey=lagna_lord_moon|HouseEngine.calculate.house[6].signKey=lagna_cancer",
+   "evidenceKeys": [
+    "HouseEngine.calculate.house[6].lordKey",
+    "HouseEngine.calculate.house[6].signKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "synthesis",
+   "primaryExpression": "ราศีกรกฎ: เรื่องพลังชีวิต เรือนนี้เชื่อมความสม่ำเสมอของร่างกายกับการรับรู้ความเปลี่ยนแปลงและความต้องการรอบตัว สัญญาณสำคัญจึงไม่ใช่วันที่ล้าเพียงวันเดียว แต่คือเวลาฟื้นตัวที่ยาวขึ้นหลังช่วงรับผิดชอบหนัก",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "สุขภาพและพลังชีวิต",
+   "domain": "wellbeing",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:house:6:analysis"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "core:disclosure:medical",
+   "completeEvidenceSignature": "HouseEngine.calculate.house[6].lordKey=lagna_lord_moon|HouseEngine.calculate.house[6].signKey=lagna_cancer",
+   "evidenceKeys": [
+    "HouseEngine.calculate.house[6].lordKey",
+    "HouseEngine.calculate.house[6].signKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "เนื้อหาส่วนนี้เป็นมุมมองตามความเชื่อทางโหราศาสตร์ ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "สุขภาพและพลังชีวิต",
+   "domain": "wellbeing",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "disclosure:medical"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "core:computed:closing-priority-action",
+   "completeEvidenceSignature": "ThaiAstrologyProfile.lagnaLordKey=lagna_lord_saturn",
+   "evidenceKeys": [
+    "ThaiAstrologyProfile.lagnaLordKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "synthesis",
+   "primaryExpression": "แก่นของคำอ่านนี้ไม่ใช่การรับให้มากขึ้น แต่คือการเลือกสิ่งที่คู่ควรกับแรงของคุณ เริ่มจากการวางระบบที่ทำซ้ำได้และกำหนดเวลาพักไว้ล่วงหน้า แล้วใช้ผลจริงเป็นเกณฑ์ก่อนเปิดภาระถัดไป",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "คำชี้หลักจากพื้นดวง",
+   "domain": "closing",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:closing-priority-action"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "core:methodology:astrological-date",
+   "completeEvidenceSignature": "ThaiBetaAnalysis.normalizedSnapshot.thaiAstrologicalDate=1982-06-05|ThaiMirrorPipelineResult.birthData.thaiWeekdayNumber=7",
+   "evidenceKeys": [
+    "ThaiBetaAnalysis.normalizedSnapshot.thaiAstrologicalDate",
+    "ThaiMirrorPipelineResult.birthData.thaiWeekdayNumber"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "วันเกิดตามสูติบัตรยังเป็นวันที่ 1982-06-06 ตามเดิม ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วันเสาร์ (วันที่ 1982-06-05) เป็นวันทางโหราศาสตร์",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "รายงานนี้ดูจากอะไร",
+   "domain": "methodology",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "methodology:astrological-date"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "core:methodology:sunrise-boundary",
+   "completeEvidenceSignature": "ThaiBetaAnalysis.normalizedSnapshot.birthTime=00:35|ThaiBetaAnalysis.normalizedSnapshot.rawBirthDate=1982-06-06|ThaiBetaAnalysis.normalizedSnapshot.sunrise=05:46|ThaiBetaAnalysis.normalizedSnapshot.usedPreviousDay=true",
+   "evidenceKeys": [
+    "ThaiBetaAnalysis.normalizedSnapshot.birthTime",
+    "ThaiBetaAnalysis.normalizedSnapshot.rawBirthDate",
+    "ThaiBetaAnalysis.normalizedSnapshot.sunrise",
+    "ThaiBetaAnalysis.normalizedSnapshot.usedPreviousDay"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้นเวลา 05:46 จึงใช้วันก่อนหน้าตามกฎที่นับวันใหม่เมื่อพระอาทิตย์ขึ้น โดยไม่เปลี่ยนวันเกิดตามสูติบัตร",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "รายงานนี้ดูจากอะไร",
+   "domain": "methodology",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "methodology:sunrise-boundary"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "core:methodology:lagna-inputs",
+   "completeEvidenceSignature": "ThaiAstrologyProfile.lagnaKey=lagna_aquarius|ThaiBetaAnalysis.normalizedSnapshot.birthTime=00:35|ThaiBetaAnalysis.normalizedSnapshot.latitude=18.7883|ThaiBetaAnalysis.normalizedSnapshot.longitude=98.9853|ThaiBetaAnalysis.normalizedSnapshot.timeZoneId=Asia/Bangkok",
+   "evidenceKeys": [
+    "ThaiAstrologyProfile.lagnaKey",
+    "ThaiBetaAnalysis.normalizedSnapshot.birthTime",
+    "ThaiBetaAnalysis.normalizedSnapshot.latitude",
+    "ThaiBetaAnalysis.normalizedSnapshot.longitude",
+    "ThaiBetaAnalysis.normalizedSnapshot.timeZoneId"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากเวลาและสถานที่เกิด) อยู่ที่ราศีกุมภ์",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "รายงานนี้ดูจากอะไร",
+   "domain": "methodology",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "methodology:lagna-inputs"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "core:methodology:top-themes",
+   "completeEvidenceSignature": "ThaiMirrorResult.topThemes[themeId=builder].score=1.5525000000000002|ThaiMirrorResult.topThemes[themeId=builder].themeId=builder|ThaiMirrorResult.topThemes[themeId=builder].themeName=Builder|ThaiMirrorResult.topThemes[themeId=develop_patience].score=1.3900000000000001|ThaiMirrorResult.topThemes[themeId=develop_patience].themeId=develop_patience|ThaiMirrorResult.topThemes[themeId=develop_patience].themeName=DevelopPatience|ThaiMirrorResult.topThemes[themeId=persistence].score=2.2025|ThaiMirrorResult.topThemes[themeId=persistence].themeId=persistence|ThaiMirrorResult.topThemes[themeId=persistence].themeName=Persistence",
+   "evidenceKeys": [
+    "ThaiMirrorResult.topThemes[themeId=builder].score",
+    "ThaiMirrorResult.topThemes[themeId=builder].themeId",
+    "ThaiMirrorResult.topThemes[themeId=builder].themeName",
+    "ThaiMirrorResult.topThemes[themeId=develop_patience].score",
+    "ThaiMirrorResult.topThemes[themeId=develop_patience].themeId",
+    "ThaiMirrorResult.topThemes[themeId=develop_patience].themeName",
+    "ThaiMirrorResult.topThemes[themeId=persistence].score",
+    "ThaiMirrorResult.topThemes[themeId=persistence].themeId",
+    "ThaiMirrorResult.topThemes[themeId=persistence].themeName"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "คำอ่านข้างต้นเลือกประเด็นที่เชื่อมกับชีวิตคุณได้ชัดที่สุดก่อน แล้วเรียงผลต่อเนื่องไปยังเรื่องที่ควรระวังและการตัดสินใจ",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "รายงานนี้ดูจากอะไร",
+   "domain": "methodology",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "methodology:top-themes"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "forecast:current:career",
+   "completeEvidenceSignature": "h=current|d=career|b=strong|consumerRisk=career|e=full|t=false|k=prediction.career.current.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.career.current.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ตอนนี้งานมีแรงส่งให้ขยับได้ เลือกรับเฉพาะภาระที่ไม่เบียดคุณภาพงานหลัก\nเลือกงานหลักหนึ่งเรื่อง ตั้งเพดานเวลา และปฏิเสธงานใหม่เมื่อเพดานเต็ม ในภาพรวมตอนนี้ เรื่องนี้เป็นแกนหลัก: ใช้ความมั่นคงที่สร้างทีละขั้นรับมือขอบเขตหน้าที่เริ่มเปลี่ยนในช่วงเก็บเกี่ยวความสุข และหยุดเมื่องานหลักถูกเบียดเวลา",
+   "permittedCallback": "งานหลักอาจถูกภาระด้านนี้เบียดเวลา",
+   "callbackNewInformation": "รับบทบาทเพิ่มได้หนึ่งก้าวเมื่อคุณภาพงานหลักยังคงเดิม โดยไม่แลกกับคุณภาพงานหลัก เลือกงานหลักหนึ่งเรื่อง ตั้งเพดานเวลา และปฏิเสธงานใหม่เมื่อเพดานเต็ม",
+   "renderedSection": "ช่วงนี้",
+   "domain": "career",
+   "horizon": "current",
+   "expressed": true,
+   "traceabilityReference": "prediction.career.current.strong"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "forecast:current:finance",
+   "completeEvidenceSignature": "h=current|d=finance|b=strong|consumerRisk=money|e=full|t=false|k=prediction.finance.current.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.finance.current.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ตอนนี้การเงินมีแรงส่งให้ขยับได้ แต่เงินพร้อมใช้ต้องมาก่อนภาระระยะยาว\nกันเงินรายจ่ายจำเป็นก่อน แล้วทดลองภาระใหม่ด้วยวงเงินเล็กที่หยุดได้ ในภาพรวมตอนนี้ เรื่องนี้เป็นเงื่อนไขสำคัญ: ใช้ความมั่นคงที่สร้างทีละขั้นรับมือยอดคงเหลือเปลี่ยนต่อเนื่องหลายรอบในช่วงเก็บเกี่ยวความสุข และหยุดเมื่อเงินพร้อมใช้ลดลง",
+   "permittedCallback": "ภาระเงินอาจลดพื้นที่ตัดสินใจในด้านนี้",
+   "callbackNewInformation": "ขยับภาระได้เมื่อกันเงินพร้อมใช้ไว้ครบแล้ว โดยไม่ลดเงินที่ต้องพร้อมใช้ กันเงินรายจ่ายจำเป็นก่อน แล้วทดลองภาระใหม่ด้วยวงเงินเล็กที่หยุดได้",
+   "renderedSection": "ช่วงนี้",
+   "domain": "finance",
+   "horizon": "current",
+   "expressed": true,
+   "traceabilityReference": "prediction.finance.current.strong"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "forecast:current:relationship",
+   "completeEvidenceSignature": "h=current|d=relationship|b=strong|consumerRisk=love|e=full|t=false|k=prediction.relationship.current.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.relationship.current.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ตอนนี้ความสัมพันธ์มีแรงส่งให้ขยับได้ เมื่อข้อตกลงชัดและทั้งสองฝ่ายทำได้จริง\nพูดเงื่อนไขที่ค้างอยู่ให้จบหนึ่งเรื่อง แล้วดูการตอบสนองก่อนตกลงเพิ่ม ในภาพรวมตอนนี้ เรื่องนี้เป็นแรงประกอบ: ใช้ความมั่นคงที่สร้างทีละขั้นรับมือคำพูดกลายเป็นพฤติกรรมที่สม่ำเสมอในช่วงเก็บเกี่ยวความสุข และหยุดเมื่อความคาดหวังเริ่มไม่ตรงกัน",
+   "permittedCallback": "ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน",
+   "callbackNewInformation": "เพิ่มข้อผูกพันได้เมื่อคำพูดและการกระทำสอดคล้องกัน โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน พูดเงื่อนไขที่ค้างอยู่ให้จบหนึ่งเรื่อง แล้วดูการตอบสนองก่อนตกลงเพิ่ม",
+   "renderedSection": "ช่วงนี้",
+   "domain": "relationship",
+   "horizon": "current",
+   "expressed": true,
+   "traceabilityReference": "prediction.relationship.current.strong"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "forecast:current:health",
+   "completeEvidenceSignature": "h=current|d=health|b=strong|consumerRisk=health|e=full|t=false|k=prediction.health.current.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.health.current.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ตอนนี้กำลังของคุณมีแรงส่งให้ขยับได้ ตราบใดที่การพักยังฟื้นแรงได้ทัน\nลดกิจกรรมหนึ่งอย่างในสัปดาห์นี้และคืนเวลานั้นให้การนอน ในภาพรวมตอนนี้ เรื่องนี้เป็นแรงประกอบ: ใช้ความมั่นคงที่สร้างทีละขั้นรับมือตารางหนักเริ่มรบกวนการพักในช่วงเก็บเกี่ยวความสุข และหยุดเมื่อการพักฟื้นแรงไม่ทัน",
+   "permittedCallback": "การพักไม่พออาจลดกำลังสำหรับด้านนี้",
+   "callbackNewInformation": "เพิ่มกิจกรรมได้เมื่อเวลาพักและการฟื้นตัวยังคงพอ โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน ลดกิจกรรมหนึ่งอย่างในสัปดาห์นี้และคืนเวลานั้นให้การนอน",
+   "renderedSection": "ช่วงนี้",
+   "domain": "health",
+   "horizon": "current",
+   "expressed": true,
+   "traceabilityReference": "prediction.health.current.strong"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "forecast:next12Months:career",
+   "completeEvidenceSignature": "h=next12Months|d=career|b=strong|consumerRisk=career|e=full|t=false|k=prediction.career.next12Months.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.career.next12Months.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ปีข้างหน้าบทบาทที่ต้องประสานคนและตัดสินใจจะเด่นขึ้น งานเดิมมีโอกาสขยายขอบเขต แต่ภาระที่รับพร้อมกันมากเกินไปจะทำให้คุณภาพตก กำหนดจุดทบทวนกลางปีเพื่อเลือกว่าจะขยายบทบาทเดิมหรือหยุดรับเพิ่ม สัญญาณเปลี่ยนคือขอบเขตหน้าที่เริ่มเปลี่ยนระหว่างช่วงเก็บเกี่ยวความสุข; ใช้ความมั่นคงที่สร้างทีละขั้นทบทวนก่อนงานหลักถูกเบียดเวลา",
+   "permittedCallback": "งานหลักอาจถูกภาระด้านนี้เบียดเวลา",
+   "callbackNewInformation": "รับบทบาทเพิ่มได้หนึ่งก้าวเมื่อคุณภาพงานหลักยังคงเดิม โดยไม่แลกกับคุณภาพงานหลัก กำหนดจุดทบทวนกลางปีเพื่อเลือกว่าจะขยายบทบาทเดิมหรือหยุดรับเพิ่ม",
+   "renderedSection": "ใน 12 เดือนข้างหน้า",
+   "domain": "career",
+   "horizon": "next12Months",
+   "expressed": true,
+   "traceabilityReference": "prediction.career.next12Months.strong"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "forecast:next12Months:finance",
+   "completeEvidenceSignature": "h=next12Months|d=finance|b=strong|consumerRisk=money|e=full|t=false|k=prediction.finance.next12Months.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.finance.next12Months.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ปีข้างหน้ารายรับมีโอกาสขยับตามบทบาทงาน แต่ภาระประจำจะตามมาเร็ว เงินก้อนใหม่จึงให้ผลดีเมื่อรักษาสภาพคล่องไว้ก่อน บันทึกเงินคงเหลือทุกไตรมาสและขยายแผนต่อเมื่อเงินสำรองไม่ลดลง สัญญาณเปลี่ยนคือยอดคงเหลือเปลี่ยนต่อเนื่องหลายรอบระหว่างช่วงเก็บเกี่ยวความสุข; ใช้ความมั่นคงที่สร้างทีละขั้นทบทวนก่อนเงินพร้อมใช้ลดลง",
+   "permittedCallback": "ภาระเงินอาจลดพื้นที่ตัดสินใจในด้านนี้",
+   "callbackNewInformation": "ขยับภาระได้เมื่อกันเงินพร้อมใช้ไว้ครบแล้ว โดยไม่ลดเงินที่ต้องพร้อมใช้ บันทึกเงินคงเหลือทุกไตรมาสและขยายแผนต่อเมื่อเงินสำรองไม่ลดลง",
+   "renderedSection": "ใน 12 เดือนข้างหน้า",
+   "domain": "finance",
+   "horizon": "next12Months",
+   "expressed": true,
+   "traceabilityReference": "prediction.finance.next12Months.strong"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "forecast:next12Months:relationship",
+   "completeEvidenceSignature": "h=next12Months|d=relationship|b=strong|consumerRisk=love|e=full|t=false|k=prediction.relationship.next12Months.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.relationship.next12Months.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ปีข้างหน้าความสัมพันธ์เป็นเรื่องเด่น ข้อตกลงที่ค้างอยู่มีแนวโน้มถูกนำมาพูดให้ชัด และเปิดทางให้ความสัมพันธ์มั่นคงขึ้นหากทั้งสองฝ่ายแบ่งเวลาได้จริง ทบทวนข้อตกลงตามพฤติกรรมที่เกิดซ้ำ ไม่เร่งข้อผูกพันจากช่วงที่ราบรื่นครั้งเดียว สัญญาณเปลี่ยนคือคำพูดกลายเป็นพฤติกรรมที่สม่ำเสมอระหว่างช่วงเก็บเกี่ยวความสุข; ใช้ความมั่นคงที่สร้างทีละขั้นทบทวนก่อนความคาดหวังเริ่มไม่ตรงกัน",
+   "permittedCallback": "ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน",
+   "callbackNewInformation": "เพิ่มข้อผูกพันได้เมื่อคำพูดและการกระทำสอดคล้องกัน โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน ทบทวนข้อตกลงตามพฤติกรรมที่เกิดซ้ำ ไม่เร่งข้อผูกพันจากช่วงที่ราบรื่นครั้งเดียว",
+   "renderedSection": "ใน 12 เดือนข้างหน้า",
+   "domain": "relationship",
+   "horizon": "next12Months",
+   "expressed": true,
+   "traceabilityReference": "prediction.relationship.next12Months.strong"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "forecast:next12Months:health",
+   "completeEvidenceSignature": "h=next12Months|d=health|b=strong|consumerRisk=health|e=full|t=false|k=prediction.health.next12Months.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.health.next12Months.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ปีข้างหน้าภาระที่เพิ่มขึ้นอาจทำให้การพักไม่เป็นเวลา หากรักษาจังหวะฟื้นตัวได้ พลังงานจะกลับมาสม่ำเสมอและรองรับงานใหม่ได้ดีขึ้น จดคุณภาพการนอนหลังสัปดาห์หนัก และลดตารางเดือนถัดไปเมื่อฟื้นไม่ทัน สัญญาณเปลี่ยนคือตารางหนักเริ่มรบกวนการพักระหว่างช่วงเก็บเกี่ยวความสุข; ใช้ความมั่นคงที่สร้างทีละขั้นทบทวนก่อนการพักฟื้นแรงไม่ทัน",
+   "permittedCallback": "การพักไม่พออาจลดกำลังสำหรับด้านนี้",
+   "callbackNewInformation": "เพิ่มกิจกรรมได้เมื่อเวลาพักและการฟื้นตัวยังคงพอ โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน จดคุณภาพการนอนหลังสัปดาห์หนัก และลดตารางเดือนถัดไปเมื่อฟื้นไม่ทัน",
+   "renderedSection": "ใน 12 เดือนข้างหน้า",
+   "domain": "health",
+   "horizon": "next12Months",
+   "expressed": true,
+   "traceabilityReference": "prediction.health.next12Months.strong"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "forecast:nextLifePeriod:career",
+   "completeEvidenceSignature": "h=nextLifePeriod|d=career|b=strong|consumerRisk=career|e=full|t=true|k=prediction.career.nextLifePeriod.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.career.nextLifePeriod.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ช่วงชีวิตถัดไปบทบาทของคุณจะเปลี่ยนจากการรับงานเพิ่มไปสู่การคุมทิศทาง โอกาสอยู่ที่การเก็บงานซึ่งใช้ประสบการณ์สูงและลดงานที่กระจายแรง ทำรายการงานที่จะรักษา ส่งต่อ และยุติให้เสร็จก่อนรับบทบาทก้อนใหม่ ระยะยาว ให้เก็บความมั่นคงที่สร้างทีละขั้นจากช่วงเก็บเกี่ยวความสุขเป็นฐานของงาน เพื่อไม่ให้งานหลักถูกเบียดเวลา",
+   "permittedCallback": "งานหลักอาจถูกภาระด้านนี้เบียดเวลา",
+   "callbackNewInformation": "รับบทบาทเพิ่มได้หนึ่งก้าวเมื่อคุณภาพงานหลักยังคงเดิม โดยไม่แลกกับคุณภาพงานหลัก และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต ทำรายการงานที่จะรักษา ส่งต่อ และยุติให้เสร็จก่อนรับบทบาทก้อนใหม่",
+   "renderedSection": "ช่วงชีวิตถัดไป",
+   "domain": "career",
+   "horizon": "nextLifePeriod",
+   "expressed": true,
+   "traceabilityReference": "prediction.career.nextLifePeriod.strong"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "forecast:nextLifePeriod:finance",
+   "completeEvidenceSignature": "h=nextLifePeriod|d=finance|b=active|consumerRisk=money|e=full|t=true|k=prediction.finance.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.finance.nextLifePeriod.active"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "active",
+   "role": "forecast",
+   "primaryExpression": "ช่วงชีวิตถัดไปต้องให้น้ำหนักกับภาระระยะยาวและเงินรองรับการเปลี่ยนผ่าน สร้างเงินสำรองเฉพาะช่วงเปลี่ยนผ่านก่อนผูกค่าใช้จ่ายระยะยาวก้อนใหม่ ระยะยาว ให้เก็บความมั่นคงที่สร้างทีละขั้นจากช่วงเก็บเกี่ยวความสุขเป็นฐานของการเงิน เพื่อไม่ให้เงินพร้อมใช้ลดลง",
+   "permittedCallback": "ภาระเงินอาจลดพื้นที่ตัดสินใจในด้านนี้",
+   "callbackNewInformation": "พิสูจน์กระแสเงินจริงในวงเล็กก่อนเพิ่มภาระ โดยไม่ลดเงินที่ต้องพร้อมใช้ และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต สร้างเงินสำรองเฉพาะช่วงเปลี่ยนผ่านก่อนผูกค่าใช้จ่ายระยะยาวก้อนใหม่",
+   "renderedSection": "ช่วงชีวิตถัดไป",
+   "domain": "finance",
+   "horizon": "nextLifePeriod",
+   "expressed": true,
+   "traceabilityReference": "prediction.finance.nextLifePeriod.active"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "forecast:nextLifePeriod:relationship",
+   "completeEvidenceSignature": "h=nextLifePeriod|d=relationship|b=quiet|consumerRisk=love|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.relationship.nextLifePeriod.quiet"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "quiet",
+   "role": "forecast",
+   "primaryExpression": "ช่วงชีวิตถัดไปความสัมพันธ์ต้องปรับตามภาระชุดใหม่ ความคลุมเครือเรื่องบทบาทอาจสร้างระยะห่าง แต่การวางชีวิตร่วมกันอย่างเป็นรูปธรรมจะเพิ่มความมั่นคง ตกลงเวลา หน้าที่ และพื้นที่ส่วนตัวของช่วงถัดไปไว้ก่อนตัดสินใจร่วมกัน ระยะยาว ให้เก็บความมั่นคงที่สร้างทีละขั้นจากช่วงเก็บเกี่ยวความสุขเป็นฐานของความสัมพันธ์ เพื่อไม่ให้ความคาดหวังเริ่มไม่ตรงกัน",
+   "permittedCallback": "ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน",
+   "callbackNewInformation": "รอความชัดของเงื่อนไขก่อนเพิ่มข้อผูกพัน โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต ตกลงเวลา หน้าที่ และพื้นที่ส่วนตัวของช่วงถัดไปไว้ก่อนตัดสินใจร่วมกัน",
+   "renderedSection": "ช่วงชีวิตถัดไป",
+   "domain": "relationship",
+   "horizon": "nextLifePeriod",
+   "expressed": true,
+   "traceabilityReference": "prediction.relationship.nextLifePeriod.quiet"
+  },
+  {
+   "fixture": "owner-known-0035",
+   "canonicalId": "forecast:nextLifePeriod:health",
+   "completeEvidenceSignature": "h=nextLifePeriod|d=health|b=active|consumerRisk=health|e=full|t=true|k=prediction.health.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.health.nextLifePeriod.active"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "active",
+   "role": "forecast",
+   "primaryExpression": "ช่วงชีวิตถัดไปพลังงานมีแนวโน้มขึ้นลงตามภาระที่เปลี่ยน หากเร่งรับทุกอย่างพร้อมกัน ความล้าจะสะสมเร็วกว่าช่วงปัจจุบัน ทดลองกิจวัตรพักแบบใหม่ล่วงหน้าและเก็บเฉพาะแบบที่ทำต่อได้ในวันที่ยุ่ง ระยะยาว ให้เก็บความมั่นคงที่สร้างทีละขั้นจากช่วงเก็บเกี่ยวความสุขเป็นฐานของกำลังและการฟื้นตัว เพื่อไม่ให้การพักฟื้นแรงไม่ทัน",
+   "permittedCallback": "การพักไม่พออาจลดกำลังสำหรับด้านนี้",
+   "callbackNewInformation": "ทดลองกิจกรรมทีละขั้นและใช้การฟื้นตัวจริงเป็นเพดาน โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต ทดลองกิจวัตรพักแบบใหม่ล่วงหน้าและเก็บเฉพาะแบบที่ทำต่อได้ในวันที่ยุ่ง",
+   "renderedSection": "ช่วงชีวิตถัดไป",
+   "domain": "health",
+   "horizon": "nextLifePeriod",
+   "expressed": true,
+   "traceabilityReference": "prediction.health.nextLifePeriod.active"
+  },
+  {
+   "fixture": "owner-unknown",
+   "canonicalId": "core:methodology:astrological-date",
+   "completeEvidenceSignature": "ThaiBetaAnalysis.normalizedSnapshot.thaiAstrologicalDate=1982-06-06|ThaiMirrorPipelineResult.birthData.thaiWeekdayNumber=1",
+   "evidenceKeys": [
+    "ThaiBetaAnalysis.normalizedSnapshot.thaiAstrologicalDate",
+    "ThaiMirrorPipelineResult.birthData.thaiWeekdayNumber"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "วันที่ 1982-06-06 ตรงกับวันอาทิตย์ตามปฏิทินและใช้เป็นฐานทำงานเท่านั้น เมื่อไม่มีเวลาเกิด วันทางโหราศาสตร์อาจเป็นวันก่อนหน้า จึงยังไม่สรุปวันสุดท้าย",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "รายงานนี้ดูจากอะไร",
+   "domain": "methodology",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "methodology:astrological-date"
+  },
+  {
+   "fixture": "owner-unknown",
+   "canonicalId": "core:methodology:no-birth-time",
+   "completeEvidenceSignature": "ThaiBetaAnalysis.normalizedSnapshot.birthTime=|ThaiBetaInput.birthTimeUnknown=true",
+   "evidenceKeys": [
+    "ThaiBetaAnalysis.normalizedSnapshot.birthTime",
+    "ThaiBetaInput.birthTimeUnknown"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "รายงานนี้ไม่มีเวลาเกิด จึงไม่กล่าวถึงลัคนา ภพ หรือข้อสรุปที่ต้องพึ่งตำแหน่งตามเวลาเกิด",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "รายงานนี้ดูจากอะไร",
+   "domain": "methodology",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "methodology:no-birth-time"
+  },
+  {
+   "fixture": "owner-unknown",
+   "canonicalId": "core:methodology:top-themes",
+   "completeEvidenceSignature": "ThaiMirrorResult.topThemes[themeId=diplomatic].score=0.9775|ThaiMirrorResult.topThemes[themeId=diplomatic].themeId=diplomatic|ThaiMirrorResult.topThemes[themeId=diplomatic].themeName=Diplomatic|ThaiMirrorResult.topThemes[themeId=expressive].score=1.1549999999999998|ThaiMirrorResult.topThemes[themeId=expressive].themeId=expressive|ThaiMirrorResult.topThemes[themeId=expressive].themeName=Expressive|ThaiMirrorResult.topThemes[themeId=leadership].score=1.01|ThaiMirrorResult.topThemes[themeId=leadership].themeId=leadership|ThaiMirrorResult.topThemes[themeId=leadership].themeName=Leadership",
+   "evidenceKeys": [
+    "ThaiMirrorResult.topThemes[themeId=diplomatic].score",
+    "ThaiMirrorResult.topThemes[themeId=diplomatic].themeId",
+    "ThaiMirrorResult.topThemes[themeId=diplomatic].themeName",
+    "ThaiMirrorResult.topThemes[themeId=expressive].score",
+    "ThaiMirrorResult.topThemes[themeId=expressive].themeId",
+    "ThaiMirrorResult.topThemes[themeId=expressive].themeName",
+    "ThaiMirrorResult.topThemes[themeId=leadership].score",
+    "ThaiMirrorResult.topThemes[themeId=leadership].themeId",
+    "ThaiMirrorResult.topThemes[themeId=leadership].themeName"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "คำอ่านข้างต้นเลือกประเด็นที่เชื่อมกับชีวิตคุณได้ชัดที่สุดก่อน แล้วเรียงผลต่อเนื่องไปยังเรื่องที่ควรระวังและการตัดสินใจ",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "รายงานนี้ดูจากอะไร",
+   "domain": "methodology",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "methodology:top-themes"
+  },
+  {
+   "fixture": "owner-unknown",
+   "canonicalId": "forecast:current:career",
+   "completeEvidenceSignature": "h=current|d=career|b=strong|consumerRisk=career|e=noLagna|t=false|k=prediction.career.current.strong|o=life-period-score-without-lagna|td=false",
+   "evidenceKeys": [
+    "prediction.career.current.strong"
+   ],
+   "evidenceType": "life-period-score-without-lagna",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ช่วงนี้ให้ดูภาระงานที่เกิดขึ้นจริง ยังสรุปบทบาทหรือความก้าวหน้าจากเรือนการงานไม่ได้\nจดเวลางานจริงหนึ่งสัปดาห์ แล้วคงไว้เฉพาะบทบาทที่ไม่ทำให้งานหลักตก ในภาพรวมตอนนี้ เรื่องนี้เป็นแกนหลัก: ใช้ความมั่นคงที่สร้างทีละขั้นรับมือขอบเขตหน้าที่เริ่มเปลี่ยนในช่วงเรียนรู้และเชื่อมโยง และหยุดเมื่องานหลักถูกเบียดเวลา และต้องยืนยันจากสิ่งที่เกิดซ้ำเพราะไม่มีเวลาเกิด",
+   "permittedCallback": "งานหลักอาจถูกภาระด้านนี้เบียดเวลา",
+   "callbackNewInformation": "รับบทบาทเพิ่มได้หนึ่งก้าวเมื่อคุณภาพงานหลักยังคงเดิม โดยไม่แลกกับคุณภาพงานหลัก จึงควรยืนยันจากผลที่เกิดซ้ำก่อนตัดสินใจ จดเวลางานจริงหนึ่งสัปดาห์ แล้วคงไว้เฉพาะบทบาทที่ไม่ทำให้งานหลักตก",
+   "renderedSection": "ช่วงนี้",
+   "domain": "career",
+   "horizon": "current",
+   "expressed": true,
+   "traceabilityReference": "prediction.career.current.strong"
+  },
+  {
+   "fixture": "owner-unknown",
+   "canonicalId": "forecast:current:finance",
+   "completeEvidenceSignature": "h=current|d=finance|b=strong|consumerRisk=money|e=noLagna|t=false|k=prediction.finance.current.strong|o=life-period-score-without-lagna|td=false",
+   "evidenceKeys": [
+    "prediction.finance.current.strong"
+   ],
+   "evidenceType": "life-period-score-without-lagna",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ให้ตัดสินใจจากรายรับรายจ่ายจริง เพราะยังสรุปฐานะหรือรายได้จากเรือนการเงินไม่ได้\nใช้รายรับรายจ่ายจริงหนึ่งรอบเป็นฐาน และเลื่อนรายการที่ยังไม่มีเงินรองรับ ในภาพรวมตอนนี้ เรื่องนี้เป็นเงื่อนไขสำคัญ: ใช้ความมั่นคงที่สร้างทีละขั้นรับมือยอดคงเหลือเปลี่ยนต่อเนื่องหลายรอบในช่วงเรียนรู้และเชื่อมโยง และหยุดเมื่อเงินพร้อมใช้ลดลง และต้องยืนยันจากสิ่งที่เกิดซ้ำเพราะไม่มีเวลาเกิด",
+   "permittedCallback": "ภาระเงินอาจลดพื้นที่ตัดสินใจในด้านนี้",
+   "callbackNewInformation": "ขยับภาระได้เมื่อกันเงินพร้อมใช้ไว้ครบแล้ว โดยไม่ลดเงินที่ต้องพร้อมใช้ จึงควรยืนยันจากผลที่เกิดซ้ำก่อนตัดสินใจ ใช้รายรับรายจ่ายจริงหนึ่งรอบเป็นฐาน และเลื่อนรายการที่ยังไม่มีเงินรองรับ",
+   "renderedSection": "ช่วงนี้",
+   "domain": "finance",
+   "horizon": "current",
+   "expressed": true,
+   "traceabilityReference": "prediction.finance.current.strong"
+  },
+  {
+   "fixture": "owner-unknown",
+   "canonicalId": "forecast:current:relationship",
+   "completeEvidenceSignature": "h=current|d=relationship|b=active|consumerRisk=love|e=noLagna|t=false|k=prediction.relationship.current.active|o=life-period-score-without-lagna|td=false",
+   "evidenceKeys": [
+    "prediction.relationship.current.active"
+   ],
+   "evidenceType": "life-period-score-without-lagna",
+   "confidence": "active",
+   "role": "forecast",
+   "primaryExpression": "ให้ดูความสม่ำเสมอที่เกิดขึ้นจริง โดยยังไม่สรุปความสัมพันธ์จากเรือนคู่ครอง\nสังเกตการรักษาคำพูดในเรื่องเล็กก่อนเปิดบทสนทนาเรื่องผูกพัน ในภาพรวมตอนนี้ เรื่องนี้เป็นแรงประกอบ: ใช้ความมั่นคงที่สร้างทีละขั้นรับมือคำพูดกลายเป็นพฤติกรรมที่สม่ำเสมอในช่วงเรียนรู้และเชื่อมโยง และหยุดเมื่อความคาดหวังเริ่มไม่ตรงกัน และต้องยืนยันจากสิ่งที่เกิดซ้ำเพราะไม่มีเวลาเกิด",
+   "permittedCallback": "ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน",
+   "callbackNewInformation": "ทดลองข้อตกลงเล็กและดูความสม่ำเสมอก่อนผูกพันเพิ่ม โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน จึงควรยืนยันจากผลที่เกิดซ้ำก่อนตัดสินใจ สังเกตการรักษาคำพูดในเรื่องเล็กก่อนเปิดบทสนทนาเรื่องผูกพัน",
+   "renderedSection": "ช่วงนี้",
+   "domain": "relationship",
+   "horizon": "current",
+   "expressed": true,
+   "traceabilityReference": "prediction.relationship.current.active"
+  },
+  {
+   "fixture": "owner-unknown",
+   "canonicalId": "forecast:current:health",
+   "completeEvidenceSignature": "h=current|d=health|b=active|consumerRisk=health|e=noLagna|t=false|k=prediction.health.current.active|o=life-period-score-without-lagna|td=false",
+   "evidenceKeys": [
+    "prediction.health.current.active"
+   ],
+   "evidenceType": "life-period-score-without-lagna",
+   "confidence": "active",
+   "role": "forecast",
+   "primaryExpression": "ให้ติดตามการนอนและความล้าจริง โดยยังไม่สรุปภาวะร่างกายจากเรือนสุขภาพ\nบันทึกเวลานอนกับความล้าหนึ่งสัปดาห์ก่อนเปลี่ยนตารางกิจกรรม ในภาพรวมตอนนี้ เรื่องนี้เป็นแรงประกอบ: ใช้ความมั่นคงที่สร้างทีละขั้นรับมือตารางหนักเริ่มรบกวนการพักในช่วงเรียนรู้และเชื่อมโยง และหยุดเมื่อการพักฟื้นแรงไม่ทัน และต้องยืนยันจากสิ่งที่เกิดซ้ำเพราะไม่มีเวลาเกิด",
+   "permittedCallback": "การพักไม่พออาจลดกำลังสำหรับด้านนี้",
+   "callbackNewInformation": "ทดลองกิจกรรมทีละขั้นและใช้การฟื้นตัวจริงเป็นเพดาน โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน จึงควรยืนยันจากผลที่เกิดซ้ำก่อนตัดสินใจ บันทึกเวลานอนกับความล้าหนึ่งสัปดาห์ก่อนเปลี่ยนตารางกิจกรรม",
+   "renderedSection": "ช่วงนี้",
+   "domain": "health",
+   "horizon": "current",
+   "expressed": true,
+   "traceabilityReference": "prediction.health.current.active"
+  },
+  {
+   "fixture": "owner-unknown",
+   "canonicalId": "forecast:next12Months:career",
+   "completeEvidenceSignature": "h=next12Months|d=career|b=strong|consumerRisk=career|e=noLagna|t=false|k=prediction.career.next12Months.strong|o=life-period-score-without-lagna|td=false",
+   "evidenceKeys": [
+    "prediction.career.next12Months.strong"
+   ],
+   "evidenceType": "life-period-score-without-lagna",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "งานที่ทำต่อเนื่องมีแนวโน้มเปิดหน้าที่ใหม่ แต่ยังไม่ควรฟันธงตำแหน่งจากดวง ให้เลือกต่อยอดจากงานที่เห็นผลจริง สัญญาณเปลี่ยนคือขอบเขตหน้าที่เริ่มเปลี่ยนระหว่างช่วงเรียนรู้และเชื่อมโยง; ใช้ความมั่นคงที่สร้างทีละขั้นทบทวนก่อนงานหลักถูกเบียดเวลา และต้องยืนยันจากสิ่งที่เกิดซ้ำเพราะไม่มีเวลาเกิด",
+   "permittedCallback": "งานหลักอาจถูกภาระด้านนี้เบียดเวลา",
+   "callbackNewInformation": "รับบทบาทเพิ่มได้หนึ่งก้าวเมื่อคุณภาพงานหลักยังคงเดิม โดยไม่แลกกับคุณภาพงานหลัก จึงควรยืนยันจากผลที่เกิดซ้ำก่อนตัดสินใจ เก็บหลักฐานผลงานเป็นรอบและค่อยเลือกบทบาทจากแบบที่ทำซ้ำได้",
+   "renderedSection": "ใน 12 เดือนข้างหน้า",
+   "domain": "career",
+   "horizon": "next12Months",
+   "expressed": true,
+   "traceabilityReference": "prediction.career.next12Months.strong"
+  },
+  {
+   "fixture": "owner-unknown",
+   "canonicalId": "forecast:next12Months:finance",
+   "completeEvidenceSignature": "h=next12Months|d=finance|b=strong|consumerRisk=money|e=noLagna|t=false|k=prediction.finance.next12Months.strong|o=life-period-score-without-lagna|td=false",
+   "evidenceKeys": [
+    "prediction.finance.next12Months.strong"
+   ],
+   "evidenceType": "life-period-score-without-lagna",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "รายรับที่เกิดขึ้นจริงมีแนวโน้มชัดขึ้นพร้อมภาระจำเป็น รักษาเงินพร้อมใช้ก่อนเพิ่มข้อผูกพันระยะยาว สัญญาณเปลี่ยนคือยอดคงเหลือเปลี่ยนต่อเนื่องหลายรอบระหว่างช่วงเรียนรู้และเชื่อมโยง; ใช้ความมั่นคงที่สร้างทีละขั้นทบทวนก่อนเงินพร้อมใช้ลดลง และต้องยืนยันจากสิ่งที่เกิดซ้ำเพราะไม่มีเวลาเกิด",
+   "permittedCallback": "ภาระเงินอาจลดพื้นที่ตัดสินใจในด้านนี้",
+   "callbackNewInformation": "ขยับภาระได้เมื่อกันเงินพร้อมใช้ไว้ครบแล้ว โดยไม่ลดเงินที่ต้องพร้อมใช้ จึงควรยืนยันจากผลที่เกิดซ้ำก่อนตัดสินใจ เทียบยอดคงเหลือรายไตรมาส แล้วค่อยขยายแผนจากเงินที่เกิดขึ้นจริง",
+   "renderedSection": "ใน 12 เดือนข้างหน้า",
+   "domain": "finance",
+   "horizon": "next12Months",
+   "expressed": true,
+   "traceabilityReference": "prediction.finance.next12Months.strong"
+  },
+  {
+   "fixture": "owner-unknown",
+   "canonicalId": "forecast:next12Months:relationship",
+   "completeEvidenceSignature": "h=next12Months|d=relationship|b=active|consumerRisk=love|e=noLagna|t=false|k=prediction.relationship.next12Months.active|o=life-period-score-without-lagna|td=false",
+   "evidenceKeys": [
+    "prediction.relationship.next12Months.active"
+   ],
+   "evidenceType": "life-period-score-without-lagna",
+   "confidence": "active",
+   "role": "forecast",
+   "primaryExpression": "ความสัมพันธ์มีแนวโน้มชัดขึ้นจากความสม่ำเสมอ หากการกระทำตรงกับคำพูดจึงค่อยเพิ่มข้อตกลงร่วมกัน สัญญาณเปลี่ยนคือคำพูดกลายเป็นพฤติกรรมที่สม่ำเสมอระหว่างช่วงเรียนรู้และเชื่อมโยง; ใช้ความมั่นคงที่สร้างทีละขั้นทบทวนก่อนความคาดหวังเริ่มไม่ตรงกัน และต้องยืนยันจากสิ่งที่เกิดซ้ำเพราะไม่มีเวลาเกิด",
+   "permittedCallback": "ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน",
+   "callbackNewInformation": "ทดลองข้อตกลงเล็กและดูความสม่ำเสมอก่อนผูกพันเพิ่ม โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน จึงควรยืนยันจากผลที่เกิดซ้ำก่อนตัดสินใจ ใช้ความต่อเนื่องหลายเดือนยืนยันความพร้อม แทนการกำหนดวันผูกพันล่วงหน้า",
+   "renderedSection": "ใน 12 เดือนข้างหน้า",
+   "domain": "relationship",
+   "horizon": "next12Months",
+   "expressed": true,
+   "traceabilityReference": "prediction.relationship.next12Months.active"
+  },
+  {
+   "fixture": "owner-unknown",
+   "canonicalId": "forecast:next12Months:health",
+   "completeEvidenceSignature": "h=next12Months|d=health|b=strong|consumerRisk=health|e=noLagna|t=false|k=prediction.health.next12Months.strong|o=life-period-score-without-lagna|td=false",
+   "evidenceKeys": [
+    "prediction.health.next12Months.strong"
+   ],
+   "evidenceType": "life-period-score-without-lagna",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ภาระที่ชนกันอาจทำให้พักไม่พอ จัดวันพักให้คงที่และลดตารางทันทีเมื่อความล้าเริ่มสะสม สัญญาณเปลี่ยนคือตารางหนักเริ่มรบกวนการพักระหว่างช่วงเรียนรู้และเชื่อมโยง; ใช้ความมั่นคงที่สร้างทีละขั้นทบทวนก่อนการพักฟื้นแรงไม่ทัน และต้องยืนยันจากสิ่งที่เกิดซ้ำเพราะไม่มีเวลาเกิด",
+   "permittedCallback": "การพักไม่พออาจลดกำลังสำหรับด้านนี้",
+   "callbackNewInformation": "เพิ่มกิจกรรมได้เมื่อเวลาพักและการฟื้นตัวยังคงพอ โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน จึงควรยืนยันจากผลที่เกิดซ้ำก่อนตัดสินใจ เก็บรูปแบบการฟื้นตัวในเดือนเบาและเดือนหนักก่อนตั้งเป้าระยะยาว",
+   "renderedSection": "ใน 12 เดือนข้างหน้า",
+   "domain": "health",
+   "horizon": "next12Months",
+   "expressed": true,
+   "traceabilityReference": "prediction.health.next12Months.strong"
+  },
+  {
+   "fixture": "owner-unknown",
+   "canonicalId": "forecast:nextLifePeriod:career",
+   "completeEvidenceSignature": "h=nextLifePeriod|d=career|b=active|consumerRisk=career|e=noLagna|t=true|k=prediction.career.nextLifePeriod.active|o=life-period-score-without-lagna|td=false",
+   "evidenceKeys": [
+    "prediction.career.nextLifePeriod.active"
+   ],
+   "evidenceType": "life-period-score-without-lagna",
+   "confidence": "active",
+   "role": "forecast",
+   "primaryExpression": "ช่วงถัดไปให้ใช้รูปแบบงานที่ทำซ้ำได้จริงช่วยเลือกสิ่งที่จะรักษาหรือส่งต่อ ทดลองส่งต่องานชิ้นเล็กและดูผลก่อนจัดโครงบทบาทของช่วงใหม่ ระยะยาว ให้เก็บความมั่นคงที่สร้างทีละขั้นจากช่วงเรียนรู้และเชื่อมโยงเป็นฐานของงาน เพื่อไม่ให้งานหลักถูกเบียดเวลา และต้องยืนยันจากสิ่งที่เกิดซ้ำเพราะไม่มีเวลาเกิด",
+   "permittedCallback": "งานหลักอาจถูกภาระด้านนี้เบียดเวลา",
+   "callbackNewInformation": "ทดลองขอบเขตงานใหม่ก่อนตัดสินใจรับบทบาทเต็มตัว โดยไม่แลกกับคุณภาพงานหลัก จึงควรยืนยันจากผลที่เกิดซ้ำก่อนตัดสินใจ และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต ทดลองส่งต่องานชิ้นเล็กและดูผลก่อนจัดโครงบทบาทของช่วงใหม่",
+   "renderedSection": "ช่วงชีวิตถัดไป",
+   "domain": "career",
+   "horizon": "nextLifePeriod",
+   "expressed": true,
+   "traceabilityReference": "prediction.career.nextLifePeriod.active"
+  },
+  {
+   "fixture": "owner-unknown",
+   "canonicalId": "forecast:nextLifePeriod:finance",
+   "completeEvidenceSignature": "h=nextLifePeriod|d=finance|b=active|consumerRisk=money|e=noLagna|t=true|k=prediction.finance.nextLifePeriod.active|o=life-period-score-without-lagna|td=false",
+   "evidenceKeys": [
+    "prediction.finance.nextLifePeriod.active"
+   ],
+   "evidenceType": "life-period-score-without-lagna",
+   "confidence": "active",
+   "role": "forecast",
+   "primaryExpression": "ช่วงถัดไปฐานการเงินมีแนวโน้มเปลี่ยนตามหน้าที่ใหม่ ภาระระยะยาวจึงควรเกิดหลังรายรับจริงเริ่มนิ่ง จำลองค่าใช้จ่ายช่วงเปลี่ยนผ่านจากตัวเลขจริงก่อนผูกภาระก้อนถัดไป ระยะยาว ให้เก็บความมั่นคงที่สร้างทีละขั้นจากช่วงเรียนรู้และเชื่อมโยงเป็นฐานของการเงิน เพื่อไม่ให้เงินพร้อมใช้ลดลง และต้องยืนยันจากสิ่งที่เกิดซ้ำเพราะไม่มีเวลาเกิด",
+   "permittedCallback": "ภาระเงินอาจลดพื้นที่ตัดสินใจในด้านนี้",
+   "callbackNewInformation": "พิสูจน์กระแสเงินจริงในวงเล็กก่อนเพิ่มภาระ โดยไม่ลดเงินที่ต้องพร้อมใช้ จึงควรยืนยันจากผลที่เกิดซ้ำก่อนตัดสินใจ และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต จำลองค่าใช้จ่ายช่วงเปลี่ยนผ่านจากตัวเลขจริงก่อนผูกภาระก้อนถัดไป",
+   "renderedSection": "ช่วงชีวิตถัดไป",
+   "domain": "finance",
+   "horizon": "nextLifePeriod",
+   "expressed": true,
+   "traceabilityReference": "prediction.finance.nextLifePeriod.active"
+  },
+  {
+   "fixture": "owner-unknown",
+   "canonicalId": "forecast:nextLifePeriod:relationship",
+   "completeEvidenceSignature": "h=nextLifePeriod|d=relationship|b=quiet|consumerRisk=love|e=noLagna|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=life-period-score-without-lagna|td=false",
+   "evidenceKeys": [
+    "prediction.relationship.nextLifePeriod.quiet"
+   ],
+   "evidenceType": "life-period-score-without-lagna",
+   "confidence": "quiet",
+   "role": "forecast",
+   "primaryExpression": "ช่วงถัดไปความสัมพันธ์ที่ไปต่อได้จะต้องรับจังหวะชีวิตใหม่ของทั้งสองฝ่าย ความชัดเรื่องเวลาและหน้าที่จะสำคัญกว่าคำสัญญา ทดลองตารางชีวิตร่วมกันระยะสั้นก่อนกำหนดหน้าที่ของช่วงถัดไป ระยะยาว ให้เก็บความมั่นคงที่สร้างทีละขั้นจากช่วงเรียนรู้และเชื่อมโยงเป็นฐานของความสัมพันธ์ เพื่อไม่ให้ความคาดหวังเริ่มไม่ตรงกัน และต้องยืนยันจากสิ่งที่เกิดซ้ำเพราะไม่มีเวลาเกิด",
+   "permittedCallback": "ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน",
+   "callbackNewInformation": "รอความชัดของเงื่อนไขก่อนเพิ่มข้อผูกพัน โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน จึงควรยืนยันจากผลที่เกิดซ้ำก่อนตัดสินใจ และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต ทดลองตารางชีวิตร่วมกันระยะสั้นก่อนกำหนดหน้าที่ของช่วงถัดไป",
+   "renderedSection": "ช่วงชีวิตถัดไป",
+   "domain": "relationship",
+   "horizon": "nextLifePeriod",
+   "expressed": true,
+   "traceabilityReference": "prediction.relationship.nextLifePeriod.quiet"
+  },
+  {
+   "fixture": "owner-unknown",
+   "canonicalId": "forecast:nextLifePeriod:health",
+   "completeEvidenceSignature": "h=nextLifePeriod|d=health|b=quiet|consumerRisk=health|e=noLagna|t=true|k=prediction.health.nextLifePeriod.quiet|o=life-period-score-without-lagna|td=false",
+   "evidenceKeys": [
+    "prediction.health.nextLifePeriod.quiet"
+   ],
+   "evidenceType": "life-period-score-without-lagna",
+   "confidence": "quiet",
+   "role": "forecast",
+   "primaryExpression": "ช่วงถัดไปพลังงานอาจเปลี่ยนตามภาระชุดใหม่ ร่างกายจะตอบสนองดีขึ้นเมื่อวันทำงานและวันพักมีจังหวะที่คงเส้นคงวา กันเวลาฟื้นตัวไว้ก่อนรับภาระชุดใหม่ และลดสิ่งที่เบียดเวลานอนเป็นอันดับแรก ระยะยาว ให้เก็บความมั่นคงที่สร้างทีละขั้นจากช่วงเรียนรู้และเชื่อมโยงเป็นฐานของกำลังและการฟื้นตัว เพื่อไม่ให้การพักฟื้นแรงไม่ทัน และต้องยืนยันจากสิ่งที่เกิดซ้ำเพราะไม่มีเวลาเกิด",
+   "permittedCallback": "การพักไม่พออาจลดกำลังสำหรับด้านนี้",
+   "callbackNewInformation": "ลดกิจกรรมและคืนเวลาฟื้นตัวก่อนรับภาระใหม่ โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน จึงควรยืนยันจากผลที่เกิดซ้ำก่อนตัดสินใจ และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต กันเวลาฟื้นตัวไว้ก่อนรับภาระชุดใหม่ และลดสิ่งที่เบียดเวลานอนเป็นอันดับแรก",
+   "renderedSection": "ช่วงชีวิตถัดไป",
+   "domain": "health",
+   "horizon": "nextLifePeriod",
+   "expressed": true,
+   "traceabilityReference": "prediction.health.nextLifePeriod.quiet"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "core:computed:lagna-identity-frame",
+   "completeEvidenceSignature": "ThaiAstrologyProfile.lagnaKey=lagna_aquarius|ThaiAstrologyProfile.lagnaLordKey=lagna_lord_saturn|ThaiMirrorResult.sections[core_self].supportingThemes[themeId=disciplined].score=1.195|ThaiMirrorResult.sections[core_self].supportingThemes[themeId=disciplined].themeId=disciplined|ThaiMirrorResult.sections[core_self].supportingThemes[themeId=disciplined].themeName=Disciplined",
+   "evidenceKeys": [
+    "ThaiAstrologyProfile.lagnaKey",
+    "ThaiAstrologyProfile.lagnaLordKey",
+    "ThaiMirrorResult.sections[core_self].supportingThemes[themeId=disciplined].score",
+    "ThaiMirrorResult.sections[core_self].supportingThemes[themeId=disciplined].themeId",
+    "ThaiMirrorResult.sections[core_self].supportingThemes[themeId=disciplined].themeName"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "interpretation",
+   "primaryExpression": "ภาพเด่นของดวงนี้คือคนที่ไปได้ดีเมื่อชีวิตมีระบบและรู้ว่าต้องทำอะไรต่อ ขณะที่ดาวเสาร์ย้ำวินัย ความต่อเนื่อง และการสร้างฐานทีละขั้น แรงสองด้านทำให้คนอื่นพึ่งคุณได้ — แต่ด้านกลับคือการแบกภาระนานเกินไปโดยไม่ปรับวิธีจนไม่ทันสังเกต จากนี้ ให้ดูว่าแรงนี้เปลี่ยนสี่ด้านของชีวิตอย่างไร",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "สรุปตัวคุณแบบตรง ๆ",
+   "domain": "summary",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:lagna-identity-frame"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "core:computed:house:10:analysis",
+   "completeEvidenceSignature": "HouseEngine.calculate.house[10].lordKey=lagna_lord_mars|HouseEngine.calculate.house[10].signKey=lagna_scorpio",
+   "evidenceKeys": [
+    "HouseEngine.calculate.house[10].lordKey",
+    "HouseEngine.calculate.house[10].signKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "synthesis",
+   "primaryExpression": "ราศีพิจิก: เรื่องงาน เรือนนี้ชี้ว่าคุณสร้างผลงานผ่านความกล้าลงมือและการจัดการสิ่งเร่งด่วน จุดตัดสินไม่ได้อยู่ที่รับงานได้อีกเท่าไร แต่อยู่ที่บทบาทนั้นเพิ่มอำนาจกำหนดคุณภาพงานหรือเพียงเพิ่มน้ำหนักให้คุณถือ",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "การงาน",
+   "domain": "work",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:house:10:analysis"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "core:computed:house:2:analysis",
+   "completeEvidenceSignature": "HouseEngine.calculate.house[2].lordKey=lagna_lord_jupiter|HouseEngine.calculate.house[2].signKey=lagna_pisces",
+   "evidenceKeys": [
+    "HouseEngine.calculate.house[2].lordKey",
+    "HouseEngine.calculate.house[2].signKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "synthesis",
+   "primaryExpression": "ราศีมีน: เรื่องเงิน รูปแบบของเรือนนี้ผูกความมั่นคงเข้ากับภาพระยะยาว ความรู้ และการขยายอย่างมีหลัก จึงวัดความก้าวหน้าได้จากทางเลือกที่เงินสำรองเปิดให้ ไม่ใช่เพียงยอดที่สะสม",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "การเงิน",
+   "domain": "money",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:house:2:analysis"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "core:computed:house:7:analysis",
+   "completeEvidenceSignature": "HouseEngine.calculate.house[7].lordKey=lagna_lord_sun|HouseEngine.calculate.house[7].signKey=lagna_leo",
+   "evidenceKeys": [
+    "HouseEngine.calculate.house[7].lordKey",
+    "HouseEngine.calculate.house[7].signKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "synthesis",
+   "primaryExpression": "ราศีสิงห์: ในความสัมพันธ์ ความไว้ใจของคุณเกิดผ่านความชัดเจนและการตัดสินใจด้วยตัวเอง ความสัมพันธ์จึงลึกขึ้นเมื่อความรับผิดชอบที่แบ่งกันสอดคล้องกับพื้นที่ที่แต่ละฝ่ายต้องมี",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "ความรักและความสัมพันธ์",
+   "domain": "relationships",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:house:7:analysis"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "core:computed:house:6:analysis",
+   "completeEvidenceSignature": "HouseEngine.calculate.house[6].lordKey=lagna_lord_moon|HouseEngine.calculate.house[6].signKey=lagna_cancer",
+   "evidenceKeys": [
+    "HouseEngine.calculate.house[6].lordKey",
+    "HouseEngine.calculate.house[6].signKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "synthesis",
+   "primaryExpression": "ราศีกรกฎ: เรื่องพลังชีวิต เรือนนี้เชื่อมความสม่ำเสมอของร่างกายกับการรับรู้ความเปลี่ยนแปลงและความต้องการรอบตัว สัญญาณสำคัญจึงไม่ใช่วันที่ล้าเพียงวันเดียว แต่คือเวลาฟื้นตัวที่ยาวขึ้นหลังช่วงรับผิดชอบหนัก",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "สุขภาพและพลังชีวิต",
+   "domain": "wellbeing",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:house:6:analysis"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "core:disclosure:medical",
+   "completeEvidenceSignature": "HouseEngine.calculate.house[6].lordKey=lagna_lord_moon|HouseEngine.calculate.house[6].signKey=lagna_cancer",
+   "evidenceKeys": [
+    "HouseEngine.calculate.house[6].lordKey",
+    "HouseEngine.calculate.house[6].signKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "เนื้อหาส่วนนี้เป็นมุมมองตามความเชื่อทางโหราศาสตร์ ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "สุขภาพและพลังชีวิต",
+   "domain": "wellbeing",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "disclosure:medical"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "core:computed:closing-priority-action",
+   "completeEvidenceSignature": "ThaiAstrologyProfile.lagnaLordKey=lagna_lord_saturn",
+   "evidenceKeys": [
+    "ThaiAstrologyProfile.lagnaLordKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "synthesis",
+   "primaryExpression": "แก่นของคำอ่านนี้ไม่ใช่การรับให้มากขึ้น แต่คือการเลือกสิ่งที่คู่ควรกับแรงของคุณ เริ่มจากการวางระบบที่ทำซ้ำได้และกำหนดเวลาพักไว้ล่วงหน้า แล้วใช้ผลจริงเป็นเกณฑ์ก่อนเปิดภาระถัดไป",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "คำชี้หลักจากพื้นดวง",
+   "domain": "closing",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:closing-priority-action"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "core:methodology:astrological-date",
+   "completeEvidenceSignature": "ThaiBetaAnalysis.normalizedSnapshot.thaiAstrologicalDate=1982-06-05|ThaiMirrorPipelineResult.birthData.thaiWeekdayNumber=7",
+   "evidenceKeys": [
+    "ThaiBetaAnalysis.normalizedSnapshot.thaiAstrologicalDate",
+    "ThaiMirrorPipelineResult.birthData.thaiWeekdayNumber"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "วันเกิดตามสูติบัตรยังเป็นวันที่ 1982-06-06 ตามเดิม ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วันเสาร์ (วันที่ 1982-06-05) เป็นวันทางโหราศาสตร์",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "รายงานนี้ดูจากอะไร",
+   "domain": "methodology",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "methodology:astrological-date"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "core:methodology:sunrise-boundary",
+   "completeEvidenceSignature": "ThaiBetaAnalysis.normalizedSnapshot.birthTime=00:03|ThaiBetaAnalysis.normalizedSnapshot.rawBirthDate=1982-06-06|ThaiBetaAnalysis.normalizedSnapshot.sunrise=05:46|ThaiBetaAnalysis.normalizedSnapshot.usedPreviousDay=true",
+   "evidenceKeys": [
+    "ThaiBetaAnalysis.normalizedSnapshot.birthTime",
+    "ThaiBetaAnalysis.normalizedSnapshot.rawBirthDate",
+    "ThaiBetaAnalysis.normalizedSnapshot.sunrise",
+    "ThaiBetaAnalysis.normalizedSnapshot.usedPreviousDay"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้นเวลา 05:46 จึงใช้วันก่อนหน้าตามกฎที่นับวันใหม่เมื่อพระอาทิตย์ขึ้น โดยไม่เปลี่ยนวันเกิดตามสูติบัตร",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "รายงานนี้ดูจากอะไร",
+   "domain": "methodology",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "methodology:sunrise-boundary"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "core:methodology:lagna-inputs",
+   "completeEvidenceSignature": "ThaiAstrologyProfile.lagnaKey=lagna_aquarius|ThaiBetaAnalysis.normalizedSnapshot.birthTime=00:03|ThaiBetaAnalysis.normalizedSnapshot.latitude=18.7883|ThaiBetaAnalysis.normalizedSnapshot.longitude=98.9853|ThaiBetaAnalysis.normalizedSnapshot.timeZoneId=Asia/Bangkok",
+   "evidenceKeys": [
+    "ThaiAstrologyProfile.lagnaKey",
+    "ThaiBetaAnalysis.normalizedSnapshot.birthTime",
+    "ThaiBetaAnalysis.normalizedSnapshot.latitude",
+    "ThaiBetaAnalysis.normalizedSnapshot.longitude",
+    "ThaiBetaAnalysis.normalizedSnapshot.timeZoneId"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากเวลาและสถานที่เกิด) อยู่ที่ราศีกุมภ์",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "รายงานนี้ดูจากอะไร",
+   "domain": "methodology",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "methodology:lagna-inputs"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "core:methodology:top-themes",
+   "completeEvidenceSignature": "ThaiMirrorResult.topThemes[themeId=builder].score=1.5525000000000002|ThaiMirrorResult.topThemes[themeId=builder].themeId=builder|ThaiMirrorResult.topThemes[themeId=builder].themeName=Builder|ThaiMirrorResult.topThemes[themeId=develop_patience].score=1.3900000000000001|ThaiMirrorResult.topThemes[themeId=develop_patience].themeId=develop_patience|ThaiMirrorResult.topThemes[themeId=develop_patience].themeName=DevelopPatience|ThaiMirrorResult.topThemes[themeId=persistence].score=2.2025|ThaiMirrorResult.topThemes[themeId=persistence].themeId=persistence|ThaiMirrorResult.topThemes[themeId=persistence].themeName=Persistence",
+   "evidenceKeys": [
+    "ThaiMirrorResult.topThemes[themeId=builder].score",
+    "ThaiMirrorResult.topThemes[themeId=builder].themeId",
+    "ThaiMirrorResult.topThemes[themeId=builder].themeName",
+    "ThaiMirrorResult.topThemes[themeId=develop_patience].score",
+    "ThaiMirrorResult.topThemes[themeId=develop_patience].themeId",
+    "ThaiMirrorResult.topThemes[themeId=develop_patience].themeName",
+    "ThaiMirrorResult.topThemes[themeId=persistence].score",
+    "ThaiMirrorResult.topThemes[themeId=persistence].themeId",
+    "ThaiMirrorResult.topThemes[themeId=persistence].themeName"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "คำอ่านข้างต้นเลือกประเด็นที่เชื่อมกับชีวิตคุณได้ชัดที่สุดก่อน แล้วเรียงผลต่อเนื่องไปยังเรื่องที่ควรระวังและการตัดสินใจ",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "รายงานนี้ดูจากอะไร",
+   "domain": "methodology",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "methodology:top-themes"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "forecast:current:career",
+   "completeEvidenceSignature": "h=current|d=career|b=strong|consumerRisk=career|e=full|t=false|k=prediction.career.current.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.career.current.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ตอนนี้งานมีแรงส่งให้ขยับได้ เลือกรับเฉพาะภาระที่ไม่เบียดคุณภาพงานหลัก\nเลือกงานหลักหนึ่งเรื่อง ตั้งเพดานเวลา และปฏิเสธงานใหม่เมื่อเพดานเต็ม ในภาพรวมตอนนี้ เรื่องนี้เป็นแกนหลัก: ใช้ความมั่นคงที่สร้างทีละขั้นรับมือขอบเขตหน้าที่เริ่มเปลี่ยนในช่วงเก็บเกี่ยวความสุข และหยุดเมื่องานหลักถูกเบียดเวลา",
+   "permittedCallback": "งานหลักอาจถูกภาระด้านนี้เบียดเวลา",
+   "callbackNewInformation": "รับบทบาทเพิ่มได้หนึ่งก้าวเมื่อคุณภาพงานหลักยังคงเดิม โดยไม่แลกกับคุณภาพงานหลัก เลือกงานหลักหนึ่งเรื่อง ตั้งเพดานเวลา และปฏิเสธงานใหม่เมื่อเพดานเต็ม",
+   "renderedSection": "ช่วงนี้",
+   "domain": "career",
+   "horizon": "current",
+   "expressed": true,
+   "traceabilityReference": "prediction.career.current.strong"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "forecast:current:finance",
+   "completeEvidenceSignature": "h=current|d=finance|b=strong|consumerRisk=money|e=full|t=false|k=prediction.finance.current.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.finance.current.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ตอนนี้การเงินมีแรงส่งให้ขยับได้ แต่เงินพร้อมใช้ต้องมาก่อนภาระระยะยาว\nกันเงินรายจ่ายจำเป็นก่อน แล้วทดลองภาระใหม่ด้วยวงเงินเล็กที่หยุดได้ ในภาพรวมตอนนี้ เรื่องนี้เป็นเงื่อนไขสำคัญ: ใช้ความมั่นคงที่สร้างทีละขั้นรับมือยอดคงเหลือเปลี่ยนต่อเนื่องหลายรอบในช่วงเก็บเกี่ยวความสุข และหยุดเมื่อเงินพร้อมใช้ลดลง",
+   "permittedCallback": "ภาระเงินอาจลดพื้นที่ตัดสินใจในด้านนี้",
+   "callbackNewInformation": "ขยับภาระได้เมื่อกันเงินพร้อมใช้ไว้ครบแล้ว โดยไม่ลดเงินที่ต้องพร้อมใช้ กันเงินรายจ่ายจำเป็นก่อน แล้วทดลองภาระใหม่ด้วยวงเงินเล็กที่หยุดได้",
+   "renderedSection": "ช่วงนี้",
+   "domain": "finance",
+   "horizon": "current",
+   "expressed": true,
+   "traceabilityReference": "prediction.finance.current.strong"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "forecast:current:relationship",
+   "completeEvidenceSignature": "h=current|d=relationship|b=strong|consumerRisk=love|e=full|t=false|k=prediction.relationship.current.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.relationship.current.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ตอนนี้ความสัมพันธ์มีแรงส่งให้ขยับได้ เมื่อข้อตกลงชัดและทั้งสองฝ่ายทำได้จริง\nพูดเงื่อนไขที่ค้างอยู่ให้จบหนึ่งเรื่อง แล้วดูการตอบสนองก่อนตกลงเพิ่ม ในภาพรวมตอนนี้ เรื่องนี้เป็นแรงประกอบ: ใช้ความมั่นคงที่สร้างทีละขั้นรับมือคำพูดกลายเป็นพฤติกรรมที่สม่ำเสมอในช่วงเก็บเกี่ยวความสุข และหยุดเมื่อความคาดหวังเริ่มไม่ตรงกัน",
+   "permittedCallback": "ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน",
+   "callbackNewInformation": "เพิ่มข้อผูกพันได้เมื่อคำพูดและการกระทำสอดคล้องกัน โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน พูดเงื่อนไขที่ค้างอยู่ให้จบหนึ่งเรื่อง แล้วดูการตอบสนองก่อนตกลงเพิ่ม",
+   "renderedSection": "ช่วงนี้",
+   "domain": "relationship",
+   "horizon": "current",
+   "expressed": true,
+   "traceabilityReference": "prediction.relationship.current.strong"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "forecast:current:health",
+   "completeEvidenceSignature": "h=current|d=health|b=strong|consumerRisk=health|e=full|t=false|k=prediction.health.current.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.health.current.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ตอนนี้กำลังของคุณมีแรงส่งให้ขยับได้ ตราบใดที่การพักยังฟื้นแรงได้ทัน\nลดกิจกรรมหนึ่งอย่างในสัปดาห์นี้และคืนเวลานั้นให้การนอน ในภาพรวมตอนนี้ เรื่องนี้เป็นแรงประกอบ: ใช้ความมั่นคงที่สร้างทีละขั้นรับมือตารางหนักเริ่มรบกวนการพักในช่วงเก็บเกี่ยวความสุข และหยุดเมื่อการพักฟื้นแรงไม่ทัน",
+   "permittedCallback": "การพักไม่พออาจลดกำลังสำหรับด้านนี้",
+   "callbackNewInformation": "เพิ่มกิจกรรมได้เมื่อเวลาพักและการฟื้นตัวยังคงพอ โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน ลดกิจกรรมหนึ่งอย่างในสัปดาห์นี้และคืนเวลานั้นให้การนอน",
+   "renderedSection": "ช่วงนี้",
+   "domain": "health",
+   "horizon": "current",
+   "expressed": true,
+   "traceabilityReference": "prediction.health.current.strong"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "forecast:next12Months:career",
+   "completeEvidenceSignature": "h=next12Months|d=career|b=strong|consumerRisk=career|e=full|t=false|k=prediction.career.next12Months.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.career.next12Months.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ปีข้างหน้าบทบาทที่ต้องประสานคนและตัดสินใจจะเด่นขึ้น งานเดิมมีโอกาสขยายขอบเขต แต่ภาระที่รับพร้อมกันมากเกินไปจะทำให้คุณภาพตก กำหนดจุดทบทวนกลางปีเพื่อเลือกว่าจะขยายบทบาทเดิมหรือหยุดรับเพิ่ม สัญญาณเปลี่ยนคือขอบเขตหน้าที่เริ่มเปลี่ยนระหว่างช่วงเก็บเกี่ยวความสุข; ใช้ความมั่นคงที่สร้างทีละขั้นทบทวนก่อนงานหลักถูกเบียดเวลา",
+   "permittedCallback": "งานหลักอาจถูกภาระด้านนี้เบียดเวลา",
+   "callbackNewInformation": "รับบทบาทเพิ่มได้หนึ่งก้าวเมื่อคุณภาพงานหลักยังคงเดิม โดยไม่แลกกับคุณภาพงานหลัก กำหนดจุดทบทวนกลางปีเพื่อเลือกว่าจะขยายบทบาทเดิมหรือหยุดรับเพิ่ม",
+   "renderedSection": "ใน 12 เดือนข้างหน้า",
+   "domain": "career",
+   "horizon": "next12Months",
+   "expressed": true,
+   "traceabilityReference": "prediction.career.next12Months.strong"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "forecast:next12Months:finance",
+   "completeEvidenceSignature": "h=next12Months|d=finance|b=strong|consumerRisk=money|e=full|t=false|k=prediction.finance.next12Months.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.finance.next12Months.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ปีข้างหน้ารายรับมีโอกาสขยับตามบทบาทงาน แต่ภาระประจำจะตามมาเร็ว เงินก้อนใหม่จึงให้ผลดีเมื่อรักษาสภาพคล่องไว้ก่อน บันทึกเงินคงเหลือทุกไตรมาสและขยายแผนต่อเมื่อเงินสำรองไม่ลดลง สัญญาณเปลี่ยนคือยอดคงเหลือเปลี่ยนต่อเนื่องหลายรอบระหว่างช่วงเก็บเกี่ยวความสุข; ใช้ความมั่นคงที่สร้างทีละขั้นทบทวนก่อนเงินพร้อมใช้ลดลง",
+   "permittedCallback": "ภาระเงินอาจลดพื้นที่ตัดสินใจในด้านนี้",
+   "callbackNewInformation": "ขยับภาระได้เมื่อกันเงินพร้อมใช้ไว้ครบแล้ว โดยไม่ลดเงินที่ต้องพร้อมใช้ บันทึกเงินคงเหลือทุกไตรมาสและขยายแผนต่อเมื่อเงินสำรองไม่ลดลง",
+   "renderedSection": "ใน 12 เดือนข้างหน้า",
+   "domain": "finance",
+   "horizon": "next12Months",
+   "expressed": true,
+   "traceabilityReference": "prediction.finance.next12Months.strong"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "forecast:next12Months:relationship",
+   "completeEvidenceSignature": "h=next12Months|d=relationship|b=strong|consumerRisk=love|e=full|t=false|k=prediction.relationship.next12Months.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.relationship.next12Months.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ปีข้างหน้าความสัมพันธ์เป็นเรื่องเด่น ข้อตกลงที่ค้างอยู่มีแนวโน้มถูกนำมาพูดให้ชัด และเปิดทางให้ความสัมพันธ์มั่นคงขึ้นหากทั้งสองฝ่ายแบ่งเวลาได้จริง ทบทวนข้อตกลงตามพฤติกรรมที่เกิดซ้ำ ไม่เร่งข้อผูกพันจากช่วงที่ราบรื่นครั้งเดียว สัญญาณเปลี่ยนคือคำพูดกลายเป็นพฤติกรรมที่สม่ำเสมอระหว่างช่วงเก็บเกี่ยวความสุข; ใช้ความมั่นคงที่สร้างทีละขั้นทบทวนก่อนความคาดหวังเริ่มไม่ตรงกัน",
+   "permittedCallback": "ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน",
+   "callbackNewInformation": "เพิ่มข้อผูกพันได้เมื่อคำพูดและการกระทำสอดคล้องกัน โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน ทบทวนข้อตกลงตามพฤติกรรมที่เกิดซ้ำ ไม่เร่งข้อผูกพันจากช่วงที่ราบรื่นครั้งเดียว",
+   "renderedSection": "ใน 12 เดือนข้างหน้า",
+   "domain": "relationship",
+   "horizon": "next12Months",
+   "expressed": true,
+   "traceabilityReference": "prediction.relationship.next12Months.strong"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "forecast:next12Months:health",
+   "completeEvidenceSignature": "h=next12Months|d=health|b=strong|consumerRisk=health|e=full|t=false|k=prediction.health.next12Months.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.health.next12Months.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ปีข้างหน้าภาระที่เพิ่มขึ้นอาจทำให้การพักไม่เป็นเวลา หากรักษาจังหวะฟื้นตัวได้ พลังงานจะกลับมาสม่ำเสมอและรองรับงานใหม่ได้ดีขึ้น จดคุณภาพการนอนหลังสัปดาห์หนัก และลดตารางเดือนถัดไปเมื่อฟื้นไม่ทัน สัญญาณเปลี่ยนคือตารางหนักเริ่มรบกวนการพักระหว่างช่วงเก็บเกี่ยวความสุข; ใช้ความมั่นคงที่สร้างทีละขั้นทบทวนก่อนการพักฟื้นแรงไม่ทัน",
+   "permittedCallback": "การพักไม่พออาจลดกำลังสำหรับด้านนี้",
+   "callbackNewInformation": "เพิ่มกิจกรรมได้เมื่อเวลาพักและการฟื้นตัวยังคงพอ โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน จดคุณภาพการนอนหลังสัปดาห์หนัก และลดตารางเดือนถัดไปเมื่อฟื้นไม่ทัน",
+   "renderedSection": "ใน 12 เดือนข้างหน้า",
+   "domain": "health",
+   "horizon": "next12Months",
+   "expressed": true,
+   "traceabilityReference": "prediction.health.next12Months.strong"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "forecast:nextLifePeriod:career",
+   "completeEvidenceSignature": "h=nextLifePeriod|d=career|b=strong|consumerRisk=career|e=full|t=true|k=prediction.career.nextLifePeriod.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.career.nextLifePeriod.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ช่วงชีวิตถัดไปบทบาทของคุณจะเปลี่ยนจากการรับงานเพิ่มไปสู่การคุมทิศทาง โอกาสอยู่ที่การเก็บงานซึ่งใช้ประสบการณ์สูงและลดงานที่กระจายแรง ทำรายการงานที่จะรักษา ส่งต่อ และยุติให้เสร็จก่อนรับบทบาทก้อนใหม่ ระยะยาว ให้เก็บความมั่นคงที่สร้างทีละขั้นจากช่วงเก็บเกี่ยวความสุขเป็นฐานของงาน เพื่อไม่ให้งานหลักถูกเบียดเวลา",
+   "permittedCallback": "งานหลักอาจถูกภาระด้านนี้เบียดเวลา",
+   "callbackNewInformation": "รับบทบาทเพิ่มได้หนึ่งก้าวเมื่อคุณภาพงานหลักยังคงเดิม โดยไม่แลกกับคุณภาพงานหลัก และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต ทำรายการงานที่จะรักษา ส่งต่อ และยุติให้เสร็จก่อนรับบทบาทก้อนใหม่",
+   "renderedSection": "ช่วงชีวิตถัดไป",
+   "domain": "career",
+   "horizon": "nextLifePeriod",
+   "expressed": true,
+   "traceabilityReference": "prediction.career.nextLifePeriod.strong"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "forecast:nextLifePeriod:finance",
+   "completeEvidenceSignature": "h=nextLifePeriod|d=finance|b=active|consumerRisk=money|e=full|t=true|k=prediction.finance.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.finance.nextLifePeriod.active"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "active",
+   "role": "forecast",
+   "primaryExpression": "ช่วงชีวิตถัดไปต้องให้น้ำหนักกับภาระระยะยาวและเงินรองรับการเปลี่ยนผ่าน สร้างเงินสำรองเฉพาะช่วงเปลี่ยนผ่านก่อนผูกค่าใช้จ่ายระยะยาวก้อนใหม่ ระยะยาว ให้เก็บความมั่นคงที่สร้างทีละขั้นจากช่วงเก็บเกี่ยวความสุขเป็นฐานของการเงิน เพื่อไม่ให้เงินพร้อมใช้ลดลง",
+   "permittedCallback": "ภาระเงินอาจลดพื้นที่ตัดสินใจในด้านนี้",
+   "callbackNewInformation": "พิสูจน์กระแสเงินจริงในวงเล็กก่อนเพิ่มภาระ โดยไม่ลดเงินที่ต้องพร้อมใช้ และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต สร้างเงินสำรองเฉพาะช่วงเปลี่ยนผ่านก่อนผูกค่าใช้จ่ายระยะยาวก้อนใหม่",
+   "renderedSection": "ช่วงชีวิตถัดไป",
+   "domain": "finance",
+   "horizon": "nextLifePeriod",
+   "expressed": true,
+   "traceabilityReference": "prediction.finance.nextLifePeriod.active"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "forecast:nextLifePeriod:relationship",
+   "completeEvidenceSignature": "h=nextLifePeriod|d=relationship|b=quiet|consumerRisk=love|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.relationship.nextLifePeriod.quiet"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "quiet",
+   "role": "forecast",
+   "primaryExpression": "ช่วงชีวิตถัดไปความสัมพันธ์ต้องปรับตามภาระชุดใหม่ ความคลุมเครือเรื่องบทบาทอาจสร้างระยะห่าง แต่การวางชีวิตร่วมกันอย่างเป็นรูปธรรมจะเพิ่มความมั่นคง ตกลงเวลา หน้าที่ และพื้นที่ส่วนตัวของช่วงถัดไปไว้ก่อนตัดสินใจร่วมกัน ระยะยาว ให้เก็บความมั่นคงที่สร้างทีละขั้นจากช่วงเก็บเกี่ยวความสุขเป็นฐานของความสัมพันธ์ เพื่อไม่ให้ความคาดหวังเริ่มไม่ตรงกัน",
+   "permittedCallback": "ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน",
+   "callbackNewInformation": "รอความชัดของเงื่อนไขก่อนเพิ่มข้อผูกพัน โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต ตกลงเวลา หน้าที่ และพื้นที่ส่วนตัวของช่วงถัดไปไว้ก่อนตัดสินใจร่วมกัน",
+   "renderedSection": "ช่วงชีวิตถัดไป",
+   "domain": "relationship",
+   "horizon": "nextLifePeriod",
+   "expressed": true,
+   "traceabilityReference": "prediction.relationship.nextLifePeriod.quiet"
+  },
+  {
+   "fixture": "regression-known-0003",
+   "canonicalId": "forecast:nextLifePeriod:health",
+   "completeEvidenceSignature": "h=nextLifePeriod|d=health|b=active|consumerRisk=health|e=full|t=true|k=prediction.health.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.health.nextLifePeriod.active"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "active",
+   "role": "forecast",
+   "primaryExpression": "ช่วงชีวิตถัดไปพลังงานมีแนวโน้มขึ้นลงตามภาระที่เปลี่ยน หากเร่งรับทุกอย่างพร้อมกัน ความล้าจะสะสมเร็วกว่าช่วงปัจจุบัน ทดลองกิจวัตรพักแบบใหม่ล่วงหน้าและเก็บเฉพาะแบบที่ทำต่อได้ในวันที่ยุ่ง ระยะยาว ให้เก็บความมั่นคงที่สร้างทีละขั้นจากช่วงเก็บเกี่ยวความสุขเป็นฐานของกำลังและการฟื้นตัว เพื่อไม่ให้การพักฟื้นแรงไม่ทัน",
+   "permittedCallback": "การพักไม่พออาจลดกำลังสำหรับด้านนี้",
+   "callbackNewInformation": "ทดลองกิจกรรมทีละขั้นและใช้การฟื้นตัวจริงเป็นเพดาน โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต ทดลองกิจวัตรพักแบบใหม่ล่วงหน้าและเก็บเฉพาะแบบที่ทำต่อได้ในวันที่ยุ่ง",
+   "renderedSection": "ช่วงชีวิตถัดไป",
+   "domain": "health",
+   "horizon": "nextLifePeriod",
+   "expressed": true,
+   "traceabilityReference": "prediction.health.nextLifePeriod.active"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "core:computed:lagna-identity-frame",
+   "completeEvidenceSignature": "ThaiAstrologyProfile.lagnaKey=lagna_pisces|ThaiAstrologyProfile.lagnaLordKey=lagna_lord_jupiter|ThaiMirrorResult.sections[core_self].supportingThemes[themeId=creative].score=0.95|ThaiMirrorResult.sections[core_self].supportingThemes[themeId=creative].themeId=creative|ThaiMirrorResult.sections[core_self].supportingThemes[themeId=creative].themeName=Creative",
+   "evidenceKeys": [
+    "ThaiAstrologyProfile.lagnaKey",
+    "ThaiAstrologyProfile.lagnaLordKey",
+    "ThaiMirrorResult.sections[core_self].supportingThemes[themeId=creative].score",
+    "ThaiMirrorResult.sections[core_self].supportingThemes[themeId=creative].themeId",
+    "ThaiMirrorResult.sections[core_self].supportingThemes[themeId=creative].themeName"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "interpretation",
+   "primaryExpression": "ภาพเด่นของดวงนี้คือคนที่ชอบสร้างทางเลือกใหม่แทนการยึดวิธีเดิม ขณะที่ดาวพฤหัสบดีย้ำภาพระยะยาว ความรู้ และการขยายอย่างมีหลัก แรงสองด้านทำให้คนอื่นพึ่งคุณได้ — แต่ด้านกลับคือการมองปลายทางไกลจนลืมเช็กต้นทุนที่มีอยู่จริงจนไม่ทันสังเกต จากนี้ ให้ดูว่าแรงนี้เปลี่ยนสี่ด้านของชีวิตอย่างไร",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "สรุปตัวคุณแบบตรง ๆ",
+   "domain": "summary",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:lagna-identity-frame"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "core:computed:house:10:analysis",
+   "completeEvidenceSignature": "HouseEngine.calculate.house[10].lordKey=lagna_lord_jupiter|HouseEngine.calculate.house[10].signKey=lagna_sagittarius",
+   "evidenceKeys": [
+    "HouseEngine.calculate.house[10].lordKey",
+    "HouseEngine.calculate.house[10].signKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "synthesis",
+   "primaryExpression": "ราศีธนู: เรื่องงาน เรือนนี้ชี้ว่าคุณสร้างผลงานผ่านภาพระยะยาว ความรู้ และการขยายอย่างมีหลัก จุดตัดสินไม่ได้อยู่ที่รับงานได้อีกเท่าไร แต่อยู่ที่บทบาทนั้นเพิ่มอำนาจกำหนดคุณภาพงานหรือเพียงเพิ่มน้ำหนักให้คุณถือ",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "การงาน",
+   "domain": "work",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:house:10:analysis"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "core:computed:house:2:analysis",
+   "completeEvidenceSignature": "HouseEngine.calculate.house[2].lordKey=lagna_lord_mars|HouseEngine.calculate.house[2].signKey=lagna_aries",
+   "evidenceKeys": [
+    "HouseEngine.calculate.house[2].lordKey",
+    "HouseEngine.calculate.house[2].signKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "synthesis",
+   "primaryExpression": "ราศีเมษ: เรื่องเงิน รูปแบบของเรือนนี้ผูกความมั่นคงเข้ากับความกล้าลงมือและการจัดการสิ่งเร่งด่วน จึงวัดความก้าวหน้าได้จากทางเลือกที่เงินสำรองเปิดให้ ไม่ใช่เพียงยอดที่สะสม",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "การเงิน",
+   "domain": "money",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:house:2:analysis"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "core:computed:house:7:analysis",
+   "completeEvidenceSignature": "HouseEngine.calculate.house[7].lordKey=lagna_lord_mercury|HouseEngine.calculate.house[7].signKey=lagna_virgo",
+   "evidenceKeys": [
+    "HouseEngine.calculate.house[7].lordKey",
+    "HouseEngine.calculate.house[7].signKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "synthesis",
+   "primaryExpression": "ราศีกันย์: ในความสัมพันธ์ ความไว้ใจของคุณเกิดผ่านข้อมูล การเปรียบเทียบ และการสื่อสารให้เข้าใจตรงกัน ความสัมพันธ์จึงลึกขึ้นเมื่อความรับผิดชอบที่แบ่งกันสอดคล้องกับพื้นที่ที่แต่ละฝ่ายต้องมี",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "ความรักและความสัมพันธ์",
+   "domain": "relationships",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:house:7:analysis"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "core:computed:house:6:analysis",
+   "completeEvidenceSignature": "HouseEngine.calculate.house[6].lordKey=lagna_lord_sun|HouseEngine.calculate.house[6].signKey=lagna_leo",
+   "evidenceKeys": [
+    "HouseEngine.calculate.house[6].lordKey",
+    "HouseEngine.calculate.house[6].signKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "synthesis",
+   "primaryExpression": "ราศีสิงห์: เรื่องพลังชีวิต เรือนนี้เชื่อมความสม่ำเสมอของร่างกายกับความชัดเจนและการตัดสินใจด้วยตัวเอง สัญญาณสำคัญจึงไม่ใช่วันที่ล้าเพียงวันเดียว แต่คือเวลาฟื้นตัวที่ยาวขึ้นหลังช่วงรับผิดชอบหนัก",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "สุขภาพและพลังชีวิต",
+   "domain": "wellbeing",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:house:6:analysis"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "core:disclosure:medical",
+   "completeEvidenceSignature": "HouseEngine.calculate.house[6].lordKey=lagna_lord_sun|HouseEngine.calculate.house[6].signKey=lagna_leo",
+   "evidenceKeys": [
+    "HouseEngine.calculate.house[6].lordKey",
+    "HouseEngine.calculate.house[6].signKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "เนื้อหาส่วนนี้เป็นมุมมองตามความเชื่อทางโหราศาสตร์ ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "สุขภาพและพลังชีวิต",
+   "domain": "wellbeing",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "disclosure:medical"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "core:computed:closing-priority-action",
+   "completeEvidenceSignature": "ThaiMirrorResult.topThemes[themeId=creative].score=0.95|ThaiMirrorResult.topThemes[themeId=creative].themeId=creative|ThaiMirrorResult.topThemes[themeId=creative].themeName=Creative",
+   "evidenceKeys": [
+    "ThaiMirrorResult.topThemes[themeId=creative].score",
+    "ThaiMirrorResult.topThemes[themeId=creative].themeId",
+    "ThaiMirrorResult.topThemes[themeId=creative].themeName"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "synthesis",
+   "primaryExpression": "แก่นของคำอ่านนี้ไม่ใช่การรับให้มากขึ้น แต่คือการเลือกสิ่งที่คู่ควรกับแรงของคุณ เริ่มจากตั้งเส้นตายเลือกหนึ่งทางแล้วทดสอบกับข้อเท็จจริง แล้วใช้ผลจริงเป็นเกณฑ์ก่อนเปิดภาระถัดไป",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "คำชี้หลักจากพื้นดวง",
+   "domain": "closing",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:closing-priority-action"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "core:methodology:astrological-date",
+   "completeEvidenceSignature": "ThaiBetaAnalysis.normalizedSnapshot.thaiAstrologicalDate=1991-11-18|ThaiMirrorPipelineResult.birthData.thaiWeekdayNumber=2",
+   "evidenceKeys": [
+    "ThaiBetaAnalysis.normalizedSnapshot.thaiAstrologicalDate",
+    "ThaiMirrorPipelineResult.birthData.thaiWeekdayNumber"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "วันเกิดตามสูติบัตรยังเป็นวันที่ 1991-11-18 ตามเดิม ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วันจันทร์ (วันที่ 1991-11-18) เป็นวันทางโหราศาสตร์",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "รายงานนี้ดูจากอะไร",
+   "domain": "methodology",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "methodology:astrological-date"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "core:methodology:sunrise-boundary",
+   "completeEvidenceSignature": "ThaiBetaAnalysis.normalizedSnapshot.birthTime=14:20|ThaiBetaAnalysis.normalizedSnapshot.rawBirthDate=1991-11-18|ThaiBetaAnalysis.normalizedSnapshot.sunrise=06:18|ThaiBetaAnalysis.normalizedSnapshot.usedPreviousDay=false",
+   "evidenceKeys": [
+    "ThaiBetaAnalysis.normalizedSnapshot.birthTime",
+    "ThaiBetaAnalysis.normalizedSnapshot.rawBirthDate",
+    "ThaiBetaAnalysis.normalizedSnapshot.sunrise",
+    "ThaiBetaAnalysis.normalizedSnapshot.usedPreviousDay"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "เวลาเกิดอยู่หลังพระอาทิตย์ขึ้นเวลา 06:18 จึงใช้วันเดียวกับวันเกิดตามสูติบัตร",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "รายงานนี้ดูจากอะไร",
+   "domain": "methodology",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "methodology:sunrise-boundary"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "core:methodology:lagna-inputs",
+   "completeEvidenceSignature": "ThaiAstrologyProfile.lagnaKey=lagna_pisces|ThaiBetaAnalysis.normalizedSnapshot.birthTime=14:20|ThaiBetaAnalysis.normalizedSnapshot.latitude=13.7563|ThaiBetaAnalysis.normalizedSnapshot.longitude=100.5018|ThaiBetaAnalysis.normalizedSnapshot.timeZoneId=Asia/Bangkok",
+   "evidenceKeys": [
+    "ThaiAstrologyProfile.lagnaKey",
+    "ThaiBetaAnalysis.normalizedSnapshot.birthTime",
+    "ThaiBetaAnalysis.normalizedSnapshot.latitude",
+    "ThaiBetaAnalysis.normalizedSnapshot.longitude",
+    "ThaiBetaAnalysis.normalizedSnapshot.timeZoneId"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากเวลาและสถานที่เกิด) อยู่ที่ราศีมีน",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "รายงานนี้ดูจากอะไร",
+   "domain": "methodology",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "methodology:lagna-inputs"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "core:methodology:top-themes",
+   "completeEvidenceSignature": "ThaiMirrorResult.topThemes[themeId=creative].score=0.95|ThaiMirrorResult.topThemes[themeId=creative].themeId=creative|ThaiMirrorResult.topThemes[themeId=creative].themeName=Creative|ThaiMirrorResult.topThemes[themeId=empathetic].score=1.35|ThaiMirrorResult.topThemes[themeId=empathetic].themeId=empathetic|ThaiMirrorResult.topThemes[themeId=empathetic].themeName=Empathetic|ThaiMirrorResult.topThemes[themeId=sensitive].score=1.01|ThaiMirrorResult.topThemes[themeId=sensitive].themeId=sensitive|ThaiMirrorResult.topThemes[themeId=sensitive].themeName=Sensitive",
+   "evidenceKeys": [
+    "ThaiMirrorResult.topThemes[themeId=creative].score",
+    "ThaiMirrorResult.topThemes[themeId=creative].themeId",
+    "ThaiMirrorResult.topThemes[themeId=creative].themeName",
+    "ThaiMirrorResult.topThemes[themeId=empathetic].score",
+    "ThaiMirrorResult.topThemes[themeId=empathetic].themeId",
+    "ThaiMirrorResult.topThemes[themeId=empathetic].themeName",
+    "ThaiMirrorResult.topThemes[themeId=sensitive].score",
+    "ThaiMirrorResult.topThemes[themeId=sensitive].themeId",
+    "ThaiMirrorResult.topThemes[themeId=sensitive].themeName"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "คำอ่านข้างต้นเลือกประเด็นที่เชื่อมกับชีวิตคุณได้ชัดที่สุดก่อน แล้วเรียงผลต่อเนื่องไปยังเรื่องที่ควรระวังและการตัดสินใจ",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "รายงานนี้ดูจากอะไร",
+   "domain": "methodology",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "methodology:top-themes"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "forecast:current:career",
+   "completeEvidenceSignature": "h=current|d=career|b=strong|consumerRisk=career|e=full|t=false|k=prediction.career.current.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.career.current.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ตอนนี้งานมีแรงส่งให้ขยับได้ เลือกรับเฉพาะภาระที่ไม่เบียดคุณภาพงานหลัก\nเลือกงานหลักหนึ่งเรื่อง ตั้งเพดานเวลา และปฏิเสธงานใหม่เมื่อเพดานเต็ม ในภาพรวมตอนนี้ เรื่องนี้เป็นแกนหลัก: ใช้ความมั่นคงที่สร้างทีละขั้นรับมือขอบเขตหน้าที่เริ่มเปลี่ยนในช่วงเรียนรู้และเชื่อมโยง และหยุดเมื่องานหลักถูกเบียดเวลา",
+   "permittedCallback": "งานหลักอาจถูกภาระด้านนี้เบียดเวลา",
+   "callbackNewInformation": "รับบทบาทเพิ่มได้หนึ่งก้าวเมื่อคุณภาพงานหลักยังคงเดิม โดยไม่แลกกับคุณภาพงานหลัก เลือกงานหลักหนึ่งเรื่อง ตั้งเพดานเวลา และปฏิเสธงานใหม่เมื่อเพดานเต็ม",
+   "renderedSection": "ช่วงนี้",
+   "domain": "career",
+   "horizon": "current",
+   "expressed": true,
+   "traceabilityReference": "prediction.career.current.strong"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "forecast:current:finance",
+   "completeEvidenceSignature": "h=current|d=finance|b=strong|consumerRisk=money|e=full|t=false|k=prediction.finance.current.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.finance.current.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ตอนนี้การเงินมีแรงส่งให้ขยับได้ แต่เงินพร้อมใช้ต้องมาก่อนภาระระยะยาว\nกันเงินรายจ่ายจำเป็นก่อน แล้วทดลองภาระใหม่ด้วยวงเงินเล็กที่หยุดได้ ในภาพรวมตอนนี้ เรื่องนี้เป็นเงื่อนไขสำคัญ: ใช้ความมั่นคงที่สร้างทีละขั้นรับมือยอดคงเหลือเปลี่ยนต่อเนื่องหลายรอบในช่วงเรียนรู้และเชื่อมโยง และหยุดเมื่อเงินพร้อมใช้ลดลง",
+   "permittedCallback": "ภาระเงินอาจลดพื้นที่ตัดสินใจในด้านนี้",
+   "callbackNewInformation": "ขยับภาระได้เมื่อกันเงินพร้อมใช้ไว้ครบแล้ว โดยไม่ลดเงินที่ต้องพร้อมใช้ กันเงินรายจ่ายจำเป็นก่อน แล้วทดลองภาระใหม่ด้วยวงเงินเล็กที่หยุดได้",
+   "renderedSection": "ช่วงนี้",
+   "domain": "finance",
+   "horizon": "current",
+   "expressed": true,
+   "traceabilityReference": "prediction.finance.current.strong"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "forecast:current:relationship",
+   "completeEvidenceSignature": "h=current|d=relationship|b=active|consumerRisk=love|e=full|t=false|k=prediction.relationship.current.active|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.relationship.current.active"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "active",
+   "role": "forecast",
+   "primaryExpression": "ตอนนี้ความสัมพันธ์ยังขยับได้เมื่อเลือกจังหวะ เมื่อข้อตกลงชัดและทั้งสองฝ่ายทำได้จริง\nพูดเงื่อนไขที่ค้างอยู่ให้จบหนึ่งเรื่อง แล้วดูการตอบสนองก่อนตกลงเพิ่ม ในภาพรวมตอนนี้ เรื่องนี้เป็นแรงประกอบ: ใช้ความมั่นคงที่สร้างทีละขั้นรับมือคำพูดกลายเป็นพฤติกรรมที่สม่ำเสมอในช่วงเรียนรู้และเชื่อมโยง และหยุดเมื่อความคาดหวังเริ่มไม่ตรงกัน",
+   "permittedCallback": "ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน",
+   "callbackNewInformation": "ทดลองข้อตกลงเล็กและดูความสม่ำเสมอก่อนผูกพันเพิ่ม โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน พูดเงื่อนไขที่ค้างอยู่ให้จบหนึ่งเรื่อง แล้วดูการตอบสนองก่อนตกลงเพิ่ม",
+   "renderedSection": "ช่วงนี้",
+   "domain": "relationship",
+   "horizon": "current",
+   "expressed": true,
+   "traceabilityReference": "prediction.relationship.current.active"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "forecast:current:health",
+   "completeEvidenceSignature": "h=current|d=health|b=active|consumerRisk=health|e=full|t=false|k=prediction.health.current.active|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.health.current.active"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "active",
+   "role": "forecast",
+   "primaryExpression": "ตอนนี้กำลังของคุณยังขยับได้เมื่อเลือกจังหวะ ตราบใดที่การพักยังฟื้นแรงได้ทัน\nลดกิจกรรมหนึ่งอย่างในสัปดาห์นี้และคืนเวลานั้นให้การนอน ในภาพรวมตอนนี้ เรื่องนี้เป็นแรงประกอบ: ใช้ความมั่นคงที่สร้างทีละขั้นรับมือตารางหนักเริ่มรบกวนการพักในช่วงเรียนรู้และเชื่อมโยง และหยุดเมื่อการพักฟื้นแรงไม่ทัน",
+   "permittedCallback": "การพักไม่พออาจลดกำลังสำหรับด้านนี้",
+   "callbackNewInformation": "ทดลองกิจกรรมทีละขั้นและใช้การฟื้นตัวจริงเป็นเพดาน โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน ลดกิจกรรมหนึ่งอย่างในสัปดาห์นี้และคืนเวลานั้นให้การนอน",
+   "renderedSection": "ช่วงนี้",
+   "domain": "health",
+   "horizon": "current",
+   "expressed": true,
+   "traceabilityReference": "prediction.health.current.active"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "forecast:next12Months:career",
+   "completeEvidenceSignature": "h=next12Months|d=career|b=strong|consumerRisk=career|e=full|t=false|k=prediction.career.next12Months.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.career.next12Months.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ปีข้างหน้าบทบาทที่ต้องประสานคนและตัดสินใจจะเด่นขึ้น งานเดิมมีโอกาสขยายขอบเขต แต่ภาระที่รับพร้อมกันมากเกินไปจะทำให้คุณภาพตก กำหนดจุดทบทวนกลางปีเพื่อเลือกว่าจะขยายบทบาทเดิมหรือหยุดรับเพิ่ม สัญญาณเปลี่ยนคือขอบเขตหน้าที่เริ่มเปลี่ยนระหว่างช่วงเรียนรู้และเชื่อมโยง; ใช้ความมั่นคงที่สร้างทีละขั้นทบทวนก่อนงานหลักถูกเบียดเวลา",
+   "permittedCallback": "งานหลักอาจถูกภาระด้านนี้เบียดเวลา",
+   "callbackNewInformation": "รับบทบาทเพิ่มได้หนึ่งก้าวเมื่อคุณภาพงานหลักยังคงเดิม โดยไม่แลกกับคุณภาพงานหลัก กำหนดจุดทบทวนกลางปีเพื่อเลือกว่าจะขยายบทบาทเดิมหรือหยุดรับเพิ่ม",
+   "renderedSection": "ใน 12 เดือนข้างหน้า",
+   "domain": "career",
+   "horizon": "next12Months",
+   "expressed": true,
+   "traceabilityReference": "prediction.career.next12Months.strong"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "forecast:next12Months:finance",
+   "completeEvidenceSignature": "h=next12Months|d=finance|b=strong|consumerRisk=money|e=full|t=false|k=prediction.finance.next12Months.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.finance.next12Months.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ปีข้างหน้ารายรับมีโอกาสขยับตามบทบาทงาน แต่ภาระประจำจะตามมาเร็ว เงินก้อนใหม่จึงให้ผลดีเมื่อรักษาสภาพคล่องไว้ก่อน บันทึกเงินคงเหลือทุกไตรมาสและขยายแผนต่อเมื่อเงินสำรองไม่ลดลง สัญญาณเปลี่ยนคือยอดคงเหลือเปลี่ยนต่อเนื่องหลายรอบระหว่างช่วงเรียนรู้และเชื่อมโยง; ใช้ความมั่นคงที่สร้างทีละขั้นทบทวนก่อนเงินพร้อมใช้ลดลง",
+   "permittedCallback": "ภาระเงินอาจลดพื้นที่ตัดสินใจในด้านนี้",
+   "callbackNewInformation": "ขยับภาระได้เมื่อกันเงินพร้อมใช้ไว้ครบแล้ว โดยไม่ลดเงินที่ต้องพร้อมใช้ บันทึกเงินคงเหลือทุกไตรมาสและขยายแผนต่อเมื่อเงินสำรองไม่ลดลง",
+   "renderedSection": "ใน 12 เดือนข้างหน้า",
+   "domain": "finance",
+   "horizon": "next12Months",
+   "expressed": true,
+   "traceabilityReference": "prediction.finance.next12Months.strong"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "forecast:next12Months:relationship",
+   "completeEvidenceSignature": "h=next12Months|d=relationship|b=active|consumerRisk=love|e=full|t=false|k=prediction.relationship.next12Months.active|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.relationship.next12Months.active"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "active",
+   "role": "forecast",
+   "primaryExpression": "ปีข้างหน้าความสัมพันธ์เป็นเรื่องเด่น ข้อตกลงที่ค้างอยู่มีแนวโน้มถูกนำมาพูดให้ชัด และเปิดทางให้ความสัมพันธ์มั่นคงขึ้นหากทั้งสองฝ่ายแบ่งเวลาได้จริง ทบทวนข้อตกลงตามพฤติกรรมที่เกิดซ้ำ ไม่เร่งข้อผูกพันจากช่วงที่ราบรื่นครั้งเดียว สัญญาณเปลี่ยนคือคำพูดกลายเป็นพฤติกรรมที่สม่ำเสมอระหว่างช่วงเรียนรู้และเชื่อมโยง; ใช้ความมั่นคงที่สร้างทีละขั้นทบทวนก่อนความคาดหวังเริ่มไม่ตรงกัน",
+   "permittedCallback": "ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน",
+   "callbackNewInformation": "ทดลองข้อตกลงเล็กและดูความสม่ำเสมอก่อนผูกพันเพิ่ม โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน ทบทวนข้อตกลงตามพฤติกรรมที่เกิดซ้ำ ไม่เร่งข้อผูกพันจากช่วงที่ราบรื่นครั้งเดียว",
+   "renderedSection": "ใน 12 เดือนข้างหน้า",
+   "domain": "relationship",
+   "horizon": "next12Months",
+   "expressed": true,
+   "traceabilityReference": "prediction.relationship.next12Months.active"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "forecast:next12Months:health",
+   "completeEvidenceSignature": "h=next12Months|d=health|b=active|consumerRisk=health|e=full|t=false|k=prediction.health.next12Months.active|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.health.next12Months.active"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "active",
+   "role": "forecast",
+   "primaryExpression": "ปีข้างหน้าภาระที่เพิ่มขึ้นอาจทำให้การพักไม่เป็นเวลา หากรักษาจังหวะฟื้นตัวได้ พลังงานจะกลับมาสม่ำเสมอและรองรับงานใหม่ได้ดีขึ้น จดคุณภาพการนอนหลังสัปดาห์หนัก และลดตารางเดือนถัดไปเมื่อฟื้นไม่ทัน สัญญาณเปลี่ยนคือตารางหนักเริ่มรบกวนการพักระหว่างช่วงเรียนรู้และเชื่อมโยง; ใช้ความมั่นคงที่สร้างทีละขั้นทบทวนก่อนการพักฟื้นแรงไม่ทัน",
+   "permittedCallback": "การพักไม่พออาจลดกำลังสำหรับด้านนี้",
+   "callbackNewInformation": "ทดลองกิจกรรมทีละขั้นและใช้การฟื้นตัวจริงเป็นเพดาน โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน จดคุณภาพการนอนหลังสัปดาห์หนัก และลดตารางเดือนถัดไปเมื่อฟื้นไม่ทัน",
+   "renderedSection": "ใน 12 เดือนข้างหน้า",
+   "domain": "health",
+   "horizon": "next12Months",
+   "expressed": true,
+   "traceabilityReference": "prediction.health.next12Months.active"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "forecast:nextLifePeriod:career",
+   "completeEvidenceSignature": "h=nextLifePeriod|d=career|b=active|consumerRisk=career|e=full|t=true|k=prediction.career.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.career.nextLifePeriod.active"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "active",
+   "role": "forecast",
+   "primaryExpression": "ช่วงชีวิตถัดไปบทบาทของคุณจะเปลี่ยนจากการรับงานเพิ่มไปสู่การคุมทิศทาง โอกาสอยู่ที่การเก็บงานซึ่งใช้ประสบการณ์สูงและลดงานที่กระจายแรง ทำรายการงานที่จะรักษา ส่งต่อ และยุติให้เสร็จก่อนรับบทบาทก้อนใหม่ ระยะยาว ให้เก็บความมั่นคงที่สร้างทีละขั้นจากช่วงเรียนรู้และเชื่อมโยงเป็นฐานของงาน เพื่อไม่ให้งานหลักถูกเบียดเวลา",
+   "permittedCallback": "งานหลักอาจถูกภาระด้านนี้เบียดเวลา",
+   "callbackNewInformation": "ทดลองขอบเขตงานใหม่ก่อนตัดสินใจรับบทบาทเต็มตัว โดยไม่แลกกับคุณภาพงานหลัก และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต ทำรายการงานที่จะรักษา ส่งต่อ และยุติให้เสร็จก่อนรับบทบาทก้อนใหม่",
+   "renderedSection": "ช่วงชีวิตถัดไป",
+   "domain": "career",
+   "horizon": "nextLifePeriod",
+   "expressed": true,
+   "traceabilityReference": "prediction.career.nextLifePeriod.active"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "forecast:nextLifePeriod:finance",
+   "completeEvidenceSignature": "h=nextLifePeriod|d=finance|b=active|consumerRisk=money|e=full|t=true|k=prediction.finance.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.finance.nextLifePeriod.active"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "active",
+   "role": "forecast",
+   "primaryExpression": "ช่วงชีวิตถัดไปต้องให้น้ำหนักกับภาระระยะยาวและเงินรองรับการเปลี่ยนผ่าน สร้างเงินสำรองเฉพาะช่วงเปลี่ยนผ่านก่อนผูกค่าใช้จ่ายระยะยาวก้อนใหม่ ระยะยาว ให้เก็บความมั่นคงที่สร้างทีละขั้นจากช่วงเรียนรู้และเชื่อมโยงเป็นฐานของการเงิน เพื่อไม่ให้เงินพร้อมใช้ลดลง",
+   "permittedCallback": "ภาระเงินอาจลดพื้นที่ตัดสินใจในด้านนี้",
+   "callbackNewInformation": "พิสูจน์กระแสเงินจริงในวงเล็กก่อนเพิ่มภาระ โดยไม่ลดเงินที่ต้องพร้อมใช้ และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต สร้างเงินสำรองเฉพาะช่วงเปลี่ยนผ่านก่อนผูกค่าใช้จ่ายระยะยาวก้อนใหม่",
+   "renderedSection": "ช่วงชีวิตถัดไป",
+   "domain": "finance",
+   "horizon": "nextLifePeriod",
+   "expressed": true,
+   "traceabilityReference": "prediction.finance.nextLifePeriod.active"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "forecast:nextLifePeriod:relationship",
+   "completeEvidenceSignature": "h=nextLifePeriod|d=relationship|b=quiet|consumerRisk=love|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.relationship.nextLifePeriod.quiet"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "quiet",
+   "role": "forecast",
+   "primaryExpression": "ช่วงชีวิตถัดไปความสัมพันธ์ต้องปรับตามภาระชุดใหม่ ความคลุมเครือเรื่องบทบาทอาจสร้างระยะห่าง แต่การวางชีวิตร่วมกันอย่างเป็นรูปธรรมจะเพิ่มความมั่นคง ตกลงเวลา หน้าที่ และพื้นที่ส่วนตัวของช่วงถัดไปไว้ก่อนตัดสินใจร่วมกัน ระยะยาว ให้เก็บความมั่นคงที่สร้างทีละขั้นจากช่วงเรียนรู้และเชื่อมโยงเป็นฐานของความสัมพันธ์ เพื่อไม่ให้ความคาดหวังเริ่มไม่ตรงกัน",
+   "permittedCallback": "ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน",
+   "callbackNewInformation": "รอความชัดของเงื่อนไขก่อนเพิ่มข้อผูกพัน โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต ตกลงเวลา หน้าที่ และพื้นที่ส่วนตัวของช่วงถัดไปไว้ก่อนตัดสินใจร่วมกัน",
+   "renderedSection": "ช่วงชีวิตถัดไป",
+   "domain": "relationship",
+   "horizon": "nextLifePeriod",
+   "expressed": true,
+   "traceabilityReference": "prediction.relationship.nextLifePeriod.quiet"
+  },
+  {
+   "fixture": "comparison-known-bangkok",
+   "canonicalId": "forecast:nextLifePeriod:health",
+   "completeEvidenceSignature": "h=nextLifePeriod|d=health|b=quiet|consumerRisk=health|e=full|t=true|k=prediction.health.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.health.nextLifePeriod.quiet"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "quiet",
+   "role": "forecast",
+   "primaryExpression": "ช่วงชีวิตถัดไปพลังงานมีแนวโน้มขึ้นลงตามภาระที่เปลี่ยน หากเร่งรับทุกอย่างพร้อมกัน ความล้าจะสะสมเร็วกว่าช่วงปัจจุบัน ทดลองกิจวัตรพักแบบใหม่ล่วงหน้าและเก็บเฉพาะแบบที่ทำต่อได้ในวันที่ยุ่ง ระยะยาว ให้เก็บความมั่นคงที่สร้างทีละขั้นจากช่วงเรียนรู้และเชื่อมโยงเป็นฐานของกำลังและการฟื้นตัว เพื่อไม่ให้การพักฟื้นแรงไม่ทัน",
+   "permittedCallback": "การพักไม่พออาจลดกำลังสำหรับด้านนี้",
+   "callbackNewInformation": "ลดกิจกรรมและคืนเวลาฟื้นตัวก่อนรับภาระใหม่ โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต ทดลองกิจวัตรพักแบบใหม่ล่วงหน้าและเก็บเฉพาะแบบที่ทำต่อได้ในวันที่ยุ่ง",
+   "renderedSection": "ช่วงชีวิตถัดไป",
+   "domain": "health",
+   "horizon": "nextLifePeriod",
+   "expressed": true,
+   "traceabilityReference": "prediction.health.nextLifePeriod.quiet"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "core:computed:lagna-identity-frame",
+   "completeEvidenceSignature": "ThaiAstrologyProfile.lagnaKey=lagna_aquarius|ThaiAstrologyProfile.lagnaLordKey=lagna_lord_saturn|ThaiMirrorResult.sections[core_self].supportingThemes[themeId=independent].score=0.9|ThaiMirrorResult.sections[core_self].supportingThemes[themeId=independent].themeId=independent|ThaiMirrorResult.sections[core_self].supportingThemes[themeId=independent].themeName=Independent",
+   "evidenceKeys": [
+    "ThaiAstrologyProfile.lagnaKey",
+    "ThaiAstrologyProfile.lagnaLordKey",
+    "ThaiMirrorResult.sections[core_self].supportingThemes[themeId=independent].score",
+    "ThaiMirrorResult.sections[core_self].supportingThemes[themeId=independent].themeId",
+    "ThaiMirrorResult.sections[core_self].supportingThemes[themeId=independent].themeName"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "interpretation",
+   "primaryExpression": "ภาพเด่นของดวงนี้คือคนที่สบายใจกว่าเมื่อได้กำหนดทิศทางด้วยตัวเอง ขณะที่ดาวเสาร์ย้ำวินัย ความต่อเนื่อง และการสร้างฐานทีละขั้น แรงสองด้านทำให้คนอื่นพึ่งคุณได้ — แต่ด้านกลับคือการแบกภาระนานเกินไปโดยไม่ปรับวิธีจนไม่ทันสังเกต จากนี้ ให้ดูว่าแรงนี้เปลี่ยนสี่ด้านของชีวิตอย่างไร",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "สรุปตัวคุณแบบตรง ๆ",
+   "domain": "summary",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:lagna-identity-frame"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "core:computed:house:10:analysis",
+   "completeEvidenceSignature": "HouseEngine.calculate.house[10].lordKey=lagna_lord_mars|HouseEngine.calculate.house[10].signKey=lagna_scorpio",
+   "evidenceKeys": [
+    "HouseEngine.calculate.house[10].lordKey",
+    "HouseEngine.calculate.house[10].signKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "synthesis",
+   "primaryExpression": "ราศีพิจิก: เรื่องงาน เรือนนี้ชี้ว่าคุณสร้างผลงานผ่านความกล้าลงมือและการจัดการสิ่งเร่งด่วน จุดตัดสินไม่ได้อยู่ที่รับงานได้อีกเท่าไร แต่อยู่ที่บทบาทนั้นเพิ่มอำนาจกำหนดคุณภาพงานหรือเพียงเพิ่มน้ำหนักให้คุณถือ",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "การงาน",
+   "domain": "work",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:house:10:analysis"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "core:computed:house:2:analysis",
+   "completeEvidenceSignature": "HouseEngine.calculate.house[2].lordKey=lagna_lord_jupiter|HouseEngine.calculate.house[2].signKey=lagna_pisces",
+   "evidenceKeys": [
+    "HouseEngine.calculate.house[2].lordKey",
+    "HouseEngine.calculate.house[2].signKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "synthesis",
+   "primaryExpression": "ราศีมีน: เรื่องเงิน รูปแบบของเรือนนี้ผูกความมั่นคงเข้ากับภาพระยะยาว ความรู้ และการขยายอย่างมีหลัก จึงวัดความก้าวหน้าได้จากทางเลือกที่เงินสำรองเปิดให้ ไม่ใช่เพียงยอดที่สะสม",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "การเงิน",
+   "domain": "money",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:house:2:analysis"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "core:computed:house:7:analysis",
+   "completeEvidenceSignature": "HouseEngine.calculate.house[7].lordKey=lagna_lord_sun|HouseEngine.calculate.house[7].signKey=lagna_leo",
+   "evidenceKeys": [
+    "HouseEngine.calculate.house[7].lordKey",
+    "HouseEngine.calculate.house[7].signKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "synthesis",
+   "primaryExpression": "ราศีสิงห์: ในความสัมพันธ์ ความไว้ใจของคุณเกิดผ่านความชัดเจนและการตัดสินใจด้วยตัวเอง ความสัมพันธ์จึงลึกขึ้นเมื่อความรับผิดชอบที่แบ่งกันสอดคล้องกับพื้นที่ที่แต่ละฝ่ายต้องมี",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "ความรักและความสัมพันธ์",
+   "domain": "relationships",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:house:7:analysis"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "core:computed:house:6:analysis",
+   "completeEvidenceSignature": "HouseEngine.calculate.house[6].lordKey=lagna_lord_moon|HouseEngine.calculate.house[6].signKey=lagna_cancer",
+   "evidenceKeys": [
+    "HouseEngine.calculate.house[6].lordKey",
+    "HouseEngine.calculate.house[6].signKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "synthesis",
+   "primaryExpression": "ราศีกรกฎ: เรื่องพลังชีวิต เรือนนี้เชื่อมความสม่ำเสมอของร่างกายกับการรับรู้ความเปลี่ยนแปลงและความต้องการรอบตัว สัญญาณสำคัญจึงไม่ใช่วันที่ล้าเพียงวันเดียว แต่คือเวลาฟื้นตัวที่ยาวขึ้นหลังช่วงรับผิดชอบหนัก",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "สุขภาพและพลังชีวิต",
+   "domain": "wellbeing",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:house:6:analysis"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "core:disclosure:medical",
+   "completeEvidenceSignature": "HouseEngine.calculate.house[6].lordKey=lagna_lord_moon|HouseEngine.calculate.house[6].signKey=lagna_cancer",
+   "evidenceKeys": [
+    "HouseEngine.calculate.house[6].lordKey",
+    "HouseEngine.calculate.house[6].signKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "เนื้อหาส่วนนี้เป็นมุมมองตามความเชื่อทางโหราศาสตร์ ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "สุขภาพและพลังชีวิต",
+   "domain": "wellbeing",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "disclosure:medical"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "core:computed:closing-priority-action",
+   "completeEvidenceSignature": "ThaiAstrologyProfile.lagnaLordKey=lagna_lord_saturn",
+   "evidenceKeys": [
+    "ThaiAstrologyProfile.lagnaLordKey"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "synthesis",
+   "primaryExpression": "แก่นของคำอ่านนี้ไม่ใช่การรับให้มากขึ้น แต่คือการเลือกสิ่งที่คู่ควรกับแรงของคุณ เริ่มจากการวางระบบที่ทำซ้ำได้และกำหนดเวลาพักไว้ล่วงหน้า แล้วใช้ผลจริงเป็นเกณฑ์ก่อนเปิดภาระถัดไป",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "คำชี้หลักจากพื้นดวง",
+   "domain": "closing",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "computed:closing-priority-action"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "core:methodology:astrological-date",
+   "completeEvidenceSignature": "ThaiBetaAnalysis.normalizedSnapshot.thaiAstrologicalDate=1974-02-27|ThaiMirrorPipelineResult.birthData.thaiWeekdayNumber=4",
+   "evidenceKeys": [
+    "ThaiBetaAnalysis.normalizedSnapshot.thaiAstrologicalDate",
+    "ThaiMirrorPipelineResult.birthData.thaiWeekdayNumber"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "วันเกิดตามสูติบัตรยังเป็นวันที่ 1974-02-27 ตามเดิม ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วันพุธ (วันที่ 1974-02-27) เป็นวันทางโหราศาสตร์",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "รายงานนี้ดูจากอะไร",
+   "domain": "methodology",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "methodology:astrological-date"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "core:methodology:sunrise-boundary",
+   "completeEvidenceSignature": "ThaiBetaAnalysis.normalizedSnapshot.birthTime=06:45|ThaiBetaAnalysis.normalizedSnapshot.rawBirthDate=1974-02-27|ThaiBetaAnalysis.normalizedSnapshot.sunrise=06:28|ThaiBetaAnalysis.normalizedSnapshot.usedPreviousDay=false",
+   "evidenceKeys": [
+    "ThaiBetaAnalysis.normalizedSnapshot.birthTime",
+    "ThaiBetaAnalysis.normalizedSnapshot.rawBirthDate",
+    "ThaiBetaAnalysis.normalizedSnapshot.sunrise",
+    "ThaiBetaAnalysis.normalizedSnapshot.usedPreviousDay"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "เวลาเกิดอยู่หลังพระอาทิตย์ขึ้นเวลา 06:28 จึงใช้วันเดียวกับวันเกิดตามสูติบัตร",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "รายงานนี้ดูจากอะไร",
+   "domain": "methodology",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "methodology:sunrise-boundary"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "core:methodology:lagna-inputs",
+   "completeEvidenceSignature": "ThaiAstrologyProfile.lagnaKey=lagna_aquarius|ThaiBetaAnalysis.normalizedSnapshot.birthTime=06:45|ThaiBetaAnalysis.normalizedSnapshot.latitude=16.4419|ThaiBetaAnalysis.normalizedSnapshot.longitude=102.836|ThaiBetaAnalysis.normalizedSnapshot.timeZoneId=Asia/Bangkok",
+   "evidenceKeys": [
+    "ThaiAstrologyProfile.lagnaKey",
+    "ThaiBetaAnalysis.normalizedSnapshot.birthTime",
+    "ThaiBetaAnalysis.normalizedSnapshot.latitude",
+    "ThaiBetaAnalysis.normalizedSnapshot.longitude",
+    "ThaiBetaAnalysis.normalizedSnapshot.timeZoneId"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากเวลาและสถานที่เกิด) อยู่ที่ราศีกุมภ์",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "รายงานนี้ดูจากอะไร",
+   "domain": "methodology",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "methodology:lagna-inputs"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "core:methodology:top-themes",
+   "completeEvidenceSignature": "ThaiMirrorResult.topThemes[themeId=analytical].score=1.275|ThaiMirrorResult.topThemes[themeId=analytical].themeId=analytical|ThaiMirrorResult.topThemes[themeId=analytical].themeName=Analytical|ThaiMirrorResult.topThemes[themeId=persistence].score=1.2325|ThaiMirrorResult.topThemes[themeId=persistence].themeId=persistence|ThaiMirrorResult.topThemes[themeId=persistence].themeName=Persistence|ThaiMirrorResult.topThemes[themeId=reflective].score=1.105|ThaiMirrorResult.topThemes[themeId=reflective].themeId=reflective|ThaiMirrorResult.topThemes[themeId=reflective].themeName=Reflective",
+   "evidenceKeys": [
+    "ThaiMirrorResult.topThemes[themeId=analytical].score",
+    "ThaiMirrorResult.topThemes[themeId=analytical].themeId",
+    "ThaiMirrorResult.topThemes[themeId=analytical].themeName",
+    "ThaiMirrorResult.topThemes[themeId=persistence].score",
+    "ThaiMirrorResult.topThemes[themeId=persistence].themeId",
+    "ThaiMirrorResult.topThemes[themeId=persistence].themeName",
+    "ThaiMirrorResult.topThemes[themeId=reflective].score",
+    "ThaiMirrorResult.topThemes[themeId=reflective].themeId",
+    "ThaiMirrorResult.topThemes[themeId=reflective].themeName"
+   ],
+   "evidenceType": "computed-core-reading",
+   "confidence": "supported",
+   "role": "disclosure",
+   "primaryExpression": "คำอ่านข้างต้นเลือกประเด็นที่เชื่อมกับชีวิตคุณได้ชัดที่สุดก่อน แล้วเรียงผลต่อเนื่องไปยังเรื่องที่ควรระวังและการตัดสินใจ",
+   "permittedCallback": "",
+   "callbackNewInformation": "",
+   "renderedSection": "รายงานนี้ดูจากอะไร",
+   "domain": "methodology",
+   "horizon": null,
+   "expressed": true,
+   "traceabilityReference": "methodology:top-themes"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "forecast:current:career",
+   "completeEvidenceSignature": "h=current|d=career|b=strong|consumerRisk=career|e=full|t=false|k=prediction.career.current.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.career.current.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ตอนนี้งานมีแรงส่งให้ขยับได้ เลือกรับเฉพาะภาระที่ไม่เบียดคุณภาพงานหลัก\nเลือกงานหลักหนึ่งเรื่อง ตั้งเพดานเวลา และปฏิเสธงานใหม่เมื่อเพดานเต็ม ในภาพรวมตอนนี้ เรื่องนี้เป็นแกนหลัก: ใช้สายตาที่เห็นรายละเอียดรับมือขอบเขตหน้าที่เริ่มเปลี่ยนในช่วงพลิกผันและเปลี่ยนผ่าน และหยุดเมื่องานหลักถูกเบียดเวลา",
+   "permittedCallback": "งานหลักอาจถูกภาระด้านนี้เบียดเวลา",
+   "callbackNewInformation": "รับบทบาทเพิ่มได้หนึ่งก้าวเมื่อคุณภาพงานหลักยังคงเดิม โดยไม่แลกกับคุณภาพงานหลัก เลือกงานหลักหนึ่งเรื่อง ตั้งเพดานเวลา และปฏิเสธงานใหม่เมื่อเพดานเต็ม",
+   "renderedSection": "ช่วงนี้",
+   "domain": "career",
+   "horizon": "current",
+   "expressed": true,
+   "traceabilityReference": "prediction.career.current.strong"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "forecast:current:finance",
+   "completeEvidenceSignature": "h=current|d=finance|b=strong|consumerRisk=money|e=full|t=false|k=prediction.finance.current.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.finance.current.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ตอนนี้การเงินมีแรงส่งให้ขยับได้ แต่เงินพร้อมใช้ต้องมาก่อนภาระระยะยาว\nกันเงินรายจ่ายจำเป็นก่อน แล้วทดลองภาระใหม่ด้วยวงเงินเล็กที่หยุดได้ ในภาพรวมตอนนี้ เรื่องนี้เป็นเงื่อนไขสำคัญ: ใช้สายตาที่เห็นรายละเอียดรับมือยอดคงเหลือเปลี่ยนต่อเนื่องหลายรอบในช่วงพลิกผันและเปลี่ยนผ่าน และหยุดเมื่อเงินพร้อมใช้ลดลง",
+   "permittedCallback": "ภาระเงินอาจลดพื้นที่ตัดสินใจในด้านนี้",
+   "callbackNewInformation": "ขยับภาระได้เมื่อกันเงินพร้อมใช้ไว้ครบแล้ว โดยไม่ลดเงินที่ต้องพร้อมใช้ กันเงินรายจ่ายจำเป็นก่อน แล้วทดลองภาระใหม่ด้วยวงเงินเล็กที่หยุดได้",
+   "renderedSection": "ช่วงนี้",
+   "domain": "finance",
+   "horizon": "current",
+   "expressed": true,
+   "traceabilityReference": "prediction.finance.current.strong"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "forecast:current:relationship",
+   "completeEvidenceSignature": "h=current|d=relationship|b=active|consumerRisk=love|e=full|t=false|k=prediction.relationship.current.active|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.relationship.current.active"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "active",
+   "role": "forecast",
+   "primaryExpression": "ตอนนี้ความสัมพันธ์ยังขยับได้เมื่อเลือกจังหวะ เมื่อข้อตกลงชัดและทั้งสองฝ่ายทำได้จริง\nพูดเงื่อนไขที่ค้างอยู่ให้จบหนึ่งเรื่อง แล้วดูการตอบสนองก่อนตกลงเพิ่ม ในภาพรวมตอนนี้ เรื่องนี้เป็นแรงประกอบ: ใช้สายตาที่เห็นรายละเอียดรับมือคำพูดกลายเป็นพฤติกรรมที่สม่ำเสมอในช่วงพลิกผันและเปลี่ยนผ่าน และหยุดเมื่อความคาดหวังเริ่มไม่ตรงกัน",
+   "permittedCallback": "ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน",
+   "callbackNewInformation": "ทดลองข้อตกลงเล็กและดูความสม่ำเสมอก่อนผูกพันเพิ่ม โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน พูดเงื่อนไขที่ค้างอยู่ให้จบหนึ่งเรื่อง แล้วดูการตอบสนองก่อนตกลงเพิ่ม",
+   "renderedSection": "ช่วงนี้",
+   "domain": "relationship",
+   "horizon": "current",
+   "expressed": true,
+   "traceabilityReference": "prediction.relationship.current.active"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "forecast:current:health",
+   "completeEvidenceSignature": "h=current|d=health|b=active|consumerRisk=health|e=full|t=false|k=prediction.health.current.active|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.health.current.active"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "active",
+   "role": "forecast",
+   "primaryExpression": "ตอนนี้กำลังของคุณยังขยับได้เมื่อเลือกจังหวะ ตราบใดที่การพักยังฟื้นแรงได้ทัน\nลดกิจกรรมหนึ่งอย่างในสัปดาห์นี้และคืนเวลานั้นให้การนอน ในภาพรวมตอนนี้ เรื่องนี้เป็นแรงประกอบ: ใช้สายตาที่เห็นรายละเอียดรับมือตารางหนักเริ่มรบกวนการพักในช่วงพลิกผันและเปลี่ยนผ่าน และหยุดเมื่อการพักฟื้นแรงไม่ทัน",
+   "permittedCallback": "การพักไม่พออาจลดกำลังสำหรับด้านนี้",
+   "callbackNewInformation": "ทดลองกิจกรรมทีละขั้นและใช้การฟื้นตัวจริงเป็นเพดาน โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน ลดกิจกรรมหนึ่งอย่างในสัปดาห์นี้และคืนเวลานั้นให้การนอน",
+   "renderedSection": "ช่วงนี้",
+   "domain": "health",
+   "horizon": "current",
+   "expressed": true,
+   "traceabilityReference": "prediction.health.current.active"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "forecast:next12Months:career",
+   "completeEvidenceSignature": "h=next12Months|d=career|b=strong|consumerRisk=career|e=full|t=false|k=prediction.career.next12Months.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.career.next12Months.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ปีข้างหน้าบทบาทที่ต้องประสานคนและตัดสินใจจะเด่นขึ้น งานเดิมมีโอกาสขยายขอบเขต แต่ภาระที่รับพร้อมกันมากเกินไปจะทำให้คุณภาพตก กำหนดจุดทบทวนกลางปีเพื่อเลือกว่าจะขยายบทบาทเดิมหรือหยุดรับเพิ่ม สัญญาณเปลี่ยนคือขอบเขตหน้าที่เริ่มเปลี่ยนระหว่างช่วงพลิกผันและเปลี่ยนผ่าน; ใช้สายตาที่เห็นรายละเอียดทบทวนก่อนงานหลักถูกเบียดเวลา",
+   "permittedCallback": "งานหลักอาจถูกภาระด้านนี้เบียดเวลา",
+   "callbackNewInformation": "รับบทบาทเพิ่มได้หนึ่งก้าวเมื่อคุณภาพงานหลักยังคงเดิม โดยไม่แลกกับคุณภาพงานหลัก กำหนดจุดทบทวนกลางปีเพื่อเลือกว่าจะขยายบทบาทเดิมหรือหยุดรับเพิ่ม",
+   "renderedSection": "ใน 12 เดือนข้างหน้า",
+   "domain": "career",
+   "horizon": "next12Months",
+   "expressed": true,
+   "traceabilityReference": "prediction.career.next12Months.strong"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "forecast:next12Months:finance",
+   "completeEvidenceSignature": "h=next12Months|d=finance|b=strong|consumerRisk=money|e=full|t=false|k=prediction.finance.next12Months.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.finance.next12Months.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ปีข้างหน้ารายรับมีโอกาสขยับตามบทบาทงาน แต่ภาระประจำจะตามมาเร็ว เงินก้อนใหม่จึงให้ผลดีเมื่อรักษาสภาพคล่องไว้ก่อน บันทึกเงินคงเหลือทุกไตรมาสและขยายแผนต่อเมื่อเงินสำรองไม่ลดลง สัญญาณเปลี่ยนคือยอดคงเหลือเปลี่ยนต่อเนื่องหลายรอบระหว่างช่วงพลิกผันและเปลี่ยนผ่าน; ใช้สายตาที่เห็นรายละเอียดทบทวนก่อนเงินพร้อมใช้ลดลง",
+   "permittedCallback": "ภาระเงินอาจลดพื้นที่ตัดสินใจในด้านนี้",
+   "callbackNewInformation": "ขยับภาระได้เมื่อกันเงินพร้อมใช้ไว้ครบแล้ว โดยไม่ลดเงินที่ต้องพร้อมใช้ บันทึกเงินคงเหลือทุกไตรมาสและขยายแผนต่อเมื่อเงินสำรองไม่ลดลง",
+   "renderedSection": "ใน 12 เดือนข้างหน้า",
+   "domain": "finance",
+   "horizon": "next12Months",
+   "expressed": true,
+   "traceabilityReference": "prediction.finance.next12Months.strong"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "forecast:next12Months:relationship",
+   "completeEvidenceSignature": "h=next12Months|d=relationship|b=active|consumerRisk=love|e=full|t=false|k=prediction.relationship.next12Months.active|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.relationship.next12Months.active"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "active",
+   "role": "forecast",
+   "primaryExpression": "ปีข้างหน้าความสัมพันธ์เป็นเรื่องเด่น ข้อตกลงที่ค้างอยู่มีแนวโน้มถูกนำมาพูดให้ชัด และเปิดทางให้ความสัมพันธ์มั่นคงขึ้นหากทั้งสองฝ่ายแบ่งเวลาได้จริง ทบทวนข้อตกลงตามพฤติกรรมที่เกิดซ้ำ ไม่เร่งข้อผูกพันจากช่วงที่ราบรื่นครั้งเดียว สัญญาณเปลี่ยนคือคำพูดกลายเป็นพฤติกรรมที่สม่ำเสมอระหว่างช่วงพลิกผันและเปลี่ยนผ่าน; ใช้สายตาที่เห็นรายละเอียดทบทวนก่อนความคาดหวังเริ่มไม่ตรงกัน",
+   "permittedCallback": "ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน",
+   "callbackNewInformation": "ทดลองข้อตกลงเล็กและดูความสม่ำเสมอก่อนผูกพันเพิ่ม โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน ทบทวนข้อตกลงตามพฤติกรรมที่เกิดซ้ำ ไม่เร่งข้อผูกพันจากช่วงที่ราบรื่นครั้งเดียว",
+   "renderedSection": "ใน 12 เดือนข้างหน้า",
+   "domain": "relationship",
+   "horizon": "next12Months",
+   "expressed": true,
+   "traceabilityReference": "prediction.relationship.next12Months.active"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "forecast:next12Months:health",
+   "completeEvidenceSignature": "h=next12Months|d=health|b=active|consumerRisk=health|e=full|t=false|k=prediction.health.next12Months.active|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.health.next12Months.active"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "active",
+   "role": "forecast",
+   "primaryExpression": "ปีข้างหน้าภาระที่เพิ่มขึ้นอาจทำให้การพักไม่เป็นเวลา หากรักษาจังหวะฟื้นตัวได้ พลังงานจะกลับมาสม่ำเสมอและรองรับงานใหม่ได้ดีขึ้น จดคุณภาพการนอนหลังสัปดาห์หนัก และลดตารางเดือนถัดไปเมื่อฟื้นไม่ทัน สัญญาณเปลี่ยนคือตารางหนักเริ่มรบกวนการพักระหว่างช่วงพลิกผันและเปลี่ยนผ่าน; ใช้สายตาที่เห็นรายละเอียดทบทวนก่อนการพักฟื้นแรงไม่ทัน",
+   "permittedCallback": "การพักไม่พออาจลดกำลังสำหรับด้านนี้",
+   "callbackNewInformation": "ทดลองกิจกรรมทีละขั้นและใช้การฟื้นตัวจริงเป็นเพดาน โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน จดคุณภาพการนอนหลังสัปดาห์หนัก และลดตารางเดือนถัดไปเมื่อฟื้นไม่ทัน",
+   "renderedSection": "ใน 12 เดือนข้างหน้า",
+   "domain": "health",
+   "horizon": "next12Months",
+   "expressed": true,
+   "traceabilityReference": "prediction.health.next12Months.active"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "forecast:nextLifePeriod:career",
+   "completeEvidenceSignature": "h=nextLifePeriod|d=career|b=strong|consumerRisk=career|e=full|t=true|k=prediction.career.nextLifePeriod.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.career.nextLifePeriod.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ช่วงชีวิตถัดไปบทบาทของคุณจะเปลี่ยนจากการรับงานเพิ่มไปสู่การคุมทิศทาง โอกาสอยู่ที่การเก็บงานซึ่งใช้ประสบการณ์สูงและลดงานที่กระจายแรง ทำรายการงานที่จะรักษา ส่งต่อ และยุติให้เสร็จก่อนรับบทบาทก้อนใหม่ ระยะยาว ให้เก็บสายตาที่เห็นรายละเอียดจากช่วงพลิกผันและเปลี่ยนผ่านเป็นฐานของงาน เพื่อไม่ให้งานหลักถูกเบียดเวลา",
+   "permittedCallback": "งานหลักอาจถูกภาระด้านนี้เบียดเวลา",
+   "callbackNewInformation": "รับบทบาทเพิ่มได้หนึ่งก้าวเมื่อคุณภาพงานหลักยังคงเดิม โดยไม่แลกกับคุณภาพงานหลัก และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต ทำรายการงานที่จะรักษา ส่งต่อ และยุติให้เสร็จก่อนรับบทบาทก้อนใหม่",
+   "renderedSection": "ช่วงชีวิตถัดไป",
+   "domain": "career",
+   "horizon": "nextLifePeriod",
+   "expressed": true,
+   "traceabilityReference": "prediction.career.nextLifePeriod.strong"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "forecast:nextLifePeriod:finance",
+   "completeEvidenceSignature": "h=nextLifePeriod|d=finance|b=strong|consumerRisk=career|e=full|t=true|k=prediction.finance.nextLifePeriod.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.finance.nextLifePeriod.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ช่วงชีวิตถัดไปต้องให้น้ำหนักกับภาระระยะยาวและเงินรองรับการเปลี่ยนผ่าน สร้างเงินสำรองเฉพาะช่วงเปลี่ยนผ่านก่อนผูกค่าใช้จ่ายระยะยาวก้อนใหม่ ระยะยาว ให้เก็บสายตาที่เห็นรายละเอียดจากช่วงพลิกผันและเปลี่ยนผ่านเป็นฐานของการเงิน เพื่อไม่ให้งานหลักถูกเบียดเวลา",
+   "permittedCallback": "งานหลักอาจถูกภาระด้านนี้เบียดเวลา",
+   "callbackNewInformation": "ขยับภาระได้เมื่อกันเงินพร้อมใช้ไว้ครบแล้ว โดยไม่แลกกับคุณภาพงานหลัก และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต สร้างเงินสำรองเฉพาะช่วงเปลี่ยนผ่านก่อนผูกค่าใช้จ่ายระยะยาวก้อนใหม่",
+   "renderedSection": "ช่วงชีวิตถัดไป",
+   "domain": "finance",
+   "horizon": "nextLifePeriod",
+   "expressed": true,
+   "traceabilityReference": "prediction.finance.nextLifePeriod.strong"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "forecast:nextLifePeriod:relationship",
+   "completeEvidenceSignature": "h=nextLifePeriod|d=relationship|b=strong|consumerRisk=career|e=full|t=true|k=prediction.relationship.nextLifePeriod.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.relationship.nextLifePeriod.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ช่วงชีวิตถัดไปความสัมพันธ์ต้องปรับตามภาระชุดใหม่ ความคลุมเครือเรื่องบทบาทอาจสร้างระยะห่าง แต่การวางชีวิตร่วมกันอย่างเป็นรูปธรรมจะเพิ่มความมั่นคง ตกลงเวลา หน้าที่ และพื้นที่ส่วนตัวของช่วงถัดไปไว้ก่อนตัดสินใจร่วมกัน ระยะยาว ให้เก็บสายตาที่เห็นรายละเอียดจากช่วงพลิกผันและเปลี่ยนผ่านเป็นฐานของความสัมพันธ์ เพื่อไม่ให้งานหลักถูกเบียดเวลา",
+   "permittedCallback": "งานหลักอาจถูกภาระด้านนี้เบียดเวลา",
+   "callbackNewInformation": "เพิ่มข้อผูกพันได้เมื่อคำพูดและการกระทำสอดคล้องกัน โดยไม่แลกกับคุณภาพงานหลัก และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต ตกลงเวลา หน้าที่ และพื้นที่ส่วนตัวของช่วงถัดไปไว้ก่อนตัดสินใจร่วมกัน",
+   "renderedSection": "ช่วงชีวิตถัดไป",
+   "domain": "relationship",
+   "horizon": "nextLifePeriod",
+   "expressed": true,
+   "traceabilityReference": "prediction.relationship.nextLifePeriod.strong"
+  },
+  {
+   "fixture": "comparison-known-khon-kaen",
+   "canonicalId": "forecast:nextLifePeriod:health",
+   "completeEvidenceSignature": "h=nextLifePeriod|d=health|b=strong|consumerRisk=career|e=full|t=true|k=prediction.health.nextLifePeriod.strong|o=lagna-house-and-life-period-score|td=true",
+   "evidenceKeys": [
+    "prediction.health.nextLifePeriod.strong"
+   ],
+   "evidenceType": "lagna-house-and-life-period-score",
+   "confidence": "strong",
+   "role": "forecast",
+   "primaryExpression": "ช่วงชีวิตถัดไปพลังงานมีแนวโน้มขึ้นลงตามภาระที่เปลี่ยน หากเร่งรับทุกอย่างพร้อมกัน ความล้าจะสะสมเร็วกว่าช่วงปัจจุบัน ทดลองกิจวัตรพักแบบใหม่ล่วงหน้าและเก็บเฉพาะแบบที่ทำต่อได้ในวันที่ยุ่ง ระยะยาว ให้เก็บสายตาที่เห็นรายละเอียดจากช่วงพลิกผันและเปลี่ยนผ่านเป็นฐานของกำลังและการฟื้นตัว เพื่อไม่ให้งานหลักถูกเบียดเวลา",
+   "permittedCallback": "งานหลักอาจถูกภาระด้านนี้เบียดเวลา",
+   "callbackNewInformation": "เพิ่มกิจกรรมได้เมื่อเวลาพักและการฟื้นตัวยังคงพอ โดยไม่แลกกับคุณภาพงานหลัก และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต ทดลองกิจวัตรพักแบบใหม่ล่วงหน้าและเก็บเฉพาะแบบที่ทำต่อได้ในวันที่ยุ่ง",
+   "renderedSection": "ช่วงชีวิตถัดไป",
+   "domain": "health",
+   "horizon": "nextLifePeriod",
+   "expressed": true,
+   "traceabilityReference": "prediction.health.nextLifePeriod.strong"
+  }
+ ]
+}

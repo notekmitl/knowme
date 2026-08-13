@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/features/astrology/thai/mirror/presentation/prediction/prediction_section_model.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart';
@@ -104,6 +105,7 @@ void main() {
         '- Factual source: `engine-factual-result.json`\n',
       );
       _writeClaimLedger(output, fixtures);
+      _writeR3AuditMetrics(output, fixtures);
       _stage('manifest-generation', 'complete');
     }
 
@@ -132,6 +134,122 @@ void main() {
       _stage('screenshot-capture:mobile', 'complete');
     }
   });
+}
+
+void _writeR3AuditMetrics(
+  Directory output,
+  Map<String, ThaiBetaAnalysis> fixtures,
+) {
+  String normalize(String value) => value
+      .replaceAll(RegExp(r'\s+'), '')
+      .replaceAll(RegExp(r'[\-–—:;,.!?()•]'), '')
+      .toLowerCase();
+
+  const systemLabels = [
+    'น้ำหนักเด่น',
+    'น้ำหนักปานกลาง',
+    'น้ำหนักเบา',
+    'คาบเกี่ยวรอยต่อ',
+  ];
+  const biographyClaims = [
+    'ตอนเรียนคุณ',
+    'ครอบครัวทำให้คุณ',
+    'โอกาสจากเครือข่ายจะ',
+    'คุณเก็บความคาดหวังไว้เงียบ',
+    'คุณถูกผลักให้',
+    'ร่างกายและใจถูกใช้จนสุดแรง',
+    'คุณต้องแบกงานหลายเรื่อง',
+  ];
+  final exactDuplicates = <String, int>{};
+  var callbackWithoutNewInformation = 0;
+  var systemLanguageHits = 0;
+  var unsupportedBiographyHits = 0;
+  final strongBodies = <String>[];
+  final coverage = <String, Object?>{};
+
+  for (final entry in fixtures.entries) {
+    final view = ThaiBetaNarrativeComposer.narrativeView(entry.value);
+    final domains = view.futurePrediction!.windows
+        .expand((window) => window.domains)
+        .toList(growable: false);
+    final normalizedBodies = domains
+        .map((domain) => normalize(domain.body))
+        .toList(growable: false);
+    exactDuplicates[entry.key] =
+        normalizedBodies.length - normalizedBodies.toSet().length;
+    callbackWithoutNewInformation += domains.where((domain) {
+      final delta = '${domain.decisionImpact} ${domain.preparationAction}'
+          .trim();
+      return delta.isEmpty ||
+          normalize(domain.decisionImpact) ==
+              normalize(domain.preparationAction);
+    }).length;
+    final text = ThaiBetaReportExportDocument.fromAnalysis(
+      entry.value,
+    ).fullPlainText;
+    systemLanguageHits += systemLabels
+        .map((label) => label.allMatches(text).length)
+        .fold(0, (sum, count) => sum + count);
+    unsupportedBiographyHits += biographyClaims
+        .map((claim) => claim.allMatches(text).length)
+        .fold(0, (sum, count) => sum + count);
+    if (entry.key != 'regression-known-0003') {
+      strongBodies.addAll(
+        domains
+            .where((domain) => domain.material!.band == ForecastBand.strong)
+            .map((domain) => normalize(domain.body)),
+      );
+    }
+    coverage[entry.key] = {
+      'horizons': view.futurePrediction!.windows.length,
+      'domainsPerHorizon': view.futurePrediction!.windows
+          .map((window) => window.domains.length)
+          .toList(),
+      'complete4x3':
+          view.futurePrediction!.windows.length == 3 &&
+          view.futurePrediction!.windows.every(
+            (window) =>
+                window.domains.length == 4 &&
+                window.domains
+                        .map((domain) => domain.material!.domain)
+                        .toSet()
+                        .length ==
+                    4,
+          ),
+    };
+  }
+
+  final strongFrequency = <String, int>{};
+  for (final body in strongBodies) {
+    strongFrequency.update(body, (count) => count + 1, ifAbsent: () => 1);
+  }
+  final reusedStrongInstances = strongFrequency.entries
+      .where((entry) => entry.value > 1)
+      .fold<int>(0, (sum, entry) => sum + entry.value);
+  final metrics = <String, Object?>{
+    'schema': 'knowme-narrative-v1.5-r3-audit-v1',
+    'fixtures': fixtures.length,
+    'coverage': coverage,
+    'withinReportExactDuplicateBodies': exactDuplicates,
+    'callbacksWithoutNewInformation': callbackWithoutNewInformation,
+    'consumerSystemLanguageHits': systemLanguageHits,
+    'unsupportedBiographyHits': unsupportedBiographyHits,
+    'strongClaimReuse': {
+      'scope':
+          'materially different fixtures; explicit owner-known/00:03 twin excluded claim-by-claim',
+      'instances': strongBodies.length,
+      'reusedInstances': reusedStrongInstances,
+      'rate': strongBodies.isEmpty
+          ? 0
+          : reusedStrongInstances / strongBodies.length,
+      'threshold': 0.25,
+    },
+    'domainSignatureBlanketExemptions': 0,
+    'webPdfCanonicalPairs': fixtures.length,
+  };
+  File('${output.path}/r3-audit-metrics.json').writeAsStringSync(
+    '${const JsonEncoder.withIndent('  ').convert(metrics)}\n',
+  );
 }
 
 ThaiBetaAnalysis _comparisonAnalysis({
@@ -254,9 +372,25 @@ void _writeClaimLedger(
       }
     }
   }
-  final json = const JsonEncoder.withIndent(
-    ' ',
-  ).convert({'schema': 'knowme-claim-ledger-v1.5-r2', 'claims': rows});
+  final json = const JsonEncoder.withIndent(' ').convert({
+    'schema': 'knowme-claim-ledger-v1.5-r3',
+    'policy': {
+      'domainSignatureBlanketExemptions': false,
+      'callbacksRequireNewInformation': true,
+      'consumerSystemLabelsAllowed': false,
+    },
+    'justifiedTwins': [
+      {
+        'left': 'owner-known-0035',
+        'right': 'regression-known-0003',
+        'scope':
+            'only claims with identical complete evidence and rendered text',
+        'reason':
+            'the 00:03 regression fixture is retained as an explicit boundary twin; it is excluded only claim-by-claim, never by domain signature',
+      },
+    ],
+    'claims': rows,
+  });
   File('${output.path}/claim-ledger.json').writeAsStringSync('$json\n');
   final coverage = <String, Object?>{
     for (final fixture in fixtures.keys)

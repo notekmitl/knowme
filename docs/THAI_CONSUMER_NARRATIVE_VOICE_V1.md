@@ -37,6 +37,8 @@ V1.2 uses a selection-based composition budget: current domains contain at most 
 
 Reader-facing Thai speaks directly to `คุณ`, uses short familiar sentences, states practical meaning before technical reason, and keeps soft certainty. Avoid academic labels, mystical certainty, threats, daily-horoscope tone, and formulaic horizon/domain repetition. Claim, Risk, Decision Impact, and Action remain typed internally but are recomposed as two or three connected paragraphs; their schema labels must not repeat through the report.
 
+> V1.5 R3 amendment (2026-08-13): `V1.5 R2 OWNER ACCEPTANCE REJECTED`. A report-level plan now opens with an evidence-led “ลายเซ็นของคำอ่าน”, selects no more than two motifs, and assigns separate jobs to current, 12-month and next-period prose. Consumer copy must contain none of the rejected priority/transition labels. Past content is a cautious question for comparison with lived memory, never an asserted biography. Materially different exact strong-claim reuse must be ≤25% without evidence-signature blanket exemptions.
+
 Current prose explains immediate attention; 12-month prose explains development, watch signs, and review timing; next-period prose explains priority shifts and preparation. Long-term text is synthesis only. A deterministic Known/Unknown audit rejects reused complete sentences, repeated long clauses, identical cross-horizon bodies/actions, and horizon changes made only by a prefix or suffix.
 
 ## Preserved contracts

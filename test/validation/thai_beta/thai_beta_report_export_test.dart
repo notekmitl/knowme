@@ -326,10 +326,10 @@ void main() {
   });
 
   group('Real PDF exporter path regression', () {
-    test('Production pagination fixtures stay at 6/5 pages', () async {
+    test('R3 pagination fixtures stay at measured 7/6 pages', () async {
       for (final fixture in <({bool knownTime, int pages})>[
-        (knownTime: true, pages: 6),
-        (knownTime: false, pages: 5),
+        (knownTime: true, pages: 7),
+        (knownTime: false, pages: 6),
       ]) {
         final productionAnalysis = ThaiBetaAnalysisRunner.run(
           ThaiBetaInput(

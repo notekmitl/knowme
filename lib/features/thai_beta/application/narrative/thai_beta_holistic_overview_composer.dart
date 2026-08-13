@@ -9,6 +9,7 @@ import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_m
 import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/thai_mirror_life_timeline_state.dart';
 
 import 'thai_beta_narrative_formatting.dart';
+import 'thai_beta_report_narrative_plan.dart';
 
 abstract final class ThaiBetaHolisticOverviewComposer {
   static const _bannedOpeners = [
@@ -26,6 +27,7 @@ abstract final class ThaiBetaHolisticOverviewComposer {
     required ThaiMirrorSignatureInsightState core,
     required ThaiMirrorLifeTimelineState? timeline,
     required bool hasBirthTime,
+    required ThaiBetaReportNarrativePlan reportPlan,
   }) {
     final natalParas = _uniqueParas([
       ...natalHero.summary.split('\n\n'),
@@ -56,17 +58,14 @@ abstract final class ThaiBetaHolisticOverviewComposer {
       parts.add(t);
     }
 
+    add(reportPlan.hook);
     add(foundation);
     add(strengthCaution);
     add(trajectory);
     add(currentFocus);
 
     final capped = parts.length <= 4 ? parts : parts.take(4).toList();
-    final headline = _headline(
-      natalHeadline: natalHero.headline,
-      planet: planet,
-      stage: stage,
-    );
+    final headline = reportPlan.headline;
 
     return ThaiMirrorConsumerHeroState(
       headline: headline,
@@ -98,26 +97,6 @@ abstract final class ThaiBetaHolisticOverviewComposer {
       if (p.isCurrent) return p;
     }
     return null;
-  }
-
-  static String _headline({
-    required String natalHeadline,
-    required LifePlanetData? planet,
-    required ThaiMirrorCurrentStageState? stage,
-  }) {
-    if (planet != null) {
-      return ThaiBetaNarrativeFormatting.normalize(
-        'ตอนนี้อยู่ใน${planet.phaseName} — ${planet.phaseEssence}',
-      );
-    }
-    final natal = ThaiBetaNarrativeFormatting.normalize(natalHeadline);
-    if (_isBannedPhrase(natal) || natal.startsWith('คุณเป็นคน')) {
-      final phase = stage?.phaseName.trim() ?? '';
-      if (phase.isNotEmpty) {
-        return ThaiBetaNarrativeFormatting.normalize('ตอนนี้อยู่ใน$phase');
-      }
-    }
-    return natal;
   }
 
   static String _foundationSentence(

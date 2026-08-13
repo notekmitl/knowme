@@ -322,7 +322,7 @@ void main() {
     }
   });
 
-  test('V1.2 repeated past claims are allocated to one period only', () {
+  test('R3 removes rejected biography-like past claims', () {
     final periods = ThaiBetaNarrativeComposer.narrativeView(
       analysis,
     ).lifeTimeline!.periods.where((period) => period.isPast);
@@ -346,8 +346,8 @@ void main() {
     ]) {
       expect(
         corpus.where((value) => value.contains(rejectedV12Claim)),
-        hasLength(1),
-        reason: 'a personal past claim belongs to one period only',
+        isEmpty,
+        reason: 'past copy must ask for reflection, not assert biography',
       );
     }
   });

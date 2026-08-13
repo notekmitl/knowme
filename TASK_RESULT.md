@@ -75,3 +75,7 @@ not changed. See `docs/THAI_NARRATIVE_V15_ROOT_CAUSE_AND_SPEC.md`.
 The final packet replaces five stale contact sheets with composites built from the final 30 page PNGs and corrects the README page count. PDF bytes and implementation are unchanged. The focused suite was rerun at 261/261, and the corrected ZIP SHA-256 is `610E69A38E2CA012BE4698E266E465EA8B17F44275761812050854A47F9B36CD`.
 
 R1 is recorded as owner-rejected. R2 focused validation passes 261/261 and the owner 00:35 / regression 00:03 identities remain Aquarius 19°19′ / 9°24′. The R2 package includes five PDFs, 30 rendered pages, Claim Ledger and corrective evidence. PR #92 remains Draft and requires owner acceptance; no merge or deployment has occurred; Production remains V1.4.
+
+# V1.5 R3 result (2026-08-13)
+
+`V1.5 R2 OWNER ACCEPTANCE REJECTED`. R3 is a new acceptance candidate under `product-acceptance/thai-narrative-v1.5-r3/`; R1/R2 remain unchanged. The report-level composer produces a motif-led hook, three distinct horizon functions and cautious past synthesis. Focused validation passes 264/264 from raw UTF-8 output; the scoped analyzer reports no issues; no full-suite claim is made. All five PDFs are 6 pages and all 30 final renders pass visual QA. Automated evidence reports 0/26 exact strong-claim reuse across materially different fixtures and zero rejected system/biography hits. Owner Acceptance remains pending; PR #92 is Draft; no merge/deploy; Production remains V1.4.

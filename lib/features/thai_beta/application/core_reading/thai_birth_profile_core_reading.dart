@@ -881,8 +881,8 @@ class ThaiBirthProfileCoreReading {
       addDisclosureClaim(
         target: methodologyClaims,
         text:
-            'คำอ่านข้างต้นจัดลำดับจากแนวโน้มที่มีน้ำหนักเด่นในผลวิเคราะห์ '
-            'แต่ละส่วนจึงอธิบายความหมายที่เกี่ยวกับชีวิตของคุณโดยตรง',
+            'คำอ่านข้างต้นเลือกประเด็นที่เชื่อมกับชีวิตคุณได้ชัดที่สุดก่อน '
+            'แล้วเรียงผลต่อเนื่องไปยังเรื่องที่ควรระวังและการตัดสินใจ',
         semanticKey: 'methodology:top-themes',
         atoms: [
           for (final theme in mirror.topThemes.take(3))

@@ -1,0 +1,4 @@
+COMMAND: flutter analyze --no-pub lib/features/thai_beta/application/narrative lib/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart lib/features/thai_beta/application/thai_beta_report_export_document.dart test/validation/thai_beta/narrative test/validation/thai_beta/thai_beta_report_export_test.dart
+EXIT_CODE: 0
+RESULT: No issues found!
+SCOPE: R3 narrative/core/export implementation and focused tests

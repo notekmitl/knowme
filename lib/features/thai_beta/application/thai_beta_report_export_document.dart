@@ -74,6 +74,13 @@ class ThaiBetaReportExportDocument {
       consumerView: view,
     );
     sections.add(_section(coreReading.title, [coreReading.subtitle]));
+    final reportHook = view.hero.summary
+        .split('\n\n')
+        .map((paragraph) => paragraph.trim())
+        .firstWhere((paragraph) => paragraph.isNotEmpty, orElse: () => '');
+    if (view.hero.headline.trim().isNotEmpty && reportHook.isNotEmpty) {
+      sections.add(_section(view.hero.headline, [reportHook]));
+    }
     sections.addAll(
       coreReading.sections
           .where((section) => !section.isMethodology)
