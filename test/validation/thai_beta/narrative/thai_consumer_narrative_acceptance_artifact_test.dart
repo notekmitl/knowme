@@ -104,7 +104,7 @@ void main() {
         birthTime: '00:03',
       );
       final facts = <String, Object?>{
-        'schema': 'knowme-thai-narrative-v1.5-r4-engine-facts',
+        'schema': 'knowme-thai-narrative-v1.5-r5-engine-facts',
         'fixtures': [knownFacts, regressionFacts],
       };
       final factualJson = const JsonEncoder.withIndent('  ').convert(facts);
@@ -134,7 +134,7 @@ void main() {
         '- Regression ascendant: `${regressionFacts['lagnaSignThai']} ${regressionFacts['lagnaDegree']}`\n'
         '- Factual source: `engine-factual-result.json`\n',
       );
-      writeR4AcceptanceAudits(
+      writeR5AcceptanceAudits(
         output: output,
         fixtures: fixtures,
         webTexts: webTexts,

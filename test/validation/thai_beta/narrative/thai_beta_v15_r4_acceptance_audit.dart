@@ -6,10 +6,11 @@ import 'package:knowme/features/thai_beta/application/narrative/thai_beta_narrat
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_narrative_context.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_report_claim_ledger.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_report_narrative_plan.dart';
+import 'package:knowme/features/thai_beta/application/narrative/thai_beta_thai_repetition_audit.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 
-void writeR4AcceptanceAudits({
+void writeR5AcceptanceAudits({
   required Directory output,
   required Map<String, ThaiBetaAnalysis> fixtures,
   required Map<String, String> webTexts,
@@ -294,7 +295,7 @@ void writeR4AcceptanceAudits({
   }
 
   final claimLedger = {
-    'schema': 'knowme-claim-ledger-v1.5-r4',
+    'schema': 'knowme-claim-ledger-v1.5-r5',
     'policy': {
       'domainSignatureBlanketExemptions': false,
       'callbacksRequireNewInformation': true,
@@ -325,7 +326,7 @@ void writeR4AcceptanceAudits({
       )
       .toList(growable: false);
   final traceability = {
-    'schema': 'knowme-claim-render-traceability-v1.5-r4',
+    'schema': 'knowme-claim-render-traceability-v1.5-r5',
     'totalClaims': traceRows.length,
     'expressedClaims': expressedClaims,
     'expressedFoundInCanonicalWebAndPdf':
@@ -339,51 +340,50 @@ void writeR4AcceptanceAudits({
   _writeJson(output, 'claim-render-traceability.json', traceability);
 
   final units = _consumerUnits(fixtures, webTexts, claims);
-  _writeJson(output, 'consumer-unit-audit.json', {
-    'schema': 'knowme-consumer-unit-audit-v1.5-r4',
+  final consumerSummary = {
+    'totalUnits': units.length,
+    'countedUnits': units.where((unit) => unit['counted'] == true).length,
+    'excludedUnits': units.where((unit) => unit['counted'] != true).length,
+    'exclusionReasons': _frequency(
+      units
+          .where((unit) => unit['counted'] != true)
+          .map((unit) => '${unit['reason']}'),
+    ),
+  };
+  final consumerAudit = {
+    'schema': 'knowme-consumer-unit-audit-v1.5-r5',
     'definition':
         'Every rendered title or paragraph in canonical Web text. Narrative prose is counted. Static headings, required medical disclosure, evidence boundary, and methodology are excluded with a reason.',
-    'summary': {
-      'totalUnits': units.length,
-      'countedUnits': units.where((unit) => unit['counted'] == true).length,
-      'excludedUnits': units.where((unit) => unit['counted'] != true).length,
-      'exclusionReasons': _frequency(
-        units
-            .where((unit) => unit['counted'] != true)
-            .map((unit) => '${unit['reason']}'),
-      ),
-    },
+    'summary': consumerSummary,
     'units': units,
-  });
+  };
+  _writeJson(output, 'consumer-unit-audit.json', consumerAudit);
 
-  final r3Texts = <String, String>{};
-  final r3Evidence = Directory(
-    '${Directory.current.path}/product-acceptance/thai-narrative-v1.5-r3/evidence',
-  );
-  for (final fixture in fixtures.keys) {
-    final file = File('${r3Evidence.path}/$fixture-web-text.txt');
-    if (!file.existsSync()) {
-      throw StateError('Missing immutable R3 source: ${file.path}');
-    }
-    r3Texts[fixture] = file.readAsStringSync();
-  }
   final materialIdentities = {
     for (final entry in plans.entries) entry.key: entry.value.materialIdentity,
   };
-  final r3Freshness = _freshnessAudit(
-    version: 'R3',
-    texts: r3Texts,
+  final immutableR4Units = _readImmutableR4Units();
+  final r4Freshness = _freshnessAuditFromUnits(
+    version: 'R4-corrected-baseline',
+    units: immutableR4Units,
     materialIdentities: materialIdentities,
   );
-  final r4Freshness = _freshnessAudit(
-    version: 'R4',
-    texts: webTexts,
+  final r5Freshness = _freshnessAuditFromUnits(
+    version: 'R5',
+    units: units,
     materialIdentities: materialIdentities,
   );
-  final r3ReuseRate = r3Freshness['exactReuseRate']! as double;
   final r4ReuseRate = r4Freshness['exactReuseRate']! as double;
-  final freshnessRateDelta = r3ReuseRate - r4ReuseRate;
+  final r5ReuseRate = r5Freshness['exactReuseRate']! as double;
+  final freshnessRateDelta = r4ReuseRate - r5ReuseRate;
+  _assertFreshnessInvariants(
+    version: 'R4-corrected-baseline',
+    units: immutableR4Units,
+    audit: r4Freshness,
+  );
+  _assertFreshnessInvariants(version: 'R5', units: units, audit: r5Freshness);
   final hookReuse = _hookReuse(fixtures, plans);
+  final pastSimilarity = _pastSimilarityAudit(fixtures);
   final callbacksWithoutNewInformation = claims.where((row) {
     if (!(row['canonicalId'] as String).startsWith('forecast:')) return false;
     final callback = '${row['callbackNewInformation'] ?? ''}'.trim();
@@ -405,6 +405,14 @@ void writeR4AcceptanceAudits({
     'ร่างกายและใจถูกใช้จนสุดแรง',
     'คุณต้องแบกงานหลายเรื่อง',
   ]);
+  final unsupportedUnknownPresentStateHits = _phraseHits(
+    [webTexts['owner-unknown'] ?? ''],
+    const [
+      'ด้านพลังชีวิตคุณมีหน้าที่หลายอย่าง จนแทบไม่มีเวลาพัก',
+      'งานเดิมกำลังเปลี่ยนแปลงไปสู่โจทย์ใหม่',
+      'แม้รายรับดูดีขึ้น',
+    ],
+  );
   final forbiddenPatternHits = _phraseHits(webTexts.values, const [
     'ใช้ความมั่นคงที่สร้างทีละขั้น',
     'ระยะยาว ให้เก็บ',
@@ -447,25 +455,28 @@ void writeR4AcceptanceAudits({
     }
     withinReportNgramPairs[entry.key] = pairs;
   }
-  _writeJson(output, 'r4-audit-metrics.json', {
-    'schema': 'knowme-narrative-v1.5-r4-audit-v1',
+  _writeJson(output, 'r5-audit-metrics.json', {
+    'schema': 'knowme-narrative-v1.5-r5-audit-v1',
     'fixtures': fixtures.length,
     'coverage': coverage,
     'freshness': {
-      'denominatorDefinition': r4Freshness['denominatorDefinition'],
-      'beforeR3': r3Freshness,
-      'afterR4': r4Freshness,
+      'sourceOfTruth': 'consumer-unit-audit.json',
+      'denominatorDefinition': r5Freshness['denominatorDefinition'],
+      'beforeR4Corrected': r4Freshness,
+      'afterR5': r5Freshness,
       'absoluteReuseRateReduction': freshnessRateDelta,
-      'relativeReuseRateReduction': r3ReuseRate == 0
+      'relativeReuseRateReduction': r4ReuseRate == 0
           ? 0
-          : freshnessRateDelta / r3ReuseRate,
+          : freshnessRateDelta / r4ReuseRate,
     },
+    'pastThaiCharacterSimilarity': pastSimilarity,
     'hookExactReuseAcrossMateriallyDifferentFixtures': hookReuse,
     'withinReportExactDuplicateForecastBodies': withinReportExactDuplicates,
     'withinReportNgramPairsAtOrAbove072': withinReportNgramPairs,
     'callbacksWithoutNewInformation': callbacksWithoutNewInformation,
     'consumerSystemLanguageHits': systemHits,
     'unsupportedBiographyHits': unsupportedBiographyHits,
+    'unsupportedUnknownPresentStateHits': unsupportedUnknownPresentStateHits,
     'forbiddenRepeatedPatternHits': forbiddenPatternHits,
     'repeatedPastBoundaryHits': repeatedPastBoundaryHits,
     'consumerSemicolonHits': semicolonHits,
@@ -486,17 +497,20 @@ void writeR4AcceptanceAudits({
       '${traceFailures.length} expressed claims are absent from canonical output',
     );
   }
-  if (r4ReuseRate >= r3ReuseRate ||
-      hookReuse['reusedInstances'] != 0 ||
+  if (hookReuse['reusedInstances'] != 0 ||
+      pastSimilarity.values.any(
+        (value) => (value as Map<String, Object?>)['passed'] != true,
+      ) ||
       callbacksWithoutNewInformation != 0 ||
       systemHits != 0 ||
       unsupportedBiographyHits != 0 ||
+      unsupportedUnknownPresentStateHits != 0 ||
       forbiddenPatternHits != 0 ||
       repeatedPastBoundaryHits != 0 ||
       semicolonHits != 0 ||
       withinReportExactDuplicates.values.any((count) => count != 0) ||
       withinReportNgramPairs.values.any((pairs) => pairs.isNotEmpty)) {
-    throw StateError('R4 consumer narrative acceptance metrics failed');
+    throw StateError('R5 consumer narrative acceptance metrics failed');
   }
 }
 
@@ -577,6 +591,16 @@ List<Map<String, Object?>> _consumerUnits(
       for (final paragraph in section.paragraphs) {
         final text = paragraph.trim();
         if (text.isEmpty) continue;
+        if (_isStaticLine(text)) {
+          add(
+            section: section.title,
+            kind: 'static-label',
+            text: text,
+            counted: false,
+            reason: 'static-label-or-timing',
+          );
+          continue;
+        }
         final claim = claimed[text];
         if (claim != null) {
           final excluded = claim['excludedFromFreshness'] == true;
@@ -631,60 +655,80 @@ List<Map<String, Object?>> _consumerUnits(
   if (section == 'ธีมสำหรับทบทวนอดีต') {
     return ('past-boundary', false, 'single-past-evidence-boundary');
   }
-  if (_staticParagraphs.contains(text) || text.length < 18) {
+  if (_isStaticLine(text)) {
     return ('static-label', false, 'static-label-or-timing');
   }
   return ('consumer-narrative', true, 'consumer-narrative');
 }
 
-Map<String, Object?> _freshnessAudit({
+List<Map<String, Object?>> _readImmutableR4Units() {
+  final file = File(
+    '${Directory.current.path}/product-acceptance/'
+    'thai-narrative-v1.5-r4/evidence/consumer-unit-audit.json',
+  );
+  if (!file.existsSync()) {
+    throw StateError('Missing immutable R4 consumer text source: ${file.path}');
+  }
+  final decoded = jsonDecode(file.readAsStringSync()) as Map<String, Object?>;
+  final rawUnits = decoded['units']! as List<Object?>;
+  return rawUnits
+      .map((raw) {
+        final unit = Map<String, Object?>.from(raw! as Map);
+        final text = '${unit['text']}'.trim();
+        final section = '${unit['section']}';
+        final kind = '${unit['kind']}';
+        final originalReason = '${unit['reason']}';
+        final classification = _classifyRenderedParagraph(section, text);
+        if (kind == 'hook-headline') {
+          unit
+            ..['counted'] = true
+            ..['reason'] = 'consumer-narrative';
+        } else if (originalReason == 'consumer-narrative' &&
+            !_isStaticLine(text)) {
+          unit
+            ..['counted'] = true
+            ..['reason'] = 'consumer-narrative';
+        } else {
+          unit
+            ..['kind'] = classification.$1
+            ..['counted'] = classification.$2
+            ..['reason'] = classification.$3;
+        }
+        return unit;
+      })
+      .toList(growable: false);
+}
+
+Map<String, Object?> _freshnessAuditFromUnits({
   required String version,
-  required Map<String, String> texts,
+  required List<Map<String, Object?>> units,
   required Map<String, String> materialIdentities,
 }) {
-  final instances = <Map<String, String>>[];
-  for (final entry in texts.entries) {
-    final lines = entry.value
-        .split('\n')
-        .map((line) => line.trim())
-        .where((line) => line.isNotEmpty)
-        .toList(growable: false);
-    var excludedTail = false;
-    for (var index = 0; index < lines.length; index++) {
-      final line = lines[index];
-      if (line == ThaiBirthProfileCoreReadingCopy.methodologyTitle ||
-          line == 'ที่มาของผลวิเคราะห์' ||
-          line == 'ข้อจำกัด') {
-        excludedTail = true;
-      }
-      final hookPosition = index == 4 || line.startsWith('ลายเซ็นของคำอ่าน:');
-      final excluded =
-          !hookPosition &&
-          (excludedTail ||
-              _isStaticLine(line) ||
-              line == ThaiBirthProfileCoreReadingCopy.medicalDisclaimer ||
-              line.contains('ไม่ใช่การวินิจฉัยโรค') ||
-              line.contains(
-                'ส่วนนี้ใช้ตั้งคำถามกับความทรงจำจริง ไม่ใช่ข้อสรุป',
-              ) ||
-              line.contains('ไม่มีเวลาเกิด จึงไม่ใช้ลัคนา'));
-      if (excluded) continue;
-      instances.add({
-        'fixture': entry.key,
-        'materialIdentity': materialIdentities[entry.key] ?? entry.key,
-        'text': line,
-        'normalized': _normalize(line),
-      });
-    }
-  }
-  final groups = <String, List<Map<String, String>>>{};
+  final instances = units
+      .where((unit) => unit['counted'] == true)
+      .map((unit) {
+        final fixture = '${unit['fixture']}';
+        final text = '${unit['text']}'.trim();
+        if (text.isEmpty) {
+          throw StateError('$version counted an empty unit ${unit['unitId']}');
+        }
+        return <String, Object?>{
+          'fixture': fixture,
+          'unitId': '${unit['unitId']}',
+          'materialIdentity': materialIdentities[fixture] ?? fixture,
+          'text': text,
+          'normalized': _normalize(text),
+        };
+      })
+      .toList(growable: false);
+  final groups = <String, List<Map<String, Object?>>>{};
   for (final instance in instances) {
-    groups.putIfAbsent(instance['normalized']!, () => []).add(instance);
+    groups.putIfAbsent('${instance['normalized']}', () => []).add(instance);
   }
   final reuseGroups = groups.values
       .where((group) {
         final materialGroups = group
-            .map((instance) => instance['materialIdentity'])
+            .map((instance) => '${instance['materialIdentity']}')
             .toSet();
         return materialGroups.length > 1;
       })
@@ -693,11 +737,23 @@ Map<String, Object?> _freshnessAudit({
     0,
     (total, group) => total + group.length,
   );
+  final excludedUnits = units.where((unit) => unit['counted'] != true);
   return {
     'version': version,
     'denominatorDefinition':
-        'All non-empty canonical rendered lines classified as consumer narrative. Static headings/labels, methodology, required medical disclosure, and evidence-boundary copy are excluded. No domain-signature exemption is used.',
+        'Exactly the units with counted=true in consumer-unit-audit.json. '
+        'Static headings/labels, methodology and disclosures remain excluded '
+        'and cannot enter reuse groups.',
     'instances': instances.length,
+    'sourceSummary': {
+      'totalUnits': units.length,
+      'countedUnits': instances.length,
+      'excludedUnits': excludedUnits.length,
+      'exclusionReasons': _frequency(
+        excludedUnits.map((unit) => '${unit['reason']}'),
+      ),
+    },
+    'reusedInstances': reusedInstances,
     'reusedInstancesAcrossMateriallyDifferentFixtures': reusedInstances,
     'exactReuseRate': instances.isEmpty
         ? 0
@@ -711,6 +767,7 @@ Map<String, Object?> _freshnessAudit({
                 .map(
                   (instance) => {
                     'fixture': instance['fixture'],
+                    'unitId': instance['unitId'],
                     'materialIdentity': instance['materialIdentity'],
                   },
                 )
@@ -719,6 +776,101 @@ Map<String, Object?> _freshnessAudit({
         )
         .toList(),
   };
+}
+
+void _assertFreshnessInvariants({
+  required String version,
+  required List<Map<String, Object?>> units,
+  required Map<String, Object?> audit,
+}) {
+  final countedIds = {
+    for (final unit in units.where((unit) => unit['counted'] == true))
+      '${unit['unitId']}',
+  };
+  final counted = countedIds.length;
+  final excluded = units.length - counted;
+  final instances = audit['instances']! as int;
+  final groups = audit['reuseGroups']! as List<Object?>;
+  final reportedGroupCount = audit['reuseGroupCount']! as int;
+  final reportedReused =
+      audit['reusedInstancesAcrossMateriallyDifferentFixtures']! as int;
+  final occurrenceIds = <String>[];
+  for (final rawGroup in groups) {
+    final group = rawGroup! as Map<Object?, Object?>;
+    for (final rawOccurrence in group['occurrences']! as List<Object?>) {
+      final occurrence = rawOccurrence! as Map<Object?, Object?>;
+      occurrenceIds.add('${occurrence['unitId']}');
+    }
+  }
+  if (instances != counted ||
+      units.length != counted + excluded ||
+      reportedGroupCount != groups.length ||
+      reportedReused != occurrenceIds.length ||
+      occurrenceIds.any((unitId) => !countedIds.contains(unitId))) {
+    throw StateError(
+      '$version freshness invariants failed: total=${units.length}, '
+      'counted=$counted, excluded=$excluded, instances=$instances, '
+      'groups=${groups.length}/$reportedGroupCount, '
+      'reused=${occurrenceIds.length}/$reportedReused',
+    );
+  }
+}
+
+Map<String, Object?> _pastSimilarityAudit(
+  Map<String, ThaiBetaAnalysis> fixtures,
+) {
+  final out = <String, Object?>{};
+  for (final entry in fixtures.entries) {
+    final past = ThaiBetaNarrativeComposer.narrativeView(
+      entry.value,
+    ).lifeTimeline!.periods.where((period) => period.isPast).toList();
+    final kindResults = <String, Object?>{};
+    var fixturePassed = true;
+    for (final spec in <(String, ThaiBetaPastUnitKind, List<String>)>[
+      (
+        'past-theme',
+        ThaiBetaPastUnitKind.theme,
+        past.map((period) => period.summary).toList(),
+      ),
+      (
+        'past-question',
+        ThaiBetaPastUnitKind.question,
+        past.map((period) => period.whatChanges).toList(),
+      ),
+    ]) {
+      final pairs = <Map<String, Object?>>[];
+      var maxSimilarity = 0.0;
+      for (var left = 0; left < spec.$3.length; left++) {
+        for (var right = left + 1; right < spec.$3.length; right++) {
+          final result = ThaiBetaThaiRepetitionAudit.comparePastUnits(
+            spec.$3[left],
+            spec.$3[right],
+            kind: spec.$2,
+          );
+          if (result.similarity > maxSimilarity) {
+            maxSimilarity = result.similarity;
+          }
+          final passed = result.similarity < .78 && !result.repeatedSkeleton;
+          if (!passed) fixturePassed = false;
+          pairs.add({
+            'left': left,
+            'right': right,
+            'similarity': result.similarity,
+            'repeatedSkeleton': result.repeatedSkeleton,
+            'passed': passed,
+          });
+        }
+      }
+      kindResults[spec.$1] = {
+        'threshold': .78,
+        'maxSimilarity': maxSimilarity,
+        'pairs': pairs,
+        'flaggedPairs': pairs.where((pair) => pair['passed'] != true).length,
+      };
+    }
+    out[entry.key] = {'passed': fixturePassed, ...kindResults};
+  }
+  return out;
 }
 
 Map<String, Object?> _hookReuse(

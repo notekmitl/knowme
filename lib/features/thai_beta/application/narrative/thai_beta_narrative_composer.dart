@@ -21,6 +21,7 @@ import 'thai_beta_narrative_specificity.dart';
 import 'thai_beta_narrative_stable_hash.dart';
 import 'thai_beta_narrative_trace.dart';
 import 'thai_beta_narrative_v12.dart';
+import 'thai_beta_past_reflection.dart';
 
 class ThaiBetaNarrativeResult {
   const ThaiBetaNarrativeResult({required this.view, required this.trace});
@@ -227,7 +228,10 @@ abstract final class ThaiBetaNarrativeComposer {
       disclaimers: source.disclaimers
           .map(ThaiBetaNarrativeFormatting.normalize)
           .toList(),
-      lifeTimeline: _differentiateTimelineDomains(source.lifeTimeline),
+      lifeTimeline: _differentiateTimelineDomains(
+        source.lifeTimeline,
+        isUnknownTime: reportPlan.isUnknownTime,
+      ),
       futurePrediction: _polishPrediction(source.futurePrediction, reportPlan),
     );
 
@@ -261,8 +265,9 @@ abstract final class ThaiBetaNarrativeComposer {
   /// gain the period's computed change statement instead of invented events.
   /// Current-period content and the source Thai Mirror state remain unchanged.
   static ThaiMirrorLifeTimelineState? _differentiateTimelineDomains(
-    ThaiMirrorLifeTimelineState? timeline,
-  ) {
+    ThaiMirrorLifeTimelineState? timeline, {
+    required bool isUnknownTime,
+  }) {
     if (timeline == null) return null;
     final used = <String>{};
     final usedClaims = <String>[];
@@ -270,7 +275,12 @@ abstract final class ThaiBetaNarrativeComposer {
     final usedPeriodFragments = <String>{};
     final periods = timeline.periods
         .map((period) {
-          if (period.isCurrent || period.lifeDomains.isEmpty) return period;
+          if (period.isCurrent) {
+            return isUnknownTime
+                ? _cautiousUnknownCurrentPeriod(period)
+                : period;
+          }
+          if (period.lifeDomains.isEmpty) return period;
           final bucket = period.isPast ? 'past' : 'future';
           final ages = period.ageLabel.split('–');
           final startAge = int.tryParse(ages.first) ?? 0;
@@ -442,22 +452,89 @@ abstract final class ThaiBetaNarrativeComposer {
   static (String, String) _cautiousPastSynthesis(
     ThaiMirrorLifePeriodState period,
   ) {
-    final topics = period.lifeDomains
-        .map((domain) => domain.title.trim())
-        .where((title) => title.isNotEmpty)
-        .toSet()
-        .take(2)
-        .join('และ');
-    final focus = topics.isEmpty ? period.keyword.trim() : topics;
-    final theme = period.keyword.trim().isEmpty
-        ? 'การเปลี่ยนแปลงตามช่วงวัย'
-        : period.keyword.trim();
-    final topic = focus.isEmpty ? 'ชีวิตในช่วงนั้น' : focus;
-    return (
-      'ธีมสำหรับทบทวน: ใน${period.phaseName} ช่วงอายุ ${period.ageLabel} '
-          'ลองย้อนดูว่า$themeปรากฏผ่านเรื่อง$topicในรูปแบบใด',
-      'คำถามสะท้อน: เมื่อคิดถึง${period.phaseName}ในวัย ${period.ageLabel} การเลือกเรื่องใดทำให้คุณเข้าใจ$themeต่างจากเดิม '
-          'และสิ่งใดยังมีผลต่อวิธีที่คุณตัดสินใจในวันนี้',
+    final ages = period.ageLabel.split('–');
+    final startAge = int.tryParse(ages.first) ?? 0;
+    final endAge = int.tryParse(ages.last) ?? startAge;
+    final reflection = ThaiBetaPastReflectionComposer.compose(
+      startAge: startAge,
+      endAge: endAge,
+      ageLabel: period.ageLabel,
+      phaseName: period.phaseName,
+      keyword: period.keyword,
+    );
+    return (reflection.theme, reflection.question);
+  }
+
+  static ThaiMirrorLifePeriodState _cautiousUnknownCurrentPeriod(
+    ThaiMirrorLifePeriodState period,
+  ) => ThaiMirrorLifePeriodState(
+    ageLabel: period.ageLabel,
+    phaseName: period.phaseName,
+    planetLine: period.planetLine,
+    keyword: period.keyword,
+    isCurrent: period.isCurrent,
+    isPast: period.isPast,
+    summary: period.summary,
+    whatChanges: period.whatChanges,
+    easier: period.easier,
+    harder: period.harder,
+    comparison: period.comparison,
+    evidenceLine: period.evidenceLine,
+    scores: period.scores,
+    easeIndex: period.easeIndex,
+    accentIndex: period.accentIndex,
+    advice: period.advice,
+    stageLabel: period.stageLabel,
+    timeBucketLabel: period.timeBucketLabel,
+    mahabhutPositionLabel: period.mahabhutPositionLabel,
+    mahabhutDescription: period.mahabhutDescription,
+    mahabhutKnown: period.mahabhutKnown,
+    mahabhutUnknownReason: period.mahabhutUnknownReason,
+    mahabhutShownOnReport: period.mahabhutShownOnReport,
+    subPeriods: period.subPeriods,
+    annualTaksaYears: period.annualTaksaYears,
+    lifeDomains: period.lifeDomains
+        .map(_cautiousUnknownCurrentDomain)
+        .toList(growable: false),
+  );
+
+  static ThaiMirrorLifeDomainBlock _cautiousUnknownCurrentDomain(
+    ThaiMirrorLifeDomainBlock domain,
+  ) {
+    var body = domain.body.trim();
+    if (domain.title == 'การงาน') {
+      body = body
+          .replaceFirst(
+            'ช่วงนี้งานที่เคยทำแบบเดิมเริ่มเปลี่ยนไป '
+                'งานเดิมกำลังเปลี่ยนแปลงไปสู่โจทย์ใหม่',
+            'หากช่วงนี้คุณสังเกตว่างานเดิมเริ่มเปลี่ยนไปสู่โจทย์ใหม่',
+          )
+          .replaceFirst(
+            'งานเดิมกำลังเปลี่ยนแปลงไปสู่โจทย์ใหม่',
+            'หากงานเดิมเริ่มเปลี่ยนไปสู่โจทย์ใหม่',
+          );
+    }
+    if (domain.title == 'การเงิน') {
+      body = body.replaceFirst(
+        'แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้',
+        'หากรายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้',
+      );
+    }
+    if (domain.title == 'สุขภาพ') {
+      body = body
+          .replaceFirst(
+            'ด้านพลังชีวิตคุณมีหน้าที่หลายอย่าง จนแทบไม่มีเวลาพัก',
+            'หากช่วงนี้คุณสังเกตว่าหน้าที่หลายอย่างเริ่มเบียดเวลาพัก',
+          )
+          .replaceFirst(
+            'คุณฝืนตัวเองจนสะสมความล้า',
+            'หากคุณสังเกตว่าความล้าสะสมหลังการฝืนตารางเดิม',
+          );
+    }
+    return ThaiMirrorLifeDomainBlock(
+      title: domain.title,
+      body: body,
+      evidenceKeys: domain.evidenceKeys,
     );
   }
 
