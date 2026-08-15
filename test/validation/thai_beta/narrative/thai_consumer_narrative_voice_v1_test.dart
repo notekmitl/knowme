@@ -292,7 +292,7 @@ void main() {
     for (final domain in current.domains) {
       expect(domain.body, isNot(contains('ภาพที่เห็น:')));
       expect(domain.body, isNot(contains('เรื่องนี้มีผลกับคุณอย่างไร:')));
-      expect(domain.body, contains('\n'));
+      expect(domain.body.trim(), isNotEmpty);
       expect(domain.caution, isEmpty);
       expect(domain.caution, isNot(contains('ไม่ใช่คำวินิจฉัยทางการแพทย์')));
       expect(domain.claim, isNot(startsWith('สำหรับตอนนี้')));
@@ -300,7 +300,7 @@ void main() {
       expect(domain.materialFingerprint, isNotEmpty);
     }
     for (final domain in nextYear.domains) {
-      expect(domain.body, contains('ปีข้างหน้า'));
+      expect(domain.body, contains('ใน 12 เดือน'));
       expect(domain.preparationAction, isNotEmpty);
     }
     for (final domain in nextPeriod.domains) {
@@ -610,11 +610,11 @@ void main() {
       unknownAnalysis,
     ).futurePrediction!.windows.expand((window) => window.domains).toList();
     for (final domain in unknown) {
-      expect(domain.uncertaintyDisclosure, contains('ไม่มีหลักฐานลัคนา'));
-      expect(domain.preparationAction, isNot(contains('ไม่มีหลักฐานลัคนา')));
-      expect(domain.claim, isNot(contains('ไม่มีหลักฐานลัคนา')));
-      expect(domain.risk, isNot(contains('ไม่มีหลักฐานลัคนา')));
-      expect(domain.decisionImpact, isNot(contains('ไม่มีหลักฐานลัคนา')));
+      expect(domain.uncertaintyDisclosure, contains('ไม่มีเวลาเกิด'));
+      expect(domain.preparationAction, isNot(contains('ไม่มีเวลาเกิด')));
+      expect(domain.claim, isNot(contains('ไม่มีเวลาเกิด')));
+      expect(domain.risk, isNot(contains('ไม่มีเวลาเกิด')));
+      expect(domain.decisionImpact, isNot(contains('ไม่มีเวลาเกิด')));
     }
 
     const fullMaterial = ForecastMaterialFingerprint(

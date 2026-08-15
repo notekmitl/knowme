@@ -4,16 +4,14 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:knowme/features/astrology/thai/mirror/presentation/prediction/prediction_section_model.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
-import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
-import 'package:knowme/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart';
-import 'package:knowme/features/thai_beta/application/narrative/thai_beta_report_claim_ledger.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_audience.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_pdf_exporter.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart';
+
+import 'thai_beta_v15_r4_acceptance_audit.dart';
 
 void main() {
   final outputPath = Platform.environment['KNOWME_ACCEPTANCE_OUTPUT'];
@@ -53,6 +51,8 @@ void main() {
     _stage('fixture-loading', 'complete');
 
     if (captureVariant.isEmpty) {
+      final webTexts = <String, String>{};
+      final pdfTexts = <String, String>{};
       for (final entry in fixtures.entries) {
         _stage('pdf-generation:${entry.key}', 'start');
         final document = ThaiBetaReportExportDocument.fromAnalysis(entry.value);
@@ -66,46 +66,80 @@ void main() {
         File(
           '${output.path}/${entry.key}-pdf-text.txt',
         ).writeAsStringSync(pdf.plainText);
+        webTexts[entry.key] = document.fullPlainText;
+        pdfTexts[entry.key] = pdf.plainText;
         _stage('web-pdf-canonical:${entry.key}', 'complete');
       }
       final known = fixtures['owner-known-0035']!;
-      final longitude = known.profile!.siderealAscendantDeg!;
-      final withinSign = ((longitude % 30) + 30) % 30;
-      final totalMinutes = (withinSign * 60).round();
-      final degree =
-          '${totalMinutes ~/ 60}°${(totalMinutes % 60).toString().padLeft(2, '0')}′';
+      final regression = fixtures['regression-known-0003']!;
+      Map<String, Object?> factFor(
+        ThaiBetaAnalysis analysis, {
+        required String fixtureId,
+        required String birthTime,
+      }) {
+        final longitude = analysis.profile!.siderealAscendantDeg!;
+        final withinSign = ((longitude % 30) + 30) % 30;
+        final totalMinutes = (withinSign * 60).round();
+        final degree =
+            '${totalMinutes ~/ 60}°${(totalMinutes % 60).toString().padLeft(2, '0')}′';
+        return <String, Object?>{
+          'fixtureId': fixtureId,
+          'birthDate': '1982-06-06',
+          'birthTime': birthTime,
+          'provinceKey': 'chiang_mai',
+          'lagnaKey': analysis.profile!.lagnaKey,
+          'lagnaSignThai': 'ราศีกุมภ์',
+          'lagnaDegree': degree,
+        };
+      }
+
+      final knownFacts = factFor(
+        known,
+        fixtureId: 'owner-known-1982-06-06-0035-chiang-mai',
+        birthTime: '00:35',
+      );
+      final regressionFacts = factFor(
+        regression,
+        fixtureId: 'regression-known-1982-06-06-0003-chiang-mai',
+        birthTime: '00:03',
+      );
       final facts = <String, Object?>{
-        'fixtureId': 'owner-known-1982-06-06-0035-chiang-mai',
-        'birthDate': '1982-06-06',
-        'birthTime': '00:35',
-        'provinceKey': 'chiang_mai',
-        'lagnaKey': known.profile!.lagnaKey,
-        'lagnaSignThai': 'ราศีกุมภ์',
-        'lagnaDegree': degree,
+        'schema': 'knowme-thai-narrative-v1.5-r4-engine-facts',
+        'fixtures': [knownFacts, regressionFacts],
       };
       final factualJson = const JsonEncoder.withIndent('  ').convert(facts);
       File(
         '${output.path}/engine-factual-result.json',
       ).writeAsStringSync('$factualJson\n');
-      final factText = '${facts['lagnaSignThai']} ${facts['lagnaDegree']}';
-      for (final name in [
-        'owner-known-0035-web-text.txt',
-        'owner-known-0035-pdf-text.txt',
+      for (final check in <(String, Map<String, Object?>)>[
+        ('owner-known-0035', knownFacts),
+        ('regression-known-0003', regressionFacts),
       ]) {
-        if (!File(
-          '${output.path}/$name',
-        ).readAsStringSync().contains(factText)) {
-          throw StateError('$name disagrees with engine fact $factText');
+        final factText =
+            '${check.$2['lagnaSignThai']} ${check.$2['lagnaDegree']}';
+        for (final suffix in ['web-text.txt', 'pdf-text.txt']) {
+          final name = '${check.$1}-$suffix';
+          if (!File(
+            '${output.path}/$name',
+          ).readAsStringSync().contains(factText)) {
+            throw StateError('$name disagrees with engine fact $factText');
+          }
         }
       }
       File('${output.path}/MANIFEST.generated.md').writeAsStringSync(
         '# Generated acceptance facts\n\n'
-        '- Fixture: `${facts['fixtureId']}`\n'
-        '- Known ascendant: `$factText`\n'
+        '- Owner Known fixture: `${knownFacts['fixtureId']}`\n'
+        '- Owner Known ascendant: `${knownFacts['lagnaSignThai']} ${knownFacts['lagnaDegree']}`\n'
+        '- Regression fixture: `${regressionFacts['fixtureId']}`\n'
+        '- Regression ascendant: `${regressionFacts['lagnaSignThai']} ${regressionFacts['lagnaDegree']}`\n'
         '- Factual source: `engine-factual-result.json`\n',
       );
-      _writeClaimLedger(output, fixtures);
-      _writeR3AuditMetrics(output, fixtures);
+      writeR4AcceptanceAudits(
+        output: output,
+        fixtures: fixtures,
+        webTexts: webTexts,
+        pdfTexts: pdfTexts,
+      );
       _stage('manifest-generation', 'complete');
     }
 
@@ -134,122 +168,6 @@ void main() {
       _stage('screenshot-capture:mobile', 'complete');
     }
   });
-}
-
-void _writeR3AuditMetrics(
-  Directory output,
-  Map<String, ThaiBetaAnalysis> fixtures,
-) {
-  String normalize(String value) => value
-      .replaceAll(RegExp(r'\s+'), '')
-      .replaceAll(RegExp(r'[\-–—:;,.!?()•]'), '')
-      .toLowerCase();
-
-  const systemLabels = [
-    'น้ำหนักเด่น',
-    'น้ำหนักปานกลาง',
-    'น้ำหนักเบา',
-    'คาบเกี่ยวรอยต่อ',
-  ];
-  const biographyClaims = [
-    'ตอนเรียนคุณ',
-    'ครอบครัวทำให้คุณ',
-    'โอกาสจากเครือข่ายจะ',
-    'คุณเก็บความคาดหวังไว้เงียบ',
-    'คุณถูกผลักให้',
-    'ร่างกายและใจถูกใช้จนสุดแรง',
-    'คุณต้องแบกงานหลายเรื่อง',
-  ];
-  final exactDuplicates = <String, int>{};
-  var callbackWithoutNewInformation = 0;
-  var systemLanguageHits = 0;
-  var unsupportedBiographyHits = 0;
-  final strongBodies = <String>[];
-  final coverage = <String, Object?>{};
-
-  for (final entry in fixtures.entries) {
-    final view = ThaiBetaNarrativeComposer.narrativeView(entry.value);
-    final domains = view.futurePrediction!.windows
-        .expand((window) => window.domains)
-        .toList(growable: false);
-    final normalizedBodies = domains
-        .map((domain) => normalize(domain.body))
-        .toList(growable: false);
-    exactDuplicates[entry.key] =
-        normalizedBodies.length - normalizedBodies.toSet().length;
-    callbackWithoutNewInformation += domains.where((domain) {
-      final delta = '${domain.decisionImpact} ${domain.preparationAction}'
-          .trim();
-      return delta.isEmpty ||
-          normalize(domain.decisionImpact) ==
-              normalize(domain.preparationAction);
-    }).length;
-    final text = ThaiBetaReportExportDocument.fromAnalysis(
-      entry.value,
-    ).fullPlainText;
-    systemLanguageHits += systemLabels
-        .map((label) => label.allMatches(text).length)
-        .fold(0, (sum, count) => sum + count);
-    unsupportedBiographyHits += biographyClaims
-        .map((claim) => claim.allMatches(text).length)
-        .fold(0, (sum, count) => sum + count);
-    if (entry.key != 'regression-known-0003') {
-      strongBodies.addAll(
-        domains
-            .where((domain) => domain.material!.band == ForecastBand.strong)
-            .map((domain) => normalize(domain.body)),
-      );
-    }
-    coverage[entry.key] = {
-      'horizons': view.futurePrediction!.windows.length,
-      'domainsPerHorizon': view.futurePrediction!.windows
-          .map((window) => window.domains.length)
-          .toList(),
-      'complete4x3':
-          view.futurePrediction!.windows.length == 3 &&
-          view.futurePrediction!.windows.every(
-            (window) =>
-                window.domains.length == 4 &&
-                window.domains
-                        .map((domain) => domain.material!.domain)
-                        .toSet()
-                        .length ==
-                    4,
-          ),
-    };
-  }
-
-  final strongFrequency = <String, int>{};
-  for (final body in strongBodies) {
-    strongFrequency.update(body, (count) => count + 1, ifAbsent: () => 1);
-  }
-  final reusedStrongInstances = strongFrequency.entries
-      .where((entry) => entry.value > 1)
-      .fold<int>(0, (sum, entry) => sum + entry.value);
-  final metrics = <String, Object?>{
-    'schema': 'knowme-narrative-v1.5-r3-audit-v1',
-    'fixtures': fixtures.length,
-    'coverage': coverage,
-    'withinReportExactDuplicateBodies': exactDuplicates,
-    'callbacksWithoutNewInformation': callbackWithoutNewInformation,
-    'consumerSystemLanguageHits': systemLanguageHits,
-    'unsupportedBiographyHits': unsupportedBiographyHits,
-    'strongClaimReuse': {
-      'scope':
-          'materially different fixtures; explicit owner-known/00:03 twin excluded claim-by-claim',
-      'instances': strongBodies.length,
-      'reusedInstances': reusedStrongInstances,
-      'rate': strongBodies.isEmpty
-          ? 0
-          : reusedStrongInstances / strongBodies.length,
-      'threshold': 0.25,
-    },
-    'domainSignatureBlanketExemptions': 0,
-    'webPdfCanonicalPairs': fixtures.length,
-  };
-  File('${output.path}/r3-audit-metrics.json').writeAsStringSync(
-    '${const JsonEncoder.withIndent('  ').convert(metrics)}\n',
-  );
 }
 
 ThaiBetaAnalysis _comparisonAnalysis({
@@ -290,130 +208,6 @@ ThaiBetaAnalysis _analysis({required bool knownTime, int minute = 0}) {
       provinceKey: 'chiang_mai',
     ),
     startedAt: DateTime(2026, 8, 7),
-  );
-}
-
-void _writeClaimLedger(
-  Directory output,
-  Map<String, ThaiBetaAnalysis> fixtures,
-) {
-  final rows = <Map<String, Object?>>[];
-  for (final entry in fixtures.entries) {
-    final view = ThaiBetaNarrativeComposer.narrativeView(entry.value);
-    final reading = ThaiBirthProfileCoreReading.fromAnalysis(
-      entry.value,
-      consumerView: view,
-    );
-    for (final section in reading.sections) {
-      for (final claim in section.claims) {
-        final atomSignature =
-            claim.sourceAtoms
-                .expand((atom) => atom.evidenceRefs)
-                .map((ref) => '${ref.sourceRef}=${ref.rawValue}')
-                .toSet()
-                .toList()
-              ..sort();
-        rows.add({
-          'fixture': entry.key,
-          ...ThaiBetaReportClaimAllocation(
-            canonicalId: 'core:${claim.semanticKey}',
-            evidenceKeys: claim.evidenceKeys.toSet(),
-            evidenceSignature: atomSignature.join('|'),
-            evidenceType: 'computed-core-reading',
-            confidence: 'supported',
-            role: claim.role.name,
-            section: section.title,
-            domain: claim.domain.name,
-            horizon: null,
-            primaryExpression: claim.text,
-            traceabilityReference: claim.semanticKey,
-            expressed: true,
-          ).toJson(),
-        });
-      }
-    }
-    final prediction = view.futurePrediction;
-    if (prediction == null) continue;
-    for (final window in prediction.windows) {
-      for (final domain in window.domains) {
-        final material = domain.material;
-        if (material == null) continue;
-        rows.add({
-          'fixture': entry.key,
-          ...ThaiBetaReportClaimAllocation(
-            canonicalId:
-                'forecast:${material.horizon.name}:${material.domain.name}',
-            evidenceKeys: {material.evidenceKey},
-            evidenceSignature: [
-              'h=${material.horizon.name}',
-              'd=${material.domain.name}',
-              'b=${material.band.name}',
-              'consumerRisk=${material.consumerRiskDomain.name}',
-              'e=${material.evidenceAvailability.name}',
-              't=${material.spansTransition}',
-              'k=${material.evidenceKey}',
-              'o=${material.sourceOwnership}',
-              'td=${material.timeDependent}',
-            ].join('|'),
-            evidenceType: material.sourceOwnership,
-            confidence: material.band.name,
-            role: 'forecast',
-            section: window.windowLabel,
-            domain: material.domain.name,
-            horizon: material.horizon.name,
-            primaryExpression: domain.body,
-            permittedCallback: domain.risk,
-            callbackNewInformation:
-                '${domain.decisionImpact} ${domain.preparationAction}'.trim(),
-            traceabilityReference: material.evidenceKey,
-            expressed: true,
-          ).toJson(),
-        });
-      }
-    }
-  }
-  final json = const JsonEncoder.withIndent(' ').convert({
-    'schema': 'knowme-claim-ledger-v1.5-r3',
-    'policy': {
-      'domainSignatureBlanketExemptions': false,
-      'callbacksRequireNewInformation': true,
-      'consumerSystemLabelsAllowed': false,
-    },
-    'justifiedTwins': [
-      {
-        'left': 'owner-known-0035',
-        'right': 'regression-known-0003',
-        'scope':
-            'only claims with identical complete evidence and rendered text',
-        'reason':
-            'the 00:03 regression fixture is retained as an explicit boundary twin; it is excluded only claim-by-claim, never by domain signature',
-      },
-    ],
-    'claims': rows,
-  });
-  File('${output.path}/claim-ledger.json').writeAsStringSync('$json\n');
-  final coverage = <String, Object?>{
-    for (final fixture in fixtures.keys)
-      fixture: {
-        for (final horizon in ['current', 'next12Months', 'nextLifePeriod'])
-          horizon: [
-            for (final domain in [
-              'career',
-              'finance',
-              'relationship',
-              'health',
-            ])
-              rows.any(
-                (row) =>
-                    row['fixture'] == fixture &&
-                    row['horizon'] == horizon &&
-                    row['domain'] == domain,
-              ),
-          ],
-      },
-  };
-  File('${output.path}/claim-coverage-matrix.json').writeAsStringSync(
-    '${const JsonEncoder.withIndent(' ').convert(coverage)}\n',
   );
 }
 

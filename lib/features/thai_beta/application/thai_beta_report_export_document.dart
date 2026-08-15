@@ -258,12 +258,12 @@ class ThaiBetaReportExportDocument {
     final past = timeline.periods.where((period) => period.isPast).toList();
     if (past.isNotEmpty) {
       out.add(
-        _section('อดีตของคุณ', const [
-          'ลองเทียบแต่ละช่วงกับเหตุการณ์และความรู้สึกที่เกิดขึ้นจริง',
+        _section('ธีมสำหรับทบทวนอดีต', const [
+          'ส่วนนี้ใช้ตั้งคำถามกับความทรงจำจริง ไม่ใช่ข้อสรุปว่าเหตุการณ์ใดเคยเกิดขึ้น',
         ], kind: ThaiBetaReportExportSectionKind.timeline),
       );
       for (final period in past) {
-        out.add(_concisePeriodSection(period));
+        out.add(_pastReflectionSection(period));
       }
     }
 
@@ -341,32 +341,43 @@ class ThaiBetaReportExportDocument {
     );
   }
 
+  static ThaiBetaReportExportSection _pastReflectionSection(
+    ThaiMirrorLifePeriodState period,
+  ) => _section(
+    '${period.phaseName} (${period.ageLabel})',
+    [
+      if (period.planetLine.trim().isNotEmpty) period.planetLine,
+      if (period.summary.trim().isNotEmpty) period.summary,
+      if (period.whatChanges.trim().isNotEmpty) period.whatChanges,
+    ],
+    kind: ThaiBetaReportExportSectionKind.timeline,
+  );
+
   static List<ThaiBetaReportExportSection> _predictionSections(
     PredictionSectionModel prediction,
   ) {
     final hasDetailedDomains = prediction.windows.any(
       (window) => window.domains.isNotEmpty,
     );
+    final evidenceBoundary = prediction.windows
+        .expand((window) => window.domains)
+        .map((domain) => domain.uncertaintyDisclosure.trim())
+        .firstWhere((value) => value.isNotEmpty, orElse: () => '');
     final out = <ThaiBetaReportExportSection>[
       _section(prediction.sectionTitle, [
         hasDetailedDomains && prediction.detailedSectionIntro.isNotEmpty
             ? prediction.detailedSectionIntro
             : prediction.sectionIntro,
         if (prediction.transitionLine.isNotEmpty) prediction.transitionLine,
-        if (prediction.windows.any(
-          (window) => window.domains.any(
-            (domain) => domain.uncertaintyDisclosure.isNotEmpty,
-          ),
-        ))
-          'ข้อจำกัดของคำอ่าน: คำอ่านนี้ไม่มีหลักฐานลัคนา จึงใช้เป็นกรอบสังเกตและไม่ฟันธง',
+        if (evidenceBoundary.isNotEmpty) evidenceBoundary,
       ]),
     ];
-    for (var i = 1; i < prediction.windows.length; i++) {
+    for (var i = 0; i < prediction.windows.length; i++) {
       final window = prediction.windows[i];
       out.add(
         _section(
           switch (i) {
-            0 => 'ช่วงปัจจุบัน',
+            0 => 'สิ่งที่ต้องตัดสินใจตอนนี้',
             1 => 'แนวโน้ม 12 เดือนข้างหน้า',
             _ => 'ช่วงชีวิตถัดไป',
           },

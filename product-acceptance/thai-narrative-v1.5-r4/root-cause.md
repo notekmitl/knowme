@@ -1,0 +1,7 @@
+# R3 rejection root cause and R4 correction
+
+R3 allocated a report-level motif, but the rendered output still reused one hard-coded headline/body family across fixtures and appended trajectory suffixes to domain templates. Its “0/26 strong reuse” metric observed only a narrow strong-claim slice, excluded the first user-visible hook, and did not reconcile current ledger expressions with canonical rendered text. The ZIP packager also accepted Windows path separators.
+
+R4 makes the report plan the source of hook headline/body, horizon summaries, motif ordering, evidence boundary, supporting context and closing. It uses at most two motifs and varies only when life period, evidence availability, role or trajectory differs. Past periods render one report-level boundary followed by period-specific theme and reflection questions. Current, 12-month and next-period passages have separate semantic jobs.
+
+The ledger now includes hook, core, past, current, 12-month, next-period and closing claims, plus render locations and explicit freshness exclusions. Every expressed primary expression is checked against both canonical Web and PDF. The freshness audit covers all consumer units with one classifier applied to immutable R3 and final R4 text; it does not grant a domain-signature blanket exemption. The ZIP builder normalizes every entry to `/` and validates the central directory before and after extraction.

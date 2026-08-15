@@ -114,7 +114,7 @@ void main() {
       expect(find.text('แนวโน้มระยะยาว'), findsOneWidget);
 
       final firstPast = timeline.periods.firstWhere((period) => period.isPast);
-      expect(find.text(firstPast.lifeDomains.first.body), findsNothing);
+      expect(firstPast.lifeDomains, isEmpty);
       expect(find.text(firstPast.summary), findsWidgets);
 
       final future = timeline.periods.where(
@@ -181,7 +181,7 @@ void main() {
 
       expect(find.text('อดีตของคุณ'), findsNothing);
       final firstPast = timeline.periods.firstWhere((period) => period.isPast);
-      expect(find.text(firstPast.lifeDomains.first.body), findsNothing);
+      expect(firstPast.lifeDomains, isEmpty);
     });
   });
 }

@@ -1,0 +1,934 @@
+{
+  "schema": "knowme-narrative-v1.5-r4-audit-v1",
+  "fixtures": 5,
+  "coverage": {
+    "owner-known-0035": {
+      "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active",
+      "motifs": [
+        "career",
+        "relationship"
+      ],
+      "horizons": 3,
+      "domainsPerHorizon": [
+        4,
+        4,
+        4
+      ],
+      "complete4x3": true
+    },
+    "owner-unknown": {
+      "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet",
+      "motifs": [
+        "career",
+        "relationship"
+      ],
+      "horizons": 3,
+      "domainsPerHorizon": [
+        4,
+        4,
+        4
+      ],
+      "complete4x3": true
+    },
+    "regression-known-0003": {
+      "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active",
+      "motifs": [
+        "career",
+        "relationship"
+      ],
+      "horizons": 3,
+      "domainsPerHorizon": [
+        4,
+        4,
+        4
+      ],
+      "complete4x3": true
+    },
+    "comparison-known-bangkok": {
+      "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet",
+      "motifs": [
+        "career",
+        "relationship"
+      ],
+      "horizons": 3,
+      "domainsPerHorizon": [
+        4,
+        4,
+        4
+      ],
+      "complete4x3": true
+    },
+    "comparison-known-khon-kaen": {
+      "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong",
+      "motifs": [
+        "finance",
+        "career"
+      ],
+      "horizons": 3,
+      "domainsPerHorizon": [
+        4,
+        4,
+        4
+      ],
+      "complete4x3": true
+    }
+  },
+  "freshness": {
+    "denominatorDefinition": "All non-empty canonical rendered lines classified as consumer narrative. Static headings/labels, methodology, required medical disclosure, and evidence-boundary copy are excluded. No domain-signature exemption is used.",
+    "beforeR3": {
+      "version": "R3",
+      "denominatorDefinition": "All non-empty canonical rendered lines classified as consumer narrative. Static headings/labels, methodology, required medical disclosure, and evidence-boundary copy are excluded. No domain-signature exemption is used.",
+      "instances": 177,
+      "reusedInstancesAcrossMateriallyDifferentFixtures": 74,
+      "exactReuseRate": 0.4180790960451977,
+      "reuseGroupCount": 25,
+      "reuseGroups": [
+        {
+          "text": "ลายเซ็นของคำอ่าน: งานเดินหน้าได้ เมื่อเงินพร้อมใช้ยังไม่ถูกเบียด",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "แกนของรายงานนี้คือความมั่นคงที่คุณค่อย ๆ สร้างกำลังพางานไปข้างหน้า แต่จังหวะเดียวกันก็กดให้เงินพร้อมใช้ยังไม่ถูกเบียดยากขึ้น ถ้าขยายงานโดยไม่เผื่อการเงิน โอกาสที่ดูดีอาจกลายเป็นภาระที่ลดพื้นที่เลือกในช่วงถัดไป คำถามสำคัญจึงไม่ใช่ว่าจะรับเพิ่มได้ไหม แต่คือจะรักษาการเงินไว้แค่ไหนก่อนขยับงาน",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "ราศีพิจิก: เรื่องงาน เรือนนี้ชี้ว่าคุณสร้างผลงานผ่านความกล้าลงมือและการจัดการสิ่งเร่งด่วน จุดตัดสินไม่ได้อยู่ที่รับงานได้อีกเท่าไร แต่อยู่ที่บทบาทนั้นเพิ่มอำนาจกำหนดคุณภาพงานหรือเพียงเพิ่มน้ำหนักให้คุณถือ",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "ราศีมีน: เรื่องเงิน รูปแบบของเรือนนี้ผูกความมั่นคงเข้ากับภาพระยะยาว ความรู้ และการขยายอย่างมีหลัก จึงวัดความก้าวหน้าได้จากทางเลือกที่เงินสำรองเปิดให้ ไม่ใช่เพียงยอดที่สะสม",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "ราศีสิงห์: ในความสัมพันธ์ ความไว้ใจของคุณเกิดผ่านความชัดเจนและการตัดสินใจด้วยตัวเอง ความสัมพันธ์จึงลึกขึ้นเมื่อความรับผิดชอบที่แบ่งกันสอดคล้องกับพื้นที่ที่แต่ละฝ่ายต้องมี",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "ราศีกรกฎ: เรื่องพลังชีวิต เรือนนี้เชื่อมความสม่ำเสมอของร่างกายกับการรับรู้ความเปลี่ยนแปลงและความต้องการรอบตัว สัญญาณสำคัญจึงไม่ใช่วันที่ล้าเพียงวันเดียว แต่คือเวลาฟื้นตัวที่ยาวขึ้นหลังช่วงรับผิดชอบหนัก",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "แก่นของคำอ่านนี้ไม่ใช่การรับให้มากขึ้น แต่คือการเลือกสิ่งที่คู่ควรกับแรงของคุณ เริ่มจากการวางระบบที่ทำซ้ำได้และกำหนดเวลาพักไว้ล่วงหน้า แล้วใช้ผลจริงเป็นเกณฑ์ก่อนเปิดภาระถัดไป",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "อิทธิพลดาวเสาร์ • ความมั่นคง — เมื่อมองย้อนกลับ ช่วงวางรากฐานชวนให้ทบทวนธีมความมั่นคงผ่านเรื่องการงานและการเงิน นี่เป็นกรอบตั้งคำถาม ไม่ใช่ข้อสรุปว่าเหตุการณ์ใดเกิดขึ้นจริง",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "อิทธิพลดาวพฤหัสบดี • การเติบโต — เมื่อมองย้อนกลับ ช่วงเติบโตและขยายชวนให้ทบทวนธีมการเติบโตผ่านเรื่องการงานและการเงิน นี่เป็นกรอบตั้งคำถาม ไม่ใช่ข้อสรุปว่าเหตุการณ์ใดเกิดขึ้นจริง",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "รายได้หลักยังแยกจากโชคเหตุบังเอิญ — ส่วนใหญ่มาจากงานและความสามารถที่ลงมือเอง ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากหลักฐานและภาระจริงก่อนรับ",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "แนวโน้มชีวิตในระยะข้างหน้า",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "อ่านอนาคตเป็นสามระดับ: ช่วงนี้ 12 เดือนข้างหน้า และจุดเปลี่ยนชีวิตถัดไป แต่ละช่วงแยกการงาน การเงิน ความรัก และสุขภาพให้เห็นตรง ๆ",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "การก้าวจากช่วงนี้ไปสู่ช่วงข้างหน้า มักเป็นแบบค่อยเป็นค่อยไป มากกว่าจะเปลี่ยนแบบกะทันหัน",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "เมื่อก้าวสู่ช่วงชีวิตถัดไป เรื่องการงาน มักเป็นประตูที่เปิดกว้างขึ้น",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "สรุปแล้ว ให้ใช้งานเป็นแกน และตรวจว่าเงินพร้อมใช้ยังไม่ถูกเบียดก่อนขยับทุกครั้ง",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "อิทธิพลดาวจันทร์ • ความรู้สึก — เมื่อมองย้อนกลับ ช่วงดูแลใจชวนให้ทบทวนธีมความรู้สึกผ่านเรื่องการงานและการเงิน นี่เป็นกรอบตั้งคำถาม ไม่ใช่ข้อสรุปว่าเหตุการณ์ใดเกิดขึ้นจริง",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "อิทธิพลดาวอังคาร • การลงมือ — เมื่อมองย้อนกลับ ช่วงลงมือและบุกเบิกชวนให้ทบทวนธีมการลงมือผ่านเรื่องการงานและการเงิน นี่เป็นกรอบตั้งคำถาม ไม่ใช่ข้อสรุปว่าเหตุการณ์ใดเกิดขึ้นจริง",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "จังหวะนี้ให้ใช้รายรับจริงเป็นฐาน แยกงบทดลองสำหรับการเรียนรู้ออกจากเงินที่ต้องใช้ประจำ แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "หากมีรายได้จากช่องทางใหม่ ให้แยกผลจากทักษะหรือเครือข่ายที่สร้างไว้ ออกจากเหตุบังเอิญที่ยังยืนยันซ้ำไม่ได้ ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากหลักฐานและภาระจริงก่อนรับ",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "รอยต่อระหว่างช่วงนี้กับช่วงหน้า มักให้เวลาคุณปรับตัวพอสมควร",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "เปลี่ยนผ่านที่รู้สึกได้ชัด",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "จากจังหวะที่เน้นความมั่นคง คุณกำลังเข้าสู่ช่วงที่ต้องเปิดรับข้อมูล คน และทางเลือกใหม่ (ธาตุขัดกัน)",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "ด้านที่มีแรงสนับสนุนในช่วงถัดไป: การงาน · การเติบโต",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "อิทธิพลดาวเสาร์ • ความมั่นคง — ต่อไปงานที่เคยทำแบบเดิมเริ่มเปลี่ยนไป",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "อิทธิพลดาวพฤหัสบดี • การเติบโต — ต่อไปธีมของช่วงนี้คือการเปิดรับโอกาสผ่านงานหรือเครือข่าย โดยใช้สิ่งที่เกิดขึ้นจริงเป็นตัวเทียบ",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        }
+      ]
+    },
+    "afterR4": {
+      "version": "R4",
+      "denominatorDefinition": "All non-empty canonical rendered lines classified as consumer narrative. Static headings/labels, methodology, required medical disclosure, and evidence-boundary copy are excluded. No domain-signature exemption is used.",
+      "instances": 220,
+      "reusedInstancesAcrossMateriallyDifferentFixtures": 65,
+      "exactReuseRate": 0.29545454545454547,
+      "reuseGroupCount": 24,
+      "reuseGroups": [
+        {
+          "text": "เรื่องงาน คุณมักสร้างผลงานผ่านความกล้าลงมือและการจัดการสิ่งเร่งด่วน จุดตัดสินไม่ได้อยู่ที่รับงานได้อีกเท่าไร แต่อยู่ที่บทบาทนั้นเพิ่มอำนาจกำหนดคุณภาพงานหรือเพียงเพิ่มน้ำหนักให้คุณถือ",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "เรื่องเงิน คุณผูกความมั่นคงเข้ากับภาพระยะยาว ความรู้ และการขยายอย่างมีหลัก จึงควรวัดความก้าวหน้าจากทางเลือกที่เงินสำรองเปิดให้ ไม่ใช่เพียงยอดที่สะสม",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "ในความสัมพันธ์ ความไว้ใจของคุณเกิดผ่านความชัดเจนและการตัดสินใจด้วยตัวเอง ความสัมพันธ์จึงลึกขึ้นเมื่อความรับผิดชอบที่แบ่งกันสอดคล้องกับพื้นที่ที่แต่ละฝ่ายต้องมี",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "เรื่องพลังชีวิต ความสม่ำเสมอของร่างกายเชื่อมกับการรับรู้ความเปลี่ยนแปลงและความต้องการรอบตัว สัญญาณสำคัญจึงไม่ใช่วันที่ล้าเพียงวันเดียว แต่คือเวลาฟื้นตัวที่ยาวขึ้นหลังช่วงรับผิดชอบหนัก",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "แก่นของคำอ่านนี้ไม่ใช่การรับให้มากขึ้น แต่คือการเลือกสิ่งที่คู่ควรกับแรงของคุณ เริ่มจากการวางระบบที่ทำซ้ำได้และกำหนดเวลาพักไว้ล่วงหน้า แล้วใช้ผลจริงเป็นเกณฑ์ก่อนเปิดภาระถัดไป",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "รายได้หลักยังแยกจากโชคเหตุบังเอิญ — ส่วนใหญ่มาจากงานและความสามารถที่ลงมือเอง ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากหลักฐานและภาระจริงก่อนรับ",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "แนวโน้มชีวิตในระยะข้างหน้า",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "อ่านอนาคตเป็นสามระดับ: ช่วงนี้ 12 เดือนข้างหน้า และจุดเปลี่ยนชีวิตถัดไป แต่ละช่วงแยกการงาน การเงิน ความรัก และสุขภาพให้เห็นตรง ๆ",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "การก้าวจากช่วงนี้ไปสู่ช่วงข้างหน้า มักเป็นแบบค่อยเป็นค่อยไป มากกว่าจะเปลี่ยนแบบกะทันหัน",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "ตอนนี้งานมีแรงส่งให้ขยับ แต่ควรรับเฉพาะบทบาทที่เพิ่มคุณภาพงานหลัก",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "ตอนนี้การเงินมีพื้นที่ให้ขยับ แต่เงินพร้อมใช้ต้องมาก่อนภาระระยะยาว การเงินทำหน้าที่ประคองการตัดสินใจ มากกว่ากำหนดทิศทางเอง",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "ใน 12 เดือน สัญญาณสำคัญคือรายรับที่เพิ่มแล้วเหลือเป็นเงินพร้อมใช้ หากรายจ่ายประจำโตตามทันที การขยายแผนควรช้าลง ใช้สัญญาณนี้คัดสิ่งที่จะพาเข้าสู่ช่วงถัดไป ไม่ใช่เปิดภาระใหม่ทั้งหมด",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "ช่วงชีวิตถัดไป การเงินจะทำหน้าที่รองรับการเปลี่ยนผ่าน ผลตามมาคือภาระระยะยาวต้องมีเงินสำรองแยกจากค่าใช้จ่ายปกติ การเงินจะเป็นแรงประกอบที่ต้องปรับตามภาระชุดใหม่",
+          "occurrences": [
+            {
+              "fixture": "owner-known-0035",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "regression-known-0003",
+              "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "จังหวะนี้ให้ใช้รายรับจริงเป็นฐาน แยกงบทดลองสำหรับการเรียนรู้ออกจากเงินที่ต้องใช้ประจำ แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "หากมีรายได้จากช่องทางใหม่ ให้แยกผลจากทักษะหรือเครือข่ายที่สร้างไว้ ออกจากเหตุบังเอิญที่ยังยืนยันซ้ำไม่ได้ ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากหลักฐานและภาระจริงก่อนรับ",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "รอยต่อระหว่างช่วงนี้กับช่วงหน้า มักให้เวลาคุณปรับตัวพอสมควร",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-khon-kaen",
+              "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+            }
+          ]
+        },
+        {
+          "text": "ในช่วงเรียนรู้และเชื่อมโยง งานเป็นเรื่องที่ต้องตัดสินใจตอนนี้ ส่วนความสัมพันธ์คือขอบเขตที่บอกว่าควรรับได้แค่ไหน",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "ใน 12 เดือนจากนี้ ขณะที่ช่วงเรียนรู้และเชื่อมโยงยังดำเนินอยู่ ให้ดูขอบเขตหน้าที่ที่เปลี่ยนไปเป็นสัญญาณหลัก และใช้คำพูดที่กลายเป็นพฤติกรรมสม่ำเสมอตรวจว่าทิศทางยังสมดุล",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "เมื่อพ้นช่วงเรียนรู้และเชื่อมโยง ทิศทางจะเปลี่ยนจากการรับเพิ่มไปสู่การเลือกสิ่งที่จะรักษา โดยผลตามมาจะชัดที่สุดในงานและความสัมพันธ์",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "เปลี่ยนผ่านที่รู้สึกได้ชัด",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "จากจังหวะที่เน้นความมั่นคง คุณกำลังเข้าสู่ช่วงที่ต้องเปิดรับข้อมูล คน และทางเลือกใหม่ (ธาตุขัดกัน)",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "ด้านที่มีแรงสนับสนุนในช่วงถัดไป: การงาน · การเติบโต",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "อิทธิพลดาวเสาร์ • ความมั่นคง — ต่อไปงานที่เคยทำแบบเดิมเริ่มเปลี่ยนไป",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        },
+        {
+          "text": "อิทธิพลดาวพฤหัสบดี • การเติบโต — ต่อไปธีมของช่วงนี้คือการเปิดรับโอกาสผ่านงานหรือเครือข่าย โดยใช้สิ่งที่เกิดขึ้นจริงเป็นตัวเทียบ",
+          "occurrences": [
+            {
+              "fixture": "owner-unknown",
+              "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+            },
+            {
+              "fixture": "comparison-known-bangkok",
+              "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+            }
+          ]
+        }
+      ]
+    },
+    "absoluteReuseRateReduction": 0.12262455059065225,
+    "relativeReuseRateReduction": 0.2933046683046682
+  },
+  "hookExactReuseAcrossMateriallyDifferentFixtures": {
+    "instances": 10,
+    "reusedInstances": 0,
+    "groups": []
+  },
+  "withinReportExactDuplicateForecastBodies": {
+    "owner-known-0035": 0,
+    "owner-unknown": 0,
+    "regression-known-0003": 0,
+    "comparison-known-bangkok": 0,
+    "comparison-known-khon-kaen": 0
+  },
+  "withinReportNgramPairsAtOrAbove072": {
+    "owner-known-0035": [],
+    "owner-unknown": [],
+    "regression-known-0003": [],
+    "comparison-known-bangkok": [],
+    "comparison-known-khon-kaen": []
+  },
+  "callbacksWithoutNewInformation": 0,
+  "consumerSystemLanguageHits": 0,
+  "unsupportedBiographyHits": 0,
+  "forbiddenRepeatedPatternHits": 0,
+  "repeatedPastBoundaryHits": 0,
+  "consumerSemicolonHits": 0,
+  "claimRenderTraceability": {
+    "expressedClaims": 170,
+    "failures": 0,
+    "presenceRate": 1.0
+  },
+  "domainSignatureBlanketExemptions": 0,
+  "webPdfCanonicalPairs": 5
+}

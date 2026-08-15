@@ -1,5 +1,7 @@
 # KnowMe
 
+> Thai Narrative V1.5 R4 is a Draft-only Owner Acceptance candidate. R3 was rejected; review `product-acceptance/thai-narrative-v1.5-r4/`. PR #92 must remain Draft. Do not merge or deploy; Production remains V1.4.
+
 A personalized astrology-inspired self-understanding platform built with Flutter.
 
 KnowMe combines multiple lenses — Thai / Western / Chinese astrology plus structured

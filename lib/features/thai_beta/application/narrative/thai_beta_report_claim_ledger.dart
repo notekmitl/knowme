@@ -45,6 +45,9 @@ class ThaiBetaReportClaimAllocation {
     this.permittedCallback = '',
     this.callbackNewInformation = '',
     this.traceabilityReference = '',
+    this.excludedFromFreshness = false,
+    this.exclusionReason = '',
+    this.renderedOutputs = const [],
   }) : callbackKeys = callbackKeys ?? <String>{};
 
   final String canonicalId;
@@ -62,6 +65,13 @@ class ThaiBetaReportClaimAllocation {
   final String permittedCallback;
   final String callbackNewInformation;
   final String traceabilityReference;
+  final bool excludedFromFreshness;
+  final String exclusionReason;
+  final List<String> renderedOutputs;
+
+  bool isPresentIn(String canonicalText) =>
+      primaryExpression.trim().isNotEmpty &&
+      canonicalText.contains(primaryExpression.trim());
 
   Map<String, Object?> toJson() => {
     'canonicalId': canonicalId,
@@ -78,5 +88,8 @@ class ThaiBetaReportClaimAllocation {
     'horizon': horizon,
     'expressed': expressed,
     'traceabilityReference': traceabilityReference,
+    'excludedFromFreshness': excludedFromFreshness,
+    'exclusionReason': exclusionReason,
+    'renderedOutputs': renderedOutputs,
   };
 }
