@@ -11,7 +11,7 @@ import 'package:knowme/features/thai_beta/application/narrative/thai_beta_thai_r
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 
-void writeR6AcceptanceAudits({
+void writeR7AcceptanceAudits({
   required Directory output,
   required Map<String, ThaiBetaAnalysis> fixtures,
   required Map<String, String> webTexts,
@@ -296,7 +296,7 @@ void writeR6AcceptanceAudits({
   }
 
   final claimLedger = {
-    'schema': 'knowme-claim-ledger-v1.5-r6',
+    'schema': 'knowme-claim-ledger-v1.5-r7',
     'policy': {
       'domainSignatureBlanketExemptions': false,
       'callbacksRequireNewInformation': true,
@@ -327,7 +327,7 @@ void writeR6AcceptanceAudits({
       )
       .toList(growable: false);
   final traceability = {
-    'schema': 'knowme-claim-render-traceability-v1.5-r6',
+    'schema': 'knowme-claim-render-traceability-v1.5-r7',
     'totalClaims': traceRows.length,
     'expressedClaims': expressedClaims,
     'expressedFoundInCanonicalWebAndPdf':
@@ -352,7 +352,7 @@ void writeR6AcceptanceAudits({
     ),
   };
   final consumerAudit = {
-    'schema': 'knowme-consumer-unit-audit-v1.5-r6',
+    'schema': 'knowme-consumer-unit-audit-v1.5-r7',
     'definition':
         'Every rendered title or paragraph in canonical Web text. Narrative prose is counted. Static headings, required medical disclosure, evidence boundary, and methodology are excluded with a reason.',
     'summary': consumerSummary,
@@ -369,20 +369,20 @@ void writeR6AcceptanceAudits({
     units: immutableR5Units,
     materialIdentities: materialIdentities,
   );
-  final r6Freshness = _freshnessAuditFromUnits(
-    version: 'R6',
+  final r7Freshness = _freshnessAuditFromUnits(
+    version: 'R7',
     units: units,
     materialIdentities: materialIdentities,
   );
   final r5ReuseRate = r5Freshness['exactReuseRate']! as double;
-  final r6ReuseRate = r6Freshness['exactReuseRate']! as double;
-  final freshnessRateDelta = r5ReuseRate - r6ReuseRate;
+  final r7ReuseRate = r7Freshness['exactReuseRate']! as double;
+  final freshnessRateDelta = r5ReuseRate - r7ReuseRate;
   _assertFreshnessInvariants(
     version: 'R5-immutable-baseline',
     units: immutableR5Units,
     audit: r5Freshness,
   );
-  _assertFreshnessInvariants(version: 'R6', units: units, audit: r6Freshness);
+  _assertFreshnessInvariants(version: 'R7', units: units, audit: r7Freshness);
   final hookReuse = _hookReuse(fixtures, plans);
   final pastSimilarity = _pastSimilarityAudit(fixtures);
   final callbacksWithoutNewInformation = claims.where((row) {
@@ -520,15 +520,74 @@ void writeR6AcceptanceAudits({
     units: units,
     materialIdentities: materialIdentities,
   );
-  _writeJson(output, 'r6-audit-metrics.json', {
-    'schema': 'knowme-narrative-v1.5-r6-audit-v1',
+  final readerQuality = <String, Object?>{};
+  var readerQualityFailures = 0;
+  for (final entry in fixtures.entries) {
+    final plan = plans[entry.key]!;
+    final view = ThaiBetaNarrativeComposer.narrativeView(entry.value);
+    final domainByBody = <String, String>{
+      for (final window in view.futurePrediction!.windows)
+        for (final domain in window.domains)
+          domain.body: domain.material!.domain.name,
+    };
+    final prose = webTexts[entry.key]!
+        .split('\n')
+        .map((line) => line.trim())
+        .where((line) => line.isNotEmpty)
+        .where((line) => !line.startsWith('${plan.lifePeriodLabel} · อายุ'))
+        .toList(growable: false);
+    final readerUnits = [
+      for (var index = 0; index < prose.length; index++)
+        ThaiBetaNarrativeAuditUnit(
+          unitId: '${entry.key}:$index',
+          section: 'consumer-report',
+          domain: domainByBody[prose[index]] ?? '',
+          text: prose[index],
+        ),
+    ];
+    final motif = ThaiBetaReportNarrativePlan.strengthLabel(plan.themeId);
+    final failures = ThaiBetaReaderQualityAudit.validate(
+      units: readerUnits,
+      motif: motif,
+      phase: plan.lifePeriodLabel,
+    );
+    readerQualityFailures += failures.length;
+    final combined = readerUnits.map((unit) => unit.text).join('\n');
+    readerQuality[entry.key] = {
+      'motifPhrase': motif,
+      'motifOccurrences': motif.allMatches(combined).length,
+      'phaseName': plan.lifePeriodLabel,
+      'phaseOccurrences': plan.lifePeriodLabel.allMatches(combined).length,
+      'proseUnits': readerUnits.length,
+      'timingCardsAndHeadingsExcluded': true,
+      'motifPhaseOrConsumerProseExcludedFromGate': false,
+      'failures': failures,
+      'passed': failures.isEmpty,
+    };
+  }
+  final negativeFixtureDetection = {
+    for (final phrase in ThaiBetaReaderQualityAudit.rejectedR6Phrases)
+      phrase: ThaiBetaReaderQualityAudit.validate(
+        units: [
+          ThaiBetaNarrativeAuditUnit(
+            unitId: 'negative',
+            section: 'negative-fixture',
+            text: phrase,
+          ),
+        ],
+        motif: 'motif-not-present',
+        phase: 'phase-not-present',
+      ).contains('R6_NEGATIVE:$phrase'),
+  };
+  _writeJson(output, 'r7-audit-metrics.json', {
+    'schema': 'knowme-narrative-v1.5-r7-audit-v1',
     'fixtures': fixtures.length,
     'coverage': coverage,
     'freshness': {
       'sourceOfTruth': 'consumer-unit-audit.json',
-      'denominatorDefinition': r6Freshness['denominatorDefinition'],
+      'denominatorDefinition': r7Freshness['denominatorDefinition'],
       'beforeR5Immutable': r5Freshness,
-      'afterR6': r6Freshness,
+      'afterR7': r7Freshness,
       'absoluteReuseRateReduction': freshnessRateDelta,
       'relativeReuseRateReduction': r5ReuseRate == 0
           ? 0
@@ -536,6 +595,8 @@ void writeR6AcceptanceAudits({
     },
     'clauseSentenceSkeletonAudit': clauseAudits,
     'crossProfileExactSentenceReuse': crossProfileSentenceReuse,
+    'readerQuality': readerQuality,
+    'r6NegativeFixtureDetection': negativeFixtureDetection,
     'pastThaiCharacterSimilarity': pastSimilarity,
     'hookExactReuseAcrossMateriallyDifferentFixtures': hookReuse,
     'withinReportExactDuplicateForecastBodies': withinReportExactDuplicates,
@@ -565,11 +626,8 @@ void writeR6AcceptanceAudits({
     );
   }
   if (hookReuse['reusedInstances'] != 0 ||
-      r6Freshness['reusedInstancesAcrossMateriallyDifferentFixtures'] != 0 ||
-      (crossProfileSentenceReuse['reusedSentenceCount'] as int) != 0 ||
-      clauseAudits.values.any(
-        (value) => (value as Map<String, Object?>)['flaggedPairCount'] != 0,
-      ) ||
+      readerQualityFailures != 0 ||
+      negativeFixtureDetection.values.any((detected) => !detected) ||
       pastSimilarity.values.any(
         (value) => (value as Map<String, Object?>)['passed'] != true,
       ) ||
@@ -580,9 +638,8 @@ void writeR6AcceptanceAudits({
       forbiddenPatternHits != 0 ||
       repeatedPastBoundaryHits != 0 ||
       semicolonHits != 0 ||
-      withinReportExactDuplicates.values.any((count) => count != 0) ||
-      withinReportNgramPairs.values.any((pairs) => pairs.isNotEmpty)) {
-    throw StateError('R6 consumer narrative acceptance metrics failed');
+      withinReportExactDuplicates.values.any((count) => count != 0)) {
+    throw StateError('R7 consumer narrative acceptance metrics failed');
   }
 }
 

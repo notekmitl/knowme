@@ -95,12 +95,12 @@ void main() {
         isTrue,
         reason: entry.key,
       );
-      expect(windows[0].summary, contains('ต้องตัดสินใจ'));
+      expect(windows[0].summary, contains('ตัดสินใจ'));
       expect(
         windows[1].summary,
         anyOf(contains('จุดกระตุ้น'), contains('สัญญาณ')),
       );
-      expect(windows[2].summary, contains('ผลระยะยาว'));
+      expect(windows[2].summary, contains('ช่วงชีวิตถัดไป'));
     }
   });
 

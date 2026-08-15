@@ -216,8 +216,8 @@ void main() {
       for (final domain in prediction.windows.expand(
         (window) => window.domains,
       )) {
-        expect(domain.uncertaintyDisclosure, contains('ไม่มีหลักฐานลัคนา'));
-        expect(domain.preparationAction, isNot(contains('ไม่มีหลักฐานลัคนา')));
+        expect(domain.uncertaintyDisclosure, contains('ไม่มีเวลาเกิด'));
+        expect(domain.preparationAction, isNot(contains('ไม่มีเวลาเกิด')));
       }
       final reportEvidenceBoundary =
           prediction.windows.first.domains.first.uncertaintyDisclosure;
@@ -349,10 +349,10 @@ void main() {
   });
 
   group('Real PDF exporter path regression', () {
-    test('R6 pagination fixtures stay at measured 8/7 pages', () async {
+    test('R7 pagination fixtures stay at measured 7/6 pages', () async {
       for (final fixture in <({bool knownTime, int pages})>[
-        (knownTime: true, pages: 8),
-        (knownTime: false, pages: 7),
+        (knownTime: true, pages: 7),
+        (knownTime: false, pages: 6),
       ]) {
         final productionAnalysis = ThaiBetaAnalysisRunner.run(
           ThaiBetaInput(
@@ -521,7 +521,7 @@ void main() {
                   .toList()
                 ..sort((a, b) => a.path.compareTo(b.path));
           expect(pages, isNotEmpty);
-          final expectedPages = fixture.key == 'known' ? 8 : 7;
+          final expectedPages = fixture.key == 'known' ? 7 : 6;
           expect(
             pages.length,
             expectedPages,

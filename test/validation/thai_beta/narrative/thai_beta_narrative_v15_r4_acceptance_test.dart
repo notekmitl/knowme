@@ -91,9 +91,9 @@ void main() {
       final windows = view.futurePrediction!.windows;
       expect(windows, hasLength(3), reason: entry.key);
       expect(windows.every((window) => window.domains.length == 4), isTrue);
-      expect(windows[0].summary, contains('ต้องตัดสินใจ'));
-      expect(windows[1].summary, contains('จุดกระตุ้น'));
-      expect(windows[2].summary, contains('ทิศทาง'));
+      expect(windows[0].summary, contains('ตัดสินใจ'));
+      expect(windows[1].summary, contains('สัญญาณ'));
+      expect(windows[2].summary, contains('ช่วงชีวิตถัดไป'));
       for (final window in windows) {
         for (final domain in window.domains) {
           expect(

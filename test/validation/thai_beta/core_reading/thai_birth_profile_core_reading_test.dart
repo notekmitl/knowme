@@ -62,7 +62,7 @@ void main() {
     );
     expect(
       reading.sections.last.publicParagraphs.join('\n'),
-      contains('ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากเวลาและสถานที่เกิด)'),
+      contains('ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากนาฬิกาเกิดและพิกัดจังหวัด)'),
     );
   });
 
@@ -671,7 +671,7 @@ void main() {
         .toList(growable: false);
 
     expect(closing.claims, hasLength(1));
-    expect(closing.claims.single.text, startsWith('แก่นของช่วง'));
+    expect(closing.claims.single.text, startsWith('แก่นของคำอ่านนี้'));
     expect(closing.claims.single.text, contains('ใช้ผลจริงตัดสิน'));
     expect(atoms.map((atom) => atom.kind).toSet(), {
       ThaiBirthProfileCoreAtomKind.strengthTheme,

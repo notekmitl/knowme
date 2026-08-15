@@ -274,3 +274,150 @@ abstract final class ThaiBetaClauseRepetitionAudit {
     return (2 * intersection) / (leftTotal + rightTotal);
   }
 }
+
+/// Deterministic R7 guardrails for reader-facing Thai prose.
+///
+/// These checks inspect the prose supplied by callers as-is. Motif and phase
+/// text is never removed before counting or repetition analysis.
+abstract final class ThaiBetaReaderQualityAudit {
+  static const minimumRepeatedSubstringLength = 18;
+
+  static const rejectedR6Phrases = <String>[
+    'ขอบเขตตรวจของช่วงเก็บเกี่ยวความสุขคือ',
+    'ให้ความอดทนที่พาเรื่องยากไปต่อเฝ้าขอบเขตหน้าที่',
+    'นัดทบทวนเมื่อการทบทวนข้อตกลงหลังเห็นพฤติกรรมซ้ำ',
+    'หากรอบงานภายใต้ความอดทนที่พาเรื่องยากไปต่ออำนาจตัดสินใจไม่เพิ่มตาม',
+    'ความสามารถในการทำความคิดให้คนอื่นเข้าใจอ่านรอยต่อนี้ว่า',
+    'ต่อไปความสามารถในการทำความคิดให้คนอื่นเข้าใจต้องปรับ',
+    'หมุดตรวจของงานต้องยืนยันอีกชั้น',
+  ];
+
+  static List<String> validate({
+    required Iterable<ThaiBetaNarrativeAuditUnit> units,
+    required String motif,
+    required String phase,
+    int motifLimit = 2,
+    int phaseLimit = 3,
+  }) {
+    final prose = units.toList(growable: false);
+    final combined = prose.map((unit) => unit.text).join('\n');
+    final failures = <String>[];
+    final motifCount = motif.allMatches(combined).length;
+    final phaseCount = phase.allMatches(combined).length;
+    if (motifCount > motifLimit) {
+      failures.add('MOTIF_FREQUENCY:$motifCount>$motifLimit:$motif');
+    }
+    if (phaseCount > phaseLimit) {
+      failures.add('PHASE_FREQUENCY:$phaseCount>$phaseLimit:$phase');
+    }
+
+    for (final phrase in rejectedR6Phrases) {
+      if (combined.contains(phrase)) failures.add('R6_NEGATIVE:$phrase');
+    }
+    failures.addAll(_encodingFailures(combined));
+    failures.addAll(_grammarFailures(prose));
+    failures.addAll(_domainLeakage(prose));
+    failures.addAll(_repeatedSubstrings(prose));
+    return List.unmodifiable(failures);
+  }
+
+  static List<String> _encodingFailures(String text) {
+    final failures = <String>[];
+    const mojibake = ['à¸', 'à¹', 'Ã', 'â€', '\uFFFD'];
+    for (final marker in mojibake) {
+      if (text.contains(marker)) failures.add('ENCODING_MOJIBAKE:$marker');
+    }
+    for (final rune in text.runes) {
+      if (rune < 0x20 && rune != 0x09 && rune != 0x0A && rune != 0x0D) {
+        failures.add('ENCODING_C0:U+${rune.toRadixString(16).padLeft(4, '0')}');
+      }
+    }
+    return failures;
+  }
+
+  static List<String> _grammarFailures(
+    Iterable<ThaiBetaNarrativeAuditUnit> units,
+  ) {
+    final failures = <String>[];
+    final abstractAgent = RegExp(
+      r'^(ความอดทนที่พาเรื่องยากไปต่อ|ความสามารถในการทำความคิดให้คนอื่นเข้าใจ|รูปแบบที่เกิดซ้ำ|ช่วง[^ ]{4,})'
+      r'(พา|เฝ้า|อ่าน|คัด|นับ|เปิด|ตัดสิน|กำหนด|ยืนยัน)',
+    );
+    final missingIfConjunction = RegExp(
+      r'หาก(รอบงาน|กระแสเงิน|ข้อตกลง|เวลาคืนแรง|กรอบงาน)ภายใต้',
+    );
+    final repeatedAdjacent = RegExp(r'(ทบทวน|ตรวจ|ยืนยัน)เมื่อการ\1');
+    for (final unit in units) {
+      for (final clause in ThaiBetaClauseRepetitionAudit.splitClauses(
+        unit.text,
+      )) {
+        if (abstractAgent.hasMatch(clause)) {
+          failures.add('ABSTRACT_NOUN_AGENT:${unit.unitId}:$clause');
+        }
+        if (missingIfConjunction.hasMatch(clause)) {
+          failures.add('MISSING_IF_CONJUNCTION:${unit.unitId}:$clause');
+        }
+        if (repeatedAdjacent.hasMatch(clause)) {
+          failures.add('REPEATED_ADJACENT:${unit.unitId}:$clause');
+        }
+      }
+    }
+    return failures;
+  }
+
+  static List<String> _domainLeakage(
+    Iterable<ThaiBetaNarrativeAuditUnit> units,
+  ) {
+    const forbidden = <String, List<String>>{
+      'career': ['เงินสำรอง', 'ยอดคงเหลือ', 'สภาพคล่อง', 'เวลานอน', 'ความล้า'],
+      'finance': ['คุณภาพงาน', 'รอบส่งมอบ', 'เวลานอน', 'การฟื้นตัว'],
+      'relationship': ['ยอดคงเหลือ', 'สภาพคล่อง', 'คุณภาพงาน', 'รอบส่งมอบ'],
+      'health': ['ยอดคงเหลือ', 'สภาพคล่อง', 'อำนาจตัดสินใจ', 'รอบส่งมอบงาน'],
+    };
+    final failures = <String>[];
+    for (final unit in units) {
+      final blocked = forbidden[unit.domain];
+      if (blocked == null) continue;
+      for (final term in blocked) {
+        if (unit.text.contains(term)) {
+          failures.add('DOMAIN_LEAKAGE:${unit.unitId}:${unit.domain}:$term');
+        }
+      }
+    }
+    return failures;
+  }
+
+  static List<String> _repeatedSubstrings(
+    Iterable<ThaiBetaNarrativeAuditUnit> units,
+  ) {
+    final occurrences = <String, Set<String>>{};
+    for (final unit in units) {
+      final normalized = unit.text
+          .replaceAll(RegExp(r'[\s\u200b\u200c\u200d\ufeff]+'), '')
+          .replaceAll(RegExp(r'''[\-–—:;,.!?()“”"'•·]+'''), '');
+      final runes = normalized.runes.toList(growable: false);
+      if (runes.length < minimumRepeatedSubstringLength) continue;
+      for (
+        var index = 0;
+        index <= runes.length - minimumRepeatedSubstringLength;
+        index++
+      ) {
+        final fragment = String.fromCharCodes(
+          runes.sublist(index, index + minimumRepeatedSubstringLength),
+        );
+        occurrences.putIfAbsent(fragment, () => <String>{}).add(unit.unitId);
+      }
+    }
+    final repeated =
+        occurrences.entries
+            .where((entry) => entry.value.length >= 3)
+            .toList(growable: false)
+          ..sort((left, right) => left.key.compareTo(right.key));
+    return repeated
+        .map(
+          (entry) =>
+              'REPEATED_SUBSTRING:${entry.key}:${entry.value.toList()..sort()}',
+        )
+        .toList(growable: false);
+  }
+}

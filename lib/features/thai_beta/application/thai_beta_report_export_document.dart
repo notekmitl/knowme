@@ -108,8 +108,11 @@ class ThaiBetaReportExportDocument {
     );
     sections.add(
       _section(methodology.title, [
-        'ข้อมูลวัน เวลา และสถานที่เกิด',
-        'วิธีนับวันทางโหราศาสตร์ไทย',
+        if (analysis.input.hasBirthTime) ...[
+          'ข้อมูลวัน เวลา และสถานที่เกิด',
+          'วิธีนับวันทางโหราศาสตร์ไทย',
+        ] else
+          'ข้อมูลวันเกิดที่บันทึกไว้',
         ...methodology.claims.map((claim) => claim.text),
         if (methodology.factRows.isNotEmpty) ...[
           ThaiBirthProfileCoreReadingCopy.chartStructureTitle,

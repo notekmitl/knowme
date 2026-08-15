@@ -479,12 +479,12 @@ class ThaiBirthProfileCoreReading {
     if (weekdayAtoms.isNotEmpty) {
       final weekday = _thaiWeekday(birthData?.thaiWeekdayNumber);
       final dayMeaning = !analysis.input.hasBirthTime
-          ? 'เป็นเพียงฐานวันตามปฏิทิน เพราะไม่มีเวลาเกิด วันทางโหราศาสตร์อาจเป็นวันก่อนหน้าได้'
+          ? 'เป็นเพียงฐานวันตามปฏิทิน และไม่ใช้สรุปข้อมูลที่ต้องพึ่งนาฬิกาเกิด'
           : normalized == null
           ? 'วันหลักที่ใช้กับกฎทางโหราศาสตร์ไทย'
           : normalized.usedPreviousDay
           ? 'เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้น จึงใช้วันก่อนหน้าเป็นวันทางโหราศาสตร์'
-          : 'เวลาเกิดอยู่หลังพระอาทิตย์ขึ้น จึงใช้วันเดียวกับวันเกิดตามสูติบัตร';
+          : 'เวลาเกิดอยู่หลังพระอาทิตย์ขึ้น จึงใช้วันที่เดียวกับเอกสารเกิด';
       chartFactRows.add(
         ThaiBirthProfileCoreFactRow(
           label: analysis.input.hasBirthTime
@@ -504,9 +504,9 @@ class ThaiBirthProfileCoreReading {
         .toList(growable: false);
     if (lagnaSignAtoms.isNotEmpty && profile?.siderealAscendantDeg != null) {
       final identityMeaning = identityAtom == null
-          ? 'ภาพบุคลิกตั้งต้นที่คำนวณจากเวลาและสถานที่เกิด'
+          ? 'ภาพบุคลิกตั้งต้นที่คำนวณจากนาฬิกาเกิดและพิกัดจังหวัด'
           : _identityPhrases[identityAtom.themeId] ??
-                'ภาพบุคลิกตั้งต้นที่คำนวณจากเวลาและสถานที่เกิด';
+                'ภาพบุคลิกตั้งต้นที่คำนวณจากนาฬิกาเกิดและพิกัดจังหวัด';
       chartFactRows.add(
         ThaiBirthProfileCoreFactRow(
           label: 'ลัคนา',
@@ -577,7 +577,17 @@ class ThaiBirthProfileCoreReading {
           label: config.label,
           value:
               '${_lagnaLabel(sign.rawValue)} · เจ้าเรือน${_lordLabel(lord.rawValue)}',
-          meaning: 'ราศีและเจ้าเรือนที่ใช้เป็นหลักฐานเฉพาะของหัวข้อนี้',
+          meaning: switch (config.domain) {
+            ThaiBirthProfileCoreDomain.work =>
+              'บทบาทและวิธีสร้างผลงานอ่านจากตำแหน่งคู่นี้',
+            ThaiBirthProfileCoreDomain.money =>
+              'ทรัพยากรและวิธีรักษาความมั่นคงอ่านจากจุดนี้',
+            ThaiBirthProfileCoreDomain.relationships =>
+              'คู่สัมพันธ์และวิธีสร้างความไว้ใจอ้างอิงจากเรือนนี้',
+            ThaiBirthProfileCoreDomain.wellbeing =>
+              'กิจวัตร การพัก และการคืนแรงอ้างอิงจากหลักฐานชุดนี้',
+            _ => 'ตำแหน่งประกอบคำอ่าน',
+          },
           sourceAtoms: atoms,
         ),
       );
@@ -603,7 +613,7 @@ class ThaiBirthProfileCoreReading {
           )) {
         return null;
       }
-      final copy = _composeHouseDomain(domain, atoms, phase: reportPhase);
+      final copy = _composeHouseDomain(domain, atoms);
       final analysisParagraph = claim(
         text: copy.analysis,
         domain: domain,
@@ -710,8 +720,8 @@ class ThaiBirthProfileCoreReading {
         : compact([
             claim(
               text:
-                  'แก่นของ${reportPhase.isEmpty ? 'คำอ่านนี้' : reportPhase}ไม่ใช่การรับให้มากขึ้น แต่คือการเลือกสิ่งที่คู่ควรกับแรงของคุณ '
-                  'สำหรับ${reportPhase.isEmpty ? 'จังหวะนี้' : reportPhase} ให้เริ่มจาก${closingCopy.action.replaceFirst('สิ่งที่คุณลองทำได้คือ', '').replaceFirst(' แล้วค่อยเพิ่มเมื่อเห็นว่าคุณยังมีเวลาและแรงพอ', '')} '
+                  'แก่นของคำอ่านนี้ไม่ใช่การรับให้มากขึ้น แต่คือการเลือกสิ่งที่คู่ควรกับแรงของคุณ '
+                  'ให้เริ่มจาก${closingCopy.action.replaceFirst('สิ่งที่คุณลองทำได้คือ', '').replaceFirst(' แล้วค่อยเพิ่มเมื่อเห็นว่าคุณยังมีเวลาและแรงพอ', '')} '
                   'แล้วใช้ผลจริงตัดสินว่าจะรักษาอะไรไว้',
               domain: ThaiBirthProfileCoreDomain.closing,
               role: ThaiBirthProfileCoreClaimRole.synthesis,
@@ -756,7 +766,7 @@ class ThaiBirthProfileCoreReading {
                   'ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วัน$thaiDay '
                   '(วันที่ ${normalized.thaiAstrologicalDate}) เป็นวันทางโหราศาสตร์'
             : 'วันที่ ${normalized.rawBirthDate} ตรงกับวัน$thaiDayตามปฏิทินและใช้เป็นฐานทำงานเท่านั้น '
-                  'เมื่อไม่มีเวลาเกิด วันทางโหราศาสตร์อาจเป็นวันก่อนหน้า จึงยังไม่สรุปวันสุดท้าย',
+                  'ข้อมูลนี้ไม่ใช้สรุปตำแหน่งหรือจังหวะที่ต้องพึ่งนาฬิกาเกิด',
         semanticKey: 'methodology:astrological-date',
         atoms: [
           if (birthData?.thaiWeekdayNumber != null)
@@ -820,7 +830,7 @@ class ThaiBirthProfileCoreReading {
       addDisclosureClaim(
         target: methodologyClaims,
         text:
-            'ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากเวลาและสถานที่เกิด) '
+            'ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากนาฬิกาเกิดและพิกัดจังหวัด) '
             'อยู่ที่${_lagnaLabel(profile.lagnaKey!)}',
         semanticKey: 'methodology:lagna-inputs',
         atoms: [
@@ -862,8 +872,7 @@ class ThaiBirthProfileCoreReading {
       addDisclosureClaim(
         target: methodologyClaims,
         text:
-            'รายงานนี้ไม่มีเวลาเกิด จึงไม่กล่าวถึงลัคนา ภพ '
-            'หรือข้อสรุปที่ต้องพึ่งตำแหน่งตามเวลาเกิด',
+            'รายงานนี้ไม่มีเวลาเกิด จึงเว้นข้อสรุปที่ต้องพึ่งตำแหน่งตามนาฬิกาเกิด',
         semanticKey: 'methodology:no-birth-time',
         atoms: [
           ThaiBirthProfileCoreClaimAtom(
@@ -926,14 +935,14 @@ class ThaiBirthProfileCoreReading {
     final omissions = <ThaiBirthProfileCoreOmission>[];
     final missingHouseReason = analysis.input.hasBirthTime
         ? 'ผลคำนวณไม่มีตำแหน่งเรือนและเจ้าเรือนที่ตรวจสอบได้ครบพอ จึงไม่เติมคำทำนายทั่วไปแทน'
-        : 'ไม่มีเวลาเกิด จึงคำนวณลัคนาและเรือนที่ใช้วิเคราะห์หัวข้อนี้ไม่ได้';
+        : 'ไม่มีเวลาเกิด จึงคำนวณตำแหน่งเฉพาะที่ใช้วิเคราะห์หัวข้อนี้ไม่ได้';
     if (summary.isEmpty) {
       omissions.add(
         ThaiBirthProfileCoreOmission(
           topic: ThaiBirthProfileCoreReadingCopy.summaryTitle,
           reason: analysis.input.hasBirthTime
               ? 'ไม่พบแนวโน้มตัวตนที่เชื่อมกับลัคนาและมีหลักฐานรองรับครบพอ'
-              : 'ไม่มีเวลาเกิด จึงไม่ใช้ลัคนาสรุปบุคลิกแทนข้อมูลที่ขาด',
+              : 'ข้อมูลเวลาไม่พอสำหรับสรุปบุคลิกจากตำแหน่งเฉพาะแทนส่วนที่ขาด',
         ),
       );
     }
@@ -1191,7 +1200,6 @@ class ThaiBirthProfileCoreReading {
     final identityPhrase = _identityPhrases[identityAtom.themeId] ?? '';
     if (identityPhrase.isEmpty) return '';
     final mode = _planetMode(lord.rawValue);
-    final phaseLink = phase.isEmpty ? 'ในจังหวะปัจจุบัน' : 'เมื่อเข้ากับ$phase';
     final phaseCaution =
         phase.contains('พลิกผัน') || phase.contains('เปลี่ยนผ่าน')
         ? 'ระหว่างเปลี่ยนผ่าน รายละเอียดที่เห็นมากอาจทำให้ชะลอการตัดสินใจเกินจำเป็น'
@@ -1199,14 +1207,13 @@ class ThaiBirthProfileCoreReading {
         ? 'ในช่วงเก็บผล จุดเสี่ยงคือทำต่อเพราะเคยทำได้ จนไม่ได้ถามว่าวิธีเดิมยังเหมาะหรือไม่'
         : 'จุดที่ต้องระวังคือ${mode.$2}จนพลาดจังหวะทบทวนวิธี';
     return 'ลัคนา${_lagnaLabel(sign.rawValue)}สะท้อนคนที่$identityPhrase ส่วน${_lordLabel(lord.rawValue)}ซึ่งเป็นเจ้าเรือนลัคนาย้ำ${mode.$1} '
-        '$phaseLink จุดแข็งสองชั้นนี้ช่วยให้คนอื่นพึ่งคุณได้ แต่$phaseCaution';
+        'จุดแข็งสองชั้นนี้ช่วยให้คนอื่นพึ่งคุณได้ แต่$phaseCaution';
   }
 
   static ({String analysis, String guidance}) _composeHouseDomain(
     ThaiBirthProfileCoreDomain domain,
-    List<ThaiBirthProfileCoreClaimAtom> atoms, {
-    required String phase,
-  }) {
+    List<ThaiBirthProfileCoreClaimAtom> atoms,
+  ) {
     final sign = atoms.firstWhere(
       (atom) => atom.kind == ThaiBirthProfileCoreAtomKind.houseSign,
     );
@@ -1214,14 +1221,13 @@ class ThaiBirthProfileCoreReading {
       (atom) => atom.kind == ThaiBirthProfileCoreAtomKind.houseLord,
     );
     final mode = _planetMode(lord.rawValue);
-    final phaseText = phase.isEmpty ? 'จังหวะนี้' : phase;
     final evidence =
         '${_lagnaLabel(sign.rawValue)}และ${_lordLabel(lord.rawValue)}';
     return switch (domain) {
       ThaiBirthProfileCoreDomain.work => (
         analysis:
             'หลักฐานเรือนการงานที่เชื่อม$evidence แปลเป็นภาษาคนว่า คุณสร้างผลงานผ่าน${mode.$1} '
-            'ใน$phaseText บทบาทที่คุ้มจึงต้องเพิ่มอำนาจดูแลคุณภาพ ไม่ใช่เพิ่มแต่งานที่ต้องถือ',
+            'บทบาทที่คุ้มจึงต้องเพิ่มอำนาจดูแลคุณภาพ ไม่ใช่เพิ่มแต่งานที่ต้องถือ',
         guidance:
             'ถ้างานเริ่มติด ลองเช็กว่ากำลัง${mode.$2}อยู่หรือไม่ '
             'สิ่งที่ทำได้คือ${mode.$3} เพื่อให้งานเดินต่อโดยไม่ฝืนตัวเอง',
@@ -1229,7 +1235,7 @@ class ThaiBirthProfileCoreReading {
       ThaiBirthProfileCoreDomain.money => (
         analysis:
             'เรือนการเงินซึ่งอ่านจาก$evidence ผูกความมั่นคงของคุณกับ${mode.$1} '
-            'สำหรับ$phaseText ความก้าวหน้าจึงควรวัดจากทางเลือกที่เงินสำรองเปิดให้ มากกว่ายอดที่สะสมอย่างเดียว',
+            'ความก้าวหน้าจึงควรวัดจากทางเลือกที่เงินสำรองเปิดให้ มากกว่ายอดที่สะสมอย่างเดียว',
         guidance:
             'ก่อนตัดสินใจเรื่องเงิน ระวังเวลาที่${mode.$2} '
             'ลองใช้${mode.$3} เพื่อไม่ให้เรื่องเร่งด่วนกระทบเงินที่ต้องเก็บไว้',
@@ -1237,7 +1243,7 @@ class ThaiBirthProfileCoreReading {
       ThaiBirthProfileCoreDomain.relationships => (
         analysis:
             'เมื่อเรือนความสัมพันธ์มี$evidenceเป็นหลัก ความไว้ใจจึงเกิดผ่าน${mode.$1} '
-            'ความหมายใน$phaseTextคือข้อตกลงต้องแบ่งเวลาและความรับผิดชอบโดยยังเหลือพื้นที่ให้แต่ละฝ่าย',
+            'ข้อตกลงจึงต้องแบ่งเวลาและความรับผิดชอบโดยยังเหลือพื้นที่ให้แต่ละฝ่าย',
         guidance:
             'ถ้าเริ่มเข้าใจกันยาก ลองดูว่ากำลัง${mode.$2}อยู่หรือไม่ '
             'ใช้${mode.$3} แล้วคุยขอบเขตให้ชัด เพื่อให้ทั้งสองฝ่ายยังมีพื้นที่ของตัวเอง',
@@ -1245,7 +1251,7 @@ class ThaiBirthProfileCoreReading {
       ThaiBirthProfileCoreDomain.wellbeing => (
         analysis:
             'เรือนสุขภาวะที่มี$evidenceเชื่อมพลังชีวิตกับ${mode.$1} '
-            'ใน$phaseText สัญญาณที่ควรฟังคือเวลาฟื้นตัวที่ยาวขึ้นต่อเนื่อง ไม่ใช่ความล้าเพียงวันเดียว',
+            'สัญญาณที่ควรฟังคือเวลาฟื้นตัวที่ยาวขึ้นต่อเนื่อง ไม่ใช่ความล้าเพียงวันเดียว',
         guidance:
             'ถ้าเริ่ม${mode.$2} อย่าปล่อยไว้นาน ให้ใช้${mode.$3} '
             'พร้อมจัดเวลาพักให้สม่ำเสมอ',

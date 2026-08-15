@@ -53,7 +53,6 @@ abstract final class ThaiBetaPastReflectionComposer {
     required String phaseName,
     required String keyword,
     String decisionLens = '',
-    String reportStrength = '',
   }) {
     final band = resolveAgeBand(startAge: startAge, endAge: endAge);
     final theme = keyword.trim().isEmpty
@@ -63,15 +62,12 @@ abstract final class ThaiBetaPastReflectionComposer {
     final lens = decisionLens.trim().isEmpty
         ? 'การตัดสินใจวันนี้'
         : 'โจทย์${decisionLens.trim()}วันนี้';
-    final strength = reportStrength.trim().isEmpty
-        ? 'สิ่งที่คุณทำได้ดี'
-        : reportStrength.trim();
     return switch (band) {
       ThaiBetaPastAgeBand.childhood => ThaiBetaPastReflection(
         ageBand: band,
         theme:
             'ธีมสำหรับทบทวน: $themeใน$phaseอาจเทียบได้กับความทรงจำเรื่องบ้าน '
-            'ผู้ดูแล ความปลอดภัย การเรียนรู้ การเล่น และการได้รับการยอมรับ โดยให้$strengthช่วยมองว่าฐานใดติดตัวมา',
+            'ผู้ดูแล ความปลอดภัย การเรียนรู้ การเล่น และการได้รับการยอมรับ ลองนึกว่าฐานใดยังติดตัวมาถึงวันนี้',
         question:
             'คำถามสะท้อน: เมื่อนึกถึงวัย $ageLabel คุณจำได้ไหมว่าที่ใดหรือใคร'
             'ทำให้กล้าลอง เล่น หรือเรียนรู้ และความทรงจำนั้นบอกอะไรเกี่ยวกับฐานที่คุณใช้ตัดสินใจวันนี้',
@@ -79,7 +75,7 @@ abstract final class ThaiBetaPastReflectionComposer {
       ThaiBetaPastAgeBand.adolescence => ThaiBetaPastReflection(
         ageBand: band,
         theme:
-            'ธีมสำหรับทบทวน: ใน$phase $strengthชวนให้มอง$themeผ่านการเรียน เพื่อน กฎ '
+            'ธีมสำหรับทบทวน: ใน$phase ลองมอง$themeผ่านการเรียน เพื่อน กฎ '
             'ความคาดหวัง และการเริ่มเลือกด้วยเสียงของตัวเอง',
         question:
             'คำถามสะท้อน: หากย้อนถึงวัย $ageLabel ความทรงจำใดบอกว่าคุณเริ่ม'
@@ -88,8 +84,8 @@ abstract final class ThaiBetaPastReflectionComposer {
       ThaiBetaPastAgeBand.emergingAdult => ThaiBetaPastReflection(
         ageBand: band,
         theme:
-            'ธีมสำหรับทบทวน: $themeของ$phaseซึ่งอ่านผ่าน$strengthอยู่ในบริบทของการเป็นอิสระ '
-            'การศึกษา การเริ่มงาน ความสัมพันธ์ และทรัพยากรที่ต้องจัดการเองมากขึ้น โดย$strengthช่วยแยกสิ่งที่เลือกเองจากสิ่งที่รับตามแรงรอบตัว',
+            'ธีมสำหรับทบทวน: $themeของ$phaseอยู่ในบริบทของการเป็นอิสระ '
+            'การศึกษา การเริ่มงาน ความสัมพันธ์ และทรัพยากรที่ต้องจัดการเองมากขึ้น ลองแยกสิ่งที่คุณเลือกเองจากสิ่งที่รับตามแรงรอบตัว',
         question:
             'คำถามสะท้อน: เมื่อคิดถึงวัย $ageLabel คุณจำจุดใดได้ชัดที่สุด'
             'ระหว่างการออกไปยืนด้วยตัวเอง การเริ่มเส้นทางใหม่ หรือการตั้งขอบเขตกับคนใกล้ตัว แล้วบทเรียนนั้นช่วยคัด$lensแบบไหน',
@@ -98,7 +94,7 @@ abstract final class ThaiBetaPastReflectionComposer {
         ageBand: band,
         theme:
             'ธีมสำหรับทบทวน: ลองวาง$themeของ$phaseไว้ข้างงาน เงิน ความสัมพันธ์ '
-            'ความรับผิดชอบ และบทบาทที่อาจต้องจัดใหม่ แล้วใช้$strengthดูว่าเกณฑ์เดิมส่วนใดยังควรรักษา',
+            'ความรับผิดชอบ และบทบาทที่อาจต้องจัดใหม่ แล้วดูว่าเกณฑ์เดิมส่วนใดยังควรรักษา',
         question:
             'คำถามสะท้อน: เมื่อมองกลับไปที่วัย $ageLabel มีความทรงจำช่วงใด'
             'ที่คุณต้องชั่งระหว่างสิ่งที่รับผิดชอบอยู่กับบทบาทที่อยากเปลี่ยน และเกณฑ์ครั้งนั้นยังเหมาะกับ$lensหรือไม่',

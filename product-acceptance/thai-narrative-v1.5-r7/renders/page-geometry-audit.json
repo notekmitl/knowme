@@ -1,0 +1,488 @@
+{
+  "comparison-known-bangkok": [
+    {
+      "page": 1,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        109,
+        131,
+        1379,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 2,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        126,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 3,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        132,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 4,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        156,
+        1351,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 5,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        126,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 6,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        120,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 7,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        132,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    }
+  ],
+  "comparison-known-khon-kaen": [
+    {
+      "page": 1,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        109,
+        131,
+        1379,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 2,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        126,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 3,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        132,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 4,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        126,
+        1351,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 5,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        148,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 6,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        145,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 7,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        132,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    }
+  ],
+  "owner-known-0035": [
+    {
+      "page": 1,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        109,
+        131,
+        1379,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 2,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        126,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 3,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        132,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 4,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        120,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 5,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        156,
+        1351,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 6,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        126,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 7,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        132,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    }
+  ],
+  "owner-unknown": [
+    {
+      "page": 1,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        109,
+        131,
+        1379,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 2,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        132,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 3,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        120,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 4,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        155,
+        1358,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 5,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        155,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 6,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        145,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    }
+  ],
+  "regression-known-0003": [
+    {
+      "page": 1,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        109,
+        131,
+        1379,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 2,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        126,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 3,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        132,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 4,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        120,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 5,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        156,
+        1351,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 6,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        126,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    },
+    {
+      "page": 7,
+      "width": 1489,
+      "height": 2105,
+      "inkBoundingBox": [
+        110,
+        132,
+        1378,
+        1974
+      ],
+      "blank": false,
+      "footerOnly": false,
+      "touchesEdge": false
+    }
+  ]
+}

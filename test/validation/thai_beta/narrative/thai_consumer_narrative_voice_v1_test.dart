@@ -316,7 +316,13 @@ void main() {
       expect(domain.material?.horizon, ForecastHorizon.nextLifePeriod);
       expect(
         domain.body,
-        anyOf(contains('ทิศทาง'), contains('ระยะยาว'), contains('ระยะใหม่')),
+        anyOf(
+          contains('ทิศทาง'),
+          contains('ระยะยาว'),
+          contains('ระยะใหม่'),
+          contains('จังหวะใหม่'),
+          contains('ตารางใหม่'),
+        ),
       );
       expect(domain.preparationAction, isNotEmpty);
       final matchingCurrent = current.domains.where(
