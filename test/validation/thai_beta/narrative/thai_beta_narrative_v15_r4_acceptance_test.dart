@@ -92,7 +92,7 @@ void main() {
       expect(windows, hasLength(3), reason: entry.key);
       expect(windows.every((window) => window.domains.length == 4), isTrue);
       expect(windows[0].summary, contains('ต้องตัดสินใจ'));
-      expect(windows[1].summary, contains('สัญญาณ'));
+      expect(windows[1].summary, contains('จุดกระตุ้น'));
       expect(windows[2].summary, contains('ทิศทาง'));
       for (final window in windows) {
         for (final domain in window.domains) {
@@ -114,7 +114,14 @@ void main() {
       final text = ThaiBetaReportExportDocument.fromAnalysis(
         analysis,
       ).fullPlainText;
-      const boundary = 'รายงานนี้ไม่มีเวลาเกิด จึงไม่ใช้ลัคนา เรือน';
+      final boundary = view
+          .futurePrediction!
+          .windows
+          .first
+          .domains
+          .first
+          .uncertaintyDisclosure;
+      expect(boundary, isNotEmpty);
       expect(boundary.allMatches(text), hasLength(1));
       for (final domain in view.futurePrediction!.windows.expand(
         (window) => window.domains,

@@ -300,11 +300,24 @@ void main() {
       expect(domain.materialFingerprint, isNotEmpty);
     }
     for (final domain in nextYear.domains) {
-      expect(domain.body, contains('ใน 12 เดือน'));
+      expect(domain.material?.horizon, ForecastHorizon.next12Months);
+      expect(
+        domain.body,
+        anyOf(
+          contains('จุดกระตุ้น'),
+          contains('หมุดตรวจ'),
+          contains('จุดทบทวน'),
+          contains('ทบทวน'),
+        ),
+      );
       expect(domain.preparationAction, isNotEmpty);
     }
     for (final domain in nextPeriod.domains) {
-      expect(domain.body, startsWith('ช่วงชีวิตถัดไป'));
+      expect(domain.material?.horizon, ForecastHorizon.nextLifePeriod);
+      expect(
+        domain.body,
+        anyOf(contains('ทิศทาง'), contains('ระยะยาว'), contains('ระยะใหม่')),
+      );
       expect(domain.preparationAction, isNotEmpty);
       final matchingCurrent = current.domains.where(
         (candidate) => candidate.title == domain.title,

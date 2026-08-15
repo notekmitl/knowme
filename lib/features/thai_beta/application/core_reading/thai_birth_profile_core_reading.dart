@@ -335,6 +335,7 @@ class ThaiBirthProfileCoreReading {
     final birthData = analysis.pipelineResult?.birthData;
     final mirror = analysis.pipelineResult?.mirrorResult;
     final readerView = consumerView ?? analysis.consumerViewState;
+    final reportPhase = readerView?.lifeTimeline?.currentStage.phaseName ?? '';
     final acceptedClaims = <ThaiBirthProfileCoreParagraph>[];
 
     ThaiBirthProfileCoreParagraph? claim({
@@ -446,7 +447,11 @@ class ThaiBirthProfileCoreReading {
             (atom) => atom.kind == ThaiBirthProfileCoreAtomKind.lagnaSign,
           ))
         claim(
-          text: _composeLagnaSummary(summaryAtoms, identityAtom),
+          text: _composeLagnaSummary(
+            summaryAtoms,
+            identityAtom,
+            phase: reportPhase,
+          ),
           domain: ThaiBirthProfileCoreDomain.summary,
           role: ThaiBirthProfileCoreClaimRole.interpretation,
           semanticKey: 'computed:lagna-identity-frame',
@@ -598,7 +603,7 @@ class ThaiBirthProfileCoreReading {
           )) {
         return null;
       }
-      final copy = _composeHouseDomain(domain, atoms);
+      final copy = _composeHouseDomain(domain, atoms, phase: reportPhase);
       final analysisParagraph = claim(
         text: copy.analysis,
         domain: domain,
@@ -705,9 +710,9 @@ class ThaiBirthProfileCoreReading {
         : compact([
             claim(
               text:
-                  'แก่นของคำอ่านนี้ไม่ใช่การรับให้มากขึ้น แต่คือการเลือกสิ่งที่คู่ควรกับแรงของคุณ '
-                  'เริ่มจาก${closingCopy.action.replaceFirst('สิ่งที่คุณลองทำได้คือ', '').replaceFirst(' แล้วค่อยเพิ่มเมื่อเห็นว่าคุณยังมีเวลาและแรงพอ', '')} '
-                  'แล้วใช้ผลจริงเป็นเกณฑ์ก่อนเปิดภาระถัดไป',
+                  'แก่นของ${reportPhase.isEmpty ? 'คำอ่านนี้' : reportPhase}ไม่ใช่การรับให้มากขึ้น แต่คือการเลือกสิ่งที่คู่ควรกับแรงของคุณ '
+                  'สำหรับ${reportPhase.isEmpty ? 'จังหวะนี้' : reportPhase} ให้เริ่มจาก${closingCopy.action.replaceFirst('สิ่งที่คุณลองทำได้คือ', '').replaceFirst(' แล้วค่อยเพิ่มเมื่อเห็นว่าคุณยังมีเวลาและแรงพอ', '')} '
+                  'แล้วใช้ผลจริงตัดสินว่าจะรักษาอะไรไว้',
               domain: ThaiBirthProfileCoreDomain.closing,
               role: ThaiBirthProfileCoreClaimRole.synthesis,
               semanticKey: 'computed:closing-priority-action',
@@ -950,28 +955,27 @@ class ThaiBirthProfileCoreReading {
       );
     }
     for (final omitted in <(String, ThaiBirthProfileCoreSection?)>[
-      (
-        '${ThaiBirthProfileCoreReadingCopy.workTitle}จากลัคนาและเรือนการงาน',
-        workSection,
-      ),
-      (
-        '${ThaiBirthProfileCoreReadingCopy.moneyTitle}จากลัคนาและเรือนการเงิน',
-        moneySection,
-      ),
-      (
-        '${ThaiBirthProfileCoreReadingCopy.relationshipsTitle}จากลัคนาและเรือนคู่ครอง',
-        relationshipsSection,
-      ),
-      (
-        '${ThaiBirthProfileCoreReadingCopy.wellbeingTitle}จากลัคนาและเรือนสุขภาพ',
-        wellbeingSection,
-      ),
+      ('คำอ่านการงานที่ต้องใช้เวลาเกิด', workSection),
+      ('รายละเอียดการเงินที่ข้อมูลเวลาไม่พอ', moneySection),
+      ('มุมความสัมพันธ์ที่ต้องอาศัยเวลาเกิด', relationshipsSection),
+      ('รายละเอียดสุขภาวะที่ต้องมีข้อมูลเวลา', wellbeingSection),
     ]) {
       if (omitted.$2 == null) {
         omissions.add(
           ThaiBirthProfileCoreOmission(
             topic: omitted.$1,
-            reason: missingHouseReason,
+            reason: analysis.input.hasBirthTime
+                ? missingHouseReason
+                : switch (omitted.$1) {
+                    'คำอ่านการงานที่ต้องใช้เวลาเกิด' =>
+                      'เพราะไม่ทราบเวลาเกิด รายงานจึงเว้นรายละเอียดการงานส่วนนี้แทนการสร้างข้อมูลขึ้นเอง',
+                    'รายละเอียดการเงินที่ข้อมูลเวลาไม่พอ' =>
+                      'ข้อมูลเวลายังว่าง จึงละรายละเอียดการเงินส่วนที่ยืนยันจากวันเกิดเพียงอย่างเดียวไม่ได้',
+                    'มุมความสัมพันธ์ที่ต้องอาศัยเวลาเกิด' =>
+                      'ข้อมูลนี้ไม่มีเวลาเกิด มุมความสัมพันธ์ส่วนดังกล่าวจึงถูกละไว้เพื่อไม่ให้ฟันธงเกินหลักฐาน',
+                    _ =>
+                      'เมื่อยังไม่ทราบเวลาเกิด รายงานจะไม่เติมรายละเอียดสุขภาวะส่วนที่ยืนยันไม่ได้',
+                  },
           ),
         );
       }
@@ -1174,8 +1178,9 @@ class ThaiBirthProfileCoreReading {
 
   static String _composeLagnaSummary(
     List<ThaiBirthProfileCoreClaimAtom> atoms,
-    ThaiBirthProfileCoreClaimAtom identityAtom,
-  ) {
+    ThaiBirthProfileCoreClaimAtom identityAtom, {
+    required String phase,
+  }) {
     ThaiBirthProfileCoreClaimAtom? sign;
     ThaiBirthProfileCoreClaimAtom? lord;
     for (final atom in atoms) {
@@ -1186,44 +1191,61 @@ class ThaiBirthProfileCoreReading {
     final identityPhrase = _identityPhrases[identityAtom.themeId] ?? '';
     if (identityPhrase.isEmpty) return '';
     final mode = _planetMode(lord.rawValue);
-    return 'ภาพเด่นของดวงนี้คือคนที่$identityPhrase ขณะที่${_lordLabel(lord.rawValue)}ย้ำ${mode.$1} '
-        'แรงสองด้านทำให้คนอื่นพึ่งคุณได้ — แต่ด้านกลับคือ${mode.$2}จนไม่ทันสังเกต '
-        'จากนี้ ให้ดูว่าแรงนี้เปลี่ยนสี่ด้านของชีวิตอย่างไร';
+    final phaseLink = phase.isEmpty ? 'ในจังหวะปัจจุบัน' : 'เมื่อเข้ากับ$phase';
+    final phaseCaution =
+        phase.contains('พลิกผัน') || phase.contains('เปลี่ยนผ่าน')
+        ? 'ระหว่างเปลี่ยนผ่าน รายละเอียดที่เห็นมากอาจทำให้ชะลอการตัดสินใจเกินจำเป็น'
+        : phase.contains('เก็บเกี่ยว')
+        ? 'ในช่วงเก็บผล จุดเสี่ยงคือทำต่อเพราะเคยทำได้ จนไม่ได้ถามว่าวิธีเดิมยังเหมาะหรือไม่'
+        : 'จุดที่ต้องระวังคือ${mode.$2}จนพลาดจังหวะทบทวนวิธี';
+    return 'ลัคนา${_lagnaLabel(sign.rawValue)}สะท้อนคนที่$identityPhrase ส่วน${_lordLabel(lord.rawValue)}ซึ่งเป็นเจ้าเรือนลัคนาย้ำ${mode.$1} '
+        '$phaseLink จุดแข็งสองชั้นนี้ช่วยให้คนอื่นพึ่งคุณได้ แต่$phaseCaution';
   }
 
   static ({String analysis, String guidance}) _composeHouseDomain(
     ThaiBirthProfileCoreDomain domain,
-    List<ThaiBirthProfileCoreClaimAtom> atoms,
-  ) {
+    List<ThaiBirthProfileCoreClaimAtom> atoms, {
+    required String phase,
+  }) {
+    final sign = atoms.firstWhere(
+      (atom) => atom.kind == ThaiBirthProfileCoreAtomKind.houseSign,
+    );
     final lord = atoms.firstWhere(
       (atom) => atom.kind == ThaiBirthProfileCoreAtomKind.houseLord,
     );
     final mode = _planetMode(lord.rawValue);
+    final phaseText = phase.isEmpty ? 'จังหวะนี้' : phase;
+    final evidence =
+        '${_lagnaLabel(sign.rawValue)}และ${_lordLabel(lord.rawValue)}';
     return switch (domain) {
       ThaiBirthProfileCoreDomain.work => (
         analysis:
-            'เรื่องงาน คุณมักสร้างผลงานผ่าน${mode.$1} จุดตัดสินไม่ได้อยู่ที่รับงานได้อีกเท่าไร แต่อยู่ที่บทบาทนั้นเพิ่มอำนาจกำหนดคุณภาพงานหรือเพียงเพิ่มน้ำหนักให้คุณถือ',
+            'หลักฐานเรือนการงานที่เชื่อม$evidence แปลเป็นภาษาคนว่า คุณสร้างผลงานผ่าน${mode.$1} '
+            'ใน$phaseText บทบาทที่คุ้มจึงต้องเพิ่มอำนาจดูแลคุณภาพ ไม่ใช่เพิ่มแต่งานที่ต้องถือ',
         guidance:
             'ถ้างานเริ่มติด ลองเช็กว่ากำลัง${mode.$2}อยู่หรือไม่ '
             'สิ่งที่ทำได้คือ${mode.$3} เพื่อให้งานเดินต่อโดยไม่ฝืนตัวเอง',
       ),
       ThaiBirthProfileCoreDomain.money => (
         analysis:
-            'เรื่องเงิน คุณผูกความมั่นคงเข้ากับ${mode.$1} จึงควรวัดความก้าวหน้าจากทางเลือกที่เงินสำรองเปิดให้ ไม่ใช่เพียงยอดที่สะสม',
+            'เรือนการเงินซึ่งอ่านจาก$evidence ผูกความมั่นคงของคุณกับ${mode.$1} '
+            'สำหรับ$phaseText ความก้าวหน้าจึงควรวัดจากทางเลือกที่เงินสำรองเปิดให้ มากกว่ายอดที่สะสมอย่างเดียว',
         guidance:
             'ก่อนตัดสินใจเรื่องเงิน ระวังเวลาที่${mode.$2} '
             'ลองใช้${mode.$3} เพื่อไม่ให้เรื่องเร่งด่วนกระทบเงินที่ต้องเก็บไว้',
       ),
       ThaiBirthProfileCoreDomain.relationships => (
         analysis:
-            'ในความสัมพันธ์ ความไว้ใจของคุณเกิดผ่าน${mode.$1} ความสัมพันธ์จึงลึกขึ้นเมื่อความรับผิดชอบที่แบ่งกันสอดคล้องกับพื้นที่ที่แต่ละฝ่ายต้องมี',
+            'เมื่อเรือนความสัมพันธ์มี$evidenceเป็นหลัก ความไว้ใจจึงเกิดผ่าน${mode.$1} '
+            'ความหมายใน$phaseTextคือข้อตกลงต้องแบ่งเวลาและความรับผิดชอบโดยยังเหลือพื้นที่ให้แต่ละฝ่าย',
         guidance:
             'ถ้าเริ่มเข้าใจกันยาก ลองดูว่ากำลัง${mode.$2}อยู่หรือไม่ '
             'ใช้${mode.$3} แล้วคุยขอบเขตให้ชัด เพื่อให้ทั้งสองฝ่ายยังมีพื้นที่ของตัวเอง',
       ),
       ThaiBirthProfileCoreDomain.wellbeing => (
         analysis:
-            'เรื่องพลังชีวิต ความสม่ำเสมอของร่างกายเชื่อมกับ${mode.$1} สัญญาณสำคัญจึงไม่ใช่วันที่ล้าเพียงวันเดียว แต่คือเวลาฟื้นตัวที่ยาวขึ้นหลังช่วงรับผิดชอบหนัก',
+            'เรือนสุขภาวะที่มี$evidenceเชื่อมพลังชีวิตกับ${mode.$1} '
+            'ใน$phaseText สัญญาณที่ควรฟังคือเวลาฟื้นตัวที่ยาวขึ้นต่อเนื่อง ไม่ใช่ความล้าเพียงวันเดียว',
         guidance:
             'ถ้าเริ่ม${mode.$2} อย่าปล่อยไว้นาน ให้ใช้${mode.$3} '
             'พร้อมจัดเวลาพักให้สม่ำเสมอ',

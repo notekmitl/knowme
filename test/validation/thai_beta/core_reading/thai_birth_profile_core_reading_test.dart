@@ -87,10 +87,10 @@ void main() {
       reading.omissions.map((omission) => omission.topic),
       containsAll({
         ThaiBirthProfileCoreReadingCopy.summaryTitle,
-        '${ThaiBirthProfileCoreReadingCopy.workTitle}จากลัคนาและเรือนการงาน',
-        '${ThaiBirthProfileCoreReadingCopy.moneyTitle}จากลัคนาและเรือนการเงิน',
-        '${ThaiBirthProfileCoreReadingCopy.relationshipsTitle}จากลัคนาและเรือนคู่ครอง',
-        '${ThaiBirthProfileCoreReadingCopy.wellbeingTitle}จากลัคนาและเรือนสุขภาพ',
+        'คำอ่านการงานที่ต้องใช้เวลาเกิด',
+        'รายละเอียดการเงินที่ข้อมูลเวลาไม่พอ',
+        'มุมความสัมพันธ์ที่ต้องอาศัยเวลาเกิด',
+        'รายละเอียดสุขภาวะที่ต้องมีข้อมูลเวลา',
       }),
     );
     expect(
@@ -671,8 +671,8 @@ void main() {
         .toList(growable: false);
 
     expect(closing.claims, hasLength(1));
-    expect(closing.claims.single.text, contains('แก่นของคำอ่านนี้'));
-    expect(closing.claims.single.text, contains('ใช้ผลจริงเป็นเกณฑ์'));
+    expect(closing.claims.single.text, startsWith('แก่นของช่วง'));
+    expect(closing.claims.single.text, contains('ใช้ผลจริงตัดสิน'));
     expect(atoms.map((atom) => atom.kind).toSet(), {
       ThaiBirthProfileCoreAtomKind.strengthTheme,
       ThaiBirthProfileCoreAtomKind.riskTheme,

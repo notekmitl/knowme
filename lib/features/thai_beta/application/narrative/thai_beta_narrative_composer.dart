@@ -230,7 +230,7 @@ abstract final class ThaiBetaNarrativeComposer {
           .toList(),
       lifeTimeline: _differentiateTimelineDomains(
         source.lifeTimeline,
-        isUnknownTime: reportPlan.isUnknownTime,
+        reportPlan: reportPlan,
       ),
       futurePrediction: _polishPrediction(source.futurePrediction, reportPlan),
     );
@@ -266,7 +266,7 @@ abstract final class ThaiBetaNarrativeComposer {
   /// Current-period content and the source Thai Mirror state remain unchanged.
   static ThaiMirrorLifeTimelineState? _differentiateTimelineDomains(
     ThaiMirrorLifeTimelineState? timeline, {
-    required bool isUnknownTime,
+    required ThaiBetaReportNarrativePlan reportPlan,
   }) {
     if (timeline == null) return null;
     final used = <String>{};
@@ -276,9 +276,10 @@ abstract final class ThaiBetaNarrativeComposer {
     final periods = timeline.periods
         .map((period) {
           if (period.isCurrent) {
-            return isUnknownTime
+            final cautious = reportPlan.isUnknownTime
                 ? _cautiousUnknownCurrentPeriod(period)
                 : period;
+            return _ownCurrentPeriod(cautious, reportPlan);
           }
           if (period.lifeDomains.isEmpty) return period;
           final bucket = period.isPast ? 'past' : 'future';
@@ -349,7 +350,7 @@ abstract final class ThaiBetaNarrativeComposer {
           }
 
           final pastSynthesis = period.isPast
-              ? _cautiousPastSynthesis(period)
+              ? _cautiousPastSynthesis(period, reportPlan)
               : null;
           final allocatedSummary = pastSynthesis != null
               ? pastSynthesis.$1
@@ -386,23 +387,40 @@ abstract final class ThaiBetaNarrativeComposer {
               : startAge >= 69
               ? ''
               : allocatePeriodClaim(period.advice);
+          final isFuture = !period.isPast;
           return ThaiMirrorLifePeriodState(
             ageLabel: period.ageLabel,
             phaseName: period.phaseName,
-            planetLine: period.planetLine,
+            planetLine: isFuture
+                ? '${period.planetLine} ในมุมของ${ThaiBetaReportNarrativePlan.strengthLabel(reportPlan.themeId)}'
+                : period.planetLine,
             keyword: period.keyword,
             isCurrent: period.isCurrent,
             isPast: period.isPast,
-            summary: allocatedSummary,
-            whatChanges: allocatedChange,
-            easier: allocatedEasier,
-            harder: allocatedHarder,
-            comparison: allocatedComparison,
-            evidenceLine: allocatedEvidence,
+            summary: isFuture
+                ? _ownFutureTimelineClaim(allocatedSummary, reportPlan)
+                : allocatedSummary,
+            whatChanges: isFuture
+                ? _ownFutureTimelineClaim(allocatedChange, reportPlan)
+                : allocatedChange,
+            easier: isFuture
+                ? _ownFutureTimelineClaim(allocatedEasier, reportPlan)
+                : allocatedEasier,
+            harder: isFuture
+                ? _ownFutureTimelineClaim(allocatedHarder, reportPlan)
+                : allocatedHarder,
+            comparison: isFuture
+                ? _ownFutureTimelineClaim(allocatedComparison, reportPlan)
+                : allocatedComparison,
+            evidenceLine: isFuture
+                ? _ownFutureTimelineClaim(allocatedEvidence, reportPlan)
+                : allocatedEvidence,
             scores: period.scores,
             easeIndex: period.easeIndex,
             accentIndex: period.accentIndex,
-            advice: allocatedAdvice,
+            advice: isFuture
+                ? _ownFutureTimelineClaim(allocatedAdvice, reportPlan)
+                : allocatedAdvice,
             stageLabel: period.stageLabel,
             timeBucketLabel: period.timeBucketLabel,
             mahabhutPositionLabel: period.mahabhutPositionLabel,
@@ -434,11 +452,16 @@ abstract final class ThaiBetaNarrativeComposer {
           ? null
           : ThaiMirrorFuturePreviewState(
               title: timeline.futurePreview!.title,
-              intro: 'ดูภาพรวมของช่วงถัดไป เพื่อเตรียมสิ่งสำคัญไว้ล่วงหน้า',
-              transitionLabel: timeline.futurePreview!.transitionLabel,
-              elementShiftLine: timeline.futurePreview!.elementShiftLine,
+              intro: reportPlan.isUnknownTime
+                  ? 'ดูช่วงข้างหน้าผ่านรูปแบบที่เกิดซ้ำ โดยยังไม่ผูกกับเวลาเกิดที่ไม่มีข้อมูล'
+                  : 'ดูช่วงข้างหน้าผ่าน${ThaiBetaReportNarrativePlan.strengthLabel(reportPlan.themeId)} เพื่อเตรียมสิ่งสำคัญไว้ล่วงหน้า',
+              transitionLabel:
+                  '${timeline.futurePreview!.transitionLabel}สำหรับ${ThaiBetaReportNarrativePlan.strengthLabel(reportPlan.themeId)}',
+              elementShiftLine:
+                  '${ThaiBetaReportNarrativePlan.strengthLabel(reportPlan.themeId)}อ่านรอยต่อนี้ว่า ${timeline.futurePreview!.elementShiftLine}',
               opportunitiesLine: _consumerOpportunityLine(
                 timeline.futurePreview!.opportunitiesLine,
+                reportPlan,
               ),
               // The upstream preview exposes only a list of labels here. It
               // does not identify a pressure source, affected domain and
@@ -451,6 +474,7 @@ abstract final class ThaiBetaNarrativeComposer {
 
   static (String, String) _cautiousPastSynthesis(
     ThaiMirrorLifePeriodState period,
+    ThaiBetaReportNarrativePlan reportPlan,
   ) {
     final ages = period.ageLabel.split('–');
     final startAge = int.tryParse(ages.first) ?? 0;
@@ -461,6 +485,10 @@ abstract final class ThaiBetaNarrativeComposer {
       ageLabel: period.ageLabel,
       phaseName: period.phaseName,
       keyword: period.keyword,
+      decisionLens: ThaiBetaReportNarrativePlan.domainLabel(reportPlan.primary),
+      reportStrength: ThaiBetaReportNarrativePlan.strengthLabel(
+        reportPlan.themeId,
+      ),
     );
     return (reflection.theme, reflection.question);
   }
@@ -498,6 +526,99 @@ abstract final class ThaiBetaNarrativeComposer {
         .toList(growable: false),
   );
 
+  static ThaiMirrorLifePeriodState _ownCurrentPeriod(
+    ThaiMirrorLifePeriodState period,
+    ThaiBetaReportNarrativePlan reportPlan,
+  ) {
+    final owner = reportPlan.isUnknownTime
+        ? 'รูปแบบที่เกิดซ้ำ'
+        : period.phaseName;
+    String own(String value) => value
+        .replaceFirst(
+          'แต่ไม่จำเป็นต้องรับทุกทางพร้อมกัน',
+          'แต่$ownerไม่จำเป็นต้องพิสูจน์ด้วยการรับทุกทางพร้อมกัน',
+        )
+        .replaceFirst(
+          'ควรระวังการรับงานซ้อนจนกระทบคุณภาพและความต่อเนื่อง',
+          'จุดที่ต้องเฝ้าของ$ownerคือการรับงานซ้อนจนคุณภาพและความต่อเนื่องลดลง',
+        )
+        .replaceFirst(
+          'หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ',
+          'เมื่อ$ownerพาให้ฝืนต่อทั้งที่ร่างกายผิดปกติ ให้หยุดและปรึกษาผู้เชี่ยวชาญ',
+        )
+        .replaceFirst(
+          'รายได้หลักยังแยกจากโชคเหตุบังเอิญ — ส่วนใหญ่มาจากงานและความสามารถที่ลงมือเอง',
+          '$ownerในด้านเงินต้องแยกรายได้หลักจากโชคเหตุบังเอิญ โดยนับเฉพาะผลจากงานและความสามารถที่ลงมือเอง',
+        )
+        .replaceFirst(
+          'โดยนับเฉพาะผลจากงานและความสามารถที่ลงมือเอง',
+          'โดยให้$ownerนับเฉพาะผลจากงานและความสามารถที่ลงมือเอง',
+        )
+        .replaceFirst(
+          'หากมีรายได้จากช่องทางใหม่ ให้แยกผลจากทักษะหรือเครือข่ายที่สร้างไว้ ออกจากเหตุบังเอิญที่ยังยืนยันซ้ำไม่ได้',
+          'เมื่อ$ownerเปิดช่องทางรายได้ใหม่ ให้แยกผลจากทักษะหรือเครือข่ายที่สร้างไว้ ออกจากเหตุบังเอิญที่ยังยืนยันซ้ำไม่ได้',
+        );
+    return ThaiMirrorLifePeriodState(
+      ageLabel: period.ageLabel,
+      phaseName: period.phaseName,
+      planetLine: period.planetLine,
+      keyword: period.keyword,
+      isCurrent: period.isCurrent,
+      isPast: period.isPast,
+      summary: own(period.summary),
+      whatChanges: own(period.whatChanges),
+      easier: own(period.easier),
+      harder: own(period.harder),
+      comparison: own(period.comparison),
+      evidenceLine: own(period.evidenceLine),
+      scores: period.scores,
+      easeIndex: period.easeIndex,
+      accentIndex: period.accentIndex,
+      advice: own(period.advice),
+      stageLabel: period.stageLabel,
+      timeBucketLabel: period.timeBucketLabel,
+      mahabhutPositionLabel: period.mahabhutPositionLabel,
+      mahabhutDescription: period.mahabhutDescription,
+      mahabhutKnown: period.mahabhutKnown,
+      mahabhutUnknownReason: period.mahabhutUnknownReason,
+      mahabhutShownOnReport: period.mahabhutShownOnReport,
+      subPeriods: period.subPeriods,
+      annualTaksaYears: period.annualTaksaYears,
+      lifeDomains: period.lifeDomains
+          .map(
+            (domain) => ThaiMirrorLifeDomainBlock(
+              title: domain.title,
+              body: own(domain.body),
+              evidenceKeys: domain.evidenceKeys,
+            ),
+          )
+          .toList(growable: false),
+    );
+  }
+
+  static String _ownFutureTimelineClaim(
+    String value,
+    ThaiBetaReportNarrativePlan reportPlan,
+  ) {
+    if (value.trim().isEmpty) return value;
+    final strength = ThaiBetaReportNarrativePlan.strengthLabel(
+      reportPlan.themeId,
+    );
+    return value
+        .replaceFirst(
+          'ต่อไปงานที่เคยทำแบบเดิมเริ่มเปลี่ยนไป',
+          'ต่อไป$strengthต้องปรับเมื่องานเดิมเริ่มเปลี่ยนไป',
+        )
+        .replaceFirst(
+          'ต่อไปธีมของช่วงนี้คือการเปิดรับโอกาสผ่านงานหรือเครือข่าย',
+          'ต่อไป$strengthจะถูกทดสอบด้วยโอกาสผ่านงานหรือเครือข่าย',
+        )
+        .replaceFirst(
+          'โดยใช้สิ่งที่เกิดขึ้นจริงเป็นตัวเทียบ',
+          'โดยใช้สิ่งที่เกิดขึ้นจริงตรวจ$strengthเป็นตัวเทียบ',
+        );
+  }
+
   static ThaiMirrorLifeDomainBlock _cautiousUnknownCurrentDomain(
     ThaiMirrorLifeDomainBlock domain,
   ) {
@@ -524,7 +645,7 @@ abstract final class ThaiBetaNarrativeComposer {
       body = body
           .replaceFirst(
             'ด้านพลังชีวิตคุณมีหน้าที่หลายอย่าง จนแทบไม่มีเวลาพัก',
-            'หากช่วงนี้คุณสังเกตว่าหน้าที่หลายอย่างเริ่มเบียดเวลาพัก',
+            'เมื่อหน้าที่หลายอย่างเริ่มเบียดเวลาพัก ให้ใช้การฟื้นตัวจริงบอกว่าตารางเดิมยังรับไหวหรือไม่',
           )
           .replaceFirst(
             'คุณฝืนตัวเองจนสะสมความล้า',
@@ -750,9 +871,11 @@ abstract final class ThaiBetaNarrativeComposer {
       sectionTitle: prediction.sectionTitle,
       sectionIntro: prediction.sectionIntro,
       windows: List.unmodifiable(windows),
-      transitionLine: prediction.transitionLine,
+      transitionLine: reportPlan.transitionLine,
       closingAdvice: prediction.closingAdvice,
-      detailedSectionIntro: prediction.detailedSectionIntro,
+      detailedSectionIntro: reportPlan.isUnknownTime
+          ? 'แบ่งภาพข้างหน้าเป็นสิ่งที่ตรวจได้ตอนนี้ หมุดทบทวนใน 12 เดือน และทิศทางระยะยาว โดยไม่อาศัยข้อมูลนาฬิกาเกิดที่ไม่ได้บันทึก แต่ละระยะมองงาน เงิน ความสัมพันธ์ และการพักในหน้าที่ต่างกัน'
+          : '${ThaiBetaReportNarrativePlan.strengthLabel(reportPlan.themeId)}เป็นเส้นนำของภาพข้างหน้า เริ่มจากการตัดสินใจวันนี้ ต่อด้วยหมุดทบทวน 12 เดือน และจบที่ผลระยะยาวของ${reportPlan.lifePeriodLabel} โดยให้${ThaiBetaReportNarrativePlan.strengthLabel(reportPlan.themeId)}แยกงาน เงิน ความสัมพันธ์ และการพักตามบทบาทของแต่ละระยะ',
       detailedClosingAdvice: reportPlan.closing,
     );
   }
@@ -765,78 +888,78 @@ abstract final class ThaiBetaNarrativeComposer {
         known
             ? switch (plan.band) {
                 ForecastBand.strong =>
-                  'ตอนนี้งานมีแรงส่งให้ขยับ แต่ควรรับเฉพาะบทบาทที่เพิ่มคุณภาพงานหลัก',
+                  'บทบาทงานก้อนใหม่มีแรงส่ง แต่ควรรับเฉพาะส่วนที่เพิ่มคุณภาพงานหลัก',
                 ForecastBand.active =>
-                  'ตอนนี้งานยังขยับได้เมื่อเลือกโจทย์ชัด และไม่เปิดหลายบทบาทพร้อมกัน',
+                  'โจทย์งานยังขยับได้เมื่อเลือกเป้าหมายชัด และไม่เปิดหลายบทบาทพร้อมกัน',
                 ForecastBand.quiet =>
-                  'ตอนนี้งานควรชะลอการขยาย แล้วแก้จุดที่ทำให้งานหลักสะดุดก่อน',
+                  'คุณภาพงานหลักควรมาก่อนการขยาย จึงต้องแก้จุดสะดุดเดิมให้จบ',
               }
-            : 'ตอนนี้ให้ดูภาระงานที่เกิดขึ้นจริง และรักษาคุณภาพของงานหลักก่อนรับหน้าที่เพิ่ม',
+            : 'ชั่วโมงทำงานที่เกิดขึ้นจริงควรเป็นฐานตัดสิน และคุณภาพชิ้นหลักต้องไม่ลดเมื่อรับหน้าที่เพิ่ม',
       (ForecastHorizon.current, ForecastDomain.finance) =>
         known
             ? switch (plan.band) {
                 ForecastBand.strong =>
-                  'ตอนนี้การเงินมีพื้นที่ให้ขยับ แต่เงินพร้อมใช้ต้องมาก่อนภาระระยะยาว',
+                  'เงินพร้อมใช้เปิดพื้นที่ให้ขยับได้ ตราบใดที่รายจ่ายระยะยาวยังไม่เบียดฐานเดิม',
                 ForecastBand.active =>
-                  'ตอนนี้การเงินยังเดินหน้าได้เมื่อแยกเงินจำเป็นออกจากงบทดลองให้ชัด',
+                  'การแยกเงินจำเป็นออกจากงบทดลองให้ชัด คือเงื่อนไขก่อนเดินหน้าแผนการเงิน',
                 ForecastBand.quiet =>
-                  'ตอนนี้ควรรักษาเงินพร้อมใช้และชะลอภาระก้อนใหม่จนฐานเดิมนิ่งขึ้น',
+                  'ยอดเงินพร้อมใช้ต้องนิ่งขึ้นก่อน จึงค่อยพิจารณารายจ่ายผูกพันก้อนใหม่',
               }
-            : 'ตอนนี้ให้ใช้รายรับ รายจ่าย และยอดคงเหลือจริงเป็นฐานก่อนเพิ่มภาระการเงิน',
+            : 'รายรับ รายจ่าย และยอดคงเหลือจริงเป็นฐานเดียวที่ใช้พิจารณาข้อผูกพันทางการเงินได้',
       (ForecastHorizon.current, ForecastDomain.relationship) =>
         known
             ? switch (plan.band) {
                 ForecastBand.strong =>
-                  'ตอนนี้ความสัมพันธ์มีแรงให้ขยับ เมื่อข้อตกลงชัดและทั้งสองฝ่ายทำได้จริง',
+                  'ข้อตกลงที่ทั้งสองฝ่ายทำได้จริง เปิดทางให้ความสัมพันธ์ขยับอย่างมั่นคง',
                 ForecastBand.active =>
-                  'ตอนนี้ความสัมพันธ์ต้องการบทสนทนาที่ชัดกว่าการเดาใจ และใช้การกระทำยืนยันคำพูด',
+                  'บทสนทนาที่ชัดกว่าการเดาใจ และการกระทำที่ยืนยันคำพูด คือโจทย์ของความสัมพันธ์',
                 ForecastBand.quiet =>
-                  'ตอนนี้ควรรอความสม่ำเสมอก่อนเพิ่มข้อผูกพันหรือวางแผนร่วมระยะยาว',
+                  'ความสม่ำเสมอควรปรากฏก่อนการตกลงหรือวางแผนร่วมระยะยาว',
               }
-            : 'ตอนนี้ให้ดูความสม่ำเสมอของคำพูด การกระทำ และข้อตกลงที่เกิดขึ้นจริง',
+            : 'คำพูด การกระทำ และสิ่งที่ตกลงกันต้องสอดคล้องต่อเนื่อง จึงค่อยให้น้ำหนักกับความสัมพันธ์',
       (ForecastHorizon.current, ForecastDomain.health) =>
         known
             ? switch (plan.band) {
                 ForecastBand.strong =>
-                  'ตอนนี้พลังของคุณรองรับการขยับได้ ตราบใดที่การพักยังคืนแรงทัน',
+                  'เวลาพักที่คืนแรงทัน ทำให้พลังของคุณยังรองรับการขยับได้',
                 ForecastBand.active =>
-                  'ตอนนี้กำลังยังพอใช้ แต่ตารางที่แน่นต่อเนื่องจะทำให้เวลาฟื้นยาวขึ้น',
+                  'ระยะฟื้นตัวจะยาวขึ้นเมื่อตารางแน่นต่อเนื่อง แม้กำลังในแต่ละวันยังพอใช้',
                 ForecastBand.quiet =>
-                  'ตอนนี้ควรลดกิจกรรมที่กินเวลานอน และคืนจังหวะพักให้สม่ำเสมอก่อน',
+                  'กิจกรรมที่กินเวลานอนควรถูกลดก่อน เพื่อคืนจังหวะพักให้สม่ำเสมอ',
               }
-            : 'ตอนนี้ให้ติดตามเวลานอน ความล้า และการฟื้นตัวจริงก่อนเพิ่มกิจกรรม',
+            : 'บันทึกเวลานอน ความล้า และการฟื้นตัวจริงก่อนพิจารณาเพิ่มกิจกรรม',
       (ForecastHorizon.next12Months, ForecastDomain.career) =>
         known
-            ? 'ใน 12 เดือน สัญญาณเปลี่ยนของงานคือขอบเขตหน้าที่ที่กว้างขึ้น หากอำนาจตัดสินใจไม่เพิ่มตาม ภาระใหม่จะลดคุณภาพงานหลัก'
-            : 'ใน 12 เดือน งานที่ทำซ้ำจนเกิดความชำนาญอาจเปิดหน้าที่ใหม่ ให้ดูว่าผลงานจริงขยายขอบเขตได้ต่อเนื่องหรือไม่',
+            ? 'ขอบเขตหน้าที่ที่กว้างขึ้นคือจุดกระตุ้นของงาน หากอำนาจตัดสินใจไม่เพิ่มตาม งานชิ้นหลักจะเสียคุณภาพ'
+            : 'ผลงานที่ทำซ้ำจนเกิดความชำนาญอาจเปิดหน้าที่ใหม่ ให้ดูว่าคุณรักษามาตรฐานเดิมได้ต่อเนื่องหรือไม่',
       (ForecastHorizon.next12Months, ForecastDomain.finance) =>
         known
-            ? 'ใน 12 เดือน สัญญาณสำคัญคือรายรับที่เพิ่มแล้วเหลือเป็นเงินพร้อมใช้ หากรายจ่ายประจำโตตามทันที การขยายแผนควรช้าลง'
-            : 'ใน 12 เดือน ให้ดูรายรับที่เกิดซ้ำเทียบกับรายจ่ายจำเป็น และไม่ผูกภาระจากเงินที่ยังมาไม่สม่ำเสมอ',
+            ? 'รายรับที่เพิ่มแล้วเหลือเป็นเงินพร้อมใช้คือจุดกระตุ้นทางการเงิน หากรายจ่ายประจำโตตามทันที การขยายแผนควรช้าลง'
+            : 'ยอดรับที่เกิดซ้ำต้องถูกเทียบกับรายจ่ายจำเป็น และไม่ควรสร้างข้อผูกพันจากเงินที่ยังมาไม่สม่ำเสมอ',
       (ForecastHorizon.next12Months, ForecastDomain.relationship) =>
         known
-            ? 'ใน 12 เดือน ความสัมพันธ์จะชัดจากข้อตกลงที่ถูกทำต่อเนื่อง ไม่ใช่จากบทสนทนาครั้งเดียว'
-            : 'ใน 12 เดือน ให้ใช้พฤติกรรมที่เกิดซ้ำเป็นสัญญาณ คนที่พร้อมจะรักษาคำพูดในเรื่องเล็กได้สม่ำเสมอ',
+            ? 'ข้อตกลงที่ถูกทำต่อเนื่องจะทำให้ความสัมพันธ์ชัด ไม่ใช่บทสนทนาครั้งเดียว'
+            : 'พฤติกรรมที่เกิดซ้ำเป็นสัญญาณสำคัญ คนที่พร้อมจะรักษาคำพูดในเรื่องเล็กได้สม่ำเสมอ',
       (ForecastHorizon.next12Months, ForecastDomain.health) =>
         known
-            ? 'ใน 12 เดือน ให้ดูเวลาฟื้นตัวหลังสัปดาห์หนัก หากต้องใช้วันพักเพิ่มขึ้นเรื่อย ๆ ตารางเดิมกำลังเกินกำลังที่มี'
-            : 'ใน 12 เดือน ให้เทียบเดือนที่ภาระเบากับเดือนที่หน้าที่ชนกัน เพื่อดูว่าการนอนและการฟื้นตัวเปลี่ยนอย่างไร',
+            ? 'เวลาฟื้นตัวหลังสัปดาห์หนักคือหมุดตรวจ หากต้องใช้วันพักเพิ่มขึ้นเรื่อย ๆ ตารางเดิมกำลังเกินกำลังที่มี'
+            : 'เปรียบเทียบเดือนที่หน้าที่เบากับเดือนที่หลายเรื่องชนกัน เพื่อดูว่าการนอนและการคืนแรงเปลี่ยนอย่างไร',
       (ForecastHorizon.nextLifePeriod, ForecastDomain.career) =>
         known
-            ? 'ช่วงชีวิตถัดไป ทิศทางงานจะเปลี่ยนจากการรับเพิ่มไปสู่การคุมคุณภาพ ผลตามมาคือคุณต้องเลือกงานที่ใช้ประสบการณ์สูงและส่งต่องานที่กระจายแรง'
-            : 'ช่วงถัดไปให้ใช้รูปแบบงานที่ทำซ้ำได้จริงช่วยเลือกสิ่งที่จะรักษาหรือส่งต่อ',
+            ? 'ทิศทางงานระยะต่อไปจะเปลี่ยนจากการรับเพิ่มไปสู่การคุมคุณภาพ คุณจึงต้องเลือกงานที่ใช้ประสบการณ์สูงและส่งต่อส่วนที่กระจายแรง'
+            : 'รูปแบบงานที่ทำซ้ำได้จริงจะช่วยเลือกสิ่งที่ควรรักษาหรือส่งต่อในระยะใหม่',
       (ForecastHorizon.nextLifePeriod, ForecastDomain.finance) =>
         known
-            ? 'ช่วงชีวิตถัดไป การเงินจะทำหน้าที่รองรับการเปลี่ยนผ่าน ผลตามมาคือภาระระยะยาวต้องมีเงินสำรองแยกจากค่าใช้จ่ายปกติ'
-            : 'ช่วงถัดไป ฐานการเงินจะเปลี่ยนตามหน้าที่ใหม่ ภาระระยะยาวจึงควรเกิดหลังรายรับจริงเริ่มนิ่ง',
+            ? 'ฐานเงินของจังหวะใหม่ต้องรองรับการเปลี่ยนบทบาท รายจ่ายผูกพันจึงต้องมีเงินสำรองแยกจากค่าใช้จ่ายปกติ'
+            : 'ฐานการเงินอาจเปลี่ยนตามหน้าที่ใหม่ รายจ่ายระยะยาวจึงควรเกิดหลังรายรับจริงเริ่มนิ่ง',
       (ForecastHorizon.nextLifePeriod, ForecastDomain.relationship) =>
         known
-            ? 'ช่วงชีวิตถัดไป ความสัมพันธ์ต้องปรับตามภาระชุดใหม่ ผลตามมาจะขึ้นอยู่กับความชัดเรื่องเวลา หน้าที่ และพื้นที่ส่วนตัว'
-            : 'ช่วงถัดไป ความสัมพันธ์ที่ไปต่อได้ต้องรองรับจังหวะชีวิตใหม่ของทั้งสองฝ่าย ความชัดเรื่องเวลาและหน้าที่จะสำคัญกว่าคำสัญญา',
+            ? 'ความสัมพันธ์ในระยะใหม่ต้องจัดเวลา หน้าที่ และพื้นที่ส่วนตัวให้ชัด จึงจะรองรับบทบาทที่เปลี่ยนไปได้'
+            : 'ความสัมพันธ์ที่ไปต่อได้ต้องรองรับจังหวะชีวิตใหม่ของทั้งสองฝ่าย ความชัดเรื่องเวลาและหน้าที่จะสำคัญกว่าคำสัญญา',
       (ForecastHorizon.nextLifePeriod, ForecastDomain.health) =>
         known
-            ? 'ช่วงชีวิตถัดไป พลังจะขึ้นลงตามภาระชุดใหม่ ผลตามมาคือกิจวัตรพักต้องเปลี่ยนพร้อมตารางงาน ไม่ใช่รอให้ล้าก่อน'
-            : 'ช่วงถัดไป พลังอาจเปลี่ยนตามภาระชุดใหม่ จังหวะวันทำงานและวันพักที่คงเส้นคงวาจะสำคัญขึ้น',
+            ? 'กิจวัตรพลังชีวิตต้องเปลี่ยนพร้อมตารางงานใหม่ ไม่ใช่รอให้ความล้าสะสมแล้วค่อยพัก'
+            : 'จังหวะวันทำงานและวันพักที่คงเส้นคงวาจะสำคัญขึ้น หากหน้าที่จริงเปลี่ยนไปในระยะใหม่',
     };
     // The source body remains an input to the typed material pipeline, while
     // reader-facing selection is owned by the evidence allocation above.
@@ -942,7 +1065,10 @@ abstract final class ThaiBetaNarrativeComposer {
       material,
       intent: decisionIntent,
     );
-    final claim = _forecastClaim(sourceBody, plan);
+    final baseClaim = _forecastClaim(sourceBody, plan);
+    final claim =
+        reportPlan?.ownForecastClaim(plan.domain, plan.horizon, baseClaim) ??
+        baseClaim;
     final risk = _riskSignal(
       sourceCaution,
       riskDomain: plan.consumerRiskDomain,
@@ -1243,11 +1369,17 @@ abstract final class ThaiBetaNarrativeComposer {
     };
   }
 
-  static String _consumerOpportunityLine(String value) {
+  static String _consumerOpportunityLine(
+    String value,
+    ThaiBetaReportNarrativePlan reportPlan,
+  ) {
     const allowed = {'การงาน', 'การเงิน', 'ความรัก', 'สุขภาพ', 'การเติบโต'};
     final domains = allowed.where(value.contains).toList(growable: false);
     if (domains.isEmpty) return '';
-    return 'ด้านที่มีแรงสนับสนุนในช่วงถัดไป: ${domains.join(' · ')}';
+    final strength = ThaiBetaReportNarrativePlan.strengthLabel(
+      reportPlan.themeId,
+    );
+    return '$strengthมีพื้นที่ส่งผลในช่วงถัดไปผ่าน ${domains.join(' · ')}';
   }
 
   static String _dedupeOpportunity(String summary, String opportunity) {

@@ -1,5 +1,7 @@
 # Task: Thai Report Reading Flow and Friendly Voice V1
 
+> **V1.5 R6 (2026-08-15):** `V1.5 R5 OWNER ACCEPTANCE REJECTED`. R6 gives each report one central thesis and separates Hook/Core/Current/12-month/Next-phase/Closing responsibilities. Clause-level exact/prefix/suffix/skeleton and Unicode similarity gates pass with 0/222 exact reuse, 0 cross-profile exact sentences and 0 flagged clause pairs; traceability is 170/170; focused tests pass 280/280; analyzer is clean; all 37 PDF pages were inspected. Full suite was not run. Owner Acceptance is pending; PR #92 remains Open Draft; DO NOT MERGE; DO NOT DEPLOY; Production remains V1.4.
+
 > **V1.5 R5 (2026-08-15):** `V1.5 R4 OWNER ACCEPTANCE REJECTED`. R5 uses a deterministic age-band resolver for Past, cautious observable framing for Unknown, Unicode character/skeleton repetition gates, and one consumer-unit freshness source. Focused tests pass 226/226; analyzer is clean; 170/170 claims retain Web/PDF traceability; all 34 PDF pages were inspected. Owner Acceptance is pending; PR #92 remains Draft; no merge/deploy; Production remains V1.4.
 
 > **V1.5 R4 (2026-08-15):** `V1.5 R3 OWNER ACCEPTANCE REJECTED`. R4 corrects report-level hook reuse, templated suffix repetition, current-claim traceability, incomplete freshness accounting and non-portable ZIP paths. Final evidence has 170/170 expressed claims present, 300/300 narrative-distinct synthetic outputs and 34 visually inspected PDF pages. Owner Acceptance is pending; PR #92 remains Draft; no merge/deploy; Production remains V1.4.

@@ -68,19 +68,21 @@ void main() {
     }
   });
 
-  test('R4 assigns pressure, signal, and direction to separate horizons', () {
+  test('R6 assigns decision, checkpoint, and outcome to separate horizons', () {
     for (final entry in fixtures.entries) {
       final windows = ThaiBetaNarrativeComposer.narrativeView(
         _run(entry.value),
       ).futurePrediction!.windows;
       expect(
-        windows[0].domains.every((domain) => domain.body.contains('ตอนนี้')),
+        windows[0].domains.every(
+          (domain) => domain.material?.horizon == ForecastHorizon.current,
+        ),
         isTrue,
         reason: entry.key,
       );
       expect(
         windows[1].domains.every(
-          (domain) => domain.body.contains('ใน 12 เดือน'),
+          (domain) => domain.material?.horizon == ForecastHorizon.next12Months,
         ),
         isTrue,
         reason: entry.key,
@@ -88,12 +90,17 @@ void main() {
       expect(
         windows[2].domains.every(
           (domain) =>
-              domain.body.contains('ช่วงชีวิตถัดไป') ||
-              domain.body.contains('ช่วงถัดไป'),
+              domain.material?.horizon == ForecastHorizon.nextLifePeriod,
         ),
         isTrue,
         reason: entry.key,
       );
+      expect(windows[0].summary, contains('ต้องตัดสินใจ'));
+      expect(
+        windows[1].summary,
+        anyOf(contains('จุดกระตุ้น'), contains('สัญญาณ')),
+      );
+      expect(windows[2].summary, contains('ผลระยะยาว'));
     }
   });
 

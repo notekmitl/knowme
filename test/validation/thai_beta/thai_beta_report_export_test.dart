@@ -219,7 +219,10 @@ void main() {
         expect(domain.uncertaintyDisclosure, contains('ไม่มีหลักฐานลัคนา'));
         expect(domain.preparationAction, isNot(contains('ไม่มีหลักฐานลัคนา')));
       }
-      expect('ข้อจำกัดของคำอ่าน:'.allMatches(pdfText), hasLength(1));
+      final reportEvidenceBoundary =
+          prediction.windows.first.domains.first.uncertaintyDisclosure;
+      expect(reportEvidenceBoundary, isNotEmpty);
+      expect(reportEvidenceBoundary.allMatches(pdfText), hasLength(1));
     });
 
     test('Thai Beta omits repeated past and future domain claims', () {
@@ -278,9 +281,29 @@ void main() {
         isEmpty,
       );
       expect(
-        curated.periods.singleWhere((period) => period.isCurrent).lifeDomains,
+        curated.periods
+            .singleWhere((period) => period.isCurrent)
+            .lifeDomains
+            .map((domain) => (domain.title, domain.evidenceKeys)),
         orderedEquals(
-          source.periods.singleWhere((period) => period.isCurrent).lifeDomains,
+          source.periods
+              .singleWhere((period) => period.isCurrent)
+              .lifeDomains
+              .map((domain) => (domain.title, domain.evidenceKeys)),
+        ),
+      );
+      expect(
+        curated.periods
+            .singleWhere((period) => period.isCurrent)
+            .lifeDomains
+            .map((domain) => domain.body),
+        isNot(
+          orderedEquals(
+            source.periods
+                .singleWhere((period) => period.isCurrent)
+                .lifeDomains
+                .map((domain) => domain.body),
+          ),
         ),
       );
 
@@ -314,7 +337,7 @@ void main() {
 
         final past = timeline.periods.firstWhere((period) => period.isPast);
         expect(text, contains(past.summary));
-        expect(text, isNot(contains(past.lifeDomains.first.body)));
+        expect(past.lifeDomains, isEmpty);
         expect(text, contains(prediction.detailedSectionIntro));
         for (final domain
             in prediction.windows.skip(1).expand((window) => window.domains)) {
@@ -326,10 +349,10 @@ void main() {
   });
 
   group('Real PDF exporter path regression', () {
-    test('R3 pagination fixtures stay at measured 7/6 pages', () async {
+    test('R6 pagination fixtures stay at measured 8/7 pages', () async {
       for (final fixture in <({bool knownTime, int pages})>[
-        (knownTime: true, pages: 7),
-        (knownTime: false, pages: 6),
+        (knownTime: true, pages: 8),
+        (knownTime: false, pages: 7),
       ]) {
         final productionAnalysis = ThaiBetaAnalysisRunner.run(
           ThaiBetaInput(
@@ -498,9 +521,10 @@ void main() {
                   .toList()
                 ..sort((a, b) => a.path.compareTo(b.path));
           expect(pages, isNotEmpty);
+          final expectedPages = fixture.key == 'known' ? 8 : 7;
           expect(
             pages.length,
-            6,
+            expectedPages,
             reason:
                 '${fixture.key} real-export PDF page-count regression '
                 '(${pages.length} pages)',

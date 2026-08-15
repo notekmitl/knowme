@@ -1,4 +1,4 @@
-/// V1.5 R4 report-level narrative authority.
+/// V1.5 R6 report-level narrative authority.
 ///
 /// This plan works from the complete forecast material before consumer prose
 /// is written. It selects at most two motifs, assigns a different job to each
@@ -164,9 +164,9 @@ class ThaiBetaReportNarrativePlan {
   String get hook {
     final phase = lifePeriodLabel.isEmpty ? 'จังหวะปัจจุบัน' : lifePeriodLabel;
     if (isUnknownTime) {
-      return 'ใน$phase ${domainLabel(primary)}กำลังเรียกร้องให้คุณเลือกจากสิ่งที่เห็นผลซ้ำจริง '
-          'ขณะที่${domainLabel(secondary)}บอกว่าการตัดสินใจนั้นต้องเหลือพื้นที่ให้ชีวิตด้านอื่นด้วย '
-          'หากรีบผูกภาระจากภาพที่ยังไม่เกิดซ้ำ ทางเลือกในช่วงถัดไปอาจแคบลง '
+      return 'ใน$phase ${domainLabel(primary)}ควรถูกตัดสินจากรูปแบบที่เกิดซ้ำจริง '
+          'ขณะที่${domainLabel(secondary)}ทำหน้าที่บอกขอบเขตของทางเลือกนั้น '
+          'หากรีบสรุปจากเหตุการณ์ครั้งเดียว คุณอาจผูกตัวเองกับทางที่ยังไม่มีหลักฐานพอ '
           '${decisionQuestion(primary, secondary)}';
     }
 
@@ -181,74 +181,54 @@ class ThaiBetaReportNarrativePlan {
     final phase = lifePeriodLabel.isEmpty ? 'ช่วงนี้' : lifePeriodLabel;
     return switch (horizon) {
       ForecastHorizon.current =>
-        'ใน$phase ${domainLabel(primary)}เป็นเรื่องที่ต้องตัดสินใจตอนนี้ ส่วน${domainLabel(secondary)}คือขอบเขตที่บอกว่าควรรับได้แค่ไหน',
+        'ตอนนี้${strengthLabel(themeId)}ทำให้คุณต้องตัดสินใจเรื่อง${domainLabel(primary)}หนึ่งเรื่อง ขอบเขตตรวจของ$phaseคือ${observableLabel(secondary)}',
       ForecastHorizon.next12Months =>
-        'ใน 12 เดือนจากนี้ ขณะที่$phaseยังดำเนินอยู่ ให้ดู${triggerLabel(primary)}เป็นสัญญาณหลัก และใช้${triggerLabel(secondary)}ตรวจว่าทิศทางยังสมดุล',
+        'ตลอด 12 เดือนของ$phase ให้${strengthLabel(themeId)}เฝ้า${triggerLabel(primary)}เป็นจุดกระตุ้นหลัก และนัดทบทวนเมื่อ${checkpointLabel(secondary)}',
       ForecastHorizon.nextLifePeriod =>
-        'เมื่อพ้น$phase ทิศทางจะเปลี่ยนจากการรับเพิ่มไปสู่การเลือกสิ่งที่จะรักษา โดยผลตามมาจะชัดที่สุดใน${domainLabel(primary)}และ${domainLabel(secondary)}',
+        'หลังพ้น$phase ${strengthLabel(themeId)}จะถูกใช้คัดสิ่งที่ควรรักษา ทิศทางหลักและผลระยะยาวจึงวัดจาก${longTermOutcome(primary)}โดยไม่เสีย${longTermOutcome(secondary)}',
     };
   }
 
+  String get transitionLine {
+    final phase = lifePeriodLabel.isEmpty ? 'จังหวะนี้' : lifePeriodLabel;
+    return isUnknownTime
+        ? 'จาก$phaseไปข้างหน้า ให้เพิ่มน้ำหนักเฉพาะรูปแบบที่เกิดซ้ำและตรวจสอบได้'
+        : '$phaseไม่ได้ขอให้เร่งทุกด้านพร้อมกัน แต่ให้${strengthLabel(themeId)}พา${domainLabel(primary)}เดินหน้าเท่าที่${observableLabel(secondary)}ยังรองรับ';
+  }
+
   String get evidenceBoundary => isUnknownTime
-      ? 'รายงานนี้ไม่มีเวลาเกิด จึงไม่ใช้ลัคนา เรือน หรือจังหวะที่ต้องอาศัยเวลาเกิดมาฟันธง คำอ่านต่อไปนี้ใช้สิ่งที่สังเกตได้จริงเป็นหลัก'
+      ? 'รายงานนี้ไม่มีเวลาเกิด จึงไม่มีหลักฐานลัคนา เรือน หรือจังหวะที่ต้องอาศัยเวลาเกิดสำหรับฟันธง คำอ่านต่อไปนี้ใช้สิ่งที่สังเกตได้จริงเป็นหลัก'
       : '';
 
   String supportingContext(ForecastDomain domain, ForecastHorizon horizon) {
     final role = roleFor(domain);
-    final current = bandFor(domain, ForecastHorizon.current);
-    final next = bandFor(domain, ForecastHorizon.nextLifePeriod);
     final phase = lifePeriodLabel.isEmpty ? 'ช่วงนี้' : lifePeriodLabel;
-    final nextDirection = switch (next) {
-      ForecastBand.strong => 'ช่วงถัดไปยังเปิดพื้นที่ให้เรื่องนี้เติบโต',
-      ForecastBand.quiet => 'ช่วงถัดไปควรรักษาเรื่องนี้ให้อยู่ในขนาดที่ดูแลได้',
-      ForecastBand.active => 'ช่วงถัดไปต้องเลือกจังหวะและเงื่อนไขให้รอบคอบขึ้น',
-    };
+    final profileCue = isUnknownTime ? 'ตามรูปแบบที่เกิดซ้ำ' : 'ใน$phase';
     return switch ((horizon, role)) {
       (ForecastHorizon.current, ThaiBetaReportMotifRole.primary) =>
-        'ใน$phase นี่คือเรื่องหลักที่ต้องเลือกให้ชัด และ$nextDirection',
+        'นี่คือแกนตัดสินใจ$profileCue คำถามตรวจคือ${currentEvidence(domain)}',
       (ForecastHorizon.current, ThaiBetaReportMotifRole.boundary) =>
-        'ใน$phase ผลของเรื่องนี้จะบอกว่าแผนหลักควรรับได้แค่ไหน',
-      (ForecastHorizon.current, ThaiBetaReportMotifRole.supporting)
-          when current == ForecastBand.strong && next == ForecastBand.strong =>
-        '${domainLabel(domain)}เป็นแรงหนุนที่ต่อเนื่องไปถึงช่วงถัดไป',
-      (ForecastHorizon.current, ThaiBetaReportMotifRole.supporting)
-          when next == ForecastBand.quiet =>
-        '${domainLabel(domain)}ยังไม่ใช่เรื่องที่ควรเร่ง แต่ควรเก็บสัญญาณไว้เทียบกับภาระหลัก',
+        'ด้านนี้เป็นเส้นขอบของ${domainLabel(primary)} จึงต้องดูว่า${currentEvidence(domain)}',
       (ForecastHorizon.current, ThaiBetaReportMotifRole.supporting) =>
-        '${domainLabel(domain)}ทำหน้าที่ประคองการตัดสินใจ มากกว่ากำหนดทิศทางเอง',
+        supportingCurrentContext(domain, phase),
       (ForecastHorizon.next12Months, ThaiBetaReportMotifRole.primary) =>
-        'สัญญาณนี้ใช้ตัดสินว่าทิศทางหลักของ$phaseควรขยายหรือคงขนาดเดิม เพราะ$nextDirection',
+        'เมื่อถึง${checkpointLabel(domain)} ให้เลือกว่าจะขยายทางเดิมหรือปรับแผนของ$phase',
       (ForecastHorizon.next12Months, ThaiBetaReportMotifRole.boundary) =>
-        'หากสัญญาณนี้อ่อนลงใน$phase ให้ทบทวนแผนหลักก่อนเพิ่มข้อผูกพัน',
-      (ForecastHorizon.next12Months, ThaiBetaReportMotifRole.supporting)
-          when current == ForecastBand.strong && next != ForecastBand.strong =>
-        'ใช้สัญญาณนี้คัดสิ่งที่จะพาเข้าสู่ช่วงถัดไป ไม่ใช่เปิดภาระใหม่ทั้งหมด',
-      (ForecastHorizon.next12Months, ThaiBetaReportMotifRole.supporting)
-          when next == ForecastBand.strong =>
-        'หากรูปแบบนี้เกิดซ้ำ ${domainLabel(domain)}จะมีน้ำหนักมากขึ้นในช่วงถัดไป',
+        'ถ้า${checkpointLabel(domain)}ยังไม่ผ่าน ให้ลดขนาดแผน${domainLabel(primary)}ก่อนเพิ่มภาระ',
       (ForecastHorizon.next12Months, ThaiBetaReportMotifRole.supporting) =>
-        'เรื่องนี้ควรใช้เป็นข้อมูลประกอบ ไม่ใช่เหตุผลเดียวของการตัดสินใจ',
+        supportingCheckpointContext(domain, primary),
       (ForecastHorizon.nextLifePeriod, ThaiBetaReportMotifRole.primary) =>
-        'หลัง$phase นี่คือทิศทางหลักที่จะกำหนดสิ่งที่ควรรักษาและสิ่งที่ควรส่งต่อ',
+        'หลัง$phase ให้${domainLabel(domain)}คัดว่าประสบการณ์ใดควรรักษาและสิ่งใดควรส่งต่อ',
       (ForecastHorizon.nextLifePeriod, ThaiBetaReportMotifRole.boundary) =>
-        'เมื่อพ้น$phase ผลด้านนี้จะเป็นเพดานของการขยายเรื่องหลักในช่วงใหม่',
-      (ForecastHorizon.nextLifePeriod, ThaiBetaReportMotifRole.supporting)
-          when next == ForecastBand.strong =>
-        '${domainLabel(domain)}จะหนุนให้การเปลี่ยนผ่านมีฐานที่มั่นคงขึ้น',
-      (ForecastHorizon.nextLifePeriod, ThaiBetaReportMotifRole.supporting)
-          when next == ForecastBand.quiet =>
-        '${domainLabel(domain)}ควรอยู่ในขนาดที่ดูแลต่อได้ ไม่ใช่ขยายตามแรงของเรื่องอื่น',
+        '${longTermOutcome(domain)}จะเป็นเงื่อนไขว่าทิศทาง${domainLabel(primary)}ไปต่อได้นานเพียงใด',
       (ForecastHorizon.nextLifePeriod, ThaiBetaReportMotifRole.supporting) =>
-        '${domainLabel(domain)}จะเป็นแรงประกอบที่ต้องปรับตามภาระชุดใหม่',
+        supportingLongTermContext(domain, primary),
     };
   }
 
   String get closing => isUnknownTime
-      ? 'ก่อนตัดสินใจครั้งสำคัญ ให้ดูว่าสิ่งที่เกิดซ้ำจริงยืนยันว่า${decisionBoundary(primary)}หรือยัง '
-            'จากนั้นตรวจว่า${boundaryLabel(secondary)} แล้วจึงค่อยขยับจากหลักฐานที่มี'
-      : 'ก่อนตัดสินใจครั้งสำคัญใน${lifePeriodLabel.isEmpty ? 'ช่วงนี้' : lifePeriodLabel} '
-            'ให้กลับมาดูว่า${decisionBoundary(primary)}ชัดขึ้นจริงหรือยัง และ${boundaryLabel(secondary)} '
-            'หากสองข้อนี้ไปด้วยกันได้ จึงค่อยขยับขั้นถัดไป';
+      ? 'การตัดสินใจเดียวของรายงานนี้คือ เลือก${domainLabel(primary)}จากผลที่เกิดซ้ำ และยังไม่ผูกมัดเพิ่มจนกว่า${observableLabel(secondary)}จะยืนยันได้'
+      : 'การตัดสินใจเดียวของ${lifePeriodLabel.isEmpty ? 'ช่วงนี้' : lifePeriodLabel}คือ เลือกทาง${domainLabel(primary)}ที่ทำให้${decisionBoundary(primary)} พร้อมรักษา${observableLabel(secondary)}ไว้';
 
   String _primaryDirection() {
     final current = bandFor(primary, ForecastHorizon.current);
@@ -296,6 +276,134 @@ class ThaiBetaReportNarrativePlan {
     ForecastDomain.relationship => 'คำพูดที่กลายเป็นพฤติกรรมสม่ำเสมอ',
     ForecastDomain.health => 'เวลาฟื้นตัวหลังสัปดาห์หนัก',
   };
+
+  static String observableLabel(ForecastDomain domain) => switch (domain) {
+    ForecastDomain.career => 'คุณภาพของงานชิ้นหลัก',
+    ForecastDomain.finance => 'เงินคงเหลือหลังค่าใช้จ่ายจำเป็น',
+    ForecastDomain.relationship => 'พฤติกรรมที่ทำตามคำตกลง',
+    ForecastDomain.health => 'การนอนและเวลาที่ใช้คืนแรง',
+  };
+
+  static String currentEvidence(ForecastDomain domain) => switch (domain) {
+    ForecastDomain.career =>
+      'งานชิ้นหลักยังได้มาตรฐานหลังรับหน้าที่ใหม่หรือไม่',
+    ForecastDomain.finance => 'ยอดพร้อมใช้ยังเหลือหลังจ่ายรายการจำเป็นหรือไม่',
+    ForecastDomain.relationship => 'สิ่งที่ตกลงกันถูกทำจริงต่อเนื่องหรือไม่',
+    ForecastDomain.health => 'ตื่นแล้วมีแรงกลับมาตามปกติหรือไม่',
+  };
+
+  static String checkpointLabel(ForecastDomain domain) => switch (domain) {
+    ForecastDomain.career => 'รอบส่งมอบงานกลางปี',
+    ForecastDomain.finance => 'วันที่สรุปยอดคงเหลือรายไตรมาส',
+    ForecastDomain.relationship => 'การทบทวนข้อตกลงหลังเห็นพฤติกรรมซ้ำ',
+    ForecastDomain.health => 'เดือนที่เวลาฟื้นตัวไม่ยาวกว่าเดิม',
+  };
+
+  static String longTermOutcome(ForecastDomain domain) => switch (domain) {
+    ForecastDomain.career => 'งานที่ใช้ประสบการณ์ได้เต็มที่',
+    ForecastDomain.finance => 'ฐานเงินที่รองรับการเปลี่ยนบทบาท',
+    ForecastDomain.relationship => 'ความสัมพันธ์ที่แบ่งเวลาและหน้าที่ได้จริง',
+    ForecastDomain.health => 'กิจวัตรที่รักษาแรงได้ต่อเนื่อง',
+  };
+
+  static String supportingCurrentContext(
+    ForecastDomain domain,
+    String phase,
+  ) => switch (domain) {
+    ForecastDomain.career =>
+      'งานไม่ใช่โจทย์นำของ$phase จึงดูเพียงว่างานชิ้นหลักยังได้มาตรฐาน',
+    ForecastDomain.finance =>
+      'ด้านเงินคุมขนาดทางเลือกด้วยยอดพร้อมใช้หลังรายการจำเป็น',
+    ForecastDomain.relationship =>
+      'ความสัมพันธ์เป็นข้อมูลตรวจ เมื่อพฤติกรรมจริงสอดคล้องกับสิ่งที่ตกลงกัน',
+    ForecastDomain.health =>
+      'การพักกำหนดเพดานของแผน จากเวลาที่ร่างกายใช้กลับมามีแรง',
+  };
+
+  static String supportingCheckpointContext(
+    ForecastDomain domain,
+    ForecastDomain primary,
+  ) => switch (domain) {
+    ForecastDomain.career =>
+      'เก็บคุณภาพงานรอบส่งมอบไว้ดูว่า${triggerLabel(primary)}นำไปสู่ผลจริงหรือไม่',
+    ForecastDomain.finance =>
+      'บันทึกยอดคงเหลือรายไตรมาสเพื่อคุมทางเลือกในเรื่อง${domainLabel(primary)} ตัวเลขครั้งเดียวจึงยังไม่พอให้ขยายงบ',
+    ForecastDomain.relationship =>
+      'ใช้พฤติกรรมหลังการตกลงเป็นข้อมูล แล้วกลับไปตัดสินจาก${triggerLabel(primary)}',
+    ForecastDomain.health =>
+      'จดเวลาคืนแรงหลังสัปดาห์หนักเพื่อกำหนดขนาดแผน หมุดตรวจของ${domainLabel(primary)}ต้องยืนยันอีกชั้น',
+  };
+
+  static String supportingLongTermContext(
+    ForecastDomain domain,
+    ForecastDomain primary,
+  ) => switch (domain) {
+    ForecastDomain.career =>
+      'งานส่วนสนับสนุนควรถูกส่งต่อ หากทำให้ไม่เหลือพื้นที่สำหรับ${longTermOutcome(primary)}',
+    ForecastDomain.finance =>
+      'เงินสำรองสำหรับรอยต่อช่วยสร้าง${longTermOutcome(primary)}โดยไม่ถูกบังคับด้วยรายจ่ายเร่งด่วน',
+    ForecastDomain.relationship =>
+      'การแบ่งเวลาและหน้าที่ใหม่ควรหนุน${longTermOutcome(primary)}โดยไม่ลดความชัดระหว่างกัน',
+    ForecastDomain.health =>
+      'กิจวัตรพักต้องรองรับ${longTermOutcome(primary)}โดยไม่ยืมแรงจากวันต่อไป',
+  };
+
+  String ownForecastClaim(
+    ForecastDomain domain,
+    ForecastHorizon horizon,
+    String claim,
+  ) {
+    final frame = isUnknownTime
+        ? 'จากรูปแบบที่เกิดซ้ำ'
+        : switch (horizon) {
+            ForecastHorizon.current =>
+              'ในจังหวะที่${strengthLabel(themeId)}นำการตัดสินใจ',
+            ForecastHorizon.next12Months =>
+              'ตลอดปีที่${strengthLabel(themeId)}เป็นแรงหลัก',
+            ForecastHorizon.nextLifePeriod =>
+              'เมื่อ${strengthLabel(themeId)}คัดทางต่อไป',
+          };
+    final ownership = switch ((horizon, domain)) {
+      (ForecastHorizon.current, ForecastDomain.career) =>
+        'คุณภาพที่ส่งมอบคือหลักพิสูจน์เรื่องงาน$frame',
+      (ForecastHorizon.current, ForecastDomain.finance) =>
+        'ยอดพร้อมใช้คือหลักยืนยันการเงิน$frame',
+      (ForecastHorizon.current, ForecastDomain.relationship) =>
+        'พฤติกรรมจริงเป็นตัวชี้ขาดของความสัมพันธ์$frame',
+      (ForecastHorizon.current, ForecastDomain.health) =>
+        'เวลาคืนแรงคือเพดานของแผนชีวิต$frame',
+      (ForecastHorizon.next12Months, ForecastDomain.career) =>
+        'ผลส่งมอบจะเป็นหมุดติดตามงาน$frame',
+      (ForecastHorizon.next12Months, ForecastDomain.finance) =>
+        'กระแสเงินจะใช้วัดขนาดทางเลือก$frame',
+      (ForecastHorizon.next12Months, ForecastDomain.relationship) =>
+        'สิ่งที่คนทำซ้ำจะใช้ตรวจความสัมพันธ์$frame',
+      (ForecastHorizon.next12Months, ForecastDomain.health) =>
+        'ระยะฟื้นตัวรายเดือนจะใช้เทียบกำลัง$frame',
+      (ForecastHorizon.nextLifePeriod, ForecastDomain.career) =>
+        'ประสบการณ์จะคัดทิศทางงานใหม่$frame',
+      (ForecastHorizon.nextLifePeriod, ForecastDomain.finance) =>
+        'สภาพคล่องจะคุมฐานเงินระยะยาว$frame',
+      (ForecastHorizon.nextLifePeriod, ForecastDomain.relationship) =>
+        'การแบ่งบทบาทจะคัดความสัมพันธ์ระยะใหม่$frame',
+      (ForecastHorizon.nextLifePeriod, ForecastDomain.health) =>
+        'การรักษาแรงจะกำหนดกิจวัตรระยะใหม่$frame',
+    };
+    final clauseSubject = switch (domain) {
+      ForecastDomain.career => 'รอบงาน',
+      ForecastDomain.finance => 'กระแสเงิน',
+      ForecastDomain.relationship => 'ข้อตกลง',
+      ForecastDomain.health => 'เวลาคืนแรง',
+    };
+    final clauseFrame = isUnknownTime
+        ? '$clauseSubjectตามรูปแบบที่เกิดซ้ำ'
+        : '$clauseSubjectภายใต้${strengthLabel(themeId)}';
+    final ownedClaim = claim
+        .replaceAll(' แต่', ' แต่$clauseFrame')
+        .replaceAll(' หาก', ' หาก$clauseFrame')
+        .replaceAll(' โดย', ' โดย$clauseFrame');
+    return '$ownership $ownedClaim';
+  }
 
   static String decisionBoundary(ForecastDomain domain) => switch (domain) {
     ForecastDomain.career => 'บทบาทใหม่เพิ่มคุณภาพงาน ไม่ใช่เพียงเพิ่มจำนวนงาน',

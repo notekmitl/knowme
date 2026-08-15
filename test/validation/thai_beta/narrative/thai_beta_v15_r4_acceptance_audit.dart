@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 
 import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
+import 'package:knowme/features/thai_beta/application/narrative/thai_beta_clause_repetition_audit.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_narrative_context.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_report_claim_ledger.dart';
@@ -10,7 +11,7 @@ import 'package:knowme/features/thai_beta/application/narrative/thai_beta_thai_r
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 
-void writeR5AcceptanceAudits({
+void writeR6AcceptanceAudits({
   required Directory output,
   required Map<String, ThaiBetaAnalysis> fixtures,
   required Map<String, String> webTexts,
@@ -295,7 +296,7 @@ void writeR5AcceptanceAudits({
   }
 
   final claimLedger = {
-    'schema': 'knowme-claim-ledger-v1.5-r5',
+    'schema': 'knowme-claim-ledger-v1.5-r6',
     'policy': {
       'domainSignatureBlanketExemptions': false,
       'callbacksRequireNewInformation': true,
@@ -326,7 +327,7 @@ void writeR5AcceptanceAudits({
       )
       .toList(growable: false);
   final traceability = {
-    'schema': 'knowme-claim-render-traceability-v1.5-r5',
+    'schema': 'knowme-claim-render-traceability-v1.5-r6',
     'totalClaims': traceRows.length,
     'expressedClaims': expressedClaims,
     'expressedFoundInCanonicalWebAndPdf':
@@ -351,7 +352,7 @@ void writeR5AcceptanceAudits({
     ),
   };
   final consumerAudit = {
-    'schema': 'knowme-consumer-unit-audit-v1.5-r5',
+    'schema': 'knowme-consumer-unit-audit-v1.5-r6',
     'definition':
         'Every rendered title or paragraph in canonical Web text. Narrative prose is counted. Static headings, required medical disclosure, evidence boundary, and methodology are excluded with a reason.',
     'summary': consumerSummary,
@@ -362,26 +363,26 @@ void writeR5AcceptanceAudits({
   final materialIdentities = {
     for (final entry in plans.entries) entry.key: entry.value.materialIdentity,
   };
-  final immutableR4Units = _readImmutableR4Units();
-  final r4Freshness = _freshnessAuditFromUnits(
-    version: 'R4-corrected-baseline',
-    units: immutableR4Units,
+  final immutableR5Units = _readImmutableR5Units();
+  final r5Freshness = _freshnessAuditFromUnits(
+    version: 'R5-immutable-baseline',
+    units: immutableR5Units,
     materialIdentities: materialIdentities,
   );
-  final r5Freshness = _freshnessAuditFromUnits(
-    version: 'R5',
+  final r6Freshness = _freshnessAuditFromUnits(
+    version: 'R6',
     units: units,
     materialIdentities: materialIdentities,
   );
-  final r4ReuseRate = r4Freshness['exactReuseRate']! as double;
   final r5ReuseRate = r5Freshness['exactReuseRate']! as double;
-  final freshnessRateDelta = r4ReuseRate - r5ReuseRate;
+  final r6ReuseRate = r6Freshness['exactReuseRate']! as double;
+  final freshnessRateDelta = r5ReuseRate - r6ReuseRate;
   _assertFreshnessInvariants(
-    version: 'R4-corrected-baseline',
-    units: immutableR4Units,
-    audit: r4Freshness,
+    version: 'R5-immutable-baseline',
+    units: immutableR5Units,
+    audit: r5Freshness,
   );
-  _assertFreshnessInvariants(version: 'R5', units: units, audit: r5Freshness);
+  _assertFreshnessInvariants(version: 'R6', units: units, audit: r6Freshness);
   final hookReuse = _hookReuse(fixtures, plans);
   final pastSimilarity = _pastSimilarityAudit(fixtures);
   final callbacksWithoutNewInformation = claims.where((row) {
@@ -455,20 +456,86 @@ void writeR5AcceptanceAudits({
     }
     withinReportNgramPairs[entry.key] = pairs;
   }
-  _writeJson(output, 'r5-audit-metrics.json', {
-    'schema': 'knowme-narrative-v1.5-r5-audit-v1',
+  final clauseAudits = <String, Object?>{};
+  for (final entry in fixtures.entries) {
+    final fixtureUnits = units
+        .where(
+          (unit) => unit['fixture'] == entry.key && unit['counted'] == true,
+        )
+        .map(
+          (unit) => ThaiBetaNarrativeAuditUnit(
+            unitId: '${unit['unitId']}',
+            section: '${unit['section']}',
+            domain: '${unit['kind']}',
+            horizon: '${unit['claimId'] ?? ''}',
+            text: '${unit['text']}',
+          ),
+        )
+        .toList(growable: false);
+    final view = ThaiBetaNarrativeComposer.narrativeView(entry.value);
+    final plan = plans[entry.key]!;
+    final dynamicSlots = <String>{
+      plan.lifePeriodLabel,
+      ThaiBetaReportNarrativePlan.strengthLabel(plan.themeId),
+      for (final period in view.lifeTimeline?.periods ?? const [])
+        period.phaseName,
+    }..removeWhere((value) => value.trim().isEmpty);
+    final audit = ThaiBetaClauseRepetitionAudit.audit(
+      fixtureUnits,
+      dynamicSlots: dynamicSlots,
+      keywords: const [
+        'ภาระ',
+        'ช่วงถัดไป',
+        'งานหลัก',
+        'ข้อตกลง',
+        'ต้อง',
+        'ควร',
+      ],
+    );
+    clauseAudits[entry.key] = {
+      'countedNarrativeUnits': fixtureUnits.length,
+      'clausesAtLeast18Characters': audit.clauses.length,
+      'similarityThreshold': ThaiBetaClauseRepetitionAudit.similarityThreshold,
+      'flaggedPairCount': audit.flaggedPairs.length,
+      'callbackFailureCount': audit.callbackFailures.length,
+      'keywordFrequency': audit.keywordFrequency,
+      'flaggedPairs': audit.flaggedPairs
+          .map(
+            (pair) => {
+              'leftUnitId': pair.left.unitId,
+              'rightUnitId': pair.right.unitId,
+              'leftClause': pair.left.text,
+              'rightClause': pair.right.text,
+              'similarity': pair.similarity,
+              'exact': pair.exact,
+              'repeatedPrefix': pair.repeatedPrefix,
+              'repeatedSuffix': pair.repeatedSuffix,
+              'repeatedSkeleton': pair.repeatedSkeleton,
+            },
+          )
+          .toList(growable: false),
+    };
+  }
+  final crossProfileSentenceReuse = _crossProfileSentenceReuse(
+    units: units,
+    materialIdentities: materialIdentities,
+  );
+  _writeJson(output, 'r6-audit-metrics.json', {
+    'schema': 'knowme-narrative-v1.5-r6-audit-v1',
     'fixtures': fixtures.length,
     'coverage': coverage,
     'freshness': {
       'sourceOfTruth': 'consumer-unit-audit.json',
-      'denominatorDefinition': r5Freshness['denominatorDefinition'],
-      'beforeR4Corrected': r4Freshness,
-      'afterR5': r5Freshness,
+      'denominatorDefinition': r6Freshness['denominatorDefinition'],
+      'beforeR5Immutable': r5Freshness,
+      'afterR6': r6Freshness,
       'absoluteReuseRateReduction': freshnessRateDelta,
-      'relativeReuseRateReduction': r4ReuseRate == 0
+      'relativeReuseRateReduction': r5ReuseRate == 0
           ? 0
-          : freshnessRateDelta / r4ReuseRate,
+          : freshnessRateDelta / r5ReuseRate,
     },
+    'clauseSentenceSkeletonAudit': clauseAudits,
+    'crossProfileExactSentenceReuse': crossProfileSentenceReuse,
     'pastThaiCharacterSimilarity': pastSimilarity,
     'hookExactReuseAcrossMateriallyDifferentFixtures': hookReuse,
     'withinReportExactDuplicateForecastBodies': withinReportExactDuplicates,
@@ -498,6 +565,11 @@ void writeR5AcceptanceAudits({
     );
   }
   if (hookReuse['reusedInstances'] != 0 ||
+      r6Freshness['reusedInstancesAcrossMateriallyDifferentFixtures'] != 0 ||
+      (crossProfileSentenceReuse['reusedSentenceCount'] as int) != 0 ||
+      clauseAudits.values.any(
+        (value) => (value as Map<String, Object?>)['flaggedPairCount'] != 0,
+      ) ||
       pastSimilarity.values.any(
         (value) => (value as Map<String, Object?>)['passed'] != true,
       ) ||
@@ -510,7 +582,7 @@ void writeR5AcceptanceAudits({
       semicolonHits != 0 ||
       withinReportExactDuplicates.values.any((count) => count != 0) ||
       withinReportNgramPairs.values.any((pairs) => pairs.isNotEmpty)) {
-    throw StateError('R5 consumer narrative acceptance metrics failed');
+    throw StateError('R6 consumer narrative acceptance metrics failed');
   }
 }
 
@@ -661,13 +733,52 @@ List<Map<String, Object?>> _consumerUnits(
   return ('consumer-narrative', true, 'consumer-narrative');
 }
 
-List<Map<String, Object?>> _readImmutableR4Units() {
+Map<String, Object?> _crossProfileSentenceReuse({
+  required List<Map<String, Object?>> units,
+  required Map<String, String> materialIdentities,
+}) {
+  final groups = <String, List<Map<String, String>>>{};
+  for (final unit in units.where((unit) => unit['counted'] == true)) {
+    final fixture = '${unit['fixture']}';
+    for (final clause in ThaiBetaClauseRepetitionAudit.splitClauses(
+      '${unit['text']}',
+    )) {
+      final normalized = _normalize(clause);
+      if (normalized.runes.length < 18) continue;
+      groups.putIfAbsent(normalized, () => []).add({
+        'fixture': fixture,
+        'unitId': '${unit['unitId']}',
+        'materialIdentity': materialIdentities[fixture] ?? fixture,
+        'clause': clause,
+      });
+    }
+  }
+  final reused = groups.values
+      .where(
+        (group) =>
+            group.map((item) => item['materialIdentity']).toSet().length > 1,
+      )
+      .toList(growable: false);
+  return {
+    'minimumNormalizedCharacters': 18,
+    'reusedSentenceCount': reused.length,
+    'reusedOccurrences': reused.fold<int>(
+      0,
+      (total, group) => total + group.length,
+    ),
+    'groups': reused
+        .map((group) => {'clause': group.first['clause'], 'occurrences': group})
+        .toList(growable: false),
+  };
+}
+
+List<Map<String, Object?>> _readImmutableR5Units() {
   final file = File(
     '${Directory.current.path}/product-acceptance/'
-    'thai-narrative-v1.5-r4/evidence/consumer-unit-audit.json',
+    'thai-narrative-v1.5-r5/evidence/consumer-unit-audit.json',
   );
   if (!file.existsSync()) {
-    throw StateError('Missing immutable R4 consumer text source: ${file.path}');
+    throw StateError('Missing immutable R5 consumer text source: ${file.path}');
   }
   final decoded = jsonDecode(file.readAsStringSync()) as Map<String, Object?>;
   final rawUnits = decoded['units']! as List<Object?>;
