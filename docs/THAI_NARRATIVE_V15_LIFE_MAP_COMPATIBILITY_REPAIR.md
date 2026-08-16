@@ -1,5 +1,7 @@
 # Thai Narrative V1.5 Life Map Compatibility Repair
 
+**Post-merge status:** PR #92 was merged to `main` as regular merge commit `a574fcb65437013e98c64b1fc9af19f50723534b` from accepted source HEAD `e8cc382fa950e581b4da5ec0ff6b93202a1cd4ee`. The Final Merge Gate passed against pinned main `22cbb3cfcb583b63fe8d48a164d5083d9ee32163`; the 39 common baseline failures remain disclosed and unchanged. R7/R7.1 acceptance and immutable identities remain intact. No deployment or Firebase change occurred. Production remains V1.4, and Production Release requires separate Owner authorization.
+
 **Status:** `FINAL MERGE GATE PASSED AGAINST PINNED MAIN BASELINE`
 
 **Starting HEAD:** `5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7`
