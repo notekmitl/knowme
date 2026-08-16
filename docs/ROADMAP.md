@@ -1,5 +1,9 @@
 # KnowMe Roadmap
 
+## V1.5 Product Accepted — Final Merge Gate Blocked
+
+Owner accepted the R7 narrative and R7.1 evidence on 2026-08-16: `V1.5 R7.1 OWNER ACCEPTANCE PASSED` and `V1.5 PRODUCT ACCEPTANCE PASSED`. R1-R7.1 are immutable. The final gate rerun passes focused 286/286, scoped analyzer, zero-new full-analyzer diagnostics, Web release build, factual anchors, Unknown fail-closed, canonical parity, traceability, and R7.1 identity checks. The repository full suite remains blocking at 2,875 passed / 53 failed; 14 failures are branch-only Life Map V1.2.6-V1.3.2 regressions relative to `origin/main`. PR #92 remains Draft until a separately authorized repair makes the full suite green. No merge or deployment is authorized; Production remains V1.4.
+
 ## Active — Thai Report Reading Flow and Friendly Voice V1
 
 Owner feedback after Production Round 9 opened a presentation-only follow-up: put the reader’s story before methodology, use friendlier Thai, reduce repeated forecast templates, and align Web/PDF order. Work is isolated on `agent/thai-report-reading-flow-v1` from baseline `c34a1c088b555160707577308c281570b570752a` and is `PENDING PRODUCT ACCEPTANCE`.
@@ -263,7 +267,8 @@ Items documented as future in master context or specs — **not yet active prior
 
 - [x] Diagnose cross-layer repetition and audit blind spot.
 - [x] Add deterministic report-level claim ownership and V1.5 evidence packet.
-- [ ] Owner reads proposed Known/Unknown reports and accepts narrative quality.
+- [x] Owner accepts R7 narrative and R7.1 evidence; V1.5 Product Acceptance passed.
+- [ ] Resolve the 14 branch-only Life Map regressions and the mandatory full-suite failures under a separate authorized task, then rerun the Final Merge Gate.
 - [ ] Merge/deploy only under a separate explicit owner instruction.
 # V1.5 R2 gate
 

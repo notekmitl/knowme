@@ -1,0 +1,28 @@
+command: flutter test --no-pub --reporter expanded
+branchHead: a6eb5fa02d48dabce5ff809f90abc88b658c5dfc
+mainHead: 22cbb3cfcb583b63fe8d48a164d5083d9ee32163
+branchPassed: 2875
+branchFailed: 53
+branchExitCode: 1
+mainPassed: 2861
+mainFailed: 39
+mainExitCode: 1
+branchOnlyFailures: 14
+mainOnlyFailures: 0
+result: BLOCKED (full branch suite did not pass)
+
+branchOnlyFailureTests:
+validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart :: Past / present / future UX past narratives have denser retrospective without advice
+validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart :: V1.2.7 production-path 864 matrix all 864 fixtures pass production-path assertions
+validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart :: V1.2.7 production-path 864 matrix each weekday category has 108 passes
+validation/thai_beta/life_map/v128/thai_life_map_v128_verdict_narrative_test.dart :: Life Map V1.2.8 verdict narrative Current uses reality → pressure → life impact structure
+validation/thai_beta/life_map/v128/thai_life_map_v128_verdict_narrative_test.dart :: Life Map V1.2.8 verdict narrative eight weekdays produce verdict copy without policy violations
+validation/thai_beta/life_map/v129/thai_life_map_v129_product_qa_artifact_test.dart :: write V1.2.9 product QA artifact
+validation/thai_beta/life_map/v129/thai_life_map_v129_semantic_verdict_test.dart :: Life Map V1.2.9 semantic verdict eight weekdays × ages keep product copy
+validation/thai_beta/life_map/v130/thai_life_map_v130_plain_thai_test.dart :: Life Map V1.3.0 plain Thai each card has at most one ช่วงนั้น and no repeated time opens
+validation/thai_beta/life_map/v130/thai_life_map_v130_plain_thai_test.dart :: Life Map V1.3.0 plain Thai full 8-period UI text is plain and deterministic
+validation/thai_beta/life_map/v130/thai_life_map_v130_product_qa_artifact_test.dart :: write V1.3.0 product QA artifact
+validation/thai_beta/life_map/v131/thai_life_map_v131_narrative_depth_test.dart :: Life Map V1.3.1 narrative depth Current uses natural actor-led pressure language
+validation/thai_beta/life_map/v131/thai_life_map_v131_narrative_depth_test.dart :: Life Map V1.3.1 narrative depth deterministic and 8 periods still product-safe
+validation/thai_beta/life_map/v131/thai_life_map_v131_product_qa_artifact_test.dart :: write V1.3.1 product QA artifact
+validation/thai_beta/life_map/v132/thai_life_map_v132_copy_hierarchy_test.dart :: Life Map V1.3.2 hierarchy and language Current has no vague relationship form-change jargon

@@ -1,0 +1,17 @@
+{
+  "schema": "knowme-thai-narrative-v1.5-r7.1-utf8-validation-v1",
+  "root": "C:\\Users\\USER\\Documents\\Knowme\\thai-narrative-v1-5\\product-acceptance\\thai-narrative-v1.5-r7.1",
+  "filesChecked": 36,
+  "utf8Bom": 0,
+  "invalidUtf8": 0,
+  "replacementCharacter": 0,
+  "c0ControlCharacters": 0,
+  "c1ControlCharacters": 0,
+  "markdownTabs": 0,
+  "mojibakeSequences": 0,
+  "doubleEncodedThai": 0,
+  "generatedIdentityMismatch": 0,
+  "invalidGeneratedToolPath": 0,
+  "failures": [],
+  "passed": true
+}

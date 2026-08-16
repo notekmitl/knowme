@@ -1,0 +1,13 @@
+sourceHead: a6eb5fa02d48dabce5ff809f90abc88b658c5dfc
+supportingRawLog: focused-test-result.txt
+supportingIdentityLog: r7.1-identity-validation.txt
+focusedSuite: PASS (286 passed, 0 failed, exit 0)
+ownerKnownAquarius19d19m: PASS
+regression0003Aquarius9d24m: PASS
+unknownTimeFailClosed: PASS
+webPdfCanonicalParity: PASS (5/5 accepted artifacts preserved)
+claimTraceability: PASS (170/170 accepted artifacts preserved)
+r7.1ZipIdentity: PASS
+r7ImmutableComparison: PASS (63 files, mismatch 0)
+pdfOrRenderRegenerationPerformed: false
+result: PASS
