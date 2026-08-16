@@ -1,0 +1,6 @@
+utf8-validation: PASS
+files-checked: 34
+utf8-bom-files: 0
+invalid-utf8-files: 0
+mojibake-or-replacement-files: 0
+invalid-c0-control-files: 0

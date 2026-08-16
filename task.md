@@ -1,5 +1,21 @@
 # Task: Thai Report Reading Flow and Friendly Voice V1
 
+> **CURRENT — V1.5 FINAL MERGE GATE PASSED AGAINST PINNED MAIN (2026-08-16):** The controlled Case A repair reconciles exactly 18 Owner-authorized Life Timeline goldens after fresh actuals matched pinned main `22cbb3cfcb583b63fe8d48a164d5083d9ee32163` by dimensions, SHA-256, and pixels 18/18; visual QA passes 18/18 and targeted regression passes 24/24. Life Map passes 67/67 and matrix 864/864; focused passes 286/286; synthetic remains 300/300; analyzer delta is 0; Web build passes. Full branch 2,889/39 and pinned main 2,861/39 have identical failure IDs, branch-only 0 and main-only 0. R1-R7.1 remain immutable. Merge/deploy are out of scope; Production remains V1.4.
+
+> **HISTORICAL — V1.5 LIFE MAP COMPATIBILITY REPAIR GATE BLOCKED (2026-08-16):** The exact four-string restoration fixed the prior 14 Life Map regressions with no test weakening: isolated 67/67, matrix 864/864 and weekday 108/108. Focused was 286/286, synthetic was 300 unique reports / 300 unique narratives, analyzer delta was 0 and Web build passed. The full suite was then branch 2,871/57 vs main 2,861/39: common 39, branch-only 18, main-only 0. That task kept goldens/tests frozen and PR #92 Draft pending separate authorization.
+
+> **V1.5 FINAL MERGE GATE — BLOCKED (2026-08-16):** Owner decision is authoritative: `V1.5 R7.1 OWNER ACCEPTANCE PASSED` and `V1.5 PRODUCT ACCEPTANCE PASSED`; R7 narrative and R7.1 evidence are accepted and R1-R7.1 remain immutable. Fresh focused rerun passes 286/286; scoped analyzer is clean; full analyzer is 299 branch / 299 main / delta 0; Web release build and acceptance-preservation checks pass. The mandatory full suite fails at 2,875 passed / 53 failed; compared with main 2,861 passed / 39 failed, 14 branch-only Life Map V1.2.6-V1.3.2 failures remain and reproduce in isolation. Do not change product code/tests under this task. Full-suite repair requires separate authorization and a new gate rerun. Keep PR #92 Open Draft; DO NOT MERGE; DO NOT DEPLOY; Production remains V1.4.
+
+> **V1.5 R7.1 EVIDENCE-ONLY REPAIR (2026-08-16):** `R7 NARRATIVE ACCEPTED`; `R7 ACCEPTANCE PACKAGE REJECTED` เฉพาะ evidence encoding/accuracy. R7.1 does not change product code, product tests, canonical text, PDFs, renders, or R7 audit JSON. Strict staging and extracted-ZIP validation report zero UTF-8/BOM/U+FFFD/C0/C1/tab/mojibake/identity findings; 63 immutable files match R7; 79/79 checksums pass. The R7 focused 286/286 result was not rerun; full suite was not run. Product Acceptance remains pending; PR #92 stays Open Draft; DO NOT MERGE; DO NOT DEPLOY; Production remains V1.4.
+
+> **V1.5 R7 (2026-08-15):** `V1.5 R6 OWNER ACCEPTANCE REJECTED`. R7 removes motif/phase injection and repairs human-readable Thai while preserving Known evidence, Unknown fail-closed, factual anchors and canonical Web/PDF output. Focused tests pass 286/286; analyzer is clean; synthetic reports/narratives are unique 300/300; traceability is 170/170; parity is 5/5; all 34 PDF pages were inspected. Full suite was not run. Owner Acceptance is pending; PR #92 remains Open Draft; DO NOT MERGE; DO NOT DEPLOY; Production remains V1.4.
+
+> **V1.5 R6 (2026-08-15):** `V1.5 R5 OWNER ACCEPTANCE REJECTED`. R6 gives each report one central thesis and separates Hook/Core/Current/12-month/Next-phase/Closing responsibilities. Clause-level exact/prefix/suffix/skeleton and Unicode similarity gates pass with 0/222 exact reuse, 0 cross-profile exact sentences and 0 flagged clause pairs; traceability is 170/170; focused tests pass 280/280; analyzer is clean; all 37 PDF pages were inspected. Full suite was not run. Owner Acceptance is pending; PR #92 remains Open Draft; DO NOT MERGE; DO NOT DEPLOY; Production remains V1.4.
+
+> **V1.5 R5 (2026-08-15):** `V1.5 R4 OWNER ACCEPTANCE REJECTED`. R5 uses a deterministic age-band resolver for Past, cautious observable framing for Unknown, Unicode character/skeleton repetition gates, and one consumer-unit freshness source. Focused tests pass 226/226; analyzer is clean; 170/170 claims retain Web/PDF traceability; all 34 PDF pages were inspected. Owner Acceptance is pending; PR #92 remains Draft; no merge/deploy; Production remains V1.4.
+
+> **V1.5 R4 (2026-08-15):** `V1.5 R3 OWNER ACCEPTANCE REJECTED`. R4 corrects report-level hook reuse, templated suffix repetition, current-claim traceability, incomplete freshness accounting and non-portable ZIP paths. Final evidence has 170/170 expressed claims present, 300/300 narrative-distinct synthetic outputs and 34 visually inspected PDF pages. Owner Acceptance is pending; PR #92 remains Draft; no merge/deploy; Production remains V1.4.
+
 > **V1.4 PDF PAGINATION HOTFIX DEPLOYED AND PRODUCTION VERIFIED (2026-08-12).** Hotfix PRs #90 and #91 were merged as `effab1bffcb410891ae5361908392c92188da8b7` and `bbdb209b8c2573b16a49d445dd214f7cdfe5fd30`. The final clean `origin/main` revision was deployed to Firebase project/site `knowme-app-694e1` with `scripts/deploy_web.ps1` (08:17:11Z-08:18:09Z, exit 0, 77 Hosting files). Cache-bypassed `/` and `/beta/thai` returned HTTP 200 and assets were pinned to `bbdb209`. Fresh Production downloads are Known `knowme-thai-report (22).pdf` (36,839 bytes, SHA-256 `1D4A599B9089A7B6F22EEA6E68862B5839F151B05EC8CE35D890F46209D54881`, 6 pages) and Unknown `knowme-thai-report (23).pdf` (32,756 bytes, SHA-256 `A7CC414114EDD21566F701A8B10B7101779C6AB74DA7D3880C86CC4D5F93FB4D`, 5 pages). All 11 pages were raster-inspected: page numbering is correct and there is no blank/footer-only page, clipping, overlap, truncation, broken Thai wrapping, or card-border escape. Unknown remains fail-closed; canonical Web/PDF hashes are unchanged. Historical defect entries below remain as the audit trail. Rollback remains available through Firebase Hosting release history.
 
 > **V1.4 PDF PAGINATION HOTFIX — LOCAL FIX VERIFIED (2026-08-12).** The Production 7/6-page defect was caused by an unconditional `pw.NewPage()` added at a semantic continuation marker after `MultiPage` had already performed measured pagination. The fix keeps the continuation heading atomic with its paragraph and removes the forced break. Real-export local fixtures now produce Known 6 pages and Unknown 5 pages; all 11 pages were raster-inspected. Accepted canonical hashes are unchanged. Production remains defective until merge and redeploy; rollback remains available.
@@ -45,3 +61,28 @@ Owner feedback after the completed Round 9 release requires a new Product Narrat
 # PR #89 V1.3 owner-rejection recovery (2026-08-11)
 
 V1.2 was rejected for cross-fixture duplication, repeated Known past claims, an Unknown displayed-versus-omitted wording contradiction, and a malformed Known limitation card. V1.3 allocates evidence-led claims by horizon, qualifies Unknown omissions as Lagna/house-only, and uses full-width bordered disclaimer units. Status: **PENDING OWNER RE-ACCEPTANCE**. Earlier packets and `product-acceptance/` remain immutable; Round 9 remains historical completed evidence. No merge or deploy.
+# V1.5 Thai narrative quality (Draft)
+
+Owner rejected the narrative quality of live V1.4. Work is isolated on
+`codex/thai-narrative-v1-5` from verified `origin/main` `22cbb3c`. The rejected
+seven-page PDF identity is preserved in the new acceptance packet. Correctness
+gate passed: `00:03` Chiang Mai legitimately produces Aquarius `9°24′`; the
+accepted `19°19′` result used `00:35`. V1.5 introduces report-level claim
+ownership, one forecast home per domain, a chart-specific opening, single
+domain syntheses and prioritised advice. Owner Acceptance is pending. Do not
+merge or deploy; V1.4 remains live.
+# V1.5 R2 owner-rejection recovery (2026-08-12)
+
+## Acceptance-evidence correction (2026-08-13)
+
+The final R2 packet corrects the rendered-page count from 29 to 30 and rebuilds all five contact sheets from the final six-page renders. PDFs, narrative source and tests are unchanged. The exact focused command was rerun at 261 passed / 0 failed / exit 0. Final ZIP SHA-256: `610E69A38E2CA012BE4698E266E465EA8B17F44275761812050854A47F9B36CD`. PR #92 remains Draft; Owner Acceptance is pending; no merge/deploy; Production remains V1.4.
+
+R1 owner acceptance is rejected. Its stale focused log contradicted the summary. R2 restores all four domains in all three horizons, adds evidence-signature Claim Ledger and a new acceptance packet. PR #92 remains Draft; owner acceptance is pending; no merge/deploy; Production remains V1.4.
+
+# V1.5 R3 owner-acceptance recovery (2026-08-13)
+
+`V1.5 R2 OWNER ACCEPTANCE REJECTED`. R3 replaces the block-level paraphrase path with an evidence-led report plan, opens Known/Unknown with a report-specific “ลายเซ็นของคำอ่าน”, separates horizon functions, removes system labels, and turns past biography-like assertions into cautious reflection. Final gates report 4×3 coverage, zero internal exact duplicates/callback-without-delta/system-language/unsupported-biography hits, and 0/26 exact strong-claim reuse across materially different fixtures. PR #92 stays Draft; no merge/deploy; Production remains V1.4.
+
+# V1.5 Final Merge Gate rerun (2026-08-16)
+
+The Owner-authorized exact-18 reconciliation is Case A: repaired actuals equal pinned-main goldens 18/18 by dimensions, SHA-256 and pixels; visual QA passes 18/18 and the targeted suite passes 24/24. The four-string Life Map repair passes 67/67 and matrix 864/864; R7 focused passes 286/286; synthetic remains 300/300 unique and deterministic; analyzer delta is 0; Web release build passes. Full branch 2,889/39 and pinned main 2,861/39 have the exact same 39 failure IDs (branch-only 0, main-only 0). Preserve R1-R7.1. Ready-for-review transition is allowed only after intentional commit/non-force push. Do not merge or deploy; Firebase unchanged; Production remains V1.4.

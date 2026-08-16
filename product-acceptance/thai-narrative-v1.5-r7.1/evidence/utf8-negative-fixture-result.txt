@@ -1,0 +1,8 @@
+{
+  "schema": "knowme-thai-narrative-v1.5-r7.1-negative-fixture-v1",
+  "fixture": "tool/fixtures/thai_narrative_r7_1_broken_identity.base64.txt",
+  "source": "R7 broken generated identity block",
+  "rejected": true,
+  "validatorExitCode": 1,
+  "passed": true
+}

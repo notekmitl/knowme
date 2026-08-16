@@ -1,0 +1,72 @@
+{
+  "owner-known-0035": {
+    "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active",
+    "motifs": [
+      "career",
+      "relationship"
+    ],
+    "horizons": 3,
+    "domainsPerHorizon": [
+      4,
+      4,
+      4
+    ],
+    "complete4x3": true
+  },
+  "owner-unknown": {
+    "materialIdentity": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet",
+    "motifs": [
+      "career",
+      "relationship"
+    ],
+    "horizons": 3,
+    "domainsPerHorizon": [
+      4,
+      4,
+      4
+    ],
+    "complete4x3": true
+  },
+  "regression-known-0003": {
+    "materialIdentity": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active",
+    "motifs": [
+      "career",
+      "relationship"
+    ],
+    "horizons": 3,
+    "domainsPerHorizon": [
+      4,
+      4,
+      4
+    ],
+    "complete4x3": true
+  },
+  "comparison-known-bangkok": {
+    "materialIdentity": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet",
+    "motifs": [
+      "career",
+      "relationship"
+    ],
+    "horizons": 3,
+    "domainsPerHorizon": [
+      4,
+      4,
+      4
+    ],
+    "complete4x3": true
+  },
+  "comparison-known-khon-kaen": {
+    "materialIdentity": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong",
+    "motifs": [
+      "finance",
+      "career"
+    ],
+    "horizons": 3,
+    "domainsPerHorizon": [
+      4,
+      4,
+      4
+    ],
+    "complete4x3": true
+  }
+}

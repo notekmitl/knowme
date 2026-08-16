@@ -292,7 +292,7 @@ void main() {
     for (final domain in current.domains) {
       expect(domain.body, isNot(contains('ภาพที่เห็น:')));
       expect(domain.body, isNot(contains('เรื่องนี้มีผลกับคุณอย่างไร:')));
-      expect(domain.body, contains('\n'));
+      expect(domain.body.trim(), isNotEmpty);
       expect(domain.caution, isEmpty);
       expect(domain.caution, isNot(contains('ไม่ใช่คำวินิจฉัยทางการแพทย์')));
       expect(domain.claim, isNot(startsWith('สำหรับตอนนี้')));
@@ -300,11 +300,30 @@ void main() {
       expect(domain.materialFingerprint, isNotEmpty);
     }
     for (final domain in nextYear.domains) {
-      expect(domain.body, contains('ปีข้างหน้า'));
+      expect(domain.material?.horizon, ForecastHorizon.next12Months);
+      expect(
+        domain.body,
+        anyOf(
+          contains('จุดกระตุ้น'),
+          contains('หมุดตรวจ'),
+          contains('จุดทบทวน'),
+          contains('ทบทวน'),
+        ),
+      );
       expect(domain.preparationAction, isNotEmpty);
     }
     for (final domain in nextPeriod.domains) {
-      expect(domain.body, startsWith('ช่วงชีวิตถัดไป'));
+      expect(domain.material?.horizon, ForecastHorizon.nextLifePeriod);
+      expect(
+        domain.body,
+        anyOf(
+          contains('ทิศทาง'),
+          contains('ระยะยาว'),
+          contains('ระยะใหม่'),
+          contains('จังหวะใหม่'),
+          contains('ตารางใหม่'),
+        ),
+      );
       expect(domain.preparationAction, isNotEmpty);
       final matchingCurrent = current.domains.where(
         (candidate) => candidate.title == domain.title,
@@ -322,7 +341,7 @@ void main() {
     }
   });
 
-  test('V1.2 repeated past claims are allocated to one period only', () {
+  test('R3 removes rejected biography-like past claims', () {
     final periods = ThaiBetaNarrativeComposer.narrativeView(
       analysis,
     ).lifeTimeline!.periods.where((period) => period.isPast);
@@ -346,8 +365,8 @@ void main() {
     ]) {
       expect(
         corpus.where((value) => value.contains(rejectedV12Claim)),
-        hasLength(1),
-        reason: 'a personal past claim belongs to one period only',
+        isEmpty,
+        reason: 'past copy must ask for reflection, not assert biography',
       );
     }
   });
@@ -610,11 +629,11 @@ void main() {
       unknownAnalysis,
     ).futurePrediction!.windows.expand((window) => window.domains).toList();
     for (final domain in unknown) {
-      expect(domain.uncertaintyDisclosure, contains('ไม่มีหลักฐานลัคนา'));
-      expect(domain.preparationAction, isNot(contains('ไม่มีหลักฐานลัคนา')));
-      expect(domain.claim, isNot(contains('ไม่มีหลักฐานลัคนา')));
-      expect(domain.risk, isNot(contains('ไม่มีหลักฐานลัคนา')));
-      expect(domain.decisionImpact, isNot(contains('ไม่มีหลักฐานลัคนา')));
+      expect(domain.uncertaintyDisclosure, contains('ไม่มีเวลาเกิด'));
+      expect(domain.preparationAction, isNot(contains('ไม่มีเวลาเกิด')));
+      expect(domain.claim, isNot(contains('ไม่มีเวลาเกิด')));
+      expect(domain.risk, isNot(contains('ไม่มีเวลาเกิด')));
+      expect(domain.decisionImpact, isNot(contains('ไม่มีเวลาเกิด')));
     }
 
     const fullMaterial = ForecastMaterialFingerprint(

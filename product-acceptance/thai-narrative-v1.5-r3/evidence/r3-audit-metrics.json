@@ -1,0 +1,70 @@
+{
+  "schema": "knowme-narrative-v1.5-r3-audit-v1",
+  "fixtures": 5,
+  "coverage": {
+    "owner-known-0035": {
+      "horizons": 3,
+      "domainsPerHorizon": [
+        4,
+        4,
+        4
+      ],
+      "complete4x3": true
+    },
+    "owner-unknown": {
+      "horizons": 3,
+      "domainsPerHorizon": [
+        4,
+        4,
+        4
+      ],
+      "complete4x3": true
+    },
+    "regression-known-0003": {
+      "horizons": 3,
+      "domainsPerHorizon": [
+        4,
+        4,
+        4
+      ],
+      "complete4x3": true
+    },
+    "comparison-known-bangkok": {
+      "horizons": 3,
+      "domainsPerHorizon": [
+        4,
+        4,
+        4
+      ],
+      "complete4x3": true
+    },
+    "comparison-known-khon-kaen": {
+      "horizons": 3,
+      "domainsPerHorizon": [
+        4,
+        4,
+        4
+      ],
+      "complete4x3": true
+    }
+  },
+  "withinReportExactDuplicateBodies": {
+    "owner-known-0035": 0,
+    "owner-unknown": 0,
+    "regression-known-0003": 0,
+    "comparison-known-bangkok": 0,
+    "comparison-known-khon-kaen": 0
+  },
+  "callbacksWithoutNewInformation": 0,
+  "consumerSystemLanguageHits": 0,
+  "unsupportedBiographyHits": 0,
+  "strongClaimReuse": {
+    "scope": "materially different fixtures; explicit owner-known/00:03 twin excluded claim-by-claim",
+    "instances": 26,
+    "reusedInstances": 0,
+    "rate": 0.0,
+    "threshold": 0.25
+  },
+  "domainSignatureBlanketExemptions": 0,
+  "webPdfCanonicalPairs": 5
+}

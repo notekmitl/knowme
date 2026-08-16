@@ -14,7 +14,6 @@ import '../narrative/thai_beta_narrative_fixtures.dart';
 void main() {
   const titles = [
     'สรุปตัวคุณแบบตรง ๆ',
-    'จุดเด่น จุดที่ควรระวัง และคำแนะนำหลัก',
     'การงาน',
     'การเงิน',
     'ความรักและความสัมพันธ์',
@@ -63,7 +62,7 @@ void main() {
     );
     expect(
       reading.sections.last.publicParagraphs.join('\n'),
-      contains('ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากเวลาและสถานที่เกิด)'),
+      contains('ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากนาฬิกาเกิดและพิกัดจังหวัด)'),
     );
   });
 
@@ -88,10 +87,10 @@ void main() {
       reading.omissions.map((omission) => omission.topic),
       containsAll({
         ThaiBirthProfileCoreReadingCopy.summaryTitle,
-        '${ThaiBirthProfileCoreReadingCopy.workTitle}จากลัคนาและเรือนการงาน',
-        '${ThaiBirthProfileCoreReadingCopy.moneyTitle}จากลัคนาและเรือนการเงิน',
-        '${ThaiBirthProfileCoreReadingCopy.relationshipsTitle}จากลัคนาและเรือนคู่ครอง',
-        '${ThaiBirthProfileCoreReadingCopy.wellbeingTitle}จากลัคนาและเรือนสุขภาพ',
+        'คำอ่านการงานที่ต้องใช้เวลาเกิด',
+        'รายละเอียดการเงินที่ข้อมูลเวลาไม่พอ',
+        'มุมความสัมพันธ์ที่ต้องอาศัยเวลาเกิด',
+        'รายละเอียดสุขภาวะที่ต้องมีข้อมูลเวลา',
       }),
     );
     expect(
@@ -659,22 +658,21 @@ void main() {
     expect(selected?.themeId, 'risk_overcommitment');
   });
 
-  test('closing uses one scored thematic context for strength risk action', () {
+  test('closing prioritises one action from one scored thematic context', () {
     final reading = ThaiBirthProfileCoreReading.fromAnalysis(
       ThaiBetaNarrativeFixtures.fixtureA(),
     );
     final closing = reading.sections.singleWhere(
       (section) =>
-          section.title == ThaiBirthProfileCoreReadingCopy.guidanceTitle,
+          section.title == ThaiBirthProfileCoreReadingCopy.closingTitle,
     );
     final atoms = closing.claims
         .expand((claim) => claim.sourceAtoms)
         .toList(growable: false);
 
-    expect(closing.claims, hasLength(3));
-    expect(closing.claims[0].text, contains('จุดแข็งที่คุณหยิบมาใช้ได้คือ'));
-    expect(closing.claims[1].text, contains('ถ้าใช้มากเกินไป'));
-    expect(closing.claims[2].text, contains('สิ่งที่คุณลองทำได้คือ'));
+    expect(closing.claims, hasLength(1));
+    expect(closing.claims.single.text, startsWith('แก่นของคำอ่านนี้'));
+    expect(closing.claims.single.text, contains('ใช้ผลจริงตัดสิน'));
     expect(atoms.map((atom) => atom.kind).toSet(), {
       ThaiBirthProfileCoreAtomKind.strengthTheme,
       ThaiBirthProfileCoreAtomKind.riskTheme,

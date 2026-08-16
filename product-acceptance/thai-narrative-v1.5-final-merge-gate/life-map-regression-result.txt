@@ -1,0 +1,824 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_narrative_ux_test.dart
+00:00 +0: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_narrative_ux_test.dart: life-stage classification boundaries have no gap or overlap for ages 1–108
+00:00 +1: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_narrative_ux_test.dart: age-appropriate narrative early childhood avoids adult career/money/romance framing
+00:00 +2: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_narrative_ux_test.dart: age-appropriate narrative working adult may discuss work and responsibility
+00:00 +3: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_narrative_ux_test.dart: age-appropriate narrative first period has empty comparison; current may have comparison
+00:00 +4: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_narrative_ux_test.dart: age-appropriate narrative presenter uses actual age inside a long current astrology period
+00:00 +5: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_narrative_ux_test.dart: age-appropriate narrative child and teen current periods never use adult narrative framing
+00:00 +6: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_past_life_breadth_test.dart: Past life-breadth narrative child past prefers home/family/school facets for Saturn foundation
+00:00 +7: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_past_life_breadth_test.dart: Past life-breadth narrative child past prefers home/family/school facets for Saturn foundation
+00:00 +8: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_past_life_breadth_test.dart: Past life-breadth narrative child past prefers home/family/school facets for Saturn foundation
+00:00 +9: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_past_life_breadth_test.dart: Past life-breadth narrative child past prefers home/family/school facets for Saturn foundation
+00:00 +10: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_past_life_breadth_test.dart: Past life-breadth narrative adult past may discuss work/money when affinity supports it
+00:00 +11: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_past_life_breadth_test.dart: Past life-breadth narrative different planets yield meaningfully different past summaries
+00:00 +12: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_past_life_breadth_test.dart: Past life-breadth narrative composer path past narrative has no prompt pad
+00:00 +13: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Mahabhut diagnostic (8 periods) (setUpAll)
+00:00 +13: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Mahabhut diagnostic (8 periods) 1972-04-04 fixture stays known=7 / unknown=1 with internal reason
+00:00 +14: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Mahabhut diagnostic (8 periods) 1972-04-04 fixture stays known=7 / unknown=1 with internal reason
+00:00 +15: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_boundary_test.dart: V1.2.7 Wednesday sunset boundaries ThaiBeta minute-resolution before/after sunset
+00:00 +16: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_boundary_test.dart: V1.2.7 Wednesday sunset boundaries ThaiBeta minute-resolution before/after sunset
+00:00 +17: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_boundary_test.dart: V1.2.7 Wednesday sunset boundaries ThaiBeta minute-resolution before/after sunset
+00:00 +18: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_boundary_test.dart: V1.2.7 Wednesday sunset boundaries ThaiBeta minute-resolution before/after sunset
+00:00 +19: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_boundary_test.dart: V1.2.7 Wednesday sunset boundaries ThaiBeta minute-resolution before/after sunset
+00:00 +20: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:00 +21: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:00 +22: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:00 +23: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:00 +24: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:00 +24 -1: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:00 +24 -1: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v128/thai_life_map_v128_verdict_narrative_test.dart: Life Map V1.2.8 verdict narrative Current uses reality → pressure → life impact structure [E]
+  Expected: false
+    Actual: <true>
+  current summary contains banned hedge/coaching/catastrophe: ตอนนี้ธีมของช่วงนี้คือการเปิดรับโอกาสผ่านงานหรือเครือข่าย โดยใช้สิ่งที่เกิดขึ้นจริงเป็นตัวเทียบ
+  
+  package:matcher                                                                              expect
+  package:flutter_test/src/widget_tester.dart 473:18                                           expect
+  test\validation\thai_beta\life_map\v128\thai_life_map_v128_verdict_narrative_test.dart 30:7  main.<fn>.expectNoPolicyViolation
+  test\validation\thai_beta\life_map\v128\thai_life_map_v128_verdict_narrative_test.dart 78:7  main.<fn>.<fn>
+  
+00:00 +25 -1: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:00 +26 -1: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:00 +27 -1: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:00 +27 -2: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:00 +27 -2: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v128/thai_life_map_v128_verdict_narrative_test.dart: Life Map V1.2.8 verdict narrative eight weekdays produce verdict copy without policy violations [E]
+  Expected: false
+    Actual: <true>
+  pressure wd=7 age=12
+  
+  package:matcher                                                                                expect
+  package:flutter_test/src/widget_tester.dart 473:18                                             expect
+  test\validation\thai_beta\life_map\v128\thai_life_map_v128_verdict_narrative_test.dart 38:7    main.<fn>.expectNoPolicyViolation
+  test\validation\thai_beta\life_map\v128\thai_life_map_v128_verdict_narrative_test.dart 211:15  main.<fn>.<fn>
+  
+00:00 +27 -3: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:00 +27 -3: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v129/thai_life_map_v129_product_qa_artifact_test.dart: write V1.2.9 product QA artifact [E]
+  Expected: false
+    Actual: <true>
+  
+  package:matcher                                                                                expect
+  package:flutter_test/src/widget_tester.dart 473:18                                             expect
+  test\validation\thai_beta\life_map\v129\thai_life_map_v129_product_qa_artifact_test.dart 76:9  main.<fn>
+  
+00:00 +28 -3: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:00 +29 -3: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:00 +30 -3: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:00 +31 -3: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:00 +32 -3: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:00 +33 -3: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:01 +34 -3: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:01 +35 -3: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:01 +36 -3: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:01 +37 -3: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:01 +37 -4: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:01 +37 -4: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v129/thai_life_map_v129_semantic_verdict_test.dart: Life Map V1.2.9 semantic verdict eight weekdays × ages keep product copy [E]
+  Expected: false
+    Actual: <true>
+  pressure abstract-only: ลองเทียบกับชีวิตจริงว่า ความคาดหวังที่ไม่ได้พูดทำให้ระยะห่างเพิ่มขึ้นหรือไม่
+  
+  package:matcher                                                                               expect
+  package:flutter_test/src/widget_tester.dart 473:18                                            expect
+  test\validation\thai_beta\life_map\v129\thai_life_map_v129_semantic_verdict_test.dart 40:7    main.<fn>.expectProductCopy
+  test\validation\thai_beta\life_map\v129\thai_life_map_v129_semantic_verdict_test.dart 137:15  main.<fn>.<fn>
+  
+00:01 +38 -4: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:01 +39 -4: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:01 +39 -5: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:01 +39 -5: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v130/thai_life_map_v130_plain_thai_test.dart: Life Map V1.3.0 plain Thai each card has at most one ช่วงนั้น and no repeated time opens [E]
+  Expected: false
+    Actual: <true>
+  อิทธิพลดาวพุธ • การเรียนรู้ policy: ตอนนี้ธีมของช่วงนี้คือการเปิดรับโอกาสผ่านงานหรือเครือข่าย โดยใช้สิ่งที่เกิดขึ้นจริงเป็นตัวเทียบ
+  คุณฝืนตัวเองจนสะสมความล้า
+  ทักษะที่ฝึกไว้ใช้ต่อได้จริง
+  
+  package:matcher                                                                        expect
+  package:flutter_test/src/widget_tester.dart 473:18                                     expect
+  test\validation\thai_beta\life_map\v130\thai_life_map_v130_plain_thai_test.dart 40:7   main.<fn>.expectLanguageGate
+  test\validation\thai_beta\life_map\v130\thai_life_map_v130_plain_thai_test.dart 93:11  main.<fn>.<fn>
+  
+00:01 +40 -5: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:01 +40 -6: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:01 +40 -6: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past narratives have denser retrospective without advice [E]
+  Expected: false
+    Actual: <true>
+  
+  package:matcher                                                                            expect
+  package:flutter_test/src/widget_tester.dart 473:18                                         expect
+  test\validation\thai_beta\life_map\v126\thai_life_map_v126_time_bucket_ux_test.dart 211:9  main.<fn>.<fn>
+  
+00:01 +40 -7: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:01 +40 -7: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v130/thai_life_map_v130_plain_thai_test.dart: Life Map V1.3.0 plain Thai full 8-period UI text is plain and deterministic [E]
+  Expected: false
+    Actual: <true>
+  อิทธิพลดาวพุธ • การเรียนรู้ policy: ต่อไปธีมของช่วงนี้คือการเปิดรับโอกาสผ่านงานหรือเครือข่าย โดยใช้สิ่งที่เกิดขึ้นจริงเป็นตัวเทียบ
+  ลองเทียบกับชีวิตจริงว่า ความคาดหวังที่ไม่ได้พูดทำให้ระยะห่างเพิ่มขึ้นหรือไม่
+  คุณเลือกทางที่ถนัดชัดขึ้น
+  
+  package:matcher                                                                        expect
+  package:flutter_test/src/widget_tester.dart 473:18                                     expect
+  test\validation\thai_beta\life_map\v130\thai_life_map_v130_plain_thai_test.dart 40:7   main.<fn>.expectLanguageGate
+  test\validation\thai_beta\life_map\v130\thai_life_map_v130_plain_thai_test.dart 155:9  main.<fn>.<fn>
+  
+00:01 +41 -7: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:01 +41 -8: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:01 +41 -8: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v130/thai_life_map_v130_product_qa_artifact_test.dart: write V1.3.0 product QA artifact [E]
+  Expected: false
+    Actual: <true>
+  
+  package:matcher                                                                                expect
+  package:flutter_test/src/widget_tester.dart 473:18                                             expect
+  test\validation\thai_beta\life_map\v130\thai_life_map_v130_product_qa_artifact_test.dart 83:7  main.<fn>
+  
+00:01 +42 -8: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:01 +43 -8: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:01 +43 -9: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:01 +43 -9: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v131/thai_life_map_v131_narrative_depth_test.dart: Life Map V1.3.1 narrative depth Current uses natural actor-led pressure language [E]
+  Expected: false
+    Actual: <true>
+  
+  package:matcher                                                                             expect
+  package:flutter_test/src/widget_tester.dart 473:18                                          expect
+  test\validation\thai_beta\life_map\v131\thai_life_map_v131_narrative_depth_test.dart 88:11  main.<fn>.<fn>
+  
+00:01 +44 -9: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:01 +44 -10: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:01 +44 -10: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v131/thai_life_map_v131_narrative_depth_test.dart: Life Map V1.3.1 narrative depth deterministic and 8 periods still product-safe [E]
+  Expected: false
+    Actual: <true>
+  
+  package:matcher                                                                             expect
+  package:flutter_test/src/widget_tester.dart 473:18                                          expect
+  test\validation\thai_beta\life_map\v131\thai_life_map_v131_narrative_depth_test.dart 123:9  main.<fn>.<fn>
+  
+00:01 +44 -11: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:01 +44 -11: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v131/thai_life_map_v131_product_qa_artifact_test.dart: write V1.3.1 product QA artifact [E]
+  Expected: false
+    Actual: <true>
+  
+  package:matcher                                                                                expect
+  package:flutter_test/src/widget_tester.dart 473:18                                             expect
+  test\validation\thai_beta\life_map\v131\thai_life_map_v131_product_qa_artifact_test.dart 73:7  main.<fn>
+  
+00:01 +45 -11: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:02 +46 -11: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:02 +47 -11: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:02 +48 -11: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:02 +49 -11: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:02 +50 -11: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:02 +50 -12: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:02 +50 -12: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v132/thai_life_map_v132_copy_hierarchy_test.dart: Life Map V1.3.2 hierarchy and language Current has no vague relationship form-change jargon [E]
+  Expected: false
+    Actual: <true>
+  
+  package:matcher                                                                             expect
+  package:flutter_test/src/widget_tester.dart 473:18                                          expect
+  test\validation\thai_beta\life_map\v132\thai_life_map_v132_copy_hierarchy_test.dart 181:13  main.<fn>.<fn>
+  
+00:02 +51 -12: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+# Thai Life Map V1.2.7 — Simulated 864 Profile Matrix
+
+**Status:** COMPLETED
+**Fixtures:** synthetic QA only (no real-user PII / Auth / Firestore)
+**Reference clock:** `2026-07-15T12:00:00.000` (Asia/Bangkok)
+**Production Canon / formulas / invited_beta:** unchanged (matrix + optional `asOf` plumbing only)
+
+## Core matrix
+
+| Metric | Value |
+|--------|------:|
+| Generated | 864 |
+| Executed | 864 |
+| Skipped | 0 |
+| Passed | 325 |
+| Failed | 539 |
+| Mahabhut 8/0 | 375 |
+| Mahabhut with unknown | 489 |
+
+## By weekday category
+
+| Category | Pass | Fail |
+|----------|-----:|-----:|
+| วันอาทิตย์ (`sunday`) | 48 | 60 |
+| วันจันทร์ (`monday`) | 46 | 62 |
+| วันอังคาร (`tuesday`) | 48 | 60 |
+| วันพุธกลางวัน (`wednesday_day`) | 67 | 41 |
+| วันพุธกลางคืน (`wednesday_night`) | 28 | 80 |
+| วันพฤหัสบดี (`thursday`) | 63 | 45 |
+| วันศุกร์ (`friday`) | 5 | 103 |
+| วันเสาร์ (`saturday`) | 20 | 88 |
+
+## Age-band distribution (current age)
+
+| Band | Count |
+|------|------:|
+| earlyChildhood | 48 |
+| schoolAge | 48 |
+| teen | 40 |
+| youngAdult | 96 |
+| workingAdult | 160 |
+| midlife | 120 |
+| elder | 352 |
+
+## Unresolved Mahabhut reasons
+
+| Reason | Count |
+|--------|------:|
+| `AMBIGUOUS_ARCHETYPE_PLANET_PLACEMENT` | 1225 |
+| `AMBIGUOUS_MAHABHUT_POSITION` | 144 |
+| `SOURCE_CONFLICT_ARCHETYPE_PLANET_PLACEMENT` | 112 |
+
+## Failed fixture IDs
+
+- `sunday_age_2`
+- `sunday_age_3`
+- `sunday_age_4`
+- `sunday_age_5`
+- `sunday_age_7`
+- `sunday_age_8`
+- `sunday_age_9`
+- `sunday_age_10`
+- `sunday_age_11`
+- `sunday_age_13`
+- `sunday_age_14`
+- `sunday_age_15`
+- `sunday_age_17`
+- `sunday_age_18`
+- `sunday_age_19`
+- `sunday_age_20`
+- `sunday_age_21`
+- `sunday_age_22`
+- `sunday_age_24`
+- `sunday_age_25`
+- `sunday_age_26`
+- `sunday_age_28`
+- `sunday_age_30`
+- `sunday_age_31`
+- `sunday_age_32`
+- `sunday_age_35`
+- `sunday_age_36`
+- `sunday_age_37`
+- `sunday_age_39`
+- `sunday_age_41`
+- `sunday_age_42`
+- `sunday_age_43`
+- `sunday_age_45`
+- `sunday_age_46`
+- `sunday_age_47`
+- `sunday_age_48`
+- `sunday_age_50`
+- `sunday_age_52`
+- `sunday_age_53`
+- `sunday_age_56`
+- `sunday_age_58`
+- `sunday_age_59`
+- `sunday_age_63`
+- `sunday_age_64`
+- `sunday_age_65`
+- `sunday_age_67`
+- `sunday_age_69`
+- `sunday_age_70`
+- `sunday_age_73`
+- `sunday_age_74`
+- `sunday_age_75`
+- `sunday_age_76`
+- `sunday_age_78`
+- `sunday_age_80`
+- `sunday_age_81`
+- `sunday_age_84`
+- `sunday_age_86`
+- `sunday_age_87`
+- `sunday_age_92`
+- `sunday_age_103`
+- `monday_age_1`
+- `monday_age_2`
+- `monday_age_3`
+- `monday_age_4`
+- `monday_age_5`
+- `monday_age_6`
+- `monday_age_7`
+- `monday_age_8`
+- `monday_age_9`
+- `monday_age_10`
+- `monday_age_11`
+- `monday_age_12`
+- `monday_age_13`
+- `monday_age_14`
+- `monday_age_16`
+- `monday_age_17`
+- `monday_age_18`
+- `monday_age_19`
+- `monday_age_20`
+- `monday_age_22`
+- `monday_age_23`
+- `monday_age_24`
+- `monday_age_25`
+- `monday_age_27`
+- `monday_age_28`
+- `monday_age_29`
+- `monday_age_30`
+- `monday_age_31`
+- `monday_age_33`
+- `monday_age_34`
+- `monday_age_35`
+- `monday_age_36`
+- `monday_age_37`
+- `monday_age_38`
+- `monday_age_39`
+- `monday_age_40`
+- `monday_age_41`
+- `monday_age_44`
+- `monday_age_46`
+- `monday_age_51`
+- `monday_age_52`
+- `monday_age_55`
+- `monday_age_57`
+- `monday_age_61`
+- `monday_age_62`
+- `monday_age_63`
+- `monday_age_66`
+- `monday_age_68`
+- `monday_age_69`
+- `monday_age_72`
+- `monday_age_74`
+- `monday_age_79`
+- `monday_age_80`
+- `monday_age_85`
+- `monday_age_87`
+- `monday_age_90`
+- `monday_age_93`
+- `monday_age_96`
+- `monday_age_98`
+- `monday_age_101`
+- `monday_age_104`
+- `monday_age_107`
+- `tuesday_age_1`
+- `tuesday_age_2`
+- `tuesday_age_3`
+- `tuesday_age_4`
+- `tuesday_age_5`
+- `tuesday_age_6`
+- `tuesday_age_8`
+- `tuesday_age_9`
+- `tuesday_age_11`
+- `tuesday_age_12`
+- `tuesday_age_13`
+- `tuesday_age_14`
+- `tuesday_age_15`
+- `tuesday_age_16`
+- `tuesday_age_17`
+- `tuesday_age_18`
+- `tuesday_age_19`
+- `tuesday_age_20`
+- `tuesday_age_22`
+- `tuesday_age_23`
+- `tuesday_age_24`
+- `tuesday_age_25`
+- `tuesday_age_28`
+- `tuesday_age_30`
+- `tuesday_age_31`
+- `tuesday_age_36`
+- `tuesday_age_37`
+- `tuesday_age_39`
+- `tuesday_age_42`
+- `tuesday_age_45`
+- `tuesday_age_47`
+- `tuesday_age_48`
+- `tuesday_age_50`
+- `tuesday_age_53`
+- `tuesday_age_56`
+- `tuesday_age_57`
+- `tuesday_age_58`
+- `tuesday_age_59`
+- `tuesday_age_62`
+- `tuesday_age_64`
+- `tuesday_age_65`
+- `tuesday_age_67`
+- `tuesday_age_68`
+- `tuesday_age_70`
+- `tuesday_age_73`
+- `tuesday_age_76`
+- `tuesday_age_78`
+- `tuesday_age_79`
+- `tuesday_age_84`
+- `tuesday_age_85`
+- `tuesday_age_87`
+- `tuesday_age_90`
+- `tuesday_age_93`
+- `tuesday_age_95`
+- `tuesday_age_96`
+- `tuesday_age_98`
+- `tuesday_age_101`
+- `tuesday_age_104`
+- `tuesday_age_106`
+- `tuesday_age_107`
+- `wednesday_day_age_2`
+- `wednesday_day_age_3`
+- `wednesday_day_age_7`
+- `wednesday_day_age_8`
+- `wednesday_day_age_9`
+- `wednesday_day_age_11`
+- `wednesday_day_age_13`
+- `wednesday_day_age_14`
+- `wednesday_day_age_15`
+- `wednesday_day_age_16`
+- `wednesday_day_age_17`
+- `wednesday_day_age_18`
+- `wednesday_day_age_19`
+- `wednesday_day_age_20`
+- `wednesday_day_age_24`
+- `wednesday_day_age_25`
+- `wednesday_day_age_30`
+- `wednesday_day_age_31`
+- `wednesday_day_age_35`
+- `wednesday_day_age_36`
+- `wednesday_day_age_37`
+- `wednesday_day_age_41`
+- `wednesday_day_age_42`
+- `wednesday_day_age_46`
+- `wednesday_day_age_48`
+- `wednesday_day_age_52`
+- `wednesday_day_age_62`
+- `wednesday_day_age_63`
+- `wednesday_day_age_68`
+- `wednesday_day_age_69`
+- `wednesday_day_age_74`
+- `wednesday_day_age_79`
+- `wednesday_day_age_80`
+- `wednesday_day_age_85`
+- `wednesday_day_age_90`
+- `wednesday_day_age_91`
+- `wednesday_day_age_96`
+- `wednesday_day_age_97`
+- `wednesday_day_age_102`
+- `wednesday_day_age_107`
+- `wednesday_day_age_108`
+- `wednesday_night_age_1`
+- `wednesday_night_age_2`
+- `wednesday_night_age_3`
+- `wednesday_night_age_5`
+- `wednesday_night_age_6`
+- `wednesday_night_age_7`
+- `wednesday_night_age_8`
+- `wednesday_night_age_9`
+- `wednesday_night_age_10`
+- `wednesday_night_age_11`
+- `wednesday_night_age_12`
+- `wednesday_night_age_13`
+- `wednesday_night_age_14`
+- `wednesday_night_age_16`
+- `wednesday_night_age_17`
+- `wednesday_night_age_18`
+- `wednesday_night_age_19`
+- `wednesday_night_age_20`
+- `wednesday_night_age_22`
+- `wednesday_night_age_23`
+- `wednesday_night_age_24`
+- `wednesday_night_age_25`
+- `wednesday_night_age_27`
+- `wednesday_night_age_28`
+- `wednesday_night_age_29`
+- `wednesday_night_age_30`
+- `wednesday_night_age_31`
+- `wednesday_night_age_33`
+- `wednesday_night_age_34`
+- `wednesday_night_age_35`
+- `wednesday_night_age_36`
+- `wednesday_night_age_37`
+- `wednesday_night_age_38`
+- `wednesday_night_age_39`
+- `wednesday_night_age_40`
+- `wednesday_night_age_41`
+- `wednesday_night_age_42`
+- `wednesday_night_age_44`
+- `wednesday_night_age_45`
+- `wednesday_night_age_46`
+- `wednesday_night_age_47`
+- `wednesday_night_age_48`
+- `wednesday_night_age_50`
+- `wednesday_night_age_51`
+- `wednesday_night_age_52`
+- `wednesday_night_age_53`
+- `wednesday_night_age_55`
+- `wednesday_night_age_56`
+- `wednesday_night_age_57`
+- `wednesday_night_age_58`
+- `wednesday_night_age_59`
+- `wednesday_night_age_61`
+- `wednesday_night_age_62`
+- `wednesday_night_age_63`
+- `wednesday_night_age_64`
+- `wednesday_night_age_65`
+- `wednesday_night_age_66`
+- `wednesday_night_age_67`
+- `wednesday_night_age_68`
+- `wednesday_night_age_69`
+- `wednesday_night_age_70`
+- `wednesday_night_age_72`
+- `wednesday_night_age_73`
+- `wednesday_night_age_74`
+- `wednesday_night_age_75`
+- `wednesday_night_age_76`
+- `wednesday_night_age_78`
+- `wednesday_night_age_79`
+- `wednesday_night_age_81`
+- `wednesday_night_age_83`
+- `wednesday_night_age_86`
+- `wednesday_night_age_87`
+- `wednesday_night_age_89`
+- `wednesday_night_age_92`
+- `wednesday_night_age_93`
+- `wednesday_night_age_94`
+- `wednesday_night_age_98`
+- `wednesday_night_age_100`
+- `wednesday_night_age_103`
+- `wednesday_night_age_104`
+- `thursday_age_1`
+- `thursday_age_3`
+- `thursday_age_4`
+- `thursday_age_5`
+- `thursday_age_6`
+- `thursday_age_7`
+- `thursday_age_9`
+- `thursday_age_10`
+- `thursday_age_11`
+- `thursday_age_12`
+- `thursday_age_13`
+- `thursday_age_14`
+- `thursday_age_15`
+- `thursday_age_16`
+- `thursday_age_17`
+- `thursday_age_18`
+- `thursday_age_20`
+- `thursday_age_21`
+- `thursday_age_22`
+- `thursday_age_23`
+- `thursday_age_24`
+- `thursday_age_27`
+- `thursday_age_28`
+- `thursday_age_29`
+- `thursday_age_31`
+- `thursday_age_33`
+- `thursday_age_38`
+- `thursday_age_39`
+- `thursday_age_44`
+- `thursday_age_45`
+- `thursday_age_50`
+- `thursday_age_55`
+- `thursday_age_56`
+- `thursday_age_61`
+- `thursday_age_66`
+- `thursday_age_67`
+- `thursday_age_72`
+- `thursday_age_73`
+- `thursday_age_78`
+- `thursday_age_83`
+- `thursday_age_84`
+- `thursday_age_89`
+- `thursday_age_94`
+- `thursday_age_95`
+- `thursday_age_100`
+- `friday_age_1`
+- `friday_age_2`
+- `friday_age_3`
+- `friday_age_4`
+- `friday_age_5`
+- `friday_age_6`
+- `friday_age_7`
+- `friday_age_8`
+- `friday_age_9`
+- `friday_age_10`
+- `friday_age_11`
+- `friday_age_12`
+- `friday_age_13`
+- `friday_age_14`
+- `friday_age_15`
+- `friday_age_16`
+- `friday_age_17`
+- `friday_age_18`
+- `friday_age_19`
+- `friday_age_20`
+- `friday_age_21`
+- `friday_age_22`
+- `friday_age_23`
+- `friday_age_24`
+- `friday_age_25`
+- `friday_age_26`
+- `friday_age_27`
+- `friday_age_28`
+- `friday_age_29`
+- `friday_age_30`
+- `friday_age_31`
+- `friday_age_32`
+- `friday_age_33`
+- `friday_age_34`
+- `friday_age_35`
+- `friday_age_36`
+- `friday_age_37`
+- `friday_age_38`
+- `friday_age_39`
+- `friday_age_40`
+- `friday_age_41`
+- `friday_age_42`
+- `friday_age_43`
+- `friday_age_44`
+- `friday_age_45`
+- `friday_age_46`
+- `friday_age_47`
+- `friday_age_48`
+- `friday_age_49`
+- `friday_age_50`
+- `friday_age_51`
+- `friday_age_52`
+- `friday_age_53`
+- `friday_age_54`
+- `friday_age_55`
+- `friday_age_56`
+- `friday_age_57`
+- `friday_age_58`
+- `friday_age_59`
+- `friday_age_60`
+- `friday_age_61`
+- `friday_age_62`
+- `friday_age_63`
+- `friday_age_64`
+- `friday_age_65`
+- `friday_age_66`
+- `friday_age_67`
+- `friday_age_68`
+- `friday_age_69`
+- `friday_age_70`
+- `friday_age_71`
+- `friday_age_73`
+- `friday_age_74`
+- `friday_age_75`
+- `friday_age_76`
+- `friday_age_77`
+- `friday_age_78`
+- `friday_age_79`
+- `friday_age_80`
+- `friday_age_81`
+- `friday_age_82`
+- `friday_age_84`
+- `friday_age_85`
+- `friday_age_86`
+- `friday_age_87`
+- `friday_age_88`
+- `friday_age_90`
+- `friday_age_91`
+- `friday_age_92`
+- `friday_age_93`
+- `friday_age_95`
+- `friday_age_96`
+- `friday_age_97`
+- `friday_age_98`
+- `friday_age_99`
+- `friday_age_101`
+- `friday_age_102`
+- `friday_age_103`
+- `friday_age_104`
+- `friday_age_105`
+- `friday_age_106`
+- `friday_age_107`
+- `friday_age_108`
+- `saturday_age_1`
+- `saturday_age_2`
+- `saturday_age_3`
+- `saturday_age_4`
+- `saturday_age_5`
+- `saturday_age_6`
+- `saturday_age_7`
+- `saturday_age_8`
+- `saturday_age_9`
+- `saturday_age_10`
+- `saturday_age_11`
+- `saturday_age_12`
+- `saturday_age_13`
+- `saturday_age_14`
+- `saturday_age_15`
+- `saturday_age_16`
+- `saturday_age_17`
+- `saturday_age_18`
+- `saturday_age_19`
+- `saturday_age_20`
+- `saturday_age_21`
+- `saturday_age_22`
+- `saturday_age_23`
+- `saturday_age_24`
+- `saturday_age_25`
+- `saturday_age_26`
+- `saturday_age_27`
+- `saturday_age_28`
+- `saturday_age_29`
+- `saturday_age_30`
+- `saturday_age_31`
+- `saturday_age_32`
+- `saturday_age_33`
+- `saturday_age_34`
+- `saturday_age_35`
+- `saturday_age_36`
+- `saturday_age_37`
+- `saturday_age_38`
+- `saturday_age_39`
+- `saturday_age_40`
+- `saturday_age_41`
+- `saturday_age_43`
+- `saturday_age_44`
+- `saturday_age_46`
+- `saturday_age_47`
+- `saturday_age_49`
+- `saturday_age_51`
+- `saturday_age_52`
+- `saturday_age_53`
+- `saturday_age_54`
+- `saturday_age_55`
+- `saturday_age_57`
+- `saturday_age_58`
+- `saturday_age_60`
+- `saturday_age_61`
+- `saturday_age_62`
+- `saturday_age_63`
+- `saturday_age_64`
+- `saturday_age_66`
+- `saturday_age_68`
+- `saturday_age_69`
+- `saturday_age_71`
+- `saturday_age_72`
+- `saturday_age_74`
+- `saturday_age_75`
+- `saturday_age_77`
+- `saturday_age_79`
+- `saturday_age_80`
+- `saturday_age_81`
+- `saturday_age_82`
+- `saturday_age_83`
+- `saturday_age_85`
+- `saturday_age_86`
+- `saturday_age_88`
+- `saturday_age_89`
+- `saturday_age_90`
+- `saturday_age_91`
+- `saturday_age_92`
+- `saturday_age_94`
+- `saturday_age_96`
+- `saturday_age_97`
+- `saturday_age_99`
+- `saturday_age_100`
+- `saturday_age_102`
+- `saturday_age_103`
+- `saturday_age_105`
+- `saturday_age_107`
+- `saturday_age_108`
+
+## Boundary suite
+
+Boundary assertions live in `thai_life_map_v127_boundary_test.dart` (Wednesday second-cutoff, ThaiBeta minute before/after sunset, birthday/year/leap, ages 1 & 108, pre-sunrise astrological-date rollover). Core matrix markdown does not re-execute that suite; CI runs both files.
+
+00:11 +51 -12: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix generated == executed == 864 and skipped == 0
+00:11 +52 -12: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix all 864 fixtures pass production-path assertions
+00:11 +52 -13: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix all 864 fixtures pass production-path assertions [E]
+  Expected: empty
+    Actual: [
+              'sunday_age_2',
+              'sunday_age_3',
+              'sunday_age_4',
+              'sunday_age_5',
+              'sunday_age_7',
+              'sunday_age_8',
+              'sunday_age_9',
+              'sunday_age_10',
+              'sunday_age_11',
+              'sunday_age_13',
+              'sunday_age_14',
+              'sunday_age_15',
+              'sunday_age_17',
+              'sunday_age_18',
+              'sunday_age_19',
+              'sunday_age_20',
+              'sunday_age_21',
+              'sunday_age_22',
+              'sunday_age_24',
+              'sunday_age_25',
+              'sunday_age_26',
+              'sunday_age_28',
+              'sunday_age_30',
+              'sunday_age_31',
+              ...
+            ]
+  sunday_age_2, sunday_age_3, sunday_age_4, sunday_age_5, sunday_age_7, sunday_age_8, sunday_age_9, sunday_age_10, sunday_age_11, sunday_age_13, sunday_age_14, sunday_age_15, sunday_age_17, sunday_age_18, sunday_age_19, sunday_age_20, sunday_age_21, sunday_age_22, sunday_age_24, sunday_age_25
+  
+  package:matcher                                                                    expect
+  package:flutter_test/src/widget_tester.dart 473:18                                 expect
+  test\validation\thai_beta\life_map\v127\thai_life_map_v127_matrix_test.dart 143:7  main.<fn>.<fn>
+  
+00:11 +52 -13: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix each weekday category has 108 passes
+00:11 +52 -14: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix each weekday category has 108 passes [E]
+  Expected: <108>
+    Actual: <48>
+  sunday
+  
+  package:matcher                                                                    expect
+  package:flutter_test/src/widget_tester.dart 473:18                                 expect
+  test\validation\thai_beta\life_map\v127\thai_life_map_v127_matrix_test.dart 154:9  main.<fn>.<fn>
+  
+00:11 +52 -14: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix Canon wiring never yields all-eight-unknown across matrix
+00:11 +53 -14: C:/Users/USER/Documents/Knowme/thai-narrative-v1-5/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (tearDownAll)
+00:11 +53 -14: Some tests failed.

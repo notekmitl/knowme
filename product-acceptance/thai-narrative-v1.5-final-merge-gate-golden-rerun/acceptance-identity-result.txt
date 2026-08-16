@@ -1,0 +1,23 @@
+r7.1ZipBytes: 10709328
+r7.1ZipSha256: 9E541F21C68FDAD93BC595C55BD0BE23600F88454CFBA7FAB6C713FE53F79E58
+r7.1ZipEntries: 80
+unsafeZipEntries: 0
+zipChecksumEntries: 79
+zipChecksumMismatches: 0
+folderChecksumEntries: 79
+folderChecksumMismatches: 0
+immutableFilesCompared: 63
+immutableMismatches: 0
+canonicalWebPdfPairs: 5/5
+canonicalWebPdfMismatches: 0
+owner-known-0035 canonicalWebPdfSha256: 08F446D1B72A10F985B80C34702785A4DE61AB96DE5DC01374837876D32396E3
+owner-unknown canonicalWebPdfSha256: DC1BD76EA0DFA6139A15F048503B92DE228AA46809596A588ABDB3B8E3681FAB
+regression-known-0003 canonicalWebPdfSha256: 2C1880ACB74D1523CCA814512B1E53D0C06DF71F7E77FDD278E4BA43FDEE3177
+comparison-known-bangkok canonicalWebPdfSha256: 1DA55E88C330307029F235F907A0B5BB274930BC359FA80AE8842E6D46017599
+comparison-known-khon-kaen canonicalWebPdfSha256: D5FF068385F39798040336EB4A60A0241048E1FC6C6B4DF919A8C583F0C49D62
+ownerKnown: Aquarius 19°19′
+regression0003: Aquarius 9°24′
+unknownFailClosedNoLagna: true
+claimTraceability: 170/170
+r1ThroughR7.1ModifiedPaths: 0
+result: PASS

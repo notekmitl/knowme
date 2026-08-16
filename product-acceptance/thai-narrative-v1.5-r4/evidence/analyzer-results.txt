@@ -1,0 +1,5 @@
+Scoped Flutter analyzer
+Date: 2026-08-15
+Scope: 13 changed implementation and test files for Thai Narrative V1.5 R4
+Result: No issues found (12.3s)
+Exit code: 0

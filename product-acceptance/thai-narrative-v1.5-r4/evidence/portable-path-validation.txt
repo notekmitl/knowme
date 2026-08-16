@@ -1,0 +1,13 @@
+Portable path validation — Thai Narrative V1.5 R4
+ZIP entries: 76
+Entry separator policy: POSIX / only
+Backslash entries: 0
+Absolute paths: 0
+Drive paths: 0
+Parent traversal paths: 0
+Duplicate normalized names: 0
+Clean temporary extraction: PASS
+Extracted directory structure comparison: PASS
+SHA256SUMS lines: 75
+SHA256SUMS verified: 75
+Checksum warnings: 0

@@ -10,13 +10,19 @@ void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
   group('Screen / PDF parity', () {
-    test('PDF starts from the authoritative Core Reading, not legacy hero', () {
+    test('PDF starts from Core Reading and includes the R4 report hook', () {
       final analysis = ThaiBetaNarrativeFixtures.fixtureA();
       final screen = ThaiBetaNarrativeComposer.narrativeView(analysis);
       final core = ThaiBirthProfileCoreReading.fromAnalysis(analysis);
       final export = ThaiBetaReportExportDocument.fromAnalysis(analysis);
       expect(export.sections.first.title, core.title);
-      expect(export.fullPlainText, isNot(contains(screen.hero.headline)));
+      expect(export.fullPlainText, contains(screen.hero.headline));
+      expect(export.fullPlainText, contains('คำถาม'));
+      for (final window in screen.futurePrediction!.windows) {
+        for (final domain in window.domains) {
+          expect(export.fullPlainText, contains(domain.body));
+        }
+      }
       for (final section in core.sections) {
         final exported = export.sections.singleWhere(
           (candidate) => candidate.title == section.title,
@@ -45,10 +51,8 @@ void main() {
       );
       expect(
         result.plainText,
-        isNot(
-          contains(
-            ThaiBetaNarrativeComposer.narrativeView(analysis).hero.headline,
-          ),
+        contains(
+          ThaiBetaNarrativeComposer.narrativeView(analysis).hero.headline,
         ),
       );
     });

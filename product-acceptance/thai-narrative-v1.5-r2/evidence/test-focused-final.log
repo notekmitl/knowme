@@ -1,0 +1,5 @@
+COMMAND: flutter test test/validation/thai_beta/narrative test/validation/thai_beta/core_reading test/validation/thai_beta/thai_beta_report_export_test.dart test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart --reporter compact
+EXIT_CODE: 0
+PASSED: 261
+FAILED: 0
+FINAL: All tests passed!

@@ -1,0 +1,72 @@
+{
+  "baseline": {
+    "path": "rejected-v14-text.txt",
+    "sha256": "CDDFC92C8F533830F873E04BA4E0F7F8B5E490E7DEF0063D888B2082EB609391",
+    "sentences": 107,
+    "exact_duplicate_sentence_groups": 0,
+    "high_overlap_pairs": 0,
+    "high_overlap_examples": [],
+    "distinctive_phrase_counts": {
+      "วินัย ความต่อเนื่อง และการสร้างฐานทีละขั้น": 3,
+      "การแบกภาระนานเกินไปโดยไม่ปรับวิธี": 2,
+      "การวางระบบที่ทำซ้ำได้": 2
+    },
+    "hedge_counts": {
+      "มัก": 7,
+      "อาจ": 4,
+      "ลอง": 6,
+      "ควร": 7,
+      "มีโอกาส": 4,
+      "หาก": 5
+    },
+    "hedge_total": 33,
+    "word_count": 392,
+    "hedges_per_100_words": 8.42
+  },
+  "candidate": {
+    "path": "known-time-pdf-text.txt",
+    "sha256": "5B0A0882A2FEFD65BC90E510D14420CDEE5FCD3B01D4F31A55C25FC103D00135",
+    "sentences": 55,
+    "exact_duplicate_sentence_groups": 0,
+    "high_overlap_pairs": 4,
+    "high_overlap_examples": [
+      {
+        "left": 45,
+        "right": 46,
+        "ratio": 0.87
+      },
+      {
+        "left": 45,
+        "right": 47,
+        "ratio": 0.831
+      },
+      {
+        "left": 45,
+        "right": 48,
+        "ratio": 0.852
+      },
+      {
+        "left": 46,
+        "right": 48,
+        "ratio": 0.825
+      }
+    ],
+    "distinctive_phrase_counts": {
+      "วินัย ความต่อเนื่อง และการสร้างฐานทีละขั้น": 1,
+      "การแบกภาระนานเกินไปโดยไม่ปรับวิธี": 1,
+      "การวางระบบที่ทำซ้ำได้": 1
+    },
+    "hedge_counts": {
+      "มัก": 3,
+      "อาจ": 1,
+      "ลอง": 2,
+      "ควร": 5,
+      "มีโอกาส": 3,
+      "หาก": 3
+    },
+    "hedge_total": 17,
+    "word_count": 267,
+    "hedges_per_100_words": 6.37
+  },
+  "result": "PASS"
+}

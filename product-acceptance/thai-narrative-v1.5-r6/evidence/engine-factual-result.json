@@ -1,0 +1,23 @@
+{
+  "schema": "knowme-thai-narrative-v1.5-r6-engine-facts",
+  "fixtures": [
+    {
+      "fixtureId": "owner-known-1982-06-06-0035-chiang-mai",
+      "birthDate": "1982-06-06",
+      "birthTime": "00:35",
+      "provinceKey": "chiang_mai",
+      "lagnaKey": "lagna_aquarius",
+      "lagnaSignThai": "ราศีกุมภ์",
+      "lagnaDegree": "19°19′"
+    },
+    {
+      "fixtureId": "regression-known-1982-06-06-0003-chiang-mai",
+      "birthDate": "1982-06-06",
+      "birthTime": "00:03",
+      "provinceKey": "chiang_mai",
+      "lagnaKey": "lagna_aquarius",
+      "lagnaSignThai": "ราศีกุมภ์",
+      "lagnaDegree": "9°24′"
+    }
+  ]
+}

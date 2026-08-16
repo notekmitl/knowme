@@ -121,7 +121,14 @@ void main() {
           final matching = reading.sections.where((s) => s.domain == domain);
           if (matching.isEmpty) continue;
           final domainText = matching.single.paragraphs.join('\n');
-          expect(matching.single.claims.length, greaterThanOrEqualTo(2));
+          // V1.5 gives each domain one supported synthesis; prioritised advice
+          // belongs in the report ending instead of every domain card.
+          expect(
+            matching.single.claims.where(
+              (claim) => claim.role == ThaiBirthProfileCoreClaimRole.synthesis,
+            ),
+            hasLength(1),
+          );
           expect(domainText, isNot(contains('แนวโน้มหลัก:')));
           expect(domainText, isNot(contains('สิ่งที่ควรระวัง:')));
           expect(domainText, isNot(contains('สิ่งที่นำไปใช้ได้:')));
@@ -141,7 +148,7 @@ void main() {
         } else {
           expect(
             methodology.paragraphs.join('\n'),
-            contains('วันทางโหราศาสตร์อาจเป็นวันก่อนหน้า'),
+            isNot(contains('วันทางโหราศาสตร์')),
           );
         }
         if (analysis.input.hasBirthTime) {
@@ -160,7 +167,7 @@ void main() {
         if (closingSections.isNotEmpty) {
           final closing = closingSections.single;
           expect(closing.claims, hasLength(1), reason: entry.key);
-          expect(closing.claims.single.text, contains('ถ้าต้องเลือกเพียงเรื่องเดียว'));
+          expect(closing.claims.single.text, startsWith('แก่นของคำอ่านนี้'));
         }
         if (reading.omissions.isEmpty) {
           expect(
@@ -232,7 +239,7 @@ void main() {
     );
 
     expect(closing.claims, hasLength(1));
-    expect(closing.claims.single.text, contains('ถ้าต้องเลือกเพียงเรื่องเดียว'));
+    expect(closing.claims.single.text, startsWith('แก่นของคำอ่านนี้'));
     expect(closing.claims.single.evidenceKeys, isNotEmpty);
     expect(
       closing.claims.single.sourceAtoms.every(

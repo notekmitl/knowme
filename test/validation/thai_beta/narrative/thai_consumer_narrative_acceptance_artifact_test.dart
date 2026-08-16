@@ -11,6 +11,8 @@ import 'package:knowme/features/thai_beta/application/thai_beta_report_pdf_expor
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart';
 
+import 'thai_beta_v15_r4_acceptance_audit.dart';
+
 void main() {
   final outputPath = Platform.environment['KNOWME_ACCEPTANCE_OUTPUT'];
   final captureVariant = Platform.environment['KNOWME_CAPTURE_VARIANT'] ?? '';
@@ -22,18 +24,35 @@ void main() {
     _stage('fixture-loading', 'start');
     final output = Directory(outputPath)..createSync(recursive: true);
     _stage('known-canonical-analysis', 'start');
-    final knownAnalysis = _analysis(knownTime: true);
+    final knownAnalysis = _analysis(knownTime: true, minute: 35);
     _stage('known-canonical-analysis', 'complete');
     _stage('unknown-canonical-analysis', 'start');
     final unknownAnalysis = _analysis(knownTime: false);
     _stage('unknown-canonical-analysis', 'complete');
     final fixtures = <String, ThaiBetaAnalysis>{
-      'known-time': knownAnalysis,
-      'unknown-time': unknownAnalysis,
+      'owner-known-0035': knownAnalysis,
+      'owner-unknown': unknownAnalysis,
+      'regression-known-0003': _analysis(knownTime: true, minute: 3),
+      'comparison-known-bangkok': _comparisonAnalysis(
+        date: DateTime(1991, 11, 18),
+        hour: 14,
+        minute: 20,
+        province: 'กรุงเทพมหานคร',
+        provinceKey: 'bangkok',
+      ),
+      'comparison-known-khon-kaen': _comparisonAnalysis(
+        date: DateTime(1974, 2, 27),
+        hour: 6,
+        minute: 45,
+        province: 'ขอนแก่น',
+        provinceKey: 'khon_kaen',
+      ),
     };
     _stage('fixture-loading', 'complete');
 
     if (captureVariant.isEmpty) {
+      final webTexts = <String, String>{};
+      final pdfTexts = <String, String>{};
       for (final entry in fixtures.entries) {
         _stage('pdf-generation:${entry.key}', 'start');
         final document = ThaiBetaReportExportDocument.fromAnalysis(entry.value);
@@ -47,43 +66,79 @@ void main() {
         File(
           '${output.path}/${entry.key}-pdf-text.txt',
         ).writeAsStringSync(pdf.plainText);
+        webTexts[entry.key] = document.fullPlainText;
+        pdfTexts[entry.key] = pdf.plainText;
         _stage('web-pdf-canonical:${entry.key}', 'complete');
       }
-      final known = fixtures['known-time']!;
-      final longitude = known.profile!.siderealAscendantDeg!;
-      final withinSign = ((longitude % 30) + 30) % 30;
-      final totalMinutes = (withinSign * 60).round();
-      final degree =
-          '${totalMinutes ~/ 60}°${(totalMinutes % 60).toString().padLeft(2, '0')}′';
+      final known = fixtures['owner-known-0035']!;
+      final regression = fixtures['regression-known-0003']!;
+      Map<String, Object?> factFor(
+        ThaiBetaAnalysis analysis, {
+        required String fixtureId,
+        required String birthTime,
+      }) {
+        final longitude = analysis.profile!.siderealAscendantDeg!;
+        final withinSign = ((longitude % 30) + 30) % 30;
+        final totalMinutes = (withinSign * 60).round();
+        final degree =
+            '${totalMinutes ~/ 60}°${(totalMinutes % 60).toString().padLeft(2, '0')}′';
+        return <String, Object?>{
+          'fixtureId': fixtureId,
+          'birthDate': '1982-06-06',
+          'birthTime': birthTime,
+          'provinceKey': 'chiang_mai',
+          'lagnaKey': analysis.profile!.lagnaKey,
+          'lagnaSignThai': 'ราศีกุมภ์',
+          'lagnaDegree': degree,
+        };
+      }
+
+      final knownFacts = factFor(
+        known,
+        fixtureId: 'owner-known-1982-06-06-0035-chiang-mai',
+        birthTime: '00:35',
+      );
+      final regressionFacts = factFor(
+        regression,
+        fixtureId: 'regression-known-1982-06-06-0003-chiang-mai',
+        birthTime: '00:03',
+      );
       final facts = <String, Object?>{
-        'fixtureId': 'known-1982-06-06-0003-chiang-mai',
-        'birthDate': '1982-06-06',
-        'birthTime': '00:03',
-        'provinceKey': 'chiang_mai',
-        'lagnaKey': known.profile!.lagnaKey,
-        'lagnaSignThai': 'ราศีกุมภ์',
-        'lagnaDegree': degree,
+        'schema': 'knowme-thai-narrative-v1.5-r7-engine-facts',
+        'fixtures': [knownFacts, regressionFacts],
       };
       final factualJson = const JsonEncoder.withIndent('  ').convert(facts);
       File(
         '${output.path}/engine-factual-result.json',
       ).writeAsStringSync('$factualJson\n');
-      final factText = '${facts['lagnaSignThai']} ${facts['lagnaDegree']}';
-      for (final name in [
-        'known-time-web-text.txt',
-        'known-time-pdf-text.txt',
+      for (final check in <(String, Map<String, Object?>)>[
+        ('owner-known-0035', knownFacts),
+        ('regression-known-0003', regressionFacts),
       ]) {
-        if (!File(
-          '${output.path}/$name',
-        ).readAsStringSync().contains(factText)) {
-          throw StateError('$name disagrees with engine fact $factText');
+        final factText =
+            '${check.$2['lagnaSignThai']} ${check.$2['lagnaDegree']}';
+        for (final suffix in ['web-text.txt', 'pdf-text.txt']) {
+          final name = '${check.$1}-$suffix';
+          if (!File(
+            '${output.path}/$name',
+          ).readAsStringSync().contains(factText)) {
+            throw StateError('$name disagrees with engine fact $factText');
+          }
         }
       }
       File('${output.path}/MANIFEST.generated.md').writeAsStringSync(
         '# Generated acceptance facts\n\n'
-        '- Fixture: `${facts['fixtureId']}`\n'
-        '- Known ascendant: `$factText`\n'
+        '- Owner Known fixture: `${knownFacts['fixtureId']}`\n'
+        '- Owner Known ascendant: `${knownFacts['lagnaSignThai']} ${knownFacts['lagnaDegree']}`\n'
+        '- Regression fixture: `${regressionFacts['fixtureId']}`\n'
+        '- Regression ascendant: `${regressionFacts['lagnaSignThai']} ${regressionFacts['lagnaDegree']}`\n'
         '- Factual source: `engine-factual-result.json`\n',
+      );
+      writeR7AcceptanceAudits(
+        output: output,
+        fixtures: fixtures,
+        webTexts: webTexts,
+        pdfTexts: pdfTexts,
       );
       _stage('manifest-generation', 'complete');
     }
@@ -115,20 +170,39 @@ void main() {
   });
 }
 
+ThaiBetaAnalysis _comparisonAnalysis({
+  required DateTime date,
+  required int hour,
+  required int minute,
+  required String province,
+  required String provinceKey,
+}) => ThaiBetaAnalysisRunner.run(
+  ThaiBetaInput(
+    firstName: 'Comparison',
+    lastName: 'Fixture',
+    birthDate: date,
+    birthHour: hour,
+    birthMinute: minute,
+    province: province,
+    provinceKey: provinceKey,
+  ),
+  startedAt: DateTime(2026, 8, 7),
+);
+
 void _stage(String name, String state) {
   stderr.writeln(
     '[V14_STAGE] ${DateTime.now().toUtc().toIso8601String()} $name $state',
   );
 }
 
-ThaiBetaAnalysis _analysis({required bool knownTime}) {
+ThaiBetaAnalysis _analysis({required bool knownTime, int minute = 0}) {
   return ThaiBetaAnalysisRunner.run(
     ThaiBetaInput(
       firstName: 'Acceptance',
       lastName: 'Fixture',
       birthDate: DateTime(1982, 6, 6),
       birthHour: knownTime ? 0 : null,
-      birthMinute: knownTime ? 3 : 0,
+      birthMinute: knownTime ? minute : 0,
       birthTimeUnknown: !knownTime,
       province: 'เชียงใหม่',
       provinceKey: 'chiang_mai',

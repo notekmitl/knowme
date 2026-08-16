@@ -1,0 +1,9 @@
+command: flutter analyze --no-pub
+branchHead: a6eb5fa02d48dabce5ff809f90abc88b658c5dfc
+mainHead: 22cbb3cfcb583b63fe8d48a164d5083d9ee32163
+branchDiagnostics: 299
+mainDiagnostics: 299
+branchOnlyDiagnostics: 0
+mainOnlyDiagnostics: 0
+newDiagnosticsDelta: 0
+result: PASS (no new branch diagnostics compared with origin/main)

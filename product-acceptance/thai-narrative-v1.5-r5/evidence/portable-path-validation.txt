@@ -1,0 +1,11 @@
+Portable ZIP validation
+
+- Expected file entries: 76
+- Backslash path entries: 0
+- Absolute path entries: 0
+- Drive-qualified path entries: 0
+- Parent-traversal path entries: 0
+- Duplicate path entries: 0
+- Clean temporary extraction: PASS
+- SHA256SUMS verification after extraction: PASS
+- Warnings: 0

@@ -1,0 +1,35 @@
+baseline: a6eb5fa02d48dabce5ff809f90abc88b658c5dfc
+currentSourceHead: a6eb5fa02d48dabce5ff809f90abc88b658c5dfc
+changedPaths: 23
+allowedOwnerAcceptanceDocs: 7
+finalMergeGateEvidencePaths: 16
+unexpectedPaths: 0
+r1ThroughR7.1ModifiedPaths: 0
+productCodeOrTestPaths: 0
+canonicalPdfOrRenderPathsOutsideGateEvidence: 0
+result: PASS
+
+changedPathList:
+docs/CURRENT_STATUS.md
+docs/HANDOFF.md
+docs/ROADMAP.md
+docs/THAI_CONSUMER_NARRATIVE_VOICE_V1.md
+docs/THAI_NARRATIVE_V15_OWNER_ACCEPTANCE.md
+product-acceptance/thai-narrative-v1.5-final-merge-gate/acceptance-regression-result.txt
+product-acceptance/thai-narrative-v1.5-final-merge-gate/analyzer-delta-result.txt
+product-acceptance/thai-narrative-v1.5-final-merge-gate/focused-test-result.txt
+product-acceptance/thai-narrative-v1.5-final-merge-gate/full-analyzer-branch-result.txt
+product-acceptance/thai-narrative-v1.5-final-merge-gate/full-analyzer-main-result.txt
+product-acceptance/thai-narrative-v1.5-final-merge-gate/full-test-delta-result.txt
+product-acceptance/thai-narrative-v1.5-final-merge-gate/full-test-main-result.txt
+product-acceptance/thai-narrative-v1.5-final-merge-gate/full-test-result.txt
+product-acceptance/thai-narrative-v1.5-final-merge-gate/git-scope-validation.txt
+product-acceptance/thai-narrative-v1.5-final-merge-gate/life-map-regression-result.txt
+product-acceptance/thai-narrative-v1.5-final-merge-gate/r7.1-identity-validation.txt
+product-acceptance/thai-narrative-v1.5-final-merge-gate/r7.1-utf8-validation-result.json
+product-acceptance/thai-narrative-v1.5-final-merge-gate/README.md
+product-acceptance/thai-narrative-v1.5-final-merge-gate/scoped-analyzer-result.txt
+product-acceptance/thai-narrative-v1.5-final-merge-gate/SHA256SUMS.txt
+product-acceptance/thai-narrative-v1.5-final-merge-gate/web-release-build-result.txt
+TASK_RESULT.md
+task.md

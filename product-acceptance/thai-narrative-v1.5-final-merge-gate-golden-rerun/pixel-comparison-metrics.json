@@ -1,0 +1,1464 @@
+{
+  "schema": "knowme-v1.5-life-map-golden-three-way-comparison-v1",
+  "comparisonRule": "RGBA exact pixel comparison on a top-left aligned white canvas sized to the union dimensions",
+  "files": [
+    {
+      "path": "test/validation/thai_mirror_qa_harness/screenshots/a_desktop_thai_consumer_life_timeline.png",
+      "profile": "A",
+      "viewport": "desktop",
+      "sources": {
+        "main": "git commit 22cbb3cfcb583b63fe8d48a164d5083d9ee32163",
+        "branch": "tracked golden at starting HEAD 5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7",
+        "repaired": "fresh Flutter test actual after four-string Life Map repair"
+      },
+      "images": {
+        "main": {
+          "dimensions": {
+            "width": 780,
+            "height": 2517
+          },
+          "bytes": 216896,
+          "sha256": "DFB06D8498152309F2FD8AB0A865D34E131BD93772716F2EED3D7962C4EF9401"
+        },
+        "branch": {
+          "dimensions": {
+            "width": 780,
+            "height": 2491
+          },
+          "bytes": 216414,
+          "sha256": "AB77CCA3FBEEE837B61B5860DAE4D700A3E9D67A04FDA0893BF12B643D32F6CA"
+        },
+        "repaired": {
+          "dimensions": {
+            "width": 780,
+            "height": 2517
+          },
+          "bytes": 216896,
+          "sha256": "DFB06D8498152309F2FD8AB0A865D34E131BD93772716F2EED3D7962C4EF9401"
+        }
+      },
+      "comparisons": {
+        "mainVsBranch": {
+          "comparisonCanvas": {
+            "width": 780,
+            "height": 2517
+          },
+          "exactPixelDifferenceCount": 222190,
+          "differencePercentage": 11.317401,
+          "changedBoundingBox": [
+            0,
+            1494,
+            780,
+            2517
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        },
+        "mainVsRepaired": {
+          "comparisonCanvas": {
+            "width": 780,
+            "height": 2517
+          },
+          "exactPixelDifferenceCount": 0,
+          "differencePercentage": 0.0,
+          "changedBoundingBox": null,
+          "dimensionsEqual": true,
+          "pixelIdentical": true
+        },
+        "branchVsRepaired": {
+          "comparisonCanvas": {
+            "width": 780,
+            "height": 2517
+          },
+          "exactPixelDifferenceCount": 222190,
+          "differencePercentage": 11.317401,
+          "changedBoundingBox": [
+            0,
+            1494,
+            780,
+            2517
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        }
+      }
+    },
+    {
+      "path": "test/validation/thai_mirror_qa_harness/screenshots/a_mobile_thai_consumer_life_timeline.png",
+      "profile": "A",
+      "viewport": "mobile",
+      "sources": {
+        "main": "git commit 22cbb3cfcb583b63fe8d48a164d5083d9ee32163",
+        "branch": "tracked golden at starting HEAD 5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7",
+        "repaired": "fresh Flutter test actual after four-string Life Map repair"
+      },
+      "images": {
+        "main": {
+          "dimensions": {
+            "width": 326,
+            "height": 4871
+          },
+          "bytes": 174929,
+          "sha256": "27CEC196EE1758803544C6593DB07951E6A619EB727BE90D995DE3EDDEE7C24F"
+        },
+        "branch": {
+          "dimensions": {
+            "width": 326,
+            "height": 4793
+          },
+          "bytes": 173892,
+          "sha256": "263A2571CDBEBBD309FE10C80188B9CEECB411649979FEF18E74880198388E27"
+        },
+        "repaired": {
+          "dimensions": {
+            "width": 326,
+            "height": 4871
+          },
+          "bytes": 174929,
+          "sha256": "27CEC196EE1758803544C6593DB07951E6A619EB727BE90D995DE3EDDEE7C24F"
+        }
+      },
+      "comparisons": {
+        "mainVsBranch": {
+          "comparisonCanvas": {
+            "width": 326,
+            "height": 4871
+          },
+          "exactPixelDifferenceCount": 199064,
+          "differencePercentage": 12.535943,
+          "changedBoundingBox": [
+            0,
+            2673,
+            326,
+            4871
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        },
+        "mainVsRepaired": {
+          "comparisonCanvas": {
+            "width": 326,
+            "height": 4871
+          },
+          "exactPixelDifferenceCount": 0,
+          "differencePercentage": 0.0,
+          "changedBoundingBox": null,
+          "dimensionsEqual": true,
+          "pixelIdentical": true
+        },
+        "branchVsRepaired": {
+          "comparisonCanvas": {
+            "width": 326,
+            "height": 4871
+          },
+          "exactPixelDifferenceCount": 199064,
+          "differencePercentage": 12.535943,
+          "changedBoundingBox": [
+            0,
+            2673,
+            326,
+            4871
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        }
+      }
+    },
+    {
+      "path": "test/validation/thai_mirror_qa_harness/screenshots/a_tablet_thai_consumer_life_timeline.png",
+      "profile": "A",
+      "viewport": "tablet",
+      "sources": {
+        "main": "git commit 22cbb3cfcb583b63fe8d48a164d5083d9ee32163",
+        "branch": "tracked golden at starting HEAD 5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7",
+        "repaired": "fresh Flutter test actual after four-string Life Map repair"
+      },
+      "images": {
+        "main": {
+          "dimensions": {
+            "width": 704,
+            "height": 2614
+          },
+          "bytes": 202303,
+          "sha256": "F76D3C3D96B4E59BD1FA5D161F62A51BAF5D5CDC7568635ABD9270FB103C4E1C"
+        },
+        "branch": {
+          "dimensions": {
+            "width": 704,
+            "height": 2588
+          },
+          "bytes": 201860,
+          "sha256": "66C4C099569FBE45D9A3F08FA555FCD8ADEF1CC4B180F4E0AE83A6F7086CA4BD"
+        },
+        "repaired": {
+          "dimensions": {
+            "width": 704,
+            "height": 2614
+          },
+          "bytes": 202303,
+          "sha256": "F76D3C3D96B4E59BD1FA5D161F62A51BAF5D5CDC7568635ABD9270FB103C4E1C"
+        }
+      },
+      "comparisons": {
+        "mainVsBranch": {
+          "comparisonCanvas": {
+            "width": 704,
+            "height": 2614
+          },
+          "exactPixelDifferenceCount": 208147,
+          "differencePercentage": 11.310763,
+          "changedBoundingBox": [
+            0,
+            1539,
+            704,
+            2614
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        },
+        "mainVsRepaired": {
+          "comparisonCanvas": {
+            "width": 704,
+            "height": 2614
+          },
+          "exactPixelDifferenceCount": 0,
+          "differencePercentage": 0.0,
+          "changedBoundingBox": null,
+          "dimensionsEqual": true,
+          "pixelIdentical": true
+        },
+        "branchVsRepaired": {
+          "comparisonCanvas": {
+            "width": 704,
+            "height": 2614
+          },
+          "exactPixelDifferenceCount": 208147,
+          "differencePercentage": 11.310763,
+          "changedBoundingBox": [
+            0,
+            1539,
+            704,
+            2614
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        }
+      }
+    },
+    {
+      "path": "test/validation/thai_mirror_qa_harness/screenshots/d_desktop_thai_consumer_life_timeline.png",
+      "profile": "D",
+      "viewport": "desktop",
+      "sources": {
+        "main": "git commit 22cbb3cfcb583b63fe8d48a164d5083d9ee32163",
+        "branch": "tracked golden at starting HEAD 5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7",
+        "repaired": "fresh Flutter test actual after four-string Life Map repair"
+      },
+      "images": {
+        "main": {
+          "dimensions": {
+            "width": 780,
+            "height": 2671
+          },
+          "bytes": 222770,
+          "sha256": "81EE83D373AB5A68EDFF72FD4832B98DBCEF1F198328DAF2D4D5737C143E67DA"
+        },
+        "branch": {
+          "dimensions": {
+            "width": 780,
+            "height": 2645
+          },
+          "bytes": 222296,
+          "sha256": "E08B8E487379195839128858C1E62EFD49C69935DD2FE16ECEB6C3244ECACC56"
+        },
+        "repaired": {
+          "dimensions": {
+            "width": 780,
+            "height": 2671
+          },
+          "bytes": 222770,
+          "sha256": "81EE83D373AB5A68EDFF72FD4832B98DBCEF1F198328DAF2D4D5737C143E67DA"
+        }
+      },
+      "comparisons": {
+        "mainVsBranch": {
+          "comparisonCanvas": {
+            "width": 780,
+            "height": 2671
+          },
+          "exactPixelDifferenceCount": 225118,
+          "differencePercentage": 10.805422,
+          "changedBoundingBox": [
+            0,
+            1622,
+            780,
+            2671
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        },
+        "mainVsRepaired": {
+          "comparisonCanvas": {
+            "width": 780,
+            "height": 2671
+          },
+          "exactPixelDifferenceCount": 0,
+          "differencePercentage": 0.0,
+          "changedBoundingBox": null,
+          "dimensionsEqual": true,
+          "pixelIdentical": true
+        },
+        "branchVsRepaired": {
+          "comparisonCanvas": {
+            "width": 780,
+            "height": 2671
+          },
+          "exactPixelDifferenceCount": 225118,
+          "differencePercentage": 10.805422,
+          "changedBoundingBox": [
+            0,
+            1622,
+            780,
+            2671
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        }
+      }
+    },
+    {
+      "path": "test/validation/thai_mirror_qa_harness/screenshots/d_mobile_thai_consumer_life_timeline.png",
+      "profile": "D",
+      "viewport": "mobile",
+      "sources": {
+        "main": "git commit 22cbb3cfcb583b63fe8d48a164d5083d9ee32163",
+        "branch": "tracked golden at starting HEAD 5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7",
+        "repaired": "fresh Flutter test actual after four-string Life Map repair"
+      },
+      "images": {
+        "main": {
+          "dimensions": {
+            "width": 326,
+            "height": 4963
+          },
+          "bytes": 171427,
+          "sha256": "711C22EE75615BEAB3359E373ACBE865E91F76A6AD3EEF266A69253086B5DF4D"
+        },
+        "branch": {
+          "dimensions": {
+            "width": 326,
+            "height": 4885
+          },
+          "bytes": 170360,
+          "sha256": "01B20FE9C3B54C406A766857488B042611CB9F9A142041FBA834E0162D96C6BD"
+        },
+        "repaired": {
+          "dimensions": {
+            "width": 326,
+            "height": 4963
+          },
+          "bytes": 171427,
+          "sha256": "711C22EE75615BEAB3359E373ACBE865E91F76A6AD3EEF266A69253086B5DF4D"
+        }
+      },
+      "comparisons": {
+        "mainVsBranch": {
+          "comparisonCanvas": {
+            "width": 326,
+            "height": 4963
+          },
+          "exactPixelDifferenceCount": 198898,
+          "differencePercentage": 12.293302,
+          "changedBoundingBox": [
+            0,
+            2718,
+            326,
+            4963
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        },
+        "mainVsRepaired": {
+          "comparisonCanvas": {
+            "width": 326,
+            "height": 4963
+          },
+          "exactPixelDifferenceCount": 0,
+          "differencePercentage": 0.0,
+          "changedBoundingBox": null,
+          "dimensionsEqual": true,
+          "pixelIdentical": true
+        },
+        "branchVsRepaired": {
+          "comparisonCanvas": {
+            "width": 326,
+            "height": 4963
+          },
+          "exactPixelDifferenceCount": 198898,
+          "differencePercentage": 12.293302,
+          "changedBoundingBox": [
+            0,
+            2718,
+            326,
+            4963
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        }
+      }
+    },
+    {
+      "path": "test/validation/thai_mirror_qa_harness/screenshots/d_tablet_thai_consumer_life_timeline.png",
+      "profile": "D",
+      "viewport": "tablet",
+      "sources": {
+        "main": "git commit 22cbb3cfcb583b63fe8d48a164d5083d9ee32163",
+        "branch": "tracked golden at starting HEAD 5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7",
+        "repaired": "fresh Flutter test actual after four-string Life Map repair"
+      },
+      "images": {
+        "main": {
+          "dimensions": {
+            "width": 704,
+            "height": 2723
+          },
+          "bytes": 204841,
+          "sha256": "8D4725DC46961E91CF506057A8F0DDDC0643DE864439D2DD1CC96B44E3B566B5"
+        },
+        "branch": {
+          "dimensions": {
+            "width": 704,
+            "height": 2697
+          },
+          "bytes": 204452,
+          "sha256": "6E6BA8D90DC92A55162DE30374055BE1DF2655BD9BD77B3EDB8970F0AAC104A6"
+        },
+        "repaired": {
+          "dimensions": {
+            "width": 704,
+            "height": 2723
+          },
+          "bytes": 204841,
+          "sha256": "8D4725DC46961E91CF506057A8F0DDDC0643DE864439D2DD1CC96B44E3B566B5"
+        }
+      },
+      "comparisons": {
+        "mainVsBranch": {
+          "comparisonCanvas": {
+            "width": 704,
+            "height": 2723
+          },
+          "exactPixelDifferenceCount": 207964,
+          "differencePercentage": 10.848454,
+          "changedBoundingBox": [
+            0,
+            1622,
+            704,
+            2723
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        },
+        "mainVsRepaired": {
+          "comparisonCanvas": {
+            "width": 704,
+            "height": 2723
+          },
+          "exactPixelDifferenceCount": 0,
+          "differencePercentage": 0.0,
+          "changedBoundingBox": null,
+          "dimensionsEqual": true,
+          "pixelIdentical": true
+        },
+        "branchVsRepaired": {
+          "comparisonCanvas": {
+            "width": 704,
+            "height": 2723
+          },
+          "exactPixelDifferenceCount": 207964,
+          "differencePercentage": 10.848454,
+          "changedBoundingBox": [
+            0,
+            1622,
+            704,
+            2723
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        }
+      }
+    },
+    {
+      "path": "test/validation/thai_mirror_qa_harness/screenshots/e_desktop_thai_consumer_life_timeline.png",
+      "profile": "E",
+      "viewport": "desktop",
+      "sources": {
+        "main": "git commit 22cbb3cfcb583b63fe8d48a164d5083d9ee32163",
+        "branch": "tracked golden at starting HEAD 5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7",
+        "repaired": "fresh Flutter test actual after four-string Life Map repair"
+      },
+      "images": {
+        "main": {
+          "dimensions": {
+            "width": 780,
+            "height": 2739
+          },
+          "bytes": 220589,
+          "sha256": "B971AFC946A30E46C89AA1A44AA49706DFFD8A87CED33C15C91E313B7A9FC7C5"
+        },
+        "branch": {
+          "dimensions": {
+            "width": 780,
+            "height": 2760
+          },
+          "bytes": 220792,
+          "sha256": "911FD42C12C3684DBB62C35556230A6EC088B769BFA117B9829F52C53E02B7B7"
+        },
+        "repaired": {
+          "dimensions": {
+            "width": 780,
+            "height": 2739
+          },
+          "bytes": 220589,
+          "sha256": "B971AFC946A30E46C89AA1A44AA49706DFFD8A87CED33C15C91E313B7A9FC7C5"
+        }
+      },
+      "comparisons": {
+        "mainVsBranch": {
+          "comparisonCanvas": {
+            "width": 780,
+            "height": 2760
+          },
+          "exactPixelDifferenceCount": 367418,
+          "differencePercentage": 17.066983,
+          "changedBoundingBox": [
+            0,
+            1321,
+            780,
+            2760
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        },
+        "mainVsRepaired": {
+          "comparisonCanvas": {
+            "width": 780,
+            "height": 2739
+          },
+          "exactPixelDifferenceCount": 0,
+          "differencePercentage": 0.0,
+          "changedBoundingBox": null,
+          "dimensionsEqual": true,
+          "pixelIdentical": true
+        },
+        "branchVsRepaired": {
+          "comparisonCanvas": {
+            "width": 780,
+            "height": 2760
+          },
+          "exactPixelDifferenceCount": 367418,
+          "differencePercentage": 17.066983,
+          "changedBoundingBox": [
+            0,
+            1321,
+            780,
+            2760
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        }
+      }
+    },
+    {
+      "path": "test/validation/thai_mirror_qa_harness/screenshots/e_mobile_thai_consumer_life_timeline.png",
+      "profile": "E",
+      "viewport": "mobile",
+      "sources": {
+        "main": "git commit 22cbb3cfcb583b63fe8d48a164d5083d9ee32163",
+        "branch": "tracked golden at starting HEAD 5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7",
+        "repaired": "fresh Flutter test actual after four-string Life Map repair"
+      },
+      "images": {
+        "main": {
+          "dimensions": {
+            "width": 326,
+            "height": 5302
+          },
+          "bytes": 177837,
+          "sha256": "B352EABB00E1EDF8BCE78F1ABA29AFB24F495DB7B33CF253B422FBBA2B4438F9"
+        },
+        "branch": {
+          "dimensions": {
+            "width": 326,
+            "height": 5266
+          },
+          "bytes": 177113,
+          "sha256": "ED1910099151675138C7BDD23823C48EBFBE26D68F1EA55F3D047620CC56D836"
+        },
+        "repaired": {
+          "dimensions": {
+            "width": 326,
+            "height": 5302
+          },
+          "bytes": 177837,
+          "sha256": "B352EABB00E1EDF8BCE78F1ABA29AFB24F495DB7B33CF253B422FBBA2B4438F9"
+        }
+      },
+      "comparisons": {
+        "mainVsBranch": {
+          "comparisonCanvas": {
+            "width": 326,
+            "height": 5302
+          },
+          "exactPixelDifferenceCount": 308930,
+          "differencePercentage": 17.873218,
+          "changedBoundingBox": [
+            0,
+            2375,
+            326,
+            5302
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        },
+        "mainVsRepaired": {
+          "comparisonCanvas": {
+            "width": 326,
+            "height": 5302
+          },
+          "exactPixelDifferenceCount": 0,
+          "differencePercentage": 0.0,
+          "changedBoundingBox": null,
+          "dimensionsEqual": true,
+          "pixelIdentical": true
+        },
+        "branchVsRepaired": {
+          "comparisonCanvas": {
+            "width": 326,
+            "height": 5302
+          },
+          "exactPixelDifferenceCount": 308930,
+          "differencePercentage": 17.873218,
+          "changedBoundingBox": [
+            0,
+            2375,
+            326,
+            5302
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        }
+      }
+    },
+    {
+      "path": "test/validation/thai_mirror_qa_harness/screenshots/e_tablet_thai_consumer_life_timeline.png",
+      "profile": "E",
+      "viewport": "tablet",
+      "sources": {
+        "main": "git commit 22cbb3cfcb583b63fe8d48a164d5083d9ee32163",
+        "branch": "tracked golden at starting HEAD 5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7",
+        "repaired": "fresh Flutter test actual after four-string Life Map repair"
+      },
+      "images": {
+        "main": {
+          "dimensions": {
+            "width": 704,
+            "height": 2836
+          },
+          "bytes": 205664,
+          "sha256": "1BEB03FB135F41916EA3AAE32AC4C803EED0A72FB2821BCEE004682681F4CC29"
+        },
+        "branch": {
+          "dimensions": {
+            "width": 704,
+            "height": 2810
+          },
+          "bytes": 205161,
+          "sha256": "B020AF279323D9EB38AFB5591322C8312A2A0B4F5D3278CABC74045A7AF6A237"
+        },
+        "repaired": {
+          "dimensions": {
+            "width": 704,
+            "height": 2836
+          },
+          "bytes": 205664,
+          "sha256": "1BEB03FB135F41916EA3AAE32AC4C803EED0A72FB2821BCEE004682681F4CC29"
+        }
+      },
+      "comparisons": {
+        "mainVsBranch": {
+          "comparisonCanvas": {
+            "width": 704,
+            "height": 2836
+          },
+          "exactPixelDifferenceCount": 190850,
+          "differencePercentage": 9.559018,
+          "changedBoundingBox": [
+            0,
+            1345,
+            704,
+            2836
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        },
+        "mainVsRepaired": {
+          "comparisonCanvas": {
+            "width": 704,
+            "height": 2836
+          },
+          "exactPixelDifferenceCount": 0,
+          "differencePercentage": 0.0,
+          "changedBoundingBox": null,
+          "dimensionsEqual": true,
+          "pixelIdentical": true
+        },
+        "branchVsRepaired": {
+          "comparisonCanvas": {
+            "width": 704,
+            "height": 2836
+          },
+          "exactPixelDifferenceCount": 190850,
+          "differencePercentage": 9.559018,
+          "changedBoundingBox": [
+            0,
+            1345,
+            704,
+            2836
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        }
+      }
+    },
+    {
+      "path": "test/validation/thai_mirror_qa_harness/screenshots/f_desktop_thai_consumer_life_timeline.png",
+      "profile": "F",
+      "viewport": "desktop",
+      "sources": {
+        "main": "git commit 22cbb3cfcb583b63fe8d48a164d5083d9ee32163",
+        "branch": "tracked golden at starting HEAD 5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7",
+        "repaired": "fresh Flutter test actual after four-string Life Map repair"
+      },
+      "images": {
+        "main": {
+          "dimensions": {
+            "width": 780,
+            "height": 2867
+          },
+          "bytes": 211235,
+          "sha256": "DFC78C6EF7DB86B0C342BB91BBAA2D8BEE5EA69995D7AAE060A668F20D935912"
+        },
+        "branch": {
+          "dimensions": {
+            "width": 780,
+            "height": 2909
+          },
+          "bytes": 211769,
+          "sha256": "263EFA3876F3B310FD1F8E72B035D42FE2630D8CC1594DFE2BE92B2AE2CB8E88"
+        },
+        "repaired": {
+          "dimensions": {
+            "width": 780,
+            "height": 2867
+          },
+          "bytes": 211235,
+          "sha256": "DFC78C6EF7DB86B0C342BB91BBAA2D8BEE5EA69995D7AAE060A668F20D935912"
+        }
+      },
+      "comparisons": {
+        "mainVsBranch": {
+          "comparisonCanvas": {
+            "width": 780,
+            "height": 2909
+          },
+          "exactPixelDifferenceCount": 567295,
+          "differencePercentage": 25.001763,
+          "changedBoundingBox": [
+            0,
+            911,
+            780,
+            2909
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        },
+        "mainVsRepaired": {
+          "comparisonCanvas": {
+            "width": 780,
+            "height": 2867
+          },
+          "exactPixelDifferenceCount": 0,
+          "differencePercentage": 0.0,
+          "changedBoundingBox": null,
+          "dimensionsEqual": true,
+          "pixelIdentical": true
+        },
+        "branchVsRepaired": {
+          "comparisonCanvas": {
+            "width": 780,
+            "height": 2909
+          },
+          "exactPixelDifferenceCount": 567295,
+          "differencePercentage": 25.001763,
+          "changedBoundingBox": [
+            0,
+            911,
+            780,
+            2909
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        }
+      }
+    },
+    {
+      "path": "test/validation/thai_mirror_qa_harness/screenshots/f_mobile_thai_consumer_life_timeline.png",
+      "profile": "F",
+      "viewport": "mobile",
+      "sources": {
+        "main": "git commit 22cbb3cfcb583b63fe8d48a164d5083d9ee32163",
+        "branch": "tracked golden at starting HEAD 5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7",
+        "repaired": "fresh Flutter test actual after four-string Life Map repair"
+      },
+      "images": {
+        "main": {
+          "dimensions": {
+            "width": 326,
+            "height": 5403
+          },
+          "bytes": 170347,
+          "sha256": "0FEDAD01A9FFF93AD6D8631C4CF12630BA8A84FA1413A1148B842A4C12501E2F"
+        },
+        "branch": {
+          "dimensions": {
+            "width": 326,
+            "height": 5466
+          },
+          "bytes": 170645,
+          "sha256": "C115070E7E05CBE42D9B0B1BD5CDC6085C87E8CDF91BB119F96E23A7A5C92194"
+        },
+        "repaired": {
+          "dimensions": {
+            "width": 326,
+            "height": 5403
+          },
+          "bytes": 170347,
+          "sha256": "0FEDAD01A9FFF93AD6D8631C4CF12630BA8A84FA1413A1148B842A4C12501E2F"
+        }
+      },
+      "comparisons": {
+        "mainVsBranch": {
+          "comparisonCanvas": {
+            "width": 326,
+            "height": 5466
+          },
+          "exactPixelDifferenceCount": 425798,
+          "differencePercentage": 23.895515,
+          "changedBoundingBox": [
+            0,
+            1440,
+            326,
+            5466
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        },
+        "mainVsRepaired": {
+          "comparisonCanvas": {
+            "width": 326,
+            "height": 5403
+          },
+          "exactPixelDifferenceCount": 0,
+          "differencePercentage": 0.0,
+          "changedBoundingBox": null,
+          "dimensionsEqual": true,
+          "pixelIdentical": true
+        },
+        "branchVsRepaired": {
+          "comparisonCanvas": {
+            "width": 326,
+            "height": 5466
+          },
+          "exactPixelDifferenceCount": 425798,
+          "differencePercentage": 23.895515,
+          "changedBoundingBox": [
+            0,
+            1440,
+            326,
+            5466
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        }
+      }
+    },
+    {
+      "path": "test/validation/thai_mirror_qa_harness/screenshots/f_tablet_thai_consumer_life_timeline.png",
+      "profile": "F",
+      "viewport": "tablet",
+      "sources": {
+        "main": "git commit 22cbb3cfcb583b63fe8d48a164d5083d9ee32163",
+        "branch": "tracked golden at starting HEAD 5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7",
+        "repaired": "fresh Flutter test actual after four-string Life Map repair"
+      },
+      "images": {
+        "main": {
+          "dimensions": {
+            "width": 704,
+            "height": 2988
+          },
+          "bytes": 202674,
+          "sha256": "19250B030F8B114BF6E12E7147DE77963D7B3DF85E6EA6C54D92B16C7759168C"
+        },
+        "branch": {
+          "dimensions": {
+            "width": 704,
+            "height": 3030
+          },
+          "bytes": 203355,
+          "sha256": "1FB6B2CA9511BF061BE02CD85240B8E643E4F16F4781D5E788B70AA095C9B608"
+        },
+        "repaired": {
+          "dimensions": {
+            "width": 704,
+            "height": 2988
+          },
+          "bytes": 202674,
+          "sha256": "19250B030F8B114BF6E12E7147DE77963D7B3DF85E6EA6C54D92B16C7759168C"
+        }
+      },
+      "comparisons": {
+        "mainVsBranch": {
+          "comparisonCanvas": {
+            "width": 704,
+            "height": 3030
+          },
+          "exactPixelDifferenceCount": 536800,
+          "differencePercentage": 25.165017,
+          "changedBoundingBox": [
+            0,
+            964,
+            704,
+            3030
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        },
+        "mainVsRepaired": {
+          "comparisonCanvas": {
+            "width": 704,
+            "height": 2988
+          },
+          "exactPixelDifferenceCount": 0,
+          "differencePercentage": 0.0,
+          "changedBoundingBox": null,
+          "dimensionsEqual": true,
+          "pixelIdentical": true
+        },
+        "branchVsRepaired": {
+          "comparisonCanvas": {
+            "width": 704,
+            "height": 3030
+          },
+          "exactPixelDifferenceCount": 536800,
+          "differencePercentage": 25.165017,
+          "changedBoundingBox": [
+            0,
+            964,
+            704,
+            3030
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        }
+      }
+    },
+    {
+      "path": "test/validation/thai_mirror_qa_harness/screenshots/g_desktop_thai_consumer_life_timeline.png",
+      "profile": "G",
+      "viewport": "desktop",
+      "sources": {
+        "main": "git commit 22cbb3cfcb583b63fe8d48a164d5083d9ee32163",
+        "branch": "tracked golden at starting HEAD 5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7",
+        "repaired": "fresh Flutter test actual after four-string Life Map repair"
+      },
+      "images": {
+        "main": {
+          "dimensions": {
+            "width": 780,
+            "height": 2304
+          },
+          "bytes": 201234,
+          "sha256": "DF216BFE350E4A3CBCEFEC4CDEE4884CE983461D1D30E4DF787C360F5087908C"
+        },
+        "branch": {
+          "dimensions": {
+            "width": 780,
+            "height": 2325
+          },
+          "bytes": 201542,
+          "sha256": "E89B71881793F3C5AF51AA63003782CE8373162DD72B0F0E4579F7C000BDD622"
+        },
+        "repaired": {
+          "dimensions": {
+            "width": 780,
+            "height": 2304
+          },
+          "bytes": 201234,
+          "sha256": "DF216BFE350E4A3CBCEFEC4CDEE4884CE983461D1D30E4DF787C360F5087908C"
+        }
+      },
+      "comparisons": {
+        "mainVsBranch": {
+          "comparisonCanvas": {
+            "width": 780,
+            "height": 2325
+          },
+          "exactPixelDifferenceCount": 380797,
+          "differencePercentage": 20.997905,
+          "changedBoundingBox": [
+            0,
+            945,
+            780,
+            2325
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        },
+        "mainVsRepaired": {
+          "comparisonCanvas": {
+            "width": 780,
+            "height": 2304
+          },
+          "exactPixelDifferenceCount": 0,
+          "differencePercentage": 0.0,
+          "changedBoundingBox": null,
+          "dimensionsEqual": true,
+          "pixelIdentical": true
+        },
+        "branchVsRepaired": {
+          "comparisonCanvas": {
+            "width": 780,
+            "height": 2325
+          },
+          "exactPixelDifferenceCount": 380797,
+          "differencePercentage": 20.997905,
+          "changedBoundingBox": [
+            0,
+            945,
+            780,
+            2325
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        }
+      }
+    },
+    {
+      "path": "test/validation/thai_mirror_qa_harness/screenshots/g_mobile_thai_consumer_life_timeline.png",
+      "profile": "G",
+      "viewport": "mobile",
+      "sources": {
+        "main": "git commit 22cbb3cfcb583b63fe8d48a164d5083d9ee32163",
+        "branch": "tracked golden at starting HEAD 5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7",
+        "repaired": "fresh Flutter test actual after four-string Life Map repair"
+      },
+      "images": {
+        "main": {
+          "dimensions": {
+            "width": 326,
+            "height": 4269
+          },
+          "bytes": 154953,
+          "sha256": "60421D4B444A2B4BA7D73E92C05F4D7D7E318B1DCFF54B97F0F20BFFC6EB0846"
+        },
+        "branch": {
+          "dimensions": {
+            "width": 326,
+            "height": 4269
+          },
+          "bytes": 154992,
+          "sha256": "5A81641A1B6E88A4FDB1F6A2576F1FC91DC6BF45E42F44A70BF63A375024B92A"
+        },
+        "repaired": {
+          "dimensions": {
+            "width": 326,
+            "height": 4269
+          },
+          "bytes": 154953,
+          "sha256": "60421D4B444A2B4BA7D73E92C05F4D7D7E318B1DCFF54B97F0F20BFFC6EB0846"
+        }
+      },
+      "comparisons": {
+        "mainVsBranch": {
+          "comparisonCanvas": {
+            "width": 326,
+            "height": 4269
+          },
+          "exactPixelDifferenceCount": 6436,
+          "differencePercentage": 0.462458,
+          "changedBoundingBox": [
+            19,
+            1515,
+            305,
+            1694
+          ],
+          "dimensionsEqual": true,
+          "pixelIdentical": false
+        },
+        "mainVsRepaired": {
+          "comparisonCanvas": {
+            "width": 326,
+            "height": 4269
+          },
+          "exactPixelDifferenceCount": 0,
+          "differencePercentage": 0.0,
+          "changedBoundingBox": null,
+          "dimensionsEqual": true,
+          "pixelIdentical": true
+        },
+        "branchVsRepaired": {
+          "comparisonCanvas": {
+            "width": 326,
+            "height": 4269
+          },
+          "exactPixelDifferenceCount": 6436,
+          "differencePercentage": 0.462458,
+          "changedBoundingBox": [
+            19,
+            1515,
+            305,
+            1694
+          ],
+          "dimensionsEqual": true,
+          "pixelIdentical": false
+        }
+      }
+    },
+    {
+      "path": "test/validation/thai_mirror_qa_harness/screenshots/g_tablet_thai_consumer_life_timeline.png",
+      "profile": "G",
+      "viewport": "tablet",
+      "sources": {
+        "main": "git commit 22cbb3cfcb583b63fe8d48a164d5083d9ee32163",
+        "branch": "tracked golden at starting HEAD 5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7",
+        "repaired": "fresh Flutter test actual after four-string Life Map repair"
+      },
+      "images": {
+        "main": {
+          "dimensions": {
+            "width": 704,
+            "height": 2406
+          },
+          "bytes": 188985,
+          "sha256": "684C13B73D6EF308010A68F932E5F2A9AF0DEBA3F81EC808317C3C411190968D"
+        },
+        "branch": {
+          "dimensions": {
+            "width": 704,
+            "height": 2427
+          },
+          "bytes": 189252,
+          "sha256": "01D1F5391EADB50885F11EDF1448FD1F37B4C4B6502FF98D017B5514CBDFCE76"
+        },
+        "repaired": {
+          "dimensions": {
+            "width": 704,
+            "height": 2406
+          },
+          "bytes": 188985,
+          "sha256": "684C13B73D6EF308010A68F932E5F2A9AF0DEBA3F81EC808317C3C411190968D"
+        }
+      },
+      "comparisons": {
+        "mainVsBranch": {
+          "comparisonCanvas": {
+            "width": 704,
+            "height": 2427
+          },
+          "exactPixelDifferenceCount": 362777,
+          "differencePercentage": 21.232313,
+          "changedBoundingBox": [
+            0,
+            969,
+            704,
+            2427
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        },
+        "mainVsRepaired": {
+          "comparisonCanvas": {
+            "width": 704,
+            "height": 2406
+          },
+          "exactPixelDifferenceCount": 0,
+          "differencePercentage": 0.0,
+          "changedBoundingBox": null,
+          "dimensionsEqual": true,
+          "pixelIdentical": true
+        },
+        "branchVsRepaired": {
+          "comparisonCanvas": {
+            "width": 704,
+            "height": 2427
+          },
+          "exactPixelDifferenceCount": 362777,
+          "differencePercentage": 21.232313,
+          "changedBoundingBox": [
+            0,
+            969,
+            704,
+            2427
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        }
+      }
+    },
+    {
+      "path": "test/validation/thai_mirror_qa_harness/screenshots/h_desktop_thai_consumer_life_timeline.png",
+      "profile": "H",
+      "viewport": "desktop",
+      "sources": {
+        "main": "git commit 22cbb3cfcb583b63fe8d48a164d5083d9ee32163",
+        "branch": "tracked golden at starting HEAD 5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7",
+        "repaired": "fresh Flutter test actual after four-string Life Map repair"
+      },
+      "images": {
+        "main": {
+          "dimensions": {
+            "width": 780,
+            "height": 2929
+          },
+          "bytes": 211863,
+          "sha256": "1B4EDA36AC748C086BA42C42D1F3739529CA1B91518AB961A37B77FC53EB3CFD"
+        },
+        "branch": {
+          "dimensions": {
+            "width": 780,
+            "height": 2929
+          },
+          "bytes": 211865,
+          "sha256": "B93D5285703D8B23F9108D542AEBF12991665B192E9D22E999F57EE073E04544"
+        },
+        "repaired": {
+          "dimensions": {
+            "width": 780,
+            "height": 2929
+          },
+          "bytes": 211863,
+          "sha256": "1B4EDA36AC748C086BA42C42D1F3739529CA1B91518AB961A37B77FC53EB3CFD"
+        }
+      },
+      "comparisons": {
+        "mainVsBranch": {
+          "comparisonCanvas": {
+            "width": 780,
+            "height": 2929
+          },
+          "exactPixelDifferenceCount": 208260,
+          "differencePercentage": 9.115739,
+          "changedBoundingBox": [
+            0,
+            908,
+            780,
+            1929
+          ],
+          "dimensionsEqual": true,
+          "pixelIdentical": false
+        },
+        "mainVsRepaired": {
+          "comparisonCanvas": {
+            "width": 780,
+            "height": 2929
+          },
+          "exactPixelDifferenceCount": 0,
+          "differencePercentage": 0.0,
+          "changedBoundingBox": null,
+          "dimensionsEqual": true,
+          "pixelIdentical": true
+        },
+        "branchVsRepaired": {
+          "comparisonCanvas": {
+            "width": 780,
+            "height": 2929
+          },
+          "exactPixelDifferenceCount": 208260,
+          "differencePercentage": 9.115739,
+          "changedBoundingBox": [
+            0,
+            908,
+            780,
+            1929
+          ],
+          "dimensionsEqual": true,
+          "pixelIdentical": false
+        }
+      }
+    },
+    {
+      "path": "test/validation/thai_mirror_qa_harness/screenshots/h_mobile_thai_consumer_life_timeline.png",
+      "profile": "H",
+      "viewport": "mobile",
+      "sources": {
+        "main": "git commit 22cbb3cfcb583b63fe8d48a164d5083d9ee32163",
+        "branch": "tracked golden at starting HEAD 5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7",
+        "repaired": "fresh Flutter test actual after four-string Life Map repair"
+      },
+      "images": {
+        "main": {
+          "dimensions": {
+            "width": 326,
+            "height": 5542
+          },
+          "bytes": 171277,
+          "sha256": "20AB83ABFBFDEE7C6BBC267A98781FB36F3FDCBE2167ADD90846BB53B64FF85E"
+        },
+        "branch": {
+          "dimensions": {
+            "width": 326,
+            "height": 5542
+          },
+          "bytes": 171276,
+          "sha256": "700DAA7453ED2C1108C81B63FABCE7E2D9F81A6A4F533726C34283E40EF93E06"
+        },
+        "repaired": {
+          "dimensions": {
+            "width": 326,
+            "height": 5542
+          },
+          "bytes": 171277,
+          "sha256": "20AB83ABFBFDEE7C6BBC267A98781FB36F3FDCBE2167ADD90846BB53B64FF85E"
+        }
+      },
+      "comparisons": {
+        "mainVsBranch": {
+          "comparisonCanvas": {
+            "width": 326,
+            "height": 5542
+          },
+          "exactPixelDifferenceCount": 157868,
+          "differencePercentage": 8.737959,
+          "changedBoundingBox": [
+            0,
+            1479,
+            326,
+            3527
+          ],
+          "dimensionsEqual": true,
+          "pixelIdentical": false
+        },
+        "mainVsRepaired": {
+          "comparisonCanvas": {
+            "width": 326,
+            "height": 5542
+          },
+          "exactPixelDifferenceCount": 0,
+          "differencePercentage": 0.0,
+          "changedBoundingBox": null,
+          "dimensionsEqual": true,
+          "pixelIdentical": true
+        },
+        "branchVsRepaired": {
+          "comparisonCanvas": {
+            "width": 326,
+            "height": 5542
+          },
+          "exactPixelDifferenceCount": 157868,
+          "differencePercentage": 8.737959,
+          "changedBoundingBox": [
+            0,
+            1479,
+            326,
+            3527
+          ],
+          "dimensionsEqual": true,
+          "pixelIdentical": false
+        }
+      }
+    },
+    {
+      "path": "test/validation/thai_mirror_qa_harness/screenshots/h_tablet_thai_consumer_life_timeline.png",
+      "profile": "H",
+      "viewport": "tablet",
+      "sources": {
+        "main": "git commit 22cbb3cfcb583b63fe8d48a164d5083d9ee32163",
+        "branch": "tracked golden at starting HEAD 5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7",
+        "repaired": "fresh Flutter test actual after four-string Life Map repair"
+      },
+      "images": {
+        "main": {
+          "dimensions": {
+            "width": 704,
+            "height": 3079
+          },
+          "bytes": 204510,
+          "sha256": "0DBD29D4EF0342E4F496C60FE99E1D155115CB7DD9CE273FAEB5FB79E4DA7EDF"
+        },
+        "branch": {
+          "dimensions": {
+            "width": 704,
+            "height": 3100
+          },
+          "bytes": 204803,
+          "sha256": "F83A8F9C30313B846C9C7161694CD008EDD387D799989846B5750DD0C783813F"
+        },
+        "repaired": {
+          "dimensions": {
+            "width": 704,
+            "height": 3079
+          },
+          "bytes": 204510,
+          "sha256": "0DBD29D4EF0342E4F496C60FE99E1D155115CB7DD9CE273FAEB5FB79E4DA7EDF"
+        }
+      },
+      "comparisons": {
+        "mainVsBranch": {
+          "comparisonCanvas": {
+            "width": 704,
+            "height": 3100
+          },
+          "exactPixelDifferenceCount": 250410,
+          "differencePercentage": 11.474065,
+          "changedBoundingBox": [
+            0,
+            1006,
+            704,
+            3100
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        },
+        "mainVsRepaired": {
+          "comparisonCanvas": {
+            "width": 704,
+            "height": 3079
+          },
+          "exactPixelDifferenceCount": 0,
+          "differencePercentage": 0.0,
+          "changedBoundingBox": null,
+          "dimensionsEqual": true,
+          "pixelIdentical": true
+        },
+        "branchVsRepaired": {
+          "comparisonCanvas": {
+            "width": 704,
+            "height": 3100
+          },
+          "exactPixelDifferenceCount": 250410,
+          "differencePercentage": 11.474065,
+          "changedBoundingBox": [
+            0,
+            1006,
+            704,
+            3100
+          ],
+          "dimensionsEqual": false,
+          "pixelIdentical": false
+        }
+      }
+    }
+  ]
+}

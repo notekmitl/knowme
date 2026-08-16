@@ -1,0 +1,12 @@
+{
+    "schema":  "knowme-thai-narrative-v1.5-r7-package-identity-v1",
+    "artifact":  "thai-narrative-v1.5-r7.zip",
+    "bytes":  10301297,
+    "sha256":  "12A94ED57712C1E9ADA67333F6D0EF50FE6F82198E486C287206189EDA5CE035",
+    "entries":  80,
+    "checksumEntries":  79,
+    "checksumVerified":  79,
+    "unsafeEntries":  0,
+    "duplicateEntries":  0,
+    "cleanExtraction":  "PASS"
+}

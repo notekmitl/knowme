@@ -1,0 +1,7 @@
+portable-path-validation: PASS
+entries-before-SHA256SUMS: 82
+backslash-entries: 0
+absolute-entries: 0
+drive-qualified-entries: 0
+traversal-entries: 0
+duplicate-entries: 0

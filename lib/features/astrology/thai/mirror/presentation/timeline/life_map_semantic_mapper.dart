@@ -586,7 +586,10 @@ abstract final class LifeMapSemanticMapper {
             ),
           ],
           pressures: [
-            _TextId('prs_love', 'คุณคาดหวังเงียบ ๆ โดยไม่คุยจนเกิดระยะห่าง'),
+            _TextId(
+              'prs_love',
+              'คุณคาดหวังเงียบ ๆ โดยไม่คุยจนเกิดระยะห่าง',
+            ),
             _TextId(
               'prs_love2',
               'คุณอยากใกล้ชิด แต่ก็ยังต้องการพื้นที่ส่วนตัว',
@@ -605,7 +608,10 @@ abstract final class LifeMapSemanticMapper {
       case LifeMapClaimDomain.familyHome:
         return _DomainPack(
           situations: [
-            _TextId('sit_home', 'คนในบ้านมีผลต่อชีวิตคุณมาก'),
+            _TextId(
+              'sit_home',
+              'คนในบ้านมีผลต่อชีวิตคุณมาก',
+            ),
             _TextId(
               'sit_home2',
               'หน้าที่ในบ้านเปลี่ยนไป และคุณต้องพึ่งคนใกล้ตัวมากขึ้น',
@@ -690,7 +696,10 @@ abstract final class LifeMapSemanticMapper {
             ),
           ],
           pressures: [
-            _TextId('prs_learn', 'ผลงานเรียนถูกนำไปเปรียบกับคนอื่น'),
+            _TextId(
+              'prs_learn',
+              'ผลงานเรียนถูกนำไปเปรียบกับคนอื่น',
+            ),
             _TextId(
               'prs_learn2',
               'สิ่งที่ถนัดกับสิ่งที่คนรอบตัวคาดหวังไม่ตรงกัน',
@@ -770,7 +779,10 @@ abstract final class LifeMapSemanticMapper {
       case LifeMapClaimDomain.opportunityExpand:
         return _DomainPack(
           situations: [
-            _TextId('sit_opp', 'มีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก'),
+            _TextId(
+              'sit_opp',
+              'มีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก',
+            ),
             _TextId(
               'sit_opp2',
               'มีทางเลือกมากขึ้น แต่ทุกทางแลกด้วยหน้าที่ที่เพิ่มขึ้น',

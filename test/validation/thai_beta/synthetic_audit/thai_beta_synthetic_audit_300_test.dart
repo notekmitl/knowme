@@ -151,6 +151,8 @@ void main() {
     'all 300 cases pass structured, narrative, omission and safety contracts',
     () {
       final fullTextFrequency = <String, int>{};
+      final narrativeFrequency = <String, int>{};
+      final narrativeCases = <String, List<String>>{};
       final paragraphFrequency = <String, int>{};
       final paragraphSource = <String, String>{};
       var known = 0;
@@ -312,9 +314,19 @@ void main() {
           (v) => v + 1,
           ifAbsent: () => 1,
         );
+        final narrativeSignature = _narrativeSignature(analysis);
+        narrativeFrequency.update(
+          narrativeSignature,
+          (v) => v + 1,
+          ifAbsent: () => 1,
+        );
+        narrativeCases.putIfAbsent(narrativeSignature, () => []).add(c.id);
       }
 
       final identicalReports = fullTextFrequency.values
+          .where((v) => v > 1)
+          .fold<int>(0, (a, b) => a + b);
+      final identicalNarratives = narrativeFrequency.values
           .where((v) => v > 1)
           .fold<int>(0, (a, b) => a + b);
       final topParagraphs = paragraphFrequency.entries.toList()
@@ -331,6 +343,11 @@ void main() {
           'knownTimeOmissions': knownTimeOmissions,
           'identicalFullReports': identicalReports,
           'uniqueFullReports': fullTextFrequency.length,
+          'identicalNarrativeReports': identicalNarratives,
+          'uniqueNarrativeReports': narrativeFrequency.length,
+          'duplicateNarrativeCases': narrativeCases.values
+              .where((ids) => ids.length > 1)
+              .toList(),
           'uniqueParagraphs': paragraphFrequency.length,
           'topParagraphFrequencies': topParagraphs
               .take(10)
@@ -348,6 +365,13 @@ void main() {
         0,
         reason:
             'Different material inputs must not collapse to identical full reports',
+      );
+      expect(
+        identicalNarratives,
+        0,
+        reason:
+            'Different material inputs must remain distinct in consumer narrative, '
+            'independent of metadata and methodology',
       );
     },
     timeout: const Timeout(Duration(minutes: 15)),
@@ -450,6 +474,66 @@ void main() {
     },
     timeout: const Timeout(Duration(minutes: 20)),
   );
+}
+
+String _narrativeSignature(ThaiBetaAnalysis analysis) {
+  final view = ThaiBetaNarrativeComposer.narrativeView(analysis);
+  final parts = <String>[
+    view.hero.headline,
+    view.hero.summary,
+    view.signatureInsight.body,
+    ...view.strengths.cards.expand((card) => [card.title, card.body]),
+    ...view.cautions.cards.expand((card) => [card.title, card.body]),
+    view.advice.body,
+    ...view.lifeDashboard.expand(
+      (item) => [item.currentState, item.whyItAppears, item.suggestedAction],
+    ),
+    ...view.narrativeSections.expand(
+      (section) => [
+        section.pullQuote,
+        section.overview,
+        section.whyItAppears,
+        section.advice,
+        section.transitionIn,
+        section.discovery,
+        section.reflectionQuestion,
+        section.tension,
+      ],
+    ),
+    if (view.lifeTimeline case final timeline?) ...[
+      timeline.currentStage.intro,
+      ...timeline.periods.expand(
+        (period) => [
+          period.summary,
+          period.whatChanges,
+          period.easier,
+          period.harder,
+          period.comparison,
+          period.advice,
+        ],
+      ),
+    ],
+    if (view.futurePrediction case final prediction?) ...[
+      prediction.sectionIntro,
+      ...prediction.windows.expand(
+        (window) => [
+          window.summary,
+          window.topOpportunity,
+          window.topRisk,
+          window.why,
+          window.whyNow,
+          window.whatToWatch,
+          ...window.domains.expand((domain) => [domain.body, domain.caution]),
+        ],
+      ),
+      prediction.transitionLine,
+      prediction.closingAdvice,
+    ],
+    ...view.reflectionSummary.points,
+    view.closingMessage.message,
+    view.secretTip,
+  ];
+  return _normalize(parts.where((part) => part.trim().isNotEmpty).join('\n'));
 }
 
 ThaiBetaAnalysis _run(_SyntheticCase c) => ThaiBetaAnalysisRunner.run(
@@ -579,7 +663,11 @@ abstract final class _SyntheticMatrix {
   });
 
   static DateTime _validDate(int index) {
-    final year = 1950 + ((index * 37 + seed) % 76);
+    // Break the 228-row joint cycle of year/month/location so every synthetic
+    // case exercises distinct consumer material rather than differing only in
+    // birth-date metadata.
+    final materialCycle = index ~/ 228;
+    final year = 1950 + ((index * 37 + materialCycle + seed) % 76);
     final month = 1 + (index % 12);
     final lastDay = DateTime(year, month + 1, 0).day;
     final day = 1 + ((index * 11 + seed) % lastDay);
