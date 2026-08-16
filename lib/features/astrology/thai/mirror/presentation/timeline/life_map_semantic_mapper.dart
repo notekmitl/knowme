@@ -588,7 +588,7 @@ abstract final class LifeMapSemanticMapper {
           pressures: [
             _TextId(
               'prs_love',
-              'ลองเทียบกับชีวิตจริงว่า ความคาดหวังที่ไม่ได้พูดทำให้ระยะห่างเพิ่มขึ้นหรือไม่',
+              'คุณคาดหวังเงียบ ๆ โดยไม่คุยจนเกิดระยะห่าง',
             ),
             _TextId(
               'prs_love2',
@@ -610,7 +610,7 @@ abstract final class LifeMapSemanticMapper {
           situations: [
             _TextId(
               'sit_home',
-              'ช่วงนี้ชวนให้สังเกตว่า บรรยากาศในบ้านมีน้ำหนักต่อการตัดสินใจของคุณเพียงใด',
+              'คนในบ้านมีผลต่อชีวิตคุณมาก',
             ),
             _TextId(
               'sit_home2',
@@ -698,7 +698,7 @@ abstract final class LifeMapSemanticMapper {
           pressures: [
             _TextId(
               'prs_learn',
-              'ช่วงการเรียนรู้นี้อาจทำให้คุณไวต่อการเปรียบเทียบผลงาน จึงควรเทียบกับประสบการณ์จริง',
+              'ผลงานเรียนถูกนำไปเปรียบกับคนอื่น',
             ),
             _TextId(
               'prs_learn2',
@@ -781,7 +781,7 @@ abstract final class LifeMapSemanticMapper {
           situations: [
             _TextId(
               'sit_opp',
-              'ธีมของช่วงนี้คือการเปิดรับโอกาสผ่านงานหรือเครือข่าย โดยใช้สิ่งที่เกิดขึ้นจริงเป็นตัวเทียบ',
+              'มีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก',
             ),
             _TextId(
               'sit_opp2',

@@ -1,0 +1,15 @@
+branch: codex/thai-narrative-v1-5
+startingHead: 5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7
+startingRemoteHead: 5b2e4cf84ed67f4b1cbe1e66ac296caa995ff3c7
+pinnedMain: 22cbb3cfcb583b63fe8d48a164d5083d9ee32163
+productPaths: 1
+productPath: lib/features/astrology/thai/mirror/presentation/timeline/life_map_semantic_mapper.dart
+productDiff: 4 additions / 4 deletions; prs_love, sit_home, prs_learn, sit_opp restored to pinned main
+goldenPaths: 18
+goldenScope: exact owner allowlist only
+goldenIdentity: restored byte-for-byte from pinned main; 18/18 hashes match
+otherTestPaths: 0
+r1ThroughR7.1ModifiedPaths: 0
+failureArtifacts: 0
+unrelatedProductPaths: 0
+result: PASS

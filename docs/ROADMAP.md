@@ -1,5 +1,13 @@
 # KnowMe Roadmap
 
+## Current — V1.5 final merge gate passed against pinned main
+
+The four-string Life Map compatibility repair and controlled Case A reconciliation pass the complete gate against pinned main `22cbb3cfcb583b63fe8d48a164d5083d9ee32163`. The exact 18 repaired actuals equal main and pass original-resolution visual QA; targeted regression passes 24/24. Branch and main retain the same 39 baseline failure IDs with zero branch-only delta, analyzer delta is 0, and Web release build passes. R1-R7.1 remain immutable. PR #92 may proceed to Owner merge approval after commit/push and Ready-for-Review transition. Merge and deployment remain separate explicit decisions; Production remains V1.4.
+
+## Historical — V1.5 Life Map Compatibility Repair Gate Blocked
+
+The authorized four-string compatibility repair eliminates the prior 14 Life Map V1.2.6-V1.3.2 failures and restores matrix 864/864 plus weekday 108/108. Focused, synthetic, analyzer-delta, Web build and accepted-artifact identity gates pass. The full branch suite nevertheless has 18 new Life Timeline golden screenshot failures relative to main: branch 2,871/57, main 2,861/39, common 39, branch-only 18, main-only 0. Tests/goldens remain unchanged under this task. The next prerequisite is an Owner-authorized rebaseline and visual review of exactly 18 branch-specific golden PNGs, then another complete gate rerun. PR #92 remains Draft; Production remains V1.4.
+
 ## V1.5 Product Accepted — Final Merge Gate Blocked
 
 Owner accepted the R7 narrative and R7.1 evidence on 2026-08-16: `V1.5 R7.1 OWNER ACCEPTANCE PASSED` and `V1.5 PRODUCT ACCEPTANCE PASSED`. R1-R7.1 are immutable. The final gate rerun passes focused 286/286, scoped analyzer, zero-new full-analyzer diagnostics, Web release build, factual anchors, Unknown fail-closed, canonical parity, traceability, and R7.1 identity checks. The repository full suite remains blocking at 2,875 passed / 53 failed; 14 failures are branch-only Life Map V1.2.6-V1.3.2 regressions relative to `origin/main`. PR #92 remains Draft until a separately authorized repair makes the full suite green. No merge or deployment is authorized; Production remains V1.4.
@@ -268,10 +276,14 @@ Items documented as future in master context or specs — **not yet active prior
 - [x] Diagnose cross-layer repetition and audit blind spot.
 - [x] Add deterministic report-level claim ownership and V1.5 evidence packet.
 - [x] Owner accepts R7 narrative and R7.1 evidence; V1.5 Product Acceptance passed.
-- [ ] Resolve the 14 branch-only Life Map regressions and the mandatory full-suite failures under a separate authorized task, then rerun the Final Merge Gate.
+- [x] Restore the four authoritative Life Map strings, reconcile the exact 18 authorized goldens using Case A, and pass the Final Merge Gate against pinned main (39 common failures; branch-only 0; main-only 0).
 - [ ] Merge/deploy only under a separate explicit owner instruction.
 # V1.5 R2 gate
 
 R2 evidence correction (2026-08-13): all five contact sheets now derive from the final 30 page renders and the README count is corrected. The PDFs/source are unchanged; focused validation remains 261/261. Corrected ZIP SHA-256: `610E69A38E2CA012BE4698E266E465EA8B17F44275761812050854A47F9B36CD`.
 
 Current gate: owner acceptance of R2 Known 00:35 and Unknown PDFs. Merge and deployment remain out of scope; Production remains V1.4.
+
+## V1.5 final merge gate result — 2026-08-16
+
+Owner Acceptance for R7/R7.1 remains authoritative. The four-string Life Map compatibility repair and controlled Case A reconciliation now pass the full pinned-main gate. The exact 18 repaired actuals equal main and pass visual QA; branch and main share the same 39 baseline failure IDs with zero delta. PR #92 may proceed to Owner merge approval after commit/push and Ready-for-Review transition. Merge and deployment remain separate explicit decisions; Production remains V1.4.
