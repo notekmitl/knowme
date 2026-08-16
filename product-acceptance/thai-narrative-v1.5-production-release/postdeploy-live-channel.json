@@ -1,0 +1,90 @@
+{
+  "status": "success",
+  "result": {
+    "channels": [
+      {
+        "name": "projects/knowme-app-694e1/sites/knowme-app-694e1/channels/live",
+        "url": "https://knowme-app-694e1.web.app",
+        "release": {
+          "name": "projects/knowme-app-694e1/sites/knowme-app-694e1/channels/live/releases/1786871603892000",
+          "version": {
+            "name": "projects/knowme-app-694e1/sites/knowme-app-694e1/versions/a5721c17f758aa6d",
+            "status": "FINALIZED",
+            "config": {
+              "headers": [
+                {
+                  "headers": {
+                    "Cache-Control": "public, max-age=31536000, immutable"
+                  },
+                  "glob": "**/*.@(js|css|wasm)"
+                },
+                {
+                  "headers": {
+                    "Cache-Control": "no-cache, must-revalidate"
+                  },
+                  "glob": "main.dart.js"
+                },
+                {
+                  "headers": {
+                    "Cache-Control": "no-cache, must-revalidate"
+                  },
+                  "glob": "flutter.js"
+                },
+                {
+                  "headers": {
+                    "Cache-Control": "no-cache, must-revalidate"
+                  },
+                  "glob": "flutter_bootstrap.js"
+                },
+                {
+                  "headers": {
+                    "Cache-Control": "no-cache, must-revalidate"
+                  },
+                  "glob": "flutter_service_worker.js"
+                },
+                {
+                  "headers": {
+                    "Cache-Control": "no-cache"
+                  },
+                  "glob": "index.html"
+                },
+                {
+                  "headers": {
+                    "Cache-Control": "no-cache"
+                  },
+                  "glob": "/beta/**"
+                }
+              ],
+              "rewrites": [
+                {
+                  "glob": "**",
+                  "path": "/index.html"
+                }
+              ]
+            },
+            "labels": {
+              "deployment-tool": "cli-firebase"
+            },
+            "createTime": "2026-08-16T09:13:18.051158Z",
+            "createUser": {
+              "email": "note018@gmail.com"
+            },
+            "finalizeTime": "2026-08-16T09:13:23.763905Z",
+            "finalizeUser": {
+              "email": "note018@gmail.com"
+            }
+          },
+          "type": "DEPLOY",
+          "releaseTime": "2026-08-16T09:13:23.892Z",
+          "message": "KnowMe Thai Narrative V1.5 — source 7a2bdea4, product a574fcb6",
+          "releaseUser": {
+            "email": "note018@gmail.com"
+          }
+        },
+        "createTime": "2026-02-26T09:09:56.406342657Z",
+        "updateTime": "2026-08-16T09:13:23.892Z",
+        "retainedReleaseCount": 2147483647
+      }
+    ]
+  }
+}

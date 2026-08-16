@@ -1,0 +1,12 @@
+classification: release-build static safety scan
+suspiciousFileNames: 0
+filesScanned: 78
+textFilesScanned: 40
+windowsUserPathMatches: 0
+localhostEndpointMatches: 0
+loopbackIPv4EndpointMatches: 0
+privateKeyMarkerMatches: 0
+debugServiceMatches: 0
+benignLocalhostHostnameChecks: 1
+benignLocalhostClassification: runtime hostname comparison only; no URL, port, or endpoint
+result: PASS

@@ -1,0 +1,37 @@
+{
+  "fixture": "owner-known-0035",
+  "productionPdfBytes": 39370,
+  "productionPdfSha256": "5F706E04462DEA15716F09C3B8230C03DA34D2CF02B9C0C3E11BBBFCDC47C49B",
+  "productionPages": 7,
+  "acceptedPdfBytes": 39080,
+  "acceptedPdfSha256": "23D7AEBC40F27C29BDA55F521688BCC7D156FDE928173BE435BB7033EB8535B6",
+  "acceptedPages": 7,
+  "productionVsAcceptedPdfExtractedExact": false,
+  "productionVsAcceptedCanonicalExact": false,
+  "sequenceSimilarity": 0.9920086980157652,
+  "substantiveDifferenceCount": 4,
+  "differences": [
+    {
+      "operation": "replace",
+      "production": "ต้องคิดเรื่",
+      "accepted": "อยากใช้เงินวันนี้ แต่ยังต้"
+    },
+    {
+      "operation": "replace",
+      "production": "งินและความมั่นคงก่อนเรื่องอื่น",
+      "accepted": "พื่อแผนระยะยาว"
+    },
+    {
+      "operation": "replace",
+      "production": "ที่เคยท",
+      "accepted": "และหน้าที่บังคับให้คุณจัดล"
+    },
+    {
+      "operation": "replace",
+      "production": "แบบเดิมเริ่มเปลี่ยนไป",
+      "accepted": "ดับชีวิตใหม่"
+    }
+  ],
+  "result": "BLOCKED",
+  "requiredAction": "ROLLBACK_TO_V1.4"
+}

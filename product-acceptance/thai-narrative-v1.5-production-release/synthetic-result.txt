@@ -1,0 +1,10 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/v15-production-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart
+00:00 +0: matrix has exactly 300 reproducible privacy-safe cases
+00:00 +1: synthetic matrix invokes cross-mode material sensitivity
+00:02 +2: all 300 cases pass structured, narrative, omission and safety contracts
+{"seed":20260803,"cases":300,"knownTime":225,"unknownTime":75,"omittedDomainCases":75,"knownTimeOmissions":{},"identicalFullReports":0,"uniqueFullReports":300,"identicalNarrativeReports":0,"uniqueNarrativeReports":300,"duplicateNarrativeCases":[],"uniqueParagraphs":489,"topParagraphFrequencies":[{"count":300,"source":"methodology/methodology:top-themes"},{"count":225,"source":"wellbeing/disclosure:medical"},{"count":75,"source":"methodology/methodology:no-birth-time"},{"count":48,"source":"closing/computed:closing-priority-action"},{"count":46,"source":"work/computed:house:10:analysis"},{"count":46,"source":"money/computed:house:2:analysis"},{"count":46,"source":"relationships/computed:house:7:analysis"},{"count":46,"source":"wellbeing/computed:house:6:analysis"},{"count":46,"source":"methodology/methodology:lagna-inputs"},{"count":40,"source":"work/computed:house:10:analysis"}]}
+00:23 +3: 30 stratified cases are deterministic across three runs
+00:27 +4: 60-case deep narrative sample has ownership and no within-report collapse
+00:28 +5: 20 representative cases produce real PDFs with Web semantic parity
+00:30 +6: All tests passed!
+exitCode: 0

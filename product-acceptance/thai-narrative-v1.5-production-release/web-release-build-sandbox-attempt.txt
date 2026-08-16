@@ -1,0 +1,30 @@
+command: flutter build web --release
+toolchain: C:\Users\USER\Documents\Knowme\flutter-3.41.1\bin\flutter.bat
+sourceHead: 7a2bdea4d88ebd3e87ee7268641a37a70a7a959f
+startedUtc: 2026-08-16T09:02:26.5949798Z
+--- raw output ---
+fatal: detected dubious ownership in repository at 'C:/Users/USER/Documents/Knowme/flutter-3.41.1'
+'C:/Users/USER/Documents/Knowme/flutter-3.41.1/.git' is owned by:
+	DESKTOP-HF53LFO/USER (S-1-5-21-400067336-3404478323-1814434292-1001)
+but the current user is:
+	DESKTOP-HF53LFO/CodexSandboxOffline (S-1-5-21-400067336-3404478323-1814434292-1004)
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory C:/Users/USER/Documents/Knowme/flutter-3.41.1
+fatal: detected dubious ownership in repository at 'C:/Users/USER/Documents/Knowme/flutter-3.41.1'
+'C:/Users/USER/Documents/Knowme/flutter-3.41.1/.git' is owned by:
+	DESKTOP-HF53LFO/USER (S-1-5-21-400067336-3404478323-1814434292-1001)
+but the current user is:
+	DESKTOP-HF53LFO/CodexSandboxOffline (S-1-5-21-400067336-3404478323-1814434292-1004)
+To add an exception for this directory, call:
+
+	git config --global --add safe.directory C:/Users/USER/Documents/Knowme/flutter-3.41.1
+Invoke-Expression: C:\Users\USER\Documents\Knowme\flutter-3.41.1\bin\internal\update_engine_version.ps1:60
+Line |
+  60 |  … neVersion = Invoke-Expression "& '$flutterRoot/bin/internal/content_a …
+     |                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+     | You cannot call a method on a null-valued expression.
+Error: Unable to determine engine version... 
+--- end raw output ---
+endedUtc: 2026-08-16T09:02:27.1307940Z
+exitCode: 1
