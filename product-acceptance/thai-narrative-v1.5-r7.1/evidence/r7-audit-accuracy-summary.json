@@ -1,0 +1,46 @@
+{
+  "schema": "knowme-thai-narrative-v1.5-r7.1-audit-accuracy-v1",
+  "source": "evidence/r7-audit-metrics.json",
+  "sourceModified": false,
+  "fixtures": [
+    {
+      "fixture": "owner-known-0035",
+      "clauseFlags": 0,
+      "callbackFailures": 0
+    },
+    {
+      "fixture": "owner-unknown",
+      "clauseFlags": 0,
+      "callbackFailures": 0
+    },
+    {
+      "fixture": "regression-known-0003",
+      "clauseFlags": 0,
+      "callbackFailures": 0
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "clauseFlags": 0,
+      "callbackFailures": 0
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "clauseFlags": 1,
+      "callbackFailures": 0
+    }
+  ],
+  "khonKaenFinding": {
+    "flagType": "repeated-suffix",
+    "count": 1,
+    "callbackClassification": "non-blocking summary-to-detail callback with new detail",
+    "leftUnitId": "comparison-known-khon-kaen:72",
+    "rightUnitId": "comparison-known-khon-kaen:74"
+  },
+  "broadReuse": {
+    "reused": 71,
+    "denominator": 219,
+    "percent": 32.4201,
+    "groups": 26
+  },
+  "passed": true
+}

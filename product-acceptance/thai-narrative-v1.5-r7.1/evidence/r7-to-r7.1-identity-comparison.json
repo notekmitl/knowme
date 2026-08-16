@@ -1,0 +1,511 @@
+{
+  "schema": "knowme-thai-narrative-v1.5-r7-to-r7.1-identity-comparison-v1",
+  "comparedFiles": 63,
+  "mismatchCount": 0,
+  "files": [
+    {
+      "path": "evidence/analyzer-results.txt",
+      "r7Bytes": 452,
+      "r71Bytes": 452,
+      "r7Sha256": "6B6A2F79027EA7CC83B50D33B7ED05868FCA31B481E5BFEEC4880764F5E97FDA",
+      "r71Sha256": "6B6A2F79027EA7CC83B50D33B7ED05868FCA31B481E5BFEEC4880764F5E97FDA",
+      "match": true
+    },
+    {
+      "path": "evidence/claim-coverage-matrix.json",
+      "r7Bytes": 2452,
+      "r71Bytes": 2452,
+      "r7Sha256": "CD93AA7E2F78A8E73BA2B49A1A2E272A93502CADF83E5EA2045944BE3927DDB4",
+      "r71Sha256": "CD93AA7E2F78A8E73BA2B49A1A2E272A93502CADF83E5EA2045944BE3927DDB4",
+      "match": true
+    },
+    {
+      "path": "evidence/claim-ledger.json",
+      "r7Bytes": 309477,
+      "r71Bytes": 309477,
+      "r7Sha256": "D2BAA976C79B66D3B13835498B2216C465E86CA9DE5389A28117C140C698A8AA",
+      "r71Sha256": "D2BAA976C79B66D3B13835498B2216C465E86CA9DE5389A28117C140C698A8AA",
+      "match": true
+    },
+    {
+      "path": "evidence/claim-render-traceability.json",
+      "r7Bytes": 151347,
+      "r71Bytes": 151347,
+      "r7Sha256": "9E3203EFE82D74527CD0797F3F59A253B1274DB00B34713FECCEB0E27DD7D9E8",
+      "r71Sha256": "9E3203EFE82D74527CD0797F3F59A253B1274DB00B34713FECCEB0E27DD7D9E8",
+      "match": true
+    },
+    {
+      "path": "evidence/comparison-known-bangkok-pdf-text.txt",
+      "r7Bytes": 25655,
+      "r71Bytes": 25655,
+      "r7Sha256": "1DA55E88C330307029F235F907A0B5BB274930BC359FA80AE8842E6D46017599",
+      "r71Sha256": "1DA55E88C330307029F235F907A0B5BB274930BC359FA80AE8842E6D46017599",
+      "match": true
+    },
+    {
+      "path": "evidence/comparison-known-bangkok-report.pdf",
+      "r7Bytes": 38336,
+      "r71Bytes": 38336,
+      "r7Sha256": "AA66312F30D7ED47E223CF4E94EB74FBF00573F3B438B11EBBCC125BDE217963",
+      "r71Sha256": "AA66312F30D7ED47E223CF4E94EB74FBF00573F3B438B11EBBCC125BDE217963",
+      "match": true
+    },
+    {
+      "path": "evidence/comparison-known-bangkok-web-text.txt",
+      "r7Bytes": 25655,
+      "r71Bytes": 25655,
+      "r7Sha256": "1DA55E88C330307029F235F907A0B5BB274930BC359FA80AE8842E6D46017599",
+      "r71Sha256": "1DA55E88C330307029F235F907A0B5BB274930BC359FA80AE8842E6D46017599",
+      "match": true
+    },
+    {
+      "path": "evidence/comparison-known-khon-kaen-pdf-text.txt",
+      "r7Bytes": 26190,
+      "r71Bytes": 26190,
+      "r7Sha256": "D5FF068385F39798040336EB4A60A0241048E1FC6C6B4DF919A8C583F0C49D62",
+      "r71Sha256": "D5FF068385F39798040336EB4A60A0241048E1FC6C6B4DF919A8C583F0C49D62",
+      "match": true
+    },
+    {
+      "path": "evidence/comparison-known-khon-kaen-report.pdf",
+      "r7Bytes": 38823,
+      "r71Bytes": 38823,
+      "r7Sha256": "E07F071E275AFB8291D27D32C520D69B3370088C5A2C400D9B345E2C2380AAFE",
+      "r71Sha256": "E07F071E275AFB8291D27D32C520D69B3370088C5A2C400D9B345E2C2380AAFE",
+      "match": true
+    },
+    {
+      "path": "evidence/comparison-known-khon-kaen-web-text.txt",
+      "r7Bytes": 26190,
+      "r71Bytes": 26190,
+      "r7Sha256": "D5FF068385F39798040336EB4A60A0241048E1FC6C6B4DF919A8C583F0C49D62",
+      "r71Sha256": "D5FF068385F39798040336EB4A60A0241048E1FC6C6B4DF919A8C583F0C49D62",
+      "match": true
+    },
+    {
+      "path": "evidence/consumer-unit-audit.json",
+      "r7Bytes": 443859,
+      "r71Bytes": 443859,
+      "r7Sha256": "05580AD5E4974DD75EBD34A99217C10DE2613CDC9F8FE4BBA2214A9ABBF749BB",
+      "r71Sha256": "05580AD5E4974DD75EBD34A99217C10DE2613CDC9F8FE4BBA2214A9ABBF749BB",
+      "match": true
+    },
+    {
+      "path": "evidence/engine-factual-result.json",
+      "r7Bytes": 671,
+      "r71Bytes": 671,
+      "r7Sha256": "6D9A93385415A43D901343416FEA35C2C5135C828624E450B1F60681707A0A22",
+      "r71Sha256": "6D9A93385415A43D901343416FEA35C2C5135C828624E450B1F60681707A0A22",
+      "match": true
+    },
+    {
+      "path": "evidence/owner-known-0035-pdf-text.txt",
+      "r7Bytes": 26599,
+      "r71Bytes": 26599,
+      "r7Sha256": "08F446D1B72A10F985B80C34702785A4DE61AB96DE5DC01374837876D32396E3",
+      "r71Sha256": "08F446D1B72A10F985B80C34702785A4DE61AB96DE5DC01374837876D32396E3",
+      "match": true
+    },
+    {
+      "path": "evidence/owner-known-0035-report.pdf",
+      "r7Bytes": 39080,
+      "r71Bytes": 39080,
+      "r7Sha256": "23D7AEBC40F27C29BDA55F521688BCC7D156FDE928173BE435BB7033EB8535B6",
+      "r71Sha256": "23D7AEBC40F27C29BDA55F521688BCC7D156FDE928173BE435BB7033EB8535B6",
+      "match": true
+    },
+    {
+      "path": "evidence/owner-known-0035-web-text.txt",
+      "r7Bytes": 26599,
+      "r71Bytes": 26599,
+      "r7Sha256": "08F446D1B72A10F985B80C34702785A4DE61AB96DE5DC01374837876D32396E3",
+      "r71Sha256": "08F446D1B72A10F985B80C34702785A4DE61AB96DE5DC01374837876D32396E3",
+      "match": true
+    },
+    {
+      "path": "evidence/owner-unknown-pdf-text.txt",
+      "r7Bytes": 23922,
+      "r71Bytes": 23922,
+      "r7Sha256": "DC1BD76EA0DFA6139A15F048503B92DE228AA46809596A588ABDB3B8E3681FAB",
+      "r71Sha256": "DC1BD76EA0DFA6139A15F048503B92DE228AA46809596A588ABDB3B8E3681FAB",
+      "match": true
+    },
+    {
+      "path": "evidence/owner-unknown-report.pdf",
+      "r7Bytes": 37021,
+      "r71Bytes": 37021,
+      "r7Sha256": "CD1704B2F84EE6C3AAA89EC0A011969CFAFA02C4B1318BC209D57EF972865CFF",
+      "r71Sha256": "CD1704B2F84EE6C3AAA89EC0A011969CFAFA02C4B1318BC209D57EF972865CFF",
+      "match": true
+    },
+    {
+      "path": "evidence/owner-unknown-web-text.txt",
+      "r7Bytes": 23922,
+      "r71Bytes": 23922,
+      "r7Sha256": "DC1BD76EA0DFA6139A15F048503B92DE228AA46809596A588ABDB3B8E3681FAB",
+      "r71Sha256": "DC1BD76EA0DFA6139A15F048503B92DE228AA46809596A588ABDB3B8E3681FAB",
+      "match": true
+    },
+    {
+      "path": "evidence/r7-audit-metrics.json",
+      "r7Bytes": 208395,
+      "r71Bytes": 208395,
+      "r7Sha256": "B27A0B94568FA9E2D33D23E5CF7EDD63F0BC9382B57F2EF2C27FBFCE0C8AA13B",
+      "r71Sha256": "B27A0B94568FA9E2D33D23E5CF7EDD63F0BC9382B57F2EF2C27FBFCE0C8AA13B",
+      "match": true
+    },
+    {
+      "path": "evidence/regression-known-0003-pdf-text.txt",
+      "r7Bytes": 26598,
+      "r71Bytes": 26598,
+      "r7Sha256": "2C1880ACB74D1523CCA814512B1E53D0C06DF71F7E77FDD278E4BA43FDEE3177",
+      "r71Sha256": "2C1880ACB74D1523CCA814512B1E53D0C06DF71F7E77FDD278E4BA43FDEE3177",
+      "match": true
+    },
+    {
+      "path": "evidence/regression-known-0003-report.pdf",
+      "r7Bytes": 39072,
+      "r71Bytes": 39072,
+      "r7Sha256": "D9A43853DBC8F9A173A2342EC0B2180E6F3DD33CA59D7CB819660E4B72CFE377",
+      "r71Sha256": "D9A43853DBC8F9A173A2342EC0B2180E6F3DD33CA59D7CB819660E4B72CFE377",
+      "match": true
+    },
+    {
+      "path": "evidence/regression-known-0003-web-text.txt",
+      "r7Bytes": 26598,
+      "r71Bytes": 26598,
+      "r7Sha256": "2C1880ACB74D1523CCA814512B1E53D0C06DF71F7E77FDD278E4BA43FDEE3177",
+      "r71Sha256": "2C1880ACB74D1523CCA814512B1E53D0C06DF71F7E77FDD278E4BA43FDEE3177",
+      "match": true
+    },
+    {
+      "path": "evidence/test-focused-result.txt",
+      "r7Bytes": 63159,
+      "r71Bytes": 63159,
+      "r7Sha256": "DF78902A08424361D9FEC0320CF3FF189FE2F69B6A26032DB9AFC940E92F1E23",
+      "r71Sha256": "DF78902A08424361D9FEC0320CF3FF189FE2F69B6A26032DB9AFC940E92F1E23",
+      "match": true
+    },
+    {
+      "path": "renders/comparison-known-bangkok-contact-sheet.png",
+      "r7Bytes": 624984,
+      "r71Bytes": 624984,
+      "r7Sha256": "FEC5F533A54429757F08DE7A7875677963441CA66EA7B8D6246E8B96FD5E74A0",
+      "r71Sha256": "FEC5F533A54429757F08DE7A7875677963441CA66EA7B8D6246E8B96FD5E74A0",
+      "match": true
+    },
+    {
+      "path": "renders/comparison-known-bangkok/page-1.png",
+      "r7Bytes": 279190,
+      "r71Bytes": 279190,
+      "r7Sha256": "2DCA8C535772E7804C14059C8C855B8DED50F651BD54D828975A5894EA7068AB",
+      "r71Sha256": "2DCA8C535772E7804C14059C8C855B8DED50F651BD54D828975A5894EA7068AB",
+      "match": true
+    },
+    {
+      "path": "renders/comparison-known-bangkok/page-2.png",
+      "r7Bytes": 223575,
+      "r71Bytes": 223575,
+      "r7Sha256": "9ED3D411AA699AB015F79BD2528D2CC5886827954FBB28B55C200CAECFD0AA6F",
+      "r71Sha256": "9ED3D411AA699AB015F79BD2528D2CC5886827954FBB28B55C200CAECFD0AA6F",
+      "match": true
+    },
+    {
+      "path": "renders/comparison-known-bangkok/page-3.png",
+      "r7Bytes": 254863,
+      "r71Bytes": 254863,
+      "r7Sha256": "FC7920931B0808FE2AA4A452D732812F86386487BDC3690ABF5174D8DB9B4EF5",
+      "r71Sha256": "FC7920931B0808FE2AA4A452D732812F86386487BDC3690ABF5174D8DB9B4EF5",
+      "match": true
+    },
+    {
+      "path": "renders/comparison-known-bangkok/page-4.png",
+      "r7Bytes": 276741,
+      "r71Bytes": 276741,
+      "r7Sha256": "7C972F75B703D60A78F46FC7815AFE34B195D56F3EABD34B843C74E3CFC94F28",
+      "r71Sha256": "7C972F75B703D60A78F46FC7815AFE34B195D56F3EABD34B843C74E3CFC94F28",
+      "match": true
+    },
+    {
+      "path": "renders/comparison-known-bangkok/page-5.png",
+      "r7Bytes": 230195,
+      "r71Bytes": 230195,
+      "r7Sha256": "DF6BBCBD19DEAC9B495CBFEA8F3481186DBC910B9EC2CBB1C68ABEEA0A6CD0F2",
+      "r71Sha256": "DF6BBCBD19DEAC9B495CBFEA8F3481186DBC910B9EC2CBB1C68ABEEA0A6CD0F2",
+      "match": true
+    },
+    {
+      "path": "renders/comparison-known-bangkok/page-6.png",
+      "r7Bytes": 248169,
+      "r71Bytes": 248169,
+      "r7Sha256": "829DDB6A7F01CD6416F8B46A56DA2B5F257896F5A401E9631220F14EC0C120B5",
+      "r71Sha256": "829DDB6A7F01CD6416F8B46A56DA2B5F257896F5A401E9631220F14EC0C120B5",
+      "match": true
+    },
+    {
+      "path": "renders/comparison-known-bangkok/page-7.png",
+      "r7Bytes": 74716,
+      "r71Bytes": 74716,
+      "r7Sha256": "955B147D93C4AD8C375B874E857D32BFAAD17A36F6E54498D2654DBECA55CBEA",
+      "r71Sha256": "955B147D93C4AD8C375B874E857D32BFAAD17A36F6E54498D2654DBECA55CBEA",
+      "match": true
+    },
+    {
+      "path": "renders/comparison-known-khon-kaen-contact-sheet.png",
+      "r7Bytes": 638552,
+      "r71Bytes": 638552,
+      "r7Sha256": "25CF5D4D76DD6B0A5D977C20C3D1784BB33BF9796215983D740A9B78D9CBECA3",
+      "r71Sha256": "25CF5D4D76DD6B0A5D977C20C3D1784BB33BF9796215983D740A9B78D9CBECA3",
+      "match": true
+    },
+    {
+      "path": "renders/comparison-known-khon-kaen/page-1.png",
+      "r7Bytes": 273810,
+      "r71Bytes": 273810,
+      "r7Sha256": "5313E0F382E341DC709CB781F7A1A58A1F8E88E057A476AD9B81559EEF2F1FF5",
+      "r71Sha256": "5313E0F382E341DC709CB781F7A1A58A1F8E88E057A476AD9B81559EEF2F1FF5",
+      "match": true
+    },
+    {
+      "path": "renders/comparison-known-khon-kaen/page-2.png",
+      "r7Bytes": 231171,
+      "r71Bytes": 231171,
+      "r7Sha256": "F16D49BE4F97F4E1FF536578BF8C190BA0A6BA1FD1E00C481660E7C5D7A243D6",
+      "r71Sha256": "F16D49BE4F97F4E1FF536578BF8C190BA0A6BA1FD1E00C481660E7C5D7A243D6",
+      "match": true
+    },
+    {
+      "path": "renders/comparison-known-khon-kaen/page-3.png",
+      "r7Bytes": 246943,
+      "r71Bytes": 246943,
+      "r7Sha256": "2C221A5E9A71CF54FE2A10C1DBB126E1F092654B4D856D953EC754E982EF8D1A",
+      "r71Sha256": "2C221A5E9A71CF54FE2A10C1DBB126E1F092654B4D856D953EC754E982EF8D1A",
+      "match": true
+    },
+    {
+      "path": "renders/comparison-known-khon-kaen/page-4.png",
+      "r7Bytes": 283492,
+      "r71Bytes": 283492,
+      "r7Sha256": "AB7BD85803014A2BDA53BCBD1C396885C8D6E2368ECCA10367D1141EC3EBB70C",
+      "r71Sha256": "AB7BD85803014A2BDA53BCBD1C396885C8D6E2368ECCA10367D1141EC3EBB70C",
+      "match": true
+    },
+    {
+      "path": "renders/comparison-known-khon-kaen/page-5.png",
+      "r7Bytes": 258088,
+      "r71Bytes": 258088,
+      "r7Sha256": "A4A3686CD6604A66FD9A81D430762FD489583EF67DDA23A6B2E8352DCED32A68",
+      "r71Sha256": "A4A3686CD6604A66FD9A81D430762FD489583EF67DDA23A6B2E8352DCED32A68",
+      "match": true
+    },
+    {
+      "path": "renders/comparison-known-khon-kaen/page-6.png",
+      "r7Bytes": 249261,
+      "r71Bytes": 249261,
+      "r7Sha256": "DEDA522752C99E9D9F52C61F988696D2D0109259698C9A8AE5D06C2E3AD2BA12",
+      "r71Sha256": "DEDA522752C99E9D9F52C61F988696D2D0109259698C9A8AE5D06C2E3AD2BA12",
+      "match": true
+    },
+    {
+      "path": "renders/comparison-known-khon-kaen/page-7.png",
+      "r7Bytes": 74716,
+      "r71Bytes": 74716,
+      "r7Sha256": "955B147D93C4AD8C375B874E857D32BFAAD17A36F6E54498D2654DBECA55CBEA",
+      "r71Sha256": "955B147D93C4AD8C375B874E857D32BFAAD17A36F6E54498D2654DBECA55CBEA",
+      "match": true
+    },
+    {
+      "path": "renders/owner-known-0035-contact-sheet.png",
+      "r7Bytes": 648050,
+      "r71Bytes": 648050,
+      "r7Sha256": "5B4F751ECED7B45C3C910D62F0DB679667DA67B8124842B87D397DC0AF2E1153",
+      "r71Sha256": "5B4F751ECED7B45C3C910D62F0DB679667DA67B8124842B87D397DC0AF2E1153",
+      "match": true
+    },
+    {
+      "path": "renders/owner-known-0035/page-1.png",
+      "r7Bytes": 273466,
+      "r71Bytes": 273466,
+      "r7Sha256": "3DBA0BAA8097E65CEF8AE55FBCDD61752990F9FC07D2D80C1ACAFE0FA4068B23",
+      "r71Sha256": "3DBA0BAA8097E65CEF8AE55FBCDD61752990F9FC07D2D80C1ACAFE0FA4068B23",
+      "match": true
+    },
+    {
+      "path": "renders/owner-known-0035/page-2.png",
+      "r7Bytes": 229986,
+      "r71Bytes": 229986,
+      "r7Sha256": "FF77F7BF6FD7A853FFA3B7633D14B962E106C28008D407AC6093CD854F7E0F25",
+      "r71Sha256": "FF77F7BF6FD7A853FFA3B7633D14B962E106C28008D407AC6093CD854F7E0F25",
+      "match": true
+    },
+    {
+      "path": "renders/owner-known-0035/page-3.png",
+      "r7Bytes": 230186,
+      "r71Bytes": 230186,
+      "r7Sha256": "FE5B7AF7299F14EED037D03E809F4BC11C301A06AF12B4B465EC9F11F62A8EDB",
+      "r71Sha256": "FE5B7AF7299F14EED037D03E809F4BC11C301A06AF12B4B465EC9F11F62A8EDB",
+      "match": true
+    },
+    {
+      "path": "renders/owner-known-0035/page-4.png",
+      "r7Bytes": 244301,
+      "r71Bytes": 244301,
+      "r7Sha256": "CEF058A46486317E8D01186C427C01E571C1CAAA8964DAC399175DECF1272491",
+      "r71Sha256": "CEF058A46486317E8D01186C427C01E571C1CAAA8964DAC399175DECF1272491",
+      "match": true
+    },
+    {
+      "path": "renders/owner-known-0035/page-5.png",
+      "r7Bytes": 273133,
+      "r71Bytes": 273133,
+      "r7Sha256": "210D132ED14DA73851C7742AC28E86AAE1FC01B0749E290E718524FB5641A215",
+      "r71Sha256": "210D132ED14DA73851C7742AC28E86AAE1FC01B0749E290E718524FB5641A215",
+      "match": true
+    },
+    {
+      "path": "renders/owner-known-0035/page-6.png",
+      "r7Bytes": 230530,
+      "r71Bytes": 230530,
+      "r7Sha256": "05663EB468B2F2064266955C228DAC4FBC9813DB6A465EC04856771BD8751B2D",
+      "r71Sha256": "05663EB468B2F2064266955C228DAC4FBC9813DB6A465EC04856771BD8751B2D",
+      "match": true
+    },
+    {
+      "path": "renders/owner-known-0035/page-7.png",
+      "r7Bytes": 160964,
+      "r71Bytes": 160964,
+      "r7Sha256": "8711496F33ED169AD36FA7F7908ADDBDFF82058D41C2ACA78EB36D7BEAB673AB",
+      "r71Sha256": "8711496F33ED169AD36FA7F7908ADDBDFF82058D41C2ACA78EB36D7BEAB673AB",
+      "match": true
+    },
+    {
+      "path": "renders/owner-unknown-contact-sheet.png",
+      "r7Bytes": 571854,
+      "r71Bytes": 571854,
+      "r7Sha256": "ABA296A53338802AECBF06DF48325B30CAA0C3DECE613AE2ADA597B15DC741ED",
+      "r71Sha256": "ABA296A53338802AECBF06DF48325B30CAA0C3DECE613AE2ADA597B15DC741ED",
+      "match": true
+    },
+    {
+      "path": "renders/owner-unknown/page-1.png",
+      "r7Bytes": 219496,
+      "r71Bytes": 219496,
+      "r7Sha256": "FA55EB436DAFCC393E4F0723A12854183DE5A25823B18F9B9A49C82331BF279E",
+      "r71Sha256": "FA55EB436DAFCC393E4F0723A12854183DE5A25823B18F9B9A49C82331BF279E",
+      "match": true
+    },
+    {
+      "path": "renders/owner-unknown/page-2.png",
+      "r7Bytes": 240079,
+      "r71Bytes": 240079,
+      "r7Sha256": "CA41B90346254A8146CB90CB357AC58AC37068D3528D0E4F13E073ADBE9291AE",
+      "r71Sha256": "CA41B90346254A8146CB90CB357AC58AC37068D3528D0E4F13E073ADBE9291AE",
+      "match": true
+    },
+    {
+      "path": "renders/owner-unknown/page-3.png",
+      "r7Bytes": 274614,
+      "r71Bytes": 274614,
+      "r7Sha256": "8A62DDACFB8FCA9AA64B6670E5F04D433606B61831D81EC47FF752CEB642CD2D",
+      "r71Sha256": "8A62DDACFB8FCA9AA64B6670E5F04D433606B61831D81EC47FF752CEB642CD2D",
+      "match": true
+    },
+    {
+      "path": "renders/owner-unknown/page-4.png",
+      "r7Bytes": 288034,
+      "r71Bytes": 288034,
+      "r7Sha256": "51FF2A5AFBBE7C7B6967AF5720C7339DABD6B61F94F11FAD7A607C4EE593F9FC",
+      "r71Sha256": "51FF2A5AFBBE7C7B6967AF5720C7339DABD6B61F94F11FAD7A607C4EE593F9FC",
+      "match": true
+    },
+    {
+      "path": "renders/owner-unknown/page-5.png",
+      "r7Bytes": 230445,
+      "r71Bytes": 230445,
+      "r7Sha256": "9D82729E927913D3695D39AABC34AB9DCCB437C732DE6ED98A0174E96531370C",
+      "r71Sha256": "9D82729E927913D3695D39AABC34AB9DCCB437C732DE6ED98A0174E96531370C",
+      "match": true
+    },
+    {
+      "path": "renders/owner-unknown/page-6.png",
+      "r7Bytes": 230279,
+      "r71Bytes": 230279,
+      "r7Sha256": "08C913CFEF16DC4FBC21FD1BE55B657553475504660D62A955CEED4571448B93",
+      "r71Sha256": "08C913CFEF16DC4FBC21FD1BE55B657553475504660D62A955CEED4571448B93",
+      "match": true
+    },
+    {
+      "path": "renders/page-geometry-audit.json",
+      "r7Bytes": 8709,
+      "r71Bytes": 8709,
+      "r7Sha256": "AC0CE68BBE70B68B1D592CCC4F61C79A56201304B30D796067ED3578BFC924C1",
+      "r71Sha256": "AC0CE68BBE70B68B1D592CCC4F61C79A56201304B30D796067ED3578BFC924C1",
+      "match": true
+    },
+    {
+      "path": "renders/regression-known-0003-contact-sheet.png",
+      "r7Bytes": 647991,
+      "r71Bytes": 647991,
+      "r7Sha256": "55C2F917971DB66F216A44AE6A76F6045FA346326B4A10958ADD7905150CE292",
+      "r71Sha256": "55C2F917971DB66F216A44AE6A76F6045FA346326B4A10958ADD7905150CE292",
+      "match": true
+    },
+    {
+      "path": "renders/regression-known-0003/page-1.png",
+      "r7Bytes": 273466,
+      "r71Bytes": 273466,
+      "r7Sha256": "3DBA0BAA8097E65CEF8AE55FBCDD61752990F9FC07D2D80C1ACAFE0FA4068B23",
+      "r71Sha256": "3DBA0BAA8097E65CEF8AE55FBCDD61752990F9FC07D2D80C1ACAFE0FA4068B23",
+      "match": true
+    },
+    {
+      "path": "renders/regression-known-0003/page-2.png",
+      "r7Bytes": 229986,
+      "r71Bytes": 229986,
+      "r7Sha256": "FF77F7BF6FD7A853FFA3B7633D14B962E106C28008D407AC6093CD854F7E0F25",
+      "r71Sha256": "FF77F7BF6FD7A853FFA3B7633D14B962E106C28008D407AC6093CD854F7E0F25",
+      "match": true
+    },
+    {
+      "path": "renders/regression-known-0003/page-3.png",
+      "r7Bytes": 230186,
+      "r71Bytes": 230186,
+      "r7Sha256": "FE5B7AF7299F14EED037D03E809F4BC11C301A06AF12B4B465EC9F11F62A8EDB",
+      "r71Sha256": "FE5B7AF7299F14EED037D03E809F4BC11C301A06AF12B4B465EC9F11F62A8EDB",
+      "match": true
+    },
+    {
+      "path": "renders/regression-known-0003/page-4.png",
+      "r7Bytes": 244301,
+      "r71Bytes": 244301,
+      "r7Sha256": "CEF058A46486317E8D01186C427C01E571C1CAAA8964DAC399175DECF1272491",
+      "r71Sha256": "CEF058A46486317E8D01186C427C01E571C1CAAA8964DAC399175DECF1272491",
+      "match": true
+    },
+    {
+      "path": "renders/regression-known-0003/page-5.png",
+      "r7Bytes": 273133,
+      "r71Bytes": 273133,
+      "r7Sha256": "210D132ED14DA73851C7742AC28E86AAE1FC01B0749E290E718524FB5641A215",
+      "r71Sha256": "210D132ED14DA73851C7742AC28E86AAE1FC01B0749E290E718524FB5641A215",
+      "match": true
+    },
+    {
+      "path": "renders/regression-known-0003/page-6.png",
+      "r7Bytes": 230197,
+      "r71Bytes": 230197,
+      "r7Sha256": "7B104AF3401AE56B129332BE5490405507ED9D74BAB3E57AC7B1A433429D4285",
+      "r71Sha256": "7B104AF3401AE56B129332BE5490405507ED9D74BAB3E57AC7B1A433429D4285",
+      "match": true
+    },
+    {
+      "path": "renders/regression-known-0003/page-7.png",
+      "r7Bytes": 160964,
+      "r71Bytes": 160964,
+      "r7Sha256": "8711496F33ED169AD36FA7F7908ADDBDFF82058D41C2ACA78EB36D7BEAB673AB",
+      "r71Sha256": "8711496F33ED169AD36FA7F7908ADDBDFF82058D41C2ACA78EB36D7BEAB673AB",
+      "match": true
+    }
+  ]
+}

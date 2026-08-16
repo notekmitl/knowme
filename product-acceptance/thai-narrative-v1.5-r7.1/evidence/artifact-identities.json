@@ -1,0 +1,36 @@
+{
+  "schema": "knowme-thai-narrative-v1.5-r7.1-artifact-identities-v1",
+  "source": "R7 byte-identical final PDF files",
+  "artifacts": [
+    {
+      "artifact": "comparison-known-bangkok-report.pdf",
+      "pages": 7,
+      "bytes": 38336,
+      "sha256": "AA66312F30D7ED47E223CF4E94EB74FBF00573F3B438B11EBBCC125BDE217963"
+    },
+    {
+      "artifact": "comparison-known-khon-kaen-report.pdf",
+      "pages": 7,
+      "bytes": 38823,
+      "sha256": "E07F071E275AFB8291D27D32C520D69B3370088C5A2C400D9B345E2C2380AAFE"
+    },
+    {
+      "artifact": "owner-known-0035-report.pdf",
+      "pages": 7,
+      "bytes": 39080,
+      "sha256": "23D7AEBC40F27C29BDA55F521688BCC7D156FDE928173BE435BB7033EB8535B6"
+    },
+    {
+      "artifact": "owner-unknown-report.pdf",
+      "pages": 6,
+      "bytes": 37021,
+      "sha256": "CD1704B2F84EE6C3AAA89EC0A011969CFAFA02C4B1318BC209D57EF972865CFF"
+    },
+    {
+      "artifact": "regression-known-0003-report.pdf",
+      "pages": 7,
+      "bytes": 39072,
+      "sha256": "D9A43853DBC8F9A173A2342EC0B2180E6F3DD33CA59D7CB819660E4B72CFE377"
+    }
+  ]
+}
