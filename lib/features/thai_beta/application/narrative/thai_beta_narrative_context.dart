@@ -26,7 +26,7 @@ class ThaiBetaNarrativeContext {
       orderedThemeIds: _orderedThemeIds(analysis),
       profileSeed: _profileSeed(analysis),
       hasBirthTime: analysis.input.hasBirthTime,
-      referenceDate: analysis.startedAt,
+      referenceDate: analysis.asOf,
       lifePeriodLabel: _lifePeriodLabel(analysis),
     );
   }

@@ -1,4 +1,5 @@
 import 'models/thai_mirror_section_id.dart';
+import 'thai_mirror_stable_hash.dart';
 
 /// Deterministic narrative template variants for population-scale diversity.
 abstract final class ThaiMirrorNarrativeVariants {
@@ -8,7 +9,7 @@ abstract final class ThaiMirrorNarrativeVariants {
     required int variantCount,
   }) {
     if (variantCount <= 1) return 0;
-    return Object.hash(sectionId, seed).abs() % variantCount;
+    return ThaiMirrorStableHash.strings([sectionId.name, seed]) % variantCount;
   }
 
   static String coreSelfOpening(int variant) {

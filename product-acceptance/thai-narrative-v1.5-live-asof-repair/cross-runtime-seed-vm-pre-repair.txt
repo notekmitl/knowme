@@ -1,0 +1,69 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/v15-production-release-clean/test/validation/thai_beta/live_asof/thai_beta_cross_runtime_seed_test.dart
+00:00 +0: pre-repair presenter seed and canonical output are runtime-visible
+{
+  "schema": "knowme-v15-cross-runtime-seed-pre-repair-v1",
+  "runtime": "dart-vm",
+  "presenterSeed": 28924034132,
+  "orderedThemeIds": [
+    "persistence",
+    "builder",
+    "develop_patience",
+    "disciplined",
+    "visionary",
+    "independent",
+    "ambitious",
+    "analytical",
+    "reflective",
+    "detail_oriented",
+    "diplomatic",
+    "teacher",
+    "open_to_collaboration"
+  ],
+  "topThemeIds": [
+    "persistence",
+    "builder",
+    "develop_patience"
+  ],
+  "themeScores": [
+    1.195,
+    1.0350000000000001,
+    0.9,
+    0.5525,
+    0.85,
+    0.5850000000000001,
+    0.45499999999999996,
+    0.65,
+    1.5525000000000002,
+    0.425,
+    2.2025,
+    1.3900000000000001,
+    0.35,
+    2.2025,
+    1.5525000000000002,
+    1.3900000000000001
+  ],
+  "lagnaKey": "lagna_aquarius",
+  "stringHashCodes": {
+    "persistence": 961841110,
+    "builder": 504794108,
+    "develop_patience": 56504523,
+    "disciplined": 238764174,
+    "visionary": 181167291,
+    "independent": 928749864,
+    "ambitious": 406434870,
+    "analytical": 803126558,
+    "reflective": 252008166,
+    "detail_oriented": 588666404,
+    "diplomatic": 300348774,
+    "teacher": 358897741,
+    "open_to_collaboration": 1445821,
+    "lagna_aquarius": 804501464
+  },
+  "canonicalTextSha256": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+  "reportHash": "be88286c7ed928aab7c26602039056e8ee9cd2e4da16a0091f50dfa1cbd4dcd5",
+  "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+  "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่",
+  "hasProductionMismatch": false,
+  "hasFrozenAcceptance": true
+}
+00:00 +1: All tests passed!

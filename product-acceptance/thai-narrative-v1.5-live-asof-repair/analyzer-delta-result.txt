@@ -1,0 +1,10 @@
+FULL ANALYZER NORMALIZED DELTA
+Normalization: severity + message + repository-relative path + diagnostic code; line/column excluded because minimal imports shift locations without changing diagnostics.
+Branch diagnostics: 299
+Main diagnostics: 299
+Branch-only normalized diagnostics: 0
+Main-only normalized diagnostics: 0
+Branch-only details:
+(none)
+Main-only details:
+(none)

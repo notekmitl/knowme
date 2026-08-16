@@ -1,6 +1,7 @@
 import '../../../../core/themes/theme_registry.dart';
 import '../content/models/thai_content_section.dart';
 import 'thai_mirror_narrative_variants.dart';
+import 'thai_mirror_stable_hash.dart';
 import 'thai_mirror_section_distribution.dart';
 import 'models/thai_mirror_profile_context.dart';
 import 'models/thai_mirror_result.dart';
@@ -367,7 +368,7 @@ abstract final class ThaiMirrorNarrativeGenerator {
   ) {
     if (themes.isEmpty) return '';
 
-    final variant = narrativeSeed.hashCode.abs() % themes.length;
+    final variant = ThaiMirrorStableHash.string(narrativeSeed) % themes.length;
     final theme = themes[variant % themes.length];
     final definition = ThemeRegistry.getById(theme.themeId);
     if (definition == null) return '';

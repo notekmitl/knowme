@@ -1,4 +1,5 @@
 import 'package:knowme/core/themes/theme_catalog_v1.dart';
+import '../../thai_mirror_stable_hash.dart';
 
 import '../models/thai_mirror_consumer_view_state.dart';
 
@@ -131,7 +132,7 @@ abstract final class ThaiMirrorConsumerCopy {
   static _HeadlinePattern _headlinePattern(int profileSeed, String? lagnaKey) {
     var hash = profileSeed * 37;
     if (lagnaKey != null && lagnaKey.isNotEmpty) {
-      hash ^= lagnaKey.hashCode * 13;
+      hash ^= ThaiMirrorStableHash.string(lagnaKey) * 13;
     }
     return _HeadlinePattern.values[hash.abs() % _HeadlinePattern.values.length];
   }

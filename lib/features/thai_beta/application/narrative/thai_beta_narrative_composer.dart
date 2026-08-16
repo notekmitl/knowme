@@ -611,10 +611,17 @@ abstract final class ThaiBetaNarrativeComposer {
     );
   }
 
-  static String _cleanFutureTimelineClaim(String value) => value.replaceFirst(
-    'ต่อไปธีมของช่วงนี้คือการเปิดรับโอกาสผ่านงานหรือเครือข่าย โดยใช้สิ่งที่เกิดขึ้นจริงเป็นตัวเทียบ',
-    'ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ',
-  );
+  static String _cleanFutureTimelineClaim(String value) => value
+      .replaceFirst(
+        'ต่อไปธีมของช่วงนี้คือการเปิดรับโอกาสผ่านงานหรือเครือข่าย โดยใช้สิ่งที่เกิดขึ้นจริงเป็นตัวเทียบ',
+        'ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ',
+      )
+      // Both forms describe the same structured opportunity claim. Normalize
+      // to the already-accepted cautious V1.5 sentence across runtimes.
+      .replaceFirst(
+        'ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก',
+        'ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ',
+      );
 
   static bool _hasConsumerTimelineContent(ThaiMirrorLifePeriodState period) =>
       period.lifeDomains.isNotEmpty ||

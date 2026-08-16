@@ -1,0 +1,19 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/v15-production-release-clean/test/validation/thai_beta/live_asof/thai_beta_live_asof_diagnostic_test.dart
+00:00 +0: Clock A/B/C proves the live as-of causal boundary
+00:00 +0 -1: Clock A/B/C proves the live as-of causal boundary [E]
+  Binding has not yet been initialized.
+  The "instance" getter on the ServicesBinding binding mixin is only available once that binding has been initialized.
+  Typically, this is done by calling "WidgetsFlutterBinding.ensureInitialized()" or "runApp()" (the latter calls the former). Typically this call is done in the "void main()" method. The "ensureInitialized" method is idempotent; calling it multiple times is not harmful. After calling that method, the "instance" getter will return the binding.
+  In a test, one can call "TestWidgetsFlutterBinding.ensureInitialized()" as the first line in the test's "main()" method to initialize the binding.
+  If ServicesBinding is a custom binding mixin, there must also be a custom binding class, like WidgetsFlutterBinding, but that mixes in the selected binding, and that is the class that must be constructed before using the "instance" getter.
+  package:flutter/src/foundation/binding.dart 314:9                                        BindingBase.checkInstance.<fn>
+  package:flutter/src/foundation/binding.dart 401:6                                        BindingBase.checkInstance
+  package:flutter/src/services/binding.dart 73:54                                          ServicesBinding.instance
+  package:flutter/src/services/asset_bundle.dart 328:54                                    PlatformAssetBundle.load
+  package:knowme/features/thai_beta/application/thai_beta_report_pdf_exporter.dart 234:40  ThaiBetaReportPdfExporter._loadFonts.<fn>
+  package:knowme/features/thai_beta/application/thai_beta_report_pdf_exporter.dart 244:6   ThaiBetaReportPdfExporter._loadFonts
+  package:knowme/features/thai_beta/application/thai_beta_report_pdf_exporter.dart 260:60  ThaiBetaReportPdfExporter.build
+  test\validation\thai_beta\live_asof\thai_beta_live_asof_diagnostic_test.dart 166:42      _capture
+  test\validation\thai_beta\live_asof\thai_beta_live_asof_diagnostic_test.dart 16:26       main.<fn>
+  
+00:00 +0 -1: Some tests failed.

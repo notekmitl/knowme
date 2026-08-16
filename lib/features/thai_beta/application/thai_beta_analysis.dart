@@ -16,12 +16,14 @@ import '../domain/thai_beta_input.dart';
 import '../domain/thai_beta_normalized_snapshot.dart';
 import '../domain/thai_beta_report_hash.dart';
 import '../domain/thai_beta_report_snapshot.dart';
+import 'thai_beta_analysis_clock.dart';
 
 /// Result of running the beta analysis for one submission.
 class ThaiBetaAnalysis {
   const ThaiBetaAnalysis._({
     required this.input,
     required this.startedAt,
+    required this.asOf,
     this.normalizedBirth,
     this.normalizedSnapshot,
     this.consumerViewState,
@@ -37,6 +39,9 @@ class ThaiBetaAnalysis {
 
   /// When the research session began (carried through to [durationSeconds]).
   final DateTime startedAt;
+
+  /// Bangkok civil timestamp used by every date-aware calculation and view.
+  final DateTime asOf;
 
   final NormalizedBirth? normalizedBirth;
   final ThaiBetaNormalizedSnapshot? normalizedSnapshot;
@@ -65,11 +70,14 @@ class ThaiBetaAnalysis {
   factory ThaiBetaAnalysis.failedForTest({
     required ThaiBetaInput input,
     DateTime? startedAt,
+    DateTime? asOf,
     String errorMessage = 'ไม่สามารถสร้างผลวิเคราะห์ได้',
   }) {
+    final sessionStart = startedAt ?? DateTime.now();
     return ThaiBetaAnalysis._(
       input: input,
-      startedAt: startedAt ?? DateTime.now(),
+      startedAt: sessionStart,
+      asOf: ThaiBetaAnalysisClock.asBangkokCivil(asOf ?? sessionStart),
       errorMessage: errorMessage,
     );
   }
@@ -103,6 +111,9 @@ abstract final class ThaiBetaAnalysisRunner {
     ThaiCanonEvidenceIndex? canonIndex,
   }) {
     final sessionStart = startedAt ?? DateTime.now();
+    final readingAt = ThaiBetaAnalysisClock.asBangkokCivil(
+      asOf ?? sessionStart,
+    );
     final raw = RawBirthInput(
       birthDate: input.birthDate,
       birthHour: input.hasBirthTime ? input.birthHour : null,
@@ -119,13 +130,13 @@ abstract final class ThaiBetaAnalysisRunner {
       return ThaiBetaAnalysis._(
         input: input,
         startedAt: sessionStart,
+        asOf: readingAt,
         errorMessage:
             normalization.error ?? 'ไม่สามารถประมวลผลข้อมูลวันเกิดได้',
       );
     }
 
     final birthData = ThaiEngineAdapter.fromContext(birth.thai);
-    final readingAt = asOf ?? sessionStart;
     final pipeline = ThaiMirrorPipeline.generate(birthData, asOf: readingAt);
     if (pipeline.isFailure ||
         pipeline.mirrorResult == null ||
@@ -133,6 +144,7 @@ abstract final class ThaiBetaAnalysisRunner {
       return ThaiBetaAnalysis._(
         input: input,
         startedAt: sessionStart,
+        asOf: readingAt,
         normalizedBirth: birth,
         normalizedSnapshot: ThaiBetaNormalizedSnapshot.fromNormalizedBirth(
           birth,
@@ -160,6 +172,7 @@ abstract final class ThaiBetaAnalysisRunner {
     return ThaiBetaAnalysis._(
       input: input,
       startedAt: sessionStart,
+      asOf: readingAt,
       normalizedBirth: birth,
       normalizedSnapshot: ThaiBetaNormalizedSnapshot.fromNormalizedBirth(birth),
       consumerViewState: view,

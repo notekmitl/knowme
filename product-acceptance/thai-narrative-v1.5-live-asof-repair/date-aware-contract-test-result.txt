@@ -1,0 +1,9 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/v15-production-release-clean/test/validation/thai_beta/live_asof/thai_beta_date_aware_contract_test.dart
+00:00 +0: V1.5 date-aware release contract Bangkok civil conversion is deterministic across midnight
+00:00 +1: V1.5 date-aware release contract analysis stores explicit asOf separately from session start
+00:00 +2: V1.5 date-aware release contract different session starts with one asOf produce identical report
+00:00 +3: V1.5 date-aware release contract same session start changes only date-aware result at a boundary
+00:00 +4: V1.5 date-aware release contract Web and PDF export reuse one resolved asOf without rerun
+00:00 +5: V1.5 date-aware release contract legacy-compatible stable hash preserves accepted VM identity
+00:00 +6: V1.5 date-aware release contract form opened earlier uses the one submit instant as asOf
+00:02 +7: All tests passed!

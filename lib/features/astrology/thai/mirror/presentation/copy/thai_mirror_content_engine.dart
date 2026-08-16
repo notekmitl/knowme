@@ -1,3 +1,4 @@
+import '../../thai_mirror_stable_hash.dart';
 import 'thai_mirror_content_context.dart';
 import 'thai_mirror_lagna_influence.dart';
 import 'thai_mirror_theme_phrases.dart';
@@ -54,7 +55,11 @@ abstract final class ThaiMirrorContentEngine {
     );
     final variants = ThaiMirrorThemeVariants.strengthVariants(themeId);
     final variant = variants[
-        (ctx.profileSeed ^ seed ^ partner.hashCode ^ (cardIndex + 1)).abs() %
+        (ctx.profileSeed ^
+                seed ^
+                ThaiMirrorStableHash.string(partner) ^
+                (cardIndex + 1))
+            .abs() %
             variants.length];
     final combo = combinationStrengthSuffix(
       primaryId: themeId,

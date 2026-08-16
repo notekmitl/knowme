@@ -3,6 +3,7 @@ import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart
 import 'package:knowme/features/astrology/thai/core/life_period/planet_relationship_matrix.dart';
 
 import '../copy/thai_mirror_evidence_composer.dart';
+import '../../thai_mirror_stable_hash.dart';
 
 /// Seven composite life scores for a single period (0–100).
 class PeriodScores {
@@ -132,7 +133,8 @@ abstract final class PeriodCompositeScore {
   }
 
   static int _nuance(int seed, String domain) {
-    final h = (seed ^ (domain.hashCode * 2654435761)).abs();
+    final h =
+        (seed ^ (ThaiMirrorStableHash.string(domain) * 2654435761)).abs();
     return (h % 7) - 3; // -3..+3
   }
 }

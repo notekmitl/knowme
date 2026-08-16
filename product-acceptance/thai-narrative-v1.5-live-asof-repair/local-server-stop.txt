@@ -1,0 +1,2 @@
+Temporary browser-evidence server PID 23900 was validated as python.exe running product-acceptance/thai-narrative-v1.5-production-release/serve_spa.py for this worktree's build/web on localhost port 8766.
+It was stopped after browser/PDF verification. No local evidence server remains running from this task.

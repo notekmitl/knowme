@@ -1,0 +1,10 @@
+Analyzing 17 items...                                           
+
+warning - The declaration '_headlinePerson' isn't referenced - lib\features\astrology\thai\mirror\presentation\copy\thai_mirror_consumer_copy.dart:140:17 - unused_element
+warning - The declaration '_headlineDecision' isn't referenced - lib\features\astrology\thai\mirror\presentation\copy\thai_mirror_consumer_copy.dart:150:17 - unused_element
+warning - The declaration '_headlineOthersSee' isn't referenced - lib\features\astrology\thai\mirror\presentation\copy\thai_mirror_consumer_copy.dart:160:17 - unused_element
+warning - The declaration '_headlinePriority' isn't referenced - lib\features\astrology\thai\mirror\presentation\copy\thai_mirror_consumer_copy.dart:170:17 - unused_element
+warning - The declaration '_pickSpacedThemes' isn't referenced - lib\features\astrology\thai\mirror\presentation\copy\thai_mirror_consumer_copy.dart:230:23 - unused_element
+   info - Statements in an if should be enclosed in a block - lib\features\astrology\thai\mirror\presentation\copy\thai_mirror_consumer_copy.dart:551:9 - curly_braces_in_flow_control_structures
+
+6 issues found. (ran in 7.2s)

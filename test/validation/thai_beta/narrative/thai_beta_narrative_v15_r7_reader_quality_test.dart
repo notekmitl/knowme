@@ -214,8 +214,11 @@ ThaiBetaAnalysis _owner({required bool known, int minute = 0}) => _run(
   ),
 );
 
-ThaiBetaAnalysis _run(ThaiBetaInput input) =>
-    ThaiBetaAnalysisRunner.run(input, startedAt: DateTime(2026, 8, 7));
+ThaiBetaAnalysis _run(ThaiBetaInput input) => ThaiBetaAnalysisRunner.run(
+  input,
+  startedAt: DateTime(2026, 8, 7),
+  asOf: DateTime(2026, 8, 7),
+);
 
 String _exactKey(String value) => value
     .replaceAll(RegExp(r'\s+'), '')
