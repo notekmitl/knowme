@@ -1,0 +1,152 @@
+{
+  "capturedAt": "2026-08-16T08:51:29.9312118Z",
+  "productionVersion": "V1.4",
+  "releaseId": "1786522688560000",
+  "versionId": "10af10c6d960d590",
+  "assets": [
+    {
+      "path": "/",
+      "requestUrl": "https://knowme-app-694e1.web.app/?baseline=1786870288217",
+      "status": 200,
+      "bytes": 7322,
+      "sha256": "40217E4CEFFBCC172B3CC0E807925BEB3C9D6F32C3FBF7C0E64E7D253B76941F",
+      "headers": {
+        "Connection": "keep-alive",
+        "Cache-Control": "max-age=3600",
+        "ETag": "\"c06c0a35efc083583bbf12d8aa4de0686ddec493d3242932cd1b446140a475de\"",
+        "Strict-Transport-Security": "max-age=31556926; includeSubDomains; preload",
+        "Accept-Ranges": "bytes",
+        "Date": "Sun, 16 Aug 2026 08:51:27 GMT",
+        "X-Served-By": "cache-bkk2280029-BKK",
+        "X-Cache": "MISS",
+        "X-Cache-Hits": "0",
+        "X-Timer": "S1786870287.070462,VS0,VE212",
+        "Vary": "x-fh-requested-host, accept-encoding",
+        "Alt-Svc": "h3=\":443\", h3-29=\":443\", h3-27=\":443\"",
+        "Content-Length": "7322",
+        "Content-Type": "text/html; charset=utf-8",
+        "Last-Modified": "Wed, 12 Aug 2026 08:18:08 GMT"
+      }
+    },
+    {
+      "path": "/beta/thai",
+      "requestUrl": "https://knowme-app-694e1.web.app/beta/thai?baseline=1786870288217",
+      "status": 200,
+      "bytes": 7322,
+      "sha256": "40217E4CEFFBCC172B3CC0E807925BEB3C9D6F32C3FBF7C0E64E7D253B76941F",
+      "headers": {
+        "Connection": "keep-alive",
+        "Cache-Control": "no-cache",
+        "ETag": "\"c06c0a35efc083583bbf12d8aa4de0686ddec493d3242932cd1b446140a475de\"",
+        "Strict-Transport-Security": "max-age=31556926; includeSubDomains; preload",
+        "Accept-Ranges": "bytes",
+        "Date": "Sun, 16 Aug 2026 08:51:27 GMT",
+        "X-Served-By": "cache-bkk2280029-BKK",
+        "X-Cache": "MISS",
+        "X-Cache-Hits": "0",
+        "X-Timer": "S1786870287.319567,VS0,VE160",
+        "Vary": "x-fh-requested-host, accept-encoding",
+        "Alt-Svc": "h3=\":443\", h3-29=\":443\", h3-27=\":443\"",
+        "Transfer-Encoding": "chunked",
+        "Content-Type": "text/html; charset=utf-8",
+        "Last-Modified": "Wed, 12 Aug 2026 08:18:08 GMT"
+      }
+    },
+    {
+      "path": "/index.html",
+      "requestUrl": "https://knowme-app-694e1.web.app/index.html?baseline=1786870288217",
+      "status": 200,
+      "bytes": 7322,
+      "sha256": "40217E4CEFFBCC172B3CC0E807925BEB3C9D6F32C3FBF7C0E64E7D253B76941F",
+      "headers": {
+        "Connection": "keep-alive",
+        "Cache-Control": "no-cache",
+        "ETag": "\"c06c0a35efc083583bbf12d8aa4de0686ddec493d3242932cd1b446140a475de\"",
+        "Strict-Transport-Security": "max-age=31556926; includeSubDomains; preload",
+        "Accept-Ranges": "bytes",
+        "Date": "Sun, 16 Aug 2026 08:51:27 GMT",
+        "X-Served-By": "cache-bkk2280029-BKK",
+        "X-Cache": "MISS",
+        "X-Cache-Hits": "0",
+        "X-Timer": "S1786870287.497085,VS0,VE141",
+        "Vary": "x-fh-requested-host, accept-encoding",
+        "Alt-Svc": "h3=\":443\", h3-29=\":443\", h3-27=\":443\"",
+        "Transfer-Encoding": "chunked",
+        "Content-Type": "text/html; charset=utf-8",
+        "Last-Modified": "Wed, 12 Aug 2026 08:18:08 GMT"
+      }
+    },
+    {
+      "path": "/flutter_bootstrap.js",
+      "requestUrl": "https://knowme-app-694e1.web.app/flutter_bootstrap.js?baseline=1786870288217",
+      "status": 200,
+      "bytes": 10002,
+      "sha256": "6A744627D04A7725FC6B8868CA35D739C341007CB2E54FD2463C3F4F0A6429AB",
+      "headers": {
+        "Connection": "keep-alive",
+        "Cache-Control": "must-revalidate, no-cache",
+        "ETag": "\"7db5234b4e2d6ed9d353a4a5504b83a5d0ca3e19472e531f10419edb460a66c6\"",
+        "Strict-Transport-Security": "max-age=31556926; includeSubDomains; preload",
+        "Accept-Ranges": "bytes",
+        "Date": "Sun, 16 Aug 2026 08:51:27 GMT",
+        "X-Served-By": "cache-bkk2280029-BKK",
+        "X-Cache": "MISS",
+        "X-Cache-Hits": "0",
+        "X-Timer": "S1786870288.653306,VS0,VE165",
+        "Vary": "x-fh-requested-host, accept-encoding",
+        "Alt-Svc": "h3=\":443\", h3-29=\":443\", h3-27=\":443\"",
+        "Transfer-Encoding": "chunked",
+        "Content-Type": "text/javascript; charset=utf-8",
+        "Last-Modified": "Wed, 12 Aug 2026 08:18:08 GMT"
+      }
+    },
+    {
+      "path": "/flutter_service_worker.js",
+      "requestUrl": "https://knowme-app-694e1.web.app/flutter_service_worker.js?baseline=1786870288217",
+      "status": 200,
+      "bytes": 815,
+      "sha256": "DBFBE64AE5BE5B462ABB97338EB9AF783ED4ED57A8C73A53C2A44488A26F6416",
+      "headers": {
+        "Connection": "keep-alive",
+        "Cache-Control": "must-revalidate, no-cache",
+        "ETag": "\"c73b271847ffc78c576de35e95f6b46187eefb1d97dcb08eb9d84c45954ff310\"",
+        "Strict-Transport-Security": "max-age=31556926; includeSubDomains; preload",
+        "Accept-Ranges": "bytes",
+        "Date": "Sun, 16 Aug 2026 08:51:27 GMT",
+        "X-Served-By": "cache-bkk2280029-BKK",
+        "X-Cache": "MISS",
+        "X-Cache-Hits": "0",
+        "X-Timer": "S1786870288.832950,VS0,VE118",
+        "Vary": "x-fh-requested-host, accept-encoding",
+        "Alt-Svc": "h3=\":443\", h3-29=\":443\", h3-27=\":443\"",
+        "Content-Length": "815",
+        "Content-Type": "text/javascript; charset=utf-8",
+        "Last-Modified": "Wed, 12 Aug 2026 08:18:08 GMT"
+      }
+    },
+    {
+      "path": "/main.dart.js",
+      "requestUrl": "https://knowme-app-694e1.web.app/main.dart.js?baseline=1786870288217",
+      "status": 200,
+      "bytes": 7927158,
+      "sha256": "2B28D5E271E5F612B2403F293FFB8BF477FBDBF12B8572426B17037E5B258846",
+      "headers": {
+        "Connection": "keep-alive",
+        "Cache-Control": "must-revalidate, no-cache",
+        "ETag": "\"68a53ebe5f2cdc0a1aa37ec90cbd62b66fcd8fe34cbd776024798d62c168c05e\"",
+        "Strict-Transport-Security": "max-age=31556926; includeSubDomains; preload",
+        "Accept-Ranges": "bytes",
+        "Date": "Sun, 16 Aug 2026 08:51:28 GMT",
+        "X-Served-By": "cache-bkk2280029-BKK",
+        "X-Cache": "MISS",
+        "X-Cache-Hits": "0",
+        "X-Timer": "S1786870288.965824,VS0,VE322",
+        "Vary": "x-fh-requested-host, accept-encoding",
+        "Alt-Svc": "h3=\":443\", h3-29=\":443\", h3-27=\":443\"",
+        "Transfer-Encoding": "chunked",
+        "Content-Type": "text/javascript; charset=utf-8",
+        "Last-Modified": "Wed, 12 Aug 2026 08:18:08 GMT"
+      }
+    }
+  ]
+}

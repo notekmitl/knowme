@@ -1,6 +1,8 @@
 # Thai Narrative V1.5 Life Map Compatibility Repair
 
-**Post-merge status:** PR #92 was merged to `main` as regular merge commit `a574fcb65437013e98c64b1fc9af19f50723534b` from accepted source HEAD `e8cc382fa950e581b4da5ec0ff6b93202a1cd4ee`. The Final Merge Gate passed against pinned main `22cbb3cfcb583b63fe8d48a164d5083d9ee32163`; the 39 common baseline failures remain disclosed and unchanged. R7/R7.1 acceptance and immutable identities remain intact. No deployment or Firebase change occurred. Production remains V1.4, and Production Release requires separate Owner authorization.
+**Production release update:** The compatibility repair and R7/R7.1 acceptance remain immutable, but the 2026-08-16 Hosting-only Production release failed exact canonical replay on the first real `owner-known-0035` PDF. Release `1786871603892000` / version `a5721c17f758aa6d` was rolled back to V1.4 version `10af10c6d960d590` as release `1786872330369000` at `2026-08-16T09:25:30.369Z`. Production is V1.4. Hosting baseline identity and browser smoke pass after rollback. The 39 common baseline failures remain disclosed, and no Life Map source/test/golden or R1–R7.1 artifact changed. Evidence is under `product-acceptance/thai-narrative-v1.5-production-release/`.
+
+**Historical post-merge status before Production release:** PR #92 was merged to `main` as regular merge commit `a574fcb65437013e98c64b1fc9af19f50723534b` from accepted source HEAD `e8cc382fa950e581b4da5ec0ff6b93202a1cd4ee`. The Final Merge Gate passed against pinned main `22cbb3cfcb583b63fe8d48a164d5083d9ee32163`; the 39 common baseline failures remain disclosed and unchanged. R7/R7.1 acceptance and immutable identities remain intact. At this historical checkpoint no deployment or Firebase change had occurred; Production remained V1.4 and Production Release required separate Owner authorization.
 
 **Status:** `FINAL MERGE GATE PASSED AGAINST PINNED MAIN BASELINE`
 

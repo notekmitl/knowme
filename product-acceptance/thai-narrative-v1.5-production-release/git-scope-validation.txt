@@ -1,0 +1,11 @@
+baseHead: 7a2bdea4d88ebd3e87ee7268641a37a70a7a959f
+branch: codex/v15-production-release-rollback-evidence
+stagedPaths: 73
+modifiedMarkdownFiles: 7
+newEvidenceFiles: 66
+forbiddenStagedPaths: 0
+r1ThroughR7.1ModifiedPaths: 0
+applicationSourceChanges: 0
+testOrGoldenChanges: 0
+firebaseConfigChanges: 0
+result: PASS

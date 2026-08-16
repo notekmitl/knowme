@@ -1,0 +1,79 @@
+{
+  "verifiedUtc": "2026-08-16T09:26:47.9415958Z",
+  "rollbackReleaseId": "1786872330369000",
+  "rollbackVersionId": "10af10c6d960d590",
+  "baselineReleaseId": "1786522688560000",
+  "baselineVersionId": "10af10c6d960d590",
+  "assetsChecked": 6,
+  "matches": 6,
+  "mismatches": 0,
+  "assets": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 7322,
+      "sha256": "40217E4CEFFBCC172B3CC0E807925BEB3C9D6F32C3FBF7C0E64E7D253B76941F",
+      "expectedStatus": 200,
+      "expectedBytes": 7322,
+      "expectedSha256": "40217E4CEFFBCC172B3CC0E807925BEB3C9D6F32C3FBF7C0E64E7D253B76941F",
+      "cacheControl": "max-age=3600",
+      "match": true
+    },
+    {
+      "path": "/beta/thai",
+      "status": 200,
+      "bytes": 7322,
+      "sha256": "40217E4CEFFBCC172B3CC0E807925BEB3C9D6F32C3FBF7C0E64E7D253B76941F",
+      "expectedStatus": 200,
+      "expectedBytes": 7322,
+      "expectedSha256": "40217E4CEFFBCC172B3CC0E807925BEB3C9D6F32C3FBF7C0E64E7D253B76941F",
+      "cacheControl": "no-cache",
+      "match": true
+    },
+    {
+      "path": "/index.html",
+      "status": 200,
+      "bytes": 7322,
+      "sha256": "40217E4CEFFBCC172B3CC0E807925BEB3C9D6F32C3FBF7C0E64E7D253B76941F",
+      "expectedStatus": 200,
+      "expectedBytes": 7322,
+      "expectedSha256": "40217E4CEFFBCC172B3CC0E807925BEB3C9D6F32C3FBF7C0E64E7D253B76941F",
+      "cacheControl": "no-cache",
+      "match": true
+    },
+    {
+      "path": "/flutter_bootstrap.js",
+      "status": 200,
+      "bytes": 10002,
+      "sha256": "6A744627D04A7725FC6B8868CA35D739C341007CB2E54FD2463C3F4F0A6429AB",
+      "expectedStatus": 200,
+      "expectedBytes": 10002,
+      "expectedSha256": "6A744627D04A7725FC6B8868CA35D739C341007CB2E54FD2463C3F4F0A6429AB",
+      "cacheControl": "must-revalidate, no-cache",
+      "match": true
+    },
+    {
+      "path": "/flutter_service_worker.js",
+      "status": 200,
+      "bytes": 815,
+      "sha256": "DBFBE64AE5BE5B462ABB97338EB9AF783ED4ED57A8C73A53C2A44488A26F6416",
+      "expectedStatus": 200,
+      "expectedBytes": 815,
+      "expectedSha256": "DBFBE64AE5BE5B462ABB97338EB9AF783ED4ED57A8C73A53C2A44488A26F6416",
+      "cacheControl": "must-revalidate, no-cache",
+      "match": true
+    },
+    {
+      "path": "/main.dart.js",
+      "status": 200,
+      "bytes": 7927158,
+      "sha256": "2B28D5E271E5F612B2403F293FFB8BF477FBDBF12B8572426B17037E5B258846",
+      "expectedStatus": 200,
+      "expectedBytes": 7927158,
+      "expectedSha256": "2B28D5E271E5F612B2403F293FFB8BF477FBDBF12B8572426B17037E5B258846",
+      "cacheControl": "must-revalidate, no-cache",
+      "match": true
+    }
+  ],
+  "status": "PASS"
+}

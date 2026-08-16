@@ -1,8 +1,8 @@
 # KnowMe Roadmap
 
-## Current — V1.5 merged, Production release not authorized
+## Current — V1.5 release rolled back; Production is V1.4
 
-PR #92 was merged to `main` as `a574fcb65437013e98c64b1fc9af19f50723534b` from accepted HEAD `e8cc382fa950e581b4da5ec0ff6b93202a1cd4ee`. The Final Merge Gate passed against pinned main `22cbb3cfcb583b63fe8d48a164d5083d9ee32163`; all 39 common baseline failures remain disclosed and unchanged. R7/R7.1 acceptance and immutable identities remain valid. No deployment or Firebase change occurred, Production remains V1.4, and Production Release requires separate explicit Owner authorization.
+The authorized Hosting-only V1.5 release from final main `7a2bdea4d88ebd3e87ee7268641a37a70a7a959f` went live as release `1786871603892000` / version `a5721c17f758aa6d` and passed Hosting integrity, but failed exact accepted-canonical verification on the first real Production PDF. Exact V1.4 version `10af10c6d960d590` was restored as rollback release `1786872330369000` at `2026-08-16T09:25:30.369Z`; baseline assets and browser smoke pass. Production remains V1.4. Next work requires separate Owner authorization to repair or reconcile fixed R7.1 `startedAt/asOf` fixture identity with the wall-clock Production path, followed by a complete five-fixture release rerun. R7/R7.1 remain immutable and the 39 common baseline failures remain disclosed debt. No non-Hosting Firebase service was changed.
 
 ## Current — V1.5 final merge gate passed against pinned main
 

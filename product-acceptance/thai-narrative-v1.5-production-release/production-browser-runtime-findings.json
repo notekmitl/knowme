@@ -1,0 +1,59 @@
+{
+  "capturedUtc": "2026-08-16T09:32:57.089Z",
+  "v15ExistingUpgrade": {
+    "metrics": {
+      "bodyTextLength": 579,
+      "documentHeight": 720,
+      "documentWidth": 1280,
+      "href": "https://knowme-app-694e1.web.app/beta/thai",
+      "readyState": "complete",
+      "scriptSources": [
+        "https://knowme-app-694e1.web.app/main.dart.js",
+        "https://accounts.google.com/gsi/client",
+        "https://knowme-app-694e1.web.app/flutter_bootstrap.js"
+      ],
+      "viewportHeight": 720,
+      "viewportWidth": 1280
+    },
+    "problemLogs": []
+  },
+  "v15FreshDesktop": {
+    "metrics": {
+      "bodyTextLength": 579,
+      "documentHeight": 720,
+      "documentWidth": 1280,
+      "hasHorizontalOverflow": false,
+      "href": "https://knowme-app-694e1.web.app/beta/thai",
+      "readyState": "complete",
+      "viewportHeight": 720,
+      "viewportWidth": 1280
+    },
+    "problemLogs": []
+  },
+  "v15FreshMobile": {
+    "metrics": {
+      "bodyTextLength": 535,
+      "documentHeight": 844,
+      "documentWidth": 390,
+      "hasHorizontalOverflow": false,
+      "readyState": "complete",
+      "viewportHeight": 844,
+      "viewportWidth": 390
+    },
+    "problemLogs": []
+  },
+  "v14RollbackFresh": {
+    "metrics": {
+      "bodyTextLength": 579,
+      "documentWidth": 1280,
+      "hasHorizontalOverflow": false,
+      "href": "https://knowme-app-694e1.web.app/beta/thai",
+      "readyState": "complete",
+      "viewportWidth": 1280
+    },
+    "problemLogs": []
+  },
+  "v14RollbackExisting": {
+    "problemLogs": []
+  }
+}

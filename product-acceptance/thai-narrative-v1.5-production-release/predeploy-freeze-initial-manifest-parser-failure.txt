@@ -1,0 +1,9 @@
+verifiedUtc: 2026-08-16T09:10:56.1098035Z
+sourceHead: 7a2bdea4d88ebd3e87ee7268641a37a70a7a959f
+manifestEntries: 78
+currentBuildFiles: 78
+buildMismatches: 78
+trackedWorktreeChanges: 0
+immutablePathChanges: 0
+localServerStoppedPid: 2272
+result: BLOCKED

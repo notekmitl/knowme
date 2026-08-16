@@ -1,0 +1,25 @@
+command: firebase deploy --only hosting --project knowme-app-694e1 -m "KnowMe Thai Narrative V1.5 — source 7a2bdea4, product a574fcb6"
+startedUtc: 2026-08-16T09:13:14.9888369Z
+--- raw output ---
+
+=== Deploying to 'knowme-app-694e1'...
+
+i  deploying hosting
+i  hosting[knowme-app-694e1]: beginning deploy...
+i  hosting[knowme-app-694e1]: found 77 files in build/web
+i  hosting: uploading new files [0/30] (0%)
+i  hosting: uploading new files [27/30] (90%)
+i  hosting: upload complete
++  hosting[knowme-app-694e1]: file upload complete
+i  hosting[knowme-app-694e1]: finalizing version...
++  hosting[knowme-app-694e1]: version finalized
+i  hosting[knowme-app-694e1]: releasing new version...
++  hosting[knowme-app-694e1]: release complete
+
++  Deploy complete!
+
+Project Console: https://console.firebase.google.com/project/knowme-app-694e1/overview
+Hosting URL: https://knowme-app-694e1.web.app
+--- end raw output ---
+endedUtc: 2026-08-16T09:13:26.0370967Z
+exitCode: 0

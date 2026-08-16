@@ -1,0 +1,12 @@
+{
+  "sourceHead": "7a2bdea4d88ebd3e87ee7268641a37a70a7a959f",
+  "flutterVersion": "3.41.1",
+  "dartVersion": "3.11.0",
+  "buildCommand": "flutter build web --release",
+  "publicDirectory": "build/web",
+  "fileCount": 78,
+  "totalBytes": 44170486.0,
+  "manifestSha256": "E0C5E976076F7165DD6CA4913A7227585E2579AAA8F123302A6895877A3767F5",
+  "createdUtc": "2026-08-16T09:11:15.3006553Z",
+  "correction": "TSV header delimiter corrected; build files unchanged"
+}

@@ -1,6 +1,10 @@
 # Thai Narrative V1.5 Owner Acceptance
 
-## Post-merge record
+## Production release rollback record
+
+Owner/Product Acceptance of R7/R7.1 remains recorded and the accepted artifacts remain immutable. The separately authorized Production release from final main `7a2bdea4d88ebd3e87ee7268641a37a70a7a959f` deployed Hosting-only as release `1786871603892000` / version `a5721c17f758aa6d`, but Production verification did not reproduce the accepted R7.1 canonical text in the first real downloaded `owner-known-0035` PDF. The 7-page Production PDF had four substantive extracted-text replacements versus the accepted PDF/reference. This is a mandatory release failure and does not rewrite acceptance history. Firebase Hosting was rolled back to exact V1.4 version `10af10c6d960d590` via release `1786872330369000` at `2026-08-16T09:25:30.369Z`; Production is V1.4 and V1.5 is not live. R7.1 remains 10,709,328 bytes / 80 entries / SHA-256 `9E541F21C68FDAD93BC595C55BD0BE23600F88454CFBA7FAB6C713FE53F79E58`, with accepted-ZIP checksums 79/79 and immutable comparison 63/63. The 39 common baseline failures remain disclosed. No Firestore/Auth/Functions/Storage/Remote Config/source/test/golden/mobile change occurred.
+
+## Historical post-merge record before Production release
 
 PR #92 was merged to `main` on 2026-08-16 as regular merge commit `a574fcb65437013e98c64b1fc9af19f50723534b`, with accepted source HEAD `e8cc382fa950e581b4da5ec0ff6b93202a1cd4ee` and pinned-main gate baseline `22cbb3cfcb583b63fe8d48a164d5083d9ee32163`. The Final Merge Gate passed against that baseline; the 39 common failures remain disclosed as unchanged pre-existing debt. R7 narrative acceptance, R7.1 evidence acceptance, ZIP identity, 63/63 immutable comparison, canonical parity and traceability remain unchanged. This merge did not deploy or modify Firebase. Production remains V1.4, and Production Release requires separate explicit Owner authorization.
 

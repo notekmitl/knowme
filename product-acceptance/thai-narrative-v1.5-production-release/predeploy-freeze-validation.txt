@@ -1,0 +1,12 @@
+verifiedUtc: 2026-08-16T09:11:43.9643009Z
+sourceHead: 7a2bdea4d88ebd3e87ee7268641a37a70a7a959f
+manifestSha256: E0C5E976076F7165DD6CA4913A7227585E2579AAA8F123302A6895877A3767F5
+manifestEntries: 78
+currentBuildFiles: 78
+buildMismatches: 0
+firebaseIgnoredDotFiles: 1 (.last_build_id)
+deployableManifestFiles: 77
+trackedWorktreeChanges: 0
+immutablePathChanges: 0
+localServerStopped: true
+result: PASS

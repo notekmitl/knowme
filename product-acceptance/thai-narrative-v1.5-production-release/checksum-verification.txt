@@ -1,0 +1,5 @@
+scope: every packet file except SHA256SUMS.txt itself
+algorithm: SHA-256
+pathEncoding: UTF-8, forward slash, packet-relative
+verificationRule: every listed path must exist and its recomputed digest must match
+result: PASS (generated and independently recomputed after packet completion)
