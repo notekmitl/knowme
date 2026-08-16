@@ -1,5 +1,9 @@
 # KnowMe Roadmap
 
+## Current — V1.5 merged, Production release not authorized
+
+PR #92 was merged to `main` as `a574fcb65437013e98c64b1fc9af19f50723534b` from accepted HEAD `e8cc382fa950e581b4da5ec0ff6b93202a1cd4ee`. The Final Merge Gate passed against pinned main `22cbb3cfcb583b63fe8d48a164d5083d9ee32163`; all 39 common baseline failures remain disclosed and unchanged. R7/R7.1 acceptance and immutable identities remain valid. No deployment or Firebase change occurred, Production remains V1.4, and Production Release requires separate explicit Owner authorization.
+
 ## Current — V1.5 final merge gate passed against pinned main
 
 The four-string Life Map compatibility repair and controlled Case A reconciliation pass the complete gate against pinned main `22cbb3cfcb583b63fe8d48a164d5083d9ee32163`. The exact 18 repaired actuals equal main and pass original-resolution visual QA; targeted regression passes 24/24. Branch and main retain the same 39 baseline failure IDs with zero branch-only delta, analyzer delta is 0, and Web release build passes. R1-R7.1 remain immutable. PR #92 may proceed to Owner merge approval after commit/push and Ready-for-Review transition. Merge and deployment remain separate explicit decisions; Production remains V1.4.

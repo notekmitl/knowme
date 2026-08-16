@@ -1,8 +1,12 @@
 # Thai Narrative V1.5 Owner Acceptance
 
+## Post-merge record
+
+PR #92 was merged to `main` on 2026-08-16 as regular merge commit `a574fcb65437013e98c64b1fc9af19f50723534b`, with accepted source HEAD `e8cc382fa950e581b4da5ec0ff6b93202a1cd4ee` and pinned-main gate baseline `22cbb3cfcb583b63fe8d48a164d5083d9ee32163`. The Final Merge Gate passed against that baseline; the 39 common failures remain disclosed as unchanged pre-existing debt. R7 narrative acceptance, R7.1 evidence acceptance, ZIP identity, 63/63 immutable comparison, canonical parity and traceability remain unchanged. This merge did not deploy or modify Firebase. Production remains V1.4, and Production Release requires separate explicit Owner authorization.
+
 **Decision date:** 2026-08-16  
 **PR:** `notekmitl/knowme#92`  
-**Accepted source HEAD:** `a6eb5fa02d48dabce5ff809f90abc88b658c5dfc`
+**R7.1 accepted source HEAD:** `a6eb5fa02d48dabce5ff809f90abc88b658c5dfc`
 
 ## Authoritative owner decision
 
