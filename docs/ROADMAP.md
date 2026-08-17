@@ -1,5 +1,9 @@
 # KnowMe Roadmap
 
+## Current — S008 technical parity verified; Owner copy decision next
+
+PR #95 now has exact VM/Chrome parity at the canonical snapshot/hash/narrative boundary across two VM and two real-Chrome 300-profile runs. All fresh final test, analyzer-delta, build, baseline-delta and R7.1 identity gates pass. The remaining gate is Owner review of the fully enumerated reader-visible copy normalization (93 profiles / 112 summaries). Keep the PR Draft; merge and deployment require separate explicit authorization. Production remains V1.4.
+
 ## Current — V1.5 live as-of repair verified; Owner review pending
 
 The Production rollback root cause is proven as runtime-dependent reader-visible hashing, not an `asOf` boundary. A Draft-only repair from exact main `075ddfc6eeb8fbe4e3a0aaade9c4c2d5711340b9` stabilizes VM/Web selection, captures one submit-time Bangkok `asOf`, and defines the same-`asOf` live oracle release gate. All scoped, acceptance, PDF visual, analyzer-delta, full-suite-delta and Web-build gates pass; R1–R7.1 remain immutable. Next step is Owner review of the Draft PR. Merge and deployment require later explicit authorization. Production remains V1.4.
@@ -295,3 +299,13 @@ Current gate: owner acceptance of R2 Known 00:35 and Unknown PDFs. Merge and dep
 ## V1.5 final merge gate result — 2026-08-16
 
 Owner Acceptance for R7/R7.1 remains authoritative. The four-string Life Map compatibility repair and controlled Case A reconciliation now pass the full pinned-main gate. The exact 18 repaired actuals equal main and pass visual QA; branch and main share the same 39 baseline failure IDs with zero delta. PR #92 may proceed to Owner merge approval after commit/push and Ready-for-Review transition. Merge and deployment remain separate explicit decisions; Production remains V1.4.
+
+## PR #95 final cross-runtime parity gate — blocked (2026-08-17)
+
+- [x] Replace reader-visible runtime hash inputs with an owned stable-hash contract and exact integer helpers.
+- [x] Run fixed string/multi-string/arithmetic vectors in VM and Chrome with mismatch 0.
+- [x] Run deterministic 300 profiles twice in VM and twice in Chrome.
+- [x] Preserve frozen/live canonical five exact parity and R7.1 immutability.
+- [ ] Resolve S008 upstream `siderealAscendantDeg` one-ULP VM/Chrome difference under separate authorization, then rerun every final gate.
+- [ ] Obtain Owner review for retained copy normalization (93 profiles / 112 summaries).
+- [ ] Merge/deploy only after parity is exact and under separate explicit authorization. Production remains V1.4.

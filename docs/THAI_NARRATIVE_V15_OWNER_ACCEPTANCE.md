@@ -1,5 +1,9 @@
 # Thai Narrative V1.5 Owner Acceptance
 
+## PR #95 S008 technical gate (Draft; Owner copy review pending)
+
+The accepted R7 narrative, R7.1 evidence and V1.5 Product Acceptance remain authoritative and immutable. S008 fixed-point degree canonicalization now makes VM/Chrome snapshot, report hash, canonical text and narrative exact without changing engine raw calculations or accepted artifacts. R7.1 remains 10,709,328 bytes / 80 entries / SHA-256 `9E541F21C68FDAD93BC595C55BD0BE23600F88454CFBA7FAB6C713FE53F79E58`, checksums 79/79, immutable 63/63 and modified paths 0. This technical pass does not accept the separately enumerated 93-profile/112-summary copy normalization; the Owner must review that packet, so PR #95 remains Draft. No merge/deploy/Firebase change occurred and Production remains V1.4.
+
 ## Live as-of contract repair (Draft; does not alter Owner Acceptance)
 
 R7 narrative and R7.1 evidence acceptance remain authoritative and immutable. The subsequent Production rollback mismatch has been reproduced and traced to runtime-dependent content-selection hashing between Dart VM and compiled JavaScript; Clock A/B/C disproves `asOf` as its cause. The Draft repair restores cross-runtime accepted selection and explicitly separates session `startedAt` from submit-time Bangkok `analysis.asOf`. Frozen R7.1 parity remains exact 5/5, live same-`asOf` oracle parity is 5/5, the R7.1 ZIP/checksums/63-file identity are unchanged, and R1–R7.1 modified paths are zero. This is not a new acceptance package and does not retroactively edit R7.1. Merge/deploy are not authorized; Production remains V1.4.
@@ -62,3 +66,7 @@ The complete fresh gate now passes against the pinned main baseline: Life Map 67
 R7.1 identity re-verification passes: ZIP 10,709,328 bytes / 80 entries / SHA-256 `9E541F21C68FDAD93BC595C55BD0BE23600F88454CFBA7FAB6C713FE53F79E58`; checksums 79/79; immutable comparison 63/63, mismatch 0; canonical parity 5/5; claim traceability 170/170; Owner Known Aquarius 19°19′; regression 00:03 Aquarius 9°24′; Unknown fail-closed. R1-R7.1 modified paths remain 0.
 
 PR #92 may be marked Ready for Review after intentional commit and non-force push. Merge and deploy still require separate explicit Owner authorization. Firebase and Production were not changed; Production remains V1.4.
+
+## PR #95 cross-runtime gate does not supersede Owner Acceptance (superseded technical record)
+
+R7 narrative and R7.1 evidence acceptance remain authoritative and immutable. S008 still differs one ULP in raw `siderealAscendantDeg` between VM and Chrome, but the repaired fixed-point boundary now yields exact report hash and narrative identity across four fresh 300-profile runs. Canonical five remain exact 5/5 and R1–R7.1 were not modified. Copy normalization remains a separate reader-visible scope requiring Owner review (93 profiles / 112 summaries). PR #95 therefore remains Draft and is not authorized for merge or deployment. Firebase and Production were not changed; Production remains V1.4.

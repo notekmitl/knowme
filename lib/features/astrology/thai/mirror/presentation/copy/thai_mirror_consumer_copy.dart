@@ -132,7 +132,10 @@ abstract final class ThaiMirrorConsumerCopy {
   static _HeadlinePattern _headlinePattern(int profileSeed, String? lagnaKey) {
     var hash = profileSeed * 37;
     if (lagnaKey != null && lagnaKey.isNotEmpty) {
-      hash ^= ThaiMirrorStableHash.string(lagnaKey) * 13;
+      hash = ThaiMirrorStableHash.exactXor(
+        hash,
+        ThaiMirrorStableHash.string(lagnaKey) * 13,
+      );
     }
     return _HeadlinePattern.values[hash.abs() % _HeadlinePattern.values.length];
   }

@@ -1,2 +1,4 @@
 Temporary browser-evidence server PID 23900 was validated as python.exe running product-acceptance/thai-narrative-v1.5-production-release/serve_spa.py for this worktree's build/web on localhost port 8766.
 It was stopped after browser/PDF verification. No local evidence server remains running from this task.
+
+Final parity harness server PID 32532 was validated as `python` at `C:\Users\USER\AppData\Local\Programs\Python\Python311\python.exe` using the exact PID recorded in `cross-runtime-local-server.pid`. It served only the compiled cross-runtime harness on localhost port 8765. The exact process was stopped after both Chrome runs, and a subsequent exact-PID lookup confirmed that no process remains.

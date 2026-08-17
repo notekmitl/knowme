@@ -27,17 +27,30 @@ class ThaiMirrorContentContext {
     String? partnerThemeId,
     int offset = 0,
   }) {
-    var seed = profileSeed ^ (profileSeed * 31);
-    seed ^= ThaiMirrorStableHash.string(primaryThemeId) ^
-        ThaiMirrorStableHash.string(slot) ^ offset;
+    var seed = ThaiMirrorStableHash.exactXorAll([
+      profileSeed,
+      profileSeed * 31,
+      ThaiMirrorStableHash.string(primaryThemeId),
+      ThaiMirrorStableHash.string(slot),
+      offset,
+    ]);
     if (partnerThemeId != null) {
-      seed ^= ThaiMirrorStableHash.string(partnerThemeId) * 13;
+      seed = ThaiMirrorStableHash.exactXor(
+        seed,
+        ThaiMirrorStableHash.string(partnerThemeId) * 13,
+      );
     }
     if (lagnaKey != null && lagnaKey!.isNotEmpty) {
-      seed ^= ThaiMirrorStableHash.string(lagnaKey!) * 7;
+      seed = ThaiMirrorStableHash.exactXor(
+        seed,
+        ThaiMirrorStableHash.string(lagnaKey!) * 7,
+      );
     }
     for (var i = 0; i < allThemeIds.length; i++) {
-      seed ^= ThaiMirrorStableHash.string(allThemeIds[i]) * (i + 3);
+      seed = ThaiMirrorStableHash.exactXor(
+        seed,
+        ThaiMirrorStableHash.string(allThemeIds[i]) * (i + 3),
+      );
     }
     return seed;
   }

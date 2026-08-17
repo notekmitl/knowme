@@ -616,8 +616,9 @@ abstract final class ThaiBetaNarrativeComposer {
         'ต่อไปธีมของช่วงนี้คือการเปิดรับโอกาสผ่านงานหรือเครือข่าย โดยใช้สิ่งที่เกิดขึ้นจริงเป็นตัวเทียบ',
         'ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ',
       )
-      // Both forms describe the same structured opportunity claim. Normalize
-      // to the already-accepted cautious V1.5 sentence across runtimes.
+      // Required to preserve the Owner-accepted R7.1 cautious sentence. The
+      // Final Cross-Runtime Gate records the full 300-case impact externally;
+      // this reader-visible scope keeps PR #95 Draft pending Owner review.
       .replaceFirst(
         'ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก',
         'ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ',

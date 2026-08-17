@@ -1,0 +1,158 @@
+{
+  "schema": "knowme-v15-cross-runtime-delta-v1",
+  "ignoredMetadataFields": [
+    "runtime",
+    "runLabel"
+  ],
+  "comparisons": [
+    {
+      "comparison": "vm-run-1-vs-vm-run-2",
+      "leftRuntime": "dart-vm",
+      "rightRuntime": "dart-vm",
+      "leftRunLabel": "vm-run-1",
+      "rightRunLabel": "vm-run-2",
+      "executedLeft": 300,
+      "executedRight": 300,
+      "missingCaseIds": [],
+      "mismatchCounts": {
+        "profile": 0,
+        "structured": 0,
+        "periodScore": 0,
+        "report": 0,
+        "canonical": 0,
+        "narrative": 0,
+        "unknownOmission": 0,
+        "copyNormalization": 0
+      },
+      "mismatchCaseIds": {
+        "profile": [],
+        "structured": [],
+        "periodScore": [],
+        "report": [],
+        "canonical": [],
+        "narrative": [],
+        "unknownOmission": [],
+        "copyNormalization": []
+      },
+      "canonicalMismatchCount": 0,
+      "canonicalMismatchFixtures": [],
+      "metadataMismatchCount": 0,
+      "metadataMismatchFields": [],
+      "pass": true
+    },
+    {
+      "comparison": "chrome-run-1-vs-chrome-run-2",
+      "leftRuntime": "compiled-javascript",
+      "rightRuntime": "compiled-javascript",
+      "leftRunLabel": "chrome-run-1",
+      "rightRunLabel": "chrome-run-2",
+      "executedLeft": 300,
+      "executedRight": 300,
+      "missingCaseIds": [],
+      "mismatchCounts": {
+        "profile": 0,
+        "structured": 0,
+        "periodScore": 0,
+        "report": 0,
+        "canonical": 0,
+        "narrative": 0,
+        "unknownOmission": 0,
+        "copyNormalization": 0
+      },
+      "mismatchCaseIds": {
+        "profile": [],
+        "structured": [],
+        "periodScore": [],
+        "report": [],
+        "canonical": [],
+        "narrative": [],
+        "unknownOmission": [],
+        "copyNormalization": []
+      },
+      "canonicalMismatchCount": 0,
+      "canonicalMismatchFixtures": [],
+      "metadataMismatchCount": 0,
+      "metadataMismatchFields": [],
+      "pass": true
+    },
+    {
+      "comparison": "vm-run-1-vs-chrome-run-1",
+      "leftRuntime": "dart-vm",
+      "rightRuntime": "compiled-javascript",
+      "leftRunLabel": "vm-run-1",
+      "rightRunLabel": "chrome-run-1",
+      "executedLeft": 300,
+      "executedRight": 300,
+      "missingCaseIds": [],
+      "mismatchCounts": {
+        "profile": 0,
+        "structured": 0,
+        "periodScore": 0,
+        "report": 1,
+        "canonical": 0,
+        "narrative": 1,
+        "unknownOmission": 0,
+        "copyNormalization": 0
+      },
+      "mismatchCaseIds": {
+        "profile": [],
+        "structured": [],
+        "periodScore": [],
+        "report": [
+          "S008"
+        ],
+        "canonical": [],
+        "narrative": [
+          "S008"
+        ],
+        "unknownOmission": [],
+        "copyNormalization": []
+      },
+      "canonicalMismatchCount": 0,
+      "canonicalMismatchFixtures": [],
+      "metadataMismatchCount": 0,
+      "metadataMismatchFields": [],
+      "pass": false
+    },
+    {
+      "comparison": "vm-run-2-vs-chrome-run-2",
+      "leftRuntime": "dart-vm",
+      "rightRuntime": "compiled-javascript",
+      "leftRunLabel": "vm-run-2",
+      "rightRunLabel": "chrome-run-2",
+      "executedLeft": 300,
+      "executedRight": 300,
+      "missingCaseIds": [],
+      "mismatchCounts": {
+        "profile": 0,
+        "structured": 0,
+        "periodScore": 0,
+        "report": 1,
+        "canonical": 0,
+        "narrative": 1,
+        "unknownOmission": 0,
+        "copyNormalization": 0
+      },
+      "mismatchCaseIds": {
+        "profile": [],
+        "structured": [],
+        "periodScore": [],
+        "report": [
+          "S008"
+        ],
+        "canonical": [],
+        "narrative": [
+          "S008"
+        ],
+        "unknownOmission": [],
+        "copyNormalization": []
+      },
+      "canonicalMismatchCount": 0,
+      "canonicalMismatchFixtures": [],
+      "metadataMismatchCount": 0,
+      "metadataMismatchFields": [],
+      "pass": false
+    }
+  ],
+  "allComparisonsPass": false
+}

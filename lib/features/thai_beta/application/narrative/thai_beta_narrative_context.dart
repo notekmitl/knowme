@@ -84,8 +84,10 @@ class ThaiBetaNarrativeContext {
     var seed = 0;
     final themeIds = _orderedThemeIds(analysis);
     for (var i = 0; i < themeIds.length; i++) {
-      seed ^=
-          ThaiBetaNarrativeStableHash.fnv1a32(themeIds[i]) * (i + 17);
+      seed = ThaiBetaNarrativeStableHash.exactXor(
+        seed,
+        ThaiBetaNarrativeStableHash.fnv1a32(themeIds[i]) * (i + 17),
+      );
     }
     return seed;
   }

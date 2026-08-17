@@ -140,11 +140,13 @@ abstract final class ThaiMirrorReportCopy {
           ? orderedFacets[(orderedFacets.indexOf(fA) + 1) % orderedFacets.length]
           : profile.contrastFor(fA);
 
-      final seed = ctx.profileSeed ^
-          (ThaiMirrorStableHash.string(aspect.key) * 17) ^
-          (fA.index * 131) ^
-          (fB.index * 71) ^
-          (i * 911);
+      final seed = ThaiMirrorStableHash.exactXorAll([
+        ctx.profileSeed,
+        ThaiMirrorStableHash.string(aspect.key) * 17,
+        fA.index * 131,
+        fB.index * 71,
+        i * 911,
+      ]);
 
       final overview = ThaiMirrorEvidenceComposer.sectionOverview(
         area: aspect.key,

@@ -353,6 +353,7 @@ abstract final class ThaiBetaDomainSemanticTags {
       'ลงทุน',
       'ความมั่นคง',
       'ความเสี่ยง',
+      'เสี่ยง',
       'คุ้มค่า',
     },
     ThaiBetaLifeDomain.love: {

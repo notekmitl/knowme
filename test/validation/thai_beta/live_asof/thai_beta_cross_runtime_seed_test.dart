@@ -52,13 +52,22 @@ void main() {
       final lagnaKey = mirror.profileContext.lagnaKey;
       var presenterSeed = 0;
       for (var i = 0; i < allThemeIds.length; i++) {
-        presenterSeed ^= ThaiMirrorStableHash.string(allThemeIds[i]) * (i + 17);
+        presenterSeed = ThaiMirrorStableHash.exactXor(
+          presenterSeed,
+          ThaiMirrorStableHash.string(allThemeIds[i]) * (i + 17),
+        );
       }
       for (var i = 0; i < themeScores.length; i++) {
-        presenterSeed ^= (themeScores[i] * 10000).round() * (i + 1);
+        presenterSeed = ThaiMirrorStableHash.exactXor(
+          presenterSeed,
+          (themeScores[i] * 10000).round() * (i + 1),
+        );
       }
       if (lagnaKey != null && lagnaKey.isNotEmpty) {
-        presenterSeed ^= ThaiMirrorStableHash.string(lagnaKey) * 29;
+        presenterSeed = ThaiMirrorStableHash.exactXor(
+          presenterSeed,
+          ThaiMirrorStableHash.string(lagnaKey) * 29,
+        );
       }
       if (presenterSeed == 0 && topThemeIds.isNotEmpty) {
         presenterSeed = ThaiMirrorStableHash.string(topThemeIds.first);

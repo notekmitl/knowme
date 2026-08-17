@@ -1,0 +1,186 @@
+{
+  "schema": "knowme-v15-cross-runtime-delta-v1",
+  "ignoredMetadataFields": [
+    "runtime",
+    "runLabel"
+  ],
+  "comparisons": [
+    {
+      "comparison": "vm-run-1-vs-vm-run-2",
+      "leftRuntime": "dart-vm",
+      "rightRuntime": "dart-vm",
+      "leftRunLabel": "vm-run-1-s008-repair",
+      "rightRunLabel": "vm-run-2-s008-repair",
+      "executedLeft": 300,
+      "executedRight": 300,
+      "missingCaseIds": [],
+      "rawNumericFindingCount": 0,
+      "rawNumericFindings": [],
+      "canonicalDegreeMismatchCount": 0,
+      "canonicalDegreeMismatchCaseIds": [],
+      "mismatchCounts": {
+        "profile": 0,
+        "structured": 0,
+        "periodScore": 0,
+        "report": 0,
+        "canonical": 0,
+        "narrative": 0,
+        "unknownOmission": 0,
+        "copyNormalization": 0
+      },
+      "mismatchCaseIds": {
+        "profile": [],
+        "structured": [],
+        "periodScore": [],
+        "report": [],
+        "canonical": [],
+        "narrative": [],
+        "unknownOmission": [],
+        "copyNormalization": []
+      },
+      "canonicalMismatchCount": 0,
+      "canonicalMismatchFixtures": [],
+      "metadataMismatchCount": 0,
+      "metadataMismatchFields": [],
+      "pass": true
+    },
+    {
+      "comparison": "chrome-run-1-vs-chrome-run-2",
+      "leftRuntime": "compiled-javascript",
+      "rightRuntime": "compiled-javascript",
+      "leftRunLabel": "chrome-run-1-s008-repair",
+      "rightRunLabel": "chrome-run-2-s008-repair",
+      "executedLeft": 300,
+      "executedRight": 300,
+      "missingCaseIds": [],
+      "rawNumericFindingCount": 0,
+      "rawNumericFindings": [],
+      "canonicalDegreeMismatchCount": 0,
+      "canonicalDegreeMismatchCaseIds": [],
+      "mismatchCounts": {
+        "profile": 0,
+        "structured": 0,
+        "periodScore": 0,
+        "report": 0,
+        "canonical": 0,
+        "narrative": 0,
+        "unknownOmission": 0,
+        "copyNormalization": 0
+      },
+      "mismatchCaseIds": {
+        "profile": [],
+        "structured": [],
+        "periodScore": [],
+        "report": [],
+        "canonical": [],
+        "narrative": [],
+        "unknownOmission": [],
+        "copyNormalization": []
+      },
+      "canonicalMismatchCount": 0,
+      "canonicalMismatchFixtures": [],
+      "metadataMismatchCount": 0,
+      "metadataMismatchFields": [],
+      "pass": true
+    },
+    {
+      "comparison": "vm-run-1-vs-chrome-run-1",
+      "leftRuntime": "dart-vm",
+      "rightRuntime": "compiled-javascript",
+      "leftRunLabel": "vm-run-1-s008-repair",
+      "rightRunLabel": "chrome-run-1-s008-repair",
+      "executedLeft": 300,
+      "executedRight": 300,
+      "missingCaseIds": [],
+      "rawNumericFindingCount": 1,
+      "rawNumericFindings": [
+        {
+          "caseId": "S008",
+          "leftRaw": "102.39560244592322",
+          "rightRaw": "102.39560244592323",
+          "leftCanonicalUnits": 102395602446,
+          "rightCanonicalUnits": 102395602446,
+          "leftDisplayedDegree": "12°24′",
+          "rightDisplayedDegree": "12°24′"
+        }
+      ],
+      "canonicalDegreeMismatchCount": 0,
+      "canonicalDegreeMismatchCaseIds": [],
+      "mismatchCounts": {
+        "profile": 0,
+        "structured": 0,
+        "periodScore": 0,
+        "report": 0,
+        "canonical": 0,
+        "narrative": 0,
+        "unknownOmission": 0,
+        "copyNormalization": 0
+      },
+      "mismatchCaseIds": {
+        "profile": [],
+        "structured": [],
+        "periodScore": [],
+        "report": [],
+        "canonical": [],
+        "narrative": [],
+        "unknownOmission": [],
+        "copyNormalization": []
+      },
+      "canonicalMismatchCount": 0,
+      "canonicalMismatchFixtures": [],
+      "metadataMismatchCount": 0,
+      "metadataMismatchFields": [],
+      "pass": true
+    },
+    {
+      "comparison": "vm-run-2-vs-chrome-run-2",
+      "leftRuntime": "dart-vm",
+      "rightRuntime": "compiled-javascript",
+      "leftRunLabel": "vm-run-2-s008-repair",
+      "rightRunLabel": "chrome-run-2-s008-repair",
+      "executedLeft": 300,
+      "executedRight": 300,
+      "missingCaseIds": [],
+      "rawNumericFindingCount": 1,
+      "rawNumericFindings": [
+        {
+          "caseId": "S008",
+          "leftRaw": "102.39560244592322",
+          "rightRaw": "102.39560244592323",
+          "leftCanonicalUnits": 102395602446,
+          "rightCanonicalUnits": 102395602446,
+          "leftDisplayedDegree": "12°24′",
+          "rightDisplayedDegree": "12°24′"
+        }
+      ],
+      "canonicalDegreeMismatchCount": 0,
+      "canonicalDegreeMismatchCaseIds": [],
+      "mismatchCounts": {
+        "profile": 0,
+        "structured": 0,
+        "periodScore": 0,
+        "report": 0,
+        "canonical": 0,
+        "narrative": 0,
+        "unknownOmission": 0,
+        "copyNormalization": 0
+      },
+      "mismatchCaseIds": {
+        "profile": [],
+        "structured": [],
+        "periodScore": [],
+        "report": [],
+        "canonical": [],
+        "narrative": [],
+        "unknownOmission": [],
+        "copyNormalization": []
+      },
+      "canonicalMismatchCount": 0,
+      "canonicalMismatchFixtures": [],
+      "metadataMismatchCount": 0,
+      "metadataMismatchFields": [],
+      "pass": true
+    }
+  ],
+  "allComparisonsPass": true
+}

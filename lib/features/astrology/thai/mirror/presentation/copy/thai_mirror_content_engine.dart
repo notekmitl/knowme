@@ -54,13 +54,13 @@ abstract final class ThaiMirrorContentEngine {
       slot: 'strength_$cardIndex',
     );
     final variants = ThaiMirrorThemeVariants.strengthVariants(themeId);
-    final variant = variants[
-        (ctx.profileSeed ^
-                seed ^
-                ThaiMirrorStableHash.string(partner) ^
-                (cardIndex + 1))
-            .abs() %
-            variants.length];
+    final variantSeed = ThaiMirrorStableHash.exactXorAll([
+      ctx.profileSeed,
+      seed,
+      ThaiMirrorStableHash.string(partner),
+      cardIndex + 1,
+    ]);
+    final variant = variants[variantSeed.abs() % variants.length];
     final combo = combinationStrengthSuffix(
       primaryId: themeId,
       partnerId: partner,

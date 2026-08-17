@@ -133,8 +133,12 @@ abstract final class PeriodCompositeScore {
   }
 
   static int _nuance(int seed, String domain) {
-    final h =
-        (seed ^ (ThaiMirrorStableHash.string(domain) * 2654435761)).abs();
-    return (h % 7) - 3; // -3..+3
+    final modulo = ThaiMirrorStableHash.exactXorProductModulo(
+      left: seed,
+      value: ThaiMirrorStableHash.string(domain),
+      multiplier: 2654435761,
+      modulus: 7,
+    );
+    return modulo - 3; // -3..+3
   }
 }

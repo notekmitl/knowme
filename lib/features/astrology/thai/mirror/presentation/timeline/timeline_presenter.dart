@@ -10,6 +10,7 @@ import 'package:knowme/features/astrology/thai/foundation/models/thai_birth_data
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/thai_canon_evidence_index.dart';
 import 'package:knowme/features/astrology/thai/mirror/evidence/v135/thai_detailed_report_composer.dart';
 
+import '../../thai_mirror_stable_hash.dart';
 import '../copy/thai_mirror_evidence_composer.dart';
 import 'mahabhut_position_user_copy.dart';
 import 'period_composite_score.dart';
@@ -103,8 +104,11 @@ abstract final class TimelinePresenter {
 
     for (final p in timeline.periods) {
       final data = LifePlanets.of(p.planet);
-      final seed =
-          profileSeed ^ (p.planet.index * 2246822519) ^ (p.index * 40503);
+      final seed = ThaiMirrorStableHash.exactXorAll([
+        profileSeed,
+        p.planet.index * 2246822519,
+        p.index * 40503,
+      ]);
       final scores = PeriodCompositeScore.evaluate(
         period: p,
         lagnaLord: lagnaLord,

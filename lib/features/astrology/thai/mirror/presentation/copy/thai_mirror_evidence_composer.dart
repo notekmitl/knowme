@@ -141,16 +141,39 @@ class EvidenceProfile {
       order.add(ReportFacet.thinking);
       weights[ReportFacet.thinking] = 1;
     }
-    order.sort((a, b) {
-      final cmp = (weights[b] ?? 0).compareTo(weights[a] ?? 0);
-      if (cmp != 0) return cmp;
-      return order.indexOf(a).compareTo(order.indexOf(b));
-    });
+    _sortFacetsWithAcceptedVmCompatibility(order, weights);
     return EvidenceProfile._(
       orderedFacets: order,
       weights: weights,
       tone: _toneFrom(weights),
     );
+  }
+
+  /// Freezes the insertion-sort behavior that produced the accepted V1.5
+  /// facet order on Dart VM. The former `List.sort` comparator consulted the
+  /// list while it was being mutated; dart2js delegates to a different sort
+  /// implementation, so tied weights diverged. Making every mutation step
+  /// explicit preserves the VM baseline while defining one cross-runtime
+  /// compatibility contract for these ten facets.
+  static void _sortFacetsWithAcceptedVmCompatibility(
+    List<ReportFacet> order,
+    Map<ReportFacet, int> weights,
+  ) {
+    int compare(ReportFacet a, ReportFacet b) {
+      final cmp = (weights[b] ?? 0).compareTo(weights[a] ?? 0);
+      if (cmp != 0) return cmp;
+      return order.indexOf(a).compareTo(order.indexOf(b));
+    }
+
+    for (var i = 1; i < order.length; i++) {
+      final element = order[i];
+      var j = i;
+      while (j > 0 && compare(order[j - 1], element) > 0) {
+        order[j] = order[j - 1];
+        j--;
+      }
+      order[j] = element;
+    }
   }
 
   static ReportTone _toneFrom(Map<ReportFacet, int> w) {
@@ -1093,4 +1116,3 @@ const Map<ReportFacet, ReportFacetData> _facetData = {
         'คือเหตุผลที่คนรอบตัวรู้สึกปลอดภัยเวลาอยู่กับคุณ',
   ),
 };
-
