@@ -1,0 +1,12 @@
+surface: real Chrome
+url: http://127.0.0.1:8766/?run=chrome-run-1-copy-semantic
+browserHarnessStatus: complete
+manifestCharacters: 12235446
+manifestUtf8Bytes: 22373659
+manifestSha256: 0744C156891A26D352F15258D33F81839CE47F1CD64D454D74B608F31CE8EA21
+executed: 300
+known: 225
+unknown: 75
+uniqueReports: 300
+uniqueNarratives: 300
+unknownOmissionPass: 75

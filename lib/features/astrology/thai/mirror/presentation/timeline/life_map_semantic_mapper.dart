@@ -381,6 +381,10 @@ abstract final class LifeMapSemanticMapper {
     final sit = pack.situations[variant.abs() % pack.situations.length];
     final press = pack.pressures[variant.abs() % pack.pressures.length];
     final cons = _consequence(transition, variant);
+    final situationText =
+        tense == LifeMapVerdictTense.future && sit.id == 'sit_opp'
+        ? 'ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ'
+        : sit.text;
 
     switch (role) {
       case _ClaimRole.situation:
@@ -390,7 +394,7 @@ abstract final class LifeMapSemanticMapper {
           domain: domain,
           pressureId: press.id,
           consequenceId: cons.id,
-          situationTh: sit.text,
+          situationTh: situationText,
           pressureTh: press.text,
           consequenceTh: cons.text,
           evidenceKeys: evidenceKeys,

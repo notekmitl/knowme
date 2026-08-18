@@ -2,6 +2,31 @@
 
 Pinned toolchain: Flutter 3.41.1 / Dart 3.11.0.
 
+## Copy semantic safety final result — passed
+
+All results in this section were rerun after the Owner-authorized two-test contract migration.
+
+| Scope | Fresh final result | Raw evidence |
+|---|---:|---|
+| Migrated contract + focused semantic safety | 6/6 | `copy-semantic-final-focused-result.txt` |
+| Copy audit | 300 profiles; Known 225 / Unknown 75; delta/omission/addition/prediction-to-advice 0 | `copy-semantic-final-safety-audit.json` |
+| VM manifests | 300/300 × 2; nondeterminism 0 | `cross-runtime-300-vm-run-*-copy-semantic-final.json` |
+| Real Chrome manifests | 300/300 × 2; nondeterminism 0 | `cross-runtime-300-chrome-run-*-copy-semantic-final.json` |
+| VM vs Chrome | S008 raw finding 1; canonical/profile/structured/score/report/text/narrative/omission/copy mismatch 0 | `cross-runtime-300-delta-copy-semantic-final.json` |
+| Canonical five | exact 5/5 | `cross-runtime-canonical-delta-copy-semantic-final.json` |
+| Targeted screenshots | 24/24 | `copy-semantic-final-screenshot-result.txt` |
+| Life Map | 67/67 | `copy-semantic-final-life-map-result.txt` |
+| Matrix | 864/864; 108/108 each weekday | `copy-semantic-final-matrix-864-result.txt` |
+| Original R7 focused runner | 286/286 | `copy-semantic-final-r7-focused-result.txt` |
+| Synthetic audit | 300 unique reports / 300 unique narratives; deterministic | `copy-semantic-final-synthetic-300-result.txt` |
+| Scoped analyzer | no issues | `copy-semantic-final-scoped-analyzer-result.txt` |
+| Full analyzer branch/main | 299 / 299; normalized delta 0 | `copy-semantic-final-full-analyzer-*-result.txt`, `copy-semantic-final-analyzer-delta-result.txt` |
+| Full branch/main tests | 2,914/39 vs 2,889/39; common 39; branch-only 0; main-only 0 | `copy-semantic-final-full-test-*-result.txt`, `copy-semantic-final-full-test-delta-result.txt` |
+| Web release build | success; no deploy | `copy-semantic-final-web-release-build-result.txt` |
+| R7.1 identities | ZIP 10,709,328 bytes / 80 entries; checksums 79/79; immutable 63/63; modified paths 0 | `copy-semantic-final-r71-identity-result.txt` |
+
+The 39 full-suite failures are identical pinned-main baseline failures. Neither the migrated test nor any expected output, golden, canonical text or R1–R7.1 artifact was changed to hide them.
+
 ## S008 final cross-runtime result — passed
 
 | Scope | Fresh final result | Raw evidence |

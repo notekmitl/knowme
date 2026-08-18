@@ -1,0 +1,16 @@
+
+┌─────────────────────────────────────────────────────────┐
+│ A new version of Flutter is available!                  │
+│                                                         │
+│ To update to the latest version, run "flutter upgrade". │
+└─────────────────────────────────────────────────────────┘
+00:00 +0: loading C:/Users/USER/Documents/Knowme/v15-production-release-clean/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart
+00:00 +0: C:/Users/USER/Documents/Knowme/v15-production-release-clean/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: (setUpAll)
+00:22 +0: C:/Users/USER/Documents/Knowme/v15-production-release-clean/test/validation/thai_beta/live_asof/thai_beta_copy_semantic_safety_test.dart: 300-case reader-visible output matches the accepted baseline
+00:25 +1: C:/Users/USER/Documents/Knowme/v15-production-release-clean/test/validation/thai_beta/live_asof/thai_beta_copy_semantic_safety_test.dart: 300-case reader-visible output matches the accepted baseline
+00:25 +2: C:/Users/USER/Documents/Knowme/v15-production-release-clean/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: canonical, fail-closed, Web/PDF, and S008 contracts stay exact
+00:25 +3: C:/Users/USER/Documents/Knowme/v15-production-release-clean/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: canonical, fail-closed, Web/PDF, and S008 contracts stay exact
+00:25 +4: C:/Users/USER/Documents/Knowme/v15-production-release-clean/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: canonical, fail-closed, Web/PDF, and S008 contracts stay exact
+00:25 +5: C:/Users/USER/Documents/Knowme/v15-production-release-clean/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: canonical, fail-closed, Web/PDF, and S008 contracts stay exact
+00:25 +6: C:/Users/USER/Documents/Knowme/v15-production-release-clean/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: (tearDownAll)
+00:25 +6: All tests passed!

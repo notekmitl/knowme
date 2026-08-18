@@ -1,0 +1,12 @@
+branchDiagnostics: 299
+mainDiagnostics: 299
+branchOnlyDiagnostics: 0
+mainOnlyDiagnostics: 0
+identityContract: severity|message|repository-relative-path|diagnostic-code; line/column excluded
+result: PASS
+
+branchOnly:
+(none)
+
+mainOnly:
+(none)

@@ -252,6 +252,7 @@ abstract final class LifeMapPlainThaiRenderer {
   static bool _startsWithTimeMarker(String text) {
     return text.startsWith('ช่วงนั้น') ||
         text.startsWith('ตอนนี้') ||
+        text.startsWith('ช่วงนี้') ||
         text.startsWith('ต่อไป') ||
         text.startsWith('ขณะนี้') ||
         text.startsWith('ช่วงถัดไป');
