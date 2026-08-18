@@ -1,0 +1,22 @@
++  hosting:channel: Channel v15-line-ending-release has been created on site knowme-app-694e1.
+
+=== Deploying to 'knowme-app-694e1'...
+
+i  deploying hosting
+i  hosting[knowme-app-694e1]: beginning deploy...
+i  hosting[knowme-app-694e1]: found 77 files in build/web
+i  hosting: uploading new files [0/2] (0%)
+i  hosting: uploading new files [1/2] (50%)
+i  hosting: upload complete
++  hosting[knowme-app-694e1]: file upload complete
+i  hosting[knowme-app-694e1]: finalizing version...
++  hosting[knowme-app-694e1]: version finalized
+i  hosting[knowme-app-694e1]: releasing new version...
++  hosting[knowme-app-694e1]: release complete
+
++  Deploy complete!
+
+Project Console: https://console.firebase.google.com/project/knowme-app-694e1/overview
+Hosting URL: https://knowme-app-694e1.web.app
+
++  hosting:channel: Channel URL (knowme-app-694e1): https://knowme-app-694e1--v15-line-ending-release-45bzkvyc.web.app [expires 2026-08-25 14:04:41]

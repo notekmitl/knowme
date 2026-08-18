@@ -1,0 +1,17 @@
+
+=== Deploying to 'knowme-app-694e1'...
+
+i  deploying hosting
+i  hosting[knowme-app-694e1]: beginning deploy...
+i  hosting[knowme-app-694e1]: found 77 files in build/web
+i  hosting: upload complete
++  hosting[knowme-app-694e1]: file upload complete
+i  hosting[knowme-app-694e1]: finalizing version...
++  hosting[knowme-app-694e1]: version finalized
+i  hosting[knowme-app-694e1]: releasing new version...
++  hosting[knowme-app-694e1]: release complete
+
++  Deploy complete!
+
+Project Console: https://console.firebase.google.com/project/knowme-app-694e1/overview
+Hosting URL: https://knowme-app-694e1.web.app

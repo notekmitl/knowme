@@ -1,0 +1,399 @@
+{
+  "schema": "knowme-v15-hosting-asset-manifest-v1",
+  "sourceCommit": "642069f0f298bc8a1f86b795f043e02e914aa97d",
+  "buildCommand": "flutter build web --release --no-pub",
+  "fileCount": 78,
+  "totalBytes": 44183692,
+  "entries": [
+    {
+      "sha256": "E5DDE56A49C7B22CF176465CA108A867CD6BBCBE1444DBEE9DECE6AF02612862",
+      "bytes": 32,
+      "path": ".last_build_id"
+    },
+    {
+      "sha256": "9494521D6FC29C7B0EB3C0B5E6A8C316C4507562F22980B3D4AF7429B96AA31A",
+      "bytes": 4920,
+      "path": "assets/AssetManifest.bin"
+    },
+    {
+      "sha256": "145CBBA5744B7AD4AAEBA6675CAA0B93C1D9C9E0BDCABE605801E61D152125D2",
+      "bytes": 6562,
+      "path": "assets/AssetManifest.bin.json"
+    },
+    {
+      "sha256": "C976E4B1B99EDC88775377FCC21692CA4BFA46B6D6CA6522BFDA505B28FF9D6A",
+      "bytes": 575740,
+      "path": "assets/assets/fonts/noto_sans_thai/NotoSans-Bold.ttf"
+    },
+    {
+      "sha256": "B85C38ECEA8A7CFB39C24E395A4007474FA5A4FC864F6EE33309EB4948D232D5",
+      "bytes": 569208,
+      "path": "assets/assets/fonts/noto_sans_thai/NotoSans-Regular.ttf"
+    },
+    {
+      "sha256": "2B67CFB22337A868C6C85709E648EA30C79E0A7C530A5FC169A73D3F461D7C52",
+      "bytes": 37796,
+      "path": "assets/assets/fonts/noto_sans_thai/NotoSansThai-Bold.ttf"
+    },
+    {
+      "sha256": "404DDFB5ED0AAA6B6EC8A85700D682978992062D67DA93903967B56CBD9A4ACC",
+      "bytes": 37752,
+      "path": "assets/assets/fonts/noto_sans_thai/NotoSansThai-Regular.ttf"
+    },
+    {
+      "sha256": "CD7E03645BC44B2DD47B7CB626F51C4ECBF55A197AB77241628B47AC165FBE21",
+      "bytes": 208,
+      "path": "assets/FontManifest.json"
+    },
+    {
+      "sha256": "684727B80D651AA566247996FCD651C0138ECFCE0597D5673B3081F92A2A1BB7",
+      "bytes": 26624,
+      "path": "assets/fonts/MaterialIcons-Regular.otf"
+    },
+    {
+      "sha256": "34C25349B25A5D666144D09C1DC1C7F69F68D74F581FD56AD2BF6A2126F3AFB3",
+      "bytes": 1431,
+      "path": "assets/knowledge/acquisition/acquisition.schema.json"
+    },
+    {
+      "sha256": "0D3FC920862574E46D54B89D7A8A0067C262EC1A02F70B94245F7F02F039E9C7",
+      "bytes": 1589,
+      "path": "assets/knowledge/acquisition/acquisition.template.json"
+    },
+    {
+      "sha256": "6F782A14063100AB3E45440A289BE5591B105123E6B9EDC241E4412437E0FB1C",
+      "bytes": 564,
+      "path": "assets/knowledge/canon/canon_database.knowme.json"
+    },
+    {
+      "sha256": "D0D20E22CEA2D4D43C5A828040608007DD2E55EB20221CECF872E2651BD3B17E",
+      "bytes": 6183,
+      "path": "assets/knowledge/canon/canon_database.schema.json"
+    },
+    {
+      "sha256": "61A03958DC2B7A138F097E7F39C25F99F08BB82C5FBD36FDB6D1D8320020ED3A",
+      "bytes": 2296,
+      "path": "assets/knowledge/canon/canon_sources.json"
+    },
+    {
+      "sha256": "85983C7FBE7EE4000ED44B58C58859BB4CFDF557879EF175671A7E924F35C969",
+      "bytes": 2378,
+      "path": "assets/knowledge/canon/canon_unit.template.json"
+    },
+    {
+      "sha256": "6FE3426700C3BB3688F7F68B6A3A1141514E4F9DFD206D28F769D6F83A0EF803",
+      "bytes": 434,
+      "path": "assets/knowledge/canon/canon.knowme.json"
+    },
+    {
+      "sha256": "63B91F8EE6969865596A7053CC67829B09EDBD9C9193A0806149B3C0F84ABEA3",
+      "bytes": 3095,
+      "path": "assets/knowledge/canon/canon.schema.json"
+    },
+    {
+      "sha256": "E35E0E5107E39A072C328FF639173DF0EFF15D2D43F805BC17CB7A06734EEAC5",
+      "bytes": 2081,
+      "path": "assets/knowledge/canon/canon.template.json"
+    },
+    {
+      "sha256": "034F5ADD73C830E06A20E9443D1387392D26170351111BCAF1ABD6019A789E46",
+      "bytes": 1124,
+      "path": "assets/knowledge/canon/library.manifest.json"
+    },
+    {
+      "sha256": "11F62A8397B432475EFAD46F50920EAA9D5D749CBA18C9E55102393776DD8324",
+      "bytes": 1787,
+      "path": "assets/knowledge/canon/library.manifest.schema.json"
+    },
+    {
+      "sha256": "56CBB689D908FBE18F9284C9ABFDE10542DFCDA2CE9B921C6F8D8BD902FDEC96",
+      "bytes": 2660,
+      "path": "assets/knowledge/canon/mahabhut.book.schema.json"
+    },
+    {
+      "sha256": "E6CCFD5C31EAA57EEC8DEF6D84199C1ED1F01BCB136DF513A17BE2AEAA9120FA",
+      "bytes": 898,
+      "path": "assets/knowledge/canon/mahabhut.manifest.json"
+    },
+    {
+      "sha256": "39BFCC82EC0E79DA3BF2281BE2A56DBA613F964981913375374B26E2C1E18D56",
+      "bytes": 453832,
+      "path": "assets/knowledge/canon/production/foundation_v1.knowme.json"
+    },
+    {
+      "sha256": "EE8C2B29222D749CC3BEF3AFF1F9D3452B3B38D964CFB69734DC184EA0411420",
+      "bytes": 349,
+      "path": "assets/knowledge/evidence/evidence.knowme.json"
+    },
+    {
+      "sha256": "B18FE60072CC54BB2DEE81783D56301A869547959141B720EBCFEB581FF3E2FE",
+      "bytes": 2222,
+      "path": "assets/knowledge/evidence/evidence.schema.json"
+    },
+    {
+      "sha256": "BBC372A8E3EBE2F6F86193B7150C4579F282BA51AE8A8649764EA4837D77465A",
+      "bytes": 1431,
+      "path": "assets/knowledge/evidence/evidence.template.json"
+    },
+    {
+      "sha256": "5A5A906124AC7B89FDB6A0616716322CB1550295E9B7E168F6D7987653690E37",
+      "bytes": 20980,
+      "path": "assets/knowledge/planet_relationships/planet_relationships.knowme.json"
+    },
+    {
+      "sha256": "1315241AE6E8AA811A5750DC77B43F8122D826F40613DA1A3181AE49A3BCA96F",
+      "bytes": 2272,
+      "path": "assets/knowledge/planet_relationships/planet_relationships.schema.json"
+    },
+    {
+      "sha256": "7282A5D9DF8FDE5959DADEEBD6DC4623A484B227456CC8383439A2151D41E113",
+      "bytes": 1233,
+      "path": "assets/knowledge/planet_relationships/planet_relationships.template.json"
+    },
+    {
+      "sha256": "817C8306A2E779C2E9551E43C56F2E4AE3C1CDA4286981F51B0190BEB6442DEE",
+      "bytes": 334,
+      "path": "assets/knowledge/research/research.knowme.json"
+    },
+    {
+      "sha256": "210E19DB2BEF76920C60AE85D8F71D15F12EB75D901BCDA6A584925BBEB4071D",
+      "bytes": 2941,
+      "path": "assets/knowledge/research/research.schema.json"
+    },
+    {
+      "sha256": "0777A044CDFC0D1CFF366B2E98827F66C745FFF7A2EECF12383498A5E2E0CCB7",
+      "bytes": 1246,
+      "path": "assets/knowledge/research/research.template.json"
+    },
+    {
+      "sha256": "E6DDAED2C19D6D711C95B96C874CE675B6465658014FBC37A2C076A4FEB70909",
+      "bytes": 384,
+      "path": "assets/knowledge/sources/sources.index.json"
+    },
+    {
+      "sha256": "FC4F6556156AA8DF518C4FE7D8EF5EBA83CD464E48F7298D20DE3D967CBF3E8F",
+      "bytes": 2249,
+      "path": "assets/knowledge/sources/sources.schema.json"
+    },
+    {
+      "sha256": "0FB7A7E6500E690E34AA58B3B8ACAD8774B6D7763AF218A30A88F22EDC0AF736",
+      "bytes": 849,
+      "path": "assets/knowledge/sources/sources.template.json"
+    },
+    {
+      "sha256": "E8C46A219998314B2C8B00046D1C7E6880F4956937BD1CC12835F28FF3DB4648",
+      "bytes": 1388473,
+      "path": "assets/NOTICES"
+    },
+    {
+      "sha256": "3D90C370AA4CF00DC57EE2B902F6652147C0F81E03E483DF584A9C08B1687C9D",
+      "bytes": 1472,
+      "path": "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf"
+    },
+    {
+      "sha256": "21247F7EAFA36708CED8FDDEE1004B42EF735B2A5A656B12006F0E6013022FD3",
+      "bytes": 1127,
+      "path": "assets/packages/flutter_google_places_sdk_platform_interface/assets/google/0.75x/powered_by_google_on_non_white.png"
+    },
+    {
+      "sha256": "1AEBB6D5BC360E7084978FD0D2D06C746912520D1C4E4DADBF375F4117C13D19",
+      "bytes": 1619,
+      "path": "assets/packages/flutter_google_places_sdk_platform_interface/assets/google/0.75x/powered_by_google_on_white.png"
+    },
+    {
+      "sha256": "FAB33A759B66D66AF74A7C97D3CBB32468C59A1BE2A260EDADA142EE8C27144C",
+      "bytes": 2282,
+      "path": "assets/packages/flutter_google_places_sdk_platform_interface/assets/google/1.5x/powered_by_google_on_non_white.png"
+    },
+    {
+      "sha256": "9A6FF3C6770CCAF12B187EAE92B4DE4C2EBCB3B7256D0A92DD15ED0E65044FB1",
+      "bytes": 3331,
+      "path": "assets/packages/flutter_google_places_sdk_platform_interface/assets/google/1.5x/powered_by_google_on_white.png"
+    },
+    {
+      "sha256": "0803FE07B2401E2A78CA8D9959EE9E24780FA7B614C1D4A9EF50306A2F147D53",
+      "bytes": 3126,
+      "path": "assets/packages/flutter_google_places_sdk_platform_interface/assets/google/2.0x/powered_by_google_on_non_white.png"
+    },
+    {
+      "sha256": "85E8811AF8CE7AFF2444ABB675D1ACFF9189884726709C6C5D89BADB6BB96828",
+      "bytes": 4550,
+      "path": "assets/packages/flutter_google_places_sdk_platform_interface/assets/google/2.0x/powered_by_google_on_white.png"
+    },
+    {
+      "sha256": "69CFA939D948D027CFF7CEC4A07E656C6FC6EEA3E4466D28F1F5178E8650D21F",
+      "bytes": 4800,
+      "path": "assets/packages/flutter_google_places_sdk_platform_interface/assets/google/3.0x/powered_by_google_on_non_white.png"
+    },
+    {
+      "sha256": "05AAA7DC08463904B508C96C35A5DE34303EA10FA769882A03EE2179897DEE2C",
+      "bytes": 6898,
+      "path": "assets/packages/flutter_google_places_sdk_platform_interface/assets/google/3.0x/powered_by_google_on_white.png"
+    },
+    {
+      "sha256": "EE1BE728E30F277A85CDB6585B3B0A0D5C9F9D889B17D92DF9529A146A92CCA4",
+      "bytes": 6115,
+      "path": "assets/packages/flutter_google_places_sdk_platform_interface/assets/google/4.0x/powered_by_google_on_non_white.png"
+    },
+    {
+      "sha256": "F6E6CB4B4E274D50215895A2359A17B3CA9697092B504D4B2097A9459F3D4131",
+      "bytes": 9314,
+      "path": "assets/packages/flutter_google_places_sdk_platform_interface/assets/google/4.0x/powered_by_google_on_white.png"
+    },
+    {
+      "sha256": "6CBA720C97F17D56FCA3FA86778DA961D12B07E216CF2A9ABA0244A5CDA2D643",
+      "bytes": 1404,
+      "path": "assets/packages/flutter_google_places_sdk_platform_interface/assets/google/powered_by_google_on_non_white.png"
+    },
+    {
+      "sha256": "533CB39F7DAD385E4B124588F494E5A8D192F26FF49360D0A38C635A369C852F",
+      "bytes": 2133,
+      "path": "assets/packages/flutter_google_places_sdk_platform_interface/assets/google/powered_by_google_on_white.png"
+    },
+    {
+      "sha256": "5AEE0E4FF369C0559EAA7AF6D64DCE812BAB67AFD9888D1D7D27046293B39AB5",
+      "bytes": 8890,
+      "path": "assets/shaders/ink_sparkle.frag"
+    },
+    {
+      "sha256": "C723FBB5B9A3456B101073825AB5D34DE312A39F32BF5DE42AAE0CDA605D0A1A",
+      "bytes": 6737,
+      "path": "assets/shaders/stretch_effect.frag"
+    },
+    {
+      "sha256": "931AE3F02E76E8AC58A1C1435D754A8740C87958B52EDB9037D66E32BE53EB40",
+      "bytes": 86859,
+      "path": "canvaskit/canvaskit.js"
+    },
+    {
+      "sha256": "90B967D768F78474A6E733298BF3AF352585BAC3C2210F07B0B226704B1888C2",
+      "bytes": 1344898,
+      "path": "canvaskit/canvaskit.js.symbols"
+    },
+    {
+      "sha256": "681D8EFD431B8134841C0595E8B7EEC10E2EF3936F8A761F69B9291083C561BD",
+      "bytes": 7155780,
+      "path": "canvaskit/canvaskit.wasm"
+    },
+    {
+      "sha256": "FF8DCD85CEE325699499EE23FFD7567BC8086E9592C24D4D8D411F951C16BDA4",
+      "bytes": 86496,
+      "path": "canvaskit/chromium/canvaskit.js"
+    },
+    {
+      "sha256": "3C9D8E7AA7D92A122C4714A6F239BA0A46D56D2F18395AC42CB9F2AF8513A277",
+      "bytes": 1262882,
+      "path": "canvaskit/chromium/canvaskit.js.symbols"
+    },
+    {
+      "sha256": "F6C67BF7989FCB1B69A3203617882AC0D1541CC79E38F81C3F5D63AB4D73DE33",
+      "bytes": 5686836,
+      "path": "canvaskit/chromium/canvaskit.wasm"
+    },
+    {
+      "sha256": "7A1AA20E765441B28F4BE0CD397F95573A3ECD72ADC80BA32DD2CB959A09A41D",
+      "bytes": 63550,
+      "path": "canvaskit/skwasm_heavy.js"
+    },
+    {
+      "sha256": "F0F3ACC96B31BE9D17E5A72AE9309D79D12436E51B8464690B12690FE0C0E020",
+      "bytes": 1644252,
+      "path": "canvaskit/skwasm_heavy.js.symbols"
+    },
+    {
+      "sha256": "4B0028E38D865B4673EC38C0C673299DFF6B00D6CD8C5E53DDA9F800F7BBDDA2",
+      "bytes": 5140163,
+      "path": "canvaskit/skwasm_heavy.wasm"
+    },
+    {
+      "sha256": "D52E58007AF740833FAA088C1F68672E410DC385BBEB3E50A5E5BC285FC3FC9A",
+      "bytes": 63437,
+      "path": "canvaskit/skwasm.js"
+    },
+    {
+      "sha256": "B059D901611B40109E67D655605CE486827EA054E53EBC0B1EB419C169D4AE01",
+      "bytes": 1519424,
+      "path": "canvaskit/skwasm.js.symbols"
+    },
+    {
+      "sha256": "461A759C657738E573F1C2F69E26489197E43DB1BF6EC1E2C3B44C6721314CD1",
+      "bytes": 3549758,
+      "path": "canvaskit/skwasm.wasm"
+    },
+    {
+      "sha256": "FA58B2C534EF9C66DFF68DF1EA28C1739BB02CE34CC8ECA459F716527D9B5CAE",
+      "bytes": 57623,
+      "path": "canvaskit/wimp.js"
+    },
+    {
+      "sha256": "90489D4E656C0810D2D637E9048363A02AFD9B27733D7D0A9D721D4D7071B99C",
+      "bytes": 1751605,
+      "path": "canvaskit/wimp.js.symbols"
+    },
+    {
+      "sha256": "78363AD9E37680CF35E14EEAD62B462C80DAC6CEA7CC02950422EFD8ED222C9D",
+      "bytes": 3461420,
+      "path": "canvaskit/wimp.wasm"
+    },
+    {
+      "sha256": "7AB2525F4B86B65D3E4C70358A17E5A1AAF6F437F99CBCC046DAD73D59BB9015",
+      "bytes": 917,
+      "path": "favicon.png"
+    },
+    {
+      "sha256": "84EA044F6623AD1E9C93F9B5272540A3800B9FC92706F719B6565881F00648E5",
+      "bytes": 9975,
+      "path": "flutter_bootstrap.js"
+    },
+    {
+      "sha256": "DBFBE64AE5BE5B462ABB97338EB9AF783ED4ED57A8C73A53C2A44488A26F6416",
+      "bytes": 815,
+      "path": "flutter_service_worker.js"
+    },
+    {
+      "sha256": "A483FD28F51ED2FADD0DA3FADE5B672EBA56310D549D736CE62EABF624A6A578",
+      "bytes": 9553,
+      "path": "flutter.js"
+    },
+    {
+      "sha256": "3DCE99077602F70421C1C6B2A240BC9B83D64D86681D45F2154143310C980BE3",
+      "bytes": 5292,
+      "path": "icons/Icon-192.png"
+    },
+    {
+      "sha256": "BACCB205AE45F0B421BE1657259B4943AC40C95094AB877F3BCBE12CD544DCBE",
+      "bytes": 8252,
+      "path": "icons/Icon-512.png"
+    },
+    {
+      "sha256": "D2C842E22A9F4EC9D996B23373A905C88D9A203B220C5C151885AD621F974B5C",
+      "bytes": 5594,
+      "path": "icons/Icon-maskable-192.png"
+    },
+    {
+      "sha256": "6AEE06CDCAB6B2AEF74B1734C4778F4421D2DA100B0FF9E52B21B55240202929",
+      "bytes": 20998,
+      "path": "icons/Icon-maskable-512.png"
+    },
+    {
+      "sha256": "4154A59B4F5621A1E22681ACCEA20F00DEAB48E89AEC3F632B62FD972E89BD7D",
+      "bytes": 7117,
+      "path": "index.html"
+    },
+    {
+      "sha256": "2111563E99D81A84B3D1201292E3ADFB20BB2402D35C25CCCBAAA41C93DDE001",
+      "bytes": 8011208,
+      "path": "main.dart.js"
+    },
+    {
+      "sha256": "EA6595B1D5ADDE1B535C708ECCCD6FD7C4B1CE9AF19884046F106F673862ABF9",
+      "bytes": 951,
+      "path": "manifest.json"
+    },
+    {
+      "sha256": "7D8282FFBAA722DDCD08D8DA1D9D15D2CEBF14C3C03A8F353E6B3A795F8FC19D",
+      "bytes": 82,
+      "path": "version.json"
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "desktop": {
+    "url": "https://knowme-app-694e1.web.app/beta/thai",
+    "logs": [
+      {
+        "level": "debug",
+        "message": "Injecting <script> tag. Using callback.",
+        "timestamp": "2026-08-18T07:37:06.996Z",
+        "url": "https://knowme-app-694e1.web.app/flutter_bootstrap.js"
+      },
+      {
+        "level": "debug",
+        "message": "TrustedTypes available. Creating policy: gis-dart",
+        "timestamp": "2026-08-18T07:37:08.372Z",
+        "url": "https://knowme-app-694e1.web.app/main.dart.js"
+      },
+      {
+        "level": "debug",
+        "message": "TrustedTypes available. Creating policy: flutterfire-firebase_core",
+        "timestamp": "2026-08-18T07:37:08.382Z",
+        "url": "https://knowme-app-694e1.web.app/main.dart.js"
+      },
+      {
+        "level": "debug",
+        "message": "Initializing Firebase firebase_core",
+        "timestamp": "2026-08-18T07:37:08.383Z"
+      },
+      {
+        "level": "debug",
+        "message": "TrustedTypes available. Creating policy: flutterfire-firebase_firestore",
+        "timestamp": "2026-08-18T07:37:08.385Z",
+        "url": "https://knowme-app-694e1.web.app/main.dart.js"
+      },
+      {
+        "level": "debug",
+        "message": "Initializing Firebase firebase_firestore",
+        "timestamp": "2026-08-18T07:37:08.385Z"
+      },
+      {
+        "level": "debug",
+        "message": "TrustedTypes available. Creating policy: flutterfire-firebase_auth",
+        "timestamp": "2026-08-18T07:37:08.385Z",
+        "url": "https://knowme-app-694e1.web.app/main.dart.js"
+      },
+      {
+        "level": "debug",
+        "message": "Initializing Firebase firebase_auth",
+        "timestamp": "2026-08-18T07:37:08.385Z"
+      }
+    ],
+    "snapshot": "- heading \"ดูดวงไทย — งานวิจัย\" [active] [level=2]\n- generic: ร่วมพัฒนาโหราศาสตร์ไทยให้แม่นยำขึ้น\n- generic: นี่คือระบบวิเคราะห์ดวงไทยที่อยู่ในช่วงเก็บข้อมูลวิจัย เราอยากรู้ว่าผลวิเคราะห์ตรงกับคุณมากแค่ไหน\n- generic: จุดประสงค์ วิเคราะห์ดวงไทยจากวัน เวลา และสถานที่เกิดของคุณ แล้วเก็บความคิดเห็นเพื่อพัฒนาความแม่นยำของระบบ\n- generic: ใช้เวลาโดยประมาณ ประมาณ 3–5 นาที (กรอกข้อมูล อ่านผล และให้ความคิดเห็น)\n- generic: ความเป็นส่วนตัว ข้อมูลของคุณจะถูกใช้เพื่อการวิจัยและพัฒนาระบบเท่านั้น และจะไม่ถูกเปิดเผยต่อสาธารณะ\n- generic: การเข้าร่วมงานวิจัย การเข้าร่วมเป็นไปโดยสมัครใจ คุณจะได้รับรหัสอ้างอิงหลังส่งความคิดเห็น\n- generic: จำนวนผู้เข้าร่วม มีผู้ร่วมงานวิจัยแล้ว 1 คน\n- button \"เริ่มการวิเคราะห์\""
+  },
+  "mobile": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "url": "https://knowme-app-694e1.web.app/beta/thai",
+    "logs": [
+      {
+        "level": "debug",
+        "message": "Injecting <script> tag. Using callback.",
+        "timestamp": "2026-08-18T07:38:22.213Z",
+        "url": "https://knowme-app-694e1.web.app/flutter_bootstrap.js"
+      },
+      {
+        "level": "debug",
+        "message": "TrustedTypes available. Creating policy: gis-dart",
+        "timestamp": "2026-08-18T07:38:23.166Z",
+        "url": "https://knowme-app-694e1.web.app/main.dart.js"
+      },
+      {
+        "level": "debug",
+        "message": "TrustedTypes available. Creating policy: flutterfire-firebase_core",
+        "timestamp": "2026-08-18T07:38:23.175Z",
+        "url": "https://knowme-app-694e1.web.app/main.dart.js"
+      },
+      {
+        "level": "debug",
+        "message": "Initializing Firebase firebase_core",
+        "timestamp": "2026-08-18T07:38:23.178Z"
+      },
+      {
+        "level": "debug",
+        "message": "TrustedTypes available. Creating policy: flutterfire-firebase_firestore",
+        "timestamp": "2026-08-18T07:38:23.178Z",
+        "url": "https://knowme-app-694e1.web.app/main.dart.js"
+      },
+      {
+        "level": "debug",
+        "message": "Initializing Firebase firebase_firestore",
+        "timestamp": "2026-08-18T07:38:23.178Z"
+      },
+      {
+        "level": "debug",
+        "message": "TrustedTypes available. Creating policy: flutterfire-firebase_auth",
+        "timestamp": "2026-08-18T07:38:23.178Z",
+        "url": "https://knowme-app-694e1.web.app/main.dart.js"
+      },
+      {
+        "level": "debug",
+        "message": "Initializing Firebase firebase_auth",
+        "timestamp": "2026-08-18T07:38:23.179Z"
+      }
+    ],
+    "snapshot": "- heading \"ดูดวงไทย — งานวิจัย\" [active] [level=2]\n- generic: ร่วมพัฒนาโหราศาสตร์ไทยให้แม่นยำขึ้น\n- generic: นี่คือระบบวิเคราะห์ดวงไทยที่อยู่ในช่วงเก็บข้อมูลวิจัย เราอยากรู้ว่าผลวิเคราะห์ตรงกับคุณมากแค่ไหน\n- generic: จุดประสงค์ วิเคราะห์ดวงไทยจากวัน เวลา และสถานที่เกิดของคุณ แล้วเก็บความคิดเห็นเพื่อพัฒนาความแม่นยำของระบบ\n- generic: ใช้เวลาโดยประมาณ ประมาณ 3–5 นาที (กรอกข้อมูล อ่านผล และให้ความคิดเห็น)\n- generic: ความเป็นส่วนตัว ข้อมูลของคุณจะถูกใช้เพื่อการวิจัยและพัฒนาระบบเท่านั้น และจะไม่ถูกเปิดเผยต่อสาธารณะ\n- generic: การเข้าร่วมงานวิจัย การเข้าร่วมเป็นไปโดยสมัครใจ คุณจะได้รับรหัสอ้างอิงหลังส่งความคิดเห็น\n- generic: จำนวนผู้เข้าร่วม มีผู้ร่วมงานวิจัยแล้ว 1 คน\n- button \"เริ่มการวิเคราะห์\""
+  }
+}
