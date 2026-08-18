@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart' show Color, Icons, IconData;
+import '../../thai_mirror_stable_hash.dart';
 
 import '../models/thai_mirror_consumer_view_state.dart';
 import 'thai_mirror_consumer_copy.dart';
@@ -82,7 +83,10 @@ abstract final class ThaiMirrorReportCopy {
     final detail = variants.length > 1
         ? _cap(variants[1].body)
         : _cap(phrase.strengthBody);
-    final discovery = ThaiMirrorEvidenceComposer.discovery(facet, themeId.hashCode);
+    final discovery = ThaiMirrorEvidenceComposer.discovery(
+      facet,
+      ThaiMirrorStableHash.string(themeId),
+    );
     final example = variants.length > 2
         ? 'อย่างเช่น ${_lower(variants[2].body)}'
         : 'อย่างเช่น ในวันที่ทุกอย่างชุลมุน คุณมักเป็นคนที่ยังตั้งหลักได้';
@@ -136,11 +140,13 @@ abstract final class ThaiMirrorReportCopy {
           ? orderedFacets[(orderedFacets.indexOf(fA) + 1) % orderedFacets.length]
           : profile.contrastFor(fA);
 
-      final seed = ctx.profileSeed ^
-          (aspect.key.hashCode * 17) ^
-          (fA.index * 131) ^
-          (fB.index * 71) ^
-          (i * 911);
+      final seed = ThaiMirrorStableHash.exactXorAll([
+        ctx.profileSeed,
+        ThaiMirrorStableHash.string(aspect.key) * 17,
+        fA.index * 131,
+        fB.index * 71,
+        i * 911,
+      ]);
 
       final overview = ThaiMirrorEvidenceComposer.sectionOverview(
         area: aspect.key,

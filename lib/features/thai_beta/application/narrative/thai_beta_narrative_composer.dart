@@ -394,16 +394,16 @@ abstract final class ThaiBetaNarrativeComposer {
             keyword: period.keyword,
             isCurrent: period.isCurrent,
             isPast: period.isPast,
-            summary: _cleanFutureTimelineClaim(allocatedSummary),
-            whatChanges: _cleanFutureTimelineClaim(allocatedChange),
-            easier: _cleanFutureTimelineClaim(allocatedEasier),
-            harder: _cleanFutureTimelineClaim(allocatedHarder),
-            comparison: _cleanFutureTimelineClaim(allocatedComparison),
-            evidenceLine: _cleanFutureTimelineClaim(allocatedEvidence),
+            summary: allocatedSummary,
+            whatChanges: allocatedChange,
+            easier: allocatedEasier,
+            harder: allocatedHarder,
+            comparison: allocatedComparison,
+            evidenceLine: allocatedEvidence,
             scores: period.scores,
             easeIndex: period.easeIndex,
             accentIndex: period.accentIndex,
-            advice: _cleanFutureTimelineClaim(allocatedAdvice),
+            advice: allocatedAdvice,
             stageLabel: period.stageLabel,
             timeBucketLabel: period.timeBucketLabel,
             mahabhutPositionLabel: period.mahabhutPositionLabel,
@@ -610,11 +610,6 @@ abstract final class ThaiBetaNarrativeComposer {
       evidenceKeys: domain.evidenceKeys,
     );
   }
-
-  static String _cleanFutureTimelineClaim(String value) => value.replaceFirst(
-    'ต่อไปธีมของช่วงนี้คือการเปิดรับโอกาสผ่านงานหรือเครือข่าย โดยใช้สิ่งที่เกิดขึ้นจริงเป็นตัวเทียบ',
-    'ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ',
-  );
 
   static bool _hasConsumerTimelineContent(ThaiMirrorLifePeriodState period) =>
       period.lifeDomains.isNotEmpty ||

@@ -1,0 +1,18 @@
+Compiling tool/thai_beta_cross_runtime_web_harness.dart for the Web...     
+Wasm dry run findings:
+Found incompatibilities with WebAssembly.
+
+file:///C:/Users/USER/Documents/Knowme/v15-production-release-clean/tool/thai_beta_cross_runtime_web_harness.dart 4:1 - dart:html unsupported (0)
+package:flutter_google_places_sdk_web/flutter_google_places_sdk_web.dart 6:1 - dart:html unsupported (0)
+package:flutter_google_places_sdk_web/flutter_google_places_sdk_web.dart 8:1 - dart:js_util unsupported (15)
+package:geolocator_web/src/html_geolocation_manager.dart 1:1 - dart:html unsupported (0)
+package:geolocator_web/src/html_permissions_manager.dart 1:1 - dart:html unsupported (0)
+package:geolocator_web/src/utils.dart 2:1 - dart:html unsupported (0)
+
+Consider addressing these issues to enable wasm builds. See docs for more info: https://docs.flutter.dev/platform-integration/web/wasm
+
+Use --no-wasm-dry-run to disable these warnings.
+Font asset "CupertinoIcons.ttf" was tree-shaken, reducing it from 257628 to 1472 bytes (99.4% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Font asset "MaterialIcons-Regular.otf" was tree-shaken, reducing it from 1645184 to 10816 bytes (99.3% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Compiling tool/thai_beta_cross_runtime_web_harness.dart for the Web...        56.8s
+√ Built build\cross-runtime-parity-harness-copy-semantic-final

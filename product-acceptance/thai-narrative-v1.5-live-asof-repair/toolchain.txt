@@ -1,0 +1,5 @@
+Flutter 3.41.1
+Dart 3.11.0
+Pinned Flutter: C:\Users\USER\Documents\Knowme\flutter-3.41.1\bin\flutter.bat
+Base/main: 075ddfc6eeb8fbe4e3a0aaade9c4c2d5711340b9
+Branch: codex/v15-live-asof-contract-repair

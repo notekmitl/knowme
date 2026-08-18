@@ -187,6 +187,7 @@ ThaiBetaAnalysis _comparisonAnalysis({
     provinceKey: provinceKey,
   ),
   startedAt: DateTime(2026, 8, 7),
+  asOf: DateTime(2026, 8, 7),
 );
 
 void _stage(String name, String state) {
@@ -208,6 +209,7 @@ ThaiBetaAnalysis _analysis({required bool knownTime, int minute = 0}) {
       provinceKey: 'chiang_mai',
     ),
     startedAt: DateTime(2026, 8, 7),
+    asOf: DateTime(2026, 8, 7),
   );
 }
 

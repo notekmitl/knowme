@@ -1,0 +1,59 @@
+{
+  "fixtures": [
+    {
+      "fixture": "owner-known-0035",
+      "frozenAsOf": "2026-08-07T00:00:00.000",
+      "liveAsOf": "2026-08-16T16:19:44.454535",
+      "frozenExactWeb": true,
+      "frozenExactPdf": true,
+      "liveWebPdfExact": true,
+      "liveRepeatExact": true,
+      "reportHash": "be88286c7ed928aab7c26602039056e8ee9cd2e4da16a0091f50dfa1cbd4dcd5",
+      "pageCount": 7
+    },
+    {
+      "fixture": "owner-unknown",
+      "frozenAsOf": "2026-08-07T00:00:00.000",
+      "liveAsOf": "2026-08-16T16:19:44.454535",
+      "frozenExactWeb": true,
+      "frozenExactPdf": true,
+      "liveWebPdfExact": true,
+      "liveRepeatExact": true,
+      "reportHash": "28f1504eafcf4f8fe249a3086c87b30a2cce82284d71c008acf45202df032620",
+      "pageCount": 6
+    },
+    {
+      "fixture": "regression-known-0003",
+      "frozenAsOf": "2026-08-07T00:00:00.000",
+      "liveAsOf": "2026-08-16T16:19:44.454535",
+      "frozenExactWeb": true,
+      "frozenExactPdf": true,
+      "liveWebPdfExact": true,
+      "liveRepeatExact": true,
+      "reportHash": "791422da3dedb666e82d1b8355e93fdff084634117e1dff65497185c42ca6476",
+      "pageCount": 7
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "frozenAsOf": "2026-08-07T00:00:00.000",
+      "liveAsOf": "2026-08-16T16:19:44.454535",
+      "frozenExactWeb": true,
+      "frozenExactPdf": true,
+      "liveWebPdfExact": true,
+      "liveRepeatExact": true,
+      "reportHash": "48de975168b4c2539da0ee1fe1efea68dcd252c437b8a49674f266ecc0bd24b0",
+      "pageCount": 7
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "frozenAsOf": "2026-08-07T00:00:00.000",
+      "liveAsOf": "2026-08-16T16:19:44.454535",
+      "frozenExactWeb": true,
+      "frozenExactPdf": true,
+      "liveWebPdfExact": true,
+      "liveRepeatExact": true,
+      "reportHash": "349cbb51d17e28c19d8536a7109982943f4c68ef035adfb4d83610eb985a6d50",
+      "pageCount": 7
+    }
+  ]
+}

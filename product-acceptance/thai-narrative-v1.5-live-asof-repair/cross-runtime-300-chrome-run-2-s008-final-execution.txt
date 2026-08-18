@@ -1,0 +1,12 @@
+surface: connected real Chrome
+url: http://127.0.0.1:8765/?run=chrome-run-2-s008-final
+browserHarnessStatus: complete
+manifestCharacters: 12262572
+manifestUtf8Bytes: 22425741
+manifestSha256: F24266634612A43CA245C7CC68DCE07A347FBF5C9B5985D8E40195F4CE3B0248
+executed: 300
+known: 225
+unknown: 75
+uniqueReports: 300
+uniqueNarratives: 300
+unknownOmissionPass: 75

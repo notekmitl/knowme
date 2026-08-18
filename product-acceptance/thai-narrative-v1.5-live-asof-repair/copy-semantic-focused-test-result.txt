@@ -1,0 +1,6 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/v15-production-release-clean/test/validation/thai_beta/live_asof/thai_beta_copy_semantic_safety_test.dart
+00:00 +0: 300-case reader-visible output matches the accepted baseline
+00:16 +1: all 19 formerly misclassified omission sources remain non-empty
+00:16 +2: owner-unknown remains exact R7.1 canonical and deterministic
+00:16 +3: semantic repair source contains no case-specific branch
+00:16 +4: All tests passed!

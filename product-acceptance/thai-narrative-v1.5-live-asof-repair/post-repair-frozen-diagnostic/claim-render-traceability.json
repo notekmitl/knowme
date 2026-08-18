@@ -1,0 +1,2560 @@
+{
+  "schema": "knowme-claim-render-traceability-v1.5-r7",
+  "totalClaims": 170,
+  "expressedClaims": 170,
+  "expressedFoundInCanonicalWebAndPdf": 170,
+  "expressedPresenceRate": 1.0,
+  "failures": [],
+  "claims": [
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "hook:headline",
+      "expressed": true,
+      "primaryExpression": "งานจะไปต่อได้ เมื่อข้อตกลงยังชัดและทำได้จริง",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "hook:body",
+      "expressed": true,
+      "primaryExpression": "ในช่วงนี้ ความอดทนที่พาเรื่องยากไปต่อกลายเป็นแรงสำคัญของงาน งานมีแรงส่งต่อเนื่องจากตอนนี้ไปถึงช่วงถัดไป ขณะเดียวกัน ความสัมพันธ์จะเปราะบางขึ้นเมื่อภาระชุดใหม่เข้ามา คำถามคือ งานที่กำลังขยายยังเหลือเวลาและความชัดให้คนที่เกี่ยวข้องหรือไม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "core:computed:lagna-identity-frame",
+      "expressed": true,
+      "primaryExpression": "ลัคนาราศีกุมภ์สะท้อนคนที่ไปได้ดีเมื่อชีวิตมีระบบและรู้ว่าต้องทำอะไรต่อ ส่วนดาวเสาร์ซึ่งเป็นเจ้าเรือนลัคนาย้ำวินัย ความต่อเนื่อง และการสร้างฐานทีละขั้น จุดแข็งสองชั้นนี้ช่วยให้คนอื่นพึ่งคุณได้ แต่ในช่วงเก็บผล จุดเสี่ยงคือทำต่อเพราะเคยทำได้ จนไม่ได้ถามว่าวิธีเดิมยังเหมาะหรือไม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:lagna-identity-frame"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "core:computed:house:10:analysis",
+      "expressed": true,
+      "primaryExpression": "หลักฐานเรือนการงานที่เชื่อมราศีพิจิกและดาวอังคาร แปลเป็นภาษาคนว่า คุณสร้างผลงานผ่านความกล้าลงมือและการจัดการสิ่งเร่งด่วน บทบาทที่คุ้มจึงต้องเพิ่มอำนาจดูแลคุณภาพ ไม่ใช่เพิ่มแต่งานที่ต้องถือ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:house:10:analysis"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "core:computed:house:2:analysis",
+      "expressed": true,
+      "primaryExpression": "เรือนการเงินซึ่งอ่านจากราศีมีนและดาวพฤหัสบดี ผูกความมั่นคงของคุณกับภาพระยะยาว ความรู้ และการขยายอย่างมีหลัก ความก้าวหน้าจึงควรวัดจากทางเลือกที่เงินสำรองเปิดให้ มากกว่ายอดที่สะสมอย่างเดียว",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:house:2:analysis"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "core:computed:house:7:analysis",
+      "expressed": true,
+      "primaryExpression": "เมื่อเรือนความสัมพันธ์มีราศีสิงห์และดาวอาทิตย์เป็นหลัก ความไว้ใจจึงเกิดผ่านความชัดเจนและการตัดสินใจด้วยตัวเอง ข้อตกลงจึงต้องแบ่งเวลาและความรับผิดชอบโดยยังเหลือพื้นที่ให้แต่ละฝ่าย",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:house:7:analysis"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "core:computed:house:6:analysis",
+      "expressed": true,
+      "primaryExpression": "เรือนสุขภาวะที่มีราศีกรกฎและดาวจันทร์เชื่อมพลังชีวิตกับการรับรู้ความเปลี่ยนแปลงและความต้องการรอบตัว สัญญาณที่ควรฟังคือเวลาฟื้นตัวที่ยาวขึ้นต่อเนื่อง ไม่ใช่ความล้าเพียงวันเดียว",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:house:6:analysis"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "core:disclosure:medical",
+      "expressed": true,
+      "primaryExpression": "เนื้อหาส่วนนี้เป็นมุมมองตามความเชื่อทางโหราศาสตร์ ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "disclosure:medical"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "core:computed:closing-priority-action",
+      "expressed": true,
+      "primaryExpression": "แก่นของคำอ่านนี้ไม่ใช่การรับให้มากขึ้น แต่คือการเลือกสิ่งที่คู่ควรกับแรงของคุณ ให้เริ่มจากการวางระบบที่ทำซ้ำได้และกำหนดเวลาพักไว้ล่วงหน้า แล้วใช้ผลจริงตัดสินว่าจะรักษาอะไรไว้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:closing-priority-action"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "core:methodology:astrological-date",
+      "expressed": true,
+      "primaryExpression": "วันเกิดตามสูติบัตรยังเป็นวันที่ 1982-06-06 ตามเดิม ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วันเสาร์ (วันที่ 1982-06-05) เป็นวันทางโหราศาสตร์",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "methodology:astrological-date"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "core:methodology:sunrise-boundary",
+      "expressed": true,
+      "primaryExpression": "เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้นเวลา 05:46 จึงใช้วันก่อนหน้าตามกฎที่นับวันใหม่เมื่อพระอาทิตย์ขึ้น โดยไม่เปลี่ยนวันเกิดตามสูติบัตร",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "methodology:sunrise-boundary"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "core:methodology:lagna-inputs",
+      "expressed": true,
+      "primaryExpression": "ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากนาฬิกาเกิดและพิกัดจังหวัด) อยู่ที่ราศีกุมภ์",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "methodology:lagna-inputs"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "core:methodology:top-themes",
+      "expressed": true,
+      "primaryExpression": "คำอ่านข้างต้นเลือกประเด็นที่เชื่อมกับชีวิตคุณได้ชัดที่สุดก่อน แล้วเรียงผลต่อเนื่องไปยังเรื่องที่ควรระวังและการตัดสินใจ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "methodology:top-themes"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "past:0:theme",
+      "expressed": true,
+      "primaryExpression": "ธีมสำหรับทบทวน: ความมั่นคงในช่วงวางรากฐานอาจเทียบได้กับความทรงจำเรื่องบ้าน ผู้ดูแล ความปลอดภัย การเรียนรู้ การเล่น และการได้รับการยอมรับ ลองนึกว่าฐานใดยังติดตัวมาถึงวันนี้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[0]"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "past:0:question",
+      "expressed": true,
+      "primaryExpression": "คำถามสะท้อน: เมื่อนึกถึงวัย 1–10 คุณจำได้ไหมว่าที่ใดหรือใครทำให้กล้าลอง เล่น หรือเรียนรู้ และความทรงจำนั้นบอกอะไรเกี่ยวกับฐานที่คุณใช้ตัดสินใจวันนี้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[0]"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "past:1:theme",
+      "expressed": true,
+      "primaryExpression": "ธีมสำหรับทบทวน: การเติบโตของช่วงเติบโตและขยายอยู่ในบริบทของการเป็นอิสระ การศึกษา การเริ่มงาน ความสัมพันธ์ และทรัพยากรที่ต้องจัดการเองมากขึ้น ลองแยกสิ่งที่คุณเลือกเองจากสิ่งที่รับตามแรงรอบตัว",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[1]"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "past:1:question",
+      "expressed": true,
+      "primaryExpression": "คำถามสะท้อน: เมื่อคิดถึงวัย 11–29 คุณจำจุดใดได้ชัดที่สุดระหว่างการออกไปยืนด้วยตัวเอง การเริ่มเส้นทางใหม่ หรือการตั้งขอบเขตกับคนใกล้ตัว แล้วบทเรียนนั้นช่วยคัดการตัดสินใจวันนี้แบบไหน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[1]"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "past:2:theme",
+      "expressed": true,
+      "primaryExpression": "ธีมสำหรับทบทวน: ลองวางการเปลี่ยนแปลงของช่วงพลิกผันและเปลี่ยนผ่านไว้ข้างงาน เงิน ความสัมพันธ์ ความรับผิดชอบ และบทบาทที่อาจต้องจัดใหม่ แล้วดูว่าเกณฑ์เดิมส่วนใดยังควรรักษา",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[2]"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "past:2:question",
+      "expressed": true,
+      "primaryExpression": "คำถามสะท้อน: เมื่อมองกลับไปที่วัย 30–41 มีความทรงจำช่วงใดที่คุณต้องชั่งระหว่างสิ่งที่รับผิดชอบอยู่กับบทบาทที่อยากเปลี่ยน และเกณฑ์ครั้งนั้นยังเหมาะกับการตัดสินใจวันนี้หรือไม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[2]"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "current-timeline:0:การงาน",
+      "expressed": true,
+      "primaryExpression": "มีโอกาสรับงานหรือความรับผิดชอบเพิ่มในช่วงนี้ แต่ไม่จำเป็นต้องรับทุกทางพร้อมกัน ควรระวังการรับงานซ้อนจนกระทบคุณภาพและความต่อเนื่อง",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[3].lifeDomains[0]"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "current-timeline:1:การเงิน",
+      "expressed": true,
+      "primaryExpression": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[3].lifeDomains[1]"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "current-timeline:2:สุขภาพ",
+      "expressed": true,
+      "primaryExpression": "ช่วงนี้พลังชีวิตพอไปได้หากจัดจังหวะพักสม่ำเสมอ รักษาเวลานอนให้คงที่ และเว้นช่วงสั้น ๆ ระหว่างภาระ เพื่อไม่ให้ความล้าสะสมจนกระทบช่วงที่ต้องใช้แรง ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำบอกจากแพทย์ หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[3].lifeDomains[2]"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "current-timeline:3:โชคลาภ",
+      "expressed": true,
+      "primaryExpression": "รายได้หลักยังแยกจากโชคเหตุบังเอิญ — ส่วนใหญ่มาจากงานและความสามารถที่ลงมือเอง ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากหลักฐานและภาระจริงก่อนรับ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[3].lifeDomains[3]"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "forecast:current:career",
+      "expressed": true,
+      "primaryExpression": "บทบาทงานก้อนใหม่มีแรงส่ง แต่ควรรับเฉพาะส่วนที่เพิ่มคุณภาพงานหลัก\nเลือกงานหลักหนึ่งเรื่อง ตั้งเพดานเวลา และปฏิเสธงานใหม่เมื่อเพดานเต็ม เรื่องนี้เป็นแกนตัดสินใจหลัก คำถามที่ใช้ตรวจคืองานชิ้นหลักยังได้มาตรฐานหลังรับหน้าที่ใหม่หรือไม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.career.current.strong"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "forecast:current:finance",
+      "expressed": true,
+      "primaryExpression": "เงินพร้อมใช้เปิดพื้นที่ให้ขยับได้ ตราบใดที่รายจ่ายระยะยาวยังไม่เบียดฐานเดิม ด้านเงินคุมขนาดทางเลือกด้วยยอดพร้อมใช้หลังรายการจำเป็น",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.finance.current.strong"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "forecast:current:relationship",
+      "expressed": true,
+      "primaryExpression": "ข้อตกลงที่ทั้งสองฝ่ายทำได้จริง เปิดทางให้ความสัมพันธ์ขยับอย่างมั่นคง ก่อนเพิ่มข้อผูกพัน ให้ดูว่าสิ่งที่ตกลงกันถูกทำจริงต่อเนื่องหรือไม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.relationship.current.strong"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "forecast:current:health",
+      "expressed": true,
+      "primaryExpression": "เวลาพักที่คืนแรงทัน ทำให้พลังของคุณยังรองรับการขยับได้ หากร่างกายใช้เวลากลับมามีแรงนานขึ้น ให้ลดกิจกรรมก่อนเพิ่มแผนใหม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.health.current.strong"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "forecast:next12Months:career",
+      "expressed": true,
+      "primaryExpression": "ขอบเขตหน้าที่ที่กว้างขึ้นคือจุดกระตุ้นของงาน หากอำนาจตัดสินใจไม่เพิ่มตาม งานชิ้นหลักจะเสียคุณภาพ กำหนดจุดทบทวนกลางปีเพื่อเลือกว่าจะขยายบทบาทเดิมหรือหยุดรับเพิ่ม เมื่อถึงรอบส่งมอบงานกลางปี ให้เลือกว่าจะขยายทางเดิมหรือปรับแผน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.career.next12Months.strong"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "forecast:next12Months:finance",
+      "expressed": true,
+      "primaryExpression": "รายรับที่เพิ่มแล้วเหลือเป็นเงินพร้อมใช้คือจุดกระตุ้นทางการเงิน หากรายจ่ายประจำโตตามทันที การขยายแผนควรช้าลง บันทึกยอดคงเหลือรายไตรมาสเพื่อดูสภาพคล่อง ตัวเลขครั้งเดียวจึงยังไม่พอให้ขยายภาระเงิน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.finance.next12Months.strong"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "forecast:next12Months:relationship",
+      "expressed": true,
+      "primaryExpression": "ข้อตกลงที่ถูกทำต่อเนื่องจะทำให้ความสัมพันธ์ชัด ไม่ใช่บทสนทนาครั้งเดียว หากพฤติกรรมยังไม่ตรงกับข้อตกลง ให้ทบทวนสิ่งที่คุยกันและชะลอข้อผูกพันใหม่ก่อน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.relationship.next12Months.strong"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "forecast:next12Months:health",
+      "expressed": true,
+      "primaryExpression": "หลังสัปดาห์หนัก ให้ดูว่าร่างกายใช้เวลากี่วันจึงกลับมามีแรง หากต้องพักนานขึ้นเรื่อย ๆ ตารางเดิมกำลังเกินกำลังที่มี จดเวลาคืนแรงหลังสัปดาห์หนัก แล้วทบทวนว่าตารางกิจกรรมควรลดหรือคงเดิม",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.health.next12Months.strong"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "forecast:nextLifePeriod:career",
+      "expressed": true,
+      "primaryExpression": "ทิศทางงานระยะต่อไปจะเปลี่ยนจากการรับเพิ่มไปสู่การคุมคุณภาพ คุณจึงต้องเลือกงานที่ใช้ประสบการณ์สูงและส่งต่อส่วนที่กระจายแรง ในระยะยาว ให้คัดว่าประสบการณ์งานใดควรรักษาและส่วนใดควรส่งต่อ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.career.nextLifePeriod.strong"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "forecast:nextLifePeriod:finance",
+      "expressed": true,
+      "primaryExpression": "ฐานเงินของจังหวะใหม่ต้องรองรับการเปลี่ยนบทบาท รายจ่ายผูกพันจึงต้องมีเงินสำรองแยกจากค่าใช้จ่ายปกติ กำหนดยอดเงินขั้นต่ำที่ห้ามแตะ เพื่อไม่ให้รายจ่ายเร่งด่วนบังคับการตัดสินใจ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.finance.nextLifePeriod.active"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "forecast:nextLifePeriod:relationship",
+      "expressed": true,
+      "primaryExpression": "ความสัมพันธ์ในระยะใหม่ต้องจัดเวลา หน้าที่ และพื้นที่ส่วนตัวให้ชัด จึงจะรองรับบทบาทที่เปลี่ยนไปได้ ระยะยาวต้องแบ่งเวลาและหน้าที่ได้จริง ไม่ใช่เพียงตกลงกันไว้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.relationship.nextLifePeriod.quiet"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "forecast:nextLifePeriod:health",
+      "expressed": true,
+      "primaryExpression": "กิจวัตรพลังชีวิตต้องเปลี่ยนพร้อมตารางใหม่ ไม่ใช่รอให้ความล้าสะสมแล้วค่อยพัก เลือกกิจวัตรพักที่ทำได้ต่อเนื่อง โดยไม่ยืมแรงจากวันต่อไป",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.health.nextLifePeriod.active"
+    },
+    {
+      "fixture": "owner-known-0035",
+      "canonicalId": "closing:decision-boundary",
+      "expressed": true,
+      "primaryExpression": "ใช้ความอดทนที่พาเรื่องยากไปต่อเลือกทางงานที่ทำให้บทบาทใหม่เพิ่มคุณภาพงาน ไม่ใช่เพียงเพิ่มจำนวนงาน พร้อมรักษาพฤติกรรมที่ทำตามคำตกลงไว้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "hook:headline",
+      "expressed": true,
+      "primaryExpression": "ให้สิ่งที่เกิดซ้ำจริงนำทาง ก่อนขยับงาน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "hook:body",
+      "expressed": true,
+      "primaryExpression": "ในช่วงนี้ จุดแข็งของคุณคือความสามารถในการทำความคิดให้คนอื่นเข้าใจ จึงควรดูว่างานให้ผลแบบเดิมอย่างสม่ำเสมอหรือไม่ ความสัมพันธ์ช่วยบอกว่าทางเลือกนั้นกินพื้นที่ชีวิตมากเกินไปหรือยัง หากเหตุการณ์เพิ่งเกิดครั้งเดียว อย่าเพิ่งใช้เป็นเหตุผลรับข้อผูกพันเพิ่ม คำถามคือ งานที่กำลังขยายยังเหลือเวลาและความชัดให้คนที่เกี่ยวข้องหรือไม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "core:methodology:astrological-date",
+      "expressed": true,
+      "primaryExpression": "วันที่ 1982-06-06 ตรงกับวันอาทิตย์ตามปฏิทินและใช้เป็นฐานทำงานเท่านั้น ข้อมูลนี้ไม่ใช้สรุปตำแหน่งหรือจังหวะที่ต้องพึ่งนาฬิกาเกิด",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "methodology:astrological-date"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "core:methodology:no-birth-time",
+      "expressed": true,
+      "primaryExpression": "รายงานนี้ไม่มีเวลาเกิด จึงเว้นข้อสรุปที่ต้องพึ่งตำแหน่งตามนาฬิกาเกิด",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "methodology:no-birth-time"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "core:methodology:top-themes",
+      "expressed": true,
+      "primaryExpression": "คำอ่านข้างต้นเลือกประเด็นที่เชื่อมกับชีวิตคุณได้ชัดที่สุดก่อน แล้วเรียงผลต่อเนื่องไปยังเรื่องที่ควรระวังและการตัดสินใจ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "methodology:top-themes"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "past:0:theme",
+      "expressed": true,
+      "primaryExpression": "ธีมสำหรับทบทวน: การยอมรับในช่วงเปล่งประกายอาจเทียบได้กับความทรงจำเรื่องบ้าน ผู้ดูแล ความปลอดภัย การเรียนรู้ การเล่น และการได้รับการยอมรับ ลองนึกว่าฐานใดยังติดตัวมาถึงวันนี้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[0]"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "past:0:question",
+      "expressed": true,
+      "primaryExpression": "คำถามสะท้อน: เมื่อนึกถึงวัย 1–6 คุณจำได้ไหมว่าที่ใดหรือใครทำให้กล้าลอง เล่น หรือเรียนรู้ และความทรงจำนั้นบอกอะไรเกี่ยวกับฐานที่คุณใช้ตัดสินใจวันนี้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[0]"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "past:1:theme",
+      "expressed": true,
+      "primaryExpression": "ธีมสำหรับทบทวน: ในช่วงดูแลใจ ลองมองความรู้สึกผ่านการเรียน เพื่อน กฎ ความคาดหวัง และการเริ่มเลือกด้วยเสียงของตัวเอง",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[1]"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "past:1:question",
+      "expressed": true,
+      "primaryExpression": "คำถามสะท้อน: หากย้อนถึงวัย 7–21 ความทรงจำใดบอกว่าคุณเริ่มแยกสิ่งที่ตัวเองต้องการออกจากสิ่งที่คนรอบข้างคาด และตัวเลือกครั้งนั้นหล่อวิธีรับมือการตัดสินใจวันนี้อย่างไร",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[1]"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "past:2:theme",
+      "expressed": true,
+      "primaryExpression": "ธีมสำหรับทบทวน: การลงมือของช่วงลงมือและบุกเบิกอยู่ในบริบทของการเป็นอิสระ การศึกษา การเริ่มงาน ความสัมพันธ์ และทรัพยากรที่ต้องจัดการเองมากขึ้น ลองแยกสิ่งที่คุณเลือกเองจากสิ่งที่รับตามแรงรอบตัว",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[2]"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "past:2:question",
+      "expressed": true,
+      "primaryExpression": "คำถามสะท้อน: เมื่อคิดถึงวัย 22–29 คุณจำจุดใดได้ชัดที่สุดระหว่างการออกไปยืนด้วยตัวเอง การเริ่มเส้นทางใหม่ หรือการตั้งขอบเขตกับคนใกล้ตัว แล้วบทเรียนนั้นช่วยคัดการตัดสินใจวันนี้แบบไหน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[2]"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "current-timeline:0:การงาน",
+      "expressed": true,
+      "primaryExpression": "หากช่วงนี้คุณสังเกตว่างานเดิมเริ่มเปลี่ยนไปสู่โจทย์ใหม่ ให้เลือกงานที่เพิ่มทักษะหรือเครือข่ายจริง แทนการรับบทบาทเพิ่มเพียงเพราะมีคนส่งมา ควรระวังการรับงานซ้อนจนกระทบคุณภาพและความต่อเนื่อง",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[3].lifeDomains[0]"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "current-timeline:1:การเงิน",
+      "expressed": true,
+      "primaryExpression": "จังหวะนี้ให้ใช้รายรับจริงเป็นฐาน แยกงบทดลองสำหรับการเรียนรู้ออกจากเงินที่ต้องใช้ประจำ หากรายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[3].lifeDomains[1]"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "current-timeline:2:สุขภาพ",
+      "expressed": true,
+      "primaryExpression": "เมื่อหน้าที่หลายอย่างเริ่มเบียดเวลาพัก ให้ใช้การฟื้นตัวจริงบอกว่าตารางเดิมยังรับไหวหรือไม่ ใช้บันทึกการนอนและความล้าเป็นข้อมูลจริง แล้วลดภาระที่ทำให้วันพักไม่ช่วยฟื้นตัว ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำบอกจากแพทย์ หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[3].lifeDomains[2]"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "current-timeline:3:โชคลาภ",
+      "expressed": true,
+      "primaryExpression": "หากมีรายได้จากช่องทางใหม่ ให้แยกผลจากทักษะหรือเครือข่ายที่สร้างไว้ ออกจากเหตุบังเอิญที่ยังยืนยันซ้ำไม่ได้ ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากหลักฐานและภาระจริงก่อนรับ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[3].lifeDomains[3]"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "forecast:current:career",
+      "expressed": true,
+      "primaryExpression": "ชั่วโมงทำงานที่เกิดขึ้นจริงควรเป็นฐานตัดสิน และคุณภาพชิ้นหลักต้องไม่ลดเมื่อรับหน้าที่เพิ่ม\nจดเวลางานจริงหนึ่งสัปดาห์ แล้วคงไว้เฉพาะบทบาทที่ไม่ทำให้งานหลักตก เรื่องนี้เป็นแกนตัดสินใจหลัก คำถามที่ใช้ตรวจคืองานชิ้นหลักยังได้มาตรฐานหลังรับหน้าที่ใหม่หรือไม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.career.current.strong"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "forecast:current:finance",
+      "expressed": true,
+      "primaryExpression": "รายรับ รายจ่าย และยอดคงเหลือจริงเป็นฐานเดียวที่ใช้พิจารณาข้อผูกพันทางการเงินได้ ด้านเงินคุมขนาดทางเลือกด้วยยอดพร้อมใช้หลังรายการจำเป็น",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.finance.current.strong"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "forecast:current:relationship",
+      "expressed": true,
+      "primaryExpression": "คำพูด การกระทำ และสิ่งที่ตกลงกันต้องสอดคล้องต่อเนื่อง จึงค่อยให้น้ำหนักกับความสัมพันธ์ ก่อนเพิ่มข้อผูกพัน ให้ดูว่าสิ่งที่ตกลงกันถูกทำจริงต่อเนื่องหรือไม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.relationship.current.active"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "forecast:current:health",
+      "expressed": true,
+      "primaryExpression": "บันทึกเวลานอน ความล้า และการฟื้นตัวจริงก่อนพิจารณาเพิ่มกิจกรรม หากร่างกายใช้เวลากลับมามีแรงนานขึ้น ให้ลดกิจกรรมก่อนเพิ่มแผนใหม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.health.current.active"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "forecast:next12Months:career",
+      "expressed": true,
+      "primaryExpression": "ผลงานที่ทำซ้ำจนเกิดความชำนาญอาจเปิดหน้าที่ใหม่ ให้ดูว่าคุณรักษามาตรฐานเดิมได้ต่อเนื่องหรือไม่ เก็บหลักฐานผลงานเป็นรอบและค่อยเลือกบทบาทจากแบบที่ทำซ้ำได้ เมื่อถึงรอบส่งมอบงานกลางปี ให้เลือกว่าจะขยายทางเดิมหรือปรับแผน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.career.next12Months.strong"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "forecast:next12Months:finance",
+      "expressed": true,
+      "primaryExpression": "ยอดรับที่เกิดซ้ำต้องถูกเทียบกับรายจ่ายจำเป็น และไม่ควรสร้างข้อผูกพันจากเงินที่ยังมาไม่สม่ำเสมอ บันทึกยอดคงเหลือรายไตรมาสเพื่อดูสภาพคล่อง ตัวเลขครั้งเดียวจึงยังไม่พอให้ขยายภาระเงิน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.finance.next12Months.strong"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "forecast:next12Months:relationship",
+      "expressed": true,
+      "primaryExpression": "พฤติกรรมที่เกิดซ้ำเป็นสัญญาณสำคัญ คนที่พร้อมจะรักษาคำพูดในเรื่องเล็กได้สม่ำเสมอ หากพฤติกรรมยังไม่ตรงกับข้อตกลง ให้ทบทวนสิ่งที่คุยกันและชะลอข้อผูกพันใหม่ก่อน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.relationship.next12Months.active"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "forecast:next12Months:health",
+      "expressed": true,
+      "primaryExpression": "เปรียบเทียบเดือนที่หน้าที่เบากับเดือนที่หลายเรื่องชนกัน เพื่อดูว่าการนอนและการคืนแรงเปลี่ยนอย่างไร จดเวลาคืนแรงหลังสัปดาห์หนัก แล้วทบทวนว่าตารางกิจกรรมควรลดหรือคงเดิม",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.health.next12Months.strong"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "forecast:nextLifePeriod:career",
+      "expressed": true,
+      "primaryExpression": "รูปแบบงานที่ทำซ้ำได้จริงจะช่วยเลือกสิ่งที่ควรรักษาหรือส่งต่อในระยะใหม่ ในระยะยาว ให้คัดว่าประสบการณ์งานใดควรรักษาและส่วนใดควรส่งต่อ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.career.nextLifePeriod.active"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "forecast:nextLifePeriod:finance",
+      "expressed": true,
+      "primaryExpression": "ฐานการเงินอาจเปลี่ยนตามหน้าที่ใหม่ รายจ่ายระยะยาวจึงควรเกิดหลังรายรับจริงเริ่มนิ่ง กำหนดยอดเงินขั้นต่ำที่ห้ามแตะ เพื่อไม่ให้รายจ่ายเร่งด่วนบังคับการตัดสินใจ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.finance.nextLifePeriod.active"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "forecast:nextLifePeriod:relationship",
+      "expressed": true,
+      "primaryExpression": "ความสัมพันธ์ที่ไปต่อได้ต้องรองรับจังหวะชีวิตใหม่ของทั้งสองฝ่าย ความชัดเรื่องเวลาและหน้าที่จะสำคัญกว่าคำสัญญา ระยะยาวต้องแบ่งเวลาและหน้าที่ได้จริง ไม่ใช่เพียงตกลงกันไว้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.relationship.nextLifePeriod.quiet"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "forecast:nextLifePeriod:health",
+      "expressed": true,
+      "primaryExpression": "จังหวะวันทำงานและวันพักที่คงเส้นคงวาจะสำคัญขึ้น หากหน้าที่จริงเปลี่ยนไปในระยะใหม่ เลือกกิจวัตรพักที่ทำได้ต่อเนื่อง โดยไม่ยืมแรงจากวันต่อไป",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.health.nextLifePeriod.quiet"
+    },
+    {
+      "fixture": "owner-unknown",
+      "canonicalId": "closing:decision-boundary",
+      "expressed": true,
+      "primaryExpression": "ใช้ความสามารถในการทำความคิดให้คนอื่นเข้าใจกับข้อมูลที่เกิดซ้ำจริง: เลือกงานทีละก้าว และยังไม่ผูกมัดเพิ่มจนกว่าพฤติกรรมที่ทำตามคำตกลงจะยืนยันได้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "theme=expressive|period=ช่วงเรียนรู้และเชื่อมโยง|availability=noLagna|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/strong/quiet"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "hook:headline",
+      "expressed": true,
+      "primaryExpression": "งานจะไปต่อได้ เมื่อข้อตกลงยังชัดและทำได้จริง",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "hook:body",
+      "expressed": true,
+      "primaryExpression": "ในช่วงนี้ ความอดทนที่พาเรื่องยากไปต่อกลายเป็นแรงสำคัญของงาน งานมีแรงส่งต่อเนื่องจากตอนนี้ไปถึงช่วงถัดไป ขณะเดียวกัน ความสัมพันธ์จะเปราะบางขึ้นเมื่อภาระชุดใหม่เข้ามา คำถามคือ งานที่กำลังขยายยังเหลือเวลาและความชัดให้คนที่เกี่ยวข้องหรือไม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "core:computed:lagna-identity-frame",
+      "expressed": true,
+      "primaryExpression": "ลัคนาราศีกุมภ์สะท้อนคนที่ไปได้ดีเมื่อชีวิตมีระบบและรู้ว่าต้องทำอะไรต่อ ส่วนดาวเสาร์ซึ่งเป็นเจ้าเรือนลัคนาย้ำวินัย ความต่อเนื่อง และการสร้างฐานทีละขั้น จุดแข็งสองชั้นนี้ช่วยให้คนอื่นพึ่งคุณได้ แต่ในช่วงเก็บผล จุดเสี่ยงคือทำต่อเพราะเคยทำได้ จนไม่ได้ถามว่าวิธีเดิมยังเหมาะหรือไม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:lagna-identity-frame"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "core:computed:house:10:analysis",
+      "expressed": true,
+      "primaryExpression": "หลักฐานเรือนการงานที่เชื่อมราศีพิจิกและดาวอังคาร แปลเป็นภาษาคนว่า คุณสร้างผลงานผ่านความกล้าลงมือและการจัดการสิ่งเร่งด่วน บทบาทที่คุ้มจึงต้องเพิ่มอำนาจดูแลคุณภาพ ไม่ใช่เพิ่มแต่งานที่ต้องถือ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:house:10:analysis"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "core:computed:house:2:analysis",
+      "expressed": true,
+      "primaryExpression": "เรือนการเงินซึ่งอ่านจากราศีมีนและดาวพฤหัสบดี ผูกความมั่นคงของคุณกับภาพระยะยาว ความรู้ และการขยายอย่างมีหลัก ความก้าวหน้าจึงควรวัดจากทางเลือกที่เงินสำรองเปิดให้ มากกว่ายอดที่สะสมอย่างเดียว",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:house:2:analysis"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "core:computed:house:7:analysis",
+      "expressed": true,
+      "primaryExpression": "เมื่อเรือนความสัมพันธ์มีราศีสิงห์และดาวอาทิตย์เป็นหลัก ความไว้ใจจึงเกิดผ่านความชัดเจนและการตัดสินใจด้วยตัวเอง ข้อตกลงจึงต้องแบ่งเวลาและความรับผิดชอบโดยยังเหลือพื้นที่ให้แต่ละฝ่าย",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:house:7:analysis"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "core:computed:house:6:analysis",
+      "expressed": true,
+      "primaryExpression": "เรือนสุขภาวะที่มีราศีกรกฎและดาวจันทร์เชื่อมพลังชีวิตกับการรับรู้ความเปลี่ยนแปลงและความต้องการรอบตัว สัญญาณที่ควรฟังคือเวลาฟื้นตัวที่ยาวขึ้นต่อเนื่อง ไม่ใช่ความล้าเพียงวันเดียว",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:house:6:analysis"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "core:disclosure:medical",
+      "expressed": true,
+      "primaryExpression": "เนื้อหาส่วนนี้เป็นมุมมองตามความเชื่อทางโหราศาสตร์ ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "disclosure:medical"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "core:computed:closing-priority-action",
+      "expressed": true,
+      "primaryExpression": "แก่นของคำอ่านนี้ไม่ใช่การรับให้มากขึ้น แต่คือการเลือกสิ่งที่คู่ควรกับแรงของคุณ ให้เริ่มจากการวางระบบที่ทำซ้ำได้และกำหนดเวลาพักไว้ล่วงหน้า แล้วใช้ผลจริงตัดสินว่าจะรักษาอะไรไว้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:closing-priority-action"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "core:methodology:astrological-date",
+      "expressed": true,
+      "primaryExpression": "วันเกิดตามสูติบัตรยังเป็นวันที่ 1982-06-06 ตามเดิม ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วันเสาร์ (วันที่ 1982-06-05) เป็นวันทางโหราศาสตร์",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "methodology:astrological-date"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "core:methodology:sunrise-boundary",
+      "expressed": true,
+      "primaryExpression": "เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้นเวลา 05:46 จึงใช้วันก่อนหน้าตามกฎที่นับวันใหม่เมื่อพระอาทิตย์ขึ้น โดยไม่เปลี่ยนวันเกิดตามสูติบัตร",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "methodology:sunrise-boundary"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "core:methodology:lagna-inputs",
+      "expressed": true,
+      "primaryExpression": "ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากนาฬิกาเกิดและพิกัดจังหวัด) อยู่ที่ราศีกุมภ์",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "methodology:lagna-inputs"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "core:methodology:top-themes",
+      "expressed": true,
+      "primaryExpression": "คำอ่านข้างต้นเลือกประเด็นที่เชื่อมกับชีวิตคุณได้ชัดที่สุดก่อน แล้วเรียงผลต่อเนื่องไปยังเรื่องที่ควรระวังและการตัดสินใจ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "methodology:top-themes"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "past:0:theme",
+      "expressed": true,
+      "primaryExpression": "ธีมสำหรับทบทวน: ความมั่นคงในช่วงวางรากฐานอาจเทียบได้กับความทรงจำเรื่องบ้าน ผู้ดูแล ความปลอดภัย การเรียนรู้ การเล่น และการได้รับการยอมรับ ลองนึกว่าฐานใดยังติดตัวมาถึงวันนี้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[0]"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "past:0:question",
+      "expressed": true,
+      "primaryExpression": "คำถามสะท้อน: เมื่อนึกถึงวัย 1–10 คุณจำได้ไหมว่าที่ใดหรือใครทำให้กล้าลอง เล่น หรือเรียนรู้ และความทรงจำนั้นบอกอะไรเกี่ยวกับฐานที่คุณใช้ตัดสินใจวันนี้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[0]"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "past:1:theme",
+      "expressed": true,
+      "primaryExpression": "ธีมสำหรับทบทวน: การเติบโตของช่วงเติบโตและขยายอยู่ในบริบทของการเป็นอิสระ การศึกษา การเริ่มงาน ความสัมพันธ์ และทรัพยากรที่ต้องจัดการเองมากขึ้น ลองแยกสิ่งที่คุณเลือกเองจากสิ่งที่รับตามแรงรอบตัว",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[1]"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "past:1:question",
+      "expressed": true,
+      "primaryExpression": "คำถามสะท้อน: เมื่อคิดถึงวัย 11–29 คุณจำจุดใดได้ชัดที่สุดระหว่างการออกไปยืนด้วยตัวเอง การเริ่มเส้นทางใหม่ หรือการตั้งขอบเขตกับคนใกล้ตัว แล้วบทเรียนนั้นช่วยคัดการตัดสินใจวันนี้แบบไหน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[1]"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "past:2:theme",
+      "expressed": true,
+      "primaryExpression": "ธีมสำหรับทบทวน: ลองวางการเปลี่ยนแปลงของช่วงพลิกผันและเปลี่ยนผ่านไว้ข้างงาน เงิน ความสัมพันธ์ ความรับผิดชอบ และบทบาทที่อาจต้องจัดใหม่ แล้วดูว่าเกณฑ์เดิมส่วนใดยังควรรักษา",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[2]"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "past:2:question",
+      "expressed": true,
+      "primaryExpression": "คำถามสะท้อน: เมื่อมองกลับไปที่วัย 30–41 มีความทรงจำช่วงใดที่คุณต้องชั่งระหว่างสิ่งที่รับผิดชอบอยู่กับบทบาทที่อยากเปลี่ยน และเกณฑ์ครั้งนั้นยังเหมาะกับการตัดสินใจวันนี้หรือไม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[2]"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "current-timeline:0:การงาน",
+      "expressed": true,
+      "primaryExpression": "มีโอกาสรับงานหรือความรับผิดชอบเพิ่มในช่วงนี้ แต่ไม่จำเป็นต้องรับทุกทางพร้อมกัน ควรระวังการรับงานซ้อนจนกระทบคุณภาพและความต่อเนื่อง",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[3].lifeDomains[0]"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "current-timeline:1:การเงิน",
+      "expressed": true,
+      "primaryExpression": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[3].lifeDomains[1]"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "current-timeline:2:สุขภาพ",
+      "expressed": true,
+      "primaryExpression": "ช่วงนี้พลังชีวิตพอไปได้หากจัดจังหวะพักสม่ำเสมอ รักษาเวลานอนให้คงที่ และเว้นช่วงสั้น ๆ ระหว่างภาระ เพื่อไม่ให้ความล้าสะสมจนกระทบช่วงที่ต้องใช้แรง ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำบอกจากแพทย์ หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[3].lifeDomains[2]"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "current-timeline:3:โชคลาภ",
+      "expressed": true,
+      "primaryExpression": "รายได้หลักยังแยกจากโชคเหตุบังเอิญ — ส่วนใหญ่มาจากงานและความสามารถที่ลงมือเอง ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากหลักฐานและภาระจริงก่อนรับ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[3].lifeDomains[3]"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "forecast:current:career",
+      "expressed": true,
+      "primaryExpression": "บทบาทงานก้อนใหม่มีแรงส่ง แต่ควรรับเฉพาะส่วนที่เพิ่มคุณภาพงานหลัก\nเลือกงานหลักหนึ่งเรื่อง ตั้งเพดานเวลา และปฏิเสธงานใหม่เมื่อเพดานเต็ม เรื่องนี้เป็นแกนตัดสินใจหลัก คำถามที่ใช้ตรวจคืองานชิ้นหลักยังได้มาตรฐานหลังรับหน้าที่ใหม่หรือไม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.career.current.strong"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "forecast:current:finance",
+      "expressed": true,
+      "primaryExpression": "เงินพร้อมใช้เปิดพื้นที่ให้ขยับได้ ตราบใดที่รายจ่ายระยะยาวยังไม่เบียดฐานเดิม ด้านเงินคุมขนาดทางเลือกด้วยยอดพร้อมใช้หลังรายการจำเป็น",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.finance.current.strong"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "forecast:current:relationship",
+      "expressed": true,
+      "primaryExpression": "ข้อตกลงที่ทั้งสองฝ่ายทำได้จริง เปิดทางให้ความสัมพันธ์ขยับอย่างมั่นคง ก่อนเพิ่มข้อผูกพัน ให้ดูว่าสิ่งที่ตกลงกันถูกทำจริงต่อเนื่องหรือไม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.relationship.current.strong"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "forecast:current:health",
+      "expressed": true,
+      "primaryExpression": "เวลาพักที่คืนแรงทัน ทำให้พลังของคุณยังรองรับการขยับได้ หากร่างกายใช้เวลากลับมามีแรงนานขึ้น ให้ลดกิจกรรมก่อนเพิ่มแผนใหม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.health.current.strong"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "forecast:next12Months:career",
+      "expressed": true,
+      "primaryExpression": "ขอบเขตหน้าที่ที่กว้างขึ้นคือจุดกระตุ้นของงาน หากอำนาจตัดสินใจไม่เพิ่มตาม งานชิ้นหลักจะเสียคุณภาพ กำหนดจุดทบทวนกลางปีเพื่อเลือกว่าจะขยายบทบาทเดิมหรือหยุดรับเพิ่ม เมื่อถึงรอบส่งมอบงานกลางปี ให้เลือกว่าจะขยายทางเดิมหรือปรับแผน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.career.next12Months.strong"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "forecast:next12Months:finance",
+      "expressed": true,
+      "primaryExpression": "รายรับที่เพิ่มแล้วเหลือเป็นเงินพร้อมใช้คือจุดกระตุ้นทางการเงิน หากรายจ่ายประจำโตตามทันที การขยายแผนควรช้าลง บันทึกยอดคงเหลือรายไตรมาสเพื่อดูสภาพคล่อง ตัวเลขครั้งเดียวจึงยังไม่พอให้ขยายภาระเงิน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.finance.next12Months.strong"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "forecast:next12Months:relationship",
+      "expressed": true,
+      "primaryExpression": "ข้อตกลงที่ถูกทำต่อเนื่องจะทำให้ความสัมพันธ์ชัด ไม่ใช่บทสนทนาครั้งเดียว หากพฤติกรรมยังไม่ตรงกับข้อตกลง ให้ทบทวนสิ่งที่คุยกันและชะลอข้อผูกพันใหม่ก่อน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.relationship.next12Months.strong"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "forecast:next12Months:health",
+      "expressed": true,
+      "primaryExpression": "หลังสัปดาห์หนัก ให้ดูว่าร่างกายใช้เวลากี่วันจึงกลับมามีแรง หากต้องพักนานขึ้นเรื่อย ๆ ตารางเดิมกำลังเกินกำลังที่มี จดเวลาคืนแรงหลังสัปดาห์หนัก แล้วทบทวนว่าตารางกิจกรรมควรลดหรือคงเดิม",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.health.next12Months.strong"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "forecast:nextLifePeriod:career",
+      "expressed": true,
+      "primaryExpression": "ทิศทางงานระยะต่อไปจะเปลี่ยนจากการรับเพิ่มไปสู่การคุมคุณภาพ คุณจึงต้องเลือกงานที่ใช้ประสบการณ์สูงและส่งต่อส่วนที่กระจายแรง ในระยะยาว ให้คัดว่าประสบการณ์งานใดควรรักษาและส่วนใดควรส่งต่อ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.career.nextLifePeriod.strong"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "forecast:nextLifePeriod:finance",
+      "expressed": true,
+      "primaryExpression": "ฐานเงินของจังหวะใหม่ต้องรองรับการเปลี่ยนบทบาท รายจ่ายผูกพันจึงต้องมีเงินสำรองแยกจากค่าใช้จ่ายปกติ กำหนดยอดเงินขั้นต่ำที่ห้ามแตะ เพื่อไม่ให้รายจ่ายเร่งด่วนบังคับการตัดสินใจ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.finance.nextLifePeriod.active"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "forecast:nextLifePeriod:relationship",
+      "expressed": true,
+      "primaryExpression": "ความสัมพันธ์ในระยะใหม่ต้องจัดเวลา หน้าที่ และพื้นที่ส่วนตัวให้ชัด จึงจะรองรับบทบาทที่เปลี่ยนไปได้ ระยะยาวต้องแบ่งเวลาและหน้าที่ได้จริง ไม่ใช่เพียงตกลงกันไว้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.relationship.nextLifePeriod.quiet"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "forecast:nextLifePeriod:health",
+      "expressed": true,
+      "primaryExpression": "กิจวัตรพลังชีวิตต้องเปลี่ยนพร้อมตารางใหม่ ไม่ใช่รอให้ความล้าสะสมแล้วค่อยพัก เลือกกิจวัตรพักที่ทำได้ต่อเนื่อง โดยไม่ยืมแรงจากวันต่อไป",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.health.nextLifePeriod.active"
+    },
+    {
+      "fixture": "regression-known-0003",
+      "canonicalId": "closing:decision-boundary",
+      "expressed": true,
+      "primaryExpression": "ใช้ความอดทนที่พาเรื่องยากไปต่อเลือกทางงานที่ทำให้บทบาทใหม่เพิ่มคุณภาพงาน ไม่ใช่เพียงเพิ่มจำนวนงาน พร้อมรักษาพฤติกรรมที่ทำตามคำตกลงไว้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "theme=persistence|period=ช่วงเก็บเกี่ยวความสุข|availability=full|primary=career|secondary=relationship|career=strong/strong/strong|finance=strong/strong/active|relationship=strong/strong/quiet|health=strong/strong/active"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "hook:headline",
+      "expressed": true,
+      "primaryExpression": "ให้งานพิสูจน์ผลจริง ก่อนรับภาระเพิ่ม",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "hook:body",
+      "expressed": true,
+      "primaryExpression": "ในช่วงนี้ ความเข้าใจคนและมุมมองที่ต่างกันกลายเป็นแรงสำคัญของงาน งานเดินหน้าได้ในระยะใกล้ และช่วงถัดไปต้องคัดสิ่งที่จะรักษาไว้ ขณะเดียวกัน ความสัมพันธ์จะเปราะบางขึ้นเมื่อภาระชุดใหม่เข้ามา คำถามคือ งานที่กำลังขยายยังเหลือเวลาและความชัดให้คนที่เกี่ยวข้องหรือไม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "core:computed:lagna-identity-frame",
+      "expressed": true,
+      "primaryExpression": "ลัคนาราศีมีนสะท้อนคนที่ชอบสร้างทางเลือกใหม่แทนการยึดวิธีเดิม ส่วนดาวพฤหัสบดีซึ่งเป็นเจ้าเรือนลัคนาย้ำภาพระยะยาว ความรู้ และการขยายอย่างมีหลัก จุดแข็งสองชั้นนี้ช่วยให้คนอื่นพึ่งคุณได้ แต่จุดที่ต้องระวังคือการมองปลายทางไกลจนลืมเช็กต้นทุนที่มีอยู่จริงจนพลาดจังหวะทบทวนวิธี",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:lagna-identity-frame"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "core:computed:house:10:analysis",
+      "expressed": true,
+      "primaryExpression": "หลักฐานเรือนการงานที่เชื่อมราศีธนูและดาวพฤหัสบดี แปลเป็นภาษาคนว่า คุณสร้างผลงานผ่านภาพระยะยาว ความรู้ และการขยายอย่างมีหลัก บทบาทที่คุ้มจึงต้องเพิ่มอำนาจดูแลคุณภาพ ไม่ใช่เพิ่มแต่งานที่ต้องถือ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:house:10:analysis"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "core:computed:house:2:analysis",
+      "expressed": true,
+      "primaryExpression": "เรือนการเงินซึ่งอ่านจากราศีเมษและดาวอังคาร ผูกความมั่นคงของคุณกับความกล้าลงมือและการจัดการสิ่งเร่งด่วน ความก้าวหน้าจึงควรวัดจากทางเลือกที่เงินสำรองเปิดให้ มากกว่ายอดที่สะสมอย่างเดียว",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:house:2:analysis"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "core:computed:house:7:analysis",
+      "expressed": true,
+      "primaryExpression": "เมื่อเรือนความสัมพันธ์มีราศีกันย์และดาวพุธเป็นหลัก ความไว้ใจจึงเกิดผ่านข้อมูล การเปรียบเทียบ และการสื่อสารให้เข้าใจตรงกัน ข้อตกลงจึงต้องแบ่งเวลาและความรับผิดชอบโดยยังเหลือพื้นที่ให้แต่ละฝ่าย",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:house:7:analysis"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "core:computed:house:6:analysis",
+      "expressed": true,
+      "primaryExpression": "เรือนสุขภาวะที่มีราศีสิงห์และดาวอาทิตย์เชื่อมพลังชีวิตกับความชัดเจนและการตัดสินใจด้วยตัวเอง สัญญาณที่ควรฟังคือเวลาฟื้นตัวที่ยาวขึ้นต่อเนื่อง ไม่ใช่ความล้าเพียงวันเดียว",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:house:6:analysis"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "core:disclosure:medical",
+      "expressed": true,
+      "primaryExpression": "เนื้อหาส่วนนี้เป็นมุมมองตามความเชื่อทางโหราศาสตร์ ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "disclosure:medical"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "core:computed:closing-priority-action",
+      "expressed": true,
+      "primaryExpression": "แก่นของคำอ่านนี้ไม่ใช่การรับให้มากขึ้น แต่คือการเลือกสิ่งที่คู่ควรกับแรงของคุณ ให้เริ่มจากตั้งเส้นตายเลือกหนึ่งทางแล้วทดสอบกับข้อเท็จจริง แล้วใช้ผลจริงตัดสินว่าจะรักษาอะไรไว้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:closing-priority-action"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "core:methodology:astrological-date",
+      "expressed": true,
+      "primaryExpression": "วันเกิดตามสูติบัตรยังเป็นวันที่ 1991-11-18 ตามเดิม ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วันจันทร์ (วันที่ 1991-11-18) เป็นวันทางโหราศาสตร์",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "methodology:astrological-date"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "core:methodology:sunrise-boundary",
+      "expressed": true,
+      "primaryExpression": "เวลาเกิดอยู่หลังพระอาทิตย์ขึ้นเวลา 06:18 จึงใช้วันเดียวกับวันเกิดตามสูติบัตร",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "methodology:sunrise-boundary"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "core:methodology:lagna-inputs",
+      "expressed": true,
+      "primaryExpression": "ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากนาฬิกาเกิดและพิกัดจังหวัด) อยู่ที่ราศีมีน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "methodology:lagna-inputs"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "core:methodology:top-themes",
+      "expressed": true,
+      "primaryExpression": "คำอ่านข้างต้นเลือกประเด็นที่เชื่อมกับชีวิตคุณได้ชัดที่สุดก่อน แล้วเรียงผลต่อเนื่องไปยังเรื่องที่ควรระวังและการตัดสินใจ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "methodology:top-themes"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "past:0:theme",
+      "expressed": true,
+      "primaryExpression": "ธีมสำหรับทบทวน: ความรู้สึกในช่วงดูแลใจอาจเทียบได้กับความทรงจำเรื่องบ้าน ผู้ดูแล ความปลอดภัย การเรียนรู้ การเล่น และการได้รับการยอมรับ ลองนึกว่าฐานใดยังติดตัวมาถึงวันนี้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[0]"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "past:0:question",
+      "expressed": true,
+      "primaryExpression": "คำถามสะท้อน: เมื่อนึกถึงวัย 1–15 คุณจำได้ไหมว่าที่ใดหรือใครทำให้กล้าลอง เล่น หรือเรียนรู้ และความทรงจำนั้นบอกอะไรเกี่ยวกับฐานที่คุณใช้ตัดสินใจวันนี้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[0]"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "past:1:theme",
+      "expressed": true,
+      "primaryExpression": "ธีมสำหรับทบทวน: การลงมือของช่วงลงมือและบุกเบิกอยู่ในบริบทของการเป็นอิสระ การศึกษา การเริ่มงาน ความสัมพันธ์ และทรัพยากรที่ต้องจัดการเองมากขึ้น ลองแยกสิ่งที่คุณเลือกเองจากสิ่งที่รับตามแรงรอบตัว",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[1]"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "past:1:question",
+      "expressed": true,
+      "primaryExpression": "คำถามสะท้อน: เมื่อคิดถึงวัย 16–23 คุณจำจุดใดได้ชัดที่สุดระหว่างการออกไปยืนด้วยตัวเอง การเริ่มเส้นทางใหม่ หรือการตั้งขอบเขตกับคนใกล้ตัว แล้วบทเรียนนั้นช่วยคัดการตัดสินใจวันนี้แบบไหน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[1]"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "current-timeline:0:การงาน",
+      "expressed": true,
+      "primaryExpression": "ช่วงนี้มีทางเลือกมากขึ้น แต่ทุกทางแลกด้วยหน้าที่ที่เพิ่มขึ้น งานเดิมกำลังเปลี่ยนแปลงไปสู่โจทย์ใหม่ ให้เลือกงานที่เพิ่มทักษะหรือเครือข่ายจริง แทนการรับบทบาทเพิ่มเพียงเพราะมีคนส่งมา ควรระวังการรับงานซ้อนจนกระทบคุณภาพและความต่อเนื่อง",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[2].lifeDomains[0]"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "current-timeline:1:การเงิน",
+      "expressed": true,
+      "primaryExpression": "จังหวะนี้ให้ใช้รายรับจริงเป็นฐาน แยกงบทดลองสำหรับการเรียนรู้ออกจากเงินที่ต้องใช้ประจำ แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[2].lifeDomains[1]"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "current-timeline:2:สุขภาพ",
+      "expressed": true,
+      "primaryExpression": "ด้านพลังชีวิตคุณฝืนตัวเองจนสะสมความล้า ใช้บันทึกการนอนและความล้าเป็นข้อมูลจริง แล้วลดภาระที่ทำให้วันพักไม่ช่วยฟื้นตัว ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำบอกจากแพทย์ หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[2].lifeDomains[2]"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "current-timeline:3:โชคลาภ",
+      "expressed": true,
+      "primaryExpression": "หากมีรายได้จากช่องทางใหม่ ให้แยกผลจากทักษะหรือเครือข่ายที่สร้างไว้ ออกจากเหตุบังเอิญที่ยังยืนยันซ้ำไม่ได้ ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากหลักฐานและภาระจริงก่อนรับ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[2].lifeDomains[3]"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "forecast:current:career",
+      "expressed": true,
+      "primaryExpression": "บทบาทงานก้อนใหม่มีแรงส่ง แต่ควรรับเฉพาะส่วนที่เพิ่มคุณภาพงานหลัก\nเลือกงานหลักหนึ่งเรื่อง ตั้งเพดานเวลา และปฏิเสธงานใหม่เมื่อเพดานเต็ม เรื่องนี้เป็นแกนตัดสินใจหลัก คำถามที่ใช้ตรวจคืองานชิ้นหลักยังได้มาตรฐานหลังรับหน้าที่ใหม่หรือไม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.career.current.strong"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "forecast:current:finance",
+      "expressed": true,
+      "primaryExpression": "เงินพร้อมใช้เปิดพื้นที่ให้ขยับได้ ตราบใดที่รายจ่ายระยะยาวยังไม่เบียดฐานเดิม ด้านเงินคุมขนาดทางเลือกด้วยยอดพร้อมใช้หลังรายการจำเป็น",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.finance.current.strong"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "forecast:current:relationship",
+      "expressed": true,
+      "primaryExpression": "บทสนทนาที่ชัดกว่าการเดาใจ และการกระทำที่ยืนยันคำพูด คือโจทย์ของความสัมพันธ์ ก่อนเพิ่มข้อผูกพัน ให้ดูว่าสิ่งที่ตกลงกันถูกทำจริงต่อเนื่องหรือไม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.relationship.current.active"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "forecast:current:health",
+      "expressed": true,
+      "primaryExpression": "ระยะฟื้นตัวจะยาวขึ้นเมื่อตารางแน่นต่อเนื่อง แม้กำลังในแต่ละวันยังพอใช้ หากร่างกายใช้เวลากลับมามีแรงนานขึ้น ให้ลดกิจกรรมก่อนเพิ่มแผนใหม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.health.current.active"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "forecast:next12Months:career",
+      "expressed": true,
+      "primaryExpression": "ขอบเขตหน้าที่ที่กว้างขึ้นคือจุดกระตุ้นของงาน หากอำนาจตัดสินใจไม่เพิ่มตาม งานชิ้นหลักจะเสียคุณภาพ กำหนดจุดทบทวนกลางปีเพื่อเลือกว่าจะขยายบทบาทเดิมหรือหยุดรับเพิ่ม เมื่อถึงรอบส่งมอบงานกลางปี ให้เลือกว่าจะขยายทางเดิมหรือปรับแผน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.career.next12Months.strong"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "forecast:next12Months:finance",
+      "expressed": true,
+      "primaryExpression": "รายรับที่เพิ่มแล้วเหลือเป็นเงินพร้อมใช้คือจุดกระตุ้นทางการเงิน หากรายจ่ายประจำโตตามทันที การขยายแผนควรช้าลง บันทึกยอดคงเหลือรายไตรมาสเพื่อดูสภาพคล่อง ตัวเลขครั้งเดียวจึงยังไม่พอให้ขยายภาระเงิน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.finance.next12Months.strong"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "forecast:next12Months:relationship",
+      "expressed": true,
+      "primaryExpression": "ความสัมพันธ์จะชัดขึ้นเมื่อทั้งสองฝ่ายทำตามข้อตกลงเล็ก ๆ ได้หลายครั้ง ไม่ใช่ตกลงครั้งเดียวแล้วคาดเดาต่อ หากพฤติกรรมยังไม่ตรงกับข้อตกลง ให้ทบทวนสิ่งที่คุยกันและชะลอข้อผูกพันใหม่ก่อน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.relationship.next12Months.active"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "forecast:next12Months:health",
+      "expressed": true,
+      "primaryExpression": "หากเวลาฟื้นตัวเริ่มแกว่ง ให้เทียบเดือนที่ภาระเบากับเดือนที่ภาระหนักก่อนเพิ่มกิจกรรม จดเวลาคืนแรงหลังสัปดาห์หนัก แล้วทบทวนว่าตารางกิจกรรมควรลดหรือคงเดิม",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.health.next12Months.active"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "forecast:nextLifePeriod:career",
+      "expressed": true,
+      "primaryExpression": "งานระยะใหม่ควรเริ่มด้วยบทบาททดลองที่ใช้ประสบการณ์เดิม ก่อนขยายอำนาจตัดสินใจเต็มรูปแบบ ในระยะยาว ให้คัดว่าประสบการณ์งานใดควรรักษาและส่วนใดควรส่งต่อ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.career.nextLifePeriod.active"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "forecast:nextLifePeriod:finance",
+      "expressed": true,
+      "primaryExpression": "ฐานเงินของจังหวะใหม่ต้องรองรับการเปลี่ยนบทบาท รายจ่ายผูกพันจึงต้องมีเงินสำรองแยกจากค่าใช้จ่ายปกติ กำหนดยอดเงินขั้นต่ำที่ห้ามแตะ เพื่อไม่ให้รายจ่ายเร่งด่วนบังคับการตัดสินใจ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.finance.nextLifePeriod.active"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "forecast:nextLifePeriod:relationship",
+      "expressed": true,
+      "primaryExpression": "ความสัมพันธ์ในระยะใหม่ต้องจัดเวลา หน้าที่ และพื้นที่ส่วนตัวให้ชัด จึงจะรองรับบทบาทที่เปลี่ยนไปได้ ระยะยาวต้องแบ่งเวลาและหน้าที่ได้จริง ไม่ใช่เพียงตกลงกันไว้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.relationship.nextLifePeriod.quiet"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "forecast:nextLifePeriod:health",
+      "expressed": true,
+      "primaryExpression": "ระยะใหม่ควรลดกิจกรรมที่เบียดเวลานอน และคืนวันพักให้แน่นอนก่อนเพิ่มเป้าหมาย เลือกกิจวัตรพักที่ทำได้ต่อเนื่อง โดยไม่ยืมแรงจากวันต่อไป",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.health.nextLifePeriod.quiet"
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "canonicalId": "closing:decision-boundary",
+      "expressed": true,
+      "primaryExpression": "ใช้ความเข้าใจคนและมุมมองที่ต่างกันเลือกทางงานที่ทำให้บทบาทใหม่เพิ่มคุณภาพงาน ไม่ใช่เพียงเพิ่มจำนวนงาน พร้อมรักษาพฤติกรรมที่ทำตามคำตกลงไว้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "theme=empathetic|period=ช่วงเรียนรู้และเชื่อมโยง|availability=full|primary=career|secondary=relationship|career=strong/strong/active|finance=strong/strong/active|relationship=active/active/quiet|health=active/active/quiet"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "hook:headline",
+      "expressed": true,
+      "primaryExpression": "ช่วงเปลี่ยนผ่านนี้ต้องจัดการเงินกับงานให้อยู่ทางเดียวกัน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "hook:body",
+      "expressed": true,
+      "primaryExpression": "ในช่วงนี้ ความสามารถในการเห็นรายละเอียดกลายเป็นแรงสำคัญของการเงิน การเงินมีแรงส่งต่อเนื่องจากตอนนี้ไปถึงช่วงถัดไป ขณะเดียวกัน งานจะกลายเป็นแรงกำหนดทิศทางของช่วงใหม่ คำถามคือ รายได้และภาระงานก้อนใดควรไปต่อพร้อมกัน และก้อนไหนควรหยุดก่อนรอยต่อ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "core:computed:lagna-identity-frame",
+      "expressed": true,
+      "primaryExpression": "ลัคนาราศีกุมภ์สะท้อนคนที่สบายใจกว่าเมื่อได้กำหนดทิศทางด้วยตัวเอง ส่วนดาวเสาร์ซึ่งเป็นเจ้าเรือนลัคนาย้ำวินัย ความต่อเนื่อง และการสร้างฐานทีละขั้น จุดแข็งสองชั้นนี้ช่วยให้คนอื่นพึ่งคุณได้ แต่ระหว่างเปลี่ยนผ่าน รายละเอียดที่เห็นมากอาจทำให้ชะลอการตัดสินใจเกินจำเป็น",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:lagna-identity-frame"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "core:computed:house:10:analysis",
+      "expressed": true,
+      "primaryExpression": "หลักฐานเรือนการงานที่เชื่อมราศีพิจิกและดาวอังคาร แปลเป็นภาษาคนว่า คุณสร้างผลงานผ่านความกล้าลงมือและการจัดการสิ่งเร่งด่วน บทบาทที่คุ้มจึงต้องเพิ่มอำนาจดูแลคุณภาพ ไม่ใช่เพิ่มแต่งานที่ต้องถือ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:house:10:analysis"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "core:computed:house:2:analysis",
+      "expressed": true,
+      "primaryExpression": "เรือนการเงินซึ่งอ่านจากราศีมีนและดาวพฤหัสบดี ผูกความมั่นคงของคุณกับภาพระยะยาว ความรู้ และการขยายอย่างมีหลัก ความก้าวหน้าจึงควรวัดจากทางเลือกที่เงินสำรองเปิดให้ มากกว่ายอดที่สะสมอย่างเดียว",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:house:2:analysis"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "core:computed:house:7:analysis",
+      "expressed": true,
+      "primaryExpression": "เมื่อเรือนความสัมพันธ์มีราศีสิงห์และดาวอาทิตย์เป็นหลัก ความไว้ใจจึงเกิดผ่านความชัดเจนและการตัดสินใจด้วยตัวเอง ข้อตกลงจึงต้องแบ่งเวลาและความรับผิดชอบโดยยังเหลือพื้นที่ให้แต่ละฝ่าย",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:house:7:analysis"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "core:computed:house:6:analysis",
+      "expressed": true,
+      "primaryExpression": "เรือนสุขภาวะที่มีราศีกรกฎและดาวจันทร์เชื่อมพลังชีวิตกับการรับรู้ความเปลี่ยนแปลงและความต้องการรอบตัว สัญญาณที่ควรฟังคือเวลาฟื้นตัวที่ยาวขึ้นต่อเนื่อง ไม่ใช่ความล้าเพียงวันเดียว",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:house:6:analysis"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "core:disclosure:medical",
+      "expressed": true,
+      "primaryExpression": "เนื้อหาส่วนนี้เป็นมุมมองตามความเชื่อทางโหราศาสตร์ ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "disclosure:medical"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "core:computed:closing-priority-action",
+      "expressed": true,
+      "primaryExpression": "แก่นของคำอ่านนี้ไม่ใช่การรับให้มากขึ้น แต่คือการเลือกสิ่งที่คู่ควรกับแรงของคุณ ให้เริ่มจากการวางระบบที่ทำซ้ำได้และกำหนดเวลาพักไว้ล่วงหน้า แล้วใช้ผลจริงตัดสินว่าจะรักษาอะไรไว้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "computed:closing-priority-action"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "core:methodology:astrological-date",
+      "expressed": true,
+      "primaryExpression": "วันเกิดตามสูติบัตรยังเป็นวันที่ 1974-02-27 ตามเดิม ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วันพุธ (วันที่ 1974-02-27) เป็นวันทางโหราศาสตร์",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "methodology:astrological-date"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "core:methodology:sunrise-boundary",
+      "expressed": true,
+      "primaryExpression": "เวลาเกิดอยู่หลังพระอาทิตย์ขึ้นเวลา 06:28 จึงใช้วันเดียวกับวันเกิดตามสูติบัตร",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "methodology:sunrise-boundary"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "core:methodology:lagna-inputs",
+      "expressed": true,
+      "primaryExpression": "ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากนาฬิกาเกิดและพิกัดจังหวัด) อยู่ที่ราศีกุมภ์",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "methodology:lagna-inputs"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "core:methodology:top-themes",
+      "expressed": true,
+      "primaryExpression": "คำอ่านข้างต้นเลือกประเด็นที่เชื่อมกับชีวิตคุณได้ชัดที่สุดก่อน แล้วเรียงผลต่อเนื่องไปยังเรื่องที่ควรระวังและการตัดสินใจ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "methodology:top-themes"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "past:0:theme",
+      "expressed": true,
+      "primaryExpression": "ธีมสำหรับทบทวน: การเรียนรู้ในช่วงเรียนรู้และเชื่อมโยงอาจเทียบได้กับความทรงจำเรื่องบ้าน ผู้ดูแล ความปลอดภัย การเรียนรู้ การเล่น และการได้รับการยอมรับ ลองนึกว่าฐานใดยังติดตัวมาถึงวันนี้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[0]"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "past:0:question",
+      "expressed": true,
+      "primaryExpression": "คำถามสะท้อน: เมื่อนึกถึงวัย 1–17 คุณจำได้ไหมว่าที่ใดหรือใครทำให้กล้าลอง เล่น หรือเรียนรู้ และความทรงจำนั้นบอกอะไรเกี่ยวกับฐานที่คุณใช้ตัดสินใจวันนี้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[0]"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "past:1:theme",
+      "expressed": true,
+      "primaryExpression": "ธีมสำหรับทบทวน: ความมั่นคงของช่วงวางรากฐานอยู่ในบริบทของการเป็นอิสระ การศึกษา การเริ่มงาน ความสัมพันธ์ และทรัพยากรที่ต้องจัดการเองมากขึ้น ลองแยกสิ่งที่คุณเลือกเองจากสิ่งที่รับตามแรงรอบตัว",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[1]"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "past:1:question",
+      "expressed": true,
+      "primaryExpression": "คำถามสะท้อน: เมื่อคิดถึงวัย 18–27 คุณจำจุดใดได้ชัดที่สุดระหว่างการออกไปยืนด้วยตัวเอง การเริ่มเส้นทางใหม่ หรือการตั้งขอบเขตกับคนใกล้ตัว แล้วบทเรียนนั้นช่วยคัดการตัดสินใจวันนี้แบบไหน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[1]"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "past:2:theme",
+      "expressed": true,
+      "primaryExpression": "ธีมสำหรับทบทวน: ลองวางการเติบโตของช่วงเติบโตและขยายไว้ข้างงาน เงิน ความสัมพันธ์ ความรับผิดชอบ และบทบาทที่อาจต้องจัดใหม่ แล้วดูว่าเกณฑ์เดิมส่วนใดยังควรรักษา",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[2]"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "past:2:question",
+      "expressed": true,
+      "primaryExpression": "คำถามสะท้อน: เมื่อมองกลับไปที่วัย 28–46 มีความทรงจำช่วงใดที่คุณต้องชั่งระหว่างสิ่งที่รับผิดชอบอยู่กับบทบาทที่อยากเปลี่ยน และเกณฑ์ครั้งนั้นยังเหมาะกับการตัดสินใจวันนี้หรือไม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[2]"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "current-timeline:0:การงาน",
+      "expressed": true,
+      "primaryExpression": "มีโอกาสรับงานหรือความรับผิดชอบเพิ่มในช่วงนี้ แต่ไม่จำเป็นต้องรับทุกทางพร้อมกัน ควรระวังการรับงานซ้อนจนกระทบคุณภาพและความต่อเนื่อง",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[3].lifeDomains[0]"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "current-timeline:1:การเงิน",
+      "expressed": true,
+      "primaryExpression": "ควรระวังเงินรั่วจากภาระซ้อน หรือค่าใช้จ่ายที่เพิ่มขึ้นโดยไม่ทันสังเกต ใช้ข้อมูลช่วงนี้ประกอบการตัดสินใจ ไม่ใช่คำฟันธงเหตุการณ์เฉพาะ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[3].lifeDomains[1]"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "current-timeline:2:สุขภาพ",
+      "expressed": true,
+      "primaryExpression": "ช่วงนี้พลังชีวิตถูกใช้ไปกับหน้าที่และความรับผิดชอบค่อนข้างมาก รักษาเวลานอนให้คงที่ และเว้นช่วงสั้น ๆ ระหว่างภาระ เพื่อไม่ให้ความล้าสะสมจนกระทบช่วงที่ต้องใช้แรง ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำบอกจากแพทย์ หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[3].lifeDomains[2]"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "current-timeline:3:โชคลาภ",
+      "expressed": true,
+      "primaryExpression": "รายได้หลักยังแยกจากโชคเหตุบังเอิญ — ส่วนใหญ่มาจากงานและความสามารถที่ลงมือเอง ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากหลักฐานและภาระจริงก่อนรับ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "timeline.periods[3].lifeDomains[3]"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "forecast:current:career",
+      "expressed": true,
+      "primaryExpression": "บทบาทงานก้อนใหม่มีแรงส่ง แต่ควรรับเฉพาะส่วนที่เพิ่มคุณภาพงานหลัก ก่อนเพิ่มบทบาท ให้ดูว่างานชิ้นหลักยังได้มาตรฐานหรือไม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.career.current.strong"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "forecast:current:finance",
+      "expressed": true,
+      "primaryExpression": "เงินพร้อมใช้เปิดพื้นที่ให้ขยับได้ ตราบใดที่รายจ่ายระยะยาวยังไม่เบียดฐานเดิม\nกันเงินรายจ่ายจำเป็นก่อน แล้วทดลองภาระใหม่ด้วยวงเงินเล็กที่หยุดได้ เรื่องนี้เป็นแกนตัดสินใจหลัก คำถามที่ใช้ตรวจคือยอดพร้อมใช้ยังเหลือหลังจ่ายรายการจำเป็นหรือไม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.finance.current.strong"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "forecast:current:relationship",
+      "expressed": true,
+      "primaryExpression": "บทสนทนาที่ชัดกว่าการเดาใจ และการกระทำที่ยืนยันคำพูด คือโจทย์ของความสัมพันธ์ ความสัมพันธ์เป็นข้อมูลตรวจ เมื่อพฤติกรรมจริงสอดคล้องกับสิ่งที่ตกลงกัน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.relationship.current.active"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "forecast:current:health",
+      "expressed": true,
+      "primaryExpression": "ระยะฟื้นตัวจะยาวขึ้นเมื่อตารางแน่นต่อเนื่อง แม้กำลังในแต่ละวันยังพอใช้ หากร่างกายใช้เวลากลับมามีแรงนานขึ้น ให้ลดกิจกรรมก่อนเพิ่มแผนใหม่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.health.current.active"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "forecast:next12Months:career",
+      "expressed": true,
+      "primaryExpression": "ขอบเขตหน้าที่ที่กว้างขึ้นคือจุดกระตุ้นของงาน หากอำนาจตัดสินใจไม่เพิ่มตาม งานชิ้นหลักจะเสียคุณภาพ หากคุณภาพงานรอบกลางปีลดลง ให้หยุดรับบทบาทเพิ่ม",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.career.next12Months.strong"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "forecast:next12Months:finance",
+      "expressed": true,
+      "primaryExpression": "รายรับที่เพิ่มแล้วเหลือเป็นเงินพร้อมใช้คือจุดกระตุ้นทางการเงิน หากรายจ่ายประจำโตตามทันที การขยายแผนควรช้าลง บันทึกเงินคงเหลือทุกไตรมาสและขยายแผนต่อเมื่อเงินสำรองไม่ลดลง เมื่อถึงวันที่สรุปยอดคงเหลือรายไตรมาส ให้เลือกว่าจะขยายทางเดิมหรือปรับแผน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.finance.next12Months.strong"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "forecast:next12Months:relationship",
+      "expressed": true,
+      "primaryExpression": "ความสัมพันธ์จะชัดขึ้นเมื่อทั้งสองฝ่ายทำตามข้อตกลงเล็ก ๆ ได้หลายครั้ง ไม่ใช่ตกลงครั้งเดียวแล้วคาดเดาต่อ ใช้พฤติกรรมหลังการตกลงเป็นข้อมูล แล้วคุยใหม่เมื่อสิ่งที่ทำไม่ตรงกับคำพูด",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.relationship.next12Months.active"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "forecast:next12Months:health",
+      "expressed": true,
+      "primaryExpression": "หากเวลาฟื้นตัวเริ่มแกว่ง ให้เทียบเดือนที่ภาระเบากับเดือนที่ภาระหนักก่อนเพิ่มกิจกรรม จดเวลาคืนแรงหลังสัปดาห์หนัก แล้วทบทวนว่าตารางกิจกรรมควรลดหรือคงเดิม",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.health.next12Months.active"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "forecast:nextLifePeriod:career",
+      "expressed": true,
+      "primaryExpression": "ทิศทางงานระยะต่อไปจะเปลี่ยนจากการรับเพิ่มไปสู่การคุมคุณภาพ คุณจึงต้องเลือกงานที่ใช้ประสบการณ์สูงและส่งต่อส่วนที่กระจายแรง บทบาทระยะยาวควรเปิดทางให้งานที่ใช้ประสบการณ์ได้เต็มที่",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.career.nextLifePeriod.strong"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "forecast:nextLifePeriod:finance",
+      "expressed": true,
+      "primaryExpression": "ฐานเงินของจังหวะใหม่ต้องรองรับการเปลี่ยนบทบาท รายจ่ายผูกพันจึงต้องมีเงินสำรองแยกจากค่าใช้จ่ายปกติ ในระยะยาว ให้คัดว่าประสบการณ์งานใดควรรักษาและส่วนใดควรส่งต่อ",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.finance.nextLifePeriod.strong"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "forecast:nextLifePeriod:relationship",
+      "expressed": true,
+      "primaryExpression": "ความสัมพันธ์ในระยะใหม่ต้องจัดเวลา หน้าที่ และพื้นที่ส่วนตัวให้ชัด จึงจะรองรับบทบาทที่เปลี่ยนไปได้ ทบทวนการแบ่งเวลาและหน้าที่เมื่อบทบาทของแต่ละฝ่ายเปลี่ยน เพื่อรักษาความชัดระหว่างกัน",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.relationship.nextLifePeriod.strong"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "forecast:nextLifePeriod:health",
+      "expressed": true,
+      "primaryExpression": "กิจวัตรที่ช่วยให้ฟื้นทันควรถูกเก็บไว้เป็นฐาน ก่อนตารางชีวิตระยะใหม่จะเริ่ม เลือกกิจวัตรพักที่ทำได้ต่อเนื่อง โดยไม่ยืมแรงจากวันต่อไป",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "prediction.health.nextLifePeriod.strong"
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "canonicalId": "closing:decision-boundary",
+      "expressed": true,
+      "primaryExpression": "ใช้ความสามารถในการเห็นรายละเอียดเลือกทางการเงินที่ทำให้รายรับใหม่เหลือเป็นเงินพร้อมใช้ ไม่ได้หายไปกับภาระใหม่ พร้อมรักษาคุณภาพของงานชิ้นหลักไว้",
+      "canonicalWeb": {
+        "found": true,
+        "occurrences": 1
+      },
+      "canonicalPdf": {
+        "found": true,
+        "occurrences": 1
+      },
+      "traceabilityReference": "theme=analytical|period=ช่วงพลิกผันและเปลี่ยนผ่าน|availability=full|primary=finance|secondary=career|career=strong/strong/strong|finance=strong/strong/strong|relationship=active/active/strong|health=active/active/strong"
+    }
+  ]
+}

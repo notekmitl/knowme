@@ -1,6 +1,8 @@
 import 'package:knowme/features/astrology/thai/foundation/models/thai_astrology_profile.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/models/thai_mirror_consumer_view_state.dart';
 
+import 'thai_beta_canonical_degree.dart';
+
 /// Builds a JSON-safe snapshot of the Thai report the user actually saw.
 ///
 /// Captures both the structured engine profile and the rendered consumer copy,
@@ -20,7 +22,12 @@ abstract final class ThaiBetaReportSnapshot {
         'myanmarKeys': profile.myanmarKeys,
         'mahabhutaPositionKeys': profile.mahabhutaPositionKeys,
         'row4Sum': profile.row4Sum,
-        'siderealAscendantDeg': profile.siderealAscendantDeg,
+        // The engine profile keeps its raw double. Persistence/hash/seed
+        // boundaries use a 1e-9-degree fixed-point integer so non-semantic
+        // floating ULPs cannot change research identity or narrative choice.
+        'siderealAscendantDeg': ThaiBetaCanonicalDegree.fromDegrees(
+          profile.siderealAscendantDeg,
+        ),
         'warnings': profile.warnings.map((w) => w.code).toList(),
       },
       'report': {
@@ -28,15 +35,15 @@ abstract final class ThaiBetaReportSnapshot {
         'heroSummary': view.hero.summary,
         'heroTags': view.hero.tags,
         'signatureInsight': view.signatureInsight.body,
-        'strengths':
-            view.strengths.cards.map((c) => c.title).toList(),
+        'strengths': view.strengths.cards.map((c) => c.title).toList(),
         'cautions': view.cautions.cards.map((c) => c.title).toList(),
         'adviceTitle': view.advice.title,
         'lifeDashboard': view.lifeDashboard
             .map((i) => {'label': i.label, 'status': i.status.name})
             .toList(),
-        'narrativeSections':
-            view.narrativeSections.map((s) => s.label).toList(),
+        'narrativeSections': view.narrativeSections
+            .map((s) => s.label)
+            .toList(),
         'reflectionPoints': view.reflectionSummary.points,
         'closingMessage': view.closingMessage.message,
       },

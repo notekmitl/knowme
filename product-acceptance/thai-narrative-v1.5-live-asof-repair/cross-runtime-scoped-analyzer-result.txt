@@ -1,0 +1,12 @@
+Analyzing 20 changed/new cross-runtime repair and harness Dart items...
+
+warning - The declaration '_headlinePerson' isn't referenced - lib\features\astrology\thai\mirror\presentation\copy\thai_mirror_consumer_copy.dart:143:17 - unused_element
+warning - The declaration '_headlineDecision' isn't referenced - lib\features\astrology\thai\mirror\presentation\copy\thai_mirror_consumer_copy.dart:153:17 - unused_element
+warning - The declaration '_headlineOthersSee' isn't referenced - lib\features\astrology\thai\mirror\presentation\copy\thai_mirror_consumer_copy.dart:163:17 - unused_element
+warning - The declaration '_headlinePriority' isn't referenced - lib\features\astrology\thai\mirror\presentation\copy\thai_mirror_consumer_copy.dart:173:17 - unused_element
+warning - The declaration '_pickSpacedThemes' isn't referenced - lib\features\astrology\thai\mirror\presentation\copy\thai_mirror_consumer_copy.dart:233:23 - unused_element
+info - Statements in an if should be enclosed in a block - lib\features\astrology\thai\mirror\presentation\copy\thai_mirror_consumer_copy.dart:554:9 - curly_braces_in_flow_control_structures
+
+6 issues found. Exit code: 1.
+
+Classification: the same five unused-element warnings and one curly-braces info were present in the earlier changed-files analyzer evidence before the final parity repair. No new diagnostic class was introduced. Because the mandatory 300-profile cross-runtime gate is blocked, no fresh full branch/main analyzer delta is claimed.

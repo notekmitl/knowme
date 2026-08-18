@@ -1,0 +1,3037 @@
+{
+  "schema": "knowme-v15-s008-copy-normalization-owner-review-v1",
+  "sourceManifest": "cross-runtime-300-vm-run-1-s008-final.json",
+  "profileCount": 93,
+  "fieldCount": 112,
+  "fieldNames": [
+    "summary"
+  ],
+  "knownFieldCount": 81,
+  "unknownFieldCount": 31,
+  "rows": [
+    {
+      "profileId": "S004",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "214f088f8ff5ffc8afcd124ce09a8376ef8d0b7a5c174b5b5260af7bcac2f982",
+        "lifePeriodSignature": "6e3e2fdb90ff065ab99a95eb5fcb86369881ca488052cc7c4c41ffdafe83d5e1",
+        "periodScoreSignature": "7c041d0c4d0ecd6bacde84566c79b7c12ea50e9ab2181dc85846c71a6986534f",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:67",
+            "การเงิน:62",
+            "ความรัก:63",
+            "สุขภาพ:58",
+            "เติบโต:77",
+            "โอกาส:90"
+          ],
+          "easeIndex": 70,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S008",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "b78eee91ce74785b9af09a34ea32bd2501c200c50ab0ddfe9cc8fa136e3a0ced",
+        "lifePeriodSignature": "6b8c097ec18a5e871bb71d32b647b26fe78f2331ce931d1e56051fbd81a32492",
+        "periodScoreSignature": "66b274c1a0e98bba7df32f550c2f824dce0dc6b690db9d39470835020a8fe25b",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:92",
+            "การเงิน:82",
+            "ความรัก:84",
+            "สุขภาพ:84",
+            "เติบโต:99",
+            "โอกาส:99"
+          ],
+          "easeIndex": 90,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S009",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "00a0f26b76eae7bfcfc613808a61d326fb1a189d8a945abc2c7cd6df278439e7",
+        "lifePeriodSignature": "22d1555cd3e7da3b4c077907e3173aae804a47a98c73ce7f482b5ff93a0ae701",
+        "periodScoreSignature": "ab0968b190fdf7f5325296dd5023a76ee94116468be0f4aaf91f2cb5dbaa2bb3",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:81",
+            "การเงิน:76",
+            "ความรัก:78",
+            "สุขภาพ:69",
+            "เติบโต:88",
+            "โอกาส:82"
+          ],
+          "easeIndex": 79,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S011",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "24f5f09f632300d1c8f15af1243c68d43f6d9d7257c888d00fcb28cbe530bc46",
+        "lifePeriodSignature": "f428cf3d580e76558f6ab868f7e784ef1820f4e720c471e27c0854bdfa997d76",
+        "periodScoreSignature": "bc056bd8a48b809a457a7ffbbd86488b642eba1fda1ccb216b62d75a3eaad631",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:91",
+            "การเงิน:81",
+            "ความรัก:74",
+            "สุขภาพ:80",
+            "เติบโต:93",
+            "โอกาส:99"
+          ],
+          "easeIndex": 86,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S011",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "",
+      "structuredSource": {
+        "profileEngineFactSignature": "24f5f09f632300d1c8f15af1243c68d43f6d9d7257c888d00fcb28cbe530bc46",
+        "lifePeriodSignature": "f428cf3d580e76558f6ab868f7e784ef1820f4e720c471e27c0854bdfa997d76",
+        "periodScoreSignature": "bc056bd8a48b809a457a7ffbbd86488b642eba1fda1ccb216b62d75a3eaad631",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:76",
+            "การเงิน:63",
+            "ความรัก:55",
+            "สุขภาพ:57",
+            "เติบโต:79",
+            "โอกาส:92"
+          ],
+          "easeIndex": 70,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S012",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "7df2a65705697d359d072e1e9765fe68f19b4e78c50fbfb1a8dbfe8fbe63dcc8",
+        "lifePeriodSignature": "bf4280f49af09974431ba96544e8b019fcd2a607d35ee54a213f8c803c768da4",
+        "periodScoreSignature": "5a52f1445fc4801ed299bf0bbe4318b08e3d4267864c53fbc48164e776731113",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:86",
+            "การเงิน:81",
+            "ความรัก:71",
+            "สุขภาพ:75",
+            "เติบโต:87",
+            "โอกาส:87"
+          ],
+          "easeIndex": 81,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S014",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "8a24b3810e478678acfc29e57cfaca685c74416751c83519b7f29bb31e2ee5b5",
+        "lifePeriodSignature": "15e82cfc9deaac35e58d1bbeeca5a96e169c7e9447fb92b6de2e26b3ace327e8",
+        "periodScoreSignature": "ac9dd02c8618e77316ab7ccaf0d4e545e9dbc293e51883136e4f76988cf97d1c",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:88",
+            "การเงิน:83",
+            "ความรัก:75",
+            "สุขภาพ:73",
+            "เติบโต:98",
+            "โอกาส:92"
+          ],
+          "easeIndex": 85,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S018",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "8cb2b3a5517c9a7c50ff97189e8a6f679f4168859e3665f853ffd80a4867b036",
+        "lifePeriodSignature": "f104cc55661b8c5b1af13dc82637f22e1ac102b805c7c91214f87de8791eaa39",
+        "periodScoreSignature": "fede85d462b0588a326bc30db272f0027661d88edbe7b8338f8730397c8bd4f5",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:91",
+            "การเงิน:83",
+            "ความรัก:63",
+            "สุขภาพ:67",
+            "เติบโต:92",
+            "โอกาส:88"
+          ],
+          "easeIndex": 81,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S019",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "2f334dd3c92a32472ce945a7f8c5ede336809fe85dcb320fd725d8df2337f2ee",
+        "lifePeriodSignature": "53731dc8633f6427468e79060fa88ea86d8f49343768397a38606138ff5b3bca",
+        "periodScoreSignature": "fa85d8e8e7e73c2d55ea7879ea18bfab7d622c4af6cb905f6964c4200dcb78e2",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:86",
+            "การเงิน:83",
+            "ความรัก:68",
+            "สุขภาพ:72",
+            "เติบโต:89",
+            "โอกาส:88"
+          ],
+          "easeIndex": 81,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S021",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "96c4020b2cb69b5f35e5e2dc3d5a2531da8a02e6b162fd2334afdc1242eb1866",
+        "lifePeriodSignature": "b5191c418fbd151e0b4edbb8de5a4d268f7b1193d154ec84d4329dc27a3af0a7",
+        "periodScoreSignature": "18c1d62ccae4d54243abe20b974512f31d30a8c9be86ced75c20563e7fc42bc4",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:90",
+            "การเงิน:81",
+            "ความรัก:77",
+            "สุขภาพ:81",
+            "เติบโต:89",
+            "โอกาส:91"
+          ],
+          "easeIndex": 85,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S022",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 2,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "a841b1584ae8f75f1f0532a54bbb6c392d94648d22b57df22aab2358c00d2c59",
+        "lifePeriodSignature": "9fb6c880d51404439c74e05a532f77e1ac9513956c408bf474a8c029f1eb3567",
+        "periodScoreSignature": "ee1d934e27574ab67ca26822ec17b9946026dca78ef610feb8ab4db5add5c73e",
+        "periodScores": {
+          "index": 2,
+          "scores": [
+            "การงาน:82",
+            "การเงิน:72",
+            "ความรัก:74",
+            "สุขภาพ:75",
+            "เติบโต:93",
+            "โอกาส:89"
+          ],
+          "easeIndex": 81,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S022",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "",
+      "structuredSource": {
+        "profileEngineFactSignature": "a841b1584ae8f75f1f0532a54bbb6c392d94648d22b57df22aab2358c00d2c59",
+        "lifePeriodSignature": "9fb6c880d51404439c74e05a532f77e1ac9513956c408bf474a8c029f1eb3567",
+        "periodScoreSignature": "ee1d934e27574ab67ca26822ec17b9946026dca78ef610feb8ab4db5add5c73e",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:77",
+            "การเงิน:74",
+            "ความรัก:65",
+            "สุขภาพ:61",
+            "เติบโต:85",
+            "โอกาส:94"
+          ],
+          "easeIndex": 76,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S028",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "22e7b9af2a365e065303ec8e70257b22dc65bd671228bb53eee68f41cd347e89",
+        "lifePeriodSignature": "22d1555cd3e7da3b4c077907e3173aae804a47a98c73ce7f482b5ff93a0ae701",
+        "periodScoreSignature": "37b6029efd5d2c834a32a01277037888252d26b06fbbebde65f65560379fc4df",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:83",
+            "การเงิน:78",
+            "ความรัก:69",
+            "สุขภาพ:71",
+            "เติบโต:87",
+            "โอกาส:88"
+          ],
+          "easeIndex": 79,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S030",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "d416d20b441fece0829ae37997b428fd789357de0d11d35dc4d6c3db42f68791",
+        "lifePeriodSignature": "7e69bf6cb1da8524402833b108d2b286b888bee3a2c689b5231a20845a4938a5",
+        "periodScoreSignature": "44c48babd96b8bc1d8153886ac2875683ab73b2d05aeac35f2acf799fb61c78b",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:87",
+            "การเงิน:78",
+            "ความรัก:66",
+            "สุขภาพ:73",
+            "เติบโต:99",
+            "โอกาส:87"
+          ],
+          "easeIndex": 82,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S032",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 2,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "0e71805fc7f0edd06be1e7852b2e69ea5592a85b5ec41c85f78926131ae63722",
+        "lifePeriodSignature": "f9b81387a5515742a234941feb1a46451f7360c5ea416125270d88535b40cfa3",
+        "periodScoreSignature": "07a1dd58341e9e5c2b2b983fa32a4ddda67cbaf2f9d8bdc06e50e34c974bcf85",
+        "periodScores": {
+          "index": 2,
+          "scores": [
+            "การงาน:72",
+            "การเงิน:72",
+            "ความรัก:66",
+            "สุขภาพ:66",
+            "เติบโต:84",
+            "โอกาส:96"
+          ],
+          "easeIndex": 76,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S038",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "83abe3ef8bd8a3a8badd4061fcf629f36816a0982844cd337f7383652eed1870",
+        "lifePeriodSignature": "5b510a3c9ca39df93598d727788390d9165073620434ae0e162711450640f981",
+        "periodScoreSignature": "51e8af77b4d75bf4ba0df2575eeddf652e3bc1fc6ad670fd410c2881bc24d4cf",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:86",
+            "การเงิน:80",
+            "ความรัก:68",
+            "สุขภาพ:74",
+            "เติบโต:90",
+            "โอกาส:94"
+          ],
+          "easeIndex": 82,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S040",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "3d5e3fcc70f4bb32e858054e16d50266ba27498dda36fcf98c5ad8e8f85c37eb",
+        "lifePeriodSignature": "e100c893b652c6bb37f7fdd77c9c18642a0af4a6449a2a20d7a2bb711881c9e0",
+        "periodScoreSignature": "01a30ae0e9f8515ec732e4e9de4ee5d44de3c6023d53bbff2295491d6dd71d86",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:67",
+            "การเงิน:65",
+            "ความรัก:60",
+            "สุขภาพ:55",
+            "เติบโต:85",
+            "โอกาส:89"
+          ],
+          "easeIndex": 70,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S041",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 1,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "8fab9a808736b6ec3bb4e4234b9063c45e7868e36be3c075149420b06086da33",
+        "lifePeriodSignature": "08f02b711ade19b986aa983d263146ba685018bcde8f2535121fadaa90d619e4",
+        "periodScoreSignature": "df5ec22a6f3f02fdfcf52618bd818a7121532936ad94738b003dfbe20923e1f6",
+        "periodScores": {
+          "index": 1,
+          "scores": [
+            "การงาน:76",
+            "การเงิน:64",
+            "ความรัก:44",
+            "สุขภาพ:52",
+            "เติบโต:74",
+            "โอกาส:89"
+          ],
+          "easeIndex": 67,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S048",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "caaf801961b99d799c998a64da889339426e0a252c1d205c504709d51de50786",
+        "lifePeriodSignature": "6025de04c525c58a63b4ce3f4490ca710569ef284e335729e337ca32acd05427",
+        "periodScoreSignature": "ac9dd02c8618e77316ab7ccaf0d4e545e9dbc293e51883136e4f76988cf97d1c",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:88",
+            "การเงิน:83",
+            "ความรัก:75",
+            "สุขภาพ:73",
+            "เติบโต:98",
+            "โอกาส:92"
+          ],
+          "easeIndex": 85,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S049",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "cf8009ee889252df13cf3939181fff65e44c070bc2eedc4dec72ed5c5301ae0e",
+        "lifePeriodSignature": "6a325d4861816fcd57590c37a7733a71318ea144d4ff839c8cbb165b15ec082d",
+        "periodScoreSignature": "922c646cc2e9ad5a61aa2e3cbda91a65115c7e2546b30f3e6febcd57d81da307",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:85",
+            "การเงิน:73",
+            "ความรัก:65",
+            "สุขภาพ:73",
+            "เติบโต:97",
+            "โอกาส:92"
+          ],
+          "easeIndex": 81,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S049",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "",
+      "structuredSource": {
+        "profileEngineFactSignature": "cf8009ee889252df13cf3939181fff65e44c070bc2eedc4dec72ed5c5301ae0e",
+        "lifePeriodSignature": "6a325d4861816fcd57590c37a7733a71318ea144d4ff839c8cbb165b15ec082d",
+        "periodScoreSignature": "922c646cc2e9ad5a61aa2e3cbda91a65115c7e2546b30f3e6febcd57d81da307",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:77",
+            "การเงิน:72",
+            "ความรัก:55",
+            "สุขภาพ:57",
+            "เติบโต:92",
+            "โอกาส:94"
+          ],
+          "easeIndex": 75,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S050",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "3555bee22af051c744c6cb1e01687be24b473e598e98dc1efcf65476738796ff",
+        "lifePeriodSignature": "8ccca7537fe99faf057ce77979d00c7b01bf0487de05e7f9276691df8e2b3278",
+        "periodScoreSignature": "53d8d14744c629dfeed994fc7b2cd421fd182aed2f28af02673761989e72b424",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:85",
+            "การเงิน:84",
+            "ความรัก:78",
+            "สุขภาพ:80",
+            "เติบโต:88",
+            "โอกาส:90"
+          ],
+          "easeIndex": 84,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S051",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "f8005e73542fde9e81a27db29a0e0e8a0912fada52ae2e886e1a542866c07f3d",
+        "lifePeriodSignature": "d5796148512e2903cf89736babe056220e5b5d23828b10818e6e3c7a841b00f9",
+        "periodScoreSignature": "c8225621c513e06ad0b0f5e77a416281fc234d7d64407225fb489170d3d0e336",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:86",
+            "การเงิน:78",
+            "ความรัก:82",
+            "สุขภาพ:77",
+            "เติบโต:96",
+            "โอกาส:98"
+          ],
+          "easeIndex": 86,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S057",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "dcd4cfb23f6b91dd90fb1005456286eb43ef7ceeb37ec776996fdcad6eebe6a7",
+        "lifePeriodSignature": "b27ed3c03a409ca84a92f6610333e5c5297477a7be5aa887e2aa1151a6ac3f24",
+        "periodScoreSignature": "7f1d84d46e0d3fe67a64a6a407292ab31e4ba07b2299ba571cfa9f9065b960a8",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:94",
+            "การเงิน:82",
+            "ความรัก:83",
+            "สุขภาพ:83",
+            "เติบโต:99",
+            "โอกาส:99"
+          ],
+          "easeIndex": 90,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S059",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 2,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "ba66bddc8c795452586fdb5114000c53d1c19cc100e771267698f5dff05b40f0",
+        "lifePeriodSignature": "df9037d6262636a8ec0a2e57c8e3ed8af80669dc52a965d1bcea80e1b1edae57",
+        "periodScoreSignature": "c7e7f67725b656249e3f079f7c315ae14591087498105e23d8afa3682f376068",
+        "periodScores": {
+          "index": 2,
+          "scores": [
+            "การงาน:87",
+            "การเงิน:81",
+            "ความรัก:71",
+            "สุขภาพ:69",
+            "เติบโต:87",
+            "โอกาส:88"
+          ],
+          "easeIndex": 81,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S061",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "ffebb3f58e8b564cea692ca9bb6a7fb491ae8bed869124bc3aade89c182eff24",
+        "lifePeriodSignature": "a599b6dcba4d756fef3025326c01b0835462a8629b44bc39af54f11a5f9efcd8",
+        "periodScoreSignature": "3af8798270c359008605aae00b836c8a42c6eeec814cc989451dc9ce5643e248",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:79",
+            "การเงิน:72",
+            "ความรัก:74",
+            "สุขภาพ:71",
+            "เติบโต:94",
+            "โอกาส:93"
+          ],
+          "easeIndex": 81,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S061",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "",
+      "structuredSource": {
+        "profileEngineFactSignature": "ffebb3f58e8b564cea692ca9bb6a7fb491ae8bed869124bc3aade89c182eff24",
+        "lifePeriodSignature": "a599b6dcba4d756fef3025326c01b0835462a8629b44bc39af54f11a5f9efcd8",
+        "periodScoreSignature": "3af8798270c359008605aae00b836c8a42c6eeec814cc989451dc9ce5643e248",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:75",
+            "การเงิน:71",
+            "ความรัก:63",
+            "สุขภาพ:60",
+            "เติบโต:86",
+            "โอกาส:93"
+          ],
+          "easeIndex": 75,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S073",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "515d85640e2b7a4c4afb9e9650ad772e0b19142b6a7e77fb30f6b1d660727a8c",
+        "lifePeriodSignature": "e8359da8c68c02fb915da213532afb1ae59e355a14731757124bce5a1a79b91d",
+        "periodScoreSignature": "53aae2614411a30bbba56c96bda528a9d2b6590262658efac4067b2c4f222914",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:86",
+            "การเงิน:77",
+            "ความรัก:69",
+            "สุขภาพ:71",
+            "เติบโต:92",
+            "โอกาส:98"
+          ],
+          "easeIndex": 82,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S073",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "",
+      "structuredSource": {
+        "profileEngineFactSignature": "515d85640e2b7a4c4afb9e9650ad772e0b19142b6a7e77fb30f6b1d660727a8c",
+        "lifePeriodSignature": "e8359da8c68c02fb915da213532afb1ae59e355a14731757124bce5a1a79b91d",
+        "periodScoreSignature": "53aae2614411a30bbba56c96bda528a9d2b6590262658efac4067b2c4f222914",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:77",
+            "การเงิน:76",
+            "ความรัก:63",
+            "สุขภาพ:58",
+            "เติบโต:82",
+            "โอกาส:98"
+          ],
+          "easeIndex": 76,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S080",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "1b88dc832f379f718086ed26f139a6d9c572c1020ba21f9bd71d99affaed089e",
+        "lifePeriodSignature": "ff5609ee7f6fb48a50293c8b3797fdfd7af9fda66fefede8932b3a9dad2f110a",
+        "periodScoreSignature": "1861f5235fafc6258952569966bcdae32b40d39d442fcd89480dfc0ac098bec3",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:78",
+            "การเงิน:73",
+            "ความรัก:76",
+            "สุขภาพ:71",
+            "เติบโต:92",
+            "โอกาส:97"
+          ],
+          "easeIndex": 81,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S084",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 1,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "6fa00e65bf099ae6c4778ec30ae0734ae2ea52e8e4b9eb6f250eb73621f29bdb",
+        "lifePeriodSignature": "6a63b3ee4047fbfe2e5973a6050f37c5a4690b29a48fd9bdedd615cbd9fedc0a",
+        "periodScoreSignature": "0b0bbcfa119eb500186d591c5505b2e2814e578326b0e77271d8b5a373455069",
+        "periodScores": {
+          "index": 1,
+          "scores": [
+            "การงาน:75",
+            "การเงิน:70",
+            "ความรัก:62",
+            "สุขภาพ:60",
+            "เติบโต:94",
+            "โอกาส:95"
+          ],
+          "easeIndex": 76,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S086",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "823caa03c337a780c508103763e9366a522ddec1cb4c6875fc8c5e977a7bd374",
+        "lifePeriodSignature": "79453624303fce199fca92922cdadc5f53108567f7cc8261f1428a7731df1add",
+        "periodScoreSignature": "dc3e3964ab305d455db26a1d13ae7cfef09a5d10d28e9ef80a6284ac0074403c",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:88",
+            "การเงิน:83",
+            "ความรัก:73",
+            "สุขภาพ:72",
+            "เติบโต:95",
+            "โอกาส:97"
+          ],
+          "easeIndex": 85,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S087",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "2c8c2ee870637c22a24e4647c69108d2fa1524a39a4d77a735c9b8e040252c8f",
+        "lifePeriodSignature": "846e95ed259508b689204b1e93050f8d31ec86ccde0e67049e3b4a242e5956f6",
+        "periodScoreSignature": "e6bff036bcbc5e06d668cf876c1cd66b012c3887028035dc9fc77dd9cba3d56d",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:84",
+            "การเงิน:81",
+            "ความรัก:77",
+            "สุขภาพ:79",
+            "เติบโต:94",
+            "โอกาส:96"
+          ],
+          "easeIndex": 85,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S090",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "380312fcae6721b96c49ba9f51ba9565f2e8f4148d3d067b9c57cebc5eb995ab",
+        "lifePeriodSignature": "1769d114e7d4c140afddbe9219a77efa5613af7b5c83da3843cc532160d68b06",
+        "periodScoreSignature": "18ef1b0aa6262445cb3592f72c6e3c9f7681117623176b5cb7d1b6e13eefd746",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:91",
+            "การเงิน:79",
+            "ความรัก:62",
+            "สุขภาพ:77",
+            "เติบโต:91",
+            "โอกาส:97"
+          ],
+          "easeIndex": 83,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S094",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "ffacaf7b0f5e66173896fa88abc0668e74d7df1a5f3d08e8f0a1f21fd4461a48",
+        "lifePeriodSignature": "e3382a24e041b64b0f50f2bee6d6dad36ff1e055af267cb521dc605b4cbba169",
+        "periodScoreSignature": "b12d3f3761fa471da501a16d672d5cb5251da3aa195ab60ec739b4f35c5804d6",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:88",
+            "การเงิน:80",
+            "ความรัก:70",
+            "สุขภาพ:69",
+            "เติบโต:89",
+            "โอกาส:87"
+          ],
+          "easeIndex": 81,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S098",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "941b5197ab4247bc52806a0bca856bbf11f404c4ec3451cb1ddd9b3823b03139",
+        "lifePeriodSignature": "752d66a5877681b760c6bae650d4e4760c5621d1f2226aa7ac084c13b2d097c4",
+        "periodScoreSignature": "f19a917cf85864cf1ffce0e60ad1ecbb452ea784663035060fb5abe341d29679",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:80",
+            "การเงิน:72",
+            "ความรัก:76",
+            "สุขภาพ:78",
+            "เติบโต:94",
+            "โอกาส:89"
+          ],
+          "easeIndex": 82,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S100",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "d8f33e40967d083079d2217602dcf221b1a0d4c999ef6aa7a5d2bceb253be2d2",
+        "lifePeriodSignature": "266032c77595dae39d5d5006804a2187282d841a3f096156439b3a676c981b73",
+        "periodScoreSignature": "f5411dc7b330670b5b806f5dc69af16a7e6aa6337e54e0afe5b54a15550af034",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:86",
+            "การเงิน:82",
+            "ความรัก:83",
+            "สุขภาพ:84",
+            "เติบโต:99",
+            "โอกาส:99"
+          ],
+          "easeIndex": 89,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S102",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 2,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "99ba645e605b1b9efb2ab5ca575e371e29d91cad2e247431e503f4a2e2f4d693",
+        "lifePeriodSignature": "ee11c093169eef185315db431dc148901c03527401032e7f91cf789301591a5c",
+        "periodScoreSignature": "1be9f0f3a2cba2595bc544133b7473ad3e16509274249b950fef2cdeab3a41aa",
+        "periodScores": {
+          "index": 2,
+          "scores": [
+            "การงาน:85",
+            "การเงิน:76",
+            "ความรัก:68",
+            "สุขภาพ:74",
+            "เติบโต:88",
+            "โอกาส:93"
+          ],
+          "easeIndex": 81,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S102",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "",
+      "structuredSource": {
+        "profileEngineFactSignature": "99ba645e605b1b9efb2ab5ca575e371e29d91cad2e247431e503f4a2e2f4d693",
+        "lifePeriodSignature": "ee11c093169eef185315db431dc148901c03527401032e7f91cf789301591a5c",
+        "periodScoreSignature": "1be9f0f3a2cba2595bc544133b7473ad3e16509274249b950fef2cdeab3a41aa",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:83",
+            "การเงิน:75",
+            "ความรัก:54",
+            "สุขภาพ:63",
+            "เติบโต:82",
+            "โอกาส:99"
+          ],
+          "easeIndex": 76,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S104",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "0c21581cb78ac3a9d68ab092e240041ab85a6c5e6a89bd3d70403039d94201a9",
+        "lifePeriodSignature": "610c4bcce45c753d6b97b57e945eeb3062d133f16493e2bf9cecf940d4e1141e",
+        "periodScoreSignature": "ce110c16bf9083ae483430c62dc127544fb3114710aa1cc9d184a88c86001786",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:83",
+            "การเงิน:81",
+            "ความรัก:67",
+            "สุขภาพ:68",
+            "เติบโต:87",
+            "โอกาส:84"
+          ],
+          "easeIndex": 78,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S108",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "594d210f20289c6157615a879cfa0c4943b552f8d069890e5172f259d6defbeb",
+        "lifePeriodSignature": "ac229240e81471df237fd4959f0316bc0226eeb24b121ae361451a7ddac1f85f",
+        "periodScoreSignature": "191e81116acd90b096bdf3613b738ce0ca9fbc27aadf722c2848121cd64d87a1",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:92",
+            "การเงิน:84",
+            "ความรัก:87",
+            "สุขภาพ:82",
+            "เติบโต:99",
+            "โอกาส:99"
+          ],
+          "easeIndex": 91,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S114",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "10232575914e13ec2454fbc4391c8e94b798d1dcb2a27f846f52661cb5f62e7b",
+        "lifePeriodSignature": "5b510a3c9ca39df93598d727788390d9165073620434ae0e162711450640f981",
+        "periodScoreSignature": "ac2337103140a50b83e9d3b27750f905d6a41c4871ba8023bd2d00bffdf07560",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:80",
+            "การเงิน:72",
+            "ความรัก:68",
+            "สุขภาพ:69",
+            "เติบโต:95",
+            "โอกาส:99"
+          ],
+          "easeIndex": 81,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S118",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "d84fcee5c16e058cd1351e4d4ba388b952e74a29d2cf1e1e054a2a5479a37503",
+        "lifePeriodSignature": "39c41ee0f682904eb1354b86c01f7342323c411b5d27b2b4391922a23519ef1e",
+        "periodScoreSignature": "e8531f0083fdbf6a9398e920e337379f166d094a8f914b5892f1f1995d09452c",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:96",
+            "การเงิน:91",
+            "ความรัก:78",
+            "สุขภาพ:79",
+            "เติบโต:99",
+            "โอกาส:99"
+          ],
+          "easeIndex": 90,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S120",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "499d7a9dc0e42d44b48fe5b4d70349b43132ce79a5abf9b0e82ca45966968069",
+        "lifePeriodSignature": "2dbf99d6f18f41ee4d061f48d172ad1e5d1cfc3281a2cd628f9ef9b66472ab45",
+        "periodScoreSignature": "ca43a7b6af9e8144190ab4d901829e0e3e0820ae745c1c607568fe7000d0da1a",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:79",
+            "การเงิน:78",
+            "ความรัก:67",
+            "สุขภาพ:76",
+            "เติบโต:98",
+            "โอกาส:91"
+          ],
+          "easeIndex": 82,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S121",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "c83145288dddf919ea54a1514ef5be8808cc8b054c6caea7ea0dff667f0fd7ff",
+        "lifePeriodSignature": "f104cc55661b8c5b1af13dc82637f22e1ac102b805c7c91214f87de8791eaa39",
+        "periodScoreSignature": "9edcf5fa2e04fcdcbfe0ad58bf4b8c9f206b252aa8ed990d539b5f1dfeab45e7",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:90",
+            "การเงิน:81",
+            "ความรัก:73",
+            "สุขภาพ:71",
+            "เติบโต:91",
+            "โอกาส:97"
+          ],
+          "easeIndex": 84,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S123",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "73e917002a67559f15cf973f6892aed1dc4400b3b6ac4c26c81a0ddd56afb1c1",
+        "lifePeriodSignature": "bd71559e73550377acf03c7003158d4be4224c7de02eeb2512b94a20e9f7e768",
+        "periodScoreSignature": "11e15e52ef7d4bc14cbb20ab84827b7c55945738c55b89fb0c0d145104c6cf36",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:87",
+            "การเงิน:78",
+            "ความรัก:76",
+            "สุขภาพ:78",
+            "เติบโต:96",
+            "โอกาส:98"
+          ],
+          "easeIndex": 86,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S123",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "",
+      "structuredSource": {
+        "profileEngineFactSignature": "73e917002a67559f15cf973f6892aed1dc4400b3b6ac4c26c81a0ddd56afb1c1",
+        "lifePeriodSignature": "bd71559e73550377acf03c7003158d4be4224c7de02eeb2512b94a20e9f7e768",
+        "periodScoreSignature": "11e15e52ef7d4bc14cbb20ab84827b7c55945738c55b89fb0c0d145104c6cf36",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:73",
+            "การเงิน:69",
+            "ความรัก:58",
+            "สุขภาพ:61",
+            "เติบโต:80",
+            "โอกาส:88"
+          ],
+          "easeIndex": 72,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S124",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "9d96f742c9be9a8d86ac3b5c55cd8f1aa1b5f1445739d94e39061203e6e25f47",
+        "lifePeriodSignature": "73dfcbd0adfb7f4ba5688e567a7b6b245e1becbeddab0437859cabd71b8b9692",
+        "periodScoreSignature": "f81886d18cd1989500af0ae380b15d671251efe1160d80696569099577b26a72",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:88",
+            "การเงิน:83",
+            "ความรัก:85",
+            "สุขภาพ:84",
+            "เติบโต:99",
+            "โอกาส:99"
+          ],
+          "easeIndex": 90,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S126",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "bd487a741d7f5ea910f14880bf6f728304ad64a01310f10bfac6be891fa86256",
+        "lifePeriodSignature": "267dee1049d2946ba922df4e562ba736be194e13f8a3ec0f10e15aa6f17eb5bd",
+        "periodScoreSignature": "4e4af7eb9850ea5e04f7393620a68429489fcd6fe236d34027d15f1be3b91d99",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:90",
+            "การเงิน:88",
+            "ความรัก:75",
+            "สุขภาพ:76",
+            "เติบโต:91",
+            "โอกาส:95"
+          ],
+          "easeIndex": 86,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S127",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 2,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "981280c2a4f535ea3bc29e92a636f6f5ed2e412e97e1c79cdccd27a5272fc385",
+        "lifePeriodSignature": "1e696154f3a3fe57c1bf54b221e78382057a6601bc50d9dd3cbf9a32c405a76b",
+        "periodScoreSignature": "11dd25184f78d9e2fbd2a742540bb805d2ffbd01bd7339e8787c7ee99b7bdf9f",
+        "periodScores": {
+          "index": 2,
+          "scores": [
+            "การงาน:82",
+            "การเงิน:83",
+            "ความรัก:81",
+            "สุขภาพ:80",
+            "เติบโต:99",
+            "โอกาส:95"
+          ],
+          "easeIndex": 87,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S127",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "",
+      "structuredSource": {
+        "profileEngineFactSignature": "981280c2a4f535ea3bc29e92a636f6f5ed2e412e97e1c79cdccd27a5272fc385",
+        "lifePeriodSignature": "1e696154f3a3fe57c1bf54b221e78382057a6601bc50d9dd3cbf9a32c405a76b",
+        "periodScoreSignature": "11dd25184f78d9e2fbd2a742540bb805d2ffbd01bd7339e8787c7ee99b7bdf9f",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:70",
+            "การเงิน:69",
+            "ความรัก:62",
+            "สุขภาพ:59",
+            "เติบโต:81",
+            "โอกาส:87"
+          ],
+          "easeIndex": 71,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S129",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "1c77e3f4a10c027a57403ebe974d2e132cfb64416565cfce6eff6699bf42c297",
+        "lifePeriodSignature": "99162015c85116645e3cd130fc15c4856de978267ae098083c9f3d783ef96e96",
+        "periodScoreSignature": "86b08ae817ab37c512b81db61cde76a2cc866b30ceed742e728f66e4fdd0100f",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:91",
+            "การเงิน:85",
+            "ความรัก:83",
+            "สุขภาพ:80",
+            "เติบโต:99",
+            "โอกาส:99"
+          ],
+          "easeIndex": 90,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S131",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 1,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "a7ad98731aa242287d7b30c9cccd456588dbdc7443217e489e77f4422ce65281",
+        "lifePeriodSignature": "284cba44dc4d12196a7c8cfd692b2ce2bb8465f4fb23d24410c9f396f00800c5",
+        "periodScoreSignature": "4fb6d679d77a0d989c865f7a1ec79e699fbdb5b5952bb9df29a0fff22bb3d526",
+        "periodScores": {
+          "index": 1,
+          "scores": [
+            "การงาน:74",
+            "การเงิน:72",
+            "ความรัก:57",
+            "สุขภาพ:55",
+            "เติบโต:80",
+            "โอกาส:89"
+          ],
+          "easeIndex": 71,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S135",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "6116509b32648a59f3c0a8ee9593fbf48cae1a251e748c67cbacd5e414b32e3f",
+        "lifePeriodSignature": "2d30d66d6495559abcba1c6a4a810ab2628e0dbf018f2841fd483118afccf077",
+        "periodScoreSignature": "1718c8e4f3ede8cd3d7ffc5c382f9a8b3d0febe73a034d1ebe87f5a77b64486f",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:93",
+            "การเงิน:77",
+            "ความรัก:71",
+            "สุขภาพ:82",
+            "เติบโต:98",
+            "โอกาส:99"
+          ],
+          "easeIndex": 87,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S135",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "",
+      "structuredSource": {
+        "profileEngineFactSignature": "6116509b32648a59f3c0a8ee9593fbf48cae1a251e748c67cbacd5e414b32e3f",
+        "lifePeriodSignature": "2d30d66d6495559abcba1c6a4a810ab2628e0dbf018f2841fd483118afccf077",
+        "periodScoreSignature": "1718c8e4f3ede8cd3d7ffc5c382f9a8b3d0febe73a034d1ebe87f5a77b64486f",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:74",
+            "การเงิน:62",
+            "ความรัก:56",
+            "สุขภาพ:57",
+            "เติบโต:80",
+            "โอกาส:92"
+          ],
+          "easeIndex": 70,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S139",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 2,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "48b532983b1b1cc188355969ba80c119afe67b06b17a35d9af1771ab3af0de8c",
+        "lifePeriodSignature": "fc90b3a07f0ae2bb151cce622e8d11352a04e3955646b68222cf84a00bf051d9",
+        "periodScoreSignature": "0b150b2b48898913e6e07c95f12d69519c1ea7d1a1e8fcaf9ae5c530e9023558",
+        "periodScores": {
+          "index": 2,
+          "scores": [
+            "การงาน:86",
+            "การเงิน:80",
+            "ความรัก:67",
+            "สุขภาพ:77",
+            "เติบโต:99",
+            "โอกาส:99"
+          ],
+          "easeIndex": 85,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S139",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "",
+      "structuredSource": {
+        "profileEngineFactSignature": "48b532983b1b1cc188355969ba80c119afe67b06b17a35d9af1771ab3af0de8c",
+        "lifePeriodSignature": "fc90b3a07f0ae2bb151cce622e8d11352a04e3955646b68222cf84a00bf051d9",
+        "periodScoreSignature": "0b150b2b48898913e6e07c95f12d69519c1ea7d1a1e8fcaf9ae5c530e9023558",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:71",
+            "การเงิน:68",
+            "ความรัก:54",
+            "สุขภาพ:53",
+            "เติบโต:85",
+            "โอกาส:95"
+          ],
+          "easeIndex": 71,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S141",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "d5b512490fbc3eb25d6396c11b48258a7cc15e898f93ac895fcb4bdcee1c7406",
+        "lifePeriodSignature": "4b270700267456dadcac33d3675bf449f94a00805a54bc2e2cd30c4ad55e8b08",
+        "periodScoreSignature": "99c5e0e15d3a468a967f15e19bb39cd717d2017ac327581302ff02973342b4d9",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:91",
+            "การเงิน:82",
+            "ความรัก:63",
+            "สุขภาพ:64",
+            "เติบโต:94",
+            "โอกาส:87"
+          ],
+          "easeIndex": 80,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S143",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 2,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "af050f0d184b4cea0868b19af7b0d7d9ad0684a813d11cceba46fb0f86098505",
+        "lifePeriodSignature": "64ab739423f27757261b304768a62f83169bcfd3882eadcda651eade58db840a",
+        "periodScoreSignature": "a6e9862d92a1f1c673fe6e885ed52cc7cdbbaa3df8946b09b4f8bc3c31d0cd77",
+        "periodScores": {
+          "index": 2,
+          "scores": [
+            "การงาน:78",
+            "การเงิน:73",
+            "ความรัก:53",
+            "สุขภาพ:59",
+            "เติบโต:76",
+            "โอกาส:89"
+          ],
+          "easeIndex": 71,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S145",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "6730e193c6f33ff53c677ae2a74381a8335622115416c3592639dffbd1cad4cd",
+        "lifePeriodSignature": "3e8eaff9427061953b69cf028a70d086829b36f5d62841c92b9f8fe5f4a6ed5f",
+        "periodScoreSignature": "4f7ca22d874a8d5de6cce7c4befc15092de5ff1c077362d17635a7f9e200dd0b",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:94",
+            "การเงิน:91",
+            "ความรัก:68",
+            "สุขภาพ:66",
+            "เติบโต:99",
+            "โอกาส:89"
+          ],
+          "easeIndex": 85,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S149",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "f44f32a48385eacbdb1e5018441ec5171c7087ad775246912d2269567ffa8b4b",
+        "lifePeriodSignature": "e8359da8c68c02fb915da213532afb1ae59e355a14731757124bce5a1a79b91d",
+        "periodScoreSignature": "d1d5297df4744809ae2dd1e89ac1691867cccfe9f629299d74624f3e946977f2",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:82",
+            "การเงิน:72",
+            "ความรัก:71",
+            "สุขภาพ:76",
+            "เติบโต:90",
+            "โอกาส:94"
+          ],
+          "easeIndex": 81,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S149",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "",
+      "structuredSource": {
+        "profileEngineFactSignature": "f44f32a48385eacbdb1e5018441ec5171c7087ad775246912d2269567ffa8b4b",
+        "lifePeriodSignature": "e8359da8c68c02fb915da213532afb1ae59e355a14731757124bce5a1a79b91d",
+        "periodScoreSignature": "d1d5297df4744809ae2dd1e89ac1691867cccfe9f629299d74624f3e946977f2",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:75",
+            "การเงิน:74",
+            "ความรัก:61",
+            "สุขภาพ:67",
+            "เติบโต:85",
+            "โอกาส:93"
+          ],
+          "easeIndex": 76,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S155",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "542746776a3db39d44c0c11da556fbd0830e74a48a174e1ce403a2aec438fd15",
+        "lifePeriodSignature": "cd5687516439d371c2613300e989ceb5ea8009deb9bc278c9f7cd819a8d6edaf",
+        "periodScoreSignature": "16d72d7599fffb5bd0dc17b56c99f4f9ffbf27c69b67cb66e4b66a342511900d",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:66",
+            "การเงิน:67",
+            "ความรัก:60",
+            "สุขภาพ:60",
+            "เติบโต:80",
+            "โอกาส:89"
+          ],
+          "easeIndex": 70,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S156",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "9e22ccb2ad029815a8ca100148d855e254a6ec1f3661b1be7bab13747e3e748c",
+        "lifePeriodSignature": "99cc4809af480653f6da32634824b6fa17c637e6bf81ecfc07841d6500785d1e",
+        "periodScoreSignature": "f1762fd60a0eaf29a52fe5ed0114cfeba36a7aa468de8e7f60da3616b325d704",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:96",
+            "การเงิน:90",
+            "ความรัก:78",
+            "สุขภาพ:84",
+            "เติบโต:99",
+            "โอกาส:99"
+          ],
+          "easeIndex": 91,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S156",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "",
+      "structuredSource": {
+        "profileEngineFactSignature": "9e22ccb2ad029815a8ca100148d855e254a6ec1f3661b1be7bab13747e3e748c",
+        "lifePeriodSignature": "99cc4809af480653f6da32634824b6fa17c637e6bf81ecfc07841d6500785d1e",
+        "periodScoreSignature": "f1762fd60a0eaf29a52fe5ed0114cfeba36a7aa468de8e7f60da3616b325d704",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:72",
+            "การเงิน:61",
+            "ความรัก:51",
+            "สุขภาพ:50",
+            "เติบโต:75",
+            "โอกาส:89"
+          ],
+          "easeIndex": 66,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S158",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "ca2997272dc19df63e605b7a68ed447929584e1ecb0d3c1f9a37eb088d26994a",
+        "lifePeriodSignature": "2d9fcce38db02099c53014c96276e26b146e24ea749fcb143057d3b47a329fb3",
+        "periodScoreSignature": "aa524e6ca52ac990f2149f6a8069d7687f50fee08851b509e67f2341e9499998",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:76",
+            "การเงิน:76",
+            "ความรัก:72",
+            "สุขภาพ:73",
+            "เติบโต:97",
+            "โอกาส:97"
+          ],
+          "easeIndex": 82,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S158",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "",
+      "structuredSource": {
+        "profileEngineFactSignature": "ca2997272dc19df63e605b7a68ed447929584e1ecb0d3c1f9a37eb088d26994a",
+        "lifePeriodSignature": "2d9fcce38db02099c53014c96276e26b146e24ea749fcb143057d3b47a329fb3",
+        "periodScoreSignature": "aa524e6ca52ac990f2149f6a8069d7687f50fee08851b509e67f2341e9499998",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:73",
+            "การเงิน:71",
+            "ความรัก:68",
+            "สุขภาพ:59",
+            "เติบโต:85",
+            "โอกาส:94"
+          ],
+          "easeIndex": 75,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S160",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "d1c6a7e1c44d1825450148a43da1ca8880fd7bf48830ba334ab51a4f3db0a8cf",
+        "lifePeriodSignature": "cc5c35c791cbf3efc10be5e1a92f149a65ec0966b73a44f2a8229d2235a99294",
+        "periodScoreSignature": "c7e04cd1686d25f20397727f1e455bc6367cc122f10e18b8ed1ebf29aaccff91",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:94",
+            "การเงิน:90",
+            "ความรัก:75",
+            "สุขภาพ:82",
+            "เติบโต:99",
+            "โอกาส:99"
+          ],
+          "easeIndex": 90,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S164",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "e97cb2d4c31b5742ff00d68f0eb1a632eb64fe2b24ef0ff387d79a3ab6043a61",
+        "lifePeriodSignature": "0615b453e129a6a75bce1f69ad586b7d8324ba6b0228718738e4b6d12952b6e8",
+        "periodScoreSignature": "58dc1b6d665d1da5a69cab29d997128ab2e62f11a2593a0da391a4094be8059e",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:89",
+            "การเงิน:82",
+            "ความรัก:74",
+            "สุขภาพ:72",
+            "เติบโต:90",
+            "โอกาส:90"
+          ],
+          "easeIndex": 83,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S166",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 2,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "fb67fddc175c8aa41461f568603b8a9f5bd7b64cde6a5a6b5ba517308805c2ec",
+        "lifePeriodSignature": "d5796148512e2903cf89736babe056220e5b5d23828b10818e6e3c7a841b00f9",
+        "periodScoreSignature": "872982ea02ccb3cd576f390a86f81e45c92130d33a55b2df59e4be0fd12b9020",
+        "periodScores": {
+          "index": 2,
+          "scores": [
+            "การงาน:84",
+            "การเงิน:77",
+            "ความรัก:70",
+            "สุขภาพ:66",
+            "เติบโต:88",
+            "โอกาส:84"
+          ],
+          "easeIndex": 78,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S169",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "a8260b1998633028c717e56b4fd3b9bff66dd7a2811e303b254d969a94c19240",
+        "lifePeriodSignature": "9fff12c7b584327523e8ad0616aa06a092fc44224111c2b88d92584be560797b",
+        "periodScoreSignature": "47327e8260b1bec40da7ee758a93e58ccb67fcb550f656870305f9f66d05d2c8",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:75",
+            "การเงิน:76",
+            "ความรัก:81",
+            "สุขภาพ:77",
+            "เติบโต:93",
+            "โอกาส:94"
+          ],
+          "easeIndex": 83,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S170",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "402f15107e33c77ccfe3284b7c2ea77f051c0aaf6dd175c78f5fc14531d4f90c",
+        "lifePeriodSignature": "b27ed3c03a409ca84a92f6610333e5c5297477a7be5aa887e2aa1151a6ac3f24",
+        "periodScoreSignature": "e47ec363ef79eb052bb76da216ae6bd53d04f95d8269fd087cf4a45d8c760b5b",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:87",
+            "การเงิน:79",
+            "ความรัก:68",
+            "สุขภาพ:71",
+            "เติบโต:88",
+            "โอกาส:96"
+          ],
+          "easeIndex": 82,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S180",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "efd32419b67184dc991f144205602b7e983d57585ddfc82faab20d574dc5f062",
+        "lifePeriodSignature": "784d415f5ff7cc74cc27eaef7f96b298793997b13c07a4962597e5654a92247a",
+        "periodScoreSignature": "4e2152462732f675fab3bf9ef599cc2be70ef7e7be85288bfbf180ef2f4a574e",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:84",
+            "การเงิน:72",
+            "ความรัก:67",
+            "สุขภาพ:72",
+            "เติบโต:97",
+            "โอกาส:99"
+          ],
+          "easeIndex": 82,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S180",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "",
+      "structuredSource": {
+        "profileEngineFactSignature": "efd32419b67184dc991f144205602b7e983d57585ddfc82faab20d574dc5f062",
+        "lifePeriodSignature": "784d415f5ff7cc74cc27eaef7f96b298793997b13c07a4962597e5654a92247a",
+        "periodScoreSignature": "4e2152462732f675fab3bf9ef599cc2be70ef7e7be85288bfbf180ef2f4a574e",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:80",
+            "การเงิน:73",
+            "ความรัก:58",
+            "สุขภาพ:62",
+            "เติบโต:90",
+            "โอกาส:99"
+          ],
+          "easeIndex": 77,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S186",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "084b2314a8105e14a168e6d0e7958c1131a23bf8c42b4dd1fb3c4e85a4853b8d",
+        "lifePeriodSignature": "830f9a7fe8c0d1b17a82b921457a15c14bf81ebadd695449ff0c30a2bad40f4f",
+        "periodScoreSignature": "cd73885b9fe7cee3bf23ef7080c455e1f53e89a1c633ce416bb591dc074403a1",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:90",
+            "การเงิน:79",
+            "ความรัก:64",
+            "สุขภาพ:69",
+            "เติบโต:91",
+            "โอกาส:98"
+          ],
+          "easeIndex": 82,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S186",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "",
+      "structuredSource": {
+        "profileEngineFactSignature": "084b2314a8105e14a168e6d0e7958c1131a23bf8c42b4dd1fb3c4e85a4853b8d",
+        "lifePeriodSignature": "830f9a7fe8c0d1b17a82b921457a15c14bf81ebadd695449ff0c30a2bad40f4f",
+        "periodScoreSignature": "cd73885b9fe7cee3bf23ef7080c455e1f53e89a1c633ce416bb591dc074403a1",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:85",
+            "การเงิน:79",
+            "ความรัก:54",
+            "สุขภาพ:59",
+            "เติบโต:82",
+            "โอกาส:95"
+          ],
+          "easeIndex": 76,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S188",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "8e42ac932b0b02a97585acd7d4b865fb95f945611c448599c746cd4b73616184",
+        "lifePeriodSignature": "e3605245c248d22d74aaaabd57dec885acab52e8b2758dfe6df775d2aeeb8ce1",
+        "periodScoreSignature": "2b4fa50ede46d5150b23d6056b26c86af9b7fdd6c4dcb578f9f90049f46de26b",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:90",
+            "การเงิน:82",
+            "ความรัก:77",
+            "สุขภาพ:75",
+            "เติบโต:94",
+            "โอกาส:87"
+          ],
+          "easeIndex": 84,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S193",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "a05d0a2cab71fa2151bccad85332188e84389e85cbf317339fef7d2a7168a507",
+        "lifePeriodSignature": "8b385801b38ca486209e60586a6efdff87f0cd8f6fb39c8040f6e88ee7a32e26",
+        "periodScoreSignature": "468d24f14ac17a3e7033640e9ca98d9d81aac236589036f432dd2af5eb3209cd",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:80",
+            "การเงิน:74",
+            "ความรัก:67",
+            "สุขภาพ:71",
+            "เติบโต:99",
+            "โอกาส:96"
+          ],
+          "easeIndex": 81,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S200",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "868eb294ff9d84e55dc38878453aee10e29a6186c0c55dbc60275178e65478da",
+        "lifePeriodSignature": "dcde726ffccbd6bb91278604dde01f0d48a678a2d7c56ec94bbbb95d5384009d",
+        "periodScoreSignature": "901a27c013a704b3d08a8b34ba972140aef010049d948bede82d72f5f975f31b",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:88",
+            "การเงิน:77",
+            "ความรัก:69",
+            "สุขภาพ:69",
+            "เติบโต:95",
+            "โอกาส:90"
+          ],
+          "easeIndex": 81,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S201",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 1,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "a81e5669633b5fcfcb3ca30414f3ca5952173b2ec0f7081eaa7ac9feeca92c56",
+        "lifePeriodSignature": "493b4416cc4e737591d9717da35262adfa575b8f52d15cf58db4be6b67eb7af6",
+        "periodScoreSignature": "dae2903e1ad7e0dc60a19d30c8e27c4842c31c7902cfc648214a6e57bb604464",
+        "periodScores": {
+          "index": 1,
+          "scores": [
+            "การงาน:71",
+            "การเงิน:60",
+            "ความรัก:44",
+            "สุขภาพ:47",
+            "เติบโต:79",
+            "โอกาส:91"
+          ],
+          "easeIndex": 65,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S207",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "5e09dc8bee72face8de8a57557c5d9b4b6bd5c421b09ff790f7b26f8c18b887b",
+        "lifePeriodSignature": "e3382a24e041b64b0f50f2bee6d6dad36ff1e055af267cb521dc605b4cbba169",
+        "periodScoreSignature": "7491b2da20bda56dbe20caf6bcbe10bfeb4770d2d31fcc89af86395b51136f16",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:85",
+            "การเงิน:77",
+            "ความรัก:77",
+            "สุขภาพ:80",
+            "เติบโต:98",
+            "โอกาส:96"
+          ],
+          "easeIndex": 86,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S209",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "c7393fba4b4f1c5d0ef7579dc133545950f5b25d4394233b65863669695373e2",
+        "lifePeriodSignature": "eb43ee6ce21d583641f3c5b50ff7b5d779269efe162983d05bd0a1ac70117232",
+        "periodScoreSignature": "3ef326cc0db607934135d8ab8af41f5c90cdfaf7dafa0de11bf4e6cea052ba10",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:93",
+            "การเงิน:82",
+            "ความรัก:83",
+            "สุขภาพ:88",
+            "เติบโต:99",
+            "โอกาส:99"
+          ],
+          "easeIndex": 91,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S211",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 1,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "ff3c29779bc4716f159088149c5b0d4ac7b98715b7a799c03cd74282205366fa",
+        "lifePeriodSignature": "df25c8df4fdff70434928ba67d5896789678622dc7132bc7e9e0834b4b49cfa5",
+        "periodScoreSignature": "f7856da2052653daaf97ab65619f93b1a492775e2e0318c32e9ba5e74cd2169a",
+        "periodScores": {
+          "index": 1,
+          "scores": [
+            "การงาน:71",
+            "การเงิน:69",
+            "ความรัก:61",
+            "สุขภาพ:55",
+            "เติบโต:77",
+            "โอกาส:88"
+          ],
+          "easeIndex": 70,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S213",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 2,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "09ab79eba2acd07eaffdf6da3e09cc9fdb4ae17e317130fb44e88a8d54178429",
+        "lifePeriodSignature": "752d66a5877681b760c6bae650d4e4760c5621d1f2226aa7ac084c13b2d097c4",
+        "periodScoreSignature": "3e29cd37e05da53cc818356bc421f6e3ca917714ace853d46bb9ba7955c61f03",
+        "periodScores": {
+          "index": 2,
+          "scores": [
+            "การงาน:88",
+            "การเงิน:81",
+            "ความรัก:66",
+            "สุขภาพ:68",
+            "เติบโต:86",
+            "โอกาส:89"
+          ],
+          "easeIndex": 80,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S215",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "8b80ef315ca32cb6be75b0dc5da46e573c0918289af7b32e1dd65d1f6311c782",
+        "lifePeriodSignature": "322c080163381b27ee042d121aef07023c8debc6da094ca99c99a0f999ad8184",
+        "periodScoreSignature": "ffbb9c83a9fa5081114d97f3a65459298c0f78cd360eb158e389957de6e7109f",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:86",
+            "การเงิน:78",
+            "ความรัก:79",
+            "สุขภาพ:82",
+            "เติบโต:93",
+            "โอกาส:97"
+          ],
+          "easeIndex": 86,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S215",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "",
+      "structuredSource": {
+        "profileEngineFactSignature": "8b80ef315ca32cb6be75b0dc5da46e573c0918289af7b32e1dd65d1f6311c782",
+        "lifePeriodSignature": "322c080163381b27ee042d121aef07023c8debc6da094ca99c99a0f999ad8184",
+        "periodScoreSignature": "ffbb9c83a9fa5081114d97f3a65459298c0f78cd360eb158e389957de6e7109f",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:74",
+            "การเงิน:67",
+            "ความรัก:62",
+            "สุขภาพ:59",
+            "เติบโต:77",
+            "โอกาส:85"
+          ],
+          "easeIndex": 71,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S219",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "e01f9291d013528032971ee07f646ec6d65e18832ca4c7bdd4b7a73fad34029f",
+        "lifePeriodSignature": "d92a8472ae33c622eeaebbb20ef5337ed03290b6f7111693b2af4fcf9b6eae5e",
+        "periodScoreSignature": "3d05ad1383b34756dd2529c89b5dcbf1de633281eb131d5b0b7ce0ee14419ef6",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:84",
+            "การเงิน:77",
+            "ความรัก:68",
+            "สุขภาพ:72",
+            "เติบโต:92",
+            "โอกาส:88"
+          ],
+          "easeIndex": 80,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S223",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "b2b5fedc919f15581ceba5831c1d923b196045b8b56028f2d681a23277fc476b",
+        "lifePeriodSignature": "ade7a5bf6732aa2011eb0d22517302921f4bfc776baf1eea4caf1c22e68ff216",
+        "periodScoreSignature": "8335b6cabca95db50579c87e3e75bf1ea9d3420157e464376f217511528525c1",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:95",
+            "การเงิน:81",
+            "ความรัก:69",
+            "สุขภาพ:77",
+            "เติบโต:94",
+            "โอกาส:99"
+          ],
+          "easeIndex": 86,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S231",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "946f7fe377de55926eb51aff6526d61458283ffe930175877bc277dc78b577d6",
+        "lifePeriodSignature": "e100c893b652c6bb37f7fdd77c9c18642a0af4a6449a2a20d7a2bb711881c9e0",
+        "periodScoreSignature": "a8d49119b4198a7c71027c0f0d70e18f5e48586c5d7b9b592aa5943f457d50fd",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:81",
+            "การเงิน:71",
+            "ความรัก:50",
+            "สุขภาพ:56",
+            "เติบโต:76",
+            "โอกาส:94"
+          ],
+          "easeIndex": 71,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S236",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "33c64aa82001d475575a63ae3d25c7301590c61b25993ef568c83ccbe90d96f0",
+        "lifePeriodSignature": "c0836840342cf2861200ff7f18e8f3d299ba5b569cbc0e2d5e853e253c7c7cc3",
+        "periodScoreSignature": "c8fd547b8adcb60543f49960cddd74b4dc899d65a0bf3cf6d1d632f0292d75ae",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:97",
+            "การเงิน:87",
+            "ความรัก:66",
+            "สุขภาพ:69",
+            "เติบโต:92",
+            "โอกาส:98"
+          ],
+          "easeIndex": 85,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S237",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "9dd449b95e765e86d46c0b9b16785c2800754a7d89dd5bee13ec479269d8b9be",
+        "lifePeriodSignature": "b65ea5698e3224b58e67ef33f4cc1da0ff65544dd0c1596e5b44f482aff55337",
+        "periodScoreSignature": "b996d506775afe6fd7af63f01438ffe5ccd2e417f4e39c581ab743e600a498ea",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:90",
+            "การเงิน:83",
+            "ความรัก:77",
+            "สุขภาพ:82",
+            "เติบโต:99",
+            "โอกาส:99"
+          ],
+          "easeIndex": 88,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S238",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "3809163fa284e76e494e60deaf8a6eb75ada6e58d782b1efdde666a12e4fa7cf",
+        "lifePeriodSignature": "cc5c35c791cbf3efc10be5e1a92f149a65ec0966b73a44f2a8229d2235a99294",
+        "periodScoreSignature": "9c23c421e03438aef516fdedd4a32c1403dc4cb1c44a08ab819ad058f7171be7",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:93",
+            "การเงิน:88",
+            "ความรัก:77",
+            "สุขภาพ:82",
+            "เติบโต:99",
+            "โอกาส:99"
+          ],
+          "easeIndex": 90,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S239",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "f491d45064d3a63eda5b83b6ad2bc914ab80c82d141b6f71f817875a86cd71c4",
+        "lifePeriodSignature": "5c5f02ee2203f8c0605ca8a900f43ba5c69e237bbb7d52db5fcd284317d8bed7",
+        "periodScoreSignature": "1cfdbc4ff73986ace00e1fc94048cf764552a61bdcf230d7209475cb56c1300b",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:74",
+            "การเงิน:65",
+            "ความรัก:54",
+            "สุขภาพ:54",
+            "เติบโต:88",
+            "โอกาส:93"
+          ],
+          "easeIndex": 71,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S242",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "0f60d0150789eddb56e8f5807418e85fb59bcc6137bb7de693bae3bb10693808",
+        "lifePeriodSignature": "dd040fd6eed6091c77eccf7b360755895525d37e045c9aad3c4e9889671492a0",
+        "periodScoreSignature": "163b9d44e9fa4e86bb8107ca8edb7e0fc52fa30be24fb1a7e35362b981d2e6fa",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:93",
+            "การเงิน:85",
+            "ความรัก:69",
+            "สุขภาพ:68",
+            "เติบโต:99",
+            "โอกาส:97"
+          ],
+          "easeIndex": 85,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S246",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "b6fed899952c109b93f612d8e84555f253ff54b1b2aeac29a0e83659525cb833",
+        "lifePeriodSignature": "6b558eeb71705fc2841c0653d0fc1115b9d5b82e62778734afe106b878e5d390",
+        "periodScoreSignature": "cd73885b9fe7cee3bf23ef7080c455e1f53e89a1c633ce416bb591dc074403a1",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:90",
+            "การเงิน:79",
+            "ความรัก:64",
+            "สุขภาพ:69",
+            "เติบโต:91",
+            "โอกาส:98"
+          ],
+          "easeIndex": 82,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S246",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "",
+      "structuredSource": {
+        "profileEngineFactSignature": "b6fed899952c109b93f612d8e84555f253ff54b1b2aeac29a0e83659525cb833",
+        "lifePeriodSignature": "6b558eeb71705fc2841c0653d0fc1115b9d5b82e62778734afe106b878e5d390",
+        "periodScoreSignature": "cd73885b9fe7cee3bf23ef7080c455e1f53e89a1c633ce416bb591dc074403a1",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:85",
+            "การเงิน:79",
+            "ความรัก:54",
+            "สุขภาพ:59",
+            "เติบโต:82",
+            "โอกาส:95"
+          ],
+          "easeIndex": 76,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S250",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "b1c9c2780d88b3755360455a155138ff83f13995a3ded86846151575af5346d2",
+        "lifePeriodSignature": "d9c27e60ee809c3165c806c75311cd862f3985dd132ad606c171a0ff01f3b571",
+        "periodScoreSignature": "fe44b9fe5c331af859a38166f3bf1e88a228b66e5d9423c952658e70fb9d6ec8",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:89",
+            "การเงิน:76",
+            "ความรัก:64",
+            "สุขภาพ:68",
+            "เติบโต:90",
+            "โอกาส:95"
+          ],
+          "easeIndex": 80,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S252",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "dcf58e628ca5afe4b9d64136d4ffe510e34f1e5322cbcd1c6501e2eebebccd51",
+        "lifePeriodSignature": "752d66a5877681b760c6bae650d4e4760c5621d1f2226aa7ac084c13b2d097c4",
+        "periodScoreSignature": "d54ceb2b9c76b626123545cc425dbc59571a4af5a173f7660d5740755e79891d",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:93",
+            "การเงิน:88",
+            "ความรัก:81",
+            "สุขภาพ:87",
+            "เติบโต:98",
+            "โอกาส:99"
+          ],
+          "easeIndex": 91,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S264",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "18c276d99a4a1a70a45d0b39f3928e5688607367ca26b979a7f3b1fbbe27975b",
+        "lifePeriodSignature": "a54d2ec92c04fe8ff1ca8fff7e3dcba3fc3052fc556c80ebc14ccc72072651d9",
+        "periodScoreSignature": "2661861e9730da74584044b6c2de55f1e0db20dc1098b245d89b7a8a337bf02a",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:79",
+            "การเงิน:76",
+            "ความรัก:68",
+            "สุขภาพ:71",
+            "เติบโต:99",
+            "โอกาส:88"
+          ],
+          "easeIndex": 80,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S266",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "590a6069942508816300a0e48c0b763c220b82bbcf1d2a84805b9969048ae620",
+        "lifePeriodSignature": "b008c1751daa819df9a37769034d14f2dcd4a38014cc1b0ab6a89eded1f11ec7",
+        "periodScoreSignature": "8f2b5c305262a76a381fa97af6b7372661061388fa97011b10d1e36ddfe46da8",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:88",
+            "การเงิน:82",
+            "ความรัก:75",
+            "สุขภาพ:73",
+            "เติบโต:94",
+            "โอกาส:87"
+          ],
+          "easeIndex": 83,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S268",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "b95a2d8a158ffe48358a195c3a5043f395eaac04742bcfe5d5d3949e0b2a1ab1",
+        "lifePeriodSignature": "21bd3cd2e5f2debdcd37fa488c0080a784105a98619539c5e716b22a14ffaa7b",
+        "periodScoreSignature": "37b6029efd5d2c834a32a01277037888252d26b06fbbebde65f65560379fc4df",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:83",
+            "การเงิน:78",
+            "ความรัก:69",
+            "สุขภาพ:71",
+            "เติบโต:87",
+            "โอกาส:88"
+          ],
+          "easeIndex": 79,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S270",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "5549973a3134995de276b8b2ad6353f1414f0d9615df0417b189ea60e31b73e9",
+        "lifePeriodSignature": "79f870397ac5dfc686ebe9c8d1d253a69a700b53acd9496c69e7d6a4f742dd59",
+        "periodScoreSignature": "44c48babd96b8bc1d8153886ac2875683ab73b2d05aeac35f2acf799fb61c78b",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:87",
+            "การเงิน:78",
+            "ความรัก:66",
+            "สุขภาพ:73",
+            "เติบโต:99",
+            "โอกาส:87"
+          ],
+          "easeIndex": 82,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S273",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 2,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "873d90cc208e991f240ef3d6350e8bbd4c3c336cc1b53c41c433629d33a98c1c",
+        "lifePeriodSignature": "7efe33e8cee319d4765f863cbbc104f159a9a56a74cdfc15ecd1515a8ba94d64",
+        "periodScoreSignature": "3e29cd37e05da53cc818356bc421f6e3ca917714ace853d46bb9ba7955c61f03",
+        "periodScores": {
+          "index": 2,
+          "scores": [
+            "การงาน:88",
+            "การเงิน:81",
+            "ความรัก:66",
+            "สุขภาพ:68",
+            "เติบโต:86",
+            "โอกาส:89"
+          ],
+          "easeIndex": 80,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S275",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 2,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "542746776a3db39d44c0c11da556fbd0830e74a48a174e1ce403a2aec438fd15",
+        "lifePeriodSignature": "9a6999764623e9f21084671aba7c14462be61807749a9b77faf390ab68b8033e",
+        "periodScoreSignature": "16d72d7599fffb5bd0dc17b56c99f4f9ffbf27c69b67cb66e4b66a342511900d",
+        "periodScores": {
+          "index": 2,
+          "scores": [
+            "การงาน:87",
+            "การเงิน:81",
+            "ความรัก:75",
+            "สุขภาพ:78",
+            "เติบโต:99",
+            "โอกาส:97"
+          ],
+          "easeIndex": 86,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S275",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "",
+      "structuredSource": {
+        "profileEngineFactSignature": "542746776a3db39d44c0c11da556fbd0830e74a48a174e1ce403a2aec438fd15",
+        "lifePeriodSignature": "9a6999764623e9f21084671aba7c14462be61807749a9b77faf390ab68b8033e",
+        "periodScoreSignature": "16d72d7599fffb5bd0dc17b56c99f4f9ffbf27c69b67cb66e4b66a342511900d",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:66",
+            "การเงิน:67",
+            "ความรัก:60",
+            "สุขภาพ:60",
+            "เติบโต:80",
+            "โอกาส:89"
+          ],
+          "easeIndex": 70,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S279",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 2,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "b7872e9dd553c415ed821f56cf3b6d99473976d7432e1e22500fb2b5edd8ac7d",
+        "lifePeriodSignature": "6d03cff1743849fdf0fbbb8851d4152a99a1559c932981416b848ca68768482d",
+        "periodScoreSignature": "31539b5360358312e6ce17b6d655bc1337857d3f391c24a16028f5c5d6e14d08",
+        "periodScores": {
+          "index": 2,
+          "scores": [
+            "การงาน:85",
+            "การเงิน:81",
+            "ความรัก:81",
+            "สุขภาพ:78",
+            "เติบโต:99",
+            "โอกาส:98"
+          ],
+          "easeIndex": 87,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S279",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "",
+      "structuredSource": {
+        "profileEngineFactSignature": "b7872e9dd553c415ed821f56cf3b6d99473976d7432e1e22500fb2b5edd8ac7d",
+        "lifePeriodSignature": "6d03cff1743849fdf0fbbb8851d4152a99a1559c932981416b848ca68768482d",
+        "periodScoreSignature": "31539b5360358312e6ce17b6d655bc1337857d3f391c24a16028f5c5d6e14d08",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:68",
+            "การเงิน:64",
+            "ความรัก:59",
+            "สุขภาพ:57",
+            "เติบโต:81",
+            "โอกาส:88"
+          ],
+          "easeIndex": 70,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S280",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 4,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "4c8b1d24cdcdc92e2847308a157f2b80871899afa51d049c384d9d3bddf4ae46",
+        "lifePeriodSignature": "5cf3a3890170d1fc6bee16185b24e09f0e4e135463437fd391acd6192aaa70dc",
+        "periodScoreSignature": "01a30ae0e9f8515ec732e4e9de4ee5d44de3c6023d53bbff2295491d6dd71d86",
+        "periodScores": {
+          "index": 4,
+          "scores": [
+            "การงาน:67",
+            "การเงิน:65",
+            "ความรัก:60",
+            "สุขภาพ:55",
+            "เติบโต:85",
+            "โอกาส:89"
+          ],
+          "easeIndex": 70,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S283",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 1,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "ff3c29779bc4716f159088149c5b0d4ac7b98715b7a799c03cd74282205366fa",
+        "lifePeriodSignature": "284cba44dc4d12196a7c8cfd692b2ce2bb8465f4fb23d24410c9f396f00800c5",
+        "periodScoreSignature": "f7856da2052653daaf97ab65619f93b1a492775e2e0318c32e9ba5e74cd2169a",
+        "periodScores": {
+          "index": 1,
+          "scores": [
+            "การงาน:71",
+            "การเงิน:69",
+            "ความรัก:61",
+            "สุขภาพ:55",
+            "เติบโต:77",
+            "โอกาส:88"
+          ],
+          "easeIndex": 70,
+          "accentIndex": 7
+        }
+      }
+    },
+    {
+      "profileId": "S289",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "ce4e6ac8dc376061a549a5e48f364eebe32d55cea2ab08fbe5c0b2d679a4698b",
+        "lifePeriodSignature": "070650e002742cca0ba4f78869a43ab912e06a5745394f7d08d914a4a75cd7c5",
+        "periodScoreSignature": "82c061de22a342d6059e2519bba38cf1d079a864ceaa11213746174b47e48049",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:85",
+            "การเงิน:74",
+            "ความรัก:66",
+            "สุขภาพ:71",
+            "เติบโต:99",
+            "โอกาส:92"
+          ],
+          "easeIndex": 81,
+          "accentIndex": 4
+        }
+      }
+    },
+    {
+      "profileId": "S291",
+      "birthTimeMode": "unknown",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 3,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "e01f9291d013528032971ee07f646ec6d65e18832ca4c7bdd4b7a73fad34029f",
+        "lifePeriodSignature": "bf4280f49af09974431ba96544e8b019fcd2a607d35ee54a213f8c803c768da4",
+        "periodScoreSignature": "3d05ad1383b34756dd2529c89b5dcbf1de633281eb131d5b0b7ce0ee14419ef6",
+        "periodScores": {
+          "index": 3,
+          "scores": [
+            "การงาน:84",
+            "การเงิน:77",
+            "ความรัก:68",
+            "สุขภาพ:72",
+            "เติบโต:92",
+            "โอกาส:88"
+          ],
+          "easeIndex": 80,
+          "accentIndex": 3
+        }
+      }
+    },
+    {
+      "profileId": "S297",
+      "birthTimeMode": "known",
+      "section": "lifeTimeline.periods",
+      "periodIndex": 5,
+      "field": "summary",
+      "before": "ต่อไปมีโอกาสใหม่เข้ามาจากงานหรือคนรู้จัก",
+      "after": "ช่วงนี้ชวนให้เปิดรับโอกาสผ่านงานหรือเครือข่าย แล้วดูจากผลที่เกิดขึ้นจริงว่าอะไรควรทำต่อ",
+      "structuredSource": {
+        "profileEngineFactSignature": "7780642922558af4060843494dc474ea450f76c0de92925262f443797fb92724",
+        "lifePeriodSignature": "d92a8472ae33c622eeaebbb20ef5337ed03290b6f7111693b2af4fcf9b6eae5e",
+        "periodScoreSignature": "7f1d84d46e0d3fe67a64a6a407292ab31e4ba07b2299ba571cfa9f9065b960a8",
+        "periodScores": {
+          "index": 5,
+          "scores": [
+            "การงาน:94",
+            "การเงิน:82",
+            "ความรัก:83",
+            "สุขภาพ:83",
+            "เติบโต:99",
+            "โอกาส:99"
+          ],
+          "easeIndex": 90,
+          "accentIndex": 4
+        }
+      }
+    }
+  ]
+}

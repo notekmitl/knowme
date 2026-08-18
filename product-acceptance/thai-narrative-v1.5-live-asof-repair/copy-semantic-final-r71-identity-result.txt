@@ -1,0 +1,17 @@
+identitySource: immutable R7 and R7.1 ZIP bytes; working-checkout line-ending filters excluded
+r7.1ZipBytes: 10709328
+r7.1ZipSha256: 9E541F21C68FDAD93BC595C55BD0BE23600F88454CFBA7FAB6C713FE53F79E58
+r7.1ZipEntries: 80
+unsafeZipEntries: 0
+zipChecksumEntries: 79
+zipChecksumMismatches: 0
+immutableFilesCompared: 63
+immutableMismatches: 0
+canonicalWebPdfPairs: 5/5
+canonicalWebPdfMismatches: 0
+ownerKnown: Aquarius 19°19′
+regression0003: Aquarius 9°24′
+unknownFailClosedNoLagna: true
+claimTraceability: 170/170
+r1ThroughR7.1ModifiedPaths: 0
+result: PASS

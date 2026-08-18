@@ -7,6 +7,7 @@ import '../models/thai_mirror_section.dart';
 import '../models/thai_mirror_section_id.dart';
 
 import '../models/thai_mirror_theme_ref.dart';
+import '../thai_mirror_stable_hash.dart';
 
 import 'copy/thai_mirror_consumer_copy.dart';
 import 'copy/thai_mirror_content_context.dart';
@@ -422,18 +423,27 @@ abstract final class ThaiMirrorConsumerPresenter {
   }) {
     var seed = 0;
     for (var i = 0; i < allThemeIds.length; i++) {
-      seed ^= allThemeIds[i].hashCode * (i + 17);
+      seed = ThaiMirrorStableHash.exactXor(
+        seed,
+        ThaiMirrorStableHash.string(allThemeIds[i]) * (i + 17),
+      );
     }
     if (themeScores != null) {
       for (var i = 0; i < themeScores.length; i++) {
-        seed ^= (themeScores[i] * 10000).round() * (i + 1);
+        seed = ThaiMirrorStableHash.exactXor(
+          seed,
+          (themeScores[i] * 10000).round() * (i + 1),
+        );
       }
     }
     if (lagnaKey != null && lagnaKey.isNotEmpty) {
-      seed ^= lagnaKey.hashCode * 29;
+      seed = ThaiMirrorStableHash.exactXor(
+        seed,
+        ThaiMirrorStableHash.string(lagnaKey) * 29,
+      );
     }
     if (seed == 0 && topThemeIds.isNotEmpty) {
-      seed = topThemeIds.first.hashCode;
+      seed = ThaiMirrorStableHash.string(topThemeIds.first);
     }
     return seed;
   }

@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 import '../../application/thai_beta_analysis.dart';
+import '../../application/thai_beta_analysis_clock.dart';
 import '../../application/thai_beta_current_analysis.dart';
 import '../../domain/thai_beta_input.dart';
 import '../thai_beta_province_options.dart';
@@ -11,9 +12,34 @@ import '../widgets/thai_beta_province_field.dart';
 import '../widgets/thai_beta_time_picker.dart';
 import 'thai_beta_summary_page.dart';
 
+DateTime _systemNow() => DateTime.now();
+
+typedef ThaiBetaAnalysisExecutor = Future<ThaiBetaAnalysis> Function(
+  ThaiBetaInput input, {
+  required DateTime startedAt,
+  required DateTime asOf,
+});
+
+Future<ThaiBetaAnalysis> _runAnalysis(
+  ThaiBetaInput input, {
+  required DateTime startedAt,
+  required DateTime asOf,
+}) => ThaiBetaAnalysisRunner.runAsync(
+  input,
+  startedAt: startedAt,
+  asOf: asOf,
+);
+
 /// `/beta/thai` — the public Thai Astrology Research entry form.
 class ThaiBetaInputPage extends StatefulWidget {
-  const ThaiBetaInputPage({super.key});
+  const ThaiBetaInputPage({
+    super.key,
+    this.clock = _systemNow,
+    this.analysisExecutor = _runAnalysis,
+  });
+
+  final DateTime Function() clock;
+  final ThaiBetaAnalysisExecutor analysisExecutor;
 
   @override
   State<ThaiBetaInputPage> createState() => _ThaiBetaInputPageState();
@@ -33,9 +59,15 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
   String? _gender;
 
   /// Session start — drives `durationSeconds` on the persisted record.
-  final DateTime _startedAt = DateTime.now();
+  late final DateTime _startedAt;
 
   static const _genders = ['ชาย', 'หญิง', 'อื่น ๆ', 'ไม่ระบุ'];
+
+  @override
+  void initState() {
+    super.initState();
+    _startedAt = widget.clock();
+  }
 
   @override
   void dispose() {
@@ -65,6 +97,7 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
       );
       return;
     }
+    final submittedAt = widget.clock();
 
     final displayedHour = int.tryParse(_birthHourController.text.trim());
     final resolvedHour = _birthHour ??
@@ -83,15 +116,19 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
       gender: _gender,
     );
 
-    unawaited(_submitAnalysis(input));
+    unawaited(_submitAnalysis(input, submittedAt: submittedAt));
   }
 
-  Future<void> _submitAnalysis(ThaiBetaInput input) async {
+  Future<void> _submitAnalysis(
+    ThaiBetaInput input, {
+    required DateTime submittedAt,
+  }) async {
     // New attempt must not leave a prior success exportable if this run fails.
     ThaiBetaCurrentAnalysis.clear();
-    final analysis = await ThaiBetaAnalysisRunner.runAsync(
+    final analysis = await widget.analysisExecutor(
       input,
       startedAt: _startedAt,
+      asOf: ThaiBetaAnalysisClock.asBangkokCivil(submittedAt),
     );
     if (!mounted) return;
     ThaiBetaCurrentAnalysis.set(analysis);

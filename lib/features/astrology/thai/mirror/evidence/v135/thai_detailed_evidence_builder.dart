@@ -11,6 +11,7 @@ import 'package:knowme/features/astrology/thai/foundation/v2/models/thai_lagna.d
 import 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mirror_evidence_composer.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/period_composite_score.dart';
 
+import '../../thai_mirror_stable_hash.dart';
 import 'thai_birthday_year_window.dart';
 import 'thai_detected_event.dart';
 import 'thai_evidence_item.dart';
@@ -172,8 +173,11 @@ abstract final class ThaiDetailedEvidenceBuilder {
 
     for (final p in timeline.periods) {
       final data = LifePlanets.of(p.planet);
-      final seed =
-          profileSeed ^ (p.planet.index * 2246822519) ^ (p.index * 40503);
+      final seed = ThaiMirrorStableHash.exactXorAll([
+        profileSeed,
+        p.planet.index * 2246822519,
+        p.index * 40503,
+      ]);
       final scores = PeriodCompositeScore.evaluate(
         period: p,
         lagnaLord: lagnaLord,

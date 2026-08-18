@@ -1,0 +1,20 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/v15-production-release-clean/test/validation/thai_beta/narrative/thai_consumer_narrative_acceptance_artifact_test.dart
+00:00 +0: acceptance export and screenshots exit without pending timers
+Shell: [V14_STAGE] 2026-08-16T10:34:32.972009Z fixture-loading start
+Shell: [V14_STAGE] 2026-08-16T10:34:32.976525Z known-canonical-analysis start
+Shell: [V14_STAGE] 2026-08-16T10:34:33.069367Z known-canonical-analysis complete
+Shell: [V14_STAGE] 2026-08-16T10:34:33.069367Z unknown-canonical-analysis start
+Shell: [V14_STAGE] 2026-08-16T10:34:33.087714Z unknown-canonical-analysis complete
+Shell: [V14_STAGE] 2026-08-16T10:34:33.118445Z fixture-loading complete
+Shell: [V14_STAGE] 2026-08-16T10:34:33.118445Z pdf-generation:owner-known-0035 start
+Shell: [V14_STAGE] 2026-08-16T10:34:33.384188Z web-pdf-canonical:owner-known-0035 complete
+Shell: [V14_STAGE] 2026-08-16T10:34:33.384188Z pdf-generation:owner-unknown start
+Shell: [V14_STAGE] 2026-08-16T10:34:33.470929Z web-pdf-canonical:owner-unknown complete
+Shell: [V14_STAGE] 2026-08-16T10:34:33.470929Z pdf-generation:regression-known-0003 start
+Shell: [V14_STAGE] 2026-08-16T10:34:33.518445Z web-pdf-canonical:regression-known-0003 complete
+Shell: [V14_STAGE] 2026-08-16T10:34:33.518445Z pdf-generation:comparison-known-bangkok start
+Shell: [V14_STAGE] 2026-08-16T10:34:33.559811Z web-pdf-canonical:comparison-known-bangkok complete
+Shell: [V14_STAGE] 2026-08-16T10:34:33.559811Z pdf-generation:comparison-known-khon-kaen start
+Shell: [V14_STAGE] 2026-08-16T10:34:33.596572Z web-pdf-canonical:comparison-known-khon-kaen complete
+Shell: [V14_STAGE] 2026-08-16T10:34:34.509187Z manifest-generation complete
+00:01 +1: All tests passed!

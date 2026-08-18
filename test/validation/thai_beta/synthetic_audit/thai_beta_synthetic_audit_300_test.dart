@@ -11,6 +11,8 @@ import 'package:knowme/features/thai_beta/application/thai_beta_report_export_sa
 import 'package:knowme/features/thai_beta/application/thai_beta_report_pdf_exporter.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 
+import 'thai_beta_synthetic_matrix_300.dart';
+
 const _referenceDate = '2026-08-03T00:00:00.000Z';
 
 String _forecastField(PredictionDomainModel model, ForecastField field) =>
@@ -23,7 +25,7 @@ String _forecastField(PredictionDomainModel model, ForecastField field) =>
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
-  final cases = _SyntheticMatrix.build();
+  final cases = ThaiBetaSyntheticMatrix.build();
 
   test('matrix has exactly 300 reproducible privacy-safe cases', () {
     expect(cases, hasLength(300));
@@ -335,7 +337,7 @@ void main() {
       // ignore: avoid_print
       print(
         jsonEncode({
-          'seed': _SyntheticMatrix.seed,
+          'seed': ThaiBetaSyntheticMatrix.seed,
           'cases': cases.length,
           'knownTime': known,
           'unknownTime': unknown,
@@ -380,7 +382,7 @@ void main() {
   test(
     '30 stratified cases are deterministic across three runs',
     () {
-      final sample = <_SyntheticCase>[
+      final sample = <ThaiBetaSyntheticCase>[
         ...cases.where((c) => !c.input.hasBirthTime).take(10),
         ...cases.where((c) => c.boundary).take(10),
         ...cases.where((c) => c.input.hasBirthTime && !c.boundary).take(10),
@@ -424,7 +426,7 @@ void main() {
   test(
     '20 representative cases produce real PDFs with Web semantic parity',
     () async {
-      final sample = <_SyntheticCase>[
+      final sample = <ThaiBetaSyntheticCase>[
         ...cases.where((c) => !c.input.hasBirthTime).take(5),
         ...cases.where((c) => c.boundary && c.input.hasBirthTime).take(10),
         ...cases.where((c) => !c.boundary && c.input.hasBirthTime).take(5),
@@ -536,7 +538,7 @@ String _narrativeSignature(ThaiBetaAnalysis analysis) {
   return _normalize(parts.where((part) => part.trim().isNotEmpty).join('\n'));
 }
 
-ThaiBetaAnalysis _run(_SyntheticCase c) => ThaiBetaAnalysisRunner.run(
+ThaiBetaAnalysis _run(ThaiBetaSyntheticCase c) => ThaiBetaAnalysisRunner.run(
   c.input,
   startedAt: DateTime.parse(_referenceDate),
   asOf: DateTime.parse(_referenceDate),
@@ -573,104 +575,3 @@ String _normalize(String value) => value
     .replaceAll(RegExp(r'\s+'), '')
     .replaceAll(RegExp(r'[\-–—:;,.!?()•]'), '')
     .toLowerCase();
-
-class _SyntheticCase {
-  const _SyntheticCase({
-    required this.id,
-    required this.input,
-    required this.boundary,
-  });
-  final String id;
-  final ThaiBetaInput input;
-  final bool boundary;
-}
-
-abstract final class _SyntheticMatrix {
-  static const seed = 20260803;
-  static const _locations = <(String, String)>[
-    ('กรุงเทพมหานคร', 'bangkok'),
-    ('เชียงใหม่', 'chiang mai'),
-    ('ขอนแก่น', 'khon kaen'),
-    ('ภูเก็ต', 'phuket'),
-    ('สงขลา', 'songkhla'),
-    ('อุบลราชธานี', 'ubon ratchathani'),
-  ];
-  static const _times = <(int, int)>[
-    (0, 0),
-    (0, 1),
-    (2, 0),
-    (5, 29),
-    (5, 30),
-    (5, 31),
-    (11, 59),
-    (12, 0),
-    (12, 1),
-    (18, 0),
-    (23, 0),
-    (23, 59),
-  ];
-  static final _boundaries = <DateTime>[
-    DateTime(1952, 2, 29),
-    DateTime(1960, 12, 31),
-    DateTime(1961, 1, 1),
-    DateTime(1972, 4, 5),
-    DateTime(1972, 4, 6),
-    DateTime(1980, 2, 29),
-    DateTime(1988, 1, 31),
-    DateTime(1990, 4, 30),
-    DateTime(1999, 12, 31),
-    DateTime(2000, 1, 1),
-    DateTime(2000, 2, 29),
-    DateTime(2004, 2, 29),
-    DateTime(2008, 12, 31),
-    DateTime(2009, 1, 1),
-    DateTime(2012, 2, 29),
-    DateTime(2016, 7, 31),
-    DateTime(2020, 2, 29),
-    DateTime(2020, 12, 31),
-    DateTime(2021, 1, 1),
-    DateTime(2024, 2, 29),
-    DateTime(2024, 3, 1),
-    DateTime(2025, 12, 31),
-    DateTime(2026, 1, 1),
-    DateTime(2026, 7, 31),
-  ];
-
-  static List<_SyntheticCase> build() => List.generate(300, (index) {
-    final id = 'S${(index + 1).toString().padLeft(3, '0')}';
-    // One in four cases is unknown-time. Offset 2 keeps the explicit
-    // 00:00, 00:01, sunrise-neighbour and 23:59 boundaries in known-time
-    // cases while preserving the required 225/75 split.
-    final unknown = index % 4 == 2;
-    final boundary = index < _boundaries.length;
-    final date = boundary ? _boundaries[index] : _validDate(index);
-    final time = _times[index % _times.length];
-    final location = _locations[index % _locations.length];
-    return _SyntheticCase(
-      id: id,
-      boundary: boundary,
-      input: ThaiBetaInput(
-        firstName: id,
-        lastName: 'Synthetic',
-        birthDate: date,
-        birthHour: unknown ? null : time.$1,
-        birthMinute: unknown ? 0 : time.$2,
-        birthTimeUnknown: unknown,
-        province: location.$1,
-        provinceKey: location.$2,
-      ),
-    );
-  });
-
-  static DateTime _validDate(int index) {
-    // Break the 228-row joint cycle of year/month/location so every synthetic
-    // case exercises distinct consumer material rather than differing only in
-    // birth-date metadata.
-    final materialCycle = index ~/ 228;
-    final year = 1950 + ((index * 37 + materialCycle + seed) % 76);
-    final month = 1 + (index % 12);
-    final lastDay = DateTime(year, month + 1, 0).day;
-    final day = 1 + ((index * 11 + seed) % lastDay);
-    return DateTime(year, month, day);
-  }
-}

@@ -1,0 +1,37 @@
+capturedAtAsiaBangkok: 2026-08-18
+branch: codex/v15-live-asof-contract-repair
+expectedHead: 5fb22b5e2998c5c59baf579fe81d8f21c1fda709
+localHead: 5fb22b5e2998c5c59baf579fe81d8f21c1fda709
+remoteTrackingHead: 5fb22b5e2998c5c59baf579fe81d8f21c1fda709
+prHead: 5fb22b5e2998c5c59baf579fe81d8f21c1fda709
+prState: OPEN DRAFT UNMERGED MERGEABLE
+production: V1.4
+productionHostingVersion: 10af10c6d960d590
+
+preEditWorktreeContract:
+- modified source files: 3
+- new focused test files: 1
+- untracked evidence files carried from the blocked candidate: 31
+- unrelated or unexplained paths: 0
+
+trackedCandidateDiffStat:
+- life_map_plain_thai_renderer.dart: +1
+- life_map_semantic_mapper.dart: +5/-1
+- thai_beta_narrative_composer.dart: +7/-20
+- total: 3 files changed, 13 insertions, 21 deletions
+
+candidateSourcePaths:
+- lib/features/astrology/thai/mirror/presentation/timeline/life_map_plain_thai_renderer.dart
+- lib/features/astrology/thai/mirror/presentation/timeline/life_map_semantic_mapper.dart
+- lib/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart
+
+candidateFocusedTest:
+- test/validation/thai_beta/live_asof/thai_beta_copy_semantic_safety_test.dart
+
+authorizedTestMigrationTarget:
+- test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart
+
+safetyNotes:
+- No reset, clean, checkout, stash, merge, deploy, or Firebase mutation was run.
+- R1-R7.1 paths were not modified.
+- The GitHub CLI credential is valid through the Windows keyring; the connected GitHub PR snapshot independently confirmed the PR state above.
