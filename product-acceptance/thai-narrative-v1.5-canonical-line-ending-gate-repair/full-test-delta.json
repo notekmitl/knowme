@@ -1,0 +1,31 @@
+{
+  "schema": "knowme-v15-line-ending-full-suite-reconciliation-v1",
+  "command": "flutter test --no-pub --reporter expanded",
+  "toolchain": "Flutter 3.41.1 / Dart 3.11.0",
+  "branch": {
+    "base": "bb85b07c643bc35cef076df066cb191f2f0a7d24",
+    "passed": 2925,
+    "failed": 39,
+    "log": "full-test-branch-result.txt"
+  },
+  "pinnedMainLfCheckout": {
+    "commit": "bb85b07c643bc35cef076df066cb191f2f0a7d24",
+    "coreAutocrlf": false,
+    "passed": 2914,
+    "failed": 39,
+    "log": "full-test-main-lf-result.txt"
+  },
+  "diagnosticMainCrlfCheckout": {
+    "commit": "bb85b07c643bc35cef076df066cb191f2f0a7d24",
+    "systemCoreAutocrlf": true,
+    "passed": 2910,
+    "failed": 43,
+    "mainOnlyLineEndingFailures": 4,
+    "log": "full-test-main-result.txt"
+  },
+  "sharedFailureCount": 39,
+  "sharedSortedFailureIdsSha256": "9D318B03D028828D7A5208262DC6BC5EC2351FF1DF5916A90572D191BF3655A6",
+  "branchOnlyFailureCount": 0,
+  "mainOnlyFailureCount": 0,
+  "result": "PASS"
+}

@@ -7,6 +7,7 @@ import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 
 import '../synthetic_audit/thai_beta_synthetic_matrix_300.dart';
+import 'thai_beta_canonical_text_contract.dart';
 import 'thai_beta_cross_runtime_manifest.dart';
 
 void main() {
@@ -260,13 +261,18 @@ void main() {
     final secondText = ThaiBetaReportExportDocument.fromAnalysis(
       second,
     ).fullPlainText;
-    final accepted = File(
-      'product-acceptance/thai-narrative-v1.5-r7.1/evidence/'
-      'owner-unknown-web-text.txt',
-    ).readAsStringSync();
+    const fixturePath =
+        'product-acceptance/thai-narrative-v1.5-r7.1/evidence/'
+        'owner-unknown-web-text.txt';
 
-    expect(firstText, accepted);
-    expect(secondText, accepted);
+    expectCanonicalFixtureText(
+      pipelineText: firstText,
+      fixturePath: fixturePath,
+    );
+    expectCanonicalFixtureText(
+      pipelineText: secondText,
+      fixturePath: fixturePath,
+    );
     expect(firstText, secondText);
     expect(first.profile?.siderealAscendantDeg, isNull);
     expect(firstText, contains('ไม่ทราบเวลาเกิด'));

@@ -1,0 +1,16 @@
+base: bb85b07c643bc35cef076df066cb191f2f0a7d24
+allowedScope: test/comparison harness, harness tests, docs, new repair evidence
+applicationSourceChangedPaths: 0
+canonicalChangedPaths: 0
+goldenChangedPaths: 0
+expectedOutputChangedPaths: 0
+r1ThroughR7.1ChangedPaths: 0
+acceptedZipPdfChangedPaths: 0
+firebaseConfigChangedPaths: 0
+rootGitattributesChangedPaths: 0
+testComparisonFilesModified: 4
+testComparisonFilesAdded: 2
+docsModified: 2
+docsAdded: 1
+newEvidencePacketOnly: true
+result: PASS

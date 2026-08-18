@@ -1,0 +1,375 @@
+{
+  "schema": "knowme-v15-line-ending-root-cause-probe-v1",
+  "comparisons": [
+    {
+      "fixture": "owner-known-0035",
+      "format": "web",
+      "fixturePath": "product-acceptance/thai-narrative-v1.5-r7.1/evidence/owner-known-0035-web-text.txt",
+      "fixtureRawBytes": 26713,
+      "fixtureRawSha256": "951f6dd5c027f5d130a0af783fb3b4849a00d083b5afec8dc7a16504608d9918",
+      "fixtureRawLineEndings": {
+        "crlf": 114,
+        "standaloneCr": 0,
+        "standaloneLf": 0
+      },
+      "fixtureRawTrailingNewline": true,
+      "fixtureRawBlankLines": 1,
+      "pipelineBytes": 26599,
+      "pipelineSha256": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+      "pipelineLineEndings": {
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114
+      },
+      "pipelineTrailingNewline": true,
+      "pipelineBlankLines": 1,
+      "rawFirstDifference": {
+        "offset": 22,
+        "leftCodeUnit": 13,
+        "rightCodeUnit": 10
+      },
+      "normalizedBytes": 26599,
+      "normalizedSha256": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+      "normalizedFirstDifference": {
+        "offset": -1,
+        "leftCodeUnit": null,
+        "rightCodeUnit": null
+      },
+      "normalizedExact": true,
+      "pipelineContainsCarriageReturn": false
+    },
+    {
+      "fixture": "owner-known-0035",
+      "format": "pdf",
+      "fixturePath": "product-acceptance/thai-narrative-v1.5-r7.1/evidence/owner-known-0035-pdf-text.txt",
+      "fixtureRawBytes": 26713,
+      "fixtureRawSha256": "951f6dd5c027f5d130a0af783fb3b4849a00d083b5afec8dc7a16504608d9918",
+      "fixtureRawLineEndings": {
+        "crlf": 114,
+        "standaloneCr": 0,
+        "standaloneLf": 0
+      },
+      "fixtureRawTrailingNewline": true,
+      "fixtureRawBlankLines": 1,
+      "pipelineBytes": 26599,
+      "pipelineSha256": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+      "pipelineLineEndings": {
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114
+      },
+      "pipelineTrailingNewline": true,
+      "pipelineBlankLines": 1,
+      "rawFirstDifference": {
+        "offset": 22,
+        "leftCodeUnit": 13,
+        "rightCodeUnit": 10
+      },
+      "normalizedBytes": 26599,
+      "normalizedSha256": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+      "normalizedFirstDifference": {
+        "offset": -1,
+        "leftCodeUnit": null,
+        "rightCodeUnit": null
+      },
+      "normalizedExact": true,
+      "pipelineContainsCarriageReturn": false
+    },
+    {
+      "fixture": "owner-unknown",
+      "format": "web",
+      "fixturePath": "product-acceptance/thai-narrative-v1.5-r7.1/evidence/owner-unknown-web-text.txt",
+      "fixtureRawBytes": 24026,
+      "fixtureRawSha256": "9acf14b26b116fd34af1c9b4bfd61e436b645f0667b49f27d4acea5e53d88799",
+      "fixtureRawLineEndings": {
+        "crlf": 104,
+        "standaloneCr": 0,
+        "standaloneLf": 0
+      },
+      "fixtureRawTrailingNewline": true,
+      "fixtureRawBlankLines": 1,
+      "pipelineBytes": 23922,
+      "pipelineSha256": "dc1bd76ea0dfa6139a15f048503b92de228aa46809596a588abdb3b8e3681fab",
+      "pipelineLineEndings": {
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 104
+      },
+      "pipelineTrailingNewline": true,
+      "pipelineBlankLines": 1,
+      "rawFirstDifference": {
+        "offset": 22,
+        "leftCodeUnit": 13,
+        "rightCodeUnit": 10
+      },
+      "normalizedBytes": 23922,
+      "normalizedSha256": "dc1bd76ea0dfa6139a15f048503b92de228aa46809596a588abdb3b8e3681fab",
+      "normalizedFirstDifference": {
+        "offset": -1,
+        "leftCodeUnit": null,
+        "rightCodeUnit": null
+      },
+      "normalizedExact": true,
+      "pipelineContainsCarriageReturn": false
+    },
+    {
+      "fixture": "owner-unknown",
+      "format": "pdf",
+      "fixturePath": "product-acceptance/thai-narrative-v1.5-r7.1/evidence/owner-unknown-pdf-text.txt",
+      "fixtureRawBytes": 24026,
+      "fixtureRawSha256": "9acf14b26b116fd34af1c9b4bfd61e436b645f0667b49f27d4acea5e53d88799",
+      "fixtureRawLineEndings": {
+        "crlf": 104,
+        "standaloneCr": 0,
+        "standaloneLf": 0
+      },
+      "fixtureRawTrailingNewline": true,
+      "fixtureRawBlankLines": 1,
+      "pipelineBytes": 23922,
+      "pipelineSha256": "dc1bd76ea0dfa6139a15f048503b92de228aa46809596a588abdb3b8e3681fab",
+      "pipelineLineEndings": {
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 104
+      },
+      "pipelineTrailingNewline": true,
+      "pipelineBlankLines": 1,
+      "rawFirstDifference": {
+        "offset": 22,
+        "leftCodeUnit": 13,
+        "rightCodeUnit": 10
+      },
+      "normalizedBytes": 23922,
+      "normalizedSha256": "dc1bd76ea0dfa6139a15f048503b92de228aa46809596a588abdb3b8e3681fab",
+      "normalizedFirstDifference": {
+        "offset": -1,
+        "leftCodeUnit": null,
+        "rightCodeUnit": null
+      },
+      "normalizedExact": true,
+      "pipelineContainsCarriageReturn": false
+    },
+    {
+      "fixture": "regression-known-0003",
+      "format": "web",
+      "fixturePath": "product-acceptance/thai-narrative-v1.5-r7.1/evidence/regression-known-0003-web-text.txt",
+      "fixtureRawBytes": 26712,
+      "fixtureRawSha256": "ea07eed75d7307066acc7d0b5d5f219ab35858e4411adad0471031c32a314cb4",
+      "fixtureRawLineEndings": {
+        "crlf": 114,
+        "standaloneCr": 0,
+        "standaloneLf": 0
+      },
+      "fixtureRawTrailingNewline": true,
+      "fixtureRawBlankLines": 1,
+      "pipelineBytes": 26598,
+      "pipelineSha256": "2c1880acb74d1523cca814512b1e53d0c06df71f7e77fdd278e4ba43fdee3177",
+      "pipelineLineEndings": {
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114
+      },
+      "pipelineTrailingNewline": true,
+      "pipelineBlankLines": 1,
+      "rawFirstDifference": {
+        "offset": 22,
+        "leftCodeUnit": 13,
+        "rightCodeUnit": 10
+      },
+      "normalizedBytes": 26598,
+      "normalizedSha256": "2c1880acb74d1523cca814512b1e53d0c06df71f7e77fdd278e4ba43fdee3177",
+      "normalizedFirstDifference": {
+        "offset": -1,
+        "leftCodeUnit": null,
+        "rightCodeUnit": null
+      },
+      "normalizedExact": true,
+      "pipelineContainsCarriageReturn": false
+    },
+    {
+      "fixture": "regression-known-0003",
+      "format": "pdf",
+      "fixturePath": "product-acceptance/thai-narrative-v1.5-r7.1/evidence/regression-known-0003-pdf-text.txt",
+      "fixtureRawBytes": 26712,
+      "fixtureRawSha256": "ea07eed75d7307066acc7d0b5d5f219ab35858e4411adad0471031c32a314cb4",
+      "fixtureRawLineEndings": {
+        "crlf": 114,
+        "standaloneCr": 0,
+        "standaloneLf": 0
+      },
+      "fixtureRawTrailingNewline": true,
+      "fixtureRawBlankLines": 1,
+      "pipelineBytes": 26598,
+      "pipelineSha256": "2c1880acb74d1523cca814512b1e53d0c06df71f7e77fdd278e4ba43fdee3177",
+      "pipelineLineEndings": {
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114
+      },
+      "pipelineTrailingNewline": true,
+      "pipelineBlankLines": 1,
+      "rawFirstDifference": {
+        "offset": 22,
+        "leftCodeUnit": 13,
+        "rightCodeUnit": 10
+      },
+      "normalizedBytes": 26598,
+      "normalizedSha256": "2c1880acb74d1523cca814512b1e53d0c06df71f7e77fdd278e4ba43fdee3177",
+      "normalizedFirstDifference": {
+        "offset": -1,
+        "leftCodeUnit": null,
+        "rightCodeUnit": null
+      },
+      "normalizedExact": true,
+      "pipelineContainsCarriageReturn": false
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "format": "web",
+      "fixturePath": "product-acceptance/thai-narrative-v1.5-r7.1/evidence/comparison-known-bangkok-web-text.txt",
+      "fixtureRawBytes": 25767,
+      "fixtureRawSha256": "7f1b04f2371e26d8f8a0016e826631d0d6122996a6f1510a99e9b82869064330",
+      "fixtureRawLineEndings": {
+        "crlf": 112,
+        "standaloneCr": 0,
+        "standaloneLf": 0
+      },
+      "fixtureRawTrailingNewline": true,
+      "fixtureRawBlankLines": 1,
+      "pipelineBytes": 25655,
+      "pipelineSha256": "1da55e88c330307029f235f907a0b5bb274930bc359fa80ae8842e6d46017599",
+      "pipelineLineEndings": {
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 112
+      },
+      "pipelineTrailingNewline": true,
+      "pipelineBlankLines": 1,
+      "rawFirstDifference": {
+        "offset": 22,
+        "leftCodeUnit": 13,
+        "rightCodeUnit": 10
+      },
+      "normalizedBytes": 25655,
+      "normalizedSha256": "1da55e88c330307029f235f907a0b5bb274930bc359fa80ae8842e6d46017599",
+      "normalizedFirstDifference": {
+        "offset": -1,
+        "leftCodeUnit": null,
+        "rightCodeUnit": null
+      },
+      "normalizedExact": true,
+      "pipelineContainsCarriageReturn": false
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "format": "pdf",
+      "fixturePath": "product-acceptance/thai-narrative-v1.5-r7.1/evidence/comparison-known-bangkok-pdf-text.txt",
+      "fixtureRawBytes": 25767,
+      "fixtureRawSha256": "7f1b04f2371e26d8f8a0016e826631d0d6122996a6f1510a99e9b82869064330",
+      "fixtureRawLineEndings": {
+        "crlf": 112,
+        "standaloneCr": 0,
+        "standaloneLf": 0
+      },
+      "fixtureRawTrailingNewline": true,
+      "fixtureRawBlankLines": 1,
+      "pipelineBytes": 25655,
+      "pipelineSha256": "1da55e88c330307029f235f907a0b5bb274930bc359fa80ae8842e6d46017599",
+      "pipelineLineEndings": {
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 112
+      },
+      "pipelineTrailingNewline": true,
+      "pipelineBlankLines": 1,
+      "rawFirstDifference": {
+        "offset": 22,
+        "leftCodeUnit": 13,
+        "rightCodeUnit": 10
+      },
+      "normalizedBytes": 25655,
+      "normalizedSha256": "1da55e88c330307029f235f907a0b5bb274930bc359fa80ae8842e6d46017599",
+      "normalizedFirstDifference": {
+        "offset": -1,
+        "leftCodeUnit": null,
+        "rightCodeUnit": null
+      },
+      "normalizedExact": true,
+      "pipelineContainsCarriageReturn": false
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "format": "web",
+      "fixturePath": "product-acceptance/thai-narrative-v1.5-r7.1/evidence/comparison-known-khon-kaen-web-text.txt",
+      "fixtureRawBytes": 26304,
+      "fixtureRawSha256": "eb469dd7f4e5cd123879ae8e5c74c92b6dd630107043f8e350ad546cad90bb52",
+      "fixtureRawLineEndings": {
+        "crlf": 114,
+        "standaloneCr": 0,
+        "standaloneLf": 0
+      },
+      "fixtureRawTrailingNewline": true,
+      "fixtureRawBlankLines": 1,
+      "pipelineBytes": 26190,
+      "pipelineSha256": "d5ff068385f39798040336eb4a60a0241048e1fc6c6b4df919a8c583f0c49d62",
+      "pipelineLineEndings": {
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114
+      },
+      "pipelineTrailingNewline": true,
+      "pipelineBlankLines": 1,
+      "rawFirstDifference": {
+        "offset": 22,
+        "leftCodeUnit": 13,
+        "rightCodeUnit": 10
+      },
+      "normalizedBytes": 26190,
+      "normalizedSha256": "d5ff068385f39798040336eb4a60a0241048e1fc6c6b4df919a8c583f0c49d62",
+      "normalizedFirstDifference": {
+        "offset": -1,
+        "leftCodeUnit": null,
+        "rightCodeUnit": null
+      },
+      "normalizedExact": true,
+      "pipelineContainsCarriageReturn": false
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "format": "pdf",
+      "fixturePath": "product-acceptance/thai-narrative-v1.5-r7.1/evidence/comparison-known-khon-kaen-pdf-text.txt",
+      "fixtureRawBytes": 26304,
+      "fixtureRawSha256": "eb469dd7f4e5cd123879ae8e5c74c92b6dd630107043f8e350ad546cad90bb52",
+      "fixtureRawLineEndings": {
+        "crlf": 114,
+        "standaloneCr": 0,
+        "standaloneLf": 0
+      },
+      "fixtureRawTrailingNewline": true,
+      "fixtureRawBlankLines": 1,
+      "pipelineBytes": 26190,
+      "pipelineSha256": "d5ff068385f39798040336eb4a60a0241048e1fc6c6b4df919a8c583f0c49d62",
+      "pipelineLineEndings": {
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114
+      },
+      "pipelineTrailingNewline": true,
+      "pipelineBlankLines": 1,
+      "rawFirstDifference": {
+        "offset": 22,
+        "leftCodeUnit": 13,
+        "rightCodeUnit": 10
+      },
+      "normalizedBytes": 26190,
+      "normalizedSha256": "d5ff068385f39798040336eb4a60a0241048e1fc6c6b4df919a8c583f0c49d62",
+      "normalizedFirstDifference": {
+        "offset": -1,
+        "leftCodeUnit": null,
+        "rightCodeUnit": null
+      },
+      "normalizedExact": true,
+      "pipelineContainsCarriageReturn": false
+    }
+  ]
+}

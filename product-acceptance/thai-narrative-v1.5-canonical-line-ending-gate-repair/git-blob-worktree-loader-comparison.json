@@ -1,0 +1,666 @@
+{
+  "schema": "knowme-v15-git-blob-worktree-loader-comparison-v1",
+  "head": "bb85b07c643bc35cef076df066cb191f2f0a7d24",
+  "gitConfig": {
+    "coreAutocrlf": "file:C:/Program Files/Git/etc/gitconfig\ttrue",
+    "coreEol": null,
+    "coreSafecrlf": null
+  },
+  "gitAttributes": [
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/owner-known-0035-web-text.txt: text: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/owner-known-0035-web-text.txt: eol: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/owner-known-0035-web-text.txt: working-tree-encoding: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/owner-known-0035-pdf-text.txt: text: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/owner-known-0035-pdf-text.txt: eol: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/owner-known-0035-pdf-text.txt: working-tree-encoding: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/owner-unknown-web-text.txt: text: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/owner-unknown-web-text.txt: eol: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/owner-unknown-web-text.txt: working-tree-encoding: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/owner-unknown-pdf-text.txt: text: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/owner-unknown-pdf-text.txt: eol: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/owner-unknown-pdf-text.txt: working-tree-encoding: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/regression-known-0003-web-text.txt: text: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/regression-known-0003-web-text.txt: eol: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/regression-known-0003-web-text.txt: working-tree-encoding: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/regression-known-0003-pdf-text.txt: text: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/regression-known-0003-pdf-text.txt: eol: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/regression-known-0003-pdf-text.txt: working-tree-encoding: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/comparison-known-bangkok-web-text.txt: text: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/comparison-known-bangkok-web-text.txt: eol: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/comparison-known-bangkok-web-text.txt: working-tree-encoding: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/comparison-known-bangkok-pdf-text.txt: text: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/comparison-known-bangkok-pdf-text.txt: eol: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/comparison-known-bangkok-pdf-text.txt: working-tree-encoding: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/comparison-known-khon-kaen-web-text.txt: text: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/comparison-known-khon-kaen-web-text.txt: eol: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/comparison-known-khon-kaen-web-text.txt: working-tree-encoding: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/comparison-known-khon-kaen-pdf-text.txt: text: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/comparison-known-khon-kaen-pdf-text.txt: eol: unspecified",
+    "product-acceptance/thai-narrative-v1.5-r7.1/evidence/comparison-known-khon-kaen-pdf-text.txt: working-tree-encoding: unspecified"
+  ],
+  "comparisonCount": 10,
+  "normalizedExactCount": 10,
+  "hiddenDifferenceCount": 0,
+  "comparisons": [
+    {
+      "case": "owner-known-0035/web",
+      "fixturePath": "product-acceptance/thai-narrative-v1.5-r7.1/evidence/owner-known-0035-web-text.txt",
+      "gitBlob": {
+        "bytes": 26599,
+        "sha256": "08F446D1B72A10F985B80C34702785A4DE61AB96DE5DC01374837876D32396E3",
+        "utf8CodePoints": 9180,
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "worktree": {
+        "bytes": 26713,
+        "sha256": "951F6DD5C027F5D130A0AF783FB3B4849A00D083B5AFEC8DC7A16504608D9918",
+        "utf8CodePoints": 9294,
+        "crlf": 114,
+        "standaloneCr": 0,
+        "standaloneLf": 0,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "fixtureLoader": {
+        "bytes": 26713,
+        "sha256": "951F6DD5C027F5D130A0AF783FB3B4849A00D083B5AFEC8DC7A16504608D9918",
+        "utf8CodePoints": 9294,
+        "crlf": 114,
+        "standaloneCr": 0,
+        "standaloneLf": 0,
+        "trailingNewline": true,
+        "blankLines": 0,
+        "utf16CodeUnits": 9294
+      },
+      "pipeline": {
+        "bytes": 26599,
+        "sha256": "08F446D1B72A10F985B80C34702785A4DE61AB96DE5DC01374837876D32396E3",
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114,
+        "trailingNewline": true,
+        "blankLines": 1
+      },
+      "firstRawDifference": {
+        "offset": 22,
+        "leftCodeUnit": 13,
+        "rightCodeUnit": 10
+      },
+      "normalized": {
+        "bytes": 26599,
+        "sha256": "08F446D1B72A10F985B80C34702785A4DE61AB96DE5DC01374837876D32396E3",
+        "utf8CodePoints": 9180,
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "normalizedExactToPipeline": true,
+      "gitBlobExactToPipeline": true,
+      "normalizedExactToGitBlob": true
+    },
+    {
+      "case": "owner-known-0035/pdf",
+      "fixturePath": "product-acceptance/thai-narrative-v1.5-r7.1/evidence/owner-known-0035-pdf-text.txt",
+      "gitBlob": {
+        "bytes": 26599,
+        "sha256": "08F446D1B72A10F985B80C34702785A4DE61AB96DE5DC01374837876D32396E3",
+        "utf8CodePoints": 9180,
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "worktree": {
+        "bytes": 26713,
+        "sha256": "951F6DD5C027F5D130A0AF783FB3B4849A00D083B5AFEC8DC7A16504608D9918",
+        "utf8CodePoints": 9294,
+        "crlf": 114,
+        "standaloneCr": 0,
+        "standaloneLf": 0,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "fixtureLoader": {
+        "bytes": 26713,
+        "sha256": "951F6DD5C027F5D130A0AF783FB3B4849A00D083B5AFEC8DC7A16504608D9918",
+        "utf8CodePoints": 9294,
+        "crlf": 114,
+        "standaloneCr": 0,
+        "standaloneLf": 0,
+        "trailingNewline": true,
+        "blankLines": 0,
+        "utf16CodeUnits": 9294
+      },
+      "pipeline": {
+        "bytes": 26599,
+        "sha256": "08F446D1B72A10F985B80C34702785A4DE61AB96DE5DC01374837876D32396E3",
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114,
+        "trailingNewline": true,
+        "blankLines": 1
+      },
+      "firstRawDifference": {
+        "offset": 22,
+        "leftCodeUnit": 13,
+        "rightCodeUnit": 10
+      },
+      "normalized": {
+        "bytes": 26599,
+        "sha256": "08F446D1B72A10F985B80C34702785A4DE61AB96DE5DC01374837876D32396E3",
+        "utf8CodePoints": 9180,
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "normalizedExactToPipeline": true,
+      "gitBlobExactToPipeline": true,
+      "normalizedExactToGitBlob": true
+    },
+    {
+      "case": "owner-unknown/web",
+      "fixturePath": "product-acceptance/thai-narrative-v1.5-r7.1/evidence/owner-unknown-web-text.txt",
+      "gitBlob": {
+        "bytes": 23922,
+        "sha256": "DC1BD76EA0DFA6139A15F048503B92DE228AA46809596A588ABDB3B8E3681FAB",
+        "utf8CodePoints": 8241,
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 104,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "worktree": {
+        "bytes": 24026,
+        "sha256": "9ACF14B26B116FD34AF1C9B4BFD61E436B645F0667B49F27D4ACEA5E53D88799",
+        "utf8CodePoints": 8345,
+        "crlf": 104,
+        "standaloneCr": 0,
+        "standaloneLf": 0,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "fixtureLoader": {
+        "bytes": 24026,
+        "sha256": "9ACF14B26B116FD34AF1C9B4BFD61E436B645F0667B49F27D4ACEA5E53D88799",
+        "utf8CodePoints": 8345,
+        "crlf": 104,
+        "standaloneCr": 0,
+        "standaloneLf": 0,
+        "trailingNewline": true,
+        "blankLines": 0,
+        "utf16CodeUnits": 8345
+      },
+      "pipeline": {
+        "bytes": 23922,
+        "sha256": "DC1BD76EA0DFA6139A15F048503B92DE228AA46809596A588ABDB3B8E3681FAB",
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 104,
+        "trailingNewline": true,
+        "blankLines": 1
+      },
+      "firstRawDifference": {
+        "offset": 22,
+        "leftCodeUnit": 13,
+        "rightCodeUnit": 10
+      },
+      "normalized": {
+        "bytes": 23922,
+        "sha256": "DC1BD76EA0DFA6139A15F048503B92DE228AA46809596A588ABDB3B8E3681FAB",
+        "utf8CodePoints": 8241,
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 104,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "normalizedExactToPipeline": true,
+      "gitBlobExactToPipeline": true,
+      "normalizedExactToGitBlob": true
+    },
+    {
+      "case": "owner-unknown/pdf",
+      "fixturePath": "product-acceptance/thai-narrative-v1.5-r7.1/evidence/owner-unknown-pdf-text.txt",
+      "gitBlob": {
+        "bytes": 23922,
+        "sha256": "DC1BD76EA0DFA6139A15F048503B92DE228AA46809596A588ABDB3B8E3681FAB",
+        "utf8CodePoints": 8241,
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 104,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "worktree": {
+        "bytes": 24026,
+        "sha256": "9ACF14B26B116FD34AF1C9B4BFD61E436B645F0667B49F27D4ACEA5E53D88799",
+        "utf8CodePoints": 8345,
+        "crlf": 104,
+        "standaloneCr": 0,
+        "standaloneLf": 0,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "fixtureLoader": {
+        "bytes": 24026,
+        "sha256": "9ACF14B26B116FD34AF1C9B4BFD61E436B645F0667B49F27D4ACEA5E53D88799",
+        "utf8CodePoints": 8345,
+        "crlf": 104,
+        "standaloneCr": 0,
+        "standaloneLf": 0,
+        "trailingNewline": true,
+        "blankLines": 0,
+        "utf16CodeUnits": 8345
+      },
+      "pipeline": {
+        "bytes": 23922,
+        "sha256": "DC1BD76EA0DFA6139A15F048503B92DE228AA46809596A588ABDB3B8E3681FAB",
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 104,
+        "trailingNewline": true,
+        "blankLines": 1
+      },
+      "firstRawDifference": {
+        "offset": 22,
+        "leftCodeUnit": 13,
+        "rightCodeUnit": 10
+      },
+      "normalized": {
+        "bytes": 23922,
+        "sha256": "DC1BD76EA0DFA6139A15F048503B92DE228AA46809596A588ABDB3B8E3681FAB",
+        "utf8CodePoints": 8241,
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 104,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "normalizedExactToPipeline": true,
+      "gitBlobExactToPipeline": true,
+      "normalizedExactToGitBlob": true
+    },
+    {
+      "case": "regression-known-0003/web",
+      "fixturePath": "product-acceptance/thai-narrative-v1.5-r7.1/evidence/regression-known-0003-web-text.txt",
+      "gitBlob": {
+        "bytes": 26598,
+        "sha256": "2C1880ACB74D1523CCA814512B1E53D0C06DF71F7E77FDD278E4BA43FDEE3177",
+        "utf8CodePoints": 9179,
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "worktree": {
+        "bytes": 26712,
+        "sha256": "EA07EED75D7307066ACC7D0B5D5F219AB35858E4411ADAD0471031C32A314CB4",
+        "utf8CodePoints": 9293,
+        "crlf": 114,
+        "standaloneCr": 0,
+        "standaloneLf": 0,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "fixtureLoader": {
+        "bytes": 26712,
+        "sha256": "EA07EED75D7307066ACC7D0B5D5F219AB35858E4411ADAD0471031C32A314CB4",
+        "utf8CodePoints": 9293,
+        "crlf": 114,
+        "standaloneCr": 0,
+        "standaloneLf": 0,
+        "trailingNewline": true,
+        "blankLines": 0,
+        "utf16CodeUnits": 9293
+      },
+      "pipeline": {
+        "bytes": 26598,
+        "sha256": "2C1880ACB74D1523CCA814512B1E53D0C06DF71F7E77FDD278E4BA43FDEE3177",
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114,
+        "trailingNewline": true,
+        "blankLines": 1
+      },
+      "firstRawDifference": {
+        "offset": 22,
+        "leftCodeUnit": 13,
+        "rightCodeUnit": 10
+      },
+      "normalized": {
+        "bytes": 26598,
+        "sha256": "2C1880ACB74D1523CCA814512B1E53D0C06DF71F7E77FDD278E4BA43FDEE3177",
+        "utf8CodePoints": 9179,
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "normalizedExactToPipeline": true,
+      "gitBlobExactToPipeline": true,
+      "normalizedExactToGitBlob": true
+    },
+    {
+      "case": "regression-known-0003/pdf",
+      "fixturePath": "product-acceptance/thai-narrative-v1.5-r7.1/evidence/regression-known-0003-pdf-text.txt",
+      "gitBlob": {
+        "bytes": 26598,
+        "sha256": "2C1880ACB74D1523CCA814512B1E53D0C06DF71F7E77FDD278E4BA43FDEE3177",
+        "utf8CodePoints": 9179,
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "worktree": {
+        "bytes": 26712,
+        "sha256": "EA07EED75D7307066ACC7D0B5D5F219AB35858E4411ADAD0471031C32A314CB4",
+        "utf8CodePoints": 9293,
+        "crlf": 114,
+        "standaloneCr": 0,
+        "standaloneLf": 0,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "fixtureLoader": {
+        "bytes": 26712,
+        "sha256": "EA07EED75D7307066ACC7D0B5D5F219AB35858E4411ADAD0471031C32A314CB4",
+        "utf8CodePoints": 9293,
+        "crlf": 114,
+        "standaloneCr": 0,
+        "standaloneLf": 0,
+        "trailingNewline": true,
+        "blankLines": 0,
+        "utf16CodeUnits": 9293
+      },
+      "pipeline": {
+        "bytes": 26598,
+        "sha256": "2C1880ACB74D1523CCA814512B1E53D0C06DF71F7E77FDD278E4BA43FDEE3177",
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114,
+        "trailingNewline": true,
+        "blankLines": 1
+      },
+      "firstRawDifference": {
+        "offset": 22,
+        "leftCodeUnit": 13,
+        "rightCodeUnit": 10
+      },
+      "normalized": {
+        "bytes": 26598,
+        "sha256": "2C1880ACB74D1523CCA814512B1E53D0C06DF71F7E77FDD278E4BA43FDEE3177",
+        "utf8CodePoints": 9179,
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "normalizedExactToPipeline": true,
+      "gitBlobExactToPipeline": true,
+      "normalizedExactToGitBlob": true
+    },
+    {
+      "case": "comparison-known-bangkok/web",
+      "fixturePath": "product-acceptance/thai-narrative-v1.5-r7.1/evidence/comparison-known-bangkok-web-text.txt",
+      "gitBlob": {
+        "bytes": 25655,
+        "sha256": "1DA55E88C330307029F235F907A0B5BB274930BC359FA80AE8842E6D46017599",
+        "utf8CodePoints": 8857,
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 112,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "worktree": {
+        "bytes": 25767,
+        "sha256": "7F1B04F2371E26D8F8A0016E826631D0D6122996A6F1510A99E9B82869064330",
+        "utf8CodePoints": 8969,
+        "crlf": 112,
+        "standaloneCr": 0,
+        "standaloneLf": 0,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "fixtureLoader": {
+        "bytes": 25767,
+        "sha256": "7F1B04F2371E26D8F8A0016E826631D0D6122996A6F1510A99E9B82869064330",
+        "utf8CodePoints": 8969,
+        "crlf": 112,
+        "standaloneCr": 0,
+        "standaloneLf": 0,
+        "trailingNewline": true,
+        "blankLines": 0,
+        "utf16CodeUnits": 8969
+      },
+      "pipeline": {
+        "bytes": 25655,
+        "sha256": "1DA55E88C330307029F235F907A0B5BB274930BC359FA80AE8842E6D46017599",
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 112,
+        "trailingNewline": true,
+        "blankLines": 1
+      },
+      "firstRawDifference": {
+        "offset": 22,
+        "leftCodeUnit": 13,
+        "rightCodeUnit": 10
+      },
+      "normalized": {
+        "bytes": 25655,
+        "sha256": "1DA55E88C330307029F235F907A0B5BB274930BC359FA80AE8842E6D46017599",
+        "utf8CodePoints": 8857,
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 112,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "normalizedExactToPipeline": true,
+      "gitBlobExactToPipeline": true,
+      "normalizedExactToGitBlob": true
+    },
+    {
+      "case": "comparison-known-bangkok/pdf",
+      "fixturePath": "product-acceptance/thai-narrative-v1.5-r7.1/evidence/comparison-known-bangkok-pdf-text.txt",
+      "gitBlob": {
+        "bytes": 25655,
+        "sha256": "1DA55E88C330307029F235F907A0B5BB274930BC359FA80AE8842E6D46017599",
+        "utf8CodePoints": 8857,
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 112,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "worktree": {
+        "bytes": 25767,
+        "sha256": "7F1B04F2371E26D8F8A0016E826631D0D6122996A6F1510A99E9B82869064330",
+        "utf8CodePoints": 8969,
+        "crlf": 112,
+        "standaloneCr": 0,
+        "standaloneLf": 0,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "fixtureLoader": {
+        "bytes": 25767,
+        "sha256": "7F1B04F2371E26D8F8A0016E826631D0D6122996A6F1510A99E9B82869064330",
+        "utf8CodePoints": 8969,
+        "crlf": 112,
+        "standaloneCr": 0,
+        "standaloneLf": 0,
+        "trailingNewline": true,
+        "blankLines": 0,
+        "utf16CodeUnits": 8969
+      },
+      "pipeline": {
+        "bytes": 25655,
+        "sha256": "1DA55E88C330307029F235F907A0B5BB274930BC359FA80AE8842E6D46017599",
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 112,
+        "trailingNewline": true,
+        "blankLines": 1
+      },
+      "firstRawDifference": {
+        "offset": 22,
+        "leftCodeUnit": 13,
+        "rightCodeUnit": 10
+      },
+      "normalized": {
+        "bytes": 25655,
+        "sha256": "1DA55E88C330307029F235F907A0B5BB274930BC359FA80AE8842E6D46017599",
+        "utf8CodePoints": 8857,
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 112,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "normalizedExactToPipeline": true,
+      "gitBlobExactToPipeline": true,
+      "normalizedExactToGitBlob": true
+    },
+    {
+      "case": "comparison-known-khon-kaen/web",
+      "fixturePath": "product-acceptance/thai-narrative-v1.5-r7.1/evidence/comparison-known-khon-kaen-web-text.txt",
+      "gitBlob": {
+        "bytes": 26190,
+        "sha256": "D5FF068385F39798040336EB4A60A0241048E1FC6C6B4DF919A8C583F0C49D62",
+        "utf8CodePoints": 9042,
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "worktree": {
+        "bytes": 26304,
+        "sha256": "EB469DD7F4E5CD123879AE8E5C74C92B6DD630107043F8E350AD546CAD90BB52",
+        "utf8CodePoints": 9156,
+        "crlf": 114,
+        "standaloneCr": 0,
+        "standaloneLf": 0,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "fixtureLoader": {
+        "bytes": 26304,
+        "sha256": "EB469DD7F4E5CD123879AE8E5C74C92B6DD630107043F8E350AD546CAD90BB52",
+        "utf8CodePoints": 9156,
+        "crlf": 114,
+        "standaloneCr": 0,
+        "standaloneLf": 0,
+        "trailingNewline": true,
+        "blankLines": 0,
+        "utf16CodeUnits": 9156
+      },
+      "pipeline": {
+        "bytes": 26190,
+        "sha256": "D5FF068385F39798040336EB4A60A0241048E1FC6C6B4DF919A8C583F0C49D62",
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114,
+        "trailingNewline": true,
+        "blankLines": 1
+      },
+      "firstRawDifference": {
+        "offset": 22,
+        "leftCodeUnit": 13,
+        "rightCodeUnit": 10
+      },
+      "normalized": {
+        "bytes": 26190,
+        "sha256": "D5FF068385F39798040336EB4A60A0241048E1FC6C6B4DF919A8C583F0C49D62",
+        "utf8CodePoints": 9042,
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "normalizedExactToPipeline": true,
+      "gitBlobExactToPipeline": true,
+      "normalizedExactToGitBlob": true
+    },
+    {
+      "case": "comparison-known-khon-kaen/pdf",
+      "fixturePath": "product-acceptance/thai-narrative-v1.5-r7.1/evidence/comparison-known-khon-kaen-pdf-text.txt",
+      "gitBlob": {
+        "bytes": 26190,
+        "sha256": "D5FF068385F39798040336EB4A60A0241048E1FC6C6B4DF919A8C583F0C49D62",
+        "utf8CodePoints": 9042,
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "worktree": {
+        "bytes": 26304,
+        "sha256": "EB469DD7F4E5CD123879AE8E5C74C92B6DD630107043F8E350AD546CAD90BB52",
+        "utf8CodePoints": 9156,
+        "crlf": 114,
+        "standaloneCr": 0,
+        "standaloneLf": 0,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "fixtureLoader": {
+        "bytes": 26304,
+        "sha256": "EB469DD7F4E5CD123879AE8E5C74C92B6DD630107043F8E350AD546CAD90BB52",
+        "utf8CodePoints": 9156,
+        "crlf": 114,
+        "standaloneCr": 0,
+        "standaloneLf": 0,
+        "trailingNewline": true,
+        "blankLines": 0,
+        "utf16CodeUnits": 9156
+      },
+      "pipeline": {
+        "bytes": 26190,
+        "sha256": "D5FF068385F39798040336EB4A60A0241048E1FC6C6B4DF919A8C583F0C49D62",
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114,
+        "trailingNewline": true,
+        "blankLines": 1
+      },
+      "firstRawDifference": {
+        "offset": 22,
+        "leftCodeUnit": 13,
+        "rightCodeUnit": 10
+      },
+      "normalized": {
+        "bytes": 26190,
+        "sha256": "D5FF068385F39798040336EB4A60A0241048E1FC6C6B4DF919A8C583F0C49D62",
+        "utf8CodePoints": 9042,
+        "crlf": 0,
+        "standaloneCr": 0,
+        "standaloneLf": 114,
+        "trailingNewline": true,
+        "blankLines": 0
+      },
+      "normalizedExactToPipeline": true,
+      "gitBlobExactToPipeline": true,
+      "normalizedExactToGitBlob": true
+    }
+  ]
+}
