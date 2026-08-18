@@ -10,6 +10,8 @@ import 'package:knowme/features/thai_beta/application/thai_beta_report_export_do
 import 'package:knowme/features/thai_beta/application/thai_beta_report_pdf_exporter.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 
+import 'thai_beta_canonical_text_contract.dart';
+
 const _acceptedRoot = 'product-acceptance/thai-narrative-v1.5-r7.1/evidence';
 
 void main() {
@@ -29,18 +31,30 @@ void main() {
         asOf: DateTime(2026, 8, 16, 16, 19, 44, 454, 535),
       );
 
-      final acceptedWeb = File(
+      final acceptedWeb = CanonicalTextFixture.read(
         '$_acceptedRoot/owner-known-0035-web-text.txt',
-      ).readAsStringSync();
-      final acceptedPdf = File(
+      );
+      final acceptedPdf = CanonicalTextFixture.read(
         '$_acceptedRoot/owner-known-0035-pdf-text.txt',
-      ).readAsStringSync();
-      expect(clockA.webText, acceptedWeb);
-      expect(clockA.pdfText, acceptedPdf);
+      );
+      expectCanonicalFixtureText(
+        pipelineText: clockA.webText,
+        fixturePath: acceptedWeb.path,
+      );
+      expectCanonicalFixtureText(
+        pipelineText: clockA.pdfText,
+        fixturePath: acceptedPdf.path,
+      );
       expect(clockA.webText, clockA.pdfText);
 
-      expect(clockB.webText, acceptedWeb);
-      expect(clockB.pdfText, acceptedPdf);
+      expectCanonicalFixtureText(
+        pipelineText: clockB.webText,
+        fixturePath: acceptedWeb.path,
+      );
+      expectCanonicalFixtureText(
+        pipelineText: clockB.pdfText,
+        fixturePath: acceptedPdf.path,
+      );
       expect(clockB.webText, clockB.pdfText);
       expect(clockB.webText, clockA.webText);
 

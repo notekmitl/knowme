@@ -1,0 +1,14 @@
+{
+  "schema": "knowme-v15-analyzer-delta-v1",
+  "branchCommit": "working-tree-on-bb85b07c643bc35cef076df066cb191f2f0a7d24",
+  "mainCommit": "bb85b07c643bc35cef076df066cb191f2f0a7d24",
+  "command": "flutter analyze --no-pub",
+  "branchDiagnostics": 299,
+  "mainDiagnostics": 299,
+  "branchOnlyCount": 0,
+  "mainOnlyCount": 0,
+  "branchOnly": [],
+  "mainOnly": [],
+  "normalizedDelta": 0,
+  "pass": true
+}

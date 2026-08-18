@@ -7,6 +7,7 @@ import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 
 import '../synthetic_audit/thai_beta_synthetic_matrix_300.dart';
+import 'thai_beta_canonical_text_contract.dart';
 import 'thai_beta_cross_runtime_manifest.dart';
 
 void main() {
@@ -147,11 +148,12 @@ void main() {
     final ownerUnknownText = ThaiBetaReportExportDocument.fromAnalysis(
       analysis,
     ).fullPlainText;
-    final acceptedOwnerUnknown = File(
-      'product-acceptance/thai-narrative-v1.5-r7.1/evidence/'
-      'owner-unknown-web-text.txt',
-    ).readAsStringSync();
-    expect(ownerUnknownText, acceptedOwnerUnknown);
+    expectCanonicalFixtureText(
+      pipelineText: ownerUnknownText,
+      fixturePath:
+          'product-acceptance/thai-narrative-v1.5-r7.1/evidence/'
+          'owner-unknown-web-text.txt',
+    );
     expect(analysis.profile?.siderealAscendantDeg, isNull);
     expect(ownerUnknownText, contains('ไม่ทราบเวลาเกิด'));
     expect(ownerUnknownText, isNot(contains('ลัคนา')));

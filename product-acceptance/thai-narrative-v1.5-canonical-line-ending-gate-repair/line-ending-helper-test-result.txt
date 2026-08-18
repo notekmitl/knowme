@@ -1,0 +1,13 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/v15-line-ending-repair/test/validation/thai_beta/live_asof/thai_beta_canonical_text_contract_test.dart
+00:00 +0: canonicalizeLineEndings preserves LF
+00:00 +1: canonicalizeLineEndings canonicalizes CRLF
+00:00 +2: canonicalizeLineEndings canonicalizes standalone CR
+00:00 +3: canonicalizeLineEndings canonicalizes mixed line endings only
+00:00 +4: canonicalizeLineEndings preserves blank lines and trailing newline
+00:00 +5: canonicalizeLineEndings preserves leading and trailing spaces on every line
+00:00 +6: canonicalizeLineEndings preserves Thai Unicode code points
+00:00 +7: canonicalTextMatchesExactly accepts line-ending-only differences
+00:00 +8: canonicalTextMatchesExactly rejects pipeline carriage returns
+00:00 +9: canonicalTextMatchesExactly rejects wording mismatch
+00:00 +10: canonicalTextMatchesExactly rejects punctuation mismatch
+00:00 +11: All tests passed!

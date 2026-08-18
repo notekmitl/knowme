@@ -7,6 +7,8 @@ import 'package:knowme/features/thai_beta/application/thai_beta_report_export_do
 import 'package:knowme/features/thai_beta/application/thai_beta_report_pdf_exporter.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 
+import 'thai_beta_canonical_text_contract.dart';
+
 const _acceptedRoot = 'product-acceptance/thai-narrative-v1.5-r7.1/evidence';
 final _frozenAsOf = DateTime(2026, 8, 7);
 final _liveAsOf = DateTime(2026, 8, 16, 16, 19, 44, 454, 535);
@@ -28,14 +30,14 @@ void main() {
       );
       final frozenDocument = ThaiBetaReportExportDocument.fromAnalysis(frozen);
       final frozenPdf = await ThaiBetaReportPdfExporter.build(frozenDocument);
-      expect(
-        frozenDocument.fullPlainText,
-        File('$_acceptedRoot/${entry.key}-web-text.txt').readAsStringSync(),
+      expectCanonicalFixtureText(
+        pipelineText: frozenDocument.fullPlainText,
+        fixturePath: '$_acceptedRoot/${entry.key}-web-text.txt',
         reason: '${entry.key} frozen Web',
       );
-      expect(
-        frozenPdf.plainText,
-        File('$_acceptedRoot/${entry.key}-pdf-text.txt').readAsStringSync(),
+      expectCanonicalFixtureText(
+        pipelineText: frozenPdf.plainText,
+        fixturePath: '$_acceptedRoot/${entry.key}-pdf-text.txt',
         reason: '${entry.key} frozen PDF',
       );
 
