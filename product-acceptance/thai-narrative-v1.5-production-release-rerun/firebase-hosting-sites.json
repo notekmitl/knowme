@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "result": {
+    "sites": [
+      {
+        "name": "projects/knowme-app-694e1/sites/knowme-app-694e1",
+        "defaultUrl": "https://knowme-app-694e1.web.app",
+        "type": "DEFAULT_SITE"
+      }
+    ]
+  }
+}

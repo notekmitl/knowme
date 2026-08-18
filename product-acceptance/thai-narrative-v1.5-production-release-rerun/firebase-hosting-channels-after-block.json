@@ -1,0 +1,176 @@
+{
+  "status": "success",
+  "result": {
+    "channels": [
+      {
+        "name": "projects/knowme-app-694e1/sites/knowme-app-694e1/channels/v15-rerun-v14-rollback",
+        "url": "https://knowme-app-694e1--v15-rerun-v14-rollback-lkagsja1.web.app",
+        "release": {
+          "name": "projects/knowme-app-694e1/sites/knowme-app-694e1/channels/v15-rerun-v14-rollback/releases/1787030431383000",
+          "version": {
+            "name": "projects/knowme-app-694e1/sites/knowme-app-694e1/versions/10af10c6d960d590",
+            "status": "FINALIZED",
+            "config": {
+              "headers": [
+                {
+                  "headers": {
+                    "Cache-Control": "public, max-age=31536000, immutable"
+                  },
+                  "glob": "**/*.@(js|css|wasm)"
+                },
+                {
+                  "headers": {
+                    "Cache-Control": "no-cache, must-revalidate"
+                  },
+                  "glob": "main.dart.js"
+                },
+                {
+                  "headers": {
+                    "Cache-Control": "no-cache, must-revalidate"
+                  },
+                  "glob": "flutter.js"
+                },
+                {
+                  "headers": {
+                    "Cache-Control": "no-cache, must-revalidate"
+                  },
+                  "glob": "flutter_bootstrap.js"
+                },
+                {
+                  "headers": {
+                    "Cache-Control": "no-cache, must-revalidate"
+                  },
+                  "glob": "flutter_service_worker.js"
+                },
+                {
+                  "headers": {
+                    "Cache-Control": "no-cache"
+                  },
+                  "glob": "index.html"
+                },
+                {
+                  "headers": {
+                    "Cache-Control": "no-cache"
+                  },
+                  "glob": "/beta/**"
+                }
+              ],
+              "rewrites": [
+                {
+                  "glob": "**",
+                  "path": "/index.html"
+                }
+              ]
+            },
+            "labels": {
+              "deployment-tool": "cli-firebase"
+            },
+            "createTime": "2026-08-12T08:18:03.540217Z",
+            "createUser": {
+              "email": "note018@gmail.com"
+            },
+            "finalizeTime": "2026-08-12T08:18:08.410754Z",
+            "finalizeUser": {
+              "email": "note018@gmail.com"
+            },
+            "fileCount": "79",
+            "versionBytes": "14326570"
+          },
+          "type": "DEPLOY",
+          "releaseTime": "2026-08-18T05:20:31.383Z",
+          "releaseUser": {
+            "email": "note018@gmail.com"
+          }
+        },
+        "createTime": "2026-08-18T05:20:28.567489316Z",
+        "updateTime": "2026-08-18T05:20:31.383Z",
+        "retainedReleaseCount": 10,
+        "expireTime": "2026-08-25T05:20:28.567489316Z"
+      },
+      {
+        "name": "projects/knowme-app-694e1/sites/knowme-app-694e1/channels/live",
+        "url": "https://knowme-app-694e1.web.app",
+        "release": {
+          "name": "projects/knowme-app-694e1/sites/knowme-app-694e1/channels/live/releases/1786872330369000",
+          "version": {
+            "name": "projects/knowme-app-694e1/sites/knowme-app-694e1/versions/10af10c6d960d590",
+            "status": "FINALIZED",
+            "config": {
+              "headers": [
+                {
+                  "headers": {
+                    "Cache-Control": "public, max-age=31536000, immutable"
+                  },
+                  "glob": "**/*.@(js|css|wasm)"
+                },
+                {
+                  "headers": {
+                    "Cache-Control": "no-cache, must-revalidate"
+                  },
+                  "glob": "main.dart.js"
+                },
+                {
+                  "headers": {
+                    "Cache-Control": "no-cache, must-revalidate"
+                  },
+                  "glob": "flutter.js"
+                },
+                {
+                  "headers": {
+                    "Cache-Control": "no-cache, must-revalidate"
+                  },
+                  "glob": "flutter_bootstrap.js"
+                },
+                {
+                  "headers": {
+                    "Cache-Control": "no-cache, must-revalidate"
+                  },
+                  "glob": "flutter_service_worker.js"
+                },
+                {
+                  "headers": {
+                    "Cache-Control": "no-cache"
+                  },
+                  "glob": "index.html"
+                },
+                {
+                  "headers": {
+                    "Cache-Control": "no-cache"
+                  },
+                  "glob": "/beta/**"
+                }
+              ],
+              "rewrites": [
+                {
+                  "glob": "**",
+                  "path": "/index.html"
+                }
+              ]
+            },
+            "labels": {
+              "deployment-tool": "cli-firebase"
+            },
+            "createTime": "2026-08-12T08:18:03.540217Z",
+            "createUser": {
+              "email": "note018@gmail.com"
+            },
+            "finalizeTime": "2026-08-12T08:18:08.410754Z",
+            "finalizeUser": {
+              "email": "note018@gmail.com"
+            },
+            "fileCount": "79",
+            "versionBytes": "14326570"
+          },
+          "type": "ROLLBACK",
+          "releaseTime": "2026-08-16T09:25:30.369Z",
+          "releaseUser": {
+            "email": "note018@gmail.com"
+          }
+        },
+        "createTime": "2026-02-26T09:09:56.406342657Z",
+        "updateTime": "2026-08-16T09:25:30.369Z",
+        "retainedReleaseCount": 2147483647
+      }
+    ]
+  }
+}
