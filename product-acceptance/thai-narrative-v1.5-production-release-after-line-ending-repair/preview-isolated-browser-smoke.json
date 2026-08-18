@@ -1,0 +1,51 @@
+{
+  "url": "https://knowme-app-694e1--v15-line-ending-release-45bzkvyc.web.app/beta/thai",
+  "logs": [
+    {
+      "level": "debug",
+      "message": "Injecting <script> tag. Using callback.",
+      "timestamp": "2026-08-18T07:33:40.757Z",
+      "url": "https://knowme-app-694e1--v15-line-ending-release-45bzkvyc.web.app/flutter_bootstrap.js"
+    },
+    {
+      "level": "debug",
+      "message": "TrustedTypes available. Creating policy: gis-dart",
+      "timestamp": "2026-08-18T07:33:41.769Z",
+      "url": "https://knowme-app-694e1--v15-line-ending-release-45bzkvyc.web.app/main.dart.js"
+    },
+    {
+      "level": "debug",
+      "message": "TrustedTypes available. Creating policy: flutterfire-firebase_core",
+      "timestamp": "2026-08-18T07:33:41.783Z",
+      "url": "https://knowme-app-694e1--v15-line-ending-release-45bzkvyc.web.app/main.dart.js"
+    },
+    {
+      "level": "debug",
+      "message": "Initializing Firebase firebase_core",
+      "timestamp": "2026-08-18T07:33:41.786Z"
+    },
+    {
+      "level": "debug",
+      "message": "TrustedTypes available. Creating policy: flutterfire-firebase_firestore",
+      "timestamp": "2026-08-18T07:33:41.786Z",
+      "url": "https://knowme-app-694e1--v15-line-ending-release-45bzkvyc.web.app/main.dart.js"
+    },
+    {
+      "level": "debug",
+      "message": "Initializing Firebase firebase_firestore",
+      "timestamp": "2026-08-18T07:33:41.786Z"
+    },
+    {
+      "level": "debug",
+      "message": "TrustedTypes available. Creating policy: flutterfire-firebase_auth",
+      "timestamp": "2026-08-18T07:33:41.786Z",
+      "url": "https://knowme-app-694e1--v15-line-ending-release-45bzkvyc.web.app/main.dart.js"
+    },
+    {
+      "level": "debug",
+      "message": "Initializing Firebase firebase_auth",
+      "timestamp": "2026-08-18T07:33:41.787Z"
+    }
+  ],
+  "snapshotPrefix": "- button \"Enable accessibility\""
+}

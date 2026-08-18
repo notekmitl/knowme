@@ -1,0 +1,288 @@
+{
+  "schema": "knowme-stable-hash-v1",
+  "stringVectors": [
+    {
+      "label": "empty",
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "label": "ascii",
+      "expected": 67511776,
+      "actual": 67511776
+    },
+    {
+      "label": "thai",
+      "expected": 1037061087,
+      "actual": 1037061087
+    },
+    {
+      "label": "thai-combining-marks",
+      "expected": 165550981,
+      "actual": 165550981
+    },
+    {
+      "label": "unicode-bmp",
+      "expected": 801637601,
+      "actual": 801637601
+    },
+    {
+      "label": "emoji-surrogate-pair",
+      "expected": 117797691,
+      "actual": 117797691
+    },
+    {
+      "label": "long-string",
+      "expected": 364781858,
+      "actual": 364781858
+    },
+    {
+      "label": "theme-persistence",
+      "expected": 961841110,
+      "actual": 961841110
+    },
+    {
+      "label": "theme-builder",
+      "expected": 504794108,
+      "actual": 504794108
+    },
+    {
+      "label": "theme-develop-patience",
+      "expected": 56504523,
+      "actual": 56504523
+    },
+    {
+      "label": "lagna-aquarius",
+      "expected": 804501464,
+      "actual": 804501464
+    },
+    {
+      "label": "lagna-aries",
+      "expected": 25355652,
+      "actual": 25355652
+    }
+  ],
+  "multipleStringVectors": [
+    {
+      "label": "multiple-empty",
+      "expected": 1,
+      "actual": 1
+    },
+    {
+      "label": "multiple-single",
+      "expected": 577084451,
+      "actual": 577084451
+    },
+    {
+      "label": "multiple-theme-order-a",
+      "expected": 1068502878,
+      "actual": 1068502878
+    },
+    {
+      "label": "multiple-theme-order-b",
+      "expected": 668601578,
+      "actual": 668601578
+    },
+    {
+      "label": "multiple-repeated",
+      "expected": 29881152,
+      "actual": 29881152
+    },
+    {
+      "label": "multiple-lagna-domain-slot",
+      "expected": 30805547,
+      "actual": 30805547
+    },
+    {
+      "label": "multiple-real-selection-parts",
+      "expected": 98011434,
+      "actual": 98011434
+    }
+  ],
+  "arithmeticVectors": [
+    {
+      "label": "zero",
+      "unsigned32": {
+        "expected": 0,
+        "actual": 0
+      },
+      "signed32": {
+        "expected": 0,
+        "actual": 0
+      },
+      "multiply32": {
+        "expected": 0,
+        "actual": 0
+      },
+      "exactXor": {
+        "expected": 28924034132,
+        "actual": 28924034132
+      },
+      "exactModulo7": {
+        "expected": 0,
+        "actual": 0
+      }
+    },
+    {
+      "label": "one",
+      "unsigned32": {
+        "expected": 1,
+        "actual": 1
+      },
+      "signed32": {
+        "expected": 1,
+        "actual": 1
+      },
+      "multiply32": {
+        "expected": 2654435761,
+        "actual": 2654435761
+      },
+      "exactXor": {
+        "expected": 28924034133,
+        "actual": 28924034133
+      },
+      "exactModulo7": {
+        "expected": 0,
+        "actual": 0
+      }
+    },
+    {
+      "label": "signed-max",
+      "unsigned32": {
+        "expected": 2147483647,
+        "actual": 2147483647
+      },
+      "signed32": {
+        "expected": 2147483647,
+        "actual": 2147483647
+      },
+      "multiply32": {
+        "expected": 3788015183,
+        "actual": 3788015183
+      },
+      "exactXor": {
+        "expected": 29058024363,
+        "actual": 29058024363
+      },
+      "exactModulo7": {
+        "expected": 6,
+        "actual": 6
+      }
+    },
+    {
+      "label": "sign-bit",
+      "unsigned32": {
+        "expected": 2147483648,
+        "actual": 2147483648
+      },
+      "signed32": {
+        "expected": -2147483648,
+        "actual": -2147483648
+      },
+      "multiply32": {
+        "expected": 2147483648,
+        "actual": 2147483648
+      },
+      "exactXor": {
+        "expected": 26776550484,
+        "actual": 26776550484
+      },
+      "exactModulo7": {
+        "expected": 6,
+        "actual": 6
+      }
+    },
+    {
+      "label": "unsigned-max",
+      "unsigned32": {
+        "expected": 4294967295,
+        "actual": 4294967295
+      },
+      "signed32": {
+        "expected": -1,
+        "actual": -1
+      },
+      "multiply32": {
+        "expected": 1640531535,
+        "actual": 1640531535
+      },
+      "exactXor": {
+        "expected": 26910540715,
+        "actual": 26910540715
+      },
+      "exactModulo7": {
+        "expected": 5,
+        "actual": 5
+      }
+    },
+    {
+      "label": "signed-min",
+      "unsigned32": {
+        "expected": 2147483648,
+        "actual": 2147483648
+      },
+      "signed32": {
+        "expected": -2147483648,
+        "actual": -2147483648
+      },
+      "multiply32": {
+        "expected": 2147483648,
+        "actual": 2147483648
+      },
+      "exactXor": {
+        "expected": -29058024364,
+        "actual": -29058024364
+      },
+      "exactModulo7": {
+        "expected": 6,
+        "actual": 6
+      }
+    },
+    {
+      "label": "overflow-wrap",
+      "unsigned32": {
+        "expected": 1,
+        "actual": 1
+      },
+      "signed32": {
+        "expected": 1,
+        "actual": 1
+      },
+      "multiply32": {
+        "expected": 2654435761,
+        "actual": 2654435761
+      },
+      "exactXor": {
+        "expected": 33219001429,
+        "actual": 33219001429
+      },
+      "exactModulo7": {
+        "expected": 6,
+        "actual": 6
+      }
+    },
+    {
+      "label": "mixed-bits",
+      "unsigned32": {
+        "expected": 305419896,
+        "actual": 305419896
+      },
+      "signed32": {
+        "expected": 305419896,
+        "actual": 305419896
+      },
+      "multiply32": {
+        "expected": 4141252856,
+        "actual": 4141252856
+      },
+      "exactXor": {
+        "expected": 28692572716,
+        "actual": 28692572716
+      },
+      "exactModulo7": {
+        "expected": 5,
+        "actual": 5
+      }
+    }
+  ]
+}

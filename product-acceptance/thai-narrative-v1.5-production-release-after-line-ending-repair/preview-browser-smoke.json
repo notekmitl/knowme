@@ -1,0 +1,21 @@
+{
+  "url": "https://knowme-app-694e1--v15-line-ending-release-45bzkvyc.web.app/beta/thai",
+  "desktop": {
+    "width": 1920,
+    "height": 911,
+    "visual": "PASS"
+  },
+  "mobile": {
+    "fonts": "loaded",
+    "innerHeight": 844,
+    "innerWidth": 390,
+    "overflowX": false,
+    "scrollHeight": 844,
+    "scrollWidth": 390,
+    "visual": "PASS"
+  },
+  "consoleErrorCount": 0,
+  "consoleErrors": [],
+  "thaiFonts": "loaded",
+  "status": "PASS"
+}

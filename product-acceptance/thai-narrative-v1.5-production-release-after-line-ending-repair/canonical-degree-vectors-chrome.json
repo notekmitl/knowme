@@ -1,0 +1,84 @@
+{
+  "schema": "knowme-canonical-degree-v1",
+  "unitsPerDegree": 1000000000,
+  "unitsPerTurn": 360000000000,
+  "maxJavaScriptSafeInteger": 9007199254740991,
+  "isJavaScriptSafe": true,
+  "vectors": [
+    {
+      "label": "null",
+      "expected": null,
+      "actual": null
+    },
+    {
+      "label": "zero",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "label": "negative-zero",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "label": "s008-vm-raw",
+      "expected": 102395602446,
+      "actual": 102395602446
+    },
+    {
+      "label": "s008-chrome-raw",
+      "expected": 102395602446,
+      "actual": 102395602446
+    },
+    {
+      "label": "s008-adjacent-lower",
+      "expected": 102395602446,
+      "actual": 102395602446
+    },
+    {
+      "label": "larger-than-precision",
+      "expected": 102395602447,
+      "actual": 102395602447
+    },
+    {
+      "label": "below-sign-boundary",
+      "expected": 29999999999,
+      "actual": 29999999999
+    },
+    {
+      "label": "above-sign-boundary",
+      "expected": 30000000000,
+      "actual": 30000000000
+    },
+    {
+      "label": "exact-sign-boundary",
+      "expected": 30000000000,
+      "actual": 30000000000
+    },
+    {
+      "label": "full-turn",
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "label": "above-full-turn",
+      "expected": 1500000000,
+      "actual": 1500000000
+    },
+    {
+      "label": "negative-wrap",
+      "expected": 358750000000,
+      "actual": 358750000000
+    },
+    {
+      "label": "below-full-turn",
+      "expected": 359999999999,
+      "actual": 359999999999
+    },
+    {
+      "label": "rounds-to-full-turn",
+      "expected": 0,
+      "actual": 0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "environment": "production",
+  "fixtures": [
+    {
+      "fixture": "owner-known-0035",
+      "environment": "production",
+      "bytes": 39391,
+      "sha256": "C2BE05CB24BDAF1277B9A1B164E3EA754D13F9A555390FBC918C8FB9D670CDC6",
+      "pages": 7,
+      "oraclePages": 7,
+      "extractedVsOraclePdfExact": true,
+      "extractedVsOracleCanonicalTextExact": true,
+      "substantiveDifferenceCount": 0,
+      "differences": []
+    },
+    {
+      "fixture": "owner-unknown",
+      "environment": "production",
+      "bytes": 37283,
+      "sha256": "13818E1F73F80FE5B24AC4D182C85C132E5DF57F0DB072CED96809FF76E0D7D0",
+      "pages": 6,
+      "oraclePages": 6,
+      "extractedVsOraclePdfExact": true,
+      "extractedVsOracleCanonicalTextExact": true,
+      "substantiveDifferenceCount": 0,
+      "differences": []
+    },
+    {
+      "fixture": "regression-known-0003",
+      "environment": "production",
+      "bytes": 39390,
+      "sha256": "26409D98728591B1D8C0E443C022ADF6BE34B1310FAEE4E1A0909A07C6F13438",
+      "pages": 7,
+      "oraclePages": 7,
+      "extractedVsOraclePdfExact": true,
+      "extractedVsOracleCanonicalTextExact": true,
+      "substantiveDifferenceCount": 0,
+      "differences": []
+    },
+    {
+      "fixture": "bangkok-known-1420",
+      "environment": "production",
+      "bytes": 38614,
+      "sha256": "08DBE9387478427CD9CEBA71D1F9285314CA749678037502666FC980F4C42D8F",
+      "pages": 7,
+      "oraclePages": 7,
+      "extractedVsOraclePdfExact": true,
+      "extractedVsOracleCanonicalTextExact": true,
+      "substantiveDifferenceCount": 0,
+      "differences": []
+    },
+    {
+      "fixture": "khon-kaen-known-0645",
+      "environment": "production",
+      "bytes": 39111,
+      "sha256": "9044A2CDFF1D20875F80DF30BF7A1B41D2F1865D1922AC6FF7AB7E1A885449E6",
+      "pages": 7,
+      "oraclePages": 7,
+      "extractedVsOraclePdfExact": true,
+      "extractedVsOracleCanonicalTextExact": true,
+      "substantiveDifferenceCount": 0,
+      "differences": []
+    }
+  ],
+  "fixtureCount": 5,
+  "totalPages": 34,
+  "allPageCountsMatch": true,
+  "allExtractedVsOraclePdfExact": true,
+  "allExtractedVsOracleCanonicalTextExact": true,
+  "totalSubstantiveDifferences": 0,
+  "result": "PASS"
+}

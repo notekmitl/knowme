@@ -1,0 +1,10 @@
+{
+  "checked": 77,
+  "bytes": 44183660,
+  "missing": 0,
+  "mismatch": 0,
+  "unexpected": 0,
+  "hostingManifestSha256": "A1A7EAB6260D1168C5229FF3FAAB7324BF0567AF4300DC79D885041D2319091D",
+  "hostingSumsSha256": "2AB8447EC1358F739BC7CDFCE8BC6BAE2C297A5400A64E144BD9A57385389B1A",
+  "result": "PASS"
+}
