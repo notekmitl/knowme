@@ -1,0 +1,17 @@
+baseCommit: be5e38a211eb9aa47edf88a95e71659d33752245
+branch: codex/thai-report-experience-infographic-vnext
+gitDiffCheckSourceTestsDocs: PASS
+rawEvidenceWhitespace: preserved exactly from command output and excluded from whitespace normalization
+finalExpectedChangedPathCountIncludingThisLogAndSHA256SUMS: 182
+docsPaths: 5
+libPaths: 12
+newPacketPathsIncludingThisLogAndSHA256SUMS: 152
+pubspecPaths: 1
+testPaths: 7
+toolPaths: 5
+forbiddenOrUnexpectedPaths: 0
+acceptedR1ThroughR7Point1ModifiedPaths: 0
+goldenModifiedPaths: 0
+otherAcceptancePacketModifiedPaths: 0
+firebaseConfigurationModifiedPaths: 0
+scopeResult: PASS

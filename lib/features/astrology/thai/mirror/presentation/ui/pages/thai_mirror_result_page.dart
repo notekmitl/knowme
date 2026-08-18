@@ -32,6 +32,7 @@ class ThaiMirrorResultPage extends StatefulWidget {
     this.timelineAndTransparencyOnly = false,
     this.detailedPastFutureNarrative = false,
     this.additionalTransparencySection,
+    this.contentOverride,
   });
 
   final ThaiMirrorConsumerViewState consumerState;
@@ -71,6 +72,11 @@ class ThaiMirrorResultPage extends StatefulWidget {
   /// transparency controls. It does not alter the canonical consumer state.
   final Widget? additionalTransparencySection;
 
+  /// Optional report-surface adapter. The Thai Beta vNext report keeps this
+  /// established page boundary for routing/rollback contracts while rendering
+  /// its shared Web/PDF presentation model as the actual article content.
+  final Widget? contentOverride;
+
   @override
   State<ThaiMirrorResultPage> createState() => _ThaiMirrorResultPageState();
 }
@@ -105,6 +111,7 @@ class _ThaiMirrorResultPageState extends State<ThaiMirrorResultPage>
 
   @override
   Widget build(BuildContext context) {
+    if (widget.contentOverride != null) return widget.contentOverride!;
     final scheme = Theme.of(context).colorScheme;
     final consumerState = widget.consumerState;
     final width = MediaQuery.sizeOf(context).width;

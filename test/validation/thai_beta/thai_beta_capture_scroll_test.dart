@@ -71,9 +71,11 @@ void main() {
     final scroll = captureScrollState(tester);
     expect(scroll.position.maxScrollExtent, greaterThan(0));
     expect(
-      tester.widget<SingleChildScrollView>(
-        find.byKey(const Key('thai_beta_report_screenshot_layout')),
-      ).physics,
+      tester
+          .widget<SingleChildScrollView>(
+            find.byKey(const Key('thai_beta_report_screenshot_layout')),
+          )
+          .physics,
       isNot(isA<NeverScrollableScrollPhysics>()),
     );
   });
@@ -93,13 +95,13 @@ void main() {
     await tester.pumpAndSettle();
     expect(scroll.position.pixels, greaterThan(0));
 
-    await tester.drag(scrollable, Offset(0, -(scroll.position.maxScrollExtent)));
+    await tester.drag(
+      scrollable,
+      Offset(0, -(scroll.position.maxScrollExtent)),
+    );
     await tester.pumpAndSettle();
 
-    expect(
-      scroll.position.pixels,
-      closeTo(scroll.position.maxScrollExtent, 1),
-    );
+    expect(scroll.position.pixels, closeTo(scroll.position.maxScrollExtent, 1));
     expect(find.text(bottomDisclaimer).hitTestable(), findsOneWidget);
   });
 
@@ -121,18 +123,18 @@ void main() {
     ThaiBetaCurrentAnalysis.set(analysis);
     await pumpCaptureReport(tester, home: const ThaiBetaCapturePage());
 
-    final download = find.text('ดาวน์โหลดรายงานเต็ม');
+    final download = find.text('ดาวน์โหลดรายงาน PDF');
     expect(download, findsOneWidget);
     expect(download.hitTestable(), findsOneWidget);
-    expect(find.textContaining('เปิดหน้าพิมพ์'), findsOneWidget);
-    expect(find.textContaining('เปิดหน้าพิมพ์').hitTestable(), findsOneWidget);
+    expect(find.textContaining('พิมพ์ / บันทึกหน้าเว็บ'), findsOneWidget);
+    expect(
+      find.textContaining('พิมพ์ / บันทึกหน้าเว็บ').hitTestable(),
+      findsOneWidget,
+    );
   });
 
   testWidgets('QA capture page is vertically scrollable', (tester) async {
-    await pumpCaptureReport(
-      tester,
-      home: const ThaiBetaQaSampleCapturePage(),
-    );
+    await pumpCaptureReport(tester, home: const ThaiBetaQaSampleCapturePage());
 
     final scroll = captureScrollState(tester);
     expect(scroll.position.maxScrollExtent, greaterThan(0));
@@ -204,7 +206,10 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.byKey(const Key('thai_beta_report_page_scroll')), findsOneWidget);
+    expect(
+      find.byKey(const Key('thai_beta_report_page_scroll')),
+      findsOneWidget,
+    );
     expect(
       find.byKey(const Key('thai_beta_report_screenshot_layout')),
       findsNothing,
@@ -213,10 +218,12 @@ void main() {
     expect(find.text('ดาวน์โหลดรายงานเต็ม'), findsNothing);
 
     final scroll = tester.state<ScrollableState>(
-      find.descendant(
-        of: find.byKey(const Key('thai_beta_report_page_scroll')),
-        matching: find.byType(Scrollable),
-      ).first,
+      find
+          .descendant(
+            of: find.byKey(const Key('thai_beta_report_page_scroll')),
+            matching: find.byType(Scrollable),
+          )
+          .first,
     );
     expect(scroll.position.maxScrollExtent, greaterThan(0));
   });

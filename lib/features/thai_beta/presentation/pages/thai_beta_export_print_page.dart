@@ -4,23 +4,51 @@ import 'package:flutter/material.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 
 import '../export/thai_beta_browser_print.dart';
+import '../widgets/thai_beta_shared_report_view.dart';
 
-/// Print-friendly full-report layout (browser Save as PDF fallback).
-///
-/// No progress stepper, no fixed feedback bar, no nested scroll tricks —
-/// one long column for Ctrl+P / Save as PDF.
-class ThaiBetaExportPrintPage extends StatelessWidget {
-  const ThaiBetaExportPrintPage({super.key, required this.document});
+/// Print-friendly full-report preview backed by the same presentation model as
+/// the on-screen report and dedicated PDF. On Web, the semantic print DOM is
+/// what Chrome paginates; Flutter remains the interactive preview.
+class ThaiBetaExportPrintPage extends StatefulWidget {
+  const ThaiBetaExportPrintPage({
+    super.key,
+    required this.document,
+    this.infographicPng,
+  });
 
   final ThaiBetaReportExportDocument document;
+  final Uint8List? infographicPng;
+
+  @override
+  State<ThaiBetaExportPrintPage> createState() =>
+      _ThaiBetaExportPrintPageState();
+}
+
+class _ThaiBetaExportPrintPageState extends State<ThaiBetaExportPrintPage> {
+  final GlobalKey _infographicBoundaryKey = GlobalKey();
+
+  @override
+  void initState() {
+    super.initState();
+    if (kIsWeb) {
+      installBrowserPrintDocument(
+        widget.document,
+        infographicPng: widget.infographicPng,
+      );
+    }
+  }
+
+  @override
+  void dispose() {
+    if (kIsWeb) removeBrowserPrintDocument();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text('พิมพ์ / บันทึกเป็น PDF'),
+        title: const Text('พิมพ์ / บันทึกหน้าเว็บเป็น PDF'),
         actions: [
           TextButton.icon(
             key: const Key('thai_beta_export_print_action'),
@@ -42,36 +70,12 @@ class ThaiBetaExportPrintPage extends StatelessWidget {
       ),
       body: ListView(
         key: const Key('thai_beta_export_print_page'),
-        padding: const EdgeInsets.fromLTRB(24, 16, 24, 48),
+        padding: const EdgeInsets.only(bottom: 48),
         children: [
-          Text(document.title, style: theme.textTheme.headlineSmall),
-          const SizedBox(height: 4),
-          Text(
-            document.subtitle,
-            style: theme.textTheme.bodySmall?.copyWith(
-              color: theme.colorScheme.onSurfaceVariant,
-            ),
+          ThaiBetaSharedReportView(
+            document: widget.document,
+            infographicBoundaryKey: _infographicBoundaryKey,
           ),
-          const SizedBox(height: 8),
-          Text(
-            'หากดาวน์โหลด PDF อัตโนมัติไม่ได้ ให้กดพิมพ์ แล้วเลือก Save as PDF',
-            style: theme.textTheme.bodySmall,
-          ),
-          const Divider(height: 32),
-          for (final section in document.sections) ...[
-            Text(
-              section.title,
-              style: theme.textTheme.titleMedium?.copyWith(
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            const SizedBox(height: 8),
-            for (final paragraph in section.paragraphs) ...[
-              Text(paragraph, style: theme.textTheme.bodyMedium),
-              const SizedBox(height: 6),
-            ],
-            const SizedBox(height: 16),
-          ],
         ],
       ),
     );

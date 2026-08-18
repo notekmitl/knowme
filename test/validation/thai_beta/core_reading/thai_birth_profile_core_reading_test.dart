@@ -8,6 +8,7 @@ import 'package:knowme/features/thai_beta/application/thai_beta_evidence_badge_a
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart';
 import 'package:knowme/features/thai_beta/presentation/widgets/thai_birth_profile_core_reading_section.dart';
+import 'package:knowme/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart';
 
 import '../narrative/thai_beta_narrative_fixtures.dart';
 
@@ -780,10 +781,7 @@ void main() {
     );
     expect(find.byKey(const Key('thai_consumer_closing')), findsNothing);
     expect(find.byKey(const Key('thai_consumer_source')), findsOneWidget);
-    final mirror = tester.widget<ThaiMirrorResultPage>(
-      find.byType(ThaiMirrorResultPage),
-    );
-    expect(mirror.timelineAndTransparencyOnly, isTrue);
+    expect(find.byType(ThaiBetaSharedReportView), findsOneWidget);
     expect(
       tester.getTopLeft(core).dy,
       lessThan(tester.getTopLeft(timeline).dy),

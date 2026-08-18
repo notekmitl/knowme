@@ -1,0 +1,11 @@
+readOnlyCommand: firebase hosting:channel:list --project knowme-app-694e1 --json
+liveRelease: 1787038542564000
+liveVersion: 5f98dfffef913e38
+liveReleaseTime: 08/18/2026 07:35:42
+liveUpdateTime: 08/18/2026 07:35:42
+rollbackChannelVersion: 10af10c6d960d590
+expectedLiveVersion: 5f98dfffef913e38
+expectedRollbackVersion: 10af10c6d960d590
+result: PASS — PRODUCTION UNCHANGED
+deployCommandExecuted: false
+firebaseMutationExecuted: false
