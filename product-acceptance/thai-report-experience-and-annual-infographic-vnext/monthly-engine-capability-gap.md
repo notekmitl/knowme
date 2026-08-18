@@ -14,3 +14,5 @@ Engine ปัจจุบันมี annual/next-12-month window, life-period n
 - ต้องมี Owner authorization แยกก่อนเพิ่ม astrology logic หรือ validated monthly engine contract
 
 Monthly timeline จึง BLOCKED โดยตั้งใจ ไม่ใช่ feature ที่เสร็จสมบูรณ์
+
+Revision 2 เปลี่ยนเฉพาะ copy/layout/artifacts สำหรับ Owner review ไม่ได้เพิ่มหรือจำลอง monthly engine. ลายเส้นและดอกสี่กลีบบน infographic เป็น decoration ที่ไม่มีเดือน แกน หรือค่าข้อมูล. PR #100 ต้องคง Draft และ Production ยังคง V1.5 `5f98dfffef913e38`.

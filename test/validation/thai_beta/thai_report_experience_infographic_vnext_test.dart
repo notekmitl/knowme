@@ -28,6 +28,20 @@ ThaiBetaAnalysis _analysis({required bool knownTime, int year = 2026}) =>
       asOf: DateTime.utc(year, 1, 1),
     );
 
+ThaiBetaAnalysis _regression1972() => ThaiBetaAnalysisRunner.run(
+  ThaiBetaInput(
+    firstName: 'Regression',
+    lastName: '1972',
+    birthDate: DateTime(1972, 4, 4),
+    birthHour: 10,
+    birthMinute: 30,
+    province: 'กรุงเทพมหานคร',
+    provinceKey: 'bangkok',
+  ),
+  startedAt: DateTime.utc(2026, 8, 7),
+  asOf: DateTime.utc(2026, 8, 7),
+);
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -175,46 +189,128 @@ void main() {
         (tester) async {
           await tester.binding.setSurfaceSize(Size(width, 800));
           addTearDown(() => tester.binding.setSurfaceSize(null));
-          final key = GlobalKey();
-          final document = ThaiBetaReportExportDocument.candidate(
-            _analysis(knownTime: true),
-          );
-          await tester.pumpWidget(
-            MaterialApp(
-              home: Scaffold(
-                body: SingleChildScrollView(
-                  child: ThaiBetaSharedReportView(
-                    document: document,
-                    infographicBoundaryKey: key,
+          for (final knownTime in [true, false]) {
+            final key = GlobalKey();
+            final document = ThaiBetaReportExportDocument.candidate(
+              _analysis(knownTime: knownTime),
+            );
+            await tester.pumpWidget(
+              MaterialApp(
+                home: Scaffold(
+                  body: SingleChildScrollView(
+                    child: ThaiBetaSharedReportView(
+                      document: document,
+                      infographicBoundaryKey: key,
+                    ),
                   ),
                 ),
               ),
-            ),
-          );
-          await tester.pumpAndSettle();
-          expect(tester.takeException(), isNull);
-          expect(
-            find.byKey(const Key('thai_annual_infographic_save')),
-            findsOneWidget,
-          );
-          final boundary = tester.renderObject<RenderRepaintBoundary>(
-            find.byKey(key),
-          );
-          expect(boundary.size, ThaiBetaAnnualInfographicCapture.logicalSize);
-          expect(ThaiBetaAnnualInfographicCapture.pixelRatio, 3);
-          expect(ThaiBetaAnnualInfographicCapture.targetWidth, 1080);
-          expect(ThaiBetaAnnualInfographicCapture.targetHeight, 1920);
-          final repeated = ThaiBetaReportExportDocument.candidate(
-            _analysis(knownTime: true),
-          ).infographic!;
-          expect(
-            jsonEncode(_identity(document.infographic!)),
-            jsonEncode(_identity(repeated)),
-          );
+            );
+            await tester.pumpAndSettle();
+            expect(tester.takeException(), isNull);
+            expect(
+              find.byKey(const Key('thai_annual_infographic_save')),
+              findsOneWidget,
+            );
+            final boundary = tester.renderObject<RenderRepaintBoundary>(
+              find.byKey(key),
+            );
+            expect(boundary.size, ThaiBetaAnnualInfographicCapture.logicalSize);
+            _expectAllInfographicSectionsInsideCanvas(
+              tester,
+              document.infographic!,
+            );
+            final firstPng = await tester.runAsync(
+              () => ThaiBetaAnnualInfographicCapture.png(key),
+            );
+            final secondPng = await tester.runAsync(
+              () => ThaiBetaAnnualInfographicCapture.png(key),
+            );
+            expect(firstPng, isNotNull);
+            expect(secondPng, firstPng);
+            expect(ThaiBetaAnnualInfographicCapture.pixelRatio, 3);
+            expect(ThaiBetaAnnualInfographicCapture.targetWidth, 1080);
+            expect(ThaiBetaAnnualInfographicCapture.targetHeight, 1920);
+            final repeated = ThaiBetaReportExportDocument.candidate(
+              _analysis(knownTime: knownTime),
+            ).infographic!;
+            expect(
+              jsonEncode(_identity(document.infographic!)),
+              jsonEncode(_identity(repeated)),
+            );
+            await tester.pumpWidget(const SizedBox.shrink());
+            await tester.pumpAndSettle();
+          }
         },
       );
+
+      testWidgets('regression 1972 fits mobile $width without overflow', (
+        tester,
+      ) async {
+        await tester.binding.setSurfaceSize(Size(width, 800));
+        addTearDown(() => tester.binding.setSurfaceSize(null));
+        final document = ThaiBetaReportExportDocument.candidate(
+          _regression1972(),
+        );
+        await tester.pumpWidget(
+          MaterialApp(
+            home: Scaffold(
+              body: SingleChildScrollView(
+                child: ThaiBetaAnnualInfographicPanel(
+                  data: document.infographic!,
+                  boundaryKey: GlobalKey(),
+                ),
+              ),
+            ),
+          ),
+        );
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull);
+        _expectAllInfographicSectionsInsideCanvas(
+          tester,
+          document.infographic!,
+        );
+      });
     }
   });
+}
+
+void _expectAllInfographicSectionsInsideCanvas(
+  WidgetTester tester,
+  ThaiBetaAnnualInfographicData data,
+) {
+  final canvas = tester.getRect(
+    find.byKey(const Key('thai_annual_infographic_canvas')),
+  );
+  final finders = <Finder>[
+    find.byKey(ThaiBetaAnnualInfographicLayoutKeys.title),
+    find.byKey(ThaiBetaAnnualInfographicLayoutKeys.theme),
+    find.byKey(ThaiBetaAnnualInfographicLayoutKeys.overview),
+    for (final category in data.categories)
+      find.byKey(ThaiBetaAnnualInfographicLayoutKeys.category(category.id)),
+    find.byKey(ThaiBetaAnnualInfographicLayoutKeys.ornament),
+    find.byKey(ThaiBetaAnnualInfographicLayoutKeys.opportunity),
+    find.byKey(ThaiBetaAnnualInfographicLayoutKeys.caution),
+    find.byKey(ThaiBetaAnnualInfographicLayoutKeys.advice),
+    find.byKey(ThaiBetaAnnualInfographicLayoutKeys.disclaimer),
+  ];
+  Rect? previous;
+  for (final finder in finders) {
+    expect(finder, findsOneWidget);
+    final rect = tester.getRect(finder);
+    expect(rect.left, greaterThanOrEqualTo(canvas.left));
+    expect(rect.top, greaterThanOrEqualTo(canvas.top));
+    expect(rect.right, lessThanOrEqualTo(canvas.right));
+    expect(rect.bottom, lessThanOrEqualTo(canvas.bottom));
+    if (previous != null) {
+      expect(
+        rect.top,
+        greaterThanOrEqualTo(previous.bottom - .01),
+        reason: '${previous.toString()} overlaps ${rect.toString()}',
+      );
+    }
+    previous = rect;
+  }
 }
 
 Map<String, Object?> _identity(ThaiBetaAnnualInfographicData data) => {

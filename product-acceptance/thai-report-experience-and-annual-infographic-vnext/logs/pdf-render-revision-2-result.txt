@@ -1,0 +1,15 @@
+
+file=browser-print-comparison-known-bangkok.pdf|Pages:           7|renderedPages=7|sha256=345CE35D7F1EF251F8CB5D8CD9845F4BAEA31F04270FD49494E92A46ECBB54C2
+file=browser-print-comparison-known-khon-kaen.pdf|Pages:           7|renderedPages=7|sha256=3D6AD78B4A94A23F6AA4ACC00FBB611DF03C5DE93E997489864101EC7E845826
+file=browser-print-known.pdf|Pages:           7|renderedPages=7|sha256=0FF2EC45C7757B86FC7FFD2F9F3FF62FB38B9AFAC75C9529F157A2CAA2D94690
+file=browser-print-owner-known-0035.pdf|Pages:           7|renderedPages=7|sha256=B072E0E3AE1189AF416114ECB70567CDAFD861848B4ED4AE5EAB9D1C6C6B2A97
+file=browser-print-owner-unknown.pdf|Pages:           7|renderedPages=7|sha256=7E6808EAEEF96FA82D6451AEAAC7A4D83BBE099BF65AAF232701951DC239FDCF
+file=browser-print-regression-known-0003.pdf|Pages:           7|renderedPages=7|sha256=D0A41938B50EC6357DE8D5C4D4BD359C89B30D0B2FE4B2080A791746A7922E00
+file=browser-print-unknown.pdf|Pages:           7|renderedPages=7|sha256=08AFA7C76F49047C71F31A35A78024B789E6B910E8FD245069C1603CDEDB4F42
+file=dedicated-report-comparison-known-bangkok.pdf|Pages:           8|renderedPages=8|sha256=BE95371CA6505BC5628D43F67E2395F504BB13CD78789D7DDC53C4B440A4AFA8
+file=dedicated-report-comparison-known-khon-kaen.pdf|Pages:           8|renderedPages=8|sha256=7F8CD06524F2470D3BC49B482168E75241567A76FD9D6855FBBFD9CDF449445D
+file=dedicated-report-known.pdf|Pages:           8|renderedPages=8|sha256=B3BBD2372EB55C549ADD4F8BD5C556508F32014D74737DC3DDB47C9900EF76F8
+file=dedicated-report-owner-known-0035.pdf|Pages:           8|renderedPages=8|sha256=ADE2B099AE4CE7AD20FC93937283E77791D9A516295397AAA29ABFA8A50871C1
+file=dedicated-report-owner-unknown.pdf|Pages:           8|renderedPages=8|sha256=D6C1B3BE9618597BB9F235886DEEC60FFEE3E9E63F7780DD1421690033B181A0
+file=dedicated-report-regression-known-0003.pdf|Pages:           8|renderedPages=8|sha256=6F2F7873D9B15948733ABD9DAB69EB79AA75887C0F4DD8CE0EA4C3B8F06A876B
+file=dedicated-report-unknown.pdf|Pages:           8|renderedPages=8|sha256=2874E55E3E914E716C5DC2591B77D3C606D79BE73661DC5134901F52F740BDB1

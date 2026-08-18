@@ -393,8 +393,13 @@ class ThaiBetaReportExportDocument {
           : domain.claim.trim().isNotEmpty
           ? domain.claim
           : domain.body;
+      final categoryField =
+          'infographic.categories[${categories.length}].summary';
       final summary = applyReaderCopy
-          ? ThaiBetaReaderCopyRepair.refine(raw)
+          ? ThaiBetaReaderCopyRepair.refineForField(
+              raw,
+              fieldPath: categoryField,
+            )
           : raw;
       final material = domain.material;
       categories.add(
@@ -412,8 +417,9 @@ class ThaiBetaReportExportDocument {
       );
     }
     if (categories.length != 4) return null;
-    String repair(String value) =>
-        applyReaderCopy ? ThaiBetaReaderCopyRepair.refine(value) : value;
+    String repair(String value, String fieldPath) => applyReaderCopy
+        ? ThaiBetaReaderCopyRepair.refineForField(value, fieldPath: fieldPath)
+        : value;
     int bandScore(PredictionDomainModel domain) =>
         switch (domain.material?.band ?? ForecastBand.active) {
           ForecastBand.strong => 2,
@@ -440,15 +446,16 @@ class ThaiBetaReportExportDocument {
         : cautionDomain.caution;
     return ThaiBetaAnnualInfographicData(
       buddhistYear: analysis.asOf.year + 543,
-      theme: repair(window.summary),
-      overview: repair(window.timeframeLabel),
+      theme: repair(window.summary, 'infographic.theme'),
+      overview: repair(window.timeframeLabel, 'infographic.overview'),
       categories: List.unmodifiable(categories),
-      opportunity: repair(opportunity),
-      caution: repair(caution),
+      opportunity: repair(opportunity, 'infographic.opportunity'),
+      caution: repair(caution, 'infographic.caution'),
       primaryAdvice: repair(
         prediction.detailedClosingAdvice.trim().isNotEmpty
             ? prediction.detailedClosingAdvice
             : prediction.closingAdvice,
+        'infographic.primaryAdvice',
       ),
       disclaimer: analysis.input.hasBirthTime
           ? 'แนวโน้มนี้ใช้เพื่อวางแผนและทบทวน ไม่ใช่ข้อสรุปตายตัว'

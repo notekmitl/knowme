@@ -1,13 +1,14 @@
-# Visual QA
+# Visual QA — Revision 2 repaired
 
-ตรวจไฟล์จริงทุกหน้าและภาพจริงจาก `generated-artifacts/`, `renders-final/`, `visual-qa-final/` และ `web-screenshots-final/`.
+ตรวจจาก artifact จริง ไม่ใช่ widget preview อย่างเดียว
 
-- Web: desktop 1024, tablet 768, mobile 390 Known และ mobile 360 Unknown; sticky export controls ไม่ซ้อนรายงาน, report scroll ครบ, infographic preview ไม่ล้น
-- Infographic: Known/Unknown 1080×1920; Thai font ครบ, category 4 รายการไม่เกิน 2 บรรทัด, contrast อ่านได้, vector icons, ไม่มี clipping/transparent artifact/sensitive birth data
-- Dedicated PDF: Known 8/8 และ Unknown 8/8; infographic หน้า 2, heading ไม่ค้างเดี่ยว, card ไม่ถูกตัดโดยไม่จำเป็น, ไม่มี disclaimer orphan
-- Browser print: Known 7/7 และ Unknown 7/7; ไม่มี horizontal clipping, infographic หน้า 2, content order ตรง shared model
-- Owner reproduction: dedicated PDF เดิม 7 หน้า; browser print เดิม 1 หน้าและถูกตัดตาม root-cause report
+- Web mobile: Known และ Unknown ที่ viewport 360×800 และ 390×844; `scrollWidth == innerWidth`, report scroll ครบ, infographic ไม่ล้น และ browser console ไม่มี warning/error
+- Infographic: 15 fixtures, PNG ทุกไฟล์ 1080×1920, title/year/category/opportunity/caution/advice/disclaimer ครบ, ไม่มี clipping/ellipsis/transparent artifact หรือข้อมูลวันเวลาเกิด
+- ลายเส้นโค้งและดอกสี่กลีบเป็น decoration เท่านั้น ไม่มีแกน เดือน จุดข้อมูล หรือ label ที่อาจทำให้เข้าใจว่าเป็น monthly chart
+- Canonical five และ stress fixtures มี contact sheet แยก; stress ครอบคลุมข้อความยาว, Thai multiline, opportunity/caution, disclaimer และ regression ปี 1972
+- Dedicated PDF: 7 fixtures × 8 หน้า; browser print: 7 fixtures × 7 หน้า; Poppler render ตรวจครบ 105/105 หน้าและมี contact sheet ทุกไฟล์
+- Known/Unknown ใช้ hierarchy, spacing และ font size ชุดเดียวกัน โดยปรับเฉพาะ decorative spacing ให้รองรับข้อความยาว
 
-Artifact fixture generation ต้อง unmount composited `RepaintBoundary` ระหว่าง Known/Unknown เพื่อป้องกัน test raster cache เก็บ unchanged layers; raw final artifact test ยืนยันภาพทั้งสองครบหลังแก้
+หลักฐานอยู่ใน `generated-artifacts/revision-2/`, `renders/revision-2-repaired/`, `visual-qa/revision-2-repaired/` และ `web-screenshots-repaired/` ผล QA ทางเทคนิคผ่าน แต่การอนุมัติด้าน copy/visual ยังเป็น **Pending Owner Review**
 
-ผล: visual QA PASS สำหรับขอบเขตที่มีหลักฐาน; monthly timeline ไม่อยู่ในภาพเพราะ gate ยัง BLOCKED
+Monthly timeline ไม่อยู่ในภาพเพราะ gate ยัง BLOCKED และไม่มีการสร้างข้อมูลรายเดือนขึ้นเอง

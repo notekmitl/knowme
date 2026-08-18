@@ -1,30 +1,31 @@
-# Thai Report Experience Repair and Annual Horoscope Infographic
+# Thai Report Experience Repair and Annual Horoscope Infographic — Owner Review Revision 2
 
-Draft-only candidate for Owner review. Do not merge or deploy.
+Draft-only candidate for Owner copy and visual review. Do not merge or deploy.
 
-## What changed
+## Revision 2 repair
 
-- Web, dedicated PDF and browser print now consume the same shared report presentation document for content, order and Known/Unknown visibility.
-- Browser print uses a semantic multi-page A4 document instead of printing the clipped Flutter viewport.
-- Reader-facing Thai copy repairs are isolated behind a candidate-only projection. The accepted V1.5 default remains unchanged.
-- A 1080 x 1920 annual infographic is integrated into Web, dedicated PDF and browser print from the same presentation data.
-- Month-by-month content is intentionally absent because the current engine exposes no validated calendar-month evidence.
+- Repaired Known/Unknown annual infographic wrapping, hierarchy and decorative spacing without reducing font sizes or adding fake monthly data.
+- Added exact 1080×1920 artifacts for 15 fixtures, including canonical-five and stress cases.
+- Added 360/390 Web evidence and complete dedicated PDF/browser-print contact sheets.
+- Added a readable 45-rule grouped Owner table backed by a full 300-profile / 4,003-field ledger; the previous 2,105-field ledger is preserved.
+- Reader-facing candidate copy remains isolated behind `applyReaderCopy=true`; accepted V1.5/R1–R7.1 canonical content is unchanged.
 
 ## Evidence and gates
 
-- Copy corpus: 300 profiles, 2,105 changed fields; omission, addition, semantic, prediction/advice and traceability impact all 0. Owner decision remains Pending.
-- Dedicated PDF: Known 8 pages, Unknown 8 pages; infographic is page 2.
-- Browser print: Known 7 pages, Unknown 7 pages; infographic is page 2.
-- Full suite: branch 2,938 passed / 37 failed; exact main 2,925 / 39; branch-only failures 0.
+- Focused Revision 2: 105/105; layout/export/screenshot: 98/98.
+- Copy audit: 300 profiles, 4,003 fields; omission, addition, semantic, prediction/advice and traceability impact all 0. Owner decision remains Pending.
+- Artifact generation: 15/15 fixtures; dedicated PDF 7×8 pages and browser print 7×7 pages; 105/105 pages rendered.
+- Full suite: branch 2,940 passed / 37 failed; exact main 2,925 / 39; branch-only failures 0.
 - Analyzer: scoped 0 issues; branch/main 297/299; branch-only diagnostics 0.
+- Life Map 32/32; matrix 864/864; original R7 runner 286/286.
 - Web release and local preview builds passed; neither build was deployed.
-- VM/real-Chrome manifest is byte-identical: 134,732 bytes, SHA-256 `E961E1DEE62B3A16FE6DD0245D1EFE8376E93F294F65590A65D900EDDF8C2780`.
+- VM/real-Chrome manifest is byte-identical: 133,841 bytes, SHA-256 `2726315A625CF8AF0999EE27B673EBBDF1DA22EC24BB34A0B52AF79C74D5E093`.
 - R7.1 remains 10,709,328 bytes / 80 entries / SHA-256 `9E541F21C68FDAD93BC595C55BD0BE23600F88454CFBA7FAB6C713FE53F79E58`; checksums 79/79, immutable comparison 63/63, modified paths 0.
 
-Owner review packet: `product-acceptance/thai-report-experience-and-annual-infographic-vnext/README.md`
+Owner review starts at `product-acceptance/thai-report-experience-and-annual-infographic-vnext/OWNER_REVIEW_INDEX.md`.
 
-Owner review is required for Web/PDF parity, the complete copy ledger, Known/Unknown infographic visuals, mobile PNGs and the monthly evidence gap. The PR must remain Draft.
+The current engine has no validated calendar-month evidence, so `monthlyTimelineAvailable` remains false and month-by-month content is intentionally absent. Monthly timeline is still BLOCKED.
 
-Production remains V1.5 Hosting version `5f98dfffef913e38`; V1.4 rollback remains `10af10c6d960d590`. No Firebase service was changed.
+PR #100 must remain Open, Draft and unmerged. Production remains V1.5 Hosting version `5f98dfffef913e38`; V1.4 rollback remains `10af10c6d960d590`. No Firebase service was changed.
 
-`ANNUAL INFOGRAPHIC MONTHLY TIMELINE BLOCKED — VALIDATED MONTH DATA REQUIRED — PRODUCTION UNCHANGED`
+`OWNER COPY/VISUAL REVIEW PENDING — MONTHLY TIMELINE BLOCKED — DRAFT — NOT DEPLOYED`

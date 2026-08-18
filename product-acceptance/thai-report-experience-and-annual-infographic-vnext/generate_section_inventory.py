@@ -5,12 +5,14 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parent
-manifest = json.loads((ROOT / "cross-runtime-vm-manifest.json").read_text(encoding="utf-8"))
+manifest = json.loads(
+    (ROOT / "cross-runtime-vm-manifest-repaired.json").read_text(encoding="utf-8")
+)
 
 lines = [
     "# Web/PDF shared section inventory",
     "",
-    "Generated from the final VM manifest. Web, dedicated PDF and browser print consume the same row; renderer differences are layout-only.",
+    "Generated from the repaired Revision 2 VM manifest. Web, dedicated PDF and browser print consume the same row; renderer differences are layout-only.",
     "",
     "| Mode | Order | Section ID | Heading | Paragraph IDs | Field source | Visibility | Known/Unknown rule | Renderers |",
     "|---|---:|---|---|---|---|---|---|---|",

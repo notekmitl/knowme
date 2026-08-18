@@ -1,6 +1,6 @@
 # Web/PDF shared section inventory
 
-Generated from the final VM manifest. Web, dedicated PDF and browser print consume the same row; renderer differences are layout-only.
+Generated from the repaired Revision 2 VM manifest. Web, dedicated PDF and browser print consume the same row; renderer differences are layout-only.
 
 | Mode | Order | Section ID | Heading | Paragraph IDs | Field source | Visibility | Known/Unknown rule | Renderers |
 |---|---:|---|---|---|---|---|---|---|

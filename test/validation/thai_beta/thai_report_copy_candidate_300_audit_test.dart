@@ -17,6 +17,8 @@ void main() {
     '300-profile copy ledger is complete and structural semantics are unchanged',
     () {
       final rows = <Map<String, Object?>>[];
+      final infographicProfiles = <Map<String, Object?>>[];
+      final copyQualityViolations = <String>[];
       final changedProfiles = <String>{};
       final cases = ThaiBetaSyntheticMatrix.build();
       expect(cases, hasLength(300));
@@ -130,6 +132,55 @@ void main() {
             beforeGraphic.categories[index].traceIds,
           );
         }
+        final infographicStrings = <String, String>{
+          'theme': afterGraphic.theme,
+          for (var index = 0; index < afterGraphic.categories.length; index++)
+            'category[$index]': afterGraphic.categories[index].summary,
+          'opportunity': afterGraphic.opportunity,
+          'caution': afterGraphic.caution,
+          'primaryAdvice': afterGraphic.primaryAdvice,
+          'disclaimer': afterGraphic.disclaimer,
+        };
+        for (final entry in infographicStrings.entries) {
+          if (entry.value.contains('ด้านนี้') ||
+              entry.value.contains('สิ่งนี้') ||
+              entry.value.contains('จุดกระตุ้น')) {
+            copyQualityViolations.add(
+              '${profile.id}/${entry.key}: ambiguous or internal reference',
+            );
+          }
+        }
+        if (afterGraphic.categories.any(
+          (category) => category.summary == afterGraphic.opportunity,
+        )) {
+          copyQualityViolations.add(
+            '${profile.id}/opportunity: duplicates a category summary',
+          );
+        }
+        if (afterGraphic.primaryAdvice.startsWith('ใช้') &&
+            afterGraphic.primaryAdvice.contains('เลือกทาง') &&
+            !afterGraphic.primaryAdvice.contains('แล้วเลือกทาง')) {
+          copyQualityViolations.add(
+            '${profile.id}/primaryAdvice: missing connective before เลือกทาง',
+          );
+        }
+        if (afterGraphic.theme.length > 190 ||
+            afterGraphic.categories.any(
+              (category) => category.summary.length > 180,
+            ) ||
+            afterGraphic.opportunity.length > 170 ||
+            afterGraphic.caution.length > 130 ||
+            afterGraphic.primaryAdvice.length > 190 ||
+            afterGraphic.disclaimer.length > 130) {
+          copyQualityViolations.add(
+            '${profile.id}: infographic field exceeds reviewed length budget',
+          );
+        }
+        infographicProfiles.add({
+          'profileId': profile.id,
+          'birthTimeMode': profile.input.hasBirthTime ? 'Known' : 'Unknown',
+          ...infographicStrings,
+        });
       }
 
       expect(rows, isNotEmpty);
@@ -140,6 +191,7 @@ void main() {
       );
       expect(rows.every((row) => row['omission'] == false), isTrue);
       expect(rows.every((row) => row['addition'] == false), isTrue);
+      expect(copyQualityViolations, isEmpty);
 
       final output = Platform.environment['KNOWME_COPY_LEDGER_OUTPUT'];
       if (output != null && output.isNotEmpty) {
@@ -156,6 +208,8 @@ void main() {
           'adviceToPrediction': 0,
           'traceabilityImpact': 0,
           'ownerDecision': 'Pending',
+          'copyQualityViolations': copyQualityViolations,
+          'infographicProfiles': infographicProfiles,
           'rows': rows,
         };
         File(output).writeAsStringSync(
@@ -185,8 +239,15 @@ void _record(
   List<String> traceIds,
 ) {
   if (before == after) return;
-  expect(ThaiBetaReaderCopyRepair.refine(before), after, reason: fieldPath);
-  final rules = ThaiBetaReaderCopyRepair.matchingRules(before);
+  expect(
+    ThaiBetaReaderCopyRepair.refineForField(before, fieldPath: fieldPath),
+    after,
+    reason: fieldPath,
+  );
+  final rules = ThaiBetaReaderCopyRepair.matchingRules(
+    before,
+    fieldPath: fieldPath,
+  );
   expect(rules, isNotEmpty, reason: '$profileId/$fieldPath');
   changedProfiles.add(profileId);
   rows.add({

@@ -15,4 +15,4 @@ Infographic อ่านจาก `ThaiBetaAnnualInfographicData` ซึ่ง�
 
 PNG Known/Unknown สร้างจาก widget/model เดียวกับ Web แล้วส่ง byte เดียวกันเข้า dedicated PDF และ browser-print HTML ขนาด 1080×1920, 9:16, Noto Sans Thai/Noto Sans, vector glyphs, ไม่มี emoji และไม่มีวันเกิด เวลาเกิด หรือสถานที่เกิด
 
-VM/Chrome manifest ตรงกันแบบ byte-for-byte 134,732 bytes; SHA-256 `E961E1DEE62B3A16FE6DD0245D1EFE8376E93F294F65590A65D900EDDF8C2780`.
+Revision 2 VM/Chrome manifest ตรงกันแบบ byte-for-byte 133,841 bytes; SHA-256 `2726315A625CF8AF0999EE27B673EBBDF1DA22EC24BB34A0B52AF79C74D5E093`.

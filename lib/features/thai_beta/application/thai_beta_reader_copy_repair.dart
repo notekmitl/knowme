@@ -121,18 +121,390 @@ abstract final class ThaiBetaReaderCopyRepair {
       after: 'จังหวะเปลี่ยนผ่านที่ต้องค่อย ๆ ปรับ',
       semanticIntent: 'อธิบายผลต่อการเปลี่ยนผ่านแทนการแสดงศัพท์ engine',
     ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-theme-reading-flow',
+      sourceTemplate: 'PredictionWindowCardModel.summary',
+      fieldPathPrefix: 'infographic.theme',
+      before:
+          'ตลอด 12 เดือนของช่วงเรียนรู้และเชื่อมโยง ให้ใช้ขอบเขตหน้าที่ที่เปลี่ยนไปเป็นสัญญาณ แล้วกลับมาทบทวนเมื่อพฤติกรรมหลังข้อตกลงเริ่มชัด',
+      after:
+          'ตลอด 12 เดือนนี้ ให้ดูว่าหน้าที่เปลี่ยนไปอย่างไร แล้วทบทวนอีกครั้งเมื่อพฤติกรรมหลังข้อตกลงชัดขึ้น',
+      semanticIntent:
+          'รักษากรอบทบทวน 12 เดือนและสัญญาณเดิมด้วยประโยคที่สั้นและตรงขึ้น',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-theme-growth-reading-flow',
+      sourceTemplate: 'PredictionWindowCardModel.summary',
+      fieldPathPrefix: 'infographic.theme',
+      before:
+          'ตลอด 12 เดือนของช่วงเติบโตและขยาย ให้ใช้ขอบเขตหน้าที่ที่เปลี่ยนไปเป็นสัญญาณ แล้วกลับมาทบทวนเมื่อพฤติกรรมหลังข้อตกลงเริ่มชัด',
+      after:
+          'ตลอด 12 เดือนนี้ ให้ดูการเปลี่ยนแปลงของหน้าที่ แล้วทบทวนเมื่อพฤติกรรมหลังข้อตกลงชัดขึ้น',
+      semanticIntent:
+          'รักษากรอบ 12 เดือน สัญญาณจากหน้าที่ และจุดทบทวนเดิมด้วยประโยคที่กระชับขึ้น',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-category-transition-reserve',
+      sourceTemplate: 'ThaiBetaNarrativeComposer._decisionImpact',
+      fieldPathPrefix: 'infographic.categories',
+      before: 'และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต',
+      after: 'และเผื่อแรงไว้ในช่วงเปลี่ยนผ่าน',
+      semanticIntent:
+          'คงการสำรองแรงสำหรับช่วงเปลี่ยนผ่านด้วยคำที่สั้นและเป็นธรรมชาติขึ้น',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-career-strong',
+      sourceTemplate: 'ThaiBetaNarrativeComposer._decisionImpact(career)',
+      fieldPathPrefix: 'infographic.categories',
+      before:
+          'รับบทบาทเพิ่มได้หนึ่งก้าวเมื่อคุณภาพงานหลักยังคงเดิม โดยไม่แลกกับคุณภาพงานหลัก',
+      after: 'รับบทบาทเพิ่มได้ทีละขั้น หากงานหลักยังรักษาคุณภาพได้ตามเดิม',
+      semanticIntent:
+          'คงเงื่อนไขการขยายบทบาทโดยตัดคำนามซ้ำและระบุงานหลักให้ชัด',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-finance-strong',
+      sourceTemplate: 'ThaiBetaNarrativeComposer._decisionImpact(finance)',
+      fieldPathPrefix: 'infographic.categories',
+      before:
+          'ขยับภาระได้เมื่อกันเงินพร้อมใช้ไว้ครบแล้ว โดยไม่ลดเงินที่ต้องพร้อมใช้',
+      after: 'ขยายแผนการเงินได้ เมื่อกันค่าใช้จ่ายจำเป็นและเงินสำรองไว้ครบแล้ว',
+      semanticIntent:
+          'คงเงื่อนไขสภาพคล่องเดิมและแทนคำซ้ำด้วยรายการเงินที่ต้องกันไว้',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-relationship-strong',
+      sourceTemplate: 'ThaiBetaNarrativeComposer._decisionImpact(relationship)',
+      fieldPathPrefix: 'infographic.categories',
+      before:
+          'เพิ่มข้อผูกพันได้เมื่อคำพูดและการกระทำสอดคล้องกัน โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน',
+      after:
+          'เพิ่มข้อผูกพันได้เมื่อคำพูดและการกระทำสอดคล้องกัน และทั้งสองฝ่ายเข้าใจตรงกัน',
+      semanticIntent:
+          'คงเงื่อนไขความสม่ำเสมอและความเข้าใจร่วมกันด้วยคำเชื่อมที่เป็นธรรมชาติ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-relationship-active',
+      sourceTemplate: 'ThaiBetaNarrativeComposer._decisionImpact(relationship)',
+      fieldPathPrefix: 'infographic.categories',
+      before:
+          'ทดลองข้อตกลงเล็กและดูความสม่ำเสมอก่อนผูกพันเพิ่ม โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน',
+      after:
+          'เริ่มจากข้อตกลงเล็ก ๆ แล้วดูความสม่ำเสมอ ก่อนเพิ่มข้อผูกพันเมื่อทั้งสองฝ่ายเข้าใจตรงกัน',
+      semanticIntent:
+          'คงลำดับทดลองข้อตกลง ตรวจความสม่ำเสมอ และยืนยันความเข้าใจร่วมกัน',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-health-strong',
+      sourceTemplate: 'ThaiBetaNarrativeComposer._decisionImpact(health)',
+      fieldPathPrefix: 'infographic.categories',
+      before:
+          'เพิ่มกิจกรรมได้เมื่อเวลาพักและการฟื้นตัวยังคงพอ โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน',
+      after:
+          'เพิ่มกิจกรรมได้เมื่อพักแล้วฟื้นตัวได้ตามปกติ หากฟื้นช้าลงควรลดภาระ',
+      semanticIntent:
+          'คงเกณฑ์การฟื้นตัวเดิมและตัดคำซ้ำโดยไม่เพิ่มข้อสรุปด้านสุขภาพ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-health-active',
+      sourceTemplate: 'ThaiBetaNarrativeComposer._decisionImpact(health)',
+      fieldPathPrefix: 'infographic.categories',
+      before:
+          'ทดลองกิจกรรมทีละขั้นและใช้การฟื้นตัวจริงเป็นเพดาน โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน',
+      after:
+          'ค่อย ๆ เพิ่มกิจกรรมและใช้เวลาฟื้นตัวเป็นเกณฑ์ หากฟื้นช้าลงควรลดภาระ',
+      semanticIntent:
+          'คงการทดลองทีละขั้นและเกณฑ์การฟื้นตัวโดยตัดข้อความที่ซ้ำกัน',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-unknown-evidence-boundary',
+      sourceTemplate: 'ThaiBetaNarrativeComposer._decisionImpact(noLagna)',
+      fieldPathPrefix: 'infographic.categories',
+      before: ' จึงควรยืนยันจากผลที่เกิดซ้ำก่อนตัดสินใจ',
+      after: ' ควรดูผลที่เกิดซ้ำก่อนตัดสินใจ',
+      semanticIntent:
+          'รักษาเงื่อนไข fail-closed ของ Unknown ด้วยถ้อยคำสั้นที่ยังต้องตรวจผลซ้ำ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-opportunity-career-strong',
+      sourceTemplate: 'PredictionWindowCardModel.topOpportunity',
+      fieldPathPrefix: 'infographic.opportunity',
+      before:
+          'รับบทบาทเพิ่มได้หนึ่งก้าวเมื่อคุณภาพงานหลักยังคงเดิม โดยไม่แลกกับคุณภาพงานหลัก',
+      after: 'โอกาสอยู่ที่การรับบทบาทเพิ่มทีละขั้น โดยยังรักษาคุณภาพงานหลัก',
+      semanticIntent:
+          'สรุปโอกาสจากสัญญาณการงานเดิมโดยไม่คัดลอกข้อความหมวดการงานทั้งประโยค',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-opportunity-transition-reserve',
+      sourceTemplate: 'PredictionWindowCardModel.topOpportunity',
+      fieldPathPrefix: 'infographic.opportunity',
+      before: 'และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต',
+      after: 'และเผื่อแรงไว้ในช่วงเปลี่ยนผ่าน',
+      semanticIntent:
+          'คงการสำรองแรงสำหรับช่วงเปลี่ยนผ่านในสรุปโอกาสด้วยถ้อยคำที่กระชับขึ้น',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-opportunity-career-active',
+      sourceTemplate: 'PredictionWindowCardModel.topOpportunity',
+      fieldPathPrefix: 'infographic.opportunity',
+      before: 'ทดลองขอบเขตงานใหม่ก่อนตัดสินใจรับบทบาทเต็มตัว',
+      after: 'โอกาสอยู่ที่การทดลองขอบเขตงานใหม่ในวงเล็ก',
+      semanticIntent: 'คงการทดลองก่อนรับบทบาทเต็มตัวด้วยข้อความโอกาสที่สั้นลง',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-opportunity-career-quiet',
+      sourceTemplate: 'PredictionWindowCardModel.topOpportunity',
+      fieldPathPrefix: 'infographic.opportunity',
+      before: 'หยุดเพิ่มงานและคืนเวลาให้งานหลักก่อน',
+      after: 'จังหวะนี้เปิดพื้นที่ให้คืนเวลาแก่งานหลัก',
+      semanticIntent: 'คงการชะลอรับงานและการคืนเวลาให้งานหลัก',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-opportunity-finance-strong',
+      sourceTemplate: 'PredictionWindowCardModel.topOpportunity',
+      fieldPathPrefix: 'infographic.opportunity',
+      before: 'ขยับภาระได้เมื่อกันเงินพร้อมใช้ไว้ครบแล้ว',
+      after: 'โอกาสอยู่ที่การขยายแผนเมื่อมีเงินพร้อมใช้เพียงพอ',
+      semanticIntent: 'คงเงื่อนไขเงินพร้อมใช้ก่อนขยายภาระ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-opportunity-finance-active',
+      sourceTemplate: 'PredictionWindowCardModel.topOpportunity',
+      fieldPathPrefix: 'infographic.opportunity',
+      before: 'พิสูจน์กระแสเงินจริงในวงเล็กก่อนเพิ่มภาระ',
+      after: 'โอกาสอยู่ที่การทดสอบกระแสเงินในวงเล็ก',
+      semanticIntent: 'คงการทดสอบกระแสเงินจริงก่อนเพิ่มภาระ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-opportunity-finance-quiet',
+      sourceTemplate: 'PredictionWindowCardModel.topOpportunity',
+      fieldPathPrefix: 'infographic.opportunity',
+      before: 'ชะลอรายจ่ายก้อนใหม่และรักษาเงินพร้อมใช้',
+      after: 'จังหวะนี้เปิดพื้นที่ให้รักษาเงินพร้อมใช้',
+      semanticIntent: 'คงการชะลอรายจ่ายใหม่และรักษาสภาพคล่อง',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-opportunity-relationship-strong',
+      sourceTemplate: 'PredictionWindowCardModel.topOpportunity',
+      fieldPathPrefix: 'infographic.opportunity',
+      before: 'เพิ่มข้อผูกพันได้เมื่อคำพูดและการกระทำสอดคล้องกัน',
+      after: 'โอกาสอยู่ที่การเพิ่มข้อผูกพันบนความสม่ำเสมอ',
+      semanticIntent: 'คงเงื่อนไขคำพูดและการกระทำที่สอดคล้องกัน',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-opportunity-relationship-active',
+      sourceTemplate: 'PredictionWindowCardModel.topOpportunity',
+      fieldPathPrefix: 'infographic.opportunity',
+      before: 'ทดลองข้อตกลงเล็กและดูความสม่ำเสมอก่อนผูกพันเพิ่ม',
+      after: 'โอกาสอยู่ที่การเริ่มจากข้อตกลงเล็กและดูความต่อเนื่อง',
+      semanticIntent: 'คงการทดลองข้อตกลงและตรวจความสม่ำเสมอก่อนผูกพันเพิ่ม',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-opportunity-relationship-quiet',
+      sourceTemplate: 'PredictionWindowCardModel.topOpportunity',
+      fieldPathPrefix: 'infographic.opportunity',
+      before: 'รอความชัดของเงื่อนไขก่อนเพิ่มข้อผูกพัน',
+      after: 'จังหวะนี้เปิดพื้นที่ให้รอเงื่อนไขชัดขึ้น',
+      semanticIntent: 'คงการรอความชัดก่อนเพิ่มข้อผูกพัน',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-opportunity-health-strong',
+      sourceTemplate: 'PredictionWindowCardModel.topOpportunity',
+      fieldPathPrefix: 'infographic.opportunity',
+      before: 'เพิ่มกิจกรรมได้เมื่อเวลาพักและการฟื้นตัวยังคงพอ',
+      after: 'โอกาสอยู่ที่การเพิ่มกิจกรรมเมื่อร่างกายยังฟื้นตัวได้ตามปกติ',
+      semanticIntent: 'คงเงื่อนไขการฟื้นตัวก่อนเพิ่มกิจกรรม',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-opportunity-health-active',
+      sourceTemplate: 'PredictionWindowCardModel.topOpportunity',
+      fieldPathPrefix: 'infographic.opportunity',
+      before: 'ทดลองกิจกรรมทีละขั้นและใช้การฟื้นตัวจริงเป็นเพดาน',
+      after: 'โอกาสอยู่ที่การค่อย ๆ ทดลองกิจกรรมใหม่',
+      semanticIntent: 'คงการทดลองทีละขั้นโดยใช้การฟื้นตัวเป็นขอบเขต',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-opportunity-health-quiet',
+      sourceTemplate: 'PredictionWindowCardModel.topOpportunity',
+      fieldPathPrefix: 'infographic.opportunity',
+      before: 'ลดกิจกรรมและคืนเวลาฟื้นตัวก่อนรับภาระใหม่',
+      after: 'จังหวะนี้เปิดพื้นที่ให้คืนเวลาฟื้นตัว',
+      semanticIntent: 'คงการลดกิจกรรมและคืนเวลาฟื้นตัวก่อนรับภาระใหม่',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-opportunity-unknown-boundary',
+      sourceTemplate: 'ThaiBetaNarrativeComposer._decisionImpact(noLagna)',
+      fieldPathPrefix: 'infographic.opportunity',
+      before: ' จึงควรยืนยันจากผลที่เกิดซ้ำก่อนตัดสินใจ',
+      after: ' โดยดูผลที่เกิดซ้ำก่อนตัดสินใจ',
+      semanticIntent: 'รักษาเงื่อนไขตรวจผลซ้ำของ Unknown ในแถบโอกาส',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-caution-career-reference',
+      sourceTemplate: 'ThaiBetaNarrativeComposer._riskSignal(career)',
+      fieldPathPrefix: 'infographic.caution',
+      before: 'งานหลักอาจถูกภาระด้านนี้เบียดเวลา',
+      after: 'ภาระงานที่เพิ่มขึ้นอาจเบียดเวลาของงานหลัก',
+      semanticIntent: 'ระบุภาระงานแทนคำอ้างอิงกำกวมโดยคงความเสี่ยงเดิม',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-caution-finance-reference',
+      sourceTemplate: 'ThaiBetaNarrativeComposer._riskSignal(finance)',
+      fieldPathPrefix: 'infographic.caution',
+      before: 'ภาระเงินอาจลดพื้นที่ตัดสินใจในด้านนี้',
+      after: 'ภาระการเงินอาจลดทางเลือกในการตัดสินใจ',
+      semanticIntent: 'ระบุความเสี่ยงด้านการเงินโดยตัดคำอ้างอิงกำกวม',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-caution-health-reference',
+      sourceTemplate: 'ThaiBetaNarrativeComposer._riskSignal(health)',
+      fieldPathPrefix: 'infographic.caution',
+      before: 'การพักไม่พออาจลดกำลังสำหรับด้านนี้',
+      after: 'การพักไม่พออาจทำให้กำลังลดลง',
+      semanticIntent: 'คงความเสี่ยงจากการพักไม่พอโดยตัดคำอ้างอิงกำกวม',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-advice-known-reading-flow',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
+      fieldPathPrefix: 'infographic.primaryAdvice',
+      before:
+          'ใช้ความถนัดในการสร้างฐานทีละขั้นเลือกทางงานที่ทำให้บทบาทใหม่เพิ่มคุณภาพงาน ไม่ใช่เพียงเพิ่มจำนวนงาน พร้อมรักษาพฤติกรรมที่ทำตามคำตกลงไว้',
+      after:
+          'ใช้ความถนัดในการสร้างฐานทีละขั้น เลือกรับบทบาทที่ช่วยให้งานดีขึ้น ไม่ใช่เพียงทำให้งานมากขึ้น และรักษาสิ่งที่ตกลงกันไว้',
+      semanticIntent:
+          'เติมจังหวะและคำเชื่อมให้คำแนะนำเดิมอ่านต่อเนื่องโดยไม่เปลี่ยนข้อเสนอ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-advice-unknown-reading-flow',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing(noLagna)',
+      fieldPathPrefix: 'infographic.primaryAdvice',
+      before:
+          'ใช้ความสามารถในการทำความคิดให้คนอื่นเข้าใจกับข้อมูลที่เกิดซ้ำจริง: เลือกงานทีละก้าว และยังไม่ผูกมัดเพิ่มจนกว่าพฤติกรรมที่ทำตามคำตกลงจะยืนยันได้',
+      after:
+          'อธิบายความคิดให้คนอื่นเข้าใจด้วยข้อมูลที่เกิดซ้ำจริง เลือกงานทีละก้าว และรอให้พฤติกรรมยืนยันข้อตกลงก่อนผูกมัดเพิ่ม',
+      semanticIntent:
+          'คงการใช้ข้อมูลซ้ำ เลือกงานทีละก้าว และรอยืนยันข้อตกลงด้วยประโยคที่ลื่นไหลขึ้น',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-advice-communication-reading-flow',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
+      fieldPathPrefix: 'infographic.primaryAdvice',
+      before:
+          'ใช้ความสามารถในการทำความคิดให้คนอื่นเข้าใจเลือกทางงานที่ทำให้บทบาทใหม่เพิ่มคุณภาพงาน ไม่ใช่เพียงเพิ่มจำนวนงาน พร้อมรักษาพฤติกรรมที่ทำตามคำตกลงไว้',
+      after:
+          'ใช้การสื่อสารให้คนอื่นเข้าใจ แล้วเลือกบทบาทใหม่ที่เพิ่มคุณภาพงานมากกว่าปริมาณ พร้อมรักษาสิ่งที่ตกลงกันไว้',
+      semanticIntent:
+          'คงจุดแข็งด้านการสื่อสาร ทางเลือกบทบาทใหม่ เกณฑ์คุณภาพเหนือปริมาณ และการรักษาข้อตกลง',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-advice-connective-steady-foundation',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
+      fieldPathPrefix: 'infographic.primaryAdvice',
+      before: 'ใช้ความถนัดในการสร้างฐานทีละขั้นเลือกทาง',
+      after: 'ใช้ความถนัดในการสร้างฐานทีละขั้น แล้วเลือกทาง',
+      semanticIntent:
+          'เติมคำเชื่อมระหว่างจุดแข็งกับการเลือกทาง โดยคงจุดแข็ง ทางเลือก และเงื่อนไขเดิมทุกประการ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-advice-connective-new-options',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
+      fieldPathPrefix: 'infographic.primaryAdvice',
+      before: 'ใช้แรงเรียนรู้จากทางเลือกใหม่เลือกทาง',
+      after: 'ใช้แรงเรียนรู้จากทางเลือกใหม่ แล้วเลือกทาง',
+      semanticIntent:
+          'เติมคำเชื่อมระหว่างจุดแข็งกับการเลือกทาง โดยคงจุดแข็ง ทางเลือก และเงื่อนไขเดิมทุกประการ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-advice-connective-self-direction',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
+      fieldPathPrefix: 'infographic.primaryAdvice',
+      before: 'ใช้การกำหนดทิศทางด้วยตัวเองเลือกทาง',
+      after: 'ใช้การกำหนดทิศทางด้วยตัวเอง แล้วเลือกทาง',
+      semanticIntent:
+          'เติมคำเชื่อมระหว่างจุดแข็งกับการเลือกทาง โดยคงจุดแข็ง ทางเลือก และเงื่อนไขเดิมทุกประการ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-advice-connective-detail',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
+      fieldPathPrefix: 'infographic.primaryAdvice',
+      before: 'ใช้ความสามารถในการเห็นรายละเอียดเลือกทาง',
+      after: 'ใช้ความสามารถในการเห็นรายละเอียด แล้วเลือกทาง',
+      semanticIntent:
+          'เติมคำเชื่อมระหว่างจุดแข็งกับการเลือกทาง โดยคงจุดแข็ง ทางเลือก และเงื่อนไขเดิมทุกประการ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-advice-connective-endurance',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
+      fieldPathPrefix: 'infographic.primaryAdvice',
+      before: 'ใช้ความอดทนที่พาเรื่องยากไปต่อเลือกทาง',
+      after: 'ใช้ความอดทนที่พาเรื่องยากไปต่อ แล้วเลือกทาง',
+      semanticIntent:
+          'เติมคำเชื่อมระหว่างจุดแข็งกับการเลือกทาง โดยคงจุดแข็ง ทางเลือก และเงื่อนไขเดิมทุกประการ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-advice-connective-growth-drive',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
+      fieldPathPrefix: 'infographic.primaryAdvice',
+      before: 'ใช้แรงผลักให้พัฒนาเป้าหมายเลือกทาง',
+      after: 'ใช้แรงผลักให้พัฒนาเป้าหมาย แล้วเลือกทาง',
+      semanticIntent:
+          'เติมคำเชื่อมระหว่างจุดแข็งกับการเลือกทาง โดยคงจุดแข็ง ทางเลือก และเงื่อนไขเดิมทุกประการ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-advice-connective-discipline',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
+      fieldPathPrefix: 'infographic.primaryAdvice',
+      before: 'ใช้วินัยที่ทำเรื่องยากต่อเนื่องเลือกทาง',
+      after: 'ใช้วินัยที่ทำเรื่องยากต่อเนื่อง แล้วเลือกทาง',
+      semanticIntent:
+          'เติมคำเชื่อมระหว่างจุดแข็งกับการเลือกทาง โดยคงจุดแข็ง ทางเลือก และเงื่อนไขเดิมทุกประการ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-advice-connective-empathy',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
+      fieldPathPrefix: 'infographic.primaryAdvice',
+      before: 'ใช้ความเข้าใจคนและมุมมองที่ต่างกันเลือกทาง',
+      after: 'ใช้ความเข้าใจคนและมุมมองที่ต่างกัน แล้วเลือกทาง',
+      semanticIntent:
+          'เติมคำเชื่อมระหว่างจุดแข็งกับการเลือกทาง โดยคงจุดแข็ง ทางเลือก และเงื่อนไขเดิมทุกประการ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-advice-connective-option-building',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
+      fieldPathPrefix: 'infographic.primaryAdvice',
+      before: 'ใช้ความสามารถในการสร้างทางเลือกใหม่เลือกทาง',
+      after: 'ใช้ความสามารถในการสร้างทางเลือกใหม่ แล้วเลือกทาง',
+      semanticIntent:
+          'เติมคำเชื่อมระหว่างจุดแข็งกับการเลือกทาง โดยคงจุดแข็ง ทางเลือก และเงื่อนไขเดิมทุกประการ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-advice-connective-communication',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
+      fieldPathPrefix: 'infographic.primaryAdvice',
+      before: 'ใช้ความสามารถในการทำความคิดให้คนอื่นเข้าใจเลือกทาง',
+      after: 'ใช้ความสามารถในการทำความคิดให้คนอื่นเข้าใจ แล้วเลือกทาง',
+      semanticIntent:
+          'เติมคำเชื่อมระหว่างจุดแข็งกับการเลือกทาง โดยคงจุดแข็ง ทางเลือก และเงื่อนไขเดิมทุกประการ',
+    ),
   ];
 
-  static String refine(String value) {
+  static String refine(String value) => refineForField(value);
+
+  static String refineForField(String value, {String fieldPath = ''}) {
     var result = value;
     for (final rule in rules) {
+      if (!rule.appliesTo(fieldPath)) continue;
       result = result.replaceAll(rule.before, rule.after);
     }
     return result;
   }
 
-  static List<ThaiBetaReaderCopyRule> matchingRules(String value) => rules
-      .where((rule) => value.contains(rule.before))
+  static List<ThaiBetaReaderCopyRule> matchingRules(
+    String value, {
+    String fieldPath = '',
+  }) => rules
+      .where((rule) => rule.appliesTo(fieldPath) && value.contains(rule.before))
       .toList(growable: false);
 }
 
@@ -143,6 +515,7 @@ class ThaiBetaReaderCopyRule {
     required this.before,
     required this.after,
     required this.semanticIntent,
+    this.fieldPathPrefix,
   });
 
   final String id;
@@ -150,4 +523,8 @@ class ThaiBetaReaderCopyRule {
   final String before;
   final String after;
   final String semanticIntent;
+  final String? fieldPathPrefix;
+
+  bool appliesTo(String fieldPath) =>
+      fieldPathPrefix == null || fieldPath.startsWith(fieldPathPrefix!);
 }
