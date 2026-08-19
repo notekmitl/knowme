@@ -1,0 +1,12 @@
+verificationBasis: fresh read-only archive hashing and direct byte-identity comparison
+r7.1ZipBytes: 10709328
+r7.1ZipSha256: 9E541F21C68FDAD93BC595C55BD0BE23600F88454CFBA7FAB6C713FE53F79E58
+r7.1ZipEntries: 80
+unsafeZipEntries: 0
+duplicateZipEntries: 0
+zipChecksumEntries: 79
+zipChecksumMismatches: 0
+immutableFilesComparedDirectlyBetweenArchives: 63
+archiveEntriesDifferentBetweenR7AndR7.1: 14
+r1ThroughR7.1ModifiedPaths: 0
+result: PASS

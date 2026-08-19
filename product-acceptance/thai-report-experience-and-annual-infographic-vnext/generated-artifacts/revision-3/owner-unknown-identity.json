@@ -1,0 +1,113 @@
+{
+  "fixtureId": "owner-unknown",
+  "sectionCount": 20,
+  "paragraphCount": 81,
+  "dedicatedPdfPageCount": 8,
+  "pngBytes": 191795,
+  "pdfBytes": 165356,
+  "browserPrintHtmlBytes": 287566,
+  "title": "ดวงชะตาปี 2569",
+  "theme": "ตลอด 12 เดือนนี้ ให้ดูว่าหน้าที่เปลี่ยนไปอย่างไร แล้วทบทวนอีกครั้งเมื่อการทำตามข้อตกลงสม่ำเสมอขึ้น โดยไม่สรุปเหตุการณ์ล่วงหน้า",
+  "categories": [
+    {
+      "id": "annual-career",
+      "title": "การงาน",
+      "summary": "รับบทบาทเพิ่มได้ทีละขั้น หากงานหลักยังรักษาคุณภาพได้ตามเดิม"
+    },
+    {
+      "id": "annual-finance",
+      "title": "การเงิน",
+      "summary": "ขยายแผนการเงินได้ เมื่อกันค่าใช้จ่ายจำเป็นและเงินสำรองไว้ครบแล้ว"
+    },
+    {
+      "id": "annual-relationship",
+      "title": "ความรัก",
+      "summary": "เริ่มจากข้อตกลงเล็ก ๆ แล้วดูความสม่ำเสมอ ก่อนเพิ่มข้อผูกพันเมื่อทั้งสองฝ่ายเข้าใจตรงกัน"
+    },
+    {
+      "id": "annual-health",
+      "title": "สุขภาพ",
+      "summary": "เพิ่มกิจกรรมได้เมื่อพักแล้วฟื้นตัวได้ตามปกติ หากฟื้นช้าลงควรลดภาระ"
+    }
+  ],
+  "opportunity": "โอกาสอยู่ที่การรับบทบาทเพิ่มทีละขั้น โดยยังรักษาคุณภาพงานหลัก โดยดูผลที่เกิดซ้ำก่อนตัดสินใจ",
+  "caution": "ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน",
+  "primaryAdvice": "อธิบายความคิดให้คนอื่นเข้าใจด้วยข้อมูลที่เกิดซ้ำจริง เลือกงานทีละก้าว และรอให้พฤติกรรมยืนยันข้อตกลงก่อนผูกมัดเพิ่ม",
+  "disclaimer": "ไม่มีเวลาเกิด จึงแสดงเฉพาะแนวโน้มที่ข้อมูลรองรับและไม่เติมรายละเอียดที่ขาดหาย ควรดูผลที่เกิดขึ้นซ้ำก่อนตัดสินใจ",
+  "monthlyTimelineAvailable": false,
+  "monthlyGapReason": "engine ปัจจุบันมีกรอบ 12 เดือนและทักษาจรรายปี แต่ไม่มีคะแนนหรือหลักฐานที่ผูกกับเดือนปฏิทินทั้ง 12 เดือน",
+  "layoutBounds1080x1920": {
+    "title": {
+      "left": 138,
+      "top": 39,
+      "right": 1032,
+      "bottom": 129
+    },
+    "theme": {
+      "left": 48,
+      "top": 141,
+      "right": 1032,
+      "bottom": 222
+    },
+    "overview": {
+      "left": 48,
+      "top": 228,
+      "right": 1032,
+      "bottom": 267
+    },
+    "category-annual-career": {
+      "left": 48,
+      "top": 383,
+      "right": 1032,
+      "bottom": 509
+    },
+    "category-annual-finance": {
+      "left": 48,
+      "top": 518,
+      "right": 1032,
+      "bottom": 644
+    },
+    "category-annual-relationship": {
+      "left": 48,
+      "top": 653,
+      "right": 1032,
+      "bottom": 779
+    },
+    "category-annual-health": {
+      "left": 48,
+      "top": 788,
+      "right": 1032,
+      "bottom": 914
+    },
+    "ornament": {
+      "left": 48,
+      "top": 1029,
+      "right": 1032,
+      "bottom": 1221
+    },
+    "opportunity": {
+      "left": 48,
+      "top": 1337,
+      "right": 1032,
+      "bottom": 1457
+    },
+    "caution": {
+      "left": 48,
+      "top": 1469,
+      "right": 1032,
+      "bottom": 1589
+    },
+    "advice": {
+      "left": 48,
+      "top": 1704,
+      "right": 1032,
+      "bottom": 1806
+    },
+    "disclaimer": {
+      "left": 48,
+      "top": 1821,
+      "right": 1032,
+      "bottom": 1881
+    }
+  }
+}

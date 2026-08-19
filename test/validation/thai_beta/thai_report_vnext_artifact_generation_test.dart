@@ -164,6 +164,15 @@ void main() {
           'monthlyTimelineAvailable':
               document.infographic!.monthlyTimelineAvailable,
           'monthlyGapReason': document.infographic!.monthlyGapReason,
+          'layoutBounds1080x1920': {
+            for (final section in sectionRegions)
+              section.id: {
+                'left': (section.region.left * 1080).round(),
+                'top': (section.region.top * 1920).round(),
+                'right': (section.region.right * 1080).round(),
+                'bottom': (section.region.bottom * 1920).round(),
+              },
+          },
         };
         File(
           '${outputDirectory.path}${Platform.pathSeparator}$fixtureId-identity.json',
@@ -210,14 +219,32 @@ List<({String id, Rect region})> _assertLayoutAndCollectRegions(
     ('disclaimer', find.byKey(ThaiBetaAnnualInfographicLayoutKeys.disclaimer)),
   ];
   final regions = <({String id, Rect region})>[];
+  final absolute = <({String id, Rect rect})>[];
   Rect? previous;
   for (final (id, finder) in sections) {
     expect(finder, findsOneWidget, reason: id);
     final rect = tester.getRect(finder);
-    expect(rect.left, greaterThanOrEqualTo(canvas.left), reason: id);
-    expect(rect.top, greaterThanOrEqualTo(canvas.top), reason: id);
-    expect(rect.right, lessThanOrEqualTo(canvas.right), reason: id);
-    expect(rect.bottom, lessThanOrEqualTo(canvas.bottom), reason: id);
+    const safeMargin = 12.0;
+    expect(
+      rect.left,
+      greaterThanOrEqualTo(canvas.left + safeMargin),
+      reason: '$id violates the left safe area',
+    );
+    expect(
+      rect.top,
+      greaterThanOrEqualTo(canvas.top + safeMargin),
+      reason: '$id violates the top safe area',
+    );
+    expect(
+      rect.right,
+      lessThanOrEqualTo(canvas.right - safeMargin),
+      reason: '$id violates the right safe area',
+    );
+    expect(
+      rect.bottom,
+      lessThanOrEqualTo(canvas.bottom - safeMargin),
+      reason: '$id violates the bottom safe area',
+    );
     if (previous != null) {
       expect(
         rect.top,
@@ -234,8 +261,57 @@ List<({String id, Rect region})> _assertLayoutAndCollectRegions(
         (rect.bottom - canvas.top) / canvas.height,
       ),
     ));
+    absolute.add((id: id, rect: rect));
     previous = rect;
   }
+  for (var left = 0; left < absolute.length; left++) {
+    for (var right = left + 1; right < absolute.length; right++) {
+      expect(
+        absolute[left].rect.overlaps(absolute[right].rect),
+        isFalse,
+        reason:
+            '${absolute[left].id} overlaps ${absolute[right].id}: '
+            '${absolute[left].rect} / ${absolute[right].rect}',
+      );
+    }
+  }
+  final canvasFinder = find.byKey(
+    const Key('thai_annual_infographic_canvas'),
+  );
+  final textWidgets = tester.widgetList<Text>(
+    find.descendant(of: canvasFinder, matching: find.byType(Text)),
+  );
+  expect(textWidgets, isNotEmpty);
+  for (final text in textWidgets) {
+    expect(
+      text.style?.fontSize,
+      isNotNull,
+      reason: 'Every infographic text style must declare its design size',
+    );
+    expect(
+      text.style!.fontSize,
+      greaterThanOrEqualTo(7.8),
+      reason: 'Infographic text is below the mobile design minimum: ${text.data}',
+    );
+  }
+  final visibleText = textWidgets.map((text) => text.data ?? '').join(' ');
+  for (final month in const [
+    'มกราคม',
+    'กุมภาพันธ์',
+    'มีนาคม',
+    'เมษายน',
+    'พฤษภาคม',
+    'มิถุนายน',
+    'กรกฎาคม',
+    'สิงหาคม',
+    'กันยายน',
+    'ตุลาคม',
+    'พฤศจิกายน',
+    'ธันวาคม',
+  ]) {
+    expect(visibleText, isNot(contains(month)));
+  }
+  expect(data.monthlyTimelineAvailable, isFalse);
   return regions;
 }
 

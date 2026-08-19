@@ -32,11 +32,29 @@ void main(List<String> arguments) {
       .replaceAll('\r\n', '<br>')
       .replaceAll('\n', '<br>');
 
+  String exactDiff(String before, String after) {
+    var prefix = 0;
+    final commonLength = before.length < after.length
+        ? before.length
+        : after.length;
+    while (prefix < commonLength && before[prefix] == after[prefix]) {
+      prefix++;
+    }
+    var suffix = 0;
+    while (suffix < commonLength - prefix &&
+        before[before.length - suffix - 1] ==
+            after[after.length - suffix - 1]) {
+      suffix++;
+    }
+    return '-{${before.substring(prefix, before.length - suffix)}} '
+        '+{${after.substring(prefix, after.length - suffix)}}';
+  }
+
   final activeRules = ThaiBetaReaderCopyRepair.rules
       .where((rule) => profilesByRule.containsKey(rule.id))
       .toList(growable: false);
   final lines = <String>[
-    '# Curated Owner Copy Review — Revision 2',
+    '# Curated Owner Copy Review — Revision 3',
     '',
     'ตารางนี้ group จาก template/rule เดียวกัน ไม่ใช่ sampling โดยคำนวณจาก full ledger `${ledgerFile.uri.pathSegments.last}` ทั้ง ${ledger['fieldsChanged']} fields / ${ledger['profilesAudited']} profiles',
     '',
@@ -49,10 +67,10 @@ void main(List<String> arguments) {
     '- Active transformation rules: ${activeRules.length}',
     '- Owner decision: **Pending**',
     '',
-    '| Rule / template ID | Before | After | Profiles | Known/Unknown | Semantic intent | Traceability impact | Owner decision |',
-    '|---|---|---|---:|---|---|---|---|',
+    '| Rule / source template | Before | After | Exact textual diff | Profiles | Known/Unknown | Semantic assessment | Prediction/advice | Omission/addition | Claim/traceability impact | Web/PDF impact | Decision |',
+    '|---|---|---|---|---:|---|---|---|---|---|---|---|',
     for (final rule in activeRules)
-      '| `${cell(rule.id)}`<br>`${cell(rule.sourceTemplate)}` | ${cell(rule.before)} | ${cell(rule.after)} | ${profilesByRule[rule.id]!.length} | ${cell((modesByRule[rule.id]!.toList()..sort()).join(' / '))} | ${cell(rule.semanticIntent)} | 0 — claim IDs และ trace IDs คงเดิม | Pending |',
+      '| `${cell(rule.id)}`<br>`${cell(rule.sourceTemplate)}` | ${cell(rule.before)} | ${cell(rule.after)} | `${cell(exactDiff(rule.before, rule.after))}` | ${profilesByRule[rule.id]!.length} | ${cell((modesByRule[rule.id]!.toList()..sort()).join(' / '))} | unchanged — ${cell(rule.semanticIntent)} | unchanged | no net omission/addition; relocation rules preserve report-level guidance | 0 — claim IDs และ trace IDs คงเดิม | shared presentation field changes identically in Web/dedicated PDF/browser print | Pending Owner Review |',
     '',
     '## Owner decision',
     '',

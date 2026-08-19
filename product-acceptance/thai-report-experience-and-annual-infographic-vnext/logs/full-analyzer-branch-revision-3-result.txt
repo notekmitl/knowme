@@ -1,0 +1,303 @@
+Analyzing thai-report-experience-infographic-vnext...           
+
+   info - The file name 'empty - Copy.dart' isn't a lower_case_with_underscores identifier - lib\application\empty - Copy.dart:1:1 - file_names
+warning - Unused import: '../../domain/models/test_question.dart' - lib\application\test_engine\test_runner.dart:2:8 - unused_import
+   info - Don't invoke 'print' in production code - lib\astrology\providers\astrology_provider.dart:24:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\astrology\providers\astrology_provider.dart:33:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\astrology\services\ascendant_api_service.dart:47:7 - avoid_print
+warning - Unused import: '../models/zodiac.dart' - lib\astrology\services\astrology_service.dart:2:8 - unused_import
+warning - Unused import: '../models/element.dart' - lib\astrology\services\astrology_service.dart:3:8 - unused_import
+   info - Don't invoke 'print' in production code - lib\astrology\services\astrology_service.dart:36:5 - avoid_print
+   info - 'dart:html' is deprecated and shouldn't be used. Use package:web and dart:js_interop instead - lib\core\web\screenshot_friendly_scroll_web.dart:1:1 - deprecated_member_use
+   info - Don't use web-only libraries outside Flutter web plugins - lib\core\web\screenshot_friendly_scroll_web.dart:1:1 - avoid_web_libraries_in_flutter
+   info - 'dart:js' is deprecated and shouldn't be used. Use dart:js_interop instead - lib\core\web\screenshot_friendly_scroll_web.dart:2:1 - deprecated_member_use
+   info - Don't use web-only libraries outside Flutter web plugins - lib\core\web\screenshot_friendly_scroll_web.dart:2:1 - avoid_web_libraries_in_flutter
+warning - Unused import: 'web_launch_route_uri.dart' - lib\core\web\web_intended_route.dart:6:8 - unused_import
+   info - 'dart:html' is deprecated and shouldn't be used. Use package:web and dart:js_interop instead - lib\core\web\web_launch_route_web.dart:1:1 - deprecated_member_use
+   info - Don't use web-only libraries outside Flutter web plugins - lib\core\web\web_launch_route_web.dart:1:1 - avoid_web_libraries_in_flutter
+   info - 'dart:js' is deprecated and shouldn't be used. Use dart:js_interop instead - lib\core\web\web_launch_route_web.dart:2:1 - deprecated_member_use
+   info - Don't use web-only libraries outside Flutter web plugins - lib\core\web\web_launch_route_web.dart:2:1 - avoid_web_libraries_in_flutter
+warning - Unused import: 'package:knowme/domain/models/test_module.dart' - lib\data\questions\bigfive\bfi_44.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/domain/models/test_module.dart' - lib\data\questions\bigfive\ipip\ipip_agreeableness.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/domain/models/test_module.dart' - lib\data\questions\bigfive\ipip\ipip_conscientiousness.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/domain/models/test_module.dart' - lib\data\questions\bigfive\ipip\ipip_extraversion.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/domain/models/test_module.dart' - lib\data\questions\bigfive\ipip\ipip_neuroticism.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/domain/models/test_module.dart' - lib\data\questions\bigfive\ipip\ipip_openness.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/domain/models/test_module.dart' - lib\data\questions\bigfive\tipi_10.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/domain/models/test_module.dart' - lib\data\questions\eq\advanced\eq_awareness_20.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/domain/models/test_module.dart' - lib\data\questions\eq\advanced\eq_decision_20.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/domain/models/test_module.dart' - lib\data\questions\eq\advanced\eq_empathy_20.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/domain/models/test_module.dart' - lib\data\questions\eq\advanced\eq_regulation_20.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/domain/models/test_module.dart' - lib\data\questions\eq\advanced\eq_social_20.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/domain/models/test_module.dart' - lib\data\questions\eq\advanced\eq_stress_20.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/domain/models/test_module.dart' - lib\data\questions\eq\eq_advanced_120.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/domain/models/test_module.dart' - lib\data\questions\eq\eq_core_60.dart:1:8 - unused_import
+   info - Statements in an if should be enclosed in a block - lib\data\questions\eq\eq_core_60.dart:10:5 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\data\questions\eq\eq_core_60.dart:12:5 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\data\questions\eq\eq_core_60.dart:14:5 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\data\questions\eq\eq_core_60.dart:16:5 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\data\questions\eq\eq_core_60.dart:18:5 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - lib\data\questions\eq\eq_core_60.dart:20:5 - curly_braces_in_flow_control_structures
+warning - Unused import: 'package:knowme/domain/models/test_module.dart' - lib\data\questions\eq\eq_mini_10.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/domain/models/test_module.dart' - lib\data\questions\eq\eq_quick_12.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/domain/models/test_module.dart' - lib\data\questions\eq\eq_short_40.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/domain/models/test_module.dart' - lib\data\questions\mbti\mbti_cognitive.dart:2:8 - unused_import
+warning - Unused import: 'package:knowme/domain/models/test_question.dart' - lib\domain\models\test_question.dart:1:8 - unused_import
+warning - Unused import: '../domain/zodiac_fusion_readiness_signals.dart' - lib\features\astrology\chinese_zodiac\application\zodiac_theme_calibration_audit.dart:5:8 - unused_import
+warning - Unused import: 'fusion_reading_depth.dart' - lib\features\astrology\fusion\analytics\in_memory_fusion_analytics_tracker.dart:3:8 - unused_import
+warning - Unused import: '../domain/models/source_lens_versions.dart' - lib\features\astrology\fusion\application\astrology_fusion_entry_service.dart:4:8 - unused_import
+warning - Unused import: '../entities/astrology_lens.dart' - lib\features\astrology\fusion\domain\models\astrology_fusion_lens_catalog.dart:1:8 - unused_import
+warning - Unused import: '../fusion_result_design.dart' - lib\features\astrology\fusion\presentation\widgets\fusion_life_pattern_section.dart:3:8 - unused_import
+   info - Use an initializing formal to assign a parameter to a field - lib\features\astrology\thai\core\life_period\life_period_status_metadata.dart:142:8 - prefer_initializing_formals
+   info - Use an initializing formal to assign a parameter to a field - lib\features\astrology\thai\core\life_period\life_period_status_metadata.dart:143:8 - prefer_initializing_formals
+   info - Use an initializing formal to assign a parameter to a field - lib\features\astrology\thai\core\life_period\life_period_status_metadata.dart:144:8 - prefer_initializing_formals
+   info - Use an initializing formal to assign a parameter to a field - lib\features\astrology\thai\core\life_period\life_period_status_metadata.dart:145:8 - prefer_initializing_formals
+warning - Unused import: '../../knowledge/canon/canonical_knowledge_node.dart' - lib\features\astrology\thai\core\life_period\thai_archetype_context_metadata.dart:5:8 - unused_import
+warning - Unused import: '../../knowledge/canon/atomic/atomic_relation.dart' - lib\features\astrology\thai\core\life_period\thai_life_period_archetype_planet_position_resolver.dart:1:8 - unused_import
+warning - Unused import: 'life_planet.dart' - lib\features\astrology\thai\core\life_period\thai_life_period_context_metadata.dart:6:8 - unused_import
+warning - The value of the local variable 'hasPeriodContext' isn't used - lib\features\astrology\thai\core\life_period\thai_life_period_position_metadata.dart:438:11 - unused_local_variable
+warning - Dead code - lib\features\astrology\thai\core\life_period\thai_life_period_rise_fall_metadata.dart:254:24 - dead_code
+warning - The left operand can't be null, so the right operand is never executed - lib\features\astrology\thai\core\life_period\thai_life_period_rise_fall_metadata.dart:254:24 - dead_null_aware_expression
+   info - Dangling library doc comment - lib\features\astrology\thai\interpretation\constants\thai_interpreter_version.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\astrology\thai\interpretation\contracts\thai_interpretation_contract.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\astrology\thai\interpretation\enums\thai_interpretation_fact_tier.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\astrology\thai\interpretation\enums\thai_meaning_predicate.dart:1:1 - dangling_library_doc_comments
+   info - Dangling library doc comment - lib\features\astrology\thai\interpretation\models\thai_interpretation_provenance.dart:1:1 - dangling_library_doc_comments
+warning - Unused import: '../thai_canon_evidence_attachment.dart' - lib\features\astrology\thai\knowledge\canon\integration\presentation\thai_canon_evidence_review_summary.dart:1:8 - unused_import
+warning - Unused import: '../thai_canon_evidence_trace.dart' - lib\features\astrology\thai\knowledge\canon\integration\presentation\thai_canon_evidence_review_summary.dart:2:8 - unused_import
+warning - Unused import: '../thai_canon_taksa_role_runtime_mapping.dart' - lib\features\astrology\thai\knowledge\canon\integration\qa\thai_internal_evidence_mapping_refresh.dart:8:8 - unused_import
+warning - Duplicate import - lib\features\astrology\thai\knowledge\canon\integration\qa\thai_internal_evidence_mapping_refresh.dart:11:8 - duplicate_import
+warning - Unused import: '../thai_report_canon_evidence_enricher.dart' - lib\features\astrology\thai\knowledge\canon\integration\qa\thai_internal_evidence_qa_runner.dart:4:8 - unused_import
+warning - Unused import: '../thai_canon_evidence_trace.dart' - lib\features\astrology\thai\knowledge\canon\integration\qa\thai_internal_evidence_qa_validator.dart:5:8 - unused_import
+warning - Unused import: 'thai_mahabhut_khumsap_runtime_key.dart' - lib\features\astrology\thai\knowledge\canon\integration\thai_khumsap_runtime_metadata.dart:4:8 - unused_import
+warning - Dead code - lib\features\astrology\thai\knowledge\canon\integration\thai_khumsap_runtime_metadata.dart:57:11 - dead_code
+warning - Unused import: 'package:knowme/features/astrology/thai/content/models/thai_content_key.dart' - lib\features\astrology\thai\knowledge\canon\integration\thai_report_canon_evidence_enricher.dart:1:8 - unused_import
+warning - Unused import: 'thai_taksa_role_runtime_key.dart' - lib\features\astrology\thai\knowledge\canon\integration\thai_taksa_role_runtime_metadata.dart:5:8 - unused_import
+warning - Dead code - lib\features\astrology\thai\knowledge\canon\integration\thai_taksa_role_runtime_metadata.dart:69:11 - dead_code
+warning - Unused import: 'package:knowme/features/astrology/thai/knowledge/canon/canon_json.dart' - lib\features\astrology\thai\knowledge\canon\reference\canon_reference_table_cell.dart:8:8 - unused_import
+warning - The declaration '_headlinePerson' isn't referenced - lib\features\astrology\thai\mirror\presentation\copy\thai_mirror_consumer_copy.dart:143:17 - unused_element
+warning - The declaration '_headlineDecision' isn't referenced - lib\features\astrology\thai\mirror\presentation\copy\thai_mirror_consumer_copy.dart:153:17 - unused_element
+warning - The declaration '_headlineOthersSee' isn't referenced - lib\features\astrology\thai\mirror\presentation\copy\thai_mirror_consumer_copy.dart:163:17 - unused_element
+warning - The declaration '_headlinePriority' isn't referenced - lib\features\astrology\thai\mirror\presentation\copy\thai_mirror_consumer_copy.dart:173:17 - unused_element
+warning - The declaration '_pickSpacedThemes' isn't referenced - lib\features\astrology\thai\mirror\presentation\copy\thai_mirror_consumer_copy.dart:233:23 - unused_element
+   info - Statements in an if should be enclosed in a block - lib\features\astrology\thai\mirror\presentation\copy\thai_mirror_consumer_copy.dart:554:9 - curly_braces_in_flow_control_structures
+   info - Use the null-aware marker '?' rather than a null check via an 'if' - lib\features\bazi\domain\bazi_summary.dart:15:9 - use_null_aware_elements
+warning - Unused import: '../domain/discovery_item.dart' - lib\features\exploration_overview\application\discovery_grouping_registry.dart:2:8 - unused_import
+warning - Unused import: 'exploration_profile_input.dart' - lib\features\exploration_overview\domain\exploration_overview.dart:3:8 - unused_import
+warning - Unused import: 'package:knowme/features/global_fusion/validation/global_fusion_golden_fixtures.dart' - lib\features\exploration_overview\validation\discovery_golden_fixtures.dart:12:8 - unused_import
+warning - Unused import: '../domain/global_confidence.dart' - lib\features\global_fusion\application\global_fusion_builder.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/features/astrology/fusion/domain/entities/fusion_category.dart' - lib\features\global_fusion\application\theme_normalization\global_theme_mapping_policy.dart:1:8 - unused_import
+warning - Unused import: 'mirror_theme_mappings.dart' - lib\features\global_fusion\application\theme_normalization\global_theme_mapping_policy.dart:9:8 - unused_import
+warning - Unused import: 'package:knowme/features/personality_mirror/domain/personality_lens_snapshot.dart' - lib\features\global_fusion\application\theme_normalization\global_theme_normalizer.dart:4:8 - unused_import
+warning - Unused import: 'package:knowme/features/personality_mirror/domain/personality_core_themes.dart' - lib\features\global_fusion\application\theme_normalization\mirror_theme_mappings.dart:3:8 - unused_import
+warning - Unused import: '../../domain/global_core_themes.dart' - lib\features\global_fusion\application\theme_normalization\mirror_theme_mappings.dart:5:8 - unused_import
+warning - Unused import: 'global_theme_contract.dart' - lib\features\global_fusion\domain\global_core_themes.dart:4:8 - unused_import
+   info - Use an initializing formal to assign a parameter to a field - lib\features\global_fusion\domain\global_theme_contract.dart:24:9 - prefer_initializing_formals
+warning - The declaration '_requiredString' isn't referenced - lib\features\global_fusion\foundation\domain\global_fusion_coverage.dart:54:8 - unused_element
+warning - Duplicate import - lib\features\global_fusion\validation\global_confidence_golden_expectations.dart:3:8 - duplicate_import
+warning - The declaration '_personalityStructureOnlyMinimal' isn't referenced - lib\features\global_fusion\validation\global_confidence_golden_fixtures.dart:118:36 - unused_element
+warning - Unused import: '../domain/home_section.dart' - lib\features\home_cohesion\application\home_experience_builder.dart:3:8 - unused_import
+warning - Unused import: '../domain/home_section.dart' - lib\features\home_cohesion\application\home_experience_registry.dart:2:8 - unused_import
+warning - The value of the local variable 'astrologyItem' isn't used - lib\features\home_cohesion\application\home_presentation_builder.dart:68:11 - unused_local_variable
+warning - The value of the local variable 'personalityItem' isn't used - lib\features\home_cohesion\application\home_presentation_builder.dart:72:11 - unused_local_variable
+warning - The value of the local variable 'fusionItem' isn't used - lib\features\home_cohesion\application\home_presentation_builder.dart:76:11 - unused_local_variable
+warning - Unused import: 'package:knowme/features/personality_mirror/domain/personality_mirror_narrative_view.dart' - lib\features\home_cohesion\application\home_v2_loader.dart:22:8 - unused_import
+warning - Unused import: 'package:knowme/features/personality_mirror/domain/personality_mirror_snapshot.dart' - lib\features\home_cohesion\application\home_v2_loader.dart:23:8 - unused_import
+warning - Unused import: 'package:knowme/core/profile/birth_profile_format.dart' - lib\features\home_cohesion\presentation\home_compact_profile_section.dart:1:8 - unused_import
+warning - Unused import: '../domain/home_presentation_model.dart' - lib\features\home_cohesion\validation\home_experience_golden_fixtures.dart:3:8 - unused_import
+warning - Unused import: '../models/knowme_mirror_snapshot.dart' - lib\features\mirror_v3\snapshot\contracts\mirror_snapshot_read_request.dart:1:8 - unused_import
+warning - Duplicate import - lib\features\mirror_v3\validation\fixtures\mirror_synthetic_bundle_factory.dart:17:8 - duplicate_import
+warning - Unused import: '../../engine/models/knowme_mirror_engine_input.dart' - lib\features\mirror_v3\validation\population\mirror_population_validator.dart:2:8 - unused_import
+warning - Unused import: 'package:knowme/features/human_pattern/domain/pattern_evidence.dart' - lib\features\narrative_runtime\engines\narrative_paragraph_builder.dart:3:8 - unused_import
+warning - The receiver can't be null, so the null-aware operator '?.' is unnecessary - lib\features\narrative_runtime\integration\user_runtime_pipeline_service.dart:98:38 - invalid_null_aware_operator
+   info - Use 'isEmpty' instead of 'length' to test whether the collection is empty - lib\features\narrative_runtime\intelligence\narrative_pattern_prioritizer.dart:40:11 - prefer_is_empty
+warning - Unused import: 'package:knowme/features/human_pattern/domain/pattern_activation.dart' - lib\features\narrative_runtime\intelligence\narrative_plan_topology.dart:2:8 - unused_import
+warning - The value of the local variable 'mappedHumanPatternKeys' isn't used - lib\features\runtime_integration\audit\runtime_dead_zone_audit.dart:30:11 - unused_local_variable
+   info - Don't use 'BuildContext's across async gaps - lib\features\tests\big_five\presentation\big_five_test_page.dart:101:7 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\features\tests\big_five\presentation\big_five_test_page.dart:151:22 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\features\tests\eq\presentation\eq_test_page.dart:88:7 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\features\tests\eq\presentation\eq_test_page.dart:136:22 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\features\tests\mbti\presentation\mbti_mini_test_page.dart:70:9 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\features\tests\mbti\presentation\mbti_mini_test_page.dart:113:7 - use_build_context_synchronously
+warning - Unused import: 'mbti_summary_layout.dart' - lib\features\tests\mbti_summary\presentation\widgets\mbti_summary_soft_disclosure.dart:3:8 - unused_import
+   info - 'dart:html' is deprecated and shouldn't be used. Use package:web and dart:js_interop instead - lib\features\thai_beta\application\thai_beta_report_export_download_web.dart:1:1 - deprecated_member_use
+   info - Don't use web-only libraries outside Flutter web plugins - lib\features\thai_beta\application\thai_beta_report_export_download_web.dart:1:1 - avoid_web_libraries_in_flutter
+   info - Type could be non-nullable - lib\features\thai_beta\application\thai_evidence_badge_activation.dart:6:24 - unnecessary_nullable_for_final_variable_declarations
+   info - The import of 'package:flutter/foundation.dart' is unnecessary because all of the used elements are also provided by the import of 'package:flutter/widgets.dart' - lib\features\thai_beta\presentation\thai_beta_screenshot_mode.dart:4:8 - unnecessary_import
+   info - Unnecessary 'this.' qualifier - lib\l10n\l10n_extension.dart:7:16 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\l10n\l10n_extension.dart:10:16 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\l10n\l10n_extension.dart:13:16 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\l10n\l10n_extension.dart:16:16 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\l10n\l10n_extension.dart:19:16 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\l10n\l10n_extension.dart:22:16 - unnecessary_this
+   info - Unnecessary 'this.' qualifier - lib\l10n\l10n_extension.dart:25:16 - unnecessary_this
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\presentation\pages\astrology\astrology_result_page.dart:195:29 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\presentation\pages\astrology\astrology_result_page.dart:362:63 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\presentation\pages\astrology\astrology_result_page.dart:420:57 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\presentation\pages\astrology\astrology_result_page.dart:678:55 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\presentation\pages\astrology\astrology_result_page.dart:700:46 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\presentation\pages\astrology\astrology_result_page.dart:921:29 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\presentation\pages\astrology\astrology_result_page.dart:949:37 - deprecated_member_use
+warning - Unused import: 'package:google_sign_in/google_sign_in.dart' - lib\presentation\pages\auth\login_page.dart:8:8 - unused_import
+   info - Don't use 'BuildContext's across async gaps - lib\presentation\pages\auth\login_page.dart:70:9 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\presentation\pages\auth\login_page.dart:84:9 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\presentation\pages\auth\login_page.dart:94:9 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\presentation\pages\auth\register_page.dart:57:9 - use_build_context_synchronously
+warning - The declaration '_messageBody' isn't referenced - lib\presentation\pages\bazi\bazi_result_page.dart:189:10 - unused_element
+warning - The value of the field '_shellLoading' isn't used - lib\presentation\pages\home\home_page.dart:84:8 - unused_field
+warning - The declaration '_openMoreItem' isn't referenced - lib\presentation\pages\home\home_page.dart:385:8 - unused_element
+   info - Don't use 'BuildContext's across async gaps - lib\presentation\pages\profile\edit_profile_page.dart:115:11 - use_build_context_synchronously
+   info - Don't invoke 'print' in production code - lib\presentation\pages\profile\edit_profile_page.dart:143:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\presentation\pages\profile\edit_profile_page.dart:148:1 - avoid_print
+   info - Don't invoke 'print' in production code - lib\presentation\pages\profile\edit_profile_page.dart:149:1 - avoid_print
+warning - The operand can't be 'null', so the condition is always 'true' - lib\presentation\pages\profile\edit_profile_page.dart:217:19 - unnecessary_null_comparison
+   info - Don't invoke 'print' in production code - lib\presentation\pages\profile\edit_profile_page.dart:220:1 - avoid_print
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\presentation\pages\profile\edit_profile_page.dart:255:15 - deprecated_member_use
+warning - The declaration '_apiBirthDate' isn't referenced - lib\presentation\pages\profile\edit_profile_page_v1.dart:160:10 - unused_element
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\presentation\pages\profile\edit_profile_page_v1.dart:327:13 - deprecated_member_use
+   info - Don't use 'BuildContext's across async gaps - lib\presentation\pages\profile\profile_page.dart:55:7 - use_build_context_synchronously
+warning - The declaration '_apiBirthDate' isn't referenced - lib\presentation\pages\profile\profile_setup_page.dart:74:10 - unused_element
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\presentation\pages\profile\profile_setup_page.dart:177:15 - deprecated_member_use
+warning - The value of the local variable 'bValue' isn't used - lib\presentation\pages\result\mbti_result_page.dart:153:11 - unused_local_variable
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\presentation\pages\tests\personality_result_page.dart:64:54 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\presentation\pages\tests\personality_result_page.dart:100:44 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\presentation\pages\tests\personality_result_page.dart:124:44 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\presentation\pages\tests\test_module_list_page.dart:816:33 - deprecated_member_use
+warning - Unused import: '../result/eq_result_page.dart' - lib\presentation\pages\tests\universal_test_page.dart:16:8 - unused_import
+   info - Don't use 'BuildContext's across async gaps - lib\presentation\pages\tests\universal_test_page.dart:86:9 - use_build_context_synchronously
+   info - Unnecessary use of 'toList' in a spread - lib\presentation\pages\tests\universal_test_page.dart:228:18 - unnecessary_to_list_in_spreads
+   info - Uses 'await' on an instance of 'PersonalityProfile', which is not a subtype of 'Future' - lib\presentation\pages\tests\universal_test_page.dart:286:5 - await_only_futures
+warning - The value of the field '_apiService' isn't used - lib\presentation\providers\astrology_provider.dart:15:29 - unused_field
+   info - Don't invoke 'print' in production code - lib\presentation\widgets\location_picker.dart:10:5 - avoid_print
+   info - Don't invoke 'print' in production code - lib\presentation\widgets\location_picker.dart:17:5 - avoid_print
+warning - Dead code - lib\presentation\widgets\location_picker.dart:45:41 - dead_code
+warning - The left operand can't be null, so the right operand is never executed - lib\presentation\widgets\location_picker.dart:45:44 - dead_null_aware_expression
+   info - Don't use 'BuildContext's across async gaps - lib\presentation\widgets\location_picker.dart:55:31 - use_build_context_synchronously
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\presentation\widgets\radar_chart_widget.dart:31:36 - deprecated_member_use
+warning - Unused import: 'package:knowme/domain/models/test_question.dart' - lib\services\eq_scoring_service.dart:1:8 - unused_import
+   info - The type of the right operand ('String') isn't a subtype or a supertype of the left operand ('double') - lib\services\insight_generator.dart:36:42 - unrelated_type_equality_checks
+   info - The type of the right operand ('String') isn't a subtype or a supertype of the left operand ('double') - lib\services\insight_generator.dart:40:42 - unrelated_type_equality_checks
+   info - Don't invoke 'print' in production code - lib\services\question_service.dart:46:7 - avoid_print
+   info - Don't invoke 'print' in production code - lib\services\scoring_router.dart:43:5 - avoid_print
+warning - Unused import: '../scoring/mbti_scoring_service.dart' - lib\services\test_engine\scoring_router.dart:8:8 - unused_import
+warning - Unused import: 'package:knowme/features/astrology/fusion/domain/entities/fusion_signal.dart' - test\astrology_fusion_af04_test.dart:13:8 - unused_import
+warning - Unused import: 'package:knowme/features/astrology/fusion/presentation/fusion_presentation_copy.dart' - test\astrology_fusion_af05_test.dart:16:8 - unused_import
+warning - The value of the local variable 'versions' isn't used - test\astrology_fusion_af10_test.dart:122:13 - unused_local_variable
+warning - The value of the local variable 'vm' isn't used - test\astrology_fusion_v22_test.dart:51:11 - unused_local_variable
+warning - Unused import: 'package:knowme/features/astrology/fusion/presentation/fusion_result_v5_copy.dart' - test\astrology_fusion_v23_test.dart:7:8 - unused_import
+   info - Unnecessary use of multiple underscores - test\astrology_generation_coordinator_test.dart:127:27 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - test\astrology_generation_coordinator_test.dart:128:30 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - test\astrology_generation_coordinator_test.dart:153:27 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - test\astrology_generation_coordinator_test.dart:161:30 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - test\astrology_generation_coordinator_test.dart:182:27 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - test\astrology_generation_coordinator_test.dart:183:30 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - test\astrology_generation_coordinator_test.dart:205:27 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - test\astrology_generation_coordinator_test.dart:208:30 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - test\astrology_generation_coordinator_test.dart:235:27 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - test\astrology_generation_coordinator_test.dart:236:30 - unnecessary_underscores
+warning - The value of the local variable 'thaiKeys' isn't used - test\bazi_mirror_integration_test.dart:127:9 - unused_local_variable
+warning - The value of the local variable 'baziKeys' isn't used - test\bazi_mirror_integration_test.dart:128:9 - unused_local_variable
+warning - Unused import: 'package:knowme/features/astrology/domain/astrology_generation_status.dart' - test\bazi_result_page_test.dart:5:8 - unused_import
+warning - A value for optional parameter 'coordinator' isn't ever given - test\bazi_result_page_test.dart:87:35 - unused_element_parameter
+   info - Unnecessary use of multiple underscores - test\bazi_result_page_test.dart:129:23 - unnecessary_underscores
+   info - Unnecessary use of multiple underscores - test\bazi_result_page_test.dart:130:26 - unnecessary_underscores
+   info - The local variable '_summaryFor' starts with an underscore - test\big_five_result_test.dart:16:24 - no_leading_underscores_for_local_identifiers
+warning - Unused import: 'package:knowme/features/astrology/chinese_zodiac/domain/zodiac_fusion_signal_weight.dart' - test\chinese_zodiac_runtime_integration_test.dart:5:8 - unused_import
+   info - Unnecessary 'const' keyword - test\content_lookup\c1_mapper_test.dart:59:19 - unnecessary_const
+warning - Unused import: 'package:knowme/features/exploration_overview/domain/exploration_overview.dart' - test\discovery_test.dart:7:8 - unused_import
+warning - Unused import: 'package:knowme/features/exploration_overview/domain/exploration_profile_input.dart' - test\discovery_test.dart:8:8 - unused_import
+warning - Unused import: 'package:knowme/features/astrology/thai/mirror_v2/contracts/thai_mirror_warning_contract.dart' - test\fusion_v2\f2_engine_test.dart:23:8 - unused_import
+warning - Unused import: 'package:knowme/features/global_fusion/validation/global_fusion_snapshot_inspector.dart' - test\global_fusion_foundation_test.dart:6:8 - unused_import
+warning - Unused import: 'package:knowme/features/global_fusion/domain/global_coverage.dart' - test\global_fusion_narrative_test.dart:11:8 - unused_import
+warning - Duplicate import - test\global_fusion_synthesis_test.dart:15:8 - duplicate_import
+warning - Unused import: 'package:knowme/features/global_fusion/domain/global_theme_contract.dart' - test\global_fusion_theme_contract_test.dart:9:8 - unused_import
+warning - Unused import: 'package:knowme/features/exploration_overview/application/exploration_overview_builder.dart' - test\home_cohesion_test.dart:3:8 - unused_import
+warning - Unused import: 'package:knowme/features/exploration_overview/validation/discovery_golden_scenario.dart' - test\home_cohesion_test.dart:7:8 - unused_import
+warning - Unused import: 'package:knowme/features/home_cohesion/presentation/home_v3_psychology_tests_section.dart' - test\home_screen_v3_test.dart:13:8 - unused_import
+warning - The annotation 'Timeout.new' can only be used on libraries - test\human_pattern_activation_audit_test.dart:8:2 - invalid_annotation_target
+   info - The import of 'package:knowme/features/narrative_runtime/domain/narrative_mode.dart' is unnecessary because all of the used elements are also provided by the import of 'package:knowme/features/narrative_runtime/narrative_runtime_domain.dart' - test\narrative_runtime\narrative_intelligence_v2_test.dart:10:8 - unnecessary_import
+   info - The import of 'package:knowme/features/narrative_runtime/domain/narrative_result.dart' is unnecessary because all of the used elements are also provided by the import of 'package:knowme/features/narrative_runtime/narrative_runtime_domain.dart' - test\narrative_runtime\narrative_intelligence_v2_test.dart:11:8 - unnecessary_import
+   info - The import of 'package:knowme/features/narrative_runtime/intelligence/narrative_insight_plan.dart' is unnecessary because all of the used elements are also provided by the import of 'package:knowme/features/narrative_runtime/narrative_runtime_domain.dart' - test\narrative_runtime\narrative_intelligence_v2_test.dart:12:8 - unnecessary_import
+   info - The import of 'package:knowme/features/narrative_runtime/intelligence/narrative_intelligence_layer.dart' is unnecessary because all of the used elements are also provided by the import of 'package:knowme/features/narrative_runtime/narrative_runtime_domain.dart' - test\narrative_runtime\narrative_intelligence_v2_test.dart:13:8 - unnecessary_import
+   info - The import of 'package:knowme/features/narrative_runtime/intelligence/narrative_interaction_type.dart' is unnecessary because all of the used elements are also provided by the import of 'package:knowme/features/narrative_runtime/narrative_runtime_domain.dart' - test\narrative_runtime\narrative_intelligence_v2_test.dart:14:8 - unnecessary_import
+   info - The import of 'package:knowme/features/narrative_runtime/integration/narrative_pattern_snapshot_resolver.dart' is unnecessary because all of the used elements are also provided by the import of 'package:knowme/features/narrative_runtime/narrative_runtime_domain.dart' - test\narrative_runtime\narrative_intelligence_v2_test.dart:18:8 - unnecessary_import
+   info - The import of 'package:knowme/features/narrative_runtime/domain/narrative_mode.dart' is unnecessary because all of the used elements are also provided by the import of 'package:knowme/features/narrative_runtime/narrative_runtime_domain.dart' - test\narrative_runtime\narrative_runtime_test.dart:3:8 - unnecessary_import
+   info - The import of 'package:knowme/features/narrative_runtime/integration/home_narrative_mapper.dart' is unnecessary because all of the used elements are also provided by the import of 'package:knowme/features/narrative_runtime/narrative_runtime_domain.dart' - test\narrative_runtime\narrative_runtime_test.dart:4:8 - unnecessary_import
+   info - The import of 'package:knowme/features/narrative_runtime/integration/narrative_pattern_snapshot_resolver.dart' is unnecessary because all of the used elements are also provided by the import of 'package:knowme/features/narrative_runtime/narrative_runtime_domain.dart' - test\narrative_runtime\narrative_runtime_test.dart:5:8 - unnecessary_import
+   info - The import of 'package:knowme/features/narrative_runtime/integration/profile_narrative_mapper.dart' is unnecessary because all of the used elements are also provided by the import of 'package:knowme/features/narrative_runtime/narrative_runtime_domain.dart' - test\narrative_runtime\narrative_runtime_test.dart:6:8 - unnecessary_import
+   info - The import of 'package:knowme/features/tests/big_five/domain/big_five_models.dart' is unnecessary because all of the used elements are also provided by the import of 'package:knowme/features/tests/big_five/domain/big_five_models.dart' - test\personality_mirror_foundation_test.dart:20:8 - unnecessary_import
+   info - The local variable '_narrativeFor' starts with an underscore - test\personality_mirror_narrative_golden_test.dart:16:34 - no_leading_underscores_for_local_identifiers
+warning - Unused import: 'package:knowme/features/human_pattern/registry/human_pattern_registry.dart' - test\runtime_integration\runtime_integration_test.dart:2:8 - unused_import
+warning - The annotation 'Timeout.new' can only be used on libraries - test\synthetic_human_population_test.dart:11:2 - invalid_annotation_target
+warning - Unused import: 'package:knowme/features/astrology/thai/signal/models/thai_signal_fact_type.dart' - test\thai_interpretation\b2_validation_test.dart:16:8 - unused_import
+warning - Unused import: 'package:knowme/features/astrology/thai/signal/models/thai_signal_source.dart' - test\thai_interpretation\b2_validation_test.dart:17:8 - unused_import
+   info - Missing type annotation - test\thai_mirror_consumer_presenter_test.dart:31:33 - strict_top_level_inference
+warning - Unused import: 'package:knowme/features/astrology/thai/content/models/thai_content_key.dart' - test\thai_v2\thai_signal_extractor_test.dart:2:8 - unused_import
+warning - Unused import: 'package:knowme/features/astrology/thai/foundation/models/profile_warning.dart' - test\theme_v2\t2_engine_test.dart:4:8 - unused_import
+warning - Unused import: 'package:knowme/features/global_fusion/foundation/domain/global_fusion_snapshot.dart' - test\validation\chinese_zodiac_impact\chinese_zodiac_impact_runner.dart:14:8 - unused_import
+warning - Unused import: 'package:knowme/features/human_model/domain/human_model_snapshot.dart' - test\validation\chinese_zodiac_impact\chinese_zodiac_impact_runner.dart:17:8 - unused_import
+warning - Unused import: 'package:knowme/features/human_pattern/domain/human_pattern_snapshot.dart' - test\validation\chinese_zodiac_impact\chinese_zodiac_impact_runner.dart:20:8 - unused_import
+warning - The value of the local variable 'integratedIds' isn't used - test\validation\chinese_zodiac_impact\chinese_zodiac_impact_runner.dart:475:11 - unused_local_variable
+warning - Unused import: 'package:knowme/features/global_fusion/foundation/builder/global_fusion_foundation_builder.dart' - test\validation\global_fusion_foundation_v2\fusion_dead_zone_trace_runner.dart:4:8 - unused_import
+   info - Use 'isNotEmpty' instead of 'length' to test whether the collection is empty - test\validation\human_pattern_activation_audit\human_pattern_activation_audit_runner.dart:175:21 - prefer_is_empty
+   info - Unnecessary braces in a string interpolation - test\validation\human_pattern_activation_audit\human_pattern_activation_audit_runner.dart:207:90 - unnecessary_brace_in_string_interps
+   info - Use 'isEmpty' instead of 'length' to test whether the collection is empty - test\validation\human_pattern_activation_audit\narrative_collapse_audit.dart:172:25 - prefer_is_empty
+warning - Unused import: 'package:knowme/features/human_model/domain/human_dimension.dart' - test\validation\human_pattern_activation_audit\pattern_activation_forensics.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/features/personality_mirror/application/personality_lens_load_result.dart' - test\validation\real_user_runtime_v1\adapters\real_user_mirror_input_builder.dart:9:8 - unused_import
+warning - Unused import: 'package:knowme/features/global_fusion/foundation/contracts/global_fusion_input.dart' - test\validation\real_user_runtime_v1\analysis\real_user_runtime_validation_v1_runner.dart:5:8 - unused_import
+warning - The declaration '_lensFromFusionSource' isn't referenced - test\validation\real_user_runtime_v1\analysis\real_user_runtime_validation_v1_runner.dart:487:8 - unused_element
+warning - The receiver can't be 'null' because of short-circuiting, so the null-aware operator '?.' can't be used - test\validation\real_user_runtime_v1\pipeline\real_user_pipeline_runner.dart:200:44 - invalid_null_aware_operator
+warning - The receiver can't be 'null' because of short-circuiting, so the null-aware operator '?.' can't be used - test\validation\real_user_runtime_v1\pipeline\real_user_pipeline_runner.dart:202:29 - invalid_null_aware_operator
+warning - Unused import: 'package:knowme/features/tests/mbti/domain/mbti_models.dart' - test\validation\synthetic_population\factory\synthetic_human_profile_factory.dart:4:8 - unused_import
+warning - Unused import: 'package:knowme/features/personality_mirror/application/personality_lens_load_result.dart' - test\validation\synthetic_population\pipeline\synthetic_human_mirror_input_builder.dart:6:8 - unused_import
+warning - Unused import: 'package:knowme/features/human_pattern/registry/human_pattern_registry.dart' - test\validation\synthetic_population_v2\analysis\collapse_zone_analysis_runner.dart:15:8 - unused_import
+warning - Unused import: '../../synthetic_population/models/synthetic_human_archetype_spec.dart' - test\validation\synthetic_population_v2\factory\synthetic_human_profile_factory_v2.dart:2:8 - unused_import
+warning - The value of the local variable 'gates' isn't used - test\validation\synthetic_population_v2\synthetic_population_v2_report.dart:17:11 - unused_local_variable
+warning - Unused import: 'package:knowme/features/global_fusion/foundation/builder/global_fusion_foundation_builder.dart' - test\validation\synthetic_population_v2\synthetic_population_v2_runner.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/features/global_fusion/foundation/contracts/global_fusion_input.dart' - test\validation\synthetic_population_v2\synthetic_population_v2_runner.dart:2:8 - unused_import
+   info - Statements in an if should be enclosed in a block - test\validation\synthetic_population_v2\synthetic_population_v2_runner.dart:629:25 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - test\validation\synthetic_population_v2\synthetic_population_v2_runner.dart:630:30 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - test\validation\synthetic_population_v2\synthetic_population_v2_runner.dart:631:30 - curly_braces_in_flow_control_structures
+   info - Statements in an if should be enclosed in a block - test\validation\synthetic_population_v2\synthetic_population_v2_runner.dart:632:12 - curly_braces_in_flow_control_structures
+   info - Use the null-aware marker '?' rather than a null check via an 'if' - test\validation\synthetic_population_v2\synthetic_population_v2_runner.dart:847:7 - use_null_aware_elements
+warning - Dead code - test\validation\synthetic_population_v2\synthetic_population_v2_runner.dart:877:47 - dead_code
+warning - The value of the local variable 'hmHash' isn't used - test\validation\synthetic_population_v3\analysis\activation_recovery_v2_runner.dart:110:11 - unused_local_variable
+warning - Unused import: 'package:knowme/features/human_pattern/builder/human_pattern_snapshot_builder.dart' - test\validation\synthetic_population_v3\analysis\dead_zone_forensics_runner.dart:9:8 - unused_import
+warning - Unused import: 'package:knowme/features/human_pattern/contracts/human_pattern_input.dart' - test\validation\synthetic_population_v3\analysis\dead_zone_forensics_runner.dart:10:8 - unused_import
+warning - Unused import: '../../synthetic_population/models/synthetic_human_profile.dart' - test\validation\synthetic_population_v3\analysis\dead_zone_forensics_runner.dart:18:8 - unused_import
+warning - The value of the local variable 'category' isn't used - test\validation\synthetic_population_v3\analysis\dead_zone_forensics_runner.dart:381:11 - unused_local_variable
+   info - Use the null-aware marker '?' rather than a null check via an 'if' - test\validation\synthetic_population_v3\analysis\stable_orientation_trace_runner.dart:370:5 - use_null_aware_elements
+warning - The value of the local variable 'baselineUnique' isn't used - test\validation\synthetic_population_v3\audits\vg006_calibration_audit.dart:46:9 - unused_local_variable
+warning - Unused import: 'package:knowme/features/mirror_v3/enums/knowme_mirror_dimension_id.dart' - test\validation\synthetic_population_v3\overlay\life_direction_reinforcement_coverage_overlay.dart:3:8 - unused_import
+warning - Unused import: 'package:knowme/features/mirror_v3/enums/knowme_mirror_source_type.dart' - test\validation\synthetic_population_v3\overlay\life_direction_reinforcement_coverage_overlay.dart:4:8 - unused_import
+warning - Unused import: 'package:knowme/features/mirror_v3/enums/knowme_mirror_system_id.dart' - test\validation\synthetic_population_v3\overlay\life_direction_reinforcement_coverage_overlay.dart:5:8 - unused_import
+warning - Unused import: 'package:knowme/features/astrology/thai/core/life_period/thai_archetype_context_metadata.dart' - test\validation\thai\thai_canon_derived_period_status_evidence_test.dart:2:8 - unused_import
+warning - Unused import: 'package:knowme/features/astrology/thai/knowledge/canon/integration/qa/thai_canon_evidence_alignment_fixtures.dart' - test\validation\thai\thai_canon_derived_period_status_evidence_test.dart:6:8 - unused_import
+warning - Unused import: 'package:knowme/features/astrology/thai/knowledge/canon/integration/qa/thai_canon_evidence_alignment_fixtures.dart' - test\validation\thai\thai_internal_evidence_qa_pass_test.dart:12:8 - unused_import
+warning - Unused import: 'package:knowme/features/astrology/thai/knowledge/canon/integration/qa/thai_canon_evidence_alignment_classification.dart' - test\validation\thai\thai_khumsap_runtime_mapping_test.dart:7:8 - unused_import
+warning - Unused import: 'package:knowme/features/astrology/thai/knowledge/canon/integration/qa/thai_canon_evidence_alignment_classifier.dart' - test\validation\thai\thai_khumsap_runtime_mapping_test.dart:8:8 - unused_import
+warning - The value of the local variable 'pipeline' isn't used - test\validation\thai\thai_life_period_position_metadata_completion_test.dart:66:13 - unused_local_variable
+warning - Unused import: 'package:knowme/features/astrology/thai/core/life_period/thai_archetype_context_metadata.dart' - test\validation\thai\thai_life_period_position_metadata_test.dart:5:8 - unused_import
+   info - The import of 'package:knowme/features/astrology/thai/core/life_period/thai_life_period_position_metadata.dart' is unnecessary because all of the used elements are also provided by the import of 'package:knowme/features/astrology/thai/core/life_period/life_period_status_metadata.dart' - test\validation\thai\thai_life_period_position_metadata_test.dart:6:8 - unnecessary_import
+warning - The value of the local variable 'pipeline' isn't used - test\validation\thai\thai_life_period_position_strategy_correction_test.dart:196:13 - unused_local_variable
+warning - The value of the local variable 'pipeline' isn't used - test\validation\thai\thai_life_period_position_strategy_correction_test.dart:246:13 - unused_local_variable
+warning - Unused import: 'package:knowme/features/astrology/thai/core/life_period/thai_archetype_context_metadata.dart' - test\validation\thai\thai_life_period_status_metadata_test.dart:4:8 - unused_import
+warning - Unused import: 'package:knowme/features/astrology/thai/knowledge/canon/integration/qa/thai_canon_evidence_alignment_fixtures.dart' - test\validation\thai\thai_public_evidence_badge_controlled_beta_qa_test.dart:14:8 - unused_import
+warning - Unused import: 'package:knowme/features/astrology/thai/knowledge/canon/integration/qa/thai_canon_evidence_alignment_fixtures.dart' - test\validation\thai\thai_public_evidence_badge_internal_only_activation_qa_test.dart:12:8 - unused_import
+warning - Unused import: 'package:knowme/features/thai_beta/application/thai_evidence_badge_activation.dart' - test\validation\thai\thai_public_evidence_badge_internal_only_activation_qa_test.dart:22:8 - unused_import
+warning - A value for optional parameter 'userId' isn't ever given - test\validation\thai\thai_public_evidence_badge_internal_only_activation_qa_test.dart:29:59 - unused_element_parameter
+warning - Duplicate import - test\validation\thai\thai_public_evidence_badge_internal_only_activation_test.dart:16:8 - duplicate_import
+warning - Unused import: 'package:knowme/features/thai_beta/application/thai_evidence_badge_activation.dart' - test\validation\thai\thai_public_evidence_badge_internal_only_activation_test.dart:17:8 - unused_import
+warning - A value for optional parameter 'userId' isn't ever given - test\validation\thai\thai_public_evidence_badge_internal_only_activation_test.dart:24:59 - unused_element_parameter
+warning - Unused import: 'package:knowme/features/astrology/thai/knowledge/canon/integration/presentation/thai_canon_evidence_review_page.dart' - test\validation\thai\thai_public_evidence_badge_preview_internal_beta_test.dart:6:8 - unused_import
+warning - A value for optional parameter 'userId' isn't ever given - test\validation\thai\thai_public_evidence_badge_rollback_drill_test.dart:28:59 - unused_element_parameter
+   info - The import of 'package:knowme/features/astrology/thai/core/life_period/thai_archetype_context_metadata.dart' is unnecessary because all of the used elements are also provided by the import of 'package:knowme/features/astrology/thai/core/life_period/life_period_status_metadata.dart' - test\validation\thai\thai_remainder_calculation_model_test.dart:3:8 - unnecessary_import
+   info - The import of 'package:knowme/features/astrology/thai/core/life_period/thai_archetype_context_metadata.dart' is unnecessary because all of the used elements are also provided by the import of 'package:knowme/features/astrology/thai/core/life_period/life_period_status_metadata.dart' - test\validation\thai\thai_remainder_runtime_metadata_test.dart:3:8 - unnecessary_import
+   info - The import of 'package:knowme/features/astrology/thai/core/life_period/thai_remainder_runtime_metadata.dart' is unnecessary because all of the used elements are also provided by the import of 'package:knowme/features/astrology/thai/core/life_period/life_period_status_metadata.dart' - test\validation\thai\thai_remainder_runtime_metadata_test.dart:4:8 - unnecessary_import
+warning - Unused import: 'package:knowme/features/astrology/thai/mirror/presentation/copy/thai_mirror_consumer_copy.dart' - test\validation\thai_mirror_consumer_ux\analysis\consumer_ux_validation_runner.dart:10:8 - unused_import
+warning - Unused import: 'dart:math' - test\validation\thai_mirror_content_diversity\content_diversity_validation_runner.dart:1:8 - unused_import
+warning - Unused import: 'package:knowme/features/astrology/thai/knowledge/canon/integration/integration.dart' - tool\run_canon_evidence_alignment_audit.dart:4:8 - unused_import
+
+297 issues found. (ran in 24.1s)
+
+exitCode: 1

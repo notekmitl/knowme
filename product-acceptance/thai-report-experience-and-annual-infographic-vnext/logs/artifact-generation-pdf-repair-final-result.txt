@@ -1,0 +1,76 @@
+
+=== known ===
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+00:00 +0: writes isolated vNext review artifacts from one shared model
+00:01 +1: All tests passed!
+fixture=known|exitCode=0
+=== unknown ===
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+00:00 +0: writes isolated vNext review artifacts from one shared model
+00:01 +1: All tests passed!
+fixture=unknown|exitCode=0
+=== owner-known-0035 ===
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+00:00 +0: writes isolated vNext review artifacts from one shared model
+00:01 +1: All tests passed!
+fixture=owner-known-0035|exitCode=0
+=== owner-unknown ===
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+00:00 +0: writes isolated vNext review artifacts from one shared model
+00:00 +1: All tests passed!
+fixture=owner-unknown|exitCode=0
+=== regression-known-0003 ===
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+00:00 +0: writes isolated vNext review artifacts from one shared model
+00:01 +1: All tests passed!
+fixture=regression-known-0003|exitCode=0
+=== comparison-known-bangkok ===
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+00:00 +0: writes isolated vNext review artifacts from one shared model
+00:00 +1: All tests passed!
+fixture=comparison-known-bangkok|exitCode=0
+=== comparison-known-khon-kaen ===
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+00:00 +0: writes isolated vNext review artifacts from one shared model
+00:00 +1: All tests passed!
+fixture=comparison-known-khon-kaen|exitCode=0
+=== stress-known-longest ===
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+00:00 +0: writes isolated vNext review artifacts from one shared model
+00:08 +1: All tests passed!
+fixture=stress-known-longest|exitCode=0
+=== stress-unknown-longest ===
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+00:00 +0: writes isolated vNext review artifacts from one shared model
+00:02 +1: All tests passed!
+fixture=stress-unknown-longest|exitCode=0
+=== stress-thai-multiline ===
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+00:00 +0: writes isolated vNext review artifacts from one shared model
+00:11 +1: All tests passed!
+fixture=stress-thai-multiline|exitCode=0
+=== stress-opportunity-caution-longest ===
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+00:00 +0: writes isolated vNext review artifacts from one shared model
+00:11 +1: All tests passed!
+fixture=stress-opportunity-caution-longest|exitCode=0
+=== stress-disclaimer-longest ===
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+00:00 +0: writes isolated vNext review artifacts from one shared model
+00:11 +1: All tests passed!
+fixture=stress-disclaimer-longest|exitCode=0
+=== stress-regression-1972 ===
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+00:00 +0: writes isolated vNext review artifacts from one shared model
+00:00 +1: All tests passed!
+fixture=stress-regression-1972|exitCode=0
+=== year-boundary-2569 ===
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+00:00 +0: writes isolated vNext review artifacts from one shared model
+00:00 +1: All tests passed!
+fixture=year-boundary-2569|exitCode=0
+=== year-boundary-2570 ===
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+00:00 +0: writes isolated vNext review artifacts from one shared model
+00:00 +1: All tests passed!
+fixture=year-boundary-2570|exitCode=0

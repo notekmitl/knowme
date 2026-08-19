@@ -95,9 +95,29 @@ void main() {
           changedProfiles,
           profile.id,
           profile.input.hasBirthTime,
+          'infographic.overview',
+          beforeGraphic.overview,
+          afterGraphic.overview,
+          beforeGraphic.traceIds,
+        );
+        _record(
+          rows,
+          changedProfiles,
+          profile.id,
+          profile.input.hasBirthTime,
           'infographic.opportunity',
           beforeGraphic.opportunity,
           afterGraphic.opportunity,
+          beforeGraphic.traceIds,
+        );
+        _record(
+          rows,
+          changedProfiles,
+          profile.id,
+          profile.input.hasBirthTime,
+          'infographic.disclaimer',
+          beforeGraphic.disclaimer,
+          afterGraphic.disclaimer,
           beforeGraphic.traceIds,
         );
         _record(
@@ -134,6 +154,7 @@ void main() {
         }
         final infographicStrings = <String, String>{
           'theme': afterGraphic.theme,
+          'overview': afterGraphic.overview,
           for (var index = 0; index < afterGraphic.categories.length; index++)
             'category[$index]': afterGraphic.categories[index].summary,
           'opportunity': afterGraphic.opportunity,
@@ -162,6 +183,47 @@ void main() {
             !afterGraphic.primaryAdvice.contains('แล้วเลือกทาง')) {
           copyQualityViolations.add(
             '${profile.id}/primaryAdvice: missing connective before เลือกทาง',
+          );
+        }
+        final beforeHasTransitionReserve = beforeGraphic.categories.any(
+          (category) => category.summary.contains(
+            'และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต',
+          ),
+        );
+        if (afterGraphic.categories.any(
+              (category) =>
+                  category.summary.contains('ควรดูผลที่เกิดซ้ำก่อนตัดสินใจ') ||
+                  category.summary.contains('เผื่อแรงไว้ในช่วงเปลี่ยนผ่าน'),
+            ) ||
+            afterGraphic.opportunity.contains('เผื่อแรงไว้ในช่วงเปลี่ยนผ่าน')) {
+          copyQualityViolations.add(
+            '${profile.id}: report-level guidance is repeated in a category or opportunity',
+          );
+        }
+        if (beforeHasTransitionReserve !=
+            afterGraphic.overview.contains('ควรเผื่อแรงไว้เมื่อหน้าที่เปลี่ยน')) {
+          copyQualityViolations.add(
+            '${profile.id}: transition reserve was not relocated exactly once',
+          );
+        }
+        if (!profile.input.hasBirthTime &&
+            !afterGraphic.disclaimer.contains(
+              'ควรดูผลที่เกิดขึ้นซ้ำก่อนตัดสินใจ',
+            )) {
+          copyQualityViolations.add(
+            '${profile.id}: Unknown fail-closed review boundary is missing',
+          );
+        }
+        if (afterGraphic.theme.contains('พฤติกรรมหลังข้อตกลง') ||
+            afterGraphic.theme.contains('ใช้ขอบเขตหน้าที่') ||
+            afterGraphic.primaryAdvice.contains(
+              'พฤติกรรมที่ทำตามคำตกลงจะยืนยันได้',
+            ) ||
+            afterGraphic.primaryAdvice.contains(
+              'สร้างฐานทีละขั้นกับข้อมูลที่เกิดซ้ำจริง',
+            )) {
+          copyQualityViolations.add(
+            '${profile.id}: abstract or system-generated phrasing remains',
           );
         }
         if (afterGraphic.theme.length > 190 ||
@@ -261,12 +323,15 @@ void _record(
     'sourceTemplate': rules.map((rule) => rule.sourceTemplate).join('; '),
     'ruleIds': rules.map((rule) => rule.id).toList(growable: false),
     'semanticAssessment': 'unchanged',
+    'predictionAdviceAssessment': 'unchanged',
     'claimTraceIds': traceIds,
     'knownUnknownImpact': knownTime
         ? 'Known wording only; evidence unchanged'
         : 'Unknown wording only; fail-closed omissions unchanged',
     'canonicalImpact': 'candidate-only; accepted R1-R7.1 not modified',
     'webPdfImpact': 'same shared presentation field in Web/PDF/print',
+    'omissionAdditionAssessment':
+        'no net omission/addition; report-level relocations retain the same guidance and traces',
     'omission': false,
     'addition': false,
     'decision': 'Pending Owner Review',

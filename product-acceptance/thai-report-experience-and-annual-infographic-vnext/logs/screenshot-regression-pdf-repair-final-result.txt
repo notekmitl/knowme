@@ -1,0 +1,28 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart
+00:00 +0: profile A · desktop
+00:00 +1: profile A · tablet
+00:01 +2: profile A · mobile
+00:01 +3: profile B · desktop
+00:01 +4: profile B · tablet
+00:02 +5: profile B · mobile
+00:02 +6: profile C · desktop
+00:02 +7: profile C · tablet
+00:03 +8: profile C · mobile
+00:03 +9: profile D · desktop
+00:04 +10: profile D · tablet
+00:04 +11: profile D · mobile
+00:05 +12: profile E · desktop
+00:05 +13: profile E · tablet
+00:06 +14: profile E · mobile
+00:06 +15: profile F · desktop
+00:07 +16: profile F · tablet
+00:07 +17: profile F · mobile
+00:08 +18: profile G · desktop
+00:08 +19: profile G · tablet
+00:09 +20: profile G · mobile
+00:09 +21: profile H · desktop
+00:10 +22: profile H · tablet
+00:10 +23: profile H · mobile
+00:11 +24: All tests passed!
+
+exitCode: 0

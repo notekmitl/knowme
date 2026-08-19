@@ -144,6 +144,87 @@ abstract final class ThaiBetaReaderCopyRepair {
           'รักษากรอบ 12 เดือน สัญญาณจากหน้าที่ และจุดทบทวนเดิมด้วยประโยคที่กระชับขึ้น',
     ),
     ThaiBetaReaderCopyRule(
+      id: 'infographic-theme-duty-signal',
+      sourceTemplate: 'PredictionWindowCardModel.summary',
+      fieldPathPrefix: 'infographic.theme',
+      before: 'ให้ใช้ขอบเขตหน้าที่ที่เปลี่ยนไปเป็นสัญญาณ',
+      after: 'ให้สังเกตว่าหน้าที่เปลี่ยนไปอย่างไร',
+      semanticIntent:
+          'คงสัญญาณจากขอบเขตหน้าที่ที่เปลี่ยนไปด้วยภาษาที่ตรงและเป็นธรรมชาติ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-theme-balance-signal',
+      sourceTemplate: 'PredictionWindowCardModel.summary',
+      fieldPathPrefix: 'infographic.theme',
+      before: 'ให้ใช้ยอดคงเหลือที่เปลี่ยนต่อเนื่องเป็นสัญญาณ',
+      after: 'ให้สังเกตว่ายอดคงเหลือเปลี่ยนไปอย่างไร',
+      semanticIntent:
+          'คงสัญญาณจากยอดคงเหลือโดยเปลี่ยนจากศัพท์เชิงกลไกเป็นคำสังเกตที่อ่านง่าย',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-theme-recovery-signal',
+      sourceTemplate: 'PredictionWindowCardModel.summary',
+      fieldPathPrefix: 'infographic.theme',
+      before: 'ให้ใช้เวลาฟื้นตัวหลังสัปดาห์หนักเป็นสัญญาณ',
+      after: 'ให้สังเกตว่าใช้เวลาฟื้นตัวหลังสัปดาห์หนักนานขึ้นหรือไม่',
+      semanticIntent:
+          'คงสัญญาณจากเวลาฟื้นตัวโดยเขียนเป็นสิ่งที่ผู้อ่านสังเกตได้โดยตรง',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-theme-agreement-signal',
+      sourceTemplate: 'PredictionWindowCardModel.summary',
+      fieldPathPrefix: 'infographic.theme',
+      before: 'ให้ใช้คำพูดที่กลายเป็นพฤติกรรมสม่ำเสมอเป็นสัญญาณ',
+      after: 'ให้ดูว่าคำพูดเปลี่ยนเป็นการกระทำที่สม่ำเสมอหรือไม่',
+      semanticIntent:
+          'คงสัญญาณความสม่ำเสมอระหว่างคำพูดกับการกระทำด้วยประโยคที่ตรงขึ้น',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-theme-agreement-review-start',
+      sourceTemplate: 'PredictionWindowCardModel.summary',
+      fieldPathPrefix: 'infographic.theme',
+      before: 'แล้วกลับมาทบทวนเมื่อพฤติกรรมหลังข้อตกลงเริ่มชัด',
+      after: 'แล้วทบทวนอีกครั้งเมื่อการทำตามข้อตกลงสม่ำเสมอขึ้น',
+      semanticIntent:
+          'คงจุดทบทวนจากพฤติกรรมหลังข้อตกลงโดยระบุการทำตามข้อตกลงให้ชัด',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-theme-agreement-review-clear',
+      sourceTemplate: 'PredictionWindowCardModel.summary',
+      fieldPathPrefix: 'infographic.theme',
+      before: 'แล้วทบทวนอีกครั้งเมื่อพฤติกรรมหลังข้อตกลงชัดขึ้น',
+      after: 'แล้วทบทวนอีกครั้งเมื่อการทำตามข้อตกลงสม่ำเสมอขึ้น',
+      semanticIntent:
+          'คงจุดทบทวนเดิมและแทนคำนามนามธรรมด้วยพฤติกรรมที่สังเกตได้',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-theme-agreement-review-short',
+      sourceTemplate: 'PredictionWindowCardModel.summary',
+      fieldPathPrefix: 'infographic.theme',
+      before: 'แล้วทบทวนเมื่อพฤติกรรมหลังข้อตกลงชัดขึ้น',
+      after: 'แล้วทบทวนเมื่อการทำตามข้อตกลงสม่ำเสมอขึ้น',
+      semanticIntent:
+          'คงจุดทบทวนเดิมและระบุการทำตามข้อตกลงด้วยภาษาที่ชัดเจน',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-theme-no-fixed-event',
+      sourceTemplate: 'PredictionWindowCardModel.summary',
+      fieldPathPrefix: 'infographic.theme',
+      before: 'แทนการกำหนดเหตุการณ์ล่วงหน้า',
+      after: 'โดยไม่สรุปเหตุการณ์ล่วงหน้า',
+      semanticIntent:
+          'รักษาขอบเขตไม่กำหนดเหตุการณ์ล่วงหน้าด้วยถ้อยคำที่เป็นธรรมชาติขึ้น',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-overview-transition-reserve',
+      sourceTemplate: 'PredictionWindowCardModel.timeframeLabel',
+      fieldPathPrefix: 'infographic.overview',
+      before: 'ราว 12 เดือนข้างหน้า',
+      after: 'ราว 12 เดือนข้างหน้า ควรเผื่อแรงไว้เมื่อหน้าที่เปลี่ยน',
+      semanticIntent:
+          'ย้ายคำแนะนำเรื่องสำรองแรงจากทุกหมวดมาไว้ใน annual guidance ครั้งเดียว',
+    ),
+    ThaiBetaReaderCopyRule(
       id: 'infographic-category-transition-reserve',
       sourceTemplate: 'ThaiBetaNarrativeComposer._decisionImpact',
       fieldPathPrefix: 'infographic.categories',
@@ -151,6 +232,15 @@ abstract final class ThaiBetaReaderCopyRepair {
       after: 'และเผื่อแรงไว้ในช่วงเปลี่ยนผ่าน',
       semanticIntent:
           'คงการสำรองแรงสำหรับช่วงเปลี่ยนผ่านด้วยคำที่สั้นและเป็นธรรมชาติขึ้น',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-category-transition-reserve-relocated',
+      sourceTemplate: 'ThaiBetaNarrativeComposer._decisionImpact',
+      fieldPathPrefix: 'infographic.categories',
+      before: ' และเผื่อแรงไว้ในช่วงเปลี่ยนผ่าน',
+      after: '',
+      semanticIntent:
+          'ย้ายคำแนะนำทั่วไปเรื่องสำรองแรงไป annual guidance เพียงตำแหน่งเดียว โดยคงสาระระดับรายงาน',
     ),
     ThaiBetaReaderCopyRule(
       id: 'infographic-career-strong',
@@ -226,6 +316,15 @@ abstract final class ThaiBetaReaderCopyRepair {
           'รักษาเงื่อนไข fail-closed ของ Unknown ด้วยถ้อยคำสั้นที่ยังต้องตรวจผลซ้ำ',
     ),
     ThaiBetaReaderCopyRule(
+      id: 'infographic-unknown-category-boundary-relocated',
+      sourceTemplate: 'ThaiBetaNarrativeComposer._decisionImpact(noLagna)',
+      fieldPathPrefix: 'infographic.categories',
+      before: ' ควรดูผลที่เกิดซ้ำก่อนตัดสินใจ',
+      after: '',
+      semanticIntent:
+          'ย้ายคำเตือน fail-closed ที่ซ้ำในสี่หมวดไป disclaimer ครั้งเดียว โดยคงเงื่อนไขการตรวจผลซ้ำ',
+    ),
+    ThaiBetaReaderCopyRule(
       id: 'infographic-opportunity-career-strong',
       sourceTemplate: 'PredictionWindowCardModel.topOpportunity',
       fieldPathPrefix: 'infographic.opportunity',
@@ -243,6 +342,15 @@ abstract final class ThaiBetaReaderCopyRepair {
       after: 'และเผื่อแรงไว้ในช่วงเปลี่ยนผ่าน',
       semanticIntent:
           'คงการสำรองแรงสำหรับช่วงเปลี่ยนผ่านในสรุปโอกาสด้วยถ้อยคำที่กระชับขึ้น',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-opportunity-transition-reserve-relocated',
+      sourceTemplate: 'PredictionWindowCardModel.topOpportunity',
+      fieldPathPrefix: 'infographic.opportunity',
+      before: ' และเผื่อแรงไว้ในช่วงเปลี่ยนผ่าน',
+      after: '',
+      semanticIntent:
+          'ย้ายคำแนะนำทั่วไปเรื่องสำรองแรงจากแถบโอกาสไป annual guidance ครั้งเดียว',
     ),
     ThaiBetaReaderCopyRule(
       id: 'infographic-opportunity-career-active',
@@ -387,6 +495,25 @@ abstract final class ThaiBetaReaderCopyRepair {
           'คงการใช้ข้อมูลซ้ำ เลือกงานทีละก้าว และรอยืนยันข้อตกลงด้วยประโยคที่ลื่นไหลขึ้น',
     ),
     ThaiBetaReaderCopyRule(
+      id: 'infographic-advice-repeated-data-phrase',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing(noLagna)',
+      fieldPathPrefix: 'infographic.primaryAdvice',
+      before: 'กับข้อมูลที่เกิดซ้ำจริง:',
+      after: 'โดยอาศัยข้อมูลที่เกิดขึ้นซ้ำ:',
+      semanticIntent:
+          'คงเงื่อนไขใช้ข้อมูลที่เกิดซ้ำโดยตัดโครงสร้างคำนามที่แข็งและอ่านสะดุด',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-advice-agreement-proof',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing(noLagna)',
+      fieldPathPrefix: 'infographic.primaryAdvice',
+      before:
+          'และยังไม่ผูกมัดเพิ่มจนกว่าพฤติกรรมที่ทำตามคำตกลงจะยืนยันได้',
+      after: 'และรอให้การทำตามข้อตกลงสม่ำเสมอก่อนผูกมัดเพิ่ม',
+      semanticIntent:
+          'คงเงื่อนไขรอยืนยันข้อตกลงก่อนผูกมัดเพิ่มด้วยประโยคที่สั้นและมีประธานชัด',
+    ),
+    ThaiBetaReaderCopyRule(
       id: 'infographic-advice-communication-reading-flow',
       sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
       fieldPathPrefix: 'infographic.primaryAdvice',
@@ -487,6 +614,17 @@ abstract final class ThaiBetaReaderCopyRepair {
       semanticIntent:
           'เติมคำเชื่อมระหว่างจุดแข็งกับการเลือกทาง โดยคงจุดแข็ง ทางเลือก และเงื่อนไขเดิมทุกประการ',
     ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-unknown-disclaimer-review-boundary',
+      sourceTemplate: 'ThaiBetaAnnualInfographicData.disclaimer(noLagna)',
+      fieldPathPrefix: 'infographic.disclaimer',
+      before:
+          'ไม่มีเวลาเกิด จึงแสดงเฉพาะแนวโน้มที่ข้อมูลรองรับและไม่เติมรายละเอียดที่ขาดหาย',
+      after:
+          'ไม่มีเวลาเกิด จึงแสดงเฉพาะแนวโน้มที่ข้อมูลรองรับและไม่เติมรายละเอียดที่ขาดหาย ควรดูผลที่เกิดขึ้นซ้ำก่อนตัดสินใจ',
+      semanticIntent:
+          'รวมเงื่อนไข fail-closed และการตรวจผลซ้ำไว้ที่ report-level disclaimer เพียงครั้งเดียว',
+    ),
   ];
 
   static String refine(String value) => refineForField(value);
@@ -503,9 +641,16 @@ abstract final class ThaiBetaReaderCopyRepair {
   static List<ThaiBetaReaderCopyRule> matchingRules(
     String value, {
     String fieldPath = '',
-  }) => rules
-      .where((rule) => rule.appliesTo(fieldPath) && value.contains(rule.before))
-      .toList(growable: false);
+  }) {
+    var result = value;
+    final matched = <ThaiBetaReaderCopyRule>[];
+    for (final rule in rules) {
+      if (!rule.appliesTo(fieldPath) || !result.contains(rule.before)) continue;
+      matched.add(rule);
+      result = result.replaceAll(rule.before, rule.after);
+    }
+    return List.unmodifiable(matched);
+  }
 }
 
 class ThaiBetaReaderCopyRule {

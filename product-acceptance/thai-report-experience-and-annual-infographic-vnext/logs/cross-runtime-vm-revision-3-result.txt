@@ -1,0 +1,10 @@
+=== vm-run-1 ===
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_cross_runtime_vm_test.dart
+00:00 +0: writes deterministic VM shared-report manifest
+00:00 +1: All tests passed!
+exit_code=0
+=== vm-run-2 ===
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_cross_runtime_vm_test.dart
+00:00 +0: writes deterministic VM shared-report manifest
+00:00 +1: All tests passed!
+exit_code=0

@@ -1,0 +1,38 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart
+00:00 +0: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart: (setUpAll)
+00:00 +0: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart: R5 repeated clause negatives are detected at clause level
+00:00 +1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart: forecast clauses have no exact, skeleton, or >=.78 reuse
+00:00 +2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart: exact forecast reuse is measured without a zero-reuse gate
+00:00 +3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart: Known explains chart evidence naturally; Unknown remains fail closed
+00:00 +4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart: R5 repeated reader-facing clauses are absent from owner reports
+00:00 +5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart: (tearDownAll)
+00:00 +5: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_acceptance_artifact_test.dart
+00:00 +5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_acceptance_artifact_test.dart: acceptance export and screenshots exit without pending timers
+00:01 +6: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_r7_canonical_text_test.dart
+00:01 +6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_r7_canonical_text_test.dart: writes deterministic R7 canonical Web text without creating PDFs
+00:01 +7: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart
+00:01 +7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: consumer copy removes report-like and repeated system phrases
+00:01 +8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: life-period position wording agrees at every boundary
+00:01 +9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: current and next-12-month domain paragraphs are not duplicates
+00:01 +10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: v1.1 deterministic repetition audit rejects template-shaped prose
+00:01 +11: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: v1.2 gate catches V1.1 clause reuse and enforces content budgets
+00:02 +12: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: cross-horizon gate removes time boilerplate and compares each field
+00:02 +13: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: forecast windows keep distinct semantic roles and isolated risk
+00:02 +14: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: R3 removes rejected biography-like past claims
+00:02 +15: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:02 +16: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: typed fingerprint uses real availability and one transition authority
+00:02 +17: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: matrix rejects band risk availability transition and vacuous passes
+00:02 +18: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: uncertainty disclosure is separate and cannot satisfy the gate
+00:02 +19: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: profile-aware pairing is order independent and fails identity defects
+00:02 +20: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: selective action follows decision intent without appending every risk
+00:02 +21: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: typed coherence gate rejects foreign and generic risk responses
+00:02 +22: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: cross-mode gate rejects a matrix that differs in only one block
+00:02 +23: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future opportunity taxonomy omits generic opportunity labels
+00:02 +24: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: late-life periods are omitted without age-specific evidence
+00:02 +25: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: early-childhood and late-life periods avoid adult template claims
+00:02 +26: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: all retained periods contain age-aware consumer narrative
+00:02 +27: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: within each early-life period every domain has distinct meaning
+00:02 +28: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: Web narrative and PDF use the same polished document content
+00:02 +29: All tests passed!
+
+exitCode: 0

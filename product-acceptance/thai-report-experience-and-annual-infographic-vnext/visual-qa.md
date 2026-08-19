@@ -1,14 +1,12 @@
-# Visual QA — Revision 2 repaired
+# Visual QA — Revision 3
 
-ตรวจจาก artifact จริง ไม่ใช่ widget preview อย่างเดียว
+Revision 3 was inspected from final artifacts, not widget previews alone.
 
-- Web mobile: Known และ Unknown ที่ viewport 360×800 และ 390×844; `scrollWidth == innerWidth`, report scroll ครบ, infographic ไม่ล้น และ browser console ไม่มี warning/error
-- Infographic: 15 fixtures, PNG ทุกไฟล์ 1080×1920, title/year/category/opportunity/caution/advice/disclaimer ครบ, ไม่มี clipping/ellipsis/transparent artifact หรือข้อมูลวันเวลาเกิด
-- ลายเส้นโค้งและดอกสี่กลีบเป็น decoration เท่านั้น ไม่มีแกน เดือน จุดข้อมูล หรือ label ที่อาจทำให้เข้าใจว่าเป็น monthly chart
-- Canonical five และ stress fixtures มี contact sheet แยก; stress ครอบคลุมข้อความยาว, Thai multiline, opportunity/caution, disclaimer และ regression ปี 1972
-- Dedicated PDF: 7 fixtures × 8 หน้า; browser print: 7 fixtures × 7 หน้า; Poppler render ตรวจครบ 105/105 หน้าและมี contact sheet ทุกไฟล์
-- Known/Unknown ใช้ hierarchy, spacing และ font size ชุดเดียวกัน โดยปรับเฉพาะ decorative spacing ให้รองรับข้อความยาว
+- Dedicated PDF: 7 fixtures × 8 pages; browser print: 7 fixtures × 7 pages.
+- The page-one gate generated 105 unique, source-labelled PNG names. All 105 pages were inspected through 32 contact sheets.
+- Clipping, blank pages, overlap, collision, missing header, missing subtitle and missing introduction: 0.
+- Owner Known browser and dedicated page-one before/after rasters are byte-identical; the original report bytes were never clipped.
+- Web mobile Known/Unknown remains verified at 360×800 and 390×844 without horizontal overflow or browser-console errors.
+- Infographic fixtures remain exactly 1080×1920 with complete title/year/category/opportunity/caution/advice/disclaimer content and no invented monthly axis or data.
 
-หลักฐานอยู่ใน `generated-artifacts/revision-2/`, `renders/revision-2-repaired/`, `visual-qa/revision-2-repaired/` และ `web-screenshots-repaired/` ผล QA ทางเทคนิคผ่าน แต่การอนุมัติด้าน copy/visual ยังเป็น **Pending Owner Review**
-
-Monthly timeline ไม่อยู่ในภาพเพราะ gate ยัง BLOCKED และไม่มีการสร้างข้อมูลรายเดือนขึ้นเอง
+Evidence is under `generated-artifacts/revision-3/`, `renders/revision-3-page-one-repair/`, `visual-qa/revision-3-page-one-repair/` and `web-screenshots-revision-3/`. Technical visual QA passed; Owner copy and visual approval remains Pending. The monthly timeline remains BLOCKED.

@@ -353,7 +353,7 @@ class _AnnualInfographicCanvas extends StatelessWidget {
       key: const Key('thai_annual_infographic_canvas'),
       width: ThaiBetaAnnualInfographicCapture.logicalSize.width,
       height: ThaiBetaAnnualInfographicCapture.logicalSize.height,
-      padding: const EdgeInsets.fromLTRB(16, 12, 16, 10),
+      padding: const EdgeInsets.fromLTRB(16, 13, 16, 13),
       decoration: const BoxDecoration(color: navy),
       child: DefaultTextStyle(
         style: const TextStyle(
@@ -364,111 +364,143 @@ class _AnnualInfographicCanvas extends StatelessWidget {
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Row(
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                const _InfographicGlyph(name: 'spark', color: gold, size: 22),
-                const SizedBox(width: 8),
-                Expanded(
-                  child: Text(
-                    data.title,
-                    key: ThaiBetaAnnualInfographicLayoutKeys.title,
-                    style: const TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.w800,
-                      letterSpacing: .1,
+                Row(
+                  children: [
+                    const _InfographicGlyph(
+                      name: 'spark',
+                      color: gold,
+                      size: 22,
                     ),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        data.title,
+                        key: ThaiBetaAnnualInfographicLayoutKeys.title,
+                        style: const TextStyle(
+                          fontSize: 22,
+                          fontWeight: FontWeight.w800,
+                          letterSpacing: .1,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  data.theme,
+                  key: ThaiBetaAnnualInfographicLayoutKeys.theme,
+                  style: const TextStyle(
+                    color: gold,
+                    fontSize: 9.8,
+                    height: 1.32,
+                    fontWeight: FontWeight.w700,
                   ),
+                ),
+                const SizedBox(height: 2),
+                Text(
+                  data.overview,
+                  key: ThaiBetaAnnualInfographicLayoutKeys.overview,
+                  style: const TextStyle(color: ivory, fontSize: 9.5),
                 ),
               ],
             ),
-            const SizedBox(height: 4),
-            Text(
-              data.theme,
-              key: ThaiBetaAnnualInfographicLayoutKeys.theme,
-              style: const TextStyle(
-                color: gold,
-                fontSize: 9.8,
-                height: 1.32,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            const SizedBox(height: 2),
-            Text(
-              data.overview,
-              key: ThaiBetaAnnualInfographicLayoutKeys.overview,
-              style: const TextStyle(color: ivory, fontSize: 9.5),
-            ),
-            const SizedBox(height: 6),
-            for (var index = 0; index < data.categories.length; index++) ...[
-              _InfographicCategoryRow(category: data.categories[index]),
-              if (index < data.categories.length - 1) const SizedBox(height: 3),
-            ],
-            const Spacer(),
-            const _ConstellationDivider(),
-            const Spacer(),
-            _Band(
-              key: ThaiBetaAnnualInfographicLayoutKeys.opportunity,
-              iconName: 'opportunity',
-              label: 'โอกาสดี',
-              value: data.opportunity,
-              color: teal,
-            ),
-            const SizedBox(height: 4),
-            _Band(
-              key: ThaiBetaAnnualInfographicLayoutKeys.caution,
-              iconName: 'shield',
-              label: 'ควรระวัง',
-              value: data.caution,
-              color: amber,
-            ),
-            const SizedBox(height: 6),
-            Container(
-              key: ThaiBetaAnnualInfographicLayoutKeys.advice,
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
-              decoration: BoxDecoration(
-                color: indigo,
-                borderRadius: BorderRadius.circular(10),
-                border: Border.all(color: gold.withValues(alpha: .5)),
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  const SizedBox(
-                    width: 78,
-                    child: Text(
-                      'คำแนะนำสำคัญ',
-                      style: TextStyle(
-                        color: gold,
-                        fontSize: 9,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 7),
-                  Expanded(
-                    child: Text(
-                      data.primaryAdvice,
-                      style: const TextStyle(
-                        color: cream,
-                        fontSize: 8,
-                        height: 1.28,
-                      ),
-                    ),
-                  ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                for (
+                  var index = 0;
+                  index < data.categories.length;
+                  index++
+                ) ...[
+                  _InfographicCategoryRow(category: data.categories[index]),
+                  if (index < data.categories.length - 1)
+                    const SizedBox(height: 3),
                 ],
-              ),
+              ],
             ),
-            const SizedBox(height: 5),
-            Text(
-              data.disclaimer,
-              key: ThaiBetaAnnualInfographicLayoutKeys.disclaimer,
-              textAlign: TextAlign.center,
-              style: const TextStyle(
-                color: Color(0xffd8d3c8),
-                fontSize: 7.6,
-                height: 1.3,
-              ),
+            const Flexible(
+              fit: FlexFit.loose,
+              child: SizedBox(height: 64, child: _ThaiAnnualOrnament()),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                _Band(
+                  key: ThaiBetaAnnualInfographicLayoutKeys.opportunity,
+                  iconName: 'opportunity',
+                  label: 'โอกาสดี',
+                  value: data.opportunity,
+                  color: teal,
+                ),
+                const SizedBox(height: 4),
+                _Band(
+                  key: ThaiBetaAnnualInfographicLayoutKeys.caution,
+                  iconName: 'shield',
+                  label: 'ควรระวัง',
+                  value: data.caution,
+                  color: amber,
+                ),
+              ],
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Container(
+                  key: ThaiBetaAnnualInfographicLayoutKeys.advice,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 10,
+                    vertical: 6,
+                  ),
+                  decoration: BoxDecoration(
+                    color: indigo,
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: gold.withValues(alpha: .5)),
+                  ),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(
+                        width: 78,
+                        child: Text(
+                          'คำแนะนำสำคัญ',
+                          style: TextStyle(
+                            color: gold,
+                            fontSize: 9,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 7),
+                      Expanded(
+                        child: Text(
+                          data.primaryAdvice,
+                          style: const TextStyle(
+                            color: cream,
+                            fontSize: 8.2,
+                            height: 1.28,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 5),
+                Text(
+                  data.disclaimer,
+                  key: ThaiBetaAnnualInfographicLayoutKeys.disclaimer,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(
+                    color: Color(0xffd8d3c8),
+                    fontSize: 7.8,
+                    height: 1.3,
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -490,7 +522,7 @@ class _InfographicCategoryRow extends StatelessWidget {
     const ivory = Color(0xfff5f0e4);
     return Container(
       key: ThaiBetaAnnualInfographicLayoutKeys.category(category.id),
-      constraints: const BoxConstraints(minHeight: 38),
+      constraints: const BoxConstraints(minHeight: 42),
       padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
       decoration: BoxDecoration(
         color: ivory,
@@ -524,7 +556,7 @@ class _InfographicCategoryRow extends StatelessWidget {
           Expanded(
             child: Text(
               category.summary,
-              style: const TextStyle(color: navy, fontSize: 8.3, height: 1.25),
+              style: const TextStyle(color: navy, fontSize: 8.5, height: 1.25),
             ),
           ),
         ],
@@ -533,60 +565,66 @@ class _InfographicCategoryRow extends StatelessWidget {
   }
 }
 
-class _ConstellationDivider extends StatelessWidget {
-  const _ConstellationDivider();
+class _ThaiAnnualOrnament extends StatelessWidget {
+  const _ThaiAnnualOrnament();
 
   @override
-  Widget build(BuildContext context) => const SizedBox(
+  Widget build(BuildContext context) => const SizedBox.expand(
     key: ThaiBetaAnnualInfographicLayoutKeys.ornament,
-    height: 26,
-    child: CustomPaint(painter: _ConstellationPainter()),
+    child: CustomPaint(painter: _ThaiAnnualOrnamentPainter()),
   );
 }
 
-class _ConstellationPainter extends CustomPainter {
-  const _ConstellationPainter();
+class _ThaiAnnualOrnamentPainter extends CustomPainter {
+  const _ThaiAnnualOrnamentPainter();
 
   @override
   void paint(Canvas canvas, Size size) {
-    if (size.width <= 0 || size.height <= 0) return;
-    final paint = Paint()
-      ..color = const Color(0xffc7a760).withValues(alpha: .32)
+    if (size.width <= 0 || size.height < 12) return;
+    final gold = const Color(0xffc7a760);
+    final stroke = Paint()
+      ..color = gold.withValues(alpha: .42)
       ..style = PaintingStyle.stroke
-      ..strokeWidth = .8;
+      ..strokeWidth = 1.05
+      ..strokeCap = StrokeCap.round
+      ..strokeJoin = StrokeJoin.round;
+    final wash = Paint()
+      ..color = gold.withValues(alpha: .055)
+      ..style = PaintingStyle.fill;
     final center = Offset(size.width / 2, size.height / 2);
-    final arcRect = Rect.fromCenter(
-      center: center,
-      width: size.width * .72,
-      height: size.height * 1.45,
-    );
-    canvas.drawArc(arcRect, .2, 2.75, false, paint);
-    canvas.drawArc(arcRect, 3.35, 2.75, false, paint);
-
-    final petalWidth = size.height * .22;
-    final petalHeight = size.height * .34;
-    for (var turn = 0; turn < 4; turn++) {
+    final preferredRadius = size.width * .16;
+    final availableRadius = size.height * .43;
+    final radius = preferredRadius < availableRadius
+        ? preferredRadius
+        : availableRadius;
+    final petalWidth = radius * .42;
+    final petalHeight = radius;
+    for (var turn = 0; turn < 8; turn++) {
       canvas.save();
       canvas.translate(center.dx, center.dy);
-      canvas.rotate(turn * 1.5707963267948966);
+      canvas.rotate(turn * .7853981633974483);
       final petal = Path()
         ..moveTo(0, 0)
-        ..quadraticBezierTo(-petalWidth, -petalHeight, 0, -petalHeight * 1.35)
-        ..quadraticBezierTo(petalWidth, -petalHeight, 0, 0);
-      canvas.drawPath(petal, paint);
+        ..quadraticBezierTo(-petalWidth, -petalHeight * .54, 0, -petalHeight)
+        ..quadraticBezierTo(petalWidth, -petalHeight * .54, 0, 0)
+        ..close();
+      canvas.drawPath(petal, wash);
+      canvas.drawPath(petal, stroke);
       canvas.restore();
     }
-    final diamond = Path()
-      ..moveTo(center.dx, center.dy - 4)
-      ..lineTo(center.dx + 4, center.dy)
-      ..lineTo(center.dx, center.dy + 4)
-      ..lineTo(center.dx - 4, center.dy)
+
+    final core = Path()
+      ..moveTo(center.dx, center.dy - radius * .22)
+      ..lineTo(center.dx + radius * .22, center.dy)
+      ..lineTo(center.dx, center.dy + radius * .22)
+      ..lineTo(center.dx - radius * .22, center.dy)
       ..close();
-    canvas.drawPath(diamond, paint);
+    canvas.drawPath(core, wash);
+    canvas.drawPath(core, stroke);
   }
 
   @override
-  bool shouldRepaint(covariant _ConstellationPainter oldDelegate) => false;
+  bool shouldRepaint(covariant _ThaiAnnualOrnamentPainter oldDelegate) => false;
 }
 
 class _Band extends StatelessWidget {
@@ -606,7 +644,7 @@ class _Band extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: const BoxConstraints(minHeight: 38),
+      constraints: const BoxConstraints(minHeight: 40),
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
       decoration: BoxDecoration(
         color: color,
@@ -633,7 +671,7 @@ class _Band extends StatelessWidget {
               value,
               style: const TextStyle(
                 color: Colors.white,
-                fontSize: 8.3,
+                fontSize: 8.5,
                 height: 1.25,
               ),
             ),

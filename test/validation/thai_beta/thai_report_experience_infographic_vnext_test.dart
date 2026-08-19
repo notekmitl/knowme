@@ -42,6 +42,77 @@ ThaiBetaAnalysis _regression1972() => ThaiBetaAnalysisRunner.run(
   asOf: DateTime.utc(2026, 8, 7),
 );
 
+ThaiBetaAnalysis _fixtureAnalysis(String fixtureId) {
+  ThaiBetaInput input;
+  switch (fixtureId) {
+    case 'known':
+      return _analysis(knownTime: true);
+    case 'unknown':
+      return _analysis(knownTime: false);
+    case 'owner-known-0035':
+      input = ThaiBetaInput(
+        firstName: 'Acceptance',
+        lastName: 'Fixture',
+        birthDate: DateTime(1982, 6, 6),
+        birthHour: 0,
+        birthMinute: 35,
+        province: 'เชียงใหม่',
+        provinceKey: 'chiang_mai',
+      );
+      break;
+    case 'owner-unknown':
+      input = ThaiBetaInput(
+        firstName: 'Acceptance',
+        lastName: 'Fixture',
+        birthDate: DateTime(1982, 6, 6),
+        birthTimeUnknown: true,
+        province: 'เชียงใหม่',
+        provinceKey: 'chiang_mai',
+      );
+      break;
+    case 'regression-known-0003':
+      input = ThaiBetaInput(
+        firstName: 'Acceptance',
+        lastName: 'Fixture',
+        birthDate: DateTime(1982, 6, 6),
+        birthHour: 0,
+        birthMinute: 3,
+        province: 'เชียงใหม่',
+        provinceKey: 'chiang_mai',
+      );
+      break;
+    case 'comparison-known-bangkok':
+      input = ThaiBetaInput(
+        firstName: 'Comparison',
+        lastName: 'Fixture',
+        birthDate: DateTime(1991, 11, 18),
+        birthHour: 14,
+        birthMinute: 20,
+        province: 'กรุงเทพมหานคร',
+        provinceKey: 'bangkok',
+      );
+      break;
+    case 'comparison-known-khon-kaen':
+      input = ThaiBetaInput(
+        firstName: 'Comparison',
+        lastName: 'Fixture',
+        birthDate: DateTime(1974, 2, 27),
+        birthHour: 6,
+        birthMinute: 45,
+        province: 'ขอนแก่น',
+        provinceKey: 'khon_kaen',
+      );
+      break;
+    default:
+      throw ArgumentError.value(fixtureId, 'fixtureId');
+  }
+  return ThaiBetaAnalysisRunner.run(
+    input,
+    startedAt: DateTime.utc(2026, 8, 7),
+    asOf: DateTime.utc(2026, 8, 7),
+  );
+}
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
@@ -72,24 +143,69 @@ void main() {
     });
 
     test(
-      'dedicated PDF and browser print consume exact shared text and order',
+      'all seven PDF fixtures preserve the page-one and semantic contract',
       () async {
-        final document = ThaiBetaReportExportDocument.candidate(
-          _analysis(knownTime: true),
-        );
-        final pdf = await ThaiBetaReportPdfExporter.build(document);
-        final markup = browserPrintMarkup(document);
-        expect(pdf.plainText, document.fullPlainText);
-        var cursor = -1;
-        for (final section in document.sections) {
-          final next = markup.indexOf('data-section-id="${section.id}"');
-          expect(next, greaterThan(cursor), reason: section.id);
-          cursor = next;
-          for (final paragraph in section.paragraphs) {
-            expect(markup, contains(const HtmlEscape().convert(paragraph)));
+        for (final fixtureId in const [
+          'known',
+          'unknown',
+          'owner-known-0035',
+          'owner-unknown',
+          'regression-known-0003',
+          'comparison-known-bangkok',
+          'comparison-known-khon-kaen',
+        ]) {
+          final document = ThaiBetaReportExportDocument.candidate(
+            _fixtureAnalysis(fixtureId),
+          );
+          final pdf = await ThaiBetaReportPdfExporter.build(document);
+          final markup = browserPrintMarkup(document);
+          expect(pdf.plainText, document.fullPlainText, reason: fixtureId);
+          expect(markup, startsWith('<article class="knowme-print-report">'));
+          final header = markup.indexOf('<header>');
+          final title = markup.indexOf('<h1>');
+          final subtitle = markup.indexOf('<p class="subtitle">');
+          final firstSection = markup.indexOf(
+            'data-section-id="${document.sections.first.id}"',
+          );
+          expect(
+            header,
+            greaterThan(0),
+            reason: '$fixtureId header must follow the article wrapper',
+          );
+          expect(title, greaterThanOrEqualTo(header), reason: fixtureId);
+          expect(subtitle, greaterThan(title), reason: fixtureId);
+          expect(firstSection, greaterThan(subtitle), reason: fixtureId);
+          expect(document.sections.first.title, isNotEmpty, reason: fixtureId);
+          expect(
+            document.sections.first.paragraphs.first,
+            isNotEmpty,
+            reason: fixtureId,
+          );
+          var cursor = firstSection - 1;
+          for (final section in document.sections) {
+            final next = markup.indexOf('data-section-id="${section.id}"');
+            expect(
+              next,
+              greaterThan(cursor),
+              reason: '$fixtureId/${section.id}',
+            );
+            cursor = next;
+            expect(
+              markup,
+              contains(const HtmlEscape().convert(section.title)),
+              reason: '$fixtureId/${section.id}',
+            );
+            for (final paragraph in section.paragraphs) {
+              expect(
+                markup,
+                contains(const HtmlEscape().convert(paragraph)),
+                reason: '$fixtureId/${section.id}',
+              );
+            }
           }
         }
       },
+      timeout: const Timeout(Duration(minutes: 5)),
     );
 
     test('candidate copy changes only declared reader-copy rules', () {

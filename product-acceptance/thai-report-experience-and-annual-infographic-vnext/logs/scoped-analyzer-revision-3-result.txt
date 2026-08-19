@@ -1,0 +1,4 @@
+Analyzing 6 items...                                            
+No issues found! (ran in 12.4s)
+
+exitCode: 0

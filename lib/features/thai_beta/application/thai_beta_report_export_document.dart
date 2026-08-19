@@ -377,6 +377,8 @@ class ThaiBetaReportExportDocument {
     if (prediction == null || prediction.windows.length < 2) return null;
     final window = prediction.windows[1];
     final categories = <ThaiBetaAnnualInfographicCategory>[];
+    var hasTransitionReserve = false;
+    var hasUnknownRepeatedBoundary = false;
     const iconNames = <String, String>{
       'การงาน': 'work',
       'การเงิน': 'savings',
@@ -393,6 +395,12 @@ class ThaiBetaReportExportDocument {
           : domain.claim.trim().isNotEmpty
           ? domain.claim
           : domain.body;
+      hasTransitionReserve =
+          hasTransitionReserve ||
+          raw.contains('และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต');
+      hasUnknownRepeatedBoundary =
+          hasUnknownRepeatedBoundary ||
+          raw.contains('จึงควรยืนยันจากผลที่เกิดซ้ำก่อนตัดสินใจ');
       final categoryField =
           'infographic.categories[${categories.length}].summary';
       final summary = applyReaderCopy
@@ -444,10 +452,15 @@ class ThaiBetaReportExportDocument {
         : cautionDomain.risk.trim().isNotEmpty
         ? cautionDomain.risk
         : cautionDomain.caution;
+    final rawDisclaimer = analysis.input.hasBirthTime
+        ? 'แนวโน้มนี้ใช้เพื่อวางแผนและทบทวน ไม่ใช่ข้อสรุปตายตัว'
+        : 'ไม่มีเวลาเกิด จึงแสดงเฉพาะแนวโน้มที่ข้อมูลรองรับและไม่เติมรายละเอียดที่ขาดหาย';
     return ThaiBetaAnnualInfographicData(
       buddhistYear: analysis.asOf.year + 543,
       theme: repair(window.summary, 'infographic.theme'),
-      overview: repair(window.timeframeLabel, 'infographic.overview'),
+      overview: applyReaderCopy && hasTransitionReserve
+          ? repair(window.timeframeLabel, 'infographic.overview')
+          : window.timeframeLabel,
       categories: List.unmodifiable(categories),
       opportunity: repair(opportunity, 'infographic.opportunity'),
       caution: repair(caution, 'infographic.caution'),
@@ -457,9 +470,9 @@ class ThaiBetaReportExportDocument {
             : prediction.closingAdvice,
         'infographic.primaryAdvice',
       ),
-      disclaimer: analysis.input.hasBirthTime
-          ? 'แนวโน้มนี้ใช้เพื่อวางแผนและทบทวน ไม่ใช่ข้อสรุปตายตัว'
-          : 'ไม่มีเวลาเกิด จึงแสดงเฉพาะแนวโน้มที่ข้อมูลรองรับและไม่เติมรายละเอียดที่ขาดหาย',
+      disclaimer: applyReaderCopy && hasUnknownRepeatedBoundary
+          ? repair(rawDisclaimer, 'infographic.disclaimer')
+          : rawDisclaimer,
       monthlyTimelineAvailable: false,
       monthlyGapReason:
           'engine ปัจจุบันมีกรอบ 12 เดือนและทักษาจรรายปี แต่ไม่มีคะแนนหรือหลักฐานที่ผูกกับเดือนปฏิทินทั้ง 12 เดือน',
