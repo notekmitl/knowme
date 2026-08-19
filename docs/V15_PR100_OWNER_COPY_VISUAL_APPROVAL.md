@@ -28,3 +28,17 @@ R7.1 remains 10,709,328 bytes / 80 entries / SHA-256 `9E541F21C68FDAD93BC595C55B
 The Owner authorizes merging PR #100 only after its Final Merge Gate passes. This decision does not authorize deployment or Firebase mutation. It does not authorize changes to copy, application implementation, astrology logic, tests, PNG/PDF, canonical text or accepted artifacts while recording the decision.
 
 `monthlyTimelineAvailable=false`. Monthly timeline content is not approved and remains BLOCKED because the current engine has no validated calendar-month evidence. Monthly Evidence Engine work must be implemented in a separate PR after PR #100 is merged.
+
+## Merge result
+
+The Final Merge Gate passed and PR #100 was merged with a regular merge commit at `2026-08-19T09:03:56Z`.
+
+- Approval documentation HEAD: `18f10ba23dfdb193e41241db31dc0c2336c07023`
+- PR #100 merge commit: `1a562c6a5c93d89485f70f9bba7820f018b2849f`
+- Parent 1: `be5e38a211eb9aa47edf88a95e71659d33752245`
+- Parent 2: `18f10ba23dfdb193e41241db31dc0c2336c07023`
+- Merge/accepted PR tree: `1f1aceaeb3a2567a3d39f850756ef4f837c41344`
+- Accepted-tree identity: byte-identical
+- Unexpected diff: 0
+
+No deployment or Firebase mutation followed the merge. Production remains V1.5 release `1787038542564000`, Hosting version `5f98dfffef913e38`.
