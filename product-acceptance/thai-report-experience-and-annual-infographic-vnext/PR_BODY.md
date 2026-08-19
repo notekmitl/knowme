@@ -19,8 +19,8 @@ Draft-only candidate for Owner copy and visual review. Do not merge or deploy.
 - VM×2/Chrome×2 exact 133,592 bytes, SHA-256 `AE15130780DA9B5CAF847909D60B5A29459BB5298F4715EF2CC82F58E41E537E`, mismatch 0.
 - Web release build passed without deployment. R7.1 ZIP/checksums/63-file identity, canonical 5/5 and claims 170/170 pass; R1–R7.1 modified paths 0.
 
-Owner review starts at `product-acceptance/thai-report-experience-and-annual-infographic-vnext/OWNER_REVIEW_INDEX.md`. Owner decision remains Pending. `monthlyTimelineAvailable=false`; monthly timeline remains BLOCKED.
+Owner approval is recorded at `product-acceptance/thai-report-experience-and-annual-infographic-vnext/OWNER_REVIEW_INDEX.md`: 60/60 grouped rules, 4,407/4,407 fields, 15/15 infographics and 14/14 PDFs / 105/105 pages are Approved with all semantic and traceability impacts 0. Approval is bound to evidence HEAD `87bd8d466d5ed657667c6ab2c21871d4ffd2ab5d` and manifest `A03C979B8FA9F1BAFA85993371C17E19475DD2DE0927840CCD87002BC203BC78`. `monthlyTimelineAvailable=false`; monthly timeline remains BLOCKED.
 
 Keep PR #100 Open, Draft and unmerged. Production remains V1.5 Hosting release `1787038542564000`, version `5f98dfffef913e38`. No Merge, Deploy or Firebase mutation occurred.
 
-`PR #100 REVISION 4 INFOGRAPHIC TITLE INTEGRITY VERIFIED — OWNER REVIEW PENDING — MONTHLY TIMELINE BLOCKED — DRAFT — NOT DEPLOYED`
+`PR #100 OWNER COPY/VISUAL APPROVED — FINAL MERGE GATE PENDING — MONTHLY TIMELINE BLOCKED — DRAFT — NOT DEPLOYED`

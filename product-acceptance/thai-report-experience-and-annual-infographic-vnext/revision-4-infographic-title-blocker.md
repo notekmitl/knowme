@@ -1,6 +1,6 @@
 # Revision 4 infographic title integrity — root-cause and gate record
 
-Status: **Technical verification passed; Owner review Pending; PR #100 Draft; not deployed.**
+Status: **Technical verification passed; Owner copy/visual Approved; Final Merge Gate pending; PR #100 Draft; not deployed.**
 
 ## Owner observation and byte-level finding
 
@@ -45,4 +45,4 @@ No application implementation, accepted copy, astrology logic, canonical text, g
 
 Generator and standalone validator pass 15/15 with missing 0, mismatch 0, unlisted 0, duplicate paths 0 and title-raster failures 0. Negative tests reject omitted title, off-canvas title, fixture/output swaps, stale hashes and duplicate basename/cache identities. Manual review used original-resolution SHA-bound copies plus five identity-labelled sheets; no clipping, overflow, overlap, fake monthly visualization, birth details or placeholder data graphics were found.
 
-Owner decision remains **Pending**. `monthlyTimelineAvailable=false`. Keep PR #100 Open, Draft and unmerged; do not Merge, Deploy or mutate Firebase.
+Owner decision is **Approved** for 60/60 grouped rules, 4,407/4,407 ledger fields, 15/15 infographics and 14/14 PDFs / 105/105 pages. Approval is bound to evidence HEAD `87bd8d466d5ed657667c6ab2c21871d4ffd2ab5d` and manifest `A03C979B8FA9F1BAFA85993371C17E19475DD2DE0927840CCD87002BC203BC78`. `monthlyTimelineAvailable=false`. Keep PR #100 Draft until the Final Merge Gate passes; do not Deploy or mutate Firebase.

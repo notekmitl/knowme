@@ -1,6 +1,6 @@
 # Revision 3 blocker — Owner Known PDF page 1 clipping
 
-Historical status at stop time: **BLOCKED — mandatory PDF visual gate appeared to fail.** Current status: **RESOLVED BY BYTE-IDENTITY PROOF; final technical gates passed; Owner review remains Pending.**
+Historical status at stop time: **BLOCKED — mandatory PDF visual gate appeared to fail.** Current status: **RESOLVED BY BYTE-IDENTITY PROOF; final technical gates passed; Owner copy/visual Approved.**
 
 Manual inspection of the final Revision 3 renders found that the `owner-known-0035` first page is not a complete page in either PDF path. Both renders begin at the heading `งานจะไปต่อได้ เมื่อข้อตกลงยังชัดและทำได้จริง`; the KnowMe report header, birth-chart introduction, and earlier opening copy are absent above it. This is present in each final page PNG itself, so it is not caused by contact-sheet scaling.
 
@@ -18,7 +18,7 @@ Control pages are complete:
 
 Required repair scope for a later authorized task: diagnose the shared `owner-known-0035` pagination/content-flow path and regenerate both PDF variants plus all dependent renders/contact sheets. Re-run semantic inventory and the PDF visual gate before resuming the remaining Final Gate. Do not hide the defect by removing copy, changing canonical/expected output, shrinking text below the design minimum, or accepting a partial first page.
 
-PR #100 remains Open, Draft, unmerged at `21fbcd51d16d5a289d215791780c95a1b0db389a`. Production remains V1.5 Hosting version `5f98dfffef913e38`. Owner decision remains Pending. No Merge, Deploy, or Firebase mutation is authorized or performed.
+At this historical checkpoint PR #100 remained Open, Draft and unmerged at `21fbcd51d16d5a289d215791780c95a1b0db389a`. The Owner subsequently Approved the Revision 3/4 copy and visual scope at `2026-08-19T08:52:49Z`. Production remains V1.5 Hosting version `5f98dfffef913e38`. Deploy and Firebase mutation are not authorized.
 
 ## 2026-08-19 correction after byte-identity investigation
 
