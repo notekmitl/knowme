@@ -1,0 +1,107 @@
+[
+  {
+    "source": "annual-infographic-comparison-known-bangkok.png",
+    "sha256": "F09B1B17A497694F596B2C67DAD31A06470281E979F5A4A74C4516883B3CCBD8",
+    "bytes": 180531,
+    "copy": "annual-infographic-comparison-known-bangkok--F09B1B17A497.png",
+    "copySha256": "F09B1B17A497694F596B2C67DAD31A06470281E979F5A4A74C4516883B3CCBD8"
+  },
+  {
+    "source": "annual-infographic-comparison-known-khon-kaen.png",
+    "sha256": "EA42A1C990BA97D15A10ECE2D2F49BB458509B9DF67D171AD663D91AA93ABB1C",
+    "bytes": 189515,
+    "copy": "annual-infographic-comparison-known-khon-kaen--EA42A1C990BA.png",
+    "copySha256": "EA42A1C990BA97D15A10ECE2D2F49BB458509B9DF67D171AD663D91AA93ABB1C"
+  },
+  {
+    "source": "annual-infographic-known.png",
+    "sha256": "026445FFB0BC5EBF1445C90C8E7A4F7F9FF77B7B4B31565A58D1E4D406CC5E04",
+    "bytes": 175624,
+    "copy": "annual-infographic-known--026445FFB0BC.png",
+    "copySha256": "026445FFB0BC5EBF1445C90C8E7A4F7F9FF77B7B4B31565A58D1E4D406CC5E04"
+  },
+  {
+    "source": "annual-infographic-owner-known-0035.png",
+    "sha256": "DC58DD52F60CA16480D2AD783DF9114181453106AC930EF7D16EFCFDF5A796E6",
+    "bytes": 186018,
+    "copy": "annual-infographic-owner-known-0035--DC58DD52F60C.png",
+    "copySha256": "DC58DD52F60CA16480D2AD783DF9114181453106AC930EF7D16EFCFDF5A796E6"
+  },
+  {
+    "source": "annual-infographic-owner-unknown.png",
+    "sha256": "B9E8A8EC0EE4E8D840BE8D5E06026CC5AD295E72CC40527121DA32C11C508115",
+    "bytes": 191795,
+    "copy": "annual-infographic-owner-unknown--B9E8A8EC0EE4.png",
+    "copySha256": "B9E8A8EC0EE4E8D840BE8D5E06026CC5AD295E72CC40527121DA32C11C508115"
+  },
+  {
+    "source": "annual-infographic-regression-known-0003.png",
+    "sha256": "DC58DD52F60CA16480D2AD783DF9114181453106AC930EF7D16EFCFDF5A796E6",
+    "bytes": 186018,
+    "copy": "annual-infographic-regression-known-0003--DC58DD52F60C.png",
+    "copySha256": "DC58DD52F60CA16480D2AD783DF9114181453106AC930EF7D16EFCFDF5A796E6"
+  },
+  {
+    "source": "annual-infographic-stress-disclaimer-longest.png",
+    "sha256": "01081DCDF0D8E953ADEEA4E37D4C41642941016061E03F11602C306AD20176E7",
+    "bytes": 190347,
+    "copy": "annual-infographic-stress-disclaimer-longest--01081DCDF0D8.png",
+    "copySha256": "01081DCDF0D8E953ADEEA4E37D4C41642941016061E03F11602C306AD20176E7"
+  },
+  {
+    "source": "annual-infographic-stress-known-longest.png",
+    "sha256": "9FC63C0E3C6AC4BB40070BEC931BFA7C63815BDCBA7D8E00F77D7DDC43D1E37C",
+    "bytes": 197020,
+    "copy": "annual-infographic-stress-known-longest--9FC63C0E3C6A.png",
+    "copySha256": "9FC63C0E3C6AC4BB40070BEC931BFA7C63815BDCBA7D8E00F77D7DDC43D1E37C"
+  },
+  {
+    "source": "annual-infographic-stress-opportunity-caution-longest.png",
+    "sha256": "ABFA660523D7EA271B5A2C969BB471A981E6DDA4036A23613AAC41DAA5C2F5E5",
+    "bytes": 208623,
+    "copy": "annual-infographic-stress-opportunity-caution-longest--ABFA660523D7.png",
+    "copySha256": "ABFA660523D7EA271B5A2C969BB471A981E6DDA4036A23613AAC41DAA5C2F5E5"
+  },
+  {
+    "source": "annual-infographic-stress-regression-1972.png",
+    "sha256": "9F743CBAFA28C70F73B425FC39CDC9E20622ABE4645494745A3B0147A7300110",
+    "bytes": 184607,
+    "copy": "annual-infographic-stress-regression-1972--9F743CBAFA28.png",
+    "copySha256": "9F743CBAFA28C70F73B425FC39CDC9E20622ABE4645494745A3B0147A7300110"
+  },
+  {
+    "source": "annual-infographic-stress-thai-multiline.png",
+    "sha256": "C448E80680703E79C8DAD817B1E98B5459EC9F6987DBFAF0321E83235309423E",
+    "bytes": 209377,
+    "copy": "annual-infographic-stress-thai-multiline--C448E8068070.png",
+    "copySha256": "C448E80680703E79C8DAD817B1E98B5459EC9F6987DBFAF0321E83235309423E"
+  },
+  {
+    "source": "annual-infographic-stress-unknown-longest.png",
+    "sha256": "B5E98C7C79667C7AFD174113A89ABFFD3B35552DC9272BE3945F8A9D08B53A48",
+    "bytes": 213658,
+    "copy": "annual-infographic-stress-unknown-longest--B5E98C7C7966.png",
+    "copySha256": "B5E98C7C79667C7AFD174113A89ABFFD3B35552DC9272BE3945F8A9D08B53A48"
+  },
+  {
+    "source": "annual-infographic-unknown.png",
+    "sha256": "E5FB1E493C1F74E0F4B76E92504A102BA1D248A3F87B626DC6CFCB6227846FA8",
+    "bytes": 202411,
+    "copy": "annual-infographic-unknown--E5FB1E493C1F.png",
+    "copySha256": "E5FB1E493C1F74E0F4B76E92504A102BA1D248A3F87B626DC6CFCB6227846FA8"
+  },
+  {
+    "source": "annual-infographic-year-boundary-2569.png",
+    "sha256": "DC58DD52F60CA16480D2AD783DF9114181453106AC930EF7D16EFCFDF5A796E6",
+    "bytes": 186018,
+    "copy": "annual-infographic-year-boundary-2569--DC58DD52F60C.png",
+    "copySha256": "DC58DD52F60CA16480D2AD783DF9114181453106AC930EF7D16EFCFDF5A796E6"
+  },
+  {
+    "source": "annual-infographic-year-boundary-2570.png",
+    "sha256": "4F1A6F983D7CE81E69B8C360460F516E0B9D2AC537083A573E6AA9768B0B071F",
+    "bytes": 185209,
+    "copy": "annual-infographic-year-boundary-2570--4F1A6F983D7C.png",
+    "copySha256": "4F1A6F983D7CE81E69B8C360460F516E0B9D2AC537083A573E6AA9768B0B071F"
+  }
+]

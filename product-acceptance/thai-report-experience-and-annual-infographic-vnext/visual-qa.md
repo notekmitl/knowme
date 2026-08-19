@@ -1,12 +1,11 @@
-# Visual QA — Revision 3
+# Visual QA — Revision 4
 
-Revision 3 was inspected from final artifacts, not widget previews alone.
+Revision 4 was inspected from final artifact bytes, not widget geometry alone.
 
-- Dedicated PDF: 7 fixtures × 8 pages; browser print: 7 fixtures × 7 pages.
-- The page-one gate generated 105 unique, source-labelled PNG names. All 105 pages were inspected through 32 contact sheets.
-- Clipping, blank pages, overlap, collision, missing header, missing subtitle and missing introduction: 0.
-- Owner Known browser and dedicated page-one before/after rasters are byte-identical; the original report bytes were never clipped.
-- Web mobile Known/Unknown remains verified at 360×800 and 390×844 without horizontal overflow or browser-console errors.
-- Infographic fixtures remain exactly 1080×1920 with complete title/year/category/opportunity/caution/advice/disclaimer content and no invented monthly axis or data.
+- Infographic: 15/15 SHA-bound originals and five unique-labelled sheets; title/year, hierarchy, bounds, stress copy and 2569/2570 boundary pass.
+- The viewer can omit the title while rendering byte-identical PNG content; SHA-bound/contact-sheet evidence and the direct pixel validator prevent this preview defect from being mistaken for stored-file loss.
+- PDFs: dedicated 7×8 pages and browser print 7×7 pages; 14 PDFs / 105 source-labelled renders, failures 0, 32 contact sheets. Infographic page 2 contains the title in both output paths; Owner Known page 1 remains intact.
+- Web: 360 and 390 Known/Unknown at top/middle/bottom, 12/12 fresh screenshots with no invented monthly visualization.
+- No clipping, blank page, overlap, off-canvas text, missing section, birth-detail leakage or fake data chart was found.
 
-Evidence is under `generated-artifacts/revision-3/`, `renders/revision-3-page-one-repair/`, `visual-qa/revision-3-page-one-repair/` and `web-screenshots-revision-3/`. Technical visual QA passed; Owner copy and visual approval remains Pending. The monthly timeline remains BLOCKED.
+Evidence: `generated-artifacts/revision-4/`, `visual-qa/revision-4/`, `web-screenshots-revision-4/`, `pdf-page-one-gate-revision-4-result.json` and `revision-4-infographic-title-integrity-result.json`. Technical visual QA passes; Owner decision remains Pending and monthly timeline remains BLOCKED.

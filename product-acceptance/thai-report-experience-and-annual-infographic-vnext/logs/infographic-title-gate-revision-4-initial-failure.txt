@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "C:\Users\USER\Documents\Knowme\thai-report-experience-infographic-vnext\tool\thai_report_infographic_title_gate.py", line 166, in <module>
+    main()
+  File "C:\Users\USER\Documents\Knowme\thai-report-experience-infographic-vnext\tool\thai_report_infographic_title_gate.py", line 153, in main
+    result = validate(args.artifact_root, args.expected_source_head)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\Knowme\thai-report-experience-infographic-vnext\tool\thai_report_infographic_title_gate.py", line 108, in validate
+    require(title_region_hash == sidecar["titleRegionSha256"], f"title region hash mismatch: {fixture}")
+  File "C:\Users\USER\Documents\Knowme\thai-report-experience-infographic-vnext\tool\thai_report_infographic_title_gate.py", line 48, in require
+    raise ValueError(message)
+ValueError: title region hash mismatch: known

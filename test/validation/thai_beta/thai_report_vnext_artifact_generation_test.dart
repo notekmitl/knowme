@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 import 'dart:ui' as ui;
 
+import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -16,8 +18,61 @@ import 'package:knowme/features/thai_beta/presentation/widgets/thai_beta_shared_
 import 'narrative/thai_beta_narrative_fixtures.dart';
 import 'synthetic_audit/thai_beta_synthetic_matrix_300.dart';
 
+const _fixtureIds = <String>[
+  'known',
+  'unknown',
+  'owner-known-0035',
+  'owner-unknown',
+  'regression-known-0003',
+  'comparison-known-bangkok',
+  'comparison-known-khon-kaen',
+  'stress-known-longest',
+  'stress-unknown-longest',
+  'stress-opportunity-caution-longest',
+  'stress-disclaimer-longest',
+  'stress-thai-multiline',
+  'stress-regression-1972',
+  'year-boundary-2569',
+  'year-boundary-2570',
+];
+
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+
+  test('title-integrity gate rejects all five evidence mutations', () {
+    final valid = _ArtifactProbe.valid();
+    _validateArtifactProbe(valid);
+    expect(
+      () => _validateArtifactProbe(valid.copyWith(titleCreamPixels: 0)),
+      throwsStateError,
+      reason: 'omitted title must fail',
+    );
+    expect(
+      () => _validateArtifactProbe(
+        valid.copyWith(titleBounds: const Rect.fromLTWH(138, -5, 894, 90)),
+      ),
+      throwsStateError,
+      reason: 'title outside the canvas must fail',
+    );
+    expect(
+      () => _validateArtifactProbe(valid.copyWith(sidecarFixtureId: 'unknown')),
+      throwsStateError,
+      reason: 'fixture/output swap must fail',
+    );
+    expect(
+      () => _validateArtifactProbe(valid.copyWith(sidecarPngSha256: 'stale')),
+      throwsStateError,
+      reason: 'stale PNG identity must fail',
+    );
+    expect(
+      () => _validateArtifactSet(
+        [valid, valid.copyWith(fixtureId: 'unknown')],
+        const {'known', 'unknown'},
+      ),
+      throwsStateError,
+      reason: 'basename collision must fail',
+    );
+  });
 
   testWidgets(
     'writes isolated vNext review artifacts from one shared model',
@@ -35,24 +90,24 @@ void main() {
       }
       final requested =
           Platform.environment['KNOWME_REPORT_VNEXT_FIXTURE'] ?? 'known';
-      final supported = <String>{
-        'known',
-        'unknown',
-        'owner-known-0035',
-        'owner-unknown',
-        'regression-known-0003',
-        'comparison-known-bangkok',
-        'comparison-known-khon-kaen',
-        'stress-known-longest',
-        'stress-unknown-longest',
-        'stress-thai-multiline',
-        'stress-opportunity-caution-longest',
-        'stress-disclaimer-longest',
-        'stress-regression-1972',
-        'year-boundary-2569',
-        'year-boundary-2570',
-      };
-      expect(supported, contains(requested));
+      final sourceHead =
+          Platform.environment['KNOWME_REPORT_VNEXT_SOURCE_HEAD'] ?? 'test';
+      final controlledOutputIdentity =
+          Platform.environment['KNOWME_REPORT_VNEXT_OUTPUT_ID'] ?? 'test';
+      final supported = _fixtureIds.toSet();
+      expect(requested == 'all' || supported.contains(requested), isTrue);
+      final requestedFixtures = requested == 'all'
+          ? _fixtureIds
+          : <String>[requested];
+      if (output != null && output.isNotEmpty) {
+        expect(
+          outputDirectory.listSync(),
+          isEmpty,
+          reason: 'Revision output directory must be empty before generation',
+        );
+        expect(sourceHead, isNot('test'));
+        expect(controlledOutputIdentity, isNot('test'));
+      }
       await tester.runAsync(() async {
         final loader = FontLoader('KnowMeNotoSansThai')
           ..addFont(
@@ -70,11 +125,14 @@ void main() {
 
       await tester.binding.setSurfaceSize(const Size(390, 844));
       addTearDown(() => tester.binding.setSurfaceSize(null));
+      final semanticsHandle = tester.ensureSemantics();
+      final probes = <_ArtifactProbe>[];
 
-      for (final fixtureId in [requested]) {
-        final document = ThaiBetaReportExportDocument.candidate(
-          _analysisFor(fixtureId),
-        );
+      for (final fixtureId in requestedFixtures) {
+        final analysis = _analysisFor(fixtureId);
+        final document = ThaiBetaReportExportDocument.candidate(analysis);
+        final infographic = document.infographic!;
+        expect(infographic.title.trim(), isNotEmpty, reason: fixtureId);
         final boundaryKey = GlobalKey();
         await tester.pumpWidget(
           MaterialApp(
@@ -90,23 +148,42 @@ void main() {
         );
         await tester.pumpAndSettle();
         expect(tester.takeException(), isNull);
+        final titleFinder = find.byKey(
+          ThaiBetaAnnualInfographicLayoutKeys.title,
+        );
+        expect(titleFinder, findsOneWidget, reason: fixtureId);
+        expect(find.text(infographic.title), findsOneWidget, reason: fixtureId);
+        expect(
+          tester.getSemantics(titleFinder).label,
+          contains(infographic.title),
+          reason: '$fixtureId title semantics',
+        );
         final boundary = tester.renderObject<RenderRepaintBoundary>(
           find.byKey(boundaryKey),
         );
         expect(boundary.debugNeedsPaint, isFalse);
         final sectionRegions = _assertLayoutAndCollectRegions(
           tester,
-          document.infographic!,
+          infographic,
         );
 
-        final png = await tester.runAsync(
+        final firstPng = await tester.runAsync(
           () => ThaiBetaAnnualInfographicCapture.png(boundaryKey),
         );
-        expect(png, isNotNull);
-        final renderedPng = png!;
-        await tester.runAsync(
-          () => _assertCapturedSections(renderedPng, sectionRegions),
+        final secondPng = await tester.runAsync(
+          () => ThaiBetaAnnualInfographicCapture.png(boundaryKey),
         );
+        expect(firstPng, isNotNull);
+        final renderedPng = firstPng!;
+        expect(secondPng, orderedEquals(renderedPng), reason: fixtureId);
+        final rasterEvidence = await tester.runAsync(
+          () => _assertCapturedSections(
+            renderedPng,
+            sectionRegions,
+            expectedTitle: infographic.title,
+          ),
+        );
+        expect(rasterEvidence, isNotNull);
         final pngFile = File(
           '${outputDirectory.path}${Platform.pathSeparator}annual-infographic-$fixtureId.png',
         )..writeAsBytesSync(renderedPng, flush: true);
@@ -136,8 +213,67 @@ void main() {
               );
         }
 
+        final pngSha256 = sha256.convert(renderedPng).toString().toUpperCase();
+        final inputIdentity = sha256
+            .convert(
+              utf8.encode(
+                jsonEncode({
+                  'fixtureId': fixtureId,
+                  'input': analysis.input.toMap(),
+                  'asOf': analysis.asOf.toIso8601String(),
+                }),
+              ),
+            )
+            .toString()
+            .toUpperCase();
+        final titleBounds = sectionRegions
+            .singleWhere((section) => section.id == 'title')
+            .region;
+        final themeBounds = sectionRegions
+            .singleWhere((section) => section.id == 'theme')
+            .region;
+        final outputName = 'annual-infographic-$fixtureId.png';
+        final probe = _ArtifactProbe(
+          fixtureId: fixtureId,
+          sidecarFixtureId: fixtureId,
+          outputFileName: outputName,
+          currentPngSha256: pngSha256,
+          sidecarPngSha256: pngSha256,
+          sourceHead: sourceHead,
+          expectedSourceHead: sourceHead,
+          title: infographic.title,
+          titleBounds: _scaleRect(titleBounds, 1080, 1920),
+          themeBounds: _scaleRect(themeBounds, 1080, 1920),
+          titleCreamPixels: rasterEvidence!.titleCreamPixels,
+          titleRegionSha256: rasterEvidence.titleRegionSha256,
+          backgroundControlSha256: rasterEvidence.backgroundControlSha256,
+          inputIdentitySha256: inputIdentity,
+          controlledOutputIdentity: controlledOutputIdentity,
+        );
+        _validateArtifactProbe(probe);
+        probes.add(probe);
+
         final identity = <String, Object?>{
           'fixtureId': fixtureId,
+          'sourceHead': sourceHead,
+          'controlledOutputIdentity': controlledOutputIdentity,
+          'artifactRelativePath': outputName,
+          'inputIdentitySha256': inputIdentity,
+          'pngSha256': pngSha256,
+          'pngDimensions': const {'width': 1080, 'height': 1920},
+          'captureRepeatByteIdentical': true,
+          'titleWidgetCount': 1,
+          'titleSemanticContains': infographic.title,
+          'titleCreamPixelCount': rasterEvidence.titleCreamPixels,
+          'titleRasterSampleBounds': {
+            'left': rasterEvidence.titleSampleBounds.left.toInt(),
+            'top': rasterEvidence.titleSampleBounds.top.toInt(),
+            'right': rasterEvidence.titleSampleBounds.right.toInt(),
+            'bottom': rasterEvidence.titleSampleBounds.bottom.toInt(),
+          },
+          'titleRegionSha256': rasterEvidence.titleRegionSha256,
+          'titleBackgroundControlSha256':
+              rasterEvidence.backgroundControlSha256,
           'sectionCount': document.sections.length,
           'paragraphCount': document.sections.fold<int>(
             0,
@@ -188,6 +324,25 @@ void main() {
         await tester.pumpWidget(const SizedBox.shrink());
         await tester.pumpAndSettle();
       }
+      _validateArtifactSet(probes, requestedFixtures.toSet());
+      if (output != null && output.isNotEmpty) {
+        File(
+          '${outputDirectory.path}${Platform.pathSeparator}infographic-title-integrity.json',
+        ).writeAsStringSync(
+          const JsonEncoder.withIndent('  ').convert({
+            'sourceHead': sourceHead,
+            'controlledOutputIdentity': controlledOutputIdentity,
+            'fixtureCount': probes.length,
+            'fixtures': [for (final probe in probes) probe.toJson()],
+            'missing': 0,
+            'mismatch': 0,
+            'duplicateOutputPaths': 0,
+            'titleRasterFailures': 0,
+          }),
+          flush: true,
+        );
+      }
+      semanticsHandle.dispose();
     },
     timeout: const Timeout(Duration(minutes: 10)),
   );
@@ -275,9 +430,7 @@ List<({String id, Rect region})> _assertLayoutAndCollectRegions(
       );
     }
   }
-  final canvasFinder = find.byKey(
-    const Key('thai_annual_infographic_canvas'),
-  );
+  final canvasFinder = find.byKey(const Key('thai_annual_infographic_canvas'));
   final textWidgets = tester.widgetList<Text>(
     find.descendant(of: canvasFinder, matching: find.byType(Text)),
   );
@@ -291,7 +444,8 @@ List<({String id, Rect region})> _assertLayoutAndCollectRegions(
     expect(
       text.style!.fontSize,
       greaterThanOrEqualTo(7.8),
-      reason: 'Infographic text is below the mobile design minimum: ${text.data}',
+      reason:
+          'Infographic text is below the mobile design minimum: ${text.data}',
     );
   }
   final visibleText = textWidgets.map((text) => text.data ?? '').join(' ');
@@ -315,10 +469,19 @@ List<({String id, Rect region})> _assertLayoutAndCollectRegions(
   return regions;
 }
 
-Future<void> _assertCapturedSections(
+Future<
+  ({
+    int titleCreamPixels,
+    Rect titleSampleBounds,
+    String titleRegionSha256,
+    String backgroundControlSha256,
+  })
+>
+_assertCapturedSections(
   Uint8List png,
-  List<({String id, Rect region})> sections,
-) async {
+  List<({String id, Rect region})> sections, {
+  required String expectedTitle,
+}) async {
   final codec = await ui.instantiateImageCodec(png);
   final frame = await codec.getNextFrame();
   final image = frame.image;
@@ -328,6 +491,10 @@ Future<void> _assertCapturedSections(
     final data = await image.toByteData(format: ui.ImageByteFormat.rawRgba);
     expect(data, isNotNull);
     final rgba = data!.buffer.asUint8List();
+    var titleCreamPixels = 0;
+    var titleSampleBounds = Rect.zero;
+    var titleRegionSha256 = '';
+    var backgroundControlSha256 = '';
     for (final section in sections) {
       final left = (section.region.left * image.width).floor().clamp(
         0,
@@ -347,6 +514,8 @@ Future<void> _assertCapturedSections(
       );
       var sampled = 0;
       var nonNavy = 0;
+      final regionBytes = BytesBuilder(copy: false);
+      final backgroundBytes = BytesBuilder(copy: false);
       for (var y = top; y < bottom; y += 3) {
         for (var x = left; x < right; x += 3) {
           final offset = (y * image.width + x) * 4;
@@ -366,10 +535,234 @@ Future<void> _assertCapturedSections(
         greaterThan(sampled ~/ 250),
         reason: '${section.id} is missing from the captured PNG',
       );
+      if (section.id == 'title') {
+        titleSampleBounds = Rect.fromLTRB(
+          left.toDouble(),
+          top.toDouble(),
+          right.toDouble(),
+          bottom.toDouble(),
+        );
+        for (var y = top; y < bottom; y++) {
+          for (var x = left; x < right; x++) {
+            final offset = (y * image.width + x) * 4;
+            final red = rgba[offset];
+            final green = rgba[offset + 1];
+            final blue = rgba[offset + 2];
+            final alpha = rgba[offset + 3];
+            regionBytes.add([red, green, blue, alpha]);
+            backgroundBytes.add(const [16, 24, 50, 255]);
+            if (red >= 210 && green >= 200 && blue >= 170 && alpha >= 240) {
+              titleCreamPixels++;
+            }
+          }
+        }
+        titleRegionSha256 = sha256
+            .convert(regionBytes.takeBytes())
+            .toString()
+            .toUpperCase();
+        backgroundControlSha256 = sha256
+            .convert(backgroundBytes.takeBytes())
+            .toString()
+            .toUpperCase();
+        expect(expectedTitle, matches(RegExp(r'^ดวงชะตาปี 25\d{2}$')));
+        expect(
+          titleCreamPixels,
+          greaterThan(4000),
+          reason: 'title glyphs are absent from the final raster',
+        );
+        expect(
+          titleRegionSha256,
+          isNot(backgroundControlSha256),
+          reason: 'title region matches a background-only control',
+        );
+      }
     }
+    expect(titleRegionSha256, isNotEmpty);
+    return (
+      titleCreamPixels: titleCreamPixels,
+      titleSampleBounds: titleSampleBounds,
+      titleRegionSha256: titleRegionSha256,
+      backgroundControlSha256: backgroundControlSha256,
+    );
   } finally {
     image.dispose();
     codec.dispose();
+  }
+}
+
+Rect _scaleRect(Rect normalized, double width, double height) => Rect.fromLTRB(
+  normalized.left * width,
+  normalized.top * height,
+  normalized.right * width,
+  normalized.bottom * height,
+);
+
+class _ArtifactProbe {
+  const _ArtifactProbe({
+    required this.fixtureId,
+    required this.sidecarFixtureId,
+    required this.outputFileName,
+    required this.currentPngSha256,
+    required this.sidecarPngSha256,
+    required this.sourceHead,
+    required this.expectedSourceHead,
+    required this.title,
+    required this.titleBounds,
+    required this.themeBounds,
+    required this.titleCreamPixels,
+    required this.titleRegionSha256,
+    required this.backgroundControlSha256,
+    required this.inputIdentitySha256,
+    required this.controlledOutputIdentity,
+  });
+
+  factory _ArtifactProbe.valid() => const _ArtifactProbe(
+    fixtureId: 'known',
+    sidecarFixtureId: 'known',
+    outputFileName: 'annual-infographic-known.png',
+    currentPngSha256: 'CURRENT',
+    sidecarPngSha256: 'CURRENT',
+    sourceHead: 'SOURCE',
+    expectedSourceHead: 'SOURCE',
+    title: 'ดวงชะตาปี 2569',
+    titleBounds: Rect.fromLTRB(138, 39, 1032, 129),
+    themeBounds: Rect.fromLTRB(48, 141, 1032, 222),
+    titleCreamPixels: 8937,
+    titleRegionSha256: 'TITLE',
+    backgroundControlSha256: 'BACKGROUND',
+    inputIdentitySha256: 'INPUT',
+    controlledOutputIdentity: 'REVISION4',
+  );
+
+  final String fixtureId;
+  final String sidecarFixtureId;
+  final String outputFileName;
+  final String currentPngSha256;
+  final String sidecarPngSha256;
+  final String sourceHead;
+  final String expectedSourceHead;
+  final String title;
+  final Rect titleBounds;
+  final Rect themeBounds;
+  final int titleCreamPixels;
+  final String titleRegionSha256;
+  final String backgroundControlSha256;
+  final String inputIdentitySha256;
+  final String controlledOutputIdentity;
+
+  _ArtifactProbe copyWith({
+    String? fixtureId,
+    String? sidecarFixtureId,
+    String? outputFileName,
+    String? currentPngSha256,
+    String? sidecarPngSha256,
+    String? sourceHead,
+    String? expectedSourceHead,
+    String? title,
+    Rect? titleBounds,
+    Rect? themeBounds,
+    int? titleCreamPixels,
+    String? titleRegionSha256,
+    String? backgroundControlSha256,
+    String? inputIdentitySha256,
+    String? controlledOutputIdentity,
+  }) => _ArtifactProbe(
+    fixtureId: fixtureId ?? this.fixtureId,
+    sidecarFixtureId: sidecarFixtureId ?? this.sidecarFixtureId,
+    outputFileName: outputFileName ?? this.outputFileName,
+    currentPngSha256: currentPngSha256 ?? this.currentPngSha256,
+    sidecarPngSha256: sidecarPngSha256 ?? this.sidecarPngSha256,
+    sourceHead: sourceHead ?? this.sourceHead,
+    expectedSourceHead: expectedSourceHead ?? this.expectedSourceHead,
+    title: title ?? this.title,
+    titleBounds: titleBounds ?? this.titleBounds,
+    themeBounds: themeBounds ?? this.themeBounds,
+    titleCreamPixels: titleCreamPixels ?? this.titleCreamPixels,
+    titleRegionSha256: titleRegionSha256 ?? this.titleRegionSha256,
+    backgroundControlSha256:
+        backgroundControlSha256 ?? this.backgroundControlSha256,
+    inputIdentitySha256: inputIdentitySha256 ?? this.inputIdentitySha256,
+    controlledOutputIdentity:
+        controlledOutputIdentity ?? this.controlledOutputIdentity,
+  );
+
+  Map<String, Object?> toJson() => {
+    'fixtureId': fixtureId,
+    'outputFileName': outputFileName,
+    'pngSha256': currentPngSha256,
+    'title': title,
+    'titleBounds': {
+      'left': titleBounds.left.round(),
+      'top': titleBounds.top.round(),
+      'right': titleBounds.right.round(),
+      'bottom': titleBounds.bottom.round(),
+    },
+    'titleCreamPixels': titleCreamPixels,
+    'titleRegionSha256': titleRegionSha256,
+    'titleBackgroundControlSha256': backgroundControlSha256,
+    'inputIdentitySha256': inputIdentitySha256,
+  };
+}
+
+void _validateArtifactProbe(_ArtifactProbe probe) {
+  if (probe.fixtureId != probe.sidecarFixtureId) {
+    throw StateError('fixture/output identity mismatch');
+  }
+  if (probe.outputFileName != 'annual-infographic-${probe.fixtureId}.png') {
+    throw StateError('fixture output filename mismatch');
+  }
+  if (probe.currentPngSha256 != probe.sidecarPngSha256) {
+    throw StateError('stale PNG hash mismatch');
+  }
+  if (probe.sourceHead != probe.expectedSourceHead) {
+    throw StateError('source HEAD mismatch');
+  }
+  if (!RegExp(r'^ดวงชะตาปี 25\d{2}$').hasMatch(probe.title)) {
+    throw StateError('title contract mismatch');
+  }
+  const canvas = Rect.fromLTWH(0, 0, 1080, 1920);
+  const safeInset = 36.0;
+  if (!canvas.contains(probe.titleBounds.topLeft) ||
+      !canvas.contains(
+        probe.titleBounds.bottomRight - const Offset(.01, .01),
+      ) ||
+      probe.titleBounds.left < safeInset ||
+      probe.titleBounds.top < safeInset) {
+    throw StateError('title outside the canvas safe area');
+  }
+  if (probe.titleBounds.overlaps(probe.themeBounds)) {
+    throw StateError('title overlaps the annual theme');
+  }
+  if (probe.titleCreamPixels <= 4000 ||
+      probe.titleRegionSha256 == probe.backgroundControlSha256) {
+    throw StateError('title missing from final raster');
+  }
+  if (probe.inputIdentitySha256.isEmpty ||
+      probe.controlledOutputIdentity.isEmpty) {
+    throw StateError('artifact provenance is incomplete');
+  }
+}
+
+void _validateArtifactSet(
+  List<_ArtifactProbe> probes,
+  Set<String> expectedFixtures,
+) {
+  if (probes
+          .map((probe) => probe.fixtureId)
+          .toSet()
+          .difference(expectedFixtures)
+          .isNotEmpty ||
+      expectedFixtures
+          .difference(probes.map((probe) => probe.fixtureId).toSet())
+          .isNotEmpty) {
+    throw StateError('fixture inventory mismatch');
+  }
+  final outputNames = probes.map((probe) => probe.outputFileName).toList();
+  if (outputNames.toSet().length != outputNames.length) {
+    throw StateError('duplicate output basename');
+  }
+  for (final probe in probes) {
+    _validateArtifactProbe(probe);
   }
 }
 

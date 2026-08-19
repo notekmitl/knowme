@@ -1,41 +1,29 @@
 # Thai Report Experience and Annual Infographic vNext
 
-## Scope
+## Revision 4 scope and finding
 
-Draft PR #100 Revision 3 repairs Owner-review copy, visual and PDF evidence while preserving accepted V1.5/R1–R7.1 canonical content. Web, dedicated PDF, browser print and annual infographic use one shared presentation model.
+Draft PR #100 Revision 4 closes the infographic title-integrity evidence gap while preserving accepted V1.5/R1–R7.1 content. The Owner correctly observed at least three Revision 3 previews without `ดวงชะตาปี 2569`; byte/pixel proof shows the corresponding stored PNGs contain the title and all 15 Revision 3/4 PNG pairs are byte-identical. The divergence is in preview rendering after file identity, not the shared model, widget, layout or capture bytes.
 
-## Revision 3 PDF finding
+Revision 4 therefore changes the test/evidence path, not the application layout: all 15 generated PNGs are reopened and checked for model title, exactly one widget and semantics value, safe in-canvas bounds, 1080×1920, fixture/sidecar/SHA identity, non-background title pixels and repeat-capture byte identity. Negative tests reject omissions, off-canvas placement, fixture swaps, stale files and basename collisions. SHA-bound originals and unique-labelled contact sheets prevent ambiguous review identities.
 
-The Owner Known PDFs were never clipped. The incorrect observation came from preview/cache ambiguity because each render directory reused `page-1.png`. Final evidence uses source-labelled filenames and verifies source PDF text, glyph coordinates, page boxes, raster bounds, counts and hashes.
+## Fresh evidence
 
-- browser print: 7 fixtures × 7 pages
-- dedicated PDF: 7 fixtures × 8 pages
-- total: 14 PDFs / 105 pages / 105 unique raster identities
-- automated failures 0; manual visual QA 105/105
-
-No application layout, canonical text, astrology logic, monthly engine, golden or expected output was changed for the page-one repair.
-
-## Owner-review evidence
-
-Start at `product-acceptance/thai-report-experience-and-annual-infographic-vnext/OWNER_REVIEW_INDEX.md`.
-
-- 300 profiles / 4,407 Revision 3 fields; omission, addition, semantic, prediction↔advice and traceability impact 0
-- final PDF evidence and identity-labelled contact sheets for every page
-- Web mobile evidence at 360×800 and 390×844
+- infographic final raster 15/15; manual original-resolution review 15/15; five contact sheets
+- browser print 7×7 pages and dedicated PDF 7×8 pages; 14 PDFs / 105 unique renders / failures 0
+- 12 fresh Web screenshots at 360/390 for Known/Unknown
+- copy audit 300 profiles / 4,407 fields, all semantic/omission/addition/traceability impacts 0
 - Owner copy and visual decision: Pending
 
 ## Technical gates
 
-- PDF page-one 10/10; copy/layout 11/11; Known/Unknown 62/62; screenshots 24/24
-- Life Map 32/32; matrix 864/864; exact original R7 runner 286/286
-- full suite branch 2,940 passed / 37 failed vs main 2,925 / 39; branch-only failures 0
-- scoped analyzer 0; full analyzer branch/main 297/299; branch-only diagnostics 0
-- VM×2/Chrome×2 exact 133,592-byte manifest; mismatch 0
-- Web release build passed without deploy
-- R7.1 ZIP/checksums/63-file immutable identity passed; R1–R7.1 modified paths 0
+- focused 13/13; Known/Unknown 62/62; screenshots 24/24
+- Life Map 32/32; matrix 864/864; exact R7 runner 286/286
+- full suite branch/main 2,941/37 vs 2,925/39; branch-only 0, main-only 2
+- scoped analyzer 0; full analyzer 297/299; branch-only 0, main-only 2
+- VM×2/Chrome×2 exact 133,592 bytes, mismatch 0
+- production-equivalent Web build passed without deployment
+- R7.1 ZIP/checksums/63-file immutable identity, canonical 5/5 and claims 170/170 passed; R1–R7.1 modified paths 0
 
 ## Stop point
 
-The engine does not provide validated calendar-month scores or classifications. `monthlyTimelineAvailable=false`; month-by-month content remains BLOCKED and is not invented.
-
-PR #100 must remain Open, Draft and unmerged. No Merge, Deploy or Firebase change is authorized. Production remains V1.5 Hosting version `5f98dfffef913e38`.
+The engine does not expose validated calendar-month scores. `monthlyTimelineAvailable=false`; monthly content remains BLOCKED and is not invented. PR #100 must remain Open, Draft and unmerged. No Merge, Deploy or Firebase change is authorized. Production remains V1.5 Hosting release `1787038542564000`, version `5f98dfffef913e38`.

@@ -1,39 +1,28 @@
-# Owner Review Index — PR #100 Revision 3
+# Owner Review Index — PR #100 Revision 4
 
-สถานะ: **Pending Owner Review** — technical gates ผ่านแล้ว แต่เอกสารนี้ไม่ได้อนุมัติ copy หรือ visual แทน Owner
+Status: **Pending Owner Review** — technical gates passed; this packet does not approve copy or visual quality for the Owner.
 
-## 1. ตรวจ PDF page-one repair
+## Start here
 
-- [Root-cause and final gate record](revision-3-pdf-page-one-repair.md)
-- [Historical blocker and correction](revision-3-blocker.md)
+- [Revision 4 title root-cause and 15-fixture table](revision-4-infographic-title-blocker.md)
 - [Visual QA summary](visual-qa.md)
-- Contact sheets: `visual-qa/revision-3-page-one-repair/`
-- Final PDFs: `generated-artifacts/revision-3/`
-
-ตรวจครบ dedicated 7×8 หน้า และ browser print 7×7 หน้า รวม 105/105 หน้า โดย filename ของ raster ผูกกับ source PDF โดยตรง
-
-## 2. ตรวจ copy ครบชุด
-
-- [Revision 3 grouped review](owner-copy-curated-review-revision-3.md)
-- Full ledger: `copy-before-after-ledger-revision-3.json`
-- Scope: 300 profiles / 4,407 fields
-- omission/addition/semantic/prediction↔advice/traceability impact = 0
-
-Owner decision ของทุกรายการยังเป็น Pending
-
-## 3. ตรวจ Web และ infographic
-
-- Web screenshots: `web-screenshots-revision-3/`
-- Infographic/PDF artifacts: `generated-artifacts/revision-3/`
-- Canonical/stress evidence: `visual-qa/revision-3/`
-
-## 4. ตรวจ technical gate และ identity
-
 - [Test/analyzer/build summary](test-summary.md)
-- [Monthly engine capability gap](monthly-engine-capability-gap.md)
-- `SHA256SUMS.txt`
-- R7 exact original runner 286/286; R7.1 immutable 63/63; R1–R7.1 modified paths 0
+- [Canonical-five sheet](visual-qa/revision-4/infographic-canonical-five-contact-sheet.png)
+- [Known/Unknown sheet](visual-qa/revision-4/infographic-known-unknown-contact-sheet.png)
+- [Stress sheet](visual-qa/revision-4/infographic-stress-contact-sheet.png)
+- [Year-boundary sheet](visual-qa/revision-4/infographic-year-boundary-contact-sheet.png)
+- [Three reported files, Revision 3/4](visual-qa/revision-4/infographic-before-after-three-contact-sheet.png)
+
+Revision 3 remains preserved as Owner-rejected visual evidence: at least three previews appeared without the title. Revision 4 proves those stored PNG bytes contained the title and hardens final-file verification and review identity so the preview/cache defect is explicit.
+
+## Direct artifact roots
+
+- 15 PNGs and 14 PDFs: [`generated-artifacts/revision-4/`](generated-artifacts/revision-4/)
+- Original-resolution SHA-bound review: [`visual-qa/revision-4/original-resolution-sha-bound/`](visual-qa/revision-4/original-resolution-sha-bound/)
+- 105 PDF renders and 32 sheets: [`visual-qa/revision-4/pdf-contact-sheets/`](visual-qa/revision-4/pdf-contact-sheets/)
+- Web 360/390 captures: [`web-screenshots-revision-4/`](web-screenshots-revision-4/)
+- Copy review remains 300 profiles / 4,407 fields: [grouped review](owner-copy-curated-review-revision-3.md) and `copy-before-after-ledger-revision-3.json`.
 
 ## Stop point
 
-Owner copy/visual approval ยัง Pending และ monthly timeline ยัง BLOCKED (`monthlyTimelineAvailable=false`). PR #100 ต้องคง Open, Draft และ unmerged. Production ยังเป็น V1.5 `5f98dfffef913e38`. ห้าม Merge, Deploy หรือเปลี่ยน Firebase ในงานนี้
+Owner decision remains Pending. `monthlyTimelineAvailable=false`; the monthly timeline is BLOCKED. PR #100 stays Open, Draft and unmerged. Production remains V1.5 release `1787038542564000`, version `5f98dfffef913e38`. Do not Merge, Deploy or mutate Firebase.

@@ -1,0 +1,32 @@
+authorization=exact provenance list
+validatedPaths=28
+beforeStatusLines=28
+ M docs/BAZI_MIRROR_INTEGRATION_V1.md
+ M docs/CHINESE_ZODIAC_IMPACT_VALIDATION_V1.md
+ M docs/HUMAN_PATTERN_ACTIVATION_AUDIT_V1.md
+ M docs/NARRATIVE_INTELLIGENCE_V2.md
+ M docs/SYNTHETIC_HUMAN_POPULATION_V1.md
+ M docs/THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md
+ M docs/THAI_LIFE_MAP_V127_SIMULATED_MATRIX.md
+ M test/validation/bazi_mirror_integration/output/results.json
+ M test/validation/chinese_zodiac_impact/output/results.json
+ M test/validation/human_pattern_activation_audit/output/results.json
+ M test/validation/narrative_intelligence_v2/output/results.json
+ M test/validation/synthetic_population/output/results.json
+ M test/validation/thai_beta/life_map/v129/output/v129_product_qa.md
+ M test/validation/thai_beta/life_map/v130/output/v130_product_qa.md
+ M test/validation/thai_beta/life_map/v131/output/v131_product_qa.md
+ M test/validation/thai_beta/life_map/v132/output/v132_product_qa.md
+ M test/validation/thai_beta/life_map/v133/output/v133_product_qa.md
+ M test/validation/thai_beta/life_map/v134/output/v134_product_qa.md
+ M test/validation/thai_beta/life_map/v135/output/v135_product_qa.md
+ M test/validation/thai_mirror_consumer_ux/output/consumer_ux_validation_report.json
+ M test/validation/thai_mirror_consumer_ux/output/consumer_ux_validation_report.md
+ M test/validation/thai_mirror_content_diversity/output/results.json
+ M tool/output/thai_internal_evidence_qa_summary.json
+ M tool/output/thai_public_evidence_badge_controlled_beta_qa_summary.json
+ M tool/output/thai_public_evidence_badge_internal_only_activation_qa_summary.json
+ M tool/output/thai_public_evidence_badge_invited_beta_activation_qa_summary.json
+ M tool/output/thai_public_evidence_badge_qa_summary.json
+ M tool/output/thai_public_evidence_badge_rollback_drill_summary.json
+afterStatusLines=0

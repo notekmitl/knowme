@@ -1,0 +1,251 @@
+{
+  "sourceHead": "a5781f344f1305f97862ea1e80ce1bf49bbcb612",
+  "controlledOutputIdentity": "revision-4-title-integrity-a5781f3",
+  "fixtureCount": 15,
+  "fixtures": [
+    {
+      "fixtureId": "known",
+      "outputFileName": "annual-infographic-known.png",
+      "pngSha256": "026445FFB0BC5EBF1445C90C8E7A4F7F9FF77B7B4B31565A58D1E4D406CC5E04",
+      "title": "ดวงชะตาปี 2569",
+      "titleBounds": {
+        "left": 138,
+        "top": 39,
+        "right": 1032,
+        "bottom": 129
+      },
+      "titleCreamPixels": 8457,
+      "titleRegionSha256": "950270FD0579460F1DEE648CC12DE65FCC8690E27C7FC722E87475820C4DCA24",
+      "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+      "inputIdentitySha256": "DCE959BA2C34B6BFF46436FA6EA00D68DB118EE4DBFFE689A1D1F8FBD82953F2"
+    },
+    {
+      "fixtureId": "unknown",
+      "outputFileName": "annual-infographic-unknown.png",
+      "pngSha256": "E5FB1E493C1F74E0F4B76E92504A102BA1D248A3F87B626DC6CFCB6227846FA8",
+      "title": "ดวงชะตาปี 2569",
+      "titleBounds": {
+        "left": 138,
+        "top": 39,
+        "right": 1032,
+        "bottom": 129
+      },
+      "titleCreamPixels": 8457,
+      "titleRegionSha256": "950270FD0579460F1DEE648CC12DE65FCC8690E27C7FC722E87475820C4DCA24",
+      "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+      "inputIdentitySha256": "512E02D3B58870E1831CEA801540F3B667D6DE462CAB69385509B549AB5340BB"
+    },
+    {
+      "fixtureId": "owner-known-0035",
+      "outputFileName": "annual-infographic-owner-known-0035.png",
+      "pngSha256": "DC58DD52F60CA16480D2AD783DF9114181453106AC930EF7D16EFCFDF5A796E6",
+      "title": "ดวงชะตาปี 2569",
+      "titleBounds": {
+        "left": 138,
+        "top": 39,
+        "right": 1032,
+        "bottom": 129
+      },
+      "titleCreamPixels": 8457,
+      "titleRegionSha256": "950270FD0579460F1DEE648CC12DE65FCC8690E27C7FC722E87475820C4DCA24",
+      "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+      "inputIdentitySha256": "63DD9550265821F75EF632E3E94FA327B8119049DB64DD98252EEF0B4A3A9838"
+    },
+    {
+      "fixtureId": "owner-unknown",
+      "outputFileName": "annual-infographic-owner-unknown.png",
+      "pngSha256": "B9E8A8EC0EE4E8D840BE8D5E06026CC5AD295E72CC40527121DA32C11C508115",
+      "title": "ดวงชะตาปี 2569",
+      "titleBounds": {
+        "left": 138,
+        "top": 39,
+        "right": 1032,
+        "bottom": 129
+      },
+      "titleCreamPixels": 8457,
+      "titleRegionSha256": "950270FD0579460F1DEE648CC12DE65FCC8690E27C7FC722E87475820C4DCA24",
+      "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+      "inputIdentitySha256": "EC5668B92B3A3EADE8556EFA0847B3572A27D1D693F77245F4D0EDFA9498C030"
+    },
+    {
+      "fixtureId": "regression-known-0003",
+      "outputFileName": "annual-infographic-regression-known-0003.png",
+      "pngSha256": "DC58DD52F60CA16480D2AD783DF9114181453106AC930EF7D16EFCFDF5A796E6",
+      "title": "ดวงชะตาปี 2569",
+      "titleBounds": {
+        "left": 138,
+        "top": 39,
+        "right": 1032,
+        "bottom": 129
+      },
+      "titleCreamPixels": 8457,
+      "titleRegionSha256": "950270FD0579460F1DEE648CC12DE65FCC8690E27C7FC722E87475820C4DCA24",
+      "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+      "inputIdentitySha256": "39DA127DB6E25BDB7F69B8ADE383C62B77A3D8ECA50DFDA47A41C1BCFCB66FF6"
+    },
+    {
+      "fixtureId": "comparison-known-bangkok",
+      "outputFileName": "annual-infographic-comparison-known-bangkok.png",
+      "pngSha256": "F09B1B17A497694F596B2C67DAD31A06470281E979F5A4A74C4516883B3CCBD8",
+      "title": "ดวงชะตาปี 2569",
+      "titleBounds": {
+        "left": 138,
+        "top": 39,
+        "right": 1032,
+        "bottom": 129
+      },
+      "titleCreamPixels": 8457,
+      "titleRegionSha256": "950270FD0579460F1DEE648CC12DE65FCC8690E27C7FC722E87475820C4DCA24",
+      "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+      "inputIdentitySha256": "522A851DBED4BED79437708C81736566AD6C1E628593E29C64CD550C0D8C4816"
+    },
+    {
+      "fixtureId": "comparison-known-khon-kaen",
+      "outputFileName": "annual-infographic-comparison-known-khon-kaen.png",
+      "pngSha256": "EA42A1C990BA97D15A10ECE2D2F49BB458509B9DF67D171AD663D91AA93ABB1C",
+      "title": "ดวงชะตาปี 2569",
+      "titleBounds": {
+        "left": 138,
+        "top": 39,
+        "right": 1032,
+        "bottom": 129
+      },
+      "titleCreamPixels": 8457,
+      "titleRegionSha256": "950270FD0579460F1DEE648CC12DE65FCC8690E27C7FC722E87475820C4DCA24",
+      "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+      "inputIdentitySha256": "C0D8DDB90F3B4EC8134BAB2F9E369AE83611FA8A973B13F385FF5ADD00B15DA1"
+    },
+    {
+      "fixtureId": "stress-known-longest",
+      "outputFileName": "annual-infographic-stress-known-longest.png",
+      "pngSha256": "9FC63C0E3C6AC4BB40070BEC931BFA7C63815BDCBA7D8E00F77D7DDC43D1E37C",
+      "title": "ดวงชะตาปี 2569",
+      "titleBounds": {
+        "left": 138,
+        "top": 39,
+        "right": 1032,
+        "bottom": 129
+      },
+      "titleCreamPixels": 8457,
+      "titleRegionSha256": "950270FD0579460F1DEE648CC12DE65FCC8690E27C7FC722E87475820C4DCA24",
+      "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+      "inputIdentitySha256": "17B3FBBD06D03341EB4E8AA89E26CE3D699C5E630D80A30EE475B14DAA34A94D"
+    },
+    {
+      "fixtureId": "stress-unknown-longest",
+      "outputFileName": "annual-infographic-stress-unknown-longest.png",
+      "pngSha256": "B5E98C7C79667C7AFD174113A89ABFFD3B35552DC9272BE3945F8A9D08B53A48",
+      "title": "ดวงชะตาปี 2569",
+      "titleBounds": {
+        "left": 138,
+        "top": 39,
+        "right": 1032,
+        "bottom": 129
+      },
+      "titleCreamPixels": 8457,
+      "titleRegionSha256": "950270FD0579460F1DEE648CC12DE65FCC8690E27C7FC722E87475820C4DCA24",
+      "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+      "inputIdentitySha256": "344799F9E7AEF13DDFF1B7CFEBCEFAB718615F113222249749CA60F5433A7C6C"
+    },
+    {
+      "fixtureId": "stress-opportunity-caution-longest",
+      "outputFileName": "annual-infographic-stress-opportunity-caution-longest.png",
+      "pngSha256": "ABFA660523D7EA271B5A2C969BB471A981E6DDA4036A23613AAC41DAA5C2F5E5",
+      "title": "ดวงชะตาปี 2569",
+      "titleBounds": {
+        "left": 138,
+        "top": 39,
+        "right": 1032,
+        "bottom": 129
+      },
+      "titleCreamPixels": 8457,
+      "titleRegionSha256": "950270FD0579460F1DEE648CC12DE65FCC8690E27C7FC722E87475820C4DCA24",
+      "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+      "inputIdentitySha256": "39186994133C1521F0D4EE79D6E29F0E1DF7C6FAE8C14ACC9B36C8B84700A99E"
+    },
+    {
+      "fixtureId": "stress-disclaimer-longest",
+      "outputFileName": "annual-infographic-stress-disclaimer-longest.png",
+      "pngSha256": "01081DCDF0D8E953ADEEA4E37D4C41642941016061E03F11602C306AD20176E7",
+      "title": "ดวงชะตาปี 2569",
+      "titleBounds": {
+        "left": 138,
+        "top": 39,
+        "right": 1032,
+        "bottom": 129
+      },
+      "titleCreamPixels": 8457,
+      "titleRegionSha256": "950270FD0579460F1DEE648CC12DE65FCC8690E27C7FC722E87475820C4DCA24",
+      "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+      "inputIdentitySha256": "D750F1C04B4AF60E4DB2874A7F588A1DEB7AD327BCAE82C412C7E8B9E9F1577D"
+    },
+    {
+      "fixtureId": "stress-thai-multiline",
+      "outputFileName": "annual-infographic-stress-thai-multiline.png",
+      "pngSha256": "C448E80680703E79C8DAD817B1E98B5459EC9F6987DBFAF0321E83235309423E",
+      "title": "ดวงชะตาปี 2569",
+      "titleBounds": {
+        "left": 138,
+        "top": 39,
+        "right": 1032,
+        "bottom": 129
+      },
+      "titleCreamPixels": 8457,
+      "titleRegionSha256": "950270FD0579460F1DEE648CC12DE65FCC8690E27C7FC722E87475820C4DCA24",
+      "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+      "inputIdentitySha256": "3E2A3AD21AE5F07BF53152A186CBEC65338304ADF343EC97E5FA70E653C8F09D"
+    },
+    {
+      "fixtureId": "stress-regression-1972",
+      "outputFileName": "annual-infographic-stress-regression-1972.png",
+      "pngSha256": "9F743CBAFA28C70F73B425FC39CDC9E20622ABE4645494745A3B0147A7300110",
+      "title": "ดวงชะตาปี 2569",
+      "titleBounds": {
+        "left": 138,
+        "top": 39,
+        "right": 1032,
+        "bottom": 129
+      },
+      "titleCreamPixels": 8457,
+      "titleRegionSha256": "950270FD0579460F1DEE648CC12DE65FCC8690E27C7FC722E87475820C4DCA24",
+      "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+      "inputIdentitySha256": "2B9BC132A032310C903DACFE36C0974178B11B464D487AD0A95998971B313353"
+    },
+    {
+      "fixtureId": "year-boundary-2569",
+      "outputFileName": "annual-infographic-year-boundary-2569.png",
+      "pngSha256": "DC58DD52F60CA16480D2AD783DF9114181453106AC930EF7D16EFCFDF5A796E6",
+      "title": "ดวงชะตาปี 2569",
+      "titleBounds": {
+        "left": 138,
+        "top": 39,
+        "right": 1032,
+        "bottom": 129
+      },
+      "titleCreamPixels": 8457,
+      "titleRegionSha256": "950270FD0579460F1DEE648CC12DE65FCC8690E27C7FC722E87475820C4DCA24",
+      "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+      "inputIdentitySha256": "686F8DF6F3FEE951E5DC1A7849E8ACEDB6C0EC01EBC3A4B2FA1DA3039AFD1B45"
+    },
+    {
+      "fixtureId": "year-boundary-2570",
+      "outputFileName": "annual-infographic-year-boundary-2570.png",
+      "pngSha256": "4F1A6F983D7CE81E69B8C360460F516E0B9D2AC537083A573E6AA9768B0B071F",
+      "title": "ดวงชะตาปี 2570",
+      "titleBounds": {
+        "left": 138,
+        "top": 39,
+        "right": 1032,
+        "bottom": 129
+      },
+      "titleCreamPixels": 8186,
+      "titleRegionSha256": "0380C8B524987E24E57C402779271D59FD1F377C59A02DDBA95F100539B32835",
+      "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+      "inputIdentitySha256": "814929E85F524D37C3E2647C37BAF5F879E8E68403C4636FC3287CAA4331041A"
+    }
+  ],
+  "missing": 0,
+  "mismatch": 0,
+  "duplicateOutputPaths": 0,
+  "titleRasterFailures": 0
+}
