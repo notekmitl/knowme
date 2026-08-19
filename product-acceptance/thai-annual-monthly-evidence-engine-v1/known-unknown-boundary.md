@@ -19,3 +19,10 @@ make the Authority Gate pass by itself.
 No fallback birth time, inferred Lagna, house assignment, annual-copy cloning or
 synthetic neutral record is permitted. Unknown output must continue to explain
 that the system does not have supported month-level data.
+
+The daily transit source itself does not consume a fallback birth time, but it
+also does not emit typed Known/Unknown applicability. That absence blocks both
+paths from claiming 365/366-day completeness. KnowMe Monthly Derived Evidence V1
+is proposed methodology, not approved Canon; there is no implementation;
+`monthlyTimelineAvailable=false`; Production is unchanged; Owner decision is
+Pending; PR #102 remains Draft.

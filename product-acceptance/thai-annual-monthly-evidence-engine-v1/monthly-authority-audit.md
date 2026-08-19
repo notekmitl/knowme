@@ -70,3 +70,16 @@ monthly score.
 artifact, parity and final regression work are not reached. The next action is
 Owner/Canon authorization of a complete month-level rule set, followed by a new
 implementation candidate and fresh gates.
+
+## Derived-evidence source addendum
+
+V15 daily transit was audited as a possible source for the proposed KnowMe
+Monthly Derived Evidence V1 product methodology. Explicit date evaluation,
+integer polarity and repeat determinism pass, including the existing focused
+suite at 6/6. Source activation remains blocked because claim IDs, transit trace
+IDs, typed Known/Unknown applicability and complete four-domain mapping are
+absent. No worked monthly result was generated after the Stop Rule triggered.
+
+This remains proposed methodology, not approved Canon. There is no
+implementation; `monthlyTimelineAvailable=false`; Production is unchanged;
+Owner decision is Pending; PR #102 remains Draft.

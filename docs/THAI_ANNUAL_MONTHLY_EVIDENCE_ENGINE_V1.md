@@ -165,3 +165,27 @@ copy-derived scoring are prohibited.
 
 Detailed evidence is under
 `product-acceptance/thai-annual-monthly-evidence-engine-v1/`.
+
+## Monthly Derived Evidence Contract V1 follow-up
+
+The follow-up audit tested whether V15 current-day transit could serve as the
+source for `KnowMe Monthly Derived Evidence V1`, a proposed KnowMe product
+aggregation methodology rather than an ancient or existing Canon rule.
+
+Positive capability is real but incomplete: explicit arbitrary dates work,
+integer polarity is deterministic, and the focused V15 suite passes 6/6 on
+Flutter 3.41.1 / Dart 3.11.0. The Source Capability Gate nevertheless fails:
+
+- `TransitEvidence` and `EnhancedEvidence` have no claim IDs;
+- `ReasoningTrace` has no transit step/id, and transit atoms have no trace IDs;
+- transit assigns one leading domain only; finance is never a leading domain
+  and growth/opportunity fall outside the required four reader domains;
+- Known/Unknown applicability is not typed on the source evidence;
+- Bangkok civil timezone/noon provenance is not enforced by the source type.
+
+The Stop Rule therefore prevents 365/366-day worked monthly results and blocks
+Phase 2 activation. The conditional methodology is documented in
+`THAI_MONTHLY_DERIVED_EVIDENCE_CONTRACT_V1.md` only to expose what a future
+source contract must support. It is proposed methodology, not approved Canon,
+has no implementation, keeps `monthlyTimelineAvailable=false`, leaves
+Production unchanged, awaits Owner decision, and keeps PR #102 Draft.

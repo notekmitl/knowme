@@ -19,3 +19,16 @@ Authority Gate. It does not authorize new astrology behavior.
 
 No inspected candidate satisfies all required fields for even one authoritative
 monthly record, and no candidate set satisfies 12/12 completeness.
+
+The V15 daily-source follow-up further classifies `transitDayVsNatal` and
+`transitDayVsPeriod` as deterministic signed source codes but not complete
+monthly-source rules: they lack claim/trace IDs, typed applicability and full
+career/finance/relationship/health mapping.
+
+KnowMe Monthly Derived Evidence V1 remains proposed product methodology, not
+approved Canon. There is no implementation; `monthlyTimelineAvailable=false`;
+Production is unchanged; Owner decision is Pending; PR #102 remains Draft.
+
+Governance: proposed methodology; not approved Canon; no implementation;
+`monthlyTimelineAvailable=false`; Production unchanged; Owner decision Pending;
+PR #102 remains Draft.

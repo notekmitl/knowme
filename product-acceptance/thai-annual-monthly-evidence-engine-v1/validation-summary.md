@@ -27,7 +27,20 @@ and Web build were intentionally not run.
 | R1–R7.1 modified paths | 0 |
 | Merge/Deploy/Firebase mutation | none |
 
+## Daily-source follow-up
+
+The pinned Flutter 3.41.1 / Dart 3.11.0 V15 transit suite passes 6/6 for fixed
+dates, relationship reuse, evidence merge, runtime compatibility and repeat
+determinism. Static contract audit finds claim IDs 0, transit trace IDs 0 and
+required four-domain coverage incomplete (finance leading-domain coverage 0).
+The Source Capability Gate fails; the five-fixture 365-day worked evidence was
+not generated.
+
 ## Owner state
 
 Owner decision is `Pending`. This packet reports a technical authority blocker;
 it does not approve a rule set or product output.
+
+KnowMe Monthly Derived Evidence V1 is proposed methodology, not approved Canon.
+There is no implementation; `monthlyTimelineAvailable=false`; Production is
+unchanged; PR #102 remains Draft.
