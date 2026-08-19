@@ -1,0 +1,19 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart
+00:00 +0: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart: shared report presentation model section and paragraph inventory is stable and traceable
+00:00 +1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart: shared report presentation model dedicated PDF and browser print consume exact shared text and order
+00:00 +2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart: shared report presentation model candidate copy changes only declared reader-copy rules
+00:00 +3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart: shared report presentation model Known and Unknown share the summary-boundary infographic order
+00:00 +4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart: annual infographic evidence contract year comes from Bangkok civil asOf and is never hard-coded
+00:00 +5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart: annual infographic evidence contract uses four evidence-backed domains and fails closed on month timeline
+00:00 +6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart: annual infographic evidence contract mobile 360.0 renders and exports deterministic 1080x1920 PNG
+00:01 +7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart: annual infographic evidence contract mobile 390.0 renders and exports deterministic 1080x1920 PNG
+00:01 +8: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart
+00:01 +8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+COPY_AUDIT profiles=300 changed_profiles=300 changed_fields=2105 omission=0 addition=0 semantic=0 prediction_to_advice=0 advice_to_prediction=0 traceability_impact=0
+00:21 +9: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+00:21 +9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:23 +10: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_cross_runtime_vm_test.dart
+00:23 +10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_cross_runtime_vm_test.dart: writes deterministic VM shared-report manifest
+00:23 +11: All tests passed!
+
+EXIT_CODE=0

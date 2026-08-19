@@ -1,0 +1,1 @@
+INFOGRAPHIC_TITLE_GATE status=PASS fixtures=15 titleRaster=15 identity=15 missing=0 mismatch=0 unlisted=0

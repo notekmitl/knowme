@@ -1,0 +1,6 @@
+Analyzing 6 items...                                            
+
+warning - The ability to import 'BytesBuilder' indirectly is deprecated - test\validation\thai_beta\thai_report_vnext_artifact_generation_test.dart:516:27 - deprecated_export_use
+warning - The ability to import 'BytesBuilder' indirectly is deprecated - test\validation\thai_beta\thai_report_vnext_artifact_generation_test.dart:517:31 - deprecated_export_use
+
+2 issues found. (ran in 4.3s)

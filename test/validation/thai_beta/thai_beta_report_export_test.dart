@@ -1175,8 +1175,8 @@ void main() {
         find.byKey(const Key('thai_beta_report_export_print_button')),
         findsOneWidget,
       );
-      expect(find.text('ดาวน์โหลดรายงานเต็ม'), findsOneWidget);
-      expect(find.text('เปิดหน้าพิมพ์ / Save as PDF'), findsOneWidget);
+      expect(find.text('ดาวน์โหลดรายงาน PDF'), findsOneWidget);
+      expect(find.text('พิมพ์ / บันทึกหน้าเว็บเป็น PDF'), findsOneWidget);
     });
 
     testWidgets('export button visible on capture page with stored analysis', (
@@ -1198,7 +1198,7 @@ void main() {
         find.byKey(const Key('thai_beta_report_export_button')),
         findsOneWidget,
       );
-      expect(find.text('ดาวน์โหลดรายงานเต็ม'), findsOneWidget);
+      expect(find.text('ดาวน์โหลดรายงาน PDF'), findsOneWidget);
     });
 
     testWidgets('export button not gated by evidence badge flag off', (

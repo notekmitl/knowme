@@ -1,0 +1,56 @@
+status: PASS — NO BRANCH-ONLY FAILURES AGAINST EXACT MAIN BASELINE
+branchPassed: 2940
+branchFailed: 37
+branchFailureIds: 37
+mainPassed: 2925
+mainFailed: 39
+mainFailureIds: 39
+commonFailureIds: 37
+branchOnlyFailureIds: 0
+mainOnlyFailureIds: 2
+
+branchOnly:
+(none)
+
+mainOnly:
+ui/thai_mirror_timeline_ui_test.dart :: timeline section renders with a birth date
+ui/thai_mirror_timeline_ui_test.dart :: timeline still renders without a birth time (weekday only)
+
+common:
+human_coverage/human_pattern_coverage_expansion_test.dart :: HPC1 Coverage Layer Audit reports coverage loss at each layer from real runtime
+human_coverage/human_pattern_coverage_expansion_test.dart :: HPC2 Theme Mapping Audit identifies themes without human meaning support
+human_pattern_activation_audit_test.dart :: Human Pattern Activation Audit V1 confirms 20 never-activated patterns with forensic classification
+human_pattern_activation_audit_test.dart :: Human Pattern Activation Audit V1 documents narrative collapse from 200 to ~82 unique outputs
+human_semantics/human_semantics_expansion_test.dart :: HS5 Coverage Validation real runtime activation rate exceeds zero percent
+human_semantics/human_semantics_expansion_test.dart :: HS6 Semantic Audit achieves full meaning coverage on real runtime fusion output
+narrative_runtime/narrative_intelligence_v2_test.dart :: Narrative Intelligence V2 surfaces blind spot family patterns naturally
+qa/thai_mirror_pre_user_qa_validation_test.dart :: Validation #1 — TopThemeSelector Audit PASS: sections/evidence unaffected by top theme display order
+qa/thai_mirror_qa_test.dart :: ThaiMirrorQaRoutes screen renders result page after pipeline
+thai_interpretation/b1_engine_test.dart :: B1 ThaiInterpretationEngine factId determinism for TC-01
+thai_mirror_consumer_presenter_test.dart :: ThaiMirrorConsumerPage golden consumer result page screenshot
+thai_v2/house_engine_test.dart :: HouseEngine TC-01 Bangkok 1990-01-15 10:30 — whole-sign houses
+thai_v2/house_engine_test.dart :: HouseEngine TC-02 Bangkok 1988-05-10 14:00 — whole-sign houses
+thai_v2/sidereal_engine_test.dart :: SiderealEngine TC-01 Bangkok 1990-01-15 10:30 — deterministic lagna
+thai_v2/sidereal_engine_test.dart :: SiderealEngine TC-02 Bangkok 1988-05-10 14:00 — deterministic lagna
+thai_v2/thai_chart_engine_test.dart :: ThaiChartEngine birth time available — lagna, 12 houses, empty placeholders
+thai_v2/thai_chart_engine_test.dart :: ThaiChartEngine house count validation for TC-02 lagna
+thai_v2/thai_signal_extractor_test.dart :: ThaiSignalExtractor lagna parity with chart
+ui/thai_mirror_timeline_ui_test.dart :: desktop width shows narrative sections without overflow
+ui/thai_mirror_timeline_ui_test.dart :: period cards expand to life narrative without score bars
+ui/thai_mirror_ui_v1b_test.dart :: ThaiMirrorResultPage V1b scroll entire page through consumer sections
+validation/astrology_data_integrity/fusion_repair_export_test.dart :: exports fusion snapshot for repair batch
+validation/thai_mirror_consumer_ux/consumer_section_screenshot_test.dart :: consumer UX screenshots fixture — full page reference
+validation/thai_mirror_consumer_ux/consumer_section_screenshot_test.dart :: consumer UX screenshots profile A — consumer sections
+validation/thai_mirror_consumer_ux/consumer_section_screenshot_test.dart :: consumer UX screenshots profile A differentiation
+validation/thai_mirror_consumer_ux/consumer_section_screenshot_test.dart :: consumer UX screenshots profile A — missing birth time banner
+validation/thai_mirror_consumer_ux/consumer_section_screenshot_test.dart :: consumer UX screenshots profile B differentiation
+validation/thai_mirror_consumer_ux/consumer_section_screenshot_test.dart :: consumer UX screenshots profile C differentiation
+validation/thai_mirror_consumer_ux/consumer_section_screenshot_test.dart :: consumer UX screenshots profile D differentiation
+validation/thai_mirror_consumer_ux/consumer_section_screenshot_test.dart :: consumer UX screenshots profile E differentiation
+validation/thai_mirror_consumer_ux/consumer_section_screenshot_test.dart :: consumer UX screenshots profile F differentiation
+validation/thai_mirror_consumer_ux/consumer_section_screenshot_test.dart :: consumer UX screenshots profile G differentiation
+validation/thai_mirror_consumer_ux/consumer_section_screenshot_test.dart :: consumer UX screenshots profile H differentiation
+validation/thai_mirror_consumer_ux/consumer_section_screenshot_test.dart :: consumer UX screenshots profile I differentiation
+validation/thai_mirror_consumer_ux/consumer_section_screenshot_test.dart :: consumer UX screenshots profile J differentiation
+validation/thai_mirror_content_diversity/content_diversity_validation_test.dart :: 20 profiles meet content diversity targets
+widget_test.dart :: App loads test

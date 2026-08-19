@@ -54,3 +54,16 @@ flutter:
     - knowledge/sources/
     - knowledge/canon/
     - knowledge/canon/production/foundation_v1.knowme.json
+  fonts:
+    - family: KnowMeNotoSansThai
+      fonts:
+        - asset: assets/fonts/noto_sans_thai/NotoSansThai-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/noto_sans_thai/NotoSansThai-Bold.ttf
+          weight: 700
+    - family: KnowMeNotoSans
+      fonts:
+        - asset: assets/fonts/noto_sans_thai/NotoSans-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/noto_sans_thai/NotoSans-Bold.ttf
+          weight: 700

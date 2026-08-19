@@ -1,0 +1,134 @@
+{
+  "fixtureId": "known",
+  "sourceHead": "a5781f344f1305f97862ea1e80ce1bf49bbcb612",
+  "controlledOutputIdentity": "revision-4-title-integrity-a5781f3",
+  "artifactRelativePath": "annual-infographic-known.png",
+  "inputIdentitySha256": "DCE959BA2C34B6BFF46436FA6EA00D68DB118EE4DBFFE689A1D1F8FBD82953F2",
+  "pngSha256": "026445FFB0BC5EBF1445C90C8E7A4F7F9FF77B7B4B31565A58D1E4D406CC5E04",
+  "pngDimensions": {
+    "width": 1080,
+    "height": 1920
+  },
+  "captureRepeatByteIdentical": true,
+  "titleWidgetCount": 1,
+  "titleSemanticContains": "ดวงชะตาปี 2569",
+  "titleCreamPixelCount": 8457,
+  "titleRasterSampleBounds": {
+    "left": 138,
+    "top": 38,
+    "right": 1032,
+    "bottom": 129
+  },
+  "titleRegionSha256": "950270FD0579460F1DEE648CC12DE65FCC8690E27C7FC722E87475820C4DCA24",
+  "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+  "sectionCount": 25,
+  "paragraphCount": 88,
+  "dedicatedPdfPageCount": 8,
+  "pngBytes": 175624,
+  "pdfBytes": 157988,
+  "browserPrintHtmlBytes": 269638,
+  "title": "ดวงชะตาปี 2569",
+  "theme": "ตลอด 12 เดือนนี้ ให้ดูว่าหน้าที่เปลี่ยนไปอย่างไร แล้วทบทวนอีกครั้งเมื่อการทำตามข้อตกลงสม่ำเสมอขึ้น",
+  "categories": [
+    {
+      "id": "annual-career",
+      "title": "การงาน",
+      "summary": "รับบทบาทเพิ่มได้ทีละขั้น หากงานหลักยังรักษาคุณภาพได้ตามเดิม"
+    },
+    {
+      "id": "annual-finance",
+      "title": "การเงิน",
+      "summary": "ขยายแผนการเงินได้ เมื่อกันค่าใช้จ่ายจำเป็นและเงินสำรองไว้ครบแล้ว"
+    },
+    {
+      "id": "annual-relationship",
+      "title": "ความรัก",
+      "summary": "เพิ่มข้อผูกพันได้เมื่อคำพูดและการกระทำสอดคล้องกัน และทั้งสองฝ่ายเข้าใจตรงกัน"
+    },
+    {
+      "id": "annual-health",
+      "title": "สุขภาพ",
+      "summary": "เพิ่มกิจกรรมได้เมื่อพักแล้วฟื้นตัวได้ตามปกติ หากฟื้นช้าลงควรลดภาระ"
+    }
+  ],
+  "opportunity": "โอกาสอยู่ที่การรับบทบาทเพิ่มทีละขั้น โดยยังรักษาคุณภาพงานหลัก",
+  "caution": "ภาระงานที่เพิ่มขึ้นอาจเบียดเวลาของงานหลัก",
+  "primaryAdvice": "ใช้การสื่อสารให้คนอื่นเข้าใจ แล้วเลือกบทบาทใหม่ที่เพิ่มคุณภาพงานมากกว่าปริมาณ พร้อมรักษาสิ่งที่ตกลงกันไว้",
+  "disclaimer": "แนวโน้มนี้ใช้เพื่อวางแผนและทบทวน ไม่ใช่ข้อสรุปตายตัว",
+  "monthlyTimelineAvailable": false,
+  "monthlyGapReason": "engine ปัจจุบันมีกรอบ 12 เดือนและทักษาจรรายปี แต่ไม่มีคะแนนหรือหลักฐานที่ผูกกับเดือนปฏิทินทั้ง 12 เดือน",
+  "layoutBounds1080x1920": {
+    "title": {
+      "left": 138,
+      "top": 39,
+      "right": 1032,
+      "bottom": 129
+    },
+    "theme": {
+      "left": 48,
+      "top": 141,
+      "right": 1032,
+      "bottom": 222
+    },
+    "overview": {
+      "left": 48,
+      "top": 228,
+      "right": 1032,
+      "bottom": 267
+    },
+    "category-annual-career": {
+      "left": 48,
+      "top": 390,
+      "right": 1032,
+      "bottom": 516
+    },
+    "category-annual-finance": {
+      "left": 48,
+      "top": 525,
+      "right": 1032,
+      "bottom": 651
+    },
+    "category-annual-relationship": {
+      "left": 48,
+      "top": 660,
+      "right": 1032,
+      "bottom": 786
+    },
+    "category-annual-health": {
+      "left": 48,
+      "top": 795,
+      "right": 1032,
+      "bottom": 921
+    },
+    "ornament": {
+      "left": 48,
+      "top": 1044,
+      "right": 1032,
+      "bottom": 1236
+    },
+    "opportunity": {
+      "left": 48,
+      "top": 1359,
+      "right": 1032,
+      "bottom": 1479
+    },
+    "caution": {
+      "left": 48,
+      "top": 1491,
+      "right": 1032,
+      "bottom": 1611
+    },
+    "advice": {
+      "left": 48,
+      "top": 1734,
+      "right": 1032,
+      "bottom": 1836
+    },
+    "disclaimer": {
+      "left": 48,
+      "top": 1851,
+      "right": 1032,
+      "bottom": 1881
+    }
+  }
+}

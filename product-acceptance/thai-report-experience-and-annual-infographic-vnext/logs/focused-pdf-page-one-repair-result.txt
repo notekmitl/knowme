@@ -1,0 +1,13 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart
+00:00 +0: shared report presentation model section and paragraph inventory is stable and traceable
+00:00 +1: shared report presentation model all seven PDF fixtures preserve the page-one and semantic contract
+00:00 +2: shared report presentation model candidate copy changes only declared reader-copy rules
+00:01 +3: shared report presentation model Known and Unknown share the summary-boundary infographic order
+00:01 +4: annual infographic evidence contract year comes from Bangkok civil asOf and is never hard-coded
+00:01 +5: annual infographic evidence contract uses four evidence-backed domains and fails closed on month timeline
+00:01 +6: annual infographic evidence contract mobile 360.0 renders and exports deterministic 1080x1920 PNG
+00:02 +7: annual infographic evidence contract regression 1972 fits mobile 360.0 without overflow
+00:02 +8: annual infographic evidence contract mobile 390.0 renders and exports deterministic 1080x1920 PNG
+00:03 +9: annual infographic evidence contract regression 1972 fits mobile 390.0 without overflow
+00:03 +10: All tests passed!
+exitCode: 0

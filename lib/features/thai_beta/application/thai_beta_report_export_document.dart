@@ -8,6 +8,7 @@ import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
 
 import 'thai_beta_report_export_polish.dart';
+import 'thai_beta_reader_copy_repair.dart';
 import 'thai_beta_report_export_safety.dart';
 import 'narrative/thai_beta_narrative_composer.dart';
 
@@ -16,14 +17,76 @@ class ThaiBetaReportExportSection {
     required this.title,
     required this.paragraphs,
     this.kind = ThaiBetaReportExportSectionKind.body,
+    this.id = '',
+    this.fieldSource = 'shared-report-presentation',
+    this.visibilityRule = 'visible-when-non-empty',
+    this.knownUnknownRule = 'same-order; omit unsupported claims',
+    this.traceIds = const [],
   });
 
   final String title;
   final List<String> paragraphs;
   final ThaiBetaReportExportSectionKind kind;
+  final String id;
+  final String fieldSource;
+  final String visibilityRule;
+  final String knownUnknownRule;
+  final List<String> traceIds;
+
+  List<String> get paragraphIds => List<String>.generate(
+    paragraphs.length,
+    (index) => '$id.p${(index + 1).toString().padLeft(2, '0')}',
+    growable: false,
+  );
 }
 
 enum ThaiBetaReportExportSectionKind { body, timeline, disclaimer }
+
+class ThaiBetaAnnualInfographicCategory {
+  const ThaiBetaAnnualInfographicCategory({
+    required this.id,
+    required this.title,
+    required this.summary,
+    required this.iconName,
+    required this.traceIds,
+  });
+
+  final String id;
+  final String title;
+  final String summary;
+  final String iconName;
+  final List<String> traceIds;
+}
+
+class ThaiBetaAnnualInfographicData {
+  const ThaiBetaAnnualInfographicData({
+    required this.buddhistYear,
+    required this.theme,
+    required this.overview,
+    required this.categories,
+    required this.opportunity,
+    required this.caution,
+    required this.primaryAdvice,
+    required this.disclaimer,
+    required this.monthlyTimelineAvailable,
+    required this.monthlyGapReason,
+    required this.traceIds,
+  });
+
+  final int buddhistYear;
+  final String theme;
+  final String overview;
+  final List<ThaiBetaAnnualInfographicCategory> categories;
+  final String opportunity;
+  final String caution;
+  final String primaryAdvice;
+  final String disclaimer;
+  final bool monthlyTimelineAvailable;
+  final String monthlyGapReason;
+  final List<String> traceIds;
+
+  String get title => 'ดวงชะตาปี $buddhistYear';
+}
 
 /// Structured export payload — no engine/Canon/raw ids.
 class ThaiBetaReportExportDocument {
@@ -32,12 +95,14 @@ class ThaiBetaReportExportDocument {
     required this.subtitle,
     required this.sections,
     required this.filenameStem,
+    this.infographic,
   });
 
   final String title;
   final String subtitle;
   final List<ThaiBetaReportExportSection> sections;
   final String filenameStem;
+  final ThaiBetaAnnualInfographicData? infographic;
 
   String get fullPlainText {
     final buf = StringBuffer()
@@ -52,10 +117,24 @@ class ThaiBetaReportExportDocument {
     return buf.toString();
   }
 
+  /// Shared insertion point for the annual image across Web, PDF and print.
+  /// Known reports use the explicit summary heading. Unknown reports omit that
+  /// unsupported section, so the third evidence-backed overview section is the
+  /// deterministic fail-closed summary boundary.
+  int get infographicInsertionSectionIndex {
+    final summaryIndex = sections.indexWhere(
+      (section) => section.title == 'สรุปตัวคุณแบบตรง ๆ',
+    );
+    if (summaryIndex >= 0) return summaryIndex;
+    if (sections.isEmpty) return -1;
+    return sections.length > 2 ? 2 : sections.length - 1;
+  }
+
   /// Builds from existing [ThaiBetaAnalysis] consumer view only.
   static ThaiBetaReportExportDocument fromAnalysis(
     ThaiBetaAnalysis analysis, {
     List<ThaiPublicEvidenceBadgeBetaViewModel> badges = const [],
+    bool applyReaderCopy = false,
   }) {
     if (analysis.consumerViewState == null) {
       return const ThaiBetaReportExportDocument(
@@ -63,6 +142,7 @@ class ThaiBetaReportExportDocument {
         subtitle: 'ไม่พบข้อมูลรายงาน',
         sections: [],
         filenameStem: 'knowme-thai-report',
+        infographic: null,
       );
     }
 
@@ -183,16 +263,51 @@ class ThaiBetaReportExportDocument {
     final scrubbed = sections
         .map(
           (s) => ThaiBetaReportExportSection(
-            title: ThaiBetaReportExportSafety.scrub(s.title),
+            title: ThaiBetaReportExportSafety.scrub(
+              applyReaderCopy
+                  ? ThaiBetaReaderCopyRepair.refine(s.title)
+                  : s.title,
+            ),
             paragraphs: s.paragraphs
+                .map(
+                  (paragraph) => applyReaderCopy
+                      ? ThaiBetaReaderCopyRepair.refine(paragraph)
+                      : paragraph,
+                )
                 .map(ThaiBetaReportExportSafety.scrub)
                 .where((p) => p.trim().isNotEmpty)
                 .toList(),
             kind: s.kind,
+            id: s.id,
+            fieldSource: s.fieldSource,
+            visibilityRule: s.visibilityRule,
+            knownUnknownRule: s.knownUnknownRule,
+            traceIds: s.traceIds,
           ),
         )
         .where((s) => s.title.trim().isNotEmpty || s.paragraphs.isNotEmpty)
-        .toList();
+        .toList()
+        .asMap()
+        .entries
+        .map(
+          (entry) => ThaiBetaReportExportSection(
+            title: entry.value.title,
+            paragraphs: entry.value.paragraphs,
+            kind: entry.value.kind,
+            id: 'report-${entry.value.kind.name}-${(entry.key + 1).toString().padLeft(2, '0')}',
+            fieldSource: entry.value.fieldSource,
+            visibilityRule: entry.value.visibilityRule,
+            knownUnknownRule: entry.value.knownUnknownRule,
+            traceIds: entry.value.traceIds,
+          ),
+        )
+        .toList(growable: false);
+
+    final infographic = _annualInfographic(
+      analysis,
+      prediction,
+      applyReaderCopy: applyReaderCopy,
+    );
 
     // Final presentation polish (also re-applied in PDF exporter).
     return polishForPdf(
@@ -201,9 +316,24 @@ class ThaiBetaReportExportDocument {
         subtitle: 'รายงานฉบับสำหรับอ่านและบันทึกส่วนตัว',
         sections: scrubbed,
         filenameStem: 'knowme-thai-report',
+        infographic: infographic,
       ),
     );
   }
+
+  static ThaiBetaReportExportDocument beforeReaderCopy(
+    ThaiBetaAnalysis analysis, {
+    List<ThaiPublicEvidenceBadgeBetaViewModel> badges = const [],
+  }) => fromAnalysis(analysis, badges: badges, applyReaderCopy: false);
+
+  /// Candidate reader-visible projection for the vNext Owner review surface.
+  ///
+  /// Keeping this opt-in preserves the accepted V1.5 factory and its R1-R7.1
+  /// evidence while the candidate wording remains pending Owner approval.
+  static ThaiBetaReportExportDocument candidate(
+    ThaiBetaAnalysis analysis, {
+    List<ThaiPublicEvidenceBadgeBetaViewModel> badges = const [],
+  }) => fromAnalysis(analysis, badges: badges, applyReaderCopy: true);
 
   /// Re-apply presentation polish before PDF bytes are written.
   static ThaiBetaReportExportDocument polishForPdf(
@@ -222,6 +352,11 @@ class ThaiBetaReportExportDocument {
           title: title,
           paragraphs: paragraphs,
           kind: section.kind,
+          id: section.id,
+          fieldSource: section.fieldSource,
+          visibilityRule: section.visibilityRule,
+          knownUnknownRule: section.knownUnknownRule,
+          traceIds: section.traceIds,
         ),
       );
     }
@@ -230,6 +365,128 @@ class ThaiBetaReportExportDocument {
       subtitle: ThaiBetaReportExportPolish.polishLine(document.subtitle),
       sections: sections,
       filenameStem: document.filenameStem,
+      infographic: document.infographic,
+    );
+  }
+
+  static ThaiBetaAnnualInfographicData? _annualInfographic(
+    ThaiBetaAnalysis analysis,
+    PredictionSectionModel? prediction, {
+    required bool applyReaderCopy,
+  }) {
+    if (prediction == null || prediction.windows.length < 2) return null;
+    final window = prediction.windows[1];
+    final categories = <ThaiBetaAnnualInfographicCategory>[];
+    var hasTransitionReserve = false;
+    var hasUnknownRepeatedBoundary = false;
+    const iconNames = <String, String>{
+      'การงาน': 'work',
+      'การเงิน': 'savings',
+      'ความรัก': 'favorite',
+      'สุขภาพ': 'self_improvement',
+    };
+    for (final domain in window.domains) {
+      if (!iconNames.containsKey(domain.title)) continue;
+      // The annual card needs a short, decision-useful sentence at mobile
+      // scale. Reuse the already accepted next-12-month decision projection;
+      // do not truncate the longer claim or synthesize new horoscope copy.
+      final raw = domain.decisionImpact.trim().isNotEmpty
+          ? domain.decisionImpact
+          : domain.claim.trim().isNotEmpty
+          ? domain.claim
+          : domain.body;
+      hasTransitionReserve =
+          hasTransitionReserve ||
+          raw.contains('และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต');
+      hasUnknownRepeatedBoundary =
+          hasUnknownRepeatedBoundary ||
+          raw.contains('จึงควรยืนยันจากผลที่เกิดซ้ำก่อนตัดสินใจ');
+      final categoryField =
+          'infographic.categories[${categories.length}].summary';
+      final summary = applyReaderCopy
+          ? ThaiBetaReaderCopyRepair.refineForField(
+              raw,
+              fieldPath: categoryField,
+            )
+          : raw;
+      final material = domain.material;
+      categories.add(
+        ThaiBetaAnnualInfographicCategory(
+          id: 'annual-${material?.domain.name ?? domain.title}',
+          title: domain.title,
+          summary: summary,
+          iconName: iconNames[domain.title]!,
+          traceIds: [
+            if (material != null) material.serialize(),
+            if (material != null && material.evidenceKey.isNotEmpty)
+              material.evidenceKey,
+          ],
+        ),
+      );
+    }
+    if (categories.length != 4) return null;
+    String repair(String value, String fieldPath) => applyReaderCopy
+        ? ThaiBetaReaderCopyRepair.refineForField(value, fieldPath: fieldPath)
+        : value;
+    int bandScore(PredictionDomainModel domain) =>
+        switch (domain.material?.band ?? ForecastBand.active) {
+          ForecastBand.strong => 2,
+          ForecastBand.active => 1,
+          ForecastBand.quiet => 0,
+        };
+    final opportunityDomain = window.domains.reduce(
+      (best, candidate) =>
+          bandScore(candidate) > bandScore(best) ? candidate : best,
+    );
+    final cautionDomain = window.domains.reduce(
+      (best, candidate) =>
+          bandScore(candidate) < bandScore(best) ? candidate : best,
+    );
+    final opportunity = window.topOpportunity.trim().isNotEmpty
+        ? window.topOpportunity
+        : opportunityDomain.decisionImpact.trim().isNotEmpty
+        ? opportunityDomain.decisionImpact
+        : opportunityDomain.claim;
+    final caution = window.topRisk.trim().isNotEmpty
+        ? window.topRisk
+        : cautionDomain.risk.trim().isNotEmpty
+        ? cautionDomain.risk
+        : cautionDomain.caution;
+    final rawDisclaimer = analysis.input.hasBirthTime
+        ? 'แนวโน้มนี้ใช้เพื่อวางแผนและทบทวน ไม่ใช่ข้อสรุปตายตัว'
+        : 'ไม่มีเวลาเกิด จึงแสดงเฉพาะแนวโน้มที่ข้อมูลรองรับและไม่เติมรายละเอียดที่ขาดหาย';
+    return ThaiBetaAnnualInfographicData(
+      buddhistYear: analysis.asOf.year + 543,
+      theme: repair(window.summary, 'infographic.theme'),
+      overview: applyReaderCopy && hasTransitionReserve
+          ? repair(window.timeframeLabel, 'infographic.overview')
+          : window.timeframeLabel,
+      categories: List.unmodifiable(categories),
+      opportunity: repair(opportunity, 'infographic.opportunity'),
+      caution: repair(caution, 'infographic.caution'),
+      primaryAdvice: repair(
+        prediction.detailedClosingAdvice.trim().isNotEmpty
+            ? prediction.detailedClosingAdvice
+            : prediction.closingAdvice,
+        'infographic.primaryAdvice',
+      ),
+      disclaimer: applyReaderCopy && hasUnknownRepeatedBoundary
+          ? repair(rawDisclaimer, 'infographic.disclaimer')
+          : rawDisclaimer,
+      monthlyTimelineAvailable: false,
+      monthlyGapReason:
+          'engine ปัจจุบันมีกรอบ 12 เดือนและทักษาจรรายปี แต่ไม่มีคะแนนหรือหลักฐานที่ผูกกับเดือนปฏิทินทั้ง 12 เดือน',
+      traceIds: window.domains
+          .expand(
+            (domain) => [
+              if (domain.material != null) domain.material!.serialize(),
+              if (domain.material != null &&
+                  domain.material!.evidenceKey.isNotEmpty)
+                domain.material!.evidenceKey,
+            ],
+          )
+          .toSet()
+          .toList(growable: false),
     );
   }
 

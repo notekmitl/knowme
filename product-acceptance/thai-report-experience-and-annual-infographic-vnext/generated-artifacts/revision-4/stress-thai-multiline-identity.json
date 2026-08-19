@@ -1,0 +1,134 @@
+{
+  "fixtureId": "stress-thai-multiline",
+  "sourceHead": "a5781f344f1305f97862ea1e80ce1bf49bbcb612",
+  "controlledOutputIdentity": "revision-4-title-integrity-a5781f3",
+  "artifactRelativePath": "annual-infographic-stress-thai-multiline.png",
+  "inputIdentitySha256": "3E2A3AD21AE5F07BF53152A186CBEC65338304ADF343EC97E5FA70E653C8F09D",
+  "pngSha256": "C448E80680703E79C8DAD817B1E98B5459EC9F6987DBFAF0321E83235309423E",
+  "pngDimensions": {
+    "width": 1080,
+    "height": 1920
+  },
+  "captureRepeatByteIdentical": true,
+  "titleWidgetCount": 1,
+  "titleSemanticContains": "ดวงชะตาปี 2569",
+  "titleCreamPixelCount": 8457,
+  "titleRasterSampleBounds": {
+    "left": 138,
+    "top": 38,
+    "right": 1032,
+    "bottom": 129
+  },
+  "titleRegionSha256": "950270FD0579460F1DEE648CC12DE65FCC8690E27C7FC722E87475820C4DCA24",
+  "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+  "sectionCount": 21,
+  "paragraphCount": 83,
+  "dedicatedPdfPageCount": null,
+  "pngBytes": 209377,
+  "pdfBytes": null,
+  "browserPrintHtmlBytes": null,
+  "title": "ดวงชะตาปี 2569",
+  "theme": "ตลอด 12 เดือนของช่วงพลิกผันและเปลี่ยนผ่าน ให้สังเกตว่ายอดคงเหลือเปลี่ยนไปอย่างไร แล้วทบทวนอีกครั้งเมื่อการทำตามข้อตกลงสม่ำเสมอขึ้น โดยไม่สรุปเหตุการณ์ล่วงหน้า",
+  "categories": [
+    {
+      "id": "annual-career",
+      "title": "การงาน",
+      "summary": "ทดลองขอบเขตงานใหม่ก่อนตัดสินใจรับบทบาทเต็มตัว โดยไม่แลกกับคุณภาพงานหลัก"
+    },
+    {
+      "id": "annual-finance",
+      "title": "การเงิน",
+      "summary": "พิสูจน์กระแสเงินจริงในวงเล็กก่อนเพิ่มภาระ โดยไม่ลดเงินที่ต้องพร้อมใช้"
+    },
+    {
+      "id": "annual-relationship",
+      "title": "ความรัก",
+      "summary": "รอความชัดของเงื่อนไขก่อนเพิ่มข้อผูกพัน โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน"
+    },
+    {
+      "id": "annual-health",
+      "title": "สุขภาพ",
+      "summary": "ลดกิจกรรมและคืนเวลาฟื้นตัวก่อนรับภาระใหม่ โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน"
+    }
+  ],
+  "opportunity": "โอกาสอยู่ที่การทดลองขอบเขตงานใหม่ในวงเล็ก โดยไม่แลกกับคุณภาพงานหลัก โดยดูผลที่เกิดซ้ำก่อนตัดสินใจ",
+  "caution": "ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน",
+  "primaryAdvice": "ใช้ความอดทนที่พาเรื่องยากไปต่อโดยอาศัยข้อมูลที่เกิดขึ้นซ้ำ: เลือกการเงินทีละก้าว และยังไม่ผูกมัดเพิ่มจนกว่าคุณภาพของงานชิ้นหลักจะยืนยันได้",
+  "disclaimer": "ไม่มีเวลาเกิด จึงแสดงเฉพาะแนวโน้มที่ข้อมูลรองรับและไม่เติมรายละเอียดที่ขาดหาย ควรดูผลที่เกิดขึ้นซ้ำก่อนตัดสินใจ",
+  "monthlyTimelineAvailable": false,
+  "monthlyGapReason": "engine ปัจจุบันมีกรอบ 12 เดือนและทักษาจรรายปี แต่ไม่มีคะแนนหรือหลักฐานที่ผูกกับเดือนปฏิทินทั้ง 12 เดือน",
+  "layoutBounds1080x1920": {
+    "title": {
+      "left": 138,
+      "top": 39,
+      "right": 1032,
+      "bottom": 129
+    },
+    "theme": {
+      "left": 48,
+      "top": 141,
+      "right": 1032,
+      "bottom": 261
+    },
+    "overview": {
+      "left": 48,
+      "top": 267,
+      "right": 1032,
+      "bottom": 306
+    },
+    "category-annual-career": {
+      "left": 48,
+      "top": 404,
+      "right": 1032,
+      "bottom": 530
+    },
+    "category-annual-finance": {
+      "left": 48,
+      "top": 539,
+      "right": 1032,
+      "bottom": 665
+    },
+    "category-annual-relationship": {
+      "left": 48,
+      "top": 674,
+      "right": 1032,
+      "bottom": 800
+    },
+    "category-annual-health": {
+      "left": 48,
+      "top": 809,
+      "right": 1032,
+      "bottom": 935
+    },
+    "ornament": {
+      "left": 48,
+      "top": 1032,
+      "right": 1032,
+      "bottom": 1224
+    },
+    "opportunity": {
+      "left": 48,
+      "top": 1322,
+      "right": 1032,
+      "bottom": 1442
+    },
+    "caution": {
+      "left": 48,
+      "top": 1453,
+      "right": 1032,
+      "bottom": 1573
+    },
+    "advice": {
+      "left": 48,
+      "top": 1671,
+      "right": 1032,
+      "bottom": 1806
+    },
+    "disclaimer": {
+      "left": 48,
+      "top": 1821,
+      "right": 1032,
+      "bottom": 1881
+    }
+  }
+}

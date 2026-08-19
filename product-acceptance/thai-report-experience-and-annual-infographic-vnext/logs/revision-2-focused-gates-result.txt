@@ -1,0 +1,663 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart
+00:00 +0: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart: shared report presentation model section and paragraph inventory is stable and traceable
+00:00 +1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:00 +2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:00 +3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:00 +4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:00 +5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:00 +6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:00 +7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +11: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +12: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +13: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +14: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +15: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +16: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +17: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +18: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +19: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +20: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +21: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +22: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +23: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +24: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +25: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +26: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +27: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +28: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +29: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +30: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +31: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +32: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +33: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +34: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +35: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +36: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +37: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +38: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +39: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +40: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +41: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +42: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +43: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +44: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +45: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +46: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +47: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +48: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +49: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +50: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +51: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +52: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +53: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +54: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +55: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +56: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +57: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +58: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +59: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +60: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +60: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_screenshot_mode_test.dart: ThaiBetaReportPage screenshot mode layout screenshot mode uses Flutter-scrollable parent layout
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 32 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column
+  Column:file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart:365:16
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#14a69 OVERFLOWING:
+  creator: Column ← DefaultTextStyle ← Padding ← DecoratedBox ← ConstrainedBox ←
+    Container-[<'thai_annual_infographic_canvas'>] ← _AnnualInfographicCanvas ←
+    RepaintBoundary-[GlobalKey#0cace] ← FittedBox ← ClipRRect ← Semantics ← Column ← ⋯
+  parentData: offset=Offset(16.0, 14.0) (can use size)
+  constraints: BoxConstraints(w=328.0, h=614.0)
+  size: Size(328.0, 614.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +60 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +60 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_screenshot_mode_test.dart: ThaiBetaReportPage screenshot mode layout screenshot mode uses Flutter-scrollable parent layout [E]
+  Test failed. See exception logs above.
+  The test description was: screenshot mode uses Flutter-scrollable parent layout
+  
+00:03 +60 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_screenshot_mode_test.dart: ThaiBetaReportPage screenshot mode layout screenshot mode has no fixed bottom navigation bar
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 32 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column
+  Column:file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart:365:16
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#9e66a OVERFLOWING:
+  creator: Column ← DefaultTextStyle ← Padding ← DecoratedBox ← ConstrainedBox ←
+    Container-[<'thai_annual_infographic_canvas'>] ← _AnnualInfographicCanvas ←
+    RepaintBoundary-[GlobalKey#09b8d] ← FittedBox ← ClipRRect ← Semantics ← Column ← ⋯
+  parentData: offset=Offset(16.0, 14.0) (can use size)
+  constraints: BoxConstraints(w=328.0, h=614.0)
+  size: Size(328.0, 614.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +60 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +60 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_screenshot_mode_test.dart: ThaiBetaReportPage screenshot mode layout screenshot mode has no fixed bottom navigation bar [E]
+  Test failed. See exception logs above.
+  The test description was: screenshot mode has no fixed bottom navigation bar
+  
+00:03 +61 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +62 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +63 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +64 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +65 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +66 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +67 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +67 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_screenshot_mode_test.dart: ThaiBetaReportPage screenshot mode layout screenshot mode hides progress bar
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 32 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column
+  Column:file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart:365:16
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#1ed77 OVERFLOWING:
+  creator: Column ← DefaultTextStyle ← Padding ← DecoratedBox ← ConstrainedBox ←
+    Container-[<'thai_annual_infographic_canvas'>] ← _AnnualInfographicCanvas ←
+    RepaintBoundary-[GlobalKey#34c6d] ← FittedBox ← ClipRRect ← Semantics ← Column ← ⋯
+  parentData: offset=Offset(16.0, 14.0) (can use size)
+  constraints: BoxConstraints(w=328.0, h=614.0)
+  size: Size(328.0, 614.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +67 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +67 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_screenshot_mode_test.dart: ThaiBetaReportPage screenshot mode layout screenshot mode hides progress bar [E]
+  Test failed. See exception logs above.
+  The test description was: screenshot mode hides progress bar
+  
+00:03 +68 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +68 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_screenshot_mode_test.dart: ThaiBetaReportPage screenshot mode layout screenshot mode shows diagnostics panel
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 32 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column
+  Column:file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart:365:16
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#60651 OVERFLOWING:
+  creator: Column ← DefaultTextStyle ← Padding ← DecoratedBox ← ConstrainedBox ←
+    Container-[<'thai_annual_infographic_canvas'>] ← _AnnualInfographicCanvas ←
+    RepaintBoundary-[GlobalKey#0c7ef] ← FittedBox ← ClipRRect ← Semantics ← Column ← ⋯
+  parentData: offset=Offset(16.0, 14.0) (can use size)
+  constraints: BoxConstraints(w=328.0, h=614.0)
+  size: Size(328.0, 614.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +68 -4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +68 -4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_screenshot_mode_test.dart: ThaiBetaReportPage screenshot mode layout screenshot mode shows diagnostics panel [E]
+  Test failed. See exception logs above.
+  The test description was: screenshot mode shows diagnostics panel
+  
+00:03 +69 -4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +70 -4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +71 -4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +71 -4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_screenshot_mode_test.dart: ThaiBetaReportPage screenshot mode layout screenshot mode capture wrapper has no parent scroll key
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 32 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column
+  Column:file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart:365:16
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#76f46 OVERFLOWING:
+  creator: Column ← DefaultTextStyle ← Padding ← DecoratedBox ← ConstrainedBox ←
+    Container-[<'thai_annual_infographic_canvas'>] ← _AnnualInfographicCanvas ←
+    RepaintBoundary-[GlobalKey#5a9c0] ← FittedBox ← ClipRRect ← Semantics ← Column ← ⋯
+  parentData: offset=Offset(16.0, 14.0) (can use size)
+  constraints: BoxConstraints(w=328.0, h=614.0)
+  size: Size(328.0, 614.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +71 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +71 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_screenshot_mode_test.dart: ThaiBetaReportPage screenshot mode layout screenshot mode capture wrapper has no parent scroll key [E]
+  Test failed. See exception logs above.
+  The test description was: screenshot mode capture wrapper has no parent scroll key
+  
+00:03 +72 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +73 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +73 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_screenshot_mode_test.dart: ThaiBetaReportPage screenshot mode layout normal mode hides diagnostics panel
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 32 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column
+  Column:file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart:365:16
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#9e3f8 OVERFLOWING:
+  creator: Column ← DefaultTextStyle ← Padding ← DecoratedBox ← ConstrainedBox ←
+    Container-[<'thai_annual_infographic_canvas'>] ← _AnnualInfographicCanvas ←
+    RepaintBoundary-[GlobalKey#7ae37] ← FittedBox ← ClipRRect ← Semantics ← Column ← ⋯
+  parentData: offset=Offset(16.0, 14.0) (can use size)
+  constraints: BoxConstraints(w=328.0, h=614.0)
+  size: Size(328.0, 614.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +73 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +73 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_screenshot_mode_test.dart: ThaiBetaReportPage screenshot mode layout normal mode hides diagnostics panel [E]
+  Test failed. See exception logs above.
+  The test description was: normal mode hides diagnostics panel
+  
+00:03 +74 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +75 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +75 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_screenshot_mode_test.dart: ThaiBetaReportPage screenshot mode layout normal mode keeps parent scroll and bottom bar
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 32 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column
+  Column:file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart:365:16
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#23bb2 OVERFLOWING:
+  creator: Column ← DefaultTextStyle ← Padding ← DecoratedBox ← ConstrainedBox ←
+    Container-[<'thai_annual_infographic_canvas'>] ← _AnnualInfographicCanvas ←
+    RepaintBoundary-[GlobalKey#33415] ← FittedBox ← ClipRRect ← Semantics ← Column ← ⋯
+  parentData: offset=Offset(16.0, 14.0) (can use size)
+  constraints: BoxConstraints(w=328.0, h=614.0)
+  size: Size(328.0, 614.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +75 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +75 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_screenshot_mode_test.dart: ThaiBetaReportPage screenshot mode layout normal mode keeps parent scroll and bottom bar [E]
+  Test failed. See exception logs above.
+  The test description was: normal mode keeps parent scroll and bottom bar
+  
+00:03 +75 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_screenshot_mode_test.dart: ThaiBetaReportPage screenshot mode layout embedded mirror has no inner vertical scroll in screenshot mode
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 32 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column
+  Column:file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart:365:16
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#38075 OVERFLOWING:
+  creator: Column ← DefaultTextStyle ← Padding ← DecoratedBox ← ConstrainedBox ←
+    Container-[<'thai_annual_infographic_canvas'>] ← _AnnualInfographicCanvas ←
+    RepaintBoundary-[GlobalKey#cb0e9] ← FittedBox ← ClipRRect ← Semantics ← Column ← ⋯
+  parentData: offset=Offset(16.0, 14.0) (can use size)
+  constraints: BoxConstraints(w=328.0, h=614.0)
+  size: Size(328.0, 614.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +75 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +75 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_screenshot_mode_test.dart: ThaiBetaReportPage screenshot mode layout embedded mirror has no inner vertical scroll in screenshot mode [E]
+  Test failed. See exception logs above.
+  The test description was: embedded mirror has no inner vertical scroll in screenshot mode
+  
+00:03 +75 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:03 +76 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:04 +77 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:04 +78 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:04 +79 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:04 +80 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:04 +81 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:04 +81 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_report_export_test.dart: Stale analysis export guard QA sample route remains separate and clearly labeled
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 32 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column
+  Column:file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart:365:16
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#c8956 OVERFLOWING:
+  creator: Column ← DefaultTextStyle ← Padding ← DecoratedBox ← ConstrainedBox ←
+    Container-[<'thai_annual_infographic_canvas'>] ← _AnnualInfographicCanvas ←
+    RepaintBoundary-[GlobalKey#9b857] ← FittedBox ← ClipRRect ← Semantics ← Column ← ⋯
+  parentData: offset=Offset(16.0, 14.0) (can use size)
+  constraints: BoxConstraints(w=328.0, h=614.0)
+  size: Size(328.0, 614.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +81 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:04 +81 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_report_export_test.dart: Stale analysis export guard QA sample route remains separate and clearly labeled [E]
+  Test failed. See exception logs above.
+  The test description was: QA sample route remains separate and clearly labeled
+  
+00:04 +81 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_report_export_test.dart: QA sample capture route shows QA label and sample report
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 32 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column
+  Column:file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart:365:16
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#7bca3 OVERFLOWING:
+  creator: Column ← DefaultTextStyle ← Padding ← DecoratedBox ← ConstrainedBox ←
+    Container-[<'thai_annual_infographic_canvas'>] ← _AnnualInfographicCanvas ←
+    RepaintBoundary-[GlobalKey#3633f] ← FittedBox ← ClipRRect ← Semantics ← Column ← ⋯
+  parentData: offset=Offset(16.0, 14.0) (can use size)
+  constraints: BoxConstraints(w=328.0, h=614.0)
+  size: Size(328.0, 614.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +81 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:04 +81 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_report_export_test.dart: QA sample capture route shows QA label and sample report [E]
+  Test failed. See exception logs above.
+  The test description was: shows QA label and sample report
+  
+00:04 +82 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:04 +83 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:04 +84 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:04 +85 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:04 +86 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:04 +86 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_report_export_test.dart: Export button visibility export button appears only in screenshot/capture mode
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 32 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column
+  Column:file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart:365:16
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#9f09b OVERFLOWING:
+  creator: Column ← DefaultTextStyle ← Padding ← DecoratedBox ← ConstrainedBox ←
+    Container-[<'thai_annual_infographic_canvas'>] ← _AnnualInfographicCanvas ←
+    RepaintBoundary-[GlobalKey#dc6bd] ← FittedBox ← ClipRRect ← Semantics ← Column ← ⋯
+  parentData: offset=Offset(16.0, 14.0) (can use size)
+  constraints: BoxConstraints(w=328.0, h=614.0)
+  size: Size(328.0, 614.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +86 -11: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:04 +86 -11: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_report_export_test.dart: Export button visibility export button appears only in screenshot/capture mode [E]
+  Test failed. See exception logs above.
+  The test description was: export button appears only in screenshot/capture mode
+  
+00:04 +86 -11: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_report_export_test.dart: Export button visibility export button visible on capture page with stored analysis
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 32 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column
+  Column:file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart:365:16
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#caecb OVERFLOWING:
+  creator: Column ← DefaultTextStyle ← Padding ← DecoratedBox ← ConstrainedBox ←
+    Container-[<'thai_annual_infographic_canvas'>] ← _AnnualInfographicCanvas ←
+    RepaintBoundary-[GlobalKey#ae669] ← FittedBox ← ClipRRect ← Semantics ← Column ← ⋯
+  parentData: offset=Offset(16.0, 14.0) (can use size)
+  constraints: BoxConstraints(w=328.0, h=614.0)
+  size: Size(328.0, 614.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +86 -12: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:04 +86 -12: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_report_export_test.dart: Export button visibility export button visible on capture page with stored analysis [E]
+  Test failed. See exception logs above.
+  The test description was: export button visible on capture page with stored analysis
+  
+00:04 +86 -12: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_report_export_test.dart: Export button visibility export button not gated by evidence badge flag off
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 32 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column
+  Column:file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart:365:16
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#3d777 OVERFLOWING:
+  creator: Column ← DefaultTextStyle ← Padding ← DecoratedBox ← ConstrainedBox ←
+    Container-[<'thai_annual_infographic_canvas'>] ← _AnnualInfographicCanvas ←
+    RepaintBoundary-[GlobalKey#39d38] ← FittedBox ← ClipRRect ← Semantics ← Column ← ⋯
+  parentData: offset=Offset(16.0, 14.0) (can use size)
+  constraints: BoxConstraints(w=328.0, h=614.0)
+  size: Size(328.0, 614.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +86 -13: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:04 +86 -13: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_report_export_test.dart: Export button visibility export button not gated by evidence badge flag off [E]
+  Test failed. See exception logs above.
+  The test description was: export button not gated by evidence badge flag off
+  
+00:05 +86 -13: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_report_export_test.dart: Export button visibility export button hidden in normal beta report mode
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 32 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column
+  Column:file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart:365:16
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#e28c4 OVERFLOWING:
+  creator: Column ← DefaultTextStyle ← Padding ← DecoratedBox ← ConstrainedBox ←
+    Container-[<'thai_annual_infographic_canvas'>] ← _AnnualInfographicCanvas ←
+    RepaintBoundary-[GlobalKey#bef1d] ← FittedBox ← ClipRRect ← Semantics ← Column ← ⋯
+  parentData: offset=Offset(16.0, 14.0) (can use size)
+  constraints: BoxConstraints(w=328.0, h=614.0)
+  size: Size(328.0, 614.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +86 -14: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:05 +86 -14: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_report_export_test.dart: Export button visibility export button hidden in normal beta report mode [E]
+  Test failed. See exception logs above.
+  The test description was: export button hidden in normal beta report mode
+  
+00:05 +87 -14: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:05 +87 -14: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_report_export_test.dart: Print fallback page renders export document without progress/feedback chrome
+══╡ EXCEPTION CAUGHT BY RENDERING LIBRARY ╞═════════════════════════════════════════════════════════
+The following assertion was thrown during layout:
+A RenderFlex overflowed by 22 pixels on the bottom.
+
+The relevant error-causing widget was:
+  Column
+  Column:file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart:365:16
+
+The overflowing RenderFlex has an orientation of Axis.vertical.
+The edge of the RenderFlex that is overflowing has been marked in the rendering with a yellow and
+black striped pattern. This is usually caused by the contents being too big for the RenderFlex.
+Consider applying a flex factor (e.g. using an Expanded widget) to force the children of the
+RenderFlex to fit within the available space instead of being sized to their natural size.
+This is considered an error condition because it indicates that there is content that cannot be
+seen. If the content is legitimately bigger than the available space, consider clipping it with a
+ClipRect widget before putting it in the flex, or using a scrollable container rather than a Flex,
+like a ListView.
+The specific RenderFlex in question is: RenderFlex#fdfeb OVERFLOWING:
+  creator: Column ← DefaultTextStyle ← Padding ← DecoratedBox ← ConstrainedBox ←
+    Container-[<'thai_annual_infographic_canvas'>] ← _AnnualInfographicCanvas ←
+    RepaintBoundary-[GlobalKey#a228a] ← FittedBox ← ClipRRect ← Semantics ← Column ← ⋯
+  parentData: offset=Offset(16.0, 14.0) (can use size)
+  constraints: BoxConstraints(w=328.0, h=614.0)
+  size: Size(328.0, 614.0)
+  direction: vertical
+  mainAxisAlignment: start
+  mainAxisSize: max
+  crossAxisAlignment: stretch
+  verticalDirection: down
+  spacing: 0.0
+◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤◢◤
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:05 +87 -15: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:05 +87 -15: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_report_export_test.dart: Print fallback page renders export document without progress/feedback chrome [E]
+  Test failed. See exception logs above.
+  The test description was: renders export document without progress/feedback chrome
+  
+00:05 +87 -15: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+COPY_AUDIT profiles=300 changed_profiles=300 changed_fields=3910 omission=0 addition=0 semantic=0 prediction_to_advice=0 advice_to_prediction=0 traceability_impact=0
+00:13 +88 -15: Some tests failed.

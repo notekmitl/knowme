@@ -1,0 +1,10 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart
+00:00 +0: Mahabhut diagnostic (8 periods) (setUpAll)
+00:00 +0: Mahabhut diagnostic (8 periods) 1972-04-04 fixture stays known=7 / unknown=1 with internal reason
+00:00 +1: Mahabhut diagnostic (8 periods) sample QA fixture diagnostic rows cover all eight periods
+00:00 +2: Mahabhut diagnostic (8 periods) (tearDownAll)
+00:00 +2: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:00 +3: Past / present / future UX past narratives have denser retrospective without advice
+00:00 +4: All tests passed!
+
+EXIT_CODE=0

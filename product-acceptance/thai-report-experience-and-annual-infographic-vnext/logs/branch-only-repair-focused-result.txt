@@ -1,0 +1,614 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:475:20: Error: The method 'ThaiBirthProfileCoreReadingSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreReadingSection'.
+            child: ThaiBirthProfileCoreReadingSection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:517:40: Error: The method 'ThaiBirthProfileMethodologySection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileMethodologySection'.
+        additionalTransparencySection: ThaiBirthProfileMethodologySection(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:527:22: Error: The method 'ThaiBirthProfileCoreOmissionsSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreOmissionsSection'.
+              child: ThaiBirthProfileCoreOmissionsSection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+00:00 +0 -1: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart [E]
+  Failed to load "C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart":
+  Compilation failed for testPath=C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:475:20: Error: The method 'ThaiBirthProfileCoreReadingSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreReadingSection'.
+              child: ThaiBirthProfileCoreReadingSection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:517:40: Error: The method 'ThaiBirthProfileMethodologySection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileMethodologySection'.
+          additionalTransparencySection: ThaiBirthProfileMethodologySection(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:527:22: Error: The method 'ThaiBirthProfileCoreOmissionsSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreOmissionsSection'.
+                child: ThaiBirthProfileCoreOmissionsSection(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  .
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 939:11    DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 733:19                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 726:19                      _CustomZone.run
+  dart:async/zone.dart 625:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 666:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 194:5      _RawReceivePort._handleMessage
+  
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:475:20: Error: The method 'ThaiBirthProfileCoreReadingSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreReadingSection'.
+            child: ThaiBirthProfileCoreReadingSection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:517:40: Error: The method 'ThaiBirthProfileMethodologySection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileMethodologySection'.
+        additionalTransparencySection: ThaiBirthProfileMethodologySection(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:527:22: Error: The method 'ThaiBirthProfileCoreOmissionsSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreOmissionsSection'.
+              child: ThaiBirthProfileCoreOmissionsSection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+00:00 +0 -2: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_qa_test.dart [E]
+  Failed to load "C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_qa_test.dart":
+  Compilation failed for testPath=C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_qa_test.dart: lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:475:20: Error: The method 'ThaiBirthProfileCoreReadingSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreReadingSection'.
+              child: ThaiBirthProfileCoreReadingSection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:517:40: Error: The method 'ThaiBirthProfileMethodologySection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileMethodologySection'.
+          additionalTransparencySection: ThaiBirthProfileMethodologySection(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:527:22: Error: The method 'ThaiBirthProfileCoreOmissionsSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreOmissionsSection'.
+                child: ThaiBirthProfileCoreOmissionsSection(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -2: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 939:11    DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 733:19                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 726:19                      _CustomZone.run
+  dart:async/zone.dart 625:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 666:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 194:5      _RawReceivePort._handleMessage
+  
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:475:20: Error: The method 'ThaiBirthProfileCoreReadingSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreReadingSection'.
+            child: ThaiBirthProfileCoreReadingSection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:517:40: Error: The method 'ThaiBirthProfileMethodologySection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileMethodologySection'.
+        additionalTransparencySection: ThaiBirthProfileMethodologySection(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:527:22: Error: The method 'ThaiBirthProfileCoreOmissionsSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreOmissionsSection'.
+              child: ThaiBirthProfileCoreOmissionsSection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+00:00 +0 -3: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart [E]
+  Failed to load "C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart":
+  Compilation failed for testPath=C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:475:20: Error: The method 'ThaiBirthProfileCoreReadingSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreReadingSection'.
+              child: ThaiBirthProfileCoreReadingSection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:517:40: Error: The method 'ThaiBirthProfileMethodologySection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileMethodologySection'.
+          additionalTransparencySection: ThaiBirthProfileMethodologySection(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:527:22: Error: The method 'ThaiBirthProfileCoreOmissionsSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreOmissionsSection'.
+                child: ThaiBirthProfileCoreOmissionsSection(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -3: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 939:11    DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 733:19                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 726:19                      _CustomZone.run
+  dart:async/zone.dart 625:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 666:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 194:5      _RawReceivePort._handleMessage
+  
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:475:20: Error: The method 'ThaiBirthProfileCoreReadingSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreReadingSection'.
+            child: ThaiBirthProfileCoreReadingSection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:517:40: Error: The method 'ThaiBirthProfileMethodologySection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileMethodologySection'.
+        additionalTransparencySection: ThaiBirthProfileMethodologySection(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:527:22: Error: The method 'ThaiBirthProfileCoreOmissionsSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreOmissionsSection'.
+              child: ThaiBirthProfileCoreOmissionsSection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+00:00 +0 -4: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart [E]
+  Failed to load "C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart":
+  Compilation failed for testPath=C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:475:20: Error: The method 'ThaiBirthProfileCoreReadingSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreReadingSection'.
+              child: ThaiBirthProfileCoreReadingSection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:517:40: Error: The method 'ThaiBirthProfileMethodologySection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileMethodologySection'.
+          additionalTransparencySection: ThaiBirthProfileMethodologySection(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:527:22: Error: The method 'ThaiBirthProfileCoreOmissionsSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreOmissionsSection'.
+                child: ThaiBirthProfileCoreOmissionsSection(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -4: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 939:11    DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 733:19                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 726:19                      _CustomZone.run
+  dart:async/zone.dart 625:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 666:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 194:5      _RawReceivePort._handleMessage
+  
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:475:20: Error: The method 'ThaiBirthProfileCoreReadingSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreReadingSection'.
+            child: ThaiBirthProfileCoreReadingSection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:517:40: Error: The method 'ThaiBirthProfileMethodologySection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileMethodologySection'.
+        additionalTransparencySection: ThaiBirthProfileMethodologySection(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:527:22: Error: The method 'ThaiBirthProfileCoreOmissionsSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreOmissionsSection'.
+              child: ThaiBirthProfileCoreOmissionsSection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+00:00 +0 -5: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart [E]
+  Failed to load "C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart":
+  Compilation failed for testPath=C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:475:20: Error: The method 'ThaiBirthProfileCoreReadingSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreReadingSection'.
+              child: ThaiBirthProfileCoreReadingSection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:517:40: Error: The method 'ThaiBirthProfileMethodologySection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileMethodologySection'.
+          additionalTransparencySection: ThaiBirthProfileMethodologySection(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:527:22: Error: The method 'ThaiBirthProfileCoreOmissionsSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreOmissionsSection'.
+                child: ThaiBirthProfileCoreOmissionsSection(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -5: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 939:11    DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 733:19                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 726:19                      _CustomZone.run
+  dart:async/zone.dart 625:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 666:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 194:5      _RawReceivePort._handleMessage
+  
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:475:20: Error: The method 'ThaiBirthProfileCoreReadingSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreReadingSection'.
+            child: ThaiBirthProfileCoreReadingSection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:517:40: Error: The method 'ThaiBirthProfileMethodologySection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileMethodologySection'.
+        additionalTransparencySection: ThaiBirthProfileMethodologySection(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:527:22: Error: The method 'ThaiBirthProfileCoreOmissionsSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreOmissionsSection'.
+              child: ThaiBirthProfileCoreOmissionsSection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+00:00 +0 -6: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart [E]
+  Failed to load "C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart":
+  Compilation failed for testPath=C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart: lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:475:20: Error: The method 'ThaiBirthProfileCoreReadingSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreReadingSection'.
+              child: ThaiBirthProfileCoreReadingSection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:517:40: Error: The method 'ThaiBirthProfileMethodologySection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileMethodologySection'.
+          additionalTransparencySection: ThaiBirthProfileMethodologySection(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:527:22: Error: The method 'ThaiBirthProfileCoreOmissionsSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreOmissionsSection'.
+                child: ThaiBirthProfileCoreOmissionsSection(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -6: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 939:11    DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 733:19                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 726:19                      _CustomZone.run
+  dart:async/zone.dart 625:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 666:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 194:5      _RawReceivePort._handleMessage
+  
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:475:20: Error: The method 'ThaiBirthProfileCoreReadingSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreReadingSection'.
+            child: ThaiBirthProfileCoreReadingSection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:517:40: Error: The method 'ThaiBirthProfileMethodologySection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileMethodologySection'.
+        additionalTransparencySection: ThaiBirthProfileMethodologySection(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:527:22: Error: The method 'ThaiBirthProfileCoreOmissionsSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreOmissionsSection'.
+              child: ThaiBirthProfileCoreOmissionsSection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+00:00 +0 -7: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_public_beta_test.dart [E]
+  Failed to load "C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_public_beta_test.dart":
+  Compilation failed for testPath=C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_public_beta_test.dart: lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:475:20: Error: The method 'ThaiBirthProfileCoreReadingSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreReadingSection'.
+              child: ThaiBirthProfileCoreReadingSection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:517:40: Error: The method 'ThaiBirthProfileMethodologySection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileMethodologySection'.
+          additionalTransparencySection: ThaiBirthProfileMethodologySection(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:527:22: Error: The method 'ThaiBirthProfileCoreOmissionsSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreOmissionsSection'.
+                child: ThaiBirthProfileCoreOmissionsSection(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  .
+00:00 +0 -7: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 939:11    DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 733:19                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 726:19                      _CustomZone.run
+  dart:async/zone.dart 625:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 666:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 194:5      _RawReceivePort._handleMessage
+  
+00:00 +0 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: (setUpAll)
+00:00 +0 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: ThaiPublicEvidenceBadgePreviewMapper only CANON_SUPPORTED mahabhut/planet attachments are eligible
+00:00 +1 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: ThaiPublicEvidenceBadgePreviewMapper RUNTIME_METADATA_SUPPORTED does not produce preview badge
+00:00 +2 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: ThaiPublicEvidenceBadgePreviewMapper CANON_DERIVED_INTERNAL does not produce preview badge
+00:00 +3 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: ThaiPublicEvidenceBadgePreviewMapper PARTIAL_CANON_SUPPORT does not produce preview badge
+00:00 +4 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: ThaiPublicEvidenceBadgePreviewMapper REMEDY_HIDDEN never produces preview badge
+00:00 +5 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: ThaiPublicEvidenceBadgePreviewMapper Taksa evidence never produces preview badge
+00:00 +6 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: ThaiPublicEvidenceBadgePreviewMapper Khumsap evidence never produces preview badge
+00:00 +7 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: ThaiPublicEvidenceBadgePreviewMapper rise/fall metadata never produces preview badge
+00:00 +8 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: ThaiPublicEvidenceBadgePreviewMapper previews contain no page references, unit ids, or confidence
+00:00 +9 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: ThaiPublicEvidenceBadgePreviewMapper certainty wording is absent from badge labels
+00:00 +10 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: ThaiPublicEvidenceBadgePreviewMapper required caution copy is present on every eligible preview
+00:00 +11 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: ThaiPublicEvidenceBadgePreviewPage renders internal beta header and policy warning
+00:00 +12 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: ThaiPublicEvidenceBadgePreviewPage does not show raw unit ids or source pages
+00:00 +13 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: Internal route isolation preview route is internal-only path
+00:00 +14 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: Internal route isolation preview route uses MaterialPageRoute with admin guard
+00:00 +15 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: Public surface isolation Thai beta report page does not import preview badges
+00:00 +16 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: Public surface isolation Thai mirror result page does not import preview badges
+00:00 +17 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: Public surface isolation public fingerprint unchanged after enrichment
+00:00 +18 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: Public surface isolation consumer mirror copy unchanged
+00:00 +19 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: Public surface isolation all evidence rows remain userFacingAllowed false
+00:00 +20 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: Strong match eligibility CANON_SUPPORTED planet/mahabhut domain can be eligible
+00:00 +21 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_preview_internal_beta_test.dart: (tearDownAll)
+00:00 +21 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: (setUpAll)
+00:01 +21 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: ThaiPublicEvidenceBadgeQaRunner audits all 9 deterministic fixtures
+00:01 +22 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: ThaiPublicEvidenceBadgeQaRunner runner is deterministic across two runs
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:475:20: Error: The method 'ThaiBirthProfileCoreReadingSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreReadingSection'.
+            child: ThaiBirthProfileCoreReadingSection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:517:40: Error: The method 'ThaiBirthProfileMethodologySection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileMethodologySection'.
+        additionalTransparencySection: ThaiBirthProfileMethodologySection(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:527:22: Error: The method 'ThaiBirthProfileCoreOmissionsSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreOmissionsSection'.
+              child: ThaiBirthProfileCoreOmissionsSection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+00:01 +23 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: ThaiPublicEvidenceBadgeQaRunner writes aggregate QA summary artifact
+00:01 +24 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: ThaiPublicEvidenceBadgeQaRunner overall QA audit passes
+00:01 +25 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Eligibility QA (setUpAll)
+00:01 +25 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Eligibility QA only eligible categories produce Level 1 preview badges
+00:01 +26 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Eligibility QA RUNTIME_METADATA_SUPPORTED does not produce preview badge
+00:01 +27 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Eligibility QA CANON_DERIVED_INTERNAL does not produce preview badge
+00:01 +28 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Eligibility QA PARTIAL_CANON_SUPPORT does not produce preview badge
+00:01 +29 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Eligibility QA OUT_OF_CANON_SCOPE does not produce preview badge
+00:01 +30 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Eligibility QA BLOCKED_AMBIGUOUS does not produce preview badge
+00:01 +31 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Eligibility QA BLOCKED_SOURCE_CONFLICT does not produce preview badge
+00:01 +32 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Eligibility QA REMEDY_HIDDEN does not produce preview badge
+00:01 +33 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Eligibility QA Taksa evidence does not produce preview badge
+00:01 +34 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Eligibility QA Khumsap evidence does not produce preview badge
+00:01 +35 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Eligibility QA Rise/Fall evidence does not produce preview badge
+00:01 +36 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Eligibility QA Lookup table evidence does not produce preview badge
+00:01 +37 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Eligibility QA (tearDownAll)
+00:01 +37 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Copy safety QA required caution copy on every preview badge
+00:01 +38 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Copy safety QA forbidden certainty wording is absent from badge labels
+00:01 +39 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Data leakage QA no page refs, prose, unit ids, or confidence in preview output
+00:01 +40 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Internal route isolation preview route is internal and admin guarded
+00:01 +41 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Internal route isolation lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart does not import preview badge UI
+00:01 +42 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Internal route isolation lib/features/astrology/thai/mirror/presentation/ui/pages/thai_mirror_result_page.dart does not import preview badge UI
+00:01 +43 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Internal route isolation lib/features/home/presentation/pages/home_page.dart does not import preview badge UI
+00:01 +44 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Internal route isolation Daily Mirror does not import preview badge UI
+00:01 +45 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Public output regression public fingerprint unchanged across fixtures
+00:01 +46 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Public output regression consumer mirror copy unchanged
+00:01 +47 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Public output regression remedies remain hidden/internal
+00:01 +48 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Reviewer usability (setUpAll)
+00:01 +48 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Reviewer usability preview page shows beta header, warning, and badges
+00:01 +49 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: Reviewer usability (tearDownAll)
+00:01 +49 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_qa_test.dart: (tearDownAll)
+00:01 +49 -8: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart [E]
+  Failed to load "C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart":
+  Compilation failed for testPath=C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:475:20: Error: The method 'ThaiBirthProfileCoreReadingSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreReadingSection'.
+              child: ThaiBirthProfileCoreReadingSection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:517:40: Error: The method 'ThaiBirthProfileMethodologySection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileMethodologySection'.
+          additionalTransparencySection: ThaiBirthProfileMethodologySection(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:527:22: Error: The method 'ThaiBirthProfileCoreOmissionsSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreOmissionsSection'.
+                child: ThaiBirthProfileCoreOmissionsSection(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  .
+00:01 +49 -8: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 939:11    DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 733:19                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 726:19                      _CustomZone.run
+  dart:async/zone.dart 625:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 666:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 194:5      _RawReceivePort._handleMessage
+  
+00:02 +49 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollout_monitoring_test.dart: Monitoring payload privacy 1 template payload has no raw Canon ids
+00:02 +50 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollout_monitoring_test.dart: Monitoring payload privacy 2 template payload has no source page
+00:02 +51 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollout_monitoring_test.dart: Monitoring payload privacy 3 template payload has no birth date/time/place
+00:02 +52 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollout_monitoring_test.dart: Monitoring payload privacy 4 template payload has no remedy data
+00:02 +53 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollout_monitoring_test.dart: Monitoring payload privacy 5 template payload has no prediction text
+00:02 +54 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollout_monitoring_test.dart: Monitoring payload privacy template file matches code template
+00:02 +55 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollout_monitoring_test.dart: Stop criteria and rollback 6 stop criteria complete
+00:02 +56 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollout_monitoring_test.dart: Stop criteria and rollback 7 rollback rule is flag off
+00:02 +57 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollout_monitoring_test.dart: Stop criteria and rollback off hides badge for invited beta audience
+00:02 +58 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollout_monitoring_test.dart: Active state unchanged invited_beta remains active configuration
+00:02 +59 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollout_monitoring_test.dart: Active state unchanged monitoring declares public release inactive
+00:02 +60 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollout_monitoring_test.dart: Public regression public fingerprint unchanged
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:475:20: Error: The method 'ThaiBirthProfileCoreReadingSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreReadingSection'.
+            child: ThaiBirthProfileCoreReadingSection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:517:40: Error: The method 'ThaiBirthProfileMethodologySection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileMethodologySection'.
+        additionalTransparencySection: ThaiBirthProfileMethodologySection(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:527:22: Error: The method 'ThaiBirthProfileCoreOmissionsSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreOmissionsSection'.
+              child: ThaiBirthProfileCoreOmissionsSection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+00:03 +61 -9: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/life_map/thai_life_map_v123_report_acceptance_test.dart [E]
+  Failed to load "C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/life_map/thai_life_map_v123_report_acceptance_test.dart":
+  Compilation failed for testPath=C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/life_map/thai_life_map_v123_report_acceptance_test.dart: lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:475:20: Error: The method 'ThaiBirthProfileCoreReadingSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreReadingSection'.
+              child: ThaiBirthProfileCoreReadingSection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:517:40: Error: The method 'ThaiBirthProfileMethodologySection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileMethodologySection'.
+          additionalTransparencySection: ThaiBirthProfileMethodologySection(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:527:22: Error: The method 'ThaiBirthProfileCoreOmissionsSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreOmissionsSection'.
+                child: ThaiBirthProfileCoreOmissionsSection(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  .
+00:03 +61 -9: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 939:11    DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 733:19                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 726:19                      _CustomZone.run
+  dart:async/zone.dart 625:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 666:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 194:5      _RawReceivePort._handleMessage
+  
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:475:20: Error: The method 'ThaiBirthProfileCoreReadingSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreReadingSection'.
+            child: ThaiBirthProfileCoreReadingSection(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:517:40: Error: The method 'ThaiBirthProfileMethodologySection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileMethodologySection'.
+        additionalTransparencySection: ThaiBirthProfileMethodologySection(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:527:22: Error: The method 'ThaiBirthProfileCoreOmissionsSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+ - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreOmissionsSection'.
+              child: ThaiBirthProfileCoreOmissionsSection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+00:05 +61 -10: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart [E]
+  Failed to load "C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart":
+  Compilation failed for testPath=C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:475:20: Error: The method 'ThaiBirthProfileCoreReadingSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreReadingSection'.
+              child: ThaiBirthProfileCoreReadingSection(
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:517:40: Error: The method 'ThaiBirthProfileMethodologySection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileMethodologySection'.
+          additionalTransparencySection: ThaiBirthProfileMethodologySection(
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart:527:22: Error: The method 'ThaiBirthProfileCoreOmissionsSection' isn't defined for the type '_ThaiBetaReportScaffoldState'.
+   - '_ThaiBetaReportScaffoldState' is from 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart' ('lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart').
+  Try correcting the name to the name of an existing method, or defining a method named 'ThaiBirthProfileCoreOmissionsSection'.
+                child: ThaiBirthProfileCoreOmissionsSection(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  .
+00:05 +61 -10: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart [E]
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 939:11    DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 733:19                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 726:19                      _CustomZone.run
+  dart:async/zone.dart 625:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 666:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 194:5      _RawReceivePort._handleMessage
+  
+00:06 +61 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:08 +62 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:08 +63 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:08 +64 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:08 +65 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:08 +66 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:08 +67 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:08 +68 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:09 +69 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:09 +70 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:09 +71 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+COPY_AUDIT profiles=300 changed_profiles=300 changed_fields=2105 omission=0 addition=0 semantic=0 prediction_to_advice=0 advice_to_prediction=0 traceability_impact=0
+00:26 +72 -10: Some tests failed.
+
+EXIT_CODE=1

@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:flutter/material.dart';
 
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/presentation/thai_public_evidence_badge_beta_view_model.dart';
@@ -13,33 +15,41 @@ class ThaiBetaReportExportButton extends StatefulWidget {
     super.key,
     required this.analysis,
     this.badges = const [],
+    this.infographicPngBuilder,
   });
 
   final ThaiBetaAnalysis analysis;
   final List<ThaiPublicEvidenceBadgeBetaViewModel> badges;
+  final Future<Uint8List> Function()? infographicPngBuilder;
 
   @override
   State<ThaiBetaReportExportButton> createState() =>
       _ThaiBetaReportExportButtonState();
 }
 
-class _ThaiBetaReportExportButtonState extends State<ThaiBetaReportExportButton> {
+class _ThaiBetaReportExportButtonState
+    extends State<ThaiBetaReportExportButton> {
   bool _busy = false;
   String? _errorMessage;
 
   ThaiBetaReportExportDocument _document() {
-    return ThaiBetaReportExportDocument.fromAnalysis(
+    return ThaiBetaReportExportDocument.candidate(
       widget.analysis,
       badges: widget.badges,
     );
   }
 
-  Future<void> _openPrintPage([ThaiBetaReportExportDocument? document]) async {
+  Future<void> _openPrintPage([
+    ThaiBetaReportExportDocument? document,
+    Uint8List? infographicPng,
+  ]) async {
     final doc = document ?? _document();
+    final png = infographicPng ?? await widget.infographicPngBuilder?.call();
     if (!mounted) return;
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
-        builder: (_) => ThaiBetaExportPrintPage(document: doc),
+        builder: (_) =>
+            ThaiBetaExportPrintPage(document: doc, infographicPng: png),
       ),
     );
   }
@@ -55,7 +65,11 @@ class _ThaiBetaReportExportButtonState extends State<ThaiBetaReportExportButton>
     final document = _document();
 
     try {
-      final bytes = await ThaiBetaReportPdfExporter.buildBytes(document);
+      final infographicPng = await widget.infographicPngBuilder?.call();
+      final bytes = await ThaiBetaReportPdfExporter.buildBytes(
+        document,
+        infographicPng: infographicPng,
+      );
       final filename = ThaiBetaReportPdfExporter.filenameFor(document);
       final downloaded = await downloadBytesAsFile(
         bytes: bytes,
@@ -71,20 +85,20 @@ class _ThaiBetaReportExportButtonState extends State<ThaiBetaReportExportButton>
       } else {
         setState(() {
           _errorMessage =
-              'ดาวน์โหลดอัตโนมัติไม่ได้ — ใช้ปุ่มเปิดหน้าพิมพ์ / Save as PDF';
+              'ดาวน์โหลดอัตโนมัติไม่ได้ — ใช้ปุ่มพิมพ์ / บันทึกหน้าเว็บเป็น PDF';
         });
-        await _openPrintPage(document);
+        await _openPrintPage(document, infographicPng);
       }
     } catch (_) {
       if (!mounted) return;
       setState(() {
         _errorMessage =
-            'สร้าง PDF ไม่สำเร็จ — กด “เปิดหน้าพิมพ์” แล้ว Save as PDF';
+            'สร้าง PDF ไม่สำเร็จ — ใช้ “พิมพ์ / บันทึกหน้าเว็บเป็น PDF” แทน';
       });
       messenger?.showSnackBar(
         const SnackBar(
           content: Text(
-            'สร้าง PDF ไม่สำเร็จ — เปิดหน้าพิมพ์แทน (Ctrl+P / Save as PDF)',
+            'สร้าง PDF ไม่สำเร็จ — ใช้หน้าพิมพ์แทน (Ctrl+P / Save as PDF)',
           ),
         ),
       );
@@ -112,7 +126,10 @@ class _ThaiBetaReportExportButtonState extends State<ThaiBetaReportExportButton>
               onPressed: _busy ? null : _exportPdf,
               style: FilledButton.styleFrom(
                 minimumSize: const Size.fromHeight(48),
-                padding: const EdgeInsets.symmetric(vertical: 14, horizontal: 16),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 14,
+                  horizontal: 16,
+                ),
               ),
               icon: _busy
                   ? SizedBox(
@@ -125,7 +142,7 @@ class _ThaiBetaReportExportButtonState extends State<ThaiBetaReportExportButton>
                     )
                   : const Icon(Icons.picture_as_pdf_outlined),
               label: Text(
-                _busy ? 'กำลังสร้าง PDF…' : 'ดาวน์โหลดรายงานเต็ม',
+                _busy ? 'กำลังสร้าง PDF…' : 'ดาวน์โหลดรายงาน PDF',
                 style: const TextStyle(fontWeight: FontWeight.w700),
               ),
             ),
@@ -137,16 +154,16 @@ class _ThaiBetaReportExportButtonState extends State<ThaiBetaReportExportButton>
                 minimumSize: const Size.fromHeight(44),
               ),
               icon: const Icon(Icons.print_outlined),
-              label: const Text('เปิดหน้าพิมพ์ / Save as PDF'),
+              label: const Text('พิมพ์ / บันทึกหน้าเว็บเป็น PDF'),
             ),
             if (_errorMessage != null) ...[
               const SizedBox(height: 8),
               Text(
                 _errorMessage!,
                 key: const Key('thai_beta_report_export_error'),
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      color: scheme.error,
-                    ),
+                style: Theme.of(
+                  context,
+                ).textTheme.bodySmall?.copyWith(color: scheme.error),
               ),
             ],
           ],

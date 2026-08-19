@@ -1,0 +1,16 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart
+00:00 +0: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart: shared report presentation model section and paragraph inventory is stable and traceable
+00:00 +1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:00 +2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:00 +3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:00 +4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:00 +5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:00 +6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:01 +8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+00:02 +10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart: 300-profile copy ledger is complete and structural semantics are unchanged
+COPY_AUDIT profiles=300 changed_profiles=300 changed_fields=4407 omission=0 addition=0 semantic=0 prediction_to_advice=0 advice_to_prediction=0 traceability_impact=0
+00:19 +11: All tests passed!
+
+exitCode: 0

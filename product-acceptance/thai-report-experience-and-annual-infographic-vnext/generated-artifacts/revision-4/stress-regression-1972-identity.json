@@ -1,0 +1,134 @@
+{
+  "fixtureId": "stress-regression-1972",
+  "sourceHead": "a5781f344f1305f97862ea1e80ce1bf49bbcb612",
+  "controlledOutputIdentity": "revision-4-title-integrity-a5781f3",
+  "artifactRelativePath": "annual-infographic-stress-regression-1972.png",
+  "inputIdentitySha256": "2B9BC132A032310C903DACFE36C0974178B11B464D487AD0A95998971B313353",
+  "pngSha256": "9F743CBAFA28C70F73B425FC39CDC9E20622ABE4645494745A3B0147A7300110",
+  "pngDimensions": {
+    "width": 1080,
+    "height": 1920
+  },
+  "captureRepeatByteIdentical": true,
+  "titleWidgetCount": 1,
+  "titleSemanticContains": "ดวงชะตาปี 2569",
+  "titleCreamPixelCount": 8457,
+  "titleRasterSampleBounds": {
+    "left": 138,
+    "top": 38,
+    "right": 1032,
+    "bottom": 129
+  },
+  "titleRegionSha256": "950270FD0579460F1DEE648CC12DE65FCC8690E27C7FC722E87475820C4DCA24",
+  "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+  "sectionCount": 25,
+  "paragraphCount": 87,
+  "dedicatedPdfPageCount": null,
+  "pngBytes": 184607,
+  "pdfBytes": null,
+  "browserPrintHtmlBytes": null,
+  "title": "ดวงชะตาปี 2569",
+  "theme": "ตลอด 12 เดือนนี้ ให้ดูการเปลี่ยนแปลงของหน้าที่ แล้วทบทวนเมื่อการทำตามข้อตกลงสม่ำเสมอขึ้น",
+  "categories": [
+    {
+      "id": "annual-career",
+      "title": "การงาน",
+      "summary": "ทดลองขอบเขตงานใหม่ก่อนตัดสินใจรับบทบาทเต็มตัว โดยไม่แลกกับคุณภาพงานหลัก"
+    },
+    {
+      "id": "annual-finance",
+      "title": "การเงิน",
+      "summary": "พิสูจน์กระแสเงินจริงในวงเล็กก่อนเพิ่มภาระ โดยไม่ลดเงินที่ต้องพร้อมใช้"
+    },
+    {
+      "id": "annual-relationship",
+      "title": "ความรัก",
+      "summary": "รอความชัดของเงื่อนไขก่อนเพิ่มข้อผูกพัน โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน"
+    },
+    {
+      "id": "annual-health",
+      "title": "สุขภาพ",
+      "summary": "ลดกิจกรรมและคืนเวลาฟื้นตัวก่อนรับภาระใหม่ โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน"
+    }
+  ],
+  "opportunity": "โอกาสอยู่ที่การทดลองขอบเขตงานใหม่ในวงเล็ก โดยไม่แลกกับคุณภาพงานหลัก",
+  "caution": "ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน",
+  "primaryAdvice": "ใช้การสื่อสารให้คนอื่นเข้าใจ แล้วเลือกบทบาทใหม่ที่เพิ่มคุณภาพงานมากกว่าปริมาณ พร้อมรักษาสิ่งที่ตกลงกันไว้",
+  "disclaimer": "แนวโน้มนี้ใช้เพื่อวางแผนและทบทวน ไม่ใช่ข้อสรุปตายตัว",
+  "monthlyTimelineAvailable": false,
+  "monthlyGapReason": "engine ปัจจุบันมีกรอบ 12 เดือนและทักษาจรรายปี แต่ไม่มีคะแนนหรือหลักฐานที่ผูกกับเดือนปฏิทินทั้ง 12 เดือน",
+  "layoutBounds1080x1920": {
+    "title": {
+      "left": 138,
+      "top": 39,
+      "right": 1032,
+      "bottom": 129
+    },
+    "theme": {
+      "left": 48,
+      "top": 141,
+      "right": 1032,
+      "bottom": 222
+    },
+    "overview": {
+      "left": 48,
+      "top": 228,
+      "right": 1032,
+      "bottom": 267
+    },
+    "category-annual-career": {
+      "left": 48,
+      "top": 390,
+      "right": 1032,
+      "bottom": 516
+    },
+    "category-annual-finance": {
+      "left": 48,
+      "top": 525,
+      "right": 1032,
+      "bottom": 651
+    },
+    "category-annual-relationship": {
+      "left": 48,
+      "top": 660,
+      "right": 1032,
+      "bottom": 786
+    },
+    "category-annual-health": {
+      "left": 48,
+      "top": 795,
+      "right": 1032,
+      "bottom": 921
+    },
+    "ornament": {
+      "left": 48,
+      "top": 1044,
+      "right": 1032,
+      "bottom": 1236
+    },
+    "opportunity": {
+      "left": 48,
+      "top": 1359,
+      "right": 1032,
+      "bottom": 1479
+    },
+    "caution": {
+      "left": 48,
+      "top": 1491,
+      "right": 1032,
+      "bottom": 1611
+    },
+    "advice": {
+      "left": 48,
+      "top": 1734,
+      "right": 1032,
+      "bottom": 1836
+    },
+    "disclaimer": {
+      "left": 48,
+      "top": 1851,
+      "right": 1032,
+      "bottom": 1881
+    }
+  }
+}

@@ -1,0 +1,744 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart
+00:00 +0: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart: RelevantLifePeriodsSelector V121-1 mid list → previous/current/next
+00:00 +1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart: RelevantLifePeriodsSelector V121-2 first period → current/next only
+00:00 +2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart: RelevantLifePeriodsSelector V121-3 last period → previous/current only
+00:00 +3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart: RelevantLifePeriodsSelector V121-4 single period
+00:00 +4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart: RelevantLifePeriodsSelector V121-5 empty periods
+00:00 +5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart: RelevantLifePeriodsSelector V121-7 no current → deterministic first non-past fallback
+00:00 +6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart: RelevantLifePeriodsSelector V121-7b all past → last period fallback
+00:00 +7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart: RelevantLifePeriodsSelector V121-8 long timeline caps at 3
+00:00 +8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart: RelevantLifePeriodsSelector V121-9 source preservation
+00:00 +9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart: RelevantLifePeriodsSelector V121-10 determinism
+00:00 +10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_input_fixture_separation_test.dart: 00:03 stays distinct and is identical across Engine and export
+00:00 +11: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_dedupe_test.dart: Dedupe no duplicated normalized sentence in one section
+00:00 +12: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_dedupe_test.dart: Dedupe no duplicated normalized sentence in one section
+00:00 +13: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_dedupe_test.dart: Dedupe no duplicated normalized sentence in one section
+00:00 +14: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:00 +15: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:00 +16: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:00 +17: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:00 +18: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:00 +19: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:01 +20: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:01 +21: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:01 +22: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:01 +23: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:01 +24: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:01 +25: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:01 +26: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:01 +27: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_formatting_test.dart: Formatting forbidden patterns absent from composed export text
+00:01 +28: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_formatting_test.dart: Formatting forbidden patterns absent from composed export text
+00:01 +29: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_formatting_test.dart: Formatting forbidden patterns absent from composed export text
+00:01 +30: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_sample_export_test.dart: write fixture A/B sample exports V1.1
+00:01 +31: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_sample_export_test.dart: write fixture A/B sample exports V1.1
+00:01 +32: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_sample_export_test.dart: write fixture A/B sample exports V1.1
+00:01 +33: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_sample_export_test.dart: write fixture A/B sample exports V1.1
+00:01 +34: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_screen_pdf_parity_test.dart: Screen / PDF parity PDF starts from Core Reading and includes the R4 report hook
+00:02 +35: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_semantic_correctness_test.dart: Semantic correctness work narrative uses work-compatible signals
+00:02 +36: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:02 +37: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:02 +38: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:02 +39: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:02 +40: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:02 +41: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:02 +42: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:02 +43: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:02 +44: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:02 +45: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:02 +46: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:02 +47: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:02 +48: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_screen_pdf_parity_test.dart: Screen / PDF parity PDF text uses same polished narrative
+00:02 +49: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_screen_pdf_parity_test.dart: Screen / PDF parity PDF text uses same polished narrative
+00:02 +50: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_screen_pdf_parity_test.dart: Screen / PDF parity PDF text uses same polished narrative
+00:02 +51: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_screen_pdf_parity_test.dart: Screen / PDF parity PDF text uses same polished narrative
+00:02 +52: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_screen_pdf_parity_test.dart: Screen / PDF parity PDF text uses same polished narrative
+00:02 +53: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_screen_pdf_parity_test.dart: Screen / PDF parity PDF text uses same polished narrative
+00:02 +54: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_screen_pdf_parity_test.dart: Screen / PDF parity PDF text uses same polished narrative
+00:02 +55: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_screen_pdf_parity_test.dart: Screen / PDF parity PDF text uses same polished narrative
+00:02 +56: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_screen_pdf_parity_test.dart: Screen / PDF parity PDF text uses same polished narrative
+00:02 +57: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_screen_pdf_parity_test.dart: Screen / PDF parity PDF text uses same polished narrative
+00:02 +58: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_screen_pdf_parity_test.dart: Screen / PDF parity PDF text uses same polished narrative
+00:02 +59: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:02 +60: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:02 +61: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:02 +62: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:02 +63: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:02 +64: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:02 +65: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:02 +66: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:02 +67: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:02 +68: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Thai grammar V1.1 no forbidden runtime patterns in composed output
+00:02 +69: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Thai grammar V1.1 no forbidden runtime patterns in composed output
+00:02 +70: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Thai grammar V1.1 no forbidden runtime patterns in composed output
+00:02 +71: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Thai grammar V1.1 no forbidden runtime patterns in composed output
+00:02 +72: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Thai grammar V1.1 no forbidden runtime patterns in composed output
+00:02 +73: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Thai grammar V1.1 no forbidden runtime patterns in composed output
+00:02 +74: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Thai grammar V1.1 advice begins with valid curated action phrase
+00:02 +75: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Strength dedupe V1.1 strength expanded has three distinct parts when present
+00:02 +76: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Strength dedupe V1.1 strength cards do not repeat expanded body across section
+00:02 +77: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Strength dedupe V1.1 title does not duplicate first expanded sentence
+00:02 +78: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Hero V1.1 hero headline does not duplicate first summary sentence
+00:03 +79: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Hero V1.1 hero has 3-5 sentences
+00:03 +80: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Hero V1.1 hero uses at most 3 trait tags
+00:03 +81: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Hero V1.1 no-time hero uses cautious language
+00:03 +82: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Hero V1.1 hero tension requires distinct supported traits
+00:03 +83: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Domain correctness V1.1 all domains convert signals to domain behavior
+00:03 +84: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: No-birth-time safety V1.1 report and export share no-time policy
+00:03 +85: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Traceability V1.1 curated blocks trace block id and signals
+00:03 +86: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 Personal Relevance acceptance V12-1 full time + coherent: personal core + linked SRA
+00:03 +87: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 Personal Relevance acceptance V12-1 full time + coherent: personal core + linked SRA
+00:03 +88: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 Personal Relevance acceptance V12-1 full time + coherent: personal core + linked SRA
+00:03 +89: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 Personal Relevance acceptance V12-1 full time + coherent: personal core + linked SRA
+00:03 +90: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 Personal Relevance acceptance V12-1 full time + coherent: personal core + linked SRA
+00:03 +91: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart: V1.5 assigns all forecast domains to every horizon (Known)
+00:03 +92: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart: V1.5 assigns all forecast domains to every horizon (Known)
+00:03 +93: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart: V1.5 assigns all forecast domains to every horizon (Known)
+00:03 +94: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart: V1.5 assigns all forecast domains to every horizon (Known)
+00:03 +95: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart: V1.5 assigns all forecast domains to every horizon (Known)
+00:03 +96: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart: V1.5 assigns all forecast domains to every horizon (Known)
+00:04 +97: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:04 +98: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:04 +99: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:04 +100: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:04 +101: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:04 +102: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:04 +103: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:04 +104: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:04 +105: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:04 +106: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:04 +107: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:04 +108: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:04 +109: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart: (setUpAll)
+00:04 +109 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart: (setUpAll)
+00:04 +109 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart: all rendered forecasts cover 4x3 and each horizon adds a new kind [E]
+  Expected: contains 'เงินพร้อมใช้เปิดพื้นที่ให้ขยับได้ ตราบใดที่รายจ่ายระยะยาวยังไม่เบียดฐานเดิม ด้านเงินคุมขนาดทางเลือกด้วยยอดพร้อมใช้หลังรายการจำเป็น'
+    Actual: 'KnowMe — รายงานโหราไทย\n'
+              'รายงานฉบับสำหรับอ่านและบันทึกส่วนตัว\n'
+              'ดวงจากวันเกิดของคุณ\n'
+              'คำอ่านพื้นดวงและจังหวะชีวิตจากวัน เวลา และสถานที่เกิด\n'
+              'งานจะไปต่อได้ เมื่อข้อตกลงยังชัดและทำได้จริง\n'
+              'ในช่วงนี้ ความอดทนที่พาเรื่องยากไปต่อกลายเป็นแรงสำคัญของงาน งานมีแรงส่งต่อเนื่องจากตอนนี้ไปถึงช่วงถัดไป ขณะเดียวกัน ความสัมพันธ์จะเปราะบางขึ้นเมื่อภาระชุดใหม่เข้ามา คำถามคือ งานที่กำลังขยายยังเหลือเวลาและความชัดให้คนที่เกี่ยวข้องหรือไม่\n'
+              'สรุปตัวคุณแบบตรง ๆ\n'
+              'ลัคนาราศีกุมภ์สะท้อนคนที่ไปได้ดีเมื่อชีวิตมีระบบและรู้ว่าต้องทำอะไรต่อ ส่วนดาวเสาร์ซึ่งเป็นเจ้าเรือนลัคนาย้ำวินัย ความต่อเนื่อง และการสร้างฐานทีละขั้น จุดแข็งสองชั้นนี้ช่วยให้คนอื่นพึ่งคุณได้ แต่ในช่วงเก็บผล จุดเสี่ยงคือทำต่อเพราะเคยทำได้ จนไม่ได้ถามว่าวิธีเดิมยังเหมาะหรือไม่\n'
+              'การงาน\n'
+              'ข้อมูลจากเรือนการงานที่เชื่อมราศีพิจิกและดาวอังคาร สะท้อนว่า คุณสร้างผลงานผ่านความกล้าลงมือและการจัดการสิ่งเร่งด่วน งานที่เหมาะกับคุณควรให้อำนาจตัดสินใจสอดคล้องกับความรับผิดชอบ ไม่ใช่เพิ่มภาระเพียงอย่างเดียว\n'
+              'การเงิน\n'
+              'เรือนการเงินซึ่งอ่านจากราศีมีนและดาวพฤหัสบดี ผูกความมั่นคงของคุณกับภาพระยะยาว ความรู้ และการขยายอย่างมีหลัก ความก้าวหน้าจึงควรวัดจากทางเลือกที่เงินสำรองเปิดให้ มากกว่ายอดที่สะสมอย่างเดียว\n'
+              'ความรักและความสัมพันธ์\n'
+              'เมื่อเรือนความสัมพันธ์มีราศีสิงห์และดาวอาทิตย์เป็นหลัก ความไว้ใจจึงเกิดผ่านความชัดเจนและการตัดสินใจด้วยตัวเอง ข้อตกลงจึงต้องแบ่งเวลาและความรับผิดชอบโดยยังเหลือพื้นที่ให้แต่ละฝ่าย\n'
+              'สุขภาพและพลังชีวิต\n'
+              'เรือนสุขภาวะที่มีราศีกรกฎและดาวจันทร์เชื่อมพลังชีวิตกับการรับรู้ความเปลี่ยนแปลงและความต้องการรอบตัว สัญญาณที่ควรฟังคือเวลาฟื้นตัวที่ยาวขึ้นต่อเนื่อง ไม่ใช่ความล้าเพียงวันเดียว\n'
+              'เนื้อหาส่วนนี้เป็นมุมมองตามความเชื่อทางโหราศาสตร์ ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์\n'
+              'คำชี้หลักจากพื้นดวง\n'
+              'แก่นของคำอ่านนี้ไม่ใช่การรับให้มากขึ้น แต่คือการเลือกสิ่งที่คู่ควรกับแรงของคุณ ให้เริ่มจากการวางระบบที่ทำซ้ำได้และกำหนดเวลาพักไว้ล่วงหน้า แล้วใช้ผลจริงตัดสินว่าจะรักษาอะไรไว้\n'
+              'แผนที่ชีวิต\n'
+              'ดูช่วงที่ผ่านมา ช่วงปัจจุบัน และช่วงข้างหน้า เพื่อเข้าใจจังหวะชีวิตในภาพรวม\n'
+              'ธีมสำหรับทบทวนอดีต\n'
+              'ส่วนนี้ใช้ตั้งคำถามกับความทรงจำจริง ไม่ใช่ข้อสรุปว่าเหตุการณ์ใดเคยเกิดขึ้น\n'
+              'ช่วงวางรากฐาน (1–10)\n'
+              'อิทธิพลดาวเสาร์ • ความมั่นคง\n'
+              'ธีมสำหรับทบทวน: ความมั่นคงในช่วงวางรากฐานอาจเทียบได้กับความทรงจำเรื่องบ้าน ผู้ดูแล ความปลอดภัย การเรียนรู้ การเล่น และการได้รับการยอมรับ ลองนึกว่าฐานใดยังติดตัวมาถึงวันนี้\n'
+              'คำถามสะท้อน: เมื่อนึกถึงวัย 1–10 คุณจำได้ไหมว่าที่ใดหรือใครทำให้กล้าลอง เล่น หรือเรียนรู้ และความทรงจำนั้นบอกอะไรเกี่ยวกับฐานที่คุณใช้ตัดสินใจวันนี้\n'
+              'ช่วงเติบโตและขยาย (11–29)\n'
+              'อิทธิพลดาวพฤหัสบดี • การเติบโต\n'
+              'ธีมสำหรับทบทวน: การเติบโตของช่วงเติบโตและขยายอยู่ในบริบทของการเป็นอิสระ การศึกษา การเริ่มงาน ความสัมพันธ์ และทรัพยากรที่ต้องจัดการเองมากขึ้น ลองแยกสิ่งที่คุณเลือกเองจากสิ่งที่รับตามแรงรอบตัว\n'
+              'คำถามสะท้อน: เมื่อคิดถึงวัย 11–29 คุณจำจุดใดได้ชัดที่สุดระหว่างการออกไปยืนด้วยตัวเอง การเริ่มเส้นทางใหม่ หรือการตั้งขอบเขตกับคนใกล้ตัว แล้วบทเรียนนั้นช่วยคัดการตัดสินใจวันนี้แบบไหน\n'
+              'ช่วงพลิกผันและเปลี่ยนผ่าน (30–41)\n'
+              'อิทธิพลดาวราหู • การเปลี่ยนแปลง\n'
+              'ธีมสำหรับทบทวน: ลองวางการเปลี่ยนแปลงของช่วงพลิกผันและเปลี่ยนผ่านไว้ข้างงาน เงิน ความสัมพันธ์ ความรับผิดชอบ และบทบาทที่อาจต้องจัดใหม่ แล้วดูว่าเกณฑ์เดิมส่วนใดยังควรรักษา\n'
+              'คำถามสะท้อน: เมื่อมองกลับไปที่วัย 30–41 มีความทรงจำช่วงใดที่คุณต้องชั่งระหว่างสิ่งที่รับผิดชอบอยู่กับบทบาทที่อยากเปลี่ยน และเกณฑ์ครั้งนั้นยังเหมาะกับการตัดสินใจวันนี้หรือไม่\n'
+              'ช่วงปัจจุบัน\n'
+              'คุณอยู่ช่วงไหนของชีวิต\n'
+              'ช่วงเก็บเกี่ยวความสุข · อายุ 42–62 · อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์\n'
+              'ตอนนี้คุณอายุ 44 ปี อยู่ช่วงต้นของช่วงเก็บเกี่ยวความสุข และเหลือเวลาอีกราว 18 ปีก่อนเปลี่ยนผ่าน\n'
+              'พลังธาตุน้ำหนุนช่วงเก็บเกี่ยวให้คุณใช้ความสัมพันธ์และความเข้าใจคนประกอบการตัดสินใจ โดยไม่ต้องเร่งทุกเรื่องพร้อมกัน\n'
+              'การงาน\n'
+              'มีโอกาสรับงานหรือความรับผิดชอบเพิ่มในช่วงนี้ แต่ไม่จำเป็นต้องรับทุกทางพร้อมกัน ควรระวังการรับงานซ้อนจนกระทบคุณภาพและความต่อเนื่อง\n'
+              'การเงิน\n'
+              'ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้\n'
+              'สุขภาพ\n'
+              'ช่วงนี้พลังชีวิตพอไปได้หากจัดจังหวะพักสม่ำเสมอ รักษาเวลานอนให้คงที่ และเว้นช่วงสั้น ๆ ระหว่างภาระ เพื่อไม่ให้ความล้าสะสมจนกระทบช่วงที่ต้องใช้แรง ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำบอกจากแพทย์ หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ\n'
+              'โชคลาภ\n'
+              'รายได้ส่วนใหญ่ยังมาจากงานและความสามารถที่ลงมือเอง มากกว่าเหตุบังเอิญ ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากข้อมูลที่ตรวจสอบได้และภาระจริงก่อนรับ\n'
+              'แนวโน้มชีวิตในระยะข้างหน้า\n'
+              'ภาพข้างหน้าเริ่มจากการตัดสินใจวันนี้ ต่อด้วยการทบทวนใน 12 เดือน และจบที่ทิศทางระยะยาว งาน เงิน ความสัมพันธ์ และการพักจึงมีหน้าที่ต่างกันในแต่ละระยะ\n'
+              'ไม่ต้องเร่งทุกด้านพร้อมกัน ให้ขยับเรื่องหลักเท่าที่ชีวิตด้านอื่นยังรับไหว\n'
+              'สิ่งที่ต้องตัดสินใจตอนนี้\n'
+              'สิ่งที่ต้องตัดสินใจตอนนี้คืองานหนึ่งเรื่อง โดยใช้คุณภาพของงานชิ้นหลักเป็นหลัก และไม่ปล่อยให้พฤติกรรมที่ทำตามคำตกลงเสียไป\n'
+              'การงาน\n'
+              'บทบาทงานก้อนใหม่มีแรงส่ง แต่ควรรับเฉพาะส่วนที่เพิ่มคุณภาพงานหลัก\n'
+              'เลือกงานหลักหนึ่งเรื่อง ตั้งเพดานเวลา และปฏิเสธงานใหม่เมื่อเพดานเต็ม เรื่องนี้เป็นแกนตัดสินใจหลัก คำถามที่ใช้ตรวจคืองานชิ้นหลักยังได้มาตรฐานหลังรับหน้าที่ใหม่หรือไม่\n'
+              'การเงิน\n'
+              'เงินสำรองช่วยให้คุณมีทางเลือกมากขึ้น ตราบใดที่รายจ่ายระยะยาวยังไม่กระทบเงินก้อนหลัก ด้านเงินคุมขนาดทางเลือกด้วยยอดพร้อมใช้หลังรายการจำเป็น\n'
+              'ความรัก\n'
+              'ข้อตกลงที่ทั้งสองฝ่ายทำได้จริง เปิดทางให้ความสัมพันธ์ขยับอย่างมั่นคง ก่อนเพิ่มข้อผูกพัน ให้ดูว่าสิ่งที่ตกลงกันถูกทำจริงต่อเนื่องหรือไม่\n'
+              'สุขภาพ\n'
+              'หากพักแล้วร่างกายกลับมามีแรงได้ตามปกติ พลังของคุณยังรองรับการขยับได้ หากร่างกายใช้เวลากลับมามีแรงนานขึ้น ให้ลดกิจกรรมก่อนเพิ่มแผนใหม่\n'
+              'แนวโน้ม 12 เดือนข้างหน้า\n'
+              'ตลอด 12 เดือนของช่วงเก็บเกี่ยวความสุข ให้ใช้ขอบเขตหน้าที่ที่เปลี่ยนไปเป็นสัญญาณ แล้วกลับมาทบทวนเมื่อพฤติกรรมหลังข้อตกลงเริ่มชัด\n'
+              'การงาน\n'
+              'ขอบเขตหน้าที่ที่กว้างขึ้นคือสัญญาณสำคัญด้านงาน หากอำนาจตัดสินใจไม่เพิ่มตาม งานชิ้นหลักจะเสียคุณภาพ กำหนดจุดทบทวนกลางปีเพื่อเลือกว่าจะขยายบทบาทเดิมหรือหยุดรับเพิ่ม เมื่อถึงรอบส่งมอบงานกลางปี ให้เลือกว่าจะขยายทางเดิมหรือปรับแผน\n'
+              'การเงิน\n'
+              'รายรับที่เพิ่มแล้วเหลือเป็นเงินพร้อมใช้คือสัญญาณสำคัญด้านการเงิน หากรายจ่ายประจำโตตามทันที การขยายแผนควรช้าลง บันทึกยอดคงเหลือรายไตรมาสเพื่อดูสภาพคล่อง ตัวเลขครั้งเดียวจึงยังไม่พอให้ขยายภาระเงิน\n'
+              'ความรัก\n'
+              'ข้อตกลงที่ถูกทำต่อเนื่องจะทำให้ความสัมพันธ์ชัด ไม่ใช่บทสนทนาครั้งเดียว หากพฤติกรรมยังไม่ตรงกับข้อตกลง ให้ทบทวนสิ่งที่คุยกันและชะลอข้อผูกพันใหม่ก่อน\n'
+              'สุขภาพ\n'
+              'หลังสัปดาห์หนัก ให้ดูว่าร่างกายใช้เวลากี่วันจึงกลับมามีแรง หากต้องพักนานขึ้นเรื่อย ๆ ตารางเดิมกำลังเกินกำลังที่มี จดเวลาคืนแรงหลังสัปดาห์หนัก แล้วทบทวนว่าตารางกิจกรรมควรลดหรือคงเดิม\n'
+              'ช่วงชีวิตถัดไป\n'
+              'เมื่อเข้าสู่ช่วงชีวิตถัดไป ให้รักษางานที่ใช้ประสบการณ์ได้เต็มที่ไว้ โดยไม่แลกกับความสัมพันธ์ที่แบ่งเวลาและหน้าที่ได้จริง\n'
+              'การงาน\n'
+              'ทิศทางงานระยะต่อไปจะเปลี่ยนจากการรับเพิ่มไปสู่การคุมคุณภาพ คุณจึงต้องเลือกงานที่ใช้ประสบการณ์สูงและส่งต่อส่วนที่กระจายแรง ในระยะยาว ให้คัดว่าประสบการณ์งานใดควรรักษาและส่วนใดควรส่งต่อ\n'
+              'การเงิน\n'
+              'ฐานเงินของจังหวะใหม่ต้องรองรับการเปลี่ยนบทบาท รายจ่ายผูกพันจึงต้องมีเงินสำรองแยกจากค่าใช้จ่ายปกติ กำหนดยอดเงินขั้นต่ำที่ห้ามแตะ เพื่อไม่ให้รายจ่ายเร่งด่วนบังคับการตัดสินใจ\n'
+              'ความรัก\n'
+              'ความสัมพันธ์ในระยะใหม่ต้องจัดเวลา หน้าที่ และพื้นที่ส่วนตัวให้ชัด จึงจะรองรับบทบาทที่เปลี่ยนไปได้ ระยะยาวต้องแบ่งเวลาและหน้าที่ได้จริง ไม่ใช่เพียงตกลงกันไว้\n'
+              'สุขภาพ\n'
+              'กิจวัตรพลังชีวิตต้องเปลี่ยนพร้อมตารางใหม่ ไม่ใช่รอให้ความล้าสะสมแล้วค่อยพัก เลือกกิจวัตรพักที่ทำได้ต่อเนื่อง โดยไม่ยืมแรงจากวันต่อไป\n'
+              'คำแนะนำปิดท้ายช่วงถัดไป\n'
+              'ใช้ความอดทนที่พาเรื่องยากไปต่อเลือกทางงานที่ทำให้บทบาทใหม่เพิ่มคุณภาพงาน ไม่ใช่เพียงเพิ่มจำนวนงาน พร้อมรักษาพฤติกรรมที่ทำตามคำตกลงไว้\n'
+              'แนวโน้มระยะยาว\n'
+              'ดูภาพรวมของช่วงถัดไป เพื่อเตรียมสิ่งสำคัญไว้ล่วงหน้า\n'
+              'เปลี่ยนผ่านที่ท้าทาย\n'
+              'จากจังหวะที่รับฟังและปรับตามสถานการณ์ คุณกำลังเข้าสู่ช่วงที่ต้องตัดสินใจและลงมือให้ชัดขึ้น (จังหวะเปลี่ยนผ่านที่ต้องปรับตัวมากขึ้น)\n'
+              'เรื่องที่ควรเตรียมไว้สำหรับช่วงถัดไป: การงาน\n'
+              'ช่วงเปล่งประกาย (63–68)\n'
+              'อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่\n'
+              'รายงานนี้ดูจากอะไร\n'
+              'ข้อมูลวัน เวลา และสถานที่เกิด\n'
+              'วิธีนับวันทางโหราศาสตร์ไทย\n'
+              'วันเกิดตามสูติบัตรยังเป็นวันที่ 1982-06-06 ตามเดิม ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วันเสาร์ (วันที่ 1982-06-05) เป็นวันทางโหราศาสตร์\n'
+              'เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้นเวลา 05:46 จึงใช้วันก่อนหน้าตามกฎที่นับวันใหม่เมื่อพระอาทิตย์ขึ้น โดยไม่เปลี่ยนวันเกิดตามสูติบัตร\n'
+              'ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากนาฬิกาเกิดและพิกัดจังหวัด) อยู่ที่ราศีกุมภ์\n'
+              'คำอ่านข้างต้นเลือกประเด็นที่เชื่อมกับชีวิตคุณได้ชัดที่สุดก่อน แล้วเรียงผลต่อเนื่องไปยังเรื่องที่ควรระวังและการตัดสินใจ\n'
+              'โครงสร้างดวงหลัก\n'
+              'วันทางโหราศาสตร์: วันเสาร์ — เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้น จึงใช้วันก่อนหน้าเป็นวันทางโหราศาสตร์\n'
+              'ลัคนา: ราศีกุมภ์ 19°19′ — ไปได้ดีเมื่อชีวิตมีระบบและรู้ว่าต้องทำอะไรต่อ\n'
+              'เจ้าเรือนลัคนา: ดาวเสาร์ — หลักฐานที่เชื่อมลัคนากับรูปแบบการตัดสินใจในคำอ่าน\n'
+              'เรือนการงาน: ราศีพิจิก · เจ้าเรือนดาวอังคาร — บทบาทและวิธีสร้างผลงานอ่านจากตำแหน่งคู่นี้\n'
+              'เรือนการเงิน: ราศีมีน · เจ้าเรือนดาวพฤหัสบดี — ทรัพยากรและวิธีรักษาความมั่นคงอ่านจากจุดนี้\n'
+              'เรือนความสัมพันธ์: ราศีสิงห์ · เจ้าเรือนดาวอาทิตย์ — คู่สัมพันธ์และวิธีสร้างความไว้ใจอ้างอิงจากเรือนนี้\n'
+              'เรือนสุขภาวะ: ราศีกรกฎ · เจ้าเรือนดาวจันทร์ — กิจวัตร การพัก และการคืนแรงอ้างอิงจากหลักฐานชุดนี้\n'
+              'ความหมายและข้อจำกัดของผลลัพธ์\n'
+              'ที่มาของผลวิเคราะห์\n'
+              'ใช้วัน เดือน ปีเกิด เวลาเกิด และจังหวัดที่เกิดจากโปรไฟล์ของคุณ\n'
+              'นำข้อมูลวันเกิดของคุณมาประมวลผลตามหลักดวงไทย แล้วแปลงเป็นภาษาที่อ่านเข้าใจง่าย โดยไม่แสดงรายละเอียดเชิงเทคนิค\n'
+              'เป็นแนวทางดูตัวเอง ไม่ใช่คำฟันธง — ชีวิตเปลี่ยนได้เสมอตามการกระทำของคุณ\n'
+              'ข้อจำกัด\n'
+              'ผลลัพธ์นี้เป็นมุมมองเพื่อทำความเข้าใจตัวเอง ไม่ใช่คำทำนาย\n'
+              'สิ่งที่อ่านอาจตรงหรือไม่ตรงกับตัวคุณทั้งหมด — ใช้เป็นจุดเริ่มสังเกตตัวเอง\n'
+              ''
+     Which: does not contain 'เงินพร้อมใช้เปิดพื้นที่ให้ขยับได้ ตราบใดที่รายจ่ายระยะยาวยังไม่เบียดฐานเดิม ด้านเงินคุมขนาดทางเลือกด้วยยอดพร้อมใช้หลังรายการจำเป็น'
+  owner-known-0035:การเงิน
+  
+  package:matcher                                                                            expect
+  package:flutter_test/src/widget_tester.dart 473:18                                         expect
+  test\validation\thai_beta\narrative\thai_beta_narrative_v15_r4_acceptance_test.dart 99:11  main.<fn>
+  
+00:04 +109 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:04 +110 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:04 +111 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:04 +112 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:04 +113 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:05 +114 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:05 +115 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:05 +116 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:05 +117 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:05 +118 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:05 +119 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:05 +120 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:05 +121 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:05 +122 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:05 +123 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:05 +124 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:05 +125 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:05 +126 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:05 +127 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:05 +128 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart: R7 reports pass literal, prose, domain, and encoding gates
+00:05 +129 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart: R7 reports pass literal, prose, domain, and encoding gates
+00:05 +130 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart: R7 reports pass literal, prose, domain, and encoding gates
+00:05 +131 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — calculation + narrative quality RQ-A full birth time: success, full confidence path, no forbidden
+00:05 +132 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — calculation + narrative quality RQ-A full birth time: success, full confidence path, no forbidden
+00:05 +133 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:05 +134 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:05 +135 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:05 +136 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:05 +137 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:05 +138 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:05 +139 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:06 +140 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:06 +141 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:06 +142 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:06 +143 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:06 +144 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:06 +145 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:06 +146 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:06 +147 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:06 +148 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:06 +149 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:06 +150 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:06 +151 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:06 +152 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:06 +153 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:06 +154 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-4 confidence meter label is ความชัดของแนวโน้ม
+00:06 +155 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-4 confidence meter label is ความชัดของแนวโน้ม
+00:06 +156 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-4 confidence meter label is ความชัดของแนวโน้ม
+00:06 +157 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-4 confidence meter label is ความชัดของแนวโน้ม
+00:06 +158 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-4 confidence meter label is ความชัดของแนวโน้ม
+00:06 +159 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-4 confidence meter label is ความชัดของแนวโน้ม
+00:06 +160 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-4 confidence meter label is ความชัดของแนวโน้ม
+00:06 +161 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-4 confidence meter label is ความชัดของแนวโน้ม
+00:06 +162 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-4 confidence meter label is ความชัดของแนวโน้ม
+00:06 +163 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart: V1.2.1 timeline UI V121-8/12 compact: ≤3 periods, collapsed, no far age
+00:06 +164 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart: V1.2.1 timeline UI V121-8/12 compact: ≤3 periods, collapsed, no far age
+00:06 +165 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart: V1.2.1 timeline UI V121-8/12 compact: ≤3 periods, collapsed, no far age
+00:07 +166 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-5 full report shows editorial titles, no old jargon
+00:07 +167 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-5 full report shows editorial titles, no old jargon
+00:07 +168 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-5 full report shows editorial titles, no old jargon
+00:07 +169 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-5 full report shows editorial titles, no old jargon
+00:07 +170 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-5 full report shows editorial titles, no old jargon
+00:07 +171 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-5 full report shows editorial titles, no old jargon
+00:07 +172 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-5 full report shows editorial titles, no old jargon
+00:07 +173 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-5 full report shows editorial titles, no old jargon
+00:07 +174 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-5 full report shows editorial titles, no old jargon
+00:07 +175 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-5 full report shows editorial titles, no old jargon
+00:07 +176 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:07 +177 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:07 +178 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:07 +179 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:07 +180 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:07 +181 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:07 +182 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:07 +183 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:07 +184 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:07 +185 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:07 +186 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:07 +186 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:07 +186 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability [E]
+  Expected: equals [
+              'หลักฐานเรือนการงานที่เชื่อมราศีกุมภ์และดาวเสาร์ แปลเป็นภาษาคนว่า คุณสร้างผลงานผ่านวินัย ความต่อเนื่อง และการสร้างฐานทีละขั้น บทบาทที่คุ้มจึงต้องเพิ่มอำนาจดูแลคุณภาพ ไม่ใช่เพิ่มแต่งานที่ต้องถือ'
+            ] ordered
+    Actual: [
+              'ข้อมูลจากเรือนการงานที่เชื่อมราศีกุมภ์และดาวเสาร์ สะท้อนว่า คุณสร้างผลงานผ่านวินัย ความต่อเนื่อง และการสร้างฐานทีละขั้น งานที่เหมาะกับคุณควรให้อำนาจตัดสินใจสอดคล้องกับความรับผิดชอบ ไม่ใช่เพิ่มภาระเพียงอย่างเดียว'
+            ]
+     Which: at location [0] is 'ข้อมูลจากเรือนการงานที่เชื่อมราศีกุมภ์และดาวเสาร์ สะท้อนว่า คุณสร้างผลงานผ่านวินัย ความต่อเนื่อง และการสร้างฐานทีละขั้น งานที่เหมาะกับคุณควรให้อำนาจตัดสินใจสอดคล้องกับความรับผิดชอบ ไม่ใช่เพิ่มภาระเพียงอย่างเดียว' instead of 'หลักฐานเรือนการงานที่เชื่อมราศีกุมภ์และดาวเสาร์ แปลเป็นภาษาคนว่า คุณสร้างผลงานผ่านวินัย ความต่อเนื่อง และการสร้างฐานทีละขั้น บทบาทที่คุ้มจึงต้องเพิ่มอำนาจดูแลคุณภาพ ไม่ใช่เพิ่มแต่งานที่ต้องถือ'
+  fixture-a-known-time: การงาน
+  
+  package:matcher                                                                           expect
+  package:flutter_test/src/widget_tester.dart 473:18                                        expect
+  test\validation\thai_beta\core_reading\thai_beta_readability_acceptance_test.dart 108:13  main.<fn>
+  
+00:07 +187 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:07 +188 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:07 +189 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:08 +190 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:08 +191 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:08 +192 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:08 +193 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:08 +194 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:08 +195 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:08 +196 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:08 +197 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:08 +198 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:08 +199 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:08 +200 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:08 +201 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:08 +202 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:08 +203 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:08 +204 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:08 +205 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:08 +206 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:08 +207 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:08 +208 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: future claims respond to known-time versus unknown-time evidence
+00:08 +209 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +210 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +211 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +212 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +213 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +214 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +215 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +216 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +217 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +218 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +219 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +220 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +221 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +222 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +223 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +224 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +225 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +226 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +227 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +227 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +227 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart: Web narrative and PDF use the same polished document content [E]
+  Expected: contains 'หลักฐานเรือนการงานที่เชื่อมราศีพิจิกและดาวอังคาร แปลเป็นภาษาคนว่า คุณสร้างผลงานผ่านความกล้าลงมือและการจัดการสิ่งเร่งด่วน บทบาทที่คุ้มจึงต้องเพิ่มอำนาจดูแลคุณภาพ ไม่ใช่เพิ่มแต่งานที่ต้องถือ'
+    Actual: 'KnowMe — รายงานโหราไทย\n'
+              'รายงานฉบับสำหรับอ่านและบันทึกส่วนตัว\n'
+              'ดวงจากวันเกิดของคุณ\n'
+              'คำอ่านพื้นดวงและจังหวะชีวิตจากวัน เวลา และสถานที่เกิด\n'
+              'งานจะไปต่อได้ เมื่อข้อตกลงยังชัดและทำได้จริง\n'
+              'ในช่วงนี้ ความอดทนที่พาเรื่องยากไปต่อกลายเป็นแรงสำคัญของงาน งานมีแรงส่งต่อเนื่องจากตอนนี้ไปถึงช่วงถัดไป ขณะเดียวกัน ความสัมพันธ์จะเปราะบางขึ้นเมื่อภาระชุดใหม่เข้ามา คำถามคือ งานที่กำลังขยายยังเหลือเวลาและความชัดให้คนที่เกี่ยวข้องหรือไม่\n'
+              'สรุปตัวคุณแบบตรง ๆ\n'
+              'ลัคนาราศีกุมภ์สะท้อนคนที่ไปได้ดีเมื่อชีวิตมีระบบและรู้ว่าต้องทำอะไรต่อ ส่วนดาวเสาร์ซึ่งเป็นเจ้าเรือนลัคนาย้ำวินัย ความต่อเนื่อง และการสร้างฐานทีละขั้น จุดแข็งสองชั้นนี้ช่วยให้คนอื่นพึ่งคุณได้ แต่ในช่วงเก็บผล จุดเสี่ยงคือทำต่อเพราะเคยทำได้ จนไม่ได้ถามว่าวิธีเดิมยังเหมาะหรือไม่\n'
+              'การงาน\n'
+              'ข้อมูลจากเรือนการงานที่เชื่อมราศีพิจิกและดาวอังคาร สะท้อนว่า คุณสร้างผลงานผ่านความกล้าลงมือและการจัดการสิ่งเร่งด่วน งานที่เหมาะกับคุณควรให้อำนาจตัดสินใจสอดคล้องกับความรับผิดชอบ ไม่ใช่เพิ่มภาระเพียงอย่างเดียว\n'
+              'การเงิน\n'
+              'เรือนการเงินซึ่งอ่านจากราศีมีนและดาวพฤหัสบดี ผูกความมั่นคงของคุณกับภาพระยะยาว ความรู้ และการขยายอย่างมีหลัก ความก้าวหน้าจึงควรวัดจากทางเลือกที่เงินสำรองเปิดให้ มากกว่ายอดที่สะสมอย่างเดียว\n'
+              'ความรักและความสัมพันธ์\n'
+              'เมื่อเรือนความสัมพันธ์มีราศีสิงห์และดาวอาทิตย์เป็นหลัก ความไว้ใจจึงเกิดผ่านความชัดเจนและการตัดสินใจด้วยตัวเอง ข้อตกลงจึงต้องแบ่งเวลาและความรับผิดชอบโดยยังเหลือพื้นที่ให้แต่ละฝ่าย\n'
+              'สุขภาพและพลังชีวิต\n'
+              'เรือนสุขภาวะที่มีราศีกรกฎและดาวจันทร์เชื่อมพลังชีวิตกับการรับรู้ความเปลี่ยนแปลงและความต้องการรอบตัว สัญญาณที่ควรฟังคือเวลาฟื้นตัวที่ยาวขึ้นต่อเนื่อง ไม่ใช่ความล้าเพียงวันเดียว\n'
+              'เนื้อหาส่วนนี้เป็นมุมมองตามความเชื่อทางโหราศาสตร์ ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์\n'
+              'คำชี้หลักจากพื้นดวง\n'
+              'แก่นของคำอ่านนี้ไม่ใช่การรับให้มากขึ้น แต่คือการเลือกสิ่งที่คู่ควรกับแรงของคุณ ให้เริ่มจากการวางระบบที่ทำซ้ำได้และกำหนดเวลาพักไว้ล่วงหน้า แล้วใช้ผลจริงตัดสินว่าจะรักษาอะไรไว้\n'
+              'แผนที่ชีวิต\n'
+              'ดูช่วงที่ผ่านมา ช่วงปัจจุบัน และช่วงข้างหน้า เพื่อเข้าใจจังหวะชีวิตในภาพรวม\n'
+              'ธีมสำหรับทบทวนอดีต\n'
+              'ส่วนนี้ใช้ตั้งคำถามกับความทรงจำจริง ไม่ใช่ข้อสรุปว่าเหตุการณ์ใดเคยเกิดขึ้น\n'
+              'ช่วงวางรากฐาน (1–10)\n'
+              'อิทธิพลดาวเสาร์ • ความมั่นคง\n'
+              'ธีมสำหรับทบทวน: ความมั่นคงในช่วงวางรากฐานอาจเทียบได้กับความทรงจำเรื่องบ้าน ผู้ดูแล ความปลอดภัย การเรียนรู้ การเล่น และการได้รับการยอมรับ ลองนึกว่าฐานใดยังติดตัวมาถึงวันนี้\n'
+              'คำถามสะท้อน: เมื่อนึกถึงวัย 1–10 คุณจำได้ไหมว่าที่ใดหรือใครทำให้กล้าลอง เล่น หรือเรียนรู้ และความทรงจำนั้นบอกอะไรเกี่ยวกับฐานที่คุณใช้ตัดสินใจวันนี้\n'
+              'ช่วงเติบโตและขยาย (11–29)\n'
+              'อิทธิพลดาวพฤหัสบดี • การเติบโต\n'
+              'ธีมสำหรับทบทวน: การเติบโตของช่วงเติบโตและขยายอยู่ในบริบทของการเป็นอิสระ การศึกษา การเริ่มงาน ความสัมพันธ์ และทรัพยากรที่ต้องจัดการเองมากขึ้น ลองแยกสิ่งที่คุณเลือกเองจากสิ่งที่รับตามแรงรอบตัว\n'
+              'คำถามสะท้อน: เมื่อคิดถึงวัย 11–29 คุณจำจุดใดได้ชัดที่สุดระหว่างการออกไปยืนด้วยตัวเอง การเริ่มเส้นทางใหม่ หรือการตั้งขอบเขตกับคนใกล้ตัว แล้วบทเรียนนั้นช่วยคัดการตัดสินใจวันนี้แบบไหน\n'
+              'ช่วงพลิกผันและเปลี่ยนผ่าน (30–41)\n'
+              'อิทธิพลดาวราหู • การเปลี่ยนแปลง\n'
+              'ธีมสำหรับทบทวน: ลองวางการเปลี่ยนแปลงของช่วงพลิกผันและเปลี่ยนผ่านไว้ข้างงาน เงิน ความสัมพันธ์ ความรับผิดชอบ และบทบาทที่อาจต้องจัดใหม่ แล้วดูว่าเกณฑ์เดิมส่วนใดยังควรรักษา\n'
+              'คำถามสะท้อน: เมื่อมองกลับไปที่วัย 30–41 มีความทรงจำช่วงใดที่คุณต้องชั่งระหว่างสิ่งที่รับผิดชอบอยู่กับบทบาทที่อยากเปลี่ยน และเกณฑ์ครั้งนั้นยังเหมาะกับการตัดสินใจวันนี้หรือไม่\n'
+              'ช่วงปัจจุบัน\n'
+              'คุณอยู่ช่วงไหนของชีวิต\n'
+              'ช่วงเก็บเกี่ยวความสุข · อายุ 42–62 · อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์\n'
+              'ตอนนี้คุณอายุ 44 ปี อยู่ช่วงต้นของช่วงเก็บเกี่ยวความสุข และเหลือเวลาอีกราว 18 ปีก่อนเปลี่ยนผ่าน\n'
+              'พลังธาตุน้ำหนุนช่วงเก็บเกี่ยวให้คุณใช้ความสัมพันธ์และความเข้าใจคนประกอบการตัดสินใจ โดยไม่ต้องเร่งทุกเรื่องพร้อมกัน\n'
+              'การงาน\n'
+              'มีโอกาสรับงานหรือความรับผิดชอบเพิ่มในช่วงนี้ แต่ไม่จำเป็นต้องรับทุกทางพร้อมกัน ควรระวังการรับงานซ้อนจนกระทบคุณภาพและความต่อเนื่อง\n'
+              'การเงิน\n'
+              'ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้\n'
+              'สุขภาพ\n'
+              'ช่วงนี้พลังชีวิตพอไปได้หากจัดจังหวะพักสม่ำเสมอ รักษาเวลานอนให้คงที่ และเว้นช่วงสั้น ๆ ระหว่างภาระ เพื่อไม่ให้ความล้าสะสมจนกระทบช่วงที่ต้องใช้แรง ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำบอกจากแพทย์ หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ\n'
+              'โชคลาภ\n'
+              'รายได้ส่วนใหญ่ยังมาจากงานและความสามารถที่ลงมือเอง มากกว่าเหตุบังเอิญ ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากข้อมูลที่ตรวจสอบได้และภาระจริงก่อนรับ\n'
+              'แนวโน้มชีวิตในระยะข้างหน้า\n'
+              'ภาพข้างหน้าเริ่มจากการตัดสินใจวันนี้ ต่อด้วยการทบทวนใน 12 เดือน และจบที่ทิศทางระยะยาว งาน เงิน ความสัมพันธ์ และการพักจึงมีหน้าที่ต่างกันในแต่ละระยะ\n'
+              'ไม่ต้องเร่งทุกด้านพร้อมกัน ให้ขยับเรื่องหลักเท่าที่ชีวิตด้านอื่นยังรับไหว\n'
+              'สิ่งที่ต้องตัดสินใจตอนนี้\n'
+              'สิ่งที่ต้องตัดสินใจตอนนี้คืองานหนึ่งเรื่อง โดยใช้คุณภาพของงานชิ้นหลักเป็นหลัก และไม่ปล่อยให้พฤติกรรมที่ทำตามคำตกลงเสียไป\n'
+              'การงาน\n'
+              'บทบาทงานก้อนใหม่มีแรงส่ง แต่ควรรับเฉพาะส่วนที่เพิ่มคุณภาพงานหลัก\n'
+              'เลือกงานหลักหนึ่งเรื่อง ตั้งเพดานเวลา และปฏิเสธงานใหม่เมื่อเพดานเต็ม เรื่องนี้เป็นแกนตัดสินใจหลัก คำถามที่ใช้ตรวจคืองานชิ้นหลักยังได้มาตรฐานหลังรับหน้าที่ใหม่หรือไม่\n'
+              'การเงิน\n'
+              'เงินสำรองช่วยให้คุณมีทางเลือกมากขึ้น ตราบใดที่รายจ่ายระยะยาวยังไม่กระทบเงินก้อนหลัก ด้านเงินคุมขนาดทางเลือกด้วยยอดพร้อมใช้หลังรายการจำเป็น\n'
+              'ความรัก\n'
+              'ข้อตกลงที่ทั้งสองฝ่ายทำได้จริง เปิดทางให้ความสัมพันธ์ขยับอย่างมั่นคง ก่อนเพิ่มข้อผูกพัน ให้ดูว่าสิ่งที่ตกลงกันถูกทำจริงต่อเนื่องหรือไม่\n'
+              'สุขภาพ\n'
+              'หากพักแล้วร่างกายกลับมามีแรงได้ตามปกติ พลังของคุณยังรองรับการขยับได้ หากร่างกายใช้เวลากลับมามีแรงนานขึ้น ให้ลดกิจกรรมก่อนเพิ่มแผนใหม่\n'
+              'แนวโน้ม 12 เดือนข้างหน้า\n'
+              'ตลอด 12 เดือนของช่วงเก็บเกี่ยวความสุข ให้ใช้ขอบเขตหน้าที่ที่เปลี่ยนไปเป็นสัญญาณ แล้วกลับมาทบทวนเมื่อพฤติกรรมหลังข้อตกลงเริ่มชัด\n'
+              'การงาน\n'
+              'ขอบเขตหน้าที่ที่กว้างขึ้นคือสัญญาณสำคัญด้านงาน หากอำนาจตัดสินใจไม่เพิ่มตาม งานชิ้นหลักจะเสียคุณภาพ กำหนดจุดทบทวนกลางปีเพื่อเลือกว่าจะขยายบทบาทเดิมหรือหยุดรับเพิ่ม เมื่อถึงรอบส่งมอบงานกลางปี ให้เลือกว่าจะขยายทางเดิมหรือปรับแผน\n'
+              'การเงิน\n'
+              'รายรับที่เพิ่มแล้วเหลือเป็นเงินพร้อมใช้คือสัญญาณสำคัญด้านการเงิน หากรายจ่ายประจำโตตามทันที การขยายแผนควรช้าลง บันทึกยอดคงเหลือรายไตรมาสเพื่อดูสภาพคล่อง ตัวเลขครั้งเดียวจึงยังไม่พอให้ขยายภาระเงิน\n'
+              'ความรัก\n'
+              'ข้อตกลงที่ถูกทำต่อเนื่องจะทำให้ความสัมพันธ์ชัด ไม่ใช่บทสนทนาครั้งเดียว หากพฤติกรรมยังไม่ตรงกับข้อตกลง ให้ทบทวนสิ่งที่คุยกันและชะลอข้อผูกพันใหม่ก่อน\n'
+              'สุขภาพ\n'
+              'หลังสัปดาห์หนัก ให้ดูว่าร่างกายใช้เวลากี่วันจึงกลับมามีแรง หากต้องพักนานขึ้นเรื่อย ๆ ตารางเดิมกำลังเกินกำลังที่มี จดเวลาคืนแรงหลังสัปดาห์หนัก แล้วทบทวนว่าตารางกิจกรรมควรลดหรือคงเดิม\n'
+              'ช่วงชีวิตถัดไป\n'
+              'เมื่อเข้าสู่ช่วงชีวิตถัดไป ให้รักษางานที่ใช้ประสบการณ์ได้เต็มที่ไว้ โดยไม่แลกกับความสัมพันธ์ที่แบ่งเวลาและหน้าที่ได้จริง\n'
+              'การงาน\n'
+              'ทิศทางงานระยะต่อไปจะเปลี่ยนจากการรับเพิ่มไปสู่การคุมคุณภาพ คุณจึงต้องเลือกงานที่ใช้ประสบการณ์สูงและส่งต่อส่วนที่กระจายแรง ในระยะยาว ให้คัดว่าประสบการณ์งานใดควรรักษาและส่วนใดควรส่งต่อ\n'
+              'การเงิน\n'
+              'ฐานเงินของจังหวะใหม่ต้องรองรับการเปลี่ยนบทบาท รายจ่ายผูกพันจึงต้องมีเงินสำรองแยกจากค่าใช้จ่ายปกติ กำหนดยอดเงินขั้นต่ำที่ห้ามแตะ เพื่อไม่ให้รายจ่ายเร่งด่วนบังคับการตัดสินใจ\n'
+              'ความรัก\n'
+              'ความสัมพันธ์ในระยะใหม่ต้องจัดเวลา หน้าที่ และพื้นที่ส่วนตัวให้ชัด จึงจะรองรับบทบาทที่เปลี่ยนไปได้ ระยะยาวต้องแบ่งเวลาและหน้าที่ได้จริง ไม่ใช่เพียงตกลงกันไว้\n'
+              'สุขภาพ\n'
+              'กิจวัตรพลังชีวิตต้องเปลี่ยนพร้อมตารางใหม่ ไม่ใช่รอให้ความล้าสะสมแล้วค่อยพัก เลือกกิจวัตรพักที่ทำได้ต่อเนื่อง โดยไม่ยืมแรงจากวันต่อไป\n'
+              'คำแนะนำปิดท้ายช่วงถัดไป\n'
+              'ใช้ความอดทนที่พาเรื่องยากไปต่อเลือกทางงานที่ทำให้บทบาทใหม่เพิ่มคุณภาพงาน ไม่ใช่เพียงเพิ่มจำนวนงาน พร้อมรักษาพฤติกรรมที่ทำตามคำตกลงไว้\n'
+              'แนวโน้มระยะยาว\n'
+              'ดูภาพรวมของช่วงถัดไป เพื่อเตรียมสิ่งสำคัญไว้ล่วงหน้า\n'
+              'เปลี่ยนผ่านที่ท้าทาย\n'
+              'จากจังหวะที่รับฟังและปรับตามสถานการณ์ คุณกำลังเข้าสู่ช่วงที่ต้องตัดสินใจและลงมือให้ชัดขึ้น (จังหวะเปลี่ยนผ่านที่ต้องปรับตัวมากขึ้น)\n'
+              'เรื่องที่ควรเตรียมไว้สำหรับช่วงถัดไป: การงาน\n'
+              'ช่วงเปล่งประกาย (63–68)\n'
+              'อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่\n'
+              'รายงานนี้ดูจากอะไร\n'
+              'ข้อมูลวัน เวลา และสถานที่เกิด\n'
+              'วิธีนับวันทางโหราศาสตร์ไทย\n'
+              'วันเกิดตามสูติบัตรยังเป็นวันที่ 1982-06-06 ตามเดิม ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วันเสาร์ (วันที่ 1982-06-05) เป็นวันทางโหราศาสตร์\n'
+              'เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้นเวลา 05:46 จึงใช้วันก่อนหน้าตามกฎที่นับวันใหม่เมื่อพระอาทิตย์ขึ้น โดยไม่เปลี่ยนวันเกิดตามสูติบัตร\n'
+              'ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากนาฬิกาเกิดและพิกัดจังหวัด) อยู่ที่ราศีกุมภ์\n'
+              'คำอ่านข้างต้นเลือกประเด็นที่เชื่อมกับชีวิตคุณได้ชัดที่สุดก่อน แล้วเรียงผลต่อเนื่องไปยังเรื่องที่ควรระวังและการตัดสินใจ\n'
+              'โครงสร้างดวงหลัก\n'
+              'วันทางโหราศาสตร์: วันเสาร์ — เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้น จึงใช้วันก่อนหน้าเป็นวันทางโหราศาสตร์\n'
+              'ลัคนา: ราศีกุมภ์ 9°24′ — ไปได้ดีเมื่อชีวิตมีระบบและรู้ว่าต้องทำอะไรต่อ\n'
+              'เจ้าเรือนลัคนา: ดาวเสาร์ — หลักฐานที่เชื่อมลัคนากับรูปแบบการตัดสินใจในคำอ่าน\n'
+              'เรือนการงาน: ราศีพิจิก · เจ้าเรือนดาวอังคาร — บทบาทและวิธีสร้างผลงานอ่านจากตำแหน่งคู่นี้\n'
+              'เรือนการเงิน: ราศีมีน · เจ้าเรือนดาวพฤหัสบดี — ทรัพยากรและวิธีรักษาความมั่นคงอ่านจากจุดนี้\n'
+              'เรือนความสัมพันธ์: ราศีสิงห์ · เจ้าเรือนดาวอาทิตย์ — คู่สัมพันธ์และวิธีสร้างความไว้ใจอ้างอิงจากเรือนนี้\n'
+              'เรือนสุขภาวะ: ราศีกรกฎ · เจ้าเรือนดาวจันทร์ — กิจวัตร การพัก และการคืนแรงอ้างอิงจากหลักฐานชุดนี้\n'
+              'ความหมายและข้อจำกัดของผลลัพธ์\n'
+              'ที่มาของผลวิเคราะห์\n'
+              'ใช้วัน เดือน ปีเกิด เวลาเกิด และจังหวัดที่เกิดจากโปรไฟล์ของคุณ\n'
+              'นำข้อมูลวันเกิดของคุณมาประมวลผลตามหลักดวงไทย แล้วแปลงเป็นภาษาที่อ่านเข้าใจง่าย โดยไม่แสดงรายละเอียดเชิงเทคนิค\n'
+              'เป็นแนวทางดูตัวเอง ไม่ใช่คำฟันธง — ชีวิตเปลี่ยนได้เสมอตามการกระทำของคุณ\n'
+              'ข้อจำกัด\n'
+              'ผลลัพธ์นี้เป็นมุมมองเพื่อทำความเข้าใจตัวเอง ไม่ใช่คำทำนาย\n'
+              'สิ่งที่อ่านอาจตรงหรือไม่ตรงกับตัวคุณทั้งหมด — ใช้เป็นจุดเริ่มสังเกตตัวเอง\n'
+              ''
+     Which: does not contain 'หลักฐานเรือนการงานที่เชื่อมราศีพิจิกและดาวอังคาร แปลเป็นภาษาคนว่า คุณสร้างผลงานผ่านความกล้าลงมือและการจัดการสิ่งเร่งด่วน บทบาทที่คุ้มจึงต้องเพิ่มอำนาจดูแลคุณภาพ ไม่ใช่เพิ่มแต่งานที่ต้องถือ'
+  
+  package:matcher                                                                        expect
+  package:flutter_test/src/widget_tester.dart 473:18                                     expect
+  test\validation\thai_beta\narrative\thai_consumer_narrative_voice_v1_test.dart 1010:7  main.<fn>
+  
+00:08 +228 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +229 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +230 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +231 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +232 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +233 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +234 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +235 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +236 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +236 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart: core reading appears before Timeline on the report page
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _KeyWidgetFinder:<Found 0 widgets with key [<'thai_consumer_life_timeline'>]: []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart:765:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart line 765
+The test description was:
+  core reading appears before Timeline on the report page
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:09 +236 -4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +236 -4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart: core reading appears before Timeline on the report page [E]
+  Test failed. See exception logs above.
+  The test description was: core reading appears before Timeline on the report page
+  
+00:09 +236 -4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart: unsupported no-time topics are disclosed after Timeline
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _KeyWidgetFinder:<Found 0 widgets with key [<'thai_consumer_life_timeline'>]: []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart:813:5)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart line 813
+The test description was:
+  unsupported no-time topics are disclosed after Timeline
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:09 +236 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +236 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart: unsupported no-time topics are disclosed after Timeline [E]
+  Test failed. See exception logs above.
+  The test description was: unsupported no-time topics are disclosed after Timeline
+  
+00:10 +237 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:10 +238 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:10 +238 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:10 +238 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart: web and PDF use the same Core Reading instance content [E]
+  Expected: contains 'หลักฐานเรือนการงานที่เชื่อมราศีกุมภ์และดาวเสาร์ แปลเป็นภาษาคนว่า คุณสร้างผลงานผ่านวินัย ความต่อเนื่อง และการสร้างฐานทีละขั้น บทบาทที่คุ้มจึงต้องเพิ่มอำนาจดูแลคุณภาพ ไม่ใช่เพิ่มแต่งานที่ต้องถือ'
+    Actual: [
+              'ข้อมูลจากเรือนการงานที่เชื่อมราศีกุมภ์และดาวเสาร์ สะท้อนว่า คุณสร้างผลงานผ่านวินัย ความต่อเนื่อง และการสร้างฐานทีละขั้น งานที่เหมาะกับคุณควรให้อำนาจตัดสินใจสอดคล้องกับความรับผิดชอบ ไม่ใช่เพิ่มภาระเพียงอย่างเดียว'
+            ]
+     Which: does not contain 'หลักฐานเรือนการงานที่เชื่อมราศีกุมภ์และดาวเสาร์ แปลเป็นภาษาคนว่า คุณสร้างผลงานผ่านวินัย ความต่อเนื่อง และการสร้างฐานทีละขั้น บทบาทที่คุ้มจึงต้องเพิ่มอำนาจดูแลคุณภาพ ไม่ใช่เพิ่มแต่งานที่ต้องถือ'
+  
+  package:matcher                                                                         expect
+  package:flutter_test/src/widget_tester.dart 473:18                                      expect
+  test\validation\thai_beta\core_reading\thai_birth_profile_core_reading_test.dart 892:9  main.<fn>
+  
+00:11 +239 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:11 +240 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:11 +241 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:11 +242 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:11 +243 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:11 +244 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:11 +245 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:11 +246 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:11 +247 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:11 +248 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:11 +249 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:11 +250 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:11 +251 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:11 +252 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:11 +253 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:11 +254 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:12 +255 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:12 +256 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:12 +257 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:12 +258 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_beta_report_export_test.dart: Capture route without analysis uses stored current analysis for export
+00:13 +259 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: all 300 cases pass structured, narrative, omission and safety contracts
+00:13 +260 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: all 300 cases pass structured, narrative, omission and safety contracts
+00:13 +261 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: all 300 cases pass structured, narrative, omission and safety contracts
+00:13 +262 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: all 300 cases pass structured, narrative, omission and safety contracts
+00:13 +263 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: all 300 cases pass structured, narrative, omission and safety contracts
+00:13 +264 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: all 300 cases pass structured, narrative, omission and safety contracts
+00:14 +265 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: all 300 cases pass structured, narrative, omission and safety contracts
+00:14 +266 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: all 300 cases pass structured, narrative, omission and safety contracts
+00:14 +267 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: all 300 cases pass structured, narrative, omission and safety contracts
+00:14 +268 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: all 300 cases pass structured, narrative, omission and safety contracts
+00:14 +269 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: all 300 cases pass structured, narrative, omission and safety contracts
+00:14 +270 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: all 300 cases pass structured, narrative, omission and safety contracts
+00:14 +271 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: all 300 cases pass structured, narrative, omission and safety contracts
+00:14 +272 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: all 300 cases pass structured, narrative, omission and safety contracts
+00:14 +273 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: all 300 cases pass structured, narrative, omission and safety contracts
+00:14 +274 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: all 300 cases pass structured, narrative, omission and safety contracts
+00:15 +275 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: all 300 cases pass structured, narrative, omission and safety contracts
+00:15 +276 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: all 300 cases pass structured, narrative, omission and safety contracts
+{"seed":20260803,"cases":300,"knownTime":225,"unknownTime":75,"omittedDomainCases":75,"knownTimeOmissions":{},"identicalFullReports":0,"uniqueFullReports":300,"identicalNarrativeReports":0,"uniqueNarrativeReports":300,"duplicateNarrativeCases":[],"uniqueParagraphs":489,"topParagraphFrequencies":[{"count":300,"source":"methodology/methodology:top-themes"},{"count":225,"source":"wellbeing/disclosure:medical"},{"count":75,"source":"methodology/methodology:no-birth-time"},{"count":48,"source":"closing/computed:closing-priority-action"},{"count":46,"source":"work/computed:house:10:analysis"},{"count":46,"source":"money/computed:house:2:analysis"},{"count":46,"source":"relationships/computed:house:7:analysis"},{"count":46,"source":"wellbeing/computed:house:6:analysis"},{"count":46,"source":"methodology/methodology:lagna-inputs"},{"count":40,"source":"work/computed:house:10:analysis"}]}
+00:35 +277 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: 30 stratified cases are deterministic across three runs
+00:40 +278 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: 60-case deep narrative sample has ownership and no within-report collapse
+00:41 +279 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: 20 representative cases produce real PDFs with Web semantic parity
+00:42 +279 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: 20 representative cases produce real PDFs with Web semantic parity [E]
+  Expected: contains 'หลักฐานเรือนการงานที่เชื่อมราศีสิงห์และดาวอาทิตย์ แปลเป็นภาษาคนว่า คุณสร้างผลงานผ่านความชัดเจนและการตัดสินใจด้วยตัวเอง บทบาทที่คุ้มจึงต้องเพิ่มอำนาจดูแลคุณภาพ ไม่ใช่เพิ่มแต่งานที่ต้องถือ'
+    Actual: 'KnowMe — รายงานโหราไทย\n'
+              'รายงานฉบับสำหรับอ่านและบันทึกส่วนตัว\n'
+              'ดวงจากวันเกิดของคุณ\n'
+              'คำอ่านพื้นดวงและจังหวะชีวิตจากวัน เวลา และสถานที่เกิด\n'
+              'จังหวะนี้ต้องเลือกงานโดยไม่ทิ้งความสัมพันธ์\n'
+              'ในช่วงนี้ ความถนัดในการสร้างฐานทีละขั้นกลายเป็นแรงสำคัญของงาน งานมีแรงส่งต่อเนื่องจากตอนนี้ไปถึงช่วงถัดไป ขณะเดียวกัน ความสัมพันธ์ต้องมีขอบเขตที่ทำต่อได้จริง คำถามคือ งานที่กำลังขยายยังเหลือเวลาและความชัดให้คนที่เกี่ยวข้องหรือไม่\n'
+              'สรุปตัวคุณแบบตรง ๆ\n'
+              'ลัคนาราศีพิจิกสะท้อนคนที่สบายใจกว่าเมื่อได้กำหนดทิศทางด้วยตัวเอง ส่วนดาวอังคารซึ่งเป็นเจ้าเรือนลัคนาย้ำความกล้าลงมือและการจัดการสิ่งเร่งด่วน จุดแข็งสองชั้นนี้ช่วยให้คนอื่นพึ่งคุณได้ แต่จุดที่ต้องระวังคือการเร่งเกินกำลังหรือปะทะก่อนเห็นภาพครบจนพลาดจังหวะทบทวนวิธี\n'
+              'การงาน\n'
+              'ข้อมูลจากเรือนการงานที่เชื่อมราศีสิงห์และดาวอาทิตย์ สะท้อนว่า คุณสร้างผลงานผ่านความชัดเจนและการตัดสินใจด้วยตัวเอง งานที่เหมาะกับคุณควรให้อำนาจตัดสินใจสอดคล้องกับความรับผิดชอบ ไม่ใช่เพิ่มภาระเพียงอย่างเดียว\n'
+              'การเงิน\n'
+              'เรือนการเงินซึ่งอ่านจากราศีธนูและดาวพฤหัสบดี ผูกความมั่นคงของคุณกับภาพระยะยาว ความรู้ และการขยายอย่างมีหลัก ความก้าวหน้าจึงควรวัดจากทางเลือกที่เงินสำรองเปิดให้ มากกว่ายอดที่สะสมอย่างเดียว\n'
+              'ความรักและความสัมพันธ์\n'
+              'เมื่อเรือนความสัมพันธ์มีราศีพฤษภและดาวศุกร์เป็นหลัก ความไว้ใจจึงเกิดผ่านคุณค่า ความพอดี และความร่วมมือที่ทั้งสองฝ่ายรับได้ ข้อตกลงจึงต้องแบ่งเวลาและความรับผิดชอบโดยยังเหลือพื้นที่ให้แต่ละฝ่าย\n'
+              'สุขภาพและพลังชีวิต\n'
+              'เรือนสุขภาวะที่มีราศีเมษและดาวอังคารเชื่อมพลังชีวิตกับความกล้าลงมือและการจัดการสิ่งเร่งด่วน สัญญาณที่ควรฟังคือเวลาฟื้นตัวที่ยาวขึ้นต่อเนื่อง ไม่ใช่ความล้าเพียงวันเดียว\n'
+              'เนื้อหาส่วนนี้เป็นมุมมองตามความเชื่อทางโหราศาสตร์ ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์\n'
+              'คำชี้หลักจากพื้นดวง\n'
+              'แก่นของคำอ่านนี้ไม่ใช่การรับให้มากขึ้น แต่คือการเลือกสิ่งที่คู่ควรกับแรงของคุณ ให้เริ่มจากกำหนดเกณฑ์ตัดสินใจและขอข้อมูลค้านหนึ่งมุมก่อนสรุป แล้วใช้ผลจริงตัดสินว่าจะรักษาอะไรไว้\n'
+              'แผนที่ชีวิต\n'
+              'ดูช่วงที่ผ่านมา ช่วงปัจจุบัน และช่วงข้างหน้า เพื่อเข้าใจจังหวะชีวิตในภาพรวม\n'
+              'ธีมสำหรับทบทวนอดีต\n'
+              'ส่วนนี้ใช้ตั้งคำถามกับความทรงจำจริง ไม่ใช่ข้อสรุปว่าเหตุการณ์ใดเคยเกิดขึ้น\n'
+              'ช่วงเติบโตและขยาย (1–19)\n'
+              'อิทธิพลดาวพฤหัสบดี • การเติบโต\n'
+              'ธีมสำหรับทบทวน: การเติบโตในช่วงเติบโตและขยายอาจเทียบได้กับความทรงจำเรื่องบ้าน ผู้ดูแล ความปลอดภัย การเรียนรู้ การเล่น และการได้รับการยอมรับ ลองนึกว่าฐานใดยังติดตัวมาถึงวันนี้\n'
+              'คำถามสะท้อน: เมื่อนึกถึงวัย 1–19 คุณจำได้ไหมว่าที่ใดหรือใครทำให้กล้าลอง เล่น หรือเรียนรู้ และความทรงจำนั้นบอกอะไรเกี่ยวกับฐานที่คุณใช้ตัดสินใจวันนี้\n'
+              'ช่วงพลิกผันและเปลี่ยนผ่าน (20–31)\n'
+              'อิทธิพลดาวราหู • การเปลี่ยนแปลง\n'
+              'ธีมสำหรับทบทวน: การเปลี่ยนแปลงของช่วงพลิกผันและเปลี่ยนผ่านอยู่ในบริบทของการเป็นอิสระ การศึกษา การเริ่มงาน ความสัมพันธ์ และทรัพยากรที่ต้องจัดการเองมากขึ้น ลองแยกสิ่งที่คุณเลือกเองจากสิ่งที่รับตามแรงรอบตัว\n'
+              'คำถามสะท้อน: เมื่อคิดถึงวัย 20–31 คุณจำจุดใดได้ชัดที่สุดระหว่างการออกไปยืนด้วยตัวเอง การเริ่มเส้นทางใหม่ หรือการตั้งขอบเขตกับคนใกล้ตัว แล้วบทเรียนนั้นช่วยคัดการตัดสินใจวันนี้แบบไหน\n'
+              'ช่วงเก็บเกี่ยวความสุข (32–52)\n'
+              'อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์\n'
+              'ธีมสำหรับทบทวน: ลองวางความสุขและความสัมพันธ์ของช่วงเก็บเกี่ยวความสุขไว้ข้างงาน เงิน ความสัมพันธ์ ความรับผิดชอบ และบทบาทที่อาจต้องจัดใหม่ แล้วดูว่าเกณฑ์เดิมส่วนใดยังควรรักษา\n'
+              'คำถามสะท้อน: เมื่อมองกลับไปที่วัย 32–52 มีความทรงจำช่วงใดที่คุณต้องชั่งระหว่างสิ่งที่รับผิดชอบอยู่กับบทบาทที่อยากเปลี่ยน และเกณฑ์ครั้งนั้นยังเหมาะกับการตัดสินใจวันนี้หรือไม่\n'
+              'ช่วงเปล่งประกาย (53–58)\n'
+              'อิทธิพลดาวอาทิตย์ • การยอมรับ\n'
+              'ธีมสำหรับทบทวน: ลองวางการยอมรับของช่วงเปล่งประกายไว้ข้างงาน เงิน ความสัมพันธ์ ความรับผิดชอบ และบทบาทที่อาจต้องจัดใหม่ แล้วดูว่าเกณฑ์เดิมส่วนใดยังควรรักษา\n'
+              'คำถามสะท้อน: เมื่อมองกลับไปที่วัย 53–58 มีความทรงจำช่วงใดที่คุณต้องชั่งระหว่างสิ่งที่รับผิดชอบอยู่กับบทบาทที่อยากเปลี่ยน และเกณฑ์ครั้งนั้นยังเหมาะกับการตัดสินใจวันนี้หรือไม่\n'
+              'ช่วงดูแลใจ (59–73)\n'
+              'อิทธิพลดาวจันทร์ • ความรู้สึก\n'
+              'ธีมสำหรับทบทวน: ลองวางความรู้สึกของช่วงดูแลใจไว้ข้างงาน เงิน ความสัมพันธ์ ความรับผิดชอบ และบทบาทที่อาจต้องจัดใหม่ แล้วดูว่าเกณฑ์เดิมส่วนใดยังควรรักษา\n'
+              'คำถามสะท้อน: เมื่อมองกลับไปที่วัย 59–73 มีความทรงจำช่วงใดที่คุณต้องชั่งระหว่างสิ่งที่รับผิดชอบอยู่กับบทบาทที่อยากเปลี่ยน และเกณฑ์ครั้งนั้นยังเหมาะกับการตัดสินใจวันนี้หรือไม่\n'
+              'ช่วงปัจจุบัน\n'
+              'คุณอยู่ช่วงไหนของชีวิต\n'
+              'ช่วงลงมือและบุกเบิก · อายุ 74–81 · อิทธิพลดาวอังคาร • การลงมือ\n'
+              'ตอนนี้คุณอายุ 74 ปี อยู่ช่วงต้นของช่วงลงมือและบุกเบิก และเหลือเวลาอีกราว 7 ปีก่อนเปลี่ยนผ่าน\n'
+              'อิทธิพลหลักตอนนี้คือพลังธาตุไฟ ที่ส่งเสริมพื้นฐานในตัวคุณ คุณจึงได้เป็นตัวเองมากขึ้น\n'
+              'การงาน\n'
+              'ช่วงนี้งานที่เคยทำแบบเดิมเริ่มเปลี่ยนไป มีโอกาสรับงานหรือความรับผิดชอบเพิ่มในช่วงนี้ แต่ไม่จำเป็นต้องรับทุกทางพร้อมกัน ควรระวังการรับงานซ้อนจนกระทบคุณภาพและความต่อเนื่อง\n'
+              'การเงิน\n'
+              'ช่วงนี้การเงินอยู่ในระดับพอไปได้ ควรรักษาสภาพคล่องเป็นหลัก หลีกเลี่ยงการก่อภาระระยะยาวเมื่อกระแสเงินยังไม่นิ่ง\n'
+              'สุขภาพ\n'
+              'ช่วงนี้พลังชีวิตถูกใช้ไปกับหน้าที่และความรับผิดชอบค่อนข้างมาก รักษาเวลานอนให้คงที่ และเว้นช่วงสั้น ๆ ระหว่างภาระ เพื่อไม่ให้ความล้าสะสมจนกระทบช่วงที่ต้องใช้แรง ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำบอกจากแพทย์ หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ\n'
+              'โชคลาภ\n'
+              'รายได้ส่วนใหญ่ยังมาจากงานและความสามารถที่ลงมือเอง มากกว่าเหตุบังเอิญ ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากข้อมูลที่ตรวจสอบได้และภาระจริงก่อนรับ\n'
+              'แนวโน้มชีวิตในระยะข้างหน้า\n'
+              'ภาพข้างหน้าเริ่มจากการตัดสินใจวันนี้ ต่อด้วยการทบทวนใน 12 เดือน และจบที่ทิศทางระยะยาว งาน เงิน ความสัมพันธ์ และการพักจึงมีหน้าที่ต่างกันในแต่ละระยะ\n'
+              'ไม่ต้องเร่งทุกด้านพร้อมกัน ให้ขยับเรื่องหลักเท่าที่ชีวิตด้านอื่นยังรับไหว\n'
+              'สิ่งที่ต้องตัดสินใจตอนนี้\n'
+              'สิ่งที่ต้องตัดสินใจตอนนี้คืองานหนึ่งเรื่อง โดยใช้คุณภาพของงานชิ้นหลักเป็นหลัก และไม่ปล่อยให้พฤติกรรมที่ทำตามคำตกลงเสียไป\n'
+              'การงาน\n'
+              'บทบาทงานก้อนใหม่มีแรงส่ง แต่ควรรับเฉพาะส่วนที่เพิ่มคุณภาพงานหลัก\n'
+              'เลือกงานหลักหนึ่งเรื่อง ตั้งเพดานเวลา และปฏิเสธงานใหม่เมื่อเพดานเต็ม เรื่องนี้เป็นแกนตัดสินใจหลัก คำถามที่ใช้ตรวจคืองานชิ้นหลักยังได้มาตรฐานหลังรับหน้าที่ใหม่หรือไม่\n'
+              'การเงิน\n'
+              'เงินสำรองช่วยให้คุณมีทางเลือกมากขึ้น ตราบใดที่รายจ่ายระยะยาวยังไม่กระทบเงินก้อนหลัก ด้านเงินคุมขนาดทางเลือกด้วยยอดพร้อมใช้หลังรายการจำเป็น\n'
+              'ความรัก\n'
+              'ข้อตกลงที่ทั้งสองฝ่ายทำได้จริง เปิดทางให้ความสัมพันธ์ขยับอย่างมั่นคง ก่อนเพิ่มข้อผูกพัน ให้ดูว่าสิ่งที่ตกลงกันถูกทำจริงต่อเนื่องหรือไม่\n'
+              'สุขภาพ\n'
+              'หากพักแล้วร่างกายกลับมามีแรงได้ตามปกติ พลังของคุณยังรองรับการขยับได้ หากร่างกายใช้เวลากลับมามีแรงนานขึ้น ให้ลดกิจกรรมก่อนเพิ่มแผนใหม่\n'
+              'แนวโน้ม 12 เดือนข้างหน้า\n'
+              'ตลอด 12 เดือนของช่วงลงมือและบุกเบิก ให้ใช้ขอบเขตหน้าที่ที่เปลี่ยนไปเป็นสัญญาณ แล้วกลับมาทบทวนเมื่อพฤติกรรมหลังข้อตกลงเริ่มชัด\n'
+              'การงาน\n'
+              'ขอบเขตหน้าที่ที่กว้างขึ้นคือสัญญาณสำคัญด้านงาน หากอำนาจตัดสินใจไม่เพิ่มตาม งานชิ้นหลักจะเสียคุณภาพ กำหนดจุดทบทวนกลางปีเพื่อเลือกว่าจะขยายบทบาทเดิมหรือหยุดรับเพิ่ม เมื่อถึงรอบส่งมอบงานกลางปี ให้เลือกว่าจะขยายทางเดิมหรือปรับแผน\n'
+              'การเงิน\n'
+              'รายรับที่เพิ่มแล้วเหลือเป็นเงินพร้อมใช้คือสัญญาณสำคัญด้านการเงิน หากรายจ่ายประจำโตตามทันที การขยายแผนควรช้าลง บันทึกยอดคงเหลือรายไตรมาสเพื่อดูสภาพคล่อง ตัวเลขครั้งเดียวจึงยังไม่พอให้ขยายภาระเงิน\n'
+              'ความรัก\n'
+              'ข้อตกลงที่ถูกทำต่อเนื่องจะทำให้ความสัมพันธ์ชัด ไม่ใช่บทสนทนาครั้งเดียว หากพฤติกรรมยังไม่ตรงกับข้อตกลง ให้ทบทวนสิ่งที่คุยกันและชะลอข้อผูกพันใหม่ก่อน\n'
+              'สุขภาพ\n'
+              'หลังสัปดาห์หนัก ให้ดูว่าร่างกายใช้เวลากี่วันจึงกลับมามีแรง หากต้องพักนานขึ้นเรื่อย ๆ ตารางเดิมกำลังเกินกำลังที่มี จดเวลาคืนแรงหลังสัปดาห์หนัก แล้วทบทวนว่าตารางกิจกรรมควรลดหรือคงเดิม\n'
+              'ช่วงชีวิตถัดไป\n'
+              'เมื่อเข้าสู่ช่วงชีวิตถัดไป ให้รักษางานที่ใช้ประสบการณ์ได้เต็มที่ไว้ โดยไม่แลกกับความสัมพันธ์ที่แบ่งเวลาและหน้าที่ได้จริง\n'
+              'การงาน\n'
+              'ทิศทางงานระยะต่อไปจะเปลี่ยนจากการรับเพิ่มไปสู่การคุมคุณภาพ คุณจึงต้องเลือกงานที่ใช้ประสบการณ์สูงและส่งต่อส่วนที่กระจายแรง ในระยะยาว ให้คัดว่าประสบการณ์งานใดควรรักษาและส่วนใดควรส่งต่อ\n'
+              'การเงิน\n'
+              'ฐานเงินของจังหวะใหม่ต้องรองรับการเปลี่ยนบทบาท รายจ่ายผูกพันจึงต้องมีเงินสำรองแยกจากค่าใช้จ่ายปกติ กำหนดยอดเงินขั้นต่ำที่ห้ามแตะ เพื่อไม่ให้รายจ่ายเร่งด่วนบังคับการตัดสินใจ\n'
+              'ความรัก\n'
+              'ความสัมพันธ์ในระยะใหม่ต้องจัดเวลา หน้าที่ และพื้นที่ส่วนตัวให้ชัด จึงจะรองรับบทบาทที่เปลี่ยนไปได้ ระยะยาวต้องแบ่งเวลาและหน้าที่ได้จริง ไม่ใช่เพียงตกลงกันไว้\n'
+              'สุขภาพ\n'
+              'กิจวัตรพลังชีวิตต้องเปลี่ยนพร้อมตารางใหม่ ไม่ใช่รอให้ความล้าสะสมแล้วค่อยพัก เลือกกิจวัตรพักที่ทำได้ต่อเนื่อง โดยไม่ยืมแรงจากวันต่อไป\n'
+              'คำแนะนำปิดท้ายช่วงถัดไป\n'
+              'ใช้ความถนัดในการสร้างฐานทีละขั้นเลือกทางงานที่ทำให้บทบาทใหม่เพิ่มคุณภาพงาน ไม่ใช่เพียงเพิ่มจำนวนงาน พร้อมรักษาพฤติกรรมที่ทำตามคำตกลงไว้\n'
+              'แนวโน้มระยะยาว\n'
+              'ดูภาพรวมของช่วงถัดไป เพื่อเตรียมสิ่งสำคัญไว้ล่วงหน้า\n'
+              'เปลี่ยนผ่านที่ท้าทาย\n'
+              'จังหวะชีวิตเปลี่ยนจากธาตุไฟไปสู่ธาตุดิน (จังหวะเปลี่ยนผ่านที่ต้องค่อย ๆ ปรับ)\n'
+              'เรื่องที่ควรเตรียมไว้สำหรับช่วงถัดไป: การงาน · การเติบโต\n'
+              'รายงานนี้ดูจากอะไร\n'
+              'ข้อมูลวัน เวลา และสถานที่เกิด\n'
+              'วิธีนับวันทางโหราศาสตร์ไทย\n'
+              'วันเกิดตามสูติบัตรยังเป็นวันที่ 1952-02-29 ตามเดิม ส่วนการอ่านตามหลักโหราศาสตร์ไทยใช้วันพฤหัสบดี (วันที่ 1952-02-28) เป็นวันทางโหราศาสตร์\n'
+              'เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้นเวลา 06:34 จึงใช้วันก่อนหน้าตามกฎที่นับวันใหม่เมื่อพระอาทิตย์ขึ้น โดยไม่เปลี่ยนวันเกิดตามสูติบัตร\n'
+              'ลัคนา (ภาพบุคลิกตั้งต้นที่คำนวณจากนาฬิกาเกิดและพิกัดจังหวัด) อยู่ที่ราศีพิจิก\n'
+              'คำอ่านข้างต้นเลือกประเด็นที่เชื่อมกับชีวิตคุณได้ชัดที่สุดก่อน แล้วเรียงผลต่อเนื่องไปยังเรื่องที่ควรระวังและการตัดสินใจ\n'
+              'โครงสร้างดวงหลัก\n'
+              'วันทางโหราศาสตร์: วันพฤหัสบดี — เวลาเกิดอยู่ก่อนพระอาทิตย์ขึ้น จึงใช้วันก่อนหน้าเป็นวันทางโหราศาสตร์\n'
+              'ลัคนา: ราศีพิจิก 6°48′ — สบายใจกว่าเมื่อได้กำหนดทิศทางด้วยตัวเอง\n'
+              'เจ้าเรือนลัคนา: ดาวอังคาร — หลักฐานที่เชื่อมลัคนากับรูปแบบการตัดสินใจในคำอ่าน\n'
+              'เรือนการงาน: ราศีสิงห์ · เจ้าเรือนดาวอาทิตย์ — บทบาทและวิธีสร้างผลงานอ่านจากตำแหน่งคู่นี้\n'
+              'เรือนการเงิน: ราศีธนู · เจ้าเรือนดาวพฤหัสบดี — ทรัพยากรและวิธีรักษาความมั่นคงอ่านจากจุดนี้\n'
+              'เรือนความสัมพันธ์: ราศีพฤษภ · เจ้าเรือนดาวศุกร์ — คู่สัมพันธ์และวิธีสร้างความไว้ใจอ้างอิงจากเรือนนี้\n'
+              'เรือนสุขภาวะ: ราศีเมษ · เจ้าเรือนดาวอังคาร — กิจวัตร การพัก และการคืนแรงอ้างอิงจากหลักฐานชุดนี้\n'
+              'ความหมายและข้อจำกัดของผลลัพธ์\n'
+              'ที่มาของผลวิเคราะห์\n'
+              'ใช้วัน เดือน ปีเกิด เวลาเกิด และจังหวัดที่เกิดจากโปรไฟล์ของคุณ\n'
+              'นำข้อมูลวันเกิดของคุณมาประมวลผลตามหลักดวงไทย แล้วแปลงเป็นภาษาที่อ่านเข้าใจง่าย โดยไม่แสดงรายละเอียดเชิงเทคนิค\n'
+              'เป็นแนวทางดูตัวเอง ไม่ใช่คำฟันธง — ชีวิตเปลี่ยนได้เสมอตามการกระทำของคุณ\n'
+              'ข้อจำกัด\n'
+              'ผลลัพธ์นี้เป็นมุมมองเพื่อทำความเข้าใจตัวเอง ไม่ใช่คำทำนาย\n'
+              'สิ่งที่อ่านอาจตรงหรือไม่ตรงกับตัวคุณทั้งหมด — ใช้เป็นจุดเริ่มสังเกตตัวเอง\n'
+              ''
+     Which: does not contain 'หลักฐานเรือนการงานที่เชื่อมราศีสิงห์และดาวอาทิตย์ แปลเป็นภาษาคนว่า คุณสร้างผลงานผ่านความชัดเจนและการตัดสินใจด้วยตัวเอง บทบาทที่คุ้มจึงต้องเพิ่มอำนาจดูแลคุณภาพ ไม่ใช่เพิ่มแต่งานที่ต้องถือ'
+  S001/work
+  
+  package:matcher                                                                           expect
+  package:flutter_test/src/widget_tester.dart 473:18                                        expect
+  test\validation\thai_beta\synthetic_audit\thai_beta_synthetic_audit_300_test.dart 463:13  main.<fn>
+  
+00:42 +279 -7: Some tests failed.

@@ -1,0 +1,113 @@
+{
+  "fixtureId": "stress-opportunity-caution-longest",
+  "sectionCount": 19,
+  "paragraphCount": 82,
+  "dedicatedPdfPageCount": null,
+  "pngBytes": 208623,
+  "pdfBytes": null,
+  "browserPrintHtmlBytes": null,
+  "title": "ดวงชะตาปี 2569",
+  "theme": "ตลอด 12 เดือนของช่วงดูแลใจ ให้สังเกตว่าใช้เวลาฟื้นตัวหลังสัปดาห์หนักนานขึ้นหรือไม่ แล้วทบทวนอีกครั้งเมื่อการทำตามข้อตกลงสม่ำเสมอขึ้น โดยไม่สรุปเหตุการณ์ล่วงหน้า",
+  "categories": [
+    {
+      "id": "annual-career",
+      "title": "การงาน",
+      "summary": "ทดลองขอบเขตงานใหม่ก่อนตัดสินใจรับบทบาทเต็มตัว โดยไม่แลกกับคุณภาพงานหลัก"
+    },
+    {
+      "id": "annual-finance",
+      "title": "การเงิน",
+      "summary": "พิสูจน์กระแสเงินจริงในวงเล็กก่อนเพิ่มภาระ โดยไม่ลดเงินที่ต้องพร้อมใช้"
+    },
+    {
+      "id": "annual-relationship",
+      "title": "ความรัก",
+      "summary": "เพิ่มข้อผูกพันได้เมื่อคำพูดและการกระทำสอดคล้องกัน และทั้งสองฝ่ายเข้าใจตรงกัน"
+    },
+    {
+      "id": "annual-health",
+      "title": "สุขภาพ",
+      "summary": "เพิ่มกิจกรรมได้เมื่อพักแล้วฟื้นตัวได้ตามปกติ หากฟื้นช้าลงควรลดภาระ"
+    }
+  ],
+  "opportunity": "โอกาสอยู่ที่การเพิ่มข้อผูกพันบนความสม่ำเสมอ โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน โดยดูผลที่เกิดซ้ำก่อนตัดสินใจ",
+  "caution": "ภาระงานที่เพิ่มขึ้นอาจเบียดเวลาของงานหลัก",
+  "primaryAdvice": "ใช้ความถนัดในการสร้างฐานทีละขั้นโดยอาศัยข้อมูลที่เกิดขึ้นซ้ำ: เลือกการพักและการฟื้นตัวทีละก้าว และยังไม่ผูกมัดเพิ่มจนกว่าคุณภาพของงานชิ้นหลักจะยืนยันได้",
+  "disclaimer": "ไม่มีเวลาเกิด จึงแสดงเฉพาะแนวโน้มที่ข้อมูลรองรับและไม่เติมรายละเอียดที่ขาดหาย ควรดูผลที่เกิดขึ้นซ้ำก่อนตัดสินใจ",
+  "monthlyTimelineAvailable": false,
+  "monthlyGapReason": "engine ปัจจุบันมีกรอบ 12 เดือนและทักษาจรรายปี แต่ไม่มีคะแนนหรือหลักฐานที่ผูกกับเดือนปฏิทินทั้ง 12 เดือน",
+  "layoutBounds1080x1920": {
+    "title": {
+      "left": 138,
+      "top": 39,
+      "right": 1032,
+      "bottom": 129
+    },
+    "theme": {
+      "left": 48,
+      "top": 141,
+      "right": 1032,
+      "bottom": 222
+    },
+    "overview": {
+      "left": 48,
+      "top": 228,
+      "right": 1032,
+      "bottom": 267
+    },
+    "category-annual-career": {
+      "left": 48,
+      "top": 374,
+      "right": 1032,
+      "bottom": 500
+    },
+    "category-annual-finance": {
+      "left": 48,
+      "top": 509,
+      "right": 1032,
+      "bottom": 635
+    },
+    "category-annual-relationship": {
+      "left": 48,
+      "top": 644,
+      "right": 1032,
+      "bottom": 770
+    },
+    "category-annual-health": {
+      "left": 48,
+      "top": 779,
+      "right": 1032,
+      "bottom": 905
+    },
+    "ornament": {
+      "left": 48,
+      "top": 1013,
+      "right": 1032,
+      "bottom": 1205
+    },
+    "opportunity": {
+      "left": 48,
+      "top": 1312,
+      "right": 1032,
+      "bottom": 1432
+    },
+    "caution": {
+      "left": 48,
+      "top": 1444,
+      "right": 1032,
+      "bottom": 1564
+    },
+    "advice": {
+      "left": 48,
+      "top": 1671,
+      "right": 1032,
+      "bottom": 1806
+    },
+    "disclaimer": {
+      "left": 48,
+      "top": 1821,
+      "right": 1032,
+      "bottom": 1881
+    }
+  }
+}

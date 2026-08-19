@@ -1,0 +1,28 @@
+[
+  {
+    "mode": "known",
+    "sectionCount": 25,
+    "paragraphCount": 88,
+    "dedicatedPdfPageCount": 8,
+    "pngBytes": 200944,
+    "pdfBytes": 171357,
+    "browserPrintHtmlBytes": 303398,
+    "opportunity": "รับบทบาทเพิ่มได้หนึ่งก้าวเมื่อคุณภาพงานหลักยังคงเดิม โดยไม่แลกกับคุณภาพงานหลัก",
+    "caution": "งานหลักอาจถูกภาระด้านนี้เบียดเวลา",
+    "monthlyTimelineAvailable": false,
+    "monthlyGapReason": "engine ปัจจุบันมีกรอบ 12 เดือนและทักษาจรรายปี แต่ไม่มีคะแนนหรือหลักฐานที่ผูกกับเดือนปฏิทินทั้ง 12 เดือน"
+  },
+  {
+    "mode": "unknown",
+    "sectionCount": 20,
+    "paragraphCount": 79,
+    "dedicatedPdfPageCount": 8,
+    "pngBytes": 219343,
+    "pdfBytes": 179774,
+    "browserPrintHtmlBytes": 323328,
+    "opportunity": "ทดลองขอบเขตงานใหม่ก่อนตัดสินใจรับบทบาทเต็มตัว โดยไม่แลกกับคุณภาพงานหลัก จึงควรยืนยันจากผลที่เกิดซ้ำก่อนตัดสินใจ",
+    "caution": "ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน",
+    "monthlyTimelineAvailable": false,
+    "monthlyGapReason": "engine ปัจจุบันมีกรอบ 12 เดือนและทักษาจรรายปี แต่ไม่มีคะแนนหรือหลักฐานที่ผูกกับเดือนปฏิทินทั้ง 12 เดือน"
+  }
+]

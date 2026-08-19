@@ -1,0 +1,682 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart
+00:00 +0: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: (setUpAll)
+00:00 +0: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_qa_test.dart: (setUpAll)
+00:00 +1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_qa_test.dart: (setUpAll)
+00:00 +2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_qa_test.dart: (setUpAll)
+00:00 +3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_qa_test.dart: (setUpAll)
+00:00 +4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_qa_test.dart: (setUpAll)
+00:00 +4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +11: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +12: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +13: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +14: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +15: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +16: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +17: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +18: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +19: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +20: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +21: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +22: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +23: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +24: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +25: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +26: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +27: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +28: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +29: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +30: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +31: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +32: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +33: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +34: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +35: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +36: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +37: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +38: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI off renders no badge panel
+00:00 +39: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+00:00 +40: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+00:01 +41: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+00:01 +42: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+00:01 +43: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+00:01 +44: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+00:01 +45: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+00:01 +46: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+00:01 +47: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+00:01 +48: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+00:01 +49: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+00:01 +50: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+00:01 +51: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+00:01 +52: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+00:01 +52: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI internal_only with internal audience renders badge panel
+
+Warning: A call to tap() with finder "Found 1 widget with key [<'thai_beta_evidence_details'>]: [
+  ExpansionTile-[<'thai_beta_evidence_details'>](dependencies: [InheritedCupertinoTheme, _InheritedTheme, _LocalizationsScope-[GlobalKey#07182]], state: _ExpansionTileState#79a01),
+]" derived an Offset (Offset(400.0, 9988.4)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 9988.4) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderPhysicalShape#ea588 relayoutBoundary=up21
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#206a5(_ReusableRenderView#b2e69), HitTestEntry<HitTestTarget>#68cca(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2144:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1928:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1061:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart:162:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "มีที่มาจากตำราอ้างอิง": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart:164:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart line 164
+The test description was:
+  internal_only with internal audience renders badge panel
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +52 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+00:01 +52 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI internal_only with internal audience renders badge panel [E]
+  Test failed. See exception logs above.
+  The test description was: internal_only with internal audience renders badge panel
+  
+00:01 +52 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+00:01 +53 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+00:01 +54 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+00:01 +55 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+00:01 +56 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+00:01 +57 -1: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester
+
+Warning: A call to tap() with finder "Found 1 widget with key [<'thai_beta_evidence_details'>]: [
+  ExpansionTile-[<'thai_beta_evidence_details'>](dependencies: [InheritedCupertinoTheme, _InheritedTheme, _LocalizationsScope-[GlobalKey#7e3bb]], state: _ExpansionTileState#68e3a),
+]" derived an Offset (Offset(400.0, 9988.4)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 9988.4) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderPhysicalShape#5d0db relayoutBoundary=up21
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#a2375(_ReusableRenderView#43030), HitTestEntry<HitTestTarget>#9d138(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2144:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1928:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1061:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart:187:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "มีที่มาจากตำราอ้างอิง": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart:189:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart line 189
+The test description was:
+  internal_only renders badge for internal tester
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:01 +57 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:01 +57 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_test.dart: ThaiBetaReportPage internal_only activation internal_only renders badge for internal tester [E]
+  Test failed. See exception logs above.
+  The test description was: internal_only renders badge for internal tester
+  
+00:01 +58 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:01 +59 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:01 +60 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:01 +61 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:01 +62 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:02 +63 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:02 +64 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:02 +65 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:02 +66 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:02 +67 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:02 +68 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:02 +69 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:02 +70 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:02 +71 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:02 +72 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:02 +73 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:02 +74 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:02 +75 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:02 +76 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:02 +77 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:02 +78 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:02 +79 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:02 +80 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+00:02 +81 -2: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TypeWidgetFinder:<Found 0 widgets with type "ThaiMirrorResultPage": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart:229:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart line 229
+The test description was:
+  admin sees badge only on ThaiBetaReportPage
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +81 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart: ThaiBetaReportPage invited_beta 1 invited beta tester sees badge
+00:02 +81 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Surface isolation QA admin sees badge only on ThaiBetaReportPage [E]
+  Test failed. See exception logs above.
+  The test description was: admin sees badge only on ThaiBetaReportPage
+  
+00:02 +82 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart: ThaiBetaReportPage invited_beta 1 invited beta tester sees badge
+00:02 +83 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart: ThaiBetaReportPage invited_beta 1 invited beta tester sees badge
+00:02 +84 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart: ThaiBetaReportPage invited_beta 1 invited beta tester sees badge
+00:02 +84 -3: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI no page refs, unit ids, or forbidden wording in panel
+
+Warning: A call to tap() with finder "Found 1 widget with key [<'thai_beta_evidence_details'>]: [
+  ExpansionTile-[<'thai_beta_evidence_details'>](dependencies: [InheritedCupertinoTheme, _InheritedTheme, _LocalizationsScope-[GlobalKey#6f83c]], state: _ExpansionTileState#c2a00),
+]" derived an Offset (Offset(400.0, 9988.4)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 9988.4) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderPhysicalShape#6b261 relayoutBoundary=up21
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#b53bd(_ReusableRenderView#b2e69), HitTestEntry<HitTestTarget>#34957(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2144:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1928:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1061:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart:214:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: at least one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text
+"ข้อมูลอ้างอิงนี้ใช้เพื่อตรวจสอบที่มาของการวิเคราะห์ ไม่ใช่การการันตีผลลัพธ์": []>
+   Which: means none were found but some were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart:231:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart line 231
+The test description was:
+  no page refs, unit ids, or forbidden wording in panel
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +84 -4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart: ThaiBetaReportPage invited_beta 1 invited beta tester sees badge
+00:02 +84 -4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_implementation_test.dart: ThaiBetaReportPage controlled beta UI no page refs, unit ids, or forbidden wording in panel [E]
+  Test failed. See exception logs above.
+  The test description was: no page refs, unit ids, or forbidden wording in panel
+  
+00:02 +85 -4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart: ThaiBetaReportPage invited_beta 1 invited beta tester sees badge
+00:02 +86 -4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart: ThaiBetaReportPage invited_beta 1 invited beta tester sees badge
+00:02 +87 -4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart: ThaiBetaReportPage invited_beta 1 invited beta tester sees badge
+00:02 +88 -4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart: ThaiBetaReportPage invited_beta 1 invited beta tester sees badge
+00:02 +89 -4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart: ThaiBetaReportPage invited_beta 1 invited beta tester sees badge
+00:02 +90 -4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart: ThaiBetaReportPage invited_beta 1 invited beta tester sees badge
+
+Warning: A call to tap() with finder "Found 1 widget with key [<'thai_beta_evidence_details'>]: [
+  ExpansionTile-[<'thai_beta_evidence_details'>](dependencies: [InheritedCupertinoTheme, _InheritedTheme, _LocalizationsScope-[GlobalKey#49e12]], state: _ExpansionTileState#ba56e),
+]" derived an Offset (Offset(400.0, 9988.4)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 9988.4) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderPhysicalShape#b8488 relayoutBoundary=up21
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#c9cc1(_ReusableRenderView#39346), HitTestEntry<HitTestTarget>#e3d9a(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2144:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1928:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1061:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart:188:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "มีที่มาจากตำราอ้างอิง": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart:190:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart line 190
+The test description was:
+  1 invited beta tester sees badge
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +91 -4: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart: ThaiBetaReportPage invited_beta 1 invited beta tester sees badge
+00:02 +91 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Invited beta visibility QA 1 invited beta tester sees badge on ThaiBetaReportPage
+00:02 +91 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart: ThaiBetaReportPage invited_beta 1 invited beta tester sees badge [E]
+  Test failed. See exception logs above.
+  The test description was: 1 invited beta tester sees badge
+  
+00:02 +92 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Invited beta visibility QA 1 invited beta tester sees badge on ThaiBetaReportPage
+00:02 +93 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Invited beta visibility QA 1 invited beta tester sees badge on ThaiBetaReportPage
+00:02 +94 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Invited beta visibility QA 1 invited beta tester sees badge on ThaiBetaReportPage
+00:02 +95 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Invited beta visibility QA 1 invited beta tester sees badge on ThaiBetaReportPage
+00:02 +96 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Invited beta visibility QA 1 invited beta tester sees badge on ThaiBetaReportPage
+00:02 +97 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Invited beta visibility QA 1 invited beta tester sees badge on ThaiBetaReportPage
+00:02 +98 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Invited beta visibility QA 1 invited beta tester sees badge on ThaiBetaReportPage
+00:02 +99 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Invited beta visibility QA 1 invited beta tester sees badge on ThaiBetaReportPage
+00:02 +100 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Invited beta visibility QA 1 invited beta tester sees badge on ThaiBetaReportPage
+00:02 +101 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Invited beta visibility QA 1 invited beta tester sees badge on ThaiBetaReportPage
+00:02 +102 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Invited beta visibility QA 1 invited beta tester sees badge on ThaiBetaReportPage
+00:02 +102 -5: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_qa_test.dart: Copy safety QA required caution copy appears on beta panel
+
+Warning: A call to tap() with finder "Found 1 widget with key [<'thai_beta_evidence_details'>]: [
+  ExpansionTile-[<'thai_beta_evidence_details'>](dependencies: [InheritedCupertinoTheme, _InheritedTheme, _LocalizationsScope-[GlobalKey#028ac]], state: _ExpansionTileState#3e641),
+]" derived an Offset (Offset(400.0, 9988.4)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 9988.4) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderPhysicalShape#436d1 relayoutBoundary=up21
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#99645(_ReusableRenderView#b7c2c), HitTestEntry<HitTestTarget>#7d655(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2144:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1928:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1061:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_qa_test.dart:501:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "มีที่มาจากตำราอ้างอิง": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_qa_test.dart:503:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_qa_test.dart line 503
+The test description was:
+  required caution copy appears on beta panel
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +102 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Invited beta visibility QA 1 invited beta tester sees badge on ThaiBetaReportPage
+00:02 +102 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_controlled_beta_qa_test.dart: Copy safety QA required caution copy appears on beta panel [E]
+  Test failed. See exception logs above.
+  The test description was: required caution copy appears on beta panel
+  
+00:02 +103 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Invited beta visibility QA 1 invited beta tester sees badge on ThaiBetaReportPage
+00:02 +104 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Invited beta visibility QA 1 invited beta tester sees badge on ThaiBetaReportPage
+00:02 +104 -6: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_public_beta_test.dart: Public Thai Beta evidence policy repeated public badge copy renders once
+
+Warning: A call to tap() with finder "Found 1 widget with key [<'thai_beta_evidence_details'>]: [
+  ExpansionTile-[<'thai_beta_evidence_details'>](dependencies: [InheritedCupertinoTheme, _InheritedTheme, _LocalizationsScope-[GlobalKey#09b3b]], state: _ExpansionTileState#78e61),
+]" derived an Offset (Offset(400.0, 9988.4)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 9988.4) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderPhysicalShape#74142 relayoutBoundary=up21
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#76e36(_ReusableRenderView#431b0), HitTestEntry<HitTestTarget>#bf8a9(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2144:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1928:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1061:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_public_beta_test.dart:126:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "มีที่มาจากตำราอ้างอิง": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_public_beta_test.dart:129:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_public_beta_test.dart line 129
+The test description was:
+  repeated public badge copy renders once
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +104 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Invited beta visibility QA 1 invited beta tester sees badge on ThaiBetaReportPage
+00:02 +104 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_public_beta_test.dart: Public Thai Beta evidence policy repeated public badge copy renders once [E]
+  Test failed. See exception logs above.
+  The test description was: repeated public badge copy renders once
+  
+00:02 +105 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Invited beta visibility QA 1 invited beta tester sees badge on ThaiBetaReportPage
+
+Warning: A call to tap() with finder "Found 1 widget with key [<'thai_beta_evidence_details'>]: [
+  ExpansionTile-[<'thai_beta_evidence_details'>](dependencies: [InheritedCupertinoTheme, _InheritedTheme, _LocalizationsScope-[GlobalKey#09321]], state: _ExpansionTileState#0d45a),
+]" derived an Offset (Offset(400.0, 9988.4)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 9988.4) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderPhysicalShape#9c58f relayoutBoundary=up21
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#1560a(_ReusableRenderView#2470c), HitTestEntry<HitTestTarget>#5bff0(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2144:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1928:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1061:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart:171:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+00:02 +106 -7: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Invited beta visibility QA 1 invited beta tester sees badge on ThaiBetaReportPage
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: exactly one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text "มีที่มาจากตำราอ้างอิง": []>
+   Which: means none were found but one was expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart:173:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart line 173
+The test description was:
+  1 invited beta tester sees badge on ThaiBetaReportPage
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:02 +106 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — internal_only active baseline 1 internal_only admin sees badge on ThaiBetaReportPage
+00:02 +106 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Invited beta visibility QA 1 invited beta tester sees badge on ThaiBetaReportPage [E]
+  Test failed. See exception logs above.
+  The test description was: 1 invited beta tester sees badge on ThaiBetaReportPage
+  
+00:02 +107 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — internal_only active baseline 1 internal_only admin sees badge on ThaiBetaReportPage
+00:02 +108 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — internal_only active baseline 1 internal_only admin sees badge on ThaiBetaReportPage
+00:02 +109 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:02 +110 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:02 +111 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:02 +112 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:02 +113 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:02 +114 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:02 +115 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +116 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +117 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +118 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +119 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +120 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +121 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +122 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +123 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +124 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +125 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +126 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +127 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +128 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +129 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +130 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +131 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +132 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +133 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +134 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +135 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +136 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +137 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +138 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +139 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +140 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +141 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +142 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +143 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +144 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +145 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +146 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +147 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +148 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +149 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +150 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +151 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +152 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +153 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +154 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +155 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +156 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +157 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +158 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +159 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +160 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +161 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +162 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +163 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +164 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +165 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +166 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +167 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +168 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +169 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +170 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +171 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart: writes Known and Unknown vNext review artifacts from one shared model
+00:03 +172 -8: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Data leakage QA no source page, prose, unit id, remedy, Taksa, Khumsap, rise-fall
+
+Warning: A call to tap() with finder "Found 1 widget with key [<'thai_beta_evidence_details'>]: [
+  ExpansionTile-[<'thai_beta_evidence_details'>](dependencies: [InheritedCupertinoTheme, _InheritedTheme, _LocalizationsScope-[GlobalKey#a7f5e]], state: _ExpansionTileState#cbb6b),
+]" derived an Offset (Offset(400.0, 9988.4)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 9988.4) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderPhysicalShape#8f214 relayoutBoundary=up21
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#17816(_ReusableRenderView#19f29), HitTestEntry<HitTestTarget>#428cc(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2144:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1928:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1061:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart:298:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: at least one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text
+"ข้อมูลอ้างอิงนี้ใช้เพื่อตรวจสอบที่มาของการวิเคราะห์ ไม่ใช่การการันตีผลลัพธ์": []>
+   Which: means none were found but some were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart:310:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart line 310
+The test description was:
+  no source page, prose, unit id, remedy, Taksa, Khumsap, rise-fall
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:03 +172 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Flag and rollback QA rollback off hides badge for all audiences
+00:03 +172 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Data leakage QA no source page, prose, unit id, remedy, Taksa, Khumsap, rise-fall [E]
+  Test failed. See exception logs above.
+  The test description was: no source page, prose, unit id, remedy, Taksa, Khumsap, rise-fall
+  
+00:03 +173 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Flag and rollback QA rollback off hides badge for all audiences
+00:03 +174 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart: Surface isolation 5 ThaiMirrorResultPage has no badge
+00:03 +175 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_implementation_test.dart: Surface isolation 5 ThaiMirrorResultPage has no badge
+00:04 +176 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — re-enable internal_only 6 re-enable internal_only admin sees badge again
+00:04 +177 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — re-enable internal_only 6 re-enable internal_only admin sees badge again
+00:04 +178 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — re-enable internal_only 6 re-enable internal_only admin sees badge again
+00:04 +179 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Rollback QA rollback off hides badge panel on ThaiBetaReportPage
+00:04 +180 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_internal_only_activation_qa_test.dart: Rollback QA rollback off hides badge panel on ThaiBetaReportPage
+00:04 +181 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Surface isolation QA 11 ThaiMirrorResultPage does not render badge
+00:04 +182 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Surface isolation QA 11 ThaiMirrorResultPage does not render badge
+00:04 +183 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Surface isolation QA 11 ThaiMirrorResultPage does not render badge
+00:04 +184 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Surface isolation QA 11 ThaiMirrorResultPage does not render badge
+00:04 +185 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Surface isolation QA 11 ThaiMirrorResultPage does not render badge
+00:04 +186 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Surface isolation QA 11 ThaiMirrorResultPage does not render badge
+00:04 +187 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — re-enable internal_only 7 re-enable normal user still blocked
+00:04 +188 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — re-enable internal_only 7 re-enable normal user still blocked
+00:04 +189 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — re-enable internal_only 7 re-enable normal user still blocked
+00:04 +190 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — re-enable internal_only 7 re-enable normal user still blocked
+00:04 +191 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — re-enable internal_only 7 re-enable normal user still blocked
+00:04 +192 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — re-enable internal_only 7 re-enable normal user still blocked
+00:04 +193 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — re-enable internal_only 7 re-enable normal user still blocked
+00:04 +194 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — re-enable internal_only 7 re-enable normal user still blocked
+00:04 +195 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_public_beta_test.dart: Public Thai Beta evidence policy report opens capture with the current analysis
+00:04 +196 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_public_beta_test.dart: Public Thai Beta evidence policy report opens capture with the current analysis
+00:04 +197 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_public_beta_test.dart: Public Thai Beta evidence policy report opens capture with the current analysis
+00:04 +198 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_public_beta_test.dart: Public Thai Beta evidence policy report opens capture with the current analysis
+00:04 +199 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_public_beta_test.dart: Public Thai Beta evidence policy report opens capture with the current analysis
+00:04 +200 -9: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Badge content and leakage QA 14-20 allowed copy only; no forbidden content
+
+Warning: A call to tap() with finder "Found 1 widget with key [<'thai_beta_evidence_details'>]: [
+  ExpansionTile-[<'thai_beta_evidence_details'>](dependencies: [InheritedCupertinoTheme, _InheritedTheme, _LocalizationsScope-[GlobalKey#5fd21]], state: _ExpansionTileState#8e0da),
+]" derived an Offset (Offset(400.0, 9988.4)) that would not hit test on the specified widget.
+Maybe the widget is actually off-screen, or another widget is obscuring it, or the widget cannot receive pointer events.
+Indeed, Offset(400.0, 9988.4) is outside the bounds of the root of the render tree, Size(800.0, 600.0).
+The finder corresponds to this RenderBox: RenderPhysicalShape#e308a relayoutBoundary=up21
+The hit test result at that offset is: HitTestResult(HitTestEntry<HitTestTarget>#4c7ad(_ReusableRenderView#2470c), HitTestEntry<HitTestTarget>#a1747(<AutomatedTestWidgetsFlutterBinding>))
+#0      WidgetController._getElementPoint (package:flutter_test/src/controller.dart:2144:25)
+#1      WidgetController.getCenter (package:flutter_test/src/controller.dart:1928:12)
+#2      WidgetController.tap (package:flutter_test/src/controller.dart:1061:7)
+#3      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart:397:20)
+<asynchronous suspension>
+#4      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#5      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+#6      StackZoneSpecification._registerCallback.<anonymous closure> (package:stack_trace/src/stack_zone_specification.dart:114:42)
+<asynchronous suspension>
+To silence this warning, pass "warnIfMissed: false" to "tap()".
+To make this warning fatal, set WidgetController.hitTestWarningShouldBeFatal to true.
+
+══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════
+The following TestFailure was thrown running a test:
+Expected: at least one matching candidate
+  Actual: _TextWidgetFinder:<Found 0 widgets with text
+"ข้อมูลอ้างอิงนี้ใช้เพื่อตรวจสอบที่มาของการวิเคราะห์ ไม่ใช่การการันตีผลลัพธ์": []>
+   Which: means none were found but some were expected
+
+When the exception was thrown, this was the stack:
+#4      main.<anonymous closure>.<anonymous closure> (file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart:409:7)
+<asynchronous suspension>
+#5      testWidgets.<anonymous closure>.<anonymous closure> (package:flutter_test/src/widget_tester.dart:192:15)
+<asynchronous suspension>
+#6      TestWidgetsFlutterBinding._runTestBody (package:flutter_test/src/binding.dart:1682:5)
+<asynchronous suspension>
+<asynchronous suspension>
+(elided one frame from package:stack_trace)
+
+This was caught by the test expectation on the following line:
+  file:///C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart line 409
+The test description was:
+  14-20 allowed copy only; no forbidden content
+════════════════════════════════════════════════════════════════════════════════════════════════════
+00:04 +200 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — surface isolation 13 ThaiMirrorResultPage has no badge before or after rollback
+00:04 +200 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_invited_beta_activation_qa_test.dart: Badge content and leakage QA 14-20 allowed copy only; no forbidden content [E]
+  Test failed. See exception logs above.
+  The test description was: 14-20 allowed copy only; no forbidden content
+  
+00:04 +201 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — surface isolation 13 ThaiMirrorResultPage has no badge before or after rollback
+00:04 +202 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — surface isolation 13 ThaiMirrorResultPage has no badge before or after rollback
+00:04 +203 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — surface isolation 13 ThaiMirrorResultPage has no badge before or after rollback
+00:04 +204 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — surface isolation 13 ThaiMirrorResultPage has no badge before or after rollback
+00:05 +205 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — surface isolation 14 Home has no badge import
+00:05 +206 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — surface isolation 15 Daily Mirror has no badge import
+00:05 +207 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — leakage safety 16 no forbidden content when re-enabled for admin
+00:05 +208 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: Rollback drill — public fingerprint 17 fingerprint unchanged across internal_only, off, re-enable
+00:05 +209 -10: C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai/thai_public_evidence_badge_rollback_drill_test.dart: (tearDownAll)
+00:05 +209 -10: Some tests failed.
+
+EXIT_CODE=1

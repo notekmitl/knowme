@@ -2,29 +2,27 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../../application/narrative/thai_beta_narrative_composer.dart';
-import '../../application/core_reading/thai_birth_profile_core_reading.dart';
 import '../../application/thai_beta_analysis.dart';
+import '../../application/thai_beta_report_export_document.dart';
 import '../../application/thai_beta_evidence_badge_audience.dart';
 import '../../application/thai_beta_evidence_badge_audience_resolver.dart';
 import '../../application/thai_evidence_badge_feature_flag.dart';
 import '../thai_beta_screenshot_mode.dart';
+import '../export/thai_beta_browser_print.dart';
 import '../widgets/thai_beta_progress_bar.dart';
 import '../widgets/thai_beta_report_export_button.dart';
-import '../widgets/thai_birth_profile_core_reading_section.dart';
+import '../widgets/thai_beta_shared_report_view.dart';
 import '../widgets/thai_life_map_beta_feedback_panel.dart';
 import 'thai_beta_feedback_page.dart';
 
 import 'package:knowme/core/web/screenshot_friendly_scroll.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/integration.dart';
-import 'package:knowme/features/astrology/thai/knowledge/canon/integration/presentation/thai_beta_evidence_badge_panel.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/presentation/thai_public_evidence_badge_beta_gate.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/presentation/thai_public_evidence_badge_beta_mapper.dart';
 import 'package:knowme/features/astrology/thai/knowledge/canon/integration/presentation/thai_public_evidence_badge_beta_view_model.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/ui/pages/thai_mirror_result_page.dart';
 
-/// Shows the **existing** Thai report for a beta analysis, with a CTA into the
-/// feedback step. The report itself is not redesigned — it reuses
-/// [ThaiMirrorResultPage] exactly as production does.
+/// Shows the Thai report from the shared Web/PDF/print presentation model.
 ///
 /// LEVEL 1 Canon evidence badges render here only when the controlled-beta
 /// feature flag and audience gate allow it.
@@ -176,11 +174,28 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
   static const _captureContentKeyValue = Key('thaiBetaReportCaptureContentKey');
 
   final GlobalKey _captureContentMeasureKey = GlobalKey();
+  final GlobalKey _infographicBoundaryKey = GlobalKey();
 
   List<ThaiPublicEvidenceBadgeBetaViewModel> _badges = const [];
   bool _loadingBadges = false;
   int _hostSyncGeneration = 0;
+  int _printSyncGeneration = 0;
   double _lastMeasuredContentHeight = 0;
+
+  Widget _withReportFonts(BuildContext context, Widget child) {
+    final base = Theme.of(context);
+    TextTheme reportTextTheme(TextTheme source) => source.apply(
+      fontFamily: 'KnowMeNotoSansThai',
+      fontFamilyFallback: const ['KnowMeNotoSans'],
+    );
+    return Theme(
+      data: base.copyWith(
+        textTheme: reportTextTheme(base.textTheme),
+        primaryTextTheme: reportTextTheme(base.primaryTextTheme),
+      ),
+      child: child,
+    );
+  }
 
   @override
   void initState() {
@@ -199,8 +214,30 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
   void dispose() {
     if (kIsWeb) {
       disableScreenshotFriendlyScroll();
+      removeBrowserPrintDocument();
     }
     super.dispose();
+  }
+
+  Future<Uint8List> _buildInfographicPng() =>
+      ThaiBetaAnnualInfographicCapture.png(_infographicBoundaryKey);
+
+  void _schedulePrintDocumentSync(ThaiBetaReportExportDocument document) {
+    if (!kIsWeb) return;
+    final generation = ++_printSyncGeneration;
+    WidgetsBinding.instance.addPostFrameCallback((_) async {
+      if (!mounted || generation != _printSyncGeneration) return;
+      Uint8List? infographicPng;
+      if (document.infographic != null) {
+        try {
+          infographicPng = await _buildInfographicPng();
+        } catch (_) {
+          infographicPng = null;
+        }
+      }
+      if (!mounted || generation != _printSyncGeneration) return;
+      installBrowserPrintDocument(document, infographicPng: infographicPng);
+    });
   }
 
   @override
@@ -310,16 +347,14 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
         ? 24.0
         : 88 + MediaQuery.paddingOf(context).bottom;
     final narrativeView = ThaiBetaNarrativeComposer.narrativeView(analysis);
-    final coreReading = ThaiBirthProfileCoreReading.fromAnalysis(
+    final document = ThaiBetaReportExportDocument.candidate(
       analysis,
-      consumerView: narrativeView,
+      badges: _showBadgePanel ? _badges : const [],
     );
+    _schedulePrintDocumentSync(document);
 
     final reportBody = <Widget>[
-      if (_showBadgePanel)
-        ThaiBetaEvidenceBadgePanel(badges: _badges)
-      else if (_loadingBadges)
-        const LinearProgressIndicator(minHeight: 2),
+      if (_loadingBadges) const LinearProgressIndicator(minHeight: 2),
       Padding(
         padding: EdgeInsets.fromLTRB(
           MediaQuery.sizeOf(context).width >= 768 ? 32 : 18,
@@ -330,64 +365,22 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 780),
-            child: ThaiBirthProfileCoreReadingSection(
-              reading: coreReading,
-              showMethodology: false,
-            ),
-          ),
-        ),
-      ),
-      Padding(
-        key: const Key('thai_birth_profile_timeline_divider'),
-        padding: const EdgeInsets.fromLTRB(18, 28, 18, 4),
-        child: Center(
-          child: ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 780),
-            child: Column(
-              children: [
-                const Divider(),
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 12),
-                  child: Text(
-                    ThaiBirthProfileCoreReadingCopy.timelineTransitionTitle,
-                    textAlign: TextAlign.center,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                      fontWeight: FontWeight.w700,
-                    ),
-                  ),
+            child: ThaiMirrorResultPage(
+              consumerState: narrativeView,
+              embeddedInParentScroll: true,
+              disableAnimations: true,
+              contentOverride: KeyedSubtree(
+                key: const Key('thai_birth_profile_core_reading'),
+                child: ThaiBetaSharedReportView(
+                  document: document,
+                  infographicBoundaryKey: _infographicBoundaryKey,
+                  badges: _showBadgePanel ? _badges : const [],
                 ),
-                const Divider(),
-              ],
-            ),
-          ),
-        ),
-      ),
-      ThaiMirrorResultPage(
-        embeddedInParentScroll: true,
-        disableAnimations: widget.screenshotMode,
-        personalCoreFirst: true,
-        relevantLifeTimeline: false,
-        lifeMapMode: true,
-        collapseSecondarySections: false,
-        timelineAndTransparencyOnly: true,
-        detailedPastFutureNarrative: true,
-        consumerState: narrativeView,
-        additionalTransparencySection: ThaiBirthProfileMethodologySection(
-          reading: coreReading,
-        ),
-      ),
-      if (coreReading.omissions.isNotEmpty)
-        Padding(
-          padding: const EdgeInsets.fromLTRB(18, 20, 18, 8),
-          child: Center(
-            child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 780),
-              child: ThaiBirthProfileCoreOmissionsSection(
-                omissions: coreReading.omissions,
               ),
             ),
           ),
         ),
+      ),
       if (!widget.screenshotMode)
         Padding(
           padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
@@ -527,14 +520,17 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
   Widget build(BuildContext context) {
     final analysis = widget.analysis;
     if (!analysis.isSuccess) {
-      return Scaffold(
-        appBar: AppBar(title: const Text('ผลวิเคราะห์')),
-        body: Center(
-          child: Padding(
-            padding: const EdgeInsets.all(24),
-            child: Text(
-              analysis.errorMessage ?? 'เกิดข้อผิดพลาดในการวิเคราะห์',
-              textAlign: TextAlign.center,
+      return _withReportFonts(
+        context,
+        Scaffold(
+          appBar: AppBar(title: const Text('ผลวิเคราะห์')),
+          body: Center(
+            child: Padding(
+              padding: const EdgeInsets.all(24),
+              child: Text(
+                analysis.errorMessage ?? 'เกิดข้อผิดพลาดในการวิเคราะห์',
+                textAlign: TextAlign.center,
+              ),
             ),
           ),
         ),
@@ -546,45 +542,49 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
     if (widget.screenshotMode) {
       // Pin capture banner + export chrome in the first viewport.
       // Not gated by evidence badge / admin / invited-beta flags.
-      return Scaffold(
-        body: SafeArea(
-          bottom: false,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Center(
-                child: ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 900),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      if (widget.showCaptureModeBanner)
-                        _buildCaptureModeBanner(),
-                      ThaiBetaReportExportButton(
-                        analysis: analysis,
-                        badges: _showBadgePanel ? _badges : const [],
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              Expanded(
-                child: SingleChildScrollView(
-                  key: const Key('thai_beta_report_screenshot_layout'),
-                  // Flutter owns capture scrolling (wheel / touch / scrollbar /
-                  // keyboard). NeverScrollable + document-host scroll left
-                  // users unable to read the report on /beta/thai/capture.
-                  primary: true,
-                  child: Align(
-                    alignment: Alignment.topCenter,
-                    child: ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 900),
-                      child: reportColumn,
+      return _withReportFonts(
+        context,
+        Scaffold(
+          body: SafeArea(
+            bottom: false,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 900),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        if (widget.showCaptureModeBanner)
+                          _buildCaptureModeBanner(),
+                        ThaiBetaReportExportButton(
+                          analysis: analysis,
+                          badges: _showBadgePanel ? _badges : const [],
+                          infographicPngBuilder: _buildInfographicPng,
+                        ),
+                      ],
                     ),
                   ),
                 ),
-              ),
-            ],
+                Expanded(
+                  child: SingleChildScrollView(
+                    key: const Key('thai_beta_report_screenshot_layout'),
+                    // Flutter owns capture scrolling (wheel / touch / scrollbar /
+                    // keyboard). NeverScrollable + document-host scroll left
+                    // users unable to read the report on /beta/thai/capture.
+                    primary: true,
+                    child: Align(
+                      alignment: Alignment.topCenter,
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(maxWidth: 900),
+                        child: reportColumn,
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       );
@@ -599,21 +599,24 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
       ),
     );
 
-    return Scaffold(
-      body: body,
-      bottomNavigationBar: SafeArea(
-        minimum: const EdgeInsets.fromLTRB(16, 8, 16, 12),
-        child: FilledButton.icon(
-          onPressed: () => Navigator.of(context).push(
-            MaterialPageRoute<void>(
-              builder: (_) => ThaiBetaFeedbackPage(analysis: analysis),
+    return _withReportFonts(
+      context,
+      Scaffold(
+        body: body,
+        bottomNavigationBar: SafeArea(
+          minimum: const EdgeInsets.fromLTRB(16, 8, 16, 12),
+          child: FilledButton.icon(
+            onPressed: () => Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (_) => ThaiBetaFeedbackPage(analysis: analysis),
+              ),
             ),
+            style: FilledButton.styleFrom(
+              padding: const EdgeInsets.symmetric(vertical: 16),
+            ),
+            icon: const Icon(Icons.rate_review_outlined),
+            label: const Text('ให้ความคิดเห็นต่อผลวิเคราะห์'),
           ),
-          style: FilledButton.styleFrom(
-            padding: const EdgeInsets.symmetric(vertical: 16),
-          ),
-          icon: const Icon(Icons.rate_review_outlined),
-          label: const Text('ให้ความคิดเห็นต่อผลวิเคราะห์'),
         ),
       ),
     );

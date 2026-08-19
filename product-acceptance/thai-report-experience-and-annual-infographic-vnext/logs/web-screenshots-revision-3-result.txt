@@ -1,0 +1,4 @@
+captured mode=known width=360 height=844 positions=top,6-wheel-middle,16-wheel-bottom
+captured mode=known width=390 height=844 positions=top,6-wheel-middle,16-wheel-bottom
+captured mode=unknown width=360 height=844 positions=top,6-wheel-middle,16-wheel-bottom
+captured mode=unknown width=390 height=844 positions=top,6-wheel-middle,16-wheel-bottom

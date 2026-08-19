@@ -1,0 +1,12 @@
+status: PASS — NO BRANCH-ONLY DIAGNOSTICS
+branchDiagnostics: 297
+mainDiagnostics: 299
+branchOnlyDiagnostics: 0
+mainOnlyDiagnostics: 2
+
+branchOnly:
+(none)
+
+mainOnly:
+info|'dart:html' is deprecated and shouldn't be used. Use package:web and dart:js_interop instead|lib/features/thai_beta/presentation/export/thai_beta_browser_print_web.dart|1:1|deprecated_member_use
+info|Don't use web-only libraries outside Flutter web plugins|lib/features/thai_beta/presentation/export/thai_beta_browser_print_web.dart|1:1|avoid_web_libraries_in_flutter

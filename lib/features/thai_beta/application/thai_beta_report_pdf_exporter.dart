@@ -246,16 +246,18 @@ abstract final class ThaiBetaReportPdfExporter {
 
   /// Same path as [ThaiBetaReportExportButton] download.
   static Future<Uint8List> buildBytes(
-    ThaiBetaReportExportDocument document,
-  ) async {
-    final result = await build(document);
+    ThaiBetaReportExportDocument document, {
+    Uint8List? infographicPng,
+  }) async {
+    final result = await build(document, infographicPng: infographicPng);
     return result.bytes;
   }
 
   /// Builds PDF bytes and returns the exact polished text fed to PDF widgets.
   static Future<ThaiBetaPdfRenderResult> build(
-    ThaiBetaReportExportDocument document,
-  ) async {
+    ThaiBetaReportExportDocument document, {
+    Uint8List? infographicPng,
+  }) async {
     final polished = ThaiBetaReportExportDocument.polishForPdf(document);
     final (regular, bold, latinRegular, latinBold) = await _loadFonts();
 
@@ -274,8 +276,8 @@ abstract final class ThaiBetaReportPdfExporter {
     final baseStyle = pw.TextStyle(
       font: regular,
       fontFallback: [latinRegular],
-      fontSize: 11,
-      height: 1.55,
+      fontSize: 10.8,
+      height: 1.5,
     );
     final titleStyle = pw.TextStyle(
       font: bold,
@@ -483,7 +485,25 @@ abstract final class ThaiBetaReportPdfExporter {
             // has no content but MultiPage still lays it out; when the final
             // content exactly fills a page it can create a footer-only page.
             if (i < polished.sections.length - 1) {
-              widgets.add(pw.SizedBox(height: 14));
+              widgets.add(pw.SizedBox(height: 12));
+            }
+            if (infographicPng != null &&
+                i == polished.infographicInsertionSectionIndex) {
+              widgets.add(pw.NewPage());
+              widgets.add(
+                pw.Center(
+                  child: pw.Image(
+                    pw.MemoryImage(infographicPng),
+                    // 9:16 within the printable A4 body. The previous 728pt
+                    // height exceeded MultiPage's body once the footer was
+                    // reserved and retried until TooManyPagesException.
+                    width: 382,
+                    height: 679,
+                    fit: pw.BoxFit.contain,
+                  ),
+                ),
+              );
+              widgets.add(pw.NewPage());
             }
           }
 

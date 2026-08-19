@@ -1,0 +1,20 @@
+capturedAtAsiaBangkok: 2026-08-18
+sourceCommit: be5e38a211eb9aa47edf88a95e71659d33752245
+sourceTree: d4ca1774ced0ceb97eff27045a7ab9ca0869df06
+workingBranch: codex/thai-report-experience-infographic-vnext
+flutterVersion: 3.41.3 stable
+flutterFrameworkRevision: 48c32af034
+flutterEngineHash: 14e407f99287c74c73a9a055680e7c9341773f6e
+dartVersion: 3.11.1 stable windows_x64
+ownerFullReport: owner-full-report.pdf
+ownerFullReportBytes: 39390
+ownerFullReportSha256: 53676D4CED622F772F965B20C21A9091BCC710B4546C2729636BBB0E761ABB11
+ownerBrowserPrint: owner-browser-print.pdf
+ownerBrowserPrintBytes: 156053
+ownerBrowserPrintSha256: 51F800C8301C519E5E627B7D5980A2AB945FF32A45938757C020C7DBC5C16A20
+firebaseProductionHostingVersion: 5f98dfffef913e38
+firebaseProductionRelease: 1787038542564000
+firebaseProductionReleaseTimeUtc: 2026-08-18T07:35:42.564Z
+firebaseRollbackV14Version: 10af10c6d960d590
+firebaseMutationAuthorized: false
+

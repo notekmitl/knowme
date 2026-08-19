@@ -1,0 +1,71 @@
+PR #100 Revision 3 PDF page-one repair: pre-change provenance
+Captured: 2026-08-19 Asia/Bangkok
+
+Repository safety identity
+- branch: codex/thai-report-experience-infographic-vnext
+- local HEAD: 21fbcd51d16d5a289d215791780c95a1b0db389a
+- remote branch HEAD: 21fbcd51d16d5a289d215791780c95a1b0db389a
+- pinned origin/main: be5e38a211eb9aa47edf88a95e71659d33752245
+- worktree: intentionally dirty from the in-progress Revision 3 candidate, evidence, and test-generated outputs
+
+Revision 3 substantive candidate files present before this repair
+- lib/features/thai_beta/application/thai_beta_reader_copy_repair.dart
+- lib/features/thai_beta/application/thai_beta_report_export_document.dart
+- lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart
+- test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart
+- test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+- tool/thai_report_owner_copy_summary.dart
+- tool/thai_report_vnext_capture_web_screenshots.cjs
+
+Tracked test-generated outputs to restore explicitly before commit
+- docs/BAZI_MIRROR_INTEGRATION_V1.md
+- docs/CHINESE_ZODIAC_IMPACT_VALIDATION_V1.md
+- docs/HUMAN_PATTERN_ACTIVATION_AUDIT_V1.md
+- docs/NARRATIVE_INTELLIGENCE_V2.md
+- docs/SYNTHETIC_HUMAN_POPULATION_V1.md
+- docs/THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md
+- docs/THAI_LIFE_MAP_V127_SIMULATED_MATRIX.md
+- test/validation/bazi_mirror_integration/output/results.json
+- test/validation/chinese_zodiac_impact/output/results.json
+- test/validation/human_pattern_activation_audit/output/results.json
+- test/validation/narrative_intelligence_v2/output/results.json
+- test/validation/synthetic_population/output/results.json
+- test/validation/thai_beta/life_map/v129/output/v129_product_qa.md
+- test/validation/thai_beta/life_map/v130/output/v130_product_qa.md
+- test/validation/thai_beta/life_map/v131/output/v131_product_qa.md
+- test/validation/thai_beta/life_map/v132/output/v132_product_qa.md
+- test/validation/thai_beta/life_map/v133/output/v133_product_qa.md
+- test/validation/thai_beta/life_map/v134/output/v134_product_qa.md
+- test/validation/thai_beta/life_map/v135/output/v135_product_qa.md
+- test/validation/thai_mirror_consumer_ux/output/consumer_ux_validation_report.json
+- test/validation/thai_mirror_consumer_ux/output/consumer_ux_validation_report.md
+- test/validation/thai_mirror_content_diversity/output/results.json
+- tool/output/thai_internal_evidence_qa_summary.json
+- tool/output/thai_public_evidence_badge_controlled_beta_qa_summary.json
+- tool/output/thai_public_evidence_badge_internal_only_activation_qa_summary.json
+- tool/output/thai_public_evidence_badge_invited_beta_activation_qa_summary.json
+- tool/output/thai_public_evidence_badge_qa_summary.json
+- tool/output/thai_public_evidence_badge_rollback_drill_summary.json
+
+Untracked Revision 3 evidence roots present before this repair
+- product-acceptance/thai-report-experience-and-annual-infographic-vnext/generated-artifacts/revision-3/
+- product-acceptance/thai-report-experience-and-annual-infographic-vnext/renders/revision-3/
+- product-acceptance/thai-report-experience-and-annual-infographic-vnext/visual-qa/revision-3/
+- product-acceptance/thai-report-experience-and-annual-infographic-vnext/web-screenshots-revision-3/
+- product-acceptance/thai-report-experience-and-annual-infographic-vnext/revision-3-before/
+- product-acceptance/thai-report-experience-and-annual-infographic-vnext/revision-3-blocker.md
+- product-acceptance/thai-report-experience-and-annual-infographic-vnext/logs/*-revision-3-*.txt and related Revision 3 raw logs
+- product-acceptance/thai-report-experience-and-annual-infographic-vnext/*revision-3*.json and *revision-3*.md
+- tmp/ (read-only investigation scratch data; excluded from final payload)
+
+Diff classification at capture
+- source/application candidate: 3 tracked files
+- tests candidate: 2 tracked files
+- tools candidate: 2 tracked files
+- tracked generated outputs/noise: 27 files
+- untracked evidence: Revision 3 packet paths listed above
+
+Preservation contract
+- No broad restore/reset/clean command is authorized.
+- The substantive candidate and blocker evidence are preserved.
+- Only the explicitly enumerated tracked test-generated outputs may be restored before commit.

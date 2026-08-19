@@ -1,0 +1,4 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/thai-report-experience-infographic-vnext/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+00:00 +0: title-integrity gate rejects all five evidence mutations
+00:00 +1: writes isolated vNext review artifacts from one shared model
+00:40 +2: All tests passed!
