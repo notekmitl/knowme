@@ -1,5 +1,9 @@
 # KnowMe Roadmap
 
+## Current — Monthly Evidence Engine blocked on authoritative month rules
+
+The V1 Authority Gate audited final main `46d7883bca87570950eb84a7ca3dffbb3e6653b3` and found no complete rule set for deterministic January–December evidence. Existing capabilities are age-period, rolling one-year, annual Taksa or current-day resolution; Canon contains no calendar-month applicability or aggregation contract. The separate candidate is documentation/evidence-only, keeps `monthlyTimelineAvailable=false`, and awaits Owner/Canon authorization before any implementation. Do not merge or deploy it. Production remains V1.5 `5f98dfffef913e38`.
+
 ## Current — S008 technical parity verified; Owner copy decision next
 
 PR #95 now has exact VM/Chrome parity at the canonical snapshot/hash/narrative boundary across two VM and two real-Chrome 300-profile runs. All fresh final test, analyzer-delta, build, baseline-delta and R7.1 identity gates pass. The remaining gate is Owner review of the fully enumerated reader-visible copy normalization (93 profiles / 112 summaries). Keep the PR Draft; merge and deployment require separate explicit authorization. Production remains V1.4.
