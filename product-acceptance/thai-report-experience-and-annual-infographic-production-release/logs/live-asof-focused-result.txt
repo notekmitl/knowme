@@ -1,0 +1,953 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_canonical_degree_test.dart
+00:00 +0: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_canonical_degree_test.dart: fixed-point vectors are exact
+00:00 +1: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_canonical_degree_test.dart: S008 and adjacent ULP material share one canonical value
+00:00 +2: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_canonical_degree_test.dart: finite normalization and invalid input contract are explicit
+00:00 +3: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_canonical_degree_test.dart: canonicalization does not participate in sign or house decisions
+00:00 +4: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_canonical_degree_test.dart: S008 keeps raw engine value and hashes old/new snapshots identically
+00:00 +5: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_canonical_degree_test.dart: S008 keeps raw engine value and hashes old/new snapshots identically
+00:00 +6: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_canonical_degree_test.dart: S008 keeps raw engine value and hashes old/new snapshots identically
+00:00 +7: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_canonical_degree_test.dart: S008 keeps raw engine value and hashes old/new snapshots identically
+00:00 +8: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_canonical_degree_test.dart: S008 keeps raw engine value and hashes old/new snapshots identically
+00:00 +9: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_canonical_degree_test.dart: S008 keeps raw engine value and hashes old/new snapshots identically
+00:00 +10: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_canonical_degree_test.dart: S008 keeps raw engine value and hashes old/new snapshots identically
+00:00 +11: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_canonical_degree_test.dart: S008 keeps raw engine value and hashes old/new snapshots identically
+00:00 +12: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_canonical_degree_test.dart: S008 keeps raw engine value and hashes old/new snapshots identically
+00:00 +13: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_canonical_degree_test.dart: S008 keeps raw engine value and hashes old/new snapshots identically
+00:00 +14: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_canonical_degree_test.dart: S008 keeps raw engine value and hashes old/new snapshots identically
+00:00 +15: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_canonical_degree_test.dart: S008 keeps raw engine value and hashes old/new snapshots identically
+00:00 +16: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: (setUpAll)
+00:00 +16: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_cross_runtime_seed_test.dart: stable presenter seed and accepted output are cross-runtime invariant
+{
+  "schema": "knowme-v15-cross-runtime-seed-post-repair-v1",
+  "runtime": "dart-vm",
+  "presenterSeed": 28924034132,
+  "orderedThemeIds": [
+    "persistence",
+    "builder",
+    "develop_patience",
+    "disciplined",
+    "visionary",
+    "independent",
+    "ambitious",
+    "analytical",
+    "reflective",
+    "detail_oriented",
+    "diplomatic",
+    "teacher",
+    "open_to_collaboration"
+  ],
+  "topThemeIds": [
+    "persistence",
+    "builder",
+    "develop_patience"
+  ],
+  "themeScores": [
+    1.195,
+    1.0350000000000001,
+    0.9,
+    0.5525,
+    0.85,
+    0.5850000000000001,
+    0.45499999999999996,
+    0.65,
+    1.5525000000000002,
+    0.425,
+    2.2025,
+    1.3900000000000001,
+    0.35,
+    2.2025,
+    1.5525000000000002,
+    1.3900000000000001
+  ],
+  "lagnaKey": "lagna_aquarius",
+  "stringHashCodes": {
+    "persistence": 961841110,
+    "builder": 504794108,
+    "develop_patience": 56504523,
+    "disciplined": 238764174,
+    "visionary": 181167291,
+    "independent": 928749864,
+    "ambitious": 406434870,
+    "analytical": 803126558,
+    "reflective": 252008166,
+    "detail_oriented": 588666404,
+    "diplomatic": 300348774,
+    "teacher": 358897741,
+    "open_to_collaboration": 1445821,
+    "lagna_aquarius": 804501464
+  },
+  "stableStringHashes": {
+    "persistence": 961841110,
+    "builder": 504794108,
+    "develop_patience": 56504523,
+    "disciplined": 238764174,
+    "visionary": 181167291,
+    "independent": 928749864,
+    "ambitious": 406434870,
+    "analytical": 803126558,
+    "reflective": 252008166,
+    "detail_oriented": 588666404,
+    "diplomatic": 300348774,
+    "teacher": 358897741,
+    "open_to_collaboration": 1445821,
+    "lagna_aquarius": 804501464
+  },
+  "canonicalTextSha256": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+  "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+  "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+  "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่",
+  "hasProductionMismatch": false,
+  "hasFrozenAcceptance": true
+}
+00:00 +17: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: (setUpAll)
+00:02 +17: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_live_asof_diagnostic_test.dart: Clock A/B/C disproves as-of as the Production mismatch cause
+{
+  "schema": "knowme-v15-live-asof-root-cause-v1",
+  "productionEvidenceWindow": {
+    "earliestUtc": "2026-08-16T09:15:15.5721160Z",
+    "latestUtc": "2026-08-16T09:19:44.4545351Z",
+    "earliestAsiaBangkok": "2026-08-16T16:15:15.572116+07:00",
+    "latestAsiaBangkok": "2026-08-16T16:19:44.454535+07:00",
+    "basis": [
+      "production-asset-verification.json verifiedUtc",
+      "original Downloads PDF NTFS CreationTimeUtc"
+    ],
+    "stableThroughoutSampledRange": true
+  },
+  "clockA": {
+    "label": "clock-a-frozen-acceptance",
+    "startedAt": "2026-08-07T00:00:00.000",
+    "asOf": "2026-08-07T00:00:00.000",
+    "timezone": {
+      "isUtc": false,
+      "offset": "7:00:00.000000",
+      "civilDateUsedByEngine": "2026-08-07"
+    },
+    "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+    "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+    "currentMaterial": [
+      {
+        "title": "การงาน",
+        "body": "มีโอกาสรับงานหรือความรับผิดชอบเพิ่มในช่วงนี้ แต่ไม่จำเป็นต้องรับทุกทางพร้อมกัน ควรระวังการรับงานซ้อนจนกระทบคุณภาพและความต่อเนื่อง",
+        "evidenceKeys": [
+          "score:career:82",
+          "score:pressure:42",
+          "direction:advance",
+          "planet:venus",
+          "signal:_Signal.strong"
+        ]
+      },
+      {
+        "title": "การเงิน",
+        "body": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "evidenceKeys": [
+          "score:money:98",
+          "score:career:82",
+          "score:opportunity:91",
+          "planet:venus",
+          "signal:_Signal.strong"
+        ]
+      },
+      {
+        "title": "สุขภาพ",
+        "body": "ช่วงนี้พลังชีวิตพอไปได้หากจัดจังหวะพักสม่ำเสมอ รักษาเวลานอนให้คงที่ และเว้นช่วงสั้น ๆ ระหว่างภาระ เพื่อไม่ให้ความล้าสะสมจนกระทบช่วงที่ต้องใช้แรง ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำบอกจากแพทย์ หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ",
+        "evidenceKeys": [
+          "score:health:79",
+          "score:pressure:42",
+          "planet:venus",
+          "signal:_Signal.strong"
+        ]
+      },
+      {
+        "title": "โชคลาภ",
+        "body": "รายได้หลักยังแยกจากโชคเหตุบังเอิญ — ส่วนใหญ่มาจากงานและความสามารถที่ลงมือเอง ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากหลักฐานและภาระจริงก่อนรับ",
+        "evidenceKeys": [
+          "score:opportunity:91",
+          "score:money:98",
+          "score:career:82",
+          "planet:venus",
+          "signal:_Signal.strong"
+        ]
+      }
+    ],
+    "nextMaterial": [
+      {
+        "title": "การงาน",
+        "body": "ดวงชี้ว่าในช่วงเปล่งประกาย งานมีแนวโน้มขยายตัวและอาจมีบทบาทใหม่เข้ามา ผลงานมีโอกาสถูกมองเห็นชัดขึ้น แต่ควรเลือกงานสำคัญแทนการรับทุกอย่างพร้อมกัน",
+        "evidenceKeys": [
+          "score:career:88",
+          "planet:sun",
+          "period_tense:future"
+        ]
+      },
+      {
+        "title": "การเงิน",
+        "body": "ในช่วงเปล่งประกาย การเงินมีแนวโน้มพอเดินได้แต่ยังไม่เด่น รายได้หลักยังมาจากงานประจำและความสามารถ มากกว่าโชคหรือเงินก้อนฉับพลัน",
+        "evidenceKeys": [
+          "score:money:62",
+          "planet:sun",
+          "period_tense:future"
+        ]
+      },
+      {
+        "title": "ความรัก",
+        "body": "ในช่วงเปล่งประกาย ความสัมพันธ์มีแนวโน้มค่อย ๆ พัฒนา ไม่ใช่จังหวะเร่งคำตอบ ความสม่ำเสมอและการเคารพพื้นที่กันมีน้ำหนักมากกว่าความสัมพันธ์ที่มาเร็วไปเร็ว",
+        "evidenceKeys": [
+          "score:love:43",
+          "planet:sun",
+          "period_tense:future"
+        ]
+      },
+      {
+        "title": "สุขภาพ",
+        "body": "ในช่วงเปล่งประกาย พลังชีวิตอาจขึ้นลงตามภาระ ควรลดการฝืนและเว้นช่วงพักให้เป็นกิจวัตร",
+        "evidenceKeys": [
+          "score:health:48",
+          "planet:sun",
+          "period_tense:future"
+        ]
+      }
+    ],
+    "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+    "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่",
+    "webCanonicalHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+    "pdfCanonicalHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+    "webPdfExact": true,
+    "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+    "reportSnapshotHash": "b12b3c35dcd9fa8099a924f20a8239e8dbc3eca7e5ed6b971bc4e9dde01d7470",
+    "presenterSeed": 28924034132,
+    "orderedThemeIds": [
+      "persistence",
+      "builder",
+      "develop_patience",
+      "disciplined",
+      "visionary",
+      "independent",
+      "ambitious",
+      "analytical",
+      "reflective",
+      "detail_oriented",
+      "diplomatic",
+      "teacher",
+      "open_to_collaboration"
+    ],
+    "topThemeIds": [
+      "persistence",
+      "builder",
+      "develop_patience"
+    ],
+    "themeScores": [
+      1.195,
+      1.0350000000000001,
+      0.9,
+      0.5525,
+      0.85,
+      0.5850000000000001,
+      0.45499999999999996,
+      0.65,
+      1.5525000000000002,
+      0.425,
+      2.2025,
+      1.3900000000000001,
+      0.35,
+      2.2025,
+      1.5525000000000002,
+      1.3900000000000001
+    ],
+    "lagnaKey": "lagna_aquarius"
+  },
+  "clockB": {
+    "label": "clock-b-production-download-time",
+    "startedAt": "2026-08-16T16:15:15.572",
+    "asOf": "2026-08-16T16:19:44.454535",
+    "timezone": {
+      "isUtc": false,
+      "offset": "7:00:00.000000",
+      "civilDateUsedByEngine": "2026-08-16"
+    },
+    "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+    "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+    "currentMaterial": [
+      {
+        "title": "การงาน",
+        "body": "มีโอกาสรับงานหรือความรับผิดชอบเพิ่มในช่วงนี้ แต่ไม่จำเป็นต้องรับทุกทางพร้อมกัน ควรระวังการรับงานซ้อนจนกระทบคุณภาพและความต่อเนื่อง",
+        "evidenceKeys": [
+          "score:career:82",
+          "score:pressure:42",
+          "direction:advance",
+          "planet:venus",
+          "signal:_Signal.strong"
+        ]
+      },
+      {
+        "title": "การเงิน",
+        "body": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "evidenceKeys": [
+          "score:money:98",
+          "score:career:82",
+          "score:opportunity:91",
+          "planet:venus",
+          "signal:_Signal.strong"
+        ]
+      },
+      {
+        "title": "สุขภาพ",
+        "body": "ช่วงนี้พลังชีวิตพอไปได้หากจัดจังหวะพักสม่ำเสมอ รักษาเวลานอนให้คงที่ และเว้นช่วงสั้น ๆ ระหว่างภาระ เพื่อไม่ให้ความล้าสะสมจนกระทบช่วงที่ต้องใช้แรง ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำบอกจากแพทย์ หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ",
+        "evidenceKeys": [
+          "score:health:79",
+          "score:pressure:42",
+          "planet:venus",
+          "signal:_Signal.strong"
+        ]
+      },
+      {
+        "title": "โชคลาภ",
+        "body": "รายได้หลักยังแยกจากโชคเหตุบังเอิญ — ส่วนใหญ่มาจากงานและความสามารถที่ลงมือเอง ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากหลักฐานและภาระจริงก่อนรับ",
+        "evidenceKeys": [
+          "score:opportunity:91",
+          "score:money:98",
+          "score:career:82",
+          "planet:venus",
+          "signal:_Signal.strong"
+        ]
+      }
+    ],
+    "nextMaterial": [
+      {
+        "title": "การงาน",
+        "body": "ดวงชี้ว่าในช่วงเปล่งประกาย งานมีแนวโน้มขยายตัวและอาจมีบทบาทใหม่เข้ามา ผลงานมีโอกาสถูกมองเห็นชัดขึ้น แต่ควรเลือกงานสำคัญแทนการรับทุกอย่างพร้อมกัน",
+        "evidenceKeys": [
+          "score:career:88",
+          "planet:sun",
+          "period_tense:future"
+        ]
+      },
+      {
+        "title": "การเงิน",
+        "body": "ในช่วงเปล่งประกาย การเงินมีแนวโน้มพอเดินได้แต่ยังไม่เด่น รายได้หลักยังมาจากงานประจำและความสามารถ มากกว่าโชคหรือเงินก้อนฉับพลัน",
+        "evidenceKeys": [
+          "score:money:62",
+          "planet:sun",
+          "period_tense:future"
+        ]
+      },
+      {
+        "title": "ความรัก",
+        "body": "ในช่วงเปล่งประกาย ความสัมพันธ์มีแนวโน้มค่อย ๆ พัฒนา ไม่ใช่จังหวะเร่งคำตอบ ความสม่ำเสมอและการเคารพพื้นที่กันมีน้ำหนักมากกว่าความสัมพันธ์ที่มาเร็วไปเร็ว",
+        "evidenceKeys": [
+          "score:love:43",
+          "planet:sun",
+          "period_tense:future"
+        ]
+      },
+      {
+        "title": "สุขภาพ",
+        "body": "ในช่วงเปล่งประกาย พลังชีวิตอาจขึ้นลงตามภาระ ควรลดการฝืนและเว้นช่วงพักให้เป็นกิจวัตร",
+        "evidenceKeys": [
+          "score:health:48",
+          "planet:sun",
+          "period_tense:future"
+        ]
+      }
+    ],
+    "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+    "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่",
+    "webCanonicalHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+    "pdfCanonicalHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+    "webPdfExact": true,
+    "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+    "reportSnapshotHash": "b12b3c35dcd9fa8099a924f20a8239e8dbc3eca7e5ed6b971bc4e9dde01d7470",
+    "presenterSeed": 28924034132,
+    "orderedThemeIds": [
+      "persistence",
+      "builder",
+      "develop_patience",
+      "disciplined",
+      "visionary",
+      "independent",
+      "ambitious",
+      "analytical",
+      "reflective",
+      "detail_oriented",
+      "diplomatic",
+      "teacher",
+      "open_to_collaboration"
+    ],
+    "topThemeIds": [
+      "persistence",
+      "builder",
+      "develop_patience"
+    ],
+    "themeScores": [
+      1.195,
+      1.0350000000000001,
+      0.9,
+      0.5525,
+      0.85,
+      0.5850000000000001,
+      0.45499999999999996,
+      0.65,
+      1.5525000000000002,
+      0.425,
+      2.2025,
+      1.3900000000000001,
+      0.35,
+      2.2025,
+      1.5525000000000002,
+      1.3900000000000001
+    ],
+    "lagnaKey": "lagna_aquarius"
+  },
+  "clockC": {
+    "differentStartedSameAsOfIdentical": true,
+    "sameStartedDifferentAsOfChanges": false,
+    "openBeforeMidnight": {
+      "label": "clock-c-open-before-midnight-submit-after",
+      "startedAt": "2026-08-15T23:59:50.000",
+      "asOf": "2026-08-16T00:00:10.000",
+      "timezone": {
+        "isUtc": false,
+        "offset": "7:00:00.000000",
+        "civilDateUsedByEngine": "2026-08-16"
+      },
+      "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+      "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+      "currentMaterial": [
+        {
+          "title": "การงาน",
+          "body": "มีโอกาสรับงานหรือความรับผิดชอบเพิ่มในช่วงนี้ แต่ไม่จำเป็นต้องรับทุกทางพร้อมกัน ควรระวังการรับงานซ้อนจนกระทบคุณภาพและความต่อเนื่อง",
+          "evidenceKeys": [
+            "score:career:82",
+            "score:pressure:42",
+            "direction:advance",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        },
+        {
+          "title": "การเงิน",
+          "body": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+          "evidenceKeys": [
+            "score:money:98",
+            "score:career:82",
+            "score:opportunity:91",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        },
+        {
+          "title": "สุขภาพ",
+          "body": "ช่วงนี้พลังชีวิตพอไปได้หากจัดจังหวะพักสม่ำเสมอ รักษาเวลานอนให้คงที่ และเว้นช่วงสั้น ๆ ระหว่างภาระ เพื่อไม่ให้ความล้าสะสมจนกระทบช่วงที่ต้องใช้แรง ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำบอกจากแพทย์ หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ",
+          "evidenceKeys": [
+            "score:health:79",
+            "score:pressure:42",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        },
+        {
+          "title": "โชคลาภ",
+          "body": "รายได้หลักยังแยกจากโชคเหตุบังเอิญ — ส่วนใหญ่มาจากงานและความสามารถที่ลงมือเอง ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากหลักฐานและภาระจริงก่อนรับ",
+          "evidenceKeys": [
+            "score:opportunity:91",
+            "score:money:98",
+            "score:career:82",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        }
+      ],
+      "nextMaterial": [
+        {
+          "title": "การงาน",
+          "body": "ดวงชี้ว่าในช่วงเปล่งประกาย งานมีแนวโน้มขยายตัวและอาจมีบทบาทใหม่เข้ามา ผลงานมีโอกาสถูกมองเห็นชัดขึ้น แต่ควรเลือกงานสำคัญแทนการรับทุกอย่างพร้อมกัน",
+          "evidenceKeys": [
+            "score:career:88",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        },
+        {
+          "title": "การเงิน",
+          "body": "ในช่วงเปล่งประกาย การเงินมีแนวโน้มพอเดินได้แต่ยังไม่เด่น รายได้หลักยังมาจากงานประจำและความสามารถ มากกว่าโชคหรือเงินก้อนฉับพลัน",
+          "evidenceKeys": [
+            "score:money:62",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        },
+        {
+          "title": "ความรัก",
+          "body": "ในช่วงเปล่งประกาย ความสัมพันธ์มีแนวโน้มค่อย ๆ พัฒนา ไม่ใช่จังหวะเร่งคำตอบ ความสม่ำเสมอและการเคารพพื้นที่กันมีน้ำหนักมากกว่าความสัมพันธ์ที่มาเร็วไปเร็ว",
+          "evidenceKeys": [
+            "score:love:43",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        },
+        {
+          "title": "สุขภาพ",
+          "body": "ในช่วงเปล่งประกาย พลังชีวิตอาจขึ้นลงตามภาระ ควรลดการฝืนและเว้นช่วงพักให้เป็นกิจวัตร",
+          "evidenceKeys": [
+            "score:health:48",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        }
+      ],
+      "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+      "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่",
+      "webCanonicalHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+      "pdfCanonicalHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+      "webPdfExact": true,
+      "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+      "reportSnapshotHash": "b12b3c35dcd9fa8099a924f20a8239e8dbc3eca7e5ed6b971bc4e9dde01d7470",
+      "presenterSeed": 28924034132,
+      "orderedThemeIds": [
+        "persistence",
+        "builder",
+        "develop_patience",
+        "disciplined",
+        "visionary",
+        "independent",
+        "ambitious",
+        "analytical",
+        "reflective",
+        "detail_oriented",
+        "diplomatic",
+        "teacher",
+        "open_to_collaboration"
+      ],
+      "topThemeIds": [
+        "persistence",
+        "builder",
+        "develop_patience"
+      ],
+      "themeScores": [
+        1.195,
+        1.0350000000000001,
+        0.9,
+        0.5525,
+        0.85,
+        0.5850000000000001,
+        0.45499999999999996,
+        0.65,
+        1.5525000000000002,
+        0.425,
+        2.2025,
+        1.3900000000000001,
+        0.35,
+        2.2025,
+        1.5525000000000002,
+        1.3900000000000001
+      ],
+      "lagnaKey": "lagna_aquarius"
+    },
+    "openAfterMidnight": {
+      "label": "clock-c-open-after-midnight-submit-after",
+      "startedAt": "2026-08-16T00:00:05.000",
+      "asOf": "2026-08-16T00:00:10.000",
+      "timezone": {
+        "isUtc": false,
+        "offset": "7:00:00.000000",
+        "civilDateUsedByEngine": "2026-08-16"
+      },
+      "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+      "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+      "currentMaterial": [
+        {
+          "title": "การงาน",
+          "body": "มีโอกาสรับงานหรือความรับผิดชอบเพิ่มในช่วงนี้ แต่ไม่จำเป็นต้องรับทุกทางพร้อมกัน ควรระวังการรับงานซ้อนจนกระทบคุณภาพและความต่อเนื่อง",
+          "evidenceKeys": [
+            "score:career:82",
+            "score:pressure:42",
+            "direction:advance",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        },
+        {
+          "title": "การเงิน",
+          "body": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+          "evidenceKeys": [
+            "score:money:98",
+            "score:career:82",
+            "score:opportunity:91",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        },
+        {
+          "title": "สุขภาพ",
+          "body": "ช่วงนี้พลังชีวิตพอไปได้หากจัดจังหวะพักสม่ำเสมอ รักษาเวลานอนให้คงที่ และเว้นช่วงสั้น ๆ ระหว่างภาระ เพื่อไม่ให้ความล้าสะสมจนกระทบช่วงที่ต้องใช้แรง ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำบอกจากแพทย์ หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ",
+          "evidenceKeys": [
+            "score:health:79",
+            "score:pressure:42",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        },
+        {
+          "title": "โชคลาภ",
+          "body": "รายได้หลักยังแยกจากโชคเหตุบังเอิญ — ส่วนใหญ่มาจากงานและความสามารถที่ลงมือเอง ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากหลักฐานและภาระจริงก่อนรับ",
+          "evidenceKeys": [
+            "score:opportunity:91",
+            "score:money:98",
+            "score:career:82",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        }
+      ],
+      "nextMaterial": [
+        {
+          "title": "การงาน",
+          "body": "ดวงชี้ว่าในช่วงเปล่งประกาย งานมีแนวโน้มขยายตัวและอาจมีบทบาทใหม่เข้ามา ผลงานมีโอกาสถูกมองเห็นชัดขึ้น แต่ควรเลือกงานสำคัญแทนการรับทุกอย่างพร้อมกัน",
+          "evidenceKeys": [
+            "score:career:88",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        },
+        {
+          "title": "การเงิน",
+          "body": "ในช่วงเปล่งประกาย การเงินมีแนวโน้มพอเดินได้แต่ยังไม่เด่น รายได้หลักยังมาจากงานประจำและความสามารถ มากกว่าโชคหรือเงินก้อนฉับพลัน",
+          "evidenceKeys": [
+            "score:money:62",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        },
+        {
+          "title": "ความรัก",
+          "body": "ในช่วงเปล่งประกาย ความสัมพันธ์มีแนวโน้มค่อย ๆ พัฒนา ไม่ใช่จังหวะเร่งคำตอบ ความสม่ำเสมอและการเคารพพื้นที่กันมีน้ำหนักมากกว่าความสัมพันธ์ที่มาเร็วไปเร็ว",
+          "evidenceKeys": [
+            "score:love:43",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        },
+        {
+          "title": "สุขภาพ",
+          "body": "ในช่วงเปล่งประกาย พลังชีวิตอาจขึ้นลงตามภาระ ควรลดการฝืนและเว้นช่วงพักให้เป็นกิจวัตร",
+          "evidenceKeys": [
+            "score:health:48",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        }
+      ],
+      "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+      "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่",
+      "webCanonicalHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+      "pdfCanonicalHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+      "webPdfExact": true,
+      "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+      "reportSnapshotHash": "b12b3c35dcd9fa8099a924f20a8239e8dbc3eca7e5ed6b971bc4e9dde01d7470",
+      "presenterSeed": 28924034132,
+      "orderedThemeIds": [
+        "persistence",
+        "builder",
+        "develop_patience",
+        "disciplined",
+        "visionary",
+        "independent",
+        "ambitious",
+        "analytical",
+        "reflective",
+        "detail_oriented",
+        "diplomatic",
+        "teacher",
+        "open_to_collaboration"
+      ],
+      "topThemeIds": [
+        "persistence",
+        "builder",
+        "develop_patience"
+      ],
+      "themeScores": [
+        1.195,
+        1.0350000000000001,
+        0.9,
+        0.5525,
+        0.85,
+        0.5850000000000001,
+        0.45499999999999996,
+        0.65,
+        1.5525000000000002,
+        0.425,
+        2.2025,
+        1.3900000000000001,
+        0.35,
+        2.2025,
+        1.5525000000000002,
+        1.3900000000000001
+      ],
+      "lagnaKey": "lagna_aquarius"
+    },
+    "sameStartedDifferentAsOf": {
+      "label": "clock-c-same-started-different-asof",
+      "startedAt": "2026-08-07T00:00:00.000",
+      "asOf": "2026-08-16T00:00:00.000",
+      "timezone": {
+        "isUtc": false,
+        "offset": "7:00:00.000000",
+        "civilDateUsedByEngine": "2026-08-16"
+      },
+      "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+      "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+      "currentMaterial": [
+        {
+          "title": "การงาน",
+          "body": "มีโอกาสรับงานหรือความรับผิดชอบเพิ่มในช่วงนี้ แต่ไม่จำเป็นต้องรับทุกทางพร้อมกัน ควรระวังการรับงานซ้อนจนกระทบคุณภาพและความต่อเนื่อง",
+          "evidenceKeys": [
+            "score:career:82",
+            "score:pressure:42",
+            "direction:advance",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        },
+        {
+          "title": "การเงิน",
+          "body": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+          "evidenceKeys": [
+            "score:money:98",
+            "score:career:82",
+            "score:opportunity:91",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        },
+        {
+          "title": "สุขภาพ",
+          "body": "ช่วงนี้พลังชีวิตพอไปได้หากจัดจังหวะพักสม่ำเสมอ รักษาเวลานอนให้คงที่ และเว้นช่วงสั้น ๆ ระหว่างภาระ เพื่อไม่ให้ความล้าสะสมจนกระทบช่วงที่ต้องใช้แรง ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำบอกจากแพทย์ หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ",
+          "evidenceKeys": [
+            "score:health:79",
+            "score:pressure:42",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        },
+        {
+          "title": "โชคลาภ",
+          "body": "รายได้หลักยังแยกจากโชคเหตุบังเอิญ — ส่วนใหญ่มาจากงานและความสามารถที่ลงมือเอง ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากหลักฐานและภาระจริงก่อนรับ",
+          "evidenceKeys": [
+            "score:opportunity:91",
+            "score:money:98",
+            "score:career:82",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        }
+      ],
+      "nextMaterial": [
+        {
+          "title": "การงาน",
+          "body": "ดวงชี้ว่าในช่วงเปล่งประกาย งานมีแนวโน้มขยายตัวและอาจมีบทบาทใหม่เข้ามา ผลงานมีโอกาสถูกมองเห็นชัดขึ้น แต่ควรเลือกงานสำคัญแทนการรับทุกอย่างพร้อมกัน",
+          "evidenceKeys": [
+            "score:career:88",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        },
+        {
+          "title": "การเงิน",
+          "body": "ในช่วงเปล่งประกาย การเงินมีแนวโน้มพอเดินได้แต่ยังไม่เด่น รายได้หลักยังมาจากงานประจำและความสามารถ มากกว่าโชคหรือเงินก้อนฉับพลัน",
+          "evidenceKeys": [
+            "score:money:62",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        },
+        {
+          "title": "ความรัก",
+          "body": "ในช่วงเปล่งประกาย ความสัมพันธ์มีแนวโน้มค่อย ๆ พัฒนา ไม่ใช่จังหวะเร่งคำตอบ ความสม่ำเสมอและการเคารพพื้นที่กันมีน้ำหนักมากกว่าความสัมพันธ์ที่มาเร็วไปเร็ว",
+          "evidenceKeys": [
+            "score:love:43",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        },
+        {
+          "title": "สุขภาพ",
+          "body": "ในช่วงเปล่งประกาย พลังชีวิตอาจขึ้นลงตามภาระ ควรลดการฝืนและเว้นช่วงพักให้เป็นกิจวัตร",
+          "evidenceKeys": [
+            "score:health:48",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        }
+      ],
+      "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+      "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่",
+      "webCanonicalHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+      "pdfCanonicalHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+      "webPdfExact": true,
+      "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+      "reportSnapshotHash": "b12b3c35dcd9fa8099a924f20a8239e8dbc3eca7e5ed6b971bc4e9dde01d7470",
+      "presenterSeed": 28924034132,
+      "orderedThemeIds": [
+        "persistence",
+        "builder",
+        "develop_patience",
+        "disciplined",
+        "visionary",
+        "independent",
+        "ambitious",
+        "analytical",
+        "reflective",
+        "detail_oriented",
+        "diplomatic",
+        "teacher",
+        "open_to_collaboration"
+      ],
+      "topThemeIds": [
+        "persistence",
+        "builder",
+        "develop_patience"
+      ],
+      "themeScores": [
+        1.195,
+        1.0350000000000001,
+        0.9,
+        0.5525,
+        0.85,
+        0.5850000000000001,
+        0.45499999999999996,
+        0.65,
+        1.5525000000000002,
+        0.425,
+        2.2025,
+        1.3900000000000001,
+        0.35,
+        2.2025,
+        1.5525000000000002,
+        1.3900000000000001
+      ],
+      "lagnaKey": "lagna_aquarius"
+    },
+    "dailyBoundaryScan": [
+      {
+        "asOf": "2026-08-06T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-07T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-08T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-09T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-10T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-11T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-12T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-13T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-14T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-15T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-16T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-17T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      }
+    ]
+  }
+}
+00:02 +18: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: (setUpAll)
+00:24 +19: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: (setUpAll)
+00:24 +20: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: (setUpAll)
+00:24 +21: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: (setUpAll)
+00:24 +22: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: (setUpAll)
+00:24 +22: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_cross_runtime_300_vm_test.dart: writes exact deterministic 300-profile and canonical manifest
+{"runtime":"dart-vm","runLabel":"pr100-production-predeploy-vm","summary":{"executed":300,"known":225,"unknown":75,"unknownOmissionPass":75,"uniqueReports":300,"uniqueNarratives":300},"canonical":[{"fixture":"owner-known-0035","frozenAsOf":"2026-08-07T00:00:00.000","liveAsOf":"2026-08-16T16:19:44.454535","acceptedFrozenSha256":"08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3","frozenCanonicalSha256":"08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3","frozenAcceptedExact":true,"frozenWebPdfExact":true,"liveCanonicalSha256":"08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3","liveWebPdfExact":true,"liveRepeatExact":true,"reportHashRepeatExact":true,"lagnaDegree":"19°19′","unknownFailClosed":true},{"fixture":"owner-unknown","frozenAsOf":"2026-08-07T00:00:00.000","liveAsOf":"2026-08-16T16:19:44.454535","acceptedFrozenSha256":"dc1bd76ea0dfa6139a15f048503b92de228aa46809596a588abdb3b8e3681fab","frozenCanonicalSha256":"dc1bd76ea0dfa6139a15f048503b92de228aa46809596a588abdb3b8e3681fab","frozenAcceptedExact":true,"frozenWebPdfExact":true,"liveCanonicalSha256":"dc1bd76ea0dfa6139a15f048503b92de228aa46809596a588abdb3b8e3681fab","liveWebPdfExact":true,"liveRepeatExact":true,"reportHashRepeatExact":true,"lagnaDegree":"unknown","unknownFailClosed":true},{"fixture":"regression-known-0003","frozenAsOf":"2026-08-07T00:00:00.000","liveAsOf":"2026-08-16T16:19:44.454535","acceptedFrozenSha256":"2c1880acb74d1523cca814512b1e53d0c06df71f7e77fdd278e4ba43fdee3177","frozenCanonicalSha256":"2c1880acb74d1523cca814512b1e53d0c06df71f7e77fdd278e4ba43fdee3177","frozenAcceptedExact":true,"frozenWebPdfExact":true,"liveCanonicalSha256":"2c1880acb74d1523cca814512b1e53d0c06df71f7e77fdd278e4ba43fdee3177","liveWebPdfExact":true,"liveRepeatExact":true,"reportHashRepeatExact":true,"lagnaDegree":"9°24′","unknownFailClosed":true},{"fixture":"comparison-known-bangkok","frozenAsOf":"2026-08-07T00:00:00.000","liveAsOf":"2026-08-16T16:19:44.454535","acceptedFrozenSha256":"1da55e88c330307029f235f907a0b5bb274930bc359fa80ae8842e6d46017599","frozenCanonicalSha256":"1da55e88c330307029f235f907a0b5bb274930bc359fa80ae8842e6d46017599","frozenAcceptedExact":true,"frozenWebPdfExact":true,"liveCanonicalSha256":"1da55e88c330307029f235f907a0b5bb274930bc359fa80ae8842e6d46017599","liveWebPdfExact":true,"liveRepeatExact":true,"reportHashRepeatExact":true,"lagnaDegree":"3°01′","unknownFailClosed":true},{"fixture":"comparison-known-khon-kaen","frozenAsOf":"2026-08-07T00:00:00.000","liveAsOf":"2026-08-16T16:19:44.454535","acceptedFrozenSha256":"d5ff068385f39798040336eb4a60a0241048e1fc6c6b4df919a8c583f0c49d62","frozenCanonicalSha256":"d5ff068385f39798040336eb4a60a0241048e1fc6c6b4df919a8c583f0c49d62","frozenAcceptedExact":true,"frozenWebPdfExact":true,"liveCanonicalSha256":"d5ff068385f39798040336eb4a60a0241048e1fc6c6b4df919a8c583f0c49d62","liveWebPdfExact":true,"liveRepeatExact":true,"reportHashRepeatExact":true,"lagnaDegree":"18°32′","unknownFailClosed":true}]}
+00:24 +23: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: (setUpAll)
+00:25 +23: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: reader-visible summaries have no broad normalization or semantic delta
+00:28 +24: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: canonical, fail-closed, Web/PDF, and S008 contracts stay exact
+00:29 +25: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: (tearDownAll)
+00:29 +25: All tests passed!

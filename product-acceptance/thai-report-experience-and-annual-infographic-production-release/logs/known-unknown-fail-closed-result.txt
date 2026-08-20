@@ -1,0 +1,68 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/narrative/thai_beta_input_fixture_separation_test.dart
+00:00 +0: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/narrative/thai_beta_input_fixture_separation_test.dart: 00:03 stays distinct and is identical across Engine and export
+00:00 +1: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_input_fields_test.dart: Province autocomplete typing เชียง narrows to เชียงใหม่ / เชียงราย and selects
+00:00 +2: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_input_fields_test.dart: Province autocomplete typing เชียง narrows to เชียงใหม่ / เชียงราย and selects
+00:00 +3: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_input_fields_test.dart: Province autocomplete typing เชียง narrows to เชียงใหม่ / เชียงราย and selects
+00:00 +4: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_input_fields_test.dart: Province autocomplete typing เชียง narrows to เชียงใหม่ / เชียงราย and selects
+00:00 +5: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_input_fields_test.dart: Province autocomplete typing อุดร narrows to อุดรธานี
+00:00 +6: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_input_fields_test.dart: Time field shows hour + minute controls (no scrolling wheel)
+00:00 +7: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_input_fields_test.dart: Time field opening the hour menu reveals the 00–23 range
+00:01 +8: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_input_fields_test.dart: Time field selecting hour 00 commits a real birth time
+00:01 +9: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_input_fields_test.dart: Time field selecting hour 23 commits the end of the valid range
+00:01 +10: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_input_fields_test.dart: Time field typing a valid hour commits the displayed dropdown value
+00:01 +11: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_input_fields_test.dart: Time field changing the selected hour uses the latest value
+00:01 +12: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_input_fields_test.dart: Time field missing hour remains fail-closed
+00:02 +13: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: (setUpAll)
+00:02 +13: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: ThaiBetaReportExportSafety detects forbidden tokens
+00:02 +14: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: ThaiBetaReportExportSafety scrub removes forbidden fragments
+00:02 +15: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: ThaiBetaReportExportDocument builds from existing analysis view state
+00:03 +16: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: ThaiBetaReportExportDocument deduplicates identical public evidence summaries
+00:03 +17: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: ThaiBetaReportExportDocument export text has no forbidden content
+00:03 +18: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: ThaiBetaReportExportDocument does not invent new prediction copy beyond view state
+00:03 +19: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: ThaiBetaReportExportDocument unknown-time web and PDF omit assumed clock and sunrise claims
+00:03 +20: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: ThaiBetaReportExportDocument Thai Beta omits repeated past and future domain claims
+00:03 +21: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: ThaiBetaReportExportDocument PDF polish removes duplicate neighbour prefixes and zero timing
+00:03 +22: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: ThaiBetaReportExportDocument export prefers full insight bodies over UI ellipsis truncations
+00:03 +23: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: ThaiBetaReportExportDocument exports concise past and distinct future prose from shared state
+00:03 +24: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real PDF exporter path regression R7 pagination fixtures stay at measured 7/6 pages
+00:03 +25: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real PDF exporter path regression continuation heading stays atomic without forcing a new page
+00:03 +26: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real PDF exporter path regression disclaimer cards use full-width geometry and contain their body
+00:03 +27: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real PDF exporter path regression V1.3 Unknown omission failure stays atomic with visible orientation
+00:03 +28: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real PDF exporter path regression Poppler raster keeps ink inside printable margins
+00:04 +29: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real PDF exporter path regression pagination units keep period, domain, and first paragraph together
+00:04 +30: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real PDF exporter path regression V1.1 pages 6-8 regression: parent continuation is not emitted per domain
+00:04 +31: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real PDF exporter path regression reading-basis continuation is explicit for both evidence modes
+00:04 +32: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real PDF exporter path regression ISO date tokens are detected generically for atomic layout
+00:04 +33: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real PDF exporter path regression fortune owns a semantic block after health in every mode
+00:04 +34: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real PDF exporter path regression download-button path polishes polluted document before PDF text
+00:04 +35: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real PDF exporter path regression real analysis download path PDF text has no forbidden regressions
+00:05 +36: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real user analysis wiring (setUpAll)
+00:05 +36: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real user analysis wiring export uses current ThaiBetaAnalysis from session
+00:05 +37: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real user analysis wiring export never uses sampleQaBirthData birth year
+00:05 +38: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real user analysis wiring PDF age matches report age
+00:05 +39: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real user analysis wiring PDF current period matches report
+00:05 +40: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real user analysis wiring PDF timeline matches report timeline sections
+00:05 +41: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real user analysis wiring real PDF has no Markdown markers
+00:05 +42: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real user analysis wiring real PDF passes safety exclusions
+00:05 +43: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Real user analysis wiring (tearDownAll)
+00:05 +43: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Capture route without analysis never uses QA sample — shows empty state
+00:05 +44: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Capture route without analysis uses stored current analysis for export
+00:06 +45: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Stale analysis export guard successful analysis can export
+00:06 +46: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Stale analysis export guard starting a new analysis clears previous export state
+00:06 +47: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Stale analysis export guard failed latest analysis cannot export stale previous result
+00:06 +48: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Stale analysis export guard capture route after failed analysis shows no-report state
+00:06 +49: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Stale analysis export guard QA sample route remains separate and clearly labeled
+00:06 +50: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: QA sample capture route shows QA label and sample report
+00:06 +51: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: ThaiBetaReportExportPolish neighbourLabel does not double prefix
+00:06 +52: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: ThaiBetaReportExportPolish polishTimingCopy rewrites zero remaining years
+00:06 +53: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: ThaiBetaReportExportPolish normalizeSpacing adds space before parentheses and Thai punctuation
+00:06 +54: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: ThaiBetaReportExportPolish polishLine strips Markdown bold markers
+00:06 +55: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: ThaiBetaReportExportPolish dedupeParagraphs drops title echo, keyword echo, truncated UI lines
+00:06 +56: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Export button visibility export button appears only in screenshot/capture mode
+00:07 +57: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Export button visibility export button visible on capture page with stored analysis
+00:07 +58: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Export button visibility export button not gated by evidence badge flag off
+00:07 +59: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Export button visibility export button hidden in normal beta report mode
+00:07 +60: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Export button visibility ThaiMirrorResultPage alone has no export button
+00:08 +61: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: Print fallback page renders export document without progress/feedback chrome
+00:08 +62: C:/Users/USER/Documents/Knowme/r100/test/validation/thai_beta/thai_beta_report_export_test.dart: (tearDownAll)
+00:08 +62: All tests passed!
