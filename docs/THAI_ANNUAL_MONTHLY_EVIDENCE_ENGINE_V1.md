@@ -1,14 +1,15 @@
 # Thai Annual Monthly Evidence Engine V1
 
-**Status:** `BLOCKED — AUTHORITATIVE MONTHLY RULES REQUIRED`
+**Status:** `DEFERRED — NO AUTHORITATIVE MONTH-LEVEL SOURCE`
 
 **Authority Gate:** FAILED
 
-**Owner decision:** Pending
+**Owner decision:** Monthly Derived Evidence Contract V1 not approved; defer the
+Monthly Timeline without substitute data or speculative prediction.
 
 **Audit baseline:** `main@46d7883bca87570950eb84a7ca3dffbb3e6653b3`
 
-**Date:** 2026-08-19
+**Decision recorded:** 2026-08-20
 
 ## Outcome
 
@@ -184,8 +185,35 @@ Flutter 3.41.1 / Dart 3.11.0. The Source Capability Gate nevertheless fails:
 - Bangkok civil timezone/noon provenance is not enforced by the source type.
 
 The Stop Rule therefore prevents 365/366-day worked monthly results and blocks
-Phase 2 activation. The conditional methodology is documented in
-`THAI_MONTHLY_DERIVED_EVIDENCE_CONTRACT_V1.md` only to expose what a future
-source contract must support. It is proposed methodology, not approved Canon,
-has no implementation, keeps `monthlyTimelineAvailable=false`, leaves
-Production unchanged, awaits Owner decision, and keeps PR #102 Draft.
+Phase 2 activation. The conditional methodology in
+`THAI_MONTHLY_DERIVED_EVIDENCE_CONTRACT_V1.md` was not approved by the Owner and
+is not operative. Weekday-ruler aggregation is not an authorized substitute
+for a monthly horoscope. Adding claim IDs, reasoning-trace IDs or serialization
+alone would not make the underlying source sufficient.
+
+No monthly records, opportunity/caution highlights, or monthly Web/PDF/PNG
+artifacts were created. `monthlyTimelineAvailable=false` remains unchanged, and
+the accepted annual infographic continues to operate without a Monthly
+Timeline. Production is unaffected. PR #102 is to be closed unmerged after
+this documentation-only decision record is pushed.
+
+The final deferred evidence packet contains 9 manifest entries totaling 29,723
+payload bytes. Its `SHA256SUMS.txt` SHA-256 is
+`30A815CBC92AFD098ED98D61E99F389C897A76BDB3A339495DC162A25B43702D`;
+missing, mismatch and unlisted-file counts are all 0.
+
+## Conditions for reopening
+
+A new, separately authorized work item may begin only after an authoritative
+source with reviewable provenance defines all of the following:
+
+1. calendar-month applicability;
+2. transit-to-domain mapping;
+3. aggregation, scoring and ranking;
+4. claim and reasoning-trace contracts;
+5. Known/Unknown applicability and fail-closed behavior;
+6. Bangkok civil-time provenance; and
+7. deterministic identity and serialization.
+
+Until then the Monthly Timeline remains deferred. No Merge, Build, Deploy or
+Firebase mutation is authorized by this record.

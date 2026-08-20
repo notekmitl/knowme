@@ -38,9 +38,12 @@ not generated.
 
 ## Owner state
 
-Owner decision is `Pending`. This packet reports a technical authority blocker;
-it does not approve a rule set or product output.
+Owner decision is `DEFERRED — NO AUTHORITATIVE MONTH-LEVEL SOURCE`. Monthly
+Derived Evidence Contract V1 was not approved and is not operative. No monthly
+validation was run after this decision, and no monthly output was created.
 
-KnowMe Monthly Derived Evidence V1 is proposed methodology, not approved Canon.
-There is no implementation; `monthlyTimelineAvailable=false`; Production is
-unchanged; PR #102 remains Draft.
+The final documentation/evidence gate confirms Markdown/manifest-only changes,
+`monthlyTimelineAvailable=false`, R1–R7.1 modified paths 0, and no application,
+test, Canon, expected, golden, PDF or PNG changes. Production remains Hosting
+release `1787038542564000`, version `5f98dfffef913e38`. PR #102 is to close
+unmerged after push; no Merge, Deploy or Firebase mutation is authorized.

@@ -1,10 +1,11 @@
 # Monthly Derived Evidence Risk Review
 
-**Status:** Risk review for a conditional proposed methodology; the daily source
-gate is blocked. This is not approved Canon and not implementation approval.
+**Status:** Historical risk review for a conditional methodology now
+`DEFERRED — NO AUTHORITATIVE MONTH-LEVEL SOURCE`. The contract is not
+Owner-approved, not operative and not approved Canon.
 
-`monthlyTimelineAvailable=false`. Owner decision is Pending. PR #102 remains
-Open Draft. Production remains release `1787038542564000`, version
+`monthlyTimelineAvailable=false`. PR #102 closes unmerged after the decision
+record is pushed. Production remains release `1787038542564000`, version
 `5f98dfffef913e38`. No Merge, Deploy or Firebase mutation is authorized.
 
 | Risk | Consequence | Mitigation without new astrology rules |
@@ -27,5 +28,7 @@ Open Draft. Production remains release `1787038542564000`, version
 | Incomplete four-domain mapping | Finance and other domains can be absent or misassigned | Current hard blocker: authorize an explicit source mapping; never infer from narrative or copy signals across domains |
 
 The proposed frequency method intentionally does not preserve signal magnitude.
-That trade-off must be an explicit Owner methodology choice after the source
-contract is complete; it cannot be hidden by adding weights in implementation.
+It must not be implemented. Weekday-ruler aggregation is not an authorized
+monthly horoscope, and adding claim IDs, reasoning traces or serialization
+cannot repair absent month-level authority. Reopening requires a separately
+reviewed authoritative source and provenance contract.

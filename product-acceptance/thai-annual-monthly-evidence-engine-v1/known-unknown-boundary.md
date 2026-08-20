@@ -23,6 +23,7 @@ that the system does not have supported month-level data.
 The daily transit source itself does not consume a fallback birth time, but it
 also does not emit typed Known/Unknown applicability. That absence blocks both
 paths from claiming 365/366-day completeness. KnowMe Monthly Derived Evidence V1
-is proposed methodology, not approved Canon; there is no implementation;
-`monthlyTimelineAvailable=false`; Production is unchanged; Owner decision is
-Pending; PR #102 remains Draft.
+is not Owner-approved or operative; there is no implementation;
+`monthlyTimelineAvailable=false`; Production is unchanged; PR #102 closes
+unmerged. Future Known/Unknown work requires an authoritative source with
+explicit applicability and provenance.

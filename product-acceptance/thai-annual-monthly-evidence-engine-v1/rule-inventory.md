@@ -25,10 +25,11 @@ The V15 daily-source follow-up further classifies `transitDayVsNatal` and
 monthly-source rules: they lack claim/trace IDs, typed applicability and full
 career/finance/relationship/health mapping.
 
-KnowMe Monthly Derived Evidence V1 remains proposed product methodology, not
-approved Canon. There is no implementation; `monthlyTimelineAvailable=false`;
-Production is unchanged; Owner decision is Pending; PR #102 remains Draft.
+KnowMe Monthly Derived Evidence V1 was not Owner-approved and is not operative
+or approved Canon. There is no implementation;
+`monthlyTimelineAvailable=false`; Production is unchanged; PR #102 closes
+unmerged.
 
-Governance: proposed methodology; not approved Canon; no implementation;
-`monthlyTimelineAvailable=false`; Production unchanged; Owner decision Pending;
-PR #102 remains Draft.
+Governance: `DEFERRED — NO AUTHORITATIVE MONTH-LEVEL SOURCE`; no implementation
+or generated monthly records/artifacts. A future new work item requires an
+authoritative source with complete month-level provenance.

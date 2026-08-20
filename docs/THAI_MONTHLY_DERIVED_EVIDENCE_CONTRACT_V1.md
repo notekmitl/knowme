@@ -1,27 +1,28 @@
 # KnowMe Monthly Derived Evidence V1
 
-**Status:** Conditional proposed methodology; blocked by the Daily Transit
-Source Capability Gate
+**Status:** `DEFERRED — NO AUTHORITATIVE MONTH-LEVEL SOURCE`
 
 **Nature:** KnowMe product aggregation rule, not an ancient Thai astrology rule,
 not an existing Canon rule, and not approved Canon
 
-**Owner decision:** Pending Owner Review
+**Owner decision:** Not approved; defer the Monthly Timeline without substitute
+data or speculative prediction.
 
 **Implementation:** None; `monthlyTimelineAvailable=false`
 
-**PR/Production:** PR #102 remains Open Draft. Production remains V1.5 Hosting
-release `1787038542564000`, version `5f98dfffef913e38`. Merge, Deploy and
-Firebase mutation are not authorized.
+**PR/Production:** PR #102 is to be closed unmerged after the decision record is
+pushed. Production remains V1.5 Hosting release `1787038542564000`, version
+`5f98dfffef913e38`. Merge, Deploy and Firebase mutation are not authorized.
 
 ## 1. Gate position
 
-This document records the requested methodology so the missing source contract
-is explicit. It is not an executable or approval-ready contract. Phase 2 cannot
-be activated because current transit evidence has no claim IDs, no transit
-trace IDs, no typed Known/Unknown applicability and no complete mapping to the
-four required reader domains. No monthly result may be produced from this
-document until those gaps are resolved and separately reviewed.
+This document preserves a rejected conditional proposal so the missing source
+contract remains explicit. It is not an executable, approved or operative
+contract. Phase 2 cannot be activated because no authoritative month-level
+source exists. Weekday-ruler aggregation must not substitute for a monthly
+horoscope. Adding claim IDs, reasoning-trace IDs or serialization alone does
+not make the source sufficient. No monthly result may be produced from this
+document.
 
 ## 2. Conditional calendar-year contract
 
@@ -139,21 +140,20 @@ Allowed labels, after source and Owner approval:
 Forbidden: “เดือนดีที่สุด”, “เดือนแย่ที่สุด”, certainty claims, guaranteed luck
 and guaranteed danger.
 
-## 9. Activation prerequisites
+## 9. Conditions for a future new work item
 
-Before this conditional proposal can become implementable, a later authorized
-change must add and validate, without inventing Canon:
+Reopening requires an authoritative source with reviewable provenance defining:
 
-1. stable claim IDs for both daily transit rule families;
-2. a transit trace layer that binds date, source rule, target, polarity and
-   domain;
-3. authoritative mapping to career, finance, relationship and health, including
-   explicit ineligible/neutral behavior;
-4. typed Known/Unknown applicability;
-5. Bangkok timezone/anchor validation;
-6. stable serialization and deterministic identity;
-7. 365/366-day completeness and missing-day rejection.
+1. calendar-month applicability;
+2. transit-to-domain mapping;
+3. aggregation, scoring and ranking;
+4. claim and reasoning-trace contracts;
+5. Known/Unknown applicability and fail-closed behavior;
+6. Bangkok civil-time provenance; and
+7. deterministic identity and serialization.
 
-Until then this proposed methodology is blocked, not approved Canon, has no
-implementation, keeps `monthlyTimelineAvailable=false`, leaves Production
-unchanged, awaits Owner decision, and keeps PR #102 Draft.
+Until then this conditional proposal is not Owner-approved, not operative and
+not approved Canon. There is no implementation. No monthly records,
+opportunity/caution highlights, or monthly Web/PDF/PNG artifacts were created.
+`monthlyTimelineAvailable=false` remains unchanged. The accepted annual
+infographic continues without a Monthly Timeline, and Production is unaffected.

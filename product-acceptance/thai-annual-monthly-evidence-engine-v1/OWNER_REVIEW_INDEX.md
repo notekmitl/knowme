@@ -1,15 +1,16 @@
 # Owner Review Index
 
-**Decision:** Pending
+**Decision:** `DEFERRED — NO AUTHORITATIVE MONTH-LEVEL SOURCE`
 
-**Candidate status:** `BLOCKED — DAILY SOURCE CONTRACT INSUFFICIENT`
+**Candidate status:** Not approved and not operative
 
-**PR policy:** Draft only; do not merge or deploy.
+**PR policy:** Push this decision record, then close PR #102 unmerged; retain the
+source branch. Do not merge or deploy.
 
 Review in this order:
 
 1. [`MONTHLY_DERIVED_EVIDENCE_OWNER_DECISION.md`](MONTHLY_DERIVED_EVIDENCE_OWNER_DECISION.md)
-   — plain-language decision packet; decision remains Pending.
+   — binding Owner decision and future reopening conditions.
 2. [`daily-transit-source-capability.md`](daily-transit-source-capability.md) —
    exact Source Capability Gate and Stop Rule blockers.
 3. [`monthly-derived-evidence-risk-review.md`](monthly-derived-evidence-risk-review.md)
@@ -32,6 +33,9 @@ or contact sheets. Creating those would violate the Source Capability Stop Rule.
 Production remains V1.5 Hosting release `1787038542564000`, version
 `5f98dfffef913e38`. No Merge, Deploy or Firebase mutation is authorized.
 
-KnowMe Monthly Derived Evidence V1 is proposed product methodology, not approved
-Canon. It has no implementation, keeps `monthlyTimelineAvailable=false`, awaits
-Owner decision and requires PR #102 to remain Draft.
+KnowMe Monthly Derived Evidence V1 is a rejected conditional methodology, not
+approved Canon and not operative. Weekday-ruler aggregation is not a monthly
+horoscope substitute, and claim/trace IDs or serialization alone do not supply
+source authority. No monthly records, highlights or monthly Web/PDF/PNG were
+created. `monthlyTimelineAvailable=false`; the accepted annual infographic
+continues without Monthly Timeline. PR #102 is to close unmerged.

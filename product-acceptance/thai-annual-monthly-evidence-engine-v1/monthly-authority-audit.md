@@ -80,6 +80,8 @@ suite at 6/6. Source activation remains blocked because claim IDs, transit trace
 IDs, typed Known/Unknown applicability and complete four-domain mapping are
 absent. No worked monthly result was generated after the Stop Rule triggered.
 
-This remains proposed methodology, not approved Canon. There is no
-implementation; `monthlyTimelineAvailable=false`; Production is unchanged;
-Owner decision is Pending; PR #102 remains Draft.
+Owner did not approve this conditional methodology. It is not operative and is
+not approved Canon. There is no implementation;
+`monthlyTimelineAvailable=false`; Production is unchanged; PR #102 closes
+unmerged. A future new work item requires an authoritative month-level source
+with complete provenance rather than additional identifiers alone.

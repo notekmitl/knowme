@@ -1,8 +1,8 @@
 # KnowMe Roadmap
 
-## Current — Monthly Evidence Engine blocked on authoritative month rules
+## Current — Monthly Timeline deferred; no authoritative month-level source
 
-The V1 Authority Gate audited final main `46d7883bca87570950eb84a7ca3dffbb3e6653b3` and found no complete rule set for deterministic January–December evidence. Existing capabilities are age-period, rolling one-year, annual Taksa or current-day resolution; Canon contains no calendar-month applicability or aggregation contract. The separate candidate is documentation/evidence-only, keeps `monthlyTimelineAvailable=false`, and awaits Owner/Canon authorization before any implementation. Do not merge or deploy it. Production remains V1.5 `5f98dfffef913e38`.
+The V1 Authority Gate audited final main `46d7883bca87570950eb84a7ca3dffbb3e6653b3` and found no complete rule set for deterministic January–December evidence. Owner therefore did not approve the conditional Monthly Derived Evidence Contract V1 and directed status `DEFERRED — NO AUTHORITATIVE MONTH-LEVEL SOURCE`. The proposal is not operative; no substitute or speculative monthly data may be created. `monthlyTimelineAvailable=false`, the accepted annual infographic remains available without Monthly Timeline, and PR #102 is to close unmerged. Reopening requires a separately reviewed authoritative source and complete provenance contract. Production remains V1.5 `5f98dfffef913e38`; do not merge or deploy this candidate.
 
 ## Current — S008 technical parity verified; Owner copy decision next
 

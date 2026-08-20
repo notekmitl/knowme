@@ -2,12 +2,13 @@
 
 **Gate result:** FAIL — daily source contract insufficient
 
-**Methodology status:** Proposed only; not approved Canon
+**Methodology status:** `DEFERRED — NO AUTHORITATIVE MONTH-LEVEL SOURCE`;
+conditional contract not Owner-approved and not operative
 
 **Implementation:** None; `monthlyTimelineAvailable=false`
 
-**Owner/PR/Production:** Owner decision Pending. PR #102 remains Open Draft.
-Production remains release `1787038542564000`, version
+**Owner/PR/Production:** Owner directed PR #102 to close unmerged after this
+decision record is pushed. Production remains release `1787038542564000`, version
 `5f98dfffef913e38`. No Merge, Deploy or Firebase mutation is authorized.
 
 ## Capability answers
@@ -90,6 +91,7 @@ would create results without the identities and domains required by the source
 contract. The exact repair prerequisite is a separately authorized source
 contract layer; application implementation remains prohibited here.
 
-Governance: proposed methodology; not approved Canon; no implementation;
-`monthlyTimelineAvailable=false`; Production unchanged; Owner decision Pending;
-PR #102 remains Draft.
+Governance: conditional methodology not approved and not operative; no
+implementation; `monthlyTimelineAvailable=false`; Production unchanged; PR
+#102 closes unmerged. Weekday-ruler aggregation and identifiers/serialization
+alone cannot substitute for an authoritative month-level source.
