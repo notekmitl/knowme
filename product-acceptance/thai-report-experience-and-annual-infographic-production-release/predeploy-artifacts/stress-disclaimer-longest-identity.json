@@ -1,0 +1,134 @@
+{
+  "fixtureId": "stress-disclaimer-longest",
+  "sourceHead": "46d7883bca87570950eb84a7ca3dffbb3e6653b3",
+  "controlledOutputIdentity": "pr100-production-predeploy-20260820",
+  "artifactRelativePath": "annual-infographic-stress-disclaimer-longest.png",
+  "inputIdentitySha256": "D750F1C04B4AF60E4DB2874A7F588A1DEB7AD327BCAE82C412C7E8B9E9F1577D",
+  "pngSha256": "01081DCDF0D8E953ADEEA4E37D4C41642941016061E03F11602C306AD20176E7",
+  "pngDimensions": {
+    "width": 1080,
+    "height": 1920
+  },
+  "captureRepeatByteIdentical": true,
+  "titleWidgetCount": 1,
+  "titleSemanticContains": "ดวงชะตาปี 2569",
+  "titleCreamPixelCount": 8457,
+  "titleRasterSampleBounds": {
+    "left": 138,
+    "top": 38,
+    "right": 1032,
+    "bottom": 129
+  },
+  "titleRegionSha256": "950270FD0579460F1DEE648CC12DE65FCC8690E27C7FC722E87475820C4DCA24",
+  "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+  "sectionCount": 21,
+  "paragraphCount": 84,
+  "dedicatedPdfPageCount": null,
+  "pngBytes": 190347,
+  "pdfBytes": null,
+  "browserPrintHtmlBytes": null,
+  "title": "ดวงชะตาปี 2569",
+  "theme": "ตลอด 12 เดือนนี้ ให้ดูการเปลี่ยนแปลงของหน้าที่ แล้วทบทวนเมื่อการทำตามข้อตกลงสม่ำเสมอขึ้น โดยไม่สรุปเหตุการณ์ล่วงหน้า",
+  "categories": [
+    {
+      "id": "annual-career",
+      "title": "การงาน",
+      "summary": "รับบทบาทเพิ่มได้ทีละขั้น หากงานหลักยังรักษาคุณภาพได้ตามเดิม"
+    },
+    {
+      "id": "annual-finance",
+      "title": "การเงิน",
+      "summary": "ขยายแผนการเงินได้ เมื่อกันค่าใช้จ่ายจำเป็นและเงินสำรองไว้ครบแล้ว"
+    },
+    {
+      "id": "annual-relationship",
+      "title": "ความรัก",
+      "summary": "เพิ่มข้อผูกพันได้เมื่อคำพูดและการกระทำสอดคล้องกัน และทั้งสองฝ่ายเข้าใจตรงกัน"
+    },
+    {
+      "id": "annual-health",
+      "title": "สุขภาพ",
+      "summary": "เพิ่มกิจกรรมได้เมื่อพักแล้วฟื้นตัวได้ตามปกติ หากฟื้นช้าลงควรลดภาระ"
+    }
+  ],
+  "opportunity": "โอกาสอยู่ที่การรับบทบาทเพิ่มทีละขั้น โดยยังรักษาคุณภาพงานหลัก โดยดูผลที่เกิดซ้ำก่อนตัดสินใจ",
+  "caution": "ภาระงานที่เพิ่มขึ้นอาจเบียดเวลาของงานหลัก",
+  "primaryAdvice": "ใช้ความถนัดในการสร้างฐานทีละขั้นโดยอาศัยข้อมูลที่เกิดขึ้นซ้ำ: เลือกงานทีละก้าว และรอให้การทำตามข้อตกลงสม่ำเสมอก่อนผูกมัดเพิ่ม",
+  "disclaimer": "ไม่มีเวลาเกิด จึงแสดงเฉพาะแนวโน้มที่ข้อมูลรองรับและไม่เติมรายละเอียดที่ขาดหาย ควรดูผลที่เกิดขึ้นซ้ำก่อนตัดสินใจ",
+  "monthlyTimelineAvailable": false,
+  "monthlyGapReason": "engine ปัจจุบันมีกรอบ 12 เดือนและทักษาจรรายปี แต่ไม่มีคะแนนหรือหลักฐานที่ผูกกับเดือนปฏิทินทั้ง 12 เดือน",
+  "layoutBounds1080x1920": {
+    "title": {
+      "left": 138,
+      "top": 39,
+      "right": 1032,
+      "bottom": 129
+    },
+    "theme": {
+      "left": 48,
+      "top": 141,
+      "right": 1032,
+      "bottom": 222
+    },
+    "overview": {
+      "left": 48,
+      "top": 228,
+      "right": 1032,
+      "bottom": 267
+    },
+    "category-annual-career": {
+      "left": 48,
+      "top": 382,
+      "right": 1032,
+      "bottom": 508
+    },
+    "category-annual-finance": {
+      "left": 48,
+      "top": 517,
+      "right": 1032,
+      "bottom": 643
+    },
+    "category-annual-relationship": {
+      "left": 48,
+      "top": 652,
+      "right": 1032,
+      "bottom": 778
+    },
+    "category-annual-health": {
+      "left": 48,
+      "top": 787,
+      "right": 1032,
+      "bottom": 913
+    },
+    "ornament": {
+      "left": 48,
+      "top": 1027,
+      "right": 1032,
+      "bottom": 1219
+    },
+    "opportunity": {
+      "left": 48,
+      "top": 1334,
+      "right": 1032,
+      "bottom": 1454
+    },
+    "caution": {
+      "left": 48,
+      "top": 1466,
+      "right": 1032,
+      "bottom": 1586
+    },
+    "advice": {
+      "left": 48,
+      "top": 1701,
+      "right": 1032,
+      "bottom": 1806
+    },
+    "disclaimer": {
+      "left": 48,
+      "top": 1821,
+      "right": 1032,
+      "bottom": 1881
+    }
+  }
+}

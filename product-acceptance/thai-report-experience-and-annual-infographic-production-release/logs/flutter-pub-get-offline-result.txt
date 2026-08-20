@@ -1,0 +1,3 @@
+Got socket error trying to find package test at https://pub.dev.
+
+Failed to update packages.

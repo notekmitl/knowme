@@ -1,0 +1,165 @@
+{
+  "environment": "preview",
+  "baseUrl": "https://knowme-app-694e1--pr100-rpt-release-20260820-fmqyrd1t.web.app",
+  "status": "PASS",
+  "results": [
+    {
+      "fixture": "owner-known-0035",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "stage": "PASS",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "requestFailures": [
+        "https://firestore.googleapis.com/google.firestore.v1.Firestore/Listen/channel?gsessionid=khYlQ8_ygcQZEuFFPkQYtEh6ZNHSQ1AS9p-to3rGqdMcxn6ebTJvuw&VER=8&database=projects%2Fknowme-app-694e1%2Fdatabases%2F(default)&RID=rpc&SID=zsbjvQQglhHOeWxaw_osmw&AID=0&CI=0&TYPE=xmlhttp&zx=kvewb6aj8sj3&t=1 :: net::ERR_ABORTED",
+        "https://firestore.googleapis.com/google.firestore.v1.Firestore/Listen/channel?gsessionid=khYlQ8_ygcQZEuFFPkQYtEh6ZNHSQ1AS9p-to3rGqdMcxn6ebTJvuw&VER=8&database=projects%2Fknowme-app-694e1%2Fdatabases%2F(default)&RID=rpc&SID=zsbjvQQglhHOeWxaw_osmw&AID=4&CI=1&TYPE=xmlhttp&zx=pdxlp2x4lu83&t=1 :: net::ERR_ABORTED"
+      ],
+      "webText": "34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDF\n3\n4\nกรอกข้อมูล\nตรวจสอบข้อมูล\nอ่านผล\nส่งความคิดเห็น\nบันทึกภาพ\nบันทึกภาพ\nดาวน์โหลดรายงาน PDF\nให้ความคิดเห็นต่อผลวิเคราะห์",
+      "image": {
+        "path": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-owner-known-0035-annual-infographic.png",
+        "bytes": 213599,
+        "sha256": "1307BC11C659C2C923D8FD4A83D8FBF69CC58A3C99FE214827CC87628CEA4D8D"
+      },
+      "dedicatedPdf": {
+        "path": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-owner-known-0035-dedicated.pdf",
+        "bytes": 179420,
+        "sha256": "506E74736EC5633789EEF6B11B1104A8E35993942C1AD4A8D6D9120A98D3E08A"
+      },
+      "browserPrintPdf": {
+        "path": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-owner-known-0035-browser-print.pdf",
+        "bytes": 205108,
+        "sha256": "391CA12E2B2B6DD9D4D38B3926697F95CB9A4775937C6871AD17B36D0F4FB9A1"
+      }
+    },
+    {
+      "fixture": "owner-unknown",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "stage": "PASS",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "requestFailures": [],
+      "webText": "34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDF\n3\n4\nกรอกข้อมูล\nตรวจสอบข้อมูล\nอ่านผล\nส่งความคิดเห็น\nบันทึกภาพ\nบันทึกภาพ\nดาวน์โหลดรายงาน PDF\nให้ความคิดเห็นต่อผลวิเคราะห์",
+      "image": {
+        "path": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-owner-unknown-annual-infographic.png",
+        "bytes": 225224,
+        "sha256": "D04A6D4F49402E327A6E4E52FA707769F68F1A2051127D12CC6DCFF6EAF66FB7"
+      },
+      "dedicatedPdf": {
+        "path": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-owner-unknown-dedicated.pdf",
+        "bytes": 184255,
+        "sha256": "550236E4382D8CA7593EAA50EA6388F27B28840A683F7BFCDE5F3EBAEBE0BA41"
+      },
+      "browserPrintPdf": {
+        "path": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-owner-unknown-browser-print.pdf",
+        "bytes": 210918,
+        "sha256": "D7081E071A7E5E782E150276224E4AEB8DFE5399463AB3E1677B2540DCC80786"
+      }
+    },
+    {
+      "fixture": "regression-known-0003",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "stage": "PASS",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "requestFailures": [],
+      "webText": "34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDF\n3\n4\nกรอกข้อมูล\nตรวจสอบข้อมูล\nอ่านผล\nส่งความคิดเห็น\nบันทึกภาพ\nบันทึกภาพ\nดาวน์โหลดรายงาน PDF\nให้ความคิดเห็นต่อผลวิเคราะห์",
+      "image": {
+        "path": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-regression-known-0003-annual-infographic.png",
+        "bytes": 213599,
+        "sha256": "1307BC11C659C2C923D8FD4A83D8FBF69CC58A3C99FE214827CC87628CEA4D8D"
+      },
+      "dedicatedPdf": {
+        "path": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-regression-known-0003-dedicated.pdf",
+        "bytes": 179404,
+        "sha256": "F91D5D0B1EFB0E1879E4893EEF458DF1E2DFC5CDD94233DA18003D1678B72F3D"
+      },
+      "browserPrintPdf": {
+        "path": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-regression-known-0003-browser-print.pdf",
+        "bytes": 205108,
+        "sha256": "F3B26FD342D8C6B4C66D39EE0B11A0B7D98CA74FB642AB90DB21F43BC1E74591"
+      }
+    },
+    {
+      "fixture": "comparison-known-bangkok",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "stage": "PASS",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "requestFailures": [],
+      "webText": "34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDF\n3\n4\nกรอกข้อมูล\nตรวจสอบข้อมูล\nอ่านผล\nส่งความคิดเห็น\nบันทึกภาพ\nบันทึกภาพ\nดาวน์โหลดรายงาน PDF\nให้ความคิดเห็นต่อผลวิเคราะห์",
+      "image": {
+        "path": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-comparison-known-bangkok-annual-infographic.png",
+        "bytes": 210489,
+        "sha256": "F61B7D6838FFC17180A05CBD5B4A03BE5230F5914C1BBCCD85FE0E1D19FED6AD"
+      },
+      "dedicatedPdf": {
+        "path": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-comparison-known-bangkok-dedicated.pdf",
+        "bytes": 177351,
+        "sha256": "F712FF04D2AFDDE9555EE178C218DA630FBC0101D4C2D7AB9930F2B0F7C68F2E"
+      },
+      "browserPrintPdf": {
+        "path": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-comparison-known-bangkok-browser-print.pdf",
+        "bytes": 204513,
+        "sha256": "D11C32819C6DDAC10332E1BDD830A8883176A78D314098A06051507F9CCA4518"
+      }
+    },
+    {
+      "fixture": "comparison-known-khon-kaen",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "stage": "PASS",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "requestFailures": [],
+      "webText": "34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDF\n3\n4\nกรอกข้อมูล\nตรวจสอบข้อมูล\nอ่านผล\nส่งความคิดเห็น\nบันทึกภาพ\nบันทึกภาพ\nดาวน์โหลดรายงาน PDF\nให้ความคิดเห็นต่อผลวิเคราะห์",
+      "image": {
+        "path": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-comparison-known-khon-kaen-annual-infographic.png",
+        "bytes": 219786,
+        "sha256": "76C1AF309D5B074EB9C6D0E552768E118D414004F85E814BB885D9D801235001"
+      },
+      "dedicatedPdf": {
+        "path": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-comparison-known-khon-kaen-dedicated.pdf",
+        "bytes": 183345,
+        "sha256": "80C3EA87C89067427341AB4E1209143FA678A9382EF15BA48FE7F64B13C5579A"
+      },
+      "browserPrintPdf": {
+        "path": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-comparison-known-khon-kaen-browser-print.pdf",
+        "bytes": 209215,
+        "sha256": "AC058FAA9D42B79FF473439D0BD19D2598E64116BEC170EF420162EFEC508B15"
+      }
+    },
+    {
+      "fixture": "owner-known-0035-mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "stage": "infographic",
+      "consoleErrors": [],
+      "pageErrors": [],
+      "requestFailures": [
+        "https://firestore.googleapis.com/google.firestore.v1.Firestore/Listen/channel?gsessionid=-OktGjF--Q85tRMLuIpCvhYvne0JgPeT9S0oDUw8424prgq5fV_cfA&VER=8&database=projects%2Fknowme-app-694e1%2Fdatabases%2F(default)&RID=rpc&SID=HHiyx3VbcofJ8oegc1ExvA&AID=0&CI=0&TYPE=xmlhttp&zx=ea9jx39yiuha&t=1 :: net::ERR_ABORTED",
+        "https://firestore.googleapis.com/google.firestore.v1.Firestore/Listen/channel?gsessionid=-OktGjF--Q85tRMLuIpCvhYvne0JgPeT9S0oDUw8424prgq5fV_cfA&VER=8&database=projects%2Fknowme-app-694e1%2Fdatabases%2F(default)&RID=rpc&SID=HHiyx3VbcofJ8oegc1ExvA&AID=5&CI=1&TYPE=xmlhttp&zx=7u1f32udeif&t=1 :: net::ERR_ABORTED"
+      ],
+      "webText": "34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDFให้ความคิดเห็นต่อผลวิเคราะห์\n34กรอกข้อมูลตรวจสอบข้อมูลอ่านผลส่งความคิดเห็นบันทึกภาพดาวน์โหลดรายงาน PDF\n3\n4\nกรอกข้อมูล\nตรวจสอบข้อมูล\nอ่านผล\nส่งความคิดเห็น\nบันทึกภาพ\nบันทึกภาพ\nดาวน์โหลดรายงาน PDF\nให้ความคิดเห็นต่อผลวิเคราะห์",
+      "image": {
+        "path": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-owner-known-0035-mobile-annual-infographic.png",
+        "bytes": 213599,
+        "sha256": "1307BC11C659C2C923D8FD4A83D8FBF69CC58A3C99FE214827CC87628CEA4D8D"
+      }
+    }
+  ]
+}

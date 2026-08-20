@@ -1,0 +1,121 @@
+{
+  "environment": "preview",
+  "pdfs": [
+    {
+      "pdf": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-comparison-known-bangkok-browser-print.pdf",
+      "pages": 1,
+      "renders": [
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-comparison-known-bangkok-browser-print-page-01.png"
+      ],
+      "contactSheet": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-contact-sheets/preview/preview-comparison-known-bangkok-browser-print-contact-sheet.png"
+    },
+    {
+      "pdf": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-comparison-known-bangkok-dedicated.pdf",
+      "pages": 8,
+      "renders": [
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-comparison-known-bangkok-dedicated-page-01.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-comparison-known-bangkok-dedicated-page-02.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-comparison-known-bangkok-dedicated-page-03.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-comparison-known-bangkok-dedicated-page-04.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-comparison-known-bangkok-dedicated-page-05.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-comparison-known-bangkok-dedicated-page-06.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-comparison-known-bangkok-dedicated-page-07.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-comparison-known-bangkok-dedicated-page-08.png"
+      ],
+      "contactSheet": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-contact-sheets/preview/preview-comparison-known-bangkok-dedicated-contact-sheet.png"
+    },
+    {
+      "pdf": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-comparison-known-khon-kaen-browser-print.pdf",
+      "pages": 1,
+      "renders": [
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-comparison-known-khon-kaen-browser-print-page-01.png"
+      ],
+      "contactSheet": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-contact-sheets/preview/preview-comparison-known-khon-kaen-browser-print-contact-sheet.png"
+    },
+    {
+      "pdf": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-comparison-known-khon-kaen-dedicated.pdf",
+      "pages": 8,
+      "renders": [
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-comparison-known-khon-kaen-dedicated-page-01.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-comparison-known-khon-kaen-dedicated-page-02.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-comparison-known-khon-kaen-dedicated-page-03.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-comparison-known-khon-kaen-dedicated-page-04.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-comparison-known-khon-kaen-dedicated-page-05.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-comparison-known-khon-kaen-dedicated-page-06.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-comparison-known-khon-kaen-dedicated-page-07.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-comparison-known-khon-kaen-dedicated-page-08.png"
+      ],
+      "contactSheet": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-contact-sheets/preview/preview-comparison-known-khon-kaen-dedicated-contact-sheet.png"
+    },
+    {
+      "pdf": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-owner-known-0035-browser-print.pdf",
+      "pages": 1,
+      "renders": [
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-owner-known-0035-browser-print-page-01.png"
+      ],
+      "contactSheet": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-contact-sheets/preview/preview-owner-known-0035-browser-print-contact-sheet.png"
+    },
+    {
+      "pdf": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-owner-known-0035-dedicated.pdf",
+      "pages": 8,
+      "renders": [
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-owner-known-0035-dedicated-page-01.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-owner-known-0035-dedicated-page-02.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-owner-known-0035-dedicated-page-03.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-owner-known-0035-dedicated-page-04.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-owner-known-0035-dedicated-page-05.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-owner-known-0035-dedicated-page-06.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-owner-known-0035-dedicated-page-07.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-owner-known-0035-dedicated-page-08.png"
+      ],
+      "contactSheet": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-contact-sheets/preview/preview-owner-known-0035-dedicated-contact-sheet.png"
+    },
+    {
+      "pdf": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-owner-unknown-browser-print.pdf",
+      "pages": 1,
+      "renders": [
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-owner-unknown-browser-print-page-01.png"
+      ],
+      "contactSheet": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-contact-sheets/preview/preview-owner-unknown-browser-print-contact-sheet.png"
+    },
+    {
+      "pdf": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-owner-unknown-dedicated.pdf",
+      "pages": 8,
+      "renders": [
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-owner-unknown-dedicated-page-01.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-owner-unknown-dedicated-page-02.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-owner-unknown-dedicated-page-03.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-owner-unknown-dedicated-page-04.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-owner-unknown-dedicated-page-05.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-owner-unknown-dedicated-page-06.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-owner-unknown-dedicated-page-07.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-owner-unknown-dedicated-page-08.png"
+      ],
+      "contactSheet": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-contact-sheets/preview/preview-owner-unknown-dedicated-contact-sheet.png"
+    },
+    {
+      "pdf": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-regression-known-0003-browser-print.pdf",
+      "pages": 1,
+      "renders": [
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-regression-known-0003-browser-print-page-01.png"
+      ],
+      "contactSheet": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-contact-sheets/preview/preview-regression-known-0003-browser-print-contact-sheet.png"
+    },
+    {
+      "pdf": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/preview-artifacts/preview-regression-known-0003-dedicated.pdf",
+      "pages": 8,
+      "renders": [
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-regression-known-0003-dedicated-page-01.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-regression-known-0003-dedicated-page-02.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-regression-known-0003-dedicated-page-03.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-regression-known-0003-dedicated-page-04.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-regression-known-0003-dedicated-page-05.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-regression-known-0003-dedicated-page-06.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-regression-known-0003-dedicated-page-07.png",
+        "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-renders/preview/preview-regression-known-0003-dedicated-page-08.png"
+      ],
+      "contactSheet": "product-acceptance/thai-report-experience-and-annual-infographic-production-release/pdf-contact-sheets/preview/preview-regression-known-0003-dedicated-contact-sheet.png"
+    }
+  ],
+  "totalPages": 45
+}

@@ -1,0 +1,134 @@
+{
+  "fixtureId": "stress-known-longest",
+  "sourceHead": "46d7883bca87570950eb84a7ca3dffbb3e6653b3",
+  "controlledOutputIdentity": "pr100-production-predeploy-20260820",
+  "artifactRelativePath": "annual-infographic-stress-known-longest.png",
+  "inputIdentitySha256": "17B3FBBD06D03341EB4E8AA89E26CE3D699C5E630D80A30EE475B14DAA34A94D",
+  "pngSha256": "9FC63C0E3C6AC4BB40070BEC931BFA7C63815BDCBA7D8E00F77D7DDC43D1E37C",
+  "pngDimensions": {
+    "width": 1080,
+    "height": 1920
+  },
+  "captureRepeatByteIdentical": true,
+  "titleWidgetCount": 1,
+  "titleSemanticContains": "ดวงชะตาปี 2569",
+  "titleCreamPixelCount": 8457,
+  "titleRasterSampleBounds": {
+    "left": 138,
+    "top": 38,
+    "right": 1032,
+    "bottom": 129
+  },
+  "titleRegionSha256": "950270FD0579460F1DEE648CC12DE65FCC8690E27C7FC722E87475820C4DCA24",
+  "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+  "sectionCount": 25,
+  "paragraphCount": 86,
+  "dedicatedPdfPageCount": null,
+  "pngBytes": 197020,
+  "pdfBytes": null,
+  "browserPrintHtmlBytes": null,
+  "title": "ดวงชะตาปี 2569",
+  "theme": "ตลอด 12 เดือนของช่วงดูแลใจ ให้สังเกตว่าใช้เวลาฟื้นตัวหลังสัปดาห์หนักนานขึ้นหรือไม่ แล้วทบทวนอีกครั้งเมื่อการทำตามข้อตกลงสม่ำเสมอขึ้น",
+  "categories": [
+    {
+      "id": "annual-career",
+      "title": "การงาน",
+      "summary": "ทดลองขอบเขตงานใหม่ก่อนตัดสินใจรับบทบาทเต็มตัว โดยไม่แลกกับคุณภาพงานหลัก"
+    },
+    {
+      "id": "annual-finance",
+      "title": "การเงิน",
+      "summary": "พิสูจน์กระแสเงินจริงในวงเล็กก่อนเพิ่มภาระ โดยไม่ลดเงินที่ต้องพร้อมใช้"
+    },
+    {
+      "id": "annual-relationship",
+      "title": "ความรัก",
+      "summary": "เพิ่มข้อผูกพันได้เมื่อคำพูดและการกระทำสอดคล้องกัน และทั้งสองฝ่ายเข้าใจตรงกัน"
+    },
+    {
+      "id": "annual-health",
+      "title": "สุขภาพ",
+      "summary": "เพิ่มกิจกรรมได้เมื่อพักแล้วฟื้นตัวได้ตามปกติ หากฟื้นช้าลงควรลดภาระ"
+    }
+  ],
+  "opportunity": "โอกาสอยู่ที่การเพิ่มข้อผูกพันบนความสม่ำเสมอ โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน",
+  "caution": "ภาระงานที่เพิ่มขึ้นอาจเบียดเวลาของงานหลัก",
+  "primaryAdvice": "ใช้ความถนัดในการสร้างฐานทีละขั้น แล้วเลือกทางการพักและการฟื้นตัวที่ทำให้ตารางใหม่ยังเหลือเวลานอนและคืนแรง พร้อมรักษาเงินคงเหลือหลังค่าใช้จ่ายจำเป็นไว้",
+  "disclaimer": "แนวโน้มนี้ใช้เพื่อวางแผนและทบทวน ไม่ใช่ข้อสรุปตายตัว",
+  "monthlyTimelineAvailable": false,
+  "monthlyGapReason": "engine ปัจจุบันมีกรอบ 12 เดือนและทักษาจรรายปี แต่ไม่มีคะแนนหรือหลักฐานที่ผูกกับเดือนปฏิทินทั้ง 12 เดือน",
+  "layoutBounds1080x1920": {
+    "title": {
+      "left": 138,
+      "top": 39,
+      "right": 1032,
+      "bottom": 129
+    },
+    "theme": {
+      "left": 48,
+      "top": 141,
+      "right": 1032,
+      "bottom": 222
+    },
+    "overview": {
+      "left": 48,
+      "top": 228,
+      "right": 1032,
+      "bottom": 267
+    },
+    "category-annual-career": {
+      "left": 48,
+      "top": 383,
+      "right": 1032,
+      "bottom": 509
+    },
+    "category-annual-finance": {
+      "left": 48,
+      "top": 518,
+      "right": 1032,
+      "bottom": 644
+    },
+    "category-annual-relationship": {
+      "left": 48,
+      "top": 653,
+      "right": 1032,
+      "bottom": 779
+    },
+    "category-annual-health": {
+      "left": 48,
+      "top": 788,
+      "right": 1032,
+      "bottom": 914
+    },
+    "ornament": {
+      "left": 48,
+      "top": 1029,
+      "right": 1032,
+      "bottom": 1221
+    },
+    "opportunity": {
+      "left": 48,
+      "top": 1337,
+      "right": 1032,
+      "bottom": 1457
+    },
+    "caution": {
+      "left": 48,
+      "top": 1469,
+      "right": 1032,
+      "bottom": 1589
+    },
+    "advice": {
+      "left": 48,
+      "top": 1704,
+      "right": 1032,
+      "bottom": 1836
+    },
+    "disclaimer": {
+      "left": 48,
+      "top": 1851,
+      "right": 1032,
+      "bottom": 1881
+    }
+  }
+}

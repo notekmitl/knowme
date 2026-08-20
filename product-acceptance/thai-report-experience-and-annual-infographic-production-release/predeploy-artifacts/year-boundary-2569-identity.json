@@ -1,0 +1,134 @@
+{
+  "fixtureId": "year-boundary-2569",
+  "sourceHead": "46d7883bca87570950eb84a7ca3dffbb3e6653b3",
+  "controlledOutputIdentity": "pr100-production-predeploy-20260820",
+  "artifactRelativePath": "annual-infographic-year-boundary-2569.png",
+  "inputIdentitySha256": "686F8DF6F3FEE951E5DC1A7849E8ACEDB6C0EC01EBC3A4B2FA1DA3039AFD1B45",
+  "pngSha256": "DC58DD52F60CA16480D2AD783DF9114181453106AC930EF7D16EFCFDF5A796E6",
+  "pngDimensions": {
+    "width": 1080,
+    "height": 1920
+  },
+  "captureRepeatByteIdentical": true,
+  "titleWidgetCount": 1,
+  "titleSemanticContains": "ดวงชะตาปี 2569",
+  "titleCreamPixelCount": 8457,
+  "titleRasterSampleBounds": {
+    "left": 138,
+    "top": 38,
+    "right": 1032,
+    "bottom": 129
+  },
+  "titleRegionSha256": "950270FD0579460F1DEE648CC12DE65FCC8690E27C7FC722E87475820C4DCA24",
+  "titleBackgroundControlSha256": "FBFEA7589C033DEE2F0F250C2E92A25FD00D3EC9089CA4C0CC6DAAF4F3911A89",
+  "sectionCount": 24,
+  "paragraphCount": 87,
+  "dedicatedPdfPageCount": null,
+  "pngBytes": 186018,
+  "pdfBytes": null,
+  "browserPrintHtmlBytes": null,
+  "title": "ดวงชะตาปี 2569",
+  "theme": "ตลอด 12 เดือนของช่วงเก็บเกี่ยวความสุข ให้สังเกตว่าหน้าที่เปลี่ยนไปอย่างไร แล้วทบทวนอีกครั้งเมื่อการทำตามข้อตกลงสม่ำเสมอขึ้น",
+  "categories": [
+    {
+      "id": "annual-career",
+      "title": "การงาน",
+      "summary": "รับบทบาทเพิ่มได้ทีละขั้น หากงานหลักยังรักษาคุณภาพได้ตามเดิม"
+    },
+    {
+      "id": "annual-finance",
+      "title": "การเงิน",
+      "summary": "ขยายแผนการเงินได้ เมื่อกันค่าใช้จ่ายจำเป็นและเงินสำรองไว้ครบแล้ว"
+    },
+    {
+      "id": "annual-relationship",
+      "title": "ความรัก",
+      "summary": "เพิ่มข้อผูกพันได้เมื่อคำพูดและการกระทำสอดคล้องกัน และทั้งสองฝ่ายเข้าใจตรงกัน"
+    },
+    {
+      "id": "annual-health",
+      "title": "สุขภาพ",
+      "summary": "เพิ่มกิจกรรมได้เมื่อพักแล้วฟื้นตัวได้ตามปกติ หากฟื้นช้าลงควรลดภาระ"
+    }
+  ],
+  "opportunity": "โอกาสอยู่ที่การรับบทบาทเพิ่มทีละขั้น โดยยังรักษาคุณภาพงานหลัก",
+  "caution": "ภาระงานที่เพิ่มขึ้นอาจเบียดเวลาของงานหลัก",
+  "primaryAdvice": "ใช้ความอดทนที่พาเรื่องยากไปต่อ แล้วเลือกทางงานที่ทำให้บทบาทใหม่เพิ่มคุณภาพงาน ไม่ใช่เพียงเพิ่มจำนวนงาน พร้อมรักษาพฤติกรรมที่ทำตามคำตกลงไว้",
+  "disclaimer": "แนวโน้มนี้ใช้เพื่อวางแผนและทบทวน ไม่ใช่ข้อสรุปตายตัว",
+  "monthlyTimelineAvailable": false,
+  "monthlyGapReason": "engine ปัจจุบันมีกรอบ 12 เดือนและทักษาจรรายปี แต่ไม่มีคะแนนหรือหลักฐานที่ผูกกับเดือนปฏิทินทั้ง 12 เดือน",
+  "layoutBounds1080x1920": {
+    "title": {
+      "left": 138,
+      "top": 39,
+      "right": 1032,
+      "bottom": 129
+    },
+    "theme": {
+      "left": 48,
+      "top": 141,
+      "right": 1032,
+      "bottom": 222
+    },
+    "overview": {
+      "left": 48,
+      "top": 228,
+      "right": 1032,
+      "bottom": 267
+    },
+    "category-annual-career": {
+      "left": 48,
+      "top": 383,
+      "right": 1032,
+      "bottom": 509
+    },
+    "category-annual-finance": {
+      "left": 48,
+      "top": 518,
+      "right": 1032,
+      "bottom": 644
+    },
+    "category-annual-relationship": {
+      "left": 48,
+      "top": 653,
+      "right": 1032,
+      "bottom": 779
+    },
+    "category-annual-health": {
+      "left": 48,
+      "top": 788,
+      "right": 1032,
+      "bottom": 914
+    },
+    "ornament": {
+      "left": 48,
+      "top": 1029,
+      "right": 1032,
+      "bottom": 1221
+    },
+    "opportunity": {
+      "left": 48,
+      "top": 1337,
+      "right": 1032,
+      "bottom": 1457
+    },
+    "caution": {
+      "left": 48,
+      "top": 1469,
+      "right": 1032,
+      "bottom": 1589
+    },
+    "advice": {
+      "left": 48,
+      "top": 1704,
+      "right": 1032,
+      "bottom": 1836
+    },
+    "disclaimer": {
+      "left": 48,
+      "top": 1851,
+      "right": 1032,
+      "bottom": 1881
+    }
+  }
+}

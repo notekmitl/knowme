@@ -1,0 +1,12 @@
+comparisonBasis=accepted PR #100 branch evidence versus fresh origin/main tree-identical source
+freshFullSuitePassed=2941
+freshFullSuiteFailed=37
+acceptedFullSuitePassed=2941
+acceptedFullSuiteFailed=37
+fullSuiteFailureIdentityDelta=0
+branchOnlyNewFailures=0
+freshAnalyzerDiagnostics=297
+acceptedAnalyzerDiagnostics=297
+analyzerIdentityDelta=0
+newDiagnosticClasses=0
+result=PASS

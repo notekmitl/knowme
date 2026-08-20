@@ -1,0 +1,6 @@
+lib/features/thai_beta/application/thai_beta_reader_copy_repair.dart
+lib/features/thai_beta/application/thai_beta_report_export_document.dart
+lib/features/thai_beta/application/thai_beta_report_pdf_exporter.dart
+lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart
+test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart
+test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart

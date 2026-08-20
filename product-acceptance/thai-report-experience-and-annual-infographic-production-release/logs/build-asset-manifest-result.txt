@@ -1,0 +1,9 @@
+sourceCommit=46d7883bca87570950eb84a7ca3dffbb3e6653b3
+localBuildFiles=78
+deployedAssetEntries=77
+deployedAssetPayloadBytes=44246367
+firebaseIgnoredFiles=1
+manifestBytes=9427
+manifestSha256=2008BBBACC075DDF126DF766E2AB630B5BB599C95F7A52E0E58D54B2A97DBC85
+note=.last_build_id excluded because firebase.json ignores dotfiles; no build byte changed
+result=PASS
