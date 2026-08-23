@@ -1,0 +1,1251 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart
+00:00 +0: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart: RelevantLifePeriodsSelector V121-1 mid list → previous/current/next
+00:00 +1: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart: RelevantLifePeriodsSelector V121-2 first period → current/next only
+00:00 +2: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart: RelevantLifePeriodsSelector V121-3 last period → previous/current only
+00:00 +3: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart: RelevantLifePeriodsSelector V121-4 single period
+00:00 +4: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart: RelevantLifePeriodsSelector V121-5 empty periods
+00:00 +5: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart: RelevantLifePeriodsSelector V121-7 no current → deterministic first non-past fallback
+00:00 +6: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart: RelevantLifePeriodsSelector V121-7b all past → last period fallback
+00:00 +7: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart: RelevantLifePeriodsSelector V121-8 long timeline caps at 3
+00:00 +8: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart: RelevantLifePeriodsSelector V121-9 source preservation
+00:00 +9: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/relevant_life_periods_selector_test.dart: RelevantLifePeriodsSelector V121-10 determinism
+00:00 +10: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_input_fixture_separation_test.dart: 00:03 stays distinct and is identical across Engine and export
+00:00 +11: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_dedupe_test.dart: Dedupe no duplicated normalized sentence in one section
+00:00 +12: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_dedupe_test.dart: Dedupe no duplicated normalized sentence in one section
+00:00 +13: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:00 +14: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:00 +15: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:00 +16: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:00 +17: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:00 +18: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:00 +19: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:00 +20: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:00 +21: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:00 +22: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:00 +23: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:00 +24: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:00 +25: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:00 +26: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_determinism_test.dart: Determinism same analysis produces identical narrative
+00:00 +27: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_formatting_test.dart: Formatting forbidden patterns absent from composed export text
+00:00 +28: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_formatting_test.dart: Formatting forbidden patterns absent from composed export text
+00:00 +29: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_formatting_test.dart: Formatting forbidden patterns absent from composed export text
+00:00 +30: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_sample_export_test.dart: write fixture A/B sample exports V1.1
+00:00 +31: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_sample_export_test.dart: write fixture A/B sample exports V1.1
+00:00 +32: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_sample_export_test.dart: write fixture A/B sample exports V1.1
+00:00 +33: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_sample_export_test.dart: write fixture A/B sample exports V1.1
+00:01 +34: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_screen_pdf_parity_test.dart: Screen / PDF parity PDF starts from Core Reading and includes the R4 report hook
+00:01 +35: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_semantic_correctness_test.dart: Semantic correctness work narrative uses work-compatible signals
+00:01 +36: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:01 +37: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:01 +38: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:01 +39: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:01 +40: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:01 +41: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:01 +42: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:01 +43: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:01 +44: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:01 +45: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:01 +46: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:01 +47: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:01 +48: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:01 +49: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_specificity_test.dart: Specificity hero combines primary and secondary signals when available
+00:01 +50: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_screen_pdf_parity_test.dart: Screen / PDF parity PDF text uses same polished narrative
+00:01 +51: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_screen_pdf_parity_test.dart: Screen / PDF parity PDF text uses same polished narrative
+00:01 +52: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_screen_pdf_parity_test.dart: Screen / PDF parity PDF text uses same polished narrative
+00:01 +53: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_screen_pdf_parity_test.dart: Screen / PDF parity PDF text uses same polished narrative
+00:01 +54: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:01 +55: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:01 +56: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:01 +57: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:01 +58: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:01 +59: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:01 +60: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:01 +61: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:01 +62: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:01 +63: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:01 +64: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:01 +65: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:01 +66: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:01 +67: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:01 +68: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:01 +69: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v111_test.dart: Confidence Consistency V1.1.1 composed no-time report traces effective confidence ≤ 0.5
+00:01 +70: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Thai grammar V1.1 no forbidden runtime patterns in composed output
+00:01 +71: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Thai grammar V1.1 no forbidden runtime patterns in composed output
+00:01 +72: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Thai grammar V1.1 no forbidden runtime patterns in composed output
+00:01 +73: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v11_test.dart: Thai grammar V1.1 no forbidden runtime patterns in composed output
+00:01 +74: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 Personal Relevance acceptance V12-1 full time + coherent: personal core + linked SRA
+00:01 +75: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 Personal Relevance acceptance V12-1 full time + coherent: personal core + linked SRA
+00:01 +76: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 Personal Relevance acceptance V12-1 full time + coherent: personal core + linked SRA
+00:01 +77: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 Personal Relevance acceptance V12-1 full time + coherent: personal core + linked SRA
+00:01 +78: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 Personal Relevance acceptance V12-1 full time + coherent: personal core + linked SRA
+00:01 +79: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 Personal Relevance acceptance V12-1 full time + coherent: personal core + linked SRA
+00:01 +80: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart: V1.5 assigns all forecast domains to every horizon (Known)
+00:01 +81: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart: V1.5 assigns all forecast domains to every horizon (Known)
+00:01 +82: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart: V1.5 assigns all forecast domains to every horizon (Known)
+00:01 +83: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart: V1.5 assigns all forecast domains to every horizon (Known)
+00:01 +84: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart: V1.5 assigns all forecast domains to every horizon (Known)
+00:01 +85: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart: V1.5 assigns all forecast domains to every horizon (Known)
+00:01 +86: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart: V1.5 assigns all forecast domains to every horizon (Known)
+00:01 +87: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart: V1.5 assigns all forecast domains to every horizon (Known)
+00:01 +88: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart: V1.5 assigns all forecast domains to every horizon (Known)
+00:01 +89: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart: V1.5 assigns all forecast domains to every horizon (Known)
+00:01 +90: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart: V1.5 assigns all forecast domains to every horizon (Known)
+00:02 +91: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart: V1.5 assigns all forecast domains to every horizon (Known)
+00:02 +92: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_claim_planning_test.dart: V1.5 assigns all forecast domains to every horizon (Known)
+00:02 +93: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:02 +94: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:02 +95: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:02 +96: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:02 +97: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:02 +98: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:02 +99: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:02 +100: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:02 +101: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:02 +102: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:02 +103: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:02 +104: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:02 +105: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:02 +106: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:02 +107: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:02 +108: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r3_report_composer_test.dart: R4 replaces the rejected R3 hook and keeps clean consumer prose
+00:02 +109: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:02 +110: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:02 +111: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:02 +112: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:02 +113: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:02 +114: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:02 +115: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:02 +116: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:02 +117: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:02 +118: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:02 +119: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:02 +120: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:03 +121: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:03 +122: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:03 +123: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart: V1.2 report UI V12-14 mobile: core + SRA hierarchy visible, no badge
+00:03 +124: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart: R7 reports pass literal, prose, domain, and encoding gates
+00:03 +125: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart: R7 reports pass literal, prose, domain, and encoding gates
+00:03 +126: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart: R7 reports pass literal, prose, domain, and encoding gates
+00:03 +127: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart: R7 reports pass literal, prose, domain, and encoding gates
+00:03 +128: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart: R7 reports pass literal, prose, domain, and encoding gates
+00:03 +129: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart: R7 reports pass literal, prose, domain, and encoding gates
+00:03 +130: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart: R7 reports pass literal, prose, domain, and encoding gates
+00:03 +131: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart: R7 reports pass literal, prose, domain, and encoding gates
+00:03 +132: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart: R7 reports pass literal, prose, domain, and encoding gates
+00:03 +133: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart: R7 reports pass literal, prose, domain, and encoding gates
+00:03 +134: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart: R7 reports pass literal, prose, domain, and encoding gates
+00:03 +135: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r7_reader_quality_test.dart: R7 reports pass literal, prose, domain, and encoding gates
+00:03 +136: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart: consumer prose has no rejected patterns or repeated long templates
+00:03 +137: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:03 +138: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:03 +139: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:03 +140: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:03 +141: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:03 +142: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:03 +143: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:03 +144: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:03 +145: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:03 +146: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:03 +147: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:03 +148: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:03 +149: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:03 +150: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:03 +151: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:03 +152: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:03 +153: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:03 +154: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:03 +155: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_past_future_narrative_v3_test.dart: Thai Beta V3 opt-in UI past detail and long-range future are open and grouped
+00:03 +156: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-4 confidence meter label is ความชัดของแนวโน้ม
+00:03 +157: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-4 confidence meter label is ความชัดของแนวโน้ม
+00:03 +158: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-4 confidence meter label is ความชัดของแนวโน้ม
+00:03 +159: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-4 confidence meter label is ความชัดของแนวโน้ม
+00:04 +160: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-4 confidence meter label is ความชัดของแนวโน้ม
+00:04 +161: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-4 confidence meter label is ความชัดของแนวโน้ม
+00:04 +162: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart: V1.2.1 timeline UI V121-8/12 compact: ≤3 periods, collapsed, no far age
+00:04 +163: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart: V1.2.1 timeline UI V121-8/12 compact: ≤3 periods, collapsed, no far age
+00:04 +164: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart: V1.2.1 timeline UI V121-8/12 compact: ≤3 periods, collapsed, no far age
+00:04 +165: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart: V1.2.1 timeline UI V121-8/12 compact: ≤3 periods, collapsed, no far age
+00:04 +166: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart: V1.2.1 timeline UI V121-8/12 compact: ≤3 periods, collapsed, no far age
+00:04 +167: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart: V1.2.1 timeline UI V121-8/12 compact: ≤3 periods, collapsed, no far age
+00:04 +168: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart: V1.2.1 timeline UI V121-8/12 compact: ≤3 periods, collapsed, no far age
+00:04 +169: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart: V1.2.1 timeline UI V121-8/12 compact: ≤3 periods, collapsed, no far age
+00:04 +170: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-5 full report shows editorial titles, no old jargon
+00:04 +171: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-5 full report shows editorial titles, no old jargon
+00:04 +172: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-5 full report shows editorial titles, no old jargon
+00:04 +173: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-5 full report shows editorial titles, no old jargon
+00:04 +174: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-5 full report shows editorial titles, no old jargon
+00:04 +175: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart: V1.2.2 report UI chrome V122-5 full report shows editorial titles, no old jargon
+00:04 +176: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:04 +177: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:04 +178: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:04 +179: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:04 +180: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:04 +181: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:04 +182: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:04 +183: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:04 +184: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:04 +185: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:04 +186: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:04 +187: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:04 +188: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:04 +189: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:04 +190: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:04 +191: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:05 +192: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:05 +193: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:05 +194: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:05 +195: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:05 +196: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:05 +197: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:05 +198: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:05 +199: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:05 +200: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:05 +201: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:05 +202: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:05 +203: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:05 +204: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:05 +205: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:05 +206: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:05 +207: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_real_report_quality_acceptance_test.dart: RQ matrix — report UI mobile/desktop RQ-UI-MOBILE report paints; no badge; content present
+00:05 +208: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +209: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +210: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +211: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +212: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +213: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +214: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +215: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +216: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +217: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +218: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +219: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +220: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +221: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +222: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +223: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +224: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +225: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +226: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +227: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +228: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +229: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +230: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +231: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +232: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +233: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +234: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +235: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +236: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +237: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +238: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +239: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +240: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +241: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +242: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +243: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +244: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +245: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +246: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +247: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +248: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+00:05 +249: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/core_reading/thai_beta_readability_acceptance_test.dart: eight deterministic Web and rendered PDF reports pass readability
+READABILITY_AFTER={fixture-a-known-time: {longParagraphs: 0, unexplainedTerms: 0, systemLanguage: 0, deterministicLanguage: 0, exactDuplicates: 0}, fixture-b-no-time: {longParagraphs: 0, unexplainedTerms: 0, systemLanguage: 0, deterministicLanguage: 0, exactDuplicates: 0}, fixture-c-known-time-male: {longParagraphs: 0, unexplainedTerms: 0, systemLanguage: 0, deterministicLanguage: 0, exactDuplicates: 0}, fixture-d-known-time-female: {longParagraphs: 0, unexplainedTerms: 0, systemLanguage: 0, deterministicLanguage: 0, exactDuplicates: 0}, fixture-e-younger-known-time: {longParagraphs: 0, unexplainedTerms: 0, systemLanguage: 0, deterministicLanguage: 0, exactDuplicates: 0}, fixture-wednesday-day: {longParagraphs: 0, unexplainedTerms: 0, systemLanguage: 0, deterministicLanguage: 0, exactDuplicates: 0}, fixture-wednesday-night: {longParagraphs: 0, unexplainedTerms: 0, systemLanguage: 0, deterministicLanguage: 0, exactDuplicates: 0}, fixture-wednesday-no-time: {longParagraphs: 0, unexplainedTerms: 0, systemLanguage: 0, deterministicLanguage: 0, exactDuplicates: 0}}
+00:05 +250: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:05 +251: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:06 +252: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:06 +253: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:06 +254: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:06 +255: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:06 +256: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:06 +257: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:06 +258: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:06 +259: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:06 +259: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/live_asof/thai_beta_cross_runtime_seed_test.dart: stable presenter seed and accepted output are cross-runtime invariant
+{
+  "schema": "knowme-v15-cross-runtime-seed-post-repair-v1",
+  "runtime": "dart-vm",
+  "presenterSeed": 28924034132,
+  "orderedThemeIds": [
+    "persistence",
+    "builder",
+    "develop_patience",
+    "disciplined",
+    "visionary",
+    "independent",
+    "ambitious",
+    "analytical",
+    "reflective",
+    "detail_oriented",
+    "diplomatic",
+    "teacher",
+    "open_to_collaboration"
+  ],
+  "topThemeIds": [
+    "persistence",
+    "builder",
+    "develop_patience"
+  ],
+  "themeScores": [
+    1.195,
+    1.0350000000000001,
+    0.9,
+    0.5525,
+    0.85,
+    0.5850000000000001,
+    0.45499999999999996,
+    0.65,
+    1.5525000000000002,
+    0.425,
+    2.2025,
+    1.3900000000000001,
+    0.35,
+    2.2025,
+    1.5525000000000002,
+    1.3900000000000001
+  ],
+  "lagnaKey": "lagna_aquarius",
+  "stringHashCodes": {
+    "persistence": 961841110,
+    "builder": 504794108,
+    "develop_patience": 56504523,
+    "disciplined": 238764174,
+    "visionary": 181167291,
+    "independent": 928749864,
+    "ambitious": 406434870,
+    "analytical": 803126558,
+    "reflective": 252008166,
+    "detail_oriented": 588666404,
+    "diplomatic": 300348774,
+    "teacher": 358897741,
+    "open_to_collaboration": 1445821,
+    "lagna_aquarius": 804501464
+  },
+  "stableStringHashes": {
+    "persistence": 961841110,
+    "builder": 504794108,
+    "develop_patience": 56504523,
+    "disciplined": 238764174,
+    "visionary": 181167291,
+    "independent": 928749864,
+    "ambitious": 406434870,
+    "analytical": 803126558,
+    "reflective": 252008166,
+    "detail_oriented": 588666404,
+    "diplomatic": 300348774,
+    "teacher": 358897741,
+    "open_to_collaboration": 1445821,
+    "lagna_aquarius": 804501464
+  },
+  "canonicalTextSha256": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+  "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+  "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+  "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่",
+  "hasProductionMismatch": false,
+  "hasFrozenAcceptance": true
+}
+00:06 +260: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +261: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +262: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +263: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +264: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +265: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +266: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +267: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +268: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +269: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +270: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +271: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +272: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +273: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +274: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +275: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +276: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +277: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +278: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +279: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +280: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +281: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +282: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +283: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +284: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +285: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:07 +286: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +287: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +288: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +289: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +290: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:08 +290: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/live_asof/thai_beta_live_asof_diagnostic_test.dart: Clock A/B/C disproves as-of as the Production mismatch cause
+{
+  "schema": "knowme-v15-live-asof-root-cause-v1",
+  "productionEvidenceWindow": {
+    "earliestUtc": "2026-08-16T09:15:15.5721160Z",
+    "latestUtc": "2026-08-16T09:19:44.4545351Z",
+    "earliestAsiaBangkok": "2026-08-16T16:15:15.572116+07:00",
+    "latestAsiaBangkok": "2026-08-16T16:19:44.454535+07:00",
+    "basis": [
+      "production-asset-verification.json verifiedUtc",
+      "original Downloads PDF NTFS CreationTimeUtc"
+    ],
+    "stableThroughoutSampledRange": true
+  },
+  "clockA": {
+    "label": "clock-a-frozen-acceptance",
+    "startedAt": "2026-08-07T00:00:00.000",
+    "asOf": "2026-08-07T00:00:00.000",
+    "timezone": {
+      "isUtc": false,
+      "offset": "7:00:00.000000",
+      "civilDateUsedByEngine": "2026-08-07"
+    },
+    "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+    "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+    "currentMaterial": [
+      {
+        "title": "การงาน",
+        "body": "มีโอกาสรับงานหรือความรับผิดชอบเพิ่มในช่วงนี้ แต่ไม่จำเป็นต้องรับทุกทางพร้อมกัน ควรระวังการรับงานซ้อนจนกระทบคุณภาพและความต่อเนื่อง",
+        "evidenceKeys": [
+          "score:career:82",
+          "score:pressure:42",
+          "direction:advance",
+          "planet:venus",
+          "signal:_Signal.strong"
+        ]
+      },
+      {
+        "title": "การเงิน",
+        "body": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "evidenceKeys": [
+          "score:money:98",
+          "score:career:82",
+          "score:opportunity:91",
+          "planet:venus",
+          "signal:_Signal.strong"
+        ]
+      },
+      {
+        "title": "สุขภาพ",
+        "body": "ช่วงนี้พลังชีวิตพอไปได้หากจัดจังหวะพักสม่ำเสมอ รักษาเวลานอนให้คงที่ และเว้นช่วงสั้น ๆ ระหว่างภาระ เพื่อไม่ให้ความล้าสะสมจนกระทบช่วงที่ต้องใช้แรง ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำบอกจากแพทย์ หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ",
+        "evidenceKeys": [
+          "score:health:79",
+          "score:pressure:42",
+          "planet:venus",
+          "signal:_Signal.strong"
+        ]
+      },
+      {
+        "title": "โชคลาภ",
+        "body": "รายได้หลักยังแยกจากโชคเหตุบังเอิญ — ส่วนใหญ่มาจากงานและความสามารถที่ลงมือเอง ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากหลักฐานและภาระจริงก่อนรับ",
+        "evidenceKeys": [
+          "score:opportunity:91",
+          "score:money:98",
+          "score:career:82",
+          "planet:venus",
+          "signal:_Signal.strong"
+        ]
+      }
+    ],
+    "nextMaterial": [
+      {
+        "title": "การงาน",
+        "body": "ดวงชี้ว่าในช่วงเปล่งประกาย งานมีแนวโน้มขยายตัวและอาจมีบทบาทใหม่เข้ามา ผลงานมีโอกาสถูกมองเห็นชัดขึ้น แต่ควรเลือกงานสำคัญแทนการรับทุกอย่างพร้อมกัน",
+        "evidenceKeys": [
+          "score:career:88",
+          "planet:sun",
+          "period_tense:future"
+        ]
+      },
+      {
+        "title": "การเงิน",
+        "body": "ในช่วงเปล่งประกาย การเงินมีแนวโน้มพอเดินได้แต่ยังไม่เด่น รายได้หลักยังมาจากงานประจำและความสามารถ มากกว่าโชคหรือเงินก้อนฉับพลัน",
+        "evidenceKeys": [
+          "score:money:62",
+          "planet:sun",
+          "period_tense:future"
+        ]
+      },
+      {
+        "title": "ความรัก",
+        "body": "ในช่วงเปล่งประกาย ความสัมพันธ์มีแนวโน้มค่อย ๆ พัฒนา ไม่ใช่จังหวะเร่งคำตอบ ความสม่ำเสมอและการเคารพพื้นที่กันมีน้ำหนักมากกว่าความสัมพันธ์ที่มาเร็วไปเร็ว",
+        "evidenceKeys": [
+          "score:love:43",
+          "planet:sun",
+          "period_tense:future"
+        ]
+      },
+      {
+        "title": "สุขภาพ",
+        "body": "ในช่วงเปล่งประกาย พลังชีวิตอาจขึ้นลงตามภาระ ควรลดการฝืนและเว้นช่วงพักให้เป็นกิจวัตร",
+        "evidenceKeys": [
+          "score:health:48",
+          "planet:sun",
+          "period_tense:future"
+        ]
+      }
+    ],
+    "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+    "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่",
+    "webCanonicalHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+    "pdfCanonicalHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+    "webPdfExact": true,
+    "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+    "reportSnapshotHash": "b12b3c35dcd9fa8099a924f20a8239e8dbc3eca7e5ed6b971bc4e9dde01d7470",
+    "presenterSeed": 28924034132,
+    "orderedThemeIds": [
+      "persistence",
+      "builder",
+      "develop_patience",
+      "disciplined",
+      "visionary",
+      "independent",
+      "ambitious",
+      "analytical",
+      "reflective",
+      "detail_oriented",
+      "diplomatic",
+      "teacher",
+      "open_to_collaboration"
+    ],
+    "topThemeIds": [
+      "persistence",
+      "builder",
+      "develop_patience"
+    ],
+    "themeScores": [
+      1.195,
+      1.0350000000000001,
+      0.9,
+      0.5525,
+      0.85,
+      0.5850000000000001,
+      0.45499999999999996,
+      0.65,
+      1.5525000000000002,
+      0.425,
+      2.2025,
+      1.3900000000000001,
+      0.35,
+      2.2025,
+      1.5525000000000002,
+      1.3900000000000001
+    ],
+    "lagnaKey": "lagna_aquarius"
+  },
+  "clockB": {
+    "label": "clock-b-production-download-time",
+    "startedAt": "2026-08-16T16:15:15.572",
+    "asOf": "2026-08-16T16:19:44.454535",
+    "timezone": {
+      "isUtc": false,
+      "offset": "7:00:00.000000",
+      "civilDateUsedByEngine": "2026-08-16"
+    },
+    "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+    "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+    "currentMaterial": [
+      {
+        "title": "การงาน",
+        "body": "มีโอกาสรับงานหรือความรับผิดชอบเพิ่มในช่วงนี้ แต่ไม่จำเป็นต้องรับทุกทางพร้อมกัน ควรระวังการรับงานซ้อนจนกระทบคุณภาพและความต่อเนื่อง",
+        "evidenceKeys": [
+          "score:career:82",
+          "score:pressure:42",
+          "direction:advance",
+          "planet:venus",
+          "signal:_Signal.strong"
+        ]
+      },
+      {
+        "title": "การเงิน",
+        "body": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "evidenceKeys": [
+          "score:money:98",
+          "score:career:82",
+          "score:opportunity:91",
+          "planet:venus",
+          "signal:_Signal.strong"
+        ]
+      },
+      {
+        "title": "สุขภาพ",
+        "body": "ช่วงนี้พลังชีวิตพอไปได้หากจัดจังหวะพักสม่ำเสมอ รักษาเวลานอนให้คงที่ และเว้นช่วงสั้น ๆ ระหว่างภาระ เพื่อไม่ให้ความล้าสะสมจนกระทบช่วงที่ต้องใช้แรง ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำบอกจากแพทย์ หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ",
+        "evidenceKeys": [
+          "score:health:79",
+          "score:pressure:42",
+          "planet:venus",
+          "signal:_Signal.strong"
+        ]
+      },
+      {
+        "title": "โชคลาภ",
+        "body": "รายได้หลักยังแยกจากโชคเหตุบังเอิญ — ส่วนใหญ่มาจากงานและความสามารถที่ลงมือเอง ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากหลักฐานและภาระจริงก่อนรับ",
+        "evidenceKeys": [
+          "score:opportunity:91",
+          "score:money:98",
+          "score:career:82",
+          "planet:venus",
+          "signal:_Signal.strong"
+        ]
+      }
+    ],
+    "nextMaterial": [
+      {
+        "title": "การงาน",
+        "body": "ดวงชี้ว่าในช่วงเปล่งประกาย งานมีแนวโน้มขยายตัวและอาจมีบทบาทใหม่เข้ามา ผลงานมีโอกาสถูกมองเห็นชัดขึ้น แต่ควรเลือกงานสำคัญแทนการรับทุกอย่างพร้อมกัน",
+        "evidenceKeys": [
+          "score:career:88",
+          "planet:sun",
+          "period_tense:future"
+        ]
+      },
+      {
+        "title": "การเงิน",
+        "body": "ในช่วงเปล่งประกาย การเงินมีแนวโน้มพอเดินได้แต่ยังไม่เด่น รายได้หลักยังมาจากงานประจำและความสามารถ มากกว่าโชคหรือเงินก้อนฉับพลัน",
+        "evidenceKeys": [
+          "score:money:62",
+          "planet:sun",
+          "period_tense:future"
+        ]
+      },
+      {
+        "title": "ความรัก",
+        "body": "ในช่วงเปล่งประกาย ความสัมพันธ์มีแนวโน้มค่อย ๆ พัฒนา ไม่ใช่จังหวะเร่งคำตอบ ความสม่ำเสมอและการเคารพพื้นที่กันมีน้ำหนักมากกว่าความสัมพันธ์ที่มาเร็วไปเร็ว",
+        "evidenceKeys": [
+          "score:love:43",
+          "planet:sun",
+          "period_tense:future"
+        ]
+      },
+      {
+        "title": "สุขภาพ",
+        "body": "ในช่วงเปล่งประกาย พลังชีวิตอาจขึ้นลงตามภาระ ควรลดการฝืนและเว้นช่วงพักให้เป็นกิจวัตร",
+        "evidenceKeys": [
+          "score:health:48",
+          "planet:sun",
+          "period_tense:future"
+        ]
+      }
+    ],
+    "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+    "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่",
+    "webCanonicalHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+    "pdfCanonicalHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+    "webPdfExact": true,
+    "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+    "reportSnapshotHash": "b12b3c35dcd9fa8099a924f20a8239e8dbc3eca7e5ed6b971bc4e9dde01d7470",
+    "presenterSeed": 28924034132,
+    "orderedThemeIds": [
+      "persistence",
+      "builder",
+      "develop_patience",
+      "disciplined",
+      "visionary",
+      "independent",
+      "ambitious",
+      "analytical",
+      "reflective",
+      "detail_oriented",
+      "diplomatic",
+      "teacher",
+      "open_to_collaboration"
+    ],
+    "topThemeIds": [
+      "persistence",
+      "builder",
+      "develop_patience"
+    ],
+    "themeScores": [
+      1.195,
+      1.0350000000000001,
+      0.9,
+      0.5525,
+      0.85,
+      0.5850000000000001,
+      0.45499999999999996,
+      0.65,
+      1.5525000000000002,
+      0.425,
+      2.2025,
+      1.3900000000000001,
+      0.35,
+      2.2025,
+      1.5525000000000002,
+      1.3900000000000001
+    ],
+    "lagnaKey": "lagna_aquarius"
+  },
+  "clockC": {
+    "differentStartedSameAsOfIdentical": true,
+    "sameStartedDifferentAsOfChanges": false,
+    "openBeforeMidnight": {
+      "label": "clock-c-open-before-midnight-submit-after",
+      "startedAt": "2026-08-15T23:59:50.000",
+      "asOf": "2026-08-16T00:00:10.000",
+      "timezone": {
+        "isUtc": false,
+        "offset": "7:00:00.000000",
+        "civilDateUsedByEngine": "2026-08-16"
+      },
+      "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+      "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+      "currentMaterial": [
+        {
+          "title": "การงาน",
+          "body": "มีโอกาสรับงานหรือความรับผิดชอบเพิ่มในช่วงนี้ แต่ไม่จำเป็นต้องรับทุกทางพร้อมกัน ควรระวังการรับงานซ้อนจนกระทบคุณภาพและความต่อเนื่อง",
+          "evidenceKeys": [
+            "score:career:82",
+            "score:pressure:42",
+            "direction:advance",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        },
+        {
+          "title": "การเงิน",
+          "body": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+          "evidenceKeys": [
+            "score:money:98",
+            "score:career:82",
+            "score:opportunity:91",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        },
+        {
+          "title": "สุขภาพ",
+          "body": "ช่วงนี้พลังชีวิตพอไปได้หากจัดจังหวะพักสม่ำเสมอ รักษาเวลานอนให้คงที่ และเว้นช่วงสั้น ๆ ระหว่างภาระ เพื่อไม่ให้ความล้าสะสมจนกระทบช่วงที่ต้องใช้แรง ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำบอกจากแพทย์ หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ",
+          "evidenceKeys": [
+            "score:health:79",
+            "score:pressure:42",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        },
+        {
+          "title": "โชคลาภ",
+          "body": "รายได้หลักยังแยกจากโชคเหตุบังเอิญ — ส่วนใหญ่มาจากงานและความสามารถที่ลงมือเอง ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากหลักฐานและภาระจริงก่อนรับ",
+          "evidenceKeys": [
+            "score:opportunity:91",
+            "score:money:98",
+            "score:career:82",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        }
+      ],
+      "nextMaterial": [
+        {
+          "title": "การงาน",
+          "body": "ดวงชี้ว่าในช่วงเปล่งประกาย งานมีแนวโน้มขยายตัวและอาจมีบทบาทใหม่เข้ามา ผลงานมีโอกาสถูกมองเห็นชัดขึ้น แต่ควรเลือกงานสำคัญแทนการรับทุกอย่างพร้อมกัน",
+          "evidenceKeys": [
+            "score:career:88",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        },
+        {
+          "title": "การเงิน",
+          "body": "ในช่วงเปล่งประกาย การเงินมีแนวโน้มพอเดินได้แต่ยังไม่เด่น รายได้หลักยังมาจากงานประจำและความสามารถ มากกว่าโชคหรือเงินก้อนฉับพลัน",
+          "evidenceKeys": [
+            "score:money:62",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        },
+        {
+          "title": "ความรัก",
+          "body": "ในช่วงเปล่งประกาย ความสัมพันธ์มีแนวโน้มค่อย ๆ พัฒนา ไม่ใช่จังหวะเร่งคำตอบ ความสม่ำเสมอและการเคารพพื้นที่กันมีน้ำหนักมากกว่าความสัมพันธ์ที่มาเร็วไปเร็ว",
+          "evidenceKeys": [
+            "score:love:43",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        },
+        {
+          "title": "สุขภาพ",
+          "body": "ในช่วงเปล่งประกาย พลังชีวิตอาจขึ้นลงตามภาระ ควรลดการฝืนและเว้นช่วงพักให้เป็นกิจวัตร",
+          "evidenceKeys": [
+            "score:health:48",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        }
+      ],
+      "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+      "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่",
+      "webCanonicalHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+      "pdfCanonicalHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+      "webPdfExact": true,
+      "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+      "reportSnapshotHash": "b12b3c35dcd9fa8099a924f20a8239e8dbc3eca7e5ed6b971bc4e9dde01d7470",
+      "presenterSeed": 28924034132,
+      "orderedThemeIds": [
+        "persistence",
+        "builder",
+        "develop_patience",
+        "disciplined",
+        "visionary",
+        "independent",
+        "ambitious",
+        "analytical",
+        "reflective",
+        "detail_oriented",
+        "diplomatic",
+        "teacher",
+        "open_to_collaboration"
+      ],
+      "topThemeIds": [
+        "persistence",
+        "builder",
+        "develop_patience"
+      ],
+      "themeScores": [
+        1.195,
+        1.0350000000000001,
+        0.9,
+        0.5525,
+        0.85,
+        0.5850000000000001,
+        0.45499999999999996,
+        0.65,
+        1.5525000000000002,
+        0.425,
+        2.2025,
+        1.3900000000000001,
+        0.35,
+        2.2025,
+        1.5525000000000002,
+        1.3900000000000001
+      ],
+      "lagnaKey": "lagna_aquarius"
+    },
+    "openAfterMidnight": {
+      "label": "clock-c-open-after-midnight-submit-after",
+      "startedAt": "2026-08-16T00:00:05.000",
+      "asOf": "2026-08-16T00:00:10.000",
+      "timezone": {
+        "isUtc": false,
+        "offset": "7:00:00.000000",
+        "civilDateUsedByEngine": "2026-08-16"
+      },
+      "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+      "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+      "currentMaterial": [
+        {
+          "title": "การงาน",
+          "body": "มีโอกาสรับงานหรือความรับผิดชอบเพิ่มในช่วงนี้ แต่ไม่จำเป็นต้องรับทุกทางพร้อมกัน ควรระวังการรับงานซ้อนจนกระทบคุณภาพและความต่อเนื่อง",
+          "evidenceKeys": [
+            "score:career:82",
+            "score:pressure:42",
+            "direction:advance",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        },
+        {
+          "title": "การเงิน",
+          "body": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+          "evidenceKeys": [
+            "score:money:98",
+            "score:career:82",
+            "score:opportunity:91",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        },
+        {
+          "title": "สุขภาพ",
+          "body": "ช่วงนี้พลังชีวิตพอไปได้หากจัดจังหวะพักสม่ำเสมอ รักษาเวลานอนให้คงที่ และเว้นช่วงสั้น ๆ ระหว่างภาระ เพื่อไม่ให้ความล้าสะสมจนกระทบช่วงที่ต้องใช้แรง ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำบอกจากแพทย์ หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ",
+          "evidenceKeys": [
+            "score:health:79",
+            "score:pressure:42",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        },
+        {
+          "title": "โชคลาภ",
+          "body": "รายได้หลักยังแยกจากโชคเหตุบังเอิญ — ส่วนใหญ่มาจากงานและความสามารถที่ลงมือเอง ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากหลักฐานและภาระจริงก่อนรับ",
+          "evidenceKeys": [
+            "score:opportunity:91",
+            "score:money:98",
+            "score:career:82",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        }
+      ],
+      "nextMaterial": [
+        {
+          "title": "การงาน",
+          "body": "ดวงชี้ว่าในช่วงเปล่งประกาย งานมีแนวโน้มขยายตัวและอาจมีบทบาทใหม่เข้ามา ผลงานมีโอกาสถูกมองเห็นชัดขึ้น แต่ควรเลือกงานสำคัญแทนการรับทุกอย่างพร้อมกัน",
+          "evidenceKeys": [
+            "score:career:88",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        },
+        {
+          "title": "การเงิน",
+          "body": "ในช่วงเปล่งประกาย การเงินมีแนวโน้มพอเดินได้แต่ยังไม่เด่น รายได้หลักยังมาจากงานประจำและความสามารถ มากกว่าโชคหรือเงินก้อนฉับพลัน",
+          "evidenceKeys": [
+            "score:money:62",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        },
+        {
+          "title": "ความรัก",
+          "body": "ในช่วงเปล่งประกาย ความสัมพันธ์มีแนวโน้มค่อย ๆ พัฒนา ไม่ใช่จังหวะเร่งคำตอบ ความสม่ำเสมอและการเคารพพื้นที่กันมีน้ำหนักมากกว่าความสัมพันธ์ที่มาเร็วไปเร็ว",
+          "evidenceKeys": [
+            "score:love:43",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        },
+        {
+          "title": "สุขภาพ",
+          "body": "ในช่วงเปล่งประกาย พลังชีวิตอาจขึ้นลงตามภาระ ควรลดการฝืนและเว้นช่วงพักให้เป็นกิจวัตร",
+          "evidenceKeys": [
+            "score:health:48",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        }
+      ],
+      "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+      "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่",
+      "webCanonicalHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+      "pdfCanonicalHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+      "webPdfExact": true,
+      "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+      "reportSnapshotHash": "b12b3c35dcd9fa8099a924f20a8239e8dbc3eca7e5ed6b971bc4e9dde01d7470",
+      "presenterSeed": 28924034132,
+      "orderedThemeIds": [
+        "persistence",
+        "builder",
+        "develop_patience",
+        "disciplined",
+        "visionary",
+        "independent",
+        "ambitious",
+        "analytical",
+        "reflective",
+        "detail_oriented",
+        "diplomatic",
+        "teacher",
+        "open_to_collaboration"
+      ],
+      "topThemeIds": [
+        "persistence",
+        "builder",
+        "develop_patience"
+      ],
+      "themeScores": [
+        1.195,
+        1.0350000000000001,
+        0.9,
+        0.5525,
+        0.85,
+        0.5850000000000001,
+        0.45499999999999996,
+        0.65,
+        1.5525000000000002,
+        0.425,
+        2.2025,
+        1.3900000000000001,
+        0.35,
+        2.2025,
+        1.5525000000000002,
+        1.3900000000000001
+      ],
+      "lagnaKey": "lagna_aquarius"
+    },
+    "sameStartedDifferentAsOf": {
+      "label": "clock-c-same-started-different-asof",
+      "startedAt": "2026-08-07T00:00:00.000",
+      "asOf": "2026-08-16T00:00:00.000",
+      "timezone": {
+        "isUtc": false,
+        "offset": "7:00:00.000000",
+        "civilDateUsedByEngine": "2026-08-16"
+      },
+      "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+      "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+      "currentMaterial": [
+        {
+          "title": "การงาน",
+          "body": "มีโอกาสรับงานหรือความรับผิดชอบเพิ่มในช่วงนี้ แต่ไม่จำเป็นต้องรับทุกทางพร้อมกัน ควรระวังการรับงานซ้อนจนกระทบคุณภาพและความต่อเนื่อง",
+          "evidenceKeys": [
+            "score:career:82",
+            "score:pressure:42",
+            "direction:advance",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        },
+        {
+          "title": "การเงิน",
+          "body": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+          "evidenceKeys": [
+            "score:money:98",
+            "score:career:82",
+            "score:opportunity:91",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        },
+        {
+          "title": "สุขภาพ",
+          "body": "ช่วงนี้พลังชีวิตพอไปได้หากจัดจังหวะพักสม่ำเสมอ รักษาเวลานอนให้คงที่ และเว้นช่วงสั้น ๆ ระหว่างภาระ เพื่อไม่ให้ความล้าสะสมจนกระทบช่วงที่ต้องใช้แรง ข้อความนี้เป็นแนวโน้มตามศาสตร์ความเชื่อ ไม่ใช่คำบอกจากแพทย์ หากร่างกายส่งสัญญาณผิดปกติควรปรึกษาผู้เชี่ยวชาญ",
+          "evidenceKeys": [
+            "score:health:79",
+            "score:pressure:42",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        },
+        {
+          "title": "โชคลาภ",
+          "body": "รายได้หลักยังแยกจากโชคเหตุบังเอิญ — ส่วนใหญ่มาจากงานและความสามารถที่ลงมือเอง ไม่ควรใช้ช่วงนี้เป็นเหตุผลไปเสี่ยงพนันหรือลงทุนเกินกำลัง ให้ประเมินโอกาสจากหลักฐานและภาระจริงก่อนรับ",
+          "evidenceKeys": [
+            "score:opportunity:91",
+            "score:money:98",
+            "score:career:82",
+            "planet:venus",
+            "signal:_Signal.strong"
+          ]
+        }
+      ],
+      "nextMaterial": [
+        {
+          "title": "การงาน",
+          "body": "ดวงชี้ว่าในช่วงเปล่งประกาย งานมีแนวโน้มขยายตัวและอาจมีบทบาทใหม่เข้ามา ผลงานมีโอกาสถูกมองเห็นชัดขึ้น แต่ควรเลือกงานสำคัญแทนการรับทุกอย่างพร้อมกัน",
+          "evidenceKeys": [
+            "score:career:88",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        },
+        {
+          "title": "การเงิน",
+          "body": "ในช่วงเปล่งประกาย การเงินมีแนวโน้มพอเดินได้แต่ยังไม่เด่น รายได้หลักยังมาจากงานประจำและความสามารถ มากกว่าโชคหรือเงินก้อนฉับพลัน",
+          "evidenceKeys": [
+            "score:money:62",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        },
+        {
+          "title": "ความรัก",
+          "body": "ในช่วงเปล่งประกาย ความสัมพันธ์มีแนวโน้มค่อย ๆ พัฒนา ไม่ใช่จังหวะเร่งคำตอบ ความสม่ำเสมอและการเคารพพื้นที่กันมีน้ำหนักมากกว่าความสัมพันธ์ที่มาเร็วไปเร็ว",
+          "evidenceKeys": [
+            "score:love:43",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        },
+        {
+          "title": "สุขภาพ",
+          "body": "ในช่วงเปล่งประกาย พลังชีวิตอาจขึ้นลงตามภาระ ควรลดการฝืนและเว้นช่วงพักให้เป็นกิจวัตร",
+          "evidenceKeys": [
+            "score:health:48",
+            "planet:sun",
+            "period_tense:future"
+          ]
+        }
+      ],
+      "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+      "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่",
+      "webCanonicalHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+      "pdfCanonicalHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+      "webPdfExact": true,
+      "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+      "reportSnapshotHash": "b12b3c35dcd9fa8099a924f20a8239e8dbc3eca7e5ed6b971bc4e9dde01d7470",
+      "presenterSeed": 28924034132,
+      "orderedThemeIds": [
+        "persistence",
+        "builder",
+        "develop_patience",
+        "disciplined",
+        "visionary",
+        "independent",
+        "ambitious",
+        "analytical",
+        "reflective",
+        "detail_oriented",
+        "diplomatic",
+        "teacher",
+        "open_to_collaboration"
+      ],
+      "topThemeIds": [
+        "persistence",
+        "builder",
+        "develop_patience"
+      ],
+      "themeScores": [
+        1.195,
+        1.0350000000000001,
+        0.9,
+        0.5525,
+        0.85,
+        0.5850000000000001,
+        0.45499999999999996,
+        0.65,
+        1.5525000000000002,
+        0.425,
+        2.2025,
+        1.3900000000000001,
+        0.35,
+        2.2025,
+        1.5525000000000002,
+        1.3900000000000001
+      ],
+      "lagnaKey": "lagna_aquarius"
+    },
+    "dailyBoundaryScan": [
+      {
+        "asOf": "2026-08-06T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-07T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-08T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-09T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-10T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-11T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-12T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-13T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-14T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-15T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-16T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      },
+      {
+        "asOf": "2026-08-17T12:00:00.000",
+        "webHash": "08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3",
+        "reportHash": "00c6507a846ed01c0bcc127993b604c2733a453ac33869d187b80691b0dd2619",
+        "currentPeriod": "42–62|ช่วงเก็บเกี่ยวความสุข|อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์|ความสุขและความสัมพันธ์",
+        "nextPeriod": "63–68|ช่วงเปล่งประกาย|อิทธิพลดาวอาทิตย์ • การยอมรับ|การยอมรับ",
+        "financeLine": "ด้านการเงินคุณอยากใช้เงินวันนี้ แต่ยังต้องเก็บเพื่อแผนระยะยาว เหมาะกับการสะสมและกันเงินสำรองมากกว่าการเสี่ยงทั้งหมดในคราวเดียว แม้รายรับดูดีขึ้น ก็ยังควรกันส่วนหนึ่งไว้ก่อนขยายการใช้",
+        "nextTransitionLine": "อิทธิพลดาวอาทิตย์ • การยอมรับ — ต่อไปงานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่"
+      }
+    ]
+  }
+}
+00:08 +291: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +292: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +293: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +294: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +295: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +296: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +297: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +298: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +299: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +300: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +301: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +302: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +303: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +304: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: synthetic matrix invokes cross-mode material sensitivity
+00:09 +305: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: (setUpAll)
+00:09 +306: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: (setUpAll)
+00:10 +307: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: (setUpAll)
+00:10 +308: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: (setUpAll)
+00:10 +309: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: (setUpAll)
+00:10 +310: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: (setUpAll)
+00:10 +311: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: (setUpAll)
+00:23 +311: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: all 300 cases pass structured, narrative, omission and safety contracts
+{"seed":20260803,"cases":300,"knownTime":225,"unknownTime":75,"omittedDomainCases":75,"knownTimeOmissions":{},"identicalFullReports":0,"uniqueFullReports":300,"identicalNarrativeReports":0,"uniqueNarrativeReports":300,"duplicateNarrativeCases":[],"uniqueParagraphs":489,"topParagraphFrequencies":[{"count":300,"source":"methodology/methodology:top-themes"},{"count":225,"source":"wellbeing/disclosure:medical"},{"count":75,"source":"methodology/methodology:no-birth-time"},{"count":48,"source":"closing/computed:closing-priority-action"},{"count":46,"source":"work/computed:house:10:analysis"},{"count":46,"source":"money/computed:house:2:analysis"},{"count":46,"source":"relationships/computed:house:7:analysis"},{"count":46,"source":"wellbeing/computed:house:6:analysis"},{"count":46,"source":"methodology/methodology:lagna-inputs"},{"count":40,"source":"work/computed:house:10:analysis"}]}
+00:23 +312: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: (setUpAll)
+00:24 +312: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/live_asof/thai_beta_copy_semantic_safety_test.dart: 300-case reader-visible output matches the accepted baseline
+00:25 +313: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/live_asof/thai_beta_cross_runtime_300_vm_test.dart: writes exact deterministic 300-profile and canonical manifest
+00:25 +314: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/live_asof/thai_beta_cross_runtime_300_vm_test.dart: writes exact deterministic 300-profile and canonical manifest
+00:25 +315: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/live_asof/thai_beta_cross_runtime_300_vm_test.dart: writes exact deterministic 300-profile and canonical manifest
+00:25 +316: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/live_asof/thai_beta_cross_runtime_300_vm_test.dart: writes exact deterministic 300-profile and canonical manifest
+{"runtime":"dart-vm","runLabel":"vm","summary":{"executed":300,"known":225,"unknown":75,"unknownOmissionPass":75,"uniqueReports":300,"uniqueNarratives":300},"canonical":[{"fixture":"owner-known-0035","frozenAsOf":"2026-08-07T00:00:00.000","liveAsOf":"2026-08-16T16:19:44.454535","acceptedFrozenSha256":"08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3","frozenCanonicalSha256":"08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3","frozenAcceptedExact":true,"frozenWebPdfExact":true,"liveCanonicalSha256":"08f446d1b72a10f985b80c34702785a4de61ab96de5dc01374837876d32396e3","liveWebPdfExact":true,"liveRepeatExact":true,"reportHashRepeatExact":true,"lagnaDegree":"19°19′","unknownFailClosed":true},{"fixture":"owner-unknown","frozenAsOf":"2026-08-07T00:00:00.000","liveAsOf":"2026-08-16T16:19:44.454535","acceptedFrozenSha256":"dc1bd76ea0dfa6139a15f048503b92de228aa46809596a588abdb3b8e3681fab","frozenCanonicalSha256":"dc1bd76ea0dfa6139a15f048503b92de228aa46809596a588abdb3b8e3681fab","frozenAcceptedExact":true,"frozenWebPdfExact":true,"liveCanonicalSha256":"dc1bd76ea0dfa6139a15f048503b92de228aa46809596a588abdb3b8e3681fab","liveWebPdfExact":true,"liveRepeatExact":true,"reportHashRepeatExact":true,"lagnaDegree":"unknown","unknownFailClosed":true},{"fixture":"regression-known-0003","frozenAsOf":"2026-08-07T00:00:00.000","liveAsOf":"2026-08-16T16:19:44.454535","acceptedFrozenSha256":"2c1880acb74d1523cca814512b1e53d0c06df71f7e77fdd278e4ba43fdee3177","frozenCanonicalSha256":"2c1880acb74d1523cca814512b1e53d0c06df71f7e77fdd278e4ba43fdee3177","frozenAcceptedExact":true,"frozenWebPdfExact":true,"liveCanonicalSha256":"2c1880acb74d1523cca814512b1e53d0c06df71f7e77fdd278e4ba43fdee3177","liveWebPdfExact":true,"liveRepeatExact":true,"reportHashRepeatExact":true,"lagnaDegree":"9°24′","unknownFailClosed":true},{"fixture":"comparison-known-bangkok","frozenAsOf":"2026-08-07T00:00:00.000","liveAsOf":"2026-08-16T16:19:44.454535","acceptedFrozenSha256":"1da55e88c330307029f235f907a0b5bb274930bc359fa80ae8842e6d46017599","frozenCanonicalSha256":"1da55e88c330307029f235f907a0b5bb274930bc359fa80ae8842e6d46017599","frozenAcceptedExact":true,"frozenWebPdfExact":true,"liveCanonicalSha256":"1da55e88c330307029f235f907a0b5bb274930bc359fa80ae8842e6d46017599","liveWebPdfExact":true,"liveRepeatExact":true,"reportHashRepeatExact":true,"lagnaDegree":"3°01′","unknownFailClosed":true},{"fixture":"comparison-known-khon-kaen","frozenAsOf":"2026-08-07T00:00:00.000","liveAsOf":"2026-08-16T16:19:44.454535","acceptedFrozenSha256":"d5ff068385f39798040336eb4a60a0241048e1fc6c6b4df919a8c583f0c49d62","frozenCanonicalSha256":"d5ff068385f39798040336eb4a60a0241048e1fc6c6b4df919a8c583f0c49d62","frozenAcceptedExact":true,"frozenWebPdfExact":true,"liveCanonicalSha256":"d5ff068385f39798040336eb4a60a0241048e1fc6c6b4df919a8c583f0c49d62","liveWebPdfExact":true,"liveRepeatExact":true,"reportHashRepeatExact":true,"lagnaDegree":"18°32′","unknownFailClosed":true}]}
+00:25 +317: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: 30 stratified cases are deterministic across three runs
+00:26 +318: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: reader-visible summaries have no broad normalization or semantic delta
+00:26 +319: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: 60-case deep narrative sample has ownership and no within-report collapse
+00:26 +320: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/live_asof/thai_beta_copy_normalization_scope_test.dart: canonical, fail-closed, Web/PDF, and S008 contracts stay exact
+00:27 +321: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/synthetic_audit/thai_beta_synthetic_audit_300_test.dart: 20 representative cases produce real PDFs with Web semantic parity
+00:28 +322: All tests passed!

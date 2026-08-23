@@ -1,0 +1,5 @@
+validatedPaths: 28/28
+restoreSource: HEAD 05c233a6759730d29b6cf7170d16b738e760d4b7
+restoredPaths: 28/28
+postRestoreIdentityMismatch: 0
+worktree:

@@ -1,0 +1,182 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_input_fixture_separation_test.dart
+00:00 +0: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/narrative/thai_beta_input_fixture_separation_test.dart: 00:03 stays distinct and is identical across Engine and export
+00:00 +1: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/thai_beta_input_fields_test.dart: Province autocomplete typing เชียง narrows to เชียงใหม่ / เชียงราย and selects
+00:00 +2: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/thai_beta_input_fields_test.dart: Province autocomplete typing เชียง narrows to เชียงใหม่ / เชียงราย and selects
+00:00 +3: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/thai_beta_input_fields_test.dart: Province autocomplete typing เชียง narrows to เชียงใหม่ / เชียงราย and selects
+00:00 +4: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/thai_beta_input_fields_test.dart: Province autocomplete typing เชียง narrows to เชียงใหม่ / เชียงราย and selects
+00:00 +5: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/thai_beta_input_fields_test.dart: Province autocomplete typing อุดร narrows to อุดรธานี
+00:00 +6: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/thai_beta_input_fields_test.dart: Time field shows hour + minute controls (no scrolling wheel)
+00:00 +7: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/thai_beta_input_fields_test.dart: Time field opening the hour menu reveals the 00–23 range
+00:01 +8: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/thai_beta_input_fields_test.dart: Time field selecting hour 00 commits a real birth time
+00:01 +9: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/thai_beta_input_fields_test.dart: Time field selecting hour 23 commits the end of the valid range
+00:01 +10: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/thai_beta_report_export_test.dart: (setUpAll)
+00:01 +11: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/thai_beta_report_export_test.dart: (setUpAll)
+00:01 +11: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +12: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +13: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +14: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +15: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +16: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +17: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +18: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +19: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +20: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +21: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +22: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +23: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +24: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +25: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +26: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +27: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +28: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +29: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +30: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +31: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +32: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +33: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +34: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +35: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +36: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +37: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:01 +38: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:02 +39: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:02 +40: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:02 +41: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:02 +42: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:02 +43: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:02 +44: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:02 +45: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:02 +46: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:02 +47: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:02 +48: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:02 +49: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:02 +50: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:02 +51: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:02 +52: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:02 +53: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:02 +54: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile A · desktop
+00:02 +55: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart: Past / present / future UX past cards omit advice and unknown mahabhut copy
+00:02 +56: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/thai_beta_report_export_test.dart: Real PDF exporter path regression Poppler raster keeps ink inside printable margins
+00:02 +57: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/thai_beta_report_export_test.dart: Real PDF exporter path regression Poppler raster keeps ink inside printable margins
+00:02 +58: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/thai_beta_report_export_test.dart: Real PDF exporter path regression Poppler raster keeps ink inside printable margins
+00:03 +59: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:03 +60: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:03 +61: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:03 +62: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:03 +63: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:03 +64: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:03 +65: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:03 +66: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:03 +67: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:03 +68: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:03 +69: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:03 +70: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:03 +71: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:03 +72: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:03 +73: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:03 +74: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:03 +75: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:03 +76: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:04 +77: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:04 +78: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:04 +79: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:04 +80: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:04 +81: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:04 +82: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:04 +83: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:04 +84: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:04 +85: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:04 +86: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:04 +87: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:04 +88: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:04 +89: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:04 +90: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:04 +91: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:04 +92: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:04 +93: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:04 +94: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:05 +95: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:05 +96: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:05 +97: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:05 +98: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:05 +99: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:05 +100: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:06 +101: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:06 +102: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:06 +103: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:07 +104: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:07 +105: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:07 +106: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:08 +107: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+00:08 +108: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_beta/life_map/v127/thai_life_map_v127_matrix_test.dart: V1.2.7 production-path 864 matrix (setUpAll)
+# Thai Life Map V1.2.7 — Simulated 864 Profile Matrix
+
+**Status:** COMPLETED
+**Fixtures:** synthetic QA only (no real-user PII / Auth / Firestore)
+**Reference clock:** `2026-07-15T12:00:00.000` (Asia/Bangkok)
+**Production Canon / formulas / invited_beta:** unchanged (matrix + optional `asOf` plumbing only)
+
+## Core matrix
+
+| Metric | Value |
+|--------|------:|
+| Generated | 864 |
+| Executed | 864 |
+| Skipped | 0 |
+| Passed | 864 |
+| Failed | 0 |
+| Mahabhut 8/0 | 375 |
+| Mahabhut with unknown | 489 |
+
+## By weekday category
+
+| Category | Pass | Fail |
+|----------|-----:|-----:|
+| วันอาทิตย์ (`sunday`) | 108 | 0 |
+| วันจันทร์ (`monday`) | 108 | 0 |
+| วันอังคาร (`tuesday`) | 108 | 0 |
+| วันพุธกลางวัน (`wednesday_day`) | 108 | 0 |
+| วันพุธกลางคืน (`wednesday_night`) | 108 | 0 |
+| วันพฤหัสบดี (`thursday`) | 108 | 0 |
+| วันศุกร์ (`friday`) | 108 | 0 |
+| วันเสาร์ (`saturday`) | 108 | 0 |
+
+## Age-band distribution (current age)
+
+| Band | Count |
+|------|------:|
+| earlyChildhood | 48 |
+| schoolAge | 48 |
+| teen | 40 |
+| youngAdult | 96 |
+| workingAdult | 160 |
+| midlife | 120 |
+| elder | 352 |
+
+## Unresolved Mahabhut reasons
+
+| Reason | Count |
+|--------|------:|
+| `AMBIGUOUS_ARCHETYPE_PLANET_PLACEMENT` | 1225 |
+| `AMBIGUOUS_MAHABHUT_POSITION` | 144 |
+| `SOURCE_CONFLICT_ARCHETYPE_PLANET_PLACEMENT` | 112 |
+
+## Failed fixture IDs
+
+_None_
+
+## Boundary suite
+
+Boundary assertions live in `thai_life_map_v127_boundary_test.dart` (Wednesday second-cutoff, ThaiBeta minute before/after sunset, birthday/year/leap, ages 1 & 108, pre-sunrise astrological-date rollover). Core matrix markdown does not re-execute that suite; CI runs both files.
+
+00:08 +108: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile G · desktop
+00:08 +109: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile G · desktop
+00:08 +110: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile G · desktop
+00:08 +111: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile G · desktop
+00:08 +112: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile G · desktop
+00:08 +113: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile G · tablet
+00:09 +114: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile G · mobile
+00:09 +115: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile H · desktop
+00:09 +116: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile H · tablet
+00:10 +117: C:/Users/USER/Documents/Knowme/r100-print-release/test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart: profile H · mobile
+00:10 +118: All tests passed!

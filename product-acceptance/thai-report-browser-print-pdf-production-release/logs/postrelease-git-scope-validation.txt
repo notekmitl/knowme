@@ -1,0 +1,13 @@
+base=05c233a6759730d29b6cf7170d16b738e760d4b7
+allowedScope=docs/**,product-acceptance/thai-report-browser-print-pdf-production-release/**
+applicationChanges=0
+testChanges=0
+goldenChanges=0
+canonicalChanges=0
+expectedOutputChanges=0
+existingEvidenceChanges=0
+r1ThroughR7_1ModifiedPaths=0
+newReleaseEvidenceOnly=true
+monthlyTimelineAvailable=false
+pr102ClosedUnmerged=true
+firebaseNonHostingChanges=0

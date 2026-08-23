@@ -1,0 +1,2 @@
+root=200
+betaThai=200

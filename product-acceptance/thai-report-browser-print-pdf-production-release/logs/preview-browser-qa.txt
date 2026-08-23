@@ -1,0 +1,8 @@
+fixture=known|root=true|sections=25|bodyPosition=static|htmlHeight=5196.69px|consoleErrors=0
+fixture=unknown|root=true|sections=20|bodyPosition=static|htmlHeight=4650.36px|consoleErrors=0
+fixture=owner-known-0035|root=true|sections=24|bodyPosition=static|htmlHeight=5068.77px|consoleErrors=0
+fixture=owner-unknown|root=true|sections=20|bodyPosition=static|htmlHeight=4761.39px|consoleErrors=0
+fixture=regression-known-0003|root=true|sections=24|bodyPosition=static|htmlHeight=5068.77px|consoleErrors=0
+fixture=comparison-known-bangkok|root=true|sections=24|bodyPosition=static|htmlHeight=5033.77px|consoleErrors=0
+fixture=comparison-known-khon-kaen|root=true|sections=24|bodyPosition=static|htmlHeight=5068.77px|consoleErrors=0
+result=C:\Users\USER\Documents\Knowme\r100-print-release-evidence-temp\preview\preview-repair-browser-qa.json
