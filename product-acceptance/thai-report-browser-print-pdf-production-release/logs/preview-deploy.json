@@ -1,0 +1,4 @@
+{
+  "status": "error",
+  "error": "Hosting site or target hosting not detected in firebase.json"
+}

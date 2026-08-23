@@ -1,0 +1,2 @@
+rootStatus=200
+thaiStatus=200

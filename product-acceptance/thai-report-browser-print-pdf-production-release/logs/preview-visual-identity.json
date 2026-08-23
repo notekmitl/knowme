@@ -1,0 +1,2301 @@
+{
+  "approvedCount": 105,
+  "currentCount": 105,
+  "missingCount": 0,
+  "byteIdenticalCount": 91,
+  "byteMismatchCount": 14,
+  "mismatchFiles": [
+    "browser-print-comparison-known-bangkok-page-02.png",
+    "browser-print-comparison-known-khon-kaen-page-02.png",
+    "browser-print-known-page-02.png",
+    "browser-print-owner-known-0035-page-02.png",
+    "browser-print-owner-unknown-page-02.png",
+    "browser-print-regression-known-0003-page-02.png",
+    "browser-print-unknown-page-02.png",
+    "dedicated-report-comparison-known-bangkok-page-02.png",
+    "dedicated-report-comparison-known-khon-kaen-page-02.png",
+    "dedicated-report-known-page-02.png",
+    "dedicated-report-owner-known-0035-page-02.png",
+    "dedicated-report-owner-unknown-page-02.png",
+    "dedicated-report-regression-known-0003-page-02.png",
+    "dedicated-report-unknown-page-02.png"
+  ],
+  "manualReviewScope": "All byte mismatches; byte-identical pages inherit approved pixels.",
+  "rows": [
+    {
+      "file": "browser-print-comparison-known-bangkok-page-01.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "0EE141A5F70F5FEBAD066158A849A1BC71FCDAC341BA6C57B3A85583AAD996D8",
+      "currentSha256": "0EE141A5F70F5FEBAD066158A849A1BC71FCDAC341BA6C57B3A85583AAD996D8",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-comparison-known-bangkok-page-02.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "55624DE2DC8817D3B7F0CFF8E23B56AA56E2457276F23CB4B8237C0E4B605B5E",
+      "currentSha256": "1AD82F4C973033F1358DADB4F9D4E84B0EBA4F31AF7D3896CAE4EACC5FC54E8A",
+      "byteIdentical": false,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 57224,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 95.108571,
+        "meanAbsoluteChannelDelta": 1.532158,
+        "maxChannelDelta": 239,
+        "differenceBounds": [
+          166,
+          105,
+          742,
+          1169
+        ]
+      }
+    },
+    {
+      "file": "browser-print-comparison-known-bangkok-page-03.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "5967A6D05C0D5DD59B569B42CF8333C082452C597088BC7191F1F5D41081B162",
+      "currentSha256": "5967A6D05C0D5DD59B569B42CF8333C082452C597088BC7191F1F5D41081B162",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-comparison-known-bangkok-page-04.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "667086C07F6FB2BD7A910A004D884F8ABB43ADC9C3F159D32A34FD021CE45BE5",
+      "currentSha256": "667086C07F6FB2BD7A910A004D884F8ABB43ADC9C3F159D32A34FD021CE45BE5",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-comparison-known-bangkok-page-05.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "21C68199C9A57706036F71B31FC188EBAA3670EC23D9CD064249741DF1DBCB6D",
+      "currentSha256": "21C68199C9A57706036F71B31FC188EBAA3670EC23D9CD064249741DF1DBCB6D",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-comparison-known-bangkok-page-06.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "3C2325DBBAB63AA83ADE46C269BFDCBEBDCF518E6FA2AE95F0ECC9128E35989D",
+      "currentSha256": "3C2325DBBAB63AA83ADE46C269BFDCBEBDCF518E6FA2AE95F0ECC9128E35989D",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-comparison-known-bangkok-page-07.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "3957E6D6FC52E3E752F5FF78CC52CEC0E2ED957802E747B8D085B2B74BF64066",
+      "currentSha256": "3957E6D6FC52E3E752F5FF78CC52CEC0E2ED957802E747B8D085B2B74BF64066",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-comparison-known-khon-kaen-page-01.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "255AD176E0F66FD08512F17D7A81D98BB63D9D3446FD5EA13635C38D9BE830D1",
+      "currentSha256": "255AD176E0F66FD08512F17D7A81D98BB63D9D3446FD5EA13635C38D9BE830D1",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-comparison-known-khon-kaen-page-02.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "416880782550985773CE5B66DA76B11EA83D06A853BF93E0E3215E702BA48B74",
+      "currentSha256": "C65B08F27DD200493256636A7ECD394E567728E3491553398015BCBA91B60B82",
+      "byteIdentical": false,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 60338,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 94.84239,
+        "meanAbsoluteChannelDelta": 1.703253,
+        "maxChannelDelta": 239,
+        "differenceBounds": [
+          166,
+          105,
+          742,
+          1169
+        ]
+      }
+    },
+    {
+      "file": "browser-print-comparison-known-khon-kaen-page-03.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "AB5C7195ADD228F1FD4D36478C801EE73DDCEA66944875024A979DBAEFD427D4",
+      "currentSha256": "AB5C7195ADD228F1FD4D36478C801EE73DDCEA66944875024A979DBAEFD427D4",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-comparison-known-khon-kaen-page-04.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "308925EA3FD079E03EF9938A290059921B423C38667C1DBB012E40E6CBA99095",
+      "currentSha256": "308925EA3FD079E03EF9938A290059921B423C38667C1DBB012E40E6CBA99095",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-comparison-known-khon-kaen-page-05.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "D02D0EE96B9D603E5141C275E85E3478B45F43C21D51AABE27057C7950C2DF3D",
+      "currentSha256": "D02D0EE96B9D603E5141C275E85E3478B45F43C21D51AABE27057C7950C2DF3D",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-comparison-known-khon-kaen-page-06.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "76F27386652034A80B450B9ED6382E7E864AD216DB0ACD7409C4A6566A010298",
+      "currentSha256": "76F27386652034A80B450B9ED6382E7E864AD216DB0ACD7409C4A6566A010298",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-comparison-known-khon-kaen-page-07.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "5E26C6CB51E6FDEF484F6A4898EA2AE05A24E832B6A9E706A7CB5F88E0B35446",
+      "currentSha256": "5E26C6CB51E6FDEF484F6A4898EA2AE05A24E832B6A9E706A7CB5F88E0B35446",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-known-page-01.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "77E2654624511FA07D4C901BABA3CCD239948C9E5BBA6E662106DC3A6F7A6D83",
+      "currentSha256": "77E2654624511FA07D4C901BABA3CCD239948C9E5BBA6E662106DC3A6F7A6D83",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-known-page-02.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "E25D1C87C207FEED7D4EF6FDA7465E90EE53C41D011AED030A870F073021A95B",
+      "currentSha256": "916D53120091DA8CC43C18CB69FFC4A5F20F02F830FF5C9497C9C721C0027CB1",
+      "byteIdentical": false,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 51637,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 95.58614,
+        "meanAbsoluteChannelDelta": 1.484761,
+        "maxChannelDelta": 239,
+        "differenceBounds": [
+          167,
+          105,
+          741,
+          1169
+        ]
+      }
+    },
+    {
+      "file": "browser-print-known-page-03.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "80DAA00C92C9FC44584A6DA2F7EE2AF00968200DF20690439DCE900915099513",
+      "currentSha256": "80DAA00C92C9FC44584A6DA2F7EE2AF00968200DF20690439DCE900915099513",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-known-page-04.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "B7B61FB9D1612E10EE3922CE8706BA895366366D3741E272C5CE9E508603F5FA",
+      "currentSha256": "B7B61FB9D1612E10EE3922CE8706BA895366366D3741E272C5CE9E508603F5FA",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-known-page-05.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "FFFCBD3FAE203B984071312BDDBA0B32D690EA0C6748F2CEFCAF972E692DF3DD",
+      "currentSha256": "FFFCBD3FAE203B984071312BDDBA0B32D690EA0C6748F2CEFCAF972E692DF3DD",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-known-page-06.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "B8845F427B90ED27245696E3DB5CA0D1E31744595DC1DE771364281F665B5D1C",
+      "currentSha256": "B8845F427B90ED27245696E3DB5CA0D1E31744595DC1DE771364281F665B5D1C",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-known-page-07.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "C44F32CE534837B55C85494130E89D6D4B991E83ED05CA19DB83910501BC1E77",
+      "currentSha256": "C44F32CE534837B55C85494130E89D6D4B991E83ED05CA19DB83910501BC1E77",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-owner-known-0035-page-01.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "7C0BE83B8085A76BFE8B2E4178E59B0797E14D4AE3F524873A8CAE7F1FD5A91A",
+      "currentSha256": "7C0BE83B8085A76BFE8B2E4178E59B0797E14D4AE3F524873A8CAE7F1FD5A91A",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-owner-known-0035-page-02.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "B8170842D8922B62ECFB3DE5D723731EE46661DBFEF4C1CF779EB0943F46ED7F",
+      "currentSha256": "50FA6F7B27E7C1BEA3145BE9A14EAAF0CEA09B07E2CE12C15240E440BC0FA77E",
+      "byteIdentical": false,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 59046,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 94.952829,
+        "meanAbsoluteChannelDelta": 1.674818,
+        "maxChannelDelta": 239,
+        "differenceBounds": [
+          166,
+          105,
+          742,
+          1169
+        ]
+      }
+    },
+    {
+      "file": "browser-print-owner-known-0035-page-03.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "414AE866A0E4AFCCBE42B5A06AAA1160859A5A95CF6328533FABC0AAA1252F0A",
+      "currentSha256": "414AE866A0E4AFCCBE42B5A06AAA1160859A5A95CF6328533FABC0AAA1252F0A",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-owner-known-0035-page-04.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "71DD190F30B5DA10A0E7AA8148CB4E655540021B1CFFA9CB07AB432A77FDB176",
+      "currentSha256": "71DD190F30B5DA10A0E7AA8148CB4E655540021B1CFFA9CB07AB432A77FDB176",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-owner-known-0035-page-05.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "5DF434282D03EE0A2A6D8156B88EDB4669B7D9436B9F91D8CFC93D0B4D3FD6C2",
+      "currentSha256": "5DF434282D03EE0A2A6D8156B88EDB4669B7D9436B9F91D8CFC93D0B4D3FD6C2",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-owner-known-0035-page-06.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "00E03A0BE217C5F305B2CE3389527B901EA9F15EC35FA11C3729B5F14D8B706A",
+      "currentSha256": "00E03A0BE217C5F305B2CE3389527B901EA9F15EC35FA11C3729B5F14D8B706A",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-owner-known-0035-page-07.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "ED9D5AD28BA64A075B38C0868CCA66030A1F9FE99A89660A6E385FC874A2EE1C",
+      "currentSha256": "ED9D5AD28BA64A075B38C0868CCA66030A1F9FE99A89660A6E385FC874A2EE1C",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-owner-unknown-page-01.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "EE2A656ECD76A7AF965D88CB0E19DEB29A6E48BA1EC0F719F189F149B73136C0",
+      "currentSha256": "EE2A656ECD76A7AF965D88CB0E19DEB29A6E48BA1EC0F719F189F149B73136C0",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-owner-unknown-page-02.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "D122AE857D205A155D9DE4B6184E272CF443C9ECAA7138974383CEE9BAFF0190",
+      "currentSha256": "8406BB9F0D1B9724F16603247B9B3C13C1EF6C224D1941AF907A77A53C48A83A",
+      "byteIdentical": false,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 60978,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 94.787684,
+        "meanAbsoluteChannelDelta": 1.651204,
+        "maxChannelDelta": 239,
+        "differenceBounds": [
+          166,
+          105,
+          742,
+          1166
+        ]
+      }
+    },
+    {
+      "file": "browser-print-owner-unknown-page-03.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "23607A492DBCA706C490D1115FE9899640D0F3F5A6132CDA1C97277B27B143BB",
+      "currentSha256": "23607A492DBCA706C490D1115FE9899640D0F3F5A6132CDA1C97277B27B143BB",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-owner-unknown-page-04.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "2EDFBD3E7C7E16089B7DDFB868B7894257676E3362E1155217E13D6F5E793D03",
+      "currentSha256": "2EDFBD3E7C7E16089B7DDFB868B7894257676E3362E1155217E13D6F5E793D03",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-owner-unknown-page-05.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "B1B91BB8FEAEF7419B0A5C00449EAD08B7AA0DD4A7C1AA736B35DCEA8268AD29",
+      "currentSha256": "B1B91BB8FEAEF7419B0A5C00449EAD08B7AA0DD4A7C1AA736B35DCEA8268AD29",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-owner-unknown-page-06.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "9CB966A6CF4F610F4BE9E3BD4B309D6FCBF90838B2D8558485EED11EC2EF8DAF",
+      "currentSha256": "9CB966A6CF4F610F4BE9E3BD4B309D6FCBF90838B2D8558485EED11EC2EF8DAF",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-owner-unknown-page-07.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "4B3C56652D3BDEACDD7509D930E37ADB4D6D6450B31B89C0EC1FE66755D6754C",
+      "currentSha256": "4B3C56652D3BDEACDD7509D930E37ADB4D6D6450B31B89C0EC1FE66755D6754C",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-regression-known-0003-page-01.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "7C0BE83B8085A76BFE8B2E4178E59B0797E14D4AE3F524873A8CAE7F1FD5A91A",
+      "currentSha256": "7C0BE83B8085A76BFE8B2E4178E59B0797E14D4AE3F524873A8CAE7F1FD5A91A",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-regression-known-0003-page-02.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "B8170842D8922B62ECFB3DE5D723731EE46661DBFEF4C1CF779EB0943F46ED7F",
+      "currentSha256": "50FA6F7B27E7C1BEA3145BE9A14EAAF0CEA09B07E2CE12C15240E440BC0FA77E",
+      "byteIdentical": false,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 59046,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 94.952829,
+        "meanAbsoluteChannelDelta": 1.674818,
+        "maxChannelDelta": 239,
+        "differenceBounds": [
+          166,
+          105,
+          742,
+          1169
+        ]
+      }
+    },
+    {
+      "file": "browser-print-regression-known-0003-page-03.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "414AE866A0E4AFCCBE42B5A06AAA1160859A5A95CF6328533FABC0AAA1252F0A",
+      "currentSha256": "414AE866A0E4AFCCBE42B5A06AAA1160859A5A95CF6328533FABC0AAA1252F0A",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-regression-known-0003-page-04.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "71DD190F30B5DA10A0E7AA8148CB4E655540021B1CFFA9CB07AB432A77FDB176",
+      "currentSha256": "71DD190F30B5DA10A0E7AA8148CB4E655540021B1CFFA9CB07AB432A77FDB176",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-regression-known-0003-page-05.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "5DF434282D03EE0A2A6D8156B88EDB4669B7D9436B9F91D8CFC93D0B4D3FD6C2",
+      "currentSha256": "5DF434282D03EE0A2A6D8156B88EDB4669B7D9436B9F91D8CFC93D0B4D3FD6C2",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-regression-known-0003-page-06.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "00E03A0BE217C5F305B2CE3389527B901EA9F15EC35FA11C3729B5F14D8B706A",
+      "currentSha256": "00E03A0BE217C5F305B2CE3389527B901EA9F15EC35FA11C3729B5F14D8B706A",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-regression-known-0003-page-07.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "F61829647D0CA2B7F91F1543228494762CF5D6A1CCCACE229666E585B4E4C541",
+      "currentSha256": "F61829647D0CA2B7F91F1543228494762CF5D6A1CCCACE229666E585B4E4C541",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-unknown-page-01.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "C2511A7651202479FAFC790310B1AD7B06438DF80E96CB302F351A98C89A9D82",
+      "currentSha256": "C2511A7651202479FAFC790310B1AD7B06438DF80E96CB302F351A98C89A9D82",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-unknown-page-02.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "96B92AE7D27DEBCD35AC9264D83035175CB5103FC19FAF9FE454646A2E709877",
+      "currentSha256": "8CA46BFB5BAB101C33FED078F6FED556BC73877A4199DE81BEA139D9AC0F104A",
+      "byteIdentical": false,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 61808,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 94.716737,
+        "meanAbsoluteChannelDelta": 1.79006,
+        "maxChannelDelta": 239,
+        "differenceBounds": [
+          166,
+          105,
+          742,
+          1166
+        ]
+      }
+    },
+    {
+      "file": "browser-print-unknown-page-03.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "2EBDC540AFC6973C3595CC352961F5427A662471DE6674BBB4C6B1D37E451C58",
+      "currentSha256": "2EBDC540AFC6973C3595CC352961F5427A662471DE6674BBB4C6B1D37E451C58",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-unknown-page-04.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "79B461E10909CB726575DC000FE5575E2AA7F666A8334E1491553826444C6A13",
+      "currentSha256": "79B461E10909CB726575DC000FE5575E2AA7F666A8334E1491553826444C6A13",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-unknown-page-05.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "17426DE83AE2C70A3B13CACB05CF9588CE009A278E5088D537D22FB77A9C3B26",
+      "currentSha256": "17426DE83AE2C70A3B13CACB05CF9588CE009A278E5088D537D22FB77A9C3B26",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-unknown-page-06.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "2ED8D111ED29F032AFAE41C80EBFC2595F1BA2E35EC64E834390DA88C52F4538",
+      "currentSha256": "2ED8D111ED29F032AFAE41C80EBFC2595F1BA2E35EC64E834390DA88C52F4538",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "browser-print-unknown-page-07.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "DF45FE825CBEEF689CCB5CCD29F7CAA20BC22AD3F2E614DAE1A26510FD37DCAD",
+      "currentSha256": "DF45FE825CBEEF689CCB5CCD29F7CAA20BC22AD3F2E614DAE1A26510FD37DCAD",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          909,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1169883,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-comparison-known-bangkok-page-01.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "1E87560628A69D349993FC933B6A14BE166CE341A0BF4D973ABD57E29FE0C2CD",
+      "currentSha256": "1E87560628A69D349993FC933B6A14BE166CE341A0BF4D973ABD57E29FE0C2CD",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-comparison-known-bangkok-page-02.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "5384D82DBD9244E159C3901A7FB0AD55A1F29C0590CE4B742FD13C6FD153CFB7",
+      "currentSha256": "DCCC20E5361F4B196A905F5756D3AD2DBB2A9A11568D6EDE8ADB6D2F7BD211B6",
+      "byteIdentical": false,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 51240,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 95.624888,
+        "meanAbsoluteChannelDelta": 1.307271,
+        "maxChannelDelta": 239,
+        "differenceBounds": [
+          187,
+          101,
+          722,
+          1089
+        ]
+      }
+    },
+    {
+      "file": "dedicated-report-comparison-known-bangkok-page-03.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "CDC4EA6BACDD8B73EC0141D0DDFEB38CA73FCE41735862E266D7D049FEC70166",
+      "currentSha256": "CDC4EA6BACDD8B73EC0141D0DDFEB38CA73FCE41735862E266D7D049FEC70166",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-comparison-known-bangkok-page-04.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "013C684FB705986F4FA72F6F2C5B37B8861D81D87403E4AFC2B9AAC8318943A9",
+      "currentSha256": "013C684FB705986F4FA72F6F2C5B37B8861D81D87403E4AFC2B9AAC8318943A9",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-comparison-known-bangkok-page-05.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "8221191B8B6CB81D5D5928F10EA9290865A599717A11D3678109854E11FF014A",
+      "currentSha256": "8221191B8B6CB81D5D5928F10EA9290865A599717A11D3678109854E11FF014A",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-comparison-known-bangkok-page-06.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "5C2388EEC1DCECE9342679C560E97B420EB1AFCD2B9F50527A4939BE40333092",
+      "currentSha256": "5C2388EEC1DCECE9342679C560E97B420EB1AFCD2B9F50527A4939BE40333092",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-comparison-known-bangkok-page-07.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "B8C93592061484C278DB2900BC9C33EDAC219BB66FF07019A8A1998F57401E29",
+      "currentSha256": "B8C93592061484C278DB2900BC9C33EDAC219BB66FF07019A8A1998F57401E29",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-comparison-known-bangkok-page-08.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "C7A65716B68ED3EE39664113DD3F7836DDE8863F86940A7C4668C49C60A050E9",
+      "currentSha256": "C7A65716B68ED3EE39664113DD3F7836DDE8863F86940A7C4668C49C60A050E9",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-comparison-known-khon-kaen-page-01.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "1DFAF11372249F48F73398C3A66F99A317B26992B701BD06FF33F7B62FD6BDE4",
+      "currentSha256": "1DFAF11372249F48F73398C3A66F99A317B26992B701BD06FF33F7B62FD6BDE4",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-comparison-known-khon-kaen-page-02.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "CE574D28E15B6A64C219E055D8B368E36C15E4C025664619A3D49FEBE4D90016",
+      "currentSha256": "10B2498BA277F548B2470608658BACDA67DA8B00F6501FC6BBD99F9F76C19F76",
+      "byteIdentical": false,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 54164,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 95.375223,
+        "meanAbsoluteChannelDelta": 1.449976,
+        "maxChannelDelta": 239,
+        "differenceBounds": [
+          187,
+          101,
+          722,
+          1089
+        ]
+      }
+    },
+    {
+      "file": "dedicated-report-comparison-known-khon-kaen-page-03.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "EAFDA036B3DF9D79D828EEB55E104CFB120B06D816E76775EB19FE4F14B25DDC",
+      "currentSha256": "EAFDA036B3DF9D79D828EEB55E104CFB120B06D816E76775EB19FE4F14B25DDC",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-comparison-known-khon-kaen-page-04.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "C5DD81029501EC853B4E33B5F5EE01EFB0BB510722A8B69113A7CD200E1E5F99",
+      "currentSha256": "C5DD81029501EC853B4E33B5F5EE01EFB0BB510722A8B69113A7CD200E1E5F99",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-comparison-known-khon-kaen-page-05.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "1A6567C8E24854BBF3DA5284978A96881E7D5A47B6AA11622288EFEEF0FE8E24",
+      "currentSha256": "1A6567C8E24854BBF3DA5284978A96881E7D5A47B6AA11622288EFEEF0FE8E24",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-comparison-known-khon-kaen-page-06.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "33D50F7166ECEAD8F38D2ABBD4742374CADD5EB0E20467000F1484A88A91831B",
+      "currentSha256": "33D50F7166ECEAD8F38D2ABBD4742374CADD5EB0E20467000F1484A88A91831B",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-comparison-known-khon-kaen-page-07.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "F6BEF0C0F5F2F2435C3F2FA6E5C75FA725588067AD7400CC5AF6D14AA57B5915",
+      "currentSha256": "F6BEF0C0F5F2F2435C3F2FA6E5C75FA725588067AD7400CC5AF6D14AA57B5915",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-comparison-known-khon-kaen-page-08.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "5CC323BB38A36FCC6A9B19D92BD649197AAFA6FC02F500652A341CA63AE6D284",
+      "currentSha256": "5CC323BB38A36FCC6A9B19D92BD649197AAFA6FC02F500652A341CA63AE6D284",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-known-page-01.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "3D62ADB2E14D78F77678080A300A6098A9DB36E2CE9625800F210E652FA55562",
+      "currentSha256": "3D62ADB2E14D78F77678080A300A6098A9DB36E2CE9625800F210E652FA55562",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-known-page-02.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "614070CC69F9E2C64A33CD8058B11A1C81B9E12A19D55F4CCF307FADB351CD3E",
+      "currentSha256": "32FD27BF62E3D4D9E006E5C97F47016D9AE402770BAF0BE19611EC73471DF4D8",
+      "byteIdentical": false,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 45539,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 96.111666,
+        "meanAbsoluteChannelDelta": 1.263896,
+        "maxChannelDelta": 239,
+        "differenceBounds": [
+          188,
+          101,
+          721,
+          1089
+        ]
+      }
+    },
+    {
+      "file": "dedicated-report-known-page-03.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "876A97CDE0C4CB5B6BF9569F00B3EDCA5CBF6E8D91D2AD5F5EA7D866DC9DCC76",
+      "currentSha256": "876A97CDE0C4CB5B6BF9569F00B3EDCA5CBF6E8D91D2AD5F5EA7D866DC9DCC76",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-known-page-04.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "D2D645CECB1B156AB0D6284949FB48BF8C4E15BF3BABD251D46ADA73D129B06B",
+      "currentSha256": "D2D645CECB1B156AB0D6284949FB48BF8C4E15BF3BABD251D46ADA73D129B06B",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-known-page-05.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "8C9174A43D05E20A1FFCBDEE23DA2A55F4AC7159541C413673A03EB27F1E560C",
+      "currentSha256": "8C9174A43D05E20A1FFCBDEE23DA2A55F4AC7159541C413673A03EB27F1E560C",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-known-page-06.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "DDCE892648F0305124E2731C9003D406134661A8844FFD83FAA53AD5584EA8AD",
+      "currentSha256": "DDCE892648F0305124E2731C9003D406134661A8844FFD83FAA53AD5584EA8AD",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-known-page-07.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "11D778409652FCFBD30B1C6BC2B7068BF42F41109A83D030BC0529B5066C77AD",
+      "currentSha256": "11D778409652FCFBD30B1C6BC2B7068BF42F41109A83D030BC0529B5066C77AD",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-known-page-08.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "3A9E601A5C5C33F324BCD62779686056395119BEC2A35CF72F852C514A587D8E",
+      "currentSha256": "3A9E601A5C5C33F324BCD62779686056395119BEC2A35CF72F852C514A587D8E",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-owner-known-0035-page-01.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "D5BC91F9ED2AC9684B9D1A5AF79748A01F00CE5384D4043C491A189BD0DE62B0",
+      "currentSha256": "D5BC91F9ED2AC9684B9D1A5AF79748A01F00CE5384D4043C491A189BD0DE62B0",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-owner-known-0035-page-02.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "99CC22B46F449F02F5346721DB1643CD09B98F0BE1F71140EA84348343A7098A",
+      "currentSha256": "79FC19EB14ED29A8B21E9474AE4185720E94B14022A3ACFB0AFAC895D59B537E",
+      "byteIdentical": false,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 52882,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 95.484686,
+        "meanAbsoluteChannelDelta": 1.42609,
+        "maxChannelDelta": 239,
+        "differenceBounds": [
+          187,
+          101,
+          722,
+          1089
+        ]
+      }
+    },
+    {
+      "file": "dedicated-report-owner-known-0035-page-03.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "CD4A0FE78D03E5C23317E846EE9E58F2A7643A9044B6FDB6A4885F53FA284598",
+      "currentSha256": "CD4A0FE78D03E5C23317E846EE9E58F2A7643A9044B6FDB6A4885F53FA284598",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-owner-known-0035-page-04.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "6C662D8CAF02836DD84492AA6595C4078198BCE4DEF2422F4A2DEBA1AEB883DA",
+      "currentSha256": "6C662D8CAF02836DD84492AA6595C4078198BCE4DEF2422F4A2DEBA1AEB883DA",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-owner-known-0035-page-05.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "8A6BA39A369AC3A5CEDA9066E2CF0C4DEC29970709B5528BF62BADC164934963",
+      "currentSha256": "8A6BA39A369AC3A5CEDA9066E2CF0C4DEC29970709B5528BF62BADC164934963",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-owner-known-0035-page-06.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "6A5AD04AA668091D3D63F983EACFE3E8FBD2ABABC6CD0C15BE8E17D19AF72D6F",
+      "currentSha256": "6A5AD04AA668091D3D63F983EACFE3E8FBD2ABABC6CD0C15BE8E17D19AF72D6F",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-owner-known-0035-page-07.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "11F9EDAA72706B112EBEFE9B15F8A797359BE2D72DA700C36BD7EA9EE5DE39B4",
+      "currentSha256": "11F9EDAA72706B112EBEFE9B15F8A797359BE2D72DA700C36BD7EA9EE5DE39B4",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-owner-known-0035-page-08.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "1D6D3B59929DDCD3AEB84C6E15E433156ABE8FCA92D155175D4B98859B6FF065",
+      "currentSha256": "1D6D3B59929DDCD3AEB84C6E15E433156ABE8FCA92D155175D4B98859B6FF065",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-owner-unknown-page-01.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "38B0EEFB754C7E0E121953910CC08D1799E28C7119BCB31110B0ED1434826F66",
+      "currentSha256": "38B0EEFB754C7E0E121953910CC08D1799E28C7119BCB31110B0ED1434826F66",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-owner-unknown-page-02.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "6DA6F96BB8BE85F184395FA68064EE098F4915C9F04680131735183FB7E4D6CC",
+      "currentSha256": "0572ED7EA4D59DBCCA73270B10D3BE07357376635E76ADE7E8F191F474C8AE7B",
+      "byteIdentical": false,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 54535,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 95.343545,
+        "meanAbsoluteChannelDelta": 1.410745,
+        "maxChannelDelta": 239,
+        "differenceBounds": [
+          187,
+          101,
+          722,
+          1086
+        ]
+      }
+    },
+    {
+      "file": "dedicated-report-owner-unknown-page-03.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "2DAD31350EF0778E394022F76C5F1B5D6B6B8ADECA99F9AAB375162833C490FB",
+      "currentSha256": "2DAD31350EF0778E394022F76C5F1B5D6B6B8ADECA99F9AAB375162833C490FB",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-owner-unknown-page-04.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "66714C3DE4E12F63230172C06613D2E5B77FC01509F5623E9B5EF3A3E04E9FAE",
+      "currentSha256": "66714C3DE4E12F63230172C06613D2E5B77FC01509F5623E9B5EF3A3E04E9FAE",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-owner-unknown-page-05.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "29DF31ADD7812A32AC16FD6CCB863AB862A81A6C4D6CCF98F5F4DBD90119EA58",
+      "currentSha256": "29DF31ADD7812A32AC16FD6CCB863AB862A81A6C4D6CCF98F5F4DBD90119EA58",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-owner-unknown-page-06.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "ECEB482BD46B68137C73AFB350B050D79546257FB1C746F5D2BBEC9C1463CEC9",
+      "currentSha256": "ECEB482BD46B68137C73AFB350B050D79546257FB1C746F5D2BBEC9C1463CEC9",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-owner-unknown-page-07.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "388A1CA6154D3302AAC7BB5F1D348DE6691890882E0CEAF87B4D5469F6082404",
+      "currentSha256": "388A1CA6154D3302AAC7BB5F1D348DE6691890882E0CEAF87B4D5469F6082404",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-owner-unknown-page-08.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "67C26D312E05E7A3ED6D5A3C1D361B1A98C2CEE8F8145CCFD73970E188B8C865",
+      "currentSha256": "67C26D312E05E7A3ED6D5A3C1D361B1A98C2CEE8F8145CCFD73970E188B8C865",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-regression-known-0003-page-01.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "D5BC91F9ED2AC9684B9D1A5AF79748A01F00CE5384D4043C491A189BD0DE62B0",
+      "currentSha256": "D5BC91F9ED2AC9684B9D1A5AF79748A01F00CE5384D4043C491A189BD0DE62B0",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-regression-known-0003-page-02.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "99CC22B46F449F02F5346721DB1643CD09B98F0BE1F71140EA84348343A7098A",
+      "currentSha256": "79FC19EB14ED29A8B21E9474AE4185720E94B14022A3ACFB0AFAC895D59B537E",
+      "byteIdentical": false,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 52882,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 95.484686,
+        "meanAbsoluteChannelDelta": 1.42609,
+        "maxChannelDelta": 239,
+        "differenceBounds": [
+          187,
+          101,
+          722,
+          1089
+        ]
+      }
+    },
+    {
+      "file": "dedicated-report-regression-known-0003-page-03.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "CD4A0FE78D03E5C23317E846EE9E58F2A7643A9044B6FDB6A4885F53FA284598",
+      "currentSha256": "CD4A0FE78D03E5C23317E846EE9E58F2A7643A9044B6FDB6A4885F53FA284598",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-regression-known-0003-page-04.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "6C662D8CAF02836DD84492AA6595C4078198BCE4DEF2422F4A2DEBA1AEB883DA",
+      "currentSha256": "6C662D8CAF02836DD84492AA6595C4078198BCE4DEF2422F4A2DEBA1AEB883DA",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-regression-known-0003-page-05.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "8A6BA39A369AC3A5CEDA9066E2CF0C4DEC29970709B5528BF62BADC164934963",
+      "currentSha256": "8A6BA39A369AC3A5CEDA9066E2CF0C4DEC29970709B5528BF62BADC164934963",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-regression-known-0003-page-06.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "6A5AD04AA668091D3D63F983EACFE3E8FBD2ABABC6CD0C15BE8E17D19AF72D6F",
+      "currentSha256": "6A5AD04AA668091D3D63F983EACFE3E8FBD2ABABC6CD0C15BE8E17D19AF72D6F",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-regression-known-0003-page-07.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "11F9EDAA72706B112EBEFE9B15F8A797359BE2D72DA700C36BD7EA9EE5DE39B4",
+      "currentSha256": "11F9EDAA72706B112EBEFE9B15F8A797359BE2D72DA700C36BD7EA9EE5DE39B4",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-regression-known-0003-page-08.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "F72FF8CFECD9E2B8CAE9BF600DE1D82DA687D6EFB5F7ACC33A7FC52314458D44",
+      "currentSha256": "F72FF8CFECD9E2B8CAE9BF600DE1D82DA687D6EFB5F7ACC33A7FC52314458D44",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-unknown-page-01.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "EA0D3FE83FD7683A8B9DE4DB57E8AC8970785FC7077D3A4DAB29713A4722BFA4",
+      "currentSha256": "EA0D3FE83FD7683A8B9DE4DB57E8AC8970785FC7077D3A4DAB29713A4722BFA4",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-unknown-page-02.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "CEABAC2D0F75D19201C13297596A6E6D7CA4B0B838EDBE8084709D1D4879A15A",
+      "currentSha256": "1EC3B32B585815908BD1F26F59A13803C2944E4E4408553BD904CC06519E57E7",
+      "byteIdentical": false,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 59183,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 94.946677,
+        "meanAbsoluteChannelDelta": 1.529854,
+        "maxChannelDelta": 239,
+        "differenceBounds": [
+          187,
+          101,
+          722,
+          1086
+        ]
+      }
+    },
+    {
+      "file": "dedicated-report-unknown-page-03.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "B6943680B0A0894D575D97488CCF737D5EF5B63DB511787A49DBF2E5291B2F2F",
+      "currentSha256": "B6943680B0A0894D575D97488CCF737D5EF5B63DB511787A49DBF2E5291B2F2F",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-unknown-page-04.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "3806B8D02DB612EF756B4C31003D17577365DFF9B7A4D961F074B8149BDAC9E4",
+      "currentSha256": "3806B8D02DB612EF756B4C31003D17577365DFF9B7A4D961F074B8149BDAC9E4",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-unknown-page-05.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "5E75F2ADE71900630BA6CB84C4073450B4EA9DC458B235086FA8C812880C882C",
+      "currentSha256": "5E75F2ADE71900630BA6CB84C4073450B4EA9DC458B235086FA8C812880C882C",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-unknown-page-06.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "2E07E409FB5983491E8580B11DED3EC2168B977E332104CCEBBAD54C65FA8EF8",
+      "currentSha256": "2E07E409FB5983491E8580B11DED3EC2168B977E332104CCEBBAD54C65FA8EF8",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-unknown-page-07.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "478E8E2EE71D4B6E54A82A0D5F9B76D2B63C9A559E54EA6623C4A97320A0B0BC",
+      "currentSha256": "478E8E2EE71D4B6E54A82A0D5F9B76D2B63C9A559E54EA6623C4A97320A0B0BC",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    },
+    {
+      "file": "dedicated-report-unknown-page-08.png",
+      "approvedPresent": true,
+      "currentPresent": true,
+      "approvedSha256": "A5266F754B24FC6982CCB8239AC988ADB28228D3FBDB921785B283B5B7B39386",
+      "currentSha256": "A5266F754B24FC6982CCB8239AC988ADB28228D3FBDB921785B283B5B7B39386",
+      "byteIdentical": true,
+      "pixelComparison": {
+        "dimensionsMatch": true,
+        "dimensions": [
+          910,
+          1287
+        ],
+        "changedPixels": 0,
+        "totalPixels": 1171170,
+        "exactPixelPercent": 100.0,
+        "meanAbsoluteChannelDelta": 0.0,
+        "maxChannelDelta": 0,
+        "differenceBounds": null
+      }
+    }
+  ]
+}

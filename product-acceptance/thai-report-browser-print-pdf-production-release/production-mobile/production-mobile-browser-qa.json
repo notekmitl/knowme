@@ -1,0 +1,1554 @@
+[
+  {
+    "fixtureId": "known",
+    "executableLabel": "production-mobile",
+    "baseUrl": "https://knowme-app-694e1.web.app",
+    "mobileState": {
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "dpr": 1
+      },
+      "documentClientWidth": 390,
+      "documentScrollWidth": 390,
+      "documentScrollHeight": 844,
+      "bodyClientWidth": 390,
+      "bodyScrollWidth": 390,
+      "bodyScrollHeight": 844,
+      "horizontalOverflowPixels": 0
+    },
+    "screenState": {
+      "url": "https://knowme-app-694e1.web.app/beta/thai/capture",
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "dpr": 1
+      },
+      "activeElement": {
+        "tag": "FLT-SEMANTICS",
+        "id": "flt-semantic-node-55",
+        "ariaLabel": null
+      },
+      "dialogCount": 0,
+      "printRootExists": true,
+      "printRootTextLength": 9199,
+      "printRootHtmlLength": 288658,
+      "printRootRect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "printRootStyle": {
+        "display": "none",
+        "position": "static",
+        "height": "auto",
+        "overflow": "visible"
+      },
+      "bodyStyle": {
+        "position": "fixed",
+        "height": "720px",
+        "overflow": "visible",
+        "scrollHeight": 729
+      },
+      "htmlStyle": {
+        "position": "static",
+        "height": "0px",
+        "overflow": "visible",
+        "scrollHeight": 720
+      },
+      "sections": [
+        {
+          "id": "report-body-01",
+          "textLength": 72,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-02",
+          "textLength": 284,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-03",
+          "textLength": 298,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-04",
+          "textLength": 217,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-05",
+          "textLength": 201,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-06",
+          "textLength": 202,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-07",
+          "textLength": 289,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-08",
+          "textLength": 183,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-09",
+          "textLength": 92,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-10",
+          "textLength": 84,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-11",
+          "textLength": 369,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-12",
+          "textLength": 324,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-13",
+          "textLength": 425,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-14",
+          "textLength": 1137,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-15",
+          "textLength": 246,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-16",
+          "textLength": 807,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-17",
+          "textLength": 927,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-18",
+          "textLength": 801,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-19",
+          "textLength": 168,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-20",
+          "textLength": 274,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-21",
+          "textLength": 99,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-22",
+          "textLength": 116,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-23",
+          "textLength": 1127,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-24",
+          "textLength": 261,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-disclaimer-25",
+          "textLength": 138,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        }
+      ],
+      "infographicCount": 1
+    },
+    "userPrintEvents": [
+      {
+        "type": "beforeprint",
+        "at": "2026-08-23T10:55:14.139Z"
+      }
+    ],
+    "printState": {
+      "url": "https://knowme-app-694e1.web.app/beta/thai/capture",
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "dpr": 1
+      },
+      "activeElement": {
+        "tag": "FLT-SEMANTICS",
+        "id": "flt-semantic-node-57",
+        "ariaLabel": null
+      },
+      "dialogCount": 0,
+      "printRootExists": true,
+      "printRootTextLength": 9427,
+      "printRootHtmlLength": 288658,
+      "printRootRect": {
+        "x": 8,
+        "y": 8,
+        "width": 1264,
+        "height": 5172.6875,
+        "top": 8,
+        "right": 1272,
+        "bottom": 5180.6875,
+        "left": 8
+      },
+      "printRootStyle": {
+        "display": "block",
+        "position": "static",
+        "height": "5172.69px",
+        "overflow": "visible"
+      },
+      "bodyStyle": {
+        "position": "static",
+        "height": "5172.69px",
+        "overflow": "visible",
+        "scrollHeight": 5173
+      },
+      "htmlStyle": {
+        "position": "static",
+        "height": "5196.69px",
+        "overflow": "visible",
+        "scrollHeight": 5197
+      },
+      "sections": [
+        {
+          "id": "report-body-01",
+          "textLength": 72,
+          "rect": {
+            "x": 8,
+            "y": 113.328125,
+            "width": 1264,
+            "height": 57.578125,
+            "top": 113.328125,
+            "right": 1272,
+            "bottom": 170.90625,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-02",
+          "textLength": 284,
+          "rect": {
+            "x": 8,
+            "y": 186.90625,
+            "width": 1264,
+            "height": 79.265625,
+            "top": 186.90625,
+            "right": 1272,
+            "bottom": 266.171875,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-03",
+          "textLength": 298,
+          "rect": {
+            "x": 8,
+            "y": 282.171875,
+            "width": 1264,
+            "height": 79.265625,
+            "top": 282.171875,
+            "right": 1272,
+            "bottom": 361.4375,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-04",
+          "textLength": 217,
+          "rect": {
+            "x": 8,
+            "y": 1379,
+            "width": 1264,
+            "height": 57.578125,
+            "top": 1379,
+            "right": 1272,
+            "bottom": 1436.578125,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-05",
+          "textLength": 201,
+          "rect": {
+            "x": 8,
+            "y": 1452.578125,
+            "width": 1264,
+            "height": 57.578125,
+            "top": 1452.578125,
+            "right": 1272,
+            "bottom": 1510.15625,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-06",
+          "textLength": 202,
+          "rect": {
+            "x": 8,
+            "y": 1526.15625,
+            "width": 1264,
+            "height": 57.578125,
+            "top": 1526.15625,
+            "right": 1272,
+            "bottom": 1583.734375,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-07",
+          "textLength": 289,
+          "rect": {
+            "x": 8,
+            "y": 1599.734375,
+            "width": 1264,
+            "height": 85.921875,
+            "top": 1599.734375,
+            "right": 1272,
+            "bottom": 1685.65625,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-08",
+          "textLength": 183,
+          "rect": {
+            "x": 8,
+            "y": 1701.65625,
+            "width": 1264,
+            "height": 57.578125,
+            "top": 1701.65625,
+            "right": 1272,
+            "bottom": 1759.234375,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-timeline-09",
+          "textLength": 92,
+          "rect": {
+            "x": 8,
+            "y": 1775.234375,
+            "width": 1264,
+            "height": 90.234375,
+            "top": 1775.234375,
+            "right": 1272,
+            "bottom": 1865.46875,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-timeline-10",
+          "textLength": 84,
+          "rect": {
+            "x": 8,
+            "y": 1881.46875,
+            "width": 1264,
+            "height": 90.234375,
+            "top": 1881.46875,
+            "right": 1272,
+            "bottom": 1971.703125,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-timeline-11",
+          "textLength": 369,
+          "rect": {
+            "x": 8,
+            "y": 1987.703125,
+            "width": 1264,
+            "height": 146.921875,
+            "top": 1987.703125,
+            "right": 1272,
+            "bottom": 2134.625,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-timeline-12",
+          "textLength": 324,
+          "rect": {
+            "x": 8,
+            "y": 2150.625,
+            "width": 1264,
+            "height": 146.921875,
+            "top": 2150.625,
+            "right": 1272,
+            "bottom": 2297.546875,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-timeline-13",
+          "textLength": 425,
+          "rect": {
+            "x": 8,
+            "y": 2313.546875,
+            "width": 1264,
+            "height": 146.921875,
+            "top": 2313.546875,
+            "right": 1272,
+            "bottom": 2460.46875,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-timeline-14",
+          "textLength": 1137,
+          "rect": {
+            "x": 8,
+            "y": 2476.46875,
+            "width": 1264,
+            "height": 445.390625,
+            "top": 2476.46875,
+            "right": 1272,
+            "bottom": 2921.859375,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-15",
+          "textLength": 246,
+          "rect": {
+            "x": 8,
+            "y": 2937.859375,
+            "width": 1264,
+            "height": 85.921875,
+            "top": 2937.859375,
+            "right": 1272,
+            "bottom": 3023.78125,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-16",
+          "textLength": 807,
+          "rect": {
+            "x": 8,
+            "y": 3039.78125,
+            "width": 1264,
+            "height": 306.015625,
+            "top": 3039.78125,
+            "right": 1272,
+            "bottom": 3345.796875,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-17",
+          "textLength": 927,
+          "rect": {
+            "x": 8,
+            "y": 3361.796875,
+            "width": 1264,
+            "height": 306.015625,
+            "top": 3361.796875,
+            "right": 1272,
+            "bottom": 3667.8125,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-18",
+          "textLength": 801,
+          "rect": {
+            "x": 8,
+            "y": 3683.8125,
+            "width": 1264,
+            "height": 284.328125,
+            "top": 3683.8125,
+            "right": 1272,
+            "bottom": 3968.140625,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-19",
+          "textLength": 168,
+          "rect": {
+            "x": 8,
+            "y": 3984.140625,
+            "width": 1264,
+            "height": 57.578125,
+            "top": 3984.140625,
+            "right": 1272,
+            "bottom": 4041.71875,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-timeline-20",
+          "textLength": 274,
+          "rect": {
+            "x": 8,
+            "y": 4057.71875,
+            "width": 1264,
+            "height": 175.265625,
+            "top": 4057.71875,
+            "right": 1272,
+            "bottom": 4232.984375,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-timeline-21",
+          "textLength": 99,
+          "rect": {
+            "x": 8,
+            "y": 4248.984375,
+            "width": 1264,
+            "height": 90.234375,
+            "top": 4248.984375,
+            "right": 1272,
+            "bottom": 4339.21875,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-timeline-22",
+          "textLength": 116,
+          "rect": {
+            "x": 8,
+            "y": 4355.21875,
+            "width": 1264,
+            "height": 90.234375,
+            "top": 4355.21875,
+            "right": 1272,
+            "bottom": 4445.453125,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-23",
+          "textLength": 1127,
+          "rect": {
+            "x": 8,
+            "y": 4461.453125,
+            "width": 1264,
+            "height": 454.390625,
+            "top": 4461.453125,
+            "right": 1272,
+            "bottom": 4915.84375,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-24",
+          "textLength": 261,
+          "rect": {
+            "x": 8,
+            "y": 4931.84375,
+            "width": 1264,
+            "height": 114.265625,
+            "top": 4931.84375,
+            "right": 1272,
+            "bottom": 5046.109375,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-disclaimer-25",
+          "textLength": 138,
+          "rect": {
+            "x": 8,
+            "y": 5062.109375,
+            "width": 1264,
+            "height": 118.578125,
+            "top": 5062.109375,
+            "right": 1272,
+            "bottom": 5180.6875,
+            "left": 8
+          }
+        }
+      ],
+      "infographicCount": 1
+    },
+    "cdpPrintEvents": [
+      {
+        "type": "beforeprint",
+        "at": "2026-08-23T10:55:14.139Z"
+      },
+      {
+        "type": "beforeprint",
+        "at": "2026-08-23T10:55:14.468Z"
+      },
+      {
+        "type": "afterprint",
+        "at": "2026-08-23T10:55:14.475Z"
+      }
+    ],
+    "dedicatedPdf": {
+      "path": "C:\\Users\\USER\\Documents\\Knowme\\r100-print-release-evidence-temp\\production-mobile\\production-mobile-dedicated-known.pdf",
+      "bytes": 172086
+    },
+    "browserPrintPdf": {
+      "path": "C:\\Users\\USER\\Documents\\Knowme\\r100-print-release-evidence-temp\\production-mobile\\production-mobile-browser-print-known.pdf",
+      "bytes": 267051
+    },
+    "consoleErrors": [],
+    "pageErrors": [],
+    "requestFailures": []
+  },
+  {
+    "fixtureId": "unknown",
+    "executableLabel": "production-mobile",
+    "baseUrl": "https://knowme-app-694e1.web.app",
+    "mobileState": {
+      "viewport": {
+        "width": 390,
+        "height": 844,
+        "dpr": 1
+      },
+      "documentClientWidth": 390,
+      "documentScrollWidth": 390,
+      "documentScrollHeight": 844,
+      "bodyClientWidth": 390,
+      "bodyScrollWidth": 390,
+      "bodyScrollHeight": 844,
+      "horizontalOverflowPixels": 0
+    },
+    "screenState": {
+      "url": "https://knowme-app-694e1.web.app/beta/thai/capture",
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "dpr": 1
+      },
+      "activeElement": {
+        "tag": "FLT-SEMANTICS",
+        "id": "flt-semantic-node-82",
+        "ariaLabel": null
+      },
+      "dialogCount": 0,
+      "printRootExists": true,
+      "printRootTextLength": 7878,
+      "printRootHtmlLength": 336002,
+      "printRootRect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "printRootStyle": {
+        "display": "none",
+        "position": "static",
+        "height": "auto",
+        "overflow": "visible"
+      },
+      "bodyStyle": {
+        "position": "fixed",
+        "height": "720px",
+        "overflow": "visible",
+        "scrollHeight": 729
+      },
+      "htmlStyle": {
+        "position": "static",
+        "height": "0px",
+        "overflow": "visible",
+        "scrollHeight": 720
+      },
+      "sections": [
+        {
+          "id": "report-body-01",
+          "textLength": 99,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-02",
+          "textLength": 350,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-03",
+          "textLength": 190,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-04",
+          "textLength": 92,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-05",
+          "textLength": 84,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-06",
+          "textLength": 362,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-07",
+          "textLength": 425,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-08",
+          "textLength": 396,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-09",
+          "textLength": 972,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-10",
+          "textLength": 383,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-11",
+          "textLength": 828,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-12",
+          "textLength": 914,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-13",
+          "textLength": 739,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-14",
+          "textLength": 156,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-15",
+          "textLength": 146,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-16",
+          "textLength": 116,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-17",
+          "textLength": 494,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-18",
+          "textLength": 300,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-disclaimer-19",
+          "textLength": 138,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-disclaimer-20",
+          "textLength": 636,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        }
+      ],
+      "infographicCount": 1
+    },
+    "userPrintEvents": [
+      {
+        "type": "beforeprint",
+        "at": "2026-08-23T10:55:43.004Z"
+      }
+    ],
+    "printState": {
+      "url": "https://knowme-app-694e1.web.app/beta/thai/capture",
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "dpr": 1
+      },
+      "activeElement": {
+        "tag": "FLT-SEMANTICS",
+        "id": "flt-semantic-node-84",
+        "ariaLabel": null
+      },
+      "dialogCount": 0,
+      "printRootExists": true,
+      "printRootTextLength": 8078,
+      "printRootHtmlLength": 336002,
+      "printRootRect": {
+        "x": 8,
+        "y": 8,
+        "width": 1264,
+        "height": 4626.359375,
+        "top": 8,
+        "right": 1272,
+        "bottom": 4634.359375,
+        "left": 8
+      },
+      "printRootStyle": {
+        "display": "block",
+        "position": "static",
+        "height": "4626.36px",
+        "overflow": "visible"
+      },
+      "bodyStyle": {
+        "position": "static",
+        "height": "4626.36px",
+        "overflow": "visible",
+        "scrollHeight": 4626
+      },
+      "htmlStyle": {
+        "position": "static",
+        "height": "4650.36px",
+        "overflow": "visible",
+        "scrollHeight": 4650
+      },
+      "sections": [
+        {
+          "id": "report-body-01",
+          "textLength": 99,
+          "rect": {
+            "x": 8,
+            "y": 113.328125,
+            "width": 1264,
+            "height": 57.578125,
+            "top": 113.328125,
+            "right": 1272,
+            "bottom": 170.90625,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-02",
+          "textLength": 350,
+          "rect": {
+            "x": 8,
+            "y": 186.90625,
+            "width": 1264,
+            "height": 79.265625,
+            "top": 186.90625,
+            "right": 1272,
+            "bottom": 266.171875,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-03",
+          "textLength": 190,
+          "rect": {
+            "x": 8,
+            "y": 282.171875,
+            "width": 1264,
+            "height": 57.578125,
+            "top": 282.171875,
+            "right": 1272,
+            "bottom": 339.75,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-timeline-04",
+          "textLength": 92,
+          "rect": {
+            "x": 8,
+            "y": 1357.3125,
+            "width": 1264,
+            "height": 90.234375,
+            "top": 1357.3125,
+            "right": 1272,
+            "bottom": 1447.546875,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-timeline-05",
+          "textLength": 84,
+          "rect": {
+            "x": 8,
+            "y": 1463.546875,
+            "width": 1264,
+            "height": 90.234375,
+            "top": 1463.546875,
+            "right": 1272,
+            "bottom": 1553.78125,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-timeline-06",
+          "textLength": 362,
+          "rect": {
+            "x": 8,
+            "y": 1569.78125,
+            "width": 1264,
+            "height": 146.921875,
+            "top": 1569.78125,
+            "right": 1272,
+            "bottom": 1716.703125,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-timeline-07",
+          "textLength": 425,
+          "rect": {
+            "x": 8,
+            "y": 1732.703125,
+            "width": 1264,
+            "height": 146.921875,
+            "top": 1732.703125,
+            "right": 1272,
+            "bottom": 1879.625,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-timeline-08",
+          "textLength": 396,
+          "rect": {
+            "x": 8,
+            "y": 1895.625,
+            "width": 1264,
+            "height": 146.921875,
+            "top": 1895.625,
+            "right": 1272,
+            "bottom": 2042.546875,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-timeline-09",
+          "textLength": 972,
+          "rect": {
+            "x": 8,
+            "y": 2058.546875,
+            "width": 1264,
+            "height": 402.015625,
+            "top": 2058.546875,
+            "right": 1272,
+            "bottom": 2460.5625,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-10",
+          "textLength": 383,
+          "rect": {
+            "x": 8,
+            "y": 2476.5625,
+            "width": 1264,
+            "height": 114.265625,
+            "top": 2476.5625,
+            "right": 1272,
+            "bottom": 2590.828125,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-11",
+          "textLength": 828,
+          "rect": {
+            "x": 8,
+            "y": 2606.828125,
+            "width": 1264,
+            "height": 306.015625,
+            "top": 2606.828125,
+            "right": 1272,
+            "bottom": 2912.84375,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-12",
+          "textLength": 914,
+          "rect": {
+            "x": 8,
+            "y": 2928.84375,
+            "width": 1264,
+            "height": 306.015625,
+            "top": 2928.84375,
+            "right": 1272,
+            "bottom": 3234.859375,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-13",
+          "textLength": 739,
+          "rect": {
+            "x": 8,
+            "y": 3250.859375,
+            "width": 1264,
+            "height": 284.328125,
+            "top": 3250.859375,
+            "right": 1272,
+            "bottom": 3535.1875,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-14",
+          "textLength": 156,
+          "rect": {
+            "x": 8,
+            "y": 3551.1875,
+            "width": 1264,
+            "height": 57.578125,
+            "top": 3551.1875,
+            "right": 1272,
+            "bottom": 3608.765625,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-timeline-15",
+          "textLength": 146,
+          "rect": {
+            "x": 8,
+            "y": 3624.765625,
+            "width": 1264,
+            "height": 146.921875,
+            "top": 3624.765625,
+            "right": 1272,
+            "bottom": 3771.6875,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-timeline-16",
+          "textLength": 116,
+          "rect": {
+            "x": 8,
+            "y": 3787.6875,
+            "width": 1264,
+            "height": 90.234375,
+            "top": 3787.6875,
+            "right": 1272,
+            "bottom": 3877.921875,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-17",
+          "textLength": 494,
+          "rect": {
+            "x": 8,
+            "y": 3893.921875,
+            "width": 1264,
+            "height": 227.640625,
+            "top": 3893.921875,
+            "right": 1272,
+            "bottom": 4121.5625,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-body-18",
+          "textLength": 300,
+          "rect": {
+            "x": 8,
+            "y": 4137.5625,
+            "width": 1264,
+            "height": 114.265625,
+            "top": 4137.5625,
+            "right": 1272,
+            "bottom": 4251.828125,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-disclaimer-19",
+          "textLength": 138,
+          "rect": {
+            "x": 8,
+            "y": 4267.828125,
+            "width": 1264,
+            "height": 118.578125,
+            "top": 4267.828125,
+            "right": 1272,
+            "bottom": 4386.40625,
+            "left": 8
+          }
+        },
+        {
+          "id": "report-disclaimer-20",
+          "textLength": 636,
+          "rect": {
+            "x": 8,
+            "y": 4402.40625,
+            "width": 1264,
+            "height": 231.953125,
+            "top": 4402.40625,
+            "right": 1272,
+            "bottom": 4634.359375,
+            "left": 8
+          }
+        }
+      ],
+      "infographicCount": 1
+    },
+    "cdpPrintEvents": [
+      {
+        "type": "beforeprint",
+        "at": "2026-08-23T10:55:43.004Z"
+      },
+      {
+        "type": "beforeprint",
+        "at": "2026-08-23T10:55:43.329Z"
+      },
+      {
+        "type": "afterprint",
+        "at": "2026-08-23T10:55:43.336Z"
+      }
+    ],
+    "dedicatedPdf": {
+      "path": "C:\\Users\\USER\\Documents\\Knowme\\r100-print-release-evidence-temp\\production-mobile\\production-mobile-dedicated-unknown.pdf",
+      "bytes": 194168
+    },
+    "browserPrintPdf": {
+      "path": "C:\\Users\\USER\\Documents\\Knowme\\r100-print-release-evidence-temp\\production-mobile\\production-mobile-browser-print-unknown.pdf",
+      "bytes": 285572
+    },
+    "consoleErrors": [],
+    "pageErrors": [],
+    "requestFailures": []
+  }
+]

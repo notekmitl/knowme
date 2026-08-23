@@ -1,0 +1,780 @@
+{
+  "baseUrl": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app",
+  "entries": 77,
+  "passed": 8,
+  "missing": 0,
+  "mismatch": 69,
+  "httpFailures": 0,
+  "rows": [
+    {
+      "path": "assets\\AssetManifest.bin",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5CAssetManifest.bin",
+      "status": 200,
+      "expectedBytes": 4920,
+      "actualBytes": 7302,
+      "expectedSha256": "9494521D6FC29C7B0EB3C0B5E6A8C316C4507562F22980B3D4AF7429B96AA31A",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\AssetManifest.bin.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5CAssetManifest.bin.json",
+      "status": 200,
+      "expectedBytes": 6562,
+      "actualBytes": 7302,
+      "expectedSha256": "145CBBA5744B7AD4AAEBA6675CAA0B93C1D9C9E0BDCABE605801E61D152125D2",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\assets\\fonts\\noto_sans_thai\\NotoSans-Bold.ttf",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cassets%5Cfonts%5Cnoto_sans_thai%5CNotoSans-Bold.ttf",
+      "status": 200,
+      "expectedBytes": 575740,
+      "actualBytes": 7302,
+      "expectedSha256": "C976E4B1B99EDC88775377FCC21692CA4BFA46B6D6CA6522BFDA505B28FF9D6A",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\assets\\fonts\\noto_sans_thai\\NotoSans-Regular.ttf",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cassets%5Cfonts%5Cnoto_sans_thai%5CNotoSans-Regular.ttf",
+      "status": 200,
+      "expectedBytes": 569208,
+      "actualBytes": 7302,
+      "expectedSha256": "B85C38ECEA8A7CFB39C24E395A4007474FA5A4FC864F6EE33309EB4948D232D5",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\assets\\fonts\\noto_sans_thai\\NotoSansThai-Bold.ttf",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cassets%5Cfonts%5Cnoto_sans_thai%5CNotoSansThai-Bold.ttf",
+      "status": 200,
+      "expectedBytes": 37796,
+      "actualBytes": 7302,
+      "expectedSha256": "2B67CFB22337A868C6C85709E648EA30C79E0A7C530A5FC169A73D3F461D7C52",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\assets\\fonts\\noto_sans_thai\\NotoSansThai-Regular.ttf",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cassets%5Cfonts%5Cnoto_sans_thai%5CNotoSansThai-Regular.ttf",
+      "status": 200,
+      "expectedBytes": 37752,
+      "actualBytes": 7302,
+      "expectedSha256": "404DDFB5ED0AAA6B6EC8A85700D682978992062D67DA93903967B56CBD9A4ACC",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\FontManifest.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5CFontManifest.json",
+      "status": 200,
+      "expectedBytes": 586,
+      "actualBytes": 7302,
+      "expectedSha256": "9A5C6668E65CC70991A3C74AFC550BEAE5518A8349DFEDC19489A237F56C072F",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\fonts\\MaterialIcons-Regular.otf",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cfonts%5CMaterialIcons-Regular.otf",
+      "status": 200,
+      "expectedBytes": 26720,
+      "actualBytes": 7302,
+      "expectedSha256": "AD219607F647A48BB2839C5F53C4A37815849DA5BA75C6AB8783E348AD638175",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\acquisition\\acquisition.schema.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Cacquisition%5Cacquisition.schema.json",
+      "status": 200,
+      "expectedBytes": 1456,
+      "actualBytes": 7302,
+      "expectedSha256": "E778E548C2A348C411F7617A8558E005380EC63CD2514765B29670725A346137",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\acquisition\\acquisition.template.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Cacquisition%5Cacquisition.template.json",
+      "status": 200,
+      "expectedBytes": 1635,
+      "actualBytes": 7302,
+      "expectedSha256": "0458B129E01FA16E06ECFAAAC267B2253666A0C19D4CB181CBD892725D274D52",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\canon\\canon_database.knowme.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Ccanon%5Ccanon_database.knowme.json",
+      "status": 200,
+      "expectedBytes": 576,
+      "actualBytes": 7302,
+      "expectedSha256": "BCF7FB0F7B5E5BE1E20736C5762A2646609370263F9FB3FFFE9812B53A795A38",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\canon\\canon_database.schema.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Ccanon%5Ccanon_database.schema.json",
+      "status": 200,
+      "expectedBytes": 6334,
+      "actualBytes": 7302,
+      "expectedSha256": "7E94E34A01A0CA69326350C89F147652165CA64FA4501FBE42B1A2340785B860",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\canon\\canon_sources.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Ccanon%5Ccanon_sources.json",
+      "status": 200,
+      "expectedBytes": 2343,
+      "actualBytes": 7302,
+      "expectedSha256": "04850B6B4E3B21102F51339910108A2F45C06DA76C499892F895424DAB92C369",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\canon\\canon_unit.template.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Ccanon%5Ccanon_unit.template.json",
+      "status": 200,
+      "expectedBytes": 2420,
+      "actualBytes": 7302,
+      "expectedSha256": "65B5E9C2EA5C91DF6D5C453107AD4F5217E8F83B1D464F1BA6F28CFF91016083",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\canon\\canon.knowme.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Ccanon%5Ccanon.knowme.json",
+      "status": 200,
+      "expectedBytes": 439,
+      "actualBytes": 7302,
+      "expectedSha256": "0CD0D4B28983A05F209D23F6DFA7518331B26A3CF57303E059AA2F8821E23DAB",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\canon\\canon.schema.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Ccanon%5Ccanon.schema.json",
+      "status": 200,
+      "expectedBytes": 3180,
+      "actualBytes": 7302,
+      "expectedSha256": "885ADDA8CA05B897244616454A18A5D1B11F02EFEE1B062E3F8B00FF8AE556BB",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\canon\\canon.template.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Ccanon%5Ccanon.template.json",
+      "status": 200,
+      "expectedBytes": 2120,
+      "actualBytes": 7302,
+      "expectedSha256": "EF69FE34F938DE181ABA577AE9375FBFE0DE949FFB38051D6B3239A66262A6CF",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\canon\\library.manifest.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Ccanon%5Clibrary.manifest.json",
+      "status": 200,
+      "expectedBytes": 1150,
+      "actualBytes": 7302,
+      "expectedSha256": "761AEEC80E49FB385FCFE3474808FCEEE31D62341ED245624EB677C436A37FF7",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\canon\\library.manifest.schema.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Ccanon%5Clibrary.manifest.schema.json",
+      "status": 200,
+      "expectedBytes": 1829,
+      "actualBytes": 7302,
+      "expectedSha256": "78742AC2D406E5FFD7F0BEE8BDC5A1297FA313BFC6D2E7411A9EC6A91D4B4627",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\canon\\mahabhut.book.schema.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Ccanon%5Cmahabhut.book.schema.json",
+      "status": 200,
+      "expectedBytes": 2722,
+      "actualBytes": 7302,
+      "expectedSha256": "E2948A3B5B4CF963D1BA86EF1B0D630FB98A3F4C72D11F5150D88BA44B5561CF",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\canon\\mahabhut.manifest.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Ccanon%5Cmahabhut.manifest.json",
+      "status": 200,
+      "expectedBytes": 912,
+      "actualBytes": 7302,
+      "expectedSha256": "705A793B79C709D2BF9FE7D6A1BD188CA2EAEB80C41C6575733A5D2783146631",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\canon\\production\\foundation_v1.knowme.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Ccanon%5Cproduction%5Cfoundation_v1.knowme.json",
+      "status": 200,
+      "expectedBytes": 468967,
+      "actualBytes": 7302,
+      "expectedSha256": "E44127212531872F3AFADA97DF82638AD65F1AEB833DD3CE2FB870D323FC94E0",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\evidence\\evidence.knowme.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Cevidence%5Cevidence.knowme.json",
+      "status": 200,
+      "expectedBytes": 355,
+      "actualBytes": 7302,
+      "expectedSha256": "370C80D664A02DE5EF8FECED0CF84BEDE060CC9C3ACF0A55DFA64295F262F17D",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\evidence\\evidence.schema.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Cevidence%5Cevidence.schema.json",
+      "status": 200,
+      "expectedBytes": 2271,
+      "actualBytes": 7302,
+      "expectedSha256": "996338FF497FBD096535D65CC41D9C17BDAACAD172FE5C62C5758C7F5AF58350",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\evidence\\evidence.template.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Cevidence%5Cevidence.template.json",
+      "status": 200,
+      "expectedBytes": 1459,
+      "actualBytes": 7302,
+      "expectedSha256": "7C8F8B9DE87864CF0B33EFA1F90915483CF9C0DB61B2C56D0AF8717C3F903E67",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\planet_relationships\\planet_relationships.knowme.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Cplanet_relationships%5Cplanet_relationships.knowme.json",
+      "status": 200,
+      "expectedBytes": 21050,
+      "actualBytes": 7302,
+      "expectedSha256": "1B64A151B708F1F7F1333ADAE3A4A3314E11F50D57C68E3131F1EBC29C954C9C",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\planet_relationships\\planet_relationships.schema.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Cplanet_relationships%5Cplanet_relationships.schema.json",
+      "status": 200,
+      "expectedBytes": 2328,
+      "actualBytes": 7302,
+      "expectedSha256": "2613E82072E7CBA4832901A21850426873960058CB54168D75F1AB2C9C0571CC",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\planet_relationships\\planet_relationships.template.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Cplanet_relationships%5Cplanet_relationships.template.json",
+      "status": 200,
+      "expectedBytes": 1258,
+      "actualBytes": 7302,
+      "expectedSha256": "B53F6D138C44A1C210DF13ED4A3721C1CF1C594DDE97294B9917074B03DD727A",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\research\\research.knowme.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Cresearch%5Cresearch.knowme.json",
+      "status": 200,
+      "expectedBytes": 340,
+      "actualBytes": 7302,
+      "expectedSha256": "B564B1369F30A894391E5A87693C620852583503B50CDECB52C20C565F91CD92",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\research\\research.schema.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Cresearch%5Cresearch.schema.json",
+      "status": 200,
+      "expectedBytes": 3005,
+      "actualBytes": 7302,
+      "expectedSha256": "9960E78FC0564A4561B2B3FBC98EBF6433182B4A52FC7EA6271C446C6DFCE56C",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\research\\research.template.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Cresearch%5Cresearch.template.json",
+      "status": 200,
+      "expectedBytes": 1268,
+      "actualBytes": 7302,
+      "expectedSha256": "E04F41805998139400519BAE6B9786E5617412D2C7E4E048314C068525B7BF8F",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\sources\\sources.index.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Csources%5Csources.index.json",
+      "status": 200,
+      "expectedBytes": 390,
+      "actualBytes": 7302,
+      "expectedSha256": "A4137916B31E69F5011EBB0FDC2E5563D01CD2AFFBE2A91F882119925596136E",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\sources\\sources.schema.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Csources%5Csources.schema.json",
+      "status": 200,
+      "expectedBytes": 2291,
+      "actualBytes": 7302,
+      "expectedSha256": "7B4B50C242C564997D76CFB80B1A4DFA549B89BFB3AFCE9B1D098222D9246F7C",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\knowledge\\sources\\sources.template.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cknowledge%5Csources%5Csources.template.json",
+      "status": 200,
+      "expectedBytes": 873,
+      "actualBytes": 7302,
+      "expectedSha256": "AC52558FD672A30A00D842E78B0140499D139F94DC369F78B940F3FFA7DFF07A",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\NOTICES",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5CNOTICES",
+      "status": 200,
+      "expectedBytes": 1388473,
+      "actualBytes": 7302,
+      "expectedSha256": "E8C46A219998314B2C8B00046D1C7E6880F4956937BD1CC12835F28FF3DB4648",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\packages\\cupertino_icons\\assets\\CupertinoIcons.ttf",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cpackages%5Ccupertino_icons%5Cassets%5CCupertinoIcons.ttf",
+      "status": 200,
+      "expectedBytes": 1472,
+      "actualBytes": 7302,
+      "expectedSha256": "3D90C370AA4CF00DC57EE2B902F6652147C0F81E03E483DF584A9C08B1687C9D",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\packages\\flutter_google_places_sdk_platform_interface\\assets\\google\\0.75x\\powered_by_google_on_non_white.png",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cpackages%5Cflutter_google_places_sdk_platform_interface%5Cassets%5Cgoogle%5C0.75x%5Cpowered_by_google_on_non_white.png",
+      "status": 200,
+      "expectedBytes": 1127,
+      "actualBytes": 7302,
+      "expectedSha256": "21247F7EAFA36708CED8FDDEE1004B42EF735B2A5A656B12006F0E6013022FD3",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\packages\\flutter_google_places_sdk_platform_interface\\assets\\google\\0.75x\\powered_by_google_on_white.png",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cpackages%5Cflutter_google_places_sdk_platform_interface%5Cassets%5Cgoogle%5C0.75x%5Cpowered_by_google_on_white.png",
+      "status": 200,
+      "expectedBytes": 1619,
+      "actualBytes": 7302,
+      "expectedSha256": "1AEBB6D5BC360E7084978FD0D2D06C746912520D1C4E4DADBF375F4117C13D19",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\packages\\flutter_google_places_sdk_platform_interface\\assets\\google\\1.5x\\powered_by_google_on_non_white.png",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cpackages%5Cflutter_google_places_sdk_platform_interface%5Cassets%5Cgoogle%5C1.5x%5Cpowered_by_google_on_non_white.png",
+      "status": 200,
+      "expectedBytes": 2282,
+      "actualBytes": 7302,
+      "expectedSha256": "FAB33A759B66D66AF74A7C97D3CBB32468C59A1BE2A260EDADA142EE8C27144C",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\packages\\flutter_google_places_sdk_platform_interface\\assets\\google\\1.5x\\powered_by_google_on_white.png",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cpackages%5Cflutter_google_places_sdk_platform_interface%5Cassets%5Cgoogle%5C1.5x%5Cpowered_by_google_on_white.png",
+      "status": 200,
+      "expectedBytes": 3331,
+      "actualBytes": 7302,
+      "expectedSha256": "9A6FF3C6770CCAF12B187EAE92B4DE4C2EBCB3B7256D0A92DD15ED0E65044FB1",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\packages\\flutter_google_places_sdk_platform_interface\\assets\\google\\2.0x\\powered_by_google_on_non_white.png",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cpackages%5Cflutter_google_places_sdk_platform_interface%5Cassets%5Cgoogle%5C2.0x%5Cpowered_by_google_on_non_white.png",
+      "status": 200,
+      "expectedBytes": 3126,
+      "actualBytes": 7302,
+      "expectedSha256": "0803FE07B2401E2A78CA8D9959EE9E24780FA7B614C1D4A9EF50306A2F147D53",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\packages\\flutter_google_places_sdk_platform_interface\\assets\\google\\2.0x\\powered_by_google_on_white.png",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cpackages%5Cflutter_google_places_sdk_platform_interface%5Cassets%5Cgoogle%5C2.0x%5Cpowered_by_google_on_white.png",
+      "status": 200,
+      "expectedBytes": 4550,
+      "actualBytes": 7302,
+      "expectedSha256": "85E8811AF8CE7AFF2444ABB675D1ACFF9189884726709C6C5D89BADB6BB96828",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\packages\\flutter_google_places_sdk_platform_interface\\assets\\google\\3.0x\\powered_by_google_on_non_white.png",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cpackages%5Cflutter_google_places_sdk_platform_interface%5Cassets%5Cgoogle%5C3.0x%5Cpowered_by_google_on_non_white.png",
+      "status": 200,
+      "expectedBytes": 4800,
+      "actualBytes": 7302,
+      "expectedSha256": "69CFA939D948D027CFF7CEC4A07E656C6FC6EEA3E4466D28F1F5178E8650D21F",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\packages\\flutter_google_places_sdk_platform_interface\\assets\\google\\3.0x\\powered_by_google_on_white.png",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cpackages%5Cflutter_google_places_sdk_platform_interface%5Cassets%5Cgoogle%5C3.0x%5Cpowered_by_google_on_white.png",
+      "status": 200,
+      "expectedBytes": 6898,
+      "actualBytes": 7302,
+      "expectedSha256": "05AAA7DC08463904B508C96C35A5DE34303EA10FA769882A03EE2179897DEE2C",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\packages\\flutter_google_places_sdk_platform_interface\\assets\\google\\4.0x\\powered_by_google_on_non_white.png",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cpackages%5Cflutter_google_places_sdk_platform_interface%5Cassets%5Cgoogle%5C4.0x%5Cpowered_by_google_on_non_white.png",
+      "status": 200,
+      "expectedBytes": 6115,
+      "actualBytes": 7302,
+      "expectedSha256": "EE1BE728E30F277A85CDB6585B3B0A0D5C9F9D889B17D92DF9529A146A92CCA4",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\packages\\flutter_google_places_sdk_platform_interface\\assets\\google\\4.0x\\powered_by_google_on_white.png",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cpackages%5Cflutter_google_places_sdk_platform_interface%5Cassets%5Cgoogle%5C4.0x%5Cpowered_by_google_on_white.png",
+      "status": 200,
+      "expectedBytes": 9314,
+      "actualBytes": 7302,
+      "expectedSha256": "F6E6CB4B4E274D50215895A2359A17B3CA9697092B504D4B2097A9459F3D4131",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\packages\\flutter_google_places_sdk_platform_interface\\assets\\google\\powered_by_google_on_non_white.png",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cpackages%5Cflutter_google_places_sdk_platform_interface%5Cassets%5Cgoogle%5Cpowered_by_google_on_non_white.png",
+      "status": 200,
+      "expectedBytes": 1404,
+      "actualBytes": 7302,
+      "expectedSha256": "6CBA720C97F17D56FCA3FA86778DA961D12B07E216CF2A9ABA0244A5CDA2D643",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\packages\\flutter_google_places_sdk_platform_interface\\assets\\google\\powered_by_google_on_white.png",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cpackages%5Cflutter_google_places_sdk_platform_interface%5Cassets%5Cgoogle%5Cpowered_by_google_on_white.png",
+      "status": 200,
+      "expectedBytes": 2133,
+      "actualBytes": 7302,
+      "expectedSha256": "533CB39F7DAD385E4B124588F494E5A8D192F26FF49360D0A38C635A369C852F",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\shaders\\ink_sparkle.frag",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cshaders%5Cink_sparkle.frag",
+      "status": 200,
+      "expectedBytes": 8890,
+      "actualBytes": 7302,
+      "expectedSha256": "5AEE0E4FF369C0559EAA7AF6D64DCE812BAB67AFD9888D1D7D27046293B39AB5",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "assets\\shaders\\stretch_effect.frag",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/assets%5Cshaders%5Cstretch_effect.frag",
+      "status": 200,
+      "expectedBytes": 6737,
+      "actualBytes": 7302,
+      "expectedSha256": "C723FBB5B9A3456B101073825AB5D34DE312A39F32BF5DE42AAE0CDA605D0A1A",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "canvaskit\\canvaskit.js",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/canvaskit%5Ccanvaskit.js",
+      "status": 200,
+      "expectedBytes": 86859,
+      "actualBytes": 7302,
+      "expectedSha256": "931AE3F02E76E8AC58A1C1435D754A8740C87958B52EDB9037D66E32BE53EB40",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "canvaskit\\canvaskit.js.symbols",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/canvaskit%5Ccanvaskit.js.symbols",
+      "status": 200,
+      "expectedBytes": 1344898,
+      "actualBytes": 7302,
+      "expectedSha256": "90B967D768F78474A6E733298BF3AF352585BAC3C2210F07B0B226704B1888C2",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "canvaskit\\canvaskit.wasm",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/canvaskit%5Ccanvaskit.wasm",
+      "status": 200,
+      "expectedBytes": 7155780,
+      "actualBytes": 7302,
+      "expectedSha256": "681D8EFD431B8134841C0595E8B7EEC10E2EF3936F8A761F69B9291083C561BD",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "canvaskit\\chromium\\canvaskit.js",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/canvaskit%5Cchromium%5Ccanvaskit.js",
+      "status": 200,
+      "expectedBytes": 86496,
+      "actualBytes": 7302,
+      "expectedSha256": "FF8DCD85CEE325699499EE23FFD7567BC8086E9592C24D4D8D411F951C16BDA4",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "canvaskit\\chromium\\canvaskit.js.symbols",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/canvaskit%5Cchromium%5Ccanvaskit.js.symbols",
+      "status": 200,
+      "expectedBytes": 1262882,
+      "actualBytes": 7302,
+      "expectedSha256": "3C9D8E7AA7D92A122C4714A6F239BA0A46D56D2F18395AC42CB9F2AF8513A277",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "canvaskit\\chromium\\canvaskit.wasm",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/canvaskit%5Cchromium%5Ccanvaskit.wasm",
+      "status": 200,
+      "expectedBytes": 5686836,
+      "actualBytes": 7302,
+      "expectedSha256": "F6C67BF7989FCB1B69A3203617882AC0D1541CC79E38F81C3F5D63AB4D73DE33",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "canvaskit\\skwasm_heavy.js",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/canvaskit%5Cskwasm_heavy.js",
+      "status": 200,
+      "expectedBytes": 63550,
+      "actualBytes": 7302,
+      "expectedSha256": "7A1AA20E765441B28F4BE0CD397F95573A3ECD72ADC80BA32DD2CB959A09A41D",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "canvaskit\\skwasm_heavy.js.symbols",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/canvaskit%5Cskwasm_heavy.js.symbols",
+      "status": 200,
+      "expectedBytes": 1644252,
+      "actualBytes": 7302,
+      "expectedSha256": "F0F3ACC96B31BE9D17E5A72AE9309D79D12436E51B8464690B12690FE0C0E020",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "canvaskit\\skwasm_heavy.wasm",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/canvaskit%5Cskwasm_heavy.wasm",
+      "status": 200,
+      "expectedBytes": 5140163,
+      "actualBytes": 7302,
+      "expectedSha256": "4B0028E38D865B4673EC38C0C673299DFF6B00D6CD8C5E53DDA9F800F7BBDDA2",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "canvaskit\\skwasm.js",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/canvaskit%5Cskwasm.js",
+      "status": 200,
+      "expectedBytes": 63437,
+      "actualBytes": 7302,
+      "expectedSha256": "D52E58007AF740833FAA088C1F68672E410DC385BBEB3E50A5E5BC285FC3FC9A",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "canvaskit\\skwasm.js.symbols",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/canvaskit%5Cskwasm.js.symbols",
+      "status": 200,
+      "expectedBytes": 1519424,
+      "actualBytes": 7302,
+      "expectedSha256": "B059D901611B40109E67D655605CE486827EA054E53EBC0B1EB419C169D4AE01",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "canvaskit\\skwasm.wasm",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/canvaskit%5Cskwasm.wasm",
+      "status": 200,
+      "expectedBytes": 3549758,
+      "actualBytes": 7302,
+      "expectedSha256": "461A759C657738E573F1C2F69E26489197E43DB1BF6EC1E2C3B44C6721314CD1",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "canvaskit\\wimp.js",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/canvaskit%5Cwimp.js",
+      "status": 200,
+      "expectedBytes": 57623,
+      "actualBytes": 7302,
+      "expectedSha256": "FA58B2C534EF9C66DFF68DF1EA28C1739BB02CE34CC8ECA459F716527D9B5CAE",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "canvaskit\\wimp.js.symbols",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/canvaskit%5Cwimp.js.symbols",
+      "status": 200,
+      "expectedBytes": 1751605,
+      "actualBytes": 7302,
+      "expectedSha256": "90489D4E656C0810D2D637E9048363A02AFD9B27733D7D0A9D721D4D7071B99C",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "canvaskit\\wimp.wasm",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/canvaskit%5Cwimp.wasm",
+      "status": 200,
+      "expectedBytes": 3461420,
+      "actualBytes": 7302,
+      "expectedSha256": "78363AD9E37680CF35E14EEAD62B462C80DAC6CEA7CC02950422EFD8ED222C9D",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "favicon.png",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/favicon.png",
+      "status": 200,
+      "expectedBytes": 917,
+      "actualBytes": 917,
+      "expectedSha256": "7AB2525F4B86B65D3E4C70358A17E5A1AAF6F437F99CBCC046DAD73D59BB9015",
+      "actualSha256": "7AB2525F4B86B65D3E4C70358A17E5A1AAF6F437F99CBCC046DAD73D59BB9015",
+      "passed": true
+    },
+    {
+      "path": "flutter_bootstrap.js",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/flutter_bootstrap.js",
+      "status": 200,
+      "expectedBytes": 9975,
+      "actualBytes": 9975,
+      "expectedSha256": "7AD3E7B460BB544097AA0C71A19D4178606ACDC1EAE880643EB58FED6DC430ED",
+      "actualSha256": "7AD3E7B460BB544097AA0C71A19D4178606ACDC1EAE880643EB58FED6DC430ED",
+      "passed": true
+    },
+    {
+      "path": "flutter_service_worker.js",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/flutter_service_worker.js",
+      "status": 200,
+      "expectedBytes": 815,
+      "actualBytes": 815,
+      "expectedSha256": "DBFBE64AE5BE5B462ABB97338EB9AF783ED4ED57A8C73A53C2A44488A26F6416",
+      "actualSha256": "DBFBE64AE5BE5B462ABB97338EB9AF783ED4ED57A8C73A53C2A44488A26F6416",
+      "passed": true
+    },
+    {
+      "path": "flutter.js",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/flutter.js",
+      "status": 200,
+      "expectedBytes": 9553,
+      "actualBytes": 9553,
+      "expectedSha256": "A483FD28F51ED2FADD0DA3FADE5B672EBA56310D549D736CE62EABF624A6A578",
+      "actualSha256": "A483FD28F51ED2FADD0DA3FADE5B672EBA56310D549D736CE62EABF624A6A578",
+      "passed": true
+    },
+    {
+      "path": "icons\\Icon-192.png",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/icons%5CIcon-192.png",
+      "status": 200,
+      "expectedBytes": 5292,
+      "actualBytes": 7302,
+      "expectedSha256": "3DCE99077602F70421C1C6B2A240BC9B83D64D86681D45F2154143310C980BE3",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "icons\\Icon-512.png",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/icons%5CIcon-512.png",
+      "status": 200,
+      "expectedBytes": 8252,
+      "actualBytes": 7302,
+      "expectedSha256": "BACCB205AE45F0B421BE1657259B4943AC40C95094AB877F3BCBE12CD544DCBE",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "icons\\Icon-maskable-192.png",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/icons%5CIcon-maskable-192.png",
+      "status": 200,
+      "expectedBytes": 5594,
+      "actualBytes": 7302,
+      "expectedSha256": "D2C842E22A9F4EC9D996B23373A905C88D9A203B220C5C151885AD621F974B5C",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "icons\\Icon-maskable-512.png",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/icons%5CIcon-maskable-512.png",
+      "status": 200,
+      "expectedBytes": 20998,
+      "actualBytes": 7302,
+      "expectedSha256": "6AEE06CDCAB6B2AEF74B1734C4778F4421D2DA100B0FF9E52B21B55240202929",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": false
+    },
+    {
+      "path": "index.html",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/index.html",
+      "status": 200,
+      "expectedBytes": 7302,
+      "actualBytes": 7302,
+      "expectedSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "actualSha256": "2B82064F5F2CB5CED35256CF0B1964CC3557F3C561E84DE7C4EA5C7A228E432D",
+      "passed": true
+    },
+    {
+      "path": "main.dart.js",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/main.dart.js",
+      "status": 200,
+      "expectedBytes": 8057157,
+      "actualBytes": 8057157,
+      "expectedSha256": "9478ED875C98255B52F6353FC31B5EBC60D5DD3ADEA95C0E6329B0CBAFCC3D77",
+      "actualSha256": "9478ED875C98255B52F6353FC31B5EBC60D5DD3ADEA95C0E6329B0CBAFCC3D77",
+      "passed": true
+    },
+    {
+      "path": "manifest.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/manifest.json",
+      "status": 200,
+      "expectedBytes": 986,
+      "actualBytes": 986,
+      "expectedSha256": "1B9DE1081D891840C95FC97B311B61856508360853E42BB43335749C534B1DF1",
+      "actualSha256": "1B9DE1081D891840C95FC97B311B61856508360853E42BB43335749C534B1DF1",
+      "passed": true
+    },
+    {
+      "path": "version.json",
+      "url": "https://knowme-app-694e1--pr100-print-repair-release-20260823-pgr81mof.web.app/version.json",
+      "status": 200,
+      "expectedBytes": 82,
+      "actualBytes": 82,
+      "expectedSha256": "7D8282FFBAA722DDCD08D8DA1D9D15D2CEBF14C3C03A8F353E6B3A795F8FC19D",
+      "actualSha256": "7D8282FFBAA722DDCD08D8DA1D9D15D2CEBF14C3C03A8F353E6B3A795F8FC19D",
+      "passed": true
+    }
+  ]
+}
