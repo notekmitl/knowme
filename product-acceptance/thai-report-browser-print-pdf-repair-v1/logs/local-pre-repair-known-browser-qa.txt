@@ -1,0 +1,9 @@
+page.waitForEvent: Timeout 30000ms exceeded while waiting for event "download"
+=========================== logs ===========================
+waiting for event "download"
+============================================================
+    at runFixture (C:\Users\USER\Documents\Knowme\r100-print-repair\tool\thai_report_browser_print_live_qa.cjs:176:43)
+    at async main (C:\Users\USER\Documents\Knowme\r100-print-repair\tool\thai_report_browser_print_live_qa.cjs:261:22) {
+  log: [],
+  name: 'TimeoutError'
+}

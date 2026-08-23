@@ -1,0 +1,1 @@
+fixtures=7|browser=7/49|dedicated=7/56|total=14/105|semantic=100|passed=true

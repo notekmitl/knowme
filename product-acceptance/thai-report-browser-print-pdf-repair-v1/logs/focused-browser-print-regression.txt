@@ -1,0 +1,5 @@
+00:00 +0: loading C:/Users/USER/Documents/Knowme/r100-print-repair/test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+00:00 +0: browser print resets the fixed Flutter host before pagination
+00:00 +1: title-integrity gate rejects all five evidence mutations
+00:00 +2: writes isolated vNext review artifacts from one shared model
+00:01 +3: All tests passed!

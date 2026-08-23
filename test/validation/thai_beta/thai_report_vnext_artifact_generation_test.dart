@@ -39,6 +39,27 @@ const _fixtureIds = <String>[
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
 
+  test('browser print resets the fixed Flutter host before pagination', () {
+    expect(
+      browserPrintCss,
+      contains(
+        'html, body { width: auto !important; height: auto !important; '
+        'overflow: visible !important; position: static !important; }',
+      ),
+    );
+    expect(
+      browserPrintCss,
+      contains('body > :not(#knowme-print-root) { display: none !important; }'),
+      reason: 'Only the semantic shared-report print tree may be paginated.',
+    );
+    expect(
+      browserPrintCss,
+      contains('body { margin: 8px !important; }'),
+      reason:
+          'The live Flutter host must match the approved standalone geometry.',
+    );
+  });
+
   test('title-integrity gate rejects all five evidence mutations', () {
     final valid = _ArtifactProbe.valid();
     _validateArtifactProbe(valid);

@@ -1,0 +1,10 @@
+{
+  "fixtureId": "unknown",
+  "executableLabel": "local-post-repair-unknown4",
+  "baseUrl": "http://127.0.0.1:8767",
+  "failure": "locator.click: Element is outside of the viewport\nCall log:\n\u001b[2m  - waiting for locator('flt-semantics-placeholder')\u001b[22m\n\u001b[2m    - locator resolved to <flt-semantics-placeholder tabindex=\"0\" role=\"button\" aria-live=\"polite\" aria-label=\"Enable accessibility\"></flt-semantics-placeholder>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    - scrolling into view if needed\u001b[22m\n\u001b[2m    - done scrolling\u001b[22m\n\n    at fillFixture (C:\\Users\\USER\\Documents\\Knowme\\r100-print-repair\\tool\\thai_report_browser_print_live_qa.cjs:92:32)\n    at async runFixture (C:\\Users\\USER\\Documents\\Knowme\\r100-print-repair\\tool\\thai_report_browser_print_live_qa.cjs:184:5)\n    at async main (C:\\Users\\USER\\Documents\\Knowme\\r100-print-repair\\tool\\thai_report_browser_print_live_qa.cjs:292:22)",
+  "failureUrl": "http://127.0.0.1:8767/beta/thai",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "requestFailures": []
+}

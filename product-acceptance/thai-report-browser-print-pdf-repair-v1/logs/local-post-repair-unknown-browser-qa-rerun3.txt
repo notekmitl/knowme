@@ -1,0 +1,20 @@
+locator.click: Element is outside of the viewport
+Call log:
+  - waiting for locator('flt-semantics-placeholder')
+    - locator resolved to <flt-semantics-placeholder tabindex="0" role="button" aria-live="polite" aria-label="Enable accessibility"></flt-semantics-placeholder>
+  - attempting click action
+    - scrolling into view if needed
+    - done scrolling
+
+    at fillFixture (C:\Users\USER\Documents\Knowme\r100-print-repair\tool\thai_report_browser_print_live_qa.cjs:92:32)
+    at async runFixture (C:\Users\USER\Documents\Knowme\r100-print-repair\tool\thai_report_browser_print_live_qa.cjs:184:5)
+    at async main (C:\Users\USER\Documents\Knowme\r100-print-repair\tool\thai_report_browser_print_live_qa.cjs:292:22) {
+  log: [
+    "  - waiting for locator('flt-semantics-placeholder')",
+    '    - locator resolved to <flt-semantics-placeholder tabindex="0" role="button" aria-live="polite" aria-label="Enable accessibility"></flt-semantics-placeholder>',
+    '  - attempting click action',
+    '    - scrolling into view if needed',
+    '    - done scrolling'
+  ],
+  name: 'Error'
+}

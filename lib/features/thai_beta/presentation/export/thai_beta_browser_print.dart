@@ -27,7 +27,8 @@ const browserPrintCss = '''
 }
 @media print {
   @page { size: A4; margin: 14mm 16mm 16mm; }
-  html, body { width: auto !important; height: auto !important; overflow: visible !important; }
+  html, body { width: auto !important; height: auto !important; overflow: visible !important; position: static !important; }
+  body { margin: 8px !important; }
   body > :not(#knowme-print-root) { display: none !important; }
   #knowme-print-root { display: block !important; color: #151515; background: white; }
   #knowme-print-root * { box-sizing: border-box; }

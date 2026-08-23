@@ -1,0 +1,1 @@
+approved=105|current=105|missing=0|byteIdentical=91|byteMismatch=14|contactSheets=7

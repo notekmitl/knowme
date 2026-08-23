@@ -1,0 +1,2649 @@
+{
+  "schema": "knowme-pr100-revision3-pdf-page-one-gate-v1",
+  "artifactRoot": "C:\\Users\\USER\\Documents\\Knowme\\r100-print-repair\\product-acceptance\\thai-report-browser-print-pdf-repair-v1\\acceptance\\validated-artifacts",
+  "renderRoot": "C:\\Users\\USER\\Documents\\Knowme\\r100-print-repair\\product-acceptance\\thai-report-browser-print-pdf-repair-v1\\pdf-renders\\local-post-repair",
+  "pdfCount": 14,
+  "totalPages": 105,
+  "uniqueRenderNames": 105,
+  "failures": [],
+  "results": [
+    {
+      "stem": "browser-print-comparison-known-bangkok",
+      "fixture": "comparison-known-bangkok",
+      "kind": "browser-print",
+      "pdf": "browser-print-comparison-known-bangkok.pdf",
+      "bytes": 270355,
+      "sha256": "1FDCF3A63A455AB321D1ABA16843D3C432111269A11DD878E4FBC0927C131E5A",
+      "pages": 7,
+      "firstPageHasHeader": true,
+      "firstPageContractUnits": 4,
+      "firstPageExtractedCharacters": 726,
+      "expectedSectionCount": 24,
+      "extractedSectionsInOrder": 24,
+      "exactExtractionGapsFromFontMap": [
+        "report-body-22.p05"
+      ],
+      "duplicatedSharedModelUnits": [],
+      "sharedModelExtractionSimilarity": 0.9999026953391067,
+      "sharedModelExtractionLengthRatio": 0.9998054096127651,
+      "pageGeometry": [
+        {
+          "page": 1,
+          "charCount": 716,
+          "minTop": 40.75499830187505,
+          "maxBottom": 332.24998615625,
+          "minX": 44.999998125,
+          "maxX": 546.3009388360263
+        },
+        {
+          "page": 2,
+          "charCount": 0,
+          "minTop": null,
+          "maxBottom": null,
+          "minX": null,
+          "maxX": null
+        },
+        {
+          "page": 3,
+          "charCount": 1638,
+          "minTop": 40.4999983125,
+          "maxBottom": 700.5209707201251,
+          "minX": 44.999998125,
+          "maxX": 542.4473612090587
+        },
+        {
+          "page": 4,
+          "charCount": 1787,
+          "minTop": 50.24999790624963,
+          "maxBottom": 681.0209715326249,
+          "minX": 44.999998125,
+          "maxX": 548.9132559295635
+        },
+        {
+          "page": 5,
+          "charCount": 1759,
+          "minTop": 40.446005089499636,
+          "maxBottom": 652.4999728124998,
+          "minX": 44.999998125,
+          "maxX": 543.7493787913581
+        },
+        {
+          "page": 6,
+          "charCount": 1448,
+          "minTop": 40.47300170137453,
+          "maxBottom": 704.9999706249995,
+          "minX": 44.999998125,
+          "maxX": 549.4719083591111
+        },
+        {
+          "page": 7,
+          "charCount": 1535,
+          "minTop": 40.44600508950009,
+          "maxBottom": 578.1686770946369,
+          "minX": 44.999998125,
+          "maxX": 549.6293498559426
+        }
+      ],
+      "renders": [
+        {
+          "page": 1,
+          "file": "browser-print-comparison-known-bangkok-page-01.png",
+          "bytes": 46808,
+          "sha256": "1BBDC6A9CC13A2121C6E47BC95EB46A088A4C5F1DFB48CC71BC5ECF349977945",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            66,
+            840,
+            512
+          ]
+        },
+        {
+          "page": 2,
+          "file": "browser-print-comparison-known-bangkok-page-02.png",
+          "bytes": 117916,
+          "sha256": "1AD82F4C973033F1358DADB4F9D4E84B0EBA4F31AF7D3896CAE4EACC5FC54E8A",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            139,
+            75,
+            769,
+            1193
+          ]
+        },
+        {
+          "page": 3,
+          "file": "browser-print-comparison-known-bangkok-page-03.png",
+          "bytes": 93173,
+          "sha256": "69929D65FC8806295304C2BB263A50B630942FBACF922DB69375139D6CBAC41A",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            70,
+            840,
+            1100
+          ]
+        },
+        {
+          "page": 4,
+          "file": "browser-print-comparison-known-bangkok-page-04.png",
+          "bytes": 100338,
+          "sha256": "ECD50534C8E9E05266B8C94B6AD5FA2520C75D208778DF9904DDF9EE5C8D2401",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            60,
+            840,
+            1045
+          ]
+        },
+        {
+          "page": 5,
+          "file": "browser-print-comparison-known-bangkok-page-05.png",
+          "bytes": 86681,
+          "sha256": "ADAE87EC80ED7543BB2FE741F90C33F62BB1AB981FEF6B1FE828E87D95524D01",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            60,
+            830,
+            997
+          ]
+        },
+        {
+          "page": 6,
+          "file": "browser-print-comparison-known-bangkok-page-06.png",
+          "bytes": 86820,
+          "sha256": "C7655BC48A43C8305272D945F0AD00C1DA3FB1E05478D18CD854D9102B6E5CA9",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            64,
+            840,
+            1107
+          ]
+        },
+        {
+          "page": 7,
+          "file": "browser-print-comparison-known-bangkok-page-07.png",
+          "bytes": 86232,
+          "sha256": "93ED8EA6CAE6E4913F39B8736C909F56F11CE89C32C78EE234175683EB317A12",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            60,
+            840,
+            910
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "browser-print-comparison-known-khon-kaen",
+      "fixture": "comparison-known-khon-kaen",
+      "kind": "browser-print",
+      "pdf": "browser-print-comparison-known-khon-kaen.pdf",
+      "bytes": 277430,
+      "sha256": "AD5A4D3405A1028D576346CF95EE298AEB4F321B1E252480493A00FE5002CA3B",
+      "pages": 7,
+      "firstPageHasHeader": true,
+      "firstPageContractUnits": 4,
+      "firstPageExtractedCharacters": 725,
+      "expectedSectionCount": 24,
+      "extractedSectionsInOrder": 24,
+      "exactExtractionGapsFromFontMap": [
+        "report-body-22.p05"
+      ],
+      "duplicatedSharedModelUnits": [],
+      "sharedModelExtractionSimilarity": 0.9999049881235155,
+      "sharedModelExtractionLengthRatio": 0.999809994299829,
+      "pageGeometry": [
+        {
+          "page": 1,
+          "charCount": 714,
+          "minTop": 40.75499830187505,
+          "maxBottom": 332.24998615625,
+          "minX": 44.999998125,
+          "maxX": 546.1958585361044
+        },
+        {
+          "page": 2,
+          "charCount": 0,
+          "minTop": null,
+          "maxBottom": null,
+          "minX": null,
+          "maxX": null
+        },
+        {
+          "page": 3,
+          "charCount": 1666,
+          "minTop": 40.4999983125,
+          "maxBottom": 700.5209707201251,
+          "minX": 44.999998125,
+          "maxX": 547.0673676307252
+        },
+        {
+          "page": 4,
+          "charCount": 1829,
+          "minTop": 50.24999790624963,
+          "maxBottom": 712.4999703124998,
+          "minX": 54.749997718749995,
+          "maxX": 539.5975862602163
+        },
+        {
+          "page": 5,
+          "charCount": 1988,
+          "minTop": 40.47300170137453,
+          "maxBottom": 761.2499682812498,
+          "minX": 44.999998125,
+          "maxX": 548.9132559295635
+        },
+        {
+          "page": 6,
+          "charCount": 1318,
+          "minTop": 40.47300170137453,
+          "maxBottom": 595.4186763758869,
+          "minX": 44.999998125,
+          "maxX": 542.1008654276213
+        },
+        {
+          "page": 7,
+          "charCount": 1539,
+          "minTop": 40.44600508950009,
+          "maxBottom": 578.1686770946369,
+          "minX": 44.999998125,
+          "maxX": 549.6293498559426
+        }
+      ],
+      "renders": [
+        {
+          "page": 1,
+          "file": "browser-print-comparison-known-khon-kaen-page-01.png",
+          "bytes": 46498,
+          "sha256": "8535D1B426323A8A47CF6AF938A7F2AC451908627AF6F145CCD30342407F2129",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            66,
+            840,
+            508
+          ]
+        },
+        {
+          "page": 2,
+          "file": "browser-print-comparison-known-khon-kaen-page-02.png",
+          "bytes": 125170,
+          "sha256": "C65B08F27DD200493256636A7ECD394E567728E3491553398015BCBA91B60B82",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            139,
+            75,
+            769,
+            1193
+          ]
+        },
+        {
+          "page": 3,
+          "file": "browser-print-comparison-known-khon-kaen-page-03.png",
+          "bytes": 93690,
+          "sha256": "740F8F41245AF51457933A681A98B9B4647A3FEDAF05B0EB44FA6CC9589FCBA9",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            70,
+            840,
+            1100
+          ]
+        },
+        {
+          "page": 4,
+          "file": "browser-print-comparison-known-khon-kaen-page-04.png",
+          "bytes": 109033,
+          "sha256": "CFD277C3D74B916B6DA1320090E938441735CFC09EC26FA565290924A4A4B135",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            60,
+            840,
+            1119
+          ]
+        },
+        {
+          "page": 5,
+          "file": "browser-print-comparison-known-khon-kaen-page-05.png",
+          "bytes": 100379,
+          "sha256": "5FA143E247A5555AD534693B9CC0665BF01CD10378B88E22D431997AA74F0AC3",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            64,
+            838,
+            1164
+          ]
+        },
+        {
+          "page": 6,
+          "file": "browser-print-comparison-known-khon-kaen-page-06.png",
+          "bytes": 77171,
+          "sha256": "25FF10712DD2228CF1EBFB288E8EF982A0EDFE7A2B415F3D0AED0B29B429EF1E",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            64,
+            840,
+            937
+          ]
+        },
+        {
+          "page": 7,
+          "file": "browser-print-comparison-known-khon-kaen-page-07.png",
+          "bytes": 87426,
+          "sha256": "D6D33A627F0884D9D20084F7D7E22EC9738587760F285A9C7F2443DEE42335BB",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            60,
+            840,
+            910
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "browser-print-known",
+      "fixture": "known",
+      "kind": "browser-print",
+      "pdf": "browser-print-known.pdf",
+      "bytes": 267044,
+      "sha256": "24DD973C954CE9FF997A129911CDDD091929D58606205FC6260E47C556F9B5AB",
+      "pages": 7,
+      "firstPageHasHeader": true,
+      "firstPageContractUnits": 4,
+      "firstPageExtractedCharacters": 731,
+      "expectedSectionCount": 25,
+      "extractedSectionsInOrder": 25,
+      "exactExtractionGapsFromFontMap": [
+        "report-body-23.p05"
+      ],
+      "duplicatedSharedModelUnits": [],
+      "sharedModelExtractionSimilarity": 0.9999069334574221,
+      "sharedModelExtractionLengthRatio": 0.9998138842359948,
+      "pageGeometry": [
+        {
+          "page": 1,
+          "charCount": 720,
+          "minTop": 40.75499830187505,
+          "maxBottom": 332.84848924381237,
+          "minX": 44.999998125,
+          "maxX": 549.6503676750584
+        },
+        {
+          "page": 2,
+          "charCount": 0,
+          "minTop": null,
+          "maxBottom": null,
+          "minX": null,
+          "maxX": null
+        },
+        {
+          "page": 3,
+          "charCount": 1650,
+          "minTop": 40.4999983125,
+          "maxBottom": 700.5209707201251,
+          "minX": 44.999998125,
+          "maxX": 545.7863622219254
+        },
+        {
+          "page": 4,
+          "charCount": 1898,
+          "minTop": 50.24999790624963,
+          "maxBottom": 712.5209702201249,
+          "minX": 54.749997718749995,
+          "maxX": 539.9333431158765
+        },
+        {
+          "page": 5,
+          "charCount": 1995,
+          "minTop": 40.47300170137453,
+          "maxBottom": 744.7499689687501,
+          "minX": 44.999998125,
+          "maxX": 548.9132559295635
+        },
+        {
+          "page": 6,
+          "charCount": 1472,
+          "minTop": 40.47300170137453,
+          "maxBottom": 690.6686724071367,
+          "minX": 44.999998125,
+          "maxX": 549.4719083591111
+        },
+        {
+          "page": 7,
+          "charCount": 1537,
+          "minTop": 40.44600508950009,
+          "maxBottom": 578.1686770946369,
+          "minX": 44.999998125,
+          "maxX": 549.6293498559426
+        }
+      ],
+      "renders": [
+        {
+          "page": 1,
+          "file": "browser-print-known-page-01.png",
+          "bytes": 46719,
+          "sha256": "5EFE9829C00C9D4B001DD10F91EBDF5DB4D3627DD40F1100F5C39DB97A81AC37",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            66,
+            840,
+            508
+          ]
+        },
+        {
+          "page": 2,
+          "file": "browser-print-known-page-02.png",
+          "bytes": 114217,
+          "sha256": "916D53120091DA8CC43C18CB69FFC4A5F20F02F830FF5C9497C9C721C0027CB1",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            139,
+            75,
+            769,
+            1193
+          ]
+        },
+        {
+          "page": 3,
+          "file": "browser-print-known-page-03.png",
+          "bytes": 92449,
+          "sha256": "D71E3C1613DC72720422048870B71F2387AD908C937B177DA16235E033DF5082",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            70,
+            840,
+            1100
+          ]
+        },
+        {
+          "page": 4,
+          "file": "browser-print-known-page-04.png",
+          "bytes": 107705,
+          "sha256": "D7D6B55C337E1C2C757F2893E36392C5AF1DC654D8B27B2DD2D3AFD57CE877CF",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            60,
+            840,
+            1119
+          ]
+        },
+        {
+          "page": 5,
+          "file": "browser-print-known-page-05.png",
+          "bytes": 97466,
+          "sha256": "2FC320350981A2E9C75E9EC66C348853AB4EFA0756C953E206077DEF8CC0376C",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            64,
+            838,
+            1138
+          ]
+        },
+        {
+          "page": 6,
+          "file": "browser-print-known-page-06.png",
+          "bytes": 86424,
+          "sha256": "473C5F04890BBF6116DA4C9A9CE5E3EDDC75CF32EFAFBC479B3F38FF940B24D9",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            64,
+            840,
+            1083
+          ]
+        },
+        {
+          "page": 7,
+          "file": "browser-print-known-page-07.png",
+          "bytes": 87051,
+          "sha256": "C34EFC7F37977534168D370A9355BAA1FDD7307998C6E5ED40E36ED7170FE4DF",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            60,
+            840,
+            910
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "browser-print-owner-known-0035",
+      "fixture": "owner-known-0035",
+      "kind": "browser-print",
+      "pdf": "browser-print-owner-known-0035.pdf",
+      "bytes": 274002,
+      "sha256": "26C10EB32DC9777484941B8749B6348F3D67EAC07909600093028FDD5A9E5902",
+      "pages": 7,
+      "firstPageHasHeader": true,
+      "firstPageContractUnits": 4,
+      "firstPageExtractedCharacters": 724,
+      "expectedSectionCount": 24,
+      "extractedSectionsInOrder": 24,
+      "exactExtractionGapsFromFontMap": [
+        "report-body-22.p05"
+      ],
+      "duplicatedSharedModelUnits": [],
+      "sharedModelExtractionSimilarity": 0.9999063582732466,
+      "sharedModelExtractionLengthRatio": 0.999812734082397,
+      "pageGeometry": [
+        {
+          "page": 1,
+          "charCount": 714,
+          "minTop": 40.75499830187505,
+          "maxBottom": 332.24998615625,
+          "minX": 44.999998125,
+          "maxX": 548.8629225567107
+        },
+        {
+          "page": 2,
+          "charCount": 0,
+          "minTop": null,
+          "maxBottom": null,
+          "minX": null,
+          "maxX": null
+        },
+        {
+          "page": 3,
+          "charCount": 1643,
+          "minTop": 40.4999983125,
+          "maxBottom": 700.5209707201251,
+          "minX": 44.999998125,
+          "maxX": 547.0673676307252
+        },
+        {
+          "page": 4,
+          "charCount": 1930,
+          "minTop": 50.24999790624963,
+          "maxBottom": 728.2499696562498,
+          "minX": 54.749997718749995,
+          "maxX": 539.5975862602163
+        },
+        {
+          "page": 5,
+          "charCount": 1992,
+          "minTop": 40.47300170137453,
+          "maxBottom": 744.7499689687501,
+          "minX": 44.999998125,
+          "maxX": 548.9132559295635
+        },
+        {
+          "page": 6,
+          "charCount": 1334,
+          "minTop": 40.47300170137453,
+          "maxBottom": 611.1686757196373,
+          "minX": 44.999998125,
+          "maxX": 549.4719083591111
+        },
+        {
+          "page": 7,
+          "charCount": 1606,
+          "minTop": 40.44600508950009,
+          "maxBottom": 593.9186764383874,
+          "minX": 44.999998125,
+          "maxX": 549.6293498559426
+        }
+      ],
+      "renders": [
+        {
+          "page": 1,
+          "file": "browser-print-owner-known-0035-page-01.png",
+          "bytes": 46236,
+          "sha256": "6622528BADBD74DD5F5AA86530EAF1D51F2C5C51924BF0C273B6B22025680490",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            66,
+            840,
+            508
+          ]
+        },
+        {
+          "page": 2,
+          "file": "browser-print-owner-known-0035-page-02.png",
+          "bytes": 121221,
+          "sha256": "50FA6F7B27E7C1BEA3145BE9A14EAAF0CEA09B07E2CE12C15240E440BC0FA77E",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            139,
+            75,
+            769,
+            1193
+          ]
+        },
+        {
+          "page": 3,
+          "file": "browser-print-owner-known-0035-page-03.png",
+          "bytes": 92967,
+          "sha256": "0E80DA93391A5167924F9FFEAC09D5AA3EC6910B82F853D61BDCF5750C658F48",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            70,
+            840,
+            1100
+          ]
+        },
+        {
+          "page": 4,
+          "file": "browser-print-owner-known-0035-page-04.png",
+          "bytes": 112429,
+          "sha256": "D001054FE6165401885B37F2E5040C7E25EDC65DF92E93AEEABCF212DA1D8442",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            60,
+            840,
+            1144
+          ]
+        },
+        {
+          "page": 5,
+          "file": "browser-print-owner-known-0035-page-05.png",
+          "bytes": 97397,
+          "sha256": "C9B8DEA097D4B01505B2E6A7157A271321CC740D9488D8F08C7AD466766B88AA",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            64,
+            838,
+            1138
+          ]
+        },
+        {
+          "page": 6,
+          "file": "browser-print-owner-known-0035-page-06.png",
+          "bytes": 78663,
+          "sha256": "6778DBBB99FAD793BD014E9DC1BAB5B2792C41C6C77D0D600C85670430389DBD",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            64,
+            840,
+            962
+          ]
+        },
+        {
+          "page": 7,
+          "file": "browser-print-owner-known-0035-page-07.png",
+          "bytes": 89512,
+          "sha256": "06FE75D767E9B3A5BC4654BF374B8E8326DC2A8F3FA0EE2E1214B0CAE6FCCC75",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            60,
+            840,
+            935
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "browser-print-owner-unknown",
+      "fixture": "owner-unknown",
+      "kind": "browser-print",
+      "pdf": "browser-print-owner-unknown.pdf",
+      "bytes": 275785,
+      "sha256": "EFE1C866FFD451C5CC22F5094CD5D3CCC27D1AABAD1A9D38C6CA4DF85F0D6A1F",
+      "pages": 7,
+      "firstPageHasHeader": true,
+      "firstPageContractUnits": 4,
+      "firstPageExtractedCharacters": 624,
+      "expectedSectionCount": 20,
+      "extractedSectionsInOrder": 19,
+      "exactExtractionGapsFromFontMap": [
+        "report-body-09",
+        "report-body-17.p02",
+        "report-body-17.p03",
+        "report-body-17.p06"
+      ],
+      "duplicatedSharedModelUnits": [],
+      "sharedModelExtractionSimilarity": 0.9995800965777871,
+      "sharedModelExtractionLengthRatio": 0.9991605456453305,
+      "pageGeometry": [
+        {
+          "page": 1,
+          "charCount": 616,
+          "minTop": 40.75499830187505,
+          "maxBottom": 309.7709870013749,
+          "minX": 44.999998125,
+          "maxX": 547.0778786809375
+        },
+        {
+          "page": 2,
+          "charCount": 0,
+          "minTop": null,
+          "maxBottom": null,
+          "minX": null,
+          "maxX": null
+        },
+        {
+          "page": 3,
+          "charCount": 1213,
+          "minTop": 50.1960046832495,
+          "maxBottom": 552.5984800875623,
+          "minX": 54.749997718749995,
+          "maxX": 538.0908286073144
+        },
+        {
+          "page": 4,
+          "charCount": 1544,
+          "minTop": 50.24999790624963,
+          "maxBottom": 532.369480840437,
+          "minX": 44.999998125,
+          "maxX": 539.3453605331758
+        },
+        {
+          "page": 5,
+          "charCount": 1775,
+          "minTop": 40.446005089499636,
+          "maxBottom": 635.9999735,
+          "minX": 44.999998125,
+          "maxX": 547.4559822429829
+        },
+        {
+          "page": 6,
+          "charCount": 1437,
+          "minTop": 40.47300170137453,
+          "maxBottom": 704.9999706249995,
+          "minX": 44.999998125,
+          "maxX": 549.3143239526521
+        },
+        {
+          "page": 7,
+          "charCount": 1680,
+          "minTop": 40.44600508950009,
+          "maxBottom": 663.6686735321371,
+          "minX": 44.999998125,
+          "maxX": 549.6293498559426
+        }
+      ],
+      "renders": [
+        {
+          "page": 1,
+          "file": "browser-print-owner-unknown-page-01.png",
+          "bytes": 43058,
+          "sha256": "31FB82D4EC38795D7F5404B5042AD5D577FBB8C556156CCD8BF09BD8FB1A93FC",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            66,
+            840,
+            504
+          ]
+        },
+        {
+          "page": 2,
+          "file": "browser-print-owner-unknown-page-02.png",
+          "bytes": 126919,
+          "sha256": "8406BB9F0D1B9724F16603247B9B3C13C1EF6C224D1941AF907A77A53C48A83A",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            139,
+            75,
+            769,
+            1193
+          ]
+        },
+        {
+          "page": 3,
+          "file": "browser-print-owner-unknown-page-03.png",
+          "bytes": 79280,
+          "sha256": "1D89AD2B68EE20F364317FA412FD76323961A19931D4239870A9A1A22540278C",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            60,
+            840,
+            874
+          ]
+        },
+        {
+          "page": 4,
+          "file": "browser-print-owner-unknown-page-04.png",
+          "bytes": 82824,
+          "sha256": "28D6CBAF2236C3788A7BCA554B0ABF2D061AFAFFFCD58F277E1204B13F849A04",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            60,
+            840,
+            817
+          ]
+        },
+        {
+          "page": 5,
+          "file": "browser-print-owner-unknown-page-05.png",
+          "bytes": 87439,
+          "sha256": "8D86875F0809661190F7BC82F9A287C1815BDFAF0454D0ECFF38BD18583853ED",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            60,
+            835,
+            972
+          ]
+        },
+        {
+          "page": 6,
+          "file": "browser-print-owner-unknown-page-06.png",
+          "bytes": 86285,
+          "sha256": "3B94F6AED3A36E2898A678104C34B9243970530171B8FDC17A43D24E216C6A68",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            64,
+            840,
+            1107
+          ]
+        },
+        {
+          "page": 7,
+          "file": "browser-print-owner-unknown-page-07.png",
+          "bytes": 91423,
+          "sha256": "49D698CF8AE34A7DC75A8E0B8B11DC705E0C34EF0A407D640839D06DDFC8B5DD",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            60,
+            840,
+            1042
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "browser-print-regression-known-0003",
+      "fixture": "regression-known-0003",
+      "kind": "browser-print",
+      "pdf": "browser-print-regression-known-0003.pdf",
+      "bytes": 274005,
+      "sha256": "75906A63F1392ECAFE8B195EB889D95E5A85DDF494E3174803D65F7B9FC346E6",
+      "pages": 7,
+      "firstPageHasHeader": true,
+      "firstPageContractUnits": 4,
+      "firstPageExtractedCharacters": 724,
+      "expectedSectionCount": 24,
+      "extractedSectionsInOrder": 24,
+      "exactExtractionGapsFromFontMap": [
+        "report-body-22.p05"
+      ],
+      "duplicatedSharedModelUnits": [],
+      "sharedModelExtractionSimilarity": 0.9999063407324155,
+      "sharedModelExtractionLengthRatio": 0.9998126990073047,
+      "pageGeometry": [
+        {
+          "page": 1,
+          "charCount": 714,
+          "minTop": 40.75499830187505,
+          "maxBottom": 332.24998615625,
+          "minX": 44.999998125,
+          "maxX": 548.8629225567107
+        },
+        {
+          "page": 2,
+          "charCount": 0,
+          "minTop": null,
+          "maxBottom": null,
+          "minX": null,
+          "maxX": null
+        },
+        {
+          "page": 3,
+          "charCount": 1643,
+          "minTop": 40.4999983125,
+          "maxBottom": 700.5209707201251,
+          "minX": 44.999998125,
+          "maxX": 547.0673676307252
+        },
+        {
+          "page": 4,
+          "charCount": 1930,
+          "minTop": 50.24999790624963,
+          "maxBottom": 728.2499696562498,
+          "minX": 54.749997718749995,
+          "maxX": 539.5975862602163
+        },
+        {
+          "page": 5,
+          "charCount": 1992,
+          "minTop": 40.47300170137453,
+          "maxBottom": 744.7499689687501,
+          "minX": 44.999998125,
+          "maxX": 548.9132559295635
+        },
+        {
+          "page": 6,
+          "charCount": 1334,
+          "minTop": 40.47300170137453,
+          "maxBottom": 611.1686757196373,
+          "minX": 44.999998125,
+          "maxX": 549.4719083591111
+        },
+        {
+          "page": 7,
+          "charCount": 1605,
+          "minTop": 40.44600508950009,
+          "maxBottom": 593.9186764383874,
+          "minX": 44.999998125,
+          "maxX": 549.6293498559426
+        }
+      ],
+      "renders": [
+        {
+          "page": 1,
+          "file": "browser-print-regression-known-0003-page-01.png",
+          "bytes": 46236,
+          "sha256": "6622528BADBD74DD5F5AA86530EAF1D51F2C5C51924BF0C273B6B22025680490",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            66,
+            840,
+            508
+          ]
+        },
+        {
+          "page": 2,
+          "file": "browser-print-regression-known-0003-page-02.png",
+          "bytes": 121221,
+          "sha256": "50FA6F7B27E7C1BEA3145BE9A14EAAF0CEA09B07E2CE12C15240E440BC0FA77E",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            139,
+            75,
+            769,
+            1193
+          ]
+        },
+        {
+          "page": 3,
+          "file": "browser-print-regression-known-0003-page-03.png",
+          "bytes": 92967,
+          "sha256": "0E80DA93391A5167924F9FFEAC09D5AA3EC6910B82F853D61BDCF5750C658F48",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            70,
+            840,
+            1100
+          ]
+        },
+        {
+          "page": 4,
+          "file": "browser-print-regression-known-0003-page-04.png",
+          "bytes": 112429,
+          "sha256": "D001054FE6165401885B37F2E5040C7E25EDC65DF92E93AEEABCF212DA1D8442",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            60,
+            840,
+            1144
+          ]
+        },
+        {
+          "page": 5,
+          "file": "browser-print-regression-known-0003-page-05.png",
+          "bytes": 97397,
+          "sha256": "C9B8DEA097D4B01505B2E6A7157A271321CC740D9488D8F08C7AD466766B88AA",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            64,
+            838,
+            1138
+          ]
+        },
+        {
+          "page": 6,
+          "file": "browser-print-regression-known-0003-page-06.png",
+          "bytes": 78663,
+          "sha256": "6778DBBB99FAD793BD014E9DC1BAB5B2792C41C6C77D0D600C85670430389DBD",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            64,
+            840,
+            962
+          ]
+        },
+        {
+          "page": 7,
+          "file": "browser-print-regression-known-0003-page-07.png",
+          "bytes": 89575,
+          "sha256": "C62EF4278A25919541D5171A1B8324AE3C145C826FA45B0B85C4CE2CD4E15133",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            60,
+            840,
+            935
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "browser-print-unknown",
+      "fixture": "unknown",
+      "kind": "browser-print",
+      "pdf": "browser-print-unknown.pdf",
+      "bytes": 285535,
+      "sha256": "4252A916D31F71F89E7276BC679DFB778E085D12037F98FE56BE2AF343FE82C5",
+      "pages": 7,
+      "firstPageHasHeader": true,
+      "firstPageContractUnits": 4,
+      "firstPageExtractedCharacters": 715,
+      "expectedSectionCount": 20,
+      "extractedSectionsInOrder": 19,
+      "exactExtractionGapsFromFontMap": [
+        "report-body-10",
+        "report-body-17.p02",
+        "report-body-17.p03",
+        "report-body-17.p06"
+      ],
+      "duplicatedSharedModelUnits": [],
+      "sharedModelExtractionSimilarity": 0.9995648389904265,
+      "sharedModelExtractionLengthRatio": 0.9991300565463245,
+      "pageGeometry": [
+        {
+          "page": 1,
+          "charCount": 706,
+          "minTop": 40.75499830187505,
+          "maxBottom": 315.77098675137506,
+          "minX": 44.999998125,
+          "maxX": 536.5253609376257
+        },
+        {
+          "page": 2,
+          "charCount": 0,
+          "minTop": null,
+          "maxBottom": null,
+          "minX": null,
+          "maxX": null
+        },
+        {
+          "page": 3,
+          "charCount": 1371,
+          "minTop": 50.1960046832495,
+          "maxBottom": 632.0984767750623,
+          "minX": 54.749997718749995,
+          "maxX": 539.5975862602163
+        },
+        {
+          "page": 4,
+          "charCount": 1365,
+          "minTop": 50.24999790624963,
+          "maxBottom": 515.8694815279372,
+          "minX": 44.999998125,
+          "maxX": 539.0304161135311
+        },
+        {
+          "page": 5,
+          "charCount": 1764,
+          "minTop": 40.446005089499636,
+          "maxBottom": 635.9999735,
+          "minX": 44.999998125,
+          "maxX": 547.4559822429829
+        },
+        {
+          "page": 6,
+          "charCount": 1671,
+          "minTop": 40.47300170137453,
+          "maxBottom": 785.2499672812495,
+          "minX": 44.999998125,
+          "maxX": 549.3143239526521
+        },
+        {
+          "page": 7,
+          "charCount": 1086,
+          "minTop": 40.44600508950009,
+          "maxBottom": 443.9186826883868,
+          "minX": 44.999998125,
+          "maxX": 549.6293498559426
+        }
+      ],
+      "renders": [
+        {
+          "page": 1,
+          "file": "browser-print-unknown-page-01.png",
+          "bytes": 45584,
+          "sha256": "F476D9CCE7570166A85601D13DEF8416BB24B2CFC054FE1737A25C56DDA6BDA1",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            66,
+            840,
+            483
+          ]
+        },
+        {
+          "page": 2,
+          "file": "browser-print-unknown-page-02.png",
+          "bytes": 135853,
+          "sha256": "8CA46BFB5BAB101C33FED078F6FED556BC73877A4199DE81BEA139D9AC0F104A",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            139,
+            75,
+            769,
+            1193
+          ]
+        },
+        {
+          "page": 3,
+          "file": "browser-print-unknown-page-03.png",
+          "bytes": 89749,
+          "sha256": "83DFBA3C53C3A7070FBF4B99CF6CC30BC0E80F973281F01B2671FAC1202A0307",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            60,
+            840,
+            995
+          ]
+        },
+        {
+          "page": 4,
+          "file": "browser-print-unknown-page-04.png",
+          "bytes": 76895,
+          "sha256": "E18B5FB70AAE2D03AAD6B7C578E8881191E6D531BA2CFACF0928FFE849847FE5",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            60,
+            840,
+            792
+          ]
+        },
+        {
+          "page": 5,
+          "file": "browser-print-unknown-page-05.png",
+          "bytes": 87255,
+          "sha256": "2B29C2CF230C557B54D377084C243195D18057CF5C1D7060F128EA21DFB880B4",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            60,
+            835,
+            972
+          ]
+        },
+        {
+          "page": 6,
+          "file": "browser-print-unknown-page-06.png",
+          "bytes": 96634,
+          "sha256": "3655B8A2719D7DE45ED1802FEB3D94EFD3885FEA2F7E05EE3951D1A7FA901136",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            64,
+            840,
+            1200
+          ]
+        },
+        {
+          "page": 7,
+          "file": "browser-print-unknown-page-07.png",
+          "bytes": 60995,
+          "sha256": "E1176AA03D74FCC3D21FAEA841176CD3B1265E0D722D712BD67331FD9EB503E2",
+          "width": 909,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            60,
+            840,
+            705
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "dedicated-report-comparison-known-bangkok",
+      "fixture": "comparison-known-bangkok",
+      "kind": "dedicated-report",
+      "pdf": "dedicated-report-comparison-known-bangkok.pdf",
+      "bytes": 177351,
+      "sha256": "F2B81482FB0906582BBCAFCA376E72AA67396BA544F92FDA577D1305897E2EBA",
+      "pages": 8,
+      "firstPageHasHeader": true,
+      "firstPageContractUnits": 4,
+      "firstPageExtractedCharacters": 729,
+      "expectedSectionCount": 24,
+      "extractedSectionsInOrder": 24,
+      "exactExtractionGapsFromFontMap": [],
+      "duplicatedSharedModelUnits": [],
+      "sharedModelExtractionSimilarity": 0.9955443626501356,
+      "sharedModelExtractionLengthRatio": 1.008951157812804,
+      "pageGeometry": [
+        {
+          "page": 1,
+          "charCount": 700,
+          "minTop": 55.24000000000001,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 545.7356
+        },
+        {
+          "page": 2,
+          "charCount": 7,
+          "minTop": 782.31976,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 83.02
+        },
+        {
+          "page": 3,
+          "charCount": 1451,
+          "minTop": 54.898500000000126,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 519.428
+        },
+        {
+          "page": 4,
+          "charCount": 1188,
+          "minTop": 54.90960000000007,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 516.4472
+        },
+        {
+          "page": 5,
+          "charCount": 1489,
+          "minTop": 74.89850000000013,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 529.2224
+        },
+        {
+          "page": 6,
+          "charCount": 1661,
+          "minTop": 52.88700000000006,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 531.6308
+        },
+        {
+          "page": 7,
+          "charCount": 1138,
+          "minTop": 54.898500000000126,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 550.4228
+        },
+        {
+          "page": 8,
+          "charCount": 1009,
+          "minTop": 56.51879999999994,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 472.05800000000005
+        }
+      ],
+      "renders": [
+        {
+          "page": 1,
+          "file": "dedicated-report-comparison-known-bangkok-page-01.png",
+          "bytes": 82652,
+          "sha256": "1E87560628A69D349993FC933B6A14BE166CE341A0BF4D973ABD57E29FE0C2CD",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            79,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 2,
+          "file": "dedicated-report-comparison-known-bangkok-page-02.png",
+          "bytes": 110979,
+          "sha256": "DCCC20E5361F4B196A905F5756D3AD2DBB2A9A11568D6EDE8ADB6D2F7BD211B6",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            73,
+            747,
+            1207
+          ]
+        },
+        {
+          "page": 3,
+          "file": "dedicated-report-comparison-known-bangkok-page-03.png",
+          "bytes": 156312,
+          "sha256": "CDC4EA6BACDD8B73EC0141D0DDFEB38CA73FCE41735862E266D7D049FEC70166",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            83,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 4,
+          "file": "dedicated-report-comparison-known-bangkok-page-04.png",
+          "bytes": 126418,
+          "sha256": "013C684FB705986F4FA72F6F2C5B37B8861D81D87403E4AFC2B9AAC8318943A9",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            81,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 5,
+          "file": "dedicated-report-comparison-known-bangkok-page-05.png",
+          "bytes": 155855,
+          "sha256": "8221191B8B6CB81D5D5928F10EA9290865A599717A11D3678109854E11FF014A",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            73,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 6,
+          "file": "dedicated-report-comparison-known-bangkok-page-06.png",
+          "bytes": 168245,
+          "sha256": "5C2388EEC1DCECE9342679C560E97B420EB1AFCD2B9F50527A4939BE40333092",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            77,
+            811,
+            1207
+          ]
+        },
+        {
+          "page": 7,
+          "file": "dedicated-report-comparison-known-bangkok-page-07.png",
+          "bytes": 130949,
+          "sha256": "B8C93592061484C278DB2900BC9C33EDAC219BB66FF07019A8A1998F57401E29",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            77,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 8,
+          "file": "dedicated-report-comparison-known-bangkok-page-08.png",
+          "bytes": 107971,
+          "sha256": "C7A65716B68ED3EE39664113DD3F7836DDE8863F86940A7C4668C49C60A050E9",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            81,
+            843,
+            1207
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "dedicated-report-comparison-known-khon-kaen",
+      "fixture": "comparison-known-khon-kaen",
+      "kind": "dedicated-report",
+      "pdf": "dedicated-report-comparison-known-khon-kaen.pdf",
+      "bytes": 183345,
+      "sha256": "A55A6EA3AF4A9887BE614943A681F28EF3B311B5D13D94B3CAF7DBE205CBC94E",
+      "pages": 8,
+      "firstPageHasHeader": true,
+      "firstPageContractUnits": 4,
+      "firstPageExtractedCharacters": 723,
+      "expectedSectionCount": 24,
+      "extractedSectionsInOrder": 24,
+      "exactExtractionGapsFromFontMap": [],
+      "duplicatedSharedModelUnits": [],
+      "sharedModelExtractionSimilarity": 0.9956488838441165,
+      "sharedModelExtractionLengthRatio": 1.0087402622078663,
+      "pageGeometry": [
+        {
+          "page": 1,
+          "charCount": 694,
+          "minTop": 55.24000000000001,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 550.1636
+        },
+        {
+          "page": 2,
+          "charCount": 7,
+          "minTop": 782.31976,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 83.02
+        },
+        {
+          "page": 3,
+          "charCount": 1478,
+          "minTop": 54.898500000000126,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 547.5932
+        },
+        {
+          "page": 4,
+          "charCount": 1327,
+          "minTop": 54.90960000000007,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 538.5116
+        },
+        {
+          "page": 5,
+          "charCount": 1352,
+          "minTop": 74.89850000000013,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 529.2224
+        },
+        {
+          "page": 6,
+          "charCount": 1635,
+          "minTop": 62.898500000000126,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 544.2452
+        },
+        {
+          "page": 7,
+          "charCount": 1169,
+          "minTop": 62.898500000000126,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 542.8304
+        },
+        {
+          "page": 8,
+          "charCount": 1149,
+          "minTop": 55.886999999999944,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 535.8104
+        }
+      ],
+      "renders": [
+        {
+          "page": 1,
+          "file": "dedicated-report-comparison-known-khon-kaen-page-01.png",
+          "bytes": 81497,
+          "sha256": "1DFAF11372249F48F73398C3A66F99A317B26992B701BD06FF33F7B62FD6BDE4",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            79,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 2,
+          "file": "dedicated-report-comparison-known-khon-kaen-page-02.png",
+          "bytes": 117480,
+          "sha256": "10B2498BA277F548B2470608658BACDA67DA8B00F6501FC6BBD99F9F76C19F76",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            73,
+            747,
+            1207
+          ]
+        },
+        {
+          "page": 3,
+          "file": "dedicated-report-comparison-known-khon-kaen-page-03.png",
+          "bytes": 159239,
+          "sha256": "EAFDA036B3DF9D79D828EEB55E104CFB120B06D816E76775EB19FE4F14B25DDC",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            83,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 4,
+          "file": "dedicated-report-comparison-known-khon-kaen-page-04.png",
+          "bytes": 147061,
+          "sha256": "C5DD81029501EC853B4E33B5F5EE01EFB0BB510722A8B69113A7CD200E1E5F99",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            81,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 5,
+          "file": "dedicated-report-comparison-known-khon-kaen-page-05.png",
+          "bytes": 143285,
+          "sha256": "1A6567C8E24854BBF3DA5284978A96881E7D5A47B6AA11622288EFEEF0FE8E24",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            73,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 6,
+          "file": "dedicated-report-comparison-known-khon-kaen-page-06.png",
+          "bytes": 170573,
+          "sha256": "33D50F7166ECEAD8F38D2ABBD4742374CADD5EB0E20467000F1484A88A91831B",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            90,
+            831,
+            1207
+          ]
+        },
+        {
+          "page": 7,
+          "file": "dedicated-report-comparison-known-khon-kaen-page-07.png",
+          "bytes": 130400,
+          "sha256": "F6BEF0C0F5F2F2435C3F2FA6E5C75FA725588067AD7400CC5AF6D14AA57B5915",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            90,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 8,
+          "file": "dedicated-report-comparison-known-khon-kaen-page-08.png",
+          "bytes": 120196,
+          "sha256": "5CC323BB38A36FCC6A9B19D92BD649197AAFA6FC02F500652A341CA63AE6D284",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            81,
+            843,
+            1207
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "dedicated-report-known",
+      "fixture": "known",
+      "kind": "dedicated-report",
+      "pdf": "dedicated-report-known.pdf",
+      "bytes": 172086,
+      "sha256": "41A85C709DA371010ADA51F0485CEF89E6F4F8CD5F6FD5BF2C92B43063F4E806",
+      "pages": 8,
+      "firstPageHasHeader": true,
+      "firstPageContractUnits": 4,
+      "firstPageExtractedCharacters": 730,
+      "expectedSectionCount": 25,
+      "extractedSectionsInOrder": 25,
+      "exactExtractionGapsFromFontMap": [],
+      "duplicatedSharedModelUnits": [],
+      "sharedModelExtractionSimilarity": 0.9957375833951075,
+      "sharedModelExtractionLengthRatio": 1.0085613251442398,
+      "pageGeometry": [
+        {
+          "page": 1,
+          "charCount": 702,
+          "minTop": 55.24000000000001,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 546.8264
+        },
+        {
+          "page": 2,
+          "charCount": 7,
+          "minTop": 782.31976,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 83.02
+        },
+        {
+          "page": 3,
+          "charCount": 1462,
+          "minTop": 54.898500000000126,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 535.1084000000001
+        },
+        {
+          "page": 4,
+          "charCount": 1369,
+          "minTop": 54.90960000000007,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 516.4472
+        },
+        {
+          "page": 5,
+          "charCount": 1364,
+          "minTop": 74.89850000000013,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 529.2224
+        },
+        {
+          "page": 6,
+          "charCount": 1677,
+          "minTop": 62.898500000000126,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 535.1300000000001
+        },
+        {
+          "page": 7,
+          "charCount": 1137,
+          "minTop": 62.898500000000126,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 546.092
+        },
+        {
+          "page": 8,
+          "charCount": 1294,
+          "minTop": 59.90960000000007,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 535.8104
+        }
+      ],
+      "renders": [
+        {
+          "page": 1,
+          "file": "dedicated-report-known-page-01.png",
+          "bytes": 82225,
+          "sha256": "3D62ADB2E14D78F77678080A300A6098A9DB36E2CE9625800F210E652FA55562",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            79,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 2,
+          "file": "dedicated-report-known-page-02.png",
+          "bytes": 106381,
+          "sha256": "32FD27BF62E3D4D9E006E5C97F47016D9AE402770BAF0BE19611EC73471DF4D8",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            73,
+            747,
+            1207
+          ]
+        },
+        {
+          "page": 3,
+          "file": "dedicated-report-known-page-03.png",
+          "bytes": 156861,
+          "sha256": "876A97CDE0C4CB5B6BF9569F00B3EDCA5CBF6E8D91D2AD5F5EA7D866DC9DCC76",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            83,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 4,
+          "file": "dedicated-report-known-page-04.png",
+          "bytes": 148046,
+          "sha256": "D2D645CECB1B156AB0D6284949FB48BF8C4E15BF3BABD251D46ADA73D129B06B",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            81,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 5,
+          "file": "dedicated-report-known-page-05.png",
+          "bytes": 142849,
+          "sha256": "8C9174A43D05E20A1FFCBDEE23DA2A55F4AC7159541C413673A03EB27F1E560C",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            73,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 6,
+          "file": "dedicated-report-known-page-06.png",
+          "bytes": 171130,
+          "sha256": "DDCE892648F0305124E2731C9003D406134661A8844FFD83FAA53AD5584EA8AD",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            90,
+            816,
+            1207
+          ]
+        },
+        {
+          "page": 7,
+          "file": "dedicated-report-known-page-07.png",
+          "bytes": 130833,
+          "sha256": "11D778409652FCFBD30B1C6BC2B7068BF42F41109A83D030BC0529B5066C77AD",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            90,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 8,
+          "file": "dedicated-report-known-page-08.png",
+          "bytes": 133551,
+          "sha256": "3A9E601A5C5C33F324BCD62779686056395119BEC2A35CF72F852C514A587D8E",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            89,
+            843,
+            1207
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "dedicated-report-owner-known-0035",
+      "fixture": "owner-known-0035",
+      "kind": "dedicated-report",
+      "pdf": "dedicated-report-owner-known-0035.pdf",
+      "bytes": 179420,
+      "sha256": "0F56762205C6E262EED2EA4993432BAFA60687409E5441E98AB8D848101EB0B4",
+      "pages": 8,
+      "firstPageHasHeader": true,
+      "firstPageContractUnits": 4,
+      "firstPageExtractedCharacters": 722,
+      "expectedSectionCount": 24,
+      "extractedSectionsInOrder": 24,
+      "exactExtractionGapsFromFontMap": [],
+      "duplicatedSharedModelUnits": [],
+      "sharedModelExtractionSimilarity": 0.9957113555845609,
+      "sharedModelExtractionLengthRatio": 1.0086142322097378,
+      "pageGeometry": [
+        {
+          "page": 1,
+          "charCount": 692,
+          "minTop": 55.24000000000001,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 522.3968
+        },
+        {
+          "page": 2,
+          "charCount": 7,
+          "minTop": 782.31976,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 83.02
+        },
+        {
+          "page": 3,
+          "charCount": 1456,
+          "minTop": 54.898500000000126,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 547.5932
+        },
+        {
+          "page": 4,
+          "charCount": 1390,
+          "minTop": 54.90960000000007,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 516.4472
+        },
+        {
+          "page": 5,
+          "charCount": 1379,
+          "minTop": 74.89850000000013,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 534.4292
+        },
+        {
+          "page": 6,
+          "charCount": 1674,
+          "minTop": 62.898500000000126,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 535.1300000000001
+        },
+        {
+          "page": 7,
+          "charCount": 1206,
+          "minTop": 62.898500000000126,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 548.4680000000001
+        },
+        {
+          "page": 8,
+          "charCount": 1164,
+          "minTop": 55.886999999999944,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 535.8104
+        }
+      ],
+      "renders": [
+        {
+          "page": 1,
+          "file": "dedicated-report-owner-known-0035-page-01.png",
+          "bytes": 81149,
+          "sha256": "D5BC91F9ED2AC9684B9D1A5AF79748A01F00CE5384D4043C491A189BD0DE62B0",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            79,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 2,
+          "file": "dedicated-report-owner-known-0035-page-02.png",
+          "bytes": 113983,
+          "sha256": "79FC19EB14ED29A8B21E9474AE4185720E94B14022A3ACFB0AFAC895D59B537E",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            73,
+            747,
+            1207
+          ]
+        },
+        {
+          "page": 3,
+          "file": "dedicated-report-owner-known-0035-page-03.png",
+          "bytes": 156491,
+          "sha256": "CD4A0FE78D03E5C23317E846EE9E58F2A7643A9044B6FDB6A4885F53FA284598",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            83,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 4,
+          "file": "dedicated-report-owner-known-0035-page-04.png",
+          "bytes": 151923,
+          "sha256": "6C662D8CAF02836DD84492AA6595C4078198BCE4DEF2422F4A2DEBA1AEB883DA",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            81,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 5,
+          "file": "dedicated-report-owner-known-0035-page-05.png",
+          "bytes": 146005,
+          "sha256": "8A6BA39A369AC3A5CEDA9066E2CF0C4DEC29970709B5528BF62BADC164934963",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            73,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 6,
+          "file": "dedicated-report-owner-known-0035-page-06.png",
+          "bytes": 171124,
+          "sha256": "6A5AD04AA668091D3D63F983EACFE3E8FBD2ABABC6CD0C15BE8E17D19AF72D6F",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            90,
+            816,
+            1207
+          ]
+        },
+        {
+          "page": 7,
+          "file": "dedicated-report-owner-known-0035-page-07.png",
+          "bytes": 135949,
+          "sha256": "11F9EDAA72706B112EBEFE9B15F8A797359BE2D72DA700C36BD7EA9EE5DE39B4",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            90,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 8,
+          "file": "dedicated-report-owner-known-0035-page-08.png",
+          "bytes": 119838,
+          "sha256": "1D6D3B59929DDCD3AEB84C6E15E433156ABE8FCA92D155175D4B98859B6FF065",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            81,
+            843,
+            1207
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "dedicated-report-owner-unknown",
+      "fixture": "owner-unknown",
+      "kind": "dedicated-report",
+      "pdf": "dedicated-report-owner-unknown.pdf",
+      "bytes": 184255,
+      "sha256": "A00F16538B7469F4E30619AAEFE787A68D88567F622D4251193E8557636E4339",
+      "pages": 8,
+      "firstPageHasHeader": true,
+      "firstPageContractUnits": 4,
+      "firstPageExtractedCharacters": 627,
+      "expectedSectionCount": 20,
+      "extractedSectionsInOrder": 20,
+      "exactExtractionGapsFromFontMap": [],
+      "duplicatedSharedModelUnits": [],
+      "sharedModelExtractionSimilarity": 0.995404219761855,
+      "sharedModelExtractionLengthRatio": 1.009233997901364,
+      "pageGeometry": [
+        {
+          "page": 1,
+          "charCount": 600,
+          "minTop": 55.24000000000001,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 536.8364
+        },
+        {
+          "page": 2,
+          "charCount": 7,
+          "minTop": 782.31976,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 83.02
+        },
+        {
+          "page": 3,
+          "charCount": 1198,
+          "minTop": 66.89850000000001,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 516.4472
+        },
+        {
+          "page": 4,
+          "charCount": 1463,
+          "minTop": 59.90960000000007,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 545.2604
+        },
+        {
+          "page": 5,
+          "charCount": 1721,
+          "minTop": 54.89850000000001,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 532.808
+        },
+        {
+          "page": 6,
+          "charCount": 1253,
+          "minTop": 54.89850000000001,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 534.428
+        },
+        {
+          "page": 7,
+          "charCount": 1079,
+          "minTop": 64.88700000000006,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 535.8104
+        },
+        {
+          "page": 8,
+          "charCount": 716,
+          "minTop": 66.89850000000013,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 535.23
+        }
+      ],
+      "renders": [
+        {
+          "page": 1,
+          "file": "dedicated-report-owner-unknown-page-01.png",
+          "bytes": 73721,
+          "sha256": "38B0EEFB754C7E0E121953910CC08D1799E28C7119BCB31110B0ED1434826F66",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            79,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 2,
+          "file": "dedicated-report-owner-unknown-page-02.png",
+          "bytes": 119244,
+          "sha256": "0572ED7EA4D59DBCCA73270B10D3BE07357376635E76ADE7E8F191F474C8AE7B",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            73,
+            747,
+            1207
+          ]
+        },
+        {
+          "page": 3,
+          "file": "dedicated-report-owner-unknown-page-03.png",
+          "bytes": 137996,
+          "sha256": "2DAD31350EF0778E394022F76C5F1B5D6B6B8ADECA99F9AAB375162833C490FB",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            73,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 4,
+          "file": "dedicated-report-owner-unknown-page-04.png",
+          "bytes": 148922,
+          "sha256": "66714C3DE4E12F63230172C06613D2E5B77FC01509F5623E9B5EF3A3E04E9FAE",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            89,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 5,
+          "file": "dedicated-report-owner-unknown-page-05.png",
+          "bytes": 175725,
+          "sha256": "29DF31ADD7812A32AC16FD6CCB863AB862A81A6C4D6CCF98F5F4DBD90119EA58",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            77,
+            814,
+            1207
+          ]
+        },
+        {
+          "page": 6,
+          "file": "dedicated-report-owner-unknown-page-06.png",
+          "bytes": 135096,
+          "sha256": "ECEB482BD46B68137C73AFB350B050D79546257FB1C746F5D2BBEC9C1463CEC9",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            77,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 7,
+          "file": "dedicated-report-owner-unknown-page-07.png",
+          "bytes": 122307,
+          "sha256": "388A1CA6154D3302AAC7BB5F1D348DE6691890882E0CEAF87B4D5469F6082404",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            73,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 8,
+          "file": "dedicated-report-owner-unknown-page-08.png",
+          "bytes": 72327,
+          "sha256": "67C26D312E05E7A3ED6D5A3C1D361B1A98C2CEE8F8145CCFD73970E188B8C865",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            73,
+            843,
+            1207
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "dedicated-report-regression-known-0003",
+      "fixture": "regression-known-0003",
+      "kind": "dedicated-report",
+      "pdf": "dedicated-report-regression-known-0003.pdf",
+      "bytes": 179404,
+      "sha256": "3BE9BB3AF5D665744F47873ABB7C01F52C235156C271F5D5CB311F2381E560C7",
+      "pages": 8,
+      "firstPageHasHeader": true,
+      "firstPageContractUnits": 4,
+      "firstPageExtractedCharacters": 722,
+      "expectedSectionCount": 24,
+      "extractedSectionsInOrder": 24,
+      "exactExtractionGapsFromFontMap": [],
+      "duplicatedSharedModelUnits": [],
+      "sharedModelExtractionSimilarity": 0.9957105557627751,
+      "sharedModelExtractionLengthRatio": 1.008615845663982,
+      "pageGeometry": [
+        {
+          "page": 1,
+          "charCount": 692,
+          "minTop": 55.24000000000001,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 522.3968
+        },
+        {
+          "page": 2,
+          "charCount": 7,
+          "minTop": 782.31976,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 83.02
+        },
+        {
+          "page": 3,
+          "charCount": 1456,
+          "minTop": 54.898500000000126,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 547.5932
+        },
+        {
+          "page": 4,
+          "charCount": 1390,
+          "minTop": 54.90960000000007,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 516.4472
+        },
+        {
+          "page": 5,
+          "charCount": 1379,
+          "minTop": 74.89850000000013,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 534.4292
+        },
+        {
+          "page": 6,
+          "charCount": 1674,
+          "minTop": 62.898500000000126,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 535.1300000000001
+        },
+        {
+          "page": 7,
+          "charCount": 1206,
+          "minTop": 62.898500000000126,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 548.4680000000001
+        },
+        {
+          "page": 8,
+          "charCount": 1163,
+          "minTop": 55.886999999999944,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 535.8104
+        }
+      ],
+      "renders": [
+        {
+          "page": 1,
+          "file": "dedicated-report-regression-known-0003-page-01.png",
+          "bytes": 81149,
+          "sha256": "D5BC91F9ED2AC9684B9D1A5AF79748A01F00CE5384D4043C491A189BD0DE62B0",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            79,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 2,
+          "file": "dedicated-report-regression-known-0003-page-02.png",
+          "bytes": 113983,
+          "sha256": "79FC19EB14ED29A8B21E9474AE4185720E94B14022A3ACFB0AFAC895D59B537E",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            73,
+            747,
+            1207
+          ]
+        },
+        {
+          "page": 3,
+          "file": "dedicated-report-regression-known-0003-page-03.png",
+          "bytes": 156491,
+          "sha256": "CD4A0FE78D03E5C23317E846EE9E58F2A7643A9044B6FDB6A4885F53FA284598",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            83,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 4,
+          "file": "dedicated-report-regression-known-0003-page-04.png",
+          "bytes": 151923,
+          "sha256": "6C662D8CAF02836DD84492AA6595C4078198BCE4DEF2422F4A2DEBA1AEB883DA",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            81,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 5,
+          "file": "dedicated-report-regression-known-0003-page-05.png",
+          "bytes": 146005,
+          "sha256": "8A6BA39A369AC3A5CEDA9066E2CF0C4DEC29970709B5528BF62BADC164934963",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            73,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 6,
+          "file": "dedicated-report-regression-known-0003-page-06.png",
+          "bytes": 171124,
+          "sha256": "6A5AD04AA668091D3D63F983EACFE3E8FBD2ABABC6CD0C15BE8E17D19AF72D6F",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            90,
+            816,
+            1207
+          ]
+        },
+        {
+          "page": 7,
+          "file": "dedicated-report-regression-known-0003-page-07.png",
+          "bytes": 135949,
+          "sha256": "11F9EDAA72706B112EBEFE9B15F8A797359BE2D72DA700C36BD7EA9EE5DE39B4",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            90,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 8,
+          "file": "dedicated-report-regression-known-0003-page-08.png",
+          "bytes": 120061,
+          "sha256": "F72FF8CFECD9E2B8CAE9BF600DE1D82DA687D6EFB5F7ACC33A7FC52314458D44",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            81,
+            843,
+            1207
+          ]
+        }
+      ]
+    },
+    {
+      "stem": "dedicated-report-unknown",
+      "fixture": "unknown",
+      "kind": "dedicated-report",
+      "pdf": "dedicated-report-unknown.pdf",
+      "bytes": 194168,
+      "sha256": "E675B79E6A744F97439818C97AD46FAC02A98E9AEB8D32294B63B0FD7CB3F020",
+      "pages": 8,
+      "firstPageHasHeader": true,
+      "firstPageContractUnits": 4,
+      "firstPageExtractedCharacters": 715,
+      "expectedSectionCount": 20,
+      "extractedSectionsInOrder": 20,
+      "exactExtractionGapsFromFontMap": [],
+      "duplicatedSharedModelUnits": [],
+      "sharedModelExtractionSimilarity": 0.9952380952380953,
+      "sharedModelExtractionLengthRatio": 1.0095693779904307,
+      "pageGeometry": [
+        {
+          "page": 1,
+          "charCount": 688,
+          "minTop": 55.24000000000001,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 518.5736
+        },
+        {
+          "page": 2,
+          "charCount": 7,
+          "minTop": 782.31976,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 83.02
+        },
+        {
+          "page": 3,
+          "charCount": 1318,
+          "minTop": 66.89850000000001,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 519.428
+        },
+        {
+          "page": 4,
+          "charCount": 1205,
+          "minTop": 78.89850000000001,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 486.7676
+        },
+        {
+          "page": 5,
+          "charCount": 1659,
+          "minTop": 56.51879999999994,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 545.2604
+        },
+        {
+          "page": 6,
+          "charCount": 1311,
+          "minTop": 62.898500000000126,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 534.428
+        },
+        {
+          "page": 7,
+          "charCount": 938,
+          "minTop": 54.89850000000001,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 535.8104
+        },
+        {
+          "page": 8,
+          "charCount": 628,
+          "minTop": 66.89850000000001,
+          "maxBottom": 793.88976,
+          "minX": 44.0,
+          "maxX": 535.23
+        }
+      ],
+      "renders": [
+        {
+          "page": 1,
+          "file": "dedicated-report-unknown-page-01.png",
+          "bytes": 79246,
+          "sha256": "EA0D3FE83FD7683A8B9DE4DB57E8AC8970785FC7077D3A4DAB29713A4722BFA4",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            79,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 2,
+          "file": "dedicated-report-unknown-page-02.png",
+          "bytes": 125804,
+          "sha256": "1EC3B32B585815908BD1F26F59A13803C2944E4E4408553BD904CC06519E57E7",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            68,
+            73,
+            747,
+            1207
+          ]
+        },
+        {
+          "page": 3,
+          "file": "dedicated-report-unknown-page-03.png",
+          "bytes": 148820,
+          "sha256": "B6943680B0A0894D575D97488CCF737D5EF5B63DB511787A49DBF2E5291B2F2F",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            73,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 4,
+          "file": "dedicated-report-unknown-page-04.png",
+          "bytes": 133330,
+          "sha256": "3806B8D02DB612EF756B4C31003D17577365DFF9B7A4D961F074B8149BDAC9E4",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            91,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 5,
+          "file": "dedicated-report-unknown-page-05.png",
+          "bytes": 169459,
+          "sha256": "5E75F2ADE71900630BA6CB84C4073450B4EA9DC458B235086FA8C812880C882C",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            81,
+            832,
+            1207
+          ]
+        },
+        {
+          "page": 6,
+          "file": "dedicated-report-unknown-page-06.png",
+          "bytes": 140872,
+          "sha256": "2E07E409FB5983491E8580B11DED3EC2168B977E332104CCEBBAD54C65FA8EF8",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            94,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 7,
+          "file": "dedicated-report-unknown-page-07.png",
+          "bytes": 104769,
+          "sha256": "478E8E2EE71D4B6E54A82A0D5F9B76D2B63C9A559E54EA6623C4A97320A0B0BC",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            77,
+            843,
+            1207
+          ]
+        },
+        {
+          "page": 8,
+          "file": "dedicated-report-unknown-page-08.png",
+          "bytes": 64440,
+          "sha256": "A5266F754B24FC6982CCB8239AC988ADB28228D3FBDB921785B283B5B7B39386",
+          "width": 910,
+          "height": 1287,
+          "inkBounds": [
+            67,
+            73,
+            843,
+            1207
+          ]
+        }
+      ]
+    }
+  ]
+}
