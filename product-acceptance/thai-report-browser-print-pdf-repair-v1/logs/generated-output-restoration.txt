@@ -1,0 +1,11 @@
+validatedPaths: 28/28
+restoreSource: HEAD 0095494a5218289535d587f0c2887a5daa07b4d1
+restoredPaths: 28/28
+postRestoreIdentityMismatch: 0
+remainingWorktree:
+ M lib/features/thai_beta/presentation/export/thai_beta_browser_print.dart
+ M test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+?? product-acceptance/thai-report-browser-print-pdf-repair-v1/
+?? tool/thai_report_browser_print_live_qa.cjs
+?? tool/thai_report_browser_print_verify.py
+?? tool/thai_report_visual_identity.py

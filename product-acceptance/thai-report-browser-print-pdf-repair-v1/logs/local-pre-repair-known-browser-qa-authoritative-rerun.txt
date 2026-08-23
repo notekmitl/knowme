@@ -1,0 +1,2 @@
+fixture=known|root=true|sections=25|bodyPosition=fixed|htmlHeight=0px|consoleErrors=0
+result=C:\Users\USER\Documents\Knowme\r100-print-repair\product-acceptance\thai-report-browser-print-pdf-repair-v1\diagnosis\local-pre-repair\local-pre-repair-browser-qa.json

@@ -1,0 +1,694 @@
+[
+  {
+    "fixtureId": "unknown",
+    "executableLabel": "local-post-repair-unknown-final",
+    "baseUrl": "http://127.0.0.1:8767",
+    "screenState": {
+      "url": "http://127.0.0.1:8767/beta/thai/capture",
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "dpr": 1
+      },
+      "activeElement": {
+        "tag": "FLT-SEMANTICS",
+        "id": "flt-semantic-node-82",
+        "ariaLabel": null
+      },
+      "dialogCount": 0,
+      "printRootExists": true,
+      "printRootTextLength": 7878,
+      "printRootHtmlLength": 336002,
+      "printRootRect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      },
+      "printRootStyle": {
+        "display": "none",
+        "position": "static",
+        "height": "auto",
+        "overflow": "visible"
+      },
+      "bodyStyle": {
+        "position": "fixed",
+        "height": "720px",
+        "overflow": "visible",
+        "scrollHeight": 729
+      },
+      "htmlStyle": {
+        "position": "static",
+        "height": "0px",
+        "overflow": "visible",
+        "scrollHeight": 720
+      },
+      "sections": [
+        {
+          "id": "report-body-01",
+          "textLength": 99,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-02",
+          "textLength": 350,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-03",
+          "textLength": 190,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-04",
+          "textLength": 92,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-05",
+          "textLength": 84,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-06",
+          "textLength": 362,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-07",
+          "textLength": 425,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-08",
+          "textLength": 396,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-09",
+          "textLength": 972,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-10",
+          "textLength": 383,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-11",
+          "textLength": 828,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-12",
+          "textLength": 914,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-13",
+          "textLength": 739,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-14",
+          "textLength": 156,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-15",
+          "textLength": 146,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-16",
+          "textLength": 116,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-17",
+          "textLength": 494,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-18",
+          "textLength": 300,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-disclaimer-19",
+          "textLength": 138,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-disclaimer-20",
+          "textLength": 636,
+          "rect": {
+            "x": 0,
+            "y": 0,
+            "width": 0,
+            "height": 0,
+            "top": 0,
+            "right": 0,
+            "bottom": 0,
+            "left": 0
+          }
+        }
+      ],
+      "infographicCount": 1
+    },
+    "userPrintEvents": [
+      {
+        "type": "beforeprint",
+        "at": "2026-08-23T09:15:06.031Z"
+      }
+    ],
+    "printState": {
+      "url": "http://127.0.0.1:8767/beta/thai/capture",
+      "viewport": {
+        "width": 1280,
+        "height": 720,
+        "dpr": 1
+      },
+      "activeElement": {
+        "tag": "FLT-SEMANTICS",
+        "id": "flt-semantic-node-84",
+        "ariaLabel": null
+      },
+      "dialogCount": 0,
+      "printRootExists": true,
+      "printRootTextLength": 8078,
+      "printRootHtmlLength": 336002,
+      "printRootRect": {
+        "x": 0,
+        "y": 0,
+        "width": 1280,
+        "height": 4604.671875,
+        "top": 0,
+        "right": 1280,
+        "bottom": 4604.671875,
+        "left": 0
+      },
+      "printRootStyle": {
+        "display": "block",
+        "position": "static",
+        "height": "4604.67px",
+        "overflow": "visible"
+      },
+      "bodyStyle": {
+        "position": "static",
+        "height": "4604.67px",
+        "overflow": "visible",
+        "scrollHeight": 4605
+      },
+      "htmlStyle": {
+        "position": "static",
+        "height": "4620.67px",
+        "overflow": "visible",
+        "scrollHeight": 4621
+      },
+      "sections": [
+        {
+          "id": "report-body-01",
+          "textLength": 99,
+          "rect": {
+            "x": 0,
+            "y": 105.328125,
+            "width": 1280,
+            "height": 57.578125,
+            "top": 105.328125,
+            "right": 1280,
+            "bottom": 162.90625,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-02",
+          "textLength": 350,
+          "rect": {
+            "x": 0,
+            "y": 178.90625,
+            "width": 1280,
+            "height": 79.265625,
+            "top": 178.90625,
+            "right": 1280,
+            "bottom": 258.171875,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-03",
+          "textLength": 190,
+          "rect": {
+            "x": 0,
+            "y": 274.171875,
+            "width": 1280,
+            "height": 57.578125,
+            "top": 274.171875,
+            "right": 1280,
+            "bottom": 331.75,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-04",
+          "textLength": 92,
+          "rect": {
+            "x": 0,
+            "y": 1349.3125,
+            "width": 1280,
+            "height": 90.234375,
+            "top": 1349.3125,
+            "right": 1280,
+            "bottom": 1439.546875,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-05",
+          "textLength": 84,
+          "rect": {
+            "x": 0,
+            "y": 1455.546875,
+            "width": 1280,
+            "height": 90.234375,
+            "top": 1455.546875,
+            "right": 1280,
+            "bottom": 1545.78125,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-06",
+          "textLength": 362,
+          "rect": {
+            "x": 0,
+            "y": 1561.78125,
+            "width": 1280,
+            "height": 146.921875,
+            "top": 1561.78125,
+            "right": 1280,
+            "bottom": 1708.703125,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-07",
+          "textLength": 425,
+          "rect": {
+            "x": 0,
+            "y": 1724.703125,
+            "width": 1280,
+            "height": 146.921875,
+            "top": 1724.703125,
+            "right": 1280,
+            "bottom": 1871.625,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-08",
+          "textLength": 396,
+          "rect": {
+            "x": 0,
+            "y": 1887.625,
+            "width": 1280,
+            "height": 146.921875,
+            "top": 1887.625,
+            "right": 1280,
+            "bottom": 2034.546875,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-09",
+          "textLength": 972,
+          "rect": {
+            "x": 0,
+            "y": 2050.546875,
+            "width": 1280,
+            "height": 402.015625,
+            "top": 2050.546875,
+            "right": 1280,
+            "bottom": 2452.5625,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-10",
+          "textLength": 383,
+          "rect": {
+            "x": 0,
+            "y": 2468.5625,
+            "width": 1280,
+            "height": 114.265625,
+            "top": 2468.5625,
+            "right": 1280,
+            "bottom": 2582.828125,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-11",
+          "textLength": 828,
+          "rect": {
+            "x": 0,
+            "y": 2598.828125,
+            "width": 1280,
+            "height": 306.015625,
+            "top": 2598.828125,
+            "right": 1280,
+            "bottom": 2904.84375,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-12",
+          "textLength": 914,
+          "rect": {
+            "x": 0,
+            "y": 2920.84375,
+            "width": 1280,
+            "height": 284.328125,
+            "top": 2920.84375,
+            "right": 1280,
+            "bottom": 3205.171875,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-13",
+          "textLength": 739,
+          "rect": {
+            "x": 0,
+            "y": 3221.171875,
+            "width": 1280,
+            "height": 284.328125,
+            "top": 3221.171875,
+            "right": 1280,
+            "bottom": 3505.5,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-14",
+          "textLength": 156,
+          "rect": {
+            "x": 0,
+            "y": 3521.5,
+            "width": 1280,
+            "height": 57.578125,
+            "top": 3521.5,
+            "right": 1280,
+            "bottom": 3579.078125,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-15",
+          "textLength": 146,
+          "rect": {
+            "x": 0,
+            "y": 3595.078125,
+            "width": 1280,
+            "height": 146.921875,
+            "top": 3595.078125,
+            "right": 1280,
+            "bottom": 3742,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-timeline-16",
+          "textLength": 116,
+          "rect": {
+            "x": 0,
+            "y": 3758,
+            "width": 1280,
+            "height": 90.234375,
+            "top": 3758,
+            "right": 1280,
+            "bottom": 3848.234375,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-17",
+          "textLength": 494,
+          "rect": {
+            "x": 0,
+            "y": 3864.234375,
+            "width": 1280,
+            "height": 227.640625,
+            "top": 3864.234375,
+            "right": 1280,
+            "bottom": 4091.875,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-body-18",
+          "textLength": 300,
+          "rect": {
+            "x": 0,
+            "y": 4107.875,
+            "width": 1280,
+            "height": 114.265625,
+            "top": 4107.875,
+            "right": 1280,
+            "bottom": 4222.140625,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-disclaimer-19",
+          "textLength": 138,
+          "rect": {
+            "x": 0,
+            "y": 4238.140625,
+            "width": 1280,
+            "height": 118.578125,
+            "top": 4238.140625,
+            "right": 1280,
+            "bottom": 4356.71875,
+            "left": 0
+          }
+        },
+        {
+          "id": "report-disclaimer-20",
+          "textLength": 636,
+          "rect": {
+            "x": 0,
+            "y": 4372.71875,
+            "width": 1280,
+            "height": 231.953125,
+            "top": 4372.71875,
+            "right": 1280,
+            "bottom": 4604.671875,
+            "left": 0
+          }
+        }
+      ],
+      "infographicCount": 1
+    },
+    "cdpPrintEvents": [
+      {
+        "type": "beforeprint",
+        "at": "2026-08-23T09:15:06.031Z"
+      },
+      {
+        "type": "beforeprint",
+        "at": "2026-08-23T09:15:06.357Z"
+      },
+      {
+        "type": "afterprint",
+        "at": "2026-08-23T09:15:06.363Z"
+      }
+    ],
+    "dedicatedPdf": {
+      "path": "C:\\Users\\USER\\Documents\\Knowme\\r100-print-repair\\product-acceptance\\thai-report-browser-print-pdf-repair-v1\\diagnosis\\local-post-repair\\local-post-repair-unknown-final-dedicated-unknown.pdf",
+      "bytes": 194168
+    },
+    "browserPrintPdf": {
+      "path": "C:\\Users\\USER\\Documents\\Knowme\\r100-print-repair\\product-acceptance\\thai-report-browser-print-pdf-repair-v1\\diagnosis\\local-post-repair\\local-post-repair-unknown-final-browser-print-unknown.pdf",
+      "bytes": 285535
+    },
+    "consoleErrors": [],
+    "pageErrors": [],
+    "requestFailures": []
+  }
+]

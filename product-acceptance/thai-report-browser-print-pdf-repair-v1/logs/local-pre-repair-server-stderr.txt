@@ -1,0 +1,2 @@
+127.0.0.1 - - [23/Aug/2026 15:31:38] code 404, message File not found
+127.0.0.1 - - [23/Aug/2026 15:31:38] "GET /beta/thai HTTP/1.1" 404 -

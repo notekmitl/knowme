@@ -1,0 +1,2 @@
+i  hosting[knowme-app-694e1]: Serving hosting files from: build/web
++  hosting[knowme-app-694e1]: Local server: http://127.0.0.1:8766

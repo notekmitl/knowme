@@ -1,0 +1,10 @@
+{
+  "fixtureId": "unknown",
+  "executableLabel": "local-pre-repair",
+  "baseUrl": "http://127.0.0.1:8767",
+  "failure": "page.waitForEvent: Timeout 30000ms exceeded while waiting for event \"download\"\n=========================== logs ===========================\nwaiting for event \"download\"\n============================================================\n    at runFixture (C:\\Users\\USER\\Documents\\Knowme\\r100-print-repair\\tool\\thai_report_browser_print_live_qa.cjs:182:43)\n    at async main (C:\\Users\\USER\\Documents\\Knowme\\r100-print-repair\\tool\\thai_report_browser_print_live_qa.cjs:282:22)",
+  "failureUrl": "http://127.0.0.1:8767/beta/thai",
+  "consoleErrors": [],
+  "pageErrors": [],
+  "requestFailures": []
+}

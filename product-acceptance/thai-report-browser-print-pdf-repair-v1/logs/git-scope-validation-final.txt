@@ -1,0 +1,37 @@
+Browser-print repair final git-scope validation
+capturedUtc: 2026-08-23T10:17:56.6284495Z
+branch: codex/pr100-browser-print-pdf-repair-v1
+localHead: 0095494a5218289535d587f0c2887a5daa07b4d1
+originMain: 0095494a5218289535d587f0c2887a5daa07b4d1
+headTree: fc73c2047cda45db2e2852e2c33db862bebcb07d
+gitDiffCheck:
+warning: in the working copy of 'docs/CURRENT_STATUS.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/HANDOFF.md', LF will be replaced by CRLF the next time Git touches it
+trackedDiffNames:
+warning: in the working copy of 'docs/CURRENT_STATUS.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/HANDOFF.md', LF will be replaced by CRLF the next time Git touches it
+docs/CURRENT_STATUS.md
+docs/HANDOFF.md
+lib/features/thai_beta/presentation/export/thai_beta_browser_print.dart
+test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+worktreeStatus:
+ M docs/CURRENT_STATUS.md
+ M docs/HANDOFF.md
+ M lib/features/thai_beta/presentation/export/thai_beta_browser_print.dart
+ M test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart
+?? docs/V15_PR100_BROWSER_PRINT_PDF_ROOT_CAUSE_REPAIR.md
+?? product-acceptance/thai-report-browser-print-pdf-repair-v1/
+?? tool/thai_report_browser_print_live_qa.cjs
+?? tool/thai_report_browser_print_verify.py
+?? tool/thai_report_visual_identity.py
+r1ThroughR7.1ModifiedPaths: 0
+approvedPriorEvidenceModifiedPaths: 0
+warning: in the working copy of 'docs/CURRENT_STATUS.md', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'docs/HANDOFF.md', LF will be replaced by CRLF the next time Git touches it
+unexpectedTrackedDiffPaths: 0
+unexpectedProtectedTrackedDiffPaths: 0
+unexpectedUntrackedPaths: 0
+monthlyTimelineAvailableFalseSourceOccurrences: 1
+acceptedBaseLibTree: bc31edc9574ec53b6f9895b5b11e25d84a608a39
+acceptedBaseTestTree: a75c76aa4965383f64072dc39c4841e0245c628d
+result: PASS

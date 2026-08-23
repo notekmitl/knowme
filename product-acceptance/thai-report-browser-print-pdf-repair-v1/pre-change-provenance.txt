@@ -1,0 +1,79 @@
+Thai Report Browser-print PDF Repair V1
+Pre-change provenance
+
+Captured UTC: 2026-08-23T08:03:37Z
+Captured Asia/Bangkok: 2026-08-23T15:03:37+07:00
+
+Repository identity before any Flutter/test/build command
+- worktree: C:\Users\USER\Documents\Knowme\r100-print-repair
+- branch: codex/pr100-browser-print-pdf-repair-v1
+- HEAD/origin-main: 0095494a5218289535d587f0c2887a5daa07b4d1
+- HEAD tree: fc73c2047cda45db2e2852e2c33db862bebcb07d
+- tracked paths: 5943
+- tracked changes: 0
+- untracked paths before this evidence packet: 0
+
+Approved PR #100 identity
+- merge commit: 1a562c6a5c93d89485f70f9bba7820f018b2849f
+- accepted HEAD: 18f10ba23dfdb193e41241db31dc0c2336c07023
+- accepted application tree: 1f1aceaeb3a2567a3d39f850756ef4f837c41344
+- lib tree current/accepted: bc31edc9574ec53b6f9895b5b11e25d84a608a39
+- test tree current/accepted: a75c76aa4965383f64072dc39c4841e0245c628d
+- tool tree current/accepted: 972dd4d6a0dd32e037b929b2fcb78f7b416155a8
+- web tree current/accepted: b85821aebc95c2e18d3e3172f6adbeebb6693322
+
+Hosting identity before repair
+- blocked Preview release/version: 1787218038705000 / 397d3a927a64bd5d
+- Production release/version: 1787038542564000 / 5f98dfffef913e38
+- rollback V1.4 version: 10af10c6d960d590
+
+Product boundaries
+- PR #102: CLOSED, unmerged
+- monthlyTimelineAvailable=false
+- R1-R7.1 are immutable
+- no Firebase mutation has occurred in this repair work
+
+Tracked test-generated outputs authorized for exact-path restoration only
+
+The following 28 paths existed and matched their pre-release hashes before any
+Flutter/test/build command. If a test changes one, restoration is allowed only
+for that exact path after proving the change is generated-output noise. Broad
+restore/reset/clean is not authorized.
+
+EC2527BA3297FE927C5FA49E7FF20D2AB31DA4D1F2E81EC316F8B801966712CC  1452  docs/BAZI_MIRROR_INTEGRATION_V1.md
+079B53186657ECB271E86CFB3C96F2642F7294E7D5CA2842BFCBA20FBBA511AD  4747  docs/CHINESE_ZODIAC_IMPACT_VALIDATION_V1.md
+9E1D00E3D2816DD81F7690A34ECCBE54A0E8C688DA8E34212E93415ACF16A1A5  6780  docs/HUMAN_PATTERN_ACTIVATION_AUDIT_V1.md
+471701C58432614AF5886717418AACEC977C25711B6FBDB8BA6EBBA30C8C2511  620  docs/NARRATIVE_INTELLIGENCE_V2.md
+B75C94724A66020EA133F5109177800F7A9FCCCE72B83D06E5E8CE44F9014BD0  2817  docs/SYNTHETIC_HUMAN_POPULATION_V1.md
+E0DA8EE5627487109A0AD563E707258CA9C0643957D145CC5B3C9FA8508578E7  33995  docs/THAI_LIFE_MAP_V124_ACCURACY_AUDIT.md
+F4CFBA5936EB91D617806693C50E7EF5258B6B7A444AD36CEC69EE40F112C748  2076  docs/THAI_LIFE_MAP_V127_SIMULATED_MATRIX.md
+6429DBFF1A5B93C681EB85253F2BFC7FF906C67078367B93729830A88605D98C  3959  test/validation/bazi_mirror_integration/output/results.json
+5745862282A36C5907AC094EFDA24EBE11B531FC7F7C24B66F82ED1C7AACF7F9  90279  test/validation/chinese_zodiac_impact/output/results.json
+2F4FED3534675574CF85854383479EE619B4743C28A358BAAA5C1E8482E82A33  82428  test/validation/human_pattern_activation_audit/output/results.json
+E8BF1B4791CA5420B8B5FACE2491831AD3D6B7E9C45CC8E4E442860B08650D7C  1001  test/validation/narrative_intelligence_v2/output/results.json
+5B7CC3EF00496B6D219BD739E7B60A6E44F31048814EC940227453DDFFD0D6C7  11396  test/validation/synthetic_population/output/results.json
+C91D9D9D38EE5D53F15BBB4AB1AA300B804E62800D067F154F2C238DFB6EAFD6  75298  test/validation/thai_beta/life_map/v129/output/v129_product_qa.md
+CBD690526783BA098271A9CF1CE0947F836A35297BA2063BCCA8DDC9C126188E  147618  test/validation/thai_beta/life_map/v130/output/v130_product_qa.md
+D101E878DB6549E674626A2086EA9A1D50E707F8BCCF3F263A85B4DD065ED12F  188858  test/validation/thai_beta/life_map/v131/output/v131_product_qa.md
+04F65891383F095CF29BF7D83BBF3D55E1DF99380B71EBD51648094F4649CDF6  88392  test/validation/thai_beta/life_map/v132/output/v132_product_qa.md
+87835B89F0E08B263AAC472BABF091C5A76DB37701F003D0CBF2570B05DACB35  11471  test/validation/thai_beta/life_map/v133/output/v133_product_qa.md
+4758DCD56782645B72DDB2030D42E0643265BA2DA07C02AA71F7464E93F21EF6  16475  test/validation/thai_beta/life_map/v134/output/v134_product_qa.md
+56E9EB86894BB866BF3BBB9B3AD0FEF90E5BE57C061663FA3E1C5EF538BCDC9E  48431  test/validation/thai_beta/life_map/v135/output/v135_product_qa.md
+E944E2C6B8601F96EEEBCCD1F191D3D503BBDA73ED706101352A83A0AAFA9867  196191  test/validation/thai_mirror_consumer_ux/output/consumer_ux_validation_report.json
+990A58DE66DD0262BE09A2EA6550EF4FBB680E3DCF73479A7BE44F8AD6E3777C  4944  test/validation/thai_mirror_consumer_ux/output/consumer_ux_validation_report.md
+868A4B2DD0B6E9596060A9A4D4EC28DCFAE38570AE796D16AFA723A4DB20ECF9  38368  test/validation/thai_mirror_content_diversity/output/results.json
+706D0DECD73427197C998C7A28FA3A7E9DB160E6C9EFED929986B674269CE7B2  15321  tool/output/thai_internal_evidence_qa_summary.json
+71CCB25882B367275231ADDF0A8E80C4FAC2657A83E2BE35F9AD210F573436C0  2554  tool/output/thai_public_evidence_badge_controlled_beta_qa_summary.json
+662053B5A62663FC3392731D94B386E0CBAEA329A149F7AD2A960C13DAB554EA  2606  tool/output/thai_public_evidence_badge_internal_only_activation_qa_summary.json
+35E2696FE7E6258535F9C3279CAAE1555C31D8CA553BE0FC1CEF4C940F52D8BA  2657  tool/output/thai_public_evidence_badge_invited_beta_activation_qa_summary.json
+5E7B1679F8FD15355C7F0112405E5535439942503234A283F64F1FDA8D675F16  5517  tool/output/thai_public_evidence_badge_qa_summary.json
+C74D242276C7615FCA04BD8EC6A4332EDAEAF67B0BA576D4905B3E487668DE34  675  tool/output/thai_public_evidence_badge_rollback_drill_summary.json
+
+Verification result: 28/28 present, size/hash mismatch 0.
+
+Pinned release toolchain
+- executable: C:\Users\USER\Documents\Knowme\flutter-3.41.1-sdk\bin\flutter.bat
+- expected Flutter 3.41.1 / Dart 3.11.0
+- initial sandbox-only version query could not write Flutter tool state; no
+  project file was changed. The authoritative version query will be retained in
+  the raw repair logs.

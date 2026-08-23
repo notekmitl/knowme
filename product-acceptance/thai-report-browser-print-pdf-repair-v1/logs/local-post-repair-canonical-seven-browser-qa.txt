@@ -1,0 +1,8 @@
+fixture=known|root=true|sections=25|bodyPosition=static|htmlHeight=5167px|consoleErrors=0
+fixture=unknown|root=true|sections=20|bodyPosition=static|htmlHeight=4620.67px|consoleErrors=0
+fixture=owner-known-0035|root=true|sections=24|bodyPosition=static|htmlHeight=5060.77px|consoleErrors=0
+fixture=owner-unknown|root=true|sections=20|bodyPosition=static|htmlHeight=4731.7px|consoleErrors=0
+fixture=regression-known-0003|root=true|sections=24|bodyPosition=static|htmlHeight=5060.77px|consoleErrors=0
+fixture=comparison-known-bangkok|root=true|sections=24|bodyPosition=static|htmlHeight=5025.77px|consoleErrors=0
+fixture=comparison-known-khon-kaen|root=true|sections=24|bodyPosition=static|htmlHeight=5060.77px|consoleErrors=0
+result=C:\Users\USER\Documents\Knowme\r100-print-repair\product-acceptance\thai-report-browser-print-pdf-repair-v1\acceptance\local-seven-canonical\local-post-repair-canonical-seven-browser-qa.json

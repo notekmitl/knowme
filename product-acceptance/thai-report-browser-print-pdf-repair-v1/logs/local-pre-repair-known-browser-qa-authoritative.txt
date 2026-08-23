@@ -1,0 +1,11 @@
+page.goto: Timeout 30000ms exceeded.
+Call log:
+  - navigating to "http://127.0.0.1:8767/beta/thai", waiting until "networkidle"
+
+    at runFixture (C:\Users\USER\Documents\Knowme\r100-print-repair\tool\thai_report_browser_print_live_qa.cjs:166:16)
+    at async main (C:\Users\USER\Documents\Knowme\r100-print-repair\tool\thai_report_browser_print_live_qa.cjs:277:22) {
+  log: [
+    '  - navigating to "http://127.0.0.1:8767/beta/thai", waiting until "networkidle"'
+  ],
+  name: 'TimeoutError'
+}
