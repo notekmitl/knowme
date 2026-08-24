@@ -10,8 +10,8 @@ local gates pass. Decision state is **PENDING OWNER VISUAL AND LANGUAGE
 RE-ACCEPTANCE**; only Owner re-review is next. PR #106 must remain Open, Draft,
 unmerged and undeployed.
 
-Technical validation is complete and a verified Owner Review package has been
-generated from exact Draft PR #106 source HEAD
+The previous Owner Review package, later rejected and now superseded by
+PR106-OR1, was generated from exact Draft PR #106 source HEAD
 `f0931fd581c7ea24567cbee165146c7d725f14e0`. Current decision state is
 **PENDING OWNER VISUAL AND LANGUAGE ACCEPTANCE**. Owner review of the actual
 Known/Unknown PDFs, 360/390 infographics and contact sheets is the only action
