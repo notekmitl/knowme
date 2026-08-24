@@ -1,8 +1,24 @@
 # Task Result — Thai Report Reader Experience V2
 
-Status: **PENDING OWNER VISUAL AND LANGUAGE ACCEPTANCE**
+Status: **PR106-OR1 COMPLETE — PENDING OWNER VISUAL AND LANGUAGE RE-ACCEPTANCE**
 
-Owner Review package for Draft PR #106 was generated from exact source HEAD
+Owner rejection was addressed in source at implementation commit
+`b5526dd33441e96e47308c038f9fc15de119f6e9`. Candidate-only Thai copy repair
+removes the reported mechanical/repeated phrases without changing structural
+semantics, and Dedicated PDF pagination no longer depends on fixed paragraph
+indices or a forced final NewPage. Actual final page counts are Dedicated
+Known/Unknown 8/7 and Chrome browser-print 7/7.
+
+Final package: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_PR106_OR1_b5526dd.zip`
+(SHA-256 `2B7BCF311CCE3F881A4192020B9AC02FA530FE209F8D8E1CA71EF0DEA2432956`).
+ZIP extraction passes 95 files, 94 manifest entries and 0 hash errors. Focused
+tests, 300-profile / 5,720-field audit with all impact counters 0, required full
+suite 1,620/1,620, analyzer exit 0, PreCommit and PostCommit pass. Every PDF
+page, four 1080×1920 infographics and Web 1440×1000 / 390×844 captures were
+opened and inspected. No merge, Ready-for-Review, deploy, Firebase/Production,
+`product-acceptance/` or accepted R1–R7.1 change occurred.
+
+The previous Owner Review package for Draft PR #106 was generated from exact source HEAD
 `f0931fd581c7ea24567cbee165146c7d725f14e0` and verified as a 45-file ZIP.
 Technical validation is complete. The package contains Known/Unknown dedicated
 PDFs (9/8 pages), Chrome browser-print PDFs (7/7 pages), four 1080×1920

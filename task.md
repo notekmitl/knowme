@@ -2,6 +2,15 @@
 
 ## Owner Review checkpoint — Draft PR #106
 
+**PR106-OR1 COMPLETE — PENDING OWNER VISUAL AND LANGUAGE RE-ACCEPTANCE.**
+Source repair is complete at implementation commit
+`b5526dd33441e96e47308c038f9fc15de119f6e9`. Final actual evidence measures
+Dedicated Known/Unknown 8/7 pages and Chrome browser-print 7/7 pages, includes
+four 1080×1920 infographics plus desktop/mobile Web captures, and is packaged
+at `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_PR106_OR1_b5526dd.zip`.
+All technical gates pass; this does not grant Owner/Product Acceptance. Keep
+PR #106 Open, Draft, unmerged and undeployed.
+
 Technical validation is complete for exact source HEAD
 `f0931fd581c7ea24567cbee165146c7d725f14e0`. A verified Owner Review package
 contains Known/Unknown dedicated PDFs (9/8 pages), Chrome browser-print PDFs

@@ -2,6 +2,14 @@
 
 ## Active — Thai Report Reader Experience V2 gate and Owner review
 
+PR106-OR1 technical repair is complete at implementation commit
+`b5526dd33441e96e47308c038f9fc15de119f6e9`. Fresh source-bound evidence now
+measures Dedicated Known/Unknown at 8/7 pages and Chrome browser-print at 7/7,
+with four 1080×1920 infographics and actual desktop/mobile Web captures. All
+local gates pass. Decision state is **PENDING OWNER VISUAL AND LANGUAGE
+RE-ACCEPTANCE**; only Owner re-review is next. PR #106 must remain Open, Draft,
+unmerged and undeployed.
+
 Technical validation is complete and a verified Owner Review package has been
 generated from exact Draft PR #106 source HEAD
 `f0931fd581c7ea24567cbee165146c7d725f14e0`. Current decision state is

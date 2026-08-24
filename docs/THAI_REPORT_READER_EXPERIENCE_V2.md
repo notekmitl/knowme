@@ -1,7 +1,16 @@
 # Thai Report Reader Experience V2
 
-Status: Draft PR #106 open from `codex/thai-report-reader-experience-v2`;
-local PreCommit/PostCommit passed
+Status: **PR106-OR1 COMPLETE — PENDING OWNER VISUAL AND LANGUAGE RE-ACCEPTANCE**;
+Draft PR #106 remains open from `codex/thai-report-reader-experience-v2` and
+local PreCommit/PostCommit passed at implementation commit
+`b5526dd33441e96e47308c038f9fc15de119f6e9`.
+
+Owner-rejected mechanical phrases were repaired through candidate-only copy
+rules with 300-profile semantic impact 0. Dedicated pagination now follows
+measured semantic flow instead of fixed paragraph/NewPage assumptions; the
+actual Owner fixtures measure 8/7 pages, versus Chrome browser-print 7/7. Fresh
+Web desktop/mobile, four 1080×1920 infographic and every-page PDF renders are
+in the external Owner package. No Owner/Product Acceptance is claimed.
 
 Base: `58b1d742f7a00ef9c882c1fad2357dbcf08f3ad0`
 
