@@ -1,113 +1,56 @@
-# Thai Report Natural Narrative V1.2 + Pagination Repair
+# Task Result — Thai Report Reader Experience V2
 
-> **CURRENT — V1.5 S008 CANONICAL PARITY VERIFIED; PR #95 DRAFT FOR OWNER COPY REVIEW (2026-08-17):** Raw S008 differs by one ULP (`102.39560244592322` VM / `102.39560244592323` Chrome) but both map to fixed-point `102395602446`; canonical snapshot, report hash, canonical text and narrative are exact. Two fresh VM and two real-Chrome 300-profile runs have canonical/profile/structured/score/report/narrative/omission/copy mismatch 0 and nondeterminism 0. Fresh gates pass: clock/canonical 20/20, screenshots 24/24, Life Map 67/67, matrix 864/864 with 108/108 per weekday, R7 286/286, synthetic 300/300, analyzer 299/299/delta 0, Web release build, full-suite common baseline 39 with branch-only/main-only 0, and R7.1 79/79 checksums + 63/63 immutable archive identity. Copy normalization remains 93 profiles / 112 summaries pending Owner review, so PR #95 stays Draft. No merge/deploy/Firebase change; Production remains V1.4.
+Status: **PRECOMMIT PASSED — commit/PR pending**
 
-> **CURRENT — V1.5 LIVE AS-OF CONTRACT REPAIR VERIFIED LOCALLY; DRAFT OWNER REVIEW ONLY (2026-08-16):** The Production mismatch is reproduced by the pre-repair compiled Web runtime and proven to originate from runtime-dependent `String.hashCode`/`Object.hash`, not from `asOf`. The branch uses a Dart 3.11 VM-compatible stable hash and captures one submit-time Asia/Bangkok `analysis.asOf` separately from session `startedAt`. Frozen/live oracle parity is 5/5, acceptance invariants and R7.1 identities pass, 34/34 oracle PDF pages pass visual QA, targeted/Life Map/matrix/R7/synthetic gates pass, analyzer delta is 0, full branch/main share exactly 39 baseline failures with branch-only 0, and Web release build succeeds. Evidence: `product-acceptance/thai-narrative-v1.5-live-asof-repair/`. No merge or deploy occurred; V1.5 is not live and Production remains V1.4.
+Date: 2026-08-24
 
-> **CURRENT — V1.5 DEPLOYMENT ROLLED BACK; PRODUCTION RESTORED TO V1.4 (2026-08-16):** Final main `7a2bdea4d88ebd3e87ee7268641a37a70a7a959f` (product merge `a574fcb65437013e98c64b1fc9af19f50723534b`) was deployed Hosting-only as release `1786871603892000` / version `a5721c17f758aa6d`. Build/Hosting identity passed 77/77, but the first real Production `owner-known-0035` PDF had four substantive extracted-text replacements versus accepted R7.1. The remaining four fixtures were not run after this mandatory failure. Firebase Hosting Release history restored exact V1.4 version `10af10c6d960d590` as rollback release `1786872330369000` at `2026-08-16T09:25:30.369Z`; baseline assets pass 6/6 and browser smoke is clean. V1.5 is not live. R7/R7.1 remain immutable, the 39 common baseline failures remain debt, and no Firestore/Auth/Functions/Storage/Remote Config/source/test/golden/mobile change occurred. Evidence: `product-acceptance/thai-narrative-v1.5-production-release/`.
+Branch: `codex/thai-report-reader-experience-v2`
 
-> **HISTORICAL — V1.5 MERGED TO MAIN, NOT YET DEPLOYED (2026-08-16):** PR #92 was merged by regular merge commit `a574fcb65437013e98c64b1fc9af19f50723534b` from accepted source HEAD `e8cc382fa950e581b4da5ec0ff6b93202a1cd4ee`. The Final Merge Gate passed against pinned main `22cbb3cfcb583b63fe8d48a164d5083d9ee32163`; 39 common baseline failures remain visible and unchanged. R7/R7.1 acceptance and immutable identities remain valid. At this historical checkpoint no deployment or Firebase change had occurred; Production remained V1.4 and Production Release required separate explicit Owner authorization.
+Base: `58b1d742f7a00ef9c882c1fad2357dbcf08f3ad0`
 
-> **CURRENT — V1.5 FINAL MERGE GATE PASSED AGAINST PINNED MAIN (2026-08-16):** Case A reconciled only the exact 18 Owner-authorized Life Timeline goldens after fresh repaired actuals matched pinned main `22cbb3cfcb583b63fe8d48a164d5083d9ee32163` pixel-for-pixel 18/18 and passed original-resolution visual QA 18/18. Targeted screenshots pass 24/24; Life Map 67/67 and matrix 864/864; R7 focused 286/286; synthetic 300/300 unique and deterministic; analyzer branch/main 299/299 with delta 0; Web release build passes. Full branch 2,889/39 and pinned main 2,861/39 share the exact same 39 baseline failures, with branch-only 0 and main-only 0. R1-R7.1 remain immutable. Merge and deploy are not authorized; Firebase is unchanged and Production remains V1.4.
+## Implemented
 
-> **HISTORICAL — V1.5 LIFE MAP COMPATIBILITY RERUN BLOCKED (2026-08-16):** Exactly four authorized Life Map strings were restored; tests were not changed or weakened. The original 14 Life Map failures are gone: isolated 67/67, matrix 864/864, weekday 108/108. Focused passes 286/286, synthetic reports/narratives are 300/300 unique, analyzer is 299 branch / 299 main / delta 0, Web build passes, and R7.1 identities remain exact. Full suite is branch 2,871/57 versus main 2,861/39; common 39, branch-only 18, main-only 0. The 18 are branch-specific Life Timeline goldens for profiles A/D/E/F/G/H at desktop/tablet/mobile. No golden/test update was allowed in that task, so PR #92 remained Open Draft; no commit/push/merge/deploy; Production remained V1.4.
+- Web, dedicated PDF and browser print use the same four-part reader order.
+- The infographic follows `แนวโน้ม 12 เดือนข้างหน้า` and displays the exact
+  rolling range, such as `7 ส.ค. 2569 – 6 ส.ค. 2570`.
+- `monthlyTimelineAvailable=false`; no monthly, good-month or caution-month
+  predictions were added.
+- The 360×640 logical infographic exports at 1080×1920 with a denser,
+  readable layout and explicit Known/Unknown limitations.
+- Candidate-only Thai copy repair improves headings and reflection prompts;
+  accepted R1–R7.1 canonical output remains exact.
 
-> **V1.5 OWNER ACCEPTANCE RECORDED / FINAL MERGE GATE BLOCKED (2026-08-16):** Authoritative status is `V1.5 R7.1 OWNER ACCEPTANCE PASSED` and `V1.5 PRODUCT ACCEPTANCE PASSED`; R1-R7.1 are immutable. R7.1 ZIP identity remains 10,709,328 bytes / 80 entries / SHA-256 `9E541F21C68FDAD93BC595C55BD0BE23600F88454CFBA7FAB6C713FE53F79E58`, with 79/79 checksums and 63 immutable matches. Fresh gate results: focused 286/286 pass, scoped analyzer clean, full analyzer branch/main 299/299 with delta 0, Web release build pass, and all acceptance preservation checks pass. Full suite fails at 2,875 passed / 53 failed; main has 2,861 passed / 39 failed and the branch adds 14 Life Map V1.2.6-V1.3.2 failures, reproduced by isolated 53 passed / 14 failed. Full suite is still required before merge. PR #92 remains Open Draft; no merge/deploy/Firebase/Production change; Production remains V1.4.
+## Validation evidence
 
-> **V1.5 R7.1 result (2026-08-16):** R7 narrative is Owner-accepted; the R7 package was rejected only for false-pass encoding evidence. The R7.1 evidence-only packet is 10,709,328 bytes / 80 entries / SHA-256 `9E541F21C68FDAD93BC595C55BD0BE23600F88454CFBA7FAB6C713FE53F79E58`; 79/79 checksums, clean extraction, negative-fixture rejection and strict UTF-8 validation pass. All 63 required immutable files match R7 with mismatch 0. Product tests were not rerun; the focused 286/286 result is preserved as R7 evidence and full suite was not run. Product Acceptance remains pending; PR #92 stays Open Draft; DO NOT MERGE; DO NOT DEPLOY; Production remains V1.4.
+- Patch SHA-256:
+  `E93DED06A9633AD1A877EFDA8B3DD56A9F68554DF23645AA316569D2141C7496`.
+- Dart format: 15 changed Dart files formatted successfully.
+- Focused commands: 91/91, 1/1, 38/38 and 3/3 passed.
+- 300-profile audit: 300/300 profiles, 4,884 changed fields; omission,
+  addition, semantic, prediction/advice and traceability impacts all 0.
+- Required full suite: 1,618/1,618 passed in 5:07.
+- Analyzer: exit 0 with 298 non-fatal baseline warnings/infos.
+- Surface QA: Known/Unknown at widths 360 and 390 exported deterministic
+  1080×1920 PNGs; each width pair is byte-identical for the same evidence
+  mode. All four outputs were opened and inspected with no clipping, overlap,
+  overflow or accidental blank region.
+- Dedicated PDF QA: Known 9 pages, Unknown 8 pages. All 17 rendered pages were
+  inspected; no blank page, clipping, overlap or broken section order.
+- Browser-print QA from real headless Chrome: Known 7 pages, Unknown 7 pages.
+  All 14 rendered pages were inspected; no blank page, clipping or overflow.
+- PDF/browser-print order and forbidden-title verification passed. Chrome's
+  embedded Thai font is not extractable by pdfplumber, so browser order was
+  verified against the exact generated HTML plus every-page raster inspection.
+- Accepted canonical/live-as-of, R7.1 exact owner-unknown and 300-case semantic
+  safety gates passed inside the required suite.
+- Changed-path audit found no Thai Engine, Canon, calculations, ascendant,
+  houses, Thai-day basis, life-period boundaries, Auth, Firebase or
+  `product-acceptance/` changes.
 
-> **V1.5 R7 result (2026-08-15):** `V1.5 R6 OWNER ACCEPTANCE REJECTED`. R7 evidence is under `product-acceptance/thai-narrative-v1.5-r7/`. Motif and phase prose occurrences are 2/2 per fixture, reader-quality failures are zero, traceability is 170/170 and Web/PDF parity is 5/5. Focused tests pass 286/286, scoped analyzer is clean, synthetic reports/narratives are unique 300/300, and all 34 pages pass visual QA. Broad consumer-unit reuse is reported truthfully as 71/219 (32.4201%); exact forecast-body conflicts across differing material signatures are zero. Full suite was not run. Owner Acceptance remains pending; PR #92 stays Open Draft; DO NOT MERGE; DO NOT DEPLOY; Production remains V1.4.
+## Remaining release workflow
 
-> **V1.5 R6 result (2026-08-15):** `V1.5 R5 OWNER ACCEPTANCE REJECTED`. R6 evidence is under `product-acceptance/thai-narrative-v1.5-r6/`. Exact consumer reuse is 0/222, cross-profile exact sentences are 0, clause/prefix/suffix/skeleton/near-duplicate flags are 0, traceability is 170/170 and Web/PDF parity is 5/5. Focused tests pass 280/280, scoped analyzer is clean, synthetic reports/narratives are unique 300/300, and all 37 pages pass visual QA. Full suite was not run. Owner Acceptance remains pending; PR #92 stays Open Draft; DO NOT MERGE; DO NOT DEPLOY; Production remains V1.4.
-
-> **V1.5 R5 result (2026-08-15):** `V1.5 R4 OWNER ACCEPTANCE REJECTED`. R5 evidence is under `product-acceptance/thai-narrative-v1.5-r5/`. Corrected freshness replay is R4 62/222 (27.93%, 23 groups) versus R5 57/216 (26.39%, 22 groups), all sourced from counted consumer units. Thai Past similarity max is 0.2925 with zero pairs at or above 0.78 and zero repeated skeletons. Focused tests pass 226/226, analyzer is clean, traceability is 170/170, Web/PDF parity is 5/5, and all 34 pages pass visual QA. Full suite was not run. Owner Acceptance remains pending; PR #92 stays Draft; no merge/deploy; Production remains V1.4.
-
-> **V1.5 R4 result (2026-08-15):** `V1.5 R3 OWNER ACCEPTANCE REJECTED`. R4 evidence is under `product-acceptance/thai-narrative-v1.5-r4/`. Focused tests pass 221/221, scoped analyzer is clean, 170/170 expressed claims occur in canonical Web/PDF, exact reuse falls from 41.81% to 29.55%, hook reuse is zero, and all 34 PDF pages pass visual QA. Portable ZIP SHA-256 is `64A4D8838A0A104C77B9CD6FED92701FD73964A9F36D49BFA4819CF890FDDB1F` (8,253,794 bytes, 76 entries, 75/75 checksums). Full suite was not run. Owner Acceptance remains pending. PR #92 stays Draft; no merge/deploy; Production remains V1.4.
-
-> **V1.4 PDF PAGINATION HOTFIX DEPLOYED AND PRODUCTION VERIFIED (2026-08-12).** PR #90 removed the forced semantic page break and merged as `effab1bffcb410891ae5361908392c92188da8b7`; Production verification then exposed the badge-inclusive exact-boundary spacer condition. PR #91 removed spacing after the final section and merged as `bbdb209b8c2573b16a49d445dd214f7cdfe5fd30`. A clean deployment of `bbdb209` ran 08:17:11Z-08:18:09Z with exit 0 and released 77 files. Fresh real Production downloads passed: Known `(22)` is 36,839 bytes / SHA-256 `1D4A599B9089A7B6F22EEA6E68862B5839F151B05EC8CE35D890F46209D54881` / 6 pages; Unknown `(23)` is 32,756 bytes / SHA-256 `A7CC414114EDD21566F701A8B10B7101779C6AB74DA7D3880C86CC4D5F93FB4D` / 5 pages. Every one of the 11 raster pages passed direct visual inspection, including correct 1/6-6/6 and 1/5-5/5 numbering. Canonical hashes remain unchanged, Unknown remains fail-closed, and cache-bypassed Production HTTP/assets/API checks passed. Rollback remains available from Firebase Hosting release history.
-
-> **V1.4 HOTFIX PRODUCTION FOLLOW-UP (2026-08-12).** PR #90 deployment fixed Unknown to 5 pages but Known remained 7 pages. Production evidence showed the public evidence-badge disclosure filled page 6 exactly; the exporter's final content-free 14-point section spacer then created a footer-only page 7. The follow-up removes spacing after the final section and exercises the badge-inclusive Production fixture. Production remains defective until follow-up merge and redeploy.
-
-> **V1.4 PDF PAGINATION HOTFIX — LOCAL FIX VERIFIED (2026-08-12).** The minimum exporter fix removes a forced continuation `pw.NewPage()` and keeps its heading with the intended paragraph in one atomic unit. Production-fixture output is now Known 6 pages / SHA-256 `30ED523F28DFCAFF04DD1615103859183BD799511CE2FF2AA2E653B8C73CF87B` and Unknown 5 pages / SHA-256 `5FE3C84669F82CD0DB28D43C43E0420BF67F42677F8EF6308D2E92871AD67E88`. All 11 pages passed visual inspection. Accepted Web/PDF canonical hashes remain byte-identical. Focused gates passed 93/93; full suite is 2,861 passed / the same 39 baseline failures, zero new; analyzer remains the 299-finding baseline. Production is not fixed until this branch is merged and deployed.
-
-> **V1.4 DEPLOYED — PRODUCTION DEFECT FOUND (2026-08-12).** Firebase Hosting deployment of accepted merge `0c3d1ef9d083502aa5f1ddae67b9acd23acecbed` completed successfully at 07:26:31Z for project `knowme-app-694e1`. Production and `/beta/thai` return HTTP 200, the deployed bundle is pinned to `0c3d1ef`, uses the Production API, and contains no localhost/test endpoint. Known and Unknown Web flows rendered without fatal console errors; Unknown remained fail-closed. Real Production downloads were inspected on every page: Known is 7 pages (page 7 empty), SHA-256 `5CE22BC8B80B00DE0ECF693DC9F52EA85186D1C4A5AF7CBFA0B169E56F015A30`; Unknown is 6 pages, SHA-256 `87D0B21982B1929BA3DD1F7674EC2611DB586639C398C03A5EFF8968B750B8E6`. This fails the required 6/5-page Production gate. No application files were changed. Firebase Hosting release history is the rollback reference.
-
-> **V1.4 PRODUCT ACCEPTANCE — PASSED (2026-08-12).** Owner acceptance covers r16 evidence packet `thai-report-natural-narrative-v1-4-final-r16-evidence-24c10f5.zip`, 23,386,793 bytes, 45 entries, SHA-256 `9DF9C2B414BF2B8EF6ADA64AD53056AF8F7AD4D157A57597390E6906AFD343D3`; accepted evidence-report SHA-256 is `50AC460E5C1A745725AF98D31F8B4B4A6A36C500F72DA50C93DD114A397226B1`. Known 6 pages and Unknown 5 pages were independently inspected across all 11 renders. PDFs, canonical texts, and renders remain byte-for-byte identical to approved r15 output. PR #89 is approved for merge. No deployment or Production change has occurred. Earlier pending/rejection entries remain as history and are superseded for V1.4.
-
-> V1.4 r15 evidence correction: all 11 renders were reopened and recorded with real headings, last lines, named sections/cards, split/continuation state, geometry results, whitespace, and footer. Four fail-closed regressions protect the generator. Approved hashes remain Known PDF `11A8238AAD42B50216A51BFD1D97D94F14150B500C585D0E172C58B4BBAE4DCE`, Unknown PDF `6E413EED71491793D687C1FCF0C87E25B2FBACDD0E7347255A04F4F0D4BF56AE`, Known canonical `AAB53A53DD8699365E5EDAD1F57C61ABCB4A7A69FD90D6E99E4B940C0987FC10`, Unknown canonical `43274E0CEDAA187CFF51879B77547D1C6746E497FF57CCB2ECDB0540F87FDF99`; all render hashes match r15. Corrected report hash: `50AC460E5C1A745725AF98D31F8B4B4A6A36C500F72DA50C93DD114A397226B1`. **PENDING OWNER RE-ACCEPTANCE**; no merge/deploy/Production change.
-
-Final packet: `C:\Users\USER\Downloads\thai-report-natural-narrative-v1-4-final-r16-evidence-24c10f5.zip`, 23,386,793 bytes, 45 unique entries, SHA-256 `9DF9C2B414BF2B8EF6ADA64AD53056AF8F7AD4D157A57597390E6906AFD343D3`.
-
-> V1.4 owner-rejection revision (2026-08-12): candidate-r14 removes the three cited Unknown repetitions, restores supported forecast-before-advice copy, and adds deterministic PDF continuation orientation. The complete audit passes with cross 18 exact/5 near (23 allowed), Known internal 0/0, Unknown internal 0 exact/6 near (all explicitly enumerated fail-closed omissions), and zero substantive violations. All 11 PDF pages were opened; Product Acceptance remains pending.
-
-> V1.4 completion result (2026-08-11): the Owner-approved baseline-delta gate passes. A fresh JSON-reporter run reconciles clean HEAD at 2,856 passed / 40 failed with V1.4 at 2,858 passed / 39 failed: 39 unchanged, one now passing, zero new, zero worsened, and zero unmatched. Focused V1.4 gates pass 109/109; the repository scoped suite passes 1,535/1,535; golden regression passes 24/24; analyzer remains exactly the 299-finding baseline. Fresh candidate-r6 passes all 5,070 narrative comparisons with zero substantive violations and its Known 6-page / Unknown 5-page PDFs pass every-page visual inspection. Product Acceptance remains pending.
-
-Final acceptance ZIP: `C:\Users\USER\Downloads\thai-report-natural-narrative-v1-4-final-r6-179c5c9.zip`; size 22,399,505 bytes; 45 unique safe entries; SHA-256 `9C63DCB66CCD938AB013B09FA90CCC986FBB63A53EE5AB66EE7B04624CFC5F7A`. Known PDF SHA-256 is `E2F68B456EDCAF016AB0BC7F18ECE7457FA77EBBDF8F409BF8B5EC6A64BA61A6`; Unknown PDF SHA-256 is `EB5B96855FC2193376AFA0830137670BDA03BF5EBB6D9A95AB5DED8B4EE2E0A0`. Cross-fixture audit JSON SHA-256 is `619C2843F2CF70E8315A84C6188B3FB1BC98598CC725A49BB7FC85757B64F1F4`. Product Acceptance remains pending; no merge, deploy, or Production change occurred.
-
-## Result
-
-Draft PR #89 is being reworked on `agent/thai-report-reading-flow-v1` after the Owner rejected the actual V1.1 packet. V1.1 is immutable historical evidence. Status is `PENDING OWNER RE-ACCEPTANCE`; this branch is not merged or deployed.
-
-The V1.2 root cause analysis is recorded in `docs/PR89_V12_ROOT_CAUSE.md`. The composer still concatenated timed claim, impact, bridge, risk, action, fallback, and transition fragments after labels were removed. The PDF semantic-block renderer then treated each split block as a continuation and unconditionally prefixed the parent title with `(ต่อ)`. The previous audit split only complete sentences, while the previous visual checklist did not record first/last lines or continuation counts per page; both therefore missed the Owner-visible failures.
-
-V1.2 retains typed Claim/Risk/Decision/Action semantics but selects only the material needed for one finished reader-facing thought. Current domains are limited to two short paragraphs and one practical focus; twelve-month and next-period domains are limited to one short paragraph, with one observable sign or one preparation item. Parent headings render once, and paragraph chunks no longer create separately headed cards.
-
-## Preserved contracts
-
-- No engine, Canon, calculation, astrological-day boundary, ascendant, house, timeline boundary, factual provenance, Auth, flag, audience, or Production change.
-- Known-time facts remain exact; Unknown-time remains fail-closed with no assumed time, Lagna, house, or astrological-day conclusion.
-- Web/PDF consume the same analysis and shared presentation values.
-- Fortune remains separate from health; ISO date tokens remain atomic.
-- Round 9 remains completed historical evidence; existing `product-acceptance/` and the rejected first PR #89 packet were not changed.
-
-## Factual verification
-
-- Exact Known fixture: 1982-06-06 00:03, Chiang Mai, standard `ThaiBetaAnalysisRunner`.
-- Canonical ascendant: Aquarius 9°24′.
-- The separate 00:35 fixture produces Aquarius 19°19′; this is input-driven, not a regression.
-
-## Validation
-
-- Focused narrative/core/export/pipeline tests: 251/251 passed.
-- Synthetic/parity tests: 16/16 passed, including 300 synthetic cases and 20 exact Web/PDF parity cases.
-- Golden/story tests: 32/32 passed (24 screenshot profiles and 8 story profiles); no golden update was needed.
-- Full required Flutter suite: 1,532/1,532 passed.
-- Repository PreCommit gate: passed.
-- Analyzer: completed with the repository baseline of 299 warning/info findings and no fatal gate failure.
-- Deterministic Known/Unknown V1.2 audit: zero duplicate internal clauses, reused normalized sentence skeletons, repeated action/fallback constructions, forbidden transition families, or content-budget breaches. The V1.1-style negative fixture fails as required.
-- Known Web/PDF canonical text parity: byte-identical.
-- Unknown Web/PDF canonical text parity: byte-identical; fail-closed behavior preserved.
-- Acceptance PDFs from source-tested commit `fa2664f`: Known 6 pages / 36,543 bytes / SHA-256 `4DBEAFC51239398C7ED8ACF42584CFE7CE95B0F71DDFB41A2C4A5A427E796601`; Unknown 5 pages / 33,512 bytes / SHA-256 `EFD5BAA9E9E0FBBE6CF2B3C3EF9EAAABE967758F346AE1839D7BBC6676F492FE`.
-- Visual QA: all 11 final rendered PDF pages and four final Web desktop/mobile captures inspected without blank/orphan page, repeated continuation heading, clipping, overflow, footer overlap, or missing glyph. The evidence log records every page's first heading, last visible line, and continuation count (all zero).
-- New acceptance folder: `C:\Users\USER\Documents\Knowme\thai-report-natural-narrative-v1-2-fa2664f-acceptance`.
-- ZIP: `C:\Users\USER\Downloads\thai-report-natural-narrative-v1-2-fa2664f.zip`, 2,436,006 bytes, 28 safe unique entries, SHA-256 `8EA21BB2AEB98BBD36DDE28B8F958E4693A58F0C49A03D72C7D7B49249BEC673`; 26 checksum lines verified with zero mismatch.
-
-The acceptance ZIP and Draft PR metadata are recorded after packaging and push complete. Do not merge or deploy before explicit Owner approval.
-# PR #89 V1.3 status (2026-08-11)
-
-Owner rejected V1.2 (`thai-report-natural-narrative-v1-2-fa2664f.zip`, SHA-256 `8EA21BB2AEB98BBD36DDE28B8F958E4693A58F0C49A03D72C7D7B49249BEC673`). Root causes and the invalid V1.2 visual-review conclusion are recorded in `docs/PR89_V13_ROOT_CAUSE.md`. V1.3 repairs cross-fixture/horizon selection, repeated past fragments, Unknown omission wording, and PDF disclaimer geometry. Status: **PENDING OWNER RE-ACCEPTANCE**. Do not merge or deploy.
-# V1.5 narrative quality result (Draft)
-
-Implementation and acceptance evidence are proposed under
-`product-acceptance/thai-narrative-v1.5-r1/`. Automated checks are supporting
-evidence only; narrative quality remains pending Owner reading. Production was
-not changed. See `docs/THAI_NARRATIVE_V15_ROOT_CAUSE_AND_SPEC.md`.
-# V1.5 R2 status (2026-08-12)
-
-## Acceptance-evidence correction - 2026-08-13
-
-The final packet replaces five stale contact sheets with composites built from the final 30 page PNGs and corrects the README page count. PDF bytes and implementation are unchanged. The focused suite was rerun at 261/261, and the corrected ZIP SHA-256 is `610E69A38E2CA012BE4698E266E465EA8B17F44275761812050854A47F9B36CD`.
-
-R1 is recorded as owner-rejected. R2 focused validation passes 261/261 and the owner 00:35 / regression 00:03 identities remain Aquarius 19°19′ / 9°24′. The R2 package includes five PDFs, 30 rendered pages, Claim Ledger and corrective evidence. PR #92 remains Draft and requires owner acceptance; no merge or deployment has occurred; Production remains V1.4.
-
-# V1.5 R3 result (2026-08-13)
-
-`V1.5 R2 OWNER ACCEPTANCE REJECTED`. R3 is a new acceptance candidate under `product-acceptance/thai-narrative-v1.5-r3/`; R1/R2 remain unchanged. The report-level composer produces a motif-led hook, three distinct horizon functions and cautious past synthesis. Focused validation passes 264/264 from raw UTF-8 output; the scoped analyzer reports no issues; no full-suite claim is made. All five PDFs are 6 pages and all 30 final renders pass visual QA. Automated evidence reports 0/26 exact strong-claim reuse across materially different fixtures and zero rejected system/biography hits. Owner Acceptance remains pending; PR #92 is Draft; no merge/deploy; Production remains V1.4.
-
-# V1.5 controlled golden reconciliation and final gate (2026-08-16)
-
-Owner authorization covered only the exact 18 Life Timeline goldens. Fresh repaired actuals match pinned main `22cbb3c` pixel-for-pixel and dimension-for-dimension 18/18, so Case A restored those files byte-for-byte; original-resolution visual QA passes 18/18 and targeted regression passes 24/24. Life Map passes 67/67 and matrix 864/864 (weekday 108/108); R7 focused passes 286/286; synthetic remains 300/300 unique and deterministic; scoped analyzer is clean; full analyzer is 299 branch / 299 main / delta 0; Web release build passes. Full branch is 2,889/39 versus pinned main 2,861/39, with exact failure sets common 39 / branch-only 0 / main-only 0. Baseline debt was not hidden or weakened. R7/R7.1 remain accepted and immutable. No merge, deploy, Firebase, or Production change; Production remains V1.4.
-
-# Historical PR #95 pre-S008 cross-runtime parity gate — blocked (2026-08-17)
-
-This preserved pre-repair record identified S008's one-ULP raw `siderealAscendantDeg` difference and its report-hash/narrative propagation. It is superseded by the current S008 fixed-point result at the top of this file: final canonical mismatches are zero and the complete fresh final gate passes. Copy normalization remains pending Owner review, so PR #95 stays Draft; Production remains V1.4.
+- Repository PreCommit: passed (scope, forbidden scan, analyzer, all focused
+  commands and required full suite).
+- Commit / PostCommit / push / Draft PR / GitHub checks: pending.
+- Merge, deployment and Firebase/Production mutation: not performed and out of
+  scope.

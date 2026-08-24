@@ -32,9 +32,31 @@ void main() {
         expect(analysis.isSuccess, isTrue, reason: profile.id);
         final before = ThaiBetaReportExportDocument.beforeReaderCopy(analysis);
         final after = ThaiBetaReportExportDocument.candidate(analysis);
+        final chapterSections = after.sections
+            .where(
+              (section) =>
+                  section.kind == ThaiBetaReportExportSectionKind.chapter,
+            )
+            .toList(growable: false);
+        expect(
+          chapterSections.map((section) => section.title),
+          orderedEquals(const [
+            'ส่วนที่ 1 · พื้นดวงของคุณ',
+            'ส่วนที่ 2 · จังหวะชีวิตที่ผ่านมาและปัจจุบัน',
+            'ส่วนที่ 3 · แนวโน้มข้างหน้า',
+            'ส่วนที่ 4 · ที่มาและข้อจำกัด',
+          ]),
+          reason: profile.id,
+        );
+        final afterContentSections = after.sections
+            .where(
+              (section) =>
+                  section.kind != ThaiBetaReportExportSectionKind.chapter,
+            )
+            .toList(growable: false);
         expect(
           before.sections.length,
-          after.sections.length,
+          afterContentSections.length,
           reason: profile.id,
         );
         for (
@@ -43,23 +65,45 @@ void main() {
           sectionIndex++
         ) {
           final left = before.sections[sectionIndex];
-          final right = after.sections[sectionIndex];
-          expect(left.id, right.id, reason: profile.id);
+          final candidateTitle = switch (left.title) {
+            'แผนที่ชีวิต' => 'แผนที่ชีวิตของคุณ',
+            'ธีมสำหรับทบทวนอดีต' => 'อดีตของคุณ',
+            'ช่วงชีวิตถัดไป' => 'สิ่งที่ควรเตรียมสำหรับช่วงถัดไป',
+            'คำแนะนำปิดท้ายช่วงถัดไป' => 'ข้อสรุปสำหรับช่วงข้างหน้า',
+            'แนวโน้มระยะยาว' => 'จังหวะชีวิตระยะต่อไป',
+            _ => left.title,
+          };
+          final right = afterContentSections.singleWhere(
+            (section) => section.title == candidateTitle,
+          );
           expect(
             left.paragraphs.length,
             right.paragraphs.length,
             reason: left.id,
           );
-          _record(
-            rows,
-            changedProfiles,
-            profile.id,
-            profile.input.hasBirthTime,
-            '${left.id}.title',
-            left.title,
-            right.title,
-            left.traceIds,
-          );
+          if (candidateTitle == left.title) {
+            _record(
+              rows,
+              changedProfiles,
+              profile.id,
+              profile.input.hasBirthTime,
+              '${left.id}.title',
+              left.title,
+              right.title,
+              left.traceIds,
+            );
+          } else {
+            expect(right.title, candidateTitle, reason: profile.id);
+            expect(right.traceIds, orderedEquals(left.traceIds));
+          }
+          if (left.title == 'ช่วงปัจจุบัน') {
+            expect(right.title, left.title, reason: profile.id);
+            expect(right.traceIds, orderedEquals(left.traceIds));
+            expect(right.paragraphs, hasLength(left.paragraphs.length));
+            expect(right.paragraphs.first, contains('(อายุ '));
+            expect(right.paragraphs[1], isNotEmpty);
+            continue;
+          }
           for (
             var paragraphIndex = 0;
             paragraphIndex < left.paragraphs.length;
@@ -186,9 +230,8 @@ void main() {
           );
         }
         final beforeHasTransitionReserve = beforeGraphic.categories.any(
-          (category) => category.summary.contains(
-            'และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต',
-          ),
+          (category) =>
+              category.summary.contains('และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต'),
         );
         if (afterGraphic.categories.any(
               (category) =>
@@ -201,7 +244,9 @@ void main() {
           );
         }
         if (beforeHasTransitionReserve !=
-            afterGraphic.overview.contains('ควรเผื่อแรงไว้เมื่อหน้าที่เปลี่ยน')) {
+            afterGraphic.overview.contains(
+              'ควรเผื่อแรงไว้เมื่อหน้าที่เปลี่ยน',
+            )) {
           copyQualityViolations.add(
             '${profile.id}: transition reserve was not relocated exactly once',
           );

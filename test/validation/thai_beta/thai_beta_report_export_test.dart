@@ -349,7 +349,7 @@ void main() {
   });
 
   group('Real PDF exporter path regression', () {
-    test('R7 pagination fixtures stay at measured 7/6 pages', () async {
+    test('chaptered report fixtures stay at measured 7/6 pages', () async {
       for (final fixture in <({bool knownTime, int pages})>[
         (knownTime: true, pages: 7),
         (knownTime: false, pages: 6),
@@ -809,7 +809,7 @@ void main() {
       final rendered = await ThaiBetaReportPdfExporter.build(doc);
 
       expect(rendered.plainText, contains(stage.phaseName));
-      expect(rendered.plainText, contains(stage.eyebrow));
+      expect(rendered.plainText, contains(stage.planetLine));
     });
 
     test('PDF timeline matches report timeline sections', () async {

@@ -50,8 +50,8 @@ abstract final class ThaiBetaThaiRepetitionAudit {
     var text = value.trim().toLowerCase();
     text = text.replaceFirst(
       kind == ThaiBetaPastUnitKind.theme
-          ? RegExp(r'^ธีมสำหรับทบทวน\s*:\s*')
-          : RegExp(r'^คำถามสะท้อน\s*:\s*'),
+          ? RegExp(r'^(?:ธีมสำหรับทบทวน\s*:\s*|ลองย้อนดูว่า\s*)')
+          : RegExp(r'^(?:คำถามสะท้อน|คำถามชวนทบทวน)\s*:\s*'),
       '',
     );
     text = text

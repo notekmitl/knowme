@@ -10,6 +10,14 @@ import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_pr
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_download.dart';
 
+const _reportDomainHeadings = {
+  'การงาน',
+  'การเงิน',
+  'ความรัก',
+  'สุขภาพ',
+  'โชคลาภ',
+};
+
 abstract final class ThaiBetaAnnualInfographicCapture {
   static const logicalSize = Size(360, 640);
   static const pixelRatio = 3.0;
@@ -116,13 +124,6 @@ class ThaiBetaSharedReportView extends StatelessWidget {
       if (!timelineStarted &&
           section.kind == ThaiBetaReportExportSectionKind.timeline) {
         timelineStarted = true;
-        children.add(
-          const Padding(
-            key: Key('thai_birth_profile_timeline_divider'),
-            padding: EdgeInsets.fromLTRB(18, 14, 18, 18),
-            child: Divider(),
-          ),
-        );
         sectionWidget = KeyedSubtree(
           key: const Key('thai_consumer_life_timeline'),
           child: sectionWidget,
@@ -183,10 +184,13 @@ class _SharedReportSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final isChapter = section.kind == ThaiBetaReportExportSectionKind.chapter;
     final isTimeline = section.kind == ThaiBetaReportExportSectionKind.timeline;
     final isDisclaimer =
         section.kind == ThaiBetaReportExportSectionKind.disclaimer;
-    final background = isTimeline
+    final background = isChapter
+        ? const Color(0xff18203f)
+        : isTimeline
         ? const Color(0xfff3f1ea)
         : isDisclaimer
         ? const Color(0xfffff7e8)
@@ -194,19 +198,21 @@ class _SharedReportSection extends StatelessWidget {
     final phaseLabel = switch (section.title) {
       'อดีตของคุณ' => 'อดีต',
       'ช่วงปัจจุบัน' => 'ปัจจุบัน',
-      'แนวโน้มระยะยาว' => 'อนาคต',
+      'จังหวะชีวิตระยะต่อไป' => 'อนาคต',
       _ => null,
     };
 
     return Container(
       key: ValueKey(section.id),
-      margin: const EdgeInsets.fromLTRB(18, 0, 18, 14),
-      padding: const EdgeInsets.all(18),
+      margin: EdgeInsets.fromLTRB(18, isChapter ? 12 : 0, 18, 14),
+      padding: EdgeInsets.fromLTRB(18, isChapter ? 20 : 18, 18, 18),
       decoration: BoxDecoration(
         color: background,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: isDisclaimer
+          color: isChapter
+              ? const Color(0xffc7a760)
+              : isDisclaimer
               ? const Color(0xffd7a84d)
               : const Color(0xffddd9cd),
         ),
@@ -227,7 +233,9 @@ class _SharedReportSection extends StatelessWidget {
           Text(
             section.title,
             style: theme.textTheme.titleMedium?.copyWith(
-              color: const Color(0xff18203f),
+              color: isChapter
+                  ? const Color(0xfffff8e8)
+                  : const Color(0xff18203f),
               fontWeight: FontWeight.w800,
               height: 1.35,
             ),
@@ -243,17 +251,51 @@ class _SharedReportSection extends StatelessWidget {
             ),
           ],
           for (var index = 0; index < section.paragraphs.length; index++) ...[
-            const SizedBox(height: 9),
-            Text(
-              section.paragraphs[index],
-              key: ValueKey(section.paragraphIds[index]),
-              style: theme.textTheme.bodyMedium?.copyWith(height: 1.62),
-            ),
+            SizedBox(height: isChapter ? 6 : 9),
+            if (_reportDomainHeadings.contains(
+              section.paragraphs[index].trim(),
+            ))
+              Row(
+                key: ValueKey(section.paragraphIds[index]),
+                children: [
+                  Icon(
+                    _domainIcon(section.paragraphs[index]),
+                    size: 18,
+                    color: const Color(0xff96702e),
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    section.paragraphs[index],
+                    style: theme.textTheme.labelLarge?.copyWith(
+                      color: const Color(0xff18203f),
+                      fontWeight: FontWeight.w800,
+                    ),
+                  ),
+                ],
+              )
+            else
+              Text(
+                section.paragraphs[index],
+                key: ValueKey(section.paragraphIds[index]),
+                style: theme.textTheme.bodyMedium?.copyWith(
+                  color: isChapter ? const Color(0xffddd4bd) : null,
+                  height: isChapter ? 1.48 : 1.62,
+                ),
+              ),
           ],
         ],
       ),
     );
   }
+
+  IconData _domainIcon(String label) => switch (label.trim()) {
+    'การงาน' => Icons.work_outline,
+    'การเงิน' => Icons.savings_outlined,
+    'ความรัก' => Icons.favorite_border,
+    'สุขภาพ' => Icons.self_improvement,
+    'โชคลาภ' => Icons.auto_awesome_outlined,
+    _ => Icons.circle_outlined,
+  };
 }
 
 class ThaiBetaAnnualInfographicPanel extends StatelessWidget {
@@ -272,7 +314,7 @@ class ThaiBetaAnnualInfographicPanel extends StatelessWidget {
       final bytes = await ThaiBetaAnnualInfographicCapture.png(boundaryKey);
       final downloaded = await downloadBytesAsFile(
         bytes: bytes,
-        filename: 'knowme-annual-horoscope-${data.buddhistYear}.png',
+        filename: 'knowme-12-month-outlook-${data.buddhistYear}.png',
       );
       messenger?.showSnackBar(
         SnackBar(
@@ -299,7 +341,7 @@ class ThaiBetaAnnualInfographicPanel extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            'ภาพสรุปรายปี',
+            'ภาพสรุป 12 เดือนข้างหน้า',
             style: Theme.of(
               context,
             ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w800),
@@ -308,7 +350,7 @@ class ThaiBetaAnnualInfographicPanel extends StatelessWidget {
           Semantics(
             image: true,
             label:
-                '${data.title} สรุปการงาน การเงิน ความรัก สุขภาพ โอกาสและข้อควรระวัง',
+                '${data.title} ช่วง ${data.periodLabel} สรุปการงาน การเงิน ความรัก สุขภาพ โอกาสและข้อควรระวัง',
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: FittedBox(
@@ -341,8 +383,8 @@ class _AnnualInfographicCanvas extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const navy = Color(0xff101832);
-    const indigo = Color(0xff1b2852);
+    const navy = Color(0xff0d1530);
+    const deepIndigo = Color(0xff18254f);
     const gold = Color(0xffc7a760);
     const cream = Color(0xfffff8e8);
     const ivory = Color(0xfff5f0e4);
@@ -353,8 +395,14 @@ class _AnnualInfographicCanvas extends StatelessWidget {
       key: const Key('thai_annual_infographic_canvas'),
       width: ThaiBetaAnnualInfographicCapture.logicalSize.width,
       height: ThaiBetaAnnualInfographicCapture.logicalSize.height,
-      padding: const EdgeInsets.fromLTRB(16, 13, 16, 13),
-      decoration: const BoxDecoration(color: navy),
+      decoration: BoxDecoration(
+        gradient: const LinearGradient(
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+          colors: [Color(0xff0d1530), Color(0xff17244a), Color(0xff0f1936)],
+        ),
+        border: Border.all(color: gold.withValues(alpha: .42), width: 1.2),
+      ),
       child: DefaultTextStyle(
         style: const TextStyle(
           color: cream,
@@ -362,145 +410,235 @@ class _AnnualInfographicCanvas extends StatelessWidget {
           fontFamily: 'KnowMeNotoSansThai',
           fontFamilyFallback: ['KnowMeNotoSans'],
         ),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: Stack(
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Row(
-                  children: [
-                    const _InfographicGlyph(
-                      name: 'spark',
+            const Positioned(
+              top: 72,
+              right: -22,
+              width: 172,
+              height: 172,
+              child: Opacity(opacity: .22, child: _ThaiAnnualOrnament()),
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const Text(
+                    'KNOWME  •  รายงานโหราไทย',
+                    style: TextStyle(
                       color: gold,
-                      size: 22,
+                      fontSize: 8.4,
+                      fontWeight: FontWeight.w700,
+                      letterSpacing: .6,
                     ),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Text(
-                        data.title,
-                        key: ThaiBetaAnnualInfographicLayoutKeys.title,
-                        style: const TextStyle(
-                          fontSize: 22,
-                          fontWeight: FontWeight.w800,
-                          letterSpacing: .1,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(height: 4),
-                Text(
-                  data.theme,
-                  key: ThaiBetaAnnualInfographicLayoutKeys.theme,
-                  style: const TextStyle(
-                    color: gold,
-                    fontSize: 9.8,
-                    height: 1.32,
-                    fontWeight: FontWeight.w700,
                   ),
-                ),
-                const SizedBox(height: 2),
-                Text(
-                  data.overview,
-                  key: ThaiBetaAnnualInfographicLayoutKeys.overview,
-                  style: const TextStyle(color: ivory, fontSize: 9.5),
-                ),
-              ],
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                for (
-                  var index = 0;
-                  index < data.categories.length;
-                  index++
-                ) ...[
-                  _InfographicCategoryRow(category: data.categories[index]),
-                  if (index < data.categories.length - 1)
-                    const SizedBox(height: 3),
-                ],
-              ],
-            ),
-            const Flexible(
-              fit: FlexFit.loose,
-              child: SizedBox(height: 64, child: _ThaiAnnualOrnament()),
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                _Band(
-                  key: ThaiBetaAnnualInfographicLayoutKeys.opportunity,
-                  iconName: 'opportunity',
-                  label: 'โอกาสดี',
-                  value: data.opportunity,
-                  color: teal,
-                ),
-                const SizedBox(height: 4),
-                _Band(
-                  key: ThaiBetaAnnualInfographicLayoutKeys.caution,
-                  iconName: 'shield',
-                  label: 'ควรระวัง',
-                  value: data.caution,
-                  color: amber,
-                ),
-              ],
-            ),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                Container(
-                  key: ThaiBetaAnnualInfographicLayoutKeys.advice,
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 10,
-                    vertical: 6,
-                  ),
-                  decoration: BoxDecoration(
-                    color: indigo,
-                    borderRadius: BorderRadius.circular(10),
-                    border: Border.all(color: gold.withValues(alpha: .5)),
-                  ),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  const SizedBox(height: 3),
+                  Row(
                     children: [
-                      const SizedBox(
-                        width: 78,
-                        child: Text(
-                          'คำแนะนำสำคัญ',
-                          style: TextStyle(
-                            color: gold,
-                            fontSize: 9,
-                            fontWeight: FontWeight.w800,
-                          ),
-                        ),
+                      const _InfographicGlyph(
+                        name: 'spark',
+                        color: gold,
+                        size: 20,
                       ),
                       const SizedBox(width: 7),
                       Expanded(
                         child: Text(
-                          data.primaryAdvice,
+                          data.title,
+                          key: ThaiBetaAnnualInfographicLayoutKeys.title,
                           style: const TextStyle(
                             color: cream,
-                            fontSize: 8.2,
-                            height: 1.28,
+                            fontSize: 20.5,
+                            height: 1.2,
+                            fontWeight: FontWeight.w800,
                           ),
                         ),
                       ),
                     ],
                   ),
-                ),
-                const SizedBox(height: 5),
-                Text(
-                  data.disclaimer,
-                  key: ThaiBetaAnnualInfographicLayoutKeys.disclaimer,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                    color: Color(0xffd8d3c8),
-                    fontSize: 7.8,
-                    height: 1.3,
+                  const SizedBox(height: 5),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Container(
+                      key: ThaiBetaAnnualInfographicLayoutKeys.overview,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 9,
+                        vertical: 4,
+                      ),
+                      decoration: BoxDecoration(
+                        color: gold.withValues(alpha: .14),
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(color: gold.withValues(alpha: .45)),
+                      ),
+                      child: Text(
+                        data.overview,
+                        style: const TextStyle(
+                          color: ivory,
+                          fontSize: 8.5,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              ],
+                  const SizedBox(height: 6),
+                  Container(
+                    height: 72,
+                    padding: const EdgeInsets.fromLTRB(11, 8, 11, 8),
+                    decoration: BoxDecoration(
+                      color: deepIndigo.withValues(alpha: .88),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: gold.withValues(alpha: .38)),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'ประเด็นหลักของช่วงนี้',
+                          style: TextStyle(
+                            color: gold,
+                            fontSize: 8.2,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                        const SizedBox(height: 3),
+                        Expanded(
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              data.theme,
+                              key: ThaiBetaAnnualInfographicLayoutKeys.theme,
+                              style: const TextStyle(
+                                color: cream,
+                                fontSize: 8.9,
+                                height: 1.3,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  SizedBox(
+                    height: 106,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(
+                          child: _InfographicCategoryRow(
+                            category: data.categories[0],
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: _InfographicCategoryRow(
+                            category: data.categories[1],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  SizedBox(
+                    height: 106,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(
+                          child: _InfographicCategoryRow(
+                            category: data.categories[2],
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: _InfographicCategoryRow(
+                            category: data.categories[3],
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  SizedBox(
+                    height: 96,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(
+                          child: _Band(
+                            key:
+                                ThaiBetaAnnualInfographicLayoutKeys.opportunity,
+                            iconName: 'opportunity',
+                            label: 'โอกาสที่ควรใช้',
+                            value: data.opportunity,
+                            color: teal,
+                          ),
+                        ),
+                        const SizedBox(width: 8),
+                        Expanded(
+                          child: _Band(
+                            key: ThaiBetaAnnualInfographicLayoutKeys.caution,
+                            iconName: 'shield',
+                            label: 'เรื่องที่ควรระวัง',
+                            value: data.caution,
+                            color: amber,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  Container(
+                    key: ThaiBetaAnnualInfographicLayoutKeys.advice,
+                    height: 74,
+                    padding: const EdgeInsets.fromLTRB(11, 8, 11, 8),
+                    decoration: BoxDecoration(
+                      color: const Color(0xff202f60),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(color: gold.withValues(alpha: .65)),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          'สิ่งสำคัญที่ควรทำ',
+                          style: TextStyle(
+                            color: gold,
+                            fontSize: 8.4,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                        const SizedBox(height: 3),
+                        Expanded(
+                          child: Align(
+                            alignment: Alignment.centerLeft,
+                            child: Text(
+                              data.primaryAdvice,
+                              style: const TextStyle(
+                                color: cream,
+                                fontSize: 7.9,
+                                height: 1.25,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 6),
+                  Text(
+                    data.disclaimer,
+                    key: ThaiBetaAnnualInfographicLayoutKeys.disclaimer,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      color: Color(0xffd8d3c8),
+                      fontSize: 7.8,
+                      height: 1.25,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ],
         ),
@@ -519,44 +657,66 @@ class _InfographicCategoryRow extends StatelessWidget {
     const navy = Color(0xff101832);
     const indigo = Color(0xff1b2852);
     const gold = Color(0xffc7a760);
-    const ivory = Color(0xfff5f0e4);
+    const ivory = Color(0xfffffbf2);
     return Container(
       key: ThaiBetaAnnualInfographicLayoutKeys.category(category.id),
-      constraints: const BoxConstraints(minHeight: 42),
-      padding: const EdgeInsets.symmetric(horizontal: 9, vertical: 5),
+      padding: const EdgeInsets.fromLTRB(9, 8, 9, 8),
       decoration: BoxDecoration(
-        color: ivory,
-        borderRadius: BorderRadius.circular(10),
-        border: Border.all(color: gold.withValues(alpha: .55)),
+        color: ivory.withValues(alpha: .97),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: gold.withValues(alpha: .62)),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0x25000000),
+            blurRadius: 6,
+            offset: Offset(0, 2),
+          ),
+        ],
       ),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 1),
-            child: _InfographicGlyph(
-              name: category.iconName,
-              color: indigo,
-              size: 15,
-            ),
-          ),
-          const SizedBox(width: 6),
-          SizedBox(
-            width: 49,
-            child: Text(
-              category.title,
-              style: const TextStyle(
-                color: indigo,
-                fontSize: 9.5,
-                fontWeight: FontWeight.w800,
+          Row(
+            children: [
+              Container(
+                width: 24,
+                height: 24,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: gold.withValues(alpha: .2),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: _InfographicGlyph(
+                  name: category.iconName,
+                  color: indigo,
+                  size: 14,
+                ),
               ),
-            ),
+              const SizedBox(width: 6),
+              Expanded(
+                child: Text(
+                  category.title,
+                  style: const TextStyle(
+                    color: indigo,
+                    fontSize: 9.1,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ),
+            ],
           ),
-          const SizedBox(width: 7),
+          const SizedBox(height: 6),
           Expanded(
-            child: Text(
-              category.summary,
-              style: const TextStyle(color: navy, fontSize: 8.5, height: 1.25),
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                category.summary,
+                style: const TextStyle(
+                  color: navy,
+                  fontSize: 7.8,
+                  height: 1.25,
+                ),
+              ),
             ),
           ),
         ],
@@ -644,35 +804,42 @@ class _Band extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      constraints: const BoxConstraints(minHeight: 40),
-      padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+      padding: const EdgeInsets.fromLTRB(9, 8, 9, 8),
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.white.withValues(alpha: .25)),
       ),
-      child: Row(
+      child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _InfographicGlyph(name: iconName, color: Colors.white, size: 15),
-          const SizedBox(width: 7),
-          SizedBox(
-            width: 48,
-            child: Text(
-              label,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 9.2,
-                fontWeight: FontWeight.w800,
+          Row(
+            children: [
+              _InfographicGlyph(name: iconName, color: Colors.white, size: 15),
+              const SizedBox(width: 6),
+              Expanded(
+                child: Text(
+                  label,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 8.5,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
+          const SizedBox(height: 5),
           Expanded(
-            child: Text(
-              value,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 8.5,
-                height: 1.25,
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                value,
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 7.8,
+                  height: 1.25,
+                ),
               ),
             ),
           ),

@@ -291,6 +291,20 @@ abstract final class ThaiBetaReportPdfExporter {
       fontSize: 13.5,
       height: 1.4,
     );
+    final chapterStyle = pw.TextStyle(
+      font: bold,
+      fontFallback: [latinBold],
+      fontSize: 15,
+      color: PdfColors.white,
+      height: 1.35,
+    );
+    final chapterBodyStyle = pw.TextStyle(
+      font: regular,
+      fontFallback: [latinRegular],
+      fontSize: 10,
+      color: PdfColor.fromHex('#E5DCC7'),
+      height: 1.45,
+    );
     final subtitleStyle = pw.TextStyle(
       font: regular,
       fontFallback: [latinRegular],
@@ -332,10 +346,43 @@ abstract final class ThaiBetaReportPdfExporter {
           ];
           for (var i = 0; i < polished.sections.length; i++) {
             final section = polished.sections[i];
+            final isChapter =
+                section.kind == ThaiBetaReportExportSectionKind.chapter;
             final isDisclaimer =
                 section.kind == ThaiBetaReportExportSectionKind.disclaimer;
             final isTimeline =
                 section.kind == ThaiBetaReportExportSectionKind.timeline;
+
+            if (isChapter) {
+              widgets.add(
+                _atomicPaginationUnit(
+                  () => pw.Container(
+                    width: double.infinity,
+                    margin: const pw.EdgeInsets.only(top: 8, bottom: 10),
+                    padding: const pw.EdgeInsets.fromLTRB(14, 12, 14, 12),
+                    decoration: pw.BoxDecoration(
+                      color: PdfColor.fromHex('#18203F'),
+                      borderRadius: pw.BorderRadius.circular(6),
+                      border: pw.Border.all(
+                        color: PdfColor.fromHex('#C7A760'),
+                        width: .8,
+                      ),
+                    ),
+                    child: pw.Column(
+                      crossAxisAlignment: pw.CrossAxisAlignment.start,
+                      children: [
+                        _pdfText(section.title, style: chapterStyle),
+                        for (final paragraph in section.paragraphs) ...[
+                          pw.SizedBox(height: 5),
+                          _pdfText(paragraph, style: chapterBodyStyle),
+                        ],
+                      ],
+                    ),
+                  ),
+                ),
+              );
+              continue;
+            }
 
             if (isDisclaimer) {
               widgets.add(pw.SizedBox(height: 10));

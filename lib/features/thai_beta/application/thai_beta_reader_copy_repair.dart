@@ -21,6 +21,20 @@ abstract final class ThaiBetaReaderCopyRepair {
       semanticIntent: 'ใช้หัวข้อสั้นที่บอกลำดับการอ่านโดยไม่เปลี่ยนข้อเท็จจริง',
     ),
     ThaiBetaReaderCopyRule(
+      id: 'copy-past-reflection-theme-prefix',
+      sourceTemplate: 'ThaiBetaPastReflectionComposer.compose',
+      before: 'ธีมสำหรับทบทวน:',
+      after: 'ลองย้อนดูว่า',
+      semanticIntent: 'ชวนผู้อ่านทบทวนอดีตโดยไม่ใช้ป้ายกำกับเชิงระบบ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'copy-past-reflection-question-prefix',
+      sourceTemplate: 'ThaiBetaPastReflectionComposer.compose',
+      before: 'คำถามสะท้อน:',
+      after: 'คำถามชวนทบทวน:',
+      semanticIntent: 'ใช้คำชวนที่เป็นธรรมชาติและคงคำถามเดิมครบถ้วน',
+    ),
+    ThaiBetaReaderCopyRule(
       id: 'copy-work-house-human-intro',
       sourceTemplate: 'ThaiBirthProfileCoreReading._composeHouseDomain(work)',
       before: 'หลักฐานเรือนการงานที่เชื่อม',
@@ -203,8 +217,7 @@ abstract final class ThaiBetaReaderCopyRepair {
       fieldPathPrefix: 'infographic.theme',
       before: 'แล้วทบทวนเมื่อพฤติกรรมหลังข้อตกลงชัดขึ้น',
       after: 'แล้วทบทวนเมื่อการทำตามข้อตกลงสม่ำเสมอขึ้น',
-      semanticIntent:
-          'คงจุดทบทวนเดิมและระบุการทำตามข้อตกลงด้วยภาษาที่ชัดเจน',
+      semanticIntent: 'คงจุดทบทวนเดิมและระบุการทำตามข้อตกลงด้วยภาษาที่ชัดเจน',
     ),
     ThaiBetaReaderCopyRule(
       id: 'infographic-theme-no-fixed-event',
@@ -214,15 +227,6 @@ abstract final class ThaiBetaReaderCopyRepair {
       after: 'โดยไม่สรุปเหตุการณ์ล่วงหน้า',
       semanticIntent:
           'รักษาขอบเขตไม่กำหนดเหตุการณ์ล่วงหน้าด้วยถ้อยคำที่เป็นธรรมชาติขึ้น',
-    ),
-    ThaiBetaReaderCopyRule(
-      id: 'infographic-overview-transition-reserve',
-      sourceTemplate: 'PredictionWindowCardModel.timeframeLabel',
-      fieldPathPrefix: 'infographic.overview',
-      before: 'ราว 12 เดือนข้างหน้า',
-      after: 'ราว 12 เดือนข้างหน้า ควรเผื่อแรงไว้เมื่อหน้าที่เปลี่ยน',
-      semanticIntent:
-          'ย้ายคำแนะนำเรื่องสำรองแรงจากทุกหมวดมาไว้ใน annual guidance ครั้งเดียว',
     ),
     ThaiBetaReaderCopyRule(
       id: 'infographic-category-transition-reserve',
@@ -507,8 +511,7 @@ abstract final class ThaiBetaReaderCopyRepair {
       id: 'infographic-advice-agreement-proof',
       sourceTemplate: 'ThaiBetaReportNarrativePlan.closing(noLagna)',
       fieldPathPrefix: 'infographic.primaryAdvice',
-      before:
-          'และยังไม่ผูกมัดเพิ่มจนกว่าพฤติกรรมที่ทำตามคำตกลงจะยืนยันได้',
+      before: 'และยังไม่ผูกมัดเพิ่มจนกว่าพฤติกรรมที่ทำตามคำตกลงจะยืนยันได้',
       after: 'และรอให้การทำตามข้อตกลงสม่ำเสมอก่อนผูกมัดเพิ่ม',
       semanticIntent:
           'คงเงื่อนไขรอยืนยันข้อตกลงก่อนผูกมัดเพิ่มด้วยประโยคที่สั้นและมีประธานชัด',

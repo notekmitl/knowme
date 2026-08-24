@@ -1,5 +1,18 @@
 # KnowMe Roadmap
 
+## Active — Thai Report Reader Experience V2 gate and Owner review
+
+The locally validated candidate restructures the Thai report into four numbered reader
+chapters, places the infographic after the rolling 12-month narrative, replaces
+the calendar-year claim with an exact date range, redesigns the 1080x1920 image
+and repairs difficult Thai copy. The next milestone is a pinned-toolchain gate
+with fresh Known/Unknown Web, dedicated-PDF, browser-print and infographic
+visual evidence. Focused tests, 300-profile audit, full suite, analyzer and
+direct PNG/PDF/browser-print QA now pass; repository/remote gates and Owner
+review remain. Merge and Production deployment remain separate
+explicit decisions. Monthly timeline remains deferred because
+`monthlyTimelineAvailable=false`.
+
 ## Current — S008 technical parity verified; Owner copy decision next
 
 PR #95 now has exact VM/Chrome parity at the canonical snapshot/hash/narrative boundary across two VM and two real-Chrome 300-profile runs. All fresh final test, analyzer-delta, build, baseline-delta and R7.1 identity gates pass. The remaining gate is Owner review of the fully enumerated reader-visible copy normalization (93 profiles / 112 summaries). Keep the PR Draft; merge and deployment require separate explicit authorization. Production remains V1.4.
