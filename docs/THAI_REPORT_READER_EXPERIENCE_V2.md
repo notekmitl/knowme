@@ -1,9 +1,18 @@
 # Thai Report Reader Experience V2
 
-Status: **PR106-OR1 COMPLETE — PENDING OWNER VISUAL AND LANGUAGE RE-ACCEPTANCE**;
-Draft PR #106 remains open from `codex/thai-report-reader-experience-v2` and
-local PreCommit/PostCommit passed at implementation commit
-`b5526dd33441e96e47308c038f9fc15de119f6e9`.
+Status: **PR106-OR2 COMPLETE — PENDING OWNER LANGUAGE RE-ACCEPTANCE**. OR1
+passed visual/structure review and was Owner-rejected for language. OR2 is a
+limited copy/consistency repair at implementation commit
+`7a03a0ca4a692b0caa7dcdf6c51ae7fbf1ae4892`; Draft PR #106 remains Open and
+Draft.
+
+Unknown now uses the same explicit fail-closed omission statement on Web,
+Dedicated PDF, browser print and infographic. The six omitted-topic reasons,
+all past-reflection age bands and the Unknown conclusion were repaired without
+new predictions or semantic/traceability impact. Fresh actual QA measures
+Dedicated Known/Unknown 8/7 pages and Chrome browser-print 7/7 and verifies all
+Web captures, four 1080x1920 infographics and every PDF page. No Owner/Product
+Acceptance is claimed.
 
 Owner-rejected mechanical phrases were repaired through candidate-only copy
 rules with 300-profile semantic impact 0. Dedicated pagination now follows

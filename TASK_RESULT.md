@@ -1,6 +1,28 @@
 # Task Result — Thai Report Reader Experience V2
 
-Status: **PR106-OR1 COMPLETE — PENDING OWNER VISUAL AND LANGUAGE RE-ACCEPTANCE**
+Status: **PR106-OR2 COMPLETE — PENDING OWNER LANGUAGE RE-ACCEPTANCE**
+
+OR1 was accepted for visual structure but rejected for Thai language. OR2 is a
+copy-and-consistency-only repair at implementation commit
+`7a03a0ca4a692b0caa7dcdf6c51ae7fbf1ae4892`. The Unknown path now states that
+time-dependent topics are omitted, all six omission explanations are natural
+and explicit, every retained past-reflection age band was read and repaired,
+and the Unknown closing is identical across report and infographic. No
+prediction, semantic meaning, trace, calculation or accepted R1-R7.1 artifact
+changed.
+
+Fresh evidence measures Dedicated Known/Unknown at 8/7 pages and Chrome
+browser-print at 7/7. Four 1080x1920 infographics, final-commit Web desktop and
+390 captures, every PDF raster and contact sheets were opened and inspected;
+blank pages, clipping, overlap and overflow are 0. The 300-profile audit covers
+6,192 changed fields with omission/addition/semantic/prediction-advice/
+traceability impact all 0; required full suite passes 1,621/1,621 and analyzer
+exits 0 with the 298-item non-fatal baseline. The external package is
+`C:\Users\USER\Documents\Knowme\OWNER_REVIEW_PR106_OR2_7a03a0c.zip`.
+PR #106 remains Open and Draft. Owner/Product Acceptance is not claimed; no
+merge, Ready-for-Review, deploy or Firebase/Production change occurred.
+
+Historical OR1 status follows.
 
 Owner rejection was addressed in source at implementation commit
 `b5526dd33441e96e47308c038f9fc15de119f6e9`. Candidate-only Thai copy repair

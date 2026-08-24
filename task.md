@@ -2,6 +2,18 @@
 
 ## Owner Review checkpoint — Draft PR #106
 
+**PR106-OR2 COMPLETE — PENDING OWNER LANGUAGE RE-ACCEPTANCE.** OR1 passed
+visual/structure review and was rejected for language. The limited OR2 copy and
+consistency repair is implemented at
+`7a03a0ca4a692b0caa7dcdf6c51ae7fbf1ae4892`; technical validation and fresh
+artifact QA are complete. Review package:
+`C:\Users\USER\Documents\Knowme\OWNER_REVIEW_PR106_OR2_7a03a0c.zip`.
+Dedicated Known/Unknown is 8/7 pages and Chrome browser-print is 7/7. PR #106
+must remain Open, Draft, unmerged and undeployed. This checkpoint does not
+grant Owner/Product Acceptance.
+
+Historical OR1 checkpoint follows.
+
 **PR106-OR1 COMPLETE — PENDING OWNER VISUAL AND LANGUAGE RE-ACCEPTANCE.**
 Source repair is complete at implementation commit
 `b5526dd33441e96e47308c038f9fc15de119f6e9`. Final actual evidence measures
