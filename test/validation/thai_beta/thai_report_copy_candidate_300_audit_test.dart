@@ -226,7 +226,8 @@ void main() {
             afterGraphic.primaryAdvice.contains('เลือกทาง') &&
             !afterGraphic.primaryAdvice.contains('แล้วเลือกทาง')) {
           copyQualityViolations.add(
-            '${profile.id}/primaryAdvice: missing connective before เลือกทาง',
+            '${profile.id}/primaryAdvice: missing connective before เลือกทาง: '
+            '${afterGraphic.primaryAdvice}',
           );
         }
         final beforeHasTransitionReserve = beforeGraphic.categories.any(

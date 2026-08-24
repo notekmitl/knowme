@@ -21,6 +21,7 @@
     "lib/features/thai_beta/application/thai_beta_report_pdf_exporter.dart",
     "lib/features/thai_beta/presentation/export/thai_beta_browser_print.dart",
     "lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart",
+    "lib/main_thai_report_vnext_preview.dart",
     "test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart",
     "test/validation/thai_beta/life_map/v135/thai_life_map_v135_ui_primary_test.dart",
     "test/validation/thai_beta/life_map/thai_life_map_v123_report_acceptance_test.dart",

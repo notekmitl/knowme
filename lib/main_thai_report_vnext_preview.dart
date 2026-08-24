@@ -9,17 +9,17 @@ import 'features/thai_beta/presentation/pages/thai_beta_report_page.dart';
 /// candidate. Production continues to build from `lib/main.dart`.
 void main() {
   final unknown = Uri.base.queryParameters['mode'] == 'unknown';
-  final asOf = DateTime.utc(2026, 8, 18, 8, 0);
+  final asOf = DateTime.utc(2026, 8, 7);
   final analysis = ThaiBetaAnalysisRunner.run(
     ThaiBetaInput(
       firstName: 'QA',
       lastName: unknown ? 'Unknown' : 'Known',
       birthDate: DateTime(1982, 6, 6),
-      birthHour: unknown ? null : 10,
-      birthMinute: unknown ? 0 : 30,
+      birthHour: unknown ? null : 0,
+      birthMinute: unknown ? 0 : 3,
       birthTimeUnknown: unknown,
-      province: 'กรุงเทพมหานคร',
-      provinceKey: 'bangkok',
+      province: 'เชียงใหม่',
+      provinceKey: 'chiang_mai',
     ),
     startedAt: asOf,
     asOf: asOf,

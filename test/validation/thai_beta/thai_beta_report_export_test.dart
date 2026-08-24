@@ -167,6 +167,56 @@ void main() {
       expect(RegExp(r'\bunit\.[a-zA-Z0-9_.-]+').hasMatch(text), isFalse);
     });
 
+    test('PR106-OR1 candidate copy removes rejected system-like Thai', () {
+      final fixtures = <ThaiBetaAnalysis>[
+        ThaiBetaAnalysisRunner.run(
+          ThaiBetaInput(
+            firstName: 'Owner',
+            lastName: 'Known',
+            birthDate: DateTime(1982, 6, 6),
+            birthHour: 0,
+            birthMinute: 3,
+            province: 'เชียงใหม่',
+            provinceKey: 'chiang_mai',
+          ),
+          startedAt: DateTime(2026, 8, 7),
+        ),
+        ThaiBetaAnalysisRunner.run(
+          ThaiBetaInput(
+            firstName: 'Owner',
+            lastName: 'Unknown',
+            birthDate: DateTime(1982, 6, 6),
+            birthTimeUnknown: true,
+            province: 'เชียงใหม่',
+            provinceKey: 'chiang_mai',
+          ),
+          startedAt: DateTime(2026, 8, 7),
+        ),
+      ];
+      const rejected = <String>[
+        'ความสามารถในการทำความคิดให้คนอื่นเข้าใจ',
+        'จุดแข็งสองชั้น',
+        'ลองย้อนดูว่า ในช่วงดูแลใจ ลองมอง',
+        'ลองย้อนดูว่า ลองวาง',
+        'บทเรียนนั้นช่วยคัดการตัดสินใจวันนี้แบบไหน',
+        'พฤติกรรมที่ทำตามคำตกลง',
+        'ด้านเงินคุมขนาดทางเลือกด้วยยอดพร้อมใช้หลังรายการจำเป็น',
+        'ไม่ปล่อยให้พฤติกรรมที่ทำตามคำตกลงเสียไป',
+        'ทางเลือกใหม่ (',
+      ];
+      for (final fixture in fixtures) {
+        final text = ThaiBetaReportExportDocument.candidate(
+          fixture,
+        ).fullPlainText;
+        for (final phrase in rejected) {
+          expect(text, isNot(contains(phrase)), reason: phrase);
+        }
+        expect(text, contains('การทำตามข้อตกลง'));
+        expect(text, contains('แนวโน้ม 12 เดือนข้างหน้า'));
+        expect(text, isNot(contains('คำทำนายรายเดือน')));
+      }
+    });
+
     test('does not invent new prediction copy beyond view state', () {
       final doc = ThaiBetaReportExportDocument.fromAnalysis(analysis);
       final view = ThaiBetaNarrativeComposer.narrativeView(analysis);
@@ -349,9 +399,9 @@ void main() {
   });
 
   group('Real PDF exporter path regression', () {
-    test('chaptered report fixtures stay at measured 7/6 pages', () async {
+    test('chaptered report fixtures stay at measured 6/6 pages', () async {
       for (final fixture in <({bool knownTime, int pages})>[
-        (knownTime: true, pages: 7),
+        (knownTime: true, pages: 6),
         (knownTime: false, pages: 6),
       ]) {
         final productionAnalysis = ThaiBetaAnalysisRunner.run(
@@ -521,7 +571,7 @@ void main() {
                   .toList()
                 ..sort((a, b) => a.path.compareTo(b.path));
           expect(pages, isNotEmpty);
-          final expectedPages = fixture.key == 'known' ? 7 : 6;
+          final expectedPages = 6;
           expect(
             pages.length,
             expectedPages,
@@ -619,23 +669,77 @@ void main() {
       },
     );
 
-    test('reading-basis continuation is explicit for both evidence modes', () {
+    test('reading-basis continuation cannot precede its semantic heading', () {
       const known = ThaiBetaReportExportSection(
         title: 'รายงานนี้ดูจากอะไร',
-        paragraphs: ['ก', 'ข', 'ค', 'ง', 'จ', 'ฉ'],
+        paragraphs: ['ก', 'ข', 'โครงสร้างดวงหลัก', 'แถวข้อมูลแรก'],
       );
       const unknown = ThaiBetaReportExportSection(
         title: 'รายงานนี้ดูจากอะไร',
-        paragraphs: ['ก', 'ข', 'ไม่มีเวลาเกิด', 'ง'],
+        paragraphs: ['ก', 'ไม่มีเวลาเกิด', 'โครงสร้างดวงหลัก', 'แถวข้อมูลแรก'],
+      );
+
+      for (final section in [known, unknown]) {
+        expect(
+          ThaiBetaReportPdfExporter.debugReadingBasisContinuationForTest(
+            section,
+          ),
+          isNull,
+        );
+        final units = ThaiBetaReportPdfExporter.debugPaginationUnitsForTest(
+          section,
+        );
+        expect(units, hasLength(2));
+        expect(units[1], startsWith('โครงสร้างดวงหลัก\nแถวข้อมูลแรก'));
+        expect(units.join('\n'), isNot(contains('— ต่อ')));
+      }
+    });
+
+    test('final-page balance uses evidence-aware semantic breaks', () {
+      final known = ThaiBetaReportExportDocument.candidate(analysis);
+      final unknown = ThaiBetaReportExportDocument.candidate(
+        ThaiBetaAnalysisRunner.run(
+          ThaiBetaInput(
+            firstName: 'Owner',
+            lastName: 'Unknown',
+            birthDate: DateTime(1982, 6, 6),
+            birthTimeUnknown: true,
+            province: 'เชียงใหม่',
+            provinceKey: 'chiang_mai',
+          ),
+          startedAt: DateTime(2026, 8, 7),
+        ),
       );
 
       expect(
-        ThaiBetaReportPdfExporter.debugReadingBasisContinuationForTest(known),
-        (paragraphIndex: 5, heading: 'โครงสร้างดวงหลัก — ต่อ'),
+        ThaiBetaReportPdfExporter.debugStartsFinalMaterialOnFreshPageForTest(
+          known,
+          sectionTitle: 'รายงานนี้ดูจากอะไร',
+          semanticHeading: 'โครงสร้างดวงหลัก',
+        ),
+        isFalse,
       );
       expect(
-        ThaiBetaReportPdfExporter.debugReadingBasisContinuationForTest(unknown),
-        (paragraphIndex: 3, heading: 'รายงานนี้ดูจากอะไร — ต่อ'),
+        ThaiBetaReportPdfExporter.debugStartsFinalMaterialOnFreshPageForTest(
+          unknown,
+          sectionTitle: 'ที่มาของผลวิเคราะห์',
+        ),
+        isFalse,
+      );
+      expect(
+        ThaiBetaReportPdfExporter.debugStartsFinalMaterialOnFreshPageForTest(
+          known,
+          sectionTitle: 'ที่มาของผลวิเคราะห์',
+        ),
+        isFalse,
+      );
+      expect(
+        ThaiBetaReportPdfExporter.debugStartsFinalMaterialOnFreshPageForTest(
+          unknown,
+          sectionTitle: 'รายงานนี้ดูจากอะไร',
+          semanticHeading: 'โครงสร้างดวงหลัก',
+        ),
+        isFalse,
       );
     });
 

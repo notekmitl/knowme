@@ -35,6 +35,57 @@ abstract final class ThaiBetaReaderCopyRepair {
       semanticIntent: 'ใช้คำชวนที่เป็นธรรมชาติและคงคำถามเดิมครบถ้วน',
     ),
     ThaiBetaReaderCopyRule(
+      id: 'copy-past-reflection-decision-question',
+      sourceTemplate: 'ThaiBetaPastReflectionComposer.compose',
+      before: 'แล้วบทเรียนนั้นช่วยคัดการตัดสินใจวันนี้แบบไหน',
+      after: 'แล้วบทเรียนนั้นช่วยให้คุณตัดสินใจเรื่องปัจจุบันอย่างไร',
+      semanticIntent: 'คงการเชื่อมบทเรียนในอดีตกับการตัดสินใจปัจจุบัน',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'copy-core-double-strength',
+      sourceTemplate: 'ThaiBirthProfileCoreReading._composeLagnaSummary',
+      before: 'จุดแข็งสองชั้นนี้',
+      after: 'จุดแข็งทั้งสองด้านนี้',
+      semanticIntent: 'คงจุดแข็งจากหลักฐานสองส่วนด้วยภาษาที่เป็นธรรมชาติ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'copy-expressive-strength',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.strengthLabel',
+      before: 'ความสามารถในการทำความคิดให้คนอื่นเข้าใจ',
+      after: 'ความสามารถในการถ่ายทอดความคิดให้คนอื่นเข้าใจ',
+      semanticIntent: 'คงจุดแข็งด้านการสื่อสารด้วยคำกริยาที่ชัดเจน',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'copy-agreement-observable',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.observableLabel',
+      before: 'พฤติกรรมที่ทำตามคำตกลง',
+      after: 'การทำตามข้อตกลง',
+      semanticIntent: 'คงหลักฐานจากการปฏิบัติตามข้อตกลงด้วยภาษาทั่วไป',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'copy-preserve-agreement',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
+      before: 'ไม่ปล่อยให้การทำตามข้อตกลงเสียไป',
+      after: 'ยังรักษาการทำตามข้อตกลงไว้',
+      semanticIntent: 'คงการรักษาข้อตกลงด้วยประโยคที่ตรงและเป็นธรรมชาติ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'copy-finance-choice-size',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.supportingCurrentContext',
+      before: 'ด้านเงินคุมขนาดทางเลือกด้วยยอดพร้อมใช้หลังรายการจำเป็น',
+      after:
+          'ด้านการเงิน ให้ใช้จำนวนเงินพร้อมใช้หลังรายการจำเป็นเป็นเกณฑ์ตัดสินใจ',
+      semanticIntent: 'คงเกณฑ์เงินพร้อมใช้โดยระบุประธานและการกระทำให้ชัด',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'copy-transition-parentheses',
+      sourceTemplate: 'PeriodIntelligenceComposer.elementShiftLine',
+      before: '(ธาตุขัดกัน)',
+      after: 'โดยต้องปรับตัวกับการเปลี่ยนผ่านมากขึ้น',
+      semanticIntent:
+          'คงความหมายของรอยต่อโดยไม่ทิ้งวงเล็บกำพร้าเมื่อขึ้นบรรทัด',
+    ),
+    ThaiBetaReaderCopyRule(
       id: 'copy-work-house-human-intro',
       sourceTemplate: 'ThaiBirthProfileCoreReading._composeHouseDomain(work)',
       before: 'หลักฐานเรือนการงานที่เชื่อม',
@@ -530,7 +581,6 @@ abstract final class ThaiBetaReaderCopyRepair {
     ThaiBetaReaderCopyRule(
       id: 'infographic-advice-connective-steady-foundation',
       sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
-      fieldPathPrefix: 'infographic.primaryAdvice',
       before: 'ใช้ความถนัดในการสร้างฐานทีละขั้นเลือกทาง',
       after: 'ใช้ความถนัดในการสร้างฐานทีละขั้น แล้วเลือกทาง',
       semanticIntent:
@@ -539,7 +589,6 @@ abstract final class ThaiBetaReaderCopyRepair {
     ThaiBetaReaderCopyRule(
       id: 'infographic-advice-connective-new-options',
       sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
-      fieldPathPrefix: 'infographic.primaryAdvice',
       before: 'ใช้แรงเรียนรู้จากทางเลือกใหม่เลือกทาง',
       after: 'ใช้แรงเรียนรู้จากทางเลือกใหม่ แล้วเลือกทาง',
       semanticIntent:
@@ -548,7 +597,6 @@ abstract final class ThaiBetaReaderCopyRepair {
     ThaiBetaReaderCopyRule(
       id: 'infographic-advice-connective-self-direction',
       sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
-      fieldPathPrefix: 'infographic.primaryAdvice',
       before: 'ใช้การกำหนดทิศทางด้วยตัวเองเลือกทาง',
       after: 'ใช้การกำหนดทิศทางด้วยตัวเอง แล้วเลือกทาง',
       semanticIntent:
@@ -557,7 +605,6 @@ abstract final class ThaiBetaReaderCopyRepair {
     ThaiBetaReaderCopyRule(
       id: 'infographic-advice-connective-detail',
       sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
-      fieldPathPrefix: 'infographic.primaryAdvice',
       before: 'ใช้ความสามารถในการเห็นรายละเอียดเลือกทาง',
       after: 'ใช้ความสามารถในการเห็นรายละเอียด แล้วเลือกทาง',
       semanticIntent:
@@ -566,7 +613,6 @@ abstract final class ThaiBetaReaderCopyRepair {
     ThaiBetaReaderCopyRule(
       id: 'infographic-advice-connective-endurance',
       sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
-      fieldPathPrefix: 'infographic.primaryAdvice',
       before: 'ใช้ความอดทนที่พาเรื่องยากไปต่อเลือกทาง',
       after: 'ใช้ความอดทนที่พาเรื่องยากไปต่อ แล้วเลือกทาง',
       semanticIntent:
@@ -575,7 +621,6 @@ abstract final class ThaiBetaReaderCopyRepair {
     ThaiBetaReaderCopyRule(
       id: 'infographic-advice-connective-growth-drive',
       sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
-      fieldPathPrefix: 'infographic.primaryAdvice',
       before: 'ใช้แรงผลักให้พัฒนาเป้าหมายเลือกทาง',
       after: 'ใช้แรงผลักให้พัฒนาเป้าหมาย แล้วเลือกทาง',
       semanticIntent:
@@ -584,7 +629,6 @@ abstract final class ThaiBetaReaderCopyRepair {
     ThaiBetaReaderCopyRule(
       id: 'infographic-advice-connective-discipline',
       sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
-      fieldPathPrefix: 'infographic.primaryAdvice',
       before: 'ใช้วินัยที่ทำเรื่องยากต่อเนื่องเลือกทาง',
       after: 'ใช้วินัยที่ทำเรื่องยากต่อเนื่อง แล้วเลือกทาง',
       semanticIntent:
@@ -593,7 +637,6 @@ abstract final class ThaiBetaReaderCopyRepair {
     ThaiBetaReaderCopyRule(
       id: 'infographic-advice-connective-empathy',
       sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
-      fieldPathPrefix: 'infographic.primaryAdvice',
       before: 'ใช้ความเข้าใจคนและมุมมองที่ต่างกันเลือกทาง',
       after: 'ใช้ความเข้าใจคนและมุมมองที่ต่างกัน แล้วเลือกทาง',
       semanticIntent:
@@ -602,7 +645,6 @@ abstract final class ThaiBetaReaderCopyRepair {
     ThaiBetaReaderCopyRule(
       id: 'infographic-advice-connective-option-building',
       sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
-      fieldPathPrefix: 'infographic.primaryAdvice',
       before: 'ใช้ความสามารถในการสร้างทางเลือกใหม่เลือกทาง',
       after: 'ใช้ความสามารถในการสร้างทางเลือกใหม่ แล้วเลือกทาง',
       semanticIntent:
@@ -611,9 +653,32 @@ abstract final class ThaiBetaReaderCopyRepair {
     ThaiBetaReaderCopyRule(
       id: 'infographic-advice-connective-communication',
       sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
-      fieldPathPrefix: 'infographic.primaryAdvice',
-      before: 'ใช้ความสามารถในการทำความคิดให้คนอื่นเข้าใจเลือกทาง',
-      after: 'ใช้ความสามารถในการทำความคิดให้คนอื่นเข้าใจ แล้วเลือกทาง',
+      before: 'ใช้ความสามารถในการถ่ายทอดความคิดให้คนอื่นเข้าใจเลือกทาง',
+      after: 'ใช้ความสามารถในการถ่ายทอดความคิดให้คนอื่นเข้าใจ แล้วเลือกทาง',
+      semanticIntent:
+          'เติมคำเชื่อมระหว่างจุดแข็งกับการเลือกทาง โดยคงจุดแข็ง ทางเลือก และเงื่อนไขเดิมทุกประการ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-advice-connective-practical',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
+      before: 'ใช้ความถนัดในการทำเรื่องให้เกิดผลจริงเลือกทาง',
+      after: 'ใช้ความถนัดในการทำเรื่องให้เกิดผลจริง แล้วเลือกทาง',
+      semanticIntent:
+          'เติมคำเชื่อมระหว่างจุดแข็งกับการเลือกทาง โดยคงจุดแข็ง ทางเลือก และเงื่อนไขเดิมทุกประการ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-advice-connective-protective',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
+      before: 'ใช้ความตั้งใจดูแลสิ่งสำคัญเลือกทาง',
+      after: 'ใช้ความตั้งใจดูแลสิ่งสำคัญ แล้วเลือกทาง',
+      semanticIntent:
+          'เติมคำเชื่อมระหว่างจุดแข็งกับการเลือกทาง โดยคงจุดแข็ง ทางเลือก และเงื่อนไขเดิมทุกประการ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'infographic-advice-connective-adaptable',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
+      before: 'ใช้ความสามารถในการปรับตามเงื่อนไขเลือกทาง',
+      after: 'ใช้ความสามารถในการปรับตามเงื่อนไข แล้วเลือกทาง',
       semanticIntent:
           'เติมคำเชื่อมระหว่างจุดแข็งกับการเลือกทาง โดยคงจุดแข็ง ทางเลือก และเงื่อนไขเดิมทุกประการ',
     ),
@@ -638,6 +703,15 @@ abstract final class ThaiBetaReaderCopyRepair {
       if (!rule.appliesTo(fieldPath)) continue;
       result = result.replaceAll(rule.before, rule.after);
     }
+    result = result.replaceFirstMapped(
+      RegExp(r'ลองย้อนดูว่า ใน(.+?) ลองมอง(.+?)ผ่าน'),
+      (match) => 'ลองย้อนดูว่า ใน${match.group(1)} ${match.group(2)}ปรากฏผ่าน',
+    );
+    result = result.replaceFirstMapped(
+      RegExp(r'ลองย้อนดูว่า ลองวาง(.+?)ของ(.+?)ไว้ข้าง'),
+      (match) =>
+          'ลองย้อนดูว่า ${match.group(1)}ของ${match.group(2)}สัมพันธ์กับ',
+    );
     return result;
   }
 
