@@ -1,6 +1,15 @@
 # Task Result — Thai Report Reader Experience V2
 
-Status: **DRAFT PR OPEN — local gates passed**
+Status: **PENDING OWNER VISUAL AND LANGUAGE ACCEPTANCE**
+
+Owner Review package for Draft PR #106 was generated from exact source HEAD
+`f0931fd581c7ea24567cbee165146c7d725f14e0` and verified as a 45-file ZIP.
+Technical validation is complete. The package contains Known/Unknown dedicated
+PDFs (9/8 pages), Chrome browser-print PDFs (7/7 pages), four 1080×1920
+infographics for 360/390 surfaces, contact sheets and all page renders. This
+review handoff does not grant Product/Owner Acceptance. PR #106 remains Open
+and Draft; it has not been merged or deployed, and Firebase/Production were not
+changed. No source code changed and the full suite was therefore not rerun.
 
 Date: 2026-08-24
 
@@ -8,7 +17,7 @@ Branch: `codex/thai-report-reader-experience-v2`
 
 Base: `58b1d742f7a00ef9c882c1fad2357dbcf08f3ad0`
 
-Implementation commit: `2f59602867c6ce5c53bd76d00efe2645121e7d68`
+Implementation commit: `f0931fd581c7ea24567cbee165146c7d725f14e0`
 
 Draft PR: https://github.com/notekmitl/knowme/pull/106
 

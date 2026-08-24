@@ -2,6 +2,14 @@
 
 ## Active — Thai Report Reader Experience V2 gate and Owner review
 
+Technical validation is complete and a verified Owner Review package has been
+generated from exact Draft PR #106 source HEAD
+`f0931fd581c7ea24567cbee165146c7d725f14e0`. Current decision state is
+**PENDING OWNER VISUAL AND LANGUAGE ACCEPTANCE**. Owner review of the actual
+Known/Unknown PDFs, 360/390 infographics and contact sheets is the only action
+authorized here. PR #106 remains Open and Draft; merge, Ready-for-Review,
+deployment and Firebase/Production changes remain out of scope.
+
 The locally validated candidate restructures the Thai report into four numbered reader
 chapters, places the infographic after the rolling 12-month narrative, replaces
 the calendar-year claim with an exact date range, redesigns the 1080x1920 image

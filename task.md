@@ -1,5 +1,16 @@
 # Task: Thai Report Reader Experience V2
 
+## Owner Review checkpoint — Draft PR #106
+
+Technical validation is complete for exact source HEAD
+`f0931fd581c7ea24567cbee165146c7d725f14e0`. A verified Owner Review package
+contains Known/Unknown dedicated PDFs (9/8 pages), Chrome browser-print PDFs
+(7/7 pages), four 1080×1920 surface-360/390 infographics, contact sheets and
+all page renders. Status is **PENDING OWNER VISUAL AND LANGUAGE ACCEPTANCE**;
+this checkpoint does not grant Product/Owner Acceptance. No source code was
+changed and the full suite was not rerun. PR #106 remains Open and Draft; no
+merge, deployment or Firebase/Production change occurred.
+
 ## Owner feedback
 
 The current Production Thai report has five connected reader-facing defects:
