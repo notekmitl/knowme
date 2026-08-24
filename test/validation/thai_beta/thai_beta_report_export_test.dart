@@ -217,6 +217,57 @@ void main() {
       }
     });
 
+    test('PR106-OR2 Unknown copy is natural and fail-closed on every field', () {
+      final unknown = ThaiBetaAnalysisRunner.run(
+        ThaiBetaInput(
+          firstName: 'Owner',
+          lastName: 'Unknown',
+          birthDate: DateTime(1982, 6, 6),
+          birthTimeUnknown: true,
+          province: 'เชียงใหม่',
+          provinceKey: 'chiang_mai',
+        ),
+        startedAt: DateTime(2026, 8, 7),
+      );
+      final document = ThaiBetaReportExportDocument.candidate(unknown);
+      final text = document.fullPlainText;
+      const failClosed =
+          'ไม่มีเวลาเกิด — รายงานจึงเว้นหัวข้อที่ต้องใช้เวลาเกิด';
+      const closing =
+          'ถ่ายทอดความคิดให้ชัดเจน และตัดสินใจจากผลที่เกิดซ้ำจริง เลือกงานทีละก้าว และยังไม่เพิ่มข้อผูกพันจนกว่าการทำตามข้อตกลงจะยืนยันได้';
+      const omissions = <String>[
+        'สรุปตัวคุณแบบตรง ๆ — ไม่มีเวลาเกิด จึงไม่สรุปบุคลิกจากตำแหน่งที่ต้องคำนวณด้วยเวลาเกิด',
+        'คำอ่านการงานที่ต้องใช้เวลาเกิด — รายงานเว้นรายละเอียดส่วนนี้แทนการสร้างข้อมูลที่ยืนยันไม่ได้',
+        'รายละเอียดการเงินที่ต้องใช้เวลาเกิด — ไม่มีข้อมูลเพียงพอสำหรับยืนยันรายละเอียดส่วนนี้',
+        'มุมความสัมพันธ์ที่ต้องใช้เวลาเกิด — รายงานเว้นส่วนที่ต้องคำนวณจากตำแหน่งเฉพาะ',
+        'รายละเอียดสุขภาวะที่ต้องใช้เวลาเกิด — รายงานไม่เติมรายละเอียดที่ข้อมูลยังรองรับไม่เพียงพอ',
+        'คำชี้หลักจากพื้นดวง — ข้อมูลไม่ครบพอที่จะสรุปจุดแข็ง ความเสี่ยง และแนวทางจากหลักฐานชุดเดียวกัน',
+      ];
+
+      expect(text, contains(failClosed));
+      expect(document.infographic!.disclaimer, failClosed);
+      expect(document.infographic!.primaryAdvice, closing);
+      expect(text, contains(closing));
+      for (final omission in omissions) {
+        expect(text, contains(omission), reason: omission);
+      }
+      for (final rejected in const <String>[
+        'ไม่มีเวลาเกิด — บางส่วนอาจคลาดเคลื่อนเล็กน้อย',
+        'ข้อมูลเวลายังว่าง',
+        'ถูกละไว้',
+        'ใช้ความสามารถในการถ่ายทอดความคิดให้คนอื่นเข้าใจกับข้อมูลที่เกิดซ้ำจริง',
+        'ใช้ความสามารถในการถ่ายทอดความคิดให้คนอื่นเข้าใจโดยอาศัยข้อมูลที่เกิดขึ้นซ้ำ',
+        'การเติบโตของช่วงเติบโตและขยาย',
+        'การลงมือของช่วงลงมือและบุกเบิก',
+        'การยอมรับในช่วงเปล่งประกายอาจเทียบได้กับ',
+        'ลองย้อนดูว่า',
+      ]) {
+        expect(text, isNot(contains(rejected)), reason: rejected);
+      }
+      expect(text, contains('แนวโน้ม 12 เดือนข้างหน้า'));
+      expect(text, isNot(contains('คำทำนายรายเดือน')));
+    });
+
     test('does not invent new prediction copy beyond view state', () {
       final doc = ThaiBetaReportExportDocument.fromAnalysis(analysis);
       final view = ThaiBetaNarrativeComposer.narrativeView(analysis);

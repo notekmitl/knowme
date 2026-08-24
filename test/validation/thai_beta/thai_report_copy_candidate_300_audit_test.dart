@@ -32,6 +32,20 @@ void main() {
         expect(analysis.isSuccess, isTrue, reason: profile.id);
         final before = ThaiBetaReportExportDocument.beforeReaderCopy(analysis);
         final after = ThaiBetaReportExportDocument.candidate(analysis);
+        for (final rejected in const <String>[
+          'ไม่มีเวลาเกิด — บางส่วนอาจคลาดเคลื่อนเล็กน้อย',
+          'การเติบโตของช่วงเติบโตและขยาย',
+          'การลงมือของช่วงลงมือและบุกเบิก',
+          'การยอมรับในช่วงเปล่งประกายอาจเทียบได้กับ',
+          'ลองย้อนดูว่า',
+          'เปลี่ยนผ่านผ่านงาน',
+        ]) {
+          if (after.fullPlainText.contains(rejected)) {
+            copyQualityViolations.add(
+              '${profile.id}: rejected OR2 phrase remains: $rejected',
+            );
+          }
+        }
         final chapterSections = after.sections
             .where(
               (section) =>
@@ -253,11 +267,10 @@ void main() {
           );
         }
         if (!profile.input.hasBirthTime &&
-            !afterGraphic.disclaimer.contains(
-              'ควรดูผลที่เกิดขึ้นซ้ำก่อนตัดสินใจ',
-            )) {
+            afterGraphic.disclaimer !=
+                'ไม่มีเวลาเกิด — รายงานจึงเว้นหัวข้อที่ต้องใช้เวลาเกิด') {
           copyQualityViolations.add(
-            '${profile.id}: Unknown fail-closed review boundary is missing',
+            '${profile.id}: Unknown fail-closed omission boundary is inconsistent',
           );
         }
         if (afterGraphic.theme.contains('พฤติกรรมหลังข้อตกลง') ||

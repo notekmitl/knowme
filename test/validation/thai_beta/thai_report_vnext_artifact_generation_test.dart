@@ -230,7 +230,7 @@ void main() {
           } else if (fixtureId == 'unknown') {
             expect(
               renderedPdf.pageCount,
-              8,
+              7,
               reason: 'Measured V2 Unknown artifact page-count regression',
             );
           }

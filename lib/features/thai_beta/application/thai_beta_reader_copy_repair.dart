@@ -70,6 +70,74 @@ abstract final class ThaiBetaReaderCopyRepair {
       semanticIntent: 'คงการรักษาข้อตกลงด้วยประโยคที่ตรงและเป็นธรรมชาติ',
     ),
     ThaiBetaReaderCopyRule(
+      id: 'copy-unknown-fail-closed-methodology',
+      sourceTemplate: 'ThaiMirrorConsumerCopy.dataUsedWithoutBirthTime',
+      before: 'ไม่มีเวลาเกิด — บางส่วนอาจคลาดเคลื่อนเล็กน้อย',
+      after: 'ไม่มีเวลาเกิด — รายงานจึงเว้นหัวข้อที่ต้องใช้เวลาเกิด',
+      semanticIntent:
+          'ระบุการเว้นผลแบบ fail-closed ให้ตรงกับพฤติกรรมจริงและไม่สื่อว่าระบบเดาค่าที่คลาดเคลื่อน',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'copy-unknown-fail-closed-summary-omission',
+      sourceTemplate: 'ThaiBirthProfileCoreReading.omissions(summary)',
+      before:
+          'สรุปตัวคุณแบบตรง ๆ — ข้อมูลเวลาไม่พอสำหรับสรุปบุคลิกจากตำแหน่งเฉพาะแทนส่วนที่ขาด',
+      after:
+          'สรุปตัวคุณแบบตรง ๆ — ไม่มีเวลาเกิด จึงไม่สรุปบุคลิกจากตำแหน่งที่ต้องคำนวณด้วยเวลาเกิด',
+      semanticIntent:
+          'คงการเว้นบทสรุปบุคลิกจากตำแหน่งเฉพาะและอธิบายเหตุผลตรงไปตรงมา',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'copy-unknown-fail-closed-work-omission',
+      sourceTemplate: 'ThaiBirthProfileCoreReading.omissions(work)',
+      before:
+          'คำอ่านการงานที่ต้องใช้เวลาเกิด — เพราะไม่ทราบเวลาเกิด รายงานจึงเว้นรายละเอียดการงานส่วนนี้แทนการสร้างข้อมูลขึ้นเอง',
+      after:
+          'คำอ่านการงานที่ต้องใช้เวลาเกิด — รายงานเว้นรายละเอียดส่วนนี้แทนการสร้างข้อมูลที่ยืนยันไม่ได้',
+      semanticIntent:
+          'คงการเว้นคำอ่านการงานที่ต้องใช้เวลาเกิดโดยไม่เพิ่มข้อมูลหรือคำทำนาย',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'copy-unknown-fail-closed-money-omission',
+      sourceTemplate: 'ThaiBirthProfileCoreReading.omissions(money)',
+      before:
+          'รายละเอียดการเงินที่ข้อมูลเวลาไม่พอ — ข้อมูลเวลายังว่าง จึงละรายละเอียดการเงินส่วนที่ยืนยันจากวันเกิดเพียงอย่างเดียวไม่ได้',
+      after:
+          'รายละเอียดการเงินที่ต้องใช้เวลาเกิด — ไม่มีข้อมูลเพียงพอสำหรับยืนยันรายละเอียดส่วนนี้',
+      semanticIntent:
+          'คงการเว้นรายละเอียดการเงินที่ไม่มีหลักฐานจากเวลาเกิดด้วยภาษาที่สั้นและชัด',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'copy-unknown-fail-closed-relationship-omission',
+      sourceTemplate: 'ThaiBirthProfileCoreReading.omissions(relationships)',
+      before:
+          'มุมความสัมพันธ์ที่ต้องอาศัยเวลาเกิด — ข้อมูลนี้ไม่มีเวลาเกิด มุมความสัมพันธ์ส่วนดังกล่าวจึงถูกละไว้เพื่อไม่ให้ฟันธงเกินหลักฐาน',
+      after:
+          'มุมความสัมพันธ์ที่ต้องใช้เวลาเกิด — รายงานเว้นส่วนที่ต้องคำนวณจากตำแหน่งเฉพาะ',
+      semanticIntent:
+          'คงการเว้นมุมความสัมพันธ์ที่ต้องคำนวณจากเวลาเกิดและไม่ฟันธงเกินหลักฐาน',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'copy-unknown-fail-closed-wellbeing-omission',
+      sourceTemplate: 'ThaiBirthProfileCoreReading.omissions(wellbeing)',
+      before:
+          'รายละเอียดสุขภาวะที่ต้องมีข้อมูลเวลา — เมื่อยังไม่ทราบเวลาเกิด รายงานจะไม่เติมรายละเอียดสุขภาวะส่วนที่ยืนยันไม่ได้',
+      after:
+          'รายละเอียดสุขภาวะที่ต้องใช้เวลาเกิด — รายงานไม่เติมรายละเอียดที่ข้อมูลยังรองรับไม่เพียงพอ',
+      semanticIntent:
+          'คงการเว้นรายละเอียดสุขภาวะที่ยังไม่มีหลักฐานเพียงพอโดยไม่เพิ่มข้อสรุปสุขภาพ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'copy-unknown-fail-closed-closing-omission',
+      sourceTemplate: 'ThaiBirthProfileCoreReading.omissions(closing)',
+      before:
+          'คำชี้หลักจากพื้นดวง — ไม่พบชุดจุดแข็ง ความเสี่ยง และแนวทางที่อ้างอิงจากแนวโน้มเดียวกันได้ครบ',
+      after:
+          'คำชี้หลักจากพื้นดวง — ข้อมูลไม่ครบพอที่จะสรุปจุดแข็ง ความเสี่ยง และแนวทางจากหลักฐานชุดเดียวกัน',
+      semanticIntent:
+          'คงการเว้นคำชี้หลักเมื่อหลักฐานชุดเดียวกันไม่ครบโดยไม่สร้างข้อสรุปทดแทน',
+    ),
+    ThaiBetaReaderCopyRule(
       id: 'copy-finance-choice-size',
       sourceTemplate: 'ThaiBetaReportNarrativePlan.supportingCurrentContext',
       before: 'ด้านเงินคุมขนาดทางเลือกด้วยยอดพร้อมใช้หลังรายการจำเป็น',
@@ -683,15 +751,34 @@ abstract final class ThaiBetaReaderCopyRepair {
           'เติมคำเชื่อมระหว่างจุดแข็งกับการเลือกทาง โดยคงจุดแข็ง ทางเลือก และเงื่อนไขเดิมทุกประการ',
     ),
     ThaiBetaReaderCopyRule(
+      id: 'copy-unknown-closing-natural',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
+      before:
+          'ใช้ความสามารถในการถ่ายทอดความคิดให้คนอื่นเข้าใจโดยอาศัยข้อมูลที่เกิดขึ้นซ้ำ: เลือกงานทีละก้าว และยังไม่ผูกมัดเพิ่มจนกว่าการทำตามข้อตกลงจะยืนยันได้',
+      after:
+          'ถ่ายทอดความคิดให้ชัดเจน และตัดสินใจจากผลที่เกิดซ้ำจริง เลือกงานทีละก้าว และยังไม่เพิ่มข้อผูกพันจนกว่าการทำตามข้อตกลงจะยืนยันได้',
+      semanticIntent:
+          'คงจุดแข็งด้านการสื่อสาร การตัดสินใจจากผลซ้ำ ลำดับงาน และเงื่อนไขข้อผูกพันเดิม',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'copy-unknown-report-closing-natural',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
+      before:
+          'ใช้ความสามารถในการถ่ายทอดความคิดให้คนอื่นเข้าใจกับข้อมูลที่เกิดซ้ำจริง: เลือกงานทีละก้าว และยังไม่ผูกมัดเพิ่มจนกว่าการทำตามข้อตกลงจะยืนยันได้',
+      after:
+          'ถ่ายทอดความคิดให้ชัดเจน และตัดสินใจจากผลที่เกิดซ้ำจริง เลือกงานทีละก้าว และยังไม่เพิ่มข้อผูกพันจนกว่าการทำตามข้อตกลงจะยืนยันได้',
+      semanticIntent:
+          'ทำให้ข้อสรุปในเนื้อหารายงานตรงกับ infographic โดยคงความหมายและเงื่อนไขเดิม',
+    ),
+    ThaiBetaReaderCopyRule(
       id: 'infographic-unknown-disclaimer-review-boundary',
       sourceTemplate: 'ThaiBetaAnnualInfographicData.disclaimer(noLagna)',
       fieldPathPrefix: 'infographic.disclaimer',
       before:
           'ไม่มีเวลาเกิด จึงแสดงเฉพาะแนวโน้มที่ข้อมูลรองรับและไม่เติมรายละเอียดที่ขาดหาย',
-      after:
-          'ไม่มีเวลาเกิด จึงแสดงเฉพาะแนวโน้มที่ข้อมูลรองรับและไม่เติมรายละเอียดที่ขาดหาย ควรดูผลที่เกิดขึ้นซ้ำก่อนตัดสินใจ',
+      after: 'ไม่มีเวลาเกิด — รายงานจึงเว้นหัวข้อที่ต้องใช้เวลาเกิด',
       semanticIntent:
-          'รวมเงื่อนไข fail-closed และการตรวจผลซ้ำไว้ที่ report-level disclaimer เพียงครั้งเดียว',
+          'ระบุการเว้นผลแบบ fail-closed ให้ตรงกันกับ Web และ PDF โดยไม่สื่อว่าระบบเติมข้อมูลที่ขาด',
     ),
   ];
 
@@ -704,13 +791,32 @@ abstract final class ThaiBetaReaderCopyRepair {
       result = result.replaceAll(rule.before, rule.after);
     }
     result = result.replaceFirstMapped(
-      RegExp(r'ลองย้อนดูว่า ใน(.+?) ลองมอง(.+?)ผ่าน'),
-      (match) => 'ลองย้อนดูว่า ใน${match.group(1)} ${match.group(2)}ปรากฏผ่าน',
+      RegExp(
+        r'ลองย้อนดูว่า (.+?)ใน(.+?)อาจเทียบได้กับความทรงจำเรื่องบ้าน ผู้ดูแล ความปลอดภัย การเรียนรู้ การเล่น และการได้รับการยอมรับ ลองนึกว่าฐานใดยังติดตัวมาถึงวันนี้',
+      ),
+      (match) =>
+          'ลองทบทวน${match.group(2)}ผ่านความทรงจำเรื่องบ้าน ผู้ดูแล ความปลอดภัย การเรียนรู้ การเล่น และการได้รับการยอมรับ แล้วสังเกตว่า${match.group(1)}และฐานใดยังติดตัวมาถึงวันนี้',
     );
     result = result.replaceFirstMapped(
-      RegExp(r'ลองย้อนดูว่า ลองวาง(.+?)ของ(.+?)ไว้ข้าง'),
+      RegExp(
+        r'ลองย้อนดูว่า ใน(.+?) ลองมอง(.+?)ผ่านการเรียน เพื่อน กฎ ความคาดหวัง และการเริ่มเลือกด้วยเสียงของตัวเอง',
+      ),
       (match) =>
-          'ลองย้อนดูว่า ${match.group(1)}ของ${match.group(2)}สัมพันธ์กับ',
+          'ลองทบทวน${match.group(1)}ผ่านการเรียน เพื่อน กฎ และความคาดหวัง แล้วสังเกตว่า${match.group(2)}เกี่ยวข้องกับการเริ่มเลือกด้วยเสียงของตัวเองอย่างไร',
+    );
+    result = result.replaceFirstMapped(
+      RegExp(
+        r'ลองย้อนดูว่า (.+?)ของ(.+?)อยู่ในบริบทของการเป็นอิสระ การศึกษา การเริ่มงาน ความสัมพันธ์ และทรัพยากรที่ต้องจัดการเองมากขึ้น ลองแยกสิ่งที่คุณเลือกเองจากสิ่งที่รับตามแรงรอบตัว',
+      ),
+      (match) =>
+          'ลองทบทวน${match.group(2)}ผ่านเรื่องการเป็นอิสระ การศึกษา การเริ่มงาน ความสัมพันธ์ และทรัพยากรที่ต้องจัดการเอง แล้วแยกดูว่าสิ่งใดเป็นทางเลือกของคุณเอง สิ่งใดเกิดจากความคาดหวังรอบตัว และ${match.group(1)}ปรากฏตรงไหน',
+    );
+    result = result.replaceFirstMapped(
+      RegExp(
+        r'ลองย้อนดูว่า ลองวาง(.+?)ของ(.+?)ไว้ข้างงาน เงิน ความสัมพันธ์ ความรับผิดชอบ และบทบาทที่อาจต้องจัดใหม่ แล้วดูว่าเกณฑ์เดิมส่วนใดยังควรรักษา',
+      ),
+      (match) =>
+          'ลองทบทวน${match.group(2)}โดยมองงาน เงิน ความสัมพันธ์ ความรับผิดชอบ และบทบาทที่ต้องจัดใหม่ แล้วดูว่า${match.group(1)}และเกณฑ์เดิมส่วนใดยังควรรักษา',
     );
     return result;
   }
