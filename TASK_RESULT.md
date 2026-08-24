@@ -1,12 +1,16 @@
 # Task Result — Thai Report Reader Experience V2
 
-Status: **PRECOMMIT PASSED — commit/PR pending**
+Status: **DRAFT PR OPEN — local gates passed**
 
 Date: 2026-08-24
 
 Branch: `codex/thai-report-reader-experience-v2`
 
 Base: `58b1d742f7a00ef9c882c1fad2357dbcf08f3ad0`
+
+Implementation commit: `2f59602867c6ce5c53bd76d00efe2645121e7d68`
+
+Draft PR: https://github.com/notekmitl/knowme/pull/106
 
 ## Implemented
 
@@ -47,10 +51,14 @@ Base: `58b1d742f7a00ef9c882c1fad2357dbcf08f3ad0`
   houses, Thai-day basis, life-period boundaries, Auth, Firebase or
   `product-acceptance/` changes.
 
-## Remaining release workflow
+## Git and release state
 
 - Repository PreCommit: passed (scope, forbidden scan, analyzer, all focused
   commands and required full suite).
-- Commit / PostCommit / push / Draft PR / GitHub checks: pending.
+- Repository PostCommit: passed for the implementation commit.
+- Branch pushed and Draft PR #106 opened against `main`.
+- GitHub reports `mergeStateStatus=CLEAN`, but `statusCheckRollup=[]` and no
+  Actions run exists for the branch. There are therefore no configured/reported
+  GitHub checks to wait for or truthfully call green.
 - Merge, deployment and Firebase/Production mutation: not performed and out of
   scope.

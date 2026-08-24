@@ -8,8 +8,9 @@ the calendar-year claim with an exact date range, redesigns the 1080x1920 image
 and repairs difficult Thai copy. The next milestone is a pinned-toolchain gate
 with fresh Known/Unknown Web, dedicated-PDF, browser-print and infographic
 visual evidence. Focused tests, 300-profile audit, full suite, analyzer and
-direct PNG/PDF/browser-print QA now pass; repository/remote gates and Owner
-review remain. Merge and Production deployment remain separate
+direct PNG/PDF/browser-print QA now pass; Draft PR #106 is open and Owner
+review remains. GitHub currently exposes no check run for the branch. Merge and
+Production deployment remain separate
 explicit decisions. Monthly timeline remains deferred because
 `monthlyTimelineAvailable=false`.
 

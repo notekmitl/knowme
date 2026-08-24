@@ -1,7 +1,7 @@
 # Thai Report Reader Experience V2
 
-Status: PreCommit passed on `codex/thai-report-reader-experience-v2`;
-commit and Draft PR pending
+Status: Draft PR #106 open from `codex/thai-report-reader-experience-v2`;
+local PreCommit/PostCommit passed
 
 Base: `58b1d742f7a00ef9c882c1fad2357dbcf08f3ad0`
 
@@ -94,6 +94,8 @@ pre-commit test boundary:
 - Web/shared-model, dedicated-PDF and browser-print chapter order and forbidden
   title checks pass; no monthly predictions are present.
 
-Repository PreCommit passes with the same analyzer, focused commands and full
-suite. Commit, PostCommit, push, Draft PR and GitHub checks are the remaining
-workflow gates. No merge, deployment or Firebase mutation is authorized.
+Repository PreCommit and PostCommit pass, implementation commit
+`2f59602867c6ce5c53bd76d00efe2645121e7d68` is pushed and Draft PR #106 is
+open. GitHub reports a clean merge state but exposes no check runs or Actions
+runs for this branch, so there is no remote check result to call green. No
+merge, deployment or Firebase mutation is authorized.
