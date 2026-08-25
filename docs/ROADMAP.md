@@ -2,6 +2,10 @@
 
 ## Active — Thai Report Reader Experience V2 gate and Owner review
 
+PR106 is merged and Owner-accepted. Regular merge commit `4be5eddca88b13ea1303480c0370e46d91f3c425` entered `main` at `2026-08-25T13:10:39+07:00` from PR HEAD `c422c4748c30d7c9ca7d722fe0624857614edb7a`; post-merge tree parity and scope checks pass with unexpected paths 0 and `product-acceptance/` delta 0. Owner Final Language Acceptance PASS remains bound to implementation `d516477a808f7ff2fe791e561451c68043796301`, OR3 evidence `f5780d4881b8dbf91138bb6bdb3e773a4ba77c5f`, and ZIP SHA-256 `42F729EF2E14AAB8200B0911E96DF565DBDCB2BFA7D18DEC8D0D7528BEE5DC11`. Reference validation is 95 focused, 300 profiles / 8,956 fields / impacts 0, 1,622 full tests and Analyzer/PreCommit/PostCommit pass. GitHub reports no checks. Status: **PR106 MERGED TO MAIN — OWNER ACCEPTED — NOT DEPLOYED — READY FOR RELEASE DECISION**. The only next gate is a separately authorized Release/Deployment Decision; Firebase/Production remain unchanged.
+
+Historical final merge-readiness roadmap record follows.
+
 PR106 Owner Acceptance is complete: `PR106-OR3 OWNER FINAL LANGUAGE ACCEPTANCE: PASS`. OR1 passed Visual/Structure but failed language; OR2 addressed the main copy issues but failed Final Editorial Quality; OR3 passed the four-part reading order, infographic, `แนวโน้ม 12 เดือนข้างหน้า`, exact `7 ส.ค. 2569 – 6 ส.ค. 2570` range, and Known/Unknown Final Thai Language. Acceptance is bound to implementation `d516477a808f7ff2fe791e561451c68043796301` and verified ZIP SHA-256 `42F729EF2E14AAB8200B0911E96DF565DBDCB2BFA7D18DEC8D0D7528BEE5DC11`. Unknown remains fail-closed; `monthlyTimelineAvailable=false`; no monthly predictions. OR3 technical evidence remains 95 focused, 300 profiles / 8,956 fields / impacts 0, 1,622 full tests and Analyzer/PreCommit/PostCommit pass. Status: **PR106 OWNER ACCEPTANCE PASSED — READY FOR FINAL MERGE DECISION**. Merge and deploy remain separate, unperformed decisions; Firebase/Production are unchanged.
 
 Historical pre-acceptance OR3 roadmap record follows.
