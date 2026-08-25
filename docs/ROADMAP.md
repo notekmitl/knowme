@@ -2,6 +2,10 @@
 
 ## Active — Thai Report Reader Experience V2 gate and Owner review
 
+PR106-OR3 technical validation is complete at final source commit `d516477a808f7ff2fe791e561451c68043796301`. OR2 passed Visual/Structure/PDF/Technical Validation but was rejected for Final Thai Editorial Quality; OR3 is a copy-only final sweep with semantic/omission/addition/prediction-advice/traceability impact 0 across 300 profiles. Fresh Owner evidence is packaged and verified. The remaining gate is Owner Final Language Re-Acceptance; status is **PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE**. PR #106 stays Open + Draft. Merge, Ready-for-Review, deploy and Firebase/Production changes remain prohibited.
+
+Historical OR2 roadmap record follows.
+
 PR106-OR2 technical validation is complete at implementation commit
 `7a03a0ca4a692b0caa7dcdf6c51ae7fbf1ae4892`. OR1 visual/structure passed but
 language was Owner-rejected; OR2 changes only copy and consistency, preserving

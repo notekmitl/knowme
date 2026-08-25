@@ -2,6 +2,10 @@
 
 ## Owner Review checkpoint — Draft PR #106
 
+**PR106-OR3 TECHNICAL VALIDATION COMPLETE — PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE.** OR2 passed Visual/Structure/PDF/Technical Validation but was rejected for Final Thai Editorial Quality. OR3 is a copy-only final sweep at final source commit `d516477a808f7ff2fe791e561451c68043796301`. Focused 95/95, 300-profile / 8,956-field audit with every impact counter 0, full 1,622/1,622, analyzer, PreCommit and PostCommit pass. Fresh Web desktop/mobile, four 1080×1920 infographics, Dedicated 8/7 and Chrome print 7/7 pages plus all rasters/contact sheets are verified in `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_PR106_OR3_d516477.zip` (SHA-256 `42F729EF2E14AAB8200B0911E96DF565DBDCB2BFA7D18DEC8D0D7528BEE5DC11`). PR #106 must remain Open + Draft; no Owner/Product Acceptance, merge, Ready-for-Review, deploy or Firebase/Production change.
+
+Historical OR2 checkpoint follows.
+
 **PR106-OR2 COMPLETE — PENDING OWNER LANGUAGE RE-ACCEPTANCE.** OR1 passed
 visual/structure review and was rejected for language. The limited OR2 copy and
 consistency repair is implemented at
