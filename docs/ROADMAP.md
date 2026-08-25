@@ -1,5 +1,9 @@
 # KnowMe Roadmap
 
+## PR106-PQ2 closeout — complete (2026-08-25)
+
+**PR106 DEPLOYED TO PRODUCTION — OWNER ACCEPTED — FULL AUTHENTICATED PRODUCTION QA PASSED — FIXTURE REMOVED.** Authenticated Known/Unknown QA passed on release `1787640954233000` / version `0aea9c854b86b99f`: Web desktop/mobile, all four infographic surfaces, Dedicated 9/8, Chrome print 8/7, and 32-page raster inspection. Exact synthetic fixtures are removed and all live resource counts are 0. Evidence ZIP SHA-256 is `271C75CF207A91A218D97F6817A45CDBA9E649E2C438D59D1528897775B59789`. Next work, if any, is outside PR106-PQ2; no further deploy or source change is implied.
+
 ## Active — PR106 full authenticated Production re-QA
 
 PQ1 resolved the earlier pagination signal as **A — FALSE NEGATIVE: CONTENT-DEPENDENT PAGINATION**. OR3 8/7/7/7 remains a pinned-fixture measurement; cross-profile QA uses semantic completeness and layout-integrity invariants. Production 9/8/8/7 tail pages contain expected content and have no blank/clipping/overlap/overflow defect; source and relevant renderer settings are equivalent. Next gate: rerun authenticated Known/Unknown QA end-to-end and complete Web, Dedicated PDF, Chrome browser-print, plus 1080×1920 infographic 360/390 coverage. Until then Production QA remains unpassed. No source, deployment, Firebase, Production-data or `product-acceptance/` mutation was part of PQ1.

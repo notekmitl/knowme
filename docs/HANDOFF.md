@@ -1,5 +1,9 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+## Current handoff — PR106-PQ2 authenticated Production QA closeout
+
+Status: **PR106 DEPLOYED TO PRODUCTION — OWNER ACCEPTED — FULL AUTHENTICATED PRODUCTION QA PASSED — FIXTURE REMOVED**. Run `pr106_pq2_prod_qa_20260825T101222177Z` passed Known/Unknown Production Web (desktop 1440/mobile 390), four 1080×1920 infographics, Dedicated PDFs 9/8, Chrome browser-print PDFs 8/7, and visual inspection of all 32 PDF rasters. PQ1 Classification A remains the pagination contract: exact counts are fixture-specific; semantic/layout invariants pass. Cleanup is proven by Auth user-not-found 2/2, exact Firestore paths absent, live subcollection documents/tagged fixtures/Storage prefix/pending jobs all 0, with Hosting release/version unchanged. Evidence ZIP SHA-256 is `271C75CF207A91A218D97F6817A45CDBA9E649E2C438D59D1528897775B59789`. No PQ2 source, test, deploy, Firebase configuration or `product-acceptance/` change occurred.
+
 ## Current handoff — PR106-PQ1 pagination forensic audit
 
 Status: **PR106 PAGINATION AUDIT — FALSE NEGATIVE CONFIRMED — FULL AUTHENTICATED RE-QA STILL REQUIRED**. Classification is **A — content-dependent pagination**. Do not use OR3 8/7/7/7 as a universal golden: it is valid only for the pinned OR3 fixtures/as-of/environment. Production used different inputs; its extra pages contain expected closing/evidence/omission content and show no blank, clipping, overlap or overflow defect. Source and rendering comparisons do not support an app regression or environment variance. The next operator must perform fresh authenticated Production QA covering Known/Unknown Web, Dedicated PDF, Chrome browser-print, and all four 1080×1920 infographics at 360/390, then clean exact synthetic fixtures. Evidence: `C:\Users\USER\Documents\Knowme\PR106_PROD_QA_20260825T083555850Z\PAGINATION_FORENSICS.md`. No code, deploy, Firebase, Production data or `product-acceptance/` change was made.
