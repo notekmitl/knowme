@@ -2,6 +2,10 @@
 
 ## Owner Review checkpoint — Draft PR #106
 
+**PR106 OWNER ACCEPTANCE PASSED — READY FOR FINAL MERGE DECISION.** Owner decision: `PR106-OR3 OWNER FINAL LANGUAGE ACCEPTANCE: PASS`, scoped to implementation `d516477a808f7ff2fe791e561451c68043796301`, pre-closeout HEAD `f5780d4881b8dbf91138bb6bdb3e773a4ba77c5f`, and `OWNER_REVIEW_PR106_OR3_d516477.zip` SHA-256 `42F729EF2E14AAB8200B0911E96DF565DBDCB2BFA7D18DEC8D0D7528BEE5DC11`. OR1 passed Visual/Structure but failed language; OR2 fixed the main issues but failed Final Editorial Quality; OR3 passed Visual, Structure, Infographic and Known/Unknown Final Thai Language. Sections 1–4, infographic after `แนวโน้ม 12 เดือนข้างหน้า`, and exact `7 ส.ค. 2569 – 6 ส.ค. 2570` range passed. Unknown stays fail-closed; `monthlyTimelineAvailable=false`; no good/caution months or monthly predictions. Reference results: Focused 95/95, 300 profiles / 8,956 fields / impacts 0, full 1,622/1,622, Analyzer/PreCommit/PostCommit pass, PDF pages 8/7/7/7. This closeout is docs/status-only. PR #106 has not been merged or deployed; Firebase/Production are unchanged.
+
+Historical pre-acceptance OR3 checkpoint follows.
+
 **PR106-OR3 TECHNICAL VALIDATION COMPLETE — PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE.** OR2 passed Visual/Structure/PDF/Technical Validation but was rejected for Final Thai Editorial Quality. OR3 is a copy-only final sweep at final source commit `d516477a808f7ff2fe791e561451c68043796301`. Focused 95/95, 300-profile / 8,956-field audit with every impact counter 0, full 1,622/1,622, analyzer, PreCommit and PostCommit pass. Fresh Web desktop/mobile, four 1080×1920 infographics, Dedicated 8/7 and Chrome print 7/7 pages plus all rasters/contact sheets are verified in `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_PR106_OR3_d516477.zip` (SHA-256 `42F729EF2E14AAB8200B0911E96DF565DBDCB2BFA7D18DEC8D0D7528BEE5DC11`). PR #106 must remain Open + Draft; no Owner/Product Acceptance, merge, Ready-for-Review, deploy or Firebase/Production change.
 
 Historical OR2 checkpoint follows.
