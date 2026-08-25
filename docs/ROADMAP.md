@@ -1,5 +1,9 @@
 # KnowMe Roadmap
 
+## Active — PR106 authenticated Production QA defect
+
+Authenticated Production QA on `2026-08-25` failed the accepted PDF pagination contract: fresh Dedicated Known/Unknown are 9/8 pages and Chrome browser-print Known/Unknown are 8/7, instead of OR3 8/7/7/7. The two synthetic Auth fixtures and their exact Firestore resources were removed and verified absent; Storage prefix resources are 0. Production remains release `1787640954233000` / version `0aea9c854b86b99f`. Next step is an Owner-authorized diagnosis/release decision; this closeout contains no source change or redeploy.
+
 Console clarification for the PR106 release: KnowMe runtime errors were 0; three extension message-channel errors were logged against the page URL and are disclosed browser-extension noise.
 
 ## Active — Thai Report Reader Experience V2 gate and Owner review

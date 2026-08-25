@@ -1,5 +1,9 @@
 # Task Result — Thai Report Reader Experience V2
 
+Status: **PR106 AUTHENTICATED PRODUCTION QA FAILED — FIXTURE REMOVED — NO CODE OR DEPLOY CHANGE**
+
+Authenticated Production QA ran on `2026-08-25` against Hosting release `1787640954233000` / version `0aea9c854b86b99f` with two synthetic Auth accounts scoped to Known-time and Unknown-time. Both live reports opened and Unknown remained fail-closed, but fresh PDF pagination did not match the Owner-accepted OR3 evidence: Dedicated Known/Unknown were 9/8 pages and Chrome browser-print Known/Unknown were 8/7 pages, versus accepted 8/7/7/7. Production QA therefore failed and no acceptance is claimed. Both exact Auth UIDs now return user-not-found; their exact `users/{uid}` Firestore roots were deleted, subcollections are 0, and the run-tag Storage prefix is 0 (the configured bucket is not provisioned). No email was sent, no real user was enumerated or changed, and no source, test, artifact, deployment, Firebase configuration, rules, schema, index, or `product-acceptance/` change occurred.
+
 Console clarification: KnowMe runtime errors were 0. Chrome logged three extension message-channel errors against the page URL, plus extension-origin warnings; these are disclosed browser-extension noise, not output from the KnowMe bundle.
 
 Status: **PR106 DEPLOYED — PUBLIC/ASSET VERIFIED — AUTHENTICATED PRODUCTION QA BLOCKED**

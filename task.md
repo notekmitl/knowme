@@ -1,5 +1,7 @@
 # Task: Thai Report Reader Experience V2
 
+**PR106 AUTHENTICATED PRODUCTION QA FAILED — FIXTURE REMOVED — NO CODE OR DEPLOY CHANGE.** Two synthetic Firebase Auth accounts exercised Production Known-time and Unknown-time on `2026-08-25`. Unknown remained fail-closed, but actual PDF counts were Dedicated 9/8 and Chrome browser-print 8/7 rather than accepted OR3 8/7/7/7. Exact cleanup passed: both UIDs are user-not-found, exact Firestore roots/subcollections are 0, and the run-tag Storage prefix is 0. No email, real-user access, source/test change, deploy, Firebase configuration/rules/schema/index change, or `product-acceptance/` delta occurred.
+
 Console clarification: KnowMe runtime errors were 0; three extension message-channel errors were logged against the page URL and are disclosed browser-extension noise.
 
 ## Owner Review checkpoint — Draft PR #106
