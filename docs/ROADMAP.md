@@ -1,5 +1,9 @@
 # KnowMe Roadmap
 
+## Active — PR106 full authenticated Production re-QA
+
+PQ1 resolved the earlier pagination signal as **A — FALSE NEGATIVE: CONTENT-DEPENDENT PAGINATION**. OR3 8/7/7/7 remains a pinned-fixture measurement; cross-profile QA uses semantic completeness and layout-integrity invariants. Production 9/8/8/7 tail pages contain expected content and have no blank/clipping/overlap/overflow defect; source and relevant renderer settings are equivalent. Next gate: rerun authenticated Known/Unknown QA end-to-end and complete Web, Dedicated PDF, Chrome browser-print, plus 1080×1920 infographic 360/390 coverage. Until then Production QA remains unpassed. No source, deployment, Firebase, Production-data or `product-acceptance/` mutation was part of PQ1.
+
 ## Active — PR106 authenticated Production QA defect
 
 Authenticated Production QA on `2026-08-25` failed the accepted PDF pagination contract: fresh Dedicated Known/Unknown are 9/8 pages and Chrome browser-print Known/Unknown are 8/7, instead of OR3 8/7/7/7. The two synthetic Auth fixtures and their exact Firestore resources were removed and verified absent; Storage prefix resources are 0. Production remains release `1787640954233000` / version `0aea9c854b86b99f`. Next step is an Owner-authorized diagnosis/release decision; this closeout contains no source change or redeploy.

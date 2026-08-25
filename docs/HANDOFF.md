@@ -1,5 +1,9 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+## Current handoff — PR106-PQ1 pagination forensic audit
+
+Status: **PR106 PAGINATION AUDIT — FALSE NEGATIVE CONFIRMED — FULL AUTHENTICATED RE-QA STILL REQUIRED**. Classification is **A — content-dependent pagination**. Do not use OR3 8/7/7/7 as a universal golden: it is valid only for the pinned OR3 fixtures/as-of/environment. Production used different inputs; its extra pages contain expected closing/evidence/omission content and show no blank, clipping, overlap or overflow defect. Source and rendering comparisons do not support an app regression or environment variance. The next operator must perform fresh authenticated Production QA covering Known/Unknown Web, Dedicated PDF, Chrome browser-print, and all four 1080×1920 infographics at 360/390, then clean exact synthetic fixtures. Evidence: `C:\Users\USER\Documents\Knowme\PR106_PROD_QA_20260825T083555850Z\PAGINATION_FORENSICS.md`. No code, deploy, Firebase, Production data or `product-acceptance/` change was made.
+
 **CURRENT — PR106 AUTHENTICATED PRODUCTION QA FAILED; FIXTURE REMOVED (2026-08-25):** Live Known/Unknown flows were exercised with two synthetic Auth accounts on Hosting release `1787640954233000` / `0aea9c854b86b99f`. Unknown is fail-closed, but actual PDF pagination is Dedicated 9/8 and Chrome browser-print 8/7, versus accepted OR3 evidence 8/7/7/7. Treat this as a Production QA failure requiring a separately authorized diagnosis/source decision; do not redeploy or alter Firebase under this closeout. Cleanup passed by exact UID/path/prefix: Auth user-not-found for both accounts, Firestore resources 0 and Storage resources 0. No real user, email, code, deploy, configuration or `product-acceptance/` change occurred.
 
 **Console clarification (2026-08-25):** KnowMe runtime errors were 0; three extension message-channel errors were logged against the page URL and are disclosed browser-extension noise.
