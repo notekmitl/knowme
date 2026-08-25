@@ -1,5 +1,7 @@
 # KnowMe Roadmap
 
+Console clarification for the PR106 release: KnowMe runtime errors were 0; three extension message-channel errors were logged against the page URL and are disclosed browser-extension noise.
+
 ## Active — Thai Report Reader Experience V2 gate and Owner review
 
 PR106 is Owner-accepted, merged, and deployed Hosting-only from exact source `d63a6079372db1c23f6458f5a5dc10e4973c2c05`. Production release `1787640954233000` / version `0aea9c854b86b99f` went live on `knowme-app-694e1` at `2026-08-25T13:55:54.233+07:00`. Public HTTPS, exact release assets, routing, desktop 1440/mobile 390 rendering and application console smoke pass; rollback baseline `1787482140137000` / `e563b9b6df94ef81` was not used. Authenticated Known/Unknown report, infographic and PDF/Print Production QA remains blocked because the available session had no completed safe QA report fixture. Status: **PR106 DEPLOYED — PUBLIC/ASSET VERIFIED — AUTHENTICATED PRODUCTION QA BLOCKED**. Next gate is safe authenticated Production QA only. Other Firebase resources and Production data remain unchanged.

@@ -1,5 +1,7 @@
 # Task: Thai Report Reader Experience V2
 
+Console clarification: KnowMe runtime errors were 0; three extension message-channel errors were logged against the page URL and are disclosed browser-extension noise.
+
 ## Owner Review checkpoint — Draft PR #106
 
 **PR106 DEPLOYED — PUBLIC/ASSET VERIFIED — AUTHENTICATED PRODUCTION QA BLOCKED.** Owner-accepted source `d63a6079372db1c23f6458f5a5dc10e4973c2c05` was deployed only to Firebase Hosting project/site `knowme-app-694e1` as release `1787640954233000`, version `0aea9c854b86b99f`, at `2026-08-25T13:55:54.233+07:00`; URL `https://knowme-app-694e1.web.app`. Public HTTP, exact release asset hashes, desktop 1440/mobile 390 rendering, routing and application console smoke pass. Focused 95/95, audit 300/8,956/impacts 0, narrative 38/38, artifact 3/3 and bundle guards passed; exact source identity permits reference to OR3 full 1,622/1,622 and Analyzer/PreCommit/PostCommit. The available authenticated session had no completed safe QA report fixture, so Known/Unknown copy, infographic and PDF/Print are not claimed as live-verified; no real user data was changed. Rollback baseline `1787482140137000` / `e563b9b6df94ef81` was not used. Only Hosting changed; all other Firebase resources and Production data remain unchanged.
