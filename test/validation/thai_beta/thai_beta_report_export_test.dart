@@ -234,7 +234,7 @@ void main() {
       const failClosed =
           'ไม่มีเวลาเกิด — รายงานจึงเว้นหัวข้อที่ต้องใช้เวลาเกิด';
       const closing =
-          'ถ่ายทอดความคิดให้ชัดเจน และตัดสินใจจากผลที่เกิดซ้ำจริง เลือกงานทีละก้าว และยังไม่เพิ่มข้อผูกพันจนกว่าการทำตามข้อตกลงจะยืนยันได้';
+          'ถ่ายทอดความคิดให้ชัดเจน และตัดสินใจจากผลที่เกิดขึ้นอย่างสม่ำเสมอและตรวจสอบได้ เลือกงานทีละก้าว และยังไม่เพิ่มข้อผูกพันจนกว่าจะเห็นว่าข้อตกลงได้รับการปฏิบัติจริงอย่างต่อเนื่อง';
       const omissions = <String>[
         'สรุปตัวคุณแบบตรง ๆ — ไม่มีเวลาเกิด จึงไม่สรุปบุคลิกจากตำแหน่งที่ต้องคำนวณด้วยเวลาเกิด',
         'คำอ่านการงานที่ต้องใช้เวลาเกิด — รายงานเว้นรายละเอียดส่วนนี้แทนการสร้างข้อมูลที่ยืนยันไม่ได้',
@@ -267,6 +267,88 @@ void main() {
       expect(text, contains('แนวโน้ม 12 เดือนข้างหน้า'));
       expect(text, isNot(contains('คำทำนายรายเดือน')));
     });
+
+    test(
+      'PR106-OR3 final editorial copy is natural across Known and Unknown',
+      () {
+        final fixtures = <ThaiBetaAnalysis>[
+          ThaiBetaAnalysisRunner.run(
+            ThaiBetaInput(
+              firstName: 'Owner',
+              lastName: 'Known',
+              birthDate: DateTime(1982, 6, 6),
+              birthHour: 0,
+              birthMinute: 3,
+              province: 'เชียงใหม่',
+              provinceKey: 'chiang_mai',
+            ),
+            startedAt: DateTime(2026, 8, 7),
+          ),
+          ThaiBetaAnalysisRunner.run(
+            ThaiBetaInput(
+              firstName: 'Owner',
+              lastName: 'Unknown',
+              birthDate: DateTime(1982, 6, 6),
+              birthTimeUnknown: true,
+              province: 'เชียงใหม่',
+              provinceKey: 'chiang_mai',
+            ),
+            startedAt: DateTime(2026, 8, 7),
+          ),
+        ];
+        const rejected = <String>[
+          'ความก้าวหน้าจึงควรวัดจากทางเลือกที่เงินสำรองเปิดให้',
+          'ด้านการเงินคุณอยากใช้เงินวันนี้',
+          'ข้อตกลงที่ถูกทำต่อเนื่อง',
+          'สิ่งที่ตกลงกันถูกทำจริงต่อเนื่อง',
+          'ตัวเลขครั้งเดียวจึงยังไม่พอให้ขยายภาระเงิน',
+          'ส่งต่อส่วนที่กระจายแรง',
+          'ฐานเงินของจังหวะใหม่',
+          'กิจวัตรพลังชีวิตต้องเปลี่ยนพร้อมตารางใหม่',
+          'ตัวเลือกครั้งนั้นหล่อวิธีรับมือการตัดสินใจวันนี้อย่างไร',
+          'และการลงมือปรากฏตรงไหน',
+          'แยกงบทดลองสำหรับการเรียนรู้ออกจากเงินที่ต้องใช้ประจำ',
+          'ยอดรับที่เกิดซ้ำ',
+          'เก็บตัวอย่างผลงานเป็นรอบและค่อยเลือกบทบาทจากแบบที่ทำซ้ำได้',
+          'ผลเดิมเกิดซ้ำ',
+          'พฤติกรรมที่เกิดซ้ำ',
+          'โดยไม่ยืมแรงจากวันต่อไป',
+          'เลือกสิ่งที่คู่ควรกับแรงของคุณ',
+          'วางระบบที่ทำซ้ำได้',
+          'การพักจึงมีหน้าที่ต่างกันในแต่ละระยะ',
+          'บทบาทงานก้อนใหม่มีแรงส่ง',
+          'จดเวลาคืนแรง',
+          'การนอนและการคืนแรง',
+          'หลายเรื่องชนกัน',
+          'ฐานการเงินอาจเปลี่ยน',
+          'ด้านการเงิน ให้ใช้',
+          'การทำตามข้อตกลงจะยืนยันได้',
+        ];
+        final texts = fixtures
+            .map(ThaiBetaReportExportDocument.candidate)
+            .map((document) => document.fullPlainText)
+            .toList(growable: false);
+        for (final text in texts) {
+          for (final phrase in rejected) {
+            expect(text, isNot(contains(phrase)), reason: phrase);
+          }
+        }
+        expect(
+          texts.first,
+          contains(
+            'ความก้าวหน้าทางการเงินควรวัดจากความยืดหยุ่นที่เงินสำรองมอบให้ ไม่ใช่ดูเพียงยอดเงินที่สะสมไว้',
+          ),
+        );
+        expect(
+          texts.last,
+          contains('แยกงบสำหรับทดลองหรือเรียนรู้สิ่งใหม่ออกจากค่าใช้จ่ายประจำ'),
+        );
+        expect(
+          texts.last,
+          contains('และช่วงใดที่คุณเริ่มลงมือเลือกเส้นทางด้วยตัวเอง'),
+        );
+      },
+    );
 
     test('does not invent new prediction copy beyond view state', () {
       final doc = ThaiBetaReportExportDocument.fromAnalysis(analysis);
