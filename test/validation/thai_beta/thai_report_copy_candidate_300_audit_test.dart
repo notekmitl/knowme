@@ -32,9 +32,79 @@ void main() {
         expect(analysis.isSuccess, isTrue, reason: profile.id);
         final before = ThaiBetaReportExportDocument.beforeReaderCopy(analysis);
         final after = ThaiBetaReportExportDocument.candidate(analysis);
+        for (final rejected in const <String>[
+          'ไม่มีเวลาเกิด — บางส่วนอาจคลาดเคลื่อนเล็กน้อย',
+          'การเติบโตของช่วงเติบโตและขยาย',
+          'การลงมือของช่วงลงมือและบุกเบิก',
+          'การยอมรับในช่วงเปล่งประกายอาจเทียบได้กับ',
+          'ลองย้อนดูว่า',
+          'เปลี่ยนผ่านผ่านงาน',
+          'ความก้าวหน้าจึงควรวัดจากทางเลือกที่เงินสำรองเปิดให้',
+          'ด้านการเงินคุณอยากใช้เงินวันนี้',
+          'ข้อตกลงที่ถูกทำต่อเนื่อง',
+          'สิ่งที่ตกลงกันถูกทำจริงต่อเนื่อง',
+          'ตัวเลขครั้งเดียวจึงยังไม่พอให้ขยายภาระเงิน',
+          'ส่งต่อส่วนที่กระจายแรง',
+          'ฐานเงินของจังหวะใหม่',
+          'กิจวัตรพลังชีวิตต้องเปลี่ยนพร้อมตารางใหม่',
+          'ตัวเลือกครั้งนั้นหล่อวิธีรับมือการตัดสินใจวันนี้อย่างไร',
+          'และการลงมือปรากฏตรงไหน',
+          'แยกงบทดลองสำหรับการเรียนรู้ออกจากเงินที่ต้องใช้ประจำ',
+          'ยอดรับที่เกิดซ้ำ',
+          'เก็บตัวอย่างผลงานเป็นรอบและค่อยเลือกบทบาทจากแบบที่ทำซ้ำได้',
+          'ผลเดิมเกิดซ้ำ',
+          'พฤติกรรมที่เกิดซ้ำ',
+          'โดยไม่ยืมแรงจากวันต่อไป',
+          'เลือกสิ่งที่คู่ควรกับแรงของคุณ',
+          'วางระบบที่ทำซ้ำได้',
+          'การพักจึงมีหน้าที่ต่างกันในแต่ละระยะ',
+          'บทบาทงานก้อนใหม่มีแรงส่ง',
+          'จดเวลาคืนแรง',
+          'การนอนและการคืนแรง',
+          'หลายเรื่องชนกัน',
+          'ฐานการเงินอาจเปลี่ยน',
+          'ด้านการเงิน ให้ใช้',
+          'การทำตามข้อตกลงจะยืนยันได้',
+          'ให้สิ่งที่เกิดซ้ำจริงนำทาง',
+          'การพักในหน้าที่ต่างกัน',
+          'จากจังหวะที่รับฟัง',
+          'จากจังหวะที่เน้นความมั่นคง',
+          'ปรับตัวกับการเปลี่ยนผ่านมากขึ้น',
+          'ต้องถูกเทียบกับรายจ่ายจำเป็น',
+          'คนที่พร้อมจะรักษาคำพูด',
+          'รายจ่ายระยะยาวจึงควรเกิดหลัง',
+        ]) {
+          if (after.fullPlainText.contains(rejected)) {
+            copyQualityViolations.add(
+              '${profile.id}: rejected OR2 phrase remains: $rejected',
+            );
+          }
+        }
+        final chapterSections = after.sections
+            .where(
+              (section) =>
+                  section.kind == ThaiBetaReportExportSectionKind.chapter,
+            )
+            .toList(growable: false);
+        expect(
+          chapterSections.map((section) => section.title),
+          orderedEquals(const [
+            'ส่วนที่ 1 · พื้นดวงของคุณ',
+            'ส่วนที่ 2 · จังหวะชีวิตที่ผ่านมาและปัจจุบัน',
+            'ส่วนที่ 3 · แนวโน้มข้างหน้า',
+            'ส่วนที่ 4 · ที่มาและข้อจำกัด',
+          ]),
+          reason: profile.id,
+        );
+        final afterContentSections = after.sections
+            .where(
+              (section) =>
+                  section.kind != ThaiBetaReportExportSectionKind.chapter,
+            )
+            .toList(growable: false);
         expect(
           before.sections.length,
-          after.sections.length,
+          afterContentSections.length,
           reason: profile.id,
         );
         for (
@@ -43,23 +113,57 @@ void main() {
           sectionIndex++
         ) {
           final left = before.sections[sectionIndex];
-          final right = after.sections[sectionIndex];
-          expect(left.id, right.id, reason: profile.id);
+          final candidateTitle = switch (left.title) {
+            'แผนที่ชีวิต' => 'แผนที่ชีวิตของคุณ',
+            'ธีมสำหรับทบทวนอดีต' => 'อดีตของคุณ',
+            'ช่วงชีวิตถัดไป' => 'สิ่งที่ควรเตรียมสำหรับช่วงถัดไป',
+            'คำแนะนำปิดท้ายช่วงถัดไป' => 'ข้อสรุปสำหรับช่วงข้างหน้า',
+            'แนวโน้มระยะยาว' => 'จังหวะชีวิตระยะต่อไป',
+            'ให้สิ่งที่เกิดซ้ำจริงนำทาง ก่อนขยับงาน' =>
+              'ดูผลที่เกิดขึ้นอย่างสม่ำเสมอก่อนตัดสินใจขยับเรื่องงาน',
+            'ให้สิ่งที่เกิดซ้ำจริงนำทาง ก่อนขยับการเงิน' =>
+              'ดูผลที่เกิดขึ้นอย่างสม่ำเสมอก่อนตัดสินใจขยับเรื่องการเงิน',
+            'ให้สิ่งที่เกิดซ้ำจริงนำทาง ก่อนขยับความสัมพันธ์' =>
+              'ดูผลที่เกิดขึ้นอย่างสม่ำเสมอก่อนตัดสินใจขยับเรื่องความสัมพันธ์',
+            'ให้สิ่งที่เกิดซ้ำจริงนำทาง ก่อนขยับการพักและการฟื้นตัว' =>
+              'ดูผลที่เกิดขึ้นอย่างสม่ำเสมอก่อนตัดสินใจขยับเรื่องการพักและการฟื้นตัว',
+            _ => left.title,
+          };
+          final right = afterContentSections.singleWhere(
+            (section) => section.title == candidateTitle,
+            orElse: () => throw StateError(
+              '${profile.id}: missing section "$candidateTitle"; '
+              'candidate titles=${afterContentSections.map((section) => section.title).toList()}',
+            ),
+          );
           expect(
             left.paragraphs.length,
             right.paragraphs.length,
             reason: left.id,
           );
-          _record(
-            rows,
-            changedProfiles,
-            profile.id,
-            profile.input.hasBirthTime,
-            '${left.id}.title',
-            left.title,
-            right.title,
-            left.traceIds,
-          );
+          if (candidateTitle == left.title) {
+            _record(
+              rows,
+              changedProfiles,
+              profile.id,
+              profile.input.hasBirthTime,
+              '${left.id}.title',
+              left.title,
+              right.title,
+              left.traceIds,
+            );
+          } else {
+            expect(right.title, candidateTitle, reason: profile.id);
+            expect(right.traceIds, orderedEquals(left.traceIds));
+          }
+          if (left.title == 'ช่วงปัจจุบัน') {
+            expect(right.title, left.title, reason: profile.id);
+            expect(right.traceIds, orderedEquals(left.traceIds));
+            expect(right.paragraphs, hasLength(left.paragraphs.length));
+            expect(right.paragraphs.first, contains('(อายุ '));
+            expect(right.paragraphs[1], isNotEmpty);
+            continue;
+          }
           for (
             var paragraphIndex = 0;
             paragraphIndex < left.paragraphs.length;
@@ -182,13 +286,13 @@ void main() {
             afterGraphic.primaryAdvice.contains('เลือกทาง') &&
             !afterGraphic.primaryAdvice.contains('แล้วเลือกทาง')) {
           copyQualityViolations.add(
-            '${profile.id}/primaryAdvice: missing connective before เลือกทาง',
+            '${profile.id}/primaryAdvice: missing connective before เลือกทาง: '
+            '${afterGraphic.primaryAdvice}',
           );
         }
         final beforeHasTransitionReserve = beforeGraphic.categories.any(
-          (category) => category.summary.contains(
-            'และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต',
-          ),
+          (category) =>
+              category.summary.contains('และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต'),
         );
         if (afterGraphic.categories.any(
               (category) =>
@@ -201,17 +305,18 @@ void main() {
           );
         }
         if (beforeHasTransitionReserve !=
-            afterGraphic.overview.contains('ควรเผื่อแรงไว้เมื่อหน้าที่เปลี่ยน')) {
+            afterGraphic.overview.contains(
+              'ควรเผื่อแรงไว้เมื่อหน้าที่เปลี่ยน',
+            )) {
           copyQualityViolations.add(
             '${profile.id}: transition reserve was not relocated exactly once',
           );
         }
         if (!profile.input.hasBirthTime &&
-            !afterGraphic.disclaimer.contains(
-              'ควรดูผลที่เกิดขึ้นซ้ำก่อนตัดสินใจ',
-            )) {
+            afterGraphic.disclaimer !=
+                'ไม่มีเวลาเกิด — รายงานจึงเว้นหัวข้อที่ต้องใช้เวลาเกิด') {
           copyQualityViolations.add(
-            '${profile.id}: Unknown fail-closed review boundary is missing',
+            '${profile.id}: Unknown fail-closed omission boundary is inconsistent',
           );
         }
         if (afterGraphic.theme.contains('พฤติกรรมหลังข้อตกลง') ||

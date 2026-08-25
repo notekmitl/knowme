@@ -141,7 +141,7 @@ void main() {
       expect(find.textContaining('ซ่อนรายละเอียดช่วงชีวิต'), findsNothing);
       expect(find.textContaining('เรื่องสำคัญของช่วงนี้'), findsWidgets);
       expect(find.text('อดีตของคุณ'), findsOneWidget);
-      expect(find.text('แนวโน้มระยะยาว'), findsOneWidget);
+      expect(find.text('จังหวะชีวิตระยะต่อไป'), findsOneWidget);
       expect(find.text('พื้นดวงตลอดชีวิต'), findsNothing);
       expect(find.text('ข้อมูลดวงที่พบ'), findsNothing);
 
@@ -150,7 +150,7 @@ void main() {
         findsNothing,
       );
       expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
-      expect(find.text('แนวโน้มระยะยาว'), findsOneWidget);
+      expect(find.text('จังหวะชีวิตระยะต่อไป'), findsOneWidget);
       expect(find.textContaining('ซ่อนรายละเอียดช่วงชีวิต'), findsNothing);
       expect(tester.takeException(), isNull);
     });

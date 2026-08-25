@@ -221,6 +221,19 @@ void main() {
           );
           expect(pdf, isNotNull);
           renderedPdf = pdf!;
+          if (fixtureId == 'known') {
+            expect(
+              renderedPdf.pageCount,
+              9,
+              reason: 'Measured V2 Known artifact page-count regression',
+            );
+          } else if (fixtureId == 'unknown') {
+            expect(
+              renderedPdf.pageCount,
+              7,
+              reason: 'Measured V2 Unknown artifact page-count regression',
+            );
+          }
           pdfFile = File(
             '${outputDirectory.path}${Platform.pathSeparator}dedicated-report-$fixtureId.pdf',
           )..writeAsBytesSync(renderedPdf.bytes, flush: true);
@@ -305,6 +318,7 @@ void main() {
           'pdfBytes': pdfFile?.lengthSync(),
           'browserPrintHtmlBytes': htmlFile?.lengthSync(),
           'title': document.infographic!.title,
+          'periodLabel': document.infographic!.periodLabel,
           'theme': document.infographic!.theme,
           'categories': [
             for (final category in document.infographic!.categories)
@@ -385,7 +399,6 @@ List<({String id, Rect region})> _assertLayoutAndCollectRegions(
         'category-${category.id}',
         find.byKey(ThaiBetaAnnualInfographicLayoutKeys.category(category.id)),
       ),
-    ('ornament', find.byKey(ThaiBetaAnnualInfographicLayoutKeys.ornament)),
     (
       'opportunity',
       find.byKey(ThaiBetaAnnualInfographicLayoutKeys.opportunity),
@@ -396,7 +409,6 @@ List<({String id, Rect region})> _assertLayoutAndCollectRegions(
   ];
   final regions = <({String id, Rect region})>[];
   final absolute = <({String id, Rect rect})>[];
-  Rect? previous;
   for (final (id, finder) in sections) {
     expect(finder, findsOneWidget, reason: id);
     final rect = tester.getRect(finder);
@@ -421,13 +433,6 @@ List<({String id, Rect region})> _assertLayoutAndCollectRegions(
       lessThanOrEqualTo(canvas.bottom - safeMargin),
       reason: '$id violates the bottom safe area',
     );
-    if (previous != null) {
-      expect(
-        rect.top,
-        greaterThanOrEqualTo(previous.bottom - .01),
-        reason: '$id overlaps the preceding section',
-      );
-    }
     regions.add((
       id: id,
       region: Rect.fromLTRB(
@@ -438,8 +443,11 @@ List<({String id, Rect region})> _assertLayoutAndCollectRegions(
       ),
     ));
     absolute.add((id: id, rect: rect));
-    previous = rect;
   }
+  final ornament = tester.getRect(
+    find.byKey(ThaiBetaAnnualInfographicLayoutKeys.ornament),
+  );
+  expect(ornament.overlaps(canvas), isTrue);
   for (var left = 0; left < absolute.length; left++) {
     for (var right = left + 1; right < absolute.length; right++) {
       expect(
@@ -585,7 +593,7 @@ _assertCapturedSections(
             .convert(backgroundBytes.takeBytes())
             .toString()
             .toUpperCase();
-        expect(expectedTitle, matches(RegExp(r'^ดวงชะตาปี 25\d{2}$')));
+        expect(expectedTitle, 'แนวโน้ม 12 เดือนข้างหน้า');
         expect(
           titleCreamPixels,
           greaterThan(4000),
@@ -645,7 +653,7 @@ class _ArtifactProbe {
     sidecarPngSha256: 'CURRENT',
     sourceHead: 'SOURCE',
     expectedSourceHead: 'SOURCE',
-    title: 'ดวงชะตาปี 2569',
+    title: 'แนวโน้ม 12 เดือนข้างหน้า',
     titleBounds: Rect.fromLTRB(138, 39, 1032, 129),
     themeBounds: Rect.fromLTRB(48, 141, 1032, 222),
     titleCreamPixels: 8937,
@@ -738,7 +746,7 @@ void _validateArtifactProbe(_ArtifactProbe probe) {
   if (probe.sourceHead != probe.expectedSourceHead) {
     throw StateError('source HEAD mismatch');
   }
-  if (!RegExp(r'^ดวงชะตาปี 25\d{2}$').hasMatch(probe.title)) {
+  if (probe.title != 'แนวโน้ม 12 เดือนข้างหน้า') {
     throw StateError('title contract mismatch');
   }
   const canvas = Rect.fromLTWH(0, 0, 1080, 1920);

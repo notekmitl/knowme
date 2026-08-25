@@ -7,6 +7,14 @@ import 'thai_beta_browser_print_stub.dart'
     if (dart.library.html) 'thai_beta_browser_print_web.dart'
     as bridge;
 
+const _browserPrintDomainHeadings = {
+  'การงาน',
+  'การเงิน',
+  'ความรัก',
+  'สุขภาพ',
+  'โชคลาภ',
+};
+
 void triggerBrowserPrint() => bridge.triggerBrowserPrint();
 
 void removeBrowserPrintDocument() => bridge.removeBrowserPrintMarkup();
@@ -39,6 +47,10 @@ const browserPrintCss = '''
   .report-section { break-inside: avoid-page; page-break-inside: avoid; margin: 0 0 12pt; }
   .report-section h2 { break-after: avoid-page; page-break-after: avoid; font-size: 13.5pt; color: #18203f; margin: 0 0 6pt; }
   .report-section p { orphans: 3; widows: 3; margin: 0 0 5pt; overflow-wrap: anywhere; }
+  .report-section p.domain-heading { color: #795b25; font-weight: 700; margin-top: 8pt; }
+  .report-section.chapter { break-inside: avoid; border: 1px solid #c7a760; border-radius: 7pt; padding: 10pt 12pt; background: #18203f; color: #fff8e8; margin: 10pt 0 13pt; }
+  .report-section.chapter h2 { color: #fff8e8; font-size: 15pt; margin-bottom: 4pt; }
+  .report-section.chapter p { color: #e5dcc7; margin: 0; }
   .report-section.timeline { border: 1px solid #d9d5c9; border-radius: 6pt; padding: 9pt; background: #f7f5ef; }
   .report-section.disclaimer { border: 1px solid #d7a84d; border-radius: 6pt; padding: 9pt; background: #fff9ed; }
   .infographic-page { break-before: page; break-after: page; page-break-before: always; page-break-after: always; height: 265mm; margin: 0; display: flex; align-items: center; justify-content: center; }
@@ -80,11 +92,16 @@ String browserPrintMarkup(
       ..write('data-section-id="${const HtmlEscape().convert(section.id)}">')
       ..write('<h2>${const HtmlEscape().convert(section.title)}</h2>');
     for (var index = 0; index < section.paragraphs.length; index++) {
+      final paragraph = section.paragraphs[index];
+      final paragraphClass =
+          _browserPrintDomainHeadings.contains(paragraph.trim())
+          ? ' class="domain-heading"'
+          : '';
       body
-        ..write('<p data-paragraph-id="')
+        ..write('<p$paragraphClass data-paragraph-id="')
         ..write(const HtmlEscape().convert(section.paragraphIds[index]))
         ..write('">')
-        ..write(const HtmlEscape().convert(section.paragraphs[index]))
+        ..write(const HtmlEscape().convert(paragraph))
         ..write('</p>');
     }
     body.write('</section>');
@@ -108,7 +125,7 @@ void _writeInfographic(
   Uint8List png,
 ) {
   final label = const HtmlEscape().convert(
-    document.infographic?.title ?? 'ภาพสรุปรายปี',
+    document.infographic?.title ?? 'ภาพสรุป 12 เดือนข้างหน้า',
   );
   body
     ..write('<figure class="infographic-page">')

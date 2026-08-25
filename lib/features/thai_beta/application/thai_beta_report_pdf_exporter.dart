@@ -13,7 +13,14 @@ class _PdfSemanticBlock {
   final List<String> paragraphs;
 }
 
-const _domainHeadings = {'การงาน', 'การเงิน', 'ความรัก', 'สุขภาพ', 'โชคลาภ'};
+const _semanticHeadings = {
+  'การงาน',
+  'การเงิน',
+  'ความรัก',
+  'สุขภาพ',
+  'โชคลาภ',
+  'โครงสร้างดวงหลัก',
+};
 
 final _isoDatePattern = RegExp(r'(?<!\d)\d{4}-\d{2}-\d{2}(?!\d)');
 
@@ -107,7 +114,7 @@ List<_PdfSemanticBlock> _semanticBlocks(List<String> paragraphs) {
   String? heading;
   var body = <String>[];
   for (final paragraph in paragraphs) {
-    if (_domainHeadings.contains(paragraph.trim())) {
+    if (_semanticHeadings.contains(paragraph.trim())) {
       if (heading != null) {
         blocks.add(_PdfSemanticBlock(heading: heading, paragraphs: body));
       }
@@ -200,19 +207,22 @@ abstract final class ThaiBetaReportPdfExporter {
       .map((match) => match.group(0)!)
       .toList(growable: false);
 
-  static ({int paragraphIndex, String heading})?
-  debugReadingBasisContinuationForTest(ThaiBetaReportExportSection section) {
-    if (section.title != 'รายงานนี้ดูจากอะไร') return null;
-    final lacksBirthTime = section.paragraphs.any(
-      (paragraph) => paragraph.contains('ไม่มีเวลาเกิด'),
-    );
-    return (
-      paragraphIndex: lacksBirthTime ? 3 : 5,
-      heading: lacksBirthTime
-          ? '${section.title} — ต่อ'
-          : 'โครงสร้างดวงหลัก — ต่อ',
-    );
+  /// Final methodology material follows measured flow. A blind semantic
+  /// NewPage left the last two pages half empty for the Owner fixtures.
+  static bool debugStartsFinalMaterialOnFreshPageForTest(
+    ThaiBetaReportExportDocument document, {
+    required String sectionTitle,
+    String? semanticHeading,
+  }) {
+    return false;
   }
+
+  /// Continuation labels are never inferred from a paragraph index. A
+  /// semantic subheading is emitted once, atomically with its first body
+  /// paragraph, so `— ต่อ` cannot precede the original heading.
+  static ({int paragraphIndex, String heading})?
+  debugReadingBasisContinuationForTest(ThaiBetaReportExportSection section) =>
+      null;
 
   /// Geometry contract for disclaimer/omission cards. The former one-column
   /// intrinsic table could shrink the border around short Known-time copy.
@@ -291,6 +301,20 @@ abstract final class ThaiBetaReportPdfExporter {
       fontSize: 13.5,
       height: 1.4,
     );
+    final chapterStyle = pw.TextStyle(
+      font: bold,
+      fontFallback: [latinBold],
+      fontSize: 15,
+      color: PdfColors.white,
+      height: 1.35,
+    );
+    final chapterBodyStyle = pw.TextStyle(
+      font: regular,
+      fontFallback: [latinRegular],
+      fontSize: 10,
+      color: PdfColor.fromHex('#E5DCC7'),
+      height: 1.45,
+    );
     final subtitleStyle = pw.TextStyle(
       font: regular,
       fontFallback: [latinRegular],
@@ -304,6 +328,13 @@ abstract final class ThaiBetaReportPdfExporter {
       fontSize: 10,
       color: PdfColors.grey800,
       height: 1.5,
+    );
+    final compactDisclosureStyle = pw.TextStyle(
+      font: regular,
+      fontFallback: [latinRegular],
+      fontSize: 8.5,
+      color: PdfColors.grey800,
+      height: 1.2,
     );
 
     pdf.addPage(
@@ -332,60 +363,173 @@ abstract final class ThaiBetaReportPdfExporter {
           ];
           for (var i = 0; i < polished.sections.length; i++) {
             final section = polished.sections[i];
+            final isChapter =
+                section.kind == ThaiBetaReportExportSectionKind.chapter;
             final isDisclaimer =
                 section.kind == ThaiBetaReportExportSectionKind.disclaimer;
             final isTimeline =
                 section.kind == ThaiBetaReportExportSectionKind.timeline;
 
-            if (isDisclaimer) {
-              widgets.add(pw.SizedBox(height: 10));
-              // Keep the complete omission/disclaimer card atomic. The real
-              // Unknown fixture fits on a fresh A4 page; arbitrary groups of
-              // four caused V1.3 page 6 to lose its parent heading.
-              final chunks = debugDisclaimerChunksForTest(section);
-              for (
-                var chunkIndex = 0;
-                chunkIndex < chunks.length;
-                chunkIndex++
-              ) {
-                if (chunkIndex > 0) widgets.add(pw.SizedBox(height: 6));
-                final chunk = chunks[chunkIndex];
-                widgets.add(
-                  _atomicPaginationUnit(
-                    () => pw.Container(
-                      width: double.infinity,
-                      padding: const pw.EdgeInsets.all(12),
-                      decoration: pw.BoxDecoration(
-                        border: pw.Border.all(
-                          color: PdfColors.grey400,
-                          width: 0.7,
-                        ),
-                        borderRadius: pw.BorderRadius.circular(4),
-                      ),
-                      child: pw.Column(
-                        crossAxisAlignment: pw.CrossAxisAlignment.start,
-                        children: [
-                          pw.Text(
-                            chunkIndex == 0
-                                ? section.title
-                                : '${section.title} (ต่อ)',
-                            style: sectionStyle,
-                          ),
-                          for (final paragraph in chunk) ...[
-                            pw.SizedBox(height: 8),
-                            _pdfText(paragraph, style: disclaimerStyle),
-                          ],
-                        ],
+            if (isChapter) {
+              widgets.add(
+                _atomicPaginationUnit(
+                  () => pw.Container(
+                    width: double.infinity,
+                    margin: const pw.EdgeInsets.only(top: 8, bottom: 10),
+                    padding: const pw.EdgeInsets.fromLTRB(14, 12, 14, 12),
+                    decoration: pw.BoxDecoration(
+                      color: PdfColor.fromHex('#18203F'),
+                      borderRadius: pw.BorderRadius.circular(6),
+                      border: pw.Border.all(
+                        color: PdfColor.fromHex('#C7A760'),
+                        width: .8,
                       ),
                     ),
+                    child: pw.Column(
+                      crossAxisAlignment: pw.CrossAxisAlignment.start,
+                      children: [
+                        _pdfText(section.title, style: chapterStyle),
+                        for (final paragraph in section.paragraphs) ...[
+                          pw.SizedBox(height: 5),
+                          _pdfText(paragraph, style: chapterBodyStyle),
+                        ],
+                      ],
+                    ),
                   ),
-                );
+                ),
+              );
+              continue;
+            }
+
+            final startsFinalDisclosureGroup =
+                section.title == 'ที่มาของผลวิเคราะห์' &&
+                i + 1 < polished.sections.length &&
+                polished.sections[i + 1].kind ==
+                    ThaiBetaReportExportSectionKind.disclaimer;
+            if (startsFinalDisclosureGroup) {
+              final trailingDisclaimers = polished.sections
+                  .skip(i + 1)
+                  .takeWhile(
+                    (candidate) =>
+                        candidate.kind ==
+                        ThaiBetaReportExportSectionKind.disclaimer,
+                  )
+                  .toList(growable: false);
+              widgets.add(
+                _atomicPaginationUnit(
+                  () => pw.Column(
+                    crossAxisAlignment: pw.CrossAxisAlignment.start,
+                    children: [
+                      _pdfText(section.title, style: sectionStyle),
+                      for (final paragraph in section.paragraphs) ...[
+                        pw.SizedBox(height: 3),
+                        _pdfText(paragraph, style: compactDisclosureStyle),
+                      ],
+                      pw.SizedBox(height: 3),
+                      for (
+                        var groupIndex = 0;
+                        groupIndex < trailingDisclaimers.length;
+                        groupIndex++
+                      ) ...[
+                        if (groupIndex > 0) pw.SizedBox(height: 3),
+                        pw.Container(
+                          width: double.infinity,
+                          padding: const pw.EdgeInsets.all(5),
+                          decoration: pw.BoxDecoration(
+                            border: pw.Border.all(
+                              color: PdfColors.grey400,
+                              width: 0.7,
+                            ),
+                            borderRadius: pw.BorderRadius.circular(4),
+                          ),
+                          child: pw.Column(
+                            crossAxisAlignment: pw.CrossAxisAlignment.start,
+                            children: [
+                              pw.Text(
+                                trailingDisclaimers[groupIndex].title,
+                                style: sectionStyle,
+                              ),
+                              for (final paragraph
+                                  in trailingDisclaimers[groupIndex]
+                                      .paragraphs) ...[
+                                pw.SizedBox(height: 3),
+                                _pdfText(
+                                  paragraph,
+                                  style: compactDisclosureStyle,
+                                ),
+                              ],
+                            ],
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              );
+              continue;
+            }
+
+            if (isDisclaimer) {
+              if (i > 0 &&
+                  (polished.sections[i - 1].kind ==
+                          ThaiBetaReportExportSectionKind.disclaimer ||
+                      polished.sections[i - 1].title ==
+                          'ที่มาของผลวิเคราะห์')) {
+                continue;
               }
+              widgets.add(pw.SizedBox(height: 4));
+              final grouped = polished.sections
+                  .skip(i)
+                  .takeWhile(
+                    (candidate) =>
+                        candidate.kind ==
+                        ThaiBetaReportExportSectionKind.disclaimer,
+                  )
+                  .toList(growable: false);
+              widgets.add(
+                _atomicPaginationUnit(
+                  () => pw.Column(
+                    children: [
+                      for (
+                        var groupIndex = 0;
+                        groupIndex < grouped.length;
+                        groupIndex++
+                      ) ...[
+                        if (groupIndex > 0) pw.SizedBox(height: 6),
+                        pw.Container(
+                          width: double.infinity,
+                          padding: const pw.EdgeInsets.all(9),
+                          decoration: pw.BoxDecoration(
+                            border: pw.Border.all(
+                              color: PdfColors.grey400,
+                              width: 0.7,
+                            ),
+                            borderRadius: pw.BorderRadius.circular(4),
+                          ),
+                          child: pw.Column(
+                            crossAxisAlignment: pw.CrossAxisAlignment.start,
+                            children: [
+                              pw.Text(
+                                grouped[groupIndex].title,
+                                style: sectionStyle,
+                              ),
+                              for (final paragraph
+                                  in grouped[groupIndex].paragraphs) ...[
+                                pw.SizedBox(height: 5),
+                                _pdfText(paragraph, style: disclaimerStyle),
+                              ],
+                            ],
+                          ),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              );
               continue;
             }
 
             final blocks = _semanticBlocks(section.paragraphs);
-            final continuation = debugReadingBasisContinuationForTest(section);
             for (var blockIndex = 0; blockIndex < blocks.length; blockIndex++) {
               final block = blocks[blockIndex];
               final renderParagraphs = block.paragraphs
@@ -446,11 +590,6 @@ abstract final class ThaiBetaReportPdfExporter {
                 paragraphIndex < renderParagraphs.length;
                 paragraphIndex++
               ) {
-                final continuationHeading =
-                    continuation != null &&
-                        paragraphIndex == continuation.paragraphIndex
-                    ? continuation.heading
-                    : null;
                 final remaining = renderParagraphs
                     .skip(paragraphIndex)
                     .take(1)
@@ -468,10 +607,6 @@ abstract final class ThaiBetaReportPdfExporter {
                       child: pw.Column(
                         crossAxisAlignment: pw.CrossAxisAlignment.start,
                         children: [
-                          if (continuationHeading != null) ...[
-                            _pdfText(continuationHeading, style: sectionStyle),
-                            pw.SizedBox(height: 8),
-                          ],
                           for (final paragraph in remaining)
                             _pdfText(paragraph, style: baseStyle),
                         ],
@@ -485,7 +620,7 @@ abstract final class ThaiBetaReportPdfExporter {
             // has no content but MultiPage still lays it out; when the final
             // content exactly fills a page it can create a footer-only page.
             if (i < polished.sections.length - 1) {
-              widgets.add(pw.SizedBox(height: 12));
+              widgets.add(pw.SizedBox(height: 8));
             }
             if (infographicPng != null &&
                 i == polished.infographicInsertionSectionIndex) {
@@ -503,7 +638,6 @@ abstract final class ThaiBetaReportPdfExporter {
                   ),
                 ),
               );
-              widgets.add(pw.NewPage());
             }
           }
 

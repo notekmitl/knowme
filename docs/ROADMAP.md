@@ -1,5 +1,52 @@
 # KnowMe Roadmap
 
+## Active — Thai Report Reader Experience V2 gate and Owner review
+
+PR106 Owner Acceptance is complete: `PR106-OR3 OWNER FINAL LANGUAGE ACCEPTANCE: PASS`. OR1 passed Visual/Structure but failed language; OR2 addressed the main copy issues but failed Final Editorial Quality; OR3 passed the four-part reading order, infographic, `แนวโน้ม 12 เดือนข้างหน้า`, exact `7 ส.ค. 2569 – 6 ส.ค. 2570` range, and Known/Unknown Final Thai Language. Acceptance is bound to implementation `d516477a808f7ff2fe791e561451c68043796301` and verified ZIP SHA-256 `42F729EF2E14AAB8200B0911E96DF565DBDCB2BFA7D18DEC8D0D7528BEE5DC11`. Unknown remains fail-closed; `monthlyTimelineAvailable=false`; no monthly predictions. OR3 technical evidence remains 95 focused, 300 profiles / 8,956 fields / impacts 0, 1,622 full tests and Analyzer/PreCommit/PostCommit pass. Status: **PR106 OWNER ACCEPTANCE PASSED — READY FOR FINAL MERGE DECISION**. Merge and deploy remain separate, unperformed decisions; Firebase/Production are unchanged.
+
+Historical pre-acceptance OR3 roadmap record follows.
+
+PR106-OR3 technical validation is complete at final source commit `d516477a808f7ff2fe791e561451c68043796301`. OR2 passed Visual/Structure/PDF/Technical Validation but was rejected for Final Thai Editorial Quality; OR3 is a copy-only final sweep with semantic/omission/addition/prediction-advice/traceability impact 0 across 300 profiles. Fresh Owner evidence is packaged and verified. The remaining gate is Owner Final Language Re-Acceptance; status is **PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE**. PR #106 stays Open + Draft. Merge, Ready-for-Review, deploy and Firebase/Production changes remain prohibited.
+
+Historical OR2 roadmap record follows.
+
+PR106-OR2 technical validation is complete at implementation commit
+`7a03a0ca4a692b0caa7dcdf6c51ae7fbf1ae4892`. OR1 visual/structure passed but
+language was Owner-rejected; OR2 changes only copy and consistency, preserving
+semantics, traceability, four-part structure and fail-closed behavior. Fresh
+Known/Unknown Web, infographic, Dedicated PDF 8/7 and Chrome print 7/7 evidence
+is packaged for review. Decision state is **PENDING OWNER LANGUAGE
+RE-ACCEPTANCE**. The only next action is Owner language review; PR #106 must
+remain Open, Draft, unmerged and undeployed.
+
+PR106-OR1 technical repair is complete at implementation commit
+`b5526dd33441e96e47308c038f9fc15de119f6e9`. Fresh source-bound evidence now
+measures Dedicated Known/Unknown at 8/7 pages and Chrome browser-print at 7/7,
+with four 1080×1920 infographics and actual desktop/mobile Web captures. All
+local gates pass. Decision state is **PENDING OWNER VISUAL AND LANGUAGE
+RE-ACCEPTANCE**; only Owner re-review is next. PR #106 must remain Open, Draft,
+unmerged and undeployed.
+
+The previous Owner Review package, later rejected and now superseded by
+PR106-OR1, was generated from exact Draft PR #106 source HEAD
+`f0931fd581c7ea24567cbee165146c7d725f14e0`. Current decision state is
+**PENDING OWNER VISUAL AND LANGUAGE ACCEPTANCE**. Owner review of the actual
+Known/Unknown PDFs, 360/390 infographics and contact sheets is the only action
+authorized here. PR #106 remains Open and Draft; merge, Ready-for-Review,
+deployment and Firebase/Production changes remain out of scope.
+
+The locally validated candidate restructures the Thai report into four numbered reader
+chapters, places the infographic after the rolling 12-month narrative, replaces
+the calendar-year claim with an exact date range, redesigns the 1080x1920 image
+and repairs difficult Thai copy. The next milestone is a pinned-toolchain gate
+with fresh Known/Unknown Web, dedicated-PDF, browser-print and infographic
+visual evidence. Focused tests, 300-profile audit, full suite, analyzer and
+direct PNG/PDF/browser-print QA now pass; Draft PR #106 is open and Owner
+review remains. GitHub currently exposes no check run for the branch. Merge and
+Production deployment remain separate
+explicit decisions. Monthly timeline remains deferred because
+`monthlyTimelineAvailable=false`.
+
 ## Current — S008 technical parity verified; Owner copy decision next
 
 PR #95 now has exact VM/Chrome parity at the canonical snapshot/hash/narrative boundary across two VM and two real-Chrome 300-profile runs. All fresh final test, analyzer-delta, build, baseline-delta and R7.1 identity gates pass. The remaining gate is Owner review of the fully enumerated reader-visible copy normalization (93 profiles / 112 summaries). Keep the PR Draft; merge and deployment require separate explicit authorization. Production remains V1.4.

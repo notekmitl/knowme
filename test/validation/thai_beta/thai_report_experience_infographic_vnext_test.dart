@@ -1,11 +1,11 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
-import 'package:knowme/features/thai_beta/application/thai_beta_reader_copy_repair.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_pdf_exporter.dart';
 import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
@@ -24,8 +24,8 @@ ThaiBetaAnalysis _analysis({required bool knownTime, int year = 2026}) =>
         province: 'กรุงเทพมหานคร',
         provinceKey: 'bangkok',
       ),
-      startedAt: DateTime.utc(year, 1, 1),
-      asOf: DateTime.utc(year, 1, 1),
+      startedAt: DateTime.utc(year, 8, 7),
+      asOf: DateTime.utc(year, 8, 7),
     );
 
 ThaiBetaAnalysis _regression1972() => ThaiBetaAnalysisRunner.run(
@@ -129,7 +129,7 @@ void main() {
       for (final section in document.sections) {
         expect(
           section.id,
-          matches(RegExp(r'^report-(body|timeline|disclaimer)-')),
+          matches(RegExp(r'^report-(chapter|body|timeline|disclaimer)-')),
         );
         expect(section.fieldSource, isNotEmpty);
         expect(section.visibilityRule, isNotEmpty);
@@ -208,46 +208,79 @@ void main() {
       timeout: const Timeout(Duration(minutes: 5)),
     );
 
-    test('candidate copy changes only declared reader-copy rules', () {
+    test('candidate is opt-in and leaves the accepted factory unchanged', () {
       final analysis = _analysis(knownTime: true);
       final before = ThaiBetaReportExportDocument.beforeReaderCopy(analysis);
       final after = ThaiBetaReportExportDocument.candidate(analysis);
-      expect(before.sections.length, after.sections.length);
-      for (var index = 0; index < before.sections.length; index++) {
-        final left = before.sections[index];
-        final right = after.sections[index];
-        expect(left.id, right.id);
-        expect(left.paragraphs.length, right.paragraphs.length);
-        expect(ThaiBetaReaderCopyRepair.refine(left.title), right.title);
-        for (var p = 0; p < left.paragraphs.length; p++) {
-          expect(
-            ThaiBetaReaderCopyRepair.refine(left.paragraphs[p]),
-            right.paragraphs[p],
-            reason: '${left.id}.p${p + 1}',
-          );
-        }
-      }
+      expect(
+        before.sections.any(
+          (section) => section.kind == ThaiBetaReportExportSectionKind.chapter,
+        ),
+        isFalse,
+      );
+      expect(before.fullPlainText, contains('แปลเป็นภาษาคน'));
+      expect(
+        after.sections.where(
+          (section) => section.kind == ThaiBetaReportExportSectionKind.chapter,
+        ),
+        hasLength(4),
+      );
       expect(after.fullPlainText, isNot(contains('แปลเป็นภาษาคน')));
       expect(after.fullPlainText, isNot(contains('จุดกระตุ้น')));
       expect(after.fullPlainText, isNot(contains('ธาตุขัดกัน')));
     });
 
-    test('Known and Unknown share the summary-boundary infographic order', () {
+    test('four reader chapters appear once and in a stable order', () {
       for (final knownTime in [true, false]) {
         final document = ThaiBetaReportExportDocument.candidate(
           _analysis(knownTime: knownTime),
         );
-        expect(document.infographicInsertionSectionIndex, 2);
+        const titles = [
+          'ส่วนที่ 1 · พื้นดวงของคุณ',
+          'ส่วนที่ 2 · จังหวะชีวิตที่ผ่านมาและปัจจุบัน',
+          'ส่วนที่ 3 · แนวโน้มข้างหน้า',
+          'ส่วนที่ 4 · ที่มาและข้อจำกัด',
+        ];
+        final chapterSections = document.sections
+            .where(
+              (section) =>
+                  section.kind == ThaiBetaReportExportSectionKind.chapter,
+            )
+            .toList(growable: false);
+        expect(chapterSections.map((section) => section.title), titles);
+        var previous = -1;
+        for (final title in titles) {
+          final index = document.sections.indexWhere(
+            (section) => section.title == title,
+          );
+          expect(index, greaterThan(previous));
+          previous = index;
+        }
+        final markup = browserPrintMarkup(document);
+        expect(
+          'class="report-section chapter"'.allMatches(markup),
+          hasLength(4),
+        );
+      }
+    });
+
+    test('Known and Unknown place the image after its 12-month narrative', () {
+      for (final knownTime in [true, false]) {
+        final document = ThaiBetaReportExportDocument.candidate(
+          _analysis(knownTime: knownTime),
+        );
+        final insertion = document.infographicInsertionSectionIndex;
+        expect(document.sections[insertion].title, 'แนวโน้ม 12 เดือนข้างหน้า');
         final markup = browserPrintMarkup(
           document,
           infographicPng: Uint8List.fromList([1, 2, 3]),
         );
         final before = markup.indexOf(
-          'data-section-id="${document.sections[2].id}"',
+          'data-section-id="${document.sections[insertion].id}"',
         );
         final image = markup.indexOf('class="infographic-page"');
         final after = markup.indexOf(
-          'data-section-id="${document.sections[3].id}"',
+          'data-section-id="${document.sections[insertion + 1].id}"',
         );
         expect(before, lessThan(image));
         expect(image, lessThan(after));
@@ -255,21 +288,25 @@ void main() {
     });
   });
 
-  group('annual infographic evidence contract', () {
-    test('year comes from Bangkok civil asOf and is never hard-coded', () {
-      expect(
-        ThaiBetaReportExportDocument.candidate(
+  group('rolling 12-month infographic evidence contract', () {
+    test(
+      'period is exact, rolling, and never presented as a calendar year',
+      () {
+        final year2569 = ThaiBetaReportExportDocument.candidate(
           _analysis(knownTime: true, year: 2026),
-        ).infographic!.buddhistYear,
-        2569,
-      );
-      expect(
-        ThaiBetaReportExportDocument.candidate(
+        ).infographic!;
+        final year2570 = ThaiBetaReportExportDocument.candidate(
           _analysis(knownTime: true, year: 2027),
-        ).infographic!.buddhistYear,
-        2570,
-      );
-    });
+        ).infographic!;
+        expect(year2569.buddhistYear, 2569);
+        expect(year2570.buddhistYear, 2570);
+        expect(year2569.title, 'แนวโน้ม 12 เดือนข้างหน้า');
+        expect(year2569.periodLabel, '7 ส.ค. 2569 – 6 ส.ค. 2570');
+        expect(year2570.periodLabel, '7 ส.ค. 2570 – 6 ส.ค. 2571');
+        expect(year2569.overview, startsWith(year2569.periodLabel));
+        expect(year2569.title, isNot(contains('ปี 2569')));
+      },
+    );
 
     test(
       'uses four evidence-backed domains and fails closed on month timeline',
@@ -344,6 +381,17 @@ void main() {
             );
             expect(firstPng, isNotNull);
             expect(secondPng, firstPng);
+            final surfaceOutput =
+                Platform.environment['KNOWME_INFOGRAPHIC_SURFACE_OUTPUT'];
+            if (surfaceOutput != null && surfaceOutput.isNotEmpty) {
+              final directory = Directory(surfaceOutput)
+                ..createSync(recursive: true);
+              File(
+                '${directory.path}${Platform.pathSeparator}'
+                'annual-infographic-surface-${width.toInt()}-'
+                '${knownTime ? 'known' : 'unknown'}.png',
+              ).writeAsBytesSync(firstPng!, flush: true);
+            }
             expect(ThaiBetaAnnualInfographicCapture.pixelRatio, 3);
             expect(ThaiBetaAnnualInfographicCapture.targetWidth, 1080);
             expect(ThaiBetaAnnualInfographicCapture.targetHeight, 1920);
@@ -404,13 +452,11 @@ void _expectAllInfographicSectionsInsideCanvas(
     find.byKey(ThaiBetaAnnualInfographicLayoutKeys.overview),
     for (final category in data.categories)
       find.byKey(ThaiBetaAnnualInfographicLayoutKeys.category(category.id)),
-    find.byKey(ThaiBetaAnnualInfographicLayoutKeys.ornament),
     find.byKey(ThaiBetaAnnualInfographicLayoutKeys.opportunity),
     find.byKey(ThaiBetaAnnualInfographicLayoutKeys.caution),
     find.byKey(ThaiBetaAnnualInfographicLayoutKeys.advice),
     find.byKey(ThaiBetaAnnualInfographicLayoutKeys.disclaimer),
   ];
-  Rect? previous;
   for (final finder in finders) {
     expect(finder, findsOneWidget);
     final rect = tester.getRect(finder);
@@ -418,19 +464,16 @@ void _expectAllInfographicSectionsInsideCanvas(
     expect(rect.top, greaterThanOrEqualTo(canvas.top));
     expect(rect.right, lessThanOrEqualTo(canvas.right));
     expect(rect.bottom, lessThanOrEqualTo(canvas.bottom));
-    if (previous != null) {
-      expect(
-        rect.top,
-        greaterThanOrEqualTo(previous.bottom - .01),
-        reason: '${previous.toString()} overlaps ${rect.toString()}',
-      );
-    }
-    previous = rect;
   }
+  final ornament = tester.getRect(
+    find.byKey(ThaiBetaAnnualInfographicLayoutKeys.ornament),
+  );
+  expect(ornament.overlaps(canvas), isTrue);
 }
 
 Map<String, Object?> _identity(ThaiBetaAnnualInfographicData data) => {
   'year': data.buddhistYear,
+  'periodLabel': data.periodLabel,
   'theme': data.theme,
   'overview': data.overview,
   'categories': [

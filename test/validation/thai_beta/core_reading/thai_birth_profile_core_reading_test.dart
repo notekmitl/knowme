@@ -759,12 +759,17 @@ void main() {
 
     final core = find.byKey(const Key('thai_birth_profile_core_reading'));
     final timeline = find.byKey(const Key('thai_consumer_life_timeline'));
-    final divider = find.byKey(
-      const Key('thai_birth_profile_timeline_divider'),
-    );
     expect(core, findsOneWidget);
     expect(timeline, findsOneWidget);
-    expect(divider, findsOneWidget);
+    expect(find.text('ส่วนที่ 1 · พื้นดวงของคุณ'), findsOneWidget);
+    expect(
+      find.text('ส่วนที่ 2 · จังหวะชีวิตที่ผ่านมาและปัจจุบัน'),
+      findsOneWidget,
+    );
+    expect(
+      find.byKey(const Key('thai_birth_profile_timeline_divider')),
+      findsNothing,
+    );
     expect(find.byKey(const Key('thai_consumer_hero')), findsNothing);
     expect(
       find.byKey(const Key('thai_consumer_signature_insight')),
@@ -784,10 +789,6 @@ void main() {
     expect(find.byType(ThaiBetaSharedReportView), findsOneWidget);
     expect(
       tester.getTopLeft(core).dy,
-      lessThan(tester.getTopLeft(timeline).dy),
-    );
-    expect(
-      tester.getTopLeft(divider).dy,
       lessThan(tester.getTopLeft(timeline).dy),
     );
   });
@@ -881,7 +882,10 @@ void main() {
     final core = ThaiBirthProfileCoreReading.fromAnalysis(analysis);
     final export = ThaiBetaReportExportDocument.fromAnalysis(analysis);
 
-    expect(export.sections.first.title, core.title);
+    expect(
+      export.sections.any((section) => section.title == core.title),
+      isTrue,
+    );
     for (final section in core.sections) {
       final exported = export.sections.singleWhere(
         (candidate) => candidate.title == section.title,

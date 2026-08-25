@@ -40,7 +40,7 @@ class ThaiBetaReportExportSection {
   );
 }
 
-enum ThaiBetaReportExportSectionKind { body, timeline, disclaimer }
+enum ThaiBetaReportExportSectionKind { chapter, body, timeline, disclaimer }
 
 class ThaiBetaAnnualInfographicCategory {
   const ThaiBetaAnnualInfographicCategory({
@@ -61,6 +61,7 @@ class ThaiBetaAnnualInfographicCategory {
 class ThaiBetaAnnualInfographicData {
   const ThaiBetaAnnualInfographicData({
     required this.buddhistYear,
+    required this.periodLabel,
     required this.theme,
     required this.overview,
     required this.categories,
@@ -74,6 +75,7 @@ class ThaiBetaAnnualInfographicData {
   });
 
   final int buddhistYear;
+  final String periodLabel;
   final String theme;
   final String overview;
   final List<ThaiBetaAnnualInfographicCategory> categories;
@@ -85,7 +87,7 @@ class ThaiBetaAnnualInfographicData {
   final String monthlyGapReason;
   final List<String> traceIds;
 
-  String get title => 'ดวงชะตาปี $buddhistYear';
+  String get title => 'แนวโน้ม 12 เดือนข้างหน้า';
 }
 
 /// Structured export payload — no engine/Canon/raw ids.
@@ -117,17 +119,15 @@ class ThaiBetaReportExportDocument {
     return buf.toString();
   }
 
-  /// Shared insertion point for the annual image across Web, PDF and print.
-  /// Known reports use the explicit summary heading. Unknown reports omit that
-  /// unsupported section, so the third evidence-backed overview section is the
-  /// deterministic fail-closed summary boundary.
+  /// Shared insertion point for the rolling 12-month image across Web, PDF and
+  /// browser print. The image follows the narrative it summarizes.
   int get infographicInsertionSectionIndex {
-    final summaryIndex = sections.indexWhere(
-      (section) => section.title == 'สรุปตัวคุณแบบตรง ๆ',
+    final twelveMonthIndex = sections.indexWhere(
+      (section) => section.title == 'แนวโน้ม 12 เดือนข้างหน้า',
     );
-    if (summaryIndex >= 0) return summaryIndex;
+    if (twelveMonthIndex >= 0) return twelveMonthIndex;
     if (sections.isEmpty) return -1;
-    return sections.length > 2 ? 2 : sections.length - 1;
+    return sections.length - 1;
   }
 
   /// Builds from existing [ThaiBetaAnalysis] consumer view only.
@@ -148,7 +148,14 @@ class ThaiBetaReportExportDocument {
 
     final view = ThaiBetaNarrativeComposer.narrativeView(analysis);
 
-    final sections = <ThaiBetaReportExportSection>[];
+    final sections = <ThaiBetaReportExportSection>[
+      if (applyReaderCopy)
+        _chapter(
+          number: 1,
+          title: 'พื้นดวงของคุณ',
+          orientation: 'ทำความรู้จักตัวตน จุดแข็ง และแนวโน้มหลักจากดวงกำเนิด',
+        ),
+    ];
     final coreReading = ThaiBirthProfileCoreReading.fromAnalysis(
       analysis,
       consumerView: view,
@@ -171,16 +178,58 @@ class ThaiBetaReportExportDocument {
     // and non-duplicated transparency/disclaimer content follows it.
     final timeline = view.lifeTimeline;
     if (timeline != null) {
-      sections.addAll(_timelinePastAndCurrentSections(timeline));
+      if (applyReaderCopy) {
+        sections.add(
+          _chapter(
+            number: 2,
+            title: 'จังหวะชีวิตที่ผ่านมาและปัจจุบัน',
+            orientation: 'ทบทวนช่วงวัยสำคัญ แล้วดูว่าตอนนี้คุณอยู่ตรงไหน',
+          ),
+        );
+      }
+      sections.addAll(
+        _timelinePastAndCurrentSections(
+          timeline,
+          applyReaderCopy: applyReaderCopy,
+        ),
+      );
     }
 
     final prediction = view.futurePrediction;
+    if (applyReaderCopy && (prediction != null || timeline != null)) {
+      sections.add(
+        _chapter(
+          number: 3,
+          title: 'แนวโน้มข้างหน้า',
+          orientation:
+              'แยกสิ่งที่ควรตัดสินใจตอนนี้ แนวโน้ม 12 เดือน และช่วงชีวิตถัดไป',
+        ),
+      );
+    }
     if (prediction != null) {
-      sections.addAll(_predictionSections(prediction));
+      sections.addAll(
+        applyReaderCopy
+            ? _predictionNearTermSections(prediction)
+            : _predictionSectionsLegacy(prediction),
+      );
+    }
+    if (timeline != null) {
+      sections.addAll(
+        _timelineLongTermSections(timeline, applyReaderCopy: applyReaderCopy),
+      );
+    }
+    if (applyReaderCopy && prediction != null) {
+      sections.addAll(_predictionLongTermSections(prediction));
     }
 
-    if (timeline != null) {
-      sections.addAll(_timelineLongTermSections(timeline));
+    if (applyReaderCopy) {
+      sections.add(
+        _chapter(
+          number: 4,
+          title: 'ที่มาและข้อจำกัด',
+          orientation: 'ดูข้อมูลที่ใช้ วิธีอ่าน และขอบเขตของรายงานฉบับนี้',
+        ),
+      );
     }
 
     final methodology = coreReading.sections.singleWhere(
@@ -457,10 +506,12 @@ class ThaiBetaReportExportDocument {
         : 'ไม่มีเวลาเกิด จึงแสดงเฉพาะแนวโน้มที่ข้อมูลรองรับและไม่เติมรายละเอียดที่ขาดหาย';
     return ThaiBetaAnnualInfographicData(
       buddhistYear: analysis.asOf.year + 543,
+      periodLabel: _twelveMonthPeriodLabel(analysis.asOf),
       theme: repair(window.summary, 'infographic.theme'),
-      overview: applyReaderCopy && hasTransitionReserve
-          ? repair(window.timeframeLabel, 'infographic.overview')
-          : window.timeframeLabel,
+      overview: [
+        _twelveMonthPeriodLabel(analysis.asOf),
+        if (hasTransitionReserve) 'ควรเผื่อแรงไว้เมื่อหน้าที่เปลี่ยน',
+      ].join(' • '),
       categories: List.unmodifiable(categories),
       opportunity: repair(opportunity, 'infographic.opportunity'),
       caution: repair(caution, 'infographic.caution'),
@@ -506,9 +557,51 @@ class ThaiBetaReportExportDocument {
     );
   }
 
+  static ThaiBetaReportExportSection _chapter({
+    required int number,
+    required String title,
+    required String orientation,
+  }) => _section('ส่วนที่ $number · $title', [
+    orientation,
+  ], kind: ThaiBetaReportExportSectionKind.chapter);
+
+  static String _twelveMonthPeriodLabel(DateTime asOf) {
+    final nextYear = asOf.year + 1;
+    final lastDayOfTargetMonth = asOf.isUtc
+        ? DateTime.utc(nextYear, asOf.month + 1, 0).day
+        : DateTime(nextYear, asOf.month + 1, 0).day;
+    final anniversaryDay = asOf.day > lastDayOfTargetMonth
+        ? lastDayOfTargetMonth
+        : asOf.day;
+    final anniversary = asOf.isUtc
+        ? DateTime.utc(nextYear, asOf.month, anniversaryDay)
+        : DateTime(nextYear, asOf.month, anniversaryDay);
+    final periodEnd = anniversary.subtract(const Duration(days: 1));
+    return '${_thaiDate(asOf)} – ${_thaiDate(periodEnd)}';
+  }
+
+  static String _thaiDate(DateTime value) {
+    const months = <String>[
+      'ม.ค.',
+      'ก.พ.',
+      'มี.ค.',
+      'เม.ย.',
+      'พ.ค.',
+      'มิ.ย.',
+      'ก.ค.',
+      'ส.ค.',
+      'ก.ย.',
+      'ต.ค.',
+      'พ.ย.',
+      'ธ.ค.',
+    ];
+    return '${value.day} ${months[value.month - 1]} ${value.year + 543}';
+  }
+
   static List<ThaiBetaReportExportSection> _timelinePastAndCurrentSections(
-    ThaiMirrorLifeTimelineState timeline,
-  ) {
+    ThaiMirrorLifeTimelineState timeline, {
+    required bool applyReaderCopy,
+  }) {
     final out = <ThaiBetaReportExportSection>[
       _section('แผนที่ชีวิต', [
         timeline.sectionIntro,
@@ -529,8 +622,13 @@ class ThaiBetaReportExportDocument {
 
     final stage = timeline.currentStage;
     final stageLines = <String>[
-      stage.eyebrow,
-      '${stage.phaseName} · อายุ ${stage.ageLabel} · ${stage.planetLine}',
+      if (applyReaderCopy) ...[
+        '${stage.phaseName} (อายุ ${stage.ageLabel})',
+        if (stage.planetLine.trim().isNotEmpty) stage.planetLine,
+      ] else ...[
+        stage.eyebrow,
+        '${stage.phaseName} · อายุ ${stage.ageLabel} · ${stage.planetLine}',
+      ],
       ThaiBetaReportExportPolish.polishTimingCopy(stage.intro),
     ];
 
@@ -559,21 +657,26 @@ class ThaiBetaReportExportDocument {
   }
 
   static List<ThaiBetaReportExportSection> _timelineLongTermSections(
-    ThaiMirrorLifeTimelineState timeline,
-  ) {
+    ThaiMirrorLifeTimelineState timeline, {
+    required bool applyReaderCopy,
+  }) {
     final out = <ThaiBetaReportExportSection>[];
     final preview = timeline.futurePreview;
     out.add(
-      _section('แนวโน้มระยะยาว', [
-        if (preview != null) ...[
-          preview.intro,
-          preview.transitionLabel,
-          if (preview.elementShiftLine.isNotEmpty) preview.elementShiftLine,
-          preview.opportunitiesLine,
-          preview.challengesLine,
-        ] else
-          'ใช้ช่วงชีวิตข้างหน้าเป็นภาพกว้างสำหรับเตรียมตัว ไม่ใช่ข้อสรุปตายตัว',
-      ], kind: ThaiBetaReportExportSectionKind.timeline),
+      _section(
+        applyReaderCopy ? 'จังหวะชีวิตระยะต่อไป' : 'แนวโน้มระยะยาว',
+        [
+          if (preview != null) ...[
+            preview.intro,
+            preview.transitionLabel,
+            if (preview.elementShiftLine.isNotEmpty) preview.elementShiftLine,
+            preview.opportunitiesLine,
+            preview.challengesLine,
+          ] else
+            'ใช้ช่วงชีวิตข้างหน้าเป็นภาพกว้างสำหรับเตรียมตัว ไม่ใช่ข้อสรุปตายตัว',
+        ],
+        kind: ThaiBetaReportExportSectionKind.timeline,
+      ),
     );
     for (final period in timeline.periods.where(
       (period) => !period.isPast && !period.isCurrent,
@@ -613,7 +716,44 @@ class ThaiBetaReportExportDocument {
     kind: ThaiBetaReportExportSectionKind.timeline,
   );
 
-  static List<ThaiBetaReportExportSection> _predictionSections(
+  static List<ThaiBetaReportExportSection> _predictionNearTermSections(
+    PredictionSectionModel prediction,
+  ) {
+    final hasDetailedDomains = prediction.windows.any(
+      (window) => window.domains.isNotEmpty,
+    );
+    final evidenceBoundary = prediction.windows
+        .expand((window) => window.domains)
+        .map((domain) => domain.uncertaintyDisclosure.trim())
+        .firstWhere((value) => value.isNotEmpty, orElse: () => '');
+    final out = <ThaiBetaReportExportSection>[
+      _section(prediction.sectionTitle, [
+        hasDetailedDomains && prediction.detailedSectionIntro.isNotEmpty
+            ? prediction.detailedSectionIntro
+            : prediction.sectionIntro,
+        if (prediction.transitionLine.isNotEmpty) prediction.transitionLine,
+        if (evidenceBoundary.isNotEmpty) evidenceBoundary,
+      ]),
+    ];
+    final nearTermCount = prediction.windows.length < 2
+        ? prediction.windows.length
+        : 2;
+    for (var i = 0; i < nearTermCount; i++) {
+      final window = prediction.windows[i];
+      out.add(
+        _section(
+          i == 0 ? 'สิ่งที่ต้องตัดสินใจตอนนี้' : 'แนวโน้ม 12 เดือนข้างหน้า',
+          [
+            window.summary,
+            for (final domain in window.domains) ...[domain.title, domain.body],
+          ],
+        ),
+      );
+    }
+    return out;
+  }
+
+  static List<ThaiBetaReportExportSection> _predictionSectionsLegacy(
     PredictionSectionModel prediction,
   ) {
     final hasDetailedDomains = prediction.windows.any(
@@ -654,6 +794,32 @@ class ThaiBetaReportExportDocument {
         : prediction.closingAdvice;
     if (closing.isNotEmpty) {
       out.add(_section('คำแนะนำปิดท้ายช่วงถัดไป', [closing]));
+    }
+    return out;
+  }
+
+  static List<ThaiBetaReportExportSection> _predictionLongTermSections(
+    PredictionSectionModel prediction,
+  ) {
+    final out = <ThaiBetaReportExportSection>[];
+    for (var i = 2; i < prediction.windows.length; i++) {
+      final window = prediction.windows[i];
+      out.add(
+        _section('สิ่งที่ควรเตรียมสำหรับช่วงถัดไป', [
+          window.summary,
+          for (final domain in window.domains) ...[domain.title, domain.body],
+        ]),
+      );
+    }
+    final hasDetailedDomains = prediction.windows.any(
+      (window) => window.domains.isNotEmpty,
+    );
+    final closing =
+        hasDetailedDomains && prediction.detailedClosingAdvice.isNotEmpty
+        ? prediction.detailedClosingAdvice
+        : prediction.closingAdvice;
+    if (closing.isNotEmpty) {
+      out.add(_section('ข้อสรุปสำหรับช่วงข้างหน้า', [closing]));
     }
     return out;
   }

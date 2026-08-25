@@ -47,7 +47,7 @@ void main() {
     );
     expect(find.text('อดีตของคุณ'), findsOneWidget);
     expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
-    expect(find.text('แนวโน้มระยะยาว'), findsOneWidget);
+    expect(find.text('จังหวะชีวิตระยะต่อไป'), findsOneWidget);
   }
 
   void expectDetailedEvidenceReportAbsent() {
@@ -92,7 +92,7 @@ void main() {
       );
       expect(find.text('อดีตของคุณ'), findsOneWidget);
       expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
-      expect(find.text('แนวโน้มระยะยาว'), findsOneWidget);
+      expect(find.text('จังหวะชีวิตระยะต่อไป'), findsOneWidget);
       expect(tester.takeException(), isNull);
     },
   );
