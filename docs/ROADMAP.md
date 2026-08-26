@@ -382,3 +382,6 @@ Owner Acceptance for R7/R7.1 remains authoritative. The four-string Life Map com
 - ห้าม Merge หรือ Deploy จนกว่าจะมีคำตัดสินจาก Owner และ workflow ถัดไปได้รับอนุญาต
 - [x] Conversational Plain Language V1 OR1: แก้ Owner Language Reject แบบ reader-copy-only, technical/visual validation และ Owner package complete ที่ `40967ef`
 - [ ] Owner ตรวจ OR1 และตัดสิน Language Re-Acceptance; PR #107 ต้องคง Draft จนกว่าจะมีคำสั่งรอบถัดไป
+- [x] PR107-OR2 final conversational Thai polish: implementation `0f5b7e8`, focused/copy audit/full suite/analyzer/PreCommit และ visual package ผ่าน
+- [x] PostCommit docs closeout ผ่าน; push final HEAD เข้า Draft PR #107
+- [ ] Owner ตรวจ OR2 ZIP SHA-256 `24D74EA3CDE2311CF3335A07EFC7C5E80B62AA3C31B4367F3BC53C45E8A7F8EB` แล้วตัดสิน Final Language Re-Acceptance

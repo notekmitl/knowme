@@ -142,3 +142,7 @@ Technical validation และ visual QA เสร็จครบที่ imple
 # Update 2026-08-26 — Conversational Plain Language V1 Owner Review OR1
 
 Owner Language Acceptance ของ V1 รอบแรกไม่ผ่าน. OR1 implementation `40967efa42662e75fd0901d68f3f407891b85057` แก้เฉพาะ reader-copy; strict audit 300 profiles / 11,339 fields และ impacts ทุกมิติ = 0, full suite 1,622/1,622, PreCommit/PostCommit และ visual QA 29 PDF pages ผ่าน. สถานะ `PENDING OWNER LANGUAGE RE-ACCEPTANCE` บน Draft PR #107; ยังไม่ Merge/Deploy และ Firebase/Production ไม่เปลี่ยน
+
+# Update 2026-08-26 — Conversational Plain Language V1 Owner Review OR2
+
+OR1 ถูก Owner Reject ด้านภาษา. OR2 implementation `0f5b7e86e16a8f7f99af6856daa35f8a2a4e5b8b` เก็บ copy/consistency รอบสุดท้ายโดยไม่เปลี่ยน semantics. Focused 95/95, narrative 38/38, artifact 3/3, audit 300 profiles / 11,414 fields impacts = 0, full suite 1,622/1,622, analyzer baseline และ PreCommit/PostCommit ผ่าน. Visual QA ครบ Web 12, infographic 4, PDF raster 29 หน้า; page counts 8/7/7/7. ZIP SHA-256 `24D74EA3CDE2311CF3335A07EFC7C5E80B62AA3C31B4367F3BC53C45E8A7F8EB`. สถานะ `PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE`; PR #107 ยัง Draft และไม่ Merge/Deploy/Firebase/Production change

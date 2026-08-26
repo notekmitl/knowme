@@ -110,3 +110,7 @@ must not imply calendar-year or month-level evidence.
 ## Owner Review OR1
 
 Owner ไม่รับภาษา V1 รอบแรกและกำหนด OR1. แก้ copy แบบจำกัดขอบเขตที่ implementation `40967efa42662e75fd0901d68f3f407891b85057`; technical/visual gates ผ่านและสร้าง Owner ZIP SHA-256 `CD3FF9C1FA5AAA2BB021E0B97576A5E7C1A379EAD19ADCAC567BBCF915B773EE`. สถานะ `PENDING OWNER LANGUAGE RE-ACCEPTANCE`; PR #107 ยังคง Draft และยังไม่ Merge/Deploy/Firebase/Production change
+
+## Owner Review OR2
+
+OR1 ถูก Owner Reject ด้านภาษา จึงทำ OR2 final conversational polish แบบ copy/test-only. Implementation `0f5b7e86e16a8f7f99af6856daa35f8a2a4e5b8b`; focused 95/95, copy audit 300 profiles / 11,414 fields impacts = 0, full suite 1,622/1,622, analyzer/PreCommit/PostCommit ผ่าน. PDF จริง 8/7/7/7 หน้าและ visual QA ผ่าน. Owner ZIP SHA-256 `24D74EA3CDE2311CF3335A07EFC7C5E80B62AA3C31B4367F3BC53C45E8A7F8EB`. สถานะ `PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE`; PR #107 คง Draft ไม่ Merge/Deploy/Firebase/Production change

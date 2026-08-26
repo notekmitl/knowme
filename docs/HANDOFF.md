@@ -146,3 +146,7 @@ Owner ต้องตรวจชุด `OWNER_REVIEW_THAI_REPORT_PLAIN_LANGUAGE
 # Handoff 2026-08-26 — Conversational Plain Language V1 OR1
 
 V1 รอบแรกถูก Owner Reject ด้านภาษา. ให้ Owner ตรวจชุด `OWNER_REVIEW_THAI_REPORT_PLAIN_LANGUAGE_V1_OR1_40967ef.zip` SHA-256 `CD3FF9C1FA5AAA2BB021E0B97576A5E7C1A379EAD19ADCAC567BBCF915B773EE` โดยเริ่มที่ `OWNER_REVIEW_PR107.md` และ `audit/BEFORE_AFTER_4_SECTIONS.md`. Implementation คือ `40967efa42662e75fd0901d68f3f407891b85057`; technical gates และ visual QA ผ่าน แต่สถานะยังเป็น `PENDING OWNER LANGUAGE RE-ACCEPTANCE`. ห้าม Merge/Ready/Deploy/Firebase/Production change
+
+# Handoff 2026-08-26 — Conversational Plain Language V1 OR2
+
+ให้ Owner เปิด `OWNER_REVIEW_THAI_REPORT_PLAIN_LANGUAGE_V1_OR2_0f5b7e8.zip` SHA-256 `24D74EA3CDE2311CF3335A07EFC7C5E80B62AA3C31B4367F3BC53C45E8A7F8EB` และเริ่มจาก `OWNER_REVIEW_PR107.md` กับ `audit/BEFORE_AFTER_4_SECTIONS.md`. Implementation `0f5b7e86e16a8f7f99af6856daa35f8a2a4e5b8b`; technical/semantic/visual gates ผ่านตามหลักฐาน 95/95, 300 profiles / 11,414 fields impacts 0, 1,622/1,622, PostCommit PASS และ PDF 8/7/7/7 หน้า. สถานะ `PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE`; ห้าม Merge/Ready/Deploy/Firebase/Production change
