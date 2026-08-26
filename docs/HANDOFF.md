@@ -1,5 +1,9 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+## Current handoff — PR107-OR3 final human-sounding Thai closure
+
+Status: **PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE**. OR2 ถูก Owner Reject ด้านภาษา แต่ Visual/Structure/Infographic ผ่านและ OR3 ไม่ redesign. Implementation `5e05d1c0c725064a8a833489a5904cff53871e02` แก้เฉพาะ Known/Unknown reader-copy และ regression tests โดยผล audit 300 / 12,651 มี impact counters 0, full suite 1,623/1,623, Analyzer/PreCommit ผ่าน. ชุด Owner Review `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_REPORT_PLAIN_LANGUAGE_V1_OR3_5e05d1c.zip` SHA-256 `104A39A6A55E11F4A14211A464BB426B93C9955AB95EB1BE0A1B7C1CEA862A0A` มี Web 12, infographic 4, PDF 8/7/7/7, rasters/contact sheets และ provenance 10 entries missing/mismatch 0. ให้ Owner เริ่มที่ `OWNER_REVIEW_PR107.md` และ `audit/BEFORE_AFTER_4_SECTIONS.md`; ห้ามถือ technical pass เป็น Owner acceptance. PR #107 ต้องคง Open + Draft; ไม่ Merge/Ready/Deploy/Firebase/Production change.
+
 ## Current handoff — PR106-PQ2 authenticated Production QA closeout
 
 Status: **PR106 DEPLOYED TO PRODUCTION — OWNER ACCEPTED — FULL AUTHENTICATED PRODUCTION QA PASSED — FIXTURE REMOVED**. Run `pr106_pq2_prod_qa_20260825T101222177Z` passed Known/Unknown Production Web (desktop 1440/mobile 390), four 1080×1920 infographics, Dedicated PDFs 9/8, Chrome browser-print PDFs 8/7, and visual inspection of all 32 PDF rasters. PQ1 Classification A remains the pagination contract: exact counts are fixture-specific; semantic/layout invariants pass. Cleanup is proven by Auth user-not-found 2/2, exact Firestore paths absent, live subcollection documents/tagged fixtures/Storage prefix/pending jobs all 0, with Hosting release/version unchanged. Evidence ZIP SHA-256 is `271C75CF207A91A218D97F6817A45CDBA9E649E2C438D59D1528897775B59789`. No PQ2 source, test, deploy, Firebase configuration or `product-acceptance/` change occurred.
