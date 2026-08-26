@@ -95,10 +95,33 @@ void main() {
           'แก่นของคำอ่าน',
           'ใช้การฟื้นตัวจริงบอกว่า',
           'ให้ขยับเรื่องหลักเท่าที่ชีวิตด้านอื่นยังรับไหว',
+          'และเงิน เวลา',
+          'เกินกำลัง ก่อนรับ',
+          'เงินก้อนหลัก ก่อนตัดสินใจ',
+          'รายรับที่เพิ่มขึ้นจะช่วยได้จริงเมื่อยังเหลือเป็นเงินพร้อมใช้',
+          'ใช้ผลจริงตัดสินว่าจะรักษาอะไรไว้',
+          'กันเงินขั้นต่ำไว้ส่วนหนึ่ง',
+          'ตัดสินใจเรื่องงานจากคุณภาพของงานหลักที่เห็นจริง',
+          'จดเวลาทำงานจริงหนึ่งสัปดาห์',
+          'งานที่ทำได้ดีซ้ำ ๆ',
+          'รอบส่งมอบงานกลางปี',
+          'โดยไม่สรุปเหตุการณ์ล่วงหน้า',
         ]) {
           if (after.fullPlainText.contains(rejected)) {
             copyQualityViolations.add(
               '${profile.id}: rejected OR2 phrase remains: $rejected',
+            );
+          }
+        }
+        for (final malformed in <RegExp>[
+          RegExp(r'เกินกำลัง\s+ก่อน(?:รับ|ตัดสินใจ|เพิ่ม)'),
+          RegExp(r'เงินก้อนหลัก\s+ก่อน(?:รับ|ตัดสินใจ|เพิ่ม)'),
+          RegExp(r'และเงิน\s+เวลา'),
+          RegExp(r'เงิน\s+เวลา\s+หรือ'),
+        ]) {
+          if (malformed.hasMatch(after.fullPlainText)) {
+            copyQualityViolations.add(
+              '${profile.id}: incomplete connective or hanging clause: ${malformed.pattern}',
             );
           }
         }
