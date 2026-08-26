@@ -1111,6 +1111,278 @@ abstract final class ThaiBetaReaderCopyRepair {
       semanticIntent:
           'ระบุการเว้นผลแบบ fail-closed ให้ตรงกันกับ Web และ PDF โดยไม่สื่อว่าระบบเติมข้อมูลที่ขาด',
     ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-financial-progress-options',
+      sourceTemplate: 'ThaiBirthProfileCoreReading.money',
+      before:
+          'ความก้าวหน้าทางการเงินควรวัดจากความยืดหยุ่นที่เงินสำรองมอบให้ ไม่ใช่ดูเพียงยอดเงินที่สะสมไว้',
+      after:
+          'เรื่องเงิน อย่าดูแค่ว่าเก็บได้มากแค่ไหน ให้ดูด้วยว่าเงินสำรองช่วยให้คุณมีทางเลือกมากพอหรือยัง',
+      semanticIntent:
+          'คงการประเมินความมั่นคงจากทางเลือกที่เงินสำรองรองรับ ไม่ใช่จากยอดสะสมเพียงอย่างเดียว',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-finance-ready-cash',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.supportingCurrentContext',
+      before:
+          'สำหรับการเงิน ให้ใช้จำนวนเงินพร้อมใช้หลังรายการจำเป็นเป็นเกณฑ์ตัดสินใจ',
+      after:
+          'ก่อนตัดสินใจเรื่องเงิน ให้ดูว่าเมื่อจ่ายรายการจำเป็นแล้ว คุณยังเหลือเงินพร้อมใช้เท่าไร',
+      semanticIntent: 'คงการใช้เงินพร้อมใช้หลังรายจ่ายจำเป็นเป็นข้อมูลตัดสินใจ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-current-water-phase',
+      sourceTemplate: 'LifeMapCurrentPeriodComposer.elementContext',
+      before:
+          'พลังธาตุน้ำหนุนช่วงเก็บเกี่ยวให้คุณใช้ความสัมพันธ์และความเข้าใจคนประกอบการตัดสินใจ โดยไม่ต้องเร่งทุกเรื่องพร้อมกัน',
+      after:
+          'ช่วงวัยนี้ คุณตัดสินใจได้ดีขึ้นเมื่อรับฟังคนรอบตัว แต่ไม่จำเป็นต้องตามใจทุกคน และไม่ต้องรีบจัดการทุกเรื่องพร้อมกัน',
+      semanticIntent:
+          'คงบทบาทของธาตุน้ำด้านการรับฟังและความเข้าใจคน พร้อมข้อจำกัดว่าไม่ต้องเร่งทุกเรื่อง',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-work-continuity',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan._primaryDirection',
+      before: 'งานมีแรงส่งต่อเนื่องจากตอนนี้ไปถึงช่วงถัดไป',
+      after: 'เรื่องงานยังมีแนวโน้มเดินหน้าต่อเนื่องไปถึงช่วงถัดไป',
+      semanticIntent: 'คงแนวโน้มงานที่ต่อเนื่องจากปัจจุบันไปยังช่วงถัดไป',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-persistence-strength',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.strengthLabel(persistence)',
+      before: 'ความอดทนที่พาเรื่องยากไปต่อ',
+      after: 'ความอดทนและการทำเรื่องยากอย่างต่อเนื่อง',
+      semanticIntent: 'คงจุดแข็งด้านความอดทนและความต่อเนื่องโดยตัดสำนวนกำกวม',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-primary-strength-work',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.headline',
+      before: 'กลายเป็นแรงสำคัญของงาน',
+      after: 'ช่วยให้งานเดินหน้าต่อได้',
+      semanticIntent: 'คงความหมายว่าจุดแข็งหลักสนับสนุนการเดินหน้าของงาน',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-relationship-capacity',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan._secondaryPressure',
+      before: 'ความสัมพันธ์จะเปราะบางขึ้นเมื่อภาระชุดใหม่เข้ามา',
+      after: 'เมื่อรับเรื่องใหม่เพิ่ม ความสัมพันธ์อาจมีพื้นที่น้อยลง',
+      semanticIntent:
+          'คงความเสี่ยงต่อความสัมพันธ์เมื่อมีภาระใหม่ โดยไม่เพิ่มความแน่นอน',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-twelve-month-review',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.next12Months',
+      before:
+          'ให้ใช้ขอบเขตหน้าที่ที่เปลี่ยนไปเป็นสัญญาณ แล้วกลับมาทบทวนเมื่อพฤติกรรมหลังข้อตกลงเริ่มชัด',
+      after:
+          'ให้ดูว่าหน้าที่เปลี่ยนไปอย่างไร แล้วทบทวนอีกครั้งเมื่อเห็นว่าแต่ละฝ่ายทำตามที่ตกลงไว้จริงหรือไม่',
+      semanticIntent:
+          'คงหมุดสังเกตหน้าที่และการทำตามข้อตกลงสำหรับการทบทวน 12 เดือน',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-after-agreement-behavior',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.observableLabel',
+      before: 'พฤติกรรมหลังข้อตกลง',
+      after: 'สิ่งที่แต่ละฝ่ายทำหลังตกลงกัน',
+      semanticIntent: 'คงการสังเกตการกระทำของแต่ละฝ่ายหลังมีข้อตกลง',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-career-role-signal',
+      sourceTemplate: 'ThaiBetaNarrativeComposer._forecastClaim(career)',
+      before:
+          'ขอบเขตหน้าที่ที่กว้างขึ้นคือสัญญาณสำคัญด้านงาน หากอำนาจตัดสินใจไม่เพิ่มตาม งานชิ้นหลักจะเสียคุณภาพ',
+      after:
+          'ถ้าหน้าที่เพิ่มขึ้น แต่อำนาจตัดสินใจยังเท่าเดิม งานหลักอาจทำได้ไม่ดีเท่าที่ควร',
+      semanticIntent:
+          'คงความเสี่ยงต่อคุณภาพงานเมื่อหน้าที่เพิ่มแต่อำนาจตัดสินใจไม่เพิ่ม',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-finance-recurring-income',
+      sourceTemplate: 'ThaiBetaNarrativeComposer._forecastClaim(finance)',
+      before:
+          'รายรับที่เพิ่มแล้วเหลือเป็นเงินพร้อมใช้คือสัญญาณสำคัญด้านการเงิน หากรายจ่ายประจำโตตามทันที การขยายแผนควรช้าลง',
+      after:
+          'รายรับที่เพิ่มขึ้นจะช่วยได้จริงเมื่อยังเหลือเป็นเงินพร้อมใช้ ถ้ารายจ่ายประจำเพิ่มตามทันที ควรชะลอแผนใหม่ไว้ก่อน',
+      semanticIntent:
+          'คงเงื่อนไขเงินพร้อมใช้และการชะลอแผนเมื่อรายจ่ายประจำเพิ่มตามรายรับ',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-quarterly-liquidity',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.finance',
+      before:
+          'บันทึกยอดคงเหลือรายไตรมาสเพื่อดูสภาพคล่อง ตัวเลขที่ดีเพียงครั้งเดียวยังไม่เพียงพอสำหรับการเพิ่มภาระทางการเงิน',
+      after:
+          'จดยอดเงินคงเหลือทุกสามเดือน แล้วดูว่าดีขึ้นอย่างต่อเนื่องหรือไม่ อย่าเพิ่มรายจ่ายผูกพันเพราะตัวเลขดีเพียงครั้งเดียว',
+      semanticIntent:
+          'คงการดูยอดคงเหลือเป็นรอบและไม่เพิ่มข้อผูกพันจากผลดีครั้งเดียว',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-relationship-observation',
+      sourceTemplate: 'ThaiBetaNarrativeComposer.relationship',
+      before:
+          'การที่ทั้งสองฝ่ายปฏิบัติตามข้อตกลงอย่างต่อเนื่อง จะช่วยให้เห็นทิศทางความสัมพันธ์ชัดขึ้น ไม่ใช่อาศัยเพียงบทสนทนาครั้งเดียว',
+      after:
+          'เรื่องความสัมพันธ์ อย่าดูแค่สิ่งที่คุยกันครั้งเดียว หลังจากตกลงกันแล้ว ให้ดูต่อว่าแต่ละฝ่ายทำตามที่พูดไว้จริงหรือไม่',
+      semanticIntent:
+          'คงการประเมินความสัมพันธ์จากพฤติกรรมต่อเนื่องหลังข้อตกลง ไม่ใช่คำพูดครั้งเดียว',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-next-relationship',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.boundaryLongTermContext',
+      before: 'ระยะยาวต้องแบ่งเวลาและหน้าที่ได้จริง ไม่ใช่เพียงตกลงกันไว้',
+      after:
+          'ในระยะยาว ให้ดูว่าทั้งสองฝ่ายแบ่งเวลาและหน้าที่กันได้จริง ไม่ใช่แค่พูดตกลงกันไว้',
+      semanticIntent:
+          'คงการตรวจการแบ่งเวลาและหน้าที่จากการปฏิบัติจริงในระยะยาว',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-next-rest-routine',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.supportingLongTermContext',
+      before:
+          'เลือกกิจวัตรพักที่ทำได้ต่อเนื่อง โดยไม่ฝืนจนต้องพักชดเชยในวันถัดไป',
+      after:
+          'เลือกวิธีพักที่ทำได้ทุกวัน โดยไม่ฝืนจนวันถัดไปต้องใช้เวลาฟื้นนานกว่าเดิม',
+      semanticIntent:
+          'คงคำแนะนำให้พักอย่างต่อเนื่องและไม่ฝืนจนต้องชดเชยวันถัดไป',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-past-decision-standard',
+      sourceTemplate: 'ThaiBetaPastReflection.question',
+      before: 'และเกณฑ์ครั้งนั้นยังเหมาะกับการตัดสินใจวันนี้หรือไม่',
+      after: 'และหลักที่คุณใช้ตอนนั้นยังเหมาะกับการตัดสินใจวันนี้หรือไม่',
+      semanticIntent: 'คงคำถามว่าหลักตัดสินใจในอดีตยังใช้ได้กับปัจจุบันหรือไม่',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-past-kept-standard',
+      sourceTemplate: 'ThaiBetaPastReflection.compose',
+      before: 'และเกณฑ์เดิมส่วนใดยังควรรักษา',
+      after: 'และหลักเดิมข้อใดยังใช้ได้กับชีวิตตอนนี้',
+      semanticIntent: 'คงการทบทวนว่าสิ่งใดจากอดีตยังควรรักษาไว้ในปัจจุบัน',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-current-health-recovery',
+      sourceTemplate: 'ThaiBetaNarrativeComposer._forecastClaim(health)',
+      before:
+          'หากพักแล้วร่างกายกลับมามีแรงได้ตามปกติ ร่างกายยังพร้อมรองรับกิจกรรมเพิ่ม',
+      after: 'ถ้าพักแล้วกลับมามีแรงตามปกติ คุณยังพอเพิ่มกิจกรรมได้',
+      semanticIntent:
+          'คงเงื่อนไขการฟื้นตัวก่อนเพิ่มกิจกรรม โดยไม่ให้คำแนะนำทางการแพทย์',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-current-health-slow-recovery',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.supportingCurrentContext',
+      before:
+          'หากร่างกายใช้เวลากลับมามีแรงนานขึ้น ให้ลดกิจกรรมก่อนเพิ่มแผนใหม่',
+      after: 'ถ้าต้องใช้เวลาพักนานขึ้นกว่าจะมีแรง ให้ลดกิจกรรมก่อนเพิ่มแผนใหม่',
+      semanticIntent: 'คงการลดกิจกรรมเมื่อใช้เวลาฟื้นตัวนานขึ้น',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-evidence-selection',
+      sourceTemplate: 'ThaiMirrorConsumerCopy.evidenceExplanation',
+      before:
+          'คำอ่านข้างต้นเลือกประเด็นที่เชื่อมกับชีวิตคุณได้ชัดที่สุดก่อน แล้วเรียงผลต่อเนื่องไปยังเรื่องที่ควรระวังและการตัดสินใจ',
+      after:
+          'รายงานเลือกเรื่องที่เกี่ยวกับชีวิตคุณชัดที่สุดขึ้นมาก่อน จากนั้นจึงอธิบายสิ่งที่ควรระวังและใช้ตัดสินใจ',
+      semanticIntent:
+          'คงลำดับการเลือกประเด็น ความเสี่ยง และการตัดสินใจในคำอธิบายที่มา',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-unknown-future-weight',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.unknownFuture',
+      before:
+          'ภาพข้างหน้าจะมีน้ำหนักขึ้นเมื่อผลแบบเดิมเกิดขึ้นอย่างสม่ำเสมอและตรวจสอบได้',
+      after:
+          'ควรให้น้ำหนักกับแนวโน้มนี้มากขึ้นเมื่อเห็นผลแบบเดิมเกิดซ้ำและตรวจสอบได้',
+      semanticIntent:
+          'คงเงื่อนไขเพิ่มน้ำหนักให้แนวโน้มจากผลที่เกิดซ้ำและตรวจสอบได้',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-unknown-conclusion-observable',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.closing',
+      before:
+          'ถ่ายทอดความคิดให้ชัดเจน และตัดสินใจจากผลที่เกิดขึ้นอย่างสม่ำเสมอและตรวจสอบได้',
+      after: 'อธิบายความคิดให้ชัด แล้วตัดสินใจจากผลที่เกิดซ้ำและตรวจสอบได้',
+      semanticIntent:
+          'คงจุดแข็งด้านการสื่อสารและการตัดสินใจจากผลซ้ำที่ตรวจสอบได้',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-future-orientation-known',
+      sourceTemplate: 'ThaiBetaReportExportDocument.futureOrientation',
+      before:
+          'ภาพข้างหน้าเริ่มจากการตัดสินใจวันนี้ ต่อด้วยการทบทวนใน 12 เดือน และจบที่ทิศทางระยะยาว',
+      after:
+          'เริ่มจากเรื่องที่ต้องตัดสินใจตอนนี้ แล้วค่อยดูสิ่งที่ควรทบทวนใน 12 เดือนและภาพระยะยาว',
+      semanticIntent: 'คงลำดับปัจจุบัน 12 เดือน และระยะยาวของบทแนวโน้ม',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-future-orientation-unknown',
+      sourceTemplate: 'ThaiBetaReportExportDocument.futureOrientation',
+      before:
+          'แบ่งภาพข้างหน้าเป็นสิ่งที่ตรวจได้ตอนนี้ หมุดทบทวนใน 12 เดือน และทิศทางระยะยาว โดยไม่อาศัยข้อมูลนาฬิกาเกิดที่ไม่ได้บันทึก',
+      after:
+          'เริ่มจากสิ่งที่ตรวจสอบได้ตอนนี้ แล้วค่อยทบทวนอีกครั้งใน 12 เดือนและมองภาพระยะยาว โดยไม่ใช้เวลาเกิดที่ไม่ได้บันทึกไว้',
+      semanticIntent:
+          'คงลำดับปัจจุบัน 12 เดือน ระยะยาว และขอบเขต fail-closed ของ Unknown-time',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-current-decision-one-work-item',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.currentDecision',
+      before:
+          'สิ่งที่ต้องตัดสินใจตอนนี้คืองานหนึ่งเรื่อง โดยใช้คุณภาพของงานชิ้นหลักเป็นหลัก และยังรักษาการทำตามข้อตกลงไว้',
+      after:
+          'ตอนนี้ ให้เลือกตัดสินใจเรื่องงานเพียงหนึ่งเรื่อง ดูว่างานหลักยังมีคุณภาพ และอย่าละเลยสิ่งที่ตกลงกันไว้',
+      semanticIntent:
+          'คงการเลือกงานหนึ่งเรื่อง คุณภาพงานหลัก และการรักษาข้อตกลง',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-primary-decision-priority',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.currentDomain',
+      before: 'เรื่องนี้เป็นแกนตัดสินใจหลัก',
+      after: 'ให้เรื่องนี้มาก่อนการตัดสินใจอื่น',
+      semanticIntent: 'คงสถานะของเรื่องนี้ในฐานะการตัดสินใจหลัก',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-self-check-question',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.currentEvidence',
+      before: 'คำถามที่ใช้ตรวจคือ',
+      after: 'ลองถามตัวเองว่า',
+      semanticIntent: 'คงคำถามตรวจสอบผลจริงโดยใช้ถ้อยคำที่พูดกับผู้อ่านโดยตรง',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-relationship-recurring-action',
+      sourceTemplate: 'ThaiBetaNarrativeComposer._forecastClaim(relationship)',
+      before: 'พฤติกรรมที่เห็นอย่างสม่ำเสมอเป็นสัญญาณสำคัญ',
+      after: 'ให้ดูการกระทำที่เกิดขึ้นอย่างสม่ำเสมอ',
+      semanticIntent: 'คงการใช้พฤติกรรมที่เกิดซ้ำเป็นข้อมูลด้านความสัมพันธ์',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-health-recovery-record',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.supportingCheckpointContext',
+      before:
+          'จดระยะเวลาที่ร่างกายใช้ฟื้นตัวหลังสัปดาห์ที่มีภาระหนัก แล้วทบทวนว่าตารางกิจกรรมควรลดหรือคงเดิม',
+      after:
+          'หลังสัปดาห์ที่หนัก ลองจดว่าต้องพักกี่วันจึงกลับมามีแรง แล้วค่อยตัดสินใจว่าจะลดกิจกรรมหรือใช้ตารางเดิม',
+      semanticIntent:
+          'คงการบันทึกเวลาฟื้นตัวหลังสัปดาห์หนักเพื่อทบทวนตารางกิจกรรม',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-long-term-work-selection',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.nextLifePeriod',
+      before: 'ในระยะยาว ให้คัดว่าประสบการณ์งานใดควรรักษาและส่วนใดควรส่งต่อ',
+      after:
+          'ในระยะยาว ให้เลือกว่างานใดควรเก็บไว้ทำต่อ และงานใดควรส่งต่อให้คนอื่น',
+      semanticIntent: 'คงการเลือกรักษาหรือส่งต่องานจากประสบการณ์ในระยะยาว',
+    ),
+    ThaiBetaReaderCopyRule(
+      id: 'plain-language-minimum-cash-reserve',
+      sourceTemplate: 'ThaiBetaReportNarrativePlan.supportingLongTermContext',
+      before:
+          'กำหนดยอดเงินขั้นต่ำที่ห้ามแตะ เพื่อไม่ให้รายจ่ายเร่งด่วนบังคับการตัดสินใจ',
+      after:
+          'กันเงินขั้นต่ำไว้ส่วนหนึ่งและไม่ใช้ก้อนนี้ เพื่อให้ยังมีทางเลือกเมื่อมีรายจ่ายเร่งด่วน',
+      semanticIntent:
+          'คงการกันเงินขั้นต่ำเพื่อไม่ให้รายจ่ายเร่งด่วนจำกัดการตัดสินใจ',
+    ),
   ];
 
   static String refine(String value) => refineForField(value);
@@ -1161,7 +1433,7 @@ abstract final class ThaiBetaReaderCopyRepair {
         r'ลองย้อนดูว่า ลองวาง(.+?)ของ(.+?)ไว้ข้างงาน เงิน ความสัมพันธ์ ความรับผิดชอบ และบทบาทที่อาจต้องจัดใหม่ แล้วดูว่าเกณฑ์เดิมส่วนใดยังควรรักษา',
       ),
       (match) =>
-          'ลองทบทวน${match.group(2)}โดยมองงาน เงิน ความสัมพันธ์ ความรับผิดชอบ และบทบาทที่ต้องจัดใหม่ แล้วดูว่า${match.group(1)}และเกณฑ์เดิมส่วนใดยังควรรักษา',
+          'ลองทบทวน${match.group(2)}โดยมองงาน เงิน ความสัมพันธ์ ความรับผิดชอบ และบทบาทที่ต้องจัดใหม่ แล้วดูว่า${match.group(1)}มีผลอย่างไร และหลักเดิมข้อใดยังใช้ได้กับชีวิตตอนนี้',
     );
     result = result
         .replaceAll(

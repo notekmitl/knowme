@@ -16,7 +16,7 @@ void main() {
       lastName: unknown ? 'Unknown' : 'Known',
       birthDate: DateTime(1982, 6, 6),
       birthHour: unknown ? null : 0,
-      birthMinute: unknown ? 0 : 3,
+      birthMinute: unknown ? 0 : 35,
       birthTimeUnknown: unknown,
       province: 'เชียงใหม่',
       provinceKey: 'chiang_mai',

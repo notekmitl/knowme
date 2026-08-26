@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "task_id": "thai-report-reader-experience-v2",
-  "expected_branch": "codex/thai-report-reader-experience-v2",
+  "task_id": "thai-report-conversational-plain-language-v1",
+  "expected_branch": "codex/thai-report-conversational-language-v1",
   "expected_worktree": "C:/Users/USER/Documents/Knowme/r100-print-release",
-  "base_ref": "58b1d742f7a00ef9c882c1fad2357dbcf08f3ad0",
+  "base_ref": "e9bc186a23cb5385695f82d30d998fc3b804bfc2",
   "allowed_files": [
     "task.md",
     "TASK_RESULT.md",
