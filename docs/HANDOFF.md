@@ -139,3 +139,6 @@ Final gate passes against pinned main `22cbb3c`. Case A reconciled only the exac
 # Historical handoff — PR #95 pre-S008 cross-runtime blocker
 
 This record preserves the pre-repair S008 blocker. It is superseded by the 2026-08-17 S008 handoff at the top of this file: fixed-point canonicalization now makes snapshot/hash/narrative parity exact and all fresh technical gates pass. Copy normalization remains reader-visible Owner-review scope (93 profiles / 112 summaries), so PR #95 remains Draft; do not merge/deploy; Firebase is unchanged and Production remains V1.4.
+# Handoff 2026-08-26 — Conversational Plain Language V1
+
+Owner ต้องตรวจชุด `OWNER_REVIEW_THAI_REPORT_PLAIN_LANGUAGE_V1_01d2791.zip` (SHA-256 `C86808698126A30617C0035EFDCAF99CE368983916061D1175BBE98DED9A42A8`) โดยอ่าน Known/Unknown ทั้ง 4 ส่วนและเทียบ Web, infographic, Dedicated PDF และ browser print งานผ่าน technical gates แล้วแต่ยังไม่ถือว่า Owner/Product Acceptance ผ่าน

@@ -376,3 +376,7 @@ Owner Acceptance for R7/R7.1 remains authoritative. The four-string Life Map com
 - [ ] Resolve S008 upstream `siderealAscendantDeg` one-ULP VM/Chrome difference under separate authorization, then rerun every final gate.
 - [ ] Obtain Owner review for retained copy normalization (93 profiles / 112 summaries).
 - [ ] Merge/deploy only after parity is exact and under separate explicit authorization. Production remains V1.4.
+# Update 2026-08-26
+
+- Thai Report Conversational Plain Language V1: implementation และ Owner Review evidence complete; ขั้นถัดไปคือ Owner Language Acceptance เท่านั้น
+- ห้าม Merge หรือ Deploy จนกว่าจะมีคำตัดสินจาก Owner และ workflow ถัดไปได้รับอนุญาต

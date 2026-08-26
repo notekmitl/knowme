@@ -103,3 +103,6 @@ must not imply calendar-year or month-level evidence.
   browser-print, documentation, PreCommit and PostCommit gates are recorded
   truthfully. If the required Flutter toolchain is unavailable, do not waive or
   claim those gates.
+# Thai Report Conversational Plain Language V1
+
+สถานะ 2026-08-26: implementation และ technical/visual evidence complete; Draft PR pending Owner Language Acceptance. Implementation `01d27911b2ce0b647016dde0074fa35c4aa3827b`; Owner ZIP SHA-256 `C86808698126A30617C0035EFDCAF99CE368983916061D1175BBE98DED9A42A8`. ไม่ Merge, Deploy หรือเปลี่ยน Firebase/Production

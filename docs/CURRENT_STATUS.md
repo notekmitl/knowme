@@ -135,3 +135,6 @@ Controlled Case A reconciliation restored only the authorized 18 Life Timeline g
 # Current — PR #95 Final Cross-Runtime Parity Gate blocked (2026-08-17)
 
 The `asOf` hypothesis remains disproved; the release-visible root cause was runtime-dependent hashing. Stable-hash and exact-integer vectors now match in Dart VM and compiled JavaScript/Chrome, and each runtime is internally deterministic across two exact 300-profile runs. The mandatory exact comparison is still blocked: S008 has one report and one narrative mismatch caused by `siderealAscendantDeg` differing by one ULP (`102.39560244592322` VM versus `102.39560244592323` Chrome). All other manifest groups match, and the canonical frozen/live five remain exact 5/5. Copy normalization is retained because removing it breaks frozen `owner-unknown`; its exact scope is 93 profiles / 112 `summary` fields and requires Owner review. PR #95 remains Open, Draft and unmerged. No merge, deploy or Firebase change; Production remains V1.4.
+# Update 2026-08-26 — Conversational Plain Language V1
+
+Technical validation และ visual QA เสร็จครบที่ implementation `01d27911b2ce0b647016dde0074fa35c4aa3827b` สถานะ `PENDING OWNER LANGUAGE ACCEPTANCE` บน Draft PR; copy audit 300 profiles / 10,189 fields มี impacts = 0 และ full suite 1,622/1,622 ผ่าน ไม่มี Merge/Deploy/Firebase/Production change

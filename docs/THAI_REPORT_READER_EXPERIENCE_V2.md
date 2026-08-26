@@ -141,3 +141,6 @@ Repository PreCommit and PostCommit pass, implementation commit
 open. GitHub reports a clean merge state but exposes no check runs or Actions
 runs for this branch, so there is no remote check result to call green. No
 merge, deployment or Firebase mutation is authorized.
+# Conversational Plain Language V1 closeout — 2026-08-26
+
+ปรับเฉพาะ candidate reader-copy ให้เป็นภาษาไทยสนทนาที่ตรงและใช้ได้จริง โดยคงลำดับส่วน 1–4, “แนวโน้ม 12 เดือนข้างหน้า”, วันที่ 7 ส.ค. 2569 – 6 ส.ค. 2570, `monthlyTimelineAvailable=false`, Unknown fail-closed, Canon/engine/semantics/traceability เดิม ผล audit 300 profiles / 10,189 fields มี impacts ทุกมิติ = 0 และหลักฐาน visual/PDF พร้อมรอ Owner Language Acceptance
