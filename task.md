@@ -106,3 +106,7 @@ must not imply calendar-year or month-level evidence.
 # Thai Report Conversational Plain Language V1
 
 สถานะ 2026-08-26: implementation และ technical/visual evidence complete; Draft PR pending Owner Language Acceptance. Implementation `01d27911b2ce0b647016dde0074fa35c4aa3827b`; Owner ZIP SHA-256 `C86808698126A30617C0035EFDCAF99CE368983916061D1175BBE98DED9A42A8`. ไม่ Merge, Deploy หรือเปลี่ยน Firebase/Production
+
+## Owner Review OR1
+
+Owner ไม่รับภาษา V1 รอบแรกและกำหนด OR1. แก้ copy แบบจำกัดขอบเขตที่ implementation `40967efa42662e75fd0901d68f3f407891b85057`; technical/visual gates ผ่านและสร้าง Owner ZIP SHA-256 `CD3FF9C1FA5AAA2BB021E0B97576A5E7C1A379EAD19ADCAC567BBCF915B773EE`. สถานะ `PENDING OWNER LANGUAGE RE-ACCEPTANCE`; PR #107 ยังคง Draft และยังไม่ Merge/Deploy/Firebase/Production change

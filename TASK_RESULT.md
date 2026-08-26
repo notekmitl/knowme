@@ -156,3 +156,14 @@ Draft PR: https://github.com/notekmitl/knowme/pull/106
 - ตรวจ Web desktop/mobile, infographic 360/390, Dedicated PDF Known 8 / Unknown 7 และ browser print Known 7 / Unknown 7 จากภาพจริง รวม raster 29 หน้า
 - Owner ZIP SHA-256 `C86808698126A30617C0035EFDCAF99CE368983916061D1175BBE98DED9A42A8`; CRC, manifest, missing, hash mismatch และ secret scan ผ่าน
 - ยังไม่ Merge, Ready for Review, Deploy หรือเปลี่ยน Firebase/Production และไม่แก้ `product-acceptance/`
+
+# Thai Report Conversational Plain Language V1 — Owner Review OR1 — 2026-08-26
+
+สถานะ: `THAI REPORT CONVERSATIONAL PLAIN LANGUAGE V1 OR1 COMPLETE — PR #107 DRAFT — PENDING OWNER LANGUAGE RE-ACCEPTANCE`
+
+- Owner ไม่รับภาษา V1 รอบแรก; OR1 แก้เฉพาะ candidate reader-visible copy และ tests/evidence ที่เกี่ยวข้องที่ implementation `40967efa42662e75fd0901d68f3f407891b85057`
+- OR1 มี reader-copy delta เพิ่มจาก V1 จำนวน 7,063 profile/field instances; strict audit 300 profiles / 11,339 fields มี omission, addition, semantic, prediction↔advice และ traceability impacts = 0
+- Focused 95/95, narrative 38/38, artifact 3/3, full suite 1,622/1,622, analyzer baseline, PreCommit และ PostCommit ผ่าน
+- เปิดตรวจ Web 12 ภาพ, infographic 4 ไฟล์, Dedicated Known 8 / Unknown 7 หน้า และ Chrome Known 7 / Unknown 7 หน้า; raster 29 หน้า, blank page = 0, ไม่พบ clipping/overlap/overflow
+- Owner ZIP `OWNER_REVIEW_THAI_REPORT_PLAIN_LANGUAGE_V1_OR1_40967ef.zip` SHA-256 `CD3FF9C1FA5AAA2BB021E0B97576A5E7C1A379EAD19ADCAC567BBCF915B773EE`; CRC, manifest, missing/extra/hash mismatch และ secret scan ผ่านทั้งหมด
+- ยังไม่ Merge, Ready for Review, Deploy หรือเปลี่ยน Firebase/Production และไม่แก้ `product-acceptance/`

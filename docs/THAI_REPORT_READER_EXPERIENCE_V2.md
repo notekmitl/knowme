@@ -144,3 +144,7 @@ merge, deployment or Firebase mutation is authorized.
 # Conversational Plain Language V1 closeout — 2026-08-26
 
 ปรับเฉพาะ candidate reader-copy ให้เป็นภาษาไทยสนทนาที่ตรงและใช้ได้จริง โดยคงลำดับส่วน 1–4, “แนวโน้ม 12 เดือนข้างหน้า”, วันที่ 7 ส.ค. 2569 – 6 ส.ค. 2570, `monthlyTimelineAvailable=false`, Unknown fail-closed, Canon/engine/semantics/traceability เดิม ผล audit 300 profiles / 10,189 fields มี impacts ทุกมิติ = 0 และหลักฐาน visual/PDF พร้อมรอ Owner Language Acceptance
+
+# Conversational Plain Language V1 Owner Review OR1 — 2026-08-26
+
+หลัง Owner Reject ภาษา V1 รอบแรก OR1 เรียบเรียง candidate copy ใหม่ตามบริบทให้ความหมายมาก่อนศัพท์โหราศาสตร์ ลดคำนามนามธรรมและบอกการกระทำให้ชัด โดยไม่เปลี่ยนโครงสร้าง 4 ส่วน, canonical Known, Unknown fail-closed, วันที่จริง, `monthlyTimelineAvailable=false`, engine, Canon หรือ traceability. Implementation `40967efa42662e75fd0901d68f3f407891b85057`; audit 300 profiles / 11,339 fields มี impacts = 0 และ visual/PDF QA ผ่าน. สถานะ `PENDING OWNER LANGUAGE RE-ACCEPTANCE`

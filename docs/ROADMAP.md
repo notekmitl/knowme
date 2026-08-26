@@ -380,3 +380,5 @@ Owner Acceptance for R7/R7.1 remains authoritative. The four-string Life Map com
 
 - Thai Report Conversational Plain Language V1: implementation และ Owner Review evidence complete; ขั้นถัดไปคือ Owner Language Acceptance เท่านั้น
 - ห้าม Merge หรือ Deploy จนกว่าจะมีคำตัดสินจาก Owner และ workflow ถัดไปได้รับอนุญาต
+- [x] Conversational Plain Language V1 OR1: แก้ Owner Language Reject แบบ reader-copy-only, technical/visual validation และ Owner package complete ที่ `40967ef`
+- [ ] Owner ตรวจ OR1 และตัดสิน Language Re-Acceptance; PR #107 ต้องคง Draft จนกว่าจะมีคำสั่งรอบถัดไป

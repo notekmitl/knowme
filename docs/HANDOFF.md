@@ -142,3 +142,7 @@ This record preserves the pre-repair S008 blocker. It is superseded by the 2026-
 # Handoff 2026-08-26 — Conversational Plain Language V1
 
 Owner ต้องตรวจชุด `OWNER_REVIEW_THAI_REPORT_PLAIN_LANGUAGE_V1_01d2791.zip` (SHA-256 `C86808698126A30617C0035EFDCAF99CE368983916061D1175BBE98DED9A42A8`) โดยอ่าน Known/Unknown ทั้ง 4 ส่วนและเทียบ Web, infographic, Dedicated PDF และ browser print งานผ่าน technical gates แล้วแต่ยังไม่ถือว่า Owner/Product Acceptance ผ่าน
+
+# Handoff 2026-08-26 — Conversational Plain Language V1 OR1
+
+V1 รอบแรกถูก Owner Reject ด้านภาษา. ให้ Owner ตรวจชุด `OWNER_REVIEW_THAI_REPORT_PLAIN_LANGUAGE_V1_OR1_40967ef.zip` SHA-256 `CD3FF9C1FA5AAA2BB021E0B97576A5E7C1A379EAD19ADCAC567BBCF915B773EE` โดยเริ่มที่ `OWNER_REVIEW_PR107.md` และ `audit/BEFORE_AFTER_4_SECTIONS.md`. Implementation คือ `40967efa42662e75fd0901d68f3f407891b85057`; technical gates และ visual QA ผ่าน แต่สถานะยังเป็น `PENDING OWNER LANGUAGE RE-ACCEPTANCE`. ห้าม Merge/Ready/Deploy/Firebase/Production change

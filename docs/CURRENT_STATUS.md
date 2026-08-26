@@ -138,3 +138,7 @@ The `asOf` hypothesis remains disproved; the release-visible root cause was runt
 # Update 2026-08-26 — Conversational Plain Language V1
 
 Technical validation และ visual QA เสร็จครบที่ implementation `01d27911b2ce0b647016dde0074fa35c4aa3827b` สถานะ `PENDING OWNER LANGUAGE ACCEPTANCE` บน Draft PR; copy audit 300 profiles / 10,189 fields มี impacts = 0 และ full suite 1,622/1,622 ผ่าน ไม่มี Merge/Deploy/Firebase/Production change
+
+# Update 2026-08-26 — Conversational Plain Language V1 Owner Review OR1
+
+Owner Language Acceptance ของ V1 รอบแรกไม่ผ่าน. OR1 implementation `40967efa42662e75fd0901d68f3f407891b85057` แก้เฉพาะ reader-copy; strict audit 300 profiles / 11,339 fields และ impacts ทุกมิติ = 0, full suite 1,622/1,622, PreCommit/PostCommit และ visual QA 29 PDF pages ผ่าน. สถานะ `PENDING OWNER LANGUAGE RE-ACCEPTANCE` บน Draft PR #107; ยังไม่ Merge/Deploy และ Firebase/Production ไม่เปลี่ยน
