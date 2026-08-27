@@ -1,5 +1,13 @@
 # KnowMe Roadmap
 
+## PR107-OR3.1 — evidence closeout complete; final merge decision pending
+
+Owner Language/Visual Acceptance ผ่านที่ OR3. OR3.1 ทำ evidence/docs-only closeout โดยไม่แก้ reader-copy/UI/infographic/PDF generator/source/tests: full Before/After ครบ 8 surface-section combinations, exact provenance errors 0 ทุกประเภท, negative boundary checks 48 และ accepted product artifacts 55/55 hashes ตรง. ชุด OR3.1 SHA-256 `74447E727B7B86AA262E94655B2DDF58BCCD0FE62E32072FA07ADB387B09531A`. ไม่รัน Full suite ซ้ำเพราะ source/test delta 0; accepted OR3 evidence ยังคง Focused 96, audit 300/12,651/impacts 0, Full 1,623, Analyzer/PreCommit/PostCommit PASS. `product-acceptance/` delta 0. Next gate: Final Merge Decision; not merged, not deployed, Firebase/Production unchanged.
+
+## Active — PR107-OR3 Owner final language re-acceptance
+
+OR2 ผ่าน Visual/Structure/Infographic แต่ Owner Reject final human-sounding Thai copy. OR3 implementation `5e05d1c0c725064a8a833489a5904cff53871e02` ปิดประเด็นภาษาประดิษฐ์/ภาษาระบบ/ข้อความซ้ำแบบ reader-copy/test-only และคง semantics/traceability/fail-closed/Engine/Canon/R1–R7.1/infographic. Technical gates ผ่าน Focused 96, Narrative 38, Artifact 3, audit 300 / 12,651 / impacts 0, Full 1,623, Analyzer และ PreCommit; visual QA ผ่าน Web 12, infographic 4, PDF 8/7/7/7 และ 29 rasters. Provenance OR2→OR3 missing/mismatch 0; ZIP SHA-256 `104A39A6A55E11F4A14211A464BB426B93C9955AB95EB1BE0A1B7C1CEA862A0A`. Next gate คือ Owner Final Language Re-acceptance เท่านั้น. PR #107 คง Open + Draft และยังไม่ Merge/Deploy/Firebase/Production change.
+
 ## PR106-PQ2 closeout — complete (2026-08-25)
 
 **PR106 DEPLOYED TO PRODUCTION — OWNER ACCEPTED — FULL AUTHENTICATED PRODUCTION QA PASSED — FIXTURE REMOVED.** Authenticated Known/Unknown QA passed on release `1787640954233000` / version `0aea9c854b86b99f`: Web desktop/mobile, all four infographic surfaces, Dedicated 9/8, Chrome print 8/7, and 32-page raster inspection. Exact synthetic fixtures are removed and all live resource counts are 0. Evidence ZIP SHA-256 is `271C75CF207A91A218D97F6817A45CDBA9E649E2C438D59D1528897775B59789`. Next work, if any, is outside PR106-PQ2; no further deploy or source change is implied.
@@ -376,3 +384,12 @@ Owner Acceptance for R7/R7.1 remains authoritative. The four-string Life Map com
 - [ ] Resolve S008 upstream `siderealAscendantDeg` one-ULP VM/Chrome difference under separate authorization, then rerun every final gate.
 - [ ] Obtain Owner review for retained copy normalization (93 profiles / 112 summaries).
 - [ ] Merge/deploy only after parity is exact and under separate explicit authorization. Production remains V1.4.
+# Update 2026-08-26
+
+- Thai Report Conversational Plain Language V1: implementation และ Owner Review evidence complete; ขั้นถัดไปคือ Owner Language Acceptance เท่านั้น
+- ห้าม Merge หรือ Deploy จนกว่าจะมีคำตัดสินจาก Owner และ workflow ถัดไปได้รับอนุญาต
+- [x] Conversational Plain Language V1 OR1: แก้ Owner Language Reject แบบ reader-copy-only, technical/visual validation และ Owner package complete ที่ `40967ef`
+- [ ] Owner ตรวจ OR1 และตัดสิน Language Re-Acceptance; PR #107 ต้องคง Draft จนกว่าจะมีคำสั่งรอบถัดไป
+- [x] PR107-OR2 final conversational Thai polish: implementation `0f5b7e8`, focused/copy audit/full suite/analyzer/PreCommit และ visual package ผ่าน
+- [x] PostCommit docs closeout ผ่าน; push final HEAD เข้า Draft PR #107
+- [ ] Owner ตรวจ OR2 ZIP SHA-256 `24D74EA3CDE2311CF3335A07EFC7C5E80B62AA3C31B4367F3BC53C45E8A7F8EB` แล้วตัดสิน Final Language Re-Acceptance

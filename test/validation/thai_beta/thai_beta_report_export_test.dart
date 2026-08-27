@@ -175,7 +175,7 @@ void main() {
             lastName: 'Known',
             birthDate: DateTime(1982, 6, 6),
             birthHour: 0,
-            birthMinute: 3,
+            birthMinute: 35,
             province: 'เชียงใหม่',
             provinceKey: 'chiang_mai',
           ),
@@ -203,6 +203,14 @@ void main() {
         'ด้านเงินคุมขนาดทางเลือกด้วยยอดพร้อมใช้หลังรายการจำเป็น',
         'ไม่ปล่อยให้พฤติกรรมที่ทำตามคำตกลงเสียไป',
         'ทางเลือกใหม่ (',
+        'เกินกำลัง. ก่อน',
+        'เงินก้อนหลัก. ก่อน',
+        'คำถามคือ งานที่กำลังขยายยังเหลือเวลา',
+        'ตัดงานที่ทำให้งานหลักแย่ลงออก หลังรับงานใหม่',
+        'สิ่งที่ทำได้จริงสำคัญกว่าคำสัญญา ในระยะยาว',
+        'ส่งต่องานที่ทำให้ต้องแบ่งแรงหลายทาง ในระยะยาว',
+        'พื้นที่ส่วนตัวเท่าไร ในระยะยาว',
+        'เงินคงเหลือจริง ก่อนตัดสินใจเรื่องเงิน',
       ];
       for (final fixture in fixtures) {
         final text = ThaiBetaReportExportDocument.candidate(
@@ -211,7 +219,13 @@ void main() {
         for (final phrase in rejected) {
           expect(text, isNot(contains(phrase)), reason: phrase);
         }
-        expect(text, contains('การทำตามข้อตกลง'));
+        expect(
+          text,
+          anyOf(
+            contains('ทำตามสิ่งที่คุยกันไว้ได้จริง'),
+            contains('ทำตามที่คุยกันไว้ได้จริง'),
+          ),
+        );
         expect(text, contains('แนวโน้ม 12 เดือนข้างหน้า'));
         expect(text, isNot(contains('คำทำนายรายเดือน')));
       }
@@ -233,18 +247,19 @@ void main() {
       final text = document.fullPlainText;
       const failClosed =
           'ไม่มีเวลาเกิด — รายงานจึงเว้นหัวข้อที่ต้องใช้เวลาเกิด';
+      const reportFailClosed = 'ส่วนหัวข้อที่ต้องใช้เวลาเกิดจะไม่แสดง';
       const closing =
-          'ถ่ายทอดความคิดให้ชัดเจน และตัดสินใจจากผลที่เกิดขึ้นอย่างสม่ำเสมอและตรวจสอบได้ เลือกงานทีละก้าว และยังไม่เพิ่มข้อผูกพันจนกว่าจะเห็นว่าข้อตกลงได้รับการปฏิบัติจริงอย่างต่อเนื่อง';
+          'พูดสิ่งที่คิดให้ชัด เลือกงานทีละเรื่อง และอย่าเพิ่มข้อผูกพันจนกว่าจะเห็นว่าทั้งสองฝ่ายทำตามที่คุยกันได้จริง';
       const omissions = <String>[
-        'สรุปตัวคุณแบบตรง ๆ — ไม่มีเวลาเกิด จึงไม่สรุปบุคลิกจากตำแหน่งที่ต้องคำนวณด้วยเวลาเกิด',
-        'คำอ่านการงานที่ต้องใช้เวลาเกิด — รายงานเว้นรายละเอียดส่วนนี้แทนการสร้างข้อมูลที่ยืนยันไม่ได้',
-        'รายละเอียดการเงินที่ต้องใช้เวลาเกิด — ไม่มีข้อมูลเพียงพอสำหรับยืนยันรายละเอียดส่วนนี้',
-        'มุมความสัมพันธ์ที่ต้องใช้เวลาเกิด — รายงานเว้นส่วนที่ต้องคำนวณจากตำแหน่งเฉพาะ',
-        'รายละเอียดสุขภาวะที่ต้องใช้เวลาเกิด — รายงานไม่เติมรายละเอียดที่ข้อมูลยังรองรับไม่เพียงพอ',
-        'คำชี้หลักจากพื้นดวง — ข้อมูลไม่ครบพอที่จะสรุปจุดแข็ง ความเสี่ยง และแนวทางจากหลักฐานชุดเดียวกัน',
+        'บุคลิกจากลัคนา: ยังสรุปไม่ได้',
+        'การงาน: เว้นรายละเอียดที่ต้องใช้เวลาเกิด',
+        'การเงิน: เว้นรายละเอียดที่ต้องใช้เวลาเกิด',
+        'ความสัมพันธ์: เว้นรายละเอียดที่ต้องใช้เวลาเกิด',
+        'สุขภาพ: เว้นรายละเอียดที่ต้องใช้เวลาเกิด',
+        'จุดแข็งและความเสี่ยงจากพื้นดวง: ยังสรุปไม่ได้เพราะข้อมูลไม่ครบ',
       ];
 
-      expect(text, contains(failClosed));
+      expect(text, contains(reportFailClosed));
       expect(document.infographic!.disclaimer, failClosed);
       expect(document.infographic!.primaryAdvice, closing);
       expect(text, contains(closing));
@@ -268,22 +283,105 @@ void main() {
       expect(text, isNot(contains('คำทำนายรายเดือน')));
     });
 
+    test('PR106-OR3 final editorial copy is natural across Known and Unknown', () {
+      final fixtures = <ThaiBetaAnalysis>[
+        ThaiBetaAnalysisRunner.run(
+          ThaiBetaInput(
+            firstName: 'Owner',
+            lastName: 'Known',
+            birthDate: DateTime(1982, 6, 6),
+            birthHour: 0,
+            birthMinute: 35,
+            province: 'เชียงใหม่',
+            provinceKey: 'chiang_mai',
+          ),
+          startedAt: DateTime(2026, 8, 7),
+        ),
+        ThaiBetaAnalysisRunner.run(
+          ThaiBetaInput(
+            firstName: 'Owner',
+            lastName: 'Unknown',
+            birthDate: DateTime(1982, 6, 6),
+            birthTimeUnknown: true,
+            province: 'เชียงใหม่',
+            provinceKey: 'chiang_mai',
+          ),
+          startedAt: DateTime(2026, 8, 7),
+        ),
+      ];
+      const rejected = <String>[
+        'ความก้าวหน้าจึงควรวัดจากทางเลือกที่เงินสำรองเปิดให้',
+        'ด้านการเงินคุณอยากใช้เงินวันนี้',
+        'ข้อตกลงที่ถูกทำต่อเนื่อง',
+        'สิ่งที่ตกลงกันถูกทำจริงต่อเนื่อง',
+        'ตัวเลขครั้งเดียวจึงยังไม่พอให้ขยายภาระเงิน',
+        'ส่งต่อส่วนที่กระจายแรง',
+        'ฐานเงินของจังหวะใหม่',
+        'กิจวัตรพลังชีวิตต้องเปลี่ยนพร้อมตารางใหม่',
+        'ตัวเลือกครั้งนั้นหล่อวิธีรับมือการตัดสินใจวันนี้อย่างไร',
+        'และการลงมือปรากฏตรงไหน',
+        'แยกงบทดลองสำหรับการเรียนรู้ออกจากเงินที่ต้องใช้ประจำ',
+        'ยอดรับที่เกิดซ้ำ',
+        'เก็บตัวอย่างผลงานเป็นรอบและค่อยเลือกบทบาทจากแบบที่ทำซ้ำได้',
+        'ผลเดิมเกิดซ้ำ',
+        'พฤติกรรมที่เกิดซ้ำ',
+        'โดยไม่ยืมแรงจากวันต่อไป',
+        'เลือกสิ่งที่คู่ควรกับแรงของคุณ',
+        'วางระบบที่ทำซ้ำได้',
+        'การพักจึงมีหน้าที่ต่างกันในแต่ละระยะ',
+        'บทบาทงานก้อนใหม่มีแรงส่ง',
+        'จดเวลาคืนแรง',
+        'การนอนและการคืนแรง',
+        'หลายเรื่องชนกัน',
+        'ฐานการเงินอาจเปลี่ยน',
+        'ด้านการเงิน ให้ใช้',
+        'การทำตามข้อตกลงจะยืนยันได้',
+      ];
+      final texts = fixtures
+          .map(ThaiBetaReportExportDocument.candidate)
+          .map((document) => document.fullPlainText)
+          .toList(growable: false);
+      for (final text in texts) {
+        for (final phrase in rejected) {
+          expect(text, isNot(contains(phrase)), reason: phrase);
+        }
+      }
+      expect(
+        texts.first,
+        contains(
+          'อย่าดูเพียงว่าเก็บเงินได้มากแค่ไหน แต่ให้ดูว่าเงินสำรองช่วยให้คุณมีทางเลือกมากพอหรือยัง',
+        ),
+      );
+      expect(
+        texts.last,
+        contains('แยกเงินสำหรับลองสิ่งใหม่ออกจากค่าใช้จ่ายประจำ'),
+      );
+      expect(
+        texts.last,
+        contains(
+          'แล้วแยกดูว่าสิ่งใดเป็นทางเลือกของคุณ และสิ่งใดเกิดจากความคาดหวังรอบตัว',
+        ),
+      );
+    });
+
     test(
-      'PR106-OR3 final editorial copy is natural across Known and Unknown',
+      'PR107-OR3 removes stale report voice and repeated Unknown limits',
       () {
-        final fixtures = <ThaiBetaAnalysis>[
+        final known = ThaiBetaReportExportDocument.candidate(
           ThaiBetaAnalysisRunner.run(
             ThaiBetaInput(
               firstName: 'Owner',
               lastName: 'Known',
               birthDate: DateTime(1982, 6, 6),
               birthHour: 0,
-              birthMinute: 3,
+              birthMinute: 35,
               province: 'เชียงใหม่',
               provinceKey: 'chiang_mai',
             ),
             startedAt: DateTime(2026, 8, 7),
           ),
+        );
+        final unknown = ThaiBetaReportExportDocument.candidate(
           ThaiBetaAnalysisRunner.run(
             ThaiBetaInput(
               firstName: 'Owner',
@@ -295,57 +393,62 @@ void main() {
             ),
             startedAt: DateTime(2026, 8, 7),
           ),
+        );
+        final texts = [known.fullPlainText, unknown.fullPlainText];
+        const stale = <String>[
+          'ช่วงเก็บผล',
+          'ภาพนี้อ่านจาก',
+          'รับบทบาทเดิมเพิ่ม',
+          'งานและหน้าที่บังคับให้คุณ',
+          'รายงานจึงไม่กำหนดเหตุการณ์ล่วงหน้า',
+          'งานที่คุณทำได้ดีซ้ำ ๆ',
+          'ใช้เป็นฐานทำงานเท่านั้น',
+          'ระบบรู้วันเกิดแต่ไม่รู้เวลา',
+          'เวลาและความชัดให้คนที่เกี่ยวข้อง',
         ];
-        const rejected = <String>[
-          'ความก้าวหน้าจึงควรวัดจากทางเลือกที่เงินสำรองเปิดให้',
-          'ด้านการเงินคุณอยากใช้เงินวันนี้',
-          'ข้อตกลงที่ถูกทำต่อเนื่อง',
-          'สิ่งที่ตกลงกันถูกทำจริงต่อเนื่อง',
-          'ตัวเลขครั้งเดียวจึงยังไม่พอให้ขยายภาระเงิน',
-          'ส่งต่อส่วนที่กระจายแรง',
-          'ฐานเงินของจังหวะใหม่',
-          'กิจวัตรพลังชีวิตต้องเปลี่ยนพร้อมตารางใหม่',
-          'ตัวเลือกครั้งนั้นหล่อวิธีรับมือการตัดสินใจวันนี้อย่างไร',
-          'และการลงมือปรากฏตรงไหน',
-          'แยกงบทดลองสำหรับการเรียนรู้ออกจากเงินที่ต้องใช้ประจำ',
-          'ยอดรับที่เกิดซ้ำ',
-          'เก็บตัวอย่างผลงานเป็นรอบและค่อยเลือกบทบาทจากแบบที่ทำซ้ำได้',
-          'ผลเดิมเกิดซ้ำ',
-          'พฤติกรรมที่เกิดซ้ำ',
-          'โดยไม่ยืมแรงจากวันต่อไป',
-          'เลือกสิ่งที่คู่ควรกับแรงของคุณ',
-          'วางระบบที่ทำซ้ำได้',
-          'การพักจึงมีหน้าที่ต่างกันในแต่ละระยะ',
-          'บทบาทงานก้อนใหม่มีแรงส่ง',
-          'จดเวลาคืนแรง',
-          'การนอนและการคืนแรง',
-          'หลายเรื่องชนกัน',
-          'ฐานการเงินอาจเปลี่ยน',
-          'ด้านการเงิน ให้ใช้',
-          'การทำตามข้อตกลงจะยืนยันได้',
-        ];
-        final texts = fixtures
-            .map(ThaiBetaReportExportDocument.candidate)
-            .map((document) => document.fullPlainText)
-            .toList(growable: false);
         for (final text in texts) {
-          for (final phrase in rejected) {
+          for (final phrase in stale) {
             expect(text, isNot(contains(phrase)), reason: phrase);
           }
         }
+
         expect(
-          texts.first,
+          known.fullPlainText,
+          contains('ในทางโหราศาสตร์ เรื่องงานดูจากเรือนการงาน'),
+        );
+        expect(known.fullPlainText, contains('เรื่องสุขภาพ ให้สังเกตว่า'));
+        expect(
+          unknown.fullPlainText,
           contains(
-            'ความก้าวหน้าทางการเงินควรวัดจากความยืดหยุ่นที่เงินสำรองมอบให้ ไม่ใช่ดูเพียงยอดเงินที่สะสมไว้',
+            'เพราะไม่มีเวลาเกิด รายงานจึงบอกไม่ได้ว่าเหตุการณ์จะเกิดเมื่อไร',
           ),
         );
         expect(
-          texts.last,
-          contains('แยกงบสำหรับทดลองหรือเรียนรู้สิ่งใหม่ออกจากค่าใช้จ่ายประจำ'),
+          'ผลดีจากครั้งเดียว'.allMatches(unknown.fullPlainText),
+          hasLength(1),
         );
         expect(
-          texts.last,
-          contains('และช่วงใดที่คุณเริ่มลงมือเลือกเส้นทางด้วยตัวเอง'),
+          'รายงานจึงบอกไม่ได้ว่าเหตุการณ์จะเกิดเมื่อไร'.allMatches(
+            unknown.fullPlainText,
+          ),
+          hasLength(1),
+        );
+        final omissionRows = unknown.sections
+            .expand((section) => section.paragraphs)
+            .where(
+              (paragraph) =>
+                  paragraph.contains('เว้นรายละเอียดที่ต้องใช้เวลาเกิด') ||
+                  paragraph.contains('ยังสรุปไม่ได้'),
+            )
+            .toList(growable: false);
+        expect(omissionRows, hasLength(6));
+        expect(
+          omissionRows.map((row) => row.split(':').first).toSet(),
+          hasLength(6),
+        );
+        expect(
+          unknown.infographic!.categories.map((item) => item.summary).toSet(),
+          hasLength(unknown.infographic!.categories.length),
         );
       },
     );

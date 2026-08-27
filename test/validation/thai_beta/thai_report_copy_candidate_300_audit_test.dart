@@ -73,10 +73,55 @@ void main() {
           'ต้องถูกเทียบกับรายจ่ายจำเป็น',
           'คนที่พร้อมจะรักษาคำพูด',
           'รายจ่ายระยะยาวจึงควรเกิดหลัง',
+          'ความอดทนที่พาเรื่องยากไปต่อ',
+          'งานมีแรงส่งต่อเนื่องจากตอนนี้ไปถึงช่วงถัดไป',
+          'ความก้าวหน้าทางการเงินควรวัดจากความยืดหยุ่น',
+          'จำนวนเงินพร้อมใช้หลังรายการจำเป็นเป็นเกณฑ์ตัดสินใจ',
+          'พลังธาตุน้ำหนุนช่วงเก็บเกี่ยวให้คุณใช้ความสัมพันธ์',
+          'ขอบเขตหน้าที่ที่กว้างขึ้นคือสัญญาณสำคัญด้านงาน',
+          'พฤติกรรมหลังข้อตกลง',
+          'ระยะยาวต้องแบ่งเวลาและหน้าที่ได้จริง',
+          'โดยไม่ฝืนจนต้องพักชดเชยในวันถัดไป',
+          'ประกอบการตัดสินใจ',
+          'รักษาการทำตามข้อตกลง',
+          'ผลที่เกิดซ้ำและตรวจสอบได้',
+          'โดยยังไม่ผูกผลลัพธ์',
+          'ฐานวันตามปฏิทิน',
+          'ขอบเขตหน้าที่',
+          'ภาระจริง',
+          'ทิศทางระยะต่อไป',
+          'รองรับบทบาทที่เปลี่ยนไป',
+          'สอดคล้องต่อเนื่อง',
+          'แก่นของคำอ่าน',
+          'ใช้การฟื้นตัวจริงบอกว่า',
+          'ให้ขยับเรื่องหลักเท่าที่ชีวิตด้านอื่นยังรับไหว',
+          'และเงิน เวลา',
+          'เกินกำลัง ก่อนรับ',
+          'เงินก้อนหลัก ก่อนตัดสินใจ',
+          'รายรับที่เพิ่มขึ้นจะช่วยได้จริงเมื่อยังเหลือเป็นเงินพร้อมใช้',
+          'ใช้ผลจริงตัดสินว่าจะรักษาอะไรไว้',
+          'กันเงินขั้นต่ำไว้ส่วนหนึ่ง',
+          'ตัดสินใจเรื่องงานจากคุณภาพของงานหลักที่เห็นจริง',
+          'จดเวลาทำงานจริงหนึ่งสัปดาห์',
+          'งานที่ทำได้ดีซ้ำ ๆ',
+          'รอบส่งมอบงานกลางปี',
+          'โดยไม่สรุปเหตุการณ์ล่วงหน้า',
         ]) {
           if (after.fullPlainText.contains(rejected)) {
             copyQualityViolations.add(
               '${profile.id}: rejected OR2 phrase remains: $rejected',
+            );
+          }
+        }
+        for (final malformed in <RegExp>[
+          RegExp(r'เกินกำลัง\s+ก่อน(?:รับ|ตัดสินใจ|เพิ่ม)'),
+          RegExp(r'เงินก้อนหลัก\s+ก่อน(?:รับ|ตัดสินใจ|เพิ่ม)'),
+          RegExp(r'และเงิน\s+เวลา'),
+          RegExp(r'เงิน\s+เวลา\s+หรือ'),
+        ]) {
+          if (malformed.hasMatch(after.fullPlainText)) {
+            copyQualityViolations.add(
+              '${profile.id}: incomplete connective or hanging clause: ${malformed.pattern}',
             );
           }
         }
@@ -119,8 +164,10 @@ void main() {
             'ช่วงชีวิตถัดไป' => 'สิ่งที่ควรเตรียมสำหรับช่วงถัดไป',
             'คำแนะนำปิดท้ายช่วงถัดไป' => 'ข้อสรุปสำหรับช่วงข้างหน้า',
             'แนวโน้มระยะยาว' => 'จังหวะชีวิตระยะต่อไป',
+            'งานจะไปต่อได้ เมื่อข้อตกลงยังชัดและทำได้จริง' =>
+              'งานจะเดินหน้าได้ เมื่อทุกฝ่ายเข้าใจตรงกันและทำตามที่คุยไว้',
             'ให้สิ่งที่เกิดซ้ำจริงนำทาง ก่อนขยับงาน' =>
-              'ดูผลที่เกิดขึ้นอย่างสม่ำเสมอก่อนตัดสินใจขยับเรื่องงาน',
+              'ช่วงนี้คุณเด่นเรื่องอธิบายความคิดให้คนอื่นเข้าใจ',
             'ให้สิ่งที่เกิดซ้ำจริงนำทาง ก่อนขยับการเงิน' =>
               'ดูผลที่เกิดขึ้นอย่างสม่ำเสมอก่อนตัดสินใจขยับเรื่องการเงิน',
             'ให้สิ่งที่เกิดซ้ำจริงนำทาง ก่อนขยับความสัมพันธ์' =>
@@ -426,6 +473,23 @@ void _record(
     'exactTextualDiff': _exactDiff(before, after),
     'normalizationReason': rules.map((rule) => rule.semanticIntent).join('; '),
     'sourceTemplate': rules.map((rule) => rule.sourceTemplate).join('; '),
+    'sourceIdentifier': fieldPath,
+    'originalMeaning': rules.map((rule) => rule.semanticIntent).join('; '),
+    'predictionOrAdvice': _predictionOrAdvice(fieldPath, before),
+    'certaintyLevel': _certaintyLevel(before),
+    'timeframe': _timeframe(fieldPath, before),
+    'lifeDomain': _lifeDomain(fieldPath, before),
+    'evidenceReferences': traceIds,
+    'mustPreserve': <String>[
+      'semantic intent',
+      'prediction/advice type',
+      'certainty',
+      'timeframe',
+      'life domain',
+      'trace IDs',
+      if (!knownTime) 'Unknown-time fail-closed boundary',
+    ],
+    'newText': after,
     'ruleIds': rules.map((rule) => rule.id).toList(growable: false),
     'semanticAssessment': 'unchanged',
     'predictionAdviceAssessment': 'unchanged',
@@ -441,6 +505,63 @@ void _record(
     'addition': false,
     'decision': 'Pending Owner Review',
   });
+}
+
+String _predictionOrAdvice(String fieldPath, String value) {
+  if (value.contains('ควร') ||
+      value.contains('ให้ดู') ||
+      value.contains('ให้เลือก') ||
+      value.contains('อย่า') ||
+      value.contains('ก่อนตัดสินใจ')) {
+    return 'advice';
+  }
+  if (fieldPath.contains('past') || value.contains('ลองทบทวน')) {
+    return 'reflection';
+  }
+  return 'prediction-or-explanation';
+}
+
+String _certaintyLevel(String value) {
+  if (value.contains('อาจ') || value.contains('แนวโน้ม')) return 'soft';
+  if (value.contains('ถ้า') ||
+      value.contains('หาก') ||
+      value.contains('เมื่อ')) {
+    return 'conditional';
+  }
+  return 'unchanged-from-source';
+}
+
+String _timeframe(String fieldPath, String value) {
+  if (fieldPath.contains('next12') || value.contains('12 เดือน')) {
+    return 'next-12-months';
+  }
+  if (fieldPath.contains('next') || value.contains('ช่วงถัดไป')) {
+    return 'next-life-period';
+  }
+  if (fieldPath.contains('current') || value.contains('ช่วงนี้')) {
+    return 'current';
+  }
+  if (fieldPath.contains('past') || value.contains('ทบทวน')) return 'past';
+  return 'lifelong-or-unspecified';
+}
+
+String _lifeDomain(String fieldPath, String value) {
+  if (fieldPath.contains('career') || value.contains('งาน')) return 'career';
+  if (fieldPath.contains('finance') ||
+      fieldPath.contains('money') ||
+      value.contains('เงิน')) {
+    return 'finance';
+  }
+  if (fieldPath.contains('relationship') || value.contains('ความสัมพันธ์')) {
+    return 'relationship';
+  }
+  if (fieldPath.contains('health') ||
+      fieldPath.contains('wellbeing') ||
+      value.contains('พัก') ||
+      value.contains('ฟื้น')) {
+    return 'health';
+  }
+  return 'cross-domain';
 }
 
 String _exactDiff(String before, String after) {

@@ -1,5 +1,13 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+## Current handoff — PR107-OR3.1 Owner acceptance evidence closeout
+
+Status: **OWNER LANGUAGE ACCEPTED — READY FOR FINAL MERGE DECISION — NOT MERGED — NOT DEPLOYED**. Owner Acceptance ผ่านที่ OR3 และผูกกับ implementation `5e05d1c0c725064a8a833489a5904cff53871e02`, docs `be7df0d798142aec6bdc598052be5d7a6a13456b`, accepted ZIP SHA-256 `104A39A6A55E11F4A14211A464BB426B93C9955AB95EB1BE0A1B7C1CEA862A0A`. OR3.1 ปิดเฉพาะ evidence/docs โดยเพิ่ม full Before/After และ exact provenance 8 entries; errors 0 ทุกประเภท, negative boundaries 48, accepted product artifact hash parity 55/55. ชุด `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_REPORT_PLAIN_LANGUAGE_V1_OR3_1_be7df0d.zip` SHA-256 `74447E727B7B86AA262E94655B2DDF58BCCD0FE62E32072FA07ADB387B09531A` ผ่าน CRC/extraction/manifest/secret scan. ไม่มี source/test/artifact/`product-acceptance/` delta จึงไม่ rerun Full suite; ใช้ OR3 results เดิม. ขั้นถัดไปคือ Final Merge Decision เท่านั้น; ห้าม Deploy/Firebase/Production change โดยอัตโนมัติ.
+
+## Current handoff — PR107-OR3 final human-sounding Thai closure
+
+Status: **PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE**. OR2 ถูก Owner Reject ด้านภาษา แต่ Visual/Structure/Infographic ผ่านและ OR3 ไม่ redesign. Implementation `5e05d1c0c725064a8a833489a5904cff53871e02` แก้เฉพาะ Known/Unknown reader-copy และ regression tests โดยผล audit 300 / 12,651 มี impact counters 0, full suite 1,623/1,623, Analyzer/PreCommit ผ่าน. ชุด Owner Review `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_REPORT_PLAIN_LANGUAGE_V1_OR3_5e05d1c.zip` SHA-256 `104A39A6A55E11F4A14211A464BB426B93C9955AB95EB1BE0A1B7C1CEA862A0A` มี Web 12, infographic 4, PDF 8/7/7/7, rasters/contact sheets และ provenance 10 entries missing/mismatch 0. ให้ Owner เริ่มที่ `OWNER_REVIEW_PR107.md` และ `audit/BEFORE_AFTER_4_SECTIONS.md`; ห้ามถือ technical pass เป็น Owner acceptance. PR #107 ต้องคง Open + Draft; ไม่ Merge/Ready/Deploy/Firebase/Production change.
+
 ## Current handoff — PR106-PQ2 authenticated Production QA closeout
 
 Status: **PR106 DEPLOYED TO PRODUCTION — OWNER ACCEPTED — FULL AUTHENTICATED PRODUCTION QA PASSED — FIXTURE REMOVED**. Run `pr106_pq2_prod_qa_20260825T101222177Z` passed Known/Unknown Production Web (desktop 1440/mobile 390), four 1080×1920 infographics, Dedicated PDFs 9/8, Chrome browser-print PDFs 8/7, and visual inspection of all 32 PDF rasters. PQ1 Classification A remains the pagination contract: exact counts are fixture-specific; semantic/layout invariants pass. Cleanup is proven by Auth user-not-found 2/2, exact Firestore paths absent, live subcollection documents/tagged fixtures/Storage prefix/pending jobs all 0, with Hosting release/version unchanged. Evidence ZIP SHA-256 is `271C75CF207A91A218D97F6817A45CDBA9E649E2C438D59D1528897775B59789`. No PQ2 source, test, deploy, Firebase configuration or `product-acceptance/` change occurred.
@@ -139,3 +147,14 @@ Final gate passes against pinned main `22cbb3c`. Case A reconciled only the exac
 # Historical handoff — PR #95 pre-S008 cross-runtime blocker
 
 This record preserves the pre-repair S008 blocker. It is superseded by the 2026-08-17 S008 handoff at the top of this file: fixed-point canonicalization now makes snapshot/hash/narrative parity exact and all fresh technical gates pass. Copy normalization remains reader-visible Owner-review scope (93 profiles / 112 summaries), so PR #95 remains Draft; do not merge/deploy; Firebase is unchanged and Production remains V1.4.
+# Handoff 2026-08-26 — Conversational Plain Language V1
+
+Owner ต้องตรวจชุด `OWNER_REVIEW_THAI_REPORT_PLAIN_LANGUAGE_V1_01d2791.zip` (SHA-256 `C86808698126A30617C0035EFDCAF99CE368983916061D1175BBE98DED9A42A8`) โดยอ่าน Known/Unknown ทั้ง 4 ส่วนและเทียบ Web, infographic, Dedicated PDF และ browser print งานผ่าน technical gates แล้วแต่ยังไม่ถือว่า Owner/Product Acceptance ผ่าน
+
+# Handoff 2026-08-26 — Conversational Plain Language V1 OR1
+
+V1 รอบแรกถูก Owner Reject ด้านภาษา. ให้ Owner ตรวจชุด `OWNER_REVIEW_THAI_REPORT_PLAIN_LANGUAGE_V1_OR1_40967ef.zip` SHA-256 `CD3FF9C1FA5AAA2BB021E0B97576A5E7C1A379EAD19ADCAC567BBCF915B773EE` โดยเริ่มที่ `OWNER_REVIEW_PR107.md` และ `audit/BEFORE_AFTER_4_SECTIONS.md`. Implementation คือ `40967efa42662e75fd0901d68f3f407891b85057`; technical gates และ visual QA ผ่าน แต่สถานะยังเป็น `PENDING OWNER LANGUAGE RE-ACCEPTANCE`. ห้าม Merge/Ready/Deploy/Firebase/Production change
+
+# Handoff 2026-08-26 — Conversational Plain Language V1 OR2
+
+ให้ Owner เปิด `OWNER_REVIEW_THAI_REPORT_PLAIN_LANGUAGE_V1_OR2_0f5b7e8.zip` SHA-256 `24D74EA3CDE2311CF3335A07EFC7C5E80B62AA3C31B4367F3BC53C45E8A7F8EB` และเริ่มจาก `OWNER_REVIEW_PR107.md` กับ `audit/BEFORE_AFTER_4_SECTIONS.md`. Implementation `0f5b7e86e16a8f7f99af6856daa35f8a2a4e5b8b`; technical/semantic/visual gates ผ่านตามหลักฐาน 95/95, 300 profiles / 11,414 fields impacts 0, 1,622/1,622, PostCommit PASS และ PDF 8/7/7/7 หน้า. สถานะ `PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE`; ห้าม Merge/Ready/Deploy/Firebase/Production change

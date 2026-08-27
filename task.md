@@ -1,5 +1,9 @@
 # Task: Thai Report Reader Experience V2
 
+**PR107 OWNER LANGUAGE ACCEPTED — OR3.1 EVIDENCE CLOSEOUT COMPLETE — READY FOR FINAL MERGE DECISION — NOT MERGED — NOT DEPLOYED.** Acceptance ผูกกับ implementation `5e05d1c0c725064a8a833489a5904cff53871e02`, OR3 docs `be7df0d798142aec6bdc598052be5d7a6a13456b` และ OR3 ZIP SHA-256 `104A39A6A55E11F4A14211A464BB426B93C9955AB95EB1BE0A1B7C1CEA862A0A`. OR3.1 แก้เฉพาะ evidence/docs: provenance 8 entries ครบ 2 surfaces × 4 sections, errors 0 ทุกประเภท, negative boundaries 48 และ product artifacts 55 ไฟล์ตรง OR3 เดิมทุก hash. ZIP ใหม่ SHA-256 `74447E727B7B86AA262E94655B2DDF58BCCD0FE62E32072FA07ADB387B09531A`. Source/code/test/artifact และ `product-acceptance/` delta = 0; ไม่รัน Full suite ซ้ำเพราะไม่มี source/test delta. OR3 evidence ยังคง 96 focused, audit 300/12,651/impacts 0, full 1,623, Analyzer/PreCommit/PostCommit PASS. ไม่ Merge/Deploy/Firebase/Production change.
+
+**PR107-OR3 COMPLETE — PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE.** OR2 ถูก Owner Reject ด้าน final human-sounding Thai copy ขณะที่ Visual/Structure/Infographic ผ่านและถูกล็อก. OR3 implementation `5e05d1c0c725064a8a833489a5904cff53871e02` แก้เฉพาะ reader-copy/test: Known เรียงความหมายก่อนหลักฐานและตัดภาษารายงาน; Unknown รวม opening/ข้อจำกัดซ้ำและทำ omission copy ให้เป็นธรรมชาติ โดย semantics/traceability/Engine/Canon/R1–R7.1/infographic/`product-acceptance/` ไม่เปลี่ยน. Focused 96/96, Narrative 38/38, Artifact 3/3, audit 300 / 12,651 / impact counters 0, Full 1,623/1,623, Analyzer exit 0 baseline 298 และ PreCommit PASS. QA ใหม่: Web 12, infographic 4×1080×1920, PDF 8/7/7/7, rasters 29/29; provenance 10 entries missing/mismatch 0. Owner ZIP SHA-256 `104A39A6A55E11F4A14211A464BB426B93C9955AB95EB1BE0A1B7C1CEA862A0A`. PR #107 คง Open + Draft; ไม่ Merge/Ready/Deploy/Firebase/Production change.
+
 **PR106 DEPLOYED TO PRODUCTION — OWNER ACCEPTED — FULL AUTHENTICATED PRODUCTION QA PASSED — FIXTURE REMOVED.** PQ2 run `pr106_pq2_prod_qa_20260825T101222177Z` passed authenticated Known/Unknown Production QA on unchanged release `1787640954233000` / version `0aea9c854b86b99f`: Web desktop 1440/mobile 390, four 1080×1920 infographics, Dedicated PDF 9/8, Chrome browser-print 8/7, and all 32 PDF rasters. PQ1 Classification A explains fixture-dependent counts without weakening semantic/layout checks. Exact Auth, Firestore, tag, Storage-prefix and pending-job cleanup is 0/user-not-found. Evidence ZIP SHA-256 is `271C75CF207A91A218D97F6817A45CDBA9E649E2C438D59D1528897775B59789`; no source, test, artifact, deploy, Firebase configuration or `product-acceptance/` change occurred.
 
 **PR106 PAGINATION AUDIT — FALSE NEGATIVE CONFIRMED — FULL AUTHENTICATED RE-QA STILL REQUIRED.** PQ1 classification: **A — content-dependent pagination**. OR3 and Production are source/rendering-equivalent but input/content-different; 8/7/7/7 is an OR3 fixture-specific measurement rather than a global golden. Production's extra pages contain real Section 4/evidence/omission content and show no blank, clipping, overlap or overflow defect. Full authenticated re-QA remains mandatory because the previous run did not complete Known/Unknown infographic surfaces at both 360 and 390. Evidence: `C:\Users\USER\Documents\Knowme\PR106_PROD_QA_20260825T083555850Z\PAGINATION_FORENSICS.md`. PQ1 is docs-only and made no source, test, artifact, deploy, Firebase, Production-data or `product-acceptance/` change.
@@ -103,3 +107,14 @@ must not imply calendar-year or month-level evidence.
   browser-print, documentation, PreCommit and PostCommit gates are recorded
   truthfully. If the required Flutter toolchain is unavailable, do not waive or
   claim those gates.
+# Thai Report Conversational Plain Language V1
+
+สถานะ 2026-08-26: implementation และ technical/visual evidence complete; Draft PR pending Owner Language Acceptance. Implementation `01d27911b2ce0b647016dde0074fa35c4aa3827b`; Owner ZIP SHA-256 `C86808698126A30617C0035EFDCAF99CE368983916061D1175BBE98DED9A42A8`. ไม่ Merge, Deploy หรือเปลี่ยน Firebase/Production
+
+## Owner Review OR1
+
+Owner ไม่รับภาษา V1 รอบแรกและกำหนด OR1. แก้ copy แบบจำกัดขอบเขตที่ implementation `40967efa42662e75fd0901d68f3f407891b85057`; technical/visual gates ผ่านและสร้าง Owner ZIP SHA-256 `CD3FF9C1FA5AAA2BB021E0B97576A5E7C1A379EAD19ADCAC567BBCF915B773EE`. สถานะ `PENDING OWNER LANGUAGE RE-ACCEPTANCE`; PR #107 ยังคง Draft และยังไม่ Merge/Deploy/Firebase/Production change
+
+## Owner Review OR2
+
+OR1 ถูก Owner Reject ด้านภาษา จึงทำ OR2 final conversational polish แบบ copy/test-only. Implementation `0f5b7e86e16a8f7f99af6856daa35f8a2a4e5b8b`; focused 95/95, copy audit 300 profiles / 11,414 fields impacts = 0, full suite 1,622/1,622, analyzer/PreCommit/PostCommit ผ่าน. PDF จริง 8/7/7/7 หน้าและ visual QA ผ่าน. Owner ZIP SHA-256 `24D74EA3CDE2311CF3335A07EFC7C5E80B62AA3C31B4367F3BC53C45E8A7F8EB`. สถานะ `PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE`; PR #107 คง Draft ไม่ Merge/Deploy/Firebase/Production change

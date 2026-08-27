@@ -1,5 +1,13 @@
 # Thai Report Reader Experience V2
 
+## PR107-OR3.1 — Evidence-only Owner Language Acceptance Closeout
+
+Status: **OWNER LANGUAGE ACCEPTED — READY FOR FINAL MERGE DECISION — NOT MERGED — NOT DEPLOYED**. Owner รับ OR3 Language/Visual ที่ implementation `5e05d1c0c725064a8a833489a5904cff53871e02`, docs `be7df0d798142aec6bdc598052be5d7a6a13456b` และ ZIP SHA-256 `104A39A6A55E11F4A14211A464BB426B93C9955AB95EB1BE0A1B7C1CEA862A0A`. OR3.1 ไม่เปลี่ยน reader-facing copy, UI, infographic, PDF generator, source หรือ tests; เพิ่มเฉพาะ full Before/After และ validator ที่ตรวจ normalized full blocks แบบ exact พร้อม source/surface/section/page/line/boundary. Provenance 8 entries ครบ Known/Unknown × ส่วน 1–4; missing/mismatch/truncated/boundary/coverage = 0; negative checks 48. Product artifacts 55 ไฟล์ตรง accepted OR3 ทุก SHA-256. ZIP ใหม่ SHA-256 `74447E727B7B86AA262E94655B2DDF58BCCD0FE62E32072FA07ADB387B09531A`; CRC/extraction/manifest/secret scan errors 0. OR3 results 96 focused, audit 300/12,651/impacts 0, full 1,623, Analyzer/PreCommit/PostCommit ยังคงใช้ได้; ไม่ rerun Full suite เพราะ source/test delta 0. `product-acceptance/`, Firebase และ Production ไม่เปลี่ยน.
+
+## PR107-OR3 — Final Human-Sounding Thai Copy Closure
+
+Status: **TECHNICAL CLOSURE COMPLETE — PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE**. OR2 Visual/Structure/Infographic ผ่าน แต่ Owner Reject ภาษา Web/PDF ที่ยังเป็นภาษารายงาน/ระบบและมีข้อความซ้ำ. OR3 implementation `5e05d1c0c725064a8a833489a5904cff53871e02` แก้เฉพาะ reader-visible narrative และ regression tests: Known วางความหมายก่อน canonical evidence; Unknown รวม opening/ข้อจำกัดที่ซ้ำและทำ Section 4/omission rows ให้เป็นภาษาคน. คง four-section order, infographic placement/copy/design (**Unchanged OR2 → OR3**), `แนวโน้ม 12 เดือนข้างหน้า`, `7 ส.ค. 2569 – 6 ส.ค. 2570`, `monthlyTimelineAvailable=false`, Unknown fail-closed, semantics, traceability, Engine, Canon, R1–R7.1 และ `product-acceptance/`. ผลจริง: 96 focused, 38 narrative, 3 artifact, audit 300 / 12,651 / impacts 0, full 1,623, Analyzer baseline 298 / exit 0 และ PreCommit PASS. Fresh evidence มี Web 12 captures, infographic 4×1080×1920, Dedicated 8/7, Chrome print 7/7, PDF rasters 29/29, provenance 10 entries missing/mismatch 0; ZIP SHA-256 `104A39A6A55E11F4A14211A464BB426B93C9955AB95EB1BE0A1B7C1CEA862A0A`. PR #107 ยัง Open + Draft; ไม่ Merge/Ready/Deploy/Firebase/Production change.
+
 ## Production QA closeout — PR106-PQ2
 
 Status: **PR106 DEPLOYED TO PRODUCTION — OWNER ACCEPTED — FULL AUTHENTICATED PRODUCTION QA PASSED — FIXTURE REMOVED**. Run `pr106_pq2_prod_qa_20260825T101222177Z` confirmed the accepted four-part flow, infographic placement, natural Known/Unknown reading, Unknown fail-closed omission, and no-monthly contract on Production. Coverage includes desktop 1440/mobile 390 Web, Known/Unknown infographic surfaces 360/390 at 1080×1920, Dedicated PDFs 9/8, Chrome browser-print PDFs 8/7, and all 32 rastered pages. No blank page, clipping, overlap, overflow, duplicated/missing section, or KnowMe-origin runtime error was found. Cleanup and unchanged Hosting release/version are machine-recorded in the PQ2 evidence package, SHA-256 `271C75CF207A91A218D97F6817A45CDBA9E649E2C438D59D1528897775B59789`.
@@ -141,3 +149,14 @@ Repository PreCommit and PostCommit pass, implementation commit
 open. GitHub reports a clean merge state but exposes no check runs or Actions
 runs for this branch, so there is no remote check result to call green. No
 merge, deployment or Firebase mutation is authorized.
+# Conversational Plain Language V1 closeout — 2026-08-26
+
+ปรับเฉพาะ candidate reader-copy ให้เป็นภาษาไทยสนทนาที่ตรงและใช้ได้จริง โดยคงลำดับส่วน 1–4, “แนวโน้ม 12 เดือนข้างหน้า”, วันที่ 7 ส.ค. 2569 – 6 ส.ค. 2570, `monthlyTimelineAvailable=false`, Unknown fail-closed, Canon/engine/semantics/traceability เดิม ผล audit 300 profiles / 10,189 fields มี impacts ทุกมิติ = 0 และหลักฐาน visual/PDF พร้อมรอ Owner Language Acceptance
+
+# Conversational Plain Language V1 Owner Review OR1 — 2026-08-26
+
+หลัง Owner Reject ภาษา V1 รอบแรก OR1 เรียบเรียง candidate copy ใหม่ตามบริบทให้ความหมายมาก่อนศัพท์โหราศาสตร์ ลดคำนามนามธรรมและบอกการกระทำให้ชัด โดยไม่เปลี่ยนโครงสร้าง 4 ส่วน, canonical Known, Unknown fail-closed, วันที่จริง, `monthlyTimelineAvailable=false`, engine, Canon หรือ traceability. Implementation `40967efa42662e75fd0901d68f3f407891b85057`; audit 300 profiles / 11,339 fields มี impacts = 0 และ visual/PDF QA ผ่าน. สถานะ `PENDING OWNER LANGUAGE RE-ACCEPTANCE`
+
+# Conversational Plain Language V1 Owner Review OR2 — 2026-08-26
+
+OR2 เก็บ final language/consistency หลัง OR1 ถูก Owner Reject โดยตัดคำถามและข้อสรุปซ้ำ แก้ส่วนขยายห้อย และทำ Unknown ให้เป็น fail-closed ภาษาคนบน Web/PDF/infographic เดียวกัน. คงส่วน 1–4, “แนวโน้ม 12 เดือนข้างหน้า”, `7 ส.ค. 2569 – 6 ส.ค. 2570`, `monthlyTimelineAvailable=false`, ไม่มีรายเดือน และไม่เปลี่ยน engine/Canon/R1–R7.1/traceability. Implementation `0f5b7e86e16a8f7f99af6856daa35f8a2a4e5b8b`; 300-profile audit 11,414 fields impacts = 0, full suite 1,622/1,622, analyzer/PreCommit/PostCommit และ visual QA ผ่าน. ZIP SHA-256 `24D74EA3CDE2311CF3335A07EFC7C5E80B62AA3C31B4367F3BC53C45E8A7F8EB`; สถานะ `PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE`
