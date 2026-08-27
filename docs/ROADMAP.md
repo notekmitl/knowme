@@ -1,5 +1,9 @@
 # KnowMe Roadmap
 
+## PR107 release — merged/deployed; authenticated Production QA pending
+
+PR #107 merged at `eb2eb4d107e6a162616c8b97c0b490f067adb15b` and is live from the same source on Firebase Hosting release `1787803668337000` / version `7ee3fac5ba6c97cc`. Clean build and deployed asset hashes match on both Production hostnames; public desktop/mobile smoke passes. Remaining gate: run authorized authenticated Known/Unknown Production QA across Web, infographic 360/390, Dedicated PDF and Chrome browser-print, including real page counts and all-page raster review. Current Chrome session was unauthenticated, so no fixture was created and no Production QA pass is claimed. Owner OR3 acceptance is unchanged; rollback was not required and non-Hosting Firebase resources, Production data and `product-acceptance/` remain unchanged.
+
 ## PR107-OR3.1 — evidence closeout complete; final merge decision pending
 
 Owner Language/Visual Acceptance ผ่านที่ OR3. OR3.1 ทำ evidence/docs-only closeout โดยไม่แก้ reader-copy/UI/infographic/PDF generator/source/tests: full Before/After ครบ 8 surface-section combinations, exact provenance errors 0 ทุกประเภท, negative boundary checks 48 และ accepted product artifacts 55/55 hashes ตรง. ชุด OR3.1 SHA-256 `74447E727B7B86AA262E94655B2DDF58BCCD0FE62E32072FA07ADB387B09531A`. ไม่รัน Full suite ซ้ำเพราะ source/test delta 0; accepted OR3 evidence ยังคง Focused 96, audit 300/12,651/impacts 0, Full 1,623, Analyzer/PreCommit/PostCommit PASS. `product-acceptance/` delta 0. Next gate: Final Merge Decision; not merged, not deployed, Firebase/Production unchanged.
