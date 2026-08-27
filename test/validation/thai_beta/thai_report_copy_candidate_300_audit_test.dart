@@ -32,6 +32,47 @@ void main() {
         expect(analysis.isSuccess, isTrue, reason: profile.id);
         final before = ThaiBetaReportExportDocument.beforeReaderCopy(analysis);
         final after = ThaiBetaReportExportDocument.candidate(analysis);
+        final methodologyChapterIndex = after.sections.indexWhere(
+          (section) => section.title == 'ส่วนที่ 4 · ที่มาและข้อจำกัด',
+        );
+        expect(methodologyChapterIndex, greaterThanOrEqualTo(0));
+        final predictionText = after.sections
+            .take(methodologyChapterIndex)
+            .expand((section) => <String>[section.title, ...section.paragraphs])
+            .join('\n');
+        for (final inlineBasis in const <String>[
+          'ในทางโหราศาสตร์ จุดนี้อ่านจาก',
+          'จุดนี้อ่านจากลัคนา',
+          'ในทางโหราศาสตร์ เรื่องงานดูจาก',
+          'เรื่องงานดูจากเรือนการงาน',
+          'ในทางโหราศาสตร์ เรื่องเงินดูจาก',
+          'เรื่องเงินดูจากเรือนการเงิน',
+          'ในทางโหราศาสตร์ เรื่องความสัมพันธ์ดูจาก',
+          'เรื่องความสัมพันธ์ดูจากเรือนความสัมพันธ์',
+          'ในทางโหราศาสตร์ เรื่องนี้ดูจากเรือนสุขภาวะ',
+          'หลักฐานเรือนการงานที่เชื่อม',
+          'เรือนการเงินซึ่งอ่านจาก',
+          'เมื่อเรือนความสัมพันธ์มี',
+          'เรือนสุขภาวะที่มี',
+          'ภาพนี้สอดคล้องกับพลังธาตุ',
+        ]) {
+          if (predictionText.contains(inlineBasis)) {
+            copyQualityViolations.add(
+              '${profile.id}: inline astrology basis remains before Section 4: $inlineBasis',
+            );
+          }
+        }
+        final methodologyText = after.sections
+            .skip(methodologyChapterIndex)
+            .expand((section) => <String>[section.title, ...section.paragraphs])
+            .join('\n');
+        expect(methodologyText, contains('รายงานนี้ดูจากอะไร'));
+        expect(methodologyText, contains('ที่มาของผลวิเคราะห์'));
+        if (profile.input.hasBirthTime) {
+          expect(methodologyText, contains('โครงสร้างดวงหลัก'));
+          expect(methodologyText, contains('ลัคนา:'));
+          expect(methodologyText, contains('เรือนการงาน:'));
+        }
         for (final rejected in const <String>[
           'ไม่มีเวลาเกิด — บางส่วนอาจคลาดเคลื่อนเล็กน้อย',
           'การเติบโตของช่วงเติบโตและขยาย',
@@ -225,6 +266,7 @@ void main() {
               left.paragraphs[paragraphIndex],
               right.paragraphs[paragraphIndex],
               left.traceIds,
+              semanticKey: _coreSemanticKey(left.title, paragraphIndex),
             );
           }
         }
@@ -450,19 +492,35 @@ void _record(
   String fieldPath,
   String before,
   String after,
-  List<String> traceIds,
-) {
+  List<String> traceIds, {
+  String? semanticKey,
+}) {
   if (before == after) return;
-  expect(
-    ThaiBetaReaderCopyRepair.refineForField(before, fieldPath: fieldPath),
-    after,
-    reason: fieldPath,
-  );
+  final expected = semanticKey == null
+      ? ThaiBetaReaderCopyRepair.refineForField(before, fieldPath: fieldPath)
+      : ThaiBetaReaderCopyRepair.refineCoreClaim(
+          before,
+          semanticKey: semanticKey,
+        );
+  expect(expected, after, reason: fieldPath);
   final rules = ThaiBetaReaderCopyRepair.matchingRules(
     before,
     fieldPath: fieldPath,
   );
-  expect(rules, isNotEmpty, reason: '$profileId/$fieldPath');
+  expect(
+    rules.isNotEmpty || semanticKey != null,
+    isTrue,
+    reason: '$profileId/$fieldPath',
+  );
+  final structuralReason = semanticKey == null
+      ? ''
+      : 'ถอด inline astrology basis จาก reader projection ของ $semanticKey; '
+            'คง evidence atoms และ Section 4';
+  final ruleReason = rules.map((rule) => rule.semanticIntent).join('; ');
+  final reason = [
+    structuralReason,
+    ruleReason,
+  ].where((value) => value.isNotEmpty).join('; ');
   changedProfiles.add(profileId);
   rows.add({
     'profileId': profileId,
@@ -471,10 +529,11 @@ void _record(
     'before': before,
     'after': after,
     'exactTextualDiff': _exactDiff(before, after),
-    'normalizationReason': rules.map((rule) => rule.semanticIntent).join('; '),
-    'sourceTemplate': rules.map((rule) => rule.sourceTemplate).join('; '),
+    'normalizationReason': reason,
+    'sourceTemplate':
+        semanticKey ?? rules.map((rule) => rule.sourceTemplate).join('; '),
     'sourceIdentifier': fieldPath,
-    'originalMeaning': rules.map((rule) => rule.semanticIntent).join('; '),
+    'originalMeaning': reason,
     'predictionOrAdvice': _predictionOrAdvice(fieldPath, before),
     'certaintyLevel': _certaintyLevel(before),
     'timeframe': _timeframe(fieldPath, before),
@@ -505,6 +564,18 @@ void _record(
     'addition': false,
     'decision': 'Pending Owner Review',
   });
+}
+
+String? _coreSemanticKey(String title, int paragraphIndex) {
+  if (paragraphIndex != 0) return null;
+  return switch (title) {
+    'สรุปตัวคุณแบบตรง ๆ' => 'computed:lagna-identity-frame',
+    'การงาน' => 'computed:house:10:analysis',
+    'การเงิน' => 'computed:house:2:analysis',
+    'ความรักและความสัมพันธ์' => 'computed:house:7:analysis',
+    'สุขภาพและพลังชีวิต' => 'computed:house:6:analysis',
+    _ => null,
+  };
 }
 
 String _predictionOrAdvice(String fieldPath, String value) {

@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "task_id": "thai-report-conversational-plain-language-v1",
-  "expected_branch": "codex/thai-report-conversational-language-v1",
-  "expected_worktree": "C:/Users/USER/Documents/Knowme/r100-print-release",
-  "base_ref": "e9bc186a23cb5385695f82d30d998fc3b804bfc2",
+  "task_id": "thai-report-inline-astrology-basis-dedup-v1",
+  "expected_branch": "codex/thai-report-inline-astrology-basis-dedup-v1",
+  "expected_worktree": "C:/Users/USER/Documents/Knowme/pr107-release-main",
+  "base_ref": "54ab76dd98cbbb2098d24a9caa350243a457f11a",
   "allowed_files": [
     "task.md",
     "TASK_RESULT.md",
