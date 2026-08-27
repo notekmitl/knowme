@@ -1,5 +1,9 @@
 # KnowMe Roadmap
 
+## PR107-OR3.1 — evidence closeout complete; final merge decision pending
+
+Owner Language/Visual Acceptance ผ่านที่ OR3. OR3.1 ทำ evidence/docs-only closeout โดยไม่แก้ reader-copy/UI/infographic/PDF generator/source/tests: full Before/After ครบ 8 surface-section combinations, exact provenance errors 0 ทุกประเภท, negative boundary checks 48 และ accepted product artifacts 55/55 hashes ตรง. ชุด OR3.1 SHA-256 `74447E727B7B86AA262E94655B2DDF58BCCD0FE62E32072FA07ADB387B09531A`. ไม่รัน Full suite ซ้ำเพราะ source/test delta 0; accepted OR3 evidence ยังคง Focused 96, audit 300/12,651/impacts 0, Full 1,623, Analyzer/PreCommit/PostCommit PASS. `product-acceptance/` delta 0. Next gate: Final Merge Decision; not merged, not deployed, Firebase/Production unchanged.
+
 ## Active — PR107-OR3 Owner final language re-acceptance
 
 OR2 ผ่าน Visual/Structure/Infographic แต่ Owner Reject final human-sounding Thai copy. OR3 implementation `5e05d1c0c725064a8a833489a5904cff53871e02` ปิดประเด็นภาษาประดิษฐ์/ภาษาระบบ/ข้อความซ้ำแบบ reader-copy/test-only และคง semantics/traceability/fail-closed/Engine/Canon/R1–R7.1/infographic. Technical gates ผ่าน Focused 96, Narrative 38, Artifact 3, audit 300 / 12,651 / impacts 0, Full 1,623, Analyzer และ PreCommit; visual QA ผ่าน Web 12, infographic 4, PDF 8/7/7/7 และ 29 rasters. Provenance OR2→OR3 missing/mismatch 0; ZIP SHA-256 `104A39A6A55E11F4A14211A464BB426B93C9955AB95EB1BE0A1B7C1CEA862A0A`. Next gate คือ Owner Final Language Re-acceptance เท่านั้น. PR #107 คง Open + Draft และยังไม่ Merge/Deploy/Firebase/Production change.
