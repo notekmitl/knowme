@@ -1,5 +1,9 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+## Inline Astrology Basis Dedup V1 — 2026-08-27
+
+Owner should review `OWNER_REVIEW_THAI_REPORT_INLINE_ASTROLOGY_BASIS_DEDUP_V1_5d42d14.zip`, SHA-256 `4EEE4EA1B5175B6DB6F88D0A20DF98FA924B72050152825A23739CF91D4093A5`, starting with `OWNER_REVIEW.md`, `BEFORE_AFTER.md`, contact sheets and text. Implementation `5d42d146c1955fe1498bedc49934a471db6d177e`; Section 4/traceability preserved and canonical 00:35 remains 19°19′. Pending Owner Review; do not merge, ready, deploy, or change Firebase/Production.
+
 ## Current handoff — PR107 rolling horizon correction closed
 
 Status: **PUBLIC PRODUCTION QA PASS — ROLLING HORIZON CONFIRMED — DOCS CLOSED**. Owner กำหนด Production ให้ใช้ rolling `asOf` ของเวลา submit และอนุญาตให้ Owner/golden/deterministic fixture pin `asOf`. Public `/beta/thai` ไม่ต้อง Login; source จับ submit time หนึ่งครั้งเป็น Bangkok civil แล้ว analysis/shared document เดียวส่งต่อ Web, infographic, Dedicated PDF และ Chrome browser print โดย helper ใช้วันก่อนครบรอบหนึ่งปีพร้อม leap-year clamp. OR3 `7 ส.ค. 2569 – 6 ส.ค. 2570` จึงยังถูกต้องสำหรับ pinned fixture และ Production `27 ส.ค. 2569 – 26 ส.ค. 2570` ถูกต้องสำหรับ run วันที่ 27; ความต่างเป็น expected environment/input difference ไม่ใช่ reader-copy, semantic หรือ Production defect. Auth blocker และ horizon mismatch เดิมเป็นการจำแนกผิด; เก็บรายการเดิมด้านล่างไว้เป็น audit trail. Evidence เดิมผ่าน Known/Unknown, Web desktop/mobile 390, infographic 1080×1920, Dedicated 9/8, Chrome print 7/7, raster 31/31, stale 0, Unknown fail-closed และ layout defects 0: `C:\Users\USER\Documents\Knowme\PR107_PROD_PUBLIC_THAI_REPORT_QA_20260827T051048Z.zip`, SHA-256 `57BD75E65612DBC4DCF1AC3312204846D1C4A28509485C4E8C0836BAE5E6DBDC`. ไม่มี source/code/test/product artifact หรือ `product-acceptance/` delta; ไม่มี hotfix/redeploy/Firebase configuration/Production-data change และไม่ต้องสร้าง Owner package ใหม่.

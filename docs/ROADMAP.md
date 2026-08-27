@@ -1,5 +1,12 @@
 # KnowMe Roadmap
 
+## Inline Astrology Basis Dedup V1 — 2026-08-27
+
+- [x] Remove inline basis from Sections 1–3 by semantic role; preserve Section 4 and traceability.
+- [x] Verify 00:35 Chiang Mai = Aquarius 19°19′ without engine change.
+- [x] Complete technical, semantic, PDF and visual evidence.
+- [ ] Owner reviews ZIP SHA-256 `4EEE4EA1B5175B6DB6F88D0A20DF98FA924B72050152825A23739CF91D4093A5`; keep Draft and do not merge/deploy.
+
 ## PR107 release — public Production QA complete; rolling horizon closed
 
 Owner ตัดสิน contract แล้ว: Production ใช้ rolling `asOf` ณ เวลา submit หนึ่งครั้งต่อรายงาน ส่วน OR3/Owner/golden/deterministic fixtures pin ได้. Public `/beta/thai` ไม่ต้อง Login; shared analysis/document ทำให้ Web, infographic, Dedicated PDF และ Chrome browser print ใช้ `asOf` เดียวกัน และ helper สิ้นสุดวันก่อนครบรอบหนึ่งปีพร้อม leap-year clamp. OR3 pinned `7 ส.ค. 2569 – 6 ส.ค. 2570` และ Production `27 ส.ค. 2569 – 26 ส.ค. 2570` จึงผ่านทั้งคู่; mismatch เดิมเป็นการเทียบคนละ environment/input contract ไม่ใช่ regression. QA เดิมผ่าน Known/Unknown, infographic 1080×1920, PDF 9/8/7/7, rasters 31/31, stale 0, fail-closed และ layout defects 0. Evidence ZIP SHA-256 `57BD75E65612DBC4DCF1AC3312204846D1C4A28509485C4E8C0836BAE5E6DBDC`. ไม่มี hotfix/redeploy/Firebase/Production-data/source/test/product artifact/`product-acceptance/` change; ไม่ต้องสร้าง Owner package ใหม่. Historical decision-pending entry ด้านล่างคงไว้เป็น correction trail; PR107 horizon follow-up ปิดแล้ว.
