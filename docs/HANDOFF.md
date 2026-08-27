@@ -1,8 +1,8 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
-## Current handoff — PR107 Production release; authenticated QA pending
+## Current handoff — PR107 public Production QA horizon mismatch
 
-Status: **MERGED AND DEPLOYED — PRODUCTION QA NOT COMPLETE: AUTHENTICATED SESSION UNAVAILABLE**. PR #107 merged as `eb2eb4d107e6a162616c8b97c0b490f067adb15b`; the same SHA is live Hosting-only on release `1787803668337000` / version `7ee3fac5ba6c97cc` from `2026-08-27T04:07:48.337Z`. Public routes and exact bundle hashes pass on both Production hostnames, including desktop and mobile 390 smoke. The available Chrome session was unauthenticated; per release instructions no account, fixture or Production data was created. A future separately authorized run must complete Known/Unknown Web, 360/390 infographics, Dedicated PDFs, Chrome browser-print PDFs, page counts and raster inspection before declaring Production QA PASS. Rollback baseline `1787640954233000` / `0aea9c854b86b99f` was not used. Owner OR3 Language/Visual Acceptance remains valid; no non-Hosting Firebase component or `product-acceptance/` changed.
+Status: **MERGED AND DEPLOYED — PUBLIC PRODUCTION QA NOT COMPLETE**. Auth ไม่ใช่ blocker: `/beta/thai` เป็น anonymous public flow และ Known/Unknown สร้างรายงานจริงได้ครบ. ผล live: Dedicated 9/8, Chrome print 7/7, raster 31 หน้า, infographic 1080×1920, Web desktop/mobile 390; layout และ stale-copy ผ่าน, Unknown fail-closed. Blocker คือช่วงใน Production `27 ส.ค. 2569 – 26 ส.ค. 2570` ไม่ตรง OR3 contract `7 ส.ค. 2569 – 6 ส.ค. 2570` เพราะ `ThaiBetaInputPage` ส่งเวลาปัจจุบันเข้า `asOf`. รอบนี้ห้าม/ไม่ได้แก้ source หรือ deploy. ขั้นต่อไปต้องตัดสินใจว่าช่วง 12 เดือนควร pinned หรือ rolling; หาก pinned ให้ทำ hotfix แยกพร้อม validation/redeploy แล้ว rerun public QA. Evidence: `C:\Users\USER\Documents\Knowme\PR107_PROD_PUBLIC_THAI_REPORT_QA_20260827T051048Z.zip`. ไม่มี account, feedback, Production-data, Firebase/config หรือ `product-acceptance/` change.
 
 ## Current handoff — PR107-OR3.1 Owner acceptance evidence closeout
 

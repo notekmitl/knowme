@@ -1,8 +1,8 @@
 # KnowMe Roadmap
 
-## PR107 release — merged/deployed; authenticated Production QA pending
+## PR107 release — public QA complete except horizon contract; hotfix decision pending
 
-PR #107 merged at `eb2eb4d107e6a162616c8b97c0b490f067adb15b` and is live from the same source on Firebase Hosting release `1787803668337000` / version `7ee3fac5ba6c97cc`. Clean build and deployed asset hashes match on both Production hostnames; public desktop/mobile smoke passes. Remaining gate: run authorized authenticated Known/Unknown Production QA across Web, infographic 360/390, Dedicated PDF and Chrome browser-print, including real page counts and all-page raster review. Current Chrome session was unauthenticated, so no fixture was created and no Production QA pass is claimed. Owner OR3 acceptance is unchanged; rollback was not required and non-Hosting Firebase resources, Production data and `product-acceptance/` remain unchanged.
+Anonymous `/beta/thai` QA disproved the prior authenticated-session blocker. Known/Unknown Web desktop/mobile 390, 1080×1920 infographics, Dedicated 9/8, Chrome print 7/7 and all 31 rasters were inspected; reader layout, fail-closed behavior and stale-copy audit pass. Production QA remains **NOT COMPLETE** because the live wall-clock `asOf` produced `27 ส.ค. 2569 – 26 ส.ค. 2570`, not the Owner-accepted `7 ส.ค. 2569 – 6 ส.ค. 2570`. Next gate: decide pinned versus rolling horizon; if pinned, implement and validate a focused hotfix in a separately authorized task, redeploy, then rerun public QA. This closeout changes docs only and does not deploy or mutate Firebase/Production data/`product-acceptance/`.
 
 ## PR107-OR3.1 — evidence closeout complete; final merge decision pending
 
