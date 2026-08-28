@@ -177,6 +177,15 @@ Draft PR: https://github.com/notekmitl/knowme/pull/106
 - Owner ZIP SHA-256 `C86808698126A30617C0035EFDCAF99CE368983916061D1175BBE98DED9A42A8`; CRC, manifest, missing, hash mismatch และ secret scan ผ่าน
 - ยังไม่ Merge, Ready for Review, Deploy หรือเปลี่ยน Firebase/Production และไม่แก้ `product-acceptance/`
 
+# PR108 Owner Review OR1 — 2026-08-28
+
+สถานะ: `PR108 OR1 TECHNICAL/EVIDENCE REPAIR COMPLETE — PENDING OWNER RE-REVIEW — DRAFT — NOT MERGED — NOT DEPLOYED`
+
+- Implementation `647e1f0`; Owner Reject เดิมด้าน cross-variant copy/evidence ถูกแก้โดยไม่เปลี่ยน engine/Canon/semantics/certainty
+- Focused 96/96; narrative 38/38; artifact 3/3; canonical 11/11; audit 300 profiles / 30,000 examined / 13,174 changed / inline basis 0 / stale 0 / impacts 0; full 1,623/1,623; analyzer baseline 298; PreCommit PASS
+- PDF จริง Dedicated 8/7, Chrome 7/7; visual blank 0 (Browser page 5 เป็น infographic image-only)
+- ZIP SHA-256 `5C13B2B644945C9309E5B691C67A3978D3052BCC7DAB56F6D62604D9D00838B7`; CRC/manifest/hash/secret/provenance errors = 0; PR #108 คง Draft ไม่ Merge/Deploy/Firebase/Production
+
 ## PR107-OR2 final closeout — 2026-08-26
 
 สถานะ: `THAI REPORT CONVERSATIONAL PLAIN LANGUAGE V1 OR2 COMPLETE — PR #107 DRAFT — PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE`

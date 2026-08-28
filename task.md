@@ -126,3 +126,7 @@ Owner ไม่รับภาษา V1 รอบแรกและกำหน�
 ## Owner Review OR2
 
 OR1 ถูก Owner Reject ด้านภาษา จึงทำ OR2 final conversational polish แบบ copy/test-only. Implementation `0f5b7e86e16a8f7f99af6856daa35f8a2a4e5b8b`; focused 95/95, copy audit 300 profiles / 11,414 fields impacts = 0, full suite 1,622/1,622, analyzer/PreCommit/PostCommit ผ่าน. PDF จริง 8/7/7/7 หน้าและ visual QA ผ่าน. Owner ZIP SHA-256 `24D74EA3CDE2311CF3335A07EFC7C5E80B62AA3C31B4367F3BC53C45E8A7F8EB`. สถานะ `PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE`; PR #107 คง Draft ไม่ Merge/Deploy/Firebase/Production change
+
+## PR108 OR1 closeout — 2026-08-28
+
+Owner Reject ชุดแรกด้าน cross-variant copy/evidence. OR1 `647e1f0` ผ่าน focused 96/96, audit 300 profiles / 30,000 examined / impacts 0, full 1,623/1,623, analyzer/PreCommit และ visual QA PDF 8/7/7/7; visual blank 0. ZIP SHA-256 `5C13B2B644945C9309E5B691C67A3978D3052BCC7DAB56F6D62604D9D00838B7`. `PENDING OWNER RE-REVIEW`; Draft, ไม่ Merge/Deploy/Firebase/Production

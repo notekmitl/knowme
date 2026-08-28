@@ -158,3 +158,7 @@ Owner Language Acceptance ของ V1 รอบแรกไม่ผ่าน. 
 # Update 2026-08-26 — Conversational Plain Language V1 Owner Review OR2
 
 OR1 ถูก Owner Reject ด้านภาษา. OR2 implementation `0f5b7e86e16a8f7f99af6856daa35f8a2a4e5b8b` เก็บ copy/consistency รอบสุดท้ายโดยไม่เปลี่ยน semantics. Focused 95/95, narrative 38/38, artifact 3/3, audit 300 profiles / 11,414 fields impacts = 0, full suite 1,622/1,622, analyzer baseline และ PreCommit/PostCommit ผ่าน. Visual QA ครบ Web 12, infographic 4, PDF raster 29 หน้า; page counts 8/7/7/7. ZIP SHA-256 `24D74EA3CDE2311CF3335A07EFC7C5E80B62AA3C31B4367F3BC53C45E8A7F8EB`. สถานะ `PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE`; PR #107 ยัง Draft และไม่ Merge/Deploy/Firebase/Production change
+
+## PR108 OR1 — 2026-08-28
+
+Owner Reject evidence เดิมเพราะ copy ข้าม variant และหลักฐานไม่ครบ. OR1 `647e1f0` ซ่อม copy/audit/canonical fixture/desktop capture; audit 300 profiles / 30,000 fields, inline/stale hits 0, impacts 0; full 1,623/1,623; PDF 8/7/7/7 และ visual blank 0. ZIP SHA-256 `5C13B2B644945C9309E5B691C67A3978D3052BCC7DAB56F6D62604D9D00838B7`. `PENDING OWNER RE-REVIEW`; Draft, ไม่ Merge/Deploy/Firebase/Production

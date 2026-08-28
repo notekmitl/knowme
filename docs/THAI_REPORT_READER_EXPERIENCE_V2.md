@@ -172,3 +172,7 @@ merge, deployment or Firebase mutation is authorized.
 # Conversational Plain Language V1 Owner Review OR2 — 2026-08-26
 
 OR2 เก็บ final language/consistency หลัง OR1 ถูก Owner Reject โดยตัดคำถามและข้อสรุปซ้ำ แก้ส่วนขยายห้อย และทำ Unknown ให้เป็น fail-closed ภาษาคนบน Web/PDF/infographic เดียวกัน. คงส่วน 1–4, “แนวโน้ม 12 เดือนข้างหน้า”, `7 ส.ค. 2569 – 6 ส.ค. 2570`, `monthlyTimelineAvailable=false`, ไม่มีรายเดือน และไม่เปลี่ยน engine/Canon/R1–R7.1/traceability. Implementation `0f5b7e86e16a8f7f99af6856daa35f8a2a4e5b8b`; 300-profile audit 11,414 fields impacts = 0, full suite 1,622/1,622, analyzer/PreCommit/PostCommit และ visual QA ผ่าน. ZIP SHA-256 `24D74EA3CDE2311CF3335A07EFC7C5E80B62AA3C31B4367F3BC53C45E8A7F8EB`; สถานะ `PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE`
+
+# Inline Astrology Basis Dedup V1 — PR108 OR1 — 2026-08-28
+
+OR1 ขยายการถอด inline basis ตาม semantic role และซ่อม stale OR3 phrases โดยคง Section 4, Unknown fail-closed, `monthlyTimelineAvailable=false`, ช่วงวันที่จริง, semantics และ traceability. Implementation `647e1f0`; audit 300 profiles / 30,000 fields / inline 0 / stale 0 / impacts 0; PDF จริง 8/7/7/7, visual blank 0. ZIP SHA-256 `5C13B2B644945C9309E5B691C67A3978D3052BCC7DAB56F6D62604D9D00838B7`; `PENDING OWNER RE-REVIEW`

@@ -170,3 +170,7 @@ V1 รอบแรกถูก Owner Reject ด้านภาษา. ให้ 
 # Handoff 2026-08-26 — Conversational Plain Language V1 OR2
 
 ให้ Owner เปิด `OWNER_REVIEW_THAI_REPORT_PLAIN_LANGUAGE_V1_OR2_0f5b7e8.zip` SHA-256 `24D74EA3CDE2311CF3335A07EFC7C5E80B62AA3C31B4367F3BC53C45E8A7F8EB` และเริ่มจาก `OWNER_REVIEW_PR107.md` กับ `audit/BEFORE_AFTER_4_SECTIONS.md`. Implementation `0f5b7e86e16a8f7f99af6856daa35f8a2a4e5b8b`; technical/semantic/visual gates ผ่านตามหลักฐาน 95/95, 300 profiles / 11,414 fields impacts 0, 1,622/1,622, PostCommit PASS และ PDF 8/7/7/7 หน้า. สถานะ `PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE`; ห้าม Merge/Ready/Deploy/Firebase/Production change
+
+## Handoff — PR108 OR1
+
+Owner เปิด `OWNER_REVIEW_THAI_REPORT_INLINE_ASTROLOGY_BASIS_DEDUP_V1_OR1_647e1f0.zip` SHA-256 `5C13B2B644945C9309E5B691C67A3978D3052BCC7DAB56F6D62604D9D00838B7` เริ่มที่ `OWNER_REVIEW_PR108_OR1.md`, `BEFORE_AFTER_FULL.md`, provenance และ contact sheets. Implementation `647e1f0`; technical/visual evidence ผ่านแต่ยัง `PENDING OWNER RE-REVIEW`; ห้าม Merge/Ready/Deploy/Firebase/Production

@@ -408,3 +408,5 @@ Owner Acceptance for R7/R7.1 remains authoritative. The four-string Life Map com
 - [x] PR107-OR2 final conversational Thai polish: implementation `0f5b7e8`, focused/copy audit/full suite/analyzer/PreCommit และ visual package ผ่าน
 - [x] PostCommit docs closeout ผ่าน; push final HEAD เข้า Draft PR #107
 - [ ] Owner ตรวจ OR2 ZIP SHA-256 `24D74EA3CDE2311CF3335A07EFC7C5E80B62AA3C31B4367F3BC53C45E8A7F8EB` แล้วตัดสิน Final Language Re-Acceptance
+- [x] PR108 OR1 cross-variant/evidence repair, canonical artifacts และ distinct desktop captures ที่ `647e1f0`
+- [ ] Owner re-review ZIP SHA-256 `5C13B2B644945C9309E5B691C67A3978D3052BCC7DAB56F6D62604D9D00838B7`; PR #108 คง Draft และห้าม Merge/Deploy
