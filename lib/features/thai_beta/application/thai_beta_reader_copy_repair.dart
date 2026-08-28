@@ -2777,6 +2777,10 @@ abstract final class ThaiBetaReaderCopyRepair {
           (match) =>
               'คุณเป็นคน${match.group(1)} และมักใช้${match.group(2)} ${match.group(3)}',
         );
+        result = result.replaceFirst(
+          RegExp(r'^ข้อมูลจากลัคนา.+?(?:สะท้อนว่า|บอกว่า)\s*'),
+          '',
+        );
       case 'computed:house:10:analysis':
         result = result.replaceFirst(
           RegExp(r' ในทางโหราศาสตร์ เรื่องงานดูจากเรือนการงาน.+$'),
@@ -2784,6 +2788,10 @@ abstract final class ThaiBetaReaderCopyRepair {
         );
         result = result.replaceFirst(
           RegExp(r'^หลักฐานเรือนการงานที่เชื่อม.+? แปลเป็นภาษาคนว่า '),
+          '',
+        );
+        result = result.replaceFirst(
+          RegExp(r'^ข้อมูลจากเรือนการงาน.+?(?:สะท้อนว่า|บอกว่า)\s*'),
           '',
         );
       case 'computed:house:2:analysis':
@@ -2794,6 +2802,10 @@ abstract final class ThaiBetaReaderCopyRepair {
         result = result.replaceFirst(
           RegExp(r'^เรือนการเงินซึ่งอ่านจาก.+? ผูกความมั่นคงของคุณกับ'),
           'ความมั่นคงของคุณเชื่อมกับ',
+        );
+        result = result.replaceFirst(
+          RegExp(r'^ข้อมูลจากเรือนการเงิน.+?(?:สะท้อนว่า|บอกว่า)\s*'),
+          '',
         );
       case 'computed:house:7:analysis':
         result = result.replaceFirst(
@@ -2806,6 +2818,10 @@ abstract final class ThaiBetaReaderCopyRepair {
           RegExp(r'^เมื่อเรือนความสัมพันธ์มี.+?เป็นหลัก ความไว้ใจจึงเกิดผ่าน'),
           'ความไว้ใจเกิดจาก',
         );
+        result = result.replaceFirst(
+          RegExp(r'^ข้อมูลจากเรือนความสัมพันธ์.+?(?:สะท้อนว่า|บอกว่า)\s*'),
+          '',
+        );
       case 'computed:house:6:analysis':
         result = result.replaceFirst(
           RegExp(r' ในทางโหราศาสตร์ เรื่องนี้ดูจากเรือนสุขภาวะ.+$'),
@@ -2814,6 +2830,10 @@ abstract final class ThaiBetaReaderCopyRepair {
         result = result.replaceFirst(
           RegExp(r'^เรือนสุขภาวะที่มี.+?เชื่อมพลังชีวิตกับ'),
           'พลังชีวิตของคุณสัมพันธ์กับ',
+        );
+        result = result.replaceFirst(
+          RegExp(r'^ข้อมูลจากเรือนสุขภาวะ.+?(?:สะท้อนว่า|บอกว่า)\s*'),
+          '',
         );
     }
     return result.trim();
@@ -2834,6 +2854,33 @@ abstract final class ThaiBetaReaderCopyRepair {
           'และการเติบโตปรากฏตรงไหน',
           'และช่วงใดที่คุณเริ่มเติบโตจากทางเลือกของตัวเอง',
         );
+    result = result
+        .replaceAll(
+          'งานและหน้าที่บังคับให้คุณจัดลำดับชีวิตใหม่',
+          'งานและหน้าที่อาจเปลี่ยน จนคุณต้องจัดลำดับชีวิตใหม่',
+        )
+        .replaceAll(
+          'เวลาและความชัดให้คนที่เกี่ยวข้อง',
+          'เวลาอธิบายงานให้คนที่เกี่ยวข้องเข้าใจตรงกัน',
+        );
+    result = result.replaceFirstMapped(
+      RegExp(
+        r'วันที่ (\d{4}-\d{2}-\d{2}) ตรงกับ(วัน[^ ]+)ตามปฏิทินและใช้เป็นฐานทำงานเท่านั้น ข้อมูลนี้ไม่ใช้สรุปตำแหน่งหรือจังหวะที่ต้องพึ่งนาฬิกาเกิด',
+      ),
+      (match) =>
+          'ข้อมูลที่ใช้คือวันเกิด ${match.group(1)} ซึ่งตรงกับ${match.group(2)}ตามปฏิทิน และจังหวัดที่เกิด เนื่องจากไม่มีเวลาเกิด รายงานจึงไม่คำนวณลัคนา เรือน หรือจังหวะที่ต้องอาศัยเวลาเกิด',
+    );
+    result = result.replaceFirstMapped(
+      RegExp(
+        r'วันที่เกิดตามปฏิทิน: ([^—]+)— ระบบรู้วันเกิดแต่ไม่รู้เวลา จึงไม่คำนวณลัคนาหรือหัวข้อที่ต้องใช้เวลาเกิด',
+      ),
+      (match) =>
+          'วันที่เกิดตามปฏิทิน: ${match.group(1)!.trim()} — ไม่มีเวลาเกิด จึงไม่คำนวณลัคนา เรือน หรือหัวข้อที่ต้องใช้เวลาเกิด',
+    );
+    result = result.replaceFirstMapped(
+      RegExp(r'ทบทวนอีกครั้งเมื่อเห็นว่า(.+?)หรือไม่'),
+      (match) => 'เช็กเป็นระยะว่า${match.group(1)}หรือไม่',
+    );
     result = result.replaceFirstMapped(
       RegExp(
         r'ลองย้อนดูว่า (.+?)ใน(.+?)อาจเทียบได้กับความทรงจำเรื่องบ้าน ผู้ดูแล ความปลอดภัย การเรียนรู้ การเล่น และการได้รับการยอมรับ ลองนึกว่าฐานใดยังติดตัวมาถึงวันนี้',

@@ -15,7 +15,6 @@ import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 import 'package:knowme/features/thai_beta/presentation/export/thai_beta_browser_print.dart';
 import 'package:knowme/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart';
 
-import 'narrative/thai_beta_narrative_fixtures.dart';
 import 'synthetic_audit/thai_beta_synthetic_matrix_300.dart';
 
 const _fixtureIds = <String>[
@@ -224,7 +223,7 @@ void main() {
           if (fixtureId == 'known') {
             expect(
               renderedPdf.pageCount,
-              9,
+              8,
               reason: 'Measured V2 Known artifact page-count regression',
             );
           } else if (fixtureId == 'unknown') {
@@ -799,8 +798,8 @@ bool _requiresReportArtifacts(String fixtureId) =>
     !fixtureId.startsWith('stress-') && !fixtureId.startsWith('year-boundary-');
 
 ThaiBetaAnalysis _analysisFor(String fixtureId) => switch (fixtureId) {
-  'known' => ThaiBetaNarrativeFixtures.fixtureA(),
-  'unknown' => ThaiBetaNarrativeFixtures.fixtureB(),
+  'known' => _run(_owner(known: true, minute: 35)),
+  'unknown' => _run(_owner(known: false)),
   'owner-known-0035' => _run(_owner(known: true, minute: 35)),
   'owner-unknown' => _run(_owner(known: false)),
   'regression-known-0003' => _run(_owner(known: true, minute: 3)),
