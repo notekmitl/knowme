@@ -106,7 +106,8 @@ void _applyDocumentHeightFallback(int heightPx) {
 
 double readAppliedHostHeightPx() {
   final root = html.document.documentElement;
-  final raw = root?.style.getPropertyValue(_hostHeightVar) ??
+  final raw =
+      root?.style.getPropertyValue(_hostHeightVar) ??
       root?.style.getPropertyValue(_legacyHeightVar) ??
       '';
   final parsed = double.tryParse(raw.replaceAll('px', '').trim());
@@ -124,8 +125,10 @@ ScreenshotHostDiagnostics? readScreenshotHostDiagnostics({
     bodyScrollHeight: html.document.body?.scrollHeight.toDouble() ?? 0,
     reportContentHeight: reportContentHeight,
     appliedHostHeight: readAppliedHostHeightPx(),
-    screenshotModeActive: html.document.documentElement?.classes
-            .contains('screenshot-friendly') ??
+    screenshotModeActive:
+        html.document.documentElement?.classes.contains(
+          'screenshot-friendly',
+        ) ??
         false,
   );
 }
@@ -138,9 +141,8 @@ double computeScreenshotHostHeight({
   double? windowInnerHeightPx,
 }) {
   final measured = contentHeightPx + topPaddingPx + hostPaddingPx;
-  final viewport = windowInnerHeightPx ??
-      html.window.innerHeight?.toDouble() ??
-      0;
+  final viewport =
+      windowInnerHeightPx ?? html.window.innerHeight?.toDouble() ?? 0;
   if (viewport <= 0) return measured;
   return math.max(measured, viewport);
 }
@@ -148,4 +150,50 @@ double computeScreenshotHostHeight({
 void disableScreenshotFriendlyScroll() {
   html.document.documentElement?.classes.remove('screenshot-friendly');
   resetScreenshotHostHeight();
+}
+
+double Function()? _captureScrollTop;
+double Function()? _captureScrollHeight;
+double Function()? _captureClientHeight;
+
+void installThaiBetaCaptureScrollBridge({
+  required double Function() scrollTop,
+  required double Function() scrollHeight,
+  required double Function() clientHeight,
+  required void Function(double offset) jumpTo,
+}) {
+  _captureScrollTop = scrollTop;
+  _captureScrollHeight = scrollHeight;
+  _captureClientHeight = clientHeight;
+  js.context['__setThaiBetaCaptureScrollFraction'] = (num requestedFraction) {
+    final maxScroll = math.max(0, scrollHeight() - clientHeight());
+    jumpTo(maxScroll * requestedFraction.toDouble().clamp(0, 1));
+    publishThaiBetaCaptureScrollMetrics();
+  };
+  publishThaiBetaCaptureScrollMetrics();
+}
+
+void publishThaiBetaCaptureScrollMetrics() {
+  final top = _captureScrollTop;
+  final height = _captureScrollHeight;
+  final client = _captureClientHeight;
+  if (top == null || height == null || client == null) return;
+  final scrollHeight = height();
+  final clientHeight = client();
+  final maxScroll = math.max(0, scrollHeight - clientHeight);
+  js.context['__thaiBetaCaptureScrollMetrics'] = js.JsObject.jsify({
+    'identity': 'Flutter ScrollController:thai_beta_report_screenshot_layout',
+    'scrollTop': top(),
+    'scrollHeight': scrollHeight,
+    'clientHeight': clientHeight,
+    'maxScroll': maxScroll,
+  });
+}
+
+void removeThaiBetaCaptureScrollBridge() {
+  _captureScrollTop = null;
+  _captureScrollHeight = null;
+  _captureClientHeight = null;
+  js.context.deleteProperty('__setThaiBetaCaptureScrollFraction');
+  js.context.deleteProperty('__thaiBetaCaptureScrollMetrics');
 }

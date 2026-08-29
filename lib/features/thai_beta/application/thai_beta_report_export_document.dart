@@ -171,7 +171,19 @@ class ThaiBetaReportExportDocument {
     sections.addAll(
       coreReading.sections
           .where((section) => !section.isMethodology)
-          .map((section) => _section(section.title, section.publicParagraphs)),
+          .map(
+            (section) => _section(section.title, [
+              ...section.factRows.map((row) => row.publicText),
+              ...section.claims.map(
+                (claim) => applyReaderCopy
+                    ? ThaiBetaReaderCopyRepair.refineCoreClaim(
+                        claim.text,
+                        semanticKey: claim.semanticKey,
+                      )
+                    : claim.text,
+              ),
+            ]),
+          ),
     );
 
     // Thai Beta owns one lifelong Core Reading. Only time-dependent material

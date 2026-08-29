@@ -1,5 +1,9 @@
 # Thai Report Reader Experience V2
 
+## Inline Astrology Basis Dedup V1 — 2026-08-27
+
+Owner feedback ระบุว่าประโยค “อ่านจาก/ดูจากเรือน” ในคำทำนายส่วน 1–3 ซ้ำกับส่วน 4. Implementation `5d42d146c1955fe1498bedc49934a471db6d177e` ถอดเฉพาะ basis ตาม semantic role โดยคง prediction/advice, “รายงานนี้ดูจากอะไร”, วิธีนับวันไทย, โครงสร้างดวง, ลัคนา/เจ้าเรือน/เรือน, disclaimers, Canon และ provenance/traceability. Unknown ยัง fail-closed และ canonical 00:35 เชียงใหม่ยังเป็นกุมภ์ 19°19′. Technical/visual QA complete; `PENDING OWNER REVIEW — NOT MERGED — NOT DEPLOYED`.
+
 ## PR107 Rolling Production Horizon Contract Correction
 
 Status: **MERGED AND DEPLOYED — PUBLIC PRODUCTION QA PASS — ROLLING HORIZON CONFIRMED — OWNER LANGUAGE ACCEPTED — DOCS CLOSED**. Owner ยืนยันว่า Production ใช้ rolling `asOf` ณ เวลา submit ส่วน Owner Review/golden/deterministic fixture pin `asOf` ได้. Public `/beta/thai` ไม่ต้อง Login; input จับ submit time หนึ่งครั้ง, analysis แปลงเป็น Bangkok civil และ shared export document เดียวป้อน Web, infographic, Dedicated PDF และ Chrome browser print. Period helper ใช้วันก่อนครบรอบหนึ่งปีและ clamp วันที่ที่ไม่มีในปีเป้าหมายสำหรับ leap-year boundary. OR3 pinned `7 ส.ค. 2569 – 6 ส.ค. 2570` จึงยังเป็น accepted deterministic evidence; live Production `27 ส.ค. 2569 – 26 ส.ค. 2570` ถูกต้องตาม rolling contract. ความต่างเป็น expected environment/input difference ไม่ใช่ reader-copy, semantic หรือ Production defect. Auth blocker และ horizon mismatch เดิมเป็นการจำแนกผิด; รายการเดิมด้านล่างคงไว้เป็น correction trail. Evidence เดิมผ่าน Known canonical, Unknown fail-closed, Web desktop/mobile 390, infographic 1080×1920, Dedicated 9/8, Chrome print 7/7, raster 31/31, stale 0 และ blank/clipping/overlap/overflow 0: `C:\Users\USER\Documents\Knowme\PR107_PROD_PUBLIC_THAI_REPORT_QA_20260827T051048Z.zip`, SHA-256 `57BD75E65612DBC4DCF1AC3312204846D1C4A28509485C4E8C0836BAE5E6DBDC`. ไม่มี source/code/test/product artifact หรือ `product-acceptance/` delta; ไม่มี hotfix/redeploy/Firebase configuration/Production-data change และไม่ต้องสร้าง Owner package ใหม่.
@@ -168,3 +172,16 @@ merge, deployment or Firebase mutation is authorized.
 # Conversational Plain Language V1 Owner Review OR2 — 2026-08-26
 
 OR2 เก็บ final language/consistency หลัง OR1 ถูก Owner Reject โดยตัดคำถามและข้อสรุปซ้ำ แก้ส่วนขยายห้อย และทำ Unknown ให้เป็น fail-closed ภาษาคนบน Web/PDF/infographic เดียวกัน. คงส่วน 1–4, “แนวโน้ม 12 เดือนข้างหน้า”, `7 ส.ค. 2569 – 6 ส.ค. 2570`, `monthlyTimelineAvailable=false`, ไม่มีรายเดือน และไม่เปลี่ยน engine/Canon/R1–R7.1/traceability. Implementation `0f5b7e86e16a8f7f99af6856daa35f8a2a4e5b8b`; 300-profile audit 11,414 fields impacts = 0, full suite 1,622/1,622, analyzer/PreCommit/PostCommit และ visual QA ผ่าน. ZIP SHA-256 `24D74EA3CDE2311CF3335A07EFC7C5E80B62AA3C31B4367F3BC53C45E8A7F8EB`; สถานะ `PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE`
+
+# Inline Astrology Basis Dedup V1 — PR108 OR1 — 2026-08-28
+
+OR1 ขยายการถอด inline basis ตาม semantic role และซ่อม stale OR3 phrases โดยคง Section 4, Unknown fail-closed, `monthlyTimelineAvailable=false`, ช่วงวันที่จริง, semantics และ traceability. Implementation `647e1f0`; audit 300 profiles / 30,000 fields / inline 0 / stale 0 / impacts 0; PDF จริง 8/7/7/7, visual blank 0. ZIP SHA-256 `5C13B2B644945C9309E5B691C67A3978D3052BCC7DAB56F6D62604D9D00838B7`; `PENDING OWNER RE-REVIEW`
+# PR108 OR2 evidence addendum (2026-08-29)
+
+OR1 was rejected for scope-accounting and evidence defects, not accepted by inference. OR2 freezes the reader-visible copy and closes those evidence gaps. The reconciliation classifies 13,174 historical/raw audit differences; actual PR108 baseline-to-candidate changes are 1,587 fields (A 1,125; B 462; C 0; E 0; F 0), while D 11,587 fields were already present at the PR108 base and unchanged by PR108. Actual extracted Web/Dedicated PDF/Browser-print parity is 262/262, infographic has a separate semantic contract, and all 18 top/middle/bottom captures record controller identity plus requested and actual geometry. Known and Unknown contact sheets are variant-filtered and have different hashes.
+
+Two full-copy reads confirm Section 4 still explains methodology and Unknown remains fail-closed. Dedicated PDF pages are Known 8 / Unknown 7; Browser-print pages are Known 7 / Unknown 7, with no blank page, clipping, overlap or overflow. Implementation/test commit: `d78c5f641563ca5810c8952191e217cd31502d57`. Owner Review ZIP SHA-256: `D47AE77CAC12E4D924E5FF4A200786251F34B4646AE5DEAAA373D8C483F41EB1`. Status at evidence delivery was **PENDING OWNER RE-REVIEW — NOT MERGED — NOT DEPLOYED**.
+
+## PR108 Owner Acceptance record — 2026-08-29
+
+Owner independently verified the ZIP SHA-256, CRC and SHA256SUMS and accepted OR2 scope, copy and evidence. Inline-basis/stale final hits are 0; parity is 262/262 with mismatch/missing/truncated/duplicate 0; geometry is 18/18; Dedicated pages are 8/7 and Browser-print 7/7; Browser-print page 5 is image-only rather than blank; visual clipping/overlap/overflow is 0. Accepted implementation is `d78c5f641563ca5810c8952191e217cd31502d57`; previous evidence/docs HEAD is `ec2ecbaa1f9f21fe69df6476f9d0fed0a39f5120`; acceptance docs commit is this docs-only commit/final PR HEAD. **OWNER ACCEPTED — READY FOR REVIEW — NOT MERGED — NOT DEPLOYED**.

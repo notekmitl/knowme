@@ -1,5 +1,9 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+## Inline Astrology Basis Dedup V1 — 2026-08-27
+
+Owner should review `OWNER_REVIEW_THAI_REPORT_INLINE_ASTROLOGY_BASIS_DEDUP_V1_5d42d14.zip`, SHA-256 `4EEE4EA1B5175B6DB6F88D0A20DF98FA924B72050152825A23739CF91D4093A5`, starting with `OWNER_REVIEW.md`, `BEFORE_AFTER.md`, contact sheets and text. Implementation `5d42d146c1955fe1498bedc49934a471db6d177e`; Section 4/traceability preserved and canonical 00:35 remains 19°19′. Pending Owner Review; do not merge, ready, deploy, or change Firebase/Production.
+
 ## Current handoff — PR107 rolling horizon correction closed
 
 Status: **PUBLIC PRODUCTION QA PASS — ROLLING HORIZON CONFIRMED — DOCS CLOSED**. Owner กำหนด Production ให้ใช้ rolling `asOf` ของเวลา submit และอนุญาตให้ Owner/golden/deterministic fixture pin `asOf`. Public `/beta/thai` ไม่ต้อง Login; source จับ submit time หนึ่งครั้งเป็น Bangkok civil แล้ว analysis/shared document เดียวส่งต่อ Web, infographic, Dedicated PDF และ Chrome browser print โดย helper ใช้วันก่อนครบรอบหนึ่งปีพร้อม leap-year clamp. OR3 `7 ส.ค. 2569 – 6 ส.ค. 2570` จึงยังถูกต้องสำหรับ pinned fixture และ Production `27 ส.ค. 2569 – 26 ส.ค. 2570` ถูกต้องสำหรับ run วันที่ 27; ความต่างเป็น expected environment/input difference ไม่ใช่ reader-copy, semantic หรือ Production defect. Auth blocker และ horizon mismatch เดิมเป็นการจำแนกผิด; เก็บรายการเดิมด้านล่างไว้เป็น audit trail. Evidence เดิมผ่าน Known/Unknown, Web desktop/mobile 390, infographic 1080×1920, Dedicated 9/8, Chrome print 7/7, raster 31/31, stale 0, Unknown fail-closed และ layout defects 0: `C:\Users\USER\Documents\Knowme\PR107_PROD_PUBLIC_THAI_REPORT_QA_20260827T051048Z.zip`, SHA-256 `57BD75E65612DBC4DCF1AC3312204846D1C4A28509485C4E8C0836BAE5E6DBDC`. ไม่มี source/code/test/product artifact หรือ `product-acceptance/` delta; ไม่มี hotfix/redeploy/Firebase configuration/Production-data change และไม่ต้องสร้าง Owner package ใหม่.
@@ -166,3 +170,14 @@ V1 รอบแรกถูก Owner Reject ด้านภาษา. ให้ 
 # Handoff 2026-08-26 — Conversational Plain Language V1 OR2
 
 ให้ Owner เปิด `OWNER_REVIEW_THAI_REPORT_PLAIN_LANGUAGE_V1_OR2_0f5b7e8.zip` SHA-256 `24D74EA3CDE2311CF3335A07EFC7C5E80B62AA3C31B4367F3BC53C45E8A7F8EB` และเริ่มจาก `OWNER_REVIEW_PR107.md` กับ `audit/BEFORE_AFTER_4_SECTIONS.md`. Implementation `0f5b7e86e16a8f7f99af6856daa35f8a2a4e5b8b`; technical/semantic/visual gates ผ่านตามหลักฐาน 95/95, 300 profiles / 11,414 fields impacts 0, 1,622/1,622, PostCommit PASS และ PDF 8/7/7/7 หน้า. สถานะ `PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE`; ห้าม Merge/Ready/Deploy/Firebase/Production change
+
+## Handoff — PR108 OR1
+
+Owner เปิด `OWNER_REVIEW_THAI_REPORT_INLINE_ASTROLOGY_BASIS_DEDUP_V1_OR1_647e1f0.zip` SHA-256 `5C13B2B644945C9309E5B691C67A3978D3052BCC7DAB56F6D62604D9D00838B7` เริ่มที่ `OWNER_REVIEW_PR108_OR1.md`, `BEFORE_AFTER_FULL.md`, provenance และ contact sheets. Implementation `647e1f0`; technical/visual evidence ผ่านแต่ยัง `PENDING OWNER RE-REVIEW`; ห้าม Merge/Ready/Deploy/Firebase/Production
+# PR108 OR2 handoff (2026-08-29)
+
+Owner action at delivery was to re-review `C:\Users\USER\Documents\Knowme\PR108_OR2_WORK\OWNER_REVIEW_THAI_REPORT_INLINE_ASTROLOGY_BASIS_DEDUP_V1_OR2_d78c5f6.zip` (SHA-256 `D47AE77CAC12E4D924E5FF4A200786251F34B4646AE5DEAAA373D8C483F41EB1`). The package accounts for 13,174 historical/raw audit differences. Only 1,587 are actual PR108 baseline-to-candidate changes (A=1,125, B=462; C=0, E=0, F=0); D=11,587 was already present at the PR108 base and is unchanged. The package also provides detailed actual Web/Dedicated/Browser-print parity (262/262), separate infographic semantic evidence, actual 0/50/100% scroll geometry (18/18), variant-correct contact sheets and all PDF rasters. CRC, extraction, manifest and secret validation report 0 errors.
+
+OR1 rejection is not superseded by assertion: OR2 resolves the four cited evidence defects while freezing reader copy. Implementation/test commit is `d78c5f641563ca5810c8952191e217cd31502d57`. Full suite 1,623/1,623 and all required gates pass. Before the Owner decision, PR #108 was required to remain Open + Draft. Do not merge or deploy; Firebase/Production and `product-acceptance/` have no delta.
+
+Owner has now independently accepted PR108 OR2 scope, copy and evidence. Previous evidence/docs HEAD is `ec2ecbaa1f9f21fe69df6476f9d0fed0a39f5120`; acceptance docs commit is this commit (exact SHA is the final PR HEAD). Accepted PDF counts are Dedicated 8/7 and Browser-print 7/7; page 5 is image-only, not visually blank; clipping/overlap/overflow 0. PR may be changed to Ready for Review after the docs commit is pushed and HEAD/tree/mergeability are reverified. **Do not merge or deploy.**

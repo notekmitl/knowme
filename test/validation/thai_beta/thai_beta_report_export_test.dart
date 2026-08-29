@@ -405,6 +405,7 @@ void main() {
           'ใช้เป็นฐานทำงานเท่านั้น',
           'ระบบรู้วันเกิดแต่ไม่รู้เวลา',
           'เวลาและความชัดให้คนที่เกี่ยวข้อง',
+          'ทบทวนอีกครั้งเมื่อเห็นว่า',
         ];
         for (final text in texts) {
           for (final phrase in stale) {
@@ -414,8 +415,46 @@ void main() {
 
         expect(
           known.fullPlainText,
-          contains('ในทางโหราศาสตร์ เรื่องงานดูจากเรือนการงาน'),
+          isNot(contains('ในทางโหราศาสตร์ เรื่องงานดูจากเรือนการงาน')),
         );
+        final section4Index = known.sections.indexWhere(
+          (section) => section.title == 'ส่วนที่ 4 · ที่มาและข้อจำกัด',
+        );
+        expect(section4Index, greaterThanOrEqualTo(0));
+        final readerPredictionText = known.sections
+            .take(section4Index)
+            .expand((section) => <String>[section.title, ...section.paragraphs])
+            .join('\n');
+        for (final inlineBasis in const <String>[
+          'ในทางโหราศาสตร์ จุดนี้อ่านจาก',
+          'จุดนี้อ่านจากลัคนา',
+          'ในทางโหราศาสตร์ เรื่องงานดูจาก',
+          'เรื่องงานดูจากเรือนการงาน',
+          'ในทางโหราศาสตร์ เรื่องเงินดูจาก',
+          'เรื่องเงินดูจากเรือนการเงิน',
+          'ในทางโหราศาสตร์ เรื่องความสัมพันธ์ดูจาก',
+          'เรื่องความสัมพันธ์ดูจากเรือนความสัมพันธ์',
+          'ในทางโหราศาสตร์ เรื่องนี้ดูจากเรือนสุขภาวะ',
+          'ข้อมูลจากเรือน',
+          'ข้อมูลจากลัคนา',
+          'สะท้อนจากตำแหน่ง',
+          'หลักฐานชุดนี้',
+          'อ้างอิงจาก',
+        ]) {
+          expect(
+            readerPredictionText,
+            isNot(contains(inlineBasis)),
+            reason: inlineBasis,
+          );
+        }
+        final section4Text = known.sections
+            .skip(section4Index)
+            .expand((section) => <String>[section.title, ...section.paragraphs])
+            .join('\n');
+        expect(section4Text, contains('รายงานนี้ดูจากอะไร'));
+        expect(section4Text, contains('โครงสร้างดวงหลัก'));
+        expect(section4Text, contains('ลัคนา: ราศีกุมภ์ 19°19′'));
+        expect(section4Text, contains('เรือนการงาน:'));
         expect(known.fullPlainText, contains('เรื่องสุขภาพ ให้สังเกตว่า'));
         expect(
           unknown.fullPlainText,

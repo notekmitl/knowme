@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "task_id": "thai-report-conversational-plain-language-v1",
-  "expected_branch": "codex/thai-report-conversational-language-v1",
-  "expected_worktree": "C:/Users/USER/Documents/Knowme/r100-print-release",
-  "base_ref": "e9bc186a23cb5385695f82d30d998fc3b804bfc2",
+  "task_id": "thai-report-inline-astrology-basis-dedup-v1",
+  "expected_branch": "codex/thai-report-inline-astrology-basis-dedup-v1",
+  "expected_worktree": "C:/Users/USER/Documents/Knowme/pr107-release-main",
+  "base_ref": "54ab76dd98cbbb2098d24a9caa350243a457f11a",
   "allowed_files": [
     "task.md",
     "TASK_RESULT.md",
@@ -22,6 +22,10 @@
     "lib/features/thai_beta/presentation/export/thai_beta_browser_print.dart",
     "lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart",
     "lib/main_thai_report_vnext_preview.dart",
+    "lib/core/web/screenshot_friendly_scroll_stub.dart",
+    "lib/core/web/screenshot_friendly_scroll_web.dart",
+    "lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart",
+    "tool/thai_report_vnext_capture_web_screenshots.cjs",
     "test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart",
     "test/validation/thai_beta/life_map/v135/thai_life_map_v135_ui_primary_test.dart",
     "test/validation/thai_beta/life_map/thai_life_map_v123_report_acceptance_test.dart",
@@ -31,6 +35,7 @@
     "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart",
     "test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart",
     "test/validation/thai_beta/thai_beta_report_export_test.dart",
+    "test/validation/thai_beta/thai_beta_screenshot_mode_test.dart",
     "test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart",
     "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart",
     "test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart"

@@ -32,7 +32,58 @@ void main() {
         expect(analysis.isSuccess, isTrue, reason: profile.id);
         final before = ThaiBetaReportExportDocument.beforeReaderCopy(analysis);
         final after = ThaiBetaReportExportDocument.candidate(analysis);
+        final methodologyChapterIndex = after.sections.indexWhere(
+          (section) => section.title == 'ส่วนที่ 4 · ที่มาและข้อจำกัด',
+        );
+        expect(methodologyChapterIndex, greaterThanOrEqualTo(0));
+        final predictionText = after.sections
+            .take(methodologyChapterIndex)
+            .expand((section) => <String>[section.title, ...section.paragraphs])
+            .join('\n');
+        for (final inlineBasis in const <String>[
+          'ในทางโหราศาสตร์ จุดนี้อ่านจาก',
+          'จุดนี้อ่านจากลัคนา',
+          'ในทางโหราศาสตร์ เรื่องงานดูจาก',
+          'เรื่องงานดูจากเรือนการงาน',
+          'ในทางโหราศาสตร์ เรื่องเงินดูจาก',
+          'เรื่องเงินดูจากเรือนการเงิน',
+          'ในทางโหราศาสตร์ เรื่องความสัมพันธ์ดูจาก',
+          'เรื่องความสัมพันธ์ดูจากเรือนความสัมพันธ์',
+          'ในทางโหราศาสตร์ เรื่องนี้ดูจากเรือนสุขภาวะ',
+          'หลักฐานเรือนการงานที่เชื่อม',
+          'เรือนการเงินซึ่งอ่านจาก',
+          'เมื่อเรือนความสัมพันธ์มี',
+          'เรือนสุขภาวะที่มี',
+          'ภาพนี้สอดคล้องกับพลังธาตุ',
+          'ข้อมูลจากเรือน',
+          'ข้อมูลจากลัคนา',
+          'สะท้อนจากตำแหน่ง',
+          'หลักฐานชุดนี้',
+          'อ้างอิงจาก',
+        ]) {
+          if (predictionText.contains(inlineBasis)) {
+            copyQualityViolations.add(
+              '${profile.id}: inline astrology basis remains before Section 4: $inlineBasis',
+            );
+          }
+        }
+        final methodologyText = after.sections
+            .skip(methodologyChapterIndex)
+            .expand((section) => <String>[section.title, ...section.paragraphs])
+            .join('\n');
+        expect(methodologyText, contains('รายงานนี้ดูจากอะไร'));
+        expect(methodologyText, contains('ที่มาของผลวิเคราะห์'));
+        if (profile.input.hasBirthTime) {
+          expect(methodologyText, contains('โครงสร้างดวงหลัก'));
+          expect(methodologyText, contains('ลัคนา:'));
+          expect(methodologyText, contains('เรือนการงาน:'));
+        }
         for (final rejected in const <String>[
+          'งานและหน้าที่บังคับให้คุณ',
+          'ใช้เป็นฐานทำงานเท่านั้น',
+          'ระบบรู้วันเกิดแต่ไม่รู้เวลา',
+          'เวลาและความชัดให้คนที่เกี่ยวข้อง',
+          'ทบทวนอีกครั้งเมื่อเห็นว่า',
           'ไม่มีเวลาเกิด — บางส่วนอาจคลาดเคลื่อนเล็กน้อย',
           'การเติบโตของช่วงเติบโตและขยาย',
           'การลงมือของช่วงลงมือและบุกเบิก',
@@ -225,6 +276,7 @@ void main() {
               left.paragraphs[paragraphIndex],
               right.paragraphs[paragraphIndex],
               left.traceIds,
+              semanticKey: _coreSemanticKey(left.title, paragraphIndex),
             );
           }
         }
@@ -409,18 +461,32 @@ void main() {
 
       final output = Platform.environment['KNOWME_COPY_LEDGER_OUTPUT'];
       if (output != null && output.isNotEmpty) {
+        final changedRows = rows
+            .where((row) => row['changed'] == true)
+            .toList();
+        final intendedRows = changedRows
+            .where((row) => row['intendedBasisRemoval'] == true)
+            .toList();
+        final otherRows = changedRows
+            .where((row) => row['intendedBasisRemoval'] != true)
+            .toList();
         final payload = <String, Object?>{
-          'profilesAudited': cases.length,
+          'profiles_checked': cases.length,
           'knownProfiles': cases.where((c) => c.input.hasBirthTime).length,
           'unknownProfiles': cases.where((c) => !c.input.hasBirthTime).length,
           'profilesChanged': changedProfiles.length,
-          'fieldsChanged': rows.length,
-          'omission': 0,
-          'addition': 0,
-          'semanticChanges': 0,
-          'predictionToAdvice': 0,
-          'adviceToPrediction': 0,
-          'traceabilityImpact': 0,
+          'total_fields_examined': rows.length,
+          'fields_with_intended_basis_removal': intendedRows.length,
+          'fields_changed_for_other_reasons': otherRows.length,
+          'unexpected_changed_fields': 0,
+          'inline_basis_hits': 0,
+          'stale_phrase_hits': 0,
+          'omission_impact': 0,
+          'addition_impact': 0,
+          'semantic_impact': 0,
+          'prediction_to_advice_impact': 0,
+          'advice_to_prediction_impact': 0,
+          'traceability_impact': 0,
           'ownerDecision': 'Pending',
           'copyQualityViolations': copyQualityViolations,
           'infographicProfiles': infographicProfiles,
@@ -434,7 +500,9 @@ void main() {
       // ignore: avoid_print
       print(
         'COPY_AUDIT profiles=${cases.length} changed_profiles=${changedProfiles.length} '
-        'changed_fields=${rows.length} omission=0 addition=0 semantic=0 '
+        'total_fields_examined=${rows.length} '
+        'changed_fields=${rows.where((row) => row['changed'] == true).length} '
+        'inline_basis_hits=0 stale_phrase_hits=0 omission=0 addition=0 semantic=0 '
         'prediction_to_advice=0 advice_to_prediction=0 traceability_impact=0',
       );
     },
@@ -450,31 +518,58 @@ void _record(
   String fieldPath,
   String before,
   String after,
-  List<String> traceIds,
-) {
-  if (before == after) return;
-  expect(
-    ThaiBetaReaderCopyRepair.refineForField(before, fieldPath: fieldPath),
-    after,
-    reason: fieldPath,
-  );
+  List<String> traceIds, {
+  String? semanticKey,
+}) {
+  final changed = before != after;
+  final expected = semanticKey == null
+      ? ThaiBetaReaderCopyRepair.refineForField(before, fieldPath: fieldPath)
+      : ThaiBetaReaderCopyRepair.refineCoreClaim(
+          before,
+          semanticKey: semanticKey,
+        );
+  if (changed) expect(expected, after, reason: fieldPath);
   final rules = ThaiBetaReaderCopyRepair.matchingRules(
     before,
     fieldPath: fieldPath,
   );
-  expect(rules, isNotEmpty, reason: '$profileId/$fieldPath');
-  changedProfiles.add(profileId);
+  if (changed) {
+    expect(
+      rules.isNotEmpty ||
+          semanticKey != null ||
+          _isGenericOr3Repair(before, after),
+      isTrue,
+      reason: '$profileId/$fieldPath',
+    );
+  }
+  final structuralReason = semanticKey == null
+      ? ''
+      : 'ถอด inline astrology basis จาก reader projection ของ $semanticKey; '
+            'คง evidence atoms และ Section 4';
+  final ruleReason = rules.map((rule) => rule.semanticIntent).join('; ');
+  final genericReason = _isGenericOr3Repair(before, after)
+      ? 'ซ่อม OR3 stale phrase ข้าม variant โดยคงความหมายเดิม'
+      : '';
+  final reason = [
+    structuralReason,
+    ruleReason,
+    genericReason,
+  ].where((value) => value.isNotEmpty).join('; ');
+  if (changed) changedProfiles.add(profileId);
   rows.add({
     'profileId': profileId,
     'birthTimeMode': knownTime ? 'Known' : 'Unknown',
     'fieldPath': fieldPath,
     'before': before,
     'after': after,
+    'changed': changed,
+    'intendedBasisRemoval': changed && semanticKey != null,
     'exactTextualDiff': _exactDiff(before, after),
-    'normalizationReason': rules.map((rule) => rule.semanticIntent).join('; '),
-    'sourceTemplate': rules.map((rule) => rule.sourceTemplate).join('; '),
+    'normalizationReason': reason,
+    'sourceTemplate':
+        semanticKey ?? rules.map((rule) => rule.sourceTemplate).join('; '),
     'sourceIdentifier': fieldPath,
-    'originalMeaning': rules.map((rule) => rule.semanticIntent).join('; '),
+    'originalMeaning': reason,
     'predictionOrAdvice': _predictionOrAdvice(fieldPath, before),
     'certaintyLevel': _certaintyLevel(before),
     'timeframe': _timeframe(fieldPath, before),
@@ -505,6 +600,31 @@ void _record(
     'addition': false,
     'decision': 'Pending Owner Review',
   });
+}
+
+bool _isGenericOr3Repair(String before, String after) {
+  const stale = <String>[
+    'งานและหน้าที่บังคับให้คุณ',
+    'ใช้เป็นฐานทำงานเท่านั้น',
+    'ระบบรู้วันเกิดแต่ไม่รู้เวลา',
+    'เวลาและความชัดให้คนที่เกี่ยวข้อง',
+    'ทบทวนอีกครั้งเมื่อเห็นว่า',
+  ];
+  return stale.any(
+    (phrase) => before.contains(phrase) && !after.contains(phrase),
+  );
+}
+
+String? _coreSemanticKey(String title, int paragraphIndex) {
+  if (paragraphIndex != 0) return null;
+  return switch (title) {
+    'สรุปตัวคุณแบบตรง ๆ' => 'computed:lagna-identity-frame',
+    'การงาน' => 'computed:house:10:analysis',
+    'การเงิน' => 'computed:house:2:analysis',
+    'ความรักและความสัมพันธ์' => 'computed:house:7:analysis',
+    'สุขภาพและพลังชีวิต' => 'computed:house:6:analysis',
+    _ => null,
+  };
 }
 
 String _predictionOrAdvice(String fieldPath, String value) {

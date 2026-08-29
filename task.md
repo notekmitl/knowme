@@ -1,5 +1,9 @@
 # Task: Thai Report Reader Experience V2
 
+## Inline Astrology Basis Dedup V1 — 2026-08-27
+
+Implementation `5d42d146c1955fe1498bedc49934a471db6d177e` ถอด inline basis ซ้ำจากส่วน 1–3 โดยคงส่วน 4 และ traceability. Canonical 00:35 เชียงใหม่ = กุมภ์ 19°19′; technical/visual evidence complete. ZIP SHA-256 `4EEE4EA1B5175B6DB6F88D0A20DF98FA924B72050152825A23739CF91D4093A5`. `PENDING OWNER REVIEW`; ไม่ Merge/Deploy/Firebase/Production change.
+
 **PR107 MERGED — OR3 DEPLOYED — PUBLIC PRODUCTION QA PASS — ROLLING HORIZON CONFIRMED — OWNER LANGUAGE ACCEPTED — DOCS CLOSED.** Correction (2026-08-27): `/beta/thai` เป็น public flow ไม่ต้อง Login และ Production contract ใช้ rolling `asOf` ณ เวลา submit หนึ่งครั้งต่อรายงาน ส่งผ่าน analysis/shared document เดียวไปยัง Web, infographic, Dedicated PDF และ Chrome browser print; วันสิ้นสุดคือวันก่อนครบรอบหนึ่งปีพร้อม leap-year clamp. OR3/golden fixture pin `7 ส.ค. 2569 – 6 ส.ค. 2570` เพื่อ deterministic evidence ขณะที่ live Production วันที่ 27 แสดง `27 ส.ค. 2569 – 26 ส.ค. 2570` อย่างถูกต้อง. ความต่างนี้เป็น expected environment/input difference ไม่ใช่ reader-copy, semantic หรือ Production defect; auth blocker และ horizon mismatch เดิมเป็นการจำแนกผิดและคงข้อความเดิมด้านล่างไว้เป็น audit trail. Public QA เดิมผ่าน Known/Unknown ทุก surface, infographic 1080×1920, Dedicated 9/8, Chrome print 7/7, rasters 31/31, stale 0, Unknown fail-closed และ layout defects 0. Evidence ZIP `C:\Users\USER\Documents\Knowme\PR107_PROD_PUBLIC_THAI_REPORT_QA_20260827T051048Z.zip`, SHA-256 `57BD75E65612DBC4DCF1AC3312204846D1C4A28509485C4E8C0836BAE5E6DBDC`. ไม่มี source/code/test/product artifact หรือ `product-acceptance/` delta; ไม่มี hotfix/redeploy/Firebase config/Production-data change และไม่ต้องสร้าง Owner package ใหม่.
 
 **PR107 MERGED — OR3 DEPLOYED — PUBLIC PRODUCTION QA NOT COMPLETE: HORIZON CONTRACT MISMATCH.** `/beta/thai` เป็น public flow; ข้อสรุปเดิมว่าไม่มี authenticated session เป็น blocker ถูกแก้แล้ว. Anonymous Known/Unknown QA บน release `1787803668337000` / version `7ee3fac5ba6c97cc` ครบ Web desktop/mobile 390, infographic, Dedicated 9/8, Chrome print 7/7 และ raster 31 หน้า โดย layout/stale-copy ผ่านและ Unknown fail-closed. Blocker จริงคือ live infographic ใช้ wall-clock as-of จึงแสดง `27 ส.ค. 2569 – 26 ส.ค. 2570` ไม่ตรง Owner-accepted `7 ส.ค. 2569 – 6 ส.ค. 2570`. ไม่มี source fix, deploy, account, feedback, Production-data/Firebase/config หรือ `product-acceptance/` change; ต้องมี release decision/hotfix แยกก่อน rerun Production QA. Evidence ZIP: `C:\Users\USER\Documents\Knowme\PR107_PROD_PUBLIC_THAI_REPORT_QA_20260827T051048Z.zip`.
@@ -122,3 +126,16 @@ Owner ไม่รับภาษา V1 รอบแรกและกำหน�
 ## Owner Review OR2
 
 OR1 ถูก Owner Reject ด้านภาษา จึงทำ OR2 final conversational polish แบบ copy/test-only. Implementation `0f5b7e86e16a8f7f99af6856daa35f8a2a4e5b8b`; focused 95/95, copy audit 300 profiles / 11,414 fields impacts = 0, full suite 1,622/1,622, analyzer/PreCommit/PostCommit ผ่าน. PDF จริง 8/7/7/7 หน้าและ visual QA ผ่าน. Owner ZIP SHA-256 `24D74EA3CDE2311CF3335A07EFC7C5E80B62AA3C31B4367F3BC53C45E8A7F8EB`. สถานะ `PENDING OWNER FINAL LANGUAGE RE-ACCEPTANCE`; PR #107 คง Draft ไม่ Merge/Deploy/Firebase/Production change
+
+## PR108 OR1 closeout — 2026-08-28
+
+Owner Reject ชุดแรกด้าน cross-variant copy/evidence. OR1 `647e1f0` ผ่าน focused 96/96, audit 300 profiles / 30,000 examined / impacts 0, full 1,623/1,623, analyzer/PreCommit และ visual QA PDF 8/7/7/7; visual blank 0. ZIP SHA-256 `5C13B2B644945C9309E5B691C67A3978D3052BCC7DAB56F6D62604D9D00838B7`. `PENDING OWNER RE-REVIEW`; Draft, ไม่ Merge/Deploy/Firebase/Production
+# PR108 OR2 status (2026-08-29)
+
+At evidence delivery the status was `PENDING OWNER RE-REVIEW`. OR1 evidence was rejected for incomplete 12,049-field “other” accounting, assertion-only parity, duplicate Known/Unknown Web contact sheets and absent actual scroll geometry. OR2 reader copy is frozen. The 13,174 figure is the historical/raw audit population classified during reconciliation, not the PR108 delta. Actual PR108 baseline-to-candidate changes are 1,587 fields: A=1,125 and B=462; C=0, E=0, F=0. D=11,587 has `baselineValue == candidateValue`, was present at the PR108 base and is unchanged by PR108. Implementation/test commit is `d78c5f641563ca5810c8952191e217cd31502d57`; evidence/docs HEAD was `ec2ecbaa1f9f21fe69df6476f9d0fed0a39f5120`.
+
+Evidence passes: parity 262/262; captures 18/18; copy audit 300 profiles / 30,000 fields with all semantic impacts 0; focused 96/96; narrative 38/38; artifact 3/3; full 1,623/1,623; analyzer and PreCommit pass. Final ZIP SHA-256 is `D47AE77CAC12E4D924E5FF4A200786251F34B4646AE5DEAAA373D8C483F41EB1`. At evidence delivery PR was Open + Draft; it was not merged or deployed, and Firebase/Production and `product-acceptance/` were unchanged.
+
+## PR108 Owner Acceptance — 2026-08-29
+
+Owner independently verified ZIP CRC/SHA256SUMS and accepted OR2 scope, copy and evidence. Inline/stale hits 0; parity 262/262 with all error counters 0; geometry 18/18; PDFs Dedicated 8/7 and Browser-print 7/7; page 5 is an image-only infographic; visual defects 0. This acceptance update is one docs-only commit (exact commit SHA is the final PR HEAD). Required final PR state: Open + Ready for Review. Do not merge, deploy, regenerate artifacts, change Firebase/Production or modify `product-acceptance/`.
