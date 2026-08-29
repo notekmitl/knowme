@@ -1,5 +1,11 @@
 # KnowMe Current Status
 
+## PR110 Production release — PASS (2026-08-29)
+
+PR #110 is merged and its Owner-accepted Unknown-time input copy is live on Firebase Hosting. Regular merge `4031049efc675d35c44660c0453bb432c50c8f06` / tree `b89ac1331f21b2fba6cce1c5979b43702ce73374` was deployed to project/site `knowme-app-694e1` as release `1787994532335000`, version `869582a05e8db108`, at `2026-08-29T16:08:52.335+07:00`. Rollback target `1787985139294000` / `abd3efe5bbcb18db` remains available and was not used.
+
+Validation is green: focused 191/191, full 1,625/1,625, analyzer baseline 298, audit 300 profiles / 30,000 fields / all impact counters 0, Known 19°19′, Unknown fail-closed omissions, screenshot/input regression, diff-check and PostCommit. Production root and `/beta/thai` are HTTP 200 and index/bootstrap/main/service-worker hashes equal the local build. Desktop 1248×900 and mobile 390×844 toggle/copy QA passed; visual and app-console defects are 0. Dedicated 9/8 and browser-print 7/7 pages were rendered and all 31 pages inspected with blank/clipping/overlap/overflow 0. Evidence: `C:\Users\USER\Documents\Knowme\PR110_PRODUCTION_QA_20260829T160852`. Only Hosting changed; non-Hosting Firebase resources, Production data and `product-acceptance/` are unchanged.
+
 ## Current — PR110 Owner Acceptance recorded; merge/deploy pending (2026-08-29)
 
 Status: **OWNER REVIEW ACCEPTED — PR110 COPY AND VISUAL QA PASS — PENDING MERGE AND HOSTING DEPLOYMENT**. Owner accepted implementation `4ff56e73fe8044b72940f4923de0ab95ea451edc`, PR HEAD `158ed2d6b325c2464e097a92c6d68367b1d4191e`, and review ZIP SHA-256 `B13374B09CFC1A2A074ADEB67C1A190D82CE18F13FBD43A7A834407445FEB27C` after independent CRC/manifest/hash verification. The accepted change replaces `ผลวิเคราะห์บางส่วนอาจคลาดเคลื่อน แต่ยังสามารถวิเคราะห์พื้นฐานได้` with `หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี`.
