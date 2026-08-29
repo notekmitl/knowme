@@ -412,7 +412,14 @@ Owner Acceptance for R7/R7.1 remains authoritative. The four-string Life Map com
 - [ ] Owner re-review ZIP SHA-256 `5C13B2B644945C9309E5B691C67A3978D3052BCC7DAB56F6D62604D9D00838B7`; PR #108 คง Draft และห้าม Merge/Deploy
 # PR108 OR2 checkpoint (2026-08-29)
 
-- Current gate: **PENDING OWNER RE-REVIEW** after OR1 evidence rejection.
-- OR2 complete: exact scope reconciliation A=1,125 / B=462 / C=0 / D=11,587 / E=0 / F=0; parity 262/262; scroll geometry 18/18; corrected variant contact sheets; full raster review.
+- Evidence-delivery gate was **PENDING OWNER RE-REVIEW** after OR1 evidence rejection.
+- OR2 complete: 13,174 historical/raw audit differences classified; actual PR108 changes 1,587 (A=1,125, B=462, C=0, E=0, F=0), while D=11,587 was present at the PR108 base and unchanged; parity 262/262; scroll geometry 18/18; corrected variant contact sheets; full raster review.
 - Validation complete at implementation/test commit `d78c5f641563ca5810c8952191e217cd31502d57`: focused 96/96, narrative 38/38, artifact 3/3, copy audit 300 profiles / 30,000 fields / impacts 0, full suite 1,623/1,623, analyzer and PreCommit pass.
-- Next: Owner re-review only. PR #108 stays Open + Draft; no merge, deployment, Firebase/Production change, or `product-acceptance/` change.
+- At evidence delivery, the next step was Owner re-review and PR #108 remained Open + Draft; no merge, deployment, Firebase/Production change, or `product-acceptance/` change occurred.
+
+## PR108 Owner Acceptance — 2026-08-29
+
+- Owner independently verified ZIP SHA-256 `D47AE77CAC12E4D924E5FF4A200786251F34B4646AE5DEAAA373D8C483F41EB1`, CRC and SHA256SUMS and accepted OR2 scope/copy/evidence.
+- Accepted implementation: `d78c5f641563ca5810c8952191e217cd31502d57`; previous evidence/docs HEAD: `ec2ecbaa1f9f21fe69df6476f9d0fed0a39f5120`; acceptance docs commit: this docs-only commit/final PR HEAD.
+- Accepted evidence: inline/stale hits 0; parity 262/262 and error counters 0; geometry 18/18; Dedicated 8/7; Browser-print 7/7; page 5 image-only; clipping/overlap/overflow 0.
+- Next: Ready for Review and final merge decision. **Not merged, not deployed; Firebase/Production and `product-acceptance/` unchanged.**

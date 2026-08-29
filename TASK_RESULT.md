@@ -182,7 +182,7 @@ Draft PR: https://github.com/notekmitl/knowme/pull/106
 สถานะ: `PR108 OR1 TECHNICAL/EVIDENCE REPAIR COMPLETE — PENDING OWNER RE-REVIEW — DRAFT — NOT MERGED — NOT DEPLOYED`
 
 - Implementation `647e1f0`; Owner Reject เดิมด้าน cross-variant copy/evidence ถูกแก้โดยไม่เปลี่ยน engine/Canon/semantics/certainty
-- Focused 96/96; narrative 38/38; artifact 3/3; canonical 11/11; audit 300 profiles / 30,000 examined / 13,174 changed / inline basis 0 / stale 0 / impacts 0; full 1,623/1,623; analyzer baseline 298; PreCommit PASS
+- Focused 96/96; narrative 38/38; artifact 3/3; canonical 11/11; audit 300 profiles / 30,000 examined / 13,174 historical/raw audit differences (not PR108 changes) / inline basis 0 / stale 0 / impacts 0; full 1,623/1,623; analyzer baseline 298; PreCommit PASS
 - PDF จริง Dedicated 8/7, Chrome 7/7; visual blank 0 (Browser page 5 เป็น infographic image-only)
 - ZIP SHA-256 `5C13B2B644945C9309E5B691C67A3978D3052BCC7DAB56F6D62604D9D00838B7`; CRC/manifest/hash/secret/provenance errors = 0; PR #108 คง Draft ไม่ Merge/Deploy/Firebase/Production
 
@@ -208,10 +208,16 @@ Draft PR: https://github.com/notekmitl/knowme/pull/106
 - ยังไม่ Merge, Ready for Review, Deploy หรือเปลี่ยน Firebase/Production และไม่แก้ `product-acceptance/`
 # PR108 OR2 owner re-review closeout (2026-08-29)
 
-Status: **PENDING OWNER RE-REVIEW — OPEN + DRAFT — NOT MERGED — NOT DEPLOYED**.
+Status at evidence delivery: **PENDING OWNER RE-REVIEW — OPEN + DRAFT — NOT MERGED — NOT DEPLOYED**.
 
-OR1 was rejected because its scope accounting grouped 12,049 fields as “other”, parity was assertion-only, the Known/Unknown Web contact sheets were duplicates, and capture metadata did not prove actual scroll geometry. OR2 freezes reader-facing copy and repairs only the evidence/capture tooling. The final mutually-exclusive accounting of all 13,174 changed fields is A=1,125 inline-basis removals, B=462 OR3 stale-phrase repairs, C=0 broken-sentence repairs, D=11,587 previously Owner-accepted pre-PR108 changes, E=0 unrelated changes, and F=0 unexplained changes.
+OR1 was rejected because its scope accounting grouped 12,049 fields as “other”, parity was assertion-only, the Known/Unknown Web contact sheets were duplicates, and capture metadata did not prove actual scroll geometry. OR2 freezes reader-facing copy and repairs only the evidence/capture tooling. The reconciliation classified 13,174 historical/raw audit differences: the actual PR108 baseline-to-candidate delta is 1,587 fields, comprising A=1,125 inline-basis removals and B=462 OR3 stale-phrase repairs; C=0, E=0 and F=0. D=11,587 fields already existed at the PR108 base (`baselineValue == candidateValue`) and were unchanged by PR108.
 
 Implementation/test commit: `d78c5f641563ca5810c8952191e217cd31502d57`. Validation: canonical 11/11; focused report 96/96; narrative 38/38; artifact 3/3; copy audit 300 profiles / 30,000 fields with semantic, omission, addition and traceability impacts all 0; detailed cross-surface parity 262/262; actual scroll geometry 18/18; full suite 1,623/1,623; analyzer exit 0 with 298 pre-existing informational issues; PreCommit PASS. PDF pages are Dedicated Known 8, Dedicated Unknown 7, Browser-print Known 7, Browser-print Unknown 7; raster review found no blank page, clipping, overlap or overflow.
 
 Owner Review: `C:\Users\USER\Documents\Knowme\PR108_OR2_WORK\OWNER_REVIEW_THAI_REPORT_INLINE_ASTROLOGY_BASIS_DEDUP_V1_OR2_d78c5f6.zip`, SHA-256 `D47AE77CAC12E4D924E5FF4A200786251F34B4646AE5DEAAA373D8C483F41EB1`. CRC, extraction, manifest missing/extra/hash mismatch and secret scan all pass with 0 errors. Section 4 methodology remains present; Unknown remains fail-closed. Firebase, Production and `product-acceptance/` are unchanged.
+
+# PR108 Owner Acceptance record (2026-08-29)
+
+Owner independently verified and accepted PR108 OR2 scope, copy and evidence. ZIP SHA-256 `D47AE77CAC12E4D924E5FF4A200786251F34B4646AE5DEAAA373D8C483F41EB1`; CRC and SHA256SUMS pass. Accepted implementation is `d78c5f641563ca5810c8952191e217cd31502d57`; previous evidence/docs HEAD is `ec2ecbaa1f9f21fe69df6476f9d0fed0a39f5120`; the acceptance docs commit is this single docs-only commit (exact SHA is the final PR HEAD/Git commit metadata).
+
+Accepted evidence: actual PR108 changed fields 1,587 (A=1,125, B=462, C=0, E=0, F=0); D=11,587 unchanged pre-PR108 fields; historical/raw classified total 13,174. Inline-basis and stale-phrase final hits 0; parity 262/262 with mismatch/missing/truncated/duplicate 0; scroll geometry 18/18; Dedicated PDF 8/7 and Browser-print 7/7; Browser-print page 5 is image-only, not blank; no clipping, overlap or overflow. Status: **OWNER ACCEPTED — READY FOR REVIEW — NOT MERGED — NOT DEPLOYED**.
