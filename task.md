@@ -1,5 +1,15 @@
 # Task: Thai Report Reader Experience V2
 
+## PR110 Owner Acceptance — 2026-08-29
+
+**OWNER REVIEW ACCEPTED — PR110 COPY AND VISUAL QA PASS — PENDING MERGE AND HOSTING DEPLOYMENT.** Accepted PR HEAD `158ed2d6b325c2464e097a92c6d68367b1d4191e`, implementation `4ff56e73fe8044b72940f4923de0ab95ea451edc`, ZIP SHA-256 `B13374B09CFC1A2A074ADEB67C1A190D82CE18F13FBD43A7A834407445FEB27C`. Owner accepted the exact old/new input copy, the one-line application delta and widget test, and desktop 1248×900/mobile 390×844 visual QA with no clipping, overlap or overflow. Known/report/export/Engine/Canon/asOf/infographic/PDF remain unchanged. Reference validation: focused 191/191, full 1,625/1,625, analyzer baseline 298, audit 300/30,000 impacts 0, PreCommit/PostCommit pass. This record is Markdown-only; PR #110 is not yet merged or deployed and Production/`product-acceptance/` remain unchanged.
+
+## Thai Unknown-Time Input Copy Accuracy V1 — 2026-08-29
+
+**THAI UNKNOWN-TIME INPUT COPY ACCURACY V1 COMPLETE — DRAFT PR — PENDING OWNER REVIEW — NOT MERGED — NOT DEPLOYED.** Draft PR #110, base `e094c789ec4e0dcd24d9b79a01c3bbd569f1c70c`, implementation/test `4ff56e73fe8044b72940f4923de0ab95ea451edc`. แก้เฉพาะ reader-visible input/help ใต้ `ฉันไม่ทราบเวลาเกิด`: old `ผลวิเคราะห์บางส่วนอาจคลาดเคลื่อน แต่ยังสามารถวิเคราะห์พื้นฐานได้` จาก legacy `112f4f5a`; new `หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี`. Runtime fail-closed, Known flow, form behavior, report/export, Engine/Canon/asOf, infographic และ PDF ไม่เปลี่ยน.
+
+Focused `191/191`, full `1,625/1,625`, analyzer exit 0 / baseline 298, audit 300 / 30,000 / impacts 0 และ PreCommit/PostCommit ผ่าน. Desktop 1248×900 กับ mobile 390×844 ผ่าน Known/Unknown และทั้งสองทิศทางการสลับ; visual/duplicate/console defects 0. ZIP `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_UNKNOWN_TIME_INPUT_COPY_ACCURACY_V1_4ff56e7.zip`, SHA-256 `B13374B09CFC1A2A074ADEB67C1A190D82CE18F13FBD43A7A834407445FEB27C`, ตรวจ CRC/extraction/manifest/hash/secret ผ่าน. ไม่มี generated artifact, `product-acceptance/`, Firebase หรือ Production delta; release/version ปัจจุบันยังเป็น `1787985139294000` / `abd3efe5bbcb18db`.
+
 ## PR108 Production deployment closeout — 2026-08-29
 
 **PR108 DEPLOYED — PRODUCTION KNOWN/UNKNOWN QA PASS — DOCS UPDATED — NO ROLLBACK.** Exact merge `8e2fec36f7b8a98bcb7dff3c5183951de8c9e507` / tree `3c887d85bcc715ab1981c41d246256647205302b` was built and deployed only to Firebase Hosting project/site `knowme-app-694e1`. Production release `1787985139294000`, version `abd3efe5bbcb18db`, completed at `2026-08-29T13:32:19.294+07:00`; `https://knowme-app-694e1.web.app/` and `/beta/thai` return HTTP 200 and exact build asset hashes. Rollback release `1787803668337000` was not used.

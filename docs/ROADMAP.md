@@ -1,5 +1,25 @@
 # KnowMe Roadmap
 
+## PR110 Owner Acceptance and release workflow (2026-08-29)
+
+- [x] Owner accepted PR110 copy and visual QA at implementation `4ff56e73fe8044b72940f4923de0ab95ea451edc` / PR HEAD `158ed2d6b325c2464e097a92c6d68367b1d4191e`.
+- [x] Independently verify Owner ZIP SHA-256 `B13374B09CFC1A2A074ADEB67C1A190D82CE18F13FBD43A7A834407445FEB27C`, CRC, manifest and hashes.
+- [x] Record accepted old/new input copy, one-line application scope, widget coverage, focused 191/191, full 1,625/1,625, analyzer baseline 298, audit 300/30,000 impacts 0 and visual defects 0.
+- [ ] Merge the exact accepted tree after the Markdown-only acceptance record is pushed and topology remains clean.
+- [ ] Build, validate and deploy only Firebase Hosting `knowme-app-694e1`; preserve rollback release `1787985139294000`.
+- [ ] Complete public Production Known/Unknown input, asset/cache, report/export/infographic/PDF QA and a separate docs-only closeout PR.
+- [x] Keep Firebase non-Hosting resources, Production data and `product-acceptance/` unchanged.
+
+## Thai Unknown-Time Input Copy Accuracy V1 — Draft PR #110 (2026-08-29)
+
+- [x] Classify all `คลาดเคลื่อน` / Unknown-time occurrences and isolate the single inaccurate public input/help occurrence from report/export/internal fixture text.
+- [x] Replace legacy `112f4f5a` copy with `หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี` without changing Known flow, validation, report/export, Engine/Canon/asOf, infographic or PDF.
+- [x] Add initial Known and Known↔Unknown widget regression coverage; pass focused 191/191, full 1,625/1,625, analyzer baseline 298, audit 300/30,000 impacts 0 and PreCommit/PostCommit.
+- [x] Verify desktop 1248×900 and mobile 390×844 UI with visual/duplicate/console defects 0; persistent form restoration is not supported by this local-state page and was not changed.
+- [x] Create and validate `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_UNKNOWN_TIME_INPUT_COPY_ACCURACY_V1_4ff56e7.zip`, SHA-256 `B13374B09CFC1A2A074ADEB67C1A190D82CE18F13FBD43A7A834407445FEB27C`.
+- [ ] Owner review Draft PR #110; do not mark Ready, merge or deploy before a separate decision.
+- [x] Confirm generated artifact, `product-acceptance/`, Firebase and Production delta = 0; Production remains `1787985139294000` / `abd3efe5bbcb18db`.
+
 ## PR108 Production release — complete (2026-08-29)
 
 - [x] Deploy exact accepted merge `8e2fec36f7b8a98bcb7dff3c5183951de8c9e507` / tree `3c887d85bcc715ab1981c41d246256647205302b` to Firebase Hosting `knowme-app-694e1` only.
