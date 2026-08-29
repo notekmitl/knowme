@@ -1,5 +1,11 @@
 # KnowMe Current Status
 
+## Current — Thai Unknown-Time Input Copy Accuracy V1 Draft PR (2026-08-29)
+
+Status: **COMPLETE — DRAFT PR #110 — PENDING OWNER REVIEW — NOT MERGED — NOT DEPLOYED**. From current Production/main base `e094c789ec4e0dcd24d9b79a01c3bbd569f1c70c`, implementation/test `4ff56e73fe8044b72940f4923de0ab95ea451edc` replaces only the misleading input hint from legacy `112f4f5a`: `ผลวิเคราะห์บางส่วนอาจคลาดเคลื่อน แต่ยังสามารถวิเคราะห์พื้นฐานได้` → `หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี`. This is an input/help copy correction; Known input and Unknown report/export fail-closed behavior are unchanged, as are validation, form state, astrology calculations, Canon, asOf, report sections, infographic, Dedicated PDF and browser-print.
+
+Validation: focused 191/191; full 1,625/1,625; analyzer exit 0 with the 298 baseline diagnostics; 300-profile / 30,000-field audit impacts 0; PreCommit/PostCommit pass. Known Aquarius 19°19′ remains exact and Unknown still omits ascendant, houses and time-dependent fields. Desktop 1248×900 and mobile 390×844 captures cover Known/Unknown and toggle directions with visual/duplicate/console defects 0. Owner ZIP `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_UNKNOWN_TIME_INPUT_COPY_ACCURACY_V1_4ff56e7.zip` SHA-256 `B13374B09CFC1A2A074ADEB67C1A190D82CE18F13FBD43A7A834407445FEB27C` passes CRC, extraction, manifest, hash and secret validation. Generated artifacts and `product-acceptance/` delta are 0; Firebase/Production remain release `1787985139294000`, version `abd3efe5bbcb18db`.
+
 ## Current — PR108 deployed and Production QA passed (2026-08-29)
 
 Status: **PR108 DEPLOYED — PRODUCTION KNOWN/UNKNOWN QA PASS — DOCS UPDATED — NO ROLLBACK**. Owner-accepted merge `8e2fec36f7b8a98bcb7dff3c5183951de8c9e507` and tree `3c887d85bcc715ab1981c41d246256647205302b` were deployed with `firebase deploy --only hosting --project knowme-app-694e1`. Hosting release `1787985139294000` / version `abd3efe5bbcb18db` completed `2026-08-29T13:32:19.294+07:00`; previous release `1787803668337000` is the recorded rollback target and was not restored. Root and `/beta/thai` are HTTP 200; clean/cache-busted production loads use exact local index/bootstrap/main/service-worker hashes, proving the accepted bundle is live.

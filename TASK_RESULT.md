@@ -1,5 +1,13 @@
 # Task Result — Thai Report Reader Experience V2
 
+## Thai Unknown-Time Input Copy Accuracy V1 — 2026-08-29
+
+Status: **THAI UNKNOWN-TIME INPUT COPY ACCURACY V1 COMPLETE — DRAFT PR — PENDING OWNER REVIEW — NOT MERGED — NOT DEPLOYED**. Draft PR #110 ใช้ base `e094c789ec4e0dcd24d9b79a01c3bbd569f1c70c`; implementation/test commit `4ff56e73fe8044b72940f4923de0ab95ea451edc` แก้เพียง input/help ใต้ `ฉันไม่ทราบเวลาเกิด` จาก `ผลวิเคราะห์บางส่วนอาจคลาดเคลื่อน แต่ยังสามารถวิเคราะห์พื้นฐานได้` (legacy `112f4f5a`) เป็น `หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี`. Known input, validation/form state, report/export copy, Engine/Canon/asOf, infographic, PDF และ browser-print ไม่เปลี่ยน.
+
+Focused suites ผ่าน `191/191` (UI/date 9, canonical/core 42, narrative 38, artifact/export 68, screenshot 34); full required suite `1,625/1,625`; analyzer exit 0 พร้อม baseline diagnostics 298; copy audit 300 profiles / 30,000 examined / semantic-omission-addition-traceability impacts 0; PreCommit/PostCommit ผ่าน. Known Aquarius `19°19′` และ Unknown omission ของลัคนา/เรือน/time-dependent fields คงเดิม. Browser QA ผ่าน desktop actual surface 1248×900 และ mobile 390×844 สำหรับ Known/Unknown, initial Known, Known→Unknown และ Unknown→Known; clipping/overlap/overflow/duplicate/console error = 0. หน้า input ไม่มี persistent form-restoration contract จึงไม่มี restoration behavior ให้เปลี่ยนหรือตรวจข้าม reload.
+
+Owner package: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_UNKNOWN_TIME_INPUT_COPY_ACCURACY_V1_4ff56e7.zip`, SHA-256 `B13374B09CFC1A2A074ADEB67C1A190D82CE18F13FBD43A7A834407445FEB27C`; CRC, extraction, manifest 9 entries, missing/extra/hash/size/SHA256SUMS mismatch และ secret hits = 0. `product-acceptance/`, generated report artifacts, Firebase และ Production delta = 0; Production ยังคง release `1787985139294000` / version `abd3efe5bbcb18db`.
+
 ## PR108 Production deployment and QA closeout — 2026-08-29
 
 Status: **PR108 DEPLOYED — PRODUCTION KNOWN/UNKNOWN QA PASS — DOCS UPDATED — NO ROLLBACK**.

@@ -1,5 +1,13 @@
 # Thai Report Reader Experience V2
 
+## Thai Unknown-Time Input Copy Accuracy V1 — Draft PR #110
+
+This minimal follow-up corrects one reader-visible input/help sentence that pre-dated PR108. Legacy commit `112f4f5a` said `ผลวิเคราะห์บางส่วนอาจคลาดเคลื่อน แต่ยังสามารถวิเคราะห์พื้นฐานได้`, implying lower-accuracy calculation. Implementation/test commit `4ff56e73fe8044b72940f4923de0ab95ea451edc` instead says `หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี`, accurately describing the existing fail-closed runtime.
+
+Only `thai_beta_input_page.dart`, its new focused widget test and task scope changed in the implementation commit. Known input, validation/form mode, Thai Engine, Canon, asOf, report reader copy, four-section structure, infographic, Dedicated PDF, browser-print and generated artifacts did not change. Known remains Aquarius 19°19′; Unknown continues to omit ascendant, houses and every time-dependent field. Focused 191/191, full 1,625/1,625, analyzer exit 0 with 298 baseline diagnostics, audit 300/30,000 with all semantic/omission/addition/traceability impacts 0, and PreCommit/PostCommit pass.
+
+Visual QA covers Known and Unknown at desktop actual 1248×900 and mobile 390×844, initial Known plus both toggle directions; clipping, overlap, overflow, duplicate warning and browser console errors are 0. Owner evidence: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_UNKNOWN_TIME_INPUT_COPY_ACCURACY_V1_4ff56e7.zip`, SHA-256 `B13374B09CFC1A2A074ADEB67C1A190D82CE18F13FBD43A7A834407445FEB27C`; CRC, extraction, manifest/hash and secret checks pass. Status remains **DRAFT PR — PENDING OWNER REVIEW — NOT MERGED — NOT DEPLOYED**. `product-acceptance/`, Firebase and Production are unchanged; current Production remains release `1787985139294000`, version `abd3efe5bbcb18db`.
+
 ## PR108 Production deployment and post-deploy QA — 2026-08-29
 
 Status: **PR108 DEPLOYED — PRODUCTION KNOWN/UNKNOWN QA PASS — DOCS UPDATED — NO ROLLBACK**. The exact Owner-accepted merge `8e2fec36f7b8a98bcb7dff3c5183951de8c9e507` / tree `3c887d85bcc715ab1981c41d246256647205302b` was built and deployed only to Firebase Hosting project/site `knowme-app-694e1`. Production release `1787985139294000`, version `abd3efe5bbcb18db`, completed `2026-08-29T13:32:19.294+07:00`; rollback release `1787803668337000` was not used. Root, `/beta/thai` and new assets returned HTTP 200; exact index/bootstrap/main/service-worker hashes and fresh cache-busted browser loads identify the live build as PR108.

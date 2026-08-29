@@ -1,5 +1,11 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+## Current handoff — Thai Unknown-Time Input Copy Accuracy V1
+
+Status: **COMPLETE — DRAFT PR #110 — PENDING OWNER REVIEW — NOT MERGED — NOT DEPLOYED**. Review implementation/test `4ff56e73fe8044b72940f4923de0ab95ea451edc` and package `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_UNKNOWN_TIME_INPUT_COPY_ACCURACY_V1_4ff56e7.zip` (SHA-256 `B13374B09CFC1A2A074ADEB67C1A190D82CE18F13FBD43A7A834407445FEB27C`). The sole production-code change replaces the legacy `112f4f5a` Unknown-time input hint `ผลวิเคราะห์บางส่วนอาจคลาดเคลื่อน แต่ยังสามารถวิเคราะห์พื้นฐานได้` with `หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี`; a focused widget test covers initial Known and both toggle directions.
+
+Focused 191/191, full 1,625/1,625, analyzer exit 0 / baseline 298, copy audit 300/30,000/impacts 0, PreCommit and PostCommit pass. Desktop 1248×900 and mobile 390×844 visual QA has clipping/overlap/overflow/duplicate/console defects 0. Known 19°19′, Unknown fail-closed omissions and report/export artifacts are unchanged. Package CRC/extraction and manifest 9 entries pass with missing/extra/hash/size/SHA mismatches and secret hits 0. Do not merge, mark Ready or deploy before Owner review; no Firebase/Production or `product-acceptance/` change occurred.
+
 ## Current handoff — PR108 Production release closed
 
 Status: **PR108 DEPLOYED — PRODUCTION KNOWN/UNKNOWN QA PASS — DOCS UPDATED — NO ROLLBACK**. Firebase Hosting project/site `knowme-app-694e1` serves accepted merge `8e2fec36f7b8a98bcb7dff3c5183951de8c9e507`, tree `3c887d85bcc715ab1981c41d246256647205302b`, as release `1787985139294000`, version `abd3efe5bbcb18db`, deployed `2026-08-29T13:32:19.294+07:00`. Previous release `1787803668337000` remains the rollback reference; no rollback occurred. HTTP/asset/hash and clean-load checks prove the new build is served at `https://knowme-app-694e1.web.app` and `/beta/thai`.
