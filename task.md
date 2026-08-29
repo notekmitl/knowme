@@ -1,5 +1,11 @@
 # Task: Thai Report Reader Experience V2
 
+## PR110 merge, Hosting deploy and Production QA — complete (2026-08-29)
+
+**PR110 MERGED AND DEPLOYED — UNKNOWN-TIME INPUT COPY PRODUCTION QA PASS — DOCS UPDATED — NO ROLLBACK.** Acceptance docs `10770703d6e660cf41cd910f62ec2dfafa464dea`; regular merge `4031049efc675d35c44660c0453bb432c50c8f06`, tree `b89ac1331f21b2fba6cce1c5979b43702ce73374`, merged `2026-08-29T15:51:39+07:00`. The exact merge was built and deployed only to Firebase Hosting `knowme-app-694e1` as release `1787994532335000`, version `869582a05e8db108`, at `2026-08-29T16:08:52.335+07:00`; rollback `1787985139294000` / `abd3efe5bbcb18db` was not used.
+
+Gates: focused 191/191, full 1,625/1,625, analyzer baseline 298, audit 300/30,000 with impact counters 0, Known 19°19′, Unknown omissions, screenshot/input regression, diff-check and PostCommit pass. Production HTTP and local/remote asset hashes match; Desktop 1248×900 and mobile 390×844 Known↔Unknown QA has copy count 1/0 as expected, visual defects 0 and application console errors/warnings 0. Live Dedicated PDFs are 9/8 pages and Chrome browser-print PDFs 7/7; 31/31 pages were rasterized and opened with blank/clipping/overlap/overflow 0. Evidence is `C:\Users\USER\Documents\Knowme\PR110_PRODUCTION_QA_20260829T160852`. No Functions, Firestore, Storage, Rules, Indexes, Firebase config, Production data or `product-acceptance/` changed.
+
 ## PR110 Owner Acceptance — 2026-08-29
 
 **OWNER REVIEW ACCEPTED — PR110 COPY AND VISUAL QA PASS — PENDING MERGE AND HOSTING DEPLOYMENT.** Accepted PR HEAD `158ed2d6b325c2464e097a92c6d68367b1d4191e`, implementation `4ff56e73fe8044b72940f4923de0ab95ea451edc`, ZIP SHA-256 `B13374B09CFC1A2A074ADEB67C1A190D82CE18F13FBD43A7A834407445FEB27C`. Owner accepted the exact old/new input copy, the one-line application delta and widget test, and desktop 1248×900/mobile 390×844 visual QA with no clipping, overlap or overflow. Known/report/export/Engine/Canon/asOf/infographic/PDF remain unchanged. Reference validation: focused 191/191, full 1,625/1,625, analyzer baseline 298, audit 300/30,000 impacts 0, PreCommit/PostCommit pass. This record is Markdown-only; PR #110 is not yet merged or deployed and Production/`product-acceptance/` remain unchanged.

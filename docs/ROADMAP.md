@@ -1,5 +1,14 @@
 # KnowMe Roadmap
 
+## PR110 Production release — complete (2026-08-29)
+
+- [x] Record Owner acceptance in docs commit `10770703d6e660cf41cd910f62ec2dfafa464dea` and merge exact PR110 tree by regular merge `4031049efc675d35c44660c0453bb432c50c8f06` / tree `b89ac1331f21b2fba6cce1c5979b43702ce73374`.
+- [x] Pass focused 191/191, full 1,625/1,625, analyzer baseline 298, audit 300/30,000 impacts 0, Known 19°19′, Unknown fail-closed, input/screenshot, diff-check and PostCommit gates.
+- [x] Deploy only Firebase Hosting `knowme-app-694e1`: release `1787994532335000`, version `869582a05e8db108`, `2026-08-29T16:08:52.335+07:00`; do not use rollback `1787985139294000` / `abd3efe5bbcb18db`.
+- [x] Verify Production HTTP 200, exact index/bootstrap/main/service-worker hashes, cache freshness, desktop 1248×900 and mobile 390×844 Known↔Unknown behavior, copy count, layout and application console.
+- [x] Verify live report/export/infographic/Dedicated 9/8/browser-print 7/7 and inspect 31/31 PDF pages with blank/clipping/overlap/overflow 0.
+- [x] Preserve Functions, Firestore, Storage, Rules, Indexes, Firebase configuration, Production data and `product-acceptance/`; close status through a separate Markdown-only PR without redeploying.
+
 ## PR110 Owner Acceptance and release workflow (2026-08-29)
 
 - [x] Owner accepted PR110 copy and visual QA at implementation `4ff56e73fe8044b72940f4923de0ab95ea451edc` / PR HEAD `158ed2d6b325c2464e097a92c6d68367b1d4191e`.

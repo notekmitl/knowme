@@ -1,5 +1,13 @@
 # Thai Report Reader Experience V2
 
+## PR110 merged and deployed — Production QA PASS
+
+Owner-accepted implementation `4ff56e73fe8044b72940f4923de0ab95ea451edc` and acceptance-docs commit `10770703d6e660cf41cd910f62ec2dfafa464dea` were merged by regular merge `4031049efc675d35c44660c0453bb432c50c8f06` (tree `b89ac1331f21b2fba6cce1c5979b43702ce73374`) at `2026-08-29T15:51:39+07:00`. The exact merge was deployed only to Firebase Hosting project/site `knowme-app-694e1` as release `1787994532335000`, version `869582a05e8db108`, at `2026-08-29T16:08:52.335+07:00`; rollback release `1787985139294000` / version `abd3efe5bbcb18db` was not used.
+
+Pre-deploy evidence passed focused 191/191, full 1,625/1,625, analyzer exit 0 / baseline 298, copy audit 300 profiles / 30,000 fields with every semantic/omission/addition/prediction-advice/traceability impact 0, Known Aquarius 19°19′, Unknown fail-closed omissions, screenshot/input regression, diff-check and PostCommit. Production `/` and `/beta/thai` returned HTTP 200; cache-busted index/bootstrap/main/service-worker bytes match the local build. On desktop 1248×900 and mobile 390×844, Known shows time controls and no Unknown help; Unknown hides time controls and shows the accepted sentence exactly once; switching back restores Known. The complete text is readable with clipping/overlap/overflow/duplicate 0 and application console errors/warnings 0.
+
+Live report/export remained functional. Dedicated Known/Unknown PDFs measured 9/8 pages for the live rolling fixture and browser-print PDFs 7/7; all 31 pages were rasterized and opened, with blank/clipping/overlap/overflow 0 and readable infographic pages. Known Section 4 retains Aquarius ascendant `19°19′`; Unknown omits ascendant, houses and time-dependent fields. Evidence is at `C:\Users\USER\Documents\Knowme\PR110_PRODUCTION_QA_20260829T160852`. No Functions, Firestore, Storage, Rules, Indexes, Firebase configuration, Production data or `product-acceptance/` changed.
+
 ## PR110 Owner Acceptance — merge/deployment pending
 
 Owner accepted the Thai Unknown-Time Input Copy Accuracy V1 implementation `4ff56e73fe8044b72940f4923de0ab95ea451edc`, PR HEAD `158ed2d6b325c2464e097a92c6d68367b1d4191e`, and Owner Review ZIP SHA-256 `B13374B09CFC1A2A074ADEB67C1A190D82CE18F13FBD43A7A834407445FEB27C`. The exact accepted input change is `ผลวิเคราะห์บางส่วนอาจคลาดเคลื่อน แต่ยังสามารถวิเคราะห์พื้นฐานได้` → `หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี`.

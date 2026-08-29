@@ -1,5 +1,11 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+## Current handoff — PR110 Production closeout
+
+Status: **MERGED — HOSTING DEPLOYED — PRODUCTION QA PASS — NO ROLLBACK**. PR110 acceptance docs are `10770703d6e660cf41cd910f62ec2dfafa464dea`; regular merge is `4031049efc675d35c44660c0453bb432c50c8f06`, tree `b89ac1331f21b2fba6cce1c5979b43702ce73374`. Firebase Hosting `knowme-app-694e1` release `1787994532335000` / version `869582a05e8db108` completed `2026-08-29T16:08:52.335+07:00`; rollback `1787985139294000` / `abd3efe5bbcb18db` was not used.
+
+Production serves the exact new Unknown help and removes the legacy inaccurate help from that input surface. Known↔Unknown passed desktop 1248×900 and mobile 390×844 with copy/visual/app-console defects 0. `/` and `/beta/thai` are 200 and all four core asset hashes match the local build. Focused 191/191, full 1,625/1,625, analyzer baseline 298, audit 300/30,000 impacts 0, Known 19°19′, Unknown omissions, diff-check and PostCommit pass. Dedicated PDFs are 9/8 pages, browser-print 7/7, and 31/31 rasters have no blank/clipping/overlap/overflow. Evidence: `C:\Users\USER\Documents\Knowme\PR110_PRODUCTION_QA_20260829T160852`. No redeploy is required after this docs-only closeout; non-Hosting Firebase resources, Production data and `product-acceptance/` remain unchanged.
+
 ## Current handoff — PR110 Owner accepted; merge/deploy pending
 
 Owner decision: **OWNER REVIEW ACCEPTED — PR110 COPY AND VISUAL QA PASS**. Acceptance is pinned to implementation `4ff56e73fe8044b72940f4923de0ab95ea451edc`, PR HEAD `158ed2d6b325c2464e097a92c6d68367b1d4191e`, and Owner ZIP SHA-256 `B13374B09CFC1A2A074ADEB67C1A190D82CE18F13FBD43A7A834407445FEB27C`. Accepted copy is `ผลวิเคราะห์บางส่วนอาจคลาดเคลื่อน แต่ยังสามารถวิเคราะห์พื้นฐานได้` → `หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี`.
