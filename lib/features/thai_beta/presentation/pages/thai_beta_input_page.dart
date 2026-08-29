@@ -251,7 +251,7 @@ class _ThaiBetaInputPageState extends State<ThaiBetaInputPage> {
                             const SizedBox(width: 8),
                             Expanded(
                               child: Text(
-                                'ผลวิเคราะห์บางส่วนอาจคลาดเคลื่อน แต่ยังสามารถวิเคราะห์พื้นฐานได้',
+                                'หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี',
                                 style: theme.textTheme.bodySmall?.copyWith(
                                   color: scheme.onSecondaryContainer,
                                   height: 1.4,
