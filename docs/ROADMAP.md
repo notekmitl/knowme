@@ -410,3 +410,9 @@ Owner Acceptance for R7/R7.1 remains authoritative. The four-string Life Map com
 - [ ] Owner ตรวจ OR2 ZIP SHA-256 `24D74EA3CDE2311CF3335A07EFC7C5E80B62AA3C31B4367F3BC53C45E8A7F8EB` แล้วตัดสิน Final Language Re-Acceptance
 - [x] PR108 OR1 cross-variant/evidence repair, canonical artifacts และ distinct desktop captures ที่ `647e1f0`
 - [ ] Owner re-review ZIP SHA-256 `5C13B2B644945C9309E5B691C67A3978D3052BCC7DAB56F6D62604D9D00838B7`; PR #108 คง Draft และห้าม Merge/Deploy
+# PR108 OR2 checkpoint (2026-08-29)
+
+- Current gate: **PENDING OWNER RE-REVIEW** after OR1 evidence rejection.
+- OR2 complete: exact scope reconciliation A=1,125 / B=462 / C=0 / D=11,587 / E=0 / F=0; parity 262/262; scroll geometry 18/18; corrected variant contact sheets; full raster review.
+- Validation complete at implementation/test commit `d78c5f641563ca5810c8952191e217cd31502d57`: focused 96/96, narrative 38/38, artifact 3/3, copy audit 300 profiles / 30,000 fields / impacts 0, full suite 1,623/1,623, analyzer and PreCommit pass.
+- Next: Owner re-review only. PR #108 stays Open + Draft; no merge, deployment, Firebase/Production change, or `product-acceptance/` change.

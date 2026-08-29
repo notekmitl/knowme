@@ -130,3 +130,8 @@ OR1 ถูก Owner Reject ด้านภาษา จึงทำ OR2 final co
 ## PR108 OR1 closeout — 2026-08-28
 
 Owner Reject ชุดแรกด้าน cross-variant copy/evidence. OR1 `647e1f0` ผ่าน focused 96/96, audit 300 profiles / 30,000 examined / impacts 0, full 1,623/1,623, analyzer/PreCommit และ visual QA PDF 8/7/7/7; visual blank 0. ZIP SHA-256 `5C13B2B644945C9309E5B691C67A3978D3052BCC7DAB56F6D62604D9D00838B7`. `PENDING OWNER RE-REVIEW`; Draft, ไม่ Merge/Deploy/Firebase/Production
+# PR108 OR2 status (2026-08-29)
+
+`PENDING OWNER RE-REVIEW`. OR1 evidence was rejected for incomplete 12,049-field “other” accounting, assertion-only parity, duplicate Known/Unknown Web contact sheets and absent actual scroll geometry. OR2 reader copy is frozen. All 13,174 changed fields reconcile exactly as A=1,125, B=462, C=0, D=11,587, E=0, F=0. Implementation/test commit is `d78c5f641563ca5810c8952191e217cd31502d57`; evidence/docs commit is this closeout commit (use the final branch HEAD recorded in Git/PR #108).
+
+Evidence passes: parity 262/262; captures 18/18; copy audit 300 profiles / 30,000 fields with all semantic impacts 0; focused 96/96; narrative 38/38; artifact 3/3; full 1,623/1,623; analyzer and PreCommit pass. Final ZIP SHA-256 is `D47AE77CAC12E4D924E5FF4A200786251F34B4646AE5DEAAA373D8C483F41EB1`. PR remains Open + Draft; not merged or deployed; Firebase/Production and `product-acceptance/` unchanged.

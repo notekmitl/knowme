@@ -162,3 +162,8 @@ OR1 ถูก Owner Reject ด้านภาษา. OR2 implementation `0f5b7e8
 ## PR108 OR1 — 2026-08-28
 
 Owner Reject evidence เดิมเพราะ copy ข้าม variant และหลักฐานไม่ครบ. OR1 `647e1f0` ซ่อม copy/audit/canonical fixture/desktop capture; audit 300 profiles / 30,000 fields, inline/stale hits 0, impacts 0; full 1,623/1,623; PDF 8/7/7/7 และ visual blank 0. ZIP SHA-256 `5C13B2B644945C9309E5B691C67A3978D3052BCC7DAB56F6D62604D9D00838B7`. `PENDING OWNER RE-REVIEW`; Draft, ไม่ Merge/Deploy/Firebase/Production
+# PR108 OR2 owner re-review evidence (2026-08-29)
+
+Status is **PENDING OWNER RE-REVIEW**. OR1 was rejected for unverifiable 12,049-field “other” scope, assertion-only parity, duplicate Known/Unknown Web contact sheets, and capture metadata without actual scroll geometry. OR2 keeps reader-facing copy unchanged and provides exact reconciliation A=1,125 / B=462 / C=0 / D=11,587 / E=0 / F=0 across all 13,174 changed fields, parity 262/262 and actual capture geometry 18/18.
+
+Implementation/test commit: `d78c5f641563ca5810c8952191e217cd31502d57`. Focused 96/96, narrative 38/38, artifact 3/3, 300-profile copy audit (30,000 fields, impacts 0), full suite 1,623/1,623, analyzer and PreCommit pass. Final Owner Review ZIP SHA-256: `D47AE77CAC12E4D924E5FF4A200786251F34B4646AE5DEAAA373D8C483F41EB1`. PR #108 remains Open + Draft, not merged and not deployed. Firebase/Production and `product-acceptance/` are unchanged.

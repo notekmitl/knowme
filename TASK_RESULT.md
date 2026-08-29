@@ -206,3 +206,12 @@ Draft PR: https://github.com/notekmitl/knowme/pull/106
 - เปิดตรวจ Web 12 ภาพ, infographic 4 ไฟล์, Dedicated Known 8 / Unknown 7 หน้า และ Chrome Known 7 / Unknown 7 หน้า; raster 29 หน้า, blank page = 0, ไม่พบ clipping/overlap/overflow
 - Owner ZIP `OWNER_REVIEW_THAI_REPORT_PLAIN_LANGUAGE_V1_OR1_40967ef.zip` SHA-256 `CD3FF9C1FA5AAA2BB021E0B97576A5E7C1A379EAD19ADCAC567BBCF915B773EE`; CRC, manifest, missing/extra/hash mismatch และ secret scan ผ่านทั้งหมด
 - ยังไม่ Merge, Ready for Review, Deploy หรือเปลี่ยน Firebase/Production และไม่แก้ `product-acceptance/`
+# PR108 OR2 owner re-review closeout (2026-08-29)
+
+Status: **PENDING OWNER RE-REVIEW — OPEN + DRAFT — NOT MERGED — NOT DEPLOYED**.
+
+OR1 was rejected because its scope accounting grouped 12,049 fields as “other”, parity was assertion-only, the Known/Unknown Web contact sheets were duplicates, and capture metadata did not prove actual scroll geometry. OR2 freezes reader-facing copy and repairs only the evidence/capture tooling. The final mutually-exclusive accounting of all 13,174 changed fields is A=1,125 inline-basis removals, B=462 OR3 stale-phrase repairs, C=0 broken-sentence repairs, D=11,587 previously Owner-accepted pre-PR108 changes, E=0 unrelated changes, and F=0 unexplained changes.
+
+Implementation/test commit: `d78c5f641563ca5810c8952191e217cd31502d57`. Validation: canonical 11/11; focused report 96/96; narrative 38/38; artifact 3/3; copy audit 300 profiles / 30,000 fields with semantic, omission, addition and traceability impacts all 0; detailed cross-surface parity 262/262; actual scroll geometry 18/18; full suite 1,623/1,623; analyzer exit 0 with 298 pre-existing informational issues; PreCommit PASS. PDF pages are Dedicated Known 8, Dedicated Unknown 7, Browser-print Known 7, Browser-print Unknown 7; raster review found no blank page, clipping, overlap or overflow.
+
+Owner Review: `C:\Users\USER\Documents\Knowme\PR108_OR2_WORK\OWNER_REVIEW_THAI_REPORT_INLINE_ASTROLOGY_BASIS_DEDUP_V1_OR2_d78c5f6.zip`, SHA-256 `D47AE77CAC12E4D924E5FF4A200786251F34B4646AE5DEAAA373D8C483F41EB1`. CRC, extraction, manifest missing/extra/hash mismatch and secret scan all pass with 0 errors. Section 4 methodology remains present; Unknown remains fail-closed. Firebase, Production and `product-acceptance/` are unchanged.

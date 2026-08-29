@@ -174,3 +174,8 @@ V1 รอบแรกถูก Owner Reject ด้านภาษา. ให้ 
 ## Handoff — PR108 OR1
 
 Owner เปิด `OWNER_REVIEW_THAI_REPORT_INLINE_ASTROLOGY_BASIS_DEDUP_V1_OR1_647e1f0.zip` SHA-256 `5C13B2B644945C9309E5B691C67A3978D3052BCC7DAB56F6D62604D9D00838B7` เริ่มที่ `OWNER_REVIEW_PR108_OR1.md`, `BEFORE_AFTER_FULL.md`, provenance และ contact sheets. Implementation `647e1f0`; technical/visual evidence ผ่านแต่ยัง `PENDING OWNER RE-REVIEW`; ห้าม Merge/Ready/Deploy/Firebase/Production
+# PR108 OR2 handoff (2026-08-29)
+
+Owner action: re-review `C:\Users\USER\Documents\Knowme\PR108_OR2_WORK\OWNER_REVIEW_THAI_REPORT_INLINE_ASTROLOGY_BASIS_DEDUP_V1_OR2_d78c5f6.zip` (SHA-256 `D47AE77CAC12E4D924E5FF4A200786251F34B4646AE5DEAAA373D8C483F41EB1`). The package contains full per-field Before/After accounting for all 13,174 fields, detailed actual Web/Dedicated/Browser-print parity (262/262), separate infographic semantic evidence, actual 0/50/100% scroll geometry (18/18), variant-correct contact sheets and all PDF rasters. CRC, extraction, manifest and secret validation report 0 errors.
+
+OR1 rejection is not superseded by assertion: OR2 resolves the four cited evidence defects while freezing reader copy. Implementation/test commit is `d78c5f641563ca5810c8952191e217cd31502d57`. Full suite 1,623/1,623 and all required gates pass. PR #108 must remain Open + Draft pending Owner decision. Do not merge or deploy; Firebase/Production and `product-acceptance/` have no delta.
