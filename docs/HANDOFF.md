@@ -1,5 +1,11 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+## Current handoff — PR110 Owner accepted; merge/deploy pending
+
+Owner decision: **OWNER REVIEW ACCEPTED — PR110 COPY AND VISUAL QA PASS**. Acceptance is pinned to implementation `4ff56e73fe8044b72940f4923de0ab95ea451edc`, PR HEAD `158ed2d6b325c2464e097a92c6d68367b1d4191e`, and Owner ZIP SHA-256 `B13374B09CFC1A2A074ADEB67C1A190D82CE18F13FBD43A7A834407445FEB27C`. Accepted copy is `ผลวิเคราะห์บางส่วนอาจคลาดเคลื่อน แต่ยังสามารถวิเคราะห์พื้นฐานได้` → `หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี`.
+
+Independent code/visual review passed: only that application sentence changed; widget coverage includes initial Known and both toggle directions; desktop 1248×900/mobile 390×844 have clipping/overlap/overflow 0 and Known has no Unknown help. Reference tests are focused 191/191, full 1,625/1,625, analyzer baseline 298, audit 300/30,000 impacts 0 and PreCommit/PostCommit pass. Report/export/Engine/Canon/asOf/infographic/PDF are unchanged. This acceptance record is Markdown-only. At this checkpoint PR #110 remains unmerged and undeployed; Firebase/Production and `product-acceptance/` remain unchanged.
+
 ## Current handoff — Thai Unknown-Time Input Copy Accuracy V1
 
 Status: **COMPLETE — DRAFT PR #110 — PENDING OWNER REVIEW — NOT MERGED — NOT DEPLOYED**. Review implementation/test `4ff56e73fe8044b72940f4923de0ab95ea451edc` and package `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_UNKNOWN_TIME_INPUT_COPY_ACCURACY_V1_4ff56e7.zip` (SHA-256 `B13374B09CFC1A2A074ADEB67C1A190D82CE18F13FBD43A7A834407445FEB27C`). The sole production-code change replaces the legacy `112f4f5a` Unknown-time input hint `ผลวิเคราะห์บางส่วนอาจคลาดเคลื่อน แต่ยังสามารถวิเคราะห์พื้นฐานได้` with `หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี`; a focused widget test covers initial Known and both toggle directions.

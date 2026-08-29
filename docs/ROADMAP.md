@@ -1,5 +1,15 @@
 # KnowMe Roadmap
 
+## PR110 Owner Acceptance and release workflow (2026-08-29)
+
+- [x] Owner accepted PR110 copy and visual QA at implementation `4ff56e73fe8044b72940f4923de0ab95ea451edc` / PR HEAD `158ed2d6b325c2464e097a92c6d68367b1d4191e`.
+- [x] Independently verify Owner ZIP SHA-256 `B13374B09CFC1A2A074ADEB67C1A190D82CE18F13FBD43A7A834407445FEB27C`, CRC, manifest and hashes.
+- [x] Record accepted old/new input copy, one-line application scope, widget coverage, focused 191/191, full 1,625/1,625, analyzer baseline 298, audit 300/30,000 impacts 0 and visual defects 0.
+- [ ] Merge the exact accepted tree after the Markdown-only acceptance record is pushed and topology remains clean.
+- [ ] Build, validate and deploy only Firebase Hosting `knowme-app-694e1`; preserve rollback release `1787985139294000`.
+- [ ] Complete public Production Known/Unknown input, asset/cache, report/export/infographic/PDF QA and a separate docs-only closeout PR.
+- [x] Keep Firebase non-Hosting resources, Production data and `product-acceptance/` unchanged.
+
 ## Thai Unknown-Time Input Copy Accuracy V1 — Draft PR #110 (2026-08-29)
 
 - [x] Classify all `คลาดเคลื่อน` / Unknown-time occurrences and isolate the single inaccurate public input/help occurrence from report/export/internal fixture text.

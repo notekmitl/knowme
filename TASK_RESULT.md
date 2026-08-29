@@ -1,5 +1,11 @@
 # Task Result — Thai Report Reader Experience V2
 
+## PR110 Owner Acceptance — pending merge and Hosting deployment (2026-08-29)
+
+Status: **OWNER REVIEW ACCEPTED — PR110 COPY AND VISUAL QA PASS — PENDING MERGE AND HOSTING DEPLOYMENT**. Owner accepted PR HEAD `158ed2d6b325c2464e097a92c6d68367b1d4191e`, implementation/test `4ff56e73fe8044b72940f4923de0ab95ea451edc`, and `OWNER_REVIEW_THAI_UNKNOWN_TIME_INPUT_COPY_ACCURACY_V1_4ff56e7.zip` SHA-256 `B13374B09CFC1A2A074ADEB67C1A190D82CE18F13FBD43A7A834407445FEB27C`; independent ZIP CRC, manifest and hash verification passed.
+
+Accepted copy change: `ผลวิเคราะห์บางส่วนอาจคลาดเคลื่อน แต่ยังสามารถวิเคราะห์พื้นฐานได้` → `หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี`. GitHub code review confirmed this is the only application change. Desktop 1248×900 and mobile 390×844 visual review passed with clipping/overlap/overflow 0; Known does not show Unknown help. Previously reported focused 191/191, full 1,625/1,625, analyzer exit 0 / baseline 298, audit 300/30,000/impacts 0 and PreCommit/PostCommit remain the accepted evidence. Report/export/Engine/Canon/asOf/infographic/PDF behavior is unchanged. At this acceptance-record point PR #110 is not yet merged or deployed; Firebase/Production and `product-acceptance/` are unchanged.
+
 ## Thai Unknown-Time Input Copy Accuracy V1 — 2026-08-29
 
 Status: **THAI UNKNOWN-TIME INPUT COPY ACCURACY V1 COMPLETE — DRAFT PR — PENDING OWNER REVIEW — NOT MERGED — NOT DEPLOYED**. Draft PR #110 ใช้ base `e094c789ec4e0dcd24d9b79a01c3bbd569f1c70c`; implementation/test commit `4ff56e73fe8044b72940f4923de0ab95ea451edc` แก้เพียง input/help ใต้ `ฉันไม่ทราบเวลาเกิด` จาก `ผลวิเคราะห์บางส่วนอาจคลาดเคลื่อน แต่ยังสามารถวิเคราะห์พื้นฐานได้` (legacy `112f4f5a`) เป็น `หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี`. Known input, validation/form state, report/export copy, Engine/Canon/asOf, infographic, PDF และ browser-print ไม่เปลี่ยน.

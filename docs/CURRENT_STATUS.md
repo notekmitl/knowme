@@ -1,5 +1,11 @@
 # KnowMe Current Status
 
+## Current — PR110 Owner Acceptance recorded; merge/deploy pending (2026-08-29)
+
+Status: **OWNER REVIEW ACCEPTED — PR110 COPY AND VISUAL QA PASS — PENDING MERGE AND HOSTING DEPLOYMENT**. Owner accepted implementation `4ff56e73fe8044b72940f4923de0ab95ea451edc`, PR HEAD `158ed2d6b325c2464e097a92c6d68367b1d4191e`, and review ZIP SHA-256 `B13374B09CFC1A2A074ADEB67C1A190D82CE18F13FBD43A7A834407445FEB27C` after independent CRC/manifest/hash verification. The accepted change replaces `ผลวิเคราะห์บางส่วนอาจคลาดเคลื่อน แต่ยังสามารถวิเคราะห์พื้นฐานได้` with `หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี`.
+
+GitHub review confirmed that sentence is the only application delta; the new widget test covers initial Known, Known→Unknown and Unknown→Known. Desktop 1248×900 and mobile 390×844 passed with clipping/overlap/overflow 0 and Known never showing Unknown help. Accepted evidence remains focused 191/191, full 1,625/1,625, analyzer exit 0 / baseline 298, audit 300 profiles / 30,000 fields / impacts 0, PreCommit/PostCommit pass. Known/report/export/Engine/Canon/asOf/infographic/PDF are unchanged. This acceptance record changes Markdown only; PR #110 is not yet merged/deployed and Firebase/Production/`product-acceptance/` are unchanged.
+
 ## Current — Thai Unknown-Time Input Copy Accuracy V1 Draft PR (2026-08-29)
 
 Status: **COMPLETE — DRAFT PR #110 — PENDING OWNER REVIEW — NOT MERGED — NOT DEPLOYED**. From current Production/main base `e094c789ec4e0dcd24d9b79a01c3bbd569f1c70c`, implementation/test `4ff56e73fe8044b72940f4923de0ab95ea451edc` replaces only the misleading input hint from legacy `112f4f5a`: `ผลวิเคราะห์บางส่วนอาจคลาดเคลื่อน แต่ยังสามารถวิเคราะห์พื้นฐานได้` → `หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี`. This is an input/help copy correction; Known input and Unknown report/export fail-closed behavior are unchanged, as are validation, form state, astrology calculations, Canon, asOf, report sections, infographic, Dedicated PDF and browser-print.

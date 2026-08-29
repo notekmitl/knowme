@@ -1,5 +1,11 @@
 # Thai Report Reader Experience V2
 
+## PR110 Owner Acceptance — merge/deployment pending
+
+Owner accepted the Thai Unknown-Time Input Copy Accuracy V1 implementation `4ff56e73fe8044b72940f4923de0ab95ea451edc`, PR HEAD `158ed2d6b325c2464e097a92c6d68367b1d4191e`, and Owner Review ZIP SHA-256 `B13374B09CFC1A2A074ADEB67C1A190D82CE18F13FBD43A7A834407445FEB27C`. The exact accepted input change is `ผลวิเคราะห์บางส่วนอาจคลาดเคลื่อน แต่ยังสามารถวิเคราะห์พื้นฐานได้` → `หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี`.
+
+Independent GitHub review found no other application change. The widget regression covers initial Known, Known→Unknown and Unknown→Known; desktop 1248×900 and mobile 390×844 visual QA passed with clipping/overlap/overflow 0, and Known does not display Unknown help. Accepted technical evidence remains focused 191/191, full 1,625/1,625, analyzer exit 0 / baseline 298, copy audit 300/30,000/impacts 0, and PreCommit/PostCommit pass. Known/report/export/Engine/Canon/asOf/infographic/Dedicated PDF/browser-print behavior remains unchanged. This acceptance record is Markdown-only; PR #110 has not yet been merged or deployed and Firebase/Production/`product-acceptance/` remain unchanged.
+
 ## Thai Unknown-Time Input Copy Accuracy V1 — Draft PR #110
 
 This minimal follow-up corrects one reader-visible input/help sentence that pre-dated PR108. Legacy commit `112f4f5a` said `ผลวิเคราะห์บางส่วนอาจคลาดเคลื่อน แต่ยังสามารถวิเคราะห์พื้นฐานได้`, implying lower-accuracy calculation. Implementation/test commit `4ff56e73fe8044b72940f4923de0ab95ea451edc` instead says `หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี`, accurately describing the existing fail-closed runtime.

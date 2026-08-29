@@ -1,5 +1,9 @@
 # Task: Thai Report Reader Experience V2
 
+## PR110 Owner Acceptance — 2026-08-29
+
+**OWNER REVIEW ACCEPTED — PR110 COPY AND VISUAL QA PASS — PENDING MERGE AND HOSTING DEPLOYMENT.** Accepted PR HEAD `158ed2d6b325c2464e097a92c6d68367b1d4191e`, implementation `4ff56e73fe8044b72940f4923de0ab95ea451edc`, ZIP SHA-256 `B13374B09CFC1A2A074ADEB67C1A190D82CE18F13FBD43A7A834407445FEB27C`. Owner accepted the exact old/new input copy, the one-line application delta and widget test, and desktop 1248×900/mobile 390×844 visual QA with no clipping, overlap or overflow. Known/report/export/Engine/Canon/asOf/infographic/PDF remain unchanged. Reference validation: focused 191/191, full 1,625/1,625, analyzer baseline 298, audit 300/30,000 impacts 0, PreCommit/PostCommit pass. This record is Markdown-only; PR #110 is not yet merged or deployed and Production/`product-acceptance/` remain unchanged.
+
 ## Thai Unknown-Time Input Copy Accuracy V1 — 2026-08-29
 
 **THAI UNKNOWN-TIME INPUT COPY ACCURACY V1 COMPLETE — DRAFT PR — PENDING OWNER REVIEW — NOT MERGED — NOT DEPLOYED.** Draft PR #110, base `e094c789ec4e0dcd24d9b79a01c3bbd569f1c70c`, implementation/test `4ff56e73fe8044b72940f4923de0ab95ea451edc`. แก้เฉพาะ reader-visible input/help ใต้ `ฉันไม่ทราบเวลาเกิด`: old `ผลวิเคราะห์บางส่วนอาจคลาดเคลื่อน แต่ยังสามารถวิเคราะห์พื้นฐานได้` จาก legacy `112f4f5a`; new `หากไม่ทราบเวลาเกิด รายงานจะเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนาและเรือน เพื่อไม่สรุปเกินข้อมูลที่มี`. Runtime fail-closed, Known flow, form behavior, report/export, Engine/Canon/asOf, infographic และ PDF ไม่เปลี่ยน.
