@@ -40,7 +40,17 @@ double computeScreenshotHostHeight({
 
 ScreenshotHostDiagnostics? readScreenshotHostDiagnostics({
   double reportContentHeight = 0,
-}) =>
-    null;
+}) => null;
 
 void disableScreenshotFriendlyScroll() {}
+
+void installThaiBetaCaptureScrollBridge({
+  required double Function() scrollTop,
+  required double Function() scrollHeight,
+  required double Function() clientHeight,
+  required void Function(double offset) jumpTo,
+}) {}
+
+void publishThaiBetaCaptureScrollMetrics() {}
+
+void removeThaiBetaCaptureScrollBridge() {}

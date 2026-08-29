@@ -39,7 +39,9 @@ void main() {
     });
 
     test('configureFromLaunchRoute detects screenshot query', () {
-      ThaiBetaScreenshotMode.configureFromLaunchRoute('/beta/thai?screenshot=1');
+      ThaiBetaScreenshotMode.configureFromLaunchRoute(
+        '/beta/thai?screenshot=1',
+      );
       expect(ThaiBetaScreenshotMode.isActive, isTrue);
     });
   });
@@ -69,14 +71,28 @@ void main() {
       tester,
     ) async {
       await pumpReport(tester, screenshotMode: true);
-      expect(find.byKey(const Key('thai_beta_report_page_scroll')), findsNothing);
-      expect(find.byKey(const Key('thai_beta_report_screenshot_layout')), findsOneWidget);
-      expect(find.byKey(const Key('thaiBetaReportCaptureContentKey')), findsOneWidget);
+      expect(
+        find.byKey(const Key('thai_beta_report_page_scroll')),
+        findsNothing,
+      );
+      expect(
+        find.byKey(const Key('thai_beta_report_screenshot_layout')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const Key('thaiBetaReportCaptureContentKey')),
+        findsOneWidget,
+      );
       final layout = tester.widget<SingleChildScrollView>(
         find.byKey(const Key('thai_beta_report_screenshot_layout')),
       );
       expect(layout.physics, isNot(isA<NeverScrollableScrollPhysics>()));
-      expect(layout.primary, isTrue);
+      expect(layout.primary, isFalse);
+      expect(
+        layout.controller,
+        isNotNull,
+        reason: 'capture QA owns a stable controller for exact scroll geometry',
+      );
     });
 
     testWidgets('screenshot mode has no fixed bottom navigation bar', (
@@ -94,7 +110,10 @@ void main() {
 
     testWidgets('screenshot mode shows diagnostics panel', (tester) async {
       await pumpReport(tester, screenshotMode: true);
-      expect(find.byKey(const Key('thai_beta_screenshot_diagnostics')), findsOneWidget);
+      expect(
+        find.byKey(const Key('thai_beta_screenshot_diagnostics')),
+        findsOneWidget,
+      );
       expect(find.textContaining('screenshotMode: true'), findsOneWidget);
       expect(find.textContaining('appliedHostHeight:'), findsOneWidget);
       expect(find.textContaining('contentMeasuredHeight:'), findsOneWidget);
@@ -104,34 +123,49 @@ void main() {
       tester,
     ) async {
       await pumpReport(tester, screenshotMode: true);
-      expect(find.byKey(const Key('thai_beta_report_page_scroll')), findsNothing);
-      expect(find.byKey(const Key('thai_beta_report_screenshot_layout')), findsOneWidget);
+      expect(
+        find.byKey(const Key('thai_beta_report_page_scroll')),
+        findsNothing,
+      );
+      expect(
+        find.byKey(const Key('thai_beta_report_screenshot_layout')),
+        findsOneWidget,
+      );
     });
 
     testWidgets('normal mode hides diagnostics panel', (tester) async {
       await pumpReport(tester, screenshotMode: false);
-      expect(find.byKey(const Key('thai_beta_screenshot_diagnostics')), findsNothing);
+      expect(
+        find.byKey(const Key('thai_beta_screenshot_diagnostics')),
+        findsNothing,
+      );
     });
 
-    testWidgets('normal mode keeps parent scroll and bottom bar', (tester) async {
+    testWidgets('normal mode keeps parent scroll and bottom bar', (
+      tester,
+    ) async {
       await pumpReport(tester, screenshotMode: false);
-      expect(find.byKey(const Key('thai_beta_report_page_scroll')), findsOneWidget);
+      expect(
+        find.byKey(const Key('thai_beta_report_page_scroll')),
+        findsOneWidget,
+      );
       expect(find.text('ให้ความคิดเห็นต่อผลวิเคราะห์'), findsOneWidget);
     });
 
-    testWidgets('embedded mirror has no inner vertical scroll in screenshot mode', (
-      tester,
-    ) async {
-      await pumpReport(tester, screenshotMode: true);
-      final verticalInnerScrolls = find.descendant(
-        of: find.byType(ThaiMirrorResultPage),
-        matching: find.byWidgetPredicate(
-          (widget) =>
-              widget is SingleChildScrollView &&
-              widget.scrollDirection == Axis.vertical,
-        ),
-      );
-      expect(verticalInnerScrolls, findsNothing);
-    });
+    testWidgets(
+      'embedded mirror has no inner vertical scroll in screenshot mode',
+      (tester) async {
+        await pumpReport(tester, screenshotMode: true);
+        final verticalInnerScrolls = find.descendant(
+          of: find.byType(ThaiMirrorResultPage),
+          matching: find.byWidgetPredicate(
+            (widget) =>
+                widget is SingleChildScrollView &&
+                widget.scrollDirection == Axis.vertical,
+          ),
+        );
+        expect(verticalInnerScrolls, findsNothing);
+      },
+    );
   });
 }

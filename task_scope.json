@@ -22,6 +22,9 @@
     "lib/features/thai_beta/presentation/export/thai_beta_browser_print.dart",
     "lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart",
     "lib/main_thai_report_vnext_preview.dart",
+    "lib/core/web/screenshot_friendly_scroll_stub.dart",
+    "lib/core/web/screenshot_friendly_scroll_web.dart",
+    "lib/features/thai_beta/presentation/pages/thai_beta_report_page.dart",
     "tool/thai_report_vnext_capture_web_screenshots.cjs",
     "test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart",
     "test/validation/thai_beta/life_map/v135/thai_life_map_v135_ui_primary_test.dart",
@@ -32,6 +35,7 @@
     "test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart",
     "test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart",
     "test/validation/thai_beta/thai_beta_report_export_test.dart",
+    "test/validation/thai_beta/thai_beta_screenshot_mode_test.dart",
     "test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart",
     "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart",
     "test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart"

@@ -175,6 +175,7 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
 
   final GlobalKey _captureContentMeasureKey = GlobalKey();
   final GlobalKey _infographicBoundaryKey = GlobalKey();
+  final ScrollController _captureScrollController = ScrollController();
 
   List<ThaiPublicEvidenceBadgeBetaViewModel> _badges = const [];
   bool _loadingBadges = false;
@@ -206,13 +207,33 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
     if (kIsWeb) {
       disableScreenshotFriendlyScroll();
     }
+    if (widget.screenshotMode) {
+      _captureScrollController.addListener(publishThaiBetaCaptureScrollMetrics);
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (!mounted || !_captureScrollController.hasClients) return;
+        installThaiBetaCaptureScrollBridge(
+          scrollTop: () => _captureScrollController.offset,
+          scrollHeight: () =>
+              _captureScrollController.position.maxScrollExtent +
+              _captureScrollController.position.viewportDimension,
+          clientHeight: () =>
+              _captureScrollController.position.viewportDimension,
+          jumpTo: (offset) => _captureScrollController.jumpTo(offset),
+        );
+      });
+    }
     _loadBadgesIfNeeded();
     _scheduleDiagnosticsRefresh();
   }
 
   @override
   void dispose() {
+    _captureScrollController.removeListener(
+      publishThaiBetaCaptureScrollMetrics,
+    );
+    _captureScrollController.dispose();
     if (kIsWeb) {
+      removeThaiBetaCaptureScrollBridge();
       disableScreenshotFriendlyScroll();
       removeBrowserPrintDocument();
     }
@@ -570,10 +591,11 @@ class _ThaiBetaReportScaffoldState extends State<_ThaiBetaReportScaffold> {
                 Expanded(
                   child: SingleChildScrollView(
                     key: const Key('thai_beta_report_screenshot_layout'),
+                    controller: _captureScrollController,
                     // Flutter owns capture scrolling (wheel / touch / scrollbar /
                     // keyboard). NeverScrollable + document-host scroll left
                     // users unable to read the report on /beta/thai/capture.
-                    primary: true,
+                    primary: false,
                     child: Align(
                       alignment: Alignment.topCenter,
                       child: ConstrainedBox(
