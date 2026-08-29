@@ -1,5 +1,11 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+## Current handoff — PR108 Production release closed
+
+Status: **PR108 DEPLOYED — PRODUCTION KNOWN/UNKNOWN QA PASS — DOCS UPDATED — NO ROLLBACK**. Firebase Hosting project/site `knowme-app-694e1` serves accepted merge `8e2fec36f7b8a98bcb7dff3c5183951de8c9e507`, tree `3c887d85bcc715ab1981c41d246256647205302b`, as release `1787985139294000`, version `abd3efe5bbcb18db`, deployed `2026-08-29T13:32:19.294+07:00`. Previous release `1787803668337000` remains the rollback reference; no rollback occurred. HTTP/asset/hash and clean-load checks prove the new build is served at `https://knowme-app-694e1.web.app` and `/beta/thai`.
+
+Pre-deploy gates: 96 focused, 38 narrative, 3 artifact, 11 canonical, 1 R7, 10 geometry; inline/stale regressions, audit 300/30,000 impacts 0, diff-check and PostCommit all pass. Live Known and Unknown reports passed desktop/mobile 390, 1080×1920 infographic, Dedicated 9/8, Chrome print 7/7 and 31-page raster review with visual defects 0. Known remains Aquarius 19°19′; Unknown time-dependent fabrication is 0 and output remains fail-closed. Cross-surface parity is 262/262 with mismatch/missing/truncated/duplicate 0; inline-basis/stale and semantic/omission/addition/traceability regressions are 0. Production rolling range was `29 ส.ค. 2569 – 28 ส.ค. 2570`; Owner-pinned `7 ส.ค. 2569 – 6 ส.ค. 2570` remains deterministic evidence. No fixture cleanup was needed, no non-Hosting Firebase resource changed, and repository source/test/artifact/`product-acceptance/` delta is 0. Evidence: `C:\Users\USER\Documents\Knowme\PR108_PRODUCTION_QA_20260829`. Next work is a separate product decision; the old input-form Unknown-time hint may be polished separately, but it did not alter fail-closed report output and is also present in the rollback release.
+
 ## Inline Astrology Basis Dedup V1 — 2026-08-27
 
 Owner should review `OWNER_REVIEW_THAI_REPORT_INLINE_ASTROLOGY_BASIS_DEDUP_V1_5d42d14.zip`, SHA-256 `4EEE4EA1B5175B6DB6F88D0A20DF98FA924B72050152825A23739CF91D4093A5`, starting with `OWNER_REVIEW.md`, `BEFORE_AFTER.md`, contact sheets and text. Implementation `5d42d146c1955fe1498bedc49934a471db6d177e`; Section 4/traceability preserved and canonical 00:35 remains 19°19′. Pending Owner Review; do not merge, ready, deploy, or change Firebase/Production.
