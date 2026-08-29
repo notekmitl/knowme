@@ -1,5 +1,11 @@
 # Task: Thai Report Reader Experience V2
 
+## PR108 Production deployment closeout — 2026-08-29
+
+**PR108 DEPLOYED — PRODUCTION KNOWN/UNKNOWN QA PASS — DOCS UPDATED — NO ROLLBACK.** Exact merge `8e2fec36f7b8a98bcb7dff3c5183951de8c9e507` / tree `3c887d85bcc715ab1981c41d246256647205302b` was built and deployed only to Firebase Hosting project/site `knowme-app-694e1`. Production release `1787985139294000`, version `abd3efe5bbcb18db`, completed at `2026-08-29T13:32:19.294+07:00`; `https://knowme-app-694e1.web.app/` and `/beta/thai` return HTTP 200 and exact build asset hashes. Rollback release `1787803668337000` was not used.
+
+Pre-deploy: Focused 96/96, Narrative 38/38, Artifact 3/3, Canonical 11/11, R7 1/1, screenshot/geometry 10/10, regressions and PostCommit pass; audit 300 profiles / 30,000 fields / all impact counters 0. Production QA passed Known/Unknown Web desktop/mobile 390, two 1080×1920 infographics, Dedicated 9/8 and Chrome print 7/7, with 31/31 rasters inspected and blank/clipping/overlap/overflow 0. Known remains Aquarius 19°19′; Unknown fabricated time-dependent fields 0 and remains fail-closed. Inline-basis/stale hits 0; parity 262/262 with mismatch/missing/truncated/duplicate and semantic/omission/addition/traceability 0. Production correctly used rolling `29 ส.ค. 2569 – 28 ส.ค. 2570`; pinned `7 ส.ค. 2569 – 6 ส.ค. 2570` remains deterministic evidence. No QA account/persistent fixture was created. No non-Hosting Firebase resource, Production data, source/code/test/artifact or `product-acceptance/` changed. Evidence: `C:\Users\USER\Documents\Knowme\PR108_PRODUCTION_QA_20260829`.
+
 ## Inline Astrology Basis Dedup V1 — 2026-08-27
 
 Implementation `5d42d146c1955fe1498bedc49934a471db6d177e` ถอด inline basis ซ้ำจากส่วน 1–3 โดยคงส่วน 4 และ traceability. Canonical 00:35 เชียงใหม่ = กุมภ์ 19°19′; technical/visual evidence complete. ZIP SHA-256 `4EEE4EA1B5175B6DB6F88D0A20DF98FA924B72050152825A23739CF91D4093A5`. `PENDING OWNER REVIEW`; ไม่ Merge/Deploy/Firebase/Production change.

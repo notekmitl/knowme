@@ -1,5 +1,16 @@
 # KnowMe Roadmap
 
+## PR108 Production release — complete (2026-08-29)
+
+- [x] Deploy exact accepted merge `8e2fec36f7b8a98bcb7dff3c5183951de8c9e507` / tree `3c887d85bcc715ab1981c41d246256647205302b` to Firebase Hosting `knowme-app-694e1` only.
+- [x] Record release `1787985139294000`, version `abd3efe5bbcb18db`, deployed `2026-08-29T13:32:19.294+07:00`; retain rollback reference `1787803668337000` without using it.
+- [x] Pass pre-deploy 96 focused, 38 narrative, 3 artifact, 11 canonical, 1 R7 and 10 geometry tests, 300-profile/30,000-field audit impacts 0, regressions, diff-check and PostCommit.
+- [x] Prove Production HTTP/asset/cache identity and complete Known/Unknown desktop/mobile, two 1080×1920 infographics, Dedicated 9/8, Chrome print 7/7 and 31/31 raster visual QA.
+- [x] Confirm Known Aquarius 19°19′; Unknown fail-closed/time-dependent fabrication 0; inline-basis/stale hits 0; parity 262/262 and all mismatch/missing/truncated/duplicate/semantic/omission/addition/traceability counters 0.
+- [x] Preserve the rolling Production horizon (`29 ส.ค. 2569 – 28 ส.ค. 2570` for this run) and deterministic pinned Owner fixture (`7 ส.ค. 2569 – 6 ส.ค. 2570`) as separate valid environments.
+- [x] Confirm no temporary fixture, non-Hosting Firebase mutation, Production-data change or repository source/test/artifact/`product-acceptance/` delta.
+- [ ] Optional future copy task: decide whether to align the pre-existing Unknown-time input hint (`112f4f5a`) with the fail-closed report wording. This is not a PR108 deployment regression and rollback contains the same hint.
+
 ## Inline Astrology Basis Dedup V1 — 2026-08-27
 
 - [x] Remove inline basis from Sections 1–3 by semantic role; preserve Section 4 and traceability.
