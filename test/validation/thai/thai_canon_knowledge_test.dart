@@ -249,7 +249,7 @@ void main() {
       expect(r.engine.nodes, isEmpty);
     });
 
-    test('shipped book manifest is a not-started skeleton', () {
+    test('shipped book manifest may retain an unbackfilled section tree', () {
       final json = File('knowledge/canon/mahabhut.manifest.json').readAsStringSync();
       final m = CanonBookManifest.fromJson(json);
       expect(m.sourceId, 'mahabhut');

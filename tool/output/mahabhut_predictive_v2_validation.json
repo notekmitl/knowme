@@ -1,0 +1,68 @@
+{
+  "status": "PASS",
+  "rules": 12,
+  "schemaValid": true,
+  "schemaErrorCount": 0,
+  "pageTrace": {
+    "pass": 12,
+    "total": 12,
+    "errors": []
+  },
+  "shortEvidence": {
+    "pass": 12,
+    "total": 12,
+    "errors": []
+  },
+  "unsourcedEventRuleCount": 0,
+  "generalizedArchetypeExampleCount": 0,
+  "arbitraryThresholdHitCount": 0,
+  "arbitraryFixedConfidenceCount": 0,
+  "unsupportedEventCount": 0,
+  "unsupportedTimingCount": 0,
+  "canonSupportingTierInversionCount": 0,
+  "unresolvedConflictHiddenCount": 0,
+  "hardcodedOwnerFixtureBranchCount": 0,
+  "knownToUnknownLeakageCount": 0,
+  "readerVisibleDuplicateCount": 0,
+  "pastReflectionQuestionCount": 0,
+  "psychologyLeakageCount": 0,
+  "liveCanon": {
+    "atomicUnits": 834,
+    "noteSentinels": 20,
+    "producedUnitsArrayElements": 854,
+    "referenceTableCells": 29
+  },
+  "staleSourceStatusHitCount": 0,
+  "sourcePdfSha256Matches": true,
+  "birthdaySegmentation": {
+    "profiles": 300,
+    "pass": 300,
+    "fail": 0,
+    "deterministicErrors": 0,
+    "distinctSegmentSignatures": 246,
+    "accuracyClaim": false
+  },
+  "focusedFlutter": {
+    "canonManifestTests": {
+      "pass": 42,
+      "total": 42
+    },
+    "fixtureSeparationTests": {
+      "pass": 4,
+      "total": 4,
+      "known0003": "Aquarius 9°24′ / Saturday",
+      "known0035": "Aquarius 19°19′ / Saturday",
+      "unknown": "no noon / ascendant / houses / Thai-day assertion"
+    }
+  },
+  "delta": {
+    "runtimeFiles": [],
+    "productionFoundationFiles": [],
+    "productAcceptanceFiles": []
+  },
+  "notes": [
+    "The 300-profile audit validates deterministic birthday segmentation and variety, not predictive accuracy.",
+    "Full Flutter suite is not rerun because runtime Dart delta is zero; two stale manifest assertions are the only test delta and their focused suites pass.",
+    "Edition mapping remains PENDING and therefore the final program decision is PARTIAL."
+  ]
+}

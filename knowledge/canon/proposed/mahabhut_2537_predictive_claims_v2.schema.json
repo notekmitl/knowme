@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "version",
+    "status",
+    "placementRecords",
+    "sourceGeneralRules",
+    "sourceDirectClaims",
+    "generalRuleApplications",
+    "productInterpretationClaims",
+    "discoveryKeywordHits",
+    "counts"
+  ],
+  "properties": {
+    "version": {
+      "const": 2
+    },
+    "status": {
+      "const": "PROPOSED_NOT_RUNTIME_PENDING_OWNER_REVIEW"
+    },
+    "placementRecords": {
+      "type": "array",
+      "minItems": 392,
+      "maxItems": 392
+    },
+    "sourceGeneralRules": {
+      "type": "array"
+    },
+    "sourceDirectClaims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claimId",
+          "claimType",
+          "contextId",
+          "agePeriodBinding",
+          "domain",
+          "movementOutcome",
+          "allowedConclusion",
+          "prohibitedEscalation"
+        ],
+        "properties": {
+          "claimId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "contextId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sourceEvidence": {
+            "type": "object",
+            "required": [
+              "editionId",
+              "page",
+              "pageImageReviewed",
+              "paragraphBoundary",
+              "shortExcerpt",
+              "pdfSha256"
+            ],
+            "properties": {
+              "editionId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "page": {
+                "type": "integer"
+              },
+              "pageImageReviewed": {
+                "const": true
+              },
+              "paragraphBoundary": {
+                "type": "string",
+                "minLength": 1
+              },
+              "shortExcerpt": {
+                "type": "string",
+                "minLength": 1,
+                "maxLength": 180
+              },
+              "pdfSha256": {
+                "const": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E"
+              }
+            }
+          }
+        }
+      }
+    },
+    "generalRuleApplications": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claimId",
+          "claimType",
+          "contextId",
+          "agePeriodBinding",
+          "domain",
+          "movementOutcome",
+          "allowedConclusion",
+          "prohibitedEscalation"
+        ],
+        "properties": {
+          "claimId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "contextId": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "productInterpretationClaims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "claimId",
+          "claimType",
+          "contextId",
+          "agePeriodBinding",
+          "domain",
+          "movementOutcome",
+          "allowedConclusion",
+          "prohibitedEscalation"
+        ],
+        "properties": {
+          "claimId": {
+            "type": "string",
+            "minLength": 1
+          },
+          "contextId": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "discoveryKeywordHits": {
+      "type": "array"
+    },
+    "counts": {
+      "type": "object"
+    }
+  }
+}

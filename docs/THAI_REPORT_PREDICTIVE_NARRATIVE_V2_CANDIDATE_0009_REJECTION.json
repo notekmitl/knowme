@@ -1,0 +1,15 @@
+{
+  "status": "FAIL",
+  "predictionParagraphs": 7,
+  "requiredRangeMinimum": 18,
+  "depthShortfall": 11,
+  "ownerDecision": "REJECTED_AS_READER_FACING_TARGET",
+  "reasons": [
+    "only seven prediction claims",
+    "not a full-report reading experience",
+    "past narrative remains broad",
+    "relationship, health, luck and major-change coverage is too thin",
+    "several sentences read like system copy",
+    "structural validator PASS is not content acceptance"
+  ]
+}

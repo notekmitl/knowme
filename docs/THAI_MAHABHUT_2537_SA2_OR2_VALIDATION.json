@@ -1,0 +1,139 @@
+{
+  "status": "PASS",
+  "counts": {
+    "contextPlacementMappings": 49,
+    "placementRecords": 392,
+    "sourceDirectClaims": 7,
+    "generalRuleApplications": 3,
+    "productInterpretationClaims": 5,
+    "discoveryKeywordHits": 182,
+    "unmappedPlacementContexts": 0,
+    "readerClaims": 28,
+    "predictionReaderClaims": 24
+  },
+  "errors": {
+    "schema_error_count": 0,
+    "claim_without_evidence_or_rule_count": 0,
+    "source_direct_without_inspected_page_count": 0,
+    "source_general_rule_without_inspected_page_count": 0,
+    "product_interpretation_mislabeled_as_source_direct_count": 0,
+    "corpus_context_mismatch_count": 0,
+    "corpus_age_period_mismatch_count": 0,
+    "corpus_domain_mismatch_count": 0,
+    "reader_claim_document_missing_count": 0,
+    "reader_claim_map_missing_count": 0,
+    "duplicate_reader_claim_id_count": 0,
+    "reader_text_mismatch_count": 0,
+    "owner_type_mismatch_count": 0,
+    "context_mismatch_count": 0,
+    "age_period_mismatch_count": 0,
+    "domain_mismatch_count": 0,
+    "unsupported_event_count": 0,
+    "unsupported_timing_count": 0,
+    "duplicate_semantic_owner_count": 0,
+    "repeated_reader_meaning_count": 0,
+    "prediction_to_advice_conversion_count": 0,
+    "semantic_key_missing_count": 0,
+    "advice_inside_prediction_section_count": 0,
+    "technical_methodology_in_reader_copy_count": 0,
+    "psychology_leakage_count": 0,
+    "defensive_language_count": 0,
+    "known_to_unknown_leakage_count": 0
+  },
+  "negativeControls": {
+    "total": 6,
+    "pass": 6,
+    "fail": 0
+  },
+  "candidate0009": {
+    "status": "FAIL",
+    "predictionParagraphs": 7,
+    "requiredRangeMinimum": 18,
+    "depthShortfall": 11,
+    "ownerDecision": "REJECTED_AS_READER_FACING_TARGET",
+    "reasons": [
+      "only seven prediction claims",
+      "not a full-report reading experience",
+      "past narrative remains broad",
+      "relationship, health, luck and major-change coverage is too thin",
+      "several sentences read like system copy",
+      "structural validator PASS is not content acceptance"
+    ]
+  },
+  "candidate0010": {
+    "knownReaderClaims": 26,
+    "knownPredictionParagraphs": 24,
+    "unknownReaderClaims": 2,
+    "chronology": {
+      "status": "PASS",
+      "orderErrorCount": 0
+    }
+  },
+  "fixtureSeparation": {
+    "status": "PASS",
+    "fixtures": [
+      {
+        "id": "known-0003",
+        "birthTime": "00:03",
+        "thaiAstrologicalDay": "saturday",
+        "ascendant": "Aquarius 9°24′",
+        "mode": "known"
+      },
+      {
+        "id": "known-0035",
+        "birthTime": "00:35",
+        "thaiAstrologicalDay": "saturday",
+        "ascendant": "Aquarius 19°19′",
+        "mode": "known"
+      },
+      {
+        "id": "unknown",
+        "birthTime": null,
+        "thaiAstrologicalDay": null,
+        "ascendant": null,
+        "houses": null,
+        "mode": "unknown"
+      }
+    ],
+    "distinctKnownAscendantCount": 2,
+    "unknownTimeDependentFieldCount": 0,
+    "noonSubstitutionCount": 0,
+    "fixtureBranchInRuntimeCount": 0
+  },
+  "contextPeriodSelectionCoverageAudit": {
+    "profiles": 300,
+    "pass": 300,
+    "fail": 0,
+    "deterministicMismatchCount": 0,
+    "distinctContextCount": 49,
+    "distinctContextPeriodSignatures": 160,
+    "accuracyClaim": false
+  },
+  "sourcePdfSha256Matches": true,
+  "delta": {
+    "runtimeFiles": [],
+    "runtimeTestFiles": [],
+    "productionCanonFiles": [],
+    "productAcceptanceFiles": []
+  },
+  "validationScope": {
+    "proves": [
+      "structure",
+      "trace",
+      "domain",
+      "period",
+      "unsupported exact timing/event markers",
+      "duplication markers"
+    ],
+    "doesNotProve": [
+      "predictive accuracy",
+      "truth in a reader life",
+      "language quality",
+      "Owner content acceptance"
+    ]
+  },
+  "claims": {
+    "runtimeImplementation": false,
+    "ownerAcceptance": false
+  }
+}

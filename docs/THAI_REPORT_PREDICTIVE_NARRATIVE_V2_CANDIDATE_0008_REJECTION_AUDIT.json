@@ -1,0 +1,10 @@
+{
+  "status": "FAIL",
+  "readerPredictionLines": 20,
+  "readerClaimIdMissingCount": 20,
+  "claimWithoutEvidenceOrRuleCount": 20,
+  "adviceInsidePredictionSectionCount": 6,
+  "technicalMethodologyInReaderCopyCount": 9,
+  "fourDomainFillerPatternCount": 20,
+  "reason": "Candidate 0008 has no sentence-level owner map and mixes advice/methodology into prediction sections."
+}

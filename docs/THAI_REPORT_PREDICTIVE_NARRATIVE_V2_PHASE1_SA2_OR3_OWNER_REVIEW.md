@@ -1,0 +1,42 @@
+# PR112 Phase 1 SA2 OR3 Owner Review Guide
+
+Status: **OWNER FINAL CONTENT REVIEW PASS — CANDIDATE 0011 ACCEPTED AS FINAL CONTENT BASELINE**
+
+Owner accepted Candidate 0011 on 2026-08-30. The acceptance covers its
+chronology, content, direct tone, detail level, 22 retained prediction owners,
+removal of `OAS-02` and `OAS-08`, Unknown fail-closed behavior and
+`OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS` as internally traced product
+interpretation rather than a source quotation. It does not claim real-life
+predictive accuracy. OR3 evidence ZIP SHA-256:
+`D9A98F3231DCD77580CB5B64B7ABB45938BBF1C6A7155429CA70FCFA1B69F10E`.
+
+Candidate 0010 is accepted as the content-direction baseline only. It remains
+rejected as Final Reader Copy because work/decision, income, support and
+relationship details repeated across sections and several sentences used stiff
+or passive Thai. Candidate 0011 is the final content candidate for review.
+
+## Suggested review order
+
+1. Read `CANDIDATE_0010_TO_0011_FULL_COPY_DIFF.md` for every copy change.
+2. Read `CANDIDATE_0011_KNOWN.md` continuously, then read
+   `CANDIDATE_0011_UNKNOWN.md`.
+3. Use `COMPLETE_READER_TEXT_KNOWN.md` as the duplicate complete-text package
+   entry when reviewing without switching filenames.
+4. Inspect the claim map and `SEMANTIC_MOTIF_OWNERSHIP.md`.
+5. Read `TWO_PASS_HUMAN_AUDIT.md` and the structural validation results.
+
+## What to decide
+
+- Does the Thai read naturally from start to finish without needing a reread?
+- Does each domain own its detail while past and 12-month references add a
+  distinct historical or time-bound function?
+- Does the report still feel complete after reducing 24 predictions to 22?
+- Are the exact rolling range and age 63–79 next period clear without monthly
+  or early/middle/late invention?
+- Does Unknown remain appropriately short and fail-closed?
+
+Candidate 0011 removes `OAS-02` and `OAS-08`; it adds no owner, evidence,
+period, domain, event or timing. The earlier structural PASS and two-pass
+editorial audit did not establish acceptance by themselves; the explicit
+Owner decision recorded above does. Phase 2 runtime implementation is now
+authorized on a new branch after Phase 1 merges. Deployment is not authorized.

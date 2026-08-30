@@ -1,0 +1,168 @@
+{
+  "version": 1,
+  "status": "PROPOSED_NOT_RUNTIME_PENDING_OWNER_REVIEW",
+  "nonPredictionOwners": [
+    {
+      "ownerId": "ADVICE-K-CURRENT-01",
+      "ownerType": "ADVICE",
+      "purpose": "separate practical advice after all prediction sections"
+    },
+    {
+      "ownerId": "DISCLOSURE-K-01",
+      "ownerType": "DISCLOSURE",
+      "purpose": "single Known belief disclaimer"
+    },
+    {
+      "ownerId": "OMISSION-U-01",
+      "ownerType": "OMISSION",
+      "purpose": "single Unknown fail-closed explanation"
+    },
+    {
+      "ownerId": "DISCLOSURE-U-01",
+      "ownerType": "DISCLOSURE",
+      "purpose": "single Unknown belief disclaimer"
+    }
+  ],
+  "surfaces": [
+    {
+      "surface": "Known",
+      "file": "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0009.md",
+      "readerClaims": [
+        {
+          "readerClaimId": "RC-K-OVERVIEW-01",
+          "section": "ภาพรวมเส้นทางดวง",
+          "claimKind": "PREDICTION",
+          "ownerId": "PIC-R0-SAT-LIFE-ARC",
+          "ownerType": "OWNER_AUTHORIZED_PRODUCT_INTERPRETATION",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "30-79",
+          "domain": "life_path",
+          "meaningKey": "life-arc-30-79",
+          "text": "เส้นทางช่วงอายุ 30–62 เริ่มจากการรับผิดชอบมากขึ้น แล้วขยับเข้าสู่ช่วงที่งานและเงินเด่น ก่อนเปลี่ยนเป็นการสร้างฐานระยะยาวเมื่ออายุ 63 ปี"
+        },
+        {
+          "readerClaimId": "RC-K-PAST-01",
+          "section": "ช่วงที่ผ่านมา",
+          "claimKind": "PREDICTION",
+          "ownerId": "PIC-R0-SAT-30_41-WORK",
+          "ownerType": "OWNER_AUTHORIZED_PRODUCT_INTERPRETATION",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "30-41",
+          "domain": "work",
+          "meaningKey": "past-work-responsibility-30-41",
+          "text": "ช่วงอายุ 30–41 งานเดินหน้าแรงขึ้น เรื่องที่เคยติดเริ่มเปิดทาง และผลงานที่ทำต่อเนื่องพาคุณไปรับผิดชอบเรื่องใหญ่ขึ้น"
+        },
+        {
+          "readerClaimId": "RC-K-CURRENT-01",
+          "section": "ปัจจุบัน",
+          "claimKind": "PREDICTION",
+          "ownerId": "SDC-R0-SAT-42_62-FINANCE",
+          "ownerType": "SOURCE_DIRECT_PREDICTION",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "42-62",
+          "domain": "finance",
+          "meaningKey": "current-finance-liquidity-42-62",
+          "text": "ตั้งแต่อายุ 42 ปี การเงินเด่นกว่าช่วงก่อน เงินจากสิ่งที่ทำจริงคล่องขึ้น"
+        },
+        {
+          "readerClaimId": "RC-K-CURRENT-02",
+          "section": "ปัจจุบัน",
+          "claimKind": "PREDICTION",
+          "ownerId": "SDC-R0-SAT-42_62-FLOW",
+          "ownerType": "SOURCE_DIRECT_PREDICTION",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "42-62",
+          "domain": "work",
+          "meaningKey": "current-execution-flow-42-62",
+          "text": "งาน การพูดคุย และการตัดสินใจเดินได้ลื่นขึ้น เรื่องที่ลงมือทำเห็นผลชัดกว่าเดิม"
+        },
+        {
+          "readerClaimId": "RC-K-HORIZON-01",
+          "section": "12 เดือนข้างหน้า",
+          "claimKind": "PREDICTION",
+          "ownerId": "PIC-R0-SAT-HORIZON-WORK",
+          "ownerType": "OWNER_AUTHORIZED_PRODUCT_INTERPRETATION",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "2026-08-29/2027-08-28|age44-45",
+          "domain": "work",
+          "meaningKey": "horizon-work-continuity-44-45",
+          "text": "29 ส.ค. 2569 – 28 ส.ค. 2570 งานที่กำลังเดินจะไปต่อได้ และเรื่องที่ค้างจะค่อย ๆ คลี่คลายตลอดช่วงนี้"
+        },
+        {
+          "readerClaimId": "RC-K-HORIZON-02",
+          "section": "12 เดือนข้างหน้า",
+          "claimKind": "PREDICTION",
+          "ownerId": "PIC-R0-SAT-HORIZON-SUPPORT",
+          "ownerType": "OWNER_AUTHORIZED_PRODUCT_INTERPRETATION",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "2026-08-29/2027-08-28|age44-45",
+          "domain": "support",
+          "meaningKey": "horizon-support-continuity-44-45",
+          "text": "ครู ผู้ใหญ่ และเพื่อนที่ช่วยกันอยู่แล้วจะยังเป็นแรงหนุนให้เรื่องสำคัญเดินต่อ"
+        },
+        {
+          "readerClaimId": "RC-K-NEXT-01",
+          "section": "ช่วงชีวิตถัดไป",
+          "claimKind": "PREDICTION",
+          "ownerId": "PIC-R0-SAT-63_79-FOUNDATION",
+          "ownerType": "OWNER_AUTHORIZED_PRODUCT_INTERPRETATION",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "63-79",
+          "domain": "foundation",
+          "meaningKey": "next-foundation-63-79",
+          "text": "เมื่ออายุ 63 ปี การสร้างฐานทรัพย์และเรื่องบ้านจะเดินได้ดีขึ้น และสิ่งที่วางรากฐานไว้จะมั่นคงกว่าเดิม"
+        },
+        {
+          "readerClaimId": "RC-K-ADVICE-01",
+          "section": "คำแนะนำสั้น ๆ",
+          "claimKind": "ADVICE",
+          "ownerId": "ADVICE-K-CURRENT-01",
+          "ownerType": "ADVICE",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "42-62",
+          "domain": "advice",
+          "text": "ใช้ช่วงปัจจุบันปิดเรื่องค้าง เก็บผลตอบแทนที่เกิดขึ้นจริงไว้ต่อยอด และกันเงินส่วนหนึ่งไว้รองรับรายจ่ายระยะสั้น"
+        },
+        {
+          "readerClaimId": "RC-K-DISCLOSURE-01",
+          "section": "คำแนะนำสั้น ๆ",
+          "claimKind": "DISCLOSURE",
+          "ownerId": "DISCLOSURE-K-01",
+          "ownerType": "DISCLOSURE",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "REPORT",
+          "domain": "disclosure",
+          "text": "ใช้เป็นมุมมองตามความเชื่อ และเทียบกับข้อเท็จจริงก่อนตัดสินใจสำคัญ"
+        }
+      ]
+    },
+    {
+      "surface": "Unknown",
+      "file": "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0009_UNKNOWN.md",
+      "readerClaims": [
+        {
+          "readerClaimId": "RC-U-OMISSION-01",
+          "section": "รายงานฉบับย่อ",
+          "claimKind": "OMISSION",
+          "ownerId": "OMISSION-U-01",
+          "ownerType": "OMISSION",
+          "contextId": "unknown-time",
+          "periodBinding": "UNAVAILABLE",
+          "domain": "omission",
+          "text": "ไม่มีเวลาเกิด — รายงานจึงเว้นคำทำนายช่วงชีวิตที่ต้องใช้เวลาเกิด แทนการเดาข้อมูลที่ไม่มี"
+        },
+        {
+          "readerClaimId": "RC-U-DISCLOSURE-01",
+          "section": "รายงานฉบับย่อ",
+          "claimKind": "DISCLOSURE",
+          "ownerId": "DISCLOSURE-U-01",
+          "ownerType": "DISCLOSURE",
+          "contextId": "unknown-time",
+          "periodBinding": "REPORT",
+          "domain": "disclosure",
+          "text": "ใช้เป็นมุมมองตามความเชื่อ และเทียบกับข้อเท็จจริงก่อนตัดสินใจสำคัญ"
+        }
+      ]
+    }
+  ]
+}

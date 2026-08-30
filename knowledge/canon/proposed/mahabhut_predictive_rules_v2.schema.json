@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://knowme.local/schema/mahabhut_predictive_rules_v2.schema.json",
+  "title": "Mahabhut Canonical Predictive Rule Corpus V2 (proposed)",
+  "type": "object",
+  "required": ["version", "status", "authority", "rules"],
+  "properties": {
+    "version": { "const": 2 },
+    "status": { "const": "PROPOSED_NOT_RUNTIME" },
+    "authority": {
+      "type": "object",
+      "required": ["tier0", "tier1", "extractionEditionId", "authorityEditionId", "editionMappingStatus"],
+      "properties": {
+        "tier0": { "type": "string", "minLength": 1 },
+        "tier1": { "type": "string", "minLength": 1 },
+        "extractionEditionId": { "type": "string", "minLength": 1 },
+        "authorityEditionId": { "type": "string", "minLength": 1 },
+        "editionMappingStatus": { "enum": ["VERIFIED", "PENDING", "PRIMARY_WORKING_EDITION"] },
+        "later2539Status": { "enum": ["UNVERIFIED_LATER_REPRINT_COMPARISON_SOURCE"] }
+      },
+      "additionalProperties": false
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/rule" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "stringArray": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "rule": {
+      "type": "object",
+      "required": [
+        "ruleId", "bookId", "editionId", "sourcePage", "sourceSection",
+        "sourceScope", "sourceStatementType", "applicability",
+        "allOfConditions", "anyOfConditions", "excludedConditions", "planet",
+        "mahabhutPosition", "taksaRole", "periodStatus", "lifePeriodContext",
+        "archetypeContext", "ageBoundary", "domain", "eventFamily", "movement",
+        "predictedOutcome", "polarity", "sourceCertainty", "timingGranularity",
+        "exceptions", "conflictGroup", "provenance", "extractionStatus",
+        "reviewerStatus", "allowedConclusion", "prohibitedEscalation",
+        "generalization", "knownTimeRequirement", "humanExplanation"
+      ],
+      "properties": {
+        "ruleId": { "type": "string", "pattern": "^MPR2-[A-Z0-9-]+$" },
+        "bookId": { "const": "mahabhut" },
+        "editionId": { "const": "mahabhut-complete-duangkaew-2537-scan" },
+        "sourcePage": { "type": "string", "pattern": "^[0-9]+(?:-[0-9]+)?$" },
+        "sourceSection": { "type": "string", "minLength": 1 },
+        "sourceScope": { "enum": ["GENERAL", "ARCHETYPE_DAY", "LIFE_PERIOD"] },
+        "sourceStatementType": {
+          "enum": ["GENERAL_RULE", "CONDITIONAL_RULE", "EXCEPTION_RULE", "ARCHETYPE_EXAMPLE", "LIFE_PERIOD_EXAMPLE", "NARRATIVE_OBSERVATION", "SUPPORTING_RESEARCH_ONLY"]
+        },
+        "applicability": { "$ref": "#/$defs/stringArray" },
+        "allOfConditions": { "$ref": "#/$defs/stringArray" },
+        "anyOfConditions": { "$ref": "#/$defs/stringArray" },
+        "excludedConditions": { "$ref": "#/$defs/stringArray" },
+        "planet": { "type": ["string", "null"] },
+        "mahabhutPosition": { "type": ["string", "null"] },
+        "taksaRole": { "type": ["string", "null"] },
+        "periodStatus": { "type": ["string", "null"] },
+        "lifePeriodContext": { "type": ["string", "null"] },
+        "archetypeContext": { "type": ["string", "null"] },
+        "ageBoundary": { "type": ["string", "null"] },
+        "domain": { "type": "string", "minLength": 1 },
+        "eventFamily": { "type": ["string", "null"] },
+        "movement": { "type": "string", "minLength": 1 },
+        "predictedOutcome": { "type": "string", "minLength": 1 },
+        "polarity": { "enum": ["POSITIVE", "NEGATIVE", "MIXED", "NEUTRAL"] },
+        "sourceCertainty": { "enum": ["DIRECT", "DIRECT_WITH_EXCEPTION", "AMBIGUOUS"] },
+        "timingGranularity": { "enum": ["PERIOD", "AGE_YEAR", "BOUNDARY_WINDOW", "NONE"] },
+        "exceptions": { "$ref": "#/$defs/stringArray" },
+        "conflictGroup": { "type": ["string", "null"] },
+        "provenance": {
+          "type": "object",
+          "required": ["evidenceExcerpt", "pageImageReviewed", "ocrCrossChecked", "pdfSha256"],
+          "properties": {
+            "evidenceExcerpt": { "type": "string", "minLength": 1, "maxLength": 180 },
+            "pageImageReviewed": { "const": true },
+            "ocrCrossChecked": { "const": true },
+            "pdfSha256": { "const": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E" }
+          },
+          "additionalProperties": false
+        },
+        "extractionStatus": { "enum": ["EXTRACTED", "SOURCE_AMBIGUOUS"] },
+        "reviewerStatus": { "const": "OWNER_REVIEW_REQUIRED" },
+        "allowedConclusion": { "type": "string", "minLength": 1 },
+        "prohibitedEscalation": { "$ref": "#/$defs/stringArray" },
+        "generalization": { "enum": ["GENERALIZABLE_AS_WRITTEN", "EXAMPLE_ONLY"] },
+        "knownTimeRequirement": { "enum": ["KNOWN_THAI_DAY_REQUIRED", "DATE_ONLY_ALLOWED"] },
+        "humanExplanation": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    }
+  }
+}

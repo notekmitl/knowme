@@ -1,5 +1,5 @@
 {
-  "$comment": "Canon Library manifest — the Manifest System registry of canonical books. Built to hold MANY books, not only หลักมหาภูต. หลักมหาภูต is registered as the canonical (Tier 1) book with extraction not_started. Progress counters are tracked here as extraction proceeds; the detailed chapter/section skeleton lives in each book's manifestAsset.",
+  "$comment": "Canon Library manifest. Mahabhut production extraction is frozen at 834 atomic units and 29 reference-table cells. The detailed chapter/section skeleton remains a known unbackfilled legacy gap; it must not be interpreted as extraction not started.",
   "version": 1,
   "books": [
     {
@@ -9,18 +9,20 @@
       "author": "ส. หยกฟ้า",
       "canonical": true,
       "manifestAsset": "knowledge/canon/mahabhut.manifest.json",
-      "extraction": "notStarted",
-      "validation": "unvalidated",
+      "extraction": "completed",
+      "validation": "canonApproved",
       "version": 1,
       "progress": {
         "totalChapters": 0,
         "extractedChapters": 0,
         "totalSections": 0,
         "extractedSections": 0,
-        "totalUnits": 0,
-        "approvedUnits": 0
+        "totalUnits": 834,
+        "approvedUnits": 834,
+        "referenceTableCells": 29,
+        "noteSentinelsExcluded": 20
       },
-      "notes": "Canonical source. Content not yet extracted; populate canon_database.knowme.json one chapter at a time and update these counters."
+      "notes": "Canonical source. Production units are stored in production/foundation_v1.knowme.json rather than the empty legacy canon_database.knowme.json. Canon V2 predictive rules remain proposed and separate from this frozen count."
     }
   ]
 }

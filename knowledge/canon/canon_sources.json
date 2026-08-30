@@ -12,12 +12,12 @@
     },
     {
       "id": "mahabhut",
-      "title": "หลักมหาภูต",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
       "author": "ส. หยกฟ้า",
       "tier": "tier1_canon",
       "canonical": true,
       "language": "th",
-      "notes": "Canonical interpretive source for Thai astrology in KnowMe. When Canon speaks, Canon wins. Content not yet extracted — see mahabhut.manifest.json for the extraction architecture."
+      "notes": "Owner-designated primary predictive authority. The frozen production corpus contains 834 atomic units plus 29 reference-table cells extracted from a 2537 complete-edition scan; 20 non-unit note sentinels make producedUnits array length 854. The Owner-designated 2539 reprint is bibliographically identified but is not yet page-mapped to the 2537 extraction source. See mahabhut.manifest.json and THAI_MAHABHUT_CANON_SOURCE_TRUTH_RECONCILIATION_V1.md."
     },
     {
       "id": "phrommachat",
