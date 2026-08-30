@@ -236,8 +236,8 @@ def main() -> None:
         if re.search(r"not[_ ]?started|not yet extracted|has not begun", value, re.IGNORECASE)
     )
 
-    known = (repo / "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0007.md").read_text(encoding="utf-8")
-    unknown = (repo / "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0007_UNKNOWN.md").read_text(encoding="utf-8")
+    known = (repo / "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0008.md").read_text(encoding="utf-8")
+    unknown = (repo / "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0008_UNKNOWN.md").read_text(encoding="utf-8")
     known_reader = known.split("Reader-facing candidate begins below.", 1)[1].split("## Evidence map", 1)[0]
     paragraphs = [
         re.sub(r"\s+", " ", paragraph).strip().casefold()
@@ -321,7 +321,7 @@ def main() -> None:
         "notes": [
             "The 300-profile audit validates deterministic birthday segmentation and variety, not predictive accuracy.",
             "Fixture separation is validated by the repository Flutter test and reported separately.",
-            "Edition mapping remains PENDING and therefore the final program decision is PARTIAL.",
+            "The 2537 scan is the Owner-designated Primary Tier-1 Canonical Working Edition; 2539 remains a non-blocking comparison source.",
         ],
     }
     print(json.dumps(report, ensure_ascii=False, indent=2))

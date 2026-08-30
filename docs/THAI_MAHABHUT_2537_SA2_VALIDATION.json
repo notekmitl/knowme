@@ -1,0 +1,102 @@
+{
+  "status": "PASS",
+  "source": {
+    "edition": 2537,
+    "pdfSha256Matches": true
+  },
+  "counts": {
+    "contexts": 49,
+    "lifePeriods": 392,
+    "predictiveAtoms": 392,
+    "disclosedCrossCheckConflicts": 17,
+    "runtimeOcrRecords": 38,
+    "nonRuntimeBacklogRecords": 7
+  },
+  "errors": {
+    "schema_error_count": 0,
+    "context_coverage_error_count": 0,
+    "unmapped_context_count": 0,
+    "runtime_ocr_unresolved_count": 0,
+    "source_page_trace_error_count": 0,
+    "duplicate_semantic_owner_count": 0,
+    "unsupported_event_count": 0,
+    "unsupported_timing_count": 0,
+    "arbitrary_threshold_count": 0,
+    "hidden_conflict_count": 0,
+    "cross_context_leakage_count": 0,
+    "forbidden_reader_phrase_count": 0,
+    "past_reflection_question_count": 0,
+    "psychology_claim_count": 0,
+    "duplicate_reader_paragraph_count": 0,
+    "reader_section_order_error_count": 0,
+    "monthly_prediction_count": 0,
+    "known_to_unknown_leakage_count": 0,
+    "unknown_empty_heading_count": 0,
+    "disclaimer_count_error": 0,
+    "profile_audit_failure_count": 0,
+    "runtime_delta_count": 0,
+    "test_delta_count": 0,
+    "production_canon_delta_count": 0,
+    "product_acceptance_delta_count": 0
+  },
+  "details": {
+    "schemaErrors": [],
+    "traceErrors": [],
+    "duplicateOwners": [],
+    "crossContextErrors": [],
+    "forbiddenReaderHits": {},
+    "psychologyHits": {},
+    "unknownLeakage": []
+  },
+  "profileAudit": {
+    "profiles": 300,
+    "pass": 300,
+    "fail": 0,
+    "deterministicMismatchCount": 0,
+    "distinctContextCount": 49,
+    "distinctContextPeriodSignatures": 160,
+    "accuracyClaim": false
+  },
+  "fixtureSeparation": {
+    "status": "PASS",
+    "fixtures": [
+      {
+        "id": "known-0003",
+        "birthTime": "00:03",
+        "thaiAstrologicalDay": "saturday",
+        "ascendant": "Aquarius 9°24′",
+        "mode": "known"
+      },
+      {
+        "id": "known-0035",
+        "birthTime": "00:35",
+        "thaiAstrologicalDay": "saturday",
+        "ascendant": "Aquarius 19°19′",
+        "mode": "known"
+      },
+      {
+        "id": "unknown",
+        "birthTime": null,
+        "thaiAstrologicalDay": null,
+        "ascendant": null,
+        "houses": null,
+        "mode": "unknown"
+      }
+    ],
+    "distinctKnownAscendantCount": 2,
+    "unknownTimeDependentFieldCount": 0,
+    "noonSubstitutionCount": 0,
+    "fixtureBranchInRuntimeCount": 0
+  },
+  "delta": {
+    "runtimeFiles": [],
+    "testFiles": [],
+    "productionCanonFiles": [],
+    "productAcceptanceFiles": []
+  },
+  "claims": {
+    "accuracy": false,
+    "runtimeImplementation": false,
+    "ownerAcceptance": false
+  }
+}

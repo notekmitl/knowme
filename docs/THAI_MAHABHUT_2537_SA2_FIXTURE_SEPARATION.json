@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "fixtures": [
+    {
+      "id": "known-0003",
+      "birthTime": "00:03",
+      "thaiAstrologicalDay": "saturday",
+      "ascendant": "Aquarius 9°24′",
+      "mode": "known"
+    },
+    {
+      "id": "known-0035",
+      "birthTime": "00:35",
+      "thaiAstrologicalDay": "saturday",
+      "ascendant": "Aquarius 19°19′",
+      "mode": "known"
+    },
+    {
+      "id": "unknown",
+      "birthTime": null,
+      "thaiAstrologicalDay": null,
+      "ascendant": null,
+      "houses": null,
+      "mode": "unknown"
+    }
+  ],
+  "distinctKnownAscendantCount": 2,
+  "unknownTimeDependentFieldCount": 0,
+  "noonSubstitutionCount": 0,
+  "fixtureBranchInRuntimeCount": 0
+}
