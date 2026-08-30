@@ -1,5 +1,19 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+## Predictive Narrative V2 Phase 1 — Golden Copy and Evidence Blueprint (2026-08-30)
+
+Status: **COMPLETE — DRAFT PR — PENDING OWNER CONTENT REVIEW — NOT MERGED — NOT DEPLOYED**. Owner accepts the Golden Reference as a style target only; Candidate copy, contract and implementation are not Owner-accepted by implication. Phase 1 changes Markdown content/evidence only at content commit `61ea2457a894bd7cd514037b866119f99473e270`.
+
+Owner feedback recorded as six defects in the current report: (1) chronology jumps, (2) Thai is not conversational enough, (3) prediction hedges instead of speaking directly, (4) personality content is mixed into the astrology report, (5) past sections ask readers to remember events instead of predicting, and (6) the same meaning repeats across sections. The proposed contract requires past → current → rolling 12 months → next life period, Prediction before Advice, direct language, one semantic owner per claim, psychology separation and cross-surface parity.
+
+Fixture separation is verified by the real pipeline: Known `00:03 → Aquarius 9°24′`, Known `00:35 → Aquarius 19°19′`, and both resolve the Saturday Thai-day boundary. Unknown remains fail-closed: empty birth time, null ascendant, no noon substitution, no asserted Thai day, no houses or time-dependent positions. Focused fixture regression passes 4/4. The Known 00:03 probe exposes 12 real forecast materials across 3 horizons × 4 domains. `monthlyTimelineAvailable=false`; no evidence supports Golden early/middle/late buckets.
+
+Evidence Matrix result for 39 Golden paragraphs: `SUPPORTED 1`, `SUPPORTED_WITH_REWRITE 18`, `REQUIRES_NEW_EVIDENCE 18`, `MUST_NOT_IMPLEMENT 2`. Current evidence supports birth identity, life-period sequence, current/12-month/next-period domain bands and decision boundaries. Specific past events, age 44–46 timing, status-specific relationship events, named income/expense/opportunity sources, and within-year event buckets require a separately accepted calculation/evidence contract. Psychology conclusions G05 and G10 must not be implemented in this astrology report.
+
+Candidate: `docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_CANDIDATE_0003.md`. Owner package: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_REPORT_PREDICTIVE_NARRATIVE_V2_PHASE1_61ea245.zip`, SHA-256 `54E0261FD6260C4768D161BA25A90EDDB526269C6BBC448206FB5014710088D2`. Package validation: 10 entries, CRC 0, missing/extra 0/0, hash/size/SHA256SUMS mismatch 0, secret hits 0, absolute Windows paths 0, placeholder/ellipsis 0.
+
+No Dart, application code, engine, Canon, composer, ReaderCopyRepair, UI, infographic, PDF/export generator, runtime test behavior, artifact or `product-acceptance/` changed. Full Flutter suite was not rerun because non-Markdown runtime delta is 0. Firebase/Production remain unchanged at Hosting release `1787994532335000`, version `869582a05e8db108`.
+
 ## Current handoff — PR110 Production closeout
 
 Status: **MERGED — HOSTING DEPLOYED — PRODUCTION QA PASS — NO ROLLBACK**. PR110 acceptance docs are `10770703d6e660cf41cd910f62ec2dfafa464dea`; regular merge is `4031049efc675d35c44660c0453bb432c50c8f06`, tree `b89ac1331f21b2fba6cce1c5979b43702ce73374`. Firebase Hosting `knowme-app-694e1` release `1787994532335000` / version `869582a05e8db108` completed `2026-08-29T16:08:52.335+07:00`; rollback `1787985139294000` / `abd3efe5bbcb18db` was not used.
