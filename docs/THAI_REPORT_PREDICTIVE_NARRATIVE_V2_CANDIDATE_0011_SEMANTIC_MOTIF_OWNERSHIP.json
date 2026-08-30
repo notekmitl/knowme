@@ -1,0 +1,77 @@
+{
+  "status": "PASS_PENDING_OWNER_FINAL_CONTENT_REVIEW",
+  "policy": "One detailed semantic owner per motif; historical, time-bound and compressed references must add a distinct function.",
+  "motifs": [
+    {
+      "motif": "work role/decision",
+      "detailedOwnerSection": "การงาน",
+      "detailedOwnerClaims": ["RC11-K-WORK-01"],
+      "otherReferences": [
+        {"section": "คำทำนายอดีต อายุ 30–41 ปี", "claim": "RC11-K-PAST-04", "function": "historical change only"},
+        {"section": "คำทำนาย 12 เดือนข้างหน้า", "claim": "RC11-K-HORIZON-01", "function": "time-bound result only"},
+        {"section": "สรุปคำทำนาย", "claim": null, "function": "compressed reference only"}
+      ]
+    },
+    {
+      "motif": "old work/new work",
+      "detailedOwnerSection": "การงาน",
+      "detailedOwnerClaims": ["RC11-K-WORK-02"],
+      "otherReferences": [
+        {"section": "คำทำนายอดีต อายุ 30–41 ปี", "claim": "RC11-K-PAST-05", "function": "historical agreement change only"},
+        {"section": "คำทำนาย 12 เดือนข้างหน้า", "claim": "RC11-K-HORIZON-01", "function": "time-bound closure and handoff only"}
+      ]
+    },
+    {
+      "motif": "income from work",
+      "detailedOwnerSection": "การเงิน",
+      "detailedOwnerClaims": ["RC11-K-FINANCE-01"],
+      "otherReferences": [
+        {"section": "คำทำนาย 12 เดือนข้างหน้า", "claim": "RC11-K-HORIZON-02", "function": "time-bound income movement only"}
+      ]
+    },
+    {
+      "motif": "expense/base",
+      "detailedOwnerSection": "การเงิน",
+      "detailedOwnerClaims": ["RC11-K-FINANCE-02"],
+      "otherReferences": [
+        {"section": "คำทำนาย 12 เดือนข้างหน้า", "claim": "RC11-K-HORIZON-02", "function": "time-bound financial load only"},
+        {"section": "ช่วงชีวิตถัดไป อายุ 63–79 ปี", "claim": "RC11-K-NEXT-01", "function": "future home/property foundation, not current cash flow"}
+      ]
+    },
+    {
+      "motif": "relationship clarity",
+      "detailedOwnerSection": "ความรักและความสัมพันธ์",
+      "detailedOwnerClaims": ["RC11-K-RELATIONSHIP-01", "RC11-K-RELATIONSHIP-02"],
+      "otherReferences": [
+        {"section": "คำทำนายอดีต อายุ 11–29 ปี", "claim": "RC11-K-PAST-03", "function": "historical agreement change only"},
+        {"section": "คำทำนาย 12 เดือนข้างหน้า", "claim": "RC11-K-HORIZON-02", "function": "time-bound decision only"}
+      ]
+    },
+    {
+      "motif": "health load/recovery",
+      "detailedOwnerSection": "สุขภาพ",
+      "detailedOwnerClaims": ["RC11-K-HEALTH-01", "RC11-K-HEALTH-02"],
+      "otherReferences": []
+    },
+    {
+      "motif": "prior contacts/support",
+      "detailedOwnerSection": "โชคลาภและแรงสนับสนุน",
+      "detailedOwnerClaims": ["RC11-K-SUPPORT-01", "RC11-K-SUPPORT-02"],
+      "otherReferences": [
+        {"section": "คำทำนาย 12 เดือนข้างหน้า", "claim": "RC11-K-HORIZON-03", "function": "time-bound effect of support only"}
+      ]
+    },
+    {
+      "motif": "home/property foundation",
+      "detailedOwnerSection": "ช่วงชีวิตถัดไป อายุ 63–79 ปี",
+      "detailedOwnerClaims": ["RC11-K-NEXT-01"],
+      "otherReferences": [
+        {"section": "สรุปคำทำนาย", "claim": null, "function": "compressed long-term theme only"}
+      ]
+    }
+  ],
+  "detailedOwnershipConflictCount": 0,
+  "unclassifiedReferenceCount": 0,
+  "overviewDetailLeakageCount": 0,
+  "summaryNewClaimCount": 0
+}

@@ -16,14 +16,16 @@ from validate_mahabhut_predictive_rules_v2 import validate_instance
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_ROOT = Path(r"D:\MahabhutOCR")
-BASE = "0de5803399c5ff7ddc505d4cc8a43e58919b8cfa"
+BASE = "57510a04b9f1fd173dc851bac1397836e880356a"
 CORPUS_PATH = ROOT / "knowledge/canon/proposed/mahabhut_2537_predictive_claims_v2.json"
 SCHEMA_PATH = ROOT / "knowledge/canon/proposed/mahabhut_2537_predictive_claims_v2.schema.json"
-MAP_PATH = ROOT / "knowledge/canon/proposed/mahabhut_2537_candidate_0010_reader_claims.json"
-REPORT_PATH = ROOT / "docs/THAI_MAHABHUT_2537_SA2_OR2_VALIDATION.json"
-NEGATIVE_PATH = ROOT / "docs/THAI_MAHABHUT_2537_SA2_OR2_NEGATIVE_CONTROLS.json"
-REJECTED_PATH = ROOT / "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_CANDIDATE_0009_REJECTION.json"
-KNOWN_0009 = ROOT / "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0009.md"
+MAP_PATH = ROOT / "knowledge/canon/proposed/mahabhut_2537_candidate_0011_reader_claims.json"
+BASELINE_MAP_PATH = ROOT / "knowledge/canon/proposed/mahabhut_2537_candidate_0010_reader_claims.json"
+MOTIF_PATH = ROOT / "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_CANDIDATE_0011_SEMANTIC_MOTIF_OWNERSHIP.json"
+REPORT_PATH = ROOT / "docs/THAI_MAHABHUT_2537_SA2_OR3_VALIDATION.json"
+NEGATIVE_PATH = ROOT / "docs/THAI_MAHABHUT_2537_SA2_OR3_NEGATIVE_CONTROLS.json"
+BASELINE_PATH = ROOT / "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_CANDIDATE_0010_BASELINE_AUDIT.json"
+KNOWN_0010 = ROOT / "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0010.md"
 
 PREDICTION_KIND = "PREDICTION"
 ADVICE_TOKENS = ("ควร", "ใช้ช่วง", "เก็บ", "ตรวจสุขภาพ", "พักให้", "วางเวลาพัก", "เลือกทำ")
@@ -302,24 +304,81 @@ def negative_controls(corpus: dict, mapping: dict, documents: dict[str, dict[str
     return {"status": "PASS" if all(c["controlPassed"] for c in controls) else "FAIL", "controls": controls}
 
 
-def candidate_0009_rejection() -> dict:
-    text = KNOWN_0009.read_text(encoding="utf-8")
-    prediction_count = text.count("<!-- readerClaimId: RC-K-") - text.count("RC-K-ADVICE") - text.count("RC-K-DISCLOSURE")
+def candidate_0010_baseline() -> dict:
+    text = KNOWN_0010.read_text(encoding="utf-8")
+    prediction_count = text.count("<!-- readerClaimId: RC10-K-") - text.count("RC10-K-ADVICE") - text.count("RC10-K-DISCLOSURE")
     return {
-        "status": "FAIL",
+        "status": "CONTENT_BASELINE_NOT_FINAL_READER_COPY",
         "predictionParagraphs": prediction_count,
-        "requiredRangeMinimum": 18,
-        "depthShortfall": max(0, 18 - prediction_count),
-        "ownerDecision": "REJECTED_AS_READER_FACING_TARGET",
+        "ownerDecision": "ACCEPTED_AS_CONTENT_DIRECTION_BASELINE_ONLY",
         "reasons": [
-            "only seven prediction claims",
-            "not a full-report reading experience",
-            "past narrative remains broad",
-            "relationship, health, luck and major-change coverage is too thin",
-            "several sentences read like system copy",
-            "structural validator PASS is not content acceptance",
+            "semantic repetition across sections",
+            "stiff Thai wording in several sentences",
+            "detailed semantic ownership was not exclusive enough",
         ],
     }
+
+
+def claim_contract_comparison(baseline: dict, candidate: dict) -> dict:
+    baseline_claims = {
+        claim["ownerId"]: claim
+        for surface in baseline["surfaces"] if surface["surface"] == "Known"
+        for claim in surface["readerClaims"] if claim["claimKind"] == PREDICTION_KIND
+    }
+    candidate_claims = {
+        claim["ownerId"]: claim
+        for surface in candidate["surfaces"] if surface["surface"] == "Known"
+        for claim in surface["readerClaims"] if claim["claimKind"] == PREDICTION_KIND
+    }
+    added = sorted(set(candidate_claims) - set(baseline_claims))
+    removed = sorted(set(baseline_claims) - set(candidate_claims))
+    mismatch = []
+    for owner_id in sorted(set(candidate_claims) & set(baseline_claims)):
+        before = baseline_claims[owner_id]
+        after = candidate_claims[owner_id]
+        if any(
+            before.get(key) != after.get(key)
+            for key in ("ownerType", "contextId", "periodBinding", "domain", "evidenceRefs")
+        ):
+            mismatch.append(owner_id)
+    return {
+        "status": "PASS" if not added and not mismatch and removed == ["OAS-02", "OAS-08"] else "FAIL",
+        "baselinePredictionOwners": len(baseline_claims),
+        "candidatePredictionOwners": len(candidate_claims),
+        "addedOwnerCount": len(added),
+        "removedOwners": removed,
+        "contractMismatchCount": len(mismatch),
+    }
+
+
+def semantic_motif_audit(mapping: dict, motif: dict) -> dict:
+    known = next(surface for surface in mapping["surfaces"] if surface["surface"] == "Known")
+    claims = {claim["readerClaimId"]: claim for claim in known["readerClaims"]}
+    missing_owner_claims = 0
+    owner_section_mismatches = 0
+    missing_reference_claims = 0
+    for item in motif.get("motifs", []):
+        for claim_id in item.get("detailedOwnerClaims", []):
+            claim = claims.get(claim_id)
+            if claim is None:
+                missing_owner_claims += 1
+            elif claim.get("section") != item.get("detailedOwnerSection"):
+                owner_section_mismatches += 1
+        for reference in item.get("otherReferences", []):
+            claim_id = reference.get("claim")
+            if claim_id is not None and claim_id not in claims:
+                missing_reference_claims += 1
+    counters = {
+        "motifCountError": int(len(motif.get("motifs", [])) != 8),
+        "missingDetailedOwnerClaimCount": missing_owner_claims,
+        "detailedOwnerSectionMismatchCount": owner_section_mismatches,
+        "missingReferenceClaimCount": missing_reference_claims,
+        "detailedOwnershipConflictCount": motif.get("detailedOwnershipConflictCount", 0),
+        "unclassifiedReferenceCount": motif.get("unclassifiedReferenceCount", 0),
+        "overviewDetailLeakageCount": motif.get("overviewDetailLeakageCount", 0),
+        "summaryNewClaimCount": motif.get("summaryNewClaimCount", 0),
+    }
+    return {"status": "PASS" if all(value == 0 for value in counters.values()) else "FAIL", **counters}
 
 
 def chronology_audit(mapping: dict) -> dict:
@@ -362,14 +421,16 @@ def main() -> None:
     corpus = load(CORPUS_PATH)
     schema = load(SCHEMA_PATH)
     mapping = load(MAP_PATH)
+    baseline_mapping = load(BASELINE_MAP_PATH)
+    motif = load(MOTIF_PATH)
     schema_errors = validate_instance(corpus, schema, schema)
     documents = {surface["surface"]: claims_from_document(ROOT / surface["file"]) for surface in mapping["surfaces"]}
     evidence_counts = evidence_integrity(corpus)
     reader_counts = validate_reader(corpus, mapping, documents)
     controls = negative_controls(corpus, mapping, documents)
-    rejected = candidate_0009_rejection()
+    baseline = candidate_0010_baseline()
     NEGATIVE_PATH.write_text(json.dumps(controls, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    REJECTED_PATH.write_text(json.dumps(rejected, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    BASELINE_PATH.write_text(json.dumps(baseline, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     all_errors = {"schema_error_count": len(schema_errors), **evidence_counts, **reader_counts}
     fixture = load(ROOT / "docs/THAI_MAHABHUT_2537_SA2_FIXTURE_SEPARATION.json")
     report = {
@@ -377,15 +438,16 @@ def main() -> None:
         "counts": {**corpus["counts"], "readerClaims": sum(len(s["readerClaims"]) for s in mapping["surfaces"]), "predictionReaderClaims": sum(c["claimKind"] == PREDICTION_KIND for s in mapping["surfaces"] for c in s["readerClaims"])},
         "errors": all_errors,
         "negativeControls": {"total": len(controls["controls"]), "pass": sum(c["controlPassed"] for c in controls["controls"]), "fail": sum(not c["controlPassed"] for c in controls["controls"])},
-        "candidate0009": rejected,
-        "candidate0010": {
+        "candidate0010Baseline": baseline,
+        "candidate0011": {
             "knownReaderClaims": sum(len(s["readerClaims"]) for s in mapping["surfaces"] if s["surface"] == "Known"),
             "knownPredictionParagraphs": sum(c["claimKind"] == PREDICTION_KIND for s in mapping["surfaces"] if s["surface"] == "Known" for c in s["readerClaims"]),
             "unknownReaderClaims": sum(len(s["readerClaims"]) for s in mapping["surfaces"] if s["surface"] == "Unknown"),
             "chronology": chronology_audit(mapping),
         },
+        "claimContractComparison": claim_contract_comparison(baseline_mapping, mapping),
+        "semanticMotifOwnership": semantic_motif_audit(mapping, motif),
         "fixtureSeparation": fixture,
-        "contextPeriodSelectionCoverageAudit": profile_audit(corpus),
         "sourcePdfSha256Matches": sha256(SOURCE_ROOT / "book.pdf") == corpus["source"]["pdfSha256"],
         "delta": {"runtimeFiles": git_names("lib"), "runtimeTestFiles": git_names("test") + git_names("integration_test"), "productionCanonFiles": git_names("knowledge/canon/production"), "productAcceptanceFiles": git_names("product-acceptance")},
         "validationScope": {
@@ -394,7 +456,14 @@ def main() -> None:
         },
         "claims": {"runtimeImplementation": False, "ownerAcceptance": False},
     }
-    if report["candidate0010"]["chronology"]["status"] != "PASS":
+    if any(
+        item["status"] != "PASS"
+        for item in (
+            report["candidate0011"]["chronology"],
+            report["claimContractComparison"],
+            report["semanticMotifOwnership"],
+        )
+    ):
         report["status"] = "FAIL"
     REPORT_PATH.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report, ensure_ascii=True, indent=2))

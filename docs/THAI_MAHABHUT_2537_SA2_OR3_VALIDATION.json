@@ -1,0 +1,147 @@
+{
+  "status": "PASS",
+  "counts": {
+    "contextPlacementMappings": 49,
+    "placementRecords": 392,
+    "sourceDirectClaims": 7,
+    "generalRuleApplications": 3,
+    "productInterpretationClaims": 5,
+    "discoveryKeywordHits": 182,
+    "unmappedPlacementContexts": 0,
+    "readerClaims": 26,
+    "predictionReaderClaims": 22
+  },
+  "errors": {
+    "schema_error_count": 0,
+    "claim_without_evidence_or_rule_count": 0,
+    "source_direct_without_inspected_page_count": 0,
+    "source_general_rule_without_inspected_page_count": 0,
+    "product_interpretation_mislabeled_as_source_direct_count": 0,
+    "corpus_context_mismatch_count": 0,
+    "corpus_age_period_mismatch_count": 0,
+    "corpus_domain_mismatch_count": 0,
+    "reader_claim_document_missing_count": 0,
+    "reader_claim_map_missing_count": 0,
+    "duplicate_reader_claim_id_count": 0,
+    "reader_text_mismatch_count": 0,
+    "owner_type_mismatch_count": 0,
+    "context_mismatch_count": 0,
+    "age_period_mismatch_count": 0,
+    "domain_mismatch_count": 0,
+    "unsupported_event_count": 0,
+    "unsupported_timing_count": 0,
+    "duplicate_semantic_owner_count": 0,
+    "repeated_reader_meaning_count": 0,
+    "prediction_to_advice_conversion_count": 0,
+    "semantic_key_missing_count": 0,
+    "advice_inside_prediction_section_count": 0,
+    "technical_methodology_in_reader_copy_count": 0,
+    "psychology_leakage_count": 0,
+    "defensive_language_count": 0,
+    "known_to_unknown_leakage_count": 0
+  },
+  "negativeControls": {
+    "total": 6,
+    "pass": 6,
+    "fail": 0
+  },
+  "candidate0010Baseline": {
+    "status": "CONTENT_BASELINE_NOT_FINAL_READER_COPY",
+    "predictionParagraphs": 24,
+    "ownerDecision": "ACCEPTED_AS_CONTENT_DIRECTION_BASELINE_ONLY",
+    "reasons": [
+      "semantic repetition across sections",
+      "stiff Thai wording in several sentences",
+      "detailed semantic ownership was not exclusive enough"
+    ]
+  },
+  "candidate0011": {
+    "knownReaderClaims": 24,
+    "knownPredictionParagraphs": 22,
+    "unknownReaderClaims": 2,
+    "chronology": {
+      "status": "PASS",
+      "orderErrorCount": 0
+    }
+  },
+  "claimContractComparison": {
+    "status": "PASS",
+    "baselinePredictionOwners": 24,
+    "candidatePredictionOwners": 22,
+    "addedOwnerCount": 0,
+    "removedOwners": [
+      "OAS-02",
+      "OAS-08"
+    ],
+    "contractMismatchCount": 0
+  },
+  "semanticMotifOwnership": {
+    "status": "PASS",
+    "motifCountError": 0,
+    "missingDetailedOwnerClaimCount": 0,
+    "detailedOwnerSectionMismatchCount": 0,
+    "missingReferenceClaimCount": 0,
+    "detailedOwnershipConflictCount": 0,
+    "unclassifiedReferenceCount": 0,
+    "overviewDetailLeakageCount": 0,
+    "summaryNewClaimCount": 0
+  },
+  "fixtureSeparation": {
+    "status": "PASS",
+    "fixtures": [
+      {
+        "id": "known-0003",
+        "birthTime": "00:03",
+        "thaiAstrologicalDay": "saturday",
+        "ascendant": "Aquarius 9°24′",
+        "mode": "known"
+      },
+      {
+        "id": "known-0035",
+        "birthTime": "00:35",
+        "thaiAstrologicalDay": "saturday",
+        "ascendant": "Aquarius 19°19′",
+        "mode": "known"
+      },
+      {
+        "id": "unknown",
+        "birthTime": null,
+        "thaiAstrologicalDay": null,
+        "ascendant": null,
+        "houses": null,
+        "mode": "unknown"
+      }
+    ],
+    "distinctKnownAscendantCount": 2,
+    "unknownTimeDependentFieldCount": 0,
+    "noonSubstitutionCount": 0,
+    "fixtureBranchInRuntimeCount": 0
+  },
+  "sourcePdfSha256Matches": true,
+  "delta": {
+    "runtimeFiles": [],
+    "runtimeTestFiles": [],
+    "productionCanonFiles": [],
+    "productAcceptanceFiles": []
+  },
+  "validationScope": {
+    "proves": [
+      "structure",
+      "trace",
+      "domain",
+      "period",
+      "unsupported exact timing/event markers",
+      "duplication markers"
+    ],
+    "doesNotProve": [
+      "predictive accuracy",
+      "truth in a reader life",
+      "language quality",
+      "Owner content acceptance"
+    ]
+  },
+  "claims": {
+    "runtimeImplementation": false,
+    "ownerAcceptance": false
+  }
+}
