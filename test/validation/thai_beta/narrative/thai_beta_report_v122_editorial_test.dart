@@ -83,8 +83,9 @@ void main() {
   });
 
   group('V1.2.2 report UI chrome', () {
-    testWidgets('V122-4 confidence meter label is ความชัดของแนวโน้ม',
-        (tester) async {
+    testWidgets('V122-4 confidence meter label is ความชัดของแนวโน้ม', (
+      tester,
+    ) async {
       final intel = LifeTimelineIntelligenceEngine.fromBirthDate(
         DateTime(1982, 6, 6),
         asOf: DateTime(2026, 7, 22),
@@ -112,8 +113,9 @@ void main() {
       expect(find.text('ความมั่นใจของแนวโน้ม'), findsNothing);
     });
 
-    testWidgets('V122-5 full report shows editorial titles, no old jargon',
-        (tester) async {
+    testWidgets('V122-5 full report shows editorial titles, no old jargon', (
+      tester,
+    ) async {
       final analysis = ThaiBetaNarrativeFixtures.fixtureA();
       await tester.binding.setSurfaceSize(const Size(390, 2400));
       addTearDown(() => tester.binding.setSurfaceSize(null));
@@ -128,7 +130,10 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text(ThaiBetaNarrativeV12.strengthsSectionTitle), findsNothing);
+      expect(
+        find.text(ThaiBetaNarrativeV12.strengthsSectionTitle),
+        findsNothing,
+      );
       expect(
         find.byKey(const Key('thai_birth_profile_core_reading')),
         findsOneWidget,
@@ -137,7 +142,7 @@ void main() {
       expect(find.textContaining('สัญญาณที่ระบบ'), findsNothing);
       expect(find.textContaining('ที่มาเชิงเทคนิค'), findsNothing);
       expect(find.text('ความมั่นใจของแนวโน้ม'), findsNothing);
-      expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
+      expect(find.textContaining('คำทำนายปัจจุบัน — อายุ'), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
   });

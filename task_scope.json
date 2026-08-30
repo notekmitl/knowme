@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "task_id": "thai-unknown-time-input-copy-accuracy-v1",
-  "expected_branch": "codex/thai-unknown-time-input-copy-accuracy-v1",
+  "task_id": "thai-report-predictive-narrative-v2-phase2",
+  "expected_branch": "codex/thai-report-predictive-narrative-v2-phase2",
   "expected_worktree": "C:/Users/USER/Documents/Knowme/pr107-release-main",
-  "base_ref": "e094c789ec4e0dcd24d9b79a01c3bbd569f1c70c",
+  "base_ref": "5dc59c44020a135934d1b8cefceae9606bfa736f",
   "allowed_files": [
     "task.md",
     "TASK_RESULT.md",
@@ -12,8 +12,23 @@
     "docs/HANDOFF.md",
     "docs/ROADMAP.md",
     "docs/THAI_REPORT_READER_EXPERIENCE_V2.md",
-    "lib/features/thai_beta/presentation/pages/thai_beta_input_page.dart",
-    "test/validation/thai_beta/thai_beta_unknown_time_input_copy_test.dart"
+    "lib/features/thai_beta/application/narrative/predictive_narrative_plan.dart",
+    "lib/features/thai_beta/application/thai_beta_report_export_document.dart",
+    "lib/features/thai_beta/application/thai_beta_report_pdf_exporter.dart",
+    "lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart",
+    "test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart",
+    "test/validation/thai_beta/life_map/thai_life_map_v123_report_acceptance_test.dart",
+    "test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart",
+    "test/validation/thai_beta/life_map/v135/thai_life_map_v135_ui_primary_test.dart",
+    "test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart",
+    "test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart",
+    "test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart",
+    "test/validation/thai_beta/narrative/thai_predictive_narrative_v2_phase2_test.dart",
+    "test/validation/thai_beta/thai_beta_capture_scroll_test.dart",
+    "test/validation/thai_beta/thai_beta_report_export_test.dart",
+    "test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart",
+    "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart",
+    "test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart"
   ],
   "allowed_globs": [],
   "forbidden_files": [
@@ -43,15 +58,15 @@
     "round_[0-9]+_review\\.json"
   ],
   "focused_tests": [
-    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/thai_beta_unknown_time_input_copy_test.dart test/validation/thai_beta/live_asof/thai_beta_date_aware_contract_test.dart",
-    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/live_asof/thai_beta_canonical_text_contract_test.dart test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart",
-    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart test/validation/thai_beta/narrative/thai_beta_narrative_v15_r5_acceptance_test.dart test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart",
-    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart test/validation/thai_beta/thai_beta_report_export_test.dart test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart",
-    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/thai_beta_screenshot_mode_test.dart test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart"
+    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/narrative/thai_predictive_narrative_v2_phase2_test.dart",
+    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart",
+    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart test/validation/thai_beta/life_map/thai_life_map_v123_report_acceptance_test.dart test/validation/thai_beta/life_map/v126/thai_life_map_v126_time_bucket_ux_test.dart test/validation/thai_beta/life_map/v135/thai_life_map_v135_ui_primary_test.dart",
+    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/narrative/thai_beta_narrative_v12_acceptance_test.dart test/validation/thai_beta/narrative/thai_beta_report_v121_acceptance_test.dart test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart",
+    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/thai_beta_capture_scroll_test.dart test/validation/thai_beta/thai_beta_report_export_test.dart test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart"
   ],
   "full_test_policy": "required",
   "full_test_command": "flutter test --no-pub --concurrency=1 test/validation/thai_beta/ test/validation/thai/ test/validation/birth_normalization/ test/thai_foundation_engine_test.dart test/validation/thai_mirror_qa_harness/story_coverage_validation_test.dart test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart",
   "analyze_command": "flutter analyze --no-pub --no-fatal-warnings --no-fatal-infos",
-  "commit_message_regex": "^(fix\\(thai-beta\\): .{10,72}|docs: .{10,72})$",
+  "commit_message_regex": "^(feat\\(thai-beta\\): .{10,72}|test\\(thai-beta\\): .{10,72}|docs: .{10,72})$",
   "require_clean_tree_after_commit": true
 }

@@ -129,7 +129,11 @@ void main() {
       for (final section in document.sections) {
         expect(
           section.id,
-          matches(RegExp(r'^report-(chapter|body|timeline|disclaimer)-')),
+          matches(
+            RegExp(
+              r'^(predictive-|report-(chapter|body|timeline|disclaimer)-)',
+            ),
+          ),
         );
         expect(section.fieldSource, isNotEmpty);
         expect(section.visibilityRule, isNotEmpty);
@@ -175,7 +179,14 @@ void main() {
           expect(title, greaterThanOrEqualTo(header), reason: fixtureId);
           expect(subtitle, greaterThan(title), reason: fixtureId);
           expect(firstSection, greaterThan(subtitle), reason: fixtureId);
-          expect(document.sections.first.title, isNotEmpty, reason: fixtureId);
+          expect(
+            document.sections.first.title.isNotEmpty ||
+                document.narrativePlan?.isKnownTime == false,
+            isTrue,
+            reason:
+                '$fixtureId may omit the Unknown title only when the accepted '
+                'fail-closed plan begins directly with its omission paragraph',
+          );
           expect(
             document.sections.first.paragraphs.first,
             isNotEmpty,
@@ -208,69 +219,81 @@ void main() {
       timeout: const Timeout(Duration(minutes: 5)),
     );
 
-    test('candidate is opt-in and leaves the accepted factory unchanged', () {
-      final analysis = _analysis(knownTime: true);
-      final before = ThaiBetaReportExportDocument.beforeReaderCopy(analysis);
-      final after = ThaiBetaReportExportDocument.candidate(analysis);
-      expect(
-        before.sections.any(
-          (section) => section.kind == ThaiBetaReportExportSectionKind.chapter,
-        ),
-        isFalse,
-      );
-      expect(before.fullPlainText, contains('แปลเป็นภาษาคน'));
-      expect(
-        after.sections.where(
-          (section) => section.kind == ThaiBetaReportExportSectionKind.chapter,
-        ),
-        hasLength(4),
-      );
-      expect(after.fullPlainText, isNot(contains('แปลเป็นภาษาคน')));
-      expect(after.fullPlainText, isNot(contains('จุดกระตุ้น')));
-      expect(after.fullPlainText, isNot(contains('ธาตุขัดกัน')));
-    });
-
-    test('four reader chapters appear once and in a stable order', () {
-      for (final knownTime in [true, false]) {
-        final document = ThaiBetaReportExportDocument.candidate(
-          _analysis(knownTime: knownTime),
-        );
-        const titles = [
-          'ส่วนที่ 1 · พื้นดวงของคุณ',
-          'ส่วนที่ 2 · จังหวะชีวิตที่ผ่านมาและปัจจุบัน',
-          'ส่วนที่ 3 · แนวโน้มข้างหน้า',
-          'ส่วนที่ 4 · ที่มาและข้อจำกัด',
-        ];
-        final chapterSections = document.sections
-            .where(
-              (section) =>
-                  section.kind == ThaiBetaReportExportSectionKind.chapter,
-            )
-            .toList(growable: false);
-        expect(chapterSections.map((section) => section.title), titles);
-        var previous = -1;
-        for (final title in titles) {
-          final index = document.sections.indexWhere(
-            (section) => section.title == title,
-          );
-          expect(index, greaterThan(previous));
-          previous = index;
-        }
-        final markup = browserPrintMarkup(document);
+    test(
+      'candidate projects the typed narrative plan without legacy chapters',
+      () {
+        final analysis = _analysis(knownTime: true);
+        final before = ThaiBetaReportExportDocument.beforeReaderCopy(analysis);
+        final after = ThaiBetaReportExportDocument.candidate(analysis);
         expect(
-          'class="report-section chapter"'.allMatches(markup),
-          hasLength(4),
+          before.sections.any(
+            (section) =>
+                section.kind == ThaiBetaReportExportSectionKind.chapter,
+          ),
+          isFalse,
         );
-      }
-    });
+        expect(before.fullPlainText, contains('แปลเป็นภาษาคน'));
+        expect(after.narrativePlan, isNotNull);
+        expect(
+          after.sections.map((section) => section.id),
+          after.narrativePlan!.sections.map(
+            (section) => 'predictive-${section.id}',
+          ),
+        );
+        expect(
+          after.sections.any(
+            (section) =>
+                section.kind == ThaiBetaReportExportSectionKind.chapter,
+          ),
+          isFalse,
+        );
+        expect(after.fullPlainText, isNot(contains('แปลเป็นภาษาคน')));
+        expect(after.fullPlainText, isNot(contains('จุดกระตุ้น')));
+        expect(after.fullPlainText, isNot(contains('ธาตุขัดกัน')));
+      },
+    );
 
-    test('Known and Unknown place the image after its 12-month narrative', () {
+    test(
+      'typed plan sections project once and preserve their stable order',
+      () {
+        for (final knownTime in [true, false]) {
+          final document = ThaiBetaReportExportDocument.candidate(
+            _analysis(knownTime: knownTime),
+          );
+          final plan = document.narrativePlan!;
+          expect(document.sections, hasLength(plan.sections.length));
+          expect(
+            document.sections.map((section) => section.title),
+            plan.sections.map((section) => section.title),
+          );
+          expect(
+            document.sections.map((section) => section.id).toSet(),
+            hasLength(document.sections.length),
+          );
+          final markup = browserPrintMarkup(document);
+          expect(
+            'class="report-section'.allMatches(markup),
+            hasLength(document.sections.length),
+          );
+        }
+      },
+    );
+
+    test('image insertion follows the last supported narrative section', () {
       for (final knownTime in [true, false]) {
         final document = ThaiBetaReportExportDocument.candidate(
           _analysis(knownTime: knownTime),
         );
         final insertion = document.infographicInsertionSectionIndex;
-        expect(document.sections[insertion].title, 'แนวโน้ม 12 เดือนข้างหน้า');
+        if (knownTime) {
+          expect(
+            document.sections[insertion].title,
+            'คำทำนาย 12 เดือนข้างหน้า',
+          );
+        } else {
+          expect(insertion, document.sections.length - 1);
+          expect(document.narrativePlan!.isKnownTime, isFalse);
+        }
         final markup = browserPrintMarkup(
           document,
           infographicPng: Uint8List.fromList([1, 2, 3]),
@@ -279,11 +302,13 @@ void main() {
           'data-section-id="${document.sections[insertion].id}"',
         );
         final image = markup.indexOf('class="infographic-page"');
-        final after = markup.indexOf(
-          'data-section-id="${document.sections[insertion + 1].id}"',
-        );
         expect(before, lessThan(image));
-        expect(image, lessThan(after));
+        if (insertion + 1 < document.sections.length) {
+          final after = markup.indexOf(
+            'data-section-id="${document.sections[insertion + 1].id}"',
+          );
+          expect(image, lessThan(after));
+        }
       }
     });
   });
@@ -331,7 +356,13 @@ void main() {
           expect(data.monthlyGapReason, contains('ไม่มีคะแนนหรือหลักฐาน'));
           expect(data.title, isNot(contains('1982')));
           expect(data.title, isNot(contains('กรุงเทพมหานคร')));
-          if (!knownTime) expect(data.disclaimer, contains('ไม่มีเวลาเกิด'));
+          if (!knownTime) {
+            expect([
+              data.theme,
+              data.overview,
+              ...data.categories.map((category) => category.summary),
+            ], anyElement(contains('เว้นหัวข้อที่ต้องใช้เวลาเกิด')));
+          }
         }
       },
     );

@@ -10,6 +10,7 @@ import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_pr
 import 'thai_beta_report_export_polish.dart';
 import 'thai_beta_reader_copy_repair.dart';
 import 'thai_beta_report_export_safety.dart';
+import 'narrative/predictive_narrative_plan.dart';
 import 'narrative/thai_beta_narrative_composer.dart';
 
 class ThaiBetaReportExportSection {
@@ -98,6 +99,7 @@ class ThaiBetaReportExportDocument {
     required this.sections,
     required this.filenameStem,
     this.infographic,
+    this.narrativePlan,
   });
 
   final String title;
@@ -105,6 +107,7 @@ class ThaiBetaReportExportDocument {
   final List<ThaiBetaReportExportSection> sections;
   final String filenameStem;
   final ThaiBetaAnnualInfographicData? infographic;
+  final PredictiveNarrativePlan? narrativePlan;
 
   String get fullPlainText {
     final buf = StringBuffer()
@@ -123,7 +126,9 @@ class ThaiBetaReportExportDocument {
   /// browser print. The image follows the narrative it summarizes.
   int get infographicInsertionSectionIndex {
     final twelveMonthIndex = sections.indexWhere(
-      (section) => section.title == 'แนวโน้ม 12 เดือนข้างหน้า',
+      (section) =>
+          section.title == 'แนวโน้ม 12 เดือนข้างหน้า' ||
+          section.title == 'คำทำนาย 12 เดือนข้างหน้า',
     );
     if (twelveMonthIndex >= 0) return twelveMonthIndex;
     if (sections.isEmpty) return -1;
@@ -143,6 +148,7 @@ class ThaiBetaReportExportDocument {
         sections: [],
         filenameStem: 'knowme-thai-report',
         infographic: null,
+        narrativePlan: null,
       );
     }
 
@@ -394,7 +400,13 @@ class ThaiBetaReportExportDocument {
   static ThaiBetaReportExportDocument candidate(
     ThaiBetaAnalysis analysis, {
     List<ThaiPublicEvidenceBadgeBetaViewModel> badges = const [],
-  }) => fromAnalysis(analysis, badges: badges, applyReaderCopy: true);
+  }) {
+    if (analysis.consumerViewState == null) {
+      return fromAnalysis(analysis, badges: badges, applyReaderCopy: true);
+    }
+    final plan = PredictiveNarrativePlan.fromAnalysis(analysis);
+    return polishForPdf(_fromNarrativePlan(analysis, plan));
+  }
 
   /// Re-apply presentation polish before PDF bytes are written.
   static ThaiBetaReportExportDocument polishForPdf(
@@ -427,6 +439,119 @@ class ThaiBetaReportExportDocument {
       sections: sections,
       filenameStem: document.filenameStem,
       infographic: document.infographic,
+      narrativePlan: document.narrativePlan,
+    );
+  }
+
+  static ThaiBetaReportExportDocument _fromNarrativePlan(
+    ThaiBetaAnalysis analysis,
+    PredictiveNarrativePlan plan,
+  ) {
+    final sections = plan.sections
+        .map(
+          (section) => ThaiBetaReportExportSection(
+            title: section.title,
+            paragraphs: [
+              for (final block in section.blocks) ...[
+                ?block.heading,
+                ...block.atoms.map((atom) => atom.readerText),
+              ],
+            ],
+            kind:
+                section.role == NarrativeSectionRole.disclaimer ||
+                    section.role == NarrativeSectionRole.omission
+                ? ThaiBetaReportExportSectionKind.disclaimer
+                : section.role == NarrativeSectionRole.past ||
+                      section.role == NarrativeSectionRole.current ||
+                      section.role == NarrativeSectionRole.nextLifePeriod
+                ? ThaiBetaReportExportSectionKind.timeline
+                : ThaiBetaReportExportSectionKind.body,
+            id: 'predictive-${section.id}',
+            fieldSource: 'PredictiveNarrativePlan',
+            visibilityRule: 'visible-when-plan-section-has-atoms',
+            knownUnknownRule: plan.isKnownTime
+                ? 'known-plan; time-dependent-atoms-eligible'
+                : 'unknown-plan; time-dependent-atoms-filtered-before-prose',
+            traceIds: section.atoms
+                .expand((atom) => [atom.owner.id, ...atom.evidence.refs])
+                .toSet()
+                .toList(growable: false),
+          ),
+        )
+        .toList(growable: false);
+    return ThaiBetaReportExportDocument(
+      title: plan.title,
+      subtitle: plan.subtitle,
+      sections: sections,
+      filenameStem: 'knowme-thai-report',
+      infographic: _annualInfographicFromPlan(analysis, plan),
+      narrativePlan: plan,
+    );
+  }
+
+  static ThaiBetaAnnualInfographicData _annualInfographicFromPlan(
+    ThaiBetaAnalysis analysis,
+    PredictiveNarrativePlan plan,
+  ) {
+    NarrativeAtom? firstFor(NarrativeSectionRole role) {
+      for (final section in plan.sections) {
+        if (section.role == role && section.atoms.isNotEmpty) {
+          return section.atoms.first;
+        }
+      }
+      return null;
+    }
+
+    final omission = firstFor(NarrativeSectionRole.omission);
+    final fallback =
+        omission ?? firstFor(NarrativeSectionRole.overview) ?? plan.atoms.first;
+    final categoryBindings = <(String, String, NarrativeSectionRole)>[
+      ('work', 'การงาน', NarrativeSectionRole.work),
+      ('savings', 'การเงิน', NarrativeSectionRole.finance),
+      ('favorite', 'ความรัก', NarrativeSectionRole.relationship),
+      ('self_improvement', 'สุขภาพ', NarrativeSectionRole.health),
+    ];
+    final categories = <ThaiBetaAnnualInfographicCategory>[
+      for (final binding in categoryBindings)
+        () {
+          final atom = firstFor(binding.$3) ?? fallback;
+          return ThaiBetaAnnualInfographicCategory(
+            id: 'plan-${binding.$3.name}',
+            title: binding.$2,
+            summary: atom.compactText,
+            iconName: binding.$1,
+            traceIds: [atom.owner.id, ...atom.evidence.refs],
+          );
+        }(),
+    ];
+    final horizon = firstFor(NarrativeSectionRole.horizon) ?? fallback;
+    final support = firstFor(NarrativeSectionRole.support) ?? horizon;
+    final caution = firstFor(NarrativeSectionRole.health) ?? fallback;
+    final advice = firstFor(NarrativeSectionRole.advice) ?? fallback;
+    final disclosure = plan.atoms.firstWhere(
+      (atom) => atom.role == NarrativeAtomRole.disclosure,
+      orElse: () => fallback,
+    );
+    final theme =
+        firstFor(NarrativeSectionRole.overview)?.compactText ??
+        fallback.compactText;
+    return ThaiBetaAnnualInfographicData(
+      buddhistYear: analysis.asOf.year + 543,
+      periodLabel: _twelveMonthPeriodLabel(analysis.asOf),
+      theme: theme,
+      overview: _twelveMonthPeriodLabel(analysis.asOf),
+      categories: List.unmodifiable(categories),
+      opportunity: support.compactText,
+      caution: caution.compactText,
+      primaryAdvice: advice.compactText,
+      disclaimer: disclosure.compactText,
+      monthlyTimelineAvailable: plan.monthlyTimelineAvailable,
+      monthlyGapReason:
+          'ไม่มีคะแนนหรือหลักฐานที่ผูกคำทำนายกับเดือนปฏิทินทั้ง 12 เดือน',
+      traceIds: plan.atoms
+          .expand((atom) => [atom.owner.id, ...atom.evidence.refs])
+          .toSet()
+          .toList(growable: false),
     );
   }
 

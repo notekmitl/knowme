@@ -330,11 +330,17 @@ void main() {
         find.byKey(const Key('thai_consumer_signature_insight')),
         findsNothing,
       );
-      expect(find.text('ดวงจากวันเกิดของคุณ'), findsOneWidget);
+      expect(find.text('ภาพรวมเส้นทางชีวิต'), findsOneWidget);
       expect(find.text('แก่นที่พอเห็นได้จากข้อมูลที่มี'), findsNothing);
       expect(find.text('ข้อมูลวันเกิดครบถ้วน'), findsNothing);
-      expect(find.text(ThaiBetaNarrativeV12.strengthsSectionTitle), findsNothing);
-      expect(find.text(ThaiBetaNarrativeV12.cautionsSectionTitle), findsNothing);
+      expect(
+        find.text(ThaiBetaNarrativeV12.strengthsSectionTitle),
+        findsNothing,
+      );
+      expect(
+        find.text(ThaiBetaNarrativeV12.cautionsSectionTitle),
+        findsNothing,
+      );
       expect(find.text(ThaiBetaNarrativeV12.adviceSectionTitle), findsNothing);
       expect(tester.takeException(), isNull);
     });
@@ -352,7 +358,10 @@ void main() {
         findsNothing,
       );
       expect(find.text('ข้อมูลวันเกิดครบถ้วน'), findsNothing);
-      expect(find.text(ThaiBetaNarrativeV12.strengthsSectionTitle), findsNothing);
+      expect(
+        find.text(ThaiBetaNarrativeV12.strengthsSectionTitle),
+        findsNothing,
+      );
       expect(tester.takeException(), isNull);
     });
 

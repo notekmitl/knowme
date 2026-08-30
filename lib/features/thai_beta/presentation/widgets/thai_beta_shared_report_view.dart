@@ -18,6 +18,10 @@ const _reportDomainHeadings = {
   'โชคลาภ',
 };
 
+bool _isReportSubheading(String value) =>
+    _reportDomainHeadings.contains(value.trim()) ||
+    RegExp(r'^อายุ \d+[–-]\d+ ปี$').hasMatch(value.trim());
+
 abstract final class ThaiBetaAnnualInfographicCapture {
   static const logicalSize = Size(360, 640);
   static const pixelRatio = 3.0;
@@ -252,9 +256,7 @@ class _SharedReportSection extends StatelessWidget {
           ],
           for (var index = 0; index < section.paragraphs.length; index++) ...[
             SizedBox(height: isChapter ? 6 : 9),
-            if (_reportDomainHeadings.contains(
-              section.paragraphs[index].trim(),
-            ))
+            if (_isReportSubheading(section.paragraphs[index]))
               Row(
                 key: ValueKey(section.paragraphIds[index]),
                 children: [

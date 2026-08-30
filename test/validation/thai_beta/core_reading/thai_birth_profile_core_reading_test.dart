@@ -761,11 +761,8 @@ void main() {
     final timeline = find.byKey(const Key('thai_consumer_life_timeline'));
     expect(core, findsOneWidget);
     expect(timeline, findsOneWidget);
-    expect(find.text('ส่วนที่ 1 · พื้นดวงของคุณ'), findsOneWidget);
-    expect(
-      find.text('ส่วนที่ 2 · จังหวะชีวิตที่ผ่านมาและปัจจุบัน'),
-      findsOneWidget,
-    );
+    expect(find.text('ภาพรวมเส้นทางชีวิต'), findsOneWidget);
+    expect(find.text('คำทำนายอดีต'), findsOneWidget);
     expect(
       find.byKey(const Key('thai_birth_profile_timeline_divider')),
       findsNothing,
@@ -785,7 +782,7 @@ void main() {
       findsNothing,
     );
     expect(find.byKey(const Key('thai_consumer_closing')), findsNothing);
-    expect(find.byKey(const Key('thai_consumer_source')), findsOneWidget);
+    expect(find.byKey(const Key('thai_consumer_source')), findsNothing);
     expect(find.byType(ThaiBetaSharedReportView), findsOneWidget);
     expect(
       tester.getTopLeft(core).dy,
@@ -793,7 +790,7 @@ void main() {
     );
   });
 
-  testWidgets('unsupported no-time topics are disclosed after Timeline', (
+  testWidgets('unsupported no-time topics replace the timeline fail closed', (
     tester,
   ) async {
     await tester.pumpWidget(
@@ -807,18 +804,12 @@ void main() {
     );
     await tester.pump();
 
-    final timeline = find.byKey(const Key('thai_consumer_life_timeline'));
-    final omissions = find.byKey(const Key('thai_birth_profile_omissions'));
-    expect(timeline, findsOneWidget);
-    expect(omissions, findsOneWidget);
+    expect(find.byKey(const Key('thai_consumer_life_timeline')), findsNothing);
     expect(
-      tester.getTopLeft(timeline).dy,
-      lessThan(tester.getTopLeft(omissions).dy),
-    );
-    expect(
-      find.text(ThaiBirthProfileCoreReadingCopy.omissionsTitle),
+      find.textContaining('รายงานจึงเว้นคำทำนายช่วงชีวิตที่ต้องใช้เวลาเกิด'),
       findsOneWidget,
     );
+    expect(find.textContaining('ลัคนาราศี'), findsNothing);
   });
 
   testWidgets('Thai Mirror default still renders the lifelong report', (

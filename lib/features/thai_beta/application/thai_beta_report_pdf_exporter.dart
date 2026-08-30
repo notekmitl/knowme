@@ -22,6 +22,10 @@ const _semanticHeadings = {
   'โครงสร้างดวงหลัก',
 };
 
+bool _isSemanticHeading(String value) =>
+    _semanticHeadings.contains(value.trim()) ||
+    RegExp(r'^อายุ \d+[–-]\d+ ปี$').hasMatch(value.trim());
+
 final _isoDatePattern = RegExp(r'(?<!\d)\d{4}-\d{2}-\d{2}(?!\d)');
 
 /// Keeps each ISO date in an inline widget so the visible token uses ordinary
@@ -114,7 +118,7 @@ List<_PdfSemanticBlock> _semanticBlocks(List<String> paragraphs) {
   String? heading;
   var body = <String>[];
   for (final paragraph in paragraphs) {
-    if (_semanticHeadings.contains(paragraph.trim())) {
+    if (_isSemanticHeading(paragraph)) {
       if (heading != null) {
         blocks.add(_PdfSemanticBlock(heading: heading, paragraphs: body));
       }
@@ -361,6 +365,27 @@ abstract final class ThaiBetaReportPdfExporter {
             pw.Divider(thickness: 0.8, color: PdfColors.grey400),
             pw.SizedBox(height: 18),
           ];
+          void appendInfographicAfter(int sectionIndex) {
+            if (infographicPng == null ||
+                sectionIndex != polished.infographicInsertionSectionIndex) {
+              return;
+            }
+            widgets.add(pw.NewPage());
+            widgets.add(
+              pw.Center(
+                child: pw.Image(
+                  pw.MemoryImage(infographicPng),
+                  // 9:16 within the printable A4 body. The previous 728pt
+                  // height exceeded MultiPage's body once the footer was
+                  // reserved and retried until TooManyPagesException.
+                  width: 382,
+                  height: 679,
+                  fit: pw.BoxFit.contain,
+                ),
+              ),
+            );
+          }
+
           for (var i = 0; i < polished.sections.length; i++) {
             final section = polished.sections[i];
             final isChapter =
@@ -398,6 +423,7 @@ abstract final class ThaiBetaReportPdfExporter {
                   ),
                 ),
               );
+              appendInfographicAfter(i);
               continue;
             }
 
@@ -466,6 +492,7 @@ abstract final class ThaiBetaReportPdfExporter {
                   ),
                 ),
               );
+              appendInfographicAfter(i);
               continue;
             }
 
@@ -526,6 +553,7 @@ abstract final class ThaiBetaReportPdfExporter {
                   ),
                 ),
               );
+              appendInfographicAfter(i);
               continue;
             }
 
@@ -622,23 +650,7 @@ abstract final class ThaiBetaReportPdfExporter {
             if (i < polished.sections.length - 1) {
               widgets.add(pw.SizedBox(height: 8));
             }
-            if (infographicPng != null &&
-                i == polished.infographicInsertionSectionIndex) {
-              widgets.add(pw.NewPage());
-              widgets.add(
-                pw.Center(
-                  child: pw.Image(
-                    pw.MemoryImage(infographicPng),
-                    // 9:16 within the printable A4 body. The previous 728pt
-                    // height exceeded MultiPage's body once the footer was
-                    // reserved and retried until TooManyPagesException.
-                    width: 382,
-                    height: 679,
-                    fit: pw.BoxFit.contain,
-                  ),
-                ),
-              );
-            }
+            appendInfographicAfter(i);
           }
 
           return widgets;

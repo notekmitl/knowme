@@ -45,9 +45,9 @@ void main() {
       find.byKey(const Key('thai_birth_profile_core_reading')),
       findsOneWidget,
     );
-    expect(find.text('อดีตของคุณ'), findsOneWidget);
-    expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
-    expect(find.text('จังหวะชีวิตระยะต่อไป'), findsOneWidget);
+    expect(find.text('คำทำนายอดีต'), findsOneWidget);
+    expect(find.textContaining('คำทำนายปัจจุบัน — อายุ'), findsOneWidget);
+    expect(find.textContaining('ช่วงชีวิตถัดไป — อายุ'), findsOneWidget);
   }
 
   void expectDetailedEvidenceReportAbsent() {
@@ -90,9 +90,9 @@ void main() {
         find.text(ThaiMirrorLifeTimelineSection.expandDetailsLabel),
         findsNothing,
       );
-      expect(find.text('อดีตของคุณ'), findsOneWidget);
-      expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
-      expect(find.text('จังหวะชีวิตระยะต่อไป'), findsOneWidget);
+      expect(find.text('คำทำนายอดีต'), findsOneWidget);
+      expect(find.textContaining('คำทำนายปัจจุบัน — อายุ'), findsOneWidget);
+      expect(find.textContaining('ช่วงชีวิตถัดไป — อายุ'), findsOneWidget);
       expect(tester.takeException(), isNull);
     },
   );
