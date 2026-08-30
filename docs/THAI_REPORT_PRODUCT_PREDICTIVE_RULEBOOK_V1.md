@@ -1,6 +1,8 @@
 # Thai Report Product Predictive Rulebook V1
 
-สถานะ: **PROPOSED PRODUCT RULEBOOK — OWNER RULE REVIEW REQUIRED — NOT IMPLEMENTED**
+สถานะ: **OWNER REJECTED AS IMPLEMENTATION RULE SET — HISTORICAL V1 AUDIT BASELINE ONLY**
+
+OR3 พบ timing defect จาก `currentAge + 1` แบบ blanket, unsourced thresholds 64/68/46, fixed 75/80 ที่ไม่ใช่ predictive confidence และ event movements ที่ Canon/engine ไม่รองรับ ห้ามใช้กฎชุดนี้สร้าง runtime หรือ expected output ดู Authority Audit, Population Calibration และ Rulebook V1.1
 
 Owner เลือก Option B Candidate 0004 เป็น content direction เท่านั้น Rulebook นี้เสนอ deterministic product inferences จาก calculation outputs ที่มีจริง ไม่กล่าวอ้างว่าเป็นกฎโหราศาสตร์ดั้งเดิมเมื่อ Canon ไม่มี และไม่ได้สร้าง expected-output baseline
 

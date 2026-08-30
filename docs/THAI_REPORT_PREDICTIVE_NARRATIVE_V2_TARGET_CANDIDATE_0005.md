@@ -1,6 +1,6 @@
 # Thai Report Predictive Narrative V2 — Target Candidate 0005 Known
 
-สถานะ: **OPTION B CONTENT TARGET — RULES PENDING OWNER REVIEW — NOT IMPLEMENTED**
+สถานะ: **OWNER REJECTED AS CONTENT/IMPLEMENTATION/EXPECTED-OUTPUT TARGET — RETAINED FOR COMPARISON ONLY**
 
 Fixture: ชาย · 6 มิถุนายน 2525 · 00:03 · เชียงใหม่ · `asOf=2026-08-29 Asia/Bangkok` · Aquarius 9°24′ · Thai astrological day Saturday
 

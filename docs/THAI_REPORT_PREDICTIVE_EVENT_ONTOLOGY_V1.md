@@ -1,6 +1,6 @@
 # Thai Report Predictive Event Ontology V1
 
-สถานะ: **OR2 PROPOSED — OWNER REVIEW REQUIRED — NO RUNTIME AUTHORIZATION**
+สถานะ: **OWNER ACCEPTED FOR FURTHER DESIGN — EVENT MAPPINGS STILL REQUIRE AUTHORITY — NO RUNTIME AUTHORIZATION**
 
 Owner เลือก Option B ให้ขยาย evidence contract Ontology นี้แก้ข้อผิดพลาด OR1 ที่จัด `family duty` และ `education/social transition` เป็น career event เพียงเพราะมี career score
 

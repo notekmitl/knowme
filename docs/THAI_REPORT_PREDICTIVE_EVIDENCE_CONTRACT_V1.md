@@ -1,5 +1,16 @@
 # Thai Report Predictive Evidence Contract V1
 
+## OR3 final rule-validity gate (2026-08-30)
+
+Owner retains Option B and accepts the Event Ontology/Evidence Architecture for further design, but rejects Rulebook V1 and Candidate 0005 Known/Unknown as implementation, content, or expected-output targets. V1 has a blanket `currentAge+1` rolling-timing defect, unsourced 64/68/46 thresholds, arbitrary fixed 75/80 confidence labels, and event movements without sufficient Canon/engine authority.
+
+The corrected rolling design splits at the actual birthday and passed boundary/coverage checks 300/300. Population calibration used the repository 300-case matrix: Known 225, Unknown 75, all eight supported start planets, opening/peak/closing, all harmony directions, and all five relationship-status design values. It measures selectivity only; semantic validity is not established and predictive accuracy cannot be measured without historical outcomes.
+
+Rulebook V1.1 retains one exact life-period fact rule and two engine-semantic tendency projections, with product event rules 0, unsourced retained thresholds 0, arbitrary fixed confidence 0, and unsupported event claims 0. Candidate 0006 Known therefore has exact facts 2, tendencies 1, event predictions 0, visible duplicates 0 and Golden supported-content coverage 2/4. Unknown is a short reduced report with one limitation, empty predictive headings 0 and duplicate hits 0.
+
+Final decision: **NO-GO — DOMAIN AUTHORITY OR CALIBRATION BLOCKER RECORDED**. Runtime implementation and expected-output creation remain blocked pending an expert-authored/approved event mapping or a validated outcome dataset. `monthlyTimelineAvailable=false`; G05/G10 remain blocked; no application, engine, UI, generator, report, infographic, PDF/export, Firebase/Production or `product-acceptance/` change is authorized.
+
+
 สถานะ: **OR2 OPTION B SELECTED — PRODUCT RULEBOOK PROPOSED — OWNER RULE REVIEW REQUIRED — NOT IMPLEMENTED**
 
 OR2 correction: past family duty and education/social transitions are no longer classified as career events Product rule IDs, exact thresholds and convergence formulas live in `THAI_REPORT_PRODUCT_PREDICTIVE_RULEBOOK_V1.md` Candidate 0004 remains content direction only

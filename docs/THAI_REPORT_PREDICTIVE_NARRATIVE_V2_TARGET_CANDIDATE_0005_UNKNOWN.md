@@ -1,6 +1,6 @@
 # Thai Report Predictive Narrative V2 — Target Candidate 0005 Unknown
 
-สถานะ: **FULL UNKNOWN CONTENT TARGET — FAIL-CLOSED — NOT IMPLEMENTED**
+สถานะ: **OWNER REJECTED AS CONTENT TARGET — EMPTY-SECTION EXPERIENCE SUPERSEDED BY CANDIDATE 0006 UNKNOWN**
 
 Fixture: ชาย · 6 มิถุนายน 2525 · ไม่ทราบเวลาเกิด · เชียงใหม่ · `asOf=2026-08-29 Asia/Bangkok`
 

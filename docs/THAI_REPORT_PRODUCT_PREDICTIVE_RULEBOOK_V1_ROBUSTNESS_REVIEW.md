@@ -1,6 +1,8 @@
 # Product Predictive Rulebook V1 — Robustness Review
 
-สถานะ: **DESIGN EVALUATION COMPLETE — RULES STILL PENDING OWNER APPROVAL**
+สถานะ: **SUPERSEDED — 15-PROFILE SELECTIVITY DID NOT ESTABLISH SEMANTIC VALIDITY OR ACCURACY**
+
+Owner rejected V1 การที่ทุก rule fire ใน sample นี้พิสูจน์เพียงว่ากฎ executable ใน design probe ไม่ได้พิสูจน์ความหมายหรือความแม่น OR3 ใช้ repository matrix 300 profiles และ authority audit แทน
 
 Evaluation ใช้ calculation outputs จริงจาก pipeline ที่ `asOf=2026-08-29 Asia/Bangkok` ผ่าน design-only temporary probe ไม่มีการเพิ่ม runtime/test file เข้า commit
 
