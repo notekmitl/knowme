@@ -1,5 +1,18 @@
 # Thai Report Reader Experience V2
 
+## PR112 Phase 1 SA2 OR2 — Candidate 0010 full predictive narrative (2026-08-30)
+
+Status: **PR112 PHASE 1 SA2 OR2 FULL PREDICTIVE CONTENT CANDIDATE COMPLETE — CANDIDATE 0010 PENDING OWNER CONTENT REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.
+
+Owner accepts the SA2 OR1 corpus reclassification, 49 context mappings, 392 life-period placement records, claim-type separation, structural validator and negative controls, Candidate 0008 rejection, Unknown fail-closed behavior and Mercury / Mula / Athibodi age 63–79 correction as structural work. Owner rejects Candidate 0009 as reader-facing copy: 7 prediction claims are 11 below the Candidate 0010 minimum and do not provide a full-report experience; ages 1–29 and the relationship, health, luck and major-change narratives were absent or too thin. An OR1 validator PASS proves structural trace only, not prediction accuracy, real-life truth, language quality or Owner content acceptance.
+
+Owner authorized the internal `OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS` type for Candidate authoring. It combines traceable Tier-0 facts, placement records, source-direct/general-rule material, existing forecast/domain evidence and product interpretation while remaining internally labeled as product synthesis rather than a source quotation. Candidate 0010 Known contains 24 prediction paragraphs in chronological order across ages 1–10, 11–29, 30–41, current age 44, work, finance, relationship, health, luck/support, 29 August 2569 – 28 August 2570, and the corrected age 63–79 next period. Advice is separate and the belief disclaimer appears once. Unknown remains a two-claim fail-closed report with no time-dependent prediction or empty heading.
+
+Manual Human Content Audit passed the required read-through questions: chronology jump, defensive language, advice leakage, psychology, reflective past questions, unintended repetition, system/template copy and thin-section findings are all 0. Structural validation passes with all 27 calculated error counters at 0, negative controls 6/6, chronology errors 0 and claim coverage 28/28. Fixture separation remains 00:03 = Aquarius 9°24′ / Saturday, 00:35 = Aquarius 19°19′ / Saturday and Unknown = no time-dependent fields. The context/period selection coverage audit passes 300/300 profiles across 49 contexts and 160 signatures; it is not an accuracy or content-quality audit. Focused Canon/source tests pass 44/44. Full Flutter suite/analyzer were not rerun because runtime application and Dart test deltas are 0.
+
+Candidate/synthesis/claim-map commit: `661cf6371a26336fa93c68bc64a69c2b92b82072`. Validation/Human Content Audit commit: `c9d45434549baf604173e5f4f03abbbf1053b8e0`. Status/package commit: the commit containing this record. Owner package: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_REPORT_PREDICTIVE_NARRATIVE_V2_PHASE1_SA2_OR2_c9d4543.zip`, SHA-256 `2F07E74BF9EEBB24AC42183B3D2AE0C53553549CFA01B8377251CFBA960B5D48`; 15 entries, with CRC, extraction missing/extra, manifest hash/size, SHA256SUMS, secret and absolute-path errors all 0. PR #112 remains Open + Draft. Candidate 0010 is pending Owner content review and is not runtime implementation, Owner-accepted, merged or deployed; production Canon, `product-acceptance/`, Firebase and Production are unchanged.
+
+
 ## PR112 Phase 1 SA2 OR1 — Semantic evidence repair and Candidate 0009 (2026-08-30)
 
 Status: **PR112 PHASE 1 SA2 OR1 SEMANTIC EVIDENCE REPAIR COMPLETE — CANDIDATE 0009 PENDING OWNER CONTENT RE-REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.
