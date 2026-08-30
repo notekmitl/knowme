@@ -1,6 +1,12 @@
 # Thai Report Predictive Narrative V2 — Target Candidate 0011 Known
 
-Status: **FINAL CONTENT CANDIDATE — PENDING OWNER FINAL CONTENT REVIEW — NOT RUNTIME TARGET**
+Status: **OWNER-ACCEPTED FINAL CONTENT BASELINE — PHASE 2 FIXTURE ORACLE AND WRITING CONTRACT**
+
+Owner Final Content Review passed on 2026-08-30 at accepted Phase 1 HEAD
+`2c82dc4b09fa9ded8b6527266801375179bb0ea6`. Candidate 0011 freezes the
+accepted order, content, direct tone and detail level. It is the Phase 2
+fixture oracle and writing contract, not a fixture-specific hardcoded runtime
+branch and not a claim of real-life predictive accuracy.
 
 Fixture: ชาย · 6 มิถุนายน 2525 · 00:03 · เชียงใหม่ ·
 `asOf=2026-08-29 Asia/Bangkok` · ลัคนาราศีกุมภ์ 9°24′ ·

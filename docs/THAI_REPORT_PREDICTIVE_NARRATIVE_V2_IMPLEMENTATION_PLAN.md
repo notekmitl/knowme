@@ -1,5 +1,24 @@
 # Thai Report Predictive Narrative V2 — Implementation Plan
 
+## Phase 1 final content acceptance and Phase 2 authorization (2026-08-30)
+
+Owner accepted Candidate 0011 as the Final Reader Copy baseline, Phase 2
+fixture oracle and writing contract at Phase 1 HEAD
+`2c82dc4b09fa9ded8b6527266801375179bb0ea6`. Runtime must derive the same
+normalized sections and paragraphs from profile context; it must not hardcode
+the 6 June 1982 00:03 Chiang Mai fixture. No Candidate 0012 or new copy-design
+loop is authorized during implementation unless a proven factual,
+calculation or runtime-parity defect requires correction.
+
+The historical OR3 NO-GO below remains valid for heuristic thresholds,
+unapproved product event mappings and rulebooks without authority. It does
+not block Phase 2 now that the complete Mahabhut 2537 corpus, accepted evidence
+architecture and explicitly Owner-authorized astrological synthesis provide the
+approved implementation contract. Candidate 0011 keeps 22 prediction owners,
+removes `OAS-02` and `OAS-08` without adding a claim and keeps Unknown
+fail-closed. Phase 2 must use one typed narrative plan for Web, infographic,
+Dedicated PDF, browser print and text extraction.
+
 ## OR3 final rule-validity gate (2026-08-30)
 
 Owner retains Option B and accepts the Event Ontology/Evidence Architecture for further design, but rejects Rulebook V1 and Candidate 0005 Known/Unknown as implementation, content, or expected-output targets. V1 has a blanket `currentAge+1` rolling-timing defect, unsourced 64/68/46 thresholds, arbitrary fixed 75/80 confidence labels, and event movements without sufficient Canon/engine authority.

@@ -1,5 +1,20 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+## PR112 Phase 1 final content acceptance (2026-08-30)
+
+Status: **PR112 PHASE 1 OWNER CONTENT ACCEPTED — CANDIDATE 0011 FINAL CONTENT BASELINE — READY FOR PHASE 1 MERGE — NOT DEPLOYED**.
+
+Owner Final Content Review passed Candidate 0011 at accepted Phase 1 HEAD
+`2c82dc4b09fa9ded8b6527266801375179bb0ea6`. The accepted contract contains
+22 prediction owners, removes `OAS-02` and `OAS-08` with added claims 0, keeps
+Unknown fail-closed and treats `OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS` as
+internally traced product interpretation rather than a source quotation or a
+claim of real-life accuracy. OR3 evidence ZIP SHA-256 is
+`D9A98F3231DCD77580CB5B64B7ABB45938BBF1C6A7155429CA70FCFA1B69F10E`.
+This closeout is docs-only: runtime, production Canon, generated product
+artifacts, `product-acceptance/`, Firebase and Production deltas are 0. Phase 2
+is authorized only on a new branch after the regular-merge closeout of PR #112.
+
 ## PR112 Phase 1 SA2 OR3 — Candidate 0011 final reader-copy polish (2026-08-30)
 
 Status: **PR112 PHASE 1 SA2 OR3 FINAL READER COPY POLISH COMPLETE — CANDIDATE 0011 PENDING OWNER FINAL CONTENT REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.
