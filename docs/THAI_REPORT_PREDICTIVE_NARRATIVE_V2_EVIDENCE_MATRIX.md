@@ -2,6 +2,8 @@
 
 ฐานตรวจ: `d857308eb8635899e468dab5e22a3a53f87fced1` · Fixture `1982-06-06 00:03 Chiang Mai` · `asOf = 2026-08-29 Asia/Bangkok`
 
+OR1 disposition: Golden เป็น style target; Candidate 0003 ถูก Owner ปฏิเสธเป็น implementation/expected-output/acceptance target ตารางเดิมด้านล่างบันทึก current support ส่วนตาราง OR1 architecture extension บันทึก atom ที่ต้องมีและ Owner decision โดยไม่สร้าง evidence จาก Golden
+
 ## ผลรวม
 
 | Decision | Paragraphs |
@@ -76,3 +78,57 @@ Known 00:03 exposes these real keys through `ForecastMaterialFingerprint.evidenc
 - `prediction.health.nextLifePeriod.active`
 
 Unknown uses the same key shape only where date-based evidence remains available, with `sourceOwnership=life-period-score-without-lagna`, `e=noLagna`, and `td=false`. These are existing serialized values, not IDs created for this review.
+
+## OR1 predictive-architecture extension
+
+`Current source` เป็นข้อมูลที่มีจริง `Proposed deterministic rule` เป็นเพียงชนิดของกฎที่ต้องได้รับอนุมัติ ไม่ใช่สูตรที่อนุมัติแล้ว ทุกแถวที่ไม่มี approved Canon method ระบุ `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` และห้ามใช้เป็น runtime claim
+
+| ID | Exact required atom | Current source | Missing component | Proposed deterministic rule | Approved Canon basis | Legitimate certainty | Known / Unknown | Owner decision needed |
+|---|---|---|---|---|---|---|---|---|
+| G00 | normalized birth/chart fact | adapter → profile | none | existing normalization/calculation | existing calculation tests | exact fact | Known full; Unknown omits time fields | none |
+| G01 | life-period sequence only | `LifePeriodEngine` | early-responsibility event | existing boundaries; no event rule proposed | period boundaries only | exact period, theme as interpretation | date/day availability constrained | accept rewrite only |
+| G02 | current period + primary domain tendency | period + forecast plan | stable-choice outcome | existing period and forecast ordering | none for outcome | direct fact plus tendency | both with source ownership | accept rewrite only |
+| G03 | `work_role_change`, age 44–46 | age 44, annual Taksa, career score | 44–46 subrange and cut/expand event resolver | Owner-approved age-year Taksa + house + event-family rule with negative cases | none for event mapping | none until approved | Known; Unknown only if non-time rule approved | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| G04 | past duty/family-rule event | Saturn period 1–10; Canon life-period/Taksa positions | event family, actor, outcome | Owner-approved past-event resolver from period + annual Taksa; must prove negative cases | Canon has positions, no event mapping | none until approved | Known; Unknown omitted absent date-only rule | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| G05 | survival/self-reliance psychology | none | outside product boundary | no rule permitted in this report | none | none | prohibited both | route separate psychological report; `MUST_NOT_IMPLEMENT` |
+| G06 | past school/work/social setting change | Jupiter period 11–29 | event family, setting, count | Owner-approved past-event resolver with explicit setting enum and count rule | none for event mapping | none until approved | Known; Unknown blocked | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| G07 | late-period responsibility/expectation separation | same period | late subperiod, domains, decision outcome | Owner-approved subperiod + cross-domain event resolver | none | none until approved | Known; Unknown blocked | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| G08 | past high-magnitude cross-domain change | Rahu period 30–41 | magnitude, affected domains, event | Owner-approved magnitude threshold + event resolver | none | none until approved | Known; Unknown blocked | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| G09 | counted ending/reshaping event | same period | event count and outcome | Owner-approved event detection with stable event identity/dedupe | none | none until approved | Known; Unknown blocked | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| G10 | learned suitable people/burdens psychology | none | outside product boundary | no rule permitted in this report | none | none | prohibited both | route separate psychological report; `MUST_NOT_IMPLEMENT` |
+| G11 | Venus 42–62 + current work tendency | life period + career forecast | proving/valuable-choice causal story | rewrite to exact period and tendency only | period facts only | fact/tendency | both per evidence | accept rewrite only |
+| G12 | old/new return + fame/money/satisfaction | cross-domain strong bands | event source and three outcomes | Owner-approved cross-domain event resolver with one outcome per atom | none | none until approved | Known; Unknown blocked | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| G13 | career movement tendency | career current score/evidence | role-change event | retain tendency or await `work_role_change` rule | none for event | direct tendency only | both per evidence | choose tendency vs new rule |
+| G14 | competence/management/quality opportunity | career score, house facts, opportunity magnitude | mechanism, requester, comparative outcome | Owner-approved `work_opportunity` resolver from typed house/Taksa inputs; no prose-name inference | none | none until approved | Known; Unknown needs non-house rule | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| G15 | overload/authority risk | career risk/material | forced removal outcome | retain risk wording; ending needs approved atom | none for ending | risk only | both per evidence | accept risk rewrite |
+| G16 | income tendency/source | finance score + current work-income separation | named old clients/contacts/source | retain non-luck tendency; named source needs resolver | none | tendency only | both per evidence | accept rewrite or rule |
+| G17 | `expense_or_obligation` event/category | finance risk | expense event, category, movement | Owner-approved finance resolver from annual Taksa + house + risk with enum/negative cases | none for event mapping | none until approved | Known; Unknown only non-time rule | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| G18 | finance obligation risk | finance material | causal final stability | keep decision-space risk, not guaranteed outcome | none for outcome | risk/tendency | both | accept rewrite |
+| G19 | relationship clarity tendency | relationship score/material | leaving/planning outcomes | retain agreement tendency; outcomes await atoms | none | tendency only | both | accept rewrite or rule |
+| G20 | partnered-duty branch | relationship material | relationship-status input | branch only from explicit input plus approved rule | none | no status claim | neither until input exists | input/product decision |
+| G21 | `relationship_entry` + encounter source | relationship score | relationship status, person/source event | add explicit status input, then Owner-approved encounter resolver; never infer status | none | none until both exist | Known/Unknown after input; time dependency explicit | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` + input decision |
+| G22 | health-load tendency | health score/risk | primary medical cause | safe non-diagnostic tendency only | none for diagnosis | risk/tendency | both per evidence | medical-safety acceptance |
+| G23 | workload/recovery risk | career+health risk | exact causal event | bounded risk composition with no diagnosis | none for event | risk only | both | accept rewrite |
+| G24 | work-linked opportunity tendency | life-map work vs chance | old contact/client event | retain work-linked tendency; source awaits resolver | none | tendency only | both | accept rewrite or rule |
+| G25 | `work_opportunity` source event | generic opportunity magnitude | collaboration/return/referral source and outcome | Owner-approved opportunity-source resolver from typed inputs; no inference from planet/phase names | none | none until approved | Known; Unknown only approved non-time source | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| G26 | rolling range + primary domain | exact dates + four bands | strict causal sequence | existing horizon and ranking only | none for causality | direct tendency | both per evidence | accept rewrite |
+| G27 | early-window work collision/offer | annual career band | within-year boundary, event source, event | approved timing window + `work_opportunity` atom; annual-band splitting prohibited | none | none until approved | Known; Unknown per timing contract | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| G28 | early role-transfer event | annual career band | boundary, transferred issue, role outcome | approved timing + `work_role_change` resolver | none | none until approved | Known; Unknown blocked absent rule | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| G29 | middle income/expense event | annual finance band | boundary, two finance events | approved timing + income/obligation atoms | none | none until approved | Known; Unknown blocked absent rule | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| G30 | middle relationship-status outcome | annual relationship band | boundary, status input/outcome | approved timing + status input + clarity atom | none | none until approved | both only after explicit status/rule | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| G31 | late recognition/ending/transfer | annual career band | boundary, recognition and ending outcomes | approved timing + separate opportunity and ending atoms; no bundled inference | none | none until approved | Known; Unknown blocked absent rule | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| G32 | late work-count/pay/stability result | career+finance bands | boundary, counts, pay magnitude, outcome | approved timing + measurable work/income atoms with thresholds | none | none until approved | Known; Unknown blocked absent rule | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| G33 | Venus period + asset-source return | current life period | reputation/network/prior-work outcomes | keep period fact; sources await event resolver | none | period fact only | both per evidence | accept rewrite or rule |
+| G34 | work/relationship filtering outcomes | next-life material | item counts and stability outcome | keep delegation/boundary tendencies; event outcomes await rules | none | tendency only | both per evidence | accept rewrite or rule |
+| G35 | Sun 63–68 boundary + career tendency | next period + career score | recognition outcome | existing boundary; role outcome needs approved rule | period boundary only | fact plus tendency | both per evidence | accept rewrite |
+| G36 | work status then income sequence | annual career/finance bands | event identities and causal order | separate approved role/income atoms; ordering only from timing contract | none | tendency until approved | both per evidence | choose rewrite vs rule |
+| G37 | relationship plan/ending outcomes | relationship band | status and ending atoms | retain clarity tendency or add approved atoms/input | none | tendency until approved | both per evidence | choose rewrite vs rule |
+| G38 | end-window fewer/more valuable outcomes | annual bands | end boundary, counts, value/stability measure | approved timing window + typed outcome metrics; no summary-only invention | none | none until approved | Known; Unknown blocked absent rule | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+
+## Architecture accounting
+
+- Golden coverage remains 39/39 rows, G00–G38
+- G05/G10 remain `MUST_NOT_IMPLEMENT` and map to `PROHIBITED_PSYCHOLOGY`
+- No unsupported event row is labeled `CURRENTLY_DERIVABLE`
+- Current exact score and evidence list are more detailed than serialized band, but no row treats that detail as an event resolver
+- No external astrology source or formula was added; proposed methods require explicit Owner decision before implementation

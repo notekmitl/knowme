@@ -1,5 +1,11 @@
 # Thai Report Predictive Narrative V2 — Gap Report
 
+## OR1 Owner disposition
+
+Owner ยอมรับ root cause, fixture separation, Unknown fail-closed และหลักห้ามสร้าง evidence แต่ปฏิเสธ Candidate 0003 เป็น implementation target เพราะอดีตมีเพียงชื่อช่วง/theme, current และ 12 เดือนใช้ conditional hedge, advice มากกว่าคำทำนาย, ภาษาระบบและ semantic motif ซ้ำ และ Unknown กลายเป็นงานติดตามข้อมูลของผู้อ่าน Golden คงเป็น style target ไม่ใช่ calculation evidence
+
+การปิด gap จึงต้องเริ่มจาก `THAI_REPORT_PREDICTIVE_EVIDENCE_CAPABILITY_MAP_V1.md`, `THAI_REPORT_PREDICTIVE_EVIDENCE_CONTRACT_V1.md` และ `THAI_REPORT_PREDICTIVE_TIMING_CONTRACT_V1.md` ก่อน runtime implementation Candidate 0004 เป็น content target ของ proposed atoms และยังห้ามใช้เป็น expected output
+
 ## Conclusion
 
 Golden Reference ผ่านในฐานะมาตรฐานการเล่า แต่ยังนำไปใช้ตรงตัวไม่ได้ Current engine รองรับข้อมูลเกิด ลำดับ life period และ forecast band ระดับโดเมนในสาม horizon ระบบยังไม่รองรับเหตุการณ์เฉพาะในอดีต เหตุการณ์ที่ผูกกับสถานะความสัมพันธ์ แหล่งรายรับหรือรายจ่ายเฉพาะ และช่วงต้น กลาง ท้ายของ 12 เดือน
@@ -60,6 +66,6 @@ Evidence Matrix มี 39 ย่อหน้า: `SUPPORTED` 1, `SUPPORTED_WITH_
 - 00:35 ให้ Aquarius 19°19′ และใช้เป็น canonical regression เท่านั้น
 - Unknown ไม่รับมรดกข้อความจาก Known และไม่แทนเวลาเกิดด้วย noon
 
-## Phase 1 disposition
+## Phase 1 OR1 disposition
 
-Candidate เลือกเฉพาะ fact และ forecast material ที่มีอยู่จริง รายการที่ขาดถูกบันทึกในเอกสารนี้และ Matrix ไม่มี placeholder ใน Candidate ไม่มี hardcoded runtime copy และไม่มีการแก้ engine, generator, UI, export, test หรือ artifact
+Candidate 0003 บันทึกขอบเขต fact/forecast เดิมได้ถูกต้อง แต่ไม่ผ่าน Owner content review และไม่ใช่ baseline สำหรับ implementation รายการขาดถูกยกระดับเป็น typed atom, support status, timing gate และ Owner decisions ไม่มี hardcoded runtime copy และไม่มีการแก้ engine, generator, UI, export, test หรือ artifact

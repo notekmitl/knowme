@@ -2,6 +2,8 @@
 
 สถานะ: **PROPOSED CONTRACT FOR NEXT IMPLEMENTATION PHASE**
 
+OR1 amendment: Candidate 0003 ถูก Owner ปฏิเสธและห้ามใช้เป็น implementation/expected-output target Prediction ที่เป็น event ต้องมี `PredictiveEvidenceAtom` ตาม Evidence Contract V1 ไม่ใช่อาศัย theme, score band, narrative motif หรือชื่อช่วง Golden เป็น style target เท่านั้น
+
 ## 1. Chronological order
 
 Reader-facing report ต้องเรียง: birth input → overview → past periods → current period → rolling 12 months → next life period → summary → source and one disclaimer ไม่ย้อนกลับไปเปิด current claim ใหม่หลัง next-life section
@@ -42,6 +44,8 @@ Prediction body ใช้ประโยคบอกเล่าที่สั�
 - `ไม่ใช่ข้อสรุปว่าเหตุการณ์ใดเคยเกิดขึ้น`
 
 คำเงื่อนไขใช้ได้เมื่อเป็นเงื่อนไขข้อมูลจริง เช่น Known time, Unknown time, คนมีคู่ หรือคนโสดที่ระบบได้รับสถานะนั้นจริง ห้ามใช้เงื่อนไขเพื่อหลบการทำนาย
+
+Prediction body ของ Candidate target ใหม่ห้ามใช้ `หาก`, `ตราบใด`, โครงสร้าง `จะ + ผลลัพธ์ + ได้เมื่อ`, `เช็ก`, `ทบทวน` และ `สังเกต` ด้วย ยกเว้นคำอธิบาย input branch นอก prediction body
 
 ## 6. Past prediction rules
 
@@ -91,5 +95,6 @@ Infographic เป็น concise projection ของ rolling 12-month section �
 - Same narrative order and semantic content across Web, infographic projection, Dedicated PDF and browser print
 - Prediction and advice roles remain distinguishable in structured data
 - Every prediction has a source path and evidence key or is explicitly a life-period fact
+- Event prediction has a typed atom, approved calculation method, boundary, event family, outcome and provenance; a band or prose source is insufficient
 - Unsupported Golden paragraphs remain blocked until a separate evidence contract is accepted
 - `monthlyTimelineAvailable=false` remains authoritative until a new calculation contract passes Owner review

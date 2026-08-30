@@ -2,15 +2,17 @@
 
 สถานะ: **PLAN ONLY — NO IMPLEMENTATION IN PHASE 1**
 
+OR1 gate: Owner ยอมรับ root cause แต่ปฏิเสธ Candidate 0003 Phase 2A ห้ามเริ่มจาก Candidate 0003 หรือ 0004 จน Owner ตัดสินตัวเลือก A/B/C ใน Owner Decisions และอนุมัติ event/timing rules ที่เกี่ยวข้อง
+
 ## Phase 2A — Freeze contract and tests
 
-1. Owner reviews Golden, Candidate, Matrix, Gap Report and Narrative Contract
+1. Owner reviews Golden as style target, Candidate 0003 audit, Candidate 0004 content target, Matrix, Gap Report, Narrative Contract, Capability Map, Evidence Contract, Timing Contract and Owner Decisions
 2. Convert accepted contract clauses into failing structure and copy-role tests without changing expected astrology output
 3. Add fixture separation gates for 00:03, 00:35 and Unknown
 4. Add a coverage gate requiring every candidate prediction to resolve to a real evidence key or life-period fact
 5. Add forbidden default phrase and question-form gates scoped to Prediction body
 
-Exit: Owner accepts content architecture and test contract. This Phase 1 Draft PR does not satisfy that acceptance by itself
+Exit: Owner selects product scope, accepts content architecture/test contract, and explicitly approves or rejects proposed astrology rules This Phase 1 OR1 Draft PR does not satisfy that acceptance by itself
 
 ## Phase 2B — Narrative architecture
 
@@ -32,6 +34,8 @@ Do not implement G04 and G06–G09 until Owner approves a past-event evidence co
 ### Within-year timing
 
 Do not implement Golden early, middle or late buckets until a deterministic timing engine exposes bucket boundaries and evidence atoms. Annual Taksa and a single 12-month band are insufficient. Keep `monthlyTimelineAvailable=false`
+
+Do not split the annual band into equal calendar thirds and do not create a fixture-specific timing branch
 
 ### Relationship status and specific event sources
 
@@ -66,6 +70,8 @@ Exit: semantic parity passes with no unsupported addition, omission or certainty
 ## Phase 2F — Owner review and release separation
 
 Implementation opens as a separate Draft PR with fresh artifacts Owner acceptance, merge decision and Production deployment remain three separate decisions No Phase 1 evidence grants approval for implementation, merge or deploy
+
+Candidate 0003 remains rejected Candidate 0004 is design evidence only and cannot seed expected-output tests until every mapped atom is approved and derivable
 
 ## Change boundary for the next PR
 

@@ -1,0 +1,55 @@
+# Thai Report Predictive Narrative V2 — Owner Decisions Required
+
+สถานะ: **PENDING OWNER ASTROLOGY-RULE AND CONTENT REVIEW**
+
+Candidate 0003 ถูก Owner ปฏิเสธแล้ว เอกสารนี้ไม่เลือกทางแทน Owner และไม่อนุญาต implementation โดยปริยาย
+
+## ทางเลือก A — Narrative restructure only
+
+ปรับ chronology, prediction/advice roles, dedupe, plain Thai และ Unknown fail-closed โดยใช้เฉพาะ life-period facts กับ domain tendency ที่ระบบมี
+
+ผลกระทบ:
+
+- ความเสี่ยงต่ำและเริ่ม implementation ได้เร็วหลัง Owner รับ content target ใหม่
+- past ยังบอกได้เพียงช่วง/ดาว/theme ไม่ใช่เหตุการณ์
+- 12 เดือนยังเป็น rolling band เดียว; `monthlyTimelineAvailable=false`
+- ประสบการณ์ยังห่าง Golden ในด้าน event specificity แม้โครงอ่านดีขึ้น
+
+## ทางเลือก B — Expand predictive evidence contract
+
+อนุมัติการออกแบบ event ontology, calculation rules, timing rules, inputs, provenance และ negative cases ก่อนปรับ narrative
+
+ผลกระทบ:
+
+- เป็นทางเดียวที่ทำ event-specific Golden-like report อย่าง traceable ได้
+- ต้องตัดสินกฎสำหรับ past event, work, finance, relationship, health และ within-year timing
+- ต้องมี Canon/Owner-approved basis; ห้ามดึงสูตรภายนอกหรืออนุมาน event จากชื่อดาว/ช่วง
+- ต้องเพิ่ม relationship-status input ก่อน branch คู่/โสด
+- ใช้เวลาและ validation มากกว่า และยังห้ามเริ่มจาก Candidate 0003/0004 เป็น expected output
+
+ข้อเสนอแนะของทีม: เลือก B เมื่อเป้าหมายผลิตภัณฑ์ยังต้องการ “คำทำนายเหตุการณ์” แบบ Golden แล้วค่อยใช้ A เป็นชั้น narrative หลัง atom ผ่าน review หาก Owner ยังไม่พร้อมอนุมัติกฎ ให้เลือก A โดยยอมรับชัดเจนว่ารายงานยังเป็น tendency report
+
+## ทางเลือก C — Preserve generic predictive scope
+
+คง engine และโครงรายงานในขอบเขต domain strength/theme ปรับเฉพาะคำที่เป็นระบบและจำนวน advice
+
+ผลกระทบ:
+
+- เปลี่ยนน้อยที่สุด
+- ไม่แก้เหตุผลหลักที่ Owner ปฏิเสธ Candidate 0003
+- Unknown ยังเสี่ยงกลายเป็น coaching หากไม่ลบ reader-tracking copy
+- ไม่ควรใช้คำว่า Golden-equivalent หรือ event prediction
+
+## Decisions ที่ต้องตอบก่อน Phase 2
+
+1. เลือก A, B หรือ C สำหรับ product scope
+2. อนุมัติหรือปฏิเสธ event families แต่ละรายการใน Evidence Contract V1
+3. ระบุ Canon basis หรือ Owner-authored astrology rule สำหรับ G03, G04, G06–G09, G12, G14, G17, G21, G25, G27–G32 และ G38
+4. ตัดสินว่ารับ relationship-status input เพิ่มหรือ block `relationship_entry`
+5. ตัดสิน within-year timing basis; หากไม่มี ให้คง rolling range เดียว
+6. ยืนยันว่า G05/G10 อยู่ใน psychological report แยกและไม่เข้ารายงานนี้
+7. รับหรือปฏิเสธ Candidate 0004 เป็น content direction เท่านั้น หลังทบทวน atom statuses แล้ว
+
+## Non-decision
+
+ความเงียบหรือการ review เอกสารไม่ถือเป็นการอนุมัติกฎ Candidate 0004 ไม่ใช่ acceptance baseline และ PR #112 ต้องคง Draft จน Owner ตัดสิน
