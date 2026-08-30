@@ -1,5 +1,15 @@
 # Task Result — Thai Report Reader Experience V2
 
+## PR112 Phase 1 OR1 — Predictive Evidence Architecture (2026-08-30)
+
+Status: **PREDICTIVE EVIDENCE ARCHITECTURE COMPLETE — CANDIDATE 0003 REJECTED — PENDING OWNER ASTROLOGY-RULE AND CONTENT REVIEW — DRAFT — NOT MERGED — NOT DEPLOYED**. Owner accepted root cause, fixture separation, Unknown fail-closed and the no-invented-evidence boundary; Golden remains a style target. Candidate 0003 is rejected as an implementation, expected-output and acceptance target because past copy names themes rather than events, conditional hedging/advice/system language dominate, motifs repeat and Unknown asks the reader to track life.
+
+OR1 evidence commit `c31285649c5795dd42a31ecd0733c925af9ca278` adds the 42/42 paragraph audit, Capability Map, typed Evidence Contract, Timing Contract, extended 39/39 Matrix, Candidate 0004 and Owner Decisions A/B/C. Engine scores/evidence are richer than bands but do not resolve traceable events or within-year timing; Canon has provenance but no approved mapping for the 11 event families. Candidate 0004 maps 14/14 predictions with unmapped/duplicate-owner 0 and marks proposed events as not currently supported. G05/G10 remain prohibited; `monthlyTimelineAvailable=false` remains unchanged.
+
+Focused fixture 4/4 passed: Known 00:03 Aquarius 9°24′ Saturday, Known 00:35 Aquarius 19°19′ Saturday, Unknown no noon/ascendant/houses/Thai-day assertion. Forbidden language, past question/reflection, prohibited psychology, unsupported-as-derivable and hardcoded runtime branch hits are 0. Source/code/test/artifact and `product-acceptance/` delta are 0; Full Flutter suite/analyzer were not rerun because source/test delta is zero.
+
+Owner ZIP: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_REPORT_PREDICTIVE_NARRATIVE_V2_PHASE1_OR1_c312856.zip`, SHA-256 `ACE51886F47E8CDF832A51E4EAC8ACA958666F1FCA2939F0EEC6A46F36660271`. It has 16 entries; CRC, extraction, missing/extra, manifest/hash/SHA256SUMS mismatch, secret, absolute-path and placeholder/ellipsis errors are 0. Draft PR #112 remains Open + Draft at `https://github.com/notekmitl/knowme/pull/112`; no implementation, merge, deploy or Firebase/Production change occurred.
+
 ## Predictive Narrative V2 Phase 1 — Golden Copy and Evidence Blueprint (2026-08-30)
 
 Status: **COMPLETE — DRAFT PR #112 OPEN — PENDING OWNER CONTENT REVIEW — NOT MERGED — NOT DEPLOYED**. Owner accepts the Golden Reference as a style target only; Candidate copy, contract and implementation are not Owner-accepted by implication. Phase 1 changes Markdown content/evidence only at content commit `61ea2457a894bd7cd514037b866119f99473e270`; evidence/status closeout remains Markdown-only on the same Draft PR: `https://github.com/notekmitl/knowme/pull/112`.
