@@ -15,7 +15,8 @@
         "tier1": { "type": "string", "minLength": 1 },
         "extractionEditionId": { "type": "string", "minLength": 1 },
         "authorityEditionId": { "type": "string", "minLength": 1 },
-        "editionMappingStatus": { "enum": ["VERIFIED", "PENDING"] }
+        "editionMappingStatus": { "enum": ["VERIFIED", "PENDING", "PRIMARY_WORKING_EDITION"] },
+        "later2539Status": { "enum": ["UNVERIFIED_LATER_REPRINT_COMPARISON_SOURCE"] }
       },
       "additionalProperties": false
     },

@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": [
+    "version",
+    "status",
+    "source",
+    "architecture",
+    "counts",
+    "contexts"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "status": {
+      "const": "PROPOSED_NOT_RUNTIME"
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "editionId",
+        "pdfSha256",
+        "authorityTier"
+      ]
+    },
+    "architecture": {
+      "type": "object",
+      "required": [
+        "layers"
+      ]
+    },
+    "counts": {
+      "type": "object",
+      "required": [
+        "contexts",
+        "unmappedContexts",
+        "runtimeBlockingOcrUnresolved"
+      ]
+    },
+    "contexts": {
+      "type": "array",
+      "minItems": 49,
+      "maxItems": 49,
+      "items": {
+        "type": "object",
+        "required": [
+          "contextId",
+          "archetype",
+          "remainder",
+          "thaiAstrologicalDay",
+          "sourcePageRange2537",
+          "sourceEvidence",
+          "lifePeriodSequence",
+          "predictiveAtoms",
+          "domainEventCoverage",
+          "allowedConclusion",
+          "prohibitedEscalation",
+          "knownTimeRequirements"
+        ],
+        "properties": {
+          "lifePeriodSequence": {
+            "type": "array",
+            "minItems": 8,
+            "maxItems": 8
+          },
+          "sourceEvidence": {
+            "type": "array",
+            "minItems": 1
+          },
+          "predictiveAtoms": {
+            "type": "array",
+            "minItems": 1
+          }
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}

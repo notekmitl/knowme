@@ -44,11 +44,11 @@ or 80. This Charter reopens only source-backed modeling gaps.
 
 ## Edition and provenance rule
 
-The available extraction scan is the 2537 complete edition. The
-Owner-designated authority is the 2539 reprint. Until direct page mapping is
-complete, every rule must carry the 2537 edition ID and may not claim 2539 page
-provenance. The edition mismatch is a promotion blocker, not permission to
-copy page numbers across editions.
+The Owner designates the available 2537 complete edition as the **Primary
+Tier-1 Canonical Working Edition** for this program. Every rule carries that
+edition ID and its own 2537 page evidence. The 2539 printing is an
+`UNVERIFIED LATER-REPRINT COMPARISON SOURCE`: it may be compared later, is not
+a V2 blocker, and no page number may be copied between editions.
 
 ## Statement-type policy
 
@@ -70,6 +70,6 @@ exception/conflict behavior and review state. `EXAMPLE_ONLY`, OCR-blocked,
 ambiguous or edition-unmapped entries cannot become general runtime rules.
 
 The proposed corpus is not runtime Canon. Promotion requires Owner review,
-edition mapping, schema/trace validation, conflict closure and a separate
-implementation authorization. `monthlyTimelineAvailable=false` remains
+schema/trace validation, conflict closure and a separate implementation
+authorization. `monthlyTimelineAvailable=false` remains
 unchanged unless a Tier 1 rule gives a real within-year boundary.

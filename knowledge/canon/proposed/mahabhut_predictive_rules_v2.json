@@ -5,8 +5,9 @@
     "tier0": "KnowMe calculation engine",
     "tier1": "หลักมหาภูต ฉบับสมบูรณ์ — ส. หยกฟ้า",
     "extractionEditionId": "mahabhut-complete-duangkaew-2537-scan",
-    "authorityEditionId": "mahabhut-complete-printing3-2539",
-    "editionMappingStatus": "PENDING"
+    "authorityEditionId": "mahabhut-complete-duangkaew-2537-scan",
+    "editionMappingStatus": "PRIMARY_WORKING_EDITION",
+    "later2539Status": "UNVERIFIED_LATER_REPRINT_COMPARISON_SOURCE"
   },
   "rules": [
     {

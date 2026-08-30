@@ -2,7 +2,7 @@
 
 Date: 2026-08-30
 
-Status: **RECONCILED — EXTRACTED EDITION AND OWNER AUTHORITY EDITION KEPT DISTINCT**
+Status: **RECONCILED — 2537 PRIMARY WORKING EDITION DESIGNATED BY OWNER**
 
 ## Authoritative current truth
 
@@ -41,7 +41,7 @@ The configured local source root contains:
 The full scan, page set and OCR remain outside Git and outside Owner packages.
 Only short necessary excerpts and extracted structures may be committed.
 
-## Edition identity and non-equivalence gate
+## Edition identity and SA2 authority decision
 
 Visual inspection of the local scan's title and copyright pages establishes:
 
@@ -52,20 +52,22 @@ Visual inspection of the local scan's title and copyright pages establishes:
 - printer: บริษัท สหธรรมิก จำกัด
 - ISBN printed in the scan: `974-89176-7-3`
 
-The Owner-designated authority identity is the later 2539 reprint / printing 3.
+SA1 recorded the later 2539 reprint / printing 3 as the intended authority.
 [Google Books](https://books.google.com/books/about/%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A0%E0%B8%B9%E0%B8%95_%E0%B8%89%E0%B8%9A%E0%B8%B1.html?id=QRMdMwEACAAJ)
 records a 1996 reprint and ISBN `9748917673`; a
 [second-hand bibliographic listing](https://megabooks4u.lnwshop.com/product/45582/%E0%B8%AB%E0%B8%A5%E0%B8%B1%E0%B8%81%E0%B8%A1%E0%B8%AB%E0%B8%B2%E0%B8%A0%E0%B8%B9%E0%B8%95%E0%B8%B4-%E0%B8%89%E0%B8%9A%E0%B8%B1%E0%B8%9A%E0%B8%AA%E0%B8%A1%E0%B8%9A%E0%B8%B9%E0%B8%A3%E0%B8%93%E0%B9%8C-%E0%B8%AA-%E0%B8%AB%E0%B8%A2%E0%B8%81%E0%B8%9F%E0%B9%89%E0%B8%B2-%E0%B8%AB%E0%B8%99%E0%B8%B1%E0%B8%87%E0%B8%AA%E0%B8%B7%E0%B8%AD%E0%B8%9A%E0%B9%89%E0%B8%B2%E0%B8%99-%E0%B8%A1%E0%B8%B7%E0%B8%AD%E0%B8%AA%E0%B8%AD%E0%B8%87-%E0%B8%AA%E0%B8%A0%E0%B8%B2%E0%B8%9E85-95-%E0%B8%AA%E0%B8%B1%E0%B8%99%E0%B8%9B%E0%B8%81%E0%B8%A1%E0%B8%B5%E0%B8%A3%E0%B8%AD%E0%B8%A2%E0%B9%81%E0%B8%AB%E0%B8%A7%E0%B9%88%E0%B8%87-%E0%B8%81%E0%B8%A3%E0%B8%B0%E0%B8%94%E0%B8%B2%E0%B8%A9%E0%B9%80%E0%B8%81%E0%B9%88%E0%B8%B2)
 labels it printing 3 / 2539. Access date for both: 2026-08-30.
 
 The 2539 source pages were not available for direct comparison. Same title,
-ISBN and 308-page extent are not sufficient proof of page identity. Therefore:
+ISBN and 308-page extent are not sufficient proof of page identity. In SA2,
+the Owner superseded the earlier promotion blocker and designated the actual
+2537 scan as the **Primary Tier-1 Canonical Working Edition**. Therefore:
 
-- every new extraction in SA1 is explicitly scoped to
+- every extraction remains explicitly scoped to
   `mahabhut-complete-duangkaew-2537-scan`;
 - no 2537 page number is attributed to the 2539 reprint;
-- promotion to the Owner-designated 2539 authority corpus requires a page map
-  or direct edition comparison.
+- the 2539 reprint is `UNVERIFIED LATER-REPRINT COMPARISON SOURCE`;
+- comparison may happen later and is not a V2 blocker.
 
 ## Stale fields corrected
 
@@ -82,7 +84,8 @@ No production unit, reference cell, frozen audit, Freeze record or
 
 ## Still unverified
 
-- direct page equivalence between the 2537 extraction scan and 2539 reprint;
+- direct page equivalence between the 2537 extraction scan and 2539 reprint
+  (comparison backlog; not a V2 blocker);
 - a library record explicitly stating printing number 3 (Google Books says
   reprint, while the printing number is currently supported by a bookseller);
 - backfilled chapter/section membership for the legacy manifest;
