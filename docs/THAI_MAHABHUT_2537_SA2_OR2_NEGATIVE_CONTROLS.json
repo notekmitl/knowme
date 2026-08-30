@@ -1,0 +1,71 @@
+{
+  "status": "PASS",
+  "controls": [
+    {
+      "name": "unsupported promotion and October timing",
+      "requiredPositiveCounters": [
+        "unsupported_event_count",
+        "unsupported_timing_count"
+      ],
+      "observed": {
+        "unsupported_event_count": 1,
+        "unsupported_timing_count": 1
+      },
+      "controlPassed": true
+    },
+    {
+      "name": "finance claim bound to work owner",
+      "requiredPositiveCounters": [
+        "domain_mismatch_count"
+      ],
+      "observed": {
+        "domain_mismatch_count": 1
+      },
+      "controlPassed": true
+    },
+    {
+      "name": "source or rule reference removed",
+      "requiredPositiveCounters": [
+        "claim_without_evidence_or_rule_count"
+      ],
+      "observed": {
+        "claim_without_evidence_or_rule_count": 1
+      },
+      "controlPassed": true
+    },
+    {
+      "name": "Known prediction copied to Unknown",
+      "requiredPositiveCounters": [
+        "known_to_unknown_leakage_count"
+      ],
+      "observed": {
+        "known_to_unknown_leakage_count": 2
+      },
+      "controlPassed": true
+    },
+    {
+      "name": "same meaning repeated in another section",
+      "requiredPositiveCounters": [
+        "repeated_reader_meaning_count",
+        "duplicate_semantic_owner_count"
+      ],
+      "observed": {
+        "repeated_reader_meaning_count": 1,
+        "duplicate_semantic_owner_count": 1
+      },
+      "controlPassed": true
+    },
+    {
+      "name": "advice inserted into prediction",
+      "requiredPositiveCounters": [
+        "prediction_to_advice_conversion_count",
+        "advice_inside_prediction_section_count"
+      ],
+      "observed": {
+        "prediction_to_advice_conversion_count": 1,
+        "advice_inside_prediction_section_count": 1
+      },
+      "controlPassed": true
+    }
+  ]
+}

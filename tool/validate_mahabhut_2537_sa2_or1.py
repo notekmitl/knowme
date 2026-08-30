@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate evidence ownership for SA2 OR1 Candidate 0009 and controls."""
+"""Validate SA2 structural evidence and OR2 Candidate 0010 with controls."""
 
 from __future__ import annotations
 
@@ -16,18 +16,20 @@ from validate_mahabhut_predictive_rules_v2 import validate_instance
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE_ROOT = Path(r"D:\MahabhutOCR")
-BASE = "ea73e618159d4c11377ad416d9a7760a68e36fbd"
+BASE = "0de5803399c5ff7ddc505d4cc8a43e58919b8cfa"
 CORPUS_PATH = ROOT / "knowledge/canon/proposed/mahabhut_2537_predictive_claims_v2.json"
 SCHEMA_PATH = ROOT / "knowledge/canon/proposed/mahabhut_2537_predictive_claims_v2.schema.json"
-MAP_PATH = ROOT / "knowledge/canon/proposed/mahabhut_2537_candidate_0009_reader_claims.json"
-REPORT_PATH = ROOT / "docs/THAI_MAHABHUT_2537_SA2_OR1_VALIDATION.json"
-NEGATIVE_PATH = ROOT / "docs/THAI_MAHABHUT_2537_SA2_OR1_NEGATIVE_CONTROLS.json"
-REJECTED_PATH = ROOT / "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_CANDIDATE_0008_REJECTION_AUDIT.json"
-KNOWN_0008 = ROOT / "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0008.md"
+MAP_PATH = ROOT / "knowledge/canon/proposed/mahabhut_2537_candidate_0010_reader_claims.json"
+REPORT_PATH = ROOT / "docs/THAI_MAHABHUT_2537_SA2_OR2_VALIDATION.json"
+NEGATIVE_PATH = ROOT / "docs/THAI_MAHABHUT_2537_SA2_OR2_NEGATIVE_CONTROLS.json"
+REJECTED_PATH = ROOT / "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_CANDIDATE_0009_REJECTION.json"
+KNOWN_0009 = ROOT / "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0009.md"
 
 PREDICTION_KIND = "PREDICTION"
 ADVICE_TOKENS = ("ควร", "ใช้ช่วง", "เก็บ", "ตรวจสุขภาพ", "พักให้", "วางเวลาพัก", "เลือกทำ")
 METHODOLOGY_TOKENS = ("ตำรา", "หลักฐาน", "วิธีคำนวณ", "ทักษา", "ดาวศุกร์", "ดาวราหู", "ดาวพุธ", "เรือนธงชัย", "เรือนอธิบดี")
+PSYCHOLOGY_TOKENS = ("นิสัย", "บุคลิก", "ตัวตนที่แท้จริง", "จิตใต้สำนึก", "บาดแผลในใจ")
+DEFENSIVE_TOKENS = ("มีแนวโน้ม", "อาจ", "ควรอ่านว่า")
 SPECIFIC_EVENT_TOKENS = ("เลื่อนตำแหน่ง", "แต่งงาน", "เลิกกัน", "ย้ายงาน", "โชคก้อนใหญ่", "วินิจฉัย", "เป็นโรค")
 MONTH_SPECIFIC_RE = re.compile(r"เดือน(?:มกราคม|กุมภาพันธ์|มีนาคม|เมษายน|พฤษภาคม|มิถุนายน|กรกฎาคม|สิงหาคม|กันยายน|ตุลาคม|พฤศจิกายน|ธันวาคม)")
 UNKNOWN_FORBIDDEN = ("00:03", "00:35", "9°24′", "19°19′", "ลัคนาราศีกุมภ์", "เรือนธงชัย", "เรือนอธิบดี")
@@ -80,6 +82,20 @@ def owner_indexes(corpus: dict, mapping: dict) -> tuple[dict, dict]:
     for item in mapping.get("nonPredictionOwners", []):
         owners[item["ownerId"]] = item
         owner_types[item["ownerId"]] = item["ownerType"]
+    for surface in mapping["surfaces"]:
+        for item in surface["readerClaims"]:
+            if (
+                item.get("ownerType") == "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS"
+                and item.get("ownerId", "").startswith("OAS-")
+            ):
+                owners[item["ownerId"]] = {
+                    **item,
+                    "agePeriodBinding": item.get("periodBinding"),
+                }
+                owner_types[item["ownerId"]] = item["ownerType"]
+            elif item.get("claimKind") != PREDICTION_KIND:
+                owners[item["ownerId"]] = item
+                owner_types[item["ownerId"]] = item["ownerType"]
     return owners, owner_types
 
 
@@ -146,6 +162,16 @@ def validate_reader(corpus: dict, mapping: dict, documents: dict[str, dict[str, 
     normalized_prediction_texts = Counter()
     semantic_keys = Counter()
     known_prediction_norms = set()
+    valid_corpus_refs = {
+        item[key]
+        for collection, key in (
+            ("placementRecords", "recordId"),
+            ("sourceDirectClaims", "claimId"),
+            ("generalRuleApplications", "claimId"),
+            ("productInterpretationClaims", "claimId"),
+        )
+        for item in corpus[collection]
+    }
     for surface in mapping["surfaces"]:
         surface_id = surface["surface"]
         doc_claims = documents.get(surface_id, {})
@@ -180,6 +206,14 @@ def validate_reader(corpus: dict, mapping: dict, documents: dict[str, dict[str, 
                     counters["context_mismatch_count"] += int(owner.get("contextId") != claim.get("contextId"))
                     counters["age_period_mismatch_count"] += int(owner.get("agePeriodBinding") != claim.get("periodBinding"))
                     counters["domain_mismatch_count"] += int(owner.get("domain") != claim.get("domain"))
+                if claim.get("ownerType") == "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS":
+                    refs = claim.get("evidenceRefs", [])
+                    invalid_refs = [
+                        ref for ref in refs
+                        if ref not in valid_corpus_refs and not ref.startswith("prediction.")
+                    ]
+                    if not refs or invalid_refs:
+                        counters["claim_without_evidence_or_rule_count"] += 1
                 if any(token in text for token in SPECIFIC_EVENT_TOKENS):
                     counters["unsupported_event_count"] += 1
                 if MONTH_SPECIFIC_RE.search(text):
@@ -189,6 +223,10 @@ def validate_reader(corpus: dict, mapping: dict, documents: dict[str, dict[str, 
                     counters["advice_inside_prediction_section_count"] += 1
                 if any(token in text for token in METHODOLOGY_TOKENS):
                     counters["technical_methodology_in_reader_copy_count"] += 1
+                if any(token in text for token in PSYCHOLOGY_TOKENS):
+                    counters["psychology_leakage_count"] += 1
+                if any(token in text for token in DEFENSIVE_TOKENS):
+                    counters["defensive_language_count"] += 1
             elif claim["claimKind"] == "ADVICE" and claim["section"] != "คำแนะนำสั้น ๆ":
                 counters["advice_inside_prediction_section_count"] += 1
             if surface_id == "Unknown":
@@ -208,7 +246,7 @@ def validate_reader(corpus: dict, mapping: dict, documents: dict[str, dict[str, 
         "repeated_reader_meaning_count", "prediction_to_advice_conversion_count",
         "semantic_key_missing_count",
         "advice_inside_prediction_section_count", "technical_methodology_in_reader_copy_count",
-        "known_to_unknown_leakage_count",
+        "psychology_leakage_count", "defensive_language_count", "known_to_unknown_leakage_count",
     )
     return {key: counters[key] for key in expected}
 
@@ -264,21 +302,40 @@ def negative_controls(corpus: dict, mapping: dict, documents: dict[str, dict[str
     return {"status": "PASS" if all(c["controlPassed"] for c in controls) else "FAIL", "controls": controls}
 
 
-def candidate_0008_rejection() -> dict:
-    text = KNOWN_0008.read_text(encoding="utf-8").split("Reader-facing candidate begins below.", 1)[1].split("Reader-facing candidate ends above.", 1)[0]
-    prediction_lines = [line.strip() for line in text.splitlines() if line.strip().startswith("**")]
-    advice_inside = sum(any(token in line for token in ADVICE_TOKENS) for line in prediction_lines)
-    methodology = sum(text.count(token) for token in METHODOLOGY_TOKENS)
+def candidate_0009_rejection() -> dict:
+    text = KNOWN_0009.read_text(encoding="utf-8")
+    prediction_count = text.count("<!-- readerClaimId: RC-K-") - text.count("RC-K-ADVICE") - text.count("RC-K-DISCLOSURE")
     return {
         "status": "FAIL",
-        "readerPredictionLines": len(prediction_lines),
-        "readerClaimIdMissingCount": len(prediction_lines),
-        "claimWithoutEvidenceOrRuleCount": len(prediction_lines),
-        "adviceInsidePredictionSectionCount": advice_inside,
-        "technicalMethodologyInReaderCopyCount": methodology,
-        "fourDomainFillerPatternCount": sum(text.count(label) for label in ("**งาน**", "**การเงิน**", "**ความสัมพันธ์**", "**สุขภาพ**")),
-        "reason": "Candidate 0008 has no sentence-level owner map and mixes advice/methodology into prediction sections.",
+        "predictionParagraphs": prediction_count,
+        "requiredRangeMinimum": 18,
+        "depthShortfall": max(0, 18 - prediction_count),
+        "ownerDecision": "REJECTED_AS_READER_FACING_TARGET",
+        "reasons": [
+            "only seven prediction claims",
+            "not a full-report reading experience",
+            "past narrative remains broad",
+            "relationship, health, luck and major-change coverage is too thin",
+            "several sentences read like system copy",
+            "structural validator PASS is not content acceptance",
+        ],
     }
+
+
+def chronology_audit(mapping: dict) -> dict:
+    order = [
+        "ภาพรวมเส้นทางชีวิต", "คำทำนายอดีต อายุ 1–10 ปี",
+        "คำทำนายอดีต อายุ 11–29 ปี", "คำทำนายอดีต อายุ 30–41 ปี",
+        "คำทำนายปัจจุบัน อายุ 44 ปี", "การงาน", "การเงิน",
+        "ความรักและความสัมพันธ์", "สุขภาพ", "โชคลาภและแรงสนับสนุน",
+        "คำทำนาย 12 เดือนข้างหน้า", "ช่วงชีวิตถัดไป อายุ 63–79 ปี",
+        "คำแนะนำสั้น ๆ",
+    ]
+    rank = {section: index for index, section in enumerate(order)}
+    known = next(surface for surface in mapping["surfaces"] if surface["surface"] == "Known")
+    observed = [rank.get(claim["section"], -1) for claim in known["readerClaims"]]
+    errors = sum(left > right for left, right in zip(observed, observed[1:])) + sum(value < 0 for value in observed)
+    return {"status": "PASS" if errors == 0 else "FAIL", "orderErrorCount": errors}
 
 
 def profile_audit(corpus: dict) -> dict:
@@ -310,7 +367,7 @@ def main() -> None:
     evidence_counts = evidence_integrity(corpus)
     reader_counts = validate_reader(corpus, mapping, documents)
     controls = negative_controls(corpus, mapping, documents)
-    rejected = candidate_0008_rejection()
+    rejected = candidate_0009_rejection()
     NEGATIVE_PATH.write_text(json.dumps(controls, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     REJECTED_PATH.write_text(json.dumps(rejected, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     all_errors = {"schema_error_count": len(schema_errors), **evidence_counts, **reader_counts}
@@ -320,13 +377,25 @@ def main() -> None:
         "counts": {**corpus["counts"], "readerClaims": sum(len(s["readerClaims"]) for s in mapping["surfaces"]), "predictionReaderClaims": sum(c["claimKind"] == PREDICTION_KIND for s in mapping["surfaces"] for c in s["readerClaims"])},
         "errors": all_errors,
         "negativeControls": {"total": len(controls["controls"]), "pass": sum(c["controlPassed"] for c in controls["controls"]), "fail": sum(not c["controlPassed"] for c in controls["controls"])},
-        "candidate0008": rejected,
+        "candidate0009": rejected,
+        "candidate0010": {
+            "knownReaderClaims": sum(len(s["readerClaims"]) for s in mapping["surfaces"] if s["surface"] == "Known"),
+            "knownPredictionParagraphs": sum(c["claimKind"] == PREDICTION_KIND for s in mapping["surfaces"] if s["surface"] == "Known" for c in s["readerClaims"]),
+            "unknownReaderClaims": sum(len(s["readerClaims"]) for s in mapping["surfaces"] if s["surface"] == "Unknown"),
+            "chronology": chronology_audit(mapping),
+        },
         "fixtureSeparation": fixture,
-        "profileAudit": profile_audit(corpus),
+        "contextPeriodSelectionCoverageAudit": profile_audit(corpus),
         "sourcePdfSha256Matches": sha256(SOURCE_ROOT / "book.pdf") == corpus["source"]["pdfSha256"],
         "delta": {"runtimeFiles": git_names("lib"), "runtimeTestFiles": git_names("test") + git_names("integration_test"), "productionCanonFiles": git_names("knowledge/canon/production"), "productAcceptanceFiles": git_names("product-acceptance")},
+        "validationScope": {
+            "proves": ["structure", "trace", "domain", "period", "unsupported exact timing/event markers", "duplication markers"],
+            "doesNotProve": ["predictive accuracy", "truth in a reader life", "language quality", "Owner content acceptance"],
+        },
         "claims": {"runtimeImplementation": False, "ownerAcceptance": False},
     }
+    if report["candidate0010"]["chronology"]["status"] != "PASS":
+        report["status"] = "FAIL"
     REPORT_PATH.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(report, ensure_ascii=True, indent=2))
     if report["status"] != "PASS" or not report["sourcePdfSha256Matches"] or any(report["delta"].values()):
