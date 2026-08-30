@@ -1,5 +1,22 @@
 # Task: Thai Report Reader Experience V2
 
+## PR112 Phase 1 OR3 — Final Rule Validity Gate (2026-08-30)
+
+Status: **PR112 PHASE 1 OR3 FINAL RULE VALIDITY GATE — NO-GO — DOMAIN AUTHORITY OR CALIBRATION BLOCKER RECORDED — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**. Option B remains the product direction and Owner accepts the Event Ontology/Evidence Architecture for further development. Owner rejected Product Predictive Rulebook V1 and Candidate 0005 Known/Unknown as implementation, content and expected-output targets. No OR4 copy polish or runtime work is authorized.
+
+V1 uses `currentAge+1` across the full rolling horizon, so events after the next birthday can be stated as if they cover the period before it. The corrected design splits at the exact birthday. For Owner 00:03/asOf 2026-08-29: Segment A is 2026-08-29–2027-06-05, 281 days, age 44, annual role อุตสาหะ; Segment B is 2027-06-06–2027-08-28, 84 days, age 45, role มูละ. Repository population coverage/continuity passed 300/300.
+
+Authority audit covered 14/14 V1 rules. Canon/engine supports the underlying period, role, relationship and domain values but not the proposed event causation/movement. Thresholds 64, 68, 46 and fixed 75/80 have no accepted source; engine `confidence` is actually a horizon-proximity/structural score and is not predictive probability. Distribution cannot turn those values into semantic authority without labeled outcomes.
+
+Population calibration used `ThaiBetaSyntheticMatrix.build()` for 300 profiles: Known 225, Unknown 75, all eight supported start planets, opening/peak/closing, negative/neutral/positive harmony and all five relationship-status design values. V1 product fire rates were 2.7–37.8%; threshold ±5 changed as many as 115 profiles looser and 68 stricter. V1 generated opposing candidates in S009/S028 before its rejected resolver. This proves selectivity only; semantic validity is not established and predictive accuracy is not measurable without a historical outcome dataset.
+
+Rulebook V1.1 removes all 13 product-event rules rather than tuning them. It retains 3/3 complete rules: one exact life-period fact and two engine-semantic tendency projections. Unsourced retained thresholds, arbitrary fixed predictive confidence, event rules and unsupported event claims are 0. Candidate 0006 Known has exact facts 2, tendencies 1, event predictions 0, advice 0, visible duplicates 0 and Golden supported-content coverage 2/4. Unknown is a short reduced report: one limitation, empty predictive headings 0, duplicate hits 0 and time-dependent assertions 0.
+
+Validation: design calibration 300/300 passed, focused fixture 4/4 passed (00:03 Aquarius 9°24′ Saturday; 00:35 Aquarius 19°19′ Saturday; Unknown no noon/ascendant/houses/Thai-day), retained unresolved contradictions 0, Known→Unknown leakage 0, past reflection/question 0, psychology 0, unsupported event count 0, `git diff --check` passed. Full Flutter suite/analyzer were not rerun because source/test delta is zero. Application/source/code/test/generated-artifact and `product-acceptance/` delta are 0.
+
+Calibration/rulebook commit: `6350b9dc06e33a54d6e4eaff16e7c3d855bd7339`. Owner package: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_REPORT_PREDICTIVE_NARRATIVE_V2_PHASE1_OR3_6350b9d.zip`, SHA-256 `FFF2FB193C5FDCBEF9E335E037B54003120FB28A5A73ADF721037ADF24DECE71`. It has 26 entries; CRC/stream, extraction missing/extra, manifest missing/hash/size, SHA256SUMS, secret, placeholder/ellipsis and absolute-path errors are all 0. The status/package record is a separate Markdown-only commit. PR #112 must remain Open + Draft; no Ready-for-Review, merge, deploy, Firebase/Production change or Owner Acceptance occurred.
+
+
 ## PR112 Phase 1 OR2 — Product Predictive Rulebook V1 (2026-08-30)
 
 Status: **PR112 PHASE 1 OR2 PRODUCT PREDICTIVE RULEBOOK COMPLETE — OPTION B SELECTED — CANDIDATE 0005 PENDING OWNER RULE AND CONTENT REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**. Owner selected Option B and rejected Options A/C. Candidate 0004 is accepted as content direction only; it is not an implementation target, expected-output baseline, or Owner Acceptance. Product Predictive Rulebook V1, its proposed product-inference rules, and Candidate 0005 Known/Unknown remain pending explicit Owner review. G05/G10 remain blocked and `monthlyTimelineAvailable=false`.
