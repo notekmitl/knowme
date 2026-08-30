@@ -1,5 +1,23 @@
 # KnowMe Roadmap
 
+## PR113 Phase 2 OR1 — generic narrative and full-report scope repair (2026-08-30)
+
+Status: **PR113 PHASE 2 OR1 GENERIC NARRATIVE AND FULL-REPORT SCOPE REPAIR COMPLETE — DRAFT — PENDING OWNER PRODUCT RE-REVIEW — NOT MERGED — NOT DEPLOYED**.
+
+Owner Product Review รอบแรกของ PR #113 ถูกปฏิเสธ เพราะ implementation เดิมมีหกสาเหตุหลัก: ใช้ fixture-specific `_acceptedKnownPlan`, ยังมี legacy composer fallback, ลบคำด้วย global `replaceAll('อาจ','')`, ใช้ placeholder runtime references และ sequence-based semantic owners, ทำให้ส่วน non-predictive ของ full report หาย และ 300-profile audit เดิมยังตรวจไม่ลึกพอ รอบ OR1 แก้ด้วย generic typed `PredictiveClaimSpec`, stable claim/owner/evidence registry, context-keyed accepted-corpus promotion layer, full-report composition ที่รักษาส่วนเดิม และ Unknown-time fail-closed โดยไม่เพิ่ม fixture-special path หรือ fallback.
+
+Implementation/test commit คือ `874546ac3a1fc23b9e4dd9fb6713aeedaa5a39c7`; evidence/docs commit คือ commit ที่บันทึกข้อความนี้ Candidate 0011 ยังใช้ typed generic V2 path เดียวกับโปรไฟล์อื่น และ exact accepted output ไม่เปลี่ยนเมื่ออายุเลื่อนจาก 44 เป็น 45. Known 00:03 และ 00:35 ยังคงแยก canonical ascendant; Unknown ไม่รั่ว ascendant, houses, Thai day หรือ Known-only atoms. `monthlyTimelineAvailable=false` และไม่มีคำทำนายรายเดือน
+
+Validation ผ่านจริง: focused 165/165 แบ่งเป็น Candidate/generic+raw audit 12/12, Canon/core 43/43, narrative 35/35 และ report/capture/infographic/artifact 75/75; full required Flutter suite 1,636/1,636; repository analyzer exit 0 โดยมี 298 baseline diagnostics เดิมและไฟล์ implementation/test ที่เปลี่ยนมี diagnostics ใหม่ 0; `git diff --check`, PreCommit และ implementation PostCommit ผ่าน
+
+300-profile audit ครบ 300/300 (Known 225, Unknown 75), ครอบคลุม 48 canonical contexts และ 1 supplemental targeted context รวม 49 contexts, ตรวจ 4,962 records/atoms; missing, mismatch, duplicate, order mismatch, semantic-owner mismatch, Known-to-Unknown leakage, forbidden copy, malformed copy, reflective past, psychology leakage, advice/prediction leakage, duplicate detailed owner, unresolved evidence, placeholder runtime refs, sequence-only owners, legacy fallback, fixture-special path และ unsupported timing เป็น 0 ทั้งหมด นี่เป็นการตรวจ contract/traceability ไม่ใช่การรับรองความแม่นยำของคำทำนาย
+
+Visual QA ตรวจผลจริงครบ: Web captures 29 ไฟล์ (Known desktop 8, Known mobile 390 จำนวน 11, Unknown desktop 5, Unknown mobile 390 จำนวน 5), infographic Known/Unknown ขนาด 1080×1920 จำนวน 2 ไฟล์ และ raster PDF ทุกหน้า Dedicated PDF มี Known 7 หน้า / Unknown 3 หน้า; Chrome browser-print มี Known 6 หน้า / Unknown 3 หน้า รวม 19 หน้า ไม่พบ blank page, clipping, overlap หรือ overflow และ cross-surface parity/audit counters เป็น 0
+
+Owner Review package: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_REPORT_PREDICTIVE_NARRATIVE_V2_PHASE2_OR1_874546a.zip`; SHA-256 `0222F63D4884DA93749CF61954803536BFEE3F4810A7C7008991D1682C02C265`. ZIP มี 96 entries / 93 manifest payload entries; CRC errors, extraction missing/extra, manifest missing/extra, hash mismatch, size mismatch และ secret scan เป็น 0 ทั้งหมด
+
+PR #113 ยังคง [Open + Draft](https://github.com/notekmitl/knowme/pull/113) และรอ Owner Product Re-review; ยังไม่ถือว่า Owner Accept, ไม่ได้ Merge, ไม่ได้ Deploy และไม่มีการเปลี่ยน Firebase/Production หรือ `product-acceptance/`
+
 ## PR112 merge + Predictive Narrative V2 Phase 2 runtime (2026-08-30)
 
 Status: **PR112 PHASE 1 OWNER CONTENT ACCEPTED AND MERGED — PHASE 2 RUNTIME IMPLEMENTATION COMPLETE — DRAFT PR #113 — PENDING OWNER PRODUCT REVIEW — NOT DEPLOYED**.
