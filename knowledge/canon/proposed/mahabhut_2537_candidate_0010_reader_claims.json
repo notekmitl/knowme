@@ -1,0 +1,479 @@
+{
+  "version": 1,
+  "status": "PROPOSED_NOT_RUNTIME_PENDING_OWNER_CONTENT_REVIEW",
+  "synthesisContract": "docs/THAI_MAHABHUT_2537_ASTROLOGICAL_SYNTHESIS_CONTRACT.md",
+  "validationScope": {
+    "proves": [
+      "structure",
+      "trace",
+      "domain",
+      "period",
+      "unsupported exact timing/event markers",
+      "duplication markers"
+    ],
+    "doesNotProve": [
+      "predictive accuracy",
+      "truth in a reader life",
+      "Owner content acceptance"
+    ]
+  },
+  "surfaces": [
+    {
+      "surface": "Known",
+      "file": "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0010.md",
+      "readerClaims": [
+        {
+          "readerClaimId": "RC10-K-OVERVIEW-01",
+          "section": "ภาพรวมเส้นทางชีวิต",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-01",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "0-62",
+          "domain": "life_path",
+          "evidenceRefs": [
+            "placement.mahabhut2537.rem0.saturday.saturn.0_10",
+            "placement.mahabhut2537.rem0.saturday.jupiter.11_29",
+            "placement.mahabhut2537.rem0.saturday.rahu.30_41",
+            "placement.mahabhut2537.rem0.saturday.venus.42_62"
+          ],
+          "meaningKey": "life-arc-major-periods",
+          "text": "ชีวิตแบ่งเป็นช่วงใหญ่ที่เห็นความเปลี่ยนแปลงชัด วัยเด็กต้องปรับตัวตามเงื่อนไขของบ้าน ช่วงอายุ 11–29 เปิดโลกและพาออกจากกรอบเดิม ช่วงอายุ 30–41 งานกับหน้าที่เปลี่ยนแรง ก่อนเข้าสู่รอบที่ผลงาน เงิน และแรงสนับสนุนเริ่มตอบแทนสิ่งที่สะสมไว้หลังอายุ 42 ปี"
+        },
+        {
+          "readerClaimId": "RC10-K-OVERVIEW-02",
+          "section": "ภาพรวมเส้นทางชีวิต",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-02",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "age44",
+          "domain": "life_path",
+          "evidenceRefs": [
+            "placement.mahabhut2537.rem0.saturday.venus.42_62",
+            "prediction.career.current.strong",
+            "prediction.finance.current.strong",
+            "prediction.relationship.current.strong",
+            "prediction.health.current.strong"
+          ],
+          "meaningKey": "current-life-selection",
+          "text": "ตอนอายุ 44 ปี งานยังเป็นแกนหลักของชีวิต แต่การตัดสินใจไม่ได้วัดจากงานเพียงอย่างเดียวอีกต่อไป เงิน ความสัมพันธ์ และกำลังที่มีอยู่จะเป็นตัวกำหนดว่างานใดเดินต่อ งานใดจบ และภาระใดต้องวางลง"
+        },
+        {
+          "readerClaimId": "RC10-K-PAST-01",
+          "section": "คำทำนายอดีต อายุ 1–10 ปี",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-03",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "1-10",
+          "domain": "support_and_family",
+          "evidenceRefs": [
+            "placement.mahabhut2537.rem0.saturday.saturn.0_10"
+          ],
+          "meaningKey": "past-family-constraint",
+          "text": "วัย 1–10 ปีมีเงื่อนไขจากครอบครัวและผู้ใหญ่เข้ามากำหนดชีวิตมากกว่าวัยอื่น บางช่วงต้องเปลี่ยนความเคยชินหรือรับภาระในบ้านเร็วกว่าที่ตั้งใจ ทำให้ความสบายในวัยเด็กถูกแบ่งด้วยหน้าที่ที่หลีกเลี่ยงไม่ได้"
+        },
+        {
+          "readerClaimId": "RC10-K-PAST-02",
+          "section": "คำทำนายอดีต อายุ 11–29 ปี",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-04",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "11-29",
+          "domain": "education_social",
+          "evidenceRefs": [
+            "placement.mahabhut2537.rem0.saturday.jupiter.11_29"
+          ],
+          "meaningKey": "past-world-expansion",
+          "text": "ช่วงอายุ 11–29 ชีวิตเปิดกว้างขึ้นผ่านการเรียน งาน และสังคมใหม่ เส้นทางเดิมถูกขยายด้วยคนที่มีประสบการณ์กว่า และมีการเปลี่ยนแวดวงหรือเปลี่ยนวิธีหาโอกาสจากที่เคยใช้"
+        },
+        {
+          "readerClaimId": "RC10-K-PAST-03",
+          "section": "คำทำนายอดีต อายุ 11–29 ปี",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-05",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "11-29",
+          "domain": "responsibility_relationship",
+          "evidenceRefs": [
+            "placement.mahabhut2537.rem0.saturday.jupiter.11_29"
+          ],
+          "meaningKey": "past-responsibility-agreement",
+          "text": "ช่วงปลายของรอบนี้เริ่มรับผิดชอบเรื่องงานและเงินจริงจังขึ้น ความสัมพันธ์บางส่วนขยับจากการคบหาตามสถานการณ์ไปสู่การตกลงว่าใครจะอยู่ต่อ ใครจะห่างออก และเรื่องใดต้องจัดการด้วยตัวเอง"
+        },
+        {
+          "readerClaimId": "RC10-K-PAST-04",
+          "section": "คำทำนายอดีต อายุ 30–41 ปี",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-06",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "30-41",
+          "domain": "work",
+          "evidenceRefs": [
+            "GRA-R0-SAT-30_41-DET-RISE",
+            "PIC-R0-SAT-30_41-WORK"
+          ],
+          "meaningKey": "past-role-expansion",
+          "text": "ช่วงอายุ 30–41 งานพาคุณเปลี่ยนบทบาทอย่างชัดเจน จากคนที่ลงมือแก้ปัญหา ไปสู่คนที่ต้องรับผิดชอบผลลัพธ์และตัดสินใจเรื่องใหญ่ขึ้น ผลงานที่ทำต่อเนื่องเปิดทางให้หน้าที่ขยายและเสียงของคุณมีน้ำหนักกว่าเดิม"
+        },
+        {
+          "readerClaimId": "RC10-K-PAST-05",
+          "section": "คำทำนายอดีต อายุ 30–41 ปี",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-07",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "30-41",
+          "domain": "work_and_commitment",
+          "evidenceRefs": [
+            "placement.mahabhut2537.rem0.saturday.rahu.30_41",
+            "GRA-R0-SAT-30_41-DET-RISE"
+          ],
+          "meaningKey": "past-ending-new-base",
+          "text": "ในช่วงเดียวกัน งานหรือข้อตกลงสำคัญเปลี่ยนรูปแบบ สิ่งที่เดินต่อได้กลายเป็นฐานของรอบปัจจุบัน ส่วนเรื่องที่กินแรงแต่ไม่พาชีวิตไปข้างหน้าค่อย ๆ จบลงหรือถูกส่งออกจากมือ"
+        },
+        {
+          "readerClaimId": "RC10-K-CURRENT-01",
+          "section": "คำทำนายปัจจุบัน อายุ 44 ปี",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-08",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "42-62|age44",
+          "domain": "work_finance_support",
+          "evidenceRefs": [
+            "SDC-R0-SAT-42_62-WORK",
+            "SDC-R0-SAT-42_62-FINANCE",
+            "SDC-R0-SAT-42_62-FLOW",
+            "SDC-R0-SAT-42_62-SUPPORT"
+          ],
+          "meaningKey": "current-return-and-support",
+          "text": "หลังอายุ 42 ปี งาน เงิน และการติดต่อเริ่มเดินคล่องกว่าช่วงก่อน เรื่องที่เคยต้องผลักอยู่ฝ่ายเดียวเริ่มมีคนรับช่วงหรือเข้ามาช่วย และผลจากงานที่ทำไว้เริ่มกลับมาเป็นรายได้กับโอกาสใหม่"
+        },
+        {
+          "readerClaimId": "RC10-K-CURRENT-02",
+          "section": "คำทำนายปัจจุบัน อายุ 44 ปี",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-09",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "age44",
+          "domain": "work",
+          "evidenceRefs": [
+            "placement.mahabhut2537.rem0.saturday.venus.42_62",
+            "prediction.career.current.strong"
+          ],
+          "meaningKey": "current-close-and-open",
+          "text": "อายุ 44 เป็นปีที่ต้องปิดงานค้างพร้อมรับหน้าที่ใหม่ งานเดิมบางส่วนยังให้ผล แต่สิ่งที่ไม่มีขอบเขตหรือไม่มีอำนาจตัดสินใจพอจะสร้างภาระชัดขึ้น จึงเกิดการเปลี่ยนข้อตกลงหรือยุติบางเรื่องเพื่อเปิดพื้นที่ให้งานที่สำคัญกว่า"
+        },
+        {
+          "readerClaimId": "RC10-K-WORK-01",
+          "section": "การงาน",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-10",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "42-62|age44",
+          "domain": "work",
+          "evidenceRefs": [
+            "SDC-R0-SAT-42_62-WORK",
+            "SDC-R0-SAT-42_62-FLOW",
+            "prediction.career.current.strong"
+          ],
+          "meaningKey": "work-decision-authority",
+          "text": "หน้าที่การงานขยับจากการทำตามโจทย์ไปสู่การกำหนดทางเดินของงาน คุณจะรับผิดชอบผลลัพธ์มากขึ้น ได้ตัดสินใจเรื่องที่กระทบคนอื่น และถูกเรียกใช้ในเรื่องที่ต้องอาศัยประสบการณ์มากกว่าการลงแรงอย่างเดียว"
+        },
+        {
+          "readerClaimId": "RC10-K-WORK-02",
+          "section": "การงาน",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-11",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "42-62|age44",
+          "domain": "work",
+          "evidenceRefs": [
+            "SDC-R0-SAT-42_62-WORK",
+            "prediction.career.current.strong"
+          ],
+          "meaningKey": "work-new-from-output",
+          "text": "งานใหม่เปิดจากผลงานที่คนเห็นอยู่แล้ว ขณะเดียวกันงานเดิมที่ซ้ำ เสียเวลา หรือให้ภาระมากกว่าผลตอบแทนจะถูกลดบทบาทลง การเปลี่ยนครั้งนี้ทำให้งานเหลือน้อยประเภทแต่มีน้ำหนักมากขึ้น"
+        },
+        {
+          "readerClaimId": "RC10-K-FINANCE-01",
+          "section": "การเงิน",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-12",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "42-62|age44",
+          "domain": "finance",
+          "evidenceRefs": [
+            "SDC-R0-SAT-42_62-FINANCE",
+            "GRA-R0-SAT-42_62-SRI-RISE",
+            "prediction.finance.current.strong"
+          ],
+          "meaningKey": "finance-work-linked-income",
+          "text": "รายได้ขยับตามบทบาทและผลงาน เงินไม่ได้มาจากการเสี่ยงแบบไร้ข้อมูล แต่มาจากงานที่ทำสำเร็จ ทักษะที่ใช้ได้จริง และคนที่กลับมาเพราะรู้จักฝีมือของคุณ"
+        },
+        {
+          "readerClaimId": "RC10-K-FINANCE-02",
+          "section": "การเงิน",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-13",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "42-62|age44",
+          "domain": "finance",
+          "evidenceRefs": [
+            "SDC-R0-SAT-42_62-FINANCE",
+            "prediction.finance.current.strong"
+          ],
+          "meaningKey": "finance-flow-and-expense",
+          "text": "เงินหมุนคล่องขึ้นพร้อมกับมีรายจ่ายก้อนสำคัญเกี่ยวกับงาน บ้าน หรือภาระที่ต้องจัดการให้จบ ช่วงนี้จึงเห็นทั้งเงินเข้าและเงินออกชัด ฐานการเงินจะนิ่งขึ้นเมื่อหยุดผูกเงินไว้กับเรื่องที่ไม่สร้างผลต่อเนื่อง"
+        },
+        {
+          "readerClaimId": "RC10-K-RELATIONSHIP-01",
+          "section": "ความรักและความสัมพันธ์",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-14",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "42-62|age44",
+          "domain": "relationship",
+          "evidenceRefs": [
+            "prediction.relationship.current.strong",
+            "SDC-R0-SAT-42_62-FLOW"
+          ],
+          "meaningKey": "relationship-clarity-actions",
+          "text": "ความสัมพันธ์ที่คลุมเครือจะชัดขึ้นจากการกระทำและข้อตกลง คนที่พร้อมเดินต่อจะแสดงความรับผิดชอบให้เห็น ส่วนความสัมพันธ์ที่มีแต่คำพูดจะเว้นระยะหรือหลุดออกจากชีวิตเอง"
+        },
+        {
+          "readerClaimId": "RC10-K-RELATIONSHIP-02",
+          "section": "ความรักและความสัมพันธ์",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-15",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "42-62|age44",
+          "domain": "relationship",
+          "evidenceRefs": [
+            "prediction.relationship.current.strong"
+          ],
+          "meaningKey": "relationship-agreement-distance",
+          "text": "เรื่องเวลา หน้าที่ เงิน และพื้นที่ส่วนตัวจะถูกนำมาคุยตรงขึ้น บางความสัมพันธ์จึงแน่นแฟ้นกว่าเดิม ขณะที่บางความสัมพันธ์เปลี่ยนระยะเพื่อให้แต่ละฝ่ายกลับไปจัดการชีวิตของตัวเอง"
+        },
+        {
+          "readerClaimId": "RC10-K-HEALTH-01",
+          "section": "สุขภาพ",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-16",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "42-62|age44",
+          "domain": "health",
+          "evidenceRefs": [
+            "prediction.health.current.strong",
+            "prediction.career.current.strong"
+          ],
+          "meaningKey": "health-load-recovery",
+          "text": "ภาระงานที่เพิ่มขึ้นทำให้ความเครียดและการพักไม่พอแสดงผลชัด ร่างกายใช้เวลาฟื้นจากวันที่ทำงานต่อเนื่องนานกว่าเดิม และกำลังจะตกเร็วเมื่อรับหลายเรื่องพร้อมกัน"
+        },
+        {
+          "readerClaimId": "RC10-K-HEALTH-02",
+          "section": "สุขภาพ",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-17",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "42-62|age44",
+          "domain": "health",
+          "evidenceRefs": [
+            "prediction.health.current.strong"
+          ],
+          "meaningKey": "health-rest-restoration",
+          "text": "เมื่อปริมาณงานถูกจัดใหม่และเรื่องค้างลดลง กำลังจะค่อย ๆ กลับมา การนอนและช่วงพักที่ต่อเนื่องจะทำให้ฟื้นตัวได้ดีกว่าการหยุดสั้น ๆ แล้วกลับไปเร่งงานเหมือนเดิม"
+        },
+        {
+          "readerClaimId": "RC10-K-SUPPORT-01",
+          "section": "โชคลาภและแรงสนับสนุน",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-18",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "42-62|age44",
+          "domain": "support",
+          "evidenceRefs": [
+            "SDC-R0-SAT-42_62-SUPPORT"
+          ],
+          "meaningKey": "support-existing-network",
+          "text": "แรงหนุนมาจากผู้ใหญ่ ครู เพื่อน และคนที่เคยทำงานร่วมกัน คนเหล่านี้ช่วยเปิดทาง แนะนำโอกาส หรือพาเรื่องที่ติดขัดกลับมาเดินได้อีกครั้ง"
+        },
+        {
+          "readerClaimId": "RC10-K-SUPPORT-02",
+          "section": "โชคลาภและแรงสนับสนุน",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-19",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "42-62|age44",
+          "domain": "luck",
+          "evidenceRefs": [
+            "SDC-R0-SAT-42_62-FINANCE",
+            "SDC-R0-SAT-42_62-SUPPORT",
+            "prediction.career.current.strong"
+          ],
+          "meaningKey": "luck-from-work-reputation",
+          "text": "โชคของรอบนี้เกิดจากงาน ผลงาน และความน่าเชื่อถือที่สะสมไว้ งานเก่า คนรู้จักเดิม หรือเรื่องที่เคยทำสำเร็จจะกลับมาเป็นช่องทางใหม่ มากกว่าการได้สิ่งใหญ่จากการเสี่ยงโดยไม่มีฐานรองรับ"
+        },
+        {
+          "readerClaimId": "RC10-K-HORIZON-01",
+          "section": "คำทำนาย 12 เดือนข้างหน้า",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-20",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "2026-08-29/2027-08-28|age44-45",
+          "domain": "work",
+          "evidenceRefs": [
+            "PIC-R0-SAT-HORIZON-WORK",
+            "prediction.career.next12Months.strong"
+          ],
+          "meaningKey": "horizon-work-status-change",
+          "text": "ช่วงวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานจะเปลี่ยนสถานะชัดขึ้น หน้าที่ที่รับอยู่ขยายผลต่อ และมีงานใหม่เข้ามาแทนเรื่องที่กำลังปิด คุณจะตัดสินใจมากขึ้นแทนการรอให้คนอื่นกำหนดทางให้"
+        },
+        {
+          "readerClaimId": "RC10-K-HORIZON-02",
+          "section": "คำทำนาย 12 เดือนข้างหน้า",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-21",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "2026-08-29/2027-08-28|age44-45",
+          "domain": "finance_relationship",
+          "evidenceRefs": [
+            "prediction.finance.next12Months.strong",
+            "prediction.relationship.next12Months.strong"
+          ],
+          "meaningKey": "horizon-finance-relationship-agreements",
+          "text": "รายรับจะขยับตามผลงานและขอบเขตงานใหม่ แต่ภาระทางเงินก็ตามมาพร้อมกัน ความสัมพันธ์จะชัดจากการตกลงเรื่องเวลา หน้าที่ และสิ่งที่แต่ละฝ่ายรับผิดชอบ ไม่ใช่จากคำสัญญาที่ไม่มีการลงมือทำ"
+        },
+        {
+          "readerClaimId": "RC10-K-HORIZON-03",
+          "section": "คำทำนาย 12 เดือนข้างหน้า",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-22",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "2026-08-29/2027-08-28|age44-45",
+          "domain": "support",
+          "evidenceRefs": [
+            "PIC-R0-SAT-HORIZON-SUPPORT",
+            "SDC-R0-SAT-42_62-SUPPORT"
+          ],
+          "meaningKey": "horizon-support-closes-blockers",
+          "text": "คนที่เคยเห็นผลงานจะเป็นแรงส่งสำคัญตลอดรอบนี้ ความช่วยเหลือที่เข้ามาจะลดอุปสรรคของงานและทำให้เรื่องค้างปิดได้เร็วขึ้น โดยไม่ต้องเริ่มสร้างความน่าเชื่อถือใหม่ทั้งหมด"
+        },
+        {
+          "readerClaimId": "RC10-K-NEXT-01",
+          "section": "ช่วงชีวิตถัดไป อายุ 63–79 ปี",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-23",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "63-79",
+          "domain": "foundation",
+          "evidenceRefs": [
+            "placement.mahabhut2537.rem0.saturday.mercury.63_79",
+            "GRA-R0-SAT-63_79-MULA-RISE",
+            "PIC-R0-SAT-63_79-FOUNDATION"
+          ],
+          "meaningKey": "next-foundation-assets",
+          "text": "เมื่ออายุ 63 ปี ชีวิตเข้าสู่ช่วงสร้างฐานระยะยาว เรื่องบ้านและทรัพย์เดินหน้าเด่น สิ่งที่สะสมจากงานจะถูกเปลี่ยนเป็นความมั่นคงที่จับต้องได้มากขึ้น"
+        },
+        {
+          "readerClaimId": "RC10-K-NEXT-02",
+          "section": "ช่วงชีวิตถัดไป อายุ 63–79 ปี",
+          "claimKind": "PREDICTION",
+          "ownerId": "OAS-24",
+          "ownerType": "OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "63-79",
+          "domain": "work",
+          "evidenceRefs": [
+            "placement.mahabhut2537.rem0.saturday.mercury.63_79",
+            "prediction.career.nextLifePeriod.strong"
+          ],
+          "meaningKey": "next-work-direction-transfer",
+          "text": "บทบาทงานจะขยับไปทางวางระบบ ให้ทิศทาง และถ่ายทอดประสบการณ์ งานที่ต้องใช้ความคิด การเจรจา หรือการจัดการข้อมูลจะมีน้ำหนักกว่างานที่ต้องลงแรงทุกขั้นด้วยตัวเอง"
+        },
+        {
+          "readerClaimId": "RC10-K-ADVICE-01",
+          "section": "คำแนะนำสั้น ๆ",
+          "claimKind": "ADVICE",
+          "ownerId": "ADVICE-K-CURRENT-01",
+          "ownerType": "ADVICE",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "REPORT",
+          "domain": "advice",
+          "evidenceRefs": [
+            "ADVICE-K-CURRENT-01"
+          ],
+          "text": "รับงานใหม่เมื่อขอบเขตและอำนาจตัดสินใจชัด เก็บเงินส่วนหนึ่งไว้รองรับรายจ่ายก้อนสำคัญ พูดข้อตกลงกับคนใกล้ตัวให้ตรง และจัดวันพักจริงก่อนที่ความล้าจะสะสมจนกระทบงาน"
+        },
+        {
+          "readerClaimId": "RC10-K-DISCLOSURE-01",
+          "section": "คำแนะนำสั้น ๆ",
+          "claimKind": "DISCLOSURE",
+          "ownerId": "DISCLOSURE-K-01",
+          "ownerType": "DISCLOSURE",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "periodBinding": "REPORT",
+          "domain": "disclosure",
+          "evidenceRefs": [
+            "DISCLOSURE-K-01"
+          ],
+          "text": "คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ"
+        }
+      ]
+    },
+    {
+      "surface": "Unknown",
+      "file": "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0010_UNKNOWN.md",
+      "readerClaims": [
+        {
+          "readerClaimId": "RC10-U-OMISSION-01",
+          "section": "รายงานฉบับย่อ",
+          "claimKind": "OMISSION",
+          "ownerId": "OMISSION-U-01",
+          "ownerType": "OMISSION",
+          "contextId": "unknown-time",
+          "periodBinding": "UNAVAILABLE",
+          "domain": "omission",
+          "evidenceRefs": [
+            "OMISSION-U-01"
+          ],
+          "text": "ไม่มีเวลาเกิด — รายงานจึงเว้นคำทำนายช่วงชีวิตที่ต้องใช้เวลาเกิด แทนการเดาข้อมูลที่ไม่มี"
+        },
+        {
+          "readerClaimId": "RC10-U-DISCLOSURE-01",
+          "section": "รายงานฉบับย่อ",
+          "claimKind": "DISCLOSURE",
+          "ownerId": "DISCLOSURE-U-01",
+          "ownerType": "DISCLOSURE",
+          "contextId": "unknown-time",
+          "periodBinding": "REPORT",
+          "domain": "disclosure",
+          "evidenceRefs": [
+            "DISCLOSURE-U-01"
+          ],
+          "text": "คำทำนายเป็นมุมมองตามความเชื่อ และควรเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ"
+        }
+      ]
+    }
+  ]
+}
