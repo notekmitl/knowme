@@ -7,7 +7,7 @@ Status: **VALIDATION PASS FOR PARTIAL DESIGN CORPUS**
 Command:
 
 ```powershell
-python tool/validate_mahabhut_predictive_rules_v2.py --source-root <configured-source-root>
+python tool/validate_mahabhut_predictive_rules_v2.py --source-root MAHABHUT_SOURCE_ROOT
 ```
 
 ## Corpus and trace results

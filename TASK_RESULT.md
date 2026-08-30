@@ -1,5 +1,15 @@
 # Task Result — Thai Report Reader Experience V2
 
+## PR112 Phase 1 SA1 — Mahabhut predictive source reopening (2026-08-30)
+
+Status: **PR112 PHASE 1 SA1 — PARTIAL — SPECIFIC PAGES/OCR/MODELING BLOCKED — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**. Owner designated the complete Mahabhut work compiled by ส.หยกฟ้า as the primary Tier 1 predictive-domain authority, below the Tier 0 engine. This reopens source-backed extraction only; the OR3 NO-GO remains in force for Codex-invented heuristics, including the rejected thresholds 64, 68, 46, 75 and 80. No external astrologer was engaged.
+
+Source reconciliation found 834 atomic Canon units with IDs, 20 `$note` sentinels (854 raw array entries), and 29 reference cells. Stale status counts are 0. The available scan identifies the extraction edition as the สำนักพิมพ์ดวงแก้ว พ.ศ. 2537 edition, while the Owner-authorized authority identity is printing 3, พ.ศ. 2539; direct edition/page equivalence is not yet proven and is kept `PENDING`. Twelve proposed source-backed rules were modeled with full schema/page/evidence traceability. Candidate 0007 Known is only a partial worked example; Unknown remains fail-closed. Coverage is complete for 1 of 49 archetype/day contexts, leaving 48 contexts and 45 historical OCR/source blockers unresolved.
+
+Validation passed: proposed rules/schema/page trace/evidence 12/12; all unsupported-rule, arbitrary-threshold, fixed-confidence, hidden-conflict, leakage, duplicate and stale-status counters 0; birthday segmentation 300/300 with deterministic errors 0; focused fixture separation 4/4; Canon database/knowledge tests 42/42; analyzer passed; `git diff --check` passed. Full Flutter suite was not rerun because runtime application-source delta is 0. Runtime/production foundation and `product-acceptance/` deltas are 0.
+
+Source-truth/Charter commit: `3717a48`. Proposed-rules/Candidate/validation commit: `a7f83d3`. Status/package commit: this final SA1 docs HEAD. Owner package: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_REPORT_PREDICTIVE_NARRATIVE_V2_PHASE1_SA1_a7f83d3.zip`, SHA-256 `A3DE245330A9F0287A14A602271B18CA3F7D467C7999D745ED73E9E454752520`. It contains 17 entries; CRC, extraction missing/extra, manifest missing/hash/size, SHA256SUMS, secret, placeholder and absolute-path errors are all 0. PR #112 remains Open + Draft; no runtime implementation, Ready-for-Review transition, merge, deploy, Firebase/Production change or Owner Acceptance occurred.
+
 ## PR112 Phase 1 OR3 — Final Rule Validity Gate (2026-08-30)
 
 Status: **PR112 PHASE 1 OR3 FINAL RULE VALIDITY GATE — NO-GO — DOMAIN AUTHORITY OR CALIBRATION BLOCKER RECORDED — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**. Option B remains the product direction and Owner accepts the Event Ontology/Evidence Architecture for further development. Owner rejected Product Predictive Rulebook V1 and Candidate 0005 Known/Unknown as implementation, content and expected-output targets. No OR4 copy polish or runtime work is authorized.
