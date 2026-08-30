@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "title": "Canon Book Manifest (หลักมหาภูต)",
-  "description": "Structural manifest for converting the canonical book into structured knowledge LATER. Holds bibliographic metadata + a part/chapter/section skeleton. No book content is extracted here; each section is a placeholder whose nodeIds will be filled when extraction begins, linking to nodes in canon.knowme.json.",
+  "description": "Structural and bibliographic manifest for the canonical book. Frozen production extraction lives in production/foundation_v1.knowme.json; the optional legacy part/chapter/section tree may remain unbackfilled without implying extraction has not started.",
   "type": "object",
   "required": ["sourceId", "title", "parts"],
   "properties": {

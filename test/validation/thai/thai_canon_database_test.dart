@@ -245,13 +245,13 @@ void main() {
   });
 
   group('Canon DB — library manifest (multi-book)', () {
-    test('parses the shipped library manifest with หลักมหาภูต canonical', () {
+    test('parses the completed shipped Mahabhut library entry', () {
       final json = File('knowledge/canon/library.manifest.json').readAsStringSync();
       final lib = CanonLibraryManifest.fromJson(json);
       expect(lib.books.length, greaterThanOrEqualTo(1));
       final mb = lib.book('mahabhut')!;
       expect(mb.canonical, isTrue);
-      expect(mb.extraction, CanonBookExtractionState.notStarted);
+      expect(mb.extraction, CanonBookExtractionState.completed);
       expect(lib.canonicalBooks, isNotEmpty);
     });
 

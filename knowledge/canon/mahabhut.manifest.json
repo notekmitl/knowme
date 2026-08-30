@@ -1,14 +1,33 @@
 {
-  "$comment": "Structural manifest skeleton for the canonical book หลักมหาภูต (ส. หยกฟ้า). Architecture for FUTURE extraction (Canon V1 Task 5) — NO content is extracted yet. When extraction begins, fill in real parts/chapters/sections (with page ranges) and set each section's nodeIds + status. The bibliographic fields should be confirmed against the physical book before relying on them.",
+  "$comment": "Current source identity for the canonical book and its frozen production extraction. The legacy chapter/section skeleton was never backfilled, so parts remains empty; authoritative produced counts live in production/foundation_v1.knowme.json. Canon V2 predictive rules are proposed separately and do not mutate frozen units.",
   "sourceId": "mahabhut",
-  "title": "หลักมหาภูต",
+  "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
   "author": "ส. หยกฟ้า",
-  "edition": null,
-  "publisher": null,
-  "year": null,
+  "edition": "ฉบับสมบูรณ์ (สแกนที่ใช้ extraction ไม่ระบุเลขครั้งพิมพ์)",
+  "publisher": "สำนักพิมพ์ดวงแก้ว",
+  "printer": "บริษัท สหธรรมิก จำกัด",
+  "year": 2537,
   "language": "th",
-  "isbn": null,
-  "extractionStatus": "not_started",
-  "notes": "Bibliographic details (edition/publisher/year/ISBN) are unknown and must be verified from the physical copy before use. Parts/chapters below are an empty skeleton to be populated during extraction.",
+  "isbn": "974-89176-7-3",
+  "extractionStatus": "completed",
+  "workingSource": {
+    "availability": "available_outside_repository",
+    "format": "308-page scanned PDF with 308 page images and 308 OCR text files",
+    "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+    "pageNumbering": "PDF page index equals OCR filename index and Canon sourcePage"
+  },
+  "authorityEdition": {
+    "edition": "พิมพ์ครั้งที่ 3 / reprint",
+    "year": 2539,
+    "isbn": "974-89176-7-3",
+    "verificationStatus": "bibliographically_identified_page_mapping_pending"
+  },
+  "productionCounts": {
+    "atomicUnits": 834,
+    "noteSentinels": 20,
+    "producedUnitsArrayElements": 854,
+    "referenceTableCells": 29
+  },
+  "notes": "The local extraction scan's copyright page states 2537, Duangkaew as publisher and Sahadharmik as printer. A 2539 reprint with the same ISBN is the Owner-designated authority edition, but page equivalence has not been verified; provenance must remain edition-scoped. The empty parts array is a known legacy manifest gap, not evidence that extraction has not begun.",
   "parts": []
 }
