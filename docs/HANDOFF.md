@@ -1,5 +1,18 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+## PR112 Phase 1 SA2 OR1 — Semantic evidence repair and Candidate 0009 (2026-08-30)
+
+Status: **PR112 PHASE 1 SA2 OR1 SEMANTIC EVIDENCE REPAIR COMPLETE — CANDIDATE 0009 PENDING OWNER CONTENT RE-REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.
+
+Owner rejected the SA2 semantic evidence, validator and Candidate 0008 while retaining the 2537 Primary Tier-1 source decision, the 49/49 placement skeleton, 392 life-period placements, accepted period sequence and Unknown fail-closed behavior. Root cause is recorded: the old builder promoted `ROLE_DOMAIN` plus rise/fall into predictive atoms, `pageImagesReviewed` named only context start pages, keyword coverage was not bound to exact claims, unsupported event/timing counters were hardcoded to zero, and forced four-domain coverage added advice, methodology, repetition and cross-domain filler. Candidate 0008 is therefore rejected and now fails the repaired validator.
+
+The corrected corpus separates 49 context mappings and 392 `SOURCE_PLACEMENT_FACT` records from 7 `SOURCE_DIRECT_PREDICTION` claims, 3 `SOURCE_GENERAL_RULE_APPLICATION` records and 5 `OWNER_AUTHORIZED_PRODUCT_INTERPRETATION` claims. Its 182 OCR keyword hits are `DISCOVERY_KEYWORD_HIT` records only and provide no event evidence. Candidate 0009 Known has six ordered sections, 7 prediction claims, one separate advice claim and one disclaimer; it no longer forces all four domains. The next period remains Mercury / Mula / Athibodi at age 63–79. Unknown contains only an omission notice and disclaimer and remains fail-closed.
+
+Validation passes with all 25 calculated error counters at 0. Six negative controls fail in the intended categories 6/6; Candidate 0008 fails with 20 missing reader owners, 20 claims without evidence/rules, 6 advice leaks, 9 methodology leaks and 20 forced-domain filler hits. Fixture separation passes for 00:03 Aquarius 9°24′ Saturday, 00:35 Aquarius 19°19′ Saturday and Unknown with zero time-dependent fields. The deterministic audit passes 300/300 profiles across 49 contexts and 160 context-period signatures. Focused Canon/source tests pass 44/44. Full Flutter suite/analyzer were not rerun because runtime application, runtime tests, production Canon, generated product artifacts and `product-acceptance/` deltas are 0.
+
+Semantic evidence/validator commit: `078780574f46bb20a200a915ec0eb6ee4e40804a`. Candidate 0009/validation commit: `5b2be8462dcb4277675018f6d70c086b246b3a33`. Status/package commit: the commit containing this record. Owner package: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_REPORT_PREDICTIVE_NARRATIVE_V2_PHASE1_SA2_OR1_5b2be84.zip`, SHA-256 `707685FF372EF3AF5C3B14FDEE8922D465976601DD7F185E4BEC0F853ABCC21D`; 18 entries, with CRC, extraction missing/extra, manifest hash/size, SHA256SUMS, secret and absolute-path errors all 0. PR #112 remains Open + Draft. Candidate 0009 is pending Owner content re-review and is not implemented, Owner-accepted, merged or deployed; Firebase/Production is unchanged.
+
+
 
 ## PR112 Phase 1 SA2 — Full 2537 Mahabhut corpus and Candidate 0008 (2026-08-30)
 
