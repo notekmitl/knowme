@@ -1,6 +1,8 @@
 # Thai Report Predictive Evidence Capability Map V1
 
-สถานะ: **PHASE 1 OR1 DESIGN EVIDENCE — NO RUNTIME IMPLEMENTATION**
+สถานะ: **PHASE 1 OR2 OPTION B CAPABILITY BASELINE — NO RUNTIME IMPLEMENTATION**
+
+OR2: Owner selected Option B The Product Rulebook now proposes transparent `OWNER_APPROVED_PRODUCT_INFERENCE` rules, but current engine capability is unchanged and no proposed event is relabeled as currently derivable
 
 เอกสารนี้แยก “สิ่งที่ระบบคำนวณได้” ออกจาก “ข้อความที่บรรณาธิการเขียนให้อ่านง่าย” อย่างเคร่งครัด คำบรรยายที่มีอยู่ใน composer, Candidate หรือ Golden ไม่ถือเป็นหลักฐานการคำนวณ
 
@@ -34,9 +36,11 @@ Canon Production มี 854 produced units ณ HEAD ที่ตรวจ แบ
 
 | Event family | Current engine output | Canon rule found | Current status |
 |---|---|---|---|
-| `work_role_change` | career score/risk only | ไม่พบ mapping จาก score/Taksa/house สู่ role-change event | `REQUIRES_APPROVED_RULE` |
-| `work_opportunity` | generic opportunity domain/magnitude | ไม่พบ event source หรือ outcome rule | `REQUIRES_APPROVED_RULE` |
-| `work_ending_or_transfer` | generic risk only | ไม่พบ termination/transfer rule | `REQUIRES_APPROVED_RULE` |
+| `family_duty_or_constraint` | period/Taksa/bond inputs | ไม่พบ classical event mapping; OR2 product inference proposed | `REQUIRES_APPROVED_RULE` |
+| `education_or_social_transition` | boundary/Taksa/bond inputs | ไม่พบ classical event mapping; OR2 product inference proposed | `REQUIRES_APPROVED_RULE` |
+| `career_role_change` | career score/risk only | OR2 convergence rule proposed; not approved | `REQUIRES_APPROVED_RULE` |
+| `career_opportunity` | generic opportunity domain/magnitude | OR2 convergence rule proposed; not approved | `REQUIRES_APPROVED_RULE` |
+| `career_ending_or_transfer` | generic risk only | OR2 convergence rule proposed; not approved | `REQUIRES_APPROVED_RULE` |
 | `income_change` | finance score/risk only | ไม่พบ income event rule | `REQUIRES_APPROVED_RULE` |
 | `expense_or_obligation` | finance risk only | ไม่พบ expense category/event rule | `REQUIRES_APPROVED_RULE` |
 | `relationship_entry` | relationship score only | ไม่พบ encounter rule และไม่มี relationship-status input | `REQUIRES_NEW_INPUT` |
@@ -55,4 +59,4 @@ Canon Production มี 854 produced units ณ HEAD ที่ตรวจ แบ
 
 ## ข้อสรุปเชิงสถาปัตยกรรม
 
-ระบบพร้อมจัดลำดับ timeline และบอกแรงระดับโดเมนอย่างตรวจย้อนกลับได้ แต่ยังไม่มี event ontology, approved event-resolution rule, within-year timing engine, relationship-status input และ event outcome trace การทำให้ Golden เป็น implementation target จึงต้องผ่าน Owner astrology-rule decision ก่อน Candidate 0004 เป็นเพียง content target ของ proposed atoms ไม่ใช่สิ่งที่ current engine รับรอง
+ระบบพร้อมจัดลำดับ timeline และบอกแรงระดับโดเมนอย่างตรวจย้อนกลับได้ OR2 เพิ่ม ontology, convergence design, optional relationship-status contract และ proposed Product Rulebook แต่ยังไม่มี approved event resolver หรือ within-year timing engine Candidate 0004 เป็น content direction และ Candidate 0005 เป็น review target เท่านั้น

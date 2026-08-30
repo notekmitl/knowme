@@ -44,8 +44,6 @@ Candidate นี้สาธิตประสบการณ์การอ่�
 
 ความสัมพันธ์หนึ่งเรื่องได้ข้อสรุปจากข้อตกลงที่ทำต่อเนื่อง สถานะที่คลุมเครือไม่ค้างต่อไปถึงปลายรอบ `[T04-K-N12-03]`
 
-การพักกลับมาเป็นเวลาเมื่อภาระงานกระจายถูกลดลง แรงกดต่อการฟื้นตัวจึงเบาลงในครึ่งหลังของรอบ `[T04-K-N12-04]`
-
 คำแนะนำ: ปิดงานที่ให้ผลน้อยก่อนรับภาระเพิ่ม และคงเงินสำรองกับเวลาพักไว้ระหว่างเปลี่ยนบทบาท
 
 ### ช่วงชีวิตระยะต่อไป
@@ -81,8 +79,7 @@ Current evidence ยังไม่ให้ event atom แบบไม่พึ
 | T04-K-N12-01 | known.next12Months.work.outcome | `PEV-N12-WRK-01`, `PEV-N12-WRK-02` | `REQUIRES_APPROVED_RULE` | timing/work outcome ยังห้าม implement |
 | T04-K-N12-02 | known.next12Months.finance.outcome | `PEV-N12-FIN-01`, `PEV-N12-FIN-02` | `REQUIRES_APPROVED_RULE` | movement/recovery timing ยังห้าม implement |
 | T04-K-N12-03 | known.next12Months.relationship.outcome | `PEV-N12-REL-01` | `REQUIRES_APPROVED_RULE` | status outcome ยังห้าม implement |
-| T04-K-N12-04 | known.next12Months.health.outcome | `PEV-N12-HLT-01` | `REQUIRES_APPROVED_RULE` | subperiod timing ยังห้าม implement |
 | T04-K-NXT-01 | known.nextLifePeriod.work.transition | `PEV-NXT-01`, `PEV-NXT-WRK-01` | boundary `CURRENTLY_DERIVABLE`; work outcome `REQUIRES_APPROVED_RULE` | แยก fact ออกจาก event |
 | T04-K-SUM-01 | known.summary.primaryWork | references T04-K-CUR-01 and T04-K-N12-01 | `REQUIRES_APPROVED_RULE` | summary ไม่เพิ่ม claim/certainty |
 
-Mapping coverage: 14/14 prediction paragraphs, unmapped 0, duplicate semantic owner 0 ทุก proposed atom ถูกระบุว่าไม่ใช่ current support
+Mapping coverage: 13/13 prediction paragraphs, unmapped 0, duplicate semantic owner 0 ข้อความ recovery-easing ในครึ่งหลังถูกถอดใน OR2 เพราะ Timing Contract ไม่รองรับ sub-horizon timing ทุก proposed atom ถูกระบุว่าไม่ใช่ current support

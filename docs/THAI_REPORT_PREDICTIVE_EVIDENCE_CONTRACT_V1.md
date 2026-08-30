@@ -1,6 +1,8 @@
 # Thai Report Predictive Evidence Contract V1
 
-สถานะ: **PROPOSED — OWNER ASTROLOGY-RULE DECISION REQUIRED — NOT IMPLEMENTED**
+สถานะ: **OR2 OPTION B SELECTED — PRODUCT RULEBOOK PROPOSED — OWNER RULE REVIEW REQUIRED — NOT IMPLEMENTED**
+
+OR2 correction: past family duty and education/social transitions are no longer classified as career events Product rule IDs, exact thresholds and convergence formulas live in `THAI_REPORT_PRODUCT_PREDICTIVE_RULEBOOK_V1.md` Candidate 0004 remains content direction only
 
 สัญญานี้กำหนดรูปข้อมูลที่ต้องมี ก่อนข้อความใดจะยกระดับจาก theme ระดับโดเมนเป็นคำทำนายเหตุการณ์ ห้ามสร้าง atom ย้อนหลังจาก Golden หรือ Candidate เพื่อให้ข้อความผ่าน
 
@@ -41,9 +43,11 @@ PredictiveEvidenceAtom {
 
 | Event family | ความหมายที่อนุญาต | หลักฐานปัจจุบัน | Status | Unknown behavior |
 |---|---|---|---|---|
-| `work_role_change` | หน้าที่หรืออำนาจตัดสินใจเปลี่ยน | มี career score/house/period แต่ไม่มีกฎ event | `REQUIRES_APPROVED_RULE` | omit หากกฎต้องใช้ house; มิฉะนั้นใช้ non-time rule ที่อนุมัติ |
-| `work_opportunity` | โอกาสงานที่ระบุ source family ได้ | มี generic opportunity magnitude เท่านั้น | `REQUIRES_APPROVED_RULE` | ตาม source dependency |
-| `work_ending_or_transfer` | งานจบ ลด หรือส่งต่อ | ไม่มี outcome rule | `REQUIRES_APPROVED_RULE` | ตาม source dependency |
+| `family_duty_or_constraint` | ภาระ/กฎในครอบครัว | มี period/Taksa/bond แต่ไม่มีกฎ classical event | `REQUIRES_APPROVED_RULE` | omit |
+| `education_or_social_transition` | การเรียนหรือกลุ่มสังคมเปลี่ยน | มี boundary/Taksa/bond แต่ไม่มีกฎ classical event | `REQUIRES_APPROVED_RULE` | omit |
+| `career_role_change` | หน้าที่หรืออำนาจตัดสินใจเปลี่ยน | มี career score/house/period แต่ไม่มีกฎ event | `REQUIRES_APPROVED_RULE` | omit |
+| `career_opportunity` | โอกาสงานที่ระบุ outcome family ได้ | มี generic opportunity magnitude เท่านั้น | `REQUIRES_APPROVED_RULE` | omit |
+| `career_ending_or_transfer` | งานจบ ลด หรือส่งต่อ | ไม่มี outcome rule | `REQUIRES_APPROVED_RULE` | omit |
 | `income_change` | รายรับเพิ่ม/ลดจาก source ที่ระบุได้ | มี finance score เท่านั้น | `REQUIRES_APPROVED_RULE` | ตาม source dependency |
 | `expense_or_obligation` | ภาระจ่ายหรือข้อผูกพันใหม่/สิ้นสุด | มี generic finance risk | `REQUIRES_APPROVED_RULE` | ตาม source dependency |
 | `relationship_entry` | บุคคลหรือความสัมพันธ์ใหม่เข้าสู่ชีวิต | ไม่มี status input หรือ encounter rule | `REQUIRES_NEW_INPUT` | omit เมื่อ input/status ไม่ครบ |
@@ -67,12 +71,12 @@ PredictiveEvidenceAtom {
 
 | Atom | Event family / horizon | Proposed calculation inputs | Expected outcome vocabulary | Status | Canon decision |
 |---|---|---|---|---|---|
-| `PEV-PST-01` | `work_role_change` / past 1–10 | life period + annual Taksa + approved past-event rule | early duty/rule burden | `REQUIRES_APPROVED_RULE` | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| `PEV-PST-01` | `family_duty_or_constraint` / past 1–10 | life period + annual Taksa + natal bond | family duty/constraint | `REQUIRES_APPROVED_RULE` | `PPR-PAST-FAMILY-DUTY-001` pending Owner |
 | `PEV-PST-02` | `life_period_transition` / past 11–29 | exact period boundary | Jupiter period begins/ends | `CURRENTLY_DERIVABLE` เฉพาะ boundary | none for boundary; event wording blocked |
-| `PEV-PST-03` | `work_role_change` / past 11–29 | period + annual Taksa + event rule | school/work/social setting change | `REQUIRES_APPROVED_RULE` | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
-| `PEV-PST-04` | `work_ending_or_transfer` / past 30–41 | period + annual Taksa + event rule | role ends/transfers | `REQUIRES_APPROVED_RULE` | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
-| `PEV-CUR-WRK-01` | `work_role_change` / current | career score + annual Taksa + houses + event rule | authority/duty changes | `REQUIRES_APPROVED_RULE` | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
-| `PEV-CUR-WRK-02` | `work_opportunity` / current | career opportunity + source resolver | competence-based opportunity | `REQUIRES_APPROVED_RULE` | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| `PEV-PST-03` | `education_or_social_transition` / past 11–29 | boundary + annual Taksa + previous bond | education/social setting changes | `REQUIRES_APPROVED_RULE` | `PPR-PAST-EDUCATION-SOCIAL-001` pending Owner |
+| `PEV-PST-04` | resolved career/finance/relationship transition / past 30–41 | boundary + annual Taksa + previous bond + domain affinity | one resolved domain moves | `REQUIRES_APPROVED_RULE` | `PPR-PAST-DOMAIN-TRANSITION-001` pending Owner |
+| `PEV-CUR-WRK-01` | `career_role_change` / current | career prediction + annual Taksa + natal structure + timing | authority/duty changes | `REQUIRES_APPROVED_RULE` | `PPR-CAREER-ROLE-001` pending Owner |
+| `PEV-CUR-WRK-02` | `career_opportunity` / current | career opportunity + annual Taksa + natal structure + timing | career opportunity | `REQUIRES_APPROVED_RULE` | `PPR-CAREER-OPPORTUNITY-001` pending Owner |
 | `PEV-CUR-FIN-01` | `income_change` / current | finance score + source resolver | income movement | `REQUIRES_APPROVED_RULE` | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
 | `PEV-CUR-FIN-02` | `expense_or_obligation` / current | finance risk + obligation resolver | expense/obligation movement | `REQUIRES_APPROVED_RULE` | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
 | `PEV-CUR-REL-01` | `relationship_clarity` / current | relationship score + event rule | agreement/status clarity | `REQUIRES_APPROVED_RULE` | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
@@ -80,14 +84,14 @@ PredictiveEvidenceAtom {
 | `PEV-CUR-REL-03` | `relationship_ending` / current | relationship score + ending rule | ending/withdrawal | `REQUIRES_APPROVED_RULE` | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
 | `PEV-CUR-HLT-01` | `health_load` / current | health score/risk + safe outcome rule | workload/rest pressure | `REQUIRES_APPROVED_RULE` | medical-safety review required |
 | `PEV-CUR-HLT-02` | `recovery_pressure` / current | health risk + recovery resolver | recovery pressure movement | `REQUIRES_APPROVED_RULE` | medical-safety review required |
-| `PEV-N12-WRK-01` | `work_role_change` / next12Months | approved within-year timing + work event rule | role expands/contracts | `REQUIRES_APPROVED_RULE` | timing and event decisions required |
-| `PEV-N12-WRK-02` | `work_ending_or_transfer` / next12Months | timing + work outcome rule | work ends/transfers | `REQUIRES_APPROVED_RULE` | timing and event decisions required |
+| `PEV-N12-WRK-01` | `career_role_change` / next12Months | annual horizon + career/annual/natal signals | role expands/contracts | `REQUIRES_APPROVED_RULE` | `PPR-CAREER-ROLE-001` pending Owner |
+| `PEV-N12-WRK-02` | `career_ending_or_transfer` / next12Months | annual horizon + risk/annual/natal signals | work contracts/transfers | `REQUIRES_APPROVED_RULE` | `PPR-CAREER-ENDING-001` pending Owner |
 | `PEV-N12-FIN-01` | `income_change` / next12Months | timing + finance event rule | income movement | `REQUIRES_APPROVED_RULE` | timing and event decisions required |
 | `PEV-N12-FIN-02` | `expense_or_obligation` / next12Months | timing + finance event rule | obligation movement | `REQUIRES_APPROVED_RULE` | timing and event decisions required |
 | `PEV-N12-REL-01` | `relationship_clarity` / next12Months | timing + relationship rule | clarity movement | `REQUIRES_APPROVED_RULE` | timing and event decisions required |
 | `PEV-N12-HLT-01` | `recovery_pressure` / next12Months | timing + health-safe rule | recovery pressure movement | `REQUIRES_APPROVED_RULE` | timing and medical-safety decisions required |
 | `PEV-NXT-01` | `life_period_transition` / nextLifePeriod | exact next period boundary | Venus to Sun period transition | `CURRENTLY_DERIVABLE` | none for boundary |
-| `PEV-NXT-WRK-01` | `work_role_change` / nextLifePeriod | next period + career score + event rule | work moves toward direction/quality | `REQUIRES_APPROVED_RULE` | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| `PEV-NXT-WRK-01` | `career_role_change` / nextLifePeriod | next period + career score + event rule | work moves toward direction/quality | `REQUIRES_APPROVED_RULE` | no approved next-period event rule in V1 |
 
 ## Certainty and language rules
 

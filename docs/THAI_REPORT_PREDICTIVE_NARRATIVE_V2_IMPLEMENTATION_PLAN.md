@@ -4,6 +4,8 @@
 
 OR1 gate: Owner ยอมรับ root cause แต่ปฏิเสธ Candidate 0003 Phase 2A ห้ามเริ่มจาก Candidate 0003 หรือ 0004 จน Owner ตัดสินตัวเลือก A/B/C ใน Owner Decisions และอนุมัติ event/timing rules ที่เกี่ยวข้อง
 
+OR2 gate: Owner selected Option B and rejected A/C The next action is Owner review of Event Ontology, Signal Convergence, Product Rulebook V1 and Candidate 0005 No runtime test or implementation may start from this Draft PR Candidate 0004 remains content direction only
+
 ## Phase 2A — Freeze contract and tests
 
 1. Owner reviews Golden as style target, Candidate 0003 audit, Candidate 0004 content target, Matrix, Gap Report, Narrative Contract, Capability Map, Evidence Contract, Timing Contract and Owner Decisions
@@ -71,7 +73,7 @@ Exit: semantic parity passes with no unsupported addition, omission or certainty
 
 Implementation opens as a separate Draft PR with fresh artifacts Owner acceptance, merge decision and Production deployment remain three separate decisions No Phase 1 evidence grants approval for implementation, merge or deploy
 
-Candidate 0003 remains rejected Candidate 0004 is design evidence only and cannot seed expected-output tests until every mapped atom is approved and derivable
+Candidate 0003 remains rejected Candidate 0004 is content direction only Candidate 0005 is a rule-mapped review target and cannot seed expected-output tests until every product inference is explicitly approved and implemented
 
 ## Change boundary for the next PR
 

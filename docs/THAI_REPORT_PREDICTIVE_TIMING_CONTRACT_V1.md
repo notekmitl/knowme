@@ -2,6 +2,8 @@
 
 สถานะ: **PROPOSED CONTRACT — NO APPROVED WITHIN-YEAR CALCULATION — `monthlyTimelineAvailable=false`**
 
+OR2 confirms Option B does not authorize sub-horizon timing Product Rulebook evaluates one rolling 12-month horizon using deterministic current/next annual-age signals but emits no month, half-year, early/middle/late or exact event date
+
 ## Current capability
 
 ระบบคำนวณ rolling horizon จาก `asOf` ได้เป็นช่วงเดียว และคำนวณ life-period/annual-Taksa boundary ได้ แต่ยังไม่มี approved Canon rule ที่แบ่ง 12 เดือนเป็นช่วงต้น กลาง ท้าย หรือเดือน พร้อม event evidence เฉพาะช่วง การตัดปีเป็นสามส่วนเท่ากันไม่ใช่หลักฐานโหราศาสตร์และห้ามใช้

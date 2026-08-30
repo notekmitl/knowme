@@ -4,6 +4,8 @@
 
 OR1 amendment: Candidate 0003 ถูก Owner ปฏิเสธและห้ามใช้เป็น implementation/expected-output target Prediction ที่เป็น event ต้องมี `PredictiveEvidenceAtom` ตาม Evidence Contract V1 ไม่ใช่อาศัย theme, score band, narrative motif หรือชื่อช่วง Golden เป็น style target เท่านั้น
 
+OR2 amendment: Owner selected Option B Candidate 0004 is content direction only Candidate 0005 maps every prediction to Product Rulebook V1 Rules labeled `OWNER_APPROVED_PRODUCT_INFERENCE` remain prohibited from runtime until explicit Owner rule approval
+
 ## 1. Chronological order
 
 Reader-facing report ต้องเรียง: birth input → overview → past periods → current period → rolling 12 months → next life period → summary → source and one disclaimer ไม่ย้อนกลับไปเปิด current claim ใหม่หลัง next-life section

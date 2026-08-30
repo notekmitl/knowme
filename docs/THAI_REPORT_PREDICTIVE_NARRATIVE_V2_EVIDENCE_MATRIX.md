@@ -4,6 +4,8 @@
 
 OR1 disposition: Golden เป็น style target; Candidate 0003 ถูก Owner ปฏิเสธเป็น implementation/expected-output/acceptance target ตารางเดิมด้านล่างบันทึก current support ส่วนตาราง OR1 architecture extension บันทึก atom ที่ต้องมีและ Owner decision โดยไม่สร้าง evidence จาก Golden
 
+OR2 disposition: Owner selected Option B Candidate 0004 is content direction only Product Rulebook V1 proposes event rules labeled `OWNER_APPROVED_PRODUCT_INFERENCE`; none is approved or runtime-authorized Candidate 0005 is pending Owner rule/content review
+
 ## ผลรวม
 
 | Decision | Paragraphs |
@@ -88,7 +90,7 @@ Unknown uses the same key shape only where date-based evidence remains available
 | G00 | normalized birth/chart fact | adapter → profile | none | existing normalization/calculation | existing calculation tests | exact fact | Known full; Unknown omits time fields | none |
 | G01 | life-period sequence only | `LifePeriodEngine` | early-responsibility event | existing boundaries; no event rule proposed | period boundaries only | exact period, theme as interpretation | date/day availability constrained | accept rewrite only |
 | G02 | current period + primary domain tendency | period + forecast plan | stable-choice outcome | existing period and forecast ordering | none for outcome | direct fact plus tendency | both with source ownership | accept rewrite only |
-| G03 | `work_role_change`, age 44–46 | age 44, annual Taksa, career score | 44–46 subrange and cut/expand event resolver | Owner-approved age-year Taksa + house + event-family rule with negative cases | none for event mapping | none until approved | Known; Unknown only if non-time rule approved | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| G03 | `career_role_change`, age 44–46 | age 44, annual Taksa, career score | 44–46 subrange and cut/expand event resolver | Product Rulebook has horizon-level role rule but no 44–46 subrange | none for subrange mapping | none until approved | Known only V1 | remains blocked |
 | G04 | past duty/family-rule event | Saturn period 1–10; Canon life-period/Taksa positions | event family, actor, outcome | Owner-approved past-event resolver from period + annual Taksa; must prove negative cases | Canon has positions, no event mapping | none until approved | Known; Unknown omitted absent date-only rule | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
 | G05 | survival/self-reliance psychology | none | outside product boundary | no rule permitted in this report | none | none | prohibited both | route separate psychological report; `MUST_NOT_IMPLEMENT` |
 | G06 | past school/work/social setting change | Jupiter period 11–29 | event family, setting, count | Owner-approved past-event resolver with explicit setting enum and count rule | none for event mapping | none until approved | Known; Unknown blocked | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
@@ -98,8 +100,8 @@ Unknown uses the same key shape only where date-based evidence remains available
 | G10 | learned suitable people/burdens psychology | none | outside product boundary | no rule permitted in this report | none | none | prohibited both | route separate psychological report; `MUST_NOT_IMPLEMENT` |
 | G11 | Venus 42–62 + current work tendency | life period + career forecast | proving/valuable-choice causal story | rewrite to exact period and tendency only | period facts only | fact/tendency | both per evidence | accept rewrite only |
 | G12 | old/new return + fame/money/satisfaction | cross-domain strong bands | event source and three outcomes | Owner-approved cross-domain event resolver with one outcome per atom | none | none until approved | Known; Unknown blocked | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
-| G13 | career movement tendency | career current score/evidence | role-change event | retain tendency or await `work_role_change` rule | none for event | direct tendency only | both per evidence | choose tendency vs new rule |
-| G14 | competence/management/quality opportunity | career score, house facts, opportunity magnitude | mechanism, requester, comparative outcome | Owner-approved `work_opportunity` resolver from typed house/Taksa inputs; no prose-name inference | none | none until approved | Known; Unknown needs non-house rule | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| G13 | career movement tendency | career current score/evidence | role-change event | proposed `PPR-CAREER-ROLE-001`; Owner approval required | none for event | none until approved | Known only V1 | review Rulebook |
+| G14 | competence/management/quality opportunity | career score, house facts, opportunity magnitude | mechanism, requester, comparative outcome | proposed `PPR-CAREER-OPPORTUNITY-001`; named requester remains prohibited | none | none until approved | Known only V1 | review Rulebook |
 | G15 | overload/authority risk | career risk/material | forced removal outcome | retain risk wording; ending needs approved atom | none for ending | risk only | both per evidence | accept risk rewrite |
 | G16 | income tendency/source | finance score + current work-income separation | named old clients/contacts/source | retain non-luck tendency; named source needs resolver | none | tendency only | both per evidence | accept rewrite or rule |
 | G17 | `expense_or_obligation` event/category | finance risk | expense event, category, movement | Owner-approved finance resolver from annual Taksa + house + risk with enum/negative cases | none for event mapping | none until approved | Known; Unknown only non-time rule | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
@@ -110,10 +112,10 @@ Unknown uses the same key shape only where date-based evidence remains available
 | G22 | health-load tendency | health score/risk | primary medical cause | safe non-diagnostic tendency only | none for diagnosis | risk/tendency | both per evidence | medical-safety acceptance |
 | G23 | workload/recovery risk | career+health risk | exact causal event | bounded risk composition with no diagnosis | none for event | risk only | both | accept rewrite |
 | G24 | work-linked opportunity tendency | life-map work vs chance | old contact/client event | retain work-linked tendency; source awaits resolver | none | tendency only | both | accept rewrite or rule |
-| G25 | `work_opportunity` source event | generic opportunity magnitude | collaboration/return/referral source and outcome | Owner-approved opportunity-source resolver from typed inputs; no inference from planet/phase names | none | none until approved | Known; Unknown only approved non-time source | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| G25 | `career_opportunity` source event | generic opportunity magnitude | collaboration/return/referral source and outcome | `PPR-CAREER-OPPORTUNITY-001` allows generic opportunity only; named source remains blocked | none | none until approved | Known only V1 | approve generic rule or request source resolver |
 | G26 | rolling range + primary domain | exact dates + four bands | strict causal sequence | existing horizon and ranking only | none for causality | direct tendency | both per evidence | accept rewrite |
-| G27 | early-window work collision/offer | annual career band | within-year boundary, event source, event | approved timing window + `work_opportunity` atom; annual-band splitting prohibited | none | none until approved | Known; Unknown per timing contract | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
-| G28 | early role-transfer event | annual career band | boundary, transferred issue, role outcome | approved timing + `work_role_change` resolver | none | none until approved | Known; Unknown blocked absent rule | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
+| G27 | early-window work collision/offer | annual career band | within-year boundary, event source, event | no rule; annual-band splitting prohibited | none | none | neither | remains blocked by Timing Contract |
+| G28 | early role-transfer event | annual career band | boundary, transferred issue, role outcome | horizon-level `PPR-CAREER-ROLE-001` cannot claim early timing | none | none | neither for timed claim | remains blocked |
 | G29 | middle income/expense event | annual finance band | boundary, two finance events | approved timing + income/obligation atoms | none | none until approved | Known; Unknown blocked absent rule | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
 | G30 | middle relationship-status outcome | annual relationship band | boundary, status input/outcome | approved timing + status input + clarity atom | none | none until approved | both only after explicit status/rule | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
 | G31 | late recognition/ending/transfer | annual career band | boundary, recognition and ending outcomes | approved timing + separate opportunity and ending atoms; no bundled inference | none | none until approved | Known; Unknown blocked absent rule | `OWNER_ASTROLOGY_RULE_DECISION_REQUIRED` |
@@ -132,3 +134,19 @@ Unknown uses the same key shape only where date-based evidence remains available
 - No unsupported event row is labeled `CURRENTLY_DERIVABLE`
 - Current exact score and evidence list are more detailed than serialized band, but no row treats that detail as an event resolver
 - No external astrology source or formula was added; proposed methods require explicit Owner decision before implementation
+
+## OR2 rule linkage for Golden gaps
+
+| Golden IDs | OR2 rule candidate | What becomes expressible after approval | What remains blocked |
+|---|---|---|---|
+| G04 | `PPR-PAST-FAMILY-DUTY-001` | family duty/constraint without actor/count | exact household event, psychology |
+| G06–G07 | `PPR-PAST-EDUCATION-SOCIAL-001` | education/social setting transition | event count, named school/work/source |
+| G08–G09 | `PPR-PAST-DOMAIN-TRANSITION-001` | one resolved career/finance/relationship movement | bundled domains, counted event, exact outcome |
+| G12 | none | no combined old/new/fame/money/satisfaction claim | entire bundled claim |
+| G14 | `PPR-CAREER-OPPORTUNITY-001` | generic career opportunity | requester, comparative performance, specific mechanism |
+| G17 | `PPR-EXPENSE-001` | obligation/expense pressure movement | expense category, amount, source |
+| G21 | `PPR-RELATIONSHIP-ENTRY-001` | generic entry after explicit single input | encounter source, actor, exact date |
+| G25 | `PPR-CAREER-OPPORTUNITY-001` | generic opportunity | collaboration/return/referral source |
+| G27–G32, G38 | none | no sub-horizon output | early/middle/late, half-year, counts and end-state |
+
+All linked rules remain `OWNER_RULE_REVIEW_REQUIRED`; unsupported-as-approved count is 0

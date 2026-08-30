@@ -6,6 +6,12 @@ Owner ยอมรับ root cause, fixture separation, Unknown fail-closed แ
 
 การปิด gap จึงต้องเริ่มจาก `THAI_REPORT_PREDICTIVE_EVIDENCE_CAPABILITY_MAP_V1.md`, `THAI_REPORT_PREDICTIVE_EVIDENCE_CONTRACT_V1.md` และ `THAI_REPORT_PREDICTIVE_TIMING_CONTRACT_V1.md` ก่อน runtime implementation Candidate 0004 เป็น content target ของ proposed atoms และยังห้ามใช้เป็น expected output
 
+## OR2 Option B decision
+
+Owner selected Option B and rejected A/C as product direction OR2 corrects family/education ontology, defines signal convergence and proposes Product Predictive Rulebook V1 Candidate 0004 is accepted only as content direction Candidate 0005 and every product-inference rule remain pending Owner review No runtime authorization exists
+
+The Rulebook reduces gaps for generic family duty, education/social transition, one resolved past domain movement, career role/opportunity/ending, income/obligation, relationship clarity/entry/ending and health load/recovery pressure It does not close actor/source/count/amount/exact-date gaps and does not create within-year timing Unknown remains intentionally empty because V1 has no `knownTimeRequired=false` event rule
+
 ## Conclusion
 
 Golden Reference ผ่านในฐานะมาตรฐานการเล่า แต่ยังนำไปใช้ตรงตัวไม่ได้ Current engine รองรับข้อมูลเกิด ลำดับ life period และ forecast band ระดับโดเมนในสาม horizon ระบบยังไม่รองรับเหตุการณ์เฉพาะในอดีต เหตุการณ์ที่ผูกกับสถานะความสัมพันธ์ แหล่งรายรับหรือรายจ่ายเฉพาะ และช่วงต้น กลาง ท้ายของ 12 เดือน

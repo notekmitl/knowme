@@ -1,6 +1,10 @@
 # Thai Report Predictive Narrative V2 — Owner Decisions Required
 
-สถานะ: **PENDING OWNER ASTROLOGY-RULE AND CONTENT REVIEW**
+สถานะ: **OPTION B SELECTED — PRODUCT RULEBOOK AND CANDIDATE 0005 PENDING OWNER REVIEW**
+
+## OR2 decision record
+
+Owner selected Option B and rejected A/C Candidate 0004 is accepted as content direction only, not implementation/expected output/acceptance Product Rulebook V1, its product-inference thresholds, role sets, vocabulary, relationship-status contract and Candidate 0005 now require explicit Owner review No runtime authorization is implied
 
 Candidate 0003 ถูก Owner ปฏิเสธแล้ว เอกสารนี้ไม่เลือกทางแทน Owner และไม่อนุญาต implementation โดยปริยาย
 
@@ -42,14 +46,13 @@ Candidate 0003 ถูก Owner ปฏิเสธแล้ว เอกสาร
 
 ## Decisions ที่ต้องตอบก่อน Phase 2
 
-1. เลือก A, B หรือ C สำหรับ product scope
-2. อนุมัติหรือปฏิเสธ event families แต่ละรายการใน Evidence Contract V1
-3. ระบุ Canon basis หรือ Owner-authored astrology rule สำหรับ G03, G04, G06–G09, G12, G14, G17, G21, G25, G27–G32 และ G38
-4. ตัดสินว่ารับ relationship-status input เพิ่มหรือ block `relationship_entry`
-5. ตัดสิน within-year timing basis; หากไม่มี ให้คง rolling range เดียว
-6. ยืนยันว่า G05/G10 อยู่ใน psychological report แยกและไม่เข้ารายงานนี้
-7. รับหรือปฏิเสธ Candidate 0004 เป็น content direction เท่านั้น หลังทบทวน atom statuses แล้ว
+1. อนุมัติ แก้ หรือปฏิเสธ event families และ domain ownership ใน Ontology V1
+2. อนุมัติ แก้ หรือปฏิเสธ thresholds/role sets/product inference ทั้ง 13 event rules
+3. อนุมัติ optional relationship-status contract หรือ block entry/ending branches
+4. รับผลที่ยังไม่มี within-year timing และคง `monthlyTimelineAvailable=false`
+5. ยืนยัน G05/G10 อยู่นอกรายงานต่อไป
+6. รับ แก้ หรือปฏิเสธ Candidate 0005 เป็น content target; ยังไม่ใช่ implementation baseline
 
 ## Non-decision
 
-ความเงียบหรือการ review เอกสารไม่ถือเป็นการอนุมัติกฎ Candidate 0004 ไม่ใช่ acceptance baseline และ PR #112 ต้องคง Draft จน Owner ตัดสิน
+ความเงียบหรือการ review เอกสารไม่ถือเป็นการอนุมัติกฎ Candidate 0004/0005 ไม่ใช่ acceptance baseline และ PR #112 ต้องคง Draft จน Owner ตัดสิน Rulebook
