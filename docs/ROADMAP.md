@@ -1,5 +1,18 @@
 # KnowMe Roadmap
 
+## PR112 Phase 1 SA2 OR3 — Candidate 0011 final reader-copy polish (2026-08-30)
+
+Status: **PR112 PHASE 1 SA2 OR3 FINAL READER COPY POLISH COMPLETE — CANDIDATE 0011 PENDING OWNER FINAL CONTENT REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.
+
+Owner accepts Candidate 0010 as the content-direction baseline for chronology, predictive depth, direct tone, structure, psychology separation, Astrological Synthesis, Unknown fail-closed behavior, corrected Mercury / Mula / Athibodi age 63–79 and structural trace. Candidate 0010 is not accepted as Final Reader Copy because work/decision detail repeated across overview, past, current, work, 12-month and summary sections; income-from-work, prior support and relationship-clarity explanations also repeated across domain and horizon sections. Several phrases used stiff or passive Thai.
+
+Candidate 0011 performs copy-only semantic deduplication and natural-Thai polish. It reduces 24 prediction owners to 22 by removing duplicate `OAS-02` and `OAS-08`; added owners are 0 and all retained owner types, evidence refs, periods and domains are unchanged. Stiff phrases were replaced with natural forms including `ช่วยรับภาระในบ้านเร็วกว่าวัย`, `เปลี่ยนวิธีมองหาโอกาสจากเดิม`, `คนเคยเห็นและเชื่อมือ`, `แรงจะหมดเร็ว` and direct home/property wording. Overview and summary contain compressed themes only; detailed ownership remains in past/current/domain/horizon/age 63–79 sections. Unknown wording is unchanged apart from reader IDs and remains fail-closed.
+
+Two complete manual reads pass chronology, natural Thai, directness, prediction/advice separation, psychology, unsupported event/timing, motif ownership, template language, sentence rhythm, section ownership and summary review. The 8-motif audit discloses historical, exact-range and compressed references instead of falsely claiming motifs appear only once; detailed ownership conflicts are 0. Structural validation passes with all 27 counters at 0, negative controls 6/6, reader/map coverage 26/26, chronology errors 0, added claims 0 and owner-contract mismatches 0. Focused Canon/source tests pass 44/44. Structural PASS is not language/content acceptance. Full Flutter suite/analyzer were not rerun because runtime application and Dart test deltas are 0.
+
+Candidate 0011/claim-map/full-diff commit: `32e2a1f0f3036b8bce99b234f8240705fcf8d155`. Validation/two-pass audit commit: `b03e46cb93f0864b8910ba9313f0734bab574980`. Status/package commit: the commit containing this record. Owner package: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_REPORT_PREDICTIVE_NARRATIVE_V2_PHASE1_SA2_OR3_b03e46c.zip`, SHA-256 `D9A98F3231DCD77580CB5B64B7ABB45938BBF1C6A7155429CA70FCFA1B69F10E`; 15 entries, with CRC, extraction missing/extra, manifest hash/size, SHA256SUMS, secret and absolute-path errors all 0. PR #112 remains Open + Draft. Candidate 0011 is pending Owner Final Content Review and is not runtime implementation, Owner-accepted, merged or deployed; production Canon, `product-acceptance/`, Firebase and Production are unchanged.
+
+
 ## PR112 Phase 1 SA2 OR2 — Candidate 0010 full predictive narrative (2026-08-30)
 
 Status: **PR112 PHASE 1 SA2 OR2 FULL PREDICTIVE CONTENT CANDIDATE COMPLETE — CANDIDATE 0010 PENDING OWNER CONTENT REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.
