@@ -2,7 +2,7 @@
 
 ## Predictive Narrative V2 Phase 1 — Golden Copy and Evidence Blueprint (2026-08-30)
 
-Status: **COMPLETE — DRAFT PR — PENDING OWNER CONTENT REVIEW — NOT MERGED — NOT DEPLOYED**. Owner accepts the Golden Reference as a style target only; Candidate copy, contract and implementation are not Owner-accepted by implication. Phase 1 changes Markdown content/evidence only at content commit `61ea2457a894bd7cd514037b866119f99473e270`.
+Status: **COMPLETE — DRAFT PR #112 OPEN — PENDING OWNER CONTENT REVIEW — NOT MERGED — NOT DEPLOYED**. Owner accepts the Golden Reference as a style target only; Candidate copy, contract and implementation are not Owner-accepted by implication. Phase 1 changes Markdown content/evidence only at content commit `61ea2457a894bd7cd514037b866119f99473e270`; evidence/status closeout remains Markdown-only on the same Draft PR: `https://github.com/notekmitl/knowme/pull/112`.
 
 Owner feedback recorded as six defects in the current report: (1) chronology jumps, (2) Thai is not conversational enough, (3) prediction hedges instead of speaking directly, (4) personality content is mixed into the astrology report, (5) past sections ask readers to remember events instead of predicting, and (6) the same meaning repeats across sections. The proposed contract requires past → current → rolling 12 months → next life period, Prediction before Advice, direct language, one semantic owner per claim, psychology separation and cross-surface parity.
 
