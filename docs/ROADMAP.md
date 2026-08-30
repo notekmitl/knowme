@@ -1,5 +1,20 @@
 # KnowMe Roadmap
 
+## PR112 merge + Predictive Narrative V2 Phase 2 runtime (2026-08-30)
+
+Status: **PR112 PHASE 1 OWNER CONTENT ACCEPTED AND MERGED — PHASE 2 RUNTIME IMPLEMENTATION COMPLETE — DRAFT PR #113 — PENDING OWNER PRODUCT REVIEW — NOT DEPLOYED**.
+
+PR #112 recorded Owner Final Content Acceptance for Candidate 0011 in docs-only commit `e15d9b0303b72f27ddfbad1346293f52a39859b1` and was merged to `main` with the required regular merge commit `5dc59c44020a135934d1b8cefceae9606bfa736f`. The merged tree exactly matched accepted PR HEAD tree `475faa6e9da39f8ada6488264cc7f30131283aa7`; unexpected, runtime-before-Phase2, production Canon, generated artifact, `product-acceptance/`, Firebase and deployment deltas were 0.
+
+Phase 2 starts from that merge on branch `codex/thai-report-predictive-narrative-v2-phase2`. Implementation/test commit `a205f8233fa750ed2079b04e260f9bcc7d6ffa60` adds one typed `PredictiveNarrativePlan` and projects it to Web, infographic, Dedicated PDF, browser-print PDF and text extraction. The 00:03 Chiang Mai fixture matches Owner-accepted Candidate 0011 with 22 prediction owners, Aquarius 9°24′, Saturday, horizon 29 August 2569 – 28 August 2570 and Mercury/Mula/Athibodi age 63–79. The 00:35 regression remains Aquarius 19°19′. Unknown remains fail-closed with no noon substitution, ascendant, houses, Thai-day assertion or Known leakage. `monthlyTimelineAvailable=false`; monthly, early/mid/late-year predictions are absent.
+
+Validation passed: focused 162/162 (`8 + 1 + 43 + 35 + 75`), deterministic copy audit 300/300 profiles (225 Known, 75 Unknown), 49 targeted contexts and 3,146 atoms with all impact/error counters 0, full required Flutter suite 1,633/1,633, analyzer exit 0 against the existing 298-diagnostic baseline with no new diagnostic, `git diff --check`, PreCommit and PostCommit. Cross-surface Known/Unknown missing, mismatch, truncated, duplicate, order and semantic-owner mismatch counters are all 0; this is contract validation, not a prediction-accuracy claim.
+
+Real visual QA passed for 24 Web captures (desktop 1440 and mobile 390), two 1080×1920 infographics and every PDF raster. Actual pages are Dedicated Known 5, Dedicated Unknown 2, browser-print Known 4 and browser-print Unknown 2; 13 raster pages have blank, clipping, overlap and overflow counts 0. Owner package `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_REPORT_PREDICTIVE_NARRATIVE_V2_PHASE2_a205f82.zip`, SHA-256 `EA4901547A85624349A6842B9E2E09BDDD06D065B4DEE2C559FE81FC94833293`, has 72 ZIP entries / 69 manifest payload entries with CRC, extraction missing/extra, manifest missing/extra/hash/size mismatch and secret scan all 0.
+
+Phase 2 is [Draft PR #113](https://github.com/notekmitl/knowme/pull/113), remains pending Owner Product Review, and must not be marked Ready, merged or deployed without new authorization. Firebase/Production and `product-acceptance/` remain unchanged. Evidence/docs commit is the commit containing this record.
+
+
 ## PR112 Phase 1 final content acceptance (2026-08-30)
 
 Status: **PR112 PHASE 1 OWNER CONTENT ACCEPTED — CANDIDATE 0011 FINAL CONTENT BASELINE — READY FOR PHASE 1 MERGE — NOT DEPLOYED**.
