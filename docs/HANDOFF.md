@@ -1,5 +1,20 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+
+## PR112 Phase 1 SA2 — Full 2537 Mahabhut corpus and Candidate 0008 (2026-08-30)
+
+Status: **PR112 PHASE 1 SA2 FULL 2537 MAHABHUT CORPUS COMPLETE — CANDIDATE 0008 PENDING OWNER CONTENT REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.
+
+Owner designated `ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์`, ส. หยกฟ้า, สำนักพิมพ์ดวงแก้ว พ.ศ. 2537, ISBN `974-89176-7-3`, as the Primary Tier-1 Canonical Working Edition. The 2539 printing is `UNVERIFIED LATER-REPRINT COMPARISON SOURCE`, is not a V2 blocker, and no page number was copied between editions. Source truth remains 834 atomic units + 20 note sentinels = 854 raw `producedUnits` entries, plus 29 reference cells.
+
+All 49 archetype × Thai-astrological-day contexts were opened at their actual scan-image start pages and modeled with 392 life periods / 392 source-owned predictive atoms. Unmapped contexts, duplicate semantic owners, unsupported events/timing, arbitrary thresholds, hidden conflicts and cross-context leakage are all 0. Seventeen OCR/Phase-D cross-check differences are disclosed; the visually reviewed eight-row context table is the sole placement owner. The 45 SA1 OCR carryover records are classified as 38 runtime and 7 non-runtime; runtime unresolved is 0 and the non-runtime backlog does not block Candidate 0008.
+
+Candidate 0008 Known uses the pinned male 6 June 1982 00:03 Chiang Mai fixture, Aquarius 9°24′, Thai astrological Saturday and `asOf=2026-08-29 Asia/Bangkok`. It corrects the rejected Candidate 0007 next-period error: after Venus age 42–62 comes Mercury/Mula/Athibodi age 63–79. The rolling horizon is 29 August 2026 – 28 August 2027 with no monthly boundary, good/caution month or monthly prediction. Unknown remains fail-closed with no noon substitution, ascendant, houses, Thai astrological day, Known-copy borrowing or empty time-dependent headings.
+
+Validation: SA2 schema/context/page/evidence trace passes 49/49 and 392/392; all 25 reported error counters are 0; 300-profile deterministic/diversity audit passes 300/300 across 49 contexts and 160 context-period signatures; 00:03 / 00:35 / Unknown separation passes. The 12 proposed rules remain proposed and pass schema/page/evidence 12/12 with source-truth counts intact. Focused Flutter Canon/source regressions pass 44/44. Full Flutter suite was not rerun because application runtime, runtime tests, production Canon, generated product artifacts and `product-acceptance/` deltas are 0.
+
+Source/corpus/OCR commit: `276ca20e1eb979fc365f623cb1018f2067395a9c`. Candidate/validation commit: `e1773d4033652b417e3a4a22ab44054aa8d0fd94`. Status/package commit: the commit containing this record. Owner package: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_REPORT_PREDICTIVE_NARRATIVE_V2_PHASE1_SA2_e1773d4.zip`, SHA-256 `24A06D28E28387261A1E140B5EC10F670FED0484D1C9FE010DEB5FE5FC9A9ACC`; 20 entries, CRC/extraction/manifest/hash/size/SHA256SUMS/secret/absolute-path errors all 0. PR #112 remains Open + Draft. No runtime implementation, Ready-for-Review transition, merge, deploy, Firebase/Production change or Owner Acceptance occurred.
+
 ## PR112 Phase 1 SA1 — Mahabhut predictive source reopening (2026-08-30)
 
 Status: **PR112 PHASE 1 SA1 — PARTIAL — SPECIFIC PAGES/OCR/MODELING BLOCKED — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**. Owner designated the complete Mahabhut work compiled by ส.หยกฟ้า as the primary Tier 1 predictive-domain authority, below the Tier 0 engine. This reopens source-backed extraction only; the OR3 NO-GO remains in force for Codex-invented heuristics, including the rejected thresholds 64, 68, 46, 75 and 80. No external astrologer was engaged.
