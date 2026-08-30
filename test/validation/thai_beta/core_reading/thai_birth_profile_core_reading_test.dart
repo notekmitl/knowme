@@ -782,11 +782,16 @@ void main() {
       findsNothing,
     );
     expect(find.byKey(const Key('thai_consumer_closing')), findsNothing);
-    expect(find.byKey(const Key('thai_consumer_source')), findsNothing);
+    final source = find.byKey(const Key('thai_consumer_source'));
+    expect(source, findsOneWidget);
     expect(find.byType(ThaiBetaSharedReportView), findsOneWidget);
     expect(
       tester.getTopLeft(core).dy,
       lessThan(tester.getTopLeft(timeline).dy),
+    );
+    expect(
+      tester.getTopLeft(timeline).dy,
+      lessThan(tester.getTopLeft(source).dy),
     );
   });
 

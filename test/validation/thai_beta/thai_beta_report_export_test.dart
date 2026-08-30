@@ -252,7 +252,7 @@ void main() {
       const failClosed =
           'ไม่มีเวลาเกิด — รายงานจึงเว้นคำทำนายช่วงชีวิตที่ต้องใช้เวลาเกิด แทนการเดาข้อมูลที่ไม่มี';
       const disclosure =
-          'คำทำนายเป็นมุมมองตามความเชื่อ และควรเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ';
+          'เป็นแนวทางดูตัวเอง ไม่ใช่คำฟันธง — ชีวิตเปลี่ยนได้เสมอตามการกระทำของคุณ';
 
       expect(text, contains(failClosed));
       expect(text, contains(disclosure));
@@ -411,6 +411,7 @@ void main() {
         isNot(contains('ในทางโหราศาสตร์ เรื่องงานดูจากเรือนการงาน')),
       );
       final readerPredictionText = known.sections
+          .where((section) => section.id.startsWith('predictive-'))
           .expand((section) => <String>[section.title, ...section.paragraphs])
           .join('\n');
       for (final inlineBasis in const <String>[

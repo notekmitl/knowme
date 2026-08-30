@@ -131,6 +131,12 @@ class ThaiBetaReportExportDocument {
           section.title == 'คำทำนาย 12 เดือนข้างหน้า',
     );
     if (twelveMonthIndex >= 0) return twelveMonthIndex;
+    if (narrativePlan?.isKnownTime == false) {
+      final futureChapter = sections.indexWhere(
+        (section) => section.title == 'ส่วนที่ 3 · แนวโน้มข้างหน้า',
+      );
+      if (futureChapter >= 0) return futureChapter;
+    }
     if (sections.isEmpty) return -1;
     return sections.length - 1;
   }
@@ -405,7 +411,12 @@ class ThaiBetaReportExportDocument {
       return fromAnalysis(analysis, badges: badges, applyReaderCopy: true);
     }
     final plan = PredictiveNarrativePlan.fromAnalysis(analysis);
-    return polishForPdf(_fromNarrativePlan(analysis, plan));
+    final baseline = fromAnalysis(
+      analysis,
+      badges: badges,
+      applyReaderCopy: true,
+    );
+    return polishForPdf(_withNarrativePlan(analysis, baseline, plan));
   }
 
   /// Re-apply presentation polish before PDF bytes are written.
@@ -443,13 +454,13 @@ class ThaiBetaReportExportDocument {
     );
   }
 
-  static ThaiBetaReportExportDocument _fromNarrativePlan(
+  static ThaiBetaReportExportDocument _withNarrativePlan(
     ThaiBetaAnalysis analysis,
+    ThaiBetaReportExportDocument baseline,
     PredictiveNarrativePlan plan,
   ) {
-    final sections = plan.sections
-        .map(
-          (section) => ThaiBetaReportExportSection(
+    ThaiBetaReportExportSection project(NarrativeSection section) =>
+        ThaiBetaReportExportSection(
             title: section.title,
             paragraphs: [
               for (final block in section.blocks) ...[
@@ -476,14 +487,80 @@ class ThaiBetaReportExportDocument {
                 .expand((atom) => [atom.owner.id, ...atom.evidence.refs])
                 .toSet()
                 .toList(growable: false),
-          ),
-        )
-        .toList(growable: false);
+          );
+
+    final part2 = baseline.sections.indexWhere(
+      (section) =>
+          section.title == 'ส่วนที่ 2 · จังหวะชีวิตที่ผ่านมาและปัจจุบัน',
+    );
+    final part3 = baseline.sections.indexWhere(
+      (section) => section.title == 'ส่วนที่ 3 · แนวโน้มข้างหน้า',
+    );
+    final part4 = baseline.sections.indexWhere(
+      (section) => section.title == 'ส่วนที่ 4 · ที่มาและข้อจำกัด',
+    );
+    if (part4 < 0) {
+      throw StateError('Full report baseline is missing Part 4.');
+    }
+
+    final firstPredictiveChapter = [part2, part3]
+        .where((index) => index >= 0)
+        .fold<int>(part4, (best, index) => index < best ? index : best);
+    final sections = <ThaiBetaReportExportSection>[
+      ...baseline.sections.take(firstPredictiveChapter),
+    ];
+    final part2Chapter = part2 >= 0 ? baseline.sections[part2] : null;
+    final part3Chapter = part3 >= 0 ? baseline.sections[part3] : null;
+
+    if (plan.isKnownTime) {
+      if (part2Chapter != null) sections.add(part2Chapter);
+      sections.addAll(
+        plan.sections
+            .where(
+              (section) => switch (section.role) {
+                NarrativeSectionRole.overview ||
+                NarrativeSectionRole.past ||
+                NarrativeSectionRole.current ||
+                NarrativeSectionRole.work ||
+                NarrativeSectionRole.finance ||
+                NarrativeSectionRole.relationship ||
+                NarrativeSectionRole.health ||
+                NarrativeSectionRole.support => true,
+                _ => false,
+              },
+            )
+            .map(project),
+      );
+      if (part3Chapter != null) sections.add(part3Chapter);
+      sections.addAll(
+        plan.sections
+            .where(
+              (section) => switch (section.role) {
+                NarrativeSectionRole.horizon ||
+                NarrativeSectionRole.nextLifePeriod ||
+                NarrativeSectionRole.summary ||
+                NarrativeSectionRole.advice => true,
+                _ => false,
+              },
+            )
+            .map(project),
+      );
+    } else {
+      if (part2Chapter != null) sections.add(part2Chapter);
+      sections.addAll(
+        plan.sections
+            .where((section) => section.role == NarrativeSectionRole.omission)
+            .map(project),
+      );
+      if (part3Chapter != null) sections.add(part3Chapter);
+    }
+    sections.addAll(baseline.sections.skip(part4));
+
     return ThaiBetaReportExportDocument(
-      title: plan.title,
-      subtitle: plan.subtitle,
+      title: baseline.title,
+      subtitle: baseline.subtitle,
       sections: sections,
-      filenameStem: 'knowme-thai-report',
+      filenameStem: baseline.filenameStem,
       infographic: _annualInfographicFromPlan(analysis, plan),
       narrativePlan: plan,
     );

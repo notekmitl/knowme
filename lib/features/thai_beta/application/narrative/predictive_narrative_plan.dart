@@ -7,11 +7,11 @@
 library;
 
 import 'package:knowme/features/astrology/thai/core/life_period/thai_remainder_runtime_metadata.dart';
+import 'package:knowme/features/astrology/thai/core/life_period/life_period_engine.dart';
+import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/prediction/prediction_section_model.dart';
-import 'package:knowme/features/astrology/thai/mirror/presentation/timeline/thai_mirror_life_timeline_state.dart';
 
 import '../thai_beta_analysis.dart';
-import 'thai_beta_narrative_composer.dart';
 
 enum NarrativeSectionRole {
   overview,
@@ -51,6 +51,105 @@ enum DomainScope {
 }
 
 enum KnownUnknownEligibility { knownOnly, unknownOnly, both }
+
+/// Stable, auditable input to the deterministic reader-copy realizer.
+///
+/// A spec owns meaning before it becomes a presentation atom. Context and
+/// period selectors are data, never fixture/date branches.
+class PredictiveClaimSpec {
+  const PredictiveClaimSpec({
+    required this.claimId,
+    required this.semanticOwnerId,
+    required this.meaningKey,
+    required this.evidenceRefs,
+    required this.contextSelector,
+    required this.periodSelector,
+    required this.domain,
+    required this.role,
+    required this.readerCopy,
+    required this.compactCopy,
+    required this.eligibility,
+  });
+
+  factory PredictiveClaimSpec.fromAtom(
+    NarrativeAtom atom, {
+    required String contextSelector,
+  }) => PredictiveClaimSpec(
+    claimId: atom.id,
+    semanticOwnerId: atom.owner.id,
+    meaningKey: atom.owner.meaningKey,
+    evidenceRefs: atom.evidence.refs,
+    contextSelector: contextSelector,
+    periodSelector: atom.period.id,
+    domain: atom.domain,
+    role: atom.role,
+    readerCopy: atom.readerText,
+    compactCopy: atom.compactText,
+    eligibility: atom.eligibility,
+  );
+
+  final String claimId;
+  final String semanticOwnerId;
+  final String meaningKey;
+  final List<String> evidenceRefs;
+  final String contextSelector;
+  final String periodSelector;
+  final DomainScope domain;
+  final NarrativeAtomRole role;
+  final String readerCopy;
+  final String compactCopy;
+  final KnownUnknownEligibility eligibility;
+
+  Map<String, Object?> toMap() => {
+    'claimId': claimId,
+    'semanticOwnerId': semanticOwnerId,
+    'meaningKey': meaningKey,
+    'evidenceRefs': evidenceRefs,
+    'contextSelector': contextSelector,
+    'periodSelector': periodSelector,
+    'domain': domain.name,
+    'role': role.name,
+    'readerCopy': readerCopy,
+    'compactCopy': compactCopy,
+    'eligibility': eligibility.name,
+  };
+}
+
+abstract final class PredictiveEvidenceRegistry {
+  static const promotedCorpusRefs = <String>{
+    'placement.mahabhut2537.rem0.saturday.saturn.0_10',
+    'placement.mahabhut2537.rem0.saturday.jupiter.11_29',
+    'placement.mahabhut2537.rem0.saturday.rahu.30_41',
+    'placement.mahabhut2537.rem0.saturday.venus.42_62',
+    'placement.mahabhut2537.rem0.saturday.mercury.63_79',
+    'GRA-R0-SAT-30_41-DET-RISE',
+    'PIC-R0-SAT-30_41-WORK',
+    'SDC-R0-SAT-42_62-WORK',
+    'SDC-R0-SAT-42_62-FLOW',
+    'SDC-R0-SAT-42_62-FINANCE',
+    'GRA-R0-SAT-42_62-SRI-RISE',
+    'SDC-R0-SAT-42_62-SUPPORT',
+    'PIC-R0-SAT-HORIZON-WORK',
+    'PIC-R0-SAT-HORIZON-SUPPORT',
+    'GRA-R0-SAT-63_79-MULA-RISE',
+    'PIC-R0-SAT-63_79-FOUNDATION',
+    'prediction.career.current.strong',
+    'prediction.finance.current.strong',
+    'prediction.relationship.current.strong',
+    'prediction.health.current.strong',
+    'prediction.career.next12Months.strong',
+    'prediction.finance.next12Months.strong',
+    'prediction.relationship.next12Months.strong',
+    'prediction.career.nextLifePeriod.strong',
+    'ADVICE-K-CURRENT-01',
+    'DISCLOSURE-K-01',
+    'DISCLOSURE-U-01',
+    'OMISSION-U-01',
+  };
+
+  static bool resolvesPromotedCorpusRef(String ref) =>
+      promotedCorpusRefs.contains(ref);
+}
 
 class PeriodScope {
   const PeriodScope(this.id, {this.start, this.end});
@@ -186,6 +285,73 @@ class OmissionAtom extends NarrativeAtom {
        );
 }
 
+/// Converts an auditable semantic spec into its typed presentation atom.
+///
+/// Copy is already authored on the spec. This layer never deletes words or
+/// rewrites certainty after realization.
+NarrativeAtom _realizeClaimSpec(PredictiveClaimSpec spec) {
+  final shared = (
+    id: spec.claimId,
+    readerText: spec.readerCopy,
+    compactText: spec.compactCopy,
+    owner: SemanticOwner(id: spec.semanticOwnerId, meaningKey: spec.meaningKey),
+    evidence: EvidenceTrace(spec.evidenceRefs),
+    period: PeriodScope(spec.periodSelector),
+    domain: spec.domain,
+  );
+  return switch (spec.role) {
+    NarrativeAtomRole.prediction => PredictionAtom(
+      id: shared.id,
+      readerText: shared.readerText,
+      compactText: shared.compactText,
+      owner: shared.owner,
+      evidence: shared.evidence,
+      period: shared.period,
+      domain: shared.domain,
+      eligibility: spec.eligibility,
+    ),
+    NarrativeAtomRole.summary => SummaryAtom(
+      id: shared.id,
+      readerText: shared.readerText,
+      compactText: shared.compactText,
+      owner: shared.owner,
+      evidence: shared.evidence,
+      period: shared.period,
+      domain: shared.domain,
+      eligibility: spec.eligibility,
+    ),
+    NarrativeAtomRole.advice => AdviceAtom(
+      id: shared.id,
+      readerText: shared.readerText,
+      compactText: shared.compactText,
+      owner: shared.owner,
+      evidence: shared.evidence,
+      period: shared.period,
+      domain: shared.domain,
+      eligibility: spec.eligibility,
+    ),
+    NarrativeAtomRole.disclosure => DisclosureAtom(
+      id: shared.id,
+      readerText: shared.readerText,
+      compactText: shared.compactText,
+      owner: shared.owner,
+      evidence: shared.evidence,
+      period: shared.period,
+      domain: shared.domain,
+      eligibility: spec.eligibility,
+    ),
+    NarrativeAtomRole.omission => OmissionAtom(
+      id: shared.id,
+      readerText: shared.readerText,
+      compactText: shared.compactText,
+      owner: shared.owner,
+      evidence: shared.evidence,
+      period: shared.period,
+      domain: shared.domain,
+    ),
+  };
+}
+
 class NarrativeBlock {
   const NarrativeBlock({this.heading, required this.atoms});
 
@@ -229,7 +395,11 @@ class PredictiveNarrativePlan {
     required this.title,
     required this.subtitle,
     required this.sections,
+    this.generationPath = 'generic-v2',
+    this.legacyFallbackInvocations = 0,
+    this.fixtureSpecialInvocations = 0,
     this.monthlyTimelineAvailable = false,
+    this.resolvedEvidenceRefs = const [],
   });
 
   factory PredictiveNarrativePlan.fromAnalysis(ThaiBetaAnalysis analysis) {
@@ -244,16 +414,7 @@ class PredictiveNarrativePlan {
     final contextId = remainder == null || weekday == null
         ? 'mahabhut2537.unresolved'
         : 'mahabhut2537.rem${remainder.value}.${_weekdayKey(weekday)}';
-    final timeline = analysis.pipelineResult?.lifePeriods;
-    final acceptedContext =
-        contextId == 'mahabhut2537.rem0.saturday' &&
-        timeline?.currentAge == 44 &&
-        timeline?.current.startAge == 42 &&
-        timeline?.current.endAge == 62;
-    if (acceptedContext) {
-      return _acceptedKnownPlan(analysis, contextId: contextId);
-    }
-    return _contextualKnownPlan(analysis, contextId: contextId);
+    return _genericKnownPlan(analysis, contextId: contextId);
   }
 
   final String contextId;
@@ -261,14 +422,36 @@ class PredictiveNarrativePlan {
   final String title;
   final String subtitle;
   final List<NarrativeSection> sections;
+  final String generationPath;
+  final int legacyFallbackInvocations;
+  final int fixtureSpecialInvocations;
   final bool monthlyTimelineAvailable;
+  final List<String> resolvedEvidenceRefs;
 
   List<NarrativeAtom> get atoms =>
       sections.expand((section) => section.atoms).toList(growable: false);
 
+  List<PredictiveClaimSpec> get claimSpecs => atoms
+      .map(
+        (atom) =>
+            PredictiveClaimSpec.fromAtom(atom, contextSelector: contextId),
+      )
+      .toList(growable: false);
+
+  List<String> get unresolvedEvidenceRefs => atoms
+      .expand((atom) => atom.evidence.refs)
+      .where((ref) => !resolvesEvidenceRef(ref))
+      .toSet()
+      .toList(growable: false);
+
+  bool resolvesEvidenceRef(String ref) => resolvedEvidenceRefs.contains(ref);
+
   Map<String, Object?> toMap() => {
     'contextId': contextId,
     'isKnownTime': isKnownTime,
+    'generationPath': generationPath,
+    'legacyFallbackInvocations': legacyFallbackInvocations,
+    'fixtureSpecialInvocations': fixtureSpecialInvocations,
     'title': title,
     'subtitle': subtitle,
     'monthlyTimelineAvailable': monthlyTimelineAvailable,
@@ -288,6 +471,7 @@ PredictiveNarrativePlan _unknownPlan(ThaiBetaAnalysis analysis) {
     isKnownTime: false,
     title: 'รายงานฉบับย่อ',
     subtitle: _unknownSubtitle(analysis),
+    resolvedEvidenceRefs: const ['OMISSION-U-01', 'DISCLOSURE-U-01'],
     sections: const [
       NarrativeSection(
         id: 'report-short',
@@ -308,6 +492,17 @@ PredictiveNarrativePlan _unknownPlan(ThaiBetaAnalysis analysis) {
                 period: PeriodScope('UNAVAILABLE'),
                 domain: DomainScope.omission,
               ),
+            ],
+          ),
+        ],
+      ),
+      NarrativeSection(
+        id: 'disclaimer',
+        role: NarrativeSectionRole.disclaimer,
+        title: '',
+        blocks: [
+          NarrativeBlock(
+            atoms: [
               DisclosureAtom(
                 id: 'RC11-U-DISCLOSURE-01',
                 readerText: disclosureText,
@@ -329,13 +524,27 @@ PredictiveNarrativePlan _unknownPlan(ThaiBetaAnalysis analysis) {
   );
 }
 
-PredictiveNarrativePlan _acceptedKnownPlan(
+const _acceptedCorpusPromotionByContext = <String, String>{
+  'mahabhut2537.rem0.saturday': 'candidate-0011',
+};
+
+PredictiveNarrativePlan _genericKnownPlan(
+  ThaiBetaAnalysis analysis, {
+  required String contextId,
+}) {
+  final promotedCorpus = _acceptedCorpusPromotionByContext[contextId];
+  return promotedCorpus == 'candidate-0011'
+      ? _realizePromotedCorpusClaims(analysis, contextId: contextId)
+      : _realizeGenericContextClaimSet(analysis, contextId: contextId);
+}
+
+PredictiveNarrativePlan _realizePromotedCorpusClaims(
   ThaiBetaAnalysis analysis, {
   required String contextId,
 }) {
   final age = analysis.pipelineResult!.lifePeriods!.currentAge;
   final range = _longHorizonRange(analysis.asOf);
-  PredictionAtom prediction({
+  NarrativeAtom prediction({
     required String id,
     required String owner,
     required String meaning,
@@ -344,14 +553,20 @@ PredictiveNarrativePlan _acceptedKnownPlan(
     required String period,
     required DomainScope domain,
     required List<String> refs,
-  }) => PredictionAtom(
-    id: id,
-    readerText: text,
-    compactText: compact,
-    owner: SemanticOwner(id: owner, meaningKey: meaning),
-    evidence: EvidenceTrace(refs),
-    period: PeriodScope(period),
-    domain: domain,
+  }) => _realizeClaimSpec(
+    PredictiveClaimSpec(
+      claimId: id,
+      semanticOwnerId: owner,
+      meaningKey: meaning,
+      evidenceRefs: refs,
+      contextSelector: contextId,
+      periodSelector: period,
+      domain: domain,
+      role: NarrativeAtomRole.prediction,
+      readerCopy: text,
+      compactCopy: compact,
+      eligibility: KnownUnknownEligibility.knownOnly,
+    ),
   );
 
   final overview = prediction(
@@ -686,155 +901,158 @@ PredictiveNarrativePlan _acceptedKnownPlan(
     eligibility: KnownUnknownEligibility.knownOnly,
   );
 
+  final sections = <NarrativeSection>[
+    _section('overview', NarrativeSectionRole.overview, 'ภาพรวมเส้นทางชีวิต', [
+      overview,
+    ]),
+    NarrativeSection(
+      id: 'past',
+      role: NarrativeSectionRole.past,
+      title: 'คำทำนายอดีต',
+      blocks: [
+        NarrativeBlock(heading: 'อายุ 1–10 ปี', atoms: [past1]),
+        NarrativeBlock(heading: 'อายุ 11–29 ปี', atoms: [past2, past3]),
+        NarrativeBlock(heading: 'อายุ 30–41 ปี', atoms: [past4, past5]),
+      ],
+    ),
+    _section(
+      'current',
+      NarrativeSectionRole.current,
+      'คำทำนายปัจจุบัน — อายุ $age ปี',
+      [current],
+    ),
+    _section('work', NarrativeSectionRole.work, 'การงาน', [work1, work2]),
+    _section('finance', NarrativeSectionRole.finance, 'การเงิน', [
+      finance1,
+      finance2,
+    ]),
+    _section(
+      'relationship',
+      NarrativeSectionRole.relationship,
+      'ความรักและความสัมพันธ์',
+      [relationship1, relationship2],
+    ),
+    _section('health', NarrativeSectionRole.health, 'สุขภาพ', [
+      health1,
+      health2,
+    ]),
+    _section('support', NarrativeSectionRole.support, 'โชคลาภและแรงสนับสนุน', [
+      support1,
+      support2,
+    ]),
+    _section(
+      'horizon',
+      NarrativeSectionRole.horizon,
+      'คำทำนาย 12 เดือนข้างหน้า',
+      [horizon1, horizon2, horizon3],
+    ),
+    _section(
+      'next',
+      NarrativeSectionRole.nextLifePeriod,
+      'ช่วงชีวิตถัดไป — อายุ 63–79 ปี',
+      [next1, next2],
+    ),
+    _section('summary', NarrativeSectionRole.summary, 'สรุปคำทำนาย', [summary]),
+    NarrativeSection(
+      id: 'advice',
+      role: NarrativeSectionRole.advice,
+      title: 'คำแนะนำสั้น ๆ',
+      blocks: const [
+        NarrativeBlock(atoms: [advice]),
+      ],
+    ),
+    NarrativeSection(
+      id: 'disclaimer',
+      role: NarrativeSectionRole.disclaimer,
+      title: '',
+      blocks: const [
+        NarrativeBlock(atoms: [disclosure]),
+      ],
+    ),
+  ];
+  final resolvedRefs = <String>{
+    ...PredictiveEvidenceRegistry.promotedCorpusRefs,
+    ...sections.expand((section) => section.atoms).map((atom) => atom.owner.id),
+  }.toList(growable: false);
   return PredictiveNarrativePlan(
     contextId: contextId,
     isKnownTime: true,
     title: 'คำทำนายดวงชะตา',
     subtitle: _knownSubtitle(analysis),
-    sections: [
-      _section(
-        'overview',
-        NarrativeSectionRole.overview,
-        'ภาพรวมเส้นทางชีวิต',
-        [overview],
-      ),
-      NarrativeSection(
-        id: 'past',
-        role: NarrativeSectionRole.past,
-        title: 'คำทำนายอดีต',
-        blocks: [
-          NarrativeBlock(heading: 'อายุ 1–10 ปี', atoms: [past1]),
-          NarrativeBlock(heading: 'อายุ 11–29 ปี', atoms: [past2, past3]),
-          NarrativeBlock(heading: 'อายุ 30–41 ปี', atoms: [past4, past5]),
-        ],
-      ),
-      _section(
-        'current',
-        NarrativeSectionRole.current,
-        'คำทำนายปัจจุบัน — อายุ $age ปี',
-        [current],
-      ),
-      _section('work', NarrativeSectionRole.work, 'การงาน', [work1, work2]),
-      _section('finance', NarrativeSectionRole.finance, 'การเงิน', [
-        finance1,
-        finance2,
-      ]),
-      _section(
-        'relationship',
-        NarrativeSectionRole.relationship,
-        'ความรักและความสัมพันธ์',
-        [relationship1, relationship2],
-      ),
-      _section('health', NarrativeSectionRole.health, 'สุขภาพ', [
-        health1,
-        health2,
-      ]),
-      _section(
-        'support',
-        NarrativeSectionRole.support,
-        'โชคลาภและแรงสนับสนุน',
-        [support1, support2],
-      ),
-      _section(
-        'horizon',
-        NarrativeSectionRole.horizon,
-        'คำทำนาย 12 เดือนข้างหน้า',
-        [horizon1, horizon2, horizon3],
-      ),
-      _section(
-        'next',
-        NarrativeSectionRole.nextLifePeriod,
-        'ช่วงชีวิตถัดไป — อายุ 63–79 ปี',
-        [next1, next2],
-      ),
-      _section('summary', NarrativeSectionRole.summary, 'สรุปคำทำนาย', [
-        summary,
-      ]),
-      NarrativeSection(
-        id: 'advice',
-        role: NarrativeSectionRole.advice,
-        title: 'คำแนะนำสั้น ๆ',
-        blocks: const [
-          NarrativeBlock(atoms: [advice, disclosure]),
-        ],
-      ),
-    ],
+    sections: sections,
+    resolvedEvidenceRefs: resolvedRefs,
   );
 }
 
-PredictiveNarrativePlan _contextualKnownPlan(
+PredictiveNarrativePlan _realizeGenericContextClaimSet(
   ThaiBetaAnalysis analysis, {
   required String contextId,
 }) {
-  final view = ThaiBetaNarrativeComposer.narrativeView(analysis);
-  final timeline = view.lifeTimeline;
-  final prediction = view.futurePrediction;
-  final age =
-      timeline?.currentStage.currentAge ??
-      analysis.pipelineResult?.lifePeriods?.currentAge ??
-      0;
+  final timeline = analysis.pipelineResult?.lifePeriods;
+  if (timeline == null) {
+    throw StateError('Known-time narrative requires a computed life timeline.');
+  }
+  final prediction = analysis.consumerViewState?.futurePrediction;
+  final age = timeline.currentAge;
   final sections = <NarrativeSection>[];
-  var sequence = 0;
-  PredictionAtom atom({
-    required NarrativeSectionRole section,
+
+  NarrativeAtom claim({
+    required String claimId,
+    required String ownerId,
+    required String meaning,
     required String text,
     required String period,
     required DomainScope domain,
-    List<String> refs = const [],
-  }) {
-    sequence++;
-    return PredictionAtom(
-      id: 'CTX-${sequence.toString().padLeft(2, '0')}',
-      readerText: _directCopy(text),
-      compactText: _compact(_directCopy(text)),
-      owner: SemanticOwner(
-        id: '$contextId.${section.name}.${sequence.toString().padLeft(2, '0')}',
-        meaningKey: '${section.name}-${domain.name}-$sequence',
-      ),
-      evidence: EvidenceTrace(
-        refs.isEmpty ? ['runtime.$contextId.${section.name}'] : refs,
-      ),
-      period: PeriodScope(period),
+    required List<String> refs,
+  }) => _realizeClaimSpec(
+    PredictiveClaimSpec(
+      claimId: claimId,
+      semanticOwnerId: ownerId,
+      meaningKey: meaning,
+      evidenceRefs: List.unmodifiable(refs),
+      contextSelector: contextId,
+      periodSelector: period,
       domain: domain,
-    );
-  }
+      role: NarrativeAtomRole.prediction,
+      readerCopy: text,
+      compactCopy: _compact(text),
+      eligibility: KnownUnknownEligibility.knownOnly,
+    ),
+  );
 
-  final overviewText = view.hero.summary
-      .split('\n\n')
-      .map(_directCopy)
-      .firstWhere((text) => text.isNotEmpty, orElse: () => view.hero.headline);
+  final overviewRefs = timeline.periods
+      .take(4)
+      .map((period) => _placementRef(contextId, period))
+      .toList(growable: false);
   sections.add(
     _section('overview', NarrativeSectionRole.overview, 'ภาพรวมเส้นทางชีวิต', [
-      atom(
-        section: NarrativeSectionRole.overview,
-        text: overviewText,
+      claim(
+        claimId: 'GEN-LIFE-OVERVIEW',
+        ownerId: 'LIFE-ARC-${timeline.startPlanet.name.toUpperCase()}',
+        meaning: 'chronological-life-period-arc',
+        text: _genericOverviewCopy(timeline),
         period: 'LIFE',
         domain: DomainScope.lifePath,
+        refs: overviewRefs,
       ),
     ]),
   );
 
   final pastBlocks = <NarrativeBlock>[];
-  for (final period
-      in timeline?.periods.where((item) => item.isPast) ??
-          const <ThaiMirrorLifePeriodState>[]) {
-    final text = _directCopy(
-      period.summary.trim().isNotEmpty ? period.summary : period.whatChanges,
-    );
-    if (text.isEmpty) continue;
+  for (final period in timeline.periods.where((item) => item.isPast)) {
+    final range = '${period.startAge}-${period.endAge}';
     pastBlocks.add(
       NarrativeBlock(
-        heading: 'อายุ ${period.ageLabel} ปี',
+        heading: 'อายุ ${period.startAge}–${period.endAge} ปี',
         atoms: [
-          atom(
-            section: NarrativeSectionRole.past,
-            text: text,
-            period: period.ageLabel,
+          claim(
+            claimId: 'GEN-PAST-${period.planet.name.toUpperCase()}-$range',
+            ownerId: 'LIFE-PERIOD-${period.planet.name.toUpperCase()}-$range',
+            meaning: 'past-period-${period.planet.name}',
+            text: _pastPeriodCopy(period),
+            period: range,
             domain: DomainScope.lifePath,
-            refs: [
-              if (period.mahabhutKnown) period.mahabhutPositionLabel,
-              period.planetLine,
-            ],
+            refs: [_placementRef(contextId, period)],
           ),
         ],
       ),
@@ -851,242 +1069,430 @@ PredictiveNarrativePlan _contextualKnownPlan(
     );
   }
 
-  final currentPeriod = timeline?.periods
-      .where((item) => item.isCurrent)
-      .firstOrNull;
-  final currentText = currentPeriod == null
-      ? timeline?.currentStage.intro ?? ''
-      : currentPeriod.summary.trim().isNotEmpty
-      ? currentPeriod.summary
-      : currentPeriod.whatChanges;
-  if (_directCopy(currentText).isNotEmpty) {
-    sections.add(
-      _section(
-        'current',
-        NarrativeSectionRole.current,
-        'คำทำนายปัจจุบัน — อายุ $age ปี',
-        [
-          atom(
-            section: NarrativeSectionRole.current,
-            text: currentText,
-            period: 'age$age',
-            domain: DomainScope.lifePath,
-            refs: [if (currentPeriod != null) currentPeriod.planetLine],
-          ),
-        ],
-      ),
-    );
-  }
+  final current = timeline.current;
+  sections.add(
+    _section(
+      'current',
+      NarrativeSectionRole.current,
+      'คำทำนายปัจจุบัน — อายุ $age ปี',
+      [
+        claim(
+          claimId: 'GEN-CURRENT-${current.planet.name.toUpperCase()}',
+          ownerId: 'LIFE-CURRENT-${current.planet.name.toUpperCase()}',
+          meaning: 'current-period-${current.planet.name}',
+          text: _currentPeriodCopy(current, age),
+          period: '${current.startAge}-${current.endAge}|age$age',
+          domain: DomainScope.lifePath,
+          refs: [_placementRef(contextId, current)],
+        ),
+      ],
+    ),
+  );
 
-  final currentWindow = prediction?.windows.firstOrNull;
-  for (final binding in const [
-    (
-      ForecastDomain.career,
-      NarrativeSectionRole.work,
-      DomainScope.work,
-      'การงาน',
-    ),
-    (
-      ForecastDomain.finance,
-      NarrativeSectionRole.finance,
-      DomainScope.finance,
-      'การเงิน',
-    ),
-    (
-      ForecastDomain.relationship,
-      NarrativeSectionRole.relationship,
-      DomainScope.relationship,
-      'ความรักและความสัมพันธ์',
-    ),
-    (
-      ForecastDomain.health,
-      NarrativeSectionRole.health,
-      DomainScope.health,
-      'สุขภาพ',
-    ),
-  ]) {
-    final domainModel = currentWindow?.domains
-        .where((item) => item.material?.domain == binding.$1)
-        .firstOrNull;
-    if (domainModel == null) continue;
-    final material = domainModel.material;
+  final materials =
+      prediction?.windows
+          .expand((window) => window.domains)
+          .map((domain) => domain.material)
+          .whereType<ForecastMaterialFingerprint>()
+          .where(
+            (material) =>
+                material.evidenceAvailability ==
+                    ForecastEvidenceAvailability.full &&
+                material.timeDependent &&
+                material.evidenceKey.isNotEmpty,
+          )
+          .toList(growable: false) ??
+      const <ForecastMaterialFingerprint>[];
+
+  final currentMaterials = _oneMaterialPerDomain(
+    materials.where((material) => material.horizon == ForecastHorizon.current),
+  );
+  for (final material in currentMaterials) {
+    final binding = _domainBinding(material.domain);
     sections.add(
-      _section(binding.$2.name, binding.$2, binding.$4, [
-        atom(
-          section: binding.$2,
-          text: domainModel.body,
-          period: 'CURRENT',
-          domain: binding.$3,
-          refs: _materialRefs(material),
+      _section(binding.$1.name, binding.$1, binding.$3, [
+        claim(
+          claimId:
+              'GEN-CURRENT-${material.domain.name.toUpperCase()}-${material.band.name.toUpperCase()}',
+          ownerId:
+              'FORECAST-CURRENT-${material.domain.name.toUpperCase()}-${material.band.name.toUpperCase()}',
+          meaning: 'current-${material.domain.name}-${material.band.name}',
+          text: _forecastReaderCopy(material),
+          period: '${current.startAge}-${current.endAge}|age$age',
+          domain: binding.$2,
+          refs: [material.evidenceKey],
         ),
       ]),
     );
   }
-  final supportText = _directCopy(currentWindow?.topOpportunity ?? '');
-  if (supportText.isNotEmpty) {
-    sections.add(
-      _section(
-        'support',
-        NarrativeSectionRole.support,
-        'โชคลาภและแรงสนับสนุน',
-        [
-          atom(
-            section: NarrativeSectionRole.support,
-            text: supportText,
-            period: 'CURRENT',
-            domain: DomainScope.support,
-          ),
-        ],
-      ),
-    );
-  }
 
-  final horizon = prediction != null && prediction.windows.length > 1
-      ? prediction.windows[1]
-      : null;
-  if (horizon != null) {
+  sections.add(
+    _section('support', NarrativeSectionRole.support, 'โชคลาภและแรงสนับสนุน', [
+      claim(
+        claimId: 'GEN-SUPPORT-${current.planet.name.toUpperCase()}',
+        ownerId: 'LIFE-SUPPORT-${current.planet.name.toUpperCase()}',
+        meaning: 'support-from-current-life-period',
+        text: _supportCopy(current.planet),
+        period: '${current.startAge}-${current.endAge}|age$age',
+        domain: DomainScope.support,
+        refs: [_placementRef(contextId, current)],
+      ),
+    ]),
+  );
+
+  final horizonMaterials = _oneMaterialPerDomain(
+    materials.where(
+      (material) => material.horizon == ForecastHorizon.next12Months,
+    ),
+  );
+  if (horizonMaterials.isNotEmpty) {
     final range = _longHorizonRange(analysis.asOf);
-    final text =
-        'ระหว่างวันที่ ${_thaiLongDate(range.$1)} ถึง ${_thaiLongDate(range.$2)} ${_directCopy(horizon.summary)}';
+    final atoms = <NarrativeAtom>[];
+    for (var index = 0; index < horizonMaterials.length; index++) {
+      final material = horizonMaterials[index];
+      final lead = index == 0
+          ? 'ระหว่างวันที่ ${_thaiLongDate(range.$1)} ถึง ${_thaiLongDate(range.$2)} '
+          : 'ในช่วงเดียวกัน ';
+      atoms.add(
+        claim(
+          claimId:
+              'GEN-HORIZON-${material.domain.name.toUpperCase()}-${material.band.name.toUpperCase()}',
+          ownerId:
+              'FORECAST-NEXT12MONTHS-${material.domain.name.toUpperCase()}-${material.band.name.toUpperCase()}',
+          meaning: 'horizon-${material.domain.name}-${material.band.name}',
+          text:
+              '$lead${_forecastReaderCopy(material, includeHorizonLead: false)}',
+          period: '${_isoDate(range.$1)}/${_isoDate(range.$2)}',
+          domain: _domainBinding(material.domain).$2,
+          refs: [material.evidenceKey],
+        ),
+      );
+    }
     sections.add(
       _section(
         'horizon',
         NarrativeSectionRole.horizon,
         'คำทำนาย 12 เดือนข้างหน้า',
-        [
-          atom(
-            section: NarrativeSectionRole.horizon,
-            text: text,
-            period: '${_isoDate(range.$1)}/${_isoDate(range.$2)}',
-            domain: DomainScope.lifePath,
-            refs: horizon.domains
-                .expand((item) => _materialRefs(item.material))
-                .toSet()
-                .toList(growable: false),
-          ),
-        ],
+        atoms,
       ),
     );
   }
 
-  final nextWindow = prediction != null && prediction.windows.length > 2
-      ? prediction.windows[2]
-      : null;
-  final nextPeriod = timeline?.periods
-      .where((item) => !item.isPast && !item.isCurrent)
-      .firstOrNull;
-  final nextText = _directCopy(
-    nextWindow?.summary ?? nextPeriod?.summary ?? '',
-  );
-  if (nextText.isNotEmpty) {
-    final label = nextPeriod?.ageLabel ?? 'ถัดไป';
+  final next = timeline.next;
+  if (next != null) {
+    final nextAtoms = <NarrativeAtom>[
+      claim(
+        claimId: 'GEN-NEXT-${next.planet.name.toUpperCase()}',
+        ownerId: 'LIFE-NEXT-${next.planet.name.toUpperCase()}',
+        meaning: 'next-life-period-${next.planet.name}',
+        text: _nextPeriodCopy(next),
+        period: '${next.startAge}-${next.endAge}',
+        domain: DomainScope.foundation,
+        refs: [_placementRef(contextId, next)],
+      ),
+    ];
+    for (final material in _oneMaterialPerDomain(
+      materials.where((item) => item.horizon == ForecastHorizon.nextLifePeriod),
+    )) {
+      nextAtoms.add(
+        claim(
+          claimId:
+              'GEN-NEXT-${material.domain.name.toUpperCase()}-${material.band.name.toUpperCase()}',
+          ownerId:
+              'FORECAST-NEXTLIFEPERIOD-${material.domain.name.toUpperCase()}-${material.band.name.toUpperCase()}',
+          meaning: 'next-life-${material.domain.name}-${material.band.name}',
+          text: _forecastReaderCopy(material),
+          period: '${next.startAge}-${next.endAge}',
+          domain: _domainBinding(material.domain).$2,
+          refs: [material.evidenceKey],
+        ),
+      );
+    }
     sections.add(
       _section(
         'next',
         NarrativeSectionRole.nextLifePeriod,
-        'ช่วงชีวิตถัดไป — อายุ $label ปี',
-        [
-          atom(
-            section: NarrativeSectionRole.nextLifePeriod,
-            text: nextText,
-            period: label,
-            domain: DomainScope.foundation,
-            refs: [
-              if (nextPeriod != null) nextPeriod.planetLine,
-              if (nextPeriod?.mahabhutKnown == true)
-                nextPeriod!.mahabhutPositionLabel,
-            ],
-          ),
-        ],
+        'ช่วงชีวิตถัดไป — อายุ ${next.startAge}–${next.endAge} ปี',
+        nextAtoms,
       ),
     );
   }
 
-  final summaryText = _directCopy(view.closingMessage.message);
-  if (summaryText.isNotEmpty) {
-    sections.add(
-      NarrativeSection(
-        id: 'summary',
-        role: NarrativeSectionRole.summary,
-        title: 'สรุปคำทำนาย',
-        blocks: [
-          NarrativeBlock(
-            atoms: [
-              SummaryAtom(
-                id: 'CTX-SUMMARY',
-                readerText: summaryText,
-                compactText: _compact(summaryText),
-                owner: SemanticOwner(
-                  id: '$contextId.summary',
-                  meaningKey: 'compressed-context-summary',
-                ),
-                evidence: EvidenceTrace(
-                  sections
-                      .expand((section) => section.atoms)
-                      .map((item) => item.owner.id)
-                      .toList(growable: false),
-                ),
-                period: const PeriodScope('REPORT'),
-                domain: DomainScope.lifePath,
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  }
-
-  final adviceText = _directCopy(
-    prediction?.detailedClosingAdvice.trim().isNotEmpty == true
-        ? prediction!.detailedClosingAdvice
-        : prediction?.closingAdvice ?? '',
+  final predictiveOwners = sections
+      .expand((section) => section.atoms)
+      .map((atom) => atom.owner.id)
+      .toList(growable: false);
+  final primaryDomain = currentMaterials.isEmpty
+      ? ForecastDomain.career
+      : currentMaterials.first.domain;
+  final summaryText = _genericSummaryCopy(
+    current: current,
+    primaryDomain: primaryDomain,
   );
-  final adviceAtoms = <NarrativeAtom>[
-    if (adviceText.isNotEmpty)
+  sections.add(
+    _section('summary', NarrativeSectionRole.summary, 'สรุปคำทำนาย', [
+      SummaryAtom(
+        id: 'GEN-SUMMARY-${current.planet.name.toUpperCase()}',
+        readerText: summaryText,
+        compactText: _compact(summaryText),
+        owner: SemanticOwner(
+          id: 'SUMMARY-${current.planet.name.toUpperCase()}-${primaryDomain.name.toUpperCase()}',
+          meaningKey: 'compressed-generic-summary',
+        ),
+        evidence: EvidenceTrace(predictiveOwners),
+        period: const PeriodScope('REPORT'),
+        domain: DomainScope.lifePath,
+      ),
+    ]),
+  );
+
+  final adviceText = _genericAdviceCopy(primaryDomain);
+  sections.add(
+    _section('advice', NarrativeSectionRole.advice, 'คำแนะนำสั้น ๆ', [
       AdviceAtom(
-        id: 'CTX-ADVICE',
+        id: 'GEN-ADVICE-${primaryDomain.name.toUpperCase()}',
         readerText: adviceText,
         compactText: _compact(adviceText),
         owner: SemanticOwner(
-          id: '$contextId.advice',
-          meaningKey: 'contextual-advice',
+          id: 'ADVICE-${primaryDomain.name.toUpperCase()}-BOUNDARY',
+          meaningKey: 'generic-decision-boundary',
         ),
-        evidence: const EvidenceTrace(['runtime.prediction.closingAdvice']),
+        evidence: EvidenceTrace([
+          if (currentMaterials.isNotEmpty)
+            currentMaterials.first.evidenceKey
+          else
+            _placementRef(contextId, current),
+        ]),
         period: const PeriodScope('REPORT'),
         domain: DomainScope.advice,
       ),
-    const DisclosureAtom(
-      id: 'CTX-DISCLOSURE',
-      readerText:
-          'คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ',
-      compactText: 'ใช้ประกอบการทบทวนและเทียบกับข้อเท็จจริง',
-      owner: SemanticOwner(
-        id: 'DISCLOSURE-K-01',
-        meaningKey: 'belief-disclosure',
-      ),
-      evidence: EvidenceTrace(['DISCLOSURE-K-01']),
-      period: PeriodScope('REPORT'),
-      domain: DomainScope.disclosure,
-      eligibility: KnownUnknownEligibility.knownOnly,
-    ),
-  ];
+    ]),
+  );
   sections.add(
-    NarrativeSection(
-      id: 'advice',
-      role: NarrativeSectionRole.advice,
-      title: 'คำแนะนำสั้น ๆ',
-      blocks: [NarrativeBlock(atoms: adviceAtoms)],
+    const NarrativeSection(
+      id: 'disclaimer',
+      role: NarrativeSectionRole.disclaimer,
+      title: '',
+      blocks: [
+        NarrativeBlock(
+          atoms: [
+            DisclosureAtom(
+              id: 'GEN-DISCLOSURE-KNOWN',
+              readerText:
+                  'คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ',
+              compactText: 'ใช้ประกอบการทบทวนและเทียบกับข้อเท็จจริง',
+              owner: SemanticOwner(
+                id: 'DISCLOSURE-K-01',
+                meaningKey: 'belief-disclosure',
+              ),
+              evidence: EvidenceTrace(['DISCLOSURE-K-01']),
+              period: PeriodScope('REPORT'),
+              domain: DomainScope.disclosure,
+              eligibility: KnownUnknownEligibility.knownOnly,
+            ),
+          ],
+        ),
+      ],
     ),
   );
 
+  final resolvedRefs = <String>{
+    for (final period in timeline.periods) _placementRef(contextId, period),
+    for (final material in materials) material.evidenceKey,
+    for (final atom in sections.expand((section) => section.atoms))
+      atom.owner.id,
+    'DISCLOSURE-K-01',
+  }.toList(growable: false);
   return PredictiveNarrativePlan(
     contextId: contextId,
     isKnownTime: true,
     title: 'คำทำนายดวงชะตา',
     subtitle: _knownSubtitle(analysis),
     sections: List.unmodifiable(sections),
+    resolvedEvidenceRefs: resolvedRefs,
   );
 }
+
+List<ForecastMaterialFingerprint> _oneMaterialPerDomain(
+  Iterable<ForecastMaterialFingerprint> materials,
+) {
+  final byDomain = <ForecastDomain, ForecastMaterialFingerprint>{};
+  for (final material in materials) {
+    byDomain.putIfAbsent(material.domain, () => material);
+  }
+  return [for (final domain in ForecastDomain.values) ?byDomain[domain]];
+}
+
+(NarrativeSectionRole, DomainScope, String) _domainBinding(
+  ForecastDomain domain,
+) => switch (domain) {
+  ForecastDomain.career => (
+    NarrativeSectionRole.work,
+    DomainScope.work,
+    'การงาน',
+  ),
+  ForecastDomain.finance => (
+    NarrativeSectionRole.finance,
+    DomainScope.finance,
+    'การเงิน',
+  ),
+  ForecastDomain.relationship => (
+    NarrativeSectionRole.relationship,
+    DomainScope.relationship,
+    'ความรักและความสัมพันธ์',
+  ),
+  ForecastDomain.health => (
+    NarrativeSectionRole.health,
+    DomainScope.health,
+    'สุขภาพ',
+  ),
+};
+
+String _placementRef(String contextId, PeriodState period) =>
+    'placement.$contextId.${period.planet.name}.${period.startAge}_${period.endAge}';
+
+String _genericOverviewCopy(LifeTimeline timeline) {
+  final current = timeline.current;
+  final next = timeline.next;
+  final currentData = LifePlanets.of(current.planet);
+  final nextText = next == null
+      ? ''
+      : ' หลังอายุ ${next.startAge} บทบาทของ${LifePlanets.of(next.planet).keyword}จะเข้ามาแทนที่';
+  return 'ชีวิตเดินผ่านช่วงที่มีหน้าที่ต่างกันอย่างชัดเจน '
+      'ช่วงอายุ ${current.startAge}–${current.endAge} '
+      '${currentData.keyword}เป็นเรื่องนำของชีวิต$nextText';
+}
+
+String _pastPeriodCopy(PeriodState period) {
+  final label = '${period.startAge}–${period.endAge}';
+  return switch (period.planet) {
+    LifePlanet.saturn =>
+      'ช่วงอายุ $label ชีวิตอยู่ใต้เงื่อนไขของหน้าที่และกติกาที่ชัด หลายเรื่องเดินหน้าได้เมื่อรับผิดชอบสิ่งจำเป็นให้ครบก่อน',
+    LifePlanet.jupiter =>
+      'ช่วงอายุ $label การเรียน งาน และสังคมเปิดกว้างขึ้น คนที่มีประสบการณ์กว่าพาให้เห็นโอกาสและทางเลือกใหม่',
+    LifePlanet.rahu =>
+      'ช่วงอายุ $label งานหรือข้อตกลงสำคัญเปลี่ยนรูปแบบ ทางเดิมที่ไปต่อไม่ได้จบลง และทางใหม่เริ่มชัดจากการลงมือจริง',
+    LifePlanet.venus =>
+      'ช่วงอายุ $label ผลจากงานและความสัมพันธ์ที่สั่งสมไว้เริ่มชัด เรื่องที่ทำต่อเนื่องให้ผลตอบแทนมากกว่าสิ่งที่เพิ่งเริ่ม',
+    LifePlanet.sun =>
+      'ช่วงอายุ $label ผลงานและบทบาทของคุณถูกมองเห็นชัดขึ้น หน้าที่ที่ต้องตัดสินใจแทนคนอื่นเข้ามาพร้อมการยอมรับ',
+    LifePlanet.moon =>
+      'ช่วงอายุ $label เรื่องบ้าน ครอบครัว และความมั่นคงทางใจเป็นแกนของการตัดสินใจ ความสัมพันธ์ใกล้ตัวเปลี่ยนตามภาระที่รับไว้',
+    LifePlanet.mars =>
+      'ช่วงอายุ $label ชีวิตเดินเร็วขึ้นจากการตัดสินใจและลงมือ เรื่องที่ค้างถูกผลักให้จบพร้อมกับการเริ่มทางใหม่',
+    LifePlanet.mercury =>
+      'ช่วงอายุ $label การเรียนรู้ การสื่อสาร และการเชื่อมคนหลายฝ่ายเปิดทางให้งานและรายได้รูปแบบใหม่',
+  };
+}
+
+String _currentPeriodCopy(
+  PeriodState period,
+  int age,
+) => switch (period.planet) {
+  LifePlanet.saturn =>
+    'อายุ $age อยู่ในช่วงจัดฐานชีวิตให้มั่นคง ภาระที่รับไว้ต้องมีขอบเขตชัด และเรื่องที่ไม่สร้างผลต่อเนื่องจะถูกตัดออกก่อนอายุ ${period.endAge}',
+  LifePlanet.jupiter =>
+    'อายุ $age อยู่ในช่วงขยายความรู้ งาน และเครือข่าย โอกาสใหม่เข้ามาผ่านคนที่เห็นผลงานและพร้อมเปิดทางให้',
+  LifePlanet.rahu =>
+    'อายุ $age อยู่ในช่วงเปลี่ยนทิศ เรื่องที่ค้างต้องได้ข้อสรุป งานหรือข้อตกลงที่ไปต่อจะเปลี่ยนรูปแบบให้ชัดกว่าเดิม',
+  LifePlanet.venus =>
+    'อายุ $age อยู่ในช่วงเก็บผลจากสิ่งที่ทำต่อเนื่อง งาน เงิน และความสัมพันธ์จะชัดขึ้นตามคุณภาพของข้อตกลงที่รักษาไว้',
+  LifePlanet.sun =>
+    'อายุ $age เป็นช่วงที่ผลงานและความรับผิดชอบถูกมองเห็น การตัดสินใจที่ชัดจะกำหนดบทบาทหลักของรอบนี้',
+  LifePlanet.moon =>
+    'อายุ $age เป็นช่วงจัดบ้าน ความสัมพันธ์ และเวลาพักให้สมดุล เรื่องใกล้ตัวที่ยังค้างจะถูกนำมาจัดการให้จบ',
+  LifePlanet.mars =>
+    'อายุ $age เป็นช่วงลงมือและตัดสินใจ งานที่หยุดนิ่งจะถูกผลักให้เดินหน้า พร้อมกับการตัดภาระที่ขัดกับเป้าหมายหลัก',
+  LifePlanet.mercury =>
+    'อายุ $age เป็นช่วงใช้ความคิด การสื่อสาร และข้อมูลสร้างทางเลือกใหม่ งานที่เชื่อมหลายฝ่ายจะมีบทบาทมากขึ้น',
+};
+
+String _forecastReaderCopy(
+  ForecastMaterialFingerprint material, {
+  bool includeHorizonLead = true,
+}) {
+  final horizon = includeHorizonLead
+      ? switch (material.horizon) {
+          ForecastHorizon.current => 'ช่วงนี้ ',
+          ForecastHorizon.next12Months => 'ในรอบ 12 เดือนนี้ ',
+          ForecastHorizon.nextLifePeriod => 'ในช่วงชีวิตถัดไป ',
+        }
+      : '';
+  final strength = switch (material.band) {
+    ForecastBand.strong => 'ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง',
+    ForecastBand.active => 'เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง',
+    ForecastBand.quiet => 'ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง',
+  };
+  final body = switch (material.domain) {
+    ForecastDomain.career =>
+      'งาน$strength บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต',
+    ForecastDomain.finance =>
+      'การเงิน$strength ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม',
+    ForecastDomain.relationship =>
+      'ความสัมพันธ์$strength ระยะของแต่ละคนชัดจากการทำตามข้อตกลง',
+    ForecastDomain.health =>
+      'การพักและการฟื้นตัว$strength กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง',
+  };
+  return '$horizon$body';
+}
+
+String _supportCopy(LifePlanet planet) => switch (planet) {
+  LifePlanet.saturn =>
+    'แรงสนับสนุนมาจากคนที่ไว้ใจความรับผิดชอบและเห็นว่าคุณทำเรื่องยากได้ต่อเนื่อง',
+  LifePlanet.jupiter =>
+    'แรงสนับสนุนมาจากครู ผู้ใหญ่ และคนที่พร้อมแบ่งความรู้หรือเปิดทางให้โอกาสใหม่',
+  LifePlanet.rahu =>
+    'แรงสนับสนุนมาจากคนที่เคยผ่านการเปลี่ยนแปลงและช่วยแก้เรื่องติดขัดได้เร็ว',
+  LifePlanet.venus =>
+    'แรงสนับสนุนมาจากคนที่เคยเห็นผลงานและรักษาความสัมพันธ์กับคุณมาอย่างต่อเนื่อง',
+  LifePlanet.sun =>
+    'แรงสนับสนุนมาจากคนที่เห็นผลงานชัดและพร้อมมอบบทบาทให้ตัดสินใจ',
+  LifePlanet.moon =>
+    'แรงสนับสนุนมาจากครอบครัว คนใกล้ตัว และเครือข่ายที่ดูแลกันในชีวิตประจำวัน',
+  LifePlanet.mars =>
+    'แรงสนับสนุนมาจากคนที่พร้อมลงมือและช่วยพาเรื่องค้างให้เดินหน้า',
+  LifePlanet.mercury =>
+    'แรงสนับสนุนมาจากคนที่แลกเปลี่ยนข้อมูล เชื่อมเครือข่าย และช่วยให้การเจรจาเดินต่อ',
+};
+
+String _nextPeriodCopy(PeriodState period) {
+  final data = LifePlanets.of(period.planet);
+  final phaseEssence = switch (period.planet) {
+    LifePlanet.sun => 'ช่วงสั้น ๆ ที่ผลงานและบทบาทที่รับผิดชอบถูกมองเห็นชัดเจน',
+    _ => data.phaseEssence,
+  };
+  return 'เมื่ออายุ ${period.startAge} ปี ชีวิตเข้าสู่${data.phaseName} '
+      '$phaseEssence บทบาทเดิมที่ไปต่อจะถูกจัดให้เป็นฐานของช่วงอายุ '
+      '${period.startAge}–${period.endAge}';
+}
+
+String _genericSummaryCopy({
+  required PeriodState current,
+  required ForecastDomain primaryDomain,
+}) =>
+    'ช่วงปัจจุบันให้${LifePlanets.of(current.planet).keyword}เป็นแกน '
+    '${_domainLabel(primaryDomain)}เป็นเรื่องที่ต้องจัดให้ชัดก่อนขยายแผน '
+    'เมื่อภาระหลักลงตัว เส้นทางถัดไปจะต่อยอดจากสิ่งที่ทำได้จริง';
+
+String _genericAdviceCopy(
+  ForecastDomain primaryDomain,
+) => switch (primaryDomain) {
+  ForecastDomain.career =>
+    'รับงานใหม่เมื่อขอบเขต ผลลัพธ์ และอำนาจตัดสินใจชัด ปิดงานค้างก่อนเพิ่มบทบาท และกันเวลาพักไว้ในแผน',
+  ForecastDomain.finance =>
+    'กันเงินสำหรับรายการจำเป็นก่อนรับข้อผูกพันใหม่ ตรวจยอดพร้อมใช้เป็นระยะ และขยายแผนเมื่อฐานเงินรองรับ',
+  ForecastDomain.relationship =>
+    'พูดข้อตกลงเรื่องเวลา หน้าที่ และพื้นที่ส่วนตัวให้ตรง ใช้พฤติกรรมที่ทำต่อเนื่องเป็นหลักก่อนเพิ่มข้อผูกพัน',
+  ForecastDomain.health =>
+    'จัดวันพักและเวลานอนให้ทำได้จริง ลดภาระที่เข้ามาพร้อมกัน และเพิ่มงานเมื่อร่างกายฟื้นได้ตามปกติ',
+};
+
+String _domainLabel(ForecastDomain domain) => switch (domain) {
+  ForecastDomain.career => 'งาน',
+  ForecastDomain.finance => 'การเงิน',
+  ForecastDomain.relationship => 'ความสัมพันธ์',
+  ForecastDomain.health => 'การพักและการฟื้นตัว',
+};
 
 NarrativeSection _section(
   String id,
@@ -1099,26 +1505,6 @@ NarrativeSection _section(
   title: title,
   blocks: [NarrativeBlock(atoms: atoms)],
 );
-
-List<String> _materialRefs(ForecastMaterialFingerprint? material) => [
-  if (material != null) material.serialize(),
-  if (material != null && material.evidenceKey.isNotEmpty) material.evidenceKey,
-];
-
-String _directCopy(String value) {
-  var text = value.trim();
-  const forbidden = [
-    'ลองนึกย้อน',
-    'ลองทบทวน',
-    'มีแนวโน้มว่าอาจ',
-    'มีแนวโน้มว่า',
-  ];
-  for (final phrase in forbidden) {
-    text = text.replaceAll(phrase, '');
-  }
-  text = text.replaceAll('อาจ', '');
-  return text.replaceAll(RegExp(r'\s+'), ' ').trim();
-}
 
 String _compact(String value) {
   final normalized = value.trim();

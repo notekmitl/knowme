@@ -18,9 +18,9 @@ void main() {
 
   late ThaiBetaAnalysis analysis;
 
-  /// Stable on-page bottom disclaimer projected from the shared narrative plan.
+  /// Stable on-page bottom disclaimer preserved from the full report baseline.
   const bottomDisclaimer =
-      'คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ';
+      'สิ่งที่อ่านอาจตรงหรือไม่ตรงกับตัวคุณทั้งหมด — ใช้เป็นจุดเริ่มสังเกตตัวเอง';
 
   setUpAll(() {
     analysis = ThaiBetaAnalysisRunner.run(

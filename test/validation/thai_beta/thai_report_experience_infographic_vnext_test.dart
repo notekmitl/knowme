@@ -5,6 +5,7 @@ import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:knowme/features/thai_beta/application/narrative/predictive_narrative_plan.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_pdf_exporter.dart';
@@ -220,7 +221,7 @@ void main() {
     );
 
     test(
-      'candidate projects the typed narrative plan without legacy chapters',
+      'candidate inserts typed narrative plan into preserved full report',
       () {
         final analysis = _analysis(knownTime: true);
         final before = ThaiBetaReportExportDocument.beforeReaderCopy(analysis);
@@ -235,8 +236,14 @@ void main() {
         expect(before.fullPlainText, contains('แปลเป็นภาษาคน'));
         expect(after.narrativePlan, isNotNull);
         expect(
-          after.sections.map((section) => section.id),
-          after.narrativePlan!.sections.map(
+          after.sections
+              .where((section) => section.id.startsWith('predictive-'))
+              .map((section) => section.id),
+          after.narrativePlan!.sections
+              .where(
+                (section) => section.role != NarrativeSectionRole.disclaimer,
+              )
+              .map(
             (section) => 'predictive-${section.id}',
           ),
         );
@@ -245,9 +252,10 @@ void main() {
             (section) =>
                 section.kind == ThaiBetaReportExportSectionKind.chapter,
           ),
-          isFalse,
+          isTrue,
         );
-        expect(after.fullPlainText, isNot(contains('แปลเป็นภาษาคน')));
+        expect(after.fullPlainText, contains('ส่วนที่ 1 · พื้นดวงของคุณ'));
+        expect(after.fullPlainText, contains('ส่วนที่ 4 · ที่มาและข้อจำกัด'));
         expect(after.fullPlainText, isNot(contains('จุดกระตุ้น')));
         expect(after.fullPlainText, isNot(contains('ธาตุขัดกัน')));
       },
@@ -261,10 +269,17 @@ void main() {
             _analysis(knownTime: knownTime),
           );
           final plan = document.narrativePlan!;
-          expect(document.sections, hasLength(plan.sections.length));
+          final projected = document.sections.where(
+            (section) => section.id.startsWith('predictive-'),
+          );
           expect(
-            document.sections.map((section) => section.title),
-            plan.sections.map((section) => section.title),
+            projected.map((section) => section.title),
+            plan.sections
+                .where(
+                  (section) =>
+                      section.role != NarrativeSectionRole.disclaimer,
+                )
+                .map((section) => section.title),
           );
           expect(
             document.sections.map((section) => section.id).toSet(),
@@ -291,7 +306,10 @@ void main() {
             'คำทำนาย 12 เดือนข้างหน้า',
           );
         } else {
-          expect(insertion, document.sections.length - 1);
+          expect(
+            document.sections[insertion].title,
+            'ส่วนที่ 3 · แนวโน้มข้างหน้า',
+          );
           expect(document.narrativePlan!.isKnownTime, isFalse);
         }
         final markup = browserPrintMarkup(
