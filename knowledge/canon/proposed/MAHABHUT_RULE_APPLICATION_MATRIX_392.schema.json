@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "MAHABHUT_RULE_APPLICATION_MATRIX_392.schema.json",
+  "type": "object",
+  "required": ["version", "status", "contract", "counts", "applications"],
+  "properties": {
+    "version": { "const": 1 },
+    "status": { "type": "string" },
+    "contract": { "type": "object" },
+    "counts": { "type": "object" },
+    "applications": {
+      "type": "array",
+      "minItems": 392,
+      "maxItems": 392,
+      "items": {
+        "type": "object",
+        "required": ["applicationId", "context_id", "age_period", "placement_record", "applicable_rules", "rejected_rules", "conflicts", "resolved_authority", "allowed_prediction_domains", "prohibited_claims", "reader_claim_candidates", "authority_status", "evidence_signature"]
+      }
+    }
+  }
+}

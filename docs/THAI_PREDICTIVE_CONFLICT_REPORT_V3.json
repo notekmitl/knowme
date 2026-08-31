@@ -1,0 +1,18 @@
+{
+  "version": 3,
+  "status": "PASS_NO_UNRESOLVED_OR_HIDDEN_CONFLICTS",
+  "precedence": [
+    "explicit kalakini inversion",
+    "matched house direction",
+    "Taksa domain scope",
+    "planet semantic scope",
+    "period continuity"
+  ],
+  "counts": {
+    "applications": 392,
+    "reportedConflicts": 0,
+    "unresolvedConflicts": 0,
+    "hiddenConflicts": 0
+  },
+  "conflicts": []
+}
