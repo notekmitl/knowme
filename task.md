@@ -331,3 +331,9 @@ Evidence passes: parity 262/262; captures 18/18; copy audit 300 profiles / 30,00
 ## PR108 Owner Acceptance — 2026-08-29
 
 Owner independently verified ZIP CRC/SHA256SUMS and accepted OR2 scope, copy and evidence. Inline/stale hits 0; parity 262/262 with all error counters 0; geometry 18/18; PDFs Dedicated 8/7 and Browser-print 7/7; page 5 is an image-only infographic; visual defects 0. This acceptance update is one docs-only commit (exact commit SHA is the final PR HEAD). Required final PR state: Open + Ready for Review. Do not merge, deploy, regenerate artifacts, change Firebase/Production or modify `product-acceptance/`.
+
+## PR113 Phase 2 OR2 — Source-authorized generation and age applicability
+
+OR1 ถูก Owner Reject จาก promotion branch, age applicability defect, placement fact ที่ถูกยกระดับเป็น prediction, circular/self-attested evidence และหลักฐาน motif/human audit ที่ยังไม่เพียงพอ. OR2 ปิดช่องว่างเหล่านี้ที่ implementation `5d9b4897932e696fc389ef36ec29ee4680e9d669` โดยให้ Candidate 0011 กับ runtime ใช้ generated source-authority catalog และ provenance path เดียวกัน พร้อม negative controls และ age-boundary matrix.
+
+ผลจริง: focused 168/168, full 1,639/1,639, audit 300 profiles / 49 contexts / 3,339 atoms / errors 0, analyzer baseline 298 และ PreCommit/PostCommit ผ่าน. Human audit สองรอบ 49/49 และ visual QA ของ Web, infographic, Dedicated PDF 7/3 หน้า และ Chrome browser-print 6/3 หน้าไม่พบ blank, clipping, overlap หรือ overflow. ZIP SHA-256 `F7E40618D9500E0BB4FE420665C7EC678A28F71066897269B7FD9962F6154521`. สถานะ `PENDING OWNER PRODUCT RE-REVIEW`; PR #113 คง Open + Draft, ไม่ Merge/Deploy และ Firebase/Production/`product-acceptance/` ไม่เปลี่ยน.

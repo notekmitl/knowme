@@ -633,3 +633,12 @@ Owner Acceptance for R7/R7.1 remains authoritative. The four-string Life Map com
 - Accepted implementation: `d78c5f641563ca5810c8952191e217cd31502d57`; previous evidence/docs HEAD: `ec2ecbaa1f9f21fe69df6476f9d0fed0a39f5120`; acceptance docs commit: this docs-only commit/final PR HEAD.
 - Accepted evidence: inline/stale hits 0; parity 262/262 and error counters 0; geometry 18/18; Dedicated 8/7; Browser-print 7/7; page 5 image-only; clipping/overlap/overflow 0.
 - Next: Ready for Review and final merge decision. **Not merged, not deployed; Firebase/Production and `product-acceptance/` unchanged.**
+
+## PR113 Phase 2 OR2 checkpoint — 2026-08-31
+
+- [x] Remove the OR1 promotion branch and route Candidate 0011/runtime through the same generated source-authority catalog.
+- [x] Enforce claim type, context/domain/period applicability, chronology and age boundaries; negative controls reject placement-to-prediction and self-attested/circular evidence.
+- [x] Validate 300 profiles (225 Known / 75 Unknown), all 49 contexts and 3,339 atoms with all error counters 0; two-pass human audit 49/49.
+- [x] Pass focused 168/168, full suite 1,639/1,639, analyzer baseline, PreCommit/PostCommit, Web/infographic/PDF parity and all-raster visual QA.
+- [x] Create Owner Review ZIP SHA-256 `F7E40618D9500E0BB4FE420665C7EC678A28F71066897269B7FD9962F6154521`; Dedicated PDF 7/3 pages and browser-print 6/3 pages.
+- [ ] Owner Product re-review of OR2. PR #113 must remain Open + Draft until a separate decision. No merge/deploy/Firebase/Production/`product-acceptance/` change.

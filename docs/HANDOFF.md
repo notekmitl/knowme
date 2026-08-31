@@ -375,3 +375,13 @@ Owner action at delivery was to re-review `C:\Users\USER\Documents\Knowme\PR108_
 OR1 rejection is not superseded by assertion: OR2 resolves the four cited evidence defects while freezing reader copy. Implementation/test commit is `d78c5f641563ca5810c8952191e217cd31502d57`. Full suite 1,623/1,623 and all required gates pass. Before the Owner decision, PR #108 was required to remain Open + Draft. Do not merge or deploy; Firebase/Production and `product-acceptance/` have no delta.
 
 Owner has now independently accepted PR108 OR2 scope, copy and evidence. Previous evidence/docs HEAD is `ec2ecbaa1f9f21fe69df6476f9d0fed0a39f5120`; acceptance docs commit is this commit (exact SHA is the final PR HEAD). Accepted PDF counts are Dedicated 8/7 and Browser-print 7/7; page 5 is image-only, not visually blank; clipping/overlap/overflow 0. PR may be changed to Ready for Review after the docs commit is pushed and HEAD/tree/mergeability are reverified. **Do not merge or deploy.**
+
+## PR113 Phase 2 OR2 handoff — 2026-08-31
+
+- Status: `DRAFT — PENDING OWNER PRODUCT RE-REVIEW — NOT MERGED — NOT DEPLOYED`.
+- OR1 reject reasons: promotion branch, wrong age/chronology applicability, placement fact promoted to prediction, circular/self-attested evidence, and incomplete motif/human-audit proof.
+- Accepted technical candidate for re-review: implementation `5d9b4897932e696fc389ef36ec29ee4680e9d669`; evidence/docs commit is the final PR HEAD reported from Git.
+- Gates: focused 168/168; full 1,639/1,639; analyzer baseline 298; PreCommit/PostCommit PASS; 300 profiles / 49 contexts / 3,339 atoms with error counters 0; two-pass human audit 49/49.
+- Visual evidence: Web desktop/mobile Known/Unknown, 1080x1920 infographic, Dedicated PDF Known 7 / Unknown 3 and Chrome browser-print Known 6 / Unknown 3; all pages opened with blank/clipping/overlap/overflow = 0.
+- Package: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_REPORT_PREDICTIVE_NARRATIVE_V2_PHASE2_OR2_5d9b489.zip`; SHA-256 `F7E40618D9500E0BB4FE420665C7EC678A28F71066897269B7FD9962F6154521`; CRC/extraction/manifest/hash/secret errors 0.
+- Next action is Owner Product re-review only. Do not Ready, merge, deploy or change Firebase/Production. `product-acceptance/` has no delta.

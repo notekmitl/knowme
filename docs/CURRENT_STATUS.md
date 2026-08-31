@@ -367,3 +367,9 @@ Implementation/test commit: `d78c5f641563ca5810c8952191e217cd31502d57`. Focused 
 ## PR108 Owner Acceptance — 2026-08-29
 
 Owner independently verified ZIP CRC/SHA256SUMS and accepted OR2 scope, copy and evidence. Accepted implementation: `d78c5f641563ca5810c8952191e217cd31502d57`; previous evidence/docs HEAD: `ec2ecbaa1f9f21fe69df6476f9d0fed0a39f5120`; acceptance docs commit: this docs-only commit (exact SHA is the final PR HEAD). Accepted results include inline/stale hits 0, parity 262/262 with error counters 0, geometry 18/18, PDF 8/7/7/7, image-only Browser-print page 5 and visual defects 0. Status: **OWNER ACCEPTED — READY FOR REVIEW — NOT MERGED — NOT DEPLOYED**.
+
+## Active Draft PR #113 — Phase 2 OR2 (2026-08-31)
+
+**PR113 Phase 2 OR2 source-authorized generation and age applicability repair is technically complete and pending Owner Product re-review.** OR1 was rejected for its promotion branch, chronology/age selection, placement-to-prediction escalation, circular evidence and insufficient motif/human-audit proof. OR2 implementation `5d9b4897932e696fc389ef36ec29ee4680e9d669` replaces that path with a generated authority catalog, explicit claim applicability and 3,339 traceable generation records; Candidate 0011 exercises the same runtime path.
+
+Validation is complete: focused 168/168, full suite 1,639/1,639, 300-profile audit (225 Known / 75 Unknown), 49/49 contexts, all semantic/applicability/provenance counters 0, analyzer exit 0 with 298 baseline informational findings, PreCommit and PostCommit pass. Two-pass human review, Web/mobile, infographic and all PDF rasters pass; page counts are Dedicated 7/3 and browser-print 6/3. Owner Review ZIP SHA-256 is `F7E40618D9500E0BB4FE420665C7EC678A28F71066897269B7FD9962F6154521`. PR #113 remains Open + Draft. Nothing is merged or deployed; Firebase, Production and `product-acceptance/` are unchanged.

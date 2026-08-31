@@ -387,3 +387,9 @@ Two full-copy reads confirm Section 4 still explains methodology and Unknown rem
 ## PR108 Owner Acceptance record — 2026-08-29
 
 Owner independently verified the ZIP SHA-256, CRC and SHA256SUMS and accepted OR2 scope, copy and evidence. Inline-basis/stale final hits are 0; parity is 262/262 with mismatch/missing/truncated/duplicate 0; geometry is 18/18; Dedicated pages are 8/7 and Browser-print 7/7; Browser-print page 5 is image-only rather than blank; visual clipping/overlap/overflow is 0. Accepted implementation is `d78c5f641563ca5810c8952191e217cd31502d57`; previous evidence/docs HEAD is `ec2ecbaa1f9f21fe69df6476f9d0fed0a39f5120`; acceptance docs commit is this docs-only commit/final PR HEAD. **OWNER ACCEPTED — READY FOR REVIEW — NOT MERGED — NOT DEPLOYED**.
+
+# Predictive Narrative V2 Phase 2 OR2 — 2026-08-31
+
+OR1 ถูก Owner Reject เพราะแยก promotion branch ออกจาก runtime, เลือกหลักฐานไม่สอดคล้องอายุ/ลำดับเวลา, ยกระดับ placement fact เป็น prediction, ใช้ circular/self-attested evidence และยังพิสูจน์ motif กับ human review ไม่ครบ. OR2 implementation `5d9b4897932e696fc389ef36ec29ee4680e9d669` จึงใช้ generated source-authority catalog, typed applicability และ provenance จริง 3,339 records กับทั้ง Candidate 0011 และ runtime path เดียวกัน.
+
+Known/Unknown และโครงสร้างรายงานเดิมยังคงอยู่; Unknown เป็น fail-closed, `monthlyTimelineAvailable=false` และไม่มีคำทำนายรายเดือน. Focused 168/168, full suite 1,639/1,639, audit 300 profiles / 49 contexts / errors 0, analyzer baseline 298, PreCommit/PostCommit และ human audit 49/49 ผ่าน. Web, infographic และ PDF เปิดตรวจจริงครบ; Dedicated Known/Unknown 7/3 หน้า และ Chrome browser-print 6/3 หน้า ไม่พบ blank, clipping, overlap หรือ overflow. Owner Review ZIP SHA-256 `F7E40618D9500E0BB4FE420665C7EC678A28F71066897269B7FD9962F6154521`. สถานะยังเป็น `PENDING OWNER PRODUCT RE-REVIEW`; PR #113 คง Draft ไม่ Merge/Deploy และไม่เปลี่ยน Firebase/Production/`product-acceptance/`.

@@ -423,3 +423,15 @@ Owner Review: `C:\Users\USER\Documents\Knowme\PR108_OR2_WORK\OWNER_REVIEW_THAI_R
 Owner independently verified and accepted PR108 OR2 scope, copy and evidence. ZIP SHA-256 `D47AE77CAC12E4D924E5FF4A200786251F34B4646AE5DEAAA373D8C483F41EB1`; CRC and SHA256SUMS pass. Accepted implementation is `d78c5f641563ca5810c8952191e217cd31502d57`; previous evidence/docs HEAD is `ec2ecbaa1f9f21fe69df6476f9d0fed0a39f5120`; the acceptance docs commit is this single docs-only commit (exact SHA is the final PR HEAD/Git commit metadata).
 
 Accepted evidence: actual PR108 changed fields 1,587 (A=1,125, B=462, C=0, E=0, F=0); D=11,587 unchanged pre-PR108 fields; historical/raw classified total 13,174. Inline-basis and stale-phrase final hits 0; parity 262/262 with mismatch/missing/truncated/duplicate 0; scroll geometry 18/18; Dedicated PDF 8/7 and Browser-print 7/7; Browser-print page 5 is image-only, not blank; no clipping, overlap or overflow. Status: **OWNER ACCEPTED — READY FOR REVIEW — NOT MERGED — NOT DEPLOYED**.
+
+# PR113 Phase 2 OR2 — 2026-08-31
+
+สถานะ: `PR113 PHASE 2 OR2 SOURCE-AUTHORIZED GENERATION AND AGE APPLICABILITY REPAIR COMPLETE — DRAFT — PENDING OWNER PRODUCT RE-REVIEW — NOT MERGED — NOT DEPLOYED`
+
+- OR1 ถูกปฏิเสธเพราะ promotion branch, การเลือกช่วงอายุ, placement-to-prediction, circular evidence และ motif/human-audit evidence ยังไม่รัดกุม; OR2 แก้ที่ implementation `5d9b4897932e696fc389ef36ec29ee4680e9d669` ด้วย generated authority catalog, claim applicability และ provenance ที่ตรวจย้อนกลับได้
+- Candidate 0011 และ runtime ใช้ source-authorized generation path เดียวกัน; Known/Unknown ยังคง fail-closed, `monthlyTimelineAvailable=false` และไม่มี month-level prediction
+- Focused 168/168; full Flutter suite 1,639/1,639; audit 300 profiles (Known 225 / Unknown 75), 49 contexts, 3,339 atoms และ error/impact counters ทุกประเภท = 0; analyzer exit 0 โดยมี baseline informational issues 298; PreCommit และ PostCommit ผ่าน
+- Human audit อ่านครบ 49/49 contexts สองรอบ; age-boundary 13/13, cross-surface parity, topology, evidence registry และ visual QA ผ่าน ไม่มี blank page, clipping, overlap หรือ overflow
+- PDF จริง: Dedicated Known 7 / Unknown 3 หน้า; Chrome browser-print Known 6 / Unknown 3 หน้า
+- Owner Review ZIP `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_REPORT_PREDICTIVE_NARRATIVE_V2_PHASE2_OR2_5d9b489.zip`, SHA-256 `F7E40618D9500E0BB4FE420665C7EC678A28F71066897269B7FD9962F6154521`; CRC, extraction, manifest missing/extra/hash/size mismatch และ secret scan = 0
+- Evidence/docs closeout อยู่ใน commit นี้ (exact SHA คือ final PR HEAD ที่รายงานจาก Git); PR #113 ต้องคง Open + Draft ระหว่างรอ Owner Product re-review ไม่มี merge/deploy/Firebase/Production หรือ `product-acceptance/` delta
