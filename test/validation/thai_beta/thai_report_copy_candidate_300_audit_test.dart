@@ -53,6 +53,22 @@ void main() {
       var legacyFallback = 0;
       var fixtureSpecialPath = 0;
       var unsupportedTiming = 0;
+      var wrongClaimType = 0;
+      var contextRefMismatch = 0;
+      var periodRefMismatch = 0;
+      var domainRefMismatch = 0;
+      var placementPromotedToPrediction = 0;
+      var selfAttestedRef = 0;
+      var generalRuleConditionsMissing = 0;
+      var productInterpretationLabelMissing = 0;
+      var prohibitedEscalationViolation = 0;
+      var orphanClaim = 0;
+      var unusedPromotedClaim = 0;
+      final sourceDirectContexts = <String>{};
+      final generalRuleContexts = <String>{};
+      final ownerSynthesisContexts = <String>{};
+      final forecastOnlyContexts = <String>{};
+      final omittedNoAuthorityContexts = <String>{};
       final rawRecords = <Map<String, Object?>>[];
       final contextSamples = <String, Map<String, Object?>>{};
 
@@ -88,6 +104,49 @@ void main() {
           );
         }
         atoms += plan.atoms.length;
+        final provenanceByAtom = {
+          for (final entry in plan.provenance) entry.atomId: entry,
+        };
+        orphanClaim += plan.provenance
+            .where(
+              (entry) => !plan.atoms.any((atom) => atom.id == entry.atomId),
+            )
+            .length;
+        unusedPromotedClaim += plan.atoms
+            .where((atom) => !provenanceByAtom.containsKey(atom.id))
+            .length;
+        final predictionSources = plan.provenance
+            .where(
+              (entry) => plan.atoms.any(
+                (atom) =>
+                    atom.id == entry.atomId &&
+                    atom.role == NarrativeAtomRole.prediction,
+              ),
+            )
+            .map((entry) => entry.source)
+            .toSet();
+        if (predictionSources.contains(GenerationSource.sourceDirect)) {
+          sourceDirectContexts.add(plan.contextId);
+        }
+        if (predictionSources.contains(
+          GenerationSource.generalRuleApplication,
+        )) {
+          generalRuleContexts.add(plan.contextId);
+        }
+        if (predictionSources.contains(
+          GenerationSource.ownerAuthorizedSynthesis,
+        )) {
+          ownerSynthesisContexts.add(plan.contextId);
+        }
+        if (predictionSources.isNotEmpty &&
+            predictionSources.every(
+              (source) => source == GenerationSource.forecastMaterial,
+            )) {
+          forecastOnlyContexts.add(plan.contextId);
+        }
+        if (plan.isKnownTime && predictionSources.isEmpty) {
+          omittedNoAuthorityContexts.add(plan.contextId);
+        }
         expect(second.narrativePlan!.toMap(), plan.toMap(), reason: profile.id);
         expect(second.fullPlainText, first.fullPlainText, reason: profile.id);
         expect(plan.sections, isNotEmpty, reason: profile.id);
@@ -116,20 +175,21 @@ void main() {
         legacyFallback += plan.legacyFallbackInvocations;
         fixtureSpecialPath += plan.fixtureSpecialInvocations;
         unresolvedEvidence += plan.unresolvedEvidenceRefs.length;
-        final detailedOwners = plan.atoms
-            .where((atom) => atom.role == NarrativeAtomRole.prediction)
-            .map((atom) => atom.owner.id)
-            .toList(growable: false);
-        duplicateMotif += detailedOwners.length - detailedOwners.toSet().length;
+        final seenMotifs = <String, String>{};
 
         for (final section in plan.sections) {
           for (final atom in section.atoms) {
+            final provenance = provenanceByAtom[atom.id];
+            final authority = provenance == null
+                ? null
+                : plan.evidenceCatalog[provenance.selectedClaimId];
             final text = atom.readerText.trim();
             final malformedHits = <String>[
               if (text.isEmpty) 'empty',
               if (text.contains('  ')) 'double-space',
               if (RegExp(r'\s+[,.!?。]').hasMatch(text))
                 'space-before-punctuation',
+              if (text.endsWith('รับภาระเพ')) 'truncated-thai-word',
             ];
             final predictionText = text.replaceAll('อาจารย์', '');
             final predictionHits = atom.role == NarrativeAtomRole.prediction
@@ -166,6 +226,19 @@ void main() {
                     r'(มกราคม|กุมภาพันธ์|มีนาคม|เมษายน|พฤษภาคม|มิถุนายน|กรกฎาคม|กันยายน|ตุลาคม|พฤศจิกายน|ธันวาคม|ต้นปี|กลางปี|ปลายปี)',
                   ).allMatches(text).map((match) => match.group(0)!).toList()
                 : const <String>[];
+            final motifKey =
+                atom.role == NarrativeAtomRole.prediction && authority != null
+                ? _semanticMotifKey(authority, atom)
+                : null;
+            final motifHits = <String>[];
+            if (motifKey != null) {
+              final previousSection = seenMotifs[motifKey];
+              if (previousSection != null && previousSection != section.id) {
+                motifHits.add(motifKey);
+              } else {
+                seenMotifs[motifKey] = section.id;
+              }
+            }
             malformedCopy += malformedHits.length;
             forbiddenHits += predictionHits.length;
             reflectivePast += reflectiveHits.length;
@@ -175,6 +248,23 @@ void main() {
             placeholderRuntimeRefs += placeholderRefs.length;
             sequenceOnlyOwners += sequenceOwners.length;
             unsupportedTiming += timingHits.length;
+            duplicateMotif += motifHits.length;
+            if (provenance != null) {
+              final validation = provenance.evidenceResolution;
+              wrongClaimType += validation.wrongClaimType ? 1 : 0;
+              contextRefMismatch += validation.contextMismatch ? 1 : 0;
+              periodRefMismatch += validation.periodMismatch ? 1 : 0;
+              domainRefMismatch += validation.domainMismatch ? 1 : 0;
+              placementPromotedToPrediction +=
+                  validation.placementPromotedToPrediction ? 1 : 0;
+              selfAttestedRef += validation.selfAttestedRef ? 1 : 0;
+              generalRuleConditionsMissing +=
+                  validation.generalRuleConditionsMissing ? 1 : 0;
+              productInterpretationLabelMissing +=
+                  validation.productInterpretationLabelMissing ? 1 : 0;
+              prohibitedEscalationViolation +=
+                  validation.prohibitedEscalationViolation ? 1 : 0;
+            }
             rawRecords.add({
               'profile_id': profile.id,
               'context_id': plan.contextId,
@@ -190,13 +280,20 @@ void main() {
               'reflective_past_hits': reflectiveHits,
               'psychology_leakage': psychologyHits,
               'advice_role_leakage': adviceHits,
-              'duplicate_motif_hits': 0,
+              'duplicate_motif_hits': motifHits,
               'unresolved_evidence_hits': unresolved,
               'placeholder_runtime_ref_hits': placeholderRefs,
               'sequence_only_semantic_owner_hits': sequenceOwners,
               'legacy_fallback_hits': plan.legacyFallbackInvocations,
               'fixture_special_path_hits': plan.fixtureSpecialInvocations,
               'unsupported_timing_hits': timingHits,
+              'source_claim_type': provenance?.claimType.name,
+              'generation_source': provenance?.source.name,
+              'selection_reason': provenance?.selectionReason,
+              'applicability_result': provenance?.applicabilityResult,
+              'template_id': provenance?.templateId,
+              'evidence_resolution': provenance?.evidenceResolution.toMap(),
+              'omission_reason': provenance?.omissionReason,
             });
           }
         }
@@ -266,6 +363,17 @@ void main() {
       expect(legacyFallback, 0);
       expect(fixtureSpecialPath, 0);
       expect(unsupportedTiming, 0);
+      expect(wrongClaimType, 0);
+      expect(contextRefMismatch, 0);
+      expect(periodRefMismatch, 0);
+      expect(domainRefMismatch, 0);
+      expect(placementPromotedToPrediction, 0);
+      expect(selfAttestedRef, 0);
+      expect(generalRuleConditionsMissing, 0);
+      expect(productInterpretationLabelMissing, 0);
+      expect(prohibitedEscalationViolation, 0);
+      expect(orphanClaim, 0);
+      expect(unusedPromotedClaim, 0);
 
       final supplemental = PredictiveNarrativePlan.fromAnalysis(
         ThaiBetaAnalysisRunner.run(
@@ -296,8 +404,38 @@ void main() {
       );
       expect(contextSamples, hasLength(49));
 
+      final supplementalSources = supplemental.provenance
+          .where(
+            (entry) => supplemental.atoms.any(
+              (atom) =>
+                  atom.id == entry.atomId &&
+                  atom.role == NarrativeAtomRole.prediction,
+            ),
+          )
+          .map((entry) => entry.source)
+          .toSet();
+      if (supplementalSources.contains(GenerationSource.sourceDirect)) {
+        sourceDirectContexts.add(supplemental.contextId);
+      }
+      if (supplementalSources.contains(
+        GenerationSource.generalRuleApplication,
+      )) {
+        generalRuleContexts.add(supplemental.contextId);
+      }
+      if (supplementalSources.contains(
+        GenerationSource.ownerAuthorizedSynthesis,
+      )) {
+        ownerSynthesisContexts.add(supplemental.contextId);
+      }
+      if (supplementalSources.isNotEmpty &&
+          supplementalSources.every(
+            (source) => source == GenerationSource.forecastMaterial,
+          )) {
+        forecastOnlyContexts.add(supplemental.contextId);
+      }
+
       final payload = <String, Object?>{
-        'schema': 'thai-predictive-narrative-v2-phase2-audit-v1',
+        'schema': 'thai-predictive-narrative-v2-phase2-or2-audit-v2',
         'profiles': cases.length,
         'known': known,
         'unknown': unknown,
@@ -327,14 +465,31 @@ void main() {
         'legacy_fallback': legacyFallback,
         'fixture_special_path': fixtureSpecialPath,
         'unsupported_timing': unsupportedTiming,
+        'wrong_claim_type': wrongClaimType,
+        'context_ref_mismatch': contextRefMismatch,
+        'period_ref_mismatch': periodRefMismatch,
+        'domain_ref_mismatch': domainRefMismatch,
+        'placement_promoted_to_prediction': placementPromotedToPrediction,
+        'self_attested_ref': selfAttestedRef,
+        'general_rule_conditions_missing': generalRuleConditionsMissing,
+        'product_interpretation_label_missing':
+            productInterpretationLabelMissing,
+        'prohibited_escalation_violation': prohibitedEscalationViolation,
+        'orphan_claim': orphanClaim,
+        'unused_promoted_claim': unusedPromotedClaim,
+        'contexts_with_source_direct_claims': sourceDirectContexts.length,
+        'contexts_with_general_rule_applications': generalRuleContexts.length,
+        'contexts_with_owner_authorized_synthesis':
+            ownerSynthesisContexts.length,
+        'contexts_with_forecast_only_claims': forecastOnlyContexts.length,
+        'contexts_omitted_because_no_authority':
+            omittedNoAuthorityContexts.length,
         'predictionAccuracyClaimed': false,
       };
       final output = Platform.environment['KNOWME_COPY_LEDGER_OUTPUT'];
       if (output != null && output.isNotEmpty) {
         File(output).writeAsStringSync(
-          const JsonEncoder.withIndent(
-            ' ',
-          ).convert({
+          const JsonEncoder.withIndent(' ').convert({
             'summary': payload,
             'context_samples': contextSamples.values.toList(growable: false),
             'records': rawRecords,
@@ -373,3 +528,14 @@ bool _listEquals(List<String> left, List<String> right) {
   }
   return true;
 }
+
+String _semanticMotifKey(
+  PredictiveAuthorityRecord record,
+  NarrativeAtom atom,
+) => [
+  atom.domain.name,
+  record.movement ?? 'none',
+  record.periodBinding ?? 'none',
+  record.subject ?? record.meaningKey ?? 'none',
+  atom.compactText.toLowerCase().replaceAll(RegExp(r'\s+'), ' ').trim(),
+].join('|');

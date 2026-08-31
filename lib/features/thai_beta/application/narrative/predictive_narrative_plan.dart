@@ -1,17 +1,17 @@
-/// Typed single-source plan for Predictive Narrative V2.
+/// Source-authorized Predictive Narrative V2 plan.
 ///
-/// Web, infographic, dedicated PDF, browser print and text extraction project
-/// from this model. The plan owns ordering, semantic ownership, evidence,
-/// period/domain scope and Known/Unknown eligibility before prose reaches a
-/// presentation surface.
+/// Reader predictions are selected from an immutable catalog generated from
+/// the accepted Mahabhut JSON sources plus typed forecast material already
+/// computed by the application. Placement facts are structural inputs only.
 library;
 
-import 'package:knowme/features/astrology/thai/core/life_period/thai_remainder_runtime_metadata.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_engine.dart';
-import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart';
+import 'package:knowme/features/astrology/thai/core/life_period/thai_remainder_runtime_metadata.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/prediction/prediction_section_model.dart';
 
 import '../thai_beta_analysis.dart';
+
+part 'predictive_authority_catalog.g.dart';
 
 enum NarrativeSectionRole {
   overview,
@@ -44,6 +44,7 @@ enum DomainScope {
   support,
   luck,
   financeAndRelationship,
+  communication,
   foundation,
   advice,
   disclosure,
@@ -52,10 +53,34 @@ enum DomainScope {
 
 enum KnownUnknownEligibility { knownOnly, unknownOnly, both }
 
-/// Stable, auditable input to the deterministic reader-copy realizer.
-///
-/// A spec owns meaning before it becomes a presentation atom. Context and
-/// period selectors are data, never fixture/date branches.
+enum PredictiveAuthorityType {
+  placementFact,
+  sourceGeneralRule,
+  sourceDirect,
+  generalRuleApplication,
+  ownerAuthorizedProductInterpretation,
+  ownerAuthorizedSynthesis,
+  forecastMaterial,
+  advice,
+  disclosure,
+  omission,
+}
+
+enum ClaimChronology { past, current, future, horizon, report, unavailable }
+
+enum GenerationSource {
+  sourceDirect,
+  generalRuleApplication,
+  ownerAuthorizedSynthesis,
+  forecastMaterial,
+  structuralSummary,
+  advice,
+  disclosure,
+  omission,
+  legacyFallback,
+  fixtureSpecial,
+}
+
 class PredictiveClaimSpec {
   const PredictiveClaimSpec({
     required this.claimId,
@@ -115,40 +140,455 @@ class PredictiveClaimSpec {
   };
 }
 
-abstract final class PredictiveEvidenceRegistry {
-  static const promotedCorpusRefs = <String>{
-    'placement.mahabhut2537.rem0.saturday.saturn.0_10',
-    'placement.mahabhut2537.rem0.saturday.jupiter.11_29',
-    'placement.mahabhut2537.rem0.saturday.rahu.30_41',
-    'placement.mahabhut2537.rem0.saturday.venus.42_62',
-    'placement.mahabhut2537.rem0.saturday.mercury.63_79',
-    'GRA-R0-SAT-30_41-DET-RISE',
-    'PIC-R0-SAT-30_41-WORK',
-    'SDC-R0-SAT-42_62-WORK',
-    'SDC-R0-SAT-42_62-FLOW',
-    'SDC-R0-SAT-42_62-FINANCE',
-    'GRA-R0-SAT-42_62-SRI-RISE',
-    'SDC-R0-SAT-42_62-SUPPORT',
-    'PIC-R0-SAT-HORIZON-WORK',
-    'PIC-R0-SAT-HORIZON-SUPPORT',
-    'GRA-R0-SAT-63_79-MULA-RISE',
-    'PIC-R0-SAT-63_79-FOUNDATION',
-    'prediction.career.current.strong',
-    'prediction.finance.current.strong',
-    'prediction.relationship.current.strong',
-    'prediction.health.current.strong',
-    'prediction.career.next12Months.strong',
-    'prediction.finance.next12Months.strong',
-    'prediction.relationship.next12Months.strong',
-    'prediction.career.nextLifePeriod.strong',
-    'ADVICE-K-CURRENT-01',
-    'DISCLOSURE-K-01',
-    'DISCLOSURE-U-01',
-    'OMISSION-U-01',
+class PredictiveAuthorityRecord {
+  const PredictiveAuthorityRecord({
+    required this.id,
+    required this.claimType,
+    this.contextId,
+    this.periodBinding,
+    this.domainKey,
+    this.subject,
+    this.movement,
+    this.planet,
+    this.taksaRole,
+    this.mahabhutHouse,
+    this.periodStatus,
+    this.allowedConclusion,
+    this.prohibitedEscalation = const [],
+    this.conditionsSatisfied = const [],
+    this.labelPolicy,
+    this.evidenceRefs = const [],
+    this.readerText,
+    this.readerClaimId,
+    this.semanticOwnerId,
+    this.meaningKey,
+    this.readerRole,
+    this.sectionTitle,
+    this.sectionId,
+    this.sectionRole,
+    this.sectionDisplayTitle,
+    this.blockHeading,
+    this.surface,
+    this.templateId,
+    this.acceptedCurrentAge,
+    this.acceptedAsOf,
+    this.sourceFile = '',
+    this.predictionClaimStatus,
+    this.sourceOwnership,
+    this.sourceOrder,
+  });
+
+  factory PredictiveAuthorityRecord.fromMap(Map<String, Object?> map) =>
+      PredictiveAuthorityRecord(
+        id: map['id']! as String,
+        claimType: _authorityType(map['claimType']! as String),
+        contextId: map['contextId'] as String?,
+        periodBinding: map['periodBinding'] as String?,
+        domainKey: map['domain'] as String?,
+        subject: map['subject'] as String?,
+        movement: map['movement'] as String?,
+        planet: map['planet'] as String?,
+        taksaRole: map['taksaRole'] as String?,
+        mahabhutHouse: map['mahabhutHouse'] as String?,
+        periodStatus: map['periodStatus'] as String?,
+        allowedConclusion: map['allowedConclusion'] as String?,
+        prohibitedEscalation: _mapStringList(map['prohibitedEscalation']),
+        conditionsSatisfied: _mapStringList(map['conditionsSatisfied']),
+        labelPolicy: map['labelPolicy'] as String?,
+        evidenceRefs: _mapStringList(map['evidenceRefs']),
+        readerText: map['readerText'] as String?,
+        readerClaimId: map['readerClaimId'] as String?,
+        semanticOwnerId: map['semanticOwnerId'] as String?,
+        meaningKey: map['meaningKey'] as String?,
+        readerRole: map['readerRole'] as String?,
+        sectionTitle: map['sectionTitle'] as String?,
+        sectionId: map['sectionId'] as String?,
+        sectionRole: map['sectionRole'] as String?,
+        sectionDisplayTitle: map['sectionDisplayTitle'] as String?,
+        blockHeading: map['blockHeading'] as String?,
+        surface: map['surface'] as String?,
+        templateId: map['templateId'] as String?,
+        acceptedCurrentAge: map['acceptedCurrentAge'] as int?,
+        acceptedAsOf: map['acceptedAsOf'] == null
+            ? null
+            : DateTime.parse(map['acceptedAsOf']! as String),
+        sourceFile: map['sourceFile'] as String? ?? '',
+        predictionClaimStatus: map['predictionClaimStatus'] as String?,
+        sourceOwnership: map['sourceOwnership'] as String?,
+        sourceOrder: map['sourceOrder'] as int?,
+      );
+
+  final String id;
+  final PredictiveAuthorityType claimType;
+  final String? contextId;
+  final String? periodBinding;
+  final String? domainKey;
+  final String? subject;
+  final String? movement;
+  final String? planet;
+  final String? taksaRole;
+  final String? mahabhutHouse;
+  final String? periodStatus;
+  final String? allowedConclusion;
+  final List<String> prohibitedEscalation;
+  final List<String> conditionsSatisfied;
+  final String? labelPolicy;
+  final List<String> evidenceRefs;
+  final String? readerText;
+  final String? readerClaimId;
+  final String? semanticOwnerId;
+  final String? meaningKey;
+  final String? readerRole;
+  final String? sectionTitle;
+  final String? sectionId;
+  final String? sectionRole;
+  final String? sectionDisplayTitle;
+  final String? blockHeading;
+  final String? surface;
+  final String? templateId;
+  final int? acceptedCurrentAge;
+  final DateTime? acceptedAsOf;
+  final String sourceFile;
+  final String? predictionClaimStatus;
+  final String? sourceOwnership;
+  final int? sourceOrder;
+
+  bool get isPredictionAuthority => switch (claimType) {
+    PredictiveAuthorityType.sourceDirect ||
+    PredictiveAuthorityType.generalRuleApplication ||
+    PredictiveAuthorityType.ownerAuthorizedProductInterpretation ||
+    PredictiveAuthorityType.ownerAuthorizedSynthesis ||
+    PredictiveAuthorityType.forecastMaterial => true,
+    _ => false,
   };
 
-  static bool resolvesPromotedCorpusRef(String ref) =>
-      promotedCorpusRefs.contains(ref);
+  bool acceptedContractMatches({required int age, required DateTime asOf}) {
+    if (acceptedCurrentAge != null && acceptedCurrentAge != age) return false;
+    if (acceptedAsOf != null && !_sameDate(acceptedAsOf!, asOf)) return false;
+    return true;
+  }
+
+  List<(int, int)> get ageRanges {
+    final binding = periodBinding;
+    if (binding == null) return const [];
+    final result = <(int, int)>[];
+    for (final part in binding.split('|')) {
+      final normalized = part.trim();
+      if (normalized.contains('/')) continue;
+      final single = RegExp(r'^age(\d+)$').firstMatch(normalized);
+      if (single != null) {
+        final age = int.parse(single.group(1)!);
+        result.add((age, age));
+        continue;
+      }
+      final range = RegExp(r'^(\d+)-(\d+)$').firstMatch(normalized);
+      if (range != null) {
+        result.add((int.parse(range.group(1)!), int.parse(range.group(2)!)));
+      }
+    }
+    return result;
+  }
+
+  bool containsAge(int age) =>
+      ageRanges.any((range) => age >= range.$1 && age <= range.$2);
+
+  ClaimChronology chronologyAt(int age) {
+    if (periodBinding == 'REPORT') return ClaimChronology.report;
+    if (periodBinding == 'UNAVAILABLE') return ClaimChronology.unavailable;
+    if (periodBinding?.contains('/') ?? false) return ClaimChronology.horizon;
+    final ranges = ageRanges;
+    if (ranges.isEmpty) return ClaimChronology.report;
+    if (ranges.any((range) => age >= range.$1 && age <= range.$2)) {
+      return ClaimChronology.current;
+    }
+    if (ranges.every((range) => range.$2 < age)) return ClaimChronology.past;
+    return ClaimChronology.future;
+  }
+}
+
+class EvidenceResolutionResult {
+  const EvidenceResolutionResult({
+    required this.unresolvedRefs,
+    required this.wrongClaimType,
+    required this.contextMismatch,
+    required this.periodMismatch,
+    required this.domainMismatch,
+    required this.placementPromotedToPrediction,
+    required this.selfAttestedRef,
+    required this.generalRuleConditionsMissing,
+    required this.productInterpretationLabelMissing,
+    required this.prohibitedEscalationViolation,
+  });
+
+  final List<String> unresolvedRefs;
+  final bool wrongClaimType;
+  final bool contextMismatch;
+  final bool periodMismatch;
+  final bool domainMismatch;
+  final bool placementPromotedToPrediction;
+  final bool selfAttestedRef;
+  final bool generalRuleConditionsMissing;
+  final bool productInterpretationLabelMissing;
+  final bool prohibitedEscalationViolation;
+
+  bool get isValid =>
+      unresolvedRefs.isEmpty &&
+      !wrongClaimType &&
+      !contextMismatch &&
+      !periodMismatch &&
+      !domainMismatch &&
+      !placementPromotedToPrediction &&
+      !selfAttestedRef &&
+      !generalRuleConditionsMissing &&
+      !productInterpretationLabelMissing &&
+      !prohibitedEscalationViolation;
+
+  Map<String, Object?> toMap() => {
+    'resolved': isValid,
+    'unresolved_refs': unresolvedRefs,
+    'wrong_claim_type': wrongClaimType,
+    'context_mismatch': contextMismatch,
+    'period_mismatch': periodMismatch,
+    'domain_mismatch': domainMismatch,
+    'placement_promoted_to_prediction': placementPromotedToPrediction,
+    'self_attested_ref': selfAttestedRef,
+    'general_rule_conditions_missing': generalRuleConditionsMissing,
+    'product_interpretation_label_missing': productInterpretationLabelMissing,
+    'prohibited_escalation_violation': prohibitedEscalationViolation,
+  };
+}
+
+class PredictiveEvidenceCatalog {
+  PredictiveEvidenceCatalog._(Map<String, PredictiveAuthorityRecord> records)
+    : _records = Map.unmodifiable(records);
+
+  factory PredictiveEvidenceCatalog.forAnalysis({
+    required String contextId,
+    required LifeTimeline timeline,
+    required DateTime asOf,
+    required List<ForecastMaterialFingerprint> materials,
+  }) {
+    final records = <String, PredictiveAuthorityRecord>{
+      for (final record in _sourceRecords) record.id: record,
+    };
+    final placements =
+        _sourceRecords
+            .where(
+              (record) =>
+                  record.claimType == PredictiveAuthorityType.placementFact &&
+                  record.contextId == contextId,
+            )
+            .toList(growable: false)
+          ..sort(
+            (left, right) =>
+                left.ageRanges.first.$1.compareTo(right.ageRanges.first.$1),
+          );
+    final currentPlacement = placements
+        .cast<PredictiveAuthorityRecord?>()
+        .firstWhere(
+          (record) => record!.containsAge(timeline.currentAge),
+          orElse: () => null,
+        );
+    final nextPlacement = placements
+        .cast<PredictiveAuthorityRecord?>()
+        .firstWhere(
+          (record) => record!.ageRanges.first.$1 > timeline.currentAge,
+          orElse: () => null,
+        );
+    for (final material in materials) {
+      final period = switch (material.horizon) {
+        ForecastHorizon.current =>
+          currentPlacement?.periodBinding ??
+              '${timeline.current.startAge}-${timeline.current.endAge}',
+        ForecastHorizon.next12Months =>
+          '${_isoDate(asOf)}/${_isoDate(_longHorizonRange(asOf).$2)}|age${timeline.currentAge}-${timeline.currentAge + 1}',
+        ForecastHorizon.nextLifePeriod =>
+          nextPlacement?.periodBinding ?? 'UNAVAILABLE',
+      };
+      records[material.evidenceKey] = PredictiveAuthorityRecord(
+        id: material.evidenceKey,
+        claimType: PredictiveAuthorityType.forecastMaterial,
+        contextId: contextId,
+        periodBinding: period,
+        domainKey: material.domain.name,
+        subject: 'forecast_material',
+        movement: material.band.name,
+        allowedConclusion:
+            'Typed forecast material bounded by domain, band, '
+            'horizon and evidence availability.',
+        templateId:
+            'forecast-${material.horizon.name}-${material.domain.name}-${material.band.name}',
+        sourceFile:
+            'lib/features/astrology/thai/mirror/presentation/prediction/prediction_section_model.dart',
+        sourceOwnership: material.sourceOwnership,
+      );
+    }
+    return PredictiveEvidenceCatalog._(records);
+  }
+
+  factory PredictiveEvidenceCatalog.unknown() => PredictiveEvidenceCatalog._({
+    for (final record in _sourceRecords) record.id: record,
+  });
+
+  static final List<PredictiveAuthorityRecord> _sourceRecords =
+      List.unmodifiable(
+        _generatedPredictiveAuthorityRecords.map(
+          PredictiveAuthorityRecord.fromMap,
+        ),
+      );
+
+  final Map<String, PredictiveAuthorityRecord> _records;
+
+  Iterable<PredictiveAuthorityRecord> get records => _records.values;
+  Iterable<String> get ids => _records.keys;
+  PredictiveAuthorityRecord? operator [](String id) => _records[id];
+  bool contains(String id) => _records.containsKey(id);
+
+  PredictiveEvidenceCatalog without(Set<String> ids) =>
+      PredictiveEvidenceCatalog._(
+        Map.fromEntries(
+          _records.entries.where((entry) => !ids.contains(entry.key)),
+        ),
+      );
+
+  EvidenceResolutionResult validateReferences(Iterable<String> refs) =>
+      EvidenceResolutionResult(
+        unresolvedRefs: refs.where((ref) => !contains(ref)).toList(),
+        wrongClaimType: false,
+        contextMismatch: false,
+        periodMismatch: false,
+        domainMismatch: false,
+        placementPromotedToPrediction: false,
+        selfAttestedRef: false,
+        generalRuleConditionsMissing: false,
+        productInterpretationLabelMissing: false,
+        prohibitedEscalationViolation: false,
+      );
+
+  EvidenceResolutionResult validateSelection({
+    required PredictiveAuthorityRecord record,
+    required String contextId,
+    required int currentAge,
+    required DateTime asOf,
+    required DomainScope domain,
+    required ClaimChronology chronology,
+    String? proposedText,
+  }) {
+    final unresolved = record.evidenceRefs
+        .where((ref) => !contains(ref))
+        .toList(growable: false);
+    final actualChronology = record.chronologyAt(currentAge);
+    return EvidenceResolutionResult(
+      unresolvedRefs: unresolved,
+      wrongClaimType: !record.isPredictionAuthority,
+      contextMismatch:
+          record.contextId != null && record.contextId != contextId,
+      periodMismatch:
+          !record.acceptedContractMatches(age: currentAge, asOf: asOf) ||
+          actualChronology != chronology,
+      domainMismatch: !_domainKeysCompatible(record.domainKey, domain),
+      placementPromotedToPrediction:
+          record.claimType == PredictiveAuthorityType.placementFact,
+      selfAttestedRef: record.evidenceRefs.contains(record.id),
+      generalRuleConditionsMissing:
+          record.claimType == PredictiveAuthorityType.generalRuleApplication &&
+          record.conditionsSatisfied.isEmpty,
+      productInterpretationLabelMissing:
+          record.claimType ==
+              PredictiveAuthorityType.ownerAuthorizedProductInterpretation &&
+          record.labelPolicy !=
+              'INTERNAL_PRODUCT_INTERPRETATION_NOT_SOURCE_QUOTE',
+      prohibitedEscalationViolation:
+          proposedText != null &&
+          _prohibitedEscalationHits(record, proposedText).isNotEmpty,
+    );
+  }
+
+  PredictiveAuthorityRecord? placementFor({
+    required String contextId,
+    required PredictiveAuthorityRecord claim,
+    required int currentAge,
+  }) {
+    for (final ref in claim.evidenceRefs) {
+      final candidate = this[ref];
+      if (candidate?.claimType == PredictiveAuthorityType.placementFact) {
+        return candidate;
+      }
+    }
+    final claimRanges = claim.ageRanges;
+    return records.cast<PredictiveAuthorityRecord?>().firstWhere(
+      (record) =>
+          record?.claimType == PredictiveAuthorityType.placementFact &&
+          record?.contextId == contextId &&
+          (claimRanges.isEmpty
+              ? record!.containsAge(currentAge)
+              : _rangesOverlap(record!.ageRanges, claimRanges)),
+      orElse: () => null,
+    );
+  }
+
+  List<PredictiveAuthorityRecord> placementTimeline(String contextId) {
+    final placements =
+        records
+            .where(
+              (record) =>
+                  record.claimType == PredictiveAuthorityType.placementFact &&
+                  record.contextId == contextId,
+            )
+            .toList(growable: false)
+          ..sort(
+            (left, right) =>
+                left.ageRanges.first.$1.compareTo(right.ageRanges.first.$1),
+          );
+    return placements;
+  }
+
+  PredictiveAuthorityRecord? nextPlacement(String contextId, int currentAge) =>
+      placementTimeline(
+        contextId,
+      ).cast<PredictiveAuthorityRecord?>().firstWhere(
+        (record) => record!.ageRanges.first.$1 > currentAge,
+        orElse: () => null,
+      );
+}
+
+class GenerationProvenance {
+  const GenerationProvenance({
+    required this.atomId,
+    required this.selectedClaimId,
+    required this.selectionReason,
+    required this.source,
+    required this.claimType,
+    required this.applicabilityResult,
+    required this.templateId,
+    required this.evidenceResolution,
+    this.omissionReason,
+    this.compressedReference = false,
+  });
+
+  final String atomId;
+  final String selectedClaimId;
+  final String selectionReason;
+  final GenerationSource source;
+  final PredictiveAuthorityType claimType;
+  final String applicabilityResult;
+  final String templateId;
+  final EvidenceResolutionResult evidenceResolution;
+  final String? omissionReason;
+  final bool compressedReference;
+
+  Map<String, Object?> toMap() => {
+    'atom_id': atomId,
+    'selected_claim': selectedClaimId,
+    'selection_reason': selectionReason,
+    'source': source.name,
+    'source_claim_type': claimType.name,
+    'applicability_result': applicabilityResult,
+    'template_id': templateId,
+    'evidence_resolution': evidenceResolution.toMap(),
+    if (omissionReason != null) 'omission_reason': omissionReason,
+    'compressed_reference': compressedReference,
+  };
 }
 
 class PeriodScope {
@@ -167,18 +607,14 @@ class PeriodScope {
 
 class EvidenceTrace {
   const EvidenceTrace(this.refs);
-
   final List<String> refs;
-
   Map<String, Object?> toMap() => {'refs': refs};
 }
 
 class SemanticOwner {
   const SemanticOwner({required this.id, required this.meaningKey});
-
   final String id;
   final String meaningKey;
-
   Map<String, Object?> toMap() => {'id': id, 'meaningKey': meaningKey};
 }
 
@@ -285,79 +721,10 @@ class OmissionAtom extends NarrativeAtom {
        );
 }
 
-/// Converts an auditable semantic spec into its typed presentation atom.
-///
-/// Copy is already authored on the spec. This layer never deletes words or
-/// rewrites certainty after realization.
-NarrativeAtom _realizeClaimSpec(PredictiveClaimSpec spec) {
-  final shared = (
-    id: spec.claimId,
-    readerText: spec.readerCopy,
-    compactText: spec.compactCopy,
-    owner: SemanticOwner(id: spec.semanticOwnerId, meaningKey: spec.meaningKey),
-    evidence: EvidenceTrace(spec.evidenceRefs),
-    period: PeriodScope(spec.periodSelector),
-    domain: spec.domain,
-  );
-  return switch (spec.role) {
-    NarrativeAtomRole.prediction => PredictionAtom(
-      id: shared.id,
-      readerText: shared.readerText,
-      compactText: shared.compactText,
-      owner: shared.owner,
-      evidence: shared.evidence,
-      period: shared.period,
-      domain: shared.domain,
-      eligibility: spec.eligibility,
-    ),
-    NarrativeAtomRole.summary => SummaryAtom(
-      id: shared.id,
-      readerText: shared.readerText,
-      compactText: shared.compactText,
-      owner: shared.owner,
-      evidence: shared.evidence,
-      period: shared.period,
-      domain: shared.domain,
-      eligibility: spec.eligibility,
-    ),
-    NarrativeAtomRole.advice => AdviceAtom(
-      id: shared.id,
-      readerText: shared.readerText,
-      compactText: shared.compactText,
-      owner: shared.owner,
-      evidence: shared.evidence,
-      period: shared.period,
-      domain: shared.domain,
-      eligibility: spec.eligibility,
-    ),
-    NarrativeAtomRole.disclosure => DisclosureAtom(
-      id: shared.id,
-      readerText: shared.readerText,
-      compactText: shared.compactText,
-      owner: shared.owner,
-      evidence: shared.evidence,
-      period: shared.period,
-      domain: shared.domain,
-      eligibility: spec.eligibility,
-    ),
-    NarrativeAtomRole.omission => OmissionAtom(
-      id: shared.id,
-      readerText: shared.readerText,
-      compactText: shared.compactText,
-      owner: shared.owner,
-      evidence: shared.evidence,
-      period: shared.period,
-      domain: shared.domain,
-    ),
-  };
-}
-
 class NarrativeBlock {
   const NarrativeBlock({this.heading, required this.atoms});
-
   final String? heading;
   final List<NarrativeAtom> atoms;
-
   Map<String, Object?> toMap() => {
     if (heading != null) 'heading': heading,
     'atoms': atoms.map((atom) => atom.toMap()).toList(growable: false),
@@ -371,15 +738,12 @@ class NarrativeSection {
     required this.title,
     required this.blocks,
   });
-
   final String id;
   final NarrativeSectionRole role;
   final String title;
   final List<NarrativeBlock> blocks;
-
   List<NarrativeAtom> get atoms =>
       blocks.expand((block) => block.atoms).toList(growable: false);
-
   Map<String, Object?> toMap() => {
     'id': id,
     'role': role.name,
@@ -395,17 +759,20 @@ class PredictiveNarrativePlan {
     required this.title,
     required this.subtitle,
     required this.sections,
-    this.generationPath = 'generic-v2',
-    this.legacyFallbackInvocations = 0,
-    this.fixtureSpecialInvocations = 0,
+    required this.evidenceCatalog,
+    required this.provenance,
     this.monthlyTimelineAvailable = false,
-    this.resolvedEvidenceRefs = const [],
   });
 
   factory PredictiveNarrativePlan.fromAnalysis(ThaiBetaAnalysis analysis) {
     if (!analysis.input.hasBirthTime) return _unknownPlan(analysis);
-
     final birthData = analysis.pipelineResult?.birthData;
+    final timeline = analysis.pipelineResult?.lifePeriods;
+    if (timeline == null) {
+      throw StateError(
+        'Known-time narrative requires a computed life timeline.',
+      );
+    }
     final remainder = ThaiRemainderMetadataResolver.resolve(
       profile: analysis.profile,
       birthData: birthData,
@@ -414,7 +781,11 @@ class PredictiveNarrativePlan {
     final contextId = remainder == null || weekday == null
         ? 'mahabhut2537.unresolved'
         : 'mahabhut2537.rem${remainder.value}.${_weekdayKey(weekday)}';
-    return _genericKnownPlan(analysis, contextId: contextId);
+    return _sourceAuthorizedKnownPlan(
+      analysis,
+      contextId: contextId,
+      timeline: timeline,
+    );
   }
 
   final String contextId;
@@ -422,29 +793,41 @@ class PredictiveNarrativePlan {
   final String title;
   final String subtitle;
   final List<NarrativeSection> sections;
-  final String generationPath;
-  final int legacyFallbackInvocations;
-  final int fixtureSpecialInvocations;
+  final PredictiveEvidenceCatalog evidenceCatalog;
+  final List<GenerationProvenance> provenance;
   final bool monthlyTimelineAvailable;
-  final List<String> resolvedEvidenceRefs;
 
   List<NarrativeAtom> get atoms =>
       sections.expand((section) => section.atoms).toList(growable: false);
-
   List<PredictiveClaimSpec> get claimSpecs => atoms
       .map(
         (atom) =>
             PredictiveClaimSpec.fromAtom(atom, contextSelector: contextId),
       )
       .toList(growable: false);
-
   List<String> get unresolvedEvidenceRefs => atoms
       .expand((atom) => atom.evidence.refs)
-      .where((ref) => !resolvesEvidenceRef(ref))
+      .where((ref) => !evidenceCatalog.contains(ref))
       .toSet()
       .toList(growable: false);
-
-  bool resolvesEvidenceRef(String ref) => resolvedEvidenceRefs.contains(ref);
+  List<String> get resolvedEvidenceRefs =>
+      evidenceCatalog.ids.toList(growable: false);
+  bool resolvesEvidenceRef(String ref) => evidenceCatalog.contains(ref);
+  int get legacyFallbackInvocations => provenance
+      .where((entry) => entry.source == GenerationSource.legacyFallback)
+      .length;
+  int get fixtureSpecialInvocations => provenance
+      .where((entry) => entry.source == GenerationSource.fixtureSpecial)
+      .length;
+  String get generationPath {
+    final sources =
+        provenance
+            .map((entry) => entry.source.name)
+            .toSet()
+            .toList(growable: false)
+          ..sort();
+    return 'source-authorized-catalog-v1:${sources.join('+')}';
+  }
 
   Map<String, Object?> toMap() => {
     'contextId': contextId,
@@ -455,10 +838,97 @@ class PredictiveNarrativePlan {
     'title': title,
     'subtitle': subtitle,
     'monthlyTimelineAvailable': monthlyTimelineAvailable,
-    'sections': sections
-        .map((section) => section.toMap())
-        .toList(growable: false),
+    'sections': sections.map((section) => section.toMap()).toList(),
+    'generationProvenance': provenance.map((entry) => entry.toMap()).toList(),
   };
+}
+
+class _RealizedClaim {
+  const _RealizedClaim({
+    required this.record,
+    required this.atom,
+    required this.provenance,
+    required this.sectionId,
+    required this.sectionRole,
+    required this.sectionTitle,
+    required this.chronology,
+    required this.motifKey,
+    this.blockHeading,
+  });
+  final PredictiveAuthorityRecord record;
+  final NarrativeAtom atom;
+  final GenerationProvenance provenance;
+  final String sectionId;
+  final NarrativeSectionRole sectionRole;
+  final String sectionTitle;
+  final ClaimChronology chronology;
+  final String motifKey;
+  final String? blockHeading;
+}
+
+class SynthesisTemplateCatalog {
+  static String templateId({
+    required PredictiveAuthorityRecord claim,
+    required PredictiveAuthorityRecord? placement,
+    required ClaimChronology chronology,
+  }) => [
+    claim.claimType.name,
+    claim.domainKey ?? 'none',
+    claim.movement ?? 'none',
+    placement?.periodStatus ?? 'no-status',
+    placement?.taksaRole ?? 'no-role',
+    placement?.mahabhutHouse ?? 'no-house',
+    chronology.name,
+  ].map(_templateToken).join('.');
+
+  static String realize({
+    required PredictiveAuthorityRecord claim,
+    required PredictiveAuthorityRecord? placement,
+    required ClaimChronology chronology,
+    required ForecastMaterialFingerprint? material,
+    required DateTime asOf,
+    required int horizonIndex,
+  }) {
+    if (claim.readerText != null) return claim.readerText!;
+    if (claim.claimType == PredictiveAuthorityType.forecastMaterial) {
+      if (material == null) {
+        throw StateError('Forecast authority ${claim.id} has no material.');
+      }
+      final body = _forecastReaderCopy(material, includeHorizonLead: false);
+      if (chronology != ClaimChronology.horizon) return body;
+      final range = _longHorizonRange(asOf);
+      final lead = horizonIndex == 0
+          ? 'ระหว่างวันที่ ${_thaiLongDate(range.$1)} ถึง ${_thaiLongDate(range.$2)} '
+          : 'ในช่วงเดียวกัน ';
+      return '$lead$body';
+    }
+    final period = _thaiPeriodLabel(claim.periodBinding);
+    final lead = switch (chronology) {
+      ClaimChronology.past => 'ในช่วงอายุ $period ',
+      ClaimChronology.current => 'ช่วงอายุ $period ',
+      ClaimChronology.future => 'เมื่อเข้าสู่ช่วงอายุ $period ',
+      _ => '',
+    };
+    if (claim.claimType == PredictiveAuthorityType.sourceDirect) {
+      final body = switch (claim.subject) {
+        'supporting_people' =>
+          'คนที่เกี่ยวข้องกับงานช่วยให้เรื่องสำคัญเดินต่อได้กว้างขึ้น',
+        'work_access' =>
+          'งานเดินหน้าได้คล่องขึ้น และโอกาสจากงานที่มีอยู่เปิดกว้างกว่าเดิม',
+        'available_money' =>
+          'เงินที่ใช้หมุนคล่องขึ้น โดยยังไม่สรุปเป็นจำนวนหรือโชคลาภก้อนใหญ่',
+        'action_communication_thought' =>
+          'การทำงาน การสื่อสาร และการตัดสินใจเดินหน้าได้ราบรื่นขึ้น',
+        'temporary_gain' => 'ผลได้เกิดขึ้นชั่วคราวตามขอบเขตที่แหล่งข้อมูลระบุ',
+        'gain_then_loss' =>
+          'เงินที่เข้ามาบางส่วนออกไปกับภาระต่อเนื่อง จึงไม่อยู่ครบทั้งช่วง',
+        'speech' => 'คำพูดและการตกลงมีผลต่อเรื่องที่กำลังเดินหน้าอย่างชัดเจน',
+        _ => _broadDomainCopy(claim.domainKey, placement?.periodStatus),
+      };
+      return '$lead$body';
+    }
+    return '$lead${_broadDomainCopy(claim.domainKey, placement?.periodStatus)}';
+  }
 }
 
 PredictiveNarrativePlan _unknownPlan(ThaiBetaAnalysis analysis) {
@@ -466,12 +936,36 @@ PredictiveNarrativePlan _unknownPlan(ThaiBetaAnalysis analysis) {
       'ไม่มีเวลาเกิด — รายงานจึงเว้นคำทำนายช่วงชีวิตที่ต้องใช้เวลาเกิด แทนการเดาข้อมูลที่ไม่มี';
   const disclosureText =
       'คำทำนายเป็นมุมมองตามความเชื่อ และควรเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ';
+  final catalog = PredictiveEvidenceCatalog.unknown();
   return PredictiveNarrativePlan(
     contextId: 'unknown-time',
     isKnownTime: false,
     title: 'รายงานฉบับย่อ',
     subtitle: _unknownSubtitle(analysis),
-    resolvedEvidenceRefs: const ['OMISSION-U-01', 'DISCLOSURE-U-01'],
+    evidenceCatalog: catalog,
+    provenance: [
+      GenerationProvenance(
+        atomId: 'RC11-U-OMISSION-01',
+        selectedClaimId: 'RC11-U-OMISSION-01',
+        selectionReason: 'unknown-time fail-closed policy',
+        source: GenerationSource.omission,
+        claimType: PredictiveAuthorityType.omission,
+        applicabilityResult: 'unknown-time',
+        templateId: 'candidate-0011-exact',
+        evidenceResolution: catalog.validateReferences(['OMISSION-U-01']),
+        omissionReason: 'birth time unavailable',
+      ),
+      GenerationProvenance(
+        atomId: 'RC11-U-DISCLOSURE-01',
+        selectedClaimId: 'RC11-U-DISCLOSURE-01',
+        selectionReason: 'single accepted belief disclosure',
+        source: GenerationSource.disclosure,
+        claimType: PredictiveAuthorityType.disclosure,
+        applicabilityResult: 'report',
+        templateId: 'candidate-0011-exact',
+        evidenceResolution: catalog.validateReferences(['DISCLOSURE-U-01']),
+      ),
+    ],
     sections: const [
       NarrativeSection(
         id: 'report-short',
@@ -524,370 +1018,399 @@ PredictiveNarrativePlan _unknownPlan(ThaiBetaAnalysis analysis) {
   );
 }
 
-const _acceptedCorpusPromotionByContext = <String, String>{
-  'mahabhut2537.rem0.saturday': 'candidate-0011',
-};
-
-PredictiveNarrativePlan _genericKnownPlan(
+PredictiveNarrativePlan _sourceAuthorizedKnownPlan(
   ThaiBetaAnalysis analysis, {
   required String contextId,
+  required LifeTimeline timeline,
 }) {
-  final promotedCorpus = _acceptedCorpusPromotionByContext[contextId];
-  return promotedCorpus == 'candidate-0011'
-      ? _realizePromotedCorpusClaims(analysis, contextId: contextId)
-      : _realizeGenericContextClaimSet(analysis, contextId: contextId);
+  final materials = _forecastMaterials(analysis);
+  final catalog = PredictiveEvidenceCatalog.forAnalysis(
+    contextId: contextId,
+    timeline: timeline,
+    asOf: analysis.asOf,
+    materials: materials,
+  );
+  final acceptedReaderClaims =
+      catalog.records
+          .where(
+            (record) =>
+                record.surface == 'Known' &&
+                record.readerText != null &&
+                record.contextId == contextId &&
+                record.acceptedContractMatches(
+                  age: timeline.currentAge,
+                  asOf: analysis.asOf,
+                ),
+          )
+          .toList(growable: false)
+        ..sort(
+          (left, right) =>
+              (left.sourceOrder ?? 999).compareTo(right.sourceOrder ?? 999),
+        );
+  if (acceptedReaderClaims.isNotEmpty) {
+    return _assembleAcceptedReaderClaims(
+      analysis,
+      contextId: contextId,
+      timeline: timeline,
+      catalog: catalog,
+      claims: acceptedReaderClaims,
+    );
+  }
+  return _assembleSourceAuthorizedClaims(
+    analysis,
+    contextId: contextId,
+    timeline: timeline,
+    catalog: catalog,
+    materials: materials,
+  );
 }
 
-PredictiveNarrativePlan _realizePromotedCorpusClaims(
+PredictiveNarrativePlan _assembleAcceptedReaderClaims(
   ThaiBetaAnalysis analysis, {
   required String contextId,
+  required LifeTimeline timeline,
+  required PredictiveEvidenceCatalog catalog,
+  required List<PredictiveAuthorityRecord> claims,
 }) {
-  final age = analysis.pipelineResult!.lifePeriods!.currentAge;
-  final range = _longHorizonRange(analysis.asOf);
-  NarrativeAtom prediction({
-    required String id,
-    required String owner,
-    required String meaning,
-    required String text,
-    required String compact,
-    required String period,
-    required DomainScope domain,
-    required List<String> refs,
-  }) => _realizeClaimSpec(
-    PredictiveClaimSpec(
-      claimId: id,
-      semanticOwnerId: owner,
-      meaningKey: meaning,
-      evidenceRefs: refs,
-      contextSelector: contextId,
-      periodSelector: period,
+  final realized = <_RealizedClaim>[];
+  for (final record in claims.where(
+    (item) => item.readerRole == 'PREDICTION',
+  )) {
+    final domain = _domainScope(record.domainKey);
+    final chronology = record.chronologyAt(timeline.currentAge);
+    final validation = catalog.validateSelection(
+      record: record,
+      contextId: contextId,
+      currentAge: timeline.currentAge,
+      asOf: analysis.asOf,
       domain: domain,
-      role: NarrativeAtomRole.prediction,
-      readerCopy: text,
-      compactCopy: compact,
-      eligibility: KnownUnknownEligibility.knownOnly,
-    ),
-  );
-
-  final overview = prediction(
-    id: 'RC11-K-OVERVIEW-01',
-    owner: 'OAS-01',
-    meaning: 'life-arc-major-periods',
-    period: '0-62',
-    domain: DomainScope.lifePath,
-    refs: const [
-      'placement.mahabhut2537.rem0.saturday.saturn.0_10',
-      'placement.mahabhut2537.rem0.saturday.jupiter.11_29',
-      'placement.mahabhut2537.rem0.saturday.rahu.30_41',
-      'placement.mahabhut2537.rem0.saturday.venus.42_62',
-    ],
-    text:
-        'ชีวิตเดินเป็นช่วงชัดเจน วัยเด็กอยู่ใต้เงื่อนไขของบ้าน ช่วงอายุ 11–29 ได้ออกไปพบโลกที่กว้างขึ้น ช่วงอายุ 30–41 เจอการเปลี่ยนครั้งใหญ่ และหลังอายุ 42 ประสบการณ์ที่สั่งสมมาเริ่มให้ผลกับชีวิต',
-    compact: 'ประสบการณ์ที่สั่งสมมาเริ่มให้ผลกับชีวิต',
-  );
-  final past1 = prediction(
-    id: 'RC11-K-PAST-01',
-    owner: 'OAS-03',
-    meaning: 'past-family-constraint',
-    period: '1-10',
-    domain: DomainScope.supportAndFamily,
-    refs: const ['placement.mahabhut2537.rem0.saturday.saturn.0_10'],
-    text:
-        'วัย 1–10 ปีมีเงื่อนไขจากครอบครัวและผู้ใหญ่เข้ามากำหนดชีวิตมากกว่าวัยอื่น บางช่วงต้องเปลี่ยนความเคยชินหรือช่วยรับภาระในบ้านเร็วกว่าวัย ความสบายในวัยเด็กจึงถูกแบ่งด้วยหน้าที่ที่หลีกเลี่ยงไม่ได้',
-    compact: 'วัยเด็กอยู่ใต้เงื่อนไขของบ้านและหน้าที่',
-  );
-  final past2 = prediction(
-    id: 'RC11-K-PAST-02',
-    owner: 'OAS-04',
-    meaning: 'past-world-expansion',
-    period: '11-29',
-    domain: DomainScope.educationAndSocial,
-    refs: const ['placement.mahabhut2537.rem0.saturday.jupiter.11_29'],
-    text:
-        'ช่วงอายุ 11–29 ชีวิตเปิดกว้างขึ้นผ่านการเรียน งาน และสังคมใหม่ เส้นทางเดิมขยายออกเพราะได้พบคนที่มีประสบการณ์กว่า พร้อมกับการเปลี่ยนแวดวงหรือเปลี่ยนวิธีมองหาโอกาสจากเดิม',
-    compact: 'การเรียน งาน และสังคมใหม่เปิดโลกให้กว้างขึ้น',
-  );
-  final past3 = prediction(
-    id: 'RC11-K-PAST-03',
-    owner: 'OAS-05',
-    meaning: 'past-responsibility-agreement',
-    period: '11-29',
-    domain: DomainScope.relationship,
-    refs: const ['placement.mahabhut2537.rem0.saturday.jupiter.11_29'],
-    text:
-        'ช่วงปลายของรอบนี้เริ่มรับผิดชอบเรื่องงานและเงินจริงจังขึ้น ความสัมพันธ์บางส่วนเปลี่ยนจากการคบหาตามสถานการณ์มาเป็นการตกลงว่าใครจะอยู่ต่อ ใครจะห่างออก และเรื่องใดต้องจัดการด้วยตัวเอง',
-    compact: 'หน้าที่และข้อตกลงในความสัมพันธ์ชัดขึ้น',
-  );
-  final past4 = prediction(
-    id: 'RC11-K-PAST-04',
-    owner: 'OAS-06',
-    meaning: 'past-role-expansion',
-    period: '30-41',
-    domain: DomainScope.work,
-    refs: const ['GRA-R0-SAT-30_41-DET-RISE', 'PIC-R0-SAT-30_41-WORK'],
-    text:
-        'ช่วงอายุ 30–41 งานเปลี่ยนทิศอย่างชัดเจน หน้าที่ชุดใหม่เข้ามาแทนวิธีทำงานเดิม และผลงานที่ทำต่อเนื่องพาไปสู่ขอบเขตงานที่กว้างขึ้น',
-    compact: 'ผลงานต่อเนื่องพางานไปสู่ขอบเขตที่กว้างขึ้น',
-  );
-  final past5 = prediction(
-    id: 'RC11-K-PAST-05',
-    owner: 'OAS-07',
-    meaning: 'past-ending-new-base',
-    period: '30-41',
-    domain: DomainScope.workAndCommitment,
-    refs: const [
-      'placement.mahabhut2537.rem0.saturday.rahu.30_41',
-      'GRA-R0-SAT-30_41-DET-RISE',
-    ],
-    text:
-        'ในช่วงเดียวกัน งานหรือข้อตกลงสำคัญเปลี่ยนรูปแบบ ทางที่เดินต่อได้กลายเป็นฐานของรอบปัจจุบัน ส่วนภาระที่กินแรงแต่ไม่พาชีวิตไปข้างหน้าค่อย ๆ จบลงหรือมีคนอื่นรับช่วงต่อ',
-    compact: 'ทางที่เดินต่อได้กลายเป็นฐานของรอบปัจจุบัน',
-  );
-  final current = prediction(
-    id: 'RC11-K-CURRENT-01',
-    owner: 'OAS-09',
-    meaning: 'current-close-and-open',
-    period: 'age$age',
-    domain: DomainScope.work,
-    refs: const [
-      'placement.mahabhut2537.rem0.saturday.venus.42_62',
-      'prediction.career.current.strong',
-    ],
-    text:
-        'อายุ $age เป็นปีเปลี่ยนผ่าน ภาระเก่าต้องได้ข้อสรุป ขอบเขตที่เคยปล่อยค้างจะถูกจัดใหม่ และชีวิตเริ่มกันพื้นที่ไว้ให้เรื่องที่สำคัญกว่าเดิม',
-    compact: 'ปิดภาระเก่าและกันพื้นที่ให้เรื่องสำคัญกว่าเดิม',
-  );
-  final work1 = prediction(
-    id: 'RC11-K-WORK-01',
-    owner: 'OAS-10',
-    meaning: 'work-decision-authority',
-    period: '42-62|age$age',
-    domain: DomainScope.work,
-    refs: const [
-      'SDC-R0-SAT-42_62-WORK',
-      'SDC-R0-SAT-42_62-FLOW',
-      'prediction.career.current.strong',
-    ],
-    text:
-        'หน้าที่การงานขยับจากการทำตามโจทย์ไปสู่การกำหนดทางเดินของงาน คุณจะรับผิดชอบผลลัพธ์มากขึ้น ได้ตัดสินใจเรื่องที่กระทบคนอื่น และถูกเรียกใช้ในงานที่ต้องอาศัยประสบการณ์มากกว่าการลงแรงอย่างเดียว',
-    compact: 'รับผิดชอบผลลัพธ์และตัดสินใจด้วยประสบการณ์มากขึ้น',
-  );
-  final work2 = prediction(
-    id: 'RC11-K-WORK-02',
-    owner: 'OAS-11',
-    meaning: 'work-new-from-output',
-    period: '42-62|age$age',
-    domain: DomainScope.work,
-    refs: const ['SDC-R0-SAT-42_62-WORK', 'prediction.career.current.strong'],
-    text:
-        'โอกาสงานใหม่จะมาจากผลงานที่คนเคยเห็นและเชื่อมือ ส่วนงานเดิมที่ซ้ำ เสียเวลา หรือให้ภาระมากกว่าผลตอบแทนจะลดบทบาทลง สุดท้ายงานจะเหลือน้อยประเภทแต่แต่ละเรื่องมีน้ำหนักมากขึ้น',
-    compact: 'โอกาสใหม่มาจากผลงานที่คนเคยเห็นและเชื่อมือ',
-  );
-  final finance1 = prediction(
-    id: 'RC11-K-FINANCE-01',
-    owner: 'OAS-12',
-    meaning: 'finance-work-linked-income',
-    period: '42-62|age$age',
-    domain: DomainScope.finance,
-    refs: const [
-      'SDC-R0-SAT-42_62-FINANCE',
-      'GRA-R0-SAT-42_62-SRI-RISE',
-      'prediction.finance.current.strong',
-    ],
-    text:
-        'รายได้ขยับตามบทบาทและผลงาน เงินหลักมาจากงานที่ทำสำเร็จและทักษะที่ใช้ได้จริง ไม่ใช่การเสี่ยงโดยไม่มีข้อมูลรองรับ',
-    compact: 'รายได้ขยับตามบทบาทและผลงานที่ทำสำเร็จ',
-  );
-  final finance2 = prediction(
-    id: 'RC11-K-FINANCE-02',
-    owner: 'OAS-13',
-    meaning: 'finance-flow-and-expense',
-    period: '42-62|age$age',
-    domain: DomainScope.finance,
-    refs: const [
-      'SDC-R0-SAT-42_62-FINANCE',
-      'prediction.finance.current.strong',
-    ],
-    text:
-        'เงินหมุนคล่องขึ้น แต่รายจ่ายก้อนสำคัญเกี่ยวกับงาน บ้าน หรือภาระที่ต้องจัดการให้จบจะเข้ามาพร้อมกัน ฐานการเงินจะค่อย ๆ นิ่งเมื่อเงินไม่ต้องไหลไปเลี้ยงภาระที่ไม่สร้างผลต่อเนื่อง',
-    compact: 'เงินคล่องขึ้นพร้อมรายจ่ายก้อนสำคัญที่ต้องจัดการ',
-  );
-  final relationship1 = prediction(
-    id: 'RC11-K-RELATIONSHIP-01',
-    owner: 'OAS-14',
-    meaning: 'relationship-clarity-actions',
-    period: '42-62|age$age',
-    domain: DomainScope.relationship,
-    refs: const [
-      'prediction.relationship.current.strong',
-      'SDC-R0-SAT-42_62-FLOW',
-    ],
-    text:
-        'ความสัมพันธ์ที่คลุมเครือจะชัดขึ้นจากการกระทำและข้อตกลง คนที่พร้อมเดินต่อจะแสดงความรับผิดชอบให้เห็น ส่วนคนที่มีแต่คำพูดจะเว้นระยะหรือหลุดออกจากชีวิตเอง',
-    compact: 'ความสัมพันธ์ชัดขึ้นจากการกระทำและข้อตกลง',
-  );
-  final relationship2 = prediction(
-    id: 'RC11-K-RELATIONSHIP-02',
-    owner: 'OAS-15',
-    meaning: 'relationship-agreement-distance',
-    period: '42-62|age$age',
-    domain: DomainScope.relationship,
-    refs: const ['prediction.relationship.current.strong'],
-    text:
-        'บทสนทนาเรื่องเวลา หน้าที่ เงิน และพื้นที่ส่วนตัวจะตรงไปตรงมาขึ้น บางความสัมพันธ์จึงแน่นแฟ้นกว่าเดิม ขณะที่บางความสัมพันธ์เปลี่ยนระยะเพื่อให้แต่ละฝ่ายกลับไปจัดการชีวิตของตัวเอง',
-    compact: 'แบ่งเวลา หน้าที่ และพื้นที่ส่วนตัวให้ชัด',
-  );
-  final health1 = prediction(
-    id: 'RC11-K-HEALTH-01',
-    owner: 'OAS-16',
-    meaning: 'health-load-recovery',
-    period: '42-62|age$age',
-    domain: DomainScope.health,
-    refs: const [
-      'prediction.health.current.strong',
-      'prediction.career.current.strong',
-    ],
-    text:
-        'ภาระงานที่เพิ่มขึ้นทำให้ความเครียดและการพักไม่พอแสดงผลชัด ร่างกายใช้เวลาฟื้นจากวันที่ทำงานต่อเนื่องนานกว่าเดิม และแรงจะหมดเร็วเมื่อรับหลายเรื่องพร้อมกัน',
-    compact: 'ภาระงานทำให้ต้องกันเวลาพักและฟื้นตัวให้พอ',
-  );
-  final health2 = prediction(
-    id: 'RC11-K-HEALTH-02',
-    owner: 'OAS-17',
-    meaning: 'health-rest-restoration',
-    period: '42-62|age$age',
-    domain: DomainScope.health,
-    refs: const ['prediction.health.current.strong'],
-    text:
-        'พอภาระเบาลงและเรื่องค้างลดลง กำลังจะค่อย ๆ กลับมา วันที่ได้นอนและพักต่อเนื่องจะฟื้นตัวได้ดีกว่าการหยุดสั้น ๆ แล้วกลับไปเร่งงานเหมือนเดิม',
-    compact: 'การนอนและพักต่อเนื่องช่วยให้กำลังกลับมา',
-  );
-  final support1 = prediction(
-    id: 'RC11-K-SUPPORT-01',
-    owner: 'OAS-18',
-    meaning: 'support-existing-network',
-    period: '42-62|age$age',
-    domain: DomainScope.support,
-    refs: const ['SDC-R0-SAT-42_62-SUPPORT'],
-    text:
-        'แรงหนุนมาจากผู้ใหญ่ ครู เพื่อน และคนที่เคยทำงานร่วมกัน คนเหล่านี้จะช่วยเปิดทาง แนะนำโอกาส หรือพาเรื่องที่ติดขัดกลับมาเดินได้อีกครั้ง',
-    compact: 'ผู้ใหญ่ ครู เพื่อน และคนร่วมงานเดิมช่วยเปิดทาง',
-  );
-  final support2 = prediction(
-    id: 'RC11-K-SUPPORT-02',
-    owner: 'OAS-19',
-    meaning: 'luck-from-work-reputation',
-    period: '42-62|age$age',
-    domain: DomainScope.luck,
-    refs: const [
-      'SDC-R0-SAT-42_62-FINANCE',
-      'SDC-R0-SAT-42_62-SUPPORT',
-      'prediction.career.current.strong',
-    ],
-    text:
-        'โอกาสเด่นจะมาจากงานเก่า คนรู้จักเดิม หรือเรื่องที่เคยทำสำเร็จ ชื่อเสียงจากผลงานจะพาโอกาสกลับมา มากกว่าการได้สิ่งใหญ่จากการเสี่ยงโดยไม่มีฐานรองรับ',
-    compact: 'ผลงานและคนรู้จักเดิมพาโอกาสกลับมา',
-  );
-  final horizon1 = prediction(
-    id: 'RC11-K-HORIZON-01',
-    owner: 'OAS-20',
-    meaning: 'horizon-work-status-change',
-    period: '${_isoDate(range.$1)}/${_isoDate(range.$2)}|age$age-${age + 1}',
-    domain: DomainScope.work,
-    refs: const [
-      'PIC-R0-SAT-HORIZON-WORK',
-      'prediction.career.next12Months.strong',
-    ],
-    text:
-        'ระหว่างวันที่ ${_thaiLongDate(range.$1)} ถึง ${_thaiLongDate(range.$2)} งานที่ค้างจะได้ข้อสรุป และหน้าที่ชุดใหม่จะเริ่มเข้าที่ ภายในรอบนี้คุณจะรู้ชัดว่างานใดอยู่ต่อและงานใดต้องส่งต่อ',
-    compact: 'งานค้างได้ข้อสรุป และหน้าที่ชุดใหม่เริ่มเข้าที่',
-  );
-  final horizon2 = prediction(
-    id: 'RC11-K-HORIZON-02',
-    owner: 'OAS-21',
-    meaning: 'horizon-finance-relationship-agreements',
-    period: '${_isoDate(range.$1)}/${_isoDate(range.$2)}|age$age-${age + 1}',
-    domain: DomainScope.financeAndRelationship,
-    refs: const [
-      'prediction.finance.next12Months.strong',
-      'prediction.relationship.next12Months.strong',
-    ],
-    text:
-        'ในช่วงเดียวกัน รายรับและภาระทางเงินจะขยับขึ้นพร้อมกัน ส่วนข้อตกลงสำคัญในความสัมพันธ์จะได้คำตอบจากการแบ่งเวลาและหน้าที่ให้ชัด',
-    compact: 'รายรับ ภาระทางเงิน และข้อตกลงขยับพร้อมกัน',
-  );
-  final horizon3 = prediction(
-    id: 'RC11-K-HORIZON-03',
-    owner: 'OAS-22',
-    meaning: 'horizon-support-closes-blockers',
-    period: '${_isoDate(range.$1)}/${_isoDate(range.$2)}|age$age-${age + 1}',
-    domain: DomainScope.support,
-    refs: const ['PIC-R0-SAT-HORIZON-SUPPORT', 'SDC-R0-SAT-42_62-SUPPORT'],
-    text:
-        'แรงหนุนที่มีอยู่จะช่วยให้การเจรจาและการปิดเรื่องค้างเดินเร็วขึ้น อุปสรรคที่เคยทำให้งานชะงักจะลดลงภายในรอบนี้',
-    compact: 'แรงหนุนช่วยให้การเจรจาและเรื่องค้างเดินเร็วขึ้น',
-  );
-  final next1 = prediction(
-    id: 'RC11-K-NEXT-01',
-    owner: 'OAS-23',
-    meaning: 'next-foundation-assets',
-    period: '63-79',
-    domain: DomainScope.foundation,
-    refs: const [
-      'placement.mahabhut2537.rem0.saturday.mercury.63_79',
-      'GRA-R0-SAT-63_79-MULA-RISE',
-      'PIC-R0-SAT-63_79-FOUNDATION',
-    ],
-    text:
-        'เมื่ออายุ 63 ปี ชีวิตเข้าสู่ช่วงสร้างฐานระยะยาว สิ่งที่สะสมจากงานจะกลายเป็นบ้าน ทรัพย์ หรือฐานการเงินที่มั่นคงขึ้น',
-    compact: 'สิ่งที่สะสมจากงานกลายเป็นฐานระยะยาว',
-  );
-  final next2 = prediction(
-    id: 'RC11-K-NEXT-02',
-    owner: 'OAS-24',
-    meaning: 'next-work-direction-transfer',
-    period: '63-79',
-    domain: DomainScope.work,
-    refs: const [
-      'placement.mahabhut2537.rem0.saturday.mercury.63_79',
-      'prediction.career.nextLifePeriod.strong',
-    ],
-    text:
-        'บทบาทงานจะขยับไปทางวางระบบ ให้ทิศทาง และถ่ายทอดประสบการณ์ งานที่ใช้ความคิด การเจรจา หรือการจัดการข้อมูลจะมีน้ำหนักกว่างานที่ต้องลงแรงทุกขั้นด้วยตัวเอง',
-    compact: 'วางระบบ ให้ทิศทาง และถ่ายทอดประสบการณ์',
-  );
-  final summary = SummaryAtom(
+      chronology: chronology,
+      proposedText: record.readerText,
+    );
+    if (!validation.isValid) {
+      throw StateError(
+        'Accepted claim ${record.id} failed evidence validation.',
+      );
+    }
+    final atom = PredictionAtom(
+      id: record.readerClaimId!,
+      readerText: record.readerText!,
+      compactText: _compact(record.readerText!),
+      owner: SemanticOwner(
+        id: record.semanticOwnerId!,
+        meaningKey: record.meaningKey!,
+      ),
+      evidence: EvidenceTrace(record.evidenceRefs),
+      period: PeriodScope(record.periodBinding!),
+      domain: domain,
+    );
+    realized.add(
+      _RealizedClaim(
+        record: record,
+        atom: atom,
+        provenance: GenerationProvenance(
+          atomId: atom.id,
+          selectedClaimId: record.id,
+          selectionReason:
+              'catalog record matches context, accepted age and accepted asOf',
+          source: GenerationSource.ownerAuthorizedSynthesis,
+          claimType: record.claimType,
+          applicabilityResult: chronology.name,
+          templateId: record.templateId!,
+          evidenceResolution: validation,
+        ),
+        sectionId: record.sectionId!,
+        sectionRole: NarrativeSectionRole.values.byName(record.sectionRole!),
+        sectionTitle: record.sectionDisplayTitle!,
+        blockHeading: record.blockHeading,
+        chronology: chronology,
+        motifKey: _motifKey(record, chronology),
+      ),
+    );
+  }
+  final sections = _groupRealized(realized);
+  final predictiveRefs = realized
+      .expand((item) => item.atom.evidence.refs)
+      .toSet()
+      .toList(growable: false);
+  const summaryText =
+      'ชีวิตกำลังเปลี่ยนจากรอบที่ต้องรับมือหลายอย่างพร้อมกัน ไปสู่รอบที่เลือกได้ชัดขึ้นว่าอะไรควรอยู่ต่อ เมื่อจัดภาระลงตัวแล้ว เส้นทางข้างหน้าจะนิ่งและต่อยอดเป็นฐานระยะยาวได้';
+  const summaryAtom = SummaryAtom(
     id: 'RC11-K-SUMMARY-01',
-    readerText:
-        'ชีวิตกำลังเปลี่ยนจากรอบที่ต้องรับมือหลายอย่างพร้อมกัน ไปสู่รอบที่เลือกได้ชัดขึ้นว่าอะไรควรอยู่ต่อ เมื่อจัดภาระลงตัวแล้ว เส้นทางข้างหน้าจะนิ่งและต่อยอดเป็นฐานระยะยาวได้',
+    readerText: summaryText,
     compactText: 'จัดภาระให้ลงตัว แล้วต่อยอดสิ่งที่ควรอยู่ต่อ',
-    owner: const SemanticOwner(
+    owner: SemanticOwner(
       id: 'SUMMARY-K-01',
       meaningKey: 'compressed-life-arc-summary',
     ),
-    evidence: EvidenceTrace([
-      overview.owner.id,
-      current.owner.id,
-      next1.owner.id,
-    ]),
-    period: const PeriodScope('REPORT'),
+    evidence: EvidenceTrace([]),
+    period: PeriodScope('REPORT'),
     domain: DomainScope.lifePath,
   );
-  const advice = AdviceAtom(
-    id: 'RC11-K-ADVICE-01',
-    readerText:
-        'รับงานใหม่เมื่อขอบเขตและอำนาจตัดสินใจชัด เก็บเงินส่วนหนึ่งไว้รองรับรายจ่ายก้อนสำคัญ พูดข้อตกลงกับคนใกล้ตัวให้ตรง และจัดวันพักจริงก่อนที่ความล้าจะสะสมจนกระทบงาน',
-    compactText: 'รับงานเมื่อขอบเขตชัด กันเงินสำรอง และจัดวันพักจริง',
-    owner: SemanticOwner(
-      id: 'ADVICE-K-CURRENT-01',
-      meaningKey: 'accepted-current-advice',
-    ),
-    evidence: EvidenceTrace(['ADVICE-K-CURRENT-01']),
-    period: PeriodScope('REPORT'),
-    domain: DomainScope.advice,
+  final summary = SummaryAtom(
+    id: summaryAtom.id,
+    readerText: summaryAtom.readerText,
+    compactText: summaryAtom.compactText,
+    owner: summaryAtom.owner,
+    evidence: EvidenceTrace(predictiveRefs),
+    period: summaryAtom.period,
+    domain: summaryAtom.domain,
   );
+  sections.add(
+    _section('summary', NarrativeSectionRole.summary, 'สรุปคำทำนาย', [summary]),
+  );
+  final provenance = realized.map((item) => item.provenance).toList();
+  provenance.add(
+    GenerationProvenance(
+      atomId: summary.id,
+      selectedClaimId: 'candidate-0011-compressed-summary',
+      selectionReason: 'declared compressed reference to selected predictions',
+      source: GenerationSource.structuralSummary,
+      claimType: PredictiveAuthorityType.ownerAuthorizedSynthesis,
+      applicabilityResult: 'report',
+      templateId: 'candidate-0011-compressed-summary',
+      evidenceResolution: catalog.validateReferences(predictiveRefs),
+      compressedReference: true,
+    ),
+  );
+  for (final record in claims.where(
+    (item) => item.readerRole != 'PREDICTION',
+  )) {
+    final atom = _nonPredictionAtom(record);
+    final role = NarrativeSectionRole.values.byName(record.sectionRole!);
+    sections.add(
+      _section(record.sectionId!, role, record.sectionDisplayTitle!, [atom]),
+    );
+    provenance.add(
+      GenerationProvenance(
+        atomId: atom.id,
+        selectedClaimId: record.id,
+        selectionReason: 'accepted non-prediction catalog record',
+        source: record.readerRole == 'ADVICE'
+            ? GenerationSource.advice
+            : GenerationSource.disclosure,
+        claimType: record.claimType,
+        applicabilityResult: 'report',
+        templateId: record.templateId!,
+        evidenceResolution: catalog.validateReferences(record.evidenceRefs),
+      ),
+    );
+  }
+  return PredictiveNarrativePlan(
+    contextId: contextId,
+    isKnownTime: true,
+    title: 'คำทำนายดวงชะตา',
+    subtitle: _knownSubtitle(analysis),
+    sections: List.unmodifiable(sections),
+    evidenceCatalog: catalog,
+    provenance: List.unmodifiable(provenance),
+  );
+}
+
+PredictiveNarrativePlan _assembleSourceAuthorizedClaims(
+  ThaiBetaAnalysis analysis, {
+  required String contextId,
+  required LifeTimeline timeline,
+  required PredictiveEvidenceCatalog catalog,
+  required List<ForecastMaterialFingerprint> materials,
+}) {
+  final materialById = {
+    for (final material in materials) material.evidenceKey: material,
+  };
+  final nextPlacement = catalog.nextPlacement(contextId, timeline.currentAge);
+  final candidates = catalog.records.where((record) {
+    if (!record.isPredictionAuthority || record.readerText != null) {
+      return false;
+    }
+    if (record.contextId != contextId) return false;
+    if (!record.acceptedContractMatches(
+      age: timeline.currentAge,
+      asOf: analysis.asOf,
+    )) {
+      return false;
+    }
+    final chronology = record.chronologyAt(timeline.currentAge);
+    if (chronology == ClaimChronology.unavailable ||
+        chronology == ClaimChronology.report) {
+      return false;
+    }
+    if (chronology == ClaimChronology.current &&
+        record.ageRanges.isNotEmpty &&
+        !record.containsAge(timeline.currentAge)) {
+      return false;
+    }
+    if (chronology == ClaimChronology.future) {
+      final nextRange = nextPlacement?.ageRanges.first;
+      if (nextRange == null ||
+          !_rangeEqualsAny(record.ageRanges, nextRange.$1, nextRange.$2)) {
+        return false;
+      }
+    }
+    return true;
+  }).toList();
+
+  final productKeys = candidates
+      .where(
+        (record) =>
+            record.claimType ==
+            PredictiveAuthorityType.ownerAuthorizedProductInterpretation,
+      )
+      .map((record) => '${record.domainKey}|${record.periodBinding}')
+      .toSet();
+  candidates.removeWhere(
+    (record) =>
+        record.claimType == PredictiveAuthorityType.generalRuleApplication &&
+        productKeys.contains('${record.domainKey}|${record.periodBinding}'),
+  );
+  final nonForecastDomains = candidates
+      .where(
+        (record) =>
+            record.claimType != PredictiveAuthorityType.forecastMaterial,
+      )
+      .map(
+        (record) =>
+            '${record.chronologyAt(timeline.currentAge).name}|${_domainScope(record.domainKey).name}',
+      )
+      .toSet();
+  candidates.removeWhere(
+    (record) =>
+        record.claimType == PredictiveAuthorityType.forecastMaterial &&
+        nonForecastDomains.contains(
+          '${record.chronologyAt(timeline.currentAge).name}|${_domainScope(record.domainKey).name}',
+        ),
+  );
+  candidates.sort((left, right) {
+    final chronology = _chronologyRank(
+      left.chronologyAt(timeline.currentAge),
+    ).compareTo(_chronologyRank(right.chronologyAt(timeline.currentAge)));
+    if (chronology != 0) return chronology;
+    final domain = _domainScope(
+      left.domainKey,
+    ).index.compareTo(_domainScope(right.domainKey).index);
+    return domain != 0 ? domain : left.id.compareTo(right.id);
+  });
+
+  final realized = <_RealizedClaim>[];
+  var horizonIndex = 0;
+  for (final record in candidates) {
+    final chronology = record.chronologyAt(timeline.currentAge);
+    final domain = _domainScope(record.domainKey);
+    final placement = catalog.placementFor(
+      contextId: contextId,
+      claim: record,
+      currentAge: timeline.currentAge,
+    );
+    final text = SynthesisTemplateCatalog.realize(
+      claim: record,
+      placement: placement,
+      chronology: chronology,
+      material: materialById[record.id],
+      asOf: analysis.asOf,
+      horizonIndex: chronology == ClaimChronology.horizon ? horizonIndex++ : 0,
+    );
+    final validation = catalog.validateSelection(
+      record: record,
+      contextId: contextId,
+      currentAge: timeline.currentAge,
+      asOf: analysis.asOf,
+      domain: domain,
+      chronology: chronology,
+      proposedText: text,
+    );
+    if (!validation.isValid) continue;
+    final section = _sectionBinding(
+      record: record,
+      chronology: chronology,
+      currentAge: timeline.currentAge,
+      next: nextPlacement,
+    );
+    final templateId = SynthesisTemplateCatalog.templateId(
+      claim: record,
+      placement: placement,
+      chronology: chronology,
+    );
+    final atom = PredictionAtom(
+      id: 'SRC-${record.id}',
+      readerText: text,
+      compactText: _compact(text),
+      owner: SemanticOwner(
+        id: 'OWNER-${record.id}',
+        meaningKey: _motifKey(record, chronology),
+      ),
+      evidence: EvidenceTrace([record.id, ...record.evidenceRefs]),
+      period: PeriodScope(record.periodBinding ?? 'REPORT'),
+      domain: domain,
+    );
+    realized.add(
+      _RealizedClaim(
+        record: record,
+        atom: atom,
+        provenance: GenerationProvenance(
+          atomId: atom.id,
+          selectedClaimId: record.id,
+          selectionReason:
+              'claim type, context, chronology and domain are applicable',
+          source: _generationSource(record.claimType),
+          claimType: record.claimType,
+          applicabilityResult: chronology.name,
+          templateId: templateId,
+          evidenceResolution: validation,
+        ),
+        sectionId: section.$1,
+        sectionRole: section.$2,
+        sectionTitle: section.$3,
+        blockHeading: section.$4,
+        chronology: chronology,
+        motifKey: _motifKey(record, chronology),
+      ),
+    );
+  }
+  final sections = _groupRealized(realized);
+  final provenance = realized.map((item) => item.provenance).toList();
+  final predictions = realized.map((item) => item.atom).toList();
+  if (predictions.isNotEmpty) {
+    final first = predictions.first;
+    final second = predictions.length > 1 ? predictions[1] : null;
+    final summaryText = second == null
+        ? 'ประเด็นหลักของรอบนี้คือ ${first.compactText}'
+        : 'ประเด็นหลักของรอบนี้คือ ${first.compactText} ส่วนเรื่องถัดมาคือ ${second.compactText}';
+    final refs = <String>{
+      ...first.evidence.refs,
+      if (second != null) ...second.evidence.refs,
+    }.toList(growable: false);
+    final summary = SummaryAtom(
+      id: 'SRC-SUMMARY-${timeline.currentAge}',
+      readerText: summaryText,
+      compactText: _compact(summaryText),
+      owner: SemanticOwner(
+        id: 'SUMMARY-${first.owner.id}',
+        meaningKey: 'compressed-reference-${first.owner.meaningKey}',
+      ),
+      evidence: EvidenceTrace(refs),
+      period: const PeriodScope('REPORT'),
+      domain: DomainScope.lifePath,
+    );
+    sections.add(
+      _section('summary', NarrativeSectionRole.summary, 'สรุปคำทำนาย', [
+        summary,
+      ]),
+    );
+    provenance.add(
+      GenerationProvenance(
+        atomId: summary.id,
+        selectedClaimId: 'compressed-selected-claims',
+        selectionReason: 'declared compressed reference; no new outcome added',
+        source: GenerationSource.structuralSummary,
+        claimType: PredictiveAuthorityType.ownerAuthorizedSynthesis,
+        applicabilityResult: 'report',
+        templateId: 'compressed-reference-v1',
+        evidenceResolution: catalog.validateReferences(refs),
+        compressedReference: true,
+      ),
+    );
+  }
   const disclosure = DisclosureAtom(
-    id: 'RC11-K-DISCLOSURE-01',
+    id: 'SRC-DISCLOSURE-KNOWN',
     readerText:
         'คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ',
     compactText: 'ใช้ประกอบการทบทวนและเทียบกับข้อเท็จจริง',
@@ -900,197 +1423,200 @@ PredictiveNarrativePlan _realizePromotedCorpusClaims(
     domain: DomainScope.disclosure,
     eligibility: KnownUnknownEligibility.knownOnly,
   );
-
-  final sections = <NarrativeSection>[
-    _section('overview', NarrativeSectionRole.overview, 'ภาพรวมเส้นทางชีวิต', [
-      overview,
-    ]),
-    NarrativeSection(
-      id: 'past',
-      role: NarrativeSectionRole.past,
-      title: 'คำทำนายอดีต',
-      blocks: [
-        NarrativeBlock(heading: 'อายุ 1–10 ปี', atoms: [past1]),
-        NarrativeBlock(heading: 'อายุ 11–29 ปี', atoms: [past2, past3]),
-        NarrativeBlock(heading: 'อายุ 30–41 ปี', atoms: [past4, past5]),
-      ],
+  sections.add(
+    _section('disclaimer', NarrativeSectionRole.disclaimer, '', [disclosure]),
+  );
+  provenance.add(
+    GenerationProvenance(
+      atomId: disclosure.id,
+      selectedClaimId: 'DISCLOSURE-K-01',
+      selectionReason: 'single accepted belief disclosure',
+      source: GenerationSource.disclosure,
+      claimType: PredictiveAuthorityType.disclosure,
+      applicabilityResult: 'report',
+      templateId: 'belief-disclosure-v1',
+      evidenceResolution: catalog.validateReferences(['DISCLOSURE-K-01']),
     ),
-    _section(
-      'current',
-      NarrativeSectionRole.current,
-      'คำทำนายปัจจุบัน — อายุ $age ปี',
-      [current],
-    ),
-    _section('work', NarrativeSectionRole.work, 'การงาน', [work1, work2]),
-    _section('finance', NarrativeSectionRole.finance, 'การเงิน', [
-      finance1,
-      finance2,
-    ]),
-    _section(
-      'relationship',
-      NarrativeSectionRole.relationship,
-      'ความรักและความสัมพันธ์',
-      [relationship1, relationship2],
-    ),
-    _section('health', NarrativeSectionRole.health, 'สุขภาพ', [
-      health1,
-      health2,
-    ]),
-    _section('support', NarrativeSectionRole.support, 'โชคลาภและแรงสนับสนุน', [
-      support1,
-      support2,
-    ]),
-    _section(
-      'horizon',
-      NarrativeSectionRole.horizon,
-      'คำทำนาย 12 เดือนข้างหน้า',
-      [horizon1, horizon2, horizon3],
-    ),
-    _section(
-      'next',
-      NarrativeSectionRole.nextLifePeriod,
-      'ช่วงชีวิตถัดไป — อายุ 63–79 ปี',
-      [next1, next2],
-    ),
-    _section('summary', NarrativeSectionRole.summary, 'สรุปคำทำนาย', [summary]),
-    NarrativeSection(
-      id: 'advice',
-      role: NarrativeSectionRole.advice,
-      title: 'คำแนะนำสั้น ๆ',
-      blocks: const [
-        NarrativeBlock(atoms: [advice]),
-      ],
-    ),
-    NarrativeSection(
-      id: 'disclaimer',
-      role: NarrativeSectionRole.disclaimer,
-      title: '',
-      blocks: const [
-        NarrativeBlock(atoms: [disclosure]),
-      ],
-    ),
-  ];
-  final resolvedRefs = <String>{
-    ...PredictiveEvidenceRegistry.promotedCorpusRefs,
-    ...sections.expand((section) => section.atoms).map((atom) => atom.owner.id),
-  }.toList(growable: false);
+  );
   return PredictiveNarrativePlan(
     contextId: contextId,
     isKnownTime: true,
     title: 'คำทำนายดวงชะตา',
     subtitle: _knownSubtitle(analysis),
-    sections: sections,
-    resolvedEvidenceRefs: resolvedRefs,
+    sections: List.unmodifiable(sections),
+    evidenceCatalog: catalog,
+    provenance: List.unmodifiable(provenance),
   );
 }
 
-PredictiveNarrativePlan _realizeGenericContextClaimSet(
-  ThaiBetaAnalysis analysis, {
-  required String contextId,
-}) {
-  final timeline = analysis.pipelineResult?.lifePeriods;
-  if (timeline == null) {
-    throw StateError('Known-time narrative requires a computed life timeline.');
-  }
-  final prediction = analysis.consumerViewState?.futurePrediction;
-  final age = timeline.currentAge;
+List<NarrativeSection> _groupRealized(List<_RealizedClaim> realized) {
   final sections = <NarrativeSection>[];
+  for (final role in NarrativeSectionRole.values) {
+    final matching = realized
+        .where((item) => item.sectionRole == role)
+        .toList();
+    if (matching.isEmpty) continue;
+    final first = matching.first;
+    if (role == NarrativeSectionRole.past) {
+      final headings = <String>[];
+      for (final item in matching) {
+        final heading = item.blockHeading!;
+        if (!headings.contains(heading)) headings.add(heading);
+      }
+      sections.add(
+        NarrativeSection(
+          id: first.sectionId,
+          role: role,
+          title: first.sectionTitle,
+          blocks: [
+            for (final heading in headings)
+              NarrativeBlock(
+                heading: heading,
+                atoms: matching
+                    .where((item) => item.blockHeading == heading)
+                    .map((item) => item.atom)
+                    .toList(growable: false),
+              ),
+          ],
+        ),
+      );
+    } else {
+      sections.add(
+        NarrativeSection(
+          id: first.sectionId,
+          role: role,
+          title: first.sectionTitle,
+          blocks: [
+            NarrativeBlock(
+              atoms: matching.map((item) => item.atom).toList(growable: false),
+            ),
+          ],
+        ),
+      );
+    }
+  }
+  return sections;
+}
 
-  NarrativeAtom claim({
-    required String claimId,
-    required String ownerId,
-    required String meaning,
-    required String text,
-    required String period,
-    required DomainScope domain,
-    required List<String> refs,
-  }) => _realizeClaimSpec(
-    PredictiveClaimSpec(
-      claimId: claimId,
-      semanticOwnerId: ownerId,
-      meaningKey: meaning,
-      evidenceRefs: List.unmodifiable(refs),
-      contextSelector: contextId,
-      periodSelector: period,
-      domain: domain,
-      role: NarrativeAtomRole.prediction,
-      readerCopy: text,
-      compactCopy: _compact(text),
+NarrativeAtom _nonPredictionAtom(PredictiveAuthorityRecord record) {
+  final shared = (
+    id: record.readerClaimId!,
+    text: record.readerText!,
+    compact: _compact(record.readerText!),
+    owner: SemanticOwner(
+      id: record.semanticOwnerId!,
+      meaningKey: record.meaningKey!,
+    ),
+    evidence: EvidenceTrace(record.evidenceRefs),
+    period: PeriodScope(record.periodBinding ?? 'REPORT'),
+    domain: _domainScope(record.domainKey),
+  );
+  return switch (record.readerRole) {
+    'ADVICE' => AdviceAtom(
+      id: shared.id,
+      readerText: shared.text,
+      compactText: shared.compact,
+      owner: shared.owner,
+      evidence: shared.evidence,
+      period: shared.period,
+      domain: shared.domain,
+    ),
+    'DISCLOSURE' => DisclosureAtom(
+      id: shared.id,
+      readerText: shared.text,
+      compactText: shared.compact,
+      owner: shared.owner,
+      evidence: shared.evidence,
+      period: shared.period,
+      domain: shared.domain,
       eligibility: KnownUnknownEligibility.knownOnly,
     ),
-  );
+    'OMISSION' => OmissionAtom(
+      id: shared.id,
+      readerText: shared.text,
+      compactText: shared.compact,
+      owner: shared.owner,
+      evidence: shared.evidence,
+      period: shared.period,
+      domain: shared.domain,
+    ),
+    _ => throw StateError(
+      'Unsupported non-prediction role ${record.readerRole}',
+    ),
+  };
+}
 
-  final overviewRefs = timeline.periods
-      .take(4)
-      .map((period) => _placementRef(contextId, period))
-      .toList(growable: false);
-  sections.add(
-    _section('overview', NarrativeSectionRole.overview, 'ภาพรวมเส้นทางชีวิต', [
-      claim(
-        claimId: 'GEN-LIFE-OVERVIEW',
-        ownerId: 'LIFE-ARC-${timeline.startPlanet.name.toUpperCase()}',
-        meaning: 'chronological-life-period-arc',
-        text: _genericOverviewCopy(timeline),
-        period: 'LIFE',
-        domain: DomainScope.lifePath,
-        refs: overviewRefs,
-      ),
-    ]),
-  );
-
-  final pastBlocks = <NarrativeBlock>[];
-  for (final period in timeline.periods.where((item) => item.isPast)) {
-    final range = '${period.startAge}-${period.endAge}';
-    pastBlocks.add(
-      NarrativeBlock(
-        heading: 'อายุ ${period.startAge}–${period.endAge} ปี',
-        atoms: [
-          claim(
-            claimId: 'GEN-PAST-${period.planet.name.toUpperCase()}-$range',
-            ownerId: 'LIFE-PERIOD-${period.planet.name.toUpperCase()}-$range',
-            meaning: 'past-period-${period.planet.name}',
-            text: _pastPeriodCopy(period),
-            period: range,
-            domain: DomainScope.lifePath,
-            refs: [_placementRef(contextId, period)],
-          ),
-        ],
-      ),
+(String, NarrativeSectionRole, String, String?) _sectionBinding({
+  required PredictiveAuthorityRecord record,
+  required ClaimChronology chronology,
+  required int currentAge,
+  required PredictiveAuthorityRecord? next,
+}) {
+  if (chronology == ClaimChronology.past) {
+    return (
+      'past',
+      NarrativeSectionRole.past,
+      'คำทำนายอดีต',
+      'อายุ ${_thaiPeriodLabel(record.periodBinding)} ปี',
     );
   }
-  if (pastBlocks.isNotEmpty) {
-    sections.add(
-      NarrativeSection(
-        id: 'past',
-        role: NarrativeSectionRole.past,
-        title: 'คำทำนายอดีต',
-        blocks: pastBlocks,
-      ),
+  if (chronology == ClaimChronology.horizon) {
+    return (
+      'horizon',
+      NarrativeSectionRole.horizon,
+      'คำทำนาย 12 เดือนข้างหน้า',
+      null,
     );
   }
-
-  final current = timeline.current;
-  sections.add(
-    _section(
+  if (chronology == ClaimChronology.future) {
+    final title = next == null
+        ? 'ช่วงชีวิตถัดไป'
+        : 'ช่วงชีวิตถัดไป — อายุ ${_thaiPeriodLabel(next.periodBinding)} ปี';
+    return ('next', NarrativeSectionRole.nextLifePeriod, title, null);
+  }
+  final domain = _domainScope(record.domainKey);
+  if (domain == DomainScope.lifePath || domain == DomainScope.foundation) {
+    return (
       'current',
       NarrativeSectionRole.current,
-      'คำทำนายปัจจุบัน — อายุ $age ปี',
-      [
-        claim(
-          claimId: 'GEN-CURRENT-${current.planet.name.toUpperCase()}',
-          ownerId: 'LIFE-CURRENT-${current.planet.name.toUpperCase()}',
-          meaning: 'current-period-${current.planet.name}',
-          text: _currentPeriodCopy(current, age),
-          period: '${current.startAge}-${current.endAge}|age$age',
-          domain: DomainScope.lifePath,
-          refs: [_placementRef(contextId, current)],
-        ),
-      ],
+      'คำทำนายปัจจุบัน — อายุ $currentAge ปี',
+      null,
+    );
+  }
+  return switch (domain) {
+    DomainScope.finance => (
+      'finance',
+      NarrativeSectionRole.finance,
+      'การเงิน',
+      null,
     ),
-  );
+    DomainScope.relationship || DomainScope.financeAndRelationship => (
+      'relationship',
+      NarrativeSectionRole.relationship,
+      'ความรักและความสัมพันธ์',
+      null,
+    ),
+    DomainScope.health => (
+      'health',
+      NarrativeSectionRole.health,
+      'สุขภาพ',
+      null,
+    ),
+    DomainScope.support || DomainScope.luck || DomainScope.supportAndFamily => (
+      'support',
+      NarrativeSectionRole.support,
+      'โชคลาภและแรงสนับสนุน',
+      null,
+    ),
+    _ => ('work', NarrativeSectionRole.work, 'การงาน', null),
+  };
+}
 
+List<ForecastMaterialFingerprint> _forecastMaterials(
+  ThaiBetaAnalysis analysis,
+) {
   final materials =
-      prediction?.windows
+      analysis.consumerViewState?.futurePrediction?.windows
           .expand((window) => window.domains)
           .map((domain) => domain.material)
           .whereType<ForecastMaterialFingerprint>()
@@ -1103,313 +1629,16 @@ PredictiveNarrativePlan _realizeGenericContextClaimSet(
           )
           .toList(growable: false) ??
       const <ForecastMaterialFingerprint>[];
-
-  final currentMaterials = _oneMaterialPerDomain(
-    materials.where((material) => material.horizon == ForecastHorizon.current),
-  );
-  for (final material in currentMaterials) {
-    final binding = _domainBinding(material.domain);
-    sections.add(
-      _section(binding.$1.name, binding.$1, binding.$3, [
-        claim(
-          claimId:
-              'GEN-CURRENT-${material.domain.name.toUpperCase()}-${material.band.name.toUpperCase()}',
-          ownerId:
-              'FORECAST-CURRENT-${material.domain.name.toUpperCase()}-${material.band.name.toUpperCase()}',
-          meaning: 'current-${material.domain.name}-${material.band.name}',
-          text: _forecastReaderCopy(material),
-          period: '${current.startAge}-${current.endAge}|age$age',
-          domain: binding.$2,
-          refs: [material.evidenceKey],
-        ),
-      ]),
-    );
-  }
-
-  sections.add(
-    _section('support', NarrativeSectionRole.support, 'โชคลาภและแรงสนับสนุน', [
-      claim(
-        claimId: 'GEN-SUPPORT-${current.planet.name.toUpperCase()}',
-        ownerId: 'LIFE-SUPPORT-${current.planet.name.toUpperCase()}',
-        meaning: 'support-from-current-life-period',
-        text: _supportCopy(current.planet),
-        period: '${current.startAge}-${current.endAge}|age$age',
-        domain: DomainScope.support,
-        refs: [_placementRef(contextId, current)],
-      ),
-    ]),
-  );
-
-  final horizonMaterials = _oneMaterialPerDomain(
-    materials.where(
-      (material) => material.horizon == ForecastHorizon.next12Months,
-    ),
-  );
-  if (horizonMaterials.isNotEmpty) {
-    final range = _longHorizonRange(analysis.asOf);
-    final atoms = <NarrativeAtom>[];
-    for (var index = 0; index < horizonMaterials.length; index++) {
-      final material = horizonMaterials[index];
-      final lead = index == 0
-          ? 'ระหว่างวันที่ ${_thaiLongDate(range.$1)} ถึง ${_thaiLongDate(range.$2)} '
-          : 'ในช่วงเดียวกัน ';
-      atoms.add(
-        claim(
-          claimId:
-              'GEN-HORIZON-${material.domain.name.toUpperCase()}-${material.band.name.toUpperCase()}',
-          ownerId:
-              'FORECAST-NEXT12MONTHS-${material.domain.name.toUpperCase()}-${material.band.name.toUpperCase()}',
-          meaning: 'horizon-${material.domain.name}-${material.band.name}',
-          text:
-              '$lead${_forecastReaderCopy(material, includeHorizonLead: false)}',
-          period: '${_isoDate(range.$1)}/${_isoDate(range.$2)}',
-          domain: _domainBinding(material.domain).$2,
-          refs: [material.evidenceKey],
-        ),
-      );
-    }
-    sections.add(
-      _section(
-        'horizon',
-        NarrativeSectionRole.horizon,
-        'คำทำนาย 12 เดือนข้างหน้า',
-        atoms,
-      ),
-    );
-  }
-
-  final next = timeline.next;
-  if (next != null) {
-    final nextAtoms = <NarrativeAtom>[
-      claim(
-        claimId: 'GEN-NEXT-${next.planet.name.toUpperCase()}',
-        ownerId: 'LIFE-NEXT-${next.planet.name.toUpperCase()}',
-        meaning: 'next-life-period-${next.planet.name}',
-        text: _nextPeriodCopy(next),
-        period: '${next.startAge}-${next.endAge}',
-        domain: DomainScope.foundation,
-        refs: [_placementRef(contextId, next)],
-      ),
-    ];
-    for (final material in _oneMaterialPerDomain(
-      materials.where((item) => item.horizon == ForecastHorizon.nextLifePeriod),
-    )) {
-      nextAtoms.add(
-        claim(
-          claimId:
-              'GEN-NEXT-${material.domain.name.toUpperCase()}-${material.band.name.toUpperCase()}',
-          ownerId:
-              'FORECAST-NEXTLIFEPERIOD-${material.domain.name.toUpperCase()}-${material.band.name.toUpperCase()}',
-          meaning: 'next-life-${material.domain.name}-${material.band.name}',
-          text: _forecastReaderCopy(material),
-          period: '${next.startAge}-${next.endAge}',
-          domain: _domainBinding(material.domain).$2,
-          refs: [material.evidenceKey],
-        ),
-      );
-    }
-    sections.add(
-      _section(
-        'next',
-        NarrativeSectionRole.nextLifePeriod,
-        'ช่วงชีวิตถัดไป — อายุ ${next.startAge}–${next.endAge} ปี',
-        nextAtoms,
-      ),
-    );
-  }
-
-  final predictiveOwners = sections
-      .expand((section) => section.atoms)
-      .map((atom) => atom.owner.id)
-      .toList(growable: false);
-  final primaryDomain = currentMaterials.isEmpty
-      ? ForecastDomain.career
-      : currentMaterials.first.domain;
-  final summaryText = _genericSummaryCopy(
-    current: current,
-    primaryDomain: primaryDomain,
-  );
-  sections.add(
-    _section('summary', NarrativeSectionRole.summary, 'สรุปคำทำนาย', [
-      SummaryAtom(
-        id: 'GEN-SUMMARY-${current.planet.name.toUpperCase()}',
-        readerText: summaryText,
-        compactText: _compact(summaryText),
-        owner: SemanticOwner(
-          id: 'SUMMARY-${current.planet.name.toUpperCase()}-${primaryDomain.name.toUpperCase()}',
-          meaningKey: 'compressed-generic-summary',
-        ),
-        evidence: EvidenceTrace(predictiveOwners),
-        period: const PeriodScope('REPORT'),
-        domain: DomainScope.lifePath,
-      ),
-    ]),
-  );
-
-  final adviceText = _genericAdviceCopy(primaryDomain);
-  sections.add(
-    _section('advice', NarrativeSectionRole.advice, 'คำแนะนำสั้น ๆ', [
-      AdviceAtom(
-        id: 'GEN-ADVICE-${primaryDomain.name.toUpperCase()}',
-        readerText: adviceText,
-        compactText: _compact(adviceText),
-        owner: SemanticOwner(
-          id: 'ADVICE-${primaryDomain.name.toUpperCase()}-BOUNDARY',
-          meaningKey: 'generic-decision-boundary',
-        ),
-        evidence: EvidenceTrace([
-          if (currentMaterials.isNotEmpty)
-            currentMaterials.first.evidenceKey
-          else
-            _placementRef(contextId, current),
-        ]),
-        period: const PeriodScope('REPORT'),
-        domain: DomainScope.advice,
-      ),
-    ]),
-  );
-  sections.add(
-    const NarrativeSection(
-      id: 'disclaimer',
-      role: NarrativeSectionRole.disclaimer,
-      title: '',
-      blocks: [
-        NarrativeBlock(
-          atoms: [
-            DisclosureAtom(
-              id: 'GEN-DISCLOSURE-KNOWN',
-              readerText:
-                  'คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ',
-              compactText: 'ใช้ประกอบการทบทวนและเทียบกับข้อเท็จจริง',
-              owner: SemanticOwner(
-                id: 'DISCLOSURE-K-01',
-                meaningKey: 'belief-disclosure',
-              ),
-              evidence: EvidenceTrace(['DISCLOSURE-K-01']),
-              period: PeriodScope('REPORT'),
-              domain: DomainScope.disclosure,
-              eligibility: KnownUnknownEligibility.knownOnly,
-            ),
-          ],
-        ),
-      ],
-    ),
-  );
-
-  final resolvedRefs = <String>{
-    for (final period in timeline.periods) _placementRef(contextId, period),
-    for (final material in materials) material.evidenceKey,
-    for (final atom in sections.expand((section) => section.atoms))
-      atom.owner.id,
-    'DISCLOSURE-K-01',
-  }.toList(growable: false);
-  return PredictiveNarrativePlan(
-    contextId: contextId,
-    isKnownTime: true,
-    title: 'คำทำนายดวงชะตา',
-    subtitle: _knownSubtitle(analysis),
-    sections: List.unmodifiable(sections),
-    resolvedEvidenceRefs: resolvedRefs,
-  );
-}
-
-List<ForecastMaterialFingerprint> _oneMaterialPerDomain(
-  Iterable<ForecastMaterialFingerprint> materials,
-) {
-  final byDomain = <ForecastDomain, ForecastMaterialFingerprint>{};
+  final byKey = <String, ForecastMaterialFingerprint>{};
   for (final material in materials) {
-    byDomain.putIfAbsent(material.domain, () => material);
+    byKey.putIfAbsent(material.evidenceKey, () => material);
   }
-  return [for (final domain in ForecastDomain.values) ?byDomain[domain]];
+  return List.unmodifiable(byKey.values);
 }
-
-(NarrativeSectionRole, DomainScope, String) _domainBinding(
-  ForecastDomain domain,
-) => switch (domain) {
-  ForecastDomain.career => (
-    NarrativeSectionRole.work,
-    DomainScope.work,
-    'การงาน',
-  ),
-  ForecastDomain.finance => (
-    NarrativeSectionRole.finance,
-    DomainScope.finance,
-    'การเงิน',
-  ),
-  ForecastDomain.relationship => (
-    NarrativeSectionRole.relationship,
-    DomainScope.relationship,
-    'ความรักและความสัมพันธ์',
-  ),
-  ForecastDomain.health => (
-    NarrativeSectionRole.health,
-    DomainScope.health,
-    'สุขภาพ',
-  ),
-};
-
-String _placementRef(String contextId, PeriodState period) =>
-    'placement.$contextId.${period.planet.name}.${period.startAge}_${period.endAge}';
-
-String _genericOverviewCopy(LifeTimeline timeline) {
-  final current = timeline.current;
-  final next = timeline.next;
-  final currentData = LifePlanets.of(current.planet);
-  final nextText = next == null
-      ? ''
-      : ' หลังอายุ ${next.startAge} บทบาทของ${LifePlanets.of(next.planet).keyword}จะเข้ามาแทนที่';
-  return 'ชีวิตเดินผ่านช่วงที่มีหน้าที่ต่างกันอย่างชัดเจน '
-      'ช่วงอายุ ${current.startAge}–${current.endAge} '
-      '${currentData.keyword}เป็นเรื่องนำของชีวิต$nextText';
-}
-
-String _pastPeriodCopy(PeriodState period) {
-  final label = '${period.startAge}–${period.endAge}';
-  return switch (period.planet) {
-    LifePlanet.saturn =>
-      'ช่วงอายุ $label ชีวิตอยู่ใต้เงื่อนไขของหน้าที่และกติกาที่ชัด หลายเรื่องเดินหน้าได้เมื่อรับผิดชอบสิ่งจำเป็นให้ครบก่อน',
-    LifePlanet.jupiter =>
-      'ช่วงอายุ $label การเรียน งาน และสังคมเปิดกว้างขึ้น คนที่มีประสบการณ์กว่าพาให้เห็นโอกาสและทางเลือกใหม่',
-    LifePlanet.rahu =>
-      'ช่วงอายุ $label งานหรือข้อตกลงสำคัญเปลี่ยนรูปแบบ ทางเดิมที่ไปต่อไม่ได้จบลง และทางใหม่เริ่มชัดจากการลงมือจริง',
-    LifePlanet.venus =>
-      'ช่วงอายุ $label ผลจากงานและความสัมพันธ์ที่สั่งสมไว้เริ่มชัด เรื่องที่ทำต่อเนื่องให้ผลตอบแทนมากกว่าสิ่งที่เพิ่งเริ่ม',
-    LifePlanet.sun =>
-      'ช่วงอายุ $label ผลงานและบทบาทของคุณถูกมองเห็นชัดขึ้น หน้าที่ที่ต้องตัดสินใจแทนคนอื่นเข้ามาพร้อมการยอมรับ',
-    LifePlanet.moon =>
-      'ช่วงอายุ $label เรื่องบ้าน ครอบครัว และความมั่นคงทางใจเป็นแกนของการตัดสินใจ ความสัมพันธ์ใกล้ตัวเปลี่ยนตามภาระที่รับไว้',
-    LifePlanet.mars =>
-      'ช่วงอายุ $label ชีวิตเดินเร็วขึ้นจากการตัดสินใจและลงมือ เรื่องที่ค้างถูกผลักให้จบพร้อมกับการเริ่มทางใหม่',
-    LifePlanet.mercury =>
-      'ช่วงอายุ $label การเรียนรู้ การสื่อสาร และการเชื่อมคนหลายฝ่ายเปิดทางให้งานและรายได้รูปแบบใหม่',
-  };
-}
-
-String _currentPeriodCopy(
-  PeriodState period,
-  int age,
-) => switch (period.planet) {
-  LifePlanet.saturn =>
-    'อายุ $age อยู่ในช่วงจัดฐานชีวิตให้มั่นคง ภาระที่รับไว้ต้องมีขอบเขตชัด และเรื่องที่ไม่สร้างผลต่อเนื่องจะถูกตัดออกก่อนอายุ ${period.endAge}',
-  LifePlanet.jupiter =>
-    'อายุ $age อยู่ในช่วงขยายความรู้ งาน และเครือข่าย โอกาสใหม่เข้ามาผ่านคนที่เห็นผลงานและพร้อมเปิดทางให้',
-  LifePlanet.rahu =>
-    'อายุ $age อยู่ในช่วงเปลี่ยนทิศ เรื่องที่ค้างต้องได้ข้อสรุป งานหรือข้อตกลงที่ไปต่อจะเปลี่ยนรูปแบบให้ชัดกว่าเดิม',
-  LifePlanet.venus =>
-    'อายุ $age อยู่ในช่วงเก็บผลจากสิ่งที่ทำต่อเนื่อง งาน เงิน และความสัมพันธ์จะชัดขึ้นตามคุณภาพของข้อตกลงที่รักษาไว้',
-  LifePlanet.sun =>
-    'อายุ $age เป็นช่วงที่ผลงานและความรับผิดชอบถูกมองเห็น การตัดสินใจที่ชัดจะกำหนดบทบาทหลักของรอบนี้',
-  LifePlanet.moon =>
-    'อายุ $age เป็นช่วงจัดบ้าน ความสัมพันธ์ และเวลาพักให้สมดุล เรื่องใกล้ตัวที่ยังค้างจะถูกนำมาจัดการให้จบ',
-  LifePlanet.mars =>
-    'อายุ $age เป็นช่วงลงมือและตัดสินใจ งานที่หยุดนิ่งจะถูกผลักให้เดินหน้า พร้อมกับการตัดภาระที่ขัดกับเป้าหมายหลัก',
-  LifePlanet.mercury =>
-    'อายุ $age เป็นช่วงใช้ความคิด การสื่อสาร และข้อมูลสร้างทางเลือกใหม่ งานที่เชื่อมหลายฝ่ายจะมีบทบาทมากขึ้น',
-};
 
 String _forecastReaderCopy(
   ForecastMaterialFingerprint material, {
-  bool includeHorizonLead = true,
+  required bool includeHorizonLead,
 }) {
   final horizon = includeHorizonLead
       ? switch (material.horizon) {
@@ -1436,63 +1665,165 @@ String _forecastReaderCopy(
   return '$horizon$body';
 }
 
-String _supportCopy(LifePlanet planet) => switch (planet) {
-  LifePlanet.saturn =>
-    'แรงสนับสนุนมาจากคนที่ไว้ใจความรับผิดชอบและเห็นว่าคุณทำเรื่องยากได้ต่อเนื่อง',
-  LifePlanet.jupiter =>
-    'แรงสนับสนุนมาจากครู ผู้ใหญ่ และคนที่พร้อมแบ่งความรู้หรือเปิดทางให้โอกาสใหม่',
-  LifePlanet.rahu =>
-    'แรงสนับสนุนมาจากคนที่เคยผ่านการเปลี่ยนแปลงและช่วยแก้เรื่องติดขัดได้เร็ว',
-  LifePlanet.venus =>
-    'แรงสนับสนุนมาจากคนที่เคยเห็นผลงานและรักษาความสัมพันธ์กับคุณมาอย่างต่อเนื่อง',
-  LifePlanet.sun =>
-    'แรงสนับสนุนมาจากคนที่เห็นผลงานชัดและพร้อมมอบบทบาทให้ตัดสินใจ',
-  LifePlanet.moon =>
-    'แรงสนับสนุนมาจากครอบครัว คนใกล้ตัว และเครือข่ายที่ดูแลกันในชีวิตประจำวัน',
-  LifePlanet.mars =>
-    'แรงสนับสนุนมาจากคนที่พร้อมลงมือและช่วยพาเรื่องค้างให้เดินหน้า',
-  LifePlanet.mercury =>
-    'แรงสนับสนุนมาจากคนที่แลกเปลี่ยนข้อมูล เชื่อมเครือข่าย และช่วยให้การเจรจาเดินต่อ',
-};
-
-String _nextPeriodCopy(PeriodState period) {
-  final data = LifePlanets.of(period.planet);
-  final phaseEssence = switch (period.planet) {
-    LifePlanet.sun => 'ช่วงสั้น ๆ ที่ผลงานและบทบาทที่รับผิดชอบถูกมองเห็นชัดเจน',
-    _ => data.phaseEssence,
+String _broadDomainCopy(String? domain, String? periodStatus) {
+  final movement = periodStatus == 'dueng_tok'
+      ? 'ต้องค่อย ๆ จัดฐาน'
+      : 'เดินหน้าได้ดีขึ้น';
+  return switch (domain) {
+    'life_path' =>
+      'ความรับผิดชอบพาไปสู่งานและเงินที่แข็งแรงขึ้น ก่อนต่อยอดเป็นฐานระยะยาว',
+    'work' || 'career' || 'work_and_commitment' =>
+      'งาน$movement และขอบเขตความรับผิดชอบชัดขึ้นตามสิ่งที่ทำสำเร็จ',
+    'finance' =>
+      'เงินและผลจากสิ่งที่ทำ$movement โดยไม่ขยายเป็นจำนวนหรือโชคลาภก้อนใหญ่',
+    'foundation' => 'การสร้างฐานบ้าน ทรัพย์ และเงินระยะยาว$movement',
+    'support' => 'แรงสนับสนุนจากคนที่เกี่ยวข้องช่วยให้เรื่องสำคัญ$movement',
+    _ => 'เรื่องที่มีหลักฐานรองรับ$movementภายในขอบเขตของช่วงนี้',
   };
-  return 'เมื่ออายุ ${period.startAge} ปี ชีวิตเข้าสู่${data.phaseName} '
-      '$phaseEssence บทบาทเดิมที่ไปต่อจะถูกจัดให้เป็นฐานของช่วงอายุ '
-      '${period.startAge}–${period.endAge}';
 }
 
-String _genericSummaryCopy({
-  required PeriodState current,
-  required ForecastDomain primaryDomain,
-}) =>
-    'ช่วงปัจจุบันให้${LifePlanets.of(current.planet).keyword}เป็นแกน '
-    '${_domainLabel(primaryDomain)}เป็นเรื่องที่ต้องจัดให้ชัดก่อนขยายแผน '
-    'เมื่อภาระหลักลงตัว เส้นทางถัดไปจะต่อยอดจากสิ่งที่ทำได้จริง';
-
-String _genericAdviceCopy(
-  ForecastDomain primaryDomain,
-) => switch (primaryDomain) {
-  ForecastDomain.career =>
-    'รับงานใหม่เมื่อขอบเขต ผลลัพธ์ และอำนาจตัดสินใจชัด ปิดงานค้างก่อนเพิ่มบทบาท และกันเวลาพักไว้ในแผน',
-  ForecastDomain.finance =>
-    'กันเงินสำหรับรายการจำเป็นก่อนรับข้อผูกพันใหม่ ตรวจยอดพร้อมใช้เป็นระยะ และขยายแผนเมื่อฐานเงินรองรับ',
-  ForecastDomain.relationship =>
-    'พูดข้อตกลงเรื่องเวลา หน้าที่ และพื้นที่ส่วนตัวให้ตรง ใช้พฤติกรรมที่ทำต่อเนื่องเป็นหลักก่อนเพิ่มข้อผูกพัน',
-  ForecastDomain.health =>
-    'จัดวันพักและเวลานอนให้ทำได้จริง ลดภาระที่เข้ามาพร้อมกัน และเพิ่มงานเมื่อร่างกายฟื้นได้ตามปกติ',
+DomainScope _domainScope(String? key) => switch (key) {
+  'life_path' => DomainScope.lifePath,
+  'support_and_family' => DomainScope.supportAndFamily,
+  'education_social' => DomainScope.educationAndSocial,
+  'work' || 'career' => DomainScope.work,
+  'work_and_commitment' => DomainScope.workAndCommitment,
+  'finance' => DomainScope.finance,
+  'relationship' => DomainScope.relationship,
+  'health' => DomainScope.health,
+  'support' => DomainScope.support,
+  'luck' => DomainScope.luck,
+  'finance_relationship' => DomainScope.financeAndRelationship,
+  'communication' => DomainScope.communication,
+  'foundation' => DomainScope.foundation,
+  'advice' => DomainScope.advice,
+  'disclosure' => DomainScope.disclosure,
+  'omission' => DomainScope.omission,
+  _ => DomainScope.lifePath,
 };
 
-String _domainLabel(ForecastDomain domain) => switch (domain) {
-  ForecastDomain.career => 'งาน',
-  ForecastDomain.finance => 'การเงิน',
-  ForecastDomain.relationship => 'ความสัมพันธ์',
-  ForecastDomain.health => 'การพักและการฟื้นตัว',
+GenerationSource _generationSource(PredictiveAuthorityType type) =>
+    switch (type) {
+      PredictiveAuthorityType.sourceDirect => GenerationSource.sourceDirect,
+      PredictiveAuthorityType.generalRuleApplication =>
+        GenerationSource.generalRuleApplication,
+      PredictiveAuthorityType.ownerAuthorizedProductInterpretation ||
+      PredictiveAuthorityType.ownerAuthorizedSynthesis =>
+        GenerationSource.ownerAuthorizedSynthesis,
+      PredictiveAuthorityType.forecastMaterial =>
+        GenerationSource.forecastMaterial,
+      _ => throw StateError(
+        'Non-predictive authority cannot generate a prediction.',
+      ),
+    };
+
+PredictiveAuthorityType _authorityType(String raw) => switch (raw) {
+  'SOURCE_PLACEMENT_FACT' => PredictiveAuthorityType.placementFact,
+  'SOURCE_GENERAL_RULE' => PredictiveAuthorityType.sourceGeneralRule,
+  'SOURCE_DIRECT_PREDICTION' => PredictiveAuthorityType.sourceDirect,
+  'SOURCE_GENERAL_RULE_APPLICATION' =>
+    PredictiveAuthorityType.generalRuleApplication,
+  'OWNER_AUTHORIZED_PRODUCT_INTERPRETATION' =>
+    PredictiveAuthorityType.ownerAuthorizedProductInterpretation,
+  'OWNER_AUTHORIZED_ASTROLOGICAL_SYNTHESIS' =>
+    PredictiveAuthorityType.ownerAuthorizedSynthesis,
+  'FORECAST_MATERIAL' => PredictiveAuthorityType.forecastMaterial,
+  'ADVICE' => PredictiveAuthorityType.advice,
+  'DISCLOSURE' => PredictiveAuthorityType.disclosure,
+  'OMISSION' => PredictiveAuthorityType.omission,
+  _ => throw StateError('Unsupported predictive authority type: $raw'),
 };
+
+bool _domainKeysCompatible(String? key, DomainScope domain) {
+  if (key == null || key.isEmpty) return true;
+  return _domainScope(key) == domain;
+}
+
+List<String> _prohibitedEscalationHits(
+  PredictiveAuthorityRecord record,
+  String text,
+) {
+  if (record.prohibitedEscalation.isEmpty) return const [];
+  final hits = <String>[];
+  final prohibited = record.prohibitedEscalation.toSet();
+  if (prohibited.any(
+        (item) =>
+            item.contains('specific month') || item.contains('specific date'),
+      ) &&
+      RegExp(
+        r'(มกราคม|กุมภาพันธ์|มีนาคม|เมษายน|พฤษภาคม|มิถุนายน|กรกฎาคม|สิงหาคม|กันยายน|ตุลาคม|พฤศจิกายน|ธันวาคม)',
+      ).hasMatch(text)) {
+    hits.add('specific month or date');
+  }
+  if (prohibited.any(
+        (item) =>
+            item.contains('specific amount') ||
+            item.contains('numeric threshold'),
+      ) &&
+      RegExp(r'\d[\d,]*(?:\s*)(บาท|เปอร์เซ็นต์|%)').hasMatch(text)) {
+    hits.add('specific amount or numeric threshold');
+  }
+  if (prohibited.any((item) => item.contains('medical diagnosis')) &&
+      RegExp(r'(วินิจฉัย|มะเร็ง|เบาหวาน|โรคหัวใจ|โรคไต)').hasMatch(text)) {
+    hits.add('medical diagnosis');
+  }
+  if (prohibited.any((item) => item.contains('marriage or separation')) &&
+      RegExp(r'(แต่งงาน|สมรส|หย่าร้าง|เลิกรา|เลิกกัน)').hasMatch(text)) {
+    hits.add('marriage or separation');
+  }
+  if (prohibited.any((item) => item.contains('job transfer')) &&
+      text.contains('ย้ายงาน')) {
+    hits.add('job transfer');
+  }
+  if (prohibited.any((item) => item.contains('large windfall')) &&
+      text.contains('ลาภก้อนใหญ่')) {
+    hits.add('large windfall');
+  }
+  if (prohibited.any((item) => item.contains('specific promotion')) &&
+      text.contains('เลื่อนตำแหน่ง')) {
+    hits.add('specific promotion');
+  }
+  return hits;
+}
+
+bool _rangesOverlap(List<(int, int)> left, List<(int, int)> right) =>
+    left.any((a) => right.any((b) => a.$1 <= b.$2 && b.$1 <= a.$2));
+
+bool _rangeEqualsAny(List<(int, int)> ranges, int start, int end) =>
+    ranges.any((range) => range.$1 == start && range.$2 == end);
+
+int _chronologyRank(ClaimChronology chronology) => switch (chronology) {
+  ClaimChronology.past => 0,
+  ClaimChronology.current => 1,
+  ClaimChronology.horizon => 2,
+  ClaimChronology.future => 3,
+  ClaimChronology.report => 4,
+  ClaimChronology.unavailable => 5,
+};
+
+String _motifKey(
+  PredictiveAuthorityRecord record,
+  ClaimChronology chronology,
+) => [
+  record.domainKey ?? 'none',
+  record.movement ?? 'none',
+  record.periodBinding ?? 'none',
+  record.subject ?? record.meaningKey ?? 'none',
+  chronology.name,
+].map(_templateToken).join('|');
+
+String _templateToken(String value) => value
+    .toLowerCase()
+    .replaceAll(RegExp(r'[^a-z0-9]+'), '-')
+    .replaceAll(RegExp(r'^-+|-+$'), '');
+
+String _thaiPeriodLabel(String? binding) => (binding ?? 'ช่วงที่ระบุ')
+    .replaceAll(RegExp(r'\|.*$'), '')
+    .replaceAll('-', '–')
+    .replaceFirst(RegExp(r'^0–'), '1–');
+
+List<String> _mapStringList(Object? value) =>
+    (value as List? ?? const []).whereType<String>().toList(growable: false);
 
 NarrativeSection _section(
   String id,
@@ -1514,7 +1845,12 @@ String _compact(String value) {
     return normalized.substring(0, sentenceEnd + 1);
   }
   final cut = normalized.lastIndexOf(' ', 92);
-  return normalized.substring(0, cut > 48 ? cut : 92).trim();
+  // Thai words are not separated by spaces. If a complete first clause ends
+  // before the old 48-character threshold, falling back to a raw UTF-16 cut
+  // can leave a reader-facing fragment such as "รับภาระเพ". Prefer any useful
+  // clause boundary and keep the full text when no safe boundary exists.
+  if (cut > 24) return normalized.substring(0, cut).trim();
+  return normalized;
 }
 
 String _knownSubtitle(ThaiBetaAnalysis analysis) {
@@ -1573,6 +1909,11 @@ String _thaiLongDate(DateTime date) {
 
 String _isoDate(DateTime date) =>
     '${date.year.toString().padLeft(4, '0')}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}';
+
+bool _sameDate(DateTime left, DateTime right) =>
+    left.year == right.year &&
+    left.month == right.month &&
+    left.day == right.day;
 
 String _weekdayKey(int weekday) => switch (weekday) {
   1 => 'sunday',

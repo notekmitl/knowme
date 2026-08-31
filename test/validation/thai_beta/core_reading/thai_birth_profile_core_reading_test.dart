@@ -761,8 +761,9 @@ void main() {
     final timeline = find.byKey(const Key('thai_consumer_life_timeline'));
     expect(core, findsOneWidget);
     expect(timeline, findsOneWidget);
-    expect(find.text('ภาพรวมเส้นทางชีวิต'), findsOneWidget);
-    expect(find.text('คำทำนายอดีต'), findsOneWidget);
+    expect(find.text('ภาพรวมเส้นทางชีวิต'), findsNothing);
+    expect(find.text('คำทำนายอดีต'), findsNothing);
+    expect(find.text('คำทำนาย 12 เดือนข้างหน้า'), findsOneWidget);
     expect(
       find.byKey(const Key('thai_birth_profile_timeline_divider')),
       findsNothing,

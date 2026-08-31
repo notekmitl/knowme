@@ -223,7 +223,12 @@ void main() {
         }
         if (index == 0) {
           expect(text, contains('คำทำนาย 12 เดือนข้างหน้า'));
-          expect(text, contains('ข้อตกลงสำคัญในความสัมพันธ์'));
+          expect(
+            text,
+            contains(
+              'ช่วงอายุ 42–62 การทำงาน การสื่อสาร และการตัดสินใจเดินหน้าได้ราบรื่นขึ้น',
+            ),
+          );
         } else {
           expect(
             text,
@@ -347,10 +352,15 @@ void main() {
             expect(text, isNot(contains(phrase)), reason: phrase);
           }
         }
-        expect(texts.first, contains('รายได้ขยับตามบทบาทและผลงาน'));
         expect(
           texts.first,
-          contains('ฐานการเงินจะค่อย ๆ นิ่งเมื่อเงินไม่ต้องไหลไปเลี้ยงภาระ'),
+          contains(
+            'ช่วงอายุ 42–62 เงินที่ใช้หมุนคล่องขึ้น โดยยังไม่สรุปเป็นจำนวนหรือโชคลาภก้อนใหญ่',
+          ),
+        );
+        expect(
+          texts.first,
+          contains('ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม'),
         );
         expect(
           texts.last,
@@ -1245,16 +1255,17 @@ void main() {
         findsOneWidget,
       );
       expect(find.text('Thai Beta Capture Mode Active'), findsOneWidget);
-      final userAge = _timeline(userAnalysis).currentStage.currentAge;
-      expect(
-        find.byWidgetPredicate(
-          (widget) =>
-              widget is Text &&
-              ((widget.data?.contains('อายุ $userAge') ?? false) ||
-                  (widget.data?.contains('วัย $userAge ปี') ?? false)),
-        ),
-        findsWidgets,
-      );
+      final userDocument = ThaiBetaReportExportDocument.candidate(userAnalysis);
+      final qaParagraphs = ThaiBetaReportExportDocument.candidate(
+        qaSampleAnalysis,
+      ).sections.expand((section) => section.paragraphs).toSet();
+      final uniqueUserParagraph = userDocument.sections
+          .expand((section) => section.paragraphs)
+          .firstWhere(
+            (paragraph) =>
+                paragraph.length > 24 && !qaParagraphs.contains(paragraph),
+          );
+      expect(find.text(uniqueUserParagraph), findsOneWidget);
     });
   });
 

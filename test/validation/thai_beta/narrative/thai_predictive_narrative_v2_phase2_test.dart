@@ -125,7 +125,10 @@ void main() {
         PredictiveNarrativePlan.fromAnalysis(_owner(known: true, minute: 3)),
         PredictiveNarrativePlan.fromAnalysis(_owner(known: true, minute: 35)),
       ]) {
-        expect(plan.generationPath, 'generic-v2');
+        expect(
+          plan.generationPath,
+          startsWith('source-authorized-catalog-v1:'),
+        );
         expect(plan.legacyFallbackInvocations, 0);
         expect(plan.fixtureSpecialInvocations, 0);
         for (final atom in plan.atoms) {
@@ -135,6 +138,63 @@ void main() {
         }
       }
     });
+
+    test('runtime source has no OR1 context promotion or prose dispatcher', () {
+      final source = File(
+        'lib/features/thai_beta/application/narrative/'
+        'predictive_narrative_plan.dart',
+      ).readAsStringSync();
+      expect(source, isNot(contains('_acceptedCorpusPromotionByContext')));
+      expect(source, isNot(contains('_realizePromotedCorpusClaims')));
+      expect(source, isNot(contains('_acceptedKnownPlan')));
+      expect(source, isNot(contains("replaceAll('อาจ', '')")));
+      expect(
+        source,
+        isNot(contains('contextId == mahabhut2537.rem0.saturday')),
+      );
+    });
+
+    test(
+      'placement facts cannot own predictions and refs are not self-attested',
+      () {
+        final plan = PredictiveNarrativePlan.fromAnalysis(
+          _owner(known: true, minute: 3),
+        );
+        final placement = plan
+            .evidenceCatalog['placement.mahabhut2537.rem0.saturday.venus.42_62']!;
+        final placementValidation = plan.evidenceCatalog.validateSelection(
+          record: placement,
+          contextId: plan.contextId,
+          currentAge: 44,
+          asOf: DateTime(2026, 8, 29),
+          domain: DomainScope.finance,
+          chronology: ClaimChronology.current,
+        );
+        expect(placementValidation.wrongClaimType, isTrue);
+        expect(placementValidation.placementPromotedToPrediction, isTrue);
+
+        final readerClaim = plan.evidenceCatalog['RC11-K-WORK-01']!;
+        final missingDependency = plan.evidenceCatalog
+            .without({'SDC-R0-SAT-42_62-WORK'})
+            .validateSelection(
+              record: readerClaim,
+              contextId: plan.contextId,
+              currentAge: 44,
+              asOf: DateTime(2026, 8, 29),
+              domain: DomainScope.work,
+              chronology: ClaimChronology.current,
+            );
+        expect(missingDependency.isValid, isFalse);
+        expect(
+          missingDependency.unresolvedRefs,
+          contains('SDC-R0-SAT-42_62-WORK'),
+        );
+        expect(
+          plan.provenance.every((entry) => entry.evidenceResolution.isValid),
+          isTrue,
+        );
+      },
+    );
   });
 
   group('fixture separation and surface parity', () {
@@ -299,7 +359,10 @@ void main() {
         expect(second.toMap(), first.toMap(), reason: synthetic.id);
         if (first.isKnownTime) contexts.add(first.contextId);
         expect(first.monthlyTimelineAvailable, isFalse);
-        expect(first.generationPath, 'generic-v2');
+        expect(
+          first.generationPath,
+          startsWith('source-authorized-catalog-v1:'),
+        );
         expect(first.legacyFallbackInvocations, 0);
         expect(first.fixtureSpecialInvocations, 0);
         expect(first.unresolvedEvidenceRefs, isEmpty, reason: synthetic.id);
@@ -307,6 +370,13 @@ void main() {
           first.atoms.map((atom) => atom.readerText).join('\n'),
           isNot(contains('ในช่วงเดียวกัน ในรอบ 12 เดือนนี้')),
           reason: '${synthetic.id} must not repeat the horizon lead-in',
+        );
+        expect(
+          first.atoms.where(
+            (atom) => atom.readerText.trim().endsWith('รับภาระเพ'),
+          ),
+          isEmpty,
+          reason: '${synthetic.id} must not cut a Thai word in its summary',
         );
         expect(
           first.atoms.map((atom) => atom.owner.id).toSet(),
@@ -330,7 +400,10 @@ void main() {
         ),
       );
       contexts.add(targeted.contextId);
-      expect(targeted.generationPath, 'generic-v2');
+      expect(
+        targeted.generationPath,
+        startsWith('source-authorized-catalog-v1:'),
+      );
       expect(targeted.legacyFallbackInvocations, 0);
       expect(targeted.fixtureSpecialInvocations, 0);
       expect(targeted.unresolvedEvidenceRefs, isEmpty);
@@ -367,16 +440,83 @@ void main() {
           asOf: DateTime(2027, 8, 29),
         ),
       );
-      expect(age44.generationPath, 'generic-v2');
-      expect(age45.generationPath, 'generic-v2');
+      expect(age44.generationPath, startsWith('source-authorized-catalog-v1:'));
+      expect(age45.generationPath, startsWith('source-authorized-catalog-v1:'));
       expect(age45.legacyFallbackInvocations, 0);
       expect(age45.fixtureSpecialInvocations, 0);
+      expect(
+        age45.provenance.any(
+          (entry) => entry.templateId == 'candidate-0011-exact',
+        ),
+        isFalse,
+      );
       expect(
         age45.sections
             .singleWhere((s) => s.role == NarrativeSectionRole.current)
             .title,
         contains('45'),
       );
+    },
+  );
+
+  test(
+    'rem0 Saturday age boundaries classify every selected claim correctly',
+    () {
+      const ages = [10, 11, 20, 29, 30, 41, 42, 44, 45, 62, 63, 79, 80];
+      for (final age in ages) {
+        final analysis = ThaiBetaAnalysisRunner.run(
+          _ownerInput(known: true, minute: 3),
+          asOf: DateTime(1982 + age, 8, 29),
+        );
+        final plan = PredictiveNarrativePlan.fromAnalysis(analysis);
+        expect(
+          plan.contextId,
+          'mahabhut2537.rem0.saturday',
+          reason: 'age=$age',
+        );
+        expect(plan.legacyFallbackInvocations, 0, reason: 'age=$age');
+        expect(plan.fixtureSpecialInvocations, 0, reason: 'age=$age');
+        expect(plan.unresolvedEvidenceRefs, isEmpty, reason: 'age=$age');
+        for (final entry in plan.provenance.where(
+          (item) =>
+              item.source != GenerationSource.structuralSummary &&
+              item.source != GenerationSource.disclosure,
+        )) {
+          expect(entry.evidenceResolution.isValid, isTrue, reason: 'age=$age');
+        }
+        for (final section in plan.sections) {
+          for (final atom in section.atoms.whereType<PredictionAtom>()) {
+            final provenance = plan.provenance.singleWhere(
+              (entry) => entry.atomId == atom.id,
+            );
+            final record = plan.evidenceCatalog[provenance.selectedClaimId]!;
+            final chronology = record.chronologyAt(age);
+            if (section.role == NarrativeSectionRole.past) {
+              expect(chronology, ClaimChronology.past, reason: 'age=$age');
+            }
+            if (section.role == NarrativeSectionRole.current) {
+              expect(chronology, ClaimChronology.current, reason: 'age=$age');
+            }
+            if (section.role == NarrativeSectionRole.nextLifePeriod) {
+              expect(chronology, ClaimChronology.future, reason: 'age=$age');
+              final nextPlacement = plan.evidenceCatalog.nextPlacement(
+                plan.contextId,
+                age,
+              );
+              expect(nextPlacement, isNotNull, reason: 'age=$age');
+              final nextRange = nextPlacement!.ageRanges.first;
+              expect(
+                record.ageRanges.any(
+                  (range) =>
+                      range.$1 == nextRange.$1 && range.$2 == nextRange.$2,
+                ),
+                isTrue,
+                reason: 'age=$age claim=${record.id}',
+              );
+            }
+          }
+        }
+      }
     },
   );
 }

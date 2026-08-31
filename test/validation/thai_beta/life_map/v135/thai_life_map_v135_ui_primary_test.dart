@@ -45,8 +45,11 @@ void main() {
       find.byKey(const Key('thai_birth_profile_core_reading')),
       findsOneWidget,
     );
-    expect(find.text('คำทำนายอดีต'), findsOneWidget);
-    expect(find.textContaining('คำทำนายปัจจุบัน — อายุ'), findsOneWidget);
+    // This fixture has no source-authorized past prediction. OR2 intentionally
+    // omits the heading instead of promoting placement facts into prose.
+    expect(find.text('คำทำนายอดีต'), findsNothing);
+    expect(find.textContaining('คำทำนายปัจจุบัน — อายุ'), findsNothing);
+    expect(find.text('คำทำนาย 12 เดือนข้างหน้า'), findsOneWidget);
     expect(find.textContaining('ช่วงชีวิตถัดไป — อายุ'), findsOneWidget);
   }
 
@@ -90,8 +93,9 @@ void main() {
         find.text(ThaiMirrorLifeTimelineSection.expandDetailsLabel),
         findsNothing,
       );
-      expect(find.text('คำทำนายอดีต'), findsOneWidget);
-      expect(find.textContaining('คำทำนายปัจจุบัน — อายุ'), findsOneWidget);
+      expect(find.text('คำทำนายอดีต'), findsNothing);
+      expect(find.textContaining('คำทำนายปัจจุบัน — อายุ'), findsNothing);
+      expect(find.text('คำทำนาย 12 เดือนข้างหน้า'), findsOneWidget);
       expect(find.textContaining('ช่วงชีวิตถัดไป — อายุ'), findsOneWidget);
       expect(tester.takeException(), isNull);
     },

@@ -142,7 +142,8 @@ void main() {
       expect(find.textContaining('สัญญาณที่ระบบ'), findsNothing);
       expect(find.textContaining('ที่มาเชิงเทคนิค'), findsNothing);
       expect(find.text('ความมั่นใจของแนวโน้ม'), findsNothing);
-      expect(find.textContaining('คำทำนายปัจจุบัน — อายุ'), findsOneWidget);
+      expect(find.textContaining('คำทำนายปัจจุบัน — อายุ'), findsNothing);
+      expect(find.text('คำทำนาย 12 เดือนข้างหน้า'), findsOneWidget);
       expect(tester.takeException(), isNull);
     });
   });

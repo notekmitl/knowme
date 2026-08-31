@@ -13,6 +13,7 @@
     "docs/ROADMAP.md",
     "docs/THAI_REPORT_READER_EXPERIENCE_V2.md",
     "lib/features/thai_beta/application/narrative/predictive_narrative_plan.dart",
+    "lib/features/thai_beta/application/narrative/predictive_authority_catalog.g.dart",
     "lib/features/thai_beta/application/thai_beta_report_export_document.dart",
     "lib/features/thai_beta/application/thai_beta_report_pdf_exporter.dart",
     "lib/features/thai_beta/presentation/widgets/thai_beta_shared_report_view.dart",
@@ -28,7 +29,8 @@
     "test/validation/thai_beta/thai_beta_report_export_test.dart",
     "test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart",
     "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart",
-    "test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart"
+    "test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart",
+    "tool/generate_predictive_authority_catalog.mjs"
   ],
   "allowed_globs": [],
   "forbidden_files": [

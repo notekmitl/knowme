@@ -330,7 +330,9 @@ void main() {
         find.byKey(const Key('thai_consumer_signature_insight')),
         findsNothing,
       );
-      expect(find.text('ภาพรวมเส้นทางชีวิต'), findsOneWidget);
+      // This context has forecast authority but no authorized life-arc claim.
+      expect(find.text('ภาพรวมเส้นทางชีวิต'), findsNothing);
+      expect(find.text('คำทำนาย 12 เดือนข้างหน้า'), findsOneWidget);
       expect(find.text('แก่นที่พอเห็นได้จากข้อมูลที่มี'), findsNothing);
       expect(find.text('ข้อมูลวันเกิดครบถ้วน'), findsNothing);
       expect(

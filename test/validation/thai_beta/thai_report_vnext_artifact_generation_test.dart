@@ -482,6 +482,12 @@ List<({String id, Rect region})> _assertLayoutAndCollectRegions(
     );
   }
   final visibleText = textWidgets.map((text) => text.data ?? '').join(' ');
+  final monthNames =
+      '(?:มกราคม|กุมภาพันธ์|มีนาคม|เมษายน|พฤษภาคม|มิถุนายน|กรกฎาคม|สิงหาคม|กันยายน|ตุลาคม|พฤศจิกายน|ธันวาคม)';
+  final textWithoutAuthorizedDateRanges = visibleText.replaceAll(
+    RegExp('\\d{1,2} $monthNames \\d{4} (?:ถึง|–) \\d{1,2} $monthNames \\d{4}'),
+    '',
+  );
   for (final month in const [
     'มกราคม',
     'กุมภาพันธ์',
@@ -496,7 +502,13 @@ List<({String id, Rect region})> _assertLayoutAndCollectRegions(
     'พฤศจิกายน',
     'ธันวาคม',
   ]) {
-    expect(visibleText, isNot(contains(month)));
+    expect(
+      textWithoutAuthorizedDateRanges,
+      isNot(contains(month)),
+      reason:
+          'Full Thai month names are allowed only inside the exact rolling '
+          'date range, never as a monthly prediction.',
+    );
   }
   expect(data.monthlyTimelineAvailable, isFalse);
   return regions;
