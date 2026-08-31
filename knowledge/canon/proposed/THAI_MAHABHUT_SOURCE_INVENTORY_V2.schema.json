@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "THAI_MAHABHUT_SOURCE_INVENTORY_V2.schema.json",
+  "type": "object",
+  "required": ["version", "status", "sourceDecision", "counts", "records", "pageInventory"],
+  "properties": {
+    "version": { "const": 2 },
+    "status": { "type": "string" },
+    "sourceDecision": { "type": "object" },
+    "counts": { "type": "object" },
+    "records": {
+      "type": "array",
+      "minItems": 54,
+      "items": {
+        "type": "object",
+        "required": ["sourceId", "title", "authorOrOrganization", "editionYear", "localSourceIdentity", "page", "ocrSpanSha256", "paraphrase", "sourceTier", "reliability", "limitations", "accessedAt"]
+      }
+    },
+    "pageInventory": {
+      "type": "array",
+      "minItems": 308,
+      "maxItems": 308,
+      "items": {
+        "type": "object",
+        "required": ["page", "ocrSha256", "ocrCharacters", "topicHits"]
+      }
+    }
+  }
+}

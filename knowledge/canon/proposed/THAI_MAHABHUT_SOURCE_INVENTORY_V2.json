@@ -1,0 +1,5038 @@
+{
+  "version": 2,
+  "status": "PROPOSED_EVIDENCE_FOUNDATION_PENDING_OWNER_REVIEW",
+  "sourceDecision": {
+    "primaryTier0Source": "SRC-MH2537-PERIOD-FOUNDATION",
+    "primaryEditionPdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+    "scannedPages": 308,
+    "ocrPages": 308,
+    "allPagesHashed": true,
+    "visualCrossCheckPages": [
+      17,
+      18,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      290,
+      291,
+      292
+    ],
+    "tier1AuthorityUsed": false,
+    "tier2AuthorityUsed": false,
+    "searchSnippetsUsedAsEvidence": false,
+    "aiSummariesUsedAsEvidence": false
+  },
+  "counts": {
+    "sourceRecords": 54,
+    "contextRecords": 49,
+    "pageInventory": 308,
+    "pagesWithTopicHits": 287
+  },
+  "records": [
+    {
+      "sourceId": "SRC-MH2537-PERIOD-FOUNDATION",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "17",
+      "pageRange": "17-18",
+      "section": "ความรู้เรื่องดวงขึ้นและดวงตก และกำลังอายุที่ดาวเคราะห์เสวย",
+      "ocrSpanSha256": "67A747FC3A72774661103E0D31ABD250BDDF6BBC047C5FE01AA146C6D1379AFC",
+      "paraphrase": "นิยามเรือนฝ่ายขึ้นและฝ่ายตก ระยะของแต่ละดาว และช่วงเปลี่ยนผ่านที่ตำราให้ระวังเป็นพิเศษ",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ใช้ได้เพียงระดับช่วงอายุของดาว ไม่รองรับเดือน วัน หรือเหตุการณ์เฉพาะ",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-PLANET-SYSTEM",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "29",
+      "pageRange": "29-37",
+      "section": "ความหมายพิสดารของดาวเคราะห์ทั้งแปด",
+      "ocrSpanSha256": "4D09CD82AB2882BA379591F8FBD14C572F31526C6B596EA1087100A90D45B2B8",
+      "paraphrase": "อธิบายขอบเขตบุคคล สิ่งของ สถานที่ งาน ความสัมพันธ์ และสุขภาวะที่ผูกกับดาวแต่ละดวง พร้อมหลักเหตุและผล",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "รายการโรคเป็นข้อความตามตำราเก่า ห้ามนำไปวินิจฉัยหรือระบุโรคใน reader copy",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-TAKSA-SYSTEM",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "37",
+      "pageRange": "37-39",
+      "section": "มหาทักษาและความหมายของแต่ละภูมิ",
+      "ocrSpanSha256": "1E3319A892BE3BCC882A48A333616EC7D15E0EAAFC4BB88BFAC95D093FA5238F",
+      "paraphrase": "ระบุการหมุนบทบาทตามวันเกิดและนิยามบริวาร อายุ เดช ศรี มูละ อุตสาหะ มนตรี และกาฬกิณี",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ต้องรู้วันทางโหราศาสตร์จากเวลาเกิดจริง ห้ามแทนเวลาไม่ทราบด้วยเวลาเที่ยง",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-HOUSE-WEAK",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "40",
+      "pageRange": "40",
+      "section": "หลักการทำนายเมื่อดาวและทักษาอยู่ภังคะ มรณะ หรือปูติ",
+      "ocrSpanSha256": "A398C86E35259E1B5C5585CC779F31741207BDB56AE01061E89D0E5E3A7660EF",
+      "paraphrase": "สิ่งที่สัมพันธ์กับดาวและทักษามีแนวโน้มอ่อนกำลัง ช้า ไม่ครบ หรือพึ่งพาได้ยาก โดยกาฬกิณีกลับขั้วเพราะแรงอุปสรรคอ่อนลง",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "รองรับเพียงทิศทางกว้าง ห้ามขยายเป็นเหตุการณ์เฉพาะ จำนวนเงิน โรค หรือกำหนดเวลา",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-HOUSE-STRONG",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "41",
+      "pageRange": "41",
+      "section": "หลักการทำนายเมื่อดาวและทักษาอยู่ธงชัย ขุมทรัพย์ ราชา หรืออธิบดี",
+      "ocrSpanSha256": "7D7D434B468DC8B4B19A751F15B9EFA4FA095FBC3FE2BBB07C52F07ED11B697D",
+      "paraphrase": "สิ่งที่สัมพันธ์กับดาวและทักษามีแนวโน้มมั่นคง ครบ พึ่งพาได้ และให้แรงสนับสนุน โดยกาฬกิณีกลับขั้วเพราะแรงอุปสรรคเข้มแข็งขึ้น",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "รองรับเพียงทิศทางกว้าง ห้ามขยายเป็นเหตุการณ์เฉพาะ จำนวนเงิน โรค หรือกำหนดเวลา",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM1-SUNDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "52",
+      "pageRange": "52-55",
+      "section": "ดวงกำพร้า คนเกิดวันอาทิตย์",
+      "ocrSpanSha256": "0D72DB801BBAB93891C834AAC4B1D85E52ED4AAE7CA4A1C4783817FE56055B28",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem1.sunday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM1-MONDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "56",
+      "pageRange": "56-59",
+      "section": "ดวงกำพร้า คนเกิดวันจันทร์",
+      "ocrSpanSha256": "FBC4BBFE8F21DA94286881FF62977AB6DD23C5259551F5ABF762A878965DF1A5",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem1.monday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM1-TUESDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "60",
+      "pageRange": "60-62",
+      "section": "ดวงกำพร้า คนเกิดวันอังคาร",
+      "ocrSpanSha256": "E774863C4E8D997A9BA6433E7535A79568F725FCDFA9C5A6B4E010B07007E79D",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem1.tuesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM1-WEDNESDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "63",
+      "pageRange": "63-64",
+      "section": "ดวงกำพร้า คนเกิดวันพุธ",
+      "ocrSpanSha256": "F40115A95C433BF121B27D67817D1185F4431F9322D351B64901CD8E7E8BA6F2",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem1.wednesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM1-THURSDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "65",
+      "pageRange": "65-67",
+      "section": "ดวงกำพร้า คนเกิดวันพฤหัสบดี",
+      "ocrSpanSha256": "DA6A5D427815491C41CDF112685ECC402F858FE54BA5E1192E7CF5C3F0E59690",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem1.thursday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM1-FRIDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "68",
+      "pageRange": "68-71",
+      "section": "ดวงกำพร้า คนเกิดวันศุกร์",
+      "ocrSpanSha256": "DB46247DF19E2246063F9A9CF78BDCF2AA6C25F9D9C5DB9FE321DE85E5261EB4",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem1.friday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM1-SATURDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "72",
+      "pageRange": "72-75",
+      "section": "ดวงกำพร้า คนเกิดวันเสาร์",
+      "ocrSpanSha256": "AFCD87311ABC0F7D4423D7DC18F3D7FDF54E2C07D19E88D4E88BD9F9E4790239",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem1.saturday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM2-SUNDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "89",
+      "pageRange": "89-92",
+      "section": "ดวงนักภาษา คนเกิดวันอาทิตย์",
+      "ocrSpanSha256": "AB7A43463D3DD9F4D8642CAD130130E08F00014ED14BE08B72353C0BD0302F82",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem2.sunday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM2-MONDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "93",
+      "pageRange": "93-95",
+      "section": "ดวงนักภาษา คนเกิดวันจันทร์",
+      "ocrSpanSha256": "ADCB59A41F0B6584892AB9213B301BD9CA41C8BB694B054EB9119A7467C97F1C",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem2.monday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM2-TUESDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "96",
+      "pageRange": "96-98",
+      "section": "ดวงนักภาษา คนเกิดวันอังคาร",
+      "ocrSpanSha256": "35B26BE85EF23E269A0A66C9B586E149E095047005CFB29BC8EBFABA234ABBC2",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem2.tuesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM2-WEDNESDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "99",
+      "pageRange": "99-101",
+      "section": "ดวงนักภาษา คนเกิดวันพุธ",
+      "ocrSpanSha256": "A8DE4CFB7FD420B7EF8B66DAA42C1CFE03F974B34A6AAC8AD80C5FFDBA5A0619",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem2.wednesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM2-THURSDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "102",
+      "pageRange": "102-104",
+      "section": "ดวงนักภาษา คนเกิดวันพฤหัสบดี",
+      "ocrSpanSha256": "C6B9A9DF9B2ABDBA3CA8402D4753C65B0B7DB2DAE09E9D72A5091762B78AB9CB",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem2.thursday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM2-FRIDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "105",
+      "pageRange": "105-108",
+      "section": "ดวงนักภาษา คนเกิดวันศุกร์",
+      "ocrSpanSha256": "4F55A15653DD3B7BF36955257D32083D5B2520AD11B37455402B6E8025A402BD",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem2.friday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM2-SATURDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "109",
+      "pageRange": "109-111",
+      "section": "ดวงนักภาษา คนเกิดวันเสาร์",
+      "ocrSpanSha256": "38D573D996D4E011E4C448D391A0FD212328FBCF67C53AB2FCEF2BAC94E8BA8E",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem2.saturday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM3-SUNDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "122",
+      "pageRange": "122-125",
+      "section": "ดวงนักบริหาร คนเกิดวันอาทิตย์",
+      "ocrSpanSha256": "2D5EA694A9047D66F41B3E3A0265BD0597B2A468C918CE4046B6390D1EDF7349",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem3.sunday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM3-MONDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "126",
+      "pageRange": "126-128",
+      "section": "ดวงนักบริหาร คนเกิดวันจันทร์",
+      "ocrSpanSha256": "5225C353B1AE8CAD0B57D51739D1FACC1AD9E0D41BAF3DF21AF55BCCECD8B62F",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem3.monday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM3-TUESDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "129",
+      "pageRange": "129-131",
+      "section": "ดวงนักบริหาร คนเกิดวันอังคาร",
+      "ocrSpanSha256": "6BC3E56E1336E41316B0EE01EF8FDC4D5DE136917E213522B2C338FA74131638",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem3.tuesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM3-WEDNESDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "132",
+      "pageRange": "132-135",
+      "section": "ดวงนักบริหาร คนเกิดวันพุธ",
+      "ocrSpanSha256": "8152B47E4D87A7A92CF9CABC9A1209829938609FDF9B95C259B75096B807E07C",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem3.wednesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM3-THURSDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "136",
+      "pageRange": "136-139",
+      "section": "ดวงนักบริหาร คนเกิดวันพฤหัสบดี",
+      "ocrSpanSha256": "274429E15A85581BFF9F1FAE49AFED50D11635FC1ACD9D4C54FFB3C235307715",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem3.thursday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM3-FRIDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "140",
+      "pageRange": "140-144",
+      "section": "ดวงนักบริหาร คนเกิดวันศุกร์",
+      "ocrSpanSha256": "CBB3D2DC1AE1FD6A6E0BC744A4E265F2ADED7B7734850ACBCE88AE791F140B6E",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem3.friday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM3-SATURDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "145",
+      "pageRange": "145-147",
+      "section": "ดวงนักบริหาร คนเกิดวันเสาร์",
+      "ocrSpanSha256": "C75684B56238639CBA1BD65C8E2DE524F5D7414F12CE873ED3589603244463C1",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem3.saturday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM4-SUNDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "158",
+      "pageRange": "158-161",
+      "section": "ดวงมนุษย์เจ้าสำราญ คนเกิดวันอาทิตย์",
+      "ocrSpanSha256": "49129CF0D00895C4EE3F49879EC9DA8F4F1EDF25FEA9517838B6206A500E018B",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem4.sunday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM4-MONDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "162",
+      "pageRange": "162-164",
+      "section": "ดวงมนุษย์เจ้าสำราญ คนเกิดวันจันทร์",
+      "ocrSpanSha256": "ACABE5F94552A8D6B2DB89E907A6543D7532F4E1D208BC311AAC33365B9E9E4D",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem4.monday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM4-TUESDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "165",
+      "pageRange": "165-166",
+      "section": "ดวงมนุษย์เจ้าสำราญ คนเกิดวันอังคาร",
+      "ocrSpanSha256": "D963101B5632D08A6C7E3A8A2068F88C27B7651D41F0CC4EC44CD679540CDBFD",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem4.tuesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM4-WEDNESDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "167",
+      "pageRange": "167-169",
+      "section": "ดวงมนุษย์เจ้าสำราญ คนเกิดวันพุธ",
+      "ocrSpanSha256": "183D2D3BE11F0CE6A8A9D13783FC41CE5E26B706CCA6A5621A03CBE34A26F471",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem4.wednesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM4-THURSDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "170",
+      "pageRange": "170-172",
+      "section": "ดวงมนุษย์เจ้าสำราญ คนเกิดวันพฤหัสบดี",
+      "ocrSpanSha256": "28DDF4DB10ADDBA60B83027391C72E3891CE4602887302CF735F7D2F37713008",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem4.thursday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM4-FRIDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "173",
+      "pageRange": "173-175",
+      "section": "ดวงมนุษย์เจ้าสำราญ คนเกิดวันศุกร์",
+      "ocrSpanSha256": "9109115493C644B2DBEE3222CC84B7B5B22D5F7072985F4BBA2325C4347EFA94",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem4.friday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM4-SATURDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "176",
+      "pageRange": "176-179",
+      "section": "ดวงมนุษย์เจ้าสำราญ คนเกิดวันเสาร์",
+      "ocrSpanSha256": "3CE8265D5B20E0D243C6AD9684A7E59D5326F97E7D6D4A6D2049BF40B06234E3",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem4.saturday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM5-SUNDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "188",
+      "pageRange": "188-191",
+      "section": "ดวงเศรษฐี คนเกิดวันอาทิตย์",
+      "ocrSpanSha256": "9B7AF9C55F3C8FDE2A37EB2E3DFE702DF4A1FF83DD8C74AD84254D473BB5783C",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem5.sunday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM5-MONDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "192",
+      "pageRange": "192-195",
+      "section": "ดวงเศรษฐี คนเกิดวันจันทร์",
+      "ocrSpanSha256": "55C9A5C4306383531E171968AF2617BAAE5F444F58296C737A3A84E43BCB1E04",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem5.monday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM5-TUESDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "196",
+      "pageRange": "196-199",
+      "section": "ดวงเศรษฐี คนเกิดวันอังคาร",
+      "ocrSpanSha256": "828E0D9AF111086C3A5C5EC474E362C89F7B2E422B4F0E05DF7C48BECCB977E4",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem5.tuesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM5-WEDNESDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "200",
+      "pageRange": "200-204",
+      "section": "ดวงเศรษฐี คนเกิดวันพุธ",
+      "ocrSpanSha256": "6AEC2D524A198762E3BE0A98E7236C7105A177F6C3C1BF1320125C56968C0936",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem5.wednesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM5-THURSDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "205",
+      "pageRange": "205-207",
+      "section": "ดวงเศรษฐี คนเกิดวันพฤหัสบดี",
+      "ocrSpanSha256": "F2E6384BF8B0FF2C7E19DD89E9CF5D4E22179B5C2D9EAF521363633439268D2D",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem5.thursday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM5-FRIDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "208",
+      "pageRange": "208-211",
+      "section": "ดวงเศรษฐี คนเกิดวันศุกร์",
+      "ocrSpanSha256": "561E3156E5F444CF6B8CDF0B06D71B1A3E3EB6DE8719AE56553CF32678A23ECC",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem5.friday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM5-SATURDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "212",
+      "pageRange": "212-217",
+      "section": "ดวงเศรษฐี คนเกิดวันเสาร์",
+      "ocrSpanSha256": "3F8978B9923AD0DD8B21BF06DD05F1547274519F84A644F5DB16742CD53BDDED",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem5.saturday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM6-SUNDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "228",
+      "pageRange": "228-231",
+      "section": "ดวงนักวิชาการ คนเกิดวันอาทิตย์",
+      "ocrSpanSha256": "BC3ACC76DE30AF44F0ECB5268F94608333199027D015B2216E53850914B1169F",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem6.sunday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM6-MONDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "232",
+      "pageRange": "232-234",
+      "section": "ดวงนักวิชาการ คนเกิดวันจันทร์",
+      "ocrSpanSha256": "A113EE9D6D699D2E67D8D0D97B937C597616493A656858F66FCAE63ACC06895A",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem6.monday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM6-TUESDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "235",
+      "pageRange": "235-237",
+      "section": "ดวงนักวิชาการ คนเกิดวันอังคาร",
+      "ocrSpanSha256": "CBF28C301ADB29A527C9B816EAF283E1FB0CBCD4157552A7A23FA420778E2986",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem6.tuesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM6-WEDNESDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "238",
+      "pageRange": "238-240",
+      "section": "ดวงนักวิชาการ คนเกิดวันพุธ",
+      "ocrSpanSha256": "6D080AE97323B5396185647B52FD01646477782EE498CA0D35DA5E8F8A8DAE41",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem6.wednesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM6-THURSDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "241",
+      "pageRange": "241-244",
+      "section": "ดวงนักวิชาการ คนเกิดวันพฤหัสบดี",
+      "ocrSpanSha256": "8CE7A048586E03F75CBB864607CFF7B93BF02AE016451FFF24B35D94369C745C",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem6.thursday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM6-FRIDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "245",
+      "pageRange": "245-248",
+      "section": "ดวงนักวิชาการ คนเกิดวันศุกร์",
+      "ocrSpanSha256": "043B2824026E41D6ECBA2A2119B81E052C1E63EB1D7200E4A44755999341BA56",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem6.friday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM6-SATURDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "249",
+      "pageRange": "249-253",
+      "section": "ดวงนักวิชาการ คนเกิดวันเสาร์",
+      "ocrSpanSha256": "FB10BFCBCFBB66E954E2A6DD13F614E13ACF2686EF1DDB09151EE5E7008CC35B",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem6.saturday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM0-SUNDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "263",
+      "pageRange": "263-267",
+      "section": "ดวงมหาเศรษฐี คนเกิดวันอาทิตย์",
+      "ocrSpanSha256": "D4F6BC0E582C5B2B6B93FEE285DA6489326D36C1FF79F85A751F33EFE0EB4DBE",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem0.sunday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM0-MONDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "268",
+      "pageRange": "268-271",
+      "section": "ดวงมหาเศรษฐี คนเกิดวันจันทร์",
+      "ocrSpanSha256": "C30AC5508C66666669C688099D6E6BFF8B06B452D611F10FF5EF7D504B9AC7F9",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem0.monday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM0-TUESDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "272",
+      "pageRange": "272-276",
+      "section": "ดวงมหาเศรษฐี คนเกิดวันอังคาร",
+      "ocrSpanSha256": "8A6B9EABDD950644EAD2E914177FB89EB28652C57A8305157C031F493AFE2647",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem0.tuesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM0-WEDNESDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "277",
+      "pageRange": "277-280",
+      "section": "ดวงมหาเศรษฐี คนเกิดวันพุธ",
+      "ocrSpanSha256": "A8F1BA3C6CA976A1C65BD798C569B31890F8130C4A3B55DA4EBD118DF04D7827",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem0.wednesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM0-THURSDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "281",
+      "pageRange": "281-284",
+      "section": "ดวงมหาเศรษฐี คนเกิดวันพฤหัสบดี",
+      "ocrSpanSha256": "3A692C5051B5F180F6662E36DB1DDFBA97EA5640248429465BD6D935B627CD5E",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem0.thursday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM0-FRIDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "285",
+      "pageRange": "285-289",
+      "section": "ดวงมหาเศรษฐี คนเกิดวันศุกร์",
+      "ocrSpanSha256": "834DD5B364B2ADC9AAD968C0BAD252DBC136C2C4560CC714A0D2DE1CF4CDF906",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem0.friday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    },
+    {
+      "sourceId": "SRC-MH2537-CONTEXT-REM0-SATURDAY",
+      "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+      "authorOrOrganization": "ส. หยกฟ้า (ผู้รวบรวม)",
+      "publisher": "สำนักพิมพ์ดวงแก้ว",
+      "editionYear": "พ.ศ. 2537",
+      "isbn": "974-89176-7-3",
+      "localSourceIdentity": "mahabhut-2537-book.pdf#sha256=28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+      "page": "290",
+      "pageRange": "290-292",
+      "section": "ดวงมหาเศรษฐี คนเกิดวันเสาร์",
+      "ocrSpanSha256": "541F302EC66CD34A4B30BC9E63CB07072B065654EAF9BC2AD8534012DA0BE7FB",
+      "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem0.saturday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
+      "sourceTier": 0,
+      "reliability": "PRIMARY_WORKING_EDITION_PAGE_IMAGE_AND_OCR_CROSS_CHECKED",
+      "limitations": "ตำแหน่งเพียงอย่างเดียวไม่ใช่อำนาจคำทำนาย ต้องใช้ร่วมกับกฎ reusable และ applicability ที่ตรงกัน",
+      "accessedAt": "2026-08-31"
+    }
+  ],
+  "pageInventory": [
+    {
+      "page": 1,
+      "ocrSha256": "E427CBEA82DE08145C47BC5863D76B332B8A9DA59FA36CCE968E1DD72119214D",
+      "ocrCharacters": 17,
+      "topicHits": []
+    },
+    {
+      "page": 2,
+      "ocrSha256": "AAC66D5F5A2C33B55B8B4FFFB8FB973942C2D864E909811E6C8C058A8A4160F9",
+      "ocrCharacters": 111,
+      "topicHits": []
+    },
+    {
+      "page": 3,
+      "ocrSha256": "F24A02745A4EEE6F0E28C9C4792FEC2F898426583C0458E2D3DF3E9ACA951B3D",
+      "ocrCharacters": 479,
+      "topicHits": []
+    },
+    {
+      "page": 4,
+      "ocrSha256": "3E3C10CDBFD02C871039C4897E153F6F58ADBE18A701E3825186CB44C0781FCD",
+      "ocrCharacters": 1295,
+      "topicHits": [
+        "planet_system",
+        "support"
+      ]
+    },
+    {
+      "page": 5,
+      "ocrSha256": "7A59D27B7687D3C5D7A5533F8BA0686C99BBA82536B1298C9881CD12D0BC1EC5",
+      "ocrCharacters": 1266,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "rise_fall",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 6,
+      "ocrSha256": "ABB8E3FB713A27F1B3A8931B6A358E619A83894C6479F1839B2025B3BEE211C7",
+      "ocrCharacters": 660,
+      "topicHits": [
+        "work",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 7,
+      "ocrSha256": "A05A8290163F176E56B832A441D21804134E6A9A72AB0DA345A3662131861A48",
+      "ocrCharacters": 439,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "rise_fall",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 8,
+      "ocrSha256": "DF1D617FD6936EBA2062EFD2B52439CA3A5B77C878741EA098DB841B2609C228",
+      "ocrCharacters": 976,
+      "topicHits": [
+        "planet_system",
+        "work"
+      ]
+    },
+    {
+      "page": 9,
+      "ocrSha256": "656780EF10A7ABCA31FDEFCB3A1EB05A425C59D103A7EBF41110305A802F679E",
+      "ocrCharacters": 876,
+      "topicHits": [
+        "planet_system",
+        "rise_fall",
+        "work",
+        "relationship"
+      ]
+    },
+    {
+      "page": 10,
+      "ocrSha256": "04A1D549EFE7DE3569C796580AB413E80B85E996E26F301F46FACAEA3B6A7E3C",
+      "ocrCharacters": 990,
+      "topicHits": [
+        "planet_system",
+        "work",
+        "relationship"
+      ]
+    },
+    {
+      "page": 11,
+      "ocrSha256": "BC7DE1CDDDF57B17F24A0FD40324AA9BA83B0AA70EBCA1DDFC766EAB4B78D95D",
+      "ocrCharacters": 1053,
+      "topicHits": [
+        "planet_system",
+        "work",
+        "relationship"
+      ]
+    },
+    {
+      "page": 12,
+      "ocrSha256": "978D6A6C586D21AEEEB266119783A94CAAA0083CF6E464A035FE9D9F06A01493",
+      "ocrCharacters": 967,
+      "topicHits": [
+        "planet_system",
+        "rise_fall",
+        "work"
+      ]
+    },
+    {
+      "page": 13,
+      "ocrSha256": "6EFC466C7CBBE0FC1DAA612747DC24060FD48C69F64569F3ADCE5E5815A539EF",
+      "ocrCharacters": 979,
+      "topicHits": [
+        "planet_system",
+        "rise_fall",
+        "work",
+        "relationship"
+      ]
+    },
+    {
+      "page": 14,
+      "ocrSha256": "283D0E3A9D9213F4E3DDD8EF3FD752CC1E7AC9467504E9B17CED2701DCB40015",
+      "ocrCharacters": 982,
+      "topicHits": [
+        "planet_system",
+        "rise_fall",
+        "work",
+        "relationship"
+      ]
+    },
+    {
+      "page": 15,
+      "ocrSha256": "2BBD03F1B7D162FC17F706BBAE27D7D997484B6031287BB8BFFF0B6667E89896",
+      "ocrCharacters": 582,
+      "topicHits": [
+        "planet_system"
+      ]
+    },
+    {
+      "page": 16,
+      "ocrSha256": "945474ACC152F403872C92F47296A951B986DBCB82999C617159B394F556688F",
+      "ocrCharacters": 1044,
+      "topicHits": [
+        "planet_system",
+        "rise_fall",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "home_property"
+      ]
+    },
+    {
+      "page": 17,
+      "ocrSha256": "656C8AE3F6251B7B83E5DC3F93800F25F310F9367BE0A17A186FA8D83CEE8470",
+      "ocrCharacters": 1379,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "rise_fall",
+        "mahabhut_house",
+        "finance",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 18,
+      "ocrSha256": "AF7A2CFF39F35054AE1FA0D2834B79F91D895FD467D3C660163E45BA80B02967",
+      "ocrCharacters": 1225,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "work",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 19,
+      "ocrSha256": "7F60B5C4E887D6CFA9096286506608B7FD559A388B869026ECB95FFD2DB2BB15",
+      "ocrCharacters": 731,
+      "topicHits": []
+    },
+    {
+      "page": 20,
+      "ocrSha256": "A890446A6C1CD96E561988D8851B59C5C482E8A706D25B32502442E9A3A6F4E0",
+      "ocrCharacters": 874,
+      "topicHits": [
+        "mahabhut_house",
+        "finance",
+        "home_property"
+      ]
+    },
+    {
+      "page": 21,
+      "ocrSha256": "B8B0FDC14778B668D822DFC5CE388693FE1CBC1894734001F287A6F7B3D9CDEC",
+      "ocrCharacters": 1458,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "finance",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 22,
+      "ocrSha256": "4D9566521940EC1B6B9D222B0E0F010E523291DC2E338C224CBA52F6FDF5796A",
+      "ocrCharacters": 445,
+      "topicHits": []
+    },
+    {
+      "page": 23,
+      "ocrSha256": "92EB927EB552DF11198D89D2F3AAFE556178A98058046A65F069BBE3F9D4BF08",
+      "ocrCharacters": 943,
+      "topicHits": []
+    },
+    {
+      "page": 24,
+      "ocrSha256": "C46D5F069D863AFDB6801570E29AF39BF51B5087E065DC72B5E126CCEC0C8C73",
+      "ocrCharacters": 948,
+      "topicHits": []
+    },
+    {
+      "page": 25,
+      "ocrSha256": "2CF4A6E48FD4D5FE940B5314326CF226DD1E4630ED248025353AE1A3FAAC146D",
+      "ocrCharacters": 889,
+      "topicHits": []
+    },
+    {
+      "page": 26,
+      "ocrSha256": "DD1ABD3698CA89FDF367322E35292B330E6D325D8E0D9B639A5C6F83CD0391AD",
+      "ocrCharacters": 881,
+      "topicHits": []
+    },
+    {
+      "page": 27,
+      "ocrSha256": "29E066C59A93AD92D5219EF3AAFD93CC66D956074B5DBACA21005A7C6F74375E",
+      "ocrCharacters": 904,
+      "topicHits": []
+    },
+    {
+      "page": 28,
+      "ocrSha256": "EFEF0D556FB110C413BD04A7528526F9705B50183A02D414DEF8703EBD98CAF4",
+      "ocrCharacters": 844,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "finance",
+        "relationship"
+      ]
+    },
+    {
+      "page": 29,
+      "ocrSha256": "6FCF8666C66261F8A9448BC5F0EC09FA37A657FD10A5CBBC6D6FEF873EFEEEDA",
+      "ocrCharacters": 1397,
+      "topicHits": [
+        "planet_system",
+        "work"
+      ]
+    },
+    {
+      "page": 30,
+      "ocrSha256": "5197B96FE1209A7423F2AA332942BBC065B91A5B2736E036FB89084EFDB9AB05",
+      "ocrCharacters": 1047,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "work",
+        "health",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 31,
+      "ocrSha256": "B61A78A50F97AE941AFC6B16FCDF370D41C740B81A76E060335C1B891E7D4954",
+      "ocrCharacters": 1132,
+      "topicHits": [
+        "planet_system",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "support"
+      ]
+    },
+    {
+      "page": 32,
+      "ocrSha256": "8E8351F139A5BA40701F2058F42363C2A39BDAA4D69A7B45A7E69466B67CCF17",
+      "ocrCharacters": 1160,
+      "topicHits": [
+        "planet_system",
+        "work",
+        "finance",
+        "health"
+      ]
+    },
+    {
+      "page": 33,
+      "ocrSha256": "9D8BB6E6521C2100BC348D6B3CA8D6F62DFB10AC90271569EA6C43DE2D1207BA",
+      "ocrCharacters": 1035,
+      "topicHits": [
+        "planet_system",
+        "work",
+        "health"
+      ]
+    },
+    {
+      "page": 34,
+      "ocrSha256": "74FBA417B773E6A30D444EF6A0AF03A708A2640752F7A41B90D28F51E4547B96",
+      "ocrCharacters": 1147,
+      "topicHits": [
+        "planet_system",
+        "relationship",
+        "health"
+      ]
+    },
+    {
+      "page": 35,
+      "ocrSha256": "3FC8506C6449EC1BE9857C8DFBDFF7B40F84EEAEEA4AB2A4874E410867783A93",
+      "ocrCharacters": 1278,
+      "topicHits": [
+        "planet_system",
+        "work",
+        "relationship",
+        "health"
+      ]
+    },
+    {
+      "page": 36,
+      "ocrSha256": "22BBB76C7132E792F81767D7E1979EAFC42868F6A7D579C04FACA6BC2459F197",
+      "ocrCharacters": 1292,
+      "topicHits": [
+        "planet_system",
+        "work",
+        "health"
+      ]
+    },
+    {
+      "page": 37,
+      "ocrSha256": "34B25CB0FDC073AC86539D346FFE96EDD30FA46F7422A9E2D8ADEAEFD14E812E",
+      "ocrCharacters": 900,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 38,
+      "ocrSha256": "EA16FD10570C4C788C1AC74DD2D361E744C5E35CE8F3BAB54096C2C070A5D614",
+      "ocrCharacters": 619,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 39,
+      "ocrSha256": "48CA49B827E29058338F9F615698BBF9E4104E04E8A79C54E7692D9A04246109",
+      "ocrCharacters": 990,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 40,
+      "ocrSha256": "17C41CF44734BDF279C3A296D78DC31296A57EFC174249A30717A8D60F0BA4BD",
+      "ocrCharacters": 1460,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 41,
+      "ocrSha256": "DADFA18CA2E116150BE22279F69AB48073E1F762FB9230BA4ACE130279F5E852",
+      "ocrCharacters": 1236,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 42,
+      "ocrSha256": "7EC0C8D9525D9B1A91823C102AF88DEFD5829D78AF423F1720D72FB41D8EE9EE",
+      "ocrCharacters": 393,
+      "topicHits": [
+        "work"
+      ]
+    },
+    {
+      "page": 43,
+      "ocrSha256": "D6720166204AFD6FCD9835A4417E90DF09FBD88FC0CB3274AAE221EA7921E002",
+      "ocrCharacters": 1319,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "relationship",
+        "home_property"
+      ]
+    },
+    {
+      "page": 44,
+      "ocrSha256": "ACAFD6F084325BF86BF2D180EE8B7A9467087EC5B6BAD978D8B3F7D9F361F515",
+      "ocrCharacters": 1243,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "home_property"
+      ]
+    },
+    {
+      "page": 45,
+      "ocrSha256": "877C9DDDA3AA57693E410373DA4B5192DEAD681998C2B9460A1B16E9E73D1408",
+      "ocrCharacters": 1112,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "home_property"
+      ]
+    },
+    {
+      "page": 46,
+      "ocrSha256": "FF968C2CC3FC41597BD1A935504322A88FF54A6D03ED0B6B7CE4F5B74DA96779",
+      "ocrCharacters": 1389,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "work",
+        "finance",
+        "home_property"
+      ]
+    },
+    {
+      "page": 47,
+      "ocrSha256": "2B513CE4B75D92A3BC38361499CFA70B60D061AEED50FF7F59C802884D41AAD8",
+      "ocrCharacters": 1219,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "home_property"
+      ]
+    },
+    {
+      "page": 48,
+      "ocrSha256": "76FFBCD7D47A0B7768D558C70A99AA9B5AAAF72AD07D875224DB8930394B83A9",
+      "ocrCharacters": 1424,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "relationship",
+        "health"
+      ]
+    },
+    {
+      "page": 49,
+      "ocrSha256": "7A22A6443F18D710B588C4E00BC56123281F64CC9C1DA705DE536664D804C207",
+      "ocrCharacters": 1364,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property"
+      ]
+    },
+    {
+      "page": 50,
+      "ocrSha256": "576533575ECD3FA02CFC1025284F501156EA630E24C9836AF272794AA0298176",
+      "ocrCharacters": 768,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "finance",
+        "relationship",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 51,
+      "ocrSha256": "626BC79997E0C2119AB71766B4AE58C0DD6D71408D01E34DA724A71AD3AFCD95",
+      "ocrCharacters": 299,
+      "topicHits": []
+    },
+    {
+      "page": 52,
+      "ocrSha256": "66720B0904D8EF1B3EE14E61B46616277B01F16A8979EB21C0DB59F92B75D2E0",
+      "ocrCharacters": 629,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property"
+      ]
+    },
+    {
+      "page": 53,
+      "ocrSha256": "1CFE7C67259D960E52383F5C5E1B965FBBD6A0BAB2F0E8CF7BF4CE739A332ADB",
+      "ocrCharacters": 1419,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 54,
+      "ocrSha256": "C9CBA3953709DEFE921DABFF316D69F4AD98B823B8EE3CE04A3211934710CB92",
+      "ocrCharacters": 1534,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 55,
+      "ocrSha256": "284A90FAA77AF79CAFF4FB8BAB7C2FE00DD323AEF8D3AA7DC8A7F591AA044161",
+      "ocrCharacters": 1402,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 56,
+      "ocrSha256": "F3A05FD293A7264437A54E87AD3F2F08D34F77311DAD147B696E5083B1C10D1D",
+      "ocrCharacters": 940,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "rise_fall",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 57,
+      "ocrSha256": "2985E5AB6910CAD3A4B744F2AC3426B31182D42242C019E293D65115EE94C74A",
+      "ocrCharacters": 1702,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 58,
+      "ocrSha256": "266F3C12983DDC1534F076A3824D4446F8CF9D681FD745BC30F281FC23750268",
+      "ocrCharacters": 1597,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 59,
+      "ocrSha256": "9455A8467DBF530B433744D5B97A83E359667A1BF8D1B78B35D4E025CE8571CB",
+      "ocrCharacters": 1303,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 60,
+      "ocrSha256": "AD5AF74BFA9C9625D6E1CC41E03A39C75CBB5B3407EAF95D8639DB1D7F319778",
+      "ocrCharacters": 825,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "rise_fall",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 61,
+      "ocrSha256": "E516654346396285AF6FB88FEF8D81170A1EB9998BA7BAF2A2F0FE37502DF91E",
+      "ocrCharacters": 1525,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 62,
+      "ocrSha256": "7FC29F6B82CC93B2B645259C90FB9047756B0A6985867B28D9C0FBBF2843FDE1",
+      "ocrCharacters": 1138,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 63,
+      "ocrSha256": "55F378A487E64CF9D264E863C5D3BE9DED66876CDC058F61D4EE1A350CD19286",
+      "ocrCharacters": 839,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 64,
+      "ocrSha256": "BD16C66F6596CDC7FD303F5F66BD5A5EA0AA11F724DB5FD38FEA1964E93E61D6",
+      "ocrCharacters": 1173,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 65,
+      "ocrSha256": "B61B805932F9A518BFED6A34DB1F90D60E7DCBC1C44341DB91BFBDCFE3EC6AD4",
+      "ocrCharacters": 988,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 66,
+      "ocrSha256": "65429BC453FF539322AB6A55CD90D5C7C32FBA403EEAA0C2286F3F53801E2576",
+      "ocrCharacters": 1440,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 67,
+      "ocrSha256": "A8B72BD48DC5C534AAD2F2261864FF0F67948296517095BA0C6748AF30783938",
+      "ocrCharacters": 621,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "rise_fall",
+        "mahabhut_house",
+        "finance",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 68,
+      "ocrSha256": "890268306D2CB79455437084FE3E664600C73ECA6A6CE463D8C955971786BF13",
+      "ocrCharacters": 822,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 69,
+      "ocrSha256": "B14E44DA2CA87CB4357896C7650F23C690DDECC35017BEAD6C4CF0DB701A84E3",
+      "ocrCharacters": 1527,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 70,
+      "ocrSha256": "D07B5571D48470105F79DC3C16D4BDFC335B7A3AABB611C88A6E6C8C95D6B292",
+      "ocrCharacters": 1442,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 71,
+      "ocrSha256": "5A0623CFD5964FD107BCA6549A6613C0BCE02A6FD768311DD8C6051C5B8BCE9F",
+      "ocrCharacters": 791,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "finance",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 72,
+      "ocrSha256": "A8EACB6AB9FCD502F749355B61CD3B6185F90EF31300EF8D5CC80505F266DCD5",
+      "ocrCharacters": 886,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 73,
+      "ocrSha256": "362369EC310F7601838EBE98D3C44BFE800E57A90AD47BF870F9EB820267FD67",
+      "ocrCharacters": 1423,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 74,
+      "ocrSha256": "44A83BC35A1DA72A9A6343AB1868E14707F6C52E4457EEDCF15D7F186CB2B1F5",
+      "ocrCharacters": 1512,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 75,
+      "ocrSha256": "910FE762270693F6E4DCE7BC8FF5913FB356FA8EB18B7A41DC0BE692632D5C17",
+      "ocrCharacters": 433,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 76,
+      "ocrSha256": "026F24FEF45745E5CB50EFB2C521696C0404FA1D90313E7AB81520C785587CA6",
+      "ocrCharacters": 432,
+      "topicHits": [
+        "work"
+      ]
+    },
+    {
+      "page": 77,
+      "ocrSha256": "12F6C2EA2AA823A1B938E6B695F2E8B47802AA53077E75B14943619064C02880",
+      "ocrCharacters": 1298,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "finance",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 78,
+      "ocrSha256": "32E8EC6ED52DB45BCC28040F61DF165D134CAAEA758A8A3B92156A898B16B26D",
+      "ocrCharacters": 1494,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "home_property"
+      ]
+    },
+    {
+      "page": 79,
+      "ocrSha256": "E282A5EFBD46A6D5ABCB6FDB1DE19CAAA437CAAB06AAE04AB796E90FBD7287D9",
+      "ocrCharacters": 1534,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "home_property"
+      ]
+    },
+    {
+      "page": 80,
+      "ocrSha256": "9A3B3A65904642EB1BFA467A44A67A391F761D41BCA2098D7BC9D38C04FA91F7",
+      "ocrCharacters": 1527,
+      "topicHits": [
+        "work",
+        "finance",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 81,
+      "ocrSha256": "5DE7C59947D56035605F882CCBEBDBD07ED66A12A8AEB0CEB04435475545B252",
+      "ocrCharacters": 1259,
+      "topicHits": [
+        "planet_system",
+        "work",
+        "finance"
+      ]
+    },
+    {
+      "page": 82,
+      "ocrSha256": "5C348B7B8E6A7A325C5AD36478C30362E17C102CBCA35CCA24B834B5252CA3EE",
+      "ocrCharacters": 1525,
+      "topicHits": [
+        "planet_system",
+        "work",
+        "finance",
+        "health"
+      ]
+    },
+    {
+      "page": 83,
+      "ocrSha256": "1BB399132163B15C84EDA65768F5A4B12936D6483EA082804CB8025C5BE3460E",
+      "ocrCharacters": 1329,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 84,
+      "ocrSha256": "BFEA425DD8452B01A4F0F41676D759BD46B814041E4FB6DD471EBBBA0AC79668",
+      "ocrCharacters": 1263,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "home_property"
+      ]
+    },
+    {
+      "page": 85,
+      "ocrSha256": "DFE5501AD64D8A304BB2D34C3EA5B12C0A49ABDD6F9F4D8854A3D07315C607CD",
+      "ocrCharacters": 1406,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "relationship",
+        "home_property"
+      ]
+    },
+    {
+      "page": 86,
+      "ocrSha256": "004B6A8AC39AB3CF93DF7D443C6DAEF7BA278548153EE9BABCADEF42033794F6",
+      "ocrCharacters": 1505,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 87,
+      "ocrSha256": "790631B80ABE6011605CAF6694BB2C873B9F0C4D4767A12F07E4ABF5C16D369C",
+      "ocrCharacters": 911,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "finance",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 88,
+      "ocrSha256": "19BBFCFA31B1014A05B0ED19340DBF04168A96AC49143253F4A89609489E5266",
+      "ocrCharacters": 473,
+      "topicHits": [
+        "finance"
+      ]
+    },
+    {
+      "page": 89,
+      "ocrSha256": "3574555CA35E5FE2CCD7C351015D570EC9FBEE0616E5A97DC3B6D90CB82B6972",
+      "ocrCharacters": 651,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 90,
+      "ocrSha256": "14D1ABE35CDA4C9A363625C90A25BBBCFA88EE864EED0D0B6AAD3C2F73F40A52",
+      "ocrCharacters": 1529,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 91,
+      "ocrSha256": "1B474CA27B4E94A244DF471F77EB4163F1129D0B6912C7C6EBC77B03C05F1330",
+      "ocrCharacters": 1555,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 92,
+      "ocrSha256": "2E90F544FD3AA63B0BF3214E1D3E937F8B2C4B6BC05C35F90BB574416964EA0D",
+      "ocrCharacters": 671,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 93,
+      "ocrSha256": "7747722F69DF22848007E2FB781E215B42DB3AC66C7F8A41AD7C9E5B4A51EB47",
+      "ocrCharacters": 1179,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 94,
+      "ocrSha256": "4E1383EDFFFF69EDD5338044391737F637CB00446BDDF5D21F93537B9E6C9A94",
+      "ocrCharacters": 1535,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 95,
+      "ocrSha256": "CA22A07F350EEE1FF47E4319235A167625F4EB6718915A949FFE11B56A8318AD",
+      "ocrCharacters": 212,
+      "topicHits": [
+        "taksa_roles",
+        "work",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 96,
+      "ocrSha256": "4C507FEA83D24A5B3ABF4863F3E47AC5B79534FED4245354378ED06376A2FEEB",
+      "ocrCharacters": 836,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 97,
+      "ocrSha256": "23EE150D462C4AEFF2A48994935007A7D700C62F8DBBD86CBCED82E0ED003C1C",
+      "ocrCharacters": 1323,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 98,
+      "ocrSha256": "BF4B72261C57CFDA0B867C318D0C8DDA3BECBD808142C9E850B2B2BBA1227105",
+      "ocrCharacters": 802,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 99,
+      "ocrSha256": "DC579C6AFA9F675FECE07B35E6AA94949A0DA0D52FA80C37186ABE344D966CB3",
+      "ocrCharacters": 1006,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property"
+      ]
+    },
+    {
+      "page": 100,
+      "ocrSha256": "17027E0ECB39F64E264552430ABD26063CEBFC9195098A04A9BA33A024DD9F25",
+      "ocrCharacters": 1392,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 101,
+      "ocrSha256": "10A77BEB89FA19E9694021D54F598CE76AD75757702AA18FF1F49FC6F3EC13BB",
+      "ocrCharacters": 1309,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 102,
+      "ocrSha256": "E97A4580DCBDE9C3D3914636A512BF05D3C62E3A11D485957A4C7385CD1FFFA3",
+      "ocrCharacters": 873,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 103,
+      "ocrSha256": "3BD56953628885152349255CA324D46B365896B5C3634E4923A31EBD65783918",
+      "ocrCharacters": 1505,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 104,
+      "ocrSha256": "CDEE1ECE0EB5336D39AF7A974265F24096BD40B00211AB09EC0A6A9B83A1DA31",
+      "ocrCharacters": 642,
+      "topicHits": [
+        "taksa_roles",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 105,
+      "ocrSha256": "ACAAC7479B8CA09BC8048F6ADBDD0ECC2A5A5153FCC538B530D5B2F243B6D961",
+      "ocrCharacters": 866,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 106,
+      "ocrSha256": "9D7FCF5619AB2605E6B62ACC1E129DBE6133AC92D7EE333227CF70845920D9B0",
+      "ocrCharacters": 1438,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "rise_fall",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 107,
+      "ocrSha256": "F7A810050B334AF854EA1337BB61BC83BB9A595A1BDA77AD234B1EE5A1DB176B",
+      "ocrCharacters": 1604,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 108,
+      "ocrSha256": "55515F8299D7CE2F31E6A80EEF995BA354BB30C785FD6065F3479875E8822769",
+      "ocrCharacters": 659,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 109,
+      "ocrSha256": "E0CA4089FD320D34F530F6EEFD1DA9340ACF43D55F478FE98C3997326BE7051D",
+      "ocrCharacters": 816,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "rise_fall",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 110,
+      "ocrSha256": "A4132B080EFD780C2217ED936B6DFE028ACD5037B5995901A6244B29BCFA8804",
+      "ocrCharacters": 1386,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 111,
+      "ocrSha256": "6FEB5C5ABAC20DBE64FCE598BEC6D2F724481BD0433B5AFD32EC6047652772DC",
+      "ocrCharacters": 612,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "finance",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 112,
+      "ocrSha256": "DE0821DB1FF51EEE77A666EBB1FCD811E10A2E43A8FAE4AF6210DC9B0FE673B0",
+      "ocrCharacters": 430,
+      "topicHits": [
+        "work"
+      ]
+    },
+    {
+      "page": 113,
+      "ocrSha256": "AE621F180A6C3F6E8E660FA325C3EF5697B06F2CA215EC72561750E992B5A553",
+      "ocrCharacters": 1309,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 114,
+      "ocrSha256": "425B8B386DBB11369F831D7CDFC013754CED7FA2B9D73F34A80DB3FACD54E2A2",
+      "ocrCharacters": 1354,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 115,
+      "ocrSha256": "D114D05473AB755E3A2D9588C455D58E630707D9BC6EAAD228BE89CB4DFE1AD8",
+      "ocrCharacters": 1176,
+      "topicHits": [
+        "planet_system",
+        "work",
+        "finance",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 116,
+      "ocrSha256": "072D3060A126D384A5D7284398257A70C509A184E20882DA42206BF429E0C284",
+      "ocrCharacters": 1338,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "home_property"
+      ]
+    },
+    {
+      "page": 117,
+      "ocrSha256": "3AB8C3C4F825D07D07B9ED9E5BB86D5C7E97DD67A6EF713990EAB5F221A68C25",
+      "ocrCharacters": 1384,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "home_property"
+      ]
+    },
+    {
+      "page": 118,
+      "ocrSha256": "26501B665A6BFDDDB68CC717F53E9A8800077AD95DC7A4C562B843D0A4A4D8D8",
+      "ocrCharacters": 1465,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 119,
+      "ocrSha256": "A6B7C2E53D9421BD895052867FEB173DF5457116E865D2C587486B173E2A9A78",
+      "ocrCharacters": 1299,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 120,
+      "ocrSha256": "A9056C02BCA1250CB38AB6948B52191C253565AD5694716FE511705C0C814B42",
+      "ocrCharacters": 388,
+      "topicHits": [
+        "finance",
+        "support"
+      ]
+    },
+    {
+      "page": 121,
+      "ocrSha256": "BA3DB017514107AEEF66E49703A42EF549F90B0E42AC5A5D729E07ABB834B8AF",
+      "ocrCharacters": 308,
+      "topicHits": []
+    },
+    {
+      "page": 122,
+      "ocrSha256": "172DC0CFF5FA70B999E7F364D87D199065ADF3CE0BCD1F119741229CA1F96A39",
+      "ocrCharacters": 665,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property"
+      ]
+    },
+    {
+      "page": 123,
+      "ocrSha256": "5F6816ECED4BF3CC28952D740830B3C6A241A72EDDC19E601754907CE95BDA2D",
+      "ocrCharacters": 1487,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 124,
+      "ocrSha256": "4208ED66305543383504703C9F752AFD4EA0EBEA88064526C91AEC5422908C8C",
+      "ocrCharacters": 1684,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "work",
+        "finance",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 125,
+      "ocrSha256": "6731AAD6E8134D74B0BBF113D821B4620D086017EFA35118C3428DDB327E05A7",
+      "ocrCharacters": 1300,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 126,
+      "ocrSha256": "D5F10115DE3EB275B7FB5E18DC0160330627F302A6A5B5682A40ADB61298C3C5",
+      "ocrCharacters": 1028,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 127,
+      "ocrSha256": "0E1DC8CF4410A99A023914285761784F413C3807918DB4F96E686DB6AE6508FE",
+      "ocrCharacters": 1426,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "finance",
+        "relationship",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 128,
+      "ocrSha256": "E811B7E1B1BE3EB473BD574E55FDC690E33652A3FA2E7049673655DA382BEC49",
+      "ocrCharacters": 898,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 129,
+      "ocrSha256": "064825E2814DB31A2617C8876F76FAF8AA1DB023EB7C84BAAFDC0DD7EF6A4C95",
+      "ocrCharacters": 936,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 130,
+      "ocrSha256": "AEC0B0D1CCF045A01E96B636FA94DACA7C3FD628AB274D28B2FA58FFF171C43D",
+      "ocrCharacters": 1531,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "rise_fall",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 131,
+      "ocrSha256": "623B132EB6D54866CACF9DE7E8E275C781FF74F6A28A7137AA76E5A3CD657AD9",
+      "ocrCharacters": 1462,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "rise_fall",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 132,
+      "ocrSha256": "9868478FAD91CCC2368EBC4F5E54B8B78445A26FBF53D9BDF027C4A4550170B9",
+      "ocrCharacters": 874,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 133,
+      "ocrSha256": "70E6506470A5C5D3DAC8CF3C9A4135B6CE88EF657EA8CD3560B4BACE49082403",
+      "ocrCharacters": 1757,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 134,
+      "ocrSha256": "19C1890419EBC52B1DD970E521E3113FC9E260BD0109814F665D58ED35452974",
+      "ocrCharacters": 1509,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 135,
+      "ocrSha256": "09E81830F1E7D1F1014A1B23714124530C671CC83B818A2C303499AEC5B4EC51",
+      "ocrCharacters": 1180,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 136,
+      "ocrSha256": "4C8D2704E9522329E1DB90B9E8008813FA8BF22D47265F2ABC041F772BE82F76",
+      "ocrCharacters": 919,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property"
+      ]
+    },
+    {
+      "page": 137,
+      "ocrSha256": "268F4AA36A58E65943DAF73744E3C9AD6243A4C38FC3ED78EE26F43364C560D4",
+      "ocrCharacters": 1488,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "rise_fall",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 138,
+      "ocrSha256": "50108184C492B727DCAB41E442DC85FA7CE0FD9C91D37D72471B67722AB95037",
+      "ocrCharacters": 1468,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 139,
+      "ocrSha256": "E6D365E217911B4D9C0D59C26B66E634E98FBDEA8968270648E5CE605D4DE272",
+      "ocrCharacters": 1013,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "finance",
+        "relationship",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 140,
+      "ocrSha256": "4589B09413E49B853DCCEC00AF77C16961A42DADCD1F7C8F17EC4BECEBCD811F",
+      "ocrCharacters": 938,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property"
+      ]
+    },
+    {
+      "page": 141,
+      "ocrSha256": "B28437D0B73EBE130A3ADC9995C0CDDE70032CB995AB2B62F5471CAC2D854BBE",
+      "ocrCharacters": 1397,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 142,
+      "ocrSha256": "5281E528954010583BA84C16C0873D8C0674DC758A1C20E7D025F47DB9B9A257",
+      "ocrCharacters": 1468,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 143,
+      "ocrSha256": "3F9ACB25522CFE2DE5E99FC891DDCA8221D52F1A188726596A43360D0215E31D",
+      "ocrCharacters": 1302,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 144,
+      "ocrSha256": "41F1DF8D403605C3E9B88C20692E208061CE7F9648474613C819670AC4AE1EB3",
+      "ocrCharacters": 483,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "work",
+        "finance",
+        "relationship",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 145,
+      "ocrSha256": "5F84A6AB8B21DBFDA53601B4DA06FC51FEEA03C6A971EA6FEDEF3845AC5574E1",
+      "ocrCharacters": 1004,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "home_property"
+      ]
+    },
+    {
+      "page": 146,
+      "ocrSha256": "9745B8A412C6D1EEF98C697CB2388895BAEC53B0579667ECEF1DF4598B3F3B6D",
+      "ocrCharacters": 1681,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 147,
+      "ocrSha256": "FA4482672C3E278124AFB8BFD82BE1A4093462C4AFF11037C80F024ED8BFFC6E",
+      "ocrCharacters": 1376,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 148,
+      "ocrSha256": "27DE74B9B9ED7816E7736B0FB4022420DA95E96D345DEF4EA79E5E7C36ADEF07",
+      "ocrCharacters": 397,
+      "topicHits": [
+        "work",
+        "finance"
+      ]
+    },
+    {
+      "page": 149,
+      "ocrSha256": "0A295D3082CD6BB2F79BE1CDE69E60ECD49E69A3B66F320B858AC42DE5978FD0",
+      "ocrCharacters": 1190,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "home_property"
+      ]
+    },
+    {
+      "page": 150,
+      "ocrSha256": "09C007DA19B08AF678E11B6A75B6753670266C54EC10D456AACF5D13E34521F6",
+      "ocrCharacters": 1236,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "home_property"
+      ]
+    },
+    {
+      "page": 151,
+      "ocrSha256": "7EEDE3E12DED228EE15560318611AF44D7B050605F1A7387D1789741ED09E470",
+      "ocrCharacters": 1333,
+      "topicHits": [
+        "planet_system",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 152,
+      "ocrSha256": "96F526127FAB9EF02118FF03BFEDC3310A626682EDF88A5FCF8641A9146961EE",
+      "ocrCharacters": 1397,
+      "topicHits": [
+        "planet_system",
+        "work",
+        "finance",
+        "health",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 153,
+      "ocrSha256": "F0C73EA74AB454755516E4B0BD447BBE04D59E2DF21ED63E38C43CD6EF3B57B0",
+      "ocrCharacters": 1244,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "home_property"
+      ]
+    },
+    {
+      "page": 154,
+      "ocrSha256": "C0660EFDD3A36023DC46449058EB16F5B933AC7A2C6176725D0196E8E4A4DAD8",
+      "ocrCharacters": 1426,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "work",
+        "relationship",
+        "health"
+      ]
+    },
+    {
+      "page": 155,
+      "ocrSha256": "5B322710FBF2F96F090CD0A43F8161D2F11B1C9D98507722A3B71FB1AB504F7B",
+      "ocrCharacters": 1581,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 156,
+      "ocrSha256": "6CFF58AB6F9F2D093C4A30A7C28ED841E2E16880497B3E996CD2CAF19C556DE8",
+      "ocrCharacters": 763,
+      "topicHits": [
+        "planet_system",
+        "finance",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 157,
+      "ocrSha256": "BB22E5FFB112BDCDF9245C72FDB86331F73441E6BEDB3A00CA4E6E04B5336F1B",
+      "ocrCharacters": 313,
+      "topicHits": []
+    },
+    {
+      "page": 158,
+      "ocrSha256": "49197B4A10F4F6CEFA6C1C0F3F1FF238428EDD42FBB86EF2549BF594C212786B",
+      "ocrCharacters": 702,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "rise_fall",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 159,
+      "ocrSha256": "4262D2F8354FEF155D3484C0AF0549D97AEEB4826FB4B85982920F14F17C7D7C",
+      "ocrCharacters": 1491,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 160,
+      "ocrSha256": "F7C0E1CC7E019F63C141060CEE28A3835EEE811ABC77B402C697199B4CC54D67",
+      "ocrCharacters": 1423,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "relationship",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 161,
+      "ocrSha256": "966B442DBBC6895A2489F92BAB40F08D7C8A975E9593C63B4C051CED3397C82F",
+      "ocrCharacters": 934,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "work",
+        "finance",
+        "relationship",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 162,
+      "ocrSha256": "37C8E28E2894CEA0E56D93272F681D2531E3E52822ED5497305AE62E418B893E",
+      "ocrCharacters": 1104,
+      "topicHits": [
+        "planet_system",
+        "finance",
+        "health",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 163,
+      "ocrSha256": "250850EC0766418BD775803C693662D35A58920FC12B4DF544397323CAC5DAA4",
+      "ocrCharacters": 1333,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 164,
+      "ocrSha256": "16F8088871AAFCD187369C438993BCA4C665A571436B59E00458B62376900AA5",
+      "ocrCharacters": 1044,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 165,
+      "ocrSha256": "348B9678D7927C55128E2A0FD742B220A693AC3015F10318C9B4569A1BD992F8",
+      "ocrCharacters": 950,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "home_property"
+      ]
+    },
+    {
+      "page": 166,
+      "ocrSha256": "BD8BE6CA4A6C934A5FA01328D002F9AF1FD773C1275048B25E4A09099AB092DB",
+      "ocrCharacters": 1209,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 167,
+      "ocrSha256": "0F976BF24273E1758AAD63321C65AEA0CC3E4E8E586CCA4FB902BE73C334D05E",
+      "ocrCharacters": 858,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 168,
+      "ocrSha256": "E337E2905DEC2653CA2087AFF6C594948F9810B39585264B88A69275E80EE06C",
+      "ocrCharacters": 1521,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 169,
+      "ocrSha256": "1BAAB9D32B16C51A3E09A5CD4C081B552602793F5A97BEE9E60636C4CDE3D2DD",
+      "ocrCharacters": 833,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "finance",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 170,
+      "ocrSha256": "23388D65B16D444CE97DFD4D6238600F263786DBD2406ED37AFB0FBD90386C90",
+      "ocrCharacters": 834,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 171,
+      "ocrSha256": "D45208F8167F4374D05AE428A83DC9CB083A9F32EE2FC3DA4A1FCCE1951E3048",
+      "ocrCharacters": 1389,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 172,
+      "ocrSha256": "45B51EF7C7C428F2FD9DCB54AD6A2BF277FBB79117F9673D71A49E004B4B86CF",
+      "ocrCharacters": 865,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 173,
+      "ocrSha256": "396C347AA95A115C09083D510D00A8DF0EFE4ADE4113B44983EBF4F9FEDEB426",
+      "ocrCharacters": 919,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 174,
+      "ocrSha256": "CD00DD41DFAC0B477339C806C6CFAD10E5757465C9443E7CBAF1B4446EA5D286",
+      "ocrCharacters": 1429,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 175,
+      "ocrSha256": "B4B32B771BAF9EB08DE5D03DB9EF0AAA8F25B52A57A89421737EE06D5730AAF0",
+      "ocrCharacters": 1101,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "rise_fall",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 176,
+      "ocrSha256": "BB89AF01AE4DBB7561C7CE89B9B7B382E891E6F31B6E3F0FBA5EDBC81D16D1A3",
+      "ocrCharacters": 1042,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 177,
+      "ocrSha256": "379F26BB0EE1C89B4E541B08730DF1AD5A9F4DBFCB633D139F57D0CCA409ECCB",
+      "ocrCharacters": 1319,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 178,
+      "ocrSha256": "D11A357F504760457E05C7DD9D9668B3242EA3BF02521682FB6BD7D1C85FF358",
+      "ocrCharacters": 1368,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 179,
+      "ocrSha256": "B0B948052E2058530D9F5BE1F61F65422A55C819FDAFDFCF7AAAFE24D28CA8C8",
+      "ocrCharacters": 290,
+      "topicHits": [
+        "finance"
+      ]
+    },
+    {
+      "page": 180,
+      "ocrSha256": "AC67586CC685920CD03E7AF5E315AA0BAA47B6D1D5B5D2A7F6C5B0711750B0A2",
+      "ocrCharacters": 426,
+      "topicHits": [
+        "mahabhut_house",
+        "work"
+      ]
+    },
+    {
+      "page": 181,
+      "ocrSha256": "6514CA6378087F08FF8E73C1F2136CE4EBAB755861AEA816174D800A4D3FF4FB",
+      "ocrCharacters": 1218,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "home_property"
+      ]
+    },
+    {
+      "page": 182,
+      "ocrSha256": "238A4E9D0C9AD95C7F92ABBF58D8278C9DACF48E86D2C1888BE7024C568705CD",
+      "ocrCharacters": 1441,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 183,
+      "ocrSha256": "551013DA362AE0B2F989FC8D4EEFFF10DA881469FE69DF08771CA0758C69707D",
+      "ocrCharacters": 1289,
+      "topicHits": [
+        "planet_system",
+        "work",
+        "finance"
+      ]
+    },
+    {
+      "page": 184,
+      "ocrSha256": "7046EA425E17B862C3B711F99130C4AF6508D32AF43298CD7BDB682F4910EF7B",
+      "ocrCharacters": 1256,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "home_property"
+      ]
+    },
+    {
+      "page": 185,
+      "ocrSha256": "6C0104AF8E4F4BECAC3CC639B6919D6104A1950D67B19BE9EFC63E7253CEF32A",
+      "ocrCharacters": 1296,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "home_property"
+      ]
+    },
+    {
+      "page": 186,
+      "ocrSha256": "CD20F2EAAF5C25B9339C0B7BCE89EE7CF289E1074F96BE7F00B58DC28D5087A4",
+      "ocrCharacters": 1476,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "home_property"
+      ]
+    },
+    {
+      "page": 187,
+      "ocrSha256": "EB51831950D323A4E9A9F3DABB8175A4FEA4A7807662345A49D2AC8152C725C5",
+      "ocrCharacters": 1137,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 188,
+      "ocrSha256": "E4C6542C535C099926A9652762916F8BD40339FF93FD72A6EE9667648C04E2C5",
+      "ocrCharacters": 1171,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 189,
+      "ocrSha256": "2CE3987FD645E08D42ACD251FC65804D53D7004D6212FEFBFAEEC27612B76065",
+      "ocrCharacters": 1343,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 190,
+      "ocrSha256": "9B7D350F87AF0355001B6AA350E6010887FD9E0B8AE1481A0420D8DBD973D2FC",
+      "ocrCharacters": 1577,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "rise_fall",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 191,
+      "ocrSha256": "30387029B7A25E9B433C72F1136AB111EFA4DB423BE23641B9D03FAF97E0C6B3",
+      "ocrCharacters": 1017,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 192,
+      "ocrSha256": "648BD1AE4147B0D84C1EFCA7D59CCBFDCEC7DAAF40E99E2D0080B95D11060C40",
+      "ocrCharacters": 1103,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 193,
+      "ocrSha256": "AFD92695C8CA7A64FFEFE40223A773FEDC44D719DA363E7CE2F1BB408C689F4F",
+      "ocrCharacters": 1412,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 194,
+      "ocrSha256": "8C461066BFFF6B11F56F8CA30C3CCC71C29D1145BDAF94DD70DE932B2349E843",
+      "ocrCharacters": 1404,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 195,
+      "ocrSha256": "EFCBA26C810E55665B255B2AE95116EC7FC37FD134F3504F5A1B0FCE8D254E5C",
+      "ocrCharacters": 259,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 196,
+      "ocrSha256": "F0713DC121458573BD422453E9EBC1110207B7CF20981654270A5DB3D291D64D",
+      "ocrCharacters": 1113,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 197,
+      "ocrSha256": "C2D5FCB090FB41349DA0E6DC7E23C30103A1284D759ADC4988AC132C91472C20",
+      "ocrCharacters": 1528,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 198,
+      "ocrSha256": "E35D59299FC7B3BD71E1909DF7EF61F4F615764D05CF40C93A953F9C62D6514C",
+      "ocrCharacters": 1472,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 199,
+      "ocrSha256": "1386E4B8E4CF7C210C80122F7C33BEEF17027C660F8075F0980C051B2392A473",
+      "ocrCharacters": 562,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "home_property"
+      ]
+    },
+    {
+      "page": 200,
+      "ocrSha256": "83488206A62FD9048451900C53D70F607101CB9F7F28673AC190E17929096EAC",
+      "ocrCharacters": 859,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 201,
+      "ocrSha256": "ED1B6A38CF155189DDAE3CA256553B7620405E87DF644782AF9584857A98C3C6",
+      "ocrCharacters": 1556,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 202,
+      "ocrSha256": "7B51788519AF59ED2431CC332772BDBF66010DADA1DDB29615C962E5DE8AFC97",
+      "ocrCharacters": 1773,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 203,
+      "ocrSha256": "9D7826FB0F2C5F94AF3038CABDA4BC513068C76C2D088D8DB35753A0CA3708E9",
+      "ocrCharacters": 1359,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 204,
+      "ocrSha256": "D93252CC67BCFF8C400FF3C9CBF8BFCED9097B084D8E67A2DD0A2A1F5FA68F34",
+      "ocrCharacters": 174,
+      "topicHits": [
+        "taksa_roles",
+        "work",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 205,
+      "ocrSha256": "B0619FC425A7FE2C05059BCCDD2F0E8C511DF6E37A36BF77F99ACE07198C1A87",
+      "ocrCharacters": 939,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 206,
+      "ocrSha256": "244985A184EBC72F51ECA077B2DE1E8E8731A49FDE0B8C921089286FF1DE48AE",
+      "ocrCharacters": 1402,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 207,
+      "ocrSha256": "B7446743FD012F3CE65F2CAEC357945A5E5942BA7C18D2FB76C7E40488AD62FC",
+      "ocrCharacters": 1365,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 208,
+      "ocrSha256": "1EC4DA6B833F35E1876E608E3090105D63C13EDA84BCAC96393C4D47D924E28B",
+      "ocrCharacters": 835,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 209,
+      "ocrSha256": "117060A19E89E28A89A7F8539FE0900C576E52301E64FABE06690B00709F5A21",
+      "ocrCharacters": 1361,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 210,
+      "ocrSha256": "B5410752502C43687128C27716A5DA1F853E3DD5CED8E1A1FC68F135511D2ACF",
+      "ocrCharacters": 1690,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 211,
+      "ocrSha256": "B5113E07CBC373D4F986199D3B77E50955C586F02E9E78B24949E4F94A255187",
+      "ocrCharacters": 308,
+      "topicHits": [
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 212,
+      "ocrSha256": "8D20E2C3C4DBDB2F185C10F45B1133EB5200C574F317AEC6D4F016AFE5CE0FAF",
+      "ocrCharacters": 1065,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "home_property"
+      ]
+    },
+    {
+      "page": 213,
+      "ocrSha256": "920607640A68BD20FB673259EB6B6A7E5F94079139AF9ED4B8A9F277D75122BB",
+      "ocrCharacters": 1782,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 214,
+      "ocrSha256": "904FD76EF9C2843E993CE02FE1C7388396725BE5789532DD6890FCF98BC1876D",
+      "ocrCharacters": 1360,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "rise_fall",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 215,
+      "ocrSha256": "DDB917FFE8ACAC3AF3A28862B0798478A26C1CA865B99BA8A7971E80A0FC710E",
+      "ocrCharacters": 1579,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 216,
+      "ocrSha256": "8A8FFBFBF6227880448F8583D87B6601E040DFCF6D33521108AB2EF8ECA3EFDA",
+      "ocrCharacters": 215,
+      "topicHits": [
+        "planet_system"
+      ]
+    },
+    {
+      "page": 217,
+      "ocrSha256": "2E02D9A35C08E9DC9CA088E7C68212735198247E455818AC2033B2E49F6F9241",
+      "ocrCharacters": 308,
+      "topicHits": []
+    },
+    {
+      "page": 218,
+      "ocrSha256": "F5F923C85B0F0C57A174A777EA0427168D2280A4F673F3E22550DD7252E619D5",
+      "ocrCharacters": 456,
+      "topicHits": [
+        "work"
+      ]
+    },
+    {
+      "page": 219,
+      "ocrSha256": "B25548983B28CC24333F40A4864ADE2AB2EF2181F18E138883D2AA049C96FDA3",
+      "ocrCharacters": 1215,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 220,
+      "ocrSha256": "48BDC5D5C5BDBE1827D676D45E28A04BE5C55271BD803CD81C8DAA5A8B2B2ECB",
+      "ocrCharacters": 1359,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "home_property"
+      ]
+    },
+    {
+      "page": 221,
+      "ocrSha256": "9441ECC46929D52F384A5F05DC8C6F2E64120FBB2D10D1F560257A583E246A92",
+      "ocrCharacters": 1194,
+      "topicHits": [
+        "planet_system",
+        "work",
+        "finance",
+        "home_property"
+      ]
+    },
+    {
+      "page": 222,
+      "ocrSha256": "EB3923F7058E190F2FD408D9F65804974B06E1D91B4047BA4DCA6D038FD4A466",
+      "ocrCharacters": 1660,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "home_property"
+      ]
+    },
+    {
+      "page": 223,
+      "ocrSha256": "7C2647DBE6A0151A192CE5858CC33AD60EB56B5925AB2802AAEA79DCEB54DFE8",
+      "ocrCharacters": 1338,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "home_property"
+      ]
+    },
+    {
+      "page": 224,
+      "ocrSha256": "871602451F3C0B9E789DBE444B5AD86942188FF2BDC1F40BC8CD0E7E665E0AB8",
+      "ocrCharacters": 1364,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "relationship",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 225,
+      "ocrSha256": "245CFBB8DFA36C953A5BF631BADBD35BCDFE1474BE2EC560F4AD7827C7B4EA74",
+      "ocrCharacters": 1297,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "relationship",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 226,
+      "ocrSha256": "BAC5E1A2F7011A1D9428688A9EBC10E08E152587C204DC1AA1BC6CD4D05AF7D4",
+      "ocrCharacters": 415,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "finance",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 227,
+      "ocrSha256": "1000C419F843D83778A5B018C0BB10CED7501B089EE5AB7BEEC162AEC390CFE5",
+      "ocrCharacters": 293,
+      "topicHits": [
+        "finance"
+      ]
+    },
+    {
+      "page": 228,
+      "ocrSha256": "08F3D8C16895AD4B55454142101C54A392DBA0513B73BF44A59A295A26F06A71",
+      "ocrCharacters": 955,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "rise_fall",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property"
+      ]
+    },
+    {
+      "page": 229,
+      "ocrSha256": "77FA582FBA1A8A76849C5BF981E40F42EEADD410CB48BAC63D97492CEF678878",
+      "ocrCharacters": 1406,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 230,
+      "ocrSha256": "13462DB1D32A8E19945F1A0E949EF6BA4390DFEAD36416F5E7FA3B03DCA928A9",
+      "ocrCharacters": 1441,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 231,
+      "ocrSha256": "92DB68425F5F90F7862C5A78A6DFD714DDF9FAE5BA51AF284108DC21C35C1B35",
+      "ocrCharacters": 1242,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 232,
+      "ocrSha256": "3737C498418AA0332DDEC21D32A297C616BB9CF484447C72FF89D24C95D67C01",
+      "ocrCharacters": 1068,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 233,
+      "ocrSha256": "7F015051C833539D16F26931D79634B9D6CA9C6578F6B08F0C11E1BEEA3DF5D7",
+      "ocrCharacters": 1437,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 234,
+      "ocrSha256": "957EA79C0DF1D3D4A4F5E3BC68899BC388DF53362F0213B0132C15C4E08365C6",
+      "ocrCharacters": 1242,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 235,
+      "ocrSha256": "72E6C939D84229350CA398111DE725919204529591262DF1697D58D8E131317C",
+      "ocrCharacters": 1007,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 236,
+      "ocrSha256": "B5D6E92381107260E49CF08F74F4515043CE4003505C56E5F7A4F783D9FD0F9E",
+      "ocrCharacters": 1473,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 237,
+      "ocrSha256": "208541157E020A82C97A5A8F5068F409DC9341B4220DB21E2DD595D265065C4A",
+      "ocrCharacters": 1435,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 238,
+      "ocrSha256": "0016165D7A861BDE7ED4FD9166328B3009FD49590FB21DA533C3C13636EC90E5",
+      "ocrCharacters": 807,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 239,
+      "ocrSha256": "1A2F2F34C4CED3C8F1E2DEB19BA518BFC57CB58DE54556B6630EE767B0BB20FF",
+      "ocrCharacters": 1394,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 240,
+      "ocrSha256": "07FFD559ADCF665F62CF9D7C50166B34416176228513316E537780C3428C9CFD",
+      "ocrCharacters": 790,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 241,
+      "ocrSha256": "736E8E6D4D8315D3E228A125FAC8FC183043A1706276FFF7BC00FD3C809C3C74",
+      "ocrCharacters": 1193,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 242,
+      "ocrSha256": "56E2E5E008F4DEAF1AF39D3025864023A9617D23201DE52B5A4E943EE4D7253D",
+      "ocrCharacters": 1503,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 243,
+      "ocrSha256": "723B7D8E31BCF6EB29C75A8D2F8A8E7DFB845ACF753E0D335C02B86A29CA8EF8",
+      "ocrCharacters": 1378,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 244,
+      "ocrSha256": "595CD36445EE5B84EB32C82BEAA0830E6DF7F1E3490F8C4BF45D5A19304C90A4",
+      "ocrCharacters": 848,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 245,
+      "ocrSha256": "2B54FA296500FC16342DF513A78AE4D85D9E61C9D731C8BC0EEFDAAA1B57B3E1",
+      "ocrCharacters": 1038,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 246,
+      "ocrSha256": "55876CABC4B0C7E022CA9EFCE7A9FAA8EB82E19FADCFCFCB64A47F17153FFA83",
+      "ocrCharacters": 1496,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 247,
+      "ocrSha256": "A69643B6A526D8F59FE64975B7F5332E4769B116772B7B622689321D114CC200",
+      "ocrCharacters": 1435,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 248,
+      "ocrSha256": "6075F30275BBC64161801F71C5210E0F510AF782925564A6E0821A88EBA75825",
+      "ocrCharacters": 360,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 249,
+      "ocrSha256": "C206AF89AA3BEEEBE7AEA036DE2F82A0A074E73B8123BDF7630A998068D2DBC2",
+      "ocrCharacters": 860,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "home_property"
+      ]
+    },
+    {
+      "page": 250,
+      "ocrSha256": "3AE62243B6A15ACE918136CDDA9E20EBF351AD1B6FEF7E0627136FAC7FBC3A0D",
+      "ocrCharacters": 1473,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 251,
+      "ocrSha256": "58E4E6087F2FD951188F78B1DF24D472029F6F05E8B7A40F049456846CB580AF",
+      "ocrCharacters": 1535,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 252,
+      "ocrSha256": "30456AE2E45390F0EAFBBCE4C30782701F2B83F00D04D9C53F3BCC9F158E2A99",
+      "ocrCharacters": 617,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 253,
+      "ocrSha256": "8C55767C00AC9B1B71BC215B5B2B5FD1A90B087C79B825D3A87F35A49F3F0773",
+      "ocrCharacters": 249,
+      "topicHits": []
+    },
+    {
+      "page": 254,
+      "ocrSha256": "10A937B58C8E505CF12E824710B5B7FA47B0ED1B193709FD9D5E102C66E49B98",
+      "ocrCharacters": 413,
+      "topicHits": [
+        "mahabhut_house",
+        "work",
+        "finance"
+      ]
+    },
+    {
+      "page": 255,
+      "ocrSha256": "152ACE255856E525B88D1513E43C100181F9C11D245E10770335E509F866A20C",
+      "ocrCharacters": 1169,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "home_property"
+      ]
+    },
+    {
+      "page": 256,
+      "ocrSha256": "19A3DA85F4F1B5C64A31FAFBC9395755F7152CFE563AD8F3ACA4C1076AA59FA1",
+      "ocrCharacters": 1422,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "home_property"
+      ]
+    },
+    {
+      "page": 257,
+      "ocrSha256": "B0A9312528CD1C974E6A5D681B3A084F751B6D09A5068A4B69DD0E022C4917B9",
+      "ocrCharacters": 1328,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "home_property"
+      ]
+    },
+    {
+      "page": 258,
+      "ocrSha256": "01E32DD68E61E31174164E565FA11A2007B6E6C087F541EAEA54AF932C4D9CE9",
+      "ocrCharacters": 1256,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "home_property"
+      ]
+    },
+    {
+      "page": 259,
+      "ocrSha256": "40A15F24246EC41BE8BAEED40B00587E191E0CBE728E8BDF7F5783F1D9BA6D1C",
+      "ocrCharacters": 1190,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "home_property"
+      ]
+    },
+    {
+      "page": 260,
+      "ocrSha256": "3DB73DF37F4DC060CC65BA9DDED720073A37E7F3230CFE3DDE220ACCBEB41E5C",
+      "ocrCharacters": 1334,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "relationship",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 261,
+      "ocrSha256": "45CFF2317E87BC6BBC860440B63171A52033EAA2FA03F50CCFB48458D4D3BFCA",
+      "ocrCharacters": 1186,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 262,
+      "ocrSha256": "175DA8B23C283BEEDB0976181B6314A71844AEF18FD05A509719D1A306372DBB",
+      "ocrCharacters": 450,
+      "topicHits": [
+        "finance"
+      ]
+    },
+    {
+      "page": 263,
+      "ocrSha256": "1F45C986A0B1F0518AE05EBB7F45DCAF789392DD598F8670B44E58DA9A71C498",
+      "ocrCharacters": 816,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "rise_fall",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property"
+      ]
+    },
+    {
+      "page": 264,
+      "ocrSha256": "B3F3AC5B5FA1A38AA4A647EDD22A76A07A41E39BD9582E5C026AC5ADEAC7D06A",
+      "ocrCharacters": 1635,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 265,
+      "ocrSha256": "E0989B1EB4370124AE8A83886F8C840E10461F9360A6F121BBFD95B56724E5BE",
+      "ocrCharacters": 1502,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 266,
+      "ocrSha256": "B3DE7D71FA22BCE542420735B32F51A04301449D49F432D2F5C7ED0FE667127E",
+      "ocrCharacters": 1390,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 267,
+      "ocrSha256": "E6BC8B0EA1F820E8392933BC19150F7D08B6AD05224D1CF87E415DA3546CAF61",
+      "ocrCharacters": 463,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 268,
+      "ocrSha256": "26492A9E3478AE58D9F4DC5F720E1F9CE317454853D91B007E112C22F8F9E2B3",
+      "ocrCharacters": 1061,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 269,
+      "ocrSha256": "D2DEB4A86B6FDED4880F541058658D5D33865303D049E02EAB1C83ABA77CBEB6",
+      "ocrCharacters": 1454,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 270,
+      "ocrSha256": "C1A7F257D54724867AF15586FB0ED16FADE79B3F47D9244B67161868AB1F9520",
+      "ocrCharacters": 1483,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 271,
+      "ocrSha256": "7A4041ADD6120829BEF41B158432658998680D1AA1259BA3B1E3B0EB61F96C08",
+      "ocrCharacters": 1068,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "finance",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 272,
+      "ocrSha256": "6901165CCBAB455BD8560CD1D0434BCA7BCCE2B7CDC2529868BBA18E341CDC40",
+      "ocrCharacters": 1064,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 273,
+      "ocrSha256": "6A456CCA967977ADB337178396A2F6E860A84938B80A31DFBFA8EDDF21085B03",
+      "ocrCharacters": 1586,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 274,
+      "ocrSha256": "179C18FFF7DF6A2C51C35D971F5976E909CD75D44C277A16858D2D284171A7E5",
+      "ocrCharacters": 1413,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 275,
+      "ocrSha256": "45F5E2D747CE08BA49DFEC8B5E194D30BF924F4A08DDF84EC9374E92554E746A",
+      "ocrCharacters": 1447,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 276,
+      "ocrSha256": "C6AF7008CC58DB4A9A8018EF833F14ED6DED8C1CF709A1223F9B7A48D3D0963C",
+      "ocrCharacters": 291,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 277,
+      "ocrSha256": "39E9BBD4F4A0DD4BD00764BE8FF29B480E54491FA2856C6441F39485C115AC1D",
+      "ocrCharacters": 847,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property"
+      ]
+    },
+    {
+      "page": 278,
+      "ocrSha256": "D251497C40EEDA2BAE592795647FEFF1155CFE6CB797A1C3987356DE31E0B271",
+      "ocrCharacters": 1479,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "health",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 279,
+      "ocrSha256": "BDD3F401A6E07A226E24AFFD35C0288C81615ED2E9300DA1028DCE40E843507A",
+      "ocrCharacters": 1445,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 280,
+      "ocrSha256": "9165181FF0A75AC4C3027A3C2707328014897224BA43F7F69678020FD0B61B11",
+      "ocrCharacters": 540,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 281,
+      "ocrSha256": "20DC7E0E0C3ECDB8D1E682C396D0713EF6AE93F352C1668F09BC1B74824AD8FD",
+      "ocrCharacters": 1006,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 282,
+      "ocrSha256": "9B4B6921141150BBE7F9D5739F5816AB90D227CD9CBC8710B4994BB7189F1B9E",
+      "ocrCharacters": 1785,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 283,
+      "ocrSha256": "CB0E0BC29A990D8D3C4DD87032E07CBF5B12A8171999AE5CDE71F407760A6171",
+      "ocrCharacters": 1364,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 284,
+      "ocrSha256": "6B54041F7C1A3465D70598228052ADD0AE19617479EB99FD69D64377897BCF7C",
+      "ocrCharacters": 935,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 285,
+      "ocrSha256": "9E0F7CAFA2541BD7A9943D13E67BF4E6F86F352200C16273DCFBA25841CE9DC0",
+      "ocrCharacters": 999,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 286,
+      "ocrSha256": "743A9B53808EC6715021910887CFF709D026C3EFCB31F46C89586F25FD5CED86",
+      "ocrCharacters": 1364,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 287,
+      "ocrSha256": "9BED745F8E04C1719CAA05D5ACBBC2EFA178A0BD3D901E9E9D4A02439B9F9231",
+      "ocrCharacters": 1392,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property"
+      ]
+    },
+    {
+      "page": 288,
+      "ocrSha256": "6DAB4D0C7A843F4B969170D6897DF94F1C66596FBD4CC83F86D7F99BE8A1E8F2",
+      "ocrCharacters": 1353,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 289,
+      "ocrSha256": "924633C2003C7E58F893E681E27A6938FE8D41C34117D4C3D903CFCC27ACD171",
+      "ocrCharacters": 446,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 290,
+      "ocrSha256": "54DBC8D2BA6AFE9E7282E0A0E5F942EC654A4C27494AF1526F2BCA932643A7F0",
+      "ocrCharacters": 862,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "health",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 291,
+      "ocrSha256": "7CFCF40B79C82D90CF71FB5D0392F1B7BF9D9884EE486ABDA43141652EEB39FF",
+      "ocrCharacters": 1416,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "work",
+        "finance",
+        "relationship",
+        "support",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 292,
+      "ocrSha256": "92C9273D6108053F675B612B8D47E7954C1699780D8B57E6F6FDB377817E3B99",
+      "ocrCharacters": 500,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "mahabhut_house",
+        "home_property",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 293,
+      "ocrSha256": "2DF5F70B3775C5980C8AAE51AB23B1A4211BFE9388B7733F0A3AC050373FCC03",
+      "ocrCharacters": 302,
+      "topicHits": [
+        "finance"
+      ]
+    },
+    {
+      "page": 294,
+      "ocrSha256": "2F7EBAD13AD5562797D949F0CD23448639A036E9E29623E0D8D732511F9251C8",
+      "ocrCharacters": 894,
+      "topicHits": [
+        "planet_system",
+        "taksa_roles",
+        "rise_fall",
+        "age_transition"
+      ]
+    },
+    {
+      "page": 295,
+      "ocrSha256": "5E34CA24EB0CF16921DFFBF80BEFFCDA826137B9F1592252446E190D5462B72C",
+      "ocrCharacters": 1406,
+      "topicHits": [
+        "planet_system"
+      ]
+    },
+    {
+      "page": 296,
+      "ocrSha256": "35FC34F5EBC9159054216EE5BE58C5700C6560D4C9C7A4E1483841EC525156D7",
+      "ocrCharacters": 1550,
+      "topicHits": [
+        "planet_system"
+      ]
+    },
+    {
+      "page": 297,
+      "ocrSha256": "338AA5BA2ADC446A1231D43E451624634C873EDDC457456DDF73814999E09DDF",
+      "ocrCharacters": 361,
+      "topicHits": [
+        "planet_system",
+        "work"
+      ]
+    },
+    {
+      "page": 298,
+      "ocrSha256": "21D0C0EC65CF7ADD2E750C01E2BBF1FF435A95EDC1B8DD31416AF066A058E3CA",
+      "ocrCharacters": 61,
+      "topicHits": []
+    },
+    {
+      "page": 299,
+      "ocrSha256": "ABB2FA0F6CE66AAEDC36FE31CAC3C9F1D5D2234115E43A02EE6632794A5E5A11",
+      "ocrCharacters": 40,
+      "topicHits": [
+        "planet_system"
+      ]
+    },
+    {
+      "page": 300,
+      "ocrSha256": "D31D8AECE775BC1515D943EAA2134408C6C3FCCEB6415C9375D6A0B8BA865389",
+      "ocrCharacters": 160,
+      "topicHits": []
+    },
+    {
+      "page": 301,
+      "ocrSha256": "C8D351A7F8808CD458C5AA2AAEA0151715F4F6056225962BE0B621F6383EC0BD",
+      "ocrCharacters": 36,
+      "topicHits": [
+        "planet_system"
+      ]
+    },
+    {
+      "page": 302,
+      "ocrSha256": "34C10B8D8572D99CFD813323485F58380C0C6830FA00AB37D343E85280E36962",
+      "ocrCharacters": 42,
+      "topicHits": []
+    },
+    {
+      "page": 303,
+      "ocrSha256": "230704C0A8C5917DCF8DF198FE60C9D1745A21E0F23C815F37CD9792BB7E1327",
+      "ocrCharacters": 41,
+      "topicHits": []
+    },
+    {
+      "page": 304,
+      "ocrSha256": "982A7A36D43940375BF657C6285BD918D8B17EA3FAE8953534DC565350696CBB",
+      "ocrCharacters": 37,
+      "topicHits": []
+    },
+    {
+      "page": 305,
+      "ocrSha256": "D607135EF83BD736AFB06BECEADCF55B7358A9FFDAB5C483959C4046EFFF8EE7",
+      "ocrCharacters": 1206,
+      "topicHits": [
+        "planet_system",
+        "mahabhut_house",
+        "finance",
+        "home_property"
+      ]
+    },
+    {
+      "page": 306,
+      "ocrSha256": "1C78FA101B830B8A5F6F0329E4B2FD484A2C55E4E2FD3B72B0247A63A29E3F41",
+      "ocrCharacters": 393,
+      "topicHits": [
+        "taksa_roles"
+      ]
+    },
+    {
+      "page": 307,
+      "ocrSha256": "68C9BA172073D48FEAB6EF8BD625E84704BA76AA5AEED78A00E93CEF3D1106D9",
+      "ocrCharacters": 926,
+      "topicHits": [
+        "work"
+      ]
+    },
+    {
+      "page": 308,
+      "ocrSha256": "7212828CFDD23DB273378D5BC1FB5FAC2DAFC8CCC935F587F174DA81676BFF50",
+      "ocrCharacters": 64,
+      "topicHits": []
+    }
+  ]
+}

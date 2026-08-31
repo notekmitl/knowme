@@ -1,0 +1,1274 @@
+{
+  "version": 2,
+  "status": "PROPOSED_SOURCE_AUTHORIZED_FOUNDATION_PENDING_OWNER_REVIEW",
+  "baseCommit": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+  "fixtureIndependence": {
+    "prohibitedPins": [
+      "6/6/2525",
+      "00:03",
+      "age 44 only",
+      "2026-08-29",
+      "Candidate 0011 reader text"
+    ],
+    "reusableAcrossContexts": true,
+    "reusableAcrossFixtures": true,
+    "reusableAcrossAges": true,
+    "reusableAcrossAsOfDates": true
+  },
+  "predictionContract": {
+    "broadTrendMinimum": [
+      "placement fact",
+      "reusable source rule",
+      "passed applicability",
+      "zero unresolved conflicts"
+    ],
+    "specificEventMinimum": [
+      "source-direct statement for that event",
+      "or Owner-authorized multi-signal synthesis"
+    ],
+    "prohibitedEscalations": [
+      "job promotion",
+      "job change",
+      "marriage",
+      "breakup",
+      "medical diagnosis",
+      "specific amount",
+      "windfall",
+      "specific month or day"
+    ]
+  },
+  "counts": {
+    "rules": 21,
+    "planetSemanticRules": 8,
+    "taksaDomainRules": 8,
+    "houseDirectionRules": 2,
+    "kalakiniInversionRules": 2,
+    "periodRules": 1
+  },
+  "rules": [
+    {
+      "rule_id": "MH2537-PLANET-SUN",
+      "rule_type": "PLANET_SEMANTIC_SCOPE",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-PLANET-SYSTEM"
+      ],
+      "applicable_planets": [
+        "sun"
+      ],
+      "applicable_taksa_roles": [
+        "boriwan",
+        "ayu",
+        "det",
+        "sri",
+        "mula",
+        "utsaha",
+        "montri",
+        "kalakini"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "thongchai",
+        "khumsap",
+        "racha",
+        "athibodi",
+        "phangkha",
+        "marana",
+        "puti"
+      ],
+      "required_conditions": [
+        "planet matches the life-period placement",
+        "combine with an applicable Taksa-role rule and house-direction rule"
+      ],
+      "excluded_conditions": [
+        "standalone planet keyword as prediction",
+        "medical diagnosis",
+        "personality substitution"
+      ],
+      "applicable_domains": [
+        "leadership",
+        "authority",
+        "home_leadership"
+      ],
+      "period_applicability": "Only the matched planet life period recorded by the source table.",
+      "allowed_conclusions": [
+        "Use ผู้ใหญ่ ผู้ปกครอง อำนาจ และบทบาทนำ only to bound the subject affected by the matched house direction."
+      ],
+      "prohibited_escalations": [
+        "specific event",
+        "specific disease",
+        "specific amount",
+        "month or day timing",
+        "different planet or life period"
+      ],
+      "claim_strength": "SOURCE_SEMANTIC_COMPONENT_NOT_STANDALONE_PREDICTION",
+      "conflict_priority": 30,
+      "reader_language_boundary": "Name the affected area in ordinary Thai; do not repeat historical disease or stereotype lists.",
+      "authority_kind": "PRODUCT_INTERPRETATION_BOUNDARY",
+      "evidence_completeness_status": "COMPLETE"
+    },
+    {
+      "rule_id": "MH2537-PLANET-MOON",
+      "rule_type": "PLANET_SEMANTIC_SCOPE",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-PLANET-SYSTEM"
+      ],
+      "applicable_planets": [
+        "moon"
+      ],
+      "applicable_taksa_roles": [
+        "boriwan",
+        "ayu",
+        "det",
+        "sri",
+        "mula",
+        "utsaha",
+        "montri",
+        "kalakini"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "thongchai",
+        "khumsap",
+        "racha",
+        "athibodi",
+        "phangkha",
+        "marana",
+        "puti"
+      ],
+      "required_conditions": [
+        "planet matches the life-period placement",
+        "combine with an applicable Taksa-role rule and house-direction rule"
+      ],
+      "excluded_conditions": [
+        "standalone planet keyword as prediction",
+        "medical diagnosis",
+        "personality substitution"
+      ],
+      "applicable_domains": [
+        "care",
+        "mobility",
+        "finance"
+      ],
+      "period_applicability": "Only the matched planet life period recorded by the source table.",
+      "allowed_conclusions": [
+        "Use ผู้ดูแล การเดินทาง การเงิน และสิ่งแวดล้อมที่หล่อเลี้ยงชีวิต only to bound the subject affected by the matched house direction."
+      ],
+      "prohibited_escalations": [
+        "specific event",
+        "specific disease",
+        "specific amount",
+        "month or day timing",
+        "different planet or life period"
+      ],
+      "claim_strength": "SOURCE_SEMANTIC_COMPONENT_NOT_STANDALONE_PREDICTION",
+      "conflict_priority": 30,
+      "reader_language_boundary": "Name the affected area in ordinary Thai; do not repeat historical disease or stereotype lists.",
+      "authority_kind": "PRODUCT_INTERPRETATION_BOUNDARY",
+      "evidence_completeness_status": "COMPLETE"
+    },
+    {
+      "rule_id": "MH2537-PLANET-MARS",
+      "rule_type": "PLANET_SEMANTIC_SCOPE",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-PLANET-SYSTEM"
+      ],
+      "applicable_planets": [
+        "mars"
+      ],
+      "applicable_taksa_roles": [
+        "boriwan",
+        "ayu",
+        "det",
+        "sri",
+        "mula",
+        "utsaha",
+        "montri",
+        "kalakini"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "thongchai",
+        "khumsap",
+        "racha",
+        "athibodi",
+        "phangkha",
+        "marana",
+        "puti"
+      ],
+      "required_conditions": [
+        "planet matches the life-period placement",
+        "combine with an applicable Taksa-role rule and house-direction rule"
+      ],
+      "excluded_conditions": [
+        "standalone planet keyword as prediction",
+        "medical diagnosis",
+        "personality substitution"
+      ],
+      "applicable_domains": [
+        "action",
+        "technical_work",
+        "subordinates"
+      ],
+      "period_applicability": "Only the matched planet life period recorded by the source table.",
+      "allowed_conclusions": [
+        "Use การลงมือ งานเชิงช่าง ความเด็ดขาด และผู้ร่วมงานใต้ความรับผิดชอบ only to bound the subject affected by the matched house direction."
+      ],
+      "prohibited_escalations": [
+        "specific event",
+        "specific disease",
+        "specific amount",
+        "month or day timing",
+        "different planet or life period"
+      ],
+      "claim_strength": "SOURCE_SEMANTIC_COMPONENT_NOT_STANDALONE_PREDICTION",
+      "conflict_priority": 30,
+      "reader_language_boundary": "Name the affected area in ordinary Thai; do not repeat historical disease or stereotype lists.",
+      "authority_kind": "PRODUCT_INTERPRETATION_BOUNDARY",
+      "evidence_completeness_status": "COMPLETE"
+    },
+    {
+      "rule_id": "MH2537-PLANET-MERCURY",
+      "rule_type": "PLANET_SEMANTIC_SCOPE",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-PLANET-SYSTEM"
+      ],
+      "applicable_planets": [
+        "mercury"
+      ],
+      "applicable_taksa_roles": [
+        "boriwan",
+        "ayu",
+        "det",
+        "sri",
+        "mula",
+        "utsaha",
+        "montri",
+        "kalakini"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "thongchai",
+        "khumsap",
+        "racha",
+        "athibodi",
+        "phangkha",
+        "marana",
+        "puti"
+      ],
+      "required_conditions": [
+        "planet matches the life-period placement",
+        "combine with an applicable Taksa-role rule and house-direction rule"
+      ],
+      "excluded_conditions": [
+        "standalone planet keyword as prediction",
+        "medical diagnosis",
+        "personality substitution"
+      ],
+      "applicable_domains": [
+        "communication",
+        "education",
+        "information_work"
+      ],
+      "period_applicability": "Only the matched planet life period recorded by the source table.",
+      "allowed_conclusions": [
+        "Use การสื่อสาร การเรียนรู้ ข้อมูล และงานที่ใช้คำพูดหรือเอกสาร only to bound the subject affected by the matched house direction."
+      ],
+      "prohibited_escalations": [
+        "specific event",
+        "specific disease",
+        "specific amount",
+        "month or day timing",
+        "different planet or life period"
+      ],
+      "claim_strength": "SOURCE_SEMANTIC_COMPONENT_NOT_STANDALONE_PREDICTION",
+      "conflict_priority": 30,
+      "reader_language_boundary": "Name the affected area in ordinary Thai; do not repeat historical disease or stereotype lists.",
+      "authority_kind": "PRODUCT_INTERPRETATION_BOUNDARY",
+      "evidence_completeness_status": "COMPLETE"
+    },
+    {
+      "rule_id": "MH2537-PLANET-JUPITER",
+      "rule_type": "PLANET_SEMANTIC_SCOPE",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-PLANET-SYSTEM"
+      ],
+      "applicable_planets": [
+        "jupiter"
+      ],
+      "applicable_taksa_roles": [
+        "boriwan",
+        "ayu",
+        "det",
+        "sri",
+        "mula",
+        "utsaha",
+        "montri",
+        "kalakini"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "thongchai",
+        "khumsap",
+        "racha",
+        "athibodi",
+        "phangkha",
+        "marana",
+        "puti"
+      ],
+      "required_conditions": [
+        "planet matches the life-period placement",
+        "combine with an applicable Taksa-role rule and house-direction rule"
+      ],
+      "excluded_conditions": [
+        "standalone planet keyword as prediction",
+        "medical diagnosis",
+        "personality substitution"
+      ],
+      "applicable_domains": [
+        "knowledge",
+        "advisers",
+        "professional_work"
+      ],
+      "period_applicability": "Only the matched planet life period recorded by the source table.",
+      "allowed_conclusions": [
+        "Use ความรู้ ที่ปรึกษา การศึกษา และงานวิชาชีพ only to bound the subject affected by the matched house direction."
+      ],
+      "prohibited_escalations": [
+        "specific event",
+        "specific disease",
+        "specific amount",
+        "month or day timing",
+        "different planet or life period"
+      ],
+      "claim_strength": "SOURCE_SEMANTIC_COMPONENT_NOT_STANDALONE_PREDICTION",
+      "conflict_priority": 30,
+      "reader_language_boundary": "Name the affected area in ordinary Thai; do not repeat historical disease or stereotype lists.",
+      "authority_kind": "PRODUCT_INTERPRETATION_BOUNDARY",
+      "evidence_completeness_status": "COMPLETE"
+    },
+    {
+      "rule_id": "MH2537-PLANET-VENUS",
+      "rule_type": "PLANET_SEMANTIC_SCOPE",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-PLANET-SYSTEM"
+      ],
+      "applicable_planets": [
+        "venus"
+      ],
+      "applicable_taksa_roles": [
+        "boriwan",
+        "ayu",
+        "det",
+        "sri",
+        "mula",
+        "utsaha",
+        "montri",
+        "kalakini"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "thongchai",
+        "khumsap",
+        "racha",
+        "athibodi",
+        "phangkha",
+        "marana",
+        "puti"
+      ],
+      "required_conditions": [
+        "planet matches the life-period placement",
+        "combine with an applicable Taksa-role rule and house-direction rule"
+      ],
+      "excluded_conditions": [
+        "standalone planet keyword as prediction",
+        "medical diagnosis",
+        "personality substitution"
+      ],
+      "applicable_domains": [
+        "relationship",
+        "creative_work",
+        "rest_and_wellbeing"
+      ],
+      "period_applicability": "Only the matched planet life period recorded by the source table.",
+      "allowed_conclusions": [
+        "Use ความสัมพันธ์ ศิลปะ ความรื่นรมย์ และผลของการพักผ่อนต่อสุขภาวะ only to bound the subject affected by the matched house direction."
+      ],
+      "prohibited_escalations": [
+        "specific event",
+        "specific disease",
+        "specific amount",
+        "month or day timing",
+        "different planet or life period"
+      ],
+      "claim_strength": "SOURCE_SEMANTIC_COMPONENT_NOT_STANDALONE_PREDICTION",
+      "conflict_priority": 30,
+      "reader_language_boundary": "Name the affected area in ordinary Thai; do not repeat historical disease or stereotype lists.",
+      "authority_kind": "PRODUCT_INTERPRETATION_BOUNDARY",
+      "evidence_completeness_status": "COMPLETE"
+    },
+    {
+      "rule_id": "MH2537-PLANET-SATURN",
+      "rule_type": "PLANET_SEMANTIC_SCOPE",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-PLANET-SYSTEM"
+      ],
+      "applicable_planets": [
+        "saturn"
+      ],
+      "applicable_taksa_roles": [
+        "boriwan",
+        "ayu",
+        "det",
+        "sri",
+        "mula",
+        "utsaha",
+        "montri",
+        "kalakini"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "thongchai",
+        "khumsap",
+        "racha",
+        "athibodi",
+        "phangkha",
+        "marana",
+        "puti"
+      ],
+      "required_conditions": [
+        "planet matches the life-period placement",
+        "combine with an applicable Taksa-role rule and house-direction rule"
+      ],
+      "excluded_conditions": [
+        "standalone planet keyword as prediction",
+        "medical diagnosis",
+        "personality substitution"
+      ],
+      "applicable_domains": [
+        "long_term_work",
+        "labor",
+        "endurance"
+      ],
+      "period_applicability": "Only the matched planet life period recorded by the source table.",
+      "allowed_conclusions": [
+        "Use งานระยะยาว ภาระ ความอดทน และโครงสร้างที่ต้องใช้เวลา only to bound the subject affected by the matched house direction."
+      ],
+      "prohibited_escalations": [
+        "specific event",
+        "specific disease",
+        "specific amount",
+        "month or day timing",
+        "different planet or life period"
+      ],
+      "claim_strength": "SOURCE_SEMANTIC_COMPONENT_NOT_STANDALONE_PREDICTION",
+      "conflict_priority": 30,
+      "reader_language_boundary": "Name the affected area in ordinary Thai; do not repeat historical disease or stereotype lists.",
+      "authority_kind": "PRODUCT_INTERPRETATION_BOUNDARY",
+      "evidence_completeness_status": "COMPLETE"
+    },
+    {
+      "rule_id": "MH2537-PLANET-RAHU",
+      "rule_type": "PLANET_SEMANTIC_SCOPE",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-PLANET-SYSTEM"
+      ],
+      "applicable_planets": [
+        "rahu"
+      ],
+      "applicable_taksa_roles": [
+        "boriwan",
+        "ayu",
+        "det",
+        "sri",
+        "mula",
+        "utsaha",
+        "montri",
+        "kalakini"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "thongchai",
+        "khumsap",
+        "racha",
+        "athibodi",
+        "phangkha",
+        "marana",
+        "puti"
+      ],
+      "required_conditions": [
+        "planet matches the life-period placement",
+        "combine with an applicable Taksa-role rule and house-direction rule"
+      ],
+      "excluded_conditions": [
+        "standalone planet keyword as prediction",
+        "medical diagnosis",
+        "personality substitution"
+      ],
+      "applicable_domains": [
+        "risk",
+        "hidden_pressure",
+        "unconventional_context"
+      ],
+      "period_applicability": "Only the matched planet life period recorded by the source table.",
+      "allowed_conclusions": [
+        "Use แรงกดดัน ความเสี่ยง และบริบทที่ไม่เป็นไปตามกรอบปกติ only to bound the subject affected by the matched house direction."
+      ],
+      "prohibited_escalations": [
+        "specific event",
+        "specific disease",
+        "specific amount",
+        "month or day timing",
+        "different planet or life period"
+      ],
+      "claim_strength": "SOURCE_SEMANTIC_COMPONENT_NOT_STANDALONE_PREDICTION",
+      "conflict_priority": 30,
+      "reader_language_boundary": "Name the affected area in ordinary Thai; do not repeat historical disease or stereotype lists.",
+      "authority_kind": "PRODUCT_INTERPRETATION_BOUNDARY",
+      "evidence_completeness_status": "COMPLETE"
+    },
+    {
+      "rule_id": "MH2537-TAKSA-BORIWAN",
+      "rule_type": "TAKSA_DOMAIN_SCOPE",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-TAKSA-SYSTEM"
+      ],
+      "applicable_planets": [
+        "sun",
+        "moon",
+        "mars",
+        "mercury",
+        "jupiter",
+        "venus",
+        "saturn",
+        "rahu"
+      ],
+      "applicable_taksa_roles": [
+        "boriwan"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "thongchai",
+        "khumsap",
+        "racha",
+        "athibodi",
+        "phangkha",
+        "marana",
+        "puti"
+      ],
+      "required_conditions": [
+        "Taksa role matches the life-period placement",
+        "Thai astrological day is proven from known birth time"
+      ],
+      "excluded_conditions": [
+        "unknown birth time",
+        "noon substitution",
+        "role inferred from reader copy"
+      ],
+      "applicable_domains": [
+        "support_and_family"
+      ],
+      "period_applicability": "Only the matched Taksa life period recorded by the source table.",
+      "allowed_conclusions": [
+        "Treat คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัว as the role-domain boundary."
+      ],
+      "prohibited_escalations": [
+        "different role",
+        "unlisted event",
+        "personality substitution",
+        "specific timing"
+      ],
+      "claim_strength": "SOURCE_DOMAIN_COMPONENT_NOT_STANDALONE_PREDICTION",
+      "conflict_priority": 40,
+      "reader_language_boundary": "Use the role to select the domain, not to invent an event.",
+      "authority_kind": "PRODUCT_INTERPRETATION_BOUNDARY",
+      "evidence_completeness_status": "COMPLETE"
+    },
+    {
+      "rule_id": "MH2537-TAKSA-AYU",
+      "rule_type": "TAKSA_DOMAIN_SCOPE",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-TAKSA-SYSTEM"
+      ],
+      "applicable_planets": [
+        "sun",
+        "moon",
+        "mars",
+        "mercury",
+        "jupiter",
+        "venus",
+        "saturn",
+        "rahu"
+      ],
+      "applicable_taksa_roles": [
+        "ayu"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "thongchai",
+        "khumsap",
+        "racha",
+        "athibodi",
+        "phangkha",
+        "marana",
+        "puti"
+      ],
+      "required_conditions": [
+        "Taksa role matches the life-period placement",
+        "Thai astrological day is proven from known birth time"
+      ],
+      "excluded_conditions": [
+        "unknown birth time",
+        "noon substitution",
+        "role inferred from reader copy"
+      ],
+      "applicable_domains": [
+        "health"
+      ],
+      "period_applicability": "Only the matched Taksa life period recorded by the source table.",
+      "allowed_conclusions": [
+        "Treat ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิต as the role-domain boundary."
+      ],
+      "prohibited_escalations": [
+        "different role",
+        "unlisted event",
+        "personality substitution",
+        "specific timing"
+      ],
+      "claim_strength": "SOURCE_DOMAIN_COMPONENT_NOT_STANDALONE_PREDICTION",
+      "conflict_priority": 40,
+      "reader_language_boundary": "Use the role to select the domain, not to invent an event.",
+      "authority_kind": "PRODUCT_INTERPRETATION_BOUNDARY",
+      "evidence_completeness_status": "COMPLETE"
+    },
+    {
+      "rule_id": "MH2537-TAKSA-DET",
+      "rule_type": "TAKSA_DOMAIN_SCOPE",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-TAKSA-SYSTEM"
+      ],
+      "applicable_planets": [
+        "sun",
+        "moon",
+        "mars",
+        "mercury",
+        "jupiter",
+        "venus",
+        "saturn",
+        "rahu"
+      ],
+      "applicable_taksa_roles": [
+        "det"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "thongchai",
+        "khumsap",
+        "racha",
+        "athibodi",
+        "phangkha",
+        "marana",
+        "puti"
+      ],
+      "required_conditions": [
+        "Taksa role matches the life-period placement",
+        "Thai astrological day is proven from known birth time"
+      ],
+      "excluded_conditions": [
+        "unknown birth time",
+        "noon substitution",
+        "role inferred from reader copy"
+      ],
+      "applicable_domains": [
+        "work",
+        "authority"
+      ],
+      "period_applicability": "Only the matched Taksa life period recorded by the source table.",
+      "allowed_conclusions": [
+        "Treat อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงาน as the role-domain boundary."
+      ],
+      "prohibited_escalations": [
+        "different role",
+        "unlisted event",
+        "personality substitution",
+        "specific timing"
+      ],
+      "claim_strength": "SOURCE_DOMAIN_COMPONENT_NOT_STANDALONE_PREDICTION",
+      "conflict_priority": 40,
+      "reader_language_boundary": "Use the role to select the domain, not to invent an event.",
+      "authority_kind": "PRODUCT_INTERPRETATION_BOUNDARY",
+      "evidence_completeness_status": "COMPLETE"
+    },
+    {
+      "rule_id": "MH2537-TAKSA-SRI",
+      "rule_type": "TAKSA_DOMAIN_SCOPE",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-TAKSA-SYSTEM"
+      ],
+      "applicable_planets": [
+        "sun",
+        "moon",
+        "mars",
+        "mercury",
+        "jupiter",
+        "venus",
+        "saturn",
+        "rahu"
+      ],
+      "applicable_taksa_roles": [
+        "sri"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "thongchai",
+        "khumsap",
+        "racha",
+        "athibodi",
+        "phangkha",
+        "marana",
+        "puti"
+      ],
+      "required_conditions": [
+        "Taksa role matches the life-period placement",
+        "Thai astrological day is proven from known birth time"
+      ],
+      "excluded_conditions": [
+        "unknown birth time",
+        "noon substitution",
+        "role inferred from reader copy"
+      ],
+      "applicable_domains": [
+        "finance",
+        "status"
+      ],
+      "period_applicability": "Only the matched Taksa life period recorded by the source table.",
+      "allowed_conclusions": [
+        "Treat ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะ as the role-domain boundary."
+      ],
+      "prohibited_escalations": [
+        "different role",
+        "unlisted event",
+        "personality substitution",
+        "specific timing"
+      ],
+      "claim_strength": "SOURCE_DOMAIN_COMPONENT_NOT_STANDALONE_PREDICTION",
+      "conflict_priority": 40,
+      "reader_language_boundary": "Use the role to select the domain, not to invent an event.",
+      "authority_kind": "PRODUCT_INTERPRETATION_BOUNDARY",
+      "evidence_completeness_status": "COMPLETE"
+    },
+    {
+      "rule_id": "MH2537-TAKSA-MULA",
+      "rule_type": "TAKSA_DOMAIN_SCOPE",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-TAKSA-SYSTEM"
+      ],
+      "applicable_planets": [
+        "sun",
+        "moon",
+        "mars",
+        "mercury",
+        "jupiter",
+        "venus",
+        "saturn",
+        "rahu"
+      ],
+      "applicable_taksa_roles": [
+        "mula"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "thongchai",
+        "khumsap",
+        "racha",
+        "athibodi",
+        "phangkha",
+        "marana",
+        "puti"
+      ],
+      "required_conditions": [
+        "Taksa role matches the life-period placement",
+        "Thai astrological day is proven from known birth time"
+      ],
+      "excluded_conditions": [
+        "unknown birth time",
+        "noon substitution",
+        "role inferred from reader copy"
+      ],
+      "applicable_domains": [
+        "home",
+        "property",
+        "foundation"
+      ],
+      "period_applicability": "Only the matched Taksa life period recorded by the source table.",
+      "allowed_conclusions": [
+        "Treat บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้าย as the role-domain boundary."
+      ],
+      "prohibited_escalations": [
+        "different role",
+        "unlisted event",
+        "personality substitution",
+        "specific timing"
+      ],
+      "claim_strength": "SOURCE_DOMAIN_COMPONENT_NOT_STANDALONE_PREDICTION",
+      "conflict_priority": 40,
+      "reader_language_boundary": "Use the role to select the domain, not to invent an event.",
+      "authority_kind": "PRODUCT_INTERPRETATION_BOUNDARY",
+      "evidence_completeness_status": "COMPLETE"
+    },
+    {
+      "rule_id": "MH2537-TAKSA-UTSAHA",
+      "rule_type": "TAKSA_DOMAIN_SCOPE",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-TAKSA-SYSTEM"
+      ],
+      "applicable_planets": [
+        "sun",
+        "moon",
+        "mars",
+        "mercury",
+        "jupiter",
+        "venus",
+        "saturn",
+        "rahu"
+      ],
+      "applicable_taksa_roles": [
+        "utsaha"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "thongchai",
+        "khumsap",
+        "racha",
+        "athibodi",
+        "phangkha",
+        "marana",
+        "puti"
+      ],
+      "required_conditions": [
+        "Taksa role matches the life-period placement",
+        "Thai astrological day is proven from known birth time"
+      ],
+      "excluded_conditions": [
+        "unknown birth time",
+        "noon substitution",
+        "role inferred from reader copy"
+      ],
+      "applicable_domains": [
+        "work",
+        "education",
+        "effort"
+      ],
+      "period_applicability": "Only the matched Taksa life period recorded by the source table.",
+      "allowed_conclusions": [
+        "Treat ความเพียร การงาน และการศึกษา as the role-domain boundary."
+      ],
+      "prohibited_escalations": [
+        "different role",
+        "unlisted event",
+        "personality substitution",
+        "specific timing"
+      ],
+      "claim_strength": "SOURCE_DOMAIN_COMPONENT_NOT_STANDALONE_PREDICTION",
+      "conflict_priority": 40,
+      "reader_language_boundary": "Use the role to select the domain, not to invent an event.",
+      "authority_kind": "PRODUCT_INTERPRETATION_BOUNDARY",
+      "evidence_completeness_status": "COMPLETE"
+    },
+    {
+      "rule_id": "MH2537-TAKSA-MONTRI",
+      "rule_type": "TAKSA_DOMAIN_SCOPE",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-TAKSA-SYSTEM"
+      ],
+      "applicable_planets": [
+        "sun",
+        "moon",
+        "mars",
+        "mercury",
+        "jupiter",
+        "venus",
+        "saturn",
+        "rahu"
+      ],
+      "applicable_taksa_roles": [
+        "montri"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "thongchai",
+        "khumsap",
+        "racha",
+        "athibodi",
+        "phangkha",
+        "marana",
+        "puti"
+      ],
+      "required_conditions": [
+        "Taksa role matches the life-period placement",
+        "Thai astrological day is proven from known birth time"
+      ],
+      "excluded_conditions": [
+        "unknown birth time",
+        "noon substitution",
+        "role inferred from reader copy"
+      ],
+      "applicable_domains": [
+        "support",
+        "work"
+      ],
+      "period_applicability": "Only the matched Taksa life period recorded by the source table.",
+      "allowed_conclusions": [
+        "Treat เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุน as the role-domain boundary."
+      ],
+      "prohibited_escalations": [
+        "different role",
+        "unlisted event",
+        "personality substitution",
+        "specific timing"
+      ],
+      "claim_strength": "SOURCE_DOMAIN_COMPONENT_NOT_STANDALONE_PREDICTION",
+      "conflict_priority": 40,
+      "reader_language_boundary": "Use the role to select the domain, not to invent an event.",
+      "authority_kind": "PRODUCT_INTERPRETATION_BOUNDARY",
+      "evidence_completeness_status": "COMPLETE"
+    },
+    {
+      "rule_id": "MH2537-TAKSA-KALAKINI",
+      "rule_type": "TAKSA_DOMAIN_SCOPE",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-TAKSA-SYSTEM"
+      ],
+      "applicable_planets": [
+        "sun",
+        "moon",
+        "mars",
+        "mercury",
+        "jupiter",
+        "venus",
+        "saturn",
+        "rahu"
+      ],
+      "applicable_taksa_roles": [
+        "kalakini"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "thongchai",
+        "khumsap",
+        "racha",
+        "athibodi",
+        "phangkha",
+        "marana",
+        "puti"
+      ],
+      "required_conditions": [
+        "Taksa role matches the life-period placement",
+        "Thai astrological day is proven from known birth time"
+      ],
+      "excluded_conditions": [
+        "unknown birth time",
+        "noon substitution",
+        "role inferred from reader copy"
+      ],
+      "applicable_domains": [
+        "obstacle_pressure"
+      ],
+      "period_applicability": "Only the matched Taksa life period recorded by the source table.",
+      "allowed_conclusions": [
+        "Treat ศัตรู อุปสรรค ความติดขัด และแรงทำลาย as the role-domain boundary."
+      ],
+      "prohibited_escalations": [
+        "different role",
+        "unlisted event",
+        "personality substitution",
+        "specific timing"
+      ],
+      "claim_strength": "SOURCE_DOMAIN_COMPONENT_NOT_STANDALONE_PREDICTION",
+      "conflict_priority": 40,
+      "reader_language_boundary": "Use the role to select the domain, not to invent an event.",
+      "authority_kind": "PRODUCT_INTERPRETATION_BOUNDARY",
+      "evidence_completeness_status": "COMPLETE"
+    },
+    {
+      "rule_id": "MH2537-HOUSE-WEAK-DIRECTION",
+      "rule_type": "HOUSE_DIRECTION",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-HOUSE-WEAK"
+      ],
+      "applicable_planets": [
+        "sun",
+        "moon",
+        "mars",
+        "mercury",
+        "jupiter",
+        "venus",
+        "saturn",
+        "rahu"
+      ],
+      "applicable_taksa_roles": [
+        "boriwan",
+        "ayu",
+        "det",
+        "sri",
+        "mula",
+        "utsaha",
+        "montri"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "phangkha",
+        "marana",
+        "puti"
+      ],
+      "required_conditions": [
+        "matched placement is in a weak house",
+        "planet and Taksa semantic rules both apply"
+      ],
+      "excluded_conditions": [
+        "kalakini role",
+        "unresolved context or period"
+      ],
+      "applicable_domains": [
+        "domain_selected_by_planet_and_taksa"
+      ],
+      "period_applicability": "Full matched life period; boundary-year caution is metadata only, not exact event timing.",
+      "allowed_conclusions": [
+        "Broad trend: related support or results may be weaker, slower, less complete, less stable, or harder to rely on."
+      ],
+      "prohibited_escalations": [
+        "certain loss",
+        "specific event",
+        "medical diagnosis",
+        "specific amount",
+        "month or day"
+      ],
+      "claim_strength": "SOURCE_AUTHORIZED_BROAD_TREND",
+      "conflict_priority": 80,
+      "reader_language_boundary": "Prefer calm directional language and state the affected domain; never turn uncertainty into a guaranteed loss.",
+      "authority_kind": "DIRECT_PREDICTION_RULE",
+      "evidence_completeness_status": "COMPLETE"
+    },
+    {
+      "rule_id": "MH2537-HOUSE-STRONG-DIRECTION",
+      "rule_type": "HOUSE_DIRECTION",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-HOUSE-STRONG"
+      ],
+      "applicable_planets": [
+        "sun",
+        "moon",
+        "mars",
+        "mercury",
+        "jupiter",
+        "venus",
+        "saturn",
+        "rahu"
+      ],
+      "applicable_taksa_roles": [
+        "boriwan",
+        "ayu",
+        "det",
+        "sri",
+        "mula",
+        "utsaha",
+        "montri"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "thongchai",
+        "khumsap",
+        "racha",
+        "athibodi"
+      ],
+      "required_conditions": [
+        "matched placement is in a strong house",
+        "planet and Taksa semantic rules both apply"
+      ],
+      "excluded_conditions": [
+        "kalakini role",
+        "unresolved context or period"
+      ],
+      "applicable_domains": [
+        "domain_selected_by_planet_and_taksa"
+      ],
+      "period_applicability": "Full matched life period; boundary-year emphasis does not authorize a dated event.",
+      "allowed_conclusions": [
+        "Broad trend: related support or results may be stronger, more complete, more stable, and more dependable."
+      ],
+      "prohibited_escalations": [
+        "guaranteed fortune",
+        "specific event",
+        "specific amount",
+        "month or day"
+      ],
+      "claim_strength": "SOURCE_AUTHORIZED_BROAD_TREND",
+      "conflict_priority": 80,
+      "reader_language_boundary": "Use a clear positive direction without promising a concrete outcome.",
+      "authority_kind": "DIRECT_PREDICTION_RULE",
+      "evidence_completeness_status": "COMPLETE"
+    },
+    {
+      "rule_id": "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+      "rule_type": "KALAKINI_POLARITY_INVERSION",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-HOUSE-WEAK"
+      ],
+      "applicable_planets": [
+        "sun",
+        "moon",
+        "mars",
+        "mercury",
+        "jupiter",
+        "venus",
+        "saturn",
+        "rahu"
+      ],
+      "applicable_taksa_roles": [
+        "kalakini"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "phangkha",
+        "marana",
+        "puti"
+      ],
+      "required_conditions": [
+        "Taksa role is kalakini",
+        "matched placement is in a weak house"
+      ],
+      "excluded_conditions": [
+        "ordinary weak-house direction"
+      ],
+      "applicable_domains": [
+        "obstacle_pressure"
+      ],
+      "period_applicability": "Full matched life period.",
+      "allowed_conclusions": [
+        "Broad trend: obstacle pressure is weaker and tends to interfere less."
+      ],
+      "prohibited_escalations": [
+        "no obstacles at all",
+        "specific event",
+        "specific timing"
+      ],
+      "claim_strength": "SOURCE_AUTHORIZED_BROAD_TREND_WITH_EXPLICIT_EXCEPTION",
+      "conflict_priority": 100,
+      "reader_language_boundary": "Say that pressure is reduced, not that every obstacle disappears.",
+      "authority_kind": "DIRECT_PREDICTION_RULE",
+      "evidence_completeness_status": "COMPLETE"
+    },
+    {
+      "rule_id": "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+      "rule_type": "KALAKINI_POLARITY_INVERSION",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-HOUSE-STRONG"
+      ],
+      "applicable_planets": [
+        "sun",
+        "moon",
+        "mars",
+        "mercury",
+        "jupiter",
+        "venus",
+        "saturn",
+        "rahu"
+      ],
+      "applicable_taksa_roles": [
+        "kalakini"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "thongchai",
+        "khumsap",
+        "racha",
+        "athibodi"
+      ],
+      "required_conditions": [
+        "Taksa role is kalakini",
+        "matched placement is in a strong house"
+      ],
+      "excluded_conditions": [
+        "ordinary strong-house direction"
+      ],
+      "applicable_domains": [
+        "obstacle_pressure"
+      ],
+      "period_applicability": "Full matched life period.",
+      "allowed_conclusions": [
+        "Broad trend: obstacle pressure is stronger and recurring friction is more likely."
+      ],
+      "prohibited_escalations": [
+        "disaster",
+        "specific event",
+        "specific timing"
+      ],
+      "claim_strength": "SOURCE_AUTHORIZED_BROAD_TREND_WITH_EXPLICIT_EXCEPTION",
+      "conflict_priority": 100,
+      "reader_language_boundary": "Describe friction without fear language or a guaranteed adverse event.",
+      "authority_kind": "DIRECT_PREDICTION_RULE",
+      "evidence_completeness_status": "COMPLETE"
+    },
+    {
+      "rule_id": "MH2537-PERIOD-CONTINUITY",
+      "rule_type": "PERIOD_APPLICABILITY",
+      "source_tier": 0,
+      "source_refs": [
+        "SRC-MH2537-PERIOD-FOUNDATION"
+      ],
+      "applicable_planets": [
+        "sun",
+        "moon",
+        "mars",
+        "mercury",
+        "jupiter",
+        "venus",
+        "saturn",
+        "rahu"
+      ],
+      "applicable_taksa_roles": [
+        "boriwan",
+        "ayu",
+        "det",
+        "sri",
+        "mula",
+        "utsaha",
+        "montri",
+        "kalakini"
+      ],
+      "applicable_mahabhut_status_or_house": [
+        "thongchai",
+        "khumsap",
+        "racha",
+        "athibodi",
+        "phangkha",
+        "marana",
+        "puti"
+      ],
+      "required_conditions": [
+        "age falls inside the source-defined life period"
+      ],
+      "excluded_conditions": [
+        "age outside period",
+        "calendar-specific event inference"
+      ],
+      "applicable_domains": [
+        "period_binding"
+      ],
+      "period_applicability": "Applies throughout the source-defined life period.",
+      "allowed_conclusions": [
+        "A shorter report horizon inside the same life period may carry the same broad direction."
+      ],
+      "prohibited_escalations": [
+        "monthly ranking",
+        "specific date",
+        "event deadline",
+        "claim beyond the period boundary"
+      ],
+      "claim_strength": "SOURCE_AUTHORIZED_PERIOD_BINDING",
+      "conflict_priority": 70,
+      "reader_language_boundary": "State that the direction continues inside the period; do not claim that a concrete event will occur in the selected year.",
+      "authority_kind": "DIRECT_PREDICTION_RULE",
+      "evidence_completeness_status": "COMPLETE"
+    }
+  ]
+}
