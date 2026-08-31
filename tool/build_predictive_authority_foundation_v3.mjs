@@ -524,13 +524,13 @@ const knownClaims = [
   { id: 'RC12-K-PAST-02', section: 'คำทำนายอดีต', kind: 'PREDICTION', period: '11-29', domains: ['health'], refs: ['MATRIX:mahabhut2537.rem0.saturday.jupiter.11-29'], text: 'ช่วงอายุ 11–29 ปี ความเป็นอยู่และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงขึ้น จึงรองรับการเรียนรู้และการขยายโลกของตัวเองได้มากกว่าช่วงก่อนหน้า' },
   { id: 'RC12-K-PAST-03', section: 'คำทำนายอดีต', kind: 'PREDICTION', period: '30-41', domains: ['work', 'authority'], refs: ['MATRIX:mahabhut2537.rem0.saturday.rahu.30-41'], text: 'ช่วงอายุ 30–41 ปี อำนาจตัดสินใจและหน้าที่การงานมีแนวโน้มเข้มแข็งขึ้น งานที่รับผิดชอบจึงมีน้ำหนักและต้องตัดสินใจด้วยตัวเองมากขึ้น' },
   { id: 'RC12-K-CURRENT', section: 'คำทำนายปัจจุบัน', kind: 'PREDICTION', period: '42-62', domains: ['finance', 'status'], refs: ['MATRIX:mahabhut2537.rem0.saturday.venus.42-62'], text: 'อายุ 44 อยู่ในช่วงศรีที่เป็นดวงขึ้น เรื่องทรัพย์ เงิน และความมั่นคงจึงมีแนวโน้มเดินหน้าได้ดี สิ่งที่ทำต่อเนื่องมีโอกาสให้ผลที่จับต้องได้มากขึ้น' },
-  { id: 'RC12-K-WORK', section: 'การงาน', kind: 'PREDICTION', period: '42-62', domains: ['work'], refs: ['SRC-MH2537-CONTEXT-REM0-SATURDAY', 'MH2537-HOUSE-STRONG-DIRECTION'], text: 'การงานมีแนวโน้มก้าวหน้าเมื่อใช้ทักษะที่ทำได้จริงและอาศัยความร่วมมือจากเครือข่ายเดิม ตำรารองรับทิศทางว่ามีงานและผลจากงานดีขึ้น แต่ไม่รองรับการระบุว่าจะเลื่อนตำแหน่งหรือเปลี่ยนงานเมื่อใด' },
-  { id: 'RC12-K-FINANCE', section: 'การเงิน', kind: 'PREDICTION', period: '42-62', domains: ['finance'], refs: ['MATRIX:mahabhut2537.rem0.saturday.venus.42-62', 'SRC-MH2537-CONTEXT-REM0-SATURDAY'], text: 'การเงินมีแนวโน้มคล่องและต่อยอดได้จากงาน การค้า หรือทักษะที่มีฐานอยู่แล้ว ควรอ่านเป็นทิศทางกว้าง ไม่ใช่คำรับรองว่าจะได้เงินก้อนหรือกำไรจำนวนใด' },
-  { id: 'RC12-K-RELATIONSHIP', section: 'ความรักและความสัมพันธ์', kind: 'PREDICTION', period: '42-62', domains: ['relationship'], refs: ['MH2537-PLANET-VENUS', 'MH2537-HOUSE-STRONG-DIRECTION'], text: 'ความสัมพันธ์และความร่วมมือมีแนวโน้มมั่นคงขึ้นเมื่อทั้งสองฝ่ายทำสิ่งที่ตกลงกันได้ต่อเนื่อง หลักฐานรองรับเพียงทิศทางของความสัมพันธ์ ไม่รองรับเหตุการณ์แต่งงาน เลิกรา หรือวันเกิดเหตุ' },
-  { id: 'RC12-K-HEALTH', section: 'สุขภาพ', kind: 'PREDICTION', period: '42-62', domains: ['rest_and_wellbeing'], refs: ['MH2537-PLANET-VENUS', 'MH2537-HOUSE-STRONG-DIRECTION'], text: 'สุขภาวะโดยรวมมีแนวโน้มรับมือได้ดีเมื่อมีเวลาพักสม่ำเสมอ ตำราเชื่อมดาวศุกร์กับผลของการพักผ่อน แต่หลักฐานนี้ไม่ใช้วินิจฉัยหรือระบุโรคเฉพาะ' },
+  { id: 'RC12-K-WORK', section: 'การงาน', kind: 'PREDICTION', period: '42-62', domains: ['work'], refs: ['SRC-MH2537-CONTEXT-REM0-SATURDAY', 'MH2537-HOUSE-STRONG-DIRECTION'], text: 'การงานมีแนวโน้มก้าวหน้าเมื่อใช้ทักษะที่ทำได้จริงและอาศัยความร่วมมือจากเครือข่ายเดิม งานที่ต่อยอดจากสิ่งที่ทำอยู่มีแรงหนุนมากกว่าการเริ่มแบบไม่มีฐาน' },
+  { id: 'RC12-K-FINANCE', section: 'การเงิน', kind: 'PREDICTION', period: '42-62', domains: ['finance'], refs: ['MATRIX:mahabhut2537.rem0.saturday.venus.42-62', 'SRC-MH2537-CONTEXT-REM0-SATURDAY'], text: 'การเงินมีแนวโน้มคล่องและต่อยอดได้จากงาน การค้า หรือทักษะที่มีฐานอยู่แล้ว รายรับที่เกิดจากผลงานจริงจะสร้างความมั่นคงได้ดีกว่าการเสี่ยงที่ตรวจสอบไม่ได้' },
+  { id: 'RC12-K-RELATIONSHIP', section: 'ความรักและความสัมพันธ์', kind: 'PREDICTION', period: '42-62', domains: ['relationship'], refs: ['MH2537-PLANET-VENUS', 'MH2537-HOUSE-STRONG-DIRECTION'], text: 'ความสัมพันธ์และความร่วมมือมีแนวโน้มมั่นคงขึ้นเมื่อทั้งสองฝ่ายทำสิ่งที่ตกลงกันได้ต่อเนื่อง ความสม่ำเสมอจึงสำคัญกว่าคำรับปากที่ยังไม่เห็นการลงมือ' },
+  { id: 'RC12-K-HEALTH', section: 'สุขภาพ', kind: 'PREDICTION', period: '42-62', domains: ['rest_and_wellbeing'], refs: ['MH2537-PLANET-VENUS', 'MH2537-HOUSE-STRONG-DIRECTION'], text: 'สุขภาวะโดยรวมมีแนวโน้มรับมือได้ดีเมื่อมีเวลาพักสม่ำเสมอ การรักษาจังหวะพักให้ต่อเนื่องจะช่วยไม่ให้ความล้าสะสมจนรบกวนเรื่องอื่น' },
   { id: 'RC12-K-SUPPORT', section: 'โชคลาภและแรงสนับสนุน', kind: 'PREDICTION', period: '42-62', domains: ['support'], refs: ['SRC-MH2537-CONTEXT-REM0-SATURDAY'], text: 'แรงสนับสนุนมีแนวโน้มมาจากครู ผู้ใหญ่ เพื่อน และคนในเครือข่ายเดิม โอกาสจึงผูกกับความช่วยเหลือและงานที่ทำร่วมกัน มากกว่าการเสี่ยงที่ไม่มีฐานรองรับ' },
-  { id: 'RC12-K-HORIZON', section: 'คำทำนาย 12 เดือน', kind: 'PREDICTION', period: '2026-08-29/2027-08-28', domains: ['finance', 'work', 'relationship'], refs: ['MATRIX:mahabhut2537.rem0.saturday.venus.42-62', 'MH2537-PERIOD-CONTINUITY'], text: 'ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ยังอยู่ในช่วงศรีดวงขึ้น ทิศทางหลักจึงยังเอื้อต่อเงิน งาน และความร่วมมือที่ทำต่อเนื่อง โดยไม่มีการจัดเดือนดี เดือนควรระวัง หรือระบุเหตุการณ์รายเดือน' },
-  { id: 'RC12-K-NEXT', section: 'ช่วงชีวิตถัดไป', kind: 'PREDICTION', period: '63-79', domains: ['home', 'property', 'foundation'], refs: ['MATRIX:mahabhut2537.rem0.saturday.mercury.63-79'], text: 'ช่วงอายุ 63–79 ปี มูละอยู่ในดวงขึ้น เรื่องบ้าน ทรัพย์ หลักฐาน และความมั่นคงระยะยาวจึงมีแนวโน้มแข็งแรงขึ้น แต่หลักฐานไม่รองรับการระบุว่าจะซื้อ ขาย หรือย้ายเมื่อใด' },
+  { id: 'RC12-K-HORIZON', section: 'คำทำนาย 12 เดือน', kind: 'PREDICTION', period: '2026-08-29/2027-08-28', domains: ['finance', 'work', 'relationship'], refs: ['MATRIX:mahabhut2537.rem0.saturday.venus.42-62', 'MH2537-PERIOD-CONTINUITY'], text: 'ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ทิศทางหลักยังเอื้อต่อเงิน งาน และความร่วมมือที่ทำต่อเนื่อง สิ่งที่มีฐานและทำสม่ำเสมอจะเดินหน้าได้ดีกว่าเรื่องที่เริ่มด้วยความเร่งรีบ' },
+  { id: 'RC12-K-NEXT', section: 'ช่วงชีวิตถัดไป', kind: 'PREDICTION', period: '63-79', domains: ['home', 'property', 'foundation'], refs: ['MATRIX:mahabhut2537.rem0.saturday.mercury.63-79'], text: 'ช่วงอายุ 63–79 ปี เรื่องบ้าน ทรัพย์ หลักฐาน และความมั่นคงระยะยาวมีแนวโน้มแข็งแรงขึ้น สิ่งที่จัดระบบไว้ตั้งแต่ช่วงปัจจุบันจะกลายเป็นฐานที่พึ่งพาได้มากขึ้น' },
   { id: 'RC12-K-SUMMARY', section: 'สรุป', kind: 'SUMMARY', period: 'REPORT', domains: ['summary'], refs: ['RC12-K-CURRENT', 'RC12-K-NEXT'], text: 'ช่วงปัจจุบันเน้นการทำให้เงิน งาน และความร่วมมือเกิดผลที่มั่นคง ส่วนช่วงถัดไปเปลี่ยนน้ำหนักไปสู่การสร้างฐานระยะยาว' },
   { id: 'RC12-K-ADVICE', section: 'คำแนะนำ', kind: 'ADVICE', period: 'REPORT', domains: ['advice'], refs: ['RC12-K-CURRENT'], text: 'เลือกงานและข้อตกลงที่ตรวจผลได้ รักษาเงินสำรอง และจัดเวลาพักให้สม่ำเสมอ คำแนะนำนี้แยกจากคำทำนายและต้องเทียบกับข้อเท็จจริงของคุณ' },
   { id: 'RC12-K-DISCLAIMER', section: 'Disclaimer', kind: 'DISCLOSURE', period: 'REPORT', domains: ['disclosure'], refs: ['DISCLOSURE'], text: 'คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ' },
@@ -542,6 +542,15 @@ const unknownClaims = [
 ];
 
 function candidateMarkdown(title, fixture, claims) {
+  const body = [];
+  let activeSection = null;
+  for (const claim of claims) {
+    if (claim.section !== activeSection) {
+      body.push(`## ${claim.section}`, '');
+      activeSection = claim.section;
+    }
+    body.push(`<!-- readerClaimId: ${claim.id} -->`, claim.text, '');
+  }
   return [
     `# ${title}`,
     '',
@@ -549,13 +558,7 @@ function candidateMarkdown(title, fixture, claims) {
     '',
     `Fixture: ${fixture}`,
     '',
-    ...claims.flatMap((claim) => [
-      `## ${claim.section}`,
-      '',
-      `<!-- readerClaimId: ${claim.id} -->`,
-      claim.text,
-      '',
-    ]),
+    ...body,
     'Candidate นี้เป็นหลักฐานสำหรับตรวจ Rulebook เท่านั้น ไม่ใช่ runtime golden และไม่อ้างความแม่นยำเชิงพยากรณ์',
   ].join('\n');
 }
@@ -600,6 +603,39 @@ const reclassificationReport = {
   historicalClarification: 'Owner acceptance of Candidate 0011 language, order, and reader experience remains recorded. PR113 OR3 later proved that its exact claim authority was incomplete; it is not an exact runtime golden, prediction authority, or fixture oracle.',
   counts: { entries: reclassification.length, ...classificationCounts },
   entries: reclassification,
+};
+
+function findCandidate12After(entry) {
+  if (entry.classification === 'REMOVE_UNSUPPORTED') return null;
+  if (entry.classification === 'RETAIN_SOURCE_AUTHORIZED') return entry.originalText;
+  if (entry.classification === 'MOVE_TO_ADVICE') return knownClaims.find((claim) => claim.kind === 'ADVICE')?.text ?? null;
+  const normalizedSection = entry.section.replace(/ อายุ .+$/u, '').replace(/ — .+$/u, '');
+  return knownClaims.find((claim) => claim.section === normalizedSection)?.text
+    ?? knownClaims.find((claim) => normalizedSection.includes(claim.section) || claim.section.includes(normalizedSection))?.text
+    ?? null;
+}
+
+const beforeAfterEntries = reclassification.map((entry) => ({
+  surface: entry.surface,
+  candidate0011ClaimId: entry.readerClaimId,
+  section: entry.section,
+  classification: entry.classification,
+  beforeFullText: entry.originalText,
+  afterFullText: findCandidate12After(entry),
+  changeBoundary: entry.classification === 'REMOVE_UNSUPPORTED'
+    ? 'ลบคำกล่าวที่ authority ใหม่ยังไม่รองรับ โดยไม่เติมข้อความทั่วไปแทน'
+    : 'ปรับเฉพาะขอบเขตคำกล่าวให้ตรง reusable authority; ไม่ยกระดับเหตุการณ์ เวลา หรือความแน่นอน',
+}));
+
+const beforeAfterReport = {
+  version: 1,
+  status: 'CANDIDATE_0011_STYLE_REFERENCE_TO_0012_SOURCE_BOUNDARY',
+  counts: {
+    entries: beforeAfterEntries.length,
+    withAfterText: beforeAfterEntries.filter((entry) => entry.afterFullText !== null).length,
+    removedWithoutReplacement: beforeAfterEntries.filter((entry) => entry.afterFullText === null).length,
+  },
+  entries: beforeAfterEntries,
 };
 
 const signatureGroups = new Map();
@@ -819,6 +855,14 @@ writeText(path.join(outDocs, 'CANDIDATE_0011_RECLASSIFICATION_V3.md'), `
 Candidate 0011 ยังคงเป็น **STYLE_AND_STRUCTURE_REFERENCE** ตามประวัติการยอมรับด้านภาษา ลำดับ และประสบการณ์ผู้อ่าน แต่ PR113 OR3 supersedes สถานะ exact claim authority: ไม่ใช่ runtime golden, prediction authority หรือ fixture oracle
 
 ตรวจครบ ${reclassification.length} reader claims: ${Object.entries(classificationCounts).map(([key, value]) => `${key}=${value}`).join(', ')}
+`);
+writeJson(path.join(outDocs, 'CANDIDATE_0011_TO_0012_BEFORE_AFTER_V3.json'), beforeAfterReport);
+writeText(path.join(outDocs, 'CANDIDATE_0011_TO_0012_BEFORE_AFTER_V3.md'), `
+# Candidate 0011 to Candidate 0012 — Full Before/After
+
+Status: **EVIDENCE-ONLY — PENDING OWNER RULEBOOK AND CONTENT REVIEW**
+
+${beforeAfterEntries.map((entry, index) => `## ${index + 1}. ${entry.candidate0011ClaimId} — ${entry.classification}\n\n**Surface:** ${entry.surface}\n\n**Section:** ${entry.section}\n\n**Before:** ${entry.beforeFullText}\n\n**After:** ${entry.afterFullText ?? 'นำออกจาก Candidate 0012 โดยไม่มีข้อความทำนายทดแทน'}\n\n**Boundary:** ${entry.changeBoundary}`).join('\n\n')}
 `);
 writeJson(path.join(outDocs, 'PREDICTIVE_AUTHORITY_POPULATION_DIVERSITY_49.json'), diversityAudit);
 writeText(path.join(outDocs, 'PREDICTIVE_AUTHORITY_POPULATION_DIVERSITY_49.md'), `

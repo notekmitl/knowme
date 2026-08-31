@@ -1,0 +1,19 @@
+{
+  "known0003": {
+    "ascendant": "Aquarius 9°24′",
+    "thaiAstrologicalDay": "Saturday",
+    "pass": true
+  },
+  "known0035": {
+    "ascendant": "Aquarius 19°19′",
+    "thaiAstrologicalDay": "Saturday",
+    "pass": true
+  },
+  "unknown": {
+    "noonSubstitution": false,
+    "ascendant": null,
+    "houses": null,
+    "thaiAstrologicalDay": null,
+    "pass": true
+  }
+}

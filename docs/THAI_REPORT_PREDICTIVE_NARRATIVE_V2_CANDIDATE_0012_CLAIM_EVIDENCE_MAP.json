@@ -1,0 +1,268 @@
+{
+  "version": 1,
+  "status": "PENDING_OWNER_RULEBOOK_AND_CONTENT_REVIEW",
+  "knownFixture": {
+    "birth": "6/6/2525 00:03 Chiang Mai",
+    "asOf": "2026-08-29 Asia/Bangkok",
+    "ascendant": "Aquarius 9°24′",
+    "thaiAstrologicalDay": "Saturday",
+    "contextId": "mahabhut2537.rem0.saturday"
+  },
+  "unknownFixture": {
+    "birth": "6/6/2525 unknown time Chiang Mai",
+    "noonSubstitution": false,
+    "ascendant": null,
+    "houses": null,
+    "thaiAstrologicalDay": null
+  },
+  "counts": {
+    "knownClaims": 15,
+    "unknownClaims": 2,
+    "unsupportedApprovedClaims": 0
+  },
+  "surfaces": [
+    {
+      "surface": "Known",
+      "claims": [
+        {
+          "id": "RC12-K-OVERVIEW",
+          "section": "ภาพรวมเส้นทางชีวิต",
+          "kind": "PREDICTION",
+          "period": "0-79",
+          "domains": [
+            "life_path"
+          ],
+          "refs": [
+            "MATRIX:mahabhut2537.rem0.saturday"
+          ],
+          "text": "เส้นทางชีวิตแบ่งเป็นช่วงตามดาวที่เสวยอายุ ช่วงต้นมีแรงกดจากเรื่องคนรอบตัว จากนั้นกำลังชีวิตและงานเด่นขึ้น ช่วงอายุ 42–62 เน้นทรัพย์และความมั่นคง ก่อนเปลี่ยนไปสร้างฐานระยะยาวในช่วงอายุ 63–79"
+        },
+        {
+          "id": "RC12-K-PAST-01",
+          "section": "คำทำนายอดีต",
+          "kind": "PREDICTION",
+          "period": "0-10",
+          "domains": [
+            "support_and_family"
+          ],
+          "refs": [
+            "MATRIX:mahabhut2537.rem0.saturday.saturn.0-10"
+          ],
+          "text": "ช่วงอายุ 0–10 ปี เรื่องคนรอบตัวและการดูแลมีแนวโน้มติดขัดหรือพึ่งพาได้ไม่เต็มที่ จึงเป็นช่วงที่เงื่อนไขของครอบครัวมีน้ำหนักต่อชีวิตมาก"
+        },
+        {
+          "id": "RC12-K-PAST-02",
+          "section": "คำทำนายอดีต",
+          "kind": "PREDICTION",
+          "period": "11-29",
+          "domains": [
+            "health"
+          ],
+          "refs": [
+            "MATRIX:mahabhut2537.rem0.saturday.jupiter.11-29"
+          ],
+          "text": "ช่วงอายุ 11–29 ปี ความเป็นอยู่และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงขึ้น จึงรองรับการเรียนรู้และการขยายโลกของตัวเองได้มากกว่าช่วงก่อนหน้า"
+        },
+        {
+          "id": "RC12-K-PAST-03",
+          "section": "คำทำนายอดีต",
+          "kind": "PREDICTION",
+          "period": "30-41",
+          "domains": [
+            "work",
+            "authority"
+          ],
+          "refs": [
+            "MATRIX:mahabhut2537.rem0.saturday.rahu.30-41"
+          ],
+          "text": "ช่วงอายุ 30–41 ปี อำนาจตัดสินใจและหน้าที่การงานมีแนวโน้มเข้มแข็งขึ้น งานที่รับผิดชอบจึงมีน้ำหนักและต้องตัดสินใจด้วยตัวเองมากขึ้น"
+        },
+        {
+          "id": "RC12-K-CURRENT",
+          "section": "คำทำนายปัจจุบัน",
+          "kind": "PREDICTION",
+          "period": "42-62",
+          "domains": [
+            "finance",
+            "status"
+          ],
+          "refs": [
+            "MATRIX:mahabhut2537.rem0.saturday.venus.42-62"
+          ],
+          "text": "อายุ 44 อยู่ในช่วงศรีที่เป็นดวงขึ้น เรื่องทรัพย์ เงิน และความมั่นคงจึงมีแนวโน้มเดินหน้าได้ดี สิ่งที่ทำต่อเนื่องมีโอกาสให้ผลที่จับต้องได้มากขึ้น"
+        },
+        {
+          "id": "RC12-K-WORK",
+          "section": "การงาน",
+          "kind": "PREDICTION",
+          "period": "42-62",
+          "domains": [
+            "work"
+          ],
+          "refs": [
+            "SRC-MH2537-CONTEXT-REM0-SATURDAY",
+            "MH2537-HOUSE-STRONG-DIRECTION"
+          ],
+          "text": "การงานมีแนวโน้มก้าวหน้าเมื่อใช้ทักษะที่ทำได้จริงและอาศัยความร่วมมือจากเครือข่ายเดิม งานที่ต่อยอดจากสิ่งที่ทำอยู่มีแรงหนุนมากกว่าการเริ่มแบบไม่มีฐาน"
+        },
+        {
+          "id": "RC12-K-FINANCE",
+          "section": "การเงิน",
+          "kind": "PREDICTION",
+          "period": "42-62",
+          "domains": [
+            "finance"
+          ],
+          "refs": [
+            "MATRIX:mahabhut2537.rem0.saturday.venus.42-62",
+            "SRC-MH2537-CONTEXT-REM0-SATURDAY"
+          ],
+          "text": "การเงินมีแนวโน้มคล่องและต่อยอดได้จากงาน การค้า หรือทักษะที่มีฐานอยู่แล้ว รายรับที่เกิดจากผลงานจริงจะสร้างความมั่นคงได้ดีกว่าการเสี่ยงที่ตรวจสอบไม่ได้"
+        },
+        {
+          "id": "RC12-K-RELATIONSHIP",
+          "section": "ความรักและความสัมพันธ์",
+          "kind": "PREDICTION",
+          "period": "42-62",
+          "domains": [
+            "relationship"
+          ],
+          "refs": [
+            "MH2537-PLANET-VENUS",
+            "MH2537-HOUSE-STRONG-DIRECTION"
+          ],
+          "text": "ความสัมพันธ์และความร่วมมือมีแนวโน้มมั่นคงขึ้นเมื่อทั้งสองฝ่ายทำสิ่งที่ตกลงกันได้ต่อเนื่อง ความสม่ำเสมอจึงสำคัญกว่าคำรับปากที่ยังไม่เห็นการลงมือ"
+        },
+        {
+          "id": "RC12-K-HEALTH",
+          "section": "สุขภาพ",
+          "kind": "PREDICTION",
+          "period": "42-62",
+          "domains": [
+            "rest_and_wellbeing"
+          ],
+          "refs": [
+            "MH2537-PLANET-VENUS",
+            "MH2537-HOUSE-STRONG-DIRECTION"
+          ],
+          "text": "สุขภาวะโดยรวมมีแนวโน้มรับมือได้ดีเมื่อมีเวลาพักสม่ำเสมอ การรักษาจังหวะพักให้ต่อเนื่องจะช่วยไม่ให้ความล้าสะสมจนรบกวนเรื่องอื่น"
+        },
+        {
+          "id": "RC12-K-SUPPORT",
+          "section": "โชคลาภและแรงสนับสนุน",
+          "kind": "PREDICTION",
+          "period": "42-62",
+          "domains": [
+            "support"
+          ],
+          "refs": [
+            "SRC-MH2537-CONTEXT-REM0-SATURDAY"
+          ],
+          "text": "แรงสนับสนุนมีแนวโน้มมาจากครู ผู้ใหญ่ เพื่อน และคนในเครือข่ายเดิม โอกาสจึงผูกกับความช่วยเหลือและงานที่ทำร่วมกัน มากกว่าการเสี่ยงที่ไม่มีฐานรองรับ"
+        },
+        {
+          "id": "RC12-K-HORIZON",
+          "section": "คำทำนาย 12 เดือน",
+          "kind": "PREDICTION",
+          "period": "2026-08-29/2027-08-28",
+          "domains": [
+            "finance",
+            "work",
+            "relationship"
+          ],
+          "refs": [
+            "MATRIX:mahabhut2537.rem0.saturday.venus.42-62",
+            "MH2537-PERIOD-CONTINUITY"
+          ],
+          "text": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 ทิศทางหลักยังเอื้อต่อเงิน งาน และความร่วมมือที่ทำต่อเนื่อง สิ่งที่มีฐานและทำสม่ำเสมอจะเดินหน้าได้ดีกว่าเรื่องที่เริ่มด้วยความเร่งรีบ"
+        },
+        {
+          "id": "RC12-K-NEXT",
+          "section": "ช่วงชีวิตถัดไป",
+          "kind": "PREDICTION",
+          "period": "63-79",
+          "domains": [
+            "home",
+            "property",
+            "foundation"
+          ],
+          "refs": [
+            "MATRIX:mahabhut2537.rem0.saturday.mercury.63-79"
+          ],
+          "text": "ช่วงอายุ 63–79 ปี เรื่องบ้าน ทรัพย์ หลักฐาน และความมั่นคงระยะยาวมีแนวโน้มแข็งแรงขึ้น สิ่งที่จัดระบบไว้ตั้งแต่ช่วงปัจจุบันจะกลายเป็นฐานที่พึ่งพาได้มากขึ้น"
+        },
+        {
+          "id": "RC12-K-SUMMARY",
+          "section": "สรุป",
+          "kind": "SUMMARY",
+          "period": "REPORT",
+          "domains": [
+            "summary"
+          ],
+          "refs": [
+            "RC12-K-CURRENT",
+            "RC12-K-NEXT"
+          ],
+          "text": "ช่วงปัจจุบันเน้นการทำให้เงิน งาน และความร่วมมือเกิดผลที่มั่นคง ส่วนช่วงถัดไปเปลี่ยนน้ำหนักไปสู่การสร้างฐานระยะยาว"
+        },
+        {
+          "id": "RC12-K-ADVICE",
+          "section": "คำแนะนำ",
+          "kind": "ADVICE",
+          "period": "REPORT",
+          "domains": [
+            "advice"
+          ],
+          "refs": [
+            "RC12-K-CURRENT"
+          ],
+          "text": "เลือกงานและข้อตกลงที่ตรวจผลได้ รักษาเงินสำรอง และจัดเวลาพักให้สม่ำเสมอ คำแนะนำนี้แยกจากคำทำนายและต้องเทียบกับข้อเท็จจริงของคุณ"
+        },
+        {
+          "id": "RC12-K-DISCLAIMER",
+          "section": "Disclaimer",
+          "kind": "DISCLOSURE",
+          "period": "REPORT",
+          "domains": [
+            "disclosure"
+          ],
+          "refs": [
+            "DISCLOSURE"
+          ],
+          "text": "คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ"
+        }
+      ]
+    },
+    {
+      "surface": "Unknown",
+      "claims": [
+        {
+          "id": "RC12-U-OMISSION",
+          "section": "รายงานฉบับย่อ",
+          "kind": "OMISSION",
+          "period": "UNAVAILABLE",
+          "domains": [
+            "omission"
+          ],
+          "refs": [
+            "UNKNOWN_TIME_FAIL_CLOSED"
+          ],
+          "text": "ไม่มีเวลาเกิด — รายงานจึงเว้นคำทำนายช่วงชีวิตที่ต้องใช้วันทางโหราศาสตร์ ลัคนา และเรือน แทนการเดาข้อมูลที่ไม่มี"
+        },
+        {
+          "id": "RC12-U-DISCLAIMER",
+          "section": "Disclaimer",
+          "kind": "DISCLOSURE",
+          "period": "REPORT",
+          "domains": [
+            "disclosure"
+          ],
+          "refs": [
+            "DISCLOSURE"
+          ],
+          "text": "คำทำนายเป็นมุมมองตามความเชื่อ และควรเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ"
+        }
+      ]
+    }
+  ]
+}

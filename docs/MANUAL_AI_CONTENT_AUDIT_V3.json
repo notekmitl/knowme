@@ -1,0 +1,1988 @@
+{
+  "version": 3,
+  "status": "PENDING_OWNER_RULEBOOK_AND_CONTENT_REVIEW",
+  "reviewType": "MANUAL_AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+  "passes": 2,
+  "contextsPerPass": 49,
+  "dimensions": [
+    "chronology",
+    "directness",
+    "natural_thai",
+    "prediction_vs_psychology",
+    "past_reflection",
+    "advice_leakage",
+    "repetition",
+    "generic_template_language",
+    "unsupported_event",
+    "source_alignment",
+    "section_completeness",
+    "cross_context_differentiation"
+  ],
+  "counts": {
+    "entries": 98,
+    "pass": 98,
+    "fail": 0
+  },
+  "entries": [
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem1.sunday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem1.monday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem1.tuesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem1.wednesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem1.thursday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem1.friday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem1.saturday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem2.sunday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem2.monday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem2.tuesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem2.wednesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem2.thursday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem2.friday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem2.saturday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem3.sunday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem3.monday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem3.tuesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem3.wednesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem3.thursday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem3.friday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem3.saturday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem4.sunday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem4.monday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem4.tuesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem4.wednesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem4.thursday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem4.friday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem4.saturday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem5.sunday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem5.monday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem5.tuesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem5.wednesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem5.thursday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem5.friday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem5.saturday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem6.sunday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem6.monday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem6.tuesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem6.wednesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem6.thursday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem6.friday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem6.saturday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem0.sunday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem0.monday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem0.tuesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem0.wednesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem0.thursday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem0.friday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 1,
+      "contextId": "mahabhut2537.rem0.saturday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "ตรวจลำดับแปดช่วงและขอบเขตคำทำนายกับ evidence signature แล้ว ไม่พบเหตุการณ์เฉพาะหรือการแทนคำทำนายด้วยบุคลิก"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem1.sunday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem1.monday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem1.tuesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem1.wednesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem1.thursday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem1.friday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem1.saturday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem2.sunday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem2.monday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem2.tuesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem2.wednesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem2.thursday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem2.friday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem2.saturday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem3.sunday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem3.monday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem3.tuesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem3.wednesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem3.thursday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem3.friday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem3.saturday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem4.sunday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem4.monday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem4.tuesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem4.wednesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem4.thursday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem4.friday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem4.saturday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem5.sunday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem5.monday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem5.tuesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem5.wednesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem5.thursday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem5.friday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem5.saturday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem6.sunday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem6.monday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem6.tuesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem6.wednesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem6.thursday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem6.friday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem6.saturday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem0.sunday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem0.monday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem0.tuesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem0.wednesday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem0.thursday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem0.friday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    },
+    {
+      "pass": 2,
+      "contextId": "mahabhut2537.rem0.saturday",
+      "reviewer": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "dimensions": {
+        "chronology": "PASS",
+        "directness": "PASS",
+        "natural_thai": "PASS",
+        "prediction_vs_psychology": "PASS",
+        "past_reflection": "PASS",
+        "advice_leakage": "PASS",
+        "repetition": "PASS",
+        "generic_template_language": "PASS",
+        "unsupported_event": "PASS",
+        "source_alignment": "PASS",
+        "section_completeness": "PASS",
+        "cross_context_differentiation": "PASS"
+      },
+      "notes": "อ่านซ้ำในมุมภาษาและความแตกต่างข้าม context แล้ว ภาษาตรง ใช้ grammar ร่วมตาม reusable rule และไม่มี exact duplicate ข้าม context"
+    }
+  ]
+}

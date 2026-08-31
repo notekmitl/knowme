@@ -1,0 +1,3256 @@
+{
+  "version": 1,
+  "status": "PASS_PENDING_OWNER_REVIEW",
+  "fixtures": [
+    {
+      "fixtureId": "controlled-context-01",
+      "contextId": "mahabhut2537.rem1.sunday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "BAE103B435CF2E09A717592B89771284C8249814D200569923CDC05DCBEFCD6F",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 7–21 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 22–29 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 30–46 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 47–65 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 66–86 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 87–96 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 97–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-02",
+      "contextId": "mahabhut2537.rem1.monday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "0D0F02E3CAD836B33BDEC25366437296E5387511169C0AAC8904A933999B7B03",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 16–23 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 24–40 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 41–59 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 60–80 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 81–90 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 91–102 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 103–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-03",
+      "contextId": "mahabhut2537.rem1.tuesday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "E082C13E31C5A8542E5EA18E8C77D55A8A19CC71398EF01A230939101D4C566A",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 9–25 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 26–35 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 36–54 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 55–66 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 67–87 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 88–93 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 94–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-04",
+      "contextId": "mahabhut2537.rem1.wednesday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "565A2667367D925DB4C0291F05B26D4682C28C636EABCDDB59A73E474C059571",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 18–27 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 28–46 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 47–58 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 59–79 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 80–85 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 86–100 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 101–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-05",
+      "contextId": "mahabhut2537.rem1.thursday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "B924084A825559CE23CA69A2CA97EFA813FECA206F6BE8A6C5EECF3A0C67A6D5",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 20–31 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 32–52 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 53–58 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 59–73 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 74–81 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 82–98 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 99–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-06",
+      "contextId": "mahabhut2537.rem1.friday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "7551DA2C83EF141B4EDADEAB43D346D249A6970D27F48424D83FF350F338D6C8",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 22–27 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 28–42 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 43–50 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 51–67 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 68–77 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 78–96 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 97–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-07",
+      "contextId": "mahabhut2537.rem1.saturday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "5545B0F72730E6585B46DD667149E7DAAF6A9C143BD22B0A72B42E21990E5CBE",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 11–29 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 30–41 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 42–62 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 63–79 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 80–94 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 95–102 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 103–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-08",
+      "contextId": "mahabhut2537.rem2.sunday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "A5F0462DEB701A1659A1EBE0F3E5F166E3EF4F62032AD3EEAFC3EDDC8B1AC506",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 7–21 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 22–29 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 30–46 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 47–65 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 66–86 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 87–96 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 97–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-09",
+      "contextId": "mahabhut2537.rem2.monday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "6612174F71C905DE45479A88819EE49293889C872FEB9CD9085485EBADA6A632",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 16–23 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 24–40 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 41–59 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 60–80 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 81–90 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 91–102 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 103–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-10",
+      "contextId": "mahabhut2537.rem2.tuesday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "D7F27AF45658019783522F91BD15934F1B18FFC8DF2E76FF908781F0911F0354",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 9–25 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 26–35 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 36–54 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 55–66 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 67–87 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 88–93 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 94–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-11",
+      "contextId": "mahabhut2537.rem2.wednesday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "49A736F0B9F0E8989952C86AA50D619569BB1F1EE732011C91E5120B0429A0D2",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 18–27 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 28–46 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 47–58 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 59–79 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 80–85 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 86–100 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 101–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-12",
+      "contextId": "mahabhut2537.rem2.thursday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "1CFC389C7437E7D4A13B02537C1E9D7A71018982F8E406F3CEBF1B933BAE4BA8",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 20–31 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 32–52 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 53–58 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 59–73 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 74–81 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 82–98 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 99–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-13",
+      "contextId": "mahabhut2537.rem2.friday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "FAD5A1FB80F39F0ABE3D36BF6FB54798A3ABFA97519F9070106068EA3BBF19A7",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 22–27 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 28–42 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 43–50 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 51–67 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 68–77 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 78–96 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 97–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-14",
+      "contextId": "mahabhut2537.rem2.saturday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "FB04088ABD5D3350D6891E98BEAE6EE8709EC32C03F6C63D89F5CBE0F609999A",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 11–29 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 30–41 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 42–62 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 63–79 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 80–94 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 95–102 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 103–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-15",
+      "contextId": "mahabhut2537.rem3.sunday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "8745001A83C003B5CAC000DF96F76EDDE6EB21F8A706B43B83E5FF6331A739A2",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 7–21 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 22–29 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 30–46 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 47–65 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 66–86 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 87–96 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 97–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-16",
+      "contextId": "mahabhut2537.rem3.monday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "D80F027B497C99735D9C5667454BE50780A2E54D6D4D063A416518C53A0C52A1",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 16–23 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 24–40 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 41–59 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 60–80 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 81–90 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 91–102 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 103–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-17",
+      "contextId": "mahabhut2537.rem3.tuesday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "6249AE21EA75292BE6AAEB2B5933DB28AD08696532240631E8F47A01475F041B",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 9–25 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 26–35 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 36–54 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 55–66 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 67–87 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 88–93 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 94–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-18",
+      "contextId": "mahabhut2537.rem3.wednesday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "3B8EDB2E3E7189315B7EE878E7AA26BD3E34F58CEDD8AF20C69DDC44E3E54940",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 18–27 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 28–46 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 47–58 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 59–79 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 80–85 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 86–100 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 101–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-19",
+      "contextId": "mahabhut2537.rem3.thursday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "E734C997A3FED9F682B3FEA274862C0E62F1FDB238E0F0C57ED7B0FBD199F7DA",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 20–31 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 32–52 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 53–58 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 59–73 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 74–81 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 82–98 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 99–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-20",
+      "contextId": "mahabhut2537.rem3.friday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "5C28B369D1F271C8856A3AC3BE7847618986CF014AE9C2B978643AF91F1E3968",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 22–27 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 28–42 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 43–50 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 51–67 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 68–77 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 78–96 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 97–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-21",
+      "contextId": "mahabhut2537.rem3.saturday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "C43CC0348D0BA6C295E6E37C1B5D5ED19F279C733387C22CB88DD7FB55266AD9",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 11–29 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 30–41 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 42–62 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 63–79 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 80–94 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 95–102 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 103–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-22",
+      "contextId": "mahabhut2537.rem4.sunday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "20F1470D3AC41E0136A152CDDB4A122CDB7F5A2D4E31666C75DB3F67CFDDBDA9",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 7–21 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 22–29 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 30–46 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 47–65 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 66–86 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 87–96 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 97–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-23",
+      "contextId": "mahabhut2537.rem4.monday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "DEF0EDB12C13AF86924E1F95CFAFFAEE4159F098D10B3B91B8B3BC4FB0345BBA",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 16–23 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 24–40 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 41–59 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 60–80 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 81–90 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 91–102 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 103–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-24",
+      "contextId": "mahabhut2537.rem4.tuesday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "D2390C8DF5BD892F28806D512BA62CA2D544D9DF8E27961716ECBFE381049F67",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 9–25 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 26–35 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 36–54 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 55–66 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 67–87 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 88–93 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 94–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-25",
+      "contextId": "mahabhut2537.rem4.wednesday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "890604FC099988B92C0ED8700D8A64A917BD3CA162C37721EAE9555C358D66E5",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 18–27 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 28–46 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 47–58 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 59–79 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 80–85 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 86–100 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 101–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-26",
+      "contextId": "mahabhut2537.rem4.thursday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "66B3552814C12D7945E71DF33A7498CEFC2CAF11384F94A6D12FD76DCB5CEA96",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 20–31 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 32–52 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 53–58 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 59–73 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 74–81 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 82–98 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 99–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-27",
+      "contextId": "mahabhut2537.rem4.friday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "D9A9FF7F77198A38AC129C22B54A41B99592EBAB75070A140634CAAD29012739",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 22–27 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 28–42 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 43–50 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 51–67 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 68–77 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 78–96 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 97–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-28",
+      "contextId": "mahabhut2537.rem4.saturday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "744D4367B35F7AE550A0687C54E49E2CA5F5C08495A13C5EE34F30DAA66E5AD2",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 11–29 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 30–41 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 42–62 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 63–79 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 80–94 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 95–102 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 103–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-29",
+      "contextId": "mahabhut2537.rem5.sunday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "F6D8AD189EEE87C4697FE9F783F3773659D212A0F74065624C499ED0C4ECD5F6",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 7–21 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 22–29 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 30–46 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 47–65 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 66–86 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 87–96 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 97–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-30",
+      "contextId": "mahabhut2537.rem5.monday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "52DE9B839190647EA3549DA1AC3809C85906DF080E2A6F77242E06E0CD36EE8B",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 16–23 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 24–40 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 41–59 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 60–80 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 81–90 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 91–102 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 103–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-31",
+      "contextId": "mahabhut2537.rem5.tuesday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "51AB756E82ED744A1B1D96321509F9CC51DD87AAAA1EEBC0AC10A07AD8DE5023",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 9–25 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 26–35 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 36–54 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 55–66 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 67–87 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 88–93 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 94–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-32",
+      "contextId": "mahabhut2537.rem5.wednesday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "4B955016C25FD56A9381782770AD278D52055E5426A156508370D998B9A4CD58",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 18–27 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 28–46 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 47–58 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 59–79 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 80–85 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 86–100 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 101–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-33",
+      "contextId": "mahabhut2537.rem5.thursday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "D35E59A580A9682EDAD1CE29861083D2A136EAFDB182B264925E29C2583EBF83",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 20–31 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 32–52 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 53–58 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 59–73 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 74–81 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 82–98 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 99–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-34",
+      "contextId": "mahabhut2537.rem5.friday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "2D979D30D16036C4D15DC50C42525CB52FB03CCC56E3797A7B9618EF76041492",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 22–27 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 28–42 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 43–50 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 51–67 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 68–77 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 78–96 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 97–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-35",
+      "contextId": "mahabhut2537.rem5.saturday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "6A68D1AC26BF9E29C99409DF6411E98E240EC2CC1C1583A2333E5B160BA45181",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 11–29 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 30–41 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 42–62 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 63–79 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 80–94 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 95–102 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 103–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-36",
+      "contextId": "mahabhut2537.rem6.sunday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "DD7A0A22B0BA38A4B0EDE79D31E109080771AA37777028BEBC8A3D2CEB3D611F",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 7–21 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 22–29 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 30–46 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 47–65 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 66–86 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 87–96 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 97–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-37",
+      "contextId": "mahabhut2537.rem6.monday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "EE0D01FCF4C94ACFE817F006B8AF924DFBD11BF921AC34818B54DCDBF633E0FA",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 16–23 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 24–40 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 41–59 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 60–80 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 81–90 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 91–102 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 103–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-38",
+      "contextId": "mahabhut2537.rem6.tuesday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "BFC8A9F5930F4E99948F394B57A5D2B4265851593436F726114F55927BBC5C8F",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 9–25 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 26–35 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 36–54 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 55–66 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 67–87 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 88–93 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 94–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-39",
+      "contextId": "mahabhut2537.rem6.wednesday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "E5EDBAFE7B02B2F7BC9C4A4CB9452AEA079DC97CEF72D876E2FAA381ABE8E4C5",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 18–27 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 28–46 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 47–58 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 59–79 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 80–85 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 86–100 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 101–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-40",
+      "contextId": "mahabhut2537.rem6.thursday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "6183A3F7331DF2F29646CDD7671D21A1C35663BA6F30234693CA1EBC8E5A2251",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 20–31 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 32–52 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 53–58 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 59–73 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 74–81 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 82–98 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 99–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-41",
+      "contextId": "mahabhut2537.rem6.friday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "0345FD535136F5E33833F33B0385080E3E7C989AD61993551FE8E5718D56B29E",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 22–27 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 28–42 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 43–50 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 51–67 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 68–77 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 78–96 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 97–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-42",
+      "contextId": "mahabhut2537.rem6.saturday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "24E74648B87AC3B1629021073EDDCC2C02473E4B0E1ABA052B7B7F84F21A2B42",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 11–29 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 30–41 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 42–62 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 63–79 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 80–94 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 95–102 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 103–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-43",
+      "contextId": "mahabhut2537.rem0.sunday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "E478C1D1E3FFF5F8E91B69F0A537EE348BB80F29161B2B4BD40E3D884854627C",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 7–21 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 22–29 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 30–46 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 47–65 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 66–86 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 87–96 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 97–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-44",
+      "contextId": "mahabhut2537.rem0.monday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "BCC1D3361AFDFDDF49BE745CCC6CE8DB9E99B35F68C936B4063A9F59FAAC70B4",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 16–23 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 24–40 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 41–59 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 60–80 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 81–90 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 91–102 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 103–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-45",
+      "contextId": "mahabhut2537.rem0.tuesday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "809AEEFCD8578858AB66D1E165B648AFFFE11FE365956A6E976FCC5A762C6714",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 9–25 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 26–35 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 36–54 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 55–66 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 67–87 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 88–93 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 94–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-46",
+      "contextId": "mahabhut2537.rem0.wednesday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "4F70A2C1E054B53282E3812117B7F9024D219236B413572FAD2B2B26DDAFDCF4",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 18–27 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 28–46 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 47–58 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 59–79 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 80–85 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 86–100 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 101–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-47",
+      "contextId": "mahabhut2537.rem0.thursday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "F9456FB16001E34014F1E06BA6CD19C8B4C9D3F7270B7A1EF92866B3592A073E",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 20–31 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 32–52 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 53–58 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 59–73 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 74–81 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 82–98 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 99–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-48",
+      "contextId": "mahabhut2537.rem0.friday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "8DA04248E21428495F75F14C8E5D25386BF9DC6130586C4C6B378DE1F9C89BEC",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-STRONG-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 22–27 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 28–42 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 43–50 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 51–67 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 68–77 ปี ความเพียร การงาน และการศึกษามีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 78–96 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 97–108 ปี แรงขัดขวางมีแนวโน้มเด่นขึ้น เรื่องสำคัญจึงควรเผื่อเวลาและทางเลือกก่อนตัดสินใจ"
+      ]
+    },
+    {
+      "fixtureId": "controlled-context-49",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "controlledAgeSelection": "all eight source periods",
+      "authoritySignature": "7D55FB5B5BC24F59A0555D1C3FEDC1E2C9250411E67A1C30393A960C9337D927",
+      "selectedRuleSets": [
+        [
+          "MH2537-PLANET-SATURN",
+          "MH2537-TAKSA-BORIWAN",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-JUPITER",
+          "MH2537-TAKSA-AYU",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-VENUS",
+          "MH2537-TAKSA-SRI",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MOON",
+          "MH2537-TAKSA-UTSAHA",
+          "MH2537-HOUSE-STRONG-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-MARS",
+          "MH2537-TAKSA-MONTRI",
+          "MH2537-HOUSE-WEAK-DIRECTION",
+          "MH2537-PERIOD-CONTINUITY"
+        ],
+        [
+          "MH2537-PLANET-SUN",
+          "MH2537-TAKSA-KALAKINI",
+          "MH2537-KALAKINI-WEAK-HOUSE-INVERSION",
+          "MH2537-PERIOD-CONTINUITY"
+        ]
+      ],
+      "normalizedPredictionSet": [
+        "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 11–29 ปี ความเป็นอยู่ สุขภาวะ และกำลังดำเนินชีวิตมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 30–41 ปี อำนาจ ความเข้มแข็ง การตัดสินใจ และตำแหน่งงานมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 42–62 ปี ทรัพย์สิน เงินทอง ความร่มเย็น และสถานะมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 63–79 ปี บ้าน พ่อแม่ หลักฐาน ความมั่นคง มรดก การเดินทาง และการโยกย้ายมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 80–94 ปี ความเพียร การงาน และการศึกษามีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+        "ช่วงอายุ 95–102 ปี เจ้านาย ผู้คุ้มครอง ที่ปรึกษา และผู้ให้แรงสนับสนุนมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+        "ช่วงอายุ 103–108 ปี แรงขัดขวางมีแนวโน้มอ่อนลง จึงจัดการเรื่องติดขัดได้คล่องกว่าช่วงที่แรงอุปสรรคเด่น"
+      ]
+    }
+  ],
+  "counts": {
+    "contexts": 49,
+    "uniqueAuthoritySignatures": 49,
+    "uniqueSelectedRuleSets": 49,
+    "uniqueNormalizedPredictionSets": 49,
+    "exactDuplicateClusters": 0,
+    "nearDuplicateClusters": 0,
+    "differentContextsSameResult": 0,
+    "genericTemplateDuplicateCount": 0
+  },
+  "sourceAuthorizedEquivalenceJustification": "Shared grammar is permitted because the source states reusable house-direction rules. Equal reader results are allowed only when the complete evidence signature is equal; no two contexts have equal complete signatures in this sample.",
+  "prohibitedTechniqueCheck": {
+    "synonymOnlyDiversificationUsed": false,
+    "fixtureSpecificCopyUsed": false,
+    "datePinnedCopyUsed": false
+  }
+}
