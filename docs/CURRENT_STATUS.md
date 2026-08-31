@@ -1,5 +1,15 @@
 # KnowMe Current Status
 
+## PR113 Phase 2 OR3 — 49-context authority gate NO-GO (2026-08-31)
+
+Status: **PR113 PHASE 2 OR3 NO-GO — 49-CONTEXT PREDICTIVE AUTHORITY INCOMPLETE — DRAFT — NOT MERGED — NOT DEPLOYED**.
+
+Owner Product Re-review OR2 ถูกปฏิเสธเพราะ Candidate 0011 ยังถูกเลือกด้วย `context + age + asOf` และอีก 48 contexts ใช้ forecast material เป็นหลัก. OR3 ตรวจต้นฉบับมหาภูติ พ.ศ. 2537 และ source contracts อีกครั้งแล้วพบว่า placement facts ครบ 392/392 และ selector เข้าถึง 49/49 contexts แต่ reusable Mahabhut prediction authority มีจริงเพียง 1 context และ 3/392 life periods; 48 contexts เป็น forecast-only และ 389 life periods ไม่มี source-direct claim หรือ validated general-rule application. Shipping gates `contexts_with_forecast_only_claims=0` และ `contexts_without_prediction_authority=0` จึงไม่ผ่าน (ค่าจริง 48 และ 48).
+
+ทดลองถอด date-pinned golden path ใน working copyชั่วคราวแล้ว Candidate 0011 เปลี่ยนจาก accepted 22 prediction paragraphs เหลือ 21 atoms และ exact golden regression ล้มเหลว; generic output ยังมีภาษาระบบ เช่น “เรื่องที่มีหลักฐานรองรับ”. การนำ accepted prose กลับมาโดยอาศัย placement facts หรือ fixture signature จะขัดข้อห้ามของ OR3 จึงคืน runtime/source/test ให้ตรง OR2 HEAD และไม่สร้าง implementation commit, OR3 Owner Acceptance ZIP, visual artifacts หรือรัน full Flutter suite/PreCommit/PostCommit ซ้ำ. Evidence generator determinism ผ่าน; Manual AI Content Audit 49 entries ให้ FAIL 49/49 และสถานะยังเป็น Pending Owner Human Review.
+
+หลักฐานเวอร์ชัน OR3 อยู่ที่ `docs/PREDICTIVE_AUTHORITY_COVERAGE_49.json/.md`, `docs/MANUAL_CONTENT_AUDIT_49.json/.md` และ `docs/PR113_PHASE2_OR3_NO_GO_GAP_REPORT.md`. Candidate 0011 ยังเป็น golden fixture เท่านั้นในข้อสรุปเชิงผลิตภัณฑ์ แต่ PR #113 ปัจจุบันยังมี release blockers เดิมและห้าม Ready for Review. ไม่มี source/code/test/generated-product-artifact delta, ไม่มี `product-acceptance/` delta, ไม่ได้ Merge, ไม่ได้ Deploy และไม่มี Firebase/Production change.
+
 ## PR113 Phase 2 OR1 — generic narrative and full-report scope repair (2026-08-30)
 
 Status: **PR113 PHASE 2 OR1 GENERIC NARRATIVE AND FULL-REPORT SCOPE REPAIR COMPLETE — DRAFT — PENDING OWNER PRODUCT RE-REVIEW — NOT MERGED — NOT DEPLOYED**.

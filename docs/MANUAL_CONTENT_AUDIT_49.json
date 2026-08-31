@@ -1,0 +1,1896 @@
+{
+  "schema": "pr113-phase2-or3-manual-ai-content-audit-49-no-go-v1",
+  "generated_at": "2026-08-31T00:00:00+07:00",
+  "status": "NO_GO_PENDING_OWNER_HUMAN_REVIEW",
+  "reviewer": "Codex",
+  "review_label": "Manual AI Content Audit",
+  "owner_review_label": "Pending Owner Human Review",
+  "entries": 49,
+  "passing_entries": 0,
+  "failing_entries": 49,
+  "exact_normalized_duplicate_clusters": [
+    {
+      "hash": "2a5fa213b2f3c6a2dbcbdc4d7d6c280a21762ab924a08d32059407bf5eda4000",
+      "members": [
+        "mahabhut2537.rem0.monday",
+        "mahabhut2537.rem5.monday"
+      ]
+    },
+    {
+      "hash": "7519bde27b36027812aeabdc5cceeb9c669c51beb682cd532d28f8e4768e635b",
+      "members": [
+        "mahabhut2537.rem0.tuesday",
+        "mahabhut2537.rem2.tuesday"
+      ]
+    }
+  ],
+  "contexts": [
+    {
+      "context_id": "mahabhut2537.rem0.friday",
+      "sample_profile_id": "S105",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 8 กันยายน 2504 เวลา 12:01 น. จังหวัดขอนแก่น\nวันทางโหราศาสตร์เป็นวันศุกร์\nลัคนาราศีพิจิก 16°36′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 68–77 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.active",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.active",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem0.monday",
+      "sample_profile_id": "S077",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 9 พฤษภาคม 2532 เวลา 05:30 น. จังหวัดสงขลา\nวันทางโหราศาสตร์เป็นวันจันทร์\nลัคนาราศีเมษ 15°22′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 41–59 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.active",
+        "prediction.health.current.active",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.active",
+        "prediction.health.next12Months.active",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.quiet",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem0.saturday",
+      "sample_profile_id": "S032",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 10 สิงหาคม 2539 เวลา 12:00 น. จังหวัดเชียงใหม่\nวันทางโหราศาสตร์เป็นวันเสาร์\nลัคนาราศีตุลย์ 16°22′\n\n## คำทำนายปัจจุบัน — อายุ 30 ปี\n\nช่วงอายุ 30–79 ความรับผิดชอบพาไปสู่งานและเงินที่แข็งแรงขึ้น ก่อนต่อยอดเป็นฐานระยะยาว\n\n## การงาน\n\nช่วงอายุ 30–41 งานเดินหน้าได้ดีขึ้น และขอบเขตความรับผิดชอบชัดขึ้นตามสิ่งที่ทำสำเร็จ\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nงานเดินหน้าได้ดีขึ้น และขอบเขตความรับผิดชอบชัดขึ้นตามสิ่งที่ทำสำเร็จ\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\nแรงสนับสนุนจากคนที่เกี่ยวข้องช่วยให้เรื่องสำคัญเดินหน้าได้ดีขึ้น\n\n## ช่วงชีวิตถัดไป — อายุ 42–62 ปี\n\nเมื่อเข้าสู่ช่วงอายุ 42–62 การทำงาน การสื่อสาร และการตัดสินใจเดินหน้าได้ราบรื่นขึ้น\n\nเมื่อเข้าสู่ช่วงอายุ 42–62 งานเดินหน้าได้คล่องขึ้น และโอกาสจากงานที่มีอยู่เปิดกว้างกว่าเดิม\n\nเมื่อเข้าสู่ช่วงอายุ 42–62 เงินและผลจากสิ่งที่ทำเดินหน้าได้ดีขึ้น โดยไม่ขยายเป็นจำนวนหรือโชคลาภก้อนใหญ่\n\nเมื่อเข้าสู่ช่วงอายุ 42–62 เงินที่ใช้หมุนคล่องขึ้น โดยยังไม่สรุปเป็นจำนวนหรือโชคลาภก้อนใหญ่\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\nเมื่อเข้าสู่ช่วงอายุ 42–62 คนที่เกี่ยวข้องกับงานช่วยให้เรื่องสำคัญเดินต่อได้กว้างขึ้น\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ ช่วงอายุ 30–79 ความรับผิดชอบพาไปสู่งานและเงินที่แข็งแรงขึ้น ก่อนต่อยอดเป็นฐานระยะยาว ส่วนเรื่องถัดมาคือ ช่วงอายุ 30–41 งานเดินหน้าได้ดีขึ้น และขอบเขตความรับผิดชอบชัดขึ้นตามสิ่งที่ทำสำเร็จ\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, support, advice"
+      ],
+      "pass_2_findings": [
+        "Reusable Mahabhut authority covers only three life periods; Candidate 0011 remains date-pinned fixture prose."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_DATE_PINNED_GOLDEN",
+      "source_claim_ids": [
+        "PIC-R0-SAT-LIFE-ARC",
+        "PIC-R0-SAT-30_41-WORK",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.active",
+        "prediction.health.current.active",
+        "PIC-R0-SAT-HORIZON-WORK",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.active",
+        "prediction.health.next12Months.active",
+        "PIC-R0-SAT-HORIZON-SUPPORT",
+        "SDC-R0-SAT-42_62-FLOW",
+        "SDC-R0-SAT-42_62-WORK",
+        "GRA-R0-SAT-42_62-SRI-RISE",
+        "SDC-R0-SAT-42_62-FINANCE",
+        "prediction.relationship.nextLifePeriod.strong",
+        "prediction.health.nextLifePeriod.strong",
+        "SDC-R0-SAT-42_62-SUPPORT",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem0.sunday",
+      "sample_profile_id": "S012",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 29 กุมภาพันธ์ 2547 เวลา 23:59 น. จังหวัดอุบลราชธานี\nวันทางโหราศาสตร์เป็นวันอาทิตย์\nลัคนาราศีพิจิก 10°30′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 30–46 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.strong",
+        "prediction.relationship.nextLifePeriod.active",
+        "prediction.health.nextLifePeriod.active",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem0.thursday",
+      "sample_profile_id": "S136",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 19 เมษายน 2511 เวลา 05:29 น. จังหวัดภูเก็ต\nวันทางโหราศาสตร์เป็นวันพฤหัสบดี\nลัคนาราศีมีน 21°18′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 59–73 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.active",
+        "prediction.finance.next12Months.active",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.strong",
+        "prediction.health.nextLifePeriod.strong",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem0.tuesday",
+      "sample_profile_id": "S125",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 10 พฤษภาคม 2560 เวลา 05:30 น. จังหวัดสงขลา\nวันทางโหราศาสตร์เป็นวันอังคาร\nลัคนาราศีเมษ 16°16′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 26–35 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.active",
+        "prediction.health.current.active",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.active",
+        "prediction.health.next12Months.active",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.quiet",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem0.wednesday",
+      "sample_profile_id": "S086",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 15 กุมภาพันธ์ 2561 เวลา 00:01 น. จังหวัดเชียงใหม่\nวันทางโหราศาสตร์เป็นวันพุธ\nลัคนาราศีตุลย์ 21°28′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 18–27 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.active",
+        "prediction.health.current.active",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.active",
+        "prediction.health.next12Months.active",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.strong",
+        "prediction.relationship.nextLifePeriod.strong",
+        "prediction.health.nextLifePeriod.strong",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem1.friday",
+      "sample_profile_id": "S176",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 13 สิงหาคม 2547 เวลา 12:00 น. จังหวัดเชียงใหม่\nวันทางโหราศาสตร์เป็นวันศุกร์\nลัคนาราศีตุลย์ 19°00′\n\n## การงาน\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 28–42 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.active",
+        "prediction.finance.current.active",
+        "prediction.relationship.current.quiet",
+        "prediction.health.current.quiet",
+        "prediction.career.next12Months.active",
+        "prediction.finance.next12Months.active",
+        "prediction.relationship.next12Months.quiet",
+        "prediction.health.next12Months.quiet",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.strong",
+        "prediction.health.nextLifePeriod.strong",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem1.monday",
+      "sample_profile_id": "S008",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 30 เมษายน 2533 เวลา 12:00 น. จังหวัดเชียงใหม่\nวันทางโหราศาสตร์เป็นวันจันทร์\nลัคนาราศีกรกฎ 12°24′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 41–59 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.active",
+        "prediction.health.current.active",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.active",
+        "prediction.health.next12Months.active",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.quiet",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem1.saturday",
+      "sample_profile_id": "S052",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 25 เมษายน 2519 เวลา 05:29 น. จังหวัดภูเก็ต\nวันทางโหราศาสตร์เป็นวันเสาร์\nลัคนาราศีมีน 27°59′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 63–79 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.strong",
+        "prediction.relationship.nextLifePeriod.active",
+        "prediction.health.nextLifePeriod.active",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem1.sunday",
+      "sample_profile_id": "S114",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 17 มิถุนายน 2533 เวลา 05:31 น. จังหวัดอุบลราชธานี\nวันทางโหราศาสตร์เป็นวันอาทิตย์\nลัคนาราศีเมถุน 1°01′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 47–65 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.quiet",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem1.thursday",
+      "sample_profile_id": "S041",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 16 พฤษภาคม 2568 เวลา 05:30 น. จังหวัดสงขลา\nวันทางโหราศาสตร์เป็นวันพฤหัสบดี\nลัคนาราศีเมษ 22°26′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 20–31 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.quiet",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem1.tuesday",
+      "sample_profile_id": "S061",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 19 มกราคม 2548 เวลา 00:00 น. จังหวัดกรุงเทพมหานคร\nวันทางโหราศาสตร์เป็นวันอังคาร\nลัคนาราศีกันย์ 29°17′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 26–35 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.active",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.quiet",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem1.wednesday",
+      "sample_profile_id": "S022",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 31 ธันวาคม 2568 เวลา 18:00 น. จังหวัดภูเก็ต\nวันทางโหราศาสตร์เป็นวันพุธ\nลัคนาราศีเมถุน 12°09′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 18–27 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.strong",
+        "prediction.relationship.nextLifePeriod.active",
+        "prediction.health.nextLifePeriod.active",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem2.friday",
+      "sample_profile_id": "S017",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 29 กุมภาพันธ์ 2563 เวลา 05:30 น. จังหวัดสงขลา\nวันทางโหราศาสตร์เป็นวันศุกร์\nลัคนาราศีมกร 27°59′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 22–27 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.quiet",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem2.monday",
+      "sample_profile_id": "S030",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 23 มิถุนายน 2541 เวลา 05:31 น. จังหวัดอุบลราชธานี\nวันทางโหราศาสตร์เป็นวันจันทร์\nลัคนาราศีเมถุน 6°26′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 41–59 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.active",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.active",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.quiet",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem2.saturday",
+      "sample_profile_id": "S044",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 18 สิงหาคม 2527 เวลา 12:00 น. จังหวัดเชียงใหม่\nวันทางโหราศาสตร์เป็นวันเสาร์\nลัคนาราศีตุลย์ 23°36′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 63–79 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.quiet",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem2.sunday",
+      "sample_profile_id": "S072",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 16 ธันวาคม 2499 เวลา 23:59 น. จังหวัดอุบลราชธานี\nวันทางโหราศาสตร์เป็นวันอาทิตย์\nลัคนาราศีกันย์ 1°46′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 87–96 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.active",
+        "prediction.health.current.active",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.quiet",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem2.thursday",
+      "sample_profile_id": "S165",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 8 กันยายน 2520 เวลา 12:01 น. จังหวัดขอนแก่น\nวันทางโหราศาสตร์เป็นวันพฤหัสบดี\nลัคนาราศีพิจิก 16°30′\n\n## การงาน\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 53–58 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.active",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.active",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.strong",
+        "prediction.relationship.nextLifePeriod.strong",
+        "prediction.health.nextLifePeriod.strong",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem2.tuesday",
+      "sample_profile_id": "S137",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 18 พฤษภาคม 2548 เวลา 05:30 น. จังหวัดสงขลา\nวันทางโหราศาสตร์เป็นวันอังคาร\nลัคนาราศีเมษ 24°36′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 26–35 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.active",
+        "prediction.health.current.active",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.active",
+        "prediction.health.next12Months.active",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.quiet",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem2.wednesday",
+      "sample_profile_id": "S196",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 19 เมษายน 2527 เวลา 05:29 น. จังหวัดภูเก็ต\nวันทางโหราศาสตร์เป็นวันพุธ\nลัคนาราศีมีน 21°13′\n\n## การงาน\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 47–58 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.active",
+        "prediction.finance.current.active",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.active",
+        "prediction.finance.next12Months.active",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.strong",
+        "prediction.relationship.nextLifePeriod.active",
+        "prediction.health.nextLifePeriod.strong",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem3.friday",
+      "sample_profile_id": "S009",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 31 ธันวาคม 2542 เวลา 12:01 น. จังหวัดขอนแก่น\nวันทางโหราศาสตร์เป็นวันศุกร์\nลัคนาราศีมีน 15°13′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 28–42 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.active",
+        "prediction.relationship.current.active",
+        "prediction.health.current.active",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.active",
+        "prediction.relationship.next12Months.active",
+        "prediction.health.next12Months.active",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.strong",
+        "prediction.health.nextLifePeriod.strong",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem3.monday",
+      "sample_profile_id": "S025",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 26 มกราคม 2508 เวลา 00:00 น. จังหวัดกรุงเทพมหานคร\nวันทางโหราศาสตร์เป็นวันจันทร์\nลัคนาราศีตุลย์ 6°11′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 81–90 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.quiet",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem3.saturday",
+      "sample_profile_id": "S010",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 1 มกราคม 2543 เวลา 18:00 น. จังหวัดภูเก็ต\nวันทางโหราศาสตร์เป็นวันเสาร์\nลัคนาราศีเมถุน 12°47′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 30–41 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.active",
+        "prediction.relationship.current.active",
+        "prediction.health.current.active",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.active",
+        "prediction.health.next12Months.active",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.strong",
+        "prediction.relationship.nextLifePeriod.active",
+        "prediction.health.nextLifePeriod.active",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem3.sunday",
+      "sample_profile_id": "S078",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 11 มิถุนายน 2493 เวลา 05:31 น. จังหวัดอุบลราชธานี\nวันทางโหราศาสตร์เป็นวันอาทิตย์\nลัคนาราศีพฤษภ 25°45′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 87–96 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.active",
+        "prediction.relationship.current.active",
+        "prediction.health.current.active",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.active",
+        "prediction.relationship.next12Months.active",
+        "prediction.health.next12Months.active",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.strong",
+        "prediction.relationship.nextLifePeriod.strong",
+        "prediction.health.nextLifePeriod.strong",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem3.thursday",
+      "sample_profile_id": "S033",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 26 กันยายน 2500 เวลา 12:01 น. จังหวัดขอนแก่น\nวันทางโหราศาสตร์เป็นวันพฤหัสบดี\nลัคนาราศีธนู 2°36′\n\n## การงาน\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 74–81 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.active",
+        "prediction.finance.current.active",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.active",
+        "prediction.finance.next12Months.active",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.strong",
+        "prediction.relationship.nextLifePeriod.strong",
+        "prediction.health.nextLifePeriod.strong",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem3.tuesday",
+      "sample_profile_id": "S004",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 5 เมษายน 2515 เวลา 05:29 น. จังหวัดภูเก็ต\nวันทางโหราศาสตร์เป็นวันอังคาร\nลัคนาราศีมีน 5°20′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 55–66 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.active",
+        "prediction.finance.next12Months.active",
+        "prediction.relationship.next12Months.quiet",
+        "prediction.health.next12Months.quiet",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.quiet",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem3.wednesday",
+      "sample_profile_id": "S005",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 6 เมษายน 2515 เวลา 05:30 น. จังหวัดสงขลา\nวันทางโหราศาสตร์เป็นวันพุธ\nลัคนาราศีมีน 9°18′\n\n## การงาน\n\nงานชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 59–79 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.quiet",
+        "prediction.finance.current.active",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.active",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.strong",
+        "prediction.relationship.nextLifePeriod.active",
+        "prediction.health.nextLifePeriod.strong",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem4.friday",
+      "sample_profile_id": "supplemental-context-49",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 18 เมษายน 2529 เวลา 12:00 น. จังหวัดกรุงเทพมหานคร\nวันทางโหราศาสตร์เป็นวันศุกร์\nลัคนาราศีกรกฎ 1°21′\n\n## การงาน\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 43–50 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.active",
+        "prediction.finance.current.active",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.active",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.active",
+        "prediction.health.nextLifePeriod.active",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem4.monday",
+      "sample_profile_id": "S101",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 25 พฤษภาคม 2508 เวลา 05:30 น. จังหวัดสงขลา\nวันทางโหราศาสตร์เป็นวันจันทร์\nลัคนาราศีพฤษภ 1°53′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 81–90 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.quiet",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem4.saturday",
+      "sample_profile_id": "S056",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 26 สิงหาคม 2515 เวลา 12:00 น. จังหวัดเชียงใหม่\nวันทางโหราศาสตร์เป็นวันเสาร์\nลัคนาราศีพิจิก 0°46′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 63–79 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.strong",
+        "prediction.relationship.nextLifePeriod.active",
+        "prediction.health.nextLifePeriod.active",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem4.sunday",
+      "sample_profile_id": "S090",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 23 มิถุนายน 2557 เวลา 05:31 น. จังหวัดอุบลราชธานี\nวันทางโหราศาสตร์เป็นวันอาทิตย์\nลัคนาราศีเมถุน 6°19′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 22–29 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.active",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.active",
+        "prediction.health.nextLifePeriod.active",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem4.thursday",
+      "sample_profile_id": "S001",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 29 กุมภาพันธ์ 2495 เวลา 00:00 น. จังหวัดกรุงเทพมหานคร\nวันทางโหราศาสตร์เป็นวันพฤหัสบดี\nลัคนาราศีพิจิก 6°48′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 82–98 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.strong",
+        "prediction.relationship.nextLifePeriod.active",
+        "prediction.health.nextLifePeriod.active",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem4.tuesday",
+      "sample_profile_id": "S149",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 26 พฤษภาคม 2536 เวลา 05:30 น. จังหวัดสงขลา\nวันทางโหราศาสตร์เป็นวันอังคาร\nลัคนาราศีพฤษภ 2°41′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 36–54 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.active",
+        "prediction.relationship.current.active",
+        "prediction.health.current.active",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.active",
+        "prediction.health.next12Months.active",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.strong",
+        "prediction.relationship.nextLifePeriod.strong",
+        "prediction.health.nextLifePeriod.strong",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem4.wednesday",
+      "sample_profile_id": "S045",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 8 กันยายน 2564 เวลา 12:01 น. จังหวัดขอนแก่น\nวันทางโหราศาสตร์เป็นวันพุธ\nลัคนาราศีพิจิก 16°11′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 18–27 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.quiet",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem5.friday",
+      "sample_profile_id": "S037",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 3 มกราคม 2496 เวลา 00:00 น. จังหวัดกรุงเทพมหานคร\nวันทางโหราศาสตร์เป็นวันศุกร์\nลัคนาราศีกันย์ 14°13′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 78–96 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.active",
+        "prediction.health.current.active",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.active",
+        "prediction.health.next12Months.active",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.active",
+        "prediction.health.nextLifePeriod.active",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem5.monday",
+      "sample_profile_id": "S065",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 1 พฤษภาคม 2544 เวลา 05:30 น. จังหวัดสงขลา\nวันทางโหราศาสตร์เป็นวันจันทร์\nลัคนาราศีเมษ 6°46′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 41–59 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.active",
+        "prediction.health.current.active",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.active",
+        "prediction.health.next12Months.active",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.quiet",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem5.saturday",
+      "sample_profile_id": "S034",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 1 ตุลาคม 2537 เวลา 18:00 น. จังหวัดภูเก็ต\nวันทางโหราศาสตร์เป็นวันเสาร์\nลัคนาราศีมีน 10°05′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 42–62 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.active",
+        "prediction.health.current.active",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.active",
+        "prediction.health.next12Months.active",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.strong",
+        "prediction.relationship.nextLifePeriod.strong",
+        "prediction.health.nextLifePeriod.strong",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem5.sunday",
+      "sample_profile_id": "S082",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 2 ตุลาคม 2565 เวลา 18:00 น. จังหวัดภูเก็ต\nวันทางโหราศาสตร์เป็นวันอาทิตย์\nลัคนาราศีมีน 11°05′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 7–21 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.strong",
+        "prediction.health.nextLifePeriod.strong",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem5.thursday",
+      "sample_profile_id": "S088",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 1 เมษายน 2559 เวลา 05:29 น. จังหวัดภูเก็ต\nวันทางโหราศาสตร์เป็นวันพฤหัสบดี\nลัคนาราศีมีน 0°33′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 20–31 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.active",
+        "prediction.health.nextLifePeriod.active",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem5.tuesday",
+      "sample_profile_id": "S013",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 31 ธันวาคม 2551 เวลา 00:00 น. จังหวัดกรุงเทพมหานคร\nวันทางโหราศาสตร์เป็นวันอังคาร\nลัคนาราศีกันย์ 10°57′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 26–35 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.quiet",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem5.wednesday",
+      "sample_profile_id": "S014",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 1 มกราคม 2552 เวลา 00:01 น. จังหวัดเชียงใหม่\nวันทางโหราศาสตร์เป็นวันพุธ\nลัคนาราศีกันย์ 10°30′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 18–27 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.active",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem6.friday",
+      "sample_profile_id": "S002",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 31 ธันวาคม 2503 เวลา 00:01 น. จังหวัดเชียงใหม่\nวันทางโหราศาสตร์เป็นวันศุกร์\nลัคนาราศีกันย์ 9°53′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 68–77 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.strong",
+        "prediction.relationship.nextLifePeriod.active",
+        "prediction.health.nextLifePeriod.active",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem6.monday",
+      "sample_profile_id": "S054",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 17 มิถุนายน 2517 เวลา 05:31 น. จังหวัดอุบลราชธานี\nวันทางโหราศาสตร์เป็นวันจันทร์\nลัคนาราศีเมถุน 1°08′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 60–80 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.active",
+        "prediction.health.current.active",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.active",
+        "prediction.health.next12Months.active",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.quiet",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem6.saturday",
+      "sample_profile_id": "S016",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 31 กรกฎาคม 2559 เวลา 05:29 น. จังหวัดภูเก็ต\nวันทางโหราศาสตร์เป็นวันเสาร์\nลัคนาราศีกรกฎ 1°36′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 11–29 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.active",
+        "prediction.relationship.current.active",
+        "prediction.health.current.active",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.strong",
+        "prediction.relationship.nextLifePeriod.strong",
+        "prediction.health.nextLifePeriod.strong",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem6.sunday",
+      "sample_profile_id": "S057",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 20 กันยายน 2552 เวลา 12:01 น. จังหวัดขอนแก่น\nวันทางโหราศาสตร์เป็นวันอาทิตย์\nลัคนาราศีพิจิก 26°53′\n\n## การงาน\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 22–29 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.active",
+        "prediction.finance.current.active",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.active",
+        "prediction.finance.next12Months.active",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.strong",
+        "prediction.relationship.nextLifePeriod.strong",
+        "prediction.health.nextLifePeriod.strong",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem6.thursday",
+      "sample_profile_id": "S020",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 29 กุมภาพันธ์ 2567 เวลา 12:00 น. จังหวัดเชียงใหม่\nวันทางโหราศาสตร์เป็นวันพฤหัสบดี\nลัคนาราศีพฤษภ 17°48′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 20–31 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์เดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.strong",
+        "prediction.relationship.nextLifePeriod.active",
+        "prediction.health.nextLifePeriod.active",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem6.tuesday",
+      "sample_profile_id": "S049",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 11 มกราคม 2560 เวลา 00:00 น. จังหวัดกรุงเทพมหานคร\nวันทางโหราศาสตร์เป็นวันอังคาร\nลัคนาราศีกันย์ 21°32′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 26–35 ปี\n\nงานเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.active",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.quiet",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    },
+    {
+      "context_id": "mahabhut2537.rem6.wednesday",
+      "sample_profile_id": "S068",
+      "reviewer": "Codex",
+      "review_type": "Manual AI Content Audit",
+      "owner_human_review": "PENDING",
+      "full_rendered_reader_copy": "# คำทำนายดวงชะตา\n\nเกิดวันที่ 3 สิงหาคม 2503 เวลา 12:00 น. จังหวัดเชียงใหม่\nวันทางโหราศาสตร์เป็นวันพุธ\nลัคนาราศีตุลย์ 10°17′\n\n## การงาน\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\n## การเงิน\n\nการเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\n## ความรักและความสัมพันธ์\n\nความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\n## สุขภาพ\n\nการพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## คำทำนาย 12 เดือนข้างหน้า\n\nระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nในช่วงเดียวกัน การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nในช่วงเดียวกัน ความสัมพันธ์ขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nในช่วงเดียวกัน การพักและการฟื้นตัวขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## ช่วงชีวิตถัดไป — อายุ 80–85 ปี\n\nงานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต\n\nการเงินเดินหน้าทีละขั้นจากข้อตกลงที่ทำได้จริง ฐานเงินนิ่งขึ้นเมื่อกันรายการจำเป็นก่อนรับภาระเพิ่ม\n\nความสัมพันธ์ชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง ระยะของแต่ละคนชัดจากการทำตามข้อตกลง\n\nการพักและการฟื้นตัวชะลอเพื่อจัดฐานเดิมและปิดเรื่องที่กินแรง กำลังกลับมาเมื่อเวลานอนทำได้ต่อเนื่อง\n\n## สรุปคำทำนาย\n\nประเด็นหลักของรอบนี้คือ งานขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง บทบาทหลักชัดขึ้นเมื่อผลงานส่งมอบได้ตามขอบเขต ส่วนเรื่องถัดมาคือ การเงินขยับชัดและให้ผลจากสิ่งที่ทำต่อเนื่อง\n\nคำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "pass_1_findings": [
+        "Missing required narrative roles: overview, past, current, support, advice"
+      ],
+      "pass_2_findings": [
+        "Forecast material is the only predictive authority; shipping gate fails."
+      ],
+      "chronology": "FAIL_MISSING_PAST",
+      "directness": "REQUIRES_OWNER_REVIEW",
+      "prediction_vs_psychology": "NO_PSYCHOLOGY_SUBSTITUTION_DETECTED",
+      "past_reflection": "NO_REFLECTION_QUESTION_DETECTED",
+      "repetition": "GENERIC_TEMPLATE_REUSE_REQUIRES_JUSTIFICATION",
+      "template_language": "REVIEW",
+      "unsupported_claim": "FAIL_FORECAST_ONLY",
+      "source_claim_ids": [
+        "prediction.career.current.strong",
+        "prediction.finance.current.strong",
+        "prediction.relationship.current.strong",
+        "prediction.health.current.strong",
+        "prediction.career.next12Months.strong",
+        "prediction.finance.next12Months.strong",
+        "prediction.relationship.next12Months.strong",
+        "prediction.health.next12Months.strong",
+        "prediction.career.nextLifePeriod.strong",
+        "prediction.finance.nextLifePeriod.active",
+        "prediction.relationship.nextLifePeriod.quiet",
+        "prediction.health.nextLifePeriod.quiet",
+        "compressed-selected-claims",
+        "DISCLOSURE-K-01"
+      ],
+      "final_status": "FAIL_NO_GO_PENDING_OWNER_HUMAN_REVIEW"
+    }
+  ]
+}
