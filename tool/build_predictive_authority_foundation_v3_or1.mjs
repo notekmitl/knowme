@@ -303,20 +303,25 @@ ${Object.entries(diversity.counts).map(([key, value]) => `- ${key}: ${value}`).j
 const currentRow = matrix.applications.find((row) => row.context_id === 'mahabhut2537.rem0.saturday' && row.age_period === '42-62');
 const atomById = new Map(atoms.map((atom) => [atom.atomId, atom]));
 const directIds = existingDirectAtoms.filter((atom) => atom.agePeriod === '42-62').map((atom) => atom.atomId);
+const pastAtom = firstPeriodAtoms.find((atom) => atom.contextId === currentRow.context_id);
+const pastRow = matrix.applications.find((row) => row.context_id === currentRow.context_id && row.age_period === pastAtom.agePeriod);
+const bindClaim = (claim, row, atom) => ({ ...claim, kind: 'PREDICTION', period: row.age_period, contextId: row.context_id, matrixApplicationId: row.applicationId, semanticOwner: atom.atomId, planet: row.placement_record.planet, taksaRole: row.placement_record.taksa_role, mahabhutHouse: row.placement_record.mahabhut_house, periodStatus: row.placement_record.period_status, strength: atom.strength, timing: 'AGE_PERIOD', ruleIds: row.applicable_rules });
 const candidateClaims = [
-  { id: 'RC13-K-SUPPORT', section: 'แรงสนับสนุน', domain: 'support', eventFamily: 'supporting_people', atomIds: ['SDC-R0-SAT-42_62-SUPPORT'], text: 'ช่วงนี้มีแรงช่วยเหลือจากคนที่เกี่ยวข้องกับงานอยู่แล้ว จึงควรใช้ความร่วมมือที่มีอยู่ให้เกิดผลก่อนขยายภาระใหม่' },
-  { id: 'RC13-K-WORK', section: 'การงาน', domain: 'work', eventFamily: 'work_access', atomIds: ['SDC-R0-SAT-42_62-WORK'], text: 'งานมีทางเดินต่อได้ง่ายขึ้นในช่วงนี้ แต่ยังควรตัดสินใจจากขอบเขตและผลลัพธ์ที่ตรวจสอบได้' },
-  { id: 'RC13-K-FINANCE', section: 'การเงิน', domain: 'finance', eventFamily: 'available_money', atomIds: ['SDC-R0-SAT-42_62-FINANCE'], text: 'เงินมีทางหมุนคล่องขึ้นในช่วงนี้ โดยข้อความต้นฉบับไม่ได้ระบุจำนวนหรือช่วงเดือน จึงไม่ควรตีความเกินกว่านั้น' },
-].map((claim) => ({ ...claim, kind: 'PREDICTION', period: '42-62', contextId: currentRow.context_id, matrixApplicationId: currentRow.applicationId, semanticOwner: claim.atomIds[0], planet: currentRow.placement_record.planet, taksaRole: currentRow.placement_record.taksa_role, mahabhutHouse: currentRow.placement_record.mahabhut_house, periodStatus: currentRow.placement_record.period_status, strength: 'SOURCE_DIRECT_EXPLICIT_EVENT_CLAUSE', timing: 'AGE_PERIOD', ruleIds: currentRow.applicable_rules }));
+  bindClaim({ id: 'RC13-K-PAST', section: `อดีตตามอายุ ${pastRow.age_period} ปี`, domain: pastAtom.domain, eventFamily: pastAtom.eventFamily, atomIds: [pastAtom.atomId], text: `ช่วงอายุ ${pastRow.age_period.replace('-', '–')} ปี สิ่งแวดล้อมและการดูแลในบ้านมีแรงติดขัด ช่วงนั้นจึงต้องรับมือกับข้อจำกัดรอบตัวมากกว่าปกติ` }, pastRow, pastAtom),
+  bindClaim({ id: 'RC13-K-CURRENT-FINANCE', section: 'ปัจจุบัน · การเงิน', domain: 'finance', eventFamily: 'available_money', atomIds: ['SDC-R0-SAT-42_62-FINANCE'], text: 'อายุ 44 อยู่ในช่วงที่เงินใช้คล่องขึ้น แต่ไม่ได้หมายถึงจำนวนเงินหรือเดือนไหนเป็นพิเศษ' }, currentRow, atomById.get('SDC-R0-SAT-42_62-FINANCE')),
+  bindClaim({ id: 'RC13-K-WORK', section: 'การงาน', domain: 'work', eventFamily: 'work_access', atomIds: ['SDC-R0-SAT-42_62-WORK'], text: 'ช่วงนี้งานหาได้ง่ายขึ้น และเรื่องที่ทำอยู่เดินต่อได้คล่องกว่าเดิม' }, currentRow, atomById.get('SDC-R0-SAT-42_62-WORK')),
+  bindClaim({ id: 'RC13-K-SUPPORT', section: 'แรงสนับสนุน', domain: 'support', eventFamily: 'supporting_people', atomIds: ['SDC-R0-SAT-42_62-SUPPORT'], text: 'ช่วงนี้คนที่เกี่ยวข้องกับงานอยู่แล้วช่วยให้เรื่องเดินต่อได้ง่ายขึ้น' }, currentRow, atomById.get('SDC-R0-SAT-42_62-SUPPORT')),
+];
+const disclosure = { id: 'RC13-K-DISCLOSURE', section: 'หมายเหตุ', kind: 'DISCLOSURE', semanticOwner: 'belief-disclosure', text: 'คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ' };
 const candidate = {
   version: 1,
   status: 'EVIDENCE_CANDIDATE_ONLY_NO_GO_NOT_RUNTIME',
   generatedAt: GENERATED_AT,
   fixture: { birth: '6/6/2525 00:03 Chiang Mai', asOf: '2026-08-29 Asia/Bangkok', contextId: currentRow.context_id, age: 44 },
-  counts: { knownClaims: candidateClaims.length, unknownClaims: 1, omittedUnsupportedHeadings: 5, directAtomRefs: directIds.length },
+  counts: { knownPredictionClaims: candidateClaims.length, knownClaims: candidateClaims.length + 1, unknownClaims: 2, omittedUnsupportedHeadings: 5, directAtomRefs: directIds.length + 1 },
   surfaces: [
-    { surface: 'Known', claims: candidateClaims, omitted: ['ภาพรวมทั้งชีวิต', 'ความสัมพันธ์', 'สุขภาวะ', 'แนวโน้มงาน 12 เดือน', 'ช่วงถัดไปที่ไม่มี source-direct atom'] },
-    { surface: 'Unknown', claims: [{ id: 'RC13-U-OMISSION', section: 'ข้อมูลที่เว้นไว้', kind: 'OMISSION', text: 'ไม่มีเวลาเกิด — รายงานจึงเว้นคำทำนายที่ต้องใช้วันโหราศาสตร์ไทยและบริบทมหาภูต แทนการเดาข้อมูลที่ไม่มี' }] },
+    { surface: 'Known', claims: [...candidateClaims, disclosure], omitted: ['ภาพรวมทั้งชีวิต', 'ความสัมพันธ์', 'สุขภาวะ', 'แนวโน้ม 12 เดือน', 'ช่วงถัดไปที่ไม่มี source-direct atom'] },
+    { surface: 'Unknown', claims: [{ id: 'RC13-U-OMISSION', section: 'ข้อมูลที่เว้นไว้', kind: 'OMISSION', semanticOwner: 'unknown-fail-closed', text: 'ไม่มีเวลาเกิด — รายงานจึงเว้นคำทำนายที่ต้องใช้วันโหราศาสตร์ไทยและบริบทมหาภูต แทนการเดาข้อมูลที่ไม่มี' }, { id: 'RC13-U-DISCLOSURE', section: 'หมายเหตุ', kind: 'DISCLOSURE', semanticOwner: 'belief-disclosure', text: disclosure.text }] },
   ],
   unknownFixture: { noonSubstitution: false, ascendant: null, houses: null, thaiAstrologicalDay: null, emptyPredictionHeadings: false },
 };
@@ -325,13 +330,13 @@ writeText('docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0013.md', `
 
 ## Known
 
-${candidateClaims.map((claim) => `### ${claim.section}\n\n${claim.text}`).join('\n\n')}
+${[...candidateClaims, disclosure].map((claim) => `### ${claim.section}\n\n${claim.text}`).join('\n\n')}
 
 หัวข้อที่ source-direct authority ยังไม่รองรับถูกเว้น ไม่สร้างย่อหน้าทั่วไปแทน
 
 ## Unknown
 
-${candidate.surfaces[1].claims[0].text}
+${candidate.surfaces[1].claims.map((claim) => `${claim.text}`).join('\n\n')}
 
 Candidate นี้ไม่ใช่ runtime implementation และยัง NO-GO เพราะ event authority ครอบคลุมเพียง ${directMatrixKeys.size}/392 ช่วง`);
 
@@ -341,6 +346,7 @@ byId.get('RC11-K-PAST-02').afterFullText = 'ช่วงอายุ 11–29 ป
 byId.get('RC11-K-PAST-04').afterFullText = 'ช่วงอายุ 30–41 ปี อำนาจตัดสินใจและหน้าที่การงานมีแนวโน้มเข้มแข็งขึ้น งานที่รับผิดชอบจึงมีน้ำหนักและต้องตัดสินใจด้วยตัวเองมากขึ้น';
 for (const id of ['RC11-K-PAST-02', 'RC11-K-PAST-04']) byId.get(id).mappingType = 'ONE_TO_ONE_SAME_PERIOD_AND_SECTION';
 writeJson('docs/CANDIDATE_0011_TO_0012_BEFORE_AFTER_V3.json', beforeAfter);
+writeText('docs/CANDIDATE_0011_TO_0012_BEFORE_AFTER_V3.md', `# Candidate 0011 → 0012 Before/After provenance correction\n\n${beforeAfter.entries.map((entry) => `## ${entry.candidate0011ClaimId} — ${entry.section}\n\n- Mapping: ${entry.mappingType ?? (entry.afterFullText === null ? 'REMOVED_WITHOUT_REPLACEMENT' : 'ONE_TO_ONE')}\n- Before: ${entry.beforeFullText}\n- After: ${entry.afterFullText ?? '(ลบโดยไม่สร้างข้อความแทน)'}\n- Boundary: ${entry.changeBoundary}`).join('\n\n')}`);
 
 const auditEntries = [];
 for (const pass of [1, 2]) for (const context of corpus.contexts) {

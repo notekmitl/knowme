@@ -210,7 +210,10 @@ export function validateOr1() {
 
   const known = candidate.surfaces.find((surface) => surface.surface === 'Known');
   const unknown = candidate.surfaces.find((surface) => surface.surface === 'Unknown');
-  for (const claim of known.claims) for (const detail of candidateErrors(claim, matrixById, atomById, ruleIds)) errors.push({ category: 'candidate', detail: `${claim.id}:${detail}` });
+  const knownPredictions = known.claims.filter((claim) => claim.kind === 'PREDICTION');
+  for (const claim of knownPredictions) for (const detail of candidateErrors(claim, matrixById, atomById, ruleIds)) errors.push({ category: 'candidate', detail: `${claim.id}:${detail}` });
+  if (new Set(known.claims.map((claim) => claim.semanticOwner)).size !== known.claims.length) errors.push({ category: 'candidate', detail: 'duplicate semantic owner' });
+  if (known.claims.filter((claim) => claim.kind === 'DISCLOSURE').length !== 1) errors.push({ category: 'candidate', detail: 'Known disclosure count' });
   if (unknown.claims.some((claim) => claim.kind === 'PREDICTION')) errors.push({ category: 'candidate', detail: 'Unknown prediction present' });
   if (candidate.unknownFixture.noonSubstitution !== false || candidate.unknownFixture.ascendant !== null || candidate.unknownFixture.houses !== null || candidate.unknownFixture.thaiAstrologicalDay !== null || candidate.unknownFixture.emptyPredictionHeadings !== false) errors.push({ category: 'candidate', detail: 'Unknown fail-closed violation' });
   if (/เดือนดี|เดือนควรระวัง/u.test(JSON.stringify(candidate))) errors.push({ category: 'candidate', detail: 'monthly prediction' });
@@ -227,7 +230,7 @@ export function validateOr1() {
     if (!row || entry.contextId !== row.context_id || entry.period !== row.age_period || entry.excerpt !== row.reader_claim_candidates[0] || !entry.observation || !entry.duplicateTemplateOwner || !entry.unresolvedIssue) errors.push({ category: 'audit', detail: entry.auditId });
   }
 
-  const negativeControls = runNegativeControls(known.claims[0], matrixById, atomById, ruleIds);
+  const negativeControls = runNegativeControls(knownPredictions.find((claim) => claim.section === 'แรงสนับสนุน'), matrixById, atomById, ruleIds);
   for (const control of negativeControls) if (!control.rejected) errors.push({ category: 'negative_control', detail: control.id });
   writeJson('docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR1_NEGATIVE_CONTROLS.json', { version: 1, counts: { controls: negativeControls.length, rejected: negativeControls.filter((item) => item.rejected).length }, controls: negativeControls });
 

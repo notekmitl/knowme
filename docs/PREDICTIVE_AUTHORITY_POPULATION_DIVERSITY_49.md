@@ -1,5 +1,14 @@
-# Predictive Authority Population and Diversity Audit — 49 contexts
+# Predictive Authority Population Diversity — OR1
 
-unique authority signatures 49/49, unique selected rule sets 49/49, unique normalized prediction sets 49/49, exact duplicate clusters 0, near-duplicate clusters 0 และ generic template duplicate count 0
+ค่าจริงคำนวณจากข้อความ ไม่ใช้ hash หรืออายุเป็นตัวแทนความหลากหลาย
 
-ประโยคใช้ grammar ร่วมตาม reusable source rule โดยความต่างมาจาก evidence signature จริง ไม่ได้เปลี่ยนคำพ้องเพื่อให้ผ่าน
+- contexts: 49
+- periods: 392
+- exact_text_unique: 108
+- age_stripped_unique: 16
+- subject_stripped_template_unique: 4
+- directional_skeleton_unique: 4
+- semantic_signature_unique: 343
+- repeated_template_occurrences: 392
+- near_duplicate_clusters: 16
+- synonym_only_variation: 0

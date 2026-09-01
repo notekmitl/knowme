@@ -1,0 +1,2365 @@
+{
+  "version": 1,
+  "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+  "humanReviewStatus": "PENDING",
+  "counts": {
+    "entries": 98,
+    "passes": 2,
+    "contexts": 49,
+    "genericDirectionFailures": 98
+  },
+  "entries": [
+    {
+      "auditId": "AI-1-mahabhut2537.rem1.sunday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem1.sunday",
+      "period": "0-6",
+      "excerpt": "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem1.sunday.sun.0_6",
+        "MH2537-PLANET-SUN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงกำพร้า/sunday: ข้อความช่วง 0-6 สะท้อน dueng_tok/boriwan/phangkha แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem1.monday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem1.monday",
+      "period": "0-15",
+      "excerpt": "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem1.monday.moon.0_15",
+        "MH2537-PLANET-MOON",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงกำพร้า/monday: ข้อความช่วง 0-15 สะท้อน dueng_tok/boriwan/puti แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem1.tuesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem1.tuesday",
+      "period": "0-8",
+      "excerpt": "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem1.tuesday.mars.0_8",
+        "MH2537-PLANET-MARS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงกำพร้า/tuesday: ข้อความช่วง 0-8 สะท้อน dueng_khuen/boriwan/khumsap แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem1.wednesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem1.wednesday",
+      "period": "0-17",
+      "excerpt": "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem1.wednesday.mercury.0_17",
+        "MH2537-PLANET-MERCURY",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงกำพร้า/wednesday: ข้อความช่วง 0-17 สะท้อน dueng_tok/boriwan/marana แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem1.thursday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem1.thursday",
+      "period": "0-19",
+      "excerpt": "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem1.thursday.jupiter.0_19",
+        "MH2537-PLANET-JUPITER",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงกำพร้า/thursday: ข้อความช่วง 0-19 สะท้อน dueng_khuen/boriwan/athibodi แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem1.friday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem1.friday",
+      "period": "0-21",
+      "excerpt": "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem1.friday.venus.0_21",
+        "MH2537-PLANET-VENUS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงกำพร้า/friday: ข้อความช่วง 0-21 สะท้อน dueng_khuen/boriwan/racha แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem1.saturday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem1.saturday",
+      "period": "0-10",
+      "excerpt": "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem1.saturday.saturn.0_10",
+        "MH2537-PLANET-SATURN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงกำพร้า/saturday: ข้อความช่วง 0-10 สะท้อน dueng_khuen/boriwan/thongchai แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem2.sunday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem2.sunday",
+      "period": "0-6",
+      "excerpt": "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem2.sunday.sun.0_6",
+        "MH2537-PLANET-SUN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักภาษา/sunday: ข้อความช่วง 0-6 สะท้อน dueng_khuen/boriwan/thongchai แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem2.monday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem2.monday",
+      "period": "0-15",
+      "excerpt": "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem2.monday.moon.0_15",
+        "MH2537-PLANET-MOON",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักภาษา/monday: ข้อความช่วง 0-15 สะท้อน dueng_tok/boriwan/phangkha แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem2.tuesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem2.tuesday",
+      "period": "0-8",
+      "excerpt": "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem2.tuesday.mars.0_8",
+        "MH2537-PLANET-MARS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักภาษา/tuesday: ข้อความช่วง 0-8 สะท้อน dueng_tok/boriwan/puti แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem2.wednesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem2.wednesday",
+      "period": "0-17",
+      "excerpt": "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem2.wednesday.mercury.0_17",
+        "MH2537-PLANET-MERCURY",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักภาษา/wednesday: ข้อความช่วง 0-17 สะท้อน dueng_khuen/boriwan/khumsap แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem2.thursday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem2.thursday",
+      "period": "0-19",
+      "excerpt": "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem2.thursday.jupiter.0_19",
+        "MH2537-PLANET-JUPITER",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักภาษา/thursday: ข้อความช่วง 0-19 สะท้อน dueng_tok/boriwan/marana แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem2.friday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem2.friday",
+      "period": "0-21",
+      "excerpt": "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem2.friday.venus.0_21",
+        "MH2537-PLANET-VENUS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักภาษา/friday: ข้อความช่วง 0-21 สะท้อน dueng_khuen/boriwan/athibodi แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem2.saturday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem2.saturday",
+      "period": "0-10",
+      "excerpt": "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem2.saturday.saturn.0_10",
+        "MH2537-PLANET-SATURN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักภาษา/saturday: ข้อความช่วง 0-10 สะท้อน dueng_khuen/boriwan/racha แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem3.sunday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem3.sunday",
+      "period": "0-6",
+      "excerpt": "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem3.sunday.sun.0_6",
+        "MH2537-PLANET-SUN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักบริหาร/sunday: ข้อความช่วง 0-6 สะท้อน dueng_khuen/boriwan/racha แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem3.monday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem3.monday",
+      "period": "0-15",
+      "excerpt": "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem3.monday.moon.0_15",
+        "MH2537-PLANET-MOON",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักบริหาร/monday: ข้อความช่วง 0-15 สะท้อน dueng_khuen/boriwan/thongchai แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem3.tuesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem3.tuesday",
+      "period": "0-8",
+      "excerpt": "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem3.tuesday.mars.0_8",
+        "MH2537-PLANET-MARS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักบริหาร/tuesday: ข้อความช่วง 0-8 สะท้อน dueng_tok/boriwan/phangkha แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem3.wednesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem3.wednesday",
+      "period": "0-17",
+      "excerpt": "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem3.wednesday.mercury.0_17",
+        "MH2537-PLANET-MERCURY",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักบริหาร/wednesday: ข้อความช่วง 0-17 สะท้อน dueng_tok/boriwan/puti แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem3.thursday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem3.thursday",
+      "period": "0-19",
+      "excerpt": "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem3.thursday.jupiter.0_19",
+        "MH2537-PLANET-JUPITER",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักบริหาร/thursday: ข้อความช่วง 0-19 สะท้อน dueng_khuen/boriwan/khumsap แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem3.friday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem3.friday",
+      "period": "0-21",
+      "excerpt": "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem3.friday.venus.0_21",
+        "MH2537-PLANET-VENUS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักบริหาร/friday: ข้อความช่วง 0-21 สะท้อน dueng_tok/boriwan/marana แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem3.saturday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem3.saturday",
+      "period": "0-10",
+      "excerpt": "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem3.saturday.saturn.0_10",
+        "MH2537-PLANET-SATURN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักบริหาร/saturday: ข้อความช่วง 0-10 สะท้อน dueng_khuen/boriwan/athibodi แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem4.sunday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem4.sunday",
+      "period": "0-6",
+      "excerpt": "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem4.sunday.sun.0_6",
+        "MH2537-PLANET-SUN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงมนุษย์เจ้าสำราญ/sunday: ข้อความช่วง 0-6 สะท้อน dueng_khuen/boriwan/athibodi แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem4.monday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem4.monday",
+      "period": "0-15",
+      "excerpt": "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem4.monday.moon.0_15",
+        "MH2537-PLANET-MOON",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงมนุษย์เจ้าสำราญ/monday: ข้อความช่วง 0-15 สะท้อน dueng_khuen/boriwan/racha แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem4.tuesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem4.tuesday",
+      "period": "0-8",
+      "excerpt": "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem4.tuesday.mars.0_8",
+        "MH2537-PLANET-MARS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงมนุษย์เจ้าสำราญ/tuesday: ข้อความช่วง 0-8 สะท้อน dueng_khuen/boriwan/thongchai แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem4.wednesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem4.wednesday",
+      "period": "0-17",
+      "excerpt": "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem4.wednesday.mercury.0_17",
+        "MH2537-PLANET-MERCURY",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงมนุษย์เจ้าสำราญ/wednesday: ข้อความช่วง 0-17 สะท้อน dueng_tok/boriwan/phangkha แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem4.thursday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem4.thursday",
+      "period": "0-19",
+      "excerpt": "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem4.thursday.jupiter.0_19",
+        "MH2537-PLANET-JUPITER",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงมนุษย์เจ้าสำราญ/thursday: ข้อความช่วง 0-19 สะท้อน dueng_tok/boriwan/puti แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem4.friday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem4.friday",
+      "period": "0-21",
+      "excerpt": "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem4.friday.venus.0_21",
+        "MH2537-PLANET-VENUS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงมนุษย์เจ้าสำราญ/friday: ข้อความช่วง 0-21 สะท้อน dueng_khuen/boriwan/khumsap แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem4.saturday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem4.saturday",
+      "period": "0-10",
+      "excerpt": "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem4.saturday.saturn.0_10",
+        "MH2537-PLANET-SATURN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงมนุษย์เจ้าสำราญ/saturday: ข้อความช่วง 0-10 สะท้อน dueng_tok/boriwan/marana แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem5.sunday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem5.sunday",
+      "period": "0-6",
+      "excerpt": "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem5.sunday.sun.0_6",
+        "MH2537-PLANET-SUN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงเศรษฐี/sunday: ข้อความช่วง 0-6 สะท้อน dueng_tok/boriwan/marana แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem5.monday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem5.monday",
+      "period": "0-15",
+      "excerpt": "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem5.monday.moon.0_15",
+        "MH2537-PLANET-MOON",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงเศรษฐี/monday: ข้อความช่วง 0-15 สะท้อน dueng_khuen/boriwan/athibodi แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem5.tuesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem5.tuesday",
+      "period": "0-8",
+      "excerpt": "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem5.tuesday.mars.0_8",
+        "MH2537-PLANET-MARS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงเศรษฐี/tuesday: ข้อความช่วง 0-8 สะท้อน dueng_khuen/boriwan/racha แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem5.wednesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem5.wednesday",
+      "period": "0-17",
+      "excerpt": "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem5.wednesday.mercury.0_17",
+        "MH2537-PLANET-MERCURY",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงเศรษฐี/wednesday: ข้อความช่วง 0-17 สะท้อน dueng_khuen/boriwan/thongchai แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem5.thursday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem5.thursday",
+      "period": "0-19",
+      "excerpt": "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem5.thursday.jupiter.0_19",
+        "MH2537-PLANET-JUPITER",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงเศรษฐี/thursday: ข้อความช่วง 0-19 สะท้อน dueng_tok/boriwan/phangkha แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem5.friday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem5.friday",
+      "period": "0-21",
+      "excerpt": "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem5.friday.venus.0_21",
+        "MH2537-PLANET-VENUS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงเศรษฐี/friday: ข้อความช่วง 0-21 สะท้อน dueng_tok/boriwan/puti แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem5.saturday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem5.saturday",
+      "period": "0-10",
+      "excerpt": "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem5.saturday.saturn.0_10",
+        "MH2537-PLANET-SATURN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงเศรษฐี/saturday: ข้อความช่วง 0-10 สะท้อน dueng_khuen/boriwan/khumsap แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem6.sunday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem6.sunday",
+      "period": "0-6",
+      "excerpt": "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem6.sunday.sun.0_6",
+        "MH2537-PLANET-SUN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักวิชาการ/sunday: ข้อความช่วง 0-6 สะท้อน dueng_khuen/boriwan/khumsap แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem6.monday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem6.monday",
+      "period": "0-15",
+      "excerpt": "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem6.monday.moon.0_15",
+        "MH2537-PLANET-MOON",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักวิชาการ/monday: ข้อความช่วง 0-15 สะท้อน dueng_tok/boriwan/marana แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem6.tuesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem6.tuesday",
+      "period": "0-8",
+      "excerpt": "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem6.tuesday.mars.0_8",
+        "MH2537-PLANET-MARS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักวิชาการ/tuesday: ข้อความช่วง 0-8 สะท้อน dueng_khuen/boriwan/athibodi แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem6.wednesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem6.wednesday",
+      "period": "0-17",
+      "excerpt": "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem6.wednesday.mercury.0_17",
+        "MH2537-PLANET-MERCURY",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักวิชาการ/wednesday: ข้อความช่วง 0-17 สะท้อน dueng_khuen/boriwan/racha แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem6.thursday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem6.thursday",
+      "period": "0-19",
+      "excerpt": "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem6.thursday.jupiter.0_19",
+        "MH2537-PLANET-JUPITER",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักวิชาการ/thursday: ข้อความช่วง 0-19 สะท้อน dueng_khuen/boriwan/thongchai แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem6.friday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem6.friday",
+      "period": "0-21",
+      "excerpt": "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem6.friday.venus.0_21",
+        "MH2537-PLANET-VENUS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักวิชาการ/friday: ข้อความช่วง 0-21 สะท้อน dueng_tok/boriwan/phangkha แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem6.saturday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem6.saturday",
+      "period": "0-10",
+      "excerpt": "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem6.saturday.saturn.0_10",
+        "MH2537-PLANET-SATURN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงนักวิชาการ/saturday: ข้อความช่วง 0-10 สะท้อน dueng_tok/boriwan/puti แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem0.sunday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem0.sunday",
+      "period": "0-6",
+      "excerpt": "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem0.sunday.sun.0_6",
+        "MH2537-PLANET-SUN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงมหาเศรษฐี/sunday: ข้อความช่วง 0-6 สะท้อน dueng_tok/boriwan/puti แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem0.monday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem0.monday",
+      "period": "0-15",
+      "excerpt": "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem0.monday.moon.0_15",
+        "MH2537-PLANET-MOON",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงมหาเศรษฐี/monday: ข้อความช่วง 0-15 สะท้อน dueng_khuen/boriwan/khumsap แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem0.tuesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem0.tuesday",
+      "period": "0-8",
+      "excerpt": "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem0.tuesday.mars.0_8",
+        "MH2537-PLANET-MARS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงมหาเศรษฐี/tuesday: ข้อความช่วง 0-8 สะท้อน dueng_tok/boriwan/marana แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem0.wednesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem0.wednesday",
+      "period": "0-17",
+      "excerpt": "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem0.wednesday.mercury.0_17",
+        "MH2537-PLANET-MERCURY",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงมหาเศรษฐี/wednesday: ข้อความช่วง 0-17 สะท้อน dueng_khuen/boriwan/athibodi แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem0.thursday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem0.thursday",
+      "period": "0-19",
+      "excerpt": "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem0.thursday.jupiter.0_19",
+        "MH2537-PLANET-JUPITER",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงมหาเศรษฐี/thursday: ข้อความช่วง 0-19 สะท้อน dueng_khuen/boriwan/racha แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem0.friday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem0.friday",
+      "period": "0-21",
+      "excerpt": "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem0.friday.venus.0_21",
+        "MH2537-PLANET-VENUS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงมหาเศรษฐี/friday: ข้อความช่วง 0-21 สะท้อน dueng_khuen/boriwan/thongchai แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-1-mahabhut2537.rem0.saturday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 1,
+      "contextId": "mahabhut2537.rem0.saturday",
+      "period": "0-10",
+      "excerpt": "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem0.saturday.saturn.0_10",
+        "MH2537-PLANET-SATURN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "NEEDS_HUMAN_REVIEW",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "ดวงมหาเศรษฐี/saturday: ข้อความช่วง 0-10 สะท้อน dueng_tok/boriwan/phangkha แต่ยังเป็นทิศทางกว้าง ไม่ใช่เหตุการณ์เฉพาะจากต้นฉบับ",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem1.sunday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem1.sunday",
+      "period": "0-6",
+      "excerpt": "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem1.sunday.sun.0_6",
+        "MH2537-PLANET-SUN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem1.sunday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, leadership, authority, home_leadership ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem1.monday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem1.monday",
+      "period": "0-15",
+      "excerpt": "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem1.monday.moon.0_15",
+        "MH2537-PLANET-MOON",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem1.monday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, care, mobility, finance ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem1.tuesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem1.tuesday",
+      "period": "0-8",
+      "excerpt": "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem1.tuesday.mars.0_8",
+        "MH2537-PLANET-MARS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem1.tuesday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, action, technical_work, subordinates ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem1.wednesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem1.wednesday",
+      "period": "0-17",
+      "excerpt": "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem1.wednesday.mercury.0_17",
+        "MH2537-PLANET-MERCURY",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem1.wednesday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, communication, education, information_work ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem1.thursday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem1.thursday",
+      "period": "0-19",
+      "excerpt": "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem1.thursday.jupiter.0_19",
+        "MH2537-PLANET-JUPITER",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem1.thursday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, knowledge, advisers, professional_work ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem1.friday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem1.friday",
+      "period": "0-21",
+      "excerpt": "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem1.friday.venus.0_21",
+        "MH2537-PLANET-VENUS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem1.friday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, relationship, creative_work, rest_and_wellbeing ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem1.saturday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem1.saturday",
+      "period": "0-10",
+      "excerpt": "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem1.saturday.saturn.0_10",
+        "MH2537-PLANET-SATURN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem1.saturday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, long_term_work, labor, endurance ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem2.sunday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem2.sunday",
+      "period": "0-6",
+      "excerpt": "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem2.sunday.sun.0_6",
+        "MH2537-PLANET-SUN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem2.sunday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, leadership, authority, home_leadership ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem2.monday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem2.monday",
+      "period": "0-15",
+      "excerpt": "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem2.monday.moon.0_15",
+        "MH2537-PLANET-MOON",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem2.monday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, care, mobility, finance ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem2.tuesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem2.tuesday",
+      "period": "0-8",
+      "excerpt": "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem2.tuesday.mars.0_8",
+        "MH2537-PLANET-MARS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem2.tuesday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, action, technical_work, subordinates ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem2.wednesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem2.wednesday",
+      "period": "0-17",
+      "excerpt": "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem2.wednesday.mercury.0_17",
+        "MH2537-PLANET-MERCURY",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem2.wednesday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, communication, education, information_work ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem2.thursday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem2.thursday",
+      "period": "0-19",
+      "excerpt": "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem2.thursday.jupiter.0_19",
+        "MH2537-PLANET-JUPITER",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem2.thursday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, knowledge, advisers, professional_work ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem2.friday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem2.friday",
+      "period": "0-21",
+      "excerpt": "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem2.friday.venus.0_21",
+        "MH2537-PLANET-VENUS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem2.friday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, relationship, creative_work, rest_and_wellbeing ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem2.saturday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem2.saturday",
+      "period": "0-10",
+      "excerpt": "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem2.saturday.saturn.0_10",
+        "MH2537-PLANET-SATURN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem2.saturday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, long_term_work, labor, endurance ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem3.sunday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem3.sunday",
+      "period": "0-6",
+      "excerpt": "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem3.sunday.sun.0_6",
+        "MH2537-PLANET-SUN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem3.sunday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, leadership, authority, home_leadership ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem3.monday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem3.monday",
+      "period": "0-15",
+      "excerpt": "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem3.monday.moon.0_15",
+        "MH2537-PLANET-MOON",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem3.monday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, care, mobility, finance ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem3.tuesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem3.tuesday",
+      "period": "0-8",
+      "excerpt": "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem3.tuesday.mars.0_8",
+        "MH2537-PLANET-MARS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem3.tuesday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, action, technical_work, subordinates ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem3.wednesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem3.wednesday",
+      "period": "0-17",
+      "excerpt": "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem3.wednesday.mercury.0_17",
+        "MH2537-PLANET-MERCURY",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem3.wednesday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, communication, education, information_work ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem3.thursday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem3.thursday",
+      "period": "0-19",
+      "excerpt": "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem3.thursday.jupiter.0_19",
+        "MH2537-PLANET-JUPITER",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem3.thursday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, knowledge, advisers, professional_work ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem3.friday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem3.friday",
+      "period": "0-21",
+      "excerpt": "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem3.friday.venus.0_21",
+        "MH2537-PLANET-VENUS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem3.friday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, relationship, creative_work, rest_and_wellbeing ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem3.saturday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem3.saturday",
+      "period": "0-10",
+      "excerpt": "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem3.saturday.saturn.0_10",
+        "MH2537-PLANET-SATURN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem3.saturday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, long_term_work, labor, endurance ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem4.sunday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem4.sunday",
+      "period": "0-6",
+      "excerpt": "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem4.sunday.sun.0_6",
+        "MH2537-PLANET-SUN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem4.sunday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, leadership, authority, home_leadership ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem4.monday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem4.monday",
+      "period": "0-15",
+      "excerpt": "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem4.monday.moon.0_15",
+        "MH2537-PLANET-MOON",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem4.monday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, care, mobility, finance ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem4.tuesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem4.tuesday",
+      "period": "0-8",
+      "excerpt": "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem4.tuesday.mars.0_8",
+        "MH2537-PLANET-MARS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem4.tuesday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, action, technical_work, subordinates ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem4.wednesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem4.wednesday",
+      "period": "0-17",
+      "excerpt": "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem4.wednesday.mercury.0_17",
+        "MH2537-PLANET-MERCURY",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem4.wednesday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, communication, education, information_work ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem4.thursday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem4.thursday",
+      "period": "0-19",
+      "excerpt": "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem4.thursday.jupiter.0_19",
+        "MH2537-PLANET-JUPITER",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem4.thursday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, knowledge, advisers, professional_work ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem4.friday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem4.friday",
+      "period": "0-21",
+      "excerpt": "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem4.friday.venus.0_21",
+        "MH2537-PLANET-VENUS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem4.friday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, relationship, creative_work, rest_and_wellbeing ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem4.saturday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem4.saturday",
+      "period": "0-10",
+      "excerpt": "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem4.saturday.saturn.0_10",
+        "MH2537-PLANET-SATURN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem4.saturday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, long_term_work, labor, endurance ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem5.sunday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem5.sunday",
+      "period": "0-6",
+      "excerpt": "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem5.sunday.sun.0_6",
+        "MH2537-PLANET-SUN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem5.sunday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, leadership, authority, home_leadership ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem5.monday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem5.monday",
+      "period": "0-15",
+      "excerpt": "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem5.monday.moon.0_15",
+        "MH2537-PLANET-MOON",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem5.monday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, care, mobility, finance ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem5.tuesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem5.tuesday",
+      "period": "0-8",
+      "excerpt": "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem5.tuesday.mars.0_8",
+        "MH2537-PLANET-MARS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem5.tuesday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, action, technical_work, subordinates ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem5.wednesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem5.wednesday",
+      "period": "0-17",
+      "excerpt": "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem5.wednesday.mercury.0_17",
+        "MH2537-PLANET-MERCURY",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem5.wednesday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, communication, education, information_work ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem5.thursday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem5.thursday",
+      "period": "0-19",
+      "excerpt": "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem5.thursday.jupiter.0_19",
+        "MH2537-PLANET-JUPITER",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem5.thursday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, knowledge, advisers, professional_work ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem5.friday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem5.friday",
+      "period": "0-21",
+      "excerpt": "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem5.friday.venus.0_21",
+        "MH2537-PLANET-VENUS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem5.friday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, relationship, creative_work, rest_and_wellbeing ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem5.saturday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem5.saturday",
+      "period": "0-10",
+      "excerpt": "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem5.saturday.saturn.0_10",
+        "MH2537-PLANET-SATURN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem5.saturday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, long_term_work, labor, endurance ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem6.sunday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem6.sunday",
+      "period": "0-6",
+      "excerpt": "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem6.sunday.sun.0_6",
+        "MH2537-PLANET-SUN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem6.sunday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, leadership, authority, home_leadership ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem6.monday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem6.monday",
+      "period": "0-15",
+      "excerpt": "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem6.monday.moon.0_15",
+        "MH2537-PLANET-MOON",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem6.monday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, care, mobility, finance ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem6.tuesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem6.tuesday",
+      "period": "0-8",
+      "excerpt": "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem6.tuesday.mars.0_8",
+        "MH2537-PLANET-MARS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem6.tuesday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, action, technical_work, subordinates ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem6.wednesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem6.wednesday",
+      "period": "0-17",
+      "excerpt": "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem6.wednesday.mercury.0_17",
+        "MH2537-PLANET-MERCURY",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem6.wednesday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, communication, education, information_work ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem6.thursday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem6.thursday",
+      "period": "0-19",
+      "excerpt": "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem6.thursday.jupiter.0_19",
+        "MH2537-PLANET-JUPITER",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem6.thursday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, knowledge, advisers, professional_work ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem6.friday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem6.friday",
+      "period": "0-21",
+      "excerpt": "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem6.friday.venus.0_21",
+        "MH2537-PLANET-VENUS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem6.friday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, relationship, creative_work, rest_and_wellbeing ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem6.saturday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem6.saturday",
+      "period": "0-10",
+      "excerpt": "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem6.saturday.saturn.0_10",
+        "MH2537-PLANET-SATURN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem6.saturday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, long_term_work, labor, endurance ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem0.sunday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem0.sunday",
+      "period": "0-6",
+      "excerpt": "ช่วงอายุ 0–6 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem0.sunday.sun.0_6",
+        "MH2537-PLANET-SUN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem0.sunday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, leadership, authority, home_leadership ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem0.monday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem0.monday",
+      "period": "0-15",
+      "excerpt": "ช่วงอายุ 0–15 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem0.monday.moon.0_15",
+        "MH2537-PLANET-MOON",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem0.monday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, care, mobility, finance ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem0.tuesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem0.tuesday",
+      "period": "0-8",
+      "excerpt": "ช่วงอายุ 0–8 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem0.tuesday.mars.0_8",
+        "MH2537-PLANET-MARS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem0.tuesday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, action, technical_work, subordinates ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem0.wednesday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem0.wednesday",
+      "period": "0-17",
+      "excerpt": "ช่วงอายุ 0–17 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem0.wednesday.mercury.0_17",
+        "MH2537-PLANET-MERCURY",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem0.wednesday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, communication, education, information_work ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem0.thursday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem0.thursday",
+      "period": "0-19",
+      "excerpt": "ช่วงอายุ 0–19 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem0.thursday.jupiter.0_19",
+        "MH2537-PLANET-JUPITER",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem0.thursday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, knowledge, advisers, professional_work ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem0.friday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem0.friday",
+      "period": "0-21",
+      "excerpt": "ช่วงอายุ 0–21 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "refs": [
+        "mahabhut2537.rem0.friday.venus.0_21",
+        "MH2537-PLANET-VENUS",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-STRONG-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem0.friday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, relationship, creative_work, rest_and_wellbeing ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มมั่นคงและพึ่งพาได้มากขึ้น",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    },
+    {
+      "auditId": "AI-2-mahabhut2537.rem0.saturday",
+      "reviewType": "AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW",
+      "pass": 2,
+      "contextId": "mahabhut2537.rem0.saturday",
+      "period": "0-10",
+      "excerpt": "ช่วงอายุ 0–10 ปี คนรอบข้าง ครอบครัว ผู้ใต้การดูแล และแรงสนับสนุนใกล้ตัวมีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "refs": [
+        "mahabhut2537.rem0.saturday.saturn.0_10",
+        "MH2537-PLANET-SATURN",
+        "MH2537-TAKSA-BORIWAN",
+        "MH2537-HOUSE-WEAK-DIRECTION",
+        "MH2537-PERIOD-CONTINUITY"
+      ],
+      "dimensions": {
+        "sourceBoundary": "PASS",
+        "naturalThai": "PASS_WITH_LIMITATION",
+        "eventSpecificity": "FAIL_GENERIC_BROAD_DIRECTION_ONLY",
+        "duplicateTemplateRisk": "FAIL_REPEATED_TEMPLATE"
+      },
+      "observation": "mahabhut2537.rem0.saturday: ยืนยันซ้ำว่าประโยคใช้โดเมน support_and_family, long_term_work, labor, endurance ตามแถวจริง แต่รูปประโยคซ้ำกับบริบทอื่นและต้องให้ Owner ตรวจภาษา",
+      "duplicateTemplateOwner": "มีแนวโน้มช้าหรือติดขัดกว่าที่คาด จึงควรเผื่อทางเลือกไว้",
+      "unresolvedIssue": "SOURCE_DIRECT_EVENT_AUTHORITY_NOT_COMPLETE_FOR_ALL_PERIODS"
+    }
+  ]
+}
