@@ -9,8 +9,8 @@ Candidate 0011 is the immutable Owner-accepted content oracle. This foundation i
 - Changed paths before OR8: 193
 - Changed paths after OR8: 43
 - Rejected experiment paths removed: 154
-- Canonical roots: 13
-- Retained dependencies: 34
+- Canonical roots: 24
+- Retained dependencies: 18
 - Proposed knowledge paths reviewed: 33 (3 canonical foundation, 9 source trace, 21 rejected experiment, 0 unused)
 
 ## Zero-error closure

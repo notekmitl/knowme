@@ -22,6 +22,28 @@ const outputPaths = [
   'docs/PR114_FINAL_MERGE_MANIFEST.json',
   'docs/PR114_FINAL_MERGE_MANIFEST.md',
 ];
+const unchangedCandidateRoot = 'docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0011.md';
+const canonicalRootPaths = [
+  unchangedCandidateRoot,
+  'docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json',
+  'docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.schema.json',
+  'docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE_VALIDATION.json',
+  'docs/CANDIDATE_0011_RESOLVED_PRODUCT_RULE_MAP.json',
+  'docs/CANDIDATE_0011_RESOLVED_PRODUCT_RULE_MAP.md',
+  'docs/CANDIDATE_0011_RULE_MAP_GAP_REPORT.md',
+  'docs/CANDIDATE_0011_ASOF_EQUIVALENCE_VALIDATION.json',
+  'knowledge/canon/proposed/PRODUCT_INTERPRETATION_CONTRACT_V1.json',
+  'docs/THAI_PREDICTIVE_EVIDENCE_RESOLUTION_V1.json',
+  'docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json',
+  'test/evidence/candidate_0011_oracle.test.mjs',
+  'test/evidence/candidate_0011_rule_map.test.mjs',
+  'test/evidence/thai_predictive_evidence_v1.test.mjs',
+  'test/evidence/pr114_final_merge_surface.test.mjs',
+  'TASK_RESULT.md', 'task.md', 'docs/CURRENT_STATUS.md', 'docs/HANDOFF.md',
+  'docs/ROADMAP.md', 'docs/THAI_REPORT_READER_EXPERIENCE_V2.md',
+  'docs/PR114_PREDICTIVE_FOUNDATION_EXPERIMENT_HISTORY.md',
+  ...outputPaths,
+];
 
 export function currentChangedPaths() {
   const tracked = lines(run(['diff', '--name-only', BASE])).map(norm);
@@ -95,11 +117,19 @@ export function buildManifest() {
   const paths = currentChangedPaths();
   const removed = lines(run(['show', '--format=', '--name-only', '--diff-filter=D', CLEANUP_COMMIT])).map(norm);
   const oracle = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json'), 'utf8'));
+  const evidenceRegistry = JSON.parse(fs.readFileSync(path.join(ROOT, 'docs/THAI_PREDICTIVE_EVIDENCE_RESOLUTION_V1.json'), 'utf8'));
   const runtimeDelta = lines(run(['diff', '--name-only', BASE, '--', 'lib', 'web', 'android', 'ios', 'macos', 'linux', 'windows']));
   const productAcceptanceDelta = lines(run(['diff', '--name-only', BASE, '--', 'product-acceptance']));
   const flutterTestDelta = lines(run(['diff', '--name-only', BASE, '--', 'test', ':!test/evidence']));
   const entries = paths.map(metadata);
-  const missingDependencies = entries.flatMap((entry) => entry.dependencies.filter((dependency) => !exists(dependency) && !outputPaths.includes(dependency)).map((dependency) => ({ path: entry.path, dependency })));
+  const registryDependencies = evidenceRegistry.entries.flatMap((entry) => [entry.repositoryPath, entry.derivation?.repositoryPath]).filter(Boolean);
+  const transitiveDependencies = [...new Set([
+    ...entries.flatMap((entry) => entry.dependencies),
+    ...registryDependencies,
+    'product-acceptance/thai-narrative-v1.5-r6/evidence/claim-ledger.json',
+  ])].sort();
+  const closurePaths = [...new Set([...canonicalRootPaths, ...transitiveDependencies])].sort();
+  const missingDependencies = closurePaths.filter((dependency) => !exists(dependency) && !outputPaths.includes(dependency)).map((dependency) => ({ path: 'canonical-closure', dependency }));
   const orphanRetained = entries.filter((entry) => entry.directConsumers.length === 0);
   const activeFiles = paths.filter((file) => (file.startsWith('tool/') || file.startsWith('test/evidence/') || file.startsWith('docs/CANDIDATE_0011') || file === 'docs/THAI_PREDICTIVE_EVIDENCE_RESOLUTION_V1.json') && exists(file));
   const activeText = activeFiles.map((file) => fs.readFileSync(path.join(ROOT, file), 'utf8')).join('\n');
@@ -112,8 +142,8 @@ export function buildManifest() {
     beforeChangedPaths: BEFORE_PATHS,
     afterChangedPaths: paths.length,
     removedExperimentPaths: removed.length,
-    canonicalRoots: entries.filter((entry) => ['REQUIRED_CANONICAL_FOUNDATION', 'FINAL_MERGE_MANIFEST'].includes(entry.category)).length,
-    retainedDependencies: entries.filter((entry) => !['STATUS_DOCUMENTATION', 'EXPERIMENT_HISTORY', 'FINAL_MERGE_MANIFEST'].includes(entry.category)).length,
+    canonicalRoots: canonicalRootPaths.length,
+    retainedDependencies: transitiveDependencies.length,
     proposedPathsReviewed: proposed.length,
     proposedRequiredCanonicalFoundation: proposed.filter((entry) => entry.classification === 'REQUIRED_CANONICAL_FOUNDATION').length,
     proposedRequiredSourceTrace: proposed.filter((entry) => entry.classification === 'REQUIRED_SOURCE_TRACE').length,
@@ -139,8 +169,8 @@ export function buildManifest() {
     scopeBoundary: { runtimeImplemented: false, proves49ContextReadiness: false, provesPredictiveAccuracy: false, directSourceQuotation: false },
     counts,
     errors: { missingDependencies, orphanRetained: orphanRetained.map((entry) => entry.path), staleRefs, rejectedRefs, obsoleteImports },
-    canonicalRoots: entries.filter((entry) => ['REQUIRED_CANONICAL_FOUNDATION', 'FINAL_MERGE_MANIFEST'].includes(entry.category)).map((entry) => entry.path),
-    transitiveDependencies: entries.filter((entry) => !['STATUS_DOCUMENTATION', 'EXPERIMENT_HISTORY', 'FINAL_MERGE_MANIFEST'].includes(entry.category)).map((entry) => entry.path),
+    canonicalRoots: canonicalRootPaths,
+    transitiveDependencies,
     removedExperimentPaths: removed,
     proposedKnowledgeReview: proposed,
     retainedChangedPaths: entries,

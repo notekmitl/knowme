@@ -20,6 +20,8 @@ test('Candidate 0011 remains the sole immutable content oracle', () => {
   assert.equal(manifest.ownerAcceptedOracle.claims, 24);
   assert.equal(manifest.ownerAcceptedOracle.predictions, 22);
   assert.equal(manifest.ownerAcceptedOracle.resolvedTargetFixtureChains, '22/22');
+  assert.ok(manifest.canonicalRoots.includes('docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0011.md'));
+  assert.ok(manifest.transitiveDependencies.includes('product-acceptance/thai-narrative-v1.5-r6/evidence/claim-ledger.json'));
   assert.equal(manifest.scopeBoundary.runtimeImplemented, false);
   assert.equal(manifest.scopeBoundary.proves49ContextReadiness, false);
 });
