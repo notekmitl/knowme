@@ -12,7 +12,7 @@ Diversity จริงจาก 392 rows: exact unique 108, age-stripped 16, sub
 
 Validation: JSON schema 4/4, inventory 54 records, Rulebook 21 rules, matrix 392, atoms 56, semantic/domain validation errors 0, negative controls 14/14, fixture 00:03/00:35/Unknown, chronology/provenance/diversity ผ่าน, AI audit `AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW` 98 entries และ Human Review Pending, deterministic generation 2 runs × 15 files mismatch 0, focused Node evidence 1/1, legacy Mahabhut rules 12/12 และ birthday segmentation 300/300, `git diff --check` ผ่าน. ไม่รัน Full Flutter suite/analyzer เพราะไม่มี Dart/application/runtime delta.
 
-Commits: source/model/validator `da60cbf`; Candidate 0013/audits `de01c3d`. Owner ZIP `OWNER_REVIEW_THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR1_de01c3d.zip` SHA-256 `0B19ECAD12BD1BDA47E24469CDFEA59F9B147F96E1DA7FD7FDB37EF4C814CFAD`; CRC/extraction PASS, manifest 26 entries, missing/extra/hash mismatch/secret/placeholder/absolute-path errors = 0. PR #114 คง Open + Draft/Pending Owner Review. ไม่แก้ PR #113, runtime, Firebase/Production หรือ `product-acceptance/`.
+Commits: source/model/validator `da60cbf`; Candidate 0013/audits `de01c3d`; status/package `8ca8c8a`. Owner ZIP `OWNER_REVIEW_THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR1_de01c3d.zip` SHA-256 `0B19ECAD12BD1BDA47E24469CDFEA59F9B147F96E1DA7FD7FDB37EF4C814CFAD`; CRC/extraction PASS, manifest 26 entries, missing/extra/hash mismatch/secret/placeholder/absolute-path errors = 0. PR #114 คง Open + Draft/Pending Owner Review. ไม่แก้ PR #113, runtime, Firebase/Production หรือ `product-acceptance/`.
 
 
 ## Thai Predictive Authority Foundation V3 (2026-08-31)
