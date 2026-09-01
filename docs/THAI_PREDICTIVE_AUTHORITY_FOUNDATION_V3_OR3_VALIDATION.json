@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "status": "PASS_OR3_PHASE2",
+  "status": "PASS_OR3_PENDING_OWNER_CONTENT_REVIEW_NOT_RUNTIME",
   "generatedAt": "2026-09-01T00:00:00+07:00",
   "counts": {
-    "schemaFiles": 5,
+    "schemaFiles": 6,
     "schemaErrors": 0,
     "pagesWithSemanticReviewEvidence": 3,
     "dossierSourceRecords": 11,
@@ -13,7 +13,7 @@
     "candidateUnknownPredictions": 0,
     "negativeControls": 8,
     "negativeControlsRejected": 8,
-    "robustnessProfiles": 0,
+    "robustnessProfiles": 15,
     "errors": 0
   },
   "controls": [

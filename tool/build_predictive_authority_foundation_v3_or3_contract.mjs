@@ -76,7 +76,7 @@ ledger.or3TruthCorrection = {
 };
 ledger.rows = ledger.rows.map((row) => ({
   ...row,
-  heuristicExtractionStatus: row.extractionStatus,
+  heuristicExtractionStatus: row.heuristicExtractionStatus ?? row.extractionStatus,
   semanticAuthorityStatus: 'UNREVIEWED_HEURISTIC_CANDIDATE',
   pagesVisuallyChecked: [],
   semanticReviewEvidence: null,
@@ -125,7 +125,7 @@ pageReview.counts = {
 };
 pageReview.pages = pageReview.pages.map((page) => ({
   ...page,
-  priorGeneratedVisuallyReviewedFlag: page.visuallyReviewed,
+  priorGeneratedVisuallyReviewedFlag: page.priorGeneratedVisuallyReviewedFlag ?? page.visuallyReviewed,
   visuallyReviewed: false,
   semanticReviewEvidence: null,
   reviewerObservation: 'OR2 generated template only; image/OCR presence and hashes are not evidence that the page was semantically reviewed.',

@@ -58,3 +58,13 @@ test('all eight real-data negative controls are rejected', () => {
   assert.equal(result.counts.negativeControlsRejected, 8);
   assert.ok(result.controls.every((control) => control.mutationUsesRealEvidenceData && control.rejected));
 });
+
+test('full OR3 validation includes the 15-profile robustness gate', () => {
+  const result = validateOr3({ requireRobustness: true });
+  const robustness = read('docs/THAI_PREDICTIVE_SYNTHESIS_ROBUSTNESS_15.json');
+  assert.equal(result.status, 'PASS_OR3_PENDING_OWNER_CONTENT_REVIEW_NOT_RUNTIME');
+  assert.equal(result.counts.robustnessProfiles, 15);
+  assert.deepEqual(robustness.tierDistribution, { A: 1, B: 1, C: 8, D: 5 });
+  assert.equal(robustness.counts.unsupportedClaims, 0);
+  assert.equal(robustness.counts.knownToUnknownLeakage, 0);
+});
