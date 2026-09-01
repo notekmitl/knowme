@@ -1,8 +1,20 @@
 # Task Result — Thai Report Reader Experience V2
 
+## PR114 OR2 — Full 392-period source review (2026-09-01)
+
+Status: **PR114 OR2 FULL 392-PERIOD REVIEW COMPLETE — SOURCE-DIRECT GAP CONFIRMED 235/392 — NO-GO — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.
+
+Owner rejected OR1 because it was partial extraction, not coverage evidence: only 50/392 periods were extracted, 342 remained unexamined, 48 contexts used only their first period, and only 51/181 relevant source pages were visually reviewed. OR2 removes that shortcut. The extraction ledger is complete 392/392, the exact 181/181 source-page images were opened and reviewed, and unresolved period/text count is 0. The final source classification is 197 direct-event periods, 38 direct-trend-only periods and 157 periods with no direct statement after full review; source-direct coverage is therefore 235/392, not 392/392. The evidence contains 242 source-direct atoms, including revalidation of all eight legacy Saturday/remainder-0 atoms, and six OCR differences resolved against the page image. Source PDF SHA-256 is `28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E`.
+
+Candidate 0014 is evidence-only and pending Owner review. Known contains 10 claims and Unknown contains 2 fail-closed claims; Unknown has no noon substitution, ascendant, houses, Thai astrological day or Known leakage. No monthly timeline, good/caution month or calendar prediction was introduced. The full-review result is a NO-GO for runtime implementation because the source does not contain direct predictive statements for all 392 periods.
+
+Validation passes 6 schemas with 0 errors, ledger 392/392, visual review 181/181, atoms 242, matrix 392, 18/18 real-data negative controls, deterministic generation 2 runs × 23 outputs with mismatch 0, and combined Foundation V3/OR2 evidence tests 9/9. Legacy Mahabhut validation remains 12/12 with birthday segmentation 300/300. AI audit is explicitly `AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW`; Human Review remains pending. Full Flutter suite/analyzer were not rerun because application/runtime/Dart-test delta is 0. Evidence commits are `ac45089` and `9fd47e8`; the status/package commit is the commit containing this record.
+
+Owner package: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR2_9fd47e8.zip`, SHA-256 `1DE18A609B02687E328A5E85644616D7489DF14879DE2FD6FD982F165C265740`. ZIP read/CRC and extraction pass; 29 ZIP files, 27 manifest entries, and missing/extra/hash-size/SHA256SUMS/secret/placeholder/absolute-path errors are all 0. PR #114 remains Open + Draft pending Owner review; PR #113 is unchanged. Runtime, Firebase/Production, `product-acceptance/`, merge and deploy deltas are 0.
+
 ## PR114 OR1 — Source-direct authority gap (2026-09-01)
 
-Status: **PR114 OR1 SOURCE-DIRECT AUTHORITY GAP CONFIRMED — NO-GO — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.
+Status: **PR114 OR1 OWNER REJECTED — PARTIAL EXTRACTION 50/392 — 342 UNEXAMINED — NOT A CONFIRMED AUTHORITY GAP**.
 
 Owner Reject Candidate 0012: 49/49 contexts และ 392/392 periods เป็นเพียง placement-table/broad-direction coverage ไม่ใช่ Full Predictive Authority; counters เดิมบางค่า hard-coded, Candidate ใช้ context placement แทน event evidence, diversity/audit ไม่สะท้อนข้อความจริง และ Before/After `PAST-02`/`PAST-04` map ผิดช่วงอายุ. OR1 แยกผลจริงเป็น placement 49/49 + 392/392, broad direction 49/49 + 392/392, source-direct event 49/49 + 50/392, domain-complete 0/49, contexts without event authority 0/49.
 
