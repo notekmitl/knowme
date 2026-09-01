@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "status": "PASS",
+  "runs": 2,
+  "filesCompared": 15,
+  "mismatchCount": 0,
+  "mismatches": [],
+  "firstExitCode": 0,
+  "secondExitCode": 0
+}

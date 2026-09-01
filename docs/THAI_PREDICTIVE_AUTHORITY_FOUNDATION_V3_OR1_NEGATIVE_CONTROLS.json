@@ -1,0 +1,156 @@
+{
+  "version": 1,
+  "counts": {
+    "controls": 14,
+    "rejected": 14
+  },
+  "controls": [
+    {
+      "id": "current_period_work_domain_without_event_atom",
+      "mutationUsesRealData": true,
+      "expectedCode": "EVENT_ATOM_MISSING",
+      "rejected": true,
+      "errors": [
+        "EVENT_ATOM_MISSING",
+        "DOMAIN_NOT_ALLOWED"
+      ]
+    },
+    {
+      "id": "support_context_record_only",
+      "mutationUsesRealData": true,
+      "expectedCode": "EVENT_ATOM_MISSING",
+      "rejected": true,
+      "errors": [
+        "EVENT_ATOM_MISSING",
+        "DOMAIN_NOT_ALLOWED"
+      ]
+    },
+    {
+      "id": "twelve_month_work_leakage",
+      "mutationUsesRealData": true,
+      "expectedCode": "TIMING_MISMATCH",
+      "rejected": true,
+      "errors": [
+        "TIMING_MISMATCH"
+      ]
+    },
+    {
+      "id": "source_direct_event_wrong_context",
+      "mutationUsesRealData": true,
+      "expectedCode": "ATOM_CONTEXT_MISMATCH",
+      "rejected": true,
+      "errors": [
+        "ATOM_CONTEXT_MISMATCH",
+        "ATOM_PERIOD_MISMATCH",
+        "ATOM_PLANET_MISMATCH",
+        "ATOM_ROLE_MISMATCH",
+        "ATOM_HOUSE_MISMATCH",
+        "ATOM_DOMAIN_MISMATCH",
+        "ATOM_EVENT_FAMILY_MISMATCH",
+        "ATOM_STRENGTH_MISMATCH",
+        "DOMAIN_NOT_ALLOWED"
+      ]
+    },
+    {
+      "id": "event_wrong_period",
+      "mutationUsesRealData": true,
+      "expectedCode": "WRONG_PERIOD",
+      "rejected": true,
+      "errors": [
+        "WRONG_PERIOD",
+        "ATOM_PERIOD_MISMATCH"
+      ]
+    },
+    {
+      "id": "event_text_stronger_than_evidence",
+      "mutationUsesRealData": true,
+      "expectedCode": "ATOM_STRENGTH_MISMATCH",
+      "rejected": true,
+      "errors": [
+        "ATOM_STRENGTH_MISMATCH"
+      ]
+    },
+    {
+      "id": "domain_mismatch",
+      "mutationUsesRealData": true,
+      "expectedCode": "ATOM_DOMAIN_MISMATCH",
+      "rejected": true,
+      "errors": [
+        "ATOM_DOMAIN_MISMATCH"
+      ]
+    },
+    {
+      "id": "existing_source_ref_wrong_meaning",
+      "mutationUsesRealData": true,
+      "expectedCode": "ATOM_DOMAIN_MISMATCH",
+      "rejected": true,
+      "errors": [
+        "ATOM_PERIOD_MISMATCH",
+        "ATOM_PLANET_MISMATCH",
+        "ATOM_ROLE_MISMATCH",
+        "ATOM_HOUSE_MISMATCH",
+        "ATOM_DOMAIN_MISMATCH",
+        "ATOM_EVENT_FAMILY_MISMATCH",
+        "ATOM_STRENGTH_MISMATCH",
+        "DOMAIN_NOT_ALLOWED"
+      ]
+    },
+    {
+      "id": "wrong_planet",
+      "mutationUsesRealData": true,
+      "expectedCode": "WRONG_PLANET",
+      "rejected": true,
+      "errors": [
+        "WRONG_PLANET",
+        "ATOM_PLANET_MISMATCH"
+      ]
+    },
+    {
+      "id": "wrong_role",
+      "mutationUsesRealData": true,
+      "expectedCode": "WRONG_ROLE",
+      "rejected": true,
+      "errors": [
+        "WRONG_ROLE",
+        "ATOM_ROLE_MISMATCH"
+      ]
+    },
+    {
+      "id": "wrong_house",
+      "mutationUsesRealData": true,
+      "expectedCode": "WRONG_HOUSE",
+      "rejected": true,
+      "errors": [
+        "WRONG_HOUSE",
+        "ATOM_HOUSE_MISMATCH"
+      ]
+    },
+    {
+      "id": "duplicated_semantic_owner",
+      "mutationUsesRealData": true,
+      "expectedCode": "DUPLICATED_SEMANTIC_OWNER",
+      "rejected": true,
+      "errors": [
+        "DUPLICATED_SEMANTIC_OWNER"
+      ]
+    },
+    {
+      "id": "age_section_mapping_wrong",
+      "mutationUsesRealData": true,
+      "expectedCode": "AGE_SECTION_MAPPING_MISMATCH",
+      "rejected": true,
+      "errors": [
+        "AGE_SECTION_MAPPING_MISMATCH"
+      ]
+    },
+    {
+      "id": "generic_template_duplication",
+      "mutationUsesRealData": true,
+      "expectedCode": "GENERIC_TEMPLATE_DUPLICATION",
+      "rejected": true,
+      "errors": [
+        "GENERIC_TEMPLATE_DUPLICATION"
+      ]
+    }
+  ]
+}

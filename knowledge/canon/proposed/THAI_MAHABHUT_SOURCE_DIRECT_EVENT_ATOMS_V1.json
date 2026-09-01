@@ -1,0 +1,3494 @@
+{
+  "version": 1,
+  "status": "PARTIAL_SOURCE_DIRECT_EVENT_AUTHORITY_NO_GO_FOR_FULL_PREDICTIVE_AUTHORITY",
+  "generatedAt": "2026-09-01T00:00:00+07:00",
+  "source": {
+    "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+    "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+    "title": "ตำราดูและแก้ดวงชะตาด้วยตนเอง หลักมหาภูต ฉบับสมบูรณ์",
+    "yearBE": 2537
+  },
+  "coverage": {
+    "atoms": 56,
+    "contexts": 49,
+    "matrixPeriods": 50,
+    "totalContexts": 49,
+    "totalMatrixPeriods": 392
+  },
+  "visualInspection": {
+    "pagesExpected": 181,
+    "pagesOcrChecked": 181,
+    "pagesVisuallyChecked": 51,
+    "ocrTableMismatchCount": 2,
+    "missingSourceTextCount": 0,
+    "unresolvedTextCount": 0,
+    "fullVisualCrossCheckClaimed": false,
+    "contexts": [
+      {
+        "contextId": "mahabhut2537.rem1.sunday",
+        "pagesExpected": [
+          52,
+          53,
+          54,
+          55
+        ],
+        "pagesOcrChecked": [
+          52,
+          53,
+          54,
+          55
+        ],
+        "pagesVisuallyChecked": [
+          52
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem1.monday",
+        "pagesExpected": [
+          56,
+          57,
+          58,
+          59
+        ],
+        "pagesOcrChecked": [
+          56,
+          57,
+          58,
+          59
+        ],
+        "pagesVisuallyChecked": [
+          56
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem1.tuesday",
+        "pagesExpected": [
+          60,
+          61,
+          62
+        ],
+        "pagesOcrChecked": [
+          60,
+          61,
+          62
+        ],
+        "pagesVisuallyChecked": [
+          60
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem1.wednesday",
+        "pagesExpected": [
+          63,
+          64
+        ],
+        "pagesOcrChecked": [
+          63,
+          64
+        ],
+        "pagesVisuallyChecked": [
+          63
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem1.thursday",
+        "pagesExpected": [
+          65,
+          66,
+          67
+        ],
+        "pagesOcrChecked": [
+          65,
+          66,
+          67
+        ],
+        "pagesVisuallyChecked": [
+          65
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem1.friday",
+        "pagesExpected": [
+          68,
+          69,
+          70,
+          71
+        ],
+        "pagesOcrChecked": [
+          68,
+          69,
+          70,
+          71
+        ],
+        "pagesVisuallyChecked": [
+          68
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem1.saturday",
+        "pagesExpected": [
+          72,
+          73,
+          74,
+          75
+        ],
+        "pagesOcrChecked": [
+          72,
+          73,
+          74,
+          75
+        ],
+        "pagesVisuallyChecked": [
+          72
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem2.sunday",
+        "pagesExpected": [
+          89,
+          90,
+          91,
+          92
+        ],
+        "pagesOcrChecked": [
+          89,
+          90,
+          91,
+          92
+        ],
+        "pagesVisuallyChecked": [
+          89
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem2.monday",
+        "pagesExpected": [
+          93,
+          94,
+          95
+        ],
+        "pagesOcrChecked": [
+          93,
+          94,
+          95
+        ],
+        "pagesVisuallyChecked": [
+          93
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem2.tuesday",
+        "pagesExpected": [
+          96,
+          97,
+          98
+        ],
+        "pagesOcrChecked": [
+          96,
+          97,
+          98
+        ],
+        "pagesVisuallyChecked": [
+          96
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem2.wednesday",
+        "pagesExpected": [
+          99,
+          100,
+          101
+        ],
+        "pagesOcrChecked": [
+          99,
+          100,
+          101
+        ],
+        "pagesVisuallyChecked": [
+          99
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem2.thursday",
+        "pagesExpected": [
+          102,
+          103,
+          104
+        ],
+        "pagesOcrChecked": [
+          102,
+          103,
+          104
+        ],
+        "pagesVisuallyChecked": [
+          102
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem2.friday",
+        "pagesExpected": [
+          105,
+          106,
+          107,
+          108
+        ],
+        "pagesOcrChecked": [
+          105,
+          106,
+          107,
+          108
+        ],
+        "pagesVisuallyChecked": [
+          105
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem2.saturday",
+        "pagesExpected": [
+          109,
+          110,
+          111
+        ],
+        "pagesOcrChecked": [
+          109,
+          110,
+          111
+        ],
+        "pagesVisuallyChecked": [
+          109
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem3.sunday",
+        "pagesExpected": [
+          122,
+          123,
+          124,
+          125
+        ],
+        "pagesOcrChecked": [
+          122,
+          123,
+          124,
+          125
+        ],
+        "pagesVisuallyChecked": [
+          122
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem3.monday",
+        "pagesExpected": [
+          126,
+          127,
+          128
+        ],
+        "pagesOcrChecked": [
+          126,
+          127,
+          128
+        ],
+        "pagesVisuallyChecked": [
+          126
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem3.tuesday",
+        "pagesExpected": [
+          129,
+          130,
+          131
+        ],
+        "pagesOcrChecked": [
+          129,
+          130,
+          131
+        ],
+        "pagesVisuallyChecked": [
+          129
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem3.wednesday",
+        "pagesExpected": [
+          132,
+          133,
+          134,
+          135
+        ],
+        "pagesOcrChecked": [
+          132,
+          133,
+          134,
+          135
+        ],
+        "pagesVisuallyChecked": [
+          132
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem3.thursday",
+        "pagesExpected": [
+          136,
+          137,
+          138,
+          139
+        ],
+        "pagesOcrChecked": [
+          136,
+          137,
+          138,
+          139
+        ],
+        "pagesVisuallyChecked": [
+          136
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem3.friday",
+        "pagesExpected": [
+          140,
+          141,
+          142,
+          143,
+          144
+        ],
+        "pagesOcrChecked": [
+          140,
+          141,
+          142,
+          143,
+          144
+        ],
+        "pagesVisuallyChecked": [
+          140
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem3.saturday",
+        "pagesExpected": [
+          145,
+          146,
+          147
+        ],
+        "pagesOcrChecked": [
+          145,
+          146,
+          147
+        ],
+        "pagesVisuallyChecked": [
+          145
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem4.sunday",
+        "pagesExpected": [
+          158,
+          159,
+          160,
+          161
+        ],
+        "pagesOcrChecked": [
+          158,
+          159,
+          160,
+          161
+        ],
+        "pagesVisuallyChecked": [
+          158
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem4.monday",
+        "pagesExpected": [
+          162,
+          163,
+          164
+        ],
+        "pagesOcrChecked": [
+          162,
+          163,
+          164
+        ],
+        "pagesVisuallyChecked": [
+          162
+        ],
+        "ocrMismatchCount": 1,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem4.tuesday",
+        "pagesExpected": [
+          165,
+          166
+        ],
+        "pagesOcrChecked": [
+          165,
+          166
+        ],
+        "pagesVisuallyChecked": [
+          165
+        ],
+        "ocrMismatchCount": 1,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem4.wednesday",
+        "pagesExpected": [
+          167,
+          168,
+          169
+        ],
+        "pagesOcrChecked": [
+          167,
+          168,
+          169
+        ],
+        "pagesVisuallyChecked": [
+          167
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem4.thursday",
+        "pagesExpected": [
+          170,
+          171,
+          172
+        ],
+        "pagesOcrChecked": [
+          170,
+          171,
+          172
+        ],
+        "pagesVisuallyChecked": [
+          170
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem4.friday",
+        "pagesExpected": [
+          173,
+          174,
+          175
+        ],
+        "pagesOcrChecked": [
+          173,
+          174,
+          175
+        ],
+        "pagesVisuallyChecked": [
+          173
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem4.saturday",
+        "pagesExpected": [
+          176,
+          177,
+          178,
+          179
+        ],
+        "pagesOcrChecked": [
+          176,
+          177,
+          178,
+          179
+        ],
+        "pagesVisuallyChecked": [
+          176
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem5.sunday",
+        "pagesExpected": [
+          188,
+          189,
+          190,
+          191
+        ],
+        "pagesOcrChecked": [
+          188,
+          189,
+          190,
+          191
+        ],
+        "pagesVisuallyChecked": [
+          188
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem5.monday",
+        "pagesExpected": [
+          192,
+          193,
+          194,
+          195
+        ],
+        "pagesOcrChecked": [
+          192,
+          193,
+          194,
+          195
+        ],
+        "pagesVisuallyChecked": [
+          192
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem5.tuesday",
+        "pagesExpected": [
+          196,
+          197,
+          198,
+          199
+        ],
+        "pagesOcrChecked": [
+          196,
+          197,
+          198,
+          199
+        ],
+        "pagesVisuallyChecked": [
+          196
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem5.wednesday",
+        "pagesExpected": [
+          200,
+          201,
+          202,
+          203,
+          204
+        ],
+        "pagesOcrChecked": [
+          200,
+          201,
+          202,
+          203,
+          204
+        ],
+        "pagesVisuallyChecked": [
+          200
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem5.thursday",
+        "pagesExpected": [
+          205,
+          206,
+          207
+        ],
+        "pagesOcrChecked": [
+          205,
+          206,
+          207
+        ],
+        "pagesVisuallyChecked": [
+          205
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem5.friday",
+        "pagesExpected": [
+          208,
+          209,
+          210,
+          211
+        ],
+        "pagesOcrChecked": [
+          208,
+          209,
+          210,
+          211
+        ],
+        "pagesVisuallyChecked": [
+          208
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem5.saturday",
+        "pagesExpected": [
+          212,
+          213,
+          214,
+          215,
+          216,
+          217
+        ],
+        "pagesOcrChecked": [
+          212,
+          213,
+          214,
+          215,
+          216,
+          217
+        ],
+        "pagesVisuallyChecked": [
+          212
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem6.sunday",
+        "pagesExpected": [
+          228,
+          229,
+          230,
+          231
+        ],
+        "pagesOcrChecked": [
+          228,
+          229,
+          230,
+          231
+        ],
+        "pagesVisuallyChecked": [
+          228
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem6.monday",
+        "pagesExpected": [
+          232,
+          233,
+          234
+        ],
+        "pagesOcrChecked": [
+          232,
+          233,
+          234
+        ],
+        "pagesVisuallyChecked": [
+          232
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem6.tuesday",
+        "pagesExpected": [
+          235,
+          236,
+          237
+        ],
+        "pagesOcrChecked": [
+          235,
+          236,
+          237
+        ],
+        "pagesVisuallyChecked": [
+          235
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem6.wednesday",
+        "pagesExpected": [
+          238,
+          239,
+          240
+        ],
+        "pagesOcrChecked": [
+          238,
+          239,
+          240
+        ],
+        "pagesVisuallyChecked": [
+          238
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem6.thursday",
+        "pagesExpected": [
+          241,
+          242,
+          243,
+          244
+        ],
+        "pagesOcrChecked": [
+          241,
+          242,
+          243,
+          244
+        ],
+        "pagesVisuallyChecked": [
+          241
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem6.friday",
+        "pagesExpected": [
+          245,
+          246,
+          247,
+          248
+        ],
+        "pagesOcrChecked": [
+          245,
+          246,
+          247,
+          248
+        ],
+        "pagesVisuallyChecked": [
+          245
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem6.saturday",
+        "pagesExpected": [
+          249,
+          250,
+          251,
+          252,
+          253
+        ],
+        "pagesOcrChecked": [
+          249,
+          250,
+          251,
+          252,
+          253
+        ],
+        "pagesVisuallyChecked": [
+          249
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem0.sunday",
+        "pagesExpected": [
+          263,
+          264,
+          265,
+          266,
+          267
+        ],
+        "pagesOcrChecked": [
+          263,
+          264,
+          265,
+          266,
+          267
+        ],
+        "pagesVisuallyChecked": [
+          263
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem0.monday",
+        "pagesExpected": [
+          268,
+          269,
+          270,
+          271
+        ],
+        "pagesOcrChecked": [
+          268,
+          269,
+          270,
+          271
+        ],
+        "pagesVisuallyChecked": [
+          268
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem0.tuesday",
+        "pagesExpected": [
+          272,
+          273,
+          274,
+          275,
+          276
+        ],
+        "pagesOcrChecked": [
+          272,
+          273,
+          274,
+          275,
+          276
+        ],
+        "pagesVisuallyChecked": [
+          272
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem0.wednesday",
+        "pagesExpected": [
+          277,
+          278,
+          279,
+          280
+        ],
+        "pagesOcrChecked": [
+          277,
+          278,
+          279,
+          280
+        ],
+        "pagesVisuallyChecked": [
+          277
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem0.thursday",
+        "pagesExpected": [
+          281,
+          282,
+          283,
+          284
+        ],
+        "pagesOcrChecked": [
+          281,
+          282,
+          283,
+          284
+        ],
+        "pagesVisuallyChecked": [
+          281
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem0.friday",
+        "pagesExpected": [
+          285,
+          286,
+          287,
+          288,
+          289
+        ],
+        "pagesOcrChecked": [
+          285,
+          286,
+          287,
+          288,
+          289
+        ],
+        "pagesVisuallyChecked": [
+          285
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      },
+      {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "pagesExpected": [
+          290,
+          291,
+          292
+        ],
+        "pagesOcrChecked": [
+          290,
+          291,
+          292
+        ],
+        "pagesVisuallyChecked": [
+          290,
+          291,
+          292
+        ],
+        "ocrMismatchCount": 0,
+        "tableMismatchCount": 0,
+        "missingSourceTextCount": 0,
+        "unresolvedTextCount": 0,
+        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+      }
+    ]
+  },
+  "policy": {
+    "placementRecordAloneIsEventAuthority": false,
+    "inventedEventsAllowed": false,
+    "inventedTimingAllowed": false
+  },
+  "atoms": [
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM1-SUNDAY-0_6",
+      "contextId": "mahabhut2537.rem1.sunday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 52,
+        "pageRange": "52-55"
+      },
+      "ocrSpanSha256": "1D4F6B0FA5FD48DF37C2F3BB64E01392A7094FCD7EB96EA63F13EE270E6B582D",
+      "shortExcerpt": "สิ่งแวดล้อมไม่เอือ อํานวย หรืออาจจะเกิดมาในระยะที่พ่อหรือแม่มีสุขภาพร่างกายอ่อนแ",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "sun",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "phangkha",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-6",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM1-MONDAY-0_15",
+      "contextId": "mahabhut2537.rem1.monday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 56,
+        "pageRange": "56-59"
+      },
+      "ocrSpanSha256": "30D71BB72DC0EB2B687743576F19AF7E27D9A21A51EFAA946375B642DF16D71D",
+      "shortExcerpt": "สิ่งแวดล้อมไม่เอื้ออํานวย หรือ อาจจะเกิดมาในระยะที่พ่อหรือแม่มีสุขภาพร่างกายอ่อน",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "moon",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "puti",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-15",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "RESOLVED_CONTEXT_TABLE_OWNER",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM1-TUESDAY-0_8",
+      "contextId": "mahabhut2537.rem1.tuesday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 60,
+        "pageRange": "60-62"
+      },
+      "ocrSpanSha256": "8016818720ADEF9477CCB0DC4869E7514F5382CB3A2E0D791020C558AA383113",
+      "shortExcerpt": "สิ่งแวดล้อมเอื้ออํา นวย หรืออาจจะเกิดมาในระยะที่พ่อหรือแม่มีสุขภาพร่างกายแข็งแรง",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "mars",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "khumsap",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-8",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM1-WEDNESDAY-0_17",
+      "contextId": "mahabhut2537.rem1.wednesday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 63,
+        "pageRange": "63-64"
+      },
+      "ocrSpanSha256": "B1B3F563F403E4887D5A1F65CF60C949F481D0402A9C25C560AB8ACB4BAEDAE0",
+      "shortExcerpt": "สิ่งแวดล้อมไม่เอื้ออํานวย หรืออาจจะเกิดมาในระยะที่พ่อหรือแม่มีสุขภาพร่างกายอ่อนแ",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "mercury",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "marana",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-17",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM1-THURSDAY-0_19",
+      "contextId": "mahabhut2537.rem1.thursday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 65,
+        "pageRange": "65-67"
+      },
+      "ocrSpanSha256": "F2547C63ECBA0D8DB5BD07D8B9AF7AF5040BB2003E1BF5129ED687CD50A4A58B",
+      "shortExcerpt": "มีสิงแวดล้อมเอืออํานวย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "jupiter",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "athibodi",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-19",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM1-FRIDAY-0_21",
+      "contextId": "mahabhut2537.rem1.friday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 68,
+        "pageRange": "68-71"
+      },
+      "ocrSpanSha256": "F572207E677CD4C46881096F95FFAD90F8A27C4F92687A3B610EB418B6E5AA1B",
+      "shortExcerpt": "แม่มีสุขภาพแข็งแรง มีการงานก้าวหน้า มีการเงินคล่องตัว",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "venus",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "racha",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-21",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM1-SATURDAY-0_10",
+      "contextId": "mahabhut2537.rem1.saturday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 72,
+        "pageRange": "72-75"
+      },
+      "ocrSpanSha256": "8510949F3FE8FCD0E4F702BB8D99485ED1A16E44789A4B95A1F4C3A7B64EE101",
+      "shortExcerpt": "แม่มีสุขภาพแข็งแรง มีการงานก้าวหน้า มีการเงินคล่องตัว",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "saturn",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "thongchai",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-10",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM2-SUNDAY-0_6",
+      "contextId": "mahabhut2537.rem2.sunday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 89,
+        "pageRange": "89-92"
+      },
+      "ocrSpanSha256": "DBF828994B187BE61A2EAA17D86104CDD6775EC99AFD9CEFDEC574447E31B97C",
+      "shortExcerpt": "แม่มีสุขภาพแข็งแรง มีการงานก้าวหน้า มีการเงินคล่องตัว",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "sun",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "thongchai",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-6",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM2-MONDAY-0_15",
+      "contextId": "mahabhut2537.rem2.monday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 93,
+        "pageRange": "93-95"
+      },
+      "ocrSpanSha256": "1F22FC7F91836D492A7FA975088A06BD5871C4C5ED528197613706BB384BA8E3",
+      "shortExcerpt": "สิ่งแวดล้อมไม่เอื้ออํานวย หรือเกิดมาใน ระยะที่พ่อแม่มีสุขภาพอ่อนแอ มีการงานยําแย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "moon",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "phangkha",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-15",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "RESOLVED_CONTEXT_TABLE_OWNER",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM2-TUESDAY-0_8",
+      "contextId": "mahabhut2537.rem2.tuesday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 96,
+        "pageRange": "96-98"
+      },
+      "ocrSpanSha256": "4F00D43DAB29C4219ADB2C15ED0EBBD9962E65658ADA378FB20EE45A05CE81A2",
+      "shortExcerpt": "มีสิงแวดล้อมไม่เอืออํานวย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "mars",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "puti",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-8",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM2-WEDNESDAY-0_17",
+      "contextId": "mahabhut2537.rem2.wednesday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 99,
+        "pageRange": "99-101"
+      },
+      "ocrSpanSha256": "76B6A0156E7BB8167BEBEAB6CDDD7044E9D90BAC64C703F66920623CCF81CEC8",
+      "shortExcerpt": "แม่มีสุขภาพแข็งแรง มีการงานก้าวหน้า มีการเงินคล่องตัว",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "mercury",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "khumsap",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-17",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM2-THURSDAY-0_19",
+      "contextId": "mahabhut2537.rem2.thursday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 102,
+        "pageRange": "102-104"
+      },
+      "ocrSpanSha256": "2F1815B8F6D69B9D8C54A8435E457976522E91F98D5F69289183E150EA933DA1",
+      "shortExcerpt": "สิ่งแวดล้อมไม่เอื้ออํานวย หรือเกิดมาในระยะที่ พ่อแม่มีสุขภาพอ่อนแอ มีการงานยําแย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "jupiter",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "marana",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-19",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM2-FRIDAY-0_21",
+      "contextId": "mahabhut2537.rem2.friday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 105,
+        "pageRange": "105-108"
+      },
+      "ocrSpanSha256": "53749858E11057E80B15A87C42B4065C415728FBC6924F4ADD2B5C9B5E2F6FAE",
+      "shortExcerpt": "มีสิงแวดล้อมเอืออํานวย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "venus",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "athibodi",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-21",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM2-SATURDAY-0_10",
+      "contextId": "mahabhut2537.rem2.saturday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 109,
+        "pageRange": "109-111"
+      },
+      "ocrSpanSha256": "B04BB860A89EBCF1B5833625865742605250AD8B545AADBA20936F9E81B5DF75",
+      "shortExcerpt": "แม่มีสุขภาพแข็งแรง มีการงานก้าวหน้า มีการเงินคล่องตัว",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "saturn",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "racha",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-10",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM3-SUNDAY-0_6",
+      "contextId": "mahabhut2537.rem3.sunday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 122,
+        "pageRange": "122-125"
+      },
+      "ocrSpanSha256": "09F06E7704424B0B300DBC11B9884BE875C8C7922EA7118C4DA64C3476FF1BC2",
+      "shortExcerpt": "แม่มีสุขภาพแข็งแรง มีการงานก้าวหน้า มีการเงินคล่องตัว",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "sun",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "racha",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-6",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM3-MONDAY-0_15",
+      "contextId": "mahabhut2537.rem3.monday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 126,
+        "pageRange": "126-128"
+      },
+      "ocrSpanSha256": "A5A9A182085FD4C32BD894241BE60465FBD7198EB235C0BA01449E124CB76956",
+      "shortExcerpt": "มีสิงแวดล้อมเอืออํานวย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "moon",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "thongchai",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-15",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM3-TUESDAY-0_8",
+      "contextId": "mahabhut2537.rem3.tuesday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 129,
+        "pageRange": "129-131"
+      },
+      "ocrSpanSha256": "ACF21220114089BA94B98AC9F1B3FC7271ED5006AE93E8286467B8343867EFBA",
+      "shortExcerpt": "มีสิงแวดล้อมไม่เอืออํานวย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "mars",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "phangkha",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-8",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "RESOLVED_CONTEXT_TABLE_OWNER",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM3-WEDNESDAY-0_17",
+      "contextId": "mahabhut2537.rem3.wednesday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 132,
+        "pageRange": "132-135"
+      },
+      "ocrSpanSha256": "68B2AB5500D8B0C451D67CD3E36F52369132F9EA7970817C8213D36FD2A7D199",
+      "shortExcerpt": "สิ่งแวดล้อมไม่เอื้ออํานวย หรือเกิดมาในระยะที่ พ่อแม่มีสุขภาพร่างกายอ่อนแอ มีการง",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "mercury",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "puti",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-17",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM3-THURSDAY-0_19",
+      "contextId": "mahabhut2537.rem3.thursday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 136,
+        "pageRange": "136-139"
+      },
+      "ocrSpanSha256": "BB3FEEF79F5668A55C21AB17F54ADA6D43FD4212BE25F1BF6373A9310B83DAD6",
+      "shortExcerpt": "แม่มีสุขภาพแข็งแรง มีการงานก้าวหน้า มีการเงินคล่องตัว",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "jupiter",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "khumsap",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-19",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM3-FRIDAY-0_21",
+      "contextId": "mahabhut2537.rem3.friday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 140,
+        "pageRange": "140-144"
+      },
+      "ocrSpanSha256": "2315506EA5666BAAFF03067F7264CA63A39FBFB78CDF1A15316174852FB4CF2F",
+      "shortExcerpt": "สิ่งแวดล้อมไม่เอื้ออํานวย หรือเกิดมาใน ระยะที่พ่อแม่มีสุขภาพร่างกายอ่อนแอ มีการง",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "venus",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "marana",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-21",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM3-SATURDAY-0_10",
+      "contextId": "mahabhut2537.rem3.saturday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 145,
+        "pageRange": "145-147"
+      },
+      "ocrSpanSha256": "98083B447C890A0A1C36AED331C5C7291CA6BC192F3E1E7C9AFD6104680546A4",
+      "shortExcerpt": "ท่านว่าเกิดมา ม่ จะมี ะลก ไ ข ม่นาน มแล ทังแ ได้ไ ะตาเกดมาแลว ขบ ฉ“ มัยสง มอนา r= | c=! P| จง ๆ เอ ลชด _ ยาง ส่อย่างไก แ",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "saturn",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "athibodi",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-10",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM4-SUNDAY-0_6",
+      "contextId": "mahabhut2537.rem4.sunday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 158,
+        "pageRange": "158-161"
+      },
+      "ocrSpanSha256": "6C11041A0452986D62C263195076877C45D848406ED68CAA293E373E539017CD",
+      "shortExcerpt": "มีการงานรุ่ง มีการเงินคล่อง",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "sun",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "athibodi",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-6",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM4-MONDAY-0_15",
+      "contextId": "mahabhut2537.rem4.monday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 162,
+        "pageRange": "162-164"
+      },
+      "ocrSpanSha256": "39AEFD44296897107AADD21AC83E9E16A911D2E1A5D7827E6B7FB8138DA9620D",
+      "shortExcerpt": "เกิดมาในระยะที่มีสิ่งแวดล้อมเอื้ออำนวย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "moon",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "racha",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-15",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": false
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM4-TUESDAY-0_8",
+      "contextId": "mahabhut2537.rem4.tuesday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 165,
+        "pageRange": "165-166"
+      },
+      "ocrSpanSha256": "CE2BD869AB68FE17CA192F74F96AB2837B595731F79D5461EA2E7F4F2912996B",
+      "shortExcerpt": "เกิดมาในระยะที่มีสิ่งแวดล้อมเอื้ออำนวย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "mars",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "thongchai",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-8",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": false
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM4-WEDNESDAY-0_17",
+      "contextId": "mahabhut2537.rem4.wednesday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 167,
+        "pageRange": "167-169"
+      },
+      "ocrSpanSha256": "7CFC5F7AF1EC6E60E9737FC034A61A9F2BCC1F3A46FA20DD721DAE78B67C94D9",
+      "shortExcerpt": "ว่าเจ้าชะตาเกิดมาในระยะที่พ่อแม่มีสุขภาพอ่อนแอ มีการงานยําแย่มีการ a A F— | 1 i P= | i wv 6 อ ' ๕ a x“ ' เงินฝึดเคือง ไม",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "mercury",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "phangkha",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-17",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM4-THURSDAY-0_19",
+      "contextId": "mahabhut2537.rem4.thursday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 170,
+        "pageRange": "170-172"
+      },
+      "ocrSpanSha256": "C0D93745D1386536019F301E8831FA1214F11336B85D00A021A26F1CA5F0AB2A",
+      "shortExcerpt": "สิ่งแวดล้อมไม่เอื้ออํานวย เช่นเกิดมาใน ระยะที่พ่อแม่มีสุขภาพร่างกายอ่อนแอ มีการง",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "jupiter",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "puti",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-19",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM4-FRIDAY-0_21",
+      "contextId": "mahabhut2537.rem4.friday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 173,
+        "pageRange": "173-175"
+      },
+      "ocrSpanSha256": "5241485EBB4A85F9AF56C0350FCD676E2DD0306DFAA0DF1E8645B7EA5F2FA218",
+      "shortExcerpt": "มีสิงแวดล้อมเอืออํานวย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "venus",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "khumsap",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-21",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM4-SATURDAY-0_10",
+      "contextId": "mahabhut2537.rem4.saturday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 176,
+        "pageRange": "176-179"
+      },
+      "ocrSpanSha256": "8715430C3C3B2B652D502D787F6F9446F68515FEA802D63950FC2E0BD17E16C4",
+      "shortExcerpt": "มีสิงแวดล้อมไม่เอืออํานวย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "saturn",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "marana",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-10",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM5-SUNDAY-0_6",
+      "contextId": "mahabhut2537.rem5.sunday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 188,
+        "pageRange": "188-191"
+      },
+      "ocrSpanSha256": "464E6F322EFD9288F94EC30B4CE0D2457363C09EE9046E3609715037F5C345E2",
+      "shortExcerpt": "มีสิงแวดล้อมไม่เอืออํานวย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "sun",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "marana",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-6",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "RESOLVED_CONTEXT_TABLE_OWNER",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM5-MONDAY-0_15",
+      "contextId": "mahabhut2537.rem5.monday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 192,
+        "pageRange": "192-195"
+      },
+      "ocrSpanSha256": "FD8E122EBA33ABB4A0F7D6B651A76DB6F50EFF4DD335FFE587D61D0070AFD312",
+      "shortExcerpt": "มีการงานรุ่ง มีการเงินคล่อง",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "moon",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "athibodi",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-15",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM5-TUESDAY-0_8",
+      "contextId": "mahabhut2537.rem5.tuesday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 196,
+        "pageRange": "196-199"
+      },
+      "ocrSpanSha256": "440E7281E1A80E649A407955685D83718333C9BBBA9C687720AA2E7FEBE8DF80",
+      "shortExcerpt": "มีการงานรุ่ง มีการเงินคล่อง",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "mars",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "racha",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-8",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "RESOLVED_CONTEXT_TABLE_OWNER",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM5-WEDNESDAY-0_17",
+      "contextId": "mahabhut2537.rem5.wednesday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 200,
+        "pageRange": "200-204"
+      },
+      "ocrSpanSha256": "29F1427D3CD662A81B3725812614E9BA5845C667E018AEE169EAEB1F5F5700DE",
+      "shortExcerpt": "มีสิงแวดล้อมเอืออํานวย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "mercury",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "thongchai",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-17",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM5-THURSDAY-0_19",
+      "contextId": "mahabhut2537.rem5.thursday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 205,
+        "pageRange": "205-207"
+      },
+      "ocrSpanSha256": "75A7886048B6CEFCD11C0EBB2C1626E93D0514C854B8206E6036F2917DFCFA7C",
+      "shortExcerpt": "พ่อแม่มีสุขภาพไม่แข็งแรง มีการงานยําแย่ มีการเงินติดขัด มักมี ๕ 0๐ ๕ | a w ๕ Ab oes en aA ญี อนามยตําทงแม่และลูก จึงมักเ",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "jupiter",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "phangkha",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-19",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "RESOLVED_CONTEXT_TABLE_OWNER",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM5-FRIDAY-0_21",
+      "contextId": "mahabhut2537.rem5.friday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 208,
+        "pageRange": "208-211"
+      },
+      "ocrSpanSha256": "AB22A41F49CD2378DEBE0B7989FFB8A1D7CBC40BD4F63F60C9D9FF72C95D275C",
+      "shortExcerpt": "สิ่งแวดล้อมไม่เอื้ออํานวย เช่นเป็นระยะที่พ่อ แม่มีสุขภาพไม่แข็งแรง มีการงานยําแย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "venus",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "puti",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-21",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "RESOLVED_CONTEXT_TABLE_OWNER",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM5-SATURDAY-0_10",
+      "contextId": "mahabhut2537.rem5.saturday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 212,
+        "pageRange": "212-217"
+      },
+      "ocrSpanSha256": "F370EB1870B7E5BFBA29B8905CF12D8B59804D9D50EAB2542CA854E050157FCF",
+      "shortExcerpt": "มีสิงแวดล้อมเอืออํานวย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "saturn",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "khumsap",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-10",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "RESOLVED_CONTEXT_TABLE_OWNER",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM6-SUNDAY-0_6",
+      "contextId": "mahabhut2537.rem6.sunday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 228,
+        "pageRange": "228-231"
+      },
+      "ocrSpanSha256": "21C71DD22A8D2D27D7DA7AD1BD2F4A904C99E0349DF9391B7DA3DFD09D36DD65",
+      "shortExcerpt": "มีการงานรุ่ง มีการเงินคล่อง",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "sun",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "khumsap",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-6",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM6-MONDAY-0_15",
+      "contextId": "mahabhut2537.rem6.monday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 232,
+        "pageRange": "232-234"
+      },
+      "ocrSpanSha256": "0EFDC973EA8C79C3E84B2EBC77C9EC073A48370AB987F03CEDA122321D95BADA",
+      "shortExcerpt": "มีสิงแวดล้อมไม่เอืออํานวย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "moon",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "marana",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-15",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM6-TUESDAY-0_8",
+      "contextId": "mahabhut2537.rem6.tuesday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 235,
+        "pageRange": "235-237"
+      },
+      "ocrSpanSha256": "0BC6CF160E1E05595E8501E0B358AA2B435577E14A7351DE90CE39677C5E30BC",
+      "shortExcerpt": "มีการงานรุ่ง มีการเงินคล่อง",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "mars",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "athibodi",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-8",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM6-WEDNESDAY-0_17",
+      "contextId": "mahabhut2537.rem6.wednesday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 238,
+        "pageRange": "238-240"
+      },
+      "ocrSpanSha256": "616822EA89197E47E872C40F7F7D16FBE1210A1B5478877B61B63F4381A3346A",
+      "shortExcerpt": "มีการงานรุ่ง มีการเงินคล่อง",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "mercury",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "racha",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-17",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "RESOLVED_CONTEXT_TABLE_OWNER",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM6-THURSDAY-0_19",
+      "contextId": "mahabhut2537.rem6.thursday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 241,
+        "pageRange": "241-244"
+      },
+      "ocrSpanSha256": "29AB9A4314EDDE826A1A6C69B77B445A2FDEB94ECA3DBDCD2EBB714323FD717A",
+      "shortExcerpt": "มีสิงแวดล้อมเอืออํานวย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "jupiter",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "thongchai",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-19",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "RESOLVED_CONTEXT_TABLE_OWNER",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM6-FRIDAY-0_21",
+      "contextId": "mahabhut2537.rem6.friday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 245,
+        "pageRange": "245-248"
+      },
+      "ocrSpanSha256": "566761F087AABDE4E9FB8626CBEC9DAD112437C3DC44A091B1A21C11A49C0874",
+      "shortExcerpt": "มีสิงแวดล้อมไม่เอืออํานวย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "venus",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "phangkha",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-21",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "RESOLVED_CONTEXT_TABLE_OWNER",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM6-SATURDAY-0_10",
+      "contextId": "mahabhut2537.rem6.saturday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 249,
+        "pageRange": "249-253"
+      },
+      "ocrSpanSha256": "D44BE33A77CE1C9598C5486EA9EC0EF91CBD509C6303E3C754AB14575E38E99E",
+      "shortExcerpt": "สิ่งแวดล้อมไม่เอื้ออํานวย เช่นเป็นระยะที่พ่อ แม่มีสุขภาพอ่อนแอ มีการงานย่าแย่ มี",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "saturn",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "puti",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-10",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "RESOLVED_CONTEXT_TABLE_OWNER",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM0-SUNDAY-0_6",
+      "contextId": "mahabhut2537.rem0.sunday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 263,
+        "pageRange": "263-267"
+      },
+      "ocrSpanSha256": "21AD4E7205D15BA346828C2B4A462CAF4B193CC3AA296D830FBAE9FA50A5291F",
+      "shortExcerpt": "มีสิงแวดล้อมไม่เอืออํานวย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "sun",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "puti",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-6",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "RESOLVED_CONTEXT_TABLE_OWNER",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM0-MONDAY-0_15",
+      "contextId": "mahabhut2537.rem0.monday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 268,
+        "pageRange": "268-271"
+      },
+      "ocrSpanSha256": "52DB330F2872CB9C4E09B1B5375F137E52C3B391324E538809417B0BE65D6368",
+      "shortExcerpt": "มีสิงแวดล้อมเอืออํานวย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "moon",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "khumsap",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-15",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "RESOLVED_CONTEXT_TABLE_OWNER",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM0-TUESDAY-0_8",
+      "contextId": "mahabhut2537.rem0.tuesday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 272,
+        "pageRange": "272-276"
+      },
+      "ocrSpanSha256": "F1BDC432843213ADCD60FAB473218B372E3E079591D542F40DD273150457AFAD",
+      "shortExcerpt": "มีสิงแวดล้อมไม่เอืออํานวย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "mars",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "marana",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-8",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM0-WEDNESDAY-0_17",
+      "contextId": "mahabhut2537.rem0.wednesday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 277,
+        "pageRange": "277-280"
+      },
+      "ocrSpanSha256": "5AECC096E78F948EDA6A7E139BDE74B76E4E56C4F877D656099C6C5D9FD8F893",
+      "shortExcerpt": "มีการงานรุ่ง มีการเงินคล่อง",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "mercury",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "athibodi",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-17",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "RESOLVED_CONTEXT_TABLE_OWNER",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM0-THURSDAY-0_19",
+      "contextId": "mahabhut2537.rem0.thursday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 281,
+        "pageRange": "281-284"
+      },
+      "ocrSpanSha256": "D28889812B5D7AD85B1820074E3B251762374859CBC06B8FAE9475BF620B0798",
+      "shortExcerpt": "มีการงานรุ่ง มีการเงินคล่อง",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "jupiter",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "racha",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-19",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM0-FRIDAY-0_21",
+      "contextId": "mahabhut2537.rem0.friday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 285,
+        "pageRange": "285-289"
+      },
+      "ocrSpanSha256": "1D04F6A2FCACB6C3EF4F1DFEB7B79E28DBC60E45B9765BC4F0C3917E7932F01B",
+      "shortExcerpt": "มีสิงแวดล้อมเอืออํานวย",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงสนับสนุนมากกว่าแรงติดขัด",
+      "planet": "venus",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "thongchai",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "0-21",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "supportive",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "RESOLVED_CONTEXT_TABLE_OWNER",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDEA-MAHABHUT2537-REM0-SATURDAY-0_10",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 290,
+        "pageRange": "290-292"
+      },
+      "ocrSpanSha256": "D2230BDDBBE986A3F4462B0D687216546426BBBD163F8239235C22AC83098A06",
+      "shortExcerpt": "พ่อแม่มีสุขภาพร่างกายอ่อนแอ มีการงานย่าแย่ มีการเงินติดขัด จึงไม่ i a Vv vv i vo ae f= | a ค่อยมีเวลามากพอที่จะให้การดูแ",
+      "normalizedMeaning": "สภาพแวดล้อมและการดูแลในช่วงแรกมีแรงติดขัดมากกว่าแรงสนับสนุน",
+      "planet": "saturn",
+      "taksaRole": "boriwan",
+      "mahabhutHouse": "phangkha",
+      "periodStatus": "dueng_tok",
+      "agePeriod": "0-10",
+      "domain": "support_and_family",
+      "eventFamily": "early_life_environment_and_care",
+      "polarity": "friction",
+      "strength": "SOURCE_DIRECT_CONTEXT_PERIOD_STATEMENT",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "different context",
+        "different age period",
+        "specific event not stated",
+        "specific month or date",
+        "specific amount",
+        "medical diagnosis"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDC-R0-SAT-42_62-SUPPORT",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 291,
+        "pageRange": "290-292"
+      },
+      "ocrSpanSha256": "F04EB974146C5F49491CAE8A3EC8D1E16A21DADF2F1E434FAC7EAB2A1020F53A",
+      "shortExcerpt": "ได้รับการช่วยเหลือสนับสนุน",
+      "normalizedMeaning": "People already connected to the work provide broad support.",
+      "planet": "venus",
+      "taksaRole": "sri",
+      "mahabhutHouse": "thongchai",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "42-62",
+      "matrixAgePeriod": "42-62",
+      "domain": "support",
+      "eventFamily": "supporting_people",
+      "polarity": "support increases",
+      "strength": "SOURCE_DIRECT_EXPLICIT_EVENT_CLAUSE",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "specific promotion",
+        "specific month",
+        "specific amount",
+        "medical diagnosis",
+        "marriage or separation event",
+        "different archetype or Thai day"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": false
+      }
+    },
+    {
+      "atomId": "SDC-R0-SAT-42_62-WORK",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 291,
+        "pageRange": "290-292"
+      },
+      "ocrSpanSha256": "F04EB974146C5F49491CAE8A3EC8D1E16A21DADF2F1E434FAC7EAB2A1020F53A",
+      "shortExcerpt": "ให้มีงานทำ",
+      "normalizedMeaning": "Work becomes easier to obtain or move forward.",
+      "planet": "venus",
+      "taksaRole": "sri",
+      "mahabhutHouse": "thongchai",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "42-62",
+      "matrixAgePeriod": "42-62",
+      "domain": "work",
+      "eventFamily": "work_access",
+      "polarity": "work access improves",
+      "strength": "SOURCE_DIRECT_EXPLICIT_EVENT_CLAUSE",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "specific promotion",
+        "specific month",
+        "specific amount",
+        "medical diagnosis",
+        "marriage or separation event",
+        "different archetype or Thai day"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": false
+      }
+    },
+    {
+      "atomId": "SDC-R0-SAT-42_62-FINANCE",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 291,
+        "pageRange": "290-292"
+      },
+      "ocrSpanSha256": "F04EB974146C5F49491CAE8A3EC8D1E16A21DADF2F1E434FAC7EAB2A1020F53A",
+      "shortExcerpt": "ให้มีเงินใช้ ให้มีโชคมีลาภ",
+      "normalizedMeaning": "Money is more available in this period; no amount or windfall size.",
+      "planet": "venus",
+      "taksaRole": "sri",
+      "mahabhutHouse": "thongchai",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "42-62",
+      "matrixAgePeriod": "42-62",
+      "domain": "finance",
+      "eventFamily": "available_money",
+      "polarity": "money availability improves",
+      "strength": "SOURCE_DIRECT_EXPLICIT_EVENT_CLAUSE",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "specific promotion",
+        "specific month",
+        "specific amount",
+        "medical diagnosis",
+        "marriage or separation event",
+        "different archetype or Thai day"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": true
+      }
+    },
+    {
+      "atomId": "SDC-R0-SAT-42_62-FLOW",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 291,
+        "pageRange": "290-292"
+      },
+      "ocrSpanSha256": "F04EB974146C5F49491CAE8A3EC8D1E16A21DADF2F1E434FAC7EAB2A1020F53A",
+      "shortExcerpt": "การทำการพูดการคิด ทุกอย่างจะราบรื่น",
+      "normalizedMeaning": "Work, communication and decisions move more smoothly.",
+      "planet": "venus",
+      "taksaRole": "sri",
+      "mahabhutHouse": "thongchai",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "42-62",
+      "matrixAgePeriod": "42-62",
+      "domain": "work",
+      "eventFamily": "action_communication_thought",
+      "polarity": "execution becomes smoother",
+      "strength": "SOURCE_DIRECT_EXPLICIT_EVENT_CLAUSE",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "specific promotion",
+        "specific month",
+        "specific amount",
+        "medical diagnosis",
+        "marriage or separation event",
+        "different archetype or Thai day"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": false
+      }
+    },
+    {
+      "atomId": "SDC-R0-SAT-42_43_61_62-TEMPORARY-GAIN",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 291,
+        "pageRange": "290-292"
+      },
+      "ocrSpanSha256": "F04EB974146C5F49491CAE8A3EC8D1E16A21DADF2F1E434FAC7EAB2A1020F53A",
+      "shortExcerpt": "ได้มาในระยะเวลาอันสั้น",
+      "normalizedMeaning": "Only the two explicit boundary windows may be described as temporary gain.",
+      "planet": "venus",
+      "taksaRole": "sri",
+      "mahabhutHouse": "thongchai",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "42-43|61-62",
+      "matrixAgePeriod": "42-62",
+      "domain": "finance",
+      "eventFamily": "temporary_gain",
+      "polarity": "gain is temporary",
+      "strength": "SOURCE_DIRECT_EXPLICIT_EVENT_CLAUSE",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "specific promotion",
+        "specific month",
+        "specific amount",
+        "medical diagnosis",
+        "marriage or separation event",
+        "different archetype or Thai day"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": false
+      }
+    },
+    {
+      "atomId": "SDC-R0-SAT-42_43_61_62-LOSS",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 292,
+        "pageRange": "290-292"
+      },
+      "ocrSpanSha256": "01817A64D42EBD58F5BDC4CAAD44BF1521819C86E886C987385A1A707200E451",
+      "shortExcerpt": "ได้มาแล้วก็สูญเสียคืนไป",
+      "normalizedMeaning": "Only the two explicit boundary windows may carry the gain-then-loss claim.",
+      "planet": "venus",
+      "taksaRole": "sri",
+      "mahabhutHouse": "thongchai",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "42-43|61-62",
+      "matrixAgePeriod": "42-62",
+      "domain": "finance",
+      "eventFamily": "gain_then_loss",
+      "polarity": "money gained is lost again",
+      "strength": "SOURCE_DIRECT_EXPLICIT_EVENT_CLAUSE",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "specific promotion",
+        "specific month",
+        "specific amount",
+        "medical diagnosis",
+        "marriage or separation event",
+        "different archetype or Thai day"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": false
+      }
+    },
+    {
+      "atomId": "SDC-R0-SAT-42_43_61_62-SPEECH",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "source": {
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "page": 292,
+        "pageRange": "290-292"
+      },
+      "ocrSpanSha256": "01817A64D42EBD58F5BDC4CAAD44BF1521819C86E886C987385A1A707200E451",
+      "shortExcerpt": "ควรระวังคำพูดคำจา",
+      "normalizedMeaning": "Only the explicit boundary windows may carry a speech caution.",
+      "planet": "venus",
+      "taksaRole": "sri",
+      "mahabhutHouse": "thongchai",
+      "periodStatus": "dueng_khuen",
+      "agePeriod": "42-43|61-62",
+      "matrixAgePeriod": "42-62",
+      "domain": "communication",
+      "eventFamily": "speech",
+      "polarity": "speech needs restraint",
+      "strength": "SOURCE_DIRECT_EXPLICIT_EVENT_CLAUSE",
+      "applicability": {
+        "exactContextOnly": true,
+        "exactAgePeriodOnly": true,
+        "knownThaiAstrologicalDayRequired": true
+      },
+      "prohibitedExtrapolations": [
+        "specific promotion",
+        "specific month",
+        "specific amount",
+        "medical diagnosis",
+        "marriage or separation event",
+        "different archetype or Thai day"
+      ],
+      "conflictStatus": "NONE",
+      "visualOcrStatus": {
+        "pageImageReviewed": true,
+        "visualTranscriptionVerified": true,
+        "ocrChecked": true,
+        "excerptFoundInNormalizedOcr": false
+      }
+    }
+  ]
+}

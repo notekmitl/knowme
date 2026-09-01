@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "status": "PASS_WITH_SOURCE_DIRECT_AUTHORITY_GAP_NO_GO",
+  "generatedAt": "2026-09-01T00:00:00+07:00",
+  "counts": {
+    "schemaErrors": 0,
+    "schemaFiles": 4,
+    "sourceInventoryRecords": 54,
+    "rulebookRules": 21,
+    "atoms": 56,
+    "contexts": 49,
+    "sourceDirectPeriods": 50,
+    "matrixPeriods": 392,
+    "ocrMismatchCount": 8,
+    "unresolvedTextCount": 0,
+    "candidateKnownClaims": 3,
+    "candidateUnknownClaims": 1,
+    "aiAuditEntries": 98,
+    "negativeControls": 14,
+    "negativeControlsRejected": 14,
+    "errors": 0
+  },
+  "categoryCounts": {},
+  "errors": []
+}
