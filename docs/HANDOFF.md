@@ -1,5 +1,21 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+## PR114 OR5 — Product Interpretation Contract and Candidate 0017 (2026-09-01)
+
+Status: **PR114 OR5 PRODUCT INTERPRETATION CONTRACT COMPLETE — CANDIDATE 0017 PENDING OWNER CONTENT REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.
+
+OR4 truth is corrected: evidence ownership/traceability improved, but its general prediction model failed. The engine supported only `mahabhut2537.rem0.saturday`; the 15-profile run produced output for 5 and omitted 10, with 10 exact duplicate occurrences. Candidate 0016 was an evidence-safe skeleton rejected by Owner Product Content Review, not a usable report. The OR4 validator now requires claim/rule authority-tier equality and validates every interval in composite periods. Research PDF page 198 / printed page 176 is correctly classified as a zodiac-domicile definition, not an annual-chart method or timing authority.
+
+Product Interpretation Contract V1 replaces the independent-owner product gate with a complete functional chain: Selector, Domain, Direction, Timing, Conflict handling and Certainty ceiling. Mahabhut selects context/period; Production Canon supplies domain semantics; the application's real typed forecast material may supply Direction/Timing only when those two components are present. Typed material alone and placement alone cannot predict; circular/self derivation and unsupported dates, months, amounts, diseases, job titles, event counts and causal outcomes are prohibited.
+
+Candidate 0017 Known covers all 15 required sections for male 6 June 1982 00:03 Chiang Mai, Saturday Thai day, Aquarius 9°24′, `asOf=2026-08-29 Asia/Bangkok`. Its map has 15 content entries: 13 predictions, 1 overview and 1 advice entry. It consumes 12 real typed materials across current, next 12 months and next life period. Unknown has prediction claims 0 and remains fail-closed with no noon substitution or Known-copy borrowing. Codex read the complete Known/Unknown copy; chronology jumps, ambiguous/filler language, reflective past questions, personality substitution, duplicated semantic owners, prediction/advice conversion and methodology leakage are all 0. This is not Human/Owner PASS; Product Content remains **PENDING OWNER CONTENT REVIEW**.
+
+Validation: Candidate 0017 chain entries 15/15, typed materials 12/12, missing components/self-reference/strength/duplicate-owner/advice-conversion/personality/methodology/Unknown-claim errors all 0; focused OR5 + OR4 Node evidence tests 9/9; OR4 negative controls 16/16; `git diff --check` PASS. The 49-context expansion, 300-profile audit, runtime catalog, Web/PDF/infographic and Full Flutter/analyzer were intentionally not run because OR5 is a content-first vertical slice with no Dart/application/runtime delta. Contract/truth commit: `19fd975`; Candidate/map/review commit: `320b486`; status docs: the commit containing this record.
+
+PR #114 remains Open + Draft. PR #113 remains Open + Draft at `f55f7e61e2ac3bae8e959892eb7c4d642d059e0d`. No `lib/`, UI, report/export, PDF, generated product artifact, Firebase/Production or `product-acceptance/` change was made; nothing was implemented, merged or deployed.
+
+
+
 ## PR114 OR4 — Real evidence-owner validation and Candidate 0016 (2026-09-01)
 
 Status: **PR114 OR4 EVIDENCE MODEL REPAIRED — PRODUCT CONTENT STILL NO-GO — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.
