@@ -1,0 +1,90 @@
+{
+  "status": "PASS_CANDIDATE_0011_OR7_ORACLE_AND_NEGATIVE_CONTROLS",
+  "counts": {
+    "claims": 24,
+    "predictionParagraphs": 22,
+    "negativeControls": 9,
+    "negativeControlsRejected": 9,
+    "errors": 0
+  },
+  "sourceBoundary": {
+    "readerFacingCharacters": 5260,
+    "claims": 24,
+    "sections": 16
+  },
+  "errors": [],
+  "negativeControls": [
+    {
+      "id": "delete-paragraph",
+      "expectedCode": "CLAIM_COUNT_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "CLAIM_COUNT_MISMATCH"
+      ]
+    },
+    {
+      "id": "paraphrase-paragraph",
+      "expectedCode": "EXACT_TEXT_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "EXACT_TEXT_MISMATCH"
+      ]
+    },
+    {
+      "id": "reorder-claims",
+      "expectedCode": "CLAIM_ORDER_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "CLAIM_ORDER_MISMATCH"
+      ]
+    },
+    {
+      "id": "date-change",
+      "expectedCode": "EXACT_TEXT_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "EXACT_TEXT_MISMATCH"
+      ]
+    },
+    {
+      "id": "reader-claim-id-change",
+      "expectedCode": "READER_CLAIM_ID_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "READER_CLAIM_ID_MISMATCH"
+      ]
+    },
+    {
+      "id": "candidate-0018-as-oracle",
+      "expectedCode": "WRONG_ORACLE_CANDIDATE",
+      "rejected": true,
+      "observedCodes": [
+        "WRONG_ORACLE_CANDIDATE"
+      ]
+    },
+    {
+      "id": "prediction-to-advice",
+      "expectedCode": "PREDICTION_RECLASSIFIED_AS_ADVICE",
+      "rejected": true,
+      "observedCodes": [
+        "PREDICTION_RECLASSIFIED_AS_ADVICE"
+      ]
+    },
+    {
+      "id": "authority-without-acceptance-reference",
+      "expectedCode": "OWNER_ACCEPTANCE_REFERENCE_MISSING",
+      "rejected": true,
+      "observedCodes": [
+        "OWNER_ACCEPTANCE_REFERENCE_MISSING"
+      ]
+    },
+    {
+      "id": "typed-asof-mismatch-without-proof",
+      "expectedCode": "ASOF_EQUIVALENCE_PROOF_MISSING",
+      "rejected": true,
+      "observedCodes": [
+        "ASOF_EQUIVALENCE_PROOF_MISSING"
+      ]
+    }
+  ]
+}

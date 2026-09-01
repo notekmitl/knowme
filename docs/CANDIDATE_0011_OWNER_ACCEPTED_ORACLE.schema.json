@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://knowme.local/schemas/candidate-0011-owner-accepted-oracle-v1.json",
+  "title": "Candidate 0011 Owner-Accepted Immutable Golden Oracle",
+  "type": "object",
+  "required": ["version", "status", "candidateId", "source", "acceptanceBoundary", "counts", "sectionOrder", "claimOrder", "claims"],
+  "properties": {
+    "version": { "const": 1 },
+    "status": { "const": "OWNER_ACCEPTED_IMMUTABLE_GOLDEN_ORACLE_NOT_RUNTIME" },
+    "candidateId": { "const": "0011" },
+    "source": {
+      "type": "object",
+      "required": ["repositoryPath", "acceptedHead", "mergeSha", "acceptedReaderFacingSha256", "currentReaderFacingSha256", "hashCanonicalization"]
+    },
+    "acceptanceBoundary": { "type": "object", "required": ["establishes", "doesNotEstablish"] },
+    "counts": {
+      "type": "object",
+      "required": ["claims", "predictionParagraphs", "advice", "disclosure", "adviceAndDisclosure"],
+      "properties": {
+        "claims": { "const": 24 },
+        "predictionParagraphs": { "const": 22 },
+        "advice": { "const": 1 },
+        "disclosure": { "const": 1 },
+        "adviceAndDisclosure": { "const": 2 }
+      }
+    },
+    "sectionOrder": { "type": "array", "minItems": 13, "uniqueItems": true, "items": { "type": "string" } },
+    "claimOrder": { "type": "array", "minItems": 24, "maxItems": 24, "uniqueItems": true, "items": { "type": "string" } },
+    "claims": {
+      "type": "array",
+      "minItems": 24,
+      "maxItems": 24,
+      "items": {
+        "type": "object",
+        "required": ["readerClaimId", "surface", "section", "claimKind", "authorityClass", "exactText", "acceptanceReference"],
+        "properties": {
+          "surface": { "const": "Known" },
+          "claimKind": { "enum": ["PREDICTION", "ADVICE", "DISCLOSURE"] },
+          "authorityClass": { "enum": ["SOURCE_DIRECT", "SOURCE_DIRECTION_WITH_CANON_DOMAIN", "OWNER_ACCEPTED_PRODUCT_INTERPRETATION", "ADVICE", "DISCLOSURE"] },
+          "exactText": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}
