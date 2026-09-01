@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SOURCE_PAGE_VISUAL_REVIEW_181",
+  "type": "object",
+  "required": [
+    "version",
+    "status",
+    "source",
+    "counts",
+    "pages"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "pages": {
+      "type": "array",
+      "minItems": 181,
+      "maxItems": 181,
+      "items": {
+        "type": "object",
+        "required": [
+          "page",
+          "imageSha256",
+          "ocrSha256",
+          "contextIds",
+          "matrixApplicationIdsReviewed",
+          "visuallyReviewed",
+          "ocrMismatch",
+          "correctedTranscription",
+          "tableMismatch",
+          "missingText",
+          "unresolvedText",
+          "reviewerObservation"
+        ]
+      }
+    }
+  }
+}

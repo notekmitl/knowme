@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "THAI_MAHABHUT_SOURCE_PERIOD_EXTRACTION_LEDGER_392",
+  "type": "object",
+  "required": [
+    "version",
+    "status",
+    "source",
+    "counts",
+    "rows"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "rows": {
+      "type": "array",
+      "minItems": 392,
+      "maxItems": 392,
+      "items": {
+        "type": "object",
+        "required": [
+          "contextId",
+          "matrixApplicationId",
+          "planet",
+          "taksaRole",
+          "mahabhutHouse",
+          "periodStatus",
+          "agePeriod",
+          "sourcePageStart",
+          "sourcePageEnd",
+          "pagesOcrChecked",
+          "pagesVisuallyChecked",
+          "extractionStatus",
+          "atomIds",
+          "shortSourceExcerpts",
+          "ocrSpanHashes",
+          "pageImageHashes",
+          "ocrCorrections",
+          "reviewerObservation",
+          "unresolvedIssue"
+        ]
+      }
+    }
+  }
+}

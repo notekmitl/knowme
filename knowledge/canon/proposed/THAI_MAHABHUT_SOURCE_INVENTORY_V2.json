@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "status": "PROPOSED_SOURCE_INVENTORY_VISUAL_SCOPE_CORRECTED_OR1",
+  "status": "PROPOSED_SOURCE_INVENTORY_FULL_181_PAGE_REVIEW_OR2",
   "sourceDecision": {
     "primaryTier0Source": "SRC-MH2537-PERIOD-FOUNDATION",
     "primaryEditionPdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
@@ -8,69 +8,184 @@
     "ocrPages": 308,
     "allPagesHashed": true,
     "visualCrossCheckPages": [
-      17,
-      18,
-      29,
-      30,
-      31,
-      32,
-      33,
-      34,
-      35,
-      36,
-      37,
-      38,
-      39,
-      40,
-      41,
       52,
+      53,
+      54,
+      55,
       56,
+      57,
+      58,
+      59,
       60,
+      61,
+      62,
       63,
+      64,
       65,
+      66,
+      67,
       68,
+      69,
+      70,
+      71,
       72,
+      73,
+      74,
+      75,
       89,
+      90,
+      91,
+      92,
       93,
+      94,
+      95,
       96,
+      97,
+      98,
       99,
+      100,
+      101,
       102,
+      103,
+      104,
       105,
+      106,
+      107,
+      108,
       109,
+      110,
+      111,
       122,
+      123,
+      124,
+      125,
       126,
+      127,
+      128,
       129,
+      130,
+      131,
       132,
+      133,
+      134,
+      135,
       136,
+      137,
+      138,
+      139,
       140,
+      141,
+      142,
+      143,
+      144,
       145,
+      146,
+      147,
       158,
+      159,
+      160,
+      161,
       162,
+      163,
+      164,
       165,
+      166,
       167,
+      168,
+      169,
       170,
+      171,
+      172,
       173,
+      174,
+      175,
       176,
+      177,
+      178,
+      179,
       188,
+      189,
+      190,
+      191,
       192,
+      193,
+      194,
+      195,
       196,
+      197,
+      198,
+      199,
       200,
+      201,
+      202,
+      203,
+      204,
       205,
+      206,
+      207,
       208,
+      209,
+      210,
+      211,
       212,
+      213,
+      214,
+      215,
+      216,
+      217,
       228,
+      229,
+      230,
+      231,
       232,
+      233,
+      234,
       235,
+      236,
+      237,
       238,
+      239,
+      240,
       241,
+      242,
+      243,
+      244,
       245,
+      246,
+      247,
+      248,
       249,
+      250,
+      251,
+      252,
+      253,
       263,
+      264,
+      265,
+      266,
+      267,
       268,
+      269,
+      270,
+      271,
       272,
+      273,
+      274,
+      275,
+      276,
       277,
+      278,
+      279,
+      280,
       281,
+      282,
+      283,
+      284,
       285,
+      286,
+      287,
+      288,
+      289,
       290,
       291,
       292
@@ -80,14 +195,14 @@
     "searchSnippetsUsedAsEvidence": false,
     "aiSummariesUsedAsEvidence": false,
     "contextStartPagesVisuallyChecked": 49,
-    "fullContextRangeVisualCrossCheckClaimed": false
+    "fullContextRangeVisualCrossCheckClaimed": true
   },
   "counts": {
     "sourceRecords": 54,
     "contextRecords": 49,
     "pageInventory": 308,
     "pagesWithTopicHits": 287,
-    "pagesVisuallyChecked": 66,
+    "pagesVisuallyChecked": 181,
     "contextStartPagesVisuallyChecked": 49
   },
   "records": [
@@ -195,8 +310,8 @@
       "ocrSpanSha256": "0D72DB801BBAB93891C834AAC4B1D85E52ED4AAE7CA4A1C4783817FE56055B28",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem1.sunday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem1.sunday",
@@ -213,13 +328,12 @@
           55
         ],
         "pagesVisuallyChecked": [
-          52
+          52,
+          53,
+          54,
+          55
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -236,8 +350,8 @@
       "ocrSpanSha256": "FBC4BBFE8F21DA94286881FF62977AB6DD23C5259551F5ABF762A878965DF1A5",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem1.monday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem1.monday",
@@ -254,13 +368,12 @@
           59
         ],
         "pagesVisuallyChecked": [
-          56
+          56,
+          57,
+          58,
+          59
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -277,8 +390,8 @@
       "ocrSpanSha256": "E774863C4E8D997A9BA6433E7535A79568F725FCDFA9C5A6B4E010B07007E79D",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem1.tuesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem1.tuesday",
@@ -293,13 +406,11 @@
           62
         ],
         "pagesVisuallyChecked": [
-          60
+          60,
+          61,
+          62
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -316,8 +427,8 @@
       "ocrSpanSha256": "F40115A95C433BF121B27D67817D1185F4431F9322D351B64901CD8E7E8BA6F2",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem1.wednesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem1.wednesday",
@@ -330,13 +441,10 @@
           64
         ],
         "pagesVisuallyChecked": [
-          63
+          63,
+          64
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -353,8 +461,8 @@
       "ocrSpanSha256": "DA6A5D427815491C41CDF112685ECC402F858FE54BA5E1192E7CF5C3F0E59690",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem1.thursday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem1.thursday",
@@ -369,13 +477,11 @@
           67
         ],
         "pagesVisuallyChecked": [
-          65
+          65,
+          66,
+          67
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -392,8 +498,8 @@
       "ocrSpanSha256": "DB46247DF19E2246063F9A9CF78BDCF2AA6C25F9D9C5DB9FE321DE85E5261EB4",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem1.friday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem1.friday",
@@ -410,13 +516,12 @@
           71
         ],
         "pagesVisuallyChecked": [
-          68
+          68,
+          69,
+          70,
+          71
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -433,8 +538,8 @@
       "ocrSpanSha256": "AFCD87311ABC0F7D4423D7DC18F3D7FDF54E2C07D19E88D4E88BD9F9E4790239",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem1.saturday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem1.saturday",
@@ -451,13 +556,12 @@
           75
         ],
         "pagesVisuallyChecked": [
-          72
+          72,
+          73,
+          74,
+          75
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -474,8 +578,8 @@
       "ocrSpanSha256": "AB7A43463D3DD9F4D8642CAD130130E08F00014ED14BE08B72353C0BD0302F82",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem2.sunday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem2.sunday",
@@ -492,13 +596,12 @@
           92
         ],
         "pagesVisuallyChecked": [
-          89
+          89,
+          90,
+          91,
+          92
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -515,8 +618,8 @@
       "ocrSpanSha256": "ADCB59A41F0B6584892AB9213B301BD9CA41C8BB694B054EB9119A7467C97F1C",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem2.monday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem2.monday",
@@ -531,13 +634,11 @@
           95
         ],
         "pagesVisuallyChecked": [
-          93
+          93,
+          94,
+          95
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -554,8 +655,8 @@
       "ocrSpanSha256": "35B26BE85EF23E269A0A66C9B586E149E095047005CFB29BC8EBFABA234ABBC2",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem2.tuesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem2.tuesday",
@@ -570,13 +671,11 @@
           98
         ],
         "pagesVisuallyChecked": [
-          96
+          96,
+          97,
+          98
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -593,8 +692,8 @@
       "ocrSpanSha256": "A8DE4CFB7FD420B7EF8B66DAA42C1CFE03F974B34A6AAC8AD80C5FFDBA5A0619",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem2.wednesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem2.wednesday",
@@ -609,13 +708,11 @@
           101
         ],
         "pagesVisuallyChecked": [
-          99
+          99,
+          100,
+          101
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -632,8 +729,8 @@
       "ocrSpanSha256": "C6B9A9DF9B2ABDBA3CA8402D4753C65B0B7DB2DAE09E9D72A5091762B78AB9CB",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem2.thursday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem2.thursday",
@@ -648,13 +745,11 @@
           104
         ],
         "pagesVisuallyChecked": [
-          102
+          102,
+          103,
+          104
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -671,8 +766,8 @@
       "ocrSpanSha256": "4F55A15653DD3B7BF36955257D32083D5B2520AD11B37455402B6E8025A402BD",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem2.friday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem2.friday",
@@ -689,13 +784,12 @@
           108
         ],
         "pagesVisuallyChecked": [
-          105
+          105,
+          106,
+          107,
+          108
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -712,8 +806,8 @@
       "ocrSpanSha256": "38D573D996D4E011E4C448D391A0FD212328FBCF67C53AB2FCEF2BAC94E8BA8E",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem2.saturday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem2.saturday",
@@ -728,13 +822,11 @@
           111
         ],
         "pagesVisuallyChecked": [
-          109
+          109,
+          110,
+          111
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -751,8 +843,8 @@
       "ocrSpanSha256": "2D5EA694A9047D66F41B3E3A0265BD0597B2A468C918CE4046B6390D1EDF7349",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem3.sunday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem3.sunday",
@@ -769,13 +861,12 @@
           125
         ],
         "pagesVisuallyChecked": [
-          122
+          122,
+          123,
+          124,
+          125
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -792,8 +883,8 @@
       "ocrSpanSha256": "5225C353B1AE8CAD0B57D51739D1FACC1AD9E0D41BAF3DF21AF55BCCECD8B62F",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem3.monday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem3.monday",
@@ -808,13 +899,11 @@
           128
         ],
         "pagesVisuallyChecked": [
-          126
+          126,
+          127,
+          128
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -831,8 +920,8 @@
       "ocrSpanSha256": "6BC3E56E1336E41316B0EE01EF8FDC4D5DE136917E213522B2C338FA74131638",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem3.tuesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem3.tuesday",
@@ -847,13 +936,11 @@
           131
         ],
         "pagesVisuallyChecked": [
-          129
+          129,
+          130,
+          131
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -870,8 +957,8 @@
       "ocrSpanSha256": "8152B47E4D87A7A92CF9CABC9A1209829938609FDF9B95C259B75096B807E07C",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem3.wednesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem3.wednesday",
@@ -888,13 +975,12 @@
           135
         ],
         "pagesVisuallyChecked": [
-          132
+          132,
+          133,
+          134,
+          135
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -911,8 +997,8 @@
       "ocrSpanSha256": "274429E15A85581BFF9F1FAE49AFED50D11635FC1ACD9D4C54FFB3C235307715",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem3.thursday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem3.thursday",
@@ -929,13 +1015,12 @@
           139
         ],
         "pagesVisuallyChecked": [
-          136
+          136,
+          137,
+          138,
+          139
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -952,8 +1037,8 @@
       "ocrSpanSha256": "CBB3D2DC1AE1FD6A6E0BC744A4E265F2ADED7B7734850ACBCE88AE791F140B6E",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem3.friday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem3.friday",
@@ -972,13 +1057,13 @@
           144
         ],
         "pagesVisuallyChecked": [
-          140
+          140,
+          141,
+          142,
+          143,
+          144
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -995,8 +1080,8 @@
       "ocrSpanSha256": "C75684B56238639CBA1BD65C8E2DE524F5D7414F12CE873ED3589603244463C1",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem3.saturday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem3.saturday",
@@ -1011,13 +1096,11 @@
           147
         ],
         "pagesVisuallyChecked": [
-          145
+          145,
+          146,
+          147
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1034,8 +1117,8 @@
       "ocrSpanSha256": "49129CF0D00895C4EE3F49879EC9DA8F4F1EDF25FEA9517838B6206A500E018B",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem4.sunday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem4.sunday",
@@ -1052,13 +1135,12 @@
           161
         ],
         "pagesVisuallyChecked": [
-          158
+          158,
+          159,
+          160,
+          161
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1075,8 +1157,8 @@
       "ocrSpanSha256": "ACABE5F94552A8D6B2DB89E907A6543D7532F4E1D208BC311AAC33365B9E9E4D",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem4.monday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem4.monday",
@@ -1091,13 +1173,11 @@
           164
         ],
         "pagesVisuallyChecked": [
-          162
+          162,
+          163,
+          164
         ],
-        "ocrMismatchCount": 1,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1114,8 +1194,8 @@
       "ocrSpanSha256": "D963101B5632D08A6C7E3A8A2068F88C27B7651D41F0CC4EC44CD679540CDBFD",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem4.tuesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem4.tuesday",
@@ -1128,13 +1208,10 @@
           166
         ],
         "pagesVisuallyChecked": [
-          165
+          165,
+          166
         ],
-        "ocrMismatchCount": 1,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1151,8 +1228,8 @@
       "ocrSpanSha256": "183D2D3BE11F0CE6A8A9D13783FC41CE5E26B706CCA6A5621A03CBE34A26F471",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem4.wednesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem4.wednesday",
@@ -1167,13 +1244,11 @@
           169
         ],
         "pagesVisuallyChecked": [
-          167
+          167,
+          168,
+          169
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1190,8 +1265,8 @@
       "ocrSpanSha256": "28DDF4DB10ADDBA60B83027391C72E3891CE4602887302CF735F7D2F37713008",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem4.thursday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem4.thursday",
@@ -1206,13 +1281,11 @@
           172
         ],
         "pagesVisuallyChecked": [
-          170
+          170,
+          171,
+          172
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1229,8 +1302,8 @@
       "ocrSpanSha256": "9109115493C644B2DBEE3222CC84B7B5B22D5F7072985F4BBA2325C4347EFA94",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem4.friday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem4.friday",
@@ -1245,13 +1318,11 @@
           175
         ],
         "pagesVisuallyChecked": [
-          173
+          173,
+          174,
+          175
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1268,8 +1339,8 @@
       "ocrSpanSha256": "3CE8265D5B20E0D243C6AD9684A7E59D5326F97E7D6D4A6D2049BF40B06234E3",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem4.saturday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem4.saturday",
@@ -1286,13 +1357,12 @@
           179
         ],
         "pagesVisuallyChecked": [
-          176
+          176,
+          177,
+          178,
+          179
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1309,8 +1379,8 @@
       "ocrSpanSha256": "9B7AF9C55F3C8FDE2A37EB2E3DFE702DF4A1FF83DD8C74AD84254D473BB5783C",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem5.sunday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem5.sunday",
@@ -1327,13 +1397,12 @@
           191
         ],
         "pagesVisuallyChecked": [
-          188
+          188,
+          189,
+          190,
+          191
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1350,8 +1419,8 @@
       "ocrSpanSha256": "55C9A5C4306383531E171968AF2617BAAE5F444F58296C737A3A84E43BCB1E04",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem5.monday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem5.monday",
@@ -1368,13 +1437,12 @@
           195
         ],
         "pagesVisuallyChecked": [
-          192
+          192,
+          193,
+          194,
+          195
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1391,8 +1459,8 @@
       "ocrSpanSha256": "828E0D9AF111086C3A5C5EC474E362C89F7B2E422B4F0E05DF7C48BECCB977E4",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem5.tuesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem5.tuesday",
@@ -1409,13 +1477,12 @@
           199
         ],
         "pagesVisuallyChecked": [
-          196
+          196,
+          197,
+          198,
+          199
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1432,8 +1499,8 @@
       "ocrSpanSha256": "6AEC2D524A198762E3BE0A98E7236C7105A177F6C3C1BF1320125C56968C0936",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem5.wednesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem5.wednesday",
@@ -1452,13 +1519,13 @@
           204
         ],
         "pagesVisuallyChecked": [
-          200
+          200,
+          201,
+          202,
+          203,
+          204
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1475,8 +1542,8 @@
       "ocrSpanSha256": "F2E6384BF8B0FF2C7E19DD89E9CF5D4E22179B5C2D9EAF521363633439268D2D",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem5.thursday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem5.thursday",
@@ -1491,13 +1558,11 @@
           207
         ],
         "pagesVisuallyChecked": [
-          205
+          205,
+          206,
+          207
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1514,8 +1579,8 @@
       "ocrSpanSha256": "561E3156E5F444CF6B8CDF0B06D71B1A3E3EB6DE8719AE56553CF32678A23ECC",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem5.friday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem5.friday",
@@ -1532,13 +1597,12 @@
           211
         ],
         "pagesVisuallyChecked": [
-          208
+          208,
+          209,
+          210,
+          211
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1555,8 +1619,8 @@
       "ocrSpanSha256": "3F8978B9923AD0DD8B21BF06DD05F1547274519F84A644F5DB16742CD53BDDED",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem5.saturday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem5.saturday",
@@ -1577,13 +1641,14 @@
           217
         ],
         "pagesVisuallyChecked": [
-          212
+          212,
+          213,
+          214,
+          215,
+          216,
+          217
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1600,8 +1665,8 @@
       "ocrSpanSha256": "BC3ACC76DE30AF44F0ECB5268F94608333199027D015B2216E53850914B1169F",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem6.sunday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem6.sunday",
@@ -1618,13 +1683,12 @@
           231
         ],
         "pagesVisuallyChecked": [
-          228
+          228,
+          229,
+          230,
+          231
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1641,8 +1705,8 @@
       "ocrSpanSha256": "A113EE9D6D699D2E67D8D0D97B937C597616493A656858F66FCAE63ACC06895A",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem6.monday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem6.monday",
@@ -1657,13 +1721,11 @@
           234
         ],
         "pagesVisuallyChecked": [
-          232
+          232,
+          233,
+          234
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1680,8 +1742,8 @@
       "ocrSpanSha256": "CBF28C301ADB29A527C9B816EAF283E1FB0CBCD4157552A7A23FA420778E2986",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem6.tuesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem6.tuesday",
@@ -1696,13 +1758,11 @@
           237
         ],
         "pagesVisuallyChecked": [
-          235
+          235,
+          236,
+          237
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1719,8 +1779,8 @@
       "ocrSpanSha256": "6D080AE97323B5396185647B52FD01646477782EE498CA0D35DA5E8F8A8DAE41",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem6.wednesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem6.wednesday",
@@ -1735,13 +1795,11 @@
           240
         ],
         "pagesVisuallyChecked": [
-          238
+          238,
+          239,
+          240
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1758,8 +1816,8 @@
       "ocrSpanSha256": "8CE7A048586E03F75CBB864607CFF7B93BF02AE016451FFF24B35D94369C745C",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem6.thursday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem6.thursday",
@@ -1776,13 +1834,12 @@
           244
         ],
         "pagesVisuallyChecked": [
-          241
+          241,
+          242,
+          243,
+          244
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1799,8 +1856,8 @@
       "ocrSpanSha256": "043B2824026E41D6ECBA2A2119B81E052C1E63EB1D7200E4A44755999341BA56",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem6.friday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem6.friday",
@@ -1817,13 +1874,12 @@
           248
         ],
         "pagesVisuallyChecked": [
-          245
+          245,
+          246,
+          247,
+          248
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1840,8 +1896,8 @@
       "ocrSpanSha256": "FB10BFCBCFBB66E954E2A6DD13F614E13ACF2686EF1DDB09151EE5E7008CC35B",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem6.saturday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem6.saturday",
@@ -1860,13 +1916,13 @@
           253
         ],
         "pagesVisuallyChecked": [
-          249
+          249,
+          250,
+          251,
+          252,
+          253
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1883,8 +1939,8 @@
       "ocrSpanSha256": "D4F6BC0E582C5B2B6B93FEE285DA6489326D36C1FF79F85A751F33EFE0EB4DBE",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem0.sunday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem0.sunday",
@@ -1903,13 +1959,13 @@
           267
         ],
         "pagesVisuallyChecked": [
-          263
+          263,
+          264,
+          265,
+          266,
+          267
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1926,8 +1982,8 @@
       "ocrSpanSha256": "C30AC5508C66666669C688099D6E6BFF8B06B452D611F10FF5EF7D504B9AC7F9",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem0.monday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem0.monday",
@@ -1944,13 +2000,12 @@
           271
         ],
         "pagesVisuallyChecked": [
-          268
+          268,
+          269,
+          270,
+          271
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -1967,8 +2022,8 @@
       "ocrSpanSha256": "8A6B9EABDD950644EAD2E914177FB89EB28652C57A8305157C031F493AFE2647",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem0.tuesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem0.tuesday",
@@ -1987,13 +2042,13 @@
           276
         ],
         "pagesVisuallyChecked": [
-          272
+          272,
+          273,
+          274,
+          275,
+          276
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -2010,8 +2065,8 @@
       "ocrSpanSha256": "A8F1BA3C6CA976A1C65BD798C569B31890F8130C4A3B55DA4EBD118DF04D7827",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem0.wednesday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem0.wednesday",
@@ -2028,13 +2083,12 @@
           280
         ],
         "pagesVisuallyChecked": [
-          277
+          277,
+          278,
+          279,
+          280
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -2051,8 +2105,8 @@
       "ocrSpanSha256": "3A692C5051B5F180F6662E36DB1DDFBA97EA5640248429465BD6D935B627CD5E",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem0.thursday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem0.thursday",
@@ -2069,13 +2123,12 @@
           284
         ],
         "pagesVisuallyChecked": [
-          281
+          281,
+          282,
+          283,
+          284
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -2092,8 +2145,8 @@
       "ocrSpanSha256": "834DD5B364B2ADC9AAD968C0BAD252DBC136C2C4560CC714A0D2DE1CF4CDF906",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem0.friday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem0.friday",
@@ -2112,13 +2165,13 @@
           289
         ],
         "pagesVisuallyChecked": [
-          285
+          285,
+          286,
+          287,
+          288,
+          289
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     },
     {
@@ -2135,8 +2188,8 @@
       "ocrSpanSha256": "541F302EC66CD34A4B30BC9E63CB07072B065654EAF9BC2AD8534012DA0BE7FB",
       "paraphrase": "ตารางตำแหน่งดาว ทักษา เรือน และช่วงอายุครบแปดช่วงสำหรับ mahabhut2537.rem0.saturday; ข้อความเหตุการณ์ใช้ได้เฉพาะเมื่อมี source-direct map แยกต่างหาก",
       "sourceTier": 0,
-      "reliability": "START_PAGE_TABLE_AND_FIRST_PERIOD_IMAGE_REVIEWED_FULL_RANGE_OCR_CHECKED",
-      "limitations": "เปิดตรวจภาพหน้าตั้งต้นที่มีตารางและคำอธิบายช่วงแรก; หน้าอื่นในช่วงตรวจ OCR แต่ไม่อ้างว่าเปิดภาพครบทุกหน้า; placement fact ไม่ใช่ event authority",
+      "reliability": "FULL_CONTEXT_RANGE_IMAGE_AND_OCR_REVIEWED_OR2",
+      "limitations": "Placement facts are not promoted to event authority; period authority comes only from the 392-row extraction ledger.",
       "accessedAt": "2026-08-31",
       "verification": {
         "contextId": "mahabhut2537.rem0.saturday",
@@ -2155,11 +2208,7 @@
           291,
           292
         ],
-        "ocrMismatchCount": 0,
-        "tableMismatchCount": 0,
-        "missingSourceTextCount": 0,
-        "unresolvedTextCount": 0,
-        "scopeNote": "Start-page table and first-period narrative visually checked; remaining pages OCR-checked, not claimed as fully visually checked."
+        "unresolvedTextCount": 0
       }
     }
   ],

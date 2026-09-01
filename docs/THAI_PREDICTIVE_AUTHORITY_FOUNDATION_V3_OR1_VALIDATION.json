@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "status": "PASS_WITH_SOURCE_DIRECT_AUTHORITY_GAP_NO_GO",
+  "status": "OWNER_REJECTED_PARTIAL_EXTRACTION_NOT_COVERAGE_EVIDENCE",
   "generatedAt": "2026-09-01T00:00:00+07:00",
   "counts": {
     "schemaErrors": 0,
@@ -9,7 +9,12 @@
     "rulebookRules": 21,
     "atoms": 56,
     "contexts": 49,
-    "sourceDirectPeriods": 50,
+    "periodsTotal": 392,
+    "periodsExtractionCompleted": 50,
+    "periodsUnexamined": 342,
+    "contextsFirstPeriodOnly": 48,
+    "pagesExpected": 181,
+    "pagesVisuallyChecked": 51,
     "matrixPeriods": 392,
     "ocrMismatchCount": 8,
     "unresolvedTextCount": 0,
