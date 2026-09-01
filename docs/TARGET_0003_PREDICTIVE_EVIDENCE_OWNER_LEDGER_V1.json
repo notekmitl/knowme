@@ -1,0 +1,608 @@
+{
+  "version": 1,
+  "status": "OR4_REAL_EVIDENCE_OWNER_MODEL_NOT_RUNTIME",
+  "generatedAt": "2026-09-01T00:00:00+07:00",
+  "candidate": "0016",
+  "ownerCountingPolicy": {
+    "countedFrom": "distinct evidenceOwnerId resolved from referenced ledger records",
+    "storedIndependentSignalCountTrusted": false,
+    "sameClauseAtomsCollapse": true,
+    "derivedCopiesCollapseToParentOwner": true,
+    "placementPlanetTaksaHouseAutoIndependent": false,
+    "placementAloneTierC": false,
+    "independenceRequires": [
+      "distinct semantic owner",
+      "distinct source unit or independently authored authority"
+    ]
+  },
+  "sourceSignals": [
+    {
+      "signalId": "T0003-SRC-0-10-FAMILY-CONSTRAINT",
+      "signalType": "SOURCE_DIRECT_EVENT",
+      "semanticRecord": true,
+      "evidenceOwnerId": "EO-MH2537-P290-EARLY-FAMILY",
+      "sourceUnitId": "MH2537-P290-PARA-EARLY-FAMILY",
+      "derivationGroupId": "MH2537-P290-PARA-EARLY-FAMILY",
+      "sourceAuthorityId": "MAHABHUT_2537_PRIMARY_WORKING_EDITION",
+      "directOrDerived": "DIRECT",
+      "parentRefs": [],
+      "domains": [
+        "family",
+        "health",
+        "work",
+        "finance"
+      ],
+      "period": "0-10",
+      "polarity": "NEGATIVE",
+      "timingGranularity": "LIFE_PERIOD",
+      "sourceLocation": {
+        "kind": "PDF_PAGE_CLAUSE",
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "pages": [
+          290
+        ],
+        "exactPassage": "พ่อแม่มีสุขภาพร่างกายอ่อนแอ มีการงานย่ำแย่ มีการเงินติดขัด"
+      },
+      "prohibitedExtrapolations": [
+        "specific diagnosis",
+        "specific parent",
+        "exact financial amount",
+        "permanent childhood outcome"
+      ]
+    },
+    {
+      "signalId": "T0003-SRC-11-62-RISING-BLOCK",
+      "signalType": "SOURCE_DIRECT_TREND",
+      "semanticRecord": true,
+      "evidenceOwnerId": "EO-MH2537-P290-RISING-11-62",
+      "sourceUnitId": "MH2537-P290-HEADING-11-62",
+      "derivationGroupId": "MH2537-P290-HEADING-11-62",
+      "sourceAuthorityId": "MAHABHUT_2537_PRIMARY_WORKING_EDITION",
+      "directOrDerived": "DIRECT",
+      "parentRefs": [],
+      "domains": [
+        "life_direction"
+      ],
+      "period": "11-62",
+      "polarity": "POSITIVE",
+      "timingGranularity": "LIFE_PERIOD",
+      "sourceLocation": {
+        "kind": "PDF_PAGE_CLAUSE",
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "pages": [
+          290,
+          291
+        ],
+        "exactPassage": "อายุ 11 ขวบถึง 62 ปี (ดวงขึ้นสุด ๆ)"
+      },
+      "prohibitedExtrapolations": [
+        "specific promotion",
+        "specific relationship event",
+        "specific health event",
+        "specific month"
+      ]
+    },
+    {
+      "signalId": "T0003-SRC-11-29-PLACEMENT",
+      "signalType": "SOURCE_PLACEMENT_FACT",
+      "semanticRecord": true,
+      "evidenceOwnerId": "EO-MH2537-P290-PLACEMENT-11-29",
+      "sourceUnitId": "MH2537-P290-ROW-11-29",
+      "derivationGroupId": "MH2537-P290-ROW-11-29",
+      "sourceAuthorityId": "MAHABHUT_2537_PRIMARY_WORKING_EDITION",
+      "directOrDerived": "DIRECT",
+      "parentRefs": [],
+      "domains": [
+        "health",
+        "learning"
+      ],
+      "period": "11-29",
+      "polarity": "NEUTRAL",
+      "timingGranularity": "LIFE_PERIOD",
+      "sourceLocation": {
+        "kind": "PDF_PAGE_CLAUSE",
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "pages": [
+          290
+        ],
+        "exactPassage": "อายุ 11 ถึง 29 ปี ดาวพฤหัส ดาวแห่งอายุ สถิตเรือนราชา"
+      },
+      "prohibitedExtrapolations": [
+        "placement alone as prediction",
+        "specific education event",
+        "specific mentor event"
+      ]
+    },
+    {
+      "signalId": "T0003-SRC-30-41-PLACEMENT",
+      "signalType": "SOURCE_PLACEMENT_FACT",
+      "semanticRecord": true,
+      "evidenceOwnerId": "EO-MH2537-P290-291-PLACEMENT-30-41",
+      "sourceUnitId": "MH2537-P290-291-ROW-30-41",
+      "derivationGroupId": "MH2537-P290-291-ROW-30-41",
+      "sourceAuthorityId": "MAHABHUT_2537_PRIMARY_WORKING_EDITION",
+      "directOrDerived": "DIRECT",
+      "parentRefs": [],
+      "domains": [
+        "work",
+        "authority",
+        "pressure"
+      ],
+      "period": "30-41",
+      "polarity": "NEUTRAL",
+      "timingGranularity": "LIFE_PERIOD",
+      "sourceLocation": {
+        "kind": "PDF_PAGE_CLAUSE",
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "pages": [
+          290,
+          291
+        ],
+        "exactPassage": "อายุ 30 ถึง 41 ปี ดาวราหู ดาวแห่งเดช สถิตเรือนอธิบดี"
+      },
+      "prohibitedExtrapolations": [
+        "placement alone as prediction",
+        "specific title",
+        "specific job change"
+      ]
+    },
+    {
+      "signalId": "T0003-SRC-42-62-PLACEMENT",
+      "signalType": "SOURCE_PLACEMENT_FACT",
+      "semanticRecord": true,
+      "evidenceOwnerId": "EO-MH2537-P291-PLACEMENT-42-62",
+      "sourceUnitId": "MH2537-P291-ROW-42-62",
+      "derivationGroupId": "MH2537-P291-ROW-42-62",
+      "sourceAuthorityId": "MAHABHUT_2537_PRIMARY_WORKING_EDITION",
+      "directOrDerived": "DIRECT",
+      "parentRefs": [],
+      "domains": [
+        "finance",
+        "status"
+      ],
+      "period": "42-62",
+      "polarity": "NEUTRAL",
+      "timingGranularity": "LIFE_PERIOD",
+      "sourceLocation": {
+        "kind": "PDF_PAGE_CLAUSE",
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "pages": [
+          291
+        ],
+        "exactPassage": "อายุ 42 ถึง 62 ปี ดาวศุกร์ ดาวแห่งศรี สถิตเรือนธงชัย"
+      },
+      "prohibitedExtrapolations": [
+        "placement alone as prediction"
+      ]
+    },
+    {
+      "signalId": "T0003-SRC-42-62-SUPPORT",
+      "signalType": "SOURCE_DIRECT_EVENT",
+      "semanticRecord": true,
+      "evidenceOwnerId": "EO-MH2537-P291-SUPPORT-42-62",
+      "sourceUnitId": "MH2537-P291-CLAUSE-SUPPORT",
+      "derivationGroupId": "MH2537-P291-RESULTS-42-62",
+      "sourceAuthorityId": "MAHABHUT_2537_PRIMARY_WORKING_EDITION",
+      "directOrDerived": "DIRECT",
+      "parentRefs": [],
+      "domains": [
+        "support"
+      ],
+      "period": "42-62",
+      "polarity": "POSITIVE",
+      "timingGranularity": "LIFE_PERIOD",
+      "sourceLocation": {
+        "kind": "PDF_PAGE_CLAUSE",
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "pages": [
+          291
+        ],
+        "exactPassage": "ได้รับการช่วยเหลือสนับสนุนจากครูบาอาจารย์และพรรคพวกเพื่อนฝูง"
+      },
+      "prohibitedExtrapolations": [
+        "named person",
+        "guaranteed patron",
+        "romantic relationship"
+      ]
+    },
+    {
+      "signalId": "T0003-SRC-42-62-WORK",
+      "signalType": "SOURCE_DIRECT_EVENT",
+      "semanticRecord": true,
+      "evidenceOwnerId": "EO-MH2537-P291-WORK-42-62",
+      "sourceUnitId": "MH2537-P291-CLAUSE-WORK",
+      "derivationGroupId": "MH2537-P291-RESULTS-42-62",
+      "sourceAuthorityId": "MAHABHUT_2537_PRIMARY_WORKING_EDITION",
+      "directOrDerived": "DIRECT",
+      "parentRefs": [],
+      "domains": [
+        "work"
+      ],
+      "period": "42-62",
+      "polarity": "POSITIVE",
+      "timingGranularity": "LIFE_PERIOD",
+      "sourceLocation": {
+        "kind": "PDF_PAGE_CLAUSE",
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "pages": [
+          291
+        ],
+        "exactPassage": "ให้มีงานทำ"
+      },
+      "prohibitedExtrapolations": [
+        "promotion",
+        "specific employer",
+        "specific date"
+      ]
+    },
+    {
+      "signalId": "T0003-SRC-42-62-FINANCE",
+      "signalType": "SOURCE_DIRECT_EVENT",
+      "semanticRecord": true,
+      "evidenceOwnerId": "EO-MH2537-P291-FINANCE-LUCK-42-62",
+      "sourceUnitId": "MH2537-P291-CLAUSE-FINANCE-LUCK",
+      "derivationGroupId": "MH2537-P291-RESULTS-42-62",
+      "sourceAuthorityId": "MAHABHUT_2537_PRIMARY_WORKING_EDITION",
+      "directOrDerived": "DIRECT",
+      "parentRefs": [],
+      "domains": [
+        "finance",
+        "luck"
+      ],
+      "period": "42-62",
+      "polarity": "POSITIVE",
+      "timingGranularity": "LIFE_PERIOD",
+      "sourceLocation": {
+        "kind": "PDF_PAGE_CLAUSE",
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "pages": [
+          291
+        ],
+        "exactPassage": "ให้มีเงินใช้ ให้มีโชคมีลาภ"
+      },
+      "prohibitedExtrapolations": [
+        "amount",
+        "windfall size",
+        "specific date"
+      ]
+    },
+    {
+      "signalId": "T0003-SRC-42-62-FLOW",
+      "signalType": "SOURCE_DIRECT_TREND",
+      "semanticRecord": true,
+      "evidenceOwnerId": "EO-MH2537-P291-FLOW-42-62",
+      "sourceUnitId": "MH2537-P291-CLAUSE-FLOW",
+      "derivationGroupId": "MH2537-P291-RESULTS-42-62",
+      "sourceAuthorityId": "MAHABHUT_2537_PRIMARY_WORKING_EDITION",
+      "directOrDerived": "DIRECT",
+      "parentRefs": [],
+      "domains": [
+        "work",
+        "communication",
+        "decision"
+      ],
+      "period": "42-62",
+      "polarity": "POSITIVE",
+      "timingGranularity": "LIFE_PERIOD",
+      "sourceLocation": {
+        "kind": "PDF_PAGE_CLAUSE",
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "pages": [
+          291
+        ],
+        "exactPassage": "การทำ การพูด การคิด ทุกอย่างจะราบรื่นลื่นไหลไร้อุปสรรค"
+      },
+      "prohibitedExtrapolations": [
+        "guaranteed outcome",
+        "zero risk",
+        "specific decision result"
+      ]
+    },
+    {
+      "signalId": "T0003-SRC-42-43-61-62-EXCEPTION",
+      "signalType": "SOURCE_DIRECT_EVENT",
+      "semanticRecord": true,
+      "evidenceOwnerId": "EO-MH2537-P291-292-EXCEPTION",
+      "sourceUnitId": "MH2537-P291-292-CLAUSE-EXCEPTION",
+      "derivationGroupId": "MH2537-P291-292-EXCEPTION",
+      "sourceAuthorityId": "MAHABHUT_2537_PRIMARY_WORKING_EDITION",
+      "directOrDerived": "DIRECT",
+      "parentRefs": [],
+      "domains": [
+        "finance",
+        "communication"
+      ],
+      "period": "42-43|61-62",
+      "polarity": "NEGATIVE",
+      "timingGranularity": "LIFE_PERIOD",
+      "sourceLocation": {
+        "kind": "PDF_PAGE_CLAUSE",
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "pages": [
+          291,
+          292
+        ],
+        "exactPassage": "ได้มาแล้วก็สูญเสียคืนไป เจ้าชะตาควรระวังคำพูดคำจา"
+      },
+      "prohibitedExtrapolations": [
+        "apply to age 44",
+        "apply to all ages 42–62",
+        "specific loss amount"
+      ]
+    },
+    {
+      "signalId": "T0003-SRC-63-79-PLACEMENT",
+      "signalType": "SOURCE_PLACEMENT_FACT",
+      "semanticRecord": true,
+      "evidenceOwnerId": "EO-MH2537-P290-PLACEMENT-63-79",
+      "sourceUnitId": "MH2537-P290-ROW-63-79",
+      "derivationGroupId": "MH2537-P290-ROW-63-79",
+      "sourceAuthorityId": "MAHABHUT_2537_PRIMARY_WORKING_EDITION",
+      "directOrDerived": "DIRECT",
+      "parentRefs": [],
+      "domains": [
+        "home",
+        "family",
+        "documents",
+        "communication"
+      ],
+      "period": "63-79",
+      "polarity": "NEUTRAL",
+      "timingGranularity": "LIFE_PERIOD",
+      "sourceLocation": {
+        "kind": "PDF_PAGE_CLAUSE",
+        "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
+        "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
+        "pages": [
+          290
+        ],
+        "exactPassage": "ดาวพุธ ดาวแห่งมูละ สถิตเรือนอธิบดี"
+      },
+      "prohibitedExtrapolations": [
+        "placement alone as prediction",
+        "property purchase",
+        "inheritance event"
+      ]
+    }
+  ],
+  "canonSignals": [
+    {
+      "signalId": "T0003-CANON-JUPITER-LEARNING",
+      "signalType": "CANON_DOMAIN_OR_DIRECTION",
+      "semanticRecord": true,
+      "evidenceOwnerId": "EO-CANON-P220-JUPITER-SCOPE",
+      "sourceUnitId": "CANON-P220-JUPITER-SCOPE",
+      "derivationGroupId": "CANON-P220-JUPITER-SCOPE",
+      "sourceAuthorityId": "PRODUCTION_CANON",
+      "directOrDerived": "DIRECT",
+      "parentRefs": [],
+      "domains": [
+        "learning"
+      ],
+      "period": "11-29",
+      "polarity": "NEUTRAL",
+      "timingGranularity": "LIFE_PERIOD",
+      "sourceLocation": {
+        "kind": "REPOSITORY_CANON_RULE",
+        "ruleId": "mahabhut.p220.jupiter_owns_learning",
+        "repositoryRef": "production Canon"
+      },
+      "prohibitedExtrapolations": [
+        "do not treat placement-derived facets as independent owners",
+        "no event inference from domain mapping alone"
+      ]
+    },
+    {
+      "signalId": "T0003-CANON-JUPITER-CAREER",
+      "signalType": "CANON_DOMAIN_OR_DIRECTION",
+      "semanticRecord": true,
+      "evidenceOwnerId": "EO-CANON-P220-JUPITER-SCOPE",
+      "sourceUnitId": "CANON-P220-JUPITER-SCOPE",
+      "derivationGroupId": "CANON-P220-JUPITER-SCOPE",
+      "sourceAuthorityId": "PRODUCTION_CANON",
+      "directOrDerived": "DERIVED",
+      "parentRefs": [
+        "T0003-CANON-JUPITER-LEARNING"
+      ],
+      "domains": [
+        "work"
+      ],
+      "period": "11-29",
+      "polarity": "NEUTRAL",
+      "timingGranularity": "LIFE_PERIOD",
+      "sourceLocation": {
+        "kind": "REPOSITORY_CANON_RULE",
+        "ruleId": "mahabhut.p220.jupiter_owns_career",
+        "repositoryRef": "production Canon"
+      },
+      "prohibitedExtrapolations": [
+        "do not treat placement-derived facets as independent owners",
+        "no event inference from domain mapping alone"
+      ]
+    },
+    {
+      "signalId": "T0003-CANON-RAHU-SCOPE",
+      "signalType": "CANON_DOMAIN_OR_DIRECTION",
+      "semanticRecord": true,
+      "evidenceOwnerId": "EO-MH2537-P290-291-PLACEMENT-30-41",
+      "sourceUnitId": "MH2537-P290-291-ROW-30-41",
+      "derivationGroupId": "MH2537-P290-291-ROW-30-41",
+      "sourceAuthorityId": "MAHABHUT_2537_RULEBOOK_DERIVATION",
+      "directOrDerived": "DERIVED",
+      "parentRefs": [
+        "T0003-SRC-30-41-PLACEMENT"
+      ],
+      "domains": [
+        "pressure"
+      ],
+      "period": "30-41",
+      "polarity": "NEUTRAL",
+      "timingGranularity": "LIFE_PERIOD",
+      "sourceLocation": {
+        "kind": "REPOSITORY_CANON_RULE",
+        "ruleId": "MH2537-PLANET-RAHU",
+        "repositoryRef": "proposed source rulebook"
+      },
+      "prohibitedExtrapolations": [
+        "do not treat placement-derived facets as independent owners",
+        "no event inference from domain mapping alone"
+      ]
+    },
+    {
+      "signalId": "T0003-CANON-DET-WORK",
+      "signalType": "CANON_DOMAIN_OR_DIRECTION",
+      "semanticRecord": true,
+      "evidenceOwnerId": "EO-MH2537-P290-291-PLACEMENT-30-41",
+      "sourceUnitId": "MH2537-P290-291-ROW-30-41",
+      "derivationGroupId": "MH2537-P290-291-ROW-30-41",
+      "sourceAuthorityId": "MAHABHUT_2537_RULEBOOK_DERIVATION",
+      "directOrDerived": "DERIVED",
+      "parentRefs": [
+        "T0003-SRC-30-41-PLACEMENT"
+      ],
+      "domains": [
+        "work"
+      ],
+      "period": "30-41",
+      "polarity": "NEUTRAL",
+      "timingGranularity": "LIFE_PERIOD",
+      "sourceLocation": {
+        "kind": "REPOSITORY_CANON_RULE",
+        "ruleId": "MH2537-TAKSA-DET",
+        "repositoryRef": "proposed source rulebook"
+      },
+      "prohibitedExtrapolations": [
+        "do not treat placement-derived facets as independent owners",
+        "no event inference from domain mapping alone"
+      ]
+    },
+    {
+      "signalId": "T0003-CANON-MERCURY-FAMILY",
+      "signalType": "CANON_DOMAIN_OR_DIRECTION",
+      "semanticRecord": true,
+      "evidenceOwnerId": "EO-CANON-P28-MERCURY-SCOPE",
+      "sourceUnitId": "CANON-P28-MERCURY-SCOPE",
+      "derivationGroupId": "CANON-P28-MERCURY-SCOPE",
+      "sourceAuthorityId": "PRODUCTION_CANON",
+      "directOrDerived": "DIRECT",
+      "parentRefs": [],
+      "domains": [
+        "family"
+      ],
+      "period": "63-79",
+      "polarity": "NEUTRAL",
+      "timingGranularity": "LIFE_PERIOD",
+      "sourceLocation": {
+        "kind": "REPOSITORY_CANON_RULE",
+        "ruleId": "mahabhut.p28.mercury_owns_family",
+        "repositoryRef": "production Canon"
+      },
+      "prohibitedExtrapolations": [
+        "do not treat placement-derived facets as independent owners",
+        "no event inference from domain mapping alone"
+      ]
+    },
+    {
+      "signalId": "T0003-CANON-MERCURY-COMMUNICATION",
+      "signalType": "CANON_DOMAIN_OR_DIRECTION",
+      "semanticRecord": true,
+      "evidenceOwnerId": "EO-MH2537-P290-PLACEMENT-63-79",
+      "sourceUnitId": "MH2537-P290-ROW-63-79",
+      "derivationGroupId": "MH2537-P290-ROW-63-79",
+      "sourceAuthorityId": "MAHABHUT_2537_RULEBOOK_DERIVATION",
+      "directOrDerived": "DERIVED",
+      "parentRefs": [
+        "T0003-SRC-63-79-PLACEMENT"
+      ],
+      "domains": [
+        "communication"
+      ],
+      "period": "63-79",
+      "polarity": "NEUTRAL",
+      "timingGranularity": "LIFE_PERIOD",
+      "sourceLocation": {
+        "kind": "REPOSITORY_CANON_RULE",
+        "ruleId": "MH2537-PLANET-MERCURY",
+        "repositoryRef": "proposed source rulebook"
+      },
+      "prohibitedExtrapolations": [
+        "do not treat placement-derived facets as independent owners",
+        "no event inference from domain mapping alone"
+      ]
+    },
+    {
+      "signalId": "T0003-CANON-MULA-FOUNDATION",
+      "signalType": "CANON_DOMAIN_OR_DIRECTION",
+      "semanticRecord": true,
+      "evidenceOwnerId": "EO-MH2537-P290-PLACEMENT-63-79",
+      "sourceUnitId": "MH2537-P290-ROW-63-79",
+      "derivationGroupId": "MH2537-P290-ROW-63-79",
+      "sourceAuthorityId": "MAHABHUT_2537_RULEBOOK_DERIVATION",
+      "directOrDerived": "DERIVED",
+      "parentRefs": [
+        "T0003-SRC-63-79-PLACEMENT"
+      ],
+      "domains": [
+        "home"
+      ],
+      "period": "63-79",
+      "polarity": "NEUTRAL",
+      "timingGranularity": "LIFE_PERIOD",
+      "sourceLocation": {
+        "kind": "REPOSITORY_CANON_RULE",
+        "ruleId": "MH2537-TAKSA-MULA",
+        "repositoryRef": "proposed source rulebook"
+      },
+      "prohibitedExtrapolations": [
+        "do not treat placement-derived facets as independent owners",
+        "no event inference from domain mapping alone"
+      ]
+    },
+    {
+      "signalId": "T0003-CANON-STRONG-HOUSE",
+      "signalType": "CANON_DOMAIN_OR_DIRECTION",
+      "semanticRecord": true,
+      "evidenceOwnerId": "EO-MH2537-P291-PLACEMENT-42-62",
+      "sourceUnitId": "MH2537-P291-ROW-42-62",
+      "derivationGroupId": "MH2537-P291-ROW-42-62",
+      "sourceAuthorityId": "MAHABHUT_2537_RULEBOOK_DERIVATION",
+      "directOrDerived": "DERIVED",
+      "parentRefs": [
+        "T0003-SRC-42-62-PLACEMENT"
+      ],
+      "domains": [
+        "life_direction"
+      ],
+      "period": "11-29|30-41|42-62|63-79",
+      "polarity": "POSITIVE",
+      "timingGranularity": "LIFE_PERIOD",
+      "sourceLocation": {
+        "kind": "REPOSITORY_CANON_RULE",
+        "ruleId": "MH2537-HOUSE-STRONG-DIRECTION",
+        "repositoryRef": "proposed source rulebook"
+      },
+      "prohibitedExtrapolations": [
+        "do not treat placement-derived facets as independent owners",
+        "no event inference from domain mapping alone"
+      ]
+    }
+  ],
+  "researchSignals": [],
+  "counts": {
+    "sourceSignals": 11,
+    "canonSignals": 8,
+    "researchSignals": 0,
+    "distinctEvidenceOwners": 13,
+    "derivedSignals": 6
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "version",
+    "status",
+    "rules",
+    "globalRules"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 5,
+      "items": {
+        "type": "object",
+        "required": [
+          "ruleId",
+          "authorityTier",
+          "requiredSignalTypes",
+          "minimumIndependentEvidenceOwners",
+          "domainRule",
+          "periodRule",
+          "polarityRule",
+          "timingRule",
+          "causalAuthorityRequired",
+          "allowedStrength",
+          "conflictHandling",
+          "summaryOnly"
+        ]
+      }
+    }
+  }
+}
