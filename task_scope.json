@@ -1,51 +1,57 @@
 {
   "schema_version": 1,
-  "task_id": "thai-report-predictive-authority-foundation-v3",
-  "expected_branch": "codex/thai-predictive-authority-foundation-v3",
+  "task_id": "thai-unknown-time-input-copy-accuracy-v1",
+  "expected_branch": "codex/thai-unknown-time-input-copy-accuracy-v1",
   "expected_worktree": "C:/Users/USER/Documents/Knowme/pr107-release-main",
-  "base_ref": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+  "base_ref": "e094c789ec4e0dcd24d9b79a01c3bbd569f1c70c",
   "allowed_files": [
-    "TASK_RESULT.md",
     "task.md",
+    "TASK_RESULT.md",
     "task_scope.json",
     "docs/CURRENT_STATUS.md",
     "docs/HANDOFF.md",
     "docs/ROADMAP.md",
-    "docs/THAI_REPORT_READER_EXPERIENCE_V2.md"
+    "docs/THAI_REPORT_READER_EXPERIENCE_V2.md",
+    "lib/features/thai_beta/presentation/pages/thai_beta_input_page.dart",
+    "test/validation/thai_beta/thai_beta_unknown_time_input_copy_test.dart"
   ],
-  "allowed_globs": [
-    "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_INVENTORY_V2*",
-    "knowledge/canon/proposed/THAI_MAHABHUT_PREDICTIVE_RULEBOOK_V2*",
-    "knowledge/canon/proposed/MAHABHUT_RULE_APPLICATION_MATRIX_392*",
-    "docs/*PREDICTIVE_AUTHORITY*V3*",
-    "docs/*PREDICTIVE_AUTHORITY*49*",
-    "docs/*PREDICTIVE_CONFLICT_REPORT_V3*",
-    "docs/*CANDIDATE_0012*",
-    "docs/CANDIDATE_0011_RECLASSIFICATION_V3*",
-    "docs/CANDIDATE_0011_TO_0012_BEFORE_AFTER_V3*",
-    "docs/MANUAL_AI_CONTENT_AUDIT_V3*",
-    "tool/*predictive_authority_foundation_v3.mjs",
-    "test/evidence/predictive_authority_foundation_v3.test.mjs"
+  "allowed_globs": [],
+  "forbidden_files": [
+    ".env",
+    ".env.*",
+    "**/*.pem",
+    "**/*.key",
+    "**/google-services.json",
+    "**/GoogleService-Info.plist",
+    "**/firestore_user_export.json",
+    "product-acceptance/**"
   ],
-  "forbidden_globs": [
-    "lib/**",
-    "product-acceptance/**",
-    "firebase.json",
-    "firestore.rules",
-    "firestore.indexes.json",
-    "storage.rules",
-    "functions/**",
-    "web/**"
+  "generated_output_globs": [
+    "build/**",
+    ".dart_tool/**",
+    "coverage/**",
+    "**/failures/**",
+    "**/__pycache__/**",
+    "**/*.pyc",
+    "**/*.pdf"
   ],
-  "validation_commands": [
-    "node tool/build_predictive_authority_foundation_v3.mjs --ocr-dir=<trusted-ocr-directory> --pdf=<trusted-source-pdf>",
-    "node tool/validate_predictive_authority_foundation_v3.mjs --ocr-dir=<trusted-ocr-directory> --pdf=<trusted-source-pdf>",
-    "node --test test/evidence/predictive_authority_foundation_v3.test.mjs",
-    "git diff --check"
+  "forbidden_text_patterns": [
+    "OPENAI_API_KEY",
+    "api.openai.com",
+    "knowme-ai-worker",
+    "final_result.json",
+    "round_[0-9]+_review\\.json"
   ],
-  "full_flutter_suite_policy": "not_run_no_dart_runtime_or_test_delta",
-  "analyzer_policy": "not_run_no_dart_runtime_or_test_delta",
-  "commit_message_regex": "^(docs|test): .{10,90}$",
-  "require_clean_tree_after_commit": true,
-  "final_state": "PENDING_OWNER_RULEBOOK_AND_CONTENT_REVIEW_NOT_IMPLEMENTED_NOT_MERGED_NOT_DEPLOYED"
+  "focused_tests": [
+    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/thai_beta_unknown_time_input_copy_test.dart test/validation/thai_beta/live_asof/thai_beta_date_aware_contract_test.dart",
+    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/live_asof/thai_beta_canonical_text_contract_test.dart test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart",
+    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart test/validation/thai_beta/narrative/thai_beta_narrative_v15_r5_acceptance_test.dart test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart",
+    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart test/validation/thai_beta/thai_beta_report_export_test.dart test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart",
+    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/thai_beta_screenshot_mode_test.dart test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart"
+  ],
+  "full_test_policy": "required",
+  "full_test_command": "flutter test --no-pub --concurrency=1 test/validation/thai_beta/ test/validation/thai/ test/validation/birth_normalization/ test/thai_foundation_engine_test.dart test/validation/thai_mirror_qa_harness/story_coverage_validation_test.dart test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart",
+  "analyze_command": "flutter analyze --no-pub --no-fatal-warnings --no-fatal-infos",
+  "commit_message_regex": "^(fix\\(thai-beta\\): .{10,72}|docs: .{10,72})$",
+  "require_clean_tree_after_commit": true
 }

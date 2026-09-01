@@ -1,0 +1,1200 @@
+{
+  "version": 1,
+  "status": "PASS_PR114_OR8_FINAL_MERGE_SURFACE",
+  "base": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+  "or7Head": "7605c68144699957929bc2466678c047394696f9",
+  "ownerAcceptedOracle": {
+    "candidate": "0011",
+    "readerFacingSha256": "6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E",
+    "claims": 24,
+    "predictions": 22,
+    "advice": 1,
+    "disclosure": 1,
+    "resolvedTargetFixtureChains": "22/22",
+    "asOfMismatch": 0
+  },
+  "scopeBoundary": {
+    "runtimeImplemented": false,
+    "proves49ContextReadiness": false,
+    "provesPredictiveAccuracy": false,
+    "directSourceQuotation": false
+  },
+  "counts": {
+    "beforeChangedPaths": 193,
+    "afterChangedPaths": 43,
+    "removedExperimentPaths": 154,
+    "canonicalRoots": 13,
+    "retainedDependencies": 34,
+    "proposedPathsReviewed": 33,
+    "proposedRequiredCanonicalFoundation": 3,
+    "proposedRequiredSourceTrace": 9,
+    "proposedRejectedExperiment": 21,
+    "proposedUnused": 0,
+    "orphanRetained": 0,
+    "missingDependencies": 0,
+    "staleReferences": 0,
+    "activeImportsRejectedCandidates": 0,
+    "activeImportsObsoleteOr": 0,
+    "conflictingContracts": 0,
+    "candidate0011ByteDelta": 0,
+    "runtimeApplicationDelta": 0,
+    "flutterTestDelta": 0,
+    "productAcceptanceDelta": 0
+  },
+  "errors": {
+    "missingDependencies": [],
+    "orphanRetained": [],
+    "staleRefs": [],
+    "rejectedRefs": [],
+    "obsoleteImports": []
+  },
+  "canonicalRoots": [
+    "docs/CANDIDATE_0011_ASOF_EQUIVALENCE_VALIDATION.json",
+    "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json",
+    "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.schema.json",
+    "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE_VALIDATION.json",
+    "docs/CANDIDATE_0011_RESOLVED_PRODUCT_RULE_MAP.json",
+    "docs/CANDIDATE_0011_RESOLVED_PRODUCT_RULE_MAP.md",
+    "docs/CANDIDATE_0011_RULE_MAP_GAP_REPORT.md",
+    "docs/PR114_FINAL_MERGE_MANIFEST.json",
+    "docs/PR114_FINAL_MERGE_MANIFEST.md",
+    "docs/THAI_PREDICTIVE_EVIDENCE_RESOLUTION_V1.json",
+    "knowledge/canon/proposed/PRODUCT_INTERPRETATION_CONTRACT_V1.json",
+    "knowledge/canon/proposed/PRODUCT_INTERPRETATION_CONTRACT_V1.md",
+    "knowledge/canon/proposed/PRODUCT_INTERPRETATION_CONTRACT_V1.schema.json"
+  ],
+  "transitiveDependencies": [
+    "docs/CANDIDATE_0011_ASOF_EQUIVALENCE_VALIDATION.json",
+    "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json",
+    "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.schema.json",
+    "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE_VALIDATION.json",
+    "docs/CANDIDATE_0011_RESOLVED_PRODUCT_RULE_MAP.json",
+    "docs/CANDIDATE_0011_RESOLVED_PRODUCT_RULE_MAP.md",
+    "docs/CANDIDATE_0011_RULE_MAP_GAP_REPORT.md",
+    "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
+    "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.md",
+    "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.schema.json",
+    "docs/THAI_PREDICTIVE_EVIDENCE_RESOLUTION_V1.json",
+    "knowledge/canon/proposed/PRODUCT_INTERPRETATION_CONTRACT_V1.json",
+    "knowledge/canon/proposed/PRODUCT_INTERPRETATION_CONTRACT_V1.md",
+    "knowledge/canon/proposed/PRODUCT_INTERPRETATION_CONTRACT_V1.schema.json",
+    "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_DIRECT_EVENT_ATOMS_V1.json",
+    "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_DIRECT_EVENT_ATOMS_V1.md",
+    "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_DIRECT_EVENT_ATOMS_V1.schema.json",
+    "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_INVENTORY_V2.json",
+    "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_INVENTORY_V2.md",
+    "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_INVENTORY_V2.schema.json",
+    "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_PERIOD_EXTRACTION_LEDGER_392.json",
+    "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_PERIOD_EXTRACTION_LEDGER_392.md",
+    "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_PERIOD_EXTRACTION_LEDGER_392.schema.json",
+    "test/evidence/candidate_0011_oracle.test.mjs",
+    "test/evidence/candidate_0011_rule_map.test.mjs",
+    "test/evidence/pr114_final_merge_surface.test.mjs",
+    "test/evidence/thai_predictive_evidence_v1.test.mjs",
+    "tool/build_candidate_0011_oracle.mjs",
+    "tool/build_candidate_0011_rule_map.mjs",
+    "tool/resolve_thai_predictive_evidence_v1.mjs",
+    "tool/validate_candidate_0011_oracle.mjs",
+    "tool/validate_candidate_0011_rule_map.mjs",
+    "tool/validate_pr114_final_merge_surface.mjs",
+    "tool/validate_thai_predictive_evidence_v1.mjs"
+  ],
+  "removedExperimentPaths": [
+    "docs/AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW.json",
+    "docs/AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW.md",
+    "docs/AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW_OR2.json",
+    "docs/AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW_OR2.md",
+    "docs/AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW_OR3.json",
+    "docs/AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW_OR3.md",
+    "docs/CANDIDATE_0011_RECLASSIFICATION_V3.json",
+    "docs/CANDIDATE_0011_RECLASSIFICATION_V3.md",
+    "docs/CANDIDATE_0011_TO_0012_BEFORE_AFTER_V3.json",
+    "docs/CANDIDATE_0011_TO_0012_BEFORE_AFTER_V3.md",
+    "docs/CANDIDATE_0016_TO_0017_BEFORE_AFTER.md",
+    "docs/CANDIDATE_0017_CONTENT_REVIEW.md",
+    "docs/CANDIDATE_0017_KNOWN.md",
+    "docs/CANDIDATE_0017_RULE_CHAIN_MAP.json",
+    "docs/CANDIDATE_0017_RULE_CHAIN_MAP.md",
+    "docs/CANDIDATE_0017_RULE_CHAIN_MAP.schema.json",
+    "docs/CANDIDATE_0017_TO_0018_BEFORE_AFTER.md",
+    "docs/CANDIDATE_0017_UNKNOWN.md",
+    "docs/CANDIDATE_0017_VALIDATION.json",
+    "docs/CANDIDATE_0018_CONTENT_REVIEW.md",
+    "docs/CANDIDATE_0018_KNOWN.md",
+    "docs/CANDIDATE_0018_OR6_NEGATIVE_CONTROLS.json",
+    "docs/CANDIDATE_0018_RESOLVED_RULE_CHAIN_MAP.json",
+    "docs/CANDIDATE_0018_RESOLVED_RULE_CHAIN_MAP.md",
+    "docs/CANDIDATE_0018_SEMANTIC_DUPLICATION_AUDIT.md",
+    "docs/CANDIDATE_0018_UNKNOWN.md",
+    "docs/CANDIDATE_0018_VALIDATION.json",
+    "docs/CODEX_EDITORIAL_REVIEW_CANDIDATE_0016_OR4.json",
+    "docs/CODEX_EDITORIAL_REVIEW_CANDIDATE_0016_OR4.md",
+    "docs/DETERMINISTIC_MACHINE_CONTENT_AUDIT_OR4.json",
+    "docs/DETERMINISTIC_MACHINE_CONTENT_AUDIT_OR4.md",
+    "docs/MANUAL_AI_CONTENT_AUDIT_V3.json",
+    "docs/MANUAL_AI_CONTENT_AUDIT_V3.md",
+    "docs/OR4_TRUTH_CORRECTION.md",
+    "docs/OR6_PRODUCT_CONTENT_TRUTH_CORRECTION.md",
+    "docs/OWNER_REVIEW_PR114_OR1_PACKAGE_VALIDATION.json",
+    "docs/OWNER_REVIEW_PR114_OR2_PACKAGE_VALIDATION.json",
+    "docs/OWNER_REVIEW_PR114_OR3_PACKAGE_VALIDATION.json",
+    "docs/OWNER_REVIEW_PR114_OR4_PACKAGE_VALIDATION.json",
+    "docs/PR114_OR2_OCR_HEURISTIC_RECLASSIFICATION.json",
+    "docs/PR114_OR2_OCR_HEURISTIC_RECLASSIFICATION.md",
+    "docs/PREDICTIVE_AUTHORITY_POPULATION_DIVERSITY_49.json",
+    "docs/PREDICTIVE_AUTHORITY_POPULATION_DIVERSITY_49.md",
+    "docs/TARGET_0003_PREDICTIVE_EVIDENCE_OWNER_LEDGER_V1.json",
+    "docs/TARGET_0003_PREDICTIVE_EVIDENCE_OWNER_LEDGER_V1.md",
+    "docs/TARGET_0003_PREDICTIVE_EVIDENCE_OWNER_LEDGER_V1.schema.json",
+    "docs/THAI_MAHABHUT_SOURCE_OCR_CORRECTIONS_OR2.json",
+    "docs/THAI_MAHABHUT_SOURCE_OCR_CORRECTIONS_OR2.md",
+    "docs/THAI_PREDICTIVE_AUTHORITY_COVERAGE_49.json",
+    "docs/THAI_PREDICTIVE_AUTHORITY_COVERAGE_49.md",
+    "docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_FIXTURE_SEPARATION.json",
+    "docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_NEGATIVE_CONTROLS.json",
+    "docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR1_DETERMINISM.json",
+    "docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR1_NEGATIVE_CONTROLS.json",
+    "docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR1_VALIDATION.json",
+    "docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR1_VALIDATION.md",
+    "docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR2_DETERMINISM.json",
+    "docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR2_NEGATIVE_CONTROLS.json",
+    "docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR2_VALIDATION.json",
+    "docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR2_VALIDATION.md",
+    "docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR3_DETERMINISM.json",
+    "docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR3_NEGATIVE_CONTROLS.json",
+    "docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR3_VALIDATION.json",
+    "docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR3_VALIDATION.md",
+    "docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR4_DETERMINISM.json",
+    "docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR4_NEGATIVE_CONTROLS.json",
+    "docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR4_VALIDATION.json",
+    "docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR4_VALIDATION.md",
+    "docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_VALIDATION.json",
+    "docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_VALIDATION.md",
+    "docs/THAI_PREDICTIVE_CONFLICT_REPORT_V3.json",
+    "docs/THAI_PREDICTIVE_CONFLICT_REPORT_V3.md",
+    "docs/THAI_PREDICTIVE_RESEARCH_LEDGER_V1.json",
+    "docs/THAI_PREDICTIVE_RESEARCH_LEDGER_V1.md",
+    "docs/THAI_PREDICTIVE_RESEARCH_LEDGER_V1.schema.json",
+    "docs/THAI_PREDICTIVE_SYNTHESIS_ROBUSTNESS_15.json",
+    "docs/THAI_PREDICTIVE_SYNTHESIS_ROBUSTNESS_15.md",
+    "docs/THAI_PREDICTIVE_SYNTHESIS_ROBUSTNESS_15.schema.json",
+    "docs/THAI_PREDICTIVE_SYNTHESIS_ROBUSTNESS_15_OR4.json",
+    "docs/THAI_PREDICTIVE_SYNTHESIS_ROBUSTNESS_15_OR4.md",
+    "docs/THAI_PREDICTIVE_SYNTHESIS_ROBUSTNESS_15_OR4.schema.json",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_CANDIDATE_0012_CLAIM_EVIDENCE_MAP.json",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_CANDIDATE_0012_CLAIM_EVIDENCE_MAP.md",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_CANDIDATE_0013_CLAIM_EVIDENCE_MAP.json",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_CANDIDATE_0014_CLAIM_EVIDENCE_MAP.json",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_CANDIDATE_0015_CLAIM_EVIDENCE_SYNTHESIS_MAP.json",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_CANDIDATE_0015_CLAIM_EVIDENCE_SYNTHESIS_MAP.md",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_CANDIDATE_0015_CLAIM_EVIDENCE_SYNTHESIS_MAP.schema.json",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_CANDIDATE_0015_TO_0016_BEFORE_AFTER.md",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_CANDIDATE_0016_CLAIM_EVIDENCE_SYNTHESIS_MAP.json",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_CANDIDATE_0016_CLAIM_EVIDENCE_SYNTHESIS_MAP.md",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_CANDIDATE_0016_CLAIM_EVIDENCE_SYNTHESIS_MAP.schema.json",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0012.md",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0012_UNKNOWN.md",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0013.md",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0014.md",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0014_KNOWN.md",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0014_UNKNOWN.md",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0015.md",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0015_KNOWN.md",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0015_UNKNOWN.md",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0016_KNOWN.md",
+    "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0016_UNKNOWN.md",
+    "knowledge/canon/proposed/AUTOMATED_PAGE_IMAGE_AND_OCR_INVENTORY_181.json",
+    "knowledge/canon/proposed/AUTOMATED_PAGE_IMAGE_AND_OCR_INVENTORY_181.md",
+    "knowledge/canon/proposed/AUTOMATED_PAGE_IMAGE_AND_OCR_INVENTORY_181.schema.json",
+    "knowledge/canon/proposed/MAHABHUT_RULE_APPLICATION_MATRIX_392.json",
+    "knowledge/canon/proposed/MAHABHUT_RULE_APPLICATION_MATRIX_392.md",
+    "knowledge/canon/proposed/MAHABHUT_RULE_APPLICATION_MATRIX_392.schema.json",
+    "knowledge/canon/proposed/SOURCE_PAGE_VISUAL_REVIEW_181.json",
+    "knowledge/canon/proposed/SOURCE_PAGE_VISUAL_REVIEW_181.md",
+    "knowledge/canon/proposed/SOURCE_PAGE_VISUAL_REVIEW_181.schema.json",
+    "knowledge/canon/proposed/THAI_MAHABHUT_PREDICTIVE_RULEBOOK_V2.json",
+    "knowledge/canon/proposed/THAI_MAHABHUT_PREDICTIVE_RULEBOOK_V2.md",
+    "knowledge/canon/proposed/THAI_MAHABHUT_PREDICTIVE_RULEBOOK_V2.schema.json",
+    "knowledge/canon/proposed/THAI_PREDICTIVE_RULE_SPECIFIC_VALIDATION_V1.json",
+    "knowledge/canon/proposed/THAI_PREDICTIVE_RULE_SPECIFIC_VALIDATION_V1.md",
+    "knowledge/canon/proposed/THAI_PREDICTIVE_RULE_SPECIFIC_VALIDATION_V1.schema.json",
+    "knowledge/canon/proposed/THAI_PREDICTIVE_SYNTHESIS_CONTRACT_V1.json",
+    "knowledge/canon/proposed/THAI_PREDICTIVE_SYNTHESIS_CONTRACT_V1.md",
+    "knowledge/canon/proposed/THAI_PREDICTIVE_SYNTHESIS_CONTRACT_V1.schema.json",
+    "knowledge/canon/proposed/THAI_PREDICTIVE_SYNTHESIS_RULEBOOK_V1.json",
+    "knowledge/canon/proposed/THAI_PREDICTIVE_SYNTHESIS_RULEBOOK_V1.md",
+    "knowledge/canon/proposed/THAI_PREDICTIVE_SYNTHESIS_RULEBOOK_V1.schema.json",
+    "test/evidence/candidate_0017_or5.test.mjs",
+    "test/evidence/candidate_0018_or6_content.test.mjs",
+    "test/evidence/predictive_authority_foundation_v3.test.mjs",
+    "test/evidence/predictive_authority_foundation_v3_or2.test.mjs",
+    "test/evidence/predictive_authority_foundation_v3_or3.test.mjs",
+    "test/evidence/predictive_authority_foundation_v3_or4.test.mjs",
+    "tool/build_candidate_0018_or6.mjs",
+    "tool/build_or6_product_content_truth_correction.mjs",
+    "tool/build_predictive_authority_foundation_v3.mjs",
+    "tool/build_predictive_authority_foundation_v3_or2.mjs",
+    "tool/build_predictive_authority_foundation_v3_or3_audit.mjs",
+    "tool/build_predictive_authority_foundation_v3_or3_candidate.mjs",
+    "tool/build_predictive_authority_foundation_v3_or3_contract.mjs",
+    "tool/build_predictive_authority_foundation_v3_or3_robustness.mjs",
+    "tool/build_predictive_authority_foundation_v3_or4_audit.mjs",
+    "tool/build_predictive_authority_foundation_v3_or4_candidate.mjs",
+    "tool/build_predictive_authority_foundation_v3_or4_model.mjs",
+    "tool/check_predictive_authority_foundation_v3_or2_determinism.mjs",
+    "tool/check_predictive_authority_foundation_v3_or3_determinism.mjs",
+    "tool/check_predictive_authority_foundation_v3_or4_determinism.mjs",
+    "tool/package_predictive_authority_foundation_v3.mjs",
+    "tool/package_predictive_authority_foundation_v3_or2.mjs",
+    "tool/package_predictive_authority_foundation_v3_or3.mjs",
+    "tool/package_predictive_authority_foundation_v3_or4.mjs",
+    "tool/predictive_authority_foundation_v3_or4_engine.mjs",
+    "tool/validate_candidate_0017_or5.mjs",
+    "tool/validate_predictive_authority_foundation_v3.mjs",
+    "tool/validate_predictive_authority_foundation_v3_or2.mjs",
+    "tool/validate_predictive_authority_foundation_v3_or3.mjs",
+    "tool/validate_predictive_authority_foundation_v3_or4.mjs"
+  ],
+  "proposedKnowledgeReview": [
+    {
+      "path": "knowledge/canon/proposed/AUTOMATED_PAGE_IMAGE_AND_OCR_INVENTORY_181.json",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/AUTOMATED_PAGE_IMAGE_AND_OCR_INVENTORY_181.md",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/AUTOMATED_PAGE_IMAGE_AND_OCR_INVENTORY_181.schema.json",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/MAHABHUT_RULE_APPLICATION_MATRIX_392.json",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/MAHABHUT_RULE_APPLICATION_MATRIX_392.md",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/MAHABHUT_RULE_APPLICATION_MATRIX_392.schema.json",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/PRODUCT_INTERPRETATION_CONTRACT_V1.json",
+      "classification": "REQUIRED_CANONICAL_FOUNDATION",
+      "retained": true,
+      "canonicalConsumer": "Candidate 0011 resolved product rule map",
+      "status": "PROPOSED_NON_RUNTIME",
+      "sourceAuthorityBoundary": "Bounded foundation/source trace; not a direct quotation or accuracy proof.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/PRODUCT_INTERPRETATION_CONTRACT_V1.md",
+      "classification": "REQUIRED_CANONICAL_FOUNDATION",
+      "retained": true,
+      "canonicalConsumer": "Candidate 0011 resolved product rule map",
+      "status": "PROPOSED_NON_RUNTIME",
+      "sourceAuthorityBoundary": "Bounded foundation/source trace; not a direct quotation or accuracy proof.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/PRODUCT_INTERPRETATION_CONTRACT_V1.schema.json",
+      "classification": "REQUIRED_CANONICAL_FOUNDATION",
+      "retained": true,
+      "canonicalConsumer": "Candidate 0011 resolved product rule map",
+      "status": "PROPOSED_NON_RUNTIME",
+      "sourceAuthorityBoundary": "Bounded foundation/source trace; not a direct quotation or accuracy proof.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/SOURCE_PAGE_VISUAL_REVIEW_181.json",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/SOURCE_PAGE_VISUAL_REVIEW_181.md",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/SOURCE_PAGE_VISUAL_REVIEW_181.schema.json",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_PREDICTIVE_RULEBOOK_V2.json",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_PREDICTIVE_RULEBOOK_V2.md",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_PREDICTIVE_RULEBOOK_V2.schema.json",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_DIRECT_EVENT_ATOMS_V1.json",
+      "classification": "REQUIRED_SOURCE_TRACE",
+      "retained": true,
+      "canonicalConsumer": "Candidate 0011 resolved product rule map",
+      "status": "PROPOSED_NON_RUNTIME",
+      "sourceAuthorityBoundary": "Bounded foundation/source trace; not a direct quotation or accuracy proof.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_DIRECT_EVENT_ATOMS_V1.md",
+      "classification": "REQUIRED_SOURCE_TRACE",
+      "retained": true,
+      "canonicalConsumer": "Candidate 0011 resolved product rule map",
+      "status": "PROPOSED_NON_RUNTIME",
+      "sourceAuthorityBoundary": "Bounded foundation/source trace; not a direct quotation or accuracy proof.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_DIRECT_EVENT_ATOMS_V1.schema.json",
+      "classification": "REQUIRED_SOURCE_TRACE",
+      "retained": true,
+      "canonicalConsumer": "Candidate 0011 resolved product rule map",
+      "status": "PROPOSED_NON_RUNTIME",
+      "sourceAuthorityBoundary": "Bounded foundation/source trace; not a direct quotation or accuracy proof.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_INVENTORY_V2.json",
+      "classification": "REQUIRED_SOURCE_TRACE",
+      "retained": true,
+      "canonicalConsumer": "Candidate 0011 resolved product rule map",
+      "status": "PROPOSED_NON_RUNTIME",
+      "sourceAuthorityBoundary": "Bounded foundation/source trace; not a direct quotation or accuracy proof.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_INVENTORY_V2.md",
+      "classification": "REQUIRED_SOURCE_TRACE",
+      "retained": true,
+      "canonicalConsumer": "Candidate 0011 resolved product rule map",
+      "status": "PROPOSED_NON_RUNTIME",
+      "sourceAuthorityBoundary": "Bounded foundation/source trace; not a direct quotation or accuracy proof.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_INVENTORY_V2.schema.json",
+      "classification": "REQUIRED_SOURCE_TRACE",
+      "retained": true,
+      "canonicalConsumer": "Candidate 0011 resolved product rule map",
+      "status": "PROPOSED_NON_RUNTIME",
+      "sourceAuthorityBoundary": "Bounded foundation/source trace; not a direct quotation or accuracy proof.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_PERIOD_EXTRACTION_LEDGER_392.json",
+      "classification": "REQUIRED_SOURCE_TRACE",
+      "retained": true,
+      "canonicalConsumer": "Candidate 0011 resolved product rule map",
+      "status": "PROPOSED_NON_RUNTIME",
+      "sourceAuthorityBoundary": "Bounded foundation/source trace; not a direct quotation or accuracy proof.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_PERIOD_EXTRACTION_LEDGER_392.md",
+      "classification": "REQUIRED_SOURCE_TRACE",
+      "retained": true,
+      "canonicalConsumer": "Candidate 0011 resolved product rule map",
+      "status": "PROPOSED_NON_RUNTIME",
+      "sourceAuthorityBoundary": "Bounded foundation/source trace; not a direct quotation or accuracy proof.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_PERIOD_EXTRACTION_LEDGER_392.schema.json",
+      "classification": "REQUIRED_SOURCE_TRACE",
+      "retained": true,
+      "canonicalConsumer": "Candidate 0011 resolved product rule map",
+      "status": "PROPOSED_NON_RUNTIME",
+      "sourceAuthorityBoundary": "Bounded foundation/source trace; not a direct quotation or accuracy proof.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_PREDICTIVE_RULE_SPECIFIC_VALIDATION_V1.json",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_PREDICTIVE_RULE_SPECIFIC_VALIDATION_V1.md",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_PREDICTIVE_RULE_SPECIFIC_VALIDATION_V1.schema.json",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_PREDICTIVE_SYNTHESIS_CONTRACT_V1.json",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_PREDICTIVE_SYNTHESIS_CONTRACT_V1.md",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_PREDICTIVE_SYNTHESIS_CONTRACT_V1.schema.json",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_PREDICTIVE_SYNTHESIS_RULEBOOK_V1.json",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_PREDICTIVE_SYNTHESIS_RULEBOOK_V1.md",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_PREDICTIVE_SYNTHESIS_RULEBOOK_V1.schema.json",
+      "classification": "REJECTED_EXPERIMENT",
+      "retained": false,
+      "canonicalConsumer": null,
+      "status": "REMOVED_FROM_FINAL_SURFACE",
+      "sourceAuthorityBoundary": "Rejected experiment; no active authority.",
+      "runtimeMayConsume": false,
+      "ownerAcceptanceRequiredBeforeRuntime": true
+    }
+  ],
+  "retainedChangedPaths": [
+    {
+      "path": "TASK_RESULT.md",
+      "category": "STATUS_DOCUMENTATION",
+      "canonicalStatus": "SUPPORTING_NON_RUNTIME",
+      "purpose": "Record the current OR8 review state.",
+      "directConsumers": [
+        "Owner review",
+        "repository handoff"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Required six-file status synchronization."
+    },
+    {
+      "path": "docs/CANDIDATE_0011_ASOF_EQUIVALENCE_VALIDATION.json",
+      "category": "REQUIRED_CANONICAL_FOUNDATION",
+      "canonicalStatus": "OWNER_AUTHORIZED_FOUNDATION_NOT_RUNTIME",
+      "purpose": "Define or prove the Owner-authorized Candidate 0011 product interpretation foundation.",
+      "directConsumers": [
+        "tool/validate_candidate_0011_oracle.mjs",
+        "tool/validate_candidate_0011_rule_map.mjs"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Canonical root or direct dependency of the immutable Candidate 0011 oracle."
+    },
+    {
+      "path": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json",
+      "category": "REQUIRED_CANONICAL_FOUNDATION",
+      "canonicalStatus": "OWNER_AUTHORIZED_FOUNDATION_NOT_RUNTIME",
+      "purpose": "Define or prove the Owner-authorized Candidate 0011 product interpretation foundation.",
+      "directConsumers": [
+        "tool/validate_candidate_0011_oracle.mjs",
+        "tool/validate_candidate_0011_rule_map.mjs"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Canonical root or direct dependency of the immutable Candidate 0011 oracle."
+    },
+    {
+      "path": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.schema.json",
+      "category": "REQUIRED_CANONICAL_FOUNDATION",
+      "canonicalStatus": "OWNER_AUTHORIZED_FOUNDATION_NOT_RUNTIME",
+      "purpose": "Define or prove the Owner-authorized Candidate 0011 product interpretation foundation.",
+      "directConsumers": [
+        "tool/validate_candidate_0011_oracle.mjs",
+        "tool/validate_candidate_0011_rule_map.mjs"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Canonical root or direct dependency of the immutable Candidate 0011 oracle."
+    },
+    {
+      "path": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE_VALIDATION.json",
+      "category": "REQUIRED_CANONICAL_FOUNDATION",
+      "canonicalStatus": "OWNER_AUTHORIZED_FOUNDATION_NOT_RUNTIME",
+      "purpose": "Define or prove the Owner-authorized Candidate 0011 product interpretation foundation.",
+      "directConsumers": [
+        "tool/validate_candidate_0011_oracle.mjs",
+        "tool/validate_candidate_0011_rule_map.mjs"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Canonical root or direct dependency of the immutable Candidate 0011 oracle."
+    },
+    {
+      "path": "docs/CANDIDATE_0011_RESOLVED_PRODUCT_RULE_MAP.json",
+      "category": "REQUIRED_CANONICAL_FOUNDATION",
+      "canonicalStatus": "OWNER_AUTHORIZED_FOUNDATION_NOT_RUNTIME",
+      "purpose": "Define or prove the Owner-authorized Candidate 0011 product interpretation foundation.",
+      "directConsumers": [
+        "tool/validate_candidate_0011_oracle.mjs",
+        "tool/validate_candidate_0011_rule_map.mjs"
+      ],
+      "dependencies": [
+        "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json",
+        "docs/THAI_PREDICTIVE_EVIDENCE_RESOLUTION_V1.json"
+      ],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Canonical root or direct dependency of the immutable Candidate 0011 oracle."
+    },
+    {
+      "path": "docs/CANDIDATE_0011_RESOLVED_PRODUCT_RULE_MAP.md",
+      "category": "REQUIRED_CANONICAL_FOUNDATION",
+      "canonicalStatus": "OWNER_AUTHORIZED_FOUNDATION_NOT_RUNTIME",
+      "purpose": "Define or prove the Owner-authorized Candidate 0011 product interpretation foundation.",
+      "directConsumers": [
+        "tool/validate_candidate_0011_oracle.mjs",
+        "tool/validate_candidate_0011_rule_map.mjs"
+      ],
+      "dependencies": [
+        "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json",
+        "docs/THAI_PREDICTIVE_EVIDENCE_RESOLUTION_V1.json"
+      ],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Canonical root or direct dependency of the immutable Candidate 0011 oracle."
+    },
+    {
+      "path": "docs/CANDIDATE_0011_RULE_MAP_GAP_REPORT.md",
+      "category": "REQUIRED_CANONICAL_FOUNDATION",
+      "canonicalStatus": "OWNER_AUTHORIZED_FOUNDATION_NOT_RUNTIME",
+      "purpose": "Define or prove the Owner-authorized Candidate 0011 product interpretation foundation.",
+      "directConsumers": [
+        "tool/validate_candidate_0011_oracle.mjs",
+        "tool/validate_candidate_0011_rule_map.mjs"
+      ],
+      "dependencies": [
+        "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json",
+        "docs/THAI_PREDICTIVE_EVIDENCE_RESOLUTION_V1.json"
+      ],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Canonical root or direct dependency of the immutable Candidate 0011 oracle."
+    },
+    {
+      "path": "docs/CURRENT_STATUS.md",
+      "category": "STATUS_DOCUMENTATION",
+      "canonicalStatus": "SUPPORTING_NON_RUNTIME",
+      "purpose": "Record the current OR8 review state.",
+      "directConsumers": [
+        "Owner review",
+        "repository handoff"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Required six-file status synchronization."
+    },
+    {
+      "path": "docs/HANDOFF.md",
+      "category": "STATUS_DOCUMENTATION",
+      "canonicalStatus": "SUPPORTING_NON_RUNTIME",
+      "purpose": "Record the current OR8 review state.",
+      "directConsumers": [
+        "Owner review",
+        "repository handoff"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Required six-file status synchronization."
+    },
+    {
+      "path": "docs/PR114_FINAL_MERGE_MANIFEST.json",
+      "category": "FINAL_MERGE_MANIFEST",
+      "canonicalStatus": "SUPPORTING_NON_RUNTIME",
+      "purpose": "Machine-readable or human-readable final closure and scope accounting.",
+      "directConsumers": [
+        "test/evidence/pr114_final_merge_surface.test.mjs",
+        "Owner review"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Required proof of the final merge surface."
+    },
+    {
+      "path": "docs/PR114_FINAL_MERGE_MANIFEST.md",
+      "category": "FINAL_MERGE_MANIFEST",
+      "canonicalStatus": "SUPPORTING_NON_RUNTIME",
+      "purpose": "Machine-readable or human-readable final closure and scope accounting.",
+      "directConsumers": [
+        "test/evidence/pr114_final_merge_surface.test.mjs",
+        "Owner review"
+      ],
+      "dependencies": [
+        "docs/PR114_FINAL_MERGE_MANIFEST.json"
+      ],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Required proof of the final merge surface."
+    },
+    {
+      "path": "docs/PR114_PREDICTIVE_FOUNDATION_EXPERIMENT_HISTORY.md",
+      "category": "EXPERIMENT_HISTORY",
+      "canonicalStatus": "SUPPORTING_NON_RUNTIME",
+      "purpose": "Single compact historical index for rejected PR114 experiments.",
+      "directConsumers": [
+        "docs/PR114_FINAL_MERGE_MANIFEST.md"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Preserves review provenance without retaining rejected working files."
+    },
+    {
+      "path": "docs/ROADMAP.md",
+      "category": "STATUS_DOCUMENTATION",
+      "canonicalStatus": "SUPPORTING_NON_RUNTIME",
+      "purpose": "Record the current OR8 review state.",
+      "directConsumers": [
+        "Owner review",
+        "repository handoff"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Required six-file status synchronization."
+    },
+    {
+      "path": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
+      "category": "REQUIRED_SOURCE_TRACE",
+      "canonicalStatus": "PROPOSED_SOURCE_TRACE_ONLY",
+      "purpose": "Trace source boundaries and resolved target-fixture evidence.",
+      "directConsumers": [
+        "tool/resolve_thai_predictive_evidence_v1.mjs"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Used by the resolved 22/22 target-fixture evidence chain; not reader copy or runtime authority."
+    },
+    {
+      "path": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.md",
+      "category": "REQUIRED_SOURCE_TRACE",
+      "canonicalStatus": "PROPOSED_SOURCE_TRACE_ONLY",
+      "purpose": "Trace source boundaries and resolved target-fixture evidence.",
+      "directConsumers": [
+        "tool/resolve_thai_predictive_evidence_v1.mjs"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Used by the resolved 22/22 target-fixture evidence chain; not reader copy or runtime authority."
+    },
+    {
+      "path": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.schema.json",
+      "category": "REQUIRED_SOURCE_TRACE",
+      "canonicalStatus": "PROPOSED_SOURCE_TRACE_ONLY",
+      "purpose": "Trace source boundaries and resolved target-fixture evidence.",
+      "directConsumers": [
+        "tool/resolve_thai_predictive_evidence_v1.mjs"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Used by the resolved 22/22 target-fixture evidence chain; not reader copy or runtime authority."
+    },
+    {
+      "path": "docs/THAI_PREDICTIVE_EVIDENCE_RESOLUTION_V1.json",
+      "category": "REQUIRED_CANONICAL_FOUNDATION",
+      "canonicalStatus": "OWNER_AUTHORIZED_FOUNDATION_NOT_RUNTIME",
+      "purpose": "Define or prove the Owner-authorized Candidate 0011 product interpretation foundation.",
+      "directConsumers": [
+        "tool/validate_candidate_0011_oracle.mjs",
+        "tool/validate_candidate_0011_rule_map.mjs"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Canonical root or direct dependency of the immutable Candidate 0011 oracle."
+    },
+    {
+      "path": "docs/THAI_REPORT_READER_EXPERIENCE_V2.md",
+      "category": "STATUS_DOCUMENTATION",
+      "canonicalStatus": "SUPPORTING_NON_RUNTIME",
+      "purpose": "Record the current OR8 review state.",
+      "directConsumers": [
+        "Owner review",
+        "repository handoff"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Required six-file status synchronization."
+    },
+    {
+      "path": "knowledge/canon/proposed/PRODUCT_INTERPRETATION_CONTRACT_V1.json",
+      "category": "REQUIRED_CANONICAL_FOUNDATION",
+      "canonicalStatus": "OWNER_AUTHORIZED_FOUNDATION_NOT_RUNTIME",
+      "purpose": "Define or prove the Owner-authorized Candidate 0011 product interpretation foundation.",
+      "directConsumers": [
+        "tool/build_candidate_0011_rule_map.mjs"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Canonical root or direct dependency of the immutable Candidate 0011 oracle."
+    },
+    {
+      "path": "knowledge/canon/proposed/PRODUCT_INTERPRETATION_CONTRACT_V1.md",
+      "category": "REQUIRED_CANONICAL_FOUNDATION",
+      "canonicalStatus": "OWNER_AUTHORIZED_FOUNDATION_NOT_RUNTIME",
+      "purpose": "Define or prove the Owner-authorized Candidate 0011 product interpretation foundation.",
+      "directConsumers": [
+        "tool/build_candidate_0011_rule_map.mjs"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Canonical root or direct dependency of the immutable Candidate 0011 oracle."
+    },
+    {
+      "path": "knowledge/canon/proposed/PRODUCT_INTERPRETATION_CONTRACT_V1.schema.json",
+      "category": "REQUIRED_CANONICAL_FOUNDATION",
+      "canonicalStatus": "OWNER_AUTHORIZED_FOUNDATION_NOT_RUNTIME",
+      "purpose": "Define or prove the Owner-authorized Candidate 0011 product interpretation foundation.",
+      "directConsumers": [
+        "tool/build_candidate_0011_rule_map.mjs"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Canonical root or direct dependency of the immutable Candidate 0011 oracle."
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_DIRECT_EVENT_ATOMS_V1.json",
+      "category": "REQUIRED_SOURCE_TRACE",
+      "canonicalStatus": "PROPOSED_SOURCE_TRACE_ONLY",
+      "purpose": "Trace source boundaries and resolved target-fixture evidence.",
+      "directConsumers": [
+        "tool/resolve_thai_predictive_evidence_v1.mjs"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Used by the resolved 22/22 target-fixture evidence chain; not reader copy or runtime authority."
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_DIRECT_EVENT_ATOMS_V1.md",
+      "category": "REQUIRED_SOURCE_TRACE",
+      "canonicalStatus": "PROPOSED_SOURCE_TRACE_ONLY",
+      "purpose": "Trace source boundaries and resolved target-fixture evidence.",
+      "directConsumers": [
+        "tool/resolve_thai_predictive_evidence_v1.mjs"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Used by the resolved 22/22 target-fixture evidence chain; not reader copy or runtime authority."
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_DIRECT_EVENT_ATOMS_V1.schema.json",
+      "category": "REQUIRED_SOURCE_TRACE",
+      "canonicalStatus": "PROPOSED_SOURCE_TRACE_ONLY",
+      "purpose": "Trace source boundaries and resolved target-fixture evidence.",
+      "directConsumers": [
+        "tool/resolve_thai_predictive_evidence_v1.mjs"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Used by the resolved 22/22 target-fixture evidence chain; not reader copy or runtime authority."
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_INVENTORY_V2.json",
+      "category": "REQUIRED_SOURCE_TRACE",
+      "canonicalStatus": "PROPOSED_SOURCE_TRACE_ONLY",
+      "purpose": "Trace source boundaries and resolved target-fixture evidence.",
+      "directConsumers": [
+        "tool/resolve_thai_predictive_evidence_v1.mjs"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Used by the resolved 22/22 target-fixture evidence chain; not reader copy or runtime authority."
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_INVENTORY_V2.md",
+      "category": "REQUIRED_SOURCE_TRACE",
+      "canonicalStatus": "PROPOSED_SOURCE_TRACE_ONLY",
+      "purpose": "Trace source boundaries and resolved target-fixture evidence.",
+      "directConsumers": [
+        "tool/resolve_thai_predictive_evidence_v1.mjs"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Used by the resolved 22/22 target-fixture evidence chain; not reader copy or runtime authority."
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_INVENTORY_V2.schema.json",
+      "category": "REQUIRED_SOURCE_TRACE",
+      "canonicalStatus": "PROPOSED_SOURCE_TRACE_ONLY",
+      "purpose": "Trace source boundaries and resolved target-fixture evidence.",
+      "directConsumers": [
+        "tool/resolve_thai_predictive_evidence_v1.mjs"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Used by the resolved 22/22 target-fixture evidence chain; not reader copy or runtime authority."
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_PERIOD_EXTRACTION_LEDGER_392.json",
+      "category": "REQUIRED_SOURCE_TRACE",
+      "canonicalStatus": "PROPOSED_SOURCE_TRACE_ONLY",
+      "purpose": "Trace source boundaries and resolved target-fixture evidence.",
+      "directConsumers": [
+        "tool/resolve_thai_predictive_evidence_v1.mjs"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Used by the resolved 22/22 target-fixture evidence chain; not reader copy or runtime authority."
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_PERIOD_EXTRACTION_LEDGER_392.md",
+      "category": "REQUIRED_SOURCE_TRACE",
+      "canonicalStatus": "PROPOSED_SOURCE_TRACE_ONLY",
+      "purpose": "Trace source boundaries and resolved target-fixture evidence.",
+      "directConsumers": [
+        "tool/resolve_thai_predictive_evidence_v1.mjs"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Used by the resolved 22/22 target-fixture evidence chain; not reader copy or runtime authority."
+    },
+    {
+      "path": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_PERIOD_EXTRACTION_LEDGER_392.schema.json",
+      "category": "REQUIRED_SOURCE_TRACE",
+      "canonicalStatus": "PROPOSED_SOURCE_TRACE_ONLY",
+      "purpose": "Trace source boundaries and resolved target-fixture evidence.",
+      "directConsumers": [
+        "tool/resolve_thai_predictive_evidence_v1.mjs"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Used by the resolved 22/22 target-fixture evidence chain; not reader copy or runtime authority."
+    },
+    {
+      "path": "task.md",
+      "category": "STATUS_DOCUMENTATION",
+      "canonicalStatus": "SUPPORTING_NON_RUNTIME",
+      "purpose": "Record the current OR8 review state.",
+      "directConsumers": [
+        "Owner review",
+        "repository handoff"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Required six-file status synchronization."
+    },
+    {
+      "path": "test/evidence/candidate_0011_oracle.test.mjs",
+      "category": "VALIDATION_TEST",
+      "canonicalStatus": "SUPPORTING_NON_RUNTIME",
+      "purpose": "Executable regression proof for the retained foundation.",
+      "directConsumers": [
+        "repository evidence gate"
+      ],
+      "dependencies": [
+        "tool/validate_candidate_0011_oracle.mjs"
+      ],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Required automated closure or oracle regression."
+    },
+    {
+      "path": "test/evidence/candidate_0011_rule_map.test.mjs",
+      "category": "VALIDATION_TEST",
+      "canonicalStatus": "SUPPORTING_NON_RUNTIME",
+      "purpose": "Executable regression proof for the retained foundation.",
+      "directConsumers": [
+        "repository evidence gate"
+      ],
+      "dependencies": [
+        "tool/validate_candidate_0011_rule_map.mjs"
+      ],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Required automated closure or oracle regression."
+    },
+    {
+      "path": "test/evidence/pr114_final_merge_surface.test.mjs",
+      "category": "VALIDATION_TEST",
+      "canonicalStatus": "SUPPORTING_NON_RUNTIME",
+      "purpose": "Executable regression proof for the retained foundation.",
+      "directConsumers": [
+        "repository evidence gate"
+      ],
+      "dependencies": [
+        "tool/validate_pr114_final_merge_surface.mjs"
+      ],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Required automated closure or oracle regression."
+    },
+    {
+      "path": "test/evidence/thai_predictive_evidence_v1.test.mjs",
+      "category": "VALIDATION_TEST",
+      "canonicalStatus": "SUPPORTING_NON_RUNTIME",
+      "purpose": "Executable regression proof for the retained foundation.",
+      "directConsumers": [
+        "repository evidence gate"
+      ],
+      "dependencies": [
+        "tool/validate_thai_predictive_evidence_v1.mjs"
+      ],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Required automated closure or oracle regression."
+    },
+    {
+      "path": "tool/build_candidate_0011_oracle.mjs",
+      "category": "VALIDATION_TOOL",
+      "canonicalStatus": "SUPPORTING_NON_RUNTIME",
+      "purpose": "Build or validate the retained Candidate 0011 evidence chain.",
+      "directConsumers": [
+        "test/evidence"
+      ],
+      "dependencies": [
+        "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0011.md"
+      ],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Directly consumed by the retained canonical validation tests."
+    },
+    {
+      "path": "tool/build_candidate_0011_rule_map.mjs",
+      "category": "VALIDATION_TOOL",
+      "canonicalStatus": "SUPPORTING_NON_RUNTIME",
+      "purpose": "Build or validate the retained Candidate 0011 evidence chain.",
+      "directConsumers": [
+        "test/evidence"
+      ],
+      "dependencies": [
+        "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json",
+        "docs/THAI_PREDICTIVE_EVIDENCE_RESOLUTION_V1.json"
+      ],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Directly consumed by the retained canonical validation tests."
+    },
+    {
+      "path": "tool/resolve_thai_predictive_evidence_v1.mjs",
+      "category": "VALIDATION_TOOL",
+      "canonicalStatus": "SUPPORTING_NON_RUNTIME",
+      "purpose": "Build or validate the retained Candidate 0011 evidence chain.",
+      "directConsumers": [
+        "test/evidence"
+      ],
+      "dependencies": [
+        "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json"
+      ],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Directly consumed by the retained canonical validation tests."
+    },
+    {
+      "path": "tool/validate_candidate_0011_oracle.mjs",
+      "category": "VALIDATION_TOOL",
+      "canonicalStatus": "SUPPORTING_NON_RUNTIME",
+      "purpose": "Build or validate the retained Candidate 0011 evidence chain.",
+      "directConsumers": [
+        "test/evidence"
+      ],
+      "dependencies": [
+        "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0011.md"
+      ],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Directly consumed by the retained canonical validation tests."
+    },
+    {
+      "path": "tool/validate_candidate_0011_rule_map.mjs",
+      "category": "VALIDATION_TOOL",
+      "canonicalStatus": "SUPPORTING_NON_RUNTIME",
+      "purpose": "Build or validate the retained Candidate 0011 evidence chain.",
+      "directConsumers": [
+        "test/evidence"
+      ],
+      "dependencies": [
+        "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json",
+        "docs/THAI_PREDICTIVE_EVIDENCE_RESOLUTION_V1.json"
+      ],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Directly consumed by the retained canonical validation tests."
+    },
+    {
+      "path": "tool/validate_pr114_final_merge_surface.mjs",
+      "category": "VALIDATION_TOOL",
+      "canonicalStatus": "SUPPORTING_NON_RUNTIME",
+      "purpose": "Build or validate the retained Candidate 0011 evidence chain.",
+      "directConsumers": [
+        "test/evidence"
+      ],
+      "dependencies": [],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Directly consumed by the retained canonical validation tests."
+    },
+    {
+      "path": "tool/validate_thai_predictive_evidence_v1.mjs",
+      "category": "VALIDATION_TOOL",
+      "canonicalStatus": "SUPPORTING_NON_RUNTIME",
+      "purpose": "Build or validate the retained Candidate 0011 evidence chain.",
+      "directConsumers": [
+        "test/evidence"
+      ],
+      "dependencies": [
+        "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json"
+      ],
+      "sourceAuthority": "Owner-accepted Candidate 0011 and the explicitly bounded PR114 foundation evidence",
+      "runtimeEligibility": "NOT_RUNTIME_ELIGIBLE",
+      "keepReason": "Directly consumed by the retained canonical validation tests."
+    }
+  ]
+}
