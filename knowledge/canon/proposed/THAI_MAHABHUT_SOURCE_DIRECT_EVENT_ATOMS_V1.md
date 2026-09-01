@@ -1,9 +1,5 @@
-# Thai Mahabhut Source-Direct Event Atoms V1 — OR2
+# Thai Mahabhut OR2 heuristic atom candidates
 
-- atoms: 242
-- direct-event periods: 197
-- direct-trend-only periods: 38
-- no-direct-statement periods after full review: 157
-- visual verification: 181/181 pages
+Status: **OWNER REJECTED — RETAINED RAW HEURISTIC CANDIDATES, NOT SOURCE-DIRECT AUTHORITY**
 
-ทุก atom ผูกกับ ledger row, exact context/period และ page-image hash. ไม่มี first-period shortcut หรือ rem0.saturday extraction special case.
+All 242 records remain available for audit, but none is authorized by its OR2 keyword/marker classification or generated visual flag. Source-direct and synthesis authority must be re-established under the OR3 contract with specific semantic evidence.

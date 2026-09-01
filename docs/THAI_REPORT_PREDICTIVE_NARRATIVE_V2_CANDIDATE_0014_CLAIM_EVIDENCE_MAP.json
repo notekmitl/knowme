@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "status": "EVIDENCE_CANDIDATE_0014_PENDING_OWNER_REVIEW_NOT_RUNTIME",
+  "status": "OWNER_REJECTED_CANDIDATE_0014_METHODOLOGICAL_COPY_NOT_RUNTIME",
   "generatedAt": "2026-09-01T00:00:00+07:00",
   "fixture": {
     "sex": "male",
@@ -238,5 +238,13 @@
     "thaiAstrologicalDay": null,
     "knownCopyLeakage": false,
     "emptyPredictionHeadings": false
+  },
+  "ownerDecision": {
+    "accepted": false,
+    "reasons": [
+      "OR2 atoms were promoted from OCR keyword/marker heuristics.",
+      "Reader copy used planet influence and period-direction methodology instead of supported results.",
+      "The copy did not meet the Owner reader-copy contract."
+    ]
   }
 }

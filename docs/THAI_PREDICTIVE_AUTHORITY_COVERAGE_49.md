@@ -1,14 +1,5 @@
-# Thai Predictive Authority Coverage — OR2
+# Thai Predictive Authority Coverage — OR2 truth correction
 
-| Metric | Result |
-|---|---:|
-| contexts examined | 49/49 |
-| periods examined | 392/392 |
-| pages visually reviewed | 181/181 |
-| direct-event periods | 197 |
-| direct-trend-only periods | 38 |
-| no direct statement after full review | 157 |
-| unresolved | 0 |
-| atoms | 242 |
+Status: **OCR HEURISTIC CLASSIFICATION COMPLETE — SEMANTIC SOURCE AUTHORITY NOT ESTABLISHED**
 
-**FULL_REVIEW_COMPLETE_SOURCE_DIRECT_GAP_CONFIRMED_NO_GO** — coverage คำนวณหลัง full extraction เท่านั้น และไม่ใช้ unexamined หรือ generic rule เติมจำนวน.
+The OR2 values 197 event candidates, 38 trend candidates and 157 marker misses are not semantic source-authority coverage. All 392 periods remain semantically unreviewed under OR2; source-direct authorized = 0 until re-established with specific evidence.

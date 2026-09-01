@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "status": "FULL_REVIEW_SOURCE_DIRECT_ATOMS_PROPOSED_NOT_RUNTIME",
+  "status": "OWNER_REJECTED_OR2_HEURISTIC_ATOMS_NOT_AUTHORITY",
   "generatedAt": "2026-09-01T00:00:00+07:00",
   "source": {
     "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
@@ -8,29 +8,23 @@
   },
   "coverage": {
     "periods_total": 392,
-    "periods_extraction_completed": 392,
-    "periods_unexamined": 0,
-    "periods_with_direct_event": 197,
-    "periods_with_direct_trend_only": 38,
-    "periods_with_no_direct_statement_after_full_review": 157,
-    "periods_with_unresolved_ocr": 0,
-    "contexts_first_period_only": 0,
-    "pages_expected": 181,
-    "pages_ocr_checked": 181,
-    "pages_visually_checked": 181,
-    "pages_unreviewed": 0,
-    "target_fixture_special_case_count": 0,
-    "first_period_shortcut_count": 0,
-    "unexamined_period_count": 0,
-    "atoms_total": 242,
-    "legacy_rem0_saturday_atoms_revalidated": 8,
-    "ocr_mismatch_count": 6,
-    "visual_correction_count": 6
+    "heuristic_event_candidates": 197,
+    "heuristic_trend_candidates": 38,
+    "marker_not_found_periods": 157,
+    "semantic_reviewed_periods": 0,
+    "semantic_unreviewed_periods": 392,
+    "visually_verified_periods": 0,
+    "source_direct_authorized_periods": 0,
+    "synthesized_authorized_periods": 0,
+    "unsupported_periods": 392
   },
   "policy": {
     "placementRecordAloneIsEventAuthority": false,
     "genericRuleSubstitutionAllowed": false,
-    "inventedEventsAllowed": false
+    "inventedEventsAllowed": false,
+    "or2KeywordClassificationIsAuthority": false,
+    "generatedVisualFlagIsReviewEvidence": false,
+    "rawAtomsRetainedForAuditOnly": true
   },
   "atoms": [
     {
@@ -66,7 +60,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "52": "1D4F6B0FA5FD48DF37C2F3BB64E01392A7094FCD7EB96EA63F13EE270E6B582D",
         "53": "7738277595CE2CFE48DEE2293123D26BDE36B92157A91BF0F759265FC72CB972"
@@ -74,7 +68,9 @@
       "pageImageHashes": {
         "52": "1515FE4BA107A9DD3B70F6D2ED58364A2D0F30BC9DCEA60E31C48BE36D2D2A9D",
         "53": "838C92D8C3DB20ADAECAA400663ECCFCEFCC9E4C4761E6A0B0803795E212F962"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-SUNDAY-MOON-7-21",
@@ -108,13 +104,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "53": "7738277595CE2CFE48DEE2293123D26BDE36B92157A91BF0F759265FC72CB972"
       },
       "pageImageHashes": {
         "53": "838C92D8C3DB20ADAECAA400663ECCFCEFCC9E4C4761E6A0B0803795E212F962"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-SUNDAY-MARS-22-29",
@@ -149,7 +147,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "53": "7738277595CE2CFE48DEE2293123D26BDE36B92157A91BF0F759265FC72CB972",
         "54": "6234B833CF679FB4F4609DE960B5673C8F6DDC3285BF0FBD20A14CBC7BBD4046"
@@ -157,7 +155,9 @@
       "pageImageHashes": {
         "53": "838C92D8C3DB20ADAECAA400663ECCFCEFCC9E4C4761E6A0B0803795E212F962",
         "54": "E38445971C921D2D7327FBD796FF1FCF4CF56C39B3AD0654ED8332F69C82E864"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-SUNDAY-MERCURY-30-46",
@@ -192,7 +192,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "54": "6234B833CF679FB4F4609DE960B5673C8F6DDC3285BF0FBD20A14CBC7BBD4046",
         "55": "30B0CA28EDD8837F9B82411E897E6346FBA16239676BA8478520A0DA2F763EF4"
@@ -200,7 +200,9 @@
       "pageImageHashes": {
         "54": "E38445971C921D2D7327FBD796FF1FCF4CF56C39B3AD0654ED8332F69C82E864",
         "55": "7AC79B2AA354272952EDF6EF9C988193DBAF2CDBAF840E0B0A1F099E7CA8ACBC"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-SUNDAY-JUPITER-47-65",
@@ -234,13 +236,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "55": "30B0CA28EDD8837F9B82411E897E6346FBA16239676BA8478520A0DA2F763EF4"
       },
       "pageImageHashes": {
         "55": "7AC79B2AA354272952EDF6EF9C988193DBAF2CDBAF840E0B0A1F099E7CA8ACBC"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-SUNDAY-VENUS-66-86",
@@ -274,13 +278,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "55": "30B0CA28EDD8837F9B82411E897E6346FBA16239676BA8478520A0DA2F763EF4"
       },
       "pageImageHashes": {
         "55": "7AC79B2AA354272952EDF6EF9C988193DBAF2CDBAF840E0B0A1F099E7CA8ACBC"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-MONDAY-MOON-0-15",
@@ -315,7 +321,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "56": "30D71BB72DC0EB2B687743576F19AF7E27D9A21A51EFAA946375B642DF16D71D",
         "57": "CADFC415E55D0B9330B94BEA5DEB297119AA5D70C048CD7BB1B57BAEA5FF89E3"
@@ -323,7 +329,9 @@
       "pageImageHashes": {
         "56": "686F8D134F3E6DDC3479D1104AF5D360B4A3FEC7DC56D2FB68635E885334B80C",
         "57": "1B188ECDC05A69D146953CB00C59F1306AFBF09F0BD0F96473A9F0B7B9CB9918"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-MONDAY-MARS-16-23",
@@ -357,13 +365,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "57": "CADFC415E55D0B9330B94BEA5DEB297119AA5D70C048CD7BB1B57BAEA5FF89E3"
       },
       "pageImageHashes": {
         "57": "1B188ECDC05A69D146953CB00C59F1306AFBF09F0BD0F96473A9F0B7B9CB9918"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-MONDAY-MERCURY-24-40",
@@ -399,7 +409,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "57": "CADFC415E55D0B9330B94BEA5DEB297119AA5D70C048CD7BB1B57BAEA5FF89E3",
         "58": "DD02711C24A9CBFC3854B50AB94600B2898A56393ACAD25B03B5A2DF3BDD12AE",
@@ -409,7 +419,9 @@
         "57": "1B188ECDC05A69D146953CB00C59F1306AFBF09F0BD0F96473A9F0B7B9CB9918",
         "58": "A4DE51F1CA25E061A037EBD5A3C076F743A21529A7A3FC10267FB1A8AF017A23",
         "59": "A69074360E210B102F9F612E17C54E9FE6CD7F1F04C6C4D8206ABCCD856585E5"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-MONDAY-JUPITER-41-59",
@@ -443,13 +455,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "59": "3BDF2C29EF7E1259FBEC1F5A7DF0323E83021D2427AE2C000EEABE2C278FA699"
       },
       "pageImageHashes": {
         "59": "A69074360E210B102F9F612E17C54E9FE6CD7F1F04C6C4D8206ABCCD856585E5"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-MONDAY-VENUS-60-80",
@@ -483,13 +497,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "59": "3BDF2C29EF7E1259FBEC1F5A7DF0323E83021D2427AE2C000EEABE2C278FA699"
       },
       "pageImageHashes": {
         "59": "A69074360E210B102F9F612E17C54E9FE6CD7F1F04C6C4D8206ABCCD856585E5"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-TUESDAY-MARS-0-8",
@@ -524,7 +540,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "60": "8016818720ADEF9477CCB0DC4869E7514F5382CB3A2E0D791020C558AA383113",
         "61": "3F8F633E5A3F1EC9D2028A717355A3FC88ADD3099DFE810DA9E11C7A228C7280"
@@ -532,7 +548,9 @@
       "pageImageHashes": {
         "60": "829617F6F264448352805DF624F2B959E2C586362A46CDF28A7AE3E845616262",
         "61": "5F08114566D1F85B5CB11AA00B5136932ED5B20B44A72EE3A77B736B7CBAB5D4"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-TUESDAY-JUPITER-36-54",
@@ -566,13 +584,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "61": "3F8F633E5A3F1EC9D2028A717355A3FC88ADD3099DFE810DA9E11C7A228C7280"
       },
       "pageImageHashes": {
         "61": "5F08114566D1F85B5CB11AA00B5136932ED5B20B44A72EE3A77B736B7CBAB5D4"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-TUESDAY-RAHU-55-66",
@@ -607,7 +627,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "61": "3F8F633E5A3F1EC9D2028A717355A3FC88ADD3099DFE810DA9E11C7A228C7280",
         "62": "33A265545ADF5209B85785C7E774C6B77C92B7E38E3A31498500BBF9FAF9C401"
@@ -615,7 +635,9 @@
       "pageImageHashes": {
         "61": "5F08114566D1F85B5CB11AA00B5136932ED5B20B44A72EE3A77B736B7CBAB5D4",
         "62": "A61B437F78E80B74D4A9F7AE7A314161042240656B6E5F0155214D37B4FF7F9D"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-WEDNESDAY-MERCURY-0-17",
@@ -650,7 +672,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "63": "B1B3F563F403E4887D5A1F65CF60C949F481D0402A9C25C560AB8ACB4BAEDAE0",
         "64": "7CABDA79356DAEDF9CACAC4CF23331B68221347396C2FB9C144FF9E8882301B9"
@@ -658,7 +680,9 @@
       "pageImageHashes": {
         "63": "951B3B26057A767E3A5719DDC6A35FE3F8B1AD8924EC676E7D9F07036C97ACEC",
         "64": "83D120F8F0A937E516193A06FCA724204F301D1D03C51F1C611CDE85B69EEEFA"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-WEDNESDAY-JUPITER-28-46",
@@ -692,13 +716,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "64": "7CABDA79356DAEDF9CACAC4CF23331B68221347396C2FB9C144FF9E8882301B9"
       },
       "pageImageHashes": {
         "64": "83D120F8F0A937E516193A06FCA724204F301D1D03C51F1C611CDE85B69EEEFA"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-WEDNESDAY-RAHU-47-58",
@@ -732,13 +758,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "64": "7CABDA79356DAEDF9CACAC4CF23331B68221347396C2FB9C144FF9E8882301B9"
       },
       "pageImageHashes": {
         "64": "83D120F8F0A937E516193A06FCA724204F301D1D03C51F1C611CDE85B69EEEFA"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-THURSDAY-JUPITER-0-19",
@@ -773,7 +801,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "65": "F2547C63ECBA0D8DB5BD07D8B9AF7AF5040BB2003E1BF5129ED687CD50A4A58B",
         "66": "C64B2A64C8B65A97197FA4ED1483B875BD016B0F0A3A1EF7BA7A15C83E667172"
@@ -781,7 +809,9 @@
       "pageImageHashes": {
         "65": "4E677B6397E533C33F6854D6FFF66DA84753D2E53D03D875B7772328BC9AE89A",
         "66": "93B11459A0E2EC8F46015126FA5634EFECC5F6F2A26B4CB660B9077AD41655CD"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-THURSDAY-VENUS-32-52",
@@ -816,7 +846,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "66": "C64B2A64C8B65A97197FA4ED1483B875BD016B0F0A3A1EF7BA7A15C83E667172",
         "67": "18F649C73ED4F7EC3B7E0AA9A432A7B32D8017E985129FAF4AF2D3B6C911B20A"
@@ -824,7 +854,9 @@
       "pageImageHashes": {
         "66": "93B11459A0E2EC8F46015126FA5634EFECC5F6F2A26B4CB660B9077AD41655CD",
         "67": "CDA386E6FA9F764D5710A111B9DD4104887D4226D6011D706585672085D82003"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-THURSDAY-SUN-53-58",
@@ -858,13 +890,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "67": "18F649C73ED4F7EC3B7E0AA9A432A7B32D8017E985129FAF4AF2D3B6C911B20A"
       },
       "pageImageHashes": {
         "67": "CDA386E6FA9F764D5710A111B9DD4104887D4226D6011D706585672085D82003"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-THURSDAY-MOON-59-73",
@@ -898,13 +932,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "67": "18F649C73ED4F7EC3B7E0AA9A432A7B32D8017E985129FAF4AF2D3B6C911B20A"
       },
       "pageImageHashes": {
         "67": "CDA386E6FA9F764D5710A111B9DD4104887D4226D6011D706585672085D82003"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-FRIDAY-VENUS-0-21",
@@ -940,7 +976,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "68": "F572207E677CD4C46881096F95FFAD90F8A27C4F92687A3B610EB418B6E5AA1B",
         "69": "BD8B3DD20F590D71F94142C1DBE90DC3C223E6A67DB7F094F556A1106DDA0768",
@@ -950,7 +986,9 @@
         "68": "93E4DC90FD8B2F1069B05DCAB06352BB4C9649BCC475E92224888A3AD6B91C5E",
         "69": "AB8363F9A9EF2915E7DCF756BD298C279E2E26709B5257C18625DBAABE8AD959",
         "70": "B6D14727331D3963A641F29F14AABAE6AE50DBDB533261BF6A4A5969BAEAF5ED"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-FRIDAY-MARS-43-50",
@@ -984,13 +1022,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "70": "6742283D3380E17485596C08DED61E636A5444178234CF1780F8F4E19E557E6B"
       },
       "pageImageHashes": {
         "70": "B6D14727331D3963A641F29F14AABAE6AE50DBDB533261BF6A4A5969BAEAF5ED"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-FRIDAY-MERCURY-51-67",
@@ -1025,7 +1065,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "70": "6742283D3380E17485596C08DED61E636A5444178234CF1780F8F4E19E557E6B",
         "71": "6839DDDAB6B5CF6CEA9B850D091B66698B39088D0C5552AD0B8AC327F0F316EE"
@@ -1033,7 +1073,9 @@
       "pageImageHashes": {
         "70": "B6D14727331D3963A641F29F14AABAE6AE50DBDB533261BF6A4A5969BAEAF5ED",
         "71": "B83CEE84916E3FB2F1A343F47BD92B86CC3BD0085F1816F0F8E721E645838A5E"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-SATURDAY-SATURN-0-10",
@@ -1067,13 +1109,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "72": "8510949F3FE8FCD0E4F702BB8D99485ED1A16E44789A4B95A1F4C3A7B64EE101"
       },
       "pageImageHashes": {
         "72": "5D320DC70140FAD6ACC271D48EC6FDD0D2F8ACC4EDC1D375C8D3CF21777BDC7C"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-SATURDAY-JUPITER-11-29",
@@ -1108,7 +1152,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "72": "8510949F3FE8FCD0E4F702BB8D99485ED1A16E44789A4B95A1F4C3A7B64EE101",
         "73": "0689F0C0458BFC45736BBAA9DEE0318DADC99079A8B141A661829335220E84C3"
@@ -1116,7 +1160,9 @@
       "pageImageHashes": {
         "72": "5D320DC70140FAD6ACC271D48EC6FDD0D2F8ACC4EDC1D375C8D3CF21777BDC7C",
         "73": "700DD986395157264D2B0E0F51D86AB6B803AA88ADB2E066F097DCA9D1CC466A"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-SATURDAY-RAHU-30-41",
@@ -1151,7 +1197,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "73": "0689F0C0458BFC45736BBAA9DEE0318DADC99079A8B141A661829335220E84C3",
         "74": "2B82F53DB5469D2A851DBFD9803CCFCF7FB89E8C125E9489FB175A2A5B01F291"
@@ -1159,7 +1205,9 @@
       "pageImageHashes": {
         "73": "700DD986395157264D2B0E0F51D86AB6B803AA88ADB2E066F097DCA9D1CC466A",
         "74": "578E12EF76283CAAA4055E6CCED991ED91C1B5342887215C8AFBC60B925E9347"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-SATURDAY-VENUS-42-62",
@@ -1194,7 +1242,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "74": "2B82F53DB5469D2A851DBFD9803CCFCF7FB89E8C125E9489FB175A2A5B01F291",
         "75": "10C6D61D127736BE77E06F9B4EAD8FF17281BB0CD967563835E474FEBAA02F2A"
@@ -1202,7 +1250,9 @@
       "pageImageHashes": {
         "74": "578E12EF76283CAAA4055E6CCED991ED91C1B5342887215C8AFBC60B925E9347",
         "75": "CC303BFE8F3091FDE433DD5C7E14BC78A980872E1AF0F4C01085A39C66321141"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-SATURDAY-MERCURY-63-79",
@@ -1236,13 +1286,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "75": "10C6D61D127736BE77E06F9B4EAD8FF17281BB0CD967563835E474FEBAA02F2A"
       },
       "pageImageHashes": {
         "75": "CC303BFE8F3091FDE433DD5C7E14BC78A980872E1AF0F4C01085A39C66321141"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM1-SATURDAY-SUN-103-108",
@@ -1276,13 +1328,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "75": "10C6D61D127736BE77E06F9B4EAD8FF17281BB0CD967563835E474FEBAA02F2A"
       },
       "pageImageHashes": {
         "75": "CC303BFE8F3091FDE433DD5C7E14BC78A980872E1AF0F4C01085A39C66321141"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-SUNDAY-SUN-0-6",
@@ -1317,7 +1371,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "89": "DBF828994B187BE61A2EAA17D86104CDD6775EC99AFD9CEFDEC574447E31B97C",
         "90": "32BE9FFCE0FACBAA6D2AC3491866ED1480D50404672F4265371C4FA68AB6ABD0"
@@ -1325,7 +1379,9 @@
       "pageImageHashes": {
         "89": "427A5077324E84A5C52795C2A85B47C736B07C28EB1342E6A135B6F22BB1DBA1",
         "90": "B66BA27FD5BCB3EACB7775B5E825C34E2B03531361F56EB96D7D6EE14D5522C7"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-SUNDAY-MOON-7-21",
@@ -1359,13 +1415,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "90": "32BE9FFCE0FACBAA6D2AC3491866ED1480D50404672F4265371C4FA68AB6ABD0"
       },
       "pageImageHashes": {
         "90": "B66BA27FD5BCB3EACB7775B5E825C34E2B03531361F56EB96D7D6EE14D5522C7"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-SUNDAY-MARS-22-29",
@@ -1399,13 +1457,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "90": "32BE9FFCE0FACBAA6D2AC3491866ED1480D50404672F4265371C4FA68AB6ABD0"
       },
       "pageImageHashes": {
         "90": "B66BA27FD5BCB3EACB7775B5E825C34E2B03531361F56EB96D7D6EE14D5522C7"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-SUNDAY-MERCURY-30-46",
@@ -1440,7 +1500,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "90": "32BE9FFCE0FACBAA6D2AC3491866ED1480D50404672F4265371C4FA68AB6ABD0",
         "91": "52AB56AE3A98978D0DE55CC43836F76F52B606E485A09163968C6573245B4B74"
@@ -1448,7 +1508,9 @@
       "pageImageHashes": {
         "90": "B66BA27FD5BCB3EACB7775B5E825C34E2B03531361F56EB96D7D6EE14D5522C7",
         "91": "27F1799A60E8CAEB58E0115230F7193852C0A036BC47BB1565BED87AD325F5D9"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-SUNDAY-JUPITER-47-65",
@@ -1482,13 +1544,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "91": "52AB56AE3A98978D0DE55CC43836F76F52B606E485A09163968C6573245B4B74"
       },
       "pageImageHashes": {
         "91": "27F1799A60E8CAEB58E0115230F7193852C0A036BC47BB1565BED87AD325F5D9"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-SUNDAY-VENUS-66-86",
@@ -1522,13 +1586,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "91": "52AB56AE3A98978D0DE55CC43836F76F52B606E485A09163968C6573245B4B74"
       },
       "pageImageHashes": {
         "91": "27F1799A60E8CAEB58E0115230F7193852C0A036BC47BB1565BED87AD325F5D9"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-SUNDAY-SATURN-87-96",
@@ -1563,7 +1629,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "91": "52AB56AE3A98978D0DE55CC43836F76F52B606E485A09163968C6573245B4B74",
         "92": "FC40F703F76590FFEE293A5BAD84E0B1555C32DCB395ECEB80725A7CE515C374"
@@ -1571,7 +1637,9 @@
       "pageImageHashes": {
         "91": "27F1799A60E8CAEB58E0115230F7193852C0A036BC47BB1565BED87AD325F5D9",
         "92": "73AD07859BF43DC032DA29D62E77FB82366897A2F29D9FE54170BF207774CE5E"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-MONDAY-MOON-0-15",
@@ -1605,13 +1673,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "93": "1F22FC7F91836D492A7FA975088A06BD5871C4C5ED528197613706BB384BA8E3"
       },
       "pageImageHashes": {
         "93": "AE0086C91B868F588A304F7FD0B3A0BEC9F104EC2863181C19D33982AD14AE0C"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-MONDAY-MARS-16-23",
@@ -1646,7 +1716,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "93": "1F22FC7F91836D492A7FA975088A06BD5871C4C5ED528197613706BB384BA8E3",
         "94": "9359DC765F4308319ED221F92091C1DC6597D682DD767113BEA3957BA6B6677C"
@@ -1654,7 +1724,9 @@
       "pageImageHashes": {
         "93": "AE0086C91B868F588A304F7FD0B3A0BEC9F104EC2863181C19D33982AD14AE0C",
         "94": "E60D5DE2CA70ED4D407FFF6F92375FA5B0588E626B7EE08C95B851E7763BCE85"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-MONDAY-JUPITER-41-59",
@@ -1688,13 +1760,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "94": "9359DC765F4308319ED221F92091C1DC6597D682DD767113BEA3957BA6B6677C"
       },
       "pageImageHashes": {
         "94": "E60D5DE2CA70ED4D407FFF6F92375FA5B0588E626B7EE08C95B851E7763BCE85"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-MONDAY-VENUS-60-80",
@@ -1728,13 +1802,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "94": "9359DC765F4308319ED221F92091C1DC6597D682DD767113BEA3957BA6B6677C"
       },
       "pageImageHashes": {
         "94": "E60D5DE2CA70ED4D407FFF6F92375FA5B0588E626B7EE08C95B851E7763BCE85"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-MONDAY-SATURN-81-90",
@@ -1769,7 +1845,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "94": "9359DC765F4308319ED221F92091C1DC6597D682DD767113BEA3957BA6B6677C",
         "95": "D59BABD475E62D82F48652A6821042B81965B5A55E4734FEAFD82D89B5C45176"
@@ -1777,7 +1853,9 @@
       "pageImageHashes": {
         "94": "E60D5DE2CA70ED4D407FFF6F92375FA5B0588E626B7EE08C95B851E7763BCE85",
         "95": "E2042C62564643F317072E5C968F4D266839E46F8CDFBC6C84972E97BEA577FC"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-TUESDAY-MARS-0-8",
@@ -1811,13 +1889,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "96": "4F00D43DAB29C4219ADB2C15ED0EBBD9962E65658ADA378FB20EE45A05CE81A2"
       },
       "pageImageHashes": {
         "96": "AEAD8C8CD22E861EF3A0114BAC95C0FD907790AB30EC8F2C45157A2E1B415806"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-TUESDAY-MERCURY-9-25",
@@ -1852,7 +1932,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "96": "4F00D43DAB29C4219ADB2C15ED0EBBD9962E65658ADA378FB20EE45A05CE81A2",
         "97": "CF2C4ABF67824E1B8352F371B2EFB3A2EEFD3FE588F64B7C27788968143E705D"
@@ -1860,7 +1940,9 @@
       "pageImageHashes": {
         "96": "AEAD8C8CD22E861EF3A0114BAC95C0FD907790AB30EC8F2C45157A2E1B415806",
         "97": "EA176AC32ABFBE9362D7BF81901F2F94CD1D05364DF1CD5824F983B842E11776"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-TUESDAY-SATURN-26-35",
@@ -1894,13 +1976,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "97": "CF2C4ABF67824E1B8352F371B2EFB3A2EEFD3FE588F64B7C27788968143E705D"
       },
       "pageImageHashes": {
         "97": "EA176AC32ABFBE9362D7BF81901F2F94CD1D05364DF1CD5824F983B842E11776"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-TUESDAY-JUPITER-36-54",
@@ -1935,7 +2019,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "97": "CF2C4ABF67824E1B8352F371B2EFB3A2EEFD3FE588F64B7C27788968143E705D",
         "98": "923FDD7FE7E0E4C1781D73CF9DD0A0A90F672E4AF0EDF741E3D96FB33112BF3A"
@@ -1943,7 +2027,9 @@
       "pageImageHashes": {
         "97": "EA176AC32ABFBE9362D7BF81901F2F94CD1D05364DF1CD5824F983B842E11776",
         "98": "B5273AA614F11D66A07B3535F284DBADF0EC270768336CE209EB82E8E344B8AA"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-WEDNESDAY-MERCURY-0-17",
@@ -1977,13 +2063,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "99": "76B6A0156E7BB8167BEBEAB6CDDD7044E9D90BAC64C703F66920623CCF81CEC8"
       },
       "pageImageHashes": {
         "99": "A89F0D8C927C2A1A4F6C83B69601E776C4E3CED7C5BC9AFDD77A558026FA350D"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-WEDNESDAY-SATURN-18-27",
@@ -2018,7 +2106,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "99": "76B6A0156E7BB8167BEBEAB6CDDD7044E9D90BAC64C703F66920623CCF81CEC8",
         "100": "5923CCA4B7B465C7C0A14F1ED59708DD5295BCAE278BE46C6924C0805A964A0B"
@@ -2026,7 +2114,9 @@
       "pageImageHashes": {
         "99": "A89F0D8C927C2A1A4F6C83B69601E776C4E3CED7C5BC9AFDD77A558026FA350D",
         "100": "11AFE4C290CC4C7C0D7A76579EB46D1C06E5C682E4985F40A2D8E60180D520EC"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-WEDNESDAY-JUPITER-28-46",
@@ -2061,7 +2151,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "100": "5923CCA4B7B465C7C0A14F1ED59708DD5295BCAE278BE46C6924C0805A964A0B",
         "101": "4156ED08097A8032C29FD1AE208FAD8A0CD6852A46F01BED9BA48E12BD86436B"
@@ -2069,7 +2159,9 @@
       "pageImageHashes": {
         "100": "11AFE4C290CC4C7C0D7A76579EB46D1C06E5C682E4985F40A2D8E60180D520EC",
         "101": "5B683372A3D0A81C249A88905E0C5C4A4A4A6827909A857A74277A3C12170076"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-WEDNESDAY-RAHU-47-58",
@@ -2103,13 +2195,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "101": "4156ED08097A8032C29FD1AE208FAD8A0CD6852A46F01BED9BA48E12BD86436B"
       },
       "pageImageHashes": {
         "101": "5B683372A3D0A81C249A88905E0C5C4A4A4A6827909A857A74277A3C12170076"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-THURSDAY-JUPITER-0-19",
@@ -2144,7 +2238,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "102": "2F1815B8F6D69B9D8C54A8435E457976522E91F98D5F69289183E150EA933DA1",
         "103": "0F9511012CE12C93A3E8C4DFAA1B4E5F3D161052DE8E71C6B2FC8DFA041EE3EE"
@@ -2152,7 +2246,9 @@
       "pageImageHashes": {
         "102": "CDC9D491C8305BC95E9516DA8154251309FCAB24289186320A68D44B2438A45E",
         "103": "31FA6031F9190FFAB3E035C14D1E6F5D83168A21F3D83254837AE8FAF738E472"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-THURSDAY-RAHU-20-31",
@@ -2186,13 +2282,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "103": "0F9511012CE12C93A3E8C4DFAA1B4E5F3D161052DE8E71C6B2FC8DFA041EE3EE"
       },
       "pageImageHashes": {
         "103": "31FA6031F9190FFAB3E035C14D1E6F5D83168A21F3D83254837AE8FAF738E472"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-THURSDAY-VENUS-32-52",
@@ -2226,13 +2324,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "103": "0F9511012CE12C93A3E8C4DFAA1B4E5F3D161052DE8E71C6B2FC8DFA041EE3EE"
       },
       "pageImageHashes": {
         "103": "31FA6031F9190FFAB3E035C14D1E6F5D83168A21F3D83254837AE8FAF738E472"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-THURSDAY-SUN-53-58",
@@ -2266,13 +2366,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "103": "0F9511012CE12C93A3E8C4DFAA1B4E5F3D161052DE8E71C6B2FC8DFA041EE3EE"
       },
       "pageImageHashes": {
         "103": "31FA6031F9190FFAB3E035C14D1E6F5D83168A21F3D83254837AE8FAF738E472"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-THURSDAY-MOON-59-73",
@@ -2307,7 +2409,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "103": "0F9511012CE12C93A3E8C4DFAA1B4E5F3D161052DE8E71C6B2FC8DFA041EE3EE",
         "104": "9C0156AD9CABB72D073E05E8459521DE231EAE4DBF6352E34D4A6EAC55F693F8"
@@ -2315,7 +2417,9 @@
       "pageImageHashes": {
         "103": "31FA6031F9190FFAB3E035C14D1E6F5D83168A21F3D83254837AE8FAF738E472",
         "104": "BAE6A8577C8D050B716745E42B560B23F084E711DE590971A34C56523ADE4A53"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-FRIDAY-VENUS-0-21",
@@ -2349,13 +2453,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "105": "53749858E11057E80B15A87C42B4065C415728FBC6924F4ADD2B5C9B5E2F6FAE"
       },
       "pageImageHashes": {
         "105": "BBC57599A0D9400F25B618A9DEB8F147F96772147A9964AD52E6C31C3006C3AC"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-FRIDAY-SUN-22-27",
@@ -2390,7 +2496,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "105": "53749858E11057E80B15A87C42B4065C415728FBC6924F4ADD2B5C9B5E2F6FAE",
         "106": "D76DFCB51A8FC40DE9CADB7E8B2C61B1BE11168C3D419B78C34577CD6E93975D"
@@ -2398,7 +2504,9 @@
       "pageImageHashes": {
         "105": "BBC57599A0D9400F25B618A9DEB8F147F96772147A9964AD52E6C31C3006C3AC",
         "106": "251C15D431F74AFF41F545E4C43B9E9617D3FA95415FE9188A4745545BEF89F5"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-FRIDAY-MOON-28-42",
@@ -2432,13 +2540,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "106": "D76DFCB51A8FC40DE9CADB7E8B2C61B1BE11168C3D419B78C34577CD6E93975D"
       },
       "pageImageHashes": {
         "106": "251C15D431F74AFF41F545E4C43B9E9617D3FA95415FE9188A4745545BEF89F5"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-FRIDAY-MARS-43-50",
@@ -2473,7 +2583,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "106": "D76DFCB51A8FC40DE9CADB7E8B2C61B1BE11168C3D419B78C34577CD6E93975D",
         "107": "A741B8A36EE69A39387671F47B877953EBCDFA96BCA1FDCE48FB74323660EA9F"
@@ -2481,7 +2591,9 @@
       "pageImageHashes": {
         "106": "251C15D431F74AFF41F545E4C43B9E9617D3FA95415FE9188A4745545BEF89F5",
         "107": "20C4057140908538EB7EB6B71F36175774BC2C0DA8C26724E0B4C2FBC8AFF54F"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-FRIDAY-MERCURY-51-67",
@@ -2516,7 +2628,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "107": "A741B8A36EE69A39387671F47B877953EBCDFA96BCA1FDCE48FB74323660EA9F",
         "108": "10CBED6CAC85D659CF5585517F0CF9D67E1403A202866292C6E40DB6CFF6A3CF"
@@ -2524,7 +2636,9 @@
       "pageImageHashes": {
         "107": "20C4057140908538EB7EB6B71F36175774BC2C0DA8C26724E0B4C2FBC8AFF54F",
         "108": "C04E7B854BE83453E1C8F6CAEA8BB78EB3281CECB1FD94E8C7A5C89B9991AF96"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-FRIDAY-SATURN-68-77",
@@ -2558,13 +2672,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "108": "10CBED6CAC85D659CF5585517F0CF9D67E1403A202866292C6E40DB6CFF6A3CF"
       },
       "pageImageHashes": {
         "108": "C04E7B854BE83453E1C8F6CAEA8BB78EB3281CECB1FD94E8C7A5C89B9991AF96"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-SATURDAY-SATURN-0-10",
@@ -2598,13 +2714,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "109": "B04BB860A89EBCF1B5833625865742605250AD8B545AADBA20936F9E81B5DF75"
       },
       "pageImageHashes": {
         "109": "6C9454F129BA44F1A3BDD0F4D63CBA38DCEF9AAE67B0617571B2F299F7F6FE00"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-SATURDAY-JUPITER-11-29",
@@ -2639,7 +2757,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "109": "B04BB860A89EBCF1B5833625865742605250AD8B545AADBA20936F9E81B5DF75",
         "110": "2CEDA0F00E1FB1AB65F71D041F5B21A4355DFA52A3DE8E8F4C9737817B223E52"
@@ -2647,7 +2765,9 @@
       "pageImageHashes": {
         "109": "6C9454F129BA44F1A3BDD0F4D63CBA38DCEF9AAE67B0617571B2F299F7F6FE00",
         "110": "67C92558A84ABD748CA08E7F4FADB40A229E2BA30E5AD0DA59FE291176768517"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-SATURDAY-RAHU-30-41",
@@ -2682,7 +2802,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "110": "2CEDA0F00E1FB1AB65F71D041F5B21A4355DFA52A3DE8E8F4C9737817B223E52",
         "111": "B49D6163F5D7CA6DC78C5FCD0658D20CC42F50887C7003894C3CAF059BFD42DC"
@@ -2690,7 +2810,9 @@
       "pageImageHashes": {
         "110": "67C92558A84ABD748CA08E7F4FADB40A229E2BA30E5AD0DA59FE291176768517",
         "111": "257E1C595A701D5798427BA755EE1AAEEB617D528478F6438517325D6BB2FEC7"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM2-SATURDAY-VENUS-42-62",
@@ -2724,13 +2846,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "111": "B49D6163F5D7CA6DC78C5FCD0658D20CC42F50887C7003894C3CAF059BFD42DC"
       },
       "pageImageHashes": {
         "111": "257E1C595A701D5798427BA755EE1AAEEB617D528478F6438517325D6BB2FEC7"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-SUNDAY-SUN-0-6",
@@ -2764,13 +2888,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "122": "09F06E7704424B0B300DBC11B9884BE875C8C7922EA7118C4DA64C3476FF1BC2"
       },
       "pageImageHashes": {
         "122": "79BB9BF3BC5783A3978D118DBF7B6C5C4B8C33B410364F34E79EE648E6C4B8DB"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-SUNDAY-MOON-7-21",
@@ -2805,7 +2931,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "122": "09F06E7704424B0B300DBC11B9884BE875C8C7922EA7118C4DA64C3476FF1BC2",
         "123": "940C26AD66EECE0374444CEB02BF128453C92B85DD295D82459CAB7CF1ED30E2"
@@ -2813,7 +2939,9 @@
       "pageImageHashes": {
         "122": "79BB9BF3BC5783A3978D118DBF7B6C5C4B8C33B410364F34E79EE648E6C4B8DB",
         "123": "BDC334C695E7218EB352E4EC820887411504BF4D3F83F24FEAF147937DCF32B3"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-SUNDAY-MARS-22-29",
@@ -2847,13 +2975,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "123": "940C26AD66EECE0374444CEB02BF128453C92B85DD295D82459CAB7CF1ED30E2"
       },
       "pageImageHashes": {
         "123": "BDC334C695E7218EB352E4EC820887411504BF4D3F83F24FEAF147937DCF32B3"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-SUNDAY-MERCURY-30-46",
@@ -2889,7 +3019,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "123": "940C26AD66EECE0374444CEB02BF128453C92B85DD295D82459CAB7CF1ED30E2",
         "124": "15189841CF9CB38997E0021CF890A6EA48EC8F37EF05CBBE7DD0E1B33969DA8D",
@@ -2899,7 +3029,9 @@
         "123": "BDC334C695E7218EB352E4EC820887411504BF4D3F83F24FEAF147937DCF32B3",
         "124": "C1BB4759A2DE7EFFA468BA7AED73156930E5EED9E2EECDEE2B461676FFBF4D1B",
         "125": "6306DCCBF2102C7897B655F915F1B7158720D81BD2DC066DB914A40450EE7235"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-SUNDAY-JUPITER-47-65",
@@ -2933,13 +3065,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "125": "88A0D688BE3F4E5F04597CB690EE18261A3F562E63B167AAB5529F7BEB29F3D2"
       },
       "pageImageHashes": {
         "125": "6306DCCBF2102C7897B655F915F1B7158720D81BD2DC066DB914A40450EE7235"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-MONDAY-MOON-0-15",
@@ -2973,13 +3107,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "126": "A5A9A182085FD4C32BD894241BE60465FBD7198EB235C0BA01449E124CB76956"
       },
       "pageImageHashes": {
         "126": "5C6DD36956156DA7C7B9155EE5B9922DAAD7C6DFDE1AB39628FB1C65C155FB91"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-MONDAY-MARS-16-23",
@@ -3014,7 +3150,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "126": "A5A9A182085FD4C32BD894241BE60465FBD7198EB235C0BA01449E124CB76956",
         "127": "2AEDE8DA4993D8F9E2E1076D592CBF4C5636121FD6B2F58AD7FFED2508E86197"
@@ -3022,7 +3158,9 @@
       "pageImageHashes": {
         "126": "5C6DD36956156DA7C7B9155EE5B9922DAAD7C6DFDE1AB39628FB1C65C155FB91",
         "127": "E0AB24A417461E0ABE6D2FB98E4FAA6205DC96209BE011E8E58066E377D7DCA6"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-MONDAY-MERCURY-24-40",
@@ -3056,13 +3194,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "127": "2AEDE8DA4993D8F9E2E1076D592CBF4C5636121FD6B2F58AD7FFED2508E86197"
       },
       "pageImageHashes": {
         "127": "E0AB24A417461E0ABE6D2FB98E4FAA6205DC96209BE011E8E58066E377D7DCA6"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-MONDAY-JUPITER-41-59",
@@ -3097,7 +3237,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "127": "2AEDE8DA4993D8F9E2E1076D592CBF4C5636121FD6B2F58AD7FFED2508E86197",
         "128": "7B1951FF29AC3FF8B5776028ED8F40EC89FACBF11C112A0B5CAE63BE909BA872"
@@ -3105,7 +3245,9 @@
       "pageImageHashes": {
         "127": "E0AB24A417461E0ABE6D2FB98E4FAA6205DC96209BE011E8E58066E377D7DCA6",
         "128": "E682F2BFEEBA096997633ACDA95D3B1646515AEDF25AFE97714E9A47E991A914"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-MONDAY-VENUS-60-80",
@@ -3139,13 +3281,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "128": "7B1951FF29AC3FF8B5776028ED8F40EC89FACBF11C112A0B5CAE63BE909BA872"
       },
       "pageImageHashes": {
         "128": "E682F2BFEEBA096997633ACDA95D3B1646515AEDF25AFE97714E9A47E991A914"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-TUESDAY-MARS-0-8",
@@ -3179,13 +3323,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "129": "ACF21220114089BA94B98AC9F1B3FC7271ED5006AE93E8286467B8343867EFBA"
       },
       "pageImageHashes": {
         "129": "6CDED9E766BED3606123076CC77A2BC6161DEF73DD2F9BFCDF5B7D344F870A40"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-TUESDAY-MERCURY-9-25",
@@ -3220,7 +3366,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "129": "ACF21220114089BA94B98AC9F1B3FC7271ED5006AE93E8286467B8343867EFBA",
         "130": "43F2B8B909E85CEB0DA2506DF6C1101045A04FECC8DF31A5AEC8A2029597CD84"
@@ -3228,7 +3374,9 @@
       "pageImageHashes": {
         "129": "6CDED9E766BED3606123076CC77A2BC6161DEF73DD2F9BFCDF5B7D344F870A40",
         "130": "7B3D9B19DA576798A82C7E1E4D288CAF38F084E754DFDF561D486C753FA54414"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-TUESDAY-JUPITER-36-54",
@@ -3263,7 +3411,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "130": "43F2B8B909E85CEB0DA2506DF6C1101045A04FECC8DF31A5AEC8A2029597CD84",
         "131": "D168984B68F3837F47D76C22662B6518A8F4CDDB479AF8012D20E337C8208C21"
@@ -3271,7 +3419,9 @@
       "pageImageHashes": {
         "130": "7B3D9B19DA576798A82C7E1E4D288CAF38F084E754DFDF561D486C753FA54414",
         "131": "7298C793B78CAAA9F91FE188F56E5AFEE2F7E0B76CB47C0F909938E6AD41E4A8"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-WEDNESDAY-MERCURY-0-17",
@@ -3305,13 +3455,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "132": "68B2AB5500D8B0C451D67CD3E36F52369132F9EA7970817C8213D36FD2A7D199"
       },
       "pageImageHashes": {
         "132": "22EE12085AA747A19DEF54515A71B06E680356A0BDB5BC5100DDD735F6E7D7E7"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-WEDNESDAY-SATURN-18-27",
@@ -3346,7 +3498,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "132": "68B2AB5500D8B0C451D67CD3E36F52369132F9EA7970817C8213D36FD2A7D199",
         "133": "DCFA3C03475790B37CE9AA7C5D5B7A3AAB0403617D09F02C4684E4BC4D86FDC9"
@@ -3354,7 +3506,9 @@
       "pageImageHashes": {
         "132": "22EE12085AA747A19DEF54515A71B06E680356A0BDB5BC5100DDD735F6E7D7E7",
         "133": "378FD60C6346420D4B4D92EA66D129AD98341E9B6928BB3EF03C85E86696D281"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-WEDNESDAY-JUPITER-28-46",
@@ -3388,13 +3542,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "133": "DCFA3C03475790B37CE9AA7C5D5B7A3AAB0403617D09F02C4684E4BC4D86FDC9"
       },
       "pageImageHashes": {
         "133": "378FD60C6346420D4B4D92EA66D129AD98341E9B6928BB3EF03C85E86696D281"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-WEDNESDAY-RAHU-47-58",
@@ -3429,7 +3585,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "133": "DCFA3C03475790B37CE9AA7C5D5B7A3AAB0403617D09F02C4684E4BC4D86FDC9",
         "134": "F8AFB78F33D5D0BAE268477118525FE4F06DBC800731A432E25DC9C06B118459"
@@ -3437,7 +3593,9 @@
       "pageImageHashes": {
         "133": "378FD60C6346420D4B4D92EA66D129AD98341E9B6928BB3EF03C85E86696D281",
         "134": "C4E2315AE5D4BCBF7F945891D55C31142E513FEB8D6192F161267FA51751F235"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-WEDNESDAY-VENUS-59-79",
@@ -3472,7 +3630,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "134": "F8AFB78F33D5D0BAE268477118525FE4F06DBC800731A432E25DC9C06B118459",
         "135": "EDB1C06DAF65BC8BBEB5D667F259265CC06C5B47A73256881A3143AD1A6B644D"
@@ -3480,7 +3638,9 @@
       "pageImageHashes": {
         "134": "C4E2315AE5D4BCBF7F945891D55C31142E513FEB8D6192F161267FA51751F235",
         "135": "032E946ECAE64CFB30FD005D0727A60E09424FEAE840630B0DC5CE873030D2F0"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-THURSDAY-JUPITER-0-19",
@@ -3515,7 +3675,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "136": "BB3FEEF79F5668A55C21AB17F54ADA6D43FD4212BE25F1BF6373A9310B83DAD6",
         "137": "8A80C30872D3BAA623B2D1BC3B0F15D1F3FCF9A8D3651B080BAE79F168420F04"
@@ -3523,7 +3683,9 @@
       "pageImageHashes": {
         "136": "94E5D38DFD415E5208F92B38303B790DE7B0AE6F23297ABA395088D00D3E07FF",
         "137": "741E195F465143EE12470441F62AEB2639B30B1EA168BB57D7FD5E9FA9831059"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-THURSDAY-RAHU-20-31",
@@ -3558,7 +3720,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "137": "8A80C30872D3BAA623B2D1BC3B0F15D1F3FCF9A8D3651B080BAE79F168420F04",
         "138": "FE69D0E74D8851536EDC3DDC0A35F6B8B8C53A2A054A091F55E48BAA3AD40DF6"
@@ -3566,7 +3728,9 @@
       "pageImageHashes": {
         "137": "741E195F465143EE12470441F62AEB2639B30B1EA168BB57D7FD5E9FA9831059",
         "138": "AB4E29E91E0F4512EF35CD2EA3F1CC3E418B25934AD9D2BDFC9F0FCC36106E69"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-THURSDAY-VENUS-32-52",
@@ -3601,7 +3765,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "138": "FE69D0E74D8851536EDC3DDC0A35F6B8B8C53A2A054A091F55E48BAA3AD40DF6",
         "139": "1E627D4980EF6182FFBE7B6A6F93452FD4C14FD24FB5435BD2B42D5F6E2726A5"
@@ -3609,7 +3773,9 @@
       "pageImageHashes": {
         "138": "AB4E29E91E0F4512EF35CD2EA3F1CC3E418B25934AD9D2BDFC9F0FCC36106E69",
         "139": "8B2BF5FFF080B56B7083802E3412269CFBAA7FA8928BC1C31846630C9B553113"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-THURSDAY-SUN-53-58",
@@ -3643,13 +3809,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "139": "1E627D4980EF6182FFBE7B6A6F93452FD4C14FD24FB5435BD2B42D5F6E2726A5"
       },
       "pageImageHashes": {
         "139": "8B2BF5FFF080B56B7083802E3412269CFBAA7FA8928BC1C31846630C9B553113"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-THURSDAY-MOON-59-73",
@@ -3683,13 +3851,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "139": "1E627D4980EF6182FFBE7B6A6F93452FD4C14FD24FB5435BD2B42D5F6E2726A5"
       },
       "pageImageHashes": {
         "139": "8B2BF5FFF080B56B7083802E3412269CFBAA7FA8928BC1C31846630C9B553113"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-FRIDAY-VENUS-0-21",
@@ -3724,7 +3894,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "140": "2315506EA5666BAAFF03067F7264CA63A39FBFB78CDF1A15316174852FB4CF2F",
         "141": "2DDB5E669A006D66955D7BE32AB6BF728D9E54732997A00EF2FE0F612A0C8A99"
@@ -3732,7 +3902,9 @@
       "pageImageHashes": {
         "140": "6D14A60CDBE27E05814B189B94151E8E323543FFE96B22C7DA69EF672C034700",
         "141": "BB16A5E5D73973F514108C87E4F4EE3F814178B06D8591C254188D2C0F74A70A"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-FRIDAY-SUN-22-27",
@@ -3766,13 +3938,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "141": "2DDB5E669A006D66955D7BE32AB6BF728D9E54732997A00EF2FE0F612A0C8A99"
       },
       "pageImageHashes": {
         "141": "BB16A5E5D73973F514108C87E4F4EE3F814178B06D8591C254188D2C0F74A70A"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-FRIDAY-MOON-28-42",
@@ -3808,7 +3982,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "141": "2DDB5E669A006D66955D7BE32AB6BF728D9E54732997A00EF2FE0F612A0C8A99",
         "142": "ADF0603885B9D3BB0B66A5117D07EC1426D63F572725F44E2155BF5E54B1AFD7",
@@ -3818,7 +3992,9 @@
         "141": "BB16A5E5D73973F514108C87E4F4EE3F814178B06D8591C254188D2C0F74A70A",
         "142": "D4F4999F39765F2ECDBCCC2C06F84800BFA8FC437FD492D0754B9F5C07CB9FA3",
         "143": "BCFA5E27A3779B7E930E75A71F4F4E8EDD8CC253332CCA0C556E4BE822097B36"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-FRIDAY-MERCURY-51-67",
@@ -3853,7 +4029,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "143": "262F4C696DFF3E7ADAF60BC7AF36722722E00A677FE547F4056FCBF35B76F082",
         "144": "9199721F0E3F2C150B4069F22E5A6B6F2EE9A7ABA422423288ABEDA495E93062"
@@ -3861,7 +4037,9 @@
       "pageImageHashes": {
         "143": "BCFA5E27A3779B7E930E75A71F4F4E8EDD8CC253332CCA0C556E4BE822097B36",
         "144": "CC3DD8248DF21C9568984155CFDE21F058B92A82F7F660F1FE31A828A1647A02"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM3-SATURDAY-RAHU-30-41",
@@ -3896,7 +4074,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "146": "798B990EB2ECD1CDFB10C734067516E07242125427C0ACDFAE8EB284D5071C0B",
         "147": "ACF16F6C337D8EE6CA3679A5DA8E7B782CC3A30EE18C97EF59EF7CE9158E7BFB"
@@ -3904,7 +4082,9 @@
       "pageImageHashes": {
         "146": "506C33B61831132BE5305136BC7B9F23788D64D8B68E244808D833A2701E4AA7",
         "147": "E3F6298B7D3DD1CF1403B664453C774587F527808F2E3A11545BD860C30FE208"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-SUNDAY-SUN-0-6",
@@ -3938,13 +4118,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "158": "6C11041A0452986D62C263195076877C45D848406ED68CAA293E373E539017CD"
       },
       "pageImageHashes": {
         "158": "8FDDF1E835C5FF69F4F7CC698D63919D30FC37F31AB56919E4FEF42B7FA89053"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-SUNDAY-MOON-7-21",
@@ -3979,7 +4161,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "158": "6C11041A0452986D62C263195076877C45D848406ED68CAA293E373E539017CD",
         "159": "C36D12548BA68C94657FC28A8E1D15654B301626640A584EB9D901AC9E2D77CE"
@@ -3987,7 +4169,9 @@
       "pageImageHashes": {
         "158": "8FDDF1E835C5FF69F4F7CC698D63919D30FC37F31AB56919E4FEF42B7FA89053",
         "159": "BF1CAC5789D61A1CC68DCBE4B3CBB55D11A8715F08FF3711E702710FDB221C89"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-SUNDAY-MARS-22-29",
@@ -4021,13 +4205,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "159": "C36D12548BA68C94657FC28A8E1D15654B301626640A584EB9D901AC9E2D77CE"
       },
       "pageImageHashes": {
         "159": "BF1CAC5789D61A1CC68DCBE4B3CBB55D11A8715F08FF3711E702710FDB221C89"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-SUNDAY-MERCURY-30-46",
@@ -4062,7 +4248,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "159": "C36D12548BA68C94657FC28A8E1D15654B301626640A584EB9D901AC9E2D77CE",
         "160": "703DD7E72C346188DBB534D6BD04C2B580E6223DC721AA5F565A82B74CF36AA8"
@@ -4070,7 +4256,9 @@
       "pageImageHashes": {
         "159": "BF1CAC5789D61A1CC68DCBE4B3CBB55D11A8715F08FF3711E702710FDB221C89",
         "160": "C8CBF6B57C16F629D0F743561AC73F914BB4EE5C0C9DE4E5724F562480492868"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-SUNDAY-JUPITER-47-65",
@@ -4104,13 +4292,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "160": "703DD7E72C346188DBB534D6BD04C2B580E6223DC721AA5F565A82B74CF36AA8"
       },
       "pageImageHashes": {
         "160": "C8CBF6B57C16F629D0F743561AC73F914BB4EE5C0C9DE4E5724F562480492868"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-SUNDAY-VENUS-66-86",
@@ -4144,13 +4334,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "160": "703DD7E72C346188DBB534D6BD04C2B580E6223DC721AA5F565A82B74CF36AA8"
       },
       "pageImageHashes": {
         "160": "C8CBF6B57C16F629D0F743561AC73F914BB4EE5C0C9DE4E5724F562480492868"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-SUNDAY-SATURN-87-96",
@@ -4185,7 +4377,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "160": "703DD7E72C346188DBB534D6BD04C2B580E6223DC721AA5F565A82B74CF36AA8",
         "161": "9B2865B1E4A2A3C114379B0A10ADFE531E0F1DBEEF3855ECF291EE9C2F447F86"
@@ -4193,7 +4385,9 @@
       "pageImageHashes": {
         "160": "C8CBF6B57C16F629D0F743561AC73F914BB4EE5C0C9DE4E5724F562480492868",
         "161": "1656961EBBA95E1624C28E5791F3AF6EC4B5E0E130EF58F6233C5C41C6CB71DC"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-MONDAY-MERCURY-24-40",
@@ -4227,13 +4421,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "163": "38E60E39755C08AF61822237C058A82F181053F7954A61045B59F881286E958F"
       },
       "pageImageHashes": {
         "163": "2C0BF564860F7204C020257E4664B86444E77EA45161A28DC7A35B674DDB7AB9"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-MONDAY-JUPITER-41-59",
@@ -4267,13 +4463,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "163": "38E60E39755C08AF61822237C058A82F181053F7954A61045B59F881286E958F"
       },
       "pageImageHashes": {
         "163": "2C0BF564860F7204C020257E4664B86444E77EA45161A28DC7A35B674DDB7AB9"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-MONDAY-VENUS-60-80",
@@ -4307,13 +4505,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "164": "A1AD723F758F704368543AB9F6F1D0A23134877CA6E2BBD7D4C7E1A8D7E998D4"
       },
       "pageImageHashes": {
         "164": "06A2F4C357C23BBA6C17B3B4B33A6B8AFF1323EB152BF63E8FC3DAF6F01F3D39"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-MONDAY-SATURN-81-90",
@@ -4348,7 +4548,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "163": "38E60E39755C08AF61822237C058A82F181053F7954A61045B59F881286E958F",
         "164": "A1AD723F758F704368543AB9F6F1D0A23134877CA6E2BBD7D4C7E1A8D7E998D4"
@@ -4356,7 +4556,9 @@
       "pageImageHashes": {
         "163": "2C0BF564860F7204C020257E4664B86444E77EA45161A28DC7A35B674DDB7AB9",
         "164": "06A2F4C357C23BBA6C17B3B4B33A6B8AFF1323EB152BF63E8FC3DAF6F01F3D39"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-TUESDAY-MARS-0-8",
@@ -4391,7 +4593,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "165": "CE2BD869AB68FE17CA192F74F96AB2837B595731F79D5461EA2E7F4F2912996B",
         "166": "53539EE4E2404A528D1FF110765BA93EB57C81BC8BC2633A2D6F4402927D0D78"
@@ -4399,7 +4601,9 @@
       "pageImageHashes": {
         "165": "DDDB067D0ABF7A374FCB7C3A3D5095D2CAD931CF219B96C4221EED534D5BAE58",
         "166": "10ABDEF6531D60722CDA6FF57BB956EAE582CDEA828225D6A22CCEA7365CBE6C"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-TUESDAY-JUPITER-36-54",
@@ -4433,13 +4637,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "166": "53539EE4E2404A528D1FF110765BA93EB57C81BC8BC2633A2D6F4402927D0D78"
       },
       "pageImageHashes": {
         "166": "10ABDEF6531D60722CDA6FF57BB956EAE582CDEA828225D6A22CCEA7365CBE6C"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-TUESDAY-RAHU-55-66",
@@ -4473,13 +4679,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "166": "53539EE4E2404A528D1FF110765BA93EB57C81BC8BC2633A2D6F4402927D0D78"
       },
       "pageImageHashes": {
         "166": "10ABDEF6531D60722CDA6FF57BB956EAE582CDEA828225D6A22CCEA7365CBE6C"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-WEDNESDAY-MERCURY-0-17",
@@ -4513,13 +4721,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "167": "7CFC5F7AF1EC6E60E9737FC034A61A9F2BCC1F3A46FA20DD721DAE78B67C94D9"
       },
       "pageImageHashes": {
         "167": "F66CDD00DEE1C9C43851B3F71E82F93FD496B8EA8DF0E053D102EE53767022B2"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-WEDNESDAY-SATURN-18-27",
@@ -4554,7 +4764,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "167": "7CFC5F7AF1EC6E60E9737FC034A61A9F2BCC1F3A46FA20DD721DAE78B67C94D9",
         "168": "2B9161B27C740D214AE4A2A6881FA0EF4F59A88CC6A10D46B6E485E89195E5C6"
@@ -4562,7 +4772,9 @@
       "pageImageHashes": {
         "167": "F66CDD00DEE1C9C43851B3F71E82F93FD496B8EA8DF0E053D102EE53767022B2",
         "168": "535A31E86A042192B7C600B8C3F5A44DFDDB5EE3629EED5EB213BF797DD04E72"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-WEDNESDAY-JUPITER-28-46",
@@ -4596,13 +4808,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "168": "2B9161B27C740D214AE4A2A6881FA0EF4F59A88CC6A10D46B6E485E89195E5C6"
       },
       "pageImageHashes": {
         "168": "535A31E86A042192B7C600B8C3F5A44DFDDB5EE3629EED5EB213BF797DD04E72"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-WEDNESDAY-RAHU-47-58",
@@ -4637,7 +4851,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "168": "2B9161B27C740D214AE4A2A6881FA0EF4F59A88CC6A10D46B6E485E89195E5C6",
         "169": "CD1D037E7BD18CF23A6D7456022FFD1FA521A05F146334C933168E2D78A7B7BC"
@@ -4645,7 +4859,9 @@
       "pageImageHashes": {
         "168": "535A31E86A042192B7C600B8C3F5A44DFDDB5EE3629EED5EB213BF797DD04E72",
         "169": "373FDEFAFB35283A02C5E54A12CF78C3AD446B7DF27EDFFC98804D4CD9F29015"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-WEDNESDAY-VENUS-59-79",
@@ -4679,13 +4895,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "169": "CD1D037E7BD18CF23A6D7456022FFD1FA521A05F146334C933168E2D78A7B7BC"
       },
       "pageImageHashes": {
         "169": "373FDEFAFB35283A02C5E54A12CF78C3AD446B7DF27EDFFC98804D4CD9F29015"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-THURSDAY-JUPITER-0-19",
@@ -4719,13 +4937,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "170": "C0D93745D1386536019F301E8831FA1214F11336B85D00A021A26F1CA5F0AB2A"
       },
       "pageImageHashes": {
         "170": "9FBBE187DD17962458B718C331AD93496A63288EDD444239AF6DE9D9563713F2"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-THURSDAY-RAHU-20-31",
@@ -4760,7 +4980,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "170": "C0D93745D1386536019F301E8831FA1214F11336B85D00A021A26F1CA5F0AB2A",
         "171": "F9C3E8B6D3C64937422D88CFF37B1C22BA0EB8EABF3F573A16D131BBA2D59B13"
@@ -4768,7 +4988,9 @@
       "pageImageHashes": {
         "170": "9FBBE187DD17962458B718C331AD93496A63288EDD444239AF6DE9D9563713F2",
         "171": "A583130A60FA7DEC9D49FAEAE28F70F09A23E1921B08ECA101B73EDEA058DBD5"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-THURSDAY-VENUS-32-52",
@@ -4802,13 +5024,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "171": "F9C3E8B6D3C64937422D88CFF37B1C22BA0EB8EABF3F573A16D131BBA2D59B13"
       },
       "pageImageHashes": {
         "171": "A583130A60FA7DEC9D49FAEAE28F70F09A23E1921B08ECA101B73EDEA058DBD5"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-THURSDAY-SUN-53-58",
@@ -4842,13 +5066,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "171": "F9C3E8B6D3C64937422D88CFF37B1C22BA0EB8EABF3F573A16D131BBA2D59B13"
       },
       "pageImageHashes": {
         "171": "A583130A60FA7DEC9D49FAEAE28F70F09A23E1921B08ECA101B73EDEA058DBD5"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-THURSDAY-MOON-59-73",
@@ -4882,13 +5108,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "171": "F9C3E8B6D3C64937422D88CFF37B1C22BA0EB8EABF3F573A16D131BBA2D59B13"
       },
       "pageImageHashes": {
         "171": "A583130A60FA7DEC9D49FAEAE28F70F09A23E1921B08ECA101B73EDEA058DBD5"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-THURSDAY-MARS-74-81",
@@ -4923,7 +5151,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "171": "F9C3E8B6D3C64937422D88CFF37B1C22BA0EB8EABF3F573A16D131BBA2D59B13",
         "172": "A4792775D8AA6DD189B94CA23926F130C100D1489D33324D2BC9686C93627A66"
@@ -4931,7 +5159,9 @@
       "pageImageHashes": {
         "171": "A583130A60FA7DEC9D49FAEAE28F70F09A23E1921B08ECA101B73EDEA058DBD5",
         "172": "802492DE55886A8F2B6330803515AFAE230F3298A8F99844CE893C886A22391F"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-FRIDAY-VENUS-0-21",
@@ -4965,13 +5195,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "173": "5241485EBB4A85F9AF56C0350FCD676E2DD0306DFAA0DF1E8645B7EA5F2FA218"
       },
       "pageImageHashes": {
         "173": "66AD297CFED91BB15C4552B6300D1160DF934DB815D4E97D910813FC4C7B2DFD"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-FRIDAY-SUN-22-27",
@@ -5006,7 +5238,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "173": "5241485EBB4A85F9AF56C0350FCD676E2DD0306DFAA0DF1E8645B7EA5F2FA218",
         "174": "B7D38B430CAF7CA9CA2F4CFA1F3EBB70FAFC5282912617CE7025B837BE56DE33"
@@ -5014,7 +5246,9 @@
       "pageImageHashes": {
         "173": "66AD297CFED91BB15C4552B6300D1160DF934DB815D4E97D910813FC4C7B2DFD",
         "174": "340ED1D30F9C83BC0B187B3C64FD5A8595C1ADE90B2773472E5DEFF7510E6E19"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-FRIDAY-MOON-28-42",
@@ -5048,13 +5282,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "174": "B7D38B430CAF7CA9CA2F4CFA1F3EBB70FAFC5282912617CE7025B837BE56DE33"
       },
       "pageImageHashes": {
         "174": "340ED1D30F9C83BC0B187B3C64FD5A8595C1ADE90B2773472E5DEFF7510E6E19"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-FRIDAY-MARS-43-50",
@@ -5089,7 +5325,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "174": "B7D38B430CAF7CA9CA2F4CFA1F3EBB70FAFC5282912617CE7025B837BE56DE33",
         "175": "032F97145AEA00CE3CAF6A7342272EB02DF02ABF71315282A22173E753753F3E"
@@ -5097,7 +5333,9 @@
       "pageImageHashes": {
         "174": "340ED1D30F9C83BC0B187B3C64FD5A8595C1ADE90B2773472E5DEFF7510E6E19",
         "175": "DE2F377A8E55A9A0D49EE5AE3C71BC6FA3066DE8EB555B94646A997B89B0ADB1"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-FRIDAY-MERCURY-51-67",
@@ -5131,13 +5369,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "175": "032F97145AEA00CE3CAF6A7342272EB02DF02ABF71315282A22173E753753F3E"
       },
       "pageImageHashes": {
         "175": "DE2F377A8E55A9A0D49EE5AE3C71BC6FA3066DE8EB555B94646A997B89B0ADB1"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-SATURDAY-SATURN-0-10",
@@ -5172,7 +5412,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "176": "8715430C3C3B2B652D502D787F6F9446F68515FEA802D63950FC2E0BD17E16C4",
         "177": "801D3D8EDED62DEAB10D4F6C5ADC1161EC9CFB632EA7EF0A44911A9B9DB02872"
@@ -5180,7 +5420,9 @@
       "pageImageHashes": {
         "176": "DD9951256201DF78FEC5AB638B48D23BBDC7547D3433837E99EA7F8D46C2276C",
         "177": "DA561045DD1CA56213E437524FE9599630A18CEB72AFD647CEF3EAAC9EEC71CD"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-SATURDAY-JUPITER-11-29",
@@ -5215,7 +5457,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "177": "801D3D8EDED62DEAB10D4F6C5ADC1161EC9CFB632EA7EF0A44911A9B9DB02872",
         "178": "64BFFA300EF475ABD0A5065CD3EB72A44F9C181ED4BCD0A39FD85E0C7E8F8DFE"
@@ -5223,7 +5465,9 @@
       "pageImageHashes": {
         "177": "DA561045DD1CA56213E437524FE9599630A18CEB72AFD647CEF3EAAC9EEC71CD",
         "178": "3A10BCB3D45F453969265B00D48708AAA6093440D6A93658416C3331616BFFF5"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM4-SATURDAY-VENUS-42-62",
@@ -5258,7 +5502,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "178": "64BFFA300EF475ABD0A5065CD3EB72A44F9C181ED4BCD0A39FD85E0C7E8F8DFE",
         "179": "6E091D66416324DB9AEA930F1C33B488865AB6CFBE78952675330496A7AA9A90"
@@ -5266,7 +5510,9 @@
       "pageImageHashes": {
         "178": "3A10BCB3D45F453969265B00D48708AAA6093440D6A93658416C3331616BFFF5",
         "179": "D00B71395E3559E504E673DA4794FFE588C980D0C1882B8C8F239A0AD40DC9E1"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-SUNDAY-SUN-0-6",
@@ -5301,7 +5547,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "188": "464E6F322EFD9288F94EC30B4CE0D2457363C09EE9046E3609715037F5C345E2",
         "189": "658DAEF4BFCCAE70157AEC7A7B2AD4F64EE0F4409F13A11957262B2295690528"
@@ -5309,7 +5555,9 @@
       "pageImageHashes": {
         "188": "2CEBCF99DB9C99C6AF26421E141B03416C47EB2139D8DAD13C16A8BBE0BB707D",
         "189": "87D16EB082B38C2F7513C9705433207E9D6F827DAC9589C166AC4D77BA0136DF"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-SUNDAY-MOON-7-21",
@@ -5343,13 +5591,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "189": "658DAEF4BFCCAE70157AEC7A7B2AD4F64EE0F4409F13A11957262B2295690528"
       },
       "pageImageHashes": {
         "189": "87D16EB082B38C2F7513C9705433207E9D6F827DAC9589C166AC4D77BA0136DF"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-SUNDAY-MARS-22-29",
@@ -5383,13 +5633,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "189": "658DAEF4BFCCAE70157AEC7A7B2AD4F64EE0F4409F13A11957262B2295690528"
       },
       "pageImageHashes": {
         "189": "87D16EB082B38C2F7513C9705433207E9D6F827DAC9589C166AC4D77BA0136DF"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-SUNDAY-MERCURY-30-46",
@@ -5423,13 +5675,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "189": "658DAEF4BFCCAE70157AEC7A7B2AD4F64EE0F4409F13A11957262B2295690528"
       },
       "pageImageHashes": {
         "189": "87D16EB082B38C2F7513C9705433207E9D6F827DAC9589C166AC4D77BA0136DF"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-SUNDAY-JUPITER-47-65",
@@ -5463,13 +5717,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "189": "658DAEF4BFCCAE70157AEC7A7B2AD4F64EE0F4409F13A11957262B2295690528"
       },
       "pageImageHashes": {
         "189": "87D16EB082B38C2F7513C9705433207E9D6F827DAC9589C166AC4D77BA0136DF"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-SUNDAY-VENUS-66-86",
@@ -5503,13 +5759,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "190": "ACEC39268ACDA6843C62355F44CF89DEFE7A040B3000184D860C2E99BB65BD83"
       },
       "pageImageHashes": {
         "190": "66945C3CB5B4A8BD3EFD0634BE439AE0FAAD48470B8364503DDA0455A772C3C8"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-SUNDAY-SATURN-87-96",
@@ -5545,7 +5803,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "189": "658DAEF4BFCCAE70157AEC7A7B2AD4F64EE0F4409F13A11957262B2295690528",
         "190": "ACEC39268ACDA6843C62355F44CF89DEFE7A040B3000184D860C2E99BB65BD83",
@@ -5555,7 +5813,9 @@
         "189": "87D16EB082B38C2F7513C9705433207E9D6F827DAC9589C166AC4D77BA0136DF",
         "190": "66945C3CB5B4A8BD3EFD0634BE439AE0FAAD48470B8364503DDA0455A772C3C8",
         "191": "2F65BA676FC74D600033DB78F6C8D2723898330317C2FE1A502865182F4B2D3C"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-MONDAY-MOON-0-15",
@@ -5589,13 +5849,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "192": "FD8E122EBA33ABB4A0F7D6B651A76DB6F50EFF4DD335FFE587D61D0070AFD312"
       },
       "pageImageHashes": {
         "192": "795FAD5C1C55C270DF37F649B4177AA735B81F58C77642F1DBC93B2F73D78563"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-MONDAY-MARS-16-23",
@@ -5630,7 +5892,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "192": "FD8E122EBA33ABB4A0F7D6B651A76DB6F50EFF4DD335FFE587D61D0070AFD312",
         "193": "6E9653D3D4BB904267A26C59102ECF2F2B72F5A90C0AB6BBDF9E59FCE7D6EF7C"
@@ -5638,7 +5900,9 @@
       "pageImageHashes": {
         "192": "795FAD5C1C55C270DF37F649B4177AA735B81F58C77642F1DBC93B2F73D78563",
         "193": "51EE3EE998A8E2B34411EBEB7AEE74826EB8175D2B05B277BE4001B9B27F2E43"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-MONDAY-MERCURY-24-40",
@@ -5672,13 +5936,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "193": "6E9653D3D4BB904267A26C59102ECF2F2B72F5A90C0AB6BBDF9E59FCE7D6EF7C"
       },
       "pageImageHashes": {
         "193": "51EE3EE998A8E2B34411EBEB7AEE74826EB8175D2B05B277BE4001B9B27F2E43"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-MONDAY-JUPITER-41-59",
@@ -5712,13 +5978,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "193": "6E9653D3D4BB904267A26C59102ECF2F2B72F5A90C0AB6BBDF9E59FCE7D6EF7C"
       },
       "pageImageHashes": {
         "193": "51EE3EE998A8E2B34411EBEB7AEE74826EB8175D2B05B277BE4001B9B27F2E43"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-MONDAY-VENUS-60-80",
@@ -5752,13 +6020,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "194": "3E38D5A7BFF340DD1F60EADC0D6A23C026A0BACAD92EBB174AA4D0573F859F0E"
       },
       "pageImageHashes": {
         "194": "7DF8C86E128C657139AF5FD002A51A3FD00203D631771D95974502FD15AAEAA5"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-MONDAY-SATURN-81-90",
@@ -5794,7 +6064,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "193": "6E9653D3D4BB904267A26C59102ECF2F2B72F5A90C0AB6BBDF9E59FCE7D6EF7C",
         "194": "3E38D5A7BFF340DD1F60EADC0D6A23C026A0BACAD92EBB174AA4D0573F859F0E",
@@ -5804,7 +6074,9 @@
         "193": "51EE3EE998A8E2B34411EBEB7AEE74826EB8175D2B05B277BE4001B9B27F2E43",
         "194": "7DF8C86E128C657139AF5FD002A51A3FD00203D631771D95974502FD15AAEAA5",
         "195": "E3069FA65579F61E7A08AD4AD7EE3850D8BFC6D87AC94BBB0FFA95A6AD7586D6"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-TUESDAY-MARS-0-8",
@@ -5839,7 +6111,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "196": "440E7281E1A80E649A407955685D83718333C9BBBA9C687720AA2E7FEBE8DF80",
         "197": "33AECAEB6B188D55F706415BFE87CCB9D741C2E4ECA23C163C1340ECEBCF52C3"
@@ -5847,7 +6119,9 @@
       "pageImageHashes": {
         "196": "68B8877B3667B782163FCE05AEFA3C00CA90702246D1EE7EF80754ED8FB6E8B9",
         "197": "7DB9F1117BBCDD4E99ACE2A370AB6D10FF6C44A4C5FC919F86D851265B91F1F4"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-TUESDAY-MERCURY-9-25",
@@ -5881,13 +6155,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "197": "33AECAEB6B188D55F706415BFE87CCB9D741C2E4ECA23C163C1340ECEBCF52C3"
       },
       "pageImageHashes": {
         "197": "7DB9F1117BBCDD4E99ACE2A370AB6D10FF6C44A4C5FC919F86D851265B91F1F4"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-TUESDAY-SATURN-26-35",
@@ -5922,7 +6198,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "197": "33AECAEB6B188D55F706415BFE87CCB9D741C2E4ECA23C163C1340ECEBCF52C3",
         "198": "E12305F86649DED81A4BAE26D4A569236A2292D3E93B1BDF31A47B5764AD534A"
@@ -5930,7 +6206,9 @@
       "pageImageHashes": {
         "197": "7DB9F1117BBCDD4E99ACE2A370AB6D10FF6C44A4C5FC919F86D851265B91F1F4",
         "198": "5E7D88ECBBA56B98C3146F6E3C57644D4E16683147A972859D307A9175789F93"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-TUESDAY-JUPITER-36-54",
@@ -5965,7 +6243,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "198": "E12305F86649DED81A4BAE26D4A569236A2292D3E93B1BDF31A47B5764AD534A",
         "199": "BEC65DF93DE5A0C73AE25353AB9DD297247DC421F7E5907C35EA873866CACBCF"
@@ -5973,7 +6251,9 @@
       "pageImageHashes": {
         "198": "5E7D88ECBBA56B98C3146F6E3C57644D4E16683147A972859D307A9175789F93",
         "199": "A709D2983D8F32909D362A8C79F50A7FE343939EFD428C0E2CB564423238ECBE"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-TUESDAY-RAHU-55-66",
@@ -6007,13 +6287,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "199": "BEC65DF93DE5A0C73AE25353AB9DD297247DC421F7E5907C35EA873866CACBCF"
       },
       "pageImageHashes": {
         "199": "A709D2983D8F32909D362A8C79F50A7FE343939EFD428C0E2CB564423238ECBE"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-WEDNESDAY-MERCURY-0-17",
@@ -6047,13 +6329,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "200": "29F1427D3CD662A81B3725812614E9BA5845C667E018AEE169EAEB1F5F5700DE"
       },
       "pageImageHashes": {
         "200": "9AB7FF4EA7D1C7E63C01F4C8DB27E4F6D9D9B69C35212D9AD378556F0BB82A61"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-WEDNESDAY-SATURN-18-27",
@@ -6089,7 +6373,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "200": "29F1427D3CD662A81B3725812614E9BA5845C667E018AEE169EAEB1F5F5700DE",
         "201": "BB5578FAEB9B803B438F8DA2F0EA7BCA6C2E76C3DAAF0D58CC72F093584BBE0C",
@@ -6099,7 +6383,9 @@
         "200": "9AB7FF4EA7D1C7E63C01F4C8DB27E4F6D9D9B69C35212D9AD378556F0BB82A61",
         "201": "88EA23824E2F6DB29000B9732D0018187CCD9138B77B5930FBE1A1D28F139B87",
         "202": "E84BB289A9F43EF94353F639CF3D5AA5E9402C17B2B1082A32F0FE3E475F9F1B"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-WEDNESDAY-JUPITER-28-46",
@@ -6134,7 +6420,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "202": "5E7ED0F6379FA2B05A9D47857D659C4A884209BE31C91462EA9A4F6D6A53FFDC",
         "203": "4DA6B59F44CFE2F5B5148E8E597116FAFD2DB6CD029A227BDC93B7FACCEAEA59"
@@ -6142,7 +6428,9 @@
       "pageImageHashes": {
         "202": "E84BB289A9F43EF94353F639CF3D5AA5E9402C17B2B1082A32F0FE3E475F9F1B",
         "203": "B0EF495AEB0DF0F6D197B64F810E612AF5B7BAB97B597C39E2562E5155A5E11F"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-WEDNESDAY-RAHU-47-58",
@@ -6177,7 +6465,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "203": "4DA6B59F44CFE2F5B5148E8E597116FAFD2DB6CD029A227BDC93B7FACCEAEA59",
         "204": "9E9719B6395F0893544F28C06999A6C8C997473AFAB978AA756F4A1C573BC90C"
@@ -6185,7 +6473,9 @@
       "pageImageHashes": {
         "203": "B0EF495AEB0DF0F6D197B64F810E612AF5B7BAB97B597C39E2562E5155A5E11F",
         "204": "A212D05F1150DC23F39179515D2B4259655059F6330AC17753445E4024BFBBFD"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-THURSDAY-JUPITER-0-19",
@@ -6220,7 +6510,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "205": "75A7886048B6CEFCD11C0EBB2C1626E93D0514C854B8206E6036F2917DFCFA7C",
         "206": "46D2D90134B334DA0F5893792293D10AC6FB50E71C57FE82F15089814DCD7F67"
@@ -6228,7 +6518,9 @@
       "pageImageHashes": {
         "205": "68B813922C5F8EB1010DB2888EB15FABC58C3B4EFF88128773650FBC24022913",
         "206": "4CD4E3BCD1CED2D3C7DBEE2C9C4700AC5A566E7242F1A12624F00256E261D891"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-THURSDAY-RAHU-20-31",
@@ -6262,13 +6554,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "206": "46D2D90134B334DA0F5893792293D10AC6FB50E71C57FE82F15089814DCD7F67"
       },
       "pageImageHashes": {
         "206": "4CD4E3BCD1CED2D3C7DBEE2C9C4700AC5A566E7242F1A12624F00256E261D891"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-THURSDAY-VENUS-32-52",
@@ -6302,13 +6596,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "206": "46D2D90134B334DA0F5893792293D10AC6FB50E71C57FE82F15089814DCD7F67"
       },
       "pageImageHashes": {
         "206": "4CD4E3BCD1CED2D3C7DBEE2C9C4700AC5A566E7242F1A12624F00256E261D891"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-THURSDAY-SUN-53-58",
@@ -6343,7 +6639,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "206": "46D2D90134B334DA0F5893792293D10AC6FB50E71C57FE82F15089814DCD7F67",
         "207": "23B2C4C012882B64299191690659CD29D94E6E9669C39E35C7162DEC2061CC05"
@@ -6351,7 +6647,9 @@
       "pageImageHashes": {
         "206": "4CD4E3BCD1CED2D3C7DBEE2C9C4700AC5A566E7242F1A12624F00256E261D891",
         "207": "BC91DF26AB4072F4D79F404A7515A655A296BDACBA8E7B986E3FF7505F4210A7"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-THURSDAY-MOON-59-73",
@@ -6385,13 +6683,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "207": "23B2C4C012882B64299191690659CD29D94E6E9669C39E35C7162DEC2061CC05"
       },
       "pageImageHashes": {
         "207": "BC91DF26AB4072F4D79F404A7515A655A296BDACBA8E7B986E3FF7505F4210A7"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-THURSDAY-MARS-74-81",
@@ -6425,13 +6725,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "207": "23B2C4C012882B64299191690659CD29D94E6E9669C39E35C7162DEC2061CC05"
       },
       "pageImageHashes": {
         "207": "BC91DF26AB4072F4D79F404A7515A655A296BDACBA8E7B986E3FF7505F4210A7"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-FRIDAY-VENUS-0-21",
@@ -6466,7 +6768,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "208": "AB22A41F49CD2378DEBE0B7989FFB8A1D7CBC40BD4F63F60C9D9FF72C95D275C",
         "209": "16B8724BF30E25165E7C68A21F557B8E8655B73043F3F2F6FB33CE9A3C68918D"
@@ -6474,7 +6776,9 @@
       "pageImageHashes": {
         "208": "182800B11AFD70ECD5A8E9F9FE93E876E9330DF20353AC840BC7B2F8D5BA5097",
         "209": "2E0DFB235BEC36A5EB37646C5F87E0AAC4DEB7EFA4665D1A5241D4A21BEC5B5C"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-FRIDAY-MOON-28-42",
@@ -6508,13 +6812,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "209": "16B8724BF30E25165E7C68A21F557B8E8655B73043F3F2F6FB33CE9A3C68918D"
       },
       "pageImageHashes": {
         "209": "2E0DFB235BEC36A5EB37646C5F87E0AAC4DEB7EFA4665D1A5241D4A21BEC5B5C"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-FRIDAY-MARS-43-50",
@@ -6548,13 +6854,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "209": "16B8724BF30E25165E7C68A21F557B8E8655B73043F3F2F6FB33CE9A3C68918D"
       },
       "pageImageHashes": {
         "209": "2E0DFB235BEC36A5EB37646C5F87E0AAC4DEB7EFA4665D1A5241D4A21BEC5B5C"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-FRIDAY-MERCURY-51-67",
@@ -6588,13 +6896,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "209": "16B8724BF30E25165E7C68A21F557B8E8655B73043F3F2F6FB33CE9A3C68918D"
       },
       "pageImageHashes": {
         "209": "2E0DFB235BEC36A5EB37646C5F87E0AAC4DEB7EFA4665D1A5241D4A21BEC5B5C"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-FRIDAY-SATURN-68-77",
@@ -6630,7 +6940,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "209": "16B8724BF30E25165E7C68A21F557B8E8655B73043F3F2F6FB33CE9A3C68918D",
         "210": "2D0E61A7CC7559BC8CDE9DD47474FF24B9198A22C3A509A70BF112477C90D703",
@@ -6640,7 +6950,9 @@
         "209": "2E0DFB235BEC36A5EB37646C5F87E0AAC4DEB7EFA4665D1A5241D4A21BEC5B5C",
         "210": "52850E2B56050F70003217B6418B3C9A53A25CBFD51B41CF304D1CFCFA83667A",
         "211": "FE897E26C46540DF4E9284E6AA2DF6D4CDD7E21E1BD6375FBA6CFF76EE3AB5E4"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-SATURDAY-SATURN-0-10",
@@ -6675,7 +6987,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "212": "F370EB1870B7E5BFBA29B8905CF12D8B59804D9D50EAB2542CA854E050157FCF",
         "213": "38139DDFB26254484E19EDC276F0BA54FF5ABE7DCE0DC5EE851BDD66701E6400"
@@ -6683,7 +6995,9 @@
       "pageImageHashes": {
         "212": "9A6D404A15B7973B46114A8EB467D935B2716D05276D65740D153BF702956C6D",
         "213": "365528EC1E6C0DD4284A9CEF92B9BBA44FA4C479B3AC7EEB00BC23A03A3D4427"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-SATURDAY-JUPITER-11-29",
@@ -6717,13 +7031,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "213": "38139DDFB26254484E19EDC276F0BA54FF5ABE7DCE0DC5EE851BDD66701E6400"
       },
       "pageImageHashes": {
         "213": "365528EC1E6C0DD4284A9CEF92B9BBA44FA4C479B3AC7EEB00BC23A03A3D4427"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-SATURDAY-RAHU-30-41",
@@ -6758,7 +7074,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "213": "38139DDFB26254484E19EDC276F0BA54FF5ABE7DCE0DC5EE851BDD66701E6400",
         "214": "ED01C3338C8B303B8802FDC6B63FA4748568F678CD39D16DDEC29903044BFDE0"
@@ -6766,7 +7082,9 @@
       "pageImageHashes": {
         "213": "365528EC1E6C0DD4284A9CEF92B9BBA44FA4C479B3AC7EEB00BC23A03A3D4427",
         "214": "70ABA7B7166748E3F6B4A781BA04309CAE74A0BD31D83E99EA8863624ABB427C"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-SATURDAY-VENUS-42-62",
@@ -6800,13 +7118,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "214": "ED01C3338C8B303B8802FDC6B63FA4748568F678CD39D16DDEC29903044BFDE0"
       },
       "pageImageHashes": {
         "214": "70ABA7B7166748E3F6B4A781BA04309CAE74A0BD31D83E99EA8863624ABB427C"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM5-SATURDAY-MERCURY-63-79",
@@ -6843,7 +7163,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "214": "ED01C3338C8B303B8802FDC6B63FA4748568F678CD39D16DDEC29903044BFDE0",
         "215": "5CEE267363FF861772642D120E8743794A9026E7E217E16506A34BB16CBC7EC3",
@@ -6855,7 +7175,9 @@
         "215": "8D3128DDE4201C482940EFF588D67B6E0AD57A67968B049FC08BDB0239770689",
         "216": "82A23921C391DFBDD0AEA91302E44C198D564026F062DE9530DD53D2C166E41A",
         "217": "F0E82C718A245C1F5B67121485D86E9785CCBB1A7593AEFBBD5626E66E46ABBE"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-SUNDAY-SUN-0-6",
@@ -6890,7 +7212,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "228": "21C71DD22A8D2D27D7DA7AD1BD2F4A904C99E0349DF9391B7DA3DFD09D36DD65",
         "229": "A4A26908C209D898D68DBE03A83A784112DF175243DD01059F5E3B98226D063C"
@@ -6898,7 +7220,9 @@
       "pageImageHashes": {
         "228": "57E119B46A7127AEC1280800AD2E26508566B1E055004FB2F3B229D19A081B61",
         "229": "AD294DF4EEC8A25C73B88A822EC9821B8CC41C8699B9F49A86D7AAFD4F0309CE"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-SUNDAY-MOON-7-21",
@@ -6932,13 +7256,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "229": "A4A26908C209D898D68DBE03A83A784112DF175243DD01059F5E3B98226D063C"
       },
       "pageImageHashes": {
         "229": "AD294DF4EEC8A25C73B88A822EC9821B8CC41C8699B9F49A86D7AAFD4F0309CE"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-SUNDAY-MARS-22-29",
@@ -6973,7 +7299,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "229": "A4A26908C209D898D68DBE03A83A784112DF175243DD01059F5E3B98226D063C",
         "230": "11CCF0EC703CFCCCAF64DD8E289A32143AB898D7B3F6A417A8377975F2BE9C6C"
@@ -6981,7 +7307,9 @@
       "pageImageHashes": {
         "229": "AD294DF4EEC8A25C73B88A822EC9821B8CC41C8699B9F49A86D7AAFD4F0309CE",
         "230": "26188F44A7A77FDD056D349671443B2D6BB8971477CF9AF57A91A5F914ADAE87"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-SUNDAY-MERCURY-30-46",
@@ -7015,13 +7343,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "230": "11CCF0EC703CFCCCAF64DD8E289A32143AB898D7B3F6A417A8377975F2BE9C6C"
       },
       "pageImageHashes": {
         "230": "26188F44A7A77FDD056D349671443B2D6BB8971477CF9AF57A91A5F914ADAE87"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-SUNDAY-JUPITER-47-65",
@@ -7055,13 +7385,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "230": "11CCF0EC703CFCCCAF64DD8E289A32143AB898D7B3F6A417A8377975F2BE9C6C"
       },
       "pageImageHashes": {
         "230": "26188F44A7A77FDD056D349671443B2D6BB8971477CF9AF57A91A5F914ADAE87"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-SUNDAY-VENUS-66-86",
@@ -7095,13 +7427,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "231": "172FE70551C210E0074E031BC76915A3A10468A8149E4AB1EE0DF0A3FC95D378"
       },
       "pageImageHashes": {
         "231": "623B01FF6E36BDAB340A2B258163424BF910ABB51B8D1A4986F4F958DDC325E9"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-SUNDAY-SATURN-87-96",
@@ -7136,7 +7470,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "230": "11CCF0EC703CFCCCAF64DD8E289A32143AB898D7B3F6A417A8377975F2BE9C6C",
         "231": "172FE70551C210E0074E031BC76915A3A10468A8149E4AB1EE0DF0A3FC95D378"
@@ -7144,7 +7478,9 @@
       "pageImageHashes": {
         "230": "26188F44A7A77FDD056D349671443B2D6BB8971477CF9AF57A91A5F914ADAE87",
         "231": "623B01FF6E36BDAB340A2B258163424BF910ABB51B8D1A4986F4F958DDC325E9"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-MONDAY-MOON-0-15",
@@ -7179,7 +7515,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "232": "0EFDC973EA8C79C3E84B2EBC77C9EC073A48370AB987F03CEDA122321D95BADA",
         "233": "0B66EA487E4A857C64AD45B982AF2455C6015A55DAD5FF9EEB159F1F8AFEDEE1"
@@ -7187,7 +7523,9 @@
       "pageImageHashes": {
         "232": "CFBC5045D63DAB66550530162B9951EBE77C86FF9109EC3745CF21271E0EAF73",
         "233": "5FDB7B020D21E71154FA2F07499F647F8FC967E02CA095E38AE164A80D452D4D"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-MONDAY-MARS-16-23",
@@ -7221,13 +7559,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "233": "0B66EA487E4A857C64AD45B982AF2455C6015A55DAD5FF9EEB159F1F8AFEDEE1"
       },
       "pageImageHashes": {
         "233": "5FDB7B020D21E71154FA2F07499F647F8FC967E02CA095E38AE164A80D452D4D"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-MONDAY-MERCURY-24-40",
@@ -7261,13 +7601,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "233": "0B66EA487E4A857C64AD45B982AF2455C6015A55DAD5FF9EEB159F1F8AFEDEE1"
       },
       "pageImageHashes": {
         "233": "5FDB7B020D21E71154FA2F07499F647F8FC967E02CA095E38AE164A80D452D4D"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-MONDAY-JUPITER-41-59",
@@ -7301,13 +7643,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "233": "0B66EA487E4A857C64AD45B982AF2455C6015A55DAD5FF9EEB159F1F8AFEDEE1"
       },
       "pageImageHashes": {
         "233": "5FDB7B020D21E71154FA2F07499F647F8FC967E02CA095E38AE164A80D452D4D"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-MONDAY-VENUS-60-80",
@@ -7341,13 +7685,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "234": "19270580EB6C973B1FDE17955DD8D01B1CA9E0201BB88C4823247E91C09370E1"
       },
       "pageImageHashes": {
         "234": "FF7C0FF8C1D253AB1A0977596F02769D6DC3958C5384FC6B8D083AB3098DED76"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-MONDAY-SATURN-81-90",
@@ -7382,7 +7728,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "233": "0B66EA487E4A857C64AD45B982AF2455C6015A55DAD5FF9EEB159F1F8AFEDEE1",
         "234": "19270580EB6C973B1FDE17955DD8D01B1CA9E0201BB88C4823247E91C09370E1"
@@ -7390,7 +7736,9 @@
       "pageImageHashes": {
         "233": "5FDB7B020D21E71154FA2F07499F647F8FC967E02CA095E38AE164A80D452D4D",
         "234": "FF7C0FF8C1D253AB1A0977596F02769D6DC3958C5384FC6B8D083AB3098DED76"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-TUESDAY-MARS-0-8",
@@ -7424,13 +7772,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "235": "0BC6CF160E1E05595E8501E0B358AA2B435577E14A7351DE90CE39677C5E30BC"
       },
       "pageImageHashes": {
         "235": "5DE69405EA278A398DFA819DB3B3EF8D209FF2D97F9BA3683752EC4FC9ADD814"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-TUESDAY-MERCURY-9-25",
@@ -7465,7 +7815,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "235": "0BC6CF160E1E05595E8501E0B358AA2B435577E14A7351DE90CE39677C5E30BC",
         "236": "88CA44D6787B287B813D51873B15E6EA99EBC03472936FB5D185C65724FCA14A"
@@ -7473,7 +7823,9 @@
       "pageImageHashes": {
         "235": "5DE69405EA278A398DFA819DB3B3EF8D209FF2D97F9BA3683752EC4FC9ADD814",
         "236": "4993231DB338061F2F06E3DC2B0E49832310A45E447FC48067E2E13784AD48D3"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-TUESDAY-SATURN-26-35",
@@ -7508,7 +7860,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "236": "88CA44D6787B287B813D51873B15E6EA99EBC03472936FB5D185C65724FCA14A",
         "237": "8D56616A25F76CD1F1672BF5BCA4C6AC4E6DA4C315A77CDE691CC9CFF3663026"
@@ -7516,7 +7868,9 @@
       "pageImageHashes": {
         "236": "4993231DB338061F2F06E3DC2B0E49832310A45E447FC48067E2E13784AD48D3",
         "237": "00DD827CBA32DF162170A5F9A3B75AA47F55AC00EB5B177B9E56F131169246B2"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-TUESDAY-JUPITER-36-54",
@@ -7550,13 +7904,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "237": "8D56616A25F76CD1F1672BF5BCA4C6AC4E6DA4C315A77CDE691CC9CFF3663026"
       },
       "pageImageHashes": {
         "237": "00DD827CBA32DF162170A5F9A3B75AA47F55AC00EB5B177B9E56F131169246B2"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-TUESDAY-RAHU-55-66",
@@ -7590,13 +7946,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "237": "8D56616A25F76CD1F1672BF5BCA4C6AC4E6DA4C315A77CDE691CC9CFF3663026"
       },
       "pageImageHashes": {
         "237": "00DD827CBA32DF162170A5F9A3B75AA47F55AC00EB5B177B9E56F131169246B2"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-WEDNESDAY-MERCURY-0-17",
@@ -7631,7 +7989,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "238": "616822EA89197E47E872C40F7F7D16FBE1210A1B5478877B61B63F4381A3346A",
         "239": "AA86D6BC340D61DE49A044CB0A2A008ABF5AE0BB1C8C1A40E72062DA14EB2625"
@@ -7639,7 +7997,9 @@
       "pageImageHashes": {
         "238": "83CF42E724FDA1CC7528709B707FF91FF4082D3D7E85980944060AFCB0E6A33C",
         "239": "91EF8B86286C842935AB15DABAD601875C73670010BD07ADCF82388133F97632"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-WEDNESDAY-SATURN-18-27",
@@ -7673,13 +8033,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "239": "AA86D6BC340D61DE49A044CB0A2A008ABF5AE0BB1C8C1A40E72062DA14EB2625"
       },
       "pageImageHashes": {
         "239": "91EF8B86286C842935AB15DABAD601875C73670010BD07ADCF82388133F97632"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-WEDNESDAY-JUPITER-28-46",
@@ -7714,7 +8076,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "239": "AA86D6BC340D61DE49A044CB0A2A008ABF5AE0BB1C8C1A40E72062DA14EB2625",
         "240": "E1F10B13C674CD89340673E794C64F252C37771F745665B61F45EA42A2F79095"
@@ -7722,7 +8084,9 @@
       "pageImageHashes": {
         "239": "91EF8B86286C842935AB15DABAD601875C73670010BD07ADCF82388133F97632",
         "240": "AA103EF6EBBB7B7DC62E3360F55B2780FFB521FAB90D92E7B5935FB728BD9167"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-WEDNESDAY-RAHU-47-58",
@@ -7756,13 +8120,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "240": "E1F10B13C674CD89340673E794C64F252C37771F745665B61F45EA42A2F79095"
       },
       "pageImageHashes": {
         "240": "AA103EF6EBBB7B7DC62E3360F55B2780FFB521FAB90D92E7B5935FB728BD9167"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-THURSDAY-JUPITER-0-19",
@@ -7797,7 +8163,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "241": "29AB9A4314EDDE826A1A6C69B77B445A2FDEB94ECA3DBDCD2EBB714323FD717A",
         "242": "F8F9E80560AE09937996B2F243D7F5F0EE4797263046B48C16EBAC989F0AD710"
@@ -7805,7 +8171,9 @@
       "pageImageHashes": {
         "241": "D697984BD5D0BC9099C314008254319005637B3A761939BFE113C7CDC6309CDE",
         "242": "60FFCD5C38C623EAA98865163761A033F1C65D28F8BEFC9D897B49214629F5B0"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-THURSDAY-RAHU-20-31",
@@ -7839,13 +8207,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "242": "F8F9E80560AE09937996B2F243D7F5F0EE4797263046B48C16EBAC989F0AD710"
       },
       "pageImageHashes": {
         "242": "60FFCD5C38C623EAA98865163761A033F1C65D28F8BEFC9D897B49214629F5B0"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-THURSDAY-VENUS-32-52",
@@ -7880,7 +8250,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "242": "F8F9E80560AE09937996B2F243D7F5F0EE4797263046B48C16EBAC989F0AD710",
         "243": "F92028B44B5B08A4A945C6D795C898D603ECD0E193C0168ABA3F5FA6A908358E"
@@ -7888,7 +8258,9 @@
       "pageImageHashes": {
         "242": "60FFCD5C38C623EAA98865163761A033F1C65D28F8BEFC9D897B49214629F5B0",
         "243": "4CA9ADCFD251C219DD76491B134A618E66E68B01DD045BDABF0ED8A79242061D"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-THURSDAY-SUN-53-58",
@@ -7922,13 +8294,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "243": "F92028B44B5B08A4A945C6D795C898D603ECD0E193C0168ABA3F5FA6A908358E"
       },
       "pageImageHashes": {
         "243": "4CA9ADCFD251C219DD76491B134A618E66E68B01DD045BDABF0ED8A79242061D"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-THURSDAY-MOON-59-73",
@@ -7963,7 +8337,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "243": "F92028B44B5B08A4A945C6D795C898D603ECD0E193C0168ABA3F5FA6A908358E",
         "244": "05FED64D81A1A4519B0A53061536E30BE11CE19833A83E7EC3C171922F24413E"
@@ -7971,7 +8345,9 @@
       "pageImageHashes": {
         "243": "4CA9ADCFD251C219DD76491B134A618E66E68B01DD045BDABF0ED8A79242061D",
         "244": "65C81EDD7D119A6FAD19F44A07F315B3790E279BA64C1354D8667969E5F756A1"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-FRIDAY-VENUS-0-21",
@@ -8006,7 +8382,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "245": "566761F087AABDE4E9FB8626CBEC9DAD112437C3DC44A091B1A21C11A49C0874",
         "246": "5B7C7DA07AFA065579E09F010DBF7B85F015306E16F05840316897B41B8FFCC9"
@@ -8014,7 +8390,9 @@
       "pageImageHashes": {
         "245": "FCC0B822391DF66630B444B67C7992B6781E6F7C808BBBEB4FFE1A1B696E0477",
         "246": "68DA155A95F2FFB93757E33BD5982D113DE7CFEA6D2CC7492D8882CAACB426C5"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-FRIDAY-SUN-22-27",
@@ -8048,13 +8426,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "246": "5B7C7DA07AFA065579E09F010DBF7B85F015306E16F05840316897B41B8FFCC9"
       },
       "pageImageHashes": {
         "246": "68DA155A95F2FFB93757E33BD5982D113DE7CFEA6D2CC7492D8882CAACB426C5"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-FRIDAY-MOON-28-42",
@@ -8089,7 +8469,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "246": "5B7C7DA07AFA065579E09F010DBF7B85F015306E16F05840316897B41B8FFCC9",
         "247": "464558D4033A78DF21E6E0BFC87F4305863C5F720E3DE2DFE979313B7B6C9DA1"
@@ -8097,7 +8477,9 @@
       "pageImageHashes": {
         "246": "68DA155A95F2FFB93757E33BD5982D113DE7CFEA6D2CC7492D8882CAACB426C5",
         "247": "814D995A5E361026915647AED731AC452C09E4A08C82C6A190CFE4E925EA1B89"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-FRIDAY-MERCURY-51-67",
@@ -8132,7 +8514,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "247": "464558D4033A78DF21E6E0BFC87F4305863C5F720E3DE2DFE979313B7B6C9DA1",
         "248": "ED6CC51FCFD53D63A091D82810A5E9D0354CDBC1096BCCB5722C2EF7FA4E9BB9"
@@ -8140,7 +8522,9 @@
       "pageImageHashes": {
         "247": "814D995A5E361026915647AED731AC452C09E4A08C82C6A190CFE4E925EA1B89",
         "248": "53F321C1D3B6D9347FB01B8B25727EAD799BD4674A983D1B0FC7338201C18F71"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-SATURDAY-SATURN-0-10",
@@ -8175,7 +8559,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "249": "D44BE33A77CE1C9598C5486EA9EC0EF91CBD509C6303E3C754AB14575E38E99E",
         "250": "8133C5886270927817DA0BEC253472599EECD4DCE4C20973F570628CD28AD74E"
@@ -8183,7 +8567,9 @@
       "pageImageHashes": {
         "249": "201CA4C99CADDA4D530D9D9A73E497F27627BA3122ABC28A9F10AA909F588C15",
         "250": "B2DE3DD6F781201BECB0F1D6D1FC8ED80C51DEDDD274AB5DFCA1428E922231EF"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-SATURDAY-JUPITER-11-29",
@@ -8217,13 +8603,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "250": "8133C5886270927817DA0BEC253472599EECD4DCE4C20973F570628CD28AD74E"
       },
       "pageImageHashes": {
         "250": "B2DE3DD6F781201BECB0F1D6D1FC8ED80C51DEDDD274AB5DFCA1428E922231EF"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-SATURDAY-RAHU-30-41",
@@ -8258,7 +8646,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "250": "8133C5886270927817DA0BEC253472599EECD4DCE4C20973F570628CD28AD74E",
         "251": "87C9C98DBD6CF680F1D673D814996C1B4B8F46C2FBB100A6DCDEFC9655F4CCEE"
@@ -8266,7 +8654,9 @@
       "pageImageHashes": {
         "250": "B2DE3DD6F781201BECB0F1D6D1FC8ED80C51DEDDD274AB5DFCA1428E922231EF",
         "251": "E7B8475236A14575A0003BAEDC0B08A6FEF6D192AC2D9C506D74D17FDDF997BD"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM6-SATURDAY-VENUS-42-62",
@@ -8302,7 +8692,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "251": "87C9C98DBD6CF680F1D673D814996C1B4B8F46C2FBB100A6DCDEFC9655F4CCEE",
         "252": "CDCB14D66675B8608718B25AA3E3746975810E4666E43077842A251341A30FD1",
@@ -8312,7 +8702,9 @@
         "251": "E7B8475236A14575A0003BAEDC0B08A6FEF6D192AC2D9C506D74D17FDDF997BD",
         "252": "6C5F57C562A2FC1E2FCA275474EB42EF17A54BE0E75892DCD17156EDA8DF7FE1",
         "253": "A3770513E0A768744B3B8538E1E16ABE9FD3D565D66EAFB82A2B524AC8DB6ADD"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-SUNDAY-SUN-0-6",
@@ -8346,13 +8738,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "263": "21AD4E7205D15BA346828C2B4A462CAF4B193CC3AA296D830FBAE9FA50A5291F"
       },
       "pageImageHashes": {
         "263": "F570FC76CA45D94C3FA5B1835E558A187DB677DEDC36980D8F32F9EAAED735C7"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-SUNDAY-MOON-7-21",
@@ -8387,7 +8781,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "263": "21AD4E7205D15BA346828C2B4A462CAF4B193CC3AA296D830FBAE9FA50A5291F",
         "264": "C6853DA0D25D20F5060E43DD60772F92F914F6BBDC34EDA495FCAFF446C1CA11"
@@ -8395,7 +8789,9 @@
       "pageImageHashes": {
         "263": "F570FC76CA45D94C3FA5B1835E558A187DB677DEDC36980D8F32F9EAAED735C7",
         "264": "C27848A534206A721AE84676AA301EF189C833B9C8D6E0F2C2E29201201179FA"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-SUNDAY-MARS-22-29",
@@ -8430,7 +8826,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "264": "C6853DA0D25D20F5060E43DD60772F92F914F6BBDC34EDA495FCAFF446C1CA11",
         "265": "54840239C7F76F8D70D243E5924E820CD49C0050409B1DB2B19724A710146BF0"
@@ -8438,7 +8834,9 @@
       "pageImageHashes": {
         "264": "C27848A534206A721AE84676AA301EF189C833B9C8D6E0F2C2E29201201179FA",
         "265": "FD8890C576AAF04A7718695DC32389523D59BB6BF0A6A96B6DFD99ECA0C986D3"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-SUNDAY-MERCURY-30-46",
@@ -8472,13 +8870,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "265": "54840239C7F76F8D70D243E5924E820CD49C0050409B1DB2B19724A710146BF0"
       },
       "pageImageHashes": {
         "265": "FD8890C576AAF04A7718695DC32389523D59BB6BF0A6A96B6DFD99ECA0C986D3"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-SUNDAY-JUPITER-47-65",
@@ -8512,13 +8912,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "265": "54840239C7F76F8D70D243E5924E820CD49C0050409B1DB2B19724A710146BF0"
       },
       "pageImageHashes": {
         "265": "FD8890C576AAF04A7718695DC32389523D59BB6BF0A6A96B6DFD99ECA0C986D3"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-SUNDAY-VENUS-66-86",
@@ -8552,13 +8954,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "266": "92934402D92888802F258F73F0ECE9805044D992F757BE012FAAE6F677D40840"
       },
       "pageImageHashes": {
         "266": "C1ACB6E2295C7F0FA1F67523430731A7B69AE166D7C89239E39E69290ADA0BAD"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-SUNDAY-SATURN-87-96",
@@ -8594,7 +8998,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "265": "54840239C7F76F8D70D243E5924E820CD49C0050409B1DB2B19724A710146BF0",
         "266": "92934402D92888802F258F73F0ECE9805044D992F757BE012FAAE6F677D40840",
@@ -8604,7 +9008,9 @@
         "265": "FD8890C576AAF04A7718695DC32389523D59BB6BF0A6A96B6DFD99ECA0C986D3",
         "266": "C1ACB6E2295C7F0FA1F67523430731A7B69AE166D7C89239E39E69290ADA0BAD",
         "267": "092BEC899A0AD1BEE34973122684CD7FA27379D9DD0B4515EEFEB1CDAB41B0D4"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-MONDAY-MOON-0-15",
@@ -8638,13 +9044,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "268": "52DB330F2872CB9C4E09B1B5375F137E52C3B391324E538809417B0BE65D6368"
       },
       "pageImageHashes": {
         "268": "8412F89CED6C0540CC282677DD22EAA8EF6890731C84ACF5189BBCB7997DFE65"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-MONDAY-MARS-16-23",
@@ -8679,7 +9087,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "268": "52DB330F2872CB9C4E09B1B5375F137E52C3B391324E538809417B0BE65D6368",
         "269": "166A34FC0878B7F41EFEC39DCF763355C2241828EFBD0A5C53C04D8E1F0984D5"
@@ -8687,7 +9095,9 @@
       "pageImageHashes": {
         "268": "8412F89CED6C0540CC282677DD22EAA8EF6890731C84ACF5189BBCB7997DFE65",
         "269": "D889D48CF02B014DA39C553D384D2165D4C87E2A7F24422AFC88771C328BD8E5"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-MONDAY-MERCURY-24-40",
@@ -8722,7 +9132,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "269": "166A34FC0878B7F41EFEC39DCF763355C2241828EFBD0A5C53C04D8E1F0984D5",
         "270": "968927F04C320731BD1C6FF495A7DBFFB3F09A4E6CE81BA19A612CA679BB2BA6"
@@ -8730,7 +9140,9 @@
       "pageImageHashes": {
         "269": "D889D48CF02B014DA39C553D384D2165D4C87E2A7F24422AFC88771C328BD8E5",
         "270": "BF04076CBE6F0C7B1B83B4CD591CD3E0D9B3D16F5BDA0F14D952F4689F910C39"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-MONDAY-JUPITER-41-59",
@@ -8764,13 +9176,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "270": "968927F04C320731BD1C6FF495A7DBFFB3F09A4E6CE81BA19A612CA679BB2BA6"
       },
       "pageImageHashes": {
         "270": "BF04076CBE6F0C7B1B83B4CD591CD3E0D9B3D16F5BDA0F14D952F4689F910C39"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-MONDAY-VENUS-60-80",
@@ -8804,13 +9218,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "271": "2C338EF43963BC09BA9B02388F6B73FC6338F4DE8E6E985DF72746DEFB595A95"
       },
       "pageImageHashes": {
         "271": "7AA0B17831FCCA40DAF0E8E9EC7AC1315809E3AF3AB7D6056FAAA306B7557606"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-MONDAY-SATURN-81-90",
@@ -8845,7 +9261,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "270": "968927F04C320731BD1C6FF495A7DBFFB3F09A4E6CE81BA19A612CA679BB2BA6",
         "271": "2C338EF43963BC09BA9B02388F6B73FC6338F4DE8E6E985DF72746DEFB595A95"
@@ -8853,7 +9269,9 @@
       "pageImageHashes": {
         "270": "BF04076CBE6F0C7B1B83B4CD591CD3E0D9B3D16F5BDA0F14D952F4689F910C39",
         "271": "7AA0B17831FCCA40DAF0E8E9EC7AC1315809E3AF3AB7D6056FAAA306B7557606"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-TUESDAY-MARS-0-8",
@@ -8887,13 +9305,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "272": "F1BDC432843213ADCD60FAB473218B372E3E079591D542F40DD273150457AFAD"
       },
       "pageImageHashes": {
         "272": "F9739053DEBEA1F042AC0746511FA129F0109CB3642DB1A08CA69B74D7292FDE"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-TUESDAY-MERCURY-9-25",
@@ -8928,7 +9348,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "272": "F1BDC432843213ADCD60FAB473218B372E3E079591D542F40DD273150457AFAD",
         "273": "4752B9574504C1B1955AE351E12022863A83A2A253969D0F358676C15019AB07"
@@ -8936,7 +9356,9 @@
       "pageImageHashes": {
         "272": "F9739053DEBEA1F042AC0746511FA129F0109CB3642DB1A08CA69B74D7292FDE",
         "273": "BF04C96CD9A94FFD0DD29902514552A273407947AE504A1B9E81FE907CF8FFBA"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-TUESDAY-SATURN-26-35",
@@ -8971,7 +9393,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "273": "4752B9574504C1B1955AE351E12022863A83A2A253969D0F358676C15019AB07",
         "274": "8153F7EC4A01DAB7079F0F8A8E7F9EA97CC770B2A07D202DD269A0D38615EA42"
@@ -8979,7 +9401,9 @@
       "pageImageHashes": {
         "273": "BF04C96CD9A94FFD0DD29902514552A273407947AE504A1B9E81FE907CF8FFBA",
         "274": "55A512AE611818D454447C7E2AB36646C505D7E35AD8AFD278D4C8C81A1B77DD"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-TUESDAY-JUPITER-36-54",
@@ -9013,13 +9437,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "274": "8153F7EC4A01DAB7079F0F8A8E7F9EA97CC770B2A07D202DD269A0D38615EA42"
       },
       "pageImageHashes": {
         "274": "55A512AE611818D454447C7E2AB36646C505D7E35AD8AFD278D4C8C81A1B77DD"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-TUESDAY-RAHU-55-66",
@@ -9054,7 +9480,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "274": "8153F7EC4A01DAB7079F0F8A8E7F9EA97CC770B2A07D202DD269A0D38615EA42",
         "275": "B3CC17B59DA741D1D7CC508580384B7F10B2C79A4528B6318B8EA028C41D4FB0"
@@ -9062,7 +9488,9 @@
       "pageImageHashes": {
         "274": "55A512AE611818D454447C7E2AB36646C505D7E35AD8AFD278D4C8C81A1B77DD",
         "275": "37EDC11871436733C66F1C82F34AAC0F27D6699E7794F6459B1FD9E12F734641"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-TUESDAY-VENUS-67-87",
@@ -9097,7 +9525,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "275": "B3CC17B59DA741D1D7CC508580384B7F10B2C79A4528B6318B8EA028C41D4FB0",
         "276": "95A0C8258019D1D5905A014C007A507686FC84B3F5E8EA0A964CDDFB3113A3AE"
@@ -9105,7 +9533,9 @@
       "pageImageHashes": {
         "275": "37EDC11871436733C66F1C82F34AAC0F27D6699E7794F6459B1FD9E12F734641",
         "276": "B28AF4FCD265FAEFA5C27020774B2329DB6169D6FBD6A07B32BE6AF68436457D"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-WEDNESDAY-JUPITER-28-46",
@@ -9140,7 +9570,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "278": "5E13F683534D51F359AA276049443D685FB7A594E86B731D895021FDACEF60FE",
         "279": "788082280532576A42434A557B78B58C2481EFE3436716F604FC4E2470CED36F"
@@ -9148,7 +9578,9 @@
       "pageImageHashes": {
         "278": "A63B86BB03494EC29465829ABC0CE6EE69FF1B5A2A078850BDA33C0AE159F59A",
         "279": "B419FF5C38CACD771FFC8BED19C9241B08260D19FF0368157E884416F3B12B80"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-WEDNESDAY-RAHU-47-58",
@@ -9182,13 +9614,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "279": "788082280532576A42434A557B78B58C2481EFE3436716F604FC4E2470CED36F"
       },
       "pageImageHashes": {
         "279": "B419FF5C38CACD771FFC8BED19C9241B08260D19FF0368157E884416F3B12B80"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-WEDNESDAY-VENUS-59-79",
@@ -9223,7 +9657,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "279": "788082280532576A42434A557B78B58C2481EFE3436716F604FC4E2470CED36F",
         "280": "3FE828E1B40D19462B20457607919517268E7AFBB05BB0978AE4CCE4728BBF0F"
@@ -9231,7 +9665,9 @@
       "pageImageHashes": {
         "279": "B419FF5C38CACD771FFC8BED19C9241B08260D19FF0368157E884416F3B12B80",
         "280": "E527F6BF4B9B7B7A6D5B5303F2A70C7F64447FEBB4F3794F0BE15B8D0352EA07"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-THURSDAY-JUPITER-0-19",
@@ -9266,7 +9702,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "281": "D28889812B5D7AD85B1820074E3B251762374859CBC06B8FAE9475BF620B0798",
         "282": "6ACD4D480A76096D5D1867F4A1932B1BC14F79664B6285E20030AA653E17C226"
@@ -9274,7 +9710,9 @@
       "pageImageHashes": {
         "281": "9BCB0DC5D2B47744DB6E88B1B75771A40EFA6BABA218E8B355FFA31CAEC95D58",
         "282": "021A3D1DE137E579DF79799917B669550A068B322E6F58D38A6EE2E08B48736E"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-THURSDAY-RAHU-20-31",
@@ -9308,13 +9746,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "282": "6ACD4D480A76096D5D1867F4A1932B1BC14F79664B6285E20030AA653E17C226"
       },
       "pageImageHashes": {
         "282": "021A3D1DE137E579DF79799917B669550A068B322E6F58D38A6EE2E08B48736E"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-THURSDAY-VENUS-32-52",
@@ -9348,13 +9788,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "282": "6ACD4D480A76096D5D1867F4A1932B1BC14F79664B6285E20030AA653E17C226"
       },
       "pageImageHashes": {
         "282": "021A3D1DE137E579DF79799917B669550A068B322E6F58D38A6EE2E08B48736E"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-THURSDAY-SUN-53-58",
@@ -9390,7 +9832,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "282": "6ACD4D480A76096D5D1867F4A1932B1BC14F79664B6285E20030AA653E17C226",
         "283": "AFFFD7E9E146D3CAFDC335B9EAAE3DABD4C5B0FC20DC3B2C921C41339C4EE761",
@@ -9400,7 +9842,9 @@
         "282": "021A3D1DE137E579DF79799917B669550A068B322E6F58D38A6EE2E08B48736E",
         "283": "A6582CCFCC15565BCB6C8DEFB40056224D164835471764E9A8CAD2C04927005A",
         "284": "C20D8C6516CA1C8308D9F9F48074417EFE1C987CA54E0824EB48E46DD13D418C"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-THURSDAY-MOON-59-73",
@@ -9434,13 +9878,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "284": "8FDB86984A2630E59788A65D700D2DC4A9880018C735302A6F5745B09A1D33B2"
       },
       "pageImageHashes": {
         "284": "C20D8C6516CA1C8308D9F9F48074417EFE1C987CA54E0824EB48E46DD13D418C"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-FRIDAY-VENUS-0-21",
@@ -9475,7 +9921,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "285": "1D04F6A2FCACB6C3EF4F1DFEB7B79E28DBC60E45B9765BC4F0C3917E7932F01B",
         "286": "F6A9BC674FD37F9E453B4E017474C679649D3FC88C9B995D4A98B3C51C68E943"
@@ -9483,7 +9929,9 @@
       "pageImageHashes": {
         "285": "67EC3AF3612F8595632682F86BD89A417F3D09B0117CB8B6A1386F0AA47E39D2",
         "286": "E5C7579A893C15BDD0100C6A101CE76D967E0899E37F1559F284B4549EE4519B"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-FRIDAY-SUN-22-27",
@@ -9518,7 +9966,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "286": "F6A9BC674FD37F9E453B4E017474C679649D3FC88C9B995D4A98B3C51C68E943",
         "287": "0A2FEDA1F18886EFD96E9F0B824B190B1C4079A62D38C6359BC8134271A65DED"
@@ -9526,7 +9974,9 @@
       "pageImageHashes": {
         "286": "E5C7579A893C15BDD0100C6A101CE76D967E0899E37F1559F284B4549EE4519B",
         "287": "2524E9A51DCB40170E736B06D8A6A98CE8BCFF1E320CF7928F33079BB577ABEE"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-FRIDAY-MOON-28-42",
@@ -9560,13 +10010,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "287": "0A2FEDA1F18886EFD96E9F0B824B190B1C4079A62D38C6359BC8134271A65DED"
       },
       "pageImageHashes": {
         "287": "2524E9A51DCB40170E736B06D8A6A98CE8BCFF1E320CF7928F33079BB577ABEE"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-FRIDAY-MARS-43-50",
@@ -9601,7 +10053,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "287": "0A2FEDA1F18886EFD96E9F0B824B190B1C4079A62D38C6359BC8134271A65DED",
         "288": "13F45BD3B06DF9E8968FCD54BC506C5FD78BB14B6FAD4A19B93D7C3230A2D8FE"
@@ -9609,7 +10061,9 @@
       "pageImageHashes": {
         "287": "2524E9A51DCB40170E736B06D8A6A98CE8BCFF1E320CF7928F33079BB577ABEE",
         "288": "0040ACFF5259573053928B68C8DCB2AE456CE24C4907034E8BFF1E8B424ECF9E"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-FRIDAY-MERCURY-51-67",
@@ -9644,7 +10098,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "288": "13F45BD3B06DF9E8968FCD54BC506C5FD78BB14B6FAD4A19B93D7C3230A2D8FE",
         "289": "8C51AA34B255A74F20E60FD65B9FEA724BE7BEB06B85242B6074E9F2D422B9CB"
@@ -9652,7 +10106,9 @@
       "pageImageHashes": {
         "288": "0040ACFF5259573053928B68C8DCB2AE456CE24C4907034E8BFF1E8B424ECF9E",
         "289": "38EA32DBF3C9957851D196D0F5DB74FF845A78B47D62F8519B55910BAD8646C0"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-SATURDAY-SATURN-0-10",
@@ -9686,13 +10142,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "290": "D2230BDDBBE986A3F4462B0D687216546426BBBD163F8239235C22AC83098A06"
       },
       "pageImageHashes": {
         "290": "A688214454A2972DC20165C89DC6B10688A311855FC5E8928A574A1C7D7935E2"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-SATURDAY-JUPITER-11-29",
@@ -9726,13 +10184,15 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "290": "D2230BDDBBE986A3F4462B0D687216546426BBBD163F8239235C22AC83098A06"
       },
       "pageImageHashes": {
         "290": "A688214454A2972DC20165C89DC6B10688A311855FC5E8928A574A1C7D7935E2"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-SATURDAY-RAHU-30-41",
@@ -9767,7 +10227,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "290": "D2230BDDBBE986A3F4462B0D687216546426BBBD163F8239235C22AC83098A06",
         "291": "F04EB974146C5F49491CAE8A3EC8D1E16A21DADF2F1E434FAC7EAB2A1020F53A"
@@ -9775,7 +10235,9 @@
       "pageImageHashes": {
         "290": "A688214454A2972DC20165C89DC6B10688A311855FC5E8928A574A1C7D7935E2",
         "291": "35796FA054A48793434FE8657A31F228A1C2DD6756D960BD818583DDC411C2C8"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDEA-OR2-MAHABHUT2537-REM0-SATURDAY-VENUS-42-62",
@@ -9810,7 +10272,7 @@
         "specific amount",
         "medical diagnosis"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "291": "F04EB974146C5F49491CAE8A3EC8D1E16A21DADF2F1E434FAC7EAB2A1020F53A",
         "292": "01817A64D42EBD58F5BDC4CAAD44BF1521819C86E886C987385A1A707200E451"
@@ -9818,7 +10280,9 @@
       "pageImageHashes": {
         "291": "35796FA054A48793434FE8657A31F228A1C2DD6756D960BD818583DDC411C2C8",
         "292": "87D344740A69CD0F039B2898AE9A74AA6E6A7438430F0B4A0E92B7E6F7D368D9"
-      }
+      },
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDC-R0-SAT-42_62-SUPPORT",
@@ -9853,14 +10317,16 @@
         "marriage or separation event",
         "different archetype or Thai day"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "291": "F04EB974146C5F49491CAE8A3EC8D1E16A21DADF2F1E434FAC7EAB2A1020F53A"
       },
       "pageImageHashes": {
         "291": "35796FA054A48793434FE8657A31F228A1C2DD6756D960BD818583DDC411C2C8"
       },
-      "ocrMismatch": true
+      "ocrMismatch": true,
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDC-R0-SAT-42_62-WORK",
@@ -9895,14 +10361,16 @@
         "marriage or separation event",
         "different archetype or Thai day"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "291": "F04EB974146C5F49491CAE8A3EC8D1E16A21DADF2F1E434FAC7EAB2A1020F53A"
       },
       "pageImageHashes": {
         "291": "35796FA054A48793434FE8657A31F228A1C2DD6756D960BD818583DDC411C2C8"
       },
-      "ocrMismatch": true
+      "ocrMismatch": true,
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDC-R0-SAT-42_62-FINANCE",
@@ -9937,14 +10405,16 @@
         "marriage or separation event",
         "different archetype or Thai day"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "291": "F04EB974146C5F49491CAE8A3EC8D1E16A21DADF2F1E434FAC7EAB2A1020F53A"
       },
       "pageImageHashes": {
         "291": "35796FA054A48793434FE8657A31F228A1C2DD6756D960BD818583DDC411C2C8"
       },
-      "ocrMismatch": false
+      "ocrMismatch": false,
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDC-R0-SAT-42_62-FLOW",
@@ -9979,14 +10449,16 @@
         "marriage or separation event",
         "different archetype or Thai day"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "291": "F04EB974146C5F49491CAE8A3EC8D1E16A21DADF2F1E434FAC7EAB2A1020F53A"
       },
       "pageImageHashes": {
         "291": "35796FA054A48793434FE8657A31F228A1C2DD6756D960BD818583DDC411C2C8"
       },
-      "ocrMismatch": true
+      "ocrMismatch": true,
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDC-R0-SAT-42_43_61_62-TEMPORARY-GAIN",
@@ -10021,14 +10493,16 @@
         "marriage or separation event",
         "different archetype or Thai day"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "291": "F04EB974146C5F49491CAE8A3EC8D1E16A21DADF2F1E434FAC7EAB2A1020F53A"
       },
       "pageImageHashes": {
         "291": "35796FA054A48793434FE8657A31F228A1C2DD6756D960BD818583DDC411C2C8"
       },
-      "ocrMismatch": true
+      "ocrMismatch": true,
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDC-R0-SAT-42_43_61_62-LOSS",
@@ -10063,14 +10537,16 @@
         "marriage or separation event",
         "different archetype or Thai day"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "292": "01817A64D42EBD58F5BDC4CAAD44BF1521819C86E886C987385A1A707200E451"
       },
       "pageImageHashes": {
         "292": "87D344740A69CD0F039B2898AE9A74AA6E6A7438430F0B4A0E92B7E6F7D368D9"
       },
-      "ocrMismatch": true
+      "ocrMismatch": true,
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     },
     {
       "atomId": "SDC-R0-SAT-42_43_61_62-SPEECH",
@@ -10105,14 +10581,16 @@
         "marriage or separation event",
         "different archetype or Thai day"
       ],
-      "visualVerificationStatus": "VERIFIED_AGAINST_SOURCE_PAGE_IMAGE",
+      "visualVerificationStatus": "OR2_GENERATED_FLAG_REJECTED_NOT_REVIEW_EVIDENCE",
       "ocrSpanHashes": {
         "292": "01817A64D42EBD58F5BDC4CAAD44BF1521819C86E886C987385A1A707200E451"
       },
       "pageImageHashes": {
         "292": "87D344740A69CD0F039B2898AE9A74AA6E6A7438430F0B4A0E92B7E6F7D368D9"
       },
-      "ocrMismatch": true
+      "ocrMismatch": true,
+      "heuristicCandidateOnly": true,
+      "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE"
     }
   ]
 }

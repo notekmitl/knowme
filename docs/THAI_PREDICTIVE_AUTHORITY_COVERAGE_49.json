@@ -1,18 +1,18 @@
 {
   "version": 3,
-  "status": "FULL_REVIEW_COMPLETE_SOURCE_DIRECT_GAP_CONFIRMED_NO_GO",
+  "status": "OWNER_REJECTED_OR2_OCR_HEURISTIC_COUNTS_NOT_SEMANTIC_COVERAGE",
   "generatedAt": "2026-09-01T00:00:00+07:00",
   "metrics": {
-    "contexts_examined": 49,
-    "periods_examined": 392,
-    "contexts_with_direct_events_or_trends": 49,
-    "periods_with_direct_events": 197,
-    "periods_with_direct_trends_only": 38,
-    "periods_with_no_direct_statement": 157,
-    "unresolved_periods": 0,
-    "atoms_total": 242,
-    "pages_visually_reviewed": 181,
-    "unexamined_periods": 0
+    "periods_total": 392,
+    "heuristic_event_candidates": 197,
+    "heuristic_trend_candidates": 38,
+    "marker_not_found_periods": 157,
+    "semantic_reviewed_periods": 0,
+    "semantic_unreviewed_periods": 392,
+    "visually_verified_periods": 0,
+    "source_direct_authorized_periods": 0,
+    "synthesized_authorized_periods": 0,
+    "unsupported_periods": 392
   },
   "atomsPerPeriodDistribution": {
     "0": 157,
@@ -31,9 +31,9 @@
   },
   "domainCompleteContexts": 0,
   "interpretation": {
-    "fullReviewComplete": true,
-    "sourceDirectPeriodCoverage": "235/392",
-    "fullPredictiveAuthority": false,
-    "noGo": true
+    "semanticSourceAuthorityEstablished": false,
+    "sourceDirectCoverage": null,
+    "noGoFromSourceGapEstablished": false,
+    "reason": "197/38/157 are OCR keyword, trend-marker and marker-miss classifications; they are not semantic authority counts."
   }
 }

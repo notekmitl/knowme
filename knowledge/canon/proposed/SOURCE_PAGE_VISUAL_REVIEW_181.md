@@ -1,3 +1,5 @@
-# Source Page Visual Review 181
+# OR2 page artifact — corrected status
 
-เปิดภาพต้นฉบับจริงครบ **181/181 หน้า**; OCR checked 181/181; pages unreviewed 0; unresolved text 0. ทุกหน้าเก็บ SHA-256 ของ PNG และ OCR แยกกัน.
+Status: **OWNER REJECTED — AUTOMATED IMAGE/OCR INVENTORY, NOT VISUAL SEMANTIC REVIEW**
+
+The 181 image and OCR hashes are preserved. OR2 generated the same review flag and observation for every page; therefore visually reviewed with evidence is 0/181. Use AUTOMATED_PAGE_IMAGE_AND_OCR_INVENTORY_181 for the non-authoritative inventory.

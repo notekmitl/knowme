@@ -1,0 +1,43 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "version",
+    "status",
+    "contractRef",
+    "counts",
+    "rules"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "rules": {
+      "type": "array",
+      "minItems": 8,
+      "items": {
+        "type": "object",
+        "required": [
+          "synthesisRuleId",
+          "authorityTier",
+          "applicableContexts",
+          "requiredSignals",
+          "minimumIndependentSignalCount",
+          "domain",
+          "periodHorizon",
+          "polarity",
+          "allowedConclusion",
+          "prohibitedEscalation",
+          "conflictHandling",
+          "certaintyBoundary",
+          "readerCopyExamples",
+          "negativeExamples",
+          "sourceReferences",
+          "canonReferences",
+          "deepResearchReferences",
+          "ownerAuthorizationStatus"
+        ]
+      }
+    }
+  }
+}
