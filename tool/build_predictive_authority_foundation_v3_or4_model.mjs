@@ -83,6 +83,10 @@ const canonSignals = dossier.canonSignals.map((row) => {
   };
 });
 
+const researchLedgerFile = path.join(ROOT, 'docs/THAI_PREDICTIVE_RESEARCH_LEDGER_V1.json');
+const researchSignals = fs.existsSync(researchLedgerFile)
+  ? readJson('docs/THAI_PREDICTIVE_RESEARCH_LEDGER_V1.json').records.map(({ researchId, ...row }) => ({ signalId: researchId, ...row }))
+  : [];
 const ledger = {
   version: 1,
   status: 'OR4_REAL_EVIDENCE_OWNER_MODEL_NOT_RUNTIME',
@@ -99,12 +103,12 @@ const ledger = {
   },
   sourceSignals,
   canonSignals,
-  researchSignals: [],
+  researchSignals,
   counts: {
     sourceSignals: sourceSignals.length,
     canonSignals: canonSignals.length,
-    researchSignals: 0,
-    distinctEvidenceOwners: new Set([...sourceSignals, ...canonSignals].map((row) => row.evidenceOwnerId)).size,
+    researchSignals: researchSignals.length,
+    distinctEvidenceOwners: new Set([...sourceSignals, ...canonSignals, ...researchSignals].map((row) => row.evidenceOwnerId)).size,
     derivedSignals: canonSignals.filter((row) => row.directOrDerived === 'DERIVED').length,
   },
 };

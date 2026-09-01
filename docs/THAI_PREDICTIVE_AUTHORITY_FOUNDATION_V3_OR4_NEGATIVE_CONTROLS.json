@@ -1,0 +1,130 @@
+{
+  "version": 1,
+  "status": "PASS",
+  "counts": {
+    "controls": 14,
+    "rejected": 14,
+    "failures": 0
+  },
+  "controls": [
+    {
+      "id": "stored-count-99-one-owner",
+      "expectedCode": "STORED_INDEPENDENT_COUNT_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "STORED_INDEPENDENT_COUNT_MISMATCH"
+      ]
+    },
+    {
+      "id": "one-clause-split-two-atoms",
+      "expectedCode": "INSUFFICIENT_RECOMPUTED_EVIDENCE_OWNERS",
+      "rejected": true,
+      "observedCodes": [
+        "INSUFFICIENT_RECOMPUTED_EVIDENCE_OWNERS"
+      ]
+    },
+    {
+      "id": "two-derived-records-one-parent",
+      "expectedCode": "INSUFFICIENT_RECOMPUTED_EVIDENCE_OWNERS",
+      "rejected": true,
+      "observedCodes": [
+        "INSUFFICIENT_RECOMPUTED_EVIDENCE_OWNERS",
+        "PERIOD_MISMATCH",
+        "PLACEMENT_ONLY_TIER_C"
+      ]
+    },
+    {
+      "id": "tier-c-required-canon-missing",
+      "expectedCode": "REQUIRED_SIGNAL_TYPE_MISSING:DOMAIN_AUTHORITY",
+      "rejected": true,
+      "observedCodes": [
+        "REQUIRED_SIGNAL_TYPE_MISSING:SOURCE_PERIOD_OR_PLACEMENT",
+        "REQUIRED_SIGNAL_TYPE_MISSING:DOMAIN_AUTHORITY",
+        "DOMAIN_MISMATCH"
+      ]
+    },
+    {
+      "id": "domain-mismatch",
+      "expectedCode": "DOMAIN_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "DOMAIN_MISMATCH"
+      ]
+    },
+    {
+      "id": "period-mismatch",
+      "expectedCode": "PERIOD_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "PERIOD_MISMATCH"
+      ]
+    },
+    {
+      "id": "polarity-conflict-not-omitted",
+      "expectedCode": "POLARITY_CONFLICT_NOT_HANDLED",
+      "rejected": true,
+      "observedCodes": [
+        "POLARITY_CONFLICT_NOT_HANDLED"
+      ]
+    },
+    {
+      "id": "placement-only-prediction",
+      "expectedCode": "PLACEMENT_ONLY_TIER_C",
+      "rejected": true,
+      "observedCodes": [
+        "DOMAIN_MISMATCH",
+        "PLACEMENT_ONLY_TIER_C"
+      ]
+    },
+    {
+      "id": "causal-wording-no-causal-authority",
+      "expectedCode": "CAUSAL_WORDING_WITHOUT_AUTHORITY",
+      "rejected": true,
+      "observedCodes": [
+        "CAUSAL_WORDING_WITHOUT_AUTHORITY"
+      ]
+    },
+    {
+      "id": "tier-a-no-semantic-source",
+      "expectedCode": "TIER_A_SEMANTIC_SOURCE_RECORD_MISSING",
+      "rejected": true,
+      "observedCodes": [
+        "TIER_A_SEMANTIC_SOURCE_RECORD_MISSING",
+        "REQUIRED_SIGNAL_TYPE_MISSING:SOURCE_DIRECT_EVENT"
+      ]
+    },
+    {
+      "id": "tier-b-no-semantic-source",
+      "expectedCode": "TIER_B_SEMANTIC_SOURCE_RECORD_MISSING",
+      "rejected": true,
+      "observedCodes": [
+        "TIER_B_SEMANTIC_SOURCE_RECORD_MISSING",
+        "REQUIRED_SIGNAL_TYPE_MISSING:SOURCE_DIRECT_TREND"
+      ]
+    },
+    {
+      "id": "summary-adds-new-prediction",
+      "expectedCode": "SUMMARY_ADDS_NEW_PREDICTION",
+      "rejected": true,
+      "observedCodes": [
+        "SUMMARY_ADDS_NEW_PREDICTION"
+      ]
+    },
+    {
+      "id": "hardcoded-robustness-counters",
+      "expectedCode": "HARDCODED_ROBUSTNESS_COUNTERS_OR_SPECS",
+      "rejected": true,
+      "observedCodes": [
+        "HARDCODED_ROBUSTNESS_COUNTERS_OR_SPECS"
+      ]
+    },
+    {
+      "id": "static-two-pass-audit",
+      "expectedCode": "STATIC_TWO_PASS_AUDIT",
+      "rejected": true,
+      "observedCodes": [
+        "STATIC_TWO_PASS_AUDIT"
+      ]
+    }
+  ]
+}

@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { validateOr3 } from './validate_predictive_authority_foundation_v3_or3.mjs';
 
 const ROOT = process.cwd();
 const readJson = (file) => JSON.parse(fs.readFileSync(path.join(ROOT, file), 'utf8'));
@@ -123,8 +124,77 @@ export function runOr4NegativeControls() {
   return controls;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+const requiredFields = (value, fields) => fields.filter((field) => !(field in value));
+
+export function validateOr4Full() {
+  const ledger = readJson('docs/TARGET_0003_PREDICTIVE_EVIDENCE_OWNER_LEDGER_V1.json');
+  const rulebook = readJson('knowledge/canon/proposed/THAI_PREDICTIVE_RULE_SPECIFIC_VALIDATION_V1.json');
+  const research = readJson('docs/THAI_PREDICTIVE_RESEARCH_LEDGER_V1.json');
+  const candidate = readJson('docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_CANDIDATE_0016_CLAIM_EVIDENCE_SYNTHESIS_MAP.json');
+  const robustness = readJson('docs/THAI_PREDICTIVE_SYNTHESIS_ROBUSTNESS_15_OR4.json');
+  const knownText = fs.readFileSync(path.join(ROOT, 'docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0016_KNOWN.md'), 'utf8');
+  const unknownText = fs.readFileSync(path.join(ROOT, 'docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0016_UNKNOWN.md'), 'utf8');
+  const errors = [];
+  const add = (code, detail) => errors.push({ code, detail });
+  const signalFields = ['signalId', 'signalType', 'semanticRecord', 'evidenceOwnerId', 'sourceUnitId', 'derivationGroupId', 'sourceAuthorityId', 'directOrDerived', 'parentRefs', 'domains', 'period', 'polarity', 'timingGranularity', 'sourceLocation'];
+  for (const signal of [...ledger.sourceSignals, ...ledger.canonSignals, ...ledger.researchSignals]) for (const field of requiredFields(signal, signalFields)) add('SIGNAL_FIELD_MISSING', `${signal.signalId}:${field}`);
+  if (ledger.ownerCountingPolicy.storedIndependentSignalCountTrusted !== false || ledger.ownerCountingPolicy.placementAloneTierC !== false) add('OWNER_POLICY_INVALID', JSON.stringify(ledger.ownerCountingPolicy));
+  const claims = [candidate.known.overview, ...candidate.known.predictions];
+  for (const claim of claims) for (const code of validateClaimAgainstRule(claim, ledger, rulebook, claims)) add(code, claim.claimId);
+  for (const claim of candidate.known.predictions) {
+    const owners = recomputeEvidenceOwners(claim.signalRefs, ledger);
+    if (JSON.stringify(owners) !== JSON.stringify([...claim.evidenceOwnerIds].sort())) add('CLAIM_OWNER_TRACE_MISMATCH', claim.claimId);
+  }
+  if (candidate.known.predictions.some((claim) => claim.containsCausalWording)) add('CAUSAL_CLAIM_PRESENT', 'Candidate 0016');
+  if (candidate.known.summaryOmitted !== true) add('DUPLICATE_SUMMARY_NOT_OMITTED', 'Candidate 0016');
+  if (new Set(candidate.known.predictions.map((claim) => claim.semanticOwner)).size !== candidate.known.predictions.length) add('DUPLICATE_SEMANTIC_OWNER', 'Candidate 0016');
+  if (candidate.unknown.predictionClaims.length !== 0 || candidate.unknown.fixture.noonSubstitution !== false || candidate.unknown.fixture.ascendant !== null || candidate.unknown.fixture.houses !== null || candidate.unknown.fixture.thaiAstrologicalDay !== null) add('UNKNOWN_FAIL_CLOSED', 'Candidate 0016');
+  if (candidate.fixture.birthTime !== '00:03' || candidate.fixture.ascendant !== 'Aquarius 9°24′' || candidate.fixture.thaiAstrologicalDay !== 'Saturday' || candidate.fixture.asOf !== '2026-08-29 Asia/Bangkok') add('FIXTURE_IDENTITY', JSON.stringify(candidate.fixture));
+  if ((knownText.match(/ไม่ใช่ข้อยืนยันว่าเหตุการณ์จะเกิดขึ้นแน่นอน/gu) ?? []).length !== 1 || (unknownText.match(/ไม่ใช่ข้อยืนยันว่าเหตุการณ์จะเกิดขึ้นแน่นอน/gu) ?? []).length !== 1) add('DISCLAIMER_COUNT', 'Known/Unknown');
+  if (/มีแนวโน้ม|น่าจะ|ตามหลักฐาน|ข้อมูลจากเรือน|ดวงขึ้นภายใต้อิทธิพล|งานที่.*(?:ทำให้|ช่วยให้).*เงิน/u.test(knownText)) add('READER_COPY_PROHIBITED_PATTERN', 'Candidate 0016 Known');
+  if (research.records.some((row) => requiredFields(row, ['source', 'authorOrOrganization', 'documentTitle', 'accessedAt', 'pageOrSection', 'exactPassageOrVerifiedFinding', 'domain', 'timingGranularity', 'allowedInference', 'prohibitedInference', 'evidenceOwnerId']).length)) add('RESEARCH_FIELD_MISSING', 'research ledger');
+  if (research.counts.searchSnippetsUsed !== 0 || research.counts.aiSummariesUsedAsAuthority !== 0 || research.counts.admittedToCandidate !== 0) add('RESEARCH_AUTHORITY_BOUNDARY', JSON.stringify(research.counts));
+  for (const code of validateRobustnessEnvelope(robustness)) add(code, 'robustness');
+  if (robustness.inputs.length !== 15 || robustness.outputs.length !== 15 || robustness.counts.known !== 12 || robustness.counts.unknown !== 3) add('ROBUSTNESS_PROFILE_COUNT', JSON.stringify(robustness.counts));
+  if (robustness.inputs.some((row) => 'tier' in row || 'readerText' in row || 'expectedText' in row) || robustness.counts.inputExpectedTextFields !== 0) add('ROBUSTNESS_EXPECTED_OUTPUT_IN_INPUT', 'inputs');
+  if (robustness.counts.unsupportedClaims !== 0 || robustness.counts.knownToUnknownLeakage !== 0 || robustness.counts.hardcodedCounters !== 0) add('ROBUSTNESS_OUTPUT_GATE', JSON.stringify(robustness.counts));
+  for (const output of robustness.outputs) for (const claim of output.claims) for (const code of validateClaimAgainstRule(claim, ledger, rulebook, output.claims)) add(`ROBUSTNESS_${code}`, output.input.profileId);
   const controls = runOr4NegativeControls();
-  console.log(JSON.stringify({ status: controls.every((row) => row.rejected) ? 'PASS' : 'FAIL', controls }, null, 2));
-  if (controls.some((row) => !row.rejected)) process.exitCode = 1;
+  for (const control of controls) if (!control.rejected) add('NEGATIVE_CONTROL_NOT_REJECTED', control.id);
+  const or3Regression = validateOr3({ requireRobustness: true });
+  if (or3Regression.counts.errors !== 0) add('OR3_SCHEMA_REGRESSION', String(or3Regression.counts.errors));
+  const counts = {
+    schemaDocuments: 5,
+    signals: ledger.sourceSignals.length + ledger.canonSignals.length + ledger.researchSignals.length,
+    distinctEvidenceOwners: new Set([...ledger.sourceSignals, ...ledger.canonSignals, ...ledger.researchSignals].map((row) => row.evidenceOwnerId)).size,
+    candidateKnownPredictions: candidate.known.predictions.length,
+    candidateUnknownPredictions: candidate.unknown.predictionClaims.length,
+    candidateTierA: candidate.counts.tierA,
+    candidateTierB: candidate.counts.tierB,
+    candidateTierC: candidate.counts.tierC,
+    researchReviewed: research.records.length,
+    researchAdmitted: research.counts.admittedToCandidate,
+    robustnessProfiles: robustness.outputs.length,
+    robustnessGeneratedClaims: robustness.counts.generatedClaims,
+    negativeControls: controls.length,
+    negativeControlsRejected: controls.filter((row) => row.rejected).length,
+    or3RegressionErrors: or3Regression.counts.errors,
+    errors: errors.length,
+  };
+  return { version: 1, status: errors.length === 0 ? 'PASS_OR4_EVIDENCE_MODEL_CANDIDATE_VALID_PRODUCT_CONTENT_STILL_NO_GO_NOT_RUNTIME' : 'FAIL', generatedAt: '2026-09-01T00:00:00+07:00', counts, controls, errors };
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  if (process.argv.includes('--full')) {
+    const result = validateOr4Full();
+    fs.writeFileSync(path.join(ROOT, 'docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR4_NEGATIVE_CONTROLS.json'), `${JSON.stringify({ version: 1, status: result.controls.every((row) => row.rejected) ? 'PASS' : 'FAIL', counts: { controls: result.controls.length, rejected: result.controls.filter((row) => row.rejected).length, failures: result.controls.filter((row) => !row.rejected).length }, controls: result.controls }, null, 2)}\n`, 'utf8');
+    fs.writeFileSync(path.join(ROOT, 'docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR4_VALIDATION.json'), `${JSON.stringify(result, null, 2)}\n`, 'utf8');
+    fs.writeFileSync(path.join(ROOT, 'docs/THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR4_VALIDATION.md'), `# Thai Predictive Authority Foundation V3 OR4 Validation\n\nStatus: **${result.status}**\n\nSchemas ${result.counts.schemaDocuments}; signals/owners ${result.counts.signals}/${result.counts.distinctEvidenceOwners}; Candidate 0016 Known/Unknown ${result.counts.candidateKnownPredictions}/${result.counts.candidateUnknownPredictions}; Tier A/B/C ${result.counts.candidateTierA}/${result.counts.candidateTierB}/${result.counts.candidateTierC}; research reviewed/admitted ${result.counts.researchReviewed}/${result.counts.researchAdmitted}; robustness profiles/claims ${result.counts.robustnessProfiles}/${result.counts.robustnessGeneratedClaims}; negative controls ${result.counts.negativeControlsRejected}/${result.counts.negativeControls}; OR3 regression errors ${result.counts.or3RegressionErrors}; OR4 errors ${result.counts.errors}. Relationship, health and 12-month content remain Tier D, so Product Content remains NO-GO.\n`, 'utf8');
+    console.log(JSON.stringify(result, null, 2));
+    if (result.status === 'FAIL') process.exitCode = 1;
+  } else {
+    const controls = runOr4NegativeControls();
+    console.log(JSON.stringify({ status: controls.every((row) => row.rejected) ? 'PASS' : 'FAIL', controls }, null, 2));
+    if (controls.some((row) => !row.rejected)) process.exitCode = 1;
+  }
 }

@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "version",
+    "status",
+    "generationMode",
+    "countsProvenance",
+    "selectorModule",
+    "inputs",
+    "outputs",
+    "tierDistribution",
+    "counts"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "inputs": {
+      "type": "array",
+      "minItems": 15,
+      "maxItems": 15
+    },
+    "outputs": {
+      "type": "array",
+      "minItems": 15,
+      "maxItems": 15
+    }
+  }
+}

@@ -597,12 +597,117 @@
       ]
     }
   ],
-  "researchSignals": [],
+  "researchSignals": [
+    {
+      "signalId": "RESEARCH-HS13-P157-AYU-HEALTH",
+      "source": "https://www.finearts.go.th/storage/contents/2025/03/file/TvIt17ZdROhIAQIYsW8kClpvyPovH7H9MZI65tit.pdf",
+      "authorOrOrganization": "พ.อ. ประทีป (อาตมัน) สุทธบุตร ธ.ป.; กรมการศาสนา กระทรวงศึกษาธิการ; สำเนาดิจิทัลเผยแพร่โดยกรมศิลปากร",
+      "documentTitle": "โหราศาสตร์สำเร็จ ๑๓ (ตั้งแต่แรกเรียนจนเป็นนักพยากรณ์)",
+      "accessedAt": "2026-09-01",
+      "sourceFileSha256": "4A80E3A2CF8214451BE21851FC9B7EC7FBB423F9B354E06D5EF66BB5380CE9C7",
+      "directOrDerived": "DIRECT",
+      "parentRefs": [],
+      "sourceAuthorityId": "FINE_ARTS_HORASAT_SAMRET_13_SCAN",
+      "pageOrSection": "PDF page 179 / printed page 157, ความหมายของทักษา",
+      "exactPassageOrVerifiedFinding": "อายุ หมายถึง เวลาที่มีชีวิตอยู่ สุขภาพ ความเจ็บไข้ การกระทำอายุจำเริญ",
+      "domain": "health",
+      "domains": [
+        "health"
+      ],
+      "period": "NONE",
+      "timingGranularity": "CONCEPT_ONLY",
+      "polarity": "NEUTRAL",
+      "allowedInference": "คำว่าอายุในทักษาครอบคลุมขอบเขตสุขภาพในระดับนิยามเท่านั้น",
+      "prohibitedInference": "ห้ามใช้เป็นคำทำนายสุขภาพปัจจุบันหรือเหตุการณ์สุขภาพของ fixture โดยไม่มี rule ที่เชื่อมตำแหน่ง ช่วงเวลา และทิศทาง",
+      "evidenceOwnerId": "EO-RESEARCH-HS13-P157-AYU",
+      "sourceUnitId": "HS13-P157-AYU-DEFINITION",
+      "derivationGroupId": "HS13-P157-TAKSA-DEFINITIONS",
+      "signalType": "RESEARCH_DOMAIN_AUTHORITY",
+      "semanticRecord": true,
+      "sourceLocation": {
+        "kind": "PUBLIC_SCAN_PAGE",
+        "url": "https://www.finearts.go.th/storage/contents/2025/03/file/TvIt17ZdROhIAQIYsW8kClpvyPovH7H9MZI65tit.pdf",
+        "pdfPage": 179,
+        "printedPage": 157
+      },
+      "admittedToCandidate": false
+    },
+    {
+      "signalId": "RESEARCH-HS13-P157-SRI-RELATIONSHIP",
+      "source": "https://www.finearts.go.th/storage/contents/2025/03/file/TvIt17ZdROhIAQIYsW8kClpvyPovH7H9MZI65tit.pdf",
+      "authorOrOrganization": "พ.อ. ประทีป (อาตมัน) สุทธบุตร ธ.ป.; กรมการศาสนา กระทรวงศึกษาธิการ; สำเนาดิจิทัลเผยแพร่โดยกรมศิลปากร",
+      "documentTitle": "โหราศาสตร์สำเร็จ ๑๓ (ตั้งแต่แรกเรียนจนเป็นนักพยากรณ์)",
+      "accessedAt": "2026-09-01",
+      "sourceFileSha256": "4A80E3A2CF8214451BE21851FC9B7EC7FBB423F9B354E06D5EF66BB5380CE9C7",
+      "directOrDerived": "DIRECT",
+      "parentRefs": [],
+      "sourceAuthorityId": "FINE_ARTS_HORASAT_SAMRET_13_SCAN",
+      "pageOrSection": "PDF page 179 / printed page 157, ความหมายของทักษา",
+      "exactPassageOrVerifiedFinding": "ศรี หมายถึง คู่ครอง ความเจริญ ความร่ำรวย ลาภผล ความสำเร็จ ความงาม สิ่งมงคล ความเป็นใหญ่",
+      "domain": "relationship",
+      "domains": [
+        "relationship",
+        "finance",
+        "luck"
+      ],
+      "period": "NONE",
+      "timingGranularity": "CONCEPT_ONLY",
+      "polarity": "NEUTRAL",
+      "allowedInference": "ศรีมีขอบเขตความหมายรวมถึงคู่ครองและความเจริญในระดับนิยาม",
+      "prohibitedInference": "ห้ามสรุปเหตุการณ์ความรักหรือผลความสัมพันธ์ในช่วง 42–62 ปีจากนิยามนี้และ placement เพียงอย่างเดียว",
+      "evidenceOwnerId": "EO-RESEARCH-HS13-P157-SRI",
+      "sourceUnitId": "HS13-P157-SRI-DEFINITION",
+      "derivationGroupId": "HS13-P157-TAKSA-DEFINITIONS",
+      "signalType": "RESEARCH_DOMAIN_AUTHORITY",
+      "semanticRecord": true,
+      "sourceLocation": {
+        "kind": "PUBLIC_SCAN_PAGE",
+        "url": "https://www.finearts.go.th/storage/contents/2025/03/file/TvIt17ZdROhIAQIYsW8kClpvyPovH7H9MZI65tit.pdf",
+        "pdfPage": 179,
+        "printedPage": 157
+      },
+      "admittedToCandidate": false
+    },
+    {
+      "signalId": "RESEARCH-HS13-P176-ANNUAL-CHART-METHOD",
+      "source": "https://www.finearts.go.th/storage/contents/2025/03/file/TvIt17ZdROhIAQIYsW8kClpvyPovH7H9MZI65tit.pdf",
+      "authorOrOrganization": "พ.อ. ประทีป (อาตมัน) สุทธบุตร ธ.ป.; กรมการศาสนา กระทรวงศึกษาธิการ; สำเนาดิจิทัลเผยแพร่โดยกรมศิลปากร",
+      "documentTitle": "โหราศาสตร์สำเร็จ ๑๓ (ตั้งแต่แรกเรียนจนเป็นนักพยากรณ์)",
+      "accessedAt": "2026-09-01",
+      "sourceFileSha256": "4A80E3A2CF8214451BE21851FC9B7EC7FBB423F9B354E06D5EF66BB5380CE9C7",
+      "directOrDerived": "DIRECT",
+      "parentRefs": [],
+      "sourceAuthorityId": "FINE_ARTS_HORASAT_SAMRET_13_SCAN",
+      "pageOrSection": "PDF page 198 / printed page 176, ดาวเคราะห์ประจำราศีที่ให้คุณให้โทษ",
+      "exactPassageOrVerifiedFinding": "การกำหนดดาวที่ประจำราศีที่เรียกว่าดวงเกษตรนั้น ท่านกำหนดขึ้นจากทางดาราศาสตร์",
+      "domain": "annual_horizon",
+      "domains": [
+        "annual_horizon"
+      ],
+      "period": "ANNUAL_METHOD_ONLY",
+      "timingGranularity": "ANNUAL_METHOD_ONLY",
+      "polarity": "NEUTRAL",
+      "allowedInference": "คำพยากรณ์รายปีต้องมีวิธีและข้อมูลของดวงรายปีที่เกี่ยวข้อง ไม่ใช่ย่อช่วงชีวิตยาวให้เหลือ 12 เดือน",
+      "prohibitedInference": "ห้ามใช้ข้อความวิธีทั่วไปนี้สร้างผล 12 เดือนของ fixture เมื่อยังไม่มี annual chart และ applicability ที่ตรวจย้อนกลับได้",
+      "evidenceOwnerId": "EO-RESEARCH-HS13-P176-ANNUAL-METHOD",
+      "sourceUnitId": "HS13-P176-ANNUAL-METHOD",
+      "derivationGroupId": "HS13-ANNUAL-CHART-METHOD",
+      "signalType": "RESEARCH_METHOD_BOUNDARY",
+      "semanticRecord": true,
+      "sourceLocation": {
+        "kind": "PUBLIC_SCAN_PAGE",
+        "url": "https://www.finearts.go.th/storage/contents/2025/03/file/TvIt17ZdROhIAQIYsW8kClpvyPovH7H9MZI65tit.pdf",
+        "pdfPage": 198,
+        "printedPage": 176
+      },
+      "admittedToCandidate": false
+    }
+  ],
   "counts": {
     "sourceSignals": 11,
     "canonSignals": 8,
-    "researchSignals": 0,
-    "distinctEvidenceOwners": 13,
+    "researchSignals": 3,
+    "distinctEvidenceOwners": 16,
     "derivedSignals": 6
   }
 }
