@@ -1,0 +1,242 @@
+{
+  "version": 1,
+  "status": "EVIDENCE_CANDIDATE_0014_PENDING_OWNER_REVIEW_NOT_RUNTIME",
+  "generatedAt": "2026-09-01T00:00:00+07:00",
+  "fixture": {
+    "sex": "male",
+    "birth": "6/6/2525 00:03 Chiang Mai",
+    "ascendant": "Aquarius 9°24′",
+    "thaiAstrologicalDay": "Saturday",
+    "remainder": 0,
+    "asOf": "2026-08-29 Asia/Bangkok",
+    "contextId": "mahabhut2537.rem0.saturday",
+    "age": 44
+  },
+  "sourceCoverage": "235/392",
+  "counts": {
+    "knownClaims": 10,
+    "knownPredictionClaims": 8,
+    "unknownClaims": 2
+  },
+  "surfaces": [
+    {
+      "surface": "Known",
+      "claims": [
+        {
+          "id": "RC14-K-OVERVIEW",
+          "section": "ภาพรวม",
+          "kind": "PREDICTION",
+          "semanticOwner": "overview-current-period",
+          "text": "อายุ 44 อยู่ในช่วงอายุ 42–62 ปี การทำงาน การพูด และการคิดเดินหน้าได้ราบรื่นกว่าเดิม",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "matrixApplicationId": "mahabhut2537.rem0.saturday.venus.42_62",
+          "atomIds": [
+            "SDC-R0-SAT-42_62-FLOW"
+          ],
+          "period": "42-62",
+          "domain": "work",
+          "eventFamily": "action_communication_thought",
+          "planet": "venus",
+          "taksaRole": "sri",
+          "mahabhutHouse": "thongchai",
+          "periodStatus": "dueng_khuen",
+          "strength": "SOURCE_DIRECT_EXPLICIT_EVENT_CLAUSE",
+          "timing": "AGE_PERIOD"
+        },
+        {
+          "id": "RC14-K-PAST-0-10",
+          "section": "อดีต · อายุ 0–10 ปี",
+          "kind": "PREDICTION",
+          "semanticOwner": "SDEA-OR2-MAHABHUT2537-REM0-SATURDAY-SATURN-0-10",
+          "text": "ช่วงอายุ 0–10 ปี ครอบครัวมีภาระเรื่องสุขภาพ งาน และเงิน ทำให้การดูแลใกล้ชิดทำได้ไม่เต็มที่",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "matrixApplicationId": "mahabhut2537.rem0.saturday.saturn.0_10",
+          "atomIds": [
+            "SDEA-OR2-MAHABHUT2537-REM0-SATURDAY-SATURN-0-10"
+          ],
+          "period": "0-10",
+          "domain": "work",
+          "eventFamily": "work_source_statement",
+          "planet": "saturn",
+          "taksaRole": "boriwan",
+          "mahabhutHouse": "phangkha",
+          "periodStatus": "dueng_tok",
+          "strength": "SOURCE_DIRECT_PERIOD_EVENT",
+          "timing": "AGE_PERIOD"
+        },
+        {
+          "id": "RC14-K-PAST-11-29",
+          "section": "อดีต · อายุ 11–29 ปี",
+          "kind": "PREDICTION",
+          "semanticOwner": "SDEA-OR2-MAHABHUT2537-REM0-SATURDAY-JUPITER-11-29",
+          "text": "ช่วงอายุ 11–29 ปี เป็นช่วงดวงขึ้นภายใต้อิทธิพลของดาวพฤหัส",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "matrixApplicationId": "mahabhut2537.rem0.saturday.jupiter.11_29",
+          "atomIds": [
+            "SDEA-OR2-MAHABHUT2537-REM0-SATURDAY-JUPITER-11-29"
+          ],
+          "period": "11-29",
+          "domain": "health",
+          "eventFamily": "period_direction",
+          "planet": "jupiter",
+          "taksaRole": "ayu",
+          "mahabhutHouse": "racha",
+          "periodStatus": "dueng_khuen",
+          "strength": "SOURCE_DIRECT_PERIOD_TREND",
+          "timing": "AGE_PERIOD"
+        },
+        {
+          "id": "RC14-K-PAST-30-41",
+          "section": "อดีต · อายุ 30–41 ปี",
+          "kind": "PREDICTION",
+          "semanticOwner": "SDEA-OR2-MAHABHUT2537-REM0-SATURDAY-RAHU-30-41",
+          "text": "ช่วงอายุ 30–41 ปี เป็นช่วงดวงขึ้นภายใต้อิทธิพลของดาวราหู",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "matrixApplicationId": "mahabhut2537.rem0.saturday.rahu.30_41",
+          "atomIds": [
+            "SDEA-OR2-MAHABHUT2537-REM0-SATURDAY-RAHU-30-41"
+          ],
+          "period": "30-41",
+          "domain": "work",
+          "eventFamily": "period_direction",
+          "planet": "rahu",
+          "taksaRole": "det",
+          "mahabhutHouse": "athibodi",
+          "periodStatus": "dueng_khuen",
+          "strength": "SOURCE_DIRECT_PERIOD_TREND",
+          "timing": "AGE_PERIOD"
+        },
+        {
+          "id": "RC14-K-CURRENT-WORK",
+          "section": "ปัจจุบัน · การงาน",
+          "kind": "PREDICTION",
+          "semanticOwner": "SDC-R0-SAT-42_62-WORK",
+          "text": "ช่วงนี้หางานหรือเดินหน้าเรื่องงานได้ง่ายขึ้น",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "matrixApplicationId": "mahabhut2537.rem0.saturday.venus.42_62",
+          "atomIds": [
+            "SDC-R0-SAT-42_62-WORK"
+          ],
+          "period": "42-62",
+          "domain": "work",
+          "eventFamily": "work_access",
+          "planet": "venus",
+          "taksaRole": "sri",
+          "mahabhutHouse": "thongchai",
+          "periodStatus": "dueng_khuen",
+          "strength": "SOURCE_DIRECT_EXPLICIT_EVENT_CLAUSE",
+          "timing": "AGE_PERIOD"
+        },
+        {
+          "id": "RC14-K-CURRENT-FINANCE",
+          "section": "ปัจจุบัน · การเงิน",
+          "kind": "PREDICTION",
+          "semanticOwner": "SDC-R0-SAT-42_62-FINANCE",
+          "text": "ช่วงนี้มีเงินใช้และมีโชคลาภ",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "matrixApplicationId": "mahabhut2537.rem0.saturday.venus.42_62",
+          "atomIds": [
+            "SDC-R0-SAT-42_62-FINANCE"
+          ],
+          "period": "42-62",
+          "domain": "finance",
+          "eventFamily": "available_money",
+          "planet": "venus",
+          "taksaRole": "sri",
+          "mahabhutHouse": "thongchai",
+          "periodStatus": "dueng_khuen",
+          "strength": "SOURCE_DIRECT_EXPLICIT_EVENT_CLAUSE",
+          "timing": "AGE_PERIOD"
+        },
+        {
+          "id": "RC14-K-CURRENT-SUPPORT",
+          "section": "ปัจจุบัน · แรงสนับสนุน",
+          "kind": "PREDICTION",
+          "semanticOwner": "SDC-R0-SAT-42_62-SUPPORT",
+          "text": "ครู อาจารย์ เพื่อน และคนที่เกี่ยวข้องกับงานช่วยสนับสนุนให้เรื่องเดินหน้า",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "matrixApplicationId": "mahabhut2537.rem0.saturday.venus.42_62",
+          "atomIds": [
+            "SDC-R0-SAT-42_62-SUPPORT"
+          ],
+          "period": "42-62",
+          "domain": "support",
+          "eventFamily": "supporting_people",
+          "planet": "venus",
+          "taksaRole": "sri",
+          "mahabhutHouse": "thongchai",
+          "periodStatus": "dueng_khuen",
+          "strength": "SOURCE_DIRECT_EXPLICIT_EVENT_CLAUSE",
+          "timing": "AGE_PERIOD"
+        },
+        {
+          "id": "RC14-K-SPECIFIC-42-43",
+          "section": "ช่วงเวลาเฉพาะ · อายุ 42–43 ปี",
+          "kind": "PREDICTION",
+          "semanticOwner": "SDC-R0-SAT-42_43_61_62-LOSS",
+          "text": "ช่วงอายุ 42–43 ปี เงินหรือผลประโยชน์ที่เข้ามาอยู่ไม่นานและมีจังหวะเสียคืนไป",
+          "contextId": "mahabhut2537.rem0.saturday",
+          "matrixApplicationId": "mahabhut2537.rem0.saturday.venus.42_62",
+          "atomIds": [
+            "SDC-R0-SAT-42_43_61_62-LOSS"
+          ],
+          "period": "42-62",
+          "domain": "finance",
+          "eventFamily": "gain_then_loss",
+          "planet": "venus",
+          "taksaRole": "sri",
+          "mahabhutHouse": "thongchai",
+          "periodStatus": "dueng_khuen",
+          "strength": "SOURCE_DIRECT_EXPLICIT_EVENT_CLAUSE",
+          "timing": "AGE_PERIOD"
+        },
+        {
+          "id": "RC14-K-ADVICE",
+          "section": "คำแนะนำ",
+          "kind": "ADVICE",
+          "semanticOwner": "advice-evidence-separation",
+          "text": "แยกเงินหมุนเวียนออกจากเงินสำรอง และยืนยันข้อตกลงเรื่องงานให้ชัดก่อนรับภาระเพิ่ม"
+        },
+        {
+          "id": "RC14-K-DISCLOSURE",
+          "section": "หมายเหตุ",
+          "kind": "DISCLOSURE",
+          "semanticOwner": "belief-disclosure",
+          "text": "คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ"
+        }
+      ],
+      "omitted": [
+        "แนวโน้ม 12 เดือน",
+        "คำทำนายรายเดือน",
+        "ช่วงถัดไปที่ไม่มี source-direct statement"
+      ]
+    },
+    {
+      "surface": "Unknown",
+      "claims": [
+        {
+          "id": "RC14-U-OMISSION",
+          "section": "ข้อมูลที่เว้นไว้",
+          "kind": "OMISSION",
+          "semanticOwner": "unknown-fail-closed",
+          "text": "ไม่มีเวลาเกิด — รายงานจึงเว้นคำทำนายที่ต้องใช้วันโหราศาสตร์ไทยและบริบทมหาภูต แทนการเดาข้อมูลที่ไม่มี"
+        },
+        {
+          "id": "RC14-U-DISCLOSURE",
+          "section": "หมายเหตุ",
+          "kind": "DISCLOSURE",
+          "semanticOwner": "belief-disclosure",
+          "text": "คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ"
+        }
+      ]
+    }
+  ],
+  "unknownFixture": {
+    "noonSubstitution": false,
+    "ascendant": null,
+    "houses": null,
+    "thaiAstrologicalDay": null,
+    "knownCopyLeakage": false,
+    "emptyPredictionHeadings": false
+  }
+}

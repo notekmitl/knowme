@@ -1,15 +1,14 @@
-# Thai Predictive Authority Coverage — OR1
+# Thai Predictive Authority Coverage — OR2
 
 | Metric | Result |
 |---|---:|
-| placement_table_context_coverage | 49/49 |
-| placement_table_period_coverage | 392/392 |
-| broad_direction_context_coverage | 49/49 |
-| broad_direction_period_coverage | 392/392 |
-| source_direct_event_context_coverage | 49/49 |
-| source_direct_event_period_coverage | 50/392 |
-| domain_complete_contexts | 0/49 |
-| contexts_with_only_generic_polarity | 0/49 |
-| contexts_without_event_authority | 0/49 |
+| contexts examined | 49/49 |
+| periods examined | 392/392 |
+| pages visually reviewed | 181/181 |
+| direct-event periods | 197 |
+| direct-trend-only periods | 38 |
+| no direct statement after full review | 157 |
+| unresolved | 0 |
+| atoms | 242 |
 
-**NO-GO:** 392/392 หมายถึง placement table และ broad direction เท่านั้น ไม่ใช่ Full Predictive Authority.
+**FULL_REVIEW_COMPLETE_SOURCE_DIRECT_GAP_CONFIRMED_NO_GO** — coverage คำนวณหลัง full extraction เท่านั้น และไม่ใช้ unexamined หรือ generic rule เติมจำนวน.

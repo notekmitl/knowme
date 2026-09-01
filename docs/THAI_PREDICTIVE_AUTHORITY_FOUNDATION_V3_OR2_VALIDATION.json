@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "status": "PASS_FULL_REVIEW_SOURCE_DIRECT_GAP_CONFIRMED_NO_GO",
+  "generatedAt": "2026-09-01T00:00:00+07:00",
+  "counts": {
+    "schemaFiles": 6,
+    "schemaErrors": 0,
+    "ledgerRows": 392,
+    "pagesVisuallyReviewed": 181,
+    "atoms": 242,
+    "matrixApplications": 392,
+    "sourceDirectPeriods": 235,
+    "noDirectPeriods": 157,
+    "candidateKnownClaims": 10,
+    "candidateUnknownClaims": 2,
+    "auditEntries": 12,
+    "negativeControls": 18,
+    "negativeControlsRejected": 18,
+    "errors": 0
+  },
+  "categoryCounts": {},
+  "schemaErrors": [],
+  "errors": []
+}

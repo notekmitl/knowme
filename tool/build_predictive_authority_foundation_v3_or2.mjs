@@ -292,6 +292,7 @@ matrix.counts = {
   atoms_total: atoms.length,
 };
 writeJson('knowledge/canon/proposed/MAHABHUT_RULE_APPLICATION_MATRIX_392.json', matrix);
+writeText('knowledge/canon/proposed/MAHABHUT_RULE_APPLICATION_MATRIX_392.md', `# Mahabhut Rule Application Matrix — 392 periods\n\nStatus: **FULL SOURCE REVIEW COMPLETE — SOURCE-DIRECT GAP CONFIRMED — NO-GO**\n\n| Gate | ผล |\n|---|---:|\n| contexts reached | 49/49 |\n| periods examined | 392/392 |\n| direct-event periods | ${counts.periods_with_direct_event} |\n| direct-trend-only periods | ${counts.periods_with_direct_trend_only} |\n| no direct statement after full review | ${counts.periods_with_no_direct_statement_after_full_review} |\n| source-direct period coverage | ${counts.periods_with_direct_event + counts.periods_with_direct_trend_only}/392 |\n| pages visually reviewed | 181/181 |\n| unresolved periods | 0 |\n\nทุกแถวผูกกับ extraction ledger ตาม matrixApplicationId โดยตรง ค่า placement 392/392 ไม่ถูกนับเป็น event authority และช่วงที่ไม่มีข้อความตรงหลังตรวจครบไม่ถูกเติมด้วย generic strong/weak rule.`);
 
 const directPeriodCount = counts.periods_with_direct_event + counts.periods_with_direct_trend_only;
 const directContexts = new Set(ledgerRows.filter((row) => row.extractionStatus.startsWith('DIRECT_')).map((row) => row.contextId)).size;

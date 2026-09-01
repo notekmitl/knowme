@@ -1,17 +1,16 @@
 # Mahabhut Rule Application Matrix — 392 periods
 
-Status: **PASS_PENDING_OWNER_REVIEW**
+Status: **FULL SOURCE REVIEW COMPLETE — SOURCE-DIRECT GAP CONFIRMED — NO-GO**
 
 | Gate | ผล |
 |---|---:|
 | contexts reached | 49/49 |
-| contexts with authority | 49/49 |
-| periods with authority | 392/392 |
-| forecast-only contexts | 0 |
-| contexts without authority | 0 |
-| placement promoted to prediction | 0 |
-| unresolved conflicts | 0 |
-| hidden conflicts | 0 |
-| unsupported approved claims | 0 |
+| periods examined | 392/392 |
+| direct-event periods | 197 |
+| direct-trend-only periods | 38 |
+| no direct statement after full review | 157 |
+| source-direct period coverage | 235/392 |
+| pages visually reviewed | 181/181 |
+| unresolved periods | 0 |
 
-ทุกแถวประกอบด้วย placement fact, planet scope, Taksa scope, house-direction หรือ Kalakini inversion และ period-continuity rule การผ่าน matrix อนุญาตเพียง broad trend ไม่อนุญาตเหตุการณ์เฉพาะ
+ทุกแถวผูกกับ extraction ledger ตาม matrixApplicationId โดยตรง ค่า placement 392/392 ไม่ถูกนับเป็น event authority และช่วงที่ไม่มีข้อความตรงหลังตรวจครบไม่ถูกเติมด้วย generic strong/weak rule.

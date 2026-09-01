@@ -7,24 +7,12 @@
     "status",
     "source",
     "coverage",
-    "visualInspection",
+    "policy",
     "atoms"
   ],
   "properties": {
     "version": {
       "const": 1
-    },
-    "status": {
-      "type": "string"
-    },
-    "source": {
-      "type": "object"
-    },
-    "coverage": {
-      "type": "object"
-    },
-    "visualInspection": {
-      "type": "object"
     },
     "atoms": {
       "type": "array",
@@ -34,23 +22,24 @@
         "required": [
           "atomId",
           "contextId",
-          "source",
-          "ocrSpanSha256",
-          "shortExcerpt",
-          "normalizedMeaning",
+          "matrixApplicationId",
           "planet",
           "taksaRole",
           "mahabhutHouse",
           "periodStatus",
           "agePeriod",
+          "sourcePages",
+          "shortExcerpt",
+          "normalizedMeaning",
           "domain",
           "eventFamily",
           "polarity",
           "strength",
           "applicability",
           "prohibitedExtrapolations",
-          "conflictStatus",
-          "visualOcrStatus"
+          "visualVerificationStatus",
+          "ocrSpanHashes",
+          "pageImageHashes"
         ]
       }
     }
