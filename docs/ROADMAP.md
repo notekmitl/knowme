@@ -1,5 +1,20 @@
 # KnowMe Roadmap
 
+## PR114 OR1 — Source-direct authority gap (2026-09-01)
+
+Status: **PR114 OR1 SOURCE-DIRECT AUTHORITY GAP CONFIRMED — NO-GO — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.
+
+Owner Reject Candidate 0012: 49/49 contexts และ 392/392 periods เป็นเพียง placement-table/broad-direction coverage ไม่ใช่ Full Predictive Authority; counters เดิมบางค่า hard-coded, Candidate ใช้ context placement แทน event evidence, diversity/audit ไม่สะท้อนข้อความจริง และ Before/After `PAST-02`/`PAST-04` map ผิดช่วงอายุ. OR1 แยกผลจริงเป็น placement 49/49 + 392/392, broad direction 49/49 + 392/392, source-direct event 49/49 + 50/392, domain-complete 0/49, contexts without event authority 0/49.
+
+สร้าง source-direct atoms 56 จากฉบับ พ.ศ. 2537 SHA-256 `28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E`. เปิดตรวจภาพหน้าตั้งต้นครบ 49 contexts และหน้า 291–292 รวม 51 หน้า; OCR checked 180 หน้า; OCR mismatch 8 รายการยืนยัน transcription จากภาพ; table mismatch, missing และ unresolved = 0; ไม่อ้างว่าเปิดภาพครบทุกหน้า. Placement/context record เดี่ยว ๆ ไม่ใช่ event authority.
+
+Diversity จริงจาก 392 rows: exact unique 108, age-stripped 16, subject-stripped template 4, directional skeleton 4, semantic signatures 343, repeated-template occurrences 392, near-duplicate clusters 16, synonym-only variation 0. Candidate 0013 เป็น evidence-only; Known แสดงเฉพาะอดีต/ปัจจุบัน/รายด้านที่ atom รองรับและ omit heading อื่น; Unknown ไม่มี noon substitution, ascendant, houses, Thai astrological day, Known leakage หรือ empty heading.
+
+Validation: JSON schema 4/4, inventory 54 records, Rulebook 21 rules, matrix 392, atoms 56, semantic/domain validation errors 0, negative controls 14/14, fixture 00:03/00:35/Unknown, chronology/provenance/diversity ผ่าน, AI audit `AI_CONTENT_AUDIT_NOT_HUMAN_REVIEW` 98 entries และ Human Review Pending, deterministic generation 2 runs × 15 files mismatch 0, focused Node evidence 1/1, legacy Mahabhut rules 12/12 และ birthday segmentation 300/300, `git diff --check` ผ่าน. ไม่รัน Full Flutter suite/analyzer เพราะไม่มี Dart/application/runtime delta.
+
+Commits: source/model/validator `da60cbf`; Candidate 0013/audits `de01c3d`. Owner ZIP `OWNER_REVIEW_THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR1_de01c3d.zip` SHA-256 `0B19ECAD12BD1BDA47E24469CDFEA59F9B147F96E1DA7FD7FDB37EF4C814CFAD`; CRC/extraction PASS, manifest 26 entries, missing/extra/hash mismatch/secret/placeholder/absolute-path errors = 0. PR #114 คง Open + Draft/Pending Owner Review. ไม่แก้ PR #113, runtime, Firebase/Production หรือ `product-acceptance/`.
+
+
 ## Thai Predictive Authority Foundation V3 (2026-08-31)
 
 Status: **THAI PREDICTIVE AUTHORITY FOUNDATION V3 COMPLETE — 49 CONTEXTS / 392 PERIODS SOURCE-AUTHORIZED — CANDIDATE 0012 PENDING OWNER RULEBOOK AND CONTENT REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.
