@@ -1,5 +1,23 @@
 # Task Result — Thai Report Reader Experience V2
 
+## PR114 OR6 — Final evidence binding and Candidate 0018 ownership repair (2026-09-01)
+
+Status: **PR114 OR6 EVIDENCE BINDING AND READER COPY REPAIR COMPLETE — CANDIDATE 0018 PENDING OWNER CONTENT REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.
+
+Owner rejected Candidate 0017 for final content use because its references were nonempty labels rather than resolved values, its validator trusted typed-material and semantic-owner counters, conditional advice remained inside predictions, current/domain/12-month/advice repeated the same meanings, and some Thai still read like report or business-consulting language. Candidate 0017 remains historical evidence and is not an implementation target.
+
+OR6 binds 51 repository evidence entries to exact paths, JSON pointers/object keys/symbols, resolved values, fixture inputs, source commits and derivation generators. Candidate 0018 uses 46 of those bindings. All 12 typed forecast materials resolve to real `regression-known-0003` rows in the immutable R6 claim ledger; none is a hand-written key. The 13 prediction claims each resolve Selector, Domain, Direction, Timing, Conflict handling and Certainty ceiling. Resolution errors are 0 for unresolved/nonexistent references, fixture/domain/horizon/direction mismatches and manually asserted material.
+
+Candidate 0018 keeps 15 content entries: 13 predictions, 1 overview and 1 action-only advice entry. Current and rolling-12-month content are combined by domain because their bands match; the exact period remains `29 ส.ค. 2569 – 28 ส.ค. 2570`. Three Candidate 0017 standalone containers were removed as duplicate structure—`RC17-K-NEXT12-WORK-FINANCE`, `RC17-K-NEXT12-RELATIONSHIP-HEALTH` and `RC17-K-NEXT-LIFE-DOMAINS`—while their resolved material was redistributed to single-owner domain claims. Claims removed for unresolvable evidence: 0. Unknown prediction claims remain 0 with no noon substitution or Known-copy borrowing.
+
+The two-pass full-text review compared 15 entries / 105 pairs. Candidate 0017 had 11 unnecessary duplicate pairs; Candidate 0018 has 0. Unsupported expansion, advice inside prediction, personality substitution, past reflection/question, methodology leakage, Known→Unknown leakage and monthly prediction are all 0. OR6 negative controls reject 9/9 corruptions, including missing/nonexistent pointers, wrong fixture/domain/horizon, renamed semantic owners, date-only current→12-month reuse, conditional advice and band-to-event expansion.
+
+Validation passed: OR6 + OR5 + relevant OR4 Node evidence tests 15/15; OR6 tests 6/6; OR6 negative controls 9/9; OR4 negative controls 16/16; Flutter fixture separation 4/4 for 00:03 / 00:35 / Unknown; `git diff --check` PASS. Full Flutter suite and analyzer were not rerun because OR6 changes only evidence tools/tests, Candidate/audit documents and status Markdown—there is no Dart, application runtime, Flutter test, UI, engine, Canon, reader/export, PDF/infographic, generated product artifact or `product-acceptance/` delta. Evidence resolver/validator commit: `67d5ae0`; Candidate 0018/audits commit: `4ad62a8`; status/PR synchronization: the commit containing this record.
+
+PR #114 must remain Open + Draft pending Owner Content Review. PR #113 remains unchanged at `f55f7e61e2ac3bae8e959892eb7c4d642d059e0d`. No ZIP, Web capture, PDF or infographic was produced; nothing was implemented, merged, deployed, or changed in Firebase/Production.
+
+
+
 ## PR114 OR5 — Product Interpretation Contract and Candidate 0017 (2026-09-01)
 
 Status: **PR114 OR5 PRODUCT INTERPRETATION CONTRACT COMPLETE — CANDIDATE 0017 PENDING OWNER CONTENT REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.
