@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "status": "PASS_OR6_RESOLUTION_AND_NEGATIVE_CONTROLS",
+  "generatedAt": "2026-09-01T00:00:00+07:00",
+  "resolution": {
+    "status": "PASS_OR6_ACTUAL_EVIDENCE_RESOLUTION",
+    "counts": {
+      "entries": 51,
+      "typedForecastMaterials": 12,
+      "unresolvedReference": 0,
+      "nonexistentReference": 0,
+      "fixtureValueMismatch": 0,
+      "domainMismatch": 0,
+      "horizonMismatch": 0,
+      "directionMismatch": 0,
+      "manuallyAssertedMaterial": 0,
+      "errors": 0
+    },
+    "errors": []
+  },
+  "negativeControls": {
+    "total": 9,
+    "rejected": 9,
+    "failures": 0,
+    "controls": [
+      {
+        "id": "nonexistent-reference",
+        "expectedCode": "NONEXISTENT_REFERENCE",
+        "rejected": true,
+        "observedCodes": [
+          "NONEXISTENT_REFERENCE"
+        ]
+      },
+      {
+        "id": "typed-material-without-source-pointer",
+        "expectedCode": "TYPED_SOURCE_POINTER_MISSING",
+        "rejected": true,
+        "observedCodes": [
+          "UNRESOLVED_REFERENCE",
+          "TYPED_SOURCE_POINTER_MISSING"
+        ]
+      },
+      {
+        "id": "wrong-fixture-profile",
+        "expectedCode": "FIXTURE_VALUE_MISMATCH",
+        "rejected": true,
+        "observedCodes": [
+          "FIXTURE_VALUE_MISMATCH"
+        ]
+      },
+      {
+        "id": "wrong-domain",
+        "expectedCode": "DOMAIN_MISMATCH",
+        "rejected": true,
+        "observedCodes": [
+          "DOMAIN_MISMATCH"
+        ]
+      },
+      {
+        "id": "wrong-horizon",
+        "expectedCode": "HORIZON_MISMATCH",
+        "rejected": true,
+        "observedCodes": [
+          "HORIZON_MISMATCH"
+        ]
+      },
+      {
+        "id": "same-meaning-different-owner",
+        "expectedCode": "UNNECESSARY_SEMANTIC_DUPLICATE",
+        "rejected": true,
+        "observedCodes": [
+          "UNNECESSARY_SEMANTIC_DUPLICATE"
+        ]
+      },
+      {
+        "id": "current-copy-moved-to-next12-with-date-only",
+        "expectedCode": "UNNECESSARY_SEMANTIC_DUPLICATE",
+        "rejected": true,
+        "observedCodes": [
+          "UNNECESSARY_SEMANTIC_DUPLICATE"
+        ]
+      },
+      {
+        "id": "hidden-advice-conditional",
+        "expectedCode": "ADVICE_INSIDE_PREDICTION",
+        "rejected": true,
+        "observedCodes": [
+          "ADVICE_INSIDE_PREDICTION"
+        ]
+      },
+      {
+        "id": "band-expanded-to-specific-event",
+        "expectedCode": "UNSUPPORTED_BAND_EXPANSION",
+        "rejected": true,
+        "observedCodes": [
+          "UNSUPPORTED_BAND_EXPANSION"
+        ]
+      }
+    ]
+  }
+}
