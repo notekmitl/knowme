@@ -3,7 +3,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { buildOracle, ORACLE_PATH, parseClaims, readerBlock, SOURCE_PATH } from './build_candidate_0011_or7_oracle.mjs';
+import { buildOracle, ORACLE_PATH, parseClaims, readerBlock, SOURCE_PATH } from './build_candidate_0011_oracle.mjs';
 
 const ROOT = process.cwd();
 const clone = (value) => structuredClone(value);
@@ -39,7 +39,7 @@ export function validateOracle(candidate = load(ORACLE_PATH), options = {}) {
   return { status: errors.length === 0 ? 'PASS_CANDIDATE_0011_EXACT_ORACLE' : 'FAIL', errors };
 }
 
-export function runOr7NegativeControls() {
+export function runOracleNegativeControls() {
   const base = load(ORACLE_PATH);
   const controls = [];
   const run = (id, expectedCode, mutate, options = {}) => {
@@ -54,10 +54,9 @@ export function runOr7NegativeControls() {
   run('reorder-sections', 'SECTION_ORDER_MISMATCH', (value) => { [value.sectionOrder[1], value.sectionOrder[2]] = [value.sectionOrder[2], value.sectionOrder[1]]; });
   run('date-change', 'EXACT_TEXT_MISMATCH', (value) => { const claim = value.claims.find((row) => row.readerClaimId === 'RC11-K-HORIZON-01'); claim.exactText = claim.exactText.replace('29 สิงหาคม 2569', '30 สิงหาคม 2569'); });
   run('reader-claim-id-change', 'READER_CLAIM_ID_MISMATCH', (value) => { value.claims[0].readerClaimId = 'RC11-K-ALTERED'; });
-  run('candidate-0018-as-oracle', 'CLAIM_COUNT_MISMATCH', (value) => {
-    const candidate18 = load('docs/CANDIDATE_0018_RESOLVED_RULE_CHAIN_MAP.json').known.claims.filter((claim) => claim.classification === 'PREDICTION');
-    value.candidateId = '0018';
-    value.claims = candidate18.map((claim) => ({ readerClaimId: claim.claimId, surface: 'Known', section: claim.section, claimKind: 'PREDICTION', authorityClass: 'OWNER_ACCEPTED_PRODUCT_INTERPRETATION', exactText: claim.fullReaderText, acceptanceReference: null }));
+  run('reduced-13-claim-substitute-as-oracle', 'CLAIM_COUNT_MISMATCH', (value) => {
+    value.candidateId = 'rejected-reduced-substitute';
+    value.claims = value.claims.filter((claim) => claim.claimKind === 'PREDICTION').slice(0, 13).map((claim, index) => ({ ...claim, readerClaimId: `REJECTED-SUBSTITUTE-${index + 1}`, exactText: `ข้อความทดแทนที่ไม่ได้รับการยอมรับ ${index + 1}`, acceptanceReference: null }));
     value.claimOrder = value.claims.map((claim) => claim.readerClaimId);
     value.counts.claims = value.claims.length;
     value.counts.predictionParagraphs = value.claims.length;
@@ -79,9 +78,9 @@ export function validateCurrentSourceBoundary() {
 
 export function validationReport() {
   const result = validateOracle();
-  const controls = runOr7NegativeControls();
+  const controls = runOracleNegativeControls();
   return {
-    status: result.status === 'PASS_CANDIDATE_0011_EXACT_ORACLE' && controls.every((control) => control.rejected) ? 'PASS_CANDIDATE_0011_OR7_ORACLE_AND_NEGATIVE_CONTROLS' : 'FAIL',
+    status: result.status === 'PASS_CANDIDATE_0011_EXACT_ORACLE' && controls.every((control) => control.rejected) ? 'PASS_CANDIDATE_0011_ORACLE_AND_NEGATIVE_CONTROLS' : 'FAIL',
     counts: {
       claims: load(ORACLE_PATH).counts.claims,
       predictionParagraphs: load(ORACLE_PATH).counts.predictionParagraphs,

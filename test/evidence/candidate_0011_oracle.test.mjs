@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import { buildOracle } from '../../tool/build_candidate_0011_or7_oracle.mjs';
-import { runOr7NegativeControls, validateOracle } from '../../tool/validate_candidate_0011_or7.mjs';
+import { buildOracle } from '../../tool/build_candidate_0011_oracle.mjs';
+import { runOracleNegativeControls, validateOracle } from '../../tool/validate_candidate_0011_oracle.mjs';
 
 test('Candidate 0011 is the exact Owner-accepted immutable oracle', () => {
   const oracle = buildOracle();
@@ -13,8 +13,8 @@ test('Candidate 0011 is the exact Owner-accepted immutable oracle', () => {
   assert.equal(validateOracle(oracle).status, 'PASS_CANDIDATE_0011_EXACT_ORACLE');
 });
 
-test('all OR7 exact-oracle negative controls reject corruption', () => {
-  const controls = runOr7NegativeControls();
+test('all exact-oracle negative controls reject corruption', () => {
+  const controls = runOracleNegativeControls();
   assert.equal(controls.length, 13);
   assert.ok(controls.every((control) => control.rejected), JSON.stringify(controls, null, 2));
 });

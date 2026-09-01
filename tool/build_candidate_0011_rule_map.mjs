@@ -4,7 +4,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { buildResolvedRegistry } from './resolve_candidate_0018_or6.mjs';
+import { buildResolvedRegistry, targetFixture } from './resolve_thai_predictive_evidence_v1.mjs';
 
 const ROOT = process.cwd();
 const load = (file) => JSON.parse(fs.readFileSync(path.join(ROOT, file), 'utf8'));
@@ -97,8 +97,8 @@ export function buildRuleMap() {
     version: 1,
     status: claims.every((claim) => claim.gapStatus === 'COMPLETE') ? 'CANDIDATE_0011_RULE_MAP_COMPLETE_NOT_RUNTIME' : 'CANDIDATE_0011_RULE_MAP_GAPS_RECORDED_NOT_RUNTIME',
     oracleRef: 'docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json',
-    evidenceRegistryRef: 'docs/CANDIDATE_0018_EVIDENCE_RESOLUTION.json',
-    fixture: load('docs/CANDIDATE_0018_RESOLVED_RULE_CHAIN_MAP.json').fixture,
+    evidenceRegistryRef: 'docs/THAI_PREDICTIVE_EVIDENCE_RESOLUTION_V1.json',
+    fixture: targetFixture,
     asOfEquivalenceRef: 'docs/CANDIDATE_0011_ASOF_EQUIVALENCE_VALIDATION.json',
     counts: {
       predictionParagraphs: claims.length,

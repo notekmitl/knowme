@@ -3,12 +3,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { validateRegistry } from './validate_candidate_0018_or6.mjs';
+import { validateEvidenceRegistry } from './validate_thai_predictive_evidence_v1.mjs';
 
 const ROOT = process.cwd();
 const load = (file) => JSON.parse(fs.readFileSync(path.join(ROOT, file), 'utf8'));
 
-export function validateOr7RuleMap() {
+export function validateCandidate0011RuleMap() {
   const map = load('docs/CANDIDATE_0011_RESOLVED_PRODUCT_RULE_MAP.json');
   const oracle = load('docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json');
   const asOf = load('docs/CANDIDATE_0011_ASOF_EQUIVALENCE_VALIDATION.json');
@@ -30,18 +30,18 @@ export function validateOr7RuleMap() {
     }
     if (claim.gapStatus !== 'COMPLETE') add('RULE_MAP_GAP', expected.readerClaimId);
   }
-  const registry = validateRegistry();
-  if (registry.status !== 'PASS_OR6_ACTUAL_EVIDENCE_RESOLUTION') add('OR6_RESOLVER_REGRESSION', registry.status);
+  const registry = validateEvidenceRegistry();
+  if (registry.status !== 'PASS_THAI_PREDICTIVE_EVIDENCE_V1') add('EVIDENCE_RESOLVER_REGRESSION', registry.status);
   if (asOf.status !== 'PASS_ACTUAL_GENERATOR_ASOF_EQUIVALENCE' || asOf.counts.invariantMismatches !== 0 || asOf.counts.forecastMaterialMismatches !== 0) add('ASOF_EQUIVALENCE_FAILED');
   return {
-    status: errors.length === 0 ? 'PASS_CANDIDATE_0011_OR7_RULE_MAP_AND_ASOF' : 'FAIL',
+    status: errors.length === 0 ? 'PASS_CANDIDATE_0011_RULE_MAP_AND_ASOF' : 'FAIL',
     counts: {
       predictionParagraphs: map.claims.length,
       completeChains: map.claims.filter((claim) => claim.gapStatus === 'COMPLETE').length,
       chainsWithGaps: map.claims.filter((claim) => claim.gapStatus !== 'COMPLETE').length,
       asOfInvariantMismatches: asOf.counts.invariantMismatches,
       forecastMaterialMismatches: asOf.counts.forecastMaterialMismatches,
-      or6ResolverErrors: registry.counts.errors,
+      evidenceResolverErrors: registry.counts.errors,
       errors: errors.length,
     },
     errors,
@@ -49,7 +49,7 @@ export function validateOr7RuleMap() {
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const result = validateOr7RuleMap();
+  const result = validateCandidate0011RuleMap();
   process.stdout.write(`${JSON.stringify(result)}\n`);
   if (result.status === 'FAIL') process.exitCode = 1;
 }

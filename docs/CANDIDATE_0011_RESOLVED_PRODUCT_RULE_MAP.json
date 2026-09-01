@@ -2,7 +2,7 @@
   "version": 1,
   "status": "CANDIDATE_0011_RULE_MAP_COMPLETE_NOT_RUNTIME",
   "oracleRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json",
-  "evidenceRegistryRef": "docs/CANDIDATE_0018_EVIDENCE_RESOLUTION.json",
+  "evidenceRegistryRef": "docs/THAI_PREDICTIVE_EVIDENCE_RESOLUTION_V1.json",
   "fixture": {
     "profileId": "TARGET-0003",
     "sex": "male",
@@ -160,14 +160,14 @@
     "conflict.T0003-SRC-42-43-61-62-EXCEPTION": {
       "id": "conflict.T0003-SRC-42-43-61-62-EXCEPTION",
       "role": "conflictHandling",
-      "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_OWNER_LEDGER_V1.json",
+      "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
       "locator": {
-        "jsonPointer": "/sourceSignals/9",
+        "jsonPointer": "/sourceRecords/9",
         "objectKey": "T0003-SRC-42-43-61-62-EXCEPTION",
         "symbol": null
       },
-      "sourceCommit": "19fd975aba6ad46e61bc0ff9267a8db84fcec2eb",
-      "resolvedValueSha256": "748861E9554283C123B7185569C06F84DFC10561B1997B1DE346FD6B9B48F036"
+      "sourceCommit": "0b34babf55e01127404b94496d95fed4f4898e03",
+      "resolvedValueSha256": "677E7E3F68DC4CA5BA4BEE2DFD3CAFE4F9C1DED7D94CB7E765682FBDB8148C3E"
     },
     "conflict.contract-boundaries": {
       "id": "conflict.contract-boundaries",

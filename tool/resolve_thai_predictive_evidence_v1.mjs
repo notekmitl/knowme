@@ -48,10 +48,7 @@ const paths = Object.freeze({
   selectorLedger: 'knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_PERIOD_EXTRACTION_LEDGER_392.json',
   canon: 'knowledge/canon/production/foundation_v1.knowme.json',
   dossier: 'docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json',
-  ownerLedger: 'docs/TARGET_0003_PREDICTIVE_EVIDENCE_OWNER_LEDGER_V1.json',
   contract: 'knowledge/canon/proposed/PRODUCT_INTERPRETATION_CONTRACT_V1.json',
-  fixtureSource: 'test/validation/thai_beta/narrative/thai_consumer_narrative_r7_canonical_text_test.dart',
-  fixtureSeparation: 'test/validation/thai_beta/narrative/thai_beta_input_fixture_separation_test.dart',
   generator: 'lib/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart',
   runner: 'lib/features/thai_beta/application/thai_beta_analysis.dart',
   dateGenerator: 'lib/features/thai_beta/application/thai_beta_report_export_document.dart',
@@ -104,7 +101,6 @@ export function buildResolvedRegistry() {
   const selectors = readJson(paths.selectorLedger);
   const canon = readJson(paths.canon);
   const dossier = readJson(paths.dossier);
-  const owners = readJson(paths.ownerLedger);
   const contract = readJson(paths.contract);
   const entries = [];
 
@@ -124,9 +120,20 @@ export function buildResolvedRegistry() {
     manuallyAsserted: false,
   });
 
+  const retainedTypedIds = new Set([
+    'forecast:current:career',
+    'forecast:current:finance',
+    'forecast:current:relationship',
+    'forecast:current:health',
+    'forecast:next12Months:career',
+    'forecast:next12Months:finance',
+    'forecast:next12Months:relationship',
+    'forecast:nextLifePeriod:career',
+    'forecast:nextLifePeriod:finance',
+  ]);
   const typedRows = typed.claims
     .map((row, index) => ({ row, index }))
-    .filter(({ row }) => row.fixture === typedGenerationFixture.fixtureId && String(row.canonicalId).startsWith('forecast:'));
+    .filter(({ row }) => row.fixture === typedGenerationFixture.fixtureId && retainedTypedIds.has(String(row.canonicalId)));
   for (const { row, index } of typedRows) {
     const [, horizon, domain] = row.canonicalId.split(':');
     entries.push(jsonEntry({
@@ -173,14 +180,11 @@ export function buildResolvedRegistry() {
   const sourceIds = [
     'T0003-SRC-0-10-FAMILY-CONSTRAINT',
     'T0003-SRC-11-62-RISING-BLOCK',
-    'T0003-SRC-11-29-PLACEMENT',
     'T0003-SRC-30-41-PLACEMENT',
-    'T0003-SRC-42-62-PLACEMENT',
     'T0003-SRC-42-62-SUPPORT',
     'T0003-SRC-42-62-WORK',
     'T0003-SRC-42-62-FINANCE',
     'T0003-SRC-42-62-FLOW',
-    'T0003-SRC-42-43-61-62-EXCEPTION',
     'T0003-SRC-63-79-PLACEMENT',
   ];
   for (const evidenceId of sourceIds) {
@@ -202,21 +206,21 @@ export function buildResolvedRegistry() {
     }));
   }
 
-  const ownerExceptionIndex = owners.sourceSignals.findIndex((row) => row.signalId === 'T0003-SRC-42-43-61-62-EXCEPTION');
-  const ownerException = owners.sourceSignals[ownerExceptionIndex];
+  const ownerExceptionIndex = dossier.sourceRecords.findIndex((row) => row.evidenceId === 'T0003-SRC-42-43-61-62-EXCEPTION');
+  const ownerException = dossier.sourceRecords[ownerExceptionIndex];
   entries.push(jsonEntry({
     id: 'conflict.T0003-SRC-42-43-61-62-EXCEPTION',
     role: 'conflictHandling',
-    repositoryPath: paths.ownerLedger,
-    array: 'sourceSignals',
+    repositoryPath: paths.dossier,
+    array: 'sourceRecords',
     index: ownerExceptionIndex,
-    objectKey: ownerException.signalId,
+    objectKey: ownerException.evidenceId,
     resolvedValue: ownerException,
     fixtureInput: targetFixture,
     expectedDomain: ownerException.domains,
-    expectedHorizon: ownerException.period,
-    expectedBandDirection: ownerException.polarity,
-    derivation: { repositoryPath: paths.ownerLedger, symbol: ownerException.sourceUnitId, sourceCommit: sourceCommit(paths.ownerLedger) },
+    expectedHorizon: ownerException.exactPeriod,
+    expectedBandDirection: ownerException.classification,
+    derivation: { repositoryPath: paths.dossier, symbol: ownerException.evidenceId, sourceCommit: sourceCommit(paths.dossier) },
   }));
 
   const canonIds = [
@@ -272,7 +276,7 @@ export function buildResolvedRegistry() {
       derivation: generatorBinding(paths.currentDomainComposer, 'static List<ThaiMirrorLifeDomainBlock> compose('),
     }));
   }
-  for (const [domain, symbol] of Object.entries({ career: 'static String _work(', finance: 'static String _money(', relationship: 'static String _love(', health: 'static String _health(' })) {
+  for (const [domain, symbol] of Object.entries({ career: 'static String _work(', finance: 'static String _money(' })) {
     entries.push(symbolEntry({
       id: `domain.runtime.nextLifePeriod.${domain}`,
       role: 'domainDerivation',
@@ -299,15 +303,6 @@ export function buildResolvedRegistry() {
     expectedBandDirection: 'NO_UNRESOLVED_CONFLICT',
     manuallyAsserted: false,
   });
-  entries.push(symbolEntry({
-    id: 'fixture.separation-00:03-00:35-unknown',
-    role: 'fixtureBoundary',
-    repositoryPath: paths.fixtureSeparation,
-    symbol: "test('00:03 stays distinct and is identical across Engine and export'",
-    resolvedValue: { known0003: 'Aquarius 9°24′', known0035: 'Aquarius 19°19′', unknown: 'fail-closed' },
-    fixtureInput: targetFixture,
-    derivation: generatorBinding(paths.runner, 'static ThaiBetaAnalysis run('),
-  }));
   entries.push({
     id: 'certainty.product-interpretation-contract-v1',
     role: 'certaintyCeiling',
@@ -325,7 +320,7 @@ export function buildResolvedRegistry() {
 
   return {
     version: 1,
-    status: 'OR6_ACTUAL_EVIDENCE_RESOLUTION_COMPLETE_NOT_RUNTIME',
+    status: 'THAI_PREDICTIVE_EVIDENCE_RESOLUTION_V1_TARGET_FIXTURE_NOT_RUNTIME',
     generatedAt: '2026-09-01T00:00:00+07:00',
     targetFixture,
     typedGenerationFixture,
@@ -349,7 +344,7 @@ export function resolveJsonPointer(document, pointer) {
 
 export function writeResolvedRegistry() {
   const output = buildResolvedRegistry();
-  const target = path.join(ROOT, 'docs/CANDIDATE_0018_EVIDENCE_RESOLUTION.json');
+  const target = path.join(ROOT, 'docs/THAI_PREDICTIVE_EVIDENCE_RESOLUTION_V1.json');
   fs.writeFileSync(target, `${JSON.stringify(output, null, 2)}\n`, 'utf8');
   return output;
 }

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "status": "OR6_ACTUAL_EVIDENCE_RESOLUTION_COMPLETE_NOT_RUNTIME",
+  "status": "THAI_PREDICTIVE_EVIDENCE_RESOLUTION_V1_TARGET_FIXTURE_NOT_RUNTIME",
   "generatedAt": "2026-09-01T00:00:00+07:00",
   "targetFixture": {
     "profileId": "TARGET-0003",
@@ -29,10 +29,10 @@
     "asOf": "2026-08-07 Asia/Bangkok"
   },
   "counts": {
-    "entries": 51,
-    "typedForecastMaterials": 12,
+    "entries": 42,
+    "typedForecastMaterials": 9,
     "selectors": 5,
-    "sourceRecords": 11,
+    "sourceRecords": 8,
     "canonRecords": 10,
     "manuallyAssertedMaterial": 0
   },
@@ -483,63 +483,6 @@
       "manuallyAsserted": false
     },
     {
-      "id": "typed.next12Months.health",
-      "role": "direction+timing",
-      "repositoryPath": "product-acceptance/thai-narrative-v1.5-r6/evidence/claim-ledger.json",
-      "locator": {
-        "jsonPointer": "/claims/94",
-        "objectKey": "forecast:next12Months:health",
-        "symbol": null
-      },
-      "resolvedValue": {
-        "fixture": "regression-known-0003",
-        "canonicalId": "forecast:next12Months:health",
-        "completeEvidenceSignature": "h=next12Months|d=health|b=strong|r=pressure|e=full|t=false|k=prediction.health.next12Months.strong|o=lagna-house-and-life-period-score|td=true",
-        "evidenceKeys": [
-          "prediction.health.next12Months.strong"
-        ],
-        "evidenceType": "lagna-house-and-life-period-score",
-        "confidence": "strong",
-        "role": "forecast-supporting",
-        "primaryExpression": "ระยะฟื้นตัวรายเดือนจะใช้เทียบกำลังตลอดปีที่ความอดทนที่พาเรื่องยากไปต่อเป็นแรงหลัก เวลาฟื้นตัวหลังสัปดาห์หนักคือหมุดตรวจ หากเวลาคืนแรงภายใต้ความอดทนที่พาเรื่องยากไปต่อต้องใช้วันพักเพิ่มขึ้นเรื่อย ๆ ตารางเดิมกำลังเกินกำลังที่มี จดเวลาคืนแรงหลังสัปดาห์หนักเพื่อกำหนดขนาดแผน หมุดตรวจของงานต้องยืนยันอีกชั้น",
-        "permittedCallback": "การพักไม่พออาจลดกำลังสำหรับด้านนี้",
-        "callbackNewInformation": "เพิ่มกิจกรรมได้เมื่อเวลาพักและการฟื้นตัวยังคงพอ โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน จดคุณภาพการนอนหลังสัปดาห์หนัก และลดตารางเดือนถัดไปเมื่อฟื้นไม่ทัน",
-        "renderedSection": "ใน 12 เดือนข้างหน้า",
-        "domain": "health",
-        "horizon": "next12Months",
-        "expressed": true,
-        "traceabilityReference": "prediction.health.next12Months.strong",
-        "excludedFromFreshness": false,
-        "exclusionReason": "",
-        "renderedOutputs": [
-          "canonical-web",
-          "canonical-pdf"
-        ]
-      },
-      "fixtureInput": {
-        "fixtureId": "regression-known-0003",
-        "firstName": "Acceptance",
-        "lastName": "Fixture",
-        "birthDate": "1982-06-06",
-        "birthHour": 0,
-        "birthMinute": 3,
-        "birthTimeUnknown": false,
-        "province": "เชียงใหม่",
-        "provinceKey": "chiang_mai",
-        "asOf": "2026-08-07 Asia/Bangkok"
-      },
-      "sourceCommit": "727be98d2c02241b02ce8de8d509ace2dc65316d",
-      "derivation": {
-        "repositoryPath": "lib/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart",
-        "symbol": "_forecastClaim",
-        "sourceCommit": "3934de20852c6a3b733299c93ba029edb8334ea4"
-      },
-      "expectedDomain": "health",
-      "expectedHorizon": "next12Months",
-      "expectedBandDirection": "strong",
-      "manuallyAsserted": false
-    },
-    {
       "id": "typed.nextLifePeriod.career",
       "role": "direction+timing",
       "repositoryPath": "product-acceptance/thai-narrative-v1.5-r6/evidence/claim-ledger.json",
@@ -649,120 +592,6 @@
         "sourceCommit": "3934de20852c6a3b733299c93ba029edb8334ea4"
       },
       "expectedDomain": "finance",
-      "expectedHorizon": "nextLifePeriod",
-      "expectedBandDirection": "active",
-      "manuallyAsserted": false
-    },
-    {
-      "id": "typed.nextLifePeriod.relationship",
-      "role": "direction+timing",
-      "repositoryPath": "product-acceptance/thai-narrative-v1.5-r6/evidence/claim-ledger.json",
-      "locator": {
-        "jsonPointer": "/claims/97",
-        "objectKey": "forecast:nextLifePeriod:relationship",
-        "symbol": null
-      },
-      "resolvedValue": {
-        "fixture": "regression-known-0003",
-        "canonicalId": "forecast:nextLifePeriod:relationship",
-        "completeEvidenceSignature": "h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true",
-        "evidenceKeys": [
-          "prediction.relationship.nextLifePeriod.quiet"
-        ],
-        "evidenceType": "lagna-house-and-life-period-score",
-        "confidence": "quiet",
-        "role": "forecast-boundary",
-        "primaryExpression": "การแบ่งบทบาทจะคัดความสัมพันธ์ระยะใหม่เมื่อความอดทนที่พาเรื่องยากไปต่อคัดทางต่อไป ความสัมพันธ์ในระยะใหม่ต้องจัดเวลา หน้าที่ และพื้นที่ส่วนตัวให้ชัด จึงจะรองรับบทบาทที่เปลี่ยนไปได้ ความสัมพันธ์ที่แบ่งเวลาและหน้าที่ได้จริงจะเป็นเงื่อนไขว่าทิศทางงานไปต่อได้นานเพียงใด",
-        "permittedCallback": "ความคาดหวังในความสัมพันธ์อาจยังไม่ตรงกัน",
-        "callbackNewInformation": "รอความชัดของเงื่อนไขก่อนเพิ่มข้อผูกพัน โดยให้ความคาดหวังของทั้งสองฝ่ายตรงกันก่อน และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต ตกลงเวลา หน้าที่ และพื้นที่ส่วนตัวของช่วงถัดไปไว้ก่อนตัดสินใจร่วมกัน",
-        "renderedSection": "ช่วงชีวิตถัดไป",
-        "domain": "relationship",
-        "horizon": "nextLifePeriod",
-        "expressed": true,
-        "traceabilityReference": "prediction.relationship.nextLifePeriod.quiet",
-        "excludedFromFreshness": false,
-        "exclusionReason": "",
-        "renderedOutputs": [
-          "canonical-web",
-          "canonical-pdf"
-        ]
-      },
-      "fixtureInput": {
-        "fixtureId": "regression-known-0003",
-        "firstName": "Acceptance",
-        "lastName": "Fixture",
-        "birthDate": "1982-06-06",
-        "birthHour": 0,
-        "birthMinute": 3,
-        "birthTimeUnknown": false,
-        "province": "เชียงใหม่",
-        "provinceKey": "chiang_mai",
-        "asOf": "2026-08-07 Asia/Bangkok"
-      },
-      "sourceCommit": "727be98d2c02241b02ce8de8d509ace2dc65316d",
-      "derivation": {
-        "repositoryPath": "lib/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart",
-        "symbol": "_forecastClaim",
-        "sourceCommit": "3934de20852c6a3b733299c93ba029edb8334ea4"
-      },
-      "expectedDomain": "relationship",
-      "expectedHorizon": "nextLifePeriod",
-      "expectedBandDirection": "quiet",
-      "manuallyAsserted": false
-    },
-    {
-      "id": "typed.nextLifePeriod.health",
-      "role": "direction+timing",
-      "repositoryPath": "product-acceptance/thai-narrative-v1.5-r6/evidence/claim-ledger.json",
-      "locator": {
-        "jsonPointer": "/claims/98",
-        "objectKey": "forecast:nextLifePeriod:health",
-        "symbol": null
-      },
-      "resolvedValue": {
-        "fixture": "regression-known-0003",
-        "canonicalId": "forecast:nextLifePeriod:health",
-        "completeEvidenceSignature": "h=nextLifePeriod|d=health|b=active|r=pressure|e=full|t=true|k=prediction.health.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true",
-        "evidenceKeys": [
-          "prediction.health.nextLifePeriod.active"
-        ],
-        "evidenceType": "lagna-house-and-life-period-score",
-        "confidence": "active",
-        "role": "forecast-supporting",
-        "primaryExpression": "การรักษาแรงจะกำหนดกิจวัตรระยะใหม่เมื่อความอดทนที่พาเรื่องยากไปต่อคัดทางต่อไป กิจวัตรพลังชีวิตต้องเปลี่ยนพร้อมตารางงานใหม่ ไม่ใช่รอให้ความล้าสะสมแล้วค่อยพัก กิจวัตรพักต้องรองรับงานที่ใช้ประสบการณ์ได้เต็มที่โดยไม่ยืมแรงจากวันต่อไป",
-        "permittedCallback": "การพักไม่พออาจลดกำลังสำหรับด้านนี้",
-        "callbackNewInformation": "ทดลองกิจกรรมทีละขั้นและใช้การฟื้นตัวจริงเป็นเพดาน โดยให้เวลาพักและการฟื้นตัวจริงเป็นเพดาน และกันแรงไว้สำหรับรอยต่อของช่วงชีวิต ทดลองกิจวัตรพักแบบใหม่ล่วงหน้าและเก็บเฉพาะแบบที่ทำต่อได้ในวันที่ยุ่ง",
-        "renderedSection": "ช่วงชีวิตถัดไป",
-        "domain": "health",
-        "horizon": "nextLifePeriod",
-        "expressed": true,
-        "traceabilityReference": "prediction.health.nextLifePeriod.active",
-        "excludedFromFreshness": false,
-        "exclusionReason": "",
-        "renderedOutputs": [
-          "canonical-web",
-          "canonical-pdf"
-        ]
-      },
-      "fixtureInput": {
-        "fixtureId": "regression-known-0003",
-        "firstName": "Acceptance",
-        "lastName": "Fixture",
-        "birthDate": "1982-06-06",
-        "birthHour": 0,
-        "birthMinute": 3,
-        "birthTimeUnknown": false,
-        "province": "เชียงใหม่",
-        "provinceKey": "chiang_mai",
-        "asOf": "2026-08-07 Asia/Bangkok"
-      },
-      "sourceCommit": "727be98d2c02241b02ce8de8d509ace2dc65316d",
-      "derivation": {
-        "repositoryPath": "lib/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart",
-        "symbol": "_forecastClaim",
-        "sourceCommit": "3934de20852c6a3b733299c93ba029edb8334ea4"
-      },
-      "expectedDomain": "health",
       "expectedHorizon": "nextLifePeriod",
       "expectedBandDirection": "active",
       "manuallyAsserted": false
@@ -1287,64 +1116,6 @@
       "manuallyAsserted": false
     },
     {
-      "id": "source.T0003-SRC-11-29-PLACEMENT",
-      "role": "selector+domain-boundary",
-      "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
-      "locator": {
-        "jsonPointer": "/sourceRecords/2",
-        "objectKey": "T0003-SRC-11-29-PLACEMENT",
-        "symbol": null
-      },
-      "resolvedValue": {
-        "evidenceId": "T0003-SRC-11-29-PLACEMENT",
-        "pages": [
-          290
-        ],
-        "exactPeriod": "11-29",
-        "classification": "SOURCE_PLACEMENT_FACT",
-        "domains": [
-          "health",
-          "learning"
-        ],
-        "excerpt": "อายุ ๑๑ ถึง ๒๙ ... ดาวพฤหัส ดาวแห่งอายุ สถิตเรือนราชา",
-        "correctedTranscription": "อายุ 11 ถึง 29 ปี ดาวพฤหัส ดาวแห่งอายุ สถิตเรือนราชา",
-        "normalizedMeaning": "Jupiter/Ayu/Racha placement for ages 11–29.",
-        "sourceDirectStrength": "PLACEMENT_NOT_EVENT",
-        "prohibitedExtrapolations": [
-          "placement alone as prediction",
-          "specific education event",
-          "specific mentor event"
-        ]
-      },
-      "fixtureInput": {
-        "profileId": "TARGET-0003",
-        "sex": "male",
-        "birthDate": "1982-06-06",
-        "birthTimeMode": "known",
-        "birthTime": "00:03",
-        "province": "Chiang Mai",
-        "provinceKey": "chiang_mai",
-        "thaiAstrologicalDay": "Saturday",
-        "ascendant": "Aquarius 9°24′",
-        "contextId": "mahabhut2537.rem0.saturday",
-        "asOf": "2026-08-29 Asia/Bangkok",
-        "age": 44
-      },
-      "sourceCommit": "0b34babf55e01127404b94496d95fed4f4898e03",
-      "derivation": {
-        "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
-        "symbol": "T0003-SRC-11-29-PLACEMENT",
-        "sourceCommit": "0b34babf55e01127404b94496d95fed4f4898e03"
-      },
-      "expectedDomain": [
-        "health",
-        "learning"
-      ],
-      "expectedHorizon": "11-29",
-      "expectedBandDirection": "SOURCE_PLACEMENT_FACT",
-      "manuallyAsserted": false
-    },
-    {
       "id": "source.T0003-SRC-30-41-PLACEMENT",
       "role": "selector+domain-boundary",
       "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
@@ -1402,62 +1173,6 @@
         "pressure"
       ],
       "expectedHorizon": "30-41",
-      "expectedBandDirection": "SOURCE_PLACEMENT_FACT",
-      "manuallyAsserted": false
-    },
-    {
-      "id": "source.T0003-SRC-42-62-PLACEMENT",
-      "role": "selector+domain-boundary",
-      "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
-      "locator": {
-        "jsonPointer": "/sourceRecords/4",
-        "objectKey": "T0003-SRC-42-62-PLACEMENT",
-        "symbol": null
-      },
-      "resolvedValue": {
-        "evidenceId": "T0003-SRC-42-62-PLACEMENT",
-        "pages": [
-          291
-        ],
-        "exactPeriod": "42-62",
-        "classification": "SOURCE_PLACEMENT_FACT",
-        "domains": [
-          "finance",
-          "status"
-        ],
-        "excerpt": "อายุ ๔๒ ถึง ๖๒ ... ดาวศุกร์ ดาวแห่งศรี สถิตเรือนธงชัย",
-        "correctedTranscription": "อายุ 42 ถึง 62 ปี ดาวศุกร์ ดาวแห่งศรี สถิตเรือนธงชัย",
-        "normalizedMeaning": "Venus/Sri/Thongchai placement for ages 42–62.",
-        "sourceDirectStrength": "PLACEMENT_NOT_EVENT",
-        "prohibitedExtrapolations": [
-          "placement alone as prediction"
-        ]
-      },
-      "fixtureInput": {
-        "profileId": "TARGET-0003",
-        "sex": "male",
-        "birthDate": "1982-06-06",
-        "birthTimeMode": "known",
-        "birthTime": "00:03",
-        "province": "Chiang Mai",
-        "provinceKey": "chiang_mai",
-        "thaiAstrologicalDay": "Saturday",
-        "ascendant": "Aquarius 9°24′",
-        "contextId": "mahabhut2537.rem0.saturday",
-        "asOf": "2026-08-29 Asia/Bangkok",
-        "age": 44
-      },
-      "sourceCommit": "0b34babf55e01127404b94496d95fed4f4898e03",
-      "derivation": {
-        "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
-        "symbol": "T0003-SRC-42-62-PLACEMENT",
-        "sourceCommit": "0b34babf55e01127404b94496d95fed4f4898e03"
-      },
-      "expectedDomain": [
-        "finance",
-        "status"
-      ],
-      "expectedHorizon": "42-62",
       "expectedBandDirection": "SOURCE_PLACEMENT_FACT",
       "manuallyAsserted": false
     },
@@ -1692,65 +1407,6 @@
       "manuallyAsserted": false
     },
     {
-      "id": "source.T0003-SRC-42-43-61-62-EXCEPTION",
-      "role": "direction+domain+conflict",
-      "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
-      "locator": {
-        "jsonPointer": "/sourceRecords/9",
-        "objectKey": "T0003-SRC-42-43-61-62-EXCEPTION",
-        "symbol": null
-      },
-      "resolvedValue": {
-        "evidenceId": "T0003-SRC-42-43-61-62-EXCEPTION",
-        "pages": [
-          291,
-          292
-        ],
-        "exactPeriod": "42-43|61-62",
-        "classification": "SOURCE_DIRECT_EVENT",
-        "domains": [
-          "finance",
-          "communication"
-        ],
-        "excerpt": "ได้มาแล้วก็สูญเสียคืนไป ... ควรระวังคำพูดคำจา",
-        "correctedTranscription": "ได้มาแล้วก็สูญเสียคืนไป เจ้าชะตาควรระวังคำพูดคำจา",
-        "normalizedMeaning": "Only at ages 42–43 and 61–62, gains may be short-lived and speech needs caution.",
-        "sourceDirectStrength": "EXPLICIT_BOUNDARY_EXCEPTION",
-        "prohibitedExtrapolations": [
-          "apply to age 44",
-          "apply to all ages 42–62",
-          "specific loss amount"
-        ]
-      },
-      "fixtureInput": {
-        "profileId": "TARGET-0003",
-        "sex": "male",
-        "birthDate": "1982-06-06",
-        "birthTimeMode": "known",
-        "birthTime": "00:03",
-        "province": "Chiang Mai",
-        "provinceKey": "chiang_mai",
-        "thaiAstrologicalDay": "Saturday",
-        "ascendant": "Aquarius 9°24′",
-        "contextId": "mahabhut2537.rem0.saturday",
-        "asOf": "2026-08-29 Asia/Bangkok",
-        "age": 44
-      },
-      "sourceCommit": "0b34babf55e01127404b94496d95fed4f4898e03",
-      "derivation": {
-        "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
-        "symbol": "T0003-SRC-42-43-61-62-EXCEPTION",
-        "sourceCommit": "0b34babf55e01127404b94496d95fed4f4898e03"
-      },
-      "expectedDomain": [
-        "finance",
-        "communication"
-      ],
-      "expectedHorizon": "42-43|61-62",
-      "expectedBandDirection": "SOURCE_DIRECT_EVENT",
-      "manuallyAsserted": false
-    },
-    {
       "id": "source.T0003-SRC-63-79-PLACEMENT",
       "role": "selector+domain-boundary",
       "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
@@ -1815,39 +1471,28 @@
     {
       "id": "conflict.T0003-SRC-42-43-61-62-EXCEPTION",
       "role": "conflictHandling",
-      "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_OWNER_LEDGER_V1.json",
+      "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
       "locator": {
-        "jsonPointer": "/sourceSignals/9",
+        "jsonPointer": "/sourceRecords/9",
         "objectKey": "T0003-SRC-42-43-61-62-EXCEPTION",
         "symbol": null
       },
       "resolvedValue": {
-        "signalId": "T0003-SRC-42-43-61-62-EXCEPTION",
-        "signalType": "SOURCE_DIRECT_EVENT",
-        "semanticRecord": true,
-        "evidenceOwnerId": "EO-MH2537-P291-292-EXCEPTION",
-        "sourceUnitId": "MH2537-P291-292-CLAUSE-EXCEPTION",
-        "derivationGroupId": "MH2537-P291-292-EXCEPTION",
-        "sourceAuthorityId": "MAHABHUT_2537_PRIMARY_WORKING_EDITION",
-        "directOrDerived": "DIRECT",
-        "parentRefs": [],
+        "evidenceId": "T0003-SRC-42-43-61-62-EXCEPTION",
+        "pages": [
+          291,
+          292
+        ],
+        "exactPeriod": "42-43|61-62",
+        "classification": "SOURCE_DIRECT_EVENT",
         "domains": [
           "finance",
           "communication"
         ],
-        "period": "42-43|61-62",
-        "polarity": "NEGATIVE",
-        "timingGranularity": "LIFE_PERIOD",
-        "sourceLocation": {
-          "kind": "PDF_PAGE_CLAUSE",
-          "editionId": "mahabhut-complete-duangkaew-2537-primary-working-edition",
-          "pdfSha256": "28D74F5D7258A00EFA4967186B15ED97174E173AB12BD4DF9FBED66BD3EA890E",
-          "pages": [
-            291,
-            292
-          ],
-          "exactPassage": "ได้มาแล้วก็สูญเสียคืนไป เจ้าชะตาควรระวังคำพูดคำจา"
-        },
+        "excerpt": "ได้มาแล้วก็สูญเสียคืนไป ... ควรระวังคำพูดคำจา",
+        "correctedTranscription": "ได้มาแล้วก็สูญเสียคืนไป เจ้าชะตาควรระวังคำพูดคำจา",
+        "normalizedMeaning": "Only at ages 42–43 and 61–62, gains may be short-lived and speech needs caution.",
+        "sourceDirectStrength": "EXPLICIT_BOUNDARY_EXCEPTION",
         "prohibitedExtrapolations": [
           "apply to age 44",
           "apply to all ages 42–62",
@@ -1868,18 +1513,18 @@
         "asOf": "2026-08-29 Asia/Bangkok",
         "age": 44
       },
-      "sourceCommit": "19fd975aba6ad46e61bc0ff9267a8db84fcec2eb",
+      "sourceCommit": "0b34babf55e01127404b94496d95fed4f4898e03",
       "derivation": {
-        "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_OWNER_LEDGER_V1.json",
-        "symbol": "MH2537-P291-292-CLAUSE-EXCEPTION",
-        "sourceCommit": "19fd975aba6ad46e61bc0ff9267a8db84fcec2eb"
+        "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
+        "symbol": "T0003-SRC-42-43-61-62-EXCEPTION",
+        "sourceCommit": "0b34babf55e01127404b94496d95fed4f4898e03"
       },
       "expectedDomain": [
         "finance",
         "communication"
       ],
       "expectedHorizon": "42-43|61-62",
-      "expectedBandDirection": "NEGATIVE",
+      "expectedBandDirection": "SOURCE_DIRECT_EVENT",
       "manuallyAsserted": false
     },
     {
@@ -2584,76 +2229,6 @@
       "manuallyAsserted": false
     },
     {
-      "id": "domain.runtime.nextLifePeriod.relationship",
-      "role": "domainDerivation",
-      "repositoryPath": "lib/features/astrology/thai/mirror/presentation/timeline/life_period_domain_composer.dart",
-      "locator": {
-        "jsonPointer": null,
-        "objectKey": null,
-        "symbol": "static String _love("
-      },
-      "resolvedValue": "relationship",
-      "fixtureInput": {
-        "profileId": "TARGET-0003",
-        "sex": "male",
-        "birthDate": "1982-06-06",
-        "birthTimeMode": "known",
-        "birthTime": "00:03",
-        "province": "Chiang Mai",
-        "provinceKey": "chiang_mai",
-        "thaiAstrologicalDay": "Saturday",
-        "ascendant": "Aquarius 9°24′",
-        "contextId": "mahabhut2537.rem0.saturday",
-        "asOf": "2026-08-29 Asia/Bangkok",
-        "age": 44
-      },
-      "sourceCommit": "b0a5b4c541f86d82a1fe7fecbae070ffea8a4b2e",
-      "derivation": {
-        "repositoryPath": "lib/features/astrology/thai/mirror/presentation/timeline/life_period_domain_composer.dart",
-        "symbol": "static List<ThaiMirrorLifeDomainBlock> compose(",
-        "sourceCommit": "b0a5b4c541f86d82a1fe7fecbae070ffea8a4b2e"
-      },
-      "expectedDomain": "relationship",
-      "expectedHorizon": "nextLifePeriod",
-      "expectedBandDirection": null,
-      "manuallyAsserted": false
-    },
-    {
-      "id": "domain.runtime.nextLifePeriod.health",
-      "role": "domainDerivation",
-      "repositoryPath": "lib/features/astrology/thai/mirror/presentation/timeline/life_period_domain_composer.dart",
-      "locator": {
-        "jsonPointer": null,
-        "objectKey": null,
-        "symbol": "static String _health("
-      },
-      "resolvedValue": "health",
-      "fixtureInput": {
-        "profileId": "TARGET-0003",
-        "sex": "male",
-        "birthDate": "1982-06-06",
-        "birthTimeMode": "known",
-        "birthTime": "00:03",
-        "province": "Chiang Mai",
-        "provinceKey": "chiang_mai",
-        "thaiAstrologicalDay": "Saturday",
-        "ascendant": "Aquarius 9°24′",
-        "contextId": "mahabhut2537.rem0.saturday",
-        "asOf": "2026-08-29 Asia/Bangkok",
-        "age": 44
-      },
-      "sourceCommit": "b0a5b4c541f86d82a1fe7fecbae070ffea8a4b2e",
-      "derivation": {
-        "repositoryPath": "lib/features/astrology/thai/mirror/presentation/timeline/life_period_domain_composer.dart",
-        "symbol": "static List<ThaiMirrorLifeDomainBlock> compose(",
-        "sourceCommit": "b0a5b4c541f86d82a1fe7fecbae070ffea8a4b2e"
-      },
-      "expectedDomain": "health",
-      "expectedHorizon": "nextLifePeriod",
-      "expectedBandDirection": null,
-      "manuallyAsserted": false
-    },
-    {
       "id": "conflict.contract-boundaries",
       "role": "conflictHandling",
       "repositoryPath": "knowledge/canon/proposed/PRODUCT_INTERPRETATION_CONTRACT_V1.json",
@@ -2694,45 +2269,6 @@
       "expectedDomain": null,
       "expectedHorizon": null,
       "expectedBandDirection": "NO_UNRESOLVED_CONFLICT",
-      "manuallyAsserted": false
-    },
-    {
-      "id": "fixture.separation-00:03-00:35-unknown",
-      "role": "fixtureBoundary",
-      "repositoryPath": "test/validation/thai_beta/narrative/thai_beta_input_fixture_separation_test.dart",
-      "locator": {
-        "jsonPointer": null,
-        "objectKey": null,
-        "symbol": "test('00:03 stays distinct and is identical across Engine and export'"
-      },
-      "resolvedValue": {
-        "known0003": "Aquarius 9°24′",
-        "known0035": "Aquarius 19°19′",
-        "unknown": "fail-closed"
-      },
-      "fixtureInput": {
-        "profileId": "TARGET-0003",
-        "sex": "male",
-        "birthDate": "1982-06-06",
-        "birthTimeMode": "known",
-        "birthTime": "00:03",
-        "province": "Chiang Mai",
-        "provinceKey": "chiang_mai",
-        "thaiAstrologicalDay": "Saturday",
-        "ascendant": "Aquarius 9°24′",
-        "contextId": "mahabhut2537.rem0.saturday",
-        "asOf": "2026-08-29 Asia/Bangkok",
-        "age": 44
-      },
-      "sourceCommit": "3989d31d2612c8701de995610460f73851304095",
-      "derivation": {
-        "repositoryPath": "lib/features/thai_beta/application/thai_beta_analysis.dart",
-        "symbol": "static ThaiBetaAnalysis run(",
-        "sourceCommit": "09f1e68b6d56e9a0692f5b705ade821e2f91edf1"
-      },
-      "expectedDomain": null,
-      "expectedHorizon": null,
-      "expectedBandDirection": null,
       "manuallyAsserted": false
     },
     {

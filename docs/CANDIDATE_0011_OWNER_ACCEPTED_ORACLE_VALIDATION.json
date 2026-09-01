@@ -1,5 +1,5 @@
 {
-  "status": "PASS_CANDIDATE_0011_OR7_ORACLE_AND_NEGATIVE_CONTROLS",
+  "status": "PASS_CANDIDATE_0011_ORACLE_AND_NEGATIVE_CONTROLS",
   "counts": {
     "claims": 24,
     "predictionParagraphs": 22,
@@ -65,7 +65,7 @@
       ]
     },
     {
-      "id": "candidate-0018-as-oracle",
+      "id": "reduced-13-claim-substitute-as-oracle",
       "expectedCode": "CLAIM_COUNT_MISMATCH",
       "rejected": true,
       "observedCodes": [
