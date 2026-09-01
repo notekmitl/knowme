@@ -15,6 +15,6 @@ test('Candidate 0011 is the exact Owner-accepted immutable oracle', () => {
 
 test('all OR7 exact-oracle negative controls reject corruption', () => {
   const controls = runOr7NegativeControls();
-  assert.equal(controls.length, 9);
+  assert.equal(controls.length, 13);
   assert.ok(controls.every((control) => control.rejected), JSON.stringify(controls, null, 2));
 });

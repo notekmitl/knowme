@@ -18,6 +18,7 @@ export function validateOracle(candidate = load(ORACLE_PATH), options = {}) {
   if (candidate.source?.acceptedReaderFacingSha256 !== expected.source.acceptedReaderFacingSha256) add('READER_HASH_MISMATCH');
   if (JSON.stringify(candidate.sectionOrder) !== JSON.stringify(expected.sectionOrder)) add('SECTION_ORDER_MISMATCH');
   if (JSON.stringify(candidate.claimOrder) !== JSON.stringify(expected.claimOrder)) add('CLAIM_ORDER_MISMATCH');
+  if (JSON.stringify((candidate.claims ?? []).map((claim) => claim.readerClaimId)) !== JSON.stringify(candidate.claimOrder)) add('CLAIM_ARRAY_ORDER_MISMATCH');
   if (candidate.counts?.predictionParagraphs !== 22 || candidate.counts?.claims !== 24 || candidate.counts?.adviceAndDisclosure !== 2) add('CLAIM_COUNT_MISMATCH');
   const expectedById = new Map(expected.claims.map((claim) => [claim.readerClaimId, claim]));
   for (const claim of candidate.claims ?? []) {
@@ -29,6 +30,7 @@ export function validateOracle(candidate = load(ORACLE_PATH), options = {}) {
     const allowed = ['SOURCE_DIRECT', 'SOURCE_DIRECTION_WITH_CANON_DOMAIN', 'OWNER_ACCEPTED_PRODUCT_INTERPRETATION', 'ADVICE', 'DISCLOSURE'];
     if (!allowed.includes(claim.authorityClass)) add('AUTHORITY_CLASS_INVALID', claim.readerClaimId);
     if (claim.authorityClass === 'OWNER_ACCEPTED_PRODUCT_INTERPRETATION' && !claim.acceptanceReference?.acceptedHead) add('OWNER_ACCEPTANCE_REFERENCE_MISSING', claim.readerClaimId);
+    if ((claim.authorityClass === 'SOURCE_DIRECT' || claim.authorityClass === 'SOURCE_DIRECTION_WITH_CANON_DOMAIN') && !claim.sourceAuthorityReference) add('SOURCE_AUTHORITY_REFERENCE_MISSING', claim.readerClaimId);
     if (claim.authorityClass === 'ADVICE' && claim.claimKind !== 'ADVICE') add('PREDICTION_RECLASSIFIED_AS_ADVICE', claim.readerClaimId);
   }
   if ((candidate.claims ?? []).length !== expected.claims.length) add('CLAIM_COUNT_MISMATCH');
@@ -48,12 +50,23 @@ export function runOr7NegativeControls() {
   };
   run('delete-paragraph', 'CLAIM_COUNT_MISMATCH', (value) => { value.claims.splice(3, 1); });
   run('paraphrase-paragraph', 'EXACT_TEXT_MISMATCH', (value) => { value.claims[1].exactText += ' '; });
-  run('reorder-claims', 'CLAIM_ORDER_MISMATCH', (value) => { [value.claimOrder[1], value.claimOrder[2]] = [value.claimOrder[2], value.claimOrder[1]]; });
+  run('reorder-claims', 'CLAIM_ARRAY_ORDER_MISMATCH', (value) => { [value.claims[1], value.claims[2]] = [value.claims[2], value.claims[1]]; });
+  run('reorder-sections', 'SECTION_ORDER_MISMATCH', (value) => { [value.sectionOrder[1], value.sectionOrder[2]] = [value.sectionOrder[2], value.sectionOrder[1]]; });
   run('date-change', 'EXACT_TEXT_MISMATCH', (value) => { const claim = value.claims.find((row) => row.readerClaimId === 'RC11-K-HORIZON-01'); claim.exactText = claim.exactText.replace('29 สิงหาคม 2569', '30 สิงหาคม 2569'); });
   run('reader-claim-id-change', 'READER_CLAIM_ID_MISMATCH', (value) => { value.claims[0].readerClaimId = 'RC11-K-ALTERED'; });
-  run('candidate-0018-as-oracle', 'WRONG_ORACLE_CANDIDATE', () => {}, { candidateId: '0018' });
+  run('candidate-0018-as-oracle', 'CLAIM_COUNT_MISMATCH', (value) => {
+    const candidate18 = load('docs/CANDIDATE_0018_RESOLVED_RULE_CHAIN_MAP.json').known.claims.filter((claim) => claim.classification === 'PREDICTION');
+    value.candidateId = '0018';
+    value.claims = candidate18.map((claim) => ({ readerClaimId: claim.claimId, surface: 'Known', section: claim.section, claimKind: 'PREDICTION', authorityClass: 'OWNER_ACCEPTED_PRODUCT_INTERPRETATION', exactText: claim.fullReaderText, acceptanceReference: null }));
+    value.claimOrder = value.claims.map((claim) => claim.readerClaimId);
+    value.counts.claims = value.claims.length;
+    value.counts.predictionParagraphs = value.claims.length;
+  });
+  run('prediction-to-common-sense-measurement', 'EXACT_TEXT_MISMATCH', (value) => { value.claims[8].exactText = 'ให้ดูผลลัพธ์ที่เกิดขึ้นจริงก่อนตัดสินใจ'; });
   run('prediction-to-advice', 'PREDICTION_RECLASSIFIED_AS_ADVICE', (value) => { value.claims[2].authorityClass = 'ADVICE'; });
   run('authority-without-acceptance-reference', 'OWNER_ACCEPTANCE_REFERENCE_MISSING', (value) => { value.claims[4].acceptanceReference = null; });
+  run('unsupported-source-authority-class', 'SOURCE_AUTHORITY_REFERENCE_MISSING', (value) => { value.claims[5].authorityClass = 'SOURCE_DIRECT'; value.claims[5].acceptanceReference = null; });
+  run('owner-unaccepted-added-text', 'CLAIM_COUNT_MISMATCH', (value) => { value.claims.push({ ...value.claims[0], readerClaimId: 'RC11-K-ADDED-UNACCEPTED' }); });
   run('typed-asof-mismatch-without-proof', 'ASOF_EQUIVALENCE_PROOF_MISSING', () => {}, { typedAsOfMismatch: true, hasEquivalenceProof: false });
   return controls;
 }
@@ -84,7 +97,7 @@ export function validationReport() {
 
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
   const report = validationReport();
-  fs.writeFileSync(path.join(ROOT, 'docs/CANDIDATE_0011_ORACLE_VALIDATION.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
+  fs.writeFileSync(path.join(ROOT, 'docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE_VALIDATION.json'), `${JSON.stringify(report, null, 2)}\n`, 'utf8');
   process.stdout.write(`${JSON.stringify(report.counts)}\n`);
   if (report.status === 'FAIL') process.exitCode = 1;
 }

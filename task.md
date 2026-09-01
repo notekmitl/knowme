@@ -1,5 +1,20 @@
 # Task: Thai Report Reader Experience V2
 
++## PR114 OR7 — Candidate 0011 immutable golden oracle restoration (2026-09-01)
+
+Status: **PR114 OR7 OWNER-ACCEPTED CANDIDATE 0011 GOLDEN ORACLE RESTORED — RULE MAP COMPLETE — DRAFT — PENDING OWNER RULE-MAP REVIEW — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.
+
+Owner rejected Candidate 0018 for implementation while retaining the OR6 evidence resolver as technical progress. Candidate 0018 reduced the 22 Owner-accepted Candidate 0011 prediction paragraphs to 13 and cannot replace accepted detail merely to satisfy dedupe. Structural/evidence PASS is not Product Content PASS. Candidate 0017/0018 are historical evidence only; Candidate 0019 was not created and no new prediction copy was written. The sole immutable oracle is `docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0011.md`, accepted at Phase 1 HEAD `2c82dc4b09fa9ded8b6527266801375179bb0ea6` and merged by PR112 at `5dc59c44020a135934d1b8cefceae9606bfa736f`.
+
+Oracle commit `6d7a262304393cdbbff398a4a2195ef4b40a18fb` freezes the exact reader-facing SHA-256, section/claim order, 24 claim texts and authority boundary: 22 prediction paragraphs are `OWNER_ACCEPTED_PRODUCT_INTERPRETATION`, 1 is `ADVICE`, and 1 is `DISCLOSURE`. Owner acceptance establishes exact product copy and interpretation authority, not a source quotation, predictive accuracy or guaranteed real-world result. Its 13/13 negative controls reject deletion, paraphrase, claim/section reorder, date/ID change, actual Candidate 0018 substitution, prediction→measurement/advice, unsupported authority, unaccepted added text and typed-asOf mismatch without equivalence proof.
+
+Rule-map commit `8c06cccc5f33ed14087acb6410c6e9599df3b59b` resolves all 22/22 exact prediction paragraphs through nonempty Selector, Domain, Direction, Timing, Conflict and Certainty components plus the acceptance reference, using 42 resolved repository references; gaps and unresolved references are 0. The actual generator was run for the same male 1982-06-06 00:03 Chiang Mai fixture at `asOf=2026-08-07` and `2026-08-29`: Thai day, ascendant, age, context, active life period and all 12 typed materials per run are equivalent, with invariant/material mismatches 0; only the separately recorded rolling-window label dates differ as expected. Exact 00:03 / 00:35 / Unknown separation remains required and Unknown remains fail-closed.
+
+`docs/OR6_PRODUCT_CONTENT_TRUTH_CORRECTION.md` records the complete 22-item Candidate 0011→0018 delta with full claim IDs/text and the classifications unchanged meaning, weakened, generalized common-sense, removed, prediction-to-measurement/advice, changed timing and added. Candidate 0011 exact text changed by OR7: 0. OR7 adds evidence JSON/Markdown, validators and Node evidence tests only; Dart/application/runtime/Flutter-test/UI/engine/Canon/report/export/PDF/infographic/generated product artifacts and `product-acceptance/` delta are 0. Full Flutter suite and analyzer were not rerun because those deltas are 0.
+
+Validation: exact oracle 22/22 predictions, negative controls 13/13 rejected, rule chains 22/22 complete, asOf invariant mismatches 0, OR6 resolver errors 0, Node evidence tests 35/35, Flutter fixture separation 4/4 and `git diff --check` PASS. Truth/status/PR synchronization is the commit containing this record. PR #114 remains Open + Draft; PR #113 remains unchanged at `f55f7e61e2ac3bae8e959892eb7c4d642d059e0d`. Nothing was implemented, merged, deployed or changed in Firebase/Production.
+
+
 ## PR114 OR6 — Final evidence binding and Candidate 0018 ownership repair (2026-09-01)
 
 Status: **PR114 OR6 EVIDENCE BINDING AND READER COPY REPAIR COMPLETE — CANDIDATE 0018 PENDING OWNER CONTENT REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.

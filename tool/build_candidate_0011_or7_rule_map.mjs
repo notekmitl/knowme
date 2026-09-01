@@ -83,6 +83,12 @@ export function buildRuleMap() {
       gapStatus: missingComponents.length || unresolvedRefs.length ? 'GAP_KEEP_EXACT_ACCEPTED_TEXT' : 'COMPLETE',
       missingComponents,
       unresolvedRefs,
+      prohibitedExtrapolations: [
+        'Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.',
+        'Do not present this product interpretation as a verbatim source quotation.',
+        'Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.',
+        'Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome.',
+      ],
       interpretationBoundary: 'Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim.',
     };
   });
@@ -107,7 +113,11 @@ export function buildRuleMap() {
 
 export function buildAsOfEquivalence(rawPath = '.tmp-candidate0011-asof-raw.json') {
   const raw = load(rawPath);
-  const [first, second] = raw.results;
+  const normalizedResults = raw.results.map((result) => ({
+    ...result,
+    forecastMaterials: result.forecastMaterials.map((material) => ({ ...material, confidence: material.confidence ?? material.band })),
+  }));
+  const [first, second] = normalizedResults;
   const invariantFields = ['thaiAstrologicalDate', 'thaiWeekdayNumber', 'ascendantSiderealDegrees', 'mahabhutaPositionKeys', 'currentAge', 'activeLifePeriod', 'contextId', 'forecastMaterials'];
   const comparisons = invariantFields.map((field) => ({ field, equivalent: JSON.stringify(first[field]) === JSON.stringify(second[field]), left: first[field], right: second[field] }));
   return {
@@ -116,17 +126,17 @@ export function buildAsOfEquivalence(rawPath = '.tmp-candidate0011-asof-raw.json
     generator: raw.generator,
     generatorSource: 'lib/features/thai_beta/application/thai_beta_analysis.dart#ThaiBetaAnalysisRunner.runAsync; lib/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart#ThaiBetaNarrativeComposer.narrativeView',
     fixture: raw.fixture,
-    comparedAsOf: raw.results.map((row) => row.asOf),
+    comparedAsOf: normalizedResults.map((row) => row.asOf),
     rollingWindowLabelsMayDiffer: true,
-    rollingWindows: raw.results.map((row) => ({ asOf: row.asOf, ...row.rollingWindow })),
+    rollingWindows: normalizedResults.map((row) => ({ asOf: row.asOf, ...row.rollingWindow })),
     counts: {
       comparedInvariantFields: comparisons.length,
       invariantMismatches: comparisons.filter((row) => !row.equivalent).length,
-      forecastMaterialsPerRun: raw.results.map((row) => row.forecastMaterials.length),
+      forecastMaterialsPerRun: normalizedResults.map((row) => row.forecastMaterials.length),
       forecastMaterialMismatches: comparisons.find((row) => row.field === 'forecastMaterials').equivalent ? 0 : 1,
     },
     comparisons,
-    actualGeneratorResults: raw.results,
+    actualGeneratorResults: normalizedResults,
   };
 }
 

@@ -3,8 +3,8 @@
   "counts": {
     "claims": 24,
     "predictionParagraphs": 22,
-    "negativeControls": 9,
-    "negativeControlsRejected": 9,
+    "negativeControls": 13,
+    "negativeControlsRejected": 13,
     "errors": 0
   },
   "sourceBoundary": {
@@ -19,6 +19,7 @@
       "expectedCode": "CLAIM_COUNT_MISMATCH",
       "rejected": true,
       "observedCodes": [
+        "CLAIM_ARRAY_ORDER_MISMATCH",
         "CLAIM_COUNT_MISMATCH"
       ]
     },
@@ -32,10 +33,18 @@
     },
     {
       "id": "reorder-claims",
-      "expectedCode": "CLAIM_ORDER_MISMATCH",
+      "expectedCode": "CLAIM_ARRAY_ORDER_MISMATCH",
       "rejected": true,
       "observedCodes": [
-        "CLAIM_ORDER_MISMATCH"
+        "CLAIM_ARRAY_ORDER_MISMATCH"
+      ]
+    },
+    {
+      "id": "reorder-sections",
+      "expectedCode": "SECTION_ORDER_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "SECTION_ORDER_MISMATCH"
       ]
     },
     {
@@ -51,15 +60,26 @@
       "expectedCode": "READER_CLAIM_ID_MISMATCH",
       "rejected": true,
       "observedCodes": [
+        "CLAIM_ARRAY_ORDER_MISMATCH",
         "READER_CLAIM_ID_MISMATCH"
       ]
     },
     {
       "id": "candidate-0018-as-oracle",
-      "expectedCode": "WRONG_ORACLE_CANDIDATE",
+      "expectedCode": "CLAIM_COUNT_MISMATCH",
       "rejected": true,
       "observedCodes": [
-        "WRONG_ORACLE_CANDIDATE"
+        "CLAIM_ORDER_MISMATCH",
+        "CLAIM_COUNT_MISMATCH",
+        "READER_CLAIM_ID_MISMATCH"
+      ]
+    },
+    {
+      "id": "prediction-to-common-sense-measurement",
+      "expectedCode": "EXACT_TEXT_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "EXACT_TEXT_MISMATCH"
       ]
     },
     {
@@ -76,6 +96,24 @@
       "rejected": true,
       "observedCodes": [
         "OWNER_ACCEPTANCE_REFERENCE_MISSING"
+      ]
+    },
+    {
+      "id": "unsupported-source-authority-class",
+      "expectedCode": "SOURCE_AUTHORITY_REFERENCE_MISSING",
+      "rejected": true,
+      "observedCodes": [
+        "SOURCE_AUTHORITY_REFERENCE_MISSING"
+      ]
+    },
+    {
+      "id": "owner-unaccepted-added-text",
+      "expectedCode": "CLAIM_COUNT_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "CLAIM_ARRAY_ORDER_MISMATCH",
+        "READER_CLAIM_ID_MISMATCH",
+        "CLAIM_COUNT_MISMATCH"
       ]
     },
     {

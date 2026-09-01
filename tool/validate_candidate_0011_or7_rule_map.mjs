@@ -23,6 +23,7 @@ export function validateOr7RuleMap() {
     if (claim.readerClaimId !== expected.readerClaimId) add('CLAIM_ORDER_MISMATCH', expected.readerClaimId);
     if (claim.exactAcceptedText !== expected.exactText) add('EXACT_ACCEPTED_TEXT_MISMATCH', expected.readerClaimId);
     if (!claim.ownerAcceptanceRef || claim.authorityClass !== 'OWNER_ACCEPTED_PRODUCT_INTERPRETATION') add('ACCEPTANCE_AUTHORITY_MISSING', expected.readerClaimId);
+    if (!Array.isArray(claim.prohibitedExtrapolations) || claim.prohibitedExtrapolations.length === 0) add('PROHIBITED_EXTRAPOLATIONS_MISSING', expected.readerClaimId);
     for (const role of roles) {
       if (!Array.isArray(claim[role]) || claim[role].length === 0) add('CHAIN_COMPONENT_MISSING', `${expected.readerClaimId}:${role}`);
       for (const ref of claim[role] ?? []) if (!map.resolvedReferenceIndex[ref]) add('UNRESOLVED_REFERENCE', `${expected.readerClaimId}:${ref}`);

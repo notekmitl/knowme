@@ -108,7 +108,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "current",
@@ -119,7 +120,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "current",
@@ -130,7 +132,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "current",
@@ -141,7 +144,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "next12Months",
@@ -152,7 +156,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "next12Months",
@@ -163,7 +168,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "next12Months",
@@ -174,7 +180,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "next12Months",
@@ -185,7 +192,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "nextLifePeriod",
@@ -196,7 +204,8 @@
           "evidenceAvailability": "full",
           "spansTransition": true,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "nextLifePeriod",
@@ -207,7 +216,8 @@
           "evidenceAvailability": "full",
           "spansTransition": true,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "active"
         },
         {
           "horizon": "nextLifePeriod",
@@ -218,7 +228,8 @@
           "evidenceAvailability": "full",
           "spansTransition": true,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "quiet"
         },
         {
           "horizon": "nextLifePeriod",
@@ -229,7 +240,8 @@
           "evidenceAvailability": "full",
           "spansTransition": true,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "active"
         }
       ],
       "right": [
@@ -242,7 +254,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "current",
@@ -253,7 +266,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "current",
@@ -264,7 +278,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "current",
@@ -275,7 +290,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "next12Months",
@@ -286,7 +302,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "next12Months",
@@ -297,7 +314,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "next12Months",
@@ -308,7 +326,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "next12Months",
@@ -319,7 +338,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "nextLifePeriod",
@@ -330,7 +350,8 @@
           "evidenceAvailability": "full",
           "spansTransition": true,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "nextLifePeriod",
@@ -341,7 +362,8 @@
           "evidenceAvailability": "full",
           "spansTransition": true,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "active"
         },
         {
           "horizon": "nextLifePeriod",
@@ -352,7 +374,8 @@
           "evidenceAvailability": "full",
           "spansTransition": true,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "quiet"
         },
         {
           "horizon": "nextLifePeriod",
@@ -363,7 +386,8 @@
           "evidenceAvailability": "full",
           "spansTransition": true,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "active"
         }
       ]
     }
@@ -403,7 +427,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "current",
@@ -414,7 +439,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "current",
@@ -425,7 +451,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "current",
@@ -436,7 +463,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "next12Months",
@@ -447,7 +475,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "next12Months",
@@ -458,7 +487,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "next12Months",
@@ -469,7 +499,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "next12Months",
@@ -480,7 +511,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "nextLifePeriod",
@@ -491,7 +523,8 @@
           "evidenceAvailability": "full",
           "spansTransition": true,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "nextLifePeriod",
@@ -502,7 +535,8 @@
           "evidenceAvailability": "full",
           "spansTransition": true,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "active"
         },
         {
           "horizon": "nextLifePeriod",
@@ -513,7 +547,8 @@
           "evidenceAvailability": "full",
           "spansTransition": true,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "quiet"
         },
         {
           "horizon": "nextLifePeriod",
@@ -524,7 +559,8 @@
           "evidenceAvailability": "full",
           "spansTransition": true,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "active"
         }
       ]
     },
@@ -562,7 +598,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "current",
@@ -573,7 +610,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "current",
@@ -584,7 +622,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "current",
@@ -595,7 +634,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "next12Months",
@@ -606,7 +646,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "next12Months",
@@ -617,7 +658,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "next12Months",
@@ -628,7 +670,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "next12Months",
@@ -639,7 +682,8 @@
           "evidenceAvailability": "full",
           "spansTransition": false,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "nextLifePeriod",
@@ -650,7 +694,8 @@
           "evidenceAvailability": "full",
           "spansTransition": true,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "strong"
         },
         {
           "horizon": "nextLifePeriod",
@@ -661,7 +706,8 @@
           "evidenceAvailability": "full",
           "spansTransition": true,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "active"
         },
         {
           "horizon": "nextLifePeriod",
@@ -672,7 +718,8 @@
           "evidenceAvailability": "full",
           "spansTransition": true,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "quiet"
         },
         {
           "horizon": "nextLifePeriod",
@@ -683,7 +730,8 @@
           "evidenceAvailability": "full",
           "spansTransition": true,
           "expressed": true,
-          "omitted": false
+          "omitted": false,
+          "confidence": "active"
         }
       ]
     }
