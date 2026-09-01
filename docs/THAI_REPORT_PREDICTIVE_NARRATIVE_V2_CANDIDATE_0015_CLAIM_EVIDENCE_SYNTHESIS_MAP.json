@@ -1,0 +1,313 @@
+{
+  "version": 1,
+  "status": "CANDIDATE_0015_PENDING_OWNER_CONTENT_REVIEW_NOT_RUNTIME",
+  "generatedAt": "2026-09-01T00:00:00+07:00",
+  "fixture": {
+    "sex": "male",
+    "birthDate": "1982-06-06",
+    "birthTime": "00:03",
+    "province": "Chiang Mai",
+    "ascendant": "Aquarius 9°24′",
+    "thaiAstrologicalDay": "Saturday",
+    "remainder": 0,
+    "contextId": "mahabhut2537.rem0.saturday",
+    "asOf": "2026-08-29 Asia/Bangkok",
+    "age": 44
+  },
+  "contractRef": "THAI_PREDICTIVE_SYNTHESIS_CONTRACT_V1",
+  "rulebookRef": "THAI_PREDICTIVE_SYNTHESIS_RULEBOOK_V1",
+  "dossierRef": "TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1",
+  "counts": {
+    "knownPredictionClaims": 9,
+    "knownNonPredictionClaims": 3,
+    "unknownClaims": 2,
+    "tierA": 3,
+    "tierB": 1,
+    "tierC": 5,
+    "tierDReaderClaims": 0,
+    "unsupportedClaims": 0,
+    "methodologicalReaderClaims": 0,
+    "duplicateSemanticOwners": 0,
+    "predictionAdviceConversions": 0
+  },
+  "known": {
+    "predictions": [
+      {
+        "claimId": "RC15-K-OVERVIEW",
+        "fullReaderText": "เส้นทางชีวิตเริ่มจากข้อจำกัดในครอบครัว ก่อนค่อย ๆ ตั้งหลักได้ดีขึ้น และวัย 42–62 ปีเป็นช่วงที่งาน เงิน และแรงสนับสนุนเปิดทางพร้อมกัน",
+        "section": "ภาพรวมเส้นทางชีวิต",
+        "semanticOwner": "life-path-directional-arc",
+        "domain": "life_direction",
+        "period": "0-62",
+        "authorityTier": "C",
+        "sourceDirectAtomRefs": [
+          "T0003-SRC-0-10-FAMILY-CONSTRAINT",
+          "T0003-SRC-11-62-RISING-BLOCK",
+          "T0003-SRC-42-62-WORK",
+          "T0003-SRC-42-62-FINANCE",
+          "T0003-SRC-42-62-SUPPORT"
+        ],
+        "canonRuleRefs": [],
+        "deepResearchRefs": [],
+        "synthesisRuleRefs": [
+          "SYN-C-SOURCE-EVENT-CANON-BOUNDARY"
+        ],
+        "independentSignalCount": 5,
+        "conflictResult": "NONE",
+        "prohibitedEscalationCheck": "PASS",
+        "classification": "PREDICTION"
+      },
+      {
+        "claimId": "RC15-K-PAST-0-10",
+        "fullReaderText": "ช่วงอายุ 0–10 ปี ครอบครัวต้องรับภาระเรื่องสุขภาพ งาน และเงินพร้อมกัน การดูแลใกล้ชิดจึงทำได้ไม่เต็มที่",
+        "section": "คำทำนายอดีต · อายุ 0–10 ปี",
+        "semanticOwner": "early-family-capacity-constraint",
+        "domain": "family",
+        "period": "0-10",
+        "authorityTier": "A",
+        "sourceDirectAtomRefs": [
+          "T0003-SRC-0-10-FAMILY-CONSTRAINT"
+        ],
+        "canonRuleRefs": [],
+        "deepResearchRefs": [],
+        "synthesisRuleRefs": [
+          "SYN-A-EXACT-EVENT"
+        ],
+        "independentSignalCount": 1,
+        "conflictResult": "NONE",
+        "prohibitedEscalationCheck": "PASS",
+        "classification": "PREDICTION"
+      },
+      {
+        "claimId": "RC15-K-PAST-11-29",
+        "fullReaderText": "ช่วงอายุ 11–29 ปี การเรียนรู้และประสบการณ์จากงานช่วยให้ตั้งหลักได้ดีขึ้น และค่อย ๆ เปิดทางออกจากข้อจำกัดเดิม",
+        "section": "คำทำนายอดีต · อายุ 11–29 ปี",
+        "semanticOwner": "learning-builds-foundation",
+        "domain": "learning",
+        "period": "11-29",
+        "authorityTier": "C",
+        "sourceDirectAtomRefs": [
+          "T0003-SRC-11-62-RISING-BLOCK",
+          "T0003-SRC-11-29-PLACEMENT"
+        ],
+        "canonRuleRefs": [
+          "mahabhut.p220.jupiter_owns_learning",
+          "mahabhut.p220.jupiter_owns_career",
+          "MH2537-HOUSE-STRONG-DIRECTION"
+        ],
+        "deepResearchRefs": [],
+        "synthesisRuleRefs": [
+          "SYN-C-PERIOD-PLANET-TAKSA-HOUSE"
+        ],
+        "independentSignalCount": 4,
+        "conflictResult": "NONE",
+        "prohibitedEscalationCheck": "PASS",
+        "classification": "PREDICTION"
+      },
+      {
+        "claimId": "RC15-K-PAST-30-41",
+        "fullReaderText": "ช่วงอายุ 30–41 ปี งานที่ต้องตัดสินใจเองและรับผิดชอบมากขึ้นพาให้ก้าวหน้า พร้อมกับแรงกดดันจากเรื่องที่ไม่เป็นไปตามกรอบเดิม",
+        "section": "คำทำนายอดีต · อายุ 30–41 ปี",
+        "semanticOwner": "responsibility-progress-under-pressure",
+        "domain": "work",
+        "period": "30-41",
+        "authorityTier": "C",
+        "sourceDirectAtomRefs": [
+          "T0003-SRC-11-62-RISING-BLOCK",
+          "T0003-SRC-30-41-PLACEMENT"
+        ],
+        "canonRuleRefs": [
+          "MH2537-PLANET-RAHU",
+          "MH2537-TAKSA-DET",
+          "MH2537-HOUSE-STRONG-DIRECTION"
+        ],
+        "deepResearchRefs": [],
+        "synthesisRuleRefs": [
+          "SYN-C-PERIOD-PLANET-TAKSA-HOUSE"
+        ],
+        "independentSignalCount": 4,
+        "conflictResult": "NARROWED_TO_WORK_PROGRESS_WITH_PRESSURE",
+        "prohibitedEscalationCheck": "PASS",
+        "classification": "PREDICTION"
+      },
+      {
+        "claimId": "RC15-K-CURRENT",
+        "fullReaderText": "ตอนอายุ 44 การลงมือ พูดคุย และตัดสินใจเดินหน้าได้คล่องขึ้น เรื่องที่เคยติดขัดจึงจัดการต่อได้ง่ายกว่าเดิม",
+        "section": "คำทำนายปัจจุบัน",
+        "semanticOwner": "current-execution-flow",
+        "domain": "work",
+        "period": "42-62",
+        "authorityTier": "B",
+        "sourceDirectAtomRefs": [
+          "T0003-SRC-42-62-FLOW"
+        ],
+        "canonRuleRefs": [],
+        "deepResearchRefs": [],
+        "synthesisRuleRefs": [
+          "SYN-B-EXACT-TREND"
+        ],
+        "independentSignalCount": 1,
+        "conflictResult": "NONE",
+        "prohibitedEscalationCheck": "PASS",
+        "classification": "PREDICTION"
+      },
+      {
+        "claimId": "RC15-K-WORK",
+        "fullReaderText": "การงานเปิดทางให้เดินหน้าต่อได้ เรื่องที่อยู่ตรงหน้ามีคนช่วยเชื่อมต่อจนเริ่มขยับ",
+        "section": "การงาน",
+        "semanticOwner": "work-access-and-connection",
+        "domain": "work",
+        "period": "42-62",
+        "authorityTier": "A",
+        "sourceDirectAtomRefs": [
+          "T0003-SRC-42-62-WORK",
+          "T0003-SRC-42-62-SUPPORT"
+        ],
+        "canonRuleRefs": [],
+        "deepResearchRefs": [],
+        "synthesisRuleRefs": [
+          "SYN-A-EXACT-EVENT"
+        ],
+        "independentSignalCount": 2,
+        "conflictResult": "NONE",
+        "prohibitedEscalationCheck": "PASS",
+        "classification": "PREDICTION"
+      },
+      {
+        "claimId": "RC15-K-FINANCE",
+        "fullReaderText": "การเงินหมุนใช้ได้ต่อเนื่องขึ้น งานที่เดินหน้าช่วยให้มีเงินรองรับค่าใช้จ่ายมากกว่าเดิม",
+        "section": "การเงิน",
+        "semanticOwner": "available-money-from-work",
+        "domain": "finance",
+        "period": "42-62",
+        "authorityTier": "C",
+        "sourceDirectAtomRefs": [
+          "T0003-SRC-42-62-FINANCE",
+          "T0003-SRC-42-62-WORK"
+        ],
+        "canonRuleRefs": [],
+        "deepResearchRefs": [],
+        "synthesisRuleRefs": [
+          "SYN-C-SOURCE-EVENT-CANON-BOUNDARY"
+        ],
+        "independentSignalCount": 2,
+        "conflictResult": "NONE",
+        "prohibitedEscalationCheck": "PASS",
+        "classification": "PREDICTION"
+      },
+      {
+        "claimId": "RC15-K-SUPPORT",
+        "fullReaderText": "ครู ผู้มีประสบการณ์ เพื่อน และคนที่ทำงานเกี่ยวข้องกันยื่นมือช่วยในจังหวะสำคัญ ทำให้เรื่องที่ต้องประสานงานเดินต่อได้",
+        "section": "โชคลาภและแรงสนับสนุน",
+        "semanticOwner": "experienced-network-support",
+        "domain": "support",
+        "period": "42-62",
+        "authorityTier": "A",
+        "sourceDirectAtomRefs": [
+          "T0003-SRC-42-62-SUPPORT"
+        ],
+        "canonRuleRefs": [],
+        "deepResearchRefs": [],
+        "synthesisRuleRefs": [
+          "SYN-A-EXACT-EVENT"
+        ],
+        "independentSignalCount": 1,
+        "conflictResult": "NONE",
+        "prohibitedEscalationCheck": "PASS",
+        "classification": "PREDICTION"
+      },
+      {
+        "claimId": "RC15-K-NEXT",
+        "fullReaderText": "ช่วงอายุ 63–79 ปี เรื่องบ้าน ครอบครัว และหลักฐานสำคัญจัดการได้เป็นระบบขึ้น การพูดคุยและเอกสารช่วยให้เรื่องค้างเดินหน้า",
+        "section": "ช่วงชีวิตถัดไป",
+        "semanticOwner": "family-foundation-through-communication",
+        "domain": "home",
+        "period": "63-79",
+        "authorityTier": "C",
+        "sourceDirectAtomRefs": [
+          "T0003-SRC-63-79-PLACEMENT"
+        ],
+        "canonRuleRefs": [
+          "mahabhut.p28.mercury_owns_family",
+          "MH2537-PLANET-MERCURY",
+          "MH2537-TAKSA-MULA",
+          "MH2537-HOUSE-STRONG-DIRECTION"
+        ],
+        "deepResearchRefs": [],
+        "synthesisRuleRefs": [
+          "SYN-C-PERIOD-PLANET-TAKSA-HOUSE"
+        ],
+        "independentSignalCount": 4,
+        "conflictResult": "NONE",
+        "prohibitedEscalationCheck": "PASS",
+        "classification": "PREDICTION"
+      }
+    ],
+    "nonPrediction": [
+      {
+        "claimId": "RC15-K-SUMMARY",
+        "fullReaderText": "วัย 42–62 ปี งาน เงิน และแรงสนับสนุนเดินหน้าไปพร้อมกัน ส่วนช่วง 63–79 ปี จุดสำคัญย้ายไปอยู่ที่บ้าน ครอบครัว และการจัดการเอกสาร",
+        "section": "สรุป",
+        "semanticOwner": "summary-bridge-no-new-specificity",
+        "classification": "SUMMARY"
+      },
+      {
+        "claimId": "RC15-K-ADVICE",
+        "fullReaderText": "แยกเงินที่ใช้ได้ตอนนี้ออกจากภาระระยะยาว และบันทึกข้อตกลงสำคัญให้ชัดก่อนรับงานหรือภาระเพิ่ม",
+        "section": "คำแนะนำ",
+        "semanticOwner": "advice-finance-documentation",
+        "classification": "ADVICE"
+      },
+      {
+        "claimId": "RC15-K-DISCLAIMER",
+        "fullReaderText": "รายงานนี้เป็นการตีความตามหลักโหราศาสตร์เพื่อใช้ประกอบการทบทวนและวางแผน ไม่ใช่ข้อยืนยันว่าเหตุการณ์จะเกิดขึ้นแน่นอน",
+        "section": "ข้อจำกัด",
+        "semanticOwner": "belief-disclaimer",
+        "classification": "DISCLAIMER"
+      }
+    ],
+    "omissions": [
+      {
+        "section": "ความรักและความสัมพันธ์",
+        "tier": "D",
+        "reason": "Current-period Venus scope does not intersect the Sri domain strongly enough to authorize a relationship result."
+      },
+      {
+        "section": "สุขภาพ",
+        "tier": "D",
+        "reason": "No current-period semantically reviewed health event and no aligned multi-signal health synthesis."
+      },
+      {
+        "section": "ช่วง 12 เดือน",
+        "tier": "D",
+        "reason": "No source-backed horizon with start/end applicability; age-period evidence is not converted into a 12-month prediction."
+      }
+    ]
+  },
+  "unknown": {
+    "fixture": {
+      "birthTime": null,
+      "noonSubstitution": false,
+      "ascendant": null,
+      "houses": null,
+      "thaiAstrologicalDay": null
+    },
+    "claims": [
+      {
+        "claimId": "RC15-U-OMISSION",
+        "fullReaderText": "ไม่มีเวลาเกิด — รายงานจึงเว้นหัวข้อที่ต้องใช้เวลาเกิด เช่น ลัคนา เรือน วันโหราศาสตร์ และคำทำนายตามช่วงมหาภูติ",
+        "section": "ข้อมูลที่เว้น",
+        "semanticOwner": "unknown-fail-closed",
+        "classification": "OMISSION_NOTICE"
+      },
+      {
+        "claimId": "RC15-U-DISCLAIMER",
+        "fullReaderText": "รายงานนี้เป็นการตีความตามหลักโหราศาสตร์เพื่อใช้ประกอบการทบทวนและวางแผน ไม่ใช่ข้อยืนยันว่าเหตุการณ์จะเกิดขึ้นแน่นอน",
+        "section": "ข้อจำกัด",
+        "semanticOwner": "belief-disclaimer-unknown",
+        "classification": "DISCLAIMER"
+      }
+    ],
+    "predictionClaims": []
+  }
+}

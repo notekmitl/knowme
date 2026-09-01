@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "version",
+    "status",
+    "fixture",
+    "source",
+    "reviewType",
+    "humanReview",
+    "reviewRecords",
+    "sourceRecords",
+    "canonSignals",
+    "periodAssessments",
+    "counts"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "reviewRecords": {
+      "type": "array",
+      "minItems": 3,
+      "maxItems": 3
+    },
+    "sourceRecords": {
+      "type": "array",
+      "minItems": 11
+    },
+    "periodAssessments": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8
+    }
+  }
+}

@@ -205,9 +205,9 @@ export function validateFoundation(options = {}) {
 
   if (reclassification.entries.length !== 26) addError(errors, 'candidate', 'CANDIDATE_0011_RECLASSIFICATION_COUNT', String(reclassification.entries.length));
   if (reclassification.entries.some((entry) => !entry.classification || !entry.reason)) addError(errors, 'candidate', 'CANDIDATE_0011_RECLASSIFICATION_GAP', 'entry missing classification or reason');
-  const isOr2FullReviewCoverage = coverage.version === 3
-    && coverage.status === 'FULL_REVIEW_COMPLETE_SOURCE_DIRECT_GAP_CONFIRMED_NO_GO';
-  if (!isOr2FullReviewCoverage
+  const isSupersededCoverage = coverage.version === 3
+    && ['FULL_REVIEW_COMPLETE_SOURCE_DIRECT_GAP_CONFIRMED_NO_GO', 'OWNER_REJECTED_OR2_OCR_HEURISTIC_COUNTS_NOT_SEMANTIC_COVERAGE'].includes(coverage.status);
+  if (!isSupersededCoverage
       && (diversity.counts.contexts !== 49
         || diversity.counts.exactDuplicateClusters !== 0
         || diversity.counts.genericTemplateDuplicateCount !== 0)) {

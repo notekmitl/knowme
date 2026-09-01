@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "version",
+    "status",
+    "fixture",
+    "contractRef",
+    "rulebookRef",
+    "dossierRef",
+    "counts",
+    "known",
+    "unknown"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "known": {
+      "type": "object",
+      "required": [
+        "predictions",
+        "nonPrediction",
+        "omissions"
+      ]
+    },
+    "unknown": {
+      "type": "object",
+      "required": [
+        "fixture",
+        "claims",
+        "predictionClaims"
+      ]
+    }
+  }
+}
