@@ -1,5 +1,20 @@
 # Task: Thai Report Reader Experience V2
 
+## PR114 OR4 — Real evidence-owner validation and Candidate 0016 (2026-09-01)
+
+Status: **PR114 OR4 EVIDENCE MODEL REPAIRED — PRODUCT CONTENT STILL NO-GO — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.
+
+Owner accepted OR3 only as an architecture direction: Tier A/B/C/D, the corrected OR2 truth and Unknown fail-closed remain valid. Owner rejected Candidate 0015, its Tier-C validation, preset robustness and static two-pass audit. OR4 now records `evidenceOwnerId`, `sourceUnitId`, `derivationGroupId`, `sourceAuthorityId`, direct/derived lineage, domain, period, polarity, timing granularity and source location for every source/Canon/research signal. The validator recomputes distinct owners and opens the referenced rule to check required signal types, domain, applicability, polarity, timing, conflict, reader strength and causal authority.
+
+Candidate 0016 Known has 6 predictions: Tier A/B/C = 4/2/0; Overview is compositional, Summary is omitted, unsupported causal links are removed and Unknown has 0 predictions. Deep research visually inspected an official Fine Arts Department scan at PDF pages 179 and 198: three bounded records were recorded, but 0 qualify for this target because they do not join domain meaning to target-specific applicability and timing. Relationship, health, 12-month and the placement-only next life period remain Tier D; Product Content therefore remains NO-GO.
+
+Real robustness takes 15 fixture inputs (Known 12 / Unknown 3) with no expected tier or reader text, calls one selector/decision module and generates 13 claims. Computed A/B/C/D = 3/2/0/10; unsupported 0; conflicts narrowed 1; omitted profiles 10; exact duplicate groups 4; Unknown leakage 0; hardcoded counters 0. Deterministic machine audit checks only computable properties. The Codex paragraph-level editorial record documents four issues found and repaired; naturalness, friendliness, content quality and Owner Acceptance remain Human Review PENDING.
+
+Validation: OR3/OR4 schema regression errors 0; rule-specific errors 0; negative controls 14/14; combined Node evidence tests 22/22; determinism 2 runs × 18 outputs mismatch 0; legacy Mahabhut rules 12/12; birthday segmentation 300/300 with deterministic errors 0 and 246 signatures; `git diff --check` PASS. Flutter/analyzer were not rerun because Dart/application/runtime delta is 0. Commits: evidence-owner model/validator `831c598`; research/Candidate 0016/robustness/tests `ad2e8df`; audit/package/status is the commit containing this record.
+
+Owner package: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR4_ad2e8df.zip`, SHA-256 `EE0E0DC4069B174A1FE476B162BC3F501656C81D6B23A2694DEB52E6A0811C35`. ZIP entries 30, manifest entries 28; CRC/extraction/missing/extra/hash-size/SHA256SUMS/secret/placeholder/absolute-path errors all 0. PR #114 remains Open + Draft; PR #113 remains unchanged. Runtime, UI, export, PDF, Production Canon, Firebase/Production, `product-acceptance/`, merge and deploy deltas are 0.
+
+
 ## PR114 OR3 — Owner-authorized synthesis foundation (2026-09-01)
 
 Status: **PR114 OR3 OWNER-AUTHORIZED PREDICTIVE SYNTHESIS FOUNDATION COMPLETE — CANDIDATE 0015 PENDING OWNER CONTENT REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.

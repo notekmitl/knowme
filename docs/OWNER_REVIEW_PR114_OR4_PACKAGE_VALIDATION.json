@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "status": "PASS",
+  "generatedAt": "2026-09-01T00:00:00+07:00",
+  "package": "OWNER_REVIEW_THAI_PREDICTIVE_AUTHORITY_FOUNDATION_V3_OR4_ad2e8df.zip",
+  "sha256": "EE0E0DC4069B174A1FE476B162BC3F501656C81D6B23A2694DEB52E6A0811C35",
+  "counts": {
+    "zipEntries": 30,
+    "manifestEntries": 28,
+    "crcReadErrors": 0,
+    "extractionErrors": 0,
+    "missing": 0,
+    "extra": 0,
+    "hashSizeMismatch": 0,
+    "sha256SumsMismatch": 0,
+    "secretHits": 0,
+    "placeholderHits": 0,
+    "absolutePathHits": 0
+  }
+}
