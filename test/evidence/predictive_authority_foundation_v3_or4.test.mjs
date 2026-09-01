@@ -13,9 +13,9 @@ test('evidence independence is recomputed from real owner ids', () => {
   assert.deepEqual(owners, ['EO-MH2537-P290-291-PLACEMENT-30-41']);
 });
 
-test('all fourteen OR4 negative controls are rejected', () => {
+test('all sixteen OR4 negative controls are rejected', () => {
   const controls = runOr4NegativeControls();
-  assert.equal(controls.length, 14);
+  assert.equal(controls.length, 16);
   assert.ok(controls.every((row) => row.rejected));
 });
 
@@ -26,6 +26,10 @@ test('research ledger uses verified passages but authorizes no target gap claim'
   assert.equal(research.counts.searchSnippetsUsed, 0);
   assert.equal(research.counts.aiSummariesUsedAsAuthority, 0);
   assert.ok(research.records.every((row) => row.source.startsWith('https://www.finearts.go.th/') && row.exactPassageOrVerifiedFinding.length > 25));
+  const domicile = research.records.find((row) => row.researchId === 'RESEARCH-HS13-P176-DOMICILE-DEFINITION');
+  assert.equal(domicile.timingGranularity, 'CONCEPT_ONLY');
+  assert.equal(domicile.domain, 'zodiac_domicile');
+  assert.match(domicile.prohibitedInference, /ห้ามเรียกข้อความนี้ว่าวิธีดวงรายปี/u);
 });
 
 test('Candidate 0016 has no unsupported causal or Unknown claims', () => {
@@ -53,6 +57,6 @@ test('robustness uses computed inputs and the same selector without expected cop
 test('full OR4 validation passes with Product Content still no-go', () => {
   const result = validateOr4Full();
   assert.equal(result.status, 'PASS_OR4_EVIDENCE_MODEL_CANDIDATE_VALID_PRODUCT_CONTENT_STILL_NO_GO_NOT_RUNTIME');
-  assert.equal(result.counts.negativeControlsRejected, 14);
+  assert.equal(result.counts.negativeControlsRejected, 16);
   assert.equal(result.counts.errors, 0);
 });

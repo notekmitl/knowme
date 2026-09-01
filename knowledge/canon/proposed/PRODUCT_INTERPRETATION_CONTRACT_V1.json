@@ -1,0 +1,28 @@
+{
+  "version": 1,
+  "status": "OWNER_AUTHORIZED_CONTENT_DESIGN_NOT_RUNTIME",
+  "chainRoles": ["selector", "domain", "direction", "timing", "conflictHandling", "certaintyCeiling"],
+  "authorities": {
+    "selector": ["MAHABHUT_CONTEXT", "MAHABHUT_LIFE_PERIOD"],
+    "domain": ["PRODUCTION_CANON", "TRACEABLE_SECONDARY_RESEARCH"],
+    "direction": ["TYPED_FORECAST_MATERIAL", "SOURCE_DIRECT_DIRECTION"],
+    "timing": ["MAHABHUT_LIFE_PERIOD", "TYPED_FORECAST_HORIZON", "EXACT_ROLLING_HORIZON"],
+    "secondary": ["TRACEABLE_DEEP_RESEARCH"]
+  },
+  "typedForecastRule": {
+    "allowedRoles": ["direction", "timing"],
+    "requires": ["MAHABHUT_CONTEXT_OR_PERIOD_SELECTOR", "PRODUCTION_CANON_DOMAIN_AUTHORITY"],
+    "standalonePredictionAllowed": false
+  },
+  "constraints": {
+    "distinctAuthorsRequired": false,
+    "singleComponentMaySatisfyAllRoles": false,
+    "selfReferenceAllowed": false,
+    "circularDerivationAllowed": false,
+    "placementOnlyPredictionAllowed": false,
+    "predictiveAccuracyClaimAllowed": false,
+    "unknownTimePolicy": "FAIL_CLOSED_OMIT_TIME_DEPENDENT_CHAINS"
+  },
+  "prohibitedSpecificity": ["unsupported_day", "unsupported_month", "unsupported_amount", "unsupported_disease", "unsupported_job_title", "unsupported_event_count", "unsupported_causal_result"],
+  "readerCertainty": ["EXACT_FACT", "DIRECT_WITHIN_CHAIN", "NARROWED_DIRECT", "OMIT"]
+}

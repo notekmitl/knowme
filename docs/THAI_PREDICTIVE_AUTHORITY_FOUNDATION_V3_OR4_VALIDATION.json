@@ -15,8 +15,8 @@
     "researchAdmitted": 0,
     "robustnessProfiles": 15,
     "robustnessGeneratedClaims": 13,
-    "negativeControls": 14,
-    "negativeControlsRejected": 14,
+    "negativeControls": 16,
+    "negativeControlsRejected": 16,
     "or3RegressionErrors": 0,
     "errors": 0
   },
@@ -71,6 +71,23 @@
       "rejected": true,
       "observedCodes": [
         "PERIOD_MISMATCH"
+      ]
+    },
+    {
+      "id": "composite-period-mismatch",
+      "expectedCode": "PERIOD_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "PERIOD_MISMATCH"
+      ]
+    },
+    {
+      "id": "authority-tier-rule-mismatch",
+      "expectedCode": "AUTHORITY_TIER_RULE_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "AUTHORITY_TIER_RULE_MISMATCH",
+        "TIER_B_SEMANTIC_SOURCE_RECORD_MISSING"
       ]
     },
     {

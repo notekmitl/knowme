@@ -1,0 +1,11 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": ["version", "status", "chainRoles", "authorities", "typedForecastRule", "constraints", "prohibitedSpecificity", "readerCertainty"],
+  "properties": {
+    "version": {"const": 1},
+    "chainRoles": {"type": "array", "minItems": 6, "uniqueItems": true, "items": {"enum": ["selector", "domain", "direction", "timing", "conflictHandling", "certaintyCeiling"]}},
+    "typedForecastRule": {"type": "object", "required": ["allowedRoles", "requires", "standalonePredictionAllowed"], "properties": {"standalonePredictionAllowed": {"const": false}}},
+    "constraints": {"type": "object", "required": ["distinctAuthorsRequired", "singleComponentMaySatisfyAllRoles", "selfReferenceAllowed", "circularDerivationAllowed", "placementOnlyPredictionAllowed", "predictiveAccuracyClaimAllowed", "unknownTimePolicy"], "properties": {"singleComponentMaySatisfyAllRoles": {"const": false}, "selfReferenceAllowed": {"const": false}, "circularDerivationAllowed": {"const": false}, "placementOnlyPredictionAllowed": {"const": false}, "predictiveAccuracyClaimAllowed": {"const": false}}}
+  }
+}

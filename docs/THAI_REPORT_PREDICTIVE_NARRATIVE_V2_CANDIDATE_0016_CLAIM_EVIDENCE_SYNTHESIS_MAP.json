@@ -255,7 +255,7 @@
       {
         "section": "แนวโน้ม 12 เดือนข้างหน้า",
         "tier": "D",
-        "reason": "TIER_D_ANNUAL_METHOD_EXISTS_BUT_TARGET_TIME_BUCKET_NOT_COMPUTED_OR_AUTHORIZED"
+        "reason": "NO_ANNUAL_METHOD_AUTHORITY_IN_RESEARCH_RECORD_P198"
       },
       {
         "section": "ช่วงชีวิตถัดไป",

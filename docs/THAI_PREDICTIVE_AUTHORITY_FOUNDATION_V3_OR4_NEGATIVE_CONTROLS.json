@@ -2,8 +2,8 @@
   "version": 1,
   "status": "PASS",
   "counts": {
-    "controls": 14,
-    "rejected": 14,
+    "controls": 16,
+    "rejected": 16,
     "failures": 0
   },
   "controls": [
@@ -57,6 +57,23 @@
       "rejected": true,
       "observedCodes": [
         "PERIOD_MISMATCH"
+      ]
+    },
+    {
+      "id": "composite-period-mismatch",
+      "expectedCode": "PERIOD_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "PERIOD_MISMATCH"
+      ]
+    },
+    {
+      "id": "authority-tier-rule-mismatch",
+      "expectedCode": "AUTHORITY_TIER_RULE_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "AUTHORITY_TIER_RULE_MISMATCH",
+        "TIER_B_SEMANTIC_SOURCE_RECORD_MISSING"
       ]
     },
     {

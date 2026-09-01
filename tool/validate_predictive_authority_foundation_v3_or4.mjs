@@ -12,10 +12,12 @@ const interval = (period) => {
   const match = String(period).match(/^(\d+)-(\d+)$/u);
   return match ? [Number(match[1]), Number(match[2])] : null;
 };
+const intervals = (period) => String(period).split('|').map(interval);
 const periodWithin = (claimPeriod, signalPeriod) => {
-  const claim = interval(claimPeriod);
-  const signal = interval(signalPeriod);
-  return Boolean(claim && signal && claim[0] >= signal[0] && claim[1] <= signal[1]);
+  const claims = intervals(claimPeriod);
+  const signals = intervals(signalPeriod);
+  if (claims.some((value) => !value) || signals.some((value) => !value)) return false;
+  return claims.every((claim) => signals.some((signal) => claim[0] >= signal[0] && claim[1] <= signal[1]));
 };
 const signalCategory = (signal) => {
   if (signal.signalType === 'SOURCE_DIRECT_EVENT') return 'SOURCE_DIRECT_EVENT';
@@ -41,6 +43,7 @@ export function validateClaimAgainstRule(claim, ledger, rulebook, allClaims = []
   const byId = evidenceIndex(ledger);
   const rule = rulebook.rules.find((row) => row.ruleId === claim.ruleId);
   if (!rule) return ['RULE_NOT_FOUND'];
+  if (claim.authorityTier !== rule.authorityTier) errors.push('AUTHORITY_TIER_RULE_MISMATCH');
   if (rule.summaryOnly) {
     const children = (claim.composedClaimRefs ?? []).map((ref) => allClaims.find((row) => row.claimId === ref)).filter(Boolean);
     if (children.length !== (claim.composedClaimRefs ?? []).length || children.length === 0) errors.push('SUMMARY_CHILD_REF_INVALID');
@@ -64,7 +67,7 @@ export function validateClaimAgainstRule(claim, ledger, rulebook, allClaims = []
   }
   const domainSignals = validSignals.filter((row) => row.domains?.length && !row.domains.includes('life_direction'));
   if (domainSignals.length && !domainSignals.every((row) => row.domains.includes(claim.domain))) errors.push('DOMAIN_MISMATCH');
-  if (validSignals.some((row) => row.period && !String(row.period).includes('|') && !periodWithin(claim.period, row.period))) errors.push('PERIOD_MISMATCH');
+  if (validSignals.some((row) => row.period && !['NONE', 'CONCEPT_ONLY'].includes(row.period) && !periodWithin(claim.period, row.period))) errors.push('PERIOD_MISMATCH');
   const directional = validSignals.map((row) => row.polarity).filter((value) => value && value !== 'NEUTRAL');
   if (new Set(directional).size > 1 && claim.conflictResult !== 'OMIT' && claim.conflictResult !== 'NARROWED') errors.push('POLARITY_CONFLICT_NOT_HANDLED');
   if (claim.polarity && directional.length && !directional.includes(claim.polarity) && claim.conflictResult !== 'NARROWED') errors.push('POLARITY_MISMATCH');
@@ -111,6 +114,8 @@ export function runOr4NegativeControls() {
   run('tier-c-required-canon-missing', 'REQUIRED_SIGNAL_TYPE_MISSING:DOMAIN_AUTHORITY', ({ claim }) => { claim.authorityTier = 'C'; claim.ruleId = 'OR4-C-MULTI-OWNER'; claim.signalRefs = ['T0003-SRC-42-62-WORK', 'T0003-SRC-42-62-SUPPORT']; claim.independentSignalCount = 2; });
   run('domain-mismatch', 'DOMAIN_MISMATCH', ({ claim }) => { claim.domain = 'health'; });
   run('period-mismatch', 'PERIOD_MISMATCH', ({ claim }) => { claim.period = '63-79'; });
+  run('composite-period-mismatch', 'PERIOD_MISMATCH', ({ claim, ledger: l }) => { const x = clone(l.sourceSignals.find((row) => row.signalId === 'T0003-SRC-42-62-WORK')); x.signalId = 'NC-COMPOSITE'; x.period = '42-43|61-62'; l.sourceSignals.push(x); claim.signalRefs = [x.signalId]; claim.period = '44-44'; });
+  run('authority-tier-rule-mismatch', 'AUTHORITY_TIER_RULE_MISMATCH', ({ claim }) => { claim.authorityTier = 'B'; });
   run('polarity-conflict-not-omitted', 'POLARITY_CONFLICT_NOT_HANDLED', ({ ledger: l, claim }) => { const x = clone(l.sourceSignals.find((row) => row.signalId === 'T0003-SRC-42-62-WORK')); x.signalId = 'NC-NEG'; x.evidenceOwnerId = 'EO-NC-NEG'; x.polarity = 'NEGATIVE'; l.sourceSignals.push(x); claim.signalRefs.push(x.signalId); claim.independentSignalCount = 2; });
   run('placement-only-prediction', 'PLACEMENT_ONLY_TIER_C', ({ claim, rulebook: rb }) => { claim.authorityTier = 'C'; claim.ruleId = 'OR4-C-MULTI-OWNER'; claim.signalRefs = ['T0003-SRC-42-62-PLACEMENT', 'T0003-CANON-STRONG-HOUSE']; claim.independentSignalCount = 1; rb.rules.find((row) => row.ruleId === claim.ruleId).requiredSignalTypes = []; rb.rules.find((row) => row.ruleId === claim.ruleId).minimumIndependentEvidenceOwners = 1; });
   run('causal-wording-no-causal-authority', 'CAUSAL_WORDING_WITHOUT_AUTHORITY', ({ claim }) => { claim.containsCausalWording = true; });

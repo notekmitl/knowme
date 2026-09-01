@@ -41,13 +41,13 @@ const researchRecords = [
     signalType: 'RESEARCH_DOMAIN_AUTHORITY', semanticRecord: true, sourceLocation: { kind: 'PUBLIC_SCAN_PAGE', url: sourceUrl, pdfPage: 179, printedPage: 157 }, admittedToCandidate: false,
   },
   {
-    researchId: 'RESEARCH-HS13-P176-ANNUAL-CHART-METHOD', ...commonResearch, pageOrSection: 'PDF page 198 / printed page 176, ดาวเคราะห์ประจำราศีที่ให้คุณให้โทษ',
+    researchId: 'RESEARCH-HS13-P176-DOMICILE-DEFINITION', ...commonResearch, pageOrSection: 'PDF page 198 / printed page 176, ดาวเคราะห์ประจำราศีที่ให้คุณให้โทษ',
     exactPassageOrVerifiedFinding: 'การกำหนดดาวที่ประจำราศีที่เรียกว่าดวงเกษตรนั้น ท่านกำหนดขึ้นจากทางดาราศาสตร์',
-    domain: 'annual_horizon', domains: ['annual_horizon'], period: 'ANNUAL_METHOD_ONLY', timingGranularity: 'ANNUAL_METHOD_ONLY', polarity: 'NEUTRAL',
-    allowedInference: 'คำพยากรณ์รายปีต้องมีวิธีและข้อมูลของดวงรายปีที่เกี่ยวข้อง ไม่ใช่ย่อช่วงชีวิตยาวให้เหลือ 12 เดือน',
-    prohibitedInference: 'ห้ามใช้ข้อความวิธีทั่วไปนี้สร้างผล 12 เดือนของ fixture เมื่อยังไม่มี annual chart และ applicability ที่ตรวจย้อนกลับได้',
-    evidenceOwnerId: 'EO-RESEARCH-HS13-P176-ANNUAL-METHOD', sourceUnitId: 'HS13-P176-ANNUAL-METHOD', derivationGroupId: 'HS13-ANNUAL-CHART-METHOD',
-    signalType: 'RESEARCH_METHOD_BOUNDARY', semanticRecord: true, sourceLocation: { kind: 'PUBLIC_SCAN_PAGE', url: sourceUrl, pdfPage: 198, printedPage: 176 }, admittedToCandidate: false,
+    domain: 'zodiac_domicile', domains: ['zodiac_domicile'], period: 'NONE', timingGranularity: 'CONCEPT_ONLY', polarity: 'NEUTRAL',
+    allowedInference: 'ข้อความนี้รองรับเพียงนิยามว่าดวงเกษตรเป็นการกำหนดดาวประจำราศีจากหลักดาราศาสตร์',
+    prohibitedInference: 'ห้ามเรียกข้อความนี้ว่าวิธีดวงรายปี ห้ามใช้เป็น timing authority และห้ามสร้างผล 12 เดือนของ fixture จากข้อความนี้',
+    evidenceOwnerId: 'EO-RESEARCH-HS13-P176-DOMICILE', sourceUnitId: 'HS13-P176-DOMICILE-DEFINITION', derivationGroupId: 'HS13-DOMICILE-DEFINITION',
+    signalType: 'RESEARCH_DOMAIN_AUTHORITY', semanticRecord: true, sourceLocation: { kind: 'PUBLIC_SCAN_PAGE', url: sourceUrl, pdfPage: 198, printedPage: 176 }, admittedToCandidate: false,
   },
 ];
 
@@ -59,7 +59,7 @@ const researchLedger = {
     relationship: 'TIER_D_GENERIC_DOMAIN_MEANING_ONLY_NO_TARGET_APPLICABILITY',
     health: 'TIER_D_GENERIC_DOMAIN_MEANING_ONLY_NO_TARGET_APPLICABILITY',
     currentPeriodApplicability: 'SUPPORTED_BY_PRIMARY_MAHABHUT_LIFE_PERIOD_ONLY',
-    twelveMonthHorizon: 'TIER_D_ANNUAL_METHOD_EXISTS_BUT_TARGET_TIME_BUCKET_NOT_COMPUTED_OR_AUTHORIZED',
+    twelveMonthHorizon: 'NO_ANNUAL_METHOD_AUTHORITY_IN_RESEARCH_RECORD_P198',
   },
   counts: { reviewedRecords: researchRecords.length, admittedToCandidate: 0, searchSnippetsUsed: 0, aiSummariesUsedAsAuthority: 0 },
 };
@@ -69,7 +69,7 @@ writeText('docs/THAI_PREDICTIVE_RESEARCH_LEDGER_V1.md', `
 
 Status: **SECONDARY SOURCE REVIEWED — NO TARGET-SPECIFIC GAP AUTHORITY ESTABLISHED**
 
-The official Fine Arts Department scan was downloaded, hashed and visually inspected at PDF pages 179 and 198. Three bounded records cover health semantics, relationship semantics and the existence of a separate annual-chart method. None supplies target-specific applicability and timing together, so admitted Candidate 0016 records are 0. Relationship, health and 12-month horizon remain Tier D; no search snippet or AI summary is authority.
+The official Fine Arts Department scan was downloaded, hashed and visually inspected at PDF pages 179 and 198. Three bounded records cover health semantics, relationship semantics and the definition of zodiac domicile (ดวงเกษตร). Page 198 does not state an annual-chart method and is not timing authority. None supplies target-specific applicability and timing together, so admitted Candidate 0016 records are 0. Relationship, health and 12-month horizon remain Tier D under the superseded OR4 model; no search snippet or AI summary is authority.
 `);
 writeJson('docs/THAI_PREDICTIVE_RESEARCH_LEDGER_V1.schema.json', {
   $schema: 'http://json-schema.org/draft-07/schema#', type: 'object', required: ['version', 'status', 'ownerDecision', 'records', 'gapResults', 'counts'],
