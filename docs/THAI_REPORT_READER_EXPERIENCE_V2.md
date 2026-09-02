@@ -1,5 +1,20 @@
 # Thai Report Reader Experience V2
 
+## PR114 foundation acceptance + fresh runtime V2 (2026-09-02)
+
+Status: **PR114 FOUNDATION SQUASH-MERGED — PR113 CLOSED SUPERSEDED — FRESH RUNTIME IMPLEMENTATION COMPLETE — DRAFT PR #115 — PENDING OWNER PRODUCT REVIEW — NOT DEPLOYED**.
+
+Owner accepted the final PR #114 foundation tree at HEAD `3f90e8fce7ca99630eca9d09b4b5b3c421c93e96`. The 43-path net result was squash-merged into `main` as `cd2718f6cfb6aff66ca46ebe6811e2a56379a8d7` on 2026-09-02; the merge tree equals the accepted PR tree and unexpected tree diff is 0. Candidate 0011 remains the immutable golden oracle with reader-block SHA-256 `6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E`, 22/22 resolved prediction rule chains and byte delta 0. PR #113 was commented and closed without merge as superseded; no old PR113 implementation was cherry-picked.
+
+Fresh runtime branch `codex/thai-predictive-narrative-v2-runtime-v2` was created from post-merge `main`. Implementation commit `dc97d7601917f9101d47a7cbf3358a054123eda9` uses one shared selector/domain/direction/timing/conflict/certainty chain and renders Candidate 0011 exactly for the pinned fixture/asOf without fixture-specific branches. The rolling horizon comes from actual `asOf`; 00:03 remains Aquarius 9°24′, 00:35 remains Aquarius 19°19′, and Unknown never substitutes noon or emits ascendant, houses, or Known runtime copy. Web, infographic, Dedicated PDF, and browser-print project the same canonical narrative. `monthlyTimelineAvailable=false`.
+
+Generalization is reported without overstating content completeness: selector reachability is 49/49 and period-boundary reachability is 392/392, but only `mahabhut2537.rem0.saturday` has a complete Owner-accepted prediction chain. It emits 22 prediction paragraphs plus summary/advice/disclosure; the other 48 contexts omit fail-closed. The 300-profile runtime audit accounts for 7,500 claims: emitted 50, omitted 7,450, unsupported 0, fixture-specific branches 0 and Known→Unknown leakage 0. Chronology, applicability, provenance and cross-surface parity errors are 0.
+
+Validation: Candidate/runtime/artifact exact subset 10/10; focused predictive/narrative/Canon/source/export/artifact 273/273; existing copy audit 300 profiles / 30,000 fields with omission/addition/semantic/prediction↔advice/traceability impacts 0; full Flutter suite 1,632/1,632; analyzer 298 pre-existing diagnostics and scoped runtime diagnostics 0; PreCommit PASS; PostCommit PASS. Real artifacts include Dedicated PDF Known/Unknown 7/7 pages, Chrome browser-print Known/Unknown 6/7 pages, four 1080×1920 infographics at surfaces 360/390, Web desktop/mobile captures and raster/contact sheets for all 27 PDF pages; manual visual review found blank/clipping/overlap/overflow 0.
+
+Owner Review ZIP: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_PREDICTIVE_NARRATIVE_V2_RUNTIME_V2_dc97d76.zip`, SHA-256 `5C0AAFC8818641BEF8109C784FF36B08F9230E42B1BD67F245C69B0339F1EC8E`. CRC/extraction PASS; manifest 54 entries with missing/extra/hash mismatch 0; SHA256SUMS mismatch 0; secret scan 0; PDF/PNG/JPEG signature errors 0. Evidence/docs commit is the commit containing this record. Draft PR #115 is pending Owner Product Review; it is not Ready, not merged and not deployed. Firebase/Production and `product-acceptance/` are unchanged.
+
+
 ## PR114 OR8 — final merge-surface consolidation (2026-09-01)
 
 Status: **PR114 OR8 FINAL MERGE SURFACE CONSOLIDATED — CANDIDATE 0011 GOLDEN ORACLE PRESERVED — PENDING OWNER FINAL FOUNDATION REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.
