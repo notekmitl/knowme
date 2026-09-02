@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "task_id": "thai-unknown-time-input-copy-accuracy-v1",
-  "expected_branch": "codex/thai-unknown-time-input-copy-accuracy-v1",
+  "task_id": "thai-predictive-narrative-v2-runtime-v2",
+  "expected_branch": "codex/thai-predictive-narrative-v2-runtime-v2",
   "expected_worktree": "C:/Users/USER/Documents/Knowme/pr107-release-main",
-  "base_ref": "e094c789ec4e0dcd24d9b79a01c3bbd569f1c70c",
+  "base_ref": "cd2718f6cfb6aff66ca46ebe6811e2a56379a8d7",
   "allowed_files": [
     "task.md",
     "TASK_RESULT.md",
@@ -12,8 +12,18 @@
     "docs/HANDOFF.md",
     "docs/ROADMAP.md",
     "docs/THAI_REPORT_READER_EXPERIENCE_V2.md",
-    "lib/features/thai_beta/presentation/pages/thai_beta_input_page.dart",
-    "test/validation/thai_beta/thai_beta_unknown_time_input_copy_test.dart"
+    "docs/PREDICTIVE_RUNTIME_V2_GENERALIZATION_AUDIT.json",
+    "docs/PREDICTIVE_RUNTIME_V2_GENERALIZATION_AUDIT.md",
+    "lib/features/thai_beta/application/narrative/predictive_runtime_v2.dart",
+    "lib/features/thai_beta/application/narrative/predictive_runtime_v2_catalog.g.dart",
+    "lib/features/thai_beta/application/thai_beta_report_export_document.dart",
+    "test/evidence/predictive_runtime_v2_foundation.test.mjs",
+    "test/validation/thai_beta/narrative/thai_predictive_runtime_v2_test.dart",
+    "test/validation/thai_beta/thai_beta_report_export_test.dart",
+    "test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart",
+    "test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart",
+    "tool/build_predictive_runtime_v2_audit.mjs",
+    "tool/generate_predictive_runtime_v2_catalog.mjs"
   ],
   "allowed_globs": [],
   "forbidden_files": [
@@ -33,7 +43,9 @@
     "**/failures/**",
     "**/__pycache__/**",
     "**/*.pyc",
-    "**/*.pdf"
+    "**/*.pdf",
+    "**/*.png",
+    "**/*.zip"
   ],
   "forbidden_text_patterns": [
     "OPENAI_API_KEY",
@@ -43,11 +55,12 @@
     "round_[0-9]+_review\\.json"
   ],
   "focused_tests": [
-    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/thai_beta_unknown_time_input_copy_test.dart test/validation/thai_beta/live_asof/thai_beta_date_aware_contract_test.dart",
-    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/live_asof/thai_beta_canonical_text_contract_test.dart test/validation/thai_beta/core_reading/thai_birth_profile_core_reading_test.dart",
-    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/narrative/thai_beta_narrative_v15_r4_acceptance_test.dart test/validation/thai_beta/narrative/thai_beta_narrative_v15_r5_acceptance_test.dart test/validation/thai_beta/narrative/thai_beta_narrative_v15_r6_reader_quality_test.dart test/validation/thai_beta/narrative/thai_consumer_narrative_voice_v1_test.dart",
-    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart test/validation/thai_beta/thai_beta_report_export_test.dart test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart",
-    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/thai_beta_screenshot_mode_test.dart test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart"
+    "node tool/generate_predictive_runtime_v2_catalog.mjs --check",
+    "node tool/build_predictive_runtime_v2_audit.mjs",
+    "node --test test/evidence/predictive_runtime_v2_foundation.test.mjs",
+    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/narrative/thai_predictive_runtime_v2_test.dart test/validation/thai_beta/narrative/thai_beta_input_fixture_separation_test.dart",
+    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/narrative/ test/validation/thai_beta/thai_beta_report_export_test.dart test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart",
+    "flutter test --no-pub --concurrency=1 test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart"
   ],
   "full_test_policy": "required",
   "full_test_command": "flutter test --no-pub --concurrency=1 test/validation/thai_beta/ test/validation/thai/ test/validation/birth_normalization/ test/thai_foundation_engine_test.dart test/validation/thai_mirror_qa_harness/story_coverage_validation_test.dart test/validation/thai_mirror_qa_harness/screenshot_regression_test.dart",
