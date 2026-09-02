@@ -45,9 +45,9 @@ void main() {
         findsNothing,
       );
 
-      expect(find.text('อดีต'), findsNothing);
-      expect(find.text('ปัจจุบัน'), findsNothing);
-      expect(find.text('อนาคต'), findsNothing);
+      expect(find.text('อดีต'), findsOneWidget);
+      expect(find.text('ปัจจุบัน'), findsOneWidget);
+      expect(find.text('อนาคต'), findsOneWidget);
       expect(find.text('อดีตของคุณ'), findsNothing);
       expect(find.text('ช่วงปัจจุบัน'), findsNothing);
       expect(find.text('เรื่องสำคัญของช่วงนี้'), findsNothing);

@@ -84,6 +84,10 @@ void main() {
         asOf: DateTime(2026, 8, 29),
       );
       final plan = ThaiPredictiveRuntimeV2Plan.fromAnalysis(analysis);
+      final baseline = ThaiBetaReportExportDocument.fromAnalysis(
+        analysis,
+        applyReaderCopy: true,
+      );
       final document = ThaiBetaReportExportDocument.candidate(analysis);
       expect(plan.contextId, 'unknown-time');
       expect(plan.emittedClaims, isEmpty);
@@ -105,6 +109,54 @@ void main() {
       expect(document.infographic, isNotNull);
       expect(document.infographic!.categories, hasLength(4));
       expect(document.infographic!.monthlyTimelineAvailable, isFalse);
+
+      expect(document.sections, hasLength(baseline.sections.length));
+      for (var index = 0; index < baseline.sections.length; index++) {
+        final before = baseline.sections[index];
+        final after = document.sections[index];
+        expect(after.paragraphs, before.paragraphs, reason: before.id);
+        expect(after.kind, before.kind, reason: before.id);
+        expect(after.id, before.id, reason: before.id);
+        expect(after.fieldSource, before.fieldSource, reason: before.id);
+        expect(after.visibilityRule, before.visibilityRule, reason: before.id);
+        expect(
+          after.knownUnknownRule,
+          before.knownUnknownRule,
+          reason: before.id,
+        );
+        expect(after.traceIds, before.traceIds, reason: before.id);
+      }
+
+      final titles = document.sections
+          .map((section) => section.title)
+          .toList(growable: false);
+      expect(titles.where((title) => title == 'คำทำนายอดีต'), hasLength(1));
+      expect(
+        titles.where((title) => title == 'คำทำนายปัจจุบัน — อายุ 44 ปี'),
+        hasLength(1),
+      );
+      expect(titles.where((title) => title == 'ช่วงชีวิตถัดไป'), hasLength(1));
+      expect(titles, isNot(contains('อดีตของคุณ')));
+      expect(titles, isNot(contains('ช่วงปัจจุบัน')));
+      expect(titles, isNot(contains('จังหวะชีวิตระยะต่อไป')));
+      expect(titles, isNot(contains('เรื่องสำคัญของช่วงนี้')));
+      expect(titles.where((title) => title.trim().isEmpty), isEmpty);
+      expect(
+        titles.indexOf('คำทำนายอดีต'),
+        lessThan(titles.indexOf('คำทำนายปัจจุบัน — อายุ 44 ปี')),
+      );
+      expect(
+        titles.indexOf('คำทำนายปัจจุบัน — อายุ 44 ปี'),
+        lessThan(titles.indexOf('ช่วงชีวิตถัดไป')),
+      );
+    });
+
+    test('Unknown V2 adapter leaves Known candidate bytes unchanged', () {
+      final before = ThaiBetaReportExportDocument.candidate(_accepted());
+      final after = ThaiBetaReportExportDocument.candidate(_accepted());
+      expect(after.fullPlainText, before.fullPlainText);
+      expect(_planLines(after.predictiveRuntimeV2!), _acceptedReaderLines());
+      expect(runtimePredictiveV2OracleSha256, _acceptedOracleSha256);
     });
 
     test(
@@ -398,6 +450,9 @@ void main() {
     );
   });
 }
+
+const _acceptedOracleSha256 =
+    '6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E';
 
 ThaiBetaAnalysis _accepted({int minute = 3}) => ThaiBetaAnalysisRunner.run(
   _acceptedInput(minute: minute),

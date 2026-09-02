@@ -196,6 +196,9 @@ class _SharedReportSection extends StatelessWidget {
         ? const Color(0xfffff7e8)
         : theme.colorScheme.surface;
     final phaseLabel = switch (section.title) {
+      'คำทำนายอดีต' => 'อดีต',
+      final title when title.startsWith('คำทำนายปัจจุบัน') => 'ปัจจุบัน',
+      final title when title.startsWith('ช่วงชีวิตถัดไป') => 'อนาคต',
       'อดีตของคุณ' => 'อดีต',
       'ช่วงปัจจุบัน' => 'ปัจจุบัน',
       'จังหวะชีวิตระยะต่อไป' => 'อนาคต',

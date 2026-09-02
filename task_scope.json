@@ -30,6 +30,7 @@
     "test/validation/thai_beta/narrative/thai_beta_report_v122_editorial_test.dart",
     "test/validation/thai_beta/narrative/thai_predictive_runtime_v2_test.dart",
     "test/validation/thai_beta/thai_beta_report_export_test.dart",
+    "test/validation/thai_beta/thai_report_experience_infographic_vnext_test.dart",
     "test/validation/thai_beta/thai_report_copy_candidate_300_audit_test.dart",
     "test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart",
     "tool/build_predictive_runtime_v2_audit.mjs",

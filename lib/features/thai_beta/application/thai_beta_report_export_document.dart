@@ -464,7 +464,7 @@ class ThaiBetaReportExportDocument {
     // Known context is expected to supply a complete Contract V1 plan; an
     // empty plan is retained only as an explicit, auditable coverage failure.
     if (plan.emittedClaims.isEmpty) {
-      return ThaiBetaReportExportDocument(
+      final unresolved = ThaiBetaReportExportDocument(
         title: baseline.title,
         subtitle: baseline.subtitle,
         sections: baseline.sections,
@@ -472,6 +472,12 @@ class ThaiBetaReportExportDocument {
         infographic: baseline.infographic,
         predictiveRuntimeV2: plan,
       );
+      return plan.knownTime
+          ? unresolved
+          : _applyUnknownPredictiveRuntimeV2Presentation(
+              unresolved,
+              currentAge: plan.currentAge,
+            );
     }
     final part2Index = baseline.sections.indexWhere(
       (section) => section.title.startsWith('ส่วนที่ 2 ·'),
@@ -572,6 +578,48 @@ class ThaiBetaReportExportDocument {
       filenameStem: baseline.filenameStem,
       infographic: _runtimeInfographic(plan),
       predictiveRuntimeV2: plan,
+    );
+  }
+
+  /// Gives the fail-closed Unknown candidate the same V2 semantic owners as
+  /// the Known candidate without changing, adding, or reordering any body.
+  ///
+  /// This adapter is intentionally reached only through [candidate]. Legacy
+  /// [fromAnalysis] documents retain their accepted presentation contract.
+  static ThaiBetaReportExportDocument
+  _applyUnknownPredictiveRuntimeV2Presentation(
+    ThaiBetaReportExportDocument document, {
+    required int? currentAge,
+  }) {
+    String adaptedTitle(String title) => switch (title) {
+      'อดีตของคุณ' => 'คำทำนายอดีต',
+      'ช่วงปัจจุบัน' =>
+        currentAge == null
+            ? 'คำทำนายปัจจุบัน'
+            : 'คำทำนายปัจจุบัน — อายุ $currentAge ปี',
+      'จังหวะชีวิตระยะต่อไป' => 'ช่วงชีวิตถัดไป',
+      _ => title,
+    };
+
+    return ThaiBetaReportExportDocument(
+      title: document.title,
+      subtitle: document.subtitle,
+      sections: [
+        for (final section in document.sections)
+          ThaiBetaReportExportSection(
+            title: adaptedTitle(section.title),
+            paragraphs: section.paragraphs,
+            kind: section.kind,
+            id: section.id,
+            fieldSource: section.fieldSource,
+            visibilityRule: section.visibilityRule,
+            knownUnknownRule: section.knownUnknownRule,
+            traceIds: section.traceIds,
+          ),
+      ],
+      filenameStem: document.filenameStem,
+      infographic: document.infographic,
+      predictiveRuntimeV2: document.predictiveRuntimeV2,
     );
   }
 
