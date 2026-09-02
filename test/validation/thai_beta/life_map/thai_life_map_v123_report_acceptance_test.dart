@@ -9,7 +9,7 @@ import '../narrative/thai_beta_narrative_fixtures.dart';
 
 void main() {
   group('Life Map V1.2.3 report acceptance', () {
-    testWidgets('shows eight Life Map periods collapsed with nested labels', (
+    testWidgets('shows Predictive Narrative V2 past/current/future structure', (
       tester,
     ) async {
       final analysis = ThaiBetaNarrativeFixtures.fixtureA();
@@ -26,10 +26,16 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
-      expect(find.text('อดีต'), findsWidgets);
-      expect(find.text('ปัจจุบัน'), findsWidgets);
-      expect(find.text('อนาคต'), findsWidgets);
+      expect(find.text('คำทำนายปัจจุบัน — อายุ 44 ปี'), findsOneWidget);
+      expect(find.text('คำทำนายอดีต'), findsOneWidget);
+      expect(
+        find.descendant(
+          of: find.byKey(const ValueKey('report-body-predictive-v2-horizon')),
+          matching: find.text('แนวโน้ม 12 เดือนข้างหน้า'),
+        ),
+        findsOneWidget,
+      );
+      expect(find.text('ช่วงชีวิตถัดไป — อายุ 47–65 ปี'), findsOneWidget);
       expect(
         find.text(ThaiMirrorLifeTimelineSection.expandDetailsLabel),
         findsNothing,
@@ -39,8 +45,13 @@ void main() {
         findsNothing,
       );
 
-      expect(find.text('อดีตของคุณ'), findsOneWidget);
-      expect(find.text('จังหวะชีวิตระยะต่อไป'), findsOneWidget);
+      expect(find.text('อดีต'), findsNothing);
+      expect(find.text('ปัจจุบัน'), findsNothing);
+      expect(find.text('อนาคต'), findsNothing);
+      expect(find.text('อดีตของคุณ'), findsNothing);
+      expect(find.text('ช่วงปัจจุบัน'), findsNothing);
+      expect(find.text('เรื่องสำคัญของช่วงนี้'), findsNothing);
+      expect(find.text('จังหวะชีวิตระยะต่อไป'), findsNothing);
       expect(
         find.text(ThaiMirrorLifeTimelineSection.subPeriodsLabel),
         findsNothing,

@@ -41,6 +41,17 @@ class ThaiBetaReportExportSection {
   );
 }
 
+String? _runtimeInfographicDecisionText(RuntimePredictiveDecision? decision) {
+  if (decision == null) return null;
+  final text = decision.infographicText.trim();
+  return text.isEmpty ? decision.text.trim() : text;
+}
+
+String _runtimeWithoutLongRange(String text) => text.trim().replaceFirst(
+  RegExp(r'^ระหว่างวันที่\s+\d+\s+\S+\s+\d+\s+ถึง\s+\d+\s+\S+\s+\d+\s*'),
+  '',
+);
+
 enum ThaiBetaReportExportSectionKind { chapter, body, timeline, disclaimer }
 
 class ThaiBetaAnnualInfographicCategory {
@@ -410,7 +421,7 @@ class ThaiBetaReportExportDocument {
   ) {
     final sections = <ThaiBetaReportExportSection>[];
     for (final section in document.sections) {
-      final isRuntimeV2 = section.id.startsWith('predictive-v2-');
+      final isRuntimeV2 = section.id.contains('predictive-v2-');
       final title = isRuntimeV2
           ? section.title
           : ThaiBetaReportExportPolish.polishTitle(section.title);
@@ -449,11 +460,9 @@ class ThaiBetaReportExportDocument {
     ThaiBetaAnalysis analysis,
   ) {
     final plan = ThaiPredictiveRuntimeV2Plan.fromAnalysis(analysis);
-    // The accepted foundation currently authorizes predictive reader copy for
-    // one evidence-complete context only. Keep the established report surface
-    // for all other contexts and attach the omission ledger to the document;
-    // do not manufacture empty infographic cards or replace existing sections
-    // with filler merely to make the new runtime appear complete.
+    // Unknown or genuinely unresolved input remains fail-closed. Every valid
+    // Known context is expected to supply a complete Contract V1 plan; an
+    // empty plan is retained only as an explicit, auditable coverage failure.
     if (plan.emittedClaims.isEmpty) {
       return ThaiBetaReportExportDocument(
         title: baseline.title,
@@ -483,20 +492,23 @@ class ThaiBetaReportExportDocument {
 
     ThaiBetaReportExportSection runtimeSection(
       RuntimePredictiveSection section,
-    ) => ThaiBetaReportExportSection(
-      id: 'predictive-v2-${section.id}',
-      title: section.title,
-      paragraphs: section.claims.map((claim) => claim.text).toList(),
-      kind: section.id.startsWith('past-')
+    ) {
+      final kind = section.id.startsWith('past-')
           ? ThaiBetaReportExportSectionKind.timeline
           : section.id == 'advice'
           ? ThaiBetaReportExportSectionKind.disclaimer
-          : ThaiBetaReportExportSectionKind.body,
-      fieldSource: 'predictive-runtime-v2-canonical-plan',
-      visibilityRule: 'complete-owner-accepted-chain-only',
-      knownUnknownRule: 'known-only; omit-fail-closed',
-      traceIds: section.claims.map((claim) => claim.rule.id).toList(),
-    );
+          : ThaiBetaReportExportSectionKind.body;
+      return ThaiBetaReportExportSection(
+        id: 'report-${kind.name}-predictive-v2-${section.id}',
+        title: section.title,
+        paragraphs: section.claims.map((claim) => claim.text).toList(),
+        kind: kind,
+        fieldSource: 'predictive-runtime-v2-canonical-plan',
+        visibilityRule: 'complete-owner-accepted-chain-only',
+        knownUnknownRule: 'known-only; omit-fail-closed',
+        traceIds: section.claims.map((claim) => claim.rule.id).toList(),
+      );
+    }
 
     final pastAndCurrent = plan.sections
         .where(
@@ -521,7 +533,7 @@ class ThaiBetaReportExportDocument {
     final inserted = <ThaiBetaReportExportSection>[];
     inserted.add(
       const ThaiBetaReportExportSection(
-        id: 'predictive-v2-part-2',
+        id: 'report-chapter-predictive-v2-part-2',
         title: 'ส่วนที่ 2 · จังหวะชีวิตที่ผ่านมาและปัจจุบัน',
         paragraphs: [
           'อ่านลำดับเหตุการณ์ที่ผ่านมา แล้วเชื่อมกับช่วงชีวิตปัจจุบัน',
@@ -532,7 +544,7 @@ class ThaiBetaReportExportDocument {
     );
     inserted.add(
       ThaiBetaReportExportSection(
-        id: 'predictive-v2-report-header',
+        id: 'report-body-predictive-v2-report-header',
         title: plan.title,
         paragraphs: plan.subtitle.split('\n'),
         fieldSource: 'predictive-runtime-v2-canonical-plan',
@@ -543,7 +555,7 @@ class ThaiBetaReportExportDocument {
     inserted.addAll(pastAndCurrent.map(runtimeSection));
     inserted.add(
       const ThaiBetaReportExportSection(
-        id: 'predictive-v2-part-3',
+        id: 'report-chapter-predictive-v2-part-3',
         title: 'ส่วนที่ 3 · แนวโน้มข้างหน้า',
         paragraphs: ['ดูแนวโน้ม 12 เดือนและช่วงชีวิตถัดไปจากกฎที่มีหลักฐานครบ'],
         kind: ThaiBetaReportExportSectionKind.chapter,
@@ -566,20 +578,20 @@ class ThaiBetaReportExportDocument {
   static ThaiBetaAnnualInfographicData _runtimeInfographic(
     ThaiPredictiveRuntimeV2Plan plan,
   ) {
-    RuntimePredictiveDecision? claim(String id) => plan.claim(id);
-    final categoryIds = <(String, String, String)>[
-      ('RC11-K-WORK-01', 'การงาน', 'work'),
-      ('RC11-K-FINANCE-01', 'การเงิน', 'savings'),
-      ('RC11-K-RELATIONSHIP-01', 'ความรัก', 'favorite'),
-      ('RC11-K-HEALTH-01', 'สุขภาพ', 'self_improvement'),
+    RuntimePredictiveDecision? claim(String owner) => plan.claimForOwner(owner);
+    final categoriesByOwner = <(String, String, String)>[
+      ('work', 'การงาน', 'work'),
+      ('finance', 'การเงิน', 'savings'),
+      ('relationship', 'ความรัก', 'favorite'),
+      ('health', 'สุขภาพ', 'self_improvement'),
     ];
     final categories = <ThaiBetaAnnualInfographicCategory>[
-      for (final item in categoryIds)
+      for (final item in categoriesByOwner)
         if (claim(item.$1) case final decision?)
           ThaiBetaAnnualInfographicCategory(
             id: 'predictive-v2-${decision.rule.domain}',
             title: item.$2,
-            summary: decision.text,
+            summary: _runtimeInfographicDecisionText(decision)!,
             iconName: item.$3,
             traceIds: [decision.rule.id],
           ),
@@ -593,18 +605,21 @@ class ThaiBetaReportExportDocument {
       buddhistYear: plan.asOf.year + 543,
       periodLabel:
           '${_runtimeThaiShortDate(range.$1)} – ${_runtimeThaiShortDate(range.$2)}',
-      theme: claim('RC11-K-SUMMARY-01')?.text ?? 'เว้นหัวข้อที่ต้องใช้เวลาเกิด',
-      overview: claim('RC11-K-HORIZON-01')?.text ?? omission,
+      theme:
+          _runtimeInfographicDecisionText(claim('summary')) ??
+          'เว้นหัวข้อที่ต้องใช้เวลาเกิด',
+      overview:
+          '${_runtimeThaiShortDate(range.$1)} – ${_runtimeThaiShortDate(range.$2)} · ${_runtimeWithoutLongRange(_runtimeInfographicDecisionText(claim('rolling12')) ?? omission)}',
       categories: categories,
-      opportunity: claim('RC11-K-SUPPORT-01')?.text ?? '',
-      caution: claim('RC11-K-HEALTH-02')?.text ?? '',
-      primaryAdvice: claim('RC11-K-ADVICE-01')?.text ?? '',
+      opportunity: _runtimeInfographicDecisionText(claim('support')) ?? '',
+      caution: _runtimeInfographicDecisionText(claim('health')) ?? '',
+      primaryAdvice: _runtimeInfographicDecisionText(claim('advice')) ?? '',
       disclaimer:
-          claim('RC11-K-DISCLOSURE-01')?.text ??
+          claim('disclosure')?.text ??
           'รายงานเว้นคำทำนายที่ข้อมูลยังรองรับไม่เพียงพอ',
       monthlyTimelineAvailable: false,
       monthlyGapReason:
-          'ไม่มีการสร้างคำทำนายรายเดือนจากข้อมูลที่ไม่มีหลักฐานรองรับ',
+          'ไม่มีคะแนนหรือหลักฐานรายเดือน จึงไม่สร้างคำทำนายรายเดือน',
       traceIds: traceIds,
     );
   }

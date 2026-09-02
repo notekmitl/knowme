@@ -132,16 +132,27 @@ void main() {
       );
       await tester.pumpAndSettle();
 
-      expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
+      expect(find.text('คำทำนายปัจจุบัน — อายุ 44 ปี'), findsOneWidget);
+      expect(find.text('ช่วงปัจจุบัน'), findsNothing);
       expect(find.text('สิ่งที่เกิดขึ้น'), findsNothing);
-      expect(find.text('อดีตของคุณ'), findsOneWidget);
+      expect(find.text('คำทำนายอดีต'), findsOneWidget);
+      expect(find.text('อดีตของคุณ'), findsNothing);
       expect(find.textContaining('ยังยืนยันตำแหน่งไม่ได้'), findsNothing);
       expect(find.textContaining('ยืนยันอันดับตำแหน่งไม่ได้'), findsNothing);
       expect(find.textContaining('ธีมหลัก'), findsNothing);
       expect(find.textContaining('ซ่อนรายละเอียดช่วงชีวิต'), findsNothing);
-      expect(find.textContaining('เรื่องสำคัญของช่วงนี้'), findsWidgets);
-      expect(find.text('อดีตของคุณ'), findsOneWidget);
-      expect(find.text('จังหวะชีวิตระยะต่อไป'), findsOneWidget);
+      expect(find.text('เรื่องสำคัญของช่วงนี้'), findsNothing);
+      expect(
+        find.descendant(
+          of: find.byKey(const ValueKey('report-body-predictive-v2-current')),
+          matching: find.text('คำทำนายปัจจุบัน — อายุ 44 ปี'),
+        ),
+        findsOneWidget,
+      );
+      expect(find.text('คำทำนายอดีต'), findsOneWidget);
+      expect(find.text('อดีตของคุณ'), findsNothing);
+      expect(find.text('ช่วงชีวิตถัดไป — อายุ 47–65 ปี'), findsOneWidget);
+      expect(find.text('จังหวะชีวิตระยะต่อไป'), findsNothing);
       expect(find.text('พื้นดวงตลอดชีวิต'), findsNothing);
       expect(find.text('ข้อมูลดวงที่พบ'), findsNothing);
 
@@ -149,8 +160,10 @@ void main() {
         find.text(ThaiMirrorLifeTimelineSection.expandDetailsLabel),
         findsNothing,
       );
-      expect(find.text('ช่วงปัจจุบัน'), findsOneWidget);
-      expect(find.text('จังหวะชีวิตระยะต่อไป'), findsOneWidget);
+      expect(find.text('คำทำนายปัจจุบัน — อายุ 44 ปี'), findsOneWidget);
+      expect(find.text('ช่วงปัจจุบัน'), findsNothing);
+      expect(find.text('ช่วงชีวิตถัดไป — อายุ 47–65 ปี'), findsOneWidget);
+      expect(find.text('จังหวะชีวิตระยะต่อไป'), findsNothing);
       expect(find.textContaining('ซ่อนรายละเอียดช่วงชีวิต'), findsNothing);
       expect(tester.takeException(), isNull);
     });

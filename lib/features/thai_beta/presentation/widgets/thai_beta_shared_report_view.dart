@@ -420,7 +420,7 @@ class _AnnualInfographicCanvas extends StatelessWidget {
               child: Opacity(opacity: .22, child: _ThaiAnnualOrnament()),
             ),
             Padding(
-              padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 8),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -480,7 +480,7 @@ class _AnnualInfographicCanvas extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 6),
+                  const SizedBox(height: 4),
                   Container(
                     height: 72,
                     padding: const EdgeInsets.fromLTRB(11, 8, 11, 8),
@@ -519,7 +519,7 @@ class _AnnualInfographicCanvas extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 6),
+                  const SizedBox(height: 4),
                   SizedBox(
                     height: 106,
                     child: Row(
@@ -539,7 +539,7 @@ class _AnnualInfographicCanvas extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 6),
+                  const SizedBox(height: 4),
                   SizedBox(
                     height: 106,
                     child: Row(
@@ -559,7 +559,7 @@ class _AnnualInfographicCanvas extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 6),
+                  const SizedBox(height: 4),
                   SizedBox(
                     height: 96,
                     child: Row(
@@ -588,7 +588,7 @@ class _AnnualInfographicCanvas extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 6),
+                  const SizedBox(height: 4),
                   Container(
                     key: ThaiBetaAnnualInfographicLayoutKeys.advice,
                     height: 74,
@@ -626,7 +626,7 @@ class _AnnualInfographicCanvas extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 6),
+                  const SizedBox(height: 4),
                   Text(
                     data.disclaimer,
                     key: ThaiBetaAnnualInfographicLayoutKeys.disclaimer,
