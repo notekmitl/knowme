@@ -1,5 +1,16 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+## PR115 OR1 — Unknown V2 semantic label adapter (2026-09-02)
+
+Status: **OPEN + DRAFT — PENDING OWNER PRODUCT RE-REVIEW — NOT MERGED — NOT DEPLOYED**.
+
+Implementation commit `25435b534c4f7769f2440fb1584628d1e89f520c` remains immutable. Repair commit `87a0747e19886f53ecc74e0678ebe021b7f182c7` adds a presentation-only adapter for Unknown candidate output: `อดีตของคุณ` → `คำทำนายอดีต`; `ช่วงปัจจุบัน` → `คำทำนายปัจจุบัน — อายุ 44 ปี` for the pinned fixture using chronological age from the birth date; and `จังหวะชีวิตระยะต่อไป` → `ช่วงชีวิตถัดไป` without an age range for Unknown. The reader-visible helper `เรื่องสำคัญของช่วงนี้` is absent. Shared Web phase labels map the new owners to `อดีต` / `ปัจจุบัน` / `อนาคต`. All paragraph text, order, metadata, trace IDs, visibility rules and Known/Unknown rules are byte-for-byte unchanged across the adapter; semantic/calculation/fail-closed impacts are 0. Known candidate output and Candidate 0011 SHA-256 `6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E` are unchanged.
+
+Validation: affected adapter/widget tests 22/22; five migrated legacy test files 30/30; Candidate/runtime/fixture separation 15/15; focused predictive/narrative/Canon/source/export/artifact 277/277; Candidate exact 44/44 lines; actual context generation 49/49; actual period resolver 392/392; Known complete reports 225/225; Unknown fail-closed 75/75; 300-profile copy audit 300 profiles / 30,000 fields with omission/addition/semantic/prediction↔advice/traceability impacts 0; full Flutter suite 1,636/1,636; analyzer remains at 298 baseline diagnostics with scoped new diagnostics 0; `git diff --check` and PreCommit pass. No test was skipped/deleted/weakened.
+
+Fresh evidence from repair HEAD includes Dedicated PDF Known/Unknown 7/7 pages, Chrome browser-print Known/Unknown 6/7 pages, 27/27 rendered PDF pages, four readable 1080×1920 infographics at surfaces 360/390, and Web desktop/mobile captures plus Unknown Past/Current/Future focus captures. Manual inspection found blank pages, clipping, overlap and overflow 0. Exact artifact heading validation reports missing 0, stale legacy-label hits 0 and duplicate headings 0. Owner Review ZIP: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_PREDICTIVE_NARRATIVE_V2_RUNTIME_V2_OR1_87a0747.zip`, SHA-256 `EEED1A9A4F0C2503C5A34A5B08601DFB0CD11809B340677019C9B51DE8D1B586`; CRC/extraction PASS, manifest 86 entries, and missing/extra/hash mismatch/secret/signature errors 0. PostCommit PASS. Firebase/Production and `product-acceptance/` are unchanged.
+
+
 ## PR114 foundation acceptance + fresh runtime V2 (2026-09-02)
 
 Status: **PR114 FOUNDATION SQUASH-MERGED — PR113 CLOSED SUPERSEDED — FRESH RUNTIME IMPLEMENTATION COMPLETE — DRAFT PR #115 — PENDING OWNER PRODUCT REVIEW — NOT DEPLOYED**.
