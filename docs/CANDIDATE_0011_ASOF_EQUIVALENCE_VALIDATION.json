@@ -1,0 +1,739 @@
+{
+  "version": 1,
+  "status": "PASS_ACTUAL_GENERATOR_ASOF_EQUIVALENCE",
+  "generator": "ThaiBetaAnalysisRunner.runAsync -> ThaiBetaNarrativeComposer.narrativeView",
+  "generatorSource": "lib/features/thai_beta/application/thai_beta_analysis.dart#ThaiBetaAnalysisRunner.runAsync; lib/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart#ThaiBetaNarrativeComposer.narrativeView",
+  "fixture": "male|1982-06-06|00:03|chiang_mai",
+  "comparedAsOf": [
+    "2026-08-07T00:00:00.000",
+    "2026-08-29T00:00:00.000"
+  ],
+  "rollingWindowLabelsMayDiffer": true,
+  "rollingWindows": [
+    {
+      "asOf": "2026-08-07T00:00:00.000",
+      "start": "2026-08-07",
+      "endExclusive": "2027-08-07"
+    },
+    {
+      "asOf": "2026-08-29T00:00:00.000",
+      "start": "2026-08-29",
+      "endExclusive": "2027-08-29"
+    }
+  ],
+  "counts": {
+    "comparedInvariantFields": 8,
+    "invariantMismatches": 0,
+    "forecastMaterialsPerRun": [
+      12,
+      12
+    ],
+    "forecastMaterialMismatches": 0
+  },
+  "comparisons": [
+    {
+      "field": "thaiAstrologicalDate",
+      "equivalent": true,
+      "left": "1982-06-05",
+      "right": "1982-06-05"
+    },
+    {
+      "field": "thaiWeekdayNumber",
+      "equivalent": true,
+      "left": 7,
+      "right": 7
+    },
+    {
+      "field": "ascendantSiderealDegrees",
+      "equivalent": true,
+      "left": 309.396069063126,
+      "right": 309.396069063126
+    },
+    {
+      "field": "mahabhutaPositionKeys",
+      "equivalent": true,
+      "left": [
+        "mahabhuta_puti",
+        "mahabhuta_thongchai"
+      ],
+      "right": [
+        "mahabhuta_puti",
+        "mahabhuta_thongchai"
+      ]
+    },
+    {
+      "field": "currentAge",
+      "equivalent": true,
+      "left": 44,
+      "right": 44
+    },
+    {
+      "field": "activeLifePeriod",
+      "equivalent": true,
+      "left": {
+        "ageLabel": "42–62",
+        "phaseName": "ช่วงเก็บเกี่ยวความสุข",
+        "planetLine": "อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์",
+        "keyword": "ความสุขและความสัมพันธ์",
+        "mahabhutPositionLabel": "",
+        "mahabhutKnown": false,
+        "mahabhutShownOnReport": false
+      },
+      "right": {
+        "ageLabel": "42–62",
+        "phaseName": "ช่วงเก็บเกี่ยวความสุข",
+        "planetLine": "อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์",
+        "keyword": "ความสุขและความสัมพันธ์",
+        "mahabhutPositionLabel": "",
+        "mahabhutKnown": false,
+        "mahabhutShownOnReport": false
+      }
+    },
+    {
+      "field": "contextId",
+      "equivalent": true,
+      "left": "mahabhut2537.rem0.saturday",
+      "right": "mahabhut2537.rem0.saturday"
+    },
+    {
+      "field": "forecastMaterials",
+      "equivalent": true,
+      "left": [
+        {
+          "horizon": "current",
+          "domain": "career",
+          "band": "strong",
+          "evidenceKey": "prediction.career.current.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "current",
+          "domain": "finance",
+          "band": "strong",
+          "evidenceKey": "prediction.finance.current.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "current",
+          "domain": "relationship",
+          "band": "strong",
+          "evidenceKey": "prediction.relationship.current.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "current",
+          "domain": "health",
+          "band": "strong",
+          "evidenceKey": "prediction.health.current.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "next12Months",
+          "domain": "career",
+          "band": "strong",
+          "evidenceKey": "prediction.career.next12Months.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "next12Months",
+          "domain": "finance",
+          "band": "strong",
+          "evidenceKey": "prediction.finance.next12Months.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "next12Months",
+          "domain": "relationship",
+          "band": "strong",
+          "evidenceKey": "prediction.relationship.next12Months.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "next12Months",
+          "domain": "health",
+          "band": "strong",
+          "evidenceKey": "prediction.health.next12Months.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "nextLifePeriod",
+          "domain": "career",
+          "band": "strong",
+          "evidenceKey": "prediction.career.nextLifePeriod.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": true,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "nextLifePeriod",
+          "domain": "finance",
+          "band": "active",
+          "evidenceKey": "prediction.finance.nextLifePeriod.active",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": true,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "active"
+        },
+        {
+          "horizon": "nextLifePeriod",
+          "domain": "relationship",
+          "band": "quiet",
+          "evidenceKey": "prediction.relationship.nextLifePeriod.quiet",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": true,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "quiet"
+        },
+        {
+          "horizon": "nextLifePeriod",
+          "domain": "health",
+          "band": "active",
+          "evidenceKey": "prediction.health.nextLifePeriod.active",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": true,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "active"
+        }
+      ],
+      "right": [
+        {
+          "horizon": "current",
+          "domain": "career",
+          "band": "strong",
+          "evidenceKey": "prediction.career.current.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "current",
+          "domain": "finance",
+          "band": "strong",
+          "evidenceKey": "prediction.finance.current.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "current",
+          "domain": "relationship",
+          "band": "strong",
+          "evidenceKey": "prediction.relationship.current.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "current",
+          "domain": "health",
+          "band": "strong",
+          "evidenceKey": "prediction.health.current.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "next12Months",
+          "domain": "career",
+          "band": "strong",
+          "evidenceKey": "prediction.career.next12Months.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "next12Months",
+          "domain": "finance",
+          "band": "strong",
+          "evidenceKey": "prediction.finance.next12Months.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "next12Months",
+          "domain": "relationship",
+          "band": "strong",
+          "evidenceKey": "prediction.relationship.next12Months.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "next12Months",
+          "domain": "health",
+          "band": "strong",
+          "evidenceKey": "prediction.health.next12Months.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "nextLifePeriod",
+          "domain": "career",
+          "band": "strong",
+          "evidenceKey": "prediction.career.nextLifePeriod.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": true,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "nextLifePeriod",
+          "domain": "finance",
+          "band": "active",
+          "evidenceKey": "prediction.finance.nextLifePeriod.active",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": true,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "active"
+        },
+        {
+          "horizon": "nextLifePeriod",
+          "domain": "relationship",
+          "band": "quiet",
+          "evidenceKey": "prediction.relationship.nextLifePeriod.quiet",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": true,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "quiet"
+        },
+        {
+          "horizon": "nextLifePeriod",
+          "domain": "health",
+          "band": "active",
+          "evidenceKey": "prediction.health.nextLifePeriod.active",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": true,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "active"
+        }
+      ]
+    }
+  ],
+  "actualGeneratorResults": [
+    {
+      "asOf": "2026-08-07T00:00:00.000",
+      "rollingWindow": {
+        "start": "2026-08-07",
+        "endExclusive": "2027-08-07"
+      },
+      "thaiAstrologicalDate": "1982-06-05",
+      "thaiWeekdayNumber": 7,
+      "ascendantSiderealDegrees": 309.396069063126,
+      "mahabhutaPositionKeys": [
+        "mahabhuta_puti",
+        "mahabhuta_thongchai"
+      ],
+      "currentAge": 44,
+      "activeLifePeriod": {
+        "ageLabel": "42–62",
+        "phaseName": "ช่วงเก็บเกี่ยวความสุข",
+        "planetLine": "อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์",
+        "keyword": "ความสุขและความสัมพันธ์",
+        "mahabhutPositionLabel": "",
+        "mahabhutKnown": false,
+        "mahabhutShownOnReport": false
+      },
+      "contextId": "mahabhut2537.rem0.saturday",
+      "forecastMaterials": [
+        {
+          "horizon": "current",
+          "domain": "career",
+          "band": "strong",
+          "evidenceKey": "prediction.career.current.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "current",
+          "domain": "finance",
+          "band": "strong",
+          "evidenceKey": "prediction.finance.current.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "current",
+          "domain": "relationship",
+          "band": "strong",
+          "evidenceKey": "prediction.relationship.current.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "current",
+          "domain": "health",
+          "band": "strong",
+          "evidenceKey": "prediction.health.current.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "next12Months",
+          "domain": "career",
+          "band": "strong",
+          "evidenceKey": "prediction.career.next12Months.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "next12Months",
+          "domain": "finance",
+          "band": "strong",
+          "evidenceKey": "prediction.finance.next12Months.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "next12Months",
+          "domain": "relationship",
+          "band": "strong",
+          "evidenceKey": "prediction.relationship.next12Months.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "next12Months",
+          "domain": "health",
+          "band": "strong",
+          "evidenceKey": "prediction.health.next12Months.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "nextLifePeriod",
+          "domain": "career",
+          "band": "strong",
+          "evidenceKey": "prediction.career.nextLifePeriod.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": true,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "nextLifePeriod",
+          "domain": "finance",
+          "band": "active",
+          "evidenceKey": "prediction.finance.nextLifePeriod.active",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": true,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "active"
+        },
+        {
+          "horizon": "nextLifePeriod",
+          "domain": "relationship",
+          "band": "quiet",
+          "evidenceKey": "prediction.relationship.nextLifePeriod.quiet",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": true,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "quiet"
+        },
+        {
+          "horizon": "nextLifePeriod",
+          "domain": "health",
+          "band": "active",
+          "evidenceKey": "prediction.health.nextLifePeriod.active",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": true,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "active"
+        }
+      ]
+    },
+    {
+      "asOf": "2026-08-29T00:00:00.000",
+      "rollingWindow": {
+        "start": "2026-08-29",
+        "endExclusive": "2027-08-29"
+      },
+      "thaiAstrologicalDate": "1982-06-05",
+      "thaiWeekdayNumber": 7,
+      "ascendantSiderealDegrees": 309.396069063126,
+      "mahabhutaPositionKeys": [
+        "mahabhuta_puti",
+        "mahabhuta_thongchai"
+      ],
+      "currentAge": 44,
+      "activeLifePeriod": {
+        "ageLabel": "42–62",
+        "phaseName": "ช่วงเก็บเกี่ยวความสุข",
+        "planetLine": "อิทธิพลดาวศุกร์ • ความสุขและความสัมพันธ์",
+        "keyword": "ความสุขและความสัมพันธ์",
+        "mahabhutPositionLabel": "",
+        "mahabhutKnown": false,
+        "mahabhutShownOnReport": false
+      },
+      "contextId": "mahabhut2537.rem0.saturday",
+      "forecastMaterials": [
+        {
+          "horizon": "current",
+          "domain": "career",
+          "band": "strong",
+          "evidenceKey": "prediction.career.current.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "current",
+          "domain": "finance",
+          "band": "strong",
+          "evidenceKey": "prediction.finance.current.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "current",
+          "domain": "relationship",
+          "band": "strong",
+          "evidenceKey": "prediction.relationship.current.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "current",
+          "domain": "health",
+          "band": "strong",
+          "evidenceKey": "prediction.health.current.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "next12Months",
+          "domain": "career",
+          "band": "strong",
+          "evidenceKey": "prediction.career.next12Months.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "next12Months",
+          "domain": "finance",
+          "band": "strong",
+          "evidenceKey": "prediction.finance.next12Months.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "next12Months",
+          "domain": "relationship",
+          "band": "strong",
+          "evidenceKey": "prediction.relationship.next12Months.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "next12Months",
+          "domain": "health",
+          "band": "strong",
+          "evidenceKey": "prediction.health.next12Months.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": false,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "nextLifePeriod",
+          "domain": "career",
+          "band": "strong",
+          "evidenceKey": "prediction.career.nextLifePeriod.strong",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": true,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "strong"
+        },
+        {
+          "horizon": "nextLifePeriod",
+          "domain": "finance",
+          "band": "active",
+          "evidenceKey": "prediction.finance.nextLifePeriod.active",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": true,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "active"
+        },
+        {
+          "horizon": "nextLifePeriod",
+          "domain": "relationship",
+          "band": "quiet",
+          "evidenceKey": "prediction.relationship.nextLifePeriod.quiet",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": true,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "quiet"
+        },
+        {
+          "horizon": "nextLifePeriod",
+          "domain": "health",
+          "band": "active",
+          "evidenceKey": "prediction.health.nextLifePeriod.active",
+          "sourceOwnership": "lagna-house-and-life-period-score",
+          "evidenceAvailability": "full",
+          "spansTransition": true,
+          "expressed": true,
+          "omitted": false,
+          "confidence": "active"
+        }
+      ]
+    }
+  ]
+}

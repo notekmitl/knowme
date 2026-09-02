@@ -1,0 +1,128 @@
+{
+  "status": "PASS_CANDIDATE_0011_ORACLE_AND_NEGATIVE_CONTROLS",
+  "counts": {
+    "claims": 24,
+    "predictionParagraphs": 22,
+    "negativeControls": 13,
+    "negativeControlsRejected": 13,
+    "errors": 0
+  },
+  "sourceBoundary": {
+    "readerFacingCharacters": 5260,
+    "claims": 24,
+    "sections": 16
+  },
+  "errors": [],
+  "negativeControls": [
+    {
+      "id": "delete-paragraph",
+      "expectedCode": "CLAIM_COUNT_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "CLAIM_ARRAY_ORDER_MISMATCH",
+        "CLAIM_COUNT_MISMATCH"
+      ]
+    },
+    {
+      "id": "paraphrase-paragraph",
+      "expectedCode": "EXACT_TEXT_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "EXACT_TEXT_MISMATCH"
+      ]
+    },
+    {
+      "id": "reorder-claims",
+      "expectedCode": "CLAIM_ARRAY_ORDER_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "CLAIM_ARRAY_ORDER_MISMATCH"
+      ]
+    },
+    {
+      "id": "reorder-sections",
+      "expectedCode": "SECTION_ORDER_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "SECTION_ORDER_MISMATCH"
+      ]
+    },
+    {
+      "id": "date-change",
+      "expectedCode": "EXACT_TEXT_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "EXACT_TEXT_MISMATCH"
+      ]
+    },
+    {
+      "id": "reader-claim-id-change",
+      "expectedCode": "READER_CLAIM_ID_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "CLAIM_ARRAY_ORDER_MISMATCH",
+        "READER_CLAIM_ID_MISMATCH"
+      ]
+    },
+    {
+      "id": "reduced-13-claim-substitute-as-oracle",
+      "expectedCode": "CLAIM_COUNT_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "CLAIM_ORDER_MISMATCH",
+        "CLAIM_COUNT_MISMATCH",
+        "READER_CLAIM_ID_MISMATCH"
+      ]
+    },
+    {
+      "id": "prediction-to-common-sense-measurement",
+      "expectedCode": "EXACT_TEXT_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "EXACT_TEXT_MISMATCH"
+      ]
+    },
+    {
+      "id": "prediction-to-advice",
+      "expectedCode": "PREDICTION_RECLASSIFIED_AS_ADVICE",
+      "rejected": true,
+      "observedCodes": [
+        "PREDICTION_RECLASSIFIED_AS_ADVICE"
+      ]
+    },
+    {
+      "id": "authority-without-acceptance-reference",
+      "expectedCode": "OWNER_ACCEPTANCE_REFERENCE_MISSING",
+      "rejected": true,
+      "observedCodes": [
+        "OWNER_ACCEPTANCE_REFERENCE_MISSING"
+      ]
+    },
+    {
+      "id": "unsupported-source-authority-class",
+      "expectedCode": "SOURCE_AUTHORITY_REFERENCE_MISSING",
+      "rejected": true,
+      "observedCodes": [
+        "SOURCE_AUTHORITY_REFERENCE_MISSING"
+      ]
+    },
+    {
+      "id": "owner-unaccepted-added-text",
+      "expectedCode": "CLAIM_COUNT_MISMATCH",
+      "rejected": true,
+      "observedCodes": [
+        "CLAIM_ARRAY_ORDER_MISMATCH",
+        "READER_CLAIM_ID_MISMATCH",
+        "CLAIM_COUNT_MISMATCH"
+      ]
+    },
+    {
+      "id": "typed-asof-mismatch-without-proof",
+      "expectedCode": "ASOF_EQUIVALENCE_PROOF_MISSING",
+      "rejected": true,
+      "observedCodes": [
+        "ASOF_EQUIVALENCE_PROOF_MISSING"
+      ]
+    }
+  ]
+}

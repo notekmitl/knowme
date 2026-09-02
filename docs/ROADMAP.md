@@ -1,5 +1,18 @@
 # KnowMe Roadmap
 
+## PR114 OR8 — final merge-surface consolidation (2026-09-01)
+
+Status: **PR114 OR8 FINAL MERGE SURFACE CONSOLIDATED — CANDIDATE 0011 GOLDEN ORACLE PRESERVED — PENDING OWNER FINAL FOUNDATION REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED**.
+
+Owner rule-map review of OR7 passed the Candidate 0011 scope: immutable reader-facing SHA-256 `6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E`, 24 claims (22 predictions, 1 advice and 1 disclosure), 22/22 resolved target-fixture chains and asOf mismatch 0. Candidate 0011 is the sole Owner-accepted content oracle. This acceptance does not establish runtime readiness across 49 contexts, predictive accuracy, direct-source quotation or merge readiness without this consolidation.
+
+OR8 is a foundation/evidence cleanup only. The PR surface was reduced from 193 changed paths; 154 rejected Candidate 0012–0018 and OR1–OR6 experiment paths were removed and replaced by the single compact history `docs/PR114_PREDICTIVE_FOUNDATION_EXPERIMENT_HISTORY.md`. Active resolver/tool/test names are neutral. Every one of the 33 PR-changed proposed-Canon paths was reviewed: 3 are required canonical-foundation files, 9 are required source-trace files and 21 rejected experiment files were removed. The final manifest records every retained changed path, direct consumer, dependency, source-authority boundary, runtime eligibility and keep reason.
+
+Closure validation reports orphan retained 0, missing dependency 0, stale reference 0, rejected-candidate active reference 0, obsolete-OR active import 0, conflicting contract 0, Candidate 0011 byte delta 0, runtime/application delta 0, Flutter-test delta 0 and `product-acceptance/` delta 0. Exact-oracle, rule-map, actual-asOf, evidence-resolution, closure/manifest, stale/rejected-reference and negative-control tests pass. Full Flutter suite and analyzer were not rerun because Dart, runtime, application and Flutter-test deltas are 0.
+
+OR8 commits are `8608fea3b187bd03049d6b210c0a8a19b38a3e74` (neutral canonical resolver), `3a72714d05b151bb937a1d370bdec751a5d2ba90` (remove rejected experiments and add the history), and the commit containing this status/manifest record. PR #114 remains Draft. Nothing is implemented in runtime, merged, deployed, or changed in Firebase/Production.
+
+
 ## PR112 Phase 1 final content acceptance (2026-08-30)
 
 Status: **PR112 PHASE 1 OWNER CONTENT ACCEPTED — CANDIDATE 0011 FINAL CONTENT BASELINE — READY FOR PHASE 1 MERGE — NOT DEPLOYED**.

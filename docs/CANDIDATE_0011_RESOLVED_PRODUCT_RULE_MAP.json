@@ -1,0 +1,1444 @@
+{
+  "version": 1,
+  "status": "CANDIDATE_0011_RULE_MAP_COMPLETE_NOT_RUNTIME",
+  "oracleRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json",
+  "evidenceRegistryRef": "docs/THAI_PREDICTIVE_EVIDENCE_RESOLUTION_V1.json",
+  "fixture": {
+    "profileId": "TARGET-0003",
+    "sex": "male",
+    "birthDate": "1982-06-06",
+    "birthTimeMode": "known",
+    "birthTime": "00:03",
+    "province": "Chiang Mai",
+    "provinceKey": "chiang_mai",
+    "thaiAstrologicalDay": "Saturday",
+    "ascendant": "Aquarius 9°24′",
+    "contextId": "mahabhut2537.rem0.saturday",
+    "asOf": "2026-08-29 Asia/Bangkok",
+    "age": 44
+  },
+  "asOfEquivalenceRef": "docs/CANDIDATE_0011_ASOF_EQUIVALENCE_VALIDATION.json",
+  "counts": {
+    "predictionParagraphs": 22,
+    "completeChains": 22,
+    "chainsWithGaps": 0,
+    "usedResolvedReferences": 42
+  },
+  "resolvedReferenceIndex": {
+    "canon.mahabhut.p16.venus_owns_relationship_male": {
+      "id": "canon.mahabhut.p16.venus_owns_relationship_male",
+      "role": "domain",
+      "repositoryPath": "knowledge/canon/production/foundation_v1.knowme.json",
+      "locator": {
+        "jsonPointer": "/producedUnits/67",
+        "objectKey": "mahabhut.p16.venus_owns_relationship_male",
+        "symbol": null
+      },
+      "sourceCommit": "1d49ca5a6a65dbca00a3391f79fd7ec8f54fb8f6",
+      "resolvedValueSha256": "25C52A29B5DDF81D844B484B430F831F31DC3A51E6BD7F501FE4D7CE48355818"
+    },
+    "canon.mahabhut.p220.jupiter_owns_career": {
+      "id": "canon.mahabhut.p220.jupiter_owns_career",
+      "role": "domain",
+      "repositoryPath": "knowledge/canon/production/foundation_v1.knowme.json",
+      "locator": {
+        "jsonPointer": "/producedUnits/1",
+        "objectKey": "mahabhut.p220.jupiter_owns_career",
+        "symbol": null
+      },
+      "sourceCommit": "1d49ca5a6a65dbca00a3391f79fd7ec8f54fb8f6",
+      "resolvedValueSha256": "B77FEFF8CE7A0340E76F793F5FE5CF40D651EE6DA5D6AE68D1071B3B7D5DE178"
+    },
+    "canon.mahabhut.p220.jupiter_owns_learning": {
+      "id": "canon.mahabhut.p220.jupiter_owns_learning",
+      "role": "domain",
+      "repositoryPath": "knowledge/canon/production/foundation_v1.knowme.json",
+      "locator": {
+        "jsonPointer": "/producedUnits/0",
+        "objectKey": "mahabhut.p220.jupiter_owns_learning",
+        "symbol": null
+      },
+      "sourceCommit": "1d49ca5a6a65dbca00a3391f79fd7ec8f54fb8f6",
+      "resolvedValueSha256": "B5FF1FD025D24873B7AC3C833143B6C605B79B504A221510DEB57A2103AE4F9A"
+    },
+    "canon.mahabhut.p28.mercury_owns_family": {
+      "id": "canon.mahabhut.p28.mercury_owns_family",
+      "role": "domain",
+      "repositoryPath": "knowledge/canon/production/foundation_v1.knowme.json",
+      "locator": {
+        "jsonPointer": "/producedUnits/56",
+        "objectKey": "mahabhut.p28.mercury_owns_family",
+        "symbol": null
+      },
+      "sourceCommit": "1d49ca5a6a65dbca00a3391f79fd7ec8f54fb8f6",
+      "resolvedValueSha256": "A5CC2007F7B85E9A8817B7DA6318FD103AFC3018964D3013A4BEE77F1A683C16"
+    },
+    "canon.mahabhut.p28.saturn_owns_family": {
+      "id": "canon.mahabhut.p28.saturn_owns_family",
+      "role": "domain",
+      "repositoryPath": "knowledge/canon/production/foundation_v1.knowme.json",
+      "locator": {
+        "jsonPointer": "/producedUnits/59",
+        "objectKey": "mahabhut.p28.saturn_owns_family",
+        "symbol": null
+      },
+      "sourceCommit": "1d49ca5a6a65dbca00a3391f79fd7ec8f54fb8f6",
+      "resolvedValueSha256": "4E4C4AD15C17DD194B8B4C30DE0B7B123166C5F2BFEAAD1E1BF76B36384C7D90"
+    },
+    "canon.mahabhut.p28.venus_owns_relationship": {
+      "id": "canon.mahabhut.p28.venus_owns_relationship",
+      "role": "domain",
+      "repositoryPath": "knowledge/canon/production/foundation_v1.knowme.json",
+      "locator": {
+        "jsonPointer": "/producedUnits/58",
+        "objectKey": "mahabhut.p28.venus_owns_relationship",
+        "symbol": null
+      },
+      "sourceCommit": "1d49ca5a6a65dbca00a3391f79fd7ec8f54fb8f6",
+      "resolvedValueSha256": "7117B199AF6EF2ED80EBDA6E70753230C743DDE40B2D26A6BEEACC0A50466AF1"
+    },
+    "canon.mahabhut.p33.mercury_relates_attribute_profession_นักพูด": {
+      "id": "canon.mahabhut.p33.mercury_relates_attribute_profession_นักพูด",
+      "role": "domain",
+      "repositoryPath": "knowledge/canon/production/foundation_v1.knowme.json",
+      "locator": {
+        "jsonPointer": "/producedUnits/210",
+        "objectKey": "mahabhut.p33.mercury_relates_attribute_profession_นักพูด",
+        "symbol": null
+      },
+      "sourceCommit": "1d49ca5a6a65dbca00a3391f79fd7ec8f54fb8f6",
+      "resolvedValueSha256": "9D65A31EAD2A48062536BDE64C3F841961F73DF6A64CDECEDC311C2CA7C73650"
+    },
+    "canon.mahabhut.p35.venus_relates_attribute_disease_ความเจ็บป่วยอันเนื่องมาจากร่างกายไม่ได้รับการพักผ่อน": {
+      "id": "canon.mahabhut.p35.venus_relates_attribute_disease_ความเจ็บป่วยอันเนื่องมาจากร่างกายไม่ได้รับการพักผ่อน",
+      "role": "domain",
+      "repositoryPath": "knowledge/canon/production/foundation_v1.knowme.json",
+      "locator": {
+        "jsonPointer": "/producedUnits/293",
+        "objectKey": "mahabhut.p35.venus_relates_attribute_disease_ความเจ็บป่วยอันเนื่องมาจากร่างกายไม่ได้รับการพักผ่อน",
+        "symbol": null
+      },
+      "sourceCommit": "1d49ca5a6a65dbca00a3391f79fd7ec8f54fb8f6",
+      "resolvedValueSha256": "9D95396FA58491485C62387BBA8855C88EA38312B33F894787BBFB102DB5D113"
+    },
+    "canon.mahabhut.p39.det_owns_career": {
+      "id": "canon.mahabhut.p39.det_owns_career",
+      "role": "domain",
+      "repositoryPath": "knowledge/canon/production/foundation_v1.knowme.json",
+      "locator": {
+        "jsonPointer": "/producedUnits/390",
+        "objectKey": "mahabhut.p39.det_owns_career",
+        "symbol": null
+      },
+      "sourceCommit": "1d49ca5a6a65dbca00a3391f79fd7ec8f54fb8f6",
+      "resolvedValueSha256": "178F3DBC307C3E2CF2128E9ADE78FC9BF3BE98C5BA360CC1D98214A4CF471398"
+    },
+    "canon.mahabhut.p39.sri_owns_finance": {
+      "id": "canon.mahabhut.p39.sri_owns_finance",
+      "role": "domain",
+      "repositoryPath": "knowledge/canon/production/foundation_v1.knowme.json",
+      "locator": {
+        "jsonPointer": "/producedUnits/391",
+        "objectKey": "mahabhut.p39.sri_owns_finance",
+        "symbol": null
+      },
+      "sourceCommit": "1d49ca5a6a65dbca00a3391f79fd7ec8f54fb8f6",
+      "resolvedValueSha256": "3A1D08E8716C55F5A5717E25E5CB997D38CB9E6124E00DF6F2272FB0A7AFA146"
+    },
+    "certainty.product-interpretation-contract-v1": {
+      "id": "certainty.product-interpretation-contract-v1",
+      "role": "certaintyCeiling",
+      "repositoryPath": "knowledge/canon/proposed/PRODUCT_INTERPRETATION_CONTRACT_V1.json",
+      "locator": {
+        "jsonPointer": "/readerCertainty",
+        "objectKey": "readerCertainty",
+        "symbol": null
+      },
+      "sourceCommit": "19fd975aba6ad46e61bc0ff9267a8db84fcec2eb",
+      "resolvedValueSha256": "BCBF6234C211C15F3A07690A8B56E010D10A9C54B3D0D54D3E1DCDB6E7354414"
+    },
+    "conflict.T0003-SRC-42-43-61-62-EXCEPTION": {
+      "id": "conflict.T0003-SRC-42-43-61-62-EXCEPTION",
+      "role": "conflictHandling",
+      "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
+      "locator": {
+        "jsonPointer": "/sourceRecords/9",
+        "objectKey": "T0003-SRC-42-43-61-62-EXCEPTION",
+        "symbol": null
+      },
+      "sourceCommit": "0b34babf55e01127404b94496d95fed4f4898e03",
+      "resolvedValueSha256": "677E7E3F68DC4CA5BA4BEE2DFD3CAFE4F9C1DED7D94CB7E765682FBDB8148C3E"
+    },
+    "conflict.contract-boundaries": {
+      "id": "conflict.contract-boundaries",
+      "role": "conflictHandling",
+      "repositoryPath": "knowledge/canon/proposed/PRODUCT_INTERPRETATION_CONTRACT_V1.json",
+      "locator": {
+        "jsonPointer": "/constraints",
+        "objectKey": "constraints",
+        "symbol": null
+      },
+      "sourceCommit": "19fd975aba6ad46e61bc0ff9267a8db84fcec2eb",
+      "resolvedValueSha256": "1F2D6FB799C01F5CC84F1C1767B0E405B9C5DB206065115A73EC8BE2900D24D9"
+    },
+    "domain.runtime.current.career": {
+      "id": "domain.runtime.current.career",
+      "role": "domainDerivation",
+      "repositoryPath": "lib/features/astrology/thai/mirror/presentation/timeline/life_map_current_domain_composer.dart",
+      "locator": {
+        "jsonPointer": null,
+        "objectKey": null,
+        "symbol": "static ({String body, List<String> keys}) _work("
+      },
+      "sourceCommit": "179c5c9a3f6318d799b0be8c2233be7013b89c1c",
+      "resolvedValueSha256": "9ECD5D4BD0AFAADB20D57A8536AAFEBFD0B22314CC9293A4AC26D46C07ABB6E7"
+    },
+    "domain.runtime.current.finance": {
+      "id": "domain.runtime.current.finance",
+      "role": "domainDerivation",
+      "repositoryPath": "lib/features/astrology/thai/mirror/presentation/timeline/life_map_current_domain_composer.dart",
+      "locator": {
+        "jsonPointer": null,
+        "objectKey": null,
+        "symbol": "static ({String body, List<String> keys}) _money("
+      },
+      "sourceCommit": "179c5c9a3f6318d799b0be8c2233be7013b89c1c",
+      "resolvedValueSha256": "44523C4507D3E5AB6DE315C7E8C5C0334CD69F552BAB7C2C47FD491C12DAE36E"
+    },
+    "domain.runtime.current.health": {
+      "id": "domain.runtime.current.health",
+      "role": "domainDerivation",
+      "repositoryPath": "lib/features/astrology/thai/mirror/presentation/timeline/life_map_current_domain_composer.dart",
+      "locator": {
+        "jsonPointer": null,
+        "objectKey": null,
+        "symbol": "static ({String body, List<String> keys}) _health("
+      },
+      "sourceCommit": "179c5c9a3f6318d799b0be8c2233be7013b89c1c",
+      "resolvedValueSha256": "69B7C75B4A0260F2E018AAE0172314B00E80B3899C79BA4D71E070BA74CD8DB4"
+    },
+    "domain.runtime.nextLifePeriod.career": {
+      "id": "domain.runtime.nextLifePeriod.career",
+      "role": "domainDerivation",
+      "repositoryPath": "lib/features/astrology/thai/mirror/presentation/timeline/life_period_domain_composer.dart",
+      "locator": {
+        "jsonPointer": null,
+        "objectKey": null,
+        "symbol": "static String _work("
+      },
+      "sourceCommit": "b0a5b4c541f86d82a1fe7fecbae070ffea8a4b2e",
+      "resolvedValueSha256": "9ECD5D4BD0AFAADB20D57A8536AAFEBFD0B22314CC9293A4AC26D46C07ABB6E7"
+    },
+    "domain.runtime.nextLifePeriod.finance": {
+      "id": "domain.runtime.nextLifePeriod.finance",
+      "role": "domainDerivation",
+      "repositoryPath": "lib/features/astrology/thai/mirror/presentation/timeline/life_period_domain_composer.dart",
+      "locator": {
+        "jsonPointer": null,
+        "objectKey": null,
+        "symbol": "static String _money("
+      },
+      "sourceCommit": "b0a5b4c541f86d82a1fe7fecbae070ffea8a4b2e",
+      "resolvedValueSha256": "44523C4507D3E5AB6DE315C7E8C5C0334CD69F552BAB7C2C47FD491C12DAE36E"
+    },
+    "fixture.target-0003": {
+      "id": "fixture.target-0003",
+      "role": "fixture",
+      "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
+      "locator": {
+        "jsonPointer": "/fixture",
+        "objectKey": "TARGET-0003",
+        "symbol": null
+      },
+      "sourceCommit": "0b34babf55e01127404b94496d95fed4f4898e03",
+      "resolvedValueSha256": "0370238870A57839308621B94645FF09094A70287116E758ACA2A2666FB91795"
+    },
+    "selector.mahabhut2537.rem0.saturday.jupiter.11_29": {
+      "id": "selector.mahabhut2537.rem0.saturday.jupiter.11_29",
+      "role": "selector+timing",
+      "repositoryPath": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_PERIOD_EXTRACTION_LEDGER_392.json",
+      "locator": {
+        "jsonPointer": "/rows/385",
+        "objectKey": "mahabhut2537.rem0.saturday.jupiter.11_29",
+        "symbol": null
+      },
+      "sourceCommit": "f7576a5c58beda9007bdcf577153a2a4e20a6d16",
+      "resolvedValueSha256": "86C6A47E711B972ECFB2A7AC68176F68A51B26E3E6B98342E5EA3E4E964FA2B8"
+    },
+    "selector.mahabhut2537.rem0.saturday.mercury.63_79": {
+      "id": "selector.mahabhut2537.rem0.saturday.mercury.63_79",
+      "role": "selector+timing",
+      "repositoryPath": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_PERIOD_EXTRACTION_LEDGER_392.json",
+      "locator": {
+        "jsonPointer": "/rows/388",
+        "objectKey": "mahabhut2537.rem0.saturday.mercury.63_79",
+        "symbol": null
+      },
+      "sourceCommit": "f7576a5c58beda9007bdcf577153a2a4e20a6d16",
+      "resolvedValueSha256": "E67E6A2A15AF4D0DF159185D6F957AC3EF90D09B6D6156C14D2282C409F0B4D3"
+    },
+    "selector.mahabhut2537.rem0.saturday.rahu.30_41": {
+      "id": "selector.mahabhut2537.rem0.saturday.rahu.30_41",
+      "role": "selector+timing",
+      "repositoryPath": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_PERIOD_EXTRACTION_LEDGER_392.json",
+      "locator": {
+        "jsonPointer": "/rows/386",
+        "objectKey": "mahabhut2537.rem0.saturday.rahu.30_41",
+        "symbol": null
+      },
+      "sourceCommit": "f7576a5c58beda9007bdcf577153a2a4e20a6d16",
+      "resolvedValueSha256": "7476748AB4D35529C9E2D42C184492F0ABB005123D08D6F1A46E3A1B06F214F3"
+    },
+    "selector.mahabhut2537.rem0.saturday.saturn.0_10": {
+      "id": "selector.mahabhut2537.rem0.saturday.saturn.0_10",
+      "role": "selector+timing",
+      "repositoryPath": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_PERIOD_EXTRACTION_LEDGER_392.json",
+      "locator": {
+        "jsonPointer": "/rows/384",
+        "objectKey": "mahabhut2537.rem0.saturday.saturn.0_10",
+        "symbol": null
+      },
+      "sourceCommit": "f7576a5c58beda9007bdcf577153a2a4e20a6d16",
+      "resolvedValueSha256": "2A321B9ADF831163840FB86489D2A205830FE9FDAB20DDB40AC1D2AD191EAB8B"
+    },
+    "selector.mahabhut2537.rem0.saturday.venus.42_62": {
+      "id": "selector.mahabhut2537.rem0.saturday.venus.42_62",
+      "role": "selector+timing",
+      "repositoryPath": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_PERIOD_EXTRACTION_LEDGER_392.json",
+      "locator": {
+        "jsonPointer": "/rows/387",
+        "objectKey": "mahabhut2537.rem0.saturday.venus.42_62",
+        "symbol": null
+      },
+      "sourceCommit": "f7576a5c58beda9007bdcf577153a2a4e20a6d16",
+      "resolvedValueSha256": "7CD7DAEFFE005ADB23B30AD0B37C39473501B137B1F5A13C6F94D02CCEB7FB22"
+    },
+    "source.T0003-SRC-0-10-FAMILY-CONSTRAINT": {
+      "id": "source.T0003-SRC-0-10-FAMILY-CONSTRAINT",
+      "role": "direction+domain+conflict",
+      "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
+      "locator": {
+        "jsonPointer": "/sourceRecords/0",
+        "objectKey": "T0003-SRC-0-10-FAMILY-CONSTRAINT",
+        "symbol": null
+      },
+      "sourceCommit": "0b34babf55e01127404b94496d95fed4f4898e03",
+      "resolvedValueSha256": "DE96C360B3F7229C7E42BB7469DD9343CC578EAF68C037F4AE7910F8FB173B8D"
+    },
+    "source.T0003-SRC-11-62-RISING-BLOCK": {
+      "id": "source.T0003-SRC-11-62-RISING-BLOCK",
+      "role": "direction+domain+conflict",
+      "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
+      "locator": {
+        "jsonPointer": "/sourceRecords/1",
+        "objectKey": "T0003-SRC-11-62-RISING-BLOCK",
+        "symbol": null
+      },
+      "sourceCommit": "0b34babf55e01127404b94496d95fed4f4898e03",
+      "resolvedValueSha256": "0BBE981686E01504CC575F318574EA040DB1B6D3166A01D176E7223995122564"
+    },
+    "source.T0003-SRC-30-41-PLACEMENT": {
+      "id": "source.T0003-SRC-30-41-PLACEMENT",
+      "role": "selector+domain-boundary",
+      "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
+      "locator": {
+        "jsonPointer": "/sourceRecords/3",
+        "objectKey": "T0003-SRC-30-41-PLACEMENT",
+        "symbol": null
+      },
+      "sourceCommit": "0b34babf55e01127404b94496d95fed4f4898e03",
+      "resolvedValueSha256": "2899A584FDE1F26BE10632BD661F5195E4D2028F594BB3278B6E6DDC3B64791B"
+    },
+    "source.T0003-SRC-42-62-FINANCE": {
+      "id": "source.T0003-SRC-42-62-FINANCE",
+      "role": "direction+domain+conflict",
+      "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
+      "locator": {
+        "jsonPointer": "/sourceRecords/7",
+        "objectKey": "T0003-SRC-42-62-FINANCE",
+        "symbol": null
+      },
+      "sourceCommit": "0b34babf55e01127404b94496d95fed4f4898e03",
+      "resolvedValueSha256": "CF4C08C63E1CC8279D74B65C866232A18B80AE51E42EEE240B85B3BF4F000590"
+    },
+    "source.T0003-SRC-42-62-FLOW": {
+      "id": "source.T0003-SRC-42-62-FLOW",
+      "role": "direction+domain+conflict",
+      "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
+      "locator": {
+        "jsonPointer": "/sourceRecords/8",
+        "objectKey": "T0003-SRC-42-62-FLOW",
+        "symbol": null
+      },
+      "sourceCommit": "0b34babf55e01127404b94496d95fed4f4898e03",
+      "resolvedValueSha256": "CB572CC6745A6E6EC57391D7AE2F4FF4C3850EF5B1B93C67BDFDBC0C26B3B549"
+    },
+    "source.T0003-SRC-42-62-SUPPORT": {
+      "id": "source.T0003-SRC-42-62-SUPPORT",
+      "role": "direction+domain+conflict",
+      "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
+      "locator": {
+        "jsonPointer": "/sourceRecords/5",
+        "objectKey": "T0003-SRC-42-62-SUPPORT",
+        "symbol": null
+      },
+      "sourceCommit": "0b34babf55e01127404b94496d95fed4f4898e03",
+      "resolvedValueSha256": "DA179B3E5EEE507B8CCF69724D5544667D16BAC948AB68427BF2EC9C5BC73120"
+    },
+    "source.T0003-SRC-42-62-WORK": {
+      "id": "source.T0003-SRC-42-62-WORK",
+      "role": "direction+domain+conflict",
+      "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
+      "locator": {
+        "jsonPointer": "/sourceRecords/6",
+        "objectKey": "T0003-SRC-42-62-WORK",
+        "symbol": null
+      },
+      "sourceCommit": "0b34babf55e01127404b94496d95fed4f4898e03",
+      "resolvedValueSha256": "ADA46249213830F0F15702C01863568CE04C265082BCABBB43F652171619D99B"
+    },
+    "source.T0003-SRC-63-79-PLACEMENT": {
+      "id": "source.T0003-SRC-63-79-PLACEMENT",
+      "role": "selector+domain-boundary",
+      "repositoryPath": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
+      "locator": {
+        "jsonPointer": "/sourceRecords/10",
+        "objectKey": "T0003-SRC-63-79-PLACEMENT",
+        "symbol": null
+      },
+      "sourceCommit": "0b34babf55e01127404b94496d95fed4f4898e03",
+      "resolvedValueSha256": "B1A77D5D7835C8B9CFB83B69743AD7F23046FA95C8FB47481232FFE189B1F750"
+    },
+    "timing.rolling-12-month-label": {
+      "id": "timing.rolling-12-month-label",
+      "role": "timing",
+      "repositoryPath": "lib/features/thai_beta/application/thai_beta_report_export_document.dart",
+      "locator": {
+        "jsonPointer": null,
+        "objectKey": null,
+        "symbol": "static String _twelveMonthPeriodLabel(DateTime asOf)"
+      },
+      "sourceCommit": "5d42d146c1955fe1498bedc49934a471db6d177e",
+      "resolvedValueSha256": "1033588BB48D4C408F0464B5D0B6587B7D1D855EF68927746654A60F2CDD371E"
+    },
+    "typed.current.career": {
+      "id": "typed.current.career",
+      "role": "direction+timing",
+      "repositoryPath": "product-acceptance/thai-narrative-v1.5-r6/evidence/claim-ledger.json",
+      "locator": {
+        "jsonPointer": "/claims/87",
+        "objectKey": "forecast:current:career",
+        "symbol": null
+      },
+      "sourceCommit": "727be98d2c02241b02ce8de8d509ace2dc65316d",
+      "resolvedValueSha256": "C3653206C02E24E8933640BA83A7172EB30343EE095963EB8BBECD7CD9CE7E4C"
+    },
+    "typed.current.finance": {
+      "id": "typed.current.finance",
+      "role": "direction+timing",
+      "repositoryPath": "product-acceptance/thai-narrative-v1.5-r6/evidence/claim-ledger.json",
+      "locator": {
+        "jsonPointer": "/claims/88",
+        "objectKey": "forecast:current:finance",
+        "symbol": null
+      },
+      "sourceCommit": "727be98d2c02241b02ce8de8d509ace2dc65316d",
+      "resolvedValueSha256": "97114CD9C214AD8706344839916EC844978A78D0112B608475DCB8DB1619CF70"
+    },
+    "typed.current.health": {
+      "id": "typed.current.health",
+      "role": "direction+timing",
+      "repositoryPath": "product-acceptance/thai-narrative-v1.5-r6/evidence/claim-ledger.json",
+      "locator": {
+        "jsonPointer": "/claims/90",
+        "objectKey": "forecast:current:health",
+        "symbol": null
+      },
+      "sourceCommit": "727be98d2c02241b02ce8de8d509ace2dc65316d",
+      "resolvedValueSha256": "3C32422BB09A7C57E77F46D3A64A2CBD69D5111AE91EEA2EE6C2E2FAF066FF66"
+    },
+    "typed.current.relationship": {
+      "id": "typed.current.relationship",
+      "role": "direction+timing",
+      "repositoryPath": "product-acceptance/thai-narrative-v1.5-r6/evidence/claim-ledger.json",
+      "locator": {
+        "jsonPointer": "/claims/89",
+        "objectKey": "forecast:current:relationship",
+        "symbol": null
+      },
+      "sourceCommit": "727be98d2c02241b02ce8de8d509ace2dc65316d",
+      "resolvedValueSha256": "43F6D4C04CB39E851FBB5EAF64FB6C2CC3422D301015A580326C30F48E789529"
+    },
+    "typed.next12Months.career": {
+      "id": "typed.next12Months.career",
+      "role": "direction+timing",
+      "repositoryPath": "product-acceptance/thai-narrative-v1.5-r6/evidence/claim-ledger.json",
+      "locator": {
+        "jsonPointer": "/claims/91",
+        "objectKey": "forecast:next12Months:career",
+        "symbol": null
+      },
+      "sourceCommit": "727be98d2c02241b02ce8de8d509ace2dc65316d",
+      "resolvedValueSha256": "06685693722C5E373CD62E95DA9F31AE559F9B7A210CBCF8116FB80C2BD580FD"
+    },
+    "typed.next12Months.finance": {
+      "id": "typed.next12Months.finance",
+      "role": "direction+timing",
+      "repositoryPath": "product-acceptance/thai-narrative-v1.5-r6/evidence/claim-ledger.json",
+      "locator": {
+        "jsonPointer": "/claims/92",
+        "objectKey": "forecast:next12Months:finance",
+        "symbol": null
+      },
+      "sourceCommit": "727be98d2c02241b02ce8de8d509ace2dc65316d",
+      "resolvedValueSha256": "237E400AD70F81A923DCD5980A915DEB0A048D3DB3C52C6856D957F711B73521"
+    },
+    "typed.next12Months.relationship": {
+      "id": "typed.next12Months.relationship",
+      "role": "direction+timing",
+      "repositoryPath": "product-acceptance/thai-narrative-v1.5-r6/evidence/claim-ledger.json",
+      "locator": {
+        "jsonPointer": "/claims/93",
+        "objectKey": "forecast:next12Months:relationship",
+        "symbol": null
+      },
+      "sourceCommit": "727be98d2c02241b02ce8de8d509ace2dc65316d",
+      "resolvedValueSha256": "38F33D38AD81E9CC81ABBA42129086DDB0D7FA4CF7666DCD0432A1357CBE6B83"
+    },
+    "typed.nextLifePeriod.career": {
+      "id": "typed.nextLifePeriod.career",
+      "role": "direction+timing",
+      "repositoryPath": "product-acceptance/thai-narrative-v1.5-r6/evidence/claim-ledger.json",
+      "locator": {
+        "jsonPointer": "/claims/95",
+        "objectKey": "forecast:nextLifePeriod:career",
+        "symbol": null
+      },
+      "sourceCommit": "727be98d2c02241b02ce8de8d509ace2dc65316d",
+      "resolvedValueSha256": "C3D139C41F09D2D79FB05B4FF2DB85FC5B9BF756C79BBB74EF36F65E9487F00E"
+    },
+    "typed.nextLifePeriod.finance": {
+      "id": "typed.nextLifePeriod.finance",
+      "role": "direction+timing",
+      "repositoryPath": "product-acceptance/thai-narrative-v1.5-r6/evidence/claim-ledger.json",
+      "locator": {
+        "jsonPointer": "/claims/96",
+        "objectKey": "forecast:nextLifePeriod:finance",
+        "symbol": null
+      },
+      "sourceCommit": "727be98d2c02241b02ce8de8d509ace2dc65316d",
+      "resolvedValueSha256": "160AB07D3A43856CAE8E4710C16B144A14D5B478BFC18722A945C896DA3A77CF"
+    }
+  },
+  "claims": [
+    {
+      "readerClaimId": "RC11-K-OVERVIEW-01",
+      "section": "ภาพรวมเส้นทางชีวิต",
+      "exactAcceptedText": "ชีวิตเดินเป็นช่วงชัดเจน วัยเด็กอยู่ใต้เงื่อนไขของบ้าน ช่วงอายุ 11–29 ได้ออกไปพบโลกที่กว้างขึ้น ช่วงอายุ 30–41 เจอการเปลี่ยนครั้งใหญ่ และหลังอายุ 42 ประสบการณ์ที่สั่งสมมาเริ่มให้ผลกับชีวิต",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/0",
+      "ownerId": "OAS-01",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "0-62",
+      "domain": "life_path",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.saturn.0_10",
+        "selector.mahabhut2537.rem0.saturday.jupiter.11_29",
+        "selector.mahabhut2537.rem0.saturday.rahu.30_41",
+        "selector.mahabhut2537.rem0.saturday.venus.42_62"
+      ],
+      "domainRefs": [
+        "source.T0003-SRC-0-10-FAMILY-CONSTRAINT",
+        "canon.mahabhut.p220.jupiter_owns_learning",
+        "canon.mahabhut.p39.det_owns_career",
+        "source.T0003-SRC-42-62-FLOW"
+      ],
+      "directionRefs": [
+        "source.T0003-SRC-0-10-FAMILY-CONSTRAINT",
+        "source.T0003-SRC-11-62-RISING-BLOCK"
+      ],
+      "timingRefs": [
+        "selector.mahabhut2537.rem0.saturday.saturn.0_10",
+        "selector.mahabhut2537.rem0.saturday.jupiter.11_29",
+        "selector.mahabhut2537.rem0.saturday.rahu.30_41",
+        "selector.mahabhut2537.rem0.saturday.venus.42_62"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-PAST-01",
+      "section": "อายุ 1–10 ปี",
+      "exactAcceptedText": "วัย 1–10 ปีมีเงื่อนไขจากครอบครัวและผู้ใหญ่เข้ามากำหนดชีวิตมากกว่าวัยอื่น บางช่วงต้องเปลี่ยนความเคยชินหรือช่วยรับภาระในบ้านเร็วกว่าวัย ความสบายในวัยเด็กจึงถูกแบ่งด้วยหน้าที่ที่หลีกเลี่ยงไม่ได้",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/1",
+      "ownerId": "OAS-03",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "1-10",
+      "domain": "support_and_family",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.saturn.0_10"
+      ],
+      "domainRefs": [
+        "source.T0003-SRC-0-10-FAMILY-CONSTRAINT",
+        "canon.mahabhut.p28.saturn_owns_family"
+      ],
+      "directionRefs": [
+        "source.T0003-SRC-0-10-FAMILY-CONSTRAINT"
+      ],
+      "timingRefs": [
+        "selector.mahabhut2537.rem0.saturday.saturn.0_10"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-PAST-02",
+      "section": "อายุ 11–29 ปี",
+      "exactAcceptedText": "ช่วงอายุ 11–29 ชีวิตเปิดกว้างขึ้นผ่านการเรียน งาน และสังคมใหม่ เส้นทางเดิมขยายออกเพราะได้พบคนที่มีประสบการณ์กว่า พร้อมกับการเปลี่ยนแวดวงหรือเปลี่ยนวิธีมองหาโอกาสจากเดิม",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/2",
+      "ownerId": "OAS-04",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "11-29",
+      "domain": "education_social",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.jupiter.11_29"
+      ],
+      "domainRefs": [
+        "canon.mahabhut.p220.jupiter_owns_learning",
+        "canon.mahabhut.p220.jupiter_owns_career"
+      ],
+      "directionRefs": [
+        "source.T0003-SRC-11-62-RISING-BLOCK"
+      ],
+      "timingRefs": [
+        "selector.mahabhut2537.rem0.saturday.jupiter.11_29"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-PAST-03",
+      "section": "อายุ 11–29 ปี",
+      "exactAcceptedText": "ช่วงปลายของรอบนี้เริ่มรับผิดชอบเรื่องงานและเงินจริงจังขึ้น ความสัมพันธ์บางส่วนเปลี่ยนจากการคบหาตามสถานการณ์มาเป็นการตกลงว่าใครจะอยู่ต่อ ใครจะห่างออก และเรื่องใดต้องจัดการด้วยตัวเอง",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/3",
+      "ownerId": "OAS-05",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "11-29",
+      "domain": "responsibility_relationship",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.jupiter.11_29"
+      ],
+      "domainRefs": [
+        "canon.mahabhut.p220.jupiter_owns_career"
+      ],
+      "directionRefs": [
+        "source.T0003-SRC-11-62-RISING-BLOCK"
+      ],
+      "timingRefs": [
+        "selector.mahabhut2537.rem0.saturday.jupiter.11_29"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-PAST-04",
+      "section": "อายุ 30–41 ปี",
+      "exactAcceptedText": "ช่วงอายุ 30–41 งานเปลี่ยนทิศอย่างชัดเจน หน้าที่ชุดใหม่เข้ามาแทนวิธีทำงานเดิม และผลงานที่ทำต่อเนื่องพาไปสู่ขอบเขตงานที่กว้างขึ้น",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/4",
+      "ownerId": "OAS-06",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "30-41",
+      "domain": "work",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.rahu.30_41"
+      ],
+      "domainRefs": [
+        "canon.mahabhut.p39.det_owns_career",
+        "source.T0003-SRC-30-41-PLACEMENT"
+      ],
+      "directionRefs": [
+        "source.T0003-SRC-11-62-RISING-BLOCK"
+      ],
+      "timingRefs": [
+        "selector.mahabhut2537.rem0.saturday.rahu.30_41"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-PAST-05",
+      "section": "อายุ 30–41 ปี",
+      "exactAcceptedText": "ในช่วงเดียวกัน งานหรือข้อตกลงสำคัญเปลี่ยนรูปแบบ ทางที่เดินต่อได้กลายเป็นฐานของรอบปัจจุบัน ส่วนภาระที่กินแรงแต่ไม่พาชีวิตไปข้างหน้าค่อย ๆ จบลงหรือมีคนอื่นรับช่วงต่อ",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/5",
+      "ownerId": "OAS-07",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "30-41",
+      "domain": "work_and_commitment",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.rahu.30_41"
+      ],
+      "domainRefs": [
+        "canon.mahabhut.p39.det_owns_career",
+        "source.T0003-SRC-30-41-PLACEMENT"
+      ],
+      "directionRefs": [
+        "source.T0003-SRC-11-62-RISING-BLOCK"
+      ],
+      "timingRefs": [
+        "selector.mahabhut2537.rem0.saturday.rahu.30_41"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-CURRENT-01",
+      "section": "คำทำนายปัจจุบัน — อายุ 44 ปี",
+      "exactAcceptedText": "อายุ 44 เป็นปีเปลี่ยนผ่าน ภาระเก่าต้องได้ข้อสรุป ขอบเขตที่เคยปล่อยค้างจะถูกจัดใหม่ และชีวิตเริ่มกันพื้นที่ไว้ให้เรื่องที่สำคัญกว่าเดิม",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/6",
+      "ownerId": "OAS-09",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "age44",
+      "domain": "work",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "fixture.target-0003"
+      ],
+      "domainRefs": [
+        "source.T0003-SRC-42-62-FLOW",
+        "domain.runtime.current.career"
+      ],
+      "directionRefs": [
+        "source.T0003-SRC-42-62-FLOW",
+        "typed.current.career"
+      ],
+      "timingRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "fixture.target-0003"
+      ],
+      "conflictRefs": [
+        "conflict.T0003-SRC-42-43-61-62-EXCEPTION",
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-WORK-01",
+      "section": "การงาน",
+      "exactAcceptedText": "หน้าที่การงานขยับจากการทำตามโจทย์ไปสู่การกำหนดทางเดินของงาน คุณจะรับผิดชอบผลลัพธ์มากขึ้น ได้ตัดสินใจเรื่องที่กระทบคนอื่น และถูกเรียกใช้ในงานที่ต้องอาศัยประสบการณ์มากกว่าการลงแรงอย่างเดียว",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/7",
+      "ownerId": "OAS-10",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "42-62|age44",
+      "domain": "work",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62"
+      ],
+      "domainRefs": [
+        "source.T0003-SRC-42-62-WORK",
+        "domain.runtime.current.career"
+      ],
+      "directionRefs": [
+        "typed.current.career"
+      ],
+      "timingRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "typed.current.career"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-WORK-02",
+      "section": "การงาน",
+      "exactAcceptedText": "โอกาสงานใหม่จะมาจากผลงานที่คนเคยเห็นและเชื่อมือ ส่วนงานเดิมที่ซ้ำ เสียเวลา หรือให้ภาระมากกว่าผลตอบแทนจะลดบทบาทลง สุดท้ายงานจะเหลือน้อยประเภทแต่แต่ละเรื่องมีน้ำหนักมากขึ้น",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/8",
+      "ownerId": "OAS-11",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "42-62|age44",
+      "domain": "work",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62"
+      ],
+      "domainRefs": [
+        "source.T0003-SRC-42-62-WORK",
+        "domain.runtime.current.career"
+      ],
+      "directionRefs": [
+        "typed.current.career"
+      ],
+      "timingRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "typed.current.career"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-FINANCE-01",
+      "section": "การเงิน",
+      "exactAcceptedText": "รายได้ขยับตามบทบาทและผลงาน เงินหลักมาจากงานที่ทำสำเร็จและทักษะที่ใช้ได้จริง ไม่ใช่การเสี่ยงโดยไม่มีข้อมูลรองรับ",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/9",
+      "ownerId": "OAS-12",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "42-62|age44",
+      "domain": "finance",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62"
+      ],
+      "domainRefs": [
+        "source.T0003-SRC-42-62-FINANCE",
+        "canon.mahabhut.p39.sri_owns_finance",
+        "domain.runtime.current.finance"
+      ],
+      "directionRefs": [
+        "typed.current.finance"
+      ],
+      "timingRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "typed.current.finance"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-FINANCE-02",
+      "section": "การเงิน",
+      "exactAcceptedText": "เงินหมุนคล่องขึ้น แต่รายจ่ายก้อนสำคัญเกี่ยวกับงาน บ้าน หรือภาระที่ต้องจัดการให้จบจะเข้ามาพร้อมกัน ฐานการเงินจะค่อย ๆ นิ่งเมื่อเงินไม่ต้องไหลไปเลี้ยงภาระที่ไม่สร้างผลต่อเนื่อง",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/10",
+      "ownerId": "OAS-13",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "42-62|age44",
+      "domain": "finance",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62"
+      ],
+      "domainRefs": [
+        "source.T0003-SRC-42-62-FINANCE",
+        "domain.runtime.current.finance"
+      ],
+      "directionRefs": [
+        "typed.current.finance"
+      ],
+      "timingRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "typed.current.finance"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-RELATIONSHIP-01",
+      "section": "ความรักและความสัมพันธ์",
+      "exactAcceptedText": "ความสัมพันธ์ที่คลุมเครือจะชัดขึ้นจากการกระทำและข้อตกลง คนที่พร้อมเดินต่อจะแสดงความรับผิดชอบให้เห็น ส่วนคนที่มีแต่คำพูดจะเว้นระยะหรือหลุดออกจากชีวิตเอง",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/11",
+      "ownerId": "OAS-14",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "42-62|age44",
+      "domain": "relationship",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62"
+      ],
+      "domainRefs": [
+        "canon.mahabhut.p16.venus_owns_relationship_male",
+        "canon.mahabhut.p28.venus_owns_relationship"
+      ],
+      "directionRefs": [
+        "typed.current.relationship"
+      ],
+      "timingRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "typed.current.relationship"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-RELATIONSHIP-02",
+      "section": "ความรักและความสัมพันธ์",
+      "exactAcceptedText": "บทสนทนาเรื่องเวลา หน้าที่ เงิน และพื้นที่ส่วนตัวจะตรงไปตรงมาขึ้น บางความสัมพันธ์จึงแน่นแฟ้นกว่าเดิม ขณะที่บางความสัมพันธ์เปลี่ยนระยะเพื่อให้แต่ละฝ่ายกลับไปจัดการชีวิตของตัวเอง",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/12",
+      "ownerId": "OAS-15",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "42-62|age44",
+      "domain": "relationship",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62"
+      ],
+      "domainRefs": [
+        "canon.mahabhut.p16.venus_owns_relationship_male",
+        "canon.mahabhut.p28.venus_owns_relationship"
+      ],
+      "directionRefs": [
+        "typed.current.relationship"
+      ],
+      "timingRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "typed.current.relationship"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-HEALTH-01",
+      "section": "สุขภาพ",
+      "exactAcceptedText": "ภาระงานที่เพิ่มขึ้นทำให้ความเครียดและการพักไม่พอแสดงผลชัด ร่างกายใช้เวลาฟื้นจากวันที่ทำงานต่อเนื่องนานกว่าเดิม และแรงจะหมดเร็วเมื่อรับหลายเรื่องพร้อมกัน",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/13",
+      "ownerId": "OAS-16",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "42-62|age44",
+      "domain": "health",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62"
+      ],
+      "domainRefs": [
+        "canon.mahabhut.p35.venus_relates_attribute_disease_ความเจ็บป่วยอันเนื่องมาจากร่างกายไม่ได้รับการพักผ่อน",
+        "domain.runtime.current.health"
+      ],
+      "directionRefs": [
+        "typed.current.health",
+        "typed.current.career"
+      ],
+      "timingRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "typed.current.health"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-HEALTH-02",
+      "section": "สุขภาพ",
+      "exactAcceptedText": "พอภาระเบาลงและเรื่องค้างลดลง กำลังจะค่อย ๆ กลับมา วันที่ได้นอนและพักต่อเนื่องจะฟื้นตัวได้ดีกว่าการหยุดสั้น ๆ แล้วกลับไปเร่งงานเหมือนเดิม",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/14",
+      "ownerId": "OAS-17",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "42-62|age44",
+      "domain": "health",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62"
+      ],
+      "domainRefs": [
+        "canon.mahabhut.p35.venus_relates_attribute_disease_ความเจ็บป่วยอันเนื่องมาจากร่างกายไม่ได้รับการพักผ่อน",
+        "domain.runtime.current.health"
+      ],
+      "directionRefs": [
+        "typed.current.health"
+      ],
+      "timingRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "typed.current.health"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-SUPPORT-01",
+      "section": "โชคลาภและแรงสนับสนุน",
+      "exactAcceptedText": "แรงหนุนมาจากผู้ใหญ่ ครู เพื่อน และคนที่เคยทำงานร่วมกัน คนเหล่านี้จะช่วยเปิดทาง แนะนำโอกาส หรือพาเรื่องที่ติดขัดกลับมาเดินได้อีกครั้ง",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/15",
+      "ownerId": "OAS-18",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "42-62|age44",
+      "domain": "support",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62"
+      ],
+      "domainRefs": [
+        "source.T0003-SRC-42-62-SUPPORT"
+      ],
+      "directionRefs": [
+        "source.T0003-SRC-42-62-SUPPORT"
+      ],
+      "timingRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-SUPPORT-02",
+      "section": "โชคลาภและแรงสนับสนุน",
+      "exactAcceptedText": "โอกาสเด่นจะมาจากงานเก่า คนรู้จักเดิม หรือเรื่องที่เคยทำสำเร็จ ชื่อเสียงจากผลงานจะพาโอกาสกลับมา มากกว่าการได้สิ่งใหญ่จากการเสี่ยงโดยไม่มีฐานรองรับ",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/16",
+      "ownerId": "OAS-19",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "42-62|age44",
+      "domain": "luck",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62"
+      ],
+      "domainRefs": [
+        "source.T0003-SRC-42-62-SUPPORT",
+        "source.T0003-SRC-42-62-WORK"
+      ],
+      "directionRefs": [
+        "source.T0003-SRC-42-62-SUPPORT",
+        "typed.current.career"
+      ],
+      "timingRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-HORIZON-01",
+      "section": "คำทำนาย 12 เดือนข้างหน้า",
+      "exactAcceptedText": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานที่ค้างจะได้ข้อสรุป และหน้าที่ชุดใหม่จะเริ่มเข้าที่ ภายในรอบนี้คุณจะรู้ชัดว่างานใดอยู่ต่อและงานใดต้องส่งต่อ",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/17",
+      "ownerId": "OAS-20",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "2026-08-29/2027-08-28|age44-45",
+      "domain": "work",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62"
+      ],
+      "domainRefs": [
+        "source.T0003-SRC-42-62-WORK",
+        "domain.runtime.current.career"
+      ],
+      "directionRefs": [
+        "typed.next12Months.career"
+      ],
+      "timingRefs": [
+        "typed.next12Months.career",
+        "timing.rolling-12-month-label"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-HORIZON-02",
+      "section": "คำทำนาย 12 เดือนข้างหน้า",
+      "exactAcceptedText": "ในช่วงเดียวกัน รายรับและภาระทางเงินจะขยับขึ้นพร้อมกัน ส่วนข้อตกลงสำคัญในความสัมพันธ์จะได้คำตอบจากการแบ่งเวลาและหน้าที่ให้ชัด",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/18",
+      "ownerId": "OAS-21",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "2026-08-29/2027-08-28|age44-45",
+      "domain": "finance_relationship",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62"
+      ],
+      "domainRefs": [
+        "source.T0003-SRC-42-62-FINANCE",
+        "canon.mahabhut.p16.venus_owns_relationship_male"
+      ],
+      "directionRefs": [
+        "typed.next12Months.finance",
+        "typed.next12Months.relationship"
+      ],
+      "timingRefs": [
+        "typed.next12Months.finance",
+        "typed.next12Months.relationship",
+        "timing.rolling-12-month-label"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-HORIZON-03",
+      "section": "คำทำนาย 12 เดือนข้างหน้า",
+      "exactAcceptedText": "แรงหนุนที่มีอยู่จะช่วยให้การเจรจาและการปิดเรื่องค้างเดินเร็วขึ้น อุปสรรคที่เคยทำให้งานชะงักจะลดลงภายในรอบนี้",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/19",
+      "ownerId": "OAS-22",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "2026-08-29/2027-08-28|age44-45",
+      "domain": "support",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62"
+      ],
+      "domainRefs": [
+        "source.T0003-SRC-42-62-SUPPORT"
+      ],
+      "directionRefs": [
+        "source.T0003-SRC-42-62-SUPPORT"
+      ],
+      "timingRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "timing.rolling-12-month-label"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-NEXT-01",
+      "section": "ช่วงชีวิตถัดไป — อายุ 63–79 ปี",
+      "exactAcceptedText": "เมื่ออายุ 63 ปี ชีวิตเข้าสู่ช่วงสร้างฐานระยะยาว สิ่งที่สะสมจากงานจะกลายเป็นบ้าน ทรัพย์ หรือฐานการเงินที่มั่นคงขึ้น",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/20",
+      "ownerId": "OAS-23",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "63-79",
+      "domain": "foundation",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.mercury.63_79"
+      ],
+      "domainRefs": [
+        "source.T0003-SRC-63-79-PLACEMENT",
+        "canon.mahabhut.p28.mercury_owns_family",
+        "domain.runtime.nextLifePeriod.finance"
+      ],
+      "directionRefs": [
+        "typed.nextLifePeriod.finance"
+      ],
+      "timingRefs": [
+        "selector.mahabhut2537.rem0.saturday.mercury.63_79",
+        "typed.nextLifePeriod.finance"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    },
+    {
+      "readerClaimId": "RC11-K-NEXT-02",
+      "section": "ช่วงชีวิตถัดไป — อายุ 63–79 ปี",
+      "exactAcceptedText": "บทบาทงานจะขยับไปทางวางระบบ ให้ทิศทาง และถ่ายทอดประสบการณ์ งานที่ใช้ความคิด การเจรจา หรือการจัดการข้อมูลจะมีน้ำหนักกว่างานที่ต้องลงแรงทุกขั้นด้วยตัวเอง",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "ownerAcceptanceRef": "docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json#/claims/21",
+      "ownerId": "OAS-24",
+      "contextId": "mahabhut2537.rem0.saturday",
+      "periodBinding": "63-79",
+      "domain": "work",
+      "selectorRefs": [
+        "selector.mahabhut2537.rem0.saturday.mercury.63_79"
+      ],
+      "domainRefs": [
+        "canon.mahabhut.p33.mercury_relates_attribute_profession_นักพูด",
+        "domain.runtime.nextLifePeriod.career"
+      ],
+      "directionRefs": [
+        "typed.nextLifePeriod.career"
+      ],
+      "timingRefs": [
+        "selector.mahabhut2537.rem0.saturday.mercury.63_79",
+        "typed.nextLifePeriod.career"
+      ],
+      "conflictRefs": [
+        "conflict.contract-boundaries"
+      ],
+      "certaintyRefs": [
+        "certainty.product-interpretation-contract-v1"
+      ],
+      "gapStatus": "COMPLETE",
+      "missingComponents": [],
+      "unresolvedRefs": [],
+      "prohibitedExtrapolations": [
+        "Do not rewrite, shorten, generalize, delete or change timing without new explicit Owner acceptance.",
+        "Do not present this product interpretation as a verbatim source quotation.",
+        "Do not present this paragraph as evidence of predictive accuracy or a guaranteed real-world outcome.",
+        "Do not add a more specific date, month, amount, diagnosis, job title, event count or causal outcome."
+      ],
+      "interpretationBoundary": "Owner acceptance authorizes exact product copy/interpretation only; it is not a source quotation or accuracy claim."
+    }
+  ]
+}

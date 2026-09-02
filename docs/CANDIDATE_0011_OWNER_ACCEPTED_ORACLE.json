@@ -1,0 +1,493 @@
+{
+  "version": 1,
+  "status": "OWNER_ACCEPTED_IMMUTABLE_GOLDEN_ORACLE_NOT_RUNTIME",
+  "candidateId": "0011",
+  "source": {
+    "repositoryPath": "docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0011.md",
+    "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+    "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+    "acceptedReaderFacingSha256": "6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E",
+    "currentReaderFacingSha256": "6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E",
+    "hashCanonicalization": "UTF-8; CRLF normalized to LF; exact bytes between reader-facing boundary markers; outer whitespace trimmed; HTML readerClaimId comments retained"
+  },
+  "acceptanceBoundary": {
+    "establishes": [
+      "exact_reader_copy",
+      "section_order",
+      "claim_order",
+      "product_interpretation_authority"
+    ],
+    "doesNotEstablish": [
+      "verbatim_source_quotation",
+      "predictive_accuracy",
+      "real_world_outcome"
+    ]
+  },
+  "counts": {
+    "claims": 24,
+    "predictionParagraphs": 22,
+    "advice": 1,
+    "disclosure": 1,
+    "adviceAndDisclosure": 2
+  },
+  "sectionOrder": [
+    "คำทำนายดวงชะตา",
+    "ภาพรวมเส้นทางชีวิต",
+    "คำทำนายอดีต",
+    "อายุ 1–10 ปี",
+    "อายุ 11–29 ปี",
+    "อายุ 30–41 ปี",
+    "คำทำนายปัจจุบัน — อายุ 44 ปี",
+    "การงาน",
+    "การเงิน",
+    "ความรักและความสัมพันธ์",
+    "สุขภาพ",
+    "โชคลาภและแรงสนับสนุน",
+    "คำทำนาย 12 เดือนข้างหน้า",
+    "ช่วงชีวิตถัดไป — อายุ 63–79 ปี",
+    "สรุปคำทำนาย",
+    "คำแนะนำสั้น ๆ"
+  ],
+  "claimOrder": [
+    "RC11-K-OVERVIEW-01",
+    "RC11-K-PAST-01",
+    "RC11-K-PAST-02",
+    "RC11-K-PAST-03",
+    "RC11-K-PAST-04",
+    "RC11-K-PAST-05",
+    "RC11-K-CURRENT-01",
+    "RC11-K-WORK-01",
+    "RC11-K-WORK-02",
+    "RC11-K-FINANCE-01",
+    "RC11-K-FINANCE-02",
+    "RC11-K-RELATIONSHIP-01",
+    "RC11-K-RELATIONSHIP-02",
+    "RC11-K-HEALTH-01",
+    "RC11-K-HEALTH-02",
+    "RC11-K-SUPPORT-01",
+    "RC11-K-SUPPORT-02",
+    "RC11-K-HORIZON-01",
+    "RC11-K-HORIZON-02",
+    "RC11-K-HORIZON-03",
+    "RC11-K-NEXT-01",
+    "RC11-K-NEXT-02",
+    "RC11-K-ADVICE-01",
+    "RC11-K-DISCLOSURE-01"
+  ],
+  "claims": [
+    {
+      "readerClaimId": "RC11-K-OVERVIEW-01",
+      "surface": "Known",
+      "section": "ภาพรวมเส้นทางชีวิต",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "ชีวิตเดินเป็นช่วงชัดเจน วัยเด็กอยู่ใต้เงื่อนไขของบ้าน ช่วงอายุ 11–29 ได้ออกไปพบโลกที่กว้างขึ้น ช่วงอายุ 30–41 เจอการเปลี่ยนครั้งใหญ่ และหลังอายุ 42 ประสบการณ์ที่สั่งสมมาเริ่มให้ผลกับชีวิต",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-PAST-01",
+      "surface": "Known",
+      "section": "อายุ 1–10 ปี",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "วัย 1–10 ปีมีเงื่อนไขจากครอบครัวและผู้ใหญ่เข้ามากำหนดชีวิตมากกว่าวัยอื่น บางช่วงต้องเปลี่ยนความเคยชินหรือช่วยรับภาระในบ้านเร็วกว่าวัย ความสบายในวัยเด็กจึงถูกแบ่งด้วยหน้าที่ที่หลีกเลี่ยงไม่ได้",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-PAST-02",
+      "surface": "Known",
+      "section": "อายุ 11–29 ปี",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "ช่วงอายุ 11–29 ชีวิตเปิดกว้างขึ้นผ่านการเรียน งาน และสังคมใหม่ เส้นทางเดิมขยายออกเพราะได้พบคนที่มีประสบการณ์กว่า พร้อมกับการเปลี่ยนแวดวงหรือเปลี่ยนวิธีมองหาโอกาสจากเดิม",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-PAST-03",
+      "surface": "Known",
+      "section": "อายุ 11–29 ปี",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "ช่วงปลายของรอบนี้เริ่มรับผิดชอบเรื่องงานและเงินจริงจังขึ้น ความสัมพันธ์บางส่วนเปลี่ยนจากการคบหาตามสถานการณ์มาเป็นการตกลงว่าใครจะอยู่ต่อ ใครจะห่างออก และเรื่องใดต้องจัดการด้วยตัวเอง",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-PAST-04",
+      "surface": "Known",
+      "section": "อายุ 30–41 ปี",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "ช่วงอายุ 30–41 งานเปลี่ยนทิศอย่างชัดเจน หน้าที่ชุดใหม่เข้ามาแทนวิธีทำงานเดิม และผลงานที่ทำต่อเนื่องพาไปสู่ขอบเขตงานที่กว้างขึ้น",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-PAST-05",
+      "surface": "Known",
+      "section": "อายุ 30–41 ปี",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "ในช่วงเดียวกัน งานหรือข้อตกลงสำคัญเปลี่ยนรูปแบบ ทางที่เดินต่อได้กลายเป็นฐานของรอบปัจจุบัน ส่วนภาระที่กินแรงแต่ไม่พาชีวิตไปข้างหน้าค่อย ๆ จบลงหรือมีคนอื่นรับช่วงต่อ",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-CURRENT-01",
+      "surface": "Known",
+      "section": "คำทำนายปัจจุบัน — อายุ 44 ปี",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "อายุ 44 เป็นปีเปลี่ยนผ่าน ภาระเก่าต้องได้ข้อสรุป ขอบเขตที่เคยปล่อยค้างจะถูกจัดใหม่ และชีวิตเริ่มกันพื้นที่ไว้ให้เรื่องที่สำคัญกว่าเดิม",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-WORK-01",
+      "surface": "Known",
+      "section": "การงาน",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "หน้าที่การงานขยับจากการทำตามโจทย์ไปสู่การกำหนดทางเดินของงาน คุณจะรับผิดชอบผลลัพธ์มากขึ้น ได้ตัดสินใจเรื่องที่กระทบคนอื่น และถูกเรียกใช้ในงานที่ต้องอาศัยประสบการณ์มากกว่าการลงแรงอย่างเดียว",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-WORK-02",
+      "surface": "Known",
+      "section": "การงาน",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "โอกาสงานใหม่จะมาจากผลงานที่คนเคยเห็นและเชื่อมือ ส่วนงานเดิมที่ซ้ำ เสียเวลา หรือให้ภาระมากกว่าผลตอบแทนจะลดบทบาทลง สุดท้ายงานจะเหลือน้อยประเภทแต่แต่ละเรื่องมีน้ำหนักมากขึ้น",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-FINANCE-01",
+      "surface": "Known",
+      "section": "การเงิน",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "รายได้ขยับตามบทบาทและผลงาน เงินหลักมาจากงานที่ทำสำเร็จและทักษะที่ใช้ได้จริง ไม่ใช่การเสี่ยงโดยไม่มีข้อมูลรองรับ",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-FINANCE-02",
+      "surface": "Known",
+      "section": "การเงิน",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "เงินหมุนคล่องขึ้น แต่รายจ่ายก้อนสำคัญเกี่ยวกับงาน บ้าน หรือภาระที่ต้องจัดการให้จบจะเข้ามาพร้อมกัน ฐานการเงินจะค่อย ๆ นิ่งเมื่อเงินไม่ต้องไหลไปเลี้ยงภาระที่ไม่สร้างผลต่อเนื่อง",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-RELATIONSHIP-01",
+      "surface": "Known",
+      "section": "ความรักและความสัมพันธ์",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "ความสัมพันธ์ที่คลุมเครือจะชัดขึ้นจากการกระทำและข้อตกลง คนที่พร้อมเดินต่อจะแสดงความรับผิดชอบให้เห็น ส่วนคนที่มีแต่คำพูดจะเว้นระยะหรือหลุดออกจากชีวิตเอง",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-RELATIONSHIP-02",
+      "surface": "Known",
+      "section": "ความรักและความสัมพันธ์",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "บทสนทนาเรื่องเวลา หน้าที่ เงิน และพื้นที่ส่วนตัวจะตรงไปตรงมาขึ้น บางความสัมพันธ์จึงแน่นแฟ้นกว่าเดิม ขณะที่บางความสัมพันธ์เปลี่ยนระยะเพื่อให้แต่ละฝ่ายกลับไปจัดการชีวิตของตัวเอง",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-HEALTH-01",
+      "surface": "Known",
+      "section": "สุขภาพ",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "ภาระงานที่เพิ่มขึ้นทำให้ความเครียดและการพักไม่พอแสดงผลชัด ร่างกายใช้เวลาฟื้นจากวันที่ทำงานต่อเนื่องนานกว่าเดิม และแรงจะหมดเร็วเมื่อรับหลายเรื่องพร้อมกัน",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-HEALTH-02",
+      "surface": "Known",
+      "section": "สุขภาพ",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "พอภาระเบาลงและเรื่องค้างลดลง กำลังจะค่อย ๆ กลับมา วันที่ได้นอนและพักต่อเนื่องจะฟื้นตัวได้ดีกว่าการหยุดสั้น ๆ แล้วกลับไปเร่งงานเหมือนเดิม",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-SUPPORT-01",
+      "surface": "Known",
+      "section": "โชคลาภและแรงสนับสนุน",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "แรงหนุนมาจากผู้ใหญ่ ครู เพื่อน และคนที่เคยทำงานร่วมกัน คนเหล่านี้จะช่วยเปิดทาง แนะนำโอกาส หรือพาเรื่องที่ติดขัดกลับมาเดินได้อีกครั้ง",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-SUPPORT-02",
+      "surface": "Known",
+      "section": "โชคลาภและแรงสนับสนุน",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "โอกาสเด่นจะมาจากงานเก่า คนรู้จักเดิม หรือเรื่องที่เคยทำสำเร็จ ชื่อเสียงจากผลงานจะพาโอกาสกลับมา มากกว่าการได้สิ่งใหญ่จากการเสี่ยงโดยไม่มีฐานรองรับ",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-HORIZON-01",
+      "surface": "Known",
+      "section": "คำทำนาย 12 เดือนข้างหน้า",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 งานที่ค้างจะได้ข้อสรุป และหน้าที่ชุดใหม่จะเริ่มเข้าที่ ภายในรอบนี้คุณจะรู้ชัดว่างานใดอยู่ต่อและงานใดต้องส่งต่อ",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-HORIZON-02",
+      "surface": "Known",
+      "section": "คำทำนาย 12 เดือนข้างหน้า",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "ในช่วงเดียวกัน รายรับและภาระทางเงินจะขยับขึ้นพร้อมกัน ส่วนข้อตกลงสำคัญในความสัมพันธ์จะได้คำตอบจากการแบ่งเวลาและหน้าที่ให้ชัด",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-HORIZON-03",
+      "surface": "Known",
+      "section": "คำทำนาย 12 เดือนข้างหน้า",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "แรงหนุนที่มีอยู่จะช่วยให้การเจรจาและการปิดเรื่องค้างเดินเร็วขึ้น อุปสรรคที่เคยทำให้งานชะงักจะลดลงภายในรอบนี้",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-NEXT-01",
+      "surface": "Known",
+      "section": "ช่วงชีวิตถัดไป — อายุ 63–79 ปี",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "เมื่ออายุ 63 ปี ชีวิตเข้าสู่ช่วงสร้างฐานระยะยาว สิ่งที่สะสมจากงานจะกลายเป็นบ้าน ทรัพย์ หรือฐานการเงินที่มั่นคงขึ้น",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-NEXT-02",
+      "surface": "Known",
+      "section": "ช่วงชีวิตถัดไป — อายุ 63–79 ปี",
+      "claimKind": "PREDICTION",
+      "authorityClass": "OWNER_ACCEPTED_PRODUCT_INTERPRETATION",
+      "exactText": "บทบาทงานจะขยับไปทางวางระบบ ให้ทิศทาง และถ่ายทอดประสบการณ์ งานที่ใช้ความคิด การเจรจา หรือการจัดการข้อมูลจะมีน้ำหนักกว่างานที่ต้องลงแรงทุกขั้นด้วยตัวเอง",
+      "acceptanceReference": {
+        "decision": "Owner Final Content Review PASS",
+        "acceptedHead": "2c82dc4b09fa9ded8b6527266801375179bb0ea6",
+        "mergeSha": "5dc59c44020a135934d1b8cefceae9606bfa736f",
+        "scope": "copy_and_product_interpretation_authority_only",
+        "doesNotEstablish": [
+          "source_quotation",
+          "real_world_accuracy"
+        ]
+      }
+    },
+    {
+      "readerClaimId": "RC11-K-ADVICE-01",
+      "surface": "Known",
+      "section": "คำแนะนำสั้น ๆ",
+      "claimKind": "ADVICE",
+      "authorityClass": "ADVICE",
+      "exactText": "รับงานใหม่เมื่อขอบเขตและอำนาจตัดสินใจชัด เก็บเงินส่วนหนึ่งไว้รองรับรายจ่ายก้อนสำคัญ พูดข้อตกลงกับคนใกล้ตัวให้ตรง และจัดวันพักจริงก่อนที่ความล้าจะสะสมจนกระทบงาน",
+      "acceptanceReference": null
+    },
+    {
+      "readerClaimId": "RC11-K-DISCLOSURE-01",
+      "surface": "Known",
+      "section": "คำแนะนำสั้น ๆ",
+      "claimKind": "DISCLOSURE",
+      "authorityClass": "DISCLOSURE",
+      "exactText": "คำทำนายนี้เป็นมุมมองตามความเชื่อ ใช้ประกอบการทบทวนชีวิตและเทียบกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ",
+      "acceptanceReference": null
+    }
+  ]
+}
