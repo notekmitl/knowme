@@ -1,5 +1,18 @@
 # Task Result — Thai Report Reader Experience V2
 
+## PR115 OR3 — content contract gate candidate (2026-09-03)
+
+Status: **PR115 OR3 CONTENT CONTRACT CANDIDATE READY — OR2 PRODUCT CONTENT REJECTED — PENDING OWNER CONTENT REVIEW — DRAFT — NOT MERGED — NOT DEPLOYED**.
+
+Owner rejected OR2 at the Product Content gate. OR2 is now recorded accurately as **ENGINEERING COVERAGE PASS / PRODUCT CONTENT FAIL / OWNER ACCEPTANCE NOT GRANTED**. The former 49-context “human review” file is reclassified as `MACHINE_CONTENT_AUDIT`; its historical rows are preserved, while `ownerHumanReview=PENDING` and `productContentStatus=NO_GO` are explicit. Recomputed OR2 findings are: future-tense past copy 39/49 contexts, unresolved “จะเดินหน้า” plus “เดินช้าลง” in work copy 43/49, Current-domain risk clauses reused in rolling-12 copy 98 and next-period copy 33, and the phrase “ด้านสุขภาพและการพัก” 47 actual hits (34 health-owner + 13 rolling-12), not the cited estimate 46. Reuse remains work 6 distinct/max 29, finance 5/26, relationship 6/17 and health 6/19.
+
+Truth correction commit `950ff4a` and content-contract commit `7e5c331` add evidence only: a 180-component source-bound library, Candidate 0019 Actual Known 00:35 with 22 prediction paragraphs and Aquarius 19°19′, a byte-exact Candidate 0011 Golden 00:03 reference with reader SHA-256 `6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E`, 12 representative profiles (Known 11 + Unknown fail-closed 1), and 49/49 Known context simulations. Candidate counters for missing completed past periods, past future tense/order/reflection/personality errors, exact/near cross-owner duplication, Current→12-month duplication, Current→next duplication, unresolved direction conflict, and hedge/advice leakage are all 0. These are machine checks, not Owner language acceptance. Semantic feasibility remains `semanticBindingPass=false`, `ownerHumanReview=PENDING`, and `productContentStatus=NO_GO`; 3/3 deliberately corrupted direction/domain/horizon controls were rejected.
+
+Current Production runtime still contains `_isOwnerAcceptedGoldenFixture` and the `owner-accepted-candidate-0011-exact` override path, so the single-path runtime gate remains **NO_GO**. OR3 intentionally changes no `lib/`, Dart/Flutter runtime, UI, export, PDF, infographic, Engine, Canon, Flutter tests, generated product artifacts, Firebase/Production, or `product-acceptance/`. Evidence/Oracle tests pass 11/11, both builders pass deterministic `--check`, and `git diff --check` passes. Full Flutter and analyzer were not rerun because OR3 has no Dart/runtime/Flutter-test delta; OR2 engineering results remain historical evidence only and do not grant Product Content acceptance.
+
+Owner Review ZIP: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_PREDICTIVE_NARRATIVE_V2_RUNTIME_V2_OR3_CONTENT_GATE_7e5c331.zip`; SHA-256 `93A099BE1F52DF22C3E85AD93E03B532EFD1FB93CB44FBA30AE182997B7AC881`. CRC/extraction pass; manifest entries 19; missing, extra, hash mismatch, SHA256SUMS mismatch and secret hits are all 0. The package contains content/evidence only and deliberately contains no regenerated Web/PDF/infographic artifacts. PR #115 remains Open + Draft; it is not merged or deployed.
+
+
 ## PR115 OR2 — generalized predictive voice + audit truth repair (2026-09-03)
 
 Status: **PR115 OR2 GENERALIZED PREDICTIVE VOICE AND AUDIT TRUTH REPAIR COMPLETE — OPEN + DRAFT — PENDING OWNER PRODUCT RE-REVIEW — NOT MERGED — NOT DEPLOYED**.
