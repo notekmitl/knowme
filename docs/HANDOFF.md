@@ -1,5 +1,19 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+## PR115 OR2 — generalized predictive voice + audit truth repair (2026-09-03)
+
+Status: **PR115 OR2 GENERALIZED PREDICTIVE VOICE AND AUDIT TRUTH REPAIR COMPLETE — OPEN + DRAFT — PENDING OWNER PRODUCT RE-REVIEW — NOT MERGED — NOT DEPLOYED**.
+
+Owner rejected OR1 because generalized copy still recomposed legacy timeline/future phrases, contained hedged/self-help language, duplicated Current in the 12-month owner, reused paragraphs across different evidence fingerprints, and did not prove output-level evidence binding. OR2 implementation/test commit `733e4dfc54430e1df5e1b596e905cc5056c17221` introduces the evidence-bound generalized editorial contract. Each prediction records selector/application ID, context, period, semantic owner, domain, horizon, typed-material evidence key, direction band, source components, realized text, realizer, and golden-override state; advice, disclosure, summary and prediction ownership remain separate.
+
+Candidate 0011 remains exact only for 1982-06-06 00:03 Chiang Mai male at pinned `asOf=2026-08-29`: 44/44 lines and SHA-256 `6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E`. The 00:35 profile and same-context neighbor use the generalized path. Actual results: contexts 49/49, periods 392/392, Known 225/225 with fallback 0, Unknown fail-closed 75/75, claim-level bindings 637, generalized Golden overrides 0, unexpected fixture branches 0, fixture-reference leakage 0, binding mismatches 0, unsupported claims 0, Known→Unknown leakage 0, and all 13 required content-quality counters 0. Two-pass human review covers all 49 contexts with failures 0.
+
+Validation: migrated UI 30/30; runtime/fixture separation 17/17; focused narrative/export/infographic/artifact 279/279; dedicated evidence 1/1; Node 3/3; copy audit 300 profiles / 30,000 fields with all impacts 0; full Flutter 1,638/1,638; analyzer exit 0, baseline 298, scoped new 0; PreCommit, PostCommit and `git diff --check` PASS. The copy-audit value 13,174 is historical/raw output, not OR2 changed fields.
+
+Actual artifacts: Dedicated Known/Unknown 6/7 pages, Chrome browser-print Known/Unknown 6/7 pages, 26/26 raster pages, four 1080×1920 infographics, and Web desktop 1248/mobile 390. Blank-page suspects, clipping, overlap, overflow, missing, extra, hash mismatch, signature, secret, CRC and extraction errors are all 0. ZIP: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_PREDICTIVE_NARRATIVE_V2_RUNTIME_V2_OR2_733e4df.zip`; SHA-256 `860B99E9C4A8C738678243015E64616AF2EA2E0818A1D5079855630C8D1595B5`; manifest 85 entries. Evidence/docs closeout is the commit containing this record. PR #115 remains Open + Draft and Owner acceptance is not claimed. No Firebase/Production, deploy, or `product-acceptance/` change occurred.
+
+
+
 ## PR115 OR1 — Unknown V2 semantic label adapter (2026-09-02)
 
 Status: **OPEN + DRAFT — PENDING OWNER PRODUCT RE-REVIEW — NOT MERGED — NOT DEPLOYED**.

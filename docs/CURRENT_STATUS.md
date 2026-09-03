@@ -1,5 +1,21 @@
 # KnowMe Current Status
 
+## PR115 OR2 — generalized predictive voice + audit truth repair (2026-09-03)
+
+Status: **PR115 OR2 GENERALIZED PREDICTIVE VOICE AND AUDIT TRUTH REPAIR COMPLETE — OPEN + DRAFT — PENDING OWNER PRODUCT RE-REVIEW — NOT MERGED — NOT DEPLOYED**.
+
+Owner rejected OR1 product content because the generalized branch still recomposed legacy timeline/future copy, used hedged or self-help phrasing, duplicated Current content in the 12-month section, reused domain paragraphs across different evidence fingerprints, and reported counters that did not prove output-level binding. OR2 implementation/test commit `733e4dfc54430e1df5e1b596e905cc5056c17221` replaces that generalized path with an evidence-bound editorial contract. Every emitted prediction now binds the actual selector/application ID, context, period, semantic owner, domain, horizon, serialized typed material/evidence key, direction band, source components, realized reader text, realizer, and golden-override state. Advice and disclosure remain separate semantic owners; summary cites emitted claims; unsupported material is omitted instead of filled generically.
+
+Candidate 0011 remains byte-exact only for the exact 1982-06-06 00:03 Chiang Mai male fixture at pinned `asOf=2026-08-29`: 44/44 lines and reader-facing SHA-256 `6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E`. The 00:35 profile and same-context neighbor use the generalized path, have `ownerAcceptedGoldenOverrideApplied=0`, and contain no `fixture.target-0003` reference. In the 300-profile run, accepted Golden overrides, unexpected fixture-specific branches, fixture-reference leakage, evidence-binding mismatches, unsupported claims, and Known→Unknown leakage are all 0. Unknown remains fail-closed and never substitutes noon or emits ascendant, houses, or Known time-dependent copy.
+
+Actual coverage is 49/49 rendered contexts, 392/392 resolved periods, Known complete V2 reports 225/225 with fallback 0, Unknown fail-closed 75/75, and 637 claim-level bindings. Each generalized report emits 10 predictions (minimum/median/maximum 10/10/10). All 13 required content-quality counters are 0: hedge, personality, past reflection/question, advice leakage, methodology leakage, stale phrase, exact and near-semantic cross-section duplicate, Current→12-month duplicate, evidence-mismatched reuse, fixture-reference leakage, unsupported claims, and Known→Unknown leakage. Two complete human-review rounds are recorded for all 49 contexts with failures 0.
+
+Validation passed: migrated UI 30/30; runtime/fixture separation 17/17; focused narrative/export/infographic/artifact 279/279; dedicated evidence 1/1; Node evidence 3/3; Candidate exact 44/44; copy audit 300 profiles / 30,000 fields with semantic, omission, addition, prediction↔advice and traceability impacts 0; full Flutter suite 1,638/1,638; analyzer exit 0 with 298 baseline diagnostics and scoped new diagnostics 0; PreCommit, PostCommit and `git diff --check` PASS. The copy-audit value 13,174 is historical/raw comparison output, not the count of OR2-changed fields. No test was skipped, removed, or weakened.
+
+Fresh artifacts from commit `733e4df` were opened and inspected: Dedicated PDF Known/Unknown 6/7 pages, Chrome browser-print Known/Unknown 6/7 pages, 26/26 rendered pages, four 1080×1920 infographics for surface 360/390, and Known/Unknown Web captures at desktop 1248 and mobile 390. Blank-page suspects, clipping, overlap, overflow, missing/extra/hash/signature/secret/CRC/extraction errors are all 0. Owner Review ZIP: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_PREDICTIVE_NARRATIVE_V2_RUNTIME_V2_OR2_733e4df.zip`, SHA-256 `860B99E9C4A8C738678243015E64616AF2EA2E0818A1D5079855630C8D1595B5`, manifest 85 entries. The evidence/docs closeout is the commit containing this record. PR #115 remains Open + Draft; Owner acceptance is not claimed. Firebase/Production, deploy state, and `product-acceptance/` are unchanged.
+
+
+
 ## PR115 OR1 — Unknown V2 semantic label adapter (2026-09-02)
 
 Status: **OPEN + DRAFT — PENDING OWNER PRODUCT RE-REVIEW — NOT MERGED — NOT DEPLOYED**.
