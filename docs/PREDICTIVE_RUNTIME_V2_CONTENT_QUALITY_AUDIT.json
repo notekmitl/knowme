@@ -1,7 +1,7 @@
 {
   "summary": {
     "version": 3,
-    "status": "PASS_PREDICTIVE_RUNTIME_V2_OR2_EDITORIAL_AND_EVIDENCE",
+    "status": "MACHINE_CONTENT_AUDIT_NO_GO",
     "ownerReviewState": "PENDING_OWNER_PRODUCT_RE_REVIEW",
     "candidate0011Sha256": "6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E",
     "counts": {
@@ -40,9 +40,17 @@
       "unsupported_claims": 0,
       "known_to_unknown_leakage": 0
     },
-    "humanReviewContexts": 49,
-    "humanReviewFailures": 0,
-    "integrityErrors": []
+    "integrityErrors": [],
+    "historicalStatus": "PASS_PREDICTIVE_RUNTIME_V2_OR2_EDITORIAL_AND_EVIDENCE",
+    "auditClassification": "MACHINE_CONTENT_AUDIT",
+    "ownerHumanReview": "PENDING",
+    "productContentStatus": "NO_GO",
+    "ownerAcceptance": "NOT_GRANTED",
+    "machineContentAuditContexts": 49,
+    "historicalMachineGeneratedFields": {
+      "humanReviewContexts": 49,
+      "humanReviewFailures": 0
+    }
   },
   "counters": {
     "hedge_hits_in_prediction": 0,

@@ -1,6 +1,11 @@
-# Predictive Runtime V2 OR2 Human Review - 49 Contexts
+# Predictive Runtime V2 OR2 Machine Content Audit - 49 Contexts
 
-Each context records two complete reader-copy passes: sequence/duplication and conversational predictive voice/semantic ownership.
+Status: **MACHINE_CONTENT_AUDIT — PRODUCT CONTENT NO-GO**
+`ownerHumanReview=PENDING` · `productContentStatus=NO_GO` · `ownerAcceptance=NOT_GRANTED`
+
+Truth correction: this document was generated automatically from machine counters and reader-copy records. It does not prove that a person read every context twice, so every historical “Round 1/2 PASS” below is retained only as machine-audit history. It must not be cited as Human Review PASS or Owner Content Acceptance. See `PREDICTIVE_RUNTIME_V2_OR2_TRUTH_CORRECTION.md` for the recomputed Product Content failures.
+
+Each context retains the two historical machine passes: sequence/duplication and predictive-voice/semantic-owner counters.
 
 ## mahabhut2537.rem4.thursday
 
