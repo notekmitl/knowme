@@ -24,6 +24,13 @@ void main() {
         expect(plan.omittedClaims, isEmpty);
         expect(plan.unsupportedClaims, 0);
         expect(plan.fixtureSpecificBranches, 0);
+        expect(plan.ownerAcceptedGoldenOverrideApplied, 1);
+        expect(plan.unexpectedFixtureSpecificBranches, 0);
+        expect(plan.fixtureReferenceLeakage, 0);
+        final bindingErrors = RuntimePredictiveClaimBindingValidator.validate(
+          plan,
+        );
+        expect(bindingErrors, isEmpty);
         expect(plan.monthlyTimelineAvailable, isFalse);
         final sectionTitles = plan.sections
             .map((section) => section.title)
@@ -55,24 +62,67 @@ void main() {
           asOf: DateTime(2026, 8, 7),
         ),
       );
-      final horizon = plan.claim('RC11-K-HORIZON-01')!.text;
+      final horizon = plan.claimForOwner('rolling12')!.text;
       expect(horizon, contains('7 สิงหาคม 2569 ถึง 6 สิงหาคม 2570'));
       expect(horizon, isNot(contains('29 สิงหาคม 2569')));
+      expect(plan.ownerAcceptedGoldenOverrideApplied, 0);
+      expect(plan.fixtureReferenceLeakage, 0);
     });
 
-    test('00:03 and 00:35 share rules but retain distinct ascendants', () {
+    test('00:03 is exact oracle while 00:35 uses generalized path', () {
       final first = ThaiPredictiveRuntimeV2Plan.fromAnalysis(_accepted());
       final second = ThaiPredictiveRuntimeV2Plan.fromAnalysis(
         _accepted(minute: 35),
       );
       expect(first.contextId, second.contextId);
       expect(first.emittedPredictions, 22);
-      expect(second.emittedPredictions, 22);
+      expect(second.emittedPredictions, 10);
       expect(first.subtitle, contains('ลัคนาราศีกุมภ์ 9°24′'));
       expect(second.subtitle, contains('ลัคนาราศีกุมภ์ 19°19′'));
+      expect(first.ownerAcceptedGoldenOverrideApplied, 1);
+      expect(second.ownerAcceptedGoldenOverrideApplied, 0);
+      expect(second.fixtureReferenceLeakage, 0);
+      expect(second.evidenceBindingMismatches, 0);
+      expect(second.generationPath, contains('editorial-contract-v2'));
       expect(
-        first.emittedClaims.map((claim) => claim.text),
+        second.emittedClaims.expand((claim) => claim.rule.evidenceRefs),
+        isNot(contains('fixture.target-0003')),
+      );
+      expect(
         second.emittedClaims.map((claim) => claim.text),
+        isNot(first.emittedClaims.map((claim) => claim.text)),
+      );
+    });
+
+    test('same-context neighbor cannot inherit target fixture authority', () {
+      final neighbor = ThaiPredictiveRuntimeV2Plan.fromAnalysis(
+        ThaiBetaAnalysisRunner.run(
+          ThaiBetaInput(
+            firstName: 'Neighbor',
+            lastName: 'Regression',
+            birthDate: DateTime(1982, 6, 6),
+            birthHour: 0,
+            birthMinute: 3,
+            birthTimeUnknown: false,
+            province: 'เชียงใหม่',
+            provinceKey: 'chiang mai',
+            gender: 'หญิง',
+          ),
+          asOf: DateTime(2026, 8, 29),
+        ),
+      );
+      expect(neighbor.contextId, runtimePredictiveV2GoldenOracleContextId);
+      expect(
+        neighbor.currentPeriod?.matrixApplicationId,
+        runtimePredictiveV2GoldenCurrentPeriodId,
+      );
+      expect(neighbor.ownerAcceptedGoldenOverrideApplied, 0);
+      expect(neighbor.unexpectedFixtureSpecificBranches, 0);
+      expect(neighbor.fixtureReferenceLeakage, 0);
+      expect(neighbor.evidenceBindingMismatches, 0);
+      expect(
+        neighbor.emittedClaims.expand((claim) => claim.rule.evidenceRefs),
+        isNot(contains('fixture.target-0003')),
       );
     });
   });
@@ -267,6 +317,48 @@ void main() {
       expect(result.errors, isEmpty);
     });
 
+    test('49 rendered contexts obey predictive editorial ownership', () {
+      final plans = _representativePlans49();
+      expect(plans, hasLength(49));
+      for (final entry in plans.entries) {
+        final plan = entry.value;
+        expect(
+          RuntimePredictiveClaimBindingValidator.validate(plan),
+          isEmpty,
+          reason: entry.key,
+        );
+        expect(plan.ownerAcceptedGoldenOverrideApplied, 0, reason: entry.key);
+        expect(plan.fixtureReferenceLeakage, 0, reason: entry.key);
+        final seen = <String, String>{};
+        for (final decision in plan.emittedClaims.where(
+          (claim) => claim.rule.kind == RuntimePredictiveKind.prediction,
+        )) {
+          expect(
+            _predictionQualityViolations(decision),
+            isEmpty,
+            reason: '${entry.key}:${decision.rule.id}',
+          );
+          final normalized = _normalizedParagraph(decision.text);
+          final priorOwner = seen[normalized];
+          expect(
+            priorOwner == null || priorOwner == decision.rule.semanticOwner,
+            isTrue,
+            reason:
+                '${entry.key}:$priorOwner↔${decision.rule.semanticOwner}:$normalized',
+          );
+          seen[normalized] = decision.rule.semanticOwner;
+        }
+        final current = plan.claimForOwner('current')!;
+        final horizon = plan.claimForOwner('rolling12')!;
+        expect(current.text, isNot(horizon.text), reason: entry.key);
+        expect(
+          _trigramSimilarity(current.text, horizon.text),
+          lessThan(0.72),
+          reason: entry.key,
+        );
+      }
+    });
+
     test('coverage validator rejects every required negative control', () {
       const contextA = 'mahabhut2537.rem0.sunday';
       const contextB = 'mahabhut2537.rem1.monday';
@@ -287,6 +379,14 @@ void main() {
         timingRefs: const ['selector.mahabhut2537.rem0.sunday.sun.0_6'],
         conflictRefs: const ['conflict.contract-boundaries'],
         certaintyRefs: const ['certainty.product-interpretation-contract-v1'],
+        selectorApplicationId: 'mahabhut2537.rem0.sunday.sun.0_6',
+        horizon: 'current',
+        materialFingerprint:
+            'period=mahabhut2537.rem0.sunday.sun.0_6|status=dueng_khuen',
+        evidenceKey: 'selector.mahabhut2537.rem0.sunday.sun.0_6',
+        directionBand: 'dueng_khuen',
+        sourceComponents: const ['selector.mahabhut2537.rem0.sunday.sun.0_6'],
+        realizerId: 'life-period-editorial-v2',
       );
       final emptySummary = RuntimePredictiveRule(
         id: 'summary',
@@ -303,6 +403,9 @@ void main() {
         timingRefs: const [],
         conflictRefs: const [],
         certaintyRefs: const [],
+        horizon: 'summary',
+        sourceComponents: const ['complete'],
+        realizerId: 'summary-composition-v2',
       );
       RuntimePredictiveIntegrityResult validate({
         Set<String> contexts = const {contextA},
@@ -549,3 +652,74 @@ String _normalizedReaderBody(ThaiPredictiveRuntimeV2Plan plan) => [
     ),
   ],
 ].join('\n').replaceAll(RegExp(r'\s+'), ' ').trim();
+
+List<String> _predictionQualityViolations(RuntimePredictiveDecision decision) {
+  final text = decision.text.trim();
+  final violations = <String>[];
+  const hedgePhrases = ['มีแนวโน้ม', 'อาจ', 'มีโอกาส', 'น่าจะ', 'เป็นไปได้ว่า'];
+  for (final phrase in hedgePhrases) {
+    if (text.contains(phrase)) violations.add('hedge:$phrase');
+  }
+  const personalityPhrases = ['คุณคาดหวัง', 'คุณมัก', 'นิสัย', 'เป็นคน'];
+  for (final phrase in personalityPhrases) {
+    if (text.contains(phrase)) violations.add('personality:$phrase');
+  }
+  if (decision.rule.semanticOwner == 'past' &&
+      (text.contains('?') ||
+          text.contains('ลอง') ||
+          text.contains('ทบทวน') ||
+          text.contains('บทเรียนติดตัว'))) {
+    violations.add('past-reflection');
+  }
+  for (final sentence in text.split(RegExp(r'[.!?]\s*'))) {
+    if (RegExp(
+      r'^(หาก|ถ้า|ควร|ให้|ลอง|ทบทวน)(\s|คุณ)',
+    ).hasMatch(sentence.trim())) {
+      violations.add('advice-leakage:${sentence.trim()}');
+    }
+  }
+  const methodology = [
+    'มหาภูต',
+    'ทักษา',
+    'selector',
+    'evidence',
+    'ดาว',
+    'เรือน',
+  ];
+  for (final phrase in methodology) {
+    if (text.contains(phrase)) violations.add('methodology:$phrase');
+  }
+  const stale = [
+    'ช่วงนี้ งานมีแนวโน้ม',
+    'ช่วงนี้ รายได้มีโอกาส',
+    'คุณคาดหวังเงียบ ๆ',
+    'ถ้ารักษาเวลานอน',
+    'ให้ประเมินโอกาสจากหลักฐาน',
+    'งานและหน้าที่บังคับให้คุณ',
+  ];
+  for (final phrase in stale) {
+    if (text.contains(phrase)) violations.add('stale:$phrase');
+  }
+  return violations;
+}
+
+String _normalizedParagraph(String value) => value
+    .replaceAll(RegExp(r'\s+'), '')
+    .replaceAll(RegExp(r'[\p{P}\p{S}]', unicode: true), '')
+    .toLowerCase();
+
+double _trigramSimilarity(String left, String right) {
+  Set<String> grams(String value) {
+    final normalized = _normalizedParagraph(value);
+    if (normalized.length < 3) return {normalized};
+    return {
+      for (var index = 0; index <= normalized.length - 3; index++)
+        normalized.substring(index, index + 3),
+    };
+  }
+
+  final a = grams(left);
+  final b = grams(right);
+  final union = a.union(b);
+  return union.isEmpty ? 0 : a.intersection(b).length / union.length;
+}

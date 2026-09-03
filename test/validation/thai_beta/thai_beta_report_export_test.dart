@@ -212,21 +212,32 @@ void main() {
         'พื้นที่ส่วนตัวเท่าไร ในระยะยาว',
         'เงินคงเหลือจริง ก่อนตัดสินใจเรื่องเงิน',
       ];
-      for (final fixture in fixtures) {
+      for (final (index, fixture) in fixtures.indexed) {
         final text = ThaiBetaReportExportDocument.candidate(
           fixture,
         ).fullPlainText;
         for (final phrase in rejected) {
           expect(text, isNot(contains(phrase)), reason: phrase);
         }
-        expect(
-          text,
-          anyOf(
-            contains('ทำตามสิ่งที่คุยกันไว้ได้จริง'),
-            contains('ทำตามที่คุยกันไว้ได้จริง'),
-            contains('คนที่พร้อมเดินต่อจะแสดงความรับผิดชอบให้เห็น'),
-          ),
-        );
+        if (index == 0) {
+          expect(
+            text,
+            contains(
+              'ความสัมพันธ์ในช่วงปัจจุบันจะชัดขึ้นจากการกระทำที่สม่ำเสมอ ข้อตกลงที่ค้างอยู่จะได้ข้อสรุป',
+            ),
+          );
+          expect(text, isNot(contains('มีแนวโน้ม')));
+          expect(text, isNot(contains('มีโอกาส')));
+        } else {
+          expect(
+            text,
+            anyOf(
+              contains('ทำตามสิ่งที่คุยกันไว้ได้จริง'),
+              contains('ทำตามที่คุยกันไว้ได้จริง'),
+              contains('คนที่พร้อมเดินต่อจะแสดงความรับผิดชอบให้เห็น'),
+            ),
+          );
+        }
         expect(
           text,
           anyOf(
