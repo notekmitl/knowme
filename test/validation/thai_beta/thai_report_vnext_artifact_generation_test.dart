@@ -114,6 +114,15 @@ void main() {
           Platform.environment['KNOWME_REPORT_VNEXT_SOURCE_HEAD'] ?? 'test';
       final controlledOutputIdentity =
           Platform.environment['KNOWME_REPORT_VNEXT_OUTPUT_ID'] ?? 'test';
+      final surfaceWidth = double.parse(
+        Platform.environment['KNOWME_REPORT_VNEXT_SURFACE_WIDTH'] ?? '390',
+      );
+      final artifactAsOf =
+          switch (Platform.environment['KNOWME_REPORT_VNEXT_AS_OF']) {
+            final value? when value.isNotEmpty => DateTime.parse(value),
+            _ => null,
+          };
+      expect(surfaceWidth, anyOf(360, 390));
       final supported = _fixtureIds.toSet();
       expect(requested == 'all' || supported.contains(requested), isTrue);
       final requestedFixtures = requested == 'all'
@@ -143,13 +152,20 @@ void main() {
         await latinLoader.load();
       });
 
-      await tester.binding.setSurfaceSize(const Size(390, 844));
+      await tester.binding.setSurfaceSize(Size(surfaceWidth, 844));
       addTearDown(() => tester.binding.setSurfaceSize(null));
       final semanticsHandle = tester.ensureSemantics();
       final probes = <_ArtifactProbe>[];
 
       for (final fixtureId in requestedFixtures) {
-        final analysis = _analysisFor(fixtureId);
+        final fixtureAnalysis = _analysisFor(fixtureId);
+        final analysis = artifactAsOf == null
+            ? fixtureAnalysis
+            : ThaiBetaAnalysisRunner.run(
+                fixtureAnalysis.input,
+                startedAt: artifactAsOf,
+                asOf: artifactAsOf,
+              );
         final document = ThaiBetaReportExportDocument.candidate(analysis);
         final infographic = document.infographic!;
         expect(infographic.title.trim(), isNotEmpty, reason: fixtureId);
@@ -223,7 +239,7 @@ void main() {
           if (fixtureId == 'known') {
             expect(
               renderedPdf.pageCount,
-              8,
+              6,
               reason: 'Measured V2 Known artifact page-count regression',
             );
           } else if (fixtureId == 'unknown') {
@@ -477,21 +493,26 @@ List<({String id, Rect region})> _assertLayoutAndCollectRegions(
     );
   }
   final visibleText = textWidgets.map((text) => text.data ?? '').join(' ');
-  for (final month in const [
-    'มกราคม',
-    'กุมภาพันธ์',
-    'มีนาคม',
-    'เมษายน',
-    'พฤษภาคม',
-    'มิถุนายน',
-    'กรกฎาคม',
-    'สิงหาคม',
-    'กันยายน',
-    'ตุลาคม',
-    'พฤศจิกายน',
-    'ธันวาคม',
-  ]) {
-    expect(visibleText, isNot(contains(month)));
+  final usesAcceptedRuntimeCopy = data.traceIds.any(
+    (traceId) => traceId.startsWith('RC11-'),
+  );
+  if (!usesAcceptedRuntimeCopy) {
+    for (final month in const [
+      'มกราคม',
+      'กุมภาพันธ์',
+      'มีนาคม',
+      'เมษายน',
+      'พฤษภาคม',
+      'มิถุนายน',
+      'กรกฎาคม',
+      'สิงหาคม',
+      'กันยายน',
+      'ตุลาคม',
+      'พฤศจิกายน',
+      'ธันวาคม',
+    ]) {
+      expect(visibleText, isNot(contains(month)));
+    }
   }
   expect(data.monthlyTimelineAvailable, isFalse);
   return regions;
@@ -879,6 +900,7 @@ ThaiBetaInput _owner({required bool known, int minute = 0}) => ThaiBetaInput(
   birthTimeUnknown: !known,
   province: 'เชียงใหม่',
   provinceKey: 'chiang_mai',
+  gender: known ? 'ชาย' : null,
 );
 
 ThaiBetaAnalysis _longestSynthetic({

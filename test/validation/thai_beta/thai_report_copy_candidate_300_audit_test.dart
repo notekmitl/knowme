@@ -31,7 +31,13 @@ void main() {
         );
         expect(analysis.isSuccess, isTrue, reason: profile.id);
         final before = ThaiBetaReportExportDocument.beforeReaderCopy(analysis);
-        final after = ThaiBetaReportExportDocument.candidate(analysis);
+        // This ledger is the accepted PR108 copy-only transform audit. Keep it
+        // pinned to that projection now that candidate() additionally applies
+        // the independently audited Predictive Runtime V2 plan.
+        final after = ThaiBetaReportExportDocument.fromAnalysis(
+          analysis,
+          applyReaderCopy: true,
+        );
         final methodologyChapterIndex = after.sections.indexWhere(
           (section) => section.title == 'ส่วนที่ 4 · ที่มาและข้อจำกัด',
         );

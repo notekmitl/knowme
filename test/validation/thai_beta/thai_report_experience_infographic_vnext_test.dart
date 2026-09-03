@@ -361,6 +361,15 @@ void main() {
             );
             await tester.pumpAndSettle();
             expect(tester.takeException(), isNull);
+            if (!knownTime) {
+              expect(find.text('คำทำนายอดีต'), findsOneWidget);
+              expect(find.text('คำทำนายปัจจุบัน — อายุ 44 ปี'), findsOneWidget);
+              expect(find.text('ช่วงชีวิตถัดไป'), findsOneWidget);
+              expect(find.text('อดีตของคุณ'), findsNothing);
+              expect(find.text('ช่วงปัจจุบัน'), findsNothing);
+              expect(find.text('จังหวะชีวิตระยะต่อไป'), findsNothing);
+              expect(find.text('เรื่องสำคัญของช่วงนี้'), findsNothing);
+            }
             expect(
               find.byKey(const Key('thai_annual_infographic_save')),
               findsOneWidget,
