@@ -1,0 +1,44 @@
+{
+  "status": "SEMANTIC_FEASIBILITY_EVIDENCE_COMPLETE_OWNER_REVIEW_PENDING",
+  "ownerHumanReview": "PENDING",
+  "productContentStatus": "NO_GO",
+  "semanticBindingPass": false,
+  "reason": "Machine checks establish structural feasibility only; the Owner has not accepted the component meanings or reader sentences.",
+  "counts": {
+    "components": 180,
+    "materialSignatures": 180,
+    "contextsSimulated": 49,
+    "componentMissing": 0,
+    "sourceBindingMissing": 0,
+    "directionMismatch": 0,
+    "domainMismatch": 0,
+    "horizonMismatch": 0,
+    "negativeControls": 3,
+    "negativeControlsRejected": 3
+  },
+  "currentRuntimeGate": {
+    "status": "NO_GO",
+    "reason": "Production source still contains _isOwnerAcceptedGoldenFixture and the owner-accepted-candidate-0011-exact override path.",
+    "requiredBeforeRuntimeAcceptance": "Replace fixture identity selection with the same selector/domain/direction/timing/conflict/certainty/component path for every profile, while preserving Candidate 0011 exact regression."
+  },
+  "negativeControls": [
+    {
+      "id": "NEG-DIRECTION",
+      "mutation": "dueng_khuen -> dueng_tok",
+      "rejected": true,
+      "reason": "material signature and net direction no longer agree"
+    },
+    {
+      "id": "NEG-DOMAIN",
+      "mutation": "career -> finance",
+      "rejected": true,
+      "reason": "component domain no longer matches evidence domain"
+    },
+    {
+      "id": "NEG-HORIZON",
+      "mutation": "current -> next12Months",
+      "rejected": true,
+      "reason": "component horizon no longer matches timing authority"
+    }
+  ]
+}
