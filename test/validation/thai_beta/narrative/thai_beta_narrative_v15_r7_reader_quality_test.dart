@@ -1,3 +1,4 @@
+import '../../../evidence/or5r_unknown_contract.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_clause_repetition_audit.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart';
@@ -127,10 +128,13 @@ void main() {
         context: ThaiBetaNarrativeContext.fromAnalysis(analysis),
       );
       final document = ThaiBetaReportExportDocument.fromAnalysis(analysis);
+      if (!analysis.input.hasBirthTime) expectUnknownContract(analysis);
+      if (analysis.input.hasBirthTime) expect(view.futurePrediction, isNotNull);
       final domainByBody = <String, String>{
-        for (final window in view.futurePrediction!.windows)
-          for (final domain in window.domains)
-            domain.body: domain.material!.domain.name,
+        if (view.futurePrediction != null)
+          for (final window in view.futurePrediction!.windows)
+            for (final domain in window.domains)
+              domain.body: domain.material!.domain.name,
       };
       final prose = document.fullPlainText
           .split('\n')
@@ -168,15 +172,20 @@ void main() {
     ).fullPlainText;
     expect(known, contains('ราศีกุมภ์ 19°19′'));
     expect(regression, contains('ราศีกุมภ์ 9°24′'));
-    expect(unknown, isNot(contains('ลัคนา')));
-    expect(unknown, isNot(contains('เรือน')));
-    expect(unknown, isNot(contains('วันทางโหราศาสตร์')));
+    expectUnknownContract(analyses['owner-unknown']!);
+    expect(unknown, isNot(contains('ลัคนา:')));
+    expect(unknown, isNot(contains('เรือนการงาน:')));
+    expect(unknown, isNot(contains('วันทางโหราศาสตร์:')));
     expect(unknown, contains('ไม่มีเวลาเกิด'));
   });
 
   test('exact reuse is accepted only for the same material signature', () {
     final signaturesByText = <String, Set<String>>{};
     for (final analysis in analyses.values) {
+      if (!analysis.input.hasBirthTime) {
+        expectUnknownContract(analysis);
+        continue;
+      }
       final prediction = ThaiBetaNarrativeComposer.narrativeView(
         analysis,
       ).futurePrediction!;

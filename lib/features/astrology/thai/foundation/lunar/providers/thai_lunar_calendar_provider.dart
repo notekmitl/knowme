@@ -22,13 +22,31 @@ class ThaiLunarProviderResolution {
 /// Facade: repository lookup + warning policy for unverified dates.
 class ThaiLunarCalendarProvider {
   ThaiLunarCalendarProvider({ThaiLunarRepository? repository})
-      : _repository = repository ?? InMemoryThaiLunarRepository();
+    : _repository = repository ?? InMemoryThaiLunarRepository();
 
   final ThaiLunarRepository _repository;
 
   ThaiLunarRepository get repository => _repository;
 
   ThaiLunarProviderResolution resolve(ThaiBirthData birthData) {
+    if (!birthData.hasBirthTime) {
+      return const ThaiLunarProviderResolution(
+        warnings: [
+          ProfileWarning(
+            code: 'LUNAR_TIME_AUTHORITY_UNAVAILABLE',
+            severity: ProfileWarningSeverity.high,
+            message:
+                'ไม่มีเวลาเกิด จึงเว้นการค้นปฏิทินจันทรคติที่ต้องใช้เวลาตรงกัน',
+            affectedFields: [
+              'myanmarKeys',
+              'mahabhutaPositionKeys',
+              'myanmarChartNumbers',
+              'mahabhutaChartNumbers',
+            ],
+          ),
+        ],
+      );
+    }
     final key = ThaiLunarLookupKey.fromDateTime(birthData.localDateTime);
     final record = _repository.lookup(key);
 

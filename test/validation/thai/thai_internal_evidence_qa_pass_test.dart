@@ -1,3 +1,5 @@
+import 'package:knowme/features/astrology/thai/knowledge/canon/integration/qa/thai_canon_evidence_alignment_runner.dart';
+import '../../evidence/or5r_unknown_contract.dart';
 import 'dart:convert';
 import 'dart:io';
 
@@ -59,10 +61,15 @@ void main() {
       );
       final outDir = Directory('tool/output');
       if (!outDir.existsSync()) outDir.createSync(recursive: true);
-      File('tool/output/thai_internal_evidence_qa_summary.json')
-          .writeAsStringSync('${const JsonEncoder.withIndent('  ').convert(map)}\n');
-      expect(File('tool/output/thai_internal_evidence_qa_summary.json').existsSync(),
-          isTrue);
+      File(
+        'tool/output/thai_internal_evidence_qa_summary.json',
+      ).writeAsStringSync(
+        '${const JsonEncoder.withIndent('  ').convert(map)}\n',
+      );
+      expect(
+        File('tool/output/thai_internal_evidence_qa_summary.json').existsSync(),
+        isTrue,
+      );
       expect(map['phase'], 'Internal Evidence Mapping Refresh');
       expect(json, isNotEmpty);
     });
@@ -81,8 +88,10 @@ void main() {
       for (final result in audit.fixtureResults) {
         expect(result.weakPromotedToStrong, isEmpty);
         for (final attachment in result.bundle.attachments) {
-          final (classification, _) =
-              ThaiCanonEvidenceAlignmentClassifier.classifyAttachment(
+          final (
+            classification,
+            _,
+          ) = ThaiCanonEvidenceAlignmentClassifier.classifyAttachment(
             attachment,
           );
           final badge = ThaiInternalEvidenceBadgeAssigner.forAttachment(
@@ -100,7 +109,10 @@ void main() {
                     ThaiCanonEvidenceAlignmentClassification.unmappedSignal ||
                 classification ==
                     ThaiCanonEvidenceAlignmentClassification.internalOnly) {
-              expect(badge, isNot(ThaiInternalEvidenceBadgeCategory.canonSupported));
+              expect(
+                badge,
+                isNot(ThaiInternalEvidenceBadgeCategory.canonSupported),
+              );
             }
           }
         }
@@ -164,7 +176,8 @@ void main() {
       produced.add(
         ThaiInternalEvidenceBadgeAssigner.forAttachment(
           ThaiCanonEvidenceAttachment(
-            signalId: 'lifePeriod:0:periodStatus:canonDerived:periodStatus.duengKhuen',
+            signalId:
+                'lifePeriod:0:periodStatus:canonDerived:periodStatus.duengKhuen',
             evidenceType: ThaiCanonEvidenceType.periodStatusStructural,
             evidenceRefs: [
               ref(
@@ -181,7 +194,8 @@ void main() {
         ThaiInternalEvidenceBadgeAssigner.forAttachment(
           qaBundle.attachments.firstWhere(
             (a) =>
-                a.evidenceType == ThaiCanonEvidenceType.periodStatusStructural &&
+                a.evidenceType ==
+                    ThaiCanonEvidenceType.periodStatusStructural &&
                 !a.signalId.contains(':periodStatus:canonDerived:'),
           ),
           trace: qaBundle.trace,
@@ -195,7 +209,9 @@ void main() {
         ),
       );
       produced.add(
-        ThaiInternalEvidenceBadgeAssigner.forRuntimeBlocker('8:AMBIGUOUS_POSITION'),
+        ThaiInternalEvidenceBadgeAssigner.forRuntimeBlocker(
+          '8:AMBIGUOUS_POSITION',
+        ),
       );
       produced.add(
         ThaiInternalEvidenceBadgeAssigner.forTraceSignal(
@@ -238,46 +254,53 @@ void main() {
     });
 
     test('aggregate audit produces core badge categories on fixtures', () {
-      expect(audit.allCategoriesProduced, containsAll([
-        'CANON_SUPPORTED',
-        'RUNTIME_METADATA_SUPPORTED',
-        'CANON_DERIVED_INTERNAL',
-        'OUT_OF_CANON_SCOPE',
-        'BLOCKED_AMBIGUOUS',
-        'BLOCKED_SOURCE_CONFLICT',
-        'REMEDY_HIDDEN',
-      ]));
+      expect(
+        audit.allCategoriesProduced,
+        containsAll([
+          'CANON_SUPPORTED',
+          'RUNTIME_METADATA_SUPPORTED',
+          'CANON_DERIVED_INTERNAL',
+          'OUT_OF_CANON_SCOPE',
+          'BLOCKED_AMBIGUOUS',
+          'BLOCKED_SOURCE_CONFLICT',
+          'REMEDY_HIDDEN',
+        ]),
+      );
     });
 
-    test('runtime periodStatus strong matches are RUNTIME_METADATA_SUPPORTED',
-        () {
-      var found = false;
-      for (final result in audit.fixtureResults) {
-        for (final attachment in result.bundle.attachments) {
-          if (attachment.evidenceType !=
-                  ThaiCanonEvidenceType.periodStatusStructural ||
-              attachment.signalId.contains(':periodStatus:canonDerived:')) {
-            continue;
-          }
-          final (classification, _) =
-              ThaiCanonEvidenceAlignmentClassifier.classifyAttachment(
-            attachment,
-          );
-          if (classification ==
-              ThaiCanonEvidenceAlignmentClassification.strongMatch) {
-            found = true;
-            expect(
-              ThaiInternalEvidenceBadgeAssigner.forAttachment(
-                attachment,
-                trace: result.bundle.trace,
-              ),
-              ThaiInternalEvidenceBadgeCategory.runtimeMetadataSupported,
+    test(
+      'runtime periodStatus strong matches are RUNTIME_METADATA_SUPPORTED',
+      () {
+        var found = false;
+        for (final result in audit.fixtureResults) {
+          for (final attachment in result.bundle.attachments) {
+            if (attachment.evidenceType !=
+                    ThaiCanonEvidenceType.periodStatusStructural ||
+                attachment.signalId.contains(':periodStatus:canonDerived:')) {
+              continue;
+            }
+            final (
+              classification,
+              _,
+            ) = ThaiCanonEvidenceAlignmentClassifier.classifyAttachment(
+              attachment,
             );
+            if (classification ==
+                ThaiCanonEvidenceAlignmentClassification.strongMatch) {
+              found = true;
+              expect(
+                ThaiInternalEvidenceBadgeAssigner.forAttachment(
+                  attachment,
+                  trace: result.bundle.trace,
+                ),
+                ThaiInternalEvidenceBadgeCategory.runtimeMetadataSupported,
+              );
+            }
           }
         }
-      }
-      expect(found, isTrue);
-    });
+        expect(found, isTrue);
+      },
+    );
 
     test('canon-derived period status is CANON_DERIVED_INTERNAL', () {
       final derived = audit.fixtureResults
@@ -358,18 +381,25 @@ void main() {
   });
 
   group('Runtime metadata audit', () {
-    test('aggregate runtime status counts match baseline', () {
-      expect(audit.runtimeMetadata.lifePeriodsWithRuntimeStatus, 56);
-      expect(audit.runtimeMetadata.lifePeriodsWithoutRuntimeStatus, 16);
-      expect(audit.runtimeMetadata.blockedAmbiguous, 14);
-      expect(audit.runtimeMetadata.blockedNoP17Rule, 0);
-      expect(
-        audit.runtimeMetadata.blockedAmbiguous +
-            audit.runtimeMetadata.blockedSourceConflict +
-            audit.runtimeMetadata.blockedMissingPosition,
-        16,
-      );
-    });
+    test(
+      'aggregate runtime status separates omitted Unknown timeline',
+      () async {
+        final alignment = await ThaiCanonEvidenceAlignmentRunner.run(
+          repository: repository,
+        );
+        expectCanonTimePartition(alignment.fixtureResults);
+        expect(audit.runtimeMetadata.lifePeriodsWithRuntimeStatus, 48);
+        expect(audit.runtimeMetadata.lifePeriodsWithoutRuntimeStatus, 16);
+        expect(audit.runtimeMetadata.blockedAmbiguous, 14);
+        expect(audit.runtimeMetadata.blockedNoP17Rule, 0);
+        expect(
+          audit.runtimeMetadata.blockedAmbiguous +
+              audit.runtimeMetadata.blockedSourceConflict +
+              audit.runtimeMetadata.blockedMissingPosition,
+          16,
+        );
+      },
+    );
 
     test('per-fixture blocker breakdown is explicit', () {
       for (final result in audit.fixtureResults) {
@@ -420,8 +450,9 @@ void main() {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
-      final before =
-          ThaiReportCanonEvidenceEnricher.userFacingFingerprint(pipeline);
+      final before = ThaiReportCanonEvidenceEnricher.userFacingFingerprint(
+        pipeline,
+      );
       await ThaiReportCanonEvidenceEnricher.enrich(
         pipeline,
         repository: repository,
@@ -454,9 +485,7 @@ void main() {
           .bundle;
 
       await tester.pumpWidget(
-        MaterialApp(
-          home: ThaiCanonEvidenceReviewPage(initialBundle: bundle),
-        ),
+        MaterialApp(home: ThaiCanonEvidenceReviewPage(initialBundle: bundle)),
       );
       await tester.pumpAndSettle();
 

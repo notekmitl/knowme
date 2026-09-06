@@ -1,3 +1,4 @@
+import '../../../evidence/or5r_unknown_contract.dart';
 import 'dart:convert';
 import 'dart:io';
 
@@ -57,15 +58,14 @@ void main() {
   });
 
   test(
-    'synthetic matrix invokes cross-mode material sensitivity',
+    'synthetic matrix separates 900 Known materials from 75 omitted Unknown forecasts',
     () {
-      var compared = 0;
-      var different = 0;
+      var omitted = 0;
+      var generatedBlocks = 0;
       final bands = <ForecastBand>{};
       final risks = <Object?>{};
       final availabilities = <ForecastEvidenceAvailability>{};
       final transitions = <bool>{};
-      final differenceCoverage = <String>{};
       final fieldCoverage = <ForecastField>{};
       for (final c in cases.where((c) => c.input.hasBirthTime).take(75)) {
         final known = _run(c);
@@ -81,70 +81,50 @@ void main() {
           startedAt: DateTime.parse(_referenceDate),
           asOf: DateTime.parse(_referenceDate),
         );
-        List<PredictionDomainModel> blocks(ThaiBetaAnalysis analysis) =>
-            ThaiBetaNarrativeComposer.narrativeView(analysis)
-                .futurePrediction!
-                .windows
-                .expand((window) => window.domains)
-                .toList();
-        String identity(PredictionDomainModel model) =>
-            '${model.material!.horizon.name}/${model.material!.domain.name}';
-        final right = {
-          for (final model in blocks(unknown)) identity(model): model,
-        };
-        for (final left in blocks(known)) {
-          final match = right.remove(identity(left))!;
-          compared += ForecastField.values.length;
-          bands.add(left.material!.band);
-          bands.add(match.material!.band);
-          risks.add(left.material!.riskDomain);
-          risks.add(match.material!.riskDomain);
-          availabilities.add(left.material!.evidenceAvailability);
-          availabilities.add(match.material!.evidenceAvailability);
-          transitions.add(left.material!.spansTransition);
-          transitions.add(match.material!.spansTransition);
-          if (left.material!.band != match.material!.band) {
-            differenceCoverage.add('band');
-          }
-          if (left.material!.riskDomain != match.material!.riskDomain) {
-            differenceCoverage.add('risk');
-          }
-          if (left.material!.evidenceAvailability !=
-              match.material!.evidenceAvailability) {
-            differenceCoverage.add('availability');
-          }
-          if (left.material!.spansTransition !=
-              match.material!.spansTransition) {
-            differenceCoverage.add('transition');
-          }
-          for (final field in ForecastField.values) {
-            fieldCoverage.add(field);
-            final a = left.material!.projection(field).toString();
-            final b = match.material!.projection(field).toString();
-            if (a != b) {
-              different++;
-              expect(
-                _forecastField(left, field),
-                isNot(_forecastField(match, field)),
-                reason:
-                    '${c.id}/${identity(left)}/${field.name} '
-                    '${left.material!.riskDomain} vs ${match.material!.riskDomain}',
-              );
+        expectUnknownContract(unknown);
+        omitted++;
+        final prediction = ThaiBetaNarrativeComposer.narrativeView(
+          known,
+        ).futurePrediction;
+        expect(prediction, isNotNull);
+        expect(prediction!.windows, hasLength(3));
+        for (final window in prediction.windows) {
+          expect(window.domains, hasLength(4));
+          for (final model in window.domains) {
+            generatedBlocks++;
+            expect(model.material, isNotNull);
+            bands.add(model.material!.band);
+            risks.add(model.material!.riskDomain);
+            availabilities.add(model.material!.evidenceAvailability);
+            transitions.add(model.material!.spansTransition);
+            for (final field in ForecastField.values) {
+              fieldCoverage.add(field);
+              expect(_forecastField(model, field), isNotEmpty);
+              expect(model.material!.projection(field).toString(), isNotEmpty);
             }
+            expect(
+              model.preparationAction,
+              isNot(contains('ไม่มีหลักฐานลัคนา')),
+            );
           }
-          expect(left.preparationAction, isNot(contains('ไม่มีหลักฐานลัคนา')));
-          expect(match.preparationAction, isNot(contains('ไม่มีหลักฐานลัคนา')));
         }
-        expect(right, isEmpty, reason: '${c.id}: unmatched unknown identity');
       }
-      expect(compared, greaterThan(0));
-      expect(different, greaterThan(0), reason: 'vacuous matrix must fail');
+      expect(omitted, 75);
+      expect(generatedBlocks, 75 * 12);
       expect(bands, containsAll(ForecastBand.values));
       expect(risks.whereType<Object>().length, greaterThan(1));
-      expect(availabilities, containsAll(ForecastEvidenceAvailability.values));
+      expect(availabilities, {ForecastEvidenceAvailability.full});
       expect(transitions, containsAll({true, false}));
-      expect(differenceCoverage, containsAll({'band', 'risk', 'availability'}));
       expect(fieldCoverage, containsAll(ForecastField.values));
+      // No Unknown field exists for a cross-mode prediction comparison.
+      // Generation sensitivity and adversarial detection remain mandatory in
+      // thai_consumer_narrative_voice_v1_test.dart; omission is not coverage.
+      expect(
+        ThaiBetaNarrativeComposer.narrativeView(
+          _run(cases.firstWhere((c) => !c.input.hasBirthTime)),
+        ).futurePrediction,
+        isNull,
+      );
     },
     timeout: const Timeout(Duration(minutes: 10)),
   );
@@ -288,6 +268,7 @@ void main() {
           }
         } else {
           unknown++;
+          expectUnknownContract(analysis);
           expect(reading.hasBirthTime, isFalse, reason: c.id);
           expect(
             domains.contains(ThaiBirthProfileCoreDomain.work),
@@ -316,6 +297,15 @@ void main() {
           (v) => v + 1,
           ifAbsent: () => 1,
         );
+        if (!c.input.hasBirthTime) {
+          expect(
+            _narrativeSignature(analysis),
+            _narrativeSignature(
+              _run(cases.firstWhere((c) => !c.input.hasBirthTime)),
+            ),
+          );
+          continue;
+        }
         final narrativeSignature = _narrativeSignature(analysis);
         narrativeFrequency.update(
           narrativeSignature,
@@ -325,6 +315,10 @@ void main() {
         narrativeCases.putIfAbsent(narrativeSignature, () => []).add(c.id);
       }
 
+      expect(known, 225);
+      expect(unknown, 75);
+      expect(omittedDomainCases, 75);
+      expect(narrativeFrequency, hasLength(225));
       final identicalReports = fullTextFrequency.values
           .where((v) => v > 1)
           .fold<int>(0, (a, b) => a + b);
@@ -346,7 +340,8 @@ void main() {
           'identicalFullReports': identicalReports,
           'uniqueFullReports': fullTextFrequency.length,
           'identicalNarrativeReports': identicalNarratives,
-          'uniqueNarrativeReports': narrativeFrequency.length,
+          'uniqueKnownNarrativeReports': narrativeFrequency.length,
+          'unknownOmittedNotPredictionCoverage': unknown,
           'duplicateNarrativeCases': narrativeCases.values
               .where((ids) => ids.length > 1)
               .toList(),
@@ -453,18 +448,24 @@ void main() {
           reason: c.id,
         );
         expect(rendered.plainText, document.fullPlainText, reason: c.id);
-        for (final section in reading.sections) {
-          expect(
-            rendered.plainText,
-            contains(section.title),
-            reason: '${c.id}/${section.domain.name}',
-          );
-          for (final paragraph in section.publicParagraphs) {
+        if (!c.input.hasBirthTime) {
+          expectUnknownContract(analysis);
+          expect(rendered.plainText, expectedUnknownText(c.input));
+        }
+        if (c.input.hasBirthTime) {
+          for (final section in reading.sections) {
             expect(
               rendered.plainText,
-              contains(paragraph),
+              contains(section.title),
               reason: '${c.id}/${section.domain.name}',
             );
+            for (final paragraph in section.publicParagraphs) {
+              expect(
+                rendered.plainText,
+                contains(paragraph),
+                reason: '${c.id}/${section.domain.name}',
+              );
+            }
           }
         }
         expect(

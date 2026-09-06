@@ -1,3 +1,4 @@
+import '../../evidence/or5r_unknown_contract.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_engine.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart';
@@ -102,13 +103,10 @@ void main() {
     });
 
     test('allowed values are only the two Canon ids', () {
-      expect(
-        LifePeriodStatusMetadataValues.allowedCanonIds,
-        {
-          'periodStatus.duengKhuen',
-          'periodStatus.duengTok',
-        },
-      );
+      expect(LifePeriodStatusMetadataValues.allowedCanonIds, {
+        'periodStatus.duengKhuen',
+        'periodStatus.duengTok',
+      });
     });
   });
 
@@ -117,6 +115,7 @@ void main() {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
+      expectCanonTimePartition(audit.fixtureResults);
 
       int sumTrace(List<String> Function(ThaiCanonEvidenceTrace t) pick) =>
           audit.fixtureResults.fold<int>(
@@ -124,48 +123,42 @@ void main() {
             (sum, result) => sum + pick(result.bundle.trace).length,
           );
 
-      expect(
-        sumTrace((t) => t.lifePeriodsWithCanonDerivedStatus),
-        8,
-      );
-      expect(
-        sumTrace((t) => t.lifePeriodsWithoutCanonStatusMarker),
-        8,
-      );
+      expect(sumTrace((t) => t.lifePeriodsWithCanonDerivedStatus), 8);
+      expect(sumTrace((t) => t.lifePeriodsWithoutCanonStatusMarker), 8);
       expect(audit.totalLifePeriodsWithoutRuntimeStatus, 16);
-      expect(
-        sumTrace((t) => t.lifePeriodsWithRuntimeStatus),
-        56,
-      );
+      expect(sumTrace((t) => t.lifePeriodsWithRuntimeStatus), 48);
     });
 
-    test('canon-derived fallback still attaches for periods without runtime',
-        () async {
-      final audit = await ThaiCanonEvidenceAlignmentRunner.run(
-        repository: repository,
-      );
+    test(
+      'canon-derived fallback still attaches for periods without runtime',
+      () async {
+        final audit = await ThaiCanonEvidenceAlignmentRunner.run(
+          repository: repository,
+        );
+        expectCanonTimePartition(audit.fixtureResults);
 
-      expect(
-        audit.fixtureResults
-            .fold<int>(
-              0,
-              (sum, r) => sum + r.bundle.trace.lifePeriodsWithRuntimeStatus.length,
-            ),
-        56,
-      );
-      expect(
-        audit.fixtureResults
-            .expand((r) => r.bundle.trace.lifePeriodsWithCanonDerivedStatus)
-            .isNotEmpty,
-        isTrue,
-      );
-      expect(
-        audit.fixtureResults
-            .expand((r) => r.bundle.attachments)
-            .any((a) => a.signalId.contains(':periodStatus:canonDerived:')),
-        isTrue,
-      );
-    });
+        expect(
+          audit.fixtureResults.fold<int>(
+            0,
+            (sum, r) =>
+                sum + r.bundle.trace.lifePeriodsWithRuntimeStatus.length,
+          ),
+          48,
+        );
+        expect(
+          audit.fixtureResults
+              .expand((r) => r.bundle.trace.lifePeriodsWithCanonDerivedStatus)
+              .isNotEmpty,
+          isTrue,
+        );
+        expect(
+          audit.fixtureResults
+              .expand((r) => r.bundle.attachments)
+              .any((a) => a.signalId.contains(':periodStatus:canonDerived:')),
+          isTrue,
+        );
+      },
+    );
 
     test('QA runtime label populates lifePeriodsWithRuntimeStatus', () async {
       final pipeline = ThaiMirrorPipeline.generate(
@@ -207,16 +200,10 @@ void main() {
       final second = ThaiMirrorPipeline.generate(birth);
 
       String fingerprint(LifeTimeline timeline) => timeline.periods
-          .map(
-            (p) =>
-                '${p.index}:${p.planet.name}:${p.startAge}-${p.endAge}',
-          )
+          .map((p) => '${p.index}:${p.planet.name}:${p.startAge}-${p.endAge}')
           .join('|');
 
-      expect(
-        fingerprint(first.lifePeriods!),
-        fingerprint(second.lifePeriods!),
-      );
+      expect(fingerprint(first.lifePeriods!), fingerprint(second.lifePeriods!));
       expect(first.lifePeriods!.periods, isNotEmpty);
     });
 
@@ -224,8 +211,9 @@ void main() {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
-      final before =
-          ThaiReportCanonEvidenceEnricher.userFacingFingerprint(pipeline);
+      final before = ThaiReportCanonEvidenceEnricher.userFacingFingerprint(
+        pipeline,
+      );
       await ThaiReportCanonEvidenceEnricher.enrich(
         pipeline,
         repository: repository,

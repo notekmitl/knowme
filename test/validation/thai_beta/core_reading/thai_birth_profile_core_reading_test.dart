@@ -1,3 +1,4 @@
+import '../../../evidence/or5r_unknown_contract.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/mirror/models/thai_mirror_theme_ref.dart';
@@ -793,33 +794,31 @@ void main() {
     );
   });
 
-  testWidgets('unsupported no-time topics are disclosed after Timeline', (
-    tester,
-  ) async {
-    await tester.pumpWidget(
-      MaterialApp(
-        home: ThaiBetaReportPage(
-          analysis: ThaiBetaNarrativeFixtures.fixtureB(),
-          audienceOverride: const ThaiBetaEvidenceBadgeAudience.anonymous(),
-          screenshotModeOverride: true,
+  testWidgets(
+    'Unknown topics are explicitly omitted without a synthetic Timeline',
+    (tester) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: ThaiBetaReportPage(
+            analysis: ThaiBetaNarrativeFixtures.fixtureB(),
+            audienceOverride: const ThaiBetaEvidenceBadgeAudience.anonymous(),
+            screenshotModeOverride: true,
+          ),
         ),
-      ),
-    );
-    await tester.pump();
+      );
+      await tester.pump();
 
-    final timeline = find.byKey(const Key('thai_consumer_life_timeline'));
-    final omissions = find.byKey(const Key('thai_birth_profile_omissions'));
-    expect(timeline, findsOneWidget);
-    expect(omissions, findsOneWidget);
-    expect(
-      tester.getTopLeft(timeline).dy,
-      lessThan(tester.getTopLeft(omissions).dy),
-    );
-    expect(
-      find.text(ThaiBirthProfileCoreReadingCopy.omissionsTitle),
-      findsOneWidget,
-    );
-  });
+      final timeline = find.byKey(const Key('thai_consumer_life_timeline'));
+      final omissions = find.text('ส่วนที่ 4 · ที่มาและข้อจำกัด');
+      expect(timeline, findsNothing);
+      expect(omissions, findsOneWidget);
+      expect(
+        tester.getTopLeft(find.text('ส่วนที่ 1 · พื้นดวงของคุณ')).dy,
+        lessThan(tester.getTopLeft(omissions).dy),
+      );
+      expect(find.text(or5rOmission), findsOneWidget);
+    },
+  );
 
   testWidgets('Thai Mirror default still renders the lifelong report', (
     tester,
@@ -896,20 +895,21 @@ void main() {
     }
   });
 
-  test('PDF appends the same omissions as the final report section', () {
-    final analysis = ThaiBetaNarrativeFixtures.fixtureB();
-    final core = ThaiBirthProfileCoreReading.fromAnalysis(analysis);
-    final export = ThaiBetaReportExportDocument.fromAnalysis(analysis);
+  test(
+    'PDF final section uses exact civil-only omissions, without legacy body',
+    () {
+      final analysis = ThaiBetaNarrativeFixtures.fixtureB();
+      final core = ThaiBirthProfileCoreReading.fromAnalysis(analysis);
+      final export = ThaiBetaReportExportDocument.fromAnalysis(analysis);
 
-    expect(core.omissions, isNotEmpty);
-    expect(
-      export.sections.last.title,
-      ThaiBirthProfileCoreReadingCopy.omissionsTitle,
-    );
-    for (final omission in core.omissions) {
-      expect(export.sections.last.paragraphs, contains(omission.publicText));
-    }
-  });
+      expect(core.omissions, isNotEmpty);
+      expect(export.sections.last.title, or5rTitles.last);
+      expectUnknownContract(analysis);
+      for (final paragraph in expectedUnknownParagraphs(analysis.input).last) {
+        expect(export.sections.last.paragraphs, contains(paragraph));
+      }
+    },
+  );
 
   test('PDF contains Core once and omits legacy lifelong semantics', () {
     final analysis = ThaiBetaNarrativeFixtures.fixtureA();

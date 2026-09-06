@@ -156,9 +156,10 @@ void main() {
         document.fullPlainText,
         isNot(contains('วันทางโหราศาสตร์เป็นวันเสาร์')),
       );
-      expect(document.infographic, isNotNull);
-      expect(document.infographic!.categories, hasLength(4));
-      expect(document.infographic!.monthlyTimelineAvailable, isFalse);
+      expect(document.infographic, isNull);
+      expect(analysis.consumerViewState!.futurePrediction, isNull);
+      expect(analysis.consumerViewState!.lifeTimeline, isNull);
+      expect(plan.monthlyTimelineAvailable, isFalse);
 
       expect(document.sections, hasLength(baseline.sections.length));
       for (var index = 0; index < baseline.sections.length; index++) {
@@ -180,24 +181,30 @@ void main() {
       final titles = document.sections
           .map((section) => section.title)
           .toList(growable: false);
-      expect(titles.where((title) => title == 'คำทำนายอดีต'), hasLength(1));
+      expect(titles.where((title) => title == 'คำทำนายอดีต'), isEmpty);
       expect(
         titles.where((title) => title == 'คำทำนายปัจจุบัน — อายุ 44 ปี'),
-        hasLength(1),
+        isEmpty,
       );
-      expect(titles.where((title) => title == 'ช่วงชีวิตถัดไป'), hasLength(1));
+      expect(titles.where((title) => title == 'ช่วงชีวิตถัดไป'), isEmpty);
+      expect(titles, [
+        'ส่วนที่ 1 · พื้นดวงของคุณ',
+        'ส่วนที่ 2 · จังหวะชีวิตที่ผ่านมาและปัจจุบัน',
+        'ส่วนที่ 3 · แนวโน้มข้างหน้า',
+        'ส่วนที่ 4 · ที่มาและข้อจำกัด',
+      ]);
       expect(titles, isNot(contains('อดีตของคุณ')));
       expect(titles, isNot(contains('ช่วงปัจจุบัน')));
       expect(titles, isNot(contains('จังหวะชีวิตระยะต่อไป')));
       expect(titles, isNot(contains('เรื่องสำคัญของช่วงนี้')));
       expect(titles.where((title) => title.trim().isEmpty), isEmpty);
       expect(
-        titles.indexOf('คำทำนายอดีต'),
-        lessThan(titles.indexOf('คำทำนายปัจจุบัน — อายุ 44 ปี')),
+        titles.indexOf('ส่วนที่ 1 · พื้นดวงของคุณ'),
+        lessThan(titles.indexOf('ส่วนที่ 2 · จังหวะชีวิตที่ผ่านมาและปัจจุบัน')),
       );
       expect(
-        titles.indexOf('คำทำนายปัจจุบัน — อายุ 44 ปี'),
-        lessThan(titles.indexOf('ช่วงชีวิตถัดไป')),
+        titles.indexOf('ส่วนที่ 2 · จังหวะชีวิตที่ผ่านมาและปัจจุบัน'),
+        lessThan(titles.indexOf('ส่วนที่ 3 · แนวโน้มข้างหน้า')),
       );
     });
 

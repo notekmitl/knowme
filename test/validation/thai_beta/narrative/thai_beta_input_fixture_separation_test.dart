@@ -66,7 +66,11 @@ void main() {
     expect(export.fullPlainText, isNot(contains('12:00')));
     expect(export.fullPlainText, contains('ไม่มีเวลาเกิด'));
     expect(export.fullPlainText, contains('วันอาทิตย์ตามปฏิทิน'));
-    expect(export.fullPlainText, isNot(contains('วันทางโหราศาสตร์')));
+    expect(
+      export.sections.last.paragraphs.first,
+      'ใช้เฉพาะวันเกิดตามปฏิทิน ไม่ใช้เวลาโดยประมาณเพื่อคำนวณวันทางโหราศาสตร์ ลัคนา หรือเรือน',
+    );
+    expect(export.fullPlainText, isNot(contains('วันทางโหราศาสตร์เป็นวัน')));
     expect(export.fullPlainText, isNot(contains('พระอาทิตย์ขึ้นเวลา')));
   });
 

@@ -1,3 +1,4 @@
+import '../../evidence/or5r_unknown_contract.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_engine.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_status_metadata.dart';
@@ -18,7 +19,9 @@ void main() {
     repository = await ThaiCanonEvidenceRepository.loadFromAsset();
   });
 
-  ThaiArchetypeContextMetadata? archetypeFor(ThaiMirrorPipelineResult pipeline) {
+  ThaiArchetypeContextMetadata? archetypeFor(
+    ThaiMirrorPipelineResult pipeline,
+  ) {
     return ThaiArchetypeContextResolver.resolve(
       remainderMetadata: ThaiRemainderMetadataResolver.resolve(
         profile: pipeline.profile,
@@ -247,30 +250,33 @@ void main() {
   });
 
   group('Blocker chain and trace', () {
-    test('QA sample resolves every period through current position paths',
-        () async {
-      final pipeline = ThaiMirrorPipeline.generate(
-        ThaiMirrorPipeline.sampleQaBirthData(),
-      );
-      final bundle = await ThaiReportCanonEvidenceEnricher.enrich(
-        pipeline,
-        repository: repository,
-      );
+    test(
+      'QA sample resolves every period through current position paths',
+      () async {
+        final pipeline = ThaiMirrorPipeline.generate(
+          ThaiMirrorPipeline.sampleQaBirthData(),
+        );
+        final bundle = await ThaiReportCanonEvidenceEnricher.enrich(
+          pipeline,
+          repository: repository,
+        );
 
-      expect(
-        bundle.trace.lifePeriodsWithPositionMetadata.length,
-        greaterThanOrEqualTo(
-          bundle.trace.lifePeriodsWithPeriodContextMetadata.length,
-        ),
-      );
-      expect(bundle.trace.lifePeriodsWithPositionMetadata, isNotEmpty);
-      expect(bundle.trace.lifePeriodsWithoutPositionMetadata, isEmpty);
-    });
+        expect(
+          bundle.trace.lifePeriodsWithPositionMetadata.length,
+          greaterThanOrEqualTo(
+            bundle.trace.lifePeriodsWithPeriodContextMetadata.length,
+          ),
+        );
+        expect(bundle.trace.lifePeriodsWithPositionMetadata, isNotEmpty);
+        expect(bundle.trace.lifePeriodsWithoutPositionMetadata, isEmpty);
+      },
+    );
 
     test('9-fixture aggregate counts and partial blocker', () async {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
+      expectCanonTimePartition(audit.fixtureResults);
 
       var withContext = 0;
       var withoutContext = 0;
@@ -308,9 +314,9 @@ void main() {
         expect(trace.positionMetadataIneligiblePeriods, isEmpty);
       }
 
-      expect(withContext, 8);
-      expect(withoutContext, 64);
-      expect(withPosition, 56);
+      expect(withContext, 7);
+      expect(withoutContext, 57);
+      expect(withPosition, 48);
       expect(withPosition, greaterThan(withContext));
       expect(withoutPosition, 16);
     });
@@ -331,7 +337,10 @@ void main() {
         LifePeriodRiseFallFeasibilityResult.readyToExposeMetadata,
       );
       expect(audit.periodsWithPositionMetadata, greaterThan(0));
-      expect(audit.periodsEligibleForRiseFall, audit.periodsWithPositionMetadata);
+      expect(
+        audit.periodsEligibleForRiseFall,
+        audit.periodsWithPositionMetadata,
+      );
       expect(audit.periodsIneligibleForRiseFall, 0);
     });
 
@@ -339,6 +348,7 @@ void main() {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
+      expectCanonTimePartition(audit.fixtureResults);
 
       final withoutPosition = audit.fixtureResults.fold<int>(
         0,
@@ -362,8 +372,9 @@ void main() {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
-      final before =
-          ThaiReportCanonEvidenceEnricher.userFacingFingerprint(pipeline);
+      final before = ThaiReportCanonEvidenceEnricher.userFacingFingerprint(
+        pipeline,
+      );
       await ThaiReportCanonEvidenceEnricher.enrich(
         pipeline,
         repository: repository,

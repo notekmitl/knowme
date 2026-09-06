@@ -1,3 +1,4 @@
+import '../../../evidence/or5r_unknown_contract.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/prediction/prediction_section_model.dart';
@@ -209,6 +210,10 @@ void main() {
       startedAt: DateTime(2026, 8, 7),
     );
     for (final candidate in [analysis, unknownAnalysis]) {
+      if (!candidate.input.hasBirthTime) {
+        expectUnknownContract(candidate);
+        continue;
+      }
       final windows = ThaiBetaNarrativeComposer.narrativeView(
         candidate,
       ).futurePrediction!.windows;
@@ -430,28 +435,23 @@ void main() {
     final known = fixtures
         .expand((fixture) => predictiveBlocks(fixture.known))
         .toList();
-    final unknown = fixtures
-        .expand((fixture) => predictiveBlocks(fixture.unknown))
+    // Unknown has no right-hand predictive material. Do not turn omission into
+    // a successful 240-cell forecast comparison; the old validator must reject
+    // missing generated identities while the runtime passes the omission gate.
+    for (final fixture in fixtures) {
+      expectUnknownContract(fixture.unknown);
+      expect(predictiveBlocks(fixture.known), hasLength(12));
+    }
+    expect(fixtures, hasLength(5));
+    expect(known, hasLength(60));
+    final knownIds = fixtures
+        .expand((f) => List.filled(12, f.profileCaseId))
         .toList();
     final report = _matrixReport(
       known,
-      unknown,
-      knownProfileCaseIds: fixtures
-          .expand(
-            (fixture) => List.filled(
-              predictiveBlocks(fixture.known).length,
-              fixture.profileCaseId,
-            ),
-          )
-          .toList(),
-      unknownProfileCaseIds: fixtures
-          .expand(
-            (fixture) => List.filled(
-              predictiveBlocks(fixture.unknown).length,
-              fixture.profileCaseId,
-            ),
-          )
-          .toList(),
+      const [],
+      knownProfileCaseIds: knownIds,
+      unknownProfileCaseIds: const [],
       productionGenerationSensitivity: _productionGenerationSensitivity(
         known.first,
       ),
@@ -459,31 +459,35 @@ void main() {
         known.first,
       ),
     );
-    expect(report.totalComparedCells, 240);
-    expect(report.differentFingerprintCells, greaterThan(0));
-    expect(report.equalFingerprintCells, greaterThan(0));
-    expect(report.violations, isEmpty, reason: report.violations.join('\n'));
-    expect(report.isAcceptable, isTrue, reason: report.failures.join('\n'));
+    expect(report.totalComparedCells, 0);
+    expect(report.differentFingerprintCells, 0);
+    expect(report.equalFingerprintCells, 0);
+    expect(report.violations, [
+      for (var i = 0; i < known.length; i++)
+        'missing identity ${knownIds[i]}/${known[i].material!.horizon.name}/${known[i].material!.domain.name}',
+    ]);
+    expect(report.isAcceptable, isFalse);
     expect(
-      report.observedValueCoverage['band'],
+      known.map((d) => d.material!.band).toSet(),
       containsAll(ForecastBand.values),
     );
     expect(
-      report.observedValueCoverage['risk']!.whereType<LifeDomain>().length,
+      known
+          .map((d) => d.material!.riskDomain)
+          .toSet()
+          .whereType<LifeDomain>()
+          .length,
       greaterThan(1),
     );
+    expect(known.map((d) => d.material!.evidenceAvailability).toSet(), {
+      ForecastEvidenceAvailability.full,
+    });
     expect(
-      report.observedValueCoverage['availability'],
-      containsAll(ForecastEvidenceAvailability.values),
-    );
-    expect(
-      report.observedValueCoverage['transition'],
+      known.map((d) => d.material!.spansTransition).toSet(),
       containsAll({true, false}),
     );
-    expect(
-      report.actualDifferenceCoverage,
-      containsAll({'band', 'risk', 'availability'}),
-    );
+    expect(report.actualDifferenceCoverage, isEmpty);
+    expect(report.observedValueCoverage.values.every((v) => v.isEmpty), isTrue);
     expect(
       report.productionGenerationSensitivity,
       containsAll({'band', 'risk', 'availability', 'transition'}),
@@ -511,16 +515,21 @@ void main() {
         ),
         startedAt: DateTime(2026, 8, 7),
       );
-      final unknown = ThaiBetaNarrativeComposer.narrativeView(
-        unknownAnalysis,
-      ).futurePrediction!.windows.expand((window) => window.domains).toList();
+      expectUnknownContract(unknownAnalysis);
+      final unknown = <PredictionDomainModel>[];
+      expect(
+        ThaiBetaNarrativeComposer.narrativeView(
+          unknownAnalysis,
+        ).futurePrediction,
+        isNull,
+      );
       expect(
         known.map((domain) => domain.material!.evidenceAvailability).toSet(),
         {ForecastEvidenceAvailability.full},
       );
       expect(
         unknown.map((domain) => domain.material!.evidenceAvailability).toSet(),
-        {ForecastEvidenceAvailability.noLagna},
+        <ForecastEvidenceAvailability>{},
       );
       for (final domain in [...known, ...unknown]) {
         expect(domain.materialFingerprint, contains('|t='));
@@ -534,13 +543,10 @@ void main() {
       });
       expect(
         unknown.map((domain) => domain.material!.sourceOwnership).toSet(),
-        {'life-period-score-without-lagna'},
+        <String>{},
       );
       expect(known.every((domain) => domain.material!.timeDependent), isTrue);
-      expect(
-        unknown.every((domain) => !domain.material!.timeDependent),
-        isTrue,
-      );
+      expect(unknown, isEmpty);
       expect(
         known.map((domain) => domain.material!.spansTransition).toSet(),
         containsAll({true, false}),
@@ -625,16 +631,13 @@ void main() {
       ),
       startedAt: DateTime(2026, 8, 7),
     );
-    final unknown = ThaiBetaNarrativeComposer.narrativeView(
-      unknownAnalysis,
-    ).futurePrediction!.windows.expand((window) => window.domains).toList();
-    for (final domain in unknown) {
-      expect(domain.uncertaintyDisclosure, contains('ไม่มีเวลาเกิด'));
-      expect(domain.preparationAction, isNot(contains('ไม่มีเวลาเกิด')));
-      expect(domain.claim, isNot(contains('ไม่มีเวลาเกิด')));
-      expect(domain.risk, isNot(contains('ไม่มีเวลาเกิด')));
-      expect(domain.decisionImpact, isNot(contains('ไม่มีเวลาเกิด')));
-    }
+    expectUnknownContract(unknownAnalysis);
+    final document = ThaiBetaReportExportDocument.candidate(unknownAnalysis);
+    expect(or5rOmission.allMatches(document.fullPlainText), hasLength(1));
+    expect(unknownAnalysis.consumerViewState!.futurePrediction, isNull);
+    expect(document.predictiveRuntimeV2!.emittedPredictions, 0);
+    expect(document.infographic, isNull);
+    expect(document.predictiveRuntimeV2!.monthlyTimelineAvailable, isFalse);
 
     const fullMaterial = ForecastMaterialFingerprint(
       horizon: ForecastHorizon.current,

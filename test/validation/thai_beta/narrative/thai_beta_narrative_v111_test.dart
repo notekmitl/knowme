@@ -1,3 +1,4 @@
+import '../../../evidence/or5r_unknown_contract.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_curated_block_integrity.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_curated_block_selector.dart';
@@ -13,19 +14,18 @@ void main() {
   group('Block Integrity V1.1.1', () {
     test('curated catalog passes integrity validation', () {
       final report = ThaiBetaCuratedBlockIntegrity.validate();
-      expect(
-        report.violations,
-        isEmpty,
-        reason: report.violations.join('\n'),
-      );
+      expect(report.violations, isEmpty, reason: report.violations.join('\n'));
     });
 
     test('every section has required fields for its type', () {
       for (final block in ThaiBetaCuratedNarrativeBlocks.all) {
         switch (block.section) {
           case CuratedNarrativeSection.hero:
-            expect(block.heroSentences.length, greaterThanOrEqualTo(3),
-                reason: block.id);
+            expect(
+              block.heroSentences.length,
+              greaterThanOrEqualTo(3),
+              reason: block.id,
+            );
           case CuratedNarrativeSection.strength:
             expect(block.observableBehavior, isNotNull, reason: block.id);
             expect(block.strengthText, isNotNull, reason: block.id);
@@ -80,7 +80,8 @@ void main() {
             CuratedBlockQuery(
               section: section,
               primaryThemeId: 'nonexistent_theme_xyz',
-              domain: section == CuratedNarrativeSection.hero ||
+              domain:
+                  section == CuratedNarrativeSection.hero ||
                       section == CuratedNarrativeSection.strength
                   ? null
                   : domain,
@@ -89,10 +90,16 @@ void main() {
               seed: section.index * 10 + domain.index,
             ),
           );
-          expect(selection.block.requiresBirthTime, isFalse,
-              reason: '${section.name}/${domain.name}');
-          expect(selection.block.safeWithoutBirthTime, isTrue,
-              reason: '${section.name}/${domain.name} → ${selection.block.id}');
+          expect(
+            selection.block.requiresBirthTime,
+            isFalse,
+            reason: '${section.name}/${domain.name}',
+          );
+          expect(
+            selection.block.safeWithoutBirthTime,
+            isTrue,
+            reason: '${section.name}/${domain.name} → ${selection.block.id}',
+          );
           final effective = ThaiBetaNarrativeConfidence.effectiveMinimum(
             declaredMinimum: selection.block.minimumConfidence,
             requiresBirthTime: selection.block.requiresBirthTime,
@@ -136,7 +143,8 @@ void main() {
         ThaiBetaNarrativeFixtures.fixtureB(),
       );
       final withBlocks = result.trace.entries.where((e) => e.blockId != null);
-      expect(withBlocks, isNotEmpty);
+      expect(withBlocks, isEmpty);
+      expectUnknownContract(ThaiBetaNarrativeFixtures.fixtureB());
       for (final entry in withBlocks) {
         expect(entry.minimumConfidence, isNotNull);
         expect(
@@ -157,8 +165,7 @@ void main() {
         withBlocks.any(
           (e) =>
               e.minimumConfidence != null &&
-              e.minimumConfidence! >=
-                  ThaiBetaNarrativeConfidence.withBirthTime,
+              e.minimumConfidence! >= ThaiBetaNarrativeConfidence.withBirthTime,
         ),
         isTrue,
       );

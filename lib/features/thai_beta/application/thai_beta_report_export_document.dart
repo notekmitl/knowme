@@ -162,6 +162,7 @@ class ThaiBetaReportExportDocument {
       );
     }
 
+    if (!analysis.input.hasBirthTime) return _unknownDocument(analysis);
     final view = ThaiBetaNarrativeComposer.narrativeView(analysis);
 
     final sections = <ThaiBetaReportExportSection>[
@@ -402,6 +403,51 @@ class ThaiBetaReportExportDocument {
     ThaiBetaAnalysis analysis, {
     List<ThaiPublicEvidenceBadgeBetaViewModel> badges = const [],
   }) => fromAnalysis(analysis, badges: badges, applyReaderCopy: false);
+
+  static ThaiBetaReportExportDocument _unknownDocument(
+    ThaiBetaAnalysis analysis,
+  ) {
+    final view = ThaiBetaNarrativeComposer.narrativeView(analysis);
+    ThaiBetaReportExportSection section(
+      String id,
+      String title,
+      List<String> paragraphs,
+    ) => ThaiBetaReportExportSection(
+      id: 'unknown-safe-$id',
+      title: title,
+      paragraphs: paragraphs,
+      kind: ThaiBetaReportExportSectionKind.chapter,
+      fieldSource: 'civil-input-and-omission-only',
+      knownUnknownRule: 'unknown-only',
+      traceIds: ['unknown-safe:$id'],
+    );
+    return ThaiBetaReportExportDocument(
+      title: 'KnowMe — รายงานโหราไทย',
+      subtitle: 'ไม่ทราบเวลาเกิด — แสดงข้อมูลที่ยืนยันได้และหัวข้อที่เว้นไว้',
+      filenameStem: 'knowme-thai-report',
+      infographic: null,
+      sections: [
+        section('civil', 'ส่วนที่ 1 · พื้นดวงของคุณ', [
+          view.sourceTransparency.dataUsed,
+          if ((analysis.input.province ?? '').isNotEmpty)
+            'จังหวัดที่เกิด: ${analysis.input.province}',
+          view.hero.summary,
+        ]),
+        section('past-current', 'ส่วนที่ 2 · จังหวะชีวิตที่ผ่านมาและปัจจุบัน', [
+          'รายงานเว้นการแบ่งช่วงชีวิตและคำทำนายอดีตหรือปัจจุบัน เพราะยังยืนยันวันทางโหราศาสตร์ไม่ได้เมื่อไม่มีเวลาเกิด',
+        ]),
+        section('future', 'ส่วนที่ 3 · แนวโน้มข้างหน้า', [
+          'รายงานเว้นแนวโน้ม 12 เดือนข้างหน้าและช่วงชีวิตถัดไป รวมถึงภาพสรุปคำทำนาย เพราะข้อมูลไม่เพียงพอสำหรับคำนวณส่วนนี้',
+        ]),
+        section('limits', 'ส่วนที่ 4 · ที่มาและข้อจำกัด', [
+          view.sourceTransparency.calculation,
+          view.sourceTransparency.meaning,
+          'หัวข้อที่เว้นไว้: ลัคนา เรือน องศา บุคลิกจากพื้นดวง และคำทำนายการงาน การเงิน ความสัมพันธ์ สุขภาพ',
+          ...view.disclaimers,
+        ]),
+      ],
+    );
+  }
 
   /// Candidate reader-visible projection for the vNext Owner review surface.
   ///

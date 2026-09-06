@@ -1,4 +1,5 @@
 import 'dart:io';
+import '../../evidence/or5r_unknown_contract.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -229,22 +230,35 @@ void main() {
           expect(text, isNot(contains('มีแนวโน้ม')));
           expect(text, isNot(contains('มีโอกาส')));
         } else {
+          expectUnknownContract(fixture);
           expect(
             text,
-            anyOf(
-              contains('ทำตามสิ่งที่คุยกันไว้ได้จริง'),
-              contains('ทำตามที่คุยกันไว้ได้จริง'),
-              contains('คนที่พร้อมเดินต่อจะแสดงความรับผิดชอบให้เห็น'),
+            isNot(
+              anyOf(
+                contains('ทำตามสิ่งที่คุยกันไว้ได้จริง'),
+                contains('ทำตามที่คุยกันไว้ได้จริง'),
+                contains('คนที่พร้อมเดินต่อจะแสดงความรับผิดชอบให้เห็น'),
+              ),
             ),
           );
         }
-        expect(
-          text,
-          anyOf(
-            contains('แนวโน้ม 12 เดือนข้างหน้า'),
-            contains('คำทำนาย 12 เดือนข้างหน้า'),
-          ),
-        );
+        if (fixture.input.hasBirthTime) {
+          expect(
+            text,
+            anyOf(
+              contains('แนวโน้ม 12 เดือนข้างหน้า'),
+              contains('คำทำนาย 12 เดือนข้างหน้า'),
+            ),
+          );
+        } else {
+          expect(
+            ThaiBetaReportExportDocument.candidate(
+              fixture,
+            ).sections.map((s) => s.title),
+            isNot(contains('แนวโน้ม 12 เดือนข้างหน้า')),
+          );
+          expect(text, isNot(contains('คำทำนาย 12 เดือนข้างหน้า')));
+        }
         expect(text, isNot(contains('คำทำนายรายเดือน')));
       }
     });
@@ -277,12 +291,14 @@ void main() {
         'จุดแข็งและความเสี่ยงจากพื้นดวง: ยังสรุปไม่ได้เพราะข้อมูลไม่ครบ',
       ];
 
-      expect(text, contains(reportFailClosed));
-      expect(document.infographic!.disclaimer, failClosed);
-      expect(document.infographic!.primaryAdvice, closing);
-      expect(text, contains(closing));
+      expectUnknownContract(unknown);
+      expectUnknownDocument(unknown.input, document);
+      expect(text, isNot(contains(reportFailClosed)));
+      expect(document.infographic, isNull);
+      expect(failClosed.allMatches(text), hasLength(1));
+      expect(text, isNot(contains(closing)));
       for (final omission in omissions) {
-        expect(text, contains(omission), reason: omission);
+        expect(text, isNot(contains(omission)), reason: omission);
       }
       for (final rejected in const <String>[
         'ไม่มีเวลาเกิด — บางส่วนอาจคลาดเคลื่อนเล็กน้อย',
@@ -297,7 +313,10 @@ void main() {
       ]) {
         expect(text, isNot(contains(rejected)), reason: rejected);
       }
-      expect(text, contains('แนวโน้ม 12 เดือนข้างหน้า'));
+      expect(
+        document.sections.map((s) => s.title),
+        isNot(contains('แนวโน้ม 12 เดือนข้างหน้า')),
+      );
       expect(text, isNot(contains('คำทำนายรายเดือน')));
     });
 
@@ -372,14 +391,17 @@ void main() {
       );
       expect(
         texts.last,
-        contains('แยกเงินสำหรับลองสิ่งใหม่ออกจากค่าใช้จ่ายประจำ'),
+        isNot(contains('แยกเงินสำหรับลองสิ่งใหม่ออกจากค่าใช้จ่ายประจำ')),
       );
       expect(
         texts.last,
-        contains(
-          'แล้วแยกดูว่าสิ่งใดเป็นทางเลือกของคุณ และสิ่งใดเกิดจากความคาดหวังรอบตัว',
+        isNot(
+          contains(
+            'แล้วแยกดูว่าสิ่งใดเป็นทางเลือกของคุณ และสิ่งใดเกิดจากความคาดหวังรอบตัว',
+          ),
         ),
       );
+      expectUnknownContract(fixtures.last);
     });
 
     test(
@@ -476,19 +498,18 @@ void main() {
         expect(known.fullPlainText, contains('เรื่องสุขภาพ ให้สังเกตว่า'));
         expect(
           unknown.fullPlainText,
-          contains(
-            'เพราะไม่มีเวลาเกิด รายงานจึงบอกไม่ได้ว่าเหตุการณ์จะเกิดเมื่อไร',
+          isNot(
+            contains(
+              'เพราะไม่มีเวลาเกิด รายงานจึงบอกไม่ได้ว่าเหตุการณ์จะเกิดเมื่อไร',
+            ),
           ),
         );
-        expect(
-          'ผลดีจากครั้งเดียว'.allMatches(unknown.fullPlainText),
-          hasLength(1),
-        );
+        expect('ผลดีจากครั้งเดียว'.allMatches(unknown.fullPlainText), isEmpty);
         expect(
           'รายงานจึงบอกไม่ได้ว่าเหตุการณ์จะเกิดเมื่อไร'.allMatches(
             unknown.fullPlainText,
           ),
-          hasLength(1),
+          isEmpty,
         );
         final omissionRows = unknown.sections
             .expand((section) => section.paragraphs)
@@ -498,15 +519,24 @@ void main() {
                   paragraph.contains('ยังสรุปไม่ได้'),
             )
             .toList(growable: false);
-        expect(omissionRows, hasLength(6));
+        expect(omissionRows, isEmpty);
         expect(
           omissionRows.map((row) => row.split(':').first).toSet(),
-          hasLength(6),
+          isEmpty,
         );
-        expect(
-          unknown.infographic!.categories.map((item) => item.summary).toSet(),
-          hasLength(unknown.infographic!.categories.length),
+        expect(unknown.infographic, isNull);
+        expectUnknownDocument(
+          ThaiBetaInput(
+            firstName: 'Owner',
+            lastName: 'Unknown',
+            birthDate: DateTime(1982, 6, 6),
+            birthTimeUnknown: true,
+            province: 'เชียงใหม่',
+            provinceKey: 'chiang_mai',
+          ),
+          unknown,
         );
+        expect(or5rOmission.allMatches(unknown.fullPlainText), hasLength(1));
       },
     );
 
@@ -546,7 +576,7 @@ void main() {
       ).fullPlainText;
       final prediction = ThaiBetaNarrativeComposer.narrativeView(
         unknown,
-      ).futurePrediction!;
+      ).futurePrediction;
 
       for (final text in [webText, pdfText]) {
         expect(text, isNot(contains('ก่อนพระอาทิตย์ขึ้น')));
@@ -556,14 +586,9 @@ void main() {
       }
       expect(unknown.input.toMap()['birthHour'], isNull);
       expect(unknown.input.toMap()['birthMinute'], isNull);
-      for (final domain in prediction.windows.expand(
-        (window) => window.domains,
-      )) {
-        expect(domain.uncertaintyDisclosure, contains('ไม่มีเวลาเกิด'));
-        expect(domain.preparationAction, isNot(contains('ไม่มีเวลาเกิด')));
-      }
-      final reportEvidenceBoundary =
-          prediction.windows.first.domains.first.uncertaintyDisclosure;
+      expect(prediction, isNull);
+      expectUnknownContract(unknown);
+      const reportEvidenceBoundary = or5rOmission;
       expect(reportEvidenceBoundary, isNotEmpty);
       expect(reportEvidenceBoundary.allMatches(pdfText), hasLength(1));
     });
@@ -692,57 +717,62 @@ void main() {
   });
 
   group('Real PDF exporter path regression', () {
-    test('chaptered report fixtures stay at measured 6/6 pages', () async {
-      for (final fixture in <({bool knownTime, int pages})>[
-        (knownTime: true, pages: 6),
-        (knownTime: false, pages: 6),
-      ]) {
-        final productionAnalysis = ThaiBetaAnalysisRunner.run(
-          ThaiBetaInput(
-            firstName: 'ทดสอบ',
-            lastName: fixture.knownTime ? 'ระบบ' : 'ไม่ทราบเวลา',
-            birthDate: DateTime(2001, 1, 15),
-            birthHour: fixture.knownTime ? 10 : null,
-            birthMinute: 0,
-            birthTimeUnknown: !fixture.knownTime,
-            province: fixture.knownTime ? 'เชียงใหม่' : '',
-            provinceKey: fixture.knownTime ? 'chiang_mai' : '',
-          ),
-          startedAt: DateTime(2026, 8, 12),
-        );
-        final document = ThaiBetaReportExportDocument.fromAnalysis(
-          productionAnalysis,
-          badges: const [
-            ThaiPublicEvidenceBadgeBetaViewModel(
-              sectionId: 'production-pagination-regression',
-              badgeLabel: ThaiPublicEvidenceBadgeCopy.primaryBadgeLabel,
-              cautionCopy: ThaiPublicEvidenceBadgeCopy.cautionCopy,
-              sourceLevel:
-                  ThaiPublicEvidenceDisclosureLevel.level1PublicSummaryBadge,
-              eligible: true,
+    test(
+      'chaptered report fixtures stay at measured Known 6 / Unknown 1 pages',
+      () async {
+        for (final fixture in <({bool knownTime, int pages})>[
+          (knownTime: true, pages: 6),
+          // Measured with pdfinfo and visually opened: build/or5r/pagination-measured/unknown-time.pdf.
+          (knownTime: false, pages: 1),
+        ]) {
+          final productionAnalysis = ThaiBetaAnalysisRunner.run(
+            ThaiBetaInput(
+              firstName: 'ทดสอบ',
+              lastName: fixture.knownTime ? 'ระบบ' : 'ไม่ทราบเวลา',
+              birthDate: DateTime(2001, 1, 15),
+              birthHour: fixture.knownTime ? 10 : null,
+              birthMinute: 0,
+              birthTimeUnknown: !fixture.knownTime,
+              province: fixture.knownTime ? 'เชียงใหม่' : '',
+              provinceKey: fixture.knownTime ? 'chiang_mai' : '',
             ),
-          ],
-        );
-        final rendered = await ThaiBetaReportPdfExporter.build(document);
-        final evidenceOutput =
-            Platform.environment['KNOWME_PAGINATION_HOTFIX_OUTPUT'];
-        if (evidenceOutput != null && evidenceOutput.isNotEmpty) {
-          final output = Directory(evidenceOutput)..createSync(recursive: true);
-          final stem = fixture.knownTime ? 'known-time' : 'unknown-time';
-          File('${output.path}/$stem.pdf').writeAsBytesSync(rendered.bytes);
-          File(
-            '${output.path}/$stem-canonical.txt',
-          ).writeAsStringSync(rendered.plainText);
-        }
+            startedAt: DateTime(2026, 8, 12),
+          );
+          final document = ThaiBetaReportExportDocument.fromAnalysis(
+            productionAnalysis,
+            badges: const [
+              ThaiPublicEvidenceBadgeBetaViewModel(
+                sectionId: 'production-pagination-regression',
+                badgeLabel: ThaiPublicEvidenceBadgeCopy.primaryBadgeLabel,
+                cautionCopy: ThaiPublicEvidenceBadgeCopy.cautionCopy,
+                sourceLevel:
+                    ThaiPublicEvidenceDisclosureLevel.level1PublicSummaryBadge,
+                eligible: true,
+              ),
+            ],
+          );
+          final rendered = await ThaiBetaReportPdfExporter.build(document);
+          final evidenceOutput =
+              Platform.environment['KNOWME_PAGINATION_HOTFIX_OUTPUT'];
+          if (evidenceOutput != null && evidenceOutput.isNotEmpty) {
+            final output = Directory(evidenceOutput)
+              ..createSync(recursive: true);
+            final stem = fixture.knownTime ? 'known-time' : 'unknown-time';
+            File('${output.path}/$stem.pdf').writeAsBytesSync(rendered.bytes);
+            File(
+              '${output.path}/$stem-canonical.txt',
+            ).writeAsStringSync(rendered.plainText);
+          }
 
-        expect(
-          rendered.pageCount,
-          fixture.pages,
-          reason: fixture.knownTime ? 'Known-time' : 'Unknown-time',
-        );
-        expect(rendered.plainText, document.fullPlainText);
-      }
-    });
+          expect(
+            rendered.pageCount,
+            fixture.pages,
+            reason: fixture.knownTime ? 'Known-time' : 'Unknown-time',
+          );
+          expect(rendered.plainText, document.fullPlainText);
+        }
+      },
+    );
 
     test('continuation heading stays atomic without forcing a new page', () {
       expect(
@@ -838,6 +868,13 @@ void main() {
           final rendered = await ThaiBetaReportPdfExporter.build(document);
           final pdf = File('${temp.path}/${fixture.key}.pdf')
             ..writeAsBytesSync(rendered.bytes);
+          final rasterEvidence =
+              Platform.environment['KNOWME_OR5R_RASTER_EVIDENCE'];
+          if (rasterEvidence != null && rasterEvidence.isNotEmpty) {
+            final directory = Directory(rasterEvidence)
+              ..createSync(recursive: true);
+            pdf.copySync('${directory.path}/${fixture.key}.pdf');
+          }
           final prefix = '${temp.path}/${fixture.key}';
           final result = await Process.run(renderer!, [
             '-r',
@@ -864,7 +901,8 @@ void main() {
                   .toList()
                 ..sort((a, b) => a.path.compareTo(b.path));
           expect(pages, isNotEmpty);
-          final expectedPages = 6;
+          // Actual PDFs rasterized and opened: build/or5r/raster-measured/.
+          final expectedPages = fixture.value.input.hasBirthTime ? 6 : 1;
           expect(
             pages.length,
             expectedPages,

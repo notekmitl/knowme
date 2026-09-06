@@ -1,3 +1,4 @@
+import '../../evidence/or5r_unknown_contract.dart';
 import 'dart:convert';
 import 'dart:io';
 
@@ -77,8 +78,14 @@ void main() {
             .skip(methodologyChapterIndex)
             .expand((section) => <String>[section.title, ...section.paragraphs])
             .join('\n');
-        expect(methodologyText, contains('รายงานนี้ดูจากอะไร'));
-        expect(methodologyText, contains('ที่มาของผลวิเคราะห์'));
+        if (profile.input.hasBirthTime) {
+          expect(methodologyText, contains('รายงานนี้ดูจากอะไร'));
+          expect(methodologyText, contains('ที่มาของผลวิเคราะห์'));
+        } else {
+          expectUnknownContract(analysis);
+          expect(before.fullPlainText, expectedUnknownText(profile.input));
+          expect(after.fullPlainText, expectedUnknownText(profile.input));
+        }
         if (profile.input.hasBirthTime) {
           expect(methodologyText, contains('โครงสร้างดวงหลัก'));
           expect(methodologyText, contains('ลัคนา:'));
@@ -201,6 +208,7 @@ void main() {
         final afterContentSections = after.sections
             .where(
               (section) =>
+                  !profile.input.hasBirthTime ||
                   section.kind != ThaiBetaReportExportSectionKind.chapter,
             )
             .toList(growable: false);
@@ -285,6 +293,17 @@ void main() {
               semanticKey: _coreSemanticKey(left.title, paragraphIndex),
             );
           }
+        }
+        if (!profile.input.hasBirthTime) {
+          expect(before.infographic, isNull);
+          expect(after.infographic, isNull);
+          infographicProfiles.add({
+            'profileId': profile.id,
+            'birthTimeMode': 'Unknown',
+            'status': 'omitted-not-applicable:no-birth-time',
+            'generatedPredictionCount': 0,
+          });
+          continue;
         }
         final beforeGraphic = before.infographic!;
         final afterGraphic = after.infographic!;
@@ -417,13 +436,6 @@ void main() {
             '${profile.id}: transition reserve was not relocated exactly once',
           );
         }
-        if (!profile.input.hasBirthTime &&
-            afterGraphic.disclaimer !=
-                'ไม่มีเวลาเกิด — รายงานจึงเว้นหัวข้อที่ต้องใช้เวลาเกิด') {
-          copyQualityViolations.add(
-            '${profile.id}: Unknown fail-closed omission boundary is inconsistent',
-          );
-        }
         if (afterGraphic.theme.contains('พฤติกรรมหลังข้อตกลง') ||
             afterGraphic.theme.contains('ใช้ขอบเขตหน้าที่') ||
             afterGraphic.primaryAdvice.contains(
@@ -464,6 +476,16 @@ void main() {
       expect(rows.every((row) => row['omission'] == false), isTrue);
       expect(rows.every((row) => row['addition'] == false), isTrue);
       expect(copyQualityViolations, isEmpty);
+      expect(
+        infographicProfiles.where((row) => row['birthTimeMode'] == 'Known'),
+        hasLength(225),
+      );
+      expect(
+        infographicProfiles.where(
+          (row) => row['status'] == 'omitted-not-applicable:no-birth-time',
+        ),
+        hasLength(75),
+      );
 
       final output = Platform.environment['KNOWME_COPY_LEDGER_OUTPUT'];
       if (output != null && output.isNotEmpty) {
@@ -477,6 +499,10 @@ void main() {
             .where((row) => row['intendedBasisRemoval'] != true)
             .toList();
         final payload = <String, Object?>{
+          'comparisonScope':
+              'Current OR5R beforeReaderCopy versus readerCopy transform; not a pre-OR5R runtime baseline comparison',
+          'generatedKnownInfographics': 225,
+          'omittedUnknownInfographics': 75,
           'profiles_checked': cases.length,
           'knownProfiles': cases.where((c) => c.input.hasBirthTime).length,
           'unknownProfiles': cases.where((c) => !c.input.hasBirthTime).length,

@@ -1,3 +1,4 @@
+import '../../evidence/or5r_unknown_contract.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_engine.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_status_metadata.dart';
@@ -52,10 +53,7 @@ void main() {
     test('Thai digits normalize to Arabic digits', () {
       final key = ThaiLifePeriodContextNormalizer.fromCanonLabel('อาย ๒๒');
       expect(key.pointAge, 22);
-      expect(
-        ThaiLifePeriodContextNormalizer.wireKey(key),
-        'pointAge:22',
-      );
+      expect(ThaiLifePeriodContextNormalizer.wireKey(key), 'pointAge:22');
     });
 
     test('Arabic digits normalize to canonical form', () {
@@ -64,10 +62,12 @@ void main() {
     });
 
     test('อายุ ๒๒ ถึง ๓๒ and อายุ 22-32 share wire key', () {
-      final thaiRange =
-          ThaiLifePeriodContextNormalizer.fromCanonLabel('อายุ ๒๒ ถึง ๓๒');
-      final hyphenRange =
-          ThaiLifePeriodContextNormalizer.fromCanonLabel('อายุ 22-32');
+      final thaiRange = ThaiLifePeriodContextNormalizer.fromCanonLabel(
+        'อายุ ๒๒ ถึง ๓๒',
+      );
+      final hyphenRange = ThaiLifePeriodContextNormalizer.fromCanonLabel(
+        'อายุ 22-32',
+      );
       expect(
         ThaiLifePeriodContextNormalizer.wireKey(thaiRange),
         ThaiLifePeriodContextNormalizer.wireKey(hyphenRange),
@@ -82,7 +82,10 @@ void main() {
       final key = ThaiLifePeriodContextNormalizer.fromCanonLabel(
         'อาย ๓๓ ถึง ๕๕ [ดวงขึ้น]',
       );
-      expect(key.statusMarker, ThaiLifePeriodContextNormalizer.statusDuengKhuen);
+      expect(
+        key.statusMarker,
+        ThaiLifePeriodContextNormalizer.statusDuengKhuen,
+      );
       expect(key.ageRangeStart, 33);
       expect(key.ageRangeEnd, 55);
       expect(
@@ -92,7 +95,9 @@ void main() {
     });
 
     test('ambiguous labels return null wire key', () {
-      final key = ThaiLifePeriodContextNormalizer.fromCanonLabel('ดวงนักวิชาการ');
+      final key = ThaiLifePeriodContextNormalizer.fromCanonLabel(
+        'ดวงนักวิชาการ',
+      );
       expect(key.isAmbiguous, isTrue);
       expect(ThaiLifePeriodContextNormalizer.wireKey(key), isNull);
     });
@@ -119,8 +124,10 @@ void main() {
 
       expect(resolution.metadata, isNotNull);
       expect(resolution.isRawMatch, isTrue);
-      expect(resolution.metadata!.matchMethod,
-          PeriodContextMatchMethod.exactPeriodLabel);
+      expect(
+        resolution.metadata!.matchMethod,
+        PeriodContextMatchMethod.exactPeriodLabel,
+      );
     });
 
     test('normalized exact age range match works', () {
@@ -155,10 +162,7 @@ void main() {
       );
 
       expect(resolution.metadata, isNotNull);
-      expect(
-        resolution.metadata!.canonLifePeriodContextValue,
-        'อาย ๒๒ ถึง ๕๕',
-      );
+      expect(resolution.metadata!.canonLifePeriodContextValue, 'อาย ๒๒ ถึง ๕๕');
     });
 
     test('planet mismatch returns null', () {
@@ -224,6 +228,7 @@ void main() {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
+      expectCanonTimePartition(audit.fixtureResults);
 
       var withContext = 0;
       var withoutContext = 0;
@@ -244,15 +249,16 @@ void main() {
         expect(
           trace.periodContextNormalizationFeasibilityResult,
           PeriodContextNormalizationFeasibilityResult
-              .readyToNormalizePeriodContext.wire,
+              .readyToNormalizePeriodContext
+              .wire,
         );
         expect(withRuntime, equals(withPosition));
       }
 
-      expect(withContext, greaterThanOrEqualTo(8));
-      expect(withoutContext, 64);
-      expect(withPosition, greaterThanOrEqualTo(56));
-      expect(withRuntime, greaterThanOrEqualTo(56));
+      expect(withContext, 7);
+      expect(withoutContext, 57);
+      expect(withPosition, 48);
+      expect(withRuntime, 48);
       expect(rawMatches + normalizedMatches, lessThanOrEqualTo(withContext));
     });
   });
@@ -262,8 +268,9 @@ void main() {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
-      final before =
-          ThaiReportCanonEvidenceEnricher.userFacingFingerprint(pipeline);
+      final before = ThaiReportCanonEvidenceEnricher.userFacingFingerprint(
+        pipeline,
+      );
       await ThaiReportCanonEvidenceEnricher.enrich(
         pipeline,
         repository: repository,

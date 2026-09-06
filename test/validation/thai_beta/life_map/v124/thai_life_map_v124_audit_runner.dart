@@ -1,3 +1,4 @@
+import '../../../../evidence/or5r_unknown_contract.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_engine.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_planet.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/mahabhut_planet_position_engine.dart';
@@ -146,6 +147,21 @@ abstract final class ThaiLifeMapV124AuditRunner {
     final anomalies = <String>[];
 
     final analysis = await ThaiBetaAnalysisRunner.runAsync(fixture.input);
+    if (analysis.isSuccess && !fixture.input.hasBirthTime) {
+      expectUnknownContract(analysis);
+      return ThaiLifeMapV124ChartAudit(
+        fixture: fixture,
+        success: true,
+        startPlanet: null,
+        wednesdayNightRahu: null,
+        periods: const [],
+        anomalies: const [],
+        fingerprint: 'omitted-not-applicable:no-birth-time',
+        exportIncludesLifeTimeline: false,
+        exportIncludesMahabhut: false,
+        badgeActivation: ThaiEvidenceBadgeActivation.configuredState ?? 'unset',
+      );
+    }
     if (!analysis.isSuccess ||
         analysis.pipelineResult == null ||
         analysis.consumerViewState?.lifeTimeline == null) {

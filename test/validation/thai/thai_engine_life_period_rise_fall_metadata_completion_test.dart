@@ -1,3 +1,4 @@
+import '../../evidence/or5r_unknown_contract.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_engine.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_status_metadata.dart';
@@ -18,7 +19,9 @@ void main() {
     repository = await ThaiCanonEvidenceRepository.loadFromAsset();
   });
 
-  ThaiArchetypeContextMetadata? archetypeFor(ThaiMirrorPipelineResult pipeline) {
+  ThaiArchetypeContextMetadata? archetypeFor(
+    ThaiMirrorPipelineResult pipeline,
+  ) {
     return ThaiArchetypeContextResolver.resolve(
       remainderMetadata: ThaiRemainderMetadataResolver.resolve(
         profile: pipeline.profile,
@@ -132,10 +135,7 @@ void main() {
           LifePeriodStatusMetadataValues.allowedCanonIds,
           contains(metadata.periodStatusCanonId),
         );
-        expect(
-          metadata.periodStatusLabel,
-          anyOf('ดวงขึ้น', 'ดวงตก'),
-        );
+        expect(metadata.periodStatusLabel, anyOf('ดวงขึ้น', 'ดวงตก'));
       }
     });
 
@@ -153,9 +153,10 @@ void main() {
         );
         if (metadata == null) continue;
 
-        final fromPosition = ThaiLifePeriodRiseFallResolver.canonIdForMahabhutPosition(
-          metadata.mahabhutPositionCanonId,
-        );
+        final fromPosition =
+            ThaiLifePeriodRiseFallResolver.canonIdForMahabhutPosition(
+              metadata.mahabhutPositionCanonId,
+            );
         expect(fromPosition, metadata.periodStatusCanonId);
         expect(metadata.source, 'runtime_position_plus_canon_rule');
         expect(metadata.confidence, 'deterministic');
@@ -185,6 +186,7 @@ void main() {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
+      expectCanonTimePartition(audit.fixtureResults);
 
       var withPosition = 0;
       var withRuntime = 0;
@@ -211,15 +213,18 @@ void main() {
           expect(
             trace.lifePeriodRiseFallFeasibilityResult,
             LifePeriodRiseFallFeasibilityResult
-                .partialRuntimeStatusMetadata.wire,
+                .partialRuntimeStatusMetadata
+                .wire,
           );
+        } else if (!result.fixture.birthData.hasBirthTime) {
+          expectOmittedCanonTimeline(result);
         } else {
           expect(trace.lifePeriodStatusMetadataBlocker, isNull);
         }
       }
 
-      expect(withPosition, 56);
-      expect(withRuntime, 56);
+      expect(withPosition, 48);
+      expect(withRuntime, 48);
       expect(withRuntime, equals(withPosition));
       expect(withoutRuntime, 16);
       expect(derived, 8);
@@ -229,6 +234,7 @@ void main() {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
+      expectCanonTimePartition(audit.fixtureResults);
 
       final ineligible = audit.fixtureResults.fold<int>(
         0,
@@ -242,6 +248,7 @@ void main() {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
+      expectCanonTimePartition(audit.fixtureResults);
 
       expect(
         audit.fixtureResults
@@ -274,8 +281,9 @@ void main() {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
-      final before =
-          ThaiReportCanonEvidenceEnricher.userFacingFingerprint(pipeline);
+      final before = ThaiReportCanonEvidenceEnricher.userFacingFingerprint(
+        pipeline,
+      );
       await ThaiReportCanonEvidenceEnricher.enrich(
         pipeline,
         repository: repository,

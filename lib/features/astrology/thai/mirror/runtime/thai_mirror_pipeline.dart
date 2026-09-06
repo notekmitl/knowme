@@ -49,7 +49,9 @@ abstract final class ThaiMirrorPipeline {
       // in the runtime — never by threading a raw birth date into presenters.
       // Consistency: feed the sunrise-adjusted astrological date (the single Thai
       // day), never the civil date — see ThaiBirthData / Birth Normalization.
-      final lifePeriods = LifePeriodEngine.fromBirthData(birthData, asOf: asOf);
+      final lifePeriods = birthData.hasBirthTime
+          ? LifePeriodEngine.fromBirthData(birthData, asOf: asOf)
+          : null;
 
       return ThaiMirrorPipelineResult.success(
         viewState: viewState,

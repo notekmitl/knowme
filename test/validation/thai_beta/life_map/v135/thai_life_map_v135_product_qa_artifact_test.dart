@@ -1,3 +1,4 @@
+import '../../../../evidence/or5r_unknown_contract.dart';
 import 'dart:io';
 
 import 'package:flutter_test/flutter_test.dart';
@@ -26,6 +27,10 @@ void main() {
     final b = ThaiBetaNarrativeFixtures.fixtureB();
 
     String dump(ThaiBetaAnalysis analysis, String label) {
+      if (!analysis.input.hasBirthTime) {
+        expectUnknownContract(analysis);
+        return '## $label\n\nOmitted-not-applicable: no birth-time authority\n\n${expectedUnknownText(analysis.input)}';
+      }
       final report = ThaiDetailedReportComposer.compose(
         birthData: analysis.pipelineResult!.birthData!,
         profile: analysis.profile!,
@@ -115,9 +120,7 @@ void main() {
       ..writeln(dump(a, 'Fixture A (complete birth time)'))
       ..writeln(dump(b, 'Fixture B (no birth time)'));
 
-    final outDir = Directory(
-      'test/validation/thai_beta/life_map/v135/output',
-    )..createSync(recursive: true);
+    final outDir = Directory('build/or5r/v135')..createSync(recursive: true);
     final file = File('${outDir.path}/v135_product_qa.md');
     file.writeAsStringSync(md.toString());
     expect(file.existsSync(), isTrue);

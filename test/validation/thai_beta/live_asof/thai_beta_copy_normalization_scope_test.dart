@@ -1,3 +1,4 @@
+import '../../../evidence/or5r_unknown_contract.dart';
 import 'dart:convert';
 import 'dart:io';
 
@@ -7,7 +8,6 @@ import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
 
 import '../synthetic_audit/thai_beta_synthetic_matrix_300.dart';
-import 'thai_beta_canonical_text_contract.dart';
 import 'thai_beta_cross_runtime_manifest.dart';
 
 void main() {
@@ -58,6 +58,7 @@ void main() {
       var omissions = 0;
       var additions = 0;
       var predictionToAdviceChanges = 0;
+      var omittedUnknownLedgerRows = 0;
 
       for (final value in current['cases']! as List<Object?>) {
         final row = value! as Map<String, Object?>;
@@ -73,16 +74,21 @@ void main() {
           isEmpty,
           reason: caseId,
         );
-        expect(
-          row['canonicalTextSha256'],
-          accepted['canonicalTextSha256'],
-          reason: '$caseId canonical reader text',
-        );
-        expect(
-          row['narrativeOnlySha256'],
-          accepted['narrativeOnlySha256'],
-          reason: '$caseId narrative reader text',
-        );
+        if (row['birthTimeMode'] == 'unknown') {
+          expect(row['unknownContractExact'], isTrue, reason: caseId);
+          expect(row['unknownPredictionCount'], 0, reason: caseId);
+        } else {
+          expect(
+            row['canonicalTextSha256'],
+            accepted['canonicalTextSha256'],
+            reason: '$caseId canonical reader text',
+          );
+          expect(
+            row['narrativeOnlySha256'],
+            accepted['narrativeOnlySha256'],
+            reason: '$caseId narrative reader text',
+          );
+        }
       }
 
       for (final value in ownerReview['rows'] as List<dynamic>) {
@@ -93,6 +99,11 @@ void main() {
           startedAt: syntheticAsOf,
           asOf: syntheticAsOf,
         );
+        if (!analysis.input.hasBirthTime) {
+          expectUnknownContract(analysis);
+          omittedUnknownLedgerRows++;
+          continue;
+        }
         final source = analysis
             .consumerViewState!
             .lifeTimeline!
@@ -122,6 +133,12 @@ void main() {
       expect(omissions, 0);
       expect(additions, 0);
       expect(predictionToAdviceChanges, 0);
+      expect(
+        omittedUnknownLedgerRows,
+        (ownerReview['rows'] as List<dynamic>)
+            .where((r) => !syntheticCases[r['profileId']]!.input.hasBirthTime)
+            .length,
+      );
     },
     timeout: const Timeout(Duration(minutes: 10)),
   );
@@ -131,7 +148,12 @@ void main() {
         .cast<Map<String, Object?>>();
     expect(canonical, hasLength(5));
     for (final fixture in canonical) {
-      expect(fixture['frozenAcceptedExact'], isTrue);
+      if (fixture['birthTimeMode'] == 'known') {
+        expect(fixture['frozenAcceptedExact'], isTrue);
+      } else {
+        expect(fixture['frozenAcceptedExact'], isNull);
+        expect(fixture['unknownContractExact'], isTrue);
+      }
       expect(fixture['frozenWebPdfExact'], isTrue);
       expect(fixture['liveWebPdfExact'], isTrue);
       expect(fixture['liveRepeatExact'], isTrue);
@@ -148,15 +170,11 @@ void main() {
     final ownerUnknownText = ThaiBetaReportExportDocument.fromAnalysis(
       analysis,
     ).fullPlainText;
-    expectCanonicalFixtureText(
-      pipelineText: ownerUnknownText,
-      fixturePath:
-          'product-acceptance/thai-narrative-v1.5-r7.1/evidence/'
-          'owner-unknown-web-text.txt',
-    );
+    expectUnknownContract(analysis);
+    expect(ownerUnknownText, expectedUnknownText(input));
     expect(analysis.profile?.siderealAscendantDeg, isNull);
     expect(ownerUnknownText, contains('ไม่ทราบเวลาเกิด'));
-    expect(ownerUnknownText, isNot(contains('ลัคนา')));
+    expect(ownerUnknownText, isNot(contains('ลัคนา:')));
 
     final vm = _caseFromEvidence(
       'cross-runtime-300-vm-run-1-copy-semantic.json',

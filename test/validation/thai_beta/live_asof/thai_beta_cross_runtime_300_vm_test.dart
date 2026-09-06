@@ -19,15 +19,22 @@ void main() {
       expect(summary['unknown'], 75);
       expect(summary['unknownOmissionPass'], 75);
       expect(summary['uniqueReports'], 300);
-      expect(summary['uniqueNarratives'], 300);
+      expect(summary['uniqueKnownNarratives'], 225);
+      expect(summary['uniqueNarratives'], 226);
+      expect(summary['unknownOmittedReports'], 75);
       final canonical = manifest['canonical']! as List<Map<String, Object?>>;
       expect(canonical, hasLength(5));
       for (final fixture in canonical) {
-        expect(
-          fixture['frozenAcceptedExact'],
-          isTrue,
-          reason: '${fixture['fixture']} frozen',
-        );
+        if (fixture['birthTimeMode'] == 'known') {
+          expect(
+            fixture['frozenAcceptedExact'],
+            isTrue,
+            reason: '${fixture['fixture']} frozen',
+          );
+        } else {
+          expect(fixture['frozenAcceptedExact'], isNull);
+          expect(fixture['unknownContractExact'], isTrue);
+        }
         expect(
           fixture['frozenWebPdfExact'],
           isTrue,

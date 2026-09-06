@@ -1,3 +1,4 @@
+import '../../../evidence/or5r_unknown_contract.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/thai_beta/application/core_reading/thai_birth_profile_core_reading.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_report_export_document.dart';
@@ -82,35 +83,44 @@ void main() {
           isNotEmpty,
           reason: '${entry.key}: PDF bytes',
         );
-        expect(
-          renderedPdf.plainText,
-          contains(ThaiBirthProfileCoreReading.reportTitle),
-          reason: '${entry.key}: rendered PDF Core Reading',
-        );
-        for (final section in reading.sections) {
-          final exported = pdf.sections.where(
-            (item) => item.title == section.title,
-          );
+        if (analysis.input.hasBirthTime) {
           expect(
-            exported,
-            hasLength(1),
-            reason: '${entry.key}: ${section.title}',
+            renderedPdf.plainText,
+            contains(ThaiBirthProfileCoreReading.reportTitle),
+            reason: '${entry.key}: rendered PDF Core Reading',
           );
-          if (section.domain == ThaiBirthProfileCoreDomain.methodology) {
-            // The PDF keeps the shared methodology facts, with short
-            // subheadings added for scanability inside the final section.
+          for (final section in reading.sections) {
+            final exported = pdf.sections.where(
+              (item) => item.title == section.title,
+            );
             expect(
-              exported.single.paragraphs,
-              containsAll(section.publicParagraphs),
+              exported,
+              hasLength(1),
               reason: '${entry.key}: ${section.title}',
             );
-          } else {
-            expect(
-              exported.single.paragraphs,
-              orderedEquals(section.publicParagraphs),
-              reason: '${entry.key}: ${section.title}',
-            );
+            if (section.domain == ThaiBirthProfileCoreDomain.methodology) {
+              // The PDF keeps the shared methodology facts, with short
+              // subheadings added for scanability inside the final section.
+              expect(
+                exported.single.paragraphs,
+                containsAll(section.publicParagraphs),
+                reason: '${entry.key}: ${section.title}',
+              );
+            } else {
+              expect(
+                exported.single.paragraphs,
+                orderedEquals(section.publicParagraphs),
+                reason: '${entry.key}: ${section.title}',
+              );
+            }
           }
+        } else {
+          expectUnknownContract(analysis);
+          expect(renderedPdf.plainText, expectedUnknownText(analysis.input));
+          expect(
+            pdf.sections.expand((s) => s.paragraphs),
+            expectedUnknownParagraphs(analysis.input).expand((p) => p),
+          );
         }
         for (final domain in const [
           ThaiBirthProfileCoreDomain.work,
@@ -178,7 +188,7 @@ void main() {
             ),
             isEmpty,
           );
-        } else {
+        } else if (analysis.input.hasBirthTime) {
           expect(
             pdf.sections.last.title,
             ThaiBirthProfileCoreReadingCopy.omissionsTitle,
@@ -186,6 +196,13 @@ void main() {
           expect(
             pdf.sections.last.paragraphs,
             containsAll(reading.omissions.map((item) => item.publicText)),
+          );
+        }
+        if (!analysis.input.hasBirthTime) {
+          expect(pdf.sections.last.title, or5rTitles.last);
+          expect(
+            pdf.sections.last.paragraphs,
+            expectedUnknownParagraphs(analysis.input).last,
           );
         }
         expect(

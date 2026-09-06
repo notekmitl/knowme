@@ -33,7 +33,7 @@ Map<String, Object?> _case(bool known) {
     asOf: asOf,
   );
   final document = ThaiBetaReportExportDocument.candidate(analysis);
-  final annual = document.infographic!;
+  final annual = document.infographic;
   return {
     'mode': known ? 'Known' : 'Unknown',
     'title': document.title,
@@ -55,27 +55,30 @@ Map<String, Object?> _case(bool known) {
           'traceIds': section.traceIds,
         },
     ],
-    'annual': {
-      'year': annual.buddhistYear,
-      'theme': annual.theme,
-      'overview': annual.overview,
-      'categories': [
-        for (final category in annual.categories)
-          {
-            'id': category.id,
-            'title': category.title,
-            'summary': category.summary,
-            'iconName': category.iconName,
-            'traceIds': category.traceIds,
+    if (!known) 'omissionStatus': 'omitted-not-applicable:no-birth-time',
+    'annual': annual == null
+        ? null
+        : {
+            'year': annual.buddhistYear,
+            'theme': annual.theme,
+            'overview': annual.overview,
+            'categories': [
+              for (final category in annual.categories)
+                {
+                  'id': category.id,
+                  'title': category.title,
+                  'summary': category.summary,
+                  'iconName': category.iconName,
+                  'traceIds': category.traceIds,
+                },
+            ],
+            'opportunity': annual.opportunity,
+            'caution': annual.caution,
+            'primaryAdvice': annual.primaryAdvice,
+            'disclaimer': annual.disclaimer,
+            'monthlyTimelineAvailable': annual.monthlyTimelineAvailable,
+            'monthlyGapReason': annual.monthlyGapReason,
+            'traceIds': annual.traceIds,
           },
-      ],
-      'opportunity': annual.opportunity,
-      'caution': annual.caution,
-      'primaryAdvice': annual.primaryAdvice,
-      'disclaimer': annual.disclaimer,
-      'monthlyTimelineAvailable': annual.monthlyTimelineAvailable,
-      'monthlyGapReason': annual.monthlyGapReason,
-      'traceIds': annual.traceIds,
-    },
   };
 }

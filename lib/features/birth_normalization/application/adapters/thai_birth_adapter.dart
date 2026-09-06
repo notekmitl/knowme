@@ -19,7 +19,9 @@ abstract final class ThaiBirthAdapter {
     );
 
     final bornBeforeSunrise =
-        sunrise.available && localDateTime.isBefore(sunrise.localSunrise);
+        hasBirthTime &&
+        sunrise.available &&
+        localDateTime.isBefore(sunrise.localSunrise);
 
     final thaiDate = bornBeforeSunrise
         ? civilDate.subtract(const Duration(days: 1))

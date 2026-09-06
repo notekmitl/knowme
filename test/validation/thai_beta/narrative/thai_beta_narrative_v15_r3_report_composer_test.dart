@@ -1,3 +1,4 @@
+import '../../../evidence/or5r_unknown_contract.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/mirror/presentation/prediction/prediction_section_model.dart';
 import 'package:knowme/features/thai_beta/application/narrative/thai_beta_narrative_composer.dart';
@@ -38,17 +39,21 @@ void main() {
         analysis,
       ).fullPlainText;
       expect(view.hero.headline, isNot(startsWith('ลายเซ็นของคำอ่าน:')));
-      expect(view.hero.summary, contains('คำถาม'), reason: entry.key);
-      expect(text, contains(view.hero.headline), reason: entry.key);
-      expect(text, contains('คำถาม'), reason: entry.key);
-      expect(view.futurePrediction!.windows, hasLength(3), reason: entry.key);
-      expect(
-        view.futurePrediction!.windows.every(
-          (window) => window.domains.length == 4,
-        ),
-        isTrue,
-        reason: entry.key,
-      );
+      if (entry.value.hasBirthTime) {
+        expect(view.hero.summary, contains('คำถาม'), reason: entry.key);
+        expect(text, contains(view.hero.headline), reason: entry.key);
+        expect(text, contains('คำถาม'), reason: entry.key);
+        expect(view.futurePrediction!.windows, hasLength(3), reason: entry.key);
+        expect(
+          view.futurePrediction!.windows.every(
+            (window) => window.domains.length == 4,
+          ),
+          isTrue,
+          reason: entry.key,
+        );
+      } else {
+        expectUnknownContract(analysis);
+      }
       for (final banned in const [
         'น้ำหนักเด่น',
         'น้ำหนักปานกลาง',
@@ -60,16 +65,22 @@ void main() {
       ]) {
         expect(text, isNot(contains(banned)), reason: '${entry.key}: $banned');
       }
-      final bodies = view.futurePrediction!.windows
-          .expand((window) => window.domains)
-          .map((domain) => _normalize(domain.body))
-          .toList(growable: false);
-      expect(bodies.toSet(), hasLength(bodies.length), reason: entry.key);
+      if (entry.value.hasBirthTime) {
+        final bodies = view.futurePrediction!.windows
+            .expand((window) => window.domains)
+            .map((domain) => _normalize(domain.body))
+            .toList(growable: false);
+        expect(bodies.toSet(), hasLength(bodies.length), reason: entry.key);
+      }
     }
   });
 
   test('R6 assigns decision, checkpoint, and outcome to separate horizons', () {
     for (final entry in fixtures.entries) {
+      if (!entry.value.hasBirthTime) {
+        expectUnknownContract(_run(entry.value));
+        continue;
+      }
       final windows = ThaiBetaNarrativeComposer.narrativeView(
         _run(entry.value),
       ).futurePrediction!.windows;
@@ -116,6 +127,10 @@ void main() {
         (entry) => entry.key != 'regression-known-0003',
       )) {
         final input = entry.value;
+        if (!input.hasBirthTime) {
+          expectUnknownContract(_run(input));
+          continue;
+        }
         final domains = ThaiBetaNarrativeComposer.narrativeView(
           _run(input),
         ).futurePrediction!.windows.expand((window) => window.domains);

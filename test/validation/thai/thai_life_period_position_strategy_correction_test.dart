@@ -1,3 +1,4 @@
+import '../../evidence/or5r_unknown_contract.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_engine.dart';
 import 'package:knowme/features/astrology/thai/core/life_period/life_period_status_metadata.dart';
@@ -18,7 +19,9 @@ void main() {
     repository = await ThaiCanonEvidenceRepository.loadFromAsset();
   });
 
-  ThaiArchetypeContextMetadata? archetypeFor(ThaiMirrorPipelineResult pipeline) {
+  ThaiArchetypeContextMetadata? archetypeFor(
+    ThaiMirrorPipelineResult pipeline,
+  ) {
     return ThaiArchetypeContextResolver.resolve(
       remainderMetadata: ThaiRemainderMetadataResolver.resolve(
         profile: pipeline.profile,
@@ -147,14 +150,18 @@ void main() {
         archetypeMetadata: archetype,
         canonIndex: repository.index,
       );
-      final atNinetyNine = ThaiLifePeriodArchetypePlanetPositionResolver.resolve(
-        period: periodIndexNinetyNine,
-        archetypeMetadata: archetype,
-        canonIndex: repository.index,
-      );
+      final atNinetyNine =
+          ThaiLifePeriodArchetypePlanetPositionResolver.resolve(
+            period: periodIndexNinetyNine,
+            archetypeMetadata: archetype,
+            canonIndex: repository.index,
+          );
 
       expect(atOne, isNotNull);
-      expect(atNinetyNine?.mahabhutPositionCanonId, atOne?.mahabhutPositionCanonId);
+      expect(
+        atNinetyNine?.mahabhutPositionCanonId,
+        atOne?.mahabhutPositionCanonId,
+      );
     });
 
     test('exact life_period context matching still works', () {
@@ -178,17 +185,16 @@ void main() {
       );
 
       expect(metadata, isNotNull);
-      expect(
-        metadata!.matchMethod,
-        PositionMatchMethod.exactLifePeriodContext,
-      );
+      expect(metadata!.matchMethod, PositionMatchMethod.exactLifePeriodContext);
     });
 
     test('ambiguous archetype+planet pair returns null', () {
       final index = ThaiArchetypePlanetPlacementIndex.build(repository.index);
-      final ambiguousPair = index.pairsWithClassification(
-        ArchetypePlanetPlacementClassification.ambiguousPosition,
-      ).first;
+      final ambiguousPair = index
+          .pairsWithClassification(
+            ArchetypePlanetPlacementClassification.ambiguousPosition,
+          )
+          .first;
       final parts = ambiguousPair.split(':');
       final archetypeId = parts[0];
       final planetName = parts[1].replaceFirst('planet.', '');
@@ -269,10 +275,10 @@ void main() {
 
       final resolution =
           ThaiLifePeriodArchetypePlanetPositionResolver.resolveDetailed(
-        period: period,
-        archetypeMetadata: archetype,
-        canonIndex: repository.index,
-      );
+            period: period,
+            archetypeMetadata: archetype,
+            canonIndex: repository.index,
+          );
 
       expect(resolution.metadata, isNull);
       expect(
@@ -302,9 +308,9 @@ void main() {
 
       final entry = ThaiArchetypePlanetPlacementIndex.build(repository.index)
           .entryFor(
-        archetypeChartCanonId: archetype.archetypeChartCanonId,
-        planetCanonId: 'planet.sun',
-      );
+            archetypeChartCanonId: archetype.archetypeChartCanonId,
+            planetCanonId: 'planet.sun',
+          );
 
       if (entry == null ||
           entry.classification ==
@@ -324,15 +330,18 @@ void main() {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
+      expectCanonTimePartition(audit.fixtureResults);
 
       for (final result in audit.fixtureResults) {
-        for (final anchor in result.bundle.trace.lifePeriodsWithPositionMetadata) {
+        for (final anchor
+            in result.bundle.trace.lifePeriodsWithPositionMetadata) {
           expect(anchor, startsWith('life_period:'));
         }
-        expect(
-          result.bundle.trace.positionMatchMethods,
-          isNotEmpty,
-        );
+        if (result.fixture.birthData.hasBirthTime) {
+          expect(result.bundle.trace.positionMatchMethods, isNotEmpty);
+        } else {
+          expectOmittedCanonTimeline(result);
+        }
       }
     });
   });
@@ -342,6 +351,7 @@ void main() {
       final audit = await ThaiCanonEvidenceAlignmentRunner.run(
         repository: repository,
       );
+      expectCanonTimePartition(audit.fixtureResults);
 
       var withPosition = 0;
       var withoutPosition = 0;
@@ -358,7 +368,8 @@ void main() {
         expect(
           trace.archetypePlanetPositionStrategyFeasibilityResult,
           ArchetypePlanetPositionStrategyFeasibilityResult
-              .partialReadyWithAmbiguities.wire,
+              .partialReadyWithAmbiguities
+              .wire,
         );
         expect(withRuntime, equals(withPosition));
         expect(withPosition, greaterThan(withContext));
@@ -369,10 +380,10 @@ void main() {
         );
       }
 
-      expect(withContext, 8);
-      expect(withPosition, 56);
+      expect(withContext, 7);
+      expect(withPosition, 48);
       expect(withoutPosition, 16);
-      expect(withRuntime, 56);
+      expect(withRuntime, 48);
       expect(
         audit.fixtureResults.first.bundle.trace.conflictedArchetypePlanetPairs,
         contains('archetypeChart.nakwichakan:planet.jupiter'),
@@ -385,8 +396,9 @@ void main() {
       final pipeline = ThaiMirrorPipeline.generate(
         ThaiMirrorPipeline.sampleQaBirthData(),
       );
-      final before =
-          ThaiReportCanonEvidenceEnricher.userFacingFingerprint(pipeline);
+      final before = ThaiReportCanonEvidenceEnricher.userFacingFingerprint(
+        pipeline,
+      );
       await ThaiReportCanonEvidenceEnricher.enrich(
         pipeline,
         repository: repository,

@@ -86,7 +86,9 @@ abstract final class BirthNormalizer {
       hasBirthTime: hasBirthTime,
     );
 
-    if (!sunrise.available) {
+    if (!hasBirthTime) {
+      reasons.add(BirthNormalizationReason.unknownTimeSentinelNonAuthoritative);
+    } else if (!sunrise.available) {
       reasons.add(BirthNormalizationReason.sunriseUnavailableNoShift);
     } else if (thai.bornBeforeSunrise) {
       reasons.add(BirthNormalizationReason.bornBeforeLocalSunrise);
@@ -100,7 +102,9 @@ abstract final class BirthNormalizer {
       timeZone: timeZone,
       hasBirthTime: hasBirthTime,
     );
-    reasons.add(BirthNormalizationReason.westernUsesExactInstant);
+    if (hasBirthTime) {
+      reasons.add(BirthNormalizationReason.westernUsesExactInstant);
+    }
 
     final bazi = BaZiBirthAdapter.build(
       localDateTime: localDateTime,

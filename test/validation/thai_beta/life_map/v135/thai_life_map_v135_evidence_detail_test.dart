@@ -1,3 +1,4 @@
+import '../../../../evidence/or5r_unknown_contract.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/astrology/thai/mirror/evidence/v135/thai_birthday_year_window.dart';
 import 'package:knowme/features/astrology/thai/mirror/evidence/v135/thai_detailed_report_composer.dart';
@@ -97,7 +98,10 @@ void main() {
     );
     expect(report.currentReading.evidenceFound, contains('ชั้นช่วงอายุ'));
     expect(report.currentReading.evidenceFound, contains('ชั้นปีเกิด'));
-    expect(report.closingAdvice.healthDisclaimer, contains('ไม่ใช่คำบอกจากแพทย์'));
+    expect(
+      report.closingAdvice.healthDisclaimer,
+      contains('ไม่ใช่คำบอกจากแพทย์'),
+    );
   });
 
   test('every prediction/event has evidence ID; no orphan events', () {
@@ -165,7 +169,8 @@ void main() {
     final analysis = ThaiBetaNarrativeFixtures.fixtureA();
     final view = analysis.consumerViewState!.lifeTimeline!.detailedReport!;
     final blob = [
-      for (final t in view.lifetimeTopics) '${t.evidenceFound}\n${t.prediction}',
+      for (final t in view.lifetimeTopics)
+        '${t.evidenceFound}\n${t.prediction}',
       view.currentReading.evidenceFound,
       view.currentReading.prediction,
       for (final p in [...view.pastPeriods, ...view.futurePeriods])
@@ -182,13 +187,10 @@ void main() {
   test('no birth time still builds report without lagna houses', () {
     final analysis = ThaiBetaNarrativeFixtures.fixtureB();
     expect(analysis.isSuccess, isTrue);
-    final report = analysis.consumerViewState!.lifeTimeline!.detailedReport!;
-    expect(report.lifetimeTopics.length, 6);
-    expect(
-      report.lifetimeTopics
-          .any((t) => t.evidenceFound.contains('ไม่มีเวลาเกิด')),
-      isTrue,
-    );
+    expectUnknownContract(analysis);
+    expect(analysis.consumerViewState!.lifeTimeline, isNull);
+    expect(analysis.consumerViewState!.futurePrediction, isNull);
+    expect(analysis.consumerViewState!.narrativeSections, isEmpty);
   });
 
   test('advice appears once at end only', () {
@@ -238,8 +240,11 @@ void main() {
       hour: 0,
       minute: 35,
     );
-    final current =
-        analysis.consumerViewState!.lifeTimeline!.detailedReport!.currentReading;
+    final current = analysis
+        .consumerViewState!
+        .lifeTimeline!
+        .detailedReport!
+        .currentReading;
     expect(current.evidenceFound, contains(window.labelTh));
   });
 }

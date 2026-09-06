@@ -5,8 +5,11 @@ enum BirthNormalizationReason {
   /// A real birth time was provided and used.
   birthTimeProvided,
 
-  /// No birth time — noon was assumed (so Thai resolves to the same day).
+  /// Legacy audit code: noon is an internal non-authoritative sentinel only.
   birthTimeMissingNoonAssumed,
+
+  /// No exact-time or sunrise-day authority may be derived from the sentinel.
+  unknownTimeSentinelNonAuthoritative,
 
   /// Born before local sunrise → the Thai astrological date is the previous day.
   bornBeforeLocalSunrise,
