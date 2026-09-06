@@ -1,5 +1,21 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+## PR115 OR4 — Owner rejected OR3; content foundation NO-GO (2026-09-06)
+
+Status: **PR115 OR4 CONTENT FOUNDATION NO-GO — SINGLE-PATH OR DOMAIN AUTHORITY BLOCKER RECORDED — DRAFT — NOT MERGED — NOT DEPLOYED**.
+
+OR3 passed only part of the machine structure work. Its Candidate0019 was Golden-derived presentation, not generalized generation, and its negative-control results were stored constants. OR4 independently reproduces past section/body age mismatch 76/101 across 35/49 contexts; current heading/body mismatch 43/49; text reuse work 2 distinct/max48, finance 1/49, relationship 2/48, health 2/48, rolling12 2/47. Historical OR3 files, tests, ZIP and records below are retained unchanged; their prior PASS statements are superseded by this correction. Owner Content Acceptance has not occurred.
+
+Truth/validator commit `2ec9550`; renderer/evidence commit `ddc81af`. Candidate0020 and all 49 contexts now use the same pure `buildReaderReport` function, bind ages at render time and record inputs, periods, components and omissions. Actual00:35 age44 resolves source past 0–10 (display 1–10), 11–29, 30–41; current42–62; next63–79. Candidate0011 reader SHA remains `6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E` and is read only after generation for comparison. Known11/Unknown1 representative outputs are included.
+
+**Full predictive content is not ready:** Candidate0020 emits 0/22 prediction paragraphs and complete predictive coverage is 0/49 contexts. Only age/period facts are emitted; unverified domain text is omitted. The 00:35 export lacks typed-material signatures/claim bindings; available typed resolution is 00:03 at 2026-08-07 and the rem0 Saturday sample is age30. Metadata or similar prose cannot prove the required input-bound domain/direction/timing/conflict/certainty chain. Existing Owner-authorized interpretation authority remains recognized. Runtime on the PR branch still has its old golden special case; OR4 neither changes nor inspects deployed runtime.
+
+Evidence Node tests 48/48; actual mutation controls 27/27 rejected; deterministic generation two passes equal; all eight age counters zero with inspected-row details. Five domain counters are zero over **zero emitted predictions**, not a content coverage PASS. `machineContentAudit=FAIL`, `ownerHumanReview=PENDING`, `productContentStatus=NO_GO`. PreCommit/PostCommit and diff-check passed for the evidence commit. Full Flutter/analyzer were not rerun because Dart/application/Flutter-test delta is 0.
+
+Package: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_PREDICTIVE_NARRATIVE_V2_RUNTIME_V2_OR4_SINGLE_PATH_ddc81af.zip`; SHA-256 `A83157D811B515C7D841D1ACF306AF8595123DA6E8A2C75FBDEE8A711FBA515B`. Manifest25; extracted27; CRC/extraction/missing/extra/hash/size/secret-pattern/absolute-path errors0. See `docs/OR4_CLOSEOUT.md` and `docs/OR4_SEMANTIC_FEASIBILITY.md`. The package/status commit is the commit containing this entry. PR115 remains Open + Draft. No runtime/UI/export/PDF/infographic/Flutter-test/Production Canon/product-acceptance changes, no Product artifact regeneration, no Merge/Ready/Deploy or Firebase/Production change.
+
+
+
 ## PR115 OR3 — content contract gate candidate (2026-09-03)
 
 Status: **PR115 OR3 CONTENT CONTRACT CANDIDATE READY — OR2 PRODUCT CONTENT REJECTED — PENDING OWNER CONTENT REVIEW — DRAFT — NOT MERGED — NOT DEPLOYED**.

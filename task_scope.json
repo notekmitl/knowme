@@ -35,7 +35,9 @@
     "docs/OR4_NEGATIVE_CONTROLS.json",
     "docs/OR4_SEMANTIC_FEASIBILITY.json",
     "docs/OR4_SEMANTIC_FEASIBILITY.md",
-    "docs/OR4_GENERATION_TRACE.json"
+    "docs/OR4_GENERATION_TRACE.json",
+    "tool/package_or4.py",
+    "docs/OR4_CLOSEOUT.md"
   ],
   "allowed_globs": [],
   "forbidden_files": [
