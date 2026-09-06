@@ -1,6 +1,36 @@
 # KnowMe Roadmap
 
-## PR115 OR5R — PDF parity repaired; actual-input authority NO-GO (2026-09-06)
+## PR115 OR5R — neutral authority truth repair and actual 00:35 review (2026-09-06)
+
+**PR115 OR5R AUTHORITY GATE TRUTH REPAIRED — ACTUAL 00:35 CLAIM AUTHORITY NO-GO — CONTENT PENDING OWNER REVIEW — OPEN + DRAFT — NOT MERGED — NOT DEPLOYED.**
+
+This is the current record. It supersedes the old authority verdict in the historical snapshots below, without modifying the historical validator/results or revoking accepted golden copy. Owner confirmed Unknown containment and Dedicated PDF repair TECHNICAL PASS; actual 00:35 content remains NOT OWNER-ACCEPTED.
+
+Truth correction: `docs/OR5R_AUTHORITY_GATE_TRUTH_CORRECTION.md/.json`. The old tool checked exact Candidate0011 paragraphs, hardcoded per-entry support, supported totals=0 and NO_GO status. Its 0/22 establishes different text, not absence of actual-claim authority. Old tool/results remain byte-identical with base `8325e04275d7cb58447abbf9b5dd1ff12acda2d8`; old Owner ZIP was not overwritten.
+
+Golden 00:03 retains exact wording/order and reader-block SHA-256 **6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E**. Actual male 1982-06-06 00:35 Chiang Mai, asOf 2026-08-29 Asia/Bangkok, Aquarius 19°19′ is evaluated from its own ten emitted prediction paragraphs and actual selector/material/template chain. No requirement to equal the golden paragraphs.
+
+Calculated V2 results from 10 actual claims: SOURCE_CHAIN_SUPPORTED **0**; OWNER_APPROVED_TEMPLATE_SUPPORTED **0**; OWNER_TEMPLATE_REVIEW_REQUIRED **8**; UNSUPPORTED_MISSING_COMPONENT **1**; UNSUPPORTED_SEMANTIC_EXPANSION **1**; OMIT **0**. Eight pending interpretations are compatible-component/generation-provenance cases, not supported/accepted whole claims. Current age 44 transition wording lacks applicable timing authority; next-period relationship/termination lacks a resolved domain-to-template binding. These are actual-chain findings, not the rejected Candidate 0/22 argument. The gate can pass a complete chain: real accepted golden positive control passes at its own fixture; test-only source-field positive control also passes and is excluded from product totals.
+
+Semantic slots: required/applicable **15/15**, emitted **13**, missing **2** (actual past periods 0–10 and 11–29), duplicate **0**. Whole prediction authority supported=0; advice/disclosure non-predictive provenance supported=2; summary inherits unresolved parent authority. Actual engine starts at 0–10; this does not change Candidate0011's accepted 1–10 reader label or impose 22 paragraphs on every input.
+
+Owner-readable evidence:
+
+- `docs/ACTUAL_0035_EMITTED_PREDICTIONS.md/.json` — all ten paragraphs exact, with bindings and classifications.
+- `docs/ACTUAL_0035_AUTHORITY_MATRIX_V2.md/.json` — actual runtime references distinguished from compatible existing source/Canon audit bridges; no new runtime authority or Owner approval invented.
+- `docs/ACTUAL_0035_FULL_READER_COPY.md` — complete current canonical text, 29 blocks; SHA-256 **3F2277326AB23FB5703607F5B1557E0C08077E0A0F7A2665125F91AE9D4060BA**.
+- `docs/ACTUAL_0035_SEMANTIC_SLOT_COVERAGE.md/.json`.
+- `docs/ACTUAL_0035_CONTENT_REVIEW.md/.json` — two full reads, 11 explicit machine findings with exact quotes and block references; full text included. **AI/Machine Content Audit — PENDING OWNER CONTENT REVIEW.** Findings include past future-tense/duplication, generic phrasing, transition timing, method claim leakage and the ending “ไม่ใช่คำทำนาย” conflicting with predictive headings. No reader text was rewritten.
+
+Validation: existing Flutter extraction/golden **2/2 in each of two runs**; four output-pairs byte-identical, mismatch=0. The test re-executes full publicBoundary and verifies exact equality with the preserved Known baseline, so the reused full text is freshly validated, not claimed to be a field in raw JSON. Node evidence/oracle **33/33**, fail/skip=0: new neutral tests 26 plus existing 7; 12 named negative controls + duplicate-semantic-owner control + 5 additional missing-role controls rejected. Existing golden corruption controls **13/13** and resolver negatives **9/9** rejected; Candidate rule chains **22/22** preserved. Commands/hashes/logs: `docs/OR5R_NEUTRAL_V2_VALIDATION.json`; runner `tool/or5r_neutral_validation.ps1 -Extract`.
+
+First evidence/tool-only PreCommit and PostCommit PASS. Closeout repeats PreCommit/PostCommit and `git diff --check`; final delivery record is `build/or5r-neutral-final-git-state.json`. Full Flutter/analyzer were **not rerun**, as explicitly authorized: no Dart/runtime/Flutter-test delta. No fresh Web, infographic, PDF or visual review was needed or claimed; no new Owner ZIP was made. Prior technical visual evidence remains historical, not new content acceptance.
+
+Commits: validator/tests/truth correction **6513f97205830a7234e3a04dc60f36e83fab8f62**; actual-output/content-audit/status closeout is the separate commit containing this section. Its immutable SHA/final local=remote=PR HEAD is recorded after push in the delivery record and final response, avoiding an impossible self-referential commit SHA inside its own content. Pre-push GitHub read: PR115 OPEN + DRAFT, MERGEABLE/CLEAN, `statusCheckRollup=[]` (no checks reported, not “checks passed”).
+
+Protected delta versus the current task base is **0** for application/runtime code, Dart/Flutter tests, Candidate0011, Canon, UI/PDF renderer, Unknown containment, product-acceptance/ and Firebase/Production configuration. Only evidence tooling/Node tests, audit documents and task scope/status changed. No Production data access, Ready for Review, Merge or Deploy. Next step: Owner reviews actual full copy and the neutral matrix; any runtime/content repair needs a separately authorized scope.
+
+## Historical record — superseded authority verdict / retained PDF technical evidence (2026-09-06)
 
 **PR115 OR5R UNKNOWN CONTAINMENT AND DEDICATED PDF PARITY REPAIRED — ACTUAL INPUT-BOUND AUTHORITY NO-GO — DRAFT — NOT MERGED — NOT DEPLOYED.** This entry supersedes the historical blocked/progress snapshots below; it is not Owner Product Acceptance.
 
