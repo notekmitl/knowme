@@ -1,0 +1,27 @@
+{
+  "schema": "or5r-authority-truth-correction/2",
+  "historicalBase": "8325e04275d7cb58447abbf9b5dd1ff12acda2d8",
+  "oldResultAcceptedAsFinalGate": false,
+  "oldMethod": "Whole Candidate0011 paragraph equality against actual 00:35 decisions",
+  "defects": [
+    {"path": "tool/or5r_authority_matrix.mjs", "line": 51, "finding": "Exact Candidate text is incorrectly used as non-golden whole-claim authority condition"},
+    {"path": "tool/or5r_authority_matrix.mjs", "line": 68, "finding": "Per-entry supported booleans hardcoded false"},
+    {"path": "tool/or5r_authority_matrix.mjs", "line": 78, "finding": "Supported totals hardcoded zero"},
+    {"path": "tool/or5r_authority_matrix.mjs", "line": 84, "finding": "NO_GO status hardcoded"}
+  ],
+  "validHistoricalConclusion": "Actual 00:35 does not emit the 22 exact Candidate0011 prediction paragraphs",
+  "invalidInference": "Therefore the ten different actual runtime predictions have no authority",
+  "preservedFiles": [
+    {"path": "tool/or5r_authority_matrix.mjs", "sha256": "DA3177F43BCF1A753784871DD2DB29BFB016AD47AD9FE7E6202300558095F2CE"},
+    {"path": "docs/OR5R_ACTUAL_0035_AUTHORITY_MATRIX.md", "sha256": "588CD29E7F891A94DD27419EEA7B7CFEC0A24DB1A5E4E67C955940D9F07D2806"},
+    {"path": "docs/OR5R_ACTUAL_0035_AUTHORITY_MATRIX.json", "sha256": "05C4B59668B5C156213C6F7063A9BF4CE2E8BAC5409E1E12D31F66CE1FD5A115"}
+  ],
+  "goldenContract": {"fixture": "Candidate0011 / 00:03", "exactWordingOrderAndHashRequired": true, "readerSha256": "6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E"},
+  "actualContract": {"fixture": "male / 1982-06-06 / 00:35 / Chiang Mai / 2026-08-29 Asia/Bangkok", "candidateParagraphEqualityRequired": false, "ownEmittedTextIdentityRequired": true, "ownerContentAcceptance": "PENDING"},
+  "newTool": "tool/or5r_actual_authority_v2.mjs",
+  "technicalDecisionsRetained": {"unknownContainment": "TECHNICAL PASS", "dedicatedPdf": "TECHNICAL PASS"},
+  "changesAllowed": "evidence / validator / content-review only",
+  "ownerAcceptanceClaimed": false,
+  "merged": false,
+  "deployed": false
+}
