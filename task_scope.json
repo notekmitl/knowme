@@ -17,7 +17,25 @@
     "tool/build_or4_truth.mjs",
     "test/evidence/or4_content.test.mjs",
     "docs/OR4_TRUTH_CORRECTION.json",
-    "docs/OR4_TRUTH_CORRECTION.md"
+    "docs/OR4_TRUTH_CORRECTION.md",
+    "tool/or4_reader_generator.mjs",
+    "tool/build_or4_candidate.mjs",
+    "test/evidence/or4_generation.test.mjs",
+    "docs/OR4_COMPONENT_LIBRARY.json",
+    "docs/OR4_COMPONENT_LIBRARY.md",
+    "docs/CANDIDATE_0020_ACTUAL_0035.json",
+    "docs/CANDIDATE_0020_ACTUAL_0035.md",
+    "docs/OR4_GOLDEN_COMPARISON.json",
+    "docs/OR4_49_CONTEXT_SIMULATION.json",
+    "docs/OR4_REPRESENTATIVE_FULL_COPY.md",
+    "docs/OR4_REPRESENTATIVE_FULL_COPY.json",
+    "docs/OR4_AGE_BINDING_AUDIT.json",
+    "docs/OR4_DOMAIN_LANGUAGE_AUDIT.json",
+    "docs/OR4_CONTENT_AUDIT.json",
+    "docs/OR4_NEGATIVE_CONTROLS.json",
+    "docs/OR4_SEMANTIC_FEASIBILITY.json",
+    "docs/OR4_SEMANTIC_FEASIBILITY.md",
+    "docs/OR4_GENERATION_TRACE.json"
   ],
   "allowed_globs": [],
   "forbidden_files": [
@@ -50,7 +68,8 @@
   ],
   "focused_tests": [
     "node tool/build_or4_truth.mjs --check",
-    "node --test test/evidence/or4_content.test.mjs test/evidence/predictive_content_truth_or3.test.mjs test/evidence/predictive_editorial_candidate_0019.test.mjs test/evidence/candidate_0011_oracle.test.mjs"
+    "node tool/build_or4_candidate.mjs --check",
+    "node --test test/evidence/or4_content.test.mjs test/evidence/or4_generation.test.mjs test/evidence/predictive_content_truth_or3.test.mjs test/evidence/predictive_editorial_candidate_0019.test.mjs test/evidence/candidate_0011_oracle.test.mjs"
   ],
   "full_test_policy": "skip",
   "full_test_command": "SKIP",

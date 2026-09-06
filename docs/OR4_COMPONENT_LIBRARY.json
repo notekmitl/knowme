@@ -1,0 +1,1304 @@
+{
+  "status": "FACT_RENDERER_READY_DOMAIN_COMPONENTS_UNVERIFIED",
+  "components": [
+    {
+      "owner": "past",
+      "headingTemplate": "อายุ {ageStart}–{ageEnd} ปี",
+      "readerTemplate": "ช่วงอายุ {ageStart}–{ageEnd} ปีผ่านไปแล้ว",
+      "componentId": "OR4-FACT-past",
+      "kind": "fact",
+      "domain": "life_path",
+      "authorityStatus": "EXACT_PERIOD_BOUNDARY_ONLY",
+      "source": "docs/PREDICTIVE_RUNTIME_V2_392_PERIOD_RUNTIME_MAPPING.json",
+      "ageApplicability": "BOUND_AT_RENDER"
+    },
+    {
+      "owner": "current",
+      "headingTemplate": "คำทำนายปัจจุบัน — อายุ {currentAge} ปี",
+      "readerTemplate": "ปัจจุบันอายุ {currentAge} ปี อยู่ในช่วงชีวิตที่เริ่มตั้งแต่อายุ {periodStart} ปีและสิ้นสุดเมื่ออายุ {periodEnd} ปี",
+      "componentId": "OR4-FACT-current",
+      "kind": "fact",
+      "domain": "life_path",
+      "authorityStatus": "EXACT_PERIOD_BOUNDARY_ONLY",
+      "source": "docs/PREDICTIVE_RUNTIME_V2_392_PERIOD_RUNTIME_MAPPING.json",
+      "ageApplicability": "BOUND_AT_RENDER"
+    },
+    {
+      "owner": "next",
+      "headingTemplate": "ช่วงชีวิตถัดไป — อายุ {nextAgeStart}–{nextAgeEnd} ปี",
+      "readerTemplate": "ช่วงถัดไปครอบคลุมอายุ {nextAgeStart}–{nextAgeEnd} ปี",
+      "componentId": "OR4-FACT-next",
+      "kind": "fact",
+      "domain": "life_path",
+      "authorityStatus": "EXACT_PERIOD_BOUNDARY_ONLY",
+      "source": "docs/PREDICTIVE_RUNTIME_V2_392_PERIOD_RUNTIME_MAPPING.json",
+      "ageApplicability": "BOUND_AT_RENDER"
+    },
+    {
+      "componentId": "OR4-PROPOSAL-93161CA6B4BE",
+      "kind": "prediction",
+      "owner": "work",
+      "domain": "career",
+      "horizon": "current",
+      "direction": "strong",
+      "materialSignature": "h=current|d=career|b=strong|r=pressure|e=full|t=false|k=prediction.career.current.strong|o=lagna-house-and-life-period-score|td=true",
+      "headingTemplate": "work",
+      "readerTemplate": "งานหลักขยายขอบเขตความรับผิดชอบ แต่ภาระเดิมยังจำกัดเวลาสำหรับบทบาทที่เพิ่มขึ้น",
+      "event": "role_and_delivery",
+      "result": "งานหลักขยายขอบเขตความรับผิดชอบ",
+      "risk": "ภาระงานเดิมจำกัดเวลาสำหรับบทบาทที่เพิ่มขึ้น",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "prediction.career.current.strong",
+        "sourceComponents": [
+          "h=current|d=career|b=strong|r=pressure|e=full|t=false|k=prediction.career.current.strong|o=lagna-house-and-life-period-score|td=true"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-4A61C8B3D31E",
+      "kind": "prediction",
+      "owner": "finance",
+      "domain": "finance",
+      "horizon": "current",
+      "direction": "strong",
+      "materialSignature": "h=current|d=finance|b=strong|r=pressure|e=full|t=false|k=prediction.finance.current.strong|o=lagna-house-and-life-period-score|td=true",
+      "headingTemplate": "finance",
+      "readerTemplate": "รายรับเพิ่มพื้นที่ของเงินพร้อมใช้ ขณะที่รายจ่ายผูกพันลดเงินที่เหลือเก็บ",
+      "event": "cash_and_commitments",
+      "result": "รายรับเพิ่มพื้นที่ของเงินพร้อมใช้",
+      "risk": "รายจ่ายผูกพันลดเงินที่เหลือเก็บ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "prediction.finance.current.strong",
+        "sourceComponents": [
+          "h=current|d=finance|b=strong|r=pressure|e=full|t=false|k=prediction.finance.current.strong|o=lagna-house-and-life-period-score|td=true"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-55D7195074E1",
+      "kind": "prediction",
+      "owner": "relationship",
+      "domain": "relationship",
+      "horizon": "current",
+      "direction": "strong",
+      "materialSignature": "h=current|d=relationship|b=strong|r=pressure|e=full|t=false|k=prediction.relationship.current.strong|o=lagna-house-and-life-period-score|td=true",
+      "headingTemplate": "relationship",
+      "readerTemplate": "ข้อตกลงชัดขึ้นจากการกระทำ แต่เวลาและหน้าที่ร่วมกันยังไม่ลงตัว",
+      "event": "agreement_and_distance",
+      "result": "ข้อตกลงชัดขึ้นจากการกระทำ",
+      "risk": "เวลาและหน้าที่ร่วมกันยังไม่ลงตัว",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "prediction.relationship.current.strong",
+        "sourceComponents": [
+          "h=current|d=relationship|b=strong|r=pressure|e=full|t=false|k=prediction.relationship.current.strong|o=lagna-house-and-life-period-score|td=true"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-6B2A72F470D5",
+      "kind": "prediction",
+      "owner": "health",
+      "domain": "health",
+      "horizon": "current",
+      "direction": "strong",
+      "materialSignature": "h=current|d=health|b=strong|r=pressure|e=full|t=false|k=prediction.health.current.strong|o=lagna-house-and-life-period-score|td=true",
+      "headingTemplate": "health",
+      "readerTemplate": "กำลังฟื้นกลับจากการพัก แต่ภาระต่อเนื่องทำให้ใช้เวลาฟื้นตัวมากขึ้น",
+      "event": "rest_and_recovery",
+      "result": "กำลังฟื้นกลับจากการพัก",
+      "risk": "ภาระต่อเนื่องใช้เวลาฟื้นตัวมากขึ้น",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "prediction.health.current.strong",
+        "sourceComponents": [
+          "h=current|d=health|b=strong|r=pressure|e=full|t=false|k=prediction.health.current.strong|o=lagna-house-and-life-period-score|td=true"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-29AE7F45F08C",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "materialSignature": "status=dueng_khuen|role=utsaha|house=thongchai",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem4.thursday.mars.74_81",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem4.thursday.mars.74_81"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-426E37646BBA",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "materialSignature": "status=dueng_khuen|role=mula|house=racha",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem6.friday.mercury.51_67",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem6.friday.mercury.51_67"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-7D8C0919024D",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "materialSignature": "status=dueng_khuen|role=sri|house=khumsap",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem3.tuesday.jupiter.36_54",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem3.tuesday.jupiter.36_54"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-EF360EB19493",
+      "kind": "prediction",
+      "owner": "work",
+      "domain": "career",
+      "horizon": "current",
+      "direction": "quiet",
+      "materialSignature": "h=current|d=career|b=quiet|r=pressure|e=full|t=false|k=prediction.career.current.quiet|o=lagna-house-and-life-period-score|td=true",
+      "headingTemplate": "work",
+      "readerTemplate": "งานหลักขยายขอบเขตความรับผิดชอบ แต่ภาระเดิมยังจำกัดเวลาสำหรับบทบาทที่เพิ่มขึ้น",
+      "event": "role_and_delivery",
+      "result": "งานหลักขยายขอบเขตความรับผิดชอบ",
+      "risk": "ภาระงานเดิมจำกัดเวลาสำหรับบทบาทที่เพิ่มขึ้น",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "prediction.career.current.quiet",
+        "sourceComponents": [
+          "h=current|d=career|b=quiet|r=pressure|e=full|t=false|k=prediction.career.current.quiet|o=lagna-house-and-life-period-score|td=true"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-ECFC4144159C",
+      "kind": "prediction",
+      "owner": "finance",
+      "domain": "finance",
+      "horizon": "current",
+      "direction": "active",
+      "materialSignature": "h=current|d=finance|b=active|r=pressure|e=full|t=false|k=prediction.finance.current.active|o=lagna-house-and-life-period-score|td=true",
+      "headingTemplate": "finance",
+      "readerTemplate": "รายรับเพิ่มพื้นที่ของเงินพร้อมใช้ ขณะที่รายจ่ายผูกพันลดเงินที่เหลือเก็บ",
+      "event": "cash_and_commitments",
+      "result": "รายรับเพิ่มพื้นที่ของเงินพร้อมใช้",
+      "risk": "รายจ่ายผูกพันลดเงินที่เหลือเก็บ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "prediction.finance.current.active",
+        "sourceComponents": [
+          "h=current|d=finance|b=active|r=pressure|e=full|t=false|k=prediction.finance.current.active|o=lagna-house-and-life-period-score|td=true"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-E2334281F3AF",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_tok",
+      "materialSignature": "status=dueng_tok|role=sri|house=puti",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem3.wednesday.rahu.47_58",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem3.wednesday.rahu.47_58"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-D1A0B331AF17",
+      "kind": "prediction",
+      "owner": "relationship",
+      "domain": "relationship",
+      "horizon": "current",
+      "direction": "active",
+      "materialSignature": "h=current|d=relationship|b=active|r=pressure|e=full|t=false|k=prediction.relationship.current.active|o=lagna-house-and-life-period-score|td=true",
+      "headingTemplate": "relationship",
+      "readerTemplate": "ข้อตกลงชัดขึ้นจากการกระทำ แต่เวลาและหน้าที่ร่วมกันยังไม่ลงตัว",
+      "event": "agreement_and_distance",
+      "result": "ข้อตกลงชัดขึ้นจากการกระทำ",
+      "risk": "เวลาและหน้าที่ร่วมกันยังไม่ลงตัว",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "prediction.relationship.current.active",
+        "sourceComponents": [
+          "h=current|d=relationship|b=active|r=pressure|e=full|t=false|k=prediction.relationship.current.active|o=lagna-house-and-life-period-score|td=true"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-6A0553054E4B",
+      "kind": "prediction",
+      "owner": "health",
+      "domain": "health",
+      "horizon": "current",
+      "direction": "active",
+      "materialSignature": "h=current|d=health|b=active|r=pressure|e=full|t=false|k=prediction.health.current.active|o=lagna-house-and-life-period-score|td=true",
+      "headingTemplate": "health",
+      "readerTemplate": "กำลังฟื้นกลับจากการพัก แต่ภาระต่อเนื่องทำให้ใช้เวลาฟื้นตัวมากขึ้น",
+      "event": "rest_and_recovery",
+      "result": "กำลังฟื้นกลับจากการพัก",
+      "risk": "ภาระต่อเนื่องใช้เวลาฟื้นตัวมากขึ้น",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "prediction.health.current.active",
+        "sourceComponents": [
+          "h=current|d=health|b=active|r=pressure|e=full|t=false|k=prediction.health.current.active|o=lagna-house-and-life-period-score|td=true"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-057FE8F74047",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_tok",
+      "materialSignature": "status=dueng_tok|role=det|house=marana",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem1.monday.mercury.24_40",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem1.monday.mercury.24_40"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-F039C47CDC26",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "materialSignature": "status=dueng_khuen|role=ayu|house=racha",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem3.friday.sun.22_27",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem3.friday.sun.22_27"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-1AF7F1E46181",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "materialSignature": "status=dueng_khuen|role=ayu|house=khumsap",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem3.saturday.jupiter.11_29",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem3.saturday.jupiter.11_29"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-F117EB6F6D11",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "materialSignature": "status=dueng_khuen|role=ayu|house=thongchai",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem5.tuesday.mercury.9_25",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem5.tuesday.mercury.9_25"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-6266ADCCCCB7",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "materialSignature": "status=dueng_khuen|role=boriwan|house=thongchai",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem5.wednesday.mercury.0_17",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem5.wednesday.mercury.0_17"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-1C104202F60E",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_tok",
+      "materialSignature": "status=dueng_tok|role=boriwan|house=puti",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem6.saturday.saturn.0_10",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem6.saturday.saturn.0_10"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-6D2F63859B5F",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "materialSignature": "status=dueng_khuen|role=boriwan|house=athibodi",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem2.friday.venus.0_21",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem2.friday.venus.0_21"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-A57328D4286A",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_tok",
+      "materialSignature": "status=dueng_tok|role=boriwan|house=marana",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem1.wednesday.mercury.0_17",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem1.wednesday.mercury.0_17"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-4CBA1E6C539B",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_tok",
+      "materialSignature": "status=dueng_tok|role=mula|house=marana",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem3.monday.venus.60_80",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem3.monday.venus.60_80"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-79D4A31F8B57",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "materialSignature": "status=dueng_khuen|role=det|house=khumsap",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem2.monday.mercury.24_40",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem2.monday.mercury.24_40"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-4C3A2B46ADDF",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "materialSignature": "status=dueng_khuen|role=det|house=athibodi",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem0.saturday.rahu.30_41",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem0.saturday.rahu.30_41"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-389D986CED1A",
+      "kind": "prediction",
+      "owner": "work",
+      "domain": "career",
+      "horizon": "current",
+      "direction": "active",
+      "materialSignature": "h=current|d=career|b=active|r=pressure|e=full|t=false|k=prediction.career.current.active|o=lagna-house-and-life-period-score|td=true",
+      "headingTemplate": "work",
+      "readerTemplate": "งานหลักขยายขอบเขตความรับผิดชอบ แต่ภาระเดิมยังจำกัดเวลาสำหรับบทบาทที่เพิ่มขึ้น",
+      "event": "role_and_delivery",
+      "result": "งานหลักขยายขอบเขตความรับผิดชอบ",
+      "risk": "ภาระงานเดิมจำกัดเวลาสำหรับบทบาทที่เพิ่มขึ้น",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "prediction.career.current.active",
+        "sourceComponents": [
+          "h=current|d=career|b=active|r=pressure|e=full|t=false|k=prediction.career.current.active|o=lagna-house-and-life-period-score|td=true"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-B8E6B1ECDF9B",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "materialSignature": "status=dueng_khuen|role=mula|house=thongchai",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem3.thursday.moon.59_73",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem3.thursday.moon.59_73"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-D50B996A9B38",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "materialSignature": "status=dueng_khuen|role=det|house=thongchai",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem5.saturday.rahu.30_41",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem5.saturday.rahu.30_41"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-87F354FE21B3",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "materialSignature": "status=dueng_khuen|role=utsaha|house=khumsap",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem5.friday.saturn.68_77",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem5.friday.saturn.68_77"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-6CCA0AD70A32",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "materialSignature": "status=dueng_khuen|role=sri|house=athibodi",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem2.saturday.venus.42_62",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem2.saturday.venus.42_62"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-CA884855BD54",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_tok",
+      "materialSignature": "status=dueng_tok|role=boriwan|house=phangkha",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem4.wednesday.mercury.0_17",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem4.wednesday.mercury.0_17"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-E5534E05C88A",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "materialSignature": "status=dueng_khuen|role=sri|house=racha",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem1.saturday.venus.42_62",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem1.saturday.venus.42_62"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-3380F33DB37D",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "materialSignature": "status=dueng_khuen|role=sri|house=thongchai",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem6.monday.jupiter.41_59",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem6.monday.jupiter.41_59"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-20B64340330F",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_tok",
+      "materialSignature": "status=dueng_tok|role=ayu|house=marana",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem6.sunday.moon.7_21",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem6.sunday.moon.7_21"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-0BF8D5C745F7",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_tok",
+      "materialSignature": "status=dueng_tok|role=mula|house=phangkha",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem6.wednesday.venus.59_79",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem6.wednesday.venus.59_79"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-C3CF4773CD82",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "materialSignature": "status=dueng_khuen|role=utsaha|house=athibodi",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem2.sunday.venus.66_86",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem2.sunday.venus.66_86"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-DB832033A80D",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_tok",
+      "materialSignature": "status=dueng_tok|role=utsaha|house=marana",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem3.sunday.venus.66_86",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem3.sunday.venus.66_86"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-CFE45ED715C4",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "materialSignature": "status=dueng_khuen|role=mula|house=khumsap",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem4.monday.venus.60_80",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem4.monday.venus.60_80"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-56B31521D931",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "materialSignature": "status=dueng_khuen|role=mula|house=athibodi",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem0.friday.mercury.51_67",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem0.friday.mercury.51_67"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-E0B4526EF7B7",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_tok",
+      "materialSignature": "status=dueng_tok|role=sri|house=marana",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem1.sunday.mercury.30_46",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem1.sunday.mercury.30_46"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-6293086376BE",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_khuen",
+      "materialSignature": "status=dueng_khuen|role=ayu|house=athibodi",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem0.tuesday.mercury.9_25",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem0.tuesday.mercury.9_25"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-7C37C4C8117C",
+      "kind": "prediction",
+      "owner": "relationship",
+      "domain": "relationship",
+      "horizon": "current",
+      "direction": "quiet",
+      "materialSignature": "h=current|d=relationship|b=quiet|r=pressure|e=full|t=false|k=prediction.relationship.current.quiet|o=lagna-house-and-life-period-score|td=true",
+      "headingTemplate": "relationship",
+      "readerTemplate": "ข้อตกลงชัดขึ้นจากการกระทำ แต่เวลาและหน้าที่ร่วมกันยังไม่ลงตัว",
+      "event": "agreement_and_distance",
+      "result": "ข้อตกลงชัดขึ้นจากการกระทำ",
+      "risk": "เวลาและหน้าที่ร่วมกันยังไม่ลงตัว",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "prediction.relationship.current.quiet",
+        "sourceComponents": [
+          "h=current|d=relationship|b=quiet|r=pressure|e=full|t=false|k=prediction.relationship.current.quiet|o=lagna-house-and-life-period-score|td=true"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-A5696CC8720F",
+      "kind": "prediction",
+      "owner": "health",
+      "domain": "health",
+      "horizon": "current",
+      "direction": "quiet",
+      "materialSignature": "h=current|d=health|b=quiet|r=pressure|e=full|t=false|k=prediction.health.current.quiet|o=lagna-house-and-life-period-score|td=true",
+      "headingTemplate": "health",
+      "readerTemplate": "กำลังฟื้นกลับจากการพัก แต่ภาระต่อเนื่องทำให้ใช้เวลาฟื้นตัวมากขึ้น",
+      "event": "rest_and_recovery",
+      "result": "กำลังฟื้นกลับจากการพัก",
+      "risk": "ภาระต่อเนื่องใช้เวลาฟื้นตัวมากขึ้น",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "prediction.health.current.quiet",
+        "sourceComponents": [
+          "h=current|d=health|b=quiet|r=pressure|e=full|t=false|k=prediction.health.current.quiet|o=lagna-house-and-life-period-score|td=true"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    },
+    {
+      "componentId": "OR4-PROPOSAL-22DFAB57DBA6",
+      "kind": "prediction",
+      "owner": "support",
+      "domain": "support",
+      "horizon": "current",
+      "direction": "dueng_tok",
+      "materialSignature": "status=dueng_tok|role=ayu|house=phangkha",
+      "headingTemplate": "support",
+      "readerTemplate": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทางให้เรื่องที่ติดขัดเดินต่อ",
+      "event": "support_from_people",
+      "result": "ผู้ใหญ่และคนร่วมงานช่วยเปิดทาง",
+      "risk": "ขอบเขตความช่วยเหลือต้องมีหลักฐานรองรับ",
+      "authorityStatus": "UNVERIFIED_NOT_EMITTABLE",
+      "sourceBinding": {
+        "repositoryPath": "docs/PREDICTIVE_RUNTIME_V2_CLAIM_LEVEL_BINDINGS.json",
+        "evidenceKey": "selector.mahabhut2537.rem1.friday.sun.22_27",
+        "sourceComponents": [
+          "selector.mahabhut2537.rem1.friday.sun.22_27"
+        ],
+        "limitation": "Historical serialized key is not a resolved full-sentence interpretation chain."
+      },
+      "ageApplicability": "BOUND_AT_RENDER",
+      "forbiddenCombinations": [
+        "material-only authorization",
+        "cross-domain noun replacement",
+        "unresolved conflict",
+        "stronger event outcome than source"
+      ]
+    }
+  ],
+  "counts": {
+    "factComponents": 3,
+    "proposedDomainComponents": 42,
+    "verifiedPredictionComponents": 0
+  },
+  "boundary": "Proposed reader templates are review material only; not emitted, not counted as supported coverage."
+}

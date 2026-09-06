@@ -1,0 +1,411 @@
+{
+  "id": "DD047C7797614293",
+  "input": {
+    "fixture": {
+      "known": true,
+      "birthDate": "1982-06-06",
+      "time": "00:35",
+      "location": "เชียงใหม่",
+      "sex": "ชาย",
+      "ascendant": "ลัคนาราศีกุมภ์ 19°19′"
+    },
+    "asOf": "2026-08-29",
+    "context": "mahabhut2537.rem0.saturday",
+    "periods": [
+      {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.saturn.0_10",
+        "planet": "saturn",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 10,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.saturn.0_10",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.saturn.0_10",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.jupiter.11_29",
+        "planet": "jupiter",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 11,
+        "ageEnd": 29,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.jupiter.11_29",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.jupiter.11_29",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.rahu.30_41",
+        "planet": "rahu",
+        "taksaRole": "det",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 30,
+        "ageEnd": 41,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.rahu.30_41",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.rahu.30_41",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.venus.42_62",
+        "planet": "venus",
+        "taksaRole": "sri",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 42,
+        "ageEnd": 62,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.venus.42_62",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.mercury.63_79",
+        "planet": "mercury",
+        "taksaRole": "mula",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 63,
+        "ageEnd": 79,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.mercury.63_79",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.mercury.63_79",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.moon.80_94",
+        "planet": "moon",
+        "taksaRole": "utsaha",
+        "mahabhutHouse": "khumsap",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 80,
+        "ageEnd": 94,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.moon.80_94",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.moon.80_94",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.mars.95_102",
+        "planet": "mars",
+        "taksaRole": "montri",
+        "mahabhutHouse": "marana",
+        "periodStatus": "dueng_tok",
+        "ageStart": 95,
+        "ageEnd": 102,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.mars.95_102",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.mars.95_102",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.sun.103_108",
+        "planet": "sun",
+        "taksaRole": "kalakini",
+        "mahabhutHouse": "puti",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 103,
+        "ageEnd": 108,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.sun.103_108",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.sun.103_108",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    ],
+    "typedMaterials": [],
+    "evidenceBindings": []
+  },
+  "componentLibraryRef": "docs/OR4_COMPONENT_LIBRARY.json#/components",
+  "componentLibrarySha256": "9E0DCC430853CD58B15B60EABA38F4FAD7CFD3FA58BC4CBDB4A80A2349D98277",
+  "currentAge": 44,
+  "resolved": {
+    "completed": [
+      {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.saturn.0_10",
+        "planet": "saturn",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 10,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.saturn.0_10",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.saturn.0_10",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.jupiter.11_29",
+        "planet": "jupiter",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 11,
+        "ageEnd": 29,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.jupiter.11_29",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.jupiter.11_29",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.rahu.30_41",
+        "planet": "rahu",
+        "taksaRole": "det",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 30,
+        "ageEnd": 41,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.rahu.30_41",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.rahu.30_41",
+        "rawHeuristicPromotedToPrediction": false
+      }
+    ],
+    "current": {
+      "contextId": "mahabhut2537.rem0.saturday",
+      "matrixApplicationId": "mahabhut2537.rem0.saturday.venus.42_62",
+      "planet": "venus",
+      "taksaRole": "sri",
+      "mahabhutHouse": "thongchai",
+      "periodStatus": "dueng_khuen",
+      "ageStart": 42,
+      "ageEnd": 62,
+      "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.venus.42_62",
+      "selectorAuthority": "selector.mahabhut2537.rem0.saturday.venus.42_62",
+      "rawHeuristicPromotedToPrediction": false
+    },
+    "next": {
+      "contextId": "mahabhut2537.rem0.saturday",
+      "matrixApplicationId": "mahabhut2537.rem0.saturday.mercury.63_79",
+      "planet": "mercury",
+      "taksaRole": "mula",
+      "mahabhutHouse": "athibodi",
+      "periodStatus": "dueng_khuen",
+      "ageStart": 63,
+      "ageEnd": 79,
+      "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.mercury.63_79",
+      "selectorAuthority": "selector.mahabhut2537.rem0.saturday.mercury.63_79",
+      "rawHeuristicPromotedToPrediction": false
+    }
+  },
+  "claims": [
+    {
+      "owner": "past",
+      "kind": "fact",
+      "heading": "อายุ 1–10 ปี",
+      "text": "ช่วงอายุ 1–10 ปีผ่านไปแล้ว",
+      "componentId": "OR4-FACT-past",
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.saturn.0_10",
+        "planet": "saturn",
+        "taksaRole": "boriwan",
+        "mahabhutHouse": "phangkha",
+        "periodStatus": "dueng_tok",
+        "ageStart": 0,
+        "ageEnd": 10,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.saturn.0_10",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.saturn.0_10",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "renderArguments": {
+        "ageStart": 1,
+        "ageEnd": 10
+      }
+    },
+    {
+      "owner": "past",
+      "kind": "fact",
+      "heading": "อายุ 11–29 ปี",
+      "text": "ช่วงอายุ 11–29 ปีผ่านไปแล้ว",
+      "componentId": "OR4-FACT-past",
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.jupiter.11_29",
+        "planet": "jupiter",
+        "taksaRole": "ayu",
+        "mahabhutHouse": "racha",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 11,
+        "ageEnd": 29,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.jupiter.11_29",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.jupiter.11_29",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "renderArguments": {
+        "ageStart": 11,
+        "ageEnd": 29
+      }
+    },
+    {
+      "owner": "past",
+      "kind": "fact",
+      "heading": "อายุ 30–41 ปี",
+      "text": "ช่วงอายุ 30–41 ปีผ่านไปแล้ว",
+      "componentId": "OR4-FACT-past",
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.rahu.30_41",
+        "planet": "rahu",
+        "taksaRole": "det",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 30,
+        "ageEnd": 41,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.rahu.30_41",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.rahu.30_41",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "renderArguments": {
+        "ageStart": 30,
+        "ageEnd": 41
+      }
+    },
+    {
+      "owner": "current",
+      "kind": "fact",
+      "heading": "คำทำนายปัจจุบัน — อายุ 44 ปี",
+      "text": "ปัจจุบันอายุ 44 ปี อยู่ในช่วงชีวิตที่เริ่มตั้งแต่อายุ 42 ปีและสิ้นสุดเมื่ออายุ 62 ปี",
+      "componentId": "OR4-FACT-current",
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.venus.42_62",
+        "planet": "venus",
+        "taksaRole": "sri",
+        "mahabhutHouse": "thongchai",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 42,
+        "ageEnd": 62,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.venus.42_62",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "renderArguments": {
+        "currentAge": 44,
+        "periodStart": 42,
+        "periodEnd": 62
+      }
+    },
+    {
+      "owner": "next",
+      "kind": "fact",
+      "heading": "ช่วงชีวิตถัดไป — อายุ 63–79 ปี",
+      "text": "ช่วงถัดไปครอบคลุมอายุ 63–79 ปี",
+      "componentId": "OR4-FACT-next",
+      "sourcePeriod": {
+        "contextId": "mahabhut2537.rem0.saturday",
+        "matrixApplicationId": "mahabhut2537.rem0.saturday.mercury.63_79",
+        "planet": "mercury",
+        "taksaRole": "mula",
+        "mahabhutHouse": "athibodi",
+        "periodStatus": "dueng_khuen",
+        "ageStart": 63,
+        "ageEnd": 79,
+        "resolverSelectedMatrixApplicationId": "mahabhut2537.rem0.saturday.mercury.63_79",
+        "selectorAuthority": "selector.mahabhut2537.rem0.saturday.mercury.63_79",
+        "rawHeuristicPromotedToPrediction": false
+      },
+      "renderArguments": {
+        "nextAgeStart": 63,
+        "nextAgeEnd": 79
+      }
+    }
+  ],
+  "omissions": [
+    {
+      "owner": "overview",
+      "reason": "NO_INPUT_BOUND_TYPED_MATERIAL",
+      "attemptedMaterialSignatures": [],
+      "proposedComponentIds": [],
+      "required": "selector + Canon domain + direction + timing + conflict + certainty + full-sentence interpretation; bound to this input"
+    },
+    {
+      "owner": "past",
+      "reason": "NO_INPUT_BOUND_TYPED_MATERIAL",
+      "attemptedMaterialSignatures": [],
+      "proposedComponentIds": [],
+      "required": "selector + Canon domain + direction + timing + conflict + certainty + full-sentence interpretation; bound to this input"
+    },
+    {
+      "owner": "current",
+      "reason": "NO_INPUT_BOUND_TYPED_MATERIAL",
+      "attemptedMaterialSignatures": [],
+      "proposedComponentIds": [],
+      "required": "selector + Canon domain + direction + timing + conflict + certainty + full-sentence interpretation; bound to this input"
+    },
+    {
+      "owner": "work",
+      "reason": "NO_INPUT_BOUND_TYPED_MATERIAL",
+      "attemptedMaterialSignatures": [],
+      "proposedComponentIds": [],
+      "required": "selector + Canon domain + direction + timing + conflict + certainty + full-sentence interpretation; bound to this input"
+    },
+    {
+      "owner": "finance",
+      "reason": "NO_INPUT_BOUND_TYPED_MATERIAL",
+      "attemptedMaterialSignatures": [],
+      "proposedComponentIds": [],
+      "required": "selector + Canon domain + direction + timing + conflict + certainty + full-sentence interpretation; bound to this input"
+    },
+    {
+      "owner": "relationship",
+      "reason": "NO_INPUT_BOUND_TYPED_MATERIAL",
+      "attemptedMaterialSignatures": [],
+      "proposedComponentIds": [],
+      "required": "selector + Canon domain + direction + timing + conflict + certainty + full-sentence interpretation; bound to this input"
+    },
+    {
+      "owner": "health",
+      "reason": "NO_INPUT_BOUND_TYPED_MATERIAL",
+      "attemptedMaterialSignatures": [],
+      "proposedComponentIds": [],
+      "required": "selector + Canon domain + direction + timing + conflict + certainty + full-sentence interpretation; bound to this input"
+    },
+    {
+      "owner": "support",
+      "reason": "NO_INPUT_BOUND_TYPED_MATERIAL",
+      "attemptedMaterialSignatures": [],
+      "proposedComponentIds": [],
+      "required": "selector + Canon domain + direction + timing + conflict + certainty + full-sentence interpretation; bound to this input"
+    },
+    {
+      "owner": "rolling12",
+      "reason": "NO_INPUT_BOUND_TYPED_MATERIAL",
+      "attemptedMaterialSignatures": [],
+      "proposedComponentIds": [],
+      "required": "selector + Canon domain + direction + timing + conflict + certainty + full-sentence interpretation; bound to this input"
+    },
+    {
+      "owner": "next",
+      "reason": "NO_INPUT_BOUND_TYPED_MATERIAL",
+      "attemptedMaterialSignatures": [],
+      "proposedComponentIds": [],
+      "required": "selector + Canon domain + direction + timing + conflict + certainty + full-sentence interpretation; bound to this input"
+    },
+    {
+      "owner": "summary",
+      "reason": "NO_INPUT_BOUND_TYPED_MATERIAL",
+      "attemptedMaterialSignatures": [],
+      "proposedComponentIds": [],
+      "required": "selector + Canon domain + direction + timing + conflict + certainty + full-sentence interpretation; bound to this input"
+    },
+    {
+      "owner": "advice",
+      "reason": "NO_INPUT_BOUND_TYPED_MATERIAL",
+      "attemptedMaterialSignatures": [],
+      "proposedComponentIds": [],
+      "required": "selector + Canon domain + direction + timing + conflict + certainty + full-sentence interpretation; bound to this input"
+    }
+  ],
+  "readerText": "ข้อมูลช่วงชีวิต\n\nวันเกิด 1982-06-06 · เวลา 00:35 · เชียงใหม่\n\nลัคนาราศีกุมภ์ 19°19′\n\nคำทำนายที่ยังไม่มีหลักฐานครบถูกเว้นไว้ในรายงานนี้\n\nอายุ 1–10 ปี\n\nช่วงอายุ 1–10 ปีผ่านไปแล้ว\n\nอายุ 11–29 ปี\n\nช่วงอายุ 11–29 ปีผ่านไปแล้ว\n\nอายุ 30–41 ปี\n\nช่วงอายุ 30–41 ปีผ่านไปแล้ว\n\nคำทำนายปัจจุบัน — อายุ 44 ปี\n\nปัจจุบันอายุ 44 ปี อยู่ในช่วงชีวิตที่เริ่มตั้งแต่อายุ 42 ปีและสิ้นสุดเมื่ออายุ 62 ปี\n\nช่วงชีวิตถัดไป — อายุ 63–79 ปี\n\nช่วงถัดไปครอบคลุมอายุ 63–79 ปี\n\nช่วง 12 เดือนข้างหน้า: 2026-08-29 – 2027-08-28\n\nคำทำนายเป็นมุมมองตามความเชื่อ ใช้ประกอบข้อมูลจริงก่อนตัดสินใจเรื่องสำคัญ",
+  "generator": "buildReaderReport-v1",
+  "inputHash": "5F0A67D7D8CE69CF27ED08521CB91B738700DD243DD475ABBA2C69A620F78288",
+  "rollingHorizon": {
+    "start": "2026-08-29",
+    "end": "2027-08-28"
+  }
+}
