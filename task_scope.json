@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "task_id": "pr115-or10r-predictive-signature-contract-runtime",
+  "task_id": "pr115-or10r-r1-infographic-semantics-package-repair",
   "expected_branch": "codex/thai-predictive-narrative-v2-runtime-v2",
   "expected_worktree": "C:/Users/USER/Documents/Knowme/pr107-release-main",
-  "base_ref": "5882fef14a0a6c145f02b3b475d5937565f5aada",
+  "base_ref": "1f5da4b03ae62729e8e6f7eac888de2784007eb2",
   "allowed_files": [
     "task_scope.json",
     "TASK_RESULT.md",
@@ -18,6 +18,10 @@
     "docs/PREDICTIVE_RUNTIME_V2_GENERALIZATION_AUDIT.json",
     "docs/PREDICTIVE_RUNTIME_V2_GENERALIZATION_AUDIT.md",
     "docs/PR115_OR10R_VALIDATION.json",
+    "docs/PR115_OR10R_R1_BEFORE_EVIDENCE.json",
+    "docs/PR115_OR10R_R1_VISUAL_REVIEW.json",
+    "docs/PR115_OR10R_R1_VALIDATION.json",
+    "docs/PR115_OR10R_R1_OWNER_REVIEW.md",
     "lib/features/thai_beta/application/narrative/predictive_runtime_v2.dart",
     "lib/features/thai_beta/application/narrative/predictive_runtime_v2_catalog.g.dart",
     "lib/features/thai_beta/application/thai_beta_report_export_document.dart",

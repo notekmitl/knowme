@@ -546,7 +546,7 @@ class ThaiBetaReportExportDocument {
         subtitle: baseline.subtitle,
         sections: baseline.sections,
         filenameStem: baseline.filenameStem,
-        infographic: _runtimeInfographic(plan),
+        infographic: runtimeInfographicFromPlan(plan),
         predictiveRuntimeV2: plan,
       );
     }
@@ -633,7 +633,7 @@ class ThaiBetaReportExportDocument {
       subtitle: baseline.subtitle,
       sections: [...baseline.sections.take(part2Index), ...inserted, ...tail],
       filenameStem: baseline.filenameStem,
-      infographic: _runtimeInfographic(plan),
+      infographic: runtimeInfographicFromPlan(plan),
       predictiveRuntimeV2: plan,
     );
   }
@@ -737,7 +737,7 @@ class ThaiBetaReportExportDocument {
       subtitle: baseline.subtitle,
       sections: sections,
       filenameStem: baseline.filenameStem,
-      infographic: _runtimeInfographic(plan),
+      infographic: runtimeInfographicFromPlan(plan),
       predictiveRuntimeV2: plan,
     );
   }
@@ -784,10 +784,42 @@ class ThaiBetaReportExportDocument {
     );
   }
 
-  static ThaiBetaAnnualInfographicData _runtimeInfographic(
+  /// Builds the Known predictive infographic from claim-bound runtime data.
+  ///
+  /// Any Unknown-time or partially omitted plan is rejected rather than
+  /// allowing omission/fallback copy to cross the infographic boundary.
+  static ThaiBetaAnnualInfographicData? runtimeInfographicFromPlan(
     ThaiPredictiveRuntimeV2Plan plan,
   ) {
-    RuntimePredictiveDecision? claim(String owner) => plan.claimForOwner(owner);
+    if (!plan.knownTime ||
+        plan.omissionReason.trim().isNotEmpty ||
+        plan.evidenceBindingMismatches != 0) {
+      return null;
+    }
+    const requiredGraphicOwners = <String>{
+      'work',
+      'finance',
+      'relationship',
+      'health',
+      'support',
+      'rolling12',
+      'advice',
+      'disclosure',
+    };
+    final claims = <String, RuntimePredictiveDecision>{};
+    for (final owner in requiredGraphicOwners) {
+      final decision = plan.claimForOwner(owner);
+      if (decision == null ||
+          !decision.emitted ||
+          !decision.rule.hasCompletePredictiveChain ||
+          decision.rule.contextId != plan.contextId ||
+          decision.text.trim().isEmpty ||
+          _runtimeInfographicDecisionText(decision)!.isEmpty) {
+        return null;
+      }
+      claims[owner] = decision;
+    }
+    RuntimePredictiveDecision claim(String owner) => claims[owner]!;
     final categoriesByOwner = <(String, String, String)>[
       ('work', 'การงาน', 'work'),
       ('finance', 'การเงิน', 'savings'),
@@ -796,36 +828,34 @@ class ThaiBetaReportExportDocument {
     ];
     final categories = <ThaiBetaAnnualInfographicCategory>[
       for (final item in categoriesByOwner)
-        if (claim(item.$1) case final decision?)
-          ThaiBetaAnnualInfographicCategory(
-            id: 'predictive-v2-${decision.rule.domain}',
-            title: item.$2,
-            summary: _runtimeInfographicDecisionText(decision)!,
-            iconName: item.$3,
-            traceIds: [decision.rule.id],
-          ),
+        ThaiBetaAnnualInfographicCategory(
+          id: 'predictive-v2-${claim(item.$1).rule.domain}',
+          title: item.$2,
+          summary: _runtimeInfographicDecisionText(claim(item.$1))!,
+          iconName: item.$3,
+          traceIds: [claim(item.$1).rule.id],
+        ),
     ];
     final range = _runtimeRollingRange(plan.asOf);
-    final omission = plan.omissionReason;
+    final periodLabel =
+        '${_runtimeThaiShortDate(range.$1)} – ${_runtimeThaiShortDate(range.$2)}';
+    final rollingText = _runtimeWithoutLongRange(
+      _runtimeInfographicDecisionText(claim('rolling12'))!,
+    );
+    if (rollingText.isEmpty) return null;
     final traceIds = plan.emittedClaims
-        .map((claim) => claim.rule.id)
+        .map((decision) => decision.rule.id)
         .toList(growable: false);
     return ThaiBetaAnnualInfographicData(
       buddhistYear: plan.asOf.year + 543,
-      periodLabel:
-          '${_runtimeThaiShortDate(range.$1)} – ${_runtimeThaiShortDate(range.$2)}',
-      theme:
-          _runtimeInfographicDecisionText(claim('summary')) ??
-          'เว้นหัวข้อที่ต้องใช้เวลาเกิด',
-      overview:
-          '${_runtimeThaiShortDate(range.$1)} – ${_runtimeThaiShortDate(range.$2)} · ${_runtimeWithoutLongRange(_runtimeInfographicDecisionText(claim('rolling12')) ?? omission)}',
+      periodLabel: periodLabel,
+      theme: rollingText,
+      overview: periodLabel,
       categories: categories,
-      opportunity: _runtimeInfographicDecisionText(claim('support')) ?? '',
-      caution: _runtimeInfographicDecisionText(claim('health')) ?? '',
-      primaryAdvice: _runtimeInfographicDecisionText(claim('advice')) ?? '',
-      disclaimer:
-          claim('disclosure')?.text ??
-          'รายงานเว้นคำทำนายที่ข้อมูลยังรองรับไม่เพียงพอ',
+      opportunity: _runtimeInfographicDecisionText(claim('support'))!,
+      caution: _runtimeInfographicDecisionText(claim('health'))!,
+      primaryAdvice: _runtimeInfographicDecisionText(claim('advice'))!,
+      disclaimer: claim('disclosure').text,
       monthlyTimelineAvailable: false,
       monthlyGapReason:
           'ไม่มีคะแนนหรือหลักฐานรายเดือน จึงไม่สร้างคำทำนายรายเดือน',

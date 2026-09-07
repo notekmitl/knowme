@@ -21,6 +21,8 @@ void main() {
       final infographicProfiles = <Map<String, Object?>>[];
       final copyQualityViolations = <String>[];
       final changedProfiles = <String>{};
+      var runtimeKnownInfographics = 0;
+      var runtimeUnknownInfographics = 0;
       final cases = ThaiBetaSyntheticMatrix.build();
       expect(cases, hasLength(300));
 
@@ -31,6 +33,107 @@ void main() {
           asOf: DateTime.parse(_referenceDate),
         );
         expect(analysis.isSuccess, isTrue, reason: profile.id);
+        final runtimeDocument = ThaiBetaReportExportDocument.candidate(
+          analysis,
+        );
+        final runtimePlan = runtimeDocument.predictiveRuntimeV2!;
+        expect(runtimePlan.fixtureSpecificBranches, 0, reason: profile.id);
+        expect(
+          runtimePlan.ownerAcceptedGoldenOverrideApplied,
+          0,
+          reason: profile.id,
+        );
+        if (!profile.input.hasBirthTime) {
+          expect(runtimeDocument.infographic, isNull, reason: profile.id);
+          runtimeUnknownInfographics++;
+        } else {
+          final runtimeGraphic = runtimeDocument.infographic;
+          expect(runtimeGraphic, isNotNull, reason: profile.id);
+          expect(runtimePlan.omissionReason, isEmpty, reason: profile.id);
+          final infographic = runtimeGraphic!;
+          expect(infographic.categories, hasLength(4), reason: profile.id);
+          final boundOwners = <String, String>{
+            'theme': 'rolling12',
+            'category-work': 'work',
+            'category-finance': 'finance',
+            'category-relationship': 'relationship',
+            'category-health': 'health',
+            'opportunity': 'support',
+            'caution': 'health',
+            'primaryAdvice': 'advice',
+            'disclaimer': 'disclosure',
+          };
+          final infographicText = <String, String>{
+            'theme': infographic.theme,
+            'category-work': infographic.categories[0].summary,
+            'category-finance': infographic.categories[1].summary,
+            'category-relationship': infographic.categories[2].summary,
+            'category-health': infographic.categories[3].summary,
+            'opportunity': infographic.opportunity,
+            'caution': infographic.caution,
+            'primaryAdvice': infographic.primaryAdvice,
+            'disclaimer': infographic.disclaimer,
+          };
+          for (final entry in boundOwners.entries) {
+            final decision = runtimePlan.claimForOwner(entry.value);
+            expect(decision, isNotNull, reason: '${profile.id}/${entry.key}');
+            expect(
+              decision!.rule.hasCompletePredictiveChain,
+              isTrue,
+              reason: '${profile.id}/${entry.key}',
+            );
+            final expected = entry.value == 'disclosure'
+                ? decision.text
+                : entry.value == 'rolling12'
+                ? decision.infographicText.replaceFirst(
+                    RegExp(
+                      r'^ระหว่างวันที่\s+\d+\s+\S+\s+\d+\s+ถึง\s+\d+\s+\S+\s+\d+\s*',
+                    ),
+                    '',
+                  )
+                : decision.infographicText;
+            expect(
+              infographicText[entry.key],
+              expected,
+              reason: '${profile.id}/${entry.key}',
+            );
+          }
+          for (final text in <String>[
+            infographic.overview,
+            ...infographicText.values,
+          ]) {
+            for (final rejected in const [
+              'เว้นหัวข้อที่ต้องใช้เวลาเกิด',
+              'ไม่มีเวลาเกิด',
+              'ข้อมูลไม่เพียงพอ',
+            ]) {
+              expect(
+                text.contains(rejected),
+                isFalse,
+                reason: '${profile.id}: $rejected',
+              );
+            }
+          }
+          expect(
+            runtimePlan.emittedClaims.any(
+              (decision) =>
+                  <String>[
+                    decision.rule.id,
+                    decision.rule.semanticOwner,
+                    ...decision.rule.evidenceRefs,
+                    ...decision.rule.sourceComponents,
+                  ].any(
+                    (value) => RegExp(
+                      r'unknown|omission|fallback',
+                      caseSensitive: false,
+                    ).hasMatch(value),
+                  ),
+            ),
+            isFalse,
+            reason: profile.id,
+          );
+          runtimeKnownInfographics++;
+        }
         final before = ThaiBetaReportExportDocument.beforeReaderCopy(analysis);
         // This ledger is the accepted PR108 copy-only transform audit. Keep it
         // pinned to that projection now that candidate() additionally applies
@@ -486,6 +589,8 @@ void main() {
         ),
         hasLength(75),
       );
+      expect(runtimeKnownInfographics, 225);
+      expect(runtimeUnknownInfographics, 75);
 
       final output = Platform.environment['KNOWME_COPY_LEDGER_OUTPUT'];
       if (output != null && output.isNotEmpty) {

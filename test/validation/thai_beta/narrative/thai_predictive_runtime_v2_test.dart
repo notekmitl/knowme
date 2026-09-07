@@ -115,6 +115,136 @@ void main() {
       }
     });
 
+    test('00:03 and 00:35 infographic inventories use only bound Known claims', () {
+      const hero = 'ขอบเขตงานจะกว้างขึ้น และรายรับจะเพิ่มขึ้น';
+      const period = '29 ส.ค. 2569 – 28 ส.ค. 2570';
+      const expectedByOwner = <String, String>{
+        'work': 'งานมีเข้ามาต่อเนื่องและคุณยังรับผิดชอบงานหลักได้เต็มที่',
+        'finance': 'คุณมีเงินใช้และมีโชคลาภ เรื่องเงินในช่วงนี้คล่องตัวขึ้น',
+        'relationship': 'ความสัมพันธ์ที่สำคัญจะแน่นแฟ้นขึ้น',
+        'health':
+            'กำลังโดยรวมยังดี แต่ช่วงที่พักไม่พอ ร่างกายจะฟื้นช้าลงและทำกิจกรรมต่อเนื่องได้ลดลง',
+        'support': 'ครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่ายจะเข้ามาช่วย',
+        'advice':
+            'กำหนดขอบเขตงานที่รับเพิ่ม ตรวจเงินคงเหลือหลังรายจ่ายจำเป็นก่อนขยายแผน และกันเวลาพักไว้ให้ร่างกายฟื้นแรง',
+        'disclosure':
+            'คำทำนายนี้เป็นการตีความตามหลักโหราศาสตร์และความเชื่อ ใช้ประกอบการพิจารณาร่วมกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ',
+      };
+      final identities = <String>[];
+      final predictiveBodies = <String>[];
+      for (final minute in [3, 35]) {
+        final analysis = _accepted(minute: minute);
+        final plan = ThaiPredictiveRuntimeV2Plan.fromAnalysis(analysis);
+        final document = ThaiBetaReportExportDocument.candidate(analysis);
+        final infographic = document.infographic!;
+        expect(infographic.periodLabel, period);
+        expect(infographic.overview, period);
+        expect(infographic.theme, hero);
+        expect(infographic.categories.map((item) => item.title), [
+          'การงาน',
+          'การเงิน',
+          'ความรัก',
+          'สุขภาพ',
+        ]);
+        expect(infographic.categories.map((item) => item.summary), [
+          expectedByOwner['work'],
+          expectedByOwner['finance'],
+          expectedByOwner['relationship'],
+          expectedByOwner['health'],
+        ]);
+        expect(infographic.opportunity, expectedByOwner['support']);
+        expect(infographic.caution, expectedByOwner['health']);
+        expect(infographic.primaryAdvice, expectedByOwner['advice']);
+        expect(infographic.disclaimer, expectedByOwner['disclosure']);
+
+        final allText = <String>[
+          infographic.overview,
+          infographic.theme,
+          ...infographic.categories.map((item) => item.summary),
+          infographic.opportunity,
+          infographic.caution,
+          infographic.primaryAdvice,
+          infographic.disclaimer,
+        ];
+        expect(allText.where((text) => text == hero), hasLength(1));
+        for (final rejected in const [
+          'เว้นหัวข้อที่ต้องใช้เวลาเกิด',
+          'ไม่มีเวลาเกิด',
+          'ข้อมูลไม่เพียงพอ',
+        ]) {
+          expect(allText.any((text) => text.contains(rejected)), isFalse);
+        }
+        final emittedIds = plan.emittedClaims
+            .map((decision) => decision.rule.id)
+            .toSet();
+        expect(infographic.traceIds.every(emittedIds.contains), isTrue);
+        expect(
+          infographic.categories.every(
+            (item) => item.traceIds.every(emittedIds.contains),
+          ),
+          isTrue,
+        );
+        expect(
+          plan.emittedClaims.any(
+            (decision) =>
+                <String>[
+                  decision.rule.id,
+                  decision.rule.semanticOwner,
+                  ...decision.rule.evidenceRefs,
+                  ...decision.rule.sourceComponents,
+                ].any(
+                  (value) => RegExp(
+                    r'unknown|omission|fallback',
+                    caseSensitive: false,
+                  ).hasMatch(value),
+                ),
+          ),
+          isFalse,
+        );
+        for (final owner in expectedByOwner.keys) {
+          final decision = plan.claimForOwner(owner)!;
+          expect(decision.rule.hasCompletePredictiveChain, isTrue);
+          expect(decision.infographicText, expectedByOwner[owner]);
+        }
+        expect(
+          plan.claimForOwner('rolling12')!.infographicText,
+          'ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570 $hero',
+        );
+        identities.add(plan.subtitle);
+        predictiveBodies.add(jsonEncode(_predictiveSectionProjection(plan)));
+      }
+      expect(identities[0], contains('ลัคนาราศีกุมภ์ 9°24′'));
+      expect(identities[1], contains('ลัคนาราศีกุมภ์ 19°19′'));
+      expect(predictiveBodies[0], predictiveBodies[1]);
+    });
+
+    test('Known infographic rejects a tainted Unknown omission reason', () {
+      final plan = ThaiPredictiveRuntimeV2Plan.fromAnalysis(
+        _accepted(minute: 35),
+      );
+      final tainted = ThaiPredictiveRuntimeV2Plan(
+        contextId: plan.contextId,
+        knownTime: plan.knownTime,
+        currentAge: plan.currentAge,
+        asOf: plan.asOf,
+        title: plan.title,
+        subtitle: plan.subtitle,
+        decisions: plan.decisions,
+        sections: plan.sections,
+        omissionReason: 'ไม่มีเวลาเกิด — รายงานจึงเว้นหัวข้อที่ต้องใช้เวลาเกิด',
+        currentPeriod: plan.currentPeriod,
+        predictiveSignature: plan.predictiveSignature,
+      );
+      expect(
+        ThaiBetaReportExportDocument.runtimeInfographicFromPlan(tainted),
+        isNull,
+      );
+      expect(
+        ThaiBetaReportExportDocument.runtimeInfographicFromPlan(plan),
+        isNotNull,
+      );
+    });
+
     test('a different signature selects its own generalized rules', () {
       final active = ThaiPredictiveRuntimeV2Plan.fromAnalysis(
         _accepted(minute: 35),
