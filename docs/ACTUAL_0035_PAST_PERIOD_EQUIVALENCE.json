@@ -1,0 +1,710 @@
+{
+  "schema": "actual-0035-past-period-equivalence/1",
+  "fixture003": {
+    "firstName": "Acceptance",
+    "lastName": "Fixture",
+    "birthDate": "1982-06-06",
+    "birthHour": 0,
+    "birthMinute": 3,
+    "birthTimeUnknown": false,
+    "province": "เชียงใหม่",
+    "provinceKey": "chiang mai",
+    "gender": "ชาย"
+  },
+  "fixture035": {
+    "firstName": "Acceptance",
+    "lastName": "Fixture",
+    "birthDate": "1982-06-06",
+    "birthHour": 0,
+    "birthMinute": 35,
+    "birthTimeUnknown": false,
+    "province": "เชียงใหม่",
+    "provinceKey": "chiang mai",
+    "gender": "ชาย"
+  },
+  "asOf": "2026-08-29T00:00:00.000",
+  "equivalent": true,
+  "equivalence": {
+    "equivalent": true,
+    "fields": {
+      "contextId": true,
+      "thaiAstrologicalDate": true,
+      "thaiAstrologicalDay": true,
+      "completedPeriodRows": true,
+      "noActual0035FixtureBranch": true
+    },
+    "periods": [
+      {
+        "period": "0-10",
+        "contextId": "mahabhut2537.rem0.saturday",
+        "selectorId": "selector.mahabhut2537.rem0.saturday.saturn.0_10",
+        "row003": {
+          "contextId": "mahabhut2537.rem0.saturday",
+          "matrixApplicationId": "mahabhut2537.rem0.saturday.saturn.0_10",
+          "planet": "saturn",
+          "taksaRole": "boriwan",
+          "mahabhutHouse": "phangkha",
+          "periodStatus": "dueng_tok",
+          "ageStart": 0,
+          "ageEnd": 10
+        },
+        "row035": {
+          "contextId": "mahabhut2537.rem0.saturday",
+          "matrixApplicationId": "mahabhut2537.rem0.saturday.saturn.0_10",
+          "planet": "saturn",
+          "taksaRole": "boriwan",
+          "mahabhutHouse": "phangkha",
+          "periodStatus": "dueng_tok",
+          "ageStart": 0,
+          "ageEnd": 10
+        },
+        "selector": {
+          "id": "selector.mahabhut2537.rem0.saturday.saturn.0_10",
+          "resolved": true,
+          "reference": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_PERIOD_EXTRACTION_LEDGER_392.json",
+          "locator": {
+            "jsonPointer": "/rows/384",
+            "objectKey": "mahabhut2537.rem0.saturday.saturn.0_10",
+            "symbol": null
+          },
+          "sourceSha256": "93820B843F3834A5E9957CF6896A23A62E9DDC39E1722BAF23A8EB0C718E080F",
+          "value": {
+            "contextId": "mahabhut2537.rem0.saturday",
+            "matrixApplicationId": "mahabhut2537.rem0.saturday.saturn.0_10",
+            "planet": "saturn",
+            "taksaRole": "boriwan",
+            "mahabhutHouse": "phangkha",
+            "periodStatus": "dueng_tok",
+            "agePeriod": "0-10",
+            "sourcePageStart": 290,
+            "sourcePageEnd": 290,
+            "pagesOcrChecked": [
+              290,
+              291,
+              292
+            ],
+            "pagesVisuallyChecked": [],
+            "extractionStatus": "DIRECT_EVENT_FOUND",
+            "atomIds": [
+              "SDEA-OR2-MAHABHUT2537-REM0-SATURDAY-SATURN-0-10"
+            ],
+            "shortSourceExcerpts": [
+              "นเกิดวันเสาร์ แรกเกิด เเกิ ว์เป เป็นระยะที่วิถีชีว[เข่เอด าธิสี่โฉร4นเอิทธิพลของดาวเสาร์ ดาวแห่งบริวาร สถิตเรือนภังคะ ก็แลบุคคลผู้เกิดมาในเรือนภังคะนั้น ประเช๋าเว้าจีอสก็ดบไนระแแที่มีนิแบรัณีโอเลอแย เช่นเป็นระยะ ai i i | i i เจ ' < สม a 1 ทีพ่อแม่มีสุขภาพร่างกายอ่อนแอ มีการงานย่าแย่ มีการเงินติดขัด จึงไม่ i a Vv vv i vo ae f= | a ค่อยมีเวลามากพอที่จะให้การดู"
+            ],
+            "ocrSpanHashes": {
+              "290": "D2230BDDBBE986A3F4462B0D687216546426BBBD163F8239235C22AC83098A06"
+            },
+            "pageImageHashes": {
+              "290": "A688214454A2972DC20165C89DC6B10688A311855FC5E8928A574A1C7D7935E2"
+            },
+            "ocrCorrections": [],
+            "reviewerObservation": "OR2 OCR/marker output preserved as raw heuristic data; no semantic authority is established by this row.",
+            "unresolvedIssue": null,
+            "heuristicExtractionStatus": "DIRECT_EVENT_FOUND",
+            "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE",
+            "semanticReviewEvidence": null
+          },
+          "historicalFixture": {
+            "profileId": "TARGET-0003",
+            "sex": "male",
+            "birthDate": "1982-06-06",
+            "birthTimeMode": "known",
+            "birthTime": "00:03",
+            "province": "Chiang Mai",
+            "provinceKey": "chiang_mai",
+            "thaiAstrologicalDay": "Saturday",
+            "ascendant": "Aquarius 9°24′",
+            "contextId": "mahabhut2537.rem0.saturday",
+            "asOf": "2026-08-29 Asia/Bangkok",
+            "age": 44
+          },
+          "limitation": "Selector placement only; OCR status is not event authority"
+        },
+        "selectorMatches": true,
+        "sourceBindings": [
+          {
+            "id": "source.T0003-SRC-0-10-FAMILY-CONSTRAINT",
+            "resolved": true,
+            "reference": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
+            "locator": {
+              "jsonPointer": "/sourceRecords/0",
+              "objectKey": "T0003-SRC-0-10-FAMILY-CONSTRAINT",
+              "symbol": null
+            },
+            "sourceSha256": "4FB3AE901C9D1ECB0D0510AE7EFF20915F2B4F2B4CE3791924E6A3FB3F31098F",
+            "value": {
+              "evidenceId": "T0003-SRC-0-10-FAMILY-CONSTRAINT",
+              "pages": [
+                290
+              ],
+              "exactPeriod": "0-10",
+              "classification": "SOURCE_DIRECT_EVENT",
+              "domains": [
+                "family",
+                "health",
+                "work",
+                "finance"
+              ],
+              "excerpt": "พ่อแม่มีสุขภาพร่างกายอ่อนแอ มีการงานย่ำแย่ มีการเงินติดขัด",
+              "correctedTranscription": "พ่อแม่มีสุขภาพร่างกายอ่อนแอ มีการงานย่ำแย่ มีการเงินติดขัด",
+              "normalizedMeaning": "Early family health, work and money constraints limited close care.",
+              "sourceDirectStrength": "EXPLICIT_MULTI_DOMAIN_EVENT_CLAUSE",
+              "prohibitedExtrapolations": [
+                "specific diagnosis",
+                "specific parent",
+                "exact financial amount",
+                "permanent childhood outcome"
+              ]
+            },
+            "historicalFixture": {
+              "profileId": "TARGET-0003",
+              "sex": "male",
+              "birthDate": "1982-06-06",
+              "birthTimeMode": "known",
+              "birthTime": "00:03",
+              "province": "Chiang Mai",
+              "provinceKey": "chiang_mai",
+              "thaiAstrologicalDay": "Saturday",
+              "ascendant": "Aquarius 9°24′",
+              "contextId": "mahabhut2537.rem0.saturday",
+              "asOf": "2026-08-29 Asia/Bangkok",
+              "age": 44
+            },
+            "limitation": null
+          },
+          {
+            "id": "canon.mahabhut.p28.saturn_owns_family",
+            "resolved": true,
+            "reference": "knowledge/canon/production/foundation_v1.knowme.json",
+            "locator": {
+              "jsonPointer": "/producedUnits/59",
+              "objectKey": "mahabhut.p28.saturn_owns_family",
+              "symbol": null
+            },
+            "sourceSha256": "E44127212531872F3AFADA97DF82638AD65F1AEB833DD3CE2FB870D323FC94E0",
+            "value": {
+              "id": "mahabhut.p28.saturn_owns_family",
+              "subject": "planet.saturn",
+              "subjectKind": "planet",
+              "relation": "owns",
+              "object": "domain.family",
+              "objectKind": "domain",
+              "domain": "planetLibrary",
+              "strength": "none",
+              "confidence": "high",
+              "evidence": {
+                "bookId": "mahabhut",
+                "page": "28"
+              }
+            },
+            "historicalFixture": {
+              "profileId": "TARGET-0003",
+              "sex": "male",
+              "birthDate": "1982-06-06",
+              "birthTimeMode": "known",
+              "birthTime": "00:03",
+              "province": "Chiang Mai",
+              "provinceKey": "chiang_mai",
+              "thaiAstrologicalDay": "Saturday",
+              "ascendant": "Aquarius 9°24′",
+              "contextId": "mahabhut2537.rem0.saturday",
+              "asOf": "2026-08-29 Asia/Bangkok",
+              "age": 44
+            },
+            "limitation": null
+          }
+        ],
+        "sourceBindingsResolved": true,
+        "timeDependentKeys": [],
+        "timeOrAscendantDependent": false,
+        "exactCandidateWordingTransferred": false,
+        "goldenDecisionUsedAsEquivalenceEvidence": false,
+        "status": "SOURCE_PERIOD_EQUIVALENT"
+      },
+      {
+        "period": "11-29",
+        "contextId": "mahabhut2537.rem0.saturday",
+        "selectorId": "selector.mahabhut2537.rem0.saturday.jupiter.11_29",
+        "row003": {
+          "contextId": "mahabhut2537.rem0.saturday",
+          "matrixApplicationId": "mahabhut2537.rem0.saturday.jupiter.11_29",
+          "planet": "jupiter",
+          "taksaRole": "ayu",
+          "mahabhutHouse": "racha",
+          "periodStatus": "dueng_khuen",
+          "ageStart": 11,
+          "ageEnd": 29
+        },
+        "row035": {
+          "contextId": "mahabhut2537.rem0.saturday",
+          "matrixApplicationId": "mahabhut2537.rem0.saturday.jupiter.11_29",
+          "planet": "jupiter",
+          "taksaRole": "ayu",
+          "mahabhutHouse": "racha",
+          "periodStatus": "dueng_khuen",
+          "ageStart": 11,
+          "ageEnd": 29
+        },
+        "selector": {
+          "id": "selector.mahabhut2537.rem0.saturday.jupiter.11_29",
+          "resolved": true,
+          "reference": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_PERIOD_EXTRACTION_LEDGER_392.json",
+          "locator": {
+            "jsonPointer": "/rows/385",
+            "objectKey": "mahabhut2537.rem0.saturday.jupiter.11_29",
+            "symbol": null
+          },
+          "sourceSha256": "93820B843F3834A5E9957CF6896A23A62E9DDC39E1722BAF23A8EB0C718E080F",
+          "value": {
+            "contextId": "mahabhut2537.rem0.saturday",
+            "matrixApplicationId": "mahabhut2537.rem0.saturday.jupiter.11_29",
+            "planet": "jupiter",
+            "taksaRole": "ayu",
+            "mahabhutHouse": "racha",
+            "periodStatus": "dueng_khuen",
+            "agePeriod": "11-29",
+            "sourcePageStart": 290,
+            "sourcePageEnd": 290,
+            "pagesOcrChecked": [
+              290,
+              291,
+              292
+            ],
+            "pagesVisuallyChecked": [],
+            "extractionStatus": "DIRECT_TREND_FOUND",
+            "atomIds": [
+              "SDEA-OR2-MAHABHUT2537-REM0-SATURDAY-JUPITER-11-29"
+            ],
+            "shortSourceExcerpts": [
+              "Aan VY i o อายุ ๑๑ ถึง oe เป็นระยะทีวิถีชีวิตเจ้าชะตา ตกอยู่ในอํานาจ อิทธิพลของดาวพฤหัส ดาวแห่งอายุ สถิตเรือนราชา A « da daa ฆ , ° อายุ ๓๐ ถึง ๕๑ เป็นระยะทีวิถีชีวิตเจ้าชะตา ตกอยู่ในอํานาจ P— สืน i r=\" P| - r= | r= | bs | -ฯ4 1เส อิทธิพลของดาวราห ดาวแห่งเดช สถิตเรอนอธิบดิ อกทังเป็นดาวคู่มตร ๒๕"
+            ],
+            "ocrSpanHashes": {
+              "290": "D2230BDDBBE986A3F4462B0D687216546426BBBD163F8239235C22AC83098A06"
+            },
+            "pageImageHashes": {
+              "290": "A688214454A2972DC20165C89DC6B10688A311855FC5E8928A574A1C7D7935E2"
+            },
+            "ocrCorrections": [],
+            "reviewerObservation": "OR2 OCR/marker output preserved as raw heuristic data; no semantic authority is established by this row.",
+            "unresolvedIssue": null,
+            "heuristicExtractionStatus": "DIRECT_TREND_FOUND",
+            "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE",
+            "semanticReviewEvidence": null
+          },
+          "historicalFixture": {
+            "profileId": "TARGET-0003",
+            "sex": "male",
+            "birthDate": "1982-06-06",
+            "birthTimeMode": "known",
+            "birthTime": "00:03",
+            "province": "Chiang Mai",
+            "provinceKey": "chiang_mai",
+            "thaiAstrologicalDay": "Saturday",
+            "ascendant": "Aquarius 9°24′",
+            "contextId": "mahabhut2537.rem0.saturday",
+            "asOf": "2026-08-29 Asia/Bangkok",
+            "age": 44
+          },
+          "limitation": "Selector placement only; OCR status is not event authority"
+        },
+        "selectorMatches": true,
+        "sourceBindings": [
+          {
+            "id": "source.T0003-SRC-11-62-RISING-BLOCK",
+            "resolved": true,
+            "reference": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
+            "locator": {
+              "jsonPointer": "/sourceRecords/1",
+              "objectKey": "T0003-SRC-11-62-RISING-BLOCK",
+              "symbol": null
+            },
+            "sourceSha256": "4FB3AE901C9D1ECB0D0510AE7EFF20915F2B4F2B4CE3791924E6A3FB3F31098F",
+            "value": {
+              "evidenceId": "T0003-SRC-11-62-RISING-BLOCK",
+              "pages": [
+                290,
+                291
+              ],
+              "exactPeriod": "11-62",
+              "classification": "SOURCE_DIRECT_TREND",
+              "domains": [
+                "life_direction"
+              ],
+              "excerpt": "อายุ ๑๑ ขวบถึง ๖๒ ปี (ดวงขึ้นสุด ๆ)",
+              "correctedTranscription": "อายุ 11 ขวบถึง 62 ปี (ดวงขึ้นสุด ๆ)",
+              "normalizedMeaning": "The source explicitly marks ages 11–62 as a broadly rising phase.",
+              "sourceDirectStrength": "EXPLICIT_DIRECTION_HEADING",
+              "prohibitedExtrapolations": [
+                "specific promotion",
+                "specific relationship event",
+                "specific health event",
+                "specific month"
+              ]
+            },
+            "historicalFixture": {
+              "profileId": "TARGET-0003",
+              "sex": "male",
+              "birthDate": "1982-06-06",
+              "birthTimeMode": "known",
+              "birthTime": "00:03",
+              "province": "Chiang Mai",
+              "provinceKey": "chiang_mai",
+              "thaiAstrologicalDay": "Saturday",
+              "ascendant": "Aquarius 9°24′",
+              "contextId": "mahabhut2537.rem0.saturday",
+              "asOf": "2026-08-29 Asia/Bangkok",
+              "age": 44
+            },
+            "limitation": null
+          },
+          {
+            "id": "canon.mahabhut.p220.jupiter_owns_learning",
+            "resolved": true,
+            "reference": "knowledge/canon/production/foundation_v1.knowme.json",
+            "locator": {
+              "jsonPointer": "/producedUnits/0",
+              "objectKey": "mahabhut.p220.jupiter_owns_learning",
+              "symbol": null
+            },
+            "sourceSha256": "E44127212531872F3AFADA97DF82638AD65F1AEB833DD3CE2FB870D323FC94E0",
+            "value": {
+              "id": "mahabhut.p220.jupiter_owns_learning",
+              "subject": "planet.jupiter",
+              "subjectKind": "planet",
+              "relation": "owns",
+              "object": "domain.learning",
+              "objectKind": "domain",
+              "domain": "planetLibrary",
+              "strength": "none",
+              "confidence": "high",
+              "evidence": {
+                "bookId": "mahabhut",
+                "page": "220"
+              }
+            },
+            "historicalFixture": {
+              "profileId": "TARGET-0003",
+              "sex": "male",
+              "birthDate": "1982-06-06",
+              "birthTimeMode": "known",
+              "birthTime": "00:03",
+              "province": "Chiang Mai",
+              "provinceKey": "chiang_mai",
+              "thaiAstrologicalDay": "Saturday",
+              "ascendant": "Aquarius 9°24′",
+              "contextId": "mahabhut2537.rem0.saturday",
+              "asOf": "2026-08-29 Asia/Bangkok",
+              "age": 44
+            },
+            "limitation": null
+          },
+          {
+            "id": "canon.mahabhut.p220.jupiter_owns_career",
+            "resolved": true,
+            "reference": "knowledge/canon/production/foundation_v1.knowme.json",
+            "locator": {
+              "jsonPointer": "/producedUnits/1",
+              "objectKey": "mahabhut.p220.jupiter_owns_career",
+              "symbol": null
+            },
+            "sourceSha256": "E44127212531872F3AFADA97DF82638AD65F1AEB833DD3CE2FB870D323FC94E0",
+            "value": {
+              "id": "mahabhut.p220.jupiter_owns_career",
+              "subject": "planet.jupiter",
+              "subjectKind": "planet",
+              "relation": "owns",
+              "object": "domain.career",
+              "objectKind": "domain",
+              "domain": "planetLibrary",
+              "strength": "none",
+              "confidence": "high",
+              "evidence": {
+                "bookId": "mahabhut",
+                "page": "220"
+              }
+            },
+            "historicalFixture": {
+              "profileId": "TARGET-0003",
+              "sex": "male",
+              "birthDate": "1982-06-06",
+              "birthTimeMode": "known",
+              "birthTime": "00:03",
+              "province": "Chiang Mai",
+              "provinceKey": "chiang_mai",
+              "thaiAstrologicalDay": "Saturday",
+              "ascendant": "Aquarius 9°24′",
+              "contextId": "mahabhut2537.rem0.saturday",
+              "asOf": "2026-08-29 Asia/Bangkok",
+              "age": 44
+            },
+            "limitation": null
+          }
+        ],
+        "sourceBindingsResolved": true,
+        "timeDependentKeys": [],
+        "timeOrAscendantDependent": false,
+        "exactCandidateWordingTransferred": false,
+        "goldenDecisionUsedAsEquivalenceEvidence": false,
+        "status": "SOURCE_PERIOD_EQUIVALENT"
+      },
+      {
+        "period": "30-41",
+        "contextId": "mahabhut2537.rem0.saturday",
+        "selectorId": "selector.mahabhut2537.rem0.saturday.rahu.30_41",
+        "row003": {
+          "contextId": "mahabhut2537.rem0.saturday",
+          "matrixApplicationId": "mahabhut2537.rem0.saturday.rahu.30_41",
+          "planet": "rahu",
+          "taksaRole": "det",
+          "mahabhutHouse": "athibodi",
+          "periodStatus": "dueng_khuen",
+          "ageStart": 30,
+          "ageEnd": 41
+        },
+        "row035": {
+          "contextId": "mahabhut2537.rem0.saturday",
+          "matrixApplicationId": "mahabhut2537.rem0.saturday.rahu.30_41",
+          "planet": "rahu",
+          "taksaRole": "det",
+          "mahabhutHouse": "athibodi",
+          "periodStatus": "dueng_khuen",
+          "ageStart": 30,
+          "ageEnd": 41
+        },
+        "selector": {
+          "id": "selector.mahabhut2537.rem0.saturday.rahu.30_41",
+          "resolved": true,
+          "reference": "knowledge/canon/proposed/THAI_MAHABHUT_SOURCE_PERIOD_EXTRACTION_LEDGER_392.json",
+          "locator": {
+            "jsonPointer": "/rows/386",
+            "objectKey": "mahabhut2537.rem0.saturday.rahu.30_41",
+            "symbol": null
+          },
+          "sourceSha256": "93820B843F3834A5E9957CF6896A23A62E9DDC39E1722BAF23A8EB0C718E080F",
+          "value": {
+            "contextId": "mahabhut2537.rem0.saturday",
+            "matrixApplicationId": "mahabhut2537.rem0.saturday.rahu.30_41",
+            "planet": "rahu",
+            "taksaRole": "det",
+            "mahabhutHouse": "athibodi",
+            "periodStatus": "dueng_khuen",
+            "agePeriod": "30-41",
+            "sourcePageStart": 290,
+            "sourcePageEnd": 291,
+            "pagesOcrChecked": [
+              290,
+              291,
+              292
+            ],
+            "pagesVisuallyChecked": [],
+            "extractionStatus": "DIRECT_TREND_FOUND",
+            "atomIds": [
+              "SDEA-OR2-MAHABHUT2537-REM0-SATURDAY-RAHU-30-41"
+            ],
+            "shortSourceExcerpts": [
+              "ยู่ในอํานาจ P— สืน i r=\" P| - r= | r= | bs | -ฯ4 1เส อิทธิพลของดาวราห ดาวแห่งเดช สถิตเรอนอธิบดิ อกทังเป็นดาวคู่มตร ๒๕"
+            ],
+            "ocrSpanHashes": {
+              "290": "D2230BDDBBE986A3F4462B0D687216546426BBBD163F8239235C22AC83098A06",
+              "291": "F04EB974146C5F49491CAE8A3EC8D1E16A21DADF2F1E434FAC7EAB2A1020F53A"
+            },
+            "pageImageHashes": {
+              "290": "A688214454A2972DC20165C89DC6B10688A311855FC5E8928A574A1C7D7935E2",
+              "291": "35796FA054A48793434FE8657A31F228A1C2DD6756D960BD818583DDC411C2C8"
+            },
+            "ocrCorrections": [],
+            "reviewerObservation": "OR2 OCR/marker output preserved as raw heuristic data; no semantic authority is established by this row.",
+            "unresolvedIssue": null,
+            "heuristicExtractionStatus": "DIRECT_TREND_FOUND",
+            "semanticAuthorityStatus": "UNREVIEWED_HEURISTIC_CANDIDATE",
+            "semanticReviewEvidence": null
+          },
+          "historicalFixture": {
+            "profileId": "TARGET-0003",
+            "sex": "male",
+            "birthDate": "1982-06-06",
+            "birthTimeMode": "known",
+            "birthTime": "00:03",
+            "province": "Chiang Mai",
+            "provinceKey": "chiang_mai",
+            "thaiAstrologicalDay": "Saturday",
+            "ascendant": "Aquarius 9°24′",
+            "contextId": "mahabhut2537.rem0.saturday",
+            "asOf": "2026-08-29 Asia/Bangkok",
+            "age": 44
+          },
+          "limitation": "Selector placement only; OCR status is not event authority"
+        },
+        "selectorMatches": true,
+        "sourceBindings": [
+          {
+            "id": "source.T0003-SRC-11-62-RISING-BLOCK",
+            "resolved": true,
+            "reference": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
+            "locator": {
+              "jsonPointer": "/sourceRecords/1",
+              "objectKey": "T0003-SRC-11-62-RISING-BLOCK",
+              "symbol": null
+            },
+            "sourceSha256": "4FB3AE901C9D1ECB0D0510AE7EFF20915F2B4F2B4CE3791924E6A3FB3F31098F",
+            "value": {
+              "evidenceId": "T0003-SRC-11-62-RISING-BLOCK",
+              "pages": [
+                290,
+                291
+              ],
+              "exactPeriod": "11-62",
+              "classification": "SOURCE_DIRECT_TREND",
+              "domains": [
+                "life_direction"
+              ],
+              "excerpt": "อายุ ๑๑ ขวบถึง ๖๒ ปี (ดวงขึ้นสุด ๆ)",
+              "correctedTranscription": "อายุ 11 ขวบถึง 62 ปี (ดวงขึ้นสุด ๆ)",
+              "normalizedMeaning": "The source explicitly marks ages 11–62 as a broadly rising phase.",
+              "sourceDirectStrength": "EXPLICIT_DIRECTION_HEADING",
+              "prohibitedExtrapolations": [
+                "specific promotion",
+                "specific relationship event",
+                "specific health event",
+                "specific month"
+              ]
+            },
+            "historicalFixture": {
+              "profileId": "TARGET-0003",
+              "sex": "male",
+              "birthDate": "1982-06-06",
+              "birthTimeMode": "known",
+              "birthTime": "00:03",
+              "province": "Chiang Mai",
+              "provinceKey": "chiang_mai",
+              "thaiAstrologicalDay": "Saturday",
+              "ascendant": "Aquarius 9°24′",
+              "contextId": "mahabhut2537.rem0.saturday",
+              "asOf": "2026-08-29 Asia/Bangkok",
+              "age": 44
+            },
+            "limitation": null
+          },
+          {
+            "id": "source.T0003-SRC-30-41-PLACEMENT",
+            "resolved": true,
+            "reference": "docs/TARGET_0003_PREDICTIVE_EVIDENCE_DOSSIER_V1.json",
+            "locator": {
+              "jsonPointer": "/sourceRecords/3",
+              "objectKey": "T0003-SRC-30-41-PLACEMENT",
+              "symbol": null
+            },
+            "sourceSha256": "4FB3AE901C9D1ECB0D0510AE7EFF20915F2B4F2B4CE3791924E6A3FB3F31098F",
+            "value": {
+              "evidenceId": "T0003-SRC-30-41-PLACEMENT",
+              "pages": [
+                290,
+                291
+              ],
+              "exactPeriod": "30-41",
+              "classification": "SOURCE_PLACEMENT_FACT",
+              "domains": [
+                "work",
+                "authority",
+                "pressure"
+              ],
+              "excerpt": "อายุ ๓๐ ถึง ๔๑ ... ดาวราหู ดาวแห่งเดช สถิตเรือนอธิบดี",
+              "correctedTranscription": "อายุ 30 ถึง 41 ปี ดาวราหู ดาวแห่งเดช สถิตเรือนอธิบดี",
+              "normalizedMeaning": "Rahu/Det/Athibodi placement for ages 30–41.",
+              "sourceDirectStrength": "PLACEMENT_NOT_EVENT",
+              "prohibitedExtrapolations": [
+                "placement alone as prediction",
+                "specific title",
+                "specific job change"
+              ]
+            },
+            "historicalFixture": {
+              "profileId": "TARGET-0003",
+              "sex": "male",
+              "birthDate": "1982-06-06",
+              "birthTimeMode": "known",
+              "birthTime": "00:03",
+              "province": "Chiang Mai",
+              "provinceKey": "chiang_mai",
+              "thaiAstrologicalDay": "Saturday",
+              "ascendant": "Aquarius 9°24′",
+              "contextId": "mahabhut2537.rem0.saturday",
+              "asOf": "2026-08-29 Asia/Bangkok",
+              "age": 44
+            },
+            "limitation": null
+          },
+          {
+            "id": "canon.mahabhut.p39.det_owns_career",
+            "resolved": true,
+            "reference": "knowledge/canon/production/foundation_v1.knowme.json",
+            "locator": {
+              "jsonPointer": "/producedUnits/390",
+              "objectKey": "mahabhut.p39.det_owns_career",
+              "symbol": null
+            },
+            "sourceSha256": "E44127212531872F3AFADA97DF82638AD65F1AEB833DD3CE2FB870D323FC94E0",
+            "value": {
+              "id": "mahabhut.p39.det_owns_career",
+              "subject": "taksaRole.det",
+              "subjectKind": "other",
+              "relation": "owns",
+              "object": "domain.career",
+              "objectKind": "domain",
+              "domain": "planetLibrary",
+              "strength": "none",
+              "confidence": "high",
+              "evidence": {
+                "bookId": "mahabhut",
+                "page": "39"
+              }
+            },
+            "historicalFixture": {
+              "profileId": "TARGET-0003",
+              "sex": "male",
+              "birthDate": "1982-06-06",
+              "birthTimeMode": "known",
+              "birthTime": "00:03",
+              "province": "Chiang Mai",
+              "provinceKey": "chiang_mai",
+              "thaiAstrologicalDay": "Saturday",
+              "ascendant": "Aquarius 9°24′",
+              "contextId": "mahabhut2537.rem0.saturday",
+              "asOf": "2026-08-29 Asia/Bangkok",
+              "age": 44
+            },
+            "limitation": null
+          }
+        ],
+        "sourceBindingsResolved": true,
+        "timeDependentKeys": [],
+        "timeOrAscendantDependent": false,
+        "exactCandidateWordingTransferred": false,
+        "goldenDecisionUsedAsEquivalenceEvidence": false,
+        "status": "SOURCE_PERIOD_EQUIVALENT"
+      }
+    ],
+    "importantBoundary": "The 00:03 reader plan uses its accepted golden override. That fixture-specific reader wording is deliberately excluded. The shared Mahabhut context/period rows and resolved source bindings—not the golden decisions—are equivalent.",
+    "ascendantDifference": {
+      "minute003": 9.396069063125992,
+      "minute035": 19.313708418191027,
+      "affectsThisPastEquivalence": false,
+      "reason": "The inspected selector rows contain no ascendant/time-dependent key and are byte-equal despite the degree difference."
+    }
+  },
+  "negativeControls": [
+    {
+      "name": "wrong Thai astrological day/context",
+      "rejected": true
+    },
+    {
+      "name": "wrong period selector",
+      "rejected": true
+    },
+    {
+      "name": "time/ascendant-dependent component introduced",
+      "rejected": true
+    }
+  ],
+  "conclusion": "Past source-period equivalence PASS for 0–10, 11–29 and 30–41 only. Candidate wording is a new PROPOSED_OWNER_TEMPLATE; exact Candidate0011 wording/acceptance is not transferred."
+}

@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "task_id": "pr115-or5r-neutral-authority-evidence-v2",
+  "task_id": "pr115-or6-content-first-candidate-0020",
   "expected_branch": "codex/thai-predictive-narrative-v2-runtime-v2",
   "expected_worktree": "C:/Users/USER/Documents/Knowme/pr107-release-main",
-  "base_ref": "8325e04275d7cb58447abbf9b5dd1ff12acda2d8",
+  "base_ref": "9067f541d8f718735f931af7afc3dd1f5726138a",
   "allowed_files": [
     "task_scope.json",
     "TASK_RESULT.md",
@@ -12,22 +12,20 @@
     "docs/HANDOFF.md",
     "docs/ROADMAP.md",
     "docs/THAI_REPORT_READER_EXPERIENCE_V2.md",
-    "tool/or5r_actual_authority_v2.mjs",
-    "tool/or5r_neutral_validation.ps1",
-    "tool/or5r_neutral_evidence.mjs",
-    "test/evidence/or5r_actual_authority_v2.test.mjs",
-    "docs/OR5R_AUTHORITY_GATE_TRUTH_CORRECTION.md",
-    "docs/OR5R_AUTHORITY_GATE_TRUTH_CORRECTION.json",
-    "docs/ACTUAL_0035_EMITTED_PREDICTIONS.md",
-    "docs/ACTUAL_0035_EMITTED_PREDICTIONS.json",
-    "docs/ACTUAL_0035_AUTHORITY_MATRIX_V2.md",
-    "docs/ACTUAL_0035_AUTHORITY_MATRIX_V2.json",
-    "docs/ACTUAL_0035_FULL_READER_COPY.md",
-    "docs/ACTUAL_0035_SEMANTIC_SLOT_COVERAGE.md",
-    "docs/ACTUAL_0035_SEMANTIC_SLOT_COVERAGE.json",
-    "docs/ACTUAL_0035_CONTENT_REVIEW.md",
-    "docs/ACTUAL_0035_CONTENT_REVIEW.json",
-    "docs/OR5R_NEUTRAL_V2_VALIDATION.json"
+    "docs/PR115_OR6_OWNER_CONTENT_DECISION.md",
+    "docs/PR115_OR6_OWNER_CONTENT_DECISION.json",
+    "docs/ACTUAL_0035_PAST_PERIOD_EQUIVALENCE.md",
+    "docs/ACTUAL_0035_PAST_PERIOD_EQUIVALENCE.json",
+    "docs/CANDIDATE_0020_ACTUAL_0035_FULL_READER_COPY.md",
+    "docs/CANDIDATE_0020_BEFORE_AFTER.md",
+    "docs/CANDIDATE_0020_CLAIM_MAP.md",
+    "docs/CANDIDATE_0020_CLAIM_MAP.json",
+    "docs/CANDIDATE_0020_CONTENT_AUDIT.md",
+    "docs/CANDIDATE_0020_CONTENT_AUDIT.json",
+    "docs/PR115_OR6_VALIDATION.json",
+    "tool/pr115_or6_content_candidate.mjs",
+    "tool/pr115_or6_validation.ps1",
+    "test/evidence/pr115_or6_content_candidate.test.mjs"
   ],
   "allowed_globs": [],
   "forbidden_files": [
@@ -59,7 +57,7 @@
     "round_[0-9]+_review\\.json"
   ],
   "focused_tests": [
-    "powershell -ExecutionPolicy Bypass -File tool/or5r_neutral_validation.ps1 -Extract"
+    "powershell -ExecutionPolicy Bypass -File tool/pr115_or6_validation.ps1 -Extract"
   ],
   "full_test_policy": "skip",
   "full_test_command": "SKIP",
