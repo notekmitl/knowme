@@ -1,5 +1,15 @@
 # Thai Report Reader Experience V2
 
+## PR115 OR9 — Candidate 0023 exact-evidence final-copy proposal (2026-09-07)
+
+**PR115 OR9 CANDIDATE 0023 EXACT-EVIDENCE GATE PASS — PENDING OWNER FINAL COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Candidate 0022 remains an immutable rejected record with six blocked exact spans, six unsupported causal links and two reader-perceived repetitions. Candidate 0023 changes only four prediction paragraphs. Removed without replacement are the learning→work “เปิดทาง” assertion, definite relationship delay/mismatch, support→work/money causation, income “ตามงาน”, authority lag→work slowdown and expense growth→savings lag. All non-target wording, headings/order, advice, limitations, psychology and provenance remain byte-exact to C0022.
+
+Full-reader-copy SHA-256: **FDA1DA8917CD5ADCA4650AECF87414DCFCDEE7F13019DF0794ECF76DFD91E7F2**. Exact evidence supports 23/23 remaining clauses; blocked 0. Conditional/cross-horizon/reader-perceived/formula/unsupported/unnatural/advice/personality counters are all 0; pairwise duplicates 0/55; all 11 negative controls detect prohibited regression. Candidate 0011 stays exact at **6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E**.
+
+Validation: fresh extraction 2/2 twice, Neutral/evidence/oracle 33/33, OR6 12/12, OR7 16/16, OR8 15/15, OR9 17/17, determinism, diff-check, PreCommit and PostCommit PASS. Content/evidence commit: `139c2a2d7481e9c7de9b56d244abb490338b901a`; status/docs closeout is the final OR9 HEAD. Full Flutter suite and Analyzer are **NOT RERUN — no Dart/runtime/Flutter-test delta**. Application/runtime, UI/export/PDF, Canon, Unknown containment, historical candidates, generated artifacts, `product-acceptance/`, Firebase and Production delta is 0. No Owner Review ZIP was created. Candidate 0023 awaits Owner final copy review and is not accepted or implemented.
+
 ## PR115 OR8 — Candidate 0022 targeted redline evidence result (2026-09-07)
 
 **PR115 OR8 CANDIDATE 0022 BLOCKED BY EXACT EVIDENCE GAP — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**

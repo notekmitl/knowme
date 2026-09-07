@@ -1,5 +1,13 @@
 # KnowMe Current Status
 
+## PR115 OR9 — Candidate 0023 exact-evidence gate passed; Owner review pending (2026-09-07)
+
+**PR115 OR9 CANDIDATE 0023 EXACT-EVIDENCE GATE PASS — PENDING OWNER FINAL COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Candidate 0022 is preserved byte-exact and remains rejected for implementation: blocked spans 6, unsupported causal links 6, reader-perceived repetitions 2. Candidate 0023 changes only the four specified paragraphs and removes without replacement the learning→work cause, relationship delay/mismatch, support→work/money cause, income “ตามงาน”, authority→work-delay claim and expense→savings-lag claim. No conditional fallback or new prediction replaces them; all other reader copy and psychology/provenance remain byte-exact.
+
+Candidate 0023 SHA-256 **FDA1DA8917CD5ADCA4650AECF87414DCFCDEE7F13019DF0794ECF76DFD91E7F2**; 23/23 clauses supported, blocked 0, all eight audit counters 0, semantic duplicates 0/55 and controls 11/11. Validation passes extraction 2/2 twice, Neutral 33/33, OR6 12/12, OR7 16/16, OR8 15/15, OR9 17/17, Candidate 0011 exact, determinism, diff-check, PreCommit/PostCommit. Content commit `139c2a2d7481e9c7de9b56d244abb490338b901a`; final status/docs commit is the OR9 PR HEAD. Full Flutter/Analyzer are **NOT RERUN — no Dart/runtime/Flutter-test delta**. Runtime/artifact/`product-acceptance/`/Firebase/Production delta is 0. PR115 stays Open + Draft pending Owner reading.
+
 ## PR115 OR8 — Candidate 0022 exact-copy evidence blocked (2026-09-07)
 
 **PR115 OR8 CANDIDATE 0022 BLOCKED BY EXACT EVIDENCE GAP — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**

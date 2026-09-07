@@ -1,5 +1,19 @@
 # Task Result — Thai Report Reader Experience V2
 
+## PR115 OR9 — Candidate 0023 exact-evidence final copy (2026-09-07)
+
+**PR115 OR9 CANDIDATE 0023 EXACT-EVIDENCE GATE PASS — PENDING OWNER FINAL COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Candidate 0022 was Owner-rejected for implementation with `BLOCKED_EXACT_SPAN=6`, `unsupported_causal_link=6` and `reader_perceived_repetition=2`; all Candidate 0020/0021/0022 historical content remains byte-exact. Candidate 0023 changes exactly four prediction paragraphs. It separates learning from starting work, keeps only the supported relationship-strength result, removes work/money outcomes from the support paragraph, and shortens the rolling horizon to broader work scope plus increased income.
+
+Removed without replacement: “เปิดทาง” as a learning→work cause; “ช้ากว่าที่คิด” and the definite expectations mismatch; support as the cause of easier work/money; income increasing “ตามงาน”; workload outgrowing authority and slowing work; recurring expenses growing with income and causing savings to lag. No `อาจ`, `ถ้า` or `หาก` fallback and no compensating prediction was added.
+
+Candidate 0023 full-reader-copy SHA-256 is **FDA1DA8917CD5ADCA4650AECF87414DCFCDEE7F13019DF0794ECF76DFD91E7F2**. All 23 remaining clauses are `EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW`; blocked spans 0. All eight acceptance counters are 0, pairwise semantic duplicates are 0/55, and 11/11 negative controls detect six reintroduced C0022 spans, support-to-work/finance repetition, all three conditional tokens and compensating unsupported detail. Psychology/provenance, advice, limitations, headings, order and every non-target paragraph remain byte-exact to C0022. Candidate 0011 remains exact at **6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E**.
+
+Validation: fresh extraction **2/2 in each of two runs**, determinism mismatches 0; Neutral/evidence/oracle **33/33**; OR6 **12/12**; OR7 **16/16**; OR8 **15/15**; OR9 **17/17**; `git diff --check`, PreCommit and content/evidence PostCommit PASS. Content/evidence commit: `139c2a2d7481e9c7de9b56d244abb490338b901a`; status/docs closeout is the final OR9 HEAD reported with PR state. Full Flutter suite and Analyzer are **NOT RERUN — no Dart/runtime/Flutter-test delta**.
+
+Application/runtime/Dart/Flutter tests, UI/reader/generator/export/PDF, Canon, Unknown containment, generated product artifacts, `product-acceptance/`, Firebase and Production delta is 0. No Web/PDF/infographic/ZIP was created. PR115 remains Open + Draft; engineering evidence PASS is not Owner Content Acceptance and Candidate 0023 is not implemented.
+
 ## PR115 OR8 — Owner targeted Candidate 0022 exact evidence gate (2026-09-07)
 
 **PR115 OR8 CANDIDATE 0022 BLOCKED BY EXACT EVIDENCE GAP — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**

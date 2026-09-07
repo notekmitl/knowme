@@ -1,5 +1,15 @@
 # KnowMe Roadmap
 
+## Active review — PR115 OR9 Candidate 0023 exact-evidence final copy (2026-09-07)
+
+**PR115 OR9 CANDIDATE 0023 EXACT-EVIDENCE GATE PASS — PENDING OWNER FINAL COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Completed: preserve rejected Candidate 0022 and all earlier candidates byte-exact; change four paragraphs only; remove the six unsupported learning/work, relationship-delay, support/outcome and rolling-horizon causal meanings without replacement; eliminate both perceived repetitions; retain psychology/provenance and every non-target paragraph byte-exact. No `อาจ`/`ถ้า`/`หาก` fallback or compensating prediction was added.
+
+Candidate 0023 SHA-256 **FDA1DA8917CD5ADCA4650AECF87414DCFCDEE7F13019DF0794ECF76DFD91E7F2**. Gates: 23/23 remaining clauses, blocked 0, eight counters 0, semantic duplicates 0/55, controls 11/11; extraction 2/2 twice, Neutral 33/33, OR6 12/12, OR7 16/16, OR8 15/15, OR9 17/17, Candidate 0011 exact, determinism/diff-check/PreCommit/PostCommit PASS. Content/evidence commit `139c2a2d7481e9c7de9b56d244abb490338b901a`; final docs commit is the OR9 PR HEAD. Full Flutter/Analyzer: **NOT RERUN — no Dart/runtime/Flutter-test delta**. Runtime/artifact/`product-acceptance/`/Firebase/Production delta is 0.
+
+Next gate: Owner must read Candidate 0023 and make the final copy decision. Engineering evidence PASS does not authorize implementation. Keep PR115 Open + Draft; no Ready, merge or deploy.
+
 ## Active blocker — PR115 OR8 Candidate 0022 exact evidence (2026-09-07)
 
 **PR115 OR8 CANDIDATE 0022 BLOCKED BY EXACT EVIDENCE GAP — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**

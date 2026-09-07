@@ -70,7 +70,7 @@
   "repositoryGates": {
     "gitDiffCheck": "PASS",
     "preCommit": "PASS",
-    "postCommit": "PENDING_CONTENT_COMMIT"
+    "postCommit": "PASS_CONTENT_EVIDENCE_COMMIT_139C2A2D7481E9C7DE9B56D244ABB490338B901A"
   },
   "notRerun": {
     "fullFlutterSuite": "NOT RERUN — no Dart/runtime/Flutter-test delta",
@@ -85,5 +85,6 @@
     "firebaseProduction": 0
   },
   "ownerStatus": "PENDING OWNER FINAL COPY REVIEW",
-  "implemented": false
+  "implemented": false,
+  "contentEvidenceCommit": "139c2a2d7481e9c7de9b56d244abb490338b901a"
 }

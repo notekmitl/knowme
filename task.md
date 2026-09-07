@@ -1,5 +1,15 @@
 # Task: Thai Report Reader Experience V2
 
+## PR115 OR9 — Candidate 0023 exact-evidence final copy (2026-09-07)
+
+**PR115 OR9 CANDIDATE 0023 EXACT-EVIDENCE GATE PASS — PENDING OWNER FINAL COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Candidate 0022 remains immutable rejected history (`BLOCKED_EXACT_SPAN=6`, unsupported causal link 6, reader-perceived repetition 2). Candidate 0023 changes only four Owner-directed paragraphs. It removes without replacement the learning→work causal “เปิดทาง”, definite relationship-delay/expectation wording, support→work/money outcome, income “ตามงาน”, authority/work-delay claim and expense/savings-lag claim. No conditional or compensating copy was added; all other paragraphs, structure, advice, limitations, psychology and provenance remain byte-exact.
+
+Candidate SHA-256: **FDA1DA8917CD5ADCA4650AECF87414DCFCDEE7F13019DF0794ECF76DFD91E7F2**. Evidence is 23/23 remaining clauses supported, blocked 0; eight acceptance counters 0; pairwise duplicates 0/55; negative controls 11/11. Candidate 0011 SHA remains **6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E**.
+
+Validation: extraction 2/2 twice, Neutral/evidence/oracle 33/33, OR6 12/12, OR7 16/16, OR8 15/15, OR9 17/17, determinism/diff-check/PreCommit/PostCommit PASS. Content/evidence commit: `139c2a2d7481e9c7de9b56d244abb490338b901a`; status/docs closeout is the final OR9 HEAD. Full Flutter/Analyzer: **NOT RERUN — no Dart/runtime/Flutter-test delta**. Protected/product-artifact/`product-acceptance/`/Firebase/Production delta is 0; no artifacts or ZIP were created. PR115 stays Open + Draft pending actual Owner final copy review.
+
 ## PR115 OR8 — Owner targeted Candidate 0022 exact evidence gate (2026-09-07)
 
 **PR115 OR8 CANDIDATE 0022 BLOCKED BY EXACT EVIDENCE GAP — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
