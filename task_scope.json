@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "task_id": "pr115-or6-content-first-candidate-0020",
+  "task_id": "pr115-or7-human-editorial-candidate-0021",
   "expected_branch": "codex/thai-predictive-narrative-v2-runtime-v2",
   "expected_worktree": "C:/Users/USER/Documents/Knowme/pr107-release-main",
-  "base_ref": "9067f541d8f718735f931af7afc3dd1f5726138a",
+  "base_ref": "1a94b0b02acae5a7890297288088cac92d92168b",
   "allowed_files": [
     "task_scope.json",
     "TASK_RESULT.md",
@@ -12,20 +12,20 @@
     "docs/HANDOFF.md",
     "docs/ROADMAP.md",
     "docs/THAI_REPORT_READER_EXPERIENCE_V2.md",
-    "docs/PR115_OR6_OWNER_CONTENT_DECISION.md",
-    "docs/PR115_OR6_OWNER_CONTENT_DECISION.json",
-    "docs/ACTUAL_0035_PAST_PERIOD_EQUIVALENCE.md",
-    "docs/ACTUAL_0035_PAST_PERIOD_EQUIVALENCE.json",
-    "docs/CANDIDATE_0020_ACTUAL_0035_FULL_READER_COPY.md",
-    "docs/CANDIDATE_0020_BEFORE_AFTER.md",
-    "docs/CANDIDATE_0020_CLAIM_MAP.md",
-    "docs/CANDIDATE_0020_CLAIM_MAP.json",
-    "docs/CANDIDATE_0020_CONTENT_AUDIT.md",
-    "docs/CANDIDATE_0020_CONTENT_AUDIT.json",
-    "docs/PR115_OR6_VALIDATION.json",
-    "tool/pr115_or6_content_candidate.mjs",
-    "tool/pr115_or6_validation.ps1",
-    "test/evidence/pr115_or6_content_candidate.test.mjs"
+    "docs/CANDIDATE_0020_CONTENT_TRUTH_CORRECTION.md",
+    "docs/CANDIDATE_0020_CONTENT_TRUTH_CORRECTION.json",
+    "docs/CANDIDATE_0021_ACTUAL_0035_FULL_READER_COPY.md",
+    "docs/CANDIDATE_0021_SEMANTIC_OWNERSHIP.md",
+    "docs/CANDIDATE_0021_SEMANTIC_OWNERSHIP.json",
+    "docs/CANDIDATE_0021_CLAIM_MAP.md",
+    "docs/CANDIDATE_0021_CLAIM_MAP.json",
+    "docs/CANDIDATE_0020_TO_0021_BEFORE_AFTER.md",
+    "docs/CANDIDATE_0021_CONTENT_AUDIT.md",
+    "docs/CANDIDATE_0021_CONTENT_AUDIT.json",
+    "docs/PR115_OR7_VALIDATION.json",
+    "tool/pr115_or7_content_candidate.mjs",
+    "tool/pr115_or7_validation.ps1",
+    "test/evidence/pr115_or7_content_candidate.test.mjs"
   ],
   "allowed_globs": [],
   "forbidden_files": [
@@ -57,7 +57,7 @@
     "round_[0-9]+_review\\.json"
   ],
   "focused_tests": [
-    "powershell -ExecutionPolicy Bypass -File tool/pr115_or6_validation.ps1 -Extract"
+    "powershell -ExecutionPolicy Bypass -File tool/pr115_or7_validation.ps1 -Extract"
   ],
   "full_test_policy": "skip",
   "full_test_command": "SKIP",
