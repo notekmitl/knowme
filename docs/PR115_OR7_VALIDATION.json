@@ -75,7 +75,7 @@
   "repositoryGates": {
     "gitDiffCheck": "PASS",
     "preCommit": "PASS",
-    "postCommit": "PENDING"
+    "postCommit": "PASS_CONTENT_EVIDENCE_COMMIT_A500D6ADE0F252A70537C2A337381ECE16E119B5"
   },
   "notRerun": {
     "fullFlutterSuite": "NOT RERUN — no Dart/runtime/Flutter-test delta",
@@ -95,6 +95,6 @@
     "productAcceptance": 0,
     "firebaseProduction": 0
   },
-  "contentEvidenceCommit": "PENDING",
+  "contentEvidenceCommit": "a500d6ade0f252a70537c2a337381ece16e119b5",
   "ownerStatus": "CANDIDATE 0020 OWNER-REJECTED — CANDIDATE 0021 PENDING OWNER COPY REVIEW"
 }

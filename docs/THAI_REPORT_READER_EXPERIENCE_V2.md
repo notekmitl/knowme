@@ -1,5 +1,15 @@
 # Thai Report Reader Experience V2
 
+## PR115 OR7 — Candidate 0021 human editorial proposal (2026-09-07)
+
+**PR115 OR7 CANDIDATE 0020 OWNER-REJECTED — CANDIDATE 0021 READY FOR OWNER COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Owner rejected Candidate 0020 Product Content and its old machine-audit conclusion while retaining chronology, three past-period equivalence and omission of unsupported age 63–79. C0020 historical files remain byte-identical; the separate truth correction records its generic/vague/repeated wording and psychology leakage.
+
+Candidate 0021 is a full 11-claim source-bound reader proposal. It omits age 63–79 and redundant summary, separates advice/limitations and limits psychology to timeless traits. Reader SHA-256 is **230FDCC5A6746D056E1125BAEF5161473058436106D96705D5702B3C7869BA24**; all claims remain `PROPOSED_OWNER_TEMPLATE`, `accepted=false`, `implemented=false`. Exact-span and pairwise audit covers **55/55**, duplicate pairs 0. All eight C0021 counters are 0; C0020 produces **6/4/3/15/3/4/4/1**, with eight mutations detected.
+
+Validation passed extraction **2/2 twice**, Neutral/evidence/oracle **33/33**, OR6 **12/12**, OR7 **16/16**, Candidate 0011 exact, diff-check/PreCommit/PostCommit. Content/evidence commit: `a500d6ade0f252a70537c2a337381ece16e119b5`. Full Flutter/analyzer were not rerun because no Dart/runtime/Flutter-test file changed. Application/runtime, UI/export/PDF, Canon, Unknown containment, product artifacts, `product-acceptance/`, Firebase and Production delta is 0. No Web/PDF/infographic/ZIP was generated. PR115 remains Open + Draft pending Owner copy review.
+
 ## PR115 OR6 — content-first Candidate 0020 for actual 00:35 (2026-09-07)
 
 **PR115 OR6 ACTUAL 00:35 CONTENT-FIRST CANDIDATE 0020 READY — PENDING OWNER COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**

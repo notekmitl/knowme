@@ -1,5 +1,19 @@
 # Task Result — Thai Report Reader Experience V2
 
+## PR115 OR7 — human editorial Candidate 0021 (2026-09-07)
+
+**PR115 OR7 CANDIDATE 0020 OWNER-REJECTED — CANDIDATE 0021 READY FOR OWNER COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Owner rejected Candidate 0020 as Product Content and rejected its former machine-audit conclusion as an accurate account of editorial quality. Its chronological structure, equivalence of the three past periods, and omission of unsupported age 63–79 remain accepted evidence. The historical Candidate 0020, Claim Map, audit and equivalence files are byte-identical to base `1a94b0b02acae5a7890297288088cac92d92168b`; the separate truth correction records the actual failures without rewriting history.
+
+Candidate 0021 is a human editorial proposal for the same actual male 1982-06-06 00:35 Chiang Mai fixture at asOf 2026-08-29 Asia/Bangkok, Aquarius 19°19′. It has 11 source-bound prediction claims, omits the unsupported 63–79 claim and the redundant summary, and limits psychology to timeless traits. Full reader-copy SHA-256 is **230FDCC5A6746D056E1125BAEF5161473058436106D96705D5702B3C7869BA24**. All claims remain `PROPOSED_OWNER_TEMPLATE`, `accepted=false`, `implemented=false`; machine PASS is not Owner Content Acceptance.
+
+The new editorial audit checks exact spans and all **55/55** prediction pairs. Candidate 0021 reports 0 generic-outcome, vague-pressure, lexical-overuse, cross-section semantic-repetition, psychology-prediction leakage, psychology-advice leakage, repeated-domain-heading and summary-without-new-function findings. The same validator detects the real Candidate 0020 failures at **6/4/3/15/3/4/4/1**, and eight isolated mutation controls are rejected.
+
+Validation passed: fresh extraction **2/2 in each of two runs** with mismatches 0; Neutral/evidence/oracle **33/33**; OR6 schema/equivalence **12/12** with three equivalence controls rejected; OR7 content/evidence **16/16**; Candidate 0011 remains exact at SHA-256 **6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E**; `git diff --check`, PreCommit and content/evidence PostCommit passed. Content/evidence commit: `a500d6ade0f252a70537c2a337381ece16e119b5`. Full Flutter and analyzer were **NOT RERUN** because Dart/runtime/Flutter-test delta is 0.
+
+Application/runtime, reader/UI/export/PDF, Flutter tests, Canon, Unknown containment, Candidate 0011, historical Candidate 0020 files, generated product artifacts, `product-acceptance/`, Firebase and Production deltas are 0. No Web/PDF/infographic/Owner Review ZIP was created. PR #115 remains Open + Draft; it is not Ready for Review, merged, implemented or deployed. Owner review must use `docs/CANDIDATE_0021_ACTUAL_0035_FULL_READER_COPY.md` together with the new Claim Map, semantic-ownership, Before/After and audit evidence.
+
 ## PR115 OR6 — content-first Candidate 0020 for actual 00:35 (2026-09-07)
 
 **PR115 OR6 ACTUAL 00:35 CONTENT-FIRST CANDIDATE 0020 READY — PENDING OWNER COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**

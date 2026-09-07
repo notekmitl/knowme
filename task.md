@@ -1,5 +1,15 @@
 # Task: Thai Report Reader Experience V2
 
+## PR115 OR7 — human editorial Candidate 0021 (2026-09-07)
+
+**PR115 OR7 CANDIDATE 0020 OWNER-REJECTED — CANDIDATE 0021 READY FOR OWNER COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Owner rejected Candidate 0020 as Product Content and rejected its former machine-audit conclusion as an accurate account of editorial quality. Its chronological structure, equivalence of the three past periods, and omission of unsupported age 63–79 remain accepted evidence. The historical Candidate 0020 files are byte-identical to base `1a94b0b02acae5a7890297288088cac92d92168b`; the separate truth correction records the actual failures without rewriting history.
+
+Candidate 0021 is a proposed-only 11-claim human editorial rewrite for actual 00:35. Unsupported age 63–79 and the redundant summary are omitted; psychology is timeless. Reader SHA-256: **230FDCC5A6746D056E1125BAEF5161473058436106D96705D5702B3C7869BA24**. Exact-span and **55/55** pairwise audit gives all eight C0021 counters 0, while the same validator detects C0020 at **6/4/3/15/3/4/4/1** plus eight isolated mutations.
+
+Validation passed extraction **2/2 twice**, Neutral/evidence/oracle **33/33**, OR6 **12/12**, OR7 **16/16**, Candidate 0011 exact, diff-check/PreCommit/content-evidence PostCommit. Commit: `a500d6ade0f252a70537c2a337381ece16e119b5`. Full Flutter/analyzer were not rerun because source/test delta is 0. Runtime, product artifacts, `product-acceptance/` and Firebase/Production delta is 0; no captures, PDF, infographic or ZIP exists for OR7. PR115 stays Open + Draft. Next action is Owner review; do not implement, mark Ready, merge or deploy without a new decision.
+
 ## PR115 OR6 — content-first Candidate 0020 for actual 00:35 (2026-09-07)
 
 **PR115 OR6 ACTUAL 00:35 CONTENT-FIRST CANDIDATE 0020 READY — PENDING OWNER COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**

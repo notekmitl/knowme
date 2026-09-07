@@ -1,5 +1,13 @@
 # KnowMe Roadmap
 
+## PR115 OR7 — Candidate 0021 Owner copy gate (2026-09-07)
+
+**PR115 OR7 CANDIDATE 0020 OWNER-REJECTED — CANDIDATE 0021 READY FOR OWNER COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Evidence work complete: preserve C0020 byte-for-byte; record its content-truth correction; draft 11 source-bound C0021 claims; omit unsupported age 63–79 and redundant summary; remove prediction/advice/domain leakage from psychology; compare **55/55** semantic pairs; detect all eight actual C0020 failure categories and eight mutations. Candidate 0021 reader SHA-256: **230FDCC5A6746D056E1125BAEF5161473058436106D96705D5702B3C7869BA24**.
+
+Validation passed extraction **2/2 twice**, Neutral/evidence/oracle **33/33**, OR6 **12/12**, OR7 **16/16**, Candidate 0011 exact, diff-check/PreCommit/PostCommit. Commit: `a500d6ade0f252a70537c2a337381ece16e119b5`. Full Flutter/analyzer were not rerun because source/test delta is 0. No product artifacts/ZIP were created and runtime, `product-acceptance/`, Firebase/Production delta is 0. Next gate is Owner Product Content review; machine PASS grants neither acceptance nor implementation. PR115 stays Open + Draft.
+
 ## PR115 OR6 — content-first Candidate 0020 for actual 00:35 (2026-09-07)
 
 **PR115 OR6 ACTUAL 00:35 CONTENT-FIRST CANDIDATE 0020 READY — PENDING OWNER COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**

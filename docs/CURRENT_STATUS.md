@@ -1,5 +1,13 @@
 # KnowMe Current Status
 
+## PR115 OR7 — human editorial Candidate 0021 (2026-09-07)
+
+**PR115 OR7 CANDIDATE 0020 OWNER-REJECTED — CANDIDATE 0021 READY FOR OWNER COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Owner rejected Candidate 0020 Product Content and its former machine-audit conclusion. Accepted evidence is limited to chronology, three-period past equivalence and omission of unsupported age 63–79; its historical files remain byte-identical. Candidate 0021 has 11 source-bound proposals, omits age 63–79 and redundant summary, keeps psychology timeless, and has reader SHA-256 **230FDCC5A6746D056E1125BAEF5161473058436106D96705D5702B3C7869BA24**. It is not implemented or accepted.
+
+Pairwise ownership is **55/55**, duplicates 0; all eight C0021 counters are 0, while C0020 produces **6/4/3/15/3/4/4/1** and all eight mutation controls are detected. Extraction passed **2/2 twice**, Neutral/evidence/oracle **33/33**, OR6 **12/12**, OR7 **16/16**, Candidate 0011 exact, diff-check/PreCommit/PostCommit PASS. Content/evidence commit: `a500d6ade0f252a70537c2a337381ece16e119b5`. Full Flutter/analyzer were not rerun because runtime/Flutter-test delta is 0. Runtime, UI/export/PDF, artifacts, `product-acceptance/`, Firebase and Production delta is 0. PR115 remains Open + Draft pending Owner copy review.
+
 ## PR115 OR6 — content-first Candidate 0020 for actual 00:35 (2026-09-07)
 
 **PR115 OR6 ACTUAL 00:35 CONTENT-FIRST CANDIDATE 0020 READY — PENDING OWNER COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
