@@ -1,5 +1,15 @@
 # Task: Thai Report Reader Experience V2
 
+## PR115 OR8 — Owner targeted Candidate 0022 exact evidence gate (2026-09-07)
+
+**PR115 OR8 CANDIDATE 0022 BLOCKED BY EXACT EVIDENCE GAP — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Candidate 0021 passed structure/order, past directness/equivalence, psychology separation and unsupported 63–79 omission, but Owner rejected final wording. Candidate 0022 preserves the exact redline and C0021 psychology/provenance. SHA-256: **853AC9AA7F00BE7A3CC7736E530311D8B371EA67F2766205FDC368EFB7117E5A**.
+
+Evidence results are 21 supported / 6 blocked across 27 exact clause checks. The blocked spans assert causal/certainty/outcome links absent from existing components and were not silently reworded. Pairwise semantic duplicate is 0/55, while reader-perceived repetition is 2 and unsupported-causal-link is 6. Candidate 0021 negatives and all eight mutation controls are detected.
+
+Validation: extraction 2/2 twice, Neutral/evidence/oracle 33/33, OR6 12/12, OR7 16/16, OR8 15/15, Candidate 0011 exact, determinism/diff-check/PreCommit/PostCommit PASS. Commit: `5c3405ac8fd46d9b146287e2a1f3311a842fbec0`. Full Flutter/analyzer were not rerun because runtime/Flutter-test delta is 0. Protected/product-artifact/`product-acceptance/`/Firebase/Production delta is 0. No product artifacts or ZIP were created. Keep PR115 Open + Draft; next action is Owner evidence/copy decision, not implementation.
+
 ## PR115 OR7 — human editorial Candidate 0021 (2026-09-07)
 
 **PR115 OR7 CANDIDATE 0020 OWNER-REJECTED — CANDIDATE 0021 READY FOR OWNER COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**

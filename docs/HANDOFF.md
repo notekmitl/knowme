@@ -1,5 +1,13 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1
 
+## PR115 OR8 handoff — Candidate 0022 blocked exact spans (2026-09-07)
+
+**PR115 OR8 CANDIDATE 0022 BLOCKED BY EXACT EVIDENCE GAP — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Read `docs/CANDIDATE_0022_EXACT_COPY_EVIDENCE.md` first, then Candidate 0022, its Claim Map, semantic ownership, C0021→C0022 Before/After and content audit. The exact Owner target has 27 clause checks: 21 supported and 6 blocked. Do not substitute the recorded nearest supported meanings without an Owner decision. Candidate 0022 reader SHA-256: **853AC9AA7F00BE7A3CC7736E530311D8B371EA67F2766205FDC368EFB7117E5A**.
+
+Candidate 0021 historical files remain unchanged and must not be implemented. C0022 pairwise semantic duplicates are 0/55, but support wording creates two reader-perceived repetitions and six exact causal/certainty/outcome spans lack components. Validation passed extraction 2/2 twice, Neutral 33/33, OR6 12/12, OR7 16/16, OR8 15/15, Candidate 0011 exact, diff-check/PreCommit/PostCommit. Commit: `5c3405ac8fd46d9b146287e2a1f3311a842fbec0`. Full Flutter/analyzer not rerun; source/runtime/artifact/`product-acceptance/`/Firebase delta is 0. Next action is Owner evidence/copy decision only.
+
 ## PR115 OR7 — human editorial Candidate 0021 (2026-09-07)
 
 **PR115 OR7 CANDIDATE 0020 OWNER-REJECTED — CANDIDATE 0021 READY FOR OWNER COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**

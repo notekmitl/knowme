@@ -1,5 +1,13 @@
 # KnowMe Current Status
 
+## PR115 OR8 — Candidate 0022 exact-copy evidence blocked (2026-09-07)
+
+**PR115 OR8 CANDIDATE 0022 BLOCKED BY EXACT EVIDENCE GAP — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Owner rejected Candidate 0021 final wording while accepting its structure/order, past directness/equivalence, psychology separation and 63–79 omission. Candidate 0022 keeps the Owner target exact and retains C0021 psychology/provenance byte-exact. Reader SHA-256: **853AC9AA7F00BE7A3CC7736E530311D8B371EA67F2766205FDC368EFB7117E5A**.
+
+Exact evidence gate: 27 clauses, supported 21, blocked 6. Pairwise semantic duplicates 0/55; unsupported causal links 6; reader-perceived support/work-money repetition 2. OR8 15/15, OR7 16/16, OR6 12/12, Neutral/evidence/oracle 33/33 and extraction 2/2 twice passed as engineering/blocking evidence. Candidate 0011 is unchanged. Content commit `5c3405ac8fd46d9b146287e2a1f3311a842fbec0`; diff-check/PreCommit/PostCommit PASS. Full Flutter/analyzer not rerun because source/test delta is 0. Runtime/artifact/protected/Firebase/Production delta is 0. PR115 stays Open + Draft pending Owner resolution of exact evidence gaps.
+
 ## PR115 OR7 — human editorial Candidate 0021 (2026-09-07)
 
 **PR115 OR7 CANDIDATE 0020 OWNER-REJECTED — CANDIDATE 0021 READY FOR OWNER COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**

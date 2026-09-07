@@ -81,7 +81,7 @@
   "repositoryGates": {
     "gitDiffCheck": "PASS",
     "preCommit": "PASS",
-    "postCommit": "PENDING"
+    "postCommit": "PASS_CONTENT_EVIDENCE_COMMIT_5C3405AC8FD46D9B146287E2A1F3311A842FBEC0"
   },
   "notRerun": {
     "fullFlutterSuite": "NOT RERUN — no Dart/runtime/Flutter-test delta",
@@ -103,6 +103,6 @@
     "productAcceptance": 0,
     "firebaseProduction": 0
   },
-  "contentEvidenceCommit": "PENDING",
+  "contentEvidenceCommit": "5c3405ac8fd46d9b146287e2a1f3311a842fbec0",
   "ownerStatus": "CANDIDATE 0022 BLOCKED BY EXACT EVIDENCE GAP"
 }

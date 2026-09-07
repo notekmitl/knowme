@@ -1,5 +1,15 @@
 # KnowMe Roadmap
 
+## Active blocker — PR115 OR8 Candidate 0022 exact evidence (2026-09-07)
+
+**PR115 OR8 CANDIDATE 0022 BLOCKED BY EXACT EVIDENCE GAP — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Completed: record the C0021 Owner rejection, preserve C0011/C0020/C0021, reproduce the C0022 redline exactly, retain psychology/provenance byte-exact, check 27 clauses, map 55/55 claim pairs, run Candidate 0021 negatives and eight mutations, and record six exact evidence gaps plus two reader-perceived repetitions. Reader SHA-256: **853AC9AA7F00BE7A3CC7736E530311D8B371EA67F2766205FDC368EFB7117E5A**.
+
+Engineering evidence passed extraction 2/2 twice, Neutral 33/33, OR6 12/12, OR7 16/16, OR8 15/15, Candidate 0011 regression, determinism, diff-check/PreCommit/PostCommit. Commit: `5c3405ac8fd46d9b146287e2a1f3311a842fbec0`. Full Flutter/analyzer were not rerun because source/test delta is 0; no artifacts/ZIP or protected/Firebase/Production changes exist.
+
+Next gate: Owner must decide whether to supply evidence/authority for the six exact spans or authorize different wording. Do not implement a nearest meaning automatically. PR115 remains Open + Draft; no Ready, merge or deploy.
+
 ## PR115 OR7 — Candidate 0021 Owner copy gate (2026-09-07)
 
 **PR115 OR7 CANDIDATE 0020 OWNER-REJECTED — CANDIDATE 0021 READY FOR OWNER COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**

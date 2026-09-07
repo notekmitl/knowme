@@ -1,5 +1,15 @@
 # Thai Report Reader Experience V2
 
+## PR115 OR8 — Candidate 0022 targeted redline evidence result (2026-09-07)
+
+**PR115 OR8 CANDIDATE 0022 BLOCKED BY EXACT EVIDENCE GAP — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Candidate 0021 final wording was Owner-rejected; only structure/order, past directness/equivalence, psychology separation and unsupported 63–79 omission passed. Candidate 0022 reproduces the exact Owner target while preserving Candidate 0021 psychology/provenance byte-for-byte. Full reader SHA-256: **853AC9AA7F00BE7A3CC7736E530311D8B371EA67F2766205FDC368EFB7117E5A**.
+
+Evidence gate checked 27 clauses and blocked 6 causal/certainty/outcome spans; the 21 remaining clauses are supported for Owner review only. No nearest supported wording was substituted. Pairwise semantic duplicates are 0/55, but the target has two reader-perceived support-to-work/finance repetitions. All eight OR8 mutation controls detect their category, and the validator exposes the named C0021 conditional/cross-horizon/natural-Thai failures.
+
+Validation passed extraction 2/2 twice, Neutral/evidence/oracle 33/33, OR6 12/12, OR7 16/16, OR8 15/15, Candidate 0011 exact, determinism, diff-check/PreCommit/PostCommit. Content/evidence commit: `5c3405ac8fd46d9b146287e2a1f3311a842fbec0`. Full Flutter/analyzer were not rerun because no Dart/runtime/Flutter-test change exists. Runtime, UI/export/PDF, Canon, Unknown containment, historical candidates, artifacts, `product-acceptance/`, Firebase and Production delta is 0. PR115 remains Open + Draft; Content PASS and implementation are blocked.
+
 ## PR115 OR7 — Candidate 0021 human editorial proposal (2026-09-07)
 
 **PR115 OR7 CANDIDATE 0020 OWNER-REJECTED — CANDIDATE 0021 READY FOR OWNER COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**

@@ -1,5 +1,19 @@
 # Task Result — Thai Report Reader Experience V2
 
+## PR115 OR8 — Owner targeted Candidate 0022 exact evidence gate (2026-09-07)
+
+**PR115 OR8 CANDIDATE 0022 BLOCKED BY EXACT EVIDENCE GAP — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Owner accepted Candidate 0021 structure/order, past directness and equivalence, psychology separation, and omission of unsupported age 63–79, but rejected its final wording. Conditional prediction language and cross-horizon repetition failed; natural spoken Thai was partial. Candidate 0021 remains immutable and must not be implemented.
+
+Candidate 0022 preserves the Owner redline exactly and retains Candidate 0021 psychology/provenance byte-for-byte. Its full reader-copy SHA-256 is **853AC9AA7F00BE7A3CC7736E530311D8B371EA67F2766205FDC368EFB7117E5A**. Evidence review checked 27 clauses: 21 are `EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW`; 6 are `BLOCKED_EXACT_SPAN` because existing components do not establish the requested causal, certainty or outcome links. Nearest supported meanings are evidence notes only and were not substituted. Overall Content PASS is blocked.
+
+Pairwise semantic ownership is 55/55 with exact semantic duplicates 0. The OR8 audit truthfully reports `unsupported_causal_link=6` and `reader_perceived_repetition=2`; its other six new counters are 0. Candidate 0021 negative controls detect conditional fallback 2, cross-horizon repetition 2, reader-perceived repetition 2, generic positive/risk formula 3 and unnatural Thai 1. All eight isolated mutation controls are detected.
+
+Validation passed as blocking evidence: fresh extraction 2/2 in each of two runs, Neutral/evidence/oracle 33/33, OR6 12/12, OR7 16/16, OR8 15/15, Candidate 0011 exact SHA unchanged, determinism, `git diff --check`, PreCommit and content/evidence PostCommit. Content/evidence commit: `5c3405ac8fd46d9b146287e2a1f3311a842fbec0`. Full Flutter suite and analyzer are **NOT RERUN** because Dart/runtime/Flutter-test delta is 0.
+
+Application/runtime, UI/reader/export/PDF, Flutter tests, Canon, Unknown containment, Candidate 0011 and historical Candidate 0020/0021, generated product artifacts, `product-acceptance/`, Firebase and Production delta is 0. No Web/PDF/infographic/ZIP was created. PR115 remains Open + Draft and cannot proceed to implementation until Owner resolves the six exact evidence gaps.
+
 ## PR115 OR7 — human editorial Candidate 0021 (2026-09-07)
 
 **PR115 OR7 CANDIDATE 0020 OWNER-REJECTED — CANDIDATE 0021 READY FOR OWNER COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
