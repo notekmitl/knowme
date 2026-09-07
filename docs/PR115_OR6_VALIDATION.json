@@ -70,7 +70,7 @@
   "repositoryGates": {
     "gitDiffCheck": "PASS",
     "preCommit": "PASS",
-    "postCommit": "PENDING_FIRST_COMMIT"
+    "postCommit": "PASS_CONTENT_EVIDENCE_COMMIT_EF4256C29F92A2614FC8F822E499DA1DD8B82EBD"
   },
   "notRerun": {
     "fullFlutterSuite": "NOT RERUN — no Dart/runtime/Flutter-test delta",

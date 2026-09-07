@@ -1,5 +1,22 @@
 # KnowMe Roadmap
 
+## PR115 OR6 — content-first Candidate 0020 for actual 00:35 (2026-09-07)
+
+**PR115 OR6 ACTUAL 00:35 CONTENT-FIRST CANDIDATE 0020 READY — PENDING OWNER COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**
+
+Owner accepts Neutral Authority Validator V2 only as an engineering audit mechanism and rejects the current actual 00:35 wording as Product Content. The eight existing `OWNER_TEMPLATE_REVIEW_REQUIRED` wordings are neither supported nor accepted copy. OR6 does not claim authority PASS, Content PASS, or Owner Acceptance, and it grants no implementation authority.
+
+Candidate 0020 is a complete, continuous Owner-readable proposal for the actual male 1982-06-06 00:35 Chiang Mai fixture at asOf 2026-08-29 Asia/Bangkok, Aquarius 19°19′. It contains 12 prediction paragraphs, all classified `PROPOSED_OWNER_TEMPLATE`; full reader-copy SHA-256 is **8BBA1056E1DBCFF6DA0E21CF54CD0B86C57CCE49DEE461A6B9DED1ED2983689A**. Chronology is past 0–10, 11–29, 30–41, current age 44 within 42–62, domain sections, rolling 12 months, summary, advice, one limitations area, then clearly separated foundation/psychology and provenance. The unsupported age-44 transition expansion is absent. The unbound 63–79 relationship/role-change prediction and its heading are omitted rather than replaced with filler.
+
+Past source-period equivalence for 00:03 and 00:35 passes for 0–10, 11–29 and 30–41: context, Thai astrological day, selectors, period rows and resolved source bindings match and contain no ascendant/time-dependent key. Three negative controls—wrong day/context, wrong selector and an introduced ascendant-dependent component—are rejected. This proves source-period applicability only; Candidate0011 wording/acceptance is not transferred. Candidate0011 remains exact at SHA-256 **6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E**.
+
+Two complete content-audit reads report 0 chronology, required-period, tense, reflection-question, personality-substitution, advice-in-prediction, methodology, ambiguous-template, direction, semantic-duplicate, duplicate-owner, unsupported-claim, certainty and unmapped-claim errors. The sole nonzero counter is `missing_bindings=1`, explicitly permitted because the next-period claim is fully omitted from reader copy. Machine status is `AI_MACHINE_CONTENT_AUDIT_READY_PENDING_OWNER_COPY_REVIEW`, not Product approval.
+
+Validation: fresh extraction/golden **2/2 in each of two runs**, deterministic mismatches 0; Neutral V2 plus existing evidence/oracle tests **33/33**; OR6 schema/equivalence/content-audit tests **12/12**, including 3/3 equivalence negative controls and seven content-counter mutation controls. Content/evidence commit **ef4256c29f92a2614fc8f822e499da1dd8b82ebd** passed PreCommit, PostCommit and `git diff --check`. Full Flutter suite and analyzer are **NOT RERUN** because there is no Dart/runtime/Flutter-test delta; they are not reported as PASS for OR6.
+
+OR6 changes only content/evidence Markdown and JSON, evidence tooling/Node tests, validation tooling and task scope/status. Application/runtime, Dart/Flutter tests, generator/reader/UI/export/PDF, Unknown containment, Canon, Candidate0011, generated product artifacts, `product-acceptance/`, Firebase and Production deltas are 0. As required, no Web/PDF/infographic/Owner ZIP was generated. PR #115 remains Open + Draft; it is not Ready for Review, merged or deployed. Next action is Owner review of the full Candidate at `docs/CANDIDATE_0020_ACTUAL_0035_FULL_READER_COPY.md`.
+
+
 ## PR115 OR5R — neutral authority truth repair and actual 00:35 review (2026-09-06)
 
 **PR115 OR5R AUTHORITY GATE TRUTH REPAIRED — ACTUAL 00:35 CLAIM AUTHORITY NO-GO — CONTENT PENDING OWNER REVIEW — OPEN + DRAFT — NOT MERGED — NOT DEPLOYED.**
