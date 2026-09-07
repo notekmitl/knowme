@@ -1,0 +1,89 @@
+{
+  "schema": "pr115-or9-validation/1",
+  "recordedAt": "2026-09-07",
+  "baseHead": "f1cf38dcf0184eb460144931293b54cbf2d489b5",
+  "scope": "content/evidence/validator/status-only",
+  "freshExtraction": {
+    "runs": 2,
+    "testsPerRun": 2,
+    "passedPerRun": 2,
+    "failedPerRun": 0,
+    "mismatches": 0,
+    "status": "PASS"
+  },
+  "neutralAuthorityV2AndExistingEvidenceOracles": {
+    "tests": 33,
+    "passed": 33,
+    "failed": 0,
+    "status": "PASS_AS_ENGINEERING_AUDIT_ONLY"
+  },
+  "candidate0020": {
+    "tests": 12,
+    "passed": 12,
+    "failed": 0,
+    "status": "PASS_AS_HISTORICAL_ENGINEERING_EVIDENCE_ONLY"
+  },
+  "candidate0021": {
+    "tests": 16,
+    "passed": 16,
+    "failed": 0,
+    "status": "PASS_AS_HISTORICAL_ENGINEERING_EVIDENCE_ONLY_OWNER_WORDING_REJECTED"
+  },
+  "candidate0022": {
+    "tests": 15,
+    "passed": 15,
+    "failed": 0,
+    "blockedExactSpans": 6,
+    "unsupportedCausalLinks": 6,
+    "readerPerceivedRepetitions": 2,
+    "status": "PASS_AS_TRUTHFUL_HISTORICAL_BLOCKING_EVIDENCE"
+  },
+  "candidate0023": {
+    "tests": 17,
+    "passed": 17,
+    "failed": 0,
+    "predictionClaims": 11,
+    "clauseChecks": 23,
+    "supportedClauseChecks": 23,
+    "blockedExactSpans": 0,
+    "pairwiseChecks": 55,
+    "pairwiseDuplicates": 0,
+    "negativeControlsDetected": 11,
+    "fullReaderCopySha256": "FDA1DA8917CD5ADCA4650AECF87414DCFCDEE7F13019DF0794ECF76DFD91E7F2",
+    "status": "EXACT_EVIDENCE_GATE_PASS_PENDING_OWNER_FINAL_COPY_REVIEW"
+  },
+  "candidate0023AuditCounters": {
+    "conditional_prediction_fallback": 0,
+    "cross_horizon_semantic_repetition": 0,
+    "reader_perceived_repetition": 0,
+    "generic_positive_then_risk_formula": 0,
+    "unsupported_causal_link": 0,
+    "unnatural_thai_phrase": 0,
+    "advice_disguised_as_prediction": 0,
+    "personality_disguised_as_prediction": 0
+  },
+  "candidate0011Regression": {
+    "exact": true,
+    "sha256": "6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E",
+    "status": "PASS_UNCHANGED"
+  },
+  "repositoryGates": {
+    "gitDiffCheck": "PASS",
+    "preCommit": "PASS",
+    "postCommit": "PENDING_CONTENT_COMMIT"
+  },
+  "notRerun": {
+    "fullFlutterSuite": "NOT RERUN — no Dart/runtime/Flutter-test delta",
+    "analyzer": "NOT RERUN — no Dart/runtime/Flutter-test delta"
+  },
+  "protectedDelta": {
+    "dartRuntimeUiGeneratorExportPdf": 0,
+    "flutterTests": 0,
+    "historicalCandidates0011_0020_0021_0022": 0,
+    "generatedProductArtifacts": 0,
+    "productAcceptance": 0,
+    "firebaseProduction": 0
+  },
+  "ownerStatus": "PENDING OWNER FINAL COPY REVIEW",
+  "implemented": false
+}

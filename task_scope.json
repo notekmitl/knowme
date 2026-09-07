@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "task_id": "pr115-or8-targeted-redline-candidate-0022",
+  "task_id": "pr115-or9-exact-evidence-final-copy-candidate-0023",
   "expected_branch": "codex/thai-predictive-narrative-v2-runtime-v2",
   "expected_worktree": "C:/Users/USER/Documents/Knowme/pr107-release-main",
-  "base_ref": "c726216f91359dd27eb3eed591d272bc76c66c9e",
+  "base_ref": "f1cf38dcf0184eb460144931293b54cbf2d489b5",
   "allowed_files": [
     "task_scope.json",
     "TASK_RESULT.md",
@@ -27,7 +27,22 @@
     "docs/PR115_OR8_VALIDATION.json",
     "tool/pr115_or8_content_candidate.mjs",
     "tool/pr115_or8_validation.ps1",
-    "test/evidence/pr115_or8_content_candidate.test.mjs"
+    "test/evidence/pr115_or8_content_candidate.test.mjs",
+    "docs/CANDIDATE_0022_OWNER_REVIEW.md",
+    "docs/CANDIDATE_0023_ACTUAL_0035_FULL_READER_COPY.md",
+    "docs/CANDIDATE_0023_EXACT_COPY_EVIDENCE.md",
+    "docs/CANDIDATE_0023_EXACT_COPY_EVIDENCE.json",
+    "docs/CANDIDATE_0023_CLAIM_MAP.md",
+    "docs/CANDIDATE_0023_CLAIM_MAP.json",
+    "docs/CANDIDATE_0023_SEMANTIC_OWNERSHIP.md",
+    "docs/CANDIDATE_0023_SEMANTIC_OWNERSHIP.json",
+    "docs/CANDIDATE_0022_TO_0023_BEFORE_AFTER.md",
+    "docs/CANDIDATE_0023_CONTENT_AUDIT.md",
+    "docs/CANDIDATE_0023_CONTENT_AUDIT.json",
+    "docs/PR115_OR9_VALIDATION.json",
+    "tool/pr115_or9_content_candidate.mjs",
+    "tool/pr115_or9_validation.ps1",
+    "test/evidence/pr115_or9_content_candidate.test.mjs"
   ],
   "allowed_globs": [],
   "forbidden_files": [
@@ -59,7 +74,7 @@
     "round_[0-9]+_review\\.json"
   ],
   "focused_tests": [
-    "powershell -ExecutionPolicy Bypass -File tool/pr115_or8_validation.ps1 -Extract"
+    "powershell -ExecutionPolicy Bypass -File tool/pr115_or9_validation.ps1 -Extract"
   ],
   "full_test_policy": "skip",
   "full_test_command": "SKIP",
