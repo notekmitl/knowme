@@ -1,0 +1,422 @@
+{
+  "schema": "candidate-0022-exact-copy-evidence/1",
+  "candidate": "Candidate 0022 actual 00:35",
+  "sourceArchitectureChanged": false,
+  "entries": [
+    {
+      "id": "C22-E-001",
+      "semanticOwner": "overview",
+      "exactSpan": "วัย 0–10 ปีเป็นช่วงที่ชีวิตติดขัดจากปัญหาในครอบครัว",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.saturn.0_10",
+        "selector.mahabhut2537.rem0.saturday.jupiter.11_29",
+        "selector.mahabhut2537.rem0.saturday.rahu.30_41",
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-0-10-FAMILY-CONSTRAINT",
+        "source.T0003-SRC-11-62-RISING-BLOCK",
+        "source.T0003-SRC-42-62-WORK",
+        "source.T0003-SRC-42-62-FINANCE",
+        "source.T0003-SRC-42-62-SUPPORT"
+      ],
+      "rationale": "The direct family constraint and 0–10 period are present in the source record.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-002",
+      "semanticOwner": "overview",
+      "exactSpan": "หลังอายุ 11 ปี ชีวิตเปลี่ยนเป็นขาขึ้นและดีขึ้นต่อเนื่องมาถึงปัจจุบัน",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.saturn.0_10",
+        "selector.mahabhut2537.rem0.saturday.jupiter.11_29",
+        "selector.mahabhut2537.rem0.saturday.rahu.30_41",
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-0-10-FAMILY-CONSTRAINT",
+        "source.T0003-SRC-11-62-RISING-BLOCK",
+        "source.T0003-SRC-42-62-WORK",
+        "source.T0003-SRC-42-62-FINANCE",
+        "source.T0003-SRC-42-62-SUPPORT"
+      ],
+      "rationale": "The source explicitly labels ages 11–62 as a rising phase; age 44 is within it.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-003",
+      "semanticOwner": "past-0-10",
+      "exactSpan": "พ่อแม่มีปัญหาสุขภาพ งานไม่ราบรื่น และเงินติดขัด",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.saturn.0_10",
+        "source.T0003-SRC-0-10-FAMILY-CONSTRAINT",
+        "canon.mahabhut.p28.saturn_owns_family"
+      ],
+      "rationale": "The source directly names parental health, work, and money constraints.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-004",
+      "semanticOwner": "past-0-10",
+      "exactSpan": "จึงดูแลคุณได้ไม่เต็มที่",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.saturn.0_10",
+        "source.T0003-SRC-0-10-FAMILY-CONSTRAINT",
+        "canon.mahabhut.p28.saturn_owns_family"
+      ],
+      "rationale": "The existing normalized source-bound meaning records reduced close care as the consequence.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-005",
+      "semanticOwner": "past-11-29",
+      "exactSpan": "ชีวิตดีขึ้นจากวัยเด็ก",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.jupiter.11_29",
+        "source.T0003-SRC-11-62-RISING-BLOCK",
+        "canon.mahabhut.p220.jupiter_owns_learning",
+        "canon.mahabhut.p220.jupiter_owns_career"
+      ],
+      "rationale": "The 11–62 rising block supports improvement after the constrained childhood period.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-006",
+      "semanticOwner": "past-11-29",
+      "exactSpan": "การเรียนให้ผลดี",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.jupiter.11_29",
+        "source.T0003-SRC-11-62-RISING-BLOCK",
+        "canon.mahabhut.p220.jupiter_owns_learning",
+        "canon.mahabhut.p220.jupiter_owns_career"
+      ],
+      "rationale": "The existing Jupiter learning component and rising direction support a favorable learning result.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-007",
+      "semanticOwner": "past-11-29",
+      "exactSpan": "การเรียนให้ผลดีและเปิดทางให้คุณเริ่มสร้างเส้นทางงานของตัวเอง",
+      "result": "BLOCKED_EXACT_SPAN",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.jupiter.11_29",
+        "source.T0003-SRC-11-62-RISING-BLOCK",
+        "canon.mahabhut.p220.jupiter_owns_learning",
+        "canon.mahabhut.p220.jupiter_owns_career"
+      ],
+      "rationale": "The exact wording asserts a causal, certainty, or outcome link not established by the existing component chain.",
+      "missingComponent": "An explicit learning-causes-career-start relation; the existing chain co-locates learning and career but does not make one cause the other.",
+      "nearestSupportedMeaning": "การเรียนให้ผลดี และคุณเริ่มสร้างเส้นทางงานของตัวเอง"
+    },
+    {
+      "id": "C22-E-008",
+      "semanticOwner": "past-30-41",
+      "exactSpan": "งานและความรับผิดชอบเพิ่มขึ้น",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.rahu.30_41",
+        "source.T0003-SRC-11-62-RISING-BLOCK",
+        "source.T0003-SRC-30-41-PLACEMENT",
+        "canon.mahabhut.p39.det_owns_career"
+      ],
+      "rationale": "The accepted past-period interpretation binds work, responsibility, and rising direction to ages 30–41.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-009",
+      "semanticOwner": "past-30-41",
+      "exactSpan": "คุณต้องตัดสินใจเรื่องสำคัญด้วยตัวเองมากกว่าเดิม",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.rahu.30_41",
+        "source.T0003-SRC-11-62-RISING-BLOCK",
+        "source.T0003-SRC-30-41-PLACEMENT",
+        "canon.mahabhut.p39.det_owns_career"
+      ],
+      "rationale": "The existing authority/decision component supports greater decision weight without naming an event.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-010",
+      "semanticOwner": "current",
+      "exactSpan": "ตอนนี้การลงมือทำ",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-FLOW"
+      ],
+      "rationale": "The current 42–62 flow component includes action.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-011",
+      "semanticOwner": "current",
+      "exactSpan": "การพูดคุย",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-FLOW"
+      ],
+      "rationale": "The current flow component includes communication.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-012",
+      "semanticOwner": "current",
+      "exactSpan": "การตัดสินใจคล่องกว่าช่วงก่อน",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-FLOW"
+      ],
+      "rationale": "The current flow component supports less friction in thinking and decisions.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-013",
+      "semanticOwner": "work",
+      "exactSpan": "งานมีเข้ามาต่อเนื่อง",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-WORK",
+        "typed.current.career"
+      ],
+      "rationale": "The 42–62 source directly supports access to work across the current period.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-014",
+      "semanticOwner": "work",
+      "exactSpan": "คุณยังรับผิดชอบงานหลักได้เต็มที่",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-WORK",
+        "typed.current.career"
+      ],
+      "rationale": "The current career=strong component supports capacity for the primary work.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-015",
+      "semanticOwner": "finance",
+      "exactSpan": "คุณมีเงินใช้และมีโชคลาภ",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-FINANCE",
+        "canon.mahabhut.p39.sri_owns_finance",
+        "typed.current.finance"
+      ],
+      "rationale": "The source directly says money is available and favorable gains are present.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-016",
+      "semanticOwner": "finance",
+      "exactSpan": "เรื่องเงินในช่วงนี้คล่องตัวขึ้น",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-FINANCE",
+        "canon.mahabhut.p39.sri_owns_finance",
+        "typed.current.finance"
+      ],
+      "rationale": "Current finance=strong plus the rising life-period direction supports present financial ease without an amount.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-017",
+      "semanticOwner": "relationship",
+      "exactSpan": "ความสัมพันธ์ที่สำคัญจะแน่นแฟ้นขึ้น",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "canon.mahabhut.p16.venus_owns_relationship_male",
+        "canon.mahabhut.p28.venus_owns_relationship",
+        "typed.current.relationship"
+      ],
+      "rationale": "The current relationship=strong component supports strengthening without naming a person or event.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-018",
+      "semanticOwner": "relationship",
+      "exactSpan": "การเพิ่มข้อผูกพันจะช้ากว่าที่คิด เพราะความคาดหวังของทั้งสองฝ่ายยังไม่ตรงกันทั้งหมด",
+      "result": "BLOCKED_EXACT_SPAN",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "canon.mahabhut.p16.venus_owns_relationship_male",
+        "canon.mahabhut.p28.venus_owns_relationship",
+        "typed.current.relationship"
+      ],
+      "rationale": "The exact wording asserts a causal, certainty, or outcome link not established by the existing component chain.",
+      "missingComponent": "A definite present mismatch, a definite delay, and “slower than expected”; the component only records mismatch as a possible secondary pressure.",
+      "nearestSupportedMeaning": "ความคาดหวังที่ยังไม่ตรงกันอาจชะลอการเพิ่มข้อผูกพัน"
+    },
+    {
+      "id": "C22-E-019",
+      "semanticOwner": "health",
+      "exactSpan": "กำลังโดยรวมยังดี",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "canon.mahabhut.p35.venus_relates_attribute_disease_ความเจ็บป่วยอันเนื่องมาจากร่างกายไม่ได้รับการพักผ่อน",
+        "typed.current.health"
+      ],
+      "rationale": "The current health=strong component supports stamina for ordinary activity.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-020",
+      "semanticOwner": "health",
+      "exactSpan": "ช่วงที่พักไม่พอ ร่างกายจะฟื้นช้าลงและทำกิจกรรมต่อเนื่องได้ลดลง",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "canon.mahabhut.p35.venus_relates_attribute_disease_ความเจ็บป่วยอันเนื่องมาจากร่างกายไม่ได้รับการพักผ่อน",
+        "typed.current.health"
+      ],
+      "rationale": "The rest-related Canon component and health pressure component support slower recovery and reduced continuing capacity.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-021",
+      "semanticOwner": "support",
+      "exactSpan": "ครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่ายจะเข้ามาช่วย",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-SUPPORT",
+        "source.T0003-SRC-42-62-WORK",
+        "source.T0003-SRC-42-62-FINANCE"
+      ],
+      "rationale": "The source directly names teachers, peers, and connected people as support.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-022",
+      "semanticOwner": "support",
+      "exactSpan": "ทำให้งานและเรื่องเงินคล่องขึ้น",
+      "result": "BLOCKED_EXACT_SPAN",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-SUPPORT",
+        "source.T0003-SRC-42-62-WORK",
+        "source.T0003-SRC-42-62-FINANCE"
+      ],
+      "rationale": "The exact wording asserts a causal, certainty, or outcome link not established by the existing component chain.",
+      "missingComponent": "A support-causes-work-and-finance outcome binding; the source has separate support, work, and money clauses but no causal link between them.",
+      "nearestSupportedMeaning": "ครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่ายจะให้ความช่วยเหลือคุณ"
+    },
+    {
+      "id": "C22-E-023",
+      "semanticOwner": "rolling12",
+      "exactSpan": "ระหว่างวันที่ 29 สิงหาคม 2569 ถึง 28 สิงหาคม 2570",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "timing.rolling-12-month-label"
+      ],
+      "rationale": "The dates are the rolling 12-month boundary from the pinned asOf date.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-024",
+      "semanticOwner": "rolling12",
+      "exactSpan": "งานที่รับผิดชอบจะขยาย",
+      "result": "EXACT_COPY_SUPPORTED_FOR_OWNER_REVIEW",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-WORK",
+        "source.T0003-SRC-42-62-FINANCE",
+        "typed.next12Months.career",
+        "typed.next12Months.finance",
+        "timing.rolling-12-month-label"
+      ],
+      "rationale": "The next-12-month career component directly supports broader responsibility scope.",
+      "missingComponent": null,
+      "nearestSupportedMeaning": null
+    },
+    {
+      "id": "C22-E-025",
+      "semanticOwner": "rolling12",
+      "exactSpan": "รายรับจะเพิ่มตามงาน",
+      "result": "BLOCKED_EXACT_SPAN",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-WORK",
+        "source.T0003-SRC-42-62-FINANCE",
+        "typed.next12Months.career",
+        "typed.next12Months.finance",
+        "timing.rolling-12-month-label"
+      ],
+      "rationale": "The exact wording asserts a causal, certainty, or outcome link not established by the existing component chain.",
+      "missingComponent": "An explicit work-causes-income relation; the chain supports both expansion and increased income but does not bind income causally to work.",
+      "nearestSupportedMeaning": "ขอบเขตงานจะกว้างขึ้น และรายรับจะเพิ่มขึ้น"
+    },
+    {
+      "id": "C22-E-026",
+      "semanticOwner": "rolling12",
+      "exactSpan": "ภาระที่เพิ่มเร็วกว่าสิทธิ์ตัดสินใจจะทำให้งานบางส่วนช้าลง",
+      "result": "BLOCKED_EXACT_SPAN",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-WORK",
+        "source.T0003-SRC-42-62-FINANCE",
+        "typed.next12Months.career",
+        "typed.next12Months.finance",
+        "timing.rolling-12-month-label"
+      ],
+      "rationale": "The exact wording asserts a causal, certainty, or outcome link not established by the existing component chain.",
+      "missingComponent": "A relative growth-rate premise and slowdown outcome; the existing career component instead binds insufficient authority to reduced primary-work quality.",
+      "nearestSupportedMeaning": "หากอำนาจตัดสินใจไม่เพิ่มตามงาน คุณภาพงานหลักจะลดลง"
+    },
+    {
+      "id": "C22-E-027",
+      "semanticOwner": "rolling12",
+      "exactSpan": "รายจ่ายประจำที่โตตามรายรับจะทำให้เงินเหลือเก็บเพิ่มไม่ทันรายรับ",
+      "result": "BLOCKED_EXACT_SPAN",
+      "evidenceRefs": [
+        "selector.mahabhut2537.rem0.saturday.venus.42_62",
+        "source.T0003-SRC-42-62-WORK",
+        "source.T0003-SRC-42-62-FINANCE",
+        "typed.next12Months.career",
+        "typed.next12Months.finance",
+        "timing.rolling-12-month-label"
+      ],
+      "rationale": "The exact wording asserts a causal, certainty, or outcome link not established by the existing component chain.",
+      "missingComponent": "Definite expense growth and a savings-lag outcome; the component only supports this as a conditional risk to available cash.",
+      "nearestSupportedMeaning": "เงินพร้อมใช้จะไม่เพิ่มตามรายรับหากรายจ่ายประจำโตตาม"
+    }
+  ],
+  "entryCount": 27,
+  "supportedCount": 21,
+  "blockedCount": 6,
+  "overallStatus": "BLOCKED_EXACT_SPAN",
+  "ownerAcceptance": false,
+  "implementationAuthorized": false,
+  "note": "Nearest supported meanings are evidence notes only and are not substituted into Candidate 0022."
+}

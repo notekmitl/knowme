@@ -1,0 +1,18 @@
+{
+  "schema": "candidate-0021-owner-review/1",
+  "recordedAt": "2026-09-07",
+  "candidate": "Candidate 0021 actual 00:35",
+  "reviewedHead": "c726216f91359dd27eb3eed591d272bc76c66c9e",
+  "verdict": "OWNER_REJECTED_FINAL_READER_WORDING",
+  "structureOrder": "PASS",
+  "pastDirectness": "PASS",
+  "psychologySeparation": "PASS",
+  "unsupportedNextPeriodOmission": "PASS",
+  "finalReaderWording": "REJECTED",
+  "conditionalPredictionLanguage": "FAIL",
+  "crossHorizonRepetition": "FAIL",
+  "naturalSpokenThai": "PARTIAL",
+  "mayImplement": false,
+  "historicalFilesImmutable": true,
+  "note": "Candidate 0021 is preserved as rejected historical evidence. Passing schema or machine audit is not Owner Content Acceptance."
+}
