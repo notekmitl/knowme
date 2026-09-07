@@ -1,0 +1,36 @@
+{
+  "schema": "pr115-or10r-r1-before-evidence/1",
+  "status": "REPRODUCED_BEFORE_FIX",
+  "expectedHead": "1f5da4b03ae62729e8e6f7eac888de2784007eb2",
+  "sourcePackage": {
+    "filename": "OWNER_REVIEW_THAI_PREDICTIVE_NARRATIVE_V2_RUNTIME_V2_OR10R_8d6dde1.zip",
+    "sha256": "A2905FED76D3F321222FCC9A816D93CC08629F99D02B29B08FDC04C8C8588BA4"
+  },
+  "reproducedDefect": {
+    "surface": "Known infographic hero",
+    "unexpectedText": "เว้นหัวข้อที่ต้องใช้เวลาเกิด",
+    "expectedText": "ขอบเขตงานจะกว้างขึ้น และรายรับจะเพิ่มขึ้น",
+    "artifactCount": 4,
+    "artifactSha256": "DC2CE65EFC8A59860441ECF44E0A017E1D5ADF849B7C5221EAB905447C1970A4",
+    "artifacts": [
+      "known-0003-360-infographic.png",
+      "known-0003-390-infographic.png",
+      "known-0035-360-infographic.png",
+      "known-0035-390-infographic.png"
+    ]
+  },
+  "ownerGuideDefect": {
+    "bytes": 6090,
+    "c0C1ControlCharacters": 210,
+    "c1ControlCharacters": 207,
+    "belU0007": 3,
+    "replacementCharactersUfffd": 0,
+    "unresolvedImplementationShortSha": 1,
+    "result": "MOJIBAKE_AND_TEMPLATE_TOKEN_REPRODUCED"
+  },
+  "rootCause": {
+    "source": "lib/features/thai_beta/application/thai_beta_report_export_document.dart",
+    "binding": "The infographic requested semantic owner summary, which Candidate 0023 does not emit, then substituted an Unknown-only literal fallback.",
+    "package": "A double-quoted Windows PowerShell here-string interpreted Markdown backticks and an unresolved variable while reading Thai text without an explicit UTF-8 boundary."
+  }
+}

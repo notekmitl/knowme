@@ -1,0 +1,99 @@
+{
+  "schema": "pr115-or10r-r1-validation/1",
+  "status": "PASS_PENDING_OWNER_PRODUCT_REVIEW",
+  "implementationCommit": "6d4d4d1a4a03d2a97d8d1c11afd67baa05f4e48d",
+  "candidate0023Sha256": "FDA1DA8917CD5ADCA4650AECF87414DCFCDEE7F13019DF0794ECF76DFD91E7F2",
+  "candidate0011HistoricalSha256": "6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E",
+  "repair": {
+    "datePill": "29 ส.ค. 2569 – 28 ส.ค. 2570",
+    "hero": "ขอบเขตงานจะกว้างขึ้น และรายรับจะเพิ่มขึ้น",
+    "heroOccurrences": 1,
+    "knownUnknownCopyLeakage": 0,
+    "known0003Known0035PredictiveBodyMismatch": 0,
+    "known0003Ascendant": "Aquarius 9°24′",
+    "known0035Ascendant": "Aquarius 19°19′",
+    "unknownInfographicCount": 0,
+    "negativeControlRejected": true
+  },
+  "audits": {
+    "contexts": "49/49",
+    "periods": "392/392",
+    "profiles": 300,
+    "knownInfographicsWithoutUnknownLeakage": "225/225",
+    "unknownInfographicsOmitted": "75/75",
+    "fixtureSpecificBranches": 0,
+    "goldenOverrides": 0,
+    "unsupportedClaims": 0,
+    "semanticImpact": 0,
+    "omissionImpact": 0,
+    "additionImpact": 0,
+    "traceabilityImpact": 0
+  },
+  "tests": {
+    "nodeSignatureAndFoundation": "9/9",
+    "runtimeFixtureAndExport": "26/26",
+    "focusedNarrativeExportInfographicArtifact": "283/283",
+    "copyAudit": "1/1; 300 profiles; 24,186 fields; semantic, omission, addition and traceability impacts 0",
+    "fullRequiredFlutterSuite": "1646/1646",
+    "analyzer": "PASS; 298 baseline diagnostics; 0 new OR10R-R1 diagnostics",
+    "gitDiffCheck": "PASS",
+    "preCommit": "PASS",
+    "implementationPostCommit": "PASS"
+  },
+  "actualArtifacts": {
+    "webCaptureCases": 9,
+    "webDomParityExact": "9/9",
+    "webRuntimeErrors": 0,
+    "webNonGetRequests": 0,
+    "infographics": "4/4 at 1080x1920",
+    "pdfPages": {
+      "known0003Dedicated": 5,
+      "known0003BrowserPrint": 5,
+      "known0035Dedicated": 5,
+      "known0035BrowserPrint": 5,
+      "unknownDedicated": 1,
+      "unknownBrowserPrint": 1,
+      "totalRasterPages": 22
+    },
+    "dedicatedTextInventory": {
+      "known0003": "57/57",
+      "known0035": "57/57",
+      "unknown": "13/13"
+    },
+    "visualInspection": {
+      "fullSizeInfographicsOpened": "4/4",
+      "contactSheetsOpened": "16/16",
+      "pdfRasterPagesCovered": "22/22",
+      "blankPages": 0,
+      "clipping": 0,
+      "overlap": 0,
+      "overflow": 0,
+      "note": "Chrome Thai font extraction is not used as parity proof; browser-print parity is established by exact canonical-to-print DOM plus rendered-page review."
+    }
+  },
+  "packageValidation": {
+    "crcErrors": 0,
+    "extractionErrors": 0,
+    "missing": 0,
+    "extra": 0,
+    "hashMismatch": 0,
+    "sizeMismatch": 0,
+    "signatureMismatch": 0,
+    "unsafePaths": 0,
+    "controlCharacters": 0,
+    "replacementCharacters": 0,
+    "templateTokens": 0,
+    "mojibakeSignatures": 0,
+    "brokenLinks": 0,
+    "secretFindings": 0,
+    "absoluteLocalPaths": 0
+  },
+  "protectedDelta": {
+    "candidate0023": 0,
+    "candidate0011": 0,
+    "productAcceptance": 0,
+    "firebase": 0,
+    "production": 0,
+    "deployment": 0
+  }
+}

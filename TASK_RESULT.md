@@ -1,4 +1,19 @@
-# Task Result — Thai Report Reader Experience V2
+# Task Result — Thai Report Reader Experience V2+
+
+## PR115 OR10R-R1 — Known infographic semantic leakage and Owner package repair (2026-09-07)
+
+**PR115 OR10R-R1 KNOWN INFOGRAPHIC SEMANTIC LEAKAGE AND OWNER PACKAGE REPAIRED — OPEN + DRAFT — PENDING OWNER PRODUCT RE-REVIEW — NOT MERGED — NOT DEPLOYED.**
+
+Owner reproduced the OR10R defect from the accepted package at expected HEAD `1f5da4b03ae62729e8e6f7eac888de2784007eb2`: all four Known 00:03/00:35 infographics at surface 360/390 incorrectly showed the Unknown-only hero `เว้นหัวข้อที่ต้องใช้เวลาเกิด` and shared SHA-256 **DC2CE65EFC8A59860441ECF44E0A017E1D5ADF849B7C5221EAB905447C1970A4**. The old package guide was also reproduced with 207 C1 controls, three BEL U+0007 characters, one unresolved implementation variable and mojibake. The old ZIP remains unchanged.
+
+Implementation commit **`6d4d4d1a4a03d2a97d8d1c11afd67baa05f4e48d`** removes the missing-summary fallback and builds the Known infographic only from complete claim/evidence-bound Known owners. The date pill is exactly `29 ส.ค. 2569 – 28 ส.ค. 2570`; the hero is exactly `ขอบเขตงานจะกว้างขึ้น และรายรับจะเพิ่มขึ้น` and occurs once. All other infographic box copy is unchanged. Known 00:03/00:35 predictive bodies remain identical while identity/provenance remain Aquarius 9°24′ / 19°19′. Unknown still omits the infographic. A deliberately tainted Known plan carrying an Unknown omission reason is rejected. Candidate 0023 and historical Candidate 0011 remain byte-exact at **FDA1DA8917CD5ADCA4650AECF87414DCFCDEE7F13019DF0794ECF76DFD91E7F2** and **6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E**.
+
+Validation passed: Node 9/9; runtime/fixture/export 26/26; focused narrative/export/infographic/artifact 283/283; 300-profile audit with Known 225/225 free of Unknown leakage, Unknown 75/75 omitting infographic, fixture/golden overrides 0 and semantic/omission/addition/traceability impacts 0; full required Flutter suite **1,646/1,646**; analyzer baseline 298 / new OR10R-R1 diagnostics 0; `git diff --check`, PreCommit and implementation PostCommit PASS. Actual QA captured Web 9/9 at 1440/390/360, four 1080×1920 infographics, six PDFs and 22 raster pages. Dedicated/browser-print counts are Known 00:03 = 5/5, Known 00:35 = 5/5, Unknown = 1/1. Dedicated canonical inventory is 57/57, 57/57 and 13/13. Full-size infographic 4/4 and contact sheets 16/16 were opened; blank page, clipping, overlap, overflow, duplicate hero and Unknown leakage findings are 0.
+
+New Owner package `OWNER_REVIEW_THAI_PREDICTIVE_NARRATIVE_V2_RUNTIME_V2_OR10R_R1_6d4d4d1.zip` has SHA-256 **CE95A3A1757C269D356178D4232D58A282FFBD6C68309351D4877F335380B488** and 146 payload files. CRC, extraction, manifest missing/extra, hash, size, SHA256SUMS, signature, unsafe path, UTF-8 encoding, C0/C1 controls, U+FFFD, template token, mojibake, Markdown links, JSON parse, secret and absolute local path findings are all 0. The manual visual record is hash-bound and the original `WEB_CAPTURE_VALIDATION.json` remains `CAPTURED_NOT_YET_VISUALLY_REVIEWED` rather than being text-edited.
+
+The evidence/docs/package commit is the final PR HEAD reported at closeout. Application delta is limited to the infographic binding fix; there is no Candidate copy, engine, Canon, broader layout, `product-acceptance/`, Firebase, Production or deployment delta. PR #115 remains Open + Draft; this engineering package does not assert Owner Product Acceptance.
+
 
 ## PR115 OR10R — predictive-signature runtime and Owner evidence (2026-09-07)
 
