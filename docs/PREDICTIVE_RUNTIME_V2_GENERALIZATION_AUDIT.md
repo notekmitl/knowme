@@ -1,17 +1,14 @@
-# Predictive Runtime V2 OR2 Editorial and Evidence Audit
+# Predictive Runtime V2 — PR115 OR10R generalization audit
 
-Status: **PASS_PREDICTIVE_RUNTIME_V2_OR2_EDITORIAL_AND_EVIDENCE**
+Status: **PASS_PR115_OR10R_SIGNATURE_RUNTIME**
 
-- Actual representative context reports: 49/49
-- 300-profile Known complete V2: 225/225
-- Known baseline fallback: 0
-- Unknown fail-closed: 75/75
-- Actual 392-period resolver mapping: 392/392
-- Unsupported claims / unexpected fixture branches / fixture-reference leakage / binding mismatches / Known→Unknown leakage: 0 / 0 / 0 / 0 / 0
-- Claim-level evidence bindings: 637
-- Two-round human review: 49/49 contexts; failures 0
-- Reused paragraphs with mismatched evidence: 0
-- Emitted predictions min/median/max: 10/10/10
-- Evidence verifier errors: 0
+- Known complete: 225/225; Unknown fail-closed: 75/75 with 225 placeholder variants.
+- Actual contexts/periods: 49/49 and 392/392.
+- Unique predictive signatures/bodies observed in the 300-profile matrix: 220/220; same-signature mismatch 0.
+- Emitted predictions min/median/max: 10/10/10.
+- Unsupported claims, fixture branches, golden overrides, fixture references, binding mismatches, Known→Unknown leakage, generic fallback, duplicate semantic owner: 0/0/0/0/0/0/0/0.
+- Stale Candidate 0011 runtime path / Candidate 0022 rejected phrase / conditional fallback / unsupported causal link / reader repetition / advice leakage / personality leakage: 0/0/0/0/0/0/0.
+- Candidate 0023 00:35 exact reader SHA: FDA1DA8917CD5ADCA4650AECF87414DCFCDEE7F13019DF0794ECF76DFD91E7F2; raw forecast SHA: 292AEA14829A29935A0B877E8A536A6557DAB43ACD68BAE535E091B7D7CD7669.
+- Verifier errors: 0.
 
-The 392-row ledger is selector/timing authority only. Reader direction is bound to Production Canon and typed forecast material under Product Interpretation Contract V1; raw OCR heuristics are never promoted.
+Counts are observed values, not minimum diversity thresholds. Candidate 0011 remains immutable historical evidence and is not a production runtime selector.

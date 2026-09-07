@@ -1,5 +1,20 @@
 # Task Result — Thai Report Reader Experience V2
 
+## PR115 OR10R — predictive-signature runtime and Owner evidence (2026-09-07)
+
+**PR115 OR10R SIGNATURE CONTRACT RESOLVED — RUNTIME/GENERALIZATION/ARTIFACT VALIDATION PASS — OPEN + DRAFT — PENDING OWNER PRODUCT RE-REVIEW — NOT MERGED — NOT DEPLOYED.**
+
+OR10 was rejected because its instructions simultaneously required Candidate 0023 only for the actual 00:35 fixture and prohibited fixture-specific selection. The corrected contract makes Candidate 0023 the output of predictive signature `mahabhut2537.rem0.saturday`, age 44, period `venus.42_62`, with 12/12 typed materials and raw forecast SHA-256 **292AEA14829A29935A0B877E8A536A6557DAB43ACD68BAE535E091B7D7CD7669**. Known 00:03 and 00:35 therefore have byte-identical predictive sections while retaining different identity/provenance: Aquarius 9°24′ and Aquarius 19°19′ respectively. Candidate 0023 full reader SHA-256 is **FDA1DA8917CD5ADCA4650AECF87414DCFCDEE7F13019DF0794ECF76DFD91E7F2**.
+
+Runtime uses the single path `predictive-runtime-v2:signature+392-selector+typed-material+editorial-contract-v2`; fixture/minute/date/province/gender/degree/asOf branches, golden override and generic fallback are 0. Candidate 0011 remains immutable historical evidence at SHA-256 **6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E** and is not a runtime oracle. Generalization evidence: contexts 49/49, periods 392/392, profiles 300, Known complete 225/225, Unknown fail-closed 75/75, placeholder variants 225/225, claim bindings 2,925, unique signatures/bodies 220/220, same-signature mismatch 0, unsupported claims 0 and Known→Unknown leakage 0.
+
+Validation passed Node 9/9; runtime/input/evidence 24/24; focused narrative/export/infographic/artifact 281/281; copy audit 300 profiles / 24,186 fields with semantic, omission, addition and traceability impacts 0; PDF title regression 4/4; full required Flutter suite **1,644/1,644**; analyzer 298 baseline diagnostics and 0 new OR10R diagnostics; `git diff --check` and PreCommit PASS. Actual QA opened Web captures at 1440/390/360 for 00:03, 00:35 and Unknown, four Known infographics at 1080×1920, six PDFs and all 22 rendered pages. Dedicated/browser-print page counts are Known 00:03 = 5/5, Known 00:35 = 5/5, Unknown = 1/1; blank, clipping, overlap and overflow findings are 0. Unknown infographic is intentionally omitted by fail-closed behavior.
+
+Truth/contract commit: `023601e`. Runtime/test commit: `8d6dde10ae040cbe4a6973a814312fa2422f859c`. Evidence/docs commit is the final PR HEAD reported in the closeout. Owner package: `C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_PREDICTIVE_NARRATIVE_V2_RUNTIME_V2_OR10R_8d6dde1.zip`, final SHA-256 **A2905FED76D3F321222FCC9A816D93CC08629F99D02B29B08FDC04C8C8588BA4**; extraction/CRC/manifest/hash/size/unsafe-path/secret errors are all 0. PostCommit PASS.
+
+`product-acceptance/`, Firebase, Production and deployment delta is 0. No merge or deploy is authorized; PR #115 must remain Open + Draft until Owner Product re-review.
+
+
 ## PR115 OR9 — Candidate 0023 exact-evidence final copy (2026-09-07)
 
 **PR115 OR9 CANDIDATE 0023 EXACT-EVIDENCE GATE PASS — PENDING OWNER FINAL COPY REVIEW — DRAFT — NOT IMPLEMENTED — NOT MERGED — NOT DEPLOYED.**

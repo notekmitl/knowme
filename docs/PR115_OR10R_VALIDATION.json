@@ -1,0 +1,101 @@
+{
+  "schema": "pr115-or10r-validation/1",
+  "status": "PASS_PENDING_OWNER_PRODUCT_REVIEW",
+  "implementationCommit": "8d6dde10ae040cbe4a6973a814312fa2422f859c",
+  "contract": {
+    "activeCandidate": "0023",
+    "signatureContext": "mahabhut2537.rem0.saturday",
+    "age": 44,
+    "period": "mahabhut2537.rem0.saturday.venus.42_62",
+    "typedMaterials": 12,
+    "rawForecastSha256": "292AEA14829A29935A0B877E8A536A6557DAB43ACD68BAE535E091B7D7CD7669",
+    "candidate0023FullReaderCopySha256": "FDA1DA8917CD5ADCA4650AECF87414DCFCDEE7F13019DF0794ECF76DFD91E7F2",
+    "candidate0011HistoricalOracleSha256": "6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E",
+    "candidate0011UsedAsRuntimeOracle": false
+  },
+  "runtime": {
+    "generationPath": "predictive-runtime-v2:signature+392-selector+typed-material+editorial-contract-v2",
+    "fixtureSpecificBranches": 0,
+    "goldenOverrides": 0,
+    "known0003Known0035PredictiveBodyMismatch": 0,
+    "known0003Ascendant": "Aquarius 9°24′",
+    "known0035Ascendant": "Aquarius 19°19′",
+    "unknownUsesSentinelAtReaderBoundary": false,
+    "unknownAscendantHouseOrKnownCopyLeakage": 0
+  },
+  "audits": {
+    "contexts": "49/49",
+    "periods": "392/392",
+    "profiles": 300,
+    "knownComplete": "225/225",
+    "unknownFailClosed": "75/75",
+    "unknownPlaceholderVariants": 225,
+    "claimLevelBindings": 2925,
+    "uniquePredictiveSignatures": 220,
+    "uniquePredictiveBodies": 220,
+    "sameSignatureBodyMismatch": 0,
+    "unsupportedClaims": 0,
+    "chronologyErrors": 0,
+    "applicabilityErrors": 0,
+    "provenanceErrors": 0,
+    "parityErrors": 0,
+    "genericFallback": 0,
+    "fixtureReferenceLeakage": 0
+  },
+  "tests": {
+    "nodeSignatureAndFoundation": "9/9",
+    "runtimeInputAndEvidence": "24/24",
+    "focusedNarrativeExportInfographicArtifact": "281/281",
+    "copyAudit": "1/1; 300 profiles; 24,186 fields; 9,611 changed; semantic, omission, addition and traceability impacts 0",
+    "pdfTitleOnlyRegression": "4/4",
+    "fullRequiredFlutterSuite": "1644/1644",
+    "analyzer": "PASS; 298 baseline diagnostics; 0 new OR10R diagnostics",
+    "gitDiffCheck": "PASS",
+    "preCommit": "PASS",
+    "postCommit": "PASS"
+  },
+  "actualArtifacts": {
+    "webCaptureCases": 9,
+    "webDomParityExact": "9/9",
+    "webRuntimeErrors": 0,
+    "webNonGetRequests": 0,
+    "infographics": {
+      "known0003Width360": "1080x1920",
+      "known0003Width390": "1080x1920",
+      "known0035Width360": "1080x1920",
+      "known0035Width390": "1080x1920",
+      "knownSameSignatureHashMismatch": 0,
+      "unknownOmittedFailClosed": true
+    },
+    "pdfPages": {
+      "known0003Dedicated": 5,
+      "known0003BrowserPrint": 5,
+      "known0035Dedicated": 5,
+      "known0035BrowserPrint": 5,
+      "unknownDedicated": 1,
+      "unknownBrowserPrint": 1,
+      "totalRasterPages": 22
+    },
+    "dedicatedTextInventory": {
+      "known0003": "57/57",
+      "known0035": "57/57",
+      "unknown": "13/13"
+    },
+    "visualInspection": {
+      "pdfsOpened": "6/6",
+      "pdfPagesRenderedAndOpened": "22/22",
+      "contactSheetsOpened": "16/16",
+      "blankPages": 0,
+      "clipping": 0,
+      "overlap": 0,
+      "overflow": 0,
+      "note": "Known page 3 is an intentional image-only infographic; browser-print Thai text extraction is limited by subset font maps, so parity is established by exact canonical-to-print DOM plus rendered-page inspection."
+    }
+  },
+  "protectedDelta": {
+    "productAcceptance": 0,
+    "firebase": 0,
+    "production": 0,
+    "deployment": 0
+  }
+}
