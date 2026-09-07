@@ -1,5 +1,7 @@
+import 'dart:convert';
 import 'dart:io';
 
+import 'package:crypto/crypto.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:knowme/features/thai_beta/application/narrative/predictive_runtime_v2.dart';
 import 'package:knowme/features/thai_beta/application/thai_beta_analysis.dart';
@@ -9,22 +11,20 @@ import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 import '../synthetic_audit/thai_beta_synthetic_matrix_300.dart';
 
 void main() {
-  group('Candidate 0011 exact golden runtime', () {
+  group('Candidate 0023 predictive-signature runtime', () {
     test(
-      'pinned fixture renders the complete accepted reader block exactly',
+      '00:35 renders the accepted Candidate 0023 predictive block exactly',
       () {
-        final plan = ThaiPredictiveRuntimeV2Plan.fromAnalysis(_accepted());
-        expect(
-          runtimePredictiveV2OracleSha256,
-          '6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E',
+        final plan = ThaiPredictiveRuntimeV2Plan.fromAnalysis(
+          _accepted(minute: 35),
         );
-        expect(plan.contextId, runtimePredictiveV2GoldenOracleContextId);
-        expect(plan.emittedPredictions, 22);
-        expect(plan.emittedClaims, hasLength(25));
+        expect(plan.contextId, 'mahabhut2537.rem0.saturday');
+        expect(plan.emittedPredictions, 11);
+        expect(plan.emittedClaims, hasLength(13));
         expect(plan.omittedClaims, isEmpty);
         expect(plan.unsupportedClaims, 0);
         expect(plan.fixtureSpecificBranches, 0);
-        expect(plan.ownerAcceptedGoldenOverrideApplied, 1);
+        expect(plan.ownerAcceptedGoldenOverrideApplied, 0);
         expect(plan.unexpectedFixtureSpecificBranches, 0);
         expect(plan.fixtureReferenceLeakage, 0);
         final bindingErrors = RuntimePredictiveClaimBindingValidator.validate(
@@ -35,25 +35,47 @@ void main() {
         final sectionTitles = plan.sections
             .map((section) => section.title)
             .toList(growable: false);
-        const acceptedHeadings = [
+        const expectedHeadings = [
           'คำทำนายอดีต',
-          'อายุ 1–10 ปี',
+          'อายุ 0–10 ปี',
           'อายุ 11–29 ปี',
           'อายุ 30–41 ปี',
           'คำทำนายปัจจุบัน — อายุ 44 ปี',
           'คำทำนาย 12 เดือนข้างหน้า',
-          'ช่วงชีวิตถัดไป — อายุ 63–79 ปี',
+          'คำแนะนำ',
+          'ข้อจำกัด',
         ];
-        expect(sectionTitles, containsAllInOrder(acceptedHeadings));
-        for (final heading in acceptedHeadings) {
+        expect(sectionTitles, containsAllInOrder(expectedHeadings));
+        for (final heading in expectedHeadings) {
           expect(
             sectionTitles.where((title) => title == heading),
             hasLength(1),
           );
         }
-        expect(_planLines(plan), _acceptedReaderLines());
+        expect(_planLines(plan), _candidate0023RuntimeLines());
       },
     );
+
+    test('00:35 renders the accepted full reader sections and SHA exactly', () {
+      final document = ThaiBetaReportExportDocument.candidate(
+        _accepted(minute: 35),
+      );
+      final candidate =
+          jsonDecode(
+                File('docs/CANDIDATE_0023_CLAIM_MAP.json').readAsStringSync(),
+              )
+              as Map<String, dynamic>;
+      final expected = candidate['fullReaderCopy'] as String;
+      expect(document.sectionPlainText, expected);
+      expect(
+        sha256
+            .convert(utf8.encode(document.sectionPlainText))
+            .toString()
+            .toUpperCase(),
+        _candidate0023FullReaderSha256,
+      );
+      expect(document.predictiveRuntimeV2!.usesCandidate0023Components, isTrue);
+    });
 
     test('rolling horizon uses asOf and never stays pinned to 2026-08-29', () {
       final plan = ThaiPredictiveRuntimeV2Plan.fromAnalysis(
@@ -69,61 +91,73 @@ void main() {
       expect(plan.fixtureReferenceLeakage, 0);
     });
 
-    test('00:03 is exact oracle while 00:35 uses generalized path', () {
-      final first = ThaiPredictiveRuntimeV2Plan.fromAnalysis(_accepted());
-      final second = ThaiPredictiveRuntimeV2Plan.fromAnalysis(
+    test('00:03 and 00:35 share one predictive body for one signature', () {
+      final three = ThaiPredictiveRuntimeV2Plan.fromAnalysis(_accepted());
+      final thirtyFive = ThaiPredictiveRuntimeV2Plan.fromAnalysis(
         _accepted(minute: 35),
       );
-      expect(first.contextId, second.contextId);
-      expect(first.emittedPredictions, 22);
-      expect(second.emittedPredictions, 10);
-      expect(first.subtitle, contains('ลัคนาราศีกุมภ์ 9°24′'));
-      expect(second.subtitle, contains('ลัคนาราศีกุมภ์ 19°19′'));
-      expect(first.ownerAcceptedGoldenOverrideApplied, 1);
-      expect(second.ownerAcceptedGoldenOverrideApplied, 0);
-      expect(second.fixtureReferenceLeakage, 0);
-      expect(second.evidenceBindingMismatches, 0);
-      expect(second.generationPath, contains('editorial-contract-v2'));
+      expect(three.contextId, thirtyFive.contextId);
+      expect(three.predictiveSignature, thirtyFive.predictiveSignature);
       expect(
-        second.emittedClaims.expand((claim) => claim.rule.evidenceRefs),
-        isNot(contains('fixture.target-0003')),
+        _predictiveSectionProjection(three),
+        _predictiveSectionProjection(thirtyFive),
       );
-      expect(
-        second.emittedClaims.map((claim) => claim.text),
-        isNot(first.emittedClaims.map((claim) => claim.text)),
-      );
+      expect(three.subtitle, contains('เวลา 00:03 น.'));
+      expect(three.subtitle, contains('ลัคนาราศีกุมภ์ 9°24′'));
+      expect(thirtyFive.subtitle, contains('เวลา 00:35 น.'));
+      expect(thirtyFive.subtitle, contains('ลัคนาราศีกุมภ์ 19°19′'));
+      for (final plan in [three, thirtyFive]) {
+        expect(plan.emittedPredictions, 11);
+        expect(plan.ownerAcceptedGoldenOverrideApplied, 0);
+        expect(plan.fixtureReferenceLeakage, 0);
+        expect(plan.evidenceBindingMismatches, 0);
+        expect(plan.generationPath, contains('signature+392-selector'));
+      }
     });
 
-    test('same-context neighbor cannot inherit target fixture authority', () {
-      final neighbor = ThaiPredictiveRuntimeV2Plan.fromAnalysis(
+    test('a different signature selects its own generalized rules', () {
+      final active = ThaiPredictiveRuntimeV2Plan.fromAnalysis(
+        _accepted(minute: 35),
+      );
+      final different = ThaiPredictiveRuntimeV2Plan.fromAnalysis(
         ThaiBetaAnalysisRunner.run(
           ThaiBetaInput(
-            firstName: 'Neighbor',
-            lastName: 'Regression',
-            birthDate: DateTime(1982, 6, 6),
-            birthHour: 0,
-            birthMinute: 3,
+            firstName: 'Different',
+            lastName: 'Signature',
+            birthDate: DateTime(1982, 6, 7),
+            birthHour: 12,
+            birthMinute: 0,
             birthTimeUnknown: false,
             province: 'เชียงใหม่',
             provinceKey: 'chiang mai',
-            gender: 'หญิง',
+            gender: 'ชาย',
           ),
           asOf: DateTime(2026, 8, 29),
         ),
       );
-      expect(neighbor.contextId, runtimePredictiveV2GoldenOracleContextId);
+      expect(different.predictiveSignature, isNot(active.predictiveSignature));
       expect(
-        neighbor.currentPeriod?.matrixApplicationId,
-        runtimePredictiveV2GoldenCurrentPeriodId,
+        _predictiveSectionProjection(different),
+        isNot(_predictiveSectionProjection(active)),
       );
-      expect(neighbor.ownerAcceptedGoldenOverrideApplied, 0);
-      expect(neighbor.unexpectedFixtureSpecificBranches, 0);
-      expect(neighbor.fixtureReferenceLeakage, 0);
-      expect(neighbor.evidenceBindingMismatches, 0);
-      expect(
-        neighbor.emittedClaims.expand((claim) => claim.rule.evidenceRefs),
-        isNot(contains('fixture.target-0003')),
-      );
+      expect(different.ownerAcceptedGoldenOverrideApplied, 0);
+      expect(different.unexpectedFixtureSpecificBranches, 0);
+      expect(different.fixtureReferenceLeakage, 0);
+      expect(different.evidenceBindingMismatches, 0);
+    });
+
+    test('Candidate 0011 remains immutable historical evidence only', () {
+      final oracle =
+          jsonDecode(
+                File(
+                  'docs/CANDIDATE_0011_OWNER_ACCEPTED_ORACLE.json',
+                ).readAsStringSync(),
+              )
+              as Map<String, dynamic>;
+      final source = oracle['source'] as Map<String, dynamic>;
+      expect(source['acceptedReaderFacingSha256'], _acceptedOracleSha256);
+      expect(source['currentReaderFacingSha256'], _acceptedOracleSha256);
+      expect(oracle['status'], contains('OWNER_ACCEPTED'));
     });
   });
 
@@ -212,8 +246,11 @@ void main() {
       final before = ThaiBetaReportExportDocument.candidate(_accepted());
       final after = ThaiBetaReportExportDocument.candidate(_accepted());
       expect(after.fullPlainText, before.fullPlainText);
-      expect(_planLines(after.predictiveRuntimeV2!), _acceptedReaderLines());
-      expect(runtimePredictiveV2OracleSha256, _acceptedOracleSha256);
+      expect(
+        _planLines(after.predictiveRuntimeV2!),
+        _candidate0023RuntimeLines(minute: 3),
+      );
+      expect(after.predictiveRuntimeV2!.ownerAcceptedGoldenOverrideApplied, 0);
     });
 
     test(
@@ -253,7 +290,7 @@ void main() {
             ),
       };
       expect(ids, hasLength(49));
-      expect(ids, contains(runtimePredictiveV2GoldenOracleContextId));
+      expect(ids, contains('mahabhut2537.rem0.saturday'));
       expect(ids.every((id) => id.startsWith('mahabhut2537.rem')), isTrue);
     });
 
@@ -369,8 +406,10 @@ void main() {
     test('coverage validator rejects every required negative control', () {
       const contextA = 'mahabhut2537.rem0.sunday';
       const contextB = 'mahabhut2537.rem1.monday';
-      const completeOwners =
-          ThaiPredictiveRuntimeV2Plan.requiredKnownSemanticOwners;
+      final completeOwners = <String>{
+        ...ThaiPredictiveRuntimeV2Plan.requiredKnownSemanticOwners,
+        'past-0-10',
+      };
       final completeRule = RuntimePredictiveRule(
         id: 'complete',
         semanticOwner: 'overview',
@@ -496,7 +535,11 @@ void main() {
       expect(
         validate(
           rules: {
-            contextA: [completeRule.copyWith(fixtureSpecific: true)],
+            contextA: [
+              completeRule.copyWith(
+                sourceComponents: const ['fixture.forbidden-control'],
+              ),
+            ],
           },
           fixtureBranches: 1,
         ).errors,
@@ -563,6 +606,8 @@ void main() {
 
 const _acceptedOracleSha256 =
     '6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E';
+const _candidate0023FullReaderSha256 =
+    'FDA1DA8917CD5ADCA4650AECF87414DCFCDEE7F13019DF0794ECF76DFD91E7F2';
 
 ThaiBetaAnalysis _accepted({int minute = 3}) => ThaiBetaAnalysisRunner.run(
   _acceptedInput(minute: minute),
@@ -591,26 +636,46 @@ List<String> _planLines(ThaiPredictiveRuntimeV2Plan plan) => [
   ],
 ].where((line) => line.trim().isNotEmpty).toList(growable: false);
 
-List<String> _acceptedReaderLines() {
-  final source = File(
-    'docs/THAI_REPORT_PREDICTIVE_NARRATIVE_V2_TARGET_CANDIDATE_0011.md',
-  ).readAsStringSync().replaceAll('\r\n', '\n');
-  final start = source.indexOf('Reader-facing candidate begins below.');
-  final end = source.indexOf('Reader-facing candidate ends above.');
-  return source
-      .substring(start, end)
-      .split('\n')
-      .map((line) => line.trim())
-      .where(
-        (line) =>
-            line.isNotEmpty &&
-            line != 'Reader-facing candidate begins below.' &&
-            !line.startsWith('<!--'),
-      )
-      .map((line) => line.replaceFirst(RegExp(r'^#{1,6}\s+'), ''))
-      .map((line) => line.replaceAll('<br>', ''))
-      .toList(growable: false);
+List<String> _candidate0023RuntimeLines({int minute = 35}) {
+  final candidate =
+      jsonDecode(File('docs/CANDIDATE_0023_CLAIM_MAP.json').readAsStringSync())
+          as Map<String, dynamic>;
+  final sections = (candidate['sections'] as List<dynamic>)
+      .cast<Map<String, dynamic>>()
+      .take(15);
+  final lines = <String>[];
+  for (final section in sections) {
+    lines.add(section['title'] as String);
+    final paragraphs = (section['paragraphs'] as List<dynamic>).cast<String>();
+    lines.addAll(
+      section['kind'] == 'disclaimer' ? paragraphs.take(1) : paragraphs,
+    );
+  }
+  if (minute == 3) {
+    return lines
+        .map(
+          (line) => line
+              .replaceAll('เวลา 00:35 น.', 'เวลา 00:03 น.')
+              .replaceAll('ลัคนาราศีกุมภ์ 19°19′', 'ลัคนาราศีกุมภ์ 9°24′'),
+        )
+        .toList(growable: false);
+  }
+  return lines;
 }
+
+List<Map<String, Object?>> _predictiveSectionProjection(
+  ThaiPredictiveRuntimeV2Plan plan,
+) => [
+  for (final section in plan.sections)
+    {
+      'id': section.id,
+      'title': section.title,
+      'claims': [
+        for (final claim in section.claims)
+          {'id': claim.rule.id, 'text': claim.text},
+      ],
+    },
+];
 
 Map<String, ThaiPredictiveRuntimeV2Plan> _representativePlans49() {
   final plans = <String, ThaiPredictiveRuntimeV2Plan>{};
@@ -671,7 +736,7 @@ List<String> _predictionQualityViolations(RuntimePredictiveDecision decision) {
   for (final phrase in personalityPhrases) {
     if (text.contains(phrase)) violations.add('personality:$phrase');
   }
-  if (decision.rule.semanticOwner == 'past' &&
+  if (decision.rule.semanticOwner.startsWith('past-') &&
       (text.contains('?') ||
           text.contains('ลอง') ||
           text.contains('ทบทวน') ||

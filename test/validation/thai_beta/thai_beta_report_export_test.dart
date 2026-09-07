@@ -224,7 +224,7 @@ void main() {
           expect(
             text,
             contains(
-              'ความสัมพันธ์ในช่วงปัจจุบันจะชัดขึ้นจากการกระทำที่สม่ำเสมอ ข้อตกลงที่ค้างอยู่จะได้ข้อสรุป',
+              'ความสัมพันธ์ที่สำคัญจะแน่นแฟ้นขึ้น',
             ),
           );
           expect(text, isNot(contains('มีแนวโน้ม')));
@@ -386,7 +386,7 @@ void main() {
       expect(
         texts.first,
         contains(
-          'อย่าดูเพียงว่าเก็บเงินได้มากแค่ไหน แต่ให้ดูว่าเงินสำรองช่วยให้คุณมีทางเลือกมากพอหรือยัง',
+          'คุณมีเงินใช้และมีโชคลาภ เรื่องเงินในช่วงนี้คล่องตัวขึ้น',
         ),
       );
       expect(
@@ -458,7 +458,7 @@ void main() {
           isNot(contains('ในทางโหราศาสตร์ เรื่องงานดูจากเรือนการงาน')),
         );
         final section4Index = known.sections.indexWhere(
-          (section) => section.title == 'ส่วนที่ 4 · ที่มาและข้อจำกัด',
+          (section) => section.title == 'ที่มาและวิธีอ่าน',
         );
         expect(section4Index, greaterThanOrEqualTo(0));
         final readerPredictionText = known.sections
@@ -495,7 +495,12 @@ void main() {
         expect(section4Text, contains('โครงสร้างดวงหลัก'));
         expect(section4Text, contains('ลัคนา: ราศีกุมภ์ 19°19′'));
         expect(section4Text, contains('เรือนการงาน:'));
-        expect(known.fullPlainText, contains('เรื่องสุขภาพ ให้สังเกตว่า'));
+        expect(
+          known.fullPlainText,
+          contains(
+            'กำลังโดยรวมยังดี แต่ช่วงที่พักไม่พอ ร่างกายจะฟื้นช้าลงและทำกิจกรรมต่อเนื่องได้ลดลง',
+          ),
+        );
         expect(
           unknown.fullPlainText,
           isNot(

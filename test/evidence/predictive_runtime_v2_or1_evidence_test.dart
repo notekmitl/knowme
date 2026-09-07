@@ -9,6 +9,9 @@ import 'package:knowme/features/thai_beta/domain/thai_beta_input.dart';
 
 import '../validation/thai_beta/synthetic_audit/thai_beta_synthetic_matrix_300.dart';
 
+const _historicalCandidate0011Sha256 =
+    '6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E';
+
 void main() {
   test('writes and validates PR115 OR2 generalized predictive evidence', () {
     final asOf = DateTime(2026, 8, 29);
@@ -265,7 +268,7 @@ void main() {
           ? 'PASS_PREDICTIVE_RUNTIME_V2_OR2_EDITORIAL_AND_EVIDENCE'
           : 'FAIL',
       'ownerReviewState': 'PENDING_OWNER_PRODUCT_RE_REVIEW',
-      'candidate0011Sha256': runtimePredictiveV2OracleSha256,
+      'candidate0011Sha256': _historicalCandidate0011Sha256,
       'counts': {
         'knownProfiles': 225,
         'knownProfilesWithCompleteV2Report': knownComplete,
@@ -586,8 +589,11 @@ Map<String, Object?> _goldenNeighborComparison(DateTime asOf) {
   };
 
   final pass =
-      exact.ownerAcceptedGoldenOverrideApplied == 1 &&
-      exact.emittedPredictions == 22 &&
+      exact.predictiveSignature.isNotEmpty &&
+      exact.predictiveSignature == minute35.predictiveSignature &&
+      exact.predictiveSignature == neighbor.predictiveSignature &&
+      exact.emittedPredictions == 11 &&
+      exact.ownerAcceptedGoldenOverrideApplied == 0 &&
       minute35.ownerAcceptedGoldenOverrideApplied == 0 &&
       neighbor.ownerAcceptedGoldenOverrideApplied == 0 &&
       minute35.fixtureReferenceLeakage == 0 &&
@@ -595,7 +601,7 @@ Map<String, Object?> _goldenNeighborComparison(DateTime asOf) {
       unknown.emittedClaims.isEmpty;
   return {
     'status': pass ? 'PASS' : 'FAIL',
-    'candidate0011Sha256': runtimePredictiveV2OracleSha256,
+    'candidate0011Sha256': _historicalCandidate0011Sha256,
     'exactTarget00_03': item(exact),
     'generalized00_35': item(minute35),
     'sameContextPeriodNeighbor': item(neighbor),

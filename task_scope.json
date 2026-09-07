@@ -23,6 +23,7 @@
     "lib/features/thai_beta/application/thai_beta_report_export_document.dart",
     "test/evidence/fixtures/or5r_known_baseline.json",
     "test/evidence/predictive_runtime_v2_foundation.test.mjs",
+    "test/evidence/predictive_runtime_v2_or1_evidence_test.dart",
     "test/evidence/predictive_runtime_v2_or5_actual_input_export_test.dart",
     "test/evidence/pr115_or10r_predictive_signature.test.mjs",
     "test/validation/thai_beta/narrative/thai_predictive_runtime_v2_test.dart",
@@ -31,6 +32,7 @@
     "test/validation/thai_beta/thai_report_vnext_artifact_generation_test.dart",
     "tool/build_predictive_runtime_v2_audit.mjs",
     "tool/generate_predictive_runtime_v2_catalog.mjs",
+    "tool/or5r_actual_pdf_gate.py",
     "tool/pr115_or10r_validation.ps1"
   ],
   "allowed_globs": [],

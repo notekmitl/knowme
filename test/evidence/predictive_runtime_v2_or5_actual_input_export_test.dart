@@ -329,6 +329,7 @@ Json publicBoundary(ThaiBetaAnalysis a) {
   return {
     'copyClassification': copyClassification,
     'publicExportText': document.fullPlainText,
+    'sectionPlainText': document.sectionPlainText,
     'sections': [
       for (final s in document.sections)
         {
@@ -527,7 +528,7 @@ void main() {
     unknown = extract(fixture(null), DateTime(2026, 8, 29));
   });
   test(
-    'OR5 actual raw extraction precedes golden override and preserves input',
+    'OR10R extraction preserves input and one signature-based runtime path',
     () {
       final knownContracts = {
         for (final minute in [3, 35])
@@ -538,17 +539,24 @@ void main() {
             ),
           ),
       };
+      final baselineFile = File(
+        'test/evidence/fixtures/or5r_known_baseline.json',
+      );
       if (Platform.environment['OR5R_CAPTURE_BASELINE'] == '1') {
-        writeEvidence('OR5R_KNOWN_BASELINE', knownContracts);
-      } else {
-        final baselineFile = File(
-          'test/evidence/fixtures/or5r_known_baseline.json',
+        baselineFile.writeAsStringSync(
+          const JsonEncoder.withIndent('  ').convert(knownContracts),
         );
+      } else {
         expect(baselineFile.existsSync(), isTrue);
         expect(knownContracts, jsonDecode(baselineFile.readAsStringSync()));
       }
-      expect(three['plan']['ownerAcceptedGoldenOverrideApplied'], 1);
+      expect(three['plan']['ownerAcceptedGoldenOverrideApplied'], 0);
       expect(thirtyFive['plan']['ownerAcceptedGoldenOverrideApplied'], 0);
+      expect(
+        three['plan']['predictiveSignature'],
+        thirtyFive['plan']['predictiveSignature'],
+      );
+      expect(three['plan']['decisions'], thirtyFive['plan']['decisions']);
       expect(three['canonical']['lagnaKey'], 'lagna_aquarius');
       expect(thirtyFive['canonical']['lagnaKey'], 'lagna_aquarius');
       expect(
@@ -745,6 +753,9 @@ void main() {
     () {
       final profiles = <Json>[];
       final contexts = <String, Json>{};
+      final bodyBySignature = <String, String>{};
+      final signatures = <String>{};
+      final predictiveBodies = <String>{};
       var deterministic = 0;
       for (final c in ThaiBetaSyntheticMatrix.build()) {
         final first = extract(c.input, DateTime(2026, 8, 29));
@@ -755,6 +766,26 @@ void main() {
         profiles.add(record);
         if (c.input.hasBirthTime &&
             runtimePredictiveV2ContextIds.contains(first['contextId'])) {
+          final plan = first['plan'] as Json;
+          final signature = plan['predictiveSignature'] as String;
+          final body = digest([
+            for (final decision in (plan['decisions'] as List))
+              if (decision['emitted'] == true)
+                {
+                  'semanticOwner': decision['semanticOwner'],
+                  'section': decision['section'],
+                  'text': decision['text'],
+                },
+          ]);
+          final priorBody = bodyBySignature[signature];
+          expect(
+            priorBody == null || priorBody == body,
+            isTrue,
+            reason: 'same signature must have one body: ${c.id}',
+          );
+          bodyBySignature[signature] = body;
+          signatures.add(signature);
+          predictiveBodies.add(body);
           contexts.putIfAbsent(first['contextId'] as String, () => record);
         }
       }
@@ -802,6 +833,9 @@ void main() {
         'independentPairsCompared': deterministic,
         'runsPerInput': 2,
         'mismatchCount': 0,
+        'uniquePredictiveSignatures': signatures.length,
+        'uniqueGeneratedPredictiveBodies': predictiveBodies.length,
+        'sameSignatureBodyMismatch': 0,
         'profile300Sha256': digest(profiles),
         'context49Sha256': digest([for (final k in keys) contexts[k]]),
       });

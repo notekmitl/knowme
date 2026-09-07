@@ -49,6 +49,8 @@ def main():
         with target.open('wb') as f:writer.write(f)
     result=verify(target,inventory,a.required)
     prefix=Path(a.output).with_suffix('')
+    for stale_raster in prefix.parent.glob(prefix.name+'-*.png'):
+        stale_raster.unlink()
     raster=subprocess.run([a.pdftoppm,'-r','72','-png',str(target),str(prefix)],capture_output=True)
     result['rasterExitCode']=raster.returncode
     result['rastersCreated']=len(list(prefix.parent.glob(prefix.name+'-*.png')))

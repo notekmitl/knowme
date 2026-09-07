@@ -2,9 +2,9 @@
 ///
 /// The 392-row Mahabhut ledger is used only as selector/timing authority.
 /// Reader direction comes from typed forecast material and the production
-/// composers. Candidate 0011 remains an immutable exact golden override for
-/// its Owner-pinned fixture; every other Known-time report follows the shared
-/// context/period resolver and generalized editorial path.
+/// composers. Every Known-time report follows the shared context/period,
+/// predictive-signature and generalized editorial path. Candidate 0011 is
+/// retained only as immutable historical evidence outside production runtime.
 library;
 
 import 'package:knowme/features/astrology/thai/core/life_period/thai_remainder_runtime_metadata.dart';
@@ -71,7 +71,6 @@ class RuntimePredictiveRule {
     required this.certaintyRefs,
     this.compositionRefs = const [],
     this.infographicTextTemplate = '',
-    this.fixtureSpecific = false,
     this.selectorApplicationId = '',
     this.horizon = '',
     this.materialFingerprint = '',
@@ -79,7 +78,6 @@ class RuntimePredictiveRule {
     this.directionBand = '',
     this.sourceComponents = const [],
     this.realizerId = '',
-    this.goldenOverride = false,
   });
 
   final String id;
@@ -98,7 +96,6 @@ class RuntimePredictiveRule {
   final List<String> certaintyRefs;
   final List<String> compositionRefs;
   final String infographicTextTemplate;
-  final bool fixtureSpecific;
   final String selectorApplicationId;
   final String horizon;
   final String materialFingerprint;
@@ -106,7 +103,6 @@ class RuntimePredictiveRule {
   final String directionBand;
   final List<String> sourceComponents;
   final String realizerId;
-  final bool goldenOverride;
 
   Iterable<String> get evidenceRefs sync* {
     yield* selectorRefs;
@@ -139,7 +135,6 @@ class RuntimePredictiveRule {
   RuntimePredictiveRule copyWith({
     String? id,
     String? contextId,
-    bool? fixtureSpecific,
     String? selectorApplicationId,
     String? horizon,
     String? materialFingerprint,
@@ -147,7 +142,6 @@ class RuntimePredictiveRule {
     String? directionBand,
     List<String>? sourceComponents,
     String? realizerId,
-    bool? goldenOverride,
   }) => RuntimePredictiveRule(
     id: id ?? this.id,
     semanticOwner: semanticOwner,
@@ -165,7 +159,6 @@ class RuntimePredictiveRule {
     certaintyRefs: certaintyRefs,
     compositionRefs: compositionRefs,
     infographicTextTemplate: infographicTextTemplate,
-    fixtureSpecific: fixtureSpecific ?? this.fixtureSpecific,
     selectorApplicationId: selectorApplicationId ?? this.selectorApplicationId,
     horizon: horizon ?? this.horizon,
     materialFingerprint: materialFingerprint ?? this.materialFingerprint,
@@ -173,7 +166,6 @@ class RuntimePredictiveRule {
     directionBand: directionBand ?? this.directionBand,
     sourceComponents: sourceComponents ?? this.sourceComponents,
     realizerId: realizerId ?? this.realizerId,
-    goldenOverride: goldenOverride ?? this.goldenOverride,
   );
 
   bool get hasClaimLevelBinding {
@@ -242,7 +234,6 @@ class RuntimePredictiveDecision {
       'directionBand': rule.directionBand,
       'sourceComponents': rule.sourceComponents,
       'realizedReaderText': text,
-      'goldenOverride': rule.goldenOverride,
       'realizerId': rule.realizerId,
     },
   };
@@ -272,12 +263,11 @@ class ThaiPredictiveRuntimeV2Plan {
     required this.sections,
     required this.omissionReason,
     required this.currentPeriod,
-    required this.goldenOverrideApplied,
+    required this.predictiveSignature,
   });
 
   static const requiredKnownSemanticOwners = <String>{
     'overview',
-    'past',
     'current',
     'work',
     'finance',
@@ -285,8 +275,6 @@ class ThaiPredictiveRuntimeV2Plan {
     'health',
     'support',
     'rolling12',
-    'next',
-    'summary',
     'advice',
     'disclosure',
   };
@@ -329,18 +317,23 @@ class ThaiPredictiveRuntimeV2Plan {
         sections: const [],
         omissionReason: reason,
         currentPeriod: currentPeriod,
-        goldenOverrideApplied: false,
+        predictiveSignature: '',
       );
     }
 
-    final useGoldenOverride = _isOwnerAcceptedGoldenFixture(analysis);
+    final predictiveSignature = _predictiveSignature(
+      analysis: analysis,
+      contextId: context,
+      currentAge: age,
+      currentPeriod: currentPeriod,
+    );
 
     final rules = _rulesForAnalysis(
       analysis: analysis,
       contextId: context,
       currentAge: age,
       currentPeriod: currentPeriod,
-      useGoldenOverride: useGoldenOverride,
+      predictiveSignature: predictiveSignature,
     );
     final ruleIds = rules.map((rule) => rule.id).toSet();
     final decisions = <RuntimePredictiveDecision>[];
@@ -378,9 +371,13 @@ class ThaiPredictiveRuntimeV2Plan {
       );
     }
     final emitted = decisions.where((decision) => decision.emitted).toList();
-    final missing = requiredKnownSemanticOwners.difference(
-      emitted.map((decision) => decision.rule.semanticOwner).toSet(),
-    );
+    final emittedOwners = emitted
+        .map((decision) => decision.rule.semanticOwner)
+        .toSet();
+    final missing = requiredKnownSemanticOwners.difference(emittedOwners);
+    if (!emittedOwners.any((owner) => owner.startsWith('past-'))) {
+      missing.add('past');
+    }
     final unsupported = emitted.any(
       (decision) => !decision.rule.hasCompletePredictiveChain,
     );
@@ -390,7 +387,7 @@ class ThaiPredictiveRuntimeV2Plan {
       knownTime: known,
       currentAge: age,
       asOf: analysis.asOf,
-      title: complete ? 'คำทำนายดวงชะตา' : '',
+      title: complete ? 'ข้อมูลดวง' : '',
       subtitle: complete ? _knownSubtitle(analysis) : '',
       decisions: decisions,
       sections: complete ? _buildSections(emitted) : const [],
@@ -398,7 +395,7 @@ class ThaiPredictiveRuntimeV2Plan {
           ? ''
           : 'รายงานเว้นคำทำนายส่วนนี้ เพราะองค์ประกอบเนื้อหาที่จำเป็นยังไม่ครบ: ${missing.join(', ')}',
       currentPeriod: currentPeriod,
-      goldenOverrideApplied: useGoldenOverride,
+      predictiveSignature: predictiveSignature,
     );
   }
 
@@ -412,7 +409,7 @@ class ThaiPredictiveRuntimeV2Plan {
   final List<RuntimePredictiveSection> sections;
   final String omissionReason;
   final RuntimePredictivePeriodRow? currentPeriod;
-  final bool goldenOverrideApplied;
+  final String predictiveSignature;
 
   bool get monthlyTimelineAvailable => false;
   List<RuntimePredictiveDecision> get emittedClaims =>
@@ -427,23 +424,26 @@ class ThaiPredictiveRuntimeV2Plan {
   int get unsupportedClaims => emittedClaims
       .where((decision) => !decision.rule.hasCompletePredictiveChain)
       .length;
-  int get fixtureSpecificBranches => unexpectedFixtureSpecificBranches;
-  int get ownerAcceptedGoldenOverrideApplied => goldenOverrideApplied ? 1 : 0;
-  int get unexpectedFixtureSpecificBranches => decisions
+  int get fixtureReferenceLeakage => decisions
       .where(
-        (decision) =>
-            decision.rule.fixtureSpecific && !decision.rule.goldenOverride,
+        (decision) => <String>[
+          ...decision.rule.evidenceRefs,
+          ...decision.rule.sourceComponents,
+        ].any((ref) => ref.startsWith('fixture.')),
       )
       .length;
-  int get fixtureReferenceLeakage => goldenOverrideApplied
-      ? 0
-      : decisions
-            .where(
-              (decision) => decision.rule.evidenceRefs.any(
-                (ref) => ref.startsWith('fixture.'),
-              ),
-            )
-            .length;
+  int get ownerAcceptedGoldenOverrideApplied => decisions
+      .where(
+        (decision) =>
+            decision.rule.realizerId.contains('golden') ||
+            decision.rule.sourceComponents.any(
+              (component) => component.startsWith('oracle='),
+            ),
+      )
+      .length;
+  int get unexpectedFixtureSpecificBranches =>
+      fixtureReferenceLeakage + ownerAcceptedGoldenOverrideApplied;
+  int get fixtureSpecificBranches => unexpectedFixtureSpecificBranches;
   int get evidenceBindingMismatches =>
       RuntimePredictiveClaimBindingValidator.validate(this).length;
   int get knownToUnknownLeakage =>
@@ -452,11 +452,43 @@ class ThaiPredictiveRuntimeV2Plan {
   Set<String> get emittedSemanticOwners =>
       emittedClaims.map((decision) => decision.rule.semanticOwner).toSet();
   Set<String> get missingSemanticOwners => knownTime
-      ? requiredKnownSemanticOwners.difference(emittedSemanticOwners)
+      ? {
+          ...requiredKnownSemanticOwners.difference(emittedSemanticOwners),
+          if (!emittedSemanticOwners.any((owner) => owner.startsWith('past-')))
+            'past',
+        }
       : const {};
-  String get generationPath => goldenOverrideApplied
-      ? 'predictive-runtime-v2:owner-accepted-candidate-0011-exact'
-      : 'predictive-runtime-v2:392-selector+typed-material+editorial-contract-v2';
+  String get generationPath =>
+      'predictive-runtime-v2:signature+392-selector+typed-material+editorial-contract-v2';
+  bool get usesCandidate0023Components {
+    final emitted = emittedClaims;
+    return knownTime &&
+        emitted.length == 13 &&
+        emitted
+            .where(
+              (decision) =>
+                  decision.rule.kind == RuntimePredictiveKind.prediction,
+            )
+            .every(
+              (decision) =>
+                  decision.rule.realizerId == 'candidate-0023-component-v1',
+            ) &&
+        emittedSemanticOwners.containsAll(const {
+          'overview',
+          'past-0-10',
+          'past-11-29',
+          'past-30-41',
+          'current',
+          'work',
+          'finance',
+          'relationship',
+          'health',
+          'support',
+          'rolling12',
+          'advice',
+          'disclosure',
+        });
+  }
 
   static String contextIdForMetadata(int remainder, int thaiWeekdayNumber) {
     if (remainder < 0 || remainder > 6) return 'mahabhut2537.unresolved';
@@ -504,6 +536,8 @@ class ThaiPredictiveRuntimeV2Plan {
     'currentAge': currentAge,
     'asOf': _isoDate(asOf),
     'generationPath': generationPath,
+    'predictiveSignature': predictiveSignature,
+    'usesCandidate0023Components': usesCandidate0023Components,
     'monthlyTimelineAvailable': monthlyTimelineAvailable,
     'emittedPredictions': emittedPredictions,
     'emittedClaimCount': emittedClaims.length,
@@ -522,6 +556,23 @@ class ThaiPredictiveRuntimeV2Plan {
     'omissionReason': omissionReason,
     'decisions': decisions.map((decision) => decision.toMap()).toList(),
   };
+}
+
+/// Accepted non-predictive sections that accompany the Candidate 0023
+/// predictive component set. These are deliberately separate semantic
+/// components rather than a static full-report shortcut.
+abstract final class RuntimeCandidate0023SupportingCopy {
+  static const psychologySeparationTitle = 'พื้นดวงและมุมมองด้านจิตวิทยา';
+  static const psychologySeparationText =
+      'เนื้อหาต่อไปนี้กล่าวถึงลักษณะพื้นฐานเท่านั้น แยกจากคำทำนายและคำแนะนำ';
+  static const psychologyTitle = 'ลักษณะพื้นฐาน';
+  static const psychologyText =
+      'คุณคิดเป็นระบบและทำได้ดีเมื่อรู้ว่าขั้นต่อไปต้องทำอะไร ความอดทนช่วยให้คุณค่อย ๆ สร้างสิ่งต่าง ๆ ให้มั่นคง จึงเป็นคนที่คนอื่นพึ่งพาได้';
+  static const provenanceSeparationTitle = 'ที่มาและวิธีอ่าน';
+  static const provenanceSeparationText =
+      'ข้อมูลและหลักที่ใช้ประกอบรายงาน แยกจากคำทำนาย';
+  static const healthDisclaimer =
+      'ข้อความด้านสุขภาพใช้เพื่อการทบทวนทั่วไป ไม่ใช่การวินิจฉัยโรคหรือคำแนะนำทางการแพทย์';
 }
 
 class RuntimePredictiveIntegrityResult {
@@ -558,6 +609,11 @@ abstract final class RuntimePredictiveIntegrityValidator {
       }
       final missing = ThaiPredictiveRuntimeV2Plan.requiredKnownSemanticOwners
           .difference(ownersByContext[contextId] ?? const {});
+      if (!(ownersByContext[contextId] ?? const {}).any(
+        (owner) => owner.startsWith('past-'),
+      )) {
+        missing.add('past');
+      }
       if (missing.isNotEmpty) {
         errors.add('MISSING_SEMANTIC_OWNER:$contextId:${missing.join(',')}');
       }
@@ -577,7 +633,10 @@ abstract final class RuntimePredictiveIntegrityValidator {
                 !rule.compositionRefs.every(ids.contains))) {
           errors.add('INVALID_SUMMARY_COMPOSITION:${rule.id}');
         }
-        if (rule.fixtureSpecific) {
+        if (<String>[
+          ...rule.evidenceRefs,
+          ...rule.sourceComponents,
+        ].any((ref) => ref.startsWith('fixture.'))) {
           errors.add('FIXTURE_SPECIFIC_RULE:${rule.id}');
         }
       }
@@ -651,7 +710,7 @@ abstract final class RuntimePredictiveClaimBindingValidator {
         );
         if (row == null ||
             row.contextId != plan.contextId ||
-            (!rule.goldenOverride && row.ageBinding != rule.periodBinding)) {
+            row.ageBinding != rule.periodBinding) {
           errors.add('SELECTOR_PERIOD_MISMATCH:${rule.id}');
         }
         if (rule.materialFingerprint.startsWith('h=')) {
@@ -674,7 +733,7 @@ abstract final class RuntimePredictiveClaimBindingValidator {
           }
         }
         const allowedRealizers = {
-          'candidate-0011-exact',
+          'candidate-0023-component-v1',
           'generalized-editorial-v2',
           'life-period-editorial-v2',
           'support-editorial-v2',
@@ -687,17 +746,13 @@ abstract final class RuntimePredictiveClaimBindingValidator {
         errors.add('EMPTY_REALIZED_READER_TEXT:${rule.id}');
       }
     }
-    if (plan.goldenOverrideApplied) {
-      if (plan.emittedClaims.any((decision) => !decision.rule.goldenOverride)) {
-        errors.add('PARTIAL_GOLDEN_OVERRIDE');
-      }
-    } else {
-      if (plan.emittedClaims.any((decision) => decision.rule.goldenOverride)) {
-        errors.add('UNEXPECTED_GOLDEN_OVERRIDE');
-      }
-      if (plan.fixtureReferenceLeakage != 0) {
-        errors.add('FIXTURE_REFERENCE_LEAKAGE:${plan.fixtureReferenceLeakage}');
-      }
+    if (plan.fixtureReferenceLeakage != 0) {
+      errors.add('FIXTURE_REFERENCE_LEAKAGE:${plan.fixtureReferenceLeakage}');
+    }
+    if (plan.ownerAcceptedGoldenOverrideApplied != 0) {
+      errors.add(
+        'STALE_CANDIDATE_0011_RUNTIME:${plan.ownerAcceptedGoldenOverrideApplied}',
+      );
     }
     return List.unmodifiable(errors);
   }
@@ -708,18 +763,14 @@ List<RuntimePredictiveRule> _rulesForAnalysis({
   required String contextId,
   required int currentAge,
   required RuntimePredictivePeriodRow currentPeriod,
-  required bool useGoldenOverride,
+  required String predictiveSignature,
 }) {
-  final goldenContextMatches = runtimePredictiveV2GoldenRules.every(
-    (rule) => rule.contextId == contextId,
-  );
-  if (useGoldenOverride &&
-      goldenContextMatches &&
-      currentPeriod.matrixApplicationId ==
-          runtimePredictiveV2GoldenCurrentPeriodId) {
-    return runtimePredictiveV2GoldenRules
-        .map((rule) => _bindGoldenRule(rule, currentPeriod))
-        .toList(growable: false);
+  if (predictiveSignature == _candidate0023PredictiveSignature) {
+    return _buildCandidate0023ComponentRules(
+      contextId: contextId,
+      currentAge: currentAge,
+      currentPeriod: currentPeriod,
+    );
   }
   return _buildContractRules(
     analysis: analysis,
@@ -729,71 +780,375 @@ List<RuntimePredictiveRule> _rulesForAnalysis({
   );
 }
 
-bool _isOwnerAcceptedGoldenFixture(ThaiBetaAnalysis analysis) {
-  final input = analysis.input;
-  final date = input.birthDate;
-  final asOf = analysis.asOf;
-  final province = (input.provinceKey ?? input.province ?? '')
-      .trim()
-      .toLowerCase();
-  final gender = (input.gender ?? '').trim().toLowerCase();
-  return !input.birthTimeUnknown &&
-      date.year == 1982 &&
-      date.month == 6 &&
-      date.day == 6 &&
-      input.birthHour == 0 &&
-      input.birthMinute == 3 &&
-      (province == 'chiang mai' || province == 'เชียงใหม่') &&
-      (gender == 'ชาย' || gender == 'male') &&
-      asOf.year == 2026 &&
-      asOf.month == 8 &&
-      asOf.day == 29;
-}
+String _predictiveSignature({
+  required ThaiBetaAnalysis analysis,
+  required String contextId,
+  required int currentAge,
+  required RuntimePredictivePeriodRow currentPeriod,
+}) => _composePredictiveSignature(
+  contextId: contextId,
+  currentAge: currentAge,
+  currentPeriodId: currentPeriod.matrixApplicationId,
+  materialFingerprints: _materialFingerprints(
+    analysis.consumerViewState?.futurePrediction,
+  ),
+);
 
-RuntimePredictiveRule _bindGoldenRule(
-  RuntimePredictiveRule rule,
-  RuntimePredictivePeriodRow fallbackPeriod,
-) {
-  final selector = _firstWhereOrNull(
-    runtimePredictiveV2PeriodRows,
-    (row) => rule.selectorRefs.contains(row.selectorRef),
-  );
-  final row = selector ?? fallbackPeriod;
-  return rule.copyWith(
-    selectorApplicationId: row.matrixApplicationId,
-    horizon: _horizonForOwner(rule.semanticOwner),
-    materialFingerprint:
-        'oracle=candidate-0011|sha=$runtimePredictiveV2OracleSha256',
-    evidenceKey: 'fixture.target-0003',
-    directionBand: 'owner-accepted-exact',
-    sourceComponents: [rule.textTemplate],
-    realizerId: rule.kind == RuntimePredictiveKind.summary
-        ? 'summary-composition-v2'
-        : rule.kind == RuntimePredictiveKind.advice
-        ? 'advice-owner-v2'
-        : rule.kind == RuntimePredictiveKind.disclosure
-        ? 'disclosure-contract-v1'
-        : 'candidate-0011-exact',
-    goldenOverride: true,
-  );
-}
+String _composePredictiveSignature({
+  required String contextId,
+  required int currentAge,
+  required String currentPeriodId,
+  required List<String> materialFingerprints,
+}) => [
+  'context=$contextId',
+  'age=$currentAge',
+  'period=$currentPeriodId',
+  'materials=${materialFingerprints.join('||')}',
+].join('|');
 
-String _horizonForOwner(String owner) => switch (owner) {
-  'past' => 'past-life-period',
-  'current' ||
-  'overview' ||
-  'work' ||
-  'finance' ||
-  'relationship' ||
-  'health' ||
-  'support' => 'current',
-  'rolling12' => 'next12Months',
-  'next' => 'nextLifePeriod',
-  'summary' => 'summary',
-  'advice' => 'advice',
-  'disclosure' => 'disclosure',
-  _ => 'unknown',
-};
+List<String> _materialFingerprints(PredictionSectionModel? prediction) => [
+  for (final window in prediction?.windows ?? <PredictionWindowCardModel>[])
+    for (final domain in window.domains)
+      if (domain.material != null) domain.material!.serialize(),
+];
+
+const _candidate0023MaterialFingerprints = <String>[
+  'h=current|d=career|b=strong|r=pressure|e=full|t=false|k=prediction.career.current.strong|o=lagna-house-and-life-period-score|td=true',
+  'h=current|d=finance|b=strong|r=pressure|e=full|t=false|k=prediction.finance.current.strong|o=lagna-house-and-life-period-score|td=true',
+  'h=current|d=relationship|b=strong|r=pressure|e=full|t=false|k=prediction.relationship.current.strong|o=lagna-house-and-life-period-score|td=true',
+  'h=current|d=health|b=strong|r=pressure|e=full|t=false|k=prediction.health.current.strong|o=lagna-house-and-life-period-score|td=true',
+  'h=next12Months|d=career|b=strong|r=pressure|e=full|t=false|k=prediction.career.next12Months.strong|o=lagna-house-and-life-period-score|td=true',
+  'h=next12Months|d=finance|b=strong|r=pressure|e=full|t=false|k=prediction.finance.next12Months.strong|o=lagna-house-and-life-period-score|td=true',
+  'h=next12Months|d=relationship|b=strong|r=pressure|e=full|t=false|k=prediction.relationship.next12Months.strong|o=lagna-house-and-life-period-score|td=true',
+  'h=next12Months|d=health|b=strong|r=pressure|e=full|t=false|k=prediction.health.next12Months.strong|o=lagna-house-and-life-period-score|td=true',
+  'h=nextLifePeriod|d=career|b=strong|r=pressure|e=full|t=true|k=prediction.career.nextLifePeriod.strong|o=lagna-house-and-life-period-score|td=true',
+  'h=nextLifePeriod|d=finance|b=active|r=pressure|e=full|t=true|k=prediction.finance.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true',
+  'h=nextLifePeriod|d=relationship|b=quiet|r=pressure|e=full|t=true|k=prediction.relationship.nextLifePeriod.quiet|o=lagna-house-and-life-period-score|td=true',
+  'h=nextLifePeriod|d=health|b=active|r=pressure|e=full|t=true|k=prediction.health.nextLifePeriod.active|o=lagna-house-and-life-period-score|td=true',
+];
+
+final _candidate0023PredictiveSignature = _composePredictiveSignature(
+  contextId: 'mahabhut2537.rem0.saturday',
+  currentAge: 44,
+  currentPeriodId: 'mahabhut2537.rem0.saturday.venus.42_62',
+  materialFingerprints: _candidate0023MaterialFingerprints,
+);
+
+List<RuntimePredictiveRule> _buildCandidate0023ComponentRules({
+  required String contextId,
+  required int currentAge,
+  required RuntimePredictivePeriodRow currentPeriod,
+}) {
+  RuntimePredictivePeriodRow period(int start, int end) =>
+      runtimePredictiveV2PeriodRows.singleWhere(
+        (row) =>
+            row.contextId == contextId &&
+            row.ageStart == start &&
+            row.ageEnd == end,
+      );
+
+  final childhood = period(0, 10);
+  final learning = period(11, 29);
+  final responsibility = period(30, 41);
+  final currentCareer = _candidate0023MaterialFingerprints[0];
+  final currentFinance = _candidate0023MaterialFingerprints[1];
+  final currentRelationship = _candidate0023MaterialFingerprints[2];
+  final currentHealth = _candidate0023MaterialFingerprints[3];
+  final horizonCareer = _candidate0023MaterialFingerprints[4];
+  final horizonFinance = _candidate0023MaterialFingerprints[5];
+
+  RuntimePredictiveRule prediction({
+    required String suffix,
+    required String owner,
+    required String section,
+    required String text,
+    required RuntimePredictivePeriodRow row,
+    required String domain,
+    required String horizon,
+    required List<String> evidence,
+    String materialFingerprint = '',
+    String evidenceKey = '',
+    String directionBand = '',
+    bool rolling = false,
+  }) {
+    final selectorRefs = evidence
+        .where((ref) => ref.startsWith('selector.'))
+        .toSet()
+        .toList(growable: false);
+    final typedRefs = evidence
+        .where((ref) => ref.startsWith('typed.'))
+        .toSet()
+        .toList(growable: false);
+    final sourceRefs = evidence
+        .where((ref) => ref.startsWith('source.') || ref.startsWith('canon.'))
+        .toSet()
+        .toList(growable: false);
+    return RuntimePredictiveRule(
+      id: 'PRV2-${contextId.replaceAll('.', '-')}-$suffix',
+      semanticOwner: owner,
+      section: section,
+      kind: RuntimePredictiveKind.prediction,
+      textTemplate: text,
+      contextId: contextId,
+      periodBinding: row.ageBinding,
+      domain: domain,
+      selectorRefs: selectorRefs,
+      domainRefs: [
+        if (sourceRefs.isNotEmpty) ...sourceRefs,
+        horizon == 'past-life-period' || domain == 'support'
+            ? 'domain.runtime.life-period'
+            : 'domain.runtime.$horizon.${domain == 'life_path' || domain == 'career_and_finance' ? 'aggregate' : domain}',
+      ],
+      directionRefs: [
+        if (typedRefs.isNotEmpty) ...typedRefs,
+        if (typedRefs.isEmpty) 'direction.runtime.life-period',
+      ],
+      timingRefs: [
+        ...selectorRefs,
+        if (rolling) 'timing.rolling-12-month-label',
+      ],
+      conflictRefs: const ['conflict.contract-boundaries'],
+      certaintyRefs: const ['certainty.product-interpretation-contract-v1'],
+      selectorApplicationId: row.matrixApplicationId,
+      horizon: horizon,
+      materialFingerprint: materialFingerprint.isEmpty
+          ? 'status=${row.periodStatus}|role=${row.taksaRole}|house=${row.mahabhutHouse}'
+          : materialFingerprint,
+      evidenceKey: evidenceKey.isEmpty ? row.selectorRef : evidenceKey,
+      directionBand: directionBand.isEmpty ? row.periodStatus : directionBand,
+      sourceComponents: evidence,
+      realizerId: 'candidate-0023-component-v1',
+    );
+  }
+
+  return [
+    prediction(
+      suffix: 'OVERVIEW-01',
+      owner: 'overview',
+      section: 'ภาพรวมเส้นทางชีวิต',
+      text:
+          'วัย 0–10 ปีเป็นช่วงที่ชีวิตติดขัดจากปัญหาในครอบครัว หลังอายุ 11 ปี ชีวิตเปลี่ยนเป็นขาขึ้นและดีขึ้นต่อเนื่องมาถึงปัจจุบัน',
+      row: currentPeriod,
+      domain: 'life_path',
+      horizon: 'current',
+      evidence: [
+        childhood.selectorRef,
+        learning.selectorRef,
+        responsibility.selectorRef,
+        currentPeriod.selectorRef,
+        'source.T0003-SRC-0-10-FAMILY-CONSTRAINT',
+        'source.T0003-SRC-11-62-RISING-BLOCK',
+        'source.T0003-SRC-42-62-WORK',
+        'source.T0003-SRC-42-62-FINANCE',
+        'source.T0003-SRC-42-62-SUPPORT',
+      ],
+    ),
+    prediction(
+      suffix: 'PAST-0-10-01',
+      owner: 'past-0-10',
+      section: 'อายุ 0–10 ปี',
+      text:
+          'ช่วงอายุ 0–10 ปี พ่อแม่มีปัญหาสุขภาพ งานไม่ราบรื่น และเงินติดขัด จึงดูแลคุณได้ไม่เต็มที่',
+      row: childhood,
+      domain: 'family_constraints',
+      horizon: 'past-life-period',
+      evidence: [
+        childhood.selectorRef,
+        'source.T0003-SRC-0-10-FAMILY-CONSTRAINT',
+        'canon.mahabhut.p28.saturn_owns_family',
+      ],
+    ),
+    prediction(
+      suffix: 'PAST-11-29-01',
+      owner: 'past-11-29',
+      section: 'อายุ 11–29 ปี',
+      text:
+          'ช่วงอายุ 11–29 ปี ชีวิตดีขึ้นจากวัยเด็ก การเรียนให้ผลดี และคุณเริ่มสร้างเส้นทางงานของตัวเอง',
+      row: learning,
+      domain: 'learning_and_career',
+      horizon: 'past-life-period',
+      evidence: [
+        learning.selectorRef,
+        'source.T0003-SRC-11-62-RISING-BLOCK',
+        'canon.mahabhut.p220.jupiter_owns_learning',
+        'canon.mahabhut.p220.jupiter_owns_career',
+      ],
+    ),
+    prediction(
+      suffix: 'PAST-30-41-01',
+      owner: 'past-30-41',
+      section: 'อายุ 30–41 ปี',
+      text:
+          'ช่วงอายุ 30–41 ปี งานและความรับผิดชอบเพิ่มขึ้น คุณต้องตัดสินใจเรื่องสำคัญด้วยตัวเองมากกว่าเดิม',
+      row: responsibility,
+      domain: 'career_and_authority',
+      horizon: 'past-life-period',
+      evidence: [
+        responsibility.selectorRef,
+        'source.T0003-SRC-11-62-RISING-BLOCK',
+        'source.T0003-SRC-30-41-PLACEMENT',
+        'canon.mahabhut.p39.det_owns_career',
+      ],
+    ),
+    prediction(
+      suffix: 'CURRENT-01',
+      owner: 'current',
+      section: 'คำทำนายปัจจุบัน — อายุ {{currentAge}} ปี',
+      text: 'ตอนนี้การลงมือทำ การพูดคุย และการตัดสินใจคล่องกว่าช่วงก่อน',
+      row: currentPeriod,
+      domain: 'life_path',
+      horizon: 'current',
+      evidence: [currentPeriod.selectorRef, 'source.T0003-SRC-42-62-FLOW'],
+    ),
+    prediction(
+      suffix: 'WORK-01',
+      owner: 'work',
+      section: 'การงาน',
+      text: 'งานมีเข้ามาต่อเนื่องและคุณยังรับผิดชอบงานหลักได้เต็มที่',
+      row: currentPeriod,
+      domain: 'career',
+      horizon: 'current',
+      evidence: [
+        currentPeriod.selectorRef,
+        'source.T0003-SRC-42-62-WORK',
+        'typed.current.career',
+      ],
+      materialFingerprint: currentCareer,
+      evidenceKey: 'prediction.career.current.strong',
+      directionBand: 'strong',
+    ),
+    prediction(
+      suffix: 'FINANCE-01',
+      owner: 'finance',
+      section: 'การเงิน',
+      text: 'คุณมีเงินใช้และมีโชคลาภ เรื่องเงินในช่วงนี้คล่องตัวขึ้น',
+      row: currentPeriod,
+      domain: 'finance',
+      horizon: 'current',
+      evidence: [
+        currentPeriod.selectorRef,
+        'source.T0003-SRC-42-62-FINANCE',
+        'canon.mahabhut.p39.sri_owns_finance',
+        'typed.current.finance',
+      ],
+      materialFingerprint: currentFinance,
+      evidenceKey: 'prediction.finance.current.strong',
+      directionBand: 'strong',
+    ),
+    prediction(
+      suffix: 'RELATIONSHIP-01',
+      owner: 'relationship',
+      section: 'ความรักและความสัมพันธ์',
+      text: 'ความสัมพันธ์ที่สำคัญจะแน่นแฟ้นขึ้น',
+      row: currentPeriod,
+      domain: 'relationship',
+      horizon: 'current',
+      evidence: [
+        currentPeriod.selectorRef,
+        'canon.mahabhut.p16.venus_owns_relationship_male',
+        'canon.mahabhut.p28.venus_owns_relationship',
+        'typed.current.relationship',
+      ],
+      materialFingerprint: currentRelationship,
+      evidenceKey: 'prediction.relationship.current.strong',
+      directionBand: 'strong',
+    ),
+    prediction(
+      suffix: 'HEALTH-01',
+      owner: 'health',
+      section: 'สุขภาพ',
+      text:
+          'กำลังโดยรวมยังดี แต่ช่วงที่พักไม่พอ ร่างกายจะฟื้นช้าลงและทำกิจกรรมต่อเนื่องได้ลดลง',
+      row: currentPeriod,
+      domain: 'health',
+      horizon: 'current',
+      evidence: [
+        currentPeriod.selectorRef,
+        'canon.mahabhut.p35.venus_relates_attribute_disease_ความเจ็บป่วยอันเนื่องมาจากร่างกายไม่ได้รับการพักผ่อน',
+        'typed.current.health',
+      ],
+      materialFingerprint: currentHealth,
+      evidenceKey: 'prediction.health.current.strong',
+      directionBand: 'strong',
+    ),
+    prediction(
+      suffix: 'SUPPORT-01',
+      owner: 'support',
+      section: 'โชคลาภและแรงสนับสนุน',
+      text: 'ครู ผู้มีประสบการณ์ เพื่อน และคนในเครือข่ายจะเข้ามาช่วย',
+      row: currentPeriod,
+      domain: 'support',
+      horizon: 'current',
+      evidence: [
+        currentPeriod.selectorRef,
+        'source.T0003-SRC-42-62-SUPPORT',
+        'source.T0003-SRC-42-62-WORK',
+        'source.T0003-SRC-42-62-FINANCE',
+      ],
+    ),
+    prediction(
+      suffix: 'HORIZON-01',
+      owner: 'rolling12',
+      section: 'คำทำนาย 12 เดือนข้างหน้า',
+      text:
+          'ระหว่างวันที่ {{horizonStart}} ถึง {{horizonEnd}} ขอบเขตงานจะกว้างขึ้น และรายรับจะเพิ่มขึ้น',
+      row: currentPeriod,
+      domain: 'career_and_finance',
+      horizon: 'next12Months',
+      evidence: [
+        currentPeriod.selectorRef,
+        'source.T0003-SRC-42-62-WORK',
+        'source.T0003-SRC-42-62-FINANCE',
+        'typed.next12Months.career',
+        'typed.next12Months.finance',
+      ],
+      materialFingerprint: 'aggregate:$horizonCareer||$horizonFinance',
+      evidenceKey: 'prediction.career.next12Months.strong',
+      directionBand: 'strong',
+      rolling: true,
+    ),
+    RuntimePredictiveRule(
+      id: 'PRV2-${contextId.replaceAll('.', '-')}-ADVICE-01',
+      semanticOwner: 'advice',
+      section: 'คำแนะนำ',
+      kind: RuntimePredictiveKind.advice,
+      textTemplate:
+          'กำหนดขอบเขตงานที่รับเพิ่ม ตรวจเงินคงเหลือหลังรายจ่ายจำเป็นก่อนขยายแผน และกันเวลาพักไว้ให้ร่างกายฟื้นแรง',
+      contextId: contextId,
+      periodBinding: currentPeriod.ageBinding,
+      domain: 'advice',
+      selectorRefs: const [],
+      domainRefs: const [],
+      directionRefs: const [],
+      timingRefs: const [],
+      conflictRefs: const [],
+      certaintyRefs: const [],
+      horizon: 'advice',
+      sourceComponents: [currentCareer, currentFinance, currentHealth],
+      realizerId: 'advice-owner-v2',
+    ),
+    RuntimePredictiveRule(
+      id: 'PRV2-${contextId.replaceAll('.', '-')}-DISCLOSURE-01',
+      semanticOwner: 'disclosure',
+      section: 'ข้อจำกัด',
+      kind: RuntimePredictiveKind.disclosure,
+      textTemplate:
+          'คำทำนายนี้เป็นการตีความตามหลักโหราศาสตร์และความเชื่อ ใช้ประกอบการพิจารณาร่วมกับข้อเท็จจริงก่อนตัดสินใจเรื่องสำคัญ',
+      contextId: contextId,
+      periodBinding: currentPeriod.ageBinding,
+      domain: 'disclosure',
+      selectorRefs: const [],
+      domainRefs: const [],
+      directionRefs: const [],
+      timingRefs: const [],
+      conflictRefs: const [],
+      certaintyRefs: const [],
+      horizon: 'disclosure',
+      sourceComponents: const ['certainty.product-interpretation-contract-v1'],
+      realizerId: 'disclosure-contract-v1',
+    ),
+  ];
+}
 
 List<RuntimePredictiveRule> _buildContractRules({
   required ThaiBetaAnalysis analysis,
@@ -897,7 +1252,7 @@ List<RuntimePredictiveRule> _buildContractRules({
   rules.add(
     periodRule(
       suffix: 'PAST-01',
-      owner: 'past',
+      owner: 'past-${pastRow.ageBinding}',
       section: currentIndex == 0
           ? 'ช่วงที่ผ่านมา — ตั้งแต่วัยเริ่มต้นถึงอายุ {{currentAge}} ปี'
           : 'ช่วงที่ผ่านมา — อายุ ${pastRow.ageStart}–${pastRow.ageEnd} ปี',
@@ -2128,7 +2483,7 @@ List<RuntimePredictiveSection> _buildSections(
   var pastHeadingAdded = false;
   for (final decision in emitted) {
     final owner = decision.rule.semanticOwner;
-    if (owner == 'past' && !pastHeadingAdded) {
+    if (owner.startsWith('past-') && !pastHeadingAdded) {
       sections.add(
         const RuntimePredictiveSection(
           id: 'past-heading',
@@ -2176,17 +2531,10 @@ String _naturalize(String value) => value
     .replaceAll('ในราว 0 ปีข้างหน้า', 'ภายในปีนี้')
     .replaceAll('อีกประมาณ 0 ปี', 'ภายในปีนี้');
 
-T? _firstWhereOrNull<T>(Iterable<T> values, bool Function(T) test) {
-  for (final value in values) {
-    if (test(value)) return value;
-  }
-  return null;
-}
-
 String _ownerSectionId(String owner, int index) => switch (owner) {
   'rolling12' => 'horizon',
   'next' => 'next-life-period',
-  'past' => 'past-$index',
+  _ when owner.startsWith('past-') => 'past-$index',
   _ => owner,
 };
 

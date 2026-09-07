@@ -239,7 +239,7 @@ void main() {
           if (fixtureId == 'known') {
             expect(
               renderedPdf.pageCount,
-              6,
+              5,
               reason: 'Measured V2 Known artifact page-count regression',
             );
           } else if (fixtureId == 'unknown') {
