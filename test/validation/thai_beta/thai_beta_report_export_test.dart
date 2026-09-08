@@ -1,4 +1,6 @@
+import 'dart:convert';
 import 'dart:io';
+import 'dart:typed_data';
 import '../../evidence/or5r_unknown_contract.dart';
 
 import 'package:flutter/material.dart';
@@ -22,6 +24,7 @@ import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_capture_p
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_export_print_page.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_qa_sample_capture_page.dart';
 import 'package:knowme/features/thai_beta/presentation/pages/thai_beta_report_page.dart';
+import 'package:knowme/features/thai_beta/presentation/export/thai_beta_browser_print.dart';
 import 'package:knowme/features/thai_beta/presentation/thai_beta_screenshot_mode.dart';
 import 'package:knowme/features/thai_beta/presentation/widgets/thai_beta_report_export_button.dart';
 
@@ -221,12 +224,7 @@ void main() {
           expect(text, isNot(contains(phrase)), reason: phrase);
         }
         if (index == 0) {
-          expect(
-            text,
-            contains(
-              'ความสัมพันธ์ที่สำคัญจะแน่นแฟ้นขึ้น',
-            ),
-          );
+          expect(text, contains('ความสัมพันธ์ที่สำคัญจะแน่นแฟ้นขึ้น'));
           expect(text, isNot(contains('มีแนวโน้ม')));
           expect(text, isNot(contains('มีโอกาส')));
         } else {
@@ -320,94 +318,10 @@ void main() {
       expect(text, isNot(contains('คำทำนายรายเดือน')));
     });
 
-    test('PR106-OR3 final editorial copy is natural across Known and Unknown', () {
-      final fixtures = <ThaiBetaAnalysis>[
-        ThaiBetaAnalysisRunner.run(
-          ThaiBetaInput(
-            firstName: 'Owner',
-            lastName: 'Known',
-            birthDate: DateTime(1982, 6, 6),
-            birthHour: 0,
-            birthMinute: 35,
-            province: 'เชียงใหม่',
-            provinceKey: 'chiang_mai',
-          ),
-          startedAt: DateTime(2026, 8, 7),
-        ),
-        ThaiBetaAnalysisRunner.run(
-          ThaiBetaInput(
-            firstName: 'Owner',
-            lastName: 'Unknown',
-            birthDate: DateTime(1982, 6, 6),
-            birthTimeUnknown: true,
-            province: 'เชียงใหม่',
-            provinceKey: 'chiang_mai',
-          ),
-          startedAt: DateTime(2026, 8, 7),
-        ),
-      ];
-      const rejected = <String>[
-        'ความก้าวหน้าจึงควรวัดจากทางเลือกที่เงินสำรองเปิดให้',
-        'ด้านการเงินคุณอยากใช้เงินวันนี้',
-        'ข้อตกลงที่ถูกทำต่อเนื่อง',
-        'สิ่งที่ตกลงกันถูกทำจริงต่อเนื่อง',
-        'ตัวเลขครั้งเดียวจึงยังไม่พอให้ขยายภาระเงิน',
-        'ส่งต่อส่วนที่กระจายแรง',
-        'ฐานเงินของจังหวะใหม่',
-        'กิจวัตรพลังชีวิตต้องเปลี่ยนพร้อมตารางใหม่',
-        'ตัวเลือกครั้งนั้นหล่อวิธีรับมือการตัดสินใจวันนี้อย่างไร',
-        'และการลงมือปรากฏตรงไหน',
-        'แยกงบทดลองสำหรับการเรียนรู้ออกจากเงินที่ต้องใช้ประจำ',
-        'ยอดรับที่เกิดซ้ำ',
-        'เก็บตัวอย่างผลงานเป็นรอบและค่อยเลือกบทบาทจากแบบที่ทำซ้ำได้',
-        'ผลเดิมเกิดซ้ำ',
-        'พฤติกรรมที่เกิดซ้ำ',
-        'โดยไม่ยืมแรงจากวันต่อไป',
-        'เลือกสิ่งที่คู่ควรกับแรงของคุณ',
-        'วางระบบที่ทำซ้ำได้',
-        'การพักจึงมีหน้าที่ต่างกันในแต่ละระยะ',
-        'บทบาทงานก้อนใหม่มีแรงส่ง',
-        'จดเวลาคืนแรง',
-        'การนอนและการคืนแรง',
-        'หลายเรื่องชนกัน',
-        'ฐานการเงินอาจเปลี่ยน',
-        'ด้านการเงิน ให้ใช้',
-        'การทำตามข้อตกลงจะยืนยันได้',
-      ];
-      final texts = fixtures
-          .map(ThaiBetaReportExportDocument.candidate)
-          .map((document) => document.fullPlainText)
-          .toList(growable: false);
-      for (final text in texts) {
-        for (final phrase in rejected) {
-          expect(text, isNot(contains(phrase)), reason: phrase);
-        }
-      }
-      expect(
-        texts.first,
-        contains(
-          'คุณมีเงินใช้และมีโชคลาภ เรื่องเงินในช่วงนี้คล่องตัวขึ้น',
-        ),
-      );
-      expect(
-        texts.last,
-        isNot(contains('แยกเงินสำหรับลองสิ่งใหม่ออกจากค่าใช้จ่ายประจำ')),
-      );
-      expect(
-        texts.last,
-        isNot(
-          contains(
-            'แล้วแยกดูว่าสิ่งใดเป็นทางเลือกของคุณ และสิ่งใดเกิดจากความคาดหวังรอบตัว',
-          ),
-        ),
-      );
-      expectUnknownContract(fixtures.last);
-    });
-
     test(
-      'PR107-OR3 removes stale report voice and repeated Unknown limits',
+      'PR106-OR3 final editorial copy is natural across Known and Unknown',
       () {
-        final known = ThaiBetaReportExportDocument.candidate(
+        final fixtures = <ThaiBetaAnalysis>[
           ThaiBetaAnalysisRunner.run(
             ThaiBetaInput(
               firstName: 'Owner',
@@ -420,8 +334,6 @@ void main() {
             ),
             startedAt: DateTime(2026, 8, 7),
           ),
-        );
-        final unknown = ThaiBetaReportExportDocument.candidate(
           ThaiBetaAnalysisRunner.run(
             ThaiBetaInput(
               firstName: 'Owner',
@@ -433,104 +345,81 @@ void main() {
             ),
             startedAt: DateTime(2026, 8, 7),
           ),
-        );
-        final texts = [known.fullPlainText, unknown.fullPlainText];
-        const stale = <String>[
-          'ช่วงเก็บผล',
-          'ภาพนี้อ่านจาก',
-          'รับบทบาทเดิมเพิ่ม',
-          'งานและหน้าที่บังคับให้คุณ',
-          'รายงานจึงไม่กำหนดเหตุการณ์ล่วงหน้า',
-          'งานที่คุณทำได้ดีซ้ำ ๆ',
-          'ใช้เป็นฐานทำงานเท่านั้น',
-          'ระบบรู้วันเกิดแต่ไม่รู้เวลา',
-          'เวลาและความชัดให้คนที่เกี่ยวข้อง',
-          'ทบทวนอีกครั้งเมื่อเห็นว่า',
         ];
+        const rejected = <String>[
+          'ความก้าวหน้าจึงควรวัดจากทางเลือกที่เงินสำรองเปิดให้',
+          'ด้านการเงินคุณอยากใช้เงินวันนี้',
+          'ข้อตกลงที่ถูกทำต่อเนื่อง',
+          'สิ่งที่ตกลงกันถูกทำจริงต่อเนื่อง',
+          'ตัวเลขครั้งเดียวจึงยังไม่พอให้ขยายภาระเงิน',
+          'ส่งต่อส่วนที่กระจายแรง',
+          'ฐานเงินของจังหวะใหม่',
+          'กิจวัตรพลังชีวิตต้องเปลี่ยนพร้อมตารางใหม่',
+          'ตัวเลือกครั้งนั้นหล่อวิธีรับมือการตัดสินใจวันนี้อย่างไร',
+          'และการลงมือปรากฏตรงไหน',
+          'แยกงบทดลองสำหรับการเรียนรู้ออกจากเงินที่ต้องใช้ประจำ',
+          'ยอดรับที่เกิดซ้ำ',
+          'เก็บตัวอย่างผลงานเป็นรอบและค่อยเลือกบทบาทจากแบบที่ทำซ้ำได้',
+          'ผลเดิมเกิดซ้ำ',
+          'พฤติกรรมที่เกิดซ้ำ',
+          'โดยไม่ยืมแรงจากวันต่อไป',
+          'เลือกสิ่งที่คู่ควรกับแรงของคุณ',
+          'วางระบบที่ทำซ้ำได้',
+          'การพักจึงมีหน้าที่ต่างกันในแต่ละระยะ',
+          'บทบาทงานก้อนใหม่มีแรงส่ง',
+          'จดเวลาคืนแรง',
+          'การนอนและการคืนแรง',
+          'หลายเรื่องชนกัน',
+          'ฐานการเงินอาจเปลี่ยน',
+          'ด้านการเงิน ให้ใช้',
+          'การทำตามข้อตกลงจะยืนยันได้',
+        ];
+        final texts = fixtures
+            .map(ThaiBetaReportExportDocument.candidate)
+            .map((document) => document.fullPlainText)
+            .toList(growable: false);
         for (final text in texts) {
-          for (final phrase in stale) {
+          for (final phrase in rejected) {
             expect(text, isNot(contains(phrase)), reason: phrase);
           }
         }
-
         expect(
-          known.fullPlainText,
-          isNot(contains('ในทางโหราศาสตร์ เรื่องงานดูจากเรือนการงาน')),
-        );
-        final section4Index = known.sections.indexWhere(
-          (section) => section.title == 'ที่มาและวิธีอ่าน',
-        );
-        expect(section4Index, greaterThanOrEqualTo(0));
-        final readerPredictionText = known.sections
-            .take(section4Index)
-            .expand((section) => <String>[section.title, ...section.paragraphs])
-            .join('\n');
-        for (final inlineBasis in const <String>[
-          'ในทางโหราศาสตร์ จุดนี้อ่านจาก',
-          'จุดนี้อ่านจากลัคนา',
-          'ในทางโหราศาสตร์ เรื่องงานดูจาก',
-          'เรื่องงานดูจากเรือนการงาน',
-          'ในทางโหราศาสตร์ เรื่องเงินดูจาก',
-          'เรื่องเงินดูจากเรือนการเงิน',
-          'ในทางโหราศาสตร์ เรื่องความสัมพันธ์ดูจาก',
-          'เรื่องความสัมพันธ์ดูจากเรือนความสัมพันธ์',
-          'ในทางโหราศาสตร์ เรื่องนี้ดูจากเรือนสุขภาวะ',
-          'ข้อมูลจากเรือน',
-          'ข้อมูลจากลัคนา',
-          'สะท้อนจากตำแหน่ง',
-          'หลักฐานชุดนี้',
-          'อ้างอิงจาก',
-        ]) {
-          expect(
-            readerPredictionText,
-            isNot(contains(inlineBasis)),
-            reason: inlineBasis,
-          );
-        }
-        final section4Text = known.sections
-            .skip(section4Index)
-            .expand((section) => <String>[section.title, ...section.paragraphs])
-            .join('\n');
-        expect(section4Text, contains('รายงานนี้ดูจากอะไร'));
-        expect(section4Text, contains('โครงสร้างดวงหลัก'));
-        expect(section4Text, contains('ลัคนา: ราศีกุมภ์ 19°19′'));
-        expect(section4Text, contains('เรือนการงาน:'));
-        expect(
-          known.fullPlainText,
-          contains(
-            'กำลังโดยรวมยังดี แต่ช่วงที่พักไม่พอ ร่างกายจะฟื้นช้าลงและทำกิจกรรมต่อเนื่องได้ลดลง',
-          ),
+          texts.first,
+          contains('คุณมีเงินใช้และมีโชคลาภ เรื่องเงินในช่วงนี้คล่องตัวขึ้น'),
         );
         expect(
-          unknown.fullPlainText,
+          texts.last,
+          isNot(contains('แยกเงินสำหรับลองสิ่งใหม่ออกจากค่าใช้จ่ายประจำ')),
+        );
+        expect(
+          texts.last,
           isNot(
             contains(
-              'เพราะไม่มีเวลาเกิด รายงานจึงบอกไม่ได้ว่าเหตุการณ์จะเกิดเมื่อไร',
+              'แล้วแยกดูว่าสิ่งใดเป็นทางเลือกของคุณ และสิ่งใดเกิดจากความคาดหวังรอบตัว',
             ),
           ),
         );
-        expect('ผลดีจากครั้งเดียว'.allMatches(unknown.fullPlainText), isEmpty);
-        expect(
-          'รายงานจึงบอกไม่ได้ว่าเหตุการณ์จะเกิดเมื่อไร'.allMatches(
-            unknown.fullPlainText,
+        expectUnknownContract(fixtures.last);
+      },
+    );
+
+    test('PR107-OR3 removes stale report voice and repeated Unknown limits', () {
+      final known = ThaiBetaReportExportDocument.candidate(
+        ThaiBetaAnalysisRunner.run(
+          ThaiBetaInput(
+            firstName: 'Owner',
+            lastName: 'Known',
+            birthDate: DateTime(1982, 6, 6),
+            birthHour: 0,
+            birthMinute: 35,
+            province: 'เชียงใหม่',
+            provinceKey: 'chiang_mai',
           ),
-          isEmpty,
-        );
-        final omissionRows = unknown.sections
-            .expand((section) => section.paragraphs)
-            .where(
-              (paragraph) =>
-                  paragraph.contains('เว้นรายละเอียดที่ต้องใช้เวลาเกิด') ||
-                  paragraph.contains('ยังสรุปไม่ได้'),
-            )
-            .toList(growable: false);
-        expect(omissionRows, isEmpty);
-        expect(
-          omissionRows.map((row) => row.split(':').first).toSet(),
-          isEmpty,
-        );
-        expect(unknown.infographic, isNull);
-        expectUnknownDocument(
+          startedAt: DateTime(2026, 8, 7),
+        ),
+      );
+      final unknown = ThaiBetaReportExportDocument.candidate(
+        ThaiBetaAnalysisRunner.run(
           ThaiBetaInput(
             firstName: 'Owner',
             lastName: 'Unknown',
@@ -539,11 +428,115 @@ void main() {
             province: 'เชียงใหม่',
             provinceKey: 'chiang_mai',
           ),
-          unknown,
+          startedAt: DateTime(2026, 8, 7),
+        ),
+      );
+      final texts = [known.fullPlainText, unknown.fullPlainText];
+      const stale = <String>[
+        'ช่วงเก็บผล',
+        'ภาพนี้อ่านจาก',
+        'รับบทบาทเดิมเพิ่ม',
+        'งานและหน้าที่บังคับให้คุณ',
+        'รายงานจึงไม่กำหนดเหตุการณ์ล่วงหน้า',
+        'งานที่คุณทำได้ดีซ้ำ ๆ',
+        'ใช้เป็นฐานทำงานเท่านั้น',
+        'ระบบรู้วันเกิดแต่ไม่รู้เวลา',
+        'เวลาและความชัดให้คนที่เกี่ยวข้อง',
+        'ทบทวนอีกครั้งเมื่อเห็นว่า',
+      ];
+      for (final text in texts) {
+        for (final phrase in stale) {
+          expect(text, isNot(contains(phrase)), reason: phrase);
+        }
+      }
+
+      expect(
+        known.fullPlainText,
+        isNot(contains('ในทางโหราศาสตร์ เรื่องงานดูจากเรือนการงาน')),
+      );
+      final section4Index = known.sections.indexWhere(
+        (section) => section.title == 'ที่มาและวิธีอ่าน',
+      );
+      expect(section4Index, greaterThanOrEqualTo(0));
+      final readerPredictionText = known.sections
+          .take(section4Index)
+          .expand((section) => <String>[section.title, ...section.paragraphs])
+          .join('\n');
+      for (final inlineBasis in const <String>[
+        'ในทางโหราศาสตร์ จุดนี้อ่านจาก',
+        'จุดนี้อ่านจากลัคนา',
+        'ในทางโหราศาสตร์ เรื่องงานดูจาก',
+        'เรื่องงานดูจากเรือนการงาน',
+        'ในทางโหราศาสตร์ เรื่องเงินดูจาก',
+        'เรื่องเงินดูจากเรือนการเงิน',
+        'ในทางโหราศาสตร์ เรื่องความสัมพันธ์ดูจาก',
+        'เรื่องความสัมพันธ์ดูจากเรือนความสัมพันธ์',
+        'ในทางโหราศาสตร์ เรื่องนี้ดูจากเรือนสุขภาวะ',
+        'ข้อมูลจากเรือน',
+        'ข้อมูลจากลัคนา',
+        'สะท้อนจากตำแหน่ง',
+        'หลักฐานชุดนี้',
+        'อ้างอิงจาก',
+      ]) {
+        expect(
+          readerPredictionText,
+          isNot(contains(inlineBasis)),
+          reason: inlineBasis,
         );
-        expect(or5rOmission.allMatches(unknown.fullPlainText), hasLength(1));
-      },
-    );
+      }
+      final section4Text = known.sections
+          .skip(section4Index)
+          .expand((section) => <String>[section.title, ...section.paragraphs])
+          .join('\n');
+      expect(section4Text, contains('รายงานนี้ดูจากอะไร'));
+      expect(section4Text, contains('โครงสร้างดวงหลัก'));
+      expect(section4Text, contains('ลัคนา: ราศีกุมภ์ 19°19′'));
+      expect(section4Text, contains('เรือนการงาน:'));
+      expect(
+        known.fullPlainText,
+        contains(
+          'กำลังโดยรวมยังดี แต่ช่วงที่พักไม่พอ ร่างกายจะฟื้นช้าลงและทำกิจกรรมต่อเนื่องได้ลดลง',
+        ),
+      );
+      expect(
+        unknown.fullPlainText,
+        isNot(
+          contains(
+            'เพราะไม่มีเวลาเกิด รายงานจึงบอกไม่ได้ว่าเหตุการณ์จะเกิดเมื่อไร',
+          ),
+        ),
+      );
+      expect('ผลดีจากครั้งเดียว'.allMatches(unknown.fullPlainText), isEmpty);
+      expect(
+        'รายงานจึงบอกไม่ได้ว่าเหตุการณ์จะเกิดเมื่อไร'.allMatches(
+          unknown.fullPlainText,
+        ),
+        isEmpty,
+      );
+      final omissionRows = unknown.sections
+          .expand((section) => section.paragraphs)
+          .where(
+            (paragraph) =>
+                paragraph.contains('เว้นรายละเอียดที่ต้องใช้เวลาเกิด') ||
+                paragraph.contains('ยังสรุปไม่ได้'),
+          )
+          .toList(growable: false);
+      expect(omissionRows, isEmpty);
+      expect(omissionRows.map((row) => row.split(':').first).toSet(), isEmpty);
+      expect(unknown.infographic, isNull);
+      expectUnknownDocument(
+        ThaiBetaInput(
+          firstName: 'Owner',
+          lastName: 'Unknown',
+          birthDate: DateTime(1982, 6, 6),
+          birthTimeUnknown: true,
+          province: 'เชียงใหม่',
+          provinceKey: 'chiang_mai',
+        ),
+        unknown,
+      );
+      expect(or5rOmission.allMatches(unknown.fullPlainText), hasLength(1));
+    });
 
     test('does not invent new prediction copy beyond view state', () {
       final doc = ThaiBetaReportExportDocument.fromAnalysis(analysis);
@@ -1692,6 +1685,168 @@ void main() {
         find.byKey(const Key('thai_beta_report_export_button')),
         findsNothing,
       );
+    });
+  });
+
+  group('Optional infographic export boundary', () {
+    ThaiBetaAnalysis ownerFixture({required bool knownTime}) {
+      return ThaiBetaAnalysisRunner.run(
+        ThaiBetaInput(
+          firstName: 'Acceptance',
+          lastName: 'Fixture',
+          birthDate: DateTime(1982, 6, 6),
+          birthHour: knownTime ? 0 : null,
+          birthMinute: knownTime ? 35 : 0,
+          birthTimeUnknown: !knownTime,
+          province: 'เชียงใหม่',
+          provinceKey: 'chiang_mai',
+        ),
+        startedAt: DateTime(2026, 9, 8),
+      );
+    }
+
+    Future<void> pumpExportButton(
+      WidgetTester tester, {
+      required ThaiBetaAnalysis fixture,
+      required Future<Uint8List> Function() infographicPngBuilder,
+    }) async {
+      await tester.pumpWidget(
+        MaterialApp(
+          home: Scaffold(
+            body: ThaiBetaReportExportButton(
+              analysis: fixture,
+              infographicPngBuilder: infographicPngBuilder,
+            ),
+          ),
+        ),
+      );
+      await tester.tap(find.byKey(const Key('thai_beta_report_export_button')));
+      await tester.pump();
+      await tester.runAsync(
+        () => Future<void>.delayed(
+          Duration(seconds: fixture.input.hasBirthTime ? 10 : 2),
+        ),
+      );
+      await tester.pumpAndSettle(
+        const Duration(milliseconds: 100),
+        EnginePhase.sendSemanticsUpdate,
+        const Duration(seconds: 30),
+      );
+    }
+
+    testWidgets(
+      'Unknown UI export skips capture, creates PDF, and opens print fallback',
+      (tester) async {
+        var captureCalls = 0;
+        await pumpExportButton(
+          tester,
+          fixture: ownerFixture(knownTime: false),
+          infographicPngBuilder: () async {
+            captureCalls++;
+            throw StateError('Unknown must not request infographic capture.');
+          },
+        );
+
+        expect(captureCalls, 0);
+        expect(
+          find.byKey(const Key('thai_beta_report_export_error')),
+          findsNothing,
+        );
+        expect(
+          find.byKey(const Key('thai_beta_export_print_page')),
+          findsOneWidget,
+        );
+        expect(
+          find.byKey(const Key('thai_annual_infographic_section')),
+          findsNothing,
+        );
+        expect(tester.takeException(), isNull);
+      },
+    );
+
+    test('Unknown browser-print document omits the infographic image', () {
+      final document = ThaiBetaReportExportDocument.candidate(
+        ownerFixture(knownTime: false),
+      );
+      final html = browserPrintDocumentHtml(document);
+      expect(document.infographic, isNull);
+      expect(html, isNot(contains('class="infographic-page"')));
+      expect(html, isNot(contains('data:image/png;base64,')));
+      for (final heading in const [
+        'ส่วนที่ 1 · พื้นดวงของคุณ',
+        'ส่วนที่ 2 · จังหวะชีวิตที่ผ่านมาและปัจจุบัน',
+        'ส่วนที่ 3 · แนวโน้มข้างหน้า',
+        'ส่วนที่ 4 · ที่มาและข้อจำกัด',
+      ]) {
+        expect(heading.allMatches(html), hasLength(1), reason: heading);
+      }
+      expect(
+        html.indexOf('ส่วนที่ 1 · พื้นดวงของคุณ'),
+        lessThan(html.indexOf('ส่วนที่ 2 · จังหวะชีวิตที่ผ่านมาและปัจจุบัน')),
+      );
+      expect(
+        html.indexOf('ส่วนที่ 2 · จังหวะชีวิตที่ผ่านมาและปัจจุบัน'),
+        lessThan(html.indexOf('ส่วนที่ 3 · แนวโน้มข้างหน้า')),
+      );
+      expect(
+        html.indexOf('ส่วนที่ 3 · แนวโน้มข้างหน้า'),
+        lessThan(html.indexOf('ส่วนที่ 4 · ที่มาและข้อจำกัด')),
+      );
+    });
+
+    testWidgets('Known UI export keeps a required infographic', (tester) async {
+      var captureCalls = 0;
+      final png = base64Decode(
+        'iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR4nGP4z8DwHwAFgAI/ScLZAAAAAElFTkSuQmCC',
+      );
+      await pumpExportButton(
+        tester,
+        fixture: ownerFixture(knownTime: true),
+        infographicPngBuilder: () async {
+          captureCalls++;
+          return png;
+        },
+      );
+
+      expect(captureCalls, 1);
+      expect(
+        find.byKey(const Key('thai_beta_report_export_error')),
+        findsNothing,
+      );
+      expect(
+        find.byKey(const Key('thai_beta_export_print_page')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const Key('thai_annual_infographic_section')),
+        findsOneWidget,
+      );
+      expect(tester.takeException(), isNull);
+    });
+
+    testWidgets('Known UI export rejects missing infographic capture', (
+      tester,
+    ) async {
+      var captureCalls = 0;
+      await pumpExportButton(
+        tester,
+        fixture: ownerFixture(knownTime: true),
+        infographicPngBuilder: () async {
+          captureCalls++;
+          throw StateError('Annual infographic is not ready for export.');
+        },
+      );
+
+      expect(captureCalls, 1);
+      expect(
+        find.byKey(const Key('thai_beta_report_export_error')),
+        findsOneWidget,
+      );
+      expect(
+        find.byKey(const Key('thai_beta_export_print_page')),
+        findsNothing,
+      );
+      expect(tester.takeException(), isNull);
     });
   });
 

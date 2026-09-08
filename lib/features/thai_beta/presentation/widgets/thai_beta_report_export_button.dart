@@ -39,12 +39,23 @@ class _ThaiBetaReportExportButtonState
     );
   }
 
+  Future<Uint8List?> _buildRequiredInfographicPng(
+    ThaiBetaReportExportDocument document,
+  ) async {
+    if (document.infographic == null) return null;
+    final builder = widget.infographicPngBuilder;
+    if (builder == null) {
+      throw StateError('Annual infographic capture is required for export.');
+    }
+    return builder();
+  }
+
   Future<void> _openPrintPage([
     ThaiBetaReportExportDocument? document,
     Uint8List? infographicPng,
   ]) async {
     final doc = document ?? _document();
-    final png = infographicPng ?? await widget.infographicPngBuilder?.call();
+    final png = infographicPng ?? await _buildRequiredInfographicPng(doc);
     if (!mounted) return;
     await Navigator.of(context).push(
       MaterialPageRoute<void>(
@@ -63,9 +74,10 @@ class _ThaiBetaReportExportButtonState
 
     final messenger = ScaffoldMessenger.maybeOf(context);
     final document = _document();
+    Uint8List? infographicPng;
 
     try {
-      final infographicPng = await widget.infographicPngBuilder?.call();
+      infographicPng = await _buildRequiredInfographicPng(document);
       final bytes = await ThaiBetaReportPdfExporter.buildBytes(
         document,
         infographicPng: infographicPng,
@@ -102,7 +114,12 @@ class _ThaiBetaReportExportButtonState
           ),
         ),
       );
-      await _openPrintPage(document);
+      // Unknown-time reports intentionally omit the infographic and may still
+      // use the print fallback. Known-time reports must never silently omit a
+      // required infographic when its capture failed.
+      if (document.infographic == null || infographicPng != null) {
+        await _openPrintPage(document, infographicPng);
+      }
     } finally {
       if (mounted) setState(() => _busy = false);
     }
