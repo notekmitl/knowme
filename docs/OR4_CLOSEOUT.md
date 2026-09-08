@@ -17,7 +17,7 @@ Validation commands:
 
 Node tests 48/48; OR4 actual mutation controls 27/27 rejected; two Candidate0020 generation passes match. All eight age counters are zero with per-row observations in OR4_AGE_BINDING_AUDIT.json. Machine content audit FAIL; Owner human review PENDING; Product Content NO_GO. Full Flutter/analyzer not rerun because OR4 has zero Dart/application/Flutter-test delta.
 
-ZIP: C:\Users\USER\Documents\Knowme\OWNER_REVIEW_THAI_PREDICTIVE_NARRATIVE_V2_RUNTIME_V2_OR4_SINGLE_PATH_ddc81af.zip
+ZIP: OWNER_REVIEW_THAI_PREDICTIVE_NARRATIVE_V2_RUNTIME_V2_OR4_SINGLE_PATH_ddc81af.zip
 
 SHA-256: A83157D811B515C7D841D1ACF306AF8595123DA6E8A2C75FBDEE8A711FBA515B
 
