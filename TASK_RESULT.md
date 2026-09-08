@@ -1,5 +1,21 @@
 # Task Result — Thai Report Reader Experience V2+
 
+## Unknown-time Dedicated PDF optional-infographic hotfix (2026-09-08)
+
+**UNKNOWN DEDICATED PDF HOTFIX COMPLETE — DRAFT PR #118 OPEN — PR #117 CLOSED SUPERSEDED — PRODUCTION UNCHANGED — NOT MERGED — NOT REDEPLOYED.**
+
+Draft PR #118 implements the narrow export-boundary repair at commit `1589bb0ff677287ce3c1755b7e4d393c840228e9`. Root cause was confirmed exactly: the canonical Unknown document intentionally has no infographic; the capture report still supplied `_buildInfographicPng`; Dedicated export called it unconditionally; and the absent Unknown repaint boundary threw `Annual infographic is not ready for export.` before any PDF bytes were downloaded. The repair skips capture only when the canonical document omits the infographic. Known reports still require a successful capture and visibly reject a missing/not-ready infographic. Reader copy, predictive runtime, Candidate 0023, historical Candidate 0011, Canon, UI/PDF/infographic layout and browser-print behavior are unchanged.
+
+Final gates pass: optional infographic/export widget 58/58; Unknown containment and Known fixture separation 12/12; narrative/export/PDF/infographic/title-only 291/291; predictive Node evidence 9/9; 49/49 contexts; 392/392 periods; Known 225/225; Unknown 75/75; Unknown placeholder invariance 225/225; 300-profile copy audit over 24,186 fields with all semantic/omission/addition/traceability impacts 0; full required Flutter suite 1,650/1,650; analyzer baseline 298 with new changed-file diagnostics 0; `git diff --check`, PreCommit and PostCommit pass. Candidate 0023 remains **FDA1DA8917CD5ADCA4650AECF87414DCFCDEE7F13019DF0794ECF76DFD91E7F2** and Candidate 0011 historical oracle remains **6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E**.
+
+Fresh local release QA created six real PDFs: Known 00:03 Dedicated/browser-print 5/5 pages, Known 00:35 Dedicated/browser-print 5/5 pages, and Unknown Dedicated/browser-print 1/1 page. All 22 pages, Desktop 1440, Mobile 390, input/confirmation captures and four Known 1080x1920 infographics (360/390 surfaces) were opened and inspected. Blank page, clipping, overlap, overflow, orphan heading, missing/duplicate/order, Unknown infographic, Unknown computed-field leakage and PDF error-banner counters are all 0. Known 00:03/00:35 retain identical predictive bodies and Aquarius 9°24′/19°19′; Unknown remains fail-closed and infographic-free. Browser mutation requests were 0.
+
+Owner package: `build/unknown-dedicated-pdf-hotfix-1589bb0/OWNER_REVIEW_UNKNOWN_DEDICATED_PDF_HOTFIX_1589bb0.zip`, SHA-256 **A3E022E6F9C7FFC08B83367371DDD1393E1590BA828794AAC9CAF62E72598924**, 105 members. CRC, extraction, missing, extra, hash mismatch, secret, unsafe archive path and machine-local absolute-path errors are all 0. The package remains untracked. PR #117 was commented and closed without merge after its six-file stop-state record was preserved in #118.
+
+Firebase Hosting Production remains release `1788858074460000`, version `8a6e8707722a1d52`. No merge, deploy, redeploy, rollback, Firebase/Production resource change or `product-acceptance/` change occurred. Production QA PASS is not claimed; this Draft PR remains pending Owner review.
+
+
+
 ## PR115/PR116 Hosting deployment and Production QA stop-gate closeout (2026-09-08)
 
 **PR115/PR116 MERGED — HOSTING DEPLOYED — PRODUCTION QA NO-GO — UNKNOWN DEDICATED PDF FAILED — NO ROLLBACK — OWNER DECISION REQUIRED.**
