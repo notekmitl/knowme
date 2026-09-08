@@ -1,5 +1,35 @@
 # KnowMe Current Status+
 
+## Unknown-time Dedicated PDF optional-infographic hotfix (2026-09-08)
+
+**UNKNOWN DEDICATED PDF HOTFIX COMPLETE — DRAFT PR #118 OPEN — PR #117 CLOSED SUPERSEDED — PRODUCTION UNCHANGED — NOT MERGED — NOT REDEPLOYED.**
+
+Draft PR #118 implements the narrow export-boundary repair at commit `1589bb0ff677287ce3c1755b7e4d393c840228e9`. Root cause was confirmed exactly: the canonical Unknown document intentionally has no infographic; the capture report still supplied `_buildInfographicPng`; Dedicated export called it unconditionally; and the absent Unknown repaint boundary threw `Annual infographic is not ready for export.` before any PDF bytes were downloaded. The repair skips capture only when the canonical document omits the infographic. Known reports still require a successful capture and visibly reject a missing/not-ready infographic. Reader copy, predictive runtime, Candidate 0023, historical Candidate 0011, Canon, UI/PDF/infographic layout and browser-print behavior are unchanged.
+
+Final gates pass: optional infographic/export widget 58/58; Unknown containment and Known fixture separation 12/12; narrative/export/PDF/infographic/title-only 291/291; predictive Node evidence 9/9; 49/49 contexts; 392/392 periods; Known 225/225; Unknown 75/75; Unknown placeholder invariance 225/225; 300-profile copy audit over 24,186 fields with all semantic/omission/addition/traceability impacts 0; full required Flutter suite 1,650/1,650; analyzer baseline 298 with new changed-file diagnostics 0; `git diff --check`, PreCommit and PostCommit pass. Candidate 0023 remains **FDA1DA8917CD5ADCA4650AECF87414DCFCDEE7F13019DF0794ECF76DFD91E7F2** and Candidate 0011 historical oracle remains **6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E**.
+
+Fresh local release QA created six real PDFs: Known 00:03 Dedicated/browser-print 5/5 pages, Known 00:35 Dedicated/browser-print 5/5 pages, and Unknown Dedicated/browser-print 1/1 page. All 22 pages, Desktop 1440, Mobile 390, input/confirmation captures and four Known 1080x1920 infographics (360/390 surfaces) were opened and inspected. Blank page, clipping, overlap, overflow, orphan heading, missing/duplicate/order, Unknown infographic, Unknown computed-field leakage and PDF error-banner counters are all 0. Known 00:03/00:35 retain identical predictive bodies and Aquarius 9°24′/19°19′; Unknown remains fail-closed and infographic-free. Browser mutation requests were 0.
+
+Owner package: `build/unknown-dedicated-pdf-hotfix-1589bb0/OWNER_REVIEW_UNKNOWN_DEDICATED_PDF_HOTFIX_1589bb0.zip`, SHA-256 **A3E022E6F9C7FFC08B83367371DDD1393E1590BA828794AAC9CAF62E72598924**, 105 members. CRC, extraction, missing, extra, hash mismatch, secret, unsafe archive path and machine-local absolute-path errors are all 0. The package remains untracked. PR #117 was commented and closed without merge after its six-file stop-state record was preserved in #118.
+
+Firebase Hosting Production remains release `1788858074460000`, version `8a6e8707722a1d52`. No merge, deploy, redeploy, rollback, Firebase/Production resource change or `product-acceptance/` change occurred. Production QA PASS is not claimed; this Draft PR remains pending Owner review.
+
+
+
+## PR115/PR116 Hosting deployment and Production QA stop-gate closeout (2026-09-08)
+
+**PR115/PR116 MERGED — HOSTING DEPLOYED — PRODUCTION QA NO-GO — UNKNOWN DEDICATED PDF FAILED — NO ROLLBACK — OWNER DECISION REQUIRED.**
+
+Final `main`/PR #116 squash merge `819c90ec02f99f58e135c58363895e4e6b0dc2ce` was deployed once to Firebase Hosting project/site `knowme-app-694e1` using the authorized Hosting-only command. Deployment ran from `2026-09-08T16:00:32.1007693+07:00` to `2026-09-08T16:01:30.2170071+07:00`; live release/version is `1788858074460000` / `8a6e8707722a1d52` (release time `2026-09-08T09:01:14.460Z`). Production `/`, `/beta/thai`, index, bootstrap, main bundle and service worker are HTTP 200 on both Firebase hostnames. Production hashes match the approved build and cache pin `819c90e`; hash mismatch is 0.
+
+Production QA hit a mandatory stop gate: Unknown-time `ดาวน์โหลดรายงาน PDF` does not create a Dedicated PDF and the real UI shows `สร้าง PDF ไม่สำเร็จ — ใช้ “พิมพ์ / บันทึกหน้าเว็บเป็น PDF” แทน`. The failure was reproduced twice by automation and once by direct browser interaction. Root cause is the capture/export page passing `_buildInfographicPng` for Unknown even though Unknown intentionally has no infographic boundary; the capture throws before the PDF download. The authorized rollback target `1787994532335000` / `869582a05e8db108` contains the same unconditional builder and missing-boundary exception in source commit `4031049efc675d35c44660c0453bb432c50c8f06`, so rollback would retain the defect while removing PR115. Rollback was not executed and Production remains on the new Hosting release pending Owner direction.
+
+Partial QA before the stop gate: Known 00:03/00:35 retained Saturday with Aquarius 9°24′/19°19′ and used an exact shared predictive body; Hero appeared once; four Known infographics were 1080×1920; Known Dedicated and browser-print PDFs were 5 pages each and all 20 raster pages were visually reviewed without blank page, clipping, overlap or overflow. Unknown report remained four-section fail-closed and emitted no time, ascendant degree, house result, time-dependent prediction or infographic. The live rolling horizon on 2026-09-08 was `8 ก.ย. 2569 – 7 ก.ย. 2570`; `29 ส.ค. 2569 – 28 ส.ค. 2570` was a stale earlier-date observation. Unknown Dedicated/browser-print completion and the six-PDF parity gate were not completed, therefore Production QA PASS is not claimed.
+
+Evidence: `build/PR115_PR116_PRODUCTION_QA_FAILED_1788858074460000.zip`, SHA-256 **D2FABE653E4CEA0275E016E548153F804748BAE84B9D0E8DCF6E4AA5540D07BF**, 111 entries; extraction passed with missing 0, extra 0, hash mismatch 0 and secret hits 0. No account was created, no feedback was submitted, and no Production data was written. No second deploy, source/runtime/test/Candidate/Canon/UI/PDF/infographic repair, non-Hosting Firebase change, or `product-acceptance/` change was made.
+
+
+
 ## PR115 squash merge and post-merge documentation closeout (2026-09-08)
 
 **PR115 SQUASH-MERGED — ACCEPTED TREE VERIFIED — DOCS CLOSEOUT DRAFT PR — NOT DEPLOYED.**
