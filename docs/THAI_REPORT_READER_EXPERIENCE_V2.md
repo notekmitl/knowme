@@ -1,5 +1,18 @@
 # Thai Report Reader Experience V2+
 
+## PR115 squash merge and post-merge documentation closeout (2026-09-08)
+
+**PR115 SQUASH-MERGED — ACCEPTED TREE VERIFIED — DOCS CLOSEOUT DRAFT PR — NOT DEPLOYED.**
+
+PR #115 was Squash Merged into `main` from the exact Owner-accepted HEAD `f4618a9cd9ce24c0866e3024d27dd7e6af60f8d9`. The resulting merge commit is `06d6fc83a45cc8d4243152b386071309883e470d`, its sole parent is `cd2718f6cfb6aff66ca46ebe6811e2a56379a8d7`, and its tree is `a0bdb326add5ac33bd03fa3537b51daf83377477`. GitHub records the merge at `2026-09-08T06:25:35Z` (`2026-09-08 13:25:35` Asia/Bangkok).
+
+The accepted PR HEAD tree is also `a0bdb326add5ac33bd03fa3537b51daf83377477`; byte-exact tree comparison passed and unexpected accepted-tree diff is 0. After the merge, `origin/main` and local `main` both resolved to `06d6fc83a45cc8d4243152b386071309883e470d` with a clean working tree.
+
+Final pre-merge gates passed from the pinned HEAD: manifest 239/239 paths with unknown/unclassified 0; machine-local path payload 0; tracked build/binary output 0; `product-acceptance/` delta 0; Firebase/deployment configuration delta 0; Candidate 0023 and historical Candidate 0011 exact; 49 contexts and 392 periods; Node 9/9; `git diff --check`, manifest validation, path-safety validation and docs-only PreCommit PASS. GitHub reported PR #115 as Open + Ready, MERGEABLE/CLEAN and `statusCheckRollup=[]` immediately before the merge.
+
+This closeout changes only the six status Markdown files on branch `codex/pr115-post-merge-closeout`. No runtime, tests, Candidate, Canon, UI, PDF, infographic, artifact, Firebase, `product-acceptance/` or Production content is changed. PR #115 is merged; Production deployment and Production QA remain pending, Production has not changed, and no Production QA PASS is claimed.
+
+
 ## PR115 Owner Product Acceptance and final merge-surface closeout (2026-09-08)
 
 **PR115 OWNER PRODUCT ACCEPTED — MACHINE-LOCAL PATHS SANITIZED — FINAL MERGE SURFACE VERIFIED — READY FOR REVIEW — NOT MERGED — NOT DEPLOYED.**
