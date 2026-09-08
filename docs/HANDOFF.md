@@ -1,5 +1,19 @@
 # Handoff — Thai Report Reading Flow and Friendly Voice V1+
 
+## PR118 Production hotfix merge, Hosting deployment and QA closeout (2026-09-08)
+
+**PR118 HOTFIX SQUASH-MERGED — HOSTING REDEPLOYED — UNKNOWN DEDICATED PDF PRODUCTION QA PASS — DOCS CLOSEOUT DRAFT PR — NOT ROLLED BACK.**
+
+PR #118 was Squash Merged from accepted HEAD `998330259392aefb994d3e8103c1119726651b0c` as `c58b350130275a521945336d8b6815ceae3e8b6d` (parent `819c90ec02f99f58e135c58363895e4e6b0dc2ce`, tree `663e5e42e29990f1b021a10e9eefb868cef855b9`, GitHub merge time `2026-09-08T12:55:27Z`). Accepted and merged trees are byte-identical; unexpected diff is 0.
+
+The fresh release build contains 78 files / 44,738,165 bytes with manifest missing/extra/hash/size mismatch 0 and cache pin `c58b350`. SHA-256: `main.dart.js` **5C17C5713E8E97A8DC2FAA02125F86C1DD6131B9F73DA481CC5F016A0481A7DF**, `flutter_bootstrap.js` **6B7F216354A473D5428CEAB6F71D2801500B904BC8940F6649B1D70BAD70A425**, `index.html` **6A2B7D61C103413BA0D22D57AED3BB7D7324B7E1A041F429250616F2EF48CFB1**. The Hosting-only deployment produced release `1788872430445000`, version `0e8f5299ed8635e6`, at `2026-09-08T13:00:30.445Z`. Both Firebase hostnames and all pinned assets are HTTP 200 with hashes matching the payload. Rollback target `1788858074460000` / `8a6e8707722a1d52` was not used.
+
+Production QA passed: Known 00:03/00:35 retain Aquarius 9°24′/19°19′, share the exact predictive body, show the hero once, and use rolling horizon `8 กันยายน 2569 ถึง 7 กันยายน 2570`. Unknown passed two automation runs plus one visible-browser run, downloaded a real Dedicated PDF without the failure banner, remained fail-closed, and emitted no time, ascendant, houses, prediction, Known copy or infographic. Six PDFs / 22 pages were rasterized and opened: Known Dedicated/browser-print 5/5 pages per fixture; Unknown Dedicated/browser-print 1/1. Blank, clipping, overlap, overflow, heading and cross-fixture leakage errors are 0. Four Known 1080×1920 infographics at surfaces 360/390 passed; Unknown infographic count is 0. Console/page/mutation errors and Production writes are 0.
+
+Final source gates: export 58/58; containment/fixture 12/12; focused narrative/export/PDF/infographic 291/291; Node 9/9; 49/49 contexts; 392/392 periods; Known 225/225; Unknown 75/75; placeholder invariance 225/225; copy audit 300 profiles / 24,186 fields / impacts 0; full Flutter 1,650/1,650; analyzer baseline 298 with new changed-source diagnostics 0; `git diff --check` and PreCommit pass. Evidence ZIP `build/pr118-production-hotfix-c58b350/PR118_PRODUCTION_HOTFIX_QA_1788872430445000.zip` SHA-256 **CED11B3BAACF0E1D875B95793F8231D006AD634CA35C817E4119E9042CE644B2** has 114 members; CRC, extraction, manifest, hash, size, secret and path-safety errors are 0.
+
+This closeout changes only these six status Markdown files. Build/PDF/PNG/ZIP evidence remains untracked. No runtime, test, Candidate, Canon, UI, PDF/infographic behavior, `product-acceptance/`, Firebase service/configuration, or Production data changed beyond the authorized Hosting release.
+
 ## Unknown-time Dedicated PDF optional-infographic hotfix (2026-09-08)
 
 **UNKNOWN DEDICATED PDF HOTFIX COMPLETE — DRAFT PR #118 OPEN — PR #117 CLOSED SUPERSEDED — PRODUCTION UNCHANGED — NOT MERGED — NOT REDEPLOYED.**
