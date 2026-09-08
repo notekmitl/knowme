@@ -1,5 +1,19 @@
 # Task Result — Thai Report Reader Experience V2+
 
+## PR115/PR116 Hosting deployment and Production QA stop-gate closeout (2026-09-08)
+
+**PR115/PR116 MERGED — HOSTING DEPLOYED — PRODUCTION QA NO-GO — UNKNOWN DEDICATED PDF FAILED — NO ROLLBACK — OWNER DECISION REQUIRED.**
+
+Final `main`/PR #116 squash merge `819c90ec02f99f58e135c58363895e4e6b0dc2ce` was deployed once to Firebase Hosting project/site `knowme-app-694e1` using the authorized Hosting-only command. Deployment ran from `2026-09-08T16:00:32.1007693+07:00` to `2026-09-08T16:01:30.2170071+07:00`; live release/version is `1788858074460000` / `8a6e8707722a1d52` (release time `2026-09-08T09:01:14.460Z`). Production `/`, `/beta/thai`, index, bootstrap, main bundle and service worker are HTTP 200 on both Firebase hostnames. Production hashes match the approved build and cache pin `819c90e`; hash mismatch is 0.
+
+Production QA hit a mandatory stop gate: Unknown-time `ดาวน์โหลดรายงาน PDF` does not create a Dedicated PDF and the real UI shows `สร้าง PDF ไม่สำเร็จ — ใช้ “พิมพ์ / บันทึกหน้าเว็บเป็น PDF” แทน`. The failure was reproduced twice by automation and once by direct browser interaction. Root cause is the capture/export page passing `_buildInfographicPng` for Unknown even though Unknown intentionally has no infographic boundary; the capture throws before the PDF download. The authorized rollback target `1787994532335000` / `869582a05e8db108` contains the same unconditional builder and missing-boundary exception in source commit `4031049efc675d35c44660c0453bb432c50c8f06`, so rollback would retain the defect while removing PR115. Rollback was not executed and Production remains on the new Hosting release pending Owner direction.
+
+Partial QA before the stop gate: Known 00:03/00:35 retained Saturday with Aquarius 9°24′/19°19′ and used an exact shared predictive body; Hero appeared once; four Known infographics were 1080×1920; Known Dedicated and browser-print PDFs were 5 pages each and all 20 raster pages were visually reviewed without blank page, clipping, overlap or overflow. Unknown report remained four-section fail-closed and emitted no time, ascendant degree, house result, time-dependent prediction or infographic. The live rolling horizon on 2026-09-08 was `8 ก.ย. 2569 – 7 ก.ย. 2570`; `29 ส.ค. 2569 – 28 ส.ค. 2570` was a stale earlier-date observation. Unknown Dedicated/browser-print completion and the six-PDF parity gate were not completed, therefore Production QA PASS is not claimed.
+
+Evidence: `build/PR115_PR116_PRODUCTION_QA_FAILED_1788858074460000.zip`, SHA-256 **D2FABE653E4CEA0275E016E548153F804748BAE84B9D0E8DCF6E4AA5540D07BF**, 111 entries; extraction passed with missing 0, extra 0, hash mismatch 0 and secret hits 0. No account was created, no feedback was submitted, and no Production data was written. No second deploy, source/runtime/test/Candidate/Canon/UI/PDF/infographic repair, non-Hosting Firebase change, or `product-acceptance/` change was made.
+
+
+
 ## PR115 squash merge and post-merge documentation closeout (2026-09-08)
 
 **PR115 SQUASH-MERGED — ACCEPTED TREE VERIFIED — DOCS CLOSEOUT DRAFT PR — NOT DEPLOYED.**
