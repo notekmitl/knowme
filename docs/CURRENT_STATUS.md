@@ -1,5 +1,20 @@
 # KnowMe Current Status+
 
+## PR115 Owner Product Acceptance and final merge-surface closeout (2026-09-08)
+
+**PR115 OWNER PRODUCT ACCEPTED — MACHINE-LOCAL PATHS SANITIZED — FINAL MERGE SURFACE VERIFIED — READY FOR REVIEW — NOT MERGED — NOT DEPLOYED.**
+
+Owner Product Acceptance is bound to runtime/test commit `6d4d4d1a4a03d2a97d8d1c11afd67baa05f4e48d`, accepted evidence/docs HEAD `44949815a08139b25b376d473b9495372197d17a`, Candidate 0023 SHA-256 **FDA1DA8917CD5ADCA4650AECF87414DCFCDEE7F13019DF0794ECF76DFD91E7F2**, and Owner Review ZIP SHA-256 **CE95A3A1757C269D356178D4232D58A282FFBD6C68309351D4877F335380B488**. Candidate 0011 remains immutable historical evidence at **6AA94C7A01555310C5189FAAF711597057C5DF2F102246A0DF3946DAB2B62A1E**.
+
+The authorized sanitation commit `7a416ce75fe5697443b8a52773cd66bc04323434` replaced the 98 machine-local path occurrences added by the PR and 286 occurrences across the current versions of the ten authorized evidence/status files. It preserved failure records, counts, schemas, record counts, test outcomes and root-cause text. Final machine-local path payloads in the complete PR diff are 0; QA detector/redaction literals remain identified separately in the merge manifest. See `docs/PR115_PATH_SANITIZATION_LEDGER.md` and `docs/PR115_PATH_SANITIZATION_LEDGER.json`.
+
+The final merge manifest classifies all **239** changed paths: production source 13, tests 62, Canon/contracts 7, evidence/tooling 62, status docs 6 and historical evidence 89; unknown/unclassified paths are 0. Tracked build/binary output, `product-acceptance/`, Firebase/deployment configuration, production imports of Candidate 0019–0022, fixture/minute-specific runtime overrides, Candidate 0011 active runtime overrides, cross-mode leakage, unknown infographic, secret findings, unresolved tokens and unsafe archive paths are all 0. See `docs/PR115_FINAL_MERGE_MANIFEST.md` and `docs/PR115_FINAL_MERGE_MANIFEST.json`.
+
+Final-source validation: generated catalog 49 contexts / 392 periods; Node 9/9; runtime/fixture/export 26/26; narrative/export/infographic/artifact 283/283; title-only PDF 4/4; 300-profile copy audit 1/1 with 24,186 fields and semantic/omission/addition/traceability impacts 0; runtime audit Known 225/225 and Unknown fail-closed 75/75; full Flutter suite **1,646/1,646**; analyzer baseline/current 298/298 with new diagnostics in changed files 0; `git diff --check`, docs-only PreCommit and PostCommit PASS.
+
+Known 00:03 and 00:35 retain Aquarius 9°24′ and Aquarius 19°19′ respectively while using one predictive body. The Known infographic keeps `29 ส.ค. 2569 – 28 ส.ค. 2570` and the hero `ขอบเขตงานจะกว้างขึ้น และรายรับจะเพิ่มขึ้น` exactly once. Unknown remains fail-closed, placeholder-invariant and has no infographic. No runtime copy, Candidate, Canon, generator, UI, PDF layout, infographic, Firebase or Production behavior changed in this closeout. PR #115 is not merged or deployed.
+
+
 ## PR115 OR10R-R1 — Known infographic semantic leakage and Owner package repair (2026-09-07)
 
 **PR115 OR10R-R1 KNOWN INFOGRAPHIC SEMANTIC LEAKAGE AND OWNER PACKAGE REPAIRED — OPEN + DRAFT — PENDING OWNER PRODUCT RE-REVIEW — NOT MERGED — NOT DEPLOYED.**
